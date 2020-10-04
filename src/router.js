@@ -7,5 +7,6 @@ const noop = require('./api/noop');
 const stats = require('./api/stats');
 
 router.get('/apy', stats.apy);
+router.get('/', noop);
 
 module.exports = router;
