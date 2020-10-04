@@ -9,8 +9,6 @@ const logger = require('./middleware/logger');
 const rt = require('./middleware/rt');
 const powered = require('./middleware/powered');
 const cache = require('./middleware/cache');
-
-const cfg = require(`./config/${process.env.NODE_ENV}`);
 const router = require('./router');
 
 const app = new Koa();
@@ -28,4 +26,4 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 console.log('> beefy-api running!');
-app.listen(cfg.port);
+app.listen(process.env.PORT);
