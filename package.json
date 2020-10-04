@@ -1,7 +1,8 @@
 {
   "name": "beefy-api",
   "version": "1.0.0",
-  "private": true,
+  "repository": "beefyfinance/beefy-api",
+  "license": "MIT",
   "scripts": {
     "start": "node src/app.js",
     "test": "nyc ava"
