@@ -1,8 +1,7 @@
 'use strict';
 
 async function noop(ctx, next) {
-  console.log(`NOOP: ${ctx.url} NOT IMPLEMENTED YET!`);
-  ctx.status = { status: 200, msg: 'noop' };
+  ctx.status = 200;
 }
 
 module.exports = noop;
