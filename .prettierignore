@@ -6,4 +6,3 @@ dist
 .envrc
 .nyc_output
 coverage
-db/database.json
