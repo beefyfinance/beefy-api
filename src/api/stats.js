@@ -19,7 +19,7 @@ async function apy(ctx) {
 
     Object.values(dataSimple).map(item => {
       const symbol = item.symbol.toLowerCase();
-      const apy = compound(parseFloat(item.estimated_ar), process.env.HARVEST_PER_YEAR);
+      const apy = compound(parseFloat(item.estimated_ar), process.env.HPY);
       apys[symbol] = apy;
     });
 
