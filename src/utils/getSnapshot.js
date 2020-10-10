@@ -2,10 +2,10 @@ const Web3 = require("web3");
 
 const { getTopicFromSignature, getAddressFromTopic, getValueFromData } = require("./topicHelpers");
 
-const web3 = new Web3("https://bsc-dataseed1.defibit.io/");
+const web3 = new Web3(process.env.RPC_ENDPOINT);
 
-const bifiToken = "0xCa3F508B8e4Dd382eE878A314789373D80A5190A";
-const rewardPool = "0x453D4Ba9a2D594314DF88564248497F7D74d6b2C";
+const BIFI_TOKEN = process.env.BIFI_TOKEN;
+const REWARD_POOL = process.env.BIFI_REWARDS;
 
 const getSnapshot = async () => {
   let balances = {};
@@ -14,7 +14,7 @@ const getSnapshot = async () => {
   const logs = await web3.eth.getPastLogs({
     fromBlock: 0,
     toBlock: "latest",
-    address: bifiToken,
+    address: BIFI_TOKEN,
     topics: [transferTopic]
   });
 
@@ -23,7 +23,7 @@ const getSnapshot = async () => {
     const to = getAddressFromTopic(log.topics[2]);
     const value = getValueFromData(log.data);
 
-    if (from === rewardPool || to === rewardPool) return;
+    if (from === REWARD_POOL || to === REWARD_POOL) { return; }
 
     if (balances[to] === undefined) {
       balances[to] = value;
