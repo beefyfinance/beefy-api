@@ -1,7 +1,7 @@
 'use strict';
 
-const Web3 = require("web3");
-const BigNumber = require("bignumber.js");
+const Web3 = require('web3');
+const BigNumber = require('bignumber.js');
 
 const web3 = new Web3();
 
@@ -17,9 +17,9 @@ function getAddressFromTopic(topic) {
   return web3.utils.bytesToHex(bytes);
 }
 
-function getValueFromData (data) {
-  const decoded = web3.eth.abi.decodeParameters(["uint256"], data);
-  const value = new BigNumber(decoded["0"]);
+function getValueFromData(data) {
+  const decoded = web3.eth.abi.decodeParameters(['uint256'], data);
+  const value = new BigNumber(decoded['0']);
   return value;
 }
 
