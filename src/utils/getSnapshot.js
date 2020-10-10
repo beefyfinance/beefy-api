@@ -1,3 +1,5 @@
+'use strict';
+
 const Web3 = require("web3");
 
 const { getTopicFromSignature, getAddressFromTopic, getValueFromData } = require("./topicHelpers");
@@ -7,7 +9,7 @@ const web3 = new Web3(process.env.RPC_ENDPOINT);
 const BIFI_TOKEN = process.env.BIFI_TOKEN;
 const REWARD_POOL = process.env.BIFI_REWARDS;
 
-const getSnapshot = async () => {
+async function getSnapshot () {
   let balances = {};
   const transferTopic = getTopicFromSignature("Transfer(address,address,uint256)");
 
@@ -39,4 +41,4 @@ const getSnapshot = async () => {
   return balances;
 };
 
-module.exports = getSnapshot;
+module.exports = { getSnapshot }
