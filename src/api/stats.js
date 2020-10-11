@@ -1,7 +1,7 @@
 'use strict';
 
 const axios = require('axios');
-const compound = require('../utils/compound');
+const { compound } = require('../utils/compound');
 
 async function apy(ctx) {
   try {
