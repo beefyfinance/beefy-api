@@ -5,8 +5,8 @@ const compound = require('../utils/compound');
 
 async function apy(ctx) {
   try {
-    const resSimple = await axios.get("https://bsc.for.tube/api/v2/bank_tokens");
-    const resExtended = await axios.get("https://bsc.for.tube/api/v1/bank/markets?mode=extended", {
+    const resSimple = await axios.get('https://bsc.for.tube/api/v2/bank_tokens');
+    const resExtended = await axios.get('https://bsc.for.tube/api/v1/bank/markets?mode=extended', {
       headers: {
         authorization: process.env.FORTUBE_API_TOKEN,
       },
@@ -19,7 +19,7 @@ async function apy(ctx) {
 
     Object.values(dataSimple).map(item => {
       const symbol = item.symbol.toLowerCase();
-      const apy = compound(parseFloat(item.estimated_ar), process.env.HPY);
+      const apy = compound(parseFloat(item.estimated_ar));
       apys[symbol] = apy;
     });
 
