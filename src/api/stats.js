@@ -27,13 +27,14 @@ async function apy(ctx) {
       apys[item.token_symbol.toLowerCase()] += parseFloat(item.deposit_interest_rate);
     });
 
+    // FIXME: fetch FRY APY from.... somewhere so we don't have to manually update it?
+    apys['fry-wbnb'] = compound(process.env.FRY_WBNB_APY, process.env.FRY_HPY);
+    apys['fry-busd'] = compound(process.env.FRY_BUSD_APY, process.env.FRY_HPY);
+
     for (const key in apys) {
       apys[key] = `${(apys[key] * 100).toFixed(2)}%`;
     }
 
-    // FIXME: fetch FRY APY from.... somewhere so we don't have to manually update it?
-    apys['fry-wbnb'] = compound(process.env.FRY_WBNB_APY, process.env.FRY_HPY);
-    apys['fry-busd'] = compound(process.env.FRY_BUSD_APY, process.env.FRY_HPY);
 
     ctx.status = 200;
     ctx.body = apys;
