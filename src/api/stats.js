@@ -19,7 +19,7 @@ async function apy(ctx) {
 
     Object.values(dataSimple).map(item => {
       const symbol = item.symbol.toLowerCase();
-      const apy = compound(parseFloat(item.estimated_ar), process.env.HPY);
+      const apy = compound(parseFloat(item.estimated_ar), process.env.FORTUBE_HPY);
       apys[symbol] = apy;
     });
 
@@ -30,6 +30,10 @@ async function apy(ctx) {
     for (const key in apys) {
       apys[key] = `${(apys[key] * 100).toFixed(2)}%`;
     }
+
+    // FIXME: fetch FRY APY from.... somewhere so we don't have to manually update it?
+    apys['fry-wbnb'] = compound(process.env.FRY_WBNB_APY, process.env.FRY_HPY);
+    apys['fry-busd'] = compound(process.env.FRY_BUSD_APY, process.env.FRY_HPY);
 
     ctx.status = 200;
     ctx.body = apys;
