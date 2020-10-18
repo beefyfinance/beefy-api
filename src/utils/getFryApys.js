@@ -2,14 +2,48 @@ const axios = require('axios');
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
-const { compound } = require('../src/utils/compound');
-const fryerAbi = require('./fryer.json');
-const erc20Abi = require('./erc20.json');
+const { compound } = require('./compound');
+const fryerAbi = require('../abis/fryer.json');
+const erc20Abi = require('../abis/erc20.json');
 
-const BURGER = '0xae9269f27437f0fcbc232d39ec814844a51d6b8f';
 const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
+const pools = [
+  {
+    name: 'burger',
+    poolIndex: 0,
+    coingeckoId: 'burger-swap',
+    asset: '0xAe9269f27437f0fcBC232d39Ec814844a51d6b8f',
+  },
+  {
+    name: 'busd',
+    poolIndex: 1,
+    coingeckoId: 'binance-usd',
+    asset: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+  },
+  {
+    name: 'wbnb',
+    poolIndex: 2,
+    coingeckoId: 'binancecoin',
+    asset: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+  },
+];
 
 const web3 = new Web3('https://bsc-dataseed1.defibit.io/');
+
+const getFryApys = async () => {
+  const apys = {};
+
+  for (const pool of pools) {
+    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(FRYER, 100);
+    const poolRewardsPercentage = await getPoolRewardsPercentage(0, FRYER);
+    const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
+    const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.coingeckoId, pool.asset);
+    const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
+    apys[pool.name] = apy;
+  }
+
+  return apys;
+};
 
 const getPrice = async id => {
   const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
@@ -18,7 +52,6 @@ const getPrice = async id => {
       vs_currencies: 'usd',
     },
   });
-
   return response.data[id].usd;
 };
 
@@ -65,18 +98,4 @@ const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
   return poolRewardsPercentage;
 };
 
-const getApy = async () => {
-  const yearlyRewardsInUsd = await getYearlyRewardsInUsd(FRYER, 500);
-  const poolRewardsPercentage = await getPoolRewardsPercentage(0, FRYER);
-  const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
-  const totalStakedInUsd = await getTotalStakedInUsd(FRYER, 'burger-swap', BURGER);
-
-  const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
-
-  console.log('Yearly Rewards in USD:', yearlyRewardsInUsd.toString());
-  console.log('Pool Reward Percentage:', poolRewardsPercentage.toString());
-  console.log('Total Staked in USD:', totalStakedInUsd.toString());
-  console.log('APY', apy.toString());
-};
-
-getApy();
+module.exports = getFryApys;
