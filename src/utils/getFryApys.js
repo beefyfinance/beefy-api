@@ -2,6 +2,7 @@ const axios = require('axios');
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
+const { compound } = require('./compound');
 const fryerAbi = require('../abis/fryer.json');
 const erc20Abi = require('../abis/erc20.json');
 
@@ -35,7 +36,7 @@ const getFryApys = async () => {
   for (const pool of pools) {
     console.log(pool.name.toUpperCase());
 
-    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(FRYER, 100);
+    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(FRYER, 1);
     const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
     const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
 
@@ -43,7 +44,8 @@ const getFryApys = async () => {
 
     const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
     console.log('Yearly Pool Rewards in USD', yearlyPoolRewardsInUsd.toFixed());
-    console.log(apy.toFixed());
+    console.log('APY', apy.toFixed() * 100);
+    console.log('Compounded APY', compound(apy.toFixed()) * 100);
     console.log('--');
     apys[pool.name] = apy;
   }
@@ -69,16 +71,16 @@ const getYearlyRewardsInUsd = async (fyreAddr, blocks) => {
   const blockRewards = periodRewards.dividedBy(blocks);
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
-  const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear).dividedBy('1e18');
+  const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
   const friesPrice = await getPrice('fryworld');
-  const yearlyRewardsInUsd = yearlyRewards.times(friesPrice);
+  const yearlyRewardsInUsd = yearlyRewards.times(friesPrice).dividedBy('1e18');
 
   console.log('Fries Price', friesPrice);
   console.log('From Block:', fromBlock);
   console.log('To Block:', toBlock);
-  console.log('Block Rewards:', periodRewards.toFixed());
-  console.log('Period Rewards:', blockRewards.toFixed());
+  console.log('Block Rewards:', blockRewards.toFixed());
+  console.log('Period Rewards:', periodRewards.toFixed());
   console.log('Yearly Rewards:', yearlyRewards.toFixed());
   console.log('Yearly Rewards In USD:', yearlyRewardsInUsd.toFixed());
 
@@ -89,7 +91,7 @@ const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
   const tokenPrice = await getPrice(coingeckoId);
   const tokenContract = await new web3.eth.Contract(erc20Abi, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
-  const totalStakedInUsd = totalStaked.dividedBy('1e18').times(tokenPrice);
+  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
 
   console.log('Token Price:', tokenPrice);
   console.log('Total Staked', totalStaked.toFixed());
