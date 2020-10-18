@@ -2,7 +2,6 @@ const axios = require('axios');
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
-const { compound } = require('./compound');
 const fryerAbi = require('../abis/fryer.json');
 const erc20Abi = require('../abis/erc20.json');
 
@@ -35,13 +34,15 @@ const getFryApys = async () => {
 
   for (const pool of pools) {
     const yearlyRewardsInUsd = await getYearlyRewardsInUsd(FRYER, 100);
-    const poolRewardsPercentage = await getPoolRewardsPercentage(0, FRYER);
+    const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
     const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
+
     const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.coingeckoId, pool.asset);
+
     const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
     apys[pool.name] = apy;
   }
-
+  console.log(JSON.stringify(apys));
   return apys;
 };
 
@@ -97,5 +98,7 @@ const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
   const poolRewardsPercentage = poolRewardPoints.dividedBy(totalRewardPoints);
   return poolRewardsPercentage;
 };
+
+getFryApys();
 
 module.exports = getFryApys;
