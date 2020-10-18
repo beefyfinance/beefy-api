@@ -33,6 +33,8 @@ const getFryApys = async () => {
   const apys = {};
 
   for (const pool of pools) {
+    console.log(pool.name.toUpperCase());
+
     const yearlyRewardsInUsd = await getYearlyRewardsInUsd(FRYER, 100);
     const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
     const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
@@ -40,9 +42,11 @@ const getFryApys = async () => {
     const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.coingeckoId, pool.asset);
 
     const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
+    console.log('Yearly Pool Rewards in USD', yearlyPoolRewardsInUsd.toFixed());
+    console.log(apy.toFixed());
+    console.log('--');
     apys[pool.name] = apy;
   }
-  console.log(JSON.stringify(apys));
   return apys;
 };
 
@@ -63,12 +67,20 @@ const getYearlyRewardsInUsd = async (fyreAddr, blocks) => {
 
   const periodRewards = new BigNumber(await fryerContract.methods.getTotalRewardInfo(fromBlock, toBlock).call());
   const blockRewards = periodRewards.dividedBy(blocks);
-  const secondsPerBlock = 5;
+  const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear).dividedBy('1e18');
 
   const friesPrice = await getPrice('fryworld');
   const yearlyRewardsInUsd = yearlyRewards.times(friesPrice);
+
+  console.log('Fries Price', friesPrice);
+  console.log('From Block:', fromBlock);
+  console.log('To Block:', toBlock);
+  console.log('Block Rewards:', periodRewards.toFixed());
+  console.log('Period Rewards:', blockRewards.toFixed());
+  console.log('Yearly Rewards:', yearlyRewards.toFixed());
+  console.log('Yearly Rewards In USD:', yearlyRewardsInUsd.toFixed());
 
   return yearlyRewardsInUsd;
 };
@@ -78,6 +90,10 @@ const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
   const tokenContract = await new web3.eth.Contract(erc20Abi, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
   const totalStakedInUsd = totalStaked.dividedBy('1e18').times(tokenPrice);
+
+  console.log('Token Price:', tokenPrice);
+  console.log('Total Staked', totalStaked.toFixed());
+  console.log('Total Staked in USD', totalStakedInUsd.toFixed());
   return totalStakedInUsd;
 };
 
@@ -96,6 +112,8 @@ const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
   }
 
   const poolRewardsPercentage = poolRewardPoints.dividedBy(totalRewardPoints);
+
+  console.log('Pool Rewards Percentage:', poolRewardsPercentage.toFixed());
   return poolRewardsPercentage;
 };
 
