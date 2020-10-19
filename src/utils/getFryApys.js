@@ -34,8 +34,6 @@ const getFryApys = async () => {
   const apys = {};
 
   for (const pool of pools) {
-    console.log(pool.name.toUpperCase());
-
     const yearlyRewardsInUsd = await getYearlyRewardsInUsd(FRYER, 1);
     const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
     const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
@@ -43,10 +41,6 @@ const getFryApys = async () => {
     const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.coingeckoId, pool.asset);
 
     const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
-    console.log('Yearly Pool Rewards in USD', yearlyPoolRewardsInUsd.toFixed());
-    console.log('APY', apy.toFixed() * 100);
-    console.log('Compounded APY', compound(apy.toFixed()) * 100);
-    console.log('--');
     apys[pool.name] = apy;
   }
   return apys;
@@ -75,15 +69,6 @@ const getYearlyRewardsInUsd = async (fyreAddr, blocks) => {
 
   const friesPrice = await getPrice('fryworld');
   const yearlyRewardsInUsd = yearlyRewards.times(friesPrice).dividedBy('1e18');
-
-  console.log('Fries Price', friesPrice);
-  console.log('From Block:', fromBlock);
-  console.log('To Block:', toBlock);
-  console.log('Block Rewards:', blockRewards.toFixed());
-  console.log('Period Rewards:', periodRewards.toFixed());
-  console.log('Yearly Rewards:', yearlyRewards.toFixed());
-  console.log('Yearly Rewards In USD:', yearlyRewardsInUsd.toFixed());
-
   return yearlyRewardsInUsd;
 };
 
@@ -92,10 +77,6 @@ const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
   const tokenContract = await new web3.eth.Contract(erc20Abi, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
-
-  console.log('Token Price:', tokenPrice);
-  console.log('Total Staked', totalStaked.toFixed());
-  console.log('Total Staked in USD', totalStakedInUsd.toFixed());
   return totalStakedInUsd;
 };
 
@@ -114,8 +95,6 @@ const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
   }
 
   const poolRewardsPercentage = poolRewardPoints.dividedBy(totalRewardPoints);
-
-  console.log('Pool Rewards Percentage:', poolRewardsPercentage.toFixed());
   return poolRewardsPercentage;
 };
 
