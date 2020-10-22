@@ -30,9 +30,14 @@ async function apy(ctx) {
 
     const fryApys = await getFryApys();
 
-    apys['fry-burger'] = compound(fryApys.burger, process.env.FRY_HPY);
-    apys['fry-wbnb'] = compound(fryApys.wbnb, process.env.FRY_HPY);
-    apys['fry-busd'] = compound(fryApys.busd, process.env.FRY_HPY);
+    apys['fry-burger-v2'] = compound(fryApys.burger, process.env.FRY_HPY);
+    apys['fry-wbnb-v2'] = compound(fryApys.wbnb, process.env.FRY_HPY);
+    apys['fry-busd-v2'] = compound(fryApys.busd, process.env.FRY_HPY);
+
+    // TODO: remove these after they deprecate
+    apys['fry-burger'] = apys['fry-burger-v2'];
+    apys['fry-wbnb'] = apys['fry-wbnb-v2'];
+    apys['fry-busd'] = apys['fry-busd-v2'];
 
     for (const key in apys) {
       apys[key] = `${(apys[key] * 100).toFixed(2)}%`;
