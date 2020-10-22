@@ -35,9 +35,9 @@ async function apy(ctx) {
     apys['fry-busd-v2'] = compound(fryApys.busd, process.env.FRY_HPY);
 
     // TODO: remove these after they deprecate
-    apys['fry-burger'] = apys['fry-burger-v2'];
-    apys['fry-wbnb'] = apys['fry-wbnb-v2'];
-    apys['fry-busd'] = apys['fry-busd-v2'];
+    apys['fry-burger-v1'] = apys['fry-burger-v2'];
+    apys['fry-wbnb-v1'] = apys['fry-wbnb-v2'];
+    apys['fry-busd-v1'] = apys['fry-busd-v2'];
 
     for (const key in apys) {
       apys[key] = `${(apys[key] * 100).toFixed(2)}%`;
