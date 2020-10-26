@@ -3,6 +3,7 @@
 const axios = require('axios');
 const { compound } = require('../utils/compound');
 const getFryApys = require('../utils/getFryApys');
+const getCakeApys = require('../utils/getCakeApys');
 
 async function apy(ctx) {
   try {
@@ -38,6 +39,12 @@ async function apy(ctx) {
     apys['fry-burger-v1'] = apys['fry-burger-v2'];
     apys['fry-wbnb-v1'] = apys['fry-wbnb-v2'];
     apys['fry-busd-v1'] = apys['fry-busd-v2'];
+
+    const cakeApys = await getCakeApys();
+
+    apys['cake-sxp'] = compound(cakeApys.sxp, 365);
+    apys['cake-twt'] = compound(cakeApys.twt, 365);
+    apys['cake-inj'] = compound(cakeApys.inj, 365);
 
     for (const key in apys) {
       apys[key] = `${(apys[key] * 100).toFixed(2)}%`;

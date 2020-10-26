@@ -2,7 +2,6 @@ const axios = require('axios');
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
-const { compound } = require('./compound');
 const DeepFryer = require('../abis/DeepFryer.json');
 const ERC20 = require('../abis/ERC20.json');
 
@@ -43,6 +42,7 @@ const getFryApys = async () => {
     const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
     apys[pool.name] = apy;
   }
+
   return apys;
 };
 

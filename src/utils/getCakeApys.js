@@ -2,14 +2,9 @@ const axios = require('axios');
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
-const { compound } = require('./compound');
-const MasterChef = require('../abis/MasterChef.json');
 const SmartChef = require('../abis/SmartChef.json');
 const ERC20 = require('../abis/ERC20.json');
-
-const CAKE = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
-const SYRUP = '0x009cF7bC57584b7998236eff51b98A168DceA9B0';
-const MASTER_CHEF = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
+const getBaseCakeApy = require('./getBaseCakeApy');
 
 const pools = [
   {
@@ -36,18 +31,17 @@ const web3 = new Web3('https://bsc-dataseed1.defibit.io/');
 
 const getCakeApys = async () => {
   const apys = {};
+  const syrup = '0x009cF7bC57584b7998236eff51b98A168DceA9B0';
+
+  const baseCakeApy = await getBaseCakeApy();
 
   for (const pool of pools) {
     const yearlyRewardsInUsd = await getYearlyRewardsInUsd(pool.smartChef, pool.coingeckoId);
-    // const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
-    // const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
-
-    // const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.coingeckoId, pool.asset);
-
-    // const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
-    // apys[pool.name] = apy;
-    console.log('Rewards', yearlyRewardsInUsd.toString());
+    const totalStakedInUsd = await getTotalStakedInUsd(pool.smartChef, 'pancakeswap-token', syrup);
+    const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseCakeApy);
+    apys[pool.name] = apy;
   }
+
   return apys;
 };
 
@@ -74,37 +68,17 @@ const getYearlyRewardsInUsd = async (smartChefAddr, earnedAsset) => {
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-  const cakePrice = await getPrice(earnedAsset);
-  const yearlyRewardsInUsd = yearlyRewards.times(cakePrice).dividedBy('1e18');
+  const earnedAssetPrice = await getPrice(earnedAsset);
+  const yearlyRewardsInUsd = yearlyRewards.times(earnedAssetPrice).dividedBy('1e18');
   return yearlyRewardsInUsd;
 };
 
-// const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
-//   const tokenPrice = await getPrice(coingeckoId);
-//   const tokenContract = await new web3.eth.Contract(erc20Abi, tokenAddr);
-//   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
-//   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
-//   return totalStakedInUsd;
-// };
-
-// const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
-//   const fryerContract = new web3.eth.Contract(fryerAbi, fryerAddr);
-//   const poolLength = await fryerContract.methods.poolLength().call();
-
-//   let totalRewardPoints = new BigNumber('0');
-//   let poolRewardPoints;
-
-//   for (let i = 0; i < poolLength; i++) {
-//     const poolInfo = await fryerContract.methods.poolInfo(i).call();
-//     totalRewardPoints = totalRewardPoints.plus(poolInfo.allocPoint);
-
-//     if (i == poolIndex) poolRewardPoints = new BigNumber(poolInfo.allocPoint);
-//   }
-
-//   const poolRewardsPercentage = poolRewardPoints.dividedBy(totalRewardPoints);
-//   return poolRewardsPercentage;
-// };
-
-getCakeApys();
+const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
+  const tokenPrice = await getPrice(coingeckoId);
+  const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
+  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
+  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
+  return totalStakedInUsd;
+};
 
 module.exports = getCakeApys;
