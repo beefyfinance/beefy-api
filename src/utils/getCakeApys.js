@@ -9,25 +9,25 @@ const ERC20 = require('../abis/ERC20.json');
 const CAKE = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
 const SYRUP = '0x009cF7bC57584b7998236eff51b98A168DceA9B0';
 const MASTER_CHEF = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
-const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
+
 const pools = [
   {
-    name: 'burger',
-    poolIndex: 0,
-    coingeckoId: 'burger-swap',
-    asset: '0xAe9269f27437f0fcBC232d39Ec814844a51d6b8f',
+    name: 'sxp',
+    smartChef: '0xd32b30b151a6adb2e0fa573a37510c097dabd2f3',
+    coingeckoId: 'swipe',
+    asset: '0x47BEAd2563dCBf3bF2c9407fEa4dC236fAbA485A',
   },
   {
-    name: 'busd',
-    poolIndex: 1,
-    coingeckoId: 'binance-usd',
-    asset: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
+    name: 'twt',
+    smartChef: '0xAfd61Dc94f11A70Ae110dC0E0F2061Af5633061A',
+    coingeckoId: 'trust-wallet-token',
+    asset: '0x4B0F1812e5Df2A09796481Ff14017e6005508003',
   },
   {
-    name: 'wbnb',
-    poolIndex: 2,
-    coingeckoId: 'binancecoin',
-    asset: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
+    name: 'inj',
+    smartChef: '0x92E8CeB7eAeD69fB6E4d9dA43F605D2610214E68',
+    coingeckoId: 'injective-protocol',
+    asset: '0xa2B726B1145A4773F68593CF171187d8EBe4d495',
   },
 ];
 
@@ -56,6 +56,7 @@ const getPrice = async id => {
       vs_currencies: 'usd',
     },
   });
+  console.log(response.data[id].usd);
   return response.data[id].usd;
 };
 
