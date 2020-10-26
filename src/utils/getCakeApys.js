@@ -3,9 +3,12 @@ const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
 const { compound } = require('./compound');
-const fryerAbi = require('../abis/fryer.json');
+const MasterChef = require('../abis/MasterChef.json');
 const ERC20 = require('../abis/ERC20.json');
 
+const CAKE = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
+const SYRUP = '0x009cF7bC57584b7998236eff51b98A168DceA9B0';
+const MASTER_CHEF = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
 const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
 const pools = [
   {
@@ -74,7 +77,7 @@ const getYearlyRewardsInUsd = async (fyreAddr, blocks) => {
 
 const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
   const tokenPrice = await getPrice(coingeckoId);
-  const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
+  const tokenContract = await new web3.eth.Contract(erc20Abi, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
   return totalStakedInUsd;
