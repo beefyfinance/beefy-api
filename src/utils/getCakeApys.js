@@ -38,7 +38,7 @@ const getCakeApys = async () => {
   const apys = {};
 
   for (const pool of pools) {
-    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(pool.smartChef, 1);
+    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(pool.smartChef, pool.coingeckoId);
     // const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
     // const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
 
@@ -46,12 +46,10 @@ const getCakeApys = async () => {
 
     // const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
     // apys[pool.name] = apy;
-    console.log('Rewards', yearlyRewardsInUsd);
+    console.log('Rewards', yearlyRewardsInUsd.toString());
   }
   return apys;
 };
-
-getCakeApys();
 
 const getPrice = async id => {
   const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
@@ -60,51 +58,52 @@ const getPrice = async id => {
       vs_currencies: 'usd',
     },
   });
-  console.log(response.data[id].usd);
   return response.data[id].usd;
 };
 
-const getYearlyRewardsInUsd = async (smartChefAddr, blocks) => {
-  const fromBlock = await web3.eth.getBlockNumber();
-  const toBlock = fromBlock + blocks;
+const getYearlyRewardsInUsd = async (smartChefAddr, earnedAsset) => {
   const smartChefContract = new web3.eth.Contract(SmartChef, smartChefAddr);
 
-  const periodRewards = new BigNumber(await smartChefContract.methods.getTotalRewardInfo(fromBlock, toBlock).call());
-  const blockRewards = periodRewards.dividedBy(blocks);
+  const currentBlock = await web3.eth.getBlockNumber();
+  const bonusEndBlock = await smartChefContract.methods.bonusEndBlock().call();
+  const isPoolRunning = currentBlock <= bonusEndBlock;
+
+  if (!isPoolRunning) return new BigNumber(0);
+
+  const blockRewards = new BigNumber(await smartChefContract.methods.rewardPerBlock().call());
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-
-  const friesPrice = await getPrice('fryworld');
-  const yearlyRewardsInUsd = yearlyRewards.times(friesPrice).dividedBy('1e18');
+  const cakePrice = await getPrice(earnedAsset);
+  const yearlyRewardsInUsd = yearlyRewards.times(cakePrice).dividedBy('1e18');
   return yearlyRewardsInUsd;
 };
 
-const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
-  const tokenPrice = await getPrice(coingeckoId);
-  const tokenContract = await new web3.eth.Contract(erc20Abi, tokenAddr);
-  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
-  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
-  return totalStakedInUsd;
-};
+// const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
+//   const tokenPrice = await getPrice(coingeckoId);
+//   const tokenContract = await new web3.eth.Contract(erc20Abi, tokenAddr);
+//   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
+//   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
+//   return totalStakedInUsd;
+// };
 
-const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
-  const fryerContract = new web3.eth.Contract(fryerAbi, fryerAddr);
-  const poolLength = await fryerContract.methods.poolLength().call();
+// const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
+//   const fryerContract = new web3.eth.Contract(fryerAbi, fryerAddr);
+//   const poolLength = await fryerContract.methods.poolLength().call();
 
-  let totalRewardPoints = new BigNumber('0');
-  let poolRewardPoints;
+//   let totalRewardPoints = new BigNumber('0');
+//   let poolRewardPoints;
 
-  for (let i = 0; i < poolLength; i++) {
-    const poolInfo = await fryerContract.methods.poolInfo(i).call();
-    totalRewardPoints = totalRewardPoints.plus(poolInfo.allocPoint);
+//   for (let i = 0; i < poolLength; i++) {
+//     const poolInfo = await fryerContract.methods.poolInfo(i).call();
+//     totalRewardPoints = totalRewardPoints.plus(poolInfo.allocPoint);
 
-    if (i == poolIndex) poolRewardPoints = new BigNumber(poolInfo.allocPoint);
-  }
+//     if (i == poolIndex) poolRewardPoints = new BigNumber(poolInfo.allocPoint);
+//   }
 
-  const poolRewardsPercentage = poolRewardPoints.dividedBy(totalRewardPoints);
-  return poolRewardsPercentage;
-};
+//   const poolRewardsPercentage = poolRewardPoints.dividedBy(totalRewardPoints);
+//   return poolRewardsPercentage;
+// };
 
 getCakeApys();
 
