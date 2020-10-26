@@ -21,7 +21,7 @@ async function apy(ctx) {
 
     Object.values(dataSimple).map(item => {
       const symbol = item.symbol.toLowerCase();
-      const apy = compound(parseFloat(item.estimated_ar), process.env.FORTUBE_HPY);
+      const apy = compound(parseFloat(item.estimated_ar), process.env.FORTUBE_HPY, 1, 0.95);
       apys[symbol] = apy;
     });
 
@@ -31,9 +31,9 @@ async function apy(ctx) {
 
     const fryApys = await getFryApys();
 
-    apys['fry-burger-v2'] = compound(fryApys.burger, process.env.FRY_HPY);
-    apys['fry-wbnb-v2'] = compound(fryApys.wbnb, process.env.FRY_HPY);
-    apys['fry-busd-v2'] = compound(fryApys.busd, process.env.FRY_HPY);
+    apys['fry-burger-v2'] = compound(fryApys.burger, process.env.FRY_HPY, 1, 0.95);
+    apys['fry-wbnb-v2'] = compound(fryApys.wbnb, process.env.FRY_HPY, 1, 0.95);
+    apys['fry-busd-v2'] = compound(fryApys.busd, process.env.FRY_HPY, 1, 0.95);
 
     // TODO: remove these after they deprecate
     apys['fry-burger-v1'] = apys['fry-burger-v2'];
@@ -42,9 +42,9 @@ async function apy(ctx) {
 
     const cakeApys = await getCakeApys();
 
-    apys['cake-sxp'] = compound(cakeApys.sxp, 365);
-    apys['cake-twt'] = compound(cakeApys.twt, 365);
-    apys['cake-inj'] = compound(cakeApys.inj, 365);
+    apys['cake-sxp'] = compound(cakeApys.sxp, 365, 1, 0.95);
+    apys['cake-twt'] = compound(cakeApys.twt, 365, 1, 0.95);
+    apys['cake-inj'] = compound(cakeApys.inj, 365, 1, 0.95);
 
     for (const key in apys) {
       apys[key] = `${(apys[key] * 100).toFixed(2)}%`;
