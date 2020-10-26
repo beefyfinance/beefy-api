@@ -3,7 +3,7 @@ const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
 const { compound } = require('./compound');
-const fryerAbi = require('../abis/fryer.json');
+const DeepFryer = require('../abis/DeepFryer.json');
 const ERC20 = require('../abis/ERC20.json');
 
 const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
@@ -59,7 +59,7 @@ const getPrice = async id => {
 const getYearlyRewardsInUsd = async (fryerAddr, blocks) => {
   const fromBlock = await web3.eth.getBlockNumber();
   const toBlock = fromBlock + blocks;
-  const fryerContract = new web3.eth.Contract(fryerAbi, fryerAddr);
+  const fryerContract = new web3.eth.Contract(DeepFryer, fryerAddr);
 
   const periodRewards = new BigNumber(await fryerContract.methods.getTotalRewardInfo(fromBlock, toBlock).call());
   const blockRewards = periodRewards.dividedBy(blocks);
@@ -81,7 +81,7 @@ const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
 };
 
 const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
-  const fryerContract = new web3.eth.Contract(fryerAbi, fryerAddr);
+  const fryerContract = new web3.eth.Contract(DeepFryer, fryerAddr);
   const poolLength = await fryerContract.methods.poolLength().call();
 
   let totalRewardPoints = new BigNumber('0');
