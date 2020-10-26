@@ -42,9 +42,9 @@ async function apy(ctx) {
 
     const cakeApys = await getCakeApys();
 
-    apys['cake-sxp'] = compound(cakeApys.sxp, 365, 1, 0.95);
-    apys['cake-twt'] = compound(cakeApys.twt, 365, 1, 0.95);
-    apys['cake-inj'] = compound(cakeApys.inj, 365, 1, 0.95);
+    apys['cake-sxp'] = compound(cakeApys.sxp, process.env.CAKE_HPY);
+    apys['cake-twt'] = compound(cakeApys.twt, process.env.CAKE_HPY);
+    apys['cake-inj'] = compound(cakeApys.inj, process.env.CAKE_HPY);
 
     for (const key in apys) {
       apys[key] = `${(apys[key] * 100).toFixed(2)}%`;
