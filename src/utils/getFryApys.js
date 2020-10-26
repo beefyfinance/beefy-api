@@ -56,10 +56,10 @@ const getPrice = async id => {
   return response.data[id].usd;
 };
 
-const getYearlyRewardsInUsd = async (fyreAddr, blocks) => {
+const getYearlyRewardsInUsd = async (fryerAddr, blocks) => {
   const fromBlock = await web3.eth.getBlockNumber();
   const toBlock = fromBlock + blocks;
-  const fryerContract = new web3.eth.Contract(fryerAbi, fyreAddr);
+  const fryerContract = new web3.eth.Contract(fryerAbi, fryerAddr);
 
   const periodRewards = new BigNumber(await fryerContract.methods.getTotalRewardInfo(fromBlock, toBlock).call());
   const blockRewards = periodRewards.dividedBy(blocks);

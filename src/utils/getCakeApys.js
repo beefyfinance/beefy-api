@@ -4,6 +4,7 @@ const BigNumber = require('bignumber.js');
 
 const { compound } = require('./compound');
 const MasterChef = require('../abis/MasterChef.json');
+const SmartChef = require('../abis/SmartChef.json');
 const ERC20 = require('../abis/ERC20.json');
 
 const CAKE = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
@@ -33,21 +34,24 @@ const pools = [
 
 const web3 = new Web3('https://bsc-dataseed1.defibit.io/');
 
-const getFryApys = async () => {
+const getCakeApys = async () => {
   const apys = {};
 
   for (const pool of pools) {
-    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(FRYER, 1);
-    const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
-    const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
+    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(pool.smartChef, 1);
+    // const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
+    // const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
 
-    const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.coingeckoId, pool.asset);
+    // const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.coingeckoId, pool.asset);
 
-    const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
-    apys[pool.name] = apy;
+    // const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
+    // apys[pool.name] = apy;
+    console.log('Rewards', yearlyRewardsInUsd);
   }
   return apys;
 };
+
+getCakeApys();
 
 const getPrice = async id => {
   const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
@@ -60,12 +64,12 @@ const getPrice = async id => {
   return response.data[id].usd;
 };
 
-const getYearlyRewardsInUsd = async (fyreAddr, blocks) => {
+const getYearlyRewardsInUsd = async (smartChefAddr, blocks) => {
   const fromBlock = await web3.eth.getBlockNumber();
   const toBlock = fromBlock + blocks;
-  const fryerContract = new web3.eth.Contract(fryerAbi, fyreAddr);
+  const smartChefContract = new web3.eth.Contract(SmartChef, smartChefAddr);
 
-  const periodRewards = new BigNumber(await fryerContract.methods.getTotalRewardInfo(fromBlock, toBlock).call());
+  const periodRewards = new BigNumber(await smartChefContract.methods.getTotalRewardInfo(fromBlock, toBlock).call());
   const blockRewards = periodRewards.dividedBy(blocks);
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
@@ -102,6 +106,6 @@ const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
   return poolRewardsPercentage;
 };
 
-getFryApys();
+getCakeApys();
 
-module.exports = getFryApys;
+module.exports = getCakeApys;
