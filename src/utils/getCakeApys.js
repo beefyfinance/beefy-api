@@ -39,8 +39,8 @@ const getCakeApys = async () => {
   const baseCakeApy = await getBaseCakeApy();
 
   for (const pool of pools) {
-    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(pool.smartChef, pool.coingeckoId);
-    const totalStakedInUsd = await getTotalStakedInUsd(pool.smartChef, 'pancakeswap-token', syrup, pool.decimals);
+    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(pool.smartChef, pool.coingeckoId, pool.decimals);
+    const totalStakedInUsd = await getTotalStakedInUsd(pool.smartChef, 'pancakeswap-token', syrup);
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseCakeApy);
     apys[pool.name] = apy;
   }
@@ -58,7 +58,7 @@ const getPrice = async id => {
   return response.data[id].usd;
 };
 
-const getYearlyRewardsInUsd = async (smartChefAddr, earnedAsset) => {
+const getYearlyRewardsInUsd = async (smartChefAddr, earnedAsset, decimals) => {
   const smartChefContract = new web3.eth.Contract(SmartChef, smartChefAddr);
 
   const currentBlock = await web3.eth.getBlockNumber();
@@ -72,15 +72,15 @@ const getYearlyRewardsInUsd = async (smartChefAddr, earnedAsset) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
   const earnedAssetPrice = await getPrice(earnedAsset);
-  const yearlyRewardsInUsd = yearlyRewards.times(earnedAssetPrice).dividedBy('1e18');
+  const yearlyRewardsInUsd = yearlyRewards.times(earnedAssetPrice).dividedBy(decimals);
   return yearlyRewardsInUsd;
 };
 
-const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr, decimals) => {
+const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
   const tokenPrice = await getPrice(coingeckoId);
   const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
-  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy(decimals);
+  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
   return totalStakedInUsd;
 };
 
