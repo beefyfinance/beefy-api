@@ -27,7 +27,7 @@ const pools = [
   },
 ];
 
-const web3 = new Web3('https://bsc-dataseed1.defibit.io/');
+const web3 = new Web3(process.env.BSC_RPC);
 
 const getFryApys = async () => {
   const apys = {};
