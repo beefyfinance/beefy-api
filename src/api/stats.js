@@ -42,7 +42,7 @@ async function apy(ctx) {
 
     const cakeApys = await getCakeApys();
 
-    apys['cake-sxp'] = compound(cakeApys.sxp, process.env.CAKE_HPY, 1, 0.95);
+    apys['cake-ctk'] = compound(cakeApys.ctk, process.env.CAKE_HPY, 1, 0.95);
     apys['cake-twt'] = compound(cakeApys.twt, process.env.CAKE_HPY, 1, 0.95);
     apys['cake-inj'] = compound(cakeApys.inj, process.env.CAKE_HPY, 1, 0.95);
 

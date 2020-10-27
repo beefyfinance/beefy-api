@@ -8,12 +8,6 @@ const getBaseCakeApy = require('./getBaseCakeApy');
 
 const pools = [
   {
-    name: 'sxp',
-    smartChef: '0xd32b30b151a6adb2e0fa573a37510c097dabd2f3',
-    coingeckoId: 'swipe',
-    asset: '0x47BEAd2563dCBf3bF2c9407fEa4dC236fAbA485A',
-  },
-  {
     name: 'twt',
     smartChef: '0xAfd61Dc94f11A70Ae110dC0E0F2061Af5633061A',
     coingeckoId: 'trust-wallet-token',
@@ -25,9 +19,15 @@ const pools = [
     coingeckoId: 'injective-protocol',
     asset: '0xa2B726B1145A4773F68593CF171187d8EBe4d495',
   },
+  {
+    name: 'ctk',
+    smartChef: '0xF35d63Df93f32e025bce4A1B98dcEC1fe07AD892',
+    coingeckoId: 'certik',
+    asset: '0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929',
+  },
 ];
 
-const web3 = new Web3('https://bsc-dataseed1.defibit.io/');
+const web3 = new Web3(process.env.BSC_RPC);
 
 const getCakeApys = async () => {
   const apys = {};
