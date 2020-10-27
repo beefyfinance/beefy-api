@@ -46,10 +46,6 @@ async function apy(ctx) {
     apys['cake-twt'] = compound(cakeApys.twt, process.env.CAKE_HPY, 1, 0.95);
     apys['cake-inj'] = compound(cakeApys.inj, process.env.CAKE_HPY, 1, 0.95);
 
-    for (const key in apys) {
-      apys[key] = `${(apys[key] * 100).toFixed(2)}%`;
-    }
-
     ctx.status = 200;
     ctx.body = apys;
   } catch (err) {
