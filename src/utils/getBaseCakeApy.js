@@ -10,15 +10,15 @@ const web3 = new Web3(process.env.BSC_RPC);
 const getBaseCakeApy = async () => {
   const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
   const cake = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
-  const coingeckoId = 'pancakeswap-token';
+  const priceOracleId = 'pancakeswap-token';
 
-  const yearlyRewardsInUsd = await getYearlyRewardsInUsd(masterChef);
-  const totalStakedInUsd = await getTotalStakedInUsd(masterChef, coingeckoId, cake);
+  const yearlyRewardsInUsd = await getYearlyRewardsInUsd(masterChef, priceOracleId);
+  const totalStakedInUsd = await getTotalStakedInUsd(masterChef, priceOracleId, cake);
 
   return yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 };
 
-const getYearlyRewardsInUsd = async masterChefAddr => {
+const getYearlyRewardsInUsd = async (masterChefAddr, priceOracleId) => {
   const fromBlock = await web3.eth.getBlockNumber();
   const toBlock = fromBlock + 1;
   const masterChefContract = new web3.eth.Contract(MasterChef, masterChefAddr);
@@ -36,7 +36,7 @@ const getYearlyRewardsInUsd = async masterChefAddr => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const cakePrice = await getCoingeckoPrice('pancakeswap-token');
+  const cakePrice = await getCoingeckoPrice(priceOracleId);
   const yearlyRewardsInUsd = yearlyRewards.times(cakePrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
