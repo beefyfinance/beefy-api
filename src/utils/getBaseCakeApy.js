@@ -1,9 +1,9 @@
-const axios = require('axios');
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
 const MasterChef = require('../abis/MasterChef.json');
 const ERC20 = require('../abis/ERC20.json');
+const { getCoingeckoPrice } = require('./getPrice');
 
 const web3 = new Web3('https://bsc-dataseed1.defibit.io/');
 
@@ -36,28 +36,18 @@ const getYearlyRewardsInUsd = async masterChefAddr => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const cakePrice = await getPrice('pancakeswap-token');
+  const cakePrice = await getCoingeckoPrice('pancakeswap-token');
   const yearlyRewardsInUsd = yearlyRewards.times(cakePrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
 };
 
 const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
-  const tokenPrice = await getPrice(coingeckoId);
+  const tokenPrice = await getCoingeckoPrice(coingeckoId);
   const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
   return totalStakedInUsd;
-};
-
-const getPrice = async id => {
-  const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
-    params: {
-      ids: id,
-      vs_currencies: 'usd',
-    },
-  });
-  return response.data[id].usd;
 };
 
 module.exports = getBaseCakeApy;
