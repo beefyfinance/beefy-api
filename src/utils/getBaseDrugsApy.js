@@ -15,7 +15,7 @@ const getBaseDrugsApy = async () => {
   const yearlyRewardsInUsd = await getYearlyRewardsInUsd(originalGangster, priceOracleId);
   const totalStakedInUsd = await getTotalStakedInUsd(originalGangster, priceOracleId, drugs);
 
-  console.log(yearlyRewardsInUsd.dividedBy(totalStakedInUsd).toString());
+  console.log('BASE', yearlyRewardsInUsd.dividedBy(totalStakedInUsd).toString());
   return yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 };
 
