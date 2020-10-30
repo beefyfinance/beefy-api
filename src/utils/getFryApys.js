@@ -1,9 +1,9 @@
-const axios = require('axios');
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
 const DeepFryer = require('../abis/DeepFryer.json');
 const ERC20 = require('../abis/ERC20.json');
+const { getCoingeckoPrice } = require('./getPrice');
 
 const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
 const pools = [
@@ -46,16 +46,6 @@ const getFryApys = async () => {
   return apys;
 };
 
-const getPrice = async id => {
-  const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
-    params: {
-      ids: id,
-      vs_currencies: 'usd',
-    },
-  });
-  return response.data[id].usd;
-};
-
 const getYearlyRewardsInUsd = async (fryerAddr, blocks) => {
   const fromBlock = await web3.eth.getBlockNumber();
   const toBlock = fromBlock + blocks;
@@ -67,13 +57,13 @@ const getYearlyRewardsInUsd = async (fryerAddr, blocks) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const friesPrice = await getPrice('fryworld');
+  const friesPrice = await getCoingeckoPrice('fryworld');
   const yearlyRewardsInUsd = yearlyRewards.times(friesPrice).dividedBy('1e18');
   return yearlyRewardsInUsd;
 };
 
 const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
-  const tokenPrice = await getPrice(coingeckoId);
+  const tokenPrice = await getCoingeckoPrice(coingeckoId);
   const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
@@ -97,7 +87,5 @@ const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
   const poolRewardsPercentage = poolRewardPoints.dividedBy(totalRewardPoints);
   return poolRewardsPercentage;
 };
-
-getFryApys();
 
 module.exports = getFryApys;

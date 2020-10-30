@@ -1,10 +1,10 @@
-const axios = require('axios');
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
 const SmartChef = require('../abis/SmartChef.json');
 const ERC20 = require('../abis/ERC20.json');
 const getBaseCakeApy = require('./getBaseCakeApy');
+const { getCoingeckoPrice } = require('./getPrice');
 
 const pools = [
   {
@@ -48,16 +48,6 @@ const getCakeApys = async () => {
   return apys;
 };
 
-const getPrice = async id => {
-  const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
-    params: {
-      ids: id,
-      vs_currencies: 'usd',
-    },
-  });
-  return response.data[id].usd;
-};
-
 const getYearlyRewardsInUsd = async (smartChefAddr, earnedAsset, decimals) => {
   const smartChefContract = new web3.eth.Contract(SmartChef, smartChefAddr);
 
@@ -71,13 +61,13 @@ const getYearlyRewardsInUsd = async (smartChefAddr, earnedAsset, decimals) => {
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-  const earnedAssetPrice = await getPrice(earnedAsset);
+  const earnedAssetPrice = await getCoingeckoPrice(earnedAsset);
   const yearlyRewardsInUsd = yearlyRewards.times(earnedAssetPrice).dividedBy(decimals);
   return yearlyRewardsInUsd;
 };
 
 const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
-  const tokenPrice = await getPrice(coingeckoId);
+  const tokenPrice = await getCoingeckoPrice(coingeckoId);
   const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
