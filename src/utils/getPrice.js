@@ -10,7 +10,11 @@ const getCoingeckoPrice = async id => {
   return response.data[id].usd;
 };
 
-const getPancakePrice = async id => {};
+const getPancakePrice = async id => {
+  const response = await axios.get('https://api.pancakeswap.finance/api/v1/price');
+  console.log('YO', response.data.prices[id]);
+  return response.data.prices[id];
+};
 
 module.exports = {
   getCoingeckoPrice,

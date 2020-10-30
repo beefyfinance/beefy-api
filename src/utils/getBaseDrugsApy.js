@@ -1,35 +1,35 @@
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
-const MasterChef = require('../abis/MasterChef.json');
+const OriginalGangster = require('../abis/OriginalGangster.json');
 const ERC20 = require('../abis/ERC20.json');
-const { getCoingeckoPrice } = require('./getPrice');
+const { getCoingeckoPrice, getPancakePrice } = require('./getPrice');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
-const getBaseCakeApy = async () => {
-  const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
-  const cake = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
-  const coingeckoId = 'pancakeswap-token';
+const getBaseDrugsApy = async () => {
+  const originalGangster = '0xb752f0cB591Ecfb1c5058a93e1332F066bf38473';
+  const drugs = '0xfD26889cd6454D8751562f1c0FcF88b18B46F7B7';
+  const pancakeswapId = 'GUNS';
 
-  const yearlyRewardsInUsd = await getYearlyRewardsInUsd(masterChef);
-  const totalStakedInUsd = await getTotalStakedInUsd(masterChef, coingeckoId, cake);
+  const yearlyRewardsInUsd = await getYearlyRewardsInUsd(originalGangster);
+  const totalStakedInUsd = await getTotalStakedInUsd(originalGangster, coingeckoId, cake);
 
   return yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 };
 
-const getYearlyRewardsInUsd = async masterChefAddr => {
+const getYearlyRewardsInUsd = async originalGangsterAddr => {
   const fromBlock = await web3.eth.getBlockNumber();
   const toBlock = fromBlock + 1;
-  const masterChefContract = new web3.eth.Contract(MasterChef, masterChefAddr);
+  const originalGangsterContract = new web3.eth.Contract(OriginalGangster, originalGangsterAddr);
 
-  const multiplier = new BigNumber(await masterChefContract.methods.getMultiplier(fromBlock, toBlock).call());
-  const blockRewards = new BigNumber(await masterChefContract.methods.cakePerBlock().call());
+  const multiplier = new BigNumber(await originalGangsterContract.methods.getMultiplier(fromBlock, toBlock).call());
+  const blockRewards = new BigNumber(await originalGangsterContract.methods.cakePerBlock().call());
 
-  let { allocPoint } = await masterChefContract.methods.poolInfo(0).call();
+  let { allocPoint } = await originalGangsterContract.methods.poolInfo(0).call();
   allocPoint = new BigNumber(allocPoint);
 
-  const totalAllocPoint = new BigNumber(await masterChefContract.methods.totalAllocPoint().call());
+  const totalAllocPoint = new BigNumber(await originalGangsterContract.methods.totalAllocPoint().call());
   const poolBlockRewards = blockRewards.times(multiplier).times(allocPoint).dividedBy(totalAllocPoint);
 
   const secondsPerBlock = 3;
