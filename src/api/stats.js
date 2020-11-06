@@ -31,26 +31,14 @@ async function apy(ctx) {
     });
 
     const fryApys = await getFryApys();
-
     apys['fry-burger-v2'] = compound(fryApys.burger, process.env.FRY_HPY, 1, 0.95);
-    apys['fry-wbnb-v2'] = compound(fryApys.wbnb, process.env.FRY_HPY, 1, 0.95);
-    apys['fry-busd-v2'] = compound(fryApys.busd, process.env.FRY_HPY, 1, 0.95);
-
-    // TODO: remove these after they deprecate
-    apys['fry-burger-v1'] = apys['fry-burger-v2'];
-    apys['fry-wbnb-v1'] = apys['fry-wbnb-v2'];
-    apys['fry-busd-v1'] = apys['fry-busd-v2'];
 
     const cakeApys = await getCakeApys();
-    console.log(JSON.stringify(cakeApys));
-
     apys['cake-ctk'] = compound(cakeApys.ctk, process.env.CAKE_HPY, 1, 0.95);
     apys['cake-twt'] = compound(cakeApys.twt, process.env.CAKE_HPY, 1, 0.95);
     apys['cake-inj'] = compound(cakeApys.inj, process.env.CAKE_HPY, 1, 0.95);
 
     const drugsApys = await getDrugsApys();
-    console.log(JSON.stringify(drugsApys));
-
     apys['drugs-guns'] = compound(drugsApys.guns, process.env.DRUGS_HPY, 1, 0.95);
 
     ctx.status = 200;

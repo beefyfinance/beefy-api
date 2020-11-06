@@ -13,18 +13,6 @@ const pools = [
     coingeckoId: 'burger-swap',
     asset: '0xAe9269f27437f0fcBC232d39Ec814844a51d6b8f',
   },
-  {
-    name: 'busd',
-    poolIndex: 1,
-    coingeckoId: 'binance-usd',
-    asset: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
-  },
-  {
-    name: 'wbnb',
-    poolIndex: 2,
-    coingeckoId: 'binancecoin',
-    asset: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-  },
 ];
 
 const web3 = new Web3(process.env.BSC_RPC);
