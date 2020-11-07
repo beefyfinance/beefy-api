@@ -3,7 +3,7 @@ const BigNumber = require('bignumber.js');
 
 const MasterChef = require('../abis/MasterChef.json');
 const ERC20 = require('../abis/ERC20.json');
-const { getCoingeckoPrice } = require('./getPrice');
+const { getPancakeswapPrice } = require('./getPrice');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
@@ -14,11 +14,11 @@ const pools = [
     poolId: 1,
     lp0: {
       address: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
-      oracleId: 'pancakeswap-token',
+      oracleId: 'Cake',
     },
     lp1: {
       address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-      oracleId: 'binancecoin',
+      oracleId: 'WBNB',
     },
   },
   {
@@ -27,11 +27,11 @@ const pools = [
     poolId: 2,
     lp0: {
       address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-      oracleId: 'binancecoin',
+      oracleId: 'WBNB',
     },
     lp1: {
       address: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
-      oracleId: 'binance-usd',
+      oracleId: 'BUSD',
     },
   },
   {
@@ -40,11 +40,11 @@ const pools = [
     poolId: 11,
     lp0: {
       address: '0x55d398326f99059fF775485246999027B3197955',
-      oracleId: 'tether',
+      oracleId: 'USDT',
     },
     lp1: {
       address: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
-      oracleId: 'binance-usd',
+      oracleId: 'BUSD',
     },
   },
   {
@@ -53,11 +53,11 @@ const pools = [
     poolId: 15,
     lp0: {
       address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-      oracleId: 'binancecoin',
+      oracleId: 'WBNB',
     },
     lp1: {
       address: '0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c',
-      oracleId: 'bitcoin',
+      oracleId: 'BTCB',
     },
   },
 ];
@@ -93,7 +93,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const cakePrice = await getCoingeckoPrice('pancakeswap-token');
+  const cakePrice = await getPancakeswapPrice('Cake');
   const yearlyRewardsInUsd = yearlyRewards.times(cakePrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
@@ -113,12 +113,12 @@ const getLpTokenPrice = async pool => {
 
   const token0Contract = await new web3.eth.Contract(ERC20, pool.lp0.address);
   const reserve0 = new BigNumber(await token0Contract.methods.balanceOf(pool.address).call());
-  const token0Price = await getCoingeckoPrice(pool.lp0.oracleId);
+  const token0Price = await getPancakeswapPrice(pool.lp0.oracleId);
   const token0StakedInUsd = reserve0.times(token0Price);
 
   const token1Contract = await new web3.eth.Contract(ERC20, pool.lp1.address);
   const reserve1 = new BigNumber(await token1Contract.methods.balanceOf(pool.address).call());
-  const token1Price = await getCoingeckoPrice(pool.lp1.oracleId);
+  const token1Price = await getPancakeswapPrice(pool.lp1.oracleId);
   const token1StakedInUsd = reserve1.times(token1Price);
 
   const totalStakedInUsd = token0StakedInUsd.plus(token1StakedInUsd);
