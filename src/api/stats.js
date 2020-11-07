@@ -3,9 +3,8 @@
 const axios = require('axios');
 const { compound } = require('../utils/compound');
 const getFryApys = require('../utils/getFryApys');
-const getCakeApys = require('../utils/getCakeApys');
+const getCakeLpApys = require('../utils/getCakeLpApys');
 const getBaseCakeApy = require('../utils/getBaseCakeApy');
-const getDrugsApys = require('../utils/getDrugsApys');
 
 async function apy(ctx) {
   try {
@@ -36,6 +35,12 @@ async function apy(ctx) {
 
     const baseCakeApy = await getBaseCakeApy();
     apys['cake-cake'] = compound(baseCakeApy, process.env.CAKE_HPY, 1, 0.94);
+
+    const cakeLpApys = await getCakeLpApys();
+    apys['cake-cake-bnb'] = compound(cakeLpApys['cake-bnb'], process.env.CAKE_LP_HPY, 1, 0.955);
+    apys['cake-bnb-busd'] = compound(cakeLpApys['bnb-busd'], process.env.CAKE_LP_HPY, 1, 0.955);
+    apys['cake-usdt-busd'] = compound(cakeLpApys['usdt-busd'], process.env.CAKE_LP_HPY, 1, 0.955);
+    apys['cake-bnb-btcb'] = compound(cakeLpApys['bnb-btcb'], process.env.CAKE_LP_HPY, 1, 0.955);
 
     // FIXME: deprecated pools
     apys['cake-syrup-ctk'] = 0;
