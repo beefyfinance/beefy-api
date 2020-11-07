@@ -28,7 +28,7 @@ async function apy(ctx) {
     });
 
     dataExtended.map(item => {
-      apys[item.token_symbol.toLowerCase()] += parseFloat(item.deposit_interest_rate);
+      apys[`fortube-${item.token_symbol.toLowerCase()}`] += parseFloat(item.deposit_interest_rate);
     });
 
     const fryApys = await getFryApys();
@@ -38,12 +38,12 @@ async function apy(ctx) {
     apys['cake-cake'] = compound(baseCakeApy, process.env.CAKE_HPY, 1, 0.94);
 
     const cakeApys = await getCakeApys();
-    apys['cake-syrup-ctk'] = compound(cakeApys.ctk, process.env.CAKE_HPY, 1, 0.95);
-    apys['cake-syrup-twt'] = compound(cakeApys.twt, process.env.CAKE_HPY, 1, 0.95);
-    apys['cake-syrup-inj'] = compound(cakeApys.inj, process.env.CAKE_HPY, 1, 0.95);
+    apys['cake-syrup-ctk'] = compound(cakeApys['cake-syrup-ctk'], process.env.CAKE_HPY, 1, 0.95);
+    apys['cake-syrup-twt'] = compound(cakeApys['cake-syrup-twt'], process.env.CAKE_HPY, 1, 0.95);
+    apys['cake-syrup-inj'] = compound(cakeApys['cake-syrup-inj'], process.env.CAKE_HPY, 1, 0.95);
 
     const drugsApys = await getDrugsApys();
-    apys['thugs-drugs-guns'] = compound(drugsApys.guns, process.env.DRUGS_HPY, 1, 0.95);
+    apys['thugs-drugs-guns'] = compound(drugsApys['thugs-drugs-guns'], process.env.DRUGS_HPY, 1, 0.95);
 
     ctx.status = 200;
     ctx.body = apys;

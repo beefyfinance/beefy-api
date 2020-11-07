@@ -8,7 +8,7 @@ const { getPancakeswapPrice } = require('./getPrice');
 
 const pools = [
   {
-    name: 'guns',
+    name: 'thugs-drugs-guns',
     smartGangster: '0xf499d79Ac73569220c91F4bd016f328e40F983F2',
     pancakeswapId: 'GUNS',
     asset: '0x179983892eC36287f1F342443B671Ba549762241',
