@@ -37,13 +37,11 @@ async function apy(ctx) {
     const baseCakeApy = await getBaseCakeApy();
     apys['cake-cake'] = compound(baseCakeApy, process.env.CAKE_HPY, 1, 0.94);
 
-    const cakeApys = await getCakeApys();
-    apys['cake-syrup-ctk'] = compound(cakeApys['cake-syrup-ctk'], process.env.CAKE_HPY, 1, 0.95);
-    apys['cake-syrup-twt'] = compound(cakeApys['cake-syrup-twt'], process.env.CAKE_HPY, 1, 0.95);
-    apys['cake-syrup-inj'] = compound(cakeApys['cake-syrup-inj'], process.env.CAKE_HPY, 1, 0.95);
-
-    const drugsApys = await getDrugsApys();
-    apys['thugs-drugs-guns'] = compound(drugsApys['thugs-drugs-guns'], process.env.DRUGS_HPY, 1, 0.95);
+    // FIXME: deprecated pools
+    apys['cake-syrup-ctk'] = 0;
+    apys['cake-syrup-twt'] = 0;
+    apys['cake-syrup-inj'] = 0;
+    apys['thugs-drugs-guns'] = 0;
 
     ctx.status = 200;
     ctx.body = apys;

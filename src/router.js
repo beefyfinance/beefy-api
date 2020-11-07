@@ -8,7 +8,8 @@ const stats = require('./api/stats');
 const proxy = require('./api/proxy');
 
 router.get('/apy', stats.apy);
-router.get('/proxy/pancake', proxy.pancake);
+router.get('/pancake/price', proxy.pancake);
+router.get('/pancake/lps', noop);
 router.get('/', noop);
 
 module.exports = router;
