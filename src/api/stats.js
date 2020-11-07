@@ -4,6 +4,7 @@ const axios = require('axios');
 const { compound } = require('../utils/compound');
 const getFryApys = require('../utils/getFryApys');
 const getCakeApys = require('../utils/getCakeApys');
+const getBaseCakeApy = require('../utils/getBaseCakeApy');
 const getDrugsApys = require('../utils/getDrugsApys');
 
 async function apy(ctx) {
@@ -32,6 +33,9 @@ async function apy(ctx) {
 
     const fryApys = await getFryApys();
     apys['fry-burger-v2'] = compound(fryApys.burger, process.env.FRY_HPY, 1, 0.95);
+
+    const baseCakeApy = await getBaseCakeApy();
+    apys['cake'] = compound(baseCakeApy, process.env.CAKE_HPY, 1, 0.94);
 
     const cakeApys = await getCakeApys();
     apys['cake-ctk'] = compound(cakeApys.ctk, process.env.CAKE_HPY, 1, 0.95);
