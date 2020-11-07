@@ -30,7 +30,7 @@ const getDrugsApys = async () => {
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseDrugsApy);
     apys[pool.name] = apy;
   }
-  console.log('Total', JSON.stringify(apys));
+
   return apys;
 };
 
