@@ -38,9 +38,9 @@ async function apy(ctx) {
 
     const cakeLpApys = await getCakeLpApys();
     apys['cake-cake-bnb'] = compound(cakeLpApys['cake-cake-bnb'], process.env.CAKE_LP_HPY, 1, 0.955);
-    apys['cake-bnb-busd'] = compound(cakeLpApys['cake-bnb-busd'], process.env.CAKE_LP_HPY, 1, 0.955);
+    apys['cake-busd-bnb'] = compound(cakeLpApys['cake-busd-bnb'], process.env.CAKE_LP_HPY, 1, 0.955);
     apys['cake-usdt-busd'] = compound(cakeLpApys['cake-usdt-busd'], process.env.CAKE_LP_HPY, 1, 0.955);
-    apys['cake-bnb-btcb'] = compound(cakeLpApys['cake-bnb-btcb'], process.env.CAKE_LP_HPY, 1, 0.955);
+    apys['cake-btcb-bnb'] = compound(cakeLpApys['cake-btcb-bnb'], process.env.CAKE_LP_HPY, 1, 0.955);
 
     // FIXME: deprecated pools
     apys['cake-syrup-ctk'] = 0;
