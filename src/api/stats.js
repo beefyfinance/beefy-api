@@ -6,8 +6,12 @@ const getFryApys = require('../utils/getFryApys');
 const getCakeLpApys = require('../utils/getCakeLpApys');
 const getBaseCakeApy = require('../utils/getBaseCakeApy');
 
+const TIMEOUT = 5 * 60 * 1000;
+
 async function apy(ctx) {
   try {
+    ctx.request.socket.setTimeout(TIMEOUT); 
+
     const resSimple = await axios.get(process.env.FORTUBE_REQ_TOKENS);
     const resExtended = await axios.get(process.env.FORTUBE_REQ_MARKETS, {
       headers: {
