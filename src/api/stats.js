@@ -24,7 +24,7 @@ async function apy(ctx) {
     Object.values(dataSimple).map(item => {
       const symbol = item.symbol.toLowerCase();
       const apy = compound(parseFloat(item.estimated_ar), process.env.FORTUBE_HPY, 1, 0.95);
-      apys[symbol] = apy;
+      apys[`fortube-${symbol}`] = apy;
     });
 
     dataExtended.map(item => {
@@ -35,15 +35,15 @@ async function apy(ctx) {
     apys['fry-burger-v2'] = compound(fryApys.burger, process.env.FRY_HPY, 1, 0.95);
 
     const baseCakeApy = await getBaseCakeApy();
-    apys['cake'] = compound(baseCakeApy, process.env.CAKE_HPY, 1, 0.94);
+    apys['cake-cake'] = compound(baseCakeApy, process.env.CAKE_HPY, 1, 0.94);
 
     const cakeApys = await getCakeApys();
-    apys['cake-ctk'] = compound(cakeApys.ctk, process.env.CAKE_HPY, 1, 0.95);
-    apys['cake-twt'] = compound(cakeApys.twt, process.env.CAKE_HPY, 1, 0.95);
-    apys['cake-inj'] = compound(cakeApys.inj, process.env.CAKE_HPY, 1, 0.95);
+    apys['cake-syrup-ctk'] = compound(cakeApys.ctk, process.env.CAKE_HPY, 1, 0.95);
+    apys['cake-syrup-twt'] = compound(cakeApys.twt, process.env.CAKE_HPY, 1, 0.95);
+    apys['cake-syrup-inj'] = compound(cakeApys.inj, process.env.CAKE_HPY, 1, 0.95);
 
     const drugsApys = await getDrugsApys();
-    apys['drugs-guns'] = compound(drugsApys.guns, process.env.DRUGS_HPY, 1, 0.95);
+    apys['thugs-drugs-guns'] = compound(drugsApys.guns, process.env.DRUGS_HPY, 1, 0.95);
 
     ctx.status = 200;
     ctx.body = apys;
