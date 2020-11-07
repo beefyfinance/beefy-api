@@ -9,7 +9,7 @@ const web3 = new Web3(process.env.BSC_RPC);
 
 const pools = [
   {
-    name: 'cake-bnb',
+    name: 'cake-cake-bnb',
     address: '0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6',
     poolId: 1,
     lp0: {
@@ -22,7 +22,7 @@ const pools = [
     },
   },
   {
-    name: 'bnb-busd',
+    name: 'cake-busd-bnb',
     address: '0x1B96B92314C44b159149f7E0303511fB2Fc4774f',
     poolId: 2,
     lp0: {
@@ -35,7 +35,7 @@ const pools = [
     },
   },
   {
-    name: 'usdt-busd',
+    name: 'cake-usdt-busd',
     address: '0xc15fa3E22c912A276550F3E5FE3b0Deb87B55aCd',
     poolId: 11,
     lp0: {
@@ -48,7 +48,7 @@ const pools = [
     },
   },
   {
-    name: 'bnb-btcb',
+    name: 'cake-btcb-bnb',
     address: '0x7561EEe90e24F3b348E1087A005F78B4c8453524',
     poolId: 15,
     lp0: {
