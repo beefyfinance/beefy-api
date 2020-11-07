@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
     "test": "nyc ava"
   },
   "dependencies": {
@@ -21,7 +22,7 @@
   "devDependencies": {
     "ava": "^3.12.1",
     "dotenv": "^8.2.0",
-    "nodemon": "^2.0.5",
+    "nodemon": "^2.0.6",
     "nyc": "^15.1.0",
     "prettier": "2.1.1"
   }
