@@ -76,11 +76,10 @@ const getCakeLpApys = async () => {
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
-  const fromBlock = await web3.eth.getBlockNumber();
-  const toBlock = fromBlock + 1;
+  const blockNum = await web3.eth.getBlockNumber();
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
-  const multiplier = new BigNumber(await masterchefContract.methods.getMultiplier(fromBlock, toBlock).call());
+  const multiplier = new BigNumber(await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call());
   const blockRewards = new BigNumber(await masterchefContract.methods.cakePerBlock().call());
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
