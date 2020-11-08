@@ -20,7 +20,7 @@ const lpTokens = [
     },
   },
   {
-    name: 'bnb-busd',
+    name: 'busd-bnb',
     address: '0x1B96B92314C44b159149f7E0303511fB2Fc4774f',
     lp0: {
       address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
@@ -44,7 +44,7 @@ const lpTokens = [
     },
   },
   {
-    name: 'bnb-btcb',
+    name: 'btcb-bnb',
     address: '0x7561EEe90e24F3b348E1087A005F78B4c8453524',
     lp0: {
       address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
