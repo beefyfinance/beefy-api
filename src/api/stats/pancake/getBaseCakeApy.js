@@ -4,6 +4,7 @@ const BigNumber = require('bignumber.js');
 const MasterChef = require('../../../abis/MasterChef.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getPrice } = require('../../../utils/getPrice');
+const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
@@ -14,7 +15,7 @@ const getBaseCakeApy = async () => {
   const oracleId = 'pancakeswap-token';
 
   const yearlyRewardsInUsd = await getYearlyRewardsInUsd(masterChef, oracle, oracleId);
-  const totalStakedInUsd = await getTotalStakedInUsd(masterChef, oracle, oracleId, cake);
+  const totalStakedInUsd = await getTotalStakedInUsd(masterChef, cake, oracle, oracleId);
 
   return yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 };
@@ -41,14 +42,6 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const yearlyRewardsInUsd = yearlyRewards.times(cakePrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
-};
-
-const getTotalStakedInUsd = async (poolAddr, oracle, oracleId, tokenAddr) => {
-  const tokenPrice = await getPrice(oracle, oracleId);
-  const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
-  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
-  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
-  return totalStakedInUsd;
 };
 
 module.exports = getBaseCakeApy;

@@ -4,6 +4,7 @@ const BigNumber = require('bignumber.js');
 const DeepFryer = require('../../../abis/DeepFryer.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getPrice } = require('../../../utils/getPrice');
+const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/fryPools.json');
 
 const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
@@ -18,7 +19,7 @@ const getFryApys = async () => {
     const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
     const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
 
-    const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.oracle, pool.oracleId, pool.asset);
+    const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.asset, pool.oracle, pool.oracleId, pool.decimals);
 
     const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
     apys[pool.name] = apy;
@@ -41,14 +42,6 @@ const getYearlyRewardsInUsd = async (fryerAddr, blocks) => {
   const friesPrice = await getPrice('coingecko', 'fryworld');
   const yearlyRewardsInUsd = yearlyRewards.times(friesPrice).dividedBy('1e18');
   return yearlyRewardsInUsd;
-};
-
-const getTotalStakedInUsd = async (poolAddr, oracle, oracleoId, tokenAddr) => {
-  const tokenPrice = await getPrice(oracle, oracleoId);
-  const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
-  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
-  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
-  return totalStakedInUsd;
 };
 
 const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {

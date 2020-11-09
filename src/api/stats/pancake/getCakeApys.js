@@ -5,6 +5,7 @@ const SmartChef = require('../../../abis/SmartChef.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const getBaseCakeApy = require('./getBaseCakeApy');
 const { getPrice } = require('../../../utils/getPrice');
+const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/cakePools.json');
 
 const web3 = new Web3(process.env.BSC_RPC);
@@ -17,7 +18,7 @@ const getCakeApys = async () => {
 
   for (const pool of pools) {
     const yearlyRewardsInUsd = await getYearlyRewardsInUsd(pool.smartChef, pool.oracle, pool.oracleId, pool.decimals);
-    const totalStakedInUsd = await getTotalStakedInUsd(pool.smartChef, 'coingecko', 'pancakeswap-token', syrup);
+    const totalStakedInUsd = await getTotalStakedInUsd(pool.smartChef, syrup, 'coingecko', 'pancakeswap-token');
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseCakeApy);
     apys[pool.name] = apy;
   }
@@ -41,14 +42,6 @@ const getYearlyRewardsInUsd = async (smartChefAddr, oracle, oracleId, decimals) 
   const earnedAssetPrice = await getPrice(oracle, oracleId);
   const yearlyRewardsInUsd = yearlyRewards.times(earnedAssetPrice).dividedBy(decimals);
   return yearlyRewardsInUsd;
-};
-
-const getTotalStakedInUsd = async (poolAddr, oracle, oracleId, tokenAddr) => {
-  const tokenPrice = await getPrice(oracle, oracleId);
-  const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
-  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
-  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
-  return totalStakedInUsd;
 };
 
 module.exports = getCakeApys;
