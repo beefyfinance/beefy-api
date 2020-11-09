@@ -17,7 +17,7 @@ async function cache(ctx, next) {
 
   await next();
 
-  ctx.set('Cache-Control', `no-cache no-store`);
+  ctx.set('Cache-Control', `no-cache, no-store`);
   ctx.cache[ctx.url] = {
     ts: Date.now(),
     body: ctx.body,
