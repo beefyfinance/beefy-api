@@ -4,17 +4,9 @@ const BigNumber = require('bignumber.js');
 const DeepFryer = require('../../../abis/DeepFryer.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getPrice } = require('../../../utils/getPrice');
+const pools = require('../../../data/fryPools.json');
 
 const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
-const pools = [
-  {
-    name: 'burger',
-    poolIndex: 0,
-    oracle: 'coingecko',
-    oracleId: 'burger-swap',
-    asset: '0xAe9269f27437f0fcBC232d39Ec814844a51d6b8f',
-  },
-];
 
 const web3 = new Web3(process.env.BSC_RPC);
 

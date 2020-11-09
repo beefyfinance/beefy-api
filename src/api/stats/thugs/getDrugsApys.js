@@ -5,17 +5,7 @@ const SmartGangster = require('../../../abis/SmartGangster.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const getBaseDrugsApy = require('./getBaseDrugsApy');
 const { getPrice } = require('../../../utils/getPrice');
-
-const pools = [
-  {
-    name: 'thugs-drugs-guns',
-    smartGangster: '0xf499d79Ac73569220c91F4bd016f328e40F983F2',
-    oracle: 'pancake',
-    oracleId: 'GUNS',
-    asset: '0x179983892eC36287f1F342443B671Ba549762241',
-    decimals: '1e18',
-  },
-];
+const pools = require('../../../data/drugsPools.json');
 
 const web3 = new Web3(process.env.BSC_RPC);
 

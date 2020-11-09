@@ -5,33 +5,7 @@ const SmartChef = require('../../../abis/SmartChef.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const getBaseCakeApy = require('./getBaseCakeApy');
 const { getPrice } = require('../../../utils/getPrice');
-
-const pools = [
-  {
-    name: 'cake-syrup-twt',
-    smartChef: '0xAfd61Dc94f11A70Ae110dC0E0F2061Af5633061A',
-    oracle: 'coingecko',
-    oracleId: 'trust-wallet-token',
-    asset: '0x4B0F1812e5Df2A09796481Ff14017e6005508003',
-    decimals: '1e18',
-  },
-  {
-    name: 'cake-syrup-inj',
-    smartChef: '0x92E8CeB7eAeD69fB6E4d9dA43F605D2610214E68',
-    oracle: 'coingecko',
-    oracleId: 'injective-protocol',
-    asset: '0xa2B726B1145A4773F68593CF171187d8EBe4d495',
-    decimals: '1e18',
-  },
-  {
-    name: 'cake-syrup-ctk',
-    smartChef: '0xF35d63Df93f32e025bce4A1B98dcEC1fe07AD892',
-    oracle: 'coingecko',
-    oracleId: 'certik',
-    asset: '0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929',
-    decimals: '1e6',
-  },
-];
+const pools = require('../../../data/cakePools.json');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
