@@ -1,9 +1,9 @@
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
-const DeepFryer = require('../abis/DeepFryer.json');
-const ERC20 = require('../abis/ERC20.json');
-const { getCoingeckoPrice } = require('./getPrice');
+const DeepFryer = require('../../../abis/DeepFryer.json');
+const ERC20 = require('../../../abis/ERC20.json');
+const { getCoingeckoPrice } = require('../../../utils/getPrice');
 
 const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
 const pools = [

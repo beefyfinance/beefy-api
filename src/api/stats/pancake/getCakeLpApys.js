@@ -1,9 +1,9 @@
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
-const MasterChef = require('../abis/MasterChef.json');
-const ERC20 = require('../abis/ERC20.json');
-const { getPancakeswapPrice } = require('./getPrice');
+const MasterChef = require('../../../abis/MasterChef.json');
+const ERC20 = require('../../../abis/ERC20.json');
+const { getPancakeswapPrice } = require('../../../utils/getPrice');
 
 const web3 = new Web3(process.env.BSC_RPC);
 

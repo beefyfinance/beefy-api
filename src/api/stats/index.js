@@ -1,16 +1,16 @@
 'use strict';
 
 const axios = require('axios');
-const { compound } = require('../utils/compound');
-const getFryApys = require('../utils/getFryApys');
-const getCakeLpApys = require('../utils/getCakeLpApys');
-const getBaseCakeApy = require('../utils/getBaseCakeApy');
+const { compound } = require('../../utils/compound');
+const getFryApys = require('./fry/getFryApys');
+const getCakeLpApys = require('./pancake/getCakeLpApys');
+const getBaseCakeApy = require('./pancake/getBaseCakeApy');
 
 const TIMEOUT = 5 * 60 * 1000;
 
 async function apy(ctx) {
   try {
-    ctx.request.socket.setTimeout(TIMEOUT); 
+    ctx.request.socket.setTimeout(TIMEOUT);
 
     const resSimple = await axios.get(process.env.FORTUBE_REQ_TOKENS);
     const resExtended = await axios.get(process.env.FORTUBE_REQ_MARKETS, {

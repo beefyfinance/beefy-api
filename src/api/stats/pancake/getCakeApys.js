@@ -1,10 +1,10 @@
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
-const SmartChef = require('../abis/SmartChef.json');
-const ERC20 = require('../abis/ERC20.json');
+const SmartChef = require('../../../abis/SmartChef.json');
+const ERC20 = require('../../../abis/ERC20.json');
 const getBaseCakeApy = require('./getBaseCakeApy');
-const { getCoingeckoPrice } = require('./getPrice');
+const { getCoingeckoPrice } = require('../../../utils/getPrice');
 
 const pools = [
   {

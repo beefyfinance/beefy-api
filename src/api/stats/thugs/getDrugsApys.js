@@ -1,10 +1,10 @@
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
-const SmartGangster = require('../abis/SmartGangster.json');
-const ERC20 = require('../abis/ERC20.json');
+const SmartGangster = require('../../../abis/SmartGangster.json');
+const ERC20 = require('../../../abis/ERC20.json');
 const getBaseDrugsApy = require('./getBaseDrugsApy');
-const { getPancakeswapPrice } = require('./getPrice');
+const { getPancakeswapPrice } = require('../../../utils/getPrice');
 
 const pools = [
   {
