@@ -3,14 +3,15 @@ const BigNumber = require('bignumber.js');
 
 const DeepFryer = require('../../../abis/DeepFryer.json');
 const ERC20 = require('../../../abis/ERC20.json');
-const { getCoingeckoPrice } = require('../../../utils/getPrice');
+const { getPrice } = require('../../../utils/getPrice');
 
 const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
 const pools = [
   {
     name: 'burger',
     poolIndex: 0,
-    coingeckoId: 'burger-swap',
+    oracle: 'coingecko',
+    oracleId: 'burger-swap',
     asset: '0xAe9269f27437f0fcBC232d39Ec814844a51d6b8f',
   },
 ];
@@ -25,7 +26,7 @@ const getFryApys = async () => {
     const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
     const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
 
-    const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.coingeckoId, pool.asset);
+    const totalStakedInUsd = await getTotalStakedInUsd(FRYER, pool.oracle, pool.oracleId, pool.asset);
 
     const apy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
     apys[pool.name] = apy;
@@ -45,13 +46,13 @@ const getYearlyRewardsInUsd = async (fryerAddr, blocks) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const friesPrice = await getCoingeckoPrice('fryworld');
+  const friesPrice = await getPrice('coingecko', 'fryworld');
   const yearlyRewardsInUsd = yearlyRewards.times(friesPrice).dividedBy('1e18');
   return yearlyRewardsInUsd;
 };
 
-const getTotalStakedInUsd = async (poolAddr, coingeckoId, tokenAddr) => {
-  const tokenPrice = await getCoingeckoPrice(coingeckoId);
+const getTotalStakedInUsd = async (poolAddr, oracle, oracleoId, tokenAddr) => {
+  const tokenPrice = await getPrice(oracle, oracleoId);
   const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');

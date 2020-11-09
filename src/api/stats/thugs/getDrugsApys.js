@@ -4,13 +4,14 @@ const BigNumber = require('bignumber.js');
 const SmartGangster = require('../../../abis/SmartGangster.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const getBaseDrugsApy = require('./getBaseDrugsApy');
-const { getPancakeswapPrice } = require('../../../utils/getPrice');
+const { getPrice } = require('../../../utils/getPrice');
 
 const pools = [
   {
     name: 'thugs-drugs-guns',
     smartGangster: '0xf499d79Ac73569220c91F4bd016f328e40F983F2',
-    pancakeswapId: 'GUNS',
+    oracle: 'pancake',
+    oracleId: 'GUNS',
     asset: '0x179983892eC36287f1F342443B671Ba549762241',
     decimals: '1e18',
   },
@@ -25,8 +26,13 @@ const getDrugsApys = async () => {
   const baseDrugsApy = await getBaseDrugsApy();
 
   for (const pool of pools) {
-    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(pool.smartGangster, pool.pancakeswapId, pool.decimals);
-    const totalStakedInUsd = await getTotalStakedInUsd(pool.smartGangster, 'DRUGS', hoes);
+    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(
+      pool.smartGangster,
+      pool.oracle,
+      pool.oracleId,
+      pool.decimals
+    );
+    const totalStakedInUsd = await getTotalStakedInUsd(pool.smartGangster, 'pancake', 'DRUGS', hoes);
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseDrugsApy);
     apys[pool.name] = apy;
   }
@@ -34,7 +40,7 @@ const getDrugsApys = async () => {
   return apys;
 };
 
-const getYearlyRewardsInUsd = async (smartGangsterAddr, earnedAsset, decimals) => {
+const getYearlyRewardsInUsd = async (smartGangsterAddr, oracle, oracleId, decimals) => {
   const smartGangsterContract = new web3.eth.Contract(SmartGangster, smartGangsterAddr);
 
   const currentBlock = await web3.eth.getBlockNumber();
@@ -47,13 +53,13 @@ const getYearlyRewardsInUsd = async (smartGangsterAddr, earnedAsset, decimals) =
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-  const earnedAssetPrice = await getPancakeswapPrice(earnedAsset);
+  const earnedAssetPrice = await getPrice(oracle, oracleId);
   const yearlyRewardsInUsd = yearlyRewards.times(earnedAssetPrice).dividedBy(decimals);
   return yearlyRewardsInUsd;
 };
 
-const getTotalStakedInUsd = async (poolAddr, pancakeswapId, tokenAddr) => {
-  const tokenPrice = await getPancakeswapPrice(pancakeswapId);
+const getTotalStakedInUsd = async (poolAddr, oracle, oracleId, tokenAddr) => {
+  const tokenPrice = await getPrice(oracle, oracleId);
   const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(poolAddr).call());
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
