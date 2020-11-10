@@ -22,13 +22,5 @@
     "oracleId": "STAX",
     "asset": "0x0Da6Ed8B13214Ff28e9Ca979Dd37439e8a88F6c4",
     "decimals": "1e18"
-  },
-  {
-    "name": "cake-nya",
-    "smartChef": "0x07a0A5B67136d40F4d7d95Bc8e0583bafD7A81b9",
-    "oracle": "hardcode",
-    "oracleId": 0.001,
-    "asset": "0xbFa0841F7a90c4CE6643f651756EE340991F99D5",
-    "decimals": "1e18"
   }
 ]
