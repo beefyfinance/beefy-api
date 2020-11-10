@@ -3,6 +3,7 @@
 const axios = require('axios');
 const { compound } = require('../../utils/compound');
 const getFryApys = require('./fry/getFryApys');
+const getCakeApys = require('./pancake/getCakeApys');
 const getCakeLpApys = require('./pancake/getCakeLpApys');
 const getBaseCakeApy = require('./pancake/getBaseCakeApy');
 
@@ -45,6 +46,13 @@ async function apy(ctx) {
     apys['cake-busd-bnb'] = compound(cakeLpApys['cake-busd-bnb'], process.env.CAKE_LP_HPY, 1, 0.955);
     apys['cake-usdt-busd'] = compound(cakeLpApys['cake-usdt-busd'], process.env.CAKE_LP_HPY, 1, 0.955);
     apys['cake-btcb-bnb'] = compound(cakeLpApys['cake-btcb-bnb'], process.env.CAKE_LP_HPY, 1, 0.955);
+
+    const cakeApys = await getCakeApys();
+    apys['cake-hard'] = compound(cakeApys['cake-hard'], process.env.CAKE_HPY, 1, 0.94);
+    apys['cake-ctk'] = compound(cakeApys['cake-ctk'], process.env.CAKE_HPY, 1, 0.94);
+    apys['cake-broobee'] = compound(cakeApys['cake-broobee'], process.env.CAKE_HPY, 1, 0.94);
+    apys['cake-stax'] = compound(cakeApys['cake-stax'], process.env.CAKE_HPY, 1, 0.94);
+    apys['cake-nya'] = compound(cakeApys['cake-nya'], process.env.CAKE_HPY, 1, 0.94);
 
     // FIXME: deprecated pools
     apys['cake-syrup-ctk'] = 0;

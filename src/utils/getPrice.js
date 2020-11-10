@@ -7,6 +7,8 @@ const getPrice = async (oracle, oracleId) => {
     price = await getPancakeswapPrice(oracleId);
   } else if (oracle === 'coingecko') {
     price = await getCoingeckoPrice(oracleId);
+  } else if (oracle === 'hardcode') {
+    price = oracleId;
   }
 
   return price;
