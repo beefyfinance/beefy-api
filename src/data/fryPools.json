@@ -1,0 +1,10 @@
+[
+  {
+    "name": "burger",
+    "poolIndex": 0,
+    "oracle": "coingecko",
+    "oracleId": "burger-swap",
+    "asset": "0xAe9269f27437f0fcBC232d39Ec814844a51d6b8f",
+    "decimals": "1e18"
+  }
+]

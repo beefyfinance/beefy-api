@@ -1,0 +1,34 @@
+[
+  {
+    "name": "cake-hard",
+    "smartChef": "0x90F995b9d46b32c4a1908A8c6D0122e392B3Be97",
+    "oracle": "coingecko",
+    "oracleId": "hard-protocol",
+    "asset": "0xf79037F6f6bE66832DE4E7516be52826BC3cBcc4",
+    "decimals": "1e6"
+  },
+  {
+    "name": "cake-broobee",
+    "smartChef": "0xdc8c45b7F3747Ca9CaAEB3fa5e0b5FCE9430646b",
+    "oracle": "pancake",
+    "oracleId": "bROOBEE",
+    "asset": "0xE64F5Cb844946C1F102Bd25bBD87a5aB4aE89Fbe",
+    "decimals": "1e18"
+  },
+  {
+    "name": "cake-stax",
+    "smartChef": "0xFF02241a2A1d2a7088A344309400E9fE74772815",
+    "oracle": "pancake",
+    "oracleId": "STAX",
+    "asset": "0x0Da6Ed8B13214Ff28e9Ca979Dd37439e8a88F6c4",
+    "decimals": "1e18"
+  },
+  {
+    "name": "cake-nya",
+    "smartChef": "0x07a0A5B67136d40F4d7d95Bc8e0583bafD7A81b9",
+    "oracle": "hardcode",
+    "oracleId": 0.001,
+    "asset": "0xbFa0841F7a90c4CE6643f651756EE340991F99D5",
+    "decimals": "1e18"
+  }
+]

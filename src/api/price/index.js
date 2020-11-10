@@ -1,7 +1,4 @@
-'use strict';
-
-const axios = require('axios');
-const getCakeLpPrices = require('../utils/getCakeLpPrices');
+const getCakeLpPrices = require('./getCakeLpPrices');
 
 async function lpPrices(ctx) {
   try {
