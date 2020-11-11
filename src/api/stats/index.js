@@ -51,7 +51,7 @@ async function apy(ctx) {
     apys['cake-hard'] = compound(cakeApys['cake-hard'], process.env.CAKE_HPY, 1, 0.94);
     apys['cake-broobee'] = compound(cakeApys['cake-broobee'], process.env.CAKE_HPY, 1, 0.94);
     apys['cake-stax'] = compound(cakeApys['cake-stax'], process.env.CAKE_HPY, 1, 0.94);
-    apys['cake-nya'] = compound(cakeApys['cake-nya'], process.env.CAKE_HPY, 1, 0.94);
+    apys['cake-twt'] = compound(cakeApys['cake-twt'], process.env.CAKE_HPY, 1, 0.94);
 
     // FIXME: deprecated pools
     apys['cake-syrup-ctk'] = 0;
