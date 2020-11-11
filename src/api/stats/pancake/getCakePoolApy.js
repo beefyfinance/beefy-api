@@ -5,10 +5,11 @@ const MasterChef = require('../../../abis/MasterChef.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getPrice } = require('../../../utils/getPrice');
 const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
+const { compound } = require('../../../utils/compound');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
-const getBaseCakeApy = async () => {
+const getCakePoolApy = async () => {
   const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
   const cake = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
   const oracle = 'coingecko';
@@ -16,8 +17,9 @@ const getBaseCakeApy = async () => {
 
   const yearlyRewardsInUsd = await getYearlyRewardsInUsd(masterChef, oracle, oracleId);
   const totalStakedInUsd = await getTotalStakedInUsd(masterChef, cake, oracle, oracleId);
-
-  return yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const apy = compound(simpleApy, process.env.CAKE_HPY, 1, 0.94);
+  return { 'cake-cake': apy };
 };
 
 const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
@@ -25,14 +27,19 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const toBlock = fromBlock + 1;
   const masterChefContract = new web3.eth.Contract(MasterChef, masterChefAddr);
 
-  const multiplier = new BigNumber(await masterChefContract.methods.getMultiplier(fromBlock, toBlock).call());
+  const multiplier = new BigNumber(
+    await masterChefContract.methods.getMultiplier(fromBlock, toBlock).call()
+  );
   const blockRewards = new BigNumber(await masterChefContract.methods.cakePerBlock().call());
 
   let { allocPoint } = await masterChefContract.methods.poolInfo(0).call();
   allocPoint = new BigNumber(allocPoint);
 
   const totalAllocPoint = new BigNumber(await masterChefContract.methods.totalAllocPoint().call());
-  const poolBlockRewards = blockRewards.times(multiplier).times(allocPoint).dividedBy(totalAllocPoint);
+  const poolBlockRewards = blockRewards
+    .times(multiplier)
+    .times(allocPoint)
+    .dividedBy(totalAllocPoint);
 
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
@@ -44,4 +51,4 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   return yearlyRewardsInUsd;
 };
 
-module.exports = getBaseCakeApy;
+module.exports = getCakePoolApy;
