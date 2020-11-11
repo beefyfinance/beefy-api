@@ -5,7 +5,7 @@ const ERC20 = require('../../abis/ERC20.json');
 const { getPrice } = require('../../utils/getPrice');
 const lpTokens = require('../../data/cakeLpPools.json');
 
-const web3 = new Web3(process.env.BSC_RPC);
+const web3 = new Web3(process.env.BSC_RPC_3 || process.env.BSC_RPC);
 
 const getCakeLpPrices = async () => {
   let prices = {};

@@ -7,7 +7,7 @@ const { getPrice } = require('../../../utils/getPrice');
 const pools = require('../../../data/cakeLpPools.json');
 const { compound } = require('../../../utils/compound');
 
-const web3 = new Web3(process.env.BSC_RPC);
+const web3 = new Web3(process.env.BSC_RPC_2 || process.env.BSC_RPC);
 
 const getCakeLpApys = async () => {
   let apys = {};
