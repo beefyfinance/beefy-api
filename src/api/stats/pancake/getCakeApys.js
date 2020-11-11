@@ -10,31 +10,36 @@ const { compound } = require('../../../utils/compound');
 const web3 = new Web3(process.env.BSC_RPC);
 
 const getCakeApys = async () => {
-  console.time('cake output');
+  let apys = {};
 
-  const apys = {};
+  let promises = [];
+  pools.forEach(pool => promises.push(getPoolApy(pool)));
+  const values = await Promise.all(promises);
 
-  for (const pool of pools) {
-    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(
-      pool.smartChef,
-      pool.oracle,
-      pool.oracleId,
-      pool.decimals
-    );
-    const totalStakedInUsd = await getTotalStakedInUsd(
-      pool.smartChef,
-      '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
-      'coingecko',
-      'pancakeswap-token'
-    );
-    const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-    const apy = compound(simpleApy, process.env.CAKE_HPY, 1, 0.94);
-    apys[pool.name] = apy;
+  for (item of values) {
+    apys = { ...apys, ...item };
   }
 
-  console.timeEnd('cake output');
-
   return apys;
+};
+
+const getPoolApy = async pool => {
+  const yearlyRewardsInUsd = await getYearlyRewardsInUsd(
+    pool.smartChef,
+    pool.oracle,
+    pool.oracleId,
+    pool.decimals
+  );
+  const totalStakedInUsd = await getTotalStakedInUsd(
+    pool.smartChef,
+    '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+    'coingecko',
+    'pancakeswap-token'
+  );
+  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const apy = compound(simpleApy, process.env.CAKE_HPY, 1, 0.94);
+
+  return { [pool.name]: apy };
 };
 
 const getYearlyRewardsInUsd = async (smartChefAddr, oracle, oracleId, decimals) => {

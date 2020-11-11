@@ -10,8 +10,6 @@ const { compound } = require('../../../utils/compound');
 const web3 = new Web3(process.env.BSC_RPC);
 
 const getCakePoolApy = async () => {
-  console.time('simple cake pool');
-
   const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
   const cake = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
   const oracle = 'coingecko';
@@ -22,7 +20,6 @@ const getCakePoolApy = async () => {
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.CAKE_HPY, 1, 0.94);
 
-  console.timeEnd('simple cake pool');
   return { 'cake-cake': apy };
 };
 

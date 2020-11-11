@@ -13,7 +13,6 @@ const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
 const web3 = new Web3(process.env.BSC_RPC);
 
 const getFryApys = async () => {
-  console.time('fry');
   const apys = {};
 
   for (const pool of pools) {
@@ -32,7 +31,7 @@ const getFryApys = async () => {
     const simpleApy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
     apys[pool.name] = compound(simpleApy, process.env.FRY_HPY, 1, 0.95);
   }
-  console.timeEnd('fry');
+
   return apys;
 };
 
