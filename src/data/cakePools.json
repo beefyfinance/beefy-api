@@ -22,8 +22,6 @@
     "oracleId": "STAX",
     "asset": "0x0Da6Ed8B13214Ff28e9Ca979Dd37439e8a88F6c4",
     "decimals": "1e18"
-<<<<<<< HEAD
-=======
   },
   {
     "name": "cake-twt",
@@ -32,6 +30,5 @@
     "oracleId": "TWT",
     "asset": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
     "decimals": "1e18"
->>>>>>> 838e079f6f7fb3340ad0898b9fb9f33d42f3b0f6
   }
 ]
