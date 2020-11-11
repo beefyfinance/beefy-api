@@ -10,6 +10,8 @@ const { compound } = require('../../../utils/compound');
 const web3 = new Web3(process.env.BSC_RPC);
 
 const getCakeApys = async () => {
+  console.time('cake output');
+
   const apys = {};
 
   for (const pool of pools) {
@@ -29,6 +31,8 @@ const getCakeApys = async () => {
     const apy = compound(simpleApy, process.env.CAKE_HPY, 1, 0.94);
     apys[pool.name] = apy;
   }
+
+  console.timeEnd('cake output');
 
   return apys;
 };

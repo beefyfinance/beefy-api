@@ -2,6 +2,8 @@ const axios = require('axios');
 const { compound } = require('../../../utils/compound');
 
 const getFortubeApys = async () => {
+  console.time('fortube');
+
   let fortubeApys = {};
 
   const resSimple = await axios.get(process.env.FORTUBE_REQ_TOKENS);
@@ -25,6 +27,8 @@ const getFortubeApys = async () => {
       item.deposit_interest_rate
     );
   });
+
+  console.timeEnd('fortube');
 
   return fortubeApys;
 };

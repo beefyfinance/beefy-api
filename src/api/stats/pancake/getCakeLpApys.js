@@ -10,6 +10,8 @@ const { compound } = require('../../../utils/compound');
 const web3 = new Web3(process.env.BSC_RPC);
 
 const getCakeLpApys = async () => {
+  console.time('cake lps');
+
   let apys = {};
   const masterchef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
 
@@ -20,6 +22,8 @@ const getCakeLpApys = async () => {
     const apy = compound(simpleApy, process.env.CAKE_LP_HPY, 1, 0.955);
     apys[pool.name] = apy;
   }
+
+  console.timeEnd('cake lps');
 
   return apys;
 };

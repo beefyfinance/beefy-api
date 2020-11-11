@@ -13,6 +13,7 @@ const FRYER = '0x066d5544a0b05b19f08e45dbc13758a3590386c4';
 const web3 = new Web3(process.env.BSC_RPC);
 
 const getFryApys = async () => {
+  console.time('fry');
   const apys = {};
 
   for (const pool of pools) {
@@ -31,7 +32,7 @@ const getFryApys = async () => {
     const simpleApy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
     apys[pool.name] = compound(simpleApy, process.env.FRY_HPY, 1, 0.95);
   }
-
+  console.timeEnd('fry');
   return apys;
 };
 
@@ -55,17 +56,11 @@ const getYearlyRewardsInUsd = async (fryerAddr, blocks) => {
 
 const getPoolRewardsPercentage = async (poolIndex, fryerAddr) => {
   const fryerContract = new web3.eth.Contract(DeepFryer, fryerAddr);
-  const poolLength = await fryerContract.methods.poolLength().call();
 
-  let totalRewardPoints = new BigNumber('0');
-  let poolRewardPoints;
+  let totalRewardPoints = new BigNumber(await fryerContract.methods.totalAllocPoint().call());
 
-  for (let i = 0; i < poolLength; i++) {
-    const poolInfo = await fryerContract.methods.poolInfo(i).call();
-    totalRewardPoints = totalRewardPoints.plus(poolInfo.allocPoint);
-
-    if (i == poolIndex) poolRewardPoints = new BigNumber(poolInfo.allocPoint);
-  }
+  let poolInfo = await fryerContract.methods.poolInfo(poolIndex).call();
+  let poolRewardPoints = new BigNumber(poolInfo.allocPoint);
 
   const poolRewardsPercentage = poolRewardPoints.dividedBy(totalRewardPoints);
   return poolRewardsPercentage;
