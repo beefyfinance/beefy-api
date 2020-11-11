@@ -11,21 +11,28 @@ const web3 = new Web3(process.env.BSC_RPC);
 
 const getCakeLpApys = async () => {
   console.time('cake lps');
-
   let apys = {};
   const masterchef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
 
-  for (pool of pools) {
-    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(masterchef, pool);
-    const totalStakedInUsd = await getTotalStakedInUsd(masterchef, pool);
-    const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-    const apy = compound(simpleApy, process.env.CAKE_LP_HPY, 1, 0.955);
-    apys[pool.name] = apy;
+  let promises = [];
+  pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
+  const values = await Promise.all(promises);
+
+  for (item of values) {
+    apys = { ...apys, ...item };
   }
 
   console.timeEnd('cake lps');
 
   return apys;
+};
+
+const getPoolApy = async (masterchef, pool) => {
+  const yearlyRewardsInUsd = await getYearlyRewardsInUsd(masterchef, pool);
+  const totalStakedInUsd = await getTotalStakedInUsd(masterchef, pool);
+  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const apy = compound(simpleApy, process.env.CAKE_LP_HPY, 1, 0.955);
+  return { [pool.name]: apy };
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
