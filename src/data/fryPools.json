@@ -1,6 +1,6 @@
 [
   {
-    "name": "burger",
+    "name": "fry-burger-v2",
     "poolIndex": 0,
     "oracle": "coingecko",
     "oracleId": "burger-swap",
