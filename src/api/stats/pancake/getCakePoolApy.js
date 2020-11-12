@@ -15,8 +15,11 @@ const getCakePoolApy = async () => {
   const oracle = 'coingecko';
   const oracleId = 'pancakeswap-token';
 
-  const yearlyRewardsInUsd = await getYearlyRewardsInUsd(masterChef, oracle, oracleId);
-  const totalStakedInUsd = await getTotalStakedInUsd(masterChef, cake, oracle, oracleId);
+  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
+    getYearlyRewardsInUsd(masterChef, oracle, oracleId),
+    getTotalStakedInUsd(masterChef, cake, oracle, oracleId),
+  ]);
+
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.CAKE_HPY, 1, 0.94);
 

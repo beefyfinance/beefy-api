@@ -24,18 +24,16 @@ const getCakeApys = async () => {
 };
 
 const getPoolApy = async pool => {
-  const yearlyRewardsInUsd = await getYearlyRewardsInUsd(
-    pool.smartChef,
-    pool.oracle,
-    pool.oracleId,
-    pool.decimals
-  );
-  const totalStakedInUsd = await getTotalStakedInUsd(
-    pool.smartChef,
-    '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
-    'coingecko',
-    'pancakeswap-token'
-  );
+  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
+    getYearlyRewardsInUsd(pool.smartChef, pool.oracle, pool.oracleId, pool.decimals),
+    getTotalStakedInUsd(
+      pool.smartChef,
+      '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+      'coingecko',
+      'pancakeswap-token'
+    ),
+  ]);
+
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.CAKE_HPY, 1, 0.94);
 

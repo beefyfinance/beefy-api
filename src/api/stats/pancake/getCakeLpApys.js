@@ -25,8 +25,10 @@ const getCakeLpApys = async () => {
 };
 
 const getPoolApy = async (masterchef, pool) => {
-  const yearlyRewardsInUsd = await getYearlyRewardsInUsd(masterchef, pool);
-  const totalStakedInUsd = await getTotalStakedInUsd(masterchef, pool);
+  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
+    getYearlyRewardsInUsd(masterchef, pool),
+    getTotalStakedInUsd(masterchef, pool),
+  ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.CAKE_LP_HPY, 1, 0.955);
   return { [pool.name]: apy };

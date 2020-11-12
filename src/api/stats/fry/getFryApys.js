@@ -16,17 +16,13 @@ const getFryApys = async () => {
   const apys = {};
 
   for (const pool of pools) {
-    const yearlyRewardsInUsd = await getYearlyRewardsInUsd(FRYER, 1);
-    const poolRewardsPercentage = await getPoolRewardsPercentage(pool.poolIndex, FRYER);
-    const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
+    const [yearlyRewardsInUsd, poolRewardsPercentage, totalStakedInUsd] = await Promise.all([
+      getYearlyRewardsInUsd(FRYER, 1),
+      getPoolRewardsPercentage(pool.poolIndex, FRYER),
+      getTotalStakedInUsd(FRYER, pool.asset, pool.oracle, pool.oracleId, pool.decimals),
+    ]);
 
-    const totalStakedInUsd = await getTotalStakedInUsd(
-      FRYER,
-      pool.asset,
-      pool.oracle,
-      pool.oracleId,
-      pool.decimals
-    );
+    const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
 
     const simpleApy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
     apys[pool.name] = compound(simpleApy, process.env.FRY_HPY, 1, 0.95);
