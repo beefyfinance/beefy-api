@@ -9,7 +9,6 @@ const web3 = new Web3(process.env.BSC_RPC_3 || process.env.BSC_RPC);
 
 const getCakeLpPrices = async () => {
   let prices = {};
-  console.time('Prices');
 
   let promises = [];
   lpTokens.forEach(lpToken => promises.push(getLpTokenPrice(lpToken)));
@@ -19,7 +18,6 @@ const getCakeLpPrices = async () => {
     prices = { ...prices, ...item };
   }
 
-  console.timeEnd('Prices');
   return prices;
 };
 
@@ -48,7 +46,5 @@ const getLpTokenPrice = async lpToken => {
 
   return { [lpToken.name]: Number(lpTokenPrice) };
 };
-
-getCakeLpPrices();
 
 module.exports = getCakeLpPrices;
