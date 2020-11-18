@@ -1,9 +1,9 @@
 const getCakeLpPrices = require('./getCakeLpPrices');
+const getThugsLpPrices = require('./getThugsLpPrices');
 
-async function lpPrices(ctx) {
+async function cakeLpsPrices(ctx) {
   try {
     const prices = await getCakeLpPrices();
-
     ctx.status = 200;
     ctx.body = prices;
   } catch (err) {
@@ -12,4 +12,15 @@ async function lpPrices(ctx) {
   }
 }
 
-module.exports = { lpPrices };
+async function thugsLpsPrices(ctx) {
+  try {
+    const prices = await getThugsLpPrices();
+    ctx.status = 200;
+    ctx.body = prices;
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
+module.exports = { cakeLpsPrices, thugsLpsPrices };

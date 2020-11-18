@@ -10,7 +10,8 @@ const proxy = require('./api/proxy');
 
 router.get('/apy', stats.apy);
 router.get('/pancake/price', proxy.pancake);
-router.get('/pancake/lps', price.lpPrices);
+router.get('/pancake/lps', price.cakeLpsPrices);
+router.get('/thugs/lps', price.thugsLpsPrices);
 router.get('/', noop);
 
 module.exports = router;
