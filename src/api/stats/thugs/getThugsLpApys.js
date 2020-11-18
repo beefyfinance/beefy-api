@@ -21,8 +21,6 @@ const getThugsLpApys = async () => {
     apys = { ...apys, ...item };
   }
 
-  console.log(JSON.stringify(apys));
-
   return apys;
 };
 
@@ -91,7 +89,5 @@ const getLpTokenPrice = async pool => {
 
   return lpTokenPrice;
 };
-
-getThugsLpApys();
 
 module.exports = getThugsLpApys;

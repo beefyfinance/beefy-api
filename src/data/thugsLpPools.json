@@ -2,7 +2,7 @@
   {
     "name": "street-thugs-bnb",
     "address": "0x9354caB0F1083135439B23aA6c364329e578F39a",
-    "poolId": 1,
+    "poolId": 16,
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
       "oracle": "pancake",
@@ -17,7 +17,7 @@
   {
     "name": "street-drugs-bnb",
     "address": "0x5BcE5d58682f15541EFc72d8f56C7d6221d541f1",
-    "poolId": 1,
+    "poolId": 17,
     "lp0": {
       "address": "0xfD26889cd6454D8751562f1c0FcF88b18B46F7B7",
       "oracle": "pancake",
@@ -32,7 +32,7 @@
   {
     "name": "street-guns-bnb",
     "address": "0xa5e5eeB6b51fa0fDc59915C81d75C83470BFA4f0",
-    "poolId": 1,
+    "poolId": 18,
     "lp0": {
       "address": "0x179983892eC36287f1F342443B671Ba549762241",
       "oracle": "pancake",
@@ -47,7 +47,7 @@
   {
     "name": "street-busd-bnb",
     "address": "0xf2e4E3F9B58b3eDaC88Ad11D689a23f3119a782D",
-    "poolId": 1,
+    "poolId": 19,
     "lp0": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "pancake",
@@ -62,7 +62,7 @@
   {
     "name": "street-btc-bnb",
     "address": "0xdFb193940E1317f38e91568fdb05EFE18ee4A3c7",
-    "poolId": 1,
+    "poolId": 20,
     "lp0": {
       "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "oracle": "pancake",
@@ -77,7 +77,7 @@
   {
     "name": "street-eth-bnb",
     "address": "0x75115C644F9661A761A333Ba0A38e42B1649f143",
-    "poolId": 1,
+    "poolId": 21,
     "lp0": {
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "pancake",
