@@ -6,6 +6,7 @@ const { getPrice } = require('../../../utils/getPrice');
 const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/cakePools.json');
 const { compound } = require('../../../utils/compound');
+const getCakeSmartApy = require('./getCakeSmartApy');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
@@ -20,7 +21,7 @@ const getCakeApys = async () => {
     apys = { ...apys, ...item };
   }
 
-  apys['cake-smart'] = apys['cake-twt'];
+  apys['cake-smart'] = await getCakeSmartApy(apys);
 
   return apys;
 };
@@ -58,10 +59,6 @@ const getYearlyRewardsInUsd = async (smartChefAddr, oracle, oracleId, decimals) 
   const earnedAssetPrice = await getPrice(oracle, oracleId);
   const yearlyRewardsInUsd = yearlyRewards.times(earnedAssetPrice).dividedBy(decimals);
   return yearlyRewardsInUsd;
-};
-
-const getCakeSmartApy = apys => {
-  return Math.max.apply(Math, Object.values(apys));
 };
 
 module.exports = getCakeApys;
