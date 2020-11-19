@@ -20,7 +20,7 @@ const getCakeApys = async () => {
     apys = { ...apys, ...item };
   }
 
-  apys['cake-smart'] = getCakeSmartApy(apys);
+  apys['cake-smart'] = apys['cake-twt'];
 
   return apys;
 };
