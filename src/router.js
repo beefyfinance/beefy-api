@@ -7,8 +7,10 @@ const noop = require('./api/noop');
 const stats = require('./api/stats');
 const price = require('./api/price');
 const proxy = require('./api/proxy');
+const smart = require('./api/smart');
 
 router.get('/apy', stats.apy);
+router.get('/smart', smart.getSmartcakeData);
 router.get('/pancake/price', proxy.pancake);
 router.get('/pancake/lps', price.cakeLpsPrices);
 router.get('/thugs/lps', price.thugsLpsPrices);
