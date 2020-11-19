@@ -5,19 +5,18 @@ const SmartChef = require('../../abis/SmartChef.json');
 const StrategySmartCake = require('../../abis/StrategySmartCake.json');
 const { getPrice } = require('../../utils/getPrice');
 const getTotalStakedInUsd = require('../../utils/getTotalStakedInUsd');
-const cakePools = require('../../data/cakePools.json');
 const { compound } = require('../../utils/compound');
+const cakePools = require('../../data/cakePools.json');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
-const SMARTCAKE_POOLS = {
-  'cake-hard': 0,
-  'cake-broobee': 1,
-  'cake-twt': 2,
-};
-
 const getSmartcakeData = async ctx => {
   try {
+    const smartcakePools = {
+      'cake-hard': 0,
+      'cake-broobee': 1,
+      'cake-twt': 2,
+    };
     const currentPool = await getCurrentPool();
     const smartcakeStakeInUsd = await getSmartcakeStakeInUsd(cakePools, currentPool);
 
@@ -40,8 +39,8 @@ const getSmartcakeData = async ctx => {
 
     for (const key in apys) {
       if (apys[key] > smartcakeData.expectedApy) {
-        if (SMARTCAKE_POOLS[key] !== undefined) {
-          smartcakeData.poolId = SMARTCAKE_POOLS[key];
+        if (smartcakePools[key] !== undefined) {
+          smartcakeData.poolId = smartcakePools[key];
           smartcakeData.expectedApy = apys[key];
         }
       }
