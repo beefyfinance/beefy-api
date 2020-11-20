@@ -80,7 +80,7 @@ const fetchThugs = async (id) => {
     if(pair[0] === WBNB) {
       price = bnb / ticker['last_price'];
     } else {
-      price = ticker['last_price'] / bnb;
+      price = bnb * ticker['last_price'];
     }
 
     return price;
