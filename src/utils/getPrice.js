@@ -7,22 +7,23 @@ const endpoints = {
 };
 
 const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
+const WBNB_BUSD = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
 
 const CACHE_TIMEOUT = 30 * 60 * 1000;
 const cache = {};
 
-function isCached({oracle, id}) {
+function isCached(oracle, id) {
   if (`${oracle}-${id}` in cache) {
     return cache[`${oracle}-${id}`].t + CACHE_TIMEOUT > Date.now();
   }
   return false;
 }
 
-function getCachedPrice({oracle, id}) {
+function getCachedPrice(oracle, id) {
   return cache[`${oracle}-${id}`].price;
 }
 
-function addToCache({oracle, id, price}) {
+function addToCache(oracle, id, price) {
   cache[`${oracle}-${id}`] = {price: price, t: Date.now()};
 }
 
@@ -30,8 +31,8 @@ const getPrice = async (oracle, id) => {
   if (oracle === undefined) { console.error('Undefined oracle'); return 0; }
   if (id === undefined) { console.error('Undefined pair'); return 0; }
 
-  if (isCached({oracle, id})){
-    return getCachedPrice({oracle, id});
+  if (isCached(oracle, id)){
+    return getCachedPrice(oracle, id);
   }
   
   let price = 0;
@@ -43,7 +44,7 @@ const getPrice = async (oracle, id) => {
     default: console.error('Unknown oracle:', oracle);
   }
 
-  addToCache({oracle, id, price});
+  addToCache(oracle, id, price);
   return price;
 };
 
@@ -71,14 +72,18 @@ const fetchCoingecko = async (id) => {
 
 const fetchThugs = async (id) => {
   try {
-    const wbnb_price = await getPrice({oracle: 'pancake', id: 'WBNB'});
     const response = await axios.get(endpoints.thugs);
     const ticker = response.data[id];
+    const bnb = response.data[WBNB_BUSD]['last_price'];
 
-    console.log('wbnb', wbnb_price);
-    // console.log('thugs id', id, ticker);
+    const pair = id.split('_');
+    if(pair[0] === WBNB) {
+      price = bnb / ticker['last_price'];
+    } else {
+      price = ticker['last_price'] / bnb;
+    }
 
-    return 0;
+    return price;
   } catch (err) {
     console.error(err);
     return 0;
