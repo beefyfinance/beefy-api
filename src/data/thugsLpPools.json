@@ -88,5 +88,37 @@
       "oracle": "pancake",
       "oracleId": "WBNB"
     }
+  },
+
+  {
+    "name": "street-pancakelp-thugs-bnb",
+    "address": "0x40257481f09db2211a3274b34554bbb00b0a7fb1",
+    "poolId": 4,
+    "lp0": {
+      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "pancake",
+      "oracleId": "THUGS"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB"
+    }
+  },
+
+  {
+    "name": "street-narwhallp-thugs-bnb",
+    "address": "0x40Ff83ac2890DD5469f5eCa2c17dcAf10ee09957",
+    "poolId": 12,
+    "lp0": {
+      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "pancake",
+      "oracleId": "THUGS"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB"
+    }
   }
 ]
