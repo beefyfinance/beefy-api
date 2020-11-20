@@ -5,15 +5,14 @@
     "poolId": 16,
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "pancake",
-      "oracleId": "THUGS"
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "pancake",
       "oracleId": "WBNB"
-    },
-    "street_swap": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0"
+    }
   },
   {
     "name": "street-drugs-bnb",
@@ -21,8 +20,8 @@
     "poolId": 17,
     "lp0": {
       "address": "0xfD26889cd6454D8751562f1c0FcF88b18B46F7B7",
-      "oracle": "pancake",
-      "oracleId": "DRUGS"
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xfD26889cd6454D8751562f1c0FcF88b18B46F7B7"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
@@ -36,8 +35,8 @@
     "poolId": 18,
     "lp0": {
       "address": "0x179983892eC36287f1F342443B671Ba549762241",
-      "oracle": "pancake",
-      "oracleId": "GUNS"
+      "oracle": "thugs",
+      "oracleId": "0x179983892eC36287f1F342443B671Ba549762241_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
@@ -83,38 +82,6 @@
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "pancake",
       "oracleId": "ETH"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
-      "oracleId": "WBNB"
-    }
-  },
-
-  {
-    "name": "street-pancakelp-thugs-bnb",
-    "address": "0x40257481f09db2211a3274b34554bbb00b0a7fb1",
-    "poolId": 4,
-    "lp0": {
-      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "pancake",
-      "oracleId": "THUGS"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
-      "oracleId": "WBNB"
-    }
-  },
-
-  {
-    "name": "street-narwhallp-thugs-bnb",
-    "address": "0x40Ff83ac2890DD5469f5eCa2c17dcAf10ee09957",
-    "poolId": 12,
-    "lp0": {
-      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "pancake",
-      "oracleId": "THUGS"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",

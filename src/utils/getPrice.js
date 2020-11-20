@@ -6,6 +6,8 @@ const endpoints = {
   coingecko: 'https://api.coingecko.com/api/v3/simple/price',
 };
 
+const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
+
 const CACHE_TIMEOUT = 30 * 60 * 1000;
 const cache = {};
 
@@ -67,10 +69,14 @@ const fetchCoingecko = async (id) => {
   }
 };
 
-const fetchPancake = async (id) => {
+const fetchThugs = async (id) => {
   try {
     const response = await axios.get(endpoints.thugs);
-    return response.data.prices[id];
+    const ticker = response.data[id];
+
+    console.log('thugs id', id, ticker);
+
+    return 0;
   } catch (err) {
     console.error(err);
     return 0;
