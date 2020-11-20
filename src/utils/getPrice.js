@@ -71,10 +71,12 @@ const fetchCoingecko = async (id) => {
 
 const fetchThugs = async (id) => {
   try {
+    const wbnb_price = await getPrice({oracle: 'pancake', id: 'WBNB'});
     const response = await axios.get(endpoints.thugs);
     const ticker = response.data[id];
 
-    console.log('thugs id', id, ticker);
+    console.log('wbnb', wbnb_price);
+    // console.log('thugs id', id, ticker);
 
     return 0;
   } catch (err) {
