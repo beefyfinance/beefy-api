@@ -12,7 +12,8 @@
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "pancake",
       "oracleId": "WBNB"
-    }
+    },
+    "street_swap": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0"
   },
   {
     "name": "street-drugs-bnb",
