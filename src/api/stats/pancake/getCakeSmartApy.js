@@ -7,7 +7,6 @@ const web3 = new Web3(process.env.BSC_RPC);
 const getCakeSmartApy = async apys => {
   const pools = {
     0: 'cake-hard',
-    1: 'cake-broobee',
     2: 'cake-twt',
   };
 

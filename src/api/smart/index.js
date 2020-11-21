@@ -14,7 +14,6 @@ const getSmartcakeData = async ctx => {
   try {
     const smartcakePools = {
       'cake-hard': 0,
-      'cake-broobee': 1,
       'cake-twt': 2,
     };
     const currentPool = await getCurrentPool();

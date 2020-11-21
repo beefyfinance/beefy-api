@@ -9,15 +9,6 @@
     "smartcakePoolId": 0
   },
   {
-    "name": "cake-broobee",
-    "smartChef": "0xdc8c45b7F3747Ca9CaAEB3fa5e0b5FCE9430646b",
-    "oracle": "pancake",
-    "oracleId": "bROOBEE",
-    "asset": "0xE64F5Cb844946C1F102Bd25bBD87a5aB4aE89Fbe",
-    "decimals": "1e18",
-    "smartcakePoolId": 1
-  },
-  {
     "name": "cake-twt",
     "smartChef": "0x9c4EBADa591FFeC4124A7785CAbCfb7068fED2fb",
     "oracle": "pancake",
