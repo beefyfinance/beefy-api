@@ -2,7 +2,7 @@
   {
     "name": "street-drugs-bnb",
     "address": "0x421DF185Ff87bc5f19bd5a90102A51452b70c4A4",
-    "poolId": 0,
+    "poolId": 1,
     "lp0": {
       "address": "0x339550404Ca4d831D12B1b2e4768869997390010",
       "oracle": "thugs",
@@ -17,7 +17,7 @@
   {
     "name": "street-thugs-bnb",
     "address": "0x9354caB0F1083135439B23aA6c364329e578F39a",
-    "poolId": 0,
+    "poolId": 2,
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
       "oracle": "thugs",
@@ -32,7 +32,7 @@
   {
     "name": "street-cred-bnb",
     "address": "0x9CBE4F200b474a1C33bfFe7c6e531e1D47ECab46",
-    "poolId": 0,
+    "poolId": 9,
     "lp0": {
       "address": "0x571D0B55fe30eb1F6E68e8799F181c46De6B0059",
       "oracle": "thugs",
@@ -46,8 +46,8 @@
   },
   {
     "name": "street-guns-bnb",
-    "address": "0x9354caB0F1083135439B23aA6c364329e578F39a",
-    "poolId": 0,
+    "address": "0xa5e5eeB6b51fa0fDc59915C81d75C83470BFA4f0",
+    "poolId": 3,
     "lp0": {
       "address": "0x179983892eC36287f1F342443B671Ba549762241",
       "oracle": "thugs",
@@ -62,7 +62,7 @@
   {
     "name": "street-busd-bnb",
     "address": "0xf2e4E3F9B58b3eDaC88Ad11D689a23f3119a782D",
-    "poolId": 0,
+    "poolId": 4,
     "lp0": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "pancake",
@@ -77,7 +77,7 @@
   {
     "name": "street-btc-bnb",
     "address": "0xdFb193940E1317f38e91568fdb05EFE18ee4A3c7",
-    "poolId": 0,
+    "poolId": 5,
     "lp0": {
       "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "oracle": "thugs",
@@ -92,7 +92,7 @@
   {
     "name": "street-eth-bnb",
     "address": "0x75115C644F9661A761A333Ba0A38e42B1649f143",
-    "poolId": 0,
+    "poolId": 6,
     "lp0": {
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "thugs",
@@ -108,7 +108,7 @@
   {
     "name": "street-panacakelp-thugs-bnb",
     "address": "0x40257481f09dB2211a3274B34554Bbb00B0a7Fb1",
-    "poolId": 0,
+    "poolId": 7,
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
       "oracle": "thugs",
@@ -123,7 +123,7 @@
   {
     "name": "street-narwhalslp-thugs-bnb",
     "address": "0x40Ff83ac2890DD5469f5eCa2c17dcAf10ee09957",
-    "poolId": 0,
+    "poolId": 8,
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
       "oracle": "thugs",
@@ -138,7 +138,7 @@
   {
     "name": "street-dai-bnb",
     "address": "0xed8Ecb790Be568461d85Cf82C386E51124E46a52",
-    "poolId": 0,
+    "poolId": 10,
     "lp0": {
       "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
       "oracle": "pancake",
@@ -153,7 +153,7 @@
   {
     "name": "street-usdt-bnb",
     "address": "0x0d29724d1834Fc65869812BAe5d63dce8aCB7921",
-    "poolId": 0,
+    "poolId": 11,
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
       "oracle": "pancake",
@@ -168,7 +168,7 @@
   {
     "name": "street-bliq-bnb",
     "address": "0xe835ed82C7d9d018f8F5173EECfBb56f29f38570",
-    "poolId": 0,
+    "poolId": 12,
     "lp0": {
       "address": "0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22",
       "oracle": "pancake",

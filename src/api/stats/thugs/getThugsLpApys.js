@@ -30,7 +30,6 @@ const getPoolApy = async (gangster, pool) => {
     getTotalStakedInUsd(gangster, pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  console.log(pool.name, simpleApy.toString());
   const apy = compound(simpleApy, process.env.THUGS_LP_HPY, 1, 0.94);
   return { [pool.name]: apy };
 };
