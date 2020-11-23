@@ -9,8 +9,9 @@ const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
 const web3 = new Web3(process.env.BSC_RPC);
 
 const getBaseDrugsApy = async () => {
-  const originalGangster = '0xb752f0cB591Ecfb1c5058a93e1332F066bf38473';
-  const drugs = '0xfD26889cd6454D8751562f1c0FcF88b18B46F7B7';
+  const originalGangster = '0x03edb31BeCc296d45670790c947150DAfEC2E238';
+  const drugs = '0x339550404Ca4d831D12B1b2e4768869997390010';
+
   const oracle = 'pancake';
   const oracleId = 'DRUGS';
 
@@ -25,14 +26,21 @@ const getYearlyRewardsInUsd = async originalGangsterAddr => {
   const toBlock = fromBlock + 1;
   const originalGangsterContract = new web3.eth.Contract(OriginalGangster, originalGangsterAddr);
 
-  const multiplier = new BigNumber(await originalGangsterContract.methods.getMultiplier(fromBlock, toBlock).call());
+  const multiplier = new BigNumber(
+    await originalGangsterContract.methods.getMultiplier(fromBlock, toBlock).call()
+  );
   const blockRewards = new BigNumber(await originalGangsterContract.methods.drugsPerBlock().call());
 
   let { allocPoint } = await originalGangsterContract.methods.poolInfo(0).call();
   allocPoint = new BigNumber(allocPoint);
 
-  const totalAllocPoint = new BigNumber(await originalGangsterContract.methods.totalAllocPoint().call());
-  const poolBlockRewards = blockRewards.times(multiplier).times(allocPoint).dividedBy(totalAllocPoint);
+  const totalAllocPoint = new BigNumber(
+    await originalGangsterContract.methods.totalAllocPoint().call()
+  );
+  const poolBlockRewards = blockRewards
+    .times(multiplier)
+    .times(allocPoint)
+    .dividedBy(totalAllocPoint);
 
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;

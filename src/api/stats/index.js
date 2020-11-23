@@ -12,7 +12,6 @@ async function apy(ctx) {
     apys['cake-syrup-ctk'] = 0;
     apys['cake-syrup-twt'] = 0;
     apys['cake-syrup-inj'] = 0;
-    apys['thugs-drugs-guns'] = 0;
 
     ctx.status = 200;
     ctx.body = apys;

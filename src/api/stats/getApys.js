@@ -4,6 +4,7 @@ const getCakePoolApy = require('./pancake/getCakePoolApy');
 const getCakeLpApys = require('./pancake/getCakeLpApys');
 const getFortubeApys = require('./fortube/getFortubeApys');
 const getThugsLpApys = require('./thugs/getThugsLpApys');
+const getDrugsApys = require('./thugs/getDrugsApys');
 
 const getApys = async () => {
   let apys = {};
@@ -14,6 +15,7 @@ const getApys = async () => {
     getCakeLpApys(),
     getFortubeApys(),
     getThugsLpApys(),
+    getDrugsApys(),
   ]);
 
   for (item of values) {
