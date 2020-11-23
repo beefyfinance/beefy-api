@@ -1,13 +1,14 @@
 const axios = require('axios');
 
 const endpoints = {
-  thugs:     'https://api.streetswap.vip/tickers',
-  pancake:   'https://api.pancakeswap.finance/api/v1/price',
+  thugs: 'https://api.streetswap.vip/tickers',
+  pancake: 'https://api.pancakeswap.finance/api/v1/price',
   coingecko: 'https://api.coingecko.com/api/v3/simple/price',
 };
 
-const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
-const WBNB_BUSD = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
+const BUSD = '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
+const WBNB_BUSD =
+  '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
 
 const CACHE_TIMEOUT = 30 * 60 * 1000;
 const cache = {};
@@ -24,31 +25,46 @@ function getCachedPrice(oracle, id) {
 }
 
 function addToCache(oracle, id, price) {
-  cache[`${oracle}-${id}`] = {price: price, t: Date.now()};
+  cache[`${oracle}-${id}`] = { price: price, t: Date.now() };
 }
 
 const getPrice = async (oracle, id) => {
-  if (oracle === undefined) { console.error('Undefined oracle'); return 0; }
-  if (id === undefined) { console.error('Undefined pair'); return 0; }
+  if (oracle === undefined) {
+    console.error('Undefined oracle');
+    return 0;
+  }
+  if (id === undefined) {
+    console.error('Undefined pair');
+    return 0;
+  }
 
-  if (isCached(oracle, id)){
+  if (isCached(oracle, id)) {
     return getCachedPrice(oracle, id);
   }
-  
+
   let price = 0;
-  switch(oracle) {
-    case 'pancake':    price = await fetchPancake(id); break;
-    case 'coingecko':  price = await fetchCoingecko(id); break;
-    case 'thugs':      price = await fetchThugs(id); break;
-    case 'hardcode':   price = id; break;
-    default: console.error('Unknown oracle:', oracle);
+  switch (oracle) {
+    case 'pancake':
+      price = await fetchPancake(id);
+      break;
+    case 'coingecko':
+      price = await fetchCoingecko(id);
+      break;
+    case 'thugs':
+      price = await fetchThugs(id);
+      break;
+    case 'hardcode':
+      price = id;
+      break;
+    default:
+      console.error('Unknown oracle:', oracle);
   }
 
   addToCache(oracle, id, price);
   return price;
 };
 
-const fetchPancake = async (id) => {
+const fetchPancake = async id => {
   try {
     const response = await axios.get(endpoints.pancake);
     return response.data.prices[id];
@@ -58,10 +74,10 @@ const fetchPancake = async (id) => {
   }
 };
 
-const fetchCoingecko = async (id) => {
+const fetchCoingecko = async id => {
   try {
     const response = await axios.get(endpoints.coingecko, {
-      params: {ids: id, vs_currencies: 'usd' }
+      params: { ids: id, vs_currencies: 'usd' },
     });
     return response.data[id].usd;
   } catch (err) {
@@ -70,15 +86,15 @@ const fetchCoingecko = async (id) => {
   }
 };
 
-const fetchThugs = async (id) => {
+const fetchThugs = async id => {
   try {
     const response = await axios.get(endpoints.thugs);
     const ticker = response.data[id];
     const bnb = response.data[WBNB_BUSD]['last_price'];
 
     const pair = id.split('_');
-    if(pair[0] === WBNB) {
-      price = bnb / ticker['last_price'];
+    if (pair[1] === BUSD) {
+      price = ticker['last_price'];
     } else {
       price = bnb * ticker['last_price'];
     }

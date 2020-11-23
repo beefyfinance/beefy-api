@@ -11,7 +11,7 @@ const web3 = new Web3(process.env.BSC_RPC_2 || process.env.BSC_RPC);
 
 const getThugsLpApys = async () => {
   let apys = {};
-  const gangster = '0xb752f0cB591Ecfb1c5058a93e1332F066bf38473';
+  const gangster = '0x03edb31BeCc296d45670790c947150DAfEC2E238';
 
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(gangster, pool)));
@@ -30,6 +30,7 @@ const getPoolApy = async (gangster, pool) => {
     getTotalStakedInUsd(gangster, pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  console.log(pool.name, simpleApy.toString());
   const apy = compound(simpleApy, process.env.THUGS_LP_HPY, 1, 0.94);
   return { [pool.name]: apy };
 };
@@ -56,7 +57,10 @@ const getYearlyRewardsInUsd = async (gangster, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const drugsPrice = await getPrice('pancake', 'DRUGS');
+  const drugsPrice = await getPrice(
+    'thugs',
+    '0x339550404Ca4d831D12B1b2e4768869997390010_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'
+  );
   const yearlyRewardsInUsd = yearlyRewards.times(drugsPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
