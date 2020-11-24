@@ -98,7 +98,7 @@ const fetchThugs = async id => {
     } else {
       price = bnb * ticker['last_price'];
     }
-    console.log(ticker['base_symbol'], price);
+
     return price;
   } catch (err) {
     console.error(err);
