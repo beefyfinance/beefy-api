@@ -7,7 +7,7 @@ async function cache(ctx, next) {
     return await next();
   }
   
-  const cached = ctx.cache[ctx.path];
+  const cached = ctx.cache[ctx.url];
   if (cached !== undefined && cached.ts && cached.ts + TTL * 1000 > Date.now()) {
     ctx.status = 200;
     ctx.body = cached.body;
@@ -17,7 +17,7 @@ async function cache(ctx, next) {
   await next();
 
   ctx.set('Cache-Control', `public, max-age=${TTL}`);
-  ctx.cache[ctx.path] = {
+  ctx.cache[ctx.url] = {
     ts: Date.now(),
     body: ctx.body,
   };
