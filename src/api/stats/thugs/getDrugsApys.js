@@ -16,7 +16,7 @@ const getDrugsApys = async () => {
   const hoes = '0xfE60B258204398F008581775F08D2b43fb7b422b';
 
   const baseDrugsApy = await getBaseDrugsApy();
-
+  
   for (const pool of pools) {
     const yearlyRewardsInUsd = await getYearlyRewardsInUsd(
       pool.smartGangster,
@@ -24,11 +24,12 @@ const getDrugsApys = async () => {
       pool.oracleId,
       pool.decimals
     );
+
     const totalStakedInUsd = await getTotalStakedInUsd(
       pool.smartGangster,
       hoes,
-      'pancake',
-      'DRUGS'
+      pool.oracle,
+      pool.oracleId
     );
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseDrugsApy);
