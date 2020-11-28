@@ -33,7 +33,7 @@ const getYearlyRewardsInUsd = async () => {
 
   const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
-  const yearlyRewards = rewardRate.times(3).times(31536000);
+  const yearlyRewards = rewardRate.times(31536000);
   const yearlyRewardsInUsd = yearlyRewards.times(bifiPrice).dividedBy(DECIMALS);
 
   return yearlyRewardsInUsd;
