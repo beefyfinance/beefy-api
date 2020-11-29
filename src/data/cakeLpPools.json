@@ -62,7 +62,7 @@
   {
     "name": "cake-usdt-bnb",
     "address": "0x20bcc3b8a0091ddac2d0bc30f68e6cbb97de59cd",
-    "poolId": 15,
+    "poolId": 17,
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
       "oracle": "pancake",
@@ -77,7 +77,7 @@
   {
     "name": "cake-eth-bnb",
     "address": "0x70d8929d04b60af4fb9b58713ebcf18765ade422",
-    "poolId": 15,
+    "poolId": 14,
     "lp0": {
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "pancake",
@@ -92,7 +92,7 @@
   {
     "name": "cake-link-bnb",
     "address": "0xaebe45e3a03b734c68e5557ae04bfc76917b4686",
-    "poolId": 15,
+    "poolId": 7,
     "lp0": {
       "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
       "oracle": "pancake",
