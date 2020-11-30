@@ -13,11 +13,11 @@ const router = require('./router');
 
 const app = new Koa();
 app.use(helmet());
-app.use(cors());
-// app.use(logger);
+app.use(cors({origin: '*'}));
+app.use(logger);
 app.use(rt);
 app.use(powered);
-// app.use(cache);
+app.use(cache);
 app.use(body());
 
 app.context.cache = {};
