@@ -1,6 +1,6 @@
 'use strict';
 
-const TTL = 30 * 60;
+const TTL = 15 * 60;
 
 async function cache(ctx, next) {
   if (ctx.method !== 'GET') {
@@ -16,7 +16,7 @@ async function cache(ctx, next) {
 
   await next();
 
-  ctx.set('Cache-Control', `public, max-age=${TTL}`);
+  ctx.set('Cache-Control', `public, s-maxage=2592000, max-age=86400`);
   ctx.cache[ctx.url] = {
     ts: Date.now(),
     body: ctx.body,
