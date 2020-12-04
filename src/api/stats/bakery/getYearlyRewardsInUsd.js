@@ -10,18 +10,18 @@ const getYearlyRewardsInUsd = async (bakeryMaster, asset) => {
   const currentBlock = await web3.eth.getBlockNumber();
   const bakeryMasterContract = new web3.eth.Contract(IBakeryMaster, bakeryMaster);
 
-  const blockRewards = new BigNumber(
-    await bakeryMasterContract.methods.getTotalRewardInfo(currentBlock, currentBlock + 1).call()
-  );
-
-  const totalAllocPoint = new BigNumber(
-    await bakeryMasterContract.methods.totalAllocPoint().call()
-  );
+  let [blockRewards, totalAllocPoint] = await Promise.all([
+    bakeryMasterContract.methods.getTotalRewardInfo(currentBlock, currentBlock + 1).call(),
+    bakeryMasterContract.methods.totalAllocPoint().call()
+  ]);
+    
+  blockRewards = new BigNumber(blockRewards);
+  totalAllocPoint = new BigNumber(totalAllocPoint);
 
   let { allocPoint } = await bakeryMasterContract.methods.poolInfoMap(asset).call();
   allocPoint = new BigNumber(allocPoint);
 
-  const poolBlockRewards = allocPoint.times(blockRewards).dividedBy(totalAllocPoint);
+  const poolBlockRewards = blockRewards.times(allocPoint).dividedBy(totalAllocPoint);
 
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
