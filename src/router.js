@@ -9,6 +9,7 @@ const price = require('./api/price');
 const proxy = require('./api/proxy');
 const smart = require('./api/smart');
 
+router.get('/supply', stats.supply);
 router.get('/apy', stats.apy);
 router.get('/smart', smart.getSmartcakeData);
 router.get('/pancake/price', proxy.pancake);

@@ -21,4 +21,21 @@ async function apy(ctx) {
   }
 }
 
-module.exports = { apy };
+async function supply(ctx) {
+  try {
+    ctx.request.socket.setTimeout(TIMEOUT);
+    ctx.status = 200;
+
+    const supply = {
+      total: 80000,
+      circulating: 74000
+    }
+    
+    ctx.body = supply;
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
+module.exports = { apy, supply };
