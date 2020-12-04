@@ -1,34 +1,17 @@
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const { getPrice } = require('./getPrice');
+const ERC20 = require('../abis/ERC20.json');
 
-const ERC20 = require('../../abis/ERC20.json');
-const { getPrice } = require('../../utils/getPrice');
-const lpTokens = require('../../data/thugsLpPools.json');
+const web3 = new Web3(process.env.BSC_RPC);
 
-const web3 = new Web3(process.env.BSC_RPC_3 || process.env.BSC_RPC);
-
-const getThugsLpPrices = async () => {
-  let prices = {};
-
-  let promises = [];
-  lpTokens.forEach(lpToken => promises.push(getLpTokenPrice(lpToken)));
-  const values = await Promise.all(promises);
-
-  for (item of values) {
-    prices = { ...prices, ...item };
-  }
-
-  return prices;
-};
-
-const getLpTokenPrice = async lpToken => {
+const lpTokenPrice = async lpToken => {
   const tokenPairContract = await new web3.eth.Contract(ERC20, lpToken.address);
-  const totalSupply = await tokenPairContract.methods.totalSupply().call();
-
   const token0Contract = await new web3.eth.Contract(ERC20, lpToken.lp0.address);
   const token1Contract = await new web3.eth.Contract(ERC20, lpToken.lp1.address);
 
-  let [reserve0, reserve1, token0Price, token1Price] = await Promise.all([
+  let [totalSupply, reserve0, reserve1, token0Price, token1Price] = await Promise.all([
+    tokenPairContract.methods.totalSupply().call(),
     token0Contract.methods.balanceOf(lpToken.address).call(),
     token1Contract.methods.balanceOf(lpToken.address).call(),
     getPrice(lpToken.lp0.oracle, lpToken.lp0.oracleId),
@@ -44,7 +27,26 @@ const getLpTokenPrice = async lpToken => {
   const totalStakedInUsd = token0StakedInUsd.plus(token1StakedInUsd);
   const lpTokenPrice = totalStakedInUsd.dividedBy(totalSupply);
 
-  return { [lpToken.name]: Number(lpTokenPrice) };
+  return Number(lpTokenPrice);
 };
 
-module.exports = getThugsLpPrices;
+const lpTokenPrices = async lpTokens => {
+  let prices = {};
+
+  let promises = [];
+  lpTokens.forEach(lpToken => promises.push(lpTokenStats(lpToken)));
+  const values = await Promise.all(promises);
+
+  for (item of values) {
+    prices = { ...prices, ...item };
+  }
+
+  return prices;
+};
+
+const lpTokenStats = async lpToken => {
+  const lpPrice = await lpTokenPrice(lpToken);
+  return { [lpToken.name]: lpPrice };
+};
+
+module.exports = { lpTokenPrice, lpTokenPrices };

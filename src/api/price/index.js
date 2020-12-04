@@ -1,9 +1,11 @@
-const getCakeLpPrices = require('./getCakeLpPrices');
-const getThugsLpPrices = require('./getThugsLpPrices');
+const { lpTokenPrices } = require('../../utils/lpTokens');
+const cakeLpTokens = require('../../data/cakeLpPools.json');
+const thugsLpTokens = require('../../data/thugsLpPools.json');
+const bakeryLpTokens = require('../../data/bakeryLpPools.json');
 
-async function cakeLpsPrices(ctx) {
+async function lpPrices(ctx, lpTokens) {
   try {
-    const prices = await getCakeLpPrices();
+    const prices = await lpTokenPrices(lpTokens);
     ctx.status = 200;
     ctx.body = prices;
   } catch (err) {
@@ -12,15 +14,16 @@ async function cakeLpsPrices(ctx) {
   }
 }
 
-async function thugsLpsPrices(ctx) {
-  try {
-    const prices = await getThugsLpPrices();
-    ctx.status = 200;
-    ctx.body = prices;
-  } catch (err) {
-    console.error(err);
-    ctx.status = 500;
-  }
+async function cakeLpPrices(ctx) {
+  await lpPrices(ctx, cakeLpTokens);
 }
 
-module.exports = { cakeLpsPrices, thugsLpsPrices };
+async function thugsLpPrices(ctx) {
+  await lpPrices(ctx, thugsLpTokens);
+}
+
+async function bakeryLpPrices(ctx) {
+  await lpPrices(ctx, bakeryLpTokens);
+}
+
+module.exports = { cakeLpPrices, thugsLpPrices, bakeryLpPrices };

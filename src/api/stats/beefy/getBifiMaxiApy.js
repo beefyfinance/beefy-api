@@ -13,7 +13,8 @@ const web3 = new Web3(process.env.BSC_RPC);
 const BIFI = '0xCa3F508B8e4Dd382eE878A314789373D80A5190A';
 const REWARDS = '0x453D4Ba9a2D594314DF88564248497F7D74d6b2C';
 const ORACLE = 'thugs';
-const ORACLE_ID = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xCa3F508B8e4Dd382eE878A314789373D80A5190A';
+const ORACLE_ID =
+  '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xCa3F508B8e4Dd382eE878A314789373D80A5190A';
 const DECIMALS = '1e18';
 
 const getBifiMaxiApy = async () => {
@@ -38,7 +39,5 @@ const getYearlyRewardsInUsd = async () => {
 
   return yearlyRewardsInUsd;
 };
-
-getBifiMaxiApy();
 
 module.exports = getBifiMaxiApy;
