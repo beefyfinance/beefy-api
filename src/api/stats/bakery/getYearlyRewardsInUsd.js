@@ -21,7 +21,7 @@ const getYearlyRewardsInUsd = async (bakeryMaster, asset) => {
   let { allocPoint } = await bakeryMasterContract.methods.poolInfoMap(asset).call();
   allocPoint = new BigNumber(allocPoint);
 
-  const poolBlockRewards = blockRewards.times(allocPoint).dividedBy(totalAllocPoint);
+  const poolBlockRewards = allocPoint.times(blockRewards).dividedBy(totalAllocPoint);
 
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
