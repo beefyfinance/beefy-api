@@ -6,7 +6,7 @@ const ERC20 = require('../../../abis/ERC20.json');
 const { getPrice } = require('../../../utils/getPrice');
 const pools = require('../../../data/cakeLpPools.json');
 const { compound } = require('../../../utils/compound');
-const getLpTokenPrice = require('../../../utils/getLpTokenPrice');
+const { lpTokenPrice } = require('../../../utils/lpTokens');
 
 const web3 = new Web3(process.env.BSC_RPC_2 || process.env.BSC_RPC);
 
@@ -66,7 +66,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
 const getTotalStakedInUsd = async (masterchef, pool) => {
   const tokenPairContract = await new web3.eth.Contract(ERC20, pool.address);
   const totalStaked = new BigNumber(await tokenPairContract.methods.balanceOf(masterchef).call());
-  const tokenPrice = await getLpTokenPrice(pool);
+  const tokenPrice = await lpTokenPrice(pool);
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
   return totalStakedInUsd;
 };

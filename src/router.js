@@ -12,8 +12,9 @@ const smart = require('./api/smart');
 router.get('/apy', stats.apy);
 router.get('/smart', smart.getSmartcakeData);
 router.get('/pancake/price', proxy.pancake);
-router.get('/pancake/lps', price.cakeLpsPrices);
-router.get('/thugs/lps', price.thugsLpsPrices);
+router.get('/pancake/lps', price.cakeLpPrices);
+router.get('/thugs/lps', price.thugsLpPrices);
+router.get('/bakery/lps', price.bakeryLpPrices);
 router.get('/thugs/tickers', proxy.thugs);
 router.get('/', noop);
 
