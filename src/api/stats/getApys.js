@@ -6,6 +6,8 @@ const getFortubeApys = require('./fortube/getFortubeApys');
 const getThugsLpApys = require('./thugs/getThugsLpApys');
 const getDrugsApys = require('./thugs/getDrugsApys');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
+const getBakePoolApy = require('./bakery/getBakePoolApy');
+const getBakeryLpApys = require('./bakery/getBakeryLpApys');
 
 const getApys = async () => {
   let apys = {};
@@ -18,6 +20,8 @@ const getApys = async () => {
     getThugsLpApys(),
     getDrugsApys(),
     getFryApys(),
+    getBakePoolApy(),
+    getBakeryLpApys(),
   ]);
 
   for (item of values) {
