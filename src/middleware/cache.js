@@ -1,6 +1,6 @@
 'use strict';
 
-const TTL = 15 * 60;
+const TTL = 5 * 60;
 
 async function cache(ctx, next) {
   if (ctx.method !== 'GET') {
