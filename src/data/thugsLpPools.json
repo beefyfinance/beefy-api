@@ -20,8 +20,8 @@
     "poolId": 17,
     "lp0": {
       "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
-      "oracle": "pancake",
-      "oracleId": "LINK"
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
@@ -67,7 +67,7 @@
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
       "oracle": "thugs",
-      "oracleId": "0xE10e9822A5de22F8761919310DDA35CD997d63c0_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
@@ -158,7 +158,7 @@
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
       "oracle": "thugs",
-      "oracleId": "0xE10e9822A5de22F8761919310DDA35CD997d63c0_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
@@ -173,7 +173,7 @@
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
       "oracle": "thugs",
-      "oracleId": "0xE10e9822A5de22F8761919310DDA35CD997d63c0_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
@@ -187,8 +187,8 @@
     "poolId": 10,
     "lp0": {
       "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
-      "oracle": "pancake",
-      "oracleId": "DAI"
+      "oracle": "thugs",
+      "oracleId": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
@@ -202,8 +202,8 @@
     "poolId": 11,
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "pancake",
-      "oracleId": "USDT"
+      "oracle": "thugs",
+      "oracleId": "0x55d398326f99059fF775485246999027B3197955_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
@@ -217,8 +217,8 @@
     "poolId": 12,
     "lp0": {
       "address": "0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22",
-      "oracle": "pancake",
-      "oracleId": "BLIQ"
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",

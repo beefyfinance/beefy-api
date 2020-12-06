@@ -6,6 +6,7 @@ const endpoints = {
   coingecko: 'https://api.coingecko.com/api/v3/simple/price',
 };
 
+const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
 const BUSD = '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
 const WBNB_BUSD =
   '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
@@ -93,8 +94,11 @@ const fetchThugs = async id => {
     const bnb = response.data[WBNB_BUSD]['last_price'];
 
     const pair = id.split('_');
-    if (pair[1] === BUSD) {
-      price = ticker['last_price'];
+
+    if (pair[0] === WBNB && pair[1] === BUSD) {
+      price = bnb;
+    } else if (pair[0] === WBNB) {
+      price = bnb / ticker['last_price'];
     } else {
       price = bnb * ticker['last_price'];
     }
