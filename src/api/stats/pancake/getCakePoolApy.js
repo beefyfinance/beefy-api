@@ -21,7 +21,7 @@ const getCakePoolApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.CAKE_HPY, 1, 0.94);
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.94);
 
   return { 'cake-cake': apy };
 };

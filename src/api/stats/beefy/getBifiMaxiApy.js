@@ -24,7 +24,7 @@ const getBifiMaxiApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BIFI_HPY, 1, 0.99);
+  const apy = compound(simpleApy, process.env.DAILY_HPY, 1, 0.99);
 
   return { 'bifi-maxi': apy };
 };

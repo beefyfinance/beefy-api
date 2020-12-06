@@ -33,7 +33,7 @@ const getDrugsApys = async () => {
     );
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseDrugsApy);
-    apys[pool.name] = compound(simpleApy, process.env.DRUGS_HPY, 1, 0.94);
+    apys[pool.name] = compound(simpleApy, process.env.BASE_HPY, 1, 0.94);
   }
 
   return apys;

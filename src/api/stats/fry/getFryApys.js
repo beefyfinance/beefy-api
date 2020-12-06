@@ -25,7 +25,7 @@ const getFryApys = async () => {
     const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
 
     const simpleApy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
-    apys[pool.name] = compound(simpleApy, process.env.FRY_HPY, 1, 0.95);
+    apys[pool.name] = compound(simpleApy, process.env.DAILY_HPY, 1, 0.95);
   }
 
   return apys;
