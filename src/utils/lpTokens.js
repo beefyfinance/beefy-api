@@ -21,11 +21,11 @@ const lpTokenPrice = async lpToken => {
   reserve0 = new BigNumber(reserve0);
   reserve1 = new BigNumber(reserve1);
 
-  const token0StakedInUsd = reserve0.times(token0Price);
-  const token1StakedInUsd = reserve1.times(token1Price);
+  const token0StakedInUsd = reserve0.div(lpToken.lp0.decimals).times(token0Price);
+  const token1StakedInUsd = reserve1.div(lpToken.lp1.decimals).times(token1Price);
 
   const totalStakedInUsd = token0StakedInUsd.plus(token1StakedInUsd);
-  const lpTokenPrice = totalStakedInUsd.dividedBy(totalSupply);
+  const lpTokenPrice = totalStakedInUsd.dividedBy(totalSupply).times(lpToken.decimals);
 
   return Number(lpTokenPrice);
 };

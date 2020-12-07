@@ -1,107 +1,218 @@
 [
   {
-    "name": "cake-cake-bnb",
-    "address": "0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6",
-    "poolId": 1,
+    "name": "cake-blink-bnb",
+    "address": "0xC743Dc05F03D25E1aF8eC5F8228f4BD25513c8d0",
+    "decimals": "1e18",
+    "poolId": 40,
     "lp0": {
-      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "address": "0x63870A18B6e42b01Ef1Ad8A2302ef50B7132054F",
       "oracle": "pancake",
-      "oracleId": "Cake"
+      "oracleId": "blink",
+      "decimals": "1e6"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "pancake",
-      "oracleId": "WBNB"
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-alpha-bnb",
+    "address": "0x4e0f3385d932F7179DeE045369286FFa6B03d887",
+    "decimals": "1e18",
+    "poolId": 16,
+    "lp0": {
+      "address": "0xa1faa113cbE53436Df28FF0aEe54275c13B40975",
+      "oracle": "pancake",
+      "oracleId": "ALPHA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-inj-bnb",
+    "address": "0x7a34bd64d18e44CfdE3ef4B81b87BAf3EB3315B6",
+    "decimals": "1e18",
+    "poolId": 27,
+    "lp0": {
+      "address": "0xa2B726B1145A4773F68593CF171187d8EBe4d495",
+      "oracle": "pancake",
+      "oracleId": "INJ",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-twt-bnb",
+    "address": "0x610e7a287c27dfFcaC0F0a94f547Cc1B770cF483",
+    "decimals": "1e18",
+    "poolId": 12,
+    "lp0": {
+      "address": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
+      "oracle": "pancake",
+      "oracleId": "TWT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-xvs-bnb",
+    "address": "0x41182c32F854dd97bA0e0B1816022e0aCB2fc0bb",
+    "decimals": "1e18",
+    "poolId": 13,
+    "lp0": {
+      "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "oracle": "pancake",
+      "oracleId": "XVS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-cake-bnb",
+    "address": "0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "pancake",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
     }
   },
   {
     "name": "cake-busd-bnb",
     "address": "0x1B96B92314C44b159149f7E0303511fB2Fc4774f",
+    "decimals": "1e18",
     "poolId": 2,
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "pancake",
-      "oracleId": "WBNB"
+      "oracleId": "WBNB",
+      "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "pancake",
-      "oracleId": "BUSD"
+      "oracleId": "BUSD",
+      "decimals": "1e18"
     }
   },
   {
     "name": "cake-usdt-busd",
     "address": "0xc15fa3E22c912A276550F3E5FE3b0Deb87B55aCd",
+    "decimals": "1e18",
     "poolId": 11,
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
       "oracle": "pancake",
-      "oracleId": "USDT"
+      "oracleId": "USDT",
+      "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "pancake",
-      "oracleId": "BUSD"
+      "oracleId": "BUSD",
+      "decimals": "1e18"
     }
   },
   {
     "name": "cake-btcb-bnb",
     "address": "0x7561EEe90e24F3b348E1087A005F78B4c8453524",
+    "decimals": "1e18",
     "poolId": 15,
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "pancake",
-      "oracleId": "WBNB"
+      "oracleId": "WBNB",
+      "decimals": "1e18"
     },
     "lp1": {
       "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "oracle": "pancake",
-      "oracleId": "BTCB"
+      "oracleId": "BTCB",
+      "decimals": "1e18"
     }
   },
   {
     "name": "cake-usdt-bnb",
     "address": "0x20bcc3b8a0091ddac2d0bc30f68e6cbb97de59cd",
+    "decimals": "1e18",
     "poolId": 17,
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
       "oracle": "pancake",
-      "oracleId": "USDT"
+      "oracleId": "USDT",
+      "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "pancake",
-      "oracleId": "WBNB"
+      "oracleId": "WBNB",
+      "decimals": "1e18"
     }
   },
   {
     "name": "cake-eth-bnb",
     "address": "0x70d8929d04b60af4fb9b58713ebcf18765ade422",
+    "decimals": "1e18",
     "poolId": 14,
     "lp0": {
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "pancake",
-      "oracleId": "ETH"
+      "oracleId": "ETH",
+      "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "pancake",
-      "oracleId": "WBNB"
+      "oracleId": "WBNB",
+      "decimals": "1e18"
     }
   },
   {
     "name": "cake-link-bnb",
     "address": "0xaebe45e3a03b734c68e5557ae04bfc76917b4686",
+    "decimals": "1e18",
     "poolId": 7,
     "lp0": {
       "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
       "oracle": "pancake",
-      "oracleId": "LINK"
+      "oracleId": "LINK",
+      "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "pancake",
-      "oracleId": "WBNB"
+      "oracleId": "WBNB",
+      "decimals": "1e18"
     }
   }
 ]
