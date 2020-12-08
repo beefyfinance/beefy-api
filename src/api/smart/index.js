@@ -66,7 +66,7 @@ const getExpectedApy = async (pool, smartcakeStakeInUsd, currentPool) => {
   }
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd.plus(smartcakeStakeInUsd));
-  const apy = compound(simpleApy, process.env.CAKE_HPY, 1, 0.94);
+  const apy = compound(simpleApy, process.env.HOURLY_HPY, 1, 0.94);
 
   return { [pool.name]: apy };
 };
