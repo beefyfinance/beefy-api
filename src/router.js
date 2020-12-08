@@ -19,12 +19,7 @@ router.get('/thugs/tickers', proxy.thugs);
 router.get('/pancake/lps', price.cakeLpPrices);
 router.get('/thugs/lps', price.thugsLpPrices);
 router.get('/bakery/lps', price.bakeryLpPrices);
-<<<<<<< HEAD
-router.get('/narwhal/lps', price.narLpPrices);
-router.get('/thugs/tickers', proxy.thugs);
-=======
 router.get('/narwhal/lps', price.narwhalLpPrices);
->>>>>>> 9a0af3ffbe1966e65c89897e7e856ff4c3759b51
 router.get('/', noop);
 
 module.exports = router;
