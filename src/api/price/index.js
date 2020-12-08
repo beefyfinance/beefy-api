@@ -26,4 +26,13 @@ async function bakeryLpPrices(ctx) {
   await lpPrices(ctx, bakeryLpTokens);
 }
 
-module.exports = { cakeLpPrices, thugsLpPrices, bakeryLpPrices };
+async function narwhalLpPrices(ctx) {
+  // FIXME: implement proper lp price calc
+  ctx.status = 200;
+  ctx.body = {
+    'narwhal-gold-bnb': 25.939,
+    'narwhal-thugs-nar': 0.48467,
+  };
+}
+
+module.exports = { cakeLpPrices, thugsLpPrices, bakeryLpPrices, narwhalLpPrices };
