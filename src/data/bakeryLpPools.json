@@ -2,29 +2,35 @@
   {
     "name": "bakery-bake-bnb",
     "address": "0xc2Eed0F5a0dc28cfa895084bC0a9B8B8279aE492",
+    "decimals": "1e18",
     "lp0": {
       "address": "0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5",
       "oracle": "pancake",
-      "oracleId": "BAKE"
+      "oracleId": "BAKE",
+      "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "pancake",
-      "oracleId": "WBNB"
+      "oracleId": "WBNB",
+      "decimals": "1e18"
     }
   },
   {
     "name": "bakery-bake-busd",
     "address": "0x6E218EA042BeF40a8baF706b00d0f0A7b4fCE50a",
+    "decimals": "1e18",
     "lp0": {
       "address": "0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5",
       "oracle": "pancake",
-      "oracleId": "BAKE"
+      "oracleId": "BAKE",
+      "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "pancake",
-      "oracleId": "BUSD"
+      "oracleId": "BUSD",
+      "decimals": "1e18"
     }
   }
 ]
