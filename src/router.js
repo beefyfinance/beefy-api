@@ -16,6 +16,7 @@ router.get('/pancake/price', proxy.pancake);
 router.get('/pancake/lps', price.cakeLpPrices);
 router.get('/thugs/lps', price.thugsLpPrices);
 router.get('/bakery/lps', price.bakeryLpPrices);
+router.get('/narwhal/lps', price.narLpPrices);
 router.get('/thugs/tickers', proxy.thugs);
 router.get('/', noop);
 

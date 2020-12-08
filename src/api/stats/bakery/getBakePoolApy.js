@@ -1,4 +1,4 @@
-const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
+const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
 const getYearlyRewardsInUsd = require('./getYearlyRewardsInUsd');
 

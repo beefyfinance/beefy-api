@@ -1,0 +1,38 @@
+[
+  {
+    "name": "narwhal-gold-bnb",
+    "address": "0x903903A2aa2A222360D8f3c4A7205b933Da60e95",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x8f4087Cb09E0F378f4278a314C94A636665dE24b",
+      "oracle": "hardcode",
+      "oracleId": 2.5581,
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "narwhal-thugs-nar",
+    "address": "0xB648ecF23Bb8fe854c6267d6fb046f2d483251EA",
+    "decimals": "1e18",
+    "poolId": 2,
+    "lp0": {
+      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA1303E6199b319a891b79685F0537D289af1FC83",
+      "oracle": "thugs",
+      "oracleId": "0xA1303E6199b319a891b79685F0537D289af1FC83_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -2,6 +2,7 @@ const { lpTokenPrices } = require('../../utils/lpTokens');
 const cakeLpTokens = require('../../data/cakeLpPools.json');
 const thugsLpTokens = require('../../data/thugsLpPools.json');
 const bakeryLpTokens = require('../../data/bakeryLpPools.json');
+const narLpTokens = require('../../data/narLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -26,4 +27,8 @@ async function bakeryLpPrices(ctx) {
   await lpPrices(ctx, bakeryLpTokens);
 }
 
-module.exports = { cakeLpPrices, thugsLpPrices, bakeryLpPrices };
+async function narLpPrices(ctx) {
+  await lpPrices(ctx, narLpTokens);
+}
+
+module.exports = { cakeLpPrices, thugsLpPrices, bakeryLpPrices, narLpPrices };

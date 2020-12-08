@@ -4,7 +4,7 @@ const BigNumber = require('bignumber.js');
 const DeepFryer = require('../../../abis/DeepFryer.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getPrice } = require('../../../utils/getPrice');
-const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
+const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/fryPools.json');
 const { compound } = require('../../../utils/compound');
 

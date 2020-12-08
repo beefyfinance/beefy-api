@@ -5,7 +5,7 @@ const SmartGangster = require('../../../abis/SmartGangster.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const getBaseDrugsApy = require('./getBaseDrugsApy');
 const { getPrice } = require('../../../utils/getPrice');
-const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
+const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/drugsPools.json');
 const { compound } = require('../../../utils/compound');
 
@@ -16,7 +16,7 @@ const getDrugsApys = async () => {
   const hoes = '0xfE60B258204398F008581775F08D2b43fb7b422b';
 
   const baseDrugsApy = await getBaseDrugsApy();
-  
+
   for (const pool of pools) {
     const yearlyRewardsInUsd = await getYearlyRewardsInUsd(
       pool.smartGangster,

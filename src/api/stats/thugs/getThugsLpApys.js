@@ -2,11 +2,10 @@ const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
 const OriginalGangster = require('../../../abis/OriginalGangster.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const { getPrice } = require('../../../utils/getPrice');
 const pools = require('../../../data/thugsLpPools.json');
 const { compound } = require('../../../utils/compound');
-const { lpTokenPrice } = require('../../../utils/lpTokens');
+const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
 const web3 = new Web3(process.env.BSC_RPC_2 || process.env.BSC_RPC);
 
@@ -28,7 +27,7 @@ const getThugsLpApys = async () => {
 const getPoolApy = async (gangster, pool) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(gangster, pool),
-    getTotalStakedInUsd(gangster, pool),
+    getTotalLpStakedInUsd(gangster, pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.94);
@@ -64,14 +63,6 @@ const getYearlyRewardsInUsd = async (gangster, pool) => {
   const yearlyRewardsInUsd = yearlyRewards.times(drugsPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
-};
-
-const getTotalStakedInUsd = async (gangster, pool) => {
-  const tokenPairContract = await new web3.eth.Contract(ERC20, pool.address);
-  const totalStaked = new BigNumber(await tokenPairContract.methods.balanceOf(gangster).call());
-  const tokenPrice = await lpTokenPrice(pool);
-  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
-  return totalStakedInUsd;
 };
 
 module.exports = getThugsLpApys;

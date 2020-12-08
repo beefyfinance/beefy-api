@@ -3,6 +3,7 @@ const BigNumber = require('bignumber.js');
 
 const ERC20 = require('../abis/ERC20.json');
 const { getPrice } = require('./getPrice');
+const { lpTokenPrice } = require('./lpTokens');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
@@ -13,4 +14,12 @@ const getTotalStakedInUsd = async (targetAddr, tokenAddr, oracle, oracleoId, dec
   return totalStaked.times(tokenPrice).dividedBy(decimals);
 };
 
-module.exports = getTotalStakedInUsd;
+const getTotalLpStakedInUsd = async (targetAddr, pool) => {
+  const tokenPairContract = await new web3.eth.Contract(ERC20, pool.address);
+  const totalStaked = new BigNumber(await tokenPairContract.methods.balanceOf(targetAddr).call());
+  const tokenPrice = await lpTokenPrice(pool);
+  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
+  return totalStakedInUsd;
+};
+
+module.exports = { getTotalStakedInUsd, getTotalLpStakedInUsd };
