@@ -1,23 +1,5 @@
 [
   {
-    "name": "cake-blink-bnb",
-    "address": "0xC743Dc05F03D25E1aF8eC5F8228f4BD25513c8d0",
-    "decimals": "1e18",
-    "poolId": 40,
-    "lp0": {
-      "address": "0x63870A18B6e42b01Ef1Ad8A2302ef50B7132054F",
-      "oracle": "pancake",
-      "oracleId": "blink",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cake-alpha-bnb",
     "address": "0x4e0f3385d932F7179DeE045369286FFa6B03d887",
     "decimals": "1e18",
