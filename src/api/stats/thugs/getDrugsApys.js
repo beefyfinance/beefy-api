@@ -5,14 +5,15 @@ const SmartGangster = require('../../../abis/SmartGangster.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const getBaseDrugsApy = require('./getBaseDrugsApy');
 const { getPrice } = require('../../../utils/getPrice');
-const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
+const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/drugsPools.json');
+const { compound } = require('../../../utils/compound');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
 const getDrugsApys = async () => {
   const apys = {};
-  const hoes = '0x8191113581cBfa3fcdC6B0d2e6F84753D4850080';
+  const hoes = '0xfE60B258204398F008581775F08D2b43fb7b422b';
 
   const baseDrugsApy = await getBaseDrugsApy();
 
@@ -23,9 +24,16 @@ const getDrugsApys = async () => {
       pool.oracleId,
       pool.decimals
     );
-    const totalStakedInUsd = await getTotalStakedInUsd(pool.smartGangster, hoes, 'pancake', 'DRUGS');
-    const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseDrugsApy);
-    apys[pool.name] = apy;
+
+    const totalStakedInUsd = await getTotalStakedInUsd(
+      pool.smartGangster,
+      hoes,
+      pool.oracle,
+      pool.oracleId
+    );
+
+    const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseDrugsApy);
+    apys[pool.name] = compound(simpleApy, process.env.BASE_HPY, 1, 0.94);
   }
 
   return apys;
@@ -46,7 +54,10 @@ const getYearlyRewardsInUsd = async (smartGangsterAddr, oracle, oracleId, decima
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
   const earnedAssetPrice = await getPrice(oracle, oracleId);
   const yearlyRewardsInUsd = yearlyRewards.times(earnedAssetPrice).dividedBy(decimals);
+
   return yearlyRewardsInUsd;
 };
+
+getDrugsApys();
 
 module.exports = getDrugsApys;

@@ -13,4 +13,15 @@ async function pancake(ctx) {
   }
 }
 
-module.exports = { pancake };
+async function thugs(ctx) {
+  try {
+    const rsp = await axios.get('https://api.streetswap.vip/tickers');
+    ctx.body = rsp.data;
+    ctx.status = rsp.status;
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
+module.exports = { pancake, thugs };

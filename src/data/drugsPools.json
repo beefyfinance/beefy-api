@@ -1,9 +1,9 @@
 [
   {
     "name": "thugs-drugs-guns",
-    "smartGangster": "0xf499d79Ac73569220c91F4bd016f328e40F983F2",
-    "oracle": "pancake",
-    "oracleId": "GUNS",
+    "smartGangster": "0x85AB044e658c9EF2127DA97aA7AAA55bFE0eA756",
+    "oracle": "thugs",
+    "oracleId": "0x179983892eC36287f1F342443B671Ba549762241_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
     "asset": "0x179983892eC36287f1F342443B671Ba549762241",
     "decimals": "1e18"
   }

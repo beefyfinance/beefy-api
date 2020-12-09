@@ -1,0 +1,329 @@
+[
+  {
+    "name": "street-bch-bnb",
+    "address": "0xcE7b1Bc3ff9115B64Bf4D6B1549f8339D02762F4",
+    "poolId": 16,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x8fF795a6F4D97E7887C79beA79aba5cc76444aDf",
+      "oracle": "thugs",
+      "oracleId": "0x8fF795a6F4D97E7887C79beA79aba5cc76444aDf_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-link-bnb",
+    "address": "0x2c92d0390f95477c70cb7B4B92050B0Db5D04a1E",
+    "poolId": 17,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-nar-bnb",
+    "address": "0x1389003bcb228586648721A4F6187004dAE01c51",
+    "poolId": 18,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xA1303E6199b319a891b79685F0537D289af1FC83",
+      "oracle": "thugs",
+      "oracleId": "0xA1303E6199b319a891b79685F0537D289af1FC83_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+
+  {
+    "name": "street-drugs-bnb",
+    "address": "0x421DF185Ff87bc5f19bd5a90102A51452b70c4A4",
+    "poolId": 1,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x339550404Ca4d831D12B1b2e4768869997390010",
+      "oracle": "thugs",
+      "oracleId": "0x339550404Ca4d831D12B1b2e4768869997390010_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-thugs-bnb",
+    "address": "0x9354caB0F1083135439B23aA6c364329e578F39a",
+    "poolId": 2,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-cred-bnb",
+    "address": "0x9CBE4F200b474a1C33bfFe7c6e531e1D47ECab46",
+    "poolId": 9,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x571D0B55fe30eb1F6E68e8799F181c46De6B0059",
+      "oracle": "thugs",
+      "oracleId": "0x571D0B55fe30eb1F6E68e8799F181c46De6B0059_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-guns-bnb",
+    "address": "0xa5e5eeB6b51fa0fDc59915C81d75C83470BFA4f0",
+    "poolId": 3,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x179983892eC36287f1F342443B671Ba549762241",
+      "oracle": "thugs",
+      "oracleId": "0x179983892eC36287f1F342443B671Ba549762241_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-busd-bnb",
+    "address": "0xf2e4E3F9B58b3eDaC88Ad11D689a23f3119a782D",
+    "poolId": 4,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-btc-bnb",
+    "address": "0xdFb193940E1317f38e91568fdb05EFE18ee4A3c7",
+    "poolId": 5,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "thugs",
+      "oracleId": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-eth-bnb",
+    "address": "0x75115C644F9661A761A333Ba0A38e42B1649f143",
+    "poolId": 6,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "thugs",
+      "oracleId": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+
+  {
+    "name": "street-panacakelp-thugs-bnb",
+    "address": "0x40257481f09dB2211a3274B34554Bbb00B0a7Fb1",
+    "poolId": 7,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-narwhallp-thugs-bnb",
+    "address": "0x40Ff83ac2890DD5469f5eCa2c17dcAf10ee09957",
+    "poolId": 8,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-dai-bnb",
+    "address": "0xed8Ecb790Be568461d85Cf82C386E51124E46a52",
+    "poolId": 10,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+      "oracle": "thugs",
+      "oracleId": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-usdt-bnb",
+    "address": "0x0d29724d1834Fc65869812BAe5d63dce8aCB7921",
+    "poolId": 11,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "thugs",
+      "oracleId": "0x55d398326f99059fF775485246999027B3197955_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-bliq-bnb",
+    "address": "0xe835ed82C7d9d018f8F5173EECfBb56f29f38570",
+    "poolId": 12,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+
+  {
+    "name": "street-eos-bnb",
+    "address": "0x44e89861096371246eA8E3e86D97781ea24fBB29",
+    "poolId": 13,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x56b6fB708fC5732DEC1Afc8D8556423A2EDcCbD6",
+      "oracle": "thugs",
+      "oracleId": "0x56b6fB708fC5732DEC1Afc8D8556423A2EDcCbD6_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-bifi-bnb",
+    "address": "0x223B53b64AA5F87D2De194a15701Fc0bC7474A31",
+    "poolId": 14,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-bhc-bnb",
+    "address": "0x0dC44E742941d4C935d6113a3b643656C5092D93",
+    "poolId": 15,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xA6381C6Fd8f40A44721eF4f61eDc1a8CCCa7BF3d",
+      "oracle": "thugs",
+      "oracleId": "0xA6381C6Fd8f40A44721eF4f61eDc1a8CCCa7BF3d_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  }
+]

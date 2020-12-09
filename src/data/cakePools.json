@@ -5,23 +5,8 @@
     "oracle": "coingecko",
     "oracleId": "hard-protocol",
     "asset": "0xf79037F6f6bE66832DE4E7516be52826BC3cBcc4",
-    "decimals": "1e6"
-  },
-  {
-    "name": "cake-broobee",
-    "smartChef": "0xdc8c45b7F3747Ca9CaAEB3fa5e0b5FCE9430646b",
-    "oracle": "pancake",
-    "oracleId": "bROOBEE",
-    "asset": "0xE64F5Cb844946C1F102Bd25bBD87a5aB4aE89Fbe",
-    "decimals": "1e18"
-  },
-  {
-    "name": "cake-stax",
-    "smartChef": "0xFF02241a2A1d2a7088A344309400E9fE74772815",
-    "oracle": "pancake",
-    "oracleId": "STAX",
-    "asset": "0x0Da6Ed8B13214Ff28e9Ca979Dd37439e8a88F6c4",
-    "decimals": "1e18"
+    "decimals": "1e6",
+    "smartcakePoolId": 0
   },
   {
     "name": "cake-twt",
@@ -29,6 +14,7 @@
     "oracle": "pancake",
     "oracleId": "TWT",
     "asset": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
-    "decimals": "1e18"
+    "decimals": "1e18",
+    "smartcakePoolId": 2
   }
 ]

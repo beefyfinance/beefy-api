@@ -4,7 +4,7 @@ const BigNumber = require('bignumber.js');
 const DeepFryer = require('../../../abis/DeepFryer.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getPrice } = require('../../../utils/getPrice');
-const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
+const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/fryPools.json');
 const { compound } = require('../../../utils/compound');
 
@@ -25,7 +25,7 @@ const getFryApys = async () => {
     const yearlyPoolRewardsInUsd = yearlyRewardsInUsd.times(poolRewardsPercentage);
 
     const simpleApy = yearlyPoolRewardsInUsd.dividedBy(totalStakedInUsd);
-    apys[pool.name] = compound(simpleApy, process.env.FRY_HPY, 1, 0.95);
+    apys[pool.name] = compound(simpleApy, process.env.DAILY_HPY, 1, 0.95);
   }
 
   return apys;

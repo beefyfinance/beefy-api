@@ -3,9 +3,10 @@ const BigNumber = require('bignumber.js');
 
 const SmartChef = require('../../../abis/SmartChef.json');
 const { getPrice } = require('../../../utils/getPrice');
-const getTotalStakedInUsd = require('../../../utils/getTotalStakedInUsd');
+const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/cakePools.json');
 const { compound } = require('../../../utils/compound');
+const getCakeSmartApy = require('./getCakeSmartApy');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
@@ -19,6 +20,8 @@ const getCakeApys = async () => {
   for (item of values) {
     apys = { ...apys, ...item };
   }
+
+  apys['cake-smart'] = await getCakeSmartApy(apys);
 
   return apys;
 };
@@ -35,7 +38,7 @@ const getPoolApy = async pool => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.CAKE_HPY, 1, 0.94);
+  const apy = compound(simpleApy, process.env.HOURLY_HPY, 1, 0.94);
 
   return { [pool.name]: apy };
 };
