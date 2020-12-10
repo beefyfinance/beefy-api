@@ -16,7 +16,6 @@ router.get('/earnings', gov.dailyEarn);
 router.get('/smart', smart.getSmartcakeData);
 
 router.get('/pancake/price', proxy.pancake);
-router.get('/pancake/lps', price.lpPrices);
 router.get('/thugs/tickers', proxy.thugs);
 
 router.get('/pancake/lps', price.cakeLpPrices);
