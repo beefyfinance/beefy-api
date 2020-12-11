@@ -14,6 +14,7 @@ router.get('/supply', stats.supply);
 router.get('/apy', stats.apy);
 router.get('/earnings', gov.dailyEarn);
 router.get('/smart', smart.getSmartcakeData);
+router.get('/holders', gov.holderCounter);
 
 router.get('/pancake/price', proxy.pancake);
 router.get('/thugs/tickers', proxy.thugs);
