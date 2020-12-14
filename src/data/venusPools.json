@@ -8,7 +8,15 @@
     "borrowDepth": 3,
     "borrowPercent": 0.54
   },
-
+  {
+    "name": "venus-usdc",
+    "vtoken": "0xecA88125a5ADbe82614ffC12D0DB554E2e2867C8",
+    "oracle": "pancake",
+    "oracleId": "USDC",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
   {
     "name": "venus-usdt",
     "vtoken": "0xfD5840Cd36d94D7229439859C0112a4185BC0255",
