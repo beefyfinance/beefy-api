@@ -13,6 +13,7 @@ const BLOCKS_PER_YEAR = 10512000;
 const web3 = new Web3(process.env.BSC_RPC);
 
 const getVenusApys = async () => {
+  console.time('venus');
   let apys = {};
 
   let promises = [];
@@ -22,7 +23,7 @@ const getVenusApys = async () => {
   for (item of values) {
     apys = { ...apys, ...item };
   }
-
+  console.timeEnd('venus');
   return apys;
 };
 

@@ -26,7 +26,6 @@
     "borrowDepth": 3,
     "borrowPercent": 0.54
   },
-
   {
     "name": "venus-busd",
     "vtoken": "0x95c78222B3D6e262426483D42CfA53685A67Ab9D",
@@ -36,7 +35,6 @@
     "borrowDepth": 3,
     "borrowPercent": 0.54
   },
-
   {
     "name": "venus-bnb",
     "vtoken": "0xA07c5b74C9B40447a954e1466938b865b6BBea36",
@@ -46,7 +44,6 @@
     "borrowDepth": 3,
     "borrowPercent": 0.54
   },
-
   {
     "name": "venus-xvs",
     "vtoken": "0x151B1e2635A717bcDc836ECd6FbB62B674FE3E1D",
@@ -56,7 +53,6 @@
     "borrowDepth": 3,
     "borrowPercent": 0.54
   },
-
   {
     "name": "venus-btcb",
     "vtoken": "0x882C173bC7Ff3b7786CA16dfeD3DFFfb9Ee7847B",
@@ -66,7 +62,6 @@
     "borrowDepth": 3,
     "borrowPercent": 0.54
   },
-
   {
     "name": "venus-eth",
     "vtoken": "0xf508fCD89b8bd15579dc79A6827cB4686A3592c8",
