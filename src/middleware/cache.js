@@ -16,7 +16,7 @@ async function cache(ctx, next) {
 
   await next();
 
-  ctx.set('Cache-Control', `public, s-maxage=2592000, max-age=86400`);
+  ctx.set('Cache-Control', `public, max-age=${TTL}`);
   ctx.cache[ctx.url] = {
     ts: Date.now(),
     body: ctx.body,

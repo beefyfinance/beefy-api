@@ -11,14 +11,9 @@ const getBakeryLpApys = require('./bakery/getBakeryLpApys');
 const getNarLpApys = require('./narwhal/getNarLpApys');
 const getVenusApys = require('./venus/getVenusApys');
 
-let apys = {};
-let loop_interval = 15000;
-
 const getApys = async () => {
-  return apys;
-};
+  let apys = {};
 
-const getApysLoop = async () => {
   const values = await Promise.all([
     getBifiMaxiApy(),
     getCakeApys(),
@@ -40,9 +35,5 @@ const getApysLoop = async () => {
 
   return apys;
 };
-
-setInterval(function () {
-  getApysLoop();
-}, loop_interval);
 
 module.exports = getApys;
