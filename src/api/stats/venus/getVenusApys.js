@@ -13,7 +13,6 @@ const BLOCKS_PER_YEAR = 10512000;
 const web3 = new Web3(process.env.BSC_RPC);
 
 const getVenusApys = async () => {
-  console.time('venus');
   let apys = {};
 
   let promises = [];
@@ -23,13 +22,15 @@ const getVenusApys = async () => {
   for (item of values) {
     apys = { ...apys, ...item };
   }
-  console.timeEnd('venus');
+
   return apys;
 };
 
 const getPoolApy = async pool => {
-  const { supplyBase, supplyVxs } = await getSupplyApys(pool);
-  const { borrowBase, borrowVxs } = await getBorrowApys(pool);
+  const [{ supplyBase, supplyVxs }, { borrowBase, borrowVxs }] = await Promise.all([
+    getSupplyApys(pool),
+    getBorrowApys(pool),
+  ]);
 
   const {
     leveragedSupplyBase,
@@ -45,23 +46,35 @@ const getPoolApy = async pool => {
 };
 
 const getSupplyApys = async pool => {
-  const venusPrice = await getPrice('pancake', 'XVS');
-  const tokenPrice = await getPrice(pool.oracle, pool.oracleId);
-
   const vtokenContract = new web3.eth.Contract(VToken, pool.vtoken);
   const unitrollerContract = new web3.eth.Contract(IUnitroller, UNITROLLER);
 
-  const supplyRate = new BigNumber(await vtokenContract.methods.supplyRatePerBlock().call());
+  let [
+    venusPrice,
+    tokenPrice,
+    supplyRate,
+    venusRate,
+    totalSupply,
+    exchangeRateStored,
+  ] = await Promise.all([
+    getPrice('pancake', 'XVS'),
+    getPrice(pool.oracle, pool.oracleId),
+    vtokenContract.methods.supplyRatePerBlock().call(),
+    unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
+    vtokenContract.methods.totalSupply().call(),
+    vtokenContract.methods.exchangeRateStored().call(),
+  ]);
+
+  supplyRate = new BigNumber(supplyRate);
+  venusRate = new BigNumber(venusRate);
+  totalSupply = new BigNumber(totalSupply);
+  exchangeRateStored = new BigNumber(exchangeRateStored);
+
   const supplyApyPerYear = supplyRate.times(BLOCKS_PER_YEAR).div('1e18');
 
-  const venusRate = new BigNumber(await unitrollerContract.methods.venusSpeeds(pool.vtoken).call());
   const venusPerYear = venusRate.times(BLOCKS_PER_YEAR);
   const venusPerYearInUsd = venusPerYear.div('1e18').times(venusPrice);
 
-  const totalSupply = new BigNumber(await vtokenContract.methods.totalSupply().call());
-  const exchangeRateStored = new BigNumber(
-    await vtokenContract.methods.exchangeRateStored().call()
-  );
   const totalSupplied = totalSupply.times(exchangeRateStored).div('1e18');
   const totalSuppliedInUsd = totalSupplied.div(pool.decimals).times(tokenPrice);
 
@@ -72,20 +85,26 @@ const getSupplyApys = async pool => {
 };
 
 const getBorrowApys = async pool => {
-  const venusPrice = await getPrice('pancake', 'XVS');
-  const bnbPrice = await getPrice(pool.oracle, pool.oracleId);
-
   const unitrollerContract = new web3.eth.Contract(IUnitroller, UNITROLLER);
   const vtokenContract = new web3.eth.Contract(VToken, pool.vtoken);
 
-  const borrowRate = new BigNumber(await vtokenContract.methods.borrowRatePerBlock().call());
+  let [venusPrice, bnbPrice, borrowRate, venusRate, totalBorrows] = await Promise.all([
+    getPrice('pancake', 'XVS'),
+    getPrice(pool.oracle, pool.oracleId),
+    vtokenContract.methods.borrowRatePerBlock().call(),
+    unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
+    vtokenContract.methods.totalBorrows().call(),
+  ]);
+
+  borrowRate = new BigNumber(borrowRate);
+  venusRate = new BigNumber(venusRate);
+  totalBorrows = new BigNumber(totalBorrows);
+
   const borrowApyPerYear = borrowRate.times(BLOCKS_PER_YEAR).div('1e18');
 
-  const venusRate = new BigNumber(await unitrollerContract.methods.venusSpeeds(pool.vtoken).call());
   const venusPerYear = venusRate.times(BLOCKS_PER_YEAR);
   const venusPerYearInUsd = venusPerYear.div('1e18').times(venusPrice);
 
-  const totalBorrows = new BigNumber(await vtokenContract.methods.totalBorrows().call());
   const totalBorrowsInUsd = totalBorrows.div(pool.decimals).times(bnbPrice);
 
   return {
