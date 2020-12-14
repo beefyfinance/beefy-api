@@ -58,6 +58,4 @@ const getYearlyRewardsInUsd = async (smartGangsterAddr, oracle, oracleId, decima
   return yearlyRewardsInUsd;
 };
 
-getDrugsApys();
-
 module.exports = getDrugsApys;

@@ -1,0 +1,89 @@
+[
+  {
+    "name": "venus-sxp",
+    "vtoken": "0x2fF3d0F6990a40261c66E1ff2017aCBc282EB6d0",
+    "oracle": "pancake",
+    "oracleId": "SXP",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+
+  {
+    "name": "venus-usdt",
+    "vtoken": "0xfD5840Cd36d94D7229439859C0112a4185BC0255",
+    "oracle": "pancake",
+    "oracleId": "USDT",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+
+  {
+    "name": "venus-busd",
+    "vtoken": "0x95c78222B3D6e262426483D42CfA53685A67Ab9D",
+    "oracle": "pancake",
+    "oracleId": "BUSD",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+
+  {
+    "name": "venus-bnb",
+    "vtoken": "0xA07c5b74C9B40447a954e1466938b865b6BBea36",
+    "oracle": "pancake",
+    "oracleId": "WBNB",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+
+  {
+    "name": "venus-xvs",
+    "vtoken": "0x151B1e2635A717bcDc836ECd6FbB62B674FE3E1D",
+    "oracle": "pancake",
+    "oracleId": "XVS",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+
+  {
+    "name": "venus-btcb",
+    "vtoken": "0x882C173bC7Ff3b7786CA16dfeD3DFFfb9Ee7847B",
+    "oracle": "pancake",
+    "oracleId": "BTCB",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+
+  {
+    "name": "venus-eth",
+    "vtoken": "0xf508fCD89b8bd15579dc79A6827cB4686A3592c8",
+    "oracle": "pancake",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+  {
+    "name": "venus-ltc",
+    "vtoken": "0x57A5297F2cB2c0AaC9D554660acd6D385Ab50c6B",
+    "oracle": "thugs",
+    "oracleId": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+  {
+    "name": "venus-xrp",
+    "vtoken": "0xB248a295732e0225acd3337607cc01068e3b9c10",
+    "oracle": "pancake",
+    "oracleId": "XRP",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  }
+]

@@ -9,8 +9,9 @@ const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
 const getBakeryLpApys = require('./bakery/getBakeryLpApys');
 const getNarLpApys = require('./narwhal/getNarLpApys');
+const getVenusApys = require('./venus/getVenusApys');
 
-let apys = {}
+let apys = {};
 let loop_interval = 15000;
 
 const getApys = async () => {
@@ -30,6 +31,7 @@ const getApysLoop = async () => {
     getBakePoolApy(),
     getBakeryLpApys(),
     getNarLpApys(),
+    getVenusApys(),
   ]);
 
   for (item of values) {
@@ -39,8 +41,8 @@ const getApysLoop = async () => {
   return apys;
 };
 
-setInterval(function(){ 
-  getApysLoop(); 
+setInterval(function () {
+  getApysLoop();
 }, loop_interval);
 
 module.exports = getApys;
