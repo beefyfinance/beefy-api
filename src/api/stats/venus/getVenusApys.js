@@ -23,6 +23,8 @@ const getVenusApys = async () => {
     apys = { ...apys, ...item };
   }
 
+  apys['venus-wbnb'] = apys['venus-bnb'];
+
   return apys;
 };
 
