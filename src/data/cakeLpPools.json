@@ -1,5 +1,185 @@
 [
   {
+    "name": "cake-ctk-bnb",
+    "address": "0x7793870484647a7278907498ec504879d6971EAb",
+    "decimals": "1e18",
+    "poolId": 32,
+    "lp0": {
+      "address": "0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929",
+      "oracle": "pancake",
+      "oracleId": "CTK",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-yfii-bnb",
+    "address": "0x574a978c2D0d36D707a05E459466C7A1054F1210",
+    "decimals": "1e18",
+    "poolId": 20,
+    "lp0": {
+      "address": "0x7F70642d88cf1C4a3a7abb072B53B929b653edA5",
+      "oracle": "pancake",
+      "oracleId": "YFII",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-yfi-bnb",
+    "address": "0x68Ff2ca47D27db5Ac0b5c46587645835dD51D3C1",
+    "decimals": "1e18",
+    "poolId": 24,
+    "lp0": {
+      "address": "0x88f1A5ae2A3BF98AEAF342D26B30a79438c9142e",
+      "oracle": "pancake",
+      "oracleId": "YFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-fil-bnb",
+    "address": "0x35FE9787F0eBF2a200BAc413D3030CF62D312774",
+    "decimals": "1e18",
+    "poolId": 26,
+    "lp0": {
+      "address": "0x0D8Ce2A99Bb6e3B7Db580eD848240e4a0F9aE153",
+      "oracle": "pancake",
+      "oracleId": "FIL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-band-bnb",
+    "address": "0xc639187ef82271D8f517de6FEAE4FaF5b517533c",
+    "decimals": "1e18",
+    "poolId": 4,
+    "lp0": {
+      "address": "0xAD6cAEb32CD2c308980a548bD0Bc5AA4306c6c18",
+      "oracle": "pancake",
+      "oracleId": "BAND",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-alpha-bnb",
+    "address": "0x2333c77FC0B2875c11409cdCD3C75D42D402E834",
+    "decimals": "1e18",
+    "poolId": 19,
+    "lp0": {
+      "address": "0x0Eb3a705fc54725037CC9e008bDede697f62F335",
+      "oracle": "pancake",
+      "oracleId": "ATOM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-vai-busd",
+    "address": "0xfF17ff314925Dff772b71AbdFF2782bC913B3575",
+    "decimals": "1e18",
+    "poolId": 41,
+    "lp0": {
+      "address": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+      "oracle": "pancake",
+      "oracleId": "VAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-broobee-cake",
+    "address": "0x970858016C963b780E06f7DCfdEf8e809919BcE8",
+    "decimals": "1e18",
+    "poolId": 38,
+    "lp0": {
+      "address": "0xE64F5Cb844946C1F102Bd25bBD87a5aB4aE89Fbe",
+      "oracle": "pancake",
+      "oracleId": "bROOBEE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "pancake",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-juv-bnb",
+    "address": "0x51a2ffa5B7DE506F9a22549E48B33F6Cf0D9030e",
+    "decimals": "1e18",
+    "poolId": 43,
+    "lp0": {
+      "address": "0xC40C9A843E1c6D01b7578284a9028854f6683b1B",
+      "oracle": "coingecko",
+      "oracleId": "juventus-fan-token",
+      "decimals": "1e2"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-psg-bnb",
+    "address": "0x9c4f6a5050CF863e67a402E8b377973b4E3372c1",
+    "decimals": "1e18",
+    "poolId": 42,
+    "lp0": {
+      "address": "0xBc5609612b7C44BEf426De600B5fd1379DB2EcF1",
+      "oracle": "pancake",
+      "oracleId": "PSG",
+      "decimals": "1e2"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-alpha-bnb",
     "address": "0x4e0f3385d932F7179DeE045369286FFa6B03d887",
     "decimals": "1e18",

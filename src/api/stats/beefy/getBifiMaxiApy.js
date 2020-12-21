@@ -5,7 +5,6 @@ const ERC20 = require('../../../abis/ERC20.json');
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const { getPrice } = require('../../../utils/getPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const pools = require('../../../data/fryPools.json');
 const { compound } = require('../../../utils/compound');
 
 const web3 = new Web3(process.env.BSC_RPC);
