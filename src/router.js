@@ -5,15 +5,18 @@ const router = new Router();
 
 const noop = require('./api/noop');
 const stats = require('./api/stats');
+const supply = require('./api/supply');
 const price = require('./api/price');
 const proxy = require('./api/proxy');
 const gov = require('./api/stats/gov');
 const smart = require('./api/smart');
 
-router.get('/supply', stats.supply);
 router.get('/apy', stats.apy);
-
 router.get('/smart', smart.getSmartcakeData);
+
+router.get('/supply', supply.supply);
+router.get('/supply/total', supply.total);
+router.get('/supply/circulating', supply.circulating);
 
 router.get('/earnings', gov.earnings);
 router.get('/holders', gov.holderCount);
