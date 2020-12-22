@@ -1,5 +1,5 @@
-# Beefy API
- 
+#  Beefy API
+
 ## Overview
 
 Simple API for BeefyFinance
