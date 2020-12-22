@@ -1,29 +1,24 @@
-const dailyEarnings = require('./getEarnings');
-const holderCount = require('./getHolderCount');
+const getEarnings = require('./getEarnings');
+const getHolderCount = require('./getHolderCount');
 
-async function dailyEarn(ctx) {
+async function earnings(ctx) {
   try {
-    const dailyEarn = await dailyEarnings();
-
     ctx.status = 200;
-    ctx.body = dailyEarn;
+    ctx.body = await getEarnings();
   } catch (err) {
     console.error(err);
     ctx.status = 500;
   }
 }
 
-async function holderCounter(ctx) {
+async function holderCount(ctx) {
   try {
-    const holders = await holderCount();
-
     ctx.status = 200;
-    ctx.body = holders;
+    ctx.body = await getHolderCount();
   } catch (err) {
     console.error(err);
     ctx.status = 500;
   }
 }
 
-
-module.exports = { dailyEarn, holderCounter };
+module.exports = { earnings, holderCount };

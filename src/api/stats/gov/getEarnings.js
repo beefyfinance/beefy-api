@@ -1,11 +1,13 @@
-const { getDailyEarnings } = require('../../../utils/getDailyEarnings');
+const { getDailyEarnings }   = require('../../../utils/getDailyEarnings');
+const { getRewardsReceived } = require('../../../utils/getRewardsReceived');
 
-const INTERVAL = 5 * 60 * 1000;
+const INTERVAL = 30 * 60 * 1000;
 
 let earned = {};
 
 const updateEarnings = async () => {
   earned = await getDailyEarnings();
+  earned.total = await getRewardsReceived();
   setTimeout(updateEarnings, INTERVAL);
 }
 

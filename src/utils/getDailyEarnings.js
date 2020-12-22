@@ -47,5 +47,5 @@ const getDailyEarnings = async () => {
   }
 };
 
-module.exports = {getDailyEarnings};
+module.exports = { getDailyEarnings };
 
