@@ -1,5 +1,131 @@
 [
   {
+    "name": "street-twt-bnb",
+    "address": "0xf7f21A56B19546A77EABABf23d8dca726CaF7577",
+    "poolId": 22,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
+      "oracle": "thugs",
+      "oracleId": "0x4B0F1812e5Df2A09796481Ff14017e6005508003_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-sxp-bnb",
+    "address": "0xf08865069864A5a62EB4DD4b9dcB66834822a198",
+    "poolId": 23,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x47BEAd2563dCBf3bF2c9407fEa4dC236fAbA485A",
+      "oracle": "thugs",
+      "oracleId": "0x47BEAd2563dCBf3bF2c9407fEa4dC236fAbA485A_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-xvs-bnb",
+    "address": "0x52a7FBe0995607B74e77A367036E76BCE11A3B44",
+    "poolId": 24,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-inj-bnb",
+    "address": "0x45ac15fb9650a790A0cD0f2b10c5EC4a6BbFCc2c",
+    "poolId": 25,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xa2B726B1145A4773F68593CF171187d8EBe4d495",
+      "oracle": "thugs",
+      "oracleId": "0xa2B726B1145A4773F68593CF171187d8EBe4d495_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-unfi-bnb",
+    "address": "0x0fF2D8B1A11195526f42905892bCb29e7b9F338D",
+    "poolId": 26,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x728C5baC3C3e370E372Fc4671f9ef6916b814d8B",
+      "oracle": "thugs",
+      "oracleId": "0x728C5baC3C3e370E372Fc4671f9ef6916b814d8B_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-ltc-bnb",
+    "address": "0x8Ea481FE8e35c74355DaF9B5f6b3b69F3c864aFc",
+    "poolId": 27,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94",
+      "oracle": "thugs",
+      "oracleId": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-alpha-bnb",
+    "address": "0x8d27dccB0fb3d6621fA4F4155d719f4AF159286e",
+    "poolId": 21,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0xa1faa113cbE53436Df28FF0aEe54275c13B40975",
+      "oracle": "thugs",
+      "oracleId": "0xa1faa113cbE53436Df28FF0aEe54275c13B40975_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "street-bch-bnb",
     "address": "0xcE7b1Bc3ff9115B64Bf4D6B1549f8339D02762F4",
     "poolId": 16,
