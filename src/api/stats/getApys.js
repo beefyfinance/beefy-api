@@ -15,7 +15,7 @@ const INTERVAL = 5 * 60 * 1000;
 
 let apys = {}
 
-const getApys = async () => {
+const getApys = () => {
   return apys;
 };
 
@@ -43,6 +43,6 @@ const updateApys = async () => {
   return apys;
 };
 
-updateApys()
+updateApys();
 
 module.exports = getApys;
