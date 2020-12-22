@@ -11,9 +11,15 @@ const getBakeryLpApys = require('./bakery/getBakeryLpApys');
 const getNarLpApys = require('./narwhal/getNarLpApys');
 const getVenusApys = require('./venus/getVenusApys');
 
-const getApys = async () => {
-  let apys = {};
+const INTERVAL = 5 * 60 * 1000;
 
+let apys = {}
+
+const getApys = async () => {
+  return apys;
+};
+
+const updateApys = async () => {
   const values = await Promise.all([
     getBifiMaxiApy(),
     getCakeApys(),
@@ -33,7 +39,10 @@ const getApys = async () => {
     apys = { ...apys, ...item };
   }
 
+  setTimeout(updateApys, INTERVAL);
   return apys;
 };
+
+updateApys()
 
 module.exports = getApys;
