@@ -41,11 +41,11 @@ const getDailyEarnings = async () => {
     page++;
   }
   return {
-    "dailyEarnings" : totalEarnings/10**18,
+    "daily" : totalEarnings / 1e18,
     "startBlock" : startBlock,
     "endBlock": endBlock
   }
 };
 
-module.exports = {getDailyEarnings};
+module.exports = { getDailyEarnings };
 

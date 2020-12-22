@@ -90,7 +90,7 @@
     }
   },
   {
-    "name": "cake-alpha-bnb",
+    "name": "cake-atom-bnb",
     "address": "0x2333c77FC0B2875c11409cdCD3C75D42D402E834",
     "decimals": "1e18",
     "poolId": 19,

@@ -1,22 +1,20 @@
-const { getDailyEarnings } = require('../../../utils/getDailyEarnings');
+const { getDailyEarnings }   = require('../../../utils/getDailyEarnings');
+const { getRewardsReceived } = require('../../../utils/getRewardsReceived');
+
+const INTERVAL = 30 * 60 * 1000;
 
 let earned = {};
-let loop_interval = 60000;
+
+const updateEarnings = async () => {
+  earned = await getDailyEarnings();
+  earned.total = await getRewardsReceived();
+  setTimeout(updateEarnings, INTERVAL);
+}
 
 const dailyEarnings = async () => {
-  if (Object.keys(earned).length === 0 && earned.constructor === Object) {
-    earned = await getDailyEarnings();
-  }
-
   return earned;
 };
 
-const getEarningsLoop = async () => {
-  earned = await getDailyEarnings();
-}
-
-setInterval(function(){ 
-  getEarningsLoop(); 
-}, loop_interval);
+updateEarnings();
 
 module.exports = dailyEarnings;
