@@ -1,10 +1,10 @@
 [
   {
-    "name": "thugs-drugs-guns",
-    "smartGangster": "0x85AB044e658c9EF2127DA97aA7AAA55bFE0eA756",
+    "name": "thugs-drugs-drugs",
+    "smartGangster": "0xf1254de60c5dfd3af6e7608a308c6f16c6cb773f",
     "oracle": "thugs",
-    "oracleId": "0x179983892eC36287f1F342443B671Ba549762241_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-    "asset": "0x179983892eC36287f1F342443B671Ba549762241",
+    "oracleId": "0x339550404Ca4d831D12B1b2e4768869997390010_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "asset": "0x339550404Ca4d831D12B1b2e4768869997390010",
     "decimals": "1e18"
   }
 ]
