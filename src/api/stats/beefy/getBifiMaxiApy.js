@@ -10,10 +10,10 @@ const { compound } = require('../../../utils/compound');
 const web3 = new Web3(process.env.BSC_RPC);
 
 const BIFI = '0xCa3F508B8e4Dd382eE878A314789373D80A5190A';
+const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
 const REWARDS = '0x453D4Ba9a2D594314DF88564248497F7D74d6b2C';
 const ORACLE = 'thugs';
-const ORACLE_ID =
-  '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xCa3F508B8e4Dd382eE878A314789373D80A5190A';
+const ORACLE_ID = `${WBNB}_${BIFI}`;
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
@@ -25,14 +25,12 @@ const getBifiMaxiApy = async () => {
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.DAILY_HPY, 1, 0.99);
-  console.log('Apy', apy.toString());
   return { 'bifi-maxi': apy };
 };
 
 const getYearlyRewardsInUsd = async () => {
   const bifiPrice = await getPrice(ORACLE, ORACLE_ID);
-  console.log('price', bifiPrice);
-
+  
   const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(BLOCKS_PER_DAY).times(365);
