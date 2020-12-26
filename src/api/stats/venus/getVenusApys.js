@@ -41,7 +41,7 @@ const getPoolApy = async pool => {
     leveragedBorrowBase,
     leveragedSupplyVxs,
     leveragedBorrowVxs,
-  } = getLeveragedApys(supplyBase, borrowBase, supplyVxs, borrowVxs, 4, 0.58);
+  } = getLeveragedApys(supplyBase, borrowBase, supplyVxs, borrowVxs, 4, 0.56);
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
   const compoundedVxs = compound(totalVxs, process.env.BASE_HPY, 0.955);
