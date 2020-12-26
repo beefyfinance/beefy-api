@@ -23,6 +23,8 @@ const getVenusApys = async () => {
     apys = { ...apys, ...item };
   }
 
+  console.log(JSON.stringify(apys));
+
   apys['venus-wbnb'] = apys['venus-bnb'];
 
   return apys;
@@ -39,7 +41,7 @@ const getPoolApy = async pool => {
     leveragedBorrowBase,
     leveragedSupplyVxs,
     leveragedBorrowVxs,
-  } = getLeveragedApys(supplyBase, borrowBase, supplyVxs, borrowVxs, 4, 0.56);
+  } = getLeveragedApys(supplyBase, borrowBase, supplyVxs, borrowVxs, 4, 0.58);
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
   const compoundedVxs = compound(totalVxs, process.env.BASE_HPY, 0.955);
@@ -147,7 +149,5 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
     leveragedBorrowVxs,
   };
 };
-
-getVenusApys();
 
 module.exports = getVenusApys;

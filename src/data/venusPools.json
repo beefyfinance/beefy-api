@@ -1,5 +1,32 @@
 [
   {
+    "name": "venus-bch",
+    "vtoken": "0x5F0388EBc2B94FA8E123F404b79cCF5f40b29176",
+    "oracle": "pancake",
+    "oracleId": "BCH",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+  {
+    "name": "venus-dot",
+    "vtoken": "0x1610bc33319e9398de5f57B33a5b184c806aD217",
+    "oracle": "pancake",
+    "oracleId": "DOT",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+  {
+    "name": "venus-link",
+    "vtoken": "0x650b940a1033B8A1b1873f78730FcFC73ec11f1f",
+    "oracle": "pancake",
+    "oracleId": "LINK",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+  {
     "name": "venus-sxp",
     "vtoken": "0x2fF3d0F6990a40261c66E1ff2017aCBc282EB6d0",
     "oracle": "pancake",

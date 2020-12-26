@@ -25,13 +25,12 @@ const getBifiMaxiApy = async () => {
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.DAILY_HPY, 1, 0.99);
-  console.log('Apy', apy.toString());
+
   return { 'bifi-maxi': apy };
 };
 
 const getYearlyRewardsInUsd = async () => {
   const bifiPrice = await getPrice(ORACLE, ORACLE_ID);
-  console.log('price', bifiPrice);
 
   const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());

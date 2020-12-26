@@ -2,7 +2,6 @@ const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
 const SmartGangster = require('../../../abis/SmartGangster.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const getBaseDrugsApy = require('./getBaseDrugsApy');
 const { getPrice } = require('../../../utils/getPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
@@ -28,8 +27,8 @@ const getDrugsApys = async () => {
     const totalStakedInUsd = await getTotalStakedInUsd(
       pool.smartGangster,
       hoes,
-      pool.oracle,
-      pool.oracleId
+      'thugs',
+      '0x339550404Ca4d831D12B1b2e4768869997390010_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'
     );
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseDrugsApy);
@@ -57,5 +56,7 @@ const getYearlyRewardsInUsd = async (smartGangsterAddr, oracle, oracleId, decima
 
   return yearlyRewardsInUsd;
 };
+
+getDrugsApys();
 
 module.exports = getDrugsApys;
