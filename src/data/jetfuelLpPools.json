@@ -1,0 +1,164 @@
+[
+  {
+    "name": "jetfuel-PK-fuel-bnb",
+    "address": "0x3763A3263CEaca5e7Cc1Bc22A43920bAd9f743Cd",
+    "decimals": "1e18",
+    "poolId": 6,
+    "lp0": {
+      "address": "0x2090c8295769791ab7A3CF1CC6e0AA19F35e441A",
+      "oracle": "pancake",
+      "oracleId": "Fuel",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jetfuel-street-fuel-bnb",
+    "address": "0xd26092c6ce6FB359302A9453dc0c7f312794Ef7E",
+    "decimals": "1e18",
+    "poolId": 7,
+    "lp0": {
+      "address": "0x2090c8295769791ab7A3CF1CC6e0AA19F35e441A",
+      "oracle": "pancake",
+      "oracleId": "Fuel",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jetfuel-street-bhc-bnb",
+    "address": "0xd46E7f33f8788f87D6017074dC4e4d781D3df91E",
+    "decimals": "1e18",
+    "poolId": 9,
+    "lp0": {
+      "address": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4",
+      "oracle": "thugs",
+      "oracleId": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jetfuel-PK-eth-bnb",
+    "address": "0x70D8929d04b60Af4fb9B58713eBcf18765aDE422",
+    "decimals": "1e18",
+    "poolId": 2,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "pancake",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jetfuel-PK-cake-bnb",
+    "address": "0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6",
+    "decimals": "1e18",
+    "poolId": 3,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "pancake",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jetfuel-PK-uni-bnb",
+    "address": "0x4269e7F43A63CEA1aD7707Be565a94a9189967E9",
+    "decimals": "1e18",
+    "poolId": 4,
+    "lp0": {
+      "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
+      "oracle": "pancake",
+      "oracleId": "UNI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jetfuel-PK-link-bnb",
+    "address": "0xaeBE45E3a03B734c68e5557AE04BFC76917B4686",
+    "decimals": "1e18",
+    "poolId": 5,
+    "lp0": {
+      "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
+      "oracle": "pancake",
+      "oracleId": "LINK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jetfuel-PK-busd-bnb",
+    "address": "0x1B96B92314C44b159149f7E0303511fB2Fc4774f",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jetfuel-PK-usdt-bnb",
+    "address": "0x20bCC3b8a0091dDac2d0BC30F68E6CBb97de59Cd",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "pancake",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -10,10 +10,11 @@ const getBakePoolApy = require('./bakery/getBakePoolApy');
 const getBakeryLpApys = require('./bakery/getBakeryLpApys');
 const getNarLpApys = require('./narwhal/getNarLpApys');
 const getVenusApys = require('./venus/getVenusApys');
+const getJetfuelLpApys = require('./jetfuel/getJetfuelLpApys');
 
 const INTERVAL = 5 * 60 * 1000;
 
-let apys = {}
+let apys = {};
 
 const getApys = () => {
   return apys;
@@ -33,6 +34,7 @@ const updateApys = async () => {
     getBakeryLpApys(),
     getNarLpApys(),
     getVenusApys(),
+    getJetfuelLpApys(),
   ]);
 
   for (item of values) {
