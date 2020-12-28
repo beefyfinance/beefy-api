@@ -41,8 +41,6 @@ const updateApys = async () => {
     apys = { ...apys, ...item };
   }
 
-  console.log('ALL', JSON.stringify(apys));
-
   setTimeout(updateApys, INTERVAL);
   return apys;
 };
