@@ -23,8 +23,6 @@ const getVenusApys = async () => {
     apys = { ...apys, ...item };
   }
 
-  console.log(JSON.stringify(apys));
-
   apys['venus-wbnb'] = apys['venus-bnb'];
 
   return apys;
