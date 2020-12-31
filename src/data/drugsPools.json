@@ -6,5 +6,21 @@
     "oracleId": "0x339550404Ca4d831D12B1b2e4768869997390010_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
     "asset": "0x339550404Ca4d831D12B1b2e4768869997390010",
     "decimals": "1e18"
+  },
+  {
+    "name": "thugs-drugs-bhc",
+    "smartGangster": "0x510BA22db0fb8432d80f4355bD2cA95b53d1eC52",
+    "oracle": "thugs",
+    "oracleId": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "asset": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4",
+    "decimals": "1e18"
+  },
+  {
+    "name": "thugs-drugs-jgn",
+    "smartGangster": "0x5CD2C95a3599D70e5c4b39Fb758B763640de5064",
+    "oracle": "thugs",
+    "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xC13B7a43223BB9Bf4B69BD68Ab20ca1B79d81C75",
+    "asset": "0xC13B7a43223BB9Bf4B69BD68Ab20ca1B79d81C75",
+    "decimals": "1e18"
   }
 ]
