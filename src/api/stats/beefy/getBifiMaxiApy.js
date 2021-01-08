@@ -25,16 +25,17 @@ const getBifiMaxiApy = async () => {
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.DAILY_HPY, 1, 0.99);
+
   return { 'bifi-maxi': apy };
 };
 
 const getYearlyRewardsInUsd = async () => {
-  const bifiPrice = await getPrice(ORACLE, ORACLE_ID);
+  const bnbPrice = await getPrice('pancake', 'WBNB');
 
   const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
-  const yearlyRewards = rewardRate.times(BLOCKS_PER_DAY).times(365);
-  const yearlyRewardsInUsd = yearlyRewards.times(bifiPrice).dividedBy(DECIMALS);
+  const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
+  const yearlyRewardsInUsd = yearlyRewards.times(bnbPrice).dividedBy(DECIMALS);
 
   return yearlyRewardsInUsd;
 };
