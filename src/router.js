@@ -29,6 +29,7 @@ router.get('/thugs/lps', price.thugsLpPrices);
 router.get('/bakery/lps', price.bakeryLpPrices);
 router.get('/narwhal/lps', price.narLpPrices);
 router.get('/jetfuel/lps', price.jetfuelLpPrices);
+router.get('/bdollar/lps', price.bdollarLpPrices);
 
 router.get('/', noop);
 

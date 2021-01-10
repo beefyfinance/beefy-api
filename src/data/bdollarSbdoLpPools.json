@@ -1,0 +1,38 @@
+[
+  {
+    "name": "cake-bdo-busd",
+    "address": "0xc5b0d73A7c0E4eaF66baBf7eE16A2096447f7aD6",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x190b589cf9Fb8DDEabBFeae36a813FFb2A702454",
+      "oracle": "pancake",
+      "oracleId": "BDO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-sbdo-busd",
+    "address": "0xA0718093baa3E7AAE054eED71F303A4ebc1C076f",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0x0d9319565be7f53CeFE84Ad201Be3f40feAE2740",
+      "oracle": "pancake",
+      "oracleId": "sBDO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  }
+]
