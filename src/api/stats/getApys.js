@@ -11,6 +11,8 @@ const getBakeryLpApys = require('./bakery/getBakeryLpApys');
 const getNarLpApys = require('./narwhal/getNarLpApys');
 const getVenusApys = require('./venus/getVenusApys');
 const getJetfuelLpApys = require('./jetfuel/getJetfuelLpApys');
+const getBdoLpApys = require('./bdollar/getBdoLpApys');
+const getSbdoLpApys = require('./bdollar/getSbdoLpApys');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -35,8 +37,10 @@ const updateApys = async () => {
     getNarLpApys(),
     getVenusApys(),
     getJetfuelLpApys(),
+    getBdoLpApys(),
+    getSbdoLpApys(),
   ]);
-
+  
   for (item of values) {
     apys = { ...apys, ...item };
   }

@@ -1,5 +1,23 @@
 [
   {
+    "name": "venus-dai",
+    "vtoken": "0x334b3ecb4dca3593bccc3c7ebd1a1c1d1780fbf1",
+    "oracle": "pancake",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+  {
+    "name": "venus-fil",
+    "vtoken": "0xf91d58b5ae142dacc749f58a49fcbac340cb0343",
+    "oracle": "pancake",
+    "oracleId": "FIL",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+  {
     "name": "venus-bch",
     "vtoken": "0x5F0388EBc2B94FA8E123F404b79cCF5f40b29176",
     "oracle": "pancake",
