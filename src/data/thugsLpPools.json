@@ -1,5 +1,23 @@
 [
   {
+    "name": "street-bhc-bnb",
+    "address": "0xd46E7f33f8788f87D6017074dC4e4d781D3df91E",
+    "poolId": 28,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4",
+      "oracle": "thugs",
+      "oracleId": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "street-jgn-bnb",
     "address": "0xc7C4726D0A45E4e7392901A90dCB52Ec4d2Bd1a3",
     "poolId": 29,
