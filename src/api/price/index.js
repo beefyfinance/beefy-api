@@ -1,4 +1,5 @@
 const { lpTokenPrices } = require('../../utils/lpTokens');
+const { getPrice } = require('../../utils/getPrice');
 const cakeLpTokens = require('../../data/cakeLpPools.json');
 const thugsLpTokens = require('../../data/thugsLpPools.json');
 const bakeryLpTokens = require('../../data/bakeryLpPools.json');
@@ -42,6 +43,17 @@ async function bdollarLpPrices(ctx) {
   await lpPrices(ctx, [ ...bdollarBdoLpTokens, ...bdollarSbdoLpTokens ]);
 }
 
+async function bakeryPrices(ctx) {
+  try {
+    const price = await getPrice('bakery', 'BETH');
+    ctx.status = 200;
+    ctx.body = { 'BETH': price };
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
 module.exports = {
   cakeLpPrices,
   thugsLpPrices,
@@ -49,4 +61,5 @@ module.exports = {
   narLpPrices,
   jetfuelLpPrices,
   bdollarLpPrices,
+  bakeryPrices,
 };
