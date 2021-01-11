@@ -23,6 +23,7 @@ router.get('/holders', gov.holderCount);
 
 router.get('/pancake/price', proxy.pancake);
 router.get('/thugs/tickers', proxy.thugs);
+router.get('/bakery/price', price.bakeryPrices);
 
 router.get('/pancake/lps', price.cakeLpPrices);
 router.get('/thugs/lps', price.thugsLpPrices);
