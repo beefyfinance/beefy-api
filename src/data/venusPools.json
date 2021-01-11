@@ -1,5 +1,14 @@
 [
   {
+    "name": "venus-beth",
+    "vtoken": "0x972207A639CC1B374B893cc33Fa251b55CEB7c07",
+    "oracle": "hardcode",
+    "oracleId": "959.486",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+  {
     "name": "venus-dai",
     "vtoken": "0x334b3ecb4dca3593bccc3c7ebd1a1c1d1780fbf1",
     "oracle": "pancake",

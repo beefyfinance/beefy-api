@@ -3,6 +3,7 @@ const BigNumber = require('bignumber.js');
 
 const { getPrice } = require('../../../utils/getPrice');
 const { compound } = require('../../../utils/compound');
+const { lpTokenRatio } = require('../../../utils/lpTokens');
 const IUnitroller = require('../../../abis/IUnitroller.json');
 const VToken = require('../../../abis/VToken.json');
 const pools = require('../../../data/venusPools.json');
@@ -60,7 +61,7 @@ const getSupplyApys = async pool => {
     exchangeRateStored,
   ] = await Promise.all([
     getPrice('pancake', 'XVS'),
-    getPrice(pool.oracle, pool.oracleId),
+    getTokenPrice(pool),
     vtokenContract.methods.supplyRatePerBlock().call(),
     unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
     vtokenContract.methods.totalSupply().call(),
@@ -92,7 +93,7 @@ const getBorrowApys = async pool => {
 
   let [venusPrice, bnbPrice, borrowRate, venusRate, totalBorrows] = await Promise.all([
     getPrice('pancake', 'XVS'),
-    getPrice(pool.oracle, pool.oracleId),
+    getTokenPrice(pool),
     vtokenContract.methods.borrowRatePerBlock().call(),
     unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
     vtokenContract.methods.totalBorrows().call(),
@@ -146,6 +147,19 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
     leveragedSupplyVxs,
     leveragedBorrowVxs,
   };
+};
+
+const getTokenPrice = (pool) =>
+  pool.name === 'venus-beth'
+    ? getBethPrice()
+    : getPrice(pool.oracle, pool.oracleId);
+
+const getBethPrice = async () => {
+  const bakeryWbnbBethLp = '0x2fc2ad3c28560c97caca6d2dcf9b38614f48769a';
+  const ratio = await lpTokenRatio(bakeryWbnbBethLp, '1e18', '1e18');
+  const bnbPrice = await getPrice('pancake', 'WBNB');
+  const bethPrice = bnbPrice / ratio;
+  return bethPrice;
 };
 
 module.exports = getVenusApys;
