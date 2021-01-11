@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { lpTokenRatio } = require('./lpTokens');
+const { lpTokenRatio } = require('./lpTokensRatio');
 
 const endpoints = {
   thugs: 'https://api.streetswap.vip/tickers',
