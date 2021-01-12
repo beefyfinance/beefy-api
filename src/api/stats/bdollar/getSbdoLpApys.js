@@ -29,6 +29,7 @@ const getPoolApy = async (sbdoRewardPool, pool) => {
     getYearlyRewardsInUsd(sbdoRewardPool, pool.poolId),
     getTotalLpStakedInUsd(sbdoRewardPool, pool),
   ]);
+
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
   return { [pool.name]: apy };
@@ -55,7 +56,7 @@ const getYearlyRewardsInUsd = async (sbdoRewardPool, poolId) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const bdoPrice = await getPrice('pancake', 'BDO');
+  const bdoPrice = await getPrice('pancake', 'sBDO');
   const yearlyRewardsInUsd = yearlyRewards.times(bdoPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
