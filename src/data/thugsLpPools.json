@@ -1,5 +1,41 @@
 [
   {
+    "name": "street-btri-bnb",
+    "address": "0x982eE1343c73688314990483dea924808231dE4D",
+    "poolId": 30,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x30C18C9cb3de61f2BD1974749A6f5725150208F3",
+      "oracle": "thugs",
+      "oracleId": "0x30C18C9cb3de61f2BD1974749A6f5725150208F3_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "street-btri-cred",
+    "address": "0xF271F9Cc3E3626394978A9C0C9582931fa3caDD1",
+    "poolId": 31,
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x30C18C9cb3de61f2BD1974749A6f5725150208F3",
+      "oracle": "thugs",
+      "oracleId": "0x30C18C9cb3de61f2BD1974749A6f5725150208F3_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0x571D0B55fe30eb1F6E68e8799F181c46De6B0059",
+      "oracle": "thugs",
+      "oracleId": "0x571D0B55fe30eb1F6E68e8799F181c46De6B0059_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "street-bhc-bnb",
     "address": "0xd46E7f33f8788f87D6017074dC4e4d781D3df91E",
     "poolId": 28,
