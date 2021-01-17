@@ -1,5 +1,23 @@
 [
   {
+    "name": "jetfuel-vapor-bnb",
+    "address": "0x01ffd4B8dE49442ab3EF755cC6bb57deEB6B871a",
+    "decimals": "1e18",
+    "poolId": 10,
+    "lp0": {
+      "address": "0x86ac8a05Cc4eEd2BEa32D271dE50e2A3d129b6B6",
+      "oracle": "pancake",
+      "oracleId": "VAPOR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "jetfuel-fuel-bnb-pcs",
     "address": "0x3763A3263CEaca5e7Cc1Bc22A43920bAd9f743Cd",
     "decimals": "1e18",
