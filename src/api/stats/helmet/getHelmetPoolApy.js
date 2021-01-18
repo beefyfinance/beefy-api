@@ -1,10 +1,10 @@
 const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
 
-const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const HelmetStakingPool = require('../../../abis/HelmetStakingPool.json');
 const { compound } = require('../../../utils/compound');
 const { getPrice } = require('../../../utils/getPrice');
-const HelmetStakingPool = require('../../../abis/HelmetStakingPool.json');
+const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
 const web3 = new Web3(process.env.BSC_RPC);
 
@@ -25,7 +25,7 @@ const getHelmetPoolApy = async () => {
   return { 'cake-helmet': apy };
 };
 
-const getYearlyRewardsInUsd = async (stakingPool, asset) => {
+const getYearlyRewardsInUsd = async (stakingPool) => {
   const stakingPoolContract = new web3.eth.Contract(HelmetStakingPool, stakingPool);
 
   let [rewardsDurationSeconds, rewardForDuration] = await Promise.all([

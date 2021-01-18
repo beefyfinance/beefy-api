@@ -1,0 +1,19 @@
+[
+  {
+    "name": "cake-helmet-bnb",
+    "address": "0x6411310C07d8c48730172146Fd6F31FA84034a8b",
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8",
+      "oracle": "pancake",
+      "oracleId": "Helmet",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]
