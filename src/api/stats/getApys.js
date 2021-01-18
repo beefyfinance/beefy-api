@@ -13,6 +13,7 @@ const getVenusApys = require('./venus/getVenusApys');
 const getJetfuelLpApys = require('./jetfuel/getJetfuelLpApys');
 const getBdoLpApys = require('./bdollar/getBdoLpApys');
 const getSbdoLpApys = require('./bdollar/getSbdoLpApys');
+const getHelmetPoolApy = require('./helmet/getHelmetPoolApy');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -39,6 +40,7 @@ const updateApys = async () => {
     getJetfuelLpApys(),
     getBdoLpApys(),
     getSbdoLpApys(),
+    getHelmetPoolApy()
   ]);
   
   for (item of values) {
