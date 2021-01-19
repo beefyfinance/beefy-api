@@ -1,7 +1,7 @@
 const getFryApys = require('./fry/getFryApys');
 const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
-const getCakeLpApys = require('./pancake/getCakeLpApys');
+const { getCakeLpApys } = require('./pancake/getCakeLpApys');
 const getFortubeApys = require('./fortube/getFortubeApys');
 const getThugsLpApys = require('./thugs/getThugsLpApys');
 const getDrugsApys = require('./thugs/getDrugsApys');
@@ -13,6 +13,8 @@ const getVenusApys = require('./venus/getVenusApys');
 const getJetfuelLpApys = require('./jetfuel/getJetfuelLpApys');
 const getBdoLpApys = require('./bdollar/getBdoLpApys');
 const getSbdoLpApys = require('./bdollar/getSbdoLpApys');
+const getHelmetPoolApy = require('./helmet/getHelmetPoolApy');
+const getHelmetLpApy = require('./helmet/getHelmetLpApy');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -39,6 +41,8 @@ const updateApys = async () => {
     getJetfuelLpApys(),
     getBdoLpApys(),
     getSbdoLpApys(),
+    getHelmetPoolApy(),
+    getHelmetLpApy(),
   ]);
   
   for (item of values) {
