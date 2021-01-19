@@ -3,6 +3,7 @@
     "name": "cake-helmet-bnb",
     "address": "0x6411310C07d8c48730172146Fd6F31FA84034a8b",
     "decimals": "1e18",
+    "poolId": 56,
     "lp0": {
       "address": "0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8",
       "oracle": "pancake",
