@@ -14,7 +14,7 @@ const router = require('./router');
 const app = new Koa();
 app.use(helmet());
 app.use(cors({origin: '*'}));
-app.use(logger);
+// app.use(logger);
 app.use(rt);
 app.use(powered);
 app.use(cache);
