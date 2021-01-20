@@ -44,7 +44,7 @@ const updateApys = async () => {
     getHelmetPoolApy(),
     getHelmetLpApy(),
   ]);
-  
+
   for (item of values) {
     apys = { ...apys, ...item };
   }

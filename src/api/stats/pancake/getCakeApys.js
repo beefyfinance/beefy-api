@@ -21,8 +21,6 @@ const getCakeApys = async () => {
     apys = { ...apys, ...item };
   }
 
-  apys['cake-smart'] = await getCakeSmartApy(apys);
-
   return apys;
 };
 
