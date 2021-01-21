@@ -1,27 +1,11 @@
 [
   {
     "name": "thugs-drugs-drugs",
-    "smartGangster": "0xf1254de60c5dfd3af6e7608a308c6f16c6cb773f",
+    "smartGangster": "0x2a1A101C9213fCf6844685d5886ea4107229b3db",
     "oracle": "thugs",
-    "oracleId": "0x339550404Ca4d831D12B1b2e4768869997390010_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-    "asset": "0x339550404Ca4d831D12B1b2e4768869997390010",
-    "decimals": "1e18"
-  },
-  {
-    "name": "thugs-drugs-bhc",
-    "smartGangster": "0x510BA22db0fb8432d80f4355bD2cA95b53d1eC52",
-    "oracle": "thugs",
-    "oracleId": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-    "asset": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4",
-    "decimals": "1e18"
-  },
-  {
-    "name": "thugs-drugs-jgn",
-    "smartGangster": "0x5CD2C95a3599D70e5c4b39Fb758B763640de5064",
-    "oracle": "thugs",
-    "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xC13B7a43223BB9Bf4B69BD68Ab20ca1B79d81C75",
-    "asset": "0xC13B7a43223BB9Bf4B69BD68Ab20ca1B79d81C75",
-    "decimals": "1e18"
+    "oracleId": "0x233d91A0713155003fc4DcE0AFa871b508B3B715_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "asset": "0x233d91A0713155003fc4DcE0AFa871b508B3B715",
+    "decimals": "1e9"
   },
   {
     "name": "thugs-drugs-btri",
@@ -29,6 +13,6 @@
     "oracle": "thugs",
     "oracleId": "0x30C18C9cb3de61f2BD1974749A6f5725150208F3_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
     "asset": "0x30C18C9cb3de61f2BD1974749A6f5725150208F3",
-    "decimals": "1e18"
+    "decimals": "1e9"
   }
 ]
