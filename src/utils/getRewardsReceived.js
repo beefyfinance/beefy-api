@@ -49,7 +49,7 @@ const getRewardsReceived = async () => {
 		to = from + step - 1;
 
 		rewards = await getPartialRewards(rewards, from, to);
-    await sleep(50);
+    await sleep(Math.round(100 + Math.random() * 200));
 	}
 
 	rewards = await getPartialRewards(rewards, to, 'latest');
