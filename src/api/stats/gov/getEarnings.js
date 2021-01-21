@@ -1,7 +1,7 @@
 const { getDailyEarnings }   = require('../../../utils/getDailyEarnings');
 const { getRewardsReceived } = require('../../../utils/getRewardsReceived');
 
-const INTERVAL = 30 * 60 * 1000;
+const INTERVAL = 60 * 60 * 1000;
 
 let earned = {};
 
