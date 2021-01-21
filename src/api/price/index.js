@@ -7,6 +7,7 @@ const narLpTokens = require('../../data/narLpPools.json');
 const jetfuelLpTokens = require('../../data/jetfuelLpPools.json');
 const bdollarBdoLpTokens = require('../../data/bdollarBdoLpPools.json');
 const bdollarSbdoLpTokens = require('../../data/bdollarSbdoLpPools.json');
+const helmetLpTokens = require('../../data/helmetLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -43,6 +44,10 @@ async function bdollarLpPrices(ctx) {
   await lpPrices(ctx, [ ...bdollarBdoLpTokens, ...bdollarSbdoLpTokens ]);
 }
 
+async function helmetLpPrices(ctx) {
+  await lpPrices(ctx, helmetLpTokens);
+}
+
 async function bakeryPrices(ctx) {
   try {
     const price = await getPrice('bakery', 'BETH');
@@ -62,4 +67,5 @@ module.exports = {
   jetfuelLpPrices,
   bdollarLpPrices,
   bakeryPrices,
+  helmetLpPrices,
 };
