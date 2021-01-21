@@ -15,6 +15,7 @@ const getBdoLpApys = require('./bdollar/getBdoLpApys');
 const getSbdoLpApys = require('./bdollar/getSbdoLpApys');
 const getHelmetPoolApy = require('./helmet/getHelmetPoolApy');
 const getHelmetLpApy = require('./helmet/getHelmetLpApy');
+const getBhcPoolApy = require('./bhc/getBhcPoolApy');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -43,6 +44,7 @@ const updateApys = async () => {
     getSbdoLpApys(),
     getHelmetPoolApy(),
     getHelmetLpApy(),
+    getBhcPoolApy(),
   ]);
 
   for (item of values) {
