@@ -1,5 +1,77 @@
 [
   {
+    "name": "cake-wsote-bnb",
+    "address": "0xFfb9E2d5ce4378F1a89b29bf53F80804CC078102",
+    "decimals": "1e18",
+    "poolId": 58,
+    "lp0": {
+      "address": "0x541E619858737031A1244A5d0Cd47E5ef480342c",
+      "oracle": "pancake",
+      "oracleId": "wSOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-front-bnb",
+    "address": "0x36b7D2e5C7877392Fb17f9219efaD56F3D794700",
+    "decimals": "1e18",
+    "poolId": 57,
+    "lp0": {
+      "address": "0x928e55daB735aa8260AF3cEDadA18B5f70C72f1b",
+      "oracle": "pancake",
+      "oracleId": "FRONT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-helmet-bnb",
+    "address": "0x6411310C07d8c48730172146Fd6F31FA84034a8b",
+    "decimals": "1e18",
+    "poolId": 56,
+    "lp0": {
+      "address": "0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8",
+      "oracle": "pancake",
+      "oracleId": "Helmet",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-btcst-bnb",
+    "address": "0x91589786D36fEe5B27A5539CfE638a5fc9834665",
+    "decimals": "1e18",
+    "poolId": 55,
+    "lp0": {
+      "address": "0x78650B139471520656b9E7aA7A5e9276814a38e9",
+      "oracle": "pancake",
+      "oracleId": "BTCST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-ltc-bnb",
     "address": "0xbc765fd113c5bdb2ebc25f711191b56bb8690aec",
     "decimals": "1e18",
