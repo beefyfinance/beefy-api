@@ -25,5 +25,6 @@ app.context.cache = {};
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-console.log('> beefy-api running!');
-app.listen(process.env.PORT);
+const port = process.env.PORT || 3000
+app.listen(port);
+console.log(`> beefy-api running! (:${port})`);
