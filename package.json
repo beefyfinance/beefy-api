@@ -13,6 +13,7 @@
     "@koa/router": "^9.4.0",
     "axios": "^0.20.0",
     "bignumber.js": "^9.0.1",
+    "ethers": "^5.0.26",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
     "koa-helmet": "^5.2.0",

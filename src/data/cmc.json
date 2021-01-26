@@ -1,0 +1,39 @@
+{
+  "provider": "Beefy",
+  "provider_logo": "URL",
+  "links": [
+    {
+      "title": "Twitter",
+      "link": "https://twitter.com/beefyfinance"
+    },
+    {
+      "title": "Telegram",
+      "link": "https://t.me/beefyfinance"
+    },
+    {
+      "title": "Discord",
+      "link": "https://discord.gg/yq8wfHd"
+    },
+    {
+      "title": "Medium",
+      "link": "https://medium.com/beefyfinance"
+    },
+    {
+      "title": "Github",
+      "link": "https://github.com/beefyfinance"
+    }
+  ], 
+  "pools": [
+    {
+      "name": "BIFI Maxi",
+      "pair": "BIFI",
+      "pairLink": "https://app.beefy.finance/", 
+      "logo": "URL",
+      "poolRewards": ["BIFI"],
+      "apyId": "bifi-maxi",
+      "contract": "0xf7069e41C57EcC5F122093811d8c75bdB5f7c14e",
+      "oracle": "thugs",
+      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xCa3F508B8e4Dd382eE878A314789373D80A5190A"
+    }
+  ]
+}

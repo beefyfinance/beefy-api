@@ -10,9 +10,11 @@ const price = require('./api/price');
 const proxy = require('./api/proxy');
 const gov = require('./api/stats/gov');
 const smart = require('./api/smart');
+const cmc = require('./api/cmc');
 
 router.get('/apy', stats.apy);
 router.get('/smart', smart.getSmartcakeData);
+router.get('/cmc', cmc.vaults);
 
 router.get('/supply', supply.supply);
 router.get('/supply/total', supply.total);

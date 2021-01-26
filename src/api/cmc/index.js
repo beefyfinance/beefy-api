@@ -1,0 +1,49 @@
+const {BigNumber, utils, ethers} = require('ethers');
+const axios = require('axios');
+
+const fetchPrice = require('../../utils/fetchPrice');
+
+const vaults_json = require('../../data/cmc.json');
+const BeefyVault = require('../../abis/BeefyVault.json');
+
+const fetchVaultTvl = async ({ vault, harvester }) => {
+  const vaultContract = new ethers.Contract(vault.contract, BeefyVault, harvester);
+  const vaultBalance = await vaultContract.balance();
+
+  const price = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
+  const normalizationFactor = 1000000000;
+  const normalizedPrice = BigNumber.from(Math.round(price * normalizationFactor));
+  const vaultBalanceInUsd = vaultBalance.mul(normalizedPrice.toString());
+  const result = vaultBalanceInUsd.div(normalizationFactor);
+
+  const vaultObjTvl = utils.formatEther(result);
+  vault.totalStaked = Number(vaultObjTvl).toFixed(2);
+
+  delete vault.apyId;
+  delete vault.contract;
+  delete vault.oracle;
+  delete vault.oracleId;
+
+  return result;
+};
+
+const vaults = async (ctx) => {
+  const provider = new ethers.providers.JsonRpcProvider(process.env.BSC_RPC);
+  const harvester = new ethers.Wallet(process.env.REWARDER_PRIVATE_KEY, provider);
+
+  let response = await axios.get('https://api.beefy.finance/apy');
+  const apys = response.data;
+  
+  let promises = [];
+  vaults_json.pools.forEach((vault) => {
+    vault.apr = apys[vault.apyId].toFixed(6);
+    promises.push(fetchVaultTvl({ vault, harvester }));
+  });
+  await Promise.all(promises);
+
+  ctx.body = vaults_json;
+}
+
+module.exports = {
+  vaults
+};
