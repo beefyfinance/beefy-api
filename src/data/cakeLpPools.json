@@ -5,9 +5,9 @@
     "decimals": "1e18",
     "poolId": 62,
     "lp0": {
-      "address": "0x541E619858737031A1244A5d0Cd47E5ef480342c",
-      "oracle": "pancake",
-      "oracleId": "wSOTE",
+      "address": "0x3947B992DC0147D2D89dF0392213781b04B25075",
+      "oracle": "mirror",
+      "oracleId": "mAMZN",
       "decimals": "1e18"
     },
     "lp1": {
@@ -23,9 +23,9 @@
     "decimals": "1e18",
     "poolId": 61,
     "lp0": {
-      "address": "0x541E619858737031A1244A5d0Cd47E5ef480342c",
-      "oracle": "pancake",
-      "oracleId": "wSOTE",
+      "address": "0x62D71B23bF15218C7d2D7E48DBbD9e9c650B173f",
+      "oracle": "mirror",
+      "oracleId": "mGOOGL",
       "decimals": "1e18"
     },
     "lp1": {
@@ -41,9 +41,9 @@
     "decimals": "1e18",
     "poolId": 60,
     "lp0": {
-      "address": "0x541E619858737031A1244A5d0Cd47E5ef480342c",
-      "oracle": "pancake",
-      "oracleId": "wSOTE",
+      "address": "0xa04F060077D90Fe2647B61e4dA4aD1F97d6649dc",
+      "oracle": "mirror",
+      "oracleId": "mNFLX",
       "decimals": "1e18"
     },
     "lp1": {
@@ -59,9 +59,9 @@
     "decimals": "1e18",
     "poolId": 59,
     "lp0": {
-      "address": "0x541E619858737031A1244A5d0Cd47E5ef480342c",
-      "oracle": "pancake",
-      "oracleId": "wSOTE",
+      "address": "0xF215A127A196e3988C09d052e16BcFD365Cd7AA3",
+      "oracle": "mirror",
+      "oracleId": "mTSLA",
       "decimals": "1e18"
     },
     "lp1": {
@@ -71,8 +71,6 @@
       "decimals": "1e18"
     }
   },
-
-  // END OF NEW
   {
     "name": "cake-wsote-bnb",
     "address": "0xFfb9E2d5ce4378F1a89b29bf53F80804CC078102",
