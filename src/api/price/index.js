@@ -41,7 +41,7 @@ async function jetfuelLpPrices(ctx) {
 }
 
 async function bdollarLpPrices(ctx) {
-  await lpPrices(ctx, [ ...bdollarBdoLpTokens, ...bdollarSbdoLpTokens ]);
+  await lpPrices(ctx, [...bdollarBdoLpTokens, ...bdollarSbdoLpTokens]);
 }
 
 async function helmetLpPrices(ctx) {
@@ -52,7 +52,7 @@ async function bakeryPrices(ctx) {
   try {
     const price = await getPrice('bakery', 'BETH');
     ctx.status = 200;
-    ctx.body = { 'BETH': price };
+    ctx.body = { BETH: price };
   } catch (err) {
     console.error(err);
     ctx.status = 500;
