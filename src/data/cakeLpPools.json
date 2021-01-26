@@ -1,5 +1,79 @@
 [
   {
+    "name": "cake-mamzn-ust",
+    "address": "0xc92Dc34665c8a21f98E1E38474580b61b4f3e1b9",
+    "decimals": "1e18",
+    "poolId": 62,
+    "lp0": {
+      "address": "0x541E619858737031A1244A5d0Cd47E5ef480342c",
+      "oracle": "pancake",
+      "oracleId": "wSOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x23396cF899Ca06c4472205fC903bDB4de249D6fC",
+      "oracle": "pancake",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-mgoogl-ust",
+    "address": "0x852A68181f789AE6d1Da3dF101740a59A071004f",
+    "decimals": "1e18",
+    "poolId": 61,
+    "lp0": {
+      "address": "0x541E619858737031A1244A5d0Cd47E5ef480342c",
+      "oracle": "pancake",
+      "oracleId": "wSOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x23396cF899Ca06c4472205fC903bDB4de249D6fC",
+      "oracle": "pancake",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-mnflx-ust",
+    "address": "0xF609ade3846981825776068a8eD7746470029D1f",
+    "decimals": "1e18",
+    "poolId": 60,
+    "lp0": {
+      "address": "0x541E619858737031A1244A5d0Cd47E5ef480342c",
+      "oracle": "pancake",
+      "oracleId": "wSOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x23396cF899Ca06c4472205fC903bDB4de249D6fC",
+      "oracle": "pancake",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-mtsla-ust",
+    "address": "0xD5664D2d15cdffD597515f1c0D945c6c1D3Bf85B",
+    "decimals": "1e18",
+    "poolId": 59,
+    "lp0": {
+      "address": "0x541E619858737031A1244A5d0Cd47E5ef480342c",
+      "oracle": "pancake",
+      "oracleId": "wSOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x23396cF899Ca06c4472205fC903bDB4de249D6fC",
+      "oracle": "pancake",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    }
+  },
+
+  // END OF NEW
+  {
     "name": "cake-wsote-bnb",
     "address": "0xFfb9E2d5ce4378F1a89b29bf53F80804CC078102",
     "decimals": "1e18",

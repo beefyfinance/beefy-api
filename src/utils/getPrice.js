@@ -59,6 +59,8 @@ const getPrice = async (oracle, id) => {
       break;
     case 'bakery':
       price = await fetchBakery(id);
+    case 'mirror':
+      price = await fetchMirror(id);
       break;
     default:
       console.error('Unknown oracle:', oracle);
@@ -121,6 +123,38 @@ const fetchBakery = async id => {
     const bnbPrice = await getPrice('pancake', 'WBNB');
     const bethPrice = bnbPrice / ratio;
     return bethPrice;
+  } catch (err) {
+    console.error(err);
+    return 0;
+  }
+};
+
+const fetchMirror = async id => {
+  try {
+    const response = await axios({
+      url: 'https://graph.mirror.finance/graphql',
+      method: 'post',
+      data: {
+        query: `
+        {
+          assets {
+            symbol
+            prices {
+              price
+            }
+          }
+        }
+        `,
+      },
+    });
+
+    response.data.data.assets.forEach(asset => {
+      if (asset.symbol === id) {
+        return Number(asset.prices.price);
+      }
+    });
+
+    return 0;
   } catch (err) {
     console.error(err);
     return 0;

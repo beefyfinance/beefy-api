@@ -1,11 +1,1 @@
-[
-  {
-    "name": "cake-twt",
-    "smartChef": "0x9c4EBADa591FFeC4124A7785CAbCfb7068fED2fb",
-    "oracle": "pancake",
-    "oracleId": "TWT",
-    "asset": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
-    "decimals": "1e18",
-    "smartcakePoolId": 2
-  }
-]
+[]
