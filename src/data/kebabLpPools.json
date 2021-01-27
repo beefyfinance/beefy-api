@@ -1,0 +1,38 @@
+[
+  {
+    "name": "kebab-kebab-busd",
+    "address": "0xD51bee2E0A3886289F6D229b6f30c0C2b34fC0Ec",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0x7979f6c54eba05e18ded44c4f986f49a5de551c2",
+      "oracle": "pancake",
+      "oracleId": "KEBAB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "kebab-kebab-bnb",
+    "address": "0x25fd42d82d5c238ee7aa277261aa6ca5bdfe5cd4",
+    "decimals": "1e18",
+    "poolId": 5,
+    "lp0": {
+      "address": "0x7979f6c54eba05e18ded44c4f986f49a5de551c2",
+      "oracle": "pancake",
+      "oracleId": "KEBAB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]
