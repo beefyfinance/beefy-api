@@ -1,14 +1,14 @@
 const axios = require('axios');
 const { compound } = require('../../../utils/compound');
-const { WEEKLY_HPY } = require('../../../../constants');
+const { WEEKLY_HPY, FORTUBE_REQ_TOKENS, FORTUBE_REQ_MARKETS, FORTUBE_API_TOKEN } = require('../../../../constants');
 
 const getFortubeApys = async () => {
   let fortubeApys = {};
 
-  const resSimple = await axios.get(process.env.FORTUBE_REQ_TOKENS);
-  const resExtended = await axios.get(process.env.FORTUBE_REQ_MARKETS, {
+  const resSimple = await axios.get(FORTUBE_REQ_TOKENS);
+  const resExtended = await axios.get(FORTUBE_REQ_MARKETS, {
     headers: {
-      authorization: process.env.FORTUBE_API_TOKEN,
+      authorization: FORTUBE_API_TOKEN,
     },
   });
 
