@@ -15,6 +15,8 @@ const getSbdoLpApys = require('./bdollar/getSbdoLpApys');
 const getHelmetPoolApy = require('./helmet/getHelmetPoolApy');
 const getHelmetLpApy = require('./helmet/getHelmetLpApy');
 const getBhcPoolApy = require('./bhc/getBhcPoolApy');
+const getKebabLpApys = require('./kebab/getKebabLpApys');
+const getKebabPoolApy = require('./kebab/getKebabPoolApy');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -43,6 +45,8 @@ const updateApys = async () => {
     getHelmetPoolApy(),
     getHelmetLpApy(),
     getBhcPoolApy(),
+    getKebabLpApys(),
+    getKebabPoolApy(),
   ]);
 
   for (item of values) {
