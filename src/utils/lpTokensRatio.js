@@ -1,8 +1,6 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('./web3');
 const LPPair = require('../abis/LPPair.json');
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const lpTokenRatio = async (lpTokenAddress, decimals0, decimals1) => {
   const tokenPairContract = await new web3.eth.Contract(LPPair, lpTokenAddress);

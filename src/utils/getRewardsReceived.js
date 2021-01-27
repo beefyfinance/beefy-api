@@ -1,9 +1,7 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('./web3');
 
 const { getTopicFromSignature, getTopicFromAddress, getValueFromData } = require('./topicHelpers');
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const rewardPool = '0x453D4Ba9a2D594314DF88564248497F7D74d6b2C';
 const wbnb = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';

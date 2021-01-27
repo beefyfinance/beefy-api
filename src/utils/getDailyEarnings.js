@@ -1,7 +1,5 @@
 const axios = require('axios');
-const Web3 = require('web3');
-
-const web3 = new Web3(process.env.BSC_RPC_3 || process.env.BSC_RPC);
+const web3 = require('./web3');
 
 const getDailyEarnings = async () => {
 

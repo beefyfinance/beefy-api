@@ -1,10 +1,8 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('./web3');
 const { getPrice } = require('./getPrice');
 const ERC20 = require('../abis/ERC20.json');
 const LPPair = require('../abis/LPPair.json');
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const lpTokenPrice = async lpToken => {
   const tokenPairContract = await new web3.eth.Contract(ERC20, lpToken.address);

@@ -1,11 +1,9 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('../../../utils/web3');
 
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const { compound } = require('../../../utils/compound');
 const { getPrice } = require('../../../utils/getPrice');
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const stakingPool = '0xf867ea84d04c79bbd812e76f3ecedf3d053fff91';
 const oracle = 'thugs';

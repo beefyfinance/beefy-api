@@ -1,5 +1,5 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('../../../utils/web3');
 
 const { getPrice } = require('../../../utils/getPrice');
 const { compound } = require('../../../utils/compound');
@@ -9,8 +9,6 @@ const pools = require('../../../data/venusPools.json');
 
 const UNITROLLER = '0xfD36E2c2a6789Db23113685031d7F16329158384';
 const BLOCKS_PER_YEAR = 10512000;
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const getVenusApys = async () => {
   let apys = {};

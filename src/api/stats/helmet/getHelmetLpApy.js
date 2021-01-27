@@ -1,5 +1,5 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('../../../utils/web3');
 
 const HelmetStakingPool = require('../../../abis/HelmetStakingPool.json');
 const pools = require('../../../data/helmetLpPools.json');
@@ -7,8 +7,6 @@ const { compound } = require('../../../utils/compound');
 const { getPrice } = require('../../../utils/getPrice');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { getYearlyRewardsInUsd: getCakeYearlyRewardsInUsd } = require('../pancake/getCakeLpApys');
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 // Pool 1 mines self pool
 // Pool 2 mines helmet-bnb from pancakeswap
