@@ -28,7 +28,7 @@
       "name": "BIFI Maxi",
       "pair": "BIFI",
       "pairLink": "https://app.beefy.finance/", 
-      "logo": "URL",
+      "logo": "https://beefy.finance/vaults/bifi/BIFI.png",
       "poolRewards": ["BIFI"],
       "apyId": "bifi-maxi",
       "contract": "0xf7069e41C57EcC5F122093811d8c75bdB5f7c14e",
