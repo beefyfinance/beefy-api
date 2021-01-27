@@ -7,6 +7,7 @@ const { getPrice } = require('../../utils/getPrice');
 const getTotalStakedInUsd = require('../../utils/getTotalStakedInUsd');
 const { compound } = require('../../utils/compound');
 const cakePools = require('../../data/cakePools.json');
+const { HOURLY_HPY } = require('../../../constants');
 
 const getSmartcakeData = async ctx => {
   try {
@@ -64,7 +65,7 @@ const getExpectedApy = async (pool, smartcakeStakeInUsd, currentPool) => {
   }
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd.plus(smartcakeStakeInUsd));
-  const apy = compound(simpleApy, process.env.HOURLY_HPY, 1, 0.94);
+  const apy = compound(simpleApy, HOURLY_HPY, 1, 0.94);
 
   return { [pool.name]: apy };
 };

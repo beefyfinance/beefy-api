@@ -4,6 +4,7 @@ const web3 = require('../../../utils/web3');
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const { compound } = require('../../../utils/compound');
 const { getPrice } = require('../../../utils/getPrice');
+const { BASE_HPY } = require('../../../../constants');
 
 const stakingPool = '0xf867ea84d04c79bbd812e76f3ecedf3d053fff91';
 const oracle = 'thugs';
@@ -20,7 +21,7 @@ const getBhcPoolApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
 
   return { 'bhc-bhc': apy };
 };

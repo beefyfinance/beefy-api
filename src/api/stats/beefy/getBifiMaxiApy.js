@@ -6,6 +6,7 @@ const IRewardPool = require('../../../abis/IRewardPool.json');
 const { getPrice } = require('../../../utils/getPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
+const { DAILY_HPY } = require('../../../../constants');
 
 const BIFI = '0xCa3F508B8e4Dd382eE878A314789373D80A5190A';
 const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
@@ -22,7 +23,7 @@ const getBifiMaxiApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.DAILY_HPY, 1, 0.99);
+  const apy = compound(simpleApy, DAILY_HPY, 1, 0.99);
 
   return { 'bifi-maxi': apy };
 };

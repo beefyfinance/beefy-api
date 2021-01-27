@@ -7,6 +7,7 @@ const { compound } = require('../../../utils/compound');
 const { getPrice } = require('../../../utils/getPrice');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { getYearlyRewardsInUsd: getCakeYearlyRewardsInUsd } = require('../pancake/getCakeLpApys');
+const { BASE_HPY } = require('../../../../constants');
 
 // Pool 1 mines self pool
 // Pool 2 mines helmet-bnb from pancakeswap
@@ -27,7 +28,7 @@ const getHelmetLpApy = async () => {
 const getPoolApy = (pool1YearlyRewardsInUsd, pool2YearlyRewardsInUsd, pool2TotalStakedInUsd, pool) => {
   const totalYearlyRewardsInUsd = pool1YearlyRewardsInUsd.plus(pool2YearlyRewardsInUsd);
   const simpleApy = totalYearlyRewardsInUsd.dividedBy(pool2TotalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.94);
+  const apy = compound(simpleApy, BASE_HPY, 1, 0.94);
   
   return { [pool.name]: apy };
 };

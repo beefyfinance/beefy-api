@@ -7,6 +7,7 @@ const { getPrice } = require('../../../utils/getPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/drugsPools.json');
 const { compound } = require('../../../utils/compound');
+const { BASE_HPY } = require('../../../../constants');
 
 const getDrugsApys = async () => {
   const apys = {};
@@ -30,7 +31,7 @@ const getDrugsApys = async () => {
     );
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseDrugsApy);
-    apys[pool.name] = compound(simpleApy, process.env.BASE_HPY, 1, 0.94);
+    apys[pool.name] = compound(simpleApy, BASE_HPY, 1, 0.94);
   }
 
   return apys;

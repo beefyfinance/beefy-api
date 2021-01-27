@@ -1,6 +1,7 @@
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
 const getYearlyRewardsInUsd = require('./getYearlyRewardsInUsd');
+const { BASE_HPY } = require('../../../../constants');
 
 const getBakePoolApy = async () => {
   const bakeryMaster = '0x20eC291bB8459b6145317E7126532CE7EcE5056f';
@@ -14,7 +15,7 @@ const getBakePoolApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
 
   return { 'bakery-bake': apy };
 };

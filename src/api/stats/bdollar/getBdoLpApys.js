@@ -6,6 +6,7 @@ const { getPrice } = require('../../../utils/getPrice');
 const pools = require('../../../data/bdollarBdoLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const { BASE_HPY } = require('../../../../constants');
 
 const getBdoLpApys = async () => {
   let apys = {};
@@ -28,7 +29,7 @@ const getPoolApy = async (bdoRewardPool, pool) => {
     getTotalLpStakedInUsd(bdoRewardPool, pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
   return { [pool.name]: apy };
 };
 
