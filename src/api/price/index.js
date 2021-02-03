@@ -9,6 +9,7 @@ const bdollarBdoLpTokens = require('../../data/bdollarBdoLpPools.json');
 const bdollarSbdoLpTokens = require('../../data/bdollarSbdoLpPools.json');
 const helmetLpTokens = require('../../data/helmetLpPools.json');
 const kebabLpTokens = require('../../data/kebabLpPools.json');
+const monsterLpTokens = require('../../data/monsterLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -53,6 +54,10 @@ async function kebabLpPrices(ctx) {
   await lpPrices(ctx, kebabLpTokens);
 }
 
+async function monsterLpPrices(ctx) {
+  await lpPrices(ctx, monsterLpTokens);
+}
+
 async function bakeryPrices(ctx) {
   try {
     const price = await getPrice('bakery', 'BETH');
@@ -73,5 +78,6 @@ module.exports = {
   bdollarLpPrices,
   bakeryPrices,
   helmetLpPrices,
-  kebabLpPrices
+  kebabLpPrices,
+  monsterLpPrices,
 };
