@@ -1,11 +1,9 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('./web3');
 
 const ERC20 = require('../abis/ERC20.json');
 const { getPrice } = require('./getPrice');
 const { lpTokenPrice } = require('./lpTokens');
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const getTotalStakedInUsd = async (targetAddr, tokenAddr, oracle, oracleoId, decimals = '1e18') => {
   const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);

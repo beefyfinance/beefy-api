@@ -1,12 +1,11 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/MasterChef.json');
 const { getPrice } = require('../../../utils/getPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
-
-const web3 = new Web3(process.env.BSC_RPC);
+const { BASE_HPY } = require('../../../../constants');
 
 const getCakePoolApy = async () => {
   const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
@@ -20,7 +19,7 @@ const getCakePoolApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.94);
+  const apy = compound(simpleApy, BASE_HPY, 1, 0.94);
 
   return { 'cake-cake': apy, 'cake-smart': apy };
 };

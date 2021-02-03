@@ -1,12 +1,11 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('../../../utils/web3');
 
 const HelmetStakingPool = require('../../../abis/HelmetStakingPool.json');
 const { compound } = require('../../../utils/compound');
 const { getPrice } = require('../../../utils/getPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-
-const web3 = new Web3(process.env.BSC_RPC);
+const { BASE_HPY } = require('../../../../constants');
 
 const getHelmetPoolApy = async () => {
   const stakingPool = '0x279a073C491C873DF040B05cc846A3c47252b52c';
@@ -20,7 +19,7 @@ const getHelmetPoolApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
   
   return { 'cake-helmet': apy };
 };

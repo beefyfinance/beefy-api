@@ -1,13 +1,14 @@
 const axios = require('axios');
 const { compound } = require('../../../utils/compound');
+const { WEEKLY_HPY, FORTUBE_REQ_TOKENS, FORTUBE_REQ_MARKETS, FORTUBE_API_TOKEN } = require('../../../../constants');
 
 const getFortubeApys = async () => {
   let fortubeApys = {};
 
-  const resSimple = await axios.get(process.env.FORTUBE_REQ_TOKENS);
-  const resExtended = await axios.get(process.env.FORTUBE_REQ_MARKETS, {
+  const resSimple = await axios.get(FORTUBE_REQ_TOKENS);
+  const resExtended = await axios.get(FORTUBE_REQ_MARKETS, {
     headers: {
-      authorization: process.env.FORTUBE_API_TOKEN,
+      authorization: FORTUBE_API_TOKEN,
     },
   });
 
@@ -16,7 +17,7 @@ const getFortubeApys = async () => {
 
   Object.values(dataSimple).map(item => {
     const symbol = item.symbol.toLowerCase();
-    const apy = compound(parseFloat(item.estimated_ar), process.env.WEEKLY_HPY, 1, 0.95);
+    const apy = compound(parseFloat(item.estimated_ar), WEEKLY_HPY, 1, 0.95);
     fortubeApys[`fortube-${symbol}`] = apy;
   });
 
