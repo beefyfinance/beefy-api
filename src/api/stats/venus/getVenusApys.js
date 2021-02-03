@@ -1,16 +1,15 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('../../../utils/web3');
 
 const { getPrice } = require('../../../utils/getPrice');
 const { compound } = require('../../../utils/compound');
 const IUnitroller = require('../../../abis/IUnitroller.json');
 const VToken = require('../../../abis/VToken.json');
 const pools = require('../../../data/venusPools.json');
+const { BASE_HPY } = require('../../../../constants');
 
 const UNITROLLER = '0xfD36E2c2a6789Db23113685031d7F16329158384';
 const BLOCKS_PER_YEAR = 10512000;
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const getVenusApys = async () => {
   let apys = {};
@@ -42,7 +41,7 @@ const getPoolApy = async pool => {
   } = getLeveragedApys(supplyBase, borrowBase, supplyVxs, borrowVxs, 4, 0.58);
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
-  const compoundedVxs = compound(totalVxs, process.env.BASE_HPY, 0.955);
+  const compoundedVxs = compound(totalVxs, BASE_HPY, 0.955);
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedVxs).toNumber();
   return { [pool.name]: apy };
 };

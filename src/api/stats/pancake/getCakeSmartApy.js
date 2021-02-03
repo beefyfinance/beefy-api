@@ -1,8 +1,6 @@
-const Web3 = require('web3');
+const web3 = require('../../../utils/web3');
 
 const StrategySmartCake = require('../../../abis/StrategySmartCake.json');
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const getCakeSmartApy = async apys => {
   const pools = {

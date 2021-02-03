@@ -1,12 +1,10 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
+const web3 = require('../../../utils/web3');
 
 const OriginalGangster = require('../../../abis/OriginalGangster.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getPrice } = require('../../../utils/getPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const ORIGINAL_GANGSTER = '0x03edb31BeCc296d45670790c947150DAfEC2E238';
 const DRUGS_V2 = '0x339550404Ca4d831D12B1b2e4768869997390010';

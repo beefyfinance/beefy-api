@@ -2,6 +2,7 @@ const pools = require('../../../data/bakeryLpPools.json');
 const { compound } = require('../../../utils/compound');
 const getYearlyRewardsInUsd = require('./getYearlyRewardsInUsd');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const { BASE_HPY } = require('../../../../constants');
 
 const getBakeryLpApys = async () => {
   let apys = {};
@@ -26,7 +27,7 @@ const getPoolApy = async (bakeryMaster, pool) => {
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
   return { [pool.name]: apy };
 };
 

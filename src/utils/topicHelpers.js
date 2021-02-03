@@ -1,7 +1,5 @@
-const Web3 = require('web3');
 const BigNumber = require('bignumber.js');
-
-const web3 = new Web3();
+const web3 = require('./web3');
 
 const getTopicFromSignature = (signature) => {
 	return web3.utils.keccak256(signature);
