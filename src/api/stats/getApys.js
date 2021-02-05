@@ -50,6 +50,7 @@ const updateApys = async () => {
     getKebabLpApys(),
     getKebabPoolApy(),
     getMonsterLpApys(),
+    getJulDPoolApy(),
   ]);
 
   for (item of values) {
