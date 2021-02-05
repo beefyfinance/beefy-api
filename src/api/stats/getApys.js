@@ -18,6 +18,7 @@ const getBhcPoolApy = require('./bhc/getBhcPoolApy');
 const getKebabLpApys = require('./kebab/getKebabLpApys');
 const getKebabPoolApy = require('./kebab/getKebabPoolApy');
 const getMonsterLpApys = require('./monster/getMonsterLpApys');
+const getJulDPoolApy = require('./julb/getJuldPoolApy');
 
 const INTERVAL = 5 * 60 * 1000;
 
