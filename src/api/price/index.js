@@ -1,5 +1,6 @@
 const { lpTokenPrices } = require('../../utils/lpTokens');
 const { getPrice } = require('../../utils/getPrice');
+const { getNyanswopTokenPrices } = require('../stats/nyanswop/getNyanswopPrice')
 const cakeLpTokens = require('../../data/cakeLpPools.json');
 const thugsLpTokens = require('../../data/thugsLpPools.json');
 const bakeryLpTokens = require('../../data/bakeryLpPools.json');
@@ -10,6 +11,7 @@ const bdollarSbdoLpTokens = require('../../data/bdollarSbdoLpPools.json');
 const helmetLpTokens = require('../../data/helmetLpPools.json');
 const kebabLpTokens = require('../../data/kebabLpPools.json');
 const monsterLpTokens = require('../../data/monsterLpPools.json');
+const nyanswopLpTokens = require('../../data/nyanswopLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -58,11 +60,26 @@ async function monsterLpPrices(ctx) {
   await lpPrices(ctx, monsterLpTokens);
 }
 
+async function nyanswopLpPrices(ctx) {
+  await lpPrices(ctx, nyanswopLpTokens);
+}
+
 async function bakeryPrices(ctx) {
   try {
     const price = await getPrice('bakery', 'BETH');
     ctx.status = 200;
     ctx.body = { BETH: price };
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
+async function nyanswopPrices(ctx) {
+  try {
+    const prices = await getNyanswopTokenPrices();
+    ctx.status = 200;
+    ctx.body = prices;
   } catch (err) {
     console.error(err);
     ctx.status = 500;
@@ -77,7 +94,9 @@ module.exports = {
   jetfuelLpPrices,
   bdollarLpPrices,
   bakeryPrices,
+  nyanswopPrices,
   helmetLpPrices,
   kebabLpPrices,
   monsterLpPrices,
+  nyanswopLpPrices,
 };
