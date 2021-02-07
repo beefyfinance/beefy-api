@@ -19,6 +19,7 @@ const getKebabLpApys = require('./kebab/getKebabLpApys');
 const getKebabPoolApy = require('./kebab/getKebabPoolApy');
 const getMonsterLpApys = require('./monster/getMonsterLpApys');
 const getJulDPoolApy = require('./julb/getJuldPoolApy');
+const getNyacashNyasLpApys = require('./nyanswop/getNyacashNyasLpApys');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -51,6 +52,7 @@ const updateApys = async () => {
     getKebabPoolApy(),
     getMonsterLpApys(),
     getJulDPoolApy(),
+    getNyacashNyasLpApys()
   ]);
 
   for (item of values) {

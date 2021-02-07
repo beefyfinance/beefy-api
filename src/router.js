@@ -26,6 +26,7 @@ router.get('/holders', gov.holderCount);
 router.get('/pancake/price', proxy.pancake);
 router.get('/thugs/tickers', proxy.thugs);
 router.get('/bakery/price', price.bakeryPrices);
+router.get('/nyanswop/price', price.nyanswopPrices);
 
 router.get('/pancake/lps', price.cakeLpPrices);
 router.get('/thugs/lps', price.thugsLpPrices);
@@ -36,6 +37,7 @@ router.get('/bdollar/lps', price.bdollarLpPrices);
 router.get('/helmet/lps', price.helmetLpPrices);
 router.get('/kebab/lps', price.kebabLpPrices);
 router.get('/monster/lps', price.monsterLpPrices);
+router.get('/nyanswop/lps', price.nyanswopLpPrices);
 
 router.get('/', noop);
 
