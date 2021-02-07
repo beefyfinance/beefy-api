@@ -1,5 +1,6 @@
 const axios = require('axios');
 const { lpTokenRatio } = require('./lpTokensRatio');
+const { getNyanswopTokenPrice } = require('../api/stats/nyanswop/getNyanswopPrice')
 
 const endpoints = {
   thugs: 'https://api.streetswap.vip/tickers',
@@ -62,6 +63,9 @@ const getPrice = async (oracle, id) => {
       break;
     case 'mirror':
       price = await fetchMirror(id);
+      break;
+    case 'nyanswop':
+      price = await fetchNyanswop(id);
       break;
     default:
       console.error('Unknown oracle:', oracle);
@@ -162,6 +166,10 @@ const fetchMirror = async id => {
     console.error(err);
     return 0;
   }
+};
+
+const fetchNyanswop = async (id) => {
+  return await getNyanswopTokenPrice(id);
 };
 
 module.exports = {
