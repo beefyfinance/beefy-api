@@ -1,0 +1,38 @@
+[
+  {
+    "name": "sponge-soak-bnb",
+    "address": "0xc8fcba816ef9b0c5bc03d9178cfcc7ef785b4f2f",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0x849233FF1aea15D80EF658B2871664C9Ca994063",
+      "oracle": "pancake",
+      "oracleId": "SOAK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sponge-sponge-bnb",
+    "address": "0x25fd42d82d5c238ee7aa277261aa6ca5bdfe5cd4",
+    "decimals": "1e18",
+    "poolId": 3,
+    "lp0": {
+      "address": "0x3aabCf53A1930A42E18D938C019E83Ebee50a849",
+      "oracle": "pancake",
+      "oracleId": "SPG",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]
