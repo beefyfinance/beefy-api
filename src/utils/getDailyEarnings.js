@@ -1,5 +1,5 @@
 const axios = require('axios');
-const web3 = require('./web3');
+const { web3 } = require('./web3');
 
 const getDailyEarnings = async () => {
 

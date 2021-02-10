@@ -1,4 +1,4 @@
-const Web3 = require('web3');
+const { web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
 
 const MasterChef = require('../../../abis/MasterChef.json');
@@ -6,8 +6,6 @@ const { getPrice } = require('../../../utils/getPrice');
 const pools = require('../../../data/spongeLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-
-const web3 = new Web3(process.env.BSC_RPC_2 || process.env.BSC_RPC);
 
 const getSpongeLpApys = async () => {
   let apys = {};
@@ -57,8 +55,14 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
   const soakPrice = await getPrice('pancake', 'SOAK');
-  const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18');
+  if(pool.poolId === 3)
+  {
+    const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18').times(0.81); // *0.81 because of the 2% burn on SOAK
+    return yearlyRewardsInUsd;
+  }
 
+  const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18').times(0.98); // *0.98 because of the 2% burn on SOAK
+  
   return yearlyRewardsInUsd;
 };
 

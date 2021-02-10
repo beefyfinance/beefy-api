@@ -64,7 +64,6 @@ const updateApys = async () => {
   }
 
   setTimeout(updateApys, INTERVAL);
-  return apys;
 };
 
 updateApys();

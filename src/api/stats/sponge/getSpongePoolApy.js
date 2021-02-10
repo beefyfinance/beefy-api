@@ -1,12 +1,10 @@
-const Web3 = require('web3');
+const { web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
 
 const MasterChef = require('../../../abis/MasterChef.json');
 const { getPrice } = require('../../../utils/getPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const getSoakPoolApy = async () => {
   const masterChef = '0x303961805A22d76Bac6B2dE0c33FEB746d82544B';
@@ -49,7 +47,7 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
   const soakPrice = await getPrice(oracle, oracleId);
-  const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18');
+  const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18').times(0.96); // *0.96 because of the 2% burn on SOAK;
 
   return yearlyRewardsInUsd;
 };
