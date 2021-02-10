@@ -49,7 +49,7 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
   const soakPrice = await getPrice(oracle, oracleId);
-  const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18');
+  const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18').times(0.96); // *0.96 because of the 2% burn on SOAK;
 
   return yearlyRewardsInUsd;
 };

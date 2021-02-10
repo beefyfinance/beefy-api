@@ -57,8 +57,14 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
   const soakPrice = await getPrice('pancake', 'SOAK');
-  const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18');
+  if(pool.poolId === 3)
+  {
+    const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18').times(0.81); // *0.81 because of the 2% burn on SOAK
+    return yearlyRewardsInUsd;
+  }
 
+  const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18').times(0.98); // *0.98 because of the 2% burn on SOAK
+  
   return yearlyRewardsInUsd;
 };
 
