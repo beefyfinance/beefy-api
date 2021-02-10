@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('../../utils/web3');
+const { web3 } = require('../../utils/web3');
 
 const SmartChef = require('../../abis/SmartChef.json');
 const StrategySmartCake = require('../../abis/StrategySmartCake.json');

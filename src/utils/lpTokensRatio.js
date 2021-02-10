@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('./web3');
+const { web3 } = require('./web3');
 const LPPair = require('../abis/LPPair.json');
 
 const lpTokenRatio = async (lpTokenAddress, decimals0, decimals1) => {
