@@ -1,13 +1,31 @@
 [
   {
+    "name": "cake-ditto-bnb",
+    "address": "0x470BC451810B312BBb1256f96B0895D95eA659B1",
+    "decimals": "1e18",
+    "poolId": 44,
+    "lp0": {
+      "address": "0x233d91A0713155003fc4DcE0AFa871b508B3B715",
+      "oracle": "pancake",
+      "oracleId": "DITTO",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-sfp-bnb",
     "address": "0xcBe2cF3bd012e9C1ADE2Ee4d41DB3DaC763e78F3",
     "decimals": "1e18",
     "poolId": 71,
     "lp0": {
       "address": "0xD41FDb03Ba84762dD66a0af1a6C8540FF1ba5dfb",
-      "oracle": "pancake",
-      "oracleId": "SFP",
+      "oracle": "coingecko",
+      "oracleId": "safepal",
       "decimals": "1e18"
     },
     "lp1": {
