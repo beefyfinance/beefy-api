@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('../../../utils/web3');
+const { web3 } = require('../../../utils/web3');
 
 const IGoldFarm = require('../../../abis/IGoldFarm.json');
 const { getPrice } = require('../../../utils/getPrice');

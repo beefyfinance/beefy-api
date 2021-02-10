@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('../../../utils/web3');
+const { web3 } = require('../../../utils/web3');
 const axios = require('axios');
 
 const ERC20 = require('../../../abis/ERC20.json');
