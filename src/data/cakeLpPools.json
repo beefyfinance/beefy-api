@@ -8,6 +8,7 @@
       "address": "0x233d91A0713155003fc4DcE0AFa871b508B3B715",
       "oracle": "pancake",
       "oracleId": "DITTO",
+      "decimals": "1e9"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
