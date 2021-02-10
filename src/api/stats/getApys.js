@@ -20,6 +20,8 @@ const getKebabPoolApy = require('./kebab/getKebabPoolApy');
 const getMonsterLpApys = require('./monster/getMonsterLpApys');
 const getJulDPoolApy = require('./julb/getJuldPoolApy');
 const getNyacashNyasLpApys = require('./nyanswop/getNyacashNyasLpApys');
+const getSpongeLpApys = require('./sponge/getSpongeLpApys');
+const getSpongePoolApy = require('./sponge/getSpongePoolApy');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -52,7 +54,9 @@ const updateApys = async () => {
     getKebabPoolApy(),
     getMonsterLpApys(),
     getJulDPoolApy(),
-    getNyacashNyasLpApys()
+    getNyacashNyasLpApys(),
+    getSpongeLpApys(),
+    getSpongePoolApy(),
   ]);
 
   for (item of values) {
