@@ -1,4 +1,4 @@
-const web3 = require('../../../utils/web3');
+const { web3 } = require('../../../utils/web3');
 
 const StrategySmartCake = require('../../../abis/StrategySmartCake.json');
 

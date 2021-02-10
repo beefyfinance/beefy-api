@@ -1,12 +1,10 @@
-const Web3 = require('web3');
+const { web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
 
 const MasterChef = require('../../../abis/MasterChef.json');
 const { getPrice } = require('../../../utils/getPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
-
-const web3 = new Web3(process.env.BSC_RPC);
 
 const getSoakPoolApy = async () => {
   const masterChef = '0x303961805A22d76Bac6B2dE0c33FEB746d82544B';

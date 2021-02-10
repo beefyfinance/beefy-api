@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('./web3');
+const { web3 } = require('./web3');
 
 const { getTopicFromSignature, getTopicFromAddress, getValueFromData } = require('./topicHelpers');
 

@@ -1,6 +1,13 @@
 const Web3 = require('web3');
-const { BSC_RPC } = require('../../constants');
+const { BSC_RPC_ENDPOINTS } = require('../../constants');
 
-const web3 = new Web3(BSC_RPC);
+const clients = []
+BSC_RPC_ENDPOINTS.forEach((endpoint) => {
+  clients.push(new Web3(endpoint));
+});
 
-module.exports = web3;
+module.exports = {
+  get web3() {
+    return clients[~~(clients.length * Math.random())]
+  }
+};
