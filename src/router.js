@@ -39,6 +39,7 @@ router.get('/kebab/lps', price.kebabLpPrices);
 router.get('/monster/lps', price.monsterLpPrices);
 router.get('/nyanswop/lps', price.nyanswopLpPrices);
 router.get('/sponge/lps', price.spongeLpPrices);
+router.get('/auto/lps', price.autoLpPrices);
 router.get('/', noop);
 
 module.exports = router;
