@@ -1,6 +1,6 @@
 const { lpTokenPrices } = require('../../utils/lpTokens');
-const { getPrice } = require('../../utils/getPrice');
-const { getNyanswopTokenPrices } = require('../stats/nyanswop/getNyanswopPrice')
+const fetchPrice = require('../../utils/fetchPrice');
+const { getNyanswopTokenPrices } = require('../stats/nyanswop/getNyanswopPrice');
 const cakeLpTokens = require('../../data/cakeLpPools.json');
 const thugsLpTokens = require('../../data/thugsLpPools.json');
 const bakeryLpTokens = require('../../data/bakeryLpPools.json');
@@ -76,7 +76,7 @@ async function autoLpPrices(ctx) {
 
 async function bakeryPrices(ctx) {
   try {
-    const price = await getPrice('bakery', 'BETH');
+    const price = await fetchPrice({ oracle: 'bakery', id: 'BETH' });
     ctx.status = 200;
     ctx.body = { BETH: price };
   } catch (err) {
@@ -110,5 +110,5 @@ module.exports = {
   monsterLpPrices,
   nyanswopLpPrices,
   spongeLpPrices,
-  autoLpPrices
+  autoLpPrices,
 };

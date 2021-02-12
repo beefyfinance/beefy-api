@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { web3 } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/MasterChef.json');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
 const { BASE_HPY } = require('../../../../constants');
@@ -47,7 +47,7 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const cakePrice = await getPrice(oracle, oracleId);
+  const cakePrice = await fetchPrice({ oracle, id: oracleId });
   const yearlyRewardsInUsd = yearlyRewards.times(cakePrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

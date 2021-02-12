@@ -3,7 +3,7 @@ const { web3 } = require('../../utils/web3');
 
 const SmartChef = require('../../abis/SmartChef.json');
 const StrategySmartCake = require('../../abis/StrategySmartCake.json');
-const { getPrice } = require('../../utils/getPrice');
+const fetchPrice = require('../../utils/fetchPrice');
 const getTotalStakedInUsd = require('../../utils/getTotalStakedInUsd');
 const { compound } = require('../../utils/compound');
 const cakePools = require('../../data/cakePools.json');
@@ -83,7 +83,7 @@ const getYearlyRewardsInUsd = async (smartChefAddr, oracle, oracleId, decimals) 
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-  const earnedAssetPrice = await getPrice(oracle, oracleId);
+  const earnedAssetPrice = await fetchPrice({ oracle, id: oracleId });
   const yearlyRewardsInUsd = yearlyRewards.times(earnedAssetPrice).dividedBy(decimals);
   return yearlyRewardsInUsd;
 };
@@ -102,7 +102,7 @@ const getSmartcakeStakeInUsd = async (pools, currentPool) => {
     .userInfo('0xBD8ad0F6492DA660f506fB65f049A5DA4b894a27')
     .call();
   const smartcakeTvl = new BigNumber(smartcakeInfo.amount);
-  const tokenPrice = await getPrice('pancake', 'Cake');
+  const tokenPrice = await fetchPrice({ oracle: 'pancake', id: 'Cake' });
 
   return smartcakeTvl.times(tokenPrice).dividedBy('1e18');
 };

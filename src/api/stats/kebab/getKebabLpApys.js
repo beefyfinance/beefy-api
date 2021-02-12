@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { web3 } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/MasterChef.json');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/kebabLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
@@ -37,7 +37,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   const multiplier = new BigNumber(
-    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
+    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
   );
   const blockRewards = new BigNumber(await masterchefContract.methods.cakePerBlock().call());
 
@@ -54,7 +54,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const kebabPrice = await getPrice('pancake', 'KEBAB');
+  const kebabPrice = await fetchPrice({ oracle: 'pancake', id: 'KEBAB' });
   const yearlyRewardsInUsd = yearlyRewards.times(kebabPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
