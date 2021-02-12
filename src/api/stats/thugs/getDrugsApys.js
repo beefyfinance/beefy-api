@@ -1,9 +1,9 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('../../../utils/web3');
+const { web3 } = require('../../../utils/web3');
 
 const SmartGangster = require('../../../abis/SmartGangster.json');
 const getBaseDrugsApy = require('./getBaseDrugsApy');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/drugsPools.json');
 const { compound } = require('../../../utils/compound');
@@ -50,7 +50,7 @@ const getYearlyRewardsInUsd = async (smartGangsterAddr, oracle, oracleId, decima
   const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
   const yearlyRewards = blockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-  const earnedAssetPrice = await getPrice(oracle, oracleId);
+  const earnedAssetPrice = await fetchPrice({ oracle, id: oracleId });
   const yearlyRewardsInUsd = yearlyRewards.times(earnedAssetPrice).dividedBy(decimals);
 
   return yearlyRewardsInUsd;

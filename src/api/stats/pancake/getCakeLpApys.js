@@ -1,8 +1,8 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('../../../utils/web3');
+const { web3 } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/MasterChef.json');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/cakeLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
@@ -55,7 +55,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const cakePrice = await getPrice('pancake', 'Cake');
+  const cakePrice = await fetchPrice({ oracle: 'pancake', id: 'Cake' });
   const yearlyRewardsInUsd = yearlyRewards.times(cakePrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

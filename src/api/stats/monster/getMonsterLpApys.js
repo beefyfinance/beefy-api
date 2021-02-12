@@ -1,13 +1,11 @@
-const Web3 = require('web3');
+const { web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
 
 const MssRewardPool = require('../../../abis/MssRewardPool.json');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/monsterLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-
-const web3 = new Web3(process.env.BSC_RPC_2 || process.env.BSC_RPC);
 
 const getMonsterLpApys = async () => {
   let apys = {};
@@ -56,7 +54,7 @@ const getYearlyRewardsInUsd = async (mssRewardPool, poolId) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const mssPrice = await getPrice('pancake', 'MSS');
+  const mssPrice = await fetchPrice({ oracle: 'pancake', id: 'MSS' });
   const yearlyRewardsInUsd = yearlyRewards.times(mssPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

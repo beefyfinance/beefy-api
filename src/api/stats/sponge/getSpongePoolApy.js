@@ -1,27 +1,26 @@
-const BigNumber = require('bignumber.js');
 const { web3 } = require('../../../utils/web3');
+const BigNumber = require('bignumber.js');
 
 const MasterChef = require('../../../abis/MasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY } = require('../../../../constants');
 
-const getCakePoolApy = async () => {
-  const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
-  const cake = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
-  const oracle = 'coingecko';
-  const oracleId = 'pancakeswap-token';
+const getSoakPoolApy = async () => {
+  const masterChef = '0x303961805A22d76Bac6B2dE0c33FEB746d82544B';
+  const soak = '0x849233FF1aea15D80EF658B2871664C9Ca994063';
+  const oracle = 'pancake';
+  const oracleId = 'SOAK';
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(masterChef, oracle, oracleId),
-    getTotalStakedInUsd(masterChef, cake, oracle, oracleId),
+    getTotalStakedInUsd(masterChef, soak, oracle, oracleId),
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.94);
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.94);
 
-  return { 'cake-cake': apy, 'cake-smart': apy };
+  return { 'soak-soak': apy };
 };
 
 const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
@@ -47,10 +46,10 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const cakePrice = await fetchPrice({ oracle, id: oracleId });
-  const yearlyRewardsInUsd = yearlyRewards.times(cakePrice).dividedBy('1e18');
+  const soakPrice = await fetchPrice({ oracle, id: oracleId });
+  const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18').times(0.96); // *0.96 because of the 2% burn on SOAK;
 
   return yearlyRewardsInUsd;
 };
 
-module.exports = getCakePoolApy;
+module.exports = getSoakPoolApy;

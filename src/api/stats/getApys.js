@@ -18,6 +18,11 @@ const getBhcPoolApy = require('./bhc/getBhcPoolApy');
 const getKebabLpApys = require('./kebab/getKebabLpApys');
 const getKebabPoolApy = require('./kebab/getKebabPoolApy');
 const getMonsterLpApys = require('./monster/getMonsterLpApys');
+const getJulDPoolApy = require('./julb/getJuldPoolApy');
+const getNyacashNyasLpApys = require('./nyanswop/getNyacashNyasLpApys');
+const getSpongeLpApys = require('./sponge/getSpongeLpApys');
+const getSpongePoolApy = require('./sponge/getSpongePoolApy');
+const getAutoApys = require('./auto/getAutoApys');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -49,6 +54,11 @@ const updateApys = async () => {
     getKebabLpApys(),
     getKebabPoolApy(),
     getMonsterLpApys(),
+    getJulDPoolApy(),
+    getNyacashNyasLpApys(),
+    getSpongeLpApys(),
+    getSpongePoolApy(),
+    getAutoApys(),
   ]);
 
   for (item of values) {
@@ -56,7 +66,6 @@ const updateApys = async () => {
   }
 
   setTimeout(updateApys, INTERVAL);
-  return apys;
 };
 
 updateApys();

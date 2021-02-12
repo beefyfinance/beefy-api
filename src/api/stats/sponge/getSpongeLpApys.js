@@ -1,15 +1,15 @@
-const BigNumber = require('bignumber.js');
 const { web3 } = require('../../../utils/web3');
+const BigNumber = require('bignumber.js');
 
 const MasterChef = require('../../../abis/MasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/kebabLpPools.json');
+const pools = require('../../../data/spongeLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
-const getKebabLpApys = async () => {
+const getSpongeLpApys = async () => {
   let apys = {};
-  const masterchef = '0x76fcefffcf5325c6156ca89639b17464ea833ecd';
+  const masterchef = '0x303961805A22d76Bac6B2dE0c33FEB746d82544B';
 
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
@@ -54,10 +54,15 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const kebabPrice = await fetchPrice({ oracle: 'pancake', id: 'KEBAB' });
-  const yearlyRewardsInUsd = yearlyRewards.times(kebabPrice).dividedBy('1e18');
+  const soakPrice = await fetchPrice({ oracle: 'pancake', id: 'SOAK' });
+  if (pool.poolId === 3) {
+    const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18').times(0.81); // *0.81 because of the 2% burn on SOAK
+    return yearlyRewardsInUsd;
+  }
+
+  const yearlyRewardsInUsd = yearlyRewards.times(soakPrice).dividedBy('1e18').times(0.98); // *0.98 because of the 2% burn on SOAK
 
   return yearlyRewardsInUsd;
 };
 
-module.exports = getKebabLpApys;
+module.exports = getSpongeLpApys;

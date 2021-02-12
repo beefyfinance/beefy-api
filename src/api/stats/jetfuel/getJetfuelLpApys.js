@@ -1,8 +1,8 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('../../../utils/web3');
+const { web3 } = require('../../../utils/web3');
 
 const MasterFuel = require('../../../abis/MasterFuel.json');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/jetfuelLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
@@ -56,7 +56,7 @@ const getYearlyRewardsInUsd = async (masterFuel, poolId) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const fuelPrice = await getPrice('pancake', 'Fuel');
+  const fuelPrice = await fetchPrice({ oracle: 'pancake', id: 'Fuel' });
   const yearlyRewardsInUsd = yearlyRewards.times(fuelPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

@@ -1,9 +1,9 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('../../../utils/web3');
+const { web3 } = require('../../../utils/web3');
 
 const ERC20 = require('../../../abis/ERC20.json');
 const IRewardPool = require('../../../abis/IRewardPool.json');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
 const { DAILY_HPY } = require('../../../../constants');
@@ -29,7 +29,7 @@ const getBifiMaxiApy = async () => {
 };
 
 const getYearlyRewardsInUsd = async () => {
-  const bnbPrice = await getPrice('pancake', 'WBNB');
+  const bnbPrice = await fetchPrice({ oracle: 'pancake', id: 'WBNB' });
 
   const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());

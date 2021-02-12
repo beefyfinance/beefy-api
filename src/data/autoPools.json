@@ -1,0 +1,30 @@
+[
+  {
+    "name": "auto-wbnb",
+    "poolId": 1
+  },
+  {
+    "name": "auto-busd",
+    "poolId": 2
+  },
+  {
+    "name": "auto-auto-bnb",
+    "poolId": 6
+  },
+  {
+    "name": "auto-cake",
+    "poolId": 7
+  },
+  {
+    "name": "auto-wbnb-old",
+    "poolId": 1
+  },
+  {
+    "name": "auto-busd-old",
+    "poolId": 2
+  },
+  {
+    "name": "auto-cake-old",
+    "poolId": 7
+  }
+]

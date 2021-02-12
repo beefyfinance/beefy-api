@@ -1,8 +1,8 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('../../../utils/web3');
+const { web3 } = require('../../../utils/web3');
 
 const BdoRewardPool = require('../../../abis/BdoRewardPool.json');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/bdollarBdoLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
@@ -54,7 +54,7 @@ const getYearlyRewardsInUsd = async (bdoRewardPool, poolId) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const bdoPrice = await getPrice('pancake', 'BDO');
+  const bdoPrice = await fetchPrice({ oracle: 'pancake', id: 'BDO' });
   const yearlyRewardsInUsd = yearlyRewards.times(bdoPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

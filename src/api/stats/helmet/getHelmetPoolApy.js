@@ -1,9 +1,9 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('../../../utils/web3');
+const { web3 } = require('../../../utils/web3');
 
 const HelmetStakingPool = require('../../../abis/HelmetStakingPool.json');
 const { compound } = require('../../../utils/compound');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../../constants');
 
@@ -20,16 +20,16 @@ const getHelmetPoolApy = async () => {
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
-  
+
   return { 'cake-helmet': apy };
 };
 
-const getYearlyRewardsInUsd = async (stakingPool) => {
+const getYearlyRewardsInUsd = async stakingPool => {
   const stakingPoolContract = new web3.eth.Contract(HelmetStakingPool, stakingPool);
 
   let [rewardsDurationSeconds, rewardForDuration] = await Promise.all([
     stakingPoolContract.methods.rewardsDuration().call(),
-    stakingPoolContract.methods.getRewardForDuration().call()
+    stakingPoolContract.methods.getRewardForDuration().call(),
   ]);
 
   rewardsDurationSeconds = new BigNumber(rewardsDurationSeconds);
@@ -38,11 +38,10 @@ const getYearlyRewardsInUsd = async (stakingPool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = rewardForDuration.div(rewardsDurationSeconds).times(secondsPerYear);
 
-  const price = await getPrice('pancake', 'Helmet');
+  const price = await fetchPrice({ oracle: 'pancake', id: 'Helmet' });
   const yearlyRewardsInUsd = yearlyRewards.times(price).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
 };
-
 
 module.exports = getHelmetPoolApy;

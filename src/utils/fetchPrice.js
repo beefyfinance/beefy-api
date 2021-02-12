@@ -1,16 +1,18 @@
 const axios = require('axios');
+const { lpTokenRatio } = require('./lpTokensRatio');
+const { getNyanswopTokenPrice } = require('../api/stats/nyanswop/getNyanswopPrice');
 
 const endpoints = {
-  bakery:    'https://api.beefy.finance/bakery/price',
-  bakeryLp:  'https://api.beefy.finance/bakery/lps',
+  bakery: 'https://api.beefy.finance/bakery/price',
+  bakeryLp: 'https://api.beefy.finance/bakery/lps',
   bdollarLp: 'https://api.beefy.finance/bdollar/lps',
   coingecko: 'https://api.coingecko.com/api/v3/simple/price',
   jetfuelLp: 'https://api.beefy.finance/jetfuel/lps',
   narwhalLp: 'https://api.beefy.finance/narwhal/lps',
-  pancake:   'https://api.beefy.finance/pancake/price',
+  pancake: 'https://api.beefy.finance/pancake/price',
   pancakeLp: 'https://api.beefy.finance/pancake/lps',
-  thugsLp:   'https://api.beefy.finance/thugs/lps',
-  thugs:     'https://api.beefy.finance/thugs/tickers',
+  thugsLp: 'https://api.beefy.finance/thugs/lps',
+  thugs: 'https://api.beefy.finance/thugs/tickers',
 };
 
 const CACHE_TIMEOUT = 30 * 60 * 1000;
@@ -18,7 +20,7 @@ const cache = {};
 
 const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
 const BUSD = '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
-const WBNB_BUSD = `${WBNB}_${BUSD}`
+const WBNB_BUSD = `${WBNB}_${BUSD}`;
 
 function isCached({ oracle, id }) {
   if (`${oracle}-${id}` in cache) {
@@ -91,6 +93,58 @@ const fetchLP = async (id, endpoint) => {
   }
 };
 
+const fetchBakery = async id => {
+  if (id !== 'BETH') return 0;
+  try {
+    const bakeryWbnbBethLp = '0x2fc2ad3c28560c97caca6d2dcf9b38614f48769a';
+    const ratio = await lpTokenRatio(bakeryWbnbBethLp, '1e18', '1e18');
+    const bnbPrice = await fetchPrice({ oracle: 'pancake', id: 'WBNB' });
+    const bethPrice = bnbPrice / ratio;
+    return bethPrice;
+  } catch (err) {
+    console.error(err);
+    return 0;
+  }
+};
+
+const fetchMirror = async id => {
+  try {
+    let price = 0;
+
+    const response = await axios({
+      url: 'https://graph.mirror.finance/graphql',
+      method: 'post',
+      data: {
+        query: `
+        {
+          assets {
+            symbol
+            prices {
+              price
+            }
+          }
+        }
+        `,
+      },
+    });
+
+    response.data.data.assets.forEach(asset => {
+      if (asset.symbol === id) {
+        price = Number(asset.prices.price);
+      }
+    });
+
+    return price;
+  } catch (err) {
+    console.error(err);
+    return 0;
+  }
+};
+
+const fetchNyanswop = async id => {
+  return await getNyanswopTokenPrice(id);
+};
+
 const fetchPrice = async ({ oracle, id }) => {
   if (oracle === undefined) {
     console.error('Undefined oracle');
@@ -114,23 +168,23 @@ const fetchPrice = async ({ oracle, id }) => {
     case 'bakery-lp':
       price = await fetchLP(id, endpoints.bakeryLp);
       break;
-    
+
     case 'bdollar-lp':
       price = await fetchLP(id, endpoints.bdollarLp);
-      break;  
-    
+      break;
+
     case 'coingecko':
       price = await fetchCoingecko(id);
       break;
-    
+
     case 'jetfuel-lp':
       price = await fetchLP(id, endpoints.jetfuelLp);
       break;
-    
+
     case 'narwhal-lp':
       price = await fetchLP(id, endpoints.narwhalLp);
       break;
-    
+
     case 'pancake':
       price = await fetchPancake(id);
       break;
@@ -147,12 +201,28 @@ const fetchPrice = async ({ oracle, id }) => {
       price = await fetchLP(id, endpoints.thugsLp);
       break;
 
-    default: price = 0;
+    case 'hardcode':
+      price = id;
+      break;
+
+    case 'bakery':
+      price = await fetchBakery(id);
+      break;
+
+    case 'mirror':
+      price = await fetchMirror(id);
+      break;
+
+    case 'nyanswop':
+      price = await fetchNyanswop(id);
+      break;
+
+    default:
+      price = 0;
   }
 
   addToCache({ oracle, id, price });
   return price;
 };
-
 
 module.exports = fetchPrice;

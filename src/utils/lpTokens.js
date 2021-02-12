@@ -1,8 +1,7 @@
 const BigNumber = require('bignumber.js');
-const web3 = require('./web3');
-const { getPrice } = require('./getPrice');
+const { web3 } = require('./web3');
+const fetchPrice = require('./fetchPrice');
 const ERC20 = require('../abis/ERC20.json');
-const LPPair = require('../abis/LPPair.json');
 
 const lpTokenPrice = async lpToken => {
   const tokenPairContract = await new web3.eth.Contract(ERC20, lpToken.address);
@@ -13,8 +12,8 @@ const lpTokenPrice = async lpToken => {
     tokenPairContract.methods.totalSupply().call(),
     token0Contract.methods.balanceOf(lpToken.address).call(),
     token1Contract.methods.balanceOf(lpToken.address).call(),
-    getPrice(lpToken.lp0.oracle, lpToken.lp0.oracleId),
-    getPrice(lpToken.lp1.oracle, lpToken.lp1.oracleId),
+    fetchPrice({ oracle: lpToken.lp0.oracle, id: lpToken.lp0.oracleId }),
+    fetchPrice({ oracle: lpToken.lp1.oracle, id: lpToken.lp1.oracleId }),
   ]);
 
   reserve0 = new BigNumber(reserve0);
