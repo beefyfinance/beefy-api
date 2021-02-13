@@ -1,9 +1,11 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('./web3');
+const { web3Factory } = require('./web3');
 const fetchPrice = require('./fetchPrice');
 const ERC20 = require('../abis/ERC20.json');
 
 const lpTokenPrice = async lpToken => {
+  const web3 = web3Factory(lpToken.chainId || 56);
+
   const tokenPairContract = await new web3.eth.Contract(ERC20, lpToken.address);
   const token0Contract = await new web3.eth.Contract(ERC20, lpToken.lp0.address);
   const token1Contract = await new web3.eth.Contract(ERC20, lpToken.lp1.address);

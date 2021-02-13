@@ -1,18 +1,29 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('./web3');
+const { bscWeb3: web3, web3Factory } = require('./web3');
 
 const ERC20 = require('../abis/ERC20.json');
 const fetchPrice = require('./fetchPrice');
 const { lpTokenPrice } = require('./lpTokens');
 
-const getTotalStakedInUsd = async (targetAddr, tokenAddr, oracle, oracleoId, decimals = '1e18') => {
+const getTotalStakedInUsd = async (
+  targetAddr,
+  tokenAddr,
+  oracle,
+  oracleoId,
+  decimals = '1e18',
+  chainId = 56
+) => {
+  const web3 = web3Factory(chainId);
+
   const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(targetAddr).call());
   const tokenPrice = await fetchPrice({ oracle, id: oracleoId });
   return totalStaked.times(tokenPrice).dividedBy(decimals);
 };
 
-const getTotalLpStakedInUsd = async (targetAddr, pool) => {
+const getTotalLpStakedInUsd = async (targetAddr, pool, chainId = 56) => {
+  const web3 = web3Factory(chainId);
+
   const tokenPairContract = await new web3.eth.Contract(ERC20, pool.address);
   const totalStaked = new BigNumber(await tokenPairContract.methods.balanceOf(targetAddr).call());
   const tokenPrice = await lpTokenPrice(pool);
