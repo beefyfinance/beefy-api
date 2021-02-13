@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const { web3 } = require('../../../utils/web3');
+const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const BdoRewardPool = require('../../../abis/BdoRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');

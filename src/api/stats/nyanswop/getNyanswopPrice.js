@@ -1,15 +1,15 @@
 const BigNumber = require('bignumber.js');
-const { web3 } = require('../../../utils/web3');
+const { bscWeb3: web3 } = require('../../../utils/web3');
 const axios = require('axios');
 
 const ERC20 = require('../../../abis/ERC20.json');
 const pools = require('../../../data/nyanswopLpPools.json');
 
-const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'
-const USDT = '0x55d398326f99059fF775485246999027B3197955'
-const CoingeckoApi = 'https://api.coingecko.com/api/v3/simple/price'
+const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
+const USDT = '0x55d398326f99059fF775485246999027B3197955';
+const CoingeckoApi = 'https://api.coingecko.com/api/v3/simple/price';
 
-const nyanswopPriceCache = {}
+const nyanswopPriceCache = {};
 
 const getNyanswopTokenPrices = async () => {
   if (Object.keys(nyanswopPriceCache).length !== 0) {
@@ -28,14 +28,29 @@ const getNyanswopTokenPrices = async () => {
     const knownPriceToken = pool.lp1; // assume to be wbnb or usdt
     let unknownTokenPriceInUsd;
     if (knownPriceToken.address === WBNB) {
-      unknownTokenPriceInUsd = getTokenPriceInUsd(lpToken, unknownPriceToken, knownPriceToken, bnbPrice);
+      unknownTokenPriceInUsd = getTokenPriceInUsd(
+        lpToken,
+        unknownPriceToken,
+        knownPriceToken,
+        bnbPrice
+      );
     } else if (knownPriceToken.address === USDT) {
-      unknownTokenPriceInUsd = getTokenPriceInUsd(lpToken, unknownPriceToken, knownPriceToken, udstPrice);
+      unknownTokenPriceInUsd = getTokenPriceInUsd(
+        lpToken,
+        unknownPriceToken,
+        knownPriceToken,
+        udstPrice
+      );
     } else {
-      unknownTokenPriceInUsd = getTokenPriceInUsd(lpToken, unknownPriceToken, knownPriceToken, defaultPrice);
+      unknownTokenPriceInUsd = getTokenPriceInUsd(
+        lpToken,
+        unknownPriceToken,
+        knownPriceToken,
+        defaultPrice
+      );
     }
     promises.push(unknownTokenPriceInUsd);
-    ids.push(unknownPriceToken.oracleId)
+    ids.push(unknownPriceToken.oracleId);
   });
 
   const values = await Promise.all(promises);
@@ -44,23 +59,35 @@ const getNyanswopTokenPrices = async () => {
   });
 
   return nyanswopPriceCache;
-}
+};
 
-const getNyanswopTokenPrice = async (id) => {
+const getNyanswopTokenPrice = async id => {
   if (Object.keys(nyanswopPriceCache).length === 0) {
     await getNyanswopTokenPrices();
   }
   return Number(nyanswopPriceCache[id].toString());
-}
+};
 
-const getTokenPriceInUsd = async (lpContract, unknownPriceToken, knownPriceToken, knownPriceTokenPriceUnit, decimals = '1e18') => {
+const getTokenPriceInUsd = async (
+  lpContract,
+  unknownPriceToken,
+  knownPriceToken,
+  knownPriceTokenPriceUnit,
+  decimals = '1e18'
+) => {
   const knownPriceTokenContract = await new web3.eth.Contract(ERC20, knownPriceToken.address);
-  const knownPriceTokenTotalStaked = new BigNumber(await knownPriceTokenContract.methods.balanceOf(lpContract).call());
+  const knownPriceTokenTotalStaked = new BigNumber(
+    await knownPriceTokenContract.methods.balanceOf(lpContract).call()
+  );
   const knownPriceTokenTotalStakedUsdt = knownPriceTokenTotalStaked.times(knownPriceTokenPriceUnit); // half value of entire LP
 
   const unknownPriceTokenContract = await new web3.eth.Contract(ERC20, unknownPriceToken.address);
-  const unknownPriceTokenTotalStaked = new BigNumber(await unknownPriceTokenContract.methods.balanceOf(lpContract).call());
-  const unknownPriceTokenPriceUnit = knownPriceTokenTotalStakedUsdt.dividedBy(unknownPriceTokenTotalStaked)
+  const unknownPriceTokenTotalStaked = new BigNumber(
+    await unknownPriceTokenContract.methods.balanceOf(lpContract).call()
+  );
+  const unknownPriceTokenPriceUnit = knownPriceTokenTotalStakedUsdt.dividedBy(
+    unknownPriceTokenTotalStaked
+  );
 
   return unknownPriceTokenPriceUnit;
 };

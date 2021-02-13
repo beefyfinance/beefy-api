@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const { web3 } = require('../../../utils/web3');
+const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');

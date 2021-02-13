@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const { web3 } = require('./web3');
+const { bscWeb3: web3 } = require('./web3');
 
 const ERC20 = require('../abis/ERC20.json');
 const fetchPrice = require('./fetchPrice');
