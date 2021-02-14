@@ -14,6 +14,7 @@ const monsterLpTokens = require('../../data/monsterLpPools.json');
 const nyanswopLpTokens = require('../../data/nyanswopLpPools.json');
 const spongeLpTokens = require('../../data/spongeLpPools.json');
 const autoLpTokens = require('../../data/autoLpPools.json');
+const mdexLpTokens = require('../../data/mdexLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -74,6 +75,10 @@ async function autoLpPrices(ctx) {
   await lpPrices(ctx, autoLpTokens);
 }
 
+async function mdexLpPrices(ctx) {
+  await lpPrices(ctx, mdexLpTokens);
+}
+
 async function bakeryPrices(ctx) {
   try {
     const price = await fetchPrice({ oracle: 'bakery', id: 'BETH' });
@@ -111,4 +116,5 @@ module.exports = {
   nyanswopLpPrices,
   spongeLpPrices,
   autoLpPrices,
+  mdexLpPrices,
 };

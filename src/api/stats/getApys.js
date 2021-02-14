@@ -23,6 +23,7 @@ const getNyacashNyasLpApys = require('./nyanswop/getNyacashNyasLpApys');
 const getSpongeLpApys = require('./sponge/getSpongeLpApys');
 const getSpongePoolApy = require('./sponge/getSpongePoolApy');
 const getAutoApys = require('./auto/getAutoApys');
+const getMdexLpApys = require('./mdex/getMdexLpApys');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -59,6 +60,7 @@ const updateApys = async () => {
     getSpongeLpApys(),
     getSpongePoolApy(),
     getAutoApys(),
+    getMdexLpApys(),
   ]);
 
   for (item of values) {

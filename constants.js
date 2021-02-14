@@ -15,7 +15,7 @@ const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
   : MAINNET_BSC_RPC_ENDPOINTS;
 const BSC_RPC = BSC_RPC_ENDPOINTS[0];
 
-const HECO_RPC = 'https://http-mainnet.hecochain.com';
+const HECO_RPC = process.env.HECO_RPC;
 
 const REWARDER_PRIVATE_KEY = process.env.REWARDER_PRIVATE_KEY;
 
@@ -31,6 +31,7 @@ const FORTUBE_API_TOKEN = process.env.FORTUBE_API_TOKEN;
 module.exports = {
   BSC_RPC,
   BSC_RPC_ENDPOINTS,
+  HECO_RPC,
   REWARDER_PRIVATE_KEY,
   BASE_HPY,
   HOURLY_HPY,

@@ -40,6 +40,7 @@ router.get('/monster/lps', price.monsterLpPrices);
 router.get('/nyanswop/lps', price.nyanswopLpPrices);
 router.get('/sponge/lps', price.spongeLpPrices);
 router.get('/auto/lps', price.autoLpPrices);
+router.get('/mdex/lps', price.mdexLpPrices);
 router.get('/', noop);
 
 module.exports = router;
