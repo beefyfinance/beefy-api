@@ -61,10 +61,11 @@ const updateApys = async () => {
     getNyacashNyasLpApys(),
     getSpongeLpApys(),
     getSpongePoolApy(),
-    getAutoApys(),
-    getMdexLpApys(),
     getBtdLpApys(),
     getBtsLpApys(),
+    getAutoApys(),
+    getMdexLpApys(),
+
   ]);
 
   for (item of values) {
