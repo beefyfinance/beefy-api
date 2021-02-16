@@ -124,7 +124,7 @@ module.exports = {
   monsterLpPrices,
   nyanswopLpPrices,
   spongeLpPrices,
+  boltLpPrices,
   autoLpPrices,
   mdexLpPrices,
-  boltLpPrices,
 };
