@@ -24,6 +24,8 @@ const getSpongeLpApys = require('./sponge/getSpongeLpApys');
 const getSpongePoolApy = require('./sponge/getSpongePoolApy');
 const getAutoApys = require('./auto/getAutoApys');
 const getMdexLpApys = require('./mdex/getMdexLpApys');
+const getBtdLpApys = require('./bolt/getBtdLpApys');
+const getBtsLpApys = require('./bolt/getBtsLpApys');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -61,6 +63,8 @@ const updateApys = async () => {
     getSpongePoolApy(),
     getAutoApys(),
     getMdexLpApys(),
+    getBtdLpApys(),
+    getBtsLpApys(),
   ]);
 
   for (item of values) {
