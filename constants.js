@@ -1,3 +1,6 @@
+const BSC_CHAIN_ID = 56;
+const HECO_CHAIN_ID = 128;
+
 const MAINNET_BSC_RPC_ENDPOINTS = [
   'https://bsc-dataseed.binance.org',
   'https://bsc-dataseed1.defibit.io',
@@ -31,7 +34,9 @@ const FORTUBE_API_TOKEN = process.env.FORTUBE_API_TOKEN;
 module.exports = {
   BSC_RPC,
   BSC_RPC_ENDPOINTS,
+  BSC_CHAIN_ID,
   HECO_RPC,
+  HECO_CHAIN_ID,
   REWARDER_PRIVATE_KEY,
   BASE_HPY,
   HOURLY_HPY,

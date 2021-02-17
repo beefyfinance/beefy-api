@@ -1,6 +1,7 @@
 const axios = require('axios');
 const { lpTokenRatio } = require('./lpTokensRatio');
 const { getNyanswopTokenPrice } = require('../api/stats/nyanswop/getNyanswopPrice');
+const { getCakeTokensPrices } = require('../api/stats/pancake/getCakePrices');
 
 const endpoints = {
   bakery: 'https://api.beefy.finance/bakery/price',
@@ -9,7 +10,6 @@ const endpoints = {
   coingecko: 'https://api.coingecko.com/api/v3/simple/price',
   jetfuelLp: 'https://api.beefy.finance/jetfuel/lps',
   narwhalLp: 'https://api.beefy.finance/narwhal/lps',
-  pancake: 'https://api.beefy.finance/pancake/price',
   pancakeLp: 'https://api.beefy.finance/pancake/lps',
   thugsLp: 'https://api.beefy.finance/thugs/lps',
   thugs: 'https://api.beefy.finance/thugs/tickers',
@@ -49,14 +49,9 @@ const fetchCoingecko = async id => {
   }
 };
 
-const fetchPancake = async id => {
-  try {
-    const response = await axios.get(endpoints.pancake);
-    return response.data.prices[id];
-  } catch (err) {
-    console.error(err);
-    return 0;
-  }
+const fetchPancake = async (id, oracle) => {
+  const cakePrices = await getCakeTokensPrices();
+  return cakePrices[id] || 0;
 };
 
 const fetchThugs = async id => {
