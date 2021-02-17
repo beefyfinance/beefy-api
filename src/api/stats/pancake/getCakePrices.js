@@ -8,7 +8,7 @@ let knownPrices = {
   BUSD: 1
 }
 
-const refreshInterval = 2 * 60 * 1000;
+const refreshInterval = 10 * 60 * 1000;
 let priceCache = {};
 let isProcessing = false;
 
