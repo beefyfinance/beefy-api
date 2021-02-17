@@ -1,4 +1,58 @@
 [
+     {
+    "name": "cake-beth-eth",
+    "address": "0x99d865Ed50D2C32c1493896810FA386c1Ce81D91",
+    "decimals": "1e18",
+    "poolId": 70,
+    "lp0": {
+      "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+      "oracle": "pancake",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x250632378e573c6be1ac2f97fcdf00515d0aa91b",
+      "oracle": "pancake",
+      "oracleId": "BETH",
+      "decimals": "1e18"
+    }
+  },  
+   {
+    "name": "cake-hget-bnb",
+    "address": "0x66b9E1eAc8a81F3752F7f3A5E95dE460688A17Ee",
+    "decimals": "1e18",
+    "poolId": 67,
+    "lp0": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC7d8D35EBA58a0935ff2D5a33Df105DD9f071731",
+      "oracle": "pancake",
+      "oracleId": "HGET",
+      "decimals": "1e18"
+    }
+  },   
+   {
+    "name": "cake-ctk-bnb",
+    "address": "0x7793870484647a7278907498ec504879d6971EAb",
+    "decimals": "1e18",
+    "poolId": 32,
+    "lp0": {
+      "address": "0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929",
+      "oracle": "pancake",
+      "oracleId": "SWINGBY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
    {
     "name": "cake-swingby-bnb",
     "address": "0x4576C456AF93a37a096235e5d83f812AC9aeD027",
