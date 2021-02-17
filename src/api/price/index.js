@@ -89,7 +89,7 @@ async function boltLpPrices(ctx) {
 
 async function bakeryPrices(ctx) {
   try {
-    const price = await fetchPrice({ oracle: 'bakery', id: 'BETH' });
+    const price = await fetchPrice({ oracle: 'coingecko', id: 'binance-eth' });
     ctx.status = 200;
     ctx.body = { BETH: price };
   } catch (err) {
