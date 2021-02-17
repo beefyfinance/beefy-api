@@ -19,9 +19,9 @@
   },
    {
     "name": "cake-zee-bnb",
-    "address": "0xeB325a8ea1c5abf40c7ceAf645596c1F943d0948",
+    "address": "0xB5Ab3996808c7e489DCDc0f1Af2AB212ae0059aF",
     "decimals": "1e18",
-    "poolId": 69,
+    "poolId": 74,
     "lp0": {
       "address": "0x44754455564474A89358B2C2265883DF993b12F0",
       "oracle": "pancake",
