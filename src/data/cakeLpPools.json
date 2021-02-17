@@ -43,7 +43,7 @@
     "lp0": {
       "address": "0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929",
       "oracle": "pancake",
-      "oracleId": "SWINGBY",
+      "oracleId": "CTK",
       "decimals": "1e18"
     },
     "lp1": {
