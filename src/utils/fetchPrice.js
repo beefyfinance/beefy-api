@@ -93,20 +93,6 @@ const fetchLP = async (id, endpoint) => {
   }
 };
 
-const fetchBakery = async id => {
-  if (id !== 'BETH') return 0;
-  try {
-    const bakeryWbnbBethLp = '0x2fc2ad3c28560c97caca6d2dcf9b38614f48769a';
-    const ratio = await lpTokenRatio(bakeryWbnbBethLp, '1e18', '1e18');
-    const bnbPrice = await fetchPrice({ oracle: 'pancake', id: 'WBNB' });
-    const bethPrice = bnbPrice / ratio;
-    return bethPrice;
-  } catch (err) {
-    console.error(err);
-    return 0;
-  }
-};
-
 const fetchMirror = async id => {
   try {
     let price = 0;
@@ -203,10 +189,6 @@ const fetchPrice = async ({ oracle, id }) => {
 
     case 'hardcode':
       price = id;
-      break;
-
-    case 'bakery':
-      price = await fetchBakery(id);
       break;
 
     case 'mirror':

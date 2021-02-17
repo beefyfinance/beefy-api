@@ -15,6 +15,9 @@ const nyanswopLpTokens = require('../../data/nyanswopLpPools.json');
 const spongeLpTokens = require('../../data/spongeLpPools.json');
 const autoLpTokens = require('../../data/autoLpPools.json');
 const mdexLpTokens = require('../../data/mdexLpPools.json');
+const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
+const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
+
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -79,9 +82,14 @@ async function mdexLpPrices(ctx) {
   await lpPrices(ctx, mdexLpTokens);
 }
 
+async function boltLpPrices(ctx) {
+  await lpPrices(ctx, boltBtdLpTokens);
+  await lpPrices(ctx, [...boltBtdLpTokens, ...boltBtsLpTokens]);
+}
+
 async function bakeryPrices(ctx) {
   try {
-    const price = await fetchPrice({ oracle: 'bakery', id: 'BETH' });
+    const price = await fetchPrice({ oracle: 'coingecko', id: 'binance-eth' });
     ctx.status = 200;
     ctx.body = { BETH: price };
   } catch (err) {
@@ -101,6 +109,7 @@ async function nyanswopPrices(ctx) {
   }
 }
 
+
 module.exports = {
   cakeLpPrices,
   thugsLpPrices,
@@ -115,6 +124,7 @@ module.exports = {
   monsterLpPrices,
   nyanswopLpPrices,
   spongeLpPrices,
+  boltLpPrices,
   autoLpPrices,
   mdexLpPrices,
 };
