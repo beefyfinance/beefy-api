@@ -20,18 +20,18 @@ const fetchPoolTokenBalance = async (
 
 const fetchPoolUnknownTokenPrice = async (
   lpAddress,
-  unknownTokenAddress,
-  knownTokenAddress,
+  unknownToken,
+  knownToken,
   knownTokenPricePerUnit,
   chainId = BSC_CHAIN_ID
 ) => {
-  const knownTokenBalance = await fetchPoolTokenBalance(lpAddress, knownTokenAddress, chainId)
+  const knownTokenBalance = await fetchPoolTokenBalance(lpAddress, knownToken.address, chainId)
   const knownTokenTotalValue = knownTokenBalance.times(knownTokenPricePerUnit);
 
-  const unknownTokenBalance = await fetchPoolTokenBalance(lpAddress, unknownTokenAddress, chainId)
+  const unknownTokenBalance = await fetchPoolTokenBalance(lpAddress, unknownToken.address, chainId)
   const unknownTokenPriceUnit = knownTokenTotalValue.dividedBy(unknownTokenBalance);
 
-  return unknownTokenPriceUnit.toNumber();
+  return (unknownTokenPriceUnit.toNumber() / Number(knownToken.decimals)) * Number(unknownToken.decimals);
 };
 
 const fetchPoolTokensPrices = async (
@@ -66,8 +66,8 @@ const fetchPoolTokensPrices = async (
 
     unknownTokenPrice = await fetchPoolUnknownTokenPrice(
       pool.address,
-      unknownToken.address,
-      knownToken.address,
+      unknownToken,
+      knownToken,
       knownPrices[knownToken.oracleId],
       chainId
     )
