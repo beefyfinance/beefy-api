@@ -4,7 +4,7 @@ const { fetchPoolTokensPrices } = require('../../../utils/getPoolStats')
 const pools = require('../../../data/cakeLpPools.json');
 const oracle = 'pancake';
 
-let knownPrices = {
+const knownPrices = {
   BUSD: 1
 }
 

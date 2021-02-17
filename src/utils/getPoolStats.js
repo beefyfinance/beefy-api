@@ -37,21 +37,22 @@ const fetchPoolUnknownTokenPrice = async (
 const fetchPoolTokensPrices = async (
   oracle,
   pools,
-  knownPrices = {},
+  knownPrices,
   chainId = BSC_CHAIN_ID
 ) => {
+  let prices = {...knownPrices};
   let knownToken, unknownToken, unknownTokenPrice;
   for (const pool of [...pools].reverse()) {
     if (pool.lp0.oracle != oracle || pool.lp0.oracle != oracle) {
       continue;
     }
 
-    if (knownPrices.hasOwnProperty(pool.lp0.oracleId) && knownPrices.hasOwnProperty(pool.lp1.oracleId)) {
+    if (prices.hasOwnProperty(pool.lp0.oracleId) && prices.hasOwnProperty(pool.lp1.oracleId)) {
       continue;
     }
 
-    if (knownPrices.hasOwnProperty(pool.lp0.oracleId) || knownPrices.hasOwnProperty(pool.lp1.oracleId)) {
-      if (knownPrices.hasOwnProperty(pool.lp0.oracleId)) {
+    if (prices.hasOwnProperty(pool.lp0.oracleId) || prices.hasOwnProperty(pool.lp1.oracleId)) {
+      if (prices.hasOwnProperty(pool.lp0.oracleId)) {
         knownToken = pool.lp0;
         unknownToken = pool.lp1;
       } else {
@@ -68,14 +69,14 @@ const fetchPoolTokensPrices = async (
       pool.address,
       unknownToken,
       knownToken,
-      knownPrices[knownToken.oracleId],
+      prices[knownToken.oracleId],
       chainId
     )
 
-    knownPrices[unknownToken.oracleId] = unknownTokenPrice;
+    prices[unknownToken.oracleId] = unknownTokenPrice;
   }
 
-  return knownPrices;
+  return prices;
 };
 
 module.exports = {
