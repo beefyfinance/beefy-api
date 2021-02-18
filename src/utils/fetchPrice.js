@@ -11,8 +11,8 @@ const endpoints = {
   narwhalLp: 'https://api.beefy.finance/narwhal/lps',
   pancake: 'https://api.beefy.finance/pancake/price',
   pancakeLp: 'https://api.beefy.finance/pancake/lps',
-  thugsLp: 'https://api.beefy.finance/thugs/lps',
-  thugs: 'https://api.beefy.finance/thugs/tickers',
+  // thugsLp: 'https://api.beefy.finance/thugs/lps',
+  // thugs: 'https://api.beefy.finance/thugs/tickers',
 };
 
 const CACHE_TIMEOUT = 30 * 60 * 1000;
@@ -59,29 +59,30 @@ const fetchPancake = async id => {
   }
 };
 
-const fetchThugs = async id => {
-  try {
-    const response = await axios.get(endpoints.thugs);
-    const ticker = response.data[id];
-    const bnb = response.data[WBNB_BUSD]['last_price'];
+// FIXME: restoring partial service
+// const fetchThugs = async id => {
+//   try {
+//     const response = await axios.get(endpoints.thugs);
+//     const ticker = response.data[id];
+//     const bnb = response.data[WBNB_BUSD]['last_price'];
 
-    let price = 0;
+//     let price = 0;
 
-    const pair = id.split('_');
-    if (pair[0] === WBNB && pair[1] === BUSD) {
-      price = bnb;
-    } else if (pair[0] === WBNB) {
-      price = bnb / ticker['last_price'];
-    } else {
-      price = bnb * ticker['last_price'];
-    }
+//     const pair = id.split('_');
+//     if (pair[0] === WBNB && pair[1] === BUSD) {
+//       price = bnb;
+//     } else if (pair[0] === WBNB) {
+//       price = bnb / ticker['last_price'];
+//     } else {
+//       price = bnb * ticker['last_price'];
+//     }
 
-    return price;
-  } catch (err) {
-    console.error(err);
-    return 0;
-  }
-};
+//     return price;
+//   } catch (err) {
+//     console.error(err);
+//     return 0;
+//   }
+// };
 
 const fetchLP = async (id, endpoint) => {
   try {
@@ -179,13 +180,14 @@ const fetchPrice = async ({ oracle, id }) => {
       price = await fetchLP(id, endpoints.pancakeLp);
       break;
 
-    case 'thugs':
-      price = await fetchThugs(id);
-      break;
+    // FIXME: restoring partial service
+    // case 'thugs':
+    //   price = await fetchThugs(id);
+    //   break;
 
-    case 'thugs-lp':
-      price = await fetchLP(id, endpoints.thugsLp);
-      break;
+    // case 'thugs-lp':
+    //   price = await fetchLP(id, endpoints.thugsLp);
+    //   break;
 
     case 'hardcode':
       price = id;

@@ -2,12 +2,13 @@ const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpApys } = require('./pancake/getCakeLpApys');
 const getFortubeApys = require('./fortube/getFortubeApys');
-const getThugsLpApys = require('./thugs/getThugsLpApys');
-const getDrugsApys = require('./thugs/getDrugsApys');
+// FIXME: restoring partial service
+// const getThugsLpApys = require('./thugs/getThugsLpApys');
+// const getDrugsApys = require('./thugs/getDrugsApys');
+// const getNarLpApys = require('./narwhal/getNarLpApys');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
 const getBakeryLpApys = require('./bakery/getBakeryLpApys');
-const getNarLpApys = require('./narwhal/getNarLpApys');
 const getVenusApys = require('./venus/getVenusApys');
 const getJetfuelLpApys = require('./jetfuel/getJetfuelLpApys');
 const getBdoLpApys = require('./bdollar/getBdoLpApys');

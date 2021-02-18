@@ -492,8 +492,8 @@
     "poolId": 39,
     "lp0": {
       "address": "0x728C5baC3C3e370E372Fc4671f9ef6916b814d8B",
-      "oracle": "thugs",
-      "oracleId": "0x728C5baC3C3e370E372Fc4671f9ef6916b814d8B_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "UNFI",
       "decimals": "1e18"
     },
     "lp1": {

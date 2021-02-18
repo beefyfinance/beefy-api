@@ -2,7 +2,6 @@ const { lpTokenPrices } = require('../../utils/lpTokens');
 const fetchPrice = require('../../utils/fetchPrice');
 const { getNyanswopTokenPrices } = require('../stats/nyanswop/getNyanswopPrice');
 const cakeLpTokens = require('../../data/cakeLpPools.json');
-const thugsLpTokens = require('../../data/thugsLpPools.json');
 const bakeryLpTokens = require('../../data/bakeryLpPools.json');
 const narLpTokens = require('../../data/narLpPools.json');
 const jetfuelLpTokens = require('../../data/jetfuelLpPools.json');
@@ -18,6 +17,8 @@ const mdexLpTokens = require('../../data/mdexLpPools.json');
 const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
 const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
 
+// FIXME: restoring partial service
+// const thugsLpTokens = require('../../data/thugsLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -34,9 +35,10 @@ async function cakeLpPrices(ctx) {
   await lpPrices(ctx, cakeLpTokens);
 }
 
-async function thugsLpPrices(ctx) {
-  await lpPrices(ctx, thugsLpTokens);
-}
+// FIXME: restoring partial service
+// async function thugsLpPrices(ctx) {
+//   await lpPrices(ctx, thugsLpTokens);
+// }
 
 async function bakeryLpPrices(ctx) {
   await lpPrices(ctx, bakeryLpTokens);
@@ -112,7 +114,8 @@ async function nyanswopPrices(ctx) {
 
 module.exports = {
   cakeLpPrices,
-  thugsLpPrices,
+  // FIXME: restoring partial service
+  // thugsLpPrices,
   bakeryLpPrices,
   narLpPrices,
   jetfuelLpPrices,
