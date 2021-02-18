@@ -40,7 +40,13 @@ router.get('/mdex/lps', price.mdexLpPrices);
 router.get('/bolt/lps', price.boltLpPrices);
 router.get('/', noop);
 
+
 // FIXME: restoring partial service
+router.get('/pancake/price', noop);
+router.get('/narwhal/lps', noop);
+router.get('/thugs/tickers', noop);
+router.get('/thugs/lps', noop);
+
 // router.get('/pancake/price', price.pancakePrices);
 // router.get('/narwhal/lps', price.narLpPrices);
 // router.get('/thugs/tickers', proxy.thugs);
