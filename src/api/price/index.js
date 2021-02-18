@@ -35,10 +35,9 @@ async function cakeLpPrices(ctx) {
   await lpPrices(ctx, cakeLpTokens);
 }
 
-// FIXME: restoring partial service
-// async function thugsLpPrices(ctx) {
-//   await lpPrices(ctx, thugsLpTokens);
-// }
+async function thugsLpPrices(ctx) {
+  await lpPrices(ctx, thugsLpTokens);
+}
 
 async function bakeryLpPrices(ctx) {
   await lpPrices(ctx, bakeryLpTokens);
@@ -122,8 +121,7 @@ async function pancakePrices(ctx) {
 
 module.exports = {
   cakeLpPrices,
-  // FIXME: restoring partial service
-  // thugsLpPrices,
+  thugsLpPrices,
   bakeryLpPrices,
   narLpPrices,
   jetfuelLpPrices,
@@ -134,9 +132,9 @@ module.exports = {
   kebabLpPrices,
   monsterLpPrices,
   nyanswopLpPrices,
-  pancakePrices,
+  // pancakePrices,
   spongeLpPrices,
-  boltLpPrices,
+  // boltLpPrices,
   autoLpPrices,
   mdexLpPrices,
 };

@@ -60,8 +60,8 @@
     "poolId": 9,
     "lp0": {
       "address": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4",
-      "oracle": "pancake",
-      "oracleId": "BHC",
+      "oracle": "thugs",
+      "oracleId": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "decimals": "1e18"
     },
     "lp1": {

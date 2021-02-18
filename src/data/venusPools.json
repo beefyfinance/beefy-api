@@ -128,8 +128,8 @@
   {
     "name": "venus-ltc",
     "vtoken": "0x57A5297F2cB2c0AaC9D554660acd6D385Ab50c6B",
-    "oracle": "pancake",
-    "oracleId": "LTC",
+    "oracle": "thugs",
+    "oracleId": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
     "decimals": "1e18",
     "borrowDepth": 3,
     "borrowPercent": 0.54

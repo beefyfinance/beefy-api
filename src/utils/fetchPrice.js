@@ -14,8 +14,8 @@ const endpoints = {
   jetfuelLp: `${API_BASE_URL}/jetfuel/lps`,
   narwhalLp: `${API_BASE_URL}/narwhal/lps`,
   pancakeLp: `${API_BASE_URL}/pancake/lps`,
-  // thugsLp: `${API_BASE_URL}/thugs/lps`,
-  // thugs: `${API_BASE_URL}/thugs/tickers`,
+  thugsLp: `${API_BASE_URL}/thugs/lps`,
+  thugs: `${API_BASE_URL}/thugs/tickers`,
 };
 
 const CACHE_TIMEOUT = 30 * 60 * 1000;
@@ -178,14 +178,13 @@ const fetchPrice = async ({ oracle, id }) => {
       price = await fetchLP(id, endpoints.pancakeLp);
       break;
 
-    // FIXME: restoring partial service
-    // case 'thugs':
-    //   price = await fetchThugs(id);
-    //   break;
+    case 'thugs':
+      price = await fetchThugs(id);
+      break;
 
-    // case 'thugs-lp':
-    //   price = await fetchLP(id, endpoints.thugsLp);
-    //   break;
+    case 'thugs-lp':
+      price = await fetchLP(id, endpoints.thugsLp);
+      break;
 
     case 'hardcode':
       price = id;
