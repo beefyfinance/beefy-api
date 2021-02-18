@@ -1,5 +1,5 @@
 const Web3 = require('web3');
-const { BSC_RPC_ENDPOINTS, HECO_RPC } = require('../../constants');
+const { BSC_RPC_ENDPOINTS, HECO_RPC, BSC_CHAIN_ID, HECO_CHAIN_ID } = require('../../constants');
 
 const clients = { bsc: [], heco: [] };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
@@ -22,9 +22,9 @@ module.exports = {
 
   web3Factory: chainId => {
     switch (chainId) {
-      case 56:
+      case BSC_CHAIN_ID:
         return bscRandomClient();
-      case 128:
+      case HECO_CHAIN_ID:
         return hecoRandomClient();
     }
   },

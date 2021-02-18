@@ -828,42 +828,6 @@
     }
   },
   {
-    "name": "cake-cake-bnb",
-    "address": "0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6",
-    "decimals": "1e18",
-    "poolId": 1,
-    "lp0": {
-      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
-      "oracle": "pancake",
-      "oracleId": "Cake",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cake-busd-bnb",
-    "address": "0x1B96B92314C44b159149f7E0303511fB2Fc4774f",
-    "decimals": "1e18",
-    "poolId": 2,
-    "lp0": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-      "oracle": "pancake",
-      "oracleId": "BUSD",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cake-usdt-busd",
     "address": "0xc15fa3E22c912A276550F3E5FE3b0Deb87B55aCd",
     "decimals": "1e18",
@@ -950,6 +914,42 @@
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "pancake",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-cake-bnb",
+    "address": "0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "pancake",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-busd-bnb",
+    "address": "0x1B96B92314C44b159149f7E0303511fB2Fc4774f",
+    "decimals": "1e18",
+    "poolId": 2,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
       "decimals": "1e18"
     }
   }
