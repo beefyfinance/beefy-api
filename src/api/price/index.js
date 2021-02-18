@@ -14,12 +14,10 @@ const nyanswopLpTokens = require('../../data/nyanswopLpPools.json');
 const spongeLpTokens = require('../../data/spongeLpPools.json');
 const autoLpTokens = require('../../data/autoLpPools.json');
 const mdexLpTokens = require('../../data/mdexLpPools.json');
-const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
-const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
-
-// FIXME: restoring partial service
-// const thugsLpTokens = require('../../data/thugsLpPools.json');
-// const narLpTokens = require('../../data/narLpPools.json');
+// const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
+// const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
+const thugsLpTokens = require('../../data/thugsLpPools.json');
+const narLpTokens = require('../../data/narLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {
