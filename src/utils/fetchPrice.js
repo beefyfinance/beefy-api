@@ -1,18 +1,21 @@
 const axios = require('axios');
-// const { lpTokenRatio } = require('./lpTokensRatio');
+const { API_BASE_URL } = require('../../constants');
 const { getNyanswopTokenPrice } = require('../api/stats/nyanswop/getNyanswopPrice');
 const { getCakeTokensPrices } = require('../api/stats/pancake/getCakePrices');
 
+// FIXME: restoring partial service
+// const { lpTokenRatio } = require('./lpTokensRatio');
+
 const endpoints = {
-  bakery: 'https://api.beefy.finance/bakery/price',
-  bakeryLp: 'https://api.beefy.finance/bakery/lps',
-  bdollarLp: 'https://api.beefy.finance/bdollar/lps',
-  coingecko: 'https://api.coingecko.com/api/v3/simple/price',
-  jetfuelLp: 'https://api.beefy.finance/jetfuel/lps',
-  narwhalLp: 'https://api.beefy.finance/narwhal/lps',
-  pancakeLp: 'https://api.beefy.finance/pancake/lps',
-  // thugsLp: 'https://api.beefy.finance/thugs/lps',
-  // thugs: 'https://api.beefy.finance/thugs/tickers',
+  bakery: `${API_BASE_URL}/bakery/price`,
+  bakeryLp: `${API_BASE_URL}/bakery/lps`,
+  bdollarLp: `${API_BASE_URL}/bdollar/lps`,
+  coingecko: `https://api.coingecko.com/api/v3/simple/price`,
+  jetfuelLp: `${API_BASE_URL}/jetfuel/lps`,
+  narwhalLp: `${API_BASE_URL}/narwhal/lps`,
+  pancakeLp: `${API_BASE_URL}/pancake/lps`,
+  // thugsLp: `${API_BASE_URL}/thugs/lps`,
+  // thugs: `${API_BASE_URL}/thugs/tickers`,
 };
 
 const CACHE_TIMEOUT = 30 * 60 * 1000;

@@ -1,3 +1,4 @@
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 const BSC_CHAIN_ID = 56;
 const HECO_CHAIN_ID = 128;
 
@@ -32,6 +33,7 @@ const FORTUBE_REQ_MARKETS = process.env.FORTUBE_REQ_MARKETS;
 const FORTUBE_API_TOKEN = process.env.FORTUBE_API_TOKEN;
 
 module.exports = {
+  API_BASE_URL,
   BSC_RPC,
   BSC_RPC_ENDPOINTS,
   BSC_CHAIN_ID,

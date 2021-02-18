@@ -2,7 +2,7 @@ const {BigNumber, utils, ethers} = require('ethers');
 const axios = require('axios');
 
 const fetchPrice = require('../../utils/fetchPrice');
-const { BSC_RPC, REWARDER_PRIVATE_KEY  } = require('../../../constants');
+const { API_BASE_URL, BSC_RPC, REWARDER_PRIVATE_KEY  } = require('../../../constants');
 
 const vaults_json = require('../../data/cmc.json');
 const BeefyVault = require('../../abis/BeefyVault.json');
@@ -33,7 +33,7 @@ const vaults = async (ctx) => {
   const harvester = new ethers.Wallet(REWARDER_PRIVATE_KEY, provider);
 
   try {
-    let response = await axios.get('https://api.beefy.finance/apy');
+    let response = await axios.get(`${API_BASE_URL}/apy`);
     const apys = response.data;
     
     let promises = [];

@@ -73,7 +73,6 @@ const updateApys = async () => {
   setTimeout(updateApys, INTERVAL);
 };
 
-// FIXME: restoring partial service
-// updateApys();
+updateApys();
 
 module.exports = getApys;
