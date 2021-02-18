@@ -13,6 +13,7 @@ const kebabLpTokens = require('../../data/kebabLpPools.json');
 const monsterLpTokens = require('../../data/monsterLpPools.json');
 const nyanswopLpTokens = require('../../data/nyanswopLpPools.json');
 const spongeLpTokens = require('../../data/spongeLpPools.json');
+const crowLpTokens = require('../../data/crowLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -69,6 +70,10 @@ async function spongeLpPrices(ctx) {
   await lpPrices(ctx, spongeLpTokens);
 }
 
+async function crowLpPrices(ctx) {
+  await lpPrices(ctx, crowLpTokens);
+}
+
 async function bakeryPrices(ctx) {
   try {
     const price = await getPrice('bakery', 'BETH');
@@ -104,5 +109,6 @@ module.exports = {
   kebabLpPrices,
   monsterLpPrices,
   nyanswopLpPrices,
-  spongeLpPrices
+  spongeLpPrices,
+  crowLpPrices,
 };
