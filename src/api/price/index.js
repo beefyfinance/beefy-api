@@ -108,16 +108,16 @@ async function nyanswopPrices(ctx) {
   }
 }
 
-async function pancakePrices(ctx) {
-  try {
-    const prices = await getCakeTokensPrices();
-    ctx.status = 200;
-    ctx.body = prices;
-  } catch (err) {
-    ctx.throw(500, err);
-  }
-}
-
+// FIXME: restoring partial service
+// async function pancakePrices(ctx) {
+//   try {
+//     const prices = await getCakeTokensPrices();
+//     ctx.status = 200;
+//     ctx.body = prices;
+//   } catch (err) {
+//     ctx.throw(500, err);
+//   }
+// }
 
 module.exports = {
   cakeLpPrices,

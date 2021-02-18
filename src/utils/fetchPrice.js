@@ -3,9 +3,6 @@ const { API_BASE_URL } = require('../../constants');
 const { getNyanswopTokenPrice } = require('../api/stats/nyanswop/getNyanswopPrice');
 const { getCakeTokensPrices } = require('../api/stats/pancake/getCakePrices');
 
-// FIXME: restoring partial service
-// const { lpTokenRatio } = require('./lpTokensRatio');
-
 const endpoints = {
   bakery: `${API_BASE_URL}/bakery/price`,
   bakeryLp: `${API_BASE_URL}/bakery/lps`,
@@ -58,29 +55,29 @@ const fetchPancake = async (id, oracle) => {
 };
 
 // FIXME: restoring partial service
-// const fetchThugs = async id => {
-//   try {
-//     const response = await axios.get(endpoints.thugs);
-//     const ticker = response.data[id];
-//     const bnb = response.data[WBNB_BUSD]['last_price'];
+const fetchThugs = async id => {
+  try {
+    const response = await axios.get(endpoints.thugs);
+    const ticker = response.data[id];
+    const bnb = response.data[WBNB_BUSD]['last_price'];
 
-//     let price = 0;
+    let price = 0;
 
-//     const pair = id.split('_');
-//     if (pair[0] === WBNB && pair[1] === BUSD) {
-//       price = bnb;
-//     } else if (pair[0] === WBNB) {
-//       price = bnb / ticker['last_price'];
-//     } else {
-//       price = bnb * ticker['last_price'];
-//     }
+    const pair = id.split('_');
+    if (pair[0] === WBNB && pair[1] === BUSD) {
+      price = bnb;
+    } else if (pair[0] === WBNB) {
+      price = bnb / ticker['last_price'];
+    } else {
+      price = bnb * ticker['last_price'];
+    }
 
-//     return price;
-//   } catch (err) {
-//     console.error(err);
-//     return 0;
-//   }
-// };
+    return price;
+  } catch (err) {
+    console.error(err);
+    return 0;
+  }
+};
 
 const fetchLP = async (id, endpoint) => {
   try {
