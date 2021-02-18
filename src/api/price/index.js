@@ -3,7 +3,6 @@ const fetchPrice = require('../../utils/fetchPrice');
 const { getNyanswopTokenPrices } = require('../stats/nyanswop/getNyanswopPrice');
 const cakeLpTokens = require('../../data/cakeLpPools.json');
 const bakeryLpTokens = require('../../data/bakeryLpPools.json');
-const narLpTokens = require('../../data/narLpPools.json');
 const jetfuelLpTokens = require('../../data/jetfuelLpPools.json');
 const bdollarBdoLpTokens = require('../../data/bdollarBdoLpPools.json');
 const bdollarSbdoLpTokens = require('../../data/bdollarSbdoLpPools.json');
@@ -19,6 +18,7 @@ const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
 
 // FIXME: restoring partial service
 // const thugsLpTokens = require('../../data/thugsLpPools.json');
+// const narLpTokens = require('../../data/narLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {

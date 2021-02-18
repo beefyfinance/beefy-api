@@ -2,10 +2,6 @@ const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpApys } = require('./pancake/getCakeLpApys');
 const getFortubeApys = require('./fortube/getFortubeApys');
-// FIXME: restoring partial service
-// const getThugsLpApys = require('./thugs/getThugsLpApys');
-// const getDrugsApys = require('./thugs/getDrugsApys');
-// const getNarLpApys = require('./narwhal/getNarLpApys');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
 const getBakeryLpApys = require('./bakery/getBakeryLpApys');
@@ -28,6 +24,11 @@ const getMdexLpApys = require('./mdex/getMdexLpApys');
 const getBtdLpApys = require('./bolt/getBtdLpApys');
 const getBtsLpApys = require('./bolt/getBtsLpApys');
 
+// FIXME: restoring partial service
+// const getThugsLpApys = require('./thugs/getThugsLpApys');
+// const getDrugsApys = require('./thugs/getDrugsApys');
+// const getNarLpApys = require('./narwhal/getNarLpApys');
+
 const INTERVAL = 5 * 60 * 1000;
 
 let apys = {};
@@ -47,7 +48,6 @@ const updateApys = async () => {
     getDrugsApys(),
     getBakePoolApy(),
     getBakeryLpApys(),
-    getNarLpApys(),
     getVenusApys(),
     getJetfuelLpApys(),
     getBdoLpApys(),
@@ -65,8 +65,7 @@ const updateApys = async () => {
     getBtdLpApys(),
     getBtsLpApys(),
     getAutoApys(),
-    getMdexLpApys(),
-
+    getMdexLpApys()
   ]);
 
   for (item of values) {
