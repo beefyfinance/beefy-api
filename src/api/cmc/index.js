@@ -43,7 +43,8 @@ const vaults = async (ctx) => {
     });
     await Promise.all(promises);
   } catch (err) {
-    console.error('CMC error:', err);
+    console.error('CMC error');
+    //console.error(err);
   }
 
   ctx.body = vaults_json;
