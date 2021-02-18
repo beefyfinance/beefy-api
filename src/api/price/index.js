@@ -92,7 +92,8 @@ async function bakeryPrices(ctx) {
     ctx.status = 200;
     ctx.body = { BETH: price };
   } catch (err) {
-    ctx.throw(500, err);
+    console.error(err);
+    ctx.status = 500;
   }
 }
 
@@ -102,7 +103,8 @@ async function nyanswopPrices(ctx) {
     ctx.status = 200;
     ctx.body = prices;
   } catch (err) {
-    ctx.throw(500, err);
+    console.error(err);
+    ctx.status = 500;
   }
 }
 
