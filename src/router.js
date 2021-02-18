@@ -23,6 +23,7 @@ router.get('/holders', gov.holderCount);
 
 // FIXME: restoring partial service
 router.get('/pancake/price', proxy.pancake);
+router.get('/thugs/tickers', proxy.thugs);
 router.get('/bakery/price', price.bakeryPrices);
 router.get('/nyanswop/price', price.nyanswopPrices);
 

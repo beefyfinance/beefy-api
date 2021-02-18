@@ -191,6 +191,10 @@ const fetchPrice = async ({ oracle, id }) => {
       price = id;
       break;
 
+    case 'bakery':
+      price = await fetchBakery(id);
+      break;
+
     case 'mirror':
       price = await fetchMirror(id);
       break;
