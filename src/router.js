@@ -7,7 +7,6 @@ const noop = require('./api/noop');
 const stats = require('./api/stats');
 const supply = require('./api/supply');
 const price = require('./api/price');
-const proxy = require('./api/proxy');
 const gov = require('./api/stats/gov');
 const smart = require('./api/smart');
 const cmc = require('./api/cmc');
