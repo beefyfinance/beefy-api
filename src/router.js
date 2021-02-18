@@ -7,12 +7,11 @@ const noop = require('./api/noop');
 const stats = require('./api/stats');
 const supply = require('./api/supply');
 const price = require('./api/price');
+const proxy = require('./api/proxy');
 const gov = require('./api/stats/gov');
-const smart = require('./api/smart');
 const cmc = require('./api/cmc');
 
 router.get('/apy', stats.apy);
-router.get('/smart', smart.getSmartcakeData);
 router.get('/cmc', cmc.vaults);
 
 router.get('/supply', supply.supply);
@@ -22,7 +21,8 @@ router.get('/supply/circulating', supply.circulating);
 router.get('/earnings', gov.earnings);
 router.get('/holders', gov.holderCount);
 
-router.get('/pancake/price', price.pancakePrices);
+// FIXME: restoring partial service
+router.get('/pancake/price', proxy.pancake);
 router.get('/bakery/price', price.bakeryPrices);
 router.get('/nyanswop/price', price.nyanswopPrices);
 
@@ -41,6 +41,7 @@ router.get('/bolt/lps', price.boltLpPrices);
 router.get('/', noop);
 
 // FIXME: restoring partial service
+// router.get('/pancake/price', price.pancakePrices);
 // router.get('/narwhal/lps', price.narLpPrices);
 // router.get('/thugs/tickers', proxy.thugs);
 // router.get('/thugs/lps', price.thugsLpPrices);
