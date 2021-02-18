@@ -44,8 +44,6 @@ const updateApys = async () => {
     getCakePoolApy(),
     getCakeLpApys(),
     getFortubeApys(),
-    getThugsLpApys(),
-    getDrugsApys(),
     getBakePoolApy(),
     getBakeryLpApys(),
     getVenusApys(),
