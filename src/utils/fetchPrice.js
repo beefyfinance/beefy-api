@@ -1,5 +1,5 @@
 const axios = require('axios');
-const { lpTokenRatio } = require('./lpTokensRatio');
+// const { lpTokenRatio } = require('./lpTokensRatio');
 const { getNyanswopTokenPrice } = require('../api/stats/nyanswop/getNyanswopPrice');
 const { getCakeTokensPrices } = require('../api/stats/pancake/getCakePrices');
 
@@ -44,7 +44,7 @@ const fetchCoingecko = async id => {
     });
     return response.data[id].usd;
   } catch (err) {
-    console.error(err);
+    console.error('fetchCoingecko error:', err);
     return 0;
   }
 };
@@ -84,7 +84,7 @@ const fetchLP = async (id, endpoint) => {
     const response = await axios.get(endpoint);
     return response.data[id];
   } catch (err) {
-    console.error(err);
+    console.error('fetchLP error:', id, err);
     return 0;
   }
 };
@@ -118,7 +118,7 @@ const fetchMirror = async id => {
 
     return price;
   } catch (err) {
-    console.error(err);
+    console.error('fetchMirror error:', err);
     return 0;
   }
 };

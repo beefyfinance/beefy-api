@@ -32,15 +32,19 @@ const vaults = async (ctx) => {
   const provider = new ethers.providers.JsonRpcProvider(BSC_RPC);
   const harvester = new ethers.Wallet(REWARDER_PRIVATE_KEY, provider);
 
-  let response = await axios.get('https://api.beefy.finance/apy');
-  const apys = response.data;
-  
-  let promises = [];
-  vaults_json.pools.forEach((vault) => {
-    vault.apr = apys[vault.apyId].toFixed(6);
-    promises.push(fetchVaultTvl({ vault, harvester }));
-  });
-  await Promise.all(promises);
+  try {
+    let response = await axios.get('https://api.beefy.finance/apy');
+    const apys = response.data;
+    
+    let promises = [];
+    vaults_json.pools.forEach((vault) => {
+      vault.apr = apys[vault.apyId].toFixed(6);
+      promises.push(fetchVaultTvl({ vault, harvester }));
+    });
+    await Promise.all(promises);
+  } catch (err) {
+    console.error('CMC error:', err);
+  }
 
   ctx.body = vaults_json;
 }
