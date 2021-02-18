@@ -21,13 +21,13 @@ const getSpongeLpApys = require('./sponge/getSpongeLpApys');
 const getSpongePoolApy = require('./sponge/getSpongePoolApy');
 const getAutoApys = require('./auto/getAutoApys');
 const getMdexLpApys = require('./mdex/getMdexLpApys');
-const getBtdLpApys = require('./bolt/getBtdLpApys');
-const getBtsLpApys = require('./bolt/getBtsLpApys');
 
 // FIXME: restoring partial service
-// const getThugsLpApys = require('./thugs/getThugsLpApys');
-// const getDrugsApys = require('./thugs/getDrugsApys');
-// const getNarLpApys = require('./narwhal/getNarLpApys');
+const getThugsLpApys = require('./thugs/getThugsLpApys');
+const getDrugsApys = require('./thugs/getDrugsApys');
+const getNarLpApys = require('./narwhal/getNarLpApys');
+// const getBtdLpApys = require('./bolt/getBtdLpApys');
+// const getBtsLpApys = require('./bolt/getBtsLpApys');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -45,6 +45,9 @@ const updateApys = async () => {
     getCakeLpApys(),
     getFortubeApys(),
     getBakePoolApy(),
+    getThugsLpApys(),
+    getDrugsApys(),
+    getNarLpApys(),
     getBakeryLpApys(),
     getVenusApys(),
     getJetfuelLpApys(),
@@ -60,8 +63,6 @@ const updateApys = async () => {
     getNyacashNyasLpApys(),
     getSpongeLpApys(),
     getSpongePoolApy(),
-    getBtdLpApys(),
-    getBtsLpApys(),
     getAutoApys(),
     getMdexLpApys()
   ]);
@@ -69,6 +70,8 @@ const updateApys = async () => {
   for (item of values) {
     apys = { ...apys, ...item };
   }
+
+  console.log('> getApys');
 
   setTimeout(updateApys, INTERVAL);
 };
