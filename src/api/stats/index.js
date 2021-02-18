@@ -9,9 +9,10 @@ async function apy(ctx) {
     ctx.request.socket.setTimeout(TIMEOUT);
     let apys = await getApys();
 
-    if (Object.keys(apys).length === 0) {
-      throw 'There is no APYs data yet'
-    }
+    // FIXME: restoring partial service
+    // if (Object.keys(apys).length === 0) {
+    //   throw 'There is no APYs data yet'
+    // }
 
     ctx.status = 200;
     ctx.body = apys;
