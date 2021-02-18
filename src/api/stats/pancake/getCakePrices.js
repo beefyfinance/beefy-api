@@ -36,7 +36,7 @@ const fetchInterval = setInterval(() => {
 
 const getCakeTokensPrices = async () => {
   while (isProcessing) {
-     await sleep(500);
+    await sleep(500);
   }
   return priceCache;
 }

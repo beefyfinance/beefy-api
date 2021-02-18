@@ -25,6 +25,11 @@ const getDailyEarnings = async () => {
 
     let data = response.data['result'];
 
+    // FIXME: restoring partial service
+    if (!data){ 
+      return {}; 
+    }
+
     if (data.length === 0) {
       break;
     }
