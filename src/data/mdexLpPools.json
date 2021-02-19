@@ -1,4 +1,137 @@
 [
+    {
+    "name": "mdex-wht-husd",
+    "address": "0x3375afF2CAcF683b8FC34807B9443EB32e7Afff6",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 128,
+    "lp0": {
+      "address": "0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047",
+      "oracle": "coingecko",
+      "oracleId": "husd",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
+      "oracle": "coingecko",
+      "oracleId": "huobi-token",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mdex-hbtc-usdt",
+    "address": "0xFBe7b74623e4be82279027a286fa3A5b5280F77c",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 128,
+    "lp0": {
+      "address": "0x66a79D23E58475D2738179Ca52cd0b41d73f0BEa",
+      "oracle": "pancake",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "pancake",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mdex-husd-usdt",
+    "address": "0xdff86B408284dff30A7CAD7688fEdB465734501C",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 128,
+    "lp0": {
+      "address": "0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047",
+      "oracle": "coingecko",
+      "oracleId": "husd",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "pancake",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mdex-hltc-usdt",
+    "address": "0x060B4bfcE16D15A943ec83C56C87940613e162eB",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 128,
+    "lp0": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "pancake",
+      "oracleId": "usdt",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xecb56cf772B5c9A6907FB7d32387Da2fCbfB63b4",
+      "oracle": "pancake",
+      "oracleId": "LTC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mdex-hbch-usdt",
+    "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 128,
+    "lp0": {
+      "address": "0x25d2e80cb6b86881fd7e07dd263fb79f4abe033c",
+      "oracle": "coingecko",
+      "oracleId": "mdex",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xeF3CEBD77E0C52cb6f60875d9306397B5Caca375",
+      "oracle": "pancake",
+      "oracleId": "BCH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mdex-hdot-usdt",
+    "address": "0x5484ab0DF3E51187f83F7f6b1a13f7a7Ee98C368",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 128,
+    "lp0": {
+      "address": "0xA2c49cEe16a5E5bDEFDe931107dc1fae9f7773E3",
+      "oracle": "pancake",
+      "oracleId": "DOT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "pancake",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mdex-hfil-usdt",
+    "address": "0x600072aF0470d9Ed1D83885D03d17368943fF22A",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 128,
+    "lp0": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "pancake",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xae3a768f9aB104c69A7CD6041fE16fFa235d1810",
+      "oracle": "pancake",
+      "oracleId": "FIL",
+      "decimals": "1e18"
+    }
+  }, 
   {
     "name": "mdex-mdx-usdt",
     "address": "0x615E6285c5944540fd8bd921c9c8c56739Fd1E13",
