@@ -3,7 +3,9 @@ const fetchPrice = require('../../utils/fetchPrice');
 const { getNyanswopTokenPrices } = require('../stats/nyanswop/getNyanswopPrice');
 const { getCakeTokensPrices } = require('../stats/pancake/getCakePrices');
 const cakeLpTokens = require('../../data/cakeLpPools.json');
+const thugsLpTokens = require('../../data/thugsLpPools.json');
 const bakeryLpTokens = require('../../data/bakeryLpPools.json');
+const narLpTokens = require('../../data/narLpPools.json');
 const jetfuelLpTokens = require('../../data/jetfuelLpPools.json');
 const bdollarBdoLpTokens = require('../../data/bdollarBdoLpPools.json');
 const bdollarSbdoLpTokens = require('../../data/bdollarSbdoLpPools.json');
@@ -14,10 +16,8 @@ const nyanswopLpTokens = require('../../data/nyanswopLpPools.json');
 const spongeLpTokens = require('../../data/spongeLpPools.json');
 const autoLpTokens = require('../../data/autoLpPools.json');
 const mdexLpTokens = require('../../data/mdexLpPools.json');
-// const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
-// const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
-const thugsLpTokens = require('../../data/thugsLpPools.json');
-const narLpTokens = require('../../data/narLpPools.json');
+const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
+const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -25,7 +25,8 @@ async function lpPrices(ctx, lpTokens) {
     ctx.status = 200;
     ctx.body = prices;
   } catch (err) {
-    ctx.throw(500, err);
+    console.error(err);
+    ctx.status = 500;
   }
 }
 
@@ -134,7 +135,7 @@ module.exports = {
   nyanswopLpPrices,
   // pancakePrices,
   spongeLpPrices,
-  // boltLpPrices,
+  boltLpPrices,
   autoLpPrices,
   mdexLpPrices,
 };

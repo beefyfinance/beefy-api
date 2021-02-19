@@ -39,10 +39,11 @@ router.get('/nyanswop/lps', price.nyanswopLpPrices);
 router.get('/sponge/lps', price.spongeLpPrices);
 router.get('/auto/lps', price.autoLpPrices);
 router.get('/mdex/lps', price.mdexLpPrices);
+router.get('/bolt/lps', price.boltLpPrices);
+
 router.get('/', noop);
 
 // FIXME: restoring partial service
 // router.get('/pancake/price', price.pancakePrices);
-// router.get('/bolt/lps', price.boltLpPrices);
 
 module.exports = router;
