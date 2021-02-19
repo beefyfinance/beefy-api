@@ -1,26 +1,26 @@
 {
-  "provider": "Beefy",
-  "provider_logo": "https://beefy.finance/img/beefy.svg",
+  "provider": "ballena.io",
+  "provider_logo": "https://ballena.io/img/ballena.svg",
   "links": [
     {
       "title": "Twitter",
-      "link": "https://twitter.com/beefyfinance"
+      "link": "https://twitter.com/ballenaio"
     },
     {
       "title": "Telegram",
-      "link": "https://t.me/beefyfinance"
+      "link": "https://t.me/stgcrypto"
     },
     {
       "title": "Discord",
-      "link": "https://discord.gg/yq8wfHd"
+      "link": "https://discord.gg/fWwyskse2Z"
     },
     {
       "title": "Medium",
-      "link": "https://medium.com/beefyfinance"
+      "link": "https://medium.com/@ballena"
     },
     {
       "title": "Github",
-      "link": "https://github.com/beefyfinance"
+      "link": "https://github.com/ballena-io"
     }
   ], 
   "pools": [

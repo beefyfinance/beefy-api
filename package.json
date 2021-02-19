@@ -1,7 +1,7 @@
 {
-  "name": "beefy-api",
+  "name": "ballena-api",
   "version": "1.0.0",
-  "repository": "beefyfinance/beefy-api",
+  "repository": "ballena-io/ballena-api",
   "license": "MIT",
   "scripts": {
     "start": "node src/app.js",

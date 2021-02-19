@@ -1,8 +1,8 @@
-# Beefy API
+# ballena.io API
 
 ## Overview
 
-Simple API for BeefyFinance
+Simple API for ballena.io
 
 ## Dependencies
 
