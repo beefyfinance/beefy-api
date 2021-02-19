@@ -63,8 +63,8 @@ const updateApys = async () => {
     getSpongePoolApy(),
     getAutoApys(),
     getMdexLpApys(),
-    getBtdLpApys(),
-    getBtsLpApys(),
+    // getBtdLpApys(),
+    // getBtsLpApys(),
   ]);
 
   for (item of values) {
