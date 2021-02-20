@@ -41,6 +41,7 @@ const knownPrices = {
   HUSD: 1,
   DAI: 1,
   USDC: 1,
+  UST: 1,
 };
 
 const refreshInterval = 10 * 60 * 1000;
