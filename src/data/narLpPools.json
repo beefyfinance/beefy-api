@@ -24,14 +24,14 @@
     "poolId": 2,
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "pancake",
+      "oracleId": "THUGS",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xA1303E6199b319a891b79685F0537D289af1FC83",
-      "oracle": "thugs",
-      "oracleId": "0xA1303E6199b319a891b79685F0537D289af1FC83_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "NAR",
       "decimals": "1e18"
     }
   }
