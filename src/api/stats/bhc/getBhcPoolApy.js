@@ -28,7 +28,7 @@ const getBhcPoolApy = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const tokenContract = await new web3.eth.Contract(IRewardPool, stakingPool);
+  const tokenContract = new web3.eth.Contract(IRewardPool, stakingPool);
   const totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
