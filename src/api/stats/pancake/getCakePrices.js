@@ -5,8 +5,7 @@ const bakeryPools = require('../../../data/bakeryLpPools.json');
 const cakePools = require('../../../data/cakeLpPools.json');
 const jetfuelPools = require('../../../data/jetfuelLpPools.json');
 const kebabPools = require('../../../data/kebabLpPools.json');
-const bdollarBdoPools = require('../../../data/bdollarBdoLpPools.json');
-const bdollarSbdoPools = require('../../../data/kebabLpPools.json');
+const bdollarSbdoPools = require('../../../data/bdollarSbdoLpPools.json');
 const boltBtdPools = require('../../../data/boltBtdLpPools.json');
 const boltBtsPools = require('../../../data/boltBtsLpPools.json');
 const helmetPools = require('../../../data/helmetLpPools.json');
@@ -18,12 +17,11 @@ const thugsPools = require('../../../data/thugsLpPools.json');
 const spongePools = require('../../../data/spongeLpPools.json');
 
 const pools = [
+  ...bdollarSbdoPools,
+  ...spongePools,
   ...bakeryPools,
-  ...cakePools,
   ...jetfuelPools,
   ...kebabPools,
-  ...bdollarBdoPools,
-  ...bdollarSbdoPools,
   ...boltBtdPools,
   ...boltBtsPools,
   ...helmetPools,
@@ -32,7 +30,7 @@ const pools = [
   ...nyacashPools,
   ...nyanswopPools,
   ...thugsPools,
-  ...spongePools,
+  ...cakePools,
 ];
 
 const oracle = 'pancake';

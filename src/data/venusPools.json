@@ -2,8 +2,8 @@
   {
     "name": "venus-beth",
     "vtoken": "0x972207A639CC1B374B893cc33Fa251b55CEB7c07",
-    "oracle": "bakery",
-    "oracleId": "BETH",
+    "oracle": "coingecko",
+    "oracleId": "binance-eth",
     "decimals": "1e18",
     "borrowDepth": 3,
     "borrowPercent": 0.54
@@ -138,7 +138,7 @@
     "name": "venus-xrp",
     "vtoken": "0xB248a295732e0225acd3337607cc01068e3b9c10",
     "oracle": "coingecko",
-    "oracleId": "xrp",
+    "oracleId": "ripple",
     "decimals": "1e18",
     "borrowDepth": 3,
     "borrowPercent": 0.54
