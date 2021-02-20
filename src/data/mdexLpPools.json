@@ -1,42 +1,4 @@
 [
-    {
-    "name": "mdex-wht-husd",
-    "address": "0x3375afF2CAcF683b8FC34807B9443EB32e7Afff6",
-    "decimals": "1e18",
-    "poolId": 15,
-    "chainId": 128,
-    "lp0": {
-      "address": "0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047",
-      "oracle": "coingecko",
-      "oracleId": "husd",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
-      "oracle": "coingecko",
-      "oracleId": "huobi-token",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "mdex-hbtc-usdt",
-    "address": "0xFBe7b74623e4be82279027a286fa3A5b5280F77c",
-    "decimals": "1e18",
-    "poolId": 8,
-    "chainId": 128,
-    "lp0": {
-      "address": "0x66a79D23E58475D2738179Ca52cd0b41d73f0BEa",
-      "oracle": "pancake",
-      "oracleId": "BTCB",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "pancake",
-      "oracleId": "USDT",
-      "decimals": "1e18"
-    }
-  },
   {
     "name": "mdex-husd-usdt",
     "address": "0xdff86B408284dff30A7CAD7688fEdB465734501C",
