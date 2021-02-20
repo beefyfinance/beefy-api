@@ -137,8 +137,8 @@
   {
     "name": "venus-xrp",
     "vtoken": "0xB248a295732e0225acd3337607cc01068e3b9c10",
-    "oracle": "pancake",
-    "oracleId": "XRP",
+    "oracle": "coingecko",
+    "oracleId": "xrp",
     "decimals": "1e18",
     "borrowDepth": 3,
     "borrowPercent": 0.54

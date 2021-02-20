@@ -11,6 +11,7 @@ const endpoints = {
   jetfuelLp: `${API_BASE_URL}/jetfuel/lps`,
   narwhalLp: `${API_BASE_URL}/narwhal/lps`,
   pancakeLp: `${API_BASE_URL}/pancake/lps`,
+  pancake: `${API_BASE_URL}/pancake/price`,
   thugsLp: `${API_BASE_URL}/thugs/lps`,
   thugs: `${API_BASE_URL}/thugs/tickers`,
 };
@@ -49,7 +50,7 @@ const fetchCoingecko = async id => {
   }
 };
 
-const fetchPancake = async (id, oracle) => {
+const fetchPancake = async id => {
   const cakePrices = await getCakeTokensPrices();
   return cakePrices[id] || 0;
 };

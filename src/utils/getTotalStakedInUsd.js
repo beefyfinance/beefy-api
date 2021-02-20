@@ -9,7 +9,7 @@ const getTotalStakedInUsd = async (
   targetAddr,
   tokenAddr,
   oracle,
-  oracleoId,
+  oracleId,
   decimals = '1e18',
   chainId = 56
 ) => {
@@ -17,7 +17,8 @@ const getTotalStakedInUsd = async (
 
   const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(targetAddr).call());
-  const tokenPrice = await fetchPrice({ oracle, id: oracleoId });
+  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
+
   return totalStaked.times(tokenPrice).dividedBy(decimals);
 };
 
