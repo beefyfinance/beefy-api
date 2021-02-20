@@ -1,7 +1,8 @@
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const { fetchPoolTokensPrices } = require('../../../utils/getPoolStats')
 
-const pools = require('../../../data/cakeLpPools.json');
+const lpPools = require('../../../data/cakeLpPools.json');
+const pools = require('../../../data/cakePools.json');
 const oracle = 'pancake';
 
 const knownPrices = {
@@ -17,7 +18,7 @@ const fetchCakeTokensPrices = async () => {
   try {
     priceCache = await fetchPoolTokensPrices(
       oracle,
-      pools,
+      [...lpPools, ...pools],
       knownPrices,
       BSC_CHAIN_ID
     )

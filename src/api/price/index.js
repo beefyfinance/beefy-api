@@ -109,16 +109,15 @@ async function nyanswopPrices(ctx) {
   }
 }
 
-// FIXME: restoring partial service
-// async function pancakePrices(ctx) {
-//   try {
-//     const prices = await getCakeTokensPrices();
-//     ctx.status = 200;
-//     ctx.body = prices;
-//   } catch (err) {
-//     ctx.throw(500, err);
-//   }
-// }
+async function pancakePrices(ctx) {
+  try {
+    const prices = await getCakeTokensPrices();
+    ctx.status = 200;
+    ctx.body = prices;
+  } catch (err) {
+    ctx.throw(500, err);
+  }
+}
 
 module.exports = {
   cakeLpPrices,
@@ -133,7 +132,7 @@ module.exports = {
   kebabLpPrices,
   monsterLpPrices,
   nyanswopLpPrices,
-  // pancakePrices,
+  pancakePrices,
   spongeLpPrices,
   boltLpPrices,
   autoLpPrices,
