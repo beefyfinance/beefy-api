@@ -71,24 +71,6 @@
       "decimals": "1e18"
     }
   },  
-     {
-    "name": "cake-beth-eth",
-    "address": "0x99d865Ed50D2C32c1493896810FA386c1Ce81D91",
-    "decimals": "1e18",
-    "poolId": 70,
-    "lp0": {
-      "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
-      "oracle": "pancake",
-      "oracleId": "ETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x250632378e573c6be1ac2f97fcdf00515d0aa91b",
-      "oracle": "pancake",
-      "oracleId": "BETH",
-      "decimals": "1e18"
-    }
-  },  
    {
     "name": "cake-hget-bnb",
     "address": "0x66b9E1eAc8a81F3752F7f3A5E95dE460688A17Ee",
@@ -140,24 +122,6 @@
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
       "oracle": "pancake",
       "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-   {
-    "name": "cake-comp-eth",
-    "address": "0x0392957571F28037607C14832D16f8B653eDd472",
-    "decimals": "1e18",
-    "poolId": 72,
-    "lp0": {
-      "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
-      "oracle": "pancake",
-      "oracleId": "ETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
-      "oracle": "pancake",
-      "oracleId": "COMP",
       "decimals": "1e18"
     }
   },
