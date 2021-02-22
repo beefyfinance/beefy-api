@@ -5,7 +5,7 @@ const LPPair = require('../abis/LPPair.json');
 const lpTokenRatio = async (lpTokenAddress, decimals0, decimals1, chainId = 56) => {
   const web3 = web3Factory(chainId);
 
-  const tokenPairContract = await new web3.eth.Contract(LPPair, lpTokenAddress);
+  const tokenPairContract = new web3.eth.Contract(LPPair, lpTokenAddress);
 
   let { _reserve0, _reserve1 } = await tokenPairContract.methods.getReserves().call();
   const reserve0 = new BigNumber(_reserve0);

@@ -1,6 +1,7 @@
 const { lpTokenPrices } = require('../../utils/lpTokens');
 const fetchPrice = require('../../utils/fetchPrice');
 const { getNyanswopTokenPrices } = require('../stats/nyanswop/getNyanswopPrice');
+const { getCakeTokensPrices } = require('../stats/pancake/getCakePrices');
 const cakeLpTokens = require('../../data/cakeLpPools.json');
 const thugsLpTokens = require('../../data/thugsLpPools.json');
 const bakeryLpTokens = require('../../data/bakeryLpPools.json');
@@ -17,7 +18,6 @@ const autoLpTokens = require('../../data/autoLpPools.json');
 const mdexLpTokens = require('../../data/mdexLpPools.json');
 const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
 const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
-
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -109,6 +109,16 @@ async function nyanswopPrices(ctx) {
   }
 }
 
+// FIXME: restoring partial service
+// async function pancakePrices(ctx) {
+//   try {
+//     const prices = await getCakeTokensPrices();
+//     ctx.status = 200;
+//     ctx.body = prices;
+//   } catch (err) {
+//     ctx.throw(500, err);
+//   }
+// }
 
 module.exports = {
   cakeLpPrices,
@@ -123,6 +133,7 @@ module.exports = {
   kebabLpPrices,
   monsterLpPrices,
   nyanswopLpPrices,
+  // pancakePrices,
   spongeLpPrices,
   boltLpPrices,
   autoLpPrices,

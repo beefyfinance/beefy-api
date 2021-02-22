@@ -9,22 +9,23 @@ const getTotalStakedInUsd = async (
   targetAddr,
   tokenAddr,
   oracle,
-  oracleoId,
+  oracleId,
   decimals = '1e18',
   chainId = 56
 ) => {
   const web3 = web3Factory(chainId);
 
-  const tokenContract = await new web3.eth.Contract(ERC20, tokenAddr);
+  const tokenContract = new web3.eth.Contract(ERC20, tokenAddr);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(targetAddr).call());
-  const tokenPrice = await fetchPrice({ oracle, id: oracleoId });
+  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
+
   return totalStaked.times(tokenPrice).dividedBy(decimals);
 };
 
 const getTotalLpStakedInUsd = async (targetAddr, pool, chainId = 56) => {
   const web3 = web3Factory(chainId);
 
-  const tokenPairContract = await new web3.eth.Contract(ERC20, pool.address);
+  const tokenPairContract = new web3.eth.Contract(ERC20, pool.address);
   const totalStaked = new BigNumber(await tokenPairContract.methods.balanceOf(targetAddr).call());
   const tokenPrice = await lpTokenPrice(pool);
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
