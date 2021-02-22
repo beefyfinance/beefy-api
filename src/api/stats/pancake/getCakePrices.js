@@ -2,6 +2,7 @@ const { BSC_CHAIN_ID } = require('../../../../constants');
 const { fetchPoolTokensPrices } = require('../../../utils/getPoolStats');
 
 const bakeryPools = require('../../../data/bakeryLpPools.json');
+const cafePools = require('../../../data/cafeLpPools.json');
 const cakeLpPools = require('../../../data/cakeLpPools.json');
 const cakePools = require('../../../data/cakePools.json');
 const jetfuelPools = require('../../../data/jetfuelLpPools.json');
@@ -11,6 +12,7 @@ const boltBtdPools = require('../../../data/boltBtdLpPools.json');
 const boltBtsPools = require('../../../data/boltBtsLpPools.json');
 const helmetPools = require('../../../data/helmetLpPools.json');
 const mdexPools = require('../../../data/mdexLpPools.json');
+const midasPools = require('../../../data/midasLpPools.json');
 const monsterPools = require('../../../data/monsterLpPools.json');
 const nyacashPools = require('../../../data/nyacashLpPools.json');
 const nyanswopPools = require('../../../data/nyanswopLpPools.json');
@@ -18,6 +20,8 @@ const thugsPools = require('../../../data/thugsLpPools.json');
 const spongePools = require('../../../data/spongeLpPools.json');
 
 const pools = [
+  ...cafePools,
+  ...midasPools,
   ...bdollarSbdoPools,
   ...spongePools,
   ...bakeryPools,
