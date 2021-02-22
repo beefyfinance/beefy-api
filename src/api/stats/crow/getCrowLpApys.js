@@ -36,11 +36,13 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const blockNum = await web3.eth.getBlockNumber();
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
-/*   const multiplier = new BigNumber(
+  /*   const multiplier = new BigNumber(
     await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
   ); */
   const multiplier = 1;
-  const blockRewards = new BigNumber(await masterchefContract.methods.getCurrentCrowRewardPerBlock().call());
+  const blockRewards = new BigNumber(
+    await masterchefContract.methods.getCurrentCrowRewardPerBlock().call()
+  );
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);
@@ -55,7 +57,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const crowPrice = await fetchPrice('pancake', 'CROW');
+  const crowPrice = await fetchPrice({ oracle: 'pancake', id: 'CROW' });
   const yearlyRewardsInUsd = yearlyRewards.times(crowPrice).dividedBy('1e18').times(0.96); // 2 times an average burn of 2%
 
   return yearlyRewardsInUsd;
