@@ -21,7 +21,7 @@ router.get('/supply/circulating', supply.circulating);
 router.get('/earnings', gov.earnings);
 router.get('/holders', gov.holderCount);
 
-router.get('/pancake/price', proxy.pancake);
+router.get('/pancake/price', price.pancakePrices);
 router.get('/thugs/tickers', proxy.thugs);
 router.get('/bakery/price', price.bakeryPrices);
 router.get('/nyanswop/price', price.nyanswopPrices);

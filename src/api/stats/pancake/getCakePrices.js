@@ -2,8 +2,9 @@ const { BSC_CHAIN_ID } = require('../../../../constants');
 const { fetchPoolTokensPrices } = require('../../../utils/getPoolStats');
 
 const bakeryPools = require('../../../data/bakeryLpPools.json');
-const cakePools = require('../../../data/cakeLpPools.json');
 const cafePools = require('../../../data/cafeLpPools.json');
+const cakeLpPools = require('../../../data/cakeLpPools.json');
+const cakePools = require('../../../data/cakePools.json');
 const jetfuelPools = require('../../../data/jetfuelLpPools.json');
 const kebabPools = require('../../../data/kebabLpPools.json');
 const bdollarSbdoPools = require('../../../data/bdollarSbdoLpPools.json');
@@ -34,6 +35,7 @@ const pools = [
   ...nyacashPools,
   ...nyanswopPools,
   ...thugsPools,
+  ...cakeLpPools,
   ...cakePools,
 ];
 
