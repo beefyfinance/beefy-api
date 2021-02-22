@@ -3,6 +3,7 @@ const { fetchPoolTokensPrices } = require('../../../utils/getPoolStats');
 
 const bakeryPools = require('../../../data/bakeryLpPools.json');
 const cakePools = require('../../../data/cakeLpPools.json');
+const cafePools = require('../../../data/cafeLpPools.json');
 const jetfuelPools = require('../../../data/jetfuelLpPools.json');
 const kebabPools = require('../../../data/kebabLpPools.json');
 const bdollarSbdoPools = require('../../../data/bdollarSbdoLpPools.json');
@@ -18,6 +19,7 @@ const thugsPools = require('../../../data/thugsLpPools.json');
 const spongePools = require('../../../data/spongeLpPools.json');
 
 const pools = [
+  ...cafePools,
   ...midasPools,
   ...bdollarSbdoPools,
   ...spongePools,
