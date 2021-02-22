@@ -14,7 +14,6 @@ const endpoints = {
   pancakeLp: `${API_BASE_URL}/pancake/lps`,
   pancake: `${API_BASE_URL}/pancake/price`,
   thugsLp: `${API_BASE_URL}/thugs/lps`,
-  thugs: `${API_BASE_URL}/thugs/tickers`,
 };
 
 const CACHE_TIMEOUT = 30 * 60 * 1000;
@@ -54,31 +53,6 @@ const fetchCoingecko = async id => {
 const fetchPancake = async id => {
   const cakePrices = await getCakeTokensPrices();
   return cakePrices[id] || 0;
-};
-
-// FIXME: restoring partial service
-const fetchThugs = async id => {
-  try {
-    const response = await axios.get(endpoints.thugs);
-    const ticker = response.data[id];
-    const bnb = response.data[WBNB_BUSD]['last_price'];
-
-    let price = 0;
-
-    const pair = id.split('_');
-    if (pair[0] === WBNB && pair[1] === BUSD) {
-      price = bnb;
-    } else if (pair[0] === WBNB) {
-      price = bnb / ticker['last_price'];
-    } else {
-      price = bnb * ticker['last_price'];
-    }
-
-    return price;
-  } catch (err) {
-    console.error(err);
-    return 0;
-  }
 };
 
 const fetchLP = async (id, endpoint) => {
@@ -189,10 +163,6 @@ const fetchPrice = async ({ oracle, id }) => {
 
     case 'pancake-lp':
       price = await fetchLP(id, endpoints.pancakeLp);
-      break;
-
-    case 'thugs':
-      price = await fetchThugs(id);
       break;
 
     case 'thugs-lp':
