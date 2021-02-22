@@ -1,31 +1,50 @@
+const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
+const BSC_CHAIN_ID = 56;
+const HECO_CHAIN_ID = 128;
+
 const MAINNET_BSC_RPC_ENDPOINTS = [
   'https://bsc-dataseed.binance.org',
   'https://bsc-dataseed1.defibit.io',
   'https://bsc-dataseed1.ninicoin.io',
-]
+];
 
 const CUSTOM_BSC_RPC_ENDPOINTS = [
   process.env.BSC_RPC_3,
   process.env.BSC_RPC_2,
   process.env.BSC_RPC,
-].filter(item => item)
+].filter(item => item);
 
-const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length ? CUSTOM_BSC_RPC_ENDPOINTS : MAINNET_BSC_RPC_ENDPOINTS
-const BSC_RPC = BSC_RPC_ENDPOINTS[0]
+const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
+  ? CUSTOM_BSC_RPC_ENDPOINTS
+  : MAINNET_BSC_RPC_ENDPOINTS;
+const BSC_RPC = BSC_RPC_ENDPOINTS[0];
 
-const REWARDER_PRIVATE_KEY = process.env.REWARDER_PRIVATE_KEY
+const HECO_RPC = process.env.HECO_RPC;
 
-const BASE_HPY = process.env.BASE_HPY
-const HOURLY_HPY = process.env.HOURLY_HPY
-const DAILY_HPY = process.env.DAILY_HPY
-const WEEKLY_HPY = process.env.WEEKLY_HPY
+const REWARDER_PRIVATE_KEY = process.env.REWARDER_PRIVATE_KEY;
 
-const FORTUBE_REQ_TOKENS = process.env.FORTUBE_REQ_TOKENS
-const FORTUBE_REQ_MARKETS = process.env.FORTUBE_REQ_MARKETS
-const FORTUBE_API_TOKEN = process.env.FORTUBE_API_TOKEN
+const BASE_HPY = process.env.BASE_HPY;
+const HOURLY_HPY = process.env.HOURLY_HPY;
+const DAILY_HPY = process.env.DAILY_HPY;
+const WEEKLY_HPY = process.env.WEEKLY_HPY;
 
-module.exports = { 
-  BSC_RPC, BSC_RPC_ENDPOINTS, REWARDER_PRIVATE_KEY,
-  BASE_HPY, HOURLY_HPY, DAILY_HPY, WEEKLY_HPY, 
-  FORTUBE_REQ_TOKENS, FORTUBE_REQ_MARKETS, FORTUBE_API_TOKEN
+const FORTUBE_REQ_TOKENS = process.env.FORTUBE_REQ_TOKENS;
+const FORTUBE_REQ_MARKETS = process.env.FORTUBE_REQ_MARKETS;
+const FORTUBE_API_TOKEN = process.env.FORTUBE_API_TOKEN;
+
+module.exports = {
+  API_BASE_URL,
+  BSC_RPC,
+  BSC_RPC_ENDPOINTS,
+  BSC_CHAIN_ID,
+  HECO_RPC,
+  HECO_CHAIN_ID,
+  REWARDER_PRIVATE_KEY,
+  BASE_HPY,
+  HOURLY_HPY,
+  DAILY_HPY,
+  WEEKLY_HPY,
+  FORTUBE_REQ_TOKENS,
+  FORTUBE_REQ_MARKETS,
+  FORTUBE_API_TOKEN,
 };

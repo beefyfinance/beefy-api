@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
 
 const pools = require('../../../data/nyacashLpPools.json');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
@@ -33,15 +33,15 @@ const getPoolApy = async (rewardPool, pool) => {
     getYearlyRewardsInUsd(pool),
     getTotalLpStakedInUsd(rewardPool, pool),
   ]);
-  
+
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
   return { [pool.name]: apy };
 };
 
-const getYearlyRewardsInUsd = async (pool) => {
+const getYearlyRewardsInUsd = async pool => {
   const yearlyRewards = new BigNumber(yearlyNyasRewards[pool.name]);
-  const nyasPrice = await getPrice('nyanswop', 'NYAS');
+  const nyasPrice = await fetchPrice({ oracle: 'nyanswop', id: 'NYAS' });
   const yearlyRewardsInUsd = yearlyRewards.times(nyasPrice);
 
   return yearlyRewardsInUsd;

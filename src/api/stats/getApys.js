@@ -22,6 +22,10 @@ const getJulDPoolApy = require('./julb/getJuldPoolApy');
 const getNyacashNyasLpApys = require('./nyanswop/getNyacashNyasLpApys');
 const getSpongeLpApys = require('./sponge/getSpongeLpApys');
 const getSpongePoolApy = require('./sponge/getSpongePoolApy');
+const getAutoApys = require('./auto/getAutoApys');
+const getMdexLpApys = require('./mdex/getMdexLpApys');
+const getBtdLpApys = require('./bolt/getBtdLpApys');
+const getBtsLpApys = require('./bolt/getBtsLpApys');
 const getCrowLpApys = require('./crow/getCrowLpApys');
 
 const INTERVAL = 5 * 60 * 1000;
@@ -58,12 +62,18 @@ const updateApys = async () => {
     getNyacashNyasLpApys(),
     getSpongeLpApys(),
     getSpongePoolApy(),
+    getAutoApys(),
+    getMdexLpApys(),
+    getBtdLpApys(),
+    getBtsLpApys(),
     getCrowLpApys(),
   ]);
 
   for (item of values) {
     apys = { ...apys, ...item };
   }
+
+  console.log('> getApys');
 
   setTimeout(updateApys, INTERVAL);
 };

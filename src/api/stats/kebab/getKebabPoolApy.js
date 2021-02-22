@@ -1,8 +1,8 @@
 const BigNumber = require('bignumber.js');
-const { web3 } = require('../../../utils/web3');
+const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/MasterChef.json');
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
 
@@ -29,7 +29,7 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const masterChefContract = new web3.eth.Contract(MasterChef, masterChefAddr);
 
   const multiplier = new BigNumber(
-    await masterChefContract.methods.getMultiplier(fromBlock, toBlock).call(),
+    await masterChefContract.methods.getMultiplier(fromBlock, toBlock).call()
   );
   const blockRewards = new BigNumber(await masterChefContract.methods.cakePerBlock().call());
 
@@ -46,7 +46,7 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const kebabPrice = await getPrice(oracle, oracleId);
+  const kebabPrice = await fetchPrice({ oracle, id: oracleId });
   const yearlyRewardsInUsd = yearlyRewards.times(kebabPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

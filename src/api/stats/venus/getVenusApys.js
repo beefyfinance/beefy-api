@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
-const { web3 } = require('../../../utils/web3');
+const { bscWeb3: web3 } = require('../../../utils/web3');
 
-const { getPrice } = require('../../../utils/getPrice');
+const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const IUnitroller = require('../../../abis/IUnitroller.json');
 const VToken = require('../../../abis/VToken.json');
@@ -58,8 +58,8 @@ const getSupplyApys = async pool => {
     totalSupply,
     exchangeRateStored,
   ] = await Promise.all([
-    getPrice('pancake', 'XVS'),
-    getPrice(pool.oracle, pool.oracleId),
+    fetchPrice({ oracle: 'pancake', id: 'XVS' }),
+    fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
     vtokenContract.methods.supplyRatePerBlock().call(),
     unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
     vtokenContract.methods.totalSupply().call(),
@@ -90,8 +90,8 @@ const getBorrowApys = async pool => {
   const vtokenContract = new web3.eth.Contract(VToken, pool.vtoken);
 
   let [venusPrice, bnbPrice, borrowRate, venusRate, totalBorrows] = await Promise.all([
-    getPrice('pancake', 'XVS'),
-    getPrice(pool.oracle, pool.oracleId),
+    fetchPrice({ oracle: 'pancake', id: 'XVS' }),
+    fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
     vtokenContract.methods.borrowRatePerBlock().call(),
     unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
     vtokenContract.methods.totalBorrows().call(),
