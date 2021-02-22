@@ -423,7 +423,7 @@
     "lp0": {
       "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
       "oracle": "pancake",
-      "oracleId": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracleId": "DAI",
       "decimals": "1e18"
     },
     "lp1": {
