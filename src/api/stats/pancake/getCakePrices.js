@@ -10,6 +10,7 @@ const boltBtdPools = require('../../../data/boltBtdLpPools.json');
 const boltBtsPools = require('../../../data/boltBtsLpPools.json');
 const helmetPools = require('../../../data/helmetLpPools.json');
 const mdexPools = require('../../../data/mdexLpPools.json');
+const midasPools = require('../../../data/midasLpPools.json');
 const monsterPools = require('../../../data/monsterLpPools.json');
 const nyacashPools = require('../../../data/nyacashLpPools.json');
 const nyanswopPools = require('../../../data/nyanswopLpPools.json');
@@ -17,6 +18,7 @@ const thugsPools = require('../../../data/thugsLpPools.json');
 const spongePools = require('../../../data/spongeLpPools.json');
 
 const pools = [
+  ...midasPools,
   ...bdollarSbdoPools,
   ...spongePools,
   ...bakeryPools,
