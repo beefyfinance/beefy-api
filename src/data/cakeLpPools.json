@@ -240,7 +240,7 @@
     "poolId": 62,
     "lp0": {
       "address": "0x3947B992DC0147D2D89dF0392213781b04B25075",
-      "oracle": "mirror",
+      "oracle": "pancake",
       "oracleId": "mAMZN",
       "decimals": "1e18"
     },
@@ -258,7 +258,7 @@
     "poolId": 61,
     "lp0": {
       "address": "0x62D71B23bF15218C7d2D7E48DBbD9e9c650B173f",
-      "oracle": "mirror",
+      "oracle": "pancake",
       "oracleId": "mGOOGL",
       "decimals": "1e18"
     },
@@ -276,7 +276,7 @@
     "poolId": 60,
     "lp0": {
       "address": "0xa04F060077D90Fe2647B61e4dA4aD1F97d6649dc",
-      "oracle": "mirror",
+      "oracle": "pancake",
       "oracleId": "mNFLX",
       "decimals": "1e18"
     },
@@ -294,7 +294,7 @@
     "poolId": 59,
     "lp0": {
       "address": "0xF215A127A196e3988C09d052e16BcFD365Cd7AA3",
-      "oracle": "mirror",
+      "oracle": "pancake",
       "oracleId": "mTSLA",
       "decimals": "1e18"
     },
