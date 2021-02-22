@@ -1,8 +1,8 @@
 const BigNumber = require('bignumber.js');
-const { web3 } = require('../../../utils/web3');
+const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/CrowMasterChef.json');
-const { getPrice } = require('../../../utils/getPrice');
+const { fetchPrice } = require('../../../utils/fetchPrice');
 const pools = require('../../../data/crowLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
@@ -55,7 +55,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const crowPrice = await getPrice('pancake', 'CROW');
+  const crowPrice = await fetchPrice('pancake', 'CROW');
   const yearlyRewardsInUsd = yearlyRewards.times(crowPrice).dividedBy('1e18').times(0.96); // 2 times an average burn of 2%
 
   return yearlyRewardsInUsd;
