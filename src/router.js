@@ -40,6 +40,7 @@ router.get('/sponge/lps', price.spongeLpPrices);
 router.get('/auto/lps', price.autoLpPrices);
 router.get('/mdex/lps', price.mdexLpPrices);
 router.get('/bolt/lps', price.boltLpPrices);
+router.get('/crow/lps', price.crowLpPrices);
 
 router.get('/', noop);
 
