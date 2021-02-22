@@ -34,5 +34,23 @@
       "oracleId": "BUSD",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "monster-msc-bnb",
+    "address": "0x981DB69F2F2F96e0f08D6519BEFDa0B927C22190",
+    "decimals": "1e18",
+    "poolId": 3,
+    "lp0": {
+      "address": "0x8c784c49097dcc637b93232e15810d53871992bf",
+      "oracle": "pancake",
+      "oracleId": "MSC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
   }
 ]

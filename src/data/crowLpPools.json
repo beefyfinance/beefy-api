@@ -1,0 +1,57 @@
+[
+    {
+      "name": "crow-crow-bnb",
+      "address": "0x74d2a66650bbd8027Fd1F4A3454a16D75A05cc14",
+      "decimals": "1e18",
+      "poolId": 7,
+      "lp0": {
+        "address": "0xcc2E12a9b5b75360c6FBf23B584c275D52cDdb0E",
+        "oracle": "pancake",
+        "oracleId": "CROW",
+        "decimals": "1e18"
+      },
+      "lp1": {
+        "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+        "oracle": "pancake",
+        "oracleId": "WBNB",
+        "decimals": "1e18"
+      }
+    },
+    {
+        "name": "crow-busd-bnb",
+        "address": "0x1B96B92314C44b159149f7E0303511fB2Fc4774f",
+        "decimals": "1e18",
+        "poolId": 1,
+        "lp0": {
+          "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+          "oracle": "pancake",
+          "oracleId": "BUSD",
+          "decimals": "1e18"
+        },
+        "lp1": {
+          "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+          "oracle": "pancake",
+          "oracleId": "WBNB",
+          "decimals": "1e18"
+        }
+      },
+      {
+        "name": "crow-crow-busd",
+        "address": "0xEC3B97802FB4883FdB7bf70f0924Bf5EE0520cDE",
+        "decimals": "1e18",
+        "poolId": 8,
+        "lp0": {
+          "address": "0xcc2E12a9b5b75360c6FBf23B584c275D52cDdb0E",
+          "oracle": "pancake",
+          "oracleId": "CROW",
+          "decimals": "1e18"
+        },
+        "lp1": {
+          "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+          "oracle": "pancake",
+          "oracleId": "BUSD",
+          "decimals": "1e18"
+        }
+      }
+  ]
+  

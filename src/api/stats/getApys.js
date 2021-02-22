@@ -26,6 +26,7 @@ const getAutoApys = require('./auto/getAutoApys');
 const getMdexLpApys = require('./mdex/getMdexLpApys');
 const getBtdLpApys = require('./bolt/getBtdLpApys');
 const getBtsLpApys = require('./bolt/getBtsLpApys');
+const getCrowLpApys = require('./crow/getCrowLpApys');
 
 const INTERVAL = 5 * 60 * 1000;
 
@@ -41,7 +42,7 @@ const updateApys = async () => {
     getCakeApys(),
     getCakePoolApy(),
     getCakeLpApys(),
-    getFortubeApys(),
+    //getFortubeApys(),
     getThugsLpApys(),
     getDrugsApys(),
     getBakePoolApy(),
@@ -63,8 +64,9 @@ const updateApys = async () => {
     getSpongePoolApy(),
     getAutoApys(),
     getMdexLpApys(),
-    // getBtdLpApys(),
-    // getBtsLpApys(),
+    getBtdLpApys(),
+    getBtsLpApys(),
+    getCrowLpApys(),
   ]);
 
   for (item of values) {
