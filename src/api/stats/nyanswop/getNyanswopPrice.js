@@ -75,13 +75,13 @@ const getTokenPriceInUsd = async (
   knownPriceTokenPriceUnit,
   decimals = '1e18'
 ) => {
-  const knownPriceTokenContract = await new web3.eth.Contract(ERC20, knownPriceToken.address);
+  const knownPriceTokenContract = new web3.eth.Contract(ERC20, knownPriceToken.address);
   const knownPriceTokenTotalStaked = new BigNumber(
     await knownPriceTokenContract.methods.balanceOf(lpContract).call()
   );
   const knownPriceTokenTotalStakedUsdt = knownPriceTokenTotalStaked.times(knownPriceTokenPriceUnit); // half value of entire LP
 
-  const unknownPriceTokenContract = await new web3.eth.Contract(ERC20, unknownPriceToken.address);
+  const unknownPriceTokenContract = new web3.eth.Contract(ERC20, unknownPriceToken.address);
   const unknownPriceTokenTotalStaked = new BigNumber(
     await unknownPriceTokenContract.methods.balanceOf(lpContract).call()
   );
