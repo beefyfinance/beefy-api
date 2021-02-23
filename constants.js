@@ -21,8 +21,6 @@ const BSC_RPC = BSC_RPC_ENDPOINTS[0];
 
 const HECO_RPC = process.env.HECO_RPC;
 
-const REWARDER_PRIVATE_KEY = process.env.REWARDER_PRIVATE_KEY;
-
 const BASE_HPY = process.env.BASE_HPY;
 const HOURLY_HPY = process.env.HOURLY_HPY;
 const DAILY_HPY = process.env.DAILY_HPY;
@@ -39,7 +37,6 @@ module.exports = {
   BSC_CHAIN_ID,
   HECO_RPC,
   HECO_CHAIN_ID,
-  REWARDER_PRIVATE_KEY,
   BASE_HPY,
   HOURLY_HPY,
   DAILY_HPY,
