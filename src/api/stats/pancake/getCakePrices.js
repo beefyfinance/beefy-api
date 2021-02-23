@@ -18,8 +18,10 @@ const nyacashPools = require('../../../data/nyacashLpPools.json');
 const nyanswopPools = require('../../../data/nyanswopLpPools.json');
 const thugsPools = require('../../../data/thugsLpPools.json');
 const spongePools = require('../../../data/spongeLpPools.json');
+const crowPools = require('../../../data/crowLpPools.json');
 
 const pools = [
+  ...crowPools,
   ...cafePools,
   ...midasPools,
   ...bdollarSbdoPools,
