@@ -16,10 +16,12 @@ const midasPools = require('../../../data/midasLpPools.json');
 const monsterPools = require('../../../data/monsterLpPools.json');
 const nyacashPools = require('../../../data/nyacashLpPools.json');
 const nyanswopPools = require('../../../data/nyanswopLpPools.json');
+const ramenPools = require('../../../data/ramenLpPools.json');
 const thugsPools = require('../../../data/thugsLpPools.json');
 const spongePools = require('../../../data/spongeLpPools.json');
 
 const pools = [
+  ...ramenPools,
   ...cafePools,
   ...midasPools,
   ...bdollarSbdoPools,
