@@ -19,6 +19,9 @@ const mdexLpTokens = require('../../data/mdexLpPools.json');
 const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
 const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
 const crowLpTokens = require('../../data/crowLpPools.json');
+const midasLpTokens = require('../../data/midasLpPools.json');
+const cafeLpTokens = require('../../data/cafeLpPools.json');
+const ramenLpTokens = require('../../data/ramenLpPools.json');
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -92,6 +95,18 @@ async function crowLpPrices(ctx) {
   await lpPrices(ctx, crowLpTokens);
 }
 
+async function midasLpPrices(ctx) {
+  await lpPrices(ctx, midasLpTokens);
+}
+
+async function cafeLpPrices(ctx) {
+  await lpPrices(ctx, cafeLpTokens);
+}
+
+async function ramenLpPrices(ctx) {
+  await lpPrices(ctx, ramenLpTokens);
+}
+
 async function bakeryPrices(ctx) {
   try {
     const price = await fetchPrice({ oracle: 'coingecko', id: 'binance-eth' });
@@ -114,16 +129,15 @@ async function nyanswopPrices(ctx) {
   }
 }
 
-// FIXME: restoring partial service
-// async function pancakePrices(ctx) {
-//   try {
-//     const prices = await getCakeTokensPrices();
-//     ctx.status = 200;
-//     ctx.body = prices;
-//   } catch (err) {
-//     ctx.throw(500, err);
-//   }
-// }
+async function pancakePrices(ctx) {
+  try {
+    const prices = await getCakeTokensPrices();
+    ctx.status = 200;
+    ctx.body = prices;
+  } catch (err) {
+    ctx.throw(500, err);
+  }
+}
 
 module.exports = {
   cakeLpPrices,
@@ -138,10 +152,13 @@ module.exports = {
   kebabLpPrices,
   monsterLpPrices,
   nyanswopLpPrices,
-  // pancakePrices,
+  pancakePrices,
   spongeLpPrices,
   boltLpPrices,
   autoLpPrices,
   mdexLpPrices,
   crowLpPrices,
+  midasLpPrices,
+  cafeLpPrices,
+  ramenLpPrices
 };

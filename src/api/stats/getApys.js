@@ -27,8 +27,11 @@ const getMdexLpApys = require('./mdex/getMdexLpApys');
 const getBtdLpApys = require('./bolt/getBtdLpApys');
 const getBtsLpApys = require('./bolt/getBtsLpApys');
 const getCrowLpApys = require('./crow/getCrowLpApys');
+const getMidasLpApys = require('./midas/getMidasLpApys');
+const getCafeLpApys = require('./cafe/getCafeLpApys');
+const getRamenLpApys = require('./ramen/getRamenLpApys');
 
-const INTERVAL = 5 * 60 * 1000;
+const INTERVAL = 15 * 60 * 1000;
 
 let apys = {};
 
@@ -67,6 +70,9 @@ const updateApys = async () => {
     getBtdLpApys(),
     getBtsLpApys(),
     getCrowLpApys(),
+    getMidasLpApys(),
+    getCafeLpApys(),
+    getRamenLpApys(),
   ]);
 
   for (item of values) {

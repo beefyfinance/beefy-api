@@ -1,15 +1,15 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/CrowMasterChef.json');
+const MasterChef = require('../../../abis/MasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/crowLpPools.json');
+const pools = require('../../../data/ramenLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
-const getCrowLpApys = async () => {
+const getRamenLpApys = async () => {
   let apys = {};
-  const masterchef = '0xB5ff2e278A1093850c4C0892b3b0FBF757BDbe67';
+  const masterchef = '0x97DD424B4628C8D3bD7fCf3A4e974Cebba011651';
 
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
@@ -36,13 +36,10 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const blockNum = await web3.eth.getBlockNumber();
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
-  /*   const multiplier = new BigNumber(
-    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
-  ); */
-  const multiplier = 1;
-  const blockRewards = new BigNumber(
-    await masterchefContract.methods.getCurrentCrowRewardPerBlock().call()
+  const multiplier = new BigNumber(
+    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
   );
+  const blockRewards = new BigNumber(await masterchefContract.methods.cakePerBlock().call());
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);
@@ -57,10 +54,10 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const crowPrice = await fetchPrice({ oracle: 'pancake', id: 'CROW' });
-  const yearlyRewardsInUsd = yearlyRewards.times(crowPrice).dividedBy('1e18').times(0.96); // 2 times an average burn of 2%
+  const tokenPrice = await fetchPrice({ oracle: 'pancake', id: 'Ramen' });
+  const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
 };
 
-module.exports = getCrowLpApys;
+module.exports = getRamenLpApys;
