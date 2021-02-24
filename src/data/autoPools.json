@@ -42,33 +42,5 @@
   {
     "name": "auto-cake-old",
     "poolId": 7
-  },
-    {
-    "name": "auto-beth-eth",
-    "poolId": 44
-  },
-  {
-    "name": "auto-comp-eth",
-    "poolId": 45
-  },
-  {
-    "name": "auto-eos-bnb",
-    "poolId": 49
-  },
-  {
-    "name": "auto-hget-bnb",
-    "poolId": 63
-  },
-  {
-    "name": "auto-ctk-bnb",
-    "poolId": 62
-  },
-  {
-    "name": "auto-ust-busd",
-    "poolId": 32
-  },
-  {
-    "name": "auto-lina-busd",
-    "poolId": 64
   }
 ]
