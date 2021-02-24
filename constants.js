@@ -19,15 +19,15 @@ const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
   : MAINNET_BSC_RPC_ENDPOINTS;
 const BSC_RPC = BSC_RPC_ENDPOINTS[0];
 
-const HECO_RPC = process.env.HECO_RPC;
+const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
 
-const BASE_HPY = process.env.BASE_HPY;
-const HOURLY_HPY = process.env.HOURLY_HPY;
-const DAILY_HPY = process.env.DAILY_HPY;
-const WEEKLY_HPY = process.env.WEEKLY_HPY;
+const BASE_HPY = 2190;
+const HOURLY_HPY = 8760;
+const DAILY_HPY = 365;
+const WEEKLY_HPY = 52;
 
-const FORTUBE_REQ_TOKENS = process.env.FORTUBE_REQ_TOKENS;
-const FORTUBE_REQ_MARKETS = process.env.FORTUBE_REQ_MARKETS;
+const FORTUBE_REQ_TOKENS = 'https://bsc.for.tube/api/v2/bank_tokens';
+const FORTUBE_REQ_MARKETS = 'https://bsc.for.tube/api/v1/bank/markets?mode=extended';
 const FORTUBE_API_TOKEN = process.env.FORTUBE_API_TOKEN;
 
 module.exports = {
