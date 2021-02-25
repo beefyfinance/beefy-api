@@ -41,7 +41,7 @@ git push origin fix/some-bug-#123
 
 ## All set!
 
-If you have any questions, feel free to post them to github.com/beefyfinance/beefy-api/issues.
+If you have any questions, feel free to post them to [github.com/beefyfinance/beefy-api/issues](https://github.com/beefyfinance/beefy-api/issues).
 
 Finally, if you're looking to collaborate and want to find easy tasks to start, look at the issues we marked as ["Good first issue"](https://github.com/beefyfinance/beefy-api/issues?q=label%3A%22good+first+issue%22).
 
