@@ -9,6 +9,7 @@ const supply = require('./api/supply');
 const price = require('./api/price');
 const gov = require('./api/stats/gov');
 const cmc = require('./api/cmc');
+const stake = require('./api/stake');
 
 router.get('/apy', stats.apy);
 router.get('/cmc', cmc.vaults);
@@ -19,6 +20,8 @@ router.get('/supply/circulating', supply.circulating);
 
 router.get('/earnings', gov.earnings);
 router.get('/holders', gov.holderCount);
+
+router.get('/stake', stake.data);
 
 router.get('/pancake/price', price.pancakePrices);
 router.get('/bakery/price', price.bakeryPrices);
