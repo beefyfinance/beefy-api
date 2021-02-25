@@ -45,4 +45,12 @@ If you have any questions, feel free to post them to [github.com/beefyfinance/be
 
 Finally, if you're looking to collaborate and want to find easy tasks to start, look at the issues we marked as ["Good first issue"](https://github.com/beefyfinance/beefy-api/issues?q=label%3A%22good+first+issue%22).
 
+## Contributor rewards 
+
+Beefy wants to be a self-sustainable community. A portion of the fees that come from running the vaults at [beefy.finance](https://app.beefy.finance) goes into a community managed treasury. The treasury is used to pay for marketing, community managers, developers, etc. We are learning together how to do this in a fair and effective way. When it comes to devs there are a few options: 
+
+1. There are some issues that will have a "Treasury Bounty" tag and a dollar amount in the issue title. This means that the issue carries a reward to the dev that closes it. 
+2. You can propose a bounty or budget to get something done by following our [proposal guidelines](PROPOSAL_GUIDELINES.md)
+3. We are tracking all contributions using [Sourcecred](https://sourcecred.io/). This is a project designed specifically to track community contributions. We have [our instance](https://beefy.finance/beefy-cred/#/explorer) and track GitHub contributions. A percentage of the treasury funds might be used every month to reward developers based on that distribution. This initiative is just getting started.
+
 Thanks for your time and code!
