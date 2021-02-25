@@ -31,9 +31,10 @@ const getStakePools = async () => {
 };
 
 const getPoolData = async (pool) => {
-  const [yearlyRewardsInUsd, [totalStaked, totalStakedInUsd]] = await Promise.all([
+  const [yearlyRewardsInUsd, [totalStaked, totalStakedInUsd], status] = await Promise.all([
     getYearlyRewardsInUsd(pool),
     getTotalStaked(pool),
+    getStatus(pool),
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
@@ -42,9 +43,10 @@ const getPoolData = async (pool) => {
   return {
     'id': pool.id,
     'name': pool.name,
-    'tvl': totalStaked.toFixed(2),
     'apy': apy,
-    'staked': totalStakedInUsd.toFixed(2),
+    'status': status,
+    'staked': totalStaked.toFixed(2),
+    'tvl': totalStakedInUsd.toFixed(2),
   };
 };
 
@@ -72,6 +74,20 @@ const getYearlyRewardsInUsd = async (pool) => {
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(pool.rewardDecimals);
 
   return yearlyRewardsInUsd;
+};
+
+const getStatus = async (pool) => {
+  const currentBlock = await web3.eth.getBlock(await web3.eth.getBlockNumber());
+  const timestamp = currentBlock.timestamp;
+
+  const rewardPool = new web3.eth.Contract(IRewardPool, pool.address);
+  const periodFinish = Number(await rewardPool.methods.periodFinish().call());
+
+  if (pool.id !== 'bifi-bnb' && periodFinish <= timestamp) {
+    return 'closed';
+  }
+
+  return 'active';
 };
 
 updateStakePools();
