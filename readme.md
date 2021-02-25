@@ -42,6 +42,11 @@ After you start the API it can take a minute or two before you can fetch the APY
 **/earnings**:  Used to display the total and daily earnings of the platform. 
 **/holders**:  Used to display the total number of holders. This calc takes into account users with 0 BIFI in their wallet, but BIFI staked in the reward pool.
 
+
+## Contribute
+
+Beefy.Finance exists thanks to its contributors. There are many ways you can participate and help build high quality software. Check out the [contribution guide](CONTRIBUTING.md)!
+
 ## License
 
 [MIT](LICENSE).
