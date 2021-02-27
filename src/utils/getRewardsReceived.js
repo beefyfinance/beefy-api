@@ -45,7 +45,7 @@ const getRewardsReceived = async () => {
 
   console.log('> getRewardsReceived');
 
-  return result;
+  return Number(result.dividedBy('1e18'));
 };
 
 module.exports = { getRewardsReceived };
