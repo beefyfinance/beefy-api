@@ -22,6 +22,7 @@ router.get('/earnings', gov.earnings);
 router.get('/holders', gov.holderCount);
 
 router.get('/stake', stake.data);
+router.get('/lps', price.lpsPrices);
 
 router.get('/pancake/price', price.pancakePrices);
 router.get('/bakery/price', price.bakeryPrices);

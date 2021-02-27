@@ -1,3 +1,6 @@
+const { getAmmLpPrices } = require('../../api/stats/pancake/getCakePrices');
+
+// TODO: Remove imports below
 const { lpTokenPrices } = require('../../utils/lpTokens');
 const fetchPrice = require('../../utils/fetchPrice');
 const { getNyanswopTokenPrices } = require('../stats/nyanswop/getNyanswopPrice');
@@ -22,6 +25,17 @@ const crowLpTokens = require('../../data/crowLpPools.json');
 const midasLpTokens = require('../../data/midasLpPools.json');
 const cafeLpTokens = require('../../data/cafeLpPools.json');
 const ramenLpTokens = require('../../data/ramenLpPools.json');
+
+async function lpsPrices(ctx) {
+  try {
+    const lpTokenPrices = await getAmmLpPrices();
+    ctx.status = 200;
+    ctx.body = lpTokenPrices;
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -140,6 +154,7 @@ async function pancakePrices(ctx) {
 }
 
 module.exports = {
+  lpsPrices,
   cakeLpPrices,
   thugsLpPrices,
   bakeryLpPrices,

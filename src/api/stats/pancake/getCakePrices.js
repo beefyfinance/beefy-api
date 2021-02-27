@@ -1,5 +1,5 @@
 const { BSC_CHAIN_ID } = require('../../../../constants');
-const { fetchPoolTokensPrices } = require('../../../utils/getPoolStats');
+const { fetchAmmPoolsPrices } = require('../../../utils/getPoolStats');
 
 const bakeryPools = require('../../../data/bakeryLpPools.json');
 const cafePools = require('../../../data/cafeLpPools.json');
@@ -47,7 +47,7 @@ const oracle = 'pancake';
 
 const knownPrices = {
   BUSD: 1,
-  USDT: 1,
+  // USDT: 1,
   HUSD: 1,
   DAI: 1,
   USDC: 1,
@@ -55,13 +55,16 @@ const knownPrices = {
 };
 
 const refreshInterval = 10 * 60 * 1000;
-let priceCache = {};
+let tokenPricesCache = {};
+let lpPricesCache = {};
 let isProcessing = false;
 
 const fetchCakeTokensPrices = async () => {
   isProcessing = true;
   try {
-    priceCache = await fetchPoolTokensPrices(oracle, pools, knownPrices, BSC_CHAIN_ID);
+    let {poolPrices, tokenPrices} = await fetchAmmPoolsPrices(oracle, pools, knownPrices, BSC_CHAIN_ID);
+    tokenPricesCache = tokenPrices;
+    lpPricesCache = poolPrices;
   } catch (err) {
     console.error(err);
   }
@@ -79,11 +82,21 @@ const getCakeTokensPrices = async () => {
   while (isProcessing) {
     await sleep(500);
   }
-  return priceCache;
+  return tokenPricesCache;
+};
+
+const getAmmLpPrices = async () => {
+  while (isProcessing) {
+    await sleep(500);
+  }
+  return lpPricesCache;
 };
 
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-module.exports = { getCakeTokensPrices };
+module.exports = {
+  getCakeTokensPrices,
+  getAmmLpPrices
+};
