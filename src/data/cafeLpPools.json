@@ -1,4 +1,22 @@
 [
+    {
+   "name": "cafe-bifi-bnb",
+   "address": "0x17580340F3dAEDAE871a8C21D15911742ec79e0F",
+   "decimals": "1e18",
+   "poolId": 6,
+   "lp0": {
+     "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+     "oracle": "pancake",
+     "oracleId": "BNB",
+     "decimals": "1e18"
+   },
+   "lp1": {
+     "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+     "oracle": "pancake",
+     "oracleId": "BIFI",
+     "decimals": "1e18"
+   }
+  },
   {
     "name": "cafe-brew-bnb",
     "address": "0x723203E821f1fF2d0e396d5DD2EA390f3C9d42cF",
