@@ -204,7 +204,7 @@
     "poolId": 71,
     "lp0": {
       "address": "0xD41FDb03Ba84762dD66a0af1a6C8540FF1ba5dfb",
-      "oracle": "coingecko",
+      "oracle": "pancake",
       "oracleId": "safepal",
       "decimals": "1e18"
     },
@@ -744,8 +744,8 @@
     "poolId": 43,
     "lp0": {
       "address": "0xC40C9A843E1c6D01b7578284a9028854f6683b1B",
-      "oracle": "coingecko",
-      "oracleId": "juventus-fan-token",
+      "oracle": "pancake",
+      "oracleId": "JUV",
       "decimals": "1e2"
     },
     "lp1": {

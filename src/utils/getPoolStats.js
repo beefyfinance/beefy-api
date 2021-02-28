@@ -36,44 +36,50 @@ const fetchPoolPrices = async (
   chainId = BSC_CHAIN_ID
 ) => {
   const knownTokenBalance = await fetchPoolTokenBalance(lp.address, knownToken.address, chainId);
-  const knownTokenPrecision = Number(knownToken.decimals);
-  const knownTokenValuation = knownTokenBalance.dividedBy(knownTokenPrecision).times(knownTokenPricePerUnit);
+  const knownTokenValuation = knownTokenBalance.div(knownToken.decimals).times(knownTokenPricePerUnit);
 
   const unknownTokenBalance = await fetchPoolTokenBalance(lp.address, unknownToken.address, chainId);
-  const unknownTokenPrecision = Number(unknownToken.decimals);
-  const unknownTokenPriceUnit = knownTokenValuation.dividedBy(unknownTokenBalance).times(unknownTokenPrecision);
+  const unknownTokenValuation = knownTokenValuation;
+  const unknownTokenPriceUnit = unknownTokenValuation.div(unknownTokenBalance.div(unknownToken.decimals));
 
   const lpTokenSupply = await fetchPoolTokenSupply(lp.address, chainId);
   const lpTokenValuation = knownTokenValuation.times(2);
-  const lpTokenPricePerUnit = lpTokenValuation.dividedBy(lpTokenSupply).times(lp.decimals);
+  const lpTokenPricePerUnit = lpTokenValuation.div(lpTokenSupply.div(lp.decimals));
 
   return {
     lpTokenPrice: lpTokenPricePerUnit.toNumber(),
+    unknownTokenValuation: unknownTokenValuation.toNumber(),
     unknownTokenPrice: unknownTokenPriceUnit.toNumber(),
     knownTokenPrice: knownTokenPricePerUnit,
   };
 };
 
-const fetchAmmPoolsPrices = async (oracle, pools, knownPrices, chainId = BSC_CHAIN_ID) => {
+const fetchAmmPoolsPrices = async (pools, knownPrices) => {
   let poolPrices = {};
+  let tokenValuations = {};
+  let processedPools = [];
   let tokenPrices = { ...knownPrices };
   let knownToken, unknownToken;
   for (const pool of [...pools].reverse()) {
-    if (pool.lp0.oracle != oracle || pool.lp1.oracle != oracle) {
+
+    if (processedPools.includes(pool.address)) {
+      console.log("Skip:", pool.address);
       continue;
     }
+    processedPools.push(pool.address);
 
-    if (tokenPrices.hasOwnProperty(pool.lp0.oracleId) && tokenPrices.hasOwnProperty(pool.lp1.oracleId)) {
+    if (pool.lp0.oracle != pool.lp1.oracle) {
+      console.log(`Skipped fetching prices for pool '${pool.name}' because of oracle mismatch`)
       continue;
     }
 
     if (tokenPrices.hasOwnProperty(pool.lp0.oracleId) || tokenPrices.hasOwnProperty(pool.lp1.oracleId)) {
-      if (tokenPrices.hasOwnProperty(pool.lp0.oracleId)) {
-        knownToken = pool.lp0;
-        unknownToken = pool.lp1;
-      } else {
+      if (tokenPrices.hasOwnProperty(pool.lp1.oracleId)) {
         knownToken = pool.lp1;
         unknownToken = pool.lp0;
+      } else {
+        knownToken = pool.lp0;
+        unknownToken = pool.lp1;
       }
     } else {
       console.warn('No path to resolve price of tokens in LP:', pool.name, 'Skipping it.');
@@ -81,16 +87,21 @@ const fetchAmmPoolsPrices = async (oracle, pools, knownPrices, chainId = BSC_CHA
       continue;
     }
 
-    let {lpTokenPrice, unknownTokenPrice} = await fetchPoolPrices(
+    let {lpTokenPrice, unknownTokenValuation, unknownTokenPrice} = await fetchPoolPrices(
       pool,
       unknownToken,
       knownToken,
       tokenPrices[knownToken.oracleId],
-      chainId
+      pool.chainId || BSC_CHAIN_ID
     );
 
+    if (unknownTokenValuation > (tokenValuations[unknownToken.oracleId] || 0)) {
+      console.log(`Found ${unknownToken.oracleId} with greater valuation:`, unknownTokenValuation, 'was:', tokenValuations[unknownToken.oracleId], "on:", pool.name);
+      tokenPrices[unknownToken.oracleId] = unknownTokenPrice;
+      tokenValuations[unknownToken.oracleId] = unknownTokenValuation;
+    }
+
     poolPrices[pool.name] = lpTokenPrice;
-    tokenPrices[unknownToken.oracleId] = unknownTokenPrice;
   }
 
   return {

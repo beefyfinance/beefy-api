@@ -1,4 +1,3 @@
-const { BSC_CHAIN_ID } = require('../../../../constants');
 const { fetchAmmPoolsPrices } = require('../../../utils/getPoolStats');
 
 const bakeryPools = require('../../../data/bakeryLpPools.json');
@@ -43,11 +42,9 @@ const pools = [
   ...cakePools,
 ];
 
-const oracle = 'pancake';
-
 const knownPrices = {
   BUSD: 1,
-  // USDT: 1,
+  USDT: 1,
   HUSD: 1,
   DAI: 1,
   USDC: 1,
@@ -62,7 +59,7 @@ let isProcessing = false;
 const fetchCakeTokensPrices = async () => {
   isProcessing = true;
   try {
-    let {poolPrices, tokenPrices} = await fetchAmmPoolsPrices(oracle, pools, knownPrices, BSC_CHAIN_ID);
+    let {poolPrices, tokenPrices} = await fetchAmmPoolsPrices(pools, knownPrices);
     tokenPricesCache = tokenPrices;
     lpPricesCache = poolPrices;
   } catch (err) {
