@@ -1,8 +1,7 @@
 const axios = require('axios');
 const { API_BASE_URL } = require('../../constants');
 const { lpTokenRatio } = require('./lpTokensRatio');
-const { getNyanswopTokenPrice } = require('../api/stats/nyanswop/getNyanswopPrice');
-const { getCakeTokensPrices } = require('../api/stats/pancake/getCakePrices');
+const { getAmmTokensPrices } = require('../api/stats/getAmmPrices');
 
 const endpoints = {
   bakery: `${API_BASE_URL}/bakery/price`,
@@ -51,7 +50,7 @@ const fetchCoingecko = async id => {
 };
 
 const fetchPancake = async id => {
-  const cakePrices = await getCakeTokensPrices();
+  const cakePrices = await getAmmTokensPrices();
   return cakePrices[id] || 0;
 };
 
@@ -97,10 +96,6 @@ const fetchMirror = async id => {
     console.error('fetchMirror error:', err);
     return 0;
   }
-};
-
-const fetchNyanswop = async id => {
-  return await getNyanswopTokenPrice(id);
 };
 
 const fetchBakery = async id => {
@@ -157,6 +152,8 @@ const fetchPrice = async ({ oracle, id }) => {
       price = await fetchLP(id, endpoints.narwhalLp);
       break;
 
+    case 'mdex':
+    case 'nyanswop':
     case 'pancake':
       price = await fetchPancake(id);
       break;
@@ -179,10 +176,6 @@ const fetchPrice = async ({ oracle, id }) => {
 
     case 'mirror':
       price = await fetchMirror(id);
-      break;
-
-    case 'nyanswop':
-      price = await fetchNyanswop(id);
       break;
 
     default:
