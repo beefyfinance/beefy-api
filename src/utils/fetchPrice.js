@@ -152,6 +152,7 @@ const fetchPrice = async ({ oracle, id }) => {
       price = await fetchLP(id, endpoints.narwhalLp);
       break;
 
+    case 'mdex':
     case 'nyanswop':
     case 'pancake':
       price = await fetchPancake(id);
