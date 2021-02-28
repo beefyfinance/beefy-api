@@ -63,13 +63,13 @@ const fetchAmmPoolsPrices = async (pools, knownPrices) => {
   for (const pool of [...pools].reverse()) {
 
     if (processedPools.includes(pool.address)) {
-      console.log("Skip:", pool.address);
+      // console.log("Skipping pool:", pool.address, "It's processed already");
       continue;
     }
     processedPools.push(pool.address);
 
     if (pool.lp0.oracle != pool.lp1.oracle) {
-      console.log(`Skipped fetching prices for pool '${pool.name}' because of oracle mismatch`)
+      // console.warn(`Skipped fetching prices for pool '${pool.name}' because of oracle mismatch`)
       continue;
     }
 
@@ -96,7 +96,7 @@ const fetchAmmPoolsPrices = async (pools, knownPrices) => {
     );
 
     if (unknownTokenValuation > (tokenValuations[unknownToken.oracleId] || 0)) {
-      console.log(`Found ${unknownToken.oracleId} with greater valuation:`, unknownTokenValuation, 'was:', tokenValuations[unknownToken.oracleId], "on:", pool.name);
+      // console.log(`Found ${unknownToken.oracleId} with greater valuation:`, unknownTokenValuation, 'was:', tokenValuations[unknownToken.oracleId], "on:", pool.name);
       tokenPrices[unknownToken.oracleId] = unknownTokenPrice;
       tokenValuations[unknownToken.oracleId] = unknownTokenValuation;
     }
