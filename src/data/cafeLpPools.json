@@ -3,7 +3,7 @@
    "name": "cafe-bifi-bnb",
    "address": "0x17580340F3dAEDAE871a8C21D15911742ec79e0F",
    "decimals": "1e18",
-   "poolId": 6,
+   "poolId": 12,
    "lp0": {
      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
      "oracle": "pancake",
