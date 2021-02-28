@@ -57,16 +57,16 @@ const fetchPoolPrices = async (
 const fetchAmmPoolsPrices = async (pools, knownPrices) => {
   let poolPrices = {};
   let tokenValuations = {};
-  let processedPools = [];
+  let processedPools = {};
   let tokenPrices = { ...knownPrices };
   let knownToken, unknownToken;
   for (const pool of [...pools].reverse()) {
 
-    if (processedPools.includes(pool.address)) {
-      // console.log("Skipping pool:", pool.address, "It's processed already");
+    if (processedPools.hasOwnProperty(pool.address)) {
+      poolPrices[pool.name] = poolPrices[processedPools[pool.address]];
       continue;
     }
-    processedPools.push(pool.address);
+    processedPools[pool.address] = pool.name;
 
     if (pool.lp0.oracle != pool.lp1.oracle) {
       // console.warn(`Skipped fetching prices for pool '${pool.name}' because of oracle mismatch`)
