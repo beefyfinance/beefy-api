@@ -1,4 +1,22 @@
 [
+    {
+   "name": "cake-sushi-eth",
+   "address": "0x17580340F3dAEDAE871a8C21D15911742ec79e0F",
+   "decimals": "1e18",
+   "poolId": 78,
+   "lp0": {
+     "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+     "oracle": "pancake",
+     "oracleId": "ETH",
+     "decimals": "1e18"
+   },
+   "lp1": {
+     "address": "0x947950BcC74888a40Ffa2593C5798F11Fc9124C4",
+     "oracle": "pancake",
+     "oracleId": "SUSHI",
+     "decimals": "1e18"
+   }
+  },
   {
    "name": "cake-swingby-bnb",
    "address": "0x4576C456AF93a37a096235e5d83f812AC9aeD027",
