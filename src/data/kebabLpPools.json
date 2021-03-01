@@ -1,23 +1,23 @@
 [
-    {
-  "name": "kebab-usdt-busd",
-  "address": "0xc15fa3E22c912A276550F3E5FE3b0Deb87B55aCd",
-  "decimals": "1e18",
-  "poolId": 3,
-  "lp0": {
-    "address": "0x55d398326f99059fF775485246999027B3197955",
-    "oracle": "pancake",
-    "oracleId": "USDT",
-    "decimals": "1e18"
+  {
+    "name": "kebab-usdt-busd",
+    "address": "0xc15fa3E22c912A276550F3E5FE3b0Deb87B55aCd",
+    "decimals": "1e18",
+    "poolId": 3,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "pancake",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
   },
-  "lp1": {
-    "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-    "oracle": "pancake",
-    "oracleId": "BUSD",
-    "decimals": "1e18"
-  }
-},
-    {
+  {
     "name": "kebab-eth-btcb",
     "address": "0x7380E10F5C5f9DFF4857de3cf9c39Bb16F4C6dcf",
     "decimals": "1e18",

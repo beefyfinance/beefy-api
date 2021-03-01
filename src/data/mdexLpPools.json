@@ -7,13 +7,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x25d2e80cb6b86881fd7e07dd263fb79f4abe033c",
-      "oracle": "coingecko",
-      "oracleId": "mdex",
+      "oracle": "mdex",
+      "oracleId": "MDX",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "pancake",
+      "oracle": "mdex",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -26,33 +26,14 @@
     "chainId": 128,
     "lp0": {
       "address": "0x25d2e80cb6b86881fd7e07dd263fb79f4abe033c",
-      "oracle": "coingecko",
-      "oracleId": "mdex",
+      "oracle": "mdex",
+      "oracleId": "MDX",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
-      "oracle": "coingecko",
-      "oracleId": "huobi-token",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "mdex-wht-usdt",
-    "address": "0x499B6E03749B4bAF95F9E70EeD5355b138EA6C31",
-    "decimals": "1e18",
-    "poolId": 17,
-    "chainId": 128,
-    "lp0": {
-      "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
-      "oracle": "coingecko",
-      "oracleId": "huobi-token",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "pancake",
-      "oracleId": "USDT",
+      "oracle": "mdex",
+      "oracleId": "WHT",
       "decimals": "1e18"
     }
   },
@@ -64,15 +45,34 @@
     "chainId": 128,
     "lp0": {
       "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
-      "oracle": "coingecko",
-      "oracleId": "huobi-token",
+      "oracle": "mdex",
+      "oracleId": "WHT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047",
-      "oracle": "coingecko",
+      "oracle": "mdex",
       "oracleId": "husd",
       "decimals": "1e8"
+    }
+  },
+  {
+    "name": "mdex-wht-usdt",
+    "address": "0x499B6E03749B4bAF95F9E70EeD5355b138EA6C31",
+    "decimals": "1e18",
+    "poolId": 17,
+    "chainId": 128,
+    "lp0": {
+      "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
+      "oracle": "mdex",
+      "oracleId": "WHT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "mdex",
+      "oracleId": "USDT",
+      "decimals": "1e18"
     }
   },
   {
@@ -83,13 +83,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x66a79D23E58475D2738179Ca52cd0b41d73f0BEa",
-      "oracle": "pancake",
+      "oracle": "mdex",
       "oracleId": "BTCB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "pancake",
+      "oracle": "mdex",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -102,13 +102,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x64FF637fB478863B7468bc97D30a5bF3A428a1fD",
-      "oracle": "pancake",
+      "oracle": "mdex",
       "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "pancake",
+      "oracle": "mdex",
       "oracleId": "USDT",
       "decimals": "1e18"
     }

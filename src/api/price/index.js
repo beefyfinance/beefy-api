@@ -1,8 +1,8 @@
+const { getAmmTokensPrices, getAmmLpPrices } = require('../stats/getAmmPrices');
+
+// TODO: Remove all imports below in favor of getAmmPrices
 const { lpTokenPrices } = require('../../utils/lpTokens');
 const fetchPrice = require('../../utils/fetchPrice');
-const { getNyanswopTokenPrices } = require('../stats/nyanswop/getNyanswopPrice');
-const { getCakeTokensPrices } = require('../stats/pancake/getCakePrices');
-const cakeLpTokens = require('../../data/cakeLpPools.json');
 const thugsLpTokens = require('../../data/thugsLpPools.json');
 const bakeryLpTokens = require('../../data/bakeryLpPools.json');
 const narLpTokens = require('../../data/narLpPools.json');
@@ -23,6 +23,17 @@ const midasLpTokens = require('../../data/midasLpPools.json');
 const cafeLpTokens = require('../../data/cafeLpPools.json');
 const ramenLpTokens = require('../../data/ramenLpPools.json');
 
+async function lpsPrices(ctx) {
+  try {
+    const lpTokenPrices = await getAmmLpPrices();
+    ctx.status = 200;
+    ctx.body = lpTokenPrices;
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
 async function lpPrices(ctx, lpTokens) {
   try {
     const prices = await lpTokenPrices(lpTokens);
@@ -32,10 +43,6 @@ async function lpPrices(ctx, lpTokens) {
     console.error(err);
     ctx.status = 500;
   }
-}
-
-async function cakeLpPrices(ctx) {
-  await lpPrices(ctx, cakeLpTokens);
 }
 
 async function thugsLpPrices(ctx) {
@@ -120,7 +127,7 @@ async function bakeryPrices(ctx) {
 
 async function nyanswopPrices(ctx) {
   try {
-    const prices = await getNyanswopTokenPrices();
+    const prices = await getAmmTokensPrices();
     ctx.status = 200;
     ctx.body = prices;
   } catch (err) {
@@ -129,9 +136,9 @@ async function nyanswopPrices(ctx) {
   }
 }
 
-async function pancakePrices(ctx) {
+async function tokenPrices(ctx) {
   try {
-    const prices = await getCakeTokensPrices();
+    const prices = await getAmmTokensPrices();
     ctx.status = 200;
     ctx.body = prices;
   } catch (err) {
@@ -140,7 +147,8 @@ async function pancakePrices(ctx) {
 }
 
 module.exports = {
-  cakeLpPrices,
+  lpsPrices,
+  tokenPrices,
   thugsLpPrices,
   bakeryLpPrices,
   narLpPrices,
@@ -152,7 +160,6 @@ module.exports = {
   kebabLpPrices,
   monsterLpPrices,
   nyanswopLpPrices,
-  pancakePrices,
   spongeLpPrices,
   boltLpPrices,
   autoLpPrices,

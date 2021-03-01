@@ -22,12 +22,14 @@ router.get('/earnings', gov.earnings);
 router.get('/holders', gov.holderCount);
 
 router.get('/stake', stake.data);
+router.get('/lps', price.lpsPrices);
+router.get('/prices', price.tokenPrices);
 
-router.get('/pancake/price', price.pancakePrices);
+router.get('/pancake/price', price.tokenPrices);
 router.get('/bakery/price', price.bakeryPrices);
-router.get('/nyanswop/price', price.nyanswopPrices);
+router.get('/nyanswop/price', price.tokenPrices);
 
-router.get('/pancake/lps', price.cakeLpPrices);
+router.get('/pancake/lps', price.lpsPrices);
 router.get('/thugs/lps', price.thugsLpPrices);
 router.get('/bakery/lps', price.bakeryLpPrices);
 router.get('/narwhal/lps', price.narLpPrices);
