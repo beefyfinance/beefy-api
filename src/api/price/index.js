@@ -167,5 +167,5 @@ module.exports = {
   crowLpPrices,
   midasLpPrices,
   cafeLpPrices,
-  ramenLpPrices
+  ramenLpPrices,
 };
