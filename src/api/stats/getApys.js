@@ -30,6 +30,8 @@ const getCrowLpApys = require('./crow/getCrowLpApys');
 const getMidasLpApys = require('./midas/getMidasLpApys');
 const getCafeLpApys = require('./cafe/getCafeLpApys');
 const getRamenLpApys = require('./ramen/getRamenLpApys');
+const get1inchLpApys = require('./1inch/get1inchLpApys');
+const { getDegensLpApys } = require('./degens');
 
 const INTERVAL = 15 * 60 * 1000;
 
@@ -73,6 +75,8 @@ const updateApys = async () => {
     getMidasLpApys(),
     getCafeLpApys(),
     getRamenLpApys(),
+    get1inchLpApys(),
+    getDegensLpApys()
   ]);
 
   for (item of values) {
