@@ -1,5 +1,23 @@
 [
-  {
+    {
+    "name": "kebab-usdc-busd",
+    "address": "0x680Dd100E4b394Bda26A59dD5c119A391e747d18",
+    "decimals": "1e18",
+    "poolId": 9,
+    "lp0": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "pancake",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+   },
+   {
     "name": "kebab-usdt-busd",
     "address": "0xc15fa3E22c912A276550F3E5FE3b0Deb87B55aCd",
     "decimals": "1e18",
