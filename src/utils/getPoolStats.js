@@ -3,6 +3,8 @@ const { web3Factory } = require('./web3');
 const { BSC_CHAIN_ID } = require('../../constants');
 const ERC20 = require('../abis/ERC20.json');
 
+const nativeToken = '0x0000000000000000000000000000000000000000';
+
 const fetchPoolTokenBalance = async (lpAddress, tokenAddress, chainId = BSC_CHAIN_ID) => {
   const web3 = web3Factory(chainId);
 
@@ -13,8 +15,13 @@ const fetchPoolTokenBalance = async (lpAddress, tokenAddress, chainId = BSC_CHAI
     throw new Error(`Invalid token address: '${tokenAddress}'`);
   }
 
-  const tokenContract = new web3.eth.Contract(ERC20, tokenAddress);
-  const tokenBalance = new BigNumber(await tokenContract.methods.balanceOf(lpAddress).call());
+  let tokenBalance = 0;
+  if (tokenAddress === nativeToken) {
+    tokenBalance = new BigNumber(await web3.eth.getBalance(lpAddress));
+  } else {
+    const tokenContract = new web3.eth.Contract(ERC20, tokenAddress);
+    tokenBalance = new BigNumber(await tokenContract.methods.balanceOf(lpAddress).call());
+  }
 
   return tokenBalance;
 };
@@ -26,14 +33,14 @@ const fetchPoolTokenSupply = async (tokenAddress, chainId = BSC_CHAIN_ID) => {
   const tokenSupply = new BigNumber(await tokenContract.methods.totalSupply().call());
 
   return tokenSupply;
-}
+};
 
 const fetchPoolPrices = async (
   lp,
   unknownToken,
   knownToken,
   knownTokenPricePerUnit,
-  chainId = BSC_CHAIN_ID
+  chainId = BSC_CHAIN_ID,
 ) => {
   const knownTokenBalance = await fetchPoolTokenBalance(lp.address, knownToken.address, chainId);
   const knownTokenValuation = knownTokenBalance.div(knownToken.decimals).times(knownTokenPricePerUnit);
@@ -87,12 +94,12 @@ const fetchAmmPoolsPrices = async (pools, knownPrices) => {
       continue;
     }
 
-    let {lpTokenPrice, unknownTokenValuation, unknownTokenPrice} = await fetchPoolPrices(
+    let { lpTokenPrice, unknownTokenValuation, unknownTokenPrice } = await fetchPoolPrices(
       pool,
       unknownToken,
       knownToken,
       tokenPrices[knownToken.oracleId],
-      pool.chainId || BSC_CHAIN_ID
+      pool.chainId || BSC_CHAIN_ID,
     );
 
     if (unknownTokenValuation > (tokenValuations[unknownToken.oracleId] || 0)) {
