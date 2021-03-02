@@ -1,4 +1,5 @@
 [
+    
     {
     "name": "kebab-usdc-busd",
     "address": "0x680Dd100E4b394Bda26A59dD5c119A391e747d18",
@@ -17,6 +18,24 @@
       "decimals": "1e18"
     }
    },
+   {
+    "name": "kebab-dai-busd",
+    "address": "0x3aB77e40340AB084c3e23Be8e5A6f7afed9D41DC",
+    "decimals": "1e18",
+    "poolId": 8,
+    "lp0": {
+      "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+      "oracle": "pancake",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
    {
     "name": "kebab-usdt-busd",
     "address": "0xc15fa3E22c912A276550F3E5FE3b0Deb87B55aCd",
