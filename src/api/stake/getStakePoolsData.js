@@ -5,8 +5,6 @@ const IRewardPool = require('../../abis/IRewardPool.json');
 const MooToken = require('../../abis/MooToken.json');
 const fetchPrice = require('../../utils/fetchPrice');
 const pools = require('../../data/stakePools.json');
-const { compound } = require('../../utils/compound');
-const { BASE_HPY } = require('../../../constants');
 
 const INTERVAL = 5 * 60 * 1000;
 const BLOCKS_PER_DAY = 28800;
@@ -38,12 +36,11 @@ const getPoolData = async pool => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY);
 
   return {
     id: pool.id,
     name: pool.name,
-    apy: apy,
+    apy: simpleApy.toFixed(2),
     status: status,
     staked: totalStaked.toFixed(2),
     tvl: totalStakedInUsd.toFixed(2),
