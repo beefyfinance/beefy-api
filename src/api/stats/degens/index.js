@@ -1,9 +1,13 @@
-const getSaltLpApys = require('./getSaltLpApys');
 const getRamenLpApys = require('../ramen/getRamenLpApys');
+const getSaltLpApys = require('./getSaltLpApys');
+const getApeApys = require('./getApeLpApys');
+const getSoupApys = require('./getSoupLpApys');
 
 const getApys = [
   getRamenLpApys,
   getSaltLpApys,
+  getApeApys,
+  getSoupApys,
 ];
 
 const getDegensLpApys = async () => {
