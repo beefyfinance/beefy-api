@@ -2,7 +2,7 @@
 
 const getStakePoolsData = require('./getStakePoolsData');
 
-const TIMEOUT = 1 * 60 * 1000;
+const TIMEOUT = 5 * 60 * 1000;
 
 async function data(ctx) {
   try {

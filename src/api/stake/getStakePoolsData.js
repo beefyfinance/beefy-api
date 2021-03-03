@@ -8,7 +8,7 @@ const pools = require('../../data/stakePools.json');
 const { compound } = require('../../utils/compound');
 const { BASE_HPY } = require('../../../constants');
 
-const INTERVAL = 15 * 60 * 1000;
+const INTERVAL = 2 * 60 * 1000;
 const BLOCKS_PER_DAY = 28800;
 
 let stakedPoolsData = {};
@@ -27,10 +27,10 @@ const getStakePools = async () => {
   let promises = [];
   pools.forEach(pool => promises.push(getPoolData(pool)));
   const data = await Promise.all(promises);
-  return { 'data': data };
+  return { data: data };
 };
 
-const getPoolData = async (pool) => {
+const getPoolData = async pool => {
   const [yearlyRewardsInUsd, [totalStaked, totalStakedInUsd], status] = await Promise.all([
     getYearlyRewardsInUsd(pool),
     getTotalStaked(pool),
@@ -41,16 +41,16 @@ const getPoolData = async (pool) => {
   const apy = compound(simpleApy, BASE_HPY);
 
   return {
-    'id': pool.id,
-    'name': pool.name,
-    'apy': apy,
-    'status': status,
-    'staked': totalStaked.toFixed(2),
-    'tvl': totalStakedInUsd.toFixed(2),
+    id: pool.id,
+    name: pool.name,
+    apy: apy,
+    status: status,
+    staked: totalStaked.toFixed(2),
+    tvl: totalStakedInUsd.toFixed(2),
   };
 };
 
-const getTotalStaked = async (pool) => {
+const getTotalStaked = async pool => {
   const tokenContract = new web3.eth.Contract(IRewardPool, pool.address);
   let totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
   const tokenPrice = await fetchPrice({ oracle: pool.stakedOracle, id: pool.stakedOracleId });
@@ -65,7 +65,7 @@ const getTotalStaked = async (pool) => {
   ];
 };
 
-const getYearlyRewardsInUsd = async (pool) => {
+const getYearlyRewardsInUsd = async pool => {
   const tokenPrice = await fetchPrice({ oracle: pool.rewardOracle, id: pool.rewardOracleId });
 
   const rewardPool = new web3.eth.Contract(IRewardPool, pool.address);
@@ -76,7 +76,7 @@ const getYearlyRewardsInUsd = async (pool) => {
   return yearlyRewardsInUsd;
 };
 
-const getStatus = async (pool) => {
+const getStatus = async pool => {
   const timestamp = Math.floor(Date.now() / 1000);
 
   const rewardPool = new web3.eth.Contract(IRewardPool, pool.address);
