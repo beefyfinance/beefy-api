@@ -47,6 +47,7 @@ router.get('/crow/lps', price.crowLpPrices);
 router.get('/midas/lps', price.midasLpPrices);
 router.get('/cafe/lps', price.cafeLpPrices);
 router.get('/ramen/lps', price.ramenLpPrices);
+router.get('/jul/lps', price.julLpPrices);
 
 router.get('/', noop);
 

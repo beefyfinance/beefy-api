@@ -22,6 +22,7 @@ const crowLpTokens = require('../../data/crowLpPools.json');
 const midasLpTokens = require('../../data/midasLpPools.json');
 const cafeLpTokens = require('../../data/cafeLpPools.json');
 const ramenLpTokens = require('../../data/ramenLpPools.json');
+const julLpTokens = require('../../data/julLpPools.json');
 
 async function lpsPrices(ctx) {
   try {
@@ -114,6 +115,10 @@ async function ramenLpPrices(ctx) {
   await lpPrices(ctx, ramenLpTokens);
 }
 
+async function julLpPrices(ctx) {
+  await lpPrices(ctx, julLpTokens);
+}
+
 async function bakeryPrices(ctx) {
   try {
     const price = await fetchPrice({ oracle: 'coingecko', id: 'binance-eth' });
@@ -168,4 +173,5 @@ module.exports = {
   midasLpPrices,
   cafeLpPrices,
   ramenLpPrices,
+  julLpPrices,
 };

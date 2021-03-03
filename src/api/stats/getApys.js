@@ -19,6 +19,7 @@ const getKebabLpApys = require('./kebab/getKebabLpApys');
 const getKebabPoolApy = require('./kebab/getKebabPoolApy');
 const getMonsterLpApys = require('./monster/getMonsterLpApys');
 const getJulDPoolApy = require('./julb/getJuldPoolApy');
+const getJulLpApys = require('./julb/getJulLpApys');
 const getNyacashNyasLpApys = require('./nyanswop/getNyacashNyasLpApys');
 const getSpongeLpApys = require('./sponge/getSpongeLpApys');
 const getSpongePoolApy = require('./sponge/getSpongePoolApy');
@@ -64,6 +65,7 @@ const updateApys = async () => {
     getKebabPoolApy(),
     getMonsterLpApys(),
     getJulDPoolApy(),
+    getJulLpApys(),
     getNyacashNyasLpApys(),
     getSpongeLpApys(),
     getSpongePoolApy(),

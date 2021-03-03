@@ -1,0 +1,20 @@
+[
+    {
+      "name": "jul-bifi-bnb",
+      "address": "0xd3665568474cC090aB6B243333c2A1A3f13a9C7F",
+      "decimals": "1e18",
+      "poolId": 0,
+      "lp0": {
+        "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+        "oracle": "pancake",
+        "oracleId": "BNB",
+        "decimals": "1e18"
+      },
+      "lp1": {
+        "address": "0xca3f508b8e4dd382ee878a314789373d80a5190a",
+        "oracle": "pancake",
+        "oracleId": "BIFI",
+        "decimals": "1e18"
+      }
+    }
+  ]

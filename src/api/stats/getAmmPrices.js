@@ -5,6 +5,7 @@ const cafePools = require('../../data/cafeLpPools.json');
 const cakeLpPools = require('../../data/cakeLpPools.json');
 const cakePools = require('../../data/cakePools.json');
 const jetfuelPools = require('../../data/jetfuelLpPools.json');
+const julLpPools = require('../../data/julLpPools.json');
 const kebabPools = require('../../data/kebabLpPools.json');
 const bdollarSbdoPools = require('../../data/bdollarSbdoLpPools.json');
 const boltBtdPools = require('../../data/boltBtdLpPools.json');
@@ -37,6 +38,7 @@ const pools = [
   ...spongePools,
   ...bakeryPools,
   ...jetfuelPools,
+  ...julLpPools,
   ...kebabPools,
   ...boltBtdPools,
   ...boltBtsPools,
