@@ -8,7 +8,7 @@ const pools = require('../../data/stakePools.json');
 const { compound } = require('../../utils/compound');
 const { BASE_HPY } = require('../../../constants');
 
-const INTERVAL = 2 * 60 * 1000;
+const INTERVAL = 5 * 60 * 1000;
 const BLOCKS_PER_DAY = 28800;
 
 let stakedPoolsData = {};
