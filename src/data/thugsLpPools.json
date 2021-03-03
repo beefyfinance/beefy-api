@@ -398,24 +398,6 @@
     }
   },
   {
-    "name": "street-narwhallp-thugs-bnb",
-    "address": "0x40Ff83ac2890DD5469f5eCa2c17dcAf10ee09957",
-    "poolId": 8,
-    "decimals": "1e18",
-    "lp0": {
-      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "pancake",
-      "oracleId": "THUGS",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "street-dai-bnb",
     "address": "0xed8Ecb790Be568461d85Cf82C386E51124E46a52",
     "poolId": 10,
