@@ -1,18 +1,18 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/degens/SaltMasterChef.json');
+const MasterChef = require('../../../abis/MasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/degens/saltLpPools.json');
+const pools = require('../../../data/degens/apeLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
-const masterchef = '0xB4405445fFAcF2B86BC2bD7D1C874AC739265658';
-const oracleId = 'SALT';
+const masterchef = '0x5c8d727b265dbafaba67e050f2f739caeeb4a6f9';
+const oracleId = 'BANANA';
 const oracle = 'pancake';
 const DECIMALS = '1e18';
 
-const getSaltLpApys = async () => {
+const getApeLpApys = async () => {
   let apys = {};
 
   let promises = [];
@@ -43,7 +43,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const multiplier = new BigNumber(
     await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
   );
-  const blockRewards = new BigNumber(await masterchefContract.methods.saltPerBlock().call());
+  const blockRewards = new BigNumber(await masterchefContract.methods.cakePerBlock().call());
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);
@@ -64,4 +64,4 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   return yearlyRewardsInUsd;
 };
 
-module.exports = getSaltLpApys;
+module.exports = getApeLpApys;

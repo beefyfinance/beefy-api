@@ -21,8 +21,12 @@ const spongePools = require('../../data/spongeLpPools.json');
 const crowPools = require('../../data/crowLpPools.json');
 const inchPools = require('../../data/1inchLpPools.json');
 const saltPools = require('../../data/degens/saltLpPools.json');
+const apePools = require('../../data/degens/apeLpPools.json');
+const soupPools = require('../../data/degens/soupLpPools.json');
 
 const pools = [
+  ...soupPools,
+  ...apePools,
   ...saltPools,
   ...inchPools,
   ...crowPools,
