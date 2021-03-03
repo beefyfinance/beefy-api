@@ -2,7 +2,7 @@
 
 const getStakePoolsData = require('./getStakePoolsData');
 
-const TIMEOUT = 5 * 60 * 1000;
+const TIMEOUT = 1 * 60 * 1000;
 
 async function data(ctx) {
   try {
@@ -10,7 +10,7 @@ async function data(ctx) {
     let stakePools = await getStakePoolsData();
 
     if (Object.keys(stakePools).length === 0) {
-      throw 'There is no stake pools data yet'
+      throw 'There is no stake pools data yet';
     }
 
     ctx.status = 200;
