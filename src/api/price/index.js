@@ -1,9 +1,11 @@
+const { getAmmTokensPrices, getAmmLpPrices } = require('../stats/getAmmPrices');
+
+// TODO: Remove all imports below in favor of getAmmPrices
 const { lpTokenPrices } = require('../../utils/lpTokens');
 const fetchPrice = require('../../utils/fetchPrice');
-const { getNyanswopTokenPrices } = require('../stats/nyanswop/getNyanswopPrice');
-const { getCakeTokensPrices } = require('../stats/pancake/getCakePrices');
-const cakeLpTokens = require('../../data/cakeLpPools.json');
+const thugsLpTokens = require('../../data/thugsLpPools.json');
 const bakeryLpTokens = require('../../data/bakeryLpPools.json');
+const narLpTokens = require('../../data/narLpPools.json');
 const jetfuelLpTokens = require('../../data/jetfuelLpPools.json');
 const bdollarBdoLpTokens = require('../../data/bdollarBdoLpPools.json');
 const bdollarSbdoLpTokens = require('../../data/bdollarSbdoLpPools.json');
@@ -14,10 +16,23 @@ const nyanswopLpTokens = require('../../data/nyanswopLpPools.json');
 const spongeLpTokens = require('../../data/spongeLpPools.json');
 const autoLpTokens = require('../../data/autoLpPools.json');
 const mdexLpTokens = require('../../data/mdexLpPools.json');
-// const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
-// const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
-const thugsLpTokens = require('../../data/thugsLpPools.json');
-const narLpTokens = require('../../data/narLpPools.json');
+const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
+const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
+const crowLpTokens = require('../../data/crowLpPools.json');
+const midasLpTokens = require('../../data/midasLpPools.json');
+const cafeLpTokens = require('../../data/cafeLpPools.json');
+const ramenLpTokens = require('../../data/ramenLpPools.json');
+
+async function lpsPrices(ctx) {
+  try {
+    const lpTokenPrices = await getAmmLpPrices();
+    ctx.status = 200;
+    ctx.body = lpTokenPrices;
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
 
 async function lpPrices(ctx, lpTokens) {
   try {
@@ -25,12 +40,9 @@ async function lpPrices(ctx, lpTokens) {
     ctx.status = 200;
     ctx.body = prices;
   } catch (err) {
-    ctx.throw(500, err);
+    console.error(err);
+    ctx.status = 500;
   }
-}
-
-async function cakeLpPrices(ctx) {
-  await lpPrices(ctx, cakeLpTokens);
 }
 
 async function thugsLpPrices(ctx) {
@@ -86,6 +98,22 @@ async function boltLpPrices(ctx) {
   await lpPrices(ctx, [...boltBtdLpTokens, ...boltBtsLpTokens]);
 }
 
+async function crowLpPrices(ctx) {
+  await lpPrices(ctx, crowLpTokens);
+}
+
+async function midasLpPrices(ctx) {
+  await lpPrices(ctx, midasLpTokens);
+}
+
+async function cafeLpPrices(ctx) {
+  await lpPrices(ctx, cafeLpTokens);
+}
+
+async function ramenLpPrices(ctx) {
+  await lpPrices(ctx, ramenLpTokens);
+}
+
 async function bakeryPrices(ctx) {
   try {
     const price = await fetchPrice({ oracle: 'coingecko', id: 'binance-eth' });
@@ -99,7 +127,7 @@ async function bakeryPrices(ctx) {
 
 async function nyanswopPrices(ctx) {
   try {
-    const prices = await getNyanswopTokenPrices();
+    const prices = await getAmmTokensPrices();
     ctx.status = 200;
     ctx.body = prices;
   } catch (err) {
@@ -108,19 +136,19 @@ async function nyanswopPrices(ctx) {
   }
 }
 
-// FIXME: restoring partial service
-// async function pancakePrices(ctx) {
-//   try {
-//     const prices = await getCakeTokensPrices();
-//     ctx.status = 200;
-//     ctx.body = prices;
-//   } catch (err) {
-//     ctx.throw(500, err);
-//   }
-// }
+async function tokenPrices(ctx) {
+  try {
+    const prices = await getAmmTokensPrices();
+    ctx.status = 200;
+    ctx.body = prices;
+  } catch (err) {
+    ctx.throw(500, err);
+  }
+}
 
 module.exports = {
-  cakeLpPrices,
+  lpsPrices,
+  tokenPrices,
   thugsLpPrices,
   bakeryLpPrices,
   narLpPrices,
@@ -132,9 +160,12 @@ module.exports = {
   kebabLpPrices,
   monsterLpPrices,
   nyanswopLpPrices,
-  // pancakePrices,
   spongeLpPrices,
-  // boltLpPrices,
+  boltLpPrices,
   autoLpPrices,
   mdexLpPrices,
+  crowLpPrices,
+  midasLpPrices,
+  cafeLpPrices,
+  ramenLpPrices,
 };

@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { API_BASE_URL } = require('../../constants');
-const { getNyanswopTokenPrice } = require('../api/stats/nyanswop/getNyanswopPrice');
-const { getCakeTokensPrices } = require('../api/stats/pancake/getCakePrices');
+const { lpTokenRatio } = require('./lpTokensRatio');
+const { getAmmTokensPrices } = require('../api/stats/getAmmPrices');
 
 const endpoints = {
   bakery: `${API_BASE_URL}/bakery/price`,
@@ -11,8 +11,8 @@ const endpoints = {
   jetfuelLp: `${API_BASE_URL}/jetfuel/lps`,
   narwhalLp: `${API_BASE_URL}/narwhal/lps`,
   pancakeLp: `${API_BASE_URL}/pancake/lps`,
+  pancake: `${API_BASE_URL}/pancake/price`,
   thugsLp: `${API_BASE_URL}/thugs/lps`,
-  thugs: `${API_BASE_URL}/thugs/tickers`,
 };
 
 const CACHE_TIMEOUT = 30 * 60 * 1000;
@@ -49,34 +49,9 @@ const fetchCoingecko = async id => {
   }
 };
 
-const fetchPancake = async (id, oracle) => {
-  const cakePrices = await getCakeTokensPrices();
+const fetchPancake = async id => {
+  const cakePrices = await getAmmTokensPrices();
   return cakePrices[id] || 0;
-};
-
-// FIXME: restoring partial service
-const fetchThugs = async id => {
-  try {
-    const response = await axios.get(endpoints.thugs);
-    const ticker = response.data[id];
-    const bnb = response.data[WBNB_BUSD]['last_price'];
-
-    let price = 0;
-
-    const pair = id.split('_');
-    if (pair[0] === WBNB && pair[1] === BUSD) {
-      price = bnb;
-    } else if (pair[0] === WBNB) {
-      price = bnb / ticker['last_price'];
-    } else {
-      price = bnb * ticker['last_price'];
-    }
-
-    return price;
-  } catch (err) {
-    console.error(err);
-    return 0;
-  }
 };
 
 const fetchLP = async (id, endpoint) => {
@@ -123,8 +98,18 @@ const fetchMirror = async id => {
   }
 };
 
-const fetchNyanswop = async id => {
-  return await getNyanswopTokenPrice(id);
+const fetchBakery = async id => {
+  if (id !== 'BETH') return 0;
+  try {
+    const bakeryWbnbBethLp = '0x2fc2ad3c28560c97caca6d2dcf9b38614f48769a';
+    const ratio = await lpTokenRatio(bakeryWbnbBethLp, '1e18', '1e18');
+    const bnbPrice = await fetchPrice({ oracle: 'pancake', id: 'WBNB' });
+    const bethPrice = bnbPrice / ratio;
+    return bethPrice;
+  } catch (err) {
+    console.error(err);
+    return 0;
+  }
 };
 
 const fetchPrice = async ({ oracle, id }) => {
@@ -167,16 +152,14 @@ const fetchPrice = async ({ oracle, id }) => {
       price = await fetchLP(id, endpoints.narwhalLp);
       break;
 
+    case 'mdex':
+    case 'nyanswop':
     case 'pancake':
       price = await fetchPancake(id);
       break;
 
     case 'pancake-lp':
       price = await fetchLP(id, endpoints.pancakeLp);
-      break;
-
-    case 'thugs':
-      price = await fetchThugs(id);
       break;
 
     case 'thugs-lp':
@@ -193,10 +176,6 @@ const fetchPrice = async ({ oracle, id }) => {
 
     case 'mirror':
       price = await fetchMirror(id);
-      break;
-
-    case 'nyanswop':
-      price = await fetchNyanswop(id);
       break;
 
     default:

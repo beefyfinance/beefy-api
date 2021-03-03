@@ -1,0 +1,29 @@
+[
+  {
+    "id": "bifi-bnb",
+    "name": "BIFI Reward Pool",
+    "address": "0x453D4Ba9a2D594314DF88564248497F7D74d6b2C",
+    "stakedToken": "0xca3f508b8e4dd382ee878a314789373d80a5190a",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "pancake",
+    "stakedOracleId": "BIFI",
+    "rewardToken": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "pancake",
+    "rewardOracleId": "WBNB"
+  },
+  {
+    "id": "moobifi-juld",
+    "name": "BIFI Juld",
+    "address": "0x909dde4fCE1eD8f7Cf0120DA9429Bc21f1CD5266",
+    "isMooStaked": true,
+    "stakedToken": "0xf7069e41c57ecc5f122093811d8c75bdb5f7c14e",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "pancake",
+    "stakedOracleId": "BIFI",
+    "rewardToken": "0x5a41f637c3f7553dba6ddc2d3ca92641096577ea",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "coingecko",
+    "rewardOracleId": "julswap"
+  }
+]

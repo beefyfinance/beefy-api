@@ -1,0 +1,38 @@
+[
+  {
+    "name": "salt-salt-busd",
+    "address": "0x6596f770786915556C47E301cC8290aa14288d99",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0x2849b1ae7e04a3d9bc288673a92477cf63f28af4",
+      "oracle": "pancake",
+      "oracleId": "SALT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "salt-salt-bnb",
+    "address": "0x6284B49544c8900B4612f8450DCE8D484E5c2631",
+    "decimals": "1e18",
+    "poolId": 2,
+    "lp0": {
+      "address": "0x2849b1ae7e04a3d9bc288673a92477cf63f28af4",
+      "oracle": "pancake",
+      "oracleId": "SALT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]

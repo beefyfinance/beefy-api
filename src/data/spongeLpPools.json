@@ -1,4 +1,22 @@
 [
+    {
+    "name": "sponge-steam-bnb",
+    "address": "0x5e797B329e6B82b62442477D976a56864AE4396e",
+    "decimals": "1e18",
+    "poolId": 6,
+    "lp0": {
+      "address": "0x072e3D0D4f14dd82a16B0a33678c6104e9009ED9",
+      "oracle": "pancake",
+      "oracleId": "STEAM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
   {
     "name": "sponge-soak-bnb",
     "address": "0xc8fcba816ef9b0c5bc03d9178cfcc7ef785b4f2f",

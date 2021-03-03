@@ -6,14 +6,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x30C18C9cb3de61f2BD1974749A6f5725150208F3",
-      "oracle": "thugs",
-      "oracleId": "0x30C18C9cb3de61f2BD1974749A6f5725150208F3_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "bTRI",
       "decimals": "1e9"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -24,14 +24,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x30C18C9cb3de61f2BD1974749A6f5725150208F3",
-      "oracle": "thugs",
-      "oracleId": "0x30C18C9cb3de61f2BD1974749A6f5725150208F3_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "bTRI",
       "decimals": "1e9"
     },
     "lp1": {
       "address": "0x571D0B55fe30eb1F6E68e8799F181c46De6B0059",
-      "oracle": "thugs",
-      "oracleId": "0x571D0B55fe30eb1F6E68e8799F181c46De6B0059_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "CRED",
       "decimals": "1e18"
     }
   },
@@ -42,14 +42,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4",
-      "oracle": "thugs",
-      "oracleId": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "BHC",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -60,14 +60,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xC13B7a43223BB9Bf4B69BD68Ab20ca1B79d81C75",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xC13B7a43223BB9Bf4B69BD68Ab20ca1B79d81C75",
+      "oracle": "pancake",
+      "oracleId": "JGN",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -78,14 +78,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
-      "oracle": "thugs",
-      "oracleId": "0x4B0F1812e5Df2A09796481Ff14017e6005508003_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "TWT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -96,14 +96,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x47BEAd2563dCBf3bF2c9407fEa4dC236fAbA485A",
-      "oracle": "thugs",
-      "oracleId": "0x47BEAd2563dCBf3bF2c9407fEa4dC236fAbA485A_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "SXP",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -114,14 +114,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "oracle": "pancake",
+      "oracleId": "XVS",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -132,14 +132,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xa2B726B1145A4773F68593CF171187d8EBe4d495",
-      "oracle": "thugs",
-      "oracleId": "0xa2B726B1145A4773F68593CF171187d8EBe4d495_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "INJ",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -150,14 +150,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x728C5baC3C3e370E372Fc4671f9ef6916b814d8B",
-      "oracle": "thugs",
-      "oracleId": "0x728C5baC3C3e370E372Fc4671f9ef6916b814d8B_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "UNFI",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -168,14 +168,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94",
-      "oracle": "thugs",
-      "oracleId": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "LTC",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -186,14 +186,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xa1faa113cbE53436Df28FF0aEe54275c13B40975",
-      "oracle": "thugs",
-      "oracleId": "0xa1faa113cbE53436Df28FF0aEe54275c13B40975_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "ALPHA",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -204,14 +204,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x8fF795a6F4D97E7887C79beA79aba5cc76444aDf",
-      "oracle": "thugs",
-      "oracleId": "0x8fF795a6F4D97E7887C79beA79aba5cc76444aDf_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "BCH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -222,14 +222,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
+      "oracle": "pancake",
+      "oracleId": "LINK",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -240,14 +240,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xA1303E6199b319a891b79685F0537D289af1FC83",
-      "oracle": "thugs",
-      "oracleId": "0xA1303E6199b319a891b79685F0537D289af1FC83_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "NAR",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -259,14 +259,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x339550404Ca4d831D12B1b2e4768869997390010",
-      "oracle": "thugs",
-      "oracleId": "0x339550404Ca4d831D12B1b2e4768869997390010_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "DRUGS",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -277,14 +277,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "pancake",
+      "oracleId": "THUGS",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -295,14 +295,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x571D0B55fe30eb1F6E68e8799F181c46De6B0059",
-      "oracle": "thugs",
-      "oracleId": "0x571D0B55fe30eb1F6E68e8799F181c46De6B0059_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "CRED",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -313,14 +313,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x179983892eC36287f1F342443B671Ba549762241",
-      "oracle": "thugs",
-      "oracleId": "0x179983892eC36287f1F342443B671Ba549762241_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "GUNS",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -337,8 +337,8 @@
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -349,14 +349,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-      "oracle": "thugs",
-      "oracleId": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "BTCB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -367,14 +367,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "oracle": "thugs",
-      "oracleId": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -386,32 +386,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "pancake",
+      "oracleId": "THUGS",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "street-narwhallp-thugs-bnb",
-    "address": "0x40Ff83ac2890DD5469f5eCa2c17dcAf10ee09957",
-    "poolId": 8,
-    "decimals": "1e18",
-    "lp0": {
-      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -422,14 +404,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
-      "oracle": "thugs",
-      "oracleId": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "DAI",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -440,14 +422,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "thugs",
-      "oracleId": "0x55d398326f99059fF775485246999027B3197955_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -458,14 +440,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22",
+      "oracle": "pancake",
+      "oracleId": "BLIQ",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -477,14 +459,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x56b6fB708fC5732DEC1Afc8D8556423A2EDcCbD6",
-      "oracle": "thugs",
-      "oracleId": "0x56b6fB708fC5732DEC1Afc8D8556423A2EDcCbD6_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "EOS",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -495,14 +477,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+      "oracle": "pancake",
+      "oracleId": "BIFI",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "thugs",
-      "oracleId": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c_0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   }

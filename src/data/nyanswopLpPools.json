@@ -5,14 +5,14 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "coingecko",
-      "oracleId": "tether",
+      "oracle": "nyanswop",
+      "oracleId": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "coingecko",
-      "oracleId": "binancecoin",
+      "oracle": "nyanswop",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -28,8 +28,8 @@
     },
     "lp1": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "coingecko",
-      "oracleId": "tether",
+      "oracle": "nyanswop",
+      "oracleId": "USDT",
       "decimals": "1e18"
     }
   },
@@ -45,8 +45,8 @@
     },
     "lp1": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "coingecko",
-      "oracleId": "tether",
+      "oracle": "nyanswop",
+      "oracleId": "USDT",
       "decimals": "1e18"
     }
   },
@@ -62,8 +62,8 @@
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "coingecko",
-      "oracleId": "binancecoin",
+      "oracle": "nyanswop",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   }

@@ -2,9 +2,12 @@ const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpApys } = require('./pancake/getCakeLpApys');
 const getFortubeApys = require('./fortube/getFortubeApys');
+const getThugsLpApys = require('./thugs/getThugsLpApys');
+const getDrugsApys = require('./thugs/getDrugsApys');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
 const getBakeryLpApys = require('./bakery/getBakeryLpApys');
+const getNarLpApys = require('./narwhal/getNarLpApys');
 const getVenusApys = require('./venus/getVenusApys');
 const getJetfuelLpApys = require('./jetfuel/getJetfuelLpApys');
 const getBdoLpApys = require('./bdollar/getBdoLpApys');
@@ -21,15 +24,16 @@ const getSpongeLpApys = require('./sponge/getSpongeLpApys');
 const getSpongePoolApy = require('./sponge/getSpongePoolApy');
 const getAutoApys = require('./auto/getAutoApys');
 const getMdexLpApys = require('./mdex/getMdexLpApys');
+const getBtdLpApys = require('./bolt/getBtdLpApys');
+const getBtsLpApys = require('./bolt/getBtsLpApys');
+const getCrowLpApys = require('./crow/getCrowLpApys');
+const getMidasLpApys = require('./midas/getMidasLpApys');
+const getCafeLpApys = require('./cafe/getCafeLpApys');
+const getRamenLpApys = require('./ramen/getRamenLpApys');
+const get1inchLpApys = require('./1inch/get1inchLpApys');
+const { getDegensLpApys } = require('./degens');
 
-// FIXME: restoring partial service
-const getThugsLpApys = require('./thugs/getThugsLpApys');
-const getDrugsApys = require('./thugs/getDrugsApys');
-const getNarLpApys = require('./narwhal/getNarLpApys');
-// const getBtdLpApys = require('./bolt/getBtdLpApys');
-// const getBtsLpApys = require('./bolt/getBtsLpApys');
-
-const INTERVAL = 5 * 60 * 1000;
+const INTERVAL = 15 * 60 * 1000;
 
 let apys = {};
 
@@ -44,11 +48,11 @@ const updateApys = async () => {
     getCakePoolApy(),
     getCakeLpApys(),
     getFortubeApys(),
+    // getThugsLpApys(),
+    // getDrugsApys(),
     getBakePoolApy(),
-    getThugsLpApys(),
-    getDrugsApys(),
-    getNarLpApys(),
     getBakeryLpApys(),
+    getNarLpApys(),
     getVenusApys(),
     getJetfuelLpApys(),
     getBdoLpApys(),
@@ -64,7 +68,15 @@ const updateApys = async () => {
     getSpongeLpApys(),
     getSpongePoolApy(),
     getAutoApys(),
-    getMdexLpApys()
+    getMdexLpApys(),
+    getBtdLpApys(),
+    getBtsLpApys(),
+    getCrowLpApys(),
+    getMidasLpApys(),
+    getCafeLpApys(),
+    getRamenLpApys(),
+    get1inchLpApys(),
+    getDegensLpApys()
   ]);
 
   for (item of values) {
