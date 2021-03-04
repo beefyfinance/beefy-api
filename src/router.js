@@ -10,6 +10,7 @@ const price = require('./api/price');
 const gov = require('./api/stats/gov');
 const cmc = require('./api/cmc');
 const stake = require('./api/stake');
+const prueba = require('./api/prueba');
 
 router.get('/apy', stats.apy);
 router.get('/cmc', cmc.vaults);
@@ -49,5 +50,6 @@ router.get('/cafe/lps', price.cafeLpPrices);
 router.get('/ramen/lps', price.ramenLpPrices);
 
 router.get('/', noop);
+router.get('/prueba', prueba);
 
 module.exports = router;
