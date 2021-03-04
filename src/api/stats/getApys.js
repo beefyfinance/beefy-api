@@ -31,6 +31,7 @@ const getMidasLpApys = require('./midas/getMidasLpApys');
 const getCafeLpApys = require('./cafe/getCafeLpApys');
 const getRamenLpApys = require('./ramen/getRamenLpApys');
 const get1inchLpApys = require('./1inch/get1inchLpApys');
+const getJulLpApys = require('./julb/getJulLpApys');
 const { getDegensLpApys } = require('./degens');
 
 const INTERVAL = 15 * 60 * 1000;
@@ -64,6 +65,7 @@ const updateApys = async () => {
     getKebabPoolApy(),
     getMonsterLpApys(),
     getJulDPoolApy(),
+    getJulLpApys(),
     getNyacashNyasLpApys(),
     getSpongeLpApys(),
     getSpongePoolApy(),
