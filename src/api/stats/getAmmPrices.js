@@ -13,6 +13,7 @@ const helmetPools = require('../../data/helmetLpPools.json');
 const mdexPools = require('../../data/mdexLpPools.json');
 const midasPools = require('../../data/midasLpPools.json');
 const monsterPools = require('../../data/monsterLpPools.json');
+const narPools = require('../../data/narLpPools.json');
 const nyacashPools = require('../../data/nyacashLpPools.json');
 const nyanswopPools = require('../../data/nyanswopLpPools.json');
 const ramenPools = require('../../data/ramenLpPools.json');
@@ -43,6 +44,7 @@ const pools = [
   ...helmetPools,
   ...mdexPools,
   ...monsterPools,
+  ...narPools,
   ...nyacashPools,
   ...nyanswopPools,
   ...thugsPools,
@@ -67,7 +69,7 @@ let isProcessing = false;
 const fetchCakeTokensPrices = async () => {
   isProcessing = true;
   try {
-    let {poolPrices, tokenPrices} = await fetchAmmPoolsPrices(pools, knownPrices);
+    let { poolPrices, tokenPrices } = await fetchAmmPoolsPrices(pools, knownPrices);
     tokenPricesCache = tokenPrices;
     lpPricesCache = poolPrices;
   } catch (err) {
@@ -103,5 +105,5 @@ function sleep(ms) {
 
 module.exports = {
   getAmmTokensPrices,
-  getAmmLpPrices
+  getAmmLpPrices,
 };
