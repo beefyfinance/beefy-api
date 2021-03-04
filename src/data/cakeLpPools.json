@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-watch-bnb",
+    "address": "0xdC6C130299E53ACD2CC2D291fa10552CA2198a6b",
+    "decimals": "1e18",
+    "poolId": 84,
+    "lp0": {
+      "address": "0x7A9f28EB62C791422Aa23CeAE1dA9C847cBeC9b0",
+      "oracle": "pancake",
+      "oracleId": "WATCH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+   },
+  {
     "name": "cake-bmxx-bnb",
     "address": "0x4D5aA94Ce6BbB1BC4eb73207a5a5d4D052cFcD67",
     "decimals": "1e18",
