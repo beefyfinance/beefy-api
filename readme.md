@@ -1,4 +1,3 @@
-# ballena.io API
 
 ## Overview
 
@@ -14,6 +13,3 @@ https://prettier.io/
 
 Opinionated Code Formatter
 
-## License
-
-[MIT](LICENSE).

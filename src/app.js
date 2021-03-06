@@ -17,7 +17,7 @@ app.use(cors({origin: '*'}));
 // app.use(logger);
 app.use(rt);
 app.use(powered);
-app.use(cache);
+// app.use(cache);
 app.use(body());
 
 app.context.cache = {};
