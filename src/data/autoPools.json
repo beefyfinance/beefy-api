@@ -32,6 +32,10 @@
     "poolId": 17
   },
   {
+    "name": "auto-beth-eth",
+    "poolId": 44
+  },
+  {
     "name": "auto-wbnb-old",
     "poolId": 1
   },
