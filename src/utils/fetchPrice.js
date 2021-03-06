@@ -13,6 +13,8 @@ const endpoints = {
   pancakeLp: `${API_BASE_URL}/pancake/lps`,
   pancake: `${API_BASE_URL}/pancake/price`,
   thugsLp: `${API_BASE_URL}/thugs/lps`,
+  thugsLp: `${API_BASE_URL}/thugs/lps`,
+  lps: `${API_BASE_URL}/lps`,
 };
 
 const CACHE_TIMEOUT = 30 * 60 * 1000;
@@ -176,6 +178,10 @@ const fetchPrice = async ({ oracle, id }) => {
 
     case 'mirror':
       price = await fetchMirror(id);
+      break;
+
+    case 'lps':
+      price = await fetchLP(id, endpoints.lps);
       break;
 
     default:

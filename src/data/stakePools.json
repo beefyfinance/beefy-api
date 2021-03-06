@@ -114,6 +114,6 @@
     "rewardToken": "0x69F27E70E820197A6e495219D9aC34C8C6dA7EeE",
     "rewardDecimals": "1e18",
     "rewardOracle": "pancake",
-    "rewardOracleId": "BANANA"
+    "rewardOracleId": "SOUPS"
   }
 ]
