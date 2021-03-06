@@ -70,5 +70,50 @@
     "rewardDecimals": "1e18",
     "rewardOracle": "pancake",
     "rewardOracleId": "BREW"
+  },
+
+  {
+    "id": "moo_venus_ada-crow",
+    "name": "CROW Reward Pool",
+    "address": "0x7fcfD0ceb5e9bD1A8b910b52983fe9c8aB656E20",
+    "isMooStaked": true,
+    "stakedToken": "0x53c0CE2EBdA0c2A39327bE0B58a3c28A8Dcde420",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "pancake",
+    "stakedOracleId": "ADA",
+    "rewardToken": "0xcc2E12a9b5b75360c6FBf23B584c275D52cDdb0E",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "pancake",
+    "rewardOracleId": "CROW"
+  },
+
+  {
+    "id": "moo_auto_wbnb-banana",
+    "name": "BANANA Reward Pool",
+    "address": "0xe4267bFDE62B79d27c8BeD68dB8C114ccBbEE545",
+    "isMooStaked": true,
+    "stakedToken": "0x5B06aA1ebd2e15bC6001076355E5B4C39Cbc83F3",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "pancake",
+    "stakedOracleId": "WBNB",
+    "rewardToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "pancake",
+    "rewardOracleId": "BANANA"
+  },
+
+  {
+    "id": "moo_auto_beth-soups",
+    "name": "SOUPS Reward Pool",
+    "address": "0x2526Bc61506665494E39cacCaF8c76A1f928D838",
+    "isMooStaked": true,
+    "stakedToken": "0xF3C1EB01E40c47fd32D0397e56569809aae0e9c7",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "lps",
+    "stakedOracleId": "auto-beth-eth",
+    "rewardToken": "0x69F27E70E820197A6e495219D9aC34C8C6dA7EeE",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "pancake",
+    "rewardOracleId": "BANANA"
   }
 ]

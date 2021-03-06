@@ -22,12 +22,12 @@
       "title": "Github",
       "link": "https://github.com/beefyfinance"
     }
-  ], 
+  ],
   "pools": [
     {
       "name": "BIFI Maxi",
       "pair": "BIFI",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/bifi/BIFI.png",
       "poolRewards": ["BIFI"],
       "apyId": "bifi-maxi",
@@ -38,7 +38,7 @@
     {
       "name": "CAKE SMART",
       "pair": "CAKE",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/cake/SMART.png",
       "poolRewards": ["CAKE"],
       "apyId": "cake-smart",
@@ -49,7 +49,7 @@
     {
       "name": "Venus: ETH",
       "pair": "ETH",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/venus/eth.svg",
       "poolRewards": ["ETH"],
       "apyId": "venus-eth",
@@ -60,18 +60,18 @@
     {
       "name": "bDollar: BDO-BUSD LP",
       "pair": "BDO-BUSD",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/bdollar/sbdo.png",
-      "poolRewards": ["BDO","BUSD"],
+      "poolRewards": ["BDO", "BUSD"],
       "apyId": "cake-bdo-busd",
       "contract": "0x0fA31301EaA9633b3e4F7dF22F7543115759cf5a",
-      "oracle": "bdollar-lp",
+      "oracle": "lps",
       "oracleId": "cake-bdo-busd"
     },
     {
       "name": "Venus: USDT",
       "pair": "USDT",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/venus/usdt.svg",
       "poolRewards": ["USDT"],
       "apyId": "venus-usdt",
@@ -82,7 +82,7 @@
     {
       "name": "Venus: BTCB",
       "pair": "BTCB",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/venus/btcb.svg",
       "poolRewards": ["BTCB"],
       "apyId": "venus-btcb",
@@ -93,7 +93,7 @@
     {
       "name": "Venus: BUSD",
       "pair": "BUSD",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/venus/busd.svg",
       "poolRewards": ["BUSD"],
       "apyId": "venus-busd",
@@ -104,18 +104,18 @@
     {
       "name": "bDollar: SBDO-BUSD LP",
       "pair": "SBDO-BUSD",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/bdollar/sbdo.png",
       "poolRewards": ["SBDO", "BUSD"],
       "apyId": "cake-sbdo-busd",
       "contract": "0x9327029cf20B78e445397dAf0c4e9c19a931D62e",
-      "oracle": "bdollar-lp",
+      "oracle": "lps",
       "oracleId": "cake-sbdo-busd"
     },
     {
       "name": "Venus: BNB",
       "pair": "BNB",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/venus/bnb.png",
       "poolRewards": ["BNB"],
       "apyId": "venus-bnb",
@@ -126,7 +126,7 @@
     {
       "name": "Venus: BETH",
       "pair": "BETH",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/venus/beth.png",
       "poolRewards": ["BETH"],
       "apyId": "venus-beth",
@@ -137,12 +137,12 @@
     {
       "name": "PancakeSwap: CAKE-BNB LP",
       "pair": "CAKE-BNB",
-      "pairLink": "https://app.beefy.finance/", 
+      "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/cake/cake-bnb.svg",
       "poolRewards": ["CAKE", "BNB"],
       "apyId": "cake-cake-bnb",
       "contract": "0x502AB55Cf22f38c4fd8663dEE041A96B72264c53",
-      "oracle": "pancake-lp",
+      "oracle": "lps",
       "oracleId": "cake-cake-bnb"
     }
   ]
