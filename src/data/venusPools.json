@@ -1,5 +1,14 @@
 [
   {
+    "name": "venus-ada",
+    "vtoken": "0x9A0AF7FDb2065Ce470D72664DE73cAE409dA28Ec",
+    "oracle": "pancake",
+    "oracleId": "ADA",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  },
+  {
     "name": "venus-beth",
     "vtoken": "0x972207A639CC1B374B893cc33Fa251b55CEB7c07",
     "oracle": "coingecko",

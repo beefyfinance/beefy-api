@@ -1,5 +1,77 @@
 [
   {
+    "name": "cake-bel-bnb",
+    "address": "0xAB97952a2806D5c92b7046c7aB13a72A87e0097b",
+    "decimals": "1e18",
+    "poolId": 86,
+    "lp0": {
+      "address": "0x8443f091997f06a61670b735ed92734f5628692f",
+      "oracle": "pancake",
+      "oracleId": "BEL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-tpt-busd",
+    "address": "0x4db28767D1527bA545CA5bbdA1C96a94ED6ff242",
+    "decimals": "1e18",
+    "poolId": 85,
+    "lp0": {
+      "address": "0xeca41281c24451168a37211f0bc2b8645af45092",
+      "oracle": "pancake",
+      "oracleId": "TPT",
+      "decimals": "1e4"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-xmark-busd",
+    "address": "0x292Ca56ED5b3330A19037f835Af4A9c0098EA6Fa",
+    "decimals": "1e18",
+    "poolId": 83,
+    "lp0": {
+      "address": "0x26A5dFab467d4f58fB266648CAe769503CEC9580",
+      "oracle": "pancake",
+      "oracleId": "xMARK",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-watch-bnb",
+    "address": "0xdC6C130299E53ACD2CC2D291fa10552CA2198a6b",
+    "decimals": "1e18",
+    "poolId": 84,
+    "lp0": {
+      "address": "0x7A9f28EB62C791422Aa23CeAE1dA9C847cBeC9b0",
+      "oracle": "pancake",
+      "oracleId": "WATCH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-bmxx-bnb",
     "address": "0x4D5aA94Ce6BbB1BC4eb73207a5a5d4D052cFcD67",
     "decimals": "1e18",

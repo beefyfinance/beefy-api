@@ -40,7 +40,7 @@ const getPoolData = async pool => {
   return {
     id: pool.id,
     name: pool.name,
-    apy: Number(simpleApy.toFixed(2)),
+    apy: Number(simpleApy.toFixed(6)),
     status: status,
     staked: totalStaked.toFixed(2),
     tvl: totalStakedInUsd.toFixed(2),

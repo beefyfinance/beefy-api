@@ -14,7 +14,6 @@ const kebabLpTokens = require('../../data/kebabLpPools.json');
 const monsterLpTokens = require('../../data/monsterLpPools.json');
 const nyanswopLpTokens = require('../../data/nyanswopLpPools.json');
 const spongeLpTokens = require('../../data/spongeLpPools.json');
-const autoLpTokens = require('../../data/autoLpPools.json');
 const mdexLpTokens = require('../../data/mdexLpPools.json');
 const boltBtdLpTokens = require('../../data/boltBtdLpPools.json');
 const boltBtsLpTokens = require('../../data/boltBtsLpPools.json');
@@ -83,10 +82,6 @@ async function nyanswopLpPrices(ctx) {
 
 async function spongeLpPrices(ctx) {
   await lpPrices(ctx, spongeLpTokens);
-}
-
-async function autoLpPrices(ctx) {
-  await lpPrices(ctx, autoLpTokens);
 }
 
 async function mdexLpPrices(ctx) {
@@ -162,7 +157,6 @@ module.exports = {
   nyanswopLpPrices,
   spongeLpPrices,
   boltLpPrices,
-  autoLpPrices,
   mdexLpPrices,
   crowLpPrices,
   midasLpPrices,
