@@ -6,7 +6,7 @@ const MooToken = require('../../abis/MooToken.json');
 const fetchPrice = require('../../utils/fetchPrice');
 const pools = require('../../data/stakePools.json');
 
-const INTERVAL = 5 * 60 * 1000;
+const INTERVAL = 3 * 60 * 1000;
 const BLOCKS_PER_DAY = 28800;
 
 let stakedPoolsData = {};
@@ -17,7 +17,6 @@ const getStakePoolsData = () => {
 
 const updateStakePools = async () => {
   stakedPoolsData = await getStakePools();
-  console.log('> getStakePools');
   setTimeout(updateStakePools, INTERVAL);
 };
 
@@ -50,12 +49,7 @@ const getPoolData = async pool => {
 const getTotalStaked = async pool => {
   const tokenContract = new web3.eth.Contract(IRewardPool, pool.address);
   let totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
-  let tokenPrice;
-  if (pool.id === 'moo_auto_beth-soups') {
-    tokenPrice = new BigNumber('3195');
-  } else {
-    tokenPrice = await fetchPrice({ oracle: pool.stakedOracle, id: pool.stakedOracleId });
-  }
+  const tokenPrice = await fetchPrice({ oracle: pool.stakedOracle, id: pool.stakedOracleId });
   if (pool.isMooStaked) {
     const mooToken = new web3.eth.Contract(MooToken, pool.stakedToken);
     const pricePerShare = new BigNumber(await mooToken.methods.getPricePerFullShare().call());
