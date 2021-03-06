@@ -1,0 +1,3 @@
+[
+	"function balance() external view returns(uint256)"
+]

@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../utils/web3');
 
 const IRewardPool = require('../../abis/IRewardPool.json');
-const MooToken = require('../../abis/MooToken.json');
+const BalleToken = require('../../abis/BalleToken.json');
 const fetchPrice = require('../../utils/fetchPrice');
 const pools = require('../../data/stakePools.json');
 
@@ -51,9 +51,9 @@ const getTotalStaked = async pool => {
   const tokenContract = new web3.eth.Contract(IRewardPool, pool.address);
   let totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
   const tokenPrice = await fetchPrice({ oracle: pool.stakedOracle, id: pool.stakedOracleId });
-  if (pool.isMooStaked) {
-    const mooToken = new web3.eth.Contract(MooToken, pool.stakedToken);
-    const pricePerShare = new BigNumber(await mooToken.methods.getPricePerFullShare().call());
+  if (pool.isBalleStaked) {
+    const balleToken = new web3.eth.Contract(BalleToken, pool.stakedToken);
+    const pricePerShare = new BigNumber(await balleToken.methods.getPricePerFullShare().call());
     totalStaked = totalStaked.times(pricePerShare).dividedBy(pool.stakedDecimals);
   }
   return [
@@ -74,15 +74,6 @@ const getYearlyRewardsInUsd = async pool => {
 };
 
 const getStatus = async pool => {
-  const timestamp = Math.floor(Date.now() / 1000);
-
-  const rewardPool = new web3.eth.Contract(IRewardPool, pool.address);
-  const periodFinish = Number(await rewardPool.methods.periodFinish().call());
-
-  if (pool.id !== 'bifi-bnb' && periodFinish <= timestamp) {
-    return 'closed';
-  }
-
   return 'active';
 };
 

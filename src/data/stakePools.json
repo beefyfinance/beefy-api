@@ -1,74 +1,15 @@
 [
   {
-    "id": "bifi-bnb",
-    "name": "BIFI Reward Pool",
+    "id": "balle-balle",
+    "name": "BALLE Reward Pool",
     "address": "0x453D4Ba9a2D594314DF88564248497F7D74d6b2C",
     "stakedToken": "0xca3f508b8e4dd382ee878a314789373d80a5190a",
     "stakedDecimals": "1e18",
     "stakedOracle": "pancake",
-    "stakedOracleId": "BIFI",
-    "rewardToken": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+    "stakedOracleId": "BALLE",
+    "rewardToken": "0xca3f508b8e4dd382ee878a314789373d80a5190a",
     "rewardDecimals": "1e18",
     "rewardOracle": "pancake",
-    "rewardOracleId": "WBNB"
-  },
-  {
-    "id": "moobifi-juld",
-    "name": "BIFI Juld",
-    "address": "0x909dde4fCE1eD8f7Cf0120DA9429Bc21f1CD5266",
-    "isMooStaked": true,
-    "stakedToken": "0xf7069e41c57ecc5f122093811d8c75bdb5f7c14e",
-    "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
-    "stakedOracleId": "BIFI",
-    "rewardToken": "0x5a41f637c3f7553dba6ddc2d3ca92641096577ea",
-    "rewardDecimals": "1e18",
-    "rewardOracle": "coingecko",
-    "rewardOracleId": "julswap"
-  },
-
-  {
-    "id": "moo_auto_cake-salt",
-    "name": "SALT Reward Pool",
-    "address": "0xDda39b0a11de6e0Ebce995D4A065960532EB332E",
-    "isMooStaked": true,
-    "stakedToken": "0xe0B473c0dD6D7Fea5B395c3Ce7ffd4FEF0ab4373",
-    "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
-    "stakedOracleId": "Cake",
-    "rewardToken": "0x2849b1aE7E04A3D9Bc288673A92477CF63F28aF4",
-    "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
-    "rewardOracleId": "SALT"
-  },
-
-  {
-    "id": "moo_venus_btc-ramen",
-    "name": "RAMEN Reward Pool",
-    "address": "0x07613c90c6f4F4910e53A1A6fF5dAc352C6a16e4",
-    "isMooStaked": true,
-    "stakedToken": "0x7255Ae13BA4484eD33fB48c4b833000dC12888B4",
-    "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
-    "stakedOracleId": "BTCB",
-    "rewardToken": "0x4F47A0d15c1E53F3d94c069C7D16977c29F9CB6B",
-    "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
-    "rewardOracleId": "Ramen"
-  },
-
-  {
-    "id": "moo_venus_eth-brew",
-    "name": "BREW Reward Pool",
-    "address": "0xC7e3795259e9f74F4F2265Bf28680a70b41B4334",
-    "isMooStaked": true,
-    "stakedToken": "0xA9936272065e6DDAc9D2453C9a2712B581e9aE1B",
-    "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
-    "stakedOracleId": "ETH",
-    "rewardToken": "0x790Be81C3cA0e53974bE2688cDb954732C9862e1",
-    "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
-    "rewardOracleId": "BREW"
+    "rewardOracleId": "BALLE"
   }
 ]

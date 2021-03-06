@@ -10,7 +10,6 @@ const price = require('./api/price');
 const gov = require('./api/stats/gov');
 const cmc = require('./api/cmc');
 const stake = require('./api/stake');
-const prueba = require('./api/prueba');
 
 router.get('/apy', stats.apy);
 router.get('/cmc', cmc.vaults);
@@ -27,28 +26,8 @@ router.get('/lps', price.lpsPrices);
 router.get('/prices', price.tokenPrices);
 
 router.get('/pancake/price', price.tokenPrices);
-router.get('/bakery/price', price.bakeryPrices);
-router.get('/nyanswop/price', price.tokenPrices);
-
 router.get('/pancake/lps', price.lpsPrices);
-router.get('/thugs/lps', price.thugsLpPrices);
-router.get('/bakery/lps', price.bakeryLpPrices);
-router.get('/narwhal/lps', price.narLpPrices);
-router.get('/jetfuel/lps', price.jetfuelLpPrices);
-router.get('/bdollar/lps', price.bdollarLpPrices);
-router.get('/helmet/lps', price.helmetLpPrices);
-router.get('/kebab/lps', price.kebabLpPrices);
-router.get('/monster/lps', price.monsterLpPrices);
-router.get('/nyanswop/lps', price.nyanswopLpPrices);
-router.get('/sponge/lps', price.spongeLpPrices);
-router.get('/mdex/lps', price.mdexLpPrices);
-router.get('/bolt/lps', price.boltLpPrices);
-router.get('/crow/lps', price.crowLpPrices);
-router.get('/midas/lps', price.midasLpPrices);
-router.get('/cafe/lps', price.cafeLpPrices);
-router.get('/ramen/lps', price.ramenLpPrices);
 
 router.get('/', noop);
-router.get('/prueba', prueba);
 
 module.exports = router;
