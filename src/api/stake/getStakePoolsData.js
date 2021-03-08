@@ -70,19 +70,6 @@ const getYearlyRewardsInUsd = async pool => {
   return yearlyRewardsInUsd;
 };
 
-const getStatus = async pool => {
-  const timestamp = Math.floor(Date.now() / 1000);
-
-  const rewardPool = new web3.eth.Contract(IRewardPool, pool.address);
-  const periodFinish = Number(await rewardPool.methods.periodFinish().call());
-
-  if (pool.id !== 'bifi-bnb' && periodFinish <= timestamp) {
-    return 'closed';
-  }
-
-  return 'active';
-};
-
 updateStakePools();
 
 module.exports = getStakePoolsData;
