@@ -15,21 +15,15 @@ const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const bifiBnbRewardPool = '0x24AdC534eb39d3B672018E6575C0C4B700Cf9322'; // BIFI-BNB
-const julbBnbRewardPool = '0x54aBc44a4Bc364A06ADA6408F3DE57bC073ABe91'; // JULB-BNB
 const juldBnbRewardPool = '0x966D7053337Bfe74b23c2e8C053F96134070d301'; // JULD-BNB
-const julbJuldRewardPool = '0x8a46D8d3c66094e2889f9564f164Dca16ec6b5DD'; // JULB-JULD
 
 const getJulLpApys = async () => {
   let poolBifiBnb = pools.filter(pool => pool.name === 'jul-bifi-bnb')[0];
-  let poolJulbBnb = pools.filter(pool => pool.name === 'jul-julb-bnb')[0];
   let poolJuldBnb = pools.filter(pool => pool.name === 'jul-juld-bnb')[0];
-  let poolJulbJuld = pools.filter(pool => pool.name === 'jul-julb-juld')[0];
 
   const values = await Promise.all([
     getPoolApy(bifiBnbRewardPool, poolBifiBnb),
-    getPoolApy(julbBnbRewardPool, poolJulbBnb),
     getPoolApy(juldBnbRewardPool, poolJuldBnb),
-    getPoolApy(julbJuldRewardPool, poolJulbJuld),
   ]);
 
   let apys = {};
