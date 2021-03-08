@@ -1,0 +1,75 @@
+[
+ 
+  {
+    "name": "jul-julb-bnb",
+    "address": "0xCcFE1A5b6e4aD16A4e41A9142673dEc829f39402",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x32dFFc3fE8E3EF3571bF8a72c0d0015C5373f41D",
+      "oracle": "coingecko",
+      "oracleId": "jul",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jul-juld-bnb",
+    "address": "0x0c8f9a56544cc988f1873a038de2f3e4c6fe6f27",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea",
+      "oracle": "coingecko",
+      "oracleId": "julswap",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jul-julb-juld",
+    "address": "0x0242c5C11E3eaeb53298b45C7395DbaDc8a120E7",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x32dFFc3fE8E3EF3571bF8a72c0d0015C5373f41D",
+      "oracle": "coingecko",
+      "oracleId": "jul",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea",
+      "oracle": "coingecko",
+      "oracleId": "Julswap",
+      "decimals": "1e18"
+    }
+  }, 
+  {
+    "name": "jul-bifi-bnb",
+    "address": "0xd3665568474cC090aB6B243333c2A1A3f13a9C7F",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xca3f508b8e4dd382ee878a314789373d80a5190a",
+      "oracle": "pancake",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  }
+]
