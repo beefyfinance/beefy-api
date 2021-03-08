@@ -28,10 +28,9 @@ const getStakePools = async () => {
 };
 
 const getPoolData = async pool => {
-  const [yearlyRewardsInUsd, [totalStaked, totalStakedInUsd], status] = await Promise.all([
+  const [yearlyRewardsInUsd, [totalStaked, totalStakedInUsd]] = await Promise.all([
     getYearlyRewardsInUsd(pool),
     getTotalStaked(pool),
-    getStatus(pool),
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
@@ -40,7 +39,6 @@ const getPoolData = async pool => {
     id: pool.id,
     name: pool.name,
     apy: Number(simpleApy.toFixed(6)),
-    status: status,
     staked: totalStaked.toFixed(2),
     tvl: totalStakedInUsd.toFixed(2),
   };
