@@ -36,6 +36,18 @@
     "poolId": 44
   },
   {
+    "name": "auto-cake-bnb",
+    "poolId": 8
+  },
+  {
+    "name": "auto-busd-bnb",
+    "poolId": 10
+  },
+  {
+    "name": "auto-btc-bnb",
+    "poolId": 11
+  },
+  {
     "name": "auto-wbnb-old",
     "poolId": 1
   },
