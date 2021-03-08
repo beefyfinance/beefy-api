@@ -1,12 +1,14 @@
 const getRamenLpApys = require('../ramen/getRamenLpApys');
 const getSaltLpApys = require('./getSaltLpApys');
 const getApeApys = require('./getApeLpApys');
+const getApeBananaApys = require('./getApeBananaApy');
 const getSoupApys = require('./getSoupLpApys');
 
 const getApys = [
   getRamenLpApys,
   getSaltLpApys,
   getApeApys,
+  getApeBananaApys,
   getSoupApys,
 ];
 
