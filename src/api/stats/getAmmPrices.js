@@ -103,11 +103,29 @@ const getAmmLpPrices = async () => {
   return lpPricesCache;
 };
 
+const getAmmTokenPrice = async (tokenSymbol) => {
+  const tokenPrices = await getAmmTokensPrices();
+  if (tokenPrices.hasOwnProperty(tokenSymbol)) {
+    return tokenPrices[tokenSymbol]
+  }
+  throw new Error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+};
+
+const getAmmLpPrice = async (lpName) => {
+  const lpPrices = await getAmmLpPrices();
+  if (lpPrices.hasOwnProperty(lpName)) {
+    return lpPrices[lpName]
+  }
+  throw new Error(`Unknown liqudity pair '${lpName}'. Consider adding it to .json file`);
+};
+
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 module.exports = {
+  getAmmTokenPrice,
   getAmmTokensPrices,
+  getAmmLpPrice,
   getAmmLpPrices,
 };

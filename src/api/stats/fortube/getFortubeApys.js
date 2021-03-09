@@ -8,6 +8,10 @@ const {
 } = require('../../../../constants');
 
 const getFortubeApys = async () => {
+  if (FORTUBE_API_TOKEN == undefined) {
+    return console.warn('FORTUBE_API_TOKEN is undefined, skip loading Fortube APYs')
+  }
+
   let fortubeApys = {};
 
   try {
