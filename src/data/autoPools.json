@@ -58,5 +58,21 @@
   {
     "name": "auto-cake-old",
     "poolId": 7
+  },
+  {
+    "name": "auto-comp-eth",
+    "poolId": 45
+  },
+  {
+    "name": "auto-hget-bnb",
+    "poolId": 63
+  },
+  {
+    "name": "auto-ctk-bnb",
+    "poolId": 62
+  },
+  {
+    "name": "auto-ust-busd",
+    "poolId": 32
   }
 ]

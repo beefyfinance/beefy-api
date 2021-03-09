@@ -1,5 +1,77 @@
 [
   {
+    "name": "auto-comp-eth",
+    "address": "0x0392957571F28037607C14832D16f8B653eDd472",
+    "decimals": "1e18",
+    "poolId": 45,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "pancake",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x52CE071Bd9b1C4B00A0b92D298c512478CaD67e8",
+      "oracle": "pancake",
+      "oracleId": "COMP",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auto-hget-bnb",
+    "address": "0x66b9E1eAc8a81F3752F7f3A5E95dE460688A17Ee",
+    "decimals": "1e18",
+    "poolId": 63,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC7d8D35EBA58a0935ff2D5a33Df105DD9f071731",
+      "oracle": "pancake",
+      "oracleId": "HGET",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "auto-ctk-bnb",
+    "address": "0x7793870484647a7278907498ec504879d6971EAb",
+    "decimals": "1e18",
+    "poolId": 62,
+    "lp0": {
+      "address": "0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929",
+      "oracle": "pancake",
+      "oracleId": "CTK",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auto-ust-busd",
+    "address": "0xD1F12370b2ba1C79838337648F820a87eDF5e1e6",
+    "decimals": "1e18",
+    "poolId": 32,
+    "lp0": {
+      "address": "0x23396cF899Ca06c4472205fC903bDB4de249D6fC",
+      "oracle": "pancake",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D5",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "auto-cake-bnb",
     "address": "0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6",
     "decimals": "1e18",
