@@ -32,7 +32,7 @@
       "address": "0xC7d8D35EBA58a0935ff2D5a33Df105DD9f071731",
       "oracle": "pancake",
       "oracleId": "HGET",
-      "decimals": "1e18"
+      "decimals": "1e9"
     }
   },
   {
@@ -44,7 +44,7 @@
       "address": "0xA8c2B8eec3d368C0253ad3dae65a5F2BBB89c929",
       "oracle": "pancake",
       "oracleId": "CTK",
-      "decimals": "1e18"
+      "decimals": "1e9"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
