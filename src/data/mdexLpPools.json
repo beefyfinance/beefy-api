@@ -76,7 +76,7 @@
     }
   },
   {
-    "name": "mdex-snx-usdt",
+    "name": "mdex-link-usdt",
     "address": "0x52a342015BAa2496A90A9bB6069D7692564132e6",
     "decimals": "1e18",
     "poolId": 26,
@@ -107,7 +107,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xFB03e11D93632D97a8981158A632Dd5986F5E909",
+      "address": "0x777850281719d5a96C29812ab72f822E0e09F3Da",
       "oracle": "mdex",
       "oracleId": "SNX",
       "decimals": "1e18"
