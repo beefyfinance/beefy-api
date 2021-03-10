@@ -6,8 +6,8 @@
     "poolId": 0,
     "lp0": {
       "address": "0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea",
-      "oracle": "coingecko",
-      "oracleId": "julswap",
+      "oracle": "pancake",
+      "oracleId": "JULD",
       "decimals": "1e18"
     },
     "lp1": {
