@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-ramp-busd",
+    "address": "0xbf36959939982d0d34b37fb3f3425da9676c13a3",
+    "decimals": "1e18",
+    "poolId": 89,
+    "lp0": {
+      "address": "0x8519ea49c997f50ceffa444d240fb655e89248aa",
+      "oracle": "pancake",
+      "oracleId": "RAMP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-dexe-busd",
     "address": "0x69AB367BC1BEA1D2c0fB4dBaEc6b7197951Da56C",
     "decimals": "1e18",
