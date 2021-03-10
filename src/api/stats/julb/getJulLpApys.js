@@ -16,14 +16,26 @@ const BLOCKS_PER_DAY = 28800;
 
 const bifiBnbRewardPool = '0x24AdC534eb39d3B672018E6575C0C4B700Cf9322'; // BIFI-BNB
 const juldBnbRewardPool = '0x966D7053337Bfe74b23c2e8C053F96134070d301'; // JULD-BNB
+const btcbBnbRewardPool = '0x266a8D094FDAA4292a288407302aB527812ecA07'; // BTCB-BNB
+const uniBnbRewardPool = '0x753950497Ace062c0051f83B9A02C79Cad5baaE9'; // UNI-BNB
+const dotBnbRewardPool = '0xC976c5f9b9FBF2f876F04049d6719251599B9BC1'; // DOT-BNB
+const xvsBnbRewardPool = '0x40673dcF80Ff7be9808aE474cEDA1ebB0453565F'; // XVS-BNB
 
 const getJulLpApys = async () => {
   let poolBifiBnb = pools.filter(pool => pool.name === 'jul-bifi-bnb')[0];
   let poolJuldBnb = pools.filter(pool => pool.name === 'jul-juld-bnb')[0];
+  let poolBtcbBnb = pools.filter(pool => pool.name === 'jul-btcb-bnb')[0];
+  let poolUniBnb = pools.filter(pool => pool.name === 'jul-uni-bnb')[0];
+  let poolDotBnb = pools.filter(pool => pool.name === 'jul-dot-bnb')[0];
+  let poolXvsBnb = pools.filter(pool => pool.name === 'jul-xvs-bnb')[0];
 
   const values = await Promise.all([
     getPoolApy(bifiBnbRewardPool, poolBifiBnb),
     getPoolApy(juldBnbRewardPool, poolJuldBnb),
+    getPoolApy(btcbBnbRewardPool, poolBtcbBnb),
+    getPoolApy(uniBnbRewardPool, poolUniBnb),
+    getPoolApy(dotBnbRewardPool, poolDotBnb),
+    getPoolApy(xvsBnbRewardPool, poolXvsBnb),
   ]);
 
   let apys = {};
