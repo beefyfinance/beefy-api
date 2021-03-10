@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-belt-bnb",
+    "address": "0x83B92D283cd279fF2e057BD86a95BdEfffED6faa",
+    "decimals": "1e18",
+    "poolId": 90,
+    "lp0": {
+      "address": "0xE0e514c71282b6f4e823703a39374Cf58dc3eA4f",
+      "oracle": "pancake",
+      "oracleId": "BELT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-ramp-busd",
     "address": "0xbf36959939982d0d34b37fb3f3425da9676c13a3",
     "decimals": "1e18",
