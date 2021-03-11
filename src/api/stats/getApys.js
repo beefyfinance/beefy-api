@@ -33,6 +33,7 @@ const getRamenLpApys = require('./ramen/getRamenLpApys');
 const get1inchLpApys = require('./1inch/get1inchLpApys');
 const { getDegensLpApys } = require('./degens');
 const getJulLpApys = require('./julb/getJulLpApys');
+const getBeltApys = require('./belt/getBeltApys');
 
 const INTERVAL = 15 * 60 * 1000;
 
@@ -79,6 +80,7 @@ const updateApys = async () => {
     get1inchLpApys(),
     getDegensLpApys(),
     getJulLpApys(),
+    getBeltApys(),
   ]);
 
   for (item of values) {

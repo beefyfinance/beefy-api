@@ -33,7 +33,6 @@ const getPoolApy = async (masterchef, pool) => {
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-  console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { [pool.name]: apy };
 };
 
@@ -60,7 +59,6 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  // console.log('year', yearlyRewards.dividedBy(DECIMALS).valueOf(), tokenPrice.valueOf());
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
   return yearlyRewardsInUsd;

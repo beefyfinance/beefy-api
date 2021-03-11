@@ -1,4 +1,5 @@
 const { getAmmTokensPrices, getAmmLpPrices } = require('../stats/getAmmPrices');
+const getBeltVenusLpPrice = require('../stats/belt/getBeltVenusLpPrice');
 
 // TODO: Remove all imports below in favor of getAmmPrices
 const { lpTokenPrices } = require('../../utils/lpTokens');
@@ -25,8 +26,9 @@ const ramenLpTokens = require('../../data/ramenLpPools.json');
 async function lpsPrices(ctx) {
   try {
     const lpTokenPrices = await getAmmLpPrices();
+    const beltVenusBLP = await getBeltVenusLpPrice();
     ctx.status = 200;
-    ctx.body = lpTokenPrices;
+    ctx.body = { ...lpTokenPrices, ...beltVenusBLP };
   } catch (err) {
     console.error(err);
     ctx.status = 500;

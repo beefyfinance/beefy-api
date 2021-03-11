@@ -1,0 +1,14 @@
+[
+  {
+    "name": "belt-belt-bnb",
+    "poolId": 2,
+    "oracle": "lps",
+    "oracleId": "cake-belt-bnb"
+  },
+  {
+    "name": "belt-beltlp",
+    "poolId": 0,
+    "oracle": "lps",
+    "oracleId": "belt-venus-blp"
+  }
+]
