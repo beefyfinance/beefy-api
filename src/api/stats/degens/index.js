@@ -3,6 +3,7 @@ const getSaltLpApys = require('./getSaltLpApys');
 const getApeApys = require('./getApeLpApys');
 const getApeBananaApys = require('./getApeBananaApy');
 const getSoupApys = require('./getSoupLpApys');
+const getMemeFarmApys = require('./getMemeFarmLpApys');
 
 const getApys = [
   getRamenLpApys,
@@ -10,6 +11,7 @@ const getApys = [
   getApeApys,
   getApeBananaApys,
   getSoupApys,
+  getMemeFarmApys,
 ];
 
 const getDegensLpApys = async () => {
