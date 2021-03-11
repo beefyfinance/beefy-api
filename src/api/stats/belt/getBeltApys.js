@@ -6,6 +6,7 @@ const VaultPool = require('../../../abis/BeltVaultPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/beltPools.json');
 const { compound } = require('../../../utils/compound');
+const getBeltVenusLpPrice = require('./getBeltVenusLpPrice');
 
 const masterbelt = '0xD4BbC80b9B102b77B21A06cb77E954049605E6c1';
 const oracleId = 'BELT';
@@ -44,7 +45,12 @@ const getTotalLpStakedInUsd = async (masterbelt, pool) => {
   const poolContract = new web3.eth.Contract(VaultPool, strat);
   const wantLockedTotal = new BigNumber(await poolContract.methods.wantLockedTotal().call());
 
-  const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
+  let tokenPrice;
+  if (pool.poolId === 0) {
+    tokenPrice = (await getBeltVenusLpPrice())[pool.name];
+  } else {
+    tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
+  }
   console.log(pool.name, wantLockedTotal.valueOf(), tokenPrice);
   return wantLockedTotal.times(tokenPrice).dividedBy(DECIMALS);
 };
