@@ -1,0 +1,20 @@
+[
+  {
+    "name": "squirrel-nuts-bnb",
+    "address": "0x034c9e6b08c09a6144e0d0e52161338fb105e656",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x8893d5fa71389673c5c4b9b3cb4ee1ba71207556",
+      "oracle": "pancake",
+      "oracleId": "NUTS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]
