@@ -8,18 +8,23 @@ const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../../constants');
 
-const oracle = 'coingecko';
-const oracleId = 'pangolin';
+const oracle = 'pangolin';
+const oracleId = 'PNG';
 
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
+const usdtAvaxRewardPool = '0x4f019452f51bbA0250Ec8B69D64282B79fC8BD9f'; // USDT-AVAX
 const pngAvaxRewardPool = '0x8FD2755c6ae7252753361991bDcd6fF55bDc01CE'; // PNG-AVAX
 
 const getPangolinLpApys = async () => {
+  let poolUsdtAvax = pools.filter(pool => pool.name === 'png-usdt-avax')[0];
   let poolPngAvax = pools.filter(pool => pool.name === 'png-png-avax')[0];
+  
+  
 
   const values = await Promise.all([
+    getPoolApy(usdtAvaxRewardPool, poolUsdtAvax, 43114),
     getPoolApy(pngAvaxRewardPool, poolPngAvax, 43114),
   ]);
 
