@@ -115,5 +115,20 @@
     "rewardDecimals": "1e18",
     "rewardOracle": "pancake",
     "rewardOracleId": "SOUPS"
+  },
+
+  {
+    "id": "moo_belt_venus-slime",
+    "name": "SLIME Reward Pool",
+    "address": "0xba4Ee74E45De614bd8c2DFEEf16a4c13922C5659",
+    "isMooStaked": true,
+    "stakedToken": "0xb35Dc0b5eFd7c75590a9da55BE46d968c5804e24",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "lps",
+    "stakedOracleId": "belt-venus-blp",
+    "rewardToken": "0x4fCfA6cC8914ab455B5b33Df916d90BFe70b6AB1",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "pancake",
+    "rewardOracleId": "SLIME"
   }
 ]
