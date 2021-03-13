@@ -1,0 +1,21 @@
+[
+    {
+      "name": "png-png-avax",
+      "address": "0xd7538cABBf8605BdE1f4901B47B8D42c61DE0367",
+      "decimals": "1e18",
+      "poolId": 0,
+      "chainId": 43114,
+      "lp0": {
+        "address": "0x60781C2586D68229fde47564546784ab3fACA982",
+        "oracle": "pangolin",
+        "oracleId": "PNG",
+        "decimals": "1e18"
+      },
+      "lp1": {
+        "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracle": "pangolin",
+        "oracleId": "AVAX",
+        "decimals": "1e18"
+      }
+    }
+  ]

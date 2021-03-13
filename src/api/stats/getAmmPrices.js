@@ -26,8 +26,10 @@ const apePools = require('../../data/degens/apeLpPools.json');
 const soupPools = require('../../data/degens/soupLpPools.json');
 const autoPools = require('../../data/autoLpPools.json');
 const julPools = require('../../data/julLpPools.json');
+const pangolinPools = require('../../data/pangolinLpPools.json');
 
 const pools = [
+  ...pangolinPools,
   ...julPools,
   ...autoPools,
   ...soupPools,
