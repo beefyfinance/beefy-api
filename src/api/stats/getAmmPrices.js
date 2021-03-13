@@ -28,8 +28,10 @@ const autoPools = require('../../data/autoLpPools.json');
 const julPools = require('../../data/julLpPools.json');
 const memePools = require('../../data/degens/memeFarmLpPools.json');
 const nutsPools = require('../../data/degens/nutsLpPools.json');
+const slimePools = require('../../data/degens/slimeLpPools.json');
 
 const pools = [
+  ...slimePools,
   ...nutsPools,
   ...memePools,
   ...julPools,

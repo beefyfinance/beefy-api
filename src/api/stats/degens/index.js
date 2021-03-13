@@ -5,6 +5,7 @@ const getApeBananaApys = require('./getApeBananaApy');
 const getSoupApys = require('./getSoupLpApys');
 const getMemeFarmApys = require('./getMemeFarmLpApys');
 const getSquirrelApys = require('./getSquirrelLpApys');
+const getSlimeApys = require('./getSlimeLpApys');
 
 const getApys = [
   getRamenLpApys,
@@ -14,6 +15,7 @@ const getApys = [
   getSoupApys,
   getMemeFarmApys,
   getSquirrelApys,
+  getSlimeApys
 ];
 
 const getDegensLpApys = async () => {

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "slime-slime-busd",
+    "address": "0xfbd0B87f4132E5A14aA85C21476738C0C13Fd06c",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x4fcfa6cc8914ab455b5b33df916d90bfe70b6ab1",
+      "oracle": "pancake",
+      "oracleId": "SLIME",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "slime-slime-bnb",
+    "address": "0xcb645714520080EF4E65De3254d61356262F0818",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0x4fcfa6cc8914ab455b5b33df916d90bfe70b6ab1",
+      "oracle": "pancake",
+      "oracleId": "SLIME",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]
