@@ -16,16 +16,17 @@ const BLOCKS_PER_DAY = 28800;
 
 const usdtAvaxRewardPool = '0x4f019452f51bbA0250Ec8B69D64282B79fC8BD9f'; // USDT-AVAX
 const pngAvaxRewardPool = '0x8FD2755c6ae7252753361991bDcd6fF55bDc01CE'; // PNG-AVAX
+const ethAvaxRewardPool = '0xa16381eae6285123c323A665D4D99a6bCfaAC307'; // PNG-AVAX
 
 const getPangolinLpApys = async () => {
   let poolUsdtAvax = pools.filter(pool => pool.name === 'png-usdt-avax')[0];
   let poolPngAvax = pools.filter(pool => pool.name === 'png-png-avax')[0];
-  
-  
+  let poolEthAvax = pools.filter(pool => pool.name === 'png-eth-avax')[0];
 
   const values = await Promise.all([
     getPoolApy(usdtAvaxRewardPool, poolUsdtAvax, 43114),
     getPoolApy(pngAvaxRewardPool, poolPngAvax, 43114),
+    getPoolApy(ethAvaxRewardPool, poolEthAvax, 43114),
   ]);
 
   let apys = {};
@@ -35,10 +36,10 @@ const getPangolinLpApys = async () => {
   return apys;
 };
 
-const getPoolApy = async (rewardPool, pool) => {
+const getPoolApy = async (rewardPool, pool, chainId) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(rewardPool),
-    getTotalLpStakedInUsd(rewardPool, pool, 43114),
+    getTotalLpStakedInUsd(rewardPool, pool, chainId),
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
