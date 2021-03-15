@@ -18,6 +18,24 @@
     }
   },
   {
+    "name": "cake-alice-bnb",
+    "address": "0xe022baa3E5E87658f789c9132B10d7425Fd3a389",
+    "decimals": "1e18",
+    "poolId": 95,
+    "lp0": {
+      "address": "0xAC51066d7bEC65Dc4589368da368b212745d63E8",
+      "oracle": "pancake",
+      "oracleId": "ALICE",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-belt-bnb",
     "address": "0x83B92D283cd279fF2e057BD86a95BdEfffED6faa",
     "decimals": "1e18",
