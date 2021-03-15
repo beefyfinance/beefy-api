@@ -130,5 +130,20 @@
     "rewardDecimals": "1e18",
     "rewardOracle": "pancake",
     "rewardOracleId": "SLIME"
+  },
+
+  {
+    "id": "moo_venus_eth-ape",
+    "name": "APE Reward Pool",
+    "address": "0xEd1B64D539b945Fb291E5487F527D19B7748321e",
+    "isMooStaked": true,
+    "stakedToken": "0xA9936272065e6DDAc9D2453C9a2712B581e9aE1B",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "pancake",
+    "stakedOracleId": "ETH",
+    "rewardToken": "0xa9eA4b786ee5b7A733c035564Bfd9341A4c9FC1e",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "pancake",
+    "rewardOracleId": "APE"
   }
 ]
