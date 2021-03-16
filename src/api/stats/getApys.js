@@ -96,7 +96,10 @@ const updateApys = async () => {
   setTimeout(updateApys, INTERVAL);
 };
 
+// FIXME: layered initialization could be a patch in case we hit the ratelimit.
+// Another option could be to split the big initialization into a few batches (lines 49-87)
 // setTimeout(updateApys, 60000);
+
 updateApys()
 
 module.exports = getApys;
