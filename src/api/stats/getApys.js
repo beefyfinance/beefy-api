@@ -84,7 +84,7 @@ const updateApys = async () => {
     getJulLpApys(),
     getBeltApys(),
     getPangolinApys(),
-    getSwipeLpApys()
+    // getSwipeLpApys()
   ]);
 
   for (item of values) {
@@ -96,6 +96,7 @@ const updateApys = async () => {
   setTimeout(updateApys, INTERVAL);
 };
 
-updateApys();
+// setTimeout(updateApys, 60000);
+updateApys()
 
 module.exports = getApys;
