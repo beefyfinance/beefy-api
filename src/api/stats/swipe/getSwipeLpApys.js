@@ -1,18 +1,18 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/degens/SlimeMasterChef.json');
+const MasterChef = require('../../../abis/SwipeSwap.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/degens/slimeLpPools.json');
+const pools = require('../../../data/swipeLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
-const masterchef = '0x4b0073a79f2b46ff5a62fa1458aac86ed918c80c';
-const oracleId = 'SLIME';
+const masterchef = '0xe6421c0cc2d647be51c11ae952927ab38dd6f753';
+const oracleId = 'SXP';
 const oracle = 'pancake';
 const DECIMALS = '1e18';
 
-const getSlimeLpApys = async () => {
+const getSwipeLpApys = async () => {
   let apys = {};
 
   let promises = [];
@@ -33,6 +33,7 @@ const getPoolApy = async (masterchef, pool) => {
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { [pool.name]: apy };
 };
 
@@ -43,7 +44,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const multiplier = new BigNumber(
     await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
   );
-  const blockRewards = new BigNumber(await masterchefContract.methods.slimesPerBlock().call());
+  const blockRewards = new BigNumber(await masterchefContract.methods.swipePerBlock().call());
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);
@@ -64,4 +65,4 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   return yearlyRewardsInUsd;
 };
 
-module.exports = getSlimeLpApys;
+module.exports = getSwipeLpApys;

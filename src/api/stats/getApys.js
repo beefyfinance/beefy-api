@@ -35,6 +35,7 @@ const { getDegensLpApys } = require('./degens');
 const getJulLpApys = require('./julb/getJulLpApys');
 const getBeltApys = require('./belt/getBeltApys');
 const getPangolinApys = require('./pangolin/getPangolinLpApys');
+const getSwipeLpApys = require('./swipe/getSwipeLpApys');
 
 const INTERVAL = 15 * 60 * 1000;
 
@@ -83,6 +84,7 @@ const updateApys = async () => {
     getJulLpApys(),
     getBeltApys(),
     getPangolinApys(),
+    getSwipeLpApys()
   ]);
 
   for (item of values) {
