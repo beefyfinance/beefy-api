@@ -1,5 +1,59 @@
 [
   {
+    "name": "swipe-bnb-eth",
+    "address": "0xFD08e722343Ab852F627C3442d924b60CCC5449a",
+    "decimals": "1e18",
+    "poolId": 9,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "pancake",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swipe-bnb-vai",
+    "address": "0xC61FB584DAf69Bedf912768AEdc0658B11A1A75C",
+    "decimals": "1e18",
+    "poolId": 8,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4BD17003473389A42DAF6a0a729f6Fdb328BbBd7",
+      "oracle": "pancake",
+      "oracleId": "VAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swipe-bnb-busd",
+    "address": "0xb4E861775E0e3Ee83862149e81245985AD82b861",
+    "decimals": "1e18",
+    "poolId": 7,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "swipe-vai-busd",
     "address": "0xbE3e418441Cf4EC44147Af1A48Dee11Fa91Da87D",
     "decimals": "1e18",
