@@ -91,7 +91,7 @@ const updateAmmTokensPrices = async () => {
     console.error(err);
   }
   isProcessing = false;
-  console.log('> getApys');
+  console.log('> getAmmPrices');
 };
 
 const fetchInterval = setInterval(() => {

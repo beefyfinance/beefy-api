@@ -74,12 +74,12 @@ const updateApys = async () => {
     getCrowLpApys(),
     getMidasLpApys(),
     getCafeLpApys(),
-    getRamenLpApys(),
-    get1inchLpApys(),
-    getDegensLpApys(),
-    getJulLpApys(),
-    getBeltApys(),
-    getPangolinApys(),
+    // getRamenLpApys(),
+    // get1inchLpApys(),
+    // getDegensLpApys(),
+    // getJulLpApys(),
+    // getBeltApys(),
+    // getPangolinApys(),
     // getSwipeLpApys()
   ]);
 
