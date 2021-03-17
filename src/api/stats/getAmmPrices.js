@@ -1,4 +1,5 @@
 const { fetchAmmPoolsPrices } = require('../../utils/getPoolStats');
+const { sleep } = require('../../utils/time');
 
 const bakeryPools = require('../../data/bakeryLpPools.json');
 const cafePools = require('../../data/cafeLpPools.json');
@@ -80,7 +81,7 @@ let tokenPricesCache = {};
 let lpPricesCache = {};
 let isProcessing = false;
 
-const fetchCakeTokensPrices = async () => {
+const updateAmmTokensPrices = async () => {
   isProcessing = true;
   try {
     let { poolPrices, tokenPrices } = await fetchAmmPoolsPrices(pools, knownPrices);
@@ -90,12 +91,12 @@ const fetchCakeTokensPrices = async () => {
     console.error(err);
   }
   isProcessing = false;
+  console.log('> getApys');
 };
-fetchCakeTokensPrices();
 
 const fetchInterval = setInterval(() => {
   if (!isProcessing) {
-    fetchCakeTokensPrices();
+    updateAmmTokensPrices();
   }
 }, refreshInterval);
 
@@ -113,9 +114,7 @@ const getAmmLpPrices = async () => {
   return lpPricesCache;
 };
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+updateAmmTokensPrices();
 
 module.exports = {
   getAmmTokensPrices,

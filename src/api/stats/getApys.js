@@ -2,8 +2,6 @@ const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpApys } = require('./pancake/getCakeLpApys');
 const getFortubeApys = require('./fortube/getFortubeApys');
-const getThugsLpApys = require('./thugs/getThugsLpApys');
-const getDrugsApys = require('./thugs/getDrugsApys');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
 const getBakeryLpApys = require('./bakery/getBakeryLpApys');
@@ -52,8 +50,6 @@ const updateApys = async () => {
     getCakePoolApy(),
     getCakeLpApys(),
     getFortubeApys(),
-    // getThugsLpApys(),
-    // getDrugsApys(),
     getBakePoolApy(),
     getBakeryLpApys(),
     getNarLpApys(),
@@ -98,8 +94,8 @@ const updateApys = async () => {
 
 // FIXME: layered initialization could be a patch in case we hit the ratelimit.
 // Another option could be to split the big initialization into a few batches (lines 49-87)
-// setTimeout(updateApys, 60000);
+setTimeout(updateApys, 4 * 60 * 1000);
 
-updateApys()
+// updateApys()
 
 module.exports = getApys;

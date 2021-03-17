@@ -26,7 +26,7 @@ const getDailyEarnings = async () => {
 
       let data = response.data['result'];
 
-      if (data.length === 0) {
+      if (!data || data.length === 0) {
         break;
       }
 
