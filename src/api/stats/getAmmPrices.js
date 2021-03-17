@@ -76,7 +76,7 @@ const knownPrices = {
   UST: 1,
 };
 
-const refreshInterval = 10 * 60 * 1000;
+const refreshInterval = 20 * 60 * 1000;
 let tokenPricesCache = {};
 let lpPricesCache = {};
 let isProcessing = false;
