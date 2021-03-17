@@ -15,13 +15,18 @@ const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const getBifiMaxiApy = async () => {
+  console.log('getBifiMaxiApy');
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(),
     getTotalStakedInUsd(REWARDS, BIFI, ORACLE, ORACLE_ID, DECIMALS),
   ]);
 
+  console.log('getBifiMaxiApy');
+
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, DAILY_HPY, 1, 0.99);
+
+  console.log('getBifiMaxiApy');
 
   return { 'bifi-maxi': apy };
 };
