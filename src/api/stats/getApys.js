@@ -47,7 +47,7 @@ const getApys = () => {
 };
 
 const updateApys = async ()  => {
-  console.log('> updateApys');
+  console.log('> updating apys');
   
   const values = await Promise.all([
     getBifiMaxiApy(),
@@ -91,6 +91,8 @@ const updateApys = async ()  => {
   for (item of values) {
     apys = { ...apys, ...item };
   }
+
+  console.log('> updated apys');
   
   setTimeout(updateApys, REFRESH_INTERVAL);
 };
