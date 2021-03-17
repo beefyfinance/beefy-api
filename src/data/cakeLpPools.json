@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-bifi-bnb",
+    "address": "0xd132D2C24F29EE8ABb64a66559d1b7aa627Bd7fD",
+    "decimals": "1e18",
+    "poolId": 99,
+    "lp0": {
+      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+      "oracle": "pancake",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-nuls-busd",
     "address": "0xCA01F5D89d5b1d24ca5D6Ecc856D21e8a61DAFCc",
     "decimals": "1e18",
