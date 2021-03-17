@@ -145,5 +145,20 @@
     "rewardDecimals": "1e18",
     "rewardOracle": "pancake",
     "rewardOracleId": "APE"
+  },
+
+  {
+    "id": "moo_bifi_wbnb-nuts",
+    "name": "NUTS Reward Pool",
+    "address": "0x02e2B4212b8F5610E2ab548cB680cb58E61056F6",
+    "isMooStaked": true,
+    "stakedToken": "0x3B5332A476AbCdb80Cde6645e9e5563435e97772",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "lps",
+    "stakedOracleId": "cake-bifi-bnb",
+    "rewardToken": "0x8893D5fA71389673C5c4b9b3cb4EE1ba71207556",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "pancake",
+    "rewardOracleId": "NUTS"
   }
 ]
