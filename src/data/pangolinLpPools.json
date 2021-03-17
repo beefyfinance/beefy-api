@@ -1,4 +1,99 @@
 [
+  {
+    "name": "png-wbtc-avax",
+    "address": "0x7a6131110B82dAcBb5872C7D352BfE071eA6A17C",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB",
+      "oracle": "pangolin",
+      "oracleId": "WBTC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "pangolin",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "png-link-avax",
+    "address": "0xbbC7fFF833D27264AaC8806389E02F717A5506c9",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "pangolin",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB3fe5374F67D7a22886A0eE082b2E2f9d2651651",
+      "oracle": "pangolin",
+      "oracleId": "LINK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "png-sushi-avax",
+    "address": "0xd8B262C0676E13100B33590F10564b46eeF652AD",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x39cf1BD5f15fb22eC3D9Ff86b0727aFc203427cc",
+      "oracle": "pangolin",
+      "oracleId": "SUSHI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "pangolin",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "png-uni-avax",
+    "address": "0x92dC558cB9f8d0473391283EaD77b79b416877cA",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "pangolin",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf39f9671906d8630812f9d9863bBEf5D523c84Ab",
+      "oracle": "pangolin",
+      "oracleId": "UNI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "png-usdt-png",
+    "address": "0xE8AcF438B10A2C09f80aEf3Ef2858F8E758C98F9",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x60781C2586D68229fde47564546784ab3fACA982",
+      "oracle": "pangolin",
+      "oracleId": "PNG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xde3A24028580884448a5397872046a019649b084",
+      "oracle": "pangolin",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
       {
       "name": "png-png-avax",
       "address": "0xd7538cABBf8605BdE1f4901B47B8D42c61DE0367",
