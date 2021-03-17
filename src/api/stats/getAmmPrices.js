@@ -1,3 +1,4 @@
+const { sleep } = require('../../utils/time');
 const { fetchAmmPoolsPrices } = require('../../utils/getPoolStats');
 
 const bakeryPools = require('../../data/bakeryLpPools.json');
@@ -32,6 +33,11 @@ const slimePools = require('../../data/degens/slimeLpPools.json');
 const pangolinPools = require('../../data/pangolinLpPools.json');
 const swipePools = require('../../data/swipeLpPools.json');
 
+const INIT_DELAY = 30 * 1000;
+const REFRESH_INTERVAL = 30 * 60 * 1000;
+
+// FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
+// Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103 
 const pools = [
   ...pangolinPools,
   ...swipePools,
@@ -75,12 +81,12 @@ const knownPrices = {
   UST: 1,
 };
 
-const refreshInterval = 10 * 60 * 1000;
 let tokenPricesCache = {};
 let lpPricesCache = {};
 let isProcessing = false;
 
-const fetchCakeTokensPrices = async () => {
+const updateAmmPrices = async () => {
+  console.log('> updating amm prices');
   isProcessing = true;
   try {
     let { poolPrices, tokenPrices } = await fetchAmmPoolsPrices(pools, knownPrices);
@@ -90,32 +96,24 @@ const fetchCakeTokensPrices = async () => {
     console.error(err);
   }
   isProcessing = false;
-};
-fetchCakeTokensPrices();
 
-const fetchInterval = setInterval(() => {
-  if (!isProcessing) {
-    fetchCakeTokensPrices();
-  }
-}, refreshInterval);
+  setTimeout(updateAmmPrices, REFRESH_INTERVAL);
+  console.log('> updated amm prices');
+};
 
 const getAmmTokensPrices = async () => {
-  while (isProcessing) {
-    await sleep(500);
-  }
+  // TODO: can we replace this mutex with events system?  
+  while (isProcessing) { await sleep(500); }
   return tokenPricesCache;
 };
 
 const getAmmLpPrices = async () => {
-  while (isProcessing) {
-    await sleep(500);
-  }
+  while (isProcessing) { await sleep(500); }
   return lpPricesCache;
 };
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+// Flexible delayed initialization used to work around ratelimits
+setTimeout(updateAmmPrices, INIT_DELAY);
 
 module.exports = {
   getAmmTokensPrices,

@@ -15,25 +15,20 @@ const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const getBifiMaxiApy = async () => {
-  console.log('getBifiMaxiApy');
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(),
     getTotalStakedInUsd(REWARDS, BIFI, ORACLE, ORACLE_ID, DECIMALS),
   ]);
 
-  console.log('getBifiMaxiApy');
-
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, DAILY_HPY, 1, 0.99);
-
-  console.log('getBifiMaxiApy');
 
   return { 'bifi-maxi': apy };
 };
 
 const getYearlyRewardsInUsd = async () => {
   const bnbPrice = await fetchPrice({ oracle: 'pancake', id: 'WBNB' });
-
+  
   const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);

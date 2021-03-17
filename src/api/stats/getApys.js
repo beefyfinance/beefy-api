@@ -37,8 +37,8 @@ const getBeltApys = require('./belt/getBeltApys');
 const getPangolinApys = require('./pangolin/getPangolinLpApys');
 const getSwipeLpApys = require('./swipe/getSwipeLpApys');
 
-const QUERY_INTERVAL = 15 * 60 * 1000;
-const BATCH_INTERVAL = 5 * 1000;
+const INIT_DELAY = 4 * 60 * 1000;
+const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let apys = {};
 
@@ -46,75 +46,56 @@ const getApys = () => {
   return apys;
 };
 
-const batches = [
-  [
-    getBifiMaxiApy,
-    getCakeApys,
-    getCakePoolApy,
-    getCakeLpApys,
-    getFortubeApys,
-    getBakePoolApy,
-    getBakeryLpApys,
-    getNarLpApys,
-    getVenusApys
-  ],
-  [
-    getJetfuelLpApys,
-    getBdoLpApys,
-    getSbdoLpApys,
-    getHelmetPoolApy,
-    getHelmetLpApy,
-    getBhcPoolApy,
-    getKebabLpApys,
-    getKebabPoolApy,
-    getMonsterLpApys,
-    getJulDPoolApy
-  ],
-  [
-    getNyacashNyasLpApys,
-    getSpongeLpApys,
-    getSpongePoolApy,
-    getAutoApys,
-    getMdexLpApys,
-    getBtdLpApys,
-    getBtsLpApys,
-    getCrowLpApys,
-    getMidasLpApys,
-    getCafeLpApys
-  ],
-  [
-    getRamenLpApys,
-    get1inchLpApys,
-    getDegensLpApys,
-    getJulLpApys,
-    getBeltApys,
-    getPangolinApys,
-    getSwipeLpApys
-  ]
-]
-
 const updateApys = async ()  => {
-  for (let i = 0; i < batches.length; i++) {
-    console.log('>>>>>>>>>>>>>>>>> batch', i, batches[i], '<<<<<<<<<<<<<<<<<<<');
-    
-    console.log('$$$$$ a');
-    const values = await Promise.all(batches[i].map(fn => fn()));
-    console.log('$$$$$ b');
-    
-    for (item of values) {
-      console.log('$$$$$ c');
-      apys = { ...apys, ...item };
-    }
-    
-    console.log(`> getApys (${i + 1}/${batches.length})`);
-    console.log(apys);
-    await sleep(BATCH_INTERVAL);
+  console.log('> updateApys');
+  
+  const values = await Promise.all([
+    getBifiMaxiApy(),
+    getCakeApys(),
+    getCakePoolApy(),
+    getCakeLpApys(),
+    getFortubeApys(),
+    getBakePoolApy(),
+    getBakeryLpApys(),
+    getNarLpApys(),
+    getVenusApys(),
+    getJetfuelLpApys(),
+    getBdoLpApys(),
+    getSbdoLpApys(),
+    getHelmetPoolApy(),
+    getHelmetLpApy(),
+    getBhcPoolApy(),
+    getKebabLpApys(),
+    getKebabPoolApy(),
+    getMonsterLpApys(),
+    getJulDPoolApy(),
+    getNyacashNyasLpApys(),
+    getSpongeLpApys(),
+    getSpongePoolApy(),
+    getAutoApys(),
+    getMdexLpApys(),
+    getBtdLpApys(),
+    getBtsLpApys(),
+    getCrowLpApys(),
+    getMidasLpApys(),
+    getCafeLpApys(),
+    getRamenLpApys(),
+    get1inchLpApys(),
+    getDegensLpApys(),
+    getJulLpApys(),
+    getBeltApys(),
+    getPangolinApys(),
+    getSwipeLpApys()
+  ]);
+  
+  for (item of values) {
+    apys = { ...apys, ...item };
   }
-
-  setTimeout(updateApys, QUERY_INTERVAL);
+  
+  setTimeout(updateApys, REFRESH_INTERVAL);
 };
 
-setTimeout(updateApys, BATCH_INTERVAL);
+setTimeout(updateApys, INIT_DELAY);
 
 
 module.exports = getApys;
