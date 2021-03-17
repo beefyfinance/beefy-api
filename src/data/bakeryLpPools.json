@@ -1,5 +1,22 @@
 [
   {
+    "name": "bakery-bat-bake",
+    "address": "0x675Ec26cF1c99A5cD227658f5d0e2fAcbbf3Dcf7",
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x101d82428437127bF1608F699CD651e6Abf9766E",
+      "oracle": "pancake",
+      "oracleId": "BAT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5",
+      "oracle": "pancake",
+      "oracleId": "BAKE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "bakery-bake-bnb",
     "address": "0xc2Eed0F5a0dc28cfa895084bC0a9B8B8279aE492",
     "decimals": "1e18",
@@ -66,22 +83,6 @@
       "oracleId": "BUSD",
       "decimals": "1e18"
     }
-  },
-  {
-    "name": "bakery-bat-bake",
-    "address": "0x675Ec26cF1c99A5cD227658f5d0e2fAcbbf3Dcf7",
-    "decimals": "1e18",
-    "lp0": {
-      "address": "0x101d82428437127bF1608F699CD651e6Abf9766E",
-      "oracle": "pancake",
-      "oracleId": "BAT",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5",
-      "oracle": "pancake",
-      "oracleId": "BAKE",
-      "decimals": "1e18"
-    }
   }
 ]
+  
