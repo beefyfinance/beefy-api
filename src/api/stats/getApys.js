@@ -1,9 +1,9 @@
+const { sleep } = require('../../utils/time');
+
 const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpApys } = require('./pancake/getCakeLpApys');
 const getFortubeApys = require('./fortube/getFortubeApys');
-const getThugsLpApys = require('./thugs/getThugsLpApys');
-const getDrugsApys = require('./thugs/getDrugsApys');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
 const getBakeryLpApys = require('./bakery/getBakeryLpApys');
@@ -37,7 +37,8 @@ const getBeltApys = require('./belt/getBeltApys');
 const getPangolinApys = require('./pangolin/getPangolinLpApys');
 const getSwipeLpApys = require('./swipe/getSwipeLpApys');
 
-const INTERVAL = 15 * 60 * 1000;
+const QUERY_INTERVAL = 15 * 60 * 1000;
+const BATCH_INTERVAL = 60 * 1000;
 
 let apys = {};
 
@@ -45,20 +46,31 @@ const getApys = () => {
   return apys;
 };
 
+const mergeApys = async (values) => {
+  console.log('mergeApys');
+  for (item of values) {
+    apys = { ...apys, ...item };
+  }
+  console.log(apys);
+  await sleep(BATCH_INTERVAL);
+}
+
 const updateApys = async () => {
-  const values = await Promise.all([
+  let values = await Promise.all([
     getBifiMaxiApy(),
     getCakeApys(),
     getCakePoolApy(),
     getCakeLpApys(),
     getFortubeApys(),
-    // getThugsLpApys(),
-    // getDrugsApys(),
     getBakePoolApy(),
     getBakeryLpApys(),
     getNarLpApys(),
     getVenusApys(),
-    getJetfuelLpApys(),
+    getJetfuelLpApys()
+  ]);
+  mergeApys(values);
+
+  values = await Promise.all([
     getBdoLpApys(),
     getSbdoLpApys(),
     getHelmetPoolApy(),
@@ -69,36 +81,38 @@ const updateApys = async () => {
     getMonsterLpApys(),
     getJulDPoolApy(),
     getNyacashNyasLpApys(),
+  ]);
+  mergeApys(values);
+
+  values = await Promise.all([
     getSpongeLpApys(),
     getSpongePoolApy(),
     getAutoApys(),
-    // getMdexLpApys(),
-    // getBtdLpApys(),
-    // getBtsLpApys(),
-    // getCrowLpApys(),
-    // getMidasLpApys(),
-    // getCafeLpApys(),
-    // getRamenLpApys(),
-    // get1inchLpApys(),
-    // getDegensLpApys(),
-    // getJulLpApys(),
-    // getBeltApys(),
-    // getPangolinApys(),
-    // getSwipeLpApys()
+    getMdexLpApys(),
+    getBtdLpApys(),
+    getBtsLpApys(),
+    getCrowLpApys(),
+    getMidasLpApys(),
+    getCafeLpApys(),
+    getRamenLpApys()
   ]);
+  mergeApys(values);
 
-  for (item of values) {
-    apys = { ...apys, ...item };
-  }
+  values = await Promise.all([
+    get1inchLpApys(),
+    getDegensLpApys(),
+    getJulLpApys(),
+    getBeltApys(),
+    getPangolinApys(),
+    getSwipeLpApys()
+  ]);
+  mergeApys(values);
 
   console.log('> getApys');
 
-  setTimeout(updateApys, INTERVAL);
+  setTimeout(updateApys, QUERY_INTERVAL);
 };
 
-// FIXME: layered initialization could be a patch in case we hit the ratelimit.
-// Another option could be to split the big initialization into a few batches (lines 49-87)
-// setTimeout(updateApys, 60000);
 
 updateApys()
 
