@@ -14,7 +14,7 @@ const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const getSquirrelApys = async () => {
-  const nutsStakingApr = 5; // hardcoded 500% APR
+  const nutsStakingApr = 3; // hardcoded 300% APR
   let apys = { 'squirrel-nuts': compound(nutsStakingApr, process.env.BASE_HPY, 1, 0.955) };
 
   let promises = [];
