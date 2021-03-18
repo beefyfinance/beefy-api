@@ -146,7 +146,6 @@
     "rewardOracle": "pancake",
     "rewardOracleId": "APE"
   },
-  
   {
     "id": "moo_bifi_wbnb-nuts",
     "name": "NUTS Reward Pool",

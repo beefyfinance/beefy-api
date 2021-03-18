@@ -1,3 +1,5 @@
+const { sleep } = require('../../utils/time');
+
 const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpApys } = require('./pancake/getCakeLpApys');
@@ -35,7 +37,8 @@ const getBeltApys = require('./belt/getBeltApys');
 const getPangolinApys = require('./pangolin/getPangolinLpApys');
 const getSwipeLpApys = require('./swipe/getSwipeLpApys');
 
-const INTERVAL = 15 * 60 * 1000;
+const INIT_DELAY = 4 * 60 * 1000;
+const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let apys = {};
 
@@ -43,7 +46,9 @@ const getApys = () => {
   return apys;
 };
 
-const updateApys = async () => {
+const updateApys = async ()  => {
+  console.log('> updating apys');
+  
   const values = await Promise.all([
     getBifiMaxiApy(),
     getCakeApys(),
@@ -75,27 +80,23 @@ const updateApys = async () => {
     getMidasLpApys(),
     getCafeLpApys(),
     get1inchLpApys(),
-    // getRamenLpApys(),
-    // getDegensLpApys(),
-    // getJulLpApys(),
-    // getBeltApys(),
-    // getPangolinApys(),
-    // getSwipeLpApys()
+    getDegensLpApys(),
+    getJulLpApys(),
+    getBeltApys(),
+    getPangolinApys(),
+    getSwipeLpApys()
   ]);
-
+  
   for (item of values) {
     apys = { ...apys, ...item };
   }
 
-  console.log('> getApys');
-
-  setTimeout(updateApys, INTERVAL);
+  console.log('> updated apys');
+  
+  setTimeout(updateApys, REFRESH_INTERVAL);
 };
 
-// FIXME: layered initialization could be a patch in case we hit the ratelimit.
-// Another option could be to split the big initialization into a few batches (lines 49-87)
-setTimeout(updateApys, 4 * 60 * 1000);
+setTimeout(updateApys, INIT_DELAY);
 
-// updateApys()
 
 module.exports = getApys;

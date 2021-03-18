@@ -28,7 +28,7 @@ const getBifiMaxiApy = async () => {
 
 const getYearlyRewardsInUsd = async () => {
   const bnbPrice = await fetchPrice({ oracle: 'pancake', id: 'WBNB' });
-
+  
   const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
