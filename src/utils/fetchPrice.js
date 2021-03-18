@@ -51,9 +51,9 @@ const fetchCoingecko = async id => {
   }
 };
 
-const fetchPancake = async id => {
-  const cakePrices = await getAmmTokensPrices();
-  return cakePrices[id] || 0;
+const fetchAmm = async id => {
+  const ammPrices = await getAmmTokensPrices();
+  return ammPrices[id] || 0;
 };
 
 const fetchLP = async (id, endpoint) => {
@@ -158,7 +158,7 @@ const fetchPrice = async ({ oracle, id }) => {
     case 'pangolin':
     case 'nyanswop':
     case 'pancake':
-      price = await fetchPancake(id);
+      price = await fetchAmm(id);
       break;
 
     case 'pancake-lp':
