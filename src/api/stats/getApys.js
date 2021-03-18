@@ -36,6 +36,7 @@ const getJulLpApys = require('./julb/getJulLpApys');
 const getBeltApys = require('./belt/getBeltApys');
 const getPangolinApys = require('./pangolin/getPangolinLpApys');
 const getSwipeLpApys = require('./swipe/getSwipeLpApys');
+const getComAvaxApys = require('./complus/getComAvaxLpApys');
 
 const INIT_DELAY = 4 * 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -84,7 +85,8 @@ const updateApys = async ()  => {
     getJulLpApys(),
     getBeltApys(),
     getPangolinApys(),
-    getSwipeLpApys()
+    getSwipeLpApys(),
+    getComAvaxApys()
   ]);
   
   for (item of values) {

@@ -1,0 +1,59 @@
+[
+  {
+    "name": "com-usdt-avax",
+    "address": "0x7583a59a50d761E491d0c9393cA5214dbB613806",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a",
+      "oracle": "pangolin",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "pangolin",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "com-usdt-avax",
+    "address": "0xe64bfae83ba234ab85bcef5b7a92427e29b3aa11",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xde3A24028580884448a5397872046a019649b084",
+      "oracle": "pangolin",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "pangolin",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "com-com-avax",
+    "address": "0xf0ed25fd26e0b64c86c6c78b661f2ef283e9b6ff",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "pangolin",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3711c397B6c8F7173391361e27e67d72F252cAad",
+      "oracle": "pangolin",
+      "oracleId": "COM",
+      "decimals": "1e18"
+    }
+  }
+]
