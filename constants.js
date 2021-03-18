@@ -5,10 +5,8 @@ const AVAX_CHAIN_ID = 43114;
 
 const MAINNET_BSC_RPC_ENDPOINTS = [
   'https://bsc-dataseed.binance.org',
-  'https://bsc-dataseed1.binance.org',
-  'https://bsc-dataseed2.binance.org',
-  'https://bsc-dataseed3.binance.org',
-  'https://bsc-dataseed4.binance.org',
+  'https://bsc-dataseed1.defibit.io',
+  'https://bsc-dataseed1.ninicoin.io',
 ];
 
 const CUSTOM_BSC_RPC_ENDPOINTS = [

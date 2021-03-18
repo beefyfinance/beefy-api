@@ -83,7 +83,7 @@ const knownPrices = {
 
 let tokenPricesCache = {};
 let lpPricesCache = {};
-let isProcessing = false;
+let isProcessing = true;
 
 const updateAmmPrices = async () => {
   console.log('> updating amm prices');
