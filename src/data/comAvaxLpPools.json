@@ -1,6 +1,6 @@
 [
   {
-    "name": "com-usdt-avax",
+    "name": "com-dai-avax",
     "address": "0x7583a59a50d761E491d0c9393cA5214dbB613806",
     "decimals": "1e18",
     "poolId": 2,
