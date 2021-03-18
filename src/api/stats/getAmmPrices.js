@@ -32,7 +32,7 @@ const nutsPools = require('../../data/degens/nutsLpPools.json');
 const slimePools = require('../../data/degens/slimeLpPools.json');
 const pangolinPools = require('../../data/pangolinLpPools.json');
 const swipePools = require('../../data/swipeLpPools.json');
-const comAvaxPools = require('../../data/complusAvaxLpPools.json');
+const comAvaxPools = require('../../data/comAvaxLpPools.json');
 
 const INIT_DELAY = 30 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
