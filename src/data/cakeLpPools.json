@@ -1,5 +1,59 @@
 [
   {
+    "name": "cake-dusk-bnb",
+    "address": "0xB7918560273FD56e50E9c215CC0DFE8D764C36C5",
+    "decimals": "1e18",
+    "poolId": 100,
+    "lp0": {
+      "address": "0xB2BD0749DBE21f623d9BABa856D3B0f0e1BFEc9C",
+      "oracle": "pancake",
+      "oracleId": "DUSK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-cos-bnb",
+    "address": "0x7b1e440240B220244761C9D9A3B07fbA1995BD84",
+    "decimals": "1e18",
+    "poolId": 97,
+    "lp0": {
+      "address": "0x96Dd399F9c3AFda1F194182F71600F1B65946501",
+      "oracle": "pancake",
+      "oracleId": "COS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-txl-busd",
+    "address": "0xD20E0BcCa8B29409bf5726CB24DD779Fe337020e",
+    "decimals": "1e18",
+    "poolId": 98,
+    "lp0": {
+      "address": "0x1FFD0b47127fdd4097E54521C9E2c7f0D66AafC5",
+      "oracle": "pancake",
+      "oracleId": "TXL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "pancake",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-bifi-bnb",
     "address": "0xd132D2C24F29EE8ABb64a66559d1b7aa627Bd7fD",
     "decimals": "1e18",
