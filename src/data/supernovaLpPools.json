@@ -1,0 +1,78 @@
+[
+  {
+    "name": "nova-share-usdt",
+    "address": "0xf61e00443ff42371b9efc4434a610f6e7c0c84aa",
+    "rewardPool": "0x0AFcc065c0828eba981be4f639072A67a6064e90",
+    "decimals": "1e18",
+    "chainId": 128,
+    "lp0": {
+      "address": "0x41198c6736d23734e6d17a6f0b4f2d15d2621a3a",
+      "oracle": "mdex",
+      "oracleId": "SHARE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "mdex",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "nova-share-husd",
+    "address": "0xb1188f0bb3eb9a49C0bfcFA87238773352C151C4",
+    "rewardPool": "0x8AfD786c09a064b28D8f8e0281fA21929bE44951",
+    "decimals": "1e18",
+    "chainId": 128,
+    "lp0": {
+      "address": "0x41198c6736d23734e6d17a6f0b4f2d15d2621a3a",
+      "oracle": "mdex",
+      "oracleId": "SHARE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047",
+      "oracle": "mdex",
+      "oracleId": "HUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "nova-scash-husd",
+    "address": "0x29471983b759ccb802f486244b26a7c7dce8b7b5",
+    "rewardPool": "0x50D01E4247f14e97ca6be90EAc9C8FF379206F7e",
+    "decimals": "1e18",
+    "chainId": 128,
+    "lp0": {
+      "address": "0xb6ccfa7ef3a295932536e0988cffd85228cb177c",
+      "oracle": "mdex",
+      "oracleId": "sCASH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047",
+      "oracle": "mdex",
+      "oracleId": "HUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "nova-scash-usdt",
+    "address": "0x454058df2d7ffb8a845bf884a30d0391166144e7",
+    "rewardPool": "0x04E99eA8E71614F3DE42bC141e7A5Ee252660055",
+    "decimals": "1e18",
+    "chainId": 128,
+    "lp0": {
+      "address": "0xb6ccfa7ef3a295932536e0988cffd85228cb177c",
+      "oracle": "mdex",
+      "oracleId": "sCASH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "mdex",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -38,6 +38,7 @@ const getPangolinApys = require('./pangolin/getPangolinLpApys');
 const getSwipeLpApys = require('./swipe/getSwipeLpApys');
 const getComAvaxApys = require('./complus/getComAvaxLpApys');
 const getSnobLpApys = require('./snowball/getSnobLpApys');
+const getSuperNovaLpApys = require('./supernova/getSuperNovaLpApys');
 
 const INIT_DELAY = 4 * 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -89,6 +90,7 @@ const updateApys = async ()  => {
     getSwipeLpApys(),
     getComAvaxApys(),
     getSnobLpApys(),
+    getSuperNovaLpApys()
   ]);
   
   for (item of values) {
