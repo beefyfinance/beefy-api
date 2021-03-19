@@ -60,7 +60,7 @@ const getPoolApy = async (rewardPool, pool, chainId) => {
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
-  console.log(pool.name, simpleApy.valueOf(), apy);
+  // console.log(pool.name, simpleApy.valueOf(), apy);
   return { [pool.name]: apy };
 };
 
