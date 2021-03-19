@@ -33,6 +33,7 @@ const slimePools = require('../../data/degens/slimeLpPools.json');
 const pangolinPools = require('../../data/pangolinLpPools.json');
 const swipePools = require('../../data/swipeLpPools.json');
 const comAvaxPools = require('../../data/comAvaxLpPools.json');
+const comBscPools = require('../../data/comBscLpPools.json');
 const snowballPools = require('../../data/snobLpPools.json');
 const supernovaPools = require('../../data/supernovaLpPools.json')
 
@@ -44,6 +45,7 @@ const REFRESH_INTERVAL = 10 * 60 * 1000;
 const pools = [
   ...supernovaPools,
   ...snowballPools,
+  ...comBscPools,
   ...comAvaxPools,
   ...pangolinPools,
   ...swipePools,

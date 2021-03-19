@@ -37,6 +37,7 @@ const getBeltApys = require('./belt/getBeltApys');
 const getPangolinApys = require('./pangolin/getPangolinLpApys');
 const getSwipeLpApys = require('./swipe/getSwipeLpApys');
 const getComAvaxApys = require('./complus/getComAvaxLpApys');
+const getComBscApys = require('./complus/getComBscLpApys');
 const getSnobLpApys = require('./snowball/getSnobLpApys');
 const getSuperNovaLpApys = require('./supernova/getSuperNovaLpApys');
 
@@ -49,9 +50,9 @@ const getApys = () => {
   return apys;
 };
 
-const updateApys = async ()  => {
+const updateApys = async () => {
   console.log('> updating apys');
-  
+
   const values = await Promise.all([
     getBifiMaxiApy(),
     getCakeApys(),
@@ -89,16 +90,17 @@ const updateApys = async ()  => {
     getPangolinApys(),
     getSwipeLpApys(),
     getComAvaxApys(),
+    getComBscApys(),
     getSnobLpApys(),
-    getSuperNovaLpApys()
+    getSuperNovaLpApys(),
   ]);
-  
+
   for (item of values) {
     apys = { ...apys, ...item };
   }
 
   console.log('> updated apys');
-  
+
   setTimeout(updateApys, REFRESH_INTERVAL);
 };
 
