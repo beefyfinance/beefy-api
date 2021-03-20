@@ -1,6 +1,5 @@
 const { sleep } = require('../../utils/time');
 
-const getBlizzardApys = require('./blizzard/getBlizzardLpApys')
 const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpApys } = require('./pancake/getCakeLpApys');
@@ -56,7 +55,6 @@ const updateApys = async () => {
 
   const values = await Promise.all([
     getBifiMaxiApy(),
-    getBlizzardApys(),
     getCakeApys(),
     getCakePoolApy(),
     getCakeLpApys(),
