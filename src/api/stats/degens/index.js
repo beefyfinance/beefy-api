@@ -1,4 +1,5 @@
 const getRamenLpApys = require('../ramen/getRamenLpApys');
+const getBlizzardLpApys = require('./getBlizzardLpApys')
 const getSaltLpApys = require('./getSaltLpApys');
 const getApeApys = require('./getApeLpApys');
 const getApeBananaApys = require('./getApeBananaApy');
@@ -9,6 +10,7 @@ const getSlimeApys = require('./getSlimeLpApys');
 
 const getApys = [
   getRamenLpApys,
+  getBlizzardLpApys,
   getSaltLpApys,
   getApeApys,
   getApeBananaApys,
