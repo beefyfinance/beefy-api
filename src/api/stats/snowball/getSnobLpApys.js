@@ -34,7 +34,7 @@ const getPoolApy = async (masterchef, pool) => {
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-  // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+   console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { [pool.name]: apy };
 };
 
@@ -56,7 +56,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
     .times(allocPoint)
     .dividedBy(totalAllocPoint);
 
-  const secondsPerBlock = 3;
+  const secondsPerBlock = 5;
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
