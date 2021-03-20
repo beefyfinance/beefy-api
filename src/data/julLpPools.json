@@ -1,18 +1,54 @@
 [
   {
+    "name": "jul-vidt-bnb",
+    "address": "0x50b68945a990684aedbfa46391988b4609923d48",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x3f515f0a8e93F2E2f891ceeB3Db4e62e202d7110",
+      "oracle": "julswap",
+      "oracleId": "VIDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "julswap",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jul-twt-bnb",
+    "address": "0x14aac5ba46418d625db4f506988e3ee5a0963887",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
+      "oracle": "julswap",
+      "oracleId": "TWT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "julswap",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "jul-xvs-bnb",
     "address": "0x6e15E1989fC3cFfAB40cA21F7E9ad45AAb72cFfc",
     "decimals": "1e18",
     "poolId": 0,
     "lp0": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "BNB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "XVS",
       "decimals": "1e18"
     }
@@ -24,13 +60,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "DOT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "BNB",
       "decimals": "1e18"
     }
@@ -42,13 +78,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "BNB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "UNI",
       "decimals": "1e18"
     }
@@ -60,13 +96,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "BTCB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "BNB",
       "decimals": "1e18"
     }
@@ -78,13 +114,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "JULD",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "BNB",
       "decimals": "1e18"
     }
@@ -96,14 +132,32 @@
     "poolId": 0,
     "lp0": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "BNB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xca3f508b8e4dd382ee878a314789373d80a5190a",
-      "oracle": "pancake",
+      "oracle": "julswap",
       "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jul-juld-busd",
+    "address": "0xd72cee36e22779a2035f1b56ee8466621ce34928",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x5a41f637c3f7553dba6ddc2d3ca92641096577ea",
+      "oracle": "julswap",
+      "oracleId": "JULD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "julswap",
+      "oracleId": "BUSD",
       "decimals": "1e18"
     }
   }

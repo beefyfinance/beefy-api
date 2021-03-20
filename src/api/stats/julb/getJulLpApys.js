@@ -8,8 +8,8 @@ const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../../constants');
 
-const oracle = 'coingecko';
-const oracleId = 'julswap';
+const oracle = 'julswap';
+const oracleId = 'JULD';
 
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
@@ -20,6 +20,9 @@ const btcbBnbRewardPool = '0x266a8D094FDAA4292a288407302aB527812ecA07'; // BTCB-
 const uniBnbRewardPool = '0x753950497Ace062c0051f83B9A02C79Cad5baaE9'; // UNI-BNB
 const dotBnbRewardPool = '0xC976c5f9b9FBF2f876F04049d6719251599B9BC1'; // DOT-BNB
 const xvsBnbRewardPool = '0x40673dcF80Ff7be9808aE474cEDA1ebB0453565F'; // XVS-BNB
+const twtBnbRewardPool = '0x0647BB38Cc2eb93B6A482e308Cf264806f209bc7'; // TWT-BNB
+const vidtBnbRewardPool = '0x8417c58F7D128781D892C6e054ECe64D9D8f6D1F'; // VIDT-BNB
+const juldBusdRewardPool = '0x95fbAd16D57acEB172aD659A8c34df32385B0445'; // JUL-BUSD
 
 const getJulLpApys = async () => {
   let poolBifiBnb = pools.filter(pool => pool.name === 'jul-bifi-bnb')[0];
@@ -28,6 +31,9 @@ const getJulLpApys = async () => {
   let poolUniBnb = pools.filter(pool => pool.name === 'jul-uni-bnb')[0];
   let poolDotBnb = pools.filter(pool => pool.name === 'jul-dot-bnb')[0];
   let poolXvsBnb = pools.filter(pool => pool.name === 'jul-xvs-bnb')[0];
+  let poolTwtBnb = pools.filter(pool => pool.name === 'jul-twt-bnb')[0];
+  let poolVidtBnb = pools.filter(pool => pool.name === 'jul-vidt-bnb')[0];
+  let poolJuldBusd = pools.filter(pool => pool.name === 'jul-juld-busd')[0];
 
   const values = await Promise.all([
     getPoolApy(bifiBnbRewardPool, poolBifiBnb),
@@ -36,6 +42,9 @@ const getJulLpApys = async () => {
     getPoolApy(uniBnbRewardPool, poolUniBnb),
     getPoolApy(dotBnbRewardPool, poolDotBnb),
     getPoolApy(xvsBnbRewardPool, poolXvsBnb),
+    getPoolApy(twtBnbRewardPool, poolTwtBnb),
+    getPoolApy(vidtBnbRewardPool, poolVidtBnb),
+    getPoolApy(juldBusdRewardPool, poolJuldBusd),
   ]);
 
   let apys = {};

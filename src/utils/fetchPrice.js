@@ -157,6 +157,7 @@ const fetchPrice = async ({ oracle, id }) => {
     case 'mdex':
     case 'pangolin':
     case 'nyanswop':
+    case 'julswap':
     case 'pancake':
       price = await fetchAmm(id);
       break;
