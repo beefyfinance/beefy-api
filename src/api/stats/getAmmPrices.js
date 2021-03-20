@@ -2,6 +2,7 @@ const { fetchAmmPoolsPrices } = require('../../utils/getPoolStats');
 const { sleep } = require('../../utils/time');
 
 const bakeryPools = require('../../data/bakeryLpPools.json');
+const blizzardLpPools = require('../../data/blizzardLpPools.json');
 const cafePools = require('../../data/cafeLpPools.json');
 const cakeLpPools = require('../../data/cakeLpPools.json');
 const cakePools = require('../../data/cakePools.json');
@@ -50,6 +51,7 @@ const pools = [
   ...pangolinPools,
   ...swipePools,
   ...slimePools,
+  ...blizzardLpPools,
   ...nutsPools,
   ...memePools,
   ...julPools,
