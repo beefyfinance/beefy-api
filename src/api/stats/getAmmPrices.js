@@ -143,5 +143,7 @@ setTimeout(updateAmmPrices, INIT_DELAY);
 
 module.exports = {
   getAmmTokenPrice,
+  getAmmTokenPrices,
   getAmmLpPrice,
+  getAmmLpPrices,
 };
