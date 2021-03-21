@@ -11,12 +11,16 @@ const BLOCKS_PER_DAY = 28800;
 
 let stakedPoolsData = {};
 
-const getStakePoolsData = () => {
+const getStakePoolsData =   () => {
   return stakedPoolsData;
 };
 
 const updateStakePools = async () => {
-  stakedPoolsData = await getStakePools();
+  try{
+    stakedPoolsData = await getStakePools();
+  } catch (err) {
+    console.error('stake pool update failed', err);
+  }
   setTimeout(updateStakePools, INTERVAL);
 };
 
