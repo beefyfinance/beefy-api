@@ -127,7 +127,7 @@ const getAmmTokenPrice = async (tokenSymbol) => {
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     return tokenPrices[tokenSymbol]
   }
-  throw new Error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+  console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
 };
 
 const getAmmLpPrice = async (lpName) => {
@@ -135,7 +135,7 @@ const getAmmLpPrice = async (lpName) => {
   if (lpPrices.hasOwnProperty(lpName)) {
     return lpPrices[lpName]
   }
-  throw new Error(`Unknown liqudity pair '${lpName}'. Consider adding it to .json file`);
+  console.error(`Unknown liqudity pair '${lpName}'. Consider adding it to .json file`);
 };
 
 // Flexible delayed initialization used to work around ratelimits
