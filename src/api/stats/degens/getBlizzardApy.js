@@ -1,14 +1,14 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/MasterChef.json');
+const MasterChef = require('../../../abis/degens/BlizzardMasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
 const { BASE_HPY } = require('../../../../constants');
 
 const getBlizzardApy = async () => {
-  const masterChef = '0x5c8d727b265dbafaba67e050f2f739caeeb4a6f9';
+  const masterChef = '0x2078F4A75c92A6918D13e3e2F14183443ebf55D3';
   const blzd = '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0';
   const oracle = 'pancake';
   const oracleId = 'BLZD';
@@ -30,9 +30,9 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const masterChefContract = new web3.eth.Contract(MasterChef, masterChefAddr);
 
   const multiplier = new BigNumber(
-    await masterChefContract.methods.getMultiplier(fromBlock, toBlock).call(),
+    await masterChefContract.methods.getMultiplier(fromBlock, toBlock).call()
   );
-  const blockRewards = new BigNumber(await masterChefContract.methods.cakePerBlock().call());
+  const blockRewards = new BigNumber(await masterChefContract.methods.blzdPerBlock().call());
 
   let { allocPoint } = await masterChefContract.methods.poolInfo(0).call();
   allocPoint = new BigNumber(allocPoint);
