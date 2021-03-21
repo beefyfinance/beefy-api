@@ -53,53 +53,57 @@ const getApys = () => {
 const updateApys = async () => {
   console.log('> updating apys');
 
-  const values = await Promise.all([
-    getBifiMaxiApy(),
-    getCakeApys(),
-    getCakePoolApy(),
-    getCakeLpApys(),
-    getFortubeApys(),
-    getBakePoolApy(),
-    getBakeryLpApys(),
-    getNarLpApys(),
-    getVenusApys(),
-    getJetfuelLpApys(),
-    getBdoLpApys(),
-    getSbdoLpApys(),
-    getHelmetPoolApy(),
-    getHelmetLpApy(),
-    getBhcPoolApy(),
-    getKebabLpApys(),
-    getKebabPoolApy(),
-    getMonsterLpApys(),
-    getJulDPoolApy(),
-    getNyacashNyasLpApys(),
-    getSpongeLpApys(),
-    getSpongePoolApy(),
-    getAutoApys(),
-    getMdexLpApys(),
-    getBtdLpApys(),
-    getBtsLpApys(),
-    getCrowLpApys(),
-    getMidasLpApys(),
-    getCafeLpApys(),
-    get1inchLpApys(),
-    getDegensLpApys(),
-    getJulLpApys(),
-    getBeltApys(),
-    getPangolinApys(),
-    getSwipeLpApys(),
-    getComAvaxApys(),
-    getComBscApys(),
-    getSnobLpApys(),
-    getSuperNovaLpApys(),
-  ]);
+  try {
+    const values = await Promise.all([
+      getBifiMaxiApy(),
+      getCakeApys(),
+      getCakePoolApy(),
+      getCakeLpApys(),
+      getFortubeApys(),
+      getBakePoolApy(),
+      getBakeryLpApys(),
+      getNarLpApys(),
+      getVenusApys(),
+      getJetfuelLpApys(),
+      getBdoLpApys(),
+      getSbdoLpApys(),
+      getHelmetPoolApy(),
+      getHelmetLpApy(),
+      getBhcPoolApy(),
+      getKebabLpApys(),
+      getKebabPoolApy(),
+      getMonsterLpApys(),
+      getJulDPoolApy(),
+      getNyacashNyasLpApys(),
+      getSpongeLpApys(),
+      getSpongePoolApy(),
+      getAutoApys(),
+      getMdexLpApys(),
+      getBtdLpApys(),
+      getBtsLpApys(),
+      getCrowLpApys(),
+      getMidasLpApys(),
+      getCafeLpApys(),
+      get1inchLpApys(),
+      getDegensLpApys(),
+      getJulLpApys(),
+      getBeltApys(),
+      getPangolinApys(),
+      getSwipeLpApys(),
+      getComAvaxApys(),
+      getComBscApys(),
+      getSnobLpApys(),
+      getSuperNovaLpApys(),
+    ]);
 
-  for (item of values) {
-    apys = { ...apys, ...item };
+    for (item of values) {
+      apys = { ...apys, ...item };
+    }
+
+    console.log('> updated apys');
+  } catch(err) {
+    console.error("> apy initialization failed", err);
   }
-
-  console.log('> updated apys');
 
   setTimeout(updateApys, REFRESH_INTERVAL);
 };

@@ -17,10 +17,12 @@ const getStakePoolsData =   () => {
 };
 
 const updateStakePools = async () => {
+  console.log('> updating stake pools');
   try{
     stakedPoolsData = await getStakePools();
+    console.log('> updated stake pools');
   } catch (err) {
-    console.error('stake pool update failed', err);
+    console.error('> stake pool update failed', err);
   }
   setTimeout(updateStakePools, INTERVAL);
 };
