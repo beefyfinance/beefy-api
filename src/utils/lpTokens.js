@@ -53,6 +53,7 @@ const lpTokenPrices = async lpTokens => {
 };
 
 const lpTokenStats = async lpToken => {
+  // TODO: Refactor price calls to use getAmmPrices
   const lpPrice = await lpTokenPrice(lpToken);
   return { [lpToken.name]: lpPrice };
 };

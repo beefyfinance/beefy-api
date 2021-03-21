@@ -1,28 +1,8 @@
 const axios = require('axios');
-const { API_BASE_URL } = require('../../constants');
-const { lpTokenRatio } = require('./lpTokensRatio');
-const { getAmmTokensPrices } = require('../api/stats/getAmmPrices');
+const { getAmmTokenPrice, getAmmLpPrice } = require('../api/stats/getAmmPrices');
 
-const endpoints = {
-  bakery: `${API_BASE_URL}/bakery/price`,
-  bakeryLp: `${API_BASE_URL}/bakery/lps`,
-  bdollarLp: `${API_BASE_URL}/bdollar/lps`,
-  coingecko: `https://api.coingecko.com/api/v3/simple/price`,
-  jetfuelLp: `${API_BASE_URL}/jetfuel/lps`,
-  narwhalLp: `${API_BASE_URL}/narwhal/lps`,
-  pancakeLp: `${API_BASE_URL}/pancake/lps`,
-  pancake: `${API_BASE_URL}/pancake/price`,
-  thugsLp: `${API_BASE_URL}/thugs/lps`,
-  thugsLp: `${API_BASE_URL}/thugs/lps`,
-  lps: `${API_BASE_URL}/lps`,
-};
-
-const CACHE_TIMEOUT = 30 * 60 * 1000;
+const CACHE_TIMEOUT = 10 * 60 * 1000;
 const cache = {};
-
-const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
-const BUSD = '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
-const WBNB_BUSD = `${WBNB}_${BUSD}`;
 
 function isCached({ oracle, id }) {
   if (`${oracle}-${id}` in cache) {
@@ -41,27 +21,12 @@ function addToCache({ oracle, id, price }) {
 
 const fetchCoingecko = async id => {
   try {
-    const response = await axios.get(endpoints.coingecko, {
+    const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
       params: { ids: id, vs_currencies: 'usd' },
     });
     return response.data[id].usd;
   } catch (err) {
     console.error('fetchCoingecko error:', err);
-    return 0;
-  }
-};
-
-const fetchAmm = async id => {
-  const ammPrices = await getAmmTokensPrices();
-  return ammPrices[id] || 0;
-};
-
-const fetchLP = async (id, endpoint) => {
-  try {
-    const response = await axios.get(endpoint);
-    return response.data[id];
-  } catch (err) {
-    console.error('fetchLP error:', id, err);
     return 0;
   }
 };
@@ -100,20 +65,6 @@ const fetchMirror = async id => {
   }
 };
 
-const fetchBakery = async id => {
-  if (id !== 'BETH') return 0;
-  try {
-    const bakeryWbnbBethLp = '0x2fc2ad3c28560c97caca6d2dcf9b38614f48769a';
-    const ratio = await lpTokenRatio(bakeryWbnbBethLp, '1e18', '1e18');
-    const bnbPrice = await fetchPrice({ oracle: 'pancake', id: 'WBNB' });
-    const bethPrice = bnbPrice / ratio;
-    return bethPrice;
-  } catch (err) {
-    console.error(err);
-    return 0;
-  }
-};
-
 const fetchPrice = async ({ oracle, id }) => {
   if (oracle === undefined) {
     console.error('Undefined oracle');
@@ -130,64 +81,39 @@ const fetchPrice = async ({ oracle, id }) => {
 
   let price = 0;
   switch (oracle) {
-    case 'bakery':
-      price = await fetchLP(id, endpoints.bakery);
-      break;
-
-    case 'bakery-lp':
-      price = await fetchLP(id, endpoints.bakeryLp);
-      break;
-
-    case 'bdollar-lp':
-      price = await fetchLP(id, endpoints.bdollarLp);
-      break;
-
     case 'coingecko':
       price = await fetchCoingecko(id);
       break;
 
+    case 'lps':
+    case 'bakery-lp':
+    case 'bdollar-lp':
     case 'jetfuel-lp':
-      price = await fetchLP(id, endpoints.jetfuelLp);
-      break;
-
     case 'narwhal-lp':
-      price = await fetchLP(id, endpoints.narwhalLp);
+    case 'thugs-lp':
+      price = await getAmmLpPrice(id);
       break;
 
+    case 'thugs':
+    case 'bakery':
     case 'mdex':
     case 'pangolin':
     case 'nyanswop':
     case 'julswap':
     case 'pancake':
-      price = await fetchAmm(id);
-      break;
-
-    case 'pancake-lp':
-      price = await fetchLP(id, endpoints.pancakeLp);
-      break;
-
-    case 'thugs-lp':
-      price = await fetchLP(id, endpoints.thugsLp);
+      price = await getAmmTokenPrice(id);
       break;
 
     case 'hardcode':
       price = id;
       break;
 
-    case 'bakery':
-      price = await fetchBakery(id);
-      break;
-
     case 'mirror':
       price = await fetchMirror(id);
       break;
 
-    case 'lps':
-      price = await fetchLP(id, endpoints.lps);
-      break;
-
     default:
-      price = 0;
+      throw new Error(`Oracle '${oracle}' not implemented`)
   }
 
   addToCache({ oracle, id, price });
