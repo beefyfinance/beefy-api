@@ -1,0 +1,19 @@
+[
+  {
+    "name": "alpaca-alpaca-bnb",
+    "address": "0xF3CE6Aac24980E6B657926dfC79502Ae414d3083",
+    "decimals": "1e18",
+    "lp0": {
+      "address": "0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F",
+      "oracle": "pancake",
+      "oracleId": "ALPACA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "pancake",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]
