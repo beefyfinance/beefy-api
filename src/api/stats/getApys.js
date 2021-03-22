@@ -40,6 +40,7 @@ const getComAvaxApys = require('./complus/getComAvaxLpApys');
 const getComBscApys = require('./complus/getComBscLpApys');
 const getSnobLpApys = require('./snowball/getSnobLpApys');
 const getSuperNovaLpApys = require('./supernova/getSuperNovaLpApys');
+const getPumpyLpApys = require('./pumpy/getPumpyLpApys');
 
 const INIT_DELAY = 4 * 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -94,6 +95,7 @@ const updateApys = async () => {
       getComBscApys(),
       getSnobLpApys(),
       getSuperNovaLpApys(),
+      getPumpyLpApys(),
     ]);
 
     for (item of values) {
@@ -101,8 +103,8 @@ const updateApys = async () => {
     }
 
     console.log('> updated apys');
-  } catch(err) {
-    console.error("> apy initialization failed", err);
+  } catch (err) {
+    console.error('> apy initialization failed', err);
   }
 
   setTimeout(updateApys, REFRESH_INTERVAL);

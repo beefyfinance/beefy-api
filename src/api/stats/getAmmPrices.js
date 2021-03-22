@@ -37,6 +37,7 @@ const comAvaxPools = require('../../data/comAvaxLpPools.json');
 const comBscPools = require('../../data/comBscLpPools.json');
 const snowballPools = require('../../data/snobLpPools.json');
 const supernovaPools = require('../../data/supernovaLpPools.json')
+const pumpyPools = require('../../data/pumpyLpPools.json')
 
 const INIT_DELAY = 30 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
@@ -44,6 +45,7 @@ const REFRESH_INTERVAL = 10 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103 
 const pools = [
+  ...pumpyPools,
   ...supernovaPools,
   ...snowballPools,
   ...comBscPools,
