@@ -98,6 +98,7 @@ const fetchPrice = async ({ oracle, id }) => {
     case 'bakery':
     case 'mdex':
     case 'pangolin':
+    case 'hyper':
     case 'nyanswop':
     case 'julswap':
     case 'pancake':

@@ -1,0 +1,26 @@
+[
+    {
+      "name": "blizzard-blzd",
+      "address": "0x57067A6BD75c0E95a6A5f158455926e43E79BeB0",
+      "poolId": 0,
+      "decimals": "1e18",
+      "oracle": "pancake",
+      "oracleId": "BLZD"
+    },
+    {
+        "name": "blizzard-bifi",
+        "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+        "poolId": 9,
+        "decimals": "1e18",
+        "oracle": "pancake",
+        "oracleId": "BIFI"
+      },
+      {
+        "name": "blizzard-alloy",
+        "address": "0x5eF5994fA33FF4eB6c82d51ee1DC145c546065Bd",
+        "poolId": 8,
+        "decimals": "1e18",
+        "oracle": "hyper",
+        "oracleId": "ALLOY"
+      }     
+]

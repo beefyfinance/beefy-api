@@ -1,0 +1,20 @@
+[
+    {
+    "name": "hyper-alloy-bnb",
+    "address": "0xf0696e201d20b553792ac2578429b791625308a0",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x5ef5994fa33ff4eb6c82d51ee1dc145c546065bd",
+      "oracle": "hyper",
+      "oracleId": "ALLOY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "hyper",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  }
+]
