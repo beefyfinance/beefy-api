@@ -199,7 +199,7 @@
       "address": "0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047",
       "oracle": "tokens",
       "oracleId": "HUSD",
-      "decimals": "1e18"
+      "decimals": "1e8"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
@@ -337,7 +337,7 @@
     "lp1": {
       "address": "0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047",
       "oracle": "tokens",
-      "oracleId": "husd",
+      "oracleId": "HUSD",
       "decimals": "1e8"
     }
   },
