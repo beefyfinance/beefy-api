@@ -5,13 +5,13 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "nyanswop",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "nyanswop",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -22,13 +22,13 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x7E3656fcCf19583dc432FB3AF813E53EA566814B",
-      "oracle": "nyanswop",
+      "oracle": "tokens",
       "oracleId": "NYAC",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "nyanswop",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -39,13 +39,13 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xD7410C38a86DCf3D5EC0F75e9763111E07D9C95b",
-      "oracle": "nyanswop",
+      "oracle": "tokens",
       "oracleId": "NYAS",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "nyanswop",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -56,13 +56,13 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xbFa0841F7a90c4CE6643f651756EE340991F99D5",
-      "oracle": "nyanswop",
+      "oracle": "tokens",
       "oracleId": "NYA",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "nyanswop",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }

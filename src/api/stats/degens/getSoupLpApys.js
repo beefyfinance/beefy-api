@@ -9,7 +9,7 @@ const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
 const rewardPool = '0x034aF5a55e4316D975A29672733B9791c397b6AF';
 const oracleId = 'SOUPS';
-const oracle = 'pancake';
+const oracle = 'tokens';
 const DECIMALS = '1e18';
 
 const getSoupLpApys = async () => {

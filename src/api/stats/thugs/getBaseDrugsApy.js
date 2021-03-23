@@ -10,7 +10,7 @@ const ORIGINAL_GANGSTER = '0x03edb31BeCc296d45670790c947150DAfEC2E238';
 const DRUGS_V2 = '0x339550404Ca4d831D12B1b2e4768869997390010';
 const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
 
-const ORACLE = 'pancake';
+const ORACLE = 'tokens';
 const ORACLE_ID = 'DRUGS';
 
 const getBaseDrugsApy = async () => {

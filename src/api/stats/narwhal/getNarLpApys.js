@@ -55,7 +55,7 @@ const getYearlyRewardsInUsd = async (goldFarm, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const narPrice = await fetchPrice({ oracle: 'pancake', id: 'NAR' });
+  const narPrice = await fetchPrice({ oracle: 'tokens', id: 'NAR' });
   const yearlyRewardsInUsd = yearlyRewards.times(narPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

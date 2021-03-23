@@ -55,7 +55,7 @@ const getYearlyRewardsInUsd = async (shareRewardPool, poolId) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const bdoPrice = await fetchPrice({ oracle: 'pancake', id: 'MDS' });
+  const bdoPrice = await fetchPrice({ oracle: 'tokens', id: 'MDS' });
   const yearlyRewardsInUsd = yearlyRewards.times(bdoPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

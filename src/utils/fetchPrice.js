@@ -31,40 +31,6 @@ const fetchCoingecko = async id => {
   }
 };
 
-const fetchMirror = async id => {
-  try {
-    let price = 0;
-
-    const response = await axios({
-      url: 'https://graph.mirror.finance/graphql',
-      method: 'post',
-      data: {
-        query: `
-        {
-          assets {
-            symbol
-            prices {
-              price
-            }
-          }
-        }
-        `,
-      },
-    });
-
-    response.data.data.assets.forEach(asset => {
-      if (asset.symbol === id) {
-        price = Number(asset.prices.price);
-      }
-    });
-
-    return price;
-  } catch (err) {
-    console.error('fetchMirror error:', err);
-    return 0;
-  }
-};
-
 const fetchPrice = async ({ oracle, id }) => {
   if (oracle === undefined) {
     console.error('Undefined oracle');
@@ -81,39 +47,24 @@ const fetchPrice = async ({ oracle, id }) => {
 
   let price = 0;
   switch (oracle) {
-    case 'coingecko':
-      price = await fetchCoingecko(id);
-      break;
-
     case 'lps':
-    case 'bakery-lp':
-    case 'bdollar-lp':
-    case 'jetfuel-lp':
-    case 'narwhal-lp':
-    case 'thugs-lp':
       price = await getAmmLpPrice(id);
       break;
 
-    case 'thugs':
-    case 'bakery':
-    case 'mdex':
-    case 'pangolin':
-    case 'nyanswop':
-    case 'julswap':
-    case 'pancake':
+    case 'tokens':
       price = await getAmmTokenPrice(id);
+      break;
+
+    case 'coingecko':
+      price = await fetchCoingecko(id);
       break;
 
     case 'hardcode':
       price = id;
       break;
 
-    case 'mirror':
-      price = await fetchMirror(id);
-      break;
-
     default:
-      throw new Error(`Oracle '${oracle}' not implemented`)
+      throw new Error(`Oracle '${oracle}' not implemented`);
   }
 
   addToCache({ oracle, id, price });

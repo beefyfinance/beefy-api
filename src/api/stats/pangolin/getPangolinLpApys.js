@@ -8,7 +8,7 @@ const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../../constants');
 
-const oracle = 'pangolin';
+const oracle = 'tokens';
 const oracleId = 'PNG';
 
 const DECIMALS = '1e18';
@@ -22,7 +22,6 @@ const linkAvaxRewardPool = '0x7d7eCd4d370384B17DFC1b4155a8410e97841B65'; // LINK
 const sushiAvaxRewardPool = '0x88f26b81c9cae4ea168e31BC6353f493fdA29661'; // SUSHI-AVAX
 const uniAvaxRewardPool = '0xe4d9aE03859DaC6d65432d557F75b9b588a38eE1'; // UNI-AVAX
 const usdtPngRewardPool = '0x7accC6f16Bf8c0Dce22371fbD914c6B5b402BF9f'; // USDT-PNG
-
 
 const getPangolinLpApys = async () => {
   let poolUsdtAvax = pools.filter(pool => pool.name === 'png-usdt-avax')[0];
@@ -64,7 +63,7 @@ const getPoolApy = async (rewardPool, pool, chainId) => {
   return { [pool.name]: apy };
 };
 
-const getYearlyRewardsInUsd = async (pngRewardPool) => {
+const getYearlyRewardsInUsd = async pngRewardPool => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 
   const rewardPool = new web3.eth.Contract(IRewardPool, pngRewardPool);

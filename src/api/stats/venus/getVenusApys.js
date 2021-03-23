@@ -58,7 +58,7 @@ const getSupplyApys = async pool => {
     totalSupply,
     exchangeRateStored,
   ] = await Promise.all([
-    fetchPrice({ oracle: 'pancake', id: 'XVS' }),
+    fetchPrice({ oracle: 'tokens', id: 'XVS' }),
     fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
     vtokenContract.methods.supplyRatePerBlock().call(),
     unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
@@ -90,7 +90,7 @@ const getBorrowApys = async pool => {
   const vtokenContract = new web3.eth.Contract(VToken, pool.vtoken);
 
   let [venusPrice, bnbPrice, borrowRate, venusRate, totalBorrows] = await Promise.all([
-    fetchPrice({ oracle: 'pancake', id: 'XVS' }),
+    fetchPrice({ oracle: 'tokens', id: 'XVS' }),
     fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
     vtokenContract.methods.borrowRatePerBlock().call(),
     unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),

@@ -9,7 +9,7 @@ const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
 const masterchef = '0xa0A4Ab8c15c5b7C9f0d73a23786B5B51BA2d5399';
 const oracleId = 'MFRM';
-const oracle = 'pancake';
+const oracle = 'tokens';
 const DECIMALS = '1e18';
 
 const getMemeFarmApys = async () => {
@@ -41,7 +41,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   const multiplier = new BigNumber(
-    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
+    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
   );
   const blockRewards = new BigNumber(await masterchefContract.methods.MfrmPerBlock().call());
 

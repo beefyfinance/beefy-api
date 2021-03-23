@@ -2,7 +2,7 @@
   {
     "name": "venus-ada",
     "vtoken": "0x9A0AF7FDb2065Ce470D72664DE73cAE409dA28Ec",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "ADA",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -20,7 +20,7 @@
   {
     "name": "venus-dai",
     "vtoken": "0x334b3ecb4dca3593bccc3c7ebd1a1c1d1780fbf1",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "DAI",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -29,7 +29,7 @@
   {
     "name": "venus-fil",
     "vtoken": "0xf91d58b5ae142dacc749f58a49fcbac340cb0343",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "FIL",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -38,7 +38,7 @@
   {
     "name": "venus-bch",
     "vtoken": "0x5F0388EBc2B94FA8E123F404b79cCF5f40b29176",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "BCH",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -47,7 +47,7 @@
   {
     "name": "venus-dot",
     "vtoken": "0x1610bc33319e9398de5f57B33a5b184c806aD217",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "DOT",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -56,7 +56,7 @@
   {
     "name": "venus-link",
     "vtoken": "0x650b940a1033B8A1b1873f78730FcFC73ec11f1f",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "LINK",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -65,7 +65,7 @@
   {
     "name": "venus-sxp",
     "vtoken": "0x2fF3d0F6990a40261c66E1ff2017aCBc282EB6d0",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "SXP",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -74,7 +74,7 @@
   {
     "name": "venus-usdc",
     "vtoken": "0xecA88125a5ADbe82614ffC12D0DB554E2e2867C8",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -83,7 +83,7 @@
   {
     "name": "venus-usdt",
     "vtoken": "0xfD5840Cd36d94D7229439859C0112a4185BC0255",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "USDT",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -92,7 +92,7 @@
   {
     "name": "venus-busd",
     "vtoken": "0x95c78222B3D6e262426483D42CfA53685A67Ab9D",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "BUSD",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -101,7 +101,7 @@
   {
     "name": "venus-bnb",
     "vtoken": "0xA07c5b74C9B40447a954e1466938b865b6BBea36",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "WBNB",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -110,7 +110,7 @@
   {
     "name": "venus-xvs",
     "vtoken": "0x151B1e2635A717bcDc836ECd6FbB62B674FE3E1D",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "XVS",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -119,7 +119,7 @@
   {
     "name": "venus-btcb",
     "vtoken": "0x882C173bC7Ff3b7786CA16dfeD3DFFfb9Ee7847B",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "BTCB",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -128,7 +128,7 @@
   {
     "name": "venus-eth",
     "vtoken": "0xf508fCD89b8bd15579dc79A6827cB4686A3592c8",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18",
     "borrowDepth": 3,
@@ -137,7 +137,7 @@
   {
     "name": "venus-ltc",
     "vtoken": "0x57A5297F2cB2c0AaC9D554660acd6D385Ab50c6B",
-    "oracle": "pancake",
+    "oracle": "tokens",
     "oracleId": "LTC",
     "decimals": "1e18",
     "borrowDepth": 3,

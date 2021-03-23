@@ -25,7 +25,7 @@ const getYearlyRewardsInUsd = async (bakeryMaster, asset) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const bakePrice = await fetchPrice({ oracle: 'pancake', id: 'BAKE' });
+  const bakePrice = await fetchPrice({ oracle: 'tokens', id: 'BAKE' });
   const yearlyRewardsInUsd = yearlyRewards.times(bakePrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

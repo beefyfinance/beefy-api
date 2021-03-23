@@ -10,7 +10,7 @@ const getBeltVenusLpPrice = require('./getBeltVenusLpPrice');
 
 const masterbelt = '0xD4BbC80b9B102b77B21A06cb77E954049605E6c1';
 const oracleId = 'BELT';
-const oracle = 'pancake';
+const oracle = 'tokens';
 const DECIMALS = '1e18';
 
 const getBeltApys = async () => {
@@ -59,7 +59,7 @@ const getYearlyRewardsInUsd = async (masterbelt, pool) => {
   const masterbeltContract = new web3.eth.Contract(MasterBelt, masterbelt);
 
   const multiplier = new BigNumber(
-    await masterbeltContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
+    await masterbeltContract.methods.getMultiplier(blockNum - 1, blockNum).call()
   );
   const blockRewards = new BigNumber(await masterbeltContract.methods.BELTPerBlock().call());
 

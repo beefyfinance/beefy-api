@@ -9,7 +9,7 @@ const { compound } = require('../../../utils/compound');
 const getKebabPoolApy = async () => {
   const masterChef = '0x76fcefffcf5325c6156ca89639b17464ea833ecd';
   const kebab = '0x7979f6c54eba05e18ded44c4f986f49a5de551c2';
-  const oracle = 'pancake';
+  const oracle = 'tokens';
   const oracleId = 'KEBAB';
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([

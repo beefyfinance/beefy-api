@@ -54,7 +54,7 @@ const getYearlyRewardsInUsd = async (bdoRewardPool, poolId) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const bdoPrice = await fetchPrice({ oracle: 'pancake', id: 'BDO' });
+  const bdoPrice = await fetchPrice({ oracle: 'tokens', id: 'BDO' });
   const yearlyRewardsInUsd = yearlyRewards.times(bdoPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

@@ -102,7 +102,7 @@ const getSmartcakeStakeInUsd = async (pools, currentPool) => {
     .userInfo('0xBD8ad0F6492DA660f506fB65f049A5DA4b894a27')
     .call();
   const smartcakeTvl = new BigNumber(smartcakeInfo.amount);
-  const tokenPrice = await fetchPrice({ oracle: 'pancake', id: 'Cake' });
+  const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'Cake' });
 
   return smartcakeTvl.times(tokenPrice).dividedBy('1e18');
 };

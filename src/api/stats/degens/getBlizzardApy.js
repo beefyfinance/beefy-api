@@ -10,7 +10,7 @@ const { BASE_HPY } = require('../../../../constants');
 const getBlizzardApy = async () => {
   const masterChef = '0x2078F4A75c92A6918D13e3e2F14183443ebf55D3';
   const blzd = '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0';
-  const oracle = 'pancake';
+  const oracle = 'tokens';
   const oracleId = 'BLZD';
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([

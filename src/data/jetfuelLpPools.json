@@ -6,13 +6,13 @@
     "poolId": 10,
     "lp0": {
       "address": "0x86ac8a05Cc4eEd2BEa32D271dE50e2A3d129b6B6",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "VAPOR",
       "decimals": "1e9"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -24,13 +24,13 @@
     "poolId": 6,
     "lp0": {
       "address": "0x2090c8295769791ab7A3CF1CC6e0AA19F35e441A",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "Fuel",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -42,13 +42,13 @@
     "poolId": 7,
     "lp0": {
       "address": "0x2090c8295769791ab7A3CF1CC6e0AA19F35e441A",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "Fuel",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -60,13 +60,13 @@
     "poolId": 9,
     "lp0": {
       "address": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "BHC",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -78,13 +78,13 @@
     "poolId": 2,
     "lp0": {
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -96,13 +96,13 @@
     "poolId": 3,
     "lp0": {
       "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "Cake",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -114,13 +114,13 @@
     "poolId": 4,
     "lp0": {
       "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "UNI",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -132,13 +132,13 @@
     "poolId": 5,
     "lp0": {
       "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "LINK",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -150,13 +150,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -168,13 +168,13 @@
     "poolId": 1,
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }

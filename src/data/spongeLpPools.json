@@ -1,18 +1,18 @@
 [
-    {
+  {
     "name": "sponge-steam-bnb",
     "address": "0x5e797B329e6B82b62442477D976a56864AE4396e",
     "decimals": "1e18",
     "poolId": 6,
     "lp0": {
       "address": "0x072e3D0D4f14dd82a16B0a33678c6104e9009ED9",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "STEAM",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -24,13 +24,13 @@
     "poolId": 1,
     "lp0": {
       "address": "0x849233FF1aea15D80EF658B2871664C9Ca994063",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "SOAK",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -42,13 +42,13 @@
     "poolId": 3,
     "lp0": {
       "address": "0x3aabCf53A1930A42E18D938C019E83Ebee50a849",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "SPG",
       "decimals": "1e9"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
