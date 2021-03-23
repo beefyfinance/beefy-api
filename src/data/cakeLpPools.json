@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-bdigg-btcb",
+    "address": "0xE1E33459505bB3763843a426F7Fd9933418184ae",
+    "decimals": "1e18",
+    "poolId": 104,
+    "lp0": {
+      "address": "0x5986d5c77c65e5801a5caa4fae80089f870a71da",
+      "oracle": "tokens",
+      "oracleId": "bDIGG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-dusk-bnb",
     "address": "0xB7918560273FD56e50E9c215CC0DFE8D764C36C5",
     "decimals": "1e18",
