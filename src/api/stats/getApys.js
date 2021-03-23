@@ -1,5 +1,3 @@
-const { sleep } = require('../../utils/time');
-
 const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpApys } = require('./pancake/getCakeLpApys');
@@ -41,6 +39,8 @@ const getComBscApys = require('./complus/getComBscLpApys');
 const getSnobLpApys = require('./snowball/getSnobLpApys');
 const getSuperNovaLpApys = require('./supernova/getSuperNovaLpApys');
 const getPumpyLpApys = require('./pumpy/getPumpyLpApys');
+const getAlpacaLpApys = require('./alpaca/getAlpacaLpApys');
+const getAlpacaApys = require('./alpaca/getAlpacaApys');
 
 const INIT_DELAY = 4 * 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -85,6 +85,7 @@ const updateApys = async () => {
       getCrowLpApys(),
       getMidasLpApys(),
       getCafeLpApys(),
+      getRamenLpApys(),
       get1inchLpApys(),
       getDegensLpApys(),
       getJulLpApys(),
@@ -96,6 +97,8 @@ const updateApys = async () => {
       getSnobLpApys(),
       getSuperNovaLpApys(),
       getPumpyLpApys(),
+      getAlpacaLpApys(),
+      getAlpacaApys(),
     ]);
 
     for (item of values) {
@@ -111,6 +114,5 @@ const updateApys = async () => {
 };
 
 setTimeout(updateApys, INIT_DELAY);
-
 
 module.exports = getApys;

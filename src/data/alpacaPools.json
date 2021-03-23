@@ -1,6 +1,6 @@
 [
   {
-    "name": "sALPACA",
+    "name": "alpaca-salpaca",
     "token": "0x6F695Bd5FFD25149176629f8491A5099426Ce7a7",
     "oracle": "tokens",
     "oracleId": "ALPACA",
@@ -8,7 +8,7 @@
     "poolId": 5
   },
   {
-    "name": "ibBNB",
+    "name": "alpaca-ibbnb",
     "token": "0xd7D069493685A581d27824Fc46EdA46B7EfC0063",
     "oracle": "tokens",
     "oracleId": "WBNB",
@@ -16,7 +16,7 @@
     "poolId": 1
   },
   {
-    "name": "ibBUSD",
+    "name": "alpaca-ibbusd",
     "token": "0x7C9e73d4C71dae564d41F78d56439bB4ba87592f",
     "oracle": "tokens",
     "oracleId": "BUSD",
