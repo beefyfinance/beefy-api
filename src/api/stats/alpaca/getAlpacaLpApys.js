@@ -34,7 +34,7 @@ const getPoolApy = async (fairLaunch, pool) => {
 
 const getYearlyRewardsInUsd = async (fairLaunch, pool) => {
   const blockNum = await web3.eth.getBlockNumber();
-  const fairLaunchContract = new web3.eth.Contract(FairLaunch, masterchef);
+  const fairLaunchContract = new web3.eth.Contract(FairLaunch, fairLaunch);
 
   const multiplier = new BigNumber(
     await fairLaunchContract.methods.getMultiplier(blockNum - 1, blockNum).call()
