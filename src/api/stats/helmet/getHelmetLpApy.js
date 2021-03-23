@@ -57,7 +57,7 @@ const getYearlyRewardsInUsd = async stakingPool => {
   const secondsPerYear = 31536000;
   const yearlyRewards = rewardForDuration.div(rewardsDurationSeconds).times(secondsPerYear);
 
-  const price = await fetchPrice({ oracle: 'pancake', id: 'Helmet' });
+  const price = await fetchPrice({ oracle: 'tokens', id: 'Helmet' });
   const yearlyRewardsInUsd = yearlyRewards.times(price).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

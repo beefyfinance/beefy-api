@@ -6,13 +6,13 @@
     "poolId": 56,
     "lp0": {
       "address": "0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "Helmet",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }

@@ -10,7 +10,7 @@ const { BASE_HPY } = require('../../../../constants');
 const getApeBananaApy = async () => {
   const masterChef = '0x5c8d727b265dbafaba67e050f2f739caeeb4a6f9';
   const banana = '0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95';
-  const oracle = 'pancake';
+  const oracle = 'tokens';
   const oracleId = 'BANANA';
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
@@ -30,7 +30,7 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const masterChefContract = new web3.eth.Contract(MasterChef, masterChefAddr);
 
   const multiplier = new BigNumber(
-    await masterChefContract.methods.getMultiplier(fromBlock, toBlock).call(),
+    await masterChefContract.methods.getMultiplier(fromBlock, toBlock).call()
   );
   const blockRewards = new BigNumber(await masterChefContract.methods.cakePerBlock().call());
 

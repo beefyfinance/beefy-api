@@ -7,13 +7,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "WHT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x64FF637fB478863B7468bc97D30a5bF3A428a1fD",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "ETH",
       "decimals": "1e18"
     }
@@ -26,13 +26,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x22C54cE8321A4015740eE1109D9cBc25815C46E6",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "UNI",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -45,13 +45,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xB4F019bEAc758AbBEe2F906033AAa2f0F6Dacb35",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "YFI",
       "decimals": "1e18"
     }
@@ -64,13 +64,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x045De15Ca76e76426E8Fc7cba8392A3138078D0F",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "BAL",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -83,13 +83,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x9e004545c59D359F6B7BFB06a26390b087717b42",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "LINK",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -102,13 +102,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x777850281719d5a96C29812ab72f822E0e09F3Da",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "SNX",
       "decimals": "1e18"
     }
@@ -121,13 +121,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x202b4936fE1a82A4965220860aE46d7d3939Bb25",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "AAVE",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -140,13 +140,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x8F67854497218043E1f72908FFE38D0Ed7F24721",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "LHB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -159,13 +159,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xE499Ef4616993730CEd0f31FA2703B92B50bB536",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "HPT",
       "decimals": "1e18"
     }
@@ -178,13 +178,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "WHT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x66a79D23E58475D2738179Ca52cd0b41d73f0BEa",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "HBTC",
       "decimals": "1e18"
     }
@@ -197,13 +197,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "HUSD",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -216,13 +216,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xecb56cf772B5c9A6907FB7d32387Da2fCbfB63b4",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "HLTC",
       "decimals": "1e18"
     }
@@ -235,13 +235,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xeF3CEBD77E0C52cb6f60875d9306397B5Caca375",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "HBCH",
       "decimals": "1e18"
     }
@@ -254,13 +254,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0xA2c49cEe16a5E5bDEFDe931107dc1fae9f7773E3",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "HDOT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -273,13 +273,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xae3a768f9aB104c69A7CD6041fE16fFa235d1810",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "HFIL",
       "decimals": "1e18"
     }
@@ -292,13 +292,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x25d2e80cb6b86881fd7e07dd263fb79f4abe033c",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "MDX",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -311,13 +311,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x25d2e80cb6b86881fd7e07dd263fb79f4abe033c",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "MDX",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "WHT",
       "decimals": "1e18"
     }
@@ -330,13 +330,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "WHT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "husd",
       "decimals": "1e8"
     }
@@ -349,13 +349,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "WHT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -368,13 +368,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x66a79D23E58475D2738179Ca52cd0b41d73f0BEa",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "HBTC",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }
@@ -387,13 +387,13 @@
     "chainId": 128,
     "lp0": {
       "address": "0x64FF637fB478863B7468bc97D30a5bF3A428a1fD",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
-      "oracle": "mdex",
+      "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e18"
     }

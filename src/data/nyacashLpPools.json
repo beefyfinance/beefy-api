@@ -5,7 +5,7 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0x7E3656fcCf19583dc432FB3AF813E53EA566814B",
-      "oracle": "nyanswop",
+      "oracle": "tokens",
       "oracleId": "NYAC",
       "decimals": "1e18"
     },
@@ -22,7 +22,7 @@
     "decimals": "1e18",
     "lp0": {
       "address": "0xD7410C38a86DCf3D5EC0F75e9763111E07D9C95b",
-      "oracle": "nyanswop",
+      "oracle": "tokens",
       "oracleId": "NYAS",
       "decimals": "1e18"
     },

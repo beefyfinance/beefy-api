@@ -41,7 +41,7 @@ const getPoolApy = async (rewardPool, pool) => {
 
 const getYearlyRewardsInUsd = async pool => {
   const yearlyRewards = new BigNumber(yearlyNyasRewards[pool.name]);
-  const nyasPrice = await fetchPrice({ oracle: 'nyanswop', id: 'NYAS' });
+  const nyasPrice = await fetchPrice({ oracle: 'tokens', id: 'NYAS' });
   const yearlyRewardsInUsd = yearlyRewards.times(nyasPrice);
 
   return yearlyRewardsInUsd;

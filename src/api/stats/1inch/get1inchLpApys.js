@@ -8,7 +8,7 @@ const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
 const stakingPool = '0x5d0ec1f843c1233d304b96dbde0cab9ec04d71ef';
-const oracle = 'pancake';
+const oracle = 'tokens';
 const oracleId = '1INCH';
 
 const DECIMALS = '1e18';

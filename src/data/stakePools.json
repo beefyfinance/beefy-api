@@ -5,11 +5,11 @@
     "address": "0x453D4Ba9a2D594314DF88564248497F7D74d6b2C",
     "stakedToken": "0xca3f508b8e4dd382ee878a314789373d80a5190a",
     "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
+    "stakedOracle": "tokens",
     "stakedOracleId": "BIFI",
     "rewardToken": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
     "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
+    "rewardOracle": "tokens",
     "rewardOracleId": "WBNB"
   },
   {
@@ -19,7 +19,7 @@
     "isMooStaked": true,
     "stakedToken": "0xf7069e41c57ecc5f122093811d8c75bdb5f7c14e",
     "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
+    "stakedOracle": "tokens",
     "stakedOracleId": "BIFI",
     "rewardToken": "0x5a41f637c3f7553dba6ddc2d3ca92641096577ea",
     "rewardDecimals": "1e18",
@@ -34,11 +34,11 @@
     "isMooStaked": true,
     "stakedToken": "0xe0B473c0dD6D7Fea5B395c3Ce7ffd4FEF0ab4373",
     "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
+    "stakedOracle": "tokens",
     "stakedOracleId": "Cake",
     "rewardToken": "0x2849b1aE7E04A3D9Bc288673A92477CF63F28aF4",
     "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
+    "rewardOracle": "tokens",
     "rewardOracleId": "SALT"
   },
 
@@ -49,11 +49,11 @@
     "isMooStaked": true,
     "stakedToken": "0x7255Ae13BA4484eD33fB48c4b833000dC12888B4",
     "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
+    "stakedOracle": "tokens",
     "stakedOracleId": "BTCB",
     "rewardToken": "0x4F47A0d15c1E53F3d94c069C7D16977c29F9CB6B",
     "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
+    "rewardOracle": "tokens",
     "rewardOracleId": "Ramen"
   },
 
@@ -64,11 +64,11 @@
     "isMooStaked": true,
     "stakedToken": "0xA9936272065e6DDAc9D2453C9a2712B581e9aE1B",
     "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
+    "stakedOracle": "tokens",
     "stakedOracleId": "ETH",
     "rewardToken": "0x790Be81C3cA0e53974bE2688cDb954732C9862e1",
     "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
+    "rewardOracle": "tokens",
     "rewardOracleId": "BREW"
   },
 
@@ -79,11 +79,11 @@
     "isMooStaked": true,
     "stakedToken": "0x53c0CE2EBdA0c2A39327bE0B58a3c28A8Dcde420",
     "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
+    "stakedOracle": "tokens",
     "stakedOracleId": "ADA",
     "rewardToken": "0xcc2E12a9b5b75360c6FBf23B584c275D52cDdb0E",
     "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
+    "rewardOracle": "tokens",
     "rewardOracleId": "CROW"
   },
 
@@ -94,11 +94,11 @@
     "isMooStaked": true,
     "stakedToken": "0x5B06aA1ebd2e15bC6001076355E5B4C39Cbc83F3",
     "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
+    "stakedOracle": "tokens",
     "stakedOracleId": "WBNB",
     "rewardToken": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
     "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
+    "rewardOracle": "tokens",
     "rewardOracleId": "BANANA"
   },
 
@@ -113,7 +113,7 @@
     "stakedOracleId": "auto-beth-eth",
     "rewardToken": "0x69F27E70E820197A6e495219D9aC34C8C6dA7EeE",
     "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
+    "rewardOracle": "tokens",
     "rewardOracleId": "SOUPS"
   },
 
@@ -128,7 +128,7 @@
     "stakedOracleId": "belt-venus-blp",
     "rewardToken": "0x4fCfA6cC8914ab455B5b33Df916d90BFe70b6AB1",
     "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
+    "rewardOracle": "tokens",
     "rewardOracleId": "SLIME"
   },
 
@@ -139,11 +139,11 @@
     "isMooStaked": true,
     "stakedToken": "0xA9936272065e6DDAc9D2453C9a2712B581e9aE1B",
     "stakedDecimals": "1e18",
-    "stakedOracle": "pancake",
+    "stakedOracle": "tokens",
     "stakedOracleId": "ETH",
     "rewardToken": "0xa9eA4b786ee5b7A733c035564Bfd9341A4c9FC1e",
     "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
+    "rewardOracle": "tokens",
     "rewardOracleId": "APE"
   },
   {
@@ -157,7 +157,7 @@
     "stakedOracleId": "cake-bifi-bnb",
     "rewardToken": "0x8893D5fA71389673C5c4b9b3cb4EE1ba71207556",
     "rewardDecimals": "1e18",
-    "rewardOracle": "pancake",
+    "rewardOracle": "tokens",
     "rewardOracleId": "NUTS"
   }
 ]

@@ -9,7 +9,7 @@ const { compound } = require('../../../utils/compound');
 const getSoakPoolApy = async () => {
   const masterChef = '0x303961805A22d76Bac6B2dE0c33FEB746d82544B';
   const soak = '0x849233FF1aea15D80EF658B2871664C9Ca994063';
-  const oracle = 'pancake';
+  const oracle = 'tokens';
   const oracleId = 'SOAK';
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([

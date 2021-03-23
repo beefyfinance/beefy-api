@@ -23,12 +23,7 @@ const getDrugsApys = async () => {
       pool.decimals
     );
 
-    const totalStakedInUsd = await getTotalStakedInUsd(
-      pool.smartGangster,
-      hoes,
-      'thugs',
-      '0x339550404Ca4d831D12B1b2e4768869997390010_0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c'
-    );
+    const totalStakedInUsd = await getTotalStakedInUsd(pool.smartGangster, hoes, 'tokens', 'DRUGS');
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseDrugsApy);
     apys[pool.name] = compound(simpleApy, BASE_HPY, 1, 0.94);

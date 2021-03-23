@@ -9,7 +9,7 @@ const { compound } = require('../../../utils/compound');
 
 const masterchef = '0x29142471a5c33a2a4cD7C8f18Ce881F699b0c681';
 const oracleId = 'PMP';
-const oracle = 'pancake';
+const oracle = 'tokens';
 const DECIMALS = '1e18';
 
 const getPumpyLpApys = async () => {
@@ -53,7 +53,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   const multiplier = new BigNumber(
-    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
+    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
   );
   const blockRewards = new BigNumber(await masterchefContract.methods.PMPPerBlock().call());
 

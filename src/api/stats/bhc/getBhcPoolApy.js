@@ -7,7 +7,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { BASE_HPY } = require('../../../../constants');
 
 const stakingPool = '0xf867ea84d04c79bbd812e76f3ecedf3d053fff91';
-const oracle = 'pancake';
+const oracle = 'tokens';
 const oracleId = 'BHC';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;

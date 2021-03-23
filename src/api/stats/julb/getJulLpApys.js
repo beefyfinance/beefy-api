@@ -8,7 +8,7 @@ const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../../constants');
 
-const oracle = 'julswap';
+const oracle = 'tokens';
 const oracleId = 'JULD';
 
 const DECIMALS = '1e18';
@@ -65,7 +65,7 @@ const getPoolApy = async (rewardPool, pool) => {
   return { [pool.name]: apy };
 };
 
-const getYearlyRewardsInUsd = async (julRewardPool) => {
+const getYearlyRewardsInUsd = async julRewardPool => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 
   const rewardPool = new web3.eth.Contract(IRewardPool, julRewardPool);

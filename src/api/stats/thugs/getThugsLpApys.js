@@ -56,7 +56,7 @@ const getYearlyRewardsInUsd = async (gangster, pool) => {
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
   const drugsPrice = await fetchPrice({
-    oracle: 'pancake',
+    oracle: 'tokens',
     id: 'DRUGS',
   });
   const yearlyRewardsInUsd = yearlyRewards.times(drugsPrice).dividedBy('1e18');

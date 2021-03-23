@@ -6,13 +6,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0x3f515f0a8e93F2E2f891ceeB3Db4e62e202d7110",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "VIDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BNB",
       "decimals": "1e18"
     }
@@ -24,13 +24,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "TWT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BNB",
       "decimals": "1e18"
     }
@@ -42,13 +42,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BNB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "XVS",
       "decimals": "1e18"
     }
@@ -60,13 +60,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "DOT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BNB",
       "decimals": "1e18"
     }
@@ -78,13 +78,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BNB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "UNI",
       "decimals": "1e18"
     }
@@ -96,13 +96,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BTCB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BNB",
       "decimals": "1e18"
     }
@@ -114,13 +114,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "JULD",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BNB",
       "decimals": "1e18"
     }
@@ -132,13 +132,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BNB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xca3f508b8e4dd382ee878a314789373d80a5190a",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BIFI",
       "decimals": "1e18"
     }
@@ -150,13 +150,13 @@
     "poolId": 0,
     "lp0": {
       "address": "0x5a41f637c3f7553dba6ddc2d3ca92641096577ea",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "JULD",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
-      "oracle": "julswap",
+      "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"
     }

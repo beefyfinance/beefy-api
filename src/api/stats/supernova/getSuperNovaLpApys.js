@@ -10,7 +10,7 @@ const { BASE_HPY } = require('../../../../constants');
 
 const chainId = 128;
 
-const oracle = 'mdex';
+const oracle = 'tokens';
 const oracleId = 'SHARE';
 
 const DECIMALS = '1e18';
@@ -42,7 +42,7 @@ const getPoolApy = async (rewardPool, pool, chainId) => {
   return { [pool.name]: apy };
 };
 
-const getYearlyRewardsInUsd = async (rewardPool) => {
+const getYearlyRewardsInUsd = async rewardPool => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 
   const rewardPoolContract = new web3.eth.Contract(IRewardPool, rewardPool);

@@ -6,13 +6,13 @@
     "poolId": 2,
     "lp0": {
       "address": "0x57067A6BD75c0E95a6A5f158455926e43E79BeB0",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "BLZD",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
@@ -24,13 +24,13 @@
     "poolId": 1,
     "lp0": {
       "address": "0x57067A6BD75c0E95a6A5f158455926e43E79BeB0",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "BLZD",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
-      "oracle": "pancake",
+      "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"
     }

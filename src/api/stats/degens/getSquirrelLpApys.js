@@ -9,7 +9,7 @@ const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
 const stakingPool = '0x03d9d14367127d477e6F340C59E57ab088220187';
 const oracleId = 'NUTS';
-const oracle = 'pancake';
+const oracle = 'tokens';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
@@ -38,7 +38,7 @@ const getPoolApy = async (stakingPool, pool) => {
   return { [pool.name]: apy };
 };
 
-const getYearlyRewardsInUsd = async (stakingPool) => {
+const getYearlyRewardsInUsd = async stakingPool => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 
   const rewardPool = new web3.eth.Contract(NutsLPStaking, stakingPool);

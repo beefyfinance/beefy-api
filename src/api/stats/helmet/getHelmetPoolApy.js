@@ -10,7 +10,7 @@ const { BASE_HPY } = require('../../../../constants');
 const getHelmetPoolApy = async () => {
   const stakingPool = '0x279a073C491C873DF040B05cc846A3c47252b52c';
   const helmet = '0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8';
-  const oracle = 'pancake';
+  const oracle = 'tokens';
   const oracleId = 'Helmet';
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
@@ -38,7 +38,7 @@ const getYearlyRewardsInUsd = async stakingPool => {
   const secondsPerYear = 31536000;
   const yearlyRewards = rewardForDuration.div(rewardsDurationSeconds).times(secondsPerYear);
 
-  const price = await fetchPrice({ oracle: 'pancake', id: 'Helmet' });
+  const price = await fetchPrice({ oracle: 'tokens', id: 'Helmet' });
   const yearlyRewardsInUsd = yearlyRewards.times(price).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
