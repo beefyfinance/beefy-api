@@ -9,7 +9,7 @@
       "address": "0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB",
       "oracle": "tokens",
       "oracleId": "WBTC",
-      "decimals": "1e18"
+      "decimals": "1e8"
     },
     "lp1": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
