@@ -159,5 +159,19 @@
     "rewardDecimals": "1e18",
     "rewardOracle": "tokens",
     "rewardOracleId": "NUTS"
+  },
+  {
+    "id": "moo_cake_bnb-space'",
+    "name": "SPACE Reward Pool",
+    "address": "0x680dDCDAB13735d11a09d3c6d60867B2C75861bE",
+    "isMooStaked": true,
+    "stakedToken": "0x5DA77c7DBF6dBa1155CF343db06a7D79aaaad9Ee",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "lps",
+    "stakedOracleId": "auto-cake-bnb",
+    "rewardToken": "0x0abd3E3502c15ec252f90F64341cbA74a24fba06",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "tokens",
+    "rewardOracleId": "SPACE"
   }
 ]
