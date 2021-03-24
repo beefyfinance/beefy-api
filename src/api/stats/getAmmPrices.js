@@ -3,6 +3,7 @@ const { sleep } = require('../../utils/time');
 
 const bakeryPools = require('../../data/bakeryLpPools.json');
 const blizzardLpPools = require('../../data/degens/blizzardLpPools.json');
+const alpacaLpPools = require('../../data/alpacaLpPools.json');
 const cafePools = require('../../data/cafeLpPools.json');
 const cakeLpPools = require('../../data/cakeLpPools.json');
 const cakePools = require('../../data/cakePools.json');
@@ -58,6 +59,7 @@ const pools = [
   ...memePools,
   ...julPools,
   ...autoPools,
+  ...alpacaLpPools,
   ...soupPools,
   ...apePools,
   ...saltPools,
