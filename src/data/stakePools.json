@@ -161,7 +161,7 @@
     "rewardOracleId": "NUTS"
   },
   {
-    "id": "moo_cake_bnb-space'",
+    "id": "moo_cake_bnb-space",
     "name": "SPACE Reward Pool",
     "address": "0x680dDCDAB13735d11a09d3c6d60867B2C75861bE",
     "isMooStaked": true,
