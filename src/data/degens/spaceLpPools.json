@@ -1,0 +1,38 @@
+[
+  {
+    "name": "space-space-busd",
+    "address": "0x6B936c5C1FD7De08E03684b0588A87DBD8ce6b63",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0x0abd3e3502c15ec252f90f64341cba74a24fba06",
+      "oracle": "tokens",
+      "oracleId": "SPACE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "space-space-bnb",
+    "address": "0x78D9a0c50F6484291b4122f61888Bb9EE71879Ff",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x0abd3e3502c15ec252f90f64341cba74a24fba06",
+      "oracle": "tokens",
+      "oracleId": "SPACE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]
