@@ -10,8 +10,8 @@ const FIRST_REWARD_BLOCK = 1457038;
 
 // pre-calculated rewards for specific block to get them fetched faster
 // can be updated with the values from the "getRewardsReceived" log below
-const CACHED_REWARDS = '9820641646987732537813'
-const CACHED_REWARD_BLOCK = 5725180
+const CACHED_REWARDS = '11913596032480523065355'
+const CACHED_REWARD_BLOCK = 5996613
 
 const REWARD_POOL = '0x453D4Ba9a2D594314DF88564248497F7D74d6b2C';
 const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
