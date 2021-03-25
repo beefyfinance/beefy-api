@@ -1,7 +1,7 @@
 const { getDailyEarnings }   = require('../../../utils/getDailyEarnings');
 const { getRewardsReceived } = require('../../../utils/getRewardsReceived');
 
-const INIT_DELAY = 10 * 60 * 1000;
+const INIT_DELAY = 0 * 60 * 1000;
 const INTERVAL = 60 * 60 * 1000;
 
 let earned = {};
@@ -9,6 +9,7 @@ let earned = {};
 const updateEarnings = async () => {
   console.log('> updating earnings');
 
+  // TODO: this looks like a nice candidate for a subgraph
   try {
     earned = await getDailyEarnings();
     earned.total = await getRewardsReceived();

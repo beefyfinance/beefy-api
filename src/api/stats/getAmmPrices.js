@@ -41,7 +41,7 @@ const supernovaPools = require('../../data/supernovaLpPools.json');
 const pumpyPools = require('../../data/pumpyLpPools.json');
 const spacePools = require('../../data/degens/spaceLpPools.json');
 
-const INIT_DELAY = 30 * 1000;
+const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
 
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
