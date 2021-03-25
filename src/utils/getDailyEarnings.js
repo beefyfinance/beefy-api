@@ -35,6 +35,7 @@ const getDailyEarnings = async () => {
       earnings.forEach(x => (totalEarnings += parseInt(x.value)));
 
       page++;
+      sleep(100);
     }
   } catch (err) { 
     console.error('Daily earnings error:', err);
@@ -46,5 +47,9 @@ const getDailyEarnings = async () => {
     endBlock: endBlock,
   };
 };
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 module.exports = { getDailyEarnings };
