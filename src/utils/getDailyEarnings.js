@@ -40,7 +40,11 @@ const getDailyEarnings = async () => {
     };
   } catch (err){
     console.error('Daily earnings error:', err);
-    return {};
+    return {
+      daily: 0,
+      startBlock: startBlock,
+      endBlock: endBlock,
+    };
   }
   
 };
