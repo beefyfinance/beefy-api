@@ -25,7 +25,7 @@ const getNautApy = async () => {
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, BASE_HPY, 1, 0.94);
-  console.log('naut', simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+  // console.log('naut', simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { 'naut-naut-bnb': apy };
 };
 
