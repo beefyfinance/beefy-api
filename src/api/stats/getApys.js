@@ -41,6 +41,7 @@ const getSuperNovaLpApys = require('./supernova/getSuperNovaLpApys');
 const getPumpyLpApys = require('./pumpy/getPumpyLpApys');
 const getAlpacaLpApys = require('./alpaca/getAlpacaLpApys');
 const getAlpacaApys = require('./alpaca/getAlpacaApys');
+const getEllipsisLpApys = require('./ellipsis/getEllipsisLpApys');
 
 const INIT_DELAY = 4 * 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -99,6 +100,7 @@ const updateApys = async () => {
       getPumpyLpApys(),
       getAlpacaLpApys(),
       getAlpacaApys(),
+      getEllipsisLpApys(),
     ]);
 
     for (item of values) {

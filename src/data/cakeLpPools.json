@@ -1,5 +1,77 @@
 [
   {
+    "name": "cake-zil-bnb",
+    "address": "0xc746337b5F800a0e19eD4eB3bda03FF1401B8167",
+    "decimals": "1e18",
+    "poolId": 108,
+    "lp0": {
+      "address": "0xb86AbCb37C3A4B64f74f59301AFF131a1BEcC787",
+      "oracle": "tokens",
+      "oracleId": "ZIL",
+      "decimals": "1e12"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-pcws-bnb",
+    "address": "0x889E81d25bFfbA437b2a5d3e0E4FC58a0E2749c5",
+    "decimals": "1e18",
+    "poolId": 107,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbcf39F0EDDa668C58371E519AF37CA705f2bFcbd",
+      "oracle": "tokens",
+      "oracleId": "pCWS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-lto-bnb",
+    "address": "0x85644FcD00C401E1A0a0a10d2aE6Bbe04A73e4ab",
+    "decimals": "1e18",
+    "poolId": 103,
+    "lp0": {
+      "address": "0x857B222Fc79e1cBBf8Ca5f78CB133d1b7CF34BBd",
+      "oracle": "tokens",
+      "oracleId": "LTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-trade-bnb",
+    "address": "0x2562f94E90dE6D9eb4fB6B3b8Eab56b15Aa4FC72",
+    "decimals": "1e18",
+    "poolId": 101,
+    "lp0": {
+      "address": "0x7af173F350D916358AF3e218Bdf2178494Beb748",
+      "oracle": "tokens",
+      "oracleId": "TRADE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-bbadger-btcb",
     "address": "0x10F461CEAC7A17F59e249954Db0784d42EfF5DB5",
     "decimals": "1e18",
