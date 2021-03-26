@@ -173,5 +173,20 @@
     "rewardDecimals": "1e18",
     "rewardOracle": "tokens",
     "rewardOracleId": "SPACE"
+  },
+
+  {
+    "id": "moo_auto_wbnb-naut",
+    "name": "ASTRONAUT Reward Pool",
+    "address": "0x47F7CbE34aD6f857662759CDAECC48152237d135",
+    "isMooStaked": true,
+    "stakedToken": "0x5B06aA1ebd2e15bC6001076355E5B4C39Cbc83F3",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "tokens",
+    "stakedOracleId": "WBNB",
+    "rewardToken": "0x05B339B0A346bF01f851ddE47a5d485c34FE220c",
+    "rewardDecimals": "1e8",
+    "rewardOracle": "tokens",
+    "rewardOracleId": "NAUT"
   }
 ]
