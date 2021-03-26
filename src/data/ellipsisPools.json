@@ -1,0 +1,27 @@
+[
+  {
+    "name": "ellipsis-3eps",
+    "poolId": 1,
+    "oracle": "lps",
+    "oracleId": "ellipsis-3eps"
+  },
+  {
+    "name": "ellipsis-eps-bnb",
+    "address": "0xf9045866e7b372DeF1EFf3712CE55FAc1A98dAF0",
+    "poolId": 0,
+    "oracle": "lps",
+    "oracleId": "ellipsis-eps-bnb",
+    "lp0": {
+      "address": "0xa7f552078dcc247c2684336020c03648500c6d9f",
+      "oracle": "tokens",
+      "oracleId": "EPS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -9,6 +9,7 @@ const getMemeFarmApys = require('./getMemeFarmLpApys');
 const getSquirrelApys = require('./getSquirrelLpApys');
 const getSlimeApys = require('./getSlimeLpApys');
 const getSpaceLpApys = require('./getSpaceLpApys');
+const getNautApy = require('./getNautApy');
 
 const getApys = [
   getRamenLpApys,
@@ -22,6 +23,7 @@ const getApys = [
   getSquirrelApys,
   getSlimeApys,
   getSpaceLpApys,
+  getNautApy,
 ];
 
 const getDegensLpApys = async () => {
