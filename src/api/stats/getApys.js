@@ -42,6 +42,7 @@ const getPumpyLpApys = require('./pumpy/getPumpyLpApys');
 const getAlpacaLpApys = require('./alpaca/getAlpacaLpApys');
 const getAlpacaApys = require('./alpaca/getAlpacaApys');
 const getEllipsisLpApys = require('./ellipsis/getEllipsisLpApys');
+const get1inchApy = require('./1inch/get1inchApy');
 
 const INIT_DELAY = 4 * 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -88,6 +89,7 @@ const updateApys = async () => {
       getCafeLpApys(),
       getRamenLpApys(),
       get1inchLpApys(),
+      get1inchApy(),
       getDegensLpApys(),
       getJulLpApys(),
       getBeltApys(),
