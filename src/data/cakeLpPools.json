@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-mir-ust",
+    "address": "0xf64a269F0A06dA07D23F43c1Deb217101ee6Bee7",
+    "decimals": "1e18",
+    "poolId": 102,
+    "lp0": {
+      "address": "0x5b6dcf557e2abe2323c48445e8cc948910d8c2c9",
+      "oracle": "tokens",
+      "oracleId": "MIR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x23396cf899ca06c4472205fc903bdb4de249d6fc",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-zil-bnb",
     "address": "0xc746337b5F800a0e19eD4eB3bda03FF1401B8167",
     "decimals": "1e18",

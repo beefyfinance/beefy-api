@@ -1,19 +1,15 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/MasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/cakeLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BASE_HPY } = require('../../../../constants');
 
-const getCakeLpApys = async () => {
+const getMasterChefApys = async (masterchef, masterChefAbi, tokenPerBlock, pools, oracle, oracleId, decimals) => {
   let apys = {};
-  const masterchef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
 
   let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
+  pools.forEach(pool => promises.push(getPoolApy(masterchef, masterChefAbi, tokenPerBlock, pool, oracle, oracleId, decimals)));
   const values = await Promise.all(promises);
 
   for (item of values) {
@@ -23,25 +19,25 @@ const getCakeLpApys = async () => {
   return apys;
 };
 
-const getPoolApy = async (masterchef, pool) => {
+const getPoolApy = async (masterchef, masterChefAbi, tokenPerBlock, pool, oracle, oracleId, decimals) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(masterchef, pool),
+    getYearlyRewardsInUsd(masterchef, masterChefAbi, pool, tokenPerBlock, oracle, oracleId, decimals),
     getTotalLpStakedInUsd(masterchef, pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
   // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { [pool.name]: apy };
 };
 
-const getYearlyRewardsInUsd = async (masterchef, pool) => {
+const getYearlyRewardsInUsd = async (masterchef, masterChefAbi, pool, tokenPerBlock, oracle, oracleId, decimals) => {
   const blockNum = await web3.eth.getBlockNumber();
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = new web3.eth.Contract(masterChefAbi, masterchef);
 
   const multiplier = new BigNumber(
-    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
+    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
   );
-  const blockRewards = new BigNumber(await masterchefContract.methods.cakePerBlock().call());
+  const blockRewards = new BigNumber(await masterchefContract.methods[tokenPerBlock]().call());
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);
@@ -56,10 +52,10 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const cakePrice = await fetchPrice({ oracle: 'tokens', id: 'Cake' });
-  const yearlyRewardsInUsd = yearlyRewards.times(cakePrice).dividedBy('1e18');
+  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
+  const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(decimals);
 
   return yearlyRewardsInUsd;
 };
 
-module.exports = { getCakeLpApys, getYearlyRewardsInUsd };
+module.exports = getMasterChefApys;

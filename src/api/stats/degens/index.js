@@ -10,6 +10,9 @@ const getSquirrelApys = require('./getSquirrelLpApys');
 const getSlimeApys = require('./getSlimeLpApys');
 const getSpaceLpApys = require('./getSpaceLpApys');
 const getNautApy = require('./getNautApy');
+const getHpsApys = require('./getHpsApys');
+const getZefiLpApys = require('./getZefiLpApys');
+const getThunderLpApys = require('./getThunderLpApys');
 
 const getApys = [
   getRamenLpApys,
@@ -24,6 +27,9 @@ const getApys = [
   getSlimeApys,
   getSpaceLpApys,
   getNautApy,
+  getHpsApys,
+  getZefiLpApys,
+  getThunderLpApys,
 ];
 
 const getDegensLpApys = async () => {

@@ -42,6 +42,10 @@ const pumpyPools = require('../../data/pumpyLpPools.json');
 const spacePools = require('../../data/degens/spaceLpPools.json');
 const nautPools = require('../../data/degens/nautLpPools.json');
 const ellipsisPools = require('../../data/ellipsisLpPools.json');
+const hpsPools = require('../../data/degens/hpsLpPools.json');
+const zefiPools = require('../../data/degens/zefiLpPools.json');
+const thunderPools = require('../../data/degens/thunderLpPools.json');
+const swirlPools = require('../../data/swirlLpPools.json');
 
 const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
@@ -49,6 +53,10 @@ const REFRESH_INTERVAL = 10 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...swirlPools,
+  ...thunderPools,
+  ...zefiPools,
+  ...hpsPools,
   ...ellipsisPools,
   ...nautPools,
   ...spacePools,
