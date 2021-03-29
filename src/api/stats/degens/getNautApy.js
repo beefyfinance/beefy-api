@@ -5,7 +5,8 @@ const SmartChef = require('../../../abis/SmartChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY } = require('../../../../constants');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const smartChef = '0x114d54e18eb4A7Dc9bB8280e283E5799D4188E3f';
 const oracle = 'tokens';
@@ -32,7 +33,7 @@ const getNautApy = async () => {
 const getYearlyRewardsInUsd = async (smartChefAddr, oracle, oracleId, decimals) => {
   const smartChefContract = new web3.eth.Contract(SmartChef, smartChefAddr);
 
-  const currentBlock = await web3.eth.getBlockNumber();
+  const currentBlock = await getBlockNumber(BSC_CHAIN_ID);
   const bonusEndBlock = await smartChefContract.methods.bonusEndBlock().call();
   const isPoolRunning = currentBlock <= bonusEndBlock;
 

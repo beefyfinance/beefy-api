@@ -4,6 +4,8 @@ const { bscWeb3: web3 } = require('../../../utils/web3');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const { BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const getMasterChefApys = async (masterchef, masterChefAbi, tokenPerBlock, pools, oracle, oracleId, decimals) => {
   let apys = {};
@@ -31,7 +33,7 @@ const getPoolApy = async (masterchef, masterChefAbi, tokenPerBlock, pool, oracle
 };
 
 const getYearlyRewardsInUsd = async (masterchef, masterChefAbi, pool, tokenPerBlock, oracle, oracleId, decimals) => {
-  const blockNum = await web3.eth.getBlockNumber();
+  const blockNum = await getBlockNumber(BSC_CHAIN_ID);
   const masterchefContract = new web3.eth.Contract(masterChefAbi, masterchef);
 
   const multiplier = new BigNumber(
