@@ -188,5 +188,20 @@
     "rewardDecimals": "1e8",
     "rewardOracle": "tokens",
     "rewardOracleId": "NAUT"
+  },
+
+  {
+    "id": "moo_1inch-hps",
+    "name": "1inch Reward Pool",
+    "address": "0x9ae4496b063f5715561Cbe8f1d389a3FE4720258",
+    "isMooStaked": true,
+    "stakedToken": "0xBa53AF4C2f1649F82e8070FB306DDBF2771A1950",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "tokens",
+    "stakedOracleId": "1INCH",
+    "rewardToken": "0xeDa21B525Ac789EaB1a08ef2404dd8505FfB973D",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "tokens",
+    "rewardOracleId": "HPS"
   }
 ]
