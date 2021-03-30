@@ -7,7 +7,8 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/drugsPools.json');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY } = require('../../../../constants');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const getDrugsApys = async () => {
   const apys = {};
@@ -35,7 +36,7 @@ const getDrugsApys = async () => {
 const getYearlyRewardsInUsd = async (smartGangsterAddr, oracle, oracleId, decimals) => {
   const smartGangsterContract = new web3.eth.Contract(SmartGangster, smartGangsterAddr);
 
-  const currentBlock = await web3.eth.getBlockNumber();
+  const currentBlock = await getBlockNumber(BSC_CHAIN_ID);
   const bonusEndBlock = await smartGangsterContract.methods.bonusEndBlock().call();
   const isPoolRunning = currentBlock <= bonusEndBlock;
 

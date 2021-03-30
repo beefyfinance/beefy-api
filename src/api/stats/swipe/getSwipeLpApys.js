@@ -6,6 +6,8 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/swipeLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const { BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const masterchef = '0xe6421c0cc2d647be51c11ae952927ab38dd6f753';
 const oracleId = 'SXP';
@@ -38,7 +40,7 @@ const getPoolApy = async (masterchef, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
-  const blockNum = await web3.eth.getBlockNumber();
+  const blockNum = await getBlockNumber(BSC_CHAIN_ID);
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   const multiplier = new BigNumber(

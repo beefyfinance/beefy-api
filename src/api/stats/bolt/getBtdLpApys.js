@@ -6,7 +6,8 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/boltBtdLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BASE_HPY } = require('../../../../constants');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const getBtdLpApys = async () => {
   let apys = {};
@@ -35,7 +36,7 @@ const getPoolApy = async (btsRewardPool, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (btsRewardPool, poolId) => {
-  const currentBlock = await web3.eth.getBlockNumber();
+  const currentBlock = await getBlockNumber(BSC_CHAIN_ID)
   const btdRewardPoolContract = new web3.eth.Contract(BtdRewardPool, btsRewardPool);
 
   let [blockRewards, totalAllocPoint] = await Promise.all([

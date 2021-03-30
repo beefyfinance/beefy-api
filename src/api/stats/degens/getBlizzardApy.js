@@ -5,7 +5,8 @@ const MasterChef = require('../../../abis/degens/BlizzardMasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY } = require('../../../../constants');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const getBlizzardApy = async () => {
   const masterChef = '0x2078F4A75c92A6918D13e3e2F14183443ebf55D3';
@@ -25,7 +26,7 @@ const getBlizzardApy = async () => {
 };
 
 const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
-  const fromBlock = await web3.eth.getBlockNumber();
+  const fromBlock = await getBlockNumber(BSC_CHAIN_ID);
   const toBlock = fromBlock + 1;
   const masterChefContract = new web3.eth.Contract(MasterChef, masterChefAddr);
 

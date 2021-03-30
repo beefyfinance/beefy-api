@@ -6,6 +6,8 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/degens/saltLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const { BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const masterchef = '0xB4405445fFAcF2B86BC2bD7D1C874AC739265658';
 const oracleId = 'SALT';
@@ -37,7 +39,7 @@ const getPoolApy = async (masterchef, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
-  const blockNum = await web3.eth.getBlockNumber();
+  const blockNum = await getBlockNumber(BSC_CHAIN_ID);
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   const multiplier = new BigNumber(

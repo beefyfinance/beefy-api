@@ -6,7 +6,8 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/cakePools.json');
 const { compound } = require('../../../utils/compound');
-const { HOURLY_HPY } = require('../../../../constants');
+const { HOURLY_HPY, BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const getCakeApys = async () => {
   let apys = {};
@@ -42,7 +43,7 @@ const getPoolApy = async pool => {
 const getYearlyRewardsInUsd = async (smartChefAddr, oracle, oracleId, decimals) => {
   const smartChefContract = new web3.eth.Contract(SmartChef, smartChefAddr);
 
-  const currentBlock = await web3.eth.getBlockNumber();
+  const currentBlock = await getBlockNumber(BSC_CHAIN_ID);
   const bonusEndBlock = await smartChefContract.methods.bonusEndBlock().call();
   const isPoolRunning = currentBlock <= bonusEndBlock;
 

@@ -1,6 +1,8 @@
 const { bscWeb3: web3 } = require('./web3');
 const BigNumber = require('bignumber.js');
 const { sleep } = require('./time');
+const { BSC_CHAIN_ID } = require('../../constants');
+const getBlockNumber = require('./getBlockNumber');
 
 const { getTopicFromSignature, getTopicFromAddress, getValueFromData } = require('./topicHelpers');
 
@@ -10,8 +12,8 @@ const FIRST_REWARD_BLOCK = 1457038;
 
 // pre-calculated rewards for specific block to get them fetched faster
 // can be updated with the values from the "getRewardsReceived" log below
-const CACHED_REWARDS = '11913596032480523065355'
-const CACHED_REWARD_BLOCK = 5996613
+const CACHED_REWARDS = '12666620458793696118763'
+const CACHED_REWARD_BLOCK = 6114579
 
 const REWARD_POOL = '0x453D4Ba9a2D594314DF88564248497F7D74d6b2C';
 const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
@@ -21,13 +23,13 @@ const getRewardsReceived = async () => {
 
   const transferTopic = getTopicFromSignature('Transfer(address,address,uint256)');
   const toTopic = getTopicFromAddress(REWARD_POOL);
-  
-  const lastBlock = await web3.eth.getBlockNumber();
+
+  const lastBlock = await getBlockNumber(BSC_CHAIN_ID);
   let fromBlock = CACHED_REWARD_BLOCK;
 
   while (fromBlock < lastBlock) {
     let toBlock = fromBlock + RPC_QUERY_LIMIT;
-    if (toBlock > lastBlock) { 
+    if (toBlock > lastBlock) {
       toBlock = lastBlock;
     }
 
@@ -42,7 +44,7 @@ const getRewardsReceived = async () => {
       const value = getValueFromData(logs[i].data);
       result = result.plus(value);
     }
-   
+
     await sleep(RPC_QUERY_INTERVAL);
 
     fromBlock = toBlock;
