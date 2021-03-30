@@ -7,6 +7,8 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/beltPools.json');
 const { compound } = require('../../../utils/compound');
 const getBeltVenusLpPrice = require('./getBeltVenusLpPrice');
+const { BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const masterbelt = '0xD4BbC80b9B102b77B21A06cb77E954049605E6c1';
 const oracleId = 'BELT';
@@ -55,7 +57,7 @@ const getTotalLpStakedInUsd = async (masterbelt, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (masterbelt, pool) => {
-  const blockNum = await web3.eth.getBlockNumber();
+  const blockNum = await getBlockNumber(BSC_CHAIN_ID);
   const masterbeltContract = new web3.eth.Contract(MasterBelt, masterbelt);
 
   const multiplier = new BigNumber(

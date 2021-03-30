@@ -6,6 +6,8 @@ const Strat = require('../../../abis/AutoStratX.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/pumpyLpPools.json');
 const { compound } = require('../../../utils/compound');
+const { BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const masterchef = '0x29142471a5c33a2a4cD7C8f18Ce881F699b0c681';
 const oracleId = 'PMP';
@@ -49,7 +51,7 @@ const getTotalLpStakedInUsd = async (masterchef, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
-  const blockNum = await web3.eth.getBlockNumber();
+  const blockNum = await getBlockNumber(BSC_CHAIN_ID);
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   const multiplier = new BigNumber(
