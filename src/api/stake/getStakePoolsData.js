@@ -5,6 +5,7 @@ const IRewardPool = require('../../abis/IRewardPool.json');
 const MooToken = require('../../abis/MooToken.json');
 const fetchPrice = require('../../utils/fetchPrice');
 const pools = require('../../data/stakePools.json');
+const getEllipsis3PoolPrice = require('../stats/ellipsis/getEllipsis3PoolPrice');
 
 const INTERVAL = 3 * 60 * 1000;
 const INIT_DELAY = 4 * 60 * 1000;
@@ -54,7 +55,10 @@ const getPoolData = async pool => {
 const getTotalStaked = async pool => {
   const tokenContract = new web3.eth.Contract(IRewardPool, pool.address);
   let totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
-  const tokenPrice = await fetchPrice({ oracle: pool.stakedOracle, id: pool.stakedOracleId });
+  let tokenPrice = await fetchPrice({ oracle: pool.stakedOracle, id: pool.stakedOracleId });
+  if (pool.id === 'moo_ellipsis_3pool-zefi') {
+    tokenPrice = (await getEllipsis3PoolPrice())['ellipsis-3eps'];
+  }
   if (pool.isMooStaked) {
     const mooToken = new web3.eth.Contract(MooToken, pool.stakedToken);
     const pricePerShare = new BigNumber(await mooToken.methods.getPricePerFullShare().call());
