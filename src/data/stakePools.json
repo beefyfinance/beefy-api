@@ -203,5 +203,20 @@
     "rewardDecimals": "1e18",
     "rewardOracle": "tokens",
     "rewardOracleId": "HPS"
+  },
+
+  {
+    "id": "moo_ellipsis_3pool-zefi",
+    "name": "ZCORE Reward Pool",
+    "address": "0xc7ccd3520bEa91a87ecf39Ed39d9BD59946ED2b5",
+    "isMooStaked": true,
+    "stakedToken": "0xE563c046147b4dF98bfCD3d00Dc54511F0c3b752",
+    "stakedDecimals": "1e18",
+    "stakedOracle": "lps",
+    "stakedOracleId": "ellipsis-3eps",
+    "rewardToken": "0x0288D3E353fE2299F11eA2c2e1696b4A648eCC07",
+    "rewardDecimals": "1e18",
+    "rewardOracle": "tokens",
+    "rewardOracleId": "ZEFI"
   }
 ]
