@@ -1,3 +1,4 @@
+const axios = require('axios');
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
@@ -6,7 +7,6 @@ const VaultPool = require('../../../abis/BeltVaultPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/beltPools.json');
 const { compound } = require('../../../utils/compound');
-const getBeltVenusLpPrice = require('./getBeltVenusLpPrice');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
@@ -34,10 +34,29 @@ const getPoolApy = async (masterchef, pool) => {
     getYearlyRewardsInUsd(masterchef, pool),
     getTotalLpStakedInUsd(masterchef, pool),
   ]);
-  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  let simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const baseApy = await fetchBeltLpBaseApy(pool);
+  if (baseApy > 0) {
+    simpleApy = simpleApy.plus(baseApy);
+  }
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
   // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { [pool.name]: apy };
+};
+
+const fetchBeltLpBaseApy = async (pool) => {
+  if (pool.poolId !== 0) return 0;
+  try {
+    const response = await axios.get('https://s.belt.fi/status/getMainInfo.json');
+    const baseApy = Number(response.data.vaultPools.filter(p => p.pid === '0')[0].baseAPY);
+    if (baseApy > 0) {
+      return baseApy / 100;
+    }
+    return 0;
+  } catch (err) {
+    console.error(err);
+    return 0;
+  }
 };
 
 const getTotalLpStakedInUsd = async (masterbelt, pool) => {
@@ -46,13 +65,7 @@ const getTotalLpStakedInUsd = async (masterbelt, pool) => {
 
   const poolContract = new web3.eth.Contract(VaultPool, strat);
   const wantLockedTotal = new BigNumber(await poolContract.methods.wantLockedTotal().call());
-
-  let tokenPrice;
-  if (pool.poolId === 0) {
-    tokenPrice = (await getBeltVenusLpPrice())[pool.name];
-  } else {
-    tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
-  }
+  const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
   return wantLockedTotal.times(tokenPrice).dividedBy(DECIMALS);
 };
 
@@ -61,7 +74,7 @@ const getYearlyRewardsInUsd = async (masterbelt, pool) => {
   const masterbeltContract = new web3.eth.Contract(MasterBelt, masterbelt);
 
   const multiplier = new BigNumber(
-    await masterbeltContract.methods.getMultiplier(blockNum - 1, blockNum).call()
+    await masterbeltContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
   );
   const blockRewards = new BigNumber(await masterbeltContract.methods.BELTPerBlock().call());
 

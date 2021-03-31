@@ -1,5 +1,77 @@
 [
   {
+    "name": "cake-pbtc-bnb",
+    "address": "0xb5F6f7dAD23132d40d778085D795BD0FD4B859CD",
+    "decimals": "1e18",
+    "poolId": 112,
+    "lp0": {
+      "address": "0xeD28A457A5A76596ac48d87C0f577020F6Ea1c4C",
+      "oracle": "tokens",
+      "oracleId": "PBTC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-dft-bnb",
+    "address": "0x8FbCbD7e30b1733965a8980bf7Ae2ca1c0C456cc",
+    "decimals": "1e18",
+    "poolId": 111,
+    "lp0": {
+      "address": "0x42712dF5009c20fee340B245b510c0395896cF6e",
+      "oracle": "tokens",
+      "oracleId": "DFT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-swth-bnb",
+    "address": "0x8c5cFfad6cddb96Ee33DA685D0d50a37e030E115",
+    "decimals": "1e18",
+    "poolId": 110,
+    "lp0": {
+      "address": "0x250b211EE44459dAd5Cd3bCa803dD6a7EcB5d46C",
+      "oracle": "tokens",
+      "oracleId": "SWTH",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cake-lien-bnb",
+    "address": "0xcd14855150335AAE984aa6D281E090c27035C692",
+    "decimals": "1e18",
+    "poolId": 109,
+    "lp0": {
+      "address": "0x5d684ADaf3FcFe9CFb5ceDe3abf02F0Cdd1012E3",
+      "oracle": "tokens",
+      "oracleId": "LIEN",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-mir-ust",
     "address": "0xf64a269F0A06dA07D23F43c1Deb217101ee6Bee7",
     "decimals": "1e18",
