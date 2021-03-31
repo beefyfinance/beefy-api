@@ -46,6 +46,8 @@ const hpsPools = require('../../data/degens/hpsLpPools.json');
 const zefiPools = require('../../data/degens/zefiLpPools.json');
 const thunderPools = require('../../data/degens/thunderLpPools.json');
 const swirlPools = require('../../data/swirlLpPools.json');
+const getBeltVenusLpPrice = require('./belt/getBeltVenusLpPrice');
+const getEllipsis3PoolPrice = require('./ellipsis/getEllipsis3PoolPrice');
 
 const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
@@ -118,8 +120,10 @@ const updateAmmPrices = async () => {
   isProcessing = true;
   try {
     let { poolPrices, tokenPrices } = await fetchAmmPoolsPrices(pools, knownPrices);
+    const beltVenusBLP = await getBeltVenusLpPrice();
+    const eps3PoolLP = await getEllipsis3PoolPrice();
     tokenPricesCache = tokenPrices;
-    lpPricesCache = poolPrices;
+    lpPricesCache = { ...poolPrices, ...beltVenusBLP, ...eps3PoolLP };
   } catch (err) {
     console.error(err);
   }
