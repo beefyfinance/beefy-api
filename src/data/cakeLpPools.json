@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-gum-bnb",
+    "address": "0x155645cDF8e4B28d5B7790b65d9f79efc222740C",
+    "decimals": "1e18",
+    "poolId": 113,
+    "lp0": {
+      "address": "0xc53708664b99DF348dd27C3Ac0759d2DA9c40462",
+      "oracle": "tokens",
+      "oracleId": "GUM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-pbtc-bnb",
     "address": "0xb5F6f7dAD23132d40d778085D795BD0FD4B859CD",
     "decimals": "1e18",
