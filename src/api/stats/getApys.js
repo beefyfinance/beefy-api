@@ -5,6 +5,7 @@ const getFortubeApys = require('./fortube/getFortubeApys');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
 const getBakeryLpApys = require('./bakery/getBakeryLpApys');
+const getHyperJumpLpApys = require('./hyperjump/getHyperJumpLpApys')
 const getNarLpApys = require('./narwhal/getNarLpApys');
 const getVenusApys = require('./venus/getVenusApys');
 const getJetfuelLpApys = require('./jetfuel/getJetfuelLpApys');
@@ -66,6 +67,7 @@ const updateApys = async () => {
       getFortubeApys(),
       getBakePoolApy(),
       getBakeryLpApys(),
+      getHyperJumpLpApys(),
       getNarLpApys(),
       getVenusApys(),
       getJetfuelLpApys(),
