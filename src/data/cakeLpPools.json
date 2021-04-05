@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-nrv-bnb",
+    "address": "0x5a805994a2E30aC710e7376ccc0211285bD4dD92",
+    "decimals": "1e18",
+    "poolId": 115,
+    "lp0": {
+      "address": "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
+      "oracle": "tokens",
+      "oracleId": "NRV",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-dego-bnb",
     "address": "0x17F0b998B81cE75074a7CDAdAe6D63Da3cb23572",
     "decimals": "1e18",

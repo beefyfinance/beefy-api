@@ -13,7 +13,9 @@ const getNautApy = require('./getNautApy');
 const getHpsApys = require('./getHpsApys');
 const getZefiLpApys = require('./getZefiLpApys');
 const getThunderLpApys = require('./getThunderLpApys');
-const getSwampyLpApys =require('./getSwampyLpApys');
+const getSwampyLpApys = require('./getSwampyLpApys');
+const getYieldBayLpApys = require('./getYieldBayLpApys');
+const getBingoLpApys = require('./getBingoLpApys');
 
 const getApys = [
   getRamenLpApys,
@@ -32,6 +34,8 @@ const getApys = [
   getZefiLpApys,
   getThunderLpApys,
   getSwampyLpApys,
+  getYieldBayLpApys,
+  getBingoLpApys,
 ];
 
 const getDegensLpApys = async () => {
