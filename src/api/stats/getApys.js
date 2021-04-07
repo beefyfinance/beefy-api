@@ -44,6 +44,7 @@ const getAlpacaApys = require('./alpaca/getAlpacaApys');
 const getEllipsisLpApys = require('./ellipsis/getEllipsisLpApys');
 const get1inchApy = require('./1inch/get1inchApy');
 const getSwirlLpApys = require('./swirl/getSwirlLpApys');
+const getOliveLpApys = require('./olive/getOliveLpApys');
 
 const INIT_DELAY = 4 * 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -105,6 +106,7 @@ const updateApys = async () => {
       getAlpacaApys(),
       getEllipsisLpApys(),
       getSwirlLpApys(),
+      getOliveLpApys()
     ]);
 
     for (item of values) {
