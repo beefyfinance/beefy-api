@@ -17,6 +17,7 @@ const getSwampyLpApys = require('./getSwampyLpApys');
 const getSwampyCakeLpApys = require('./getSwampyCakeLpApys');
 const getYieldBayLpApys = require('./getYieldBayLpApys');
 const getBingoLpApys = require('./getBingoLpApys');
+const getSwampyCakeApy = require('./getSwampyCakeApy');
 
 const getApys = [
   getRamenLpApys,
@@ -36,6 +37,7 @@ const getApys = [
   getThunderLpApys,
   getSwampyLpApys,
   getSwampyCakeLpApys,
+  getSwampyCakeApy,
   getYieldBayLpApys,
   getBingoLpApys,
 ];
