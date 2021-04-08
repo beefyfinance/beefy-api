@@ -43,7 +43,7 @@ const getPoolApy = async (masterchef, swampchef, pool) => {
   const simpleApyCake = cakeYearlyRewardsInUsd.dividedBy(cakeTotalStakedInUsd);
   const simpleApy = new BigNumber(simpleApyCake.plus(simpleApySwamp));
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-   console.log(pool.name, simpleApyCake.valueOf(), simpleApySwamp.valueOf(), simpleApy, apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf(), cakeTotalStakedInUsd.valueOf(), cakeYearlyRewardsInUsd.valueOf());
+  // console.log(pool.name, simpleApyCake.valueOf(), simpleApySwamp.valueOf(), simpleApy, apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf(), cakeTotalStakedInUsd.valueOf(), cakeYearlyRewardsInUsd.valueOf());
   return { [pool.name]: apy };
 };
 

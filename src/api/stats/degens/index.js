@@ -17,6 +17,7 @@ const getSwampyLpApys = require('./getSwampyLpApys');
 const getSwampyCakeLpApys = require('./getSwampyCakeLpApys');
 const getYieldBayLpApys = require('./getYieldBayLpApys');
 const getBingoLpApys = require('./getBingoLpApys');
+const getSwampySwampApy = require('./getSwampySwampApy');
 const getSwampyCakeApy = require('./getSwampyCakeApy');
 
 const getApys = [
@@ -40,6 +41,7 @@ const getApys = [
   getSwampyCakeApy,
   getYieldBayLpApys,
   getBingoLpApys,
+  getSwampySwampApy,
 ];
 
 const getDegensLpApys = async () => {
