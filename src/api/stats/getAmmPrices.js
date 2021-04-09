@@ -54,6 +54,8 @@ const yieldBayPools = require('../../data/degens/yieldBayLpPools.json');
 const bingoPools = require('../../data/degens/bingoLpPools.json');
 const olivePools = require('../../data/oliveLpPools.json');
 const bitiPools = require('../../data/degens/bitiLpPools.json');
+const mdexBscPools = require('../../data/mdexBscLpPools.json');
+const typhPools = require('../../data/typhLpPools.json');
 
 const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
@@ -61,6 +63,8 @@ const REFRESH_INTERVAL = 10 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...typhPools,
+  ...mdexBscPools,
   ...bitiPools,
   ...olivePools,
   ...bingoPools,

@@ -1,0 +1,97 @@
+[
+  {
+    "name": "mdex-bsc-btc-usdt",
+    "address": "0xda28Eb7ABa389C1Ea226A420bCE04Cb565Aafb85",
+    "decimals": "1e18",
+    "poolId": 28,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mdex-bsc-eth-usdt",
+    "address": "0x0FB881c078434b1C0E4d0B64d8c64d12078b7Ce2",
+    "decimals": "1e18",
+    "poolId": 29,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mdex-bsc-eth-btc",
+    "address": "0x577d005912C49B1679B4c21E334FdB650E92C077",
+    "decimals": "1e18",
+    "poolId": 30,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mdex-bsc-mdx-bnb",
+    "address": "0xAf9Aa53146C5752BF6068A84B970E9fBB22a87bc",
+    "decimals": "1e18",
+    "poolId": 42,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x9c65ab58d8d978db963e63f2bfb7121627e3a739",
+      "oracle": "tokens",
+      "oracleId": "bscMDX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mdex-bsc-mdx-busd",
+    "address": "0x223740a259E461aBeE12D84A9FFF5Da69Ff071dD",
+    "decimals": "1e18",
+    "poolId": 40,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x9c65ab58d8d978db963e63f2bfb7121627e3a739",
+      "oracle": "tokens",
+      "oracleId": "bscMDX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  }
+]
