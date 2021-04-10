@@ -24,17 +24,13 @@ const getMdexBscLpApys = async () => {
     name: 'mdex-bnb',
     poolId: 0,
     address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
-    oracle: 'tokens',
     oracleId: 'WBNB',
-    decimals: '1e18',
   });
   allPools.push({
     name: 'mdex-busd',
     poolId: 1,
     address: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
-    oracle: 'tokens',
     oracleId: 'BUSD',
-    decimals: '1e18',
   });
 
 
@@ -52,7 +48,7 @@ const getMdexBscLpApys = async () => {
 const getPoolApy = async (mdxPool, pool) => {
   let getTotalStaked;
   if (!pool.lp0) {
-    getTotalStaked = getTotalStakedInUsd(mdxPool, pool.address, pool.oracle, pool.oracleId, pool.decimals);
+    getTotalStaked = getTotalStakedInUsd(mdxPool, pool.address, pool.oracle ?? 'tokens', pool.oracleId, pool.decimals ?? '1e18');
   } else {
     getTotalStaked = getTotalLpStakedInUsd(mdxPool, pool, pool.chainId);
   }

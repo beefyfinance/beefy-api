@@ -32,7 +32,7 @@ const getAutoApys = async () => {
 
 const fetchAutoStats = async () => {
   try {
-    const response = await axios.get('https://api2.autofarm.network/bsc/get_farms_data');
+    const response = await axios.get('https://static.autofarm.network/bsc/farm_data.json');
     return response.data.pools;
   } catch (err) {
     console.error(err);

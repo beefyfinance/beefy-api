@@ -1,5 +1,29 @@
 [
   {
+    "name": "auto-wbnb-v2",
+    "poolId": 84
+  },
+  {
+    "name": "auto-busd-v2",
+    "poolId": 85
+  },
+  {
+    "name": "auto-usdt-v2",
+    "poolId": 86
+  },
+  {
+    "name": "auto-usdc-v2",
+    "poolId": 87
+  },
+  {
+    "name": "auto-btc-v2",
+    "poolId": 89
+  },
+  {
+    "name": "auto-eth-v2",
+    "poolId": 90
+  },
+  {
     "name": "auto-wbnb",
     "poolId": 1
   },
