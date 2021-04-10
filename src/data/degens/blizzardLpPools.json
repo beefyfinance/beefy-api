@@ -1,13 +1,13 @@
 [
   {
-    "name": "blizzard-blzd-bnb",
-    "address": "0x27A5a5c1fF96447F2a0c4baDcF26E7c65C040E3C",
+    "name": "blizzard-xblzd-bnb",
+    "address": "0xfC207DB720851f52545229E406068b205E02B952",
     "decimals": "1e18",
     "poolId": 2,
     "lp0": {
-      "address": "0x57067A6BD75c0E95a6A5f158455926e43E79BeB0",
+      "address": "0x9a946c3Cb16c08334b69aE249690C236Ebd5583E",
       "oracle": "tokens",
-      "oracleId": "BLZD",
+      "oracleId": "xBLZD",
       "decimals": "1e18"
     },
     "lp1": {
@@ -18,18 +18,18 @@
     }
   },
   {
-    "name": "blizzard-blzd-busd",
-    "address": "0xE9C53B5Ab0C9cDBd72A03151a628863C28c55A6A",
+    "name": "blizzard-xblzd-busd",
+    "address": "0x33e75f29D52a8BcfBC54a79ED6eF9482b2c035a2",
     "decimals": "1e18",
     "poolId": 1,
     "lp0": {
-      "address": "0x57067A6BD75c0E95a6A5f158455926e43E79BeB0",
+      "address": "0x9a946c3Cb16c08334b69aE249690C236Ebd5583E",
       "oracle": "tokens",
-      "oracleId": "BLZD",
+      "oracleId": "xBLZD",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"

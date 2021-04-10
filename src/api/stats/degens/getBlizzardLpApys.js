@@ -1,24 +1,26 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/degens/BlizzardMasterChef.json');
+const MasterChef = require('../../../abis/degens/BlizzardYetiMaster.json');
+const BlizzardStratAbi = require('../../../abis/StrategyChef.json')
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/degens/blizzardLpPools.json');
 const { compound } = require('../../../utils/compound');
-const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
+const { lpTokenPrice } = require('../../../utils/lpTokens');
 
-const masterchef = '0x2078F4A75c92A6918D13e3e2F14183443ebf55D3';
-const oracleId = 'BLZD';
+const masterchef = '0x367CdDA266ADa588d380C7B970244434e4Dde790';
+const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 const oracle = 'tokens';
+const oracleId = 'xBLZD';
 const DECIMALS = '1e18';
 
 const getBlizzardLpApys = async () => {
   let apys = {};
 
   let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
+  pools.forEach(pool => promises.push(getPoolApy(pool)));
   const values = await Promise.all(promises);
 
   for (item of values) {
@@ -28,24 +30,23 @@ const getBlizzardLpApys = async () => {
   return apys;
 };
 
-const getPoolApy = async (masterchef, pool) => {
+const getPoolApy = async (pool) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(masterchef, pool),
-    getTotalLpStakedInUsd(masterchef, pool),
+    getYearlyRewardsInUsd(pool),
+    getTotalLpStakedInUsd(pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
   return { [pool.name]: apy };
 };
 
-const getYearlyRewardsInUsd = async (masterchef, pool) => {
+const getYearlyRewardsInUsd = async (pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   const multiplier = new BigNumber(
     await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
   );
-  const blockRewards = new BigNumber(await masterchefContract.methods.blzdPerBlock().call());
+  const blockRewards = new BigNumber(await masterchefContract.methods.xBLZDPerBlock().call());
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);
@@ -64,6 +65,16 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
   return yearlyRewardsInUsd;
+};
+
+const getTotalLpStakedInUsd = async (pool) => {
+  let { strat } = await masterchefContract.methods.poolInfo(pool.poolId).call();
+
+  const strategyContract = new web3.eth.Contract(BlizzardStratAbi, strat);
+  const totalStaked = new BigNumber(await strategyContract.methods.wantLockedTotal().call());
+  const tokenPrice = await lpTokenPrice(pool);
+  const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy(DECIMALS);
+  return totalStakedInUsd;
 };
 
 module.exports = getBlizzardLpApys;

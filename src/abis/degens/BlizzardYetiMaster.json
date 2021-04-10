@@ -2,23 +2,18 @@
   {
     "inputs": [
       {
-        "internalType": "contract BlzdToken",
-        "name": "_blzd",
-        "type": "address"
-      },
-      {
         "internalType": "address",
         "name": "_devaddr",
         "type": "address"
       },
       {
         "internalType": "uint256",
-        "name": "_blzdPerBlock",
+        "name": "_startBlock",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_startBlock",
+        "name": "_noFeeBlock",
         "type": "uint256"
       }
     ],
@@ -73,6 +68,25 @@
       }
     ],
     "name": "EmergencyWithdraw",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "MigrateToV2",
     "type": "event"
   },
   {
@@ -161,25 +175,6 @@
         "type": "address"
       },
       {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "blzdPerBlock",
-        "type": "uint256"
-      }
-    ],
-    "name": "UpdateEmissionRate",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
-      },
-      {
         "indexed": true,
         "internalType": "uint256",
         "name": "pid",
@@ -197,12 +192,12 @@
   },
   {
     "inputs": [],
-    "name": "BONUS_MULTIPLIER",
+    "name": "BLZD",
     "outputs": [
       {
-        "internalType": "uint256",
+        "internalType": "address",
         "name": "",
-        "type": "uint256"
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -216,19 +211,24 @@
         "type": "uint256"
       },
       {
-        "internalType": "contract IBEP20",
-        "name": "_lpToken",
+        "internalType": "contract IERC20",
+        "name": "_want",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "_withUpdate",
+        "type": "bool"
+      },
+      {
+        "internalType": "address",
+        "name": "_strat",
         "type": "address"
       },
       {
         "internalType": "uint16",
         "name": "_depositFeeBP",
         "type": "uint16"
-      },
-      {
-        "internalType": "bool",
-        "name": "_withUpdate",
-        "type": "bool"
       }
     ],
     "name": "add",
@@ -238,25 +238,12 @@
   },
   {
     "inputs": [],
-    "name": "blzd",
+    "name": "burnAddress",
     "outputs": [
       {
-        "internalType": "contract BlzdToken",
+        "internalType": "address",
         "name": "",
         "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "blzdPerBlock",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -271,7 +258,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_amount",
+        "name": "_wantAmt",
         "type": "uint256"
       }
     ],
@@ -370,10 +357,54 @@
     "type": "function"
   },
   {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "inCaseTokensGetStuck",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "inputs": [],
     "name": "massUpdatePools",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_inputAmt",
+        "type": "uint256"
+      }
+    ],
+    "name": "migrateToxBLZD",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "noFeeBlock",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -402,31 +433,12 @@
         "type": "address"
       }
     ],
-    "name": "pendingBlzd",
+    "name": "pendingxBLZD",
     "outputs": [
       {
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "contract IBEP20",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "name": "poolExistence",
-    "outputs": [
-      {
-        "internalType": "bool",
-        "name": "",
-        "type": "bool"
       }
     ],
     "stateMutability": "view",
@@ -443,8 +455,8 @@
     "name": "poolInfo",
     "outputs": [
       {
-        "internalType": "contract IBEP20",
-        "name": "lpToken",
+        "internalType": "contract IERC20",
+        "name": "want",
         "type": "address"
       },
       {
@@ -459,8 +471,13 @@
       },
       {
         "internalType": "uint256",
-        "name": "accBlzdPerShare",
+        "name": "accxBLZDPerShare",
         "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "strat",
+        "type": "address"
       },
       {
         "internalType": "uint16",
@@ -504,14 +521,14 @@
         "type": "uint256"
       },
       {
-        "internalType": "uint16",
-        "name": "_depositFeeBP",
-        "type": "uint16"
-      },
-      {
         "internalType": "bool",
         "name": "_withUpdate",
         "type": "bool"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_depositFeeBP",
+        "type": "uint16"
       }
     ],
     "name": "set",
@@ -627,6 +644,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "wbnb",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -635,13 +665,52 @@
       },
       {
         "internalType": "uint256",
-        "name": "_amount",
+        "name": "_wantAmt",
         "type": "uint256"
       }
     ],
     "name": "withdraw",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "xBLZD",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "xBLZDDevPerBlock",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "xBLZDPerBlock",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   }
 ]
