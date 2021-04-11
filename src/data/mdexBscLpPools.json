@@ -1,5 +1,24 @@
 [
   {
+    "name": "mdex-bsc-busd-bnb",
+    "address": "0x340192D37d95fB609874B1db6145ED26d1e47744",
+    "decimals": "1e18",
+    "poolId": 53,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "mdex-bsc-btc-usdt",
     "address": "0xda28Eb7ABa389C1Ea226A420bCE04Cb565Aafb85",
     "decimals": "1e18",

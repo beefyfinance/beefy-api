@@ -1,0 +1,38 @@
+[
+  {
+    "name": "mdex-bnb",
+    "poolId": 0,
+    "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "oracleId": "WBNB"
+  },
+  {
+    "name": "mdex-busd",
+    "poolId": 1,
+    "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+    "oracleId": "BUSD"
+  },
+  {
+    "name": "mdex-sushi",
+    "poolId": 16,
+    "address": "0x947950BcC74888a40Ffa2593C5798F11Fc9124C4",
+    "oracleId": "SUSHI"
+  },
+  {
+    "name": "mdex-uni",
+    "poolId": 15,
+    "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
+    "oracleId": "UNI"
+  },
+  {
+    "name": "mdex-inj",
+    "poolId": 26,
+    "address": "0xa2B726B1145A4773F68593CF171187d8EBe4d495",
+    "oracleId": "INJ"
+  },
+  {
+    "name": "mdex-xvs",
+    "poolId": 21,
+    "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+    "oracleId": "XVS"
+  }
+]

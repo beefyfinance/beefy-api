@@ -1,5 +1,9 @@
 [
   {
+    "name": "auto-mdex-btc-eth",
+    "poolId": 133
+  },
+  {
     "name": "auto-wbnb-v2",
     "poolId": 84
   },
