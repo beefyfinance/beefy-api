@@ -18,7 +18,9 @@ const getAutoApys = async () => {
 
     const apr = Number(poolStat['APR']);
     const aprAuto = Number(poolStat['APR_AUTO']);
-    const apy = compound(apr + aprAuto, BASE_HPY, 1, 0.955);
+    const apy = compound(apr + aprAuto * 0.955, BASE_HPY, 1);
+
+    // console.log(pool.name, apy);
 
     return { [pool.name]: apy };
   });

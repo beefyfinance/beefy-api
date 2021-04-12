@@ -1,5 +1,13 @@
 [
   {
+    "name": "auto-ada-v2",
+    "poolId": 94
+  },
+  {
+    "name": "auto-sxp-v2",
+    "poolId": 93
+  },
+  {
     "name": "auto-mdex-btc-eth",
     "poolId": 133
   },
