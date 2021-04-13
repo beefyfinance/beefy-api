@@ -18,24 +18,6 @@
     }
   },
   {
-    "name": "banana-banana-bifi",
-    "address": "0x2ce820319047c407cb952060Df5f7fb3D9A9a688",
-    "decimals": "1e18",
-    "poolId": 10,
-    "lp0": {
-      "address": "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
-      "oracle": "tokens",
-      "oracleId": "BANANA",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
-      "oracle": "tokens",
-      "oracleId": "BIFI",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "banana-banana-bnb",
     "address": "0xF65C1C0478eFDe3c19b49EcBE7ACc57BB6B1D713",
     "decimals": "1e18",
