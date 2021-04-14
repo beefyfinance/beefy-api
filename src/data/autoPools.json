@@ -110,5 +110,25 @@
   {
     "name": "auto-ust-busd",
     "poolId": 32
+  },
+  {
+    "name": "auto-usdt-busd",
+    "poolId": 132
+  },
+  {
+    "name": "auto-btcb-eth",
+    "poolId": 133
+  },
+  {
+    "name": "auto-btcb-usdt",
+    "poolId": 129
+  },
+  {
+    "name": "auto-eth-usdt",
+    "poolId": 130
+  },
+  {
+    "name": "auto-eth-beth",
+    "poolId": 157
   }
 ]

@@ -1,5 +1,95 @@
 [
   {
+    "name": "auto-eth-beth",
+    "address": "0x3fe3DeE31cC404Aa4C8de6A6a3cbBcb60358FcB0",
+    "decimals": "1e18",
+    "poolId": 157,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x250632378E573c6Be1AC2f97Fcdf00515d0Aa91B",
+      "oracle": "tokens",
+      "oracleId": "BETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auto-btcb-eth",
+    "address": "0x577d005912C49B1679B4c21E334FdB650E92C077",
+    "decimals": "1e18",
+    "poolId": 133,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auto-eth-usdt",
+    "address": "0x0FB881c078434b1C0E4d0B64d8c64d12078b7Ce2",
+    "decimals": "1e18",
+    "poolId": 130,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auto-btcb-usdt",
+    "address": "0xda28Eb7ABa389C1Ea226A420bCE04Cb565Aafb85",
+    "decimals": "1e18",
+    "poolId": 129,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auto-busd-usdt",
+    "address": "0x62c1dEC1fF328DCdC157Ae0068Bb21aF3967aCd9",
+    "decimals": "1e18",
+    "poolId": 132,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "auto-comp-eth",
     "address": "0x0392957571F28037607C14832D16f8B653eDd472",
     "decimals": "1e18",
