@@ -18,7 +18,7 @@ const getDailyEarnings = async () => {
   try{
     while (currentBlock < endBlock) {
       // provider only allows up to 2000 blocks at a time
-      let data = await contract.queryFilter(filterTo, currentBlock, currentBlock + 2000);
+      let data = await contract.queryFilter(filterTo, currentBlock, currentBlock + 1000);
       for (var i = 0; i < data.length; i++ ){
         let hexAmount = data[i]["args"][2];
 
