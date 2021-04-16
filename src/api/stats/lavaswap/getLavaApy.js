@@ -23,7 +23,7 @@ const getLavaApy = async () => {
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-  console.log('lava-lava', simpleApy.valueOf(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+  //console.log('lava-lava', simpleApy.valueOf(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { 'lava-lava': apy };
 };
 
