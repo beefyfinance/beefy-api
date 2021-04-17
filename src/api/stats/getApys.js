@@ -1,7 +1,6 @@
 const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpApys } = require('./pancake/getCakeLpApys');
-const getFortubeApys = require('./fortube/getFortubeApys');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
 const getBakeryLpApys = require('./bakery/getBakeryLpApys');
@@ -68,7 +67,6 @@ const updateApys = async () => {
       getCakeApys(),
       getCakePoolApy(),
       getCakeLpApys(),
-      getFortubeApys(),
       getBakePoolApy(),
       getBakeryLpApys(),
       getNarLpApys(),
