@@ -48,6 +48,7 @@ const getOliveLpApys = require('./olive/getOliveLpApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
 const getTyphLpApys = require('./typhoon/getTyphLpApys');
 const getLavaLpApys = require('./lavaswap/getLavaLpApys');
+const getLavaApy = require('./lavaswap/getLavaApy');
 
 const INIT_DELAY = 4 * 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -113,6 +114,7 @@ const updateApys = async () => {
       getMdexBscLpApys(),
       getTyphLpApys(),
       getLavaLpApys(),
+      getLavaApy(),
     ]);
 
     for (item of values) {
