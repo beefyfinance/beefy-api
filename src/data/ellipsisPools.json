@@ -1,5 +1,17 @@
 [
   {
+    "name": "ellipsis-renbtc",
+    "poolId": 3,
+    "oracle": "lps",
+    "oracleId": "ellipsis-renbtc"
+  },
+  {
+    "name": "ellipsis-fusdt-3eps",
+    "poolId": 2,
+    "oracle": "lps",
+    "oracleId": "ellipsis-fusdt-3eps"
+  },
+  {
     "name": "ellipsis-3eps",
     "poolId": 1,
     "oracle": "lps",

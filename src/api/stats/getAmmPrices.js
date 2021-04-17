@@ -47,7 +47,7 @@ const zefiPools = require('../../data/degens/zefiLpPools.json');
 const thunderPools = require('../../data/degens/thunderLpPools.json');
 const swirlPools = require('../../data/swirlLpPools.json');
 const getBeltVenusLpPrice = require('./belt/getBeltVenusLpPrice');
-const getEllipsis3PoolPrice = require('./ellipsis/getEllipsis3PoolPrice');
+const getEllipsisPrices = require('./ellipsis/getEllipsisPrices');
 const getSnob3PoolPrice = require('./snowball/getSnob3PoolPrice');
 const swampyPools = require('../../data/degens/swampyLpPools.json');
 const yieldBayPools = require('../../data/degens/yieldBayLpPools.json');
@@ -58,6 +58,7 @@ const mdexBscPools = require('../../data/mdexBscLpPools.json');
 const typhPools = require('../../data/typhLpPools.json');
 const marshPools = require('../../data/degens/marshLpPools.json');
 const lavaPools = require('../../data/lavaLpPools.json');
+const popsiclePools = require('../../data/popsicleLpPools.json');
 
 const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
@@ -65,6 +66,7 @@ const REFRESH_INTERVAL = 10 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...popsiclePools,
   ...lavaPools,
   ...marshPools,
   ...typhPools,
@@ -140,10 +142,10 @@ const updateAmmPrices = async () => {
   try {
     let { poolPrices, tokenPrices } = await fetchAmmPoolsPrices(pools, knownPrices);
     const beltVenusBLP = await getBeltVenusLpPrice();
-    const eps3PoolLP = await getEllipsis3PoolPrice();
+    const ellipsisLPs = await getEllipsisPrices();
     const snob3PoolLP = await getSnob3PoolPrice();
     tokenPricesCache = tokenPrices;
-    lpPricesCache = { ...poolPrices, ...beltVenusBLP, ...eps3PoolLP, ...snob3PoolLP };
+    lpPricesCache = { ...poolPrices, ...beltVenusBLP, ...ellipsisLPs, ...snob3PoolLP };
   } catch (err) {
     console.error(err);
   }
