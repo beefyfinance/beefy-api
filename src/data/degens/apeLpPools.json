@@ -1,5 +1,59 @@
 [
   {
+    "name": "banana-ada-eth",
+    "address": "0x61fe209e404166a53cc627d0ae30a65606315da7",
+    "decimals": "1e18",
+    "poolId": 18,
+    "lp0": {
+      "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47",
+      "oracle": "tokens",
+      "oracleId": "ADA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-iota-bnb",
+    "address": "0x0d70924695b6ae496f0a74a36bf79d47307dd519",
+    "decimals": "1e18",
+    "poolId": 22,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd944f1d1e9d5f9bb90b62f9d45e447d989580782",
+      "oracle": "tokens",
+      "oracleId": "IOTA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-bat-bnb",
+    "address": "0x6e425b4fc4efd070dc0def1654a17946c7e6b3c4",
+    "decimals": "1e18",
+    "poolId": 20,
+    "lp0": {
+      "address": "0x101d82428437127bf1608f699cd651e6abf9766e",
+      "oracle": "tokens",
+      "oracleId": "BAT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-bifi-bnb",
     "address": "0xDDd3f9d5Bd347c55D18752c0C2075698EC657750",
     "decimals": "1e18",
