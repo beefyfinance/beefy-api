@@ -14,14 +14,14 @@ const oracleId = 'PNG';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const usdtAvaxRewardPool = '0x4f019452f51bbA0250Ec8B69D64282B79fC8BD9f'; // USDT-AVAX
-const pngAvaxRewardPool = '0x8FD2755c6ae7252753361991bDcd6fF55bDc01CE'; // PNG-AVAX
-const ethAvaxRewardPool = '0xa16381eae6285123c323A665D4D99a6bCfaAC307'; // ETH-AVAX
-const wbtcAvaxRewardPool = '0x01897e996EEfFf65AE9999C02D1d8D7E9e0C0352'; // WBTC-AVAX
-const linkAvaxRewardPool = '0x7d7eCd4d370384B17DFC1b4155a8410e97841B65'; // LINK-AVAX
-const sushiAvaxRewardPool = '0x88f26b81c9cae4ea168e31BC6353f493fdA29661'; // SUSHI-AVAX
-const uniAvaxRewardPool = '0xe4d9aE03859DaC6d65432d557F75b9b588a38eE1'; // UNI-AVAX
-const usdtPngRewardPool = '0x7accC6f16Bf8c0Dce22371fbD914c6B5b402BF9f'; // USDT-PNG
+const usdtAvaxRewardPool = '0x94C021845EfE237163831DAC39448cFD371279d6'; // USDT-AVAX
+const pngAvaxRewardPool = '0x574d3245e36Cf8C9dc86430EaDb0fDB2F385F829'; // PNG-AVAX
+const ethAvaxRewardPool = '0x417C02150b9a31BcaCb201d1D60967653384E1C6'; // ETH-AVAX
+const wbtcAvaxRewardPool = '0xe968E9753fd2c323C2Fe94caFF954a48aFc18546'; // WBTC-AVAX
+const linkAvaxRewardPool = '0xBDa623cDD04d822616A263BF4EdbBCe0B7DC4AE7'; // LINK-AVAX
+const sushiAvaxRewardPool = '0xDA354352b03f87F84315eEF20cdD83c49f7E812e'; // SUSHI-AVAX
+const uniAvaxRewardPool = '0x1F6aCc5F5fE6Af91C1BB3bEbd27f4807a243D935'; // UNI-AVAX
+const usdtPngRewardPool = '0xE2510a1fCCCde8d2D1c40b41e8f71fB1F47E5bBA'; // USDT-PNG
 
 const getPangolinLpApys = async () => {
   let poolUsdtAvax = pools.filter(pool => pool.name === 'png-usdt-avax')[0];
