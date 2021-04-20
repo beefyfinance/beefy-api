@@ -48,6 +48,7 @@ const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
 const getTyphLpApys = require('./typhoon/getTyphLpApys');
 const getLavaLpApys = require('./lavaswap/getLavaLpApys');
 const getLavaApy = require('./lavaswap/getLavaApy');
+const getBunnyRewardsApy = require('./bunny/getBunnyRewardsApy');
 
 const INIT_DELAY = 4 * 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -113,6 +114,7 @@ const updateApys = async () => {
       getTyphLpApys(),
       getLavaLpApys(),
       getLavaApy(),
+      getBunnyRewardsApy(),
     ]);
 
     for (item of values) {
