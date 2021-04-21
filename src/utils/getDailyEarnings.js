@@ -2,6 +2,7 @@ const { BigNumber, ethers } = require('ethers');
 const { BSC_RPC, BSC_CHAIN_ID } = require('../../constants');
 const ERC20 = require('../abis/ERC20.json');
 const getBlockNumber = require('../utils/getBlockNumber');
+const { sleep } = require('../utils/time');
 
 const getDailyEarnings = async () => {
   const provider = new ethers.providers.JsonRpcProvider(BSC_RPC);
@@ -18,7 +19,13 @@ const getDailyEarnings = async () => {
   try{
     while (currentBlock < endBlock) {
       // provider only allows up to 2000 blocks at a time
-      let data = await contract.queryFilter(filterTo, currentBlock, currentBlock + 1000);
+      let data;
+      try {
+        data = await contract.queryFilter(filterTo, currentBlock, currentBlock + 1000);
+      } catch (err) {
+        await sleep(30 * 1000);
+        continue;
+      }
       for (var i = 0; i < data.length; i++ ){
         let hexAmount = data[i]["args"][2];
 
@@ -26,7 +33,7 @@ const getDailyEarnings = async () => {
 
         totalEarnings = totalEarnings.add(amount);
       }
-      currentBlock += 2000;
+      currentBlock += 100;
     }
 
     console.log("> calculated daily earnings");
