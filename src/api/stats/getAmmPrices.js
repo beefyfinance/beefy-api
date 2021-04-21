@@ -46,7 +46,7 @@ const hpsPools = require('../../data/degens/hpsLpPools.json');
 const zefiPools = require('../../data/degens/zefiLpPools.json');
 const thunderPools = require('../../data/degens/thunderLpPools.json');
 const swirlPools = require('../../data/swirlLpPools.json');
-const getBeltVenusLpPrice = require('./belt/getBeltVenusLpPrice');
+const getBeltPrices = require('./belt/getBeltPrices');
 const getEllipsisPrices = require('./ellipsis/getEllipsisPrices');
 const getSnob3PoolPrice = require('./snowball/getSnob3PoolPrice');
 const swampyPools = require('../../data/degens/swampyLpPools.json');
@@ -141,11 +141,11 @@ const updateAmmPrices = async () => {
   isProcessing = true;
   try {
     let { poolPrices, tokenPrices } = await fetchAmmPoolsPrices(pools, knownPrices);
-    const beltVenusBLP = await getBeltVenusLpPrice();
+    const beltLPs = await getBeltPrices();
     const ellipsisLPs = await getEllipsisPrices();
     const snob3PoolLP = await getSnob3PoolPrice();
     tokenPricesCache = tokenPrices;
-    lpPricesCache = { ...poolPrices, ...beltVenusBLP, ...ellipsisLPs, ...snob3PoolLP };
+    lpPricesCache = { ...poolPrices, ...beltLPs, ...ellipsisLPs, ...snob3PoolLP };
   } catch (err) {
     console.error(err);
   }
