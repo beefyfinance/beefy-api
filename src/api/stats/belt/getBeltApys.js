@@ -35,24 +35,20 @@ const getPoolApy = async (masterchef, pool) => {
     getTotalLpStakedInUsd(masterchef, pool),
   ]);
   let simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const baseApy = await fetchBeltLpBaseApy(pool);
-  if (baseApy > 0) {
-    simpleApy = simpleApy.plus(baseApy);
-  }
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-  // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+  const baseApy = await fetchBeltLpBaseApr(pool);
+  const apy = compound(baseApy + simpleApy * 0.955, process.env.BASE_HPY, 1);
+  // console.log(pool.name, baseApy.valueOf(), simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { [pool.name]: apy };
 };
 
-const fetchBeltLpBaseApy = async (pool) => {
-  if (pool.poolId !== 0) return 0;
+const fetchBeltLpBaseApr = async (pool) => {
+  if (pool.poolId !== 3) return 0;
   try {
-    const response = await axios.get('https://s.belt.fi/status/getMainInfo.json');
-    const baseApy = Number(response.data.vaultPools.filter(p => p.pid === '0')[0].baseAPY);
-    if (baseApy > 0) {
-      return baseApy / 100;
-    }
-    return 0;
+    const response = await axios.get('https://s.belt.fi/status/A_getMainInfo.json');
+    const data = response.data.vaultPools.filter(p => Number(p.pid) === pool.poolId)[0];
+    const baseApr = Number(data.baseAPR) / 100;
+    const feeApr = Number(data.feeAPR) / 100;
+    return baseApr + feeApr;
   } catch (err) {
     console.error(err);
     return 0;
