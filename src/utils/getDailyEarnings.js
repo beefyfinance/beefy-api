@@ -21,7 +21,7 @@ const getDailyEarnings = async () => {
       // provider only allows up to 2000 blocks at a time
       let data;
       try {
-        data = await contract.queryFilter(filterTo, currentBlock, currentBlock + 1000);
+        data = await contract.queryFilter(filterTo, currentBlock, currentBlock + 100);
       } catch (err) {
         await sleep(30 * 1000);
         continue;
