@@ -1,9 +1,9 @@
 [
   {
     "name": "blizzard-xblzd-bnb",
-    "address": "0xfC207DB720851f52545229E406068b205E02B952",
+    "address": "0x6Ff2A5AeC8E4b8550933D7EB8388e62c5D4C0EAe",
     "decimals": "1e18",
-    "poolId": 2,
+    "poolId": 14,
     "lp0": {
       "address": "0x9a946c3Cb16c08334b69aE249690C236Ebd5583E",
       "oracle": "tokens",
@@ -19,9 +19,9 @@
   },
   {
     "name": "blizzard-xblzd-busd",
-    "address": "0x33e75f29D52a8BcfBC54a79ED6eF9482b2c035a2",
+    "address": "0x836676c2782e8F6679c4A64974c31c0850690B7f",
     "decimals": "1e18",
-    "poolId": 1,
+    "poolId": 13,
     "lp0": {
       "address": "0x9a946c3Cb16c08334b69aE249690C236Ebd5583E",
       "oracle": "tokens",
