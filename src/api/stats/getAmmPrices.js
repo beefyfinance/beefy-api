@@ -6,6 +6,7 @@ const blizzardLpPools = require('../../data/degens/blizzardLpPools.json');
 const alpacaLpPools = require('../../data/alpacaLpPools.json');
 const cafePools = require('../../data/cafeLpPools.json');
 const cakeLpPools = require('../../data/cakeLpPools.json');
+const cakeLpV1Pools = require('../../data/cakeLpV1Pools.json');
 const cakePools = require('../../data/cakePools.json');
 const jetfuelPools = require('../../data/jetfuelLpPools.json');
 const kebabPools = require('../../data/kebabLpPools.json');
@@ -119,6 +120,7 @@ const pools = [
   ...nyacashPools,
   ...nyanswopPools,
   ...thugsPools,
+  ...cakeLpV1Pools,
   ...cakeLpPools,
   ...cakePools,
 ];
