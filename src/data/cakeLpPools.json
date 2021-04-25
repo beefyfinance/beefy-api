@@ -865,7 +865,7 @@
   },
   {
     "name": "cakev2-tpt-busd",
-    "address": "0x4db28767D1527bA545CA5bbdA1C96a94ED6ff242",
+    "address": "0x6D0c831254221ba121fB53fb44Df289A6558867d",
     "decimals": "1e18",
     "poolId": 313,
     "lp0": {
