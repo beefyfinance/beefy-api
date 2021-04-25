@@ -1,5 +1,23 @@
 [
   {
+    "name": "cakev2-comp-eth",
+    "address": "0x37908620dEf1491Dd591b5a2d16022A33cDDA415",
+    "decimals": "1e18",
+    "poolId": 300,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x52CE071Bd9b1C4B00A0b92D298c512478CaD67e8",
+      "oracle": "tokens",
+      "oracleId": "COMP",
+      "decimals": "1e18"
+    }
+  },  
+  {
     "name": "cakev2-ctk-bnb",
     "address": "0x460b4193Ec4C1a17372Aa5FDcd44c520ba658646",
     "decimals": "1e18",
