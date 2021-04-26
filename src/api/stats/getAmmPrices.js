@@ -143,7 +143,7 @@ const updateAmmPrices = async () => {
   isProcessing = true;
   try {
     let { poolPrices, tokenPrices } = await fetchAmmPoolsPrices(pools, knownPrices);
-    const beltLPs = await getBeltPrices();
+    const beltLPs = await getBeltPrices(tokenPrices);
     const ellipsisLPs = await getEllipsisPrices();
     const snob3PoolLP = await getSnob3PoolPrice();
     tokenPricesCache = tokenPrices;
