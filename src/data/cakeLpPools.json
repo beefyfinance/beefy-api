@@ -1,5 +1,23 @@
 [
   {
+    "name": "cakev2-dfd-busd",
+    "address": "0x029D66f9C0469450B7b4834B8dDC6a1118CeC3e1",
+    "decimals": "1e18",
+    "poolId": 363,
+    "lp0": {
+      "address": "0x9899a98b222fcb2f3dbee7df45d943093a4ff9ff",
+      "oracle": "tokens",
+      "oracleId": "DFD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-alpaca-busd",
     "address": "0x7752e1FA9F3a2e860856458517008558DEb989e3",
     "decimals": "1e18",
