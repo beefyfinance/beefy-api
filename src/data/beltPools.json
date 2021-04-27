@@ -6,18 +6,6 @@
     "oracleId": "cakev2-belt-bnb"
   },
   {
-    "name": "belt-4belt",
-    "poolId": 3,
-    "oracle": "lps",
-    "oracleId": "belt-4belt"
-  },
-  {
-    "name": "belt-belt-bnb",
-    "poolId": 2,
-    "oracle": "lps",
-    "oracleId": "cake-belt-bnb"
-  },
-  {
     "name": "belt-venus-blp",
     "poolId": 0,
     "oracle": "lps",
