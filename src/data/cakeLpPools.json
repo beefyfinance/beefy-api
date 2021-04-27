@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-alpaca-busd",
+    "address": "0x7752e1FA9F3a2e860856458517008558DEb989e3",
+    "decimals": "1e18",
+    "poolId": 362,
+    "lp0": {
+      "address": "0x8F0528cE5eF7B51152A59745bEfDD91D97091d2F",
+      "oracle": "tokens",
+      "oracleId": "ALPACA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-eos-bnb",
     "address": "0xB6e34b5C65Eda51bb1BD4ea5F79d385Fb94b9504",
     "decimals": "1e18",

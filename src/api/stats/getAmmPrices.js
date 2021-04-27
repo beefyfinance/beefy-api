@@ -57,6 +57,7 @@ const olivePools = require('../../data/oliveLpPools.json');
 const bitiPools = require('../../data/degens/bitiLpPools.json');
 const mdexBscPools = require('../../data/mdexBscLpPools.json');
 const typhPools = require('../../data/typhLpPools.json');
+const typhPoolsV1 = require('../../data/typhLpPoolsV1.json');
 const marshPools = require('../../data/degens/marshLpPools.json');
 const lavaPools = require('../../data/lavaLpPools.json');
 const popsiclePools = require('../../data/popsicleLpPools.json');
@@ -71,6 +72,7 @@ const pools = [
   ...lavaPools,
   ...marshPools,
   ...typhPools,
+  ...typhPoolsV1,
   ...mdexBscPools,
   ...bitiPools,
   ...olivePools,

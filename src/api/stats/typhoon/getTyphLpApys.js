@@ -7,7 +7,7 @@ const pools = require('../../../data/typhLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 
-const masterchef = '0x2A687d070A8870c723486Bb295756E3786549Ae7';
+const masterchef = '0x0Db2Dd5864b33dC3c7CfE818e8F155c0aA569b45';
 const oracleId = 'TYPH';
 const oracle = 'tokens';
 const decimals = '1e18';
