@@ -1,5 +1,41 @@
 [
   {
+    "name": "banana-ont-bnb",
+    "address": "0x924D3f2F94618e8Ee837d4C2b8d703F0de12a57e",
+    "decimals": "1e18",
+    "poolId": 31,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfd7b3a77848f1c2d67e05e54d78d174a0c850335",
+      "oracle": "tokens",
+      "oracleId": "ONT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-keyfi-bnb",
+    "address": "0x7A8ACAEAfC4Fa051De4EAbff8D1abdD0388aE08a",
+    "decimals": "1e18",
+    "poolId": 30,
+    "lp0": {
+      "address": "0x4b6000f9163de2e3f0a01ec37e06e1469dbbce9d",
+      "oracle": "tokens",
+      "oracleId": "KEYFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-ada-eth",
     "address": "0x61fe209e404166a53cc627d0ae30a65606315da7",
     "decimals": "1e18",
