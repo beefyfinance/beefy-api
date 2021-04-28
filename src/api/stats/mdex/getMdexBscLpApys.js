@@ -5,7 +5,6 @@ const { BSC_CHAIN_ID } = require('../../../../constants');
 const MasterChef = require('../../../abis/HecoPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/mdexBscLpPools.json');
-const singles = require('../../../data/mdexBscSinglePools.json');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
@@ -19,7 +18,7 @@ const DECIMALS = '1e18';
 const getMdexBscLpApys = async () => {
   let apys = {};
   const mdxPool = '0xc48FE252Aa631017dF253578B1405ea399728A50';
-  const allPools = [...pools, ...singles];
+  const allPools = [...pools];
 
   let promises = [];
   allPools.forEach(pool => promises.push(getPoolApy(mdxPool, pool)));

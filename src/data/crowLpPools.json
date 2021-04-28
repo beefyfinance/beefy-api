@@ -18,24 +18,6 @@
     }
   },
   {
-    "name": "crow-busd-bnb",
-    "address": "0x1B96B92314C44b159149f7E0303511fB2Fc4774f",
-    "decimals": "1e18",
-    "poolId": 1,
-    "lp0": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
-      "oracle": "tokens",
-      "oracleId": "BUSD",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "crow-crow-busd",
     "address": "0xEC3B97802FB4883FdB7bf70f0924Bf5EE0520cDE",
     "decimals": "1e18",
