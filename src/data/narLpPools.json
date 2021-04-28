@@ -16,23 +16,5 @@
       "oracleId": "WBNB",
       "decimals": "1e18"
     }
-  },
-  {
-    "name": "narwhal-thugs-nar",
-    "address": "0xB648ecF23Bb8fe854c6267d6fb046f2d483251EA",
-    "decimals": "1e18",
-    "poolId": 2,
-    "lp0": {
-      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "tokens",
-      "oracleId": "THUGS",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xA1303E6199b319a891b79685F0537D289af1FC83",
-      "oracle": "tokens",
-      "oracleId": "NAR",
-      "decimals": "1e18"
-    }
   }
 ]

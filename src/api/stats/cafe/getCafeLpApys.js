@@ -14,7 +14,9 @@ const getCafeLpApys = async () => {
   const masterchef = '0xc772955c33088a97d56d0bbf473d05267bc4febb';
 
   let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
+  pools
+    .filter(pool => pool.name === 'cafe-bifi-bnb')
+    .forEach(pool => promises.push(getPoolApy(masterchef, pool)));
   const values = await Promise.all(promises);
 
   for (item of values) {
@@ -39,7 +41,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   const multiplier = new BigNumber(
-    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
+    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
   );
   const blockRewards = new BigNumber(await masterchefContract.methods.cakePerBlock().call());
 
