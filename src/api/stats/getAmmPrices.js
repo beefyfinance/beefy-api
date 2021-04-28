@@ -66,7 +66,7 @@ const REFRESH_INTERVAL = 10 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...comethPools,
-  // ...popsiclePools,
+  ...popsiclePools,
   ...lavaPools,
   ...marshPools,
   ...typhPools,
