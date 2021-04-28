@@ -20,7 +20,6 @@ const getBtdLpApys = require('./bolt/getBtdLpApys');
 const getBtsLpApys = require('./bolt/getBtsLpApys');
 const getCrowLpApys = require('./crow/getCrowLpApys');
 const getCafeLpApys = require('./cafe/getCafeLpApys');
-const getRamenLpApys = require('./ramen/getRamenLpApys');
 const get1inchLpApys = require('./1inch/get1inchLpApys');
 const { getDegensLpApys } = require('./degens');
 const getJulLpApys = require('./julb/getJulLpApys');
