@@ -79,7 +79,6 @@ const updateApys = async () => {
       getBtsLpApys(),
       getCrowLpApys(),
       getCafeLpApys(),
-      getRamenLpApys(),
       get1inchLpApys(),
       get1inchApy(),
       getDegensLpApys(),
