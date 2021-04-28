@@ -13,13 +13,10 @@ const kebabPools = require('../../data/kebabLpPools.json');
 const bdollarSbdoPools = require('../../data/bdollarSbdoLpPools.json');
 const boltBtdPools = require('../../data/boltBtdLpPools.json');
 const boltBtsPools = require('../../data/boltBtsLpPools.json');
-const helmetPools = require('../../data/helmetLpPools.json');
 const mdexPools = require('../../data/mdexLpPools.json');
-const midasPools = require('../../data/midasLpPools.json');
 const monsterPools = require('../../data/monsterLpPools.json');
 const narPools = require('../../data/narLpPools.json');
 const nyacashPools = require('../../data/nyacashLpPools.json');
-const nyanswopPools = require('../../data/nyanswopLpPools.json');
 const ramenPools = require('../../data/ramenLpPools.json');
 const thugsPools = require('../../data/thugsLpPools.json');
 const spongePools = require('../../data/spongeLpPools.json');
@@ -38,7 +35,6 @@ const swipePools = require('../../data/swipeLpPools.json');
 const comAvaxPools = require('../../data/comAvaxLpPools.json');
 const comBscPools = require('../../data/comBscLpPools.json');
 const snowballPools = require('../../data/snobLpPools.json');
-const supernovaPools = require('../../data/supernovaLpPools.json');
 const pumpyPools = require('../../data/pumpyLpPools.json');
 const spacePools = require('../../data/degens/spaceLpPools.json');
 const nautPools = require('../../data/degens/nautLpPools.json');
@@ -89,7 +85,6 @@ const pools = [
   ...nautPools,
   ...spacePools,
   ...pumpyPools,
-  ...supernovaPools,
   ...snowballPools,
   ...comBscPools,
   ...comAvaxPools,
@@ -109,7 +104,6 @@ const pools = [
   ...crowPools,
   ...ramenPools,
   ...cafePools,
-  ...midasPools,
   ...bdollarSbdoPools,
   ...spongePools,
   ...bakeryPools,
@@ -117,12 +111,10 @@ const pools = [
   ...kebabPools,
   ...boltBtdPools,
   ...boltBtsPools,
-  ...helmetPools,
   ...mdexPools,
   ...monsterPools,
   ...narPools,
   ...nyacashPools,
-  ...nyanswopPools,
   ...thugsPools,
   ...cakeLpV1Pools,
   ...cakeLpPools,
