@@ -24,18 +24,15 @@ const get1inchLpApys = require('./1inch/get1inchLpApys');
 const { getDegensLpApys } = require('./degens');
 const getJulLpApys = require('./julb/getJulLpApys');
 const getBeltApys = require('./belt/getBeltApys');
-const getPangolinApys = require('./pangolin/getPangolinLpApys');
 const getSwipeLpApys = require('./swipe/getSwipeLpApys');
 const getComAvaxApys = require('./complus/getComAvaxLpApys');
 const getComBscApys = require('./complus/getComBscLpApys');
-const getSnobLpApys = require('./snowball/getSnobLpApys');
 const getPumpyLpApys = require('./pumpy/getPumpyLpApys');
 const getAlpacaLpApys = require('./alpaca/getAlpacaLpApys');
 const getAlpacaApys = require('./alpaca/getAlpacaApys');
 const getEllipsisLpApys = require('./ellipsis/getEllipsisLpApys');
 const get1inchApy = require('./1inch/get1inchApy');
 const getSwirlLpApys = require('./swirl/getSwirlLpApys');
-const getOliveLpApys = require('./olive/getOliveLpApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
 const getTyphLpApys = require('./typhoon/getTyphLpApys');
 const getLavaLpApys = require('./lavaswap/getLavaLpApys');
@@ -44,6 +41,7 @@ const getBunnyRewardsApy = require('./bunny/getBunnyRewardsApy');
 const getComethLpApys = require('./cometh/getComethLpApys');
 const getFortressApys = require('./fortress/getFortressApys');
 const getHfiLpApys = require('./hfi/getHfiLpApys');
+const { getAvaxApys } = require('./avax/index');
 
 const INIT_DELAY = 4 * 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -86,17 +84,14 @@ const updateApys = async () => {
       getDegensLpApys(),
       getJulLpApys(),
       getBeltApys(),
-      getPangolinApys(),
       getSwipeLpApys(),
       getComAvaxApys(),
       getComBscApys(),
-      getSnobLpApys(),
       getPumpyLpApys(),
       getAlpacaLpApys(),
       getAlpacaApys(),
       getEllipsisLpApys(),
       getSwirlLpApys(),
-      getOliveLpApys(),
       getMdexBscLpApys(),
       getTyphLpApys(),
       getLavaLpApys(),
@@ -104,7 +99,8 @@ const updateApys = async () => {
       getBunnyRewardsApy(),
       getComethLpApys(),
       getHfiLpApys(),
-      getFortressApys()
+      getFortressApys(),
+      getAvaxApys(),
     ]);
 
     for (item of values) {
