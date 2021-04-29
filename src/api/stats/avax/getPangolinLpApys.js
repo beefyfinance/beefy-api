@@ -3,7 +3,7 @@ const { avaxWeb3: web3 } = require('../../../utils/web3');
 
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/pangolinLpPools.json');
+const pools = require('../../../data/avax/pangolinLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../../constants');

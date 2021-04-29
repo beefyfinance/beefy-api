@@ -3,7 +3,7 @@ const { avaxWeb3: web3 } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/ComplusSudoSu.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/comAvaxLpPools.json');
+const pools = require('../../../data/avax/comAvaxLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { AVAX_CHAIN_ID } = require('../../../../constants');

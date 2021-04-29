@@ -30,11 +30,11 @@ const julPools = require('../../data/julLpPools.json');
 const memePools = require('../../data/degens/memeFarmLpPools.json');
 const nutsPools = require('../../data/degens/nutsLpPools.json');
 const slimePools = require('../../data/degens/slimeLpPools.json');
-const pangolinPools = require('../../data/pangolinLpPools.json');
+const pangolinPools = require('../../data/avax/pangolinLpPools.json');
 const swipePools = require('../../data/swipeLpPools.json');
-const comAvaxPools = require('../../data/comAvaxLpPools.json');
+const comAvaxPools = require('../../data/avax/comAvaxLpPools.json');
 const comBscPools = require('../../data/comBscLpPools.json');
-const snowballPools = require('../../data/snobLpPools.json');
+const snowballPools = require('../../data/avax/snobLpPools.json');
 const pumpyPools = require('../../data/pumpyLpPools.json');
 const spacePools = require('../../data/degens/spaceLpPools.json');
 const nautPools = require('../../data/degens/nautLpPools.json');
@@ -49,7 +49,7 @@ const getSnob3PoolPrice = require('./snowball/getSnob3PoolPrice');
 const swampyPools = require('../../data/degens/swampyLpPools.json');
 const yieldBayPools = require('../../data/degens/yieldBayLpPools.json');
 const bingoPools = require('../../data/degens/bingoLpPools.json');
-const olivePools = require('../../data/oliveLpPools.json');
+const olivePools = require('../../data/avax/oliveLpPools.json');
 const bitiPools = require('../../data/degens/bitiLpPools.json');
 const mdexBscPools = require('../../data/mdexBscLpPools.json');
 const typhPools = require('../../data/typhLpPools.json');
@@ -60,6 +60,7 @@ const popsiclePools = require('../../data/popsicleLpPools.json');
 const comethPools = require('../../data/comethLpPools.json');
 const fortressPools = require('../../data/fortressLpPools.json');
 const hfiPools = require('../../data/hfiLpPools.json');
+const lydPools = require('../../data/avax/lydLpPools.json');
 
 const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
@@ -67,6 +68,7 @@ const REFRESH_INTERVAL = 10 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...lydPools,
   ...fortressPools,
   ...hfiPools,
   ...comethPools,
