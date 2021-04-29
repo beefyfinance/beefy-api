@@ -42,6 +42,7 @@ const getLavaLpApys = require('./lavaswap/getLavaLpApys');
 const getLavaApy = require('./lavaswap/getLavaApy');
 const getBunnyRewardsApy = require('./bunny/getBunnyRewardsApy');
 const getComethLpApys = require('./cometh/getComethLpApys');
+const getFortressApys = require('./fortress/getFortressApys');
 const getHfiLpApys = require('./hfi/getHfiLpApys');
 
 const INIT_DELAY = 4 * 60 * 1000;
@@ -103,6 +104,7 @@ const updateApys = async () => {
       getBunnyRewardsApy(),
       getComethLpApys(),
       getHfiLpApys(),
+      getFortressApys()
     ]);
 
     for (item of values) {
