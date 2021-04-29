@@ -61,6 +61,7 @@ const comethPools = require('../../data/comethLpPools.json');
 const fortressPools = require('../../data/fortressLpPools.json');
 const hfiPools = require('../../data/hfiLpPools.json');
 const lydPools = require('../../data/avax/lydLpPools.json');
+const icarusPools = require('../../data/icarusLpPools.json');
 
 const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
@@ -69,6 +70,7 @@ const REFRESH_INTERVAL = 10 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...lydPools,
+  ...icarusPools,
   ...fortressPools,
   ...hfiPools,
   ...comethPools,
