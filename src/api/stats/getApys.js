@@ -41,6 +41,7 @@ const getTyphLpApys = require('./typhoon/getTyphLpApys');
 const getLavaLpApys = require('./lavaswap/getLavaLpApys');
 const getLavaApy = require('./lavaswap/getLavaApy');
 const getBunnyRewardsApy = require('./bunny/getBunnyRewardsApy');
+const getFortressApys = require('./fortress/getFortressApys');
 const getHfiLpApys = require('./hfi/getHfiLpApys');
 const { getMaticApys } = require('./matic/index');
 
@@ -103,6 +104,7 @@ const updateApys = async () => {
       getBunnyRewardsApy(),
       getHfiLpApys(),
       getMaticApys(),
+      getFortressApys()
     ]);
 
     for (item of values) {

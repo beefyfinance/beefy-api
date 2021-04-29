@@ -1,0 +1,11 @@
+[
+  {
+    "name": "fortress-bnb",
+    "vtoken": "0xE24146585E882B6b59ca9bFaaaFfED201E4E5491",
+    "oracle": "tokens",
+    "oracleId": "WBNB",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.54
+  }
+]

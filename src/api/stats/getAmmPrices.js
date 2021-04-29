@@ -60,6 +60,7 @@ const popsiclePools = require('../../data/popsicleLpPools.json');
 const comethPools = require('../../data/matic/comethLpPools.json');
 const hfiPools = require('../../data/hfiLpPools.json');
 const krillPools = require('../../data/matic/krillLpPools.json');
+const fortressPools = require('../../data/fortressLpPools.json');
 
 const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
@@ -68,9 +69,10 @@ const REFRESH_INTERVAL = 10 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...krillPools,
+  ...fortressPools,
   ...hfiPools,
   ...comethPools,
-  //...popsiclePools,
+  ...popsiclePools,
   ...lavaPools,
   ...marshPools,
   ...typhPools,
