@@ -3,31 +3,33 @@ const { polygonWeb3: web3 } = require('../../../utils/web3');
 
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/comethLpPools.json');
+const pools = require('../../../data/matic/quickLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../../constants');
 
 const oracle = 'tokens';
-const oracleId = 'MUST';
+const oracleId = 'QUICK';
 
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const usdcMustRewardPool = '0x1C678EA856B368CC361A3389734fe451fEC8CEea'; // USDC-MUST
-const maticMustRewardPool = '0x2328c83431a29613b1780706E0Af3679E3D04afd'; // MATIC-MUST
-const ethMaticRewardPool = '0x5A25c4f43d0bfcCc07Aa86f7e8a1a1A3bFd9b15d'; // ETH-MATIC
+const maticQuickRewardPool = '0x7Ca29F0DB5Db8b88B332Aa1d67a2e89DfeC85E7E'; // Matic-Quick
+const ethMaticRewardPool = '0x8FF56b5325446aAe6EfBf006a4C1D88e4935a914'; // Eth-Matic
+const ethBtcRewardPool = '0x070D182EB7E9C3972664C959CE58C5fC6219A7ad'; // Eth-Btc
+const ethUsdtRewardPool = '0xB26bfcD52D997211C13aE4C35E82ced65AF32A02'; // Eth-Usdt
 
-
-const getComethLpApys = async () => {
-  let poolUsdcMust = pools.filter(pool => pool.name === 'cometh-usdc-must')[0];
-  let poolMaticMust = pools.filter(pool => pool.name === 'cometh-matic-must')[0];
-  let poolEthMatic = pools.filter(pool => pool.name === 'cometh-eth-matic')[0];
+const getQuickLpApys = async () => {
+  let poolMaticQuick = pools.filter(pool => pool.name === 'quick-quick-matic')[0];
+  let poolEthMatic = pools.filter(pool => pool.name === 'quick-eth-matic')[0];
+  let poolEthBtc = pools.filter(pool => pool.name === 'quick-eth-btc')[0];
+  let poolEthUsdt = pools.filter(pool => pool.name === 'quick-eth-usdt')[0];
 
   const values = await Promise.all([
-    getPoolApy(usdcMustRewardPool, poolUsdcMust, 137),
-    getPoolApy(maticMustRewardPool, poolMaticMust, 137),
+    getPoolApy(maticQuickRewardPool, poolMaticQuick, 137),
     getPoolApy(ethMaticRewardPool, poolEthMatic, 137),
+    getPoolApy(ethBtcRewardPool, poolEthBtc, 137),
+    getPoolApy(ethUsdtRewardPool, poolEthUsdt, 137),
   ]);
 
   let apys = {};
@@ -60,4 +62,4 @@ const getYearlyRewardsInUsd = async RewardPool => {
   return yearlyRewardsInUsd;
 };
 
-module.exports = getComethLpApys;
+module.exports = getQuickLpApys;

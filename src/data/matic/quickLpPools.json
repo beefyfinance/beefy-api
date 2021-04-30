@@ -1,0 +1,78 @@
+[
+    {
+        "name": "quick-quick-matic",
+        "address": "0x019ba0325f1988213D448b3472fA1cf8D07618d7",
+        "decimals": "1e18",
+        "poolId": 0,
+        "chainId": 137,
+        "lp0": {
+          "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "oracle": "tokens",
+          "oracleId": "MATIC",
+          "decimals": "1e18"
+        },
+        "lp1": {
+          "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+          "oracle": "tokens",
+          "oracleId": "QUICK",
+          "decimals": "1e18"
+        }
+    },
+    {
+        "name": "quick-eth-matic",
+        "address": "0xadbf1854e5883eb8aa7baf50705338739e558e5b",
+        "decimals": "1e18",
+        "poolId": 0,
+        "chainId": 137,
+        "lp0": {
+          "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+          "oracle": "tokens",
+          "oracleId": "MATIC",
+          "decimals": "1e18"
+        },
+        "lp1": {
+          "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "oracle": "tokens",
+          "oracleId": "ETH",
+          "decimals": "1e18"
+        }
+    },
+    {
+        "name": "quick-eth-btc",
+        "address": "0xdC9232E2Df177d7a12FdFf6EcBAb114E2231198D",
+        "decimals": "1e18",
+        "poolId": 0,
+        "chainId": 137,
+        "lp0": {
+          "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+          "oracle": "tokens",
+          "oracleId": "BTC",
+          "decimals": "1e18"
+        },
+        "lp1": {
+          "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+          "oracle": "tokens",
+          "oracleId": "ETH",
+          "decimals": "1e18"
+        }
+    },
+    {
+       "name": "quick-eth-usdt",
+       "address": "0xF6422B997c7F54D1c6a6e103bcb1499EeA0a7046",
+       "decimals": "1e18",
+       "poolId": 0,
+       "chainId": 137,
+       "lp0": {
+         "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+         "oracle": "tokens",
+         "oracleId": "ETH",
+         "decimals": "1e18"
+       },
+       "lp1": {
+         "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+         "oracle": "tokens",
+         "oracleId": "USDT",
+         "decimals": "1e6"
+       }
+     }
+]
