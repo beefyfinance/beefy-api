@@ -18,18 +18,21 @@ const maticQuickRewardPool = '0x7Ca29F0DB5Db8b88B332Aa1d67a2e89DfeC85E7E'; // Ma
 const ethMaticRewardPool = '0x8FF56b5325446aAe6EfBf006a4C1D88e4935a914'; // Eth-Matic
 const ethBtcRewardPool = '0x070D182EB7E9C3972664C959CE58C5fC6219A7ad'; // Eth-Btc
 const ethUsdtRewardPool = '0xB26bfcD52D997211C13aE4C35E82ced65AF32A02'; // Eth-Usdt
+const usdcUsdtRewardPool = '0x2cf7252e74036d1da831d11089d326296e64a728' // Usdc-Usdt
 
 const getQuickLpApys = async () => {
   let poolMaticQuick = pools.filter(pool => pool.name === 'quick-quick-matic')[0];
   let poolEthMatic = pools.filter(pool => pool.name === 'quick-eth-matic')[0];
   let poolEthBtc = pools.filter(pool => pool.name === 'quick-eth-btc')[0];
   let poolEthUsdt = pools.filter(pool => pool.name === 'quick-eth-usdt')[0];
+  let poolUsdcUsdt = pools.filter(pool => pool.name === 'quick-usdc-usdt')[0];
 
   const values = await Promise.all([
     getPoolApy(maticQuickRewardPool, poolMaticQuick, 137),
     getPoolApy(ethMaticRewardPool, poolEthMatic, 137),
     getPoolApy(ethBtcRewardPool, poolEthBtc, 137),
     getPoolApy(ethUsdtRewardPool, poolEthUsdt, 137),
+    getPoolApy(usdcUsdtRewardPool, poolUsdcUsdt, 137),
   ]);
 
   let apys = {};
