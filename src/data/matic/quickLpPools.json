@@ -74,5 +74,24 @@
          "oracleId": "USDT",
          "decimals": "1e6"
        }
-     }
+    },
+    {
+      "name": "quick-usdc-usdt",
+      "address": "0x2cf7252e74036d1da831d11089d326296e64a728",
+      "decimals": "1e18",
+      "poolId": 0,
+      "chainId": 137,
+      "lp0": {
+        "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      "lp1": {
+        "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    }
 ]
