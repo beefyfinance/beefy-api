@@ -1,5 +1,23 @@
 [
   {
+    "name": "banana-doge-bnb",
+    "address": "0xfd1ef328A17A8e8Eeaf7e4Ea1ed8a108E1F2d096",
+    "decimals": "1e18",
+    "poolId": 38,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xba2ae424d960c26247dd6c32edc70b295c744c43",
+      "oracle": "tokens",
+      "oracleId": "DOGE",
+      "decimals": "1e8"
+    }
+  },
+  {
     "name": "banana-ont-bnb",
     "address": "0x924D3f2F94618e8Ee837d4C2b8d703F0de12a57e",
     "decimals": "1e18",
