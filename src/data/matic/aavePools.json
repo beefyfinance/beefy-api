@@ -1,0 +1,46 @@
+[
+  {
+    "name": "aave-matic",
+    "token": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "aToken": "0x8dF3aad3a84da6b69A4DA8aeC3eA40d9091B2Ac4",
+    "debtToken": "0x59e8E9100cbfCBCBAdf86b9279fa61526bBB8765",
+    "oracle": "tokens",
+    "oracleId": "WMATIC",
+    "decimals": "1e18",
+    "borrowDepth": 3,
+    "borrowPercent": 0.40
+  },
+  {
+    "name": "aave-usdc",
+    "token": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    "aToken": "0x1a13F4Ca1d028320A707D99520AbFefca3998b7F",
+    "debtToken": "0x248960A9d75EdFa3de94F7193eae3161Eb349a12",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 3,
+    "borrowPercent": 0.40
+  },
+  {
+    "name": "aave-usdt",
+    "token": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+    "aToken": "0x60D55F02A771d515e077c9C2403a1ef324885CeC",
+    "debtToken": "0x8038857FD47108A07d1f6Bf652ef1cBeC279A2f3",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "borrowDepth": 3,
+    "borrowPercent": 0.40
+  },
+  {
+    "name": "aave-wbtc",
+    "token": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+    "aToken": "0x5c2ed810328349100A66B82b78a1791B101C9D61",
+    "debtToken": "0xF664F50631A6f0D72ecdaa0e49b0c019Fa72a8dC",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "borrowDepth": 3,
+    "borrowPercent": 0.40
+  }
+]

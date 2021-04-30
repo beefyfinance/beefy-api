@@ -1,24 +1,22 @@
 const getKrillLpApys = require('./getKrillLpApys');
 const getComethLpApys = require('./getComethLpApys');
 const getQuickLpApys = require('./getQuickLpApys');
-
+const getAaveApys = require('./getAaveApys');
 
 
 const getApys = [
   getKrillLpApys,
   getComethLpApys,
   getQuickLpApys,
+  getAaveApys,
 ];
 
 const getMaticApys = async () => {
   let apys = {};
 
-  let promises = [];
-  getApys.forEach(getApy => promises.push(getApy()));
-  const values = await Promise.all(promises);
-
-  for (item of values) {
-    apys = { ...apys, ...item };
+  for (const getApy of getApys) {
+    const apy = await getApy();
+    apys = { ...apys, ...apy };
   }
 
   return apys;
