@@ -56,6 +56,7 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
       solving = false;
 
       for (let i = unsolved.length - 1; i > 0; i--) {
+        console.log('solving:', unsolved.length);
         const pool = unsolved[i];
         
         let knownToken, unknownToken;
