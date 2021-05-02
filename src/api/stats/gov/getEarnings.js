@@ -25,6 +25,7 @@ const dailyEarnings = async () => {
   return earned;
 };
 
-setTimeout(updateEarnings, INIT_DELAY);
+// FIXME: restore this
+// setTimeout(updateEarnings, INIT_DELAY);
 
 module.exports = dailyEarnings;

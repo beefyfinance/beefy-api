@@ -1,0 +1,5 @@
+[
+	"function getLpInfo(address[][] calldata pools) external view returns (uint[] memory)"
+]
+
+

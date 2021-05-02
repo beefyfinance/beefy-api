@@ -4,6 +4,7 @@ const { sleep } = require('./time');
 const { BSC_CHAIN_ID } = require('../../constants');
 
 const ERC20 = require('../abis/ERC20.json');
+const PRICE_MULTICALL = require('../abis/BeefyPriceMulticall.json');
 
 const POOL_QUERY_INTERVAL = 50;
 
@@ -71,6 +72,8 @@ const fetchAmmPoolsPrices = async (pools, knownPrices) => {
   let processedPools = {};
   let tokenPrices = { ...knownPrices };
   let knownToken, unknownToken;
+
+  console.log(pools, knownPrices);
 
   for (const pool of [...pools].reverse()) {
     // FIXME: remove this once custom multical is used to fetch prices

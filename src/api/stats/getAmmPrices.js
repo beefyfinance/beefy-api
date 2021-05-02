@@ -1,4 +1,4 @@
-const { fetchAmmPoolsPrices } = require('../../utils/getPoolStats');
+const { fetchAmmPrices } = require('../../utils/fetchAmmPrices');
 const { sleep } = require('../../utils/time');
 
 const bakeryPools = require('../../data/bakeryLpPools.json');
@@ -64,7 +64,7 @@ const icarusPools = require('../../data/icarusLpPools.json');
 const quickPools = require('../../data/matic/quickLpPools.json');
 const krillPools = require('../../data/matic/krillLpPools.json');
 
-const INIT_DELAY = 2 * 60 * 1000;
+const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
 
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
@@ -148,7 +148,7 @@ const updateAmmPrices = async () => {
   console.log('> updating amm prices');
   isProcessing = true;
   try {
-    let { poolPrices, tokenPrices } = await fetchAmmPoolsPrices(pools, knownPrices);
+    let { poolPrices, tokenPrices } = await fetchAmmPrices(pools, knownPrices);
     const beltLPs = await getBeltPrices(tokenPrices);
     const ellipsisLPs = await getEllipsisPrices();
     const snob3PoolLP = await getSnob3PoolPrice();
