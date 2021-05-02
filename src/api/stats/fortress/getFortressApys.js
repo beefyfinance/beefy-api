@@ -6,7 +6,7 @@ const { compound } = require('../../../utils/compound');
 const IUnitroller = require('../../../abis/FotressUnitroller.json');
 const VToken = require('../../../abis/VToken.json');
 const pools = require('../../../data/fortressPools.json');
-const { BASE_HPY } = require('../../../../constants');
+const { BASE_HPY } = require('../../constants');
 
 const UNITROLLER = '0x67340Bd16ee5649A37015138B3393Eb5ad17c195';
 const BLOCKS_PER_YEAR = 10512000;

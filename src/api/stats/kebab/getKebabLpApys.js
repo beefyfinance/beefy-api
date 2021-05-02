@@ -6,7 +6,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/kebabLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BSC_CHAIN_ID } = require('../../../../constants');
+const { BSC_CHAIN_ID } = require('../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const getKebabLpApys = async () => {

@@ -5,7 +5,7 @@ const OriginalGangster = require('../../../abis/OriginalGangster.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BSC_CHAIN_ID } = require('../../../../constants');
+const { BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const ORIGINAL_GANGSTER = '0x03edb31BeCc296d45670790c947150DAfEC2E238';

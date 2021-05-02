@@ -6,7 +6,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/degens/memeFarmLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BSC_CHAIN_ID } = require('../../../../constants');
+const { BSC_CHAIN_ID } = require('../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const masterchef = '0xa0A4Ab8c15c5b7C9f0d73a23786B5B51BA2d5399';

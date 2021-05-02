@@ -1,8 +1,13 @@
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
-const BSC_CHAIN_ID = 56;
-const HECO_CHAIN_ID = 128;
-const AVAX_CHAIN_ID = 43114;
-const POLYGON_CHAIN_ID = 137;
+
+const BASE_HPY = 2190;
+const HOURLY_HPY = 8760;
+const DAILY_HPY = 365;
+const WEEKLY_HPY = 52;
+
+const FORTUBE_REQ_TOKENS = 'https://bsc.for.tube/api/v2/bank_tokens';
+const FORTUBE_REQ_MARKETS = 'https://bsc.for.tube/api/v1/bank/markets?mode=extended';
+const FORTUBE_API_TOKEN = process.env.FORTUBE_API_TOKEN;
 
 const MAINNET_BSC_RPC_ENDPOINTS = [
   'https://bsc-dataseed.binance.org',
@@ -29,22 +34,23 @@ const CUSTOM_BSC_RPC_ENDPOINTS = [
 const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
   ? CUSTOM_BSC_RPC_ENDPOINTS
   : MAINNET_BSC_RPC_ENDPOINTS;
+
 const BSC_RPC = BSC_RPC_ENDPOINTS[0];
-
 const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
-
 const AVAX_RPC = process.env.AVAX_RPC || 'https://api.avax.network/ext/bc/C/rpc';
-
 const POLYGON_RPC = process.env.POLYGON_RPC || 'https://rpc-mainnet.maticvigil.com/';
 
-const BASE_HPY = 2190;
-const HOURLY_HPY = 8760;
-const DAILY_HPY = 365;
-const WEEKLY_HPY = 52;
+const BSC_CHAIN_ID      = 56;
+const HECO_CHAIN_ID     = 128;
+const POLYGON_CHAIN_ID  = 137;
+const AVAX_CHAIN_ID     = 43114;
 
-const FORTUBE_REQ_TOKENS = 'https://bsc.for.tube/api/v2/bank_tokens';
-const FORTUBE_REQ_MARKETS = 'https://bsc.for.tube/api/v1/bank/markets?mode=extended';
-const FORTUBE_API_TOKEN = process.env.FORTUBE_API_TOKEN;
+const MULTICHAIN_RPC = {
+  BSC_CHAIN_ID: BSC_RPC,
+  HECO_CHAIN_ID: HECO_RPC,
+  POLYGON_CHAIN_ID: POLYGON_RPC,
+  AVAX_CHAIN_ID: AVAX_RPC
+}
 
 module.exports = {
   API_BASE_URL,
@@ -63,5 +69,6 @@ module.exports = {
   WEEKLY_HPY,
   FORTUBE_REQ_TOKENS,
   FORTUBE_REQ_MARKETS,
-  FORTUBE_API_TOKEN
+  FORTUBE_API_TOKEN,
+  MULTICHAIN_RPC
 };

@@ -7,7 +7,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/drugsPools.json');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const getDrugsApys = async () => {

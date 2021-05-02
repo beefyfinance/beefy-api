@@ -4,7 +4,7 @@ const { bscWeb3: web3 } = require('../../../utils/web3');
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const { compound } = require('../../../utils/compound');
 const fetchPrice = require('../../../utils/fetchPrice');
-const { BASE_HPY } = require('../../../../constants');
+const { BASE_HPY } = require('../../../constants');
 
 const stakingPool = '0xc08fa1d120e83e13b28d77be3b2837bc3e07127f';
 const oracle = 'coingecko';

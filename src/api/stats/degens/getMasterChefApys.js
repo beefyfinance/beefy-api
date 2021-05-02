@@ -4,7 +4,7 @@ const { bscWeb3: web3 } = require('../../../utils/web3');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd, getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BSC_CHAIN_ID } = require('../../../../constants');
+const { BSC_CHAIN_ID } = require('../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const getMasterChefApys = async (masterchefParams) => {

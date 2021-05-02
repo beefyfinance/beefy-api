@@ -1,17 +1,15 @@
 const BigNumber = require('bignumber.js');
 const { ethers } = require('ethers');
-
-const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
+const { BSC_CHAIN_ID, HECO_CHAIN_ID, POLYGON_CHAIN_ID, AVAX_CHAIN_ID, MULTICHAIN_RPC } = require('../constants');
 
 const MULTICALLS = {
-  56: "0x0943afe23cb43BD15aC2d58bACa34Eb570BFC278"
-  // TODO: multichain addresses
+  BSC_CHAIN_ID:     "0x0943afe23cb43BD15aC2d58bACa34Eb570BFC278",
+  HECO_CHAIN_ID:    "0x6066F766f47aC8dbf6F21aDF2493316A8ACB7e34",
+  POLYGON_CHAIN_ID: "0xB784bd129a3bA16650Af7BBbcAa4c59D7e60057C",
+  AVAX_CHAIN_ID:    "0xF7d6f0418d37B7Ec8D207fF0d10897C2a3F92Ed5",
 }
 
-const RPC = {
-  56: 'https://bsc-dataseed.binance.org',
-  // TODO: multichain rpc
-}
+const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
 
 const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
   return knownToken.normalizedBalance.multipliedBy(knownPrice).dividedBy(unknownToken.normalizedBalance).toNumber();
@@ -36,7 +34,7 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
     }
     
     // Setup multichain 
-    const provider = new ethers.providers.JsonRpcProvider(RPC[chain]);
+    const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chain]);
     const multicall = new ethers.Contract(MULTICALLS[chain], MulticallAbi, provider);
     
     // TODO: split query in batches?

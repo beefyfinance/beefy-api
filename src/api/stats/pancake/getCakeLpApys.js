@@ -7,7 +7,7 @@ const getBlockNumber = require('../../../utils/getBlockNumber');
 const pools = require('../../../data/cakeLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../constants');
 
 const getCakeLpApys = async () => {
   let apys = {};

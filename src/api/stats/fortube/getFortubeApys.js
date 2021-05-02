@@ -5,7 +5,7 @@ const {
   FORTUBE_REQ_TOKENS,
   FORTUBE_REQ_MARKETS,
   FORTUBE_API_TOKEN,
-} = require('../../../../constants');
+} = require('../../../constants');
 
 const getFortubeApys = async () => {
   if (FORTUBE_API_TOKEN == undefined) {

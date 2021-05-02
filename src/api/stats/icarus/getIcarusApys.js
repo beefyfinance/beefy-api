@@ -7,7 +7,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/icarusLpPools.json');
 const { getTotalLpStakedInUsd, getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY } = require('../../../../constants');
+const { BASE_HPY } = require('../../constants');
 
 const oracle = 'tokens';
 const oracleId = 'ICA';

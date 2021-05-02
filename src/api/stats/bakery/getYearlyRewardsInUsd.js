@@ -4,7 +4,7 @@ const { bscWeb3: web3 } = require('../../../utils/web3');
 const IBakeryMaster = require('../../../abis/IBakeryMaster.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const getBlockNumber = require('../../../utils/getBlockNumber');
-const { BSC_CHAIN_ID } = require('../../../../constants');
+const { BSC_CHAIN_ID } = require('../../constants');
 
 const getYearlyRewardsInUsd = async (bakeryMaster, asset) => {
   const currentBlock = await getBlockNumber(BSC_CHAIN_ID);

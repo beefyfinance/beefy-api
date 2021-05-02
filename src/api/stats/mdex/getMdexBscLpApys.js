@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
-const { BSC_CHAIN_ID } = require('../../../../constants');
+const { BSC_CHAIN_ID } = require('../../constants');
 
 const MasterChef = require('../../../abis/HecoPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
@@ -9,7 +9,7 @@ const getBlockNumber = require('../../../utils/getBlockNumber');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BASE_HPY } = require('../../../../constants');
+const { BASE_HPY } = require('../../constants');
 
 const ORACLE = 'tokens';
 const ORACLE_ID = 'bscMDX';
