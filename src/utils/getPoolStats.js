@@ -1,7 +1,11 @@
 const BigNumber = require('bignumber.js');
 const { web3Factory } = require('./web3');
+const { sleep } = require('./time');
 const { BSC_CHAIN_ID } = require('../../constants');
+
 const ERC20 = require('../abis/ERC20.json');
+
+const POOL_QUERY_INTERVAL = 50;
 
 const nativeToken = '0x0000000000000000000000000000000000000000';
 
@@ -67,7 +71,10 @@ const fetchAmmPoolsPrices = async (pools, knownPrices) => {
   let processedPools = {};
   let tokenPrices = { ...knownPrices };
   let knownToken, unknownToken;
+
   for (const pool of [...pools].reverse()) {
+    // FIXME: remove this once custom multical is used to fetch prices
+    await sleep(POOL_QUERY_INTERVAL);
 
     if (processedPools.hasOwnProperty(pool.address)) {
       poolPrices[pool.name] = poolPrices[processedPools[pool.address]];
