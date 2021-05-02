@@ -195,7 +195,8 @@ const getAmmLpPrice = async lpName => {
 };
 
 // Flexible delayed initialization used to work around ratelimits
-setTimeout(updateAmmPrices, INIT_DELAY);
+// setTimeout(updateAmmPrices, INIT_DELAY);
+updateAmmPrices();
 
 module.exports = {
   getAmmTokenPrice,
