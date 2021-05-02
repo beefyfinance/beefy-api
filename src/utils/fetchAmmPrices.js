@@ -28,7 +28,7 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
     let filtered = pools.filter(p => p.chainId == chain);
     
     // Old BSC pools don't have the chainId attr
-    if (chain === "56"){
+    if (chain === "56") {
       filtered = filtered.concat(pools.filter(p => p.chainId === undefined));
     }
 
@@ -51,6 +51,14 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
       filtered[i].lp1.normalizedBalance = filtered[i].lp1.balance.div(filtered[i].lp1.decimals);
     }
 
+    // 1inch uses raw bnb so it needs a custom query to fetch balance
+    if (chain === "56") {
+      const oneInch = filtered.filter(p => p.name === '1inch-1inch-bnb')[0];
+      const balance = await provider.getBalance(oneInch.address);
+      oneInch.lp1.balance = new BigNumber(balance.toString());
+      oneInch.lp1.normalizedBalance = oneInch.lp1.balance.div(oneInch.lp1.decimals);
+    }
+  
     const unsolved = filtered.slice();
     let solving = true;
     while (solving) {

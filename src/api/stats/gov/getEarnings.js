@@ -1,7 +1,7 @@
 const { getDailyEarnings }   = require('../../../utils/getDailyEarnings');
 const { getRewardsReceived } = require('../../../utils/getRewardsReceived');
 
-const INIT_DELAY = 5 * 60 * 1000;
+const INIT_DELAY = 2 * 60 * 1000;
 const INTERVAL = 60 * 60 * 1000;
 
 let earned = {};
