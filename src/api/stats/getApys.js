@@ -44,7 +44,7 @@ const { getAvaxApys } = require('./avax/index');
 const getIcarusApys = require('./icarus/getIcarusApys');
 const { getMaticApys } = require('./matic/index');
 
-const INIT_DELAY = 8 * 60 * 1000;
+const INIT_DELAY = 10 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let apys = {};

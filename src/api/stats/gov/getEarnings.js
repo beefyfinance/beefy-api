@@ -1,8 +1,8 @@
 const { getDailyEarnings }   = require('../../../utils/getDailyEarnings');
 const { getRewardsReceived } = require('../../../utils/getRewardsReceived');
 
-const INIT_DELAY = 0 * 60 * 1000;
-const INTERVAL = 2 * 60 * 60 * 1000;
+const INIT_DELAY = 5 * 60 * 1000;
+const INTERVAL = 60 * 60 * 1000;
 
 let earned = {};
 
@@ -25,7 +25,6 @@ const dailyEarnings = async () => {
   return earned;
 };
 
-// FIXME: restore this
-// setTimeout(updateEarnings, INIT_DELAY);
+setTimeout(updateEarnings, INIT_DELAY);
 
 module.exports = dailyEarnings;

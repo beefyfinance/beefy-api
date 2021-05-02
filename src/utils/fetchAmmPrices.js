@@ -1,7 +1,6 @@
 const BigNumber = require('bignumber.js');
 const { ethers } = require('ethers');
 
-//const ERC20 = require('../abis/ERC20.json');
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
 
 const MULTICALLS = {
@@ -18,6 +17,12 @@ const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
   return knownToken.normalizedBalance.multipliedBy(knownPrice).dividedBy(unknownToken.normalizedBalance).toNumber();
 }
 
+const calcLpPrice = (pool, tokenPrices) => {
+  const lp0 = pool.lp0.balance.multipliedBy(tokenPrices[pool.lp0.oracleId]).dividedBy(pool.lp0.decimals);
+  const lp1 = pool.lp1.balance.multipliedBy(tokenPrices[pool.lp1.oracleId]).dividedBy(pool.lp1.decimals);
+  return lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(pool.totalSupply).toNumber();
+}
+
 const fetchAmmPrices = async (pools, tokenPrices) => {
   let poolPrices = {};
 
@@ -29,7 +34,7 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
     if (chain === "56"){
       filtered = filtered.concat(pools.filter(p => p.chainId === undefined));
     }
-
+    
     // Setup multichain 
     const provider = new ethers.providers.JsonRpcProvider(RPC[chain]);
     const multicall = new ethers.Contract(MULTICALLS[chain], MulticallAbi, provider);
@@ -51,12 +56,10 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
 
     const unsolved = filtered.slice();
     let solving = true;
-    while (solving){
-      console.log('------------- price solving iteration -------------');
+    while (solving) {
       solving = false;
 
-      for (let i = unsolved.length - 1; i > 0; i--) {
-        console.log('solving:', unsolved.length);
+      for (let i = unsolved.length - 1; i >= 0; i--) {
         const pool = unsolved[i];
         
         let knownToken, unknownToken;
@@ -69,7 +72,7 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
           unknownToken = pool.lp0;
         
         } else { 
-          console.log('not found: ', pool.lp0.oracleId, pool.lp1.oracleId);
+          console.log('unsolved: ', pool.lp0.oracleId, pool.lp1.oracleId);
           continue; 
         }
 
@@ -77,22 +80,14 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
           tokenPrices[knownToken.oracleId], knownToken, unknownToken
         );
 
-        // Calculate the price of the other token, and the price of the LP.
-        // TODO: both prices are known, calculate the lp price
-        
+        poolPrices[pool.name] = calcLpPrice(pool, tokenPrices);
+
         unsolved.splice(i, 1);
-        solving = true; 
+        solving = true;
       }
-      
-      console.log('unsolved:', unsolved);
-      console.log('solved:', filtered.length - unsolved.length);
-      // console.log(tokenPrices);
-      console.log();
     }
   }
   
-  process.exit();
-
   return {
     poolPrices: poolPrices,
     tokenPrices: tokenPrices,
