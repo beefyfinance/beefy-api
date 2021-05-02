@@ -5,7 +5,7 @@ const MasterChef = require('../../../abis/MasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY, BSC_CHAIN_ID } = require('../../constants');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const getCakePoolApy = async () => {

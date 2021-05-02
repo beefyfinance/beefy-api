@@ -6,7 +6,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/cakePools.json');
 const { compound } = require('../../../utils/compound');
-const { HOURLY_HPY, BSC_CHAIN_ID } = require('../../constants');
+const { HOURLY_HPY, BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const getCakeApys = async () => {

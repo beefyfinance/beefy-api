@@ -4,7 +4,7 @@ const { bscWeb3: web3 } = require('../../../utils/web3');
 const FairLaunch = require('../../../abis/FairLaunch.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const getBlockNumber = require('../../../utils/getBlockNumber');
-const { BSC_CHAIN_ID } = require('../../constants');
+const { BSC_CHAIN_ID } = require('../../../constants');
 
 const getYearlyRewardsInUsd = async (fairLaunch, pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);

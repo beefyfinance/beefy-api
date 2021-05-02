@@ -1,7 +1,7 @@
 const { bscWeb3: web3 } = require('./web3');
 const BigNumber = require('bignumber.js');
 const { sleep } = require('./time');
-const { BSC_CHAIN_ID } = require('../../constants');
+const { BSC_CHAIN_ID } = require('../constants');
 const getBlockNumber = require('./getBlockNumber');
 
 const { getTopicFromSignature, getTopicFromAddress, getValueFromData } = require('./topicHelpers');
@@ -33,6 +33,7 @@ const getRewardsReceived = async () => {
     if (toBlock > lastBlock) { toBlock = lastBlock; }
 
     try {
+
       const logs = await web3.eth.getPastLogs({
         fromBlock: fromBlock,
         toBlock: toBlock - 1,

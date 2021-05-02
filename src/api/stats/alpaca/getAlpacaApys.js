@@ -1,7 +1,7 @@
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/alpacaPools.json');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY } = require('../../constants');
+const { BASE_HPY } = require('../../../constants');
 const getYearlyRewardsInUsd = require('./getYearlyRewardsInUsd');
 
 const getAlpacaApys = async () => {

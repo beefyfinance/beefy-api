@@ -6,7 +6,7 @@ const BlizzardStratAbi = require('../../../abis/StrategyChef.json')
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/degens/blizzardLpPools.json');
 const { compound } = require('../../../utils/compound');
-const { BSC_CHAIN_ID } = require('../../constants');
+const { BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 const { lpTokenPrice } = require('../../../utils/lpTokens');
 

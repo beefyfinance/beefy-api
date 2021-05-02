@@ -5,7 +5,7 @@ const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
-const { DAILY_HPY } = require('../../constants');
+const { DAILY_HPY } = require('../../../constants');
 
 const BIFI = '0xCa3F508B8e4Dd382eE878A314789373D80A5190A';
 const REWARDS = '0x453D4Ba9a2D594314DF88564248497F7D74d6b2C';

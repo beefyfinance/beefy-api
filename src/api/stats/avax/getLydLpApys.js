@@ -5,7 +5,7 @@ const MasterChef = require('../../../abis/avax/LydChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/lydLpPools.json');
 const { compound } = require('../../../utils/compound');
-const { AVAX_CHAIN_ID } = require('../../constants');
+const { AVAX_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const ERC20 = require('../../../abis/ERC20.json');

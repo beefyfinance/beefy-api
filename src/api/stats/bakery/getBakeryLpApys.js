@@ -2,7 +2,7 @@ const pools = require('../../../data/bakeryLpPools.json');
 const { compound } = require('../../../utils/compound');
 const getYearlyRewardsInUsd = require('./getYearlyRewardsInUsd');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BASE_HPY } = require('../../constants');
+const { BASE_HPY } = require('../../../constants');
 
 const getBakeryLpApys = async () => {
   let apys = {};

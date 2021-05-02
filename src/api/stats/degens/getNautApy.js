@@ -5,7 +5,7 @@ const SmartChef = require('../../../abis/SmartChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY, BSC_CHAIN_ID } = require('../../constants');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const smartChef = '0x114d54e18eb4A7Dc9bB8280e283E5799D4188E3f';

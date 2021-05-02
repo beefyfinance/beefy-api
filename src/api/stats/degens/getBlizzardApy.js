@@ -5,7 +5,7 @@ const MasterChef = require('../../../abis/degens/BlizzardYetiMaster.json');
 const BlizzardStratAbi = require('../../../abis/StrategyChef.json')
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY, BSC_CHAIN_ID } = require('../../constants');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const masterChef = '0x367CdDA266ADa588d380C7B970244434e4Dde790';

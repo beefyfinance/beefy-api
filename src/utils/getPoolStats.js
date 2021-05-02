@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
 const { web3Factory } = require('./web3');
 const { sleep } = require('./time');
-const { BSC_CHAIN_ID } = require('../../constants');
+const { BSC_CHAIN_ID } = require('../../../constants');
 
 const ERC20 = require('../abis/ERC20.json');
 const PRICE_MULTICALL = require('../abis/BeefyPriceMulticall.json');

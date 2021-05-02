@@ -2,7 +2,7 @@ const axios = require('axios');
 
 const pools = require('../../../data/autoPools.json');
 const { compound } = require('../../../utils/compound');
-const { BASE_HPY } = require('../../constants');
+const { BASE_HPY } = require('../../../constants');
 
 const getAutoApys = async () => {
   let apys = {};

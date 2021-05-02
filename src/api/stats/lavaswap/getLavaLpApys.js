@@ -6,7 +6,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/lavaLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BASE_HPY } = require('../../constants');
+const { BASE_HPY } = require('../../../constants');
 
 const getLavaLpApys = async () => {
   let apys = {};

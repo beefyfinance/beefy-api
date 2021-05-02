@@ -5,7 +5,7 @@ const MasterChef = require('../../../abis/matic/KrillChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/krillLpPools.json');
 const { compound } = require('../../../utils/compound');
-const { POLYGON_CHAIN_ID } = require('../../constants');
+const { POLYGON_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const ERC20 = require('../../../abis/ERC20.json');

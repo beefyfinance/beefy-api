@@ -6,7 +6,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/degens/apeLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BSC_CHAIN_ID } = require('../../constants');
+const { BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const masterchef = '0x5c8d727b265dbafaba67e050f2f739caeeb4a6f9';

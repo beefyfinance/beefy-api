@@ -5,7 +5,7 @@ const SwampChef = require('../../../abis/degens/SwampChef.json');
 const SwampStrat =require('../../../abis/StrategyCakeSwamp.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const { BSC_CHAIN_ID } = require('../../constants');
+const { BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const swampchef = '0x33AdBf5f1ec364a4ea3a5CA8f310B597B8aFDee3';

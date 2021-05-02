@@ -6,7 +6,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/comAvaxLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { AVAX_CHAIN_ID } = require('../../constants');
+const { AVAX_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const masterchef = '0xa329D806fbC80a14415588334ae4b205813C6BB2';

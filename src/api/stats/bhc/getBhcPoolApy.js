@@ -4,7 +4,7 @@ const { bscWeb3: web3 } = require('../../../utils/web3');
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const { compound } = require('../../../utils/compound');
 const fetchPrice = require('../../../utils/fetchPrice');
-const { BASE_HPY } = require('../../constants');
+const { BASE_HPY } = require('../../../constants');
 
 const stakingPool = '0xf867ea84d04c79bbd812e76f3ecedf3d053fff91';
 const oracle = 'tokens';

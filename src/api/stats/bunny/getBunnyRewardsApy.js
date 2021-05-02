@@ -3,7 +3,7 @@ const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const IBunnyRewards = require('../../../abis/IBunnyRewards.json');
 const { compound } = require('../../../utils/compound');
-const { DAILY_HPY } = require('../../constants');
+const { DAILY_HPY } = require('../../../constants');
 
 const getBunnyRewardsApy = async () => {
   const bunnyRewards = new web3.eth.Contract(

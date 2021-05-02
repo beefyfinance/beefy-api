@@ -6,7 +6,7 @@ const Strat = require('../../../abis/AutoStratX.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/pumpyLpPools.json');
 const { compound } = require('../../../utils/compound');
-const { BSC_CHAIN_ID } = require('../../constants');
+const { BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const masterchef = '0x29142471a5c33a2a4cD7C8f18Ce881F699b0c681';
