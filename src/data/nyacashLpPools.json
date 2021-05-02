@@ -11,8 +11,8 @@
     },
     "lp1": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "coingecko",
-      "oracleId": "tether",
+      "oracle": "tokens",
+      "oracleId": "USDT",
       "decimals": "1e18"
     }
   }

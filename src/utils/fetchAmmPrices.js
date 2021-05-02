@@ -49,8 +49,6 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
       filtered[i].lp1.normalizedBalance = filtered[i].lp1.balance.div(filtered[i].lp1.decimals);
     }
 
-    console.log(filtered[0]);
-
     const unsolved = filtered.slice();
     let solving = true;
     while (solving){
@@ -69,7 +67,10 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
           knownToken = pool.lp1;
           unknownToken = pool.lp0;
         
-        } else { continue; }
+        } else { 
+          console.log('not found: ', pool.lp0.oracleId, pool.lp1.oracleId);
+          continue; 
+        }
 
         tokenPrices[unknownToken.oracleId] = calcTokenPrice(
           tokenPrices[knownToken.oracleId], knownToken, unknownToken
