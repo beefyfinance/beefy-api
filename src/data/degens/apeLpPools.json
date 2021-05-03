@@ -1,5 +1,23 @@
 [
   {
+    "name": "banana-busd-usdc",
+    "address": "0xC087C78AbaC4A0E900a327444193dBF9BA69058E",
+    "decimals": "1e18",
+    "poolId": 8,
+    "lp0": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-doge-bnb",
     "address": "0xfd1ef328A17A8e8Eeaf7e4Ea1ed8a108E1F2d096",
     "decimals": "1e18",
