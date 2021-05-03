@@ -1,5 +1,62 @@
 [
-    {
+  {
+    "name": "quick-mausdc-usdc",
+    "address": "0x7295304b10740BA8e037826787d3e9386FD99925",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x9719d867A500Ef117cC201206B8ab51e794d3F82",
+      "oracle": "tokens",
+      "oracleId": "maUSDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "quick-aave-eth",
+    "address": "0x90bc3E68Ba8393a3Bf2D79309365089975341a43",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+      "oracle": "tokens",
+      "oracleId": "AAVE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-link-eth",
+    "address": "0x5cA6CA6c3709E1E6CFe74a50Cf6B2B6BA2Dadd67",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39",
+      "oracle": "tokens",
+      "oracleId": "LINK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
         "name": "quick-quick-matic",
         "address": "0x019ba0325f1988213D448b3472fA1cf8D07618d7",
         "decimals": "1e18",
@@ -74,5 +131,24 @@
          "oracleId": "USDT",
          "decimals": "1e6"
        }
-     }
+    },
+    {
+      "name": "quick-usdc-usdt",
+      "address": "0x2cf7252e74036d1da831d11089d326296e64a728",
+      "decimals": "1e18",
+      "poolId": 0,
+      "chainId": 137,
+      "lp0": {
+        "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      "lp1": {
+        "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    }
 ]
