@@ -7,7 +7,6 @@ const alpacaLpPools = require('../../data/alpacaLpPools.json');
 const cafePools = require('../../data/cafeLpPools.json');
 const cakeLpPools = require('../../data/cakeLpPools.json');
 const cakeLpV1Pools = require('../../data/cakeLpV1Pools.json');
-const cakePools = require('../../data/cakePools.json');
 const jetfuelPools = require('../../data/jetfuelLpPools.json');
 const kebabPools = require('../../data/kebabLpPools.json');
 const bdollarSbdoPools = require('../../data/bdollarSbdoLpPools.json');
@@ -65,7 +64,7 @@ const icarusPools = require('../../data/icarusLpPools.json');
 const quickPools = require('../../data/matic/quickLpPools.json');
 const krillPools = require('../../data/matic/krillLpPools.json');
 
-const INIT_DELAY = 60 * 1000;
+const INIT_DELAY = 2 * 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
 
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
@@ -129,8 +128,7 @@ const pools = [
   ...nyacashPools,
   ...thugsPools,
   ...cakeLpV1Pools,
-  ...cakeLpPools,
-  ...cakePools,
+  ...cakeLpPools
 ];
 
 const knownPrices = {

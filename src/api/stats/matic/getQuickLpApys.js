@@ -19,6 +19,9 @@ const ethMaticRewardPool = '0x8FF56b5325446aAe6EfBf006a4C1D88e4935a914'; // Eth-
 const ethBtcRewardPool = '0x070D182EB7E9C3972664C959CE58C5fC6219A7ad'; // Eth-Btc
 const ethUsdtRewardPool = '0xB26bfcD52D997211C13aE4C35E82ced65AF32A02'; // Eth-Usdt
 const usdcUsdtRewardPool = '0x251d9837a13F38F3Fe629ce2304fa00710176222' // Usdc-Usdt
+const linkEthRewardPool = '0x97D69E23DF7BBB01F9eA78b5651cb6ad125D6d9a'; // Link-Eth
+const aaveEthRewardPool = '0x573bb5CCC26222d8108EdaCFcC7F7cb9e388Af10'; // Aave-Eth
+const maUsdcUsdcRewardPool = '0x9Aac6390103C1Af774220aaB85bEB49Ae2DF11d6'; // maUSDC-USDC
 
 const getQuickLpApys = async () => {
   let poolMaticQuick = pools.filter(pool => pool.name === 'quick-quick-matic')[0];
@@ -26,6 +29,9 @@ const getQuickLpApys = async () => {
   let poolEthBtc = pools.filter(pool => pool.name === 'quick-eth-btc')[0];
   let poolEthUsdt = pools.filter(pool => pool.name === 'quick-eth-usdt')[0];
   let poolUsdcUsdt = pools.filter(pool => pool.name === 'quick-usdc-usdt')[0];
+  let poolLinkEth = pools.filter(pool => pool.name === 'quick-link-eth')[0];
+  let poolAaveEth = pools.filter(pool => pool.name === 'quick-aave-eth')[0];
+  let poolmaUsdcUsdc = pools.filter(pool => pool.name === 'quick-mausdc-usdc')[0];
 
   const values = await Promise.all([
     getPoolApy(maticQuickRewardPool, poolMaticQuick, 137),
@@ -33,6 +39,9 @@ const getQuickLpApys = async () => {
     getPoolApy(ethBtcRewardPool, poolEthBtc, 137),
     getPoolApy(ethUsdtRewardPool, poolEthUsdt, 137),
     getPoolApy(usdcUsdtRewardPool, poolUsdcUsdt, 137),
+    getPoolApy(linkEthRewardPool, poolLinkEth, 137),
+    getPoolApy(aaveEthRewardPool, poolAaveEth, 137),
+    getPoolApy(maUsdcUsdcRewardPool, poolmaUsdcUsdc, 137),
   ]);
 
   let apys = {};
