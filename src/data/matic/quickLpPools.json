@@ -1,5 +1,100 @@
 [
   {
+    "name": "quick-ubt-eth",
+    "address": "0xcc203f45A31aE086218170F6A9e9623fA1655486",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7FBc10850caE055B27039aF31bD258430e714c62",
+      "oracle": "tokens",
+      "oracleId": "UBT",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "quick-defi5-eth",
+    "address": "0x654E651b658f784406125400cf648588CB9773e8",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x42435F467D33e5C4146a4E8893976ef12BBCE762",
+      "oracle": "tokens",
+      "oracleId": "DEFI5",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-wise-eth",
+    "address": "0xDF8139e9BebecAdEcF48BeC8c8064CcEfB618e2b",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb77e62709e39ad1cbeebe77cf493745aec0f453a",
+      "oracle": "tokens",
+      "oracleId": "WISE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-cel-eth",
+    "address": "0xEAA5E4620373d9Ded4DCB9267F46fcfc6698c867",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD85d1e945766Fea5Eda9103F918Bd915FbCa63E6",
+      "oracle": "tokens",
+      "oracleId": "CEL",
+      "decimals": "1e4"
+    }
+  },
+  {
+    "name": "quick-quick-eth",
+    "address": "0x1Bd06B96dd42AdA85fDd0795f3B4A79DB914ADD5",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-mausdc-usdc",
     "address": "0x7295304b10740BA8e037826787d3e9386FD99925",
     "decimals": "1e18",

@@ -22,6 +22,11 @@ const usdcUsdtRewardPool = '0x251d9837a13F38F3Fe629ce2304fa00710176222' // Usdc-
 const linkEthRewardPool = '0x97D69E23DF7BBB01F9eA78b5651cb6ad125D6d9a'; // Link-Eth
 const aaveEthRewardPool = '0x573bb5CCC26222d8108EdaCFcC7F7cb9e388Af10'; // Aave-Eth
 const maUsdcUsdcRewardPool = '0x9Aac6390103C1Af774220aaB85bEB49Ae2DF11d6'; // maUSDC-USDC
+const quickEthRewardPool = '0xD1C762861AAe85dF2e586a668A793AAfF820932b'; // Quick-ETH
+const celEthRewardPool = '0x8917692e0Bdb47AF1D36837805E141Ed79065dFC'; // Cel-ETH
+const wiseEthRewardPool = '0xb11856d3Aea0203e50B8520479C6332daBcF3f82'; // WISE-ETH
+const defi5EthRewardPool = '0xf563fAe71bDAcDD370098CeCff14dbe2c9518a6b'; // Defi5-ETH
+const ubtEthRewardPool = '0x219670F92CC0e0ef1C16BDB0aE266F0472930906'; // UBT-ETH
 
 const getQuickLpApys = async () => {
   let poolMaticQuick = pools.filter(pool => pool.name === 'quick-quick-matic')[0];
@@ -32,6 +37,11 @@ const getQuickLpApys = async () => {
   let poolLinkEth = pools.filter(pool => pool.name === 'quick-link-eth')[0];
   let poolAaveEth = pools.filter(pool => pool.name === 'quick-aave-eth')[0];
   let poolmaUsdcUsdc = pools.filter(pool => pool.name === 'quick-mausdc-usdc')[0];
+  let poolQuickEth = pools.filter(pool => pool.name === 'quick-quick-eth')[0];
+  let poolCelEth = pools.filter(pool => pool.name === 'quick-cel-eth')[0];
+  let poolWiseEth = pools.filter(pool => pool.name === 'quick-wise-eth')[0];
+  let poolDefi5Eth = pools.filter(pool => pool.name === 'quick-defi5-eth')[0];
+  let poolUbtEth = pools.filter(pool => pool.name === 'quick-ubt-eth')[0];
 
   const values = await Promise.all([
     getPoolApy(maticQuickRewardPool, poolMaticQuick, 137),
@@ -42,6 +52,11 @@ const getQuickLpApys = async () => {
     getPoolApy(linkEthRewardPool, poolLinkEth, 137),
     getPoolApy(aaveEthRewardPool, poolAaveEth, 137),
     getPoolApy(maUsdcUsdcRewardPool, poolmaUsdcUsdc, 137),
+    getPoolApy(quickEthRewardPool, poolQuickEth, 137),
+    getPoolApy(celEthRewardPool, poolCelEth, 137),
+    getPoolApy(wiseEthRewardPool, poolWiseEth, 137),
+    getPoolApy(defi5EthRewardPool, poolDefi5Eth, 137),
+    getPoolApy(ubtEthRewardPool, poolUbtEth, 137),
   ]);
 
   let apys = {};
