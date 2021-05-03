@@ -43,6 +43,12 @@ const FORTUBE_REQ_TOKENS = 'https://bsc.for.tube/api/v2/bank_tokens';
 const FORTUBE_REQ_MARKETS = 'https://bsc.for.tube/api/v1/bank/markets?mode=extended';
 const FORTUBE_API_TOKEN = process.env.FORTUBE_API_TOKEN;
 
+const TRADING_FEES = {
+  pancake: 0.0017,
+  bakery: 0.0025,
+  apeswap: 0.0025,
+};
+
 module.exports = {
   API_BASE_URL,
   BSC_RPC,
@@ -59,4 +65,5 @@ module.exports = {
   FORTUBE_REQ_TOKENS,
   FORTUBE_REQ_MARKETS,
   FORTUBE_API_TOKEN,
+  TRADING_FEES
 };

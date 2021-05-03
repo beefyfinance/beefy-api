@@ -7,7 +7,7 @@ const getBlockNumber = require('../../../utils/getBlockNumber');
 const pools = require('../../../data/cakeLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
+const { BASE_HPY, BSC_CHAIN_ID, TRADING_FEES } = require('../../../../constants');
 
 const getCakeLpApys = async () => {
   let apys = {};
@@ -29,10 +29,10 @@ const getPoolApy = async (masterchef, pool) => {
     getYearlyRewardsInUsd(masterchef, pool),
     getTotalLpStakedInUsd(masterchef, pool),
   ]);
-  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
-  // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-  return { [pool.name]: apy };
+  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).toNumber();
+  const tradingFee = TRADING_FEES.pancake;
+  const apy = compound(simpleApy + tradingFee, BASE_HPY, 1, 0.955);
+  return { [pool.name]: apy, [pool.name + '-breakdown']: [simpleApy, tradingFee] };
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
