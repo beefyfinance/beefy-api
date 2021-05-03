@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 const { ethers } = require('ethers');
-const { BSC_CHAIN_ID, HECO_CHAIN_ID, POLYGON_CHAIN_ID, AVAX_CHAIN_ID, MULTICHAIN_RPC } = require('../constants');
+const { MULTICHAIN_RPC } = require('../constants');
 
 const MULTICALLS = {
   56:    "0x0943afe23cb43BD15aC2d58bACa34Eb570BFC278",
