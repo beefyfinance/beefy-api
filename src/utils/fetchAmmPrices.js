@@ -12,7 +12,13 @@ const MULTICALLS = {
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
 
 const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
-  return knownToken.normalizedBalance.multipliedBy(knownPrice).dividedBy(unknownToken.normalizedBalance).toNumber();
+  const valuation = knownToken.balance.dividedBy(knownToken.decimals).multipliedBy(knownPrice);
+  const price = valuation.multipliedBy(unknownToken.decimals).dividedBy(unknownToken.balance);
+  
+  return { 
+    price: price.toNumber(), 
+    valuation: valuation.toNumber()
+  }
 }
 
 const calcLpPrice = (pool, tokenPrices) => {
@@ -23,12 +29,13 @@ const calcLpPrice = (pool, tokenPrices) => {
 
 const fetchAmmPrices = async (pools, tokenPrices) => {
   let poolPrices = {};
+  let tokenValuations = {};
 
   for (let chain in MULTICALLS) {
     let filtered = pools.filter(p => p.chainId == chain);
     
     // Old BSC pools don't have the chainId attr
-    if (chain === "56") {
+    if (chain == "56") {
       filtered = filtered.concat(pools.filter(p => p.chainId === undefined));
     }
 
@@ -45,18 +52,13 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
       filtered[i].totalSupply = new BigNumber(buf[i * 3 + 0].toString());
       filtered[i].lp0.balance = new BigNumber(buf[i * 3 + 1].toString());
       filtered[i].lp1.balance = new BigNumber(buf[i * 3 + 2].toString());
-
-      // price calc optimization
-      filtered[i].lp0.normalizedBalance = filtered[i].lp0.balance.div(filtered[i].lp0.decimals);
-      filtered[i].lp1.normalizedBalance = filtered[i].lp1.balance.div(filtered[i].lp1.decimals);
     }
 
     // 1inch uses raw bnb so it needs a custom query to fetch balance
-    if (chain === "56") {
+    if (chain == "56") {
       const oneInch = filtered.filter(p => p.name === '1inch-1inch-bnb')[0];
       const balance = await provider.getBalance(oneInch.address);
       oneInch.lp1.balance = new BigNumber(balance.toString());
-      oneInch.lp1.normalizedBalance = oneInch.lp1.balance.div(oneInch.lp1.decimals);
     }
   
     const unsolved = filtered.slice();
@@ -81,10 +83,12 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
           continue; 
         }
 
-        tokenPrices[unknownToken.oracleId] = calcTokenPrice(
-          tokenPrices[knownToken.oracleId], knownToken, unknownToken
-        );
+        const { price, valuation } = calcTokenPrice(tokenPrices[knownToken.oracleId], knownToken, unknownToken);
 
+        if (valuation > (tokenValuations[unknownToken.oracleId] || 0)){
+          tokenPrices[unknownToken.oracleId] = price;
+          tokenValuations[unknownToken.oracleId] = valuation;
+        }
         poolPrices[pool.name] = calcLpPrice(pool, tokenPrices);
 
         unsolved.splice(i, 1);
