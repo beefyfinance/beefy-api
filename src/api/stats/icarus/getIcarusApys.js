@@ -33,7 +33,6 @@ const getIcarusApys = async () => {
 const getPoolApy = async (pool) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(pool),
-    getTotalStakedInUsd(pool.pool, pool.address, pool.oracle, pool.oracleId),
     getTotalLpStakedInUsd(pool.pool, pool),
   ]);
 

@@ -63,6 +63,7 @@ const lydPools = require('../../data/avax/lydLpPools.json');
 const icarusPools = require('../../data/icarusLpPools.json');
 const quickPools = require('../../data/matic/quickLpPools.json');
 const krillPools = require('../../data/matic/krillLpPools.json');
+const satisPools = require('../../data/degens/satisLpPools.json');
 
 const INIT_DELAY = 2 * 60 * 1000;
 const REFRESH_INTERVAL = 10 * 60 * 1000;
@@ -70,6 +71,7 @@ const REFRESH_INTERVAL = 10 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...satisPools,
   ...krillPools,
   ...quickPools,
   ...lydPools,
