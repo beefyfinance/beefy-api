@@ -1,5 +1,24 @@
 [
- {
+  {
+    "name": "cometh-must-eth",
+    "address": "0x8826C072657983939c26E684edcfb0e4133f0B3d",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9C78EE466D6Cb57A4d01Fd887D2b5dFb2D46288f",
+      "oracle": "tokens",
+      "oracleId": "MUST",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cometh-eth-matic",
     "address": "0x462390EA53F70F7570EEB2002c0150aF519f93A9",
     "decimals": "1e18",
