@@ -1,23 +1,5 @@
 [
   {
-    "name": "jul-vidt-bnb",
-    "address": "0x50b68945a990684aedbfa46391988b4609923d48",
-    "decimals": "1e18",
-    "poolId": 0,
-    "lp0": {
-      "address": "0x3f515f0a8e93F2E2f891ceeB3Db4e62e202d7110",
-      "oracle": "tokens",
-      "oracleId": "VIDT",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "BNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "jul-twt-bnb",
     "address": "0x14aac5ba46418d625db4f506988e3ee5a0963887",
     "decimals": "1e18",
