@@ -35,6 +35,7 @@ const getHfiApys = async () => {
 };
 
 const fetchHfiStats = async () => {
+  // Have to override the due to error in recieving certificates from HFI. Only done for this instance otherwise will increase vulnerability. 
   const agent = new https.Agent({  
     rejectUnauthorized: false
   });
