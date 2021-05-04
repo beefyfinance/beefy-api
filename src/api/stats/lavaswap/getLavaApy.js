@@ -5,7 +5,6 @@ const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 
-
 const oracle = 'tokens';
 const oracleId = 'LAVA';
 
@@ -14,12 +13,10 @@ const BLOCKS_PER_DAY = 28800;
 
 const lavaRewardPool = '0x13B453E4bEB8A9d80c91e7f33053Cb8193E33Ac2';
 
-
 const getLavaApy = async () => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(),
     getTotalStakedInUsd(),
-   
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);

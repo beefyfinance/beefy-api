@@ -19,7 +19,6 @@ const maticMustRewardPool = '0x2328c83431a29613b1780706E0Af3679E3D04afd'; // MAT
 const ethMaticRewardPool = '0x5A25c4f43d0bfcCc07Aa86f7e8a1a1A3bFd9b15d'; // ETH-MATIC
 const mustEthRewardPool = '0x2cc6a7A06B32E0796D8f9225E2e33ae51C93d715'; // MUST-ETH
 
-
 const getComethLpApys = async () => {
   let poolUsdcMust = pools.filter(pool => pool.name === 'cometh-usdc-must')[0];
   let poolMaticMust = pools.filter(pool => pool.name === 'cometh-matic-must')[0];

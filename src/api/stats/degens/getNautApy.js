@@ -20,7 +20,7 @@ const getNautApy = async () => {
       smartChef,
       '0x288ea5437c7aad045a393cee2f41e548df24d1c8',
       'lps',
-      'naut-naut-bnb',
+      'naut-naut-bnb'
     ),
   ]);
 

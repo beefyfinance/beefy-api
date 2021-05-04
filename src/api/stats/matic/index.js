@@ -3,13 +3,7 @@ const getComethLpApys = require('./getComethLpApys');
 const getQuickLpApys = require('./getQuickLpApys');
 const getAaveApys = require('./getAaveApys');
 
-
-const getApys = [
-  getKrillLpApys,
-  getComethLpApys,
-  getQuickLpApys,
-  getAaveApys,
-];
+const getApys = [getKrillLpApys, getComethLpApys, getQuickLpApys, getAaveApys];
 
 const getMaticApys = async () => {
   let apys = {};
@@ -20,7 +14,6 @@ const getMaticApys = async () => {
   }
 
   return apys;
-
 };
 
 module.exports = { getMaticApys };

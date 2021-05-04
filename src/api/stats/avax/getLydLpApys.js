@@ -53,10 +53,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   allocPoint = new BigNumber(allocPoint);
 
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
-  const poolBlockRewards = rewards
-    .times(multiplier)
-    .times(allocPoint)
-    .dividedBy(totalAllocPoint);
+  const poolBlockRewards = rewards.times(multiplier).times(allocPoint).dividedBy(totalAllocPoint);
 
   const secondsPerBlock = 1;
   const secondsPerYear = 31536000;

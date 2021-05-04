@@ -132,7 +132,7 @@ const pools = [
   ...nyacashPools,
   ...thugsPools,
   ...cakeLpV1Pools,
-  ...cakeLpPools
+  ...cakeLpPools,
 ];
 
 const knownPrices = {

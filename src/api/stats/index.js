@@ -10,7 +10,7 @@ async function apy(ctx) {
     let apys = await getApys();
 
     if (Object.keys(apys).length === 0) {
-      throw 'There is no APYs data yet'
+      throw 'There is no APYs data yet';
     }
 
     ctx.status = 200;

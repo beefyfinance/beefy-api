@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const SwampChef = require('../../../abis/degens/SwampChef.json');
-const SwampStrat =require('../../../abis/StrategyCakeSwamp.json');
+const SwampStrat = require('../../../abis/StrategyCakeSwamp.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { BSC_CHAIN_ID } = require('../../../constants');
@@ -15,15 +15,13 @@ const oracle = 'tokens';
 const DECIMALS = '1e18';
 
 const getSwampySwampApy = async () => {
- 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(),
     getTotalStakedInUsd(),
-   
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-   //console.log('swamp-swamp', simpleApy.valueOf(), simpleApy, apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+  //console.log('swamp-swamp', simpleApy.valueOf(), simpleApy, apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { 'swamp-swamp': apy };
 };
 

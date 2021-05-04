@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const SwampChef = require('../../../abis/degens/SwampChef.json');
-const SwampStrat =require('../../../abis/StrategyCakeSwamp.json');
+const SwampStrat = require('../../../abis/StrategyCakeSwamp.json');
 const MasterChef = require('../../../abis/MasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
@@ -19,8 +19,12 @@ const oracle = 'tokens';
 const DECIMALS = '1e18';
 
 const getSwampyCakeApy = async () => {
- 
-  const [yearlyRewardsInUsd, totalStakedInUsd, cakeYearlyRewardsInUsd, cakeTotalStakedInUsd] = await Promise.all([
+  const [
+    yearlyRewardsInUsd,
+    totalStakedInUsd,
+    cakeYearlyRewardsInUsd,
+    cakeTotalStakedInUsd,
+  ] = await Promise.all([
     getYearlyRewardsInUsd(),
     getTotalStakedInUsd(),
     getCakeYearlyRewardsInUsd(),
@@ -30,7 +34,7 @@ const getSwampyCakeApy = async () => {
   const simpleApyCake = cakeYearlyRewardsInUsd.dividedBy(cakeTotalStakedInUsd);
   const simpleApy = new BigNumber(simpleApyCake.plus(simpleApySwamp));
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-   // console.log('swamp-cake', simpleApyCake.valueOf(), simpleApySwamp.valueOf(), simpleApy, apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf(), cakeTotalStakedInUsd.valueOf(), cakeYearlyRewardsInUsd.valueOf());
+  // console.log('swamp-cake', simpleApyCake.valueOf(), simpleApySwamp.valueOf(), simpleApy, apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf(), cakeTotalStakedInUsd.valueOf(), cakeYearlyRewardsInUsd.valueOf());
   return { 'swamp-cake': apy };
 };
 

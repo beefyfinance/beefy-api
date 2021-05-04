@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
-    "test": "nyc ava"
+    "test": "nyc ava",
+    "prettier:check": "prettier --check src/**/*",
+    "prettier:fix": "prettier --write src/**/*",
+    "prepare": "husky install"
+
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
@@ -23,6 +27,7 @@
   "devDependencies": {
     "ava": "^3.12.1",
     "dotenv": "^8.2.0",
+    "husky": "^6.0.0",
     "nodemon": "^2.0.6",
     "nyc": "^15.1.0",
     "prettier": "2.1.1"

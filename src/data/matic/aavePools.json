@@ -8,7 +8,7 @@
     "oracleId": "WMATIC",
     "decimals": "1e18",
     "borrowDepth": 3,
-    "borrowPercent": 0.40
+    "borrowPercent": 0.4
   },
   {
     "name": "aave-usdc",
@@ -19,7 +19,7 @@
     "oracleId": "USDC",
     "decimals": "1e6",
     "borrowDepth": 3,
-    "borrowPercent": 0.40
+    "borrowPercent": 0.4
   },
   {
     "name": "aave-usdt",
@@ -30,7 +30,7 @@
     "oracleId": "USDT",
     "decimals": "1e6",
     "borrowDepth": 3,
-    "borrowPercent": 0.40
+    "borrowPercent": 0.4
   },
   {
     "name": "aave-wbtc",
@@ -41,6 +41,6 @@
     "oracleId": "WBTC",
     "decimals": "1e8",
     "borrowDepth": 3,
-    "borrowPercent": 0.40
+    "borrowPercent": 0.4
   }
 ]

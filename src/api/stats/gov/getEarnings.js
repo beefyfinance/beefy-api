@@ -1,4 +1,4 @@
-const { getDailyEarnings }   = require('../../../utils/getDailyEarnings');
+const { getDailyEarnings } = require('../../../utils/getDailyEarnings');
 const { getRewardsReceived } = require('../../../utils/getRewardsReceived');
 
 const INIT_DELAY = 2 * 60 * 1000;
@@ -19,7 +19,7 @@ const updateEarnings = async () => {
   }
 
   setTimeout(updateEarnings, INTERVAL);
-}
+};
 
 const dailyEarnings = async () => {
   return earned;

@@ -12,11 +12,15 @@ const lpTokenPrice = async lpToken => {
   const token0Contract = new web3.eth.Contract(ERC20, lpToken.lp0.address);
   const token1Contract = new web3.eth.Contract(ERC20, lpToken.lp1.address);
 
-  const token0Bal = lpToken.lp0.address === nativeToken ? web3.eth.getBalance(lpToken.address)
-    : token0Contract.methods.balanceOf(lpToken.address).call();
+  const token0Bal =
+    lpToken.lp0.address === nativeToken
+      ? web3.eth.getBalance(lpToken.address)
+      : token0Contract.methods.balanceOf(lpToken.address).call();
 
-  const token1Bal = lpToken.lp1.address === nativeToken ? web3.eth.getBalance(lpToken.address)
-    : token1Contract.methods.balanceOf(lpToken.address).call();
+  const token1Bal =
+    lpToken.lp1.address === nativeToken
+      ? web3.eth.getBalance(lpToken.address)
+      : token1Contract.methods.balanceOf(lpToken.address).call();
 
   let [totalSupply, reserve0, reserve1, token0Price, token1Price] = await Promise.all([
     tokenPairContract.methods.totalSupply().call(),

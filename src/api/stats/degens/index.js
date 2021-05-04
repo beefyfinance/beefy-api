@@ -60,7 +60,6 @@ const getDegensLpApys = async () => {
   }
 
   return apys;
-
 };
 
 module.exports = { getDegensLpApys };

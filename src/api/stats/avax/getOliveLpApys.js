@@ -5,7 +5,10 @@ const MasterChef = require('../../../abis/OliveMasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/oliveLpPools.json');
 const { compound } = require('../../../utils/compound');
-const { getTotalStakedInUsd, getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const {
+  getTotalStakedInUsd,
+  getTotalLpStakedInUsd,
+} = require('../../../utils/getTotalStakedInUsd');
 const { AVAX_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
@@ -32,7 +35,14 @@ const getOliveLpApys = async () => {
 const getPoolApy = async (masterchef, pool) => {
   let getTotalStaked;
   if (pool.poolId === 0) {
-    getTotalStaked = getTotalStakedInUsd(masterchef, pool.address, pool.oracle, pool.oracleId, '1e18', chainId);
+    getTotalStaked = getTotalStakedInUsd(
+      masterchef,
+      pool.address,
+      pool.oracle,
+      pool.oracleId,
+      '1e18',
+      chainId
+    );
   } else {
     getTotalStaked = getTotalLpStakedInUsd(masterchef, pool, chainId);
   }
@@ -51,7 +61,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   const multiplier = new BigNumber(
-    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
+    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
   );
   const blockRewards = new BigNumber(await masterchefContract.methods.olivePerBlock().call());
 
