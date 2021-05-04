@@ -57,8 +57,10 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
     // 1inch uses raw bnb so it needs a custom query to fetch balance
     if (chain == "56") {
       const oneInch = filtered.filter(p => p.name === '1inch-1inch-bnb')[0];
-      const balance = await provider.getBalance(oneInch.address);
-      oneInch.lp1.balance = new BigNumber(balance.toString());
+      if (oneInch) {
+        const balance = await provider.getBalance(oneInch.address);
+        oneInch.lp1.balance = new BigNumber(balance.toString());
+      }
     }
   
     const unsolved = filtered.slice();

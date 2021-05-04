@@ -1,7 +1,7 @@
 const getMasterChefApys = require('./getMasterChefApys');
 
 const MasterChefAbi = require('../../../abis/degens/ZefiMasterChef.json');
-const pools = require('../../../data/degens/zefiLpPools.json');
+const pools = require('../../../data/degens/zefiLpPoolsV2.json');
 
 const getZefiLpApys = async () => await getMasterChefApys({
   masterchef: '0x05a8ba2DEf87f8AdaF223Edcd04F7Fc82eA6aee8',
