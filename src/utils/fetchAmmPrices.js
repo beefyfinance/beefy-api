@@ -10,6 +10,7 @@ const MULTICALLS = {
 }
 
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
+const BATCH_SIZE = 128;
 
 const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
   const valuation = knownToken.balance.dividedBy(knownToken.decimals).multipliedBy(knownPrice);
@@ -43,15 +44,18 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
     const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chain]);
     const multicall = new ethers.Contract(MULTICALLS[chain], MulticallAbi, provider);
     
-    // TODO: split query in batches?
+    // Split query in batches
     const query = filtered.map(p => [p.address, p.lp0.address, p.lp1.address]);
-    const buf = await multicall.getLpInfo(query);
-    
-    // Merge fetched data
-    for (let i = 0; i < filtered.length; i++) {
-      filtered[i].totalSupply = new BigNumber(buf[i * 3 + 0].toString());
-      filtered[i].lp0.balance = new BigNumber(buf[i * 3 + 1].toString());
-      filtered[i].lp1.balance = new BigNumber(buf[i * 3 + 2].toString());
+    for (let i = 0; i < filtered.length; i += BATCH_SIZE) {
+      const batch = query.slice(i, i + BATCH_SIZE);
+      const buf = await multicall.getLpInfo(batch);
+      
+      // Merge fetched data
+      for (let j = 0; j < batch.length; j++) {
+        filtered[j + i].totalSupply = new BigNumber(buf[j * 3 + 0].toString());
+        filtered[j + i].lp0.balance = new BigNumber(buf[j * 3 + 1].toString());
+        filtered[j + i].lp1.balance = new BigNumber(buf[j * 3 + 2].toString());
+      }
     }
 
     // 1inch uses raw bnb so it needs a custom query to fetch balance
