@@ -7,8 +7,7 @@
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
     "test": "nyc ava",
-    "prettier:check": "prettier --check",
-    "prettier:fix": "prettier --write **/*.js*",
+    "prettier": "prettier --write",
     "lint-staged": "lint-staged",
     "prepare": "husky install"
   },
@@ -34,7 +33,8 @@
   },
   "lint-staged": {
     "*.js*": [
-      "yarn prettier:check"
+      "yarn prettier",
+      "git add ."
     ]
   }
 }
