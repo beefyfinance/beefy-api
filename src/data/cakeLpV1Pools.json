@@ -126,24 +126,6 @@
     }
   },
   {
-    "name": "cake-easy-bnb",
-    "address": "0xBD1eC00B0d1CCA9D5B28fbE0bB7d664238af2fFa",
-    "decimals": "1e18",
-    "poolId": 116,
-    "lp0": {
-      "address": "0x7C17c8bED8d14bAccE824D020f994F4880D6Ab3B",
-      "oracle": "tokens",
-      "oracleId": "EASY",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cake-apys-bnb",
     "address": "0xE5783Cc9dFb3E7e474B81B07369a008e80F1cEdb",
     "decimals": "1e18",
@@ -206,24 +188,6 @@
       "address": "0x6F769E65c14Ebd1f68817F5f1DcDb61Cfa2D6f7e",
       "oracle": "tokens",
       "oracleId": "ARPA",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cake-easy-bnb",
-    "address": "0xBD1eC00B0d1CCA9D5B28fbE0bB7d664238af2fFa",
-    "decimals": "1e18",
-    "poolId": 116,
-    "lp0": {
-      "address": "0x7c17c8bed8d14bacce824d020f994f4880d6ab3b",
-      "oracle": "tokens",
-      "oracleId": "EASY",
       "decimals": "1e18"
     },
     "lp1": {
