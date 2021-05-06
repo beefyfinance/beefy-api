@@ -1,5 +1,23 @@
 [
   {
+    "name": "cakev2-pnt-pbtc",
+    "address": "0xDAA89d335926628367b47852989bb22EE62CA5DE",
+    "decimals": "1e18",
+    "poolId": 366,
+    "lp0": {
+      "address": "0xdaacb0ab6fb34d24e8a67bfa14bf4d95d4c7af92",
+      "oracle": "tokens",
+      "oracleId": "PNT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xeD28A457A5A76596ac48d87C0f577020F6Ea1c4C",
+      "oracle": "tokens",
+      "oracleId": "PBTC",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-btcb-busd",
     "address": "0xF45cd219aEF8618A92BAa7aD848364a158a24F33",
     "decimals": "1e18",
