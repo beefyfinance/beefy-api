@@ -12,13 +12,18 @@ const MULTICALLS = {
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
 const BATCH_SIZE = 128;
 
+const sortByKeys = (o) => {
+  return Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
+}
+
 const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
   const valuation = knownToken.balance.dividedBy(knownToken.decimals).multipliedBy(knownPrice);
   const price = valuation.multipliedBy(unknownToken.decimals).dividedBy(unknownToken.balance);
+  const weight = knownToken.balance.plus(unknownToken.balance).toNumber();
   
   return { 
     price: price.toNumber(), 
-    valuation: valuation.toNumber()
+    weight: unknownToken.balance.toNumber(),
   }
 }
 
@@ -28,10 +33,11 @@ const calcLpPrice = (pool, tokenPrices) => {
   return lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(pool.totalSupply).toNumber();
 }
 
-const fetchAmmPrices = async (pools, tokenPrices) => {
-  let poolPrices = {};
-  let tokenValuations = {};
-
+const fetchAmmPrices = async (pools, knownPrices) => {
+  let prices = { ...knownPrices };
+  let lps = {};
+  let weights = {};
+  
   for (let chain in MULTICALLS) {
     let filtered = pools.filter(p => p.chainId == chain);
     
@@ -76,36 +82,35 @@ const fetchAmmPrices = async (pools, tokenPrices) => {
         const pool = unsolved[i];
         
         let knownToken, unknownToken;
-        if(pool.lp0.oracleId in tokenPrices) {
+        if (pool.lp0.oracleId in prices) {
           knownToken = pool.lp0;
           unknownToken = pool.lp1;
 
-        } else if (pool.lp1.oracleId in tokenPrices) {
+        } else if (pool.lp1.oracleId in prices) {
           knownToken = pool.lp1;
           unknownToken = pool.lp0;
         
         } else { 
           console.log('unsolved: ', pool.lp0.oracleId, pool.lp1.oracleId);
-          continue; 
+          continue;
         }
 
-        const { price, valuation } = calcTokenPrice(tokenPrices[knownToken.oracleId], knownToken, unknownToken);
-
-        if (valuation > (tokenValuations[unknownToken.oracleId] || 0)){
-          tokenPrices[unknownToken.oracleId] = price;
-          tokenValuations[unknownToken.oracleId] = valuation;
+        const { price, weight } = calcTokenPrice(prices[knownToken.oracleId], knownToken, unknownToken);
+        if (weight > (weights[unknownToken.oracleId] || 0)){
+          prices[unknownToken.oracleId] = price;
+          weights[unknownToken.oracleId] = weight;
         }
-        poolPrices[pool.name] = calcLpPrice(pool, tokenPrices);
+        lps[pool.name] = calcLpPrice(pool, prices);
 
         unsolved.splice(i, 1);
         solving = true;
       }
     }
   }
-  
+
   return {
-    poolPrices: poolPrices,
-    tokenPrices: tokenPrices,
+    poolPrices: sortByKeys(lps),
+    tokenPrices: sortByKeys(prices),
   };
 };
 
