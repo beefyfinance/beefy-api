@@ -14,15 +14,13 @@ const oracleId = 'MUST';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const getComethLpApys = async () => {
+
+const getComethLpApys = async () => { 
   let apys = {};
 
-  let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(pool.rewardPool, pool, 137)));
-  const values = await Promise.all(promises);
-
-  for (item of values) {
-    apys = { ...apys, ...item };
+  for (const pool of pools) {
+    const apy = await getPoolApy(pool.rewardPool, pool, 137)
+    apys = { ...apys, ...apy };
   }
 
   return apys;
