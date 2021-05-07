@@ -7,8 +7,19 @@
     "oracle": "tokens",
     "oracleId": "WMATIC",
     "decimals": "1e18",
-    "borrowDepth": 3,
-    "borrowPercent": 0.40
+    "borrowDepth": 4,
+    "borrowPercent": 0.48
+  },
+  {
+    "name": "aave-dai",
+    "token": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+    "aToken": "0x27F8D03b3a2196956ED754baDc28D73be8830A6e",
+    "debtToken": "0x75c4d1Fb84429023170086f06E682DcbBF537b7d",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.73
   },
   {
     "name": "aave-usdc",
@@ -18,19 +29,19 @@
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
-    "borrowDepth": 3,
-    "borrowPercent": 0.40
+    "borrowDepth": 4,
+    "borrowPercent": 0.78
   },
   {
-    "name": "aave-usdt",
-    "token": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-    "aToken": "0x60D55F02A771d515e077c9C2403a1ef324885CeC",
-    "debtToken": "0x8038857FD47108A07d1f6Bf652ef1cBeC279A2f3",
+    "name": "aave-eth",
+    "token": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+    "aToken": "0x28424507fefb6f7f8E9D3860F56504E4e5f5f390",
+    "debtToken": "0xeDe17e9d79fc6f9fF9250D9EEfbdB88Cc18038b5",
     "oracle": "tokens",
-    "oracleId": "USDT",
-    "decimals": "1e6",
-    "borrowDepth": 3,
-    "borrowPercent": 0.40
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.78
   },
   {
     "name": "aave-wbtc",
@@ -40,7 +51,18 @@
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",
-    "borrowDepth": 3,
-    "borrowPercent": 0.40
+    "borrowDepth": 4,
+    "borrowPercent": 0.68
+  },
+  {
+    "name": "aave-aave",
+    "token": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+    "aToken": "0x1d2a0E5EC8E5bBDCA5CB219e649B565d8e5c3360",
+    "debtToken": "0x1c313e9d0d826662F5CE692134D938656F681350",
+    "oracle": "tokens",
+    "oracleId": "AAVE",
+    "decimals": "1e18",
+    "borrowDepth": 0,
+    "borrowPercent": 0.48
   }
 ]

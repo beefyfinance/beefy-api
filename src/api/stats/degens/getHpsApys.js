@@ -39,8 +39,7 @@ const getHpsApys = async () => {
   return apys;
 };
 
-
-const getPoolApy = async (pool) => {
+const getPoolApy = async pool => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(pool),
     getTotalStakedInUsd(pool),
@@ -51,14 +50,14 @@ const getPoolApy = async (pool) => {
   return { [pool.name]: apy };
 };
 
-const getTotalStakedInUsd = async (pool) => {
+const getTotalStakedInUsd = async pool => {
   const tokenContract = new web3.eth.Contract(IRewardPool, pool.pool);
   const totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
   const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
 };
 
-const getYearlyRewardsInUsd = async (pool) => {
+const getYearlyRewardsInUsd = async pool => {
   const bhcPrice = await fetchPrice({ oracle, id: oracleId });
 
   const rewardPool = new web3.eth.Contract(IRewardPool, pool.pool);

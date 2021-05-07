@@ -1,0 +1,30 @@
+[
+  {
+    "name": "hfi-ht",
+    "poolId": "ht"
+  },
+  {
+    "name": "hfi-uni",
+    "poolId": "uni"
+  },
+  {
+    "name": "hfi-husd",
+    "poolId": "husd"
+  },
+  {
+    "name": "hfi-mdx",
+    "poolId": "mdx"
+  },
+  {
+    "name": "hfi-doge",
+    "poolId": "doge"
+  },
+  {
+    "name": "hfi-aave",
+    "poolId": "aave"
+  },
+  {
+    "name": "hfi-usdt",
+    "poolId": "usdt"
+  }
+]

@@ -3,11 +3,14 @@ const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const { getTotalLpStakedInUsd, getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const {
+  getTotalLpStakedInUsd,
+  getTotalStakedInUsd,
+} = require('../../../utils/getTotalStakedInUsd');
 const { BSC_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
-const getMasterChefApys = async (masterchefParams) => {
+const getMasterChefApys = async masterchefParams => {
   let apys = {};
 
   let promises = [];
@@ -27,7 +30,12 @@ const getMasterChefApys = async (masterchefParams) => {
 const getPoolApy = async (params, pool) => {
   let getTotalStaked;
   if (pool.token) {
-    getTotalStaked = getTotalStakedInUsd(params.masterchef, pool.token, params.oracle, params.oracleId);
+    getTotalStaked = getTotalStakedInUsd(
+      params.masterchef,
+      pool.token,
+      params.oracle,
+      params.oracleId
+    );
   } else {
     getTotalStaked = getTotalLpStakedInUsd(params.masterchef, pool);
   }
@@ -39,7 +47,13 @@ const getPoolApy = async (params, pool) => {
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
   if (params.log) {
-    console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+    console.log(
+      pool.name,
+      simpleApy.valueOf(),
+      apy,
+      totalStakedInUsd.valueOf(),
+      yearlyRewardsInUsd.valueOf()
+    );
   }
   return { [pool.name]: apy };
 };
@@ -51,10 +65,12 @@ const getYearlyRewardsInUsd = async (params, pool) => {
   if (params.hasMultiplier) {
     const blockNum = await getBlockNumber(BSC_CHAIN_ID);
     multiplier = new BigNumber(
-      await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
+      await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
     );
   }
-  const blockRewards = new BigNumber(await masterchefContract.methods[params.tokenPerBlock]().call());
+  const blockRewards = new BigNumber(
+    await masterchefContract.methods[params.tokenPerBlock]().call()
+  );
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);

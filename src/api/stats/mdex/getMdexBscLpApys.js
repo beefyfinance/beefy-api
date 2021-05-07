@@ -34,7 +34,13 @@ const getMdexBscLpApys = async () => {
 const getPoolApy = async (mdxPool, pool) => {
   let getTotalStaked;
   if (!pool.lp0) {
-    getTotalStaked = getTotalStakedInUsd(mdxPool, pool.address, pool.oracle ?? 'tokens', pool.oracleId, pool.decimals ?? '1e18');
+    getTotalStaked = getTotalStakedInUsd(
+      mdxPool,
+      pool.address,
+      pool.oracle ?? 'tokens',
+      pool.oracleId,
+      pool.decimals ?? '1e18'
+    );
   } else {
     getTotalStaked = getTotalLpStakedInUsd(mdxPool, pool, pool.chainId);
   }

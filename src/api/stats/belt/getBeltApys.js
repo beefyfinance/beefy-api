@@ -41,7 +41,7 @@ const getPoolApy = async (masterchef, pool) => {
   return { [pool.name]: apy };
 };
 
-const fetchBeltLpBaseApr = async (pool) => {
+const fetchBeltLpBaseApr = async pool => {
   if (pool.poolId !== 3) return 0;
   try {
     const response = await axios.get('https://s.belt.fi/status/A_getMainInfo.json');
@@ -70,7 +70,7 @@ const getYearlyRewardsInUsd = async (masterbelt, pool) => {
   const masterbeltContract = new web3.eth.Contract(MasterBelt, masterbelt);
 
   const multiplier = new BigNumber(
-    await masterbeltContract.methods.getMultiplier(blockNum - 1, blockNum).call(),
+    await masterbeltContract.methods.getMultiplier(blockNum - 1, blockNum).call()
   );
   const blockRewards = new BigNumber(await masterbeltContract.methods.BELTPerBlock().call());
 

@@ -143,7 +143,13 @@
     "stateMutability": "nonpayable",
     "type": "function"
   },
-  { "inputs": [], "name": "massUpdatePools", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  {
+    "inputs": [],
+    "name": "massUpdatePools",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
   {
     "inputs": [{ "internalType": "uint256", "name": "_pid", "type": "uint256" }],
     "name": "migrate",
@@ -194,7 +200,13 @@
     "stateMutability": "view",
     "type": "function"
   },
-  { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
   {
     "inputs": [
       { "internalType": "uint256", "name": "_pid", "type": "uint256" },
@@ -207,7 +219,9 @@
     "type": "function"
   },
   {
-    "inputs": [{ "internalType": "contract IMigratorGangster", "name": "_migrator", "type": "address" }],
+    "inputs": [
+      { "internalType": "contract IMigratorGangster", "name": "_migrator", "type": "address" }
+    ],
     "name": "setMigrator",
     "outputs": [],
     "stateMutability": "nonpayable",

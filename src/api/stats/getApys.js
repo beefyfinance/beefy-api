@@ -15,7 +15,6 @@ const getKebabPoolApy = require('./kebab/getKebabPoolApy');
 const getSpongeLpApys = require('./sponge/getSpongeLpApys');
 const getSpongePoolApy = require('./sponge/getSpongePoolApy');
 const getAutoApys = require('./auto/getAutoApys');
-const getMdexLpApys = require('./mdex/getMdexLpApys');
 const getBtdLpApys = require('./bolt/getBtdLpApys');
 const getBtsLpApys = require('./bolt/getBtsLpApys');
 const getCrowLpApys = require('./crow/getCrowLpApys');
@@ -35,17 +34,15 @@ const get1inchApy = require('./1inch/get1inchApy');
 const getSwirlLpApys = require('./swirl/getSwirlLpApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
 const getTyphLpApys = require('./typhoon/getTyphLpApys');
-const getLavaLpApys = require('./lavaswap/getLavaLpApys');
-const getLavaApy = require('./lavaswap/getLavaApy');
 const getBunnyRewardsApy = require('./bunny/getBunnyRewardsApy');
 const getFortressApys = require('./fortress/getFortressApys');
-const getHfiLpApys = require('./hfi/getHfiLpApys');
-const { getAvaxApys } = require('./avax/index');
+const { getAvaxApys } = require('./avax');
 const getIcarusApys = require('./icarus/getIcarusApys');
-const { getMaticApys } = require('./matic/index');
+const { getMaticApys } = require('./matic');
+const { getHecoApys } = require('./heco');
 const { getFantomApys } = require('./fantom');
 
-const INIT_DELAY = 20 * 1000;
+const INIT_DELAY = 30 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let apys = {};
@@ -76,7 +73,6 @@ const updateApys = async () => {
       getSpongeLpApys(),
       getSpongePoolApy(),
       getAutoApys(),
-      getMdexLpApys(),
       getBtdLpApys(),
       getBtsLpApys(),
       getCrowLpApys(),
@@ -96,15 +92,13 @@ const updateApys = async () => {
       getSwirlLpApys(),
       getMdexBscLpApys(),
       getTyphLpApys(),
-      getLavaLpApys(),
-      getLavaApy(),
       getBunnyRewardsApy(),
-      getHfiLpApys(),
       getFortressApys(),
       getAvaxApys(),
       getIcarusApys(),
       getMaticApys(),
       getFantomApys(),
+      getHecoApys(),
     ]);
 
     for (item of values) {

@@ -1,0 +1,40 @@
+[
+  {
+    "name": "lava-lava-wht",
+    "address": "0xcA65940b931272833307245c0D56aD86087e80a4",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 128,
+    "lp0": {
+      "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
+      "oracle": "tokens",
+      "oracleId": "WHT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x56f95662E71f30b333b456439248c6dE589082a4",
+      "oracle": "tokens",
+      "oracleId": "LAVA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "lava-lava-usdt",
+    "address": "0x3f15F2075Aa11bE4757Aa522d133c0DbC7E878Ce",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 128,
+    "lp0": {
+      "address": "0x56f95662E71f30b333b456439248c6dE589082a4",
+      "oracle": "tokens",
+      "oracleId": "LAVA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  }
+]

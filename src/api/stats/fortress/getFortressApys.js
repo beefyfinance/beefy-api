@@ -68,8 +68,6 @@ const getSupplyApys = async pool => {
     vtokenContract.methods.exchangeRateStored().call(),
   ]);
 
-
-
   supplyRate = new BigNumber(supplyRate);
   fortressRate = new BigNumber(fortressRate);
   totalSupply = new BigNumber(totalSupply);
@@ -127,19 +125,19 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyFts, borrowFts, depth, b
 
   for (let i = 0; i <= depth; i++) {
     leveragedSupplyBase = leveragedSupplyBase.plus(
-      supplyBase.times(borrowPercent.exponentiatedBy(depth - i)),
+      supplyBase.times(borrowPercent.exponentiatedBy(depth - i))
     );
     leveragedSupplyFts = leveragedSupplyFts.plus(
-      supplyFts.times(borrowPercent.exponentiatedBy(depth - i)),
+      supplyFts.times(borrowPercent.exponentiatedBy(depth - i))
     );
   }
 
   for (let i = 0; i < depth; i++) {
     leveragedBorrowBase = leveragedBorrowBase.plus(
-      borrowBase.times(borrowPercent.exponentiatedBy(depth - i)),
+      borrowBase.times(borrowPercent.exponentiatedBy(depth - i))
     );
     leveragedBorrowFts = leveragedBorrowFts.plus(
-      borrowFts.times(borrowPercent.exponentiatedBy(depth - i)),
+      borrowFts.times(borrowPercent.exponentiatedBy(depth - i))
     );
   }
 

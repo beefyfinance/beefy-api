@@ -36,7 +36,7 @@ const getPoolApy = async (btsRewardPool, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (btsRewardPool, poolId) => {
-  const currentBlock = await getBlockNumber(BSC_CHAIN_ID)
+  const currentBlock = await getBlockNumber(BSC_CHAIN_ID);
   const btdRewardPoolContract = new web3.eth.Contract(BtdRewardPool, btsRewardPool);
 
   let [blockRewards, totalAllocPoint] = await Promise.all([

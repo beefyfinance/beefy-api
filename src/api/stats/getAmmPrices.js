@@ -12,7 +12,7 @@ const kebabPools = require('../../data/kebabLpPools.json');
 const bdollarSbdoPools = require('../../data/bdollarSbdoLpPools.json');
 const boltBtdPools = require('../../data/boltBtdLpPools.json');
 const boltBtsPools = require('../../data/boltBtsLpPools.json');
-const mdexPools = require('../../data/mdexLpPools.json');
+const mdexPools = require('../../data/heco/mdexLpPools.json');
 const monsterPools = require('../../data/monsterLpPools.json');
 const narPools = require('../../data/narLpPools.json');
 const nyacashPools = require('../../data/nyacashLpPools.json');
@@ -54,11 +54,11 @@ const mdexBscPools = require('../../data/mdexBscLpPools.json');
 const typhPools = require('../../data/typhLpPools.json');
 const typhPoolsV1 = require('../../data/typhLpPoolsV1.json');
 const marshPools = require('../../data/degens/marshLpPools.json');
-const lavaPools = require('../../data/lavaLpPools.json');
+const lavaPools = require('../../data/heco/lavaLpPools.json');
 const popsiclePools = require('../../data/popsicleLpPools.json');
 const comethPools = require('../../data/matic/comethLpPools.json');
 const fortressPools = require('../../data/fortressLpPools.json');
-const hfiPools = require('../../data/hfiLpPools.json');
+const hfiPools = require('../../data/heco/hfiLpPools.json');
 const lydPools = require('../../data/avax/lydLpPools.json');
 const icarusPools = require('../../data/icarusLpPools.json');
 const quickPools = require('../../data/matic/quickLpPools.json');
@@ -134,7 +134,7 @@ const pools = [
   ...nyacashPools,
   ...thugsPools,
   ...cakeLpV1Pools,
-  ...cakeLpPools
+  ...cakeLpPools,
 ];
 
 const knownPrices = {
