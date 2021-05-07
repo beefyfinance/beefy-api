@@ -14,29 +14,15 @@ const oracleId = 'MUST';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const usdcMustRewardPool = '0x1C678EA856B368CC361A3389734fe451fEC8CEea'; // USDC-MUST
-const maticMustRewardPool = '0x2328c83431a29613b1780706E0Af3679E3D04afd'; // MATIC-MUST
-const ethMaticRewardPool = '0x5A25c4f43d0bfcCc07Aa86f7e8a1a1A3bFd9b15d'; // ETH-MATIC
-const mustEthRewardPool = '0x2cc6a7A06B32E0796D8f9225E2e33ae51C93d715'; // MUST-ETH
 
-
-const getComethLpApys = async () => {
-  let poolUsdcMust = pools.filter(pool => pool.name === 'cometh-usdc-must')[0];
-  let poolMaticMust = pools.filter(pool => pool.name === 'cometh-matic-must')[0];
-  let poolEthMatic = pools.filter(pool => pool.name === 'cometh-eth-matic')[0];
-  let poolMustEth = pools.filter(pool => pool.name === 'cometh-must-eth')[0];
-
-  const values = await Promise.all([
-    getPoolApy(usdcMustRewardPool, poolUsdcMust, 137),
-    getPoolApy(maticMustRewardPool, poolMaticMust, 137),
-    getPoolApy(ethMaticRewardPool, poolEthMatic, 137),
-    getPoolApy(mustEthRewardPool, poolMustEth, 137),
-  ]);
-
+const getComethLpApys = async () => { 
   let apys = {};
-  for (item of values) {
-    apys = { ...apys, ...item };
+
+  for (const pool of pools) {
+    const apy = await getPoolApy(pool.rewardPool, pool, 137)
+    apys = { ...apys, ...apy };
   }
+
   return apys;
 };
 

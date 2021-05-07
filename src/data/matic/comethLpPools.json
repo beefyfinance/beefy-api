@@ -2,6 +2,7 @@
   {
     "name": "cometh-must-eth",
     "address": "0x8826C072657983939c26E684edcfb0e4133f0B3d",
+    "rewardPool": "0x2cc6a7A06B32E0796D8f9225E2e33ae51C93d715",
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 137,
@@ -21,6 +22,7 @@
   {
     "name": "cometh-eth-matic",
     "address": "0x462390EA53F70F7570EEB2002c0150aF519f93A9",
+    "rewardPool": "0x5A25c4f43d0bfcCc07Aa86f7e8a1a1A3bFd9b15d",
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 137,
@@ -40,6 +42,7 @@
  {
     "name": "cometh-matic-must",
     "address": "0x80676b414a905De269D0ac593322Af821b683B92",
+    "rewardPool": "0x2328c83431a29613b1780706E0Af3679E3D04afd",
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 137,
@@ -59,6 +62,7 @@
   {
     "name": "cometh-usdc-must",
     "address": "0x12A2aBcFcADc04681929F0c199bDf812967207E4",
+    "rewardPool": "0x1C678EA856B368CC361A3389734fe451fEC8CEea",
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 137,

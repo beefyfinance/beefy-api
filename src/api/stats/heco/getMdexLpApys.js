@@ -3,7 +3,7 @@ const { hecoWeb3: web3 } = require('../../../utils/web3');
 
 const HecoPool = require('../../../abis/HecoPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/mdexLpPools.json');
+const pools = require('../../../data/heco/mdexLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../constants');
