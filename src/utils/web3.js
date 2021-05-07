@@ -10,7 +10,7 @@ const {
   HECO_CHAIN_ID,
   AVAX_CHAIN_ID,
   POLYGON_CHAIN_ID,
-  FANTOM_CHAIN_ID
+  FANTOM_CHAIN_ID,
 } = require('../constants');
 
 const clients = { bsc: [], heco: [], avax: [], polygon: [], fantom: [] };
@@ -31,7 +31,6 @@ const hecoRandomClient = () => clients.heco[~~(clients.heco.length * Math.random
 const avaxRandomClient = () => clients.avax[~~(clients.avax.length * Math.random())];
 const polygonRandomClient = () => clients.polygon[~~(clients.polygon.length * Math.random())];
 const fantomRandomClient = () => clients.fantom[~~(clients.fantom.length * Math.random())];
-
 
 module.exports = {
   get bscWeb3() {

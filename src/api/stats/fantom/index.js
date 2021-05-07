@@ -1,8 +1,6 @@
 const getSpookyLpApys = require('./getSpookyLpApys');
 
-const getApys = [
-  getSpookyLpApys,
-];
+const getApys = [getSpookyLpApys];
 
 const getFantomApys = async () => {
   let apys = {};
@@ -13,7 +11,6 @@ const getFantomApys = async () => {
   }
 
   return apys;
-
 };
 
 module.exports = { getFantomApys };
