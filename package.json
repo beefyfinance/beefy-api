@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node src/app.js",
     "dev": "nodemon src/app.js",
-    "test": "nyc ava"
+    "test": "nyc ava",
+    "prettier:check": "prettier --check src/**/*",
+    "prettier:fix": "prettier --write src/**/*",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
@@ -14,6 +17,7 @@
     "axios": "^0.20.0",
     "bignumber.js": "^9.0.1",
     "ethers": "^5.0.26",
+    "husky": "^6.0.0",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
     "koa-helmet": "^5.2.0",
