@@ -1,5 +1,41 @@
 [
   {
+    "name": "banana-naut-bnb",
+    "address": "0x288EA5437c7aaD045a393cee2F41E548df24d1C8",
+    "decimals": "1e18",
+    "poolId": 24,
+    "lp0": {
+      "address": "0x05b339b0a346bf01f851dde47a5d485c34fe220c",
+      "oracle": "tokens",
+      "oracleId": "NAUT",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-bxbtc-bnb",
+    "address": "0xc2feF4BEC915315beF9f6E8a06b2516E64D29D06",
+    "decimals": "1e18",
+    "poolId": 42,
+    "lp0": {
+      "address": "0xab111d5948470ba73d98d66bbdf2798fbe093546",
+      "oracle": "tokens",
+      "oracleId": "bxBTC",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-busd-usdc",
     "address": "0xC087C78AbaC4A0E900a327444193dBF9BA69058E",
     "decimals": "1e18",

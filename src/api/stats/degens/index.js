@@ -8,7 +8,6 @@ const getSoupApys = require('./getSoupLpApys');
 const getMemeFarmApys = require('./getMemeFarmLpApys');
 const getSquirrelApys = require('./getSquirrelLpApys');
 const getSpaceLpApys = require('./getSpaceLpApys');
-const getNautApy = require('./getNautApy');
 const getHpsApys = require('./getHpsApys');
 const getZefiLpApys = require('./getZefiLpApys');
 const getThunderLpApys = require('./getThunderLpApys');
@@ -33,7 +32,6 @@ const getApys = [
   getMemeFarmApys,
   getSquirrelApys,
   getSpaceLpApys,
-  getNautApy,
   getHpsApys,
   getZefiLpApys,
   getThunderLpApys,
