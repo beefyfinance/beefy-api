@@ -40,6 +40,7 @@ const { getAvaxApys } = require('./avax');
 const getIcarusApys = require('./icarus/getIcarusApys');
 const { getMaticApys } = require('./matic');
 const { getHecoApys } = require('./heco');
+const { getFantomApys } = require('./fantom');
 
 const INIT_DELAY = 30 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -96,6 +97,7 @@ const updateApys = async () => {
       getAvaxApys(),
       getIcarusApys(),
       getMaticApys(),
+      getFantomApys(),
       getHecoApys(),
     ]);
 

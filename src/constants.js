@@ -39,17 +39,20 @@ const BSC_RPC = BSC_RPC_ENDPOINTS[0];
 const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
 const AVAX_RPC = process.env.AVAX_RPC || 'https://api.avax.network/ext/bc/C/rpc';
 const POLYGON_RPC = process.env.POLYGON_RPC || 'https://rpc-mainnet.maticvigil.com/';
+const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpcapi.fantom.network';
 
 const BSC_CHAIN_ID      = 56;
 const HECO_CHAIN_ID     = 128;
 const POLYGON_CHAIN_ID  = 137;
 const AVAX_CHAIN_ID     = 43114;
+const FANTOM_CHAIN_ID   = 250;
 
 const MULTICHAIN_RPC = {
   56: BSC_RPC,
   128: HECO_RPC,
   137: POLYGON_RPC,
-  43114: AVAX_RPC
+  43114: AVAX_RPC,
+  250: FANTOM_RPC
 }
 
 module.exports = {
@@ -63,6 +66,8 @@ module.exports = {
   AVAX_CHAIN_ID,
   POLYGON_RPC,
   POLYGON_CHAIN_ID,
+  FANTOM_RPC,
+  FANTOM_CHAIN_ID,
   BASE_HPY,
   HOURLY_HPY,
   DAILY_HPY,

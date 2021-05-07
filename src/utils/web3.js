@@ -1,4 +1,5 @@
 const Web3 = require('web3');
+
 const {
   BSC_RPC_ENDPOINTS,
   HECO_RPC,
@@ -8,9 +9,10 @@ const {
   HECO_CHAIN_ID,
   AVAX_CHAIN_ID,
   POLYGON_CHAIN_ID,
+  FANTOM_CHAIN_ID
 } = require('../constants');
 
-const clients = { bsc: [], heco: [], avax: [], polygon: [] };
+const clients = { bsc: [], heco: [], avax: [], polygon: [], fantom: [] };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
 });
@@ -21,10 +23,14 @@ clients.avax.push(new Web3(AVAX_RPC));
 
 clients.polygon.push(new Web3(POLYGON_RPC));
 
+clients.fantom.push(new Web3(FANTOM_RPC));
+
 const bscRandomClient = () => clients.bsc[~~(clients.bsc.length * Math.random())];
 const hecoRandomClient = () => clients.heco[~~(clients.heco.length * Math.random())];
 const avaxRandomClient = () => clients.avax[~~(clients.avax.length * Math.random())];
 const polygonRandomClient = () => clients.polygon[~~(clients.polygon.length * Math.random())];
+const fantomRandomClient = () => clients.fantom[~~(clients.fantom.length * Math.random())];
+
 
 module.exports = {
   get bscWeb3() {
@@ -43,6 +49,10 @@ module.exports = {
     return polygonRandomClient();
   },
 
+  get fantomWeb3() {
+    return fantomRandomClient();
+  },
+
   web3Factory: chainId => {
     switch (chainId) {
       case BSC_CHAIN_ID:
@@ -53,6 +63,8 @@ module.exports = {
         return avaxRandomClient();
       case POLYGON_CHAIN_ID:
         return polygonRandomClient();
+      case FANTOM_CHAIN_ID:
+        return fantomRandomClient();
     }
   },
 };
