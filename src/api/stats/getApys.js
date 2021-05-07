@@ -43,6 +43,7 @@ const getHfiLpApys = require('./hfi/getHfiLpApys');
 const { getAvaxApys } = require('./avax/index');
 const getIcarusApys = require('./icarus/getIcarusApys');
 const { getMaticApys } = require('./matic/index');
+const { getFantomApys } = require('./fantom');
 
 const INIT_DELAY = 20 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -103,6 +104,7 @@ const updateApys = async () => {
       getAvaxApys(),
       getIcarusApys(),
       getMaticApys(),
+      getFantomApys(),
     ]);
 
     for (item of values) {

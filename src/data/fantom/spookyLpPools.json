@@ -1,0 +1,97 @@
+[
+  {
+    "name": "boo-crv-ftm",
+    "address": "0xB471Ac6eF617e952b84C6a9fF5de65A9da96C93B",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x1e4f97b9f9f913c46f1632781732927b9019c68b",
+      "oracle": "tokens",
+      "oracleId": "CRV",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-aave-ftm",
+    "address": "0xeBF374bB21D83Cf010cC7363918776aDF6FF2BF6",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6a07a792ab2965c72a5b8088d3a069a7ac3a993b",
+      "oracle": "tokens",
+      "oracleId": "AAVE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-eth-ftm",
+    "address": "0xf0702249F4D3A25cD3DED7859a165693685Ab577",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451a17c44f4f05243b6b58c76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-boo-ftm",
+    "address": "0xEc7178F4C41f346b2721907F5cF7628E388A7a58",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x841fad6eae12c286d1fd18d1d525dffa75c7effe",
+      "oracle": "tokens",
+      "oracleId": "BOO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-ftm-usdc",
+    "address": "0x2b4c76d0dc16be1c31d4c1dc53bf9b45987fc75c",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068da6c83afcfa0e13ba15a6696662335d5b75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    }
+  }
+]
