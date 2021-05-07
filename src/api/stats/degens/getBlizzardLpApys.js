@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/degens/BlizzardYetiMaster.json');
-const BlizzardStratAbi = require('../../../abis/StrategyChef.json')
+const BlizzardStratAbi = require('../../../abis/StrategyChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/degens/blizzardLpPools.json');
 const { compound } = require('../../../utils/compound');
@@ -30,7 +30,7 @@ const getBlizzardLpApys = async () => {
   return apys;
 };
 
-const getPoolApy = async (pool) => {
+const getPoolApy = async pool => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(pool),
     getTotalLpStakedInUsd(pool),
@@ -40,7 +40,7 @@ const getPoolApy = async (pool) => {
   return { [pool.name]: apy };
 };
 
-const getYearlyRewardsInUsd = async (pool) => {
+const getYearlyRewardsInUsd = async pool => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
 
   const multiplier = new BigNumber(
@@ -67,7 +67,7 @@ const getYearlyRewardsInUsd = async (pool) => {
   return yearlyRewardsInUsd;
 };
 
-const getTotalLpStakedInUsd = async (pool) => {
+const getTotalLpStakedInUsd = async pool => {
   let { strat } = await masterchefContract.methods.poolInfo(pool.poolId).call();
 
   const strategyContract = new web3.eth.Contract(BlizzardStratAbi, strat);

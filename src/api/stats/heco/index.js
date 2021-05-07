@@ -4,13 +4,7 @@ const getLavaLpApys = require('./getLavaLpApys');
 const getLavaApy = require('./getLavaApy');
 const getMdexLpApys = require('./getMdexLpApys');
 
-const getApys = [
-  getHfiApys,
-  getLavaLpApys,
-  getLavaApy,
-  getHfiLpApys,
-  getMdexLpApys,
-];
+const getApys = [getHfiApys, getLavaLpApys, getLavaApy, getHfiLpApys, getMdexLpApys];
 
 const getHecoApys = async () => {
   let apys = {};
@@ -24,7 +18,6 @@ const getHecoApys = async () => {
   }
 
   return apys;
-
 };
 
 module.exports = { getHecoApys };

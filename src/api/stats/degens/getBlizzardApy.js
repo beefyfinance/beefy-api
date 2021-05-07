@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/degens/BlizzardYetiMaster.json');
-const BlizzardStratAbi = require('../../../abis/StrategyChef.json')
+const BlizzardStratAbi = require('../../../abis/StrategyChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../constants');

@@ -36,7 +36,14 @@ const getPoolApy = async pool => {
     leveragedBorrowBase,
     leveragedSupplyMatic,
     leveragedBorrowMatic,
-  } = getLeveragedApys(supplyBase, borrowBase, supplyMatic, borrowMatic, pool.borrowDepth, pool.borrowPercent);
+  } = getLeveragedApys(
+    supplyBase,
+    borrowBase,
+    supplyMatic,
+    borrowMatic,
+    pool.borrowDepth,
+    pool.borrowPercent
+  );
 
   let totalMatic = leveragedSupplyMatic.plus(leveragedBorrowMatic);
   let compoundedMatic = compound(totalMatic, BASE_HPY, 0.955);
@@ -63,11 +70,14 @@ const getPoolData = async pool => {
   const totalSupplyInUsd = new BigNumber(availableLiquidity)
     .plus(new BigNumber(totalStableDebt))
     .plus(new BigNumber(totalVariableDebt))
-    .div(pool.decimals).times(tokenPrice);
+    .div(pool.decimals)
+    .times(tokenPrice);
 
   const { supplyMaticInUsd, borrowMaticInUsd } = await getMaticPerYear(pool);
   const supplyMatic = supplyMaticInUsd.div(totalSupplyInUsd);
-  const borrowMatic = totalBorrowInUsd.isZero() ? new BigNumber(0) : borrowMaticInUsd.div(totalBorrowInUsd);
+  const borrowMatic = totalBorrowInUsd.isZero()
+    ? new BigNumber(0)
+    : borrowMaticInUsd.div(totalBorrowInUsd);
 
   return { supplyBase, supplyMatic, borrowBase, borrowMatic };
 };
@@ -87,7 +97,14 @@ const getMaticPerYear = async pool => {
   return { supplyMaticInUsd, borrowMaticInUsd };
 };
 
-const getLeveragedApys = (supplyBase, borrowBase, supplyMatic, borrowMatic, depth, borrowPercent) => {
+const getLeveragedApys = (
+  supplyBase,
+  borrowBase,
+  supplyMatic,
+  borrowMatic,
+  depth,
+  borrowPercent
+) => {
   borrowPercent = new BigNumber(borrowPercent);
   let leveragedSupplyBase = new BigNumber(0);
   let leveragedBorrowBase = new BigNumber(0);
@@ -96,19 +113,19 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyMatic, borrowMatic, dept
 
   for (let i = 0; i <= depth; i++) {
     leveragedSupplyBase = leveragedSupplyBase.plus(
-      supplyBase.times(borrowPercent.exponentiatedBy(depth - i)),
+      supplyBase.times(borrowPercent.exponentiatedBy(depth - i))
     );
     leveragedSupplyMatic = leveragedSupplyMatic.plus(
-      supplyMatic.times(borrowPercent.exponentiatedBy(depth - i)),
+      supplyMatic.times(borrowPercent.exponentiatedBy(depth - i))
     );
   }
 
   for (let i = 0; i < depth; i++) {
     leveragedBorrowBase = leveragedBorrowBase.plus(
-      borrowBase.times(borrowPercent.exponentiatedBy(depth - i)),
+      borrowBase.times(borrowPercent.exponentiatedBy(depth - i))
     );
     leveragedBorrowMatic = leveragedBorrowMatic.plus(
-      borrowMatic.times(borrowPercent.exponentiatedBy(depth - i)),
+      borrowMatic.times(borrowPercent.exponentiatedBy(depth - i))
     );
   }
 

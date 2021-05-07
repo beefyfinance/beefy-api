@@ -6,7 +6,7 @@ async function cache(ctx, next) {
   if (ctx.method !== 'GET') {
     return await next();
   }
-  
+
   const cached = ctx.cache[ctx.url];
   if (cached !== undefined && cached.ts && cached.ts + TTL * 1000 > Date.now()) {
     ctx.status = 200;

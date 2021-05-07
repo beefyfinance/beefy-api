@@ -5,7 +5,10 @@ const IcarusPool = require('../../../abis/IcarusPool.json');
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/icarusLpPools.json');
-const { getTotalLpStakedInUsd, getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const {
+  getTotalLpStakedInUsd,
+  getTotalStakedInUsd,
+} = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
 const { BASE_HPY } = require('../../../constants');
 
@@ -30,7 +33,7 @@ const getIcarusApys = async () => {
   return apys;
 };
 
-const getPoolApy = async (pool) => {
+const getPoolApy = async pool => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(pool),
     getTotalLpStakedInUsd(pool.pool, pool),

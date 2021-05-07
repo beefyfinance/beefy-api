@@ -14,12 +14,11 @@ const oracleId = 'MUST';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-
-const getComethLpApys = async () => { 
+const getComethLpApys = async () => {
   let apys = {};
 
   for (const pool of pools) {
-    const apy = await getPoolApy(pool.rewardPool, pool, 137)
+    const apy = await getPoolApy(pool.rewardPool, pool, 137);
     apys = { ...apys, ...apy };
   }
 

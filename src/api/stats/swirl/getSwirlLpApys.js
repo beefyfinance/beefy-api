@@ -37,7 +37,7 @@ const getPoolApy = async (masterchef, pool) => {
   return { [pool.name]: apy };
 };
 
-const getYearlyRewardsInUsd = async (masterchef) => {
+const getYearlyRewardsInUsd = async masterchef => {
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   const poolBlockRewards = new BigNumber(await masterchefContract.methods.swirlPerBlock().call());

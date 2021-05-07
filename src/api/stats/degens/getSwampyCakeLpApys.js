@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const SwampChef = require('../../../abis/degens/SwampChef.json');
-const SwampStrat =require('../../../abis/StrategyCakeSwamp.json');
+const SwampStrat = require('../../../abis/StrategyCakeSwamp.json');
 const MasterChef = require('../../../abis/MasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/degens/swampyCakeLpPools.json');
@@ -19,7 +19,7 @@ const oracle = 'tokens';
 const DECIMALS = '1e18';
 
 const getSwampyLpApys = async () => {
-    let apys = {};
+  let apys = {};
 
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(masterchef, swampchef, pool)));
@@ -33,7 +33,12 @@ const getSwampyLpApys = async () => {
 };
 
 const getPoolApy = async (masterchef, swampchef, pool) => {
-  const [yearlyRewardsInUsd, totalStakedInUsd, cakeYearlyRewardsInUsd, cakeTotalStakedInUsd] = await Promise.all([
+  const [
+    yearlyRewardsInUsd,
+    totalStakedInUsd,
+    cakeYearlyRewardsInUsd,
+    cakeTotalStakedInUsd,
+  ] = await Promise.all([
     getYearlyRewardsInUsd(swampchef, pool),
     getTotalLpStakedInUsd(pool),
     getCakeYearlyRewardsInUsd(masterchef, pool),
@@ -111,7 +116,7 @@ const getCakeTotalLpStakedInUsd = async (masterchef, pool) => {
   return cakeTotalStakedInUsd;
 };
 
-const getTotalLpStakedInUsd = async (pool) => {
+const getTotalLpStakedInUsd = async pool => {
   const strategyContract = new web3.eth.Contract(SwampStrat, pool.strategy);
   const totalStaked = new BigNumber(await strategyContract.methods.wantLockedTotal().call());
   const tokenPrice = await lpTokenPrice(pool);

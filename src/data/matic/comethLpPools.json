@@ -39,7 +39,7 @@
       "decimals": "1e18"
     }
   },
- {
+  {
     "name": "cometh-matic-must",
     "address": "0x80676b414a905De269D0ac593322Af821b683B92",
     "rewardPool": "0x2328c83431a29613b1780706E0Af3679E3D04afd",

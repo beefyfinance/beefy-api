@@ -14,16 +14,16 @@ const oracleId = 'QUICK';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const getQuickLpApys = async () => { 
+const getQuickLpApys = async () => {
   let apys = {};
 
-    for (const pool of pools) {
-      const apy = await getPoolApy(pool.rewardPool, pool, 137)
-      apys = { ...apys, ...apy };
-    }
-  
-    return apys;
-  };
+  for (const pool of pools) {
+    const apy = await getPoolApy(pool.rewardPool, pool, 137);
+    apys = { ...apys, ...apy };
+  }
+
+  return apys;
+};
 
 const getPoolApy = async (rewardPool, pool, chainId) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([

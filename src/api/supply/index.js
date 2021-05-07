@@ -3,7 +3,7 @@
 function supply(ctx) {
   ctx.body = {
     total: 80000,
-    circulating: 76000
+    circulating: 76000,
   };
 }
 

@@ -1,5 +1,14 @@
 const Web3 = require('web3');
-const { BSC_RPC_ENDPOINTS, HECO_RPC, AVAX_RPC, POLYGON_RPC, BSC_CHAIN_ID, HECO_CHAIN_ID, AVAX_CHAIN_ID, POLYGON_CHAIN_ID  } = require('../constants');
+const {
+  BSC_RPC_ENDPOINTS,
+  HECO_RPC,
+  AVAX_RPC,
+  POLYGON_RPC,
+  BSC_CHAIN_ID,
+  HECO_CHAIN_ID,
+  AVAX_CHAIN_ID,
+  POLYGON_CHAIN_ID,
+} = require('../constants');
 
 const clients = { bsc: [], heco: [], avax: [], polygon: [] };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {

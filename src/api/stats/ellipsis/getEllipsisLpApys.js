@@ -62,7 +62,12 @@ const getPoolData = async () => {
 
   for (const pool of pools) {
     if (pool.poolId === 0) {
-      const pool0staked = await getTotalStakedInUsd(stakingPool, pool.address, pool.oracle, pool.oracleId);
+      const pool0staked = await getTotalStakedInUsd(
+        stakingPool,
+        pool.address,
+        pool.oracle,
+        pool.oracleId
+      );
       poolsData[0] = {
         staked: pool0staked,
         allocPoint: totalAlloc.dividedBy(5),
@@ -78,7 +83,10 @@ const getPoolData = async () => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const yearlyRewards = rewardRate.times(secondsPerYear).times(tokenPrice).dividedBy(2);
   poolsData.forEach(pool => {
-    pool.yearlyRewardsInUsd = yearlyRewards.multipliedBy(pool.allocPoint).dividedBy(totalAlloc).dividedBy(DECIMALS);
+    pool.yearlyRewardsInUsd = yearlyRewards
+      .multipliedBy(pool.allocPoint)
+      .dividedBy(totalAlloc)
+      .dividedBy(DECIMALS);
   });
 
   const iceRewards = await getIceRewards();
@@ -88,11 +96,13 @@ const getPoolData = async () => {
 };
 
 const getIceRewards = async () => {
-  const rewards = new web3.eth.Contract(EllipsisRewardToken, '0x373410A99B64B089DFE16F1088526D399252dacE');
-  let {
-    rewardRate,
-    periodFinish,
-  } = await rewards.methods.rewardData('0xf16e81dce15B08F326220742020379B855B87DF9').call();
+  const rewards = new web3.eth.Contract(
+    EllipsisRewardToken,
+    '0x373410A99B64B089DFE16F1088526D399252dacE'
+  );
+  let { rewardRate, periodFinish } = await rewards.methods
+    .rewardData('0xf16e81dce15B08F326220742020379B855B87DF9')
+    .call();
 
   if (Number(periodFinish) < Date.now() / 1000) {
     return 0;

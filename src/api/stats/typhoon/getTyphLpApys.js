@@ -37,7 +37,7 @@ const getPoolApy = async (masterchef, pool) => {
   return { [pool.name]: apy };
 };
 
-const getYearlyRewardsInUsd = async (smartChefAddr) => {
+const getYearlyRewardsInUsd = async smartChefAddr => {
   const smartChefContract = new web3.eth.Contract(SmartChef, smartChefAddr);
   const blockRewards = new BigNumber(await smartChefContract.methods.rewardPerBlock().call());
   const secondsPerBlock = 3;

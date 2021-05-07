@@ -3,13 +3,7 @@ const getOliveLpApys = require('./getOliveLpApys');
 const getPangolinApys = require('./getPangolinLpApys');
 const getSnobLpApys = require('./getSnobLpApys');
 
-
-const getApys = [
-  getLydLpApys,
-  getPangolinApys,
-  getSnobLpApys,
-  getOliveLpApys,
-];
+const getApys = [getLydLpApys, getPangolinApys, getSnobLpApys, getOliveLpApys];
 
 const getAvaxApys = async () => {
   let apys = {};
@@ -23,7 +17,6 @@ const getAvaxApys = async () => {
   }
 
   return apys;
-
 };
 
 module.exports = { getAvaxApys };

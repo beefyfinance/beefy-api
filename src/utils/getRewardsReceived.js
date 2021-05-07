@@ -13,8 +13,8 @@ const FIRST_REWARD_BLOCK = 1457038;
 
 // pre-calculated rewards for specific block to get them fetched faster
 // can be updated with the values from the "getRewardsReceived" log below
-const CACHED_REWARDS = '15396145210483744068378'
-const CACHED_REWARD_BLOCK = 6954416
+const CACHED_REWARDS = '15396145210483744068378';
+const CACHED_REWARD_BLOCK = 6954416;
 
 const REWARD_POOL = '0x453D4Ba9a2D594314DF88564248497F7D74d6b2C';
 const WBNB = '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c';
@@ -30,10 +30,11 @@ const getRewardsReceived = async () => {
 
   while (fromBlock < lastBlock) {
     let toBlock = fromBlock + RPC_QUERY_LIMIT;
-    if (toBlock > lastBlock) { toBlock = lastBlock; }
+    if (toBlock > lastBlock) {
+      toBlock = lastBlock;
+    }
 
     try {
-
       const logs = await web3.eth.getPastLogs({
         fromBlock: fromBlock,
         toBlock: toBlock - 1,
