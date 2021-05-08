@@ -5,8 +5,6 @@ const MasterChef = require('../../../abis/fantom/SpookyChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/fantom/spookyLpPools.json');
 const { compound } = require('../../../utils/compound');
-const { FANTOM_CHAIN_ID } = require('../../../constants');
-const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const ERC20 = require('../../../abis/ERC20.json');
 const { lpTokenPrice } = require('../../../utils/lpTokens');
@@ -37,13 +35,7 @@ const getPoolApy = async (masterchef, pool) => {
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-  console.log(
-    pool.name,
-    simpleApy.valueOf(),
-    apy,
-    totalStakedInUsd.valueOf(),
-    yearlyRewardsInUsd.valueOf()
-  );
+
   return { [pool.name]: apy };
 };
 
