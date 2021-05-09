@@ -66,7 +66,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
 };
 
 const getTotalLpStakedInUsd = async (targetAddr, pool) => {
-  const web3 = web3Factory(43114);
+  const web3 = web3Factory(AVAX_CHAIN_ID);
 
   const tokenPairContract = new web3.eth.Contract(ERC20, pool.address);
   const totalStaked = new BigNumber(await tokenPairContract.methods.balanceOf(targetAddr).call());

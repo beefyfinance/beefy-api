@@ -11,7 +11,7 @@ const router = require('./router');
 
 const app = new Koa();
 app.use(helmet());
-app.use(cors({origin: '*'}));
+app.use(cors({ origin: '*' }));
 app.use(rt);
 app.use(powered);
 app.use(body());
@@ -21,6 +21,6 @@ app.context.cache = {};
 app.use(router.routes());
 app.use(router.allowedMethods());
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 app.listen(port);
 console.log(`> beefy-api running! (:${port})`);
