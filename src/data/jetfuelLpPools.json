@@ -1,5 +1,23 @@
 [
   {
+    "name": "jetfuel-fts-bnb",
+    "address": "0xc69f2139a6Ce6912703AC10e5e74ee26Af1b4a7e",
+    "decimals": "1e18",
+    "poolId": 14,
+    "lp0": {
+      "address": "0x4437743ac02957068995c48e08465e0ee1769fbe",
+      "oracle": "tokens",
+      "oracleId": "FTS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "jetfuel-vapor-bnb",
     "address": "0x01ffd4B8dE49442ab3EF755cC6bb57deEB6B871a",
     "decimals": "1e18",
@@ -170,6 +188,24 @@
       "address": "0x55d398326f99059fF775485246999027B3197955",
       "oracle": "tokens",
       "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jetfuel-fuel-bnb",
+    "address": "0x4613442C3AB1542b54C721D661F5044843099E39",
+    "decimals": "1e18",
+    "poolId": 16,
+    "lp0": {
+      "address": "0x2090c8295769791ab7A3CF1CC6e0AA19F35e441A",
+      "oracle": "tokens",
+      "oracleId": "Fuel",
       "decimals": "1e18"
     },
     "lp1": {

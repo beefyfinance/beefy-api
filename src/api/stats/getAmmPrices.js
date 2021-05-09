@@ -58,7 +58,6 @@ const marshPools = require('../../data/degens/marshLpPools.json');
 const lavaPools = require('../../data/heco/lavaLpPools.json');
 const popsiclePools = require('../../data/popsicleLpPools.json');
 const comethPools = require('../../data/matic/comethLpPools.json');
-const fortressPools = require('../../data/fortressLpPools.json');
 const hfiPools = require('../../data/heco/hfiLpPools.json');
 const lydPools = require('../../data/avax/lydLpPools.json');
 const icarusPools = require('../../data/icarusLpPools.json');
@@ -83,7 +82,6 @@ const pools = [
   ...quickPools,
   ...lydPools,
   ...icarusPools,
-  ...fortressPools,
   ...hfiPools,
   ...comethPools,
   ...popsiclePools,
