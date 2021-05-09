@@ -1,0 +1,27 @@
+[
+  {
+    "name": "froyo-3pool",
+    "poolId": 1,
+    "oracle": "lps",
+    "oracleId": "froyo-3pool"
+  },
+  {
+    "name": "froyo-froyo-ftm",
+    "address": "0xBE0AF661BC9794E05fAb18C08C2C99811A0F45D2",
+    "poolId": 0,
+    "oracle": "lps",
+    "oracleId": "froyo-froyo-ftm",
+    "lp0": {
+      "address": "0xa92d41ab8efee617d80a829cd9f5683c5f793ada",
+      "oracle": "tokens",
+      "oracleId": "FROYO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  }
+]
