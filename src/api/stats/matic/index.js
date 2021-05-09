@@ -2,8 +2,9 @@ const getKrillLpApys = require('./getKrillLpApys');
 const getComethLpApys = require('./getComethLpApys');
 const getQuickLpApys = require('./getQuickLpApys');
 const getAaveApys = require('./getAaveApys');
+const getSushiLpApys = require('./getSushiLpApys');
 
-const getApys = [getKrillLpApys, getComethLpApys, getQuickLpApys, getAaveApys];
+const getApys = [getKrillLpApys, getComethLpApys, getQuickLpApys, getAaveApys, getSushiLpApys];
 
 const getMaticApys = async () => {
   let apys = {};

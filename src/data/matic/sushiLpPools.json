@@ -1,0 +1,22 @@
+[
+  {
+    "name": "sushi-aave-eth",
+    "address": "0x2813d43463c374a680f235c428fb1d7f08de0b69",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+      "oracle": "tokens",
+      "oracleId": "AAVE",
+      "decimals": "1e18"
+    }
+  }
+]
