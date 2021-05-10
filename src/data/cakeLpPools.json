@@ -1,5 +1,23 @@
 [
   {
+    "name": "cakev2-mcoin-ust",
+    "address": "0xBCf01a42f6BC42F3Cfe81B05519565044d65D22a",
+    "decimals": "1e18",
+    "poolId": 370,
+    "lp0": {
+      "address": "0x23396cf899ca06c4472205fc903bdb4de249d6fc",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x49022089e78a8d46ec87a3af86a1db6c189afa6f",
+      "oracle": "tokens",
+      "oracleId": "mCOIN",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-win-bnb",
     "address": "0x894bd57afD8EFc93D9171cb585d11d0977557425",
     "decimals": "1e18",
