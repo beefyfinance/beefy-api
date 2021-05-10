@@ -1,7 +1,8 @@
 const getSpookyLpApys = require('./getSpookyLpApys');
 const getFroyoLpApys = require('./getFroyoLpApys');
+const getEsterApys = require('./getEsterApys');
 
-const getApys = [getSpookyLpApys, getFroyoLpApys];
+const getApys = [getSpookyLpApys, getFroyoLpApys, getEsterApys];
 
 const getFantomApys = async () => {
   let apys = {};
