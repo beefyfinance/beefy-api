@@ -7,7 +7,22 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/sushiLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { POLYGON_CHAIN_ID } = require('../../../constants');
-const getBlockNumber = require('../../../utils/getBlockNumber');
+
+const { exchange_matic, minichefv2_matic, blockClient_matic } = require('../../../apollo/client');
+const {
+  getUnixTime,
+  startOfHour,
+  startOfMinute,
+  startOfSecond,
+  subHours,
+  subDays,
+} = require('date-fns');
+const {
+  blockQuery,
+  pairSubsetQuery,
+  pairTimeTravelQuery,
+  miniChefPoolQuery,
+} = require('../../../apollo/queries');
 
 const ERC20 = require('../../../abis/ERC20.json');
 const { lpTokenPrice } = require('../../../utils/lpTokens');
@@ -24,18 +39,18 @@ const oracleIdMatic = 'WMATIC';
 const getSushiLpApys = async () => {
   let apys = {};
 
-  let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(minichef, pool)));
-  const values = await Promise.all(promises);
+  const tradingAprs = await getTradingFeeAprSushi();
 
-  for (item of values) {
-    apys = { ...apys, ...item };
+  for (const pool of pools) {
+    const tradingApr = new BigNumber(tradingAprs[pool.poolId]);
+    const apy = await getPoolApy(minichef, pool, tradingApr);
+    apys = { ...apys, ...apy };
   }
 
   return apys;
 };
 
-const getPoolApy = async (minichef, pool) => {
+const getPoolApy = async (minichef, pool, tradingApr) => {
   const [yearlyRewardsInUsd, yearlyMaticRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(minichef, pool),
     getYearlyMaticRewardsInUsd(complexRewarderTime, pool),
@@ -44,7 +59,8 @@ const getPoolApy = async (minichef, pool) => {
 
   const totalRewardsInUSD = yearlyRewardsInUsd.plus(yearlyMaticRewardsInUsd);
   const simpleApy = totalRewardsInUSD.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const apyWithFees = simpleApy.plus(tradingApr);
+  const apy = compound(apyWithFees, process.env.BASE_HPY, 1, 0.955);
   return { [pool.name]: apy };
 };
 
@@ -107,6 +123,75 @@ const getTotalLpStakedInUsd = async (targetAddr, pool) => {
   const tokenPrice = await lpTokenPrice(pool);
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
   return totalStakedInUsd;
+};
+
+const getTradingFeeAprSushi = async () => {
+  // adapted from: https://github.com/sushiswap/sushiswap-interface/blob/bb6969dac2b06b2fcaed6d10493a4ccd3595e08f/src/hooks/minichefv2/useFarms.ts#L27
+  const minichefQueryResult = await minichefv2_matic.query({
+    query: miniChefPoolQuery,
+  });
+
+  const miniChefPools = minichefQueryResult.data.pools;
+  const pairAddresses = miniChefPools
+    .map(pool => {
+      return pool.pair;
+    })
+    .sort();
+  const pairsQuery = await exchange_matic.query({
+    query: pairSubsetQuery,
+    variables: { pairAddresses },
+  });
+  const oneDayBlock = await getOneDayBlock();
+  const pairs24AgoQuery = await Promise.all(
+    pairAddresses.map(address => {
+      return exchange_matic.query({
+        query: pairTimeTravelQuery,
+        variables: { id: address, block: oneDayBlock },
+      });
+    })
+  );
+  const pairs24Ago = pairs24AgoQuery.map(query => {
+    return {
+      ...query?.data?.pair,
+    };
+  });
+
+  const pairs = pairsQuery?.data.pairs;
+
+  const farms = miniChefPools.filter(pool => pairs.find(pair => pair.id === pool.pair));
+
+  let feeAprs = {};
+
+  for (const pool of farms) {
+    const pair = pairs.find(pair => pair.id === pool.pair);
+    const pair24Ago = pairs24Ago.find(pair => pair.id === pool.pair);
+    const oneDayVolume = pair.volumeUSD - pair24Ago.volumeUSD;
+    const oneYearApr = (oneDayVolume * 0.003 * 365) / pair.reserveUSD;
+    const feeApr = { [pool.id]: oneYearApr };
+    feeAprs = { ...feeAprs, ...feeApr };
+  }
+
+  return feeAprs;
+};
+
+const getOneDayBlock = async () => {
+  const date = startOfMinute(subDays(Date.now(), 1));
+  const start = Math.floor(Number(date) / 1000);
+  const end = Math.floor(Number(date) / 1000) + 600;
+
+  const blocksData = await blockClient_matic.query({
+    query: blockQuery,
+    variables: {
+      start,
+      end,
+    },
+    context: {
+      clientName: 'blocklytics',
+    },
+    fetchPolicy: 'network-only',
+  });
+
+  return { number: Number(blocksData?.data?.blocks[0].number) };
 };
 
 module.exports = getSushiLpApys;
