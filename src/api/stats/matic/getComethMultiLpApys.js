@@ -35,7 +35,7 @@ const getPoolApy = async (rewardPool, pool, sOracleId, chainId) => {
   const yearlyRewards = yearlyRewardsInUsd.plus(secondYearlyRewardsInUsd);
   const simpleApy = yearlyRewards.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
-  console.log(pool.name, simpleApy.valueOf(), apy);
+  //console.log(pool.name, simpleApy.valueOf(), apy);
   return { [pool.name]: apy };
 };
 
