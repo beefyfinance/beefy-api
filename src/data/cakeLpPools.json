@@ -1,5 +1,41 @@
 [
   {
+    "name": "cakev2-kun-busd",
+    "address": "0xeA61020E5a128D2BEC67d48F7CFbe3408dB7E391",
+    "decimals": "1e18",
+    "poolId": 373,
+    "lp0": {
+      "address": "0x1a2fb0af670d0234c2857fad35b789f8cb725584",
+      "oracle": "tokens",
+      "oracleId": "KUN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-math-busd",
+    "address": "0xB7CADa0F120Ca46745A024E6b9FE907B2Fe10CF3",
+    "decimals": "1e18",
+    "poolId": 371,
+    "lp0": {
+      "address": "0xf218184af829cf2b0019f8e6f0b2423498a36983",
+      "oracle": "tokens",
+      "oracleId": "MATH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-mcoin-ust",
     "address": "0xBCf01a42f6BC42F3Cfe81B05519565044d65D22a",
     "decimals": "1e18",
