@@ -1,0 +1,44 @@
+[
+  {
+    "name": "cometh-doki-eth",
+    "address": "0xcCeD5cB001D6081c4561bf7911F11Ccd9aAA1474",
+    "rewardPool": "0x81AbDd138c50D577cda3116b763d2e3f82CE8eA2",
+    "sOracleId": "DOKI",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x5c7f7fe4766fe8f0fa9b41e2e4194d939488ff1c",
+      "oracle": "tokens",
+      "oracleId": "DOKI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cometh-azuki-eth",
+    "address": "0x92Bb3233F59561FC1fEC53EfC3339E4Af8E917F4",
+    "rewardPool": "0x69Cb6f98E45c13A230d292bE0a6aF93a6521c39B",
+    "sOracleId": "AZUKI",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7CdC0421469398e0F3aA8890693d86c840Ac8931",
+      "oracle": "tokens",
+      "oracleId": "AZUKI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -69,6 +69,7 @@ const zefiV2Pools = require('../../data/degens/zefiLpPoolsV2.json');
 const spookyPools = require('../../data/fantom/spookyLpPools.json');
 const froyoPools = require('../../data/fantom/froyoLpPools.json');
 const esterPools = require('../../data/fantom/esterLpPools.json');
+const comethMultiPools = require('../../data/matic/comethMultiLpPools.json');
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -76,6 +77,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...comethMultiPools,
   ...esterPools,
   ...froyoPools,
   ...spookyPools,
