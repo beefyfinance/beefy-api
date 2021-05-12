@@ -13,7 +13,7 @@ const getGoalLpApys = async () =>
     oracleId: 'GOAL',
     oracle: 'tokens',
     decimals: '1e18',
-    log: true,
+    // log: true,
   });
 
 module.exports = getGoalLpApys;

@@ -21,6 +21,7 @@ const getSwampyCakeApy = require('./getSwampyCakeApy');
 const getMarshLpApys = require('./getMarshLpApys');
 const getSatisLpApys = require('./getSatisLpApys');
 const getGoalLpApys = require('./getGoalLpApys');
+const getTofyLpApys = require('./getTofyLpApys');
 
 const getApys = [
   getRamenLpApys,
@@ -46,6 +47,7 @@ const getApys = [
   getMarshLpApys,
   getSatisLpApys,
   getGoalLpApys,
+  getTofyLpApys,
 ];
 
 const getDegensLpApys = async () => {
@@ -55,7 +57,7 @@ const getDegensLpApys = async () => {
   getApys.forEach(getApy => promises.push(getApy()));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (const item of values) {
     apys = { ...apys, ...item };
   }
 
