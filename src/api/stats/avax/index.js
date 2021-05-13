@@ -2,8 +2,9 @@ const getLydLpApys = require('./getLydLpApys');
 const getOliveLpApys = require('./getOliveLpApys');
 const getPangolinApys = require('./getPangolinLpApys');
 const getSnobLpApys = require('./getSnobLpApys');
+const getGondolaLpApys = require('./getGondolaLpApys');
 
-const getApys = [getLydLpApys, getPangolinApys, getSnobLpApys, getOliveLpApys];
+const getApys = [getLydLpApys, getPangolinApys, getSnobLpApys, getOliveLpApys, getGondolaLpApys];
 
 const getAvaxApys = async () => {
   let apys = {};
@@ -12,7 +13,7 @@ const getAvaxApys = async () => {
   getApys.forEach(getApy => promises.push(getApy()));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (const item of values) {
     apys = { ...apys, ...item };
   }
 

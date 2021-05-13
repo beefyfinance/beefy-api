@@ -46,6 +46,7 @@ const getBeltPrices = require('./belt/getBeltPrices');
 const getEllipsisPrices = require('./ellipsis/getEllipsisPrices');
 const getSnob3PoolPrice = require('./snowball/getSnob3PoolPrice');
 const getFroyoPrices = require('./fantom/getFroyoPrices');
+const getGondolaPrices = require('./avax/getGondolaPrices');
 const swampyPools = require('../../data/degens/swampyLpPools.json');
 const yieldBayPools = require('../../data/degens/yieldBayLpPools.json');
 const bingoPools = require('../../data/degens/bingoLpPools.json');
@@ -72,6 +73,7 @@ const esterPools = require('../../data/fantom/esterLpPools.json');
 const comethMultiPools = require('../../data/matic/comethMultiLpPools.json');
 const goalPools = require('../../data/degens/goalLpPools.json');
 const tofyPools = require('../../data/degens/tofyLpPools.json');
+const gondolaPools = require('../../data/avax/gondolaLpPools.json');
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -79,6 +81,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...gondolaPools,
   ...tofyPools,
   ...goalPools,
   ...comethMultiPools,
@@ -170,8 +173,16 @@ const updateAmmPrices = async () => {
     const ellipsisLPs = await getEllipsisPrices();
     const snob3PoolLP = await getSnob3PoolPrice();
     const froyoLPs = await getFroyoPrices();
+    const gondolaLPs = await getGondolaPrices(tokenPrices);
     tokenPricesCache = tokenPrices;
-    lpPricesCache = { ...poolPrices, ...beltLPs, ...ellipsisLPs, ...snob3PoolLP, ...froyoLPs };
+    lpPricesCache = {
+      ...poolPrices,
+      ...beltLPs,
+      ...ellipsisLPs,
+      ...snob3PoolLP,
+      ...froyoLPs,
+      ...gondolaLPs,
+    };
   } catch (err) {
     console.error(err);
   }
