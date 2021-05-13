@@ -1,5 +1,23 @@
 [
   {
+    "name": "banana-matic-bnb",
+    "address": "0x29A4A3D77c010CE100A45831BF7e798f0f0B325D",
+    "decimals": "1e18",
+    "poolId": 45,
+    "lp0": {
+      "address": "0xcc42724c6683b7e57334c4e856f4c9965ed682bd",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-watch-bnb",
     "address": "0xa00A91fBB39051e2a6368424A93895c3f1F2290b",
     "decimals": "1e18",
