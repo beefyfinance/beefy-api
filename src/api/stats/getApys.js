@@ -38,6 +38,7 @@ const getBunnyRewardsApy = require('./bunny/getBunnyRewardsApy');
 const getFortressApys = require('./fortress/getFortressApys');
 const { getAvaxApys } = require('./avax');
 const getIcarusApys = require('./icarus/getIcarusApys');
+const getDoppleApys = require('./dopple/getDoppleApys');
 const { getMaticApys } = require('./matic');
 const { getHecoApys } = require('./heco');
 const { getFantomApys } = require('./fantom');
@@ -96,6 +97,7 @@ const updateApys = async () => {
       getFortressApys(),
       getAvaxApys(),
       getIcarusApys(),
+      getDoppleApys(),
       getMaticApys(),
       getFantomApys(),
       getHecoApys(),

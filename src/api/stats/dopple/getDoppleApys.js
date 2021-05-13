@@ -1,21 +1,17 @@
 const BigNumber = require('bignumber.js');
-const { avaxWeb3: web3 } = require('../../../utils/web3');
+const { bscWeb3: web3 } = require('../../../utils/web3');
 
-const { AVAX_CHAIN_ID } = require('../../../constants');
+const MasterChef = require('../../../abis/DoppleMasterChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const pools = require('../../../data/doppleLpPools.json');
 const { compound } = require('../../../utils/compound');
+const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const { BSC_CHAIN_ID } = require('../../../constants');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
-const MasterChef = require('../../../abis/avax/GondolaChef.json');
-const pools = require('../../../data/avax/gondolaPools.json');
-
-const masterchef = '0x34C8712Cc527a8E6834787Bd9e3AD4F2537B0f50';
-const oracleId = 'GDL';
-const oracle = 'tokens';
-const DECIMALS = '1e18';
-
-const getGondolaLpApys = async () => {
+const getDoppleApys = async () => {
   let apys = {};
+  const masterchef = '0xDa0a175960007b0919DBF11a38e6EC52896bddbE';
 
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
@@ -31,14 +27,7 @@ const getGondolaLpApys = async () => {
 const getPoolApy = async (masterchef, pool) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(masterchef, pool),
-    getTotalStakedInUsd(
-      masterchef,
-      pool.address,
-      pool.oracle,
-      pool.oracleId,
-      pool.decimals,
-      AVAX_CHAIN_ID
-    ),
+    getTotalLpStakedInUsd(masterchef, pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
@@ -47,23 +36,31 @@ const getPoolApy = async (masterchef, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
+  const blockNum = await getBlockNumber(BSC_CHAIN_ID);
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
-  const rewards = new BigNumber(await masterchefContract.methods.gondolaPerSec().call());
+  const multiplier = new BigNumber(
+    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
+  );
+  const blockRewards = new BigNumber(await masterchefContract.methods.dopplePerBlock().call());
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);
 
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
-  const poolSecondRewards = rewards.times(allocPoint).dividedBy(totalAllocPoint);
+  const poolBlockRewards = blockRewards
+    .times(multiplier)
+    .times(allocPoint)
+    .dividedBy(totalAllocPoint);
 
+  const secondsPerBlock = 3;
   const secondsPerYear = 31536000;
-  const yearlyRewards = poolSecondRewards.times(secondsPerYear);
+  const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
+  const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'DOP' });
+  const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;
 };
 
-module.exports = getGondolaLpApys;
+module.exports = getDoppleApys;
