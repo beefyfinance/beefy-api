@@ -23,6 +23,8 @@ const getSatisLpApys = require('./getSatisLpApys');
 const getGoalLpApys = require('./getGoalLpApys');
 const getTofyLpApys = require('./getTofyLpApys');
 const getGarudaApys = require('./getGarudaApys');
+const getIronApys = require('./getIronApys');
+const getIronDndApys = require('./getIronDndApys');
 
 const getApys = [
   getRamenLpApys,
@@ -50,6 +52,8 @@ const getApys = [
   getGoalLpApys,
   getTofyLpApys,
   getGarudaApys,
+  getIronApys,
+  getIronDndApys,
 ];
 
 const getDegensLpApys = async () => {

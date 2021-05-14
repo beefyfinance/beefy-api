@@ -20,7 +20,8 @@ const getGarudaApys = async () =>
     oracleId: 'GARUDA',
     oracle: 'tokens',
     decimals: '1e18',
-    log: true,
+    compound: 0.8,
+    // log: true,
   });
 
 module.exports = getGarudaApys;
