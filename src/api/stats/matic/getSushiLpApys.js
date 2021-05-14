@@ -165,9 +165,12 @@ const getTradingFeeAprSushi = async () => {
   for (const pool of farms) {
     const pair = pairs.find(pair => pair.id === pool.pair);
     const pair24Ago = pairs24Ago.find(pair => pair.id === pool.pair);
-    const oneDayVolume = pair.volumeUSD - pair24Ago.volumeUSD;
-    const oneYearApr = (oneDayVolume * 0.003 * 365) / pair.reserveUSD;
-    const feeApr = { [pool.id]: oneYearApr };
+    let feeApr = 0;
+    if (pair && pair24Ago) {
+      const oneDayVolume = pair.volumeUSD - pair24Ago.volumeUSD;
+      const oneYearApr = (oneDayVolume * 0.003 * 365) / pair.reserveUSD;
+      feeApr = { [pool.id]: oneYearApr };
+    }
     feeAprs = { ...feeAprs, ...feeApr };
   }
 

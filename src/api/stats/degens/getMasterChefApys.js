@@ -45,7 +45,7 @@ const getPoolApy = async (params, pool) => {
     getTotalStaked,
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, params.compound ?? 0.955);
   if (params.log) {
     console.log(
       pool.name,

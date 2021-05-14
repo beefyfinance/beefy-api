@@ -20,6 +20,11 @@ const getSwampySwampApy = require('./getSwampySwampApy');
 const getSwampyCakeApy = require('./getSwampyCakeApy');
 const getMarshLpApys = require('./getMarshLpApys');
 const getSatisLpApys = require('./getSatisLpApys');
+const getGoalLpApys = require('./getGoalLpApys');
+const getTofyLpApys = require('./getTofyLpApys');
+const getGarudaApys = require('./getGarudaApys');
+const getIronApys = require('./getIronApys');
+const getIronDndApys = require('./getIronDndApys');
 
 const getApys = [
   getRamenLpApys,
@@ -44,6 +49,11 @@ const getApys = [
   getSwampySwampApy,
   getMarshLpApys,
   getSatisLpApys,
+  getGoalLpApys,
+  getTofyLpApys,
+  getGarudaApys,
+  getIronApys,
+  getIronDndApys,
 ];
 
 const getDegensLpApys = async () => {
@@ -53,7 +63,7 @@ const getDegensLpApys = async () => {
   getApys.forEach(getApy => promises.push(getApy()));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (const item of values) {
     apys = { ...apys, ...item };
   }
 

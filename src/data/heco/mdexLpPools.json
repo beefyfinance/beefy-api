@@ -1,5 +1,24 @@
 [
   {
+    "name": "mdex-bifi-usdt",
+    "address": "0xe6f7b06ad8b93a21f78e4acd59f2dac169ea704b",
+    "decimals": "1e18",
+    "poolId": 84,
+    "chainId": 128,
+    "lp0": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x765277EebeCA2e31912C9946eAe1021199B39C61",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "mdex-eth-wht",
     "address": "0x53E458aD1CFEB9582736db6BdE9aF89948e3bc3d",
     "decimals": "1e18",

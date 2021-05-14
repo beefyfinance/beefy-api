@@ -1,0 +1,65 @@
+[
+  {
+    "name": "gondola-eth-zeth",
+    "poolId": 7,
+    "address": "0xc37ecfa7bbf1df92da7c4a3d92d8cf8657d1ff7f",
+    "decimals": "1e18",
+    "oracle": "lps",
+    "oracleId": "gondola-eth-zeth",
+    "swap": {
+      "address": "0xed986f982269e0319F710EC270875dE2b2A443d2",
+      "oracle": "tokens",
+      "oracleId": "ETH"
+    }
+  },
+  {
+    "name": "gondola-usdt-zusdt",
+    "poolId": 8,
+    "address": "0xE586dB7Db75B87A3E84110a73b99960F5f106c6A",
+    "decimals": "1e18",
+    "oracle": "lps",
+    "oracleId": "gondola-usdt-zusdt",
+    "swap": {
+      "address": "0x3CE2B891071054ee10d4b5eD5a9446f9016F90d8",
+      "oracle": "tokens",
+      "oracleId": "USDT"
+    }
+  },
+  {
+    "name": "gondola-dai-zdai",
+    "poolId": 9,
+    "address": "0x2036c0eb5c42ef7f1ca06df57d07f79eb3a2e0c8",
+    "decimals": "1e18",
+    "oracle": "lps",
+    "oracleId": "gondola-dai-zdai",
+    "swap": {
+      "address": "0x9D43f28C5Fce24D0c8B653E5c5859E0421Af7783",
+      "oracle": "tokens",
+      "oracleId": "DAI"
+    }
+  },
+  {
+    "name": "gondola-gdl-zero",
+    "poolId": 10,
+    "address": "0x158EDe7F02475AA067Fa35F4FF26c6cd86129429",
+    "decimals": "1e18",
+    "oracle": "lps",
+    "oracleId": "gondola-gdl-zero"
+  },
+  {
+    "name": "gondola-gdl",
+    "poolId": 11,
+    "address": "0xD606199557c8Ab6F4Cc70bD03FaCc96ca576f142",
+    "decimals": "1e18",
+    "oracle": "tokens",
+    "oracleId": "GDL"
+  },
+  {
+    "name": "gondola-gdl-avax",
+    "poolId": 12,
+    "address": "0xc5AB0C94Bc88b98f55f4e21C1474F67ab2329CFD",
+    "decimals": "1e18",
+    "oracle": "lps",
+    "oracleId": "gondola-gdl-avax"
+  }
+]
