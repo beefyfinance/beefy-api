@@ -1,5 +1,24 @@
 [
   {
+    "name": "boo-bnb-ftm",
+    "address": "0x956DE13EA0FA5b577E4097Be837BF4aC80005820",
+    "decimals": "1e18",
+    "poolId": 19,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-link-ftm",
     "address": "0x89d9bc2f2d091cfbfc31e333d6dc555ddbc2fd29",
     "decimals": "1e18",
