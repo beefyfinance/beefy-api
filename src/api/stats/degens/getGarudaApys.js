@@ -20,7 +20,7 @@ const getGarudaApys = async () =>
     oracleId: 'GARUDA',
     oracle: 'tokens',
     decimals: '1e18',
-    compound: 0.8,
+    burn: 0.08, // 8%
     // log: true,
   });
 

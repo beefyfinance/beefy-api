@@ -45,7 +45,7 @@ const getPoolApy = async (params, pool) => {
     getTotalStaked,
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, params.compound ?? 0.955);
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
   if (params.log) {
     console.log(
       pool.name,
@@ -86,7 +86,11 @@ const getYearlyRewardsInUsd = async (params, pool) => {
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
   const tokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
-  const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(params.decimals);
+  let yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(params.decimals);
+
+  if (params.burn) {
+    yearlyRewardsInUsd = yearlyRewardsInUsd.times(1 - params.burn);
+  }
 
   return yearlyRewardsInUsd;
 };
