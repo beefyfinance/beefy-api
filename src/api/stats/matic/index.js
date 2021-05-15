@@ -4,6 +4,7 @@ const getQuickLpApys = require('./getQuickLpApys');
 const getAaveApys = require('./getAaveApys');
 const getSushiLpApys = require('./getSushiLpApys');
 const getComethMultiApys = require('./getComethMultiLpApys');
+const getPolyzapApys = require('./getPolyzapApys');
 
 const getApys = [
   getKrillLpApys,
@@ -12,6 +13,7 @@ const getApys = [
   getAaveApys,
   getSushiLpApys,
   getComethMultiApys,
+  getPolyzapApys,
 ];
 
 const getMaticApys = async () => {
