@@ -32,6 +32,4 @@ const getPoolApy = async pool => {
   return { [pool.name]: apy };
 };
 
-getAlpacaApys();
-
 module.exports = getAlpacaApys;
