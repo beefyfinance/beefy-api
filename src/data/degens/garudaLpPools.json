@@ -1,5 +1,23 @@
 [
   {
+    "name": "garuda-garuda-usdt",
+    "address": "0x7F6369476756B06D2b70BD77917fbc35A7801EFD",
+    "decimals": "1e18",
+    "poolId": 19,
+    "lp0": {
+      "address": "0x854086dc841e1bfae50cb615bf41f55bf432a90b",
+      "oracle": "tokens",
+      "oracleId": "GARUDA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "garuda-garuda-busd",
     "address": "0xF138090A6BAeb5f846Dd71cF191b3CbC0140bA97",
     "decimals": "1e18",
