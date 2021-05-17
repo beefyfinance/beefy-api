@@ -11,8 +11,8 @@ const getBlockNumber = require('../../../utils/getBlockNumber');
 const getCakePoolApy = async () => {
   const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
   const cake = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
-  const oracle = 'coingecko';
-  const oracleId = 'pancakeswap-token';
+  const oracle = 'tokens';
+  const oracleId = 'Cake';
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(masterChef, oracle, oracleId),

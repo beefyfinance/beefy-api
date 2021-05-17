@@ -25,11 +25,7 @@ const MAINNET_BSC_RPC_ENDPOINTS = [
   'https://bsc-dataseed4.binance.org',
 ];
 
-const CUSTOM_BSC_RPC_ENDPOINTS = [
-  process.env.BSC_RPC_3,
-  process.env.BSC_RPC_2,
-  process.env.BSC_RPC,
-].filter(item => item);
+const CUSTOM_BSC_RPC_ENDPOINTS = [process.env.BSC_RPC].filter(item => item);
 
 const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
   ? CUSTOM_BSC_RPC_ENDPOINTS

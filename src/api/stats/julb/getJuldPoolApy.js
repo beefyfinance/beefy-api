@@ -7,8 +7,8 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { BASE_HPY } = require('../../../constants');
 
 const stakingPool = '0xc08fa1d120e83e13b28d77be3b2837bc3e07127f';
-const oracle = 'coingecko';
-const oracleId = 'julswap';
+const oracle = 'tokens';
+const oracleId = 'JULD';
 
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
