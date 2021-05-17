@@ -48,7 +48,7 @@ const getYearlyRewardsInUsd = async (hecoPool, pool) => {
   const secondsPerYear = 31536000;
   const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
 
-  const mdxPrice = await fetchPrice({ oracle: 'coingecko', id: 'mdex' });
+  const mdxPrice = await fetchPrice({ oracle: 'tokens', id: 'MDX' });
   const yearlyRewardsInUsd = yearlyRewards.times(mdxPrice).dividedBy('1e18');
 
   return yearlyRewardsInUsd;

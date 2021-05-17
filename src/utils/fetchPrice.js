@@ -20,6 +20,7 @@ function addToCache({ oracle, id, price }) {
 }
 
 const fetchCoingecko = async id => {
+  console.warn('coingecko is deprecated');
   try {
     const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
       params: { ids: id, vs_currencies: 'usd' },
