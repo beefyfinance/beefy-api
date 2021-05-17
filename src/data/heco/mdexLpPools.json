@@ -1,5 +1,24 @@
 [
   {
+    "name": "mdex-shib-usdt",
+    "address": "0x1c85dD9E5FeE4c40786bd6278255D977946A364b",
+    "decimals": "1e18",
+    "poolId": 71,
+    "chainId": 128,
+    "lp0": {
+      "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc38072aa3f8e049de541223a9c9772132bb48634",
+      "oracle": "tokens",
+      "oracleId": "SHIB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "mdex-bifi-usdt",
     "address": "0xe6f7b06ad8b93a21f78e4acd59f2dac169ea704b",
     "decimals": "1e18",
