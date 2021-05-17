@@ -1,25 +1,5 @@
 [
   {
-    "name": "cometh-sdt-xsdt",
-    "address": "0xd849CD288b1992a9095C36467372617F9ad89108",
-    "rewardPool": "0xfb23843D3561a3bC73BB14855286Bd4b0b3E15C6",
-    "decimals": "1e18",
-    "poolId": 0,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x361a5a4993493ce00f61c32d4ecca5512b82ce90",
-      "oracle": "tokens",
-      "oracleId": "SDT",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xd921f8318cfd786bab1ea7492673f053c518ac04",
-      "oracle": "tokens",
-      "oracleId": "xSDT",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cometh-must-eth",
     "address": "0x8826C072657983939c26E684edcfb0e4133f0B3d",
     "rewardPool": "0x2cc6a7A06B32E0796D8f9225E2e33ae51C93d715",
