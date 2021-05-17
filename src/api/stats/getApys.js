@@ -56,7 +56,7 @@ const updateApys = async () => {
   console.log('> updating apys');
 
   try {
-    const values = await Promise.all([
+    const results = await Promise.allSettled([
       getBifiMaxiApy(),
       getCakeApys(),
       getCakePoolApy(),
@@ -103,8 +103,11 @@ const updateApys = async () => {
       getHecoApys(),
     ]);
 
-    for (item of values) {
-      apys = { ...apys, ...item };
+    for (result of results) {
+      if (result.status !== 'fulfilled') {
+        continue;
+      }
+      apys = { ...apys, ...result.value };
     }
 
     console.log('> updated apys');
