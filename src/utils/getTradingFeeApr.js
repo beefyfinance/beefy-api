@@ -14,7 +14,9 @@ const getTradingFeeApr = async (client, pairAddresses, liquidityProviderFee) => 
 
   const pairAddressToAprMap = {};
   for (const pairDayData of pairDayDatas) {
-    pairAddressToAprMap[pairDayData.pairAddress] = new BigNumber(pairDayData.dailyVolumeUSD)
+    pairAddressToAprMap[pairDayData.pairAddress.toString().toLowerCase()] = new BigNumber(
+      pairDayData.dailyVolumeUSD
+    )
       .times(liquidityProviderFee)
       .times(365)
       .dividedBy(pairDayData.reserveUSD);

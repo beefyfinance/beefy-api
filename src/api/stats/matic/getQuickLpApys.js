@@ -25,7 +25,7 @@ const getQuickLpApys = async () => {
   const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, quickLiquidityProviderFee);
 
   for (const pool of pools) {
-    const tradingAprLookup = tradingAprs[pool.address];
+    const tradingAprLookup = tradingAprs[pool.address.toLowerCase()];
     const tradingApr = tradingAprLookup ? tradingAprLookup : BigNumber(0);
     const apy = await getPoolApy(pool.rewardPool, pool, 137, tradingApr);
     apys = { ...apys, ...apy };
