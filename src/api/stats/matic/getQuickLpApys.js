@@ -7,6 +7,7 @@ const pools = require('../../../data/matic/quickLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../constants');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { quickClient } = require('../../../apollo/client');
 
 const oracle = 'tokens';
@@ -24,7 +25,8 @@ const getQuickLpApys = async () => {
   const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, quickLiquidityProviderFee);
 
   for (const pool of pools) {
-    const tradingApr = BigNumber(tradingAprs[pool.address]);
+    const tradingAprLookup = tradingAprs[pool.address];
+    const tradingApr = tradingAprLookup ? tradingAprLookup : BigNumber(0);
     const apy = await getPoolApy(pool.rewardPool, pool, 137, tradingApr);
     apys = { ...apys, ...apy };
   }
