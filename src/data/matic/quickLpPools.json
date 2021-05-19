@@ -318,5 +318,26 @@
       "oracleId": "USDT",
       "decimals": "1e6"
     }
+  },
+  {
+    "name": "quick-addy-eth",
+    "address": "0xa5bf14bb945297447fe96f6cd1b31b40d31175cb",
+    "_comment": "NOTE: The below reward pool is not the real one. There isn't a reward pool. This is to populate the token price for ADDY, needed by single asset ADDY vault",
+    "rewardPool": "0x251d9837a13F38F3Fe629ce2304fa00710176222",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc3FdbadC7c795EF1D6Ba111e06fF8F16A20Ea539",
+      "oracle": "tokens",
+      "oracleId": "ADDY",
+      "decimals": "1e18"
+    }
   }
 ]
