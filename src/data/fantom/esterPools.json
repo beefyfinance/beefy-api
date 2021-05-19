@@ -8,14 +8,6 @@
     "oracleId": "EST"
   },
   {
-    "name": "ester-ftm",
-    "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
-    "decimals": "1e18",
-    "poolId": 1,
-    "oracle": "tokens",
-    "oracleId": "WFTM"
-  },
-  {
     "name": "ester-est-ftm",
     "address": "0x0c9043cb1B994C8e4a8024e2F037Ea50b7025a82",
     "decimals": "1e18",
