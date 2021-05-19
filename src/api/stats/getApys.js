@@ -103,8 +103,9 @@ const updateApys = async () => {
       getHecoApys(),
     ]);
 
-    for (result of results) {
+    for (const result of results) {
       if (result.status !== 'fulfilled') {
+        console.warn('getApys error', result.reason);
         continue;
       }
       apys = { ...apys, ...result.value };
