@@ -21,7 +21,7 @@ const getHecoBifiMaxiApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, DAILY_HPY, 1, 0.99);
+  const apy = compound(simpleApy, DAILY_HPY, 1, 0.9995);
 
   return { 'heco-bifi-maxi': apy };
 };
