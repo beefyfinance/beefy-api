@@ -1,4 +1,8 @@
-const getBeltTvl = require('./bsc/belt/getBeltTvl.js');
+const getFantomTvl = require('./fantom/getFantomTvl.js');
+const getMaticTvl = require('./matic/getMaticTvl.js');
+const getHecoTvl = require('./heco/getHecoTvl.js');
+const getAvaxTvl = require('./avax/getAvaxTvl.js');
+const getBscTvl = require('./bsc/getBscTvl.js');
 
 const INIT_DELAY = 30 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -14,15 +18,11 @@ const updateTvl = async () => {
 
   try {
     const results = await Promise.allSettled([
-      /*getBifiMaxiApy(),
-      getMdexBscLpApys(),
-      getComAvaxApys(),*/
-      getBeltTvl(),
-      /*getMaticApys(),
-      getAvaxApys(),
-      getFantomApys(),
-      getHecoApys(),
-      getBSCApys(),*/
+      getMaticTvl(),
+      getAvaxTvl(),
+      getFantomTvl(),
+      getBscTvl(),
+      getHecoTvl(),
     ]);
 
     for (result of results) {
