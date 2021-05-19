@@ -8,6 +8,8 @@ const { compound } = require('../../../utils/compound');
 const multiFeeDistribution = '0x920f22E1e5da04504b765F8110ab96A20E6408Bd'; // MultiFeeDistribution contract
 const oracle = 'tokens';
 const oracleId = 'ADDY';
+
+const quickOracleId = 'QUICK';
 const quickTokenAddress = '0x831753dd7087cac61ab5644b308642cc1c33dc13';
 
 const DECIMALS = '1e18';
@@ -31,7 +33,7 @@ const getTotalStakedInUsd = async () => {
 };
 
 const getYearlyRewardsInUsd = async () => {
-  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
+  const tokenPrice = await fetchPrice({ oracle, id: quickOracleId });
 
   const rewardPool = new web3.eth.Contract(AddyMultiFeeDistribution, multiFeeDistribution);
   const { rewardRate } = await rewardPool.methods.rewardData(quickTokenAddress).call();
