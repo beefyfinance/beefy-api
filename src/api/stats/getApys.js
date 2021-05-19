@@ -22,15 +22,15 @@ const updateApys = async () => {
 
   try {
     const results = await Promise.allSettled([
-      getBifiMaxiApy(),
+      /*getBifiMaxiApy(),
       getMdexBscLpApys(),
       getComAvaxApys(),
       getComBscApys(),
       getMaticApys(),
-      getAvaxApys(),
+      getAvaxApys(),*/
       getFantomApys(),
-      getHecoApys(),
-      getBSCApys(),
+      /*getHecoApys(),
+      getBSCApys(),*/
     ]);
 
     for (result of results) {
