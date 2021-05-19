@@ -3,8 +3,16 @@ const getHfiLpApys = require('./getHfiLpApys');
 const getLavaLpApys = require('./getLavaLpApys');
 const getLavaApy = require('./getLavaApy');
 const getMdexLpApys = require('./getMdexLpApys');
+const getHecoBifiMaxiApy = require('./getHecoBifiMaxiApy');
 
-const getApys = [getHfiApys, getLavaLpApys, getLavaApy, getHfiLpApys, getMdexLpApys];
+const getApys = [
+  getHfiApys,
+  getLavaLpApys,
+  getLavaApy,
+  getHfiLpApys,
+  getMdexLpApys,
+  getHecoBifiMaxiApy,
+];
 
 const getHecoApys = async () => {
   let apys = {};

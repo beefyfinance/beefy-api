@@ -66,6 +66,7 @@ const quickPools = require('../../data/matic/quickLpPools.json');
 const krillPools = require('../../data/matic/krillLpPools.json');
 const sushiLpPools = require('../../data/matic/sushiLpPools.json');
 const satisPools = require('../../data/degens/satisLpPools.json');
+const satisXPools = require('../../data/degens/satisXLpPools.json');
 const zefiV2Pools = require('../../data/degens/zefiLpPoolsV2.json');
 const spookyPools = require('../../data/fantom/spookyLpPools.json');
 const froyoPools = require('../../data/fantom/froyoLpPools.json');
@@ -99,6 +100,7 @@ const pools = [
   ...froyoPools,
   ...spookyPools,
   ...zefiV2Pools,
+  ...satisXPools,
   ...satisPools,
   ...krillPools,
   ...sushiLpPools,
