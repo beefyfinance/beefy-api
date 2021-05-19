@@ -9,12 +9,25 @@ const {
 } = require('../../../utils/getTotalStakedInUsd');
 const { POLYGON_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 
 const getMasterChefApys = async masterchefParams => {
   let apys = {};
 
   let promises = [];
-  masterchefParams.pools.forEach(pool => promises.push(getPoolApy(masterchefParams, pool)));
+
+  const pairAddresses = masterchefParams.pools.map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(
+    masterchefParams.tradingFeeInfoClient,
+    pairAddresses,
+    masterchefParams.liquidityProviderFee
+  );
+
+  masterchefParams.pools.forEach(pool => {
+    const tradingAprLookup = tradingAprs[pool.address.toLowerCase()];
+    const tradingApr = tradingAprLookup ? tradingAprLookup : BigNumber(0);
+    promises.push(getPoolApy(masterchefParams, pool, tradingApr));
+  });
   if (masterchefParams.singlePools) {
     masterchefParams.singlePools.forEach(pool => promises.push(getPoolApy(masterchefParams, pool)));
   }
@@ -27,7 +40,7 @@ const getMasterChefApys = async masterchefParams => {
   return apys;
 };
 
-const getPoolApy = async (params, pool) => {
+const getPoolApy = async (params, pool, tradingApr = 0) => {
   let getTotalStaked;
   if (pool.token) {
     getTotalStaked = getTotalStakedInUsd(
@@ -47,7 +60,8 @@ const getPoolApy = async (params, pool) => {
     getTotalStaked,
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const aprWithFees = simpleApy.plus(tradingApr);
+  const apy = compound(aprWithFees, process.env.BASE_HPY, 1, 0.955);
   if (params.log) {
     console.log(
       pool.name,

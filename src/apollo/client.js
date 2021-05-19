@@ -45,10 +45,19 @@ const quickClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const polyzapClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/polyzap/exchange',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 module.exports = {
   exchange_matic,
   minichefv2_matic,
   blockClient_matic,
   comethClient,
   quickClient,
+  polyzapClient,
 };
