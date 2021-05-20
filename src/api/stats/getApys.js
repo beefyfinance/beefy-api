@@ -40,6 +40,7 @@ const getDoppleApys = require('./dopple/getDoppleApys');
 const { getMaticApys } = require('./matic');
 const { getHecoApys } = require('./heco');
 const { getFantomApys } = require('./fantom');
+const getMdexMdxApy = require('./mdex/getMdexMdxApy');
 
 const INIT_DELAY = 30 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -97,6 +98,7 @@ const updateApys = async () => {
       getMaticApys(),
       getFantomApys(),
       getHecoApys(),
+      getMdexMdxApy(),
     ]);
 
     for (const result of results) {

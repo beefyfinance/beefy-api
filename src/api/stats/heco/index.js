@@ -4,6 +4,7 @@ const getLavaLpApys = require('./getLavaLpApys');
 const getLavaApy = require('./getLavaApy');
 const getMdexLpApys = require('./getMdexLpApys');
 const getHecoBifiMaxiApy = require('./getHecoBifiMaxiApy');
+const getHecoMdexMdxApy = require('./getHecoMdexMdxApy');
 
 const getApys = [
   getHfiApys,
@@ -12,6 +13,7 @@ const getApys = [
   getHfiLpApys,
   getMdexLpApys,
   getHecoBifiMaxiApy,
+  getHecoMdexMdxApy,
 ];
 
 const getHecoApys = async () => {
