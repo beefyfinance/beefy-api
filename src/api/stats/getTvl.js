@@ -29,7 +29,7 @@ const updateTvl = async () => {
       if (result.status !== 'fulfilled') {
         continue;
       }
-      tvl = { ...tvl, ...result.value };
+      tvl = { ...tvl, ...{ ...result.value } };
     }
 
     console.log('> updated tvl');
