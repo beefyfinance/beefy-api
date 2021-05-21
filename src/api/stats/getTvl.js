@@ -1,13 +1,45 @@
-const getFantomTvl = require('./fantom/getFantomTvl.js');
-const getMaticTvl = require('./matic/getMaticTvl.js');
-const getHecoTvl = require('./heco/getHecoTvl.js');
-const getAvaxTvl = require('./avax/getAvaxTvl.js');
-const getBscTvl = require('./bsc/getBscTvl.js');
+const getChainTvl = require('./getChainTvl.js');
+
+const {
+  BSC_CHAIN_ID,
+  HECO_CHAIN_ID,
+  AVAX_CHAIN_ID,
+  POLYGON_CHAIN_ID,
+  FANTOM_CHAIN_ID,
+} = require('../../constants');
 
 const INIT_DELAY = 30 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let tvl = {};
+
+const chains = [
+  {
+    chainId: BSC_CHAIN_ID,
+    vaultsEndpoint:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/bsc_pools.js',
+  },
+  {
+    chainId: POLYGON_CHAIN_ID,
+    vaultsEndpoint:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/polygon_pools.js',
+  },
+  {
+    chainId: FANTOM_CHAIN_ID,
+    vaultsEndpoint:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fantom_pools.js',
+  },
+  {
+    chainId: HECO_CHAIN_ID,
+    vaultsEndpoint:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/heco_pools.js',
+  },
+  {
+    chainId: AVAX_CHAIN_ID,
+    vaultsEndpoint:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/avalanche_pools.js',
+  },
+];
 
 const getTvl = () => {
   return tvl;
@@ -17,13 +49,11 @@ const updateTvl = async () => {
   console.log('> updating tvl');
 
   try {
-    const results = await Promise.allSettled([
-      getMaticTvl(),
-      getAvaxTvl(),
-      getFantomTvl(),
-      getBscTvl(),
-      getHecoTvl(),
-    ]);
+    let promises = [];
+
+    chains.forEach(chain => promises.push(getChainTvl(chain)));
+
+    const results = await Promise.allSettled(promises);
 
     for (result of results) {
       if (result.status !== 'fulfilled') {
