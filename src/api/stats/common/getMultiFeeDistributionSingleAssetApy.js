@@ -1,16 +1,10 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../utils/web3');
 
 const MultiFeeDistribution = require('../../../abis/MultiFeeDistribution.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 
-const multiFeeDistribution = '0x4076CC26EFeE47825917D0feC3A79d0bB9a6bB5c';
 const oracle = 'tokens';
-const oracleId = 'EPS';
-
-const outputOracleId = 'BUSD';
-const outputTokenAddress = '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56';
 
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
