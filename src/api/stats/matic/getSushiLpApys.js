@@ -38,22 +38,13 @@ const oracleIdMatic = 'WMATIC';
 
 const getSushiLpApys = async () => {
   let apys = {};
-
-  console.log('------------------------');
-
   const tradingAprs = await getTradingFeeAprSushi();
-
-  console.log('tradingAprs', tradingAprs);
 
   for (const pool of pools) {
     const tradingApr = new BigNumber(tradingAprs[pool.poolId]);
     const apy = await getPoolApy(minichef, pool, tradingApr);
     apys = { ...apys, ...apy };
   }
-
-  console.log(apys);
-
-  console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>');
 
   return apys;
 };
@@ -67,8 +58,6 @@ const getPoolApy = async (minichef, pool, tradingApr) => {
 
   const totalRewardsInUSD = yearlyRewardsInUsd.plus(yearlyMaticRewardsInUsd);
   const simpleApr = totalRewardsInUSD.dividedBy(totalStakedInUsd);
-
-  console.log(pool.name, '-', Number(simpleApr), Number(tradingApr));
 
   const apy =
     (1 + compound(Number(simpleApr), process.env.BASE_HPY, 1, 0.955)) *
