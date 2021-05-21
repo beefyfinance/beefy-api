@@ -28,6 +28,7 @@ const getPumpyLpApys = require('./pumpy/getPumpyLpApys');
 const getAlpacaLpApys = require('./alpaca/getAlpacaLpApys');
 const getAlpacaApys = require('./alpaca/getAlpacaApys');
 const getEllipsisLpApys = require('./ellipsis/getEllipsisLpApys');
+const getEllipsisSingleAssetApy = require('./ellipsis/getEllipsisSingleAssetApy');
 const get1inchApy = require('./1inch/get1inchApy');
 const getSwirlLpApys = require('./swirl/getSwirlLpApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
@@ -87,6 +88,7 @@ const updateApys = async () => {
       getAlpacaLpApys(),
       getAlpacaApys(),
       getEllipsisLpApys(),
+      getEllipsisSingleAssetApy(),
       getSwirlLpApys(),
       getMdexBscLpApys(),
       getTyphLpApys(),
