@@ -20,7 +20,7 @@ const getJetswapApys = async () =>
     oracleId: 'WINGS',
     oracle: 'tokens',
     decimals: '1e18',
-    log: true,
+    // log: true,
   });
 
 module.exports = getJetswapApys;

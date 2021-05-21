@@ -23,6 +23,7 @@ const getGarudaApys = require('./getGarudaApys');
 const getIronApys = require('./getIronApys');
 const getIronDndApys = require('./getIronDndApys');
 const getIronSingleDndApys = require('./getIronSingleDndApys');
+const getDumplingApys = require('./getDumplingApys');
 
 const getApys = [
   getRamenLpApys,
@@ -50,6 +51,7 @@ const getApys = [
   getIronApys,
   getIronDndApys,
   getIronSingleDndApys,
+  getDumplingApys,
 ];
 
 const getDegensLpApys = async () => {
