@@ -9,10 +9,8 @@ const supply = require('./api/supply');
 const price = require('./api/price');
 const gov = require('./api/stats/gov');
 const cmc = require('./api/cmc');
-const tvl = require('./api/tvl');
 
 router.get('/apy', stats.apy);
-router.get('/tvl', tvl.vaultTvl);
 router.get('/cmc', cmc.vaults);
 
 router.get('/supply', supply.supply);

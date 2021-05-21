@@ -1,25 +1,40 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../utils/web3');
+const { bscWeb3: web3 } = require('../../../../utils/web3');
 
-const MasterChef = require('../../../abis/ComplusSudoSu.json');
-const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/comBscLpPools.json');
-const { compound } = require('../../../utils/compound');
-const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BSC_CHAIN_ID } = require('../../../constants');
-const getBlockNumber = require('../../../utils/getBlockNumber');
+const MasterChef = require('../../../../abis/GrandMasterChef.json');
+const fetchPrice = require('../../../../utils/fetchPrice');
+const pools = require('../../../../data/grandLpPools.json');
+const { compound } = require('../../../../utils/compound');
+const { BSC_CHAIN_ID } = require('../../../../constants');
+const getBlockNumber = require('../../../../utils/getBlockNumber');
+const {
+  getTotalLpStakedInUsd,
+  getTotalStakedInUsd,
+} = require('../../../../utils/getTotalStakedInUsd');
 
-const masterchef = '0x110650bBAfCe4Ec7e864fe4A4A88BBD4AF547159';
-const oracleId = 'bCOM';
+const masterchef = '0x3d8fd880976a3EA0f53cad02463867013D331107';
+const oracleId = 'GRAND';
 const oracle = 'tokens';
 const DECIMALS = '1e18';
-const chainId = 56;
 
-const getComBscApys = async () => {
+const singleGrand = [
+  {
+    name: 'grand-grand',
+    token: '0x28060854AC19391dF6C69Df430cAba4506181d56',
+    strat: '0x603135DFc4A82F8de3DCaEcCAb0607028EceC87E',
+    poolId: 22,
+    decimals: '1e18',
+    oracle: 'tokens',
+    oracleId: 'GRAND',
+  },
+];
+
+const getGrandLpApys = async () => {
   let apys = {};
 
   let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
+  const allPools = [...pools, ...singleGrand];
+  allPools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
   const values = await Promise.all(promises);
 
   for (item of values) {
@@ -30,9 +45,22 @@ const getComBscApys = async () => {
 };
 
 const getPoolApy = async (masterchef, pool) => {
+  let getTotalStaked;
+  if (pool.token) {
+    getTotalStaked = getTotalStakedInUsd(
+      pool.strat,
+      pool.token,
+      pool.oracle,
+      pool.oracleId,
+      pool.decimals,
+      BSC_CHAIN_ID
+    );
+  } else {
+    getTotalStaked = getTotalLpStakedInUsd(pool.strat, pool);
+  }
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(masterchef, pool),
-    getTotalLpStakedInUsd(masterchef, pool, chainId),
+    getTotalStaked,
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
@@ -47,7 +75,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const multiplier = new BigNumber(
     await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
   );
-  const blockRewards = new BigNumber(await masterchefContract.methods.comPerBlock().call());
+  const blockRewards = new BigNumber(await masterchefContract.methods.GrandPerBlock().call());
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);
@@ -68,4 +96,4 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
   return yearlyRewardsInUsd;
 };
 
-module.exports = getComBscApys;
+module.exports = getGrandLpApys;

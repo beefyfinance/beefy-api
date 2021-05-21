@@ -2,8 +2,8 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "_devaddr",
+        "internalType": "contract SpaceDumplingToken",
+        "name": "_dumpling",
         "type": "address"
       },
       {
@@ -13,7 +13,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_noFeeBlock",
+        "name": "_dumplingPerBlock",
         "type": "uint256"
       }
     ],
@@ -76,17 +76,23 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "user",
+        "name": "caller",
         "type": "address"
       },
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "amount",
+        "name": "previousAmount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "newAmount",
         "type": "uint256"
       }
     ],
-    "name": "MigrateToV2",
+    "name": "EmissionRateUpdated",
     "type": "event"
   },
   {
@@ -144,31 +150,18 @@
       },
       {
         "indexed": true,
-        "internalType": "address",
-        "name": "newAddress",
-        "type": "address"
-      }
-    ],
-    "name": "SetDevAddress",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "pid",
+        "type": "uint256"
       },
       {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newAddress",
-        "type": "address"
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amountLockedUp",
+        "type": "uint256"
       }
     ],
-    "name": "SetFeeAddress",
+    "name": "RewardLockedUp",
     "type": "event"
   },
   {
@@ -198,38 +191,38 @@
   },
   {
     "inputs": [],
+    "name": "BONUS_MULTIPLIER",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "MAXIMUM_HARVEST_INTERVAL",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "MAXIMUM_REFERRAL_COMMISSION_RATE",
     "outputs": [
       {
         "internalType": "uint16",
         "name": "",
         "type": "uint16"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "SatisfiDevPerBlock",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "SatisfiPerBlock",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -244,23 +237,23 @@
       },
       {
         "internalType": "contract IBEP20",
-        "name": "_want",
-        "type": "address"
-      },
-      {
-        "internalType": "bool",
-        "name": "_withUpdate",
-        "type": "bool"
-      },
-      {
-        "internalType": "address",
-        "name": "_strat",
+        "name": "_lpToken",
         "type": "address"
       },
       {
         "internalType": "uint16",
         "name": "_depositFeeBP",
         "type": "uint16"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_harvestInterval",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "_withUpdate",
+        "type": "bool"
       }
     ],
     "name": "add",
@@ -269,13 +262,24 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "burnAddress",
-    "outputs": [
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_pid",
+        "type": "uint256"
+      },
       {
         "internalType": "address",
-        "name": "",
+        "name": "_user",
         "type": "address"
+      }
+    ],
+    "name": "canHarvest",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",
@@ -290,7 +294,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_wantAmt",
+        "name": "_amount",
         "type": "uint256"
       },
       {
@@ -306,10 +310,75 @@
   },
   {
     "inputs": [],
-    "name": "devaddr",
+    "name": "devAddress",
     "outputs": [
       {
         "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "dumplerAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "dumplerMiniAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "dumpling",
+    "outputs": [
+      {
+        "internalType": "contract SpaceDumplingToken",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "dumplingPerBlock",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "dumplingReferral",
+    "outputs": [
+      {
+        "internalType": "contract IDumplingReferral",
         "name": "",
         "type": "address"
       }
@@ -332,7 +401,7 @@
   },
   {
     "inputs": [],
-    "name": "feeAddr",
+    "name": "feeAddress",
     "outputs": [
       {
         "internalType": "address",
@@ -364,25 +433,20 @@
         "type": "uint256"
       }
     ],
-    "stateMutability": "view",
+    "stateMutability": "pure",
     "type": "function"
   },
   {
-    "inputs": [
+    "inputs": [],
+    "name": "isDumplerFeeEnabled",
+    "outputs": [
       {
-        "internalType": "address",
-        "name": "_token",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_amount",
-        "type": "uint256"
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
       }
     ],
-    "name": "inCaseTokensGetStuck",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -390,58 +454,6 @@
     "name": "massUpdatePools",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "uint256",
-        "name": "_SatisfiAmt",
-        "type": "uint256"
-      }
-    ],
-    "name": "migrateSatisfiToken",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "newSatisfiToken",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "noFeeBlock",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "oldSatisfiToken",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -470,7 +482,7 @@
         "type": "address"
       }
     ],
-    "name": "pendingSatisfi",
+    "name": "pendingDumpling",
     "outputs": [
       {
         "internalType": "uint256",
@@ -493,7 +505,7 @@
     "outputs": [
       {
         "internalType": "contract IBEP20",
-        "name": "want",
+        "name": "lpToken",
         "type": "address"
       },
       {
@@ -508,18 +520,18 @@
       },
       {
         "internalType": "uint256",
-        "name": "accSatisfiPerShare",
+        "name": "accDumplingPerShare",
         "type": "uint256"
-      },
-      {
-        "internalType": "address",
-        "name": "strat",
-        "type": "address"
       },
       {
         "internalType": "uint16",
         "name": "depositFeeBP",
         "type": "uint16"
+      },
+      {
+        "internalType": "uint256",
+        "name": "harvestInterval",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -559,19 +571,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "satisfiReferral",
-    "outputs": [
-      {
-        "internalType": "contract ISatisfiReferral",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -584,14 +583,19 @@
         "type": "uint256"
       },
       {
-        "internalType": "bool",
-        "name": "_withUpdate",
-        "type": "bool"
-      },
-      {
         "internalType": "uint16",
         "name": "_depositFeeBP",
         "type": "uint16"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_harvestInterval",
+        "type": "uint256"
+      },
+      {
+        "internalType": "bool",
+        "name": "_withUpdate",
+        "type": "bool"
       }
     ],
     "name": "set",
@@ -603,11 +607,50 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_devaddr",
+        "name": "_devAddress",
         "type": "address"
       }
     ],
     "name": "setDevAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_dumplerAddress",
+        "type": "address"
+      }
+    ],
+    "name": "setDumplerAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_dumplerMiniAddress",
+        "type": "address"
+      }
+    ],
+    "name": "setDumplerMiniAddress",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "contract IDumplingReferral",
+        "name": "_dumplingReferral",
+        "type": "address"
+      }
+    ],
+    "name": "setDumplingReferral",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -628,6 +671,19 @@
   {
     "inputs": [
       {
+        "internalType": "bool",
+        "name": "_isDumplerFeeEnabled",
+        "type": "bool"
+      }
+    ],
+    "name": "setIsDumplerFeeEnabled",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
         "internalType": "uint16",
         "name": "_referralCommissionRate",
         "type": "uint16"
@@ -641,12 +697,25 @@
   {
     "inputs": [
       {
-        "internalType": "contract ISatisfiReferral",
-        "name": "_satisfiReferral",
+        "internalType": "uint256",
+        "name": "_startBlock",
+        "type": "uint256"
+      }
+    ],
+    "name": "setStartBlock",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_teamAddress",
         "type": "address"
       }
     ],
-    "name": "setSatisfiReferral",
+    "name": "setTeamAddress",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -666,7 +735,33 @@
   },
   {
     "inputs": [],
+    "name": "teamAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "totalAllocPoint",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "totalLockedUpRewards",
     "outputs": [
       {
         "internalType": "uint256",
@@ -693,12 +788,12 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "_dumplingPerBlock",
+        "type": "uint256"
       }
     ],
-    "name": "transferSatisfiTokenOwnership",
+    "name": "updateEmissionRate",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -740,19 +835,16 @@
         "internalType": "uint256",
         "name": "rewardDebt",
         "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "wbnb",
-    "outputs": [
+      },
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "rewardLockedUp",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "nextHarvestUntil",
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -767,7 +859,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_wantAmt",
+        "name": "_amount",
         "type": "uint256"
       }
     ],

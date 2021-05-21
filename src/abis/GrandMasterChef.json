@@ -1,26 +1,5 @@
 [
   {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "_devaddr",
-        "type": "address"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_startBlock",
-        "type": "uint256"
-      },
-      {
-        "internalType": "uint256",
-        "name": "_noFeeBlock",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "constructor"
-  },
-  {
     "anonymous": false,
     "inputs": [
       {
@@ -119,69 +98,6 @@
       },
       {
         "indexed": true,
-        "internalType": "address",
-        "name": "referrer",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "commissionAmount",
-        "type": "uint256"
-      }
-    ],
-    "name": "ReferralCommissionPaid",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newAddress",
-        "type": "address"
-      }
-    ],
-    "name": "SetDevAddress",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "newAddress",
-        "type": "address"
-      }
-    ],
-    "name": "SetFeeAddress",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "user",
-        "type": "address"
-      },
-      {
-        "indexed": true,
         "internalType": "uint256",
         "name": "pid",
         "type": "uint256"
@@ -198,20 +114,7 @@
   },
   {
     "inputs": [],
-    "name": "MAXIMUM_REFERRAL_COMMISSION_RATE",
-    "outputs": [
-      {
-        "internalType": "uint16",
-        "name": "",
-        "type": "uint16"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "SatisfiDevPerBlock",
+    "name": "GrandMaxSupply",
     "outputs": [
       {
         "internalType": "uint256",
@@ -224,12 +127,38 @@
   },
   {
     "inputs": [],
-    "name": "SatisfiPerBlock",
+    "name": "GrandPerBlock",
     "outputs": [
       {
         "internalType": "uint256",
         "name": "",
         "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "GrandV1",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "GrandV2",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
       }
     ],
     "stateMutability": "view",
@@ -243,7 +172,7 @@
         "type": "uint256"
       },
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "_want",
         "type": "address"
       },
@@ -258,12 +187,35 @@
         "type": "address"
       },
       {
-        "internalType": "uint16",
-        "name": "_depositFeeBP",
-        "type": "uint16"
+        "internalType": "address",
+        "name": "_frySailing",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_fryLanding",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "_isLp",
+        "type": "bool"
       }
     ],
     "name": "add",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_paidToken",
+        "type": "address"
+      }
+    ],
+    "name": "addPaidToken",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -287,34 +239,52 @@
         "internalType": "uint256",
         "name": "_pid",
         "type": "uint256"
+      }
+    ],
+    "name": "depositBNB",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_pid",
+        "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_wantAmt",
+        "name": "_amount",
         "type": "uint256"
       },
       {
         "internalType": "address",
-        "name": "_referrer",
+        "name": "_paidToken",
         "type": "address"
       }
     ],
-    "name": "deposit",
+    "name": "depositToken",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "devaddr",
-    "outputs": [
+    "inputs": [
       {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
+        "internalType": "uint256",
+        "name": "_pid",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
       }
     ],
-    "stateMutability": "view",
+    "name": "depositWant",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -328,19 +298,6 @@
     "name": "emergencyWithdraw",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "feeAddr",
-    "outputs": [
-      {
-        "internalType": "address",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -365,6 +322,19 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "inCaseBNBGetStuck",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -396,18 +366,18 @@
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "_SatisfiAmt",
+        "name": "_inputAmt",
         "type": "uint256"
       }
     ],
-    "name": "migrateSatisfiToken",
+    "name": "migrateToGrandV2",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "newSatisfiToken",
+    "name": "owner",
     "outputs": [
       {
         "internalType": "address",
@@ -420,7 +390,7 @@
   },
   {
     "inputs": [],
-    "name": "noFeeBlock",
+    "name": "ownerGrandRewardPerBlock",
     "outputs": [
       {
         "internalType": "uint256",
@@ -432,8 +402,33 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "oldSatisfiToken",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "paidToken",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "name": "paidTokenAddresses",
     "outputs": [
       {
         "internalType": "address",
@@ -446,12 +441,12 @@
   },
   {
     "inputs": [],
-    "name": "owner",
+    "name": "paidTokenAddressesLength",
     "outputs": [
       {
-        "internalType": "address",
+        "internalType": "uint256",
         "name": "",
-        "type": "address"
+        "type": "uint256"
       }
     ],
     "stateMutability": "view",
@@ -470,7 +465,7 @@
         "type": "address"
       }
     ],
-    "name": "pendingSatisfi",
+    "name": "pendingGrand",
     "outputs": [
       {
         "internalType": "uint256",
@@ -492,7 +487,7 @@
     "name": "poolInfo",
     "outputs": [
       {
-        "internalType": "contract IBEP20",
+        "internalType": "contract IERC20",
         "name": "want",
         "type": "address"
       },
@@ -508,7 +503,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "accSatisfiPerShare",
+        "name": "accGrandPerShare",
         "type": "uint256"
       },
       {
@@ -517,9 +512,19 @@
         "type": "address"
       },
       {
-        "internalType": "uint16",
-        "name": "depositFeeBP",
-        "type": "uint16"
+        "internalType": "address",
+        "name": "frySailing",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "fryLanding",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "isLp",
+        "type": "bool"
       }
     ],
     "stateMutability": "view",
@@ -539,16 +544,16 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "referralCommissionRate",
-    "outputs": [
+    "inputs": [
       {
-        "internalType": "uint16",
-        "name": "",
-        "type": "uint16"
+        "internalType": "address",
+        "name": "_paidToken",
+        "type": "address"
       }
     ],
-    "stateMutability": "view",
+    "name": "removePaidToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -556,19 +561,6 @@
     "name": "renounceOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "satisfiReferral",
-    "outputs": [
-      {
-        "internalType": "contract ISatisfiReferral",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -587,11 +579,6 @@
         "internalType": "bool",
         "name": "_withUpdate",
         "type": "bool"
-      },
-      {
-        "internalType": "uint16",
-        "name": "_depositFeeBP",
-        "type": "uint16"
       }
     ],
     "name": "set",
@@ -602,25 +589,22 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "_devaddr",
-        "type": "address"
-      }
-    ],
-    "name": "setDevAddress",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
+        "internalType": "uint256",
+        "name": "_pid",
+        "type": "uint256"
+      },
       {
         "internalType": "address",
-        "name": "_feeAddress",
+        "name": "_frySailing",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_fryLanding",
         "type": "address"
       }
     ],
-    "name": "setFeeAddress",
+    "name": "setStrategy",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -628,27 +612,25 @@
   {
     "inputs": [
       {
-        "internalType": "uint16",
-        "name": "_referralCommissionRate",
-        "type": "uint16"
-      }
-    ],
-    "name": "setReferralCommissionRate",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
+        "internalType": "uint256",
+        "name": "_pid",
+        "type": "uint256"
+      },
       {
-        "internalType": "contract ISatisfiReferral",
-        "name": "_satisfiReferral",
+        "internalType": "address",
+        "name": "_user",
         "type": "address"
       }
     ],
-    "name": "setSatisfiReferral",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "name": "stakedWantTokens",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -693,19 +675,6 @@
   {
     "inputs": [
       {
-        "internalType": "address",
-        "name": "newOwner",
-        "type": "address"
-      }
-    ],
-    "name": "transferSatisfiTokenOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
         "internalType": "uint256",
         "name": "_pid",
         "type": "uint256"
@@ -733,7 +702,7 @@
     "outputs": [
       {
         "internalType": "uint256",
-        "name": "amount",
+        "name": "shares",
         "type": "uint256"
       },
       {
@@ -767,13 +736,58 @@
       },
       {
         "internalType": "uint256",
-        "name": "_wantAmt",
+        "name": "wantBalance",
         "type": "uint256"
       }
     ],
-    "name": "withdraw",
+    "name": "withdrawBNB",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_pid",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "wantBalance",
+        "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "_paidToken",
+        "type": "address"
+      }
+    ],
+    "name": "withdrawToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_pid",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "wantBalance",
+        "type": "uint256"
+      }
+    ],
+    "name": "withdrawWant",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "stateMutability": "payable",
+    "type": "receive"
   }
 ]

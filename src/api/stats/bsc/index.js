@@ -17,9 +17,11 @@ const getCrowLpApys = require('./crow/getCrowLpApys');
 const { getDegensLpApys } = require('./degens');
 const getDoppleApys = require('./dopple/getDoppleApys');
 const getEllipsisLpApys = require('./ellipsis/getEllipsisLpApys');
+const getEllipsisSingleAssetApy = require('./ellipsis/getEllipsisSingleAssetApy');
 const getFortressApys = require('./fortress/getFortressApys');
 const getIcarusApys = require('./icarus/getIcarusApys');
 const getJetfuelLpApys = require('./jetfuel/getJetfuelLpApys');
+const getJetswapApys = require('./jetfuel/getJetswapApys');
 const getJulLpApys = require('./julb/getJulLpApys');
 const getKebabLpApys = require('./kebab/getKebabLpApys');
 const getKebabPoolApy = require('./kebab/getKebabPoolApy');
@@ -34,6 +36,8 @@ const getSwipeLpApys = require('./swipe/getSwipeLpApys');
 const getSwirlLpApys = require('./swirl/getSwirlLpApys');
 const getTyphLpApys = require('./typhoon/getTyphLpApys');
 const getVenusApys = require('./venus/getVenusApys');
+const getComBscApys = require('./complus/getComBscLpApys');
+const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
 
 const getApys = [
   get1inchLpApys,
@@ -55,9 +59,11 @@ const getApys = [
   getDegensLpApys,
   getDoppleApys,
   getEllipsisLpApys,
+  getEllipsisSingleAssetApy,
   getFortressApys,
   getIcarusApys,
   getJetfuelLpApys,
+  getJetswapApys,
   getJulLpApys,
   getKebabLpApys,
   getKebabPoolApy,
@@ -72,6 +78,8 @@ const getApys = [
   getSwirlLpApys,
   getTyphLpApys,
   getVenusApys,
+  getComBscApys,
+  getMdexBscLpApys,
 ];
 
 const getBSCApys = async () => {

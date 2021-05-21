@@ -17,12 +17,13 @@ const DECIMALS = '1e18';
 const getSpookyLpApys = async () => {
   let apys = {};
 
-  let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
-  const values = await Promise.all(promises);
-
-  for (item of values) {
-    apys = { ...apys, ...item };
+  for (const pool of pools) {
+    try {
+      const apy = await getPoolApy(masterchef, pool);
+      apys = { ...apys, ...apy };
+    } catch (e) {
+      console.error('getSpookyLpApys error', e);
+    }
   }
 
   return apys;

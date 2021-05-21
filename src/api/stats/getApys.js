@@ -1,12 +1,12 @@
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
-const getComAvaxApys = require('./complus/getComAvaxLpApys');
-const getComBscApys = require('./complus/getComBscLpApys');
-const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
+
 const { getAvaxApys } = require('./avax');
 const { getMaticApys } = require('./matic');
 const { getHecoApys } = require('./heco');
 const { getFantomApys } = require('./fantom');
 const { getBSCApys } = require('./bsc');
+const getMdexMdxApy = require('./mdex/getMdexMdxApy');
+const getGrandLpApys = require('./bsc/grand/getGrandLpApys');
 
 const INIT_DELAY = 30 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -22,19 +22,20 @@ const updateApys = async () => {
 
   try {
     const results = await Promise.allSettled([
-      /*getBifiMaxiApy(),
-      getMdexBscLpApys(),
-      getComAvaxApys(),
-      getComBscApys(),
+      getBifiMaxiApy(),
       getMaticApys(),
-      getAvaxApys(),*/
+      getAvaxApys(),
       getFantomApys(),
-      /*getHecoApys(),
-      getBSCApys(),*/
+      getHecoApys(),
+      getBSCApys(),
+      getHecoApys(),
+      getMdexMdxApy(),
+      getGrandLpApys(),
     ]);
 
-    for (result of results) {
+    for (const result of results) {
       if (result.status !== 'fulfilled') {
+        console.warn('getApys error', result.reason);
         continue;
       }
       apys = { ...apys, ...result.value };

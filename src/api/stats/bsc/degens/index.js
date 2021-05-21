@@ -1,11 +1,10 @@
-const getRamenLpApys = require('./ramen/getRamenLpApys');
+const getRamenLpApys = require('./getRamenLpApys');
 const getBlizzardApy = require('./getBlizzardApy');
 const getBlizzardLpApys = require('./getBlizzardLpApys');
 const getSaltLpApys = require('./getSaltLpApys');
 const getApeApys = require('./getApeLpApys');
 const getApeBananaApys = require('./getApeBananaApy');
 const getSoupApys = require('./getSoupLpApys');
-const getMemeFarmApys = require('./getMemeFarmLpApys');
 const getSquirrelApys = require('./getSquirrelLpApys');
 const getSpaceLpApys = require('./getSpaceLpApys');
 const getHpsApys = require('./getHpsApys');
@@ -14,8 +13,6 @@ const getThunderLpApys = require('./getThunderLpApys');
 const getSwampyLpApys = require('./getSwampyLpApys');
 const getSwampyCakeLpApys = require('./getSwampyCakeLpApys');
 const getYieldBayLpApys = require('./getYieldBayLpApys');
-const getBingoLpApys = require('./getBingoLpApys');
-const getBitiLpApys = require('./getBitiLpApys');
 const getSwampySwampApy = require('./getSwampySwampApy');
 const getSwampyCakeApy = require('./getSwampyCakeApy');
 const getMarshLpApys = require('./getMarshLpApys');
@@ -25,6 +22,8 @@ const getTofyLpApys = require('./getTofyLpApys');
 const getGarudaApys = require('./getGarudaApys');
 const getIronApys = require('./getIronApys');
 const getIronDndApys = require('./getIronDndApys');
+const getIronSingleDndApys = require('./getIronSingleDndApys');
+const getDumplingApys = require('./getDumplingApys');
 
 const getApys = [
   getRamenLpApys,
@@ -34,7 +33,6 @@ const getApys = [
   getApeApys,
   getApeBananaApys,
   getSoupApys,
-  getMemeFarmApys,
   getSquirrelApys,
   getSpaceLpApys,
   getHpsApys,
@@ -44,8 +42,6 @@ const getApys = [
   getSwampyCakeLpApys,
   getSwampyCakeApy,
   getYieldBayLpApys,
-  getBingoLpApys,
-  getBitiLpApys,
   getSwampySwampApy,
   getMarshLpApys,
   getSatisLpApys,
@@ -54,6 +50,8 @@ const getApys = [
   getGarudaApys,
   getIronApys,
   getIronDndApys,
+  getIronSingleDndApys,
+  getDumplingApys,
 ];
 
 const getDegensLpApys = async () => {
