@@ -46,7 +46,6 @@ const getBeltPrices = require('./belt/getBeltPrices');
 const getEllipsisPrices = require('./ellipsis/getEllipsisPrices');
 const getSnob3PoolPrice = require('./snowball/getSnob3PoolPrice');
 const getFroyoPrices = require('./fantom/getFroyoPrices');
-const getGondolaPrices = require('./avax/getGondolaPrices');
 const swampyPools = require('../../data/degens/swampyLpPools.json');
 const yieldBayPools = require('../../data/degens/yieldBayLpPools.json');
 const bingoPools = require('../../data/degens/bingoLpPools.json');
@@ -66,20 +65,10 @@ const quickPools = require('../../data/matic/quickLpPools.json');
 const krillPools = require('../../data/matic/krillLpPools.json');
 const sushiLpPools = require('../../data/matic/sushiLpPools.json');
 const satisPools = require('../../data/degens/satisLpPools.json');
-const satisXPools = require('../../data/degens/satisXLpPools.json');
 const zefiV2Pools = require('../../data/degens/zefiLpPoolsV2.json');
 const spookyPools = require('../../data/fantom/spookyLpPools.json');
 const froyoPools = require('../../data/fantom/froyoLpPools.json');
 const esterPools = require('../../data/fantom/esterLpPools.json');
-const comethMultiPools = require('../../data/matic/comethMultiLpPools.json');
-const goalPools = require('../../data/degens/goalLpPools.json');
-const tofyPools = require('../../data/degens/tofyLpPools.json');
-const gondolaPools = require('../../data/avax/gondolaLpPools.json');
-const dopplePools = require('../../data/doppleLpPools.json');
-const garudaPools = require('../../data/degens/garudaLpPools.json');
-const ironPools = require('../../data/degens/ironLpPools.json');
-const ironDndPools = require('../../data/degens/ironDndLpPools.json');
-const polyzapPools = require('../../data/matic/polyzapLpPools.json');
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -87,20 +76,10 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
-  ...polyzapPools,
-  ...ironDndPools,
-  ...ironPools,
-  ...garudaPools,
-  ...dopplePools,
-  ...gondolaPools,
-  ...tofyPools,
-  ...goalPools,
-  ...comethMultiPools,
   ...esterPools,
   ...froyoPools,
   ...spookyPools,
   ...zefiV2Pools,
-  ...satisXPools,
   ...satisPools,
   ...krillPools,
   ...sushiLpPools,
@@ -185,16 +164,8 @@ const updateAmmPrices = async () => {
     const ellipsisLPs = await getEllipsisPrices();
     const snob3PoolLP = await getSnob3PoolPrice();
     const froyoLPs = await getFroyoPrices();
-    const gondolaLPs = await getGondolaPrices(tokenPrices);
     tokenPricesCache = tokenPrices;
-    lpPricesCache = {
-      ...poolPrices,
-      ...beltLPs,
-      ...ellipsisLPs,
-      ...snob3PoolLP,
-      ...froyoLPs,
-      ...gondolaLPs,
-    };
+    lpPricesCache = { ...poolPrices, ...beltLPs, ...ellipsisLPs, ...snob3PoolLP, ...froyoLPs };
   } catch (err) {
     console.error(err);
   }
