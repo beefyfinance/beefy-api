@@ -13,7 +13,7 @@ const getChainTvl = async chain => {
   let chainVaults = await getVaults(chain.vaultsEndpoint);
 
   let promises = [];
-  chainVaults.forEach(async vault => promises.push(getVaultTvl(vault, chain.chainId)));
+  chainVaults.forEach(vault => promises.push(getVaultTvl(vault, chain.chainId)));
 
   const values = await Promise.allSettled(promises);
   let tvl = { [chain.chainId]: {} };
