@@ -12,8 +12,6 @@ const getBhcPoolApy = require('./bhc/getBhcPoolApy');
 const getBtdLpApys = require('./bolt/getBtdLpApys');
 const getBtsLpApys = require('./bolt/getBtsLpApys');
 const getBunnyRewardsApy = require('./bunny/getBunnyRewardsApy');
-const getCafeLpApys = require('./cafe/getCafeLpApys');
-const getCrowLpApys = require('./crow/getCrowLpApys');
 const { getDegensLpApys } = require('./degens');
 const getDoppleApys = require('./dopple/getDoppleApys');
 const getEllipsisLpApys = require('./ellipsis/getEllipsisLpApys');
@@ -54,8 +52,6 @@ const getApys = [
   getBtdLpApys,
   getBtsLpApys,
   getBunnyRewardsApy,
-  getCafeLpApys,
-  getCrowLpApys,
   getDegensLpApys,
   getDoppleApys,
   getEllipsisLpApys,
