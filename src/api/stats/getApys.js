@@ -86,6 +86,7 @@ const updateApys = async () => {
       getAlpacaLpApys(),
       getAlpacaApys(),
       getEllipsisLpApys(),
+      getEllipsisSingleAssetApy(),
       getSwirlLpApys(),
       getMdexBscLpApys(),
       getTyphLpApys(),
