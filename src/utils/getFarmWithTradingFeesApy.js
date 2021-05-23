@@ -20,7 +20,7 @@ and we are reinvesting rewards which in turn increases our share of the trading 
 
 (3) Total = D * (1 + APRTrading/365)^365 * (1 + APRVault/365)^365
 
-Manipulating equation (2) then using to replace in (3)
+Manipulating equation (2) to get (4) then using to replace in (3)
 
 (4) APY + 1 = (1 + APR/365)^365
 
@@ -30,7 +30,7 @@ Replacing with (4) in (1)
 
 (6) Total = D * (1 + FinalAPY)
 
-Finally, setting (5) and 6 equal to each other and solving for FinalAPY
+Finally, setting (5) and (6) equal to each other and solving for FinalAPY
 
 D * (1 + FinalAPY) = D * (1 + APYTrading) * (1 + APYVault)
 (1 + FinalAPY) = (1 + APYTrading) * (1 + APYVault)
