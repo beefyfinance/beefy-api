@@ -5,8 +5,6 @@ const getAlpacaApys = require('./alpaca/getAlpacaApys');
 const getAutoApys = require('./auto/getAutoApys');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
 const getBakeryLpApys = require('./bakery/getBakeryLpApys');
-const getBdoLpApys = require('./bdollar/getBdoLpApys');
-const getSbdoLpApys = require('./bdollar/getSbdoLpApys');
 const getBeltApys = require('./belt/getBeltApys');
 const getBhcPoolApy = require('./bhc/getBhcPoolApy');
 const getBtdLpApys = require('./bolt/getBtdLpApys');
@@ -27,11 +25,9 @@ const getNarLpApys = require('./narwhal/getNarLpApys');
 const getCakeApys = require('./pancake/getCakeApys');
 const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpApys } = require('./pancake/getCakeLpApys');
-const getPumpyLpApys = require('./pumpy/getPumpyLpApys');
 const getSpongeLpApys = require('./sponge/getSpongeLpApys');
 const getSpongePoolApy = require('./sponge/getSpongePoolApy');
 const getSwipeLpApys = require('./swipe/getSwipeLpApys');
-const getSwirlLpApys = require('./swirl/getSwirlLpApys');
 const getTyphLpApys = require('./typhoon/getTyphLpApys');
 const getVenusApys = require('./venus/getVenusApys');
 const getComBscApys = require('./complus/getComBscLpApys');
@@ -47,8 +43,6 @@ const getApys = [
   getAutoApys,
   getBakePoolApy,
   getBakeryLpApys,
-  getBdoLpApys,
-  getSbdoLpApys,
   getBeltApys,
   getBhcPoolApy,
   getBtdLpApys,
@@ -73,11 +67,9 @@ const getApys = [
   getMdexBscLpApys,
   getMdexMdxApy,
   getNarLpApys,
-  getPumpyLpApys,
   getSpongeLpApys,
   getSpongePoolApy,
   getSwipeLpApys,
-  getSwirlLpApys,
   getTyphLpApys,
   getVenusApys,
 ];
