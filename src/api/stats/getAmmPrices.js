@@ -47,6 +47,7 @@ const getEllipsisPrices = require('./bsc/ellipsis/getEllipsisPrices');
 const getSnob3PoolPrice = require('./avax/getSnob3PoolPrice');
 const getFroyoPrices = require('./fantom/getFroyoPrices');
 const getGondolaPrices = require('./avax/getGondolaPrices');
+const getCurvePrices = require('./matic/getCurvePrices');
 const swampyPools = require('../../data/degens/swampyLpPools.json');
 const yieldBayPools = require('../../data/degens/yieldBayLpPools.json');
 const bingoPools = require('../../data/degens/bingoLpPools.json');
@@ -192,6 +193,7 @@ const updateAmmPrices = async () => {
     const snob3PoolLP = await getSnob3PoolPrice();
     const froyoLPs = await getFroyoPrices();
     const gondolaLPs = await getGondolaPrices(tokenPrices);
+    const curveLPs = await getCurvePrices();
     tokenPricesCache = tokenPrices;
     lpPricesCache = {
       ...poolPrices,
@@ -200,6 +202,7 @@ const updateAmmPrices = async () => {
       ...snob3PoolLP,
       ...froyoLPs,
       ...gondolaLPs,
+      ...curveLPs,
     };
   } catch (err) {
     console.error(err);
