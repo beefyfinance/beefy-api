@@ -3,8 +3,16 @@ const getOliveLpApys = require('./getOliveLpApys');
 const getPangolinApys = require('./getPangolinLpApys');
 const getSnobLpApys = require('./getSnobLpApys');
 const getGondolaLpApys = require('./getGondolaLpApys');
+const getComAvaxApys = require('./getComAvaxLpApys');
 
-const getApys = [getLydLpApys, getPangolinApys, getSnobLpApys, getOliveLpApys, getGondolaLpApys];
+const getApys = [
+  getComAvaxApys,
+  getLydLpApys,
+  getPangolinApys,
+  getSnobLpApys,
+  getOliveLpApys,
+  getGondolaLpApys,
+];
 
 const getAvaxApys = async () => {
   let apys = {};
