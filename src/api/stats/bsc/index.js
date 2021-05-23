@@ -36,6 +36,8 @@ const getTyphLpApys = require('./typhoon/getTyphLpApys');
 const getVenusApys = require('./venus/getVenusApys');
 const getComBscApys = require('./complus/getComBscLpApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
+const getMdexMdxApy = require('./mdex/getMdexMdxApy');
+const getGrandLpApys = require('./grand/getGrandLpApys');
 
 const getApys = [
   get1inchLpApys,
@@ -52,21 +54,25 @@ const getApys = [
   getBtdLpApys,
   getBtsLpApys,
   getBunnyRewardsApy,
+  getCakeApys,
+  getCakePoolApy,
+  getCakeLpApys,
+  getComBscApys,
   getDegensLpApys,
   getDoppleApys,
   getEllipsisLpApys,
   getEllipsisSingleAssetApy,
   getFortressApys,
+  getGrandLpApys,
   getIcarusApys,
   getJetfuelLpApys,
   getJetswapApys,
   getJulLpApys,
   getKebabLpApys,
   getKebabPoolApy,
+  getMdexBscLpApys,
+  getMdexMdxApy,
   getNarLpApys,
-  getCakeApys,
-  getCakePoolApy,
-  getCakeLpApys,
   getPumpyLpApys,
   getSpongeLpApys,
   getSpongePoolApy,
@@ -74,9 +80,8 @@ const getApys = [
   getSwirlLpApys,
   getTyphLpApys,
   getVenusApys,
-  getComBscApys,
-  getMdexBscLpApys,
 ];
+// ^^ APYs are sorted alphabetically
 
 const getBSCApys = async () => {
   let apys = {};

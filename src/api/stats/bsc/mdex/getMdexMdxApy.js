@@ -1,10 +1,10 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../utils/web3');
+const { bscWeb3: web3 } = require('../../../../utils/web3');
 
-const BoardRoom = require('../../../abis/BoardRoom.json');
-const fetchPrice = require('../../../utils/fetchPrice');
-const { compound } = require('../../../utils/compound');
-const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const BoardRoom = require('../../../../abis/BoardRoom.json');
+const fetchPrice = require('../../../../utils/fetchPrice');
+const { compound } = require('../../../../utils/compound');
+const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 
 const boardroom = '0x6aEE12e5Eb987B3bE1BA8e621BE7C4804925bA68';
 const mdx = '0x9C65AB58d8d978DB963e63f2bfB7121627e3a739';
