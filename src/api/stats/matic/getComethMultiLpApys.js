@@ -4,10 +4,10 @@ const { polygonWeb3: web3 } = require('../../../utils/web3');
 const IRewardPool = require('../../../abis/matic/StakingMultiRewards.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/comethMultiLpPools.json');
-const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { comethClient } = require('../../../apollo/client');
 
 const oracle = 'tokens';
@@ -47,8 +47,8 @@ const getPoolApy = async (rewardPool, pool, sOracleId, chainId, tradingApr) => {
 
   const yearlyRewards = yearlyRewardsInUsd.plus(secondYearlyRewardsInUsd);
   const simpleApy = yearlyRewards.dividedBy(totalStakedInUsd);
-  const aprWithFees = simpleApy.plus(tradingApr);
-  const apy = compound(aprWithFees, BASE_HPY, 1, 0.955);
+  const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+
   //console.log(pool.name, simpleApy.valueOf(), apy);
   return { [pool.name]: apy };
 };

@@ -2,7 +2,6 @@ const BigNumber = require('bignumber.js');
 const { polygonWeb3: web3 } = require('../../../utils/web3');
 
 const fetchPrice = require('../../../utils/fetchPrice');
-const { compound } = require('../../../utils/compound');
 const {
   getTotalLpStakedInUsd,
   getTotalStakedInUsd,
@@ -10,6 +9,8 @@ const {
 const { POLYGON_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+const { BASE_HPY } = require('../../../constants');
 
 const getMasterChefApys = async masterchefParams => {
   let apys = {};
@@ -60,8 +61,7 @@ const getPoolApy = async (params, pool, tradingApr = 0) => {
     getTotalStaked,
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const aprWithFees = simpleApy.plus(tradingApr);
-  const apy = compound(aprWithFees, process.env.BASE_HPY, 1, 0.955);
+  const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
   if (params.log) {
     console.log(
       pool.name,

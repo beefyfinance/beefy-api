@@ -5,8 +5,9 @@ const SushiMiniChefV2 = require('../../../abis/matic/SushiMiniChefV2.json');
 const SushiComplexRewarderTime = require('../../../abis/matic/SushiComplexRewarderTime.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/sushiLpPools.json');
-const { compound } = require('../../../utils/compound');
+const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { POLYGON_CHAIN_ID } = require('../../../constants');
+const { BASE_HPY } = require('../../../constants');
 
 const { exchange_matic, minichefv2_matic, blockClient_matic } = require('../../../apollo/client');
 const {
@@ -59,8 +60,7 @@ const getPoolApy = async (minichef, pool, tradingApr) => {
 
   const totalRewardsInUSD = yearlyRewardsInUsd.plus(yearlyMaticRewardsInUsd);
   const simpleApy = totalRewardsInUSD.dividedBy(totalStakedInUsd);
-  const apyWithFees = simpleApy.plus(tradingApr);
-  const apy = compound(apyWithFees, process.env.BASE_HPY, 1, 0.955);
+  const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
   return { [pool.name]: apy };
 };
 
