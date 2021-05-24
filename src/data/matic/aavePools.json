@@ -64,5 +64,16 @@
     "decimals": "1e18",
     "borrowDepth": 0,
     "borrowPercent": 0.48
+  },
+  {
+    "name": "aave-usdt",
+    "token": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+    "aToken": "0x60D55F02A771d515e077c9C2403a1ef324885CeC",
+    "debtToken": "0x8038857FD47108A07d1f6Bf652ef1cBeC279A2f3",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "borrowDepth": 0,
+    "borrowPercent": 0.48
   }
 ]
