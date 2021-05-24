@@ -10,13 +10,6 @@ const getGarudaApys = async () =>
     tokenPerBlock: 'garudaPerBlock',
     hasMultiplier: true,
     pools: pools,
-    singlePools: [
-      {
-        name: 'garuda-garuda',
-        poolId: 6,
-        token: '0x854086dC841e1bfae50Cb615bF41f55BF432a90b',
-      },
-    ],
     oracleId: 'GARUDA',
     oracle: 'tokens',
     decimals: '1e18',
