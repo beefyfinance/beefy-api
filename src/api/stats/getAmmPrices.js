@@ -42,11 +42,13 @@ const hpsPools = require('../../data/degens/hpsLpPools.json');
 const zefiPools = require('../../data/degens/zefiLpPools.json');
 const thunderPools = require('../../data/degens/thunderLpPools.json');
 const swirlPools = require('../../data/swirlLpPools.json');
-const getBeltPrices = require('./belt/getBeltPrices');
-const getEllipsisPrices = require('./ellipsis/getEllipsisPrices');
-const getSnob3PoolPrice = require('./snowball/getSnob3PoolPrice');
+const getBeltPrices = require('./bsc/belt/getBeltPrices');
+const getEllipsisPrices = require('./bsc/ellipsis/getEllipsisPrices');
+const getSnob3PoolPrice = require('./avax/getSnob3PoolPrice');
 const getFroyoPrices = require('./fantom/getFroyoPrices');
 const getGondolaPrices = require('./avax/getGondolaPrices');
+const getCurvePrices = require('./matic/getCurvePrices');
+const getDopplePrices = require('./bsc/dopple/getDopplePrices');
 const swampyPools = require('../../data/degens/swampyLpPools.json');
 const yieldBayPools = require('../../data/degens/yieldBayLpPools.json');
 const bingoPools = require('../../data/degens/bingoLpPools.json');
@@ -66,6 +68,7 @@ const quickPools = require('../../data/matic/quickLpPools.json');
 const krillPools = require('../../data/matic/krillLpPools.json');
 const sushiLpPools = require('../../data/matic/sushiLpPools.json');
 const satisPools = require('../../data/degens/satisLpPools.json');
+const satisXPools = require('../../data/degens/satisXLpPools.json');
 const zefiV2Pools = require('../../data/degens/zefiLpPoolsV2.json');
 const spookyPools = require('../../data/fantom/spookyLpPools.json');
 const froyoPools = require('../../data/fantom/froyoLpPools.json');
@@ -79,6 +82,9 @@ const garudaPools = require('../../data/degens/garudaLpPools.json');
 const ironPools = require('../../data/degens/ironLpPools.json');
 const ironDndPools = require('../../data/degens/ironDndLpPools.json');
 const polyzapPools = require('../../data/matic/polyzapLpPools.json');
+const jetswapPools = require('../../data/jetswapLpPools.json');
+const dumplingPools = require('../../data/degens/dumplingLpPools.json');
+const grandPools = require('../../data/grandLpPools.json');
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -86,6 +92,9 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...grandPools,
+  ...dumplingPools,
+  ...jetswapPools,
   ...polyzapPools,
   ...ironDndPools,
   ...ironPools,
@@ -99,6 +108,7 @@ const pools = [
   ...froyoPools,
   ...spookyPools,
   ...zefiV2Pools,
+  ...satisXPools,
   ...satisPools,
   ...krillPools,
   ...sushiLpPools,
@@ -184,6 +194,8 @@ const updateAmmPrices = async () => {
     const snob3PoolLP = await getSnob3PoolPrice();
     const froyoLPs = await getFroyoPrices();
     const gondolaLPs = await getGondolaPrices(tokenPrices);
+    const curveLPs = await getCurvePrices();
+    const doppleLPs = await getDopplePrices();
     tokenPricesCache = tokenPrices;
     lpPricesCache = {
       ...poolPrices,
@@ -192,6 +204,8 @@ const updateAmmPrices = async () => {
       ...snob3PoolLP,
       ...froyoLPs,
       ...gondolaLPs,
+      ...curveLPs,
+      ...doppleLPs,
     };
   } catch (err) {
     console.error(err);

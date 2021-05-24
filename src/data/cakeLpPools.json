@@ -1,5 +1,185 @@
 [
   {
+    "name": "cakev2-wmass-busd",
+    "address": "0xeC95ff6281c3aD8E27372fA6675EB337640b8E5E",
+    "decimals": "1e18",
+    "poolId": 384,
+    "lp0": {
+      "address": "0x7e396bfc8a2f84748701167c2d622f041a1d7a17",
+      "oracle": "tokens",
+      "oracleId": "WMASS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-ubxt-busd",
+    "address": "0x8D3FF27D2aD6a9556B7C4F82F4d602D20114bC90",
+    "decimals": "1e18",
+    "poolId": 383,
+    "lp0": {
+      "address": "0xbbeb90cfb6fafa1f69aa130b7341089abeef5811",
+      "oracle": "tokens",
+      "oracleId": "UBXT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-btr-busd",
+    "address": "0xBC7AC609Fa730239190A70952e64eE1DFC2530AC",
+    "decimals": "1e18",
+    "poolId": 381,
+    "lp0": {
+      "address": "0x5a16e8ce8ca316407c6e6307095dc9540a8d62b3",
+      "oracle": "tokens",
+      "oracleId": "BTR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-tdoge-bnb",
+    "address": "0x2030845Ce7d4224523fd2F03Ca20Afe4aAD1D890",
+    "decimals": "1e18",
+    "poolId": 380,
+    "lp0": {
+      "address": "0xe550a593d09fbc8dcd557b5c88cea6946a8b404a",
+      "oracle": "tokens",
+      "oracleId": "tDOGE",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-pmon-busd",
+    "address": "0xcdb0016d97FD0E7EC2C3B78aA4786Cbd8e19C14C",
+    "decimals": "1e18",
+    "poolId": 379,
+    "lp0": {
+      "address": "0x1796ae0b0fa4862485106a0de9b654efe301d0b2",
+      "oracle": "tokens",
+      "oracleId": "PMON",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-one-busd",
+    "address": "0x4d057F769D930eaFD597B49d6Fb2e1009A73a702",
+    "decimals": "1e18",
+    "poolId": 378,
+    "lp0": {
+      "address": "0x04baf95fd4c52fd09a56d840baee0ab8d7357bf0",
+      "oracle": "tokens",
+      "oracleId": "ONE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-fine-bnb",
+    "address": "0xC309a6d2F1537922E06f15aA2eb21CaA1b2eEDb6",
+    "decimals": "1e18",
+    "poolId": 377,
+    "lp0": {
+      "address": "0x4e6415a5727ea08aae4580057187923aec331227",
+      "oracle": "tokens",
+      "oracleId": "FINE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-doge-bnb",
+    "address": "0xac109C8025F272414fd9e2faA805a583708A017f",
+    "decimals": "1e18",
+    "poolId": 376,
+    "lp0": {
+      "address": "0xba2ae424d960c26247dd6c32edc70b295c744c43",
+      "oracle": "tokens",
+      "oracleId": "DOGE",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-oin-busd",
+    "address": "0x6a00E41561ac36A78dbA1D09091b0F00C4E53724",
+    "decimals": "1e18",
+    "poolId": 375,
+    "lp0": {
+      "address": "0x658e64ffcf40d240a43d52ca9342140316ae44fa",
+      "oracle": "tokens",
+      "oracleId": "OIN",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-hyfi-bnb",
+    "address": "0x0716725d78081A9E0E1Ff81516f5415b399e274D",
+    "decimals": "1e18",
+    "poolId": 374,
+    "lp0": {
+      "address": "0x9a319b959e33369C5eaA494a770117eE3e585318",
+      "oracle": "tokens",
+      "oracleId": "HYFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-kun-busd",
     "address": "0xeA61020E5a128D2BEC67d48F7CFbe3408dB7E391",
     "decimals": "1e18",
@@ -152,6 +332,42 @@
       "address": "0x9617857e191354dbea0b714d78bc59e57c411087",
       "oracle": "tokens",
       "oracleId": "LMT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-hotcross-bnb",
+    "address": "0xF23BAD605E94dE0e3B60c9718a43A94A5aF43915",
+    "decimals": "1e18",
+    "poolId": 386,
+    "lp0": {
+      "address": "0x4fa7163e153419e0e1064e418dd7a99314ed27b6",
+      "oracle": "tokens",
+      "oracleId": "HOTCROSS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-rfox-bnb",
+    "address": "0x8E04b3972b5C25766c681dFD30a8A1cBf6dcc8c1",
+    "decimals": "1e18",
+    "poolId": 385,
+    "lp0": {
+      "address": "0x0a3A21356793B49154Fd3BbE91CBc2A16c0457f5",
+      "oracle": "tokens",
+      "oracleId": "RFOX",
       "decimals": "1e18"
     },
     "lp1": {

@@ -1,0 +1,38 @@
+[
+  {
+    "name": "dumpling-sdump-busd",
+    "address": "0x8B19Bb58DbdA8B5303aBc96Bb418E9bF4100F34b",
+    "decimals": "1e18",
+    "poolId": 0,
+    "lp0": {
+      "address": "0x13f6751ba11337bc67abbdad638a56194ee133b8",
+      "oracle": "tokens",
+      "oracleId": "SDUMP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dumpling-sdump-bnb",
+    "address": "0x8B3C67ca3dA1B389A1252AF79F284d2FaAD07358",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0x13f6751ba11337bc67abbdad638a56194ee133b8",
+      "oracle": "tokens",
+      "oracleId": "SDUMP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -1,5 +1,41 @@
 [
   {
+    "name": "dopple-dolly-dop",
+    "address": "0xDC62BE962c1754DEdA214848614A87B88e7fF646",
+    "decimals": "1e18",
+    "poolId": 13,
+    "lp0": {
+      "address": "0x844fa82f1e54824655470970f7004dd90546bb28",
+      "oracle": "tokens",
+      "oracleId": "DOP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xff54da7caf3bc3d34664891fc8f3c9b6dea6c7a5",
+      "oracle": "tokens",
+      "oracleId": "DOLLY",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dopple-dop-busd",
+    "address": "0xb694ec7C2a7C433E69200b1dA3EBc86907B4578B",
+    "decimals": "1e18",
+    "poolId": 9,
+    "lp0": {
+      "address": "0x844fa82f1e54824655470970f7004dd90546bb28",
+      "oracle": "tokens",
+      "oracleId": "DOP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "dopple-dop-bnb",
     "address": "0x070659c37D40029280DfEc931b20E315f2cdFfbC",
     "decimals": "1e18",

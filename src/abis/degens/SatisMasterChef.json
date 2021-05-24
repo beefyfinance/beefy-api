@@ -2,13 +2,18 @@
   {
     "inputs": [
       {
-        "internalType": "contract SatisfiToken",
-        "name": "_satisfi",
+        "internalType": "address",
+        "name": "_devaddr",
         "type": "address"
       },
       {
         "internalType": "uint256",
         "name": "_startBlock",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_noFeeBlock",
         "type": "uint256"
       }
     ],
@@ -71,23 +76,17 @@
       {
         "indexed": true,
         "internalType": "address",
-        "name": "caller",
+        "name": "user",
         "type": "address"
       },
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "previousAmount",
-        "type": "uint256"
-      },
-      {
-        "indexed": false,
-        "internalType": "uint256",
-        "name": "newAmount",
+        "name": "amount",
         "type": "uint256"
       }
     ],
-    "name": "EmissionRateUpdated",
+    "name": "MigrateToV2",
     "type": "event"
   },
   {
@@ -145,6 +144,44 @@
       },
       {
         "indexed": true,
+        "internalType": "address",
+        "name": "newAddress",
+        "type": "address"
+      }
+    ],
+    "name": "SetDevAddress",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "newAddress",
+        "type": "address"
+      }
+    ],
+    "name": "SetFeeAddress",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "user",
+        "type": "address"
+      },
+      {
+        "indexed": true,
         "internalType": "uint256",
         "name": "pid",
         "type": "uint256"
@@ -161,58 +198,6 @@
   },
   {
     "inputs": [],
-    "name": "BONUS_MULTIPLIER",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "EMISSION_REDUCTION_PERIOD_BLOCKS",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "EMISSION_REDUCTION_RATE_PER_PERIOD",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "INITIAL_EMISSION_RATE",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "MAXIMUM_REFERRAL_COMMISSION_RATE",
     "outputs": [
       {
@@ -226,7 +211,20 @@
   },
   {
     "inputs": [],
-    "name": "MINIMUM_EMISSION_RATE",
+    "name": "SatisfiDevPerBlock",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "SatisfiPerBlock",
     "outputs": [
       {
         "internalType": "uint256",
@@ -246,23 +244,41 @@
       },
       {
         "internalType": "contract IBEP20",
-        "name": "_lpToken",
+        "name": "_want",
+        "type": "address"
+      },
+      {
+        "internalType": "bool",
+        "name": "_withUpdate",
+        "type": "bool"
+      },
+      {
+        "internalType": "address",
+        "name": "_strat",
         "type": "address"
       },
       {
         "internalType": "uint16",
         "name": "_depositFeeBP",
         "type": "uint16"
-      },
-      {
-        "internalType": "bool",
-        "name": "_withUpdate",
-        "type": "bool"
       }
     ],
     "name": "add",
     "outputs": [],
     "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "burnAddress",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -274,7 +290,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_amount",
+        "name": "_wantAmt",
         "type": "uint256"
       },
       {
@@ -290,7 +306,7 @@
   },
   {
     "inputs": [],
-    "name": "devAddress",
+    "name": "devaddr",
     "outputs": [
       {
         "internalType": "address",
@@ -316,7 +332,7 @@
   },
   {
     "inputs": [],
-    "name": "feeAddress",
+    "name": "feeAddr",
     "outputs": [
       {
         "internalType": "address",
@@ -348,12 +364,63 @@
         "type": "uint256"
       }
     ],
-    "stateMutability": "pure",
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_token",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "_amount",
+        "type": "uint256"
+      }
+    ],
+    "name": "inCaseTokensGetStuck",
+    "outputs": [],
+    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
     "inputs": [],
-    "name": "lastReductionPeriodIndex",
+    "name": "massUpdatePools",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_SatisfiAmt",
+        "type": "uint256"
+      }
+    ],
+    "name": "migrateSatisfiToken",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "newSatisfiToken",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "noFeeBlock",
     "outputs": [
       {
         "internalType": "uint256",
@@ -366,9 +433,15 @@
   },
   {
     "inputs": [],
-    "name": "massUpdatePools",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "name": "oldSatisfiToken",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -420,7 +493,7 @@
     "outputs": [
       {
         "internalType": "contract IBEP20",
-        "name": "lpToken",
+        "name": "want",
         "type": "address"
       },
       {
@@ -437,6 +510,11 @@
         "internalType": "uint256",
         "name": "accSatisfiPerShare",
         "type": "uint256"
+      },
+      {
+        "internalType": "address",
+        "name": "strat",
+        "type": "address"
       },
       {
         "internalType": "uint16",
@@ -482,32 +560,6 @@
   },
   {
     "inputs": [],
-    "name": "satisfi",
-    "outputs": [
-      {
-        "internalType": "contract SatisfiToken",
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "satisfiPerBlock",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "satisfiReferral",
     "outputs": [
       {
@@ -532,14 +584,14 @@
         "type": "uint256"
       },
       {
-        "internalType": "uint16",
-        "name": "_depositFeeBP",
-        "type": "uint16"
-      },
-      {
         "internalType": "bool",
         "name": "_withUpdate",
         "type": "bool"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_depositFeeBP",
+        "type": "uint16"
       }
     ],
     "name": "set",
@@ -551,7 +603,7 @@
     "inputs": [
       {
         "internalType": "address",
-        "name": "_devAddress",
+        "name": "_devaddr",
         "type": "address"
       }
     ],
@@ -639,8 +691,14 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "updateEmissionRate",
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
+    ],
+    "name": "transferSatisfiTokenOwnership",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
@@ -688,6 +746,19 @@
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "wbnb",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -696,7 +767,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "_amount",
+        "name": "_wantAmt",
         "type": "uint256"
       }
     ],

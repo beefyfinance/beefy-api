@@ -39,7 +39,6 @@ const oracleIdMatic = 'WMATIC';
 
 const getSushiLpApys = async () => {
   let apys = {};
-
   const tradingAprs = await getTradingFeeAprSushi();
 
   for (const pool of pools) {
@@ -61,6 +60,7 @@ const getPoolApy = async (minichef, pool, tradingApr) => {
   const totalRewardsInUSD = yearlyRewardsInUsd.plus(yearlyMaticRewardsInUsd);
   const simpleApy = totalRewardsInUSD.dividedBy(totalStakedInUsd);
   const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+
   return { [pool.name]: apy };
 };
 
