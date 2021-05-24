@@ -35,7 +35,7 @@ const getVaultTvl = async (vault, chainId) => {
   if (tvl.isNaN()) {
     return { [vault.id]: 0 };
   }
-  return { [vault.id]: tvl };
+  return { [vault.id]: Number(tvl.toFixed(2)) };
 };
 
 module.exports = getChainTvl;
