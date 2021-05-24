@@ -2,6 +2,7 @@ const getMasterChefApys = require('./getMaticMasterChefApys');
 
 const MasterChefAbi = require('../../../abis/matic/PolyzapMasterChef.json');
 const pools = require('../../../data/matic/polyzapLpPools.json');
+const { polyzapClient } = require('../../../apollo/client');
 
 const getPolyzapApys = async () =>
   await getMasterChefApys({
@@ -14,6 +15,8 @@ const getPolyzapApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     // log: true,
+    tradingFeeInfoClient: polyzapClient,
+    liquidityProviderFee: 0.0017,
   });
 
 module.exports = getPolyzapApys;

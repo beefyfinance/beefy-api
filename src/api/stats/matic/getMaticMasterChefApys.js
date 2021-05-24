@@ -2,19 +2,33 @@ const BigNumber = require('bignumber.js');
 const { polygonWeb3: web3 } = require('../../../utils/web3');
 
 const fetchPrice = require('../../../utils/fetchPrice');
-const { compound } = require('../../../utils/compound');
 const {
   getTotalLpStakedInUsd,
   getTotalStakedInUsd,
 } = require('../../../utils/getTotalStakedInUsd');
 const { POLYGON_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+const { BASE_HPY } = require('../../../constants');
 
 const getMasterChefApys = async masterchefParams => {
   let apys = {};
 
   let promises = [];
-  masterchefParams.pools.forEach(pool => promises.push(getPoolApy(masterchefParams, pool)));
+
+  const pairAddresses = masterchefParams.pools.map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(
+    masterchefParams.tradingFeeInfoClient,
+    pairAddresses,
+    masterchefParams.liquidityProviderFee
+  );
+
+  masterchefParams.pools.forEach(pool => {
+    const tradingAprLookup = tradingAprs[pool.address.toLowerCase()];
+    const tradingApr = tradingAprLookup ? tradingAprLookup : BigNumber(0);
+    promises.push(getPoolApy(masterchefParams, pool, tradingApr));
+  });
   if (masterchefParams.singlePools) {
     masterchefParams.singlePools.forEach(pool => promises.push(getPoolApy(masterchefParams, pool)));
   }
@@ -27,7 +41,7 @@ const getMasterChefApys = async masterchefParams => {
   return apys;
 };
 
-const getPoolApy = async (params, pool) => {
+const getPoolApy = async (params, pool, tradingApr = 0) => {
   let getTotalStaked;
   if (pool.token) {
     getTotalStaked = getTotalStakedInUsd(
@@ -47,7 +61,7 @@ const getPoolApy = async (params, pool) => {
     getTotalStaked,
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
   if (params.log) {
     console.log(
       pool.name,

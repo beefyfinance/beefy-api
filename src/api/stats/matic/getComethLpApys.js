@@ -4,9 +4,11 @@ const { polygonWeb3: web3 } = require('../../../utils/web3');
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/comethLpPools.json');
-const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../constants');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+const { comethClient } = require('../../../apollo/client');
 
 const oracle = 'tokens';
 const oracleId = 'MUST';
@@ -14,25 +16,36 @@ const oracleId = 'MUST';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
+const comethLiquidityProviderFee = 0.005;
+
 const getComethLpApys = async () => {
   let apys = {};
 
+  const pairAddresses = pools.map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(
+    comethClient,
+    pairAddresses,
+    comethLiquidityProviderFee
+  );
+
   for (const pool of pools) {
-    const apy = await getPoolApy(pool.rewardPool, pool, 137);
+    const tradingAprLookup = tradingAprs[pool.address.toLowerCase()];
+    const tradingApr = tradingAprLookup ? tradingAprLookup : BigNumber(0);
+    const apy = await getPoolApy(pool.rewardPool, pool, 137, tradingApr);
     apys = { ...apys, ...apy };
   }
 
   return apys;
 };
 
-const getPoolApy = async (rewardPool, pool, chainId) => {
+const getPoolApy = async (rewardPool, pool, chainId, tradingApr) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(rewardPool),
     getTotalLpStakedInUsd(rewardPool, pool, chainId),
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
+  const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
   // console.log(pool.name, simpleApy.valueOf(), apy);
   return { [pool.name]: apy };
 };
