@@ -100,6 +100,26 @@
     }
   },
   {
+    "name": "quick-cc10-eth",
+    "address": "0xbf646010b1ae86ad7fbb4cff5fd93c7019331cc9",
+    "rewardPool": "0x7cc64850E4c65e753247A1Ed2c8DF63DCF7d002d",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x9c49BA0212Bb5Db371e66b59D1565b7c06E4894e",
+      "oracle": "tokens",
+      "oracleId": "CC10",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-wise-eth",
     "address": "0xDF8139e9BebecAdEcF48BeC8c8064CcEfB618e2b",
     "rewardPool": "0xb11856d3Aea0203e50B8520479C6332daBcF3f82",
