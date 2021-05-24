@@ -26,8 +26,12 @@ const getMaticApys = async () => {
   let apys = {};
 
   for (const getApy of getApys) {
-    const apy = await getApy();
-    apys = { ...apys, ...apy };
+    try {
+      const apy = await getApy();
+      apys = { ...apys, ...apy };
+    } catch (e) {
+      console.error('getMaticApys error', getApy.name, e);
+    }
   }
 
   return apys;

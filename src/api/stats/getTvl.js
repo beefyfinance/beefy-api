@@ -8,7 +8,7 @@ const {
   FANTOM_CHAIN_ID,
 } = require('../../constants');
 
-const INIT_DELAY = 30 * 1000;
+const INIT_DELAY = 90 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let tvl = {};
