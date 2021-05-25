@@ -399,5 +399,25 @@
       "oracleId": "ETH",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "quick-matic-usdc",
+    "address": "0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827",
+    "rewardPool": "0x6C6920aD61867B86580Ff4AfB517bEc7a499A7Bb",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    }
   }
 ]
