@@ -1,6 +1,7 @@
 const { fetchAmmPrices } = require('../../utils/fetchAmmPrices');
 const { sleep } = require('../../utils/time');
 
+const getNonAmmPrices = require('./getNonAmmPrices');
 const bakeryPools = require('../../data/bakeryLpPools.json');
 const blizzardLpPools = require('../../data/degens/blizzardLpPools.json');
 const alpacaLpPools = require('../../data/alpacaLpPools.json');
@@ -42,13 +43,6 @@ const hpsPools = require('../../data/degens/hpsLpPools.json');
 const zefiPools = require('../../data/degens/zefiLpPools.json');
 const thunderPools = require('../../data/degens/thunderLpPools.json');
 const swirlPools = require('../../data/swirlLpPools.json');
-const getBeltPrices = require('./bsc/belt/getBeltPrices');
-const getEllipsisPrices = require('./bsc/ellipsis/getEllipsisPrices');
-const getSnob3PoolPrice = require('./avax/getSnob3PoolPrice');
-const getFroyoPrices = require('./fantom/getFroyoPrices');
-const getGondolaPrices = require('./avax/getGondolaPrices');
-const getCurvePrices = require('./matic/getCurvePrices');
-const getDopplePrices = require('./bsc/dopple/getDopplePrices');
 const swampyPools = require('../../data/degens/swampyLpPools.json');
 const yieldBayPools = require('../../data/degens/yieldBayLpPools.json');
 const bingoPools = require('../../data/degens/bingoLpPools.json');
@@ -189,24 +183,9 @@ const updateAmmPrices = async () => {
   isProcessing = true;
   try {
     let { poolPrices, tokenPrices } = await fetchAmmPrices(pools, knownPrices);
-    const beltLPs = await getBeltPrices(tokenPrices);
-    const ellipsisLPs = await getEllipsisPrices();
-    const snob3PoolLP = await getSnob3PoolPrice();
-    const froyoLPs = await getFroyoPrices();
-    const gondolaLPs = await getGondolaPrices(tokenPrices);
-    const curveLPs = await getCurvePrices();
-    const doppleLPs = await getDopplePrices();
+    const nonAmmPrices = await getNonAmmPrices(tokenPrices);
     tokenPricesCache = tokenPrices;
-    lpPricesCache = {
-      ...poolPrices,
-      ...beltLPs,
-      ...ellipsisLPs,
-      ...snob3PoolLP,
-      ...froyoLPs,
-      ...gondolaLPs,
-      ...curveLPs,
-      ...doppleLPs,
-    };
+    lpPricesCache = { ...poolPrices, ...nonAmmPrices };
   } catch (err) {
     console.error(err);
   }
