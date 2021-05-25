@@ -18,7 +18,7 @@ const BLOCKS_PER_DAY = 28800;
 
 const comethLiquidityProviderFee = 0.005;
 
-const getComethLpApys = async () => {
+const getComethMultiLpApys = async () => {
   let apys = {};
 
   const pairAddresses = pools.map(pool => pool.address);
@@ -75,4 +75,4 @@ const getSecondYearlyRewardsInUsd = async (RewardPool, sOracleId) => {
   return secondYearlyRewardsInUsd;
 };
 
-module.exports = getComethLpApys;
+module.exports = getComethMultiLpApys;

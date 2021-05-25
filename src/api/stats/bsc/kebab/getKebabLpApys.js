@@ -5,7 +5,7 @@ const MasterChef = require('../../../../abis/MasterChef.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/kebabLpPools.json');
 const { compound } = require('../../../../utils/compound');
-const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
+const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 
@@ -27,7 +27,7 @@ const getKebabLpApys = async () => {
 const getPoolApy = async (masterchef, pool) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(masterchef, pool),
-    getTotalLpStakedInUsd(masterchef, pool),
+    getTotalStakedInUsd(masterchef, pool.address, 'lps', pool.name),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);

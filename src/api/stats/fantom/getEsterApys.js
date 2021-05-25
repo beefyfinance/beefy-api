@@ -4,10 +4,7 @@ const { fantomWeb3: web3 } = require('../../../utils/web3');
 const MasterChef = require('../../../abis/fantom/EsterChef.json');
 const pools = require('../../../data/fantom/esterPools.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const {
-  getTotalLpStakedInUsd,
-  getTotalStakedInUsd,
-} = require('../../../utils/getTotalStakedInUsd');
+const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../utils/compound');
 
 const masterchef = '0x78e9D247541ff7c365b50D2eE0defdd622016498';
@@ -33,23 +30,16 @@ const getEsterApys = async () => {
 };
 
 const getPoolApy = async (masterchef, pool) => {
-  let getTotalStaked;
-  if (pool.token) {
-    getTotalStaked = getTotalStakedInUsd(
-      masterchef,
-      pool.token,
-      pool.oracle,
-      pool.oracleId,
-      pool.decimals,
-      CHAIN_ID
-    );
-  } else {
-    getTotalStaked = getTotalLpStakedInUsd(masterchef, pool, CHAIN_ID);
-  }
-
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(masterchef, pool),
-    getTotalStaked,
+    getTotalStakedInUsd(
+      masterchef,
+      pool.token ?? pool.address,
+      pool.oracle ?? 'lps',
+      pool.oracleId ?? pool.name,
+      pool.decimals ?? '1e18',
+      CHAIN_ID
+    ),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);

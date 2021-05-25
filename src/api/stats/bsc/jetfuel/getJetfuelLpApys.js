@@ -5,7 +5,7 @@ const MasterFuel = require('../../../../abis/MasterFuel.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/jetfuelLpPools.json');
 const { compound } = require('../../../../utils/compound');
-const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
+const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 
@@ -27,7 +27,7 @@ const getJetfuelLpApys = async () => {
 const getPoolApy = async (masterFuel, pool) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(masterFuel, pool.poolId),
-    getTotalLpStakedInUsd(masterFuel, pool),
+    getTotalStakedInUsd(masterFuel, pool.address, 'lps', pool.name),
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);

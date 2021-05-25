@@ -3,10 +3,7 @@ const { bscWeb3: web3 } = require('../../../../utils/web3');
 
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
-const {
-  getTotalLpStakedInUsd,
-  getTotalStakedInUsd,
-} = require('../../../../utils/getTotalStakedInUsd');
+const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 
@@ -37,7 +34,7 @@ const getPoolApy = async (params, pool) => {
       params.oracleId
     );
   } else {
-    getTotalStaked = getTotalLpStakedInUsd(params.masterchef, pool);
+    getTotalStaked = getTotalStakedInUsd(params.masterchef, pool.address, 'lps', pool.name);
   }
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([

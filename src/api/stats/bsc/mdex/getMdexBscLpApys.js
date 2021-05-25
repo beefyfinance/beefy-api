@@ -8,7 +8,6 @@ const pools = require('../../../../data/mdexBscLpPools.json');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../../utils/compound');
-const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../../constants');
 
 const ORACLE = 'tokens';
@@ -42,7 +41,7 @@ const getPoolApy = async (mdxPool, pool) => {
       pool.decimals ?? '1e18'
     );
   } else {
-    getTotalStaked = getTotalLpStakedInUsd(mdxPool, pool, pool.chainId);
+    getTotalStaked = getTotalStakedInUsd(mdxPool, pool.address, 'lps', pool.name);
   }
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(mdxPool, pool),
