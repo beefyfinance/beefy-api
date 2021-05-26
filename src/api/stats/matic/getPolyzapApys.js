@@ -16,7 +16,7 @@ const getPolyzapApys = async () =>
     decimals: '1e18',
     // log: true,
     tradingFeeInfoClient: polyzapClient,
-    liquidityProviderFee: 0.0017,
+    liquidityProviderFee: 0.002,
   });
 
 module.exports = getPolyzapApys;
