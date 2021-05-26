@@ -1,41 +1,45 @@
 const BigNumber = require('bignumber.js');
-const { web3Factory } = require('../../utils/web3');
+const { MultiCall } = require('eth-multicall');
+const { web3Factory, multicallAddress } = require('../../utils/web3');
 const getVaults = require('../../utils/getVaults.js');
 const fetchPrice = require('../../utils/fetchPrice');
 
 const BeefyVaultV6ABI = require('../../abis/BeefyVaultV6.json');
 
-const DECIMALS = '1e18';
-
 const getChainTvl = async chain => {
-  let chainVaults = await getVaults(chain.vaultsEndpoint);
+  const chainId = chain.chainId;
+  const vaults = await getVaults(chain.vaultsEndpoint);
+  const vaultBalances = await getVaultBalances(chainId, vaults);
 
-  let promises = [];
-  chainVaults.forEach(vault => promises.push(getVaultTvl(vault, chain.chainId)));
+  let tvls = { [chainId]: {} };
+  for (let i = 0; i < vaults.length; i++) {
+    const vault = vaults[i];
+    const vaultBal = vaultBalances[i];
+    const tokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
+    const tvl = vaultBal.times(tokenPrice).dividedBy(10 ** (vault.tokenDecimals ?? 18));
 
-  const values = await Promise.allSettled(promises);
-  let tvl = { [chain.chainId]: {} };
-
-  for (const item of values) {
-    if (item.status !== 'fulfilled') {
-      continue;
+    let item = { [vault.id]: 0 };
+    if (!tvl.isNaN()) {
+      item = { [vault.id]: Number(tvl.toFixed(2)) };
     }
-    tvl[chain.chainId] = { ...tvl[chain.chainId], ...item.value };
-  }
 
-  return tvl;
+    tvls[chainId] = { ...tvls[chainId], ...item };
+  }
+  return tvls;
 };
 
-const getVaultTvl = async (vault, chainId) => {
+const getVaultBalances = async (chainId, vaults) => {
   const web3 = web3Factory(chainId);
-  const vaultContract = new web3.eth.Contract(BeefyVaultV6ABI, vault.earnedTokenAddress);
-  const vaultBal = new BigNumber(await vaultContract.methods.balance().call());
-  const tokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
-  const tvl = vaultBal.times(tokenPrice).dividedBy(DECIMALS);
-  if (tvl.isNaN()) {
-    return { [vault.id]: 0 };
-  }
-  return { [vault.id]: Number(tvl.toFixed(2)) };
+  const multicall = new MultiCall(web3, multicallAddress(chainId));
+  const balanceCalls = [];
+  vaults.forEach(vault => {
+    const vaultContract = new web3.eth.Contract(BeefyVaultV6ABI, vault.earnedTokenAddress);
+    balanceCalls.push({
+      balance: vaultContract.methods.balance(),
+    });
+  });
+  const res = await multicall.all([balanceCalls]);
+  return res[0].map(v => new BigNumber(v.balance));
 };
 
 module.exports = getChainTvl;

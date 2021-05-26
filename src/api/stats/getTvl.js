@@ -8,7 +8,7 @@ const {
   FANTOM_CHAIN_ID,
 } = require('../../constants');
 
-const INIT_DELAY = 90 * 1000;
+const INIT_DELAY = 20 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let tvl = {};
@@ -55,8 +55,9 @@ const updateTvl = async () => {
 
     const results = await Promise.allSettled(promises);
 
-    for (result of results) {
+    for (const result of results) {
       if (result.status !== 'fulfilled') {
+        console.warn('getChainTvl error', result.reason);
         continue;
       }
       tvl = { ...tvl, ...result.value };
