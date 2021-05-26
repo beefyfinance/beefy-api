@@ -1,4 +1,3 @@
-const getKrillLpApys = require('./getKrillLpApys');
 const getComethLpApys = require('./getComethLpApys');
 const getQuickLpApys = require('./getQuickLpApys');
 const getAaveApys = require('./getAaveApys');
@@ -10,7 +9,6 @@ const getAddyApy = require('./getAddyApy');
 const getCurveApys = require('./getCurveApys');
 
 const getApys = [
-  getKrillLpApys,
   getComethLpApys,
   getQuickLpApys,
   getAaveApys,
