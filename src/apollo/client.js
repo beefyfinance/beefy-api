@@ -36,21 +36,9 @@ const polyzapClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const createGQLClient = linkUri => {
-  const client = new ApolloClient({
-    link: createHttpLink({
-      uri: linkUri,
-      fetch,
-    }),
-    cache: new InMemoryCache(),
-  });
-  return client;
-};
-
 module.exports = {
   sushiClient,
   comethClient,
   quickClient,
   polyzapClient,
-  createGQLClient,
 };

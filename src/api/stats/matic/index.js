@@ -8,7 +8,6 @@ const getPolygonBifiMaxiApy = require('./getPolygonBifiMaxiApy');
 const getAddyApy = require('./getAddyApy');
 const getCurveApys = require('./getCurveApys');
 const getIronApys = require('./getIronApys');
-const getDfynDualFarmLpApys = require('./getDfynDualFarmLpApys');
 
 const getApys = [
   getComethLpApys,
@@ -21,7 +20,6 @@ const getApys = [
   getAddyApy,
   getCurveApys,
   getIronApys,
-  getDfynDualFarmLpApys,
 ];
 
 const getMaticApys = async () => {
