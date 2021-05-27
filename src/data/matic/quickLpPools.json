@@ -1,5 +1,25 @@
 [
   {
+    "name": "quick-btc-usdc",
+    "address": "0xF6a637525402643B0654a54bEAd2Cb9A83C8B498",
+    "rewardPool": "0x8f2ac4EC8982bF1699a6EeD696e204FA2ccD5D91",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "quick-vision-quick",
     "address": "0x52F31162e07C0158C5dDa8c922cA09B52881e471",
     "rewardPool": "0x859f1E2490B4F62C5D32cf9409e2bBF43dfA3B61",
