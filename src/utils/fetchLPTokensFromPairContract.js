@@ -3,16 +3,20 @@ const { MULTICHAIN_RPC } = require('../constants');
 const LPPair = require('../abis/LPPair.json');
 const { addressBook } = require('blockchain-addressbook');
 
-const fetchLPTokensFromPairContract = pool => {
+const fetchLPTokensFromPairContract = async pool => {
   const { chainId } = pool;
+  if (!chainId) {
+    // skip for legacy pools
+    return;
+  }
   // Setup multichain
-  const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chain]);
+  const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
   const lpContract = new ethers.Contract(pool.address, LPPair, provider);
-  const token0Address = lpContract.token0();
-  const token1Address = lpContract.token1();
+  const token0Address = await lpContract.token0();
+  const token1Address = await lpContract.token1();
 
   // lookup in addressbook
-  if (chainId && chainId in chainIdToAddressBookMap) {
+  if (chainId in chainIdToAddressBookMap) {
     const chainAddressBook = chainIdToAddressBookMap[chainId];
     const { tokenAddressMap } = chainAddressBook;
 
@@ -27,11 +31,15 @@ const fetchLPTokensFromPairContract = pool => {
         newData.address = token.address;
         newData.oracleId = token.symbol;
         newData.decimals = '1e' + token.decimals.toString();
+      } else {
+        console.log('token address missing: ' + tokenAddress.toString());
       }
     };
 
     // update token0 and token1 info
     [token0Address, token1Address].forEach((address, idx) => setTokenData(address, idx));
+  } else {
+    console.log('ChainIdMissing: ' + chainId.toString());
   }
 };
 

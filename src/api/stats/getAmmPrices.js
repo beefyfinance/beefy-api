@@ -80,6 +80,7 @@ const jetswapPools = require('../../data/jetswapLpPools.json');
 const dumplingPools = require('../../data/degens/dumplingLpPools.json');
 const grandPools = require('../../data/grandLpPools.json');
 const ironMaticPools = require('../../data/matic/ironLpPools.json');
+const fetchLPTokensFromPairContract = require('../../utils/fetchLPTokensFromPairContract');
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -184,6 +185,9 @@ const updateAmmPrices = async () => {
   console.log('> updating amm prices');
   isProcessing = true;
   try {
+    for (const pool of pools) {
+      await fetchLPTokensFromPairContract(pool);
+    }
     let { poolPrices, tokenPrices } = await fetchAmmPrices(pools, knownPrices);
     const nonAmmPrices = await getNonAmmPrices(tokenPrices);
     tokenPricesCache = tokenPrices;
