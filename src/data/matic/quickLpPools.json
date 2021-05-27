@@ -459,5 +459,85 @@
       "oracleId": "USDC",
       "decimals": "1e6"
     }
+  },
+  {
+    "name": "quick-vision-quick",
+    "address": "0x52F31162e07C0158C5dDa8c922cA09B52881e471",
+    "rewardPool": "0x859f1E2490B4F62C5D32cf9409e2bBF43dfA3B61",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x034b2090b579228482520c589dbd397c53fc51cc",
+      "oracle": "tokens",
+      "oracleId": "VISION",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-defi5-quick",
+    "address": "0xa975ceeb05b379cf67fdfa63e7b2770f9f1d72c6",
+    "rewardPool": "0xDdB4E83F0977CAf315f5A4d71930FD72DA00d8d9",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x42435F467D33e5C4146a4E8893976ef12BBCE762",
+      "oracle": "tokens",
+      "oracleId": "DEFI5",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-cc10-quick",
+    "address": "0x42fd10ddc7628b82d80c3b2c286f3e79555fd7a1",
+    "rewardPool": "0xab1d645fe5148322D4991fCB3bceF6848a5e8123",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x9c49BA0212Bb5Db371e66b59D1565b7c06E4894e",
+      "oracle": "tokens",
+      "oracleId": "CC10",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-degen-quick",
+    "address": "0x75a4917aee97bda48d3572f431e04003743da85e",
+    "rewardPool": "0x65Bb31f4ad1D9958Cd808d4337eaaB6F40CFaD2e",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x8a2870fb69A90000D6439b7aDfB01d4bA383A415",
+      "oracle": "tokens",
+      "oracleId": "DEGEN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    }
   }
 ]
