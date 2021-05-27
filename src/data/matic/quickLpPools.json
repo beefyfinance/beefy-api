@@ -1,5 +1,45 @@
 [
   {
+    "name": "quick-bifi-eth",
+    "address": "0x8b80417d92571720949fc22404200ab8faf7775f",
+    "rewardPool": "0xd79424b32E2Ef944AA9f4021d39D835fdd615B87",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-bifi-quick",
+    "address": "0xC6a23BDd628c3B17fc0dF270e6BF8E48511950e2",
+    "rewardPool": "0xA2B969faCA14AAdeb6a7672c941A228260a481a2",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x831753dd7087cac61ab5644b308642cc1c33dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-frax-quick",
     "address": "0x2aa7a18ceabf2ef893d2f7c0145cc45e6f10b223",
     "rewardPool": "0xa859D2C37A49bbd5992E39FCC37a7dD56aE130E7",
