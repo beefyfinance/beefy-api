@@ -16,5 +16,14 @@
     "oracleId": "dopple-dop-lp",
     "decimals": "1e18",
     "swap": "0x5162f992EDF7101637446ecCcD5943A9dcC63A8A"
+  },
+  {
+    "name": "dopple-ust-lp",
+    "token": "0x7Edcdc8cD062948CE9A9bc38c477E6aa244dD545",
+    "poolId": 4,
+    "oracle": "lps",
+    "oracleId": "dopple-ust-lp",
+    "decimals": "1e18",
+    "swap": "0x830e287ac5947B1C0DA865dfB3Afd7CdF7900464"
   }
 ]
