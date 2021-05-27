@@ -1,0 +1,65 @@
+[
+  {
+    "name": "dfyn-route-dfyn",
+    "farmType": "dual",
+    "address": "0xB0dc320ea9eea823a150763AbB4A7bA8286Cd08B",
+    "rewardPool": "0xf997c8e2e7e7387C8fd9120280ad9B3db31A5381",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x16ECCfDbb4eE1A85A33f3A9B21175Cd7Ae753dB4",
+      "oracle": "tokens",
+      "oracleId": "ROUTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dfyn-matic-dfyn",
+    "farmType": "popular",
+    "address": "0x740d668883b0fAEf5eeF7E84BE28C7152D6f609D",
+    "rewardPool": "0x376920095Ae17e12BC114D4E33D30DFda83f8EfB",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dfyn-route-eth",
+    "farmType": "popular",
+    "address": "0xeBC4f9B1cE66258AC3A48578FFEEba1330dDB68B",
+    "rewardPool": "0xf162a26aCc064B88a0150a36d7B38996723E94D7",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x16ECCfDbb4eE1A85A33f3A9B21175Cd7Ae753dB4",
+      "oracle": "tokens",
+      "oracleId": "ROUTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  }
+]
