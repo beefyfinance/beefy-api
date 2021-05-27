@@ -1,5 +1,43 @@
 [
   {
+    "name": "boo-dai-ftm",
+    "address": "0xe120ffbda0d14f3bb6d6053e90e63c572a66a428",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8d11ec38a3eb5e956b052f67da8bdc9bef8abf3e",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-any-ftm",
+    "address": "0x5c021d9cfad40aafc57786b409a9ce571de375b4",
+    "decimals": "1e18",
+    "poolId": 22,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xddcb3ffd12750b45d32e084887fdf1aabab34239",
+      "oracle": "tokens",
+      "oracleId": "ANY",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-woofy-ftm",
     "address": "0xfD0aB56B83130ce8f2b7A4f4d4532dEe495c0794",
     "decimals": "1e18",

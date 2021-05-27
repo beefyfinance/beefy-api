@@ -1,5 +1,41 @@
 [
   {
+    "name": "banana-blz-bnb",
+    "address": "0x015f807d0186f7e62810d0c597a23cb19ff57e4d",
+    "decimals": "1e18",
+    "poolId": 57,
+    "lp0": {
+      "address": "0x935a544bf5816e3a7c13db2efe3009ffda0acda2",
+      "oracle": "tokens",
+      "oracleId": "BLZ",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-snx-bnb",
+    "address": "0x8b1f1f28a8ccbaa8a8bc1582921ece97ce99d9e1",
+    "decimals": "1e18",
+    "poolId": 56,
+    "lp0": {
+      "address": "0x9ac983826058b8a9c7aa1c9171441191232e8404",
+      "oracle": "tokens",
+      "oracleId": "SNX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-ltc-bnb",
     "address": "0x0F12362c017Fe5101c7bBa09390f1CB729f5B318",
     "decimals": "1e18",
