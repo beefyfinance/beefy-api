@@ -1,5 +1,59 @@
 [
   {
+    "name": "banana-sushi-bnb",
+    "address": "0x1D0C3044eBf055986c52D38b19B5369374E6Bc6A",
+    "decimals": "1e18",
+    "poolId": 13,
+    "lp0": {
+      "address": "0x947950bcc74888a40ffa2593c5798f11fc9124c4",
+      "oracle": "tokens",
+      "oracleId": "SUSHI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-dot-bnb",
+    "address": "0x21CBb561c5d7D70e9E6Cc42136CB22F07552aEef",
+    "decimals": "1e18",
+    "poolId": 33,
+    "lp0": {
+      "address": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402",
+      "oracle": "tokens",
+      "oracleId": "DOT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-xrp-bnb",
+    "address": "0x6f0f18f5fcC1466ec41c8106689e10BeFE68D1c0",
+    "decimals": "1e18",
+    "poolId": 32,
+    "lp0": {
+      "address": "0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe",
+      "oracle": "tokens",
+      "oracleId": "XRP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-blz-bnb",
     "address": "0x015f807d0186f7e62810d0c597a23cb19ff57e4d",
     "decimals": "1e18",
