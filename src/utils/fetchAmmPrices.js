@@ -26,7 +26,7 @@ const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
 
   return {
     price: price.toNumber(),
-    weight: unknownToken.balance.toNumber(),
+    weight: unknownToken.balance.dividedBy(unknownToken.decimals).toNumber(),
   };
 };
 
@@ -44,6 +44,9 @@ const fetchAmmPrices = async (pools, knownPrices) => {
   let prices = { ...knownPrices };
   let lps = {};
   let weights = {};
+  Object.keys(knownPrices).forEach(known => {
+    weights[known] = Number.MAX_SAFE_INTEGER;
+  });
 
   for (let chain in MULTICALLS) {
     let filtered = pools.filter(p => p.chainId == chain);
