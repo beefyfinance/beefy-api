@@ -2,10 +2,11 @@ const getMasterChefApys = require('./getMaticMasterChefApys');
 
 const MasterChefAbi = require('../../../abis/degens/IronMasterChef.json');
 const pools = require('../../../data/matic/ironLpPools.json');
+const ironTitanPools = require('../../../data/matic/ironTitanLpPools.json');
 const { sushiClient } = require('../../../apollo/client');
 
 const getIronApys = async () => {
-  const lps = await getMasterChefApys({
+  const lps = getMasterChefApys({
     masterchef: '0x65430393358e55A658BcdE6FF69AB28cF1CbB77a',
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'rewardPerBlock',
@@ -19,8 +20,22 @@ const getIronApys = async () => {
     liquidityProviderFee: 0.003,
   });
 
-  const single = await getMasterChefApys({
-    masterchef: '0x08b5249F1fee6e4fCf8A7113943ed6796737386E',
+  const ironTitan = getMasterChefApys({
+    masterchef: '0xb444d596273C66Ac269C33c30Fbb245F4ba8A79d',
+    masterchefAbi: MasterChefAbi,
+    tokenPerBlock: 'rewardPerBlock',
+    hasMultiplier: false,
+    pools: ironTitanPools,
+    oracle: 'tokens',
+    oracleId: 'TITAN',
+    decimals: '1e18',
+    // log: true,
+    tradingFeeInfoClient: sushiClient,
+    liquidityProviderFee: 0.003,
+  });
+
+  const single = getMasterChefApys({
+    masterchef: '0xa37DD1f62661EB18c338f18Cf797cff8b5102d8e',
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'rewardPerBlock',
     hasMultiplier: false,
@@ -35,12 +50,17 @@ const getIronApys = async () => {
       },
     ],
     oracle: 'tokens',
-    oracleId: 'TITAN',
+    oracleId: 'USDC',
     decimals: '1e18',
     // log: true,
   });
 
-  return { ...lps, ...single };
+  let apys = {};
+  const values = await Promise.all([lps, ironTitan, single]);
+  for (const item of values) {
+    apys = { ...apys, ...item };
+  }
+  return apys;
 };
 
 module.exports = getIronApys;
