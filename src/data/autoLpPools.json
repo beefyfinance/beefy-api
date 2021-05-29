@@ -108,24 +108,6 @@
     }
   },
   {
-    "name": "auto-hget-bnb",
-    "address": "0x66b9E1eAc8a81F3752F7f3A5E95dE460688A17Ee",
-    "decimals": "1e18",
-    "poolId": 63,
-    "lp0": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xC7d8D35EBA58a0935ff2D5a33Df105DD9f071731",
-      "oracle": "tokens",
-      "oracleId": "HGET",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "auto-ctk-bnb",
     "address": "0x7793870484647a7278907498ec504879d6971EAb",
     "decimals": "1e18",

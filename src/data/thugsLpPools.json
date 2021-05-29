@@ -308,24 +308,6 @@
   },
 
   {
-    "name": "street-eos-bnb",
-    "address": "0x44e89861096371246eA8E3e86D97781ea24fBB29",
-    "poolId": 13,
-    "decimals": "1e18",
-    "lp0": {
-      "address": "0x56b6fB708fC5732DEC1Afc8D8556423A2EDcCbD6",
-      "oracle": "tokens",
-      "oracleId": "EOS",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "street-bifi-bnb",
     "address": "0x223B53b64AA5F87D2De194a15701Fc0bC7474A31",
     "poolId": 14,
