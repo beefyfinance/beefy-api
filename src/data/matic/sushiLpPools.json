@@ -1,5 +1,25 @@
 [
   {
+    "name": "sushi-wmatic-woofy",
+    "address": "0x211f8e61113edaf00cf37a804b0ba721875ef560",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd0660cd418a64a1d44e9214ad8e459324d8157f1",
+      "oracle": "tokens",
+      "oracleId": "WOOFY",
+      "decimals": "1e12"
+    }
+  },
+  {
     "name": "sushi-renDOGE-eth",
     "address": "0x3398787dca0f1bd830713ec5294ade196a198984",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
