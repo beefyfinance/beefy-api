@@ -1,6 +1,26 @@
 [
   {
     "name": "sushi-frax-usdc",
+    "address": "0xd53a56ae0f48c9a03660cd36c2e4ae20493a1eca",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x104592a158490a9228070e0a8e5343b499e125d0",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3e121107f6f22da4911079845a470757af4e1a1b",
+      "oracle": "tokens",
+      "oracleId": "FXS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-frax-usdc",
     "address": "0x9e20a8d3501bf96eda8e69b96dd84840058a1cb0",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
