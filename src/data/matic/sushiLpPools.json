@@ -1,5 +1,25 @@
 [
   {
+    "name": "sushi-grt-eth",
+    "address": "0x1ceda73c034218255f50ef8a2c282e6b4c301d60",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x5fe2b58c013d7601147dcdd68c143a77499f5531",
+      "oracle": "tokens",
+      "oracleId": "GRT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-frax-usdc",
     "address": "0xd53a56ae0f48c9a03660cd36c2e4ae20493a1eca",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
