@@ -20,7 +20,7 @@
     }
   },
   {
-    "name": "sushi-frax-usdc",
+    "name": "sushi-frax-fxs",
     "address": "0xd53a56ae0f48c9a03660cd36c2e4ae20493a1eca",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
