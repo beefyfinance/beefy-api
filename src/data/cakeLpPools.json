@@ -1,5 +1,23 @@
 [
   {
+    "name": "cakev2-tusd-busd",
+    "address": "0x2E28b9B74D6d99D4697e913b82B41ef1CAC51c6C",
+    "decimals": "1e18",
+    "poolId": 397,
+    "lp0": {
+      "address": "0x14016e85a25aeb13065688cafb43044c2ef86784",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-vrt-bnb",
     "address": "0xEf5212aDa83EC2cc105C409DF10b8806D20E3b35",
     "decimals": "1e18",
