@@ -38,7 +38,7 @@ const polyzapClient = new ApolloClient({
 
 const spookyClient = new ApolloClient({
   link: createHttpLink({
-    uri: 'https://api.thegraph.com/subgraphs/name/eerieeight/spooky-swap-exchange',
+    uri: 'https://api.thegraph.com/subgraphs/name/eerieeight/spookyswap',
     fetch,
   }),
   cache: new InMemoryCache(),
