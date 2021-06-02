@@ -6,9 +6,12 @@ const MasterChef = require('../../../../abis/MasterChef.json');
 const ERC20 = require('../../../../abis/ERC20.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/degens/apeLpPools.json');
-const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+const { compound } = require('../../../../utils/compound');
+//const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
+//const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
+//const { apeClient } = require('../../../../apollo/client');
 
 const masterchef = '0x5c8d727b265dbafaba67e050f2f739caeeb4a6f9';
 const oracleId = 'BANANA';
@@ -17,12 +20,17 @@ const DECIMALS = '1e18';
 const secondsPerBlock = 3;
 const secondsPerYear = 31536000;
 
+//const apeLiquidityProviderFee = 0.0015;
+
 const getApeLpApys = async () => {
   let apys = {};
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const { multiplier, blockRewards, totalAllocPoint } = await getMasterChefData();
   const { balances, allocPoints } = await getPoolsData(pools);
+
+  //  const pairAddresses = pools.map(pool => pool.address);
+  //  const tradingAprs = await getTradingFeeApr(apeClient, pairAddresses, apeLiquidityProviderFee);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -39,8 +47,10 @@ const getApeLpApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    // const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
+    // const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
     const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
-    // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
     const item = { [pool.name]: apy };
 
     apys = { ...apys, ...item };

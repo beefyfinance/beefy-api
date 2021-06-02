@@ -1,0 +1,21 @@
+[
+  {
+    "name": "polycat-quick-fish-matic",
+    "address": "0x289cf2B63c5Edeeeab89663639674d9233E8668E",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3a3Df212b7AA91Aa0402B9035b098891d276572B",
+      "oracle": "tokens",
+      "oracleId": "FISH",
+      "decimals": "1e18"
+    }
+  }
+]
