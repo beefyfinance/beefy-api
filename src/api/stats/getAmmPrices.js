@@ -81,6 +81,7 @@ const dumplingPools = require('../../data/degens/dumplingLpPools.json');
 const grandPools = require('../../data/grandLpPools.json');
 const ironMaticPools = require('../../data/matic/ironLpPools.json');
 const ironTitanPools = require('../../data/matic/ironTitanLpPools.json');
+const ironQuickPools = require('../../data/matic/ironQuickLpPools.json');
 const polycatQuickPool = require('../../data/matic/polycatQuickLpPool.json');
 const polycatSushiPool = require('../../data/matic/polycatSushiLpPool.json');
 const lendhubPools = require('../../data/heco/lendhubLpPools.json');
@@ -94,6 +95,7 @@ const pools = [
   ...lendhubPools,
   ...polycatSushiPool,
   ...polycatQuickPool,
+  ...ironQuickPools,
   ...ironTitanPools,
   ...ironMaticPools,
   ...grandPools,
