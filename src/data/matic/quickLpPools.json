@@ -1,5 +1,25 @@
 [
   {
+    "name": "quick-titan-eth",
+    "address": "0xA28Ade2f27b9554b01964FDCe97eD643301411d9",
+    "rewardPool": "0x2dF6A6b1B7aA23a842948a81714a2279e603e32f",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0xaAa5B9e6c589642f98a1cDA99B9D024B8407285A",
+      "oracle": "tokens",
+      "oracleId": "TITAN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-usdc-eth",
     "address": "0x853ee4b2a13f8a742d64c8f088be7ba2131f670d",
     "rewardPool": "0x4A73218eF2e820987c59F838906A82455F42D98b",
