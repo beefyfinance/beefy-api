@@ -10,6 +10,7 @@ const { BASE_HPY, FANTOM_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { spookyClient } = require('../../../apollo/client');
+const { compound } = require('../../../utils/compound');
 
 const masterchef = '0x2b2929E785374c651a81A63878Ab22742656DcDd';
 const oracleId = 'BOO';
@@ -22,6 +23,7 @@ const spookyLiquidityProviderFee = 0.002;
 
 const getSpookyLpApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
@@ -45,15 +47,33 @@ const getSpookyLpApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    const vaultApy = compound(simpleApy, BASE_HPY, 1, 0.955);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
     // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-    const item = { [pool.name]: apy };
 
+    // Create reference for legacy /apy
+    const item = { [pool.name]: totalApy };
+    // Add token to Spooky APYs object
     apys = { ...apys, ...item };
+
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [pool.name]: {
+        vaultApy: vaultApy,
+        tradingApr: tradingApr,
+        totalApy: totalApy,
+      },
+    };
+    // Add token to Spooky APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   }
 
-  return apys;
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const getMasterChefData = async () => {

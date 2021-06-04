@@ -3,13 +3,14 @@ const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const { getAvaxApys } = require('./avax');
 const { getMaticApys } = require('./matic');
 const { getHecoApys } = require('./heco');
-const { getFantomApys } = require('./fantom');
+const { getFantomApys, getFantomApyBreakdowns } = require('./fantom');
 const { getBSCApys } = require('./bsc');
 
 const INIT_DELAY = 30 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let apys = {};
+let apyBreakdowns = {};
 
 const getApys = () => {
   return apys;
@@ -33,6 +34,21 @@ const updateApys = async () => {
         console.warn('getApys error', result.reason);
         continue;
       }
+
+      // // Set default APY values
+      // let mappedApyValues = result.value
+      // let mappedApyBreakdownValues = result.value
+
+      // let hasApyBreakdowns = "apyBreakdowns" in result.value
+      // if (hasApyBreakdowns) {
+      //   mappedApyValues = result.value.apys
+      //   mappedApyBreakdownValues = result.value.apyBreakdowns
+      // }
+
+      // apys = { ...apys, ...mappedApyValues };
+
+      // apyBreakdowns = { ...apyBreakdowns, mappedApyBreakdownValues };
+
       apys = { ...apys, ...result.value };
     }
 
@@ -46,4 +62,4 @@ const updateApys = async () => {
 
 setTimeout(updateApys, INIT_DELAY);
 
-module.exports = getApys;
+module.exports = { getApys };
