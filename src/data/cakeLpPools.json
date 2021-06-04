@@ -1,19 +1,37 @@
 [
   {
-    "name": "cakev2-ktn-bnb",
-    "address": "0x48028De4A9b0d3D91180333d796021ec7757bA1B",
+    "name": "cakev2-mx-busd",
+    "address": "0x41F049D990D38305504631C9835f6F856Bf1BA67",
     "decimals": "1e18",
-    "poolId": 400,
+    "poolId": 403,
     "lp0": {
-      "address": "0xDAe6c2A48BFAA66b43815c5548b10800919c993E",
+      "address": "0x9f882567a62a5560d147d64871776eea72df41d3",
       "oracle": "tokens",
-      "oracleId": "KTN",
+      "oracleId": "MX",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
       "oracle": "tokens",
-      "oracleId": "WBNB",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-bcfx-busd",
+    "address": "0xA0387eBeA6be90849c2261b911fBBD52B4C9eAC4",
+    "decimals": "1e18",
+    "poolId": 402,
+    "lp0": {
+      "address": "0x045c4324039dA91c52C55DF5D785385Aab073DcF",
+      "oracle": "tokens",
+      "oracleId": "BCFX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
       "decimals": "1e18"
     }
   },
