@@ -271,24 +271,6 @@
     }
   },
   {
-    "name": "street-usdt-bnb",
-    "address": "0x0d29724d1834Fc65869812BAe5d63dce8aCB7921",
-    "poolId": 11,
-    "decimals": "1e18",
-    "lp0": {
-      "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "street-bliq-bnb",
     "address": "0xe835ed82C7d9d018f8F5173EECfBb56f29f38570",
     "poolId": 12,

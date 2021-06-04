@@ -18,24 +18,6 @@
     }
   },
   {
-    "name": "cake-tlm-bnb",
-    "address": "0x34e821e785A93261B697eBD2797988B3AA78ca33",
-    "decimals": "1e18",
-    "poolId": 127,
-    "lp0": {
-      "address": "0x2222227E22102Fe3322098e4CBfE18cFebD57c95",
-      "oracle": "tokens",
-      "oracleId": "TLM",
-      "decimals": "1e4"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cake-perl-bnb",
     "address": "0x044e9985C14A547D478b1e3d4a4E562e69c8f936",
     "decimals": "1e18",
