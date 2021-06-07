@@ -5,52 +5,64 @@ const pools = require('../../../data/matic/ironLpPools.json');
 const quickPools = require('../../../data/matic/ironQuickLpPools.json');
 const ironTitanPools = require('../../../data/matic/ironTitanLpPools.json');
 const { sushiClient, quickClient } = require('../../../apollo/client');
+const { quickLiquidityProviderFee } = require('./getQuickLpApys');
+const { sushiLiquidityProviderFee } = require('./getSushiLpApys');
+const { addressBook } = require('blockchain-addressbook');
+const {
+  polygon: {
+    platforms: { iron },
+    tokens: { TITAN, USDC },
+  },
+} = addressBook;
+const {
+  getScientificNotationFromTokenDecimals,
+} = require('../../../utils/getScientificNotationFromTokenDecimals');
 
 const getIronApys = async () => {
   const lps = getMasterChefApys({
-    masterchef: '0x65430393358e55A658BcdE6FF69AB28cF1CbB77a',
+    masterchef: iron.masterchef_LPs,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'rewardPerBlock',
     hasMultiplier: false,
     pools: pools,
     oracle: 'tokens',
-    oracleId: 'TITAN',
-    decimals: '1e18',
+    oracleId: TITAN.symbol,
+    decimals: getScientificNotationFromTokenDecimals(TITAN.decimals),
     // log: true,
     tradingFeeInfoClient: sushiClient,
-    liquidityProviderFee: 0.003,
+    liquidityProviderFee: sushiLiquidityProviderFee,
   });
 
   const quickLPs = getMasterChefApys({
-    masterchef: '0x65430393358e55A658BcdE6FF69AB28cF1CbB77a',
+    masterchef: iron.masterchef_LPs,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'rewardPerBlock',
     hasMultiplier: false,
     pools: quickPools,
     oracle: 'tokens',
-    oracleId: 'TITAN',
-    decimals: '1e18',
+    oracleId: TITAN.symbol,
+    decimals: getScientificNotationFromTokenDecimals(TITAN.decimals),
     // log: true,
     tradingFeeInfoClient: quickClient,
-    liquidityProviderFee: 0.003,
+    liquidityProviderFee: quickLiquidityProviderFee,
   });
 
   const ironTitan = getMasterChefApys({
-    masterchef: '0xb444d596273C66Ac269C33c30Fbb245F4ba8A79d',
+    masterchef: iron.masterchef_IronTitanLP,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'rewardPerBlock',
     hasMultiplier: false,
     pools: ironTitanPools,
     oracle: 'tokens',
-    oracleId: 'TITAN',
-    decimals: '1e18',
+    oracleId: TITAN.symbol,
+    decimals: getScientificNotationFromTokenDecimals(TITAN.decimals),
     // log: true,
     tradingFeeInfoClient: sushiClient,
-    liquidityProviderFee: 0.003,
+    liquidityProviderFee: sushiLiquidityProviderFee,
   });
 
   const single = getMasterChefApys({
-    masterchef: '0xa37DD1f62661EB18c338f18Cf797cff8b5102d8e',
+    masterchef: iron.masterchef_TitanSingleAsset,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'rewardPerBlock',
     hasMultiplier: false,
@@ -58,15 +70,15 @@ const getIronApys = async () => {
       {
         name: 'iron-titan',
         poolId: 0,
-        address: '0xaaa5b9e6c589642f98a1cda99b9d024b8407285a',
+        address: TITAN.address,
         oracle: 'tokens',
-        oracleId: 'TITAN',
-        decimals: '1e18',
+        oracleId: TITAN.symbol,
+        decimals: getScientificNotationFromTokenDecimals(TITAN.decimals),
       },
     ],
     oracle: 'tokens',
-    oracleId: 'USDC',
-    decimals: '1e18',
+    oracleId: USDC.symbol,
+    decimals: getScientificNotationFromTokenDecimals(USDC.decimals),
     // log: true,
   });
 

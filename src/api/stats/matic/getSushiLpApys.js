@@ -18,7 +18,7 @@ const oracle = 'tokens';
 const DECIMALS = '1e18';
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
-const liquidityProviderFee = 0.0025;
+const sushiLiquidityProviderFee = 0.0025;
 
 // matic
 const complexRewarderTime = '0xa3378Ca78633B3b9b2255EAa26748770211163AE';
@@ -27,7 +27,7 @@ const oracleIdMatic = 'WMATIC';
 const getSushiLpApys = async () => {
   let apys = {};
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(sushiClient, pairAddresses, liquidityProviderFee);
+  const tradingAprs = await getTradingFeeApr(sushiClient, pairAddresses, sushiLiquidityProviderFee);
   const farmApys = await getFarmApys(pools);
 
   pools.forEach((pool, i) => {
@@ -107,4 +107,4 @@ const getPoolsData = async pools => {
   return { balances, allocPoints, rewardAllocPoints };
 };
 
-module.exports = getSushiLpApys;
+module.exports = { getSushiLpApys, sushiLiquidityProviderFee };

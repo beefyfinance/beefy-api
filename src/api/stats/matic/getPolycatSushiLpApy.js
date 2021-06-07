@@ -3,20 +3,31 @@ const getMasterChefApys = require('./getMaticMasterChefApys');
 const MasterChefAbi = require('../../../abis/matic/PolycatMasterChef.json');
 const pools = require('../../../data/matic/polycatSushiLpPool.json');
 const { sushiClient } = require('../../../apollo/client');
+const { sushiLiquidityProviderFee } = require('./getSushiLpApys');
+const { addressBook } = require('blockchain-addressbook');
+const {
+  polygon: {
+    platforms: { polycat },
+    tokens: { FISH },
+  },
+} = addressBook;
+const {
+  getScientificNotationFromTokenDecimals,
+} = require('../../../utils/getScientificNotationFromTokenDecimals');
 
 const getPolycatSushiLpApy = async () =>
   await getMasterChefApys({
-    masterchef: '0x8CFD1B9B7478E7B0422916B72d1DB6A9D513D734',
+    masterchef: polycat.masterchef,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'fishPerBlock',
     hasMultiplier: true,
     pools: pools,
-    oracleId: 'FISH',
+    oracleId: FISH.symbol,
     oracle: 'tokens',
-    decimals: '1e18',
+    decimals: getScientificNotationFromTokenDecimals(FISH.decimals),
     // log: true,
     tradingFeeInfoClient: sushiClient,
-    liquidityProviderFee: 0.0025,
+    liquidityProviderFee: sushiLiquidityProviderFee,
   });
 
 module.exports = getPolycatSushiLpApy;

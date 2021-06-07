@@ -1,7 +1,7 @@
 const getComethLpApys = require('./getComethLpApys');
 const { getQuickLpApys } = require('./getQuickLpApys');
 const getAaveApys = require('./getAaveApys');
-const getSushiLpApys = require('./getSushiLpApys');
+const { getSushiLpApys } = require('./getSushiLpApys');
 const getComethMultiApys = require('./getComethMultiLpApys');
 const getPolyzapApys = require('./getPolyzapApys');
 const getPolygonBifiMaxiApy = require('./getPolygonBifiMaxiApy');
