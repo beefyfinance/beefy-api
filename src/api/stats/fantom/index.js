@@ -34,8 +34,6 @@ const getFantomApys = async () => {
     if (hasApyBreakdowns) {
       mappedApyValues = result.value.apys;
       mappedApyBreakdownValues = result.value.apyBreakdowns;
-
-      console.log(mappedApyBreakdownValues);
     }
 
     apys = { ...apys, ...mappedApyValues };
