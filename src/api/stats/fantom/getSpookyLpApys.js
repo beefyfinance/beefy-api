@@ -69,7 +69,7 @@ const getSpookyLpApys = async () => {
     // Create reference for breakdown /apy
     const componentValues = {
       [pool.name]: {
-        simpleApy: simpleApy.toNumber(),
+        vaultApr: simpleApy.toNumber(),
         compoundingsPerYear: BASE_HPY,
         beefyPerformanceFee: beefyPerformanceFee,
         vaultApy: vaultApy,

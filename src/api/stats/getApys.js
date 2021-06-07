@@ -40,8 +40,17 @@ const updateApys = async () => {
 
       // Set default APY values
       let mappedApyValues = result.value;
-      let mappedApyBreakdownValues = result.value;
+      let mappedApyBreakdownValues = {};
 
+      // Loop through key values and move default breakdown format
+      // To require totalApy key
+      for (const [key, value] of Object.entries(result.value)) {
+        mappedApyBreakdownValues[key] = {
+          totalApy: value,
+        };
+      }
+
+      // Break out to apy and breakdowns if possible
       let hasApyBreakdowns = 'apyBreakdowns' in result.value;
       if (hasApyBreakdowns) {
         mappedApyValues = result.value.apys;
