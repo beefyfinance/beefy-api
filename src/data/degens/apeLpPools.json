@@ -1,5 +1,41 @@
 [
   {
+    "name": "banana-celr-bnb",
+    "address": "0xB7F42e58Cf2364ac994F93f7afF3b158CFA3dC76",
+    "decimals": "1e18",
+    "poolId": 59,
+    "lp0": {
+      "address": "0x1f9f6a696C6Fd109cD3956F45dC709d2b3902163",
+      "oracle": "tokens",
+      "oracleId": "CELR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-shib-bnb",
+    "address": "0xC0AFB6078981629F7eAe4f2ae93b6DBEA9D7a7e9",
+    "decimals": "1e18",
+    "poolId": 60,
+    "lp0": {
+      "address": "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D",
+      "oracle": "tokens",
+      "oracleId": "SHIB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-sushi-bnb",
     "address": "0x1D0C3044eBf055986c52D38b19B5369374E6Bc6A",
     "decimals": "1e18",
