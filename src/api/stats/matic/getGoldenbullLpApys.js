@@ -11,6 +11,9 @@ const {
   },
 } = addressBook;
 const { quickLiquidityProviderFee } = require('./getQuickLpApys');
+const {
+  getScientificNotationFromTokenDecimals,
+} = require('../../../utils/getScientificNotationFromTokenDecimals');
 
 const getGoldenbullLpApys = async () =>
   await getMasterChefApys({
@@ -21,7 +24,7 @@ const getGoldenbullLpApys = async () =>
     pools: pools,
     oracleId: GBULL.symbol,
     oracle: 'tokens',
-    decimals: '1e' + GBULL.decimals.toString(),
+    decimals: getScientificNotationFromTokenDecimals(GBULL.decimals),
     // log: true,
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: quickLiquidityProviderFee,
