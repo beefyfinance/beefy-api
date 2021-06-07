@@ -10,20 +10,21 @@ const {
     tokens: { GBULL },
   },
 } = addressBook;
+const { quickLiquidityProviderFee } = require('./getQuickLpApys');
 
 const getGoldenbullLpApys = async () =>
   await getMasterChefApys({
     masterchef: goldenbull.masterchef,
     masterchefAbi: MasterChefAbi,
-    tokenPerBlock: 'pZapPerBlock',
+    tokenPerBlock: 'gBullPerBlock',
     hasMultiplier: true,
     pools: pools,
-    oracleId: 'PZAP',
+    oracleId: GBULL.symbol,
     oracle: 'tokens',
-    decimals: '1e18',
+    decimals: '1e' + GBULL.decimals.toString(),
     // log: true,
     tradingFeeInfoClient: quickClient,
-    liquidityProviderFee: 0.002,
+    liquidityProviderFee: quickLiquidityProviderFee,
   });
 
 module.exports = getGoldenbullLpApys;

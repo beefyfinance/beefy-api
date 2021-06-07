@@ -1,5 +1,5 @@
 const getComethLpApys = require('./getComethLpApys');
-const getQuickLpApys = require('./getQuickLpApys');
+const { getQuickLpApys } = require('./getQuickLpApys');
 const getAaveApys = require('./getAaveApys');
 const getSushiLpApys = require('./getSushiLpApys');
 const getComethMultiApys = require('./getComethMultiLpApys');
