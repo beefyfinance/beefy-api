@@ -54,24 +54,6 @@
     }
   },
   {
-    "name": "jul-uni-bnb",
-    "address": "0x1a5F04e8E20dd15C219C39cc2a989F64B3307779",
-    "decimals": "1e18",
-    "poolId": 0,
-    "lp0": {
-      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "BNB",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
-      "oracle": "tokens",
-      "oracleId": "UNI",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "jul-btcb-bnb",
     "address": "0x3f3d9e0803b19dd9002c8184ae3c1c9d09720682",
     "decimals": "1e18",

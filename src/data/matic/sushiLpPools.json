@@ -1,5 +1,145 @@
 [
   {
+    "name": "sushi-grt-eth",
+    "address": "0x1ceda73c034218255f50ef8a2c282e6b4c301d60",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x5fe2b58c013d7601147dcdd68c143a77499f5531",
+      "oracle": "tokens",
+      "oracleId": "GRT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-frax-fxs",
+    "address": "0xd53a56ae0f48c9a03660cd36c2e4ae20493a1eca",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x104592a158490a9228070e0a8e5343b499e125d0",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3e121107f6f22da4911079845a470757af4e1a1b",
+      "oracle": "tokens",
+      "oracleId": "FXS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-frax-usdc",
+    "address": "0x9e20a8d3501bf96eda8e69b96dd84840058a1cb0",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x104592a158490a9228070e0a8e5343b499e125d0",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "sushi-wmatic-woofy",
+    "address": "0x211f8e61113edaf00cf37a804b0ba721875ef560",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd0660cd418a64a1d44e9214ad8e459324d8157f1",
+      "oracle": "tokens",
+      "oracleId": "WOOFY",
+      "decimals": "1e12"
+    }
+  },
+  {
+    "name": "sushi-renDOGE-eth",
+    "address": "0x3398787dca0f1bd830713ec5294ade196a198984",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7C4A54f5d20b4023D6746F1f765f4DFe7C39a7e6",
+      "oracle": "tokens",
+      "oracleId": "renDOGE",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-usdc-dai",
+    "address": "0xcd578f016888b57f1b1e3f887f392f0159e26747",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-snx-eth",
+    "address": "0x116ff0d1caa91a6b94276b3471f33dbeb52073e7",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x50B728D8D964fd00C2d0AAD81718b71311feF68a",
+      "oracle": "tokens",
+      "oracleId": "SNX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-crv-eth",
     "address": "0x396e655c309676caf0acf4607a868e0cded876db",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",

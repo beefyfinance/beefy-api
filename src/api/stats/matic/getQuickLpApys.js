@@ -30,6 +30,7 @@ const getQuickLpApys = async () => {
     const simpleApy = farmApys[i];
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
     const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    //console.log( pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy )
     apys = { ...apys, ...{ [pool.name]: apy } };
   });
 

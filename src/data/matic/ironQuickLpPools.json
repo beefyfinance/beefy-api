@@ -1,0 +1,21 @@
+[
+  {
+    "name": "iron-iron-usdc-quick",
+    "address": "0x2Bbe0F728f4d5821F84eeE0432D2A4be7C0cB7Fc",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xD86b5923F3AD7b585eD81B448170ae026c65ae9a",
+      "oracle": "tokens",
+      "oracleId": "IRON",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -1,5 +1,85 @@
 [
   {
+    "name": "quick-titan-eth",
+    "address": "0xA28Ade2f27b9554b01964FDCe97eD643301411d9",
+    "rewardPool": "0x2dF6A6b1B7aA23a842948a81714a2279e603e32f",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0xaAa5B9e6c589642f98a1cDA99B9D024B8407285A",
+      "oracle": "tokens",
+      "oracleId": "TITAN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-usdc-eth",
+    "address": "0x853Ee4b2A13f8a742d64C8F088bE7bA2131f670d",
+    "rewardPool": "0x4A73218eF2e820987c59F838906A82455F42D98b",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-dai-eth",
+    "address": "0x4A35582a710E1F4b2030A3F826DA20BfB6703C09",
+    "rewardPool": "0x785AaCd49c1Aa3ca573F2a32Bb90030A205b8147",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-fff-quick",
+    "address": "0x2648ec89875d944e38f55925Df77D9Cfe0B01Edd",
+    "rewardPool": "0xB4A7e2FCf1FdC1481cbF24eE76e083d3c17F0859",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9aCeB6f749396d1930aBc9e263eFc449E5e82c13",
+      "oracle": "tokens",
+      "oracleId": "FFF",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-btc-usdc",
     "address": "0xF6a637525402643B0654a54bEAd2Cb9A83C8B498",
     "rewardPool": "0x8f2ac4EC8982bF1699a6EeD696e204FA2ccD5D91",

@@ -7,7 +7,9 @@ const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/fantom/spookyLpPools.json');
 const { BASE_HPY, FANTOM_CHAIN_ID } = require('../../../constants');
-const { compound } = require('../../../utils/compound');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+const { spookyClient } = require('../../../apollo/client');
 
 const masterchef = '0x2b2929E785374c651a81A63878Ab22742656DcDd';
 const oracleId = 'BOO';
@@ -16,12 +18,21 @@ const DECIMALS = '1e18';
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
+const spookyLiquidityProviderFee = 0.002;
+
 const getSpookyLpApys = async () => {
   let apys = {};
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
   const { balances, allocPoints } = await getPoolsData(pools);
+
+  const pairAddresses = pools.map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(
+    spookyClient,
+    pairAddresses,
+    spookyLiquidityProviderFee
+  );
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -34,8 +45,9 @@ const getSpookyLpApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-    const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
-    // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+    const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
+    const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
     const item = { [pool.name]: apy };
 
     apys = { ...apys, ...item };

@@ -80,7 +80,12 @@ const jetswapPools = require('../../data/jetswapLpPools.json');
 const dumplingPools = require('../../data/degens/dumplingLpPools.json');
 const grandPools = require('../../data/grandLpPools.json');
 const ironMaticPools = require('../../data/matic/ironLpPools.json');
-const dfynLpPools = require('../../data/matic/dfynLpPools.json');
+const ironTitanPools = require('../../data/matic/ironTitanLpPools.json');
+const ironQuickPools = require('../../data/matic/ironQuickLpPools.json');
+const polycatQuickPool = require('../../data/matic/polycatQuickLpPool.json');
+const polycatSushiPool = require('../../data/matic/polycatSushiLpPool.json');
+const lendhubPools = require('../../data/heco/lendhubLpPools.json');
+const pantherPools = require('../../data/degens/pantherLpPools.json');
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -88,7 +93,12 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
-  ...dfynLpPools,
+  ...pantherPools,
+  ...lendhubPools,
+  ...polycatSushiPool,
+  ...polycatQuickPool,
+  ...ironQuickPools,
+  ...ironTitanPools,
   ...ironMaticPools,
   ...grandPools,
   ...dumplingPools,

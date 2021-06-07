@@ -1,5 +1,167 @@
 [
   {
+    "name": "cakev2-mtrg-busd",
+    "address": "0x4dcA4D427511bC327639b222DA18FA5e334F686F",
+    "decimals": "1e18",
+    "poolId": 399,
+    "lp0": {
+      "address": "0xBd2949F67DcdC549c6Ebe98696449Fa79D988A9F",
+      "oracle": "tokens",
+      "oracleId": "MTRG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-qkc-busd",
+    "address": "0x8853E3309a31583eA438F7704681F46F0D4D909b",
+    "decimals": "1e18",
+    "poolId": 401,
+    "lp0": {
+      "address": "0xa1434f1fc3f437fa33f7a781e041961c0205b5da",
+      "oracle": "tokens",
+      "oracleId": "QKC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-mx-busd",
+    "address": "0x41F049D990D38305504631C9835f6F856Bf1BA67",
+    "decimals": "1e18",
+    "poolId": 403,
+    "lp0": {
+      "address": "0x9f882567a62a5560d147d64871776eea72df41d3",
+      "oracle": "tokens",
+      "oracleId": "MX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-bcfx-busd",
+    "address": "0xA0387eBeA6be90849c2261b911fBBD52B4C9eAC4",
+    "decimals": "1e18",
+    "poolId": 402,
+    "lp0": {
+      "address": "0x045c4324039dA91c52C55DF5D785385Aab073DcF",
+      "oracle": "tokens",
+      "oracleId": "BCFX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-ktn-bnb",
+    "address": "0x48028De4A9b0d3D91180333d796021ec7757bA1B",
+    "decimals": "1e18",
+    "poolId": 400,
+    "lp0": {
+      "address": "0xDAe6c2A48BFAA66b43815c5548b10800919c993E",
+      "oracle": "tokens",
+      "oracleId": "KTN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-tusd-busd",
+    "address": "0x2E28b9B74D6d99D4697e913b82B41ef1CAC51c6C",
+    "decimals": "1e18",
+    "poolId": 397,
+    "lp0": {
+      "address": "0x14016e85a25aeb13065688cafb43044c2ef86784",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-vrt-bnb",
+    "address": "0xEf5212aDa83EC2cc105C409DF10b8806D20E3b35",
+    "decimals": "1e18",
+    "poolId": 396,
+    "lp0": {
+      "address": "0x5f84ce30dc3cf7909101c69086c50de191895883",
+      "oracle": "tokens",
+      "oracleId": "VRT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-ez-bnb",
+    "address": "0x51BF99bBae59b67E5cE2fA9c17b683384773F8b3",
+    "decimals": "1e18",
+    "poolId": 395,
+    "lp0": {
+      "address": "0x5512014efa6cd57764fa743756f7a6ce3358cc83",
+      "oracle": "tokens",
+      "oracleId": "EZ",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-kalm-bnb",
+    "address": "0xc74f7243766269DeC5b85b0eF4aF186e909c1b06",
+    "decimals": "1e18",
+    "poolId": 394,
+    "lp0": {
+      "address": "0x4ba0057f784858a48fe351445c672ff2a3d43515",
+      "oracle": "tokens",
+      "oracleId": "KALM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-well-busd",
     "address": "0x1d94cb25895AbD6ccFeF863c53372bb462AA6b86",
     "decimals": "1e18",

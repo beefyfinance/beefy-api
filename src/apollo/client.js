@@ -36,21 +36,27 @@ const polyzapClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const createGQLClient = linkUri => {
-  const client = new ApolloClient({
-    link: createHttpLink({
-      uri: linkUri,
-      fetch,
-    }),
-    cache: new InMemoryCache(),
-  });
-  return client;
-};
+const spookyClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/eerieeight/spookyswap',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+//const apeClient = new ApolloClient({
+//  link: createHttpLink({
+//    uri: 'https://graph2.apeswap.finance/subgraphs/name/ape-swap/apeswap-subgraph',
+//    fetch,
+//  }),
+//  cache: new InMemoryCache(),
+//});
 
 module.exports = {
   sushiClient,
   comethClient,
   quickClient,
   polyzapClient,
-  createGQLClient,
+  spookyClient,
+  //  apeClient,
 };

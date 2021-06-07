@@ -80,10 +80,14 @@ const getBSCApys = async () => {
 
   let promises = [];
   getApys.forEach(getApy => promises.push(getApy()));
-  const values = await Promise.all(promises);
+  const results = await Promise.allSettled(promises);
 
-  for (const item of values) {
-    apys = { ...apys, ...item };
+  for (const result of results) {
+    if (result.status !== 'fulfilled') {
+      console.warn('getBSCApys error', result.reason);
+      continue;
+    }
+    apys = { ...apys, ...result.value };
   }
 
   return apys;

@@ -18,24 +18,6 @@
     }
   },
   {
-    "name": "cake-tlm-bnb",
-    "address": "0x34e821e785A93261B697eBD2797988B3AA78ca33",
-    "decimals": "1e18",
-    "poolId": 127,
-    "lp0": {
-      "address": "0x2222227E22102Fe3322098e4CBfE18cFebD57c95",
-      "oracle": "tokens",
-      "oracleId": "TLM",
-      "decimals": "1e4"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cake-perl-bnb",
     "address": "0x044e9985C14A547D478b1e3d4a4E562e69c8f936",
     "decimals": "1e18",
@@ -68,24 +50,6 @@
       "address": "0xC0eFf7749b125444953ef89682201Fb8c6A917CD",
       "oracle": "tokens",
       "oracleId": "HZN",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cake-suter-bnb",
-    "address": "0x6Ff75C20656A0E4745E7c114972D361F483AFa5f",
-    "decimals": "1e18",
-    "poolId": 132,
-    "lp0": {
-      "address": "0x4CfbBdfBd5BF0814472fF35C72717Bd095ADa055",
-      "oracle": "tokens",
-      "oracleId": "SUTER",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -252,24 +216,6 @@
     }
   },
   {
-    "name": "cake-pbtc-bnb",
-    "address": "0xb5F6f7dAD23132d40d778085D795BD0FD4B859CD",
-    "decimals": "1e18",
-    "poolId": 112,
-    "lp0": {
-      "address": "0xeD28A457A5A76596ac48d87C0f577020F6Ea1c4C",
-      "oracle": "tokens",
-      "oracleId": "PBTC",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cake-dft-bnb",
     "address": "0x8FbCbD7e30b1733965a8980bf7Ae2ca1c0C456cc",
     "decimals": "1e18",
@@ -320,24 +266,6 @@
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cake-mir-ust",
-    "address": "0xf64a269F0A06dA07D23F43c1Deb217101ee6Bee7",
-    "decimals": "1e18",
-    "poolId": 102,
-    "lp0": {
-      "address": "0x5b6dcf557e2abe2323c48445e8cc948910d8c2c9",
-      "oracle": "tokens",
-      "oracleId": "MIR",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x23396cf899ca06c4472205fc903bdb4de249d6fc",
-      "oracle": "tokens",
-      "oracleId": "UST",
       "decimals": "1e18"
     }
   },
@@ -410,24 +338,6 @@
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cake-bbadger-btcb",
-    "address": "0x10F461CEAC7A17F59e249954Db0784d42EfF5DB5",
-    "decimals": "1e18",
-    "poolId": 106,
-    "lp0": {
-      "address": "0x1f7216fdb338247512ec99715587bb97bbf96eae",
-      "oracle": "tokens",
-      "oracleId": "bBADGER",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-      "oracle": "tokens",
-      "oracleId": "BTCB",
       "decimals": "1e18"
     }
   },
@@ -756,24 +666,6 @@
     }
   },
   {
-    "name": "cake-usdc-busd",
-    "address": "0x680Dd100E4b394Bda26A59dD5c119A391e747d18",
-    "decimals": "1e18",
-    "poolId": 53,
-    "lp0": {
-      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
-      "oracle": "tokens",
-      "oracleId": "BUSD",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cake-dai-busd",
     "address": "0x3aB77e40340AB084c3e23Be8e5A6f7afed9D41DC",
     "decimals": "1e18",
@@ -963,24 +855,6 @@
       "oracle": "tokens",
       "oracleId": "DITTO",
       "decimals": "1e9"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cake-hget-bnb",
-    "address": "0x66b9e1eac8a81f3752f7f3a5e95de460688a17ee",
-    "decimals": "1e18",
-    "poolId": 67,
-    "lp0": {
-      "address": "0xc7d8d35eba58a0935ff2d5a33df105dd9f071731",
-      "oracle": "tokens",
-      "oracleId": "HGET",
-      "decimals": "1e6"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
@@ -1458,24 +1332,6 @@
     }
   },
   {
-    "name": "cake-band-bnb",
-    "address": "0xc639187ef82271D8f517de6FEAE4FaF5b517533c",
-    "decimals": "1e18",
-    "poolId": 4,
-    "lp0": {
-      "address": "0xAD6cAEb32CD2c308980a548bD0Bc5AA4306c6c18",
-      "oracle": "tokens",
-      "oracleId": "BAND",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cake-atom-bnb",
     "address": "0x2333c77FC0B2875c11409cdCD3C75D42D402E834",
     "decimals": "1e18",
@@ -1670,42 +1526,6 @@
       "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "oracle": "tokens",
       "oracleId": "BTCB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cake-usdt-bnb",
-    "address": "0x20bcc3b8a0091ddac2d0bc30f68e6cbb97de59cd",
-    "decimals": "1e18",
-    "poolId": 17,
-    "lp0": {
-      "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cake-eth-bnb",
-    "address": "0x70d8929d04b60af4fb9b58713ebcf18765ade422",
-    "decimals": "1e18",
-    "poolId": 14,
-    "lp0": {
-      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "oracle": "tokens",
-      "oracleId": "ETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
