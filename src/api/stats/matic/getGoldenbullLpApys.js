@@ -2,7 +2,7 @@ const getMasterChefApys = require('./getMaticMasterChefApys');
 
 const MasterChefAbi = require('../../../abis/matic/PolyzapMasterChef.json');
 const pools = require('../../../data/matic/goldenbullLpPools.json');
-const { polyzapClient } = require('../../../apollo/client');
+const { quickClient } = require('../../../apollo/client');
 const { addressBook } = require('blockchain-addressbook');
 const {
   polygon: {
@@ -22,7 +22,7 @@ const getGoldenbullLpApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     // log: true,
-    tradingFeeInfoClient: polyzapClient,
+    tradingFeeInfoClient: quickClient,
     liquidityProviderFee: 0.002,
   });
 

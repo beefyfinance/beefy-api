@@ -52,11 +52,22 @@ const spookyClient = new ApolloClient({
 //  cache: new InMemoryCache(),
 //});
 
+const createGraphClient = uri => {
+  return new ApolloClient({
+    link: createHttpLink({
+      uri,
+      fetch,
+    }),
+    cache: new InMemoryCache(),
+  });
+};
+
 module.exports = {
   sushiClient,
   comethClient,
   quickClient,
   polyzapClient,
   spookyClient,
+  createGraphClient,
   //  apeClient,
 };
