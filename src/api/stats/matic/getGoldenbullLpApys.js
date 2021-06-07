@@ -1,6 +1,6 @@
 const getMasterChefApys = require('./getMaticMasterChefApys');
 
-const MasterChefAbi = require('../../../abis/matic/PolyzapMasterChef.json');
+const MasterChefAbi = require('../../../abis/matic/GoldenbullMasterChef.json');
 const pools = require('../../../data/matic/goldenbullLpPools.json');
 const { quickClient } = require('../../../apollo/client');
 const { addressBook } = require('blockchain-addressbook');
