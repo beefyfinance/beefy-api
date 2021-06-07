@@ -3,7 +3,7 @@ const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const { getAvaxApys } = require('./avax');
 const { getMaticApys } = require('./matic');
 const { getHecoApys } = require('./heco');
-const { getFantomApys, getFantomApyBreakdowns } = require('./fantom');
+const { getFantomApys } = require('./fantom');
 const { getBSCApys } = require('./bsc');
 
 const INIT_DELAY = 30 * 1000;
@@ -13,7 +13,10 @@ let apys = {};
 let apyBreakdowns = {};
 
 const getApys = () => {
-  return apys;
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const updateApys = async () => {
@@ -35,21 +38,19 @@ const updateApys = async () => {
         continue;
       }
 
-      // // Set default APY values
-      // let mappedApyValues = result.value
-      // let mappedApyBreakdownValues = result.value
+      // Set default APY values
+      let mappedApyValues = result.value;
+      let mappedApyBreakdownValues = result.value;
 
-      // let hasApyBreakdowns = "apyBreakdowns" in result.value
-      // if (hasApyBreakdowns) {
-      //   mappedApyValues = result.value.apys
-      //   mappedApyBreakdownValues = result.value.apyBreakdowns
-      // }
+      let hasApyBreakdowns = 'apyBreakdowns' in result.value;
+      if (hasApyBreakdowns) {
+        mappedApyValues = result.value.apys;
+        mappedApyBreakdownValues = result.value.apyBreakdowns;
+      }
 
-      // apys = { ...apys, ...mappedApyValues };
+      apys = { ...apys, ...mappedApyValues };
 
-      // apyBreakdowns = { ...apyBreakdowns, mappedApyBreakdownValues };
-
-      apys = { ...apys, ...result.value };
+      apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
     }
 
     console.log('> updated apys');

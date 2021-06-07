@@ -20,6 +20,8 @@ const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
 const spookyLiquidityProviderFee = 0.002;
+const beefyPerformanceFee = 0.045;
+const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getSpookyLpApys = async () => {
   let apys = {};
@@ -47,21 +49,32 @@ const getSpookyLpApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-    const vaultApy = compound(simpleApy, BASE_HPY, 1, 0.955);
+    const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const totalApy = getFarmWithTradingFeesApy(
+      simpleApy,
+      tradingApr,
+      BASE_HPY,
+      1,
+      shareAfterBeefyPerformanceFee
+    );
     // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
 
     // Create reference for legacy /apy
-    const item = { [pool.name]: totalApy };
+    const legacyApyValue = { [pool.name]: totalApy };
     // Add token to Spooky APYs object
-    apys = { ...apys, ...item };
+    apys = { ...apys, ...legacyApyValue };
 
     // Create reference for breakdown /apy
     const componentValues = {
       [pool.name]: {
+        simpleApy: simpleApy.toNumber(),
+        compoundingsPerYear: BASE_HPY,
+        beefyPerformanceFee: beefyPerformanceFee,
         vaultApy: vaultApy,
-        tradingApr: tradingApr,
+        lpFee: spookyLiquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
         totalApy: totalApy,
       },
     };
