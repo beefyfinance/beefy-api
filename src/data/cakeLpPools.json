@@ -1292,25 +1292,6 @@
     }
   },
   {
-    "name": "cakev2-jgn-bnb",
-    "address": "0x7275278C94b5e20708380561C4Af98F38dDC6374",
-    "decimals": "1e18",
-    "poolId": 351,
-    "chainId": 56,
-    "lp0": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xC13B7a43223BB9Bf4B69BD68Ab20ca1B79d81C75",
-      "oracle": "tokens",
-      "oracleId": "JGN",
-      "decimals": "1e8"
-    }
-  },
-  {
     "name": "cakev2-hoo-busd",
     "address": "0x3e42C1f7239231E3752B507764445dd8e6A570d5",
     "decimals": "1e18",
@@ -1440,44 +1421,6 @@
       "address": "0xCD40F2670CF58720b694968698A5514e924F742d",
       "oracle": "tokens",
       "oracleId": "ODDZ",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cakev2-easy-bnb",
-    "address": "0x20c6De8983Fb2D641c55004646aEF40b4EA66E18",
-    "decimals": "1e18",
-    "poolId": 342,
-    "chainId": 56,
-    "lp0": {
-      "address": "0x7C17c8bED8d14bAccE824D020f994F4880D6Ab3B",
-      "oracle": "tokens",
-      "oracleId": "EASY",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cakev2-nrv-bnb",
-    "address": "0xE482249Cd295C0d1e9D2baAEE71e66de21024C68",
-    "decimals": "1e18",
-    "poolId": 341,
-    "chainId": 56,
-    "lp0": {
-      "address": "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
-      "oracle": "tokens",
-      "oracleId": "NRV",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -2441,25 +2384,6 @@
       "address": "0x928e55daB735aa8260AF3cEDadA18B5f70C72f1b",
       "oracle": "tokens",
       "oracleId": "FRONT",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "cakev2-helmet-bnb",
-    "address": "0xC869A9943b702B03770B6A92d2b2d25cf3a3f571",
-    "decimals": "1e18",
-    "poolId": 286,
-    "chainId": 56,
-    "lp0": {
-      "address": "0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8",
-      "oracle": "tokens",
-      "oracleId": "Helmet",
       "decimals": "1e18"
     },
     "lp1": {
