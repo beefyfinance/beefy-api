@@ -4,6 +4,7 @@
     "address": "0x02600c49c53147ad6F090Ee3805D5705074c289d",
     "decimals": "1e18",
     "poolId": 1,
+    "chainId": 56,
     "lp0": {
       "address": "0x9768e5b2d8e761905bc81dfc554f9437a46cdcc6",
       "oracle": "tokens",
@@ -22,6 +23,7 @@
     "address": "0x6Fc4c985559233D0b69410316911E5C6e096cCB6",
     "decimals": "1e18",
     "poolId": 2,
+    "chainId": 56,
     "lp0": {
       "address": "0x9768e5b2d8e761905bc81dfc554f9437a46cdcc6",
       "oracle": "tokens",

@@ -3,6 +3,7 @@
     "name": "1inch-1inch-bnb",
     "address": "0xdaF66c0B7e8E2FC76B15B07AD25eE58E04a66796",
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0x111111111117dc0aa78b770fa6a738034120c302",
       "oracle": "tokens",

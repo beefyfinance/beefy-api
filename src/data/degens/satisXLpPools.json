@@ -5,6 +5,7 @@
     "decimals": "1e18",
     "poolId": 10,
     "strat": "0xa4B7E3F71383C286D09a191d7DBBc0A8843cE726",
+    "chainId": 56,
     "lp0": {
       "address": "0x8fda94079913cb921d065ed9c004afb43e1f900e",
       "oracle": "tokens",
@@ -24,6 +25,7 @@
     "decimals": "1e18",
     "poolId": 11,
     "strat": "0x6ade33E666714D00d3C4Fc9314faFdBF40942ec7",
+    "chainId": 56,
     "lp0": {
       "address": "0x8fda94079913cb921d065ed9c004afb43e1f900e",
       "oracle": "tokens",
