@@ -833,15 +833,15 @@
     "decimals": "1e18",
     "poolId": 351,
     "lp0": {
-      "address": "0xc13b7a43223bb9bf4b69bd68ab20ca1b79d81c75",
-      "oracle": "tokens",
-      "oracleId": "JGN",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc13b7a43223bb9bf4b69bd68ab20ca1b79d81c75",
+      "oracle": "tokens",
+      "oracleId": "JGN",
       "decimals": "1e18"
     }
   },
