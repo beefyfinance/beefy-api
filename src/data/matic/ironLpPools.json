@@ -1,7 +1,7 @@
 [
   {
     "name": "iron-titan-matic",
-    "address": "0xa79983daf2a92c2c902cd74217efe3d8af9fba2a",
+    "address": "0xA79983Daf2A92c2C902cD74217Efe3D8AF9Fba2a",
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 137,
@@ -20,7 +20,7 @@
   },
   {
     "name": "iron-iron-usdc",
-    "address": "0x85de135ff062df790a5f20b79120f17d3da63b2d",
+    "address": "0x85dE135fF062Df790A5f20B79120f17D3da63b2d",
     "decimals": "1e18",
     "poolId": 1,
     "chainId": 137,

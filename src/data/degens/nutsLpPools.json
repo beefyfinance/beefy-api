@@ -1,12 +1,12 @@
 [
   {
     "name": "squirrel-nuts-bnb",
-    "address": "0x034c9e6b08c09a6144e0d0e52161338fb105e656",
+    "address": "0x034C9E6B08c09a6144e0D0E52161338fB105e656",
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 56,
     "lp0": {
-      "address": "0x8893d5fa71389673c5c4b9b3cb4ee1ba71207556",
+      "address": "0x8893D5fA71389673C5c4b9b3cb4EE1ba71207556",
       "oracle": "tokens",
       "oracleId": "NUTS",
       "decimals": "1e18"

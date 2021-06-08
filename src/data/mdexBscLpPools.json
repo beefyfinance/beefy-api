@@ -25,7 +25,7 @@
     "poolId": 34,
     "chainId": 56,
     "lp0": {
-      "address": "0x0d8ce2a99bb6e3b7db580ed848240e4a0f9ae153",
+      "address": "0x0D8Ce2A99Bb6e3B7Db580eD848240e4a0F9aE153",
       "oracle": "tokens",
       "oracleId": "FIL",
       "decimals": "1e18"
@@ -63,7 +63,7 @@
     "poolId": 53,
     "chainId": 56,
     "lp0": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"
@@ -82,7 +82,7 @@
     "poolId": 28,
     "chainId": 56,
     "lp0": {
-      "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "oracle": "tokens",
       "oracleId": "BTCB",
       "decimals": "1e18"
@@ -101,7 +101,7 @@
     "poolId": 29,
     "chainId": 56,
     "lp0": {
-      "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "tokens",
       "oracleId": "ETH",
       "decimals": "1e18"
@@ -120,13 +120,13 @@
     "poolId": 30,
     "chainId": 56,
     "lp0": {
-      "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "tokens",
       "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "oracle": "tokens",
       "oracleId": "BTCB",
       "decimals": "1e18"
@@ -139,7 +139,7 @@
     "poolId": 42,
     "chainId": 56,
     "lp0": {
-      "address": "0x9c65ab58d8d978db963e63f2bfb7121627e3a739",
+      "address": "0x9C65AB58d8d978DB963e63f2bfB7121627e3a739",
       "oracle": "tokens",
       "oracleId": "bscMDX",
       "decimals": "1e18"
@@ -158,13 +158,13 @@
     "poolId": 40,
     "chainId": 56,
     "lp0": {
-      "address": "0x9c65ab58d8d978db963e63f2bfb7121627e3a739",
+      "address": "0x9C65AB58d8d978DB963e63f2bfB7121627e3a739",
       "oracle": "tokens",
       "oracleId": "bscMDX",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"

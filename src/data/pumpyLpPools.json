@@ -6,7 +6,7 @@
     "poolId": 3,
     "chainId": 56,
     "lp0": {
-      "address": "0x8d4fbb3ac63bf33851dce80d63613df1a515bc00",
+      "address": "0x8d4FBB3AC63bf33851dCE80D63613Df1A515BC00",
       "oracle": "tokens",
       "oracleId": "PMP",
       "decimals": "1e18"

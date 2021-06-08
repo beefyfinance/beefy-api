@@ -31,7 +31,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "oracle": "tokens",
       "oracleId": "BTCB",
       "decimals": "1e18"
@@ -44,13 +44,13 @@
     "poolId": 15,
     "chainId": 56,
     "lp0": {
-      "address": "0x7979f6c54eba05e18ded44c4f986f49a5de551c2",
+      "address": "0x7979F6C54ebA05E18Ded44C4F986F49a5De551c2",
       "oracle": "tokens",
       "oracleId": "KEBAB",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "oracle": "tokens",
       "oracleId": "BTCB",
       "decimals": "1e18"
@@ -69,7 +69,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"
@@ -82,13 +82,13 @@
     "poolId": 1,
     "chainId": 56,
     "lp0": {
-      "address": "0x7979f6c54eba05e18ded44c4f986f49a5de551c2",
+      "address": "0x7979F6C54ebA05E18Ded44C4F986F49a5De551c2",
       "oracle": "tokens",
       "oracleId": "KEBAB",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"
@@ -96,12 +96,12 @@
   },
   {
     "name": "kebab-kebab-bnb",
-    "address": "0x25fd42d82d5c238ee7aa277261aa6ca5bdfe5cd4",
+    "address": "0x25fd42D82d5c238ee7AA277261AA6CA5BDFE5CD4",
     "decimals": "1e18",
     "poolId": 5,
     "chainId": 56,
     "lp0": {
-      "address": "0x7979f6c54eba05e18ded44c4f986f49a5de551c2",
+      "address": "0x7979F6C54ebA05E18Ded44C4F986F49a5De551c2",
       "oracle": "tokens",
       "oracleId": "KEBAB",
       "decimals": "1e18"

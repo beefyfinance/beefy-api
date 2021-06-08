@@ -1,7 +1,7 @@
 [
   {
     "name": "pzap-pzap-matic",
-    "address": "0xf627e14c318045066dae0a36997c8c1f34fc0d4c",
+    "address": "0xf627E14c318045066dAe0A36997c8C1F34fC0D4c",
     "decimals": "1e18",
     "poolId": 7,
     "chainId": 137,
@@ -20,7 +20,7 @@
   },
   {
     "name": "pzap-pzap-usdc",
-    "address": "0x1df7adaed1f7f36c822a3079198815b284ad8475",
+    "address": "0x1df7ADAeD1F7f36C822A3079198815b284aD8475",
     "decimals": "1e18",
     "poolId": 6,
     "chainId": 137,

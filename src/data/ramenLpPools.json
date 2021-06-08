@@ -6,7 +6,7 @@
     "poolId": 1,
     "chainId": 56,
     "lp0": {
-      "address": "0x4f47a0d15c1e53f3d94c069c7d16977c29f9cb6b",
+      "address": "0x4F47A0d15c1E53F3d94c069C7D16977c29F9CB6B",
       "oracle": "tokens",
       "oracleId": "Ramen",
       "decimals": "1e18"
@@ -25,13 +25,13 @@
     "poolId": 3,
     "chainId": 56,
     "lp0": {
-      "address": "0x4f47a0d15c1e53f3d94c069c7d16977c29f9cb6b",
+      "address": "0x4F47A0d15c1E53F3d94c069C7D16977c29F9CB6B",
       "oracle": "tokens",
       "oracleId": "Ramen",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"

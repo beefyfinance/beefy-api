@@ -6,7 +6,7 @@
     "poolId": 0,
     "chainId": 56,
     "lp0": {
-      "address": "0xa25dab5b75ac0e0738e58e49734295bad43d73f1",
+      "address": "0xA25Dab5B75aC0E0738E58E49734295baD43d73F1",
       "oracle": "tokens",
       "oracleId": "BITI",
       "decimals": "1e18"

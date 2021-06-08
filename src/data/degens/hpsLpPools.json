@@ -1,11 +1,11 @@
 [
   {
     "name": "hps-hps-bnb",
-    "address": "0xcac3b7de7d5c44e8e1048241c7de29a61b5c3e7d",
+    "address": "0xcaC3b7DE7D5c44E8E1048241C7dE29a61b5C3E7d",
     "decimals": "1e18",
     "chainId": 56,
     "lp0": {
-      "address": "0xeda21b525ac789eab1a08ef2404dd8505ffb973d",
+      "address": "0xeDa21B525Ac789EaB1a08ef2404dd8505FfB973D",
       "oracle": "tokens",
       "oracleId": "HPS",
       "decimals": "1e18"

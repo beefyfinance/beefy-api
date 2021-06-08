@@ -20,7 +20,7 @@
   },
   {
     "name": "sponge-soak-bnb",
-    "address": "0xc8fcba816ef9b0c5bc03d9178cfcc7ef785b4f2f",
+    "address": "0xc8FCBA816eF9B0c5bc03d9178CfCc7EF785B4f2f",
     "decimals": "1e18",
     "poolId": 1,
     "chainId": 56,

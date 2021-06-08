@@ -5,7 +5,7 @@
     "decimals": "1e18",
     "chainId": 56,
     "lp0": {
-      "address": "0xf16e81dce15b08f326220742020379b855b87df9",
+      "address": "0xf16e81dce15B08F326220742020379B855B87DF9",
       "oracle": "tokens",
       "oracleId": "ICE",
       "decimals": "1e18"

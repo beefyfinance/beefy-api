@@ -5,7 +5,7 @@
     "decimals": "1e18",
     "chainId": 56,
     "lp0": {
-      "address": "0x05b339b0a346bf01f851dde47a5d485c34fe220c",
+      "address": "0x05B339B0A346bF01f851ddE47a5d485c34FE220c",
       "oracle": "tokens",
       "oracleId": "NAUT",
       "decimals": "1e8"

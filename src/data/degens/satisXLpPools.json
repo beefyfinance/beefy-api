@@ -7,13 +7,13 @@
     "strat": "0xa4B7E3F71383C286D09a191d7DBBc0A8843cE726",
     "chainId": 56,
     "lp0": {
-      "address": "0x8fda94079913cb921d065ed9c004afb43e1f900e",
+      "address": "0x8fda94079913CB921D065Ed9c004Afb43e1f900e",
       "oracle": "tokens",
       "oracleId": "xSAT",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"
@@ -27,7 +27,7 @@
     "strat": "0x6ade33E666714D00d3C4Fc9314faFdBF40942ec7",
     "chainId": 56,
     "lp0": {
-      "address": "0x8fda94079913cb921d065ed9c004afb43e1f900e",
+      "address": "0x8fda94079913CB921D065Ed9c004Afb43e1f900e",
       "oracle": "tokens",
       "oracleId": "xSAT",
       "decimals": "1e18"

@@ -6,7 +6,7 @@
     "poolId": 0,
     "chainId": 56,
     "lp0": {
-      "address": "0x94f559ae621f1c810f31a6a620ad7376776fe09e",
+      "address": "0x94F559aE621F1c810F31a6a620Ad7376776fe09E",
       "oracle": "tokens",
       "oracleId": "SOUP",
       "decimals": "1e18"
@@ -25,7 +25,7 @@
     "poolId": 1,
     "chainId": 56,
     "lp0": {
-      "address": "0x69f27e70e820197a6e495219d9ac34c8c6da7eee",
+      "address": "0x69F27E70E820197A6e495219D9aC34C8C6dA7EeE",
       "oracle": "tokens",
       "oracleId": "SOUPS",
       "decimals": "1e18"

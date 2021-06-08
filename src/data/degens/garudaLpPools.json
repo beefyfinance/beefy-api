@@ -6,7 +6,7 @@
     "poolId": 13,
     "chainId": 56,
     "lp0": {
-      "address": "0x854086dc841e1bfae50cb615bf41f55bf432a90b",
+      "address": "0x854086dC841e1bfae50Cb615bF41f55BF432a90b",
       "oracle": "tokens",
       "oracleId": "GARUDA",
       "decimals": "1e18"
@@ -25,7 +25,7 @@
     "poolId": 19,
     "chainId": 56,
     "lp0": {
-      "address": "0x854086dc841e1bfae50cb615bf41f55bf432a90b",
+      "address": "0x854086dC841e1bfae50Cb615bF41f55BF432a90b",
       "oracle": "tokens",
       "oracleId": "GARUDA",
       "decimals": "1e18"
@@ -44,7 +44,7 @@
     "poolId": 32,
     "chainId": 56,
     "lp0": {
-      "address": "0x854086dc841e1bfae50cb615bf41f55bf432a90b",
+      "address": "0x854086dC841e1bfae50Cb615bF41f55BF432a90b",
       "oracle": "tokens",
       "oracleId": "GARUDA",
       "decimals": "1e18"

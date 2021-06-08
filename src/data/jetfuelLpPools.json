@@ -6,7 +6,7 @@
     "poolId": 14,
     "chainId": 56,
     "lp0": {
-      "address": "0x4437743ac02957068995c48e08465e0ee1769fbe",
+      "address": "0x4437743ac02957068995c48E08465E0EE1769fBE",
       "oracle": "tokens",
       "oracleId": "FTS",
       "decimals": "1e18"

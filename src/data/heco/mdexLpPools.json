@@ -12,7 +12,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xc38072aa3f8e049de541223a9c9772132bb48634",
+      "address": "0xC38072AA3F8E049De541223A9c9772132bB48634",
       "oracle": "tokens",
       "oracleId": "SHIB",
       "decimals": "1e18"
@@ -20,7 +20,7 @@
   },
   {
     "name": "mdex-bifi-usdt",
-    "address": "0xe6f7b06ad8b93a21f78e4acd59f2dac169ea704b",
+    "address": "0xe6F7b06ad8B93A21f78E4aCD59f2dac169eA704B",
     "decimals": "1e18",
     "poolId": 84,
     "chainId": 128,
@@ -329,7 +329,7 @@
     "poolId": 16,
     "chainId": 128,
     "lp0": {
-      "address": "0x25d2e80cb6b86881fd7e07dd263fb79f4abe033c",
+      "address": "0x25D2e80cB6B86881Fd7e07dd263Fb79f4AbE033c",
       "oracle": "tokens",
       "oracleId": "MDX",
       "decimals": "1e18"
@@ -348,7 +348,7 @@
     "poolId": 19,
     "chainId": 128,
     "lp0": {
-      "address": "0x25d2e80cb6b86881fd7e07dd263fb79f4abe033c",
+      "address": "0x25D2e80cB6B86881Fd7e07dd263Fb79f4AbE033c",
       "oracle": "tokens",
       "oracleId": "MDX",
       "decimals": "1e18"

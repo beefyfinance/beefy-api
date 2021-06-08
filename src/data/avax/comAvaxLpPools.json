@@ -58,7 +58,7 @@
   },
   {
     "name": "com-usdt-avax",
-    "address": "0xe64bfae83ba234ab85bcef5b7a92427e29b3aa11",
+    "address": "0xe64bfAe83BA234aB85BceF5B7A92427E29b3AA11",
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 43114,
@@ -77,7 +77,7 @@
   },
   {
     "name": "com-com-avax",
-    "address": "0xf0ed25fd26e0b64c86c6c78b661f2ef283e9b6ff",
+    "address": "0xF0ED25fD26E0b64C86c6c78b661F2ef283E9B6FF",
     "decimals": "1e18",
     "poolId": 5,
     "chainId": 43114,
