@@ -6,7 +6,7 @@
     "oracleId": "HFIL",
     "decimals": "1e18",
     "borrowDepth": 3,
-    "borrowPercent": 0.54
+    "borrowPercent": 0.68
   },
   {
     "name": "lendhub-dot",
@@ -15,7 +15,7 @@
     "oracleId": "HDOT",
     "decimals": "1e18",
     "borrowDepth": 3,
-    "borrowPercent": 0.54
+    "borrowPercent": 0.68
   },
   {
     "name": "lendhub-btc",
@@ -24,7 +24,7 @@
     "oracleId": "HBTC",
     "decimals": "1e18",
     "borrowDepth": 3,
-    "borrowPercent": 0.54
+    "borrowPercent": 0.78
   },
   {
     "name": "lendhub-eth",
@@ -33,7 +33,7 @@
     "oracleId": "ETH",
     "decimals": "1e18",
     "borrowDepth": 3,
-    "borrowPercent": 0.54
+    "borrowPercent": 0.78
   },
   {
     "name": "lendhub-husd",
@@ -42,6 +42,6 @@
     "oracleId": "HUSD",
     "decimals": "1e8",
     "borrowDepth": 3,
-    "borrowPercent": 0.54
+    "borrowPercent": 0.78
   }
 ]
