@@ -101,15 +101,15 @@
     "poolId": 400,
     "chainId": 56,
     "lp0": {
-      "address": "0xDAe6c2A48BFAA66b43815c5548b10800919c993E",
-      "oracle": "tokens",
-      "oracleId": "KTN",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDAe6c2A48BFAA66b43815c5548b10800919c993E",
+      "oracle": "tokens",
+      "oracleId": "KTN",
       "decimals": "1e18"
     }
   },
@@ -386,16 +386,16 @@
     "poolId": 380,
     "chainId": 56,
     "lp0": {
-      "address": "0xe550a593d09FBC8DCD557b5C88Cea6946A8b404A",
-      "oracle": "tokens",
-      "oracleId": "tDOGE",
-      "decimals": "1e8"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe550a593d09FBC8DCD557b5C88Cea6946A8b404A",
+      "oracle": "tokens",
+      "oracleId": "tDOGE",
+      "decimals": "1e8"
     }
   },
   {
@@ -538,15 +538,15 @@
     "poolId": 371,
     "chainId": 56,
     "lp0": {
-      "address": "0xF218184Af829Cf2b0019F8E6F0b2423498a36983",
-      "oracle": "tokens",
-      "oracleId": "MATH",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF218184Af829Cf2b0019F8E6F0b2423498a36983",
+      "oracle": "tokens",
+      "oracleId": "MATH",
       "decimals": "1e18"
     }
   },
@@ -804,15 +804,15 @@
     "poolId": 268,
     "chainId": 56,
     "lp0": {
-      "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
-      "oracle": "tokens",
-      "oracleId": "UNI",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xBf5140A22578168FD562DCcF235E5D43A02ce9B1",
+      "oracle": "tokens",
+      "oracleId": "UNI",
       "decimals": "1e18"
     }
   },

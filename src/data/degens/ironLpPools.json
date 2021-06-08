@@ -6,15 +6,15 @@
     "poolId": 2,
     "chainId": 56,
     "lp0": {
-      "address": "0x9001eE054F1692feF3A48330cB543b6FEc6287eb",
-      "oracle": "tokens",
-      "oracleId": "STEEL",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0x7b65B489fE53fCE1F6548Db886C08aD73111DDd8",
       "oracle": "tokens",
       "oracleId": "IRON",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9001eE054F1692feF3A48330cB543b6FEc6287eb",
+      "oracle": "tokens",
+      "oracleId": "STEEL",
       "decimals": "1e18"
     }
   },

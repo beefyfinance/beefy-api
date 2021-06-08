@@ -25,15 +25,15 @@
     "poolId": 19,
     "chainId": 56,
     "lp0": {
-      "address": "0x854086dC841e1bfae50Cb615bF41f55BF432a90b",
-      "oracle": "tokens",
-      "oracleId": "GARUDA",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
       "oracle": "tokens",
       "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x854086dC841e1bfae50Cb615bF41f55BF432a90b",
+      "oracle": "tokens",
+      "oracleId": "GARUDA",
       "decimals": "1e18"
     }
   },

@@ -25,15 +25,15 @@
     "poolId": 4,
     "chainId": 56,
     "lp0": {
-      "address": "0x68169d96a20dFe968B0fe714578969118c08484A",
-      "oracle": "tokens",
-      "oracleId": "DADA",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47",
       "oracle": "tokens",
       "oracleId": "ADA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x68169d96a20dFe968B0fe714578969118c08484A",
+      "oracle": "tokens",
+      "oracleId": "DADA",
       "decimals": "1e18"
     }
   },
@@ -44,15 +44,15 @@
     "poolId": 3,
     "chainId": 56,
     "lp0": {
-      "address": "0xf633DEb2452918FA5248070C1986BE7a3895F3fC",
-      "oracle": "tokens",
-      "oracleId": "DETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "tokens",
       "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf633DEb2452918FA5248070C1986BE7a3895F3fC",
+      "oracle": "tokens",
+      "oracleId": "DETH",
       "decimals": "1e18"
     }
   },

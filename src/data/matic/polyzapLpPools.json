@@ -6,15 +6,15 @@
     "poolId": 7,
     "chainId": 137,
     "lp0": {
-      "address": "0xeb2778f74E5ee038E67AA6c77f0F0451ABd748FD",
-      "oracle": "tokens",
-      "oracleId": "PZAP",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
       "oracle": "tokens",
       "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xeb2778f74E5ee038E67AA6c77f0F0451ABd748FD",
+      "oracle": "tokens",
+      "oracleId": "PZAP",
       "decimals": "1e18"
     }
   },
@@ -25,16 +25,16 @@
     "poolId": 6,
     "chainId": 137,
     "lp0": {
-      "address": "0xeb2778f74E5ee038E67AA6c77f0F0451ABd748FD",
-      "oracle": "tokens",
-      "oracleId": "PZAP",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
       "oracleId": "USDC",
       "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xeb2778f74E5ee038E67AA6c77f0F0451ABd748FD",
+      "oracle": "tokens",
+      "oracleId": "PZAP",
+      "decimals": "1e18"
     }
   }
 ]
