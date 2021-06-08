@@ -28,7 +28,6 @@ const { getCakeLpApys } = require('./pancake/getCakeLpApys');
 const getSpongeLpApys = require('./sponge/getSpongeLpApys');
 const getSpongePoolApy = require('./sponge/getSpongePoolApy');
 const getSwipeLpApys = require('./swipe/getSwipeLpApys');
-const getTyphLpApys = require('./typhoon/getTyphLpApys');
 const getVenusApys = require('./venus/getVenusApys');
 const getComBscApys = require('./complus/getComBscLpApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
@@ -70,7 +69,6 @@ const getApys = [
   getSpongeLpApys,
   getSpongePoolApy,
   getSwipeLpApys,
-  getTyphLpApys,
   getVenusApys,
 ];
 // ^^ APYs are sorted alphabetically
