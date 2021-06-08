@@ -1,5 +1,23 @@
 [
   {
+    "name": "cakev2-mbox-bnb",
+    "address": "0x8FA59693458289914dB0097F5F366d771B7a7C3F",
+    "decimals": "1e18",
+    "poolId": 405,
+    "lp0": {
+      "address": "0x3203c9e46ca618c8c1ce5dc67e7e9d75f5da2377",
+      "oracle": "tokens",
+      "oracleId": "MBOX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-ata-bnb",
     "address": "0xeF7767677867552CFA699148b96a03358A9be779",
     "decimals": "1e18",
