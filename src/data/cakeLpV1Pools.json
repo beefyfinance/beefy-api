@@ -72,7 +72,7 @@
       "address": "0xC13B7a43223BB9Bf4B69BD68Ab20ca1B79d81C75",
       "oracle": "tokens",
       "oracleId": "JGN",
-      "decimals": "1e8"
+      "decimals": "1e18"
     }
   },
   {
@@ -1111,7 +1111,7 @@
       "address": "0x78650B139471520656b9E7aA7A5e9276814a38e9",
       "oracle": "tokens",
       "oracleId": "BTCST",
-      "decimals": "1e18"
+      "decimals": "1e17"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",

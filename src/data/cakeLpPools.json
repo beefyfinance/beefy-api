@@ -332,7 +332,7 @@
       "address": "0x7e396BfC8a2f84748701167c2d622F041A1D7a17",
       "oracle": "tokens",
       "oracleId": "WMASS",
-      "decimals": "1e18"
+      "decimals": "1e8"
     },
     "lp1": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
@@ -2403,7 +2403,7 @@
       "address": "0x78650B139471520656b9E7aA7A5e9276814a38e9",
       "oracle": "tokens",
       "oracleId": "BTCST",
-      "decimals": "1e18"
+      "decimals": "1e17"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
