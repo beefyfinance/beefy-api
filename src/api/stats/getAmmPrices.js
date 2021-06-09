@@ -58,7 +58,7 @@ const comethPools = require('../../data/matic/comethLpPools.json');
 const hfiPools = require('../../data/heco/hfiLpPools.json');
 const lydPools = require('../../data/avax/lydLpPools.json');
 const icarusPools = require('../../data/icarusLpPools.json');
-const quickPools = require('../../data/matic/quickLpPools.json');
+const { quickLpPools } = require('../../data/matic/quickLpPools');
 const krillPools = require('../../data/matic/krillLpPools.json');
 const sushiLpPools = require('../../data/matic/sushiLpPools.json');
 const satisPools = require('../../data/degens/satisLpPools.json');
@@ -122,7 +122,7 @@ const pools = [
   ...satisPools,
   ...krillPools,
   ...sushiLpPools,
-  ...quickPools,
+  ...quickLpPools,
   ...lydPools,
   ...icarusPools,
   ...hfiPools,
