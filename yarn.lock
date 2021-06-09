@@ -1413,6 +1413,11 @@ blakejs@^1.1.0:
   resolved "https://registry.yarnpkg.com/blakejs/-/blakejs-1.1.0.tgz#69df92ef953aa88ca51a32df6ab1c54a155fc7a5"
   integrity sha1-ad+S75U6qIylGjLfarHFShVfx6U=
 
+blockchain-addressbook@^0.1.36:
+  version "0.1.36"
+  resolved "https://registry.yarnpkg.com/blockchain-addressbook/-/blockchain-addressbook-0.1.36.tgz#5e908d26ca91dff7b525339b068637171861a7af"
+  integrity sha512-7J5JObqciL2WAv7MM9cHzSMhmhYomyvJHtTUBuhydlRfXY8EKaTymZwuJqCQJhTCP021i4puaaFQPB4lEG+uxw==
+
 bluebird@^3.5.0:
   version "3.7.2"
   resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
