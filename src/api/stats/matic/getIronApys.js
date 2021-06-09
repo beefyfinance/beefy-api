@@ -14,9 +14,7 @@ const {
     tokens: { TITAN, USDC },
   },
 } = addressBook;
-const {
-  getScientificNotationFromTokenDecimals,
-} = require('../../../utils/getScientificNotationFromTokenDecimals');
+const { getEDecimals } = require('../../../utils/getEDecimals');
 
 const getIronApys = async () => {
   const lps = getMasterChefApys({
@@ -27,7 +25,7 @@ const getIronApys = async () => {
     pools: pools,
     oracle: 'tokens',
     oracleId: TITAN.symbol,
-    decimals: getScientificNotationFromTokenDecimals(TITAN.decimals),
+    decimals: getEDecimals(TITAN.decimals),
     // log: true,
     tradingFeeInfoClient: sushiClient,
     liquidityProviderFee: sushiLiquidityProviderFee,
@@ -41,7 +39,7 @@ const getIronApys = async () => {
     pools: quickPools,
     oracle: 'tokens',
     oracleId: TITAN.symbol,
-    decimals: getScientificNotationFromTokenDecimals(TITAN.decimals),
+    decimals: getEDecimals(TITAN.decimals),
     // log: true,
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: quickLiquidityProviderFee,
@@ -55,7 +53,7 @@ const getIronApys = async () => {
     pools: ironTitanPools,
     oracle: 'tokens',
     oracleId: TITAN.symbol,
-    decimals: getScientificNotationFromTokenDecimals(TITAN.decimals),
+    decimals: getEDecimals(TITAN.decimals),
     // log: true,
     tradingFeeInfoClient: sushiClient,
     liquidityProviderFee: sushiLiquidityProviderFee,
@@ -73,12 +71,12 @@ const getIronApys = async () => {
         address: TITAN.address,
         oracle: 'tokens',
         oracleId: TITAN.symbol,
-        decimals: getScientificNotationFromTokenDecimals(TITAN.decimals),
+        decimals: getEDecimals(TITAN.decimals),
       },
     ],
     oracle: 'tokens',
     oracleId: USDC.symbol,
-    decimals: getScientificNotationFromTokenDecimals(USDC.decimals),
+    decimals: getEDecimals(USDC.decimals),
     // log: true,
   });
 

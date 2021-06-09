@@ -10,9 +10,7 @@ const {
     tokens: { PZAP },
   },
 } = addressBook;
-const {
-  getScientificNotationFromTokenDecimals,
-} = require('../../../utils/getScientificNotationFromTokenDecimals');
+const { getEDecimals } = require('../../../utils/getEDecimals');
 
 const getPolyzapApys = async () =>
   await getMasterChefApys({
@@ -23,7 +21,7 @@ const getPolyzapApys = async () =>
     pools: pools,
     oracleId: PZAP.symbol,
     oracle: 'tokens',
-    decimals: getScientificNotationFromTokenDecimals(PZAP.decimals),
+    decimals: getEDecimals(PZAP.decimals),
     // log: true,
     tradingFeeInfoClient: polyzapClient,
     liquidityProviderFee: 0.002,

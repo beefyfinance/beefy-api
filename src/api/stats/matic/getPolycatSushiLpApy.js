@@ -11,9 +11,7 @@ const {
     tokens: { FISH },
   },
 } = addressBook;
-const {
-  getScientificNotationFromTokenDecimals,
-} = require('../../../utils/getScientificNotationFromTokenDecimals');
+const { getEDecimals } = require('../../../utils/getEDecimals');
 
 const getPolycatSushiLpApy = async () =>
   await getMasterChefApys({
@@ -24,7 +22,7 @@ const getPolycatSushiLpApy = async () =>
     pools: pools,
     oracleId: FISH.symbol,
     oracle: 'tokens',
-    decimals: getScientificNotationFromTokenDecimals(FISH.decimals),
+    decimals: getEDecimals(FISH.decimals),
     // log: true,
     tradingFeeInfoClient: sushiClient,
     liquidityProviderFee: sushiLiquidityProviderFee,
