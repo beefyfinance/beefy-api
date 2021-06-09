@@ -1,0 +1,40 @@
+[
+  {
+    "name": "tenfi-tenfi-busd",
+    "address": "0xac6EE351e2E9108f03c7F5c49296505B8F336Be3",
+    "strat": "0xA2748F0c4C7d7110A360cf8b94bB8C2B6F96C0F2",
+    "decimals": "1e18",
+    "poolId": 16,
+    "lp0": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd15C444F1199Ae72795eba15E8C1db44E47abF62",
+      "oracle": "tokens",
+      "oracleId": "TENFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tenfi-tenfi-bnb",
+    "address": "0x09F39f9B7d6395155396Fed7347620dD54Da1dc6",
+    "strat": "0xc5512C2A55A93b62638251B0Ee736dc5CCB5d486",
+    "decimals": "1e18",
+    "poolId": 15,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd15C444F1199Ae72795eba15E8C1db44E47abF62",
+      "oracle": "tokens",
+      "oracleId": "TENFI",
+      "decimals": "1e18"
+    }
+  }
+]
