@@ -86,6 +86,7 @@ const polycatQuickPool = require('../../data/matic/polycatQuickLpPool.json');
 const polycatSushiPool = require('../../data/matic/polycatSushiLpPool.json');
 const lendhubPools = require('../../data/heco/lendhubLpPools.json');
 const pantherPools = require('../../data/degens/pantherLpPools.json');
+const waultPools = require('../../data/waultLpPools.json');
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -177,6 +178,7 @@ const pools = [
   ...thugsPools,
   ...cakeLpV1Pools,
   ...cakeLpPools,
+  ...waultPools,
 ];
 
 const knownPrices = {
