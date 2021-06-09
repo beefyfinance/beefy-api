@@ -27,7 +27,7 @@ const getPrice = async (pool, tokenPrices) => {
   const virtualPrice = new BigNumber(await lpContract.methods.getVirtualPrice().call());
 
   let tokenPrice = 1;
-  const tokenSymbol = swap.oracleId;
+  const tokenSymbol = swap.symbol;
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
