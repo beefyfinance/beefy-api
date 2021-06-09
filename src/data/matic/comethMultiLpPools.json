@@ -10,13 +10,13 @@
     "lp0": {
       "address": "0x9c78ee466d6cb57a4d01fd887d2b5dfb2d46288f",
       "oracle": "tokens",
-      "oracleId": "MUST",
+      "symbol": "MUST",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "symbol": "BIFI",
       "decimals": "1e18"
     }
   },
@@ -31,13 +31,13 @@
     "lp0": {
       "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "symbol": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "symbol": "BIFI",
       "decimals": "1e18"
     }
   },
@@ -52,13 +52,13 @@
     "lp0": {
       "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "symbol": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xC91c06DB0f7bFFba61e2A5645CC15686F0a8c828",
       "oracle": "tokens",
-      "oracleId": "RAZOR",
+      "symbol": "RAZOR",
       "decimals": "1e18"
     }
   },
@@ -73,13 +73,13 @@
     "lp0": {
       "address": "0x361A5a4993493cE00f61C32d4EcCA5512b82CE90",
       "oracle": "tokens",
-      "oracleId": "SDT",
+      "symbol": "SDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "symbol": "ETH",
       "decimals": "1e18"
     }
   },
@@ -94,13 +94,13 @@
     "lp0": {
       "address": "0x5c7f7fe4766fe8f0fa9b41e2e4194d939488ff1c",
       "oracle": "tokens",
-      "oracleId": "DOKI",
+      "symbol": "DOKI",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "symbol": "ETH",
       "decimals": "1e18"
     }
   },
@@ -115,13 +115,13 @@
     "lp0": {
       "address": "0x7CdC0421469398e0F3aA8890693d86c840Ac8931",
       "oracle": "tokens",
-      "oracleId": "AZUKI",
+      "symbol": "AZUKI",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "symbol": "ETH",
       "decimals": "1e18"
     }
   }

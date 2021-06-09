@@ -8,13 +8,13 @@
     "lp0": {
       "address": "0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F",
       "oracle": "tokens",
-      "oracleId": "WHT",
+      "symbol": "WHT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x56f95662E71f30b333b456439248c6dE589082a4",
       "oracle": "tokens",
-      "oracleId": "LAVA",
+      "symbol": "LAVA",
       "decimals": "1e18"
     }
   },
@@ -27,13 +27,13 @@
     "lp0": {
       "address": "0x56f95662E71f30b333b456439248c6dE589082a4",
       "oracle": "tokens",
-      "oracleId": "LAVA",
+      "symbol": "LAVA",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa71EdC38d189767582C38A3145b5873052c3e47a",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "symbol": "USDT",
       "decimals": "1e18"
     }
   }

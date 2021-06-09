@@ -1,6 +1,7 @@
 const BigNumber = require('bignumber.js');
 const { ethers } = require('ethers');
 const { MULTICHAIN_RPC } = require('../constants');
+const { getEDecimals } = require('./getEDecimals');
 
 const MULTICALLS = {
   56: '0x0943afe23cb43BD15aC2d58bACa34Eb570BFC278',
@@ -31,12 +32,10 @@ const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
 };
 
 const calcLpPrice = (pool, tokenPrices) => {
-  const lp0 = pool.lp0.balance
-    .multipliedBy(tokenPrices[pool.lp0.oracleId])
-    .dividedBy(pool.lp0.decimals);
-  const lp1 = pool.lp1.balance
-    .multipliedBy(tokenPrices[pool.lp1.oracleId])
-    .dividedBy(pool.lp1.decimals);
+  const lp0EDecimals = getEDecimals(pool.lp0.decimals);
+  const lp1EDecimals = getEDecimals(pool.lp1.decimals);
+  const lp0 = pool.lp0.balance.multipliedBy(tokenPrices[pool.lp0.symbol]).dividedBy(lp0EDecimals);
+  const lp1 = pool.lp1.balance.multipliedBy(tokenPrices[pool.lp1.symbol]).dividedBy(lp1EDecimals);
   return lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(pool.totalSupply).toNumber();
 };
 
@@ -92,25 +91,25 @@ const fetchAmmPrices = async (pools, knownPrices) => {
         const pool = unsolved[i];
 
         let knownToken, unknownToken;
-        if (pool.lp0.oracleId in prices) {
+        if (pool.lp0.symbol in prices) {
           knownToken = pool.lp0;
           unknownToken = pool.lp1;
-        } else if (pool.lp1.oracleId in prices) {
+        } else if (pool.lp1.symbol in prices) {
           knownToken = pool.lp1;
           unknownToken = pool.lp0;
         } else {
-          console.log('unsolved: ', pool.lp0.oracleId, pool.lp1.oracleId);
+          console.log('unsolved: ', pool.lp0.symbol, pool.lp1.symbol);
           continue;
         }
 
         const { price, weight } = calcTokenPrice(
-          prices[knownToken.oracleId],
+          prices[knownToken.symbol],
           knownToken,
           unknownToken
         );
-        if (weight > (weights[unknownToken.oracleId] || 0)) {
-          prices[unknownToken.oracleId] = price;
-          weights[unknownToken.oracleId] = weight;
+        if (weight > (weights[unknownToken.symbol] || 0)) {
+          prices[unknownToken.symbol] = price;
+          weights[unknownToken.symbol] = weight;
         }
         lps[pool.name] = calcLpPrice(pool, prices);
 

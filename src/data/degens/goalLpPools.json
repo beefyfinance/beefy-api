@@ -7,13 +7,13 @@
     "lp0": {
       "address": "0xe5b57e6e1b945b91fee368ac108d2ebcca78aa8f",
       "oracle": "tokens",
-      "oracleId": "GOAL",
+      "symbol": "GOAL",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "symbol": "BUSD",
       "decimals": "1e18"
     }
   }

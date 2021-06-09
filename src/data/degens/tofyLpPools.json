@@ -7,13 +7,13 @@
     "lp0": {
       "address": "0x787732f27D18495494cea3792ed7946BbCFF8db2",
       "oracle": "tokens",
-      "oracleId": "MASH",
+      "symbol": "MASH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xE1F2d89a6c79b4242F300f880e490A70083E9A1c",
       "oracle": "tokens",
-      "oracleId": "TOFY",
+      "symbol": "TOFY",
       "decimals": "1e18"
     }
   },
@@ -25,13 +25,13 @@
     "lp0": {
       "address": "0xE1F2d89a6c79b4242F300f880e490A70083E9A1c",
       "oracle": "tokens",
-      "oracleId": "TOFY",
+      "symbol": "TOFY",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "WBNB",
+      "symbol": "WBNB",
       "decimals": "1e18"
     }
   }

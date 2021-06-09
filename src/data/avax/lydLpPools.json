@@ -8,13 +8,13 @@
     "lp0": {
       "address": "0x4c9b4e1ac6f24cde3660d5e4ef1ebf77c710c084",
       "oracle": "tokens",
-      "oracleId": "LYD",
+      "symbol": "LYD",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
       "oracle": "tokens",
-      "oracleId": "WAVAX",
+      "symbol": "WAVAX",
       "decimals": "1e18"
     }
   },
@@ -27,13 +27,13 @@
     "lp0": {
       "address": "0x4c9b4e1ac6f24cde3660d5e4ef1ebf77c710c084",
       "oracle": "tokens",
-      "oracleId": "LYD",
+      "symbol": "LYD",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xde3a24028580884448a5397872046a019649b084",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "symbol": "USDT",
       "decimals": "1e6"
     }
   }

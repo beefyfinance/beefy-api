@@ -2,8 +2,10 @@ const BigNumber = require('bignumber.js');
 const { web3Factory } = require('./web3');
 const fetchPrice = require('./fetchPrice');
 const ERC20 = require('../abis/ERC20.json');
+const { getEDecimals } = require('./getEDecimals');
 
 const nativeToken = '0x0000000000000000000000000000000000000000';
+const tokenOracle = 'tokens';
 
 const lpTokenPrice = async lpToken => {
   const web3 = web3Factory(lpToken.chainId || 56);
@@ -26,15 +28,18 @@ const lpTokenPrice = async lpToken => {
     tokenPairContract.methods.totalSupply().call(),
     token0Bal,
     token1Bal,
-    fetchPrice({ oracle: lpToken.lp0.oracle, id: lpToken.lp0.oracleId }),
-    fetchPrice({ oracle: lpToken.lp1.oracle, id: lpToken.lp1.oracleId }),
+    fetchPrice({ oracle: tokenOracle, id: lpToken.lp0.symbol }),
+    fetchPrice({ oracle: tokenOracle, id: lpToken.lp1.symbol }),
   ]);
 
   reserve0 = new BigNumber(reserve0);
   reserve1 = new BigNumber(reserve1);
 
-  const token0StakedInUsd = reserve0.div(lpToken.lp0.decimals).times(token0Price);
-  const token1StakedInUsd = reserve1.div(lpToken.lp1.decimals).times(token1Price);
+  const lp0EDecimals = getEDecimals(lpToken.lp0.decimals);
+  const lp1EDecimals = getEDecimals(lpToken.lp1.decimals);
+
+  const token0StakedInUsd = reserve0.div(lp0EDecimals).times(token0Price);
+  const token1StakedInUsd = reserve1.div(lp1EDecimals).times(token1Price);
 
   const totalStakedInUsd = token0StakedInUsd.plus(token1StakedInUsd);
   const lpTokenPrice = totalStakedInUsd.dividedBy(totalSupply).times(lpToken.decimals);

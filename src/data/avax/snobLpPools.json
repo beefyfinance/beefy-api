@@ -8,13 +8,13 @@
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
-      "oracleId": "AVAX",
+      "symbol": "AVAX",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xC38f41A296A4493Ff429F1238e030924A1542e50",
       "oracle": "tokens",
-      "oracleId": "SNOB",
+      "symbol": "SNOB",
       "decimals": "1e18"
     }
   }

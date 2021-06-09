@@ -8,13 +8,13 @@
     "lp0": {
       "address": "0xeE814F5B2bF700D2e843Dc56835D28d095161dd9",
       "oracle": "tokens",
-      "oracleId": "GRAND",
+      "symbol": "GRAND",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "WBNB",
+      "symbol": "WBNB",
       "decimals": "1e18"
     }
   }

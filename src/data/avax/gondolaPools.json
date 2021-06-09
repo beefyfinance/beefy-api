@@ -9,7 +9,7 @@
     "swap": {
       "address": "0xed986f982269e0319F710EC270875dE2b2A443d2",
       "oracle": "tokens",
-      "oracleId": "ETH"
+      "symbol": "ETH"
     }
   },
   {
@@ -22,7 +22,7 @@
     "swap": {
       "address": "0x3CE2B891071054ee10d4b5eD5a9446f9016F90d8",
       "oracle": "tokens",
-      "oracleId": "USDT"
+      "symbol": "USDT"
     }
   },
   {
@@ -35,7 +35,7 @@
     "swap": {
       "address": "0x9D43f28C5Fce24D0c8B653E5c5859E0421Af7783",
       "oracle": "tokens",
-      "oracleId": "DAI"
+      "symbol": "DAI"
     }
   },
   {

@@ -33,7 +33,7 @@
       "apyId": "bifi-maxi",
       "contract": "0xf7069e41C57EcC5F122093811d8c75bdB5f7c14e",
       "oracle": "tokens",
-      "oracleId": "BIFI"
+      "symbol": "BIFI"
     },
     {
       "name": "CAKE SMART",
@@ -44,7 +44,7 @@
       "apyId": "cake-smart",
       "contract": "0xB0BDBB9E507dBF55f4aC1ef6ADa3E216202e06FD",
       "oracle": "tokens",
-      "oracleId": "Cake"
+      "symbol": "Cake"
     },
     {
       "name": "Venus: ETH",
@@ -55,7 +55,7 @@
       "apyId": "venus-eth",
       "contract": "0xA9936272065e6DDAc9D2453C9a2712B581e9aE1B",
       "oracle": "tokens",
-      "oracleId": "ETH"
+      "symbol": "ETH"
     },
     {
       "name": "bDollar: BDO-BUSD LP",
@@ -66,7 +66,7 @@
       "apyId": "cake-bdo-busd",
       "contract": "0x0fA31301EaA9633b3e4F7dF22F7543115759cf5a",
       "oracle": "lps",
-      "oracleId": "cake-bdo-busd"
+      "symbol": "cake-bdo-busd"
     },
     {
       "name": "Venus: USDT",
@@ -77,7 +77,7 @@
       "apyId": "venus-usdt",
       "contract": "0x1997D7cF0A63A374A853ca9d5b1dAcCFeCa5cEb8",
       "oracle": "tokens",
-      "oracleId": "USDT"
+      "symbol": "USDT"
     },
     {
       "name": "Venus: BTCB",
@@ -88,7 +88,7 @@
       "apyId": "venus-btcb",
       "contract": "0x7255Ae13BA4484eD33fB48c4b833000dC12888B4",
       "oracle": "tokens",
-      "oracleId": "BTCB"
+      "symbol": "BTCB"
     },
     {
       "name": "Venus: BUSD",
@@ -99,7 +99,7 @@
       "apyId": "venus-busd",
       "contract": "0x2d3d152b3b94c0E0B217AC5bc1115E3D8b8018F9",
       "oracle": "tokens",
-      "oracleId": "BUSD"
+      "symbol": "BUSD"
     },
     {
       "name": "bDollar: SBDO-BUSD LP",
@@ -110,7 +110,7 @@
       "apyId": "cake-sbdo-busd",
       "contract": "0x9327029cf20B78e445397dAf0c4e9c19a931D62e",
       "oracle": "lps",
-      "oracleId": "cake-sbdo-busd"
+      "symbol": "cake-sbdo-busd"
     },
     {
       "name": "Venus: BNB",
@@ -121,7 +121,7 @@
       "apyId": "venus-bnb",
       "contract": "0x6BE4741AB0aD233e4315a10bc783a7B923386b71",
       "oracle": "tokens",
-      "oracleId": "WBNB"
+      "symbol": "WBNB"
     },
     {
       "name": "Venus: BETH",
@@ -132,7 +132,7 @@
       "apyId": "venus-beth",
       "contract": "0xB38D32336538559Ce6680952B0Be4917ed015c39",
       "oracle": "tokens",
-      "oracleId": "BETH"
+      "symbol": "BETH"
     },
     {
       "name": "PancakeSwap: CAKE-BNB LP",
@@ -143,7 +143,7 @@
       "apyId": "cake-cake-bnb",
       "contract": "0x502AB55Cf22f38c4fd8663dEE041A96B72264c53",
       "oracle": "lps",
-      "oracleId": "cake-cake-bnb"
+      "symbol": "cake-cake-bnb"
     }
   ]
 }

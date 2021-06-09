@@ -6,13 +6,13 @@
     "lp0": {
       "address": "0x101d82428437127bF1608F699CD651e6Abf9766E",
       "oracle": "tokens",
-      "oracleId": "BAT",
+      "symbol": "BAT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5",
       "oracle": "tokens",
-      "oracleId": "BAKE",
+      "symbol": "BAKE",
       "decimals": "1e18"
     }
   },
@@ -23,13 +23,13 @@
     "lp0": {
       "address": "0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5",
       "oracle": "tokens",
-      "oracleId": "BAKE",
+      "symbol": "BAKE",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "WBNB",
+      "symbol": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -40,13 +40,13 @@
     "lp0": {
       "address": "0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5",
       "oracle": "tokens",
-      "oracleId": "BAKE",
+      "symbol": "BAKE",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "symbol": "BUSD",
       "decimals": "1e18"
     }
   },
@@ -57,13 +57,13 @@
     "lp0": {
       "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "oracle": "tokens",
-      "oracleId": "BTCB",
+      "symbol": "BTCB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "WBNB",
+      "symbol": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -74,13 +74,13 @@
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "symbol": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "symbol": "BUSD",
       "decimals": "1e18"
     }
   }

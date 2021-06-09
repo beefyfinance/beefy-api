@@ -7,13 +7,13 @@
     "lp0": {
       "address": "0x2849b1ae7e04a3d9bc288673a92477cf63f28af4",
       "oracle": "tokens",
-      "oracleId": "SALT",
+      "symbol": "SALT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "symbol": "BUSD",
       "decimals": "1e18"
     }
   },
@@ -25,13 +25,13 @@
     "lp0": {
       "address": "0x2849b1ae7e04a3d9bc288673a92477cf63f28af4",
       "oracle": "tokens",
-      "oracleId": "SALT",
+      "symbol": "SALT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "WBNB",
+      "symbol": "WBNB",
       "decimals": "1e18"
     }
   }

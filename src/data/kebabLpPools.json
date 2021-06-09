@@ -7,13 +7,13 @@
     "lp0": {
       "address": "0x55d398326f99059fF775485246999027B3197955",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "symbol": "USDT",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "symbol": "BUSD",
       "decimals": "1e18"
     }
   },
@@ -25,13 +25,13 @@
     "lp0": {
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "symbol": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
       "oracle": "tokens",
-      "oracleId": "BTCB",
+      "symbol": "BTCB",
       "decimals": "1e18"
     }
   },
@@ -43,13 +43,13 @@
     "lp0": {
       "address": "0x7979f6c54eba05e18ded44c4f986f49a5de551c2",
       "oracle": "tokens",
-      "oracleId": "KEBAB",
+      "symbol": "KEBAB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
       "oracle": "tokens",
-      "oracleId": "BTCB",
+      "symbol": "BTCB",
       "decimals": "1e18"
     }
   },
@@ -61,13 +61,13 @@
     "lp0": {
       "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "symbol": "BIFI",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "symbol": "BUSD",
       "decimals": "1e18"
     }
   },
@@ -79,13 +79,13 @@
     "lp0": {
       "address": "0x7979f6c54eba05e18ded44c4f986f49a5de551c2",
       "oracle": "tokens",
-      "oracleId": "KEBAB",
+      "symbol": "KEBAB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "symbol": "BUSD",
       "decimals": "1e18"
     }
   },
@@ -97,13 +97,13 @@
     "lp0": {
       "address": "0x7979f6c54eba05e18ded44c4f986f49a5de551c2",
       "oracle": "tokens",
-      "oracleId": "KEBAB",
+      "symbol": "KEBAB",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "WBNB",
+      "symbol": "WBNB",
       "decimals": "1e18"
     }
   }

@@ -8,13 +8,13 @@
     "lp0": {
       "address": "0x617724974218A18769020A70162165A539c07E8a",
       "oracle": "tokens",
-      "oracleId": "OLIVE",
+      "symbol": "OLIVE",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
-      "oracleId": "AVAX",
+      "symbol": "AVAX",
       "decimals": "1e18"
     }
   },
@@ -27,13 +27,13 @@
     "lp0": {
       "address": "0x617724974218A18769020A70162165A539c07E8a",
       "oracle": "tokens",
-      "oracleId": "OLIVE",
+      "symbol": "OLIVE",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xde3A24028580884448a5397872046a019649b084",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "symbol": "USDT",
       "decimals": "1e6"
     }
   }

@@ -8,13 +8,13 @@
     "lp0": {
       "address": "0x05089C9EBFFa4F0AcA269e32056b1b36B37ED71b",
       "oracle": "tokens",
-      "oracleId": "KRILL",
+      "symbol": "KRILL",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "symbol": "USDC",
       "decimals": "1e6"
     }
   }

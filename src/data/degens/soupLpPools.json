@@ -7,13 +7,13 @@
     "lp0": {
       "address": "0x94f559ae621f1c810f31a6a620ad7376776fe09e",
       "oracle": "tokens",
-      "oracleId": "SOUP",
+      "symbol": "SOUP",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "WBNB",
+      "symbol": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -25,13 +25,13 @@
     "lp0": {
       "address": "0x69f27e70e820197a6e495219d9ac34c8c6da7eee",
       "oracle": "tokens",
-      "oracleId": "SOUPS",
+      "symbol": "SOUPS",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "WBNB",
+      "symbol": "WBNB",
       "decimals": "1e18"
     }
   }
