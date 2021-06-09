@@ -8,13 +8,13 @@
       "address": "0x3e3434f57adf4e07dc2d75c6f109c20ac96a1557",
       "oracle": "tokens",
       "symbol": "DDOT",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402",
       "oracle": "tokens",
       "symbol": "DOT",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -26,13 +26,13 @@
       "address": "0x68169d96a20dfe968b0fe714578969118c08484a",
       "oracle": "tokens",
       "symbol": "DADA",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47",
       "oracle": "tokens",
       "symbol": "ADA",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -44,13 +44,13 @@
       "address": "0xf633deb2452918fa5248070c1986be7a3895f3fc",
       "oracle": "tokens",
       "symbol": "DETH",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
       "oracle": "tokens",
       "symbol": "ETH",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -62,13 +62,13 @@
       "address": "0x4101fe75f547a65f6bb054a35f027c16562a45c3",
       "oracle": "tokens",
       "symbol": "DBNB",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -80,13 +80,13 @@
       "address": "0x6b77f51d4c474efb15b72b829e6a0806bbc33724",
       "oracle": "tokens",
       "symbol": "DBTC",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
       "oracle": "tokens",
       "symbol": "BTCB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -98,13 +98,13 @@
       "address": "0x34ea3f7162e6f6ed16bd171267ec180fd5c848da",
       "oracle": "tokens",
       "symbol": "DND",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

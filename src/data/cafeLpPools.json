@@ -8,13 +8,13 @@
       "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
       "oracle": "tokens",
       "symbol": "BNB",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
       "oracle": "tokens",
       "symbol": "BIFI",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -26,13 +26,13 @@
       "address": "0x790be81c3ca0e53974be2688cdb954732c9862e1",
       "oracle": "tokens",
       "symbol": "BREW",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -44,13 +44,13 @@
       "address": "0x790be81c3ca0e53974be2688cdb954732c9862e1",
       "oracle": "tokens",
       "symbol": "BREW",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
       "oracle": "tokens",
       "symbol": "BUSD",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

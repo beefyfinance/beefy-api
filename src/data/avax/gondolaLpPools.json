@@ -9,13 +9,13 @@
       "address": "0xD606199557c8Ab6F4Cc70bD03FaCc96ca576f142",
       "oracle": "tokens",
       "symbol": "GDL",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x008E26068B3EB40B443d3Ea88c1fF99B789c10F7",
       "oracle": "tokens",
       "symbol": "ZERO",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -28,13 +28,13 @@
       "address": "0xD606199557c8Ab6F4Cc70bD03FaCc96ca576f142",
       "oracle": "tokens",
       "symbol": "GDL",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
       "oracle": "tokens",
       "symbol": "WAVAX",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

@@ -9,13 +9,13 @@
       "address": "0x5545153ccfca01fbd7dd11c0b23ba694d9509a6f",
       "oracle": "tokens",
       "symbol": "WHT",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x98fc3b60ed4a504f588342a53746405e355f9347",
       "oracle": "tokens",
       "symbol": "HFI",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -28,13 +28,13 @@
       "address": "0x0298c2b32eae4da002a15f36fdf7615bea3da047",
       "oracle": "tokens",
       "symbol": "HUSD",
-      "decimals": "1e8"
+      "decimals": 8
     },
     "lp1": {
       "address": "0x98fc3b60ed4a504f588342a53746405e355f9347",
       "oracle": "tokens",
       "symbol": "HFI",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

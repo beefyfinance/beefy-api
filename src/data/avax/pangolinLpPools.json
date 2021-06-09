@@ -9,13 +9,13 @@
       "address": "0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB",
       "oracle": "tokens",
       "symbol": "WBTC",
-      "decimals": "1e8"
+      "decimals": 8
     },
     "lp1": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
       "symbol": "AVAX",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -28,13 +28,13 @@
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
       "symbol": "AVAX",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xB3fe5374F67D7a22886A0eE082b2E2f9d2651651",
       "oracle": "tokens",
       "symbol": "LINK",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -47,13 +47,13 @@
       "address": "0x39cf1BD5f15fb22eC3D9Ff86b0727aFc203427cc",
       "oracle": "tokens",
       "symbol": "SUSHI",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
       "symbol": "AVAX",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -66,13 +66,13 @@
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
       "symbol": "AVAX",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xf39f9671906d8630812f9d9863bBEf5D523c84Ab",
       "oracle": "tokens",
       "symbol": "UNI",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -85,13 +85,13 @@
       "address": "0x60781C2586D68229fde47564546784ab3fACA982",
       "oracle": "tokens",
       "symbol": "PNG",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xde3A24028580884448a5397872046a019649b084",
       "oracle": "tokens",
       "symbol": "USDT",
-      "decimals": "1e6"
+      "decimals": 6
     }
   },
   {
@@ -104,13 +104,13 @@
       "address": "0x60781C2586D68229fde47564546784ab3fACA982",
       "oracle": "tokens",
       "symbol": "PNG",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
       "symbol": "AVAX",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -123,13 +123,13 @@
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
       "symbol": "AVAX",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xf20d962a6c8f70c731bd838a3a388D7d48fA6e15",
       "oracle": "tokens",
       "symbol": "ETH",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -142,13 +142,13 @@
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
       "symbol": "AVAX",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xde3A24028580884448a5397872046a019649b084",
       "oracle": "tokens",
       "symbol": "USDT",
-      "decimals": "1e6"
+      "decimals": 6
     }
   }
 ]

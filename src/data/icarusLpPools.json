@@ -8,13 +8,13 @@
       "address": "0x95111f630ac215eb74599ed42c67e2c2790d69e2",
       "oracle": "tokens",
       "symbol": "ICA",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "tokens",
       "symbol": "ETH",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -26,13 +26,13 @@
       "address": "0x95111f630ac215eb74599ed42c67e2c2790d69e2",
       "oracle": "tokens",
       "symbol": "ICA",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
       "oracle": "tokens",
       "symbol": "BTCB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

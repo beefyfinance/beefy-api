@@ -8,13 +8,13 @@
       "address": "0xe5b57e6e1b945b91fee368ac108d2ebcca78aa8f",
       "oracle": "tokens",
       "symbol": "GOAL",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
       "oracle": "tokens",
       "symbol": "BUSD",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

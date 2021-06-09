@@ -9,13 +9,13 @@
       "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
       "oracle": "tokens",
       "symbol": "WMATIC",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x3a3Df212b7AA91Aa0402B9035b098891d276572B",
       "oracle": "tokens",
       "symbol": "FISH",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

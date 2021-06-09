@@ -17,13 +17,13 @@
       "address": "0x181f3f22c9a751e2ce673498a03e1fdfc0ebbfb6",
       "oracle": "tokens",
       "symbol": "EST",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
       "oracle": "tokens",
       "symbol": "WFTM",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

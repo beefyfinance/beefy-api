@@ -8,13 +8,13 @@
       "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
       "oracle": "tokens",
       "symbol": "USDC",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
       "oracle": "tokens",
       "symbol": "BUSD",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -26,13 +26,13 @@
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "symbol": "BUSD",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -44,13 +44,13 @@
       "address": "0x0487b824c8261462f88940f97053e65bdb498446",
       "oracle": "tokens",
       "symbol": "WINGS",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -62,13 +62,13 @@
       "address": "0x0487b824c8261462f88940f97053e65bdb498446",
       "oracle": "tokens",
       "symbol": "WINGS",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
       "oracle": "tokens",
       "symbol": "BUSD",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -80,13 +80,13 @@
       "address": "0x2090c8295769791ab7A3CF1CC6e0AA19F35e441A",
       "oracle": "tokens",
       "symbol": "Fuel",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -98,13 +98,13 @@
       "address": "0x4437743ac02957068995c48e08465e0ee1769fbe",
       "oracle": "tokens",
       "symbol": "FTS",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

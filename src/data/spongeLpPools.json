@@ -8,13 +8,13 @@
       "address": "0x072e3D0D4f14dd82a16B0a33678c6104e9009ED9",
       "oracle": "tokens",
       "symbol": "STEAM",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -26,13 +26,13 @@
       "address": "0x849233FF1aea15D80EF658B2871664C9Ca994063",
       "oracle": "tokens",
       "symbol": "SOAK",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -44,13 +44,13 @@
       "address": "0x3aabCf53A1930A42E18D938C019E83Ebee50a849",
       "oracle": "tokens",
       "symbol": "SPG",
-      "decimals": "1e9"
+      "decimals": 9
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

@@ -8,13 +8,13 @@
       "address": "0xa92d41ab8efee617d80a829cd9f5683c5f793ada",
       "oracle": "tokens",
       "symbol": "FROYO",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
       "oracle": "tokens",
       "symbol": "WFTM",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

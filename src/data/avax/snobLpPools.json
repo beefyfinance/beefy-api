@@ -9,13 +9,13 @@
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
       "symbol": "AVAX",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xC38f41A296A4493Ff429F1238e030924A1542e50",
       "oracle": "tokens",
       "symbol": "SNOB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]

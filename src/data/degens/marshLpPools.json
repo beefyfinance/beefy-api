@@ -8,13 +8,13 @@
       "address": "0x787732f27D18495494cea3792ed7946BbCFF8db2",
       "oracle": "tokens",
       "symbol": "MASH",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
       "oracle": "tokens",
       "symbol": "BUSD",
-      "decimals": "1e18"
+      "decimals": 18
     }
   },
   {
@@ -26,13 +26,13 @@
       "address": "0x787732f27D18495494cea3792ed7946BbCFF8db2",
       "oracle": "tokens",
       "symbol": "MASH",
-      "decimals": "1e18"
+      "decimals": 18
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "symbol": "WBNB",
-      "decimals": "1e18"
+      "decimals": 18
     }
   }
 ]
