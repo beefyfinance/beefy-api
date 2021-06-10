@@ -15,7 +15,12 @@ const getChainTvl = async chain => {
   for (let i = 0; i < vaults.length; i++) {
     const vault = vaults[i];
     const vaultBal = vaultBalances[i];
-    const tokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
+    let tokenPrice = 0;
+    try {
+      tokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
+    } catch (e) {
+      console.error('getTvl fetchPrice', chainId, vault.oracle, vault.oracleId, e);
+    }
     const tvl = vaultBal.times(tokenPrice).dividedBy(10 ** (vault.tokenDecimals ?? 18));
 
     let item = { [vault.id]: 0 };
