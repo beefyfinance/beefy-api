@@ -126,42 +126,6 @@
     }
   },
   {
-    "name": "wault-eth-btcb",
-    "address": "0xBb43C776D9dDDaD1395e1543545d05E138ccb4BA",
-    "decimals": "1e18",
-    "poolId": 33,
-    "lp0": {
-      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "oracle": "tokens",
-      "oracleId": "ETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c",
-      "oracle": "tokens",
-      "oracleId": "BTCB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "wault-dai-busd",
-    "address": "0xcED829cB73d21B34a0AD4687C3Cd7D398172DBD8",
-    "decimals": "1e18",
-    "poolId": 15,
-    "lp0": {
-      "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
-      "oracle": "tokens",
-      "oracleId": "DAI",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
-      "oracle": "tokens",
-      "oracleId": "BUSD",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "wault-eth-bnb",
     "address": "0x04253aB3ff54D2E03b717BF6810a0a2Fd228365a",
     "decimals": "1e18",
