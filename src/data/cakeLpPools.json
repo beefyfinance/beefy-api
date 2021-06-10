@@ -1,5 +1,41 @@
 [
   {
+    "name": "cakev2-btcb-eth",
+    "address": "0xD171B26E4484402de70e3Ea256bE5A2630d7e88D",
+    "decimals": "1e18",
+    "poolId": 408,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-eth-usdc",
+    "address": "0xEa26B78255Df2bBC31C1eBf60010D78670185bD0",
+    "decimals": "1e18",
+    "poolId": 409,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-mbox-bnb",
     "address": "0x8FA59693458289914dB0097F5F366d771B7a7C3F",
     "decimals": "1e18",
