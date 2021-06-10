@@ -1,0 +1,164 @@
+[
+  {
+    "name": "wault-usdt-wex",
+    "address": "0x50e8D9Aa83eBDe9608074eC1faaDfD2E792D9B81",
+    "decimals": "1e18",
+    "poolId": 29,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa9c41a46a6b3531d28d5c32f6633dd2ff05dfb90",
+      "oracle": "tokens",
+      "oracleId": "WEX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wault-alpaca-bnb",
+    "address": "0xC70fE75DAE1d69245F315Cec8BF4aebe41893807",
+    "decimals": "1e18",
+    "poolId": 37,
+    "lp0": {
+      "address": "0x8f0528ce5ef7b51152a59745befdd91d97091d2f",
+      "oracle": "tokens",
+      "oracleId": "ALPACA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wault-xrp-busd",
+    "address": "0x0e3ccA3D602eBEA46CF349B991Ee0d857A096d3D",
+    "decimals": "1e18",
+    "poolId": 21,
+    "lp0": {
+      "address": "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE",
+      "oracle": "tokens",
+      "oracleId": "XRP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wault-usdt-matic",
+    "address": "0x4aeA71115DAB37e79C0005a042d6c3985255f3CB",
+    "decimals": "1e18",
+    "poolId": 36,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcc42724c6683b7e57334c4e856f4c9965ed682bd",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wault-ltc-busd",
+    "address": "0x1209067dC48B3E15B25126EC785EC6CE492E997d",
+    "decimals": "1e18",
+    "poolId": 20,
+    "lp0": {
+      "address": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94",
+      "oracle": "tokens",
+      "oracleId": "LTC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wault-ada-busd",
+    "address": "0xB24a49d02380fCDFbc320c25B0dCa997d2ed435D",
+    "decimals": "1e18",
+    "poolId": 22,
+    "lp0": {
+      "address": "0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47",
+      "oracle": "tokens",
+      "oracleId": "ADA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wault-usdt-alpaca",
+    "address": "0xCb1b3C77606c61C9C2eCA86f554f5806343757AD",
+    "decimals": "1e18",
+    "poolId": 35,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8f0528ce5ef7b51152a59745befdd91d97091d2f",
+      "oracle": "tokens",
+      "oracleId": "ALPACA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wault-eth-bnb",
+    "address": "0x04253aB3ff54D2E03b717BF6810a0a2Fd228365a",
+    "decimals": "1e18",
+    "poolId": 10,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wault-wex-bnb",
+    "address": "0xb4814f1ca673dBE9a2637C5dd4e94A4a0ED834C6",
+    "decimals": "1e18",
+    "poolId": 2,
+    "lp0": {
+      "address": "0xa9c41a46a6b3531d28d5c32f6633dd2ff05dfb90",
+      "oracle": "tokens",
+      "oracleId": "WEX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]

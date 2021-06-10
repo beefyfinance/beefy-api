@@ -33,6 +33,7 @@ const getComBscApys = require('./complus/getComBscLpApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
 const getMdexMdxApy = require('./mdex/getMdexMdxApy');
 const getGrandLpApys = require('./grand/getGrandLpApys');
+const getWaultLpApys = require('./wault/getWaultLpApys');
 const getTenfiApys = require('./tenfi/getTenfiApys');
 
 const getApys = [
@@ -72,6 +73,7 @@ const getApys = [
   getSwipeLpApys,
   getTenfiApys,
   getVenusApys,
+  getWaultLpApys,
 ];
 // ^^ APYs are sorted alphabetically
 
