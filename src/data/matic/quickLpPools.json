@@ -1,5 +1,25 @@
 [
   {
+    "name": "quick-mimatic-usdc",
+    "address": "0x160532D2536175d65C03B97b0630A9802c274daD",
+    "rewardPool": "0x1fdDd7F3A4c1f0e7494aa8B637B8003a64fdE21A",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "miMATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-titan-eth",
     "address": "0xA28Ade2f27b9554b01964FDCe97eD643301411d9",
     "rewardPool": "0x2dF6A6b1B7aA23a842948a81714a2279e603e32f",
