@@ -679,5 +679,25 @@
       "oracleId": "QUICK",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "quick-dai-usdt",
+    "address": "0x59153f27eeFE07E5eCE4f9304EBBa1DA6F53CA88",
+    "rewardPool": "0x97Efe8470727FeE250D7158e6f8F63bb4327c8A2",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
   }
 ]
