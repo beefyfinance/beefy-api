@@ -1,6 +1,6 @@
 [
   {
-    "name": "wault-usdt-wex",
+    "name": "wex-usdt-wex",
     "address": "0x50e8D9Aa83eBDe9608074eC1faaDfD2E792D9B81",
     "decimals": "1e18",
     "poolId": 29,
@@ -18,7 +18,7 @@
     }
   },
   {
-    "name": "wault-alpaca-bnb",
+    "name": "wex-alpaca-bnb",
     "address": "0xC70fE75DAE1d69245F315Cec8BF4aebe41893807",
     "decimals": "1e18",
     "poolId": 37,
@@ -36,7 +36,7 @@
     }
   },
   {
-    "name": "wault-xrp-busd",
+    "name": "wex-xrp-busd",
     "address": "0x0e3ccA3D602eBEA46CF349B991Ee0d857A096d3D",
     "decimals": "1e18",
     "poolId": 21,
@@ -54,7 +54,7 @@
     }
   },
   {
-    "name": "wault-usdt-matic",
+    "name": "wex-usdt-matic",
     "address": "0x4aeA71115DAB37e79C0005a042d6c3985255f3CB",
     "decimals": "1e18",
     "poolId": 36,
@@ -72,7 +72,7 @@
     }
   },
   {
-    "name": "wault-ltc-busd",
+    "name": "wex-ltc-busd",
     "address": "0x1209067dC48B3E15B25126EC785EC6CE492E997d",
     "decimals": "1e18",
     "poolId": 20,
@@ -90,7 +90,7 @@
     }
   },
   {
-    "name": "wault-ada-busd",
+    "name": "wex-ada-busd",
     "address": "0xB24a49d02380fCDFbc320c25B0dCa997d2ed435D",
     "decimals": "1e18",
     "poolId": 22,
@@ -108,7 +108,7 @@
     }
   },
   {
-    "name": "wault-usdt-alpaca",
+    "name": "wex-usdt-alpaca",
     "address": "0xCb1b3C77606c61C9C2eCA86f554f5806343757AD",
     "decimals": "1e18",
     "poolId": 35,
@@ -126,7 +126,7 @@
     }
   },
   {
-    "name": "wault-eth-bnb",
+    "name": "wex-eth-bnb",
     "address": "0x04253aB3ff54D2E03b717BF6810a0a2Fd228365a",
     "decimals": "1e18",
     "poolId": 10,
@@ -144,7 +144,7 @@
     }
   },
   {
-    "name": "wault-wex-bnb",
+    "name": "wex-wex-bnb",
     "address": "0xb4814f1ca673dBE9a2637C5dd4e94A4a0ED834C6",
     "decimals": "1e18",
     "poolId": 2,
