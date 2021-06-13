@@ -16,7 +16,6 @@ const getEllipsisLpApys = require('./ellipsis/getEllipsisLpApys');
 const getEllipsisSingleAssetApy = require('./ellipsis/getEllipsisSingleAssetApy');
 const getFortressApys = require('./fortress/getFortressApys');
 const getIcarusApys = require('./icarus/getIcarusApys');
-const getJetfuelLpApys = require('./jetfuel/getJetfuelLpApys');
 const getJetswapApys = require('./jetfuel/getJetswapApys');
 const getJulLpApys = require('./julb/getJulLpApys');
 const getKebabLpApys = require('./kebab/getKebabLpApys');
@@ -35,6 +34,7 @@ const getMdexMdxApy = require('./mdex/getMdexMdxApy');
 const getGrandLpApys = require('./grand/getGrandLpApys');
 const getWaultLpApys = require('./wault/getWaultLpApys');
 const getTenfiApys = require('./tenfi/getTenfiApys');
+const getCakeV2PoolApy = require('./pancake/getCakeV2PoolApy');
 
 const getApys = [
   get1inchLpApys,
@@ -52,6 +52,7 @@ const getApys = [
   getCakeApys,
   getCakePoolApy,
   getCakeLpApys,
+  getCakeV2PoolApy,
   getComBscApys,
   getDegensLpApys,
   getDoppleApys,
@@ -60,7 +61,6 @@ const getApys = [
   getFortressApys,
   getGrandLpApys,
   getIcarusApys,
-  getJetfuelLpApys,
   getJetswapApys,
   getJulLpApys,
   getKebabLpApys,
@@ -74,6 +74,7 @@ const getApys = [
   getTenfiApys,
   getVenusApys,
   getWaultLpApys,
+  getCakeV2PoolApy,
 ];
 // ^^ APYs are sorted alphabetically
 

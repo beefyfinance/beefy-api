@@ -8,7 +8,6 @@ const alpacaLpPools = require('../../data/alpacaLpPools.json');
 const cafePools = require('../../data/cafeLpPools.json');
 const cakeLpPools = require('../../data/cakeLpPools.json');
 const cakeLpV1Pools = require('../../data/cakeLpV1Pools.json');
-const jetfuelPools = require('../../data/jetfuelLpPools.json');
 const kebabPools = require('../../data/kebabLpPools.json');
 const bdollarSbdoPools = require('../../data/bdollarSbdoLpPools.json');
 const boltBtdPools = require('../../data/boltBtdLpPools.json');
@@ -88,6 +87,7 @@ const lendhubPools = require('../../data/heco/lendhubLpPools.json');
 const pantherPools = require('../../data/degens/pantherLpPools.json');
 const waultPools = require('../../data/waultLpPools.json');
 const tenfiPools = require('../../data/tenfiLpPools.json');
+const burgerPools = require('../../data/burgerLpPools.json');
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -95,6 +95,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...burgerPools,
   ...waultPools,
   ...tenfiPools,
   ...pantherPools,
@@ -170,7 +171,6 @@ const pools = [
   ...bdollarSbdoPools,
   ...spongePools,
   ...bakeryPools,
-  ...jetfuelPools,
   ...kebabPools,
   ...boltBtdPools,
   ...boltBtsPools,

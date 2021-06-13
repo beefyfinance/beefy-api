@@ -1,5 +1,145 @@
 [
   {
+    "name": "quick-ghst-quick",
+    "address": "0x8B1Fd78ad67c7da09B682c5392b65CA7CaA101B9",
+    "rewardPool": "0xa132faD61EDe08f1f288a35ff4c10dcD1cB9E107",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
+      "oracle": "tokens",
+      "oracleId": "GHST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-usdc-ghst",
+    "address": "0x096C5CCb33cFc5732Bcd1f3195C13dBeFC4c82f4",
+    "rewardPool": "0xfDC02Dc768a587514b992b03Fb713F74061764a2",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
+      "oracle": "tokens",
+      "oracleId": "GHST",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-dai-usdt",
+    "address": "0x59153f27eeFE07E5eCE4f9304EBBa1DA6F53CA88",
+    "rewardPool": "0x97Efe8470727FeE250D7158e6f8F63bb4327c8A2",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "quick-usdc-dai",
+    "address": "0xf04adBF75cDFc5eD26eeA4bbbb991DB002036Bdd",
+    "rewardPool": "0xEd8413eCEC87c3d4664975743c02DB3b574012a7",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-link-quick",
+    "address": "0xDEA8f0F1E6E98C6AEE891601600E5fBa294B5e36",
+    "rewardPool": "0xfEc1E86786841FF699588DD1e88178AB2BB6DAbC",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39",
+      "oracle": "tokens",
+      "oracleId": "LINK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-quick-uni",
+    "address": "0x4B4C614b9219397c02296f6F4e2351259840B3C7",
+    "rewardPool": "0x72ed24d2b2D98D3c4b5297ce244f623B9357F798",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+      "oracle": "tokens",
+      "oracleId": "UNI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-mimatic-usdc",
+    "address": "0x160532D2536175d65C03B97b0630A9802c274daD",
+    "rewardPool": "0x1fdDd7F3A4c1f0e7494aa8B637B8003a64fdE21A",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "miMATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-titan-eth",
     "address": "0xA28Ade2f27b9554b01964FDCe97eD643301411d9",
     "rewardPool": "0x2dF6A6b1B7aA23a842948a81714a2279e603e32f",
