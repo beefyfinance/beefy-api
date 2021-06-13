@@ -1,5 +1,25 @@
 [
   {
+    "name": "sushi-eth-wfil",
+    "address": "0x21Ef14B5580a852477ef31E7Ea9373485bF50377",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 18,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEde1B77C0Ccc45BFa949636757cd2cA7eF30137F",
+      "oracle": "tokens",
+      "oracleId": "WFIL",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-eth-iron",
     "address": "0x01cDCC99a4f9A68be18504750B219Caa881841Eb",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
