@@ -16,7 +16,6 @@ const getEllipsisLpApys = require('./ellipsis/getEllipsisLpApys');
 const getEllipsisSingleAssetApy = require('./ellipsis/getEllipsisSingleAssetApy');
 const getFortressApys = require('./fortress/getFortressApys');
 const getIcarusApys = require('./icarus/getIcarusApys');
-const getJetfuelLpApys = require('./jetfuel/getJetfuelLpApys');
 const getJetswapApys = require('./jetfuel/getJetswapApys');
 const getJulLpApys = require('./julb/getJulLpApys');
 const getKebabLpApys = require('./kebab/getKebabLpApys');
@@ -62,7 +61,6 @@ const getApys = [
   getFortressApys,
   getGrandLpApys,
   getIcarusApys,
-  getJetfuelLpApys,
   getJetswapApys,
   getJulLpApys,
   getKebabLpApys,
