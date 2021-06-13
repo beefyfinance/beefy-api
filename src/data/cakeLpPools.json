@@ -38,6 +38,25 @@
     }
   },
   {
+    "name": "cakev2-ampl-bsc-mp-busd",
+    "address": "0x6E98Beb694Ff1CDb1eE130eDD2b21b0298683d58",
+    "decimals": "1e18",
+    "poolId": 410,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xDB021b1B247fe2F1fa57e0A87C748Cc1E321F07F",
+      "oracle": "tokens",
+      "oracleId": "AMPL-BSC-mp",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-mbox-bnb",
     "address": "0x8FA59693458289914dB0097F5F366d771B7a7C3F",
     "decimals": "1e18",
