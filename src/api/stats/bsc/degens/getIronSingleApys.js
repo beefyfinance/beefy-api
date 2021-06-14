@@ -1,7 +1,7 @@
 const {
   addressBook: {
     bsc: {
-      tokens: { DND, STEEL },
+      tokens: { BUSD, STEEL },
       platforms: { ironfinance },
     },
   },
@@ -43,9 +43,9 @@ const getIronSingleApys = async () => {
         token: STEEL.address,
       },
     ],
-    oracleId: STEEL.symbol,
+    oracleId: BUSD.symbol,
     oracle: 'tokens',
-    decimals: '1e' + STEEL.decimals.toString(),
+    decimals: '1e' + BUSD.decimals.toString(),
     // log: true,
   });
 
