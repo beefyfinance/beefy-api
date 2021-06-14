@@ -20,7 +20,7 @@ const getCakeV2PoolApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.99);
+  const apy = compound(simpleApy, 8760, 1, 0.99);
 
   return { 'cake-cakev2': apy };
 };
