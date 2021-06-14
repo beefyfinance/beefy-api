@@ -1,0 +1,40 @@
+[
+  {
+    "name": "tomb-tshare-ftm",
+    "address": "0x4733bc45eF91cF7CcEcaeeDb794727075fB209F2",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4cdF39285D7Ca8eB3f090fDA0C069ba5F4145B37",
+      "oracle": "tokens",
+      "oracleId": "TSHARE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-tomb-ftm",
+    "address": "0x2A651563C9d3Af67aE0388a5c8F89b867038089e",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7",
+      "oracle": "tokens",
+      "oracleId": "TOMB",
+      "decimals": "1e18"
+    }
+  }
+]
