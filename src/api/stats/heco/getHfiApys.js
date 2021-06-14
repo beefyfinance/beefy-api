@@ -25,7 +25,7 @@ const getHfiApys = async () => {
     return { [pool.name]: apy };
   });
 
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
 

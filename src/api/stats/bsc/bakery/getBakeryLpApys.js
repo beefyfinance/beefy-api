@@ -12,7 +12,7 @@ const getBakeryLpApys = async () => {
   pools.forEach(pool => promises.push(getPoolApy(bakeryMaster, pool)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
 

@@ -19,7 +19,7 @@ const getSoupLpApys = async () => {
   pools.forEach(pool => promises.push(getPoolApy(rewardPool, pool)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
 

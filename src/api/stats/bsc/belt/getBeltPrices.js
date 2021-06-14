@@ -20,7 +20,7 @@ const getBeltPrices = async tokenPrices => {
   beltTokens.forEach(beltToken => promises.push(getBeltTokenPrice(beltToken, tokenPrices)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     prices = { ...prices, ...item };
   }
 

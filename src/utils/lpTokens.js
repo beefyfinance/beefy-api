@@ -49,7 +49,7 @@ const lpTokenPrices = async lpTokens => {
   lpTokens.forEach(lpToken => promises.push(lpTokenStats(lpToken)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     prices = { ...prices, ...item };
   }
 

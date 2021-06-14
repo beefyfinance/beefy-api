@@ -27,7 +27,7 @@ const getJulLpApys = async () => {
   ]);
 
   let apys = {};
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
   return apys;

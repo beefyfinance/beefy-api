@@ -14,7 +14,7 @@ const getEllipsisPrices = async () => {
   getPrices.forEach(getPrice => promises.push(getPrice()));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     prices = { ...prices, ...item };
   }
 

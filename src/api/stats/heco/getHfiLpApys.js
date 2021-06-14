@@ -16,7 +16,7 @@ const getHfiLpApys = async () => {
   pools.forEach(pool => promises.push(getPoolApy(hecoPool, pool)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
 
