@@ -41,6 +41,8 @@ const getIronSingleApys = async () => {
         name: 'iron-steel',
         poolId: 0,
         token: STEEL.address,
+        oracleId: STEEL.symbol,
+        decimals: '1e' + STEEL.decimals.toString(),
       },
     ],
     oracleId: BUSD.symbol,

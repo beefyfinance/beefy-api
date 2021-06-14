@@ -27,11 +27,14 @@ const getMasterChefApys = async masterchefParams => {
 const getPoolApy = async (params, pool) => {
   let getTotalStaked;
   if (pool.token) {
+    const oracleId = pool.oracleId ? pool.oracleId : params.oracleId;
+    const decimals = pool.decimals ? pool.decimals : params.decimals;
     getTotalStaked = getTotalStakedInUsd(
       params.masterchef,
       pool.token,
       params.oracle,
-      params.oracleId
+      oracleId,
+      decimals
     );
   } else {
     getTotalStaked = getTotalStakedInUsd(params.masterchef, pool.address, 'lps', pool.name);
