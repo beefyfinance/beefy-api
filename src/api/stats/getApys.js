@@ -6,7 +6,7 @@ const { getHecoApys } = require('./heco');
 const { getFantomApys } = require('./fantom');
 const { getBSCApys } = require('./bsc');
 
-const INIT_DELAY = 30 * 1000;
+const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let apys = {};
