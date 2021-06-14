@@ -3,7 +3,7 @@ const { MultiCall } = require('eth-multicall');
 const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
 const ERC20 = require('../../../abis/ERC20.json');
-const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
+const { MINUTELY_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
 const fetchPrice = require('../../../utils/fetchPrice');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
@@ -24,7 +24,7 @@ const getMasterChefApys = async masterchefParams => {
   masterchefParams.pools.forEach((pool, i) => {
     const simpleApy = farmApys[i];
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, MINUTELY_HPY, 1, 0.955);
 
     if (masterchefParams.log) {
       console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy);

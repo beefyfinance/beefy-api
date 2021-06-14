@@ -1,6 +1,7 @@
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
 const BASE_HPY = 2190;
+const MINUTELY_HPY = 525600;
 const HOURLY_HPY = 8760;
 const DAILY_HPY = 365;
 const WEEKLY_HPY = 52;
@@ -65,6 +66,7 @@ module.exports = {
   FANTOM_RPC,
   FANTOM_CHAIN_ID,
   BASE_HPY,
+  MINUTELY_HPY,
   HOURLY_HPY,
   DAILY_HPY,
   WEEKLY_HPY,
