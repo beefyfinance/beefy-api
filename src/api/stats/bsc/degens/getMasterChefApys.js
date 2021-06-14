@@ -17,7 +17,7 @@ const getMasterChefApys = async masterchefParams => {
   }
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
 

@@ -25,7 +25,7 @@ const getSwampyLpApys = async () => {
   pools.forEach(pool => promises.push(getPoolApy(masterchef, swampchef, pool)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
 

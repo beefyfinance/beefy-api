@@ -23,7 +23,7 @@ const getMdexBscLpApys = async () => {
   allPools.forEach(pool => promises.push(getPoolApy(mdxPool, pool)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
 
