@@ -22,7 +22,7 @@ const getTofyLpApys = require('./getTofyLpApys');
 const getGarudaApys = require('./getGarudaApys');
 const getIronApys = require('./getIronApys');
 const getIronDndApys = require('./getIronDndApys');
-const getIronSingleDndApys = require('./getIronSingleDndApys');
+const getIronSingleApys = require('./getIronSingleApys');
 const getDumplingApys = require('./getDumplingApys');
 const getPantherApys = require('./getPantherApys');
 
@@ -51,7 +51,7 @@ const getApys = [
   getGarudaApys,
   getIronApys,
   getIronDndApys,
-  getIronSingleDndApys,
+  getIronSingleApys,
   getDumplingApys,
   getPantherApys,
 ];

@@ -9,6 +9,7 @@ const getAddyApy = require('./getAddyApy');
 const getCurveApys = require('./getCurveApys');
 const getIronApys = require('./getIronApys');
 const getPolycatApys = require('./getPolycatApys');
+const getWexPolyApys = require('./getWexPolyApys');
 
 const getApys = [
   getComethLpApys,
@@ -22,6 +23,7 @@ const getApys = [
   getCurveApys,
   getIronApys,
   getPolycatApys,
+  getWexPolyApys,
 ];
 
 const getMaticApys = async () => {
