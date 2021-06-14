@@ -4,6 +4,7 @@
     "address": "0xd46E7f33f8788f87D6017074dC4e4d781D3df91E",
     "poolId": 28,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4",
       "oracle": "tokens",
@@ -22,16 +23,17 @@
     "address": "0xc7C4726D0A45E4e7392901A90dCB52Ec4d2Bd1a3",
     "poolId": 29,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
-      "address": "0xC13B7a43223BB9Bf4B69BD68Ab20ca1B79d81C75",
-      "oracle": "tokens",
-      "oracleId": "JGN",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC13B7a43223BB9Bf4B69BD68Ab20ca1B79d81C75",
+      "oracle": "tokens",
+      "oracleId": "JGN",
       "decimals": "1e18"
     }
   },
@@ -40,6 +42,7 @@
     "address": "0xf7f21A56B19546A77EABABf23d8dca726CaF7577",
     "poolId": 22,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
       "oracle": "tokens",
@@ -58,6 +61,7 @@
     "address": "0xf08865069864A5a62EB4DD4b9dcB66834822a198",
     "poolId": 23,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0x47BEAd2563dCBf3bF2c9407fEa4dC236fAbA485A",
       "oracle": "tokens",
@@ -76,16 +80,17 @@
     "address": "0x52a7FBe0995607B74e77A367036E76BCE11A3B44",
     "poolId": 24,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
-      "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
-      "oracle": "tokens",
-      "oracleId": "XVS",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "oracle": "tokens",
+      "oracleId": "XVS",
       "decimals": "1e18"
     }
   },
@@ -94,6 +99,7 @@
     "address": "0x8d27dccB0fb3d6621fA4F4155d719f4AF159286e",
     "poolId": 21,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0xa1faa113cbE53436Df28FF0aEe54275c13B40975",
       "oracle": "tokens",
@@ -112,6 +118,7 @@
     "address": "0xcE7b1Bc3ff9115B64Bf4D6B1549f8339D02762F4",
     "poolId": 16,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0x8fF795a6F4D97E7887C79beA79aba5cc76444aDf",
       "oracle": "tokens",
@@ -130,6 +137,7 @@
     "address": "0x1389003bcb228586648721A4F6187004dAE01c51",
     "poolId": 18,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0xA1303E6199b319a891b79685F0537D289af1FC83",
       "oracle": "tokens",
@@ -143,12 +151,12 @@
       "decimals": "1e18"
     }
   },
-
   {
     "name": "street-drugs-bnb",
     "address": "0x421DF185Ff87bc5f19bd5a90102A51452b70c4A4",
     "poolId": 1,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0x339550404Ca4d831D12B1b2e4768869997390010",
       "oracle": "tokens",
@@ -167,16 +175,17 @@
     "address": "0x9354caB0F1083135439B23aA6c364329e578F39a",
     "poolId": 2,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
-      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "tokens",
-      "oracleId": "THUGS",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "tokens",
+      "oracleId": "THUGS",
       "decimals": "1e18"
     }
   },
@@ -185,6 +194,7 @@
     "address": "0x9CBE4F200b474a1C33bfFe7c6e531e1D47ECab46",
     "poolId": 9,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0x571D0B55fe30eb1F6E68e8799F181c46De6B0059",
       "oracle": "tokens",
@@ -203,6 +213,7 @@
     "address": "0xa5e5eeB6b51fa0fDc59915C81d75C83470BFA4f0",
     "poolId": 3,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0x179983892eC36287f1F342443B671Ba549762241",
       "oracle": "tokens",
@@ -221,16 +232,17 @@
     "address": "0xf2e4E3F9B58b3eDaC88Ad11D689a23f3119a782D",
     "poolId": 4,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
-      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-      "oracle": "tokens",
-      "oracleId": "BUSD",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
       "decimals": "1e18"
     }
   },
@@ -239,16 +251,17 @@
     "address": "0x40257481f09dB2211a3274B34554Bbb00B0a7Fb1",
     "poolId": 7,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
-      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
-      "oracle": "tokens",
-      "oracleId": "THUGS",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE10e9822A5de22F8761919310DDA35CD997d63c0",
+      "oracle": "tokens",
+      "oracleId": "THUGS",
       "decimals": "1e18"
     }
   },
@@ -257,6 +270,7 @@
     "address": "0xed8Ecb790Be568461d85Cf82C386E51124E46a52",
     "poolId": 10,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
       "address": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
       "oracle": "tokens",
@@ -275,35 +289,36 @@
     "address": "0xe835ed82C7d9d018f8F5173EECfBb56f29f38570",
     "poolId": 12,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
-      "address": "0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22",
-      "oracle": "tokens",
-      "oracleId": "BLIQ",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22",
+      "oracle": "tokens",
+      "oracleId": "BLIQ",
+      "decimals": "1e18"
     }
   },
-
   {
     "name": "street-bifi-bnb",
     "address": "0x223B53b64AA5F87D2De194a15701Fc0bC7474A31",
     "poolId": 14,
     "decimals": "1e18",
+    "chainId": 56,
     "lp0": {
-      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
-      "oracle": "tokens",
-      "oracleId": "BIFI",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
       "decimals": "1e18"
     }
   }

@@ -6,7 +6,7 @@
     "poolId": 5,
     "chainId": 56,
     "lp0": {
-      "address": "0x7fa892544d49598460b821de4d99e8c28b1decaa",
+      "address": "0x7fa892544D49598460B821De4D99E8c28b1Decaa",
       "oracle": "tokens",
       "oracleId": "bCOM",
       "decimals": "1e18"
