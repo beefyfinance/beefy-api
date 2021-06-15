@@ -23,7 +23,7 @@ const getWexPolyApys = async () =>
     oracle: 'tokens',
     oracleId: 'WEXpoly',
     decimals: '1e18',
-    log: true,
+    // log: true,
   });
 
 module.exports = getWexPolyApys;
