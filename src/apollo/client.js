@@ -44,6 +44,14 @@ const spookyClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const spiritClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/layer3org/spiritswap-analytics',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 //const apeClient = new ApolloClient({
 //  link: createHttpLink({
 //    uri: 'https://graph2.apeswap.finance/subgraphs/name/ape-swap/apeswap-subgraph',
@@ -58,5 +66,6 @@ module.exports = {
   quickClient,
   polyzapClient,
   spookyClient,
+  spiritClient,
   //  apeClient,
 };

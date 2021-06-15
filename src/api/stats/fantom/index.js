@@ -4,6 +4,7 @@ const getEsterApys = require('./getEsterApys');
 const getSpookyBooApy = require('./getSpookyBooApy');
 const getFantomBifiMaxiApy = require('./getFantomBifiMaxiApy');
 const getTombApys = require('./getTombApys');
+const getSpiritApys = require('./getSpiritApy');
 
 const getApys = [
   getSpookyLpApys,
@@ -12,6 +13,7 @@ const getApys = [
   getSpookyBooApy,
   getFantomBifiMaxiApy,
   getTombApys,
+  getSpiritApys,
 ];
 
 const getFantomApys = async () => {
