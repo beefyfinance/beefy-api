@@ -1,5 +1,23 @@
 [
   {
+    "name": "wex-eth-beth",
+    "address": "0x11040f3c467993556B19813d4A18b684598Ba4BD",
+    "decimals": "1e18",
+    "poolId": 42,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x250632378E573c6Be1AC2f97Fcdf00515d0Aa91B",
+      "oracle": "tokens",
+      "oracleId": "BETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "wex-usdt-wex",
     "address": "0x50e8D9Aa83eBDe9608074eC1faaDfD2E792D9B81",
     "decimals": "1e18",
