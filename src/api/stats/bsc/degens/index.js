@@ -25,6 +25,7 @@ const getIronDndApys = require('./getIronDndApys');
 const getIronSingleApys = require('./getIronSingleApys');
 const getDumplingApys = require('./getDumplingApys');
 const getPantherApys = require('./getPantherApys');
+const getMemeFarmApys = require('./getMemeFarmLpApys');
 
 const getApys = [
   getRamenLpApys,
@@ -54,6 +55,7 @@ const getApys = [
   getIronSingleApys,
   getDumplingApys,
   getPantherApys,
+  getMemeFarmApys,
 ];
 
 const getDegensLpApys = async () => {
