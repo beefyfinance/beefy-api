@@ -38,6 +38,25 @@
     }
   },
   {
+    "name": "wexpoly-usdc-usdt",
+    "address": "0x7242e19A0937ac33472febD69462668a4cf5bbC5",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "wexpoly-wex-usdc",
     "address": "0x5DE6a3CcA10d3F788EEdbD4923e31D4658bf6f9a",
     "decimals": "1e18",
