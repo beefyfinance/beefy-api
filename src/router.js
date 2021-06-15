@@ -12,6 +12,8 @@ const cmc = require('./api/cmc');
 const tvl = require('./api/tvl');
 
 router.get('/apy', stats.apy);
+router.get('/apy/breakdown', stats.apyBreakdowns);
+
 router.get('/tvl', tvl.vaultTvl);
 router.get('/cmc', cmc.vaults);
 

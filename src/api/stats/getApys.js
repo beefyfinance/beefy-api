@@ -10,9 +10,13 @@ const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let apys = {};
+let apyBreakdowns = {};
 
 const getApys = () => {
-  return apys;
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const updateApys = async () => {
@@ -33,7 +37,29 @@ const updateApys = async () => {
         console.warn('getApys error', result.reason);
         continue;
       }
-      apys = { ...apys, ...result.value };
+
+      // Set default APY values
+      let mappedApyValues = result.value;
+      let mappedApyBreakdownValues = {};
+
+      // Loop through key values and move default breakdown format
+      // To require totalApy key
+      for (const [key, value] of Object.entries(result.value)) {
+        mappedApyBreakdownValues[key] = {
+          totalApy: value,
+        };
+      }
+
+      // Break out to apy and breakdowns if possible
+      let hasApyBreakdowns = 'apyBreakdowns' in result.value;
+      if (hasApyBreakdowns) {
+        mappedApyValues = result.value.apys;
+        mappedApyBreakdownValues = result.value.apyBreakdowns;
+      }
+
+      apys = { ...apys, ...mappedApyValues };
+
+      apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
     }
 
     console.log('> updated apys');
@@ -46,4 +72,4 @@ const updateApys = async () => {
 
 setTimeout(updateApys, INIT_DELAY);
 
-module.exports = getApys;
+module.exports = { getApys };

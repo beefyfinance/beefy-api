@@ -18,6 +18,7 @@ const getApys = [
 
 const getFantomApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
 
   let promises = [];
   getApys.forEach(getApy => promises.push(getApy()));
@@ -28,10 +29,35 @@ const getFantomApys = async () => {
       console.warn('getFantomApys error', result.reason);
       continue;
     }
-    apys = { ...apys, ...result.value };
+
+    // Set default APY values
+    let mappedApyValues = result.value;
+    let mappedApyBreakdownValues = {};
+
+    // Loop through key values and move default breakdown format
+    // To require totalApy key
+    for (const [key, value] of Object.entries(result.value)) {
+      mappedApyBreakdownValues[key] = {
+        totalApy: value,
+      };
+    }
+
+    // Break out to apy and breakdowns if possible
+    let hasApyBreakdowns = 'apyBreakdowns' in result.value;
+    if (hasApyBreakdowns) {
+      mappedApyValues = result.value.apys;
+      mappedApyBreakdownValues = result.value.apyBreakdowns;
+    }
+
+    apys = { ...apys, ...mappedApyValues };
+
+    apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
 
-  return apys;
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 module.exports = { getFantomApys };
