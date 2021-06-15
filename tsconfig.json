@@ -21,7 +21,7 @@
   "compilerOptions": {
     // typescript options here
     "allowJs": true,
-    "checkJs": true,
+    "checkJs": false,
     "strict": false
   }
 }
