@@ -10,6 +10,7 @@ const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { comethClient } = require('../../../apollo/client');
+const { compound } = require('../../../utils/compound');
 
 const oracle = 'tokens';
 const oracleId = 'MUST';
@@ -18,9 +19,12 @@ const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const comethLiquidityProviderFee = 0.005;
+const beefyPerformanceFee = 0.045;
+const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getComethLpApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
 
   const pairAddresses = pools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(
@@ -32,12 +36,34 @@ const getComethLpApys = async () => {
 
   pools.forEach((pool, i) => {
     const simpleApy = farmApys[i];
+    const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
-    apys = { ...apys, ...{ [pool.name]: apy } };
+    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const legacyApyValue = { [pool.name]: totalApy };
+    // Add token to APYs object
+    apys = { ...apys, ...legacyApyValue };
+
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [pool.name]: {
+        vaultApr: simpleApy.toNumber(),
+        compoundingsPerYear: BASE_HPY,
+        beefyPerformanceFee: beefyPerformanceFee,
+        vaultApy: vaultApy,
+        lpFee: comethLiquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
+      },
+    };
+    // Add token to APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   });
 
-  return apys;
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const getFarmApys = async pools => {

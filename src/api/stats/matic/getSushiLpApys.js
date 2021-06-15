@@ -11,6 +11,7 @@ const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeAprSushi: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { sushiClient } = require('../../../apollo/client');
+const { compound } = require('../../../utils/compound');
 
 const minichef = '0x0769fd68dFb93167989C6f7254cd0D766Fb2841F';
 const oracleId = 'SUSHI';
@@ -18,7 +19,9 @@ const oracle = 'tokens';
 const DECIMALS = '1e18';
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
-const liquidityProviderFee = 0.0025;
+const sushiLiquidityProviderFee = 0.0025;
+const beefyPerformanceFee = 0.045;
+const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 // matic
 const complexRewarderTime = '0xa3378Ca78633B3b9b2255EAa26748770211163AE';
@@ -26,18 +29,41 @@ const oracleIdMatic = 'WMATIC';
 
 const getSushiLpApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(sushiClient, pairAddresses, liquidityProviderFee);
+  const tradingAprs = await getTradingFeeApr(sushiClient, pairAddresses, sushiLiquidityProviderFee);
   const farmApys = await getFarmApys(pools);
 
   pools.forEach((pool, i) => {
     const simpleApy = farmApys[i];
+    const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
-    apys = { ...apys, ...{ [pool.name]: apy } };
+    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const legacyApyValue = { [pool.name]: totalApy };
+    // Add token to APYs object
+    apys = { ...apys, ...legacyApyValue };
+
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [pool.name]: {
+        vaultApr: simpleApy.toNumber(),
+        compoundingsPerYear: BASE_HPY,
+        beefyPerformanceFee: beefyPerformanceFee,
+        vaultApy: vaultApy,
+        lpFee: sushiLiquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
+      },
+    };
+    // Add token to APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   });
 
-  return apys;
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const getFarmApys = async pools => {
