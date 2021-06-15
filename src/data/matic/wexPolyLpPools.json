@@ -1,0 +1,40 @@
+[
+  {
+    "name": "wexpoly-bifi-matic",
+    "address": "0xE60afed80406190C3AB2C17501d417097Dd741DB",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-wex-matic",
+    "address": "0xC46991072C7eAC184F7bd69d3122cd1750300b27",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4c4BF319237D98a30A929A96112EfFa8DA3510EB",
+      "oracle": "tokens",
+      "oracleId": "WEXpoly",
+      "decimals": "1e18"
+    }
+  }
+]
