@@ -1,5 +1,43 @@
 [
   {
+    "name": "wexpoly-wbtc-usdc",
+    "address": "0x30eEf213D4B9C809f5776Ae56cC39f02f19F742f",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "wexpoly-wbtc-eth",
+    "address": "0x30AdBCAb9Fbb4436109fcf3058D1Af27E6E33F3F",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "wexpoly-matic-eth",
     "address": "0x679B8Ab80F298bF802fB294137765C6386D43dcA",
     "decimals": "1e18",
