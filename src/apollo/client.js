@@ -52,13 +52,21 @@ const spiritClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-//const apeClient = new ApolloClient({
-//  link: createHttpLink({
-//    uri: 'https://graph2.apeswap.finance/subgraphs/name/ape-swap/apeswap-subgraph',
-//    fetch,
-//  }),
-//  cache: new InMemoryCache(),
-//});
+const cakeClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://bsc.streamingfast.io/subgraphs/name/pancakeswap/exchange-v2',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const apeClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://graph2.apeswap.finance/subgraphs/name/ape-swap/apeswap-subgraph',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
 
 module.exports = {
   sushiClient,
@@ -67,5 +75,6 @@ module.exports = {
   polyzapClient,
   spookyClient,
   spiritClient,
-  //  apeClient,
+  cakeClient,
+  apeClient,
 };

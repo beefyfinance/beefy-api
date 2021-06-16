@@ -9,9 +9,9 @@ const pools = require('../../../../data/degens/apeLpPools.json');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { compound } = require('../../../../utils/compound');
-//const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
-//const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
-//const { apeClient } = require('../../../../apollo/client');
+const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
+const { apeClient } = require('../../../../apollo/client');
 
 const masterchef = '0x5c8d727b265dbafaba67e050f2f739caeeb4a6f9';
 const oracleId = 'BANANA';
@@ -20,17 +20,20 @@ const DECIMALS = '1e18';
 const secondsPerBlock = 3;
 const secondsPerYear = 31536000;
 
-//const apeLiquidityProviderFee = 0.0015;
+const apeLiquidityProviderFee = 0.0015;
+const beefyPerformanceFee = 0.045;
+const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getApeLpApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const { multiplier, blockRewards, totalAllocPoint } = await getMasterChefData();
   const { balances, allocPoints } = await getPoolsData(pools);
 
-  //  const pairAddresses = pools.map(pool => pool.address);
-  //  const tradingAprs = await getTradingFeeApr(apeClient, pairAddresses, apeLiquidityProviderFee);
+  const pairAddresses = pools.map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(apeClient, pairAddresses, apeLiquidityProviderFee);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -47,16 +50,34 @@ const getApeLpApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-    // const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    // const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
-    const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
-    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-    const item = { [pool.name]: apy };
+    const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
+    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const legacyApyValue = { [pool.name]: totalApy };
+    // Add token to APYs object
+    apys = { ...apys, ...legacyApyValue };
 
-    apys = { ...apys, ...item };
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [pool.name]: {
+        vaultApr: simpleApy.toNumber(),
+        compoundingsPerYear: BASE_HPY,
+        beefyPerformanceFee: beefyPerformanceFee,
+        vaultApy: vaultApy,
+        lpFee: apeLiquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
+      },
+    };
+    // Add token to APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   }
 
-  return apys;
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const getMasterChefData = async () => {

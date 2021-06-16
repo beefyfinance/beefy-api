@@ -35,7 +35,6 @@ const getQuickLpApys = async () => {
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
     const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
-    console.log(pool.name, totalApy);
     const legacyApyValue = { [pool.name]: totalApy };
     // Add token to APYs object
     apys = { ...apys, ...legacyApyValue };
