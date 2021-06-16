@@ -1,5 +1,43 @@
 [
   {
+    "name": "wexpoly-matic-eth",
+    "address": "0x679B8Ab80F298bF802fB294137765C6386D43dcA",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-matic-usdc",
+    "address": "0x8312A29A91D9Fac706F4d2ADEB1FA4540faD1673",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "wexpoly-usdc-usdt",
     "address": "0x7242e19A0937ac33472febD69462668a4cf5bbC5",
     "decimals": "1e18",
