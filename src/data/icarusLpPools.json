@@ -14,7 +14,7 @@
     "lp1": {
       "address": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
       "oracle": "tokens",
-      "oracleId": "ICA",
+      "oracleId": "ICAv1",
       "decimals": "1e18"
     }
   },
@@ -33,7 +33,7 @@
     "lp1": {
       "address": "0x95111f630aC215Eb74599ED42C67E2c2790d69e2",
       "oracle": "tokens",
-      "oracleId": "ICA",
+      "oracleId": "ICAv1",
       "decimals": "1e18"
     }
   }
