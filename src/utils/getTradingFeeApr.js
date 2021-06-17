@@ -34,11 +34,13 @@ const getTradingFeeAprSushi = async (client, pairAddresses, liquidityProviderFee
 
   const pairAddressToAprMap = {};
   for (const pairDayData of pairDayDatas) {
-    const pairAddress = pairDayData.id.split('-')[0].toLowerCase();
-    pairAddressToAprMap[pairAddress] = new BigNumber(pairDayData.volumeUSD)
-      .times(liquidityProviderFee)
-      .times(365)
-      .dividedBy(pairDayData.reserveUSD);
+    if (pairDayData) {
+      const pairAddress = pairDayData.id.split('-')[0].toLowerCase();
+      pairAddressToAprMap[pairAddress] = new BigNumber(pairDayData.volumeUSD)
+        .times(liquidityProviderFee)
+        .times(365)
+        .dividedBy(pairDayData.reserveUSD);
+    }
   }
 
   return pairAddressToAprMap;
