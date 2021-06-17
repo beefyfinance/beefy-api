@@ -1,5 +1,65 @@
 [
   {
+    "name": "sushi-wbtc-ibbtc",
+    "address": "0x8F8e95Ff4B4c5E354ccB005c6B0278492D7B5907",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 24,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x4EaC4c4e9050464067D673102F8E24b2FccEB350",
+      "oracle": "tokens",
+      "oracleId": "ibBTC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-dtop-weth",
+    "address": "0x25e8bbc103842f0dad2465f4e04cb8d44fb787bc",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 22,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0361BdEAB89DF6BBcc52c43589FABba5143d19dD",
+      "oracle": "tokens",
+      "oracleId": "dTOP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-usdc-bifi",
+    "address": "0x180237bd326d5245D0898336F54b3c8012c5c62f",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 23,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-eth-wfil",
     "address": "0x21Ef14B5580a852477ef31E7Ea9373485bF50377",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
