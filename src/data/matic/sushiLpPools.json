@@ -1,5 +1,25 @@
 [
   {
+    "name": "sushi-usdc-bifi",
+    "address": "0x180237bd326d5245D0898336F54b3c8012c5c62f",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 23,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-eth-wfil",
     "address": "0x21Ef14B5580a852477ef31E7Ea9373485bF50377",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
