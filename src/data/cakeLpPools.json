@@ -1,5 +1,81 @@
 [
   {
+    "name": "cakev2-o3-busd",
+    "address": "0x7759283571Da8c0928786A96AE601944E10461Ff",
+    "decimals": "1e18",
+    "poolId": 411,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEe9801669C6138E84bD50dEB500827b776777d28",
+      "oracle": "tokens",
+      "oracleId": "O3",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-hai-bnb",
+    "address": "0x289841bFb694767bCb56fBc7B741aB4B4D97D490",
+    "decimals": "1e18",
+    "poolId": 412,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xaA9E582e5751d703F85912903bacADdFed26484C",
+      "oracle": "tokens",
+      "oracleId": "HAI",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-boring-bnb",
+    "address": "0xDfA808Da5CFB9ABA5Fb3748FF85888F79174F378",
+    "decimals": "1e18",
+    "poolId": 406,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xffEecbf8D7267757c2dc3d13D730E97E15BfdF7F",
+      "oracle": "tokens",
+      "oracleId": "BORING",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-marsh-bnb",
+    "address": "0x222F93187f15F354D41Ff6a7703eF7e18cdD5103",
+    "decimals": "1e18",
+    "poolId": 407,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256",
+      "oracle": "tokens",
+      "oracleId": "MARSH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-btcb-eth",
     "address": "0xD171B26E4484402de70e3Ea256bE5A2630d7e88D",
     "decimals": "1e18",
