@@ -4,6 +4,7 @@ const getSnob3PoolPrice = require('./avax/getSnob3PoolPrice');
 const getFroyoPrices = require('./fantom/getFroyoPrices');
 const getGondolaPrices = require('./avax/getGondolaPrices');
 const getCurvePrices = require('./matic/getCurvePrices');
+const getCurveFantomPrices = require('./fantom/getCurvePrices');
 const getDopplePrices = require('./bsc/dopple/getDopplePrices');
 
 const getNonAmmPrices = async tokenPrices => {
@@ -16,6 +17,7 @@ const getNonAmmPrices = async tokenPrices => {
     getFroyoPrices(),
     getGondolaPrices(tokenPrices),
     getCurvePrices(),
+    getCurveFantomPrices(),
     getDopplePrices(),
   ]);
 
