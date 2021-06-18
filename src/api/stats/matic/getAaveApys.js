@@ -17,8 +17,21 @@ const RAY_DECIMALS = '1e27';
 const getAaveApys = async () => {
   let apys = {};
 
+  const allPools = [];
+  pools.forEach(pool => {
+    allPools.push(pool);
+    // const newPool = { ...pool };
+    // const newPool8 = { ...pool };
+    // newPool.name = pool.name + '-delev';
+    // newPool.borrowDepth = 0;
+    // newPool8.name = pool.name + '-8';
+    // newPool8.borrowDepth = 8;
+    // allPools.push(newPool8);
+    // allPools.push(newPool);
+  });
+
   let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(pool)));
+  allPools.forEach(pool => promises.push(getPoolApy(pool)));
   const values = await Promise.all(promises);
 
   for (let item of values) {
@@ -29,7 +42,7 @@ const getAaveApys = async () => {
 };
 
 const getPoolApy = async pool => {
-  const { supplyBase, supplyMatic, borrowBase, borrowMatic } = await getPoolData(pool);
+  const { supplyBase, supplyMatic, borrowBase, borrowMatic } = await getAavePoolData(pool);
 
   const {
     leveragedSupplyBase,
@@ -47,12 +60,14 @@ const getPoolApy = async pool => {
 
   let totalMatic = leveragedSupplyMatic.plus(leveragedBorrowMatic);
   let compoundedMatic = compound(totalMatic, BASE_HPY, 0.955);
-  let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedMatic).toNumber();
+  let apy =
+    leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedMatic).toNumber().toFixed(4) *
+    100;
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyMatic.valueOf(), borrowMatic.valueOf());
   return { [pool.name]: apy };
 };
 
-const getPoolData = async pool => {
+const getAavePoolData = async pool => {
   const dataProvider = new web3.eth.Contract(IAaveProtocolDataProvider, AaveProtocolDataProvider);
   const {
     availableLiquidity,
@@ -91,6 +106,7 @@ const getMaticPerYear = async pool => {
   const borrowMaticRate = new BigNumber(res.emissionPerSecond);
 
   const maticPrice = await fetchPrice({ oracle: 'tokens', id: 'WMATIC' });
+  // const maticPrice = 1.54
   const supplyMaticInUsd = supplyMaticRate.times(secondsPerYear).div('1e18').times(maticPrice);
   const borrowMaticInUsd = borrowMaticRate.times(secondsPerYear).div('1e18').times(maticPrice);
 
@@ -137,4 +153,4 @@ const getLeveragedApys = (
   };
 };
 
-module.exports = getAaveApys;
+module.exports = { getAaveApys, getAavePoolData };
