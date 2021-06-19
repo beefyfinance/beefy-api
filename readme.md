@@ -44,7 +44,7 @@ The main endpoint used by the frontend. It returns the APY of all the vaults in 
 #### **/apy/breakdown**
 The new version of the APY endpoint, broken down into component parts when they are available. The endpoint moves to a new format, which is consistent whether or not the breakdown stats are possible to display. It has the following structure:
 
-```
+``` javascript
 {
 	"bifi-maxi": {
         "totalApy": 0.07598675804818633
