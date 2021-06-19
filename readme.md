@@ -3,7 +3,6 @@
 API that powers [Beefy Finance](https://app.beefy.finance). You can find the repo for the frontend [here](https://github.com/beefyfinance/beefy-app).
 
 ---
----
 
 ## To Run
 
@@ -33,7 +32,7 @@ yarn start
 
 The main endpoint used by the frontend. It returns the APY of all the vaults in the following format. This is the legacy format. A new endpoint is being created at **/apy/breakdown** with a staggered migration.
 
-``` json
+```
 {
 	"bifi-maxi": 0.22448469479728606, // 22%
 	"cake-cake": 2.8002377054263174, // 280%
@@ -59,7 +58,6 @@ The new version of the APY endpoint, broken down into component parts when they 
         "tradingApr": 0.22324214039526927,
         "totalApy": 2.8825691266420788
 	},
-	...
 }
 ```
 
