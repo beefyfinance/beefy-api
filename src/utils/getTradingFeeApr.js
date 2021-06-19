@@ -1,4 +1,4 @@
-const { startOfMinute, subDays, subWeeks } = require('date-fns');
+const { startOfMinute, subDays } = require('date-fns');
 const { pairDayDataQuery, pairDayDataSushiQuery } = require('../apollo/queries');
 const BigNumber = require('bignumber.js');
 
