@@ -1,14 +1,16 @@
 const BigNumber = require('bignumber.js');
-const { polygonWeb3: web3 } = require('../../../utils/web3');
+const { MultiCall } = require('eth-multicall');
+const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
 const IRewardPool = require('../../../abis/matic/StakingMultiRewards.json');
+const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/comethMultiLpPools.json');
-const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BASE_HPY } = require('../../../constants');
+const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { comethClient } = require('../../../apollo/client');
+const { compound } = require('../../../utils/compound');
 
 const oracle = 'tokens';
 const oracleId = 'MUST';
@@ -17,9 +19,12 @@ const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const comethLiquidityProviderFee = 0.005;
+const beefyPerformanceFee = 0.045;
+const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
-const getComethMultiLpApys = async () => {
+const getComethLpApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
 
   const pairAddresses = pools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(
@@ -27,52 +32,88 @@ const getComethMultiLpApys = async () => {
     pairAddresses,
     comethLiquidityProviderFee
   );
+  const farmApys = await getFarmApys(pools);
 
-  for (const pool of pools) {
-    const tradingAprLookup = tradingAprs[pool.address.toLowerCase()];
-    const tradingApr = tradingAprLookup ? tradingAprLookup : BigNumber(0);
-    const apy = await getPoolApy(pool.rewardPool, pool, pool.sOracleId, 137, tradingApr);
-    apys = { ...apys, ...apy };
+  pools.forEach((pool, i) => {
+    const simpleApy = farmApys[i];
+    const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
+    const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
+    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const legacyApyValue = { [pool.name]: totalApy };
+    // Add token to APYs object
+    apys = { ...apys, ...legacyApyValue };
+
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [pool.name]: {
+        vaultApr: vaultApr.toNumber(),
+        compoundingsPerYear: BASE_HPY,
+        beefyPerformanceFee: beefyPerformanceFee,
+        vaultApy: vaultApy,
+        lpFee: comethLiquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
+      },
+    };
+    // Add token to APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
+  });
+
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
+};
+
+const getFarmApys = async pools => {
+  const apys = [];
+  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
+  const { balances, rewardRates, secondRewardRates } = await getPoolsData(pools);
+  for (let i = 0; i < pools.length; i++) {
+    const pool = pools[i];
+
+    const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
+    const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
+
+    const yearlyRewards = rewardRates[i].times(3).times(BLOCKS_PER_DAY).times(365);
+    const secondYearlyRewards = secondRewardRates[i].times(3).times(BLOCKS_PER_DAY).times(365);
+    const secondReward = await fetchPrice({ oracle: 'tokens', id: pool.sOracleId });
+    const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
+    const secondYearlyRewardsInUsd = secondYearlyRewards.times(secondReward).dividedBy(DECIMALS);
+    const rewards = yearlyRewardsInUsd.plus(secondYearlyRewardsInUsd);
+
+    apys.push(rewards.dividedBy(totalStakedInUsd));
   }
-
   return apys;
 };
 
-const getPoolApy = async (rewardPool, pool, sOracleId, chainId, tradingApr) => {
-  const [yearlyRewardsInUsd, secondYearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(rewardPool),
-    getSecondYearlyRewardsInUsd(rewardPool, sOracleId),
-    getTotalLpStakedInUsd(rewardPool, pool, chainId),
-  ]);
+const getPoolsData = async pools => {
+  const multicall = new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID));
+  const balanceCalls = [];
+  const rewardRateCalls = [];
+  const secondRewardRateCalls = [];
+  pools.forEach(pool => {
+    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    balanceCalls.push({
+      balance: tokenContract.methods.balanceOf(pool.rewardPool),
+    });
+    const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
+    rewardRateCalls.push({
+      rewardRate: rewardPool.methods.rewardRates(0),
+    });
+    secondRewardRateCalls.push({
+      secondRewardRate: rewardPool.methods.rewardRates(1),
+    });
+  });
 
-  const yearlyRewards = yearlyRewardsInUsd.plus(secondYearlyRewardsInUsd);
-  const simpleApy = yearlyRewards.dividedBy(totalStakedInUsd);
-  const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+  const res = await multicall.all([balanceCalls, rewardRateCalls, secondRewardRateCalls]);
 
-  //console.log(pool.name, simpleApy.valueOf(), apy);
-  return { [pool.name]: apy };
+  const balances = res[0].map(v => new BigNumber(v.balance));
+  const rewardRates = res[1].map(v => new BigNumber(v.rewardRate));
+  const secondRewardRates = res[2].map(v => new BigNumber(v.secondRewardRate));
+  return { balances, rewardRates, secondRewardRates };
 };
 
-const getYearlyRewardsInUsd = async RewardPool => {
-  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-
-  const rewardPool = new web3.eth.Contract(IRewardPool, RewardPool);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardRates(0).call());
-  const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
-  const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
-
-  return yearlyRewardsInUsd;
-};
-
-const getSecondYearlyRewardsInUsd = async (RewardPool, sOracleId) => {
-  const tokenPrice = await fetchPrice({ oracle, id: sOracleId });
-
-  const rewardPool = new web3.eth.Contract(IRewardPool, RewardPool);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardRates(1).call());
-  const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
-  const secondYearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
-
-  return secondYearlyRewardsInUsd;
-};
-
-module.exports = getComethMultiLpApys;
+module.exports = getComethLpApys;

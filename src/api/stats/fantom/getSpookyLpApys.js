@@ -49,6 +49,7 @@ const getSpookyLpApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
@@ -69,7 +70,7 @@ const getSpookyLpApys = async () => {
     // Create reference for breakdown /apy
     const componentValues = {
       [pool.name]: {
-        vaultApr: simpleApy.toNumber(),
+        vaultApr: vaultApr.toNumber(),
         compoundingsPerYear: BASE_HPY,
         beefyPerformanceFee: beefyPerformanceFee,
         vaultApy: vaultApy,
