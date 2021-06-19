@@ -48,7 +48,7 @@ The new version of the APY endpoint, broken down into component parts when they 
 {
 	"bifi-maxi": {
         "totalApy": 0.07598675804818633
-},
+	},
 	"cometh-must-eth": {
         "vaultApr": 1.186973388240745,
         "compoundingsPerYear": 2190,
