@@ -10,6 +10,7 @@ const price = require('./api/price');
 const gov = require('./api/stats/gov');
 const cmc = require('./api/cmc');
 const tvl = require('./api/tvl');
+const multichainVaults = require('./api/vaults');
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
@@ -26,6 +27,8 @@ router.get('/holders', gov.holderCount);
 
 router.get('/lps', price.lpsPrices);
 router.get('/prices', price.tokenPrices);
+
+router.get('/vaults', multichainVaults.multichainVaults);
 
 router.get('/', noop);
 
