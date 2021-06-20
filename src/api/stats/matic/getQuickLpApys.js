@@ -103,4 +103,4 @@ const getPoolsData = async pools => {
   return { balances, rewardRates };
 };
 
-module.exports = getQuickLpApys;
+module.exports = { getQuickLpApys, quickLiquidityProviderFee };
