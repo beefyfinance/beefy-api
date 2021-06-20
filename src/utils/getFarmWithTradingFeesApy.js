@@ -15,8 +15,8 @@ Gains = D * (1 + APR/365)^365 - D
 Dividing out D to get the percentage rate with respect to the initial principal (Gains/A = APY)
 (2) APY = (1 + APR/365)^365 - 1
 
-Normally D doesn't generate interest, but in our case, since our D generates revenue from trading fees, 
-and we are reinvesting rewards which in turn increases our share of the trading fees, we can also model D with the compounding interest formula in equation (1) 
+Normally D doesn't generate interest, but in our case, since our D generates revenue from trading fees,
+and we are reinvesting rewards which in turn increases our share of the trading fees, we can also model D with the compounding interest formula in equation (1)
 
 (3) Total = D * (1 + APRTrading/365)^365 * (1 + APRVault/365)^365
 
@@ -46,8 +46,10 @@ const getFarmWithTradingFeesApy = (
   t,
   shareAfterBeefyPerformanceFee
 ) => {
-  const farmApy = compound(farmApr, compoundingsPerYear, t, shareAfterBeefyPerformanceFee);
-  const tradingApy = compound(tradingApr, compoundingsPerYear, t, 1); // no fee on trading
+  const farmApy = farmApr
+    ? compound(farmApr, compoundingsPerYear, t, shareAfterBeefyPerformanceFee)
+    : 0;
+  const tradingApy = tradingApr ? compound(tradingApr, compoundingsPerYear, t, 1) : 0; // no fee on trading
   const finalAPY = (1 + farmApy) * (1 + tradingApy) - 1;
   return finalAPY;
 };
