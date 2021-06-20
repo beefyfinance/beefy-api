@@ -17,7 +17,7 @@ const getPolyyeldApys = async () => {
   const lps = getMasterChefApys({
     masterchef: polyyeld.masterchef,
     masterchefAbi: MasterChefAbi,
-    tokenPerBlock: 'rewardPerBlock',
+    tokenPerBlock: 'YeldPerBlock',
     hasMultiplier: false,
     pools: pools,
     oracle: 'tokens',
