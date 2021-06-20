@@ -18,7 +18,7 @@ const getPolyyeldApys = async () => {
     masterchef: polyyeld.masterchef,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'YeldPerBlock',
-    hasMultiplier: false,
+    hasMultiplier: true,
     pools: pools,
     oracle: 'tokens',
     oracleId: YELD.symbol,
