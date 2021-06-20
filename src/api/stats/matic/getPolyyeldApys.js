@@ -12,6 +12,7 @@ const MasterChefAbi = require('../../../abis/matic/PolyyeldMasterChef.json');
 const pools = require('../../../data/matic/polyyeldLpPools.json');
 const { quickClient } = require('../../../apollo/client');
 const { quickLiquidityProviderFee } = require('./getQuickLpApys');
+const { getEDecimals } = require('../../../utils/getEDecimals');
 
 const getPolyyeldApys = async () => {
   const lps = getMasterChefApys({
@@ -22,7 +23,7 @@ const getPolyyeldApys = async () => {
     pools: pools,
     oracle: 'tokens',
     oracleId: YELD.symbol,
-    decimals: YELD.decimals,
+    decimals: getEDecimals(YELD.decimals),
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: quickLiquidityProviderFee,
     // log: true,
