@@ -16,6 +16,11 @@ const getMultichainVaults = () => {
 const updateMultichainVaults = async () => {
   console.log('> updating vaults');
 
+  // Reset entire list and counters
+  multichainVaults = [];
+  multichainVaultsCounter = 0;
+  multichainActiveVaultsCounter = 0;
+
   try {
     for (let chain in MULTICHAIN_ENDPOINTS) {
       let endpoint = MULTICHAIN_ENDPOINTS[chain];
@@ -55,7 +60,7 @@ const updateMultichainVaults = async () => {
       'active )'
     );
   } catch (err) {
-    console.error('> vaults initialization failed', err);
+    console.error('> vaults update failed', err);
   }
 
   setTimeout(updateMultichainVaults, REFRESH_INTERVAL);
