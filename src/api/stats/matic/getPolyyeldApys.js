@@ -9,7 +9,7 @@ const {
 } = require('blockchain-addressbook');
 
 const MasterChefAbi = require('../../../abis/matic/PolyyeldMasterChef.json');
-// const pools = require('../../../data/matic/ironLpPools.json');
+const pools = require('../../../data/matic/polyyeldLpPools.json');
 const { quickClient } = require('../../../apollo/client');
 const { quickLiquidityProviderFee } = require('./getQuickLpApys');
 
@@ -36,4 +36,4 @@ const getPolyyeldApys = async () => {
   return apys;
 };
 
-module.exports = getPolyyeldApys;
+module.exports = { getPolyyeldApys };
