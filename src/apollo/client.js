@@ -3,6 +3,14 @@ const fetch = require('node-fetch');
 const createHttpLink = require('apollo-link-http').createHttpLink;
 const InMemoryCache = require('apollo-cache-inmemory').InMemoryCache;
 
+const apePolyClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/apeswapfinance/dex-polygon',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 const sushiClient = new ApolloClient({
   link: createHttpLink({
     uri: 'https://api.thegraph.com/subgraphs/name/sushiswap/matic-exchange',
@@ -93,6 +101,7 @@ const mdexBscClient = new ApolloClient({
 });
 
 module.exports = {
+  apePolyClient,
   sushiClient,
   comethClient,
   quickClient,
