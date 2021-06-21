@@ -24,8 +24,8 @@ const getTradingFeeApr = async (client, pairAddresses, liquidityProviderFee) => 
 };
 
 const getTradingFeeAprSushi = async (client, pairAddresses, liquidityProviderFee) => {
-  const [start0, end0] = getStartAndEndDate(3, 4);
-  const [start1, end1] = getStartAndEndDate(6, 7);
+  const [start0, end0] = getStartAndEndDate(8, 9);
+  const [start1, end1] = getStartAndEndDate(11, 12);
 
   let queryResponse0 = await client.query({
     query: pairDayDataSushiQuery(addressesToLowercase(pairAddresses), start0, end0),
