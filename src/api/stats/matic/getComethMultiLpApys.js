@@ -6,11 +6,10 @@ const IRewardPool = require('../../../abis/matic/StakingMultiRewards.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/comethMultiLpPools.json');
-const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
+const { POLYGON_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { comethClient } = require('../../../apollo/client');
-const { compound } = require('../../../utils/compound');
+import getApyBreakdown from '../common/getApyBreakdown';
 
 const oracle = 'tokens';
 const oracleId = 'MUST';
@@ -19,8 +18,6 @@ const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const comethLiquidityProviderFee = 0.005;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getComethLpApys = async () => {
   let apys = {};
@@ -34,37 +31,7 @@ const getComethLpApys = async () => {
   );
   const farmApys = await getFarmApys(pools);
 
-  pools.forEach((pool, i) => {
-    const simpleApy = farmApys[i];
-    const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
-    const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
-    const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
-    const legacyApyValue = { [pool.name]: totalApy };
-    // Add token to APYs object
-    apys = { ...apys, ...legacyApyValue };
-
-    // Create reference for breakdown /apy
-    const componentValues = {
-      [pool.name]: {
-        vaultApr: vaultApr.toNumber(),
-        compoundingsPerYear: BASE_HPY,
-        beefyPerformanceFee: beefyPerformanceFee,
-        vaultApy: vaultApy,
-        lpFee: comethLiquidityProviderFee,
-        tradingApr: tradingApr.toNumber(),
-        totalApy: totalApy,
-      },
-    };
-    // Add token to APYs object
-    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
-  });
-
-  // Return both objects for later parsing
-  return {
-    apys,
-    apyBreakdowns,
-  };
+  return getApyBreakdown(pools, tradingAprs, farmApys, comethLiquidityProviderFee);
 };
 
 const getFarmApys = async pools => {

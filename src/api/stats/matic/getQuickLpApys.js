@@ -6,11 +6,10 @@ const IRewardPool = require('../../../abis/IRewardPool.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/quickLpPools.json');
-const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
+const { POLYGON_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { quickClient } = require('../../../apollo/client');
-const { compound } = require('../../../utils/compound');
+import getApyBreakdown from '../common/getApyBreakdown';
 
 const oracle = 'tokens';
 const oracleId = 'QUICK';
@@ -19,48 +18,13 @@ const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const quickLiquidityProviderFee = 0.003;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getQuickLpApys = async () => {
-  let apys = {};
-  let apyBreakdowns = {};
-
   const pairAddresses = pools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, quickLiquidityProviderFee);
   const farmApys = await getFarmApys(pools);
 
-  pools.forEach((pool, i) => {
-    const simpleApy = farmApys[i];
-    const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
-    const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
-    const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
-    const legacyApyValue = { [pool.name]: totalApy };
-    // Add token to APYs object
-    apys = { ...apys, ...legacyApyValue };
-
-    // Create reference for breakdown /apy
-    const componentValues = {
-      [pool.name]: {
-        vaultApr: vaultApr.toNumber(),
-        compoundingsPerYear: BASE_HPY,
-        beefyPerformanceFee: beefyPerformanceFee,
-        vaultApy: vaultApy,
-        lpFee: quickLiquidityProviderFee,
-        tradingApr: tradingApr.toNumber(),
-        totalApy: totalApy,
-      },
-    };
-    // Add token to APYs object
-    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
-  });
-
-  // Return both objects for later parsing
-  return {
-    apys,
-    apyBreakdowns,
-  };
+  return getApyBreakdown(pools, tradingAprs, farmApys, quickLiquidityProviderFee);
 };
 
 const getFarmApys = async pools => {
