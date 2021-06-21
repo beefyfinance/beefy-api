@@ -1,0 +1,40 @@
+[
+  {
+    "name": "polyyeld-quick-wmatic-yeld",
+    "address": "0xef71F798c15f8C9732488e109BB511144088bECe",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd0f3121A190d85dE0AB6131f2bCEcdbfcfB38891",
+      "oracle": "tokens",
+      "oracleId": "YELD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "polyyeld-quick-usdc-yeld",
+    "address": "0xAD8f4c66b28756458Fc419AA67aD2207A21A6997",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xd0f3121A190d85dE0AB6131f2bCEcdbfcfB38891",
+      "oracle": "tokens",
+      "oracleId": "YELD",
+      "decimals": "1e18"
+    }
+  }
+]
