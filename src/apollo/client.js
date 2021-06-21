@@ -100,6 +100,14 @@ const mdexBscClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const pangolinClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/dasconnor/pangolin-dex',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 module.exports = {
   apePolyClient,
   sushiClient,
@@ -113,4 +121,5 @@ module.exports = {
   wexpolyClient,
   mdexHecoClient,
   mdexBscClient,
+  pangolinClient,
 };

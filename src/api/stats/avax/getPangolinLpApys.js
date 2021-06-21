@@ -7,12 +7,19 @@ const pools = require('../../../data/avax/pangolinLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../constants');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+const { pangolinClient } = require('../../../apollo/client');
 
 const oracle = 'tokens';
 const oracleId = 'PNG';
 
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
+
+const liquidityProviderFee = 0.003;
+const beefyPerformanceFee = 0.045;
+const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const usdtAvaxRewardPool = '0x94C021845EfE237163831DAC39448cFD371279d6'; // USDT-AVAX
 const pngAvaxRewardPool = '0x574d3245e36Cf8C9dc86430EaDb0fDB2F385F829'; // PNG-AVAX
@@ -45,10 +52,42 @@ const getPangolinLpApys = async () => {
   ]);
 
   let apys = {};
+  let apyBreakdowns = {};
+
+  const pairAddresses = pools.map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(pangolinClient, pairAddresses, liquidityProviderFee);
+
   for (let item of values) {
-    apys = { ...apys, ...item };
+    const simpleApr = item.simpleApr;
+    const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
+    const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    const tradingApr = tradingAprs[item.address.toLowerCase()] ?? new BigNumber(0);
+    const totalApy = getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, 0.955);
+    const legacyApyValue = { [item.name]: totalApy };
+    // Add token to APYs object
+    apys = { ...apys, ...legacyApyValue };
+
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [item.name]: {
+        vaultApr: vaultApr.toNumber(),
+        compoundingsPerYear: BASE_HPY,
+        beefyPerformanceFee: beefyPerformanceFee,
+        vaultApy: vaultApy,
+        lpFee: liquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
+      },
+    };
+    // Add token to APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   }
-  return apys;
+
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const getPoolApy = async (rewardPool, pool, chainId) => {
@@ -57,10 +96,10 @@ const getPoolApy = async (rewardPool, pool, chainId) => {
     getTotalLpStakedInUsd(rewardPool, pool, chainId),
   ]);
 
-  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
-  // console.log(pool.name, simpleApy.valueOf(), apy);
-  return { [pool.name]: apy };
+  const simpleApr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const address = pool.address;
+  const name = pool.name;
+  return { name, address, simpleApr };
 };
 
 const getYearlyRewardsInUsd = async pngRewardPool => {
