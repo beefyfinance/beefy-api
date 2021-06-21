@@ -2,6 +2,7 @@ const getMasterChefApys = require('./getMaticMasterChefApys');
 
 const MasterChefAbi = require('../../../abis/WaltMaster.json');
 const pools = require('../../../data/matic/wexPolyLpPools.json');
+const { wexpolyClient } = require('../../../apollo/client');
 
 const getWexPolyApys = async () =>
   getMasterChefApys({
@@ -9,6 +10,8 @@ const getWexPolyApys = async () =>
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'wexPerBlock',
     hasMultiplier: false,
+    //  liquidityProviderFee: 0.018,
+    //  tradingFeeInfoClient: wexpolyClient,
     pools: pools,
     singlePools: [
       {

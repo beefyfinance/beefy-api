@@ -38,7 +38,7 @@ const polyzapClient = new ApolloClient({
 
 const spookyClient = new ApolloClient({
   link: createHttpLink({
-    uri: 'https://api.thegraph.com/subgraphs/name/eerieeight/spookyswap',
+    uri: 'https://api.thegraph.com/subgraphs/name/eerieeight/spooky-swap-exchange',
     fetch,
   }),
   cache: new InMemoryCache(),
@@ -68,6 +68,30 @@ const apeClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const wexpolyClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://polyinfo.wault.finance/subgraphs/name/WaultFinance/waultswap-subgraph',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const mdexHecoClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://graph.mdex.com/subgraphs/name/mdex/swap',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const mdexBscClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://bsc-graph.mdex.com/subgraphs/name/chains/bsc',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 module.exports = {
   sushiClient,
   comethClient,
@@ -77,4 +101,7 @@ module.exports = {
   spiritClient,
   cakeClient,
   apeClient,
+  wexpolyClient,
+  mdexHecoClient,
+  mdexBscClient,
 };

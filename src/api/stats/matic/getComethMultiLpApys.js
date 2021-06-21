@@ -19,7 +19,7 @@ const BLOCKS_PER_DAY = 28800;
 
 const comethLiquidityProviderFee = 0.005;
 
-const getComethLpApys = async () => {
+const getComethMultiLpApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
@@ -83,4 +83,4 @@ const getPoolsData = async pools => {
   return { balances, rewardRates, secondRewardRates };
 };
 
-module.exports = getComethLpApys;
+module.exports = getComethMultiLpApys;

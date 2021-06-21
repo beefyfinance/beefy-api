@@ -8,9 +8,14 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const { compound } = require('../../../utils/compound');
+
+const performanceFee = 0.045;
+const shareAfterPerformanceFee = 1 - performanceFee;
 
 const getMasterChefApys = async masterchefParams => {
   let apys = {};
+  let apyBreakdowns = {};
 
   masterchefParams.pools = [
     ...(masterchefParams.pools ?? []),
@@ -20,19 +25,46 @@ const getMasterChefApys = async masterchefParams => {
   const tradingAprs = await getTradingAprs(masterchefParams);
   const farmApys = await getFarmApys(masterchefParams);
 
-  masterchefParams.pools.forEach((pool, i) => {
-    const simpleApy = farmApys[i];
+  masterchefParams.pools.forEach((pool, i, params) => {
+    const simpleApr = farmApys[i];
+    const vaultApr = simpleApr.times(shareAfterPerformanceFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, MINUTELY_HPY, 1, 0.955);
+    const vaultApy = compound(simpleApr, MINUTELY_HPY, 1, shareAfterPerformanceFee);
+    const totalApy = getFarmWithTradingFeesApy(
+      simpleApr,
+      tradingApr,
+      MINUTELY_HPY,
+      1,
+      shareAfterPerformanceFee
+    );
+    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
 
-    if (masterchefParams.log) {
-      console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy);
-    }
+    // Create reference for legacy /apy
+    const legacyApyValue = { [pool.name]: totalApy };
+    // Add token to Spooky APYs object
+    apys = { ...apys, ...legacyApyValue };
 
-    apys = { ...apys, ...{ [pool.name]: apy } };
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [pool.name]: {
+        vaultApr: vaultApr.toNumber(),
+        compoundingsPerYear: MINUTELY_HPY,
+        beefyPerformanceFee: performanceFee,
+        vaultApy: vaultApy,
+        lpFee: params.liquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
+      },
+    };
+    // Add token to Spooky APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   });
 
-  return apys;
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const getTradingAprs = async params => {
