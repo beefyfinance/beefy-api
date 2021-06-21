@@ -24,6 +24,8 @@
 
     "allowJs": true,
     "checkJs": false,
+    "resolveJsonModule": true,
+
     "strict": false
   }
 }
