@@ -99,4 +99,4 @@ const getPoolsData = async pools => {
   return { balances, allocPoints, rewardAllocPoints };
 };
 
-module.exports = getSushiLpApys;
+module.exports = { getSushiLpApys, sushiLiquidityProviderFee };
