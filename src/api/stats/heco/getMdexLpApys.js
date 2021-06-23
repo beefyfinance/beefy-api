@@ -6,10 +6,11 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/heco/mdexLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BASE_HPY } = require('../../../constants');
+const { BASE_HPY, HECO_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { mdexHecoClient } = require('../../../apollo/client');
+const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const hecoPool = '0xFB03e11D93632D97a8981158A632Dd5986F5E909';
 
@@ -77,7 +78,8 @@ const getPoolApy = async (hecoPool, pool) => {
 const getYearlyRewardsInUsd = async (hecoPool, pool) => {
   const hecoPoolContract = new web3.eth.Contract(HecoPool, hecoPool);
 
-  const blockRewards = new BigNumber(await hecoPoolContract.methods.mdxPerBlock().call());
+  const blockNum = await getBlockNumber(HECO_CHAIN_ID);
+  const blockRewards = new BigNumber(await hecoPoolContract.methods.reward(blockNum).call());
 
   let { allocPoint } = await hecoPoolContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);
