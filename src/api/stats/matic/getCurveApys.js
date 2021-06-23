@@ -62,8 +62,12 @@ const getTotalStakedInUsd = async () => {
 const getYearlyRewardsInUsd = async () => {
   const maticPrice = await fetchPrice({ oracle, id: 'WMATIC' });
   const rewardPool = new web3.eth.Contract(IRewardStream, rewardStream);
-  const rewardRate = new BigNumber(await rewardPool.methods.reward_rate().call());
-  const maticRewardsInUsd = rewardRate.times(secondsPerYear).times(maticPrice).dividedBy(DECIMALS);
+  const periodFinish = Number(await rewardPool.methods.period_finish().call());
+  let maticRewardsInUsd = new BigNumber(0);
+  if (periodFinish > Date.now() / 1000) {
+    const rewardRate = new BigNumber(await rewardPool.methods.reward_rate().call());
+    maticRewardsInUsd = rewardRate.times(secondsPerYear).times(maticPrice).dividedBy(DECIMALS);
+  }
 
   const crvPrice = await fetchPrice({ oracle, id: 'CRV' });
   const crvRewardsContract = new web3.eth.Contract(ICurveRewards, crvRewards);
