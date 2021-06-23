@@ -24,7 +24,7 @@ const getAvaxApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getBscApys error', result.reason);
+      console.warn('getAvaxApys error', result.reason);
       continue;
     }
 

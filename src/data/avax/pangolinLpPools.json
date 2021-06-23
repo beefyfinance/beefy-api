@@ -4,6 +4,7 @@
     "address": "0x7a6131110B82dAcBb5872C7D352BfE071eA6A17C",
     "decimals": "1e18",
     "poolId": 0,
+    "rewardPool": "0xe968E9753fd2c323C2Fe94caFF954a48aFc18546",
     "chainId": 43114,
     "lp0": {
       "address": "0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB",
@@ -23,6 +24,7 @@
     "address": "0xbbC7fFF833D27264AaC8806389E02F717A5506c9",
     "decimals": "1e18",
     "poolId": 0,
+    "rewardPool": "0xBDa623cDD04d822616A263BF4EdbBCe0B7DC4AE7",
     "chainId": 43114,
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
@@ -42,6 +44,7 @@
     "address": "0xd8B262C0676E13100B33590F10564b46eeF652AD",
     "decimals": "1e18",
     "poolId": 0,
+    "rewardPool": "0xDA354352b03f87F84315eEF20cdD83c49f7E812e",
     "chainId": 43114,
     "lp0": {
       "address": "0x39cf1BD5f15fb22eC3D9Ff86b0727aFc203427cc",
@@ -61,6 +64,7 @@
     "address": "0x92dC558cB9f8d0473391283EaD77b79b416877cA",
     "decimals": "1e18",
     "poolId": 0,
+    "rewardPool": "0x1F6aCc5F5fE6Af91C1BB3bEbd27f4807a243D935",
     "chainId": 43114,
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
@@ -80,6 +84,7 @@
     "address": "0xE8AcF438B10A2C09f80aEf3Ef2858F8E758C98F9",
     "decimals": "1e18",
     "poolId": 0,
+    "rewardPool": "0xE2510a1fCCCde8d2D1c40b41e8f71fB1F47E5bBA",
     "chainId": 43114,
     "lp0": {
       "address": "0x60781C2586D68229fde47564546784ab3fACA982",
@@ -99,6 +104,7 @@
     "address": "0xd7538cABBf8605BdE1f4901B47B8D42c61DE0367",
     "decimals": "1e18",
     "poolId": 0,
+    "rewardPool": "0x574d3245e36Cf8C9dc86430EaDb0fDB2F385F829",
     "chainId": 43114,
     "lp0": {
       "address": "0x60781C2586D68229fde47564546784ab3fACA982",
@@ -118,6 +124,7 @@
     "address": "0x1aCf1583bEBdCA21C8025E172D8E8f2817343d65",
     "decimals": "1e18",
     "poolId": 0,
+    "rewardPool": "0x417C02150b9a31BcaCb201d1D60967653384E1C6",
     "chainId": 43114,
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
@@ -137,6 +144,7 @@
     "address": "0x9EE0a4E21bd333a6bb2ab298194320b8DaA26516",
     "decimals": "1e18",
     "poolId": 0,
+    "rewardPool": "0x94C021845EfE237163831DAC39448cFD371279d6",
     "chainId": 43114,
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
