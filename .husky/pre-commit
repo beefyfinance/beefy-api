@@ -3,6 +3,5 @@
 
 yarn lint-staged
 cd packages/address-book
-yarn
 yarn lint-staged
 yarn checksum
