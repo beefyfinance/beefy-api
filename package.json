@@ -9,7 +9,8 @@
     "test": "nyc ava",
     "prettier:check": "prettier --check src/**/*",
     "prettier:fix": "prettier --write src/**/*",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "bsc:pancake:farm:add": "node scripts/bscPancakeFarmAdd.js"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",

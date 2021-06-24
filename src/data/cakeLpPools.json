@@ -1,5 +1,43 @@
 [
   {
+    "name": "cakev2-waultx-wbnb",
+    "address": "0x3e4370204f598205998143F07ebCC486E441b456",
+    "decimals": "1e18",
+    "poolId": 419,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xB64E638E60D154B43f660a6BF8fD8a3b249a6a21",
+      "oracle": "tokens",
+      "oracleId": "WAULTx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-wex-wbnb",
+    "address": "0x547A355E70cd1F8CAF531B950905aF751dBEF5E6",
+    "decimals": "1e18",
+    "poolId": 418,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xa9c41A46a6B3531d28d5c32F6633dd2fF05dFB90",
+      "oracle": "tokens",
+      "oracleId": "WEX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-dg-bnb",
     "address": "0x8B2824D57eebf07f5AfF5C91Fa67eD7C501A9f43",
     "decimals": "1e18",
