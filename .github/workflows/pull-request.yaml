@@ -12,6 +12,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/address-book
     steps:
       # get repo code
       - uses: actions/checkout@v2
