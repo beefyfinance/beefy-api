@@ -2,10 +2,19 @@ const getChainTvl = require('./getChainTvl.js');
 
 const {
   BSC_CHAIN_ID,
+  BSC_VAULTS_ENDPOINT,
+
   HECO_CHAIN_ID,
+  HECO_VAULTS_ENDPOINT,
+
   AVAX_CHAIN_ID,
+  AVAX_VAULTS_ENDPOINT,
+
   POLYGON_CHAIN_ID,
+  POLYGON_VAULTS_ENDPOINT,
+
   FANTOM_CHAIN_ID,
+  FANTOM_VAULTS_ENDPOINT,
 } = require('../../constants');
 
 const INIT_DELAY = 40 * 1000;
@@ -16,28 +25,23 @@ let tvl = {};
 const chains = [
   {
     chainId: BSC_CHAIN_ID,
-    vaultsEndpoint:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/bsc_pools.js',
+    vaultsEndpoint: BSC_VAULTS_ENDPOINT,
   },
   {
     chainId: POLYGON_CHAIN_ID,
-    vaultsEndpoint:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/polygon_pools.js',
+    vaultsEndpoint: POLYGON_VAULTS_ENDPOINT,
   },
   {
     chainId: FANTOM_CHAIN_ID,
-    vaultsEndpoint:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fantom_pools.js',
+    vaultsEndpoint: FANTOM_VAULTS_ENDPOINT,
   },
   {
     chainId: HECO_CHAIN_ID,
-    vaultsEndpoint:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/heco_pools.js',
+    vaultsEndpoint: HECO_VAULTS_ENDPOINT,
   },
   {
     chainId: AVAX_CHAIN_ID,
-    vaultsEndpoint:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/avalanche_pools.js',
+    vaultsEndpoint: AVAX_VAULTS_ENDPOINT,
   },
 ];
 
