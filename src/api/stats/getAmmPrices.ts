@@ -97,6 +97,7 @@ import merlinPools from '../../data/merlinLpPools.json';
 import polypupLpPools from '../../data/matic/polypupLpPools.json';
 import polyyeldQuickLpPools from '../../data/matic/polyyeldQuickLpPools.json';
 import polyyeldSushiLpPools from '../../data/matic/polyyeldSushiLpPools.json';
+import polyyeldApeLpPools from '../../data/matic/polyyeldApeLpPools.json';
 import apePolyPools from '../../data/matic/apePolyLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
@@ -107,6 +108,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 const pools = [
   ...polypupLpPools,
   ...apePolyPools,
+  ...polyyeldApeLpPools,
   ...polyyeldQuickLpPools,
   ...polyyeldSushiLpPools,
   ...merlinPools,

@@ -11,9 +11,11 @@ const {
 const MasterChefAbi = require('../../../abis/matic/PolyyeldMasterChef.json');
 const quickPools = require('../../../data/matic/polyyeldQuickLpPools.json');
 const sushiPools = require('../../../data/matic/polyyeldSushiLpPools.json');
-const { quickClient, sushiClient } = require('../../../apollo/client');
+const apePools = require('../../../data/matic/polyyeldApeLpPools.json');
+const { quickClient, sushiClient, apePolyClient } = require('../../../apollo/client');
 const { quickLiquidityProviderFee } = require('./getQuickLpApys');
 const { sushiLiquidityProviderFee } = require('./getSushiLpApys');
+const { apeLiquidityProviderFee } = require('./getApeLpApys');
 const { getEDecimals } = require('../../../utils/getEDecimals');
 
 const getPolyyeldApys = async () => {
@@ -45,10 +47,24 @@ const getPolyyeldApys = async () => {
     // log: true,
   });
 
+  const ape = getMasterChefApys({
+    masterchef: polyyeld.masterchef,
+    masterchefAbi: MasterChefAbi,
+    tokenPerBlock: 'YeldPerBlock',
+    hasMultiplier: true,
+    pools: apePools,
+    oracle: 'tokens',
+    oracleId: YELD.symbol,
+    decimals: getEDecimals(YELD.decimals),
+    tradingFeeInfoClient: apePolyClient,
+    liquidityProviderFee: apeLiquidityProviderFee,
+    // log: true,
+  });
+
   let apys = {};
   let apyBreakdowns = {};
 
-  let promises = [quick, sushi];
+  let promises = [quick, sushi, ape];
   const results = await Promise.allSettled(promises);
 
   for (const result of results) {
