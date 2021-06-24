@@ -14,8 +14,7 @@
     "compile": "tsc",
     "checksum": "ts-node ./scripts/checksum.ts",
     "checksummify": "ts-node ./scripts/toChecksumTokenList.ts",
-    "submit": "yarn checksum && yarn compile && yarn publish",
-    "prepare": "husky install"
+    "submit": "yarn checksum && yarn compile && yarn publish"
   },
   "devDependencies": {
     "@types/node-fetch": "^2.5.10",
@@ -26,7 +25,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
     "ethereumjs-util": "^7.0.10",
-    "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
     "node-fetch": "^2.6.1",
     "prettier": "^2.3.0",
