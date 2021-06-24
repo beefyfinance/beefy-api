@@ -13,7 +13,7 @@ const aavePools = require('../../../data/matic/aavePools.json');
 
 const poolId = 'curve-am3crv';
 const curvePool = '0x445FE580eF8d70FF569aB36e80c647af338db351';
-const rewardGauge = '0xe381C25de995d62b453aF8B931aAc84fcCaa7A62';
+const rewardGauge = '0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c';
 const rewardStream = '0xBdFF0C27dd073C119ebcb1299a68A6A92aE607F0';
 const crvRewards = '0xC48f4653dd6a9509De44c92beb0604BEA3AEe714';
 const crv = '0x172370d5Cd63279eFa6d502DAB29171933a610AF';
