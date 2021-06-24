@@ -14,7 +14,7 @@ const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const hecoPool = '0xFB03e11D93632D97a8981158A632Dd5986F5E909';
 
-const liquidityProviderFee = 0.002;
+const liquidityProviderFee = 0.0014;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 

@@ -108,6 +108,30 @@ const pangolinClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const lydiaClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/lydiacoder/lydia',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const oliveClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/olive-rose/olivecash',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const complusAvaxClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://graph.avagraph.live/subgraphs/name/complusnetwork/subgraph-ava',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 module.exports = {
   apePolyClient,
   sushiClient,
@@ -122,4 +146,7 @@ module.exports = {
   mdexHecoClient,
   mdexBscClient,
   pangolinClient,
+  complusAvaxClient,
+  oliveClient,
+  lydiaClient,
 };
