@@ -1,70 +1,64 @@
-const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../../utils/web3');
+const getMasterChefApys = require('./getBscMasterChefApys');
 
 const MasterChef = require('../../../../abis/degens/MemeFarmMasterChef.json');
-const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/degens/memeFarmLpPools.json');
-const { compound } = require('../../../../utils/compound');
-const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
-const { BSC_CHAIN_ID } = require('../../../../constants');
-const getBlockNumber = require('../../../../utils/getBlockNumber');
-
-const masterchef = '0xa0A4Ab8c15c5b7C9f0d73a23786B5B51BA2d5399';
-const oracleId = 'MFRM';
-const oracle = 'tokens';
-const DECIMALS = '1e18';
+const { cakeClient } = require('../../../../apollo/client');
 
 const getMemeFarmApys = async () => {
+  const lp = getMasterChefApys({
+    masterchef: '0xa0A4Ab8c15c5b7C9f0d73a23786B5B51BA2d5399',
+    masterchefAbi: MasterChef,
+    tokenPerBlock: 'MfrmPerBlock',
+    hasMultiplier: true,
+    pools: pools,
+    oracleId: 'MFRM',
+    oracle: 'tokens',
+    decimals: '1e18',
+    // log: true,
+    tradingFeeInfoClient: cakeClient,
+    liquidityProviderFee: 0.0017,
+  });
+
   let apys = {};
+  let apyBreakdowns = {};
 
-  let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
-  const values = await Promise.all(promises);
+  let promises = [lp];
+  const results = await Promise.allSettled(promises);
 
-  for (let item of values) {
-    apys = { ...apys, ...item };
+  for (const result of results) {
+    if (result.status !== 'fulfilled') {
+      console.warn('getMemeFarmApys error', result.reason);
+      continue;
+    }
+
+    // Set default APY values
+    let mappedApyValues = result.value;
+    let mappedApyBreakdownValues = {};
+
+    // Loop through key values and move default breakdown format
+    // To require totalApy key
+    for (const [key, value] of Object.entries(result.value)) {
+      mappedApyBreakdownValues[key] = {
+        totalApy: value,
+      };
+    }
+
+    // Break out to apy and breakdowns if possible
+    let hasApyBreakdowns = 'apyBreakdowns' in result.value;
+    if (hasApyBreakdowns) {
+      mappedApyValues = result.value.apys;
+      mappedApyBreakdownValues = result.value.apyBreakdowns;
+    }
+
+    apys = { ...apys, ...mappedApyValues };
+
+    apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
 
-  return apys;
-};
-
-const getPoolApy = async (masterchef, pool) => {
-  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(masterchef, pool),
-    getTotalLpStakedInUsd(masterchef, pool),
-  ]);
-  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-  // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-  return { [pool.name]: apy };
-};
-
-const getYearlyRewardsInUsd = async (masterchef, pool) => {
-  const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
-
-  const multiplier = new BigNumber(
-    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
-  );
-  const blockRewards = new BigNumber(await masterchefContract.methods.MfrmPerBlock().call());
-
-  let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
-  allocPoint = new BigNumber(allocPoint);
-
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
-  const poolBlockRewards = blockRewards
-    .times(multiplier)
-    .times(allocPoint)
-    .dividedBy(totalAllocPoint);
-
-  const secondsPerBlock = 3;
-  const secondsPerYear = 31536000;
-  const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-
-  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
-
-  return yearlyRewardsInUsd;
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 module.exports = getMemeFarmApys;

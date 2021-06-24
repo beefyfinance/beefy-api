@@ -1,40 +1,41 @@
-const getMasterChefApys = require('../degens/getBscMasterChefApys');
-const getMasterChefApy = require('../degens/getMasterChefApys');
+const getMasterChefApys = require('./getBscMasterChefApys');
 
-const MasterChefAbi = require('../../../../abis/MasterChef.json');
-const pools = require('../../../../data/jetswapLpPools.json');
-const { jetswapClient } = require('../../../../apollo/client');
+const MasterChef = require('../../../../abis/MasterChef.json');
+const pools = require('../../../../data/degens/apeLpPools.json');
+const { apeClient } = require('../../../../apollo/client');
 
-const getJetswapApys = async () => {
+const getApeApys = async () => {
   const lp = getMasterChefApys({
-    masterchef: '0x63d6EC1cDef04464287e2af710FFef9780B6f9F5',
-    masterchefAbi: MasterChefAbi,
+    masterchef: '0x5c8d727b265dbafaba67e050f2f739caeeb4a6f9',
+    masterchefAbi: MasterChef,
     tokenPerBlock: 'cakePerBlock',
     hasMultiplier: true,
     pools: pools,
-    oracleId: 'WINGS',
+    oracleId: 'BANANA',
     oracle: 'tokens',
     decimals: '1e18',
     // log: true,
-    tradingFeeInfoClient: jetswapClient,
-    liquidityProviderFee: 0.0025,
+    tradingFeeInfoClient: apeClient,
+    liquidityProviderFee: 0.0015,
   });
 
-  const single = getMasterChefApy({
-    masterchef: '0x63d6EC1cDef04464287e2af710FFef9780B6f9F5',
-    masterchefAbi: MasterChefAbi,
+  const banana = getMasterChefApys({
+    masterchef: '0x5c8d727b265dbafaba67e050f2f739caeeb4a6f9',
+    masterchefAbi: MasterChef,
     tokenPerBlock: 'cakePerBlock',
     hasMultiplier: true,
-    pools: pools,
     singlePools: [
       {
-        name: 'jetswap-wings',
+        name: 'banana-banana',
         poolId: 0,
-        token: '0x0487b824c8261462F88940f97053E65bDb498446',
+        address: '0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95',
+        oracle: 'tokens',
+        oracleId: 'BANANA',
+        decimals: '1e18',
       },
     ],
-    oracleId: 'WINGS',
     oracle: 'tokens',
+    oracleId: 'BANANA',
     decimals: '1e18',
     // log: true,
   });
@@ -42,12 +43,12 @@ const getJetswapApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  let promises = [lp, single];
+  let promises = [lp, banana];
   const results = await Promise.allSettled(promises);
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getJetswapApys error', result.reason);
+      console.warn('getApeApys error', result.reason);
       continue;
     }
 
@@ -81,4 +82,4 @@ const getJetswapApys = async () => {
   };
 };
 
-module.exports = getJetswapApys;
+module.exports = getApeApys;

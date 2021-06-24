@@ -5,33 +5,70 @@ const MasterChef = require('../../../../abis/TenfiMasterChef.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/tenfiLpPools.json');
 const { compound } = require('../../../../utils/compound');
-const { BSC_CHAIN_ID } = require('../../../../constants');
+const { BSC_CHAIN_ID, BASE_HPY } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const {
   getTotalLpStakedInUsd,
   getTotalStakedInUsd,
 } = require('../../../../utils/getTotalStakedInUsd');
+const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
+const { cakeClient } = require('../../../../apollo/client');
 
 const masterchef = '0x264A1b3F6db28De4D3dD4eD23Ab31A468B0C1A96';
 const oracleId = 'TENFI';
 const oracle = 'tokens';
 const DECIMALS = '1e18';
 
+const liquidityProviderFee = 0.0017;
+const beefyPerformanceFee = 0.045;
+const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+
 const getTenfiApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
+
+  const allPools = [...pools];
+
+  const pairAddresses = pools.map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(cakeClient, pairAddresses, liquidityProviderFee);
 
   let promises = [];
-  const allPools = [...pools];
   allPools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
   const values = await Promise.all(promises);
 
   for (let item of values) {
-    apys = { ...apys, ...item };
+    const simpleApr = item.simpleApr;
+    const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
+    const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    const tradingApr = tradingAprs[item.address.toLowerCase()] ?? new BigNumber(0);
+    const totalApy = getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, 0.955);
+    const legacyApyValue = { [item.name]: totalApy };
+    // Add token to APYs object
+    apys = { ...apys, ...legacyApyValue };
+
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [item.name]: {
+        vaultApr: vaultApr.toNumber(),
+        compoundingsPerYear: BASE_HPY,
+        beefyPerformanceFee: beefyPerformanceFee,
+        vaultApy: vaultApy,
+        lpFee: liquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
+      },
+    };
+    // Add token to APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   }
 
-  return apys;
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
-
 const getPoolApy = async (masterchef, pool) => {
   let getTotalStaked;
   if (pool.token) {
@@ -50,10 +87,10 @@ const getPoolApy = async (masterchef, pool) => {
     getYearlyRewardsInUsd(masterchef, pool),
     getTotalStaked,
   ]);
-  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-  // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-  return { [pool.name]: apy };
+  const simpleApr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const address = pool.address;
+  const name = pool.name;
+  return { name, address, simpleApr };
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {

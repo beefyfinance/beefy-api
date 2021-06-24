@@ -1,7 +1,8 @@
-const getMasterChefApys = require('./getMasterChefApys');
+const getMasterChefApys = require('./getBscMasterChefApys');
 
 const MasterChefAbi = require('../../../../abis/degens/PantherMasterChef.json');
 const pools = require('../../../../data/degens/pantherLpPools.json');
+const { pantherClient } = require('../../../../apollo/client');
 
 const getPantherApys = async () =>
   await getMasterChefApys({
@@ -14,6 +15,8 @@ const getPantherApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     // log: true,
+    tradingFeeInfoClient: pantherClient,
+    liquidityProviderFee: 0.0017,
   });
 
 module.exports = getPantherApys;
