@@ -2,6 +2,11 @@
 . "$(dirname "$0")/_/husky.sh"
 
 yarn lint-staged
-cd packages/address-book
-yarn lint-staged
-yarn checksum
+
+SRC_PATTERN="packages/address-book"
+if git diff --cached --name-only | grep --quiet "$SRC_PATTERN"
+then
+    cd packages/address-book
+    yarn lint-staged
+    yarn checksum
+fi

@@ -4,8 +4,6 @@ on:
   pull_request:
     branches:
       - master
-      - move-address-book-to-api
-      - test
     paths:
       - packages/address-book/**
       - '!packages/address-book/package.json'
