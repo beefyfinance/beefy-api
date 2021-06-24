@@ -2,7 +2,7 @@ name: Push actions
 
 on:
   push:
-    branches: [master]
+    branches: [master, move-address-book-to-api]
     paths:
       - packages/address-book/**
       - '!packages/address-book/package.json'
