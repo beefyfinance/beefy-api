@@ -2,7 +2,9 @@ name: Pull-request actions
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [master]
+    paths:
+      - packages/address-book/**
 
 jobs:
   build:
