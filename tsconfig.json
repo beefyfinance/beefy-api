@@ -20,8 +20,12 @@
   },
   "compilerOptions": {
     // typescript options here
+    "outDir": "./dist",
+
     "allowJs": true,
     "checkJs": false,
+    "resolveJsonModule": true,
+
     "strict": false
   }
 }
