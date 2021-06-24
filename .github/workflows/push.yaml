@@ -5,10 +5,9 @@ on:
     branches: [master]
     paths:
       - packages/address-book/**
-    paths-ignore:
-      - 'packages/address-book/package.json'
-      - 'packages/address-book/CHANGELOG.md'
-      - 'packages/address-book/README.md'
+      - '!packages/address-book/package.json'
+      - '!packages/address-book/CHANGELOG.md'
+      - '!packages/address-book/README.md'
 
 jobs:
   build:

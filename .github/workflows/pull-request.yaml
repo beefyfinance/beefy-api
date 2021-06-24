@@ -5,6 +5,9 @@ on:
     branches: [master]
     paths:
       - packages/address-book/**
+      - '!packages/address-book/package.json'
+      - '!packages/address-book/CHANGELOG.md'
+      - '!packages/address-book/README.md'
 
 jobs:
   build:

@@ -1,5 +1,5 @@
 {
-  "name": "blockchain-addressbook",
+  "name": "blockchain-addressbook-test",
   "version": "0.1.62",
   "description": "A collection of useful addresses on various chains for defi development",
   "main": "build/address-book/index.js",
