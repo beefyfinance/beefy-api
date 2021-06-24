@@ -1,0 +1,18 @@
+[
+  {
+    "name": "polypup-pup",
+    "poolId": 4,
+    "address": "0xcFe2cF35D2bDDE84967e67d00aD74237e234CE59",
+    "oracle": "tokens",
+    "oracleId": "PUP",
+    "decimals": "1e18"
+  },
+  {
+    "name": "polypup-polydoge",
+    "poolId": 20,
+    "address": "0x8A953CfE442c5E8855cc6c61b1293FA648BAE472",
+    "oracle": "tokens",
+    "oracleId": "PolyDoge",
+    "decimals": "1e18"
+  }
+]
