@@ -1,5 +1,5 @@
 {
-  "name": "blockchain-addressbook-test",
+  "name": "blockchain-addressbook-temp",
   "version": "0.1.62",
   "description": "A collection of useful addresses on various chains for defi development",
   "main": "build/address-book/index.js",
@@ -8,7 +8,7 @@
     "build/address-book/",
     "build/util/"
   ],
-  "repository": "beefyfinance/address-book",
+  "repository": "beefyfinance/beefy-api",
   "license": "MIT",
   "scripts": {
     "compile": "tsc",
