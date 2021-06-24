@@ -96,6 +96,7 @@ const merlinPools = require('../../data/merlinLpPools.json');
 const polypupLpPools = require('../../data/matic/polypupLpPools.json');
 const polyyeldQuickLpPools = require('../../data/matic/polyyeldQuickLpPools.json');
 const polyyeldSushiLpPools = require('../../data/matic/polyyeldSushiLpPools.json');
+const polyyeldApeLpPools = require('../../data/matic/polyyeldApeLpPools.json');
 const apePolyPools = require('../../data/matic/apePolyLpPools.json');
 
 const INIT_DELAY = 0 * 60 * 1000;
@@ -106,6 +107,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 const pools = [
   ...polypupLpPools,
   ...apePolyPools,
+  ...polyyeldApeLpPools,
   ...polyyeldQuickLpPools,
   ...polyyeldSushiLpPools,
   ...merlinPools,
