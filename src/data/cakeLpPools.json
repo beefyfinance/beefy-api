@@ -1,5 +1,24 @@
 [
   {
+    "name": "cakev2-rabbit-wbnb",
+    "address": "0x04b56A5B3f45CFeaFbfDCFc999c14be5434f2146",
+    "decimals": "1e18",
+    "poolId": 420,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x95a1199EBA84ac5f19546519e287d43D2F0E1b41",
+      "oracle": "tokens",
+      "oracleId": "RABBIT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-waultx-wbnb",
     "address": "0x3e4370204f598205998143F07ebCC486E441b456",
     "decimals": "1e18",
