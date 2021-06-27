@@ -1,11 +1,11 @@
 import { BlockApiResponse, ERC20TxApiResponse } from './EtherscanApiResponseTypes';
 
-import { startOfMinute, subDays } from 'date-fns';
 import BigNumber from 'bignumber.js';
+import fetch from 'node-fetch';
 import { addressBook } from 'blockchain-addressbook';
 
 import fetchPrice from '../../../utils/fetchPrice';
-import fetch from 'node-fetch';
+import { getUtcSecondsFromDayRange } from '../../../utils/getUtcSecondsFromDayRange';
 
 const {
   polygon: {
@@ -17,17 +17,8 @@ const {
 const INIT_DELAY = 40 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
-const getUTCSeconds = (date /*: Date*/) => Math.floor(Number(date) / 1000);
-
-const getStartAndEndDate = (daysAgo0, daysAgo1) => {
-  const endDate = startOfMinute(subDays(Date.now(), daysAgo0));
-  const startDate = startOfMinute(subDays(Date.now(), daysAgo1));
-  const [start, end] = [startDate, endDate].map(getUTCSeconds);
-  return [start, end];
-};
-
 const getOneDayBlocksFromPolygonscan = async () => {
-  const [start, end] = getStartAndEndDate(0, 1);
+  const [start, end] = getUtcSecondsFromDayRange(0, 1);
   const startBlock = await getBlockFromPolyscan(start);
   const endBlock = await getBlockFromPolyscan(end);
   return [startBlock, endBlock];
@@ -40,10 +31,9 @@ const getBlockFromPolyscan = async timestamp => {
   return json.result;
 };
 
-const getBuyback = async client => {
-  let offset = 0;
+const getBuyback = async () => {
   let bifiBuybackTokenAmount = new BigNumber(0);
-  // const [start, end] = getStartAndEndDate(7, 8);
+  // const [start, end] = getUtcSecondsFromDayRange(7, 8);
   // const [start, end] = [1624196707, 1624319569];
   const [startBlock, endBlock] = await getOneDayBlocksFromPolygonscan();
   // rough estimate, could set to true, but don't want potential infinite loop
@@ -74,7 +64,7 @@ const updateBifiBuyback = async () => {
   console.log('> updating bifi buyback');
 
   try {
-    const dailyBifiBuyback = await getBuyback(quickClientSwaps);
+    const dailyBifiBuyback = await getBuyback();
     const bifiPrice = await fetchPrice({ oracle: 'tokens', id: 'BIFI' });
     dailyBifiBuybackInUsd = dailyBifiBuyback.times(new BigNumber(bifiPrice));
 
