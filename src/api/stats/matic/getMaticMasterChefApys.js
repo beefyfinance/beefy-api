@@ -38,7 +38,9 @@ const getMasterChefApys = async masterchefParams => {
       1,
       shareAfterPerformanceFee
     );
-    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+    if (masterchefParams.log) {
+      console.log(pool.name, simpleApr.valueOf(), tradingApr.valueOf(), totalApy);
+    }
 
     // Create reference for legacy /apy
     const legacyApyValue = { [pool.name]: totalApy };

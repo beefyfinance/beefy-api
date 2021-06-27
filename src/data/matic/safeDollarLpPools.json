@@ -1,0 +1,40 @@
+[
+  {
+    "name": "safedollar-sds-usdc",
+    "address": "0x57d748a6d18A3993409380064d37dCEfbE2cB3Ba",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x352db329B707773DD3174859F1047Fb4Fd2030BC",
+      "oracle": "tokens",
+      "oracleId": "SDS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "safedollar-sdo-usdc",
+    "address": "0x364A9222b1d9CE64725Cb3FfA32aF3Cf99d5BdE6",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x86BC05a6f65efdaDa08528Ec66603Aef175D967f",
+      "oracle": "tokens",
+      "oracleId": "SDO",
+      "decimals": "1e18"
+    }
+  }
+]
