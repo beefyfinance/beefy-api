@@ -54,10 +54,6 @@ const getBuyback = async () => {
 
 let dailyBifiBuybackInUsd;
 
-const getBifiBuyback = () => {
-  return dailyBifiBuybackInUsd;
-};
-
 const updateBifiBuyback = async () => {
   console.log('> updating bifi buyback');
 
@@ -76,4 +72,6 @@ const updateBifiBuyback = async () => {
 
 setTimeout(updateBifiBuyback, INIT_DELAY);
 
-module.exports = getBifiBuyback;
+export const getBifiBuyback = () => {
+  return dailyBifiBuybackInUsd;
+};
