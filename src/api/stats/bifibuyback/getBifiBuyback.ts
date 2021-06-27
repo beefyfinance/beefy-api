@@ -40,8 +40,8 @@ const getBuyback = async () => {
   const json: ERC20TxApiResponse = await resp.json();
   let txCount = 0;
   for (const entry of json.result) {
-    // actually should use the lp pool data here instead of address-book
-    if (entry.from === quickswap.wethBifiLp) {
+    // actually should use the lp pool data here instead of address-book. Will change after converging address-book and api
+    if (entry.from === quickswap.wethBifiLp.toLowerCase()) {
       const tokenAmount = new BigNumber(entry.value).dividedBy(getEDecimals(BIFI.decimals));
       bifiBuybackTokenAmount = bifiBuybackTokenAmount.plus(tokenAmount);
       txCount += 1;
