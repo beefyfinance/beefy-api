@@ -6,6 +6,7 @@ import { addressBook } from 'blockchain-addressbook';
 
 import fetchPrice from '../../../utils/fetchPrice';
 import { getUtcSecondsFromDayRange } from '../../../utils/getUtcSecondsFromDayRange';
+import { getEDecimals } from '../../../utils/getEDecimals';
 
 const {
   polygon: {
@@ -33,11 +34,8 @@ const getBlockFromPolyscan = async timestamp => {
 
 const getBuyback = async () => {
   let bifiBuybackTokenAmount = new BigNumber(0);
-  // const [start, end] = getUtcSecondsFromDayRange(7, 8);
-  // const [start, end] = [1624196707, 1624319569];
   const [startBlock, endBlock] = await getOneDayBlocksFromPolygonscan();
-  // rough estimate, could set to true, but don't want potential infinite loop
-  const url = `https://api.polygonscan.com/api?module=account&action=tokentx&address=${bifiMaxiAddress}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=YourApiKeyToken`;
+  const url = `https://api.polygonscan.com/api?module=account&action=tokentx&address=${beefyfinance.bifiMaxi}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=YourApiKeyToken`;
   const resp = await fetch(url);
   const json: ERC20TxApiResponse = await resp.json();
   let txCount = 0;
@@ -45,7 +43,7 @@ const getBuyback = async () => {
     // actually should use the lp pool data here instead of address-book
     if (entry.from === quickswap.wethBifiLp) {
       // replace with token decimals
-      const tokenAmount = new BigNumber(entry.value).dividedBy('1e18');
+      const tokenAmount = new BigNumber(entry.value).dividedBy(getEDecimals(BIFI.decimals));
       bifiBuybackTokenAmount = bifiBuybackTokenAmount.plus(tokenAmount);
       txCount += 1;
     }
@@ -65,7 +63,7 @@ const updateBifiBuyback = async () => {
 
   try {
     const dailyBifiBuyback = await getBuyback();
-    const bifiPrice = await fetchPrice({ oracle: 'tokens', id: 'BIFI' });
+    const bifiPrice = await fetchPrice({ oracle: 'tokens', id: BIFI.symbol });
     dailyBifiBuybackInUsd = dailyBifiBuyback.times(new BigNumber(bifiPrice));
 
     console.log('> updated bifi buyback');
