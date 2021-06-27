@@ -18,30 +18,35 @@ const {
 const INIT_DELAY = 40 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
-const getOneDayBlocksFromPolygonscan = async () => {
+const getOneDayBlocksFromEtherscan = async (scanUrl: string) => {
   const [start, end] = getUtcSecondsFromDayRange(0, 1);
-  const startBlock = await getBlockFromPolyscan(start);
-  const endBlock = await getBlockFromPolyscan(end);
+  const startBlock = await getBlockFromEtherscan(scanUrl, start);
+  const endBlock = await getBlockFromEtherscan(scanUrl, end);
   return [startBlock, endBlock];
 };
 
-const getBlockFromPolyscan = async timestamp => {
-  const url = `https://api.polygonscan.com/api?module=block&action=getblocknobytime&timestamp=${timestamp}&closest=after&apikey=YourApiKeyToken`;
+const getBlockFromEtherscan = async (scanUrl: string, timestamp: number) => {
+  const url = `${scanUrl}/api?module=block&action=getblocknobytime&timestamp=${timestamp}&closest=after&apikey=YourApiKeyToken`;
   const resp = await fetch(url);
   const json: BlockApiResponse = await resp.json();
   return json.result;
 };
 
-const getBuyback = async () => {
+const getBuyback = async (
+  scanUrl: string,
+  BIFI: any, // TODO type this with brknrobot's address book types, once merged
+  bifiMaxiAddress: string,
+  bifiLpAddress: string
+) => {
   let bifiBuybackTokenAmount = new BigNumber(0);
-  const [startBlock, endBlock] = await getOneDayBlocksFromPolygonscan();
-  const url = `https://api.polygonscan.com/api?module=account&action=tokentx&address=${beefyfinance.bifiMaxi}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=YourApiKeyToken`;
+  const [startBlock, endBlock] = await getOneDayBlocksFromEtherscan(scanUrl);
+  const url = `${scanUrl}/api?module=account&action=tokentx&address=${bifiMaxiAddress}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=YourApiKeyToken`;
   const resp = await fetch(url);
   const json: ERC20TxApiResponse = await resp.json();
   let txCount = 0;
   for (const entry of json.result) {
     // actually should use the lp pool data here instead of address-book. Will change after converging address-book and api
-    if (entry.from === quickswap.wethBifiLp.toLowerCase()) {
+    if (entry.from === bifiLpAddress.toLowerCase()) {
       const tokenAmount = new BigNumber(entry.value).dividedBy(getEDecimals(BIFI.decimals));
       bifiBuybackTokenAmount = bifiBuybackTokenAmount.plus(tokenAmount);
       txCount += 1;
