@@ -22,8 +22,8 @@ const getMdexLpApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  // const pairAddresses = pools.map(pool => pool.address);
-  // const tradingAprs = await getTradingFeeApr(mdexHecoClient, pairAddresses, liquidityProviderFee);
+  const pairAddresses = pools.map(pool => pool.address);
+  const tradingAprs = {}; //await getTradingFeeApr(mdexHecoClient, pairAddresses, liquidityProviderFee);
 
   const allPools = [...pools];
 
@@ -35,10 +35,9 @@ const getMdexLpApys = async () => {
     const simpleApr = item.simpleApr;
     const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
-    //  const tradingApr = tradingAprs[item.address.toLowerCase()] ?? new BigNumber(0);
-    //  const totalApy = getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, 0.955);
-    //  const legacyApyValue = { [item.name]: totalApy };
-    const legacyApyValue = { [item.name]: vaultApy };
+    const tradingApr = tradingAprs[item.address.toLowerCase()] ?? new BigNumber(0);
+    const totalApy = getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, 0.955);
+    const legacyApyValue = { [item.name]: totalApy };
     // Add token to APYs object
     apys = { ...apys, ...legacyApyValue };
 
@@ -50,9 +49,8 @@ const getMdexLpApys = async () => {
         beefyPerformanceFee: beefyPerformanceFee,
         vaultApy: vaultApy,
         lpFee: liquidityProviderFee,
-        //  tradingApr: tradingApr.toNumber(),
-        //  totalApy: totalApy,
-        totalApy: vaultApy,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
       },
     };
     // Add token to APYs object

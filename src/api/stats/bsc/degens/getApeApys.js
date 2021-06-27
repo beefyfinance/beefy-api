@@ -15,8 +15,8 @@ const getApeApys = async () => {
     oracle: 'tokens',
     decimals: '1e18',
     // log: true,
-    //  tradingFeeInfoClient: apeClient,
-    //  liquidityProviderFee: 0.0015,
+    tradingFeeInfoClient: apeClient,
+    liquidityProviderFee: 0.0015,
   });
 
   const banana = getMasterChefApys({
