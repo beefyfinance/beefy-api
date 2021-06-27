@@ -52,7 +52,7 @@ const getBuyback = async () => {
   return bifiBuybackTokenAmount;
 };
 
-let dailyBifiBuybackInUsd;
+let dailyBifiBuybackInUsd: BigNumber;
 
 const updateBifiBuyback = async () => {
   console.log('> updating bifi buyback');
@@ -72,6 +72,6 @@ const updateBifiBuyback = async () => {
 
 setTimeout(updateBifiBuyback, INIT_DELAY);
 
-export const getBifiBuyback = () => {
+export const getBifiBuyback = (): BigNumber => {
   return dailyBifiBuybackInUsd;
 };
