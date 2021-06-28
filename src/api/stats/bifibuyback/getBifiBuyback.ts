@@ -7,16 +7,13 @@ import { addressBook } from 'blockchain-addressbook';
 import fetchPrice from '../../../utils/fetchPrice';
 import { getUtcSecondsFromDayRange } from '../../../utils/getUtcSecondsFromDayRange';
 import { getEDecimals } from '../../../utils/getEDecimals';
-
-const {
-  polygon: {
-    tokens: { BIFI },
-    platforms: { beefyfinance, quickswap },
-  },
-} = addressBook;
+import { etherscanApiUrlMap } from './EtherscanApiUrlMap';
+import { bifiLpMap } from './BifiLpMap';
 
 const INIT_DELAY = 40 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
+
+type BifiBuybackByChainMap = { [chainName: string]: BigNumber };
 
 const getOneDayBlocksFromEtherscan = async (scanUrl: string) => {
   const [start, end] = getUtcSecondsFromDayRange(0, 1);
@@ -33,11 +30,12 @@ const getBlockFromEtherscan = async (scanUrl: string, timestamp: number) => {
 };
 
 const getBuyback = async (
+  chainName: string,
   scanUrl: string,
   BIFI: any, // TODO type this with brknrobot's address book types, once merged
   bifiMaxiAddress: string,
   bifiLpAddress: string
-) => {
+): Promise<BifiBuybackByChainMap> => {
   let bifiBuybackTokenAmount = new BigNumber(0);
   const [startBlock, endBlock] = await getOneDayBlocksFromEtherscan(scanUrl);
   const url = `${scanUrl}/api?module=account&action=tokentx&address=${bifiMaxiAddress}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=YourApiKeyToken`;
@@ -53,18 +51,50 @@ const getBuyback = async (
     }
   }
   console.log(`Harvest count: ${txCount}`);
-  return bifiBuybackTokenAmount;
+  return { [chainName]: bifiBuybackTokenAmount };
 };
 
-let dailyBifiBuybackInUsd: BigNumber;
+let dailyBifiBuybackInUsdByChain: BifiBuybackByChainMap = {};
 
 const updateBifiBuyback = async () => {
   console.log('> updating bifi buyback');
 
   try {
-    const dailyBifiBuyback = await getBuyback();
-    const bifiPrice = await fetchPrice({ oracle: 'tokens', id: BIFI.symbol });
-    dailyBifiBuybackInUsd = dailyBifiBuyback.times(new BigNumber(bifiPrice));
+    let promises = [];
+
+    const chainNames = Object.keys(etherscanApiUrlMap);
+
+    chainNames.forEach(chainName => {
+      const scanUrl = etherscanApiUrlMap[chainName];
+      const lp = bifiLpMap[chainName];
+      const chainAddressBook = addressBook[chainName];
+      const chainBIFI = chainAddressBook.tokens.BIFI;
+      const chainBifiMaxi = chainAddressBook.beefyfinance.bifiMaxi;
+      const prom = getBuyback(chainName, scanUrl, chainBIFI, chainBifiMaxi, lp);
+      promises.push(prom);
+    });
+
+    const bifiPrice = await fetchPrice({ oracle: 'tokens', id: 'BIFI' });
+
+    const results = await Promise.allSettled<BifiBuybackByChainMap[]>(promises);
+    let dailyBifiBuybackAmountByChain: BifiBuybackByChainMap = {};
+    for (const result of results) {
+      if (result.status !== 'fulfilled') {
+        console.warn('getBifiBuyback error', result.reason);
+        continue;
+      }
+
+      dailyBifiBuybackAmountByChain = { ...dailyBifiBuybackAmountByChain, ...result.value };
+    }
+
+    for (const key in dailyBifiBuybackAmountByChain) {
+      const tokenAmount = dailyBifiBuybackAmountByChain[key];
+      const dailyBifiBuybackInUsd = tokenAmount.times(new BigNumber(bifiPrice));
+      dailyBifiBuybackInUsdByChain = {
+        ...dailyBifiBuybackInUsdByChain,
+        [key]: dailyBifiBuybackInUsd,
+      };
+    }
 
     console.log('> updated bifi buyback');
   } catch (err) {
@@ -76,6 +106,6 @@ const updateBifiBuyback = async () => {
 
 setTimeout(updateBifiBuyback, INIT_DELAY);
 
-export const getBifiBuyback = (): BigNumber => {
-  return dailyBifiBuybackInUsd;
+export const getBifiBuyback = (): BifiBuybackByChainMap => {
+  return dailyBifiBuybackInUsdByChain;
 };
