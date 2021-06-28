@@ -10,9 +10,8 @@ export const etherscanApiUrlMap = {
     url: 'https://api.ftmscan.com',
     apiToken: 'HT3241A1K3ZVN4368JGHAFJXRR36VD8NCC',
   },
-  // api doesn't work
-  // heco: {
-  //   url: 'https://api.hecoinfo.com',
-  //   apiToken: '6XRRGTTB5ZQWXV55IDQJWYNF2F4GK7I1KK',
-  // },
+  heco: {
+    url: 'https://api.hecoinfo.com',
+    apiToken: '6XRRGTTB5ZQWXV55IDQJWYNF2F4GK7I1KK',
+  },
 } as const;
