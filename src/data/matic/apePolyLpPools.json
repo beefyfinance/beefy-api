@@ -1,5 +1,43 @@
 [
   {
+    "name": "ape-matic-usdt",
+    "address": "0x65D43B64E3B31965Cd5EA367D4c2b94c03084797",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "6",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "ape-matic-dai",
+    "address": "0xd32f3139A214034A0f9777c87eE0a064c1FF6AE2",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "ape-eth-matic",
     "address": "0x6Cf8654e85AB489cA7e70189046D507ebA233613",
     "decimals": "1e18",
