@@ -13,7 +13,7 @@ import { bifiLpMap } from './BifiLpMap';
 const INIT_DELAY = 40 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
-type BifiBuybackByChainMap = { [chainName: string]: BigNumber };
+export type BifiBuybackByChainMap = { [chainName: string]: BigNumber };
 
 const getOneDayBlocksFromEtherscan = async (scanUrl: string, apiToken: string) => {
   const [start, end] = getUtcSecondsFromDayRange(0, 1);
@@ -40,7 +40,7 @@ const getBuyback = async (
 ): Promise<BifiBuybackByChainMap> => {
   let bifiBuybackTokenAmount = new BigNumber(0);
   const [startBlock, endBlock] = await getOneDayBlocksFromEtherscan(scanUrl, apiToken);
-  const url = `${scanUrl}/api?module=account&action=tokentx&address=${bifiMaxiAddress}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=YourApiKeyToken`;
+  const url = `${scanUrl}/api?module=account&action=tokentx&address=${bifiMaxiAddress}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=${apiToken}`;
   const resp = await fetch(url);
   const json: ERC20TxApiResponse = await resp.json();
   let txCount = 0;
