@@ -44,7 +44,6 @@ const getTradingFeeAprSushi = async (client, pairAddresses, liquidityProviderFee
     const pairDayDatas0 = queryResponse0.data.pairs.map(pair => pair.dayData[0]);
     const pairDayDatas1 = queryResponse1.data.pairs.map(pair => pair.dayData[0]);
 
-    const pairAddressToAprMap = {};
     for (const pairDayData of zip([pairDayDatas0, pairDayDatas1])) {
       if (pairDayData && pairDayData[0] && pairDayData[1]) {
         const pairAddress = pairDayData[0].id.split('-')[0].toLowerCase();
