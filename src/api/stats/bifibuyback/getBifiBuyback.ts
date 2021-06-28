@@ -15,14 +15,15 @@ const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 type BifiBuybackByChainMap = { [chainName: string]: BigNumber };
 
-const getOneDayBlocksFromEtherscan = async (scanUrl: string) => {
+const getOneDayBlocksFromEtherscan = async (scanUrl: string, apiToken: string) => {
   const [start, end] = getUtcSecondsFromDayRange(0, 1);
-  const startBlock = await getBlockFromEtherscan(scanUrl, start);
-  const endBlock = await getBlockFromEtherscan(scanUrl, end);
+  const startBlock = await getBlockFromEtherscan(scanUrl, start, apiToken);
+  const endBlock = await getBlockFromEtherscan(scanUrl, end, apiToken);
   return [startBlock, endBlock];
 };
 
-const getBlockFromEtherscan = async (scanUrl: string, timestamp: number) => {
+const getBlockFromEtherscan = async (scanUrl: string, timestamp: number, apiToken?: string) => {
+  const token = apiToken ? apiToken : 'YourApiKeyToken';
   const url = `${scanUrl}/api?module=block&action=getblocknobytime&timestamp=${timestamp}&closest=after&apikey=YourApiKeyToken`;
   const resp = await fetch(url);
   const json: BlockApiResponse = await resp.json();
@@ -32,12 +33,13 @@ const getBlockFromEtherscan = async (scanUrl: string, timestamp: number) => {
 const getBuyback = async (
   chainName: string,
   scanUrl: string,
+  apiToken: string,
   BIFI: any, // TODO type this with brknrobot's address book types, once merged
   bifiMaxiAddress: string,
   bifiLpAddress: string
 ): Promise<BifiBuybackByChainMap> => {
   let bifiBuybackTokenAmount = new BigNumber(0);
-  const [startBlock, endBlock] = await getOneDayBlocksFromEtherscan(scanUrl);
+  const [startBlock, endBlock] = await getOneDayBlocksFromEtherscan(scanUrl, apiToken);
   const url = `${scanUrl}/api?module=account&action=tokentx&address=${bifiMaxiAddress}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=YourApiKeyToken`;
   const resp = await fetch(url);
   const json: ERC20TxApiResponse = await resp.json();
@@ -65,12 +67,12 @@ const updateBifiBuyback = async () => {
     const chainNames = Object.keys(etherscanApiUrlMap);
 
     chainNames.forEach(chainName => {
-      const scanUrl = etherscanApiUrlMap[chainName];
+      const { url, apiToken } = etherscanApiUrlMap[chainName];
       const lp = bifiLpMap[chainName];
       const chainAddressBook = addressBook[chainName];
       const chainBIFI = chainAddressBook.tokens.BIFI;
       const chainBifiMaxi = chainAddressBook.platforms.beefyfinance.bifiMaxiStrategy;
-      const prom = getBuyback(chainName, scanUrl, chainBIFI, chainBifiMaxi, lp);
+      const prom = getBuyback(chainName, url, apiToken, chainBIFI, chainBifiMaxi, lp);
       promises.push(prom);
     });
 
