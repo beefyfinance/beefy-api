@@ -8,7 +8,7 @@
     "poolId": 0,
     "chainId": 137,
     "lp0": {
-      "address": "0x9c78ee466d6cb57a4d01fd887d2b5dfb2d46288f",
+      "address": "0x9C78EE466D6Cb57A4d01Fd887D2b5dFb2D46288f",
       "oracle": "tokens",
       "oracleId": "MUST",
       "decimals": "1e18"
@@ -64,7 +64,7 @@
   },
   {
     "name": "cometh-sdt-eth",
-    "address": "0x7b72870da19ffd973d7d3404446a03cec8f73b4a",
+    "address": "0x7B72870DA19fFd973D7D3404446a03CeC8F73b4a",
     "rewardPool": "0x7C991dF9CDaFB1F62BefD5D6502fF81a7D85227b",
     "sOracleId": "SDT",
     "decimals": "1e18",
@@ -92,7 +92,7 @@
     "poolId": 0,
     "chainId": 137,
     "lp0": {
-      "address": "0x5c7f7fe4766fe8f0fa9b41e2e4194d939488ff1c",
+      "address": "0x5C7F7Fe4766fE8f0fa9b41E2E4194d939488ff1C",
       "oracle": "tokens",
       "oracleId": "DOKI",
       "decimals": "1e18"

@@ -9,27 +9,65 @@ const {
   getTotalStakedInUsd,
   getTotalLpStakedInUsd,
 } = require('../../../utils/getTotalStakedInUsd');
-const { AVAX_CHAIN_ID } = require('../../../constants');
+const { AVAX_CHAIN_ID, BASE_HPY } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+const { oliveClient } = require('../../../apollo/client');
 
 const masterchef = '0x5A9710f3f23053573301C2aB5024D0a43A461E80';
 const oracleId = 'OLIVE';
 const oracle = 'tokens';
 const DECIMALS = '1e18';
-const chainId = 43114;
+
+const liquidityProviderFee = 0.0017;
+const beefyPerformanceFee = 0.045;
+const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getOliveLpApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
+
+  const pairAddresses = pools.map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(oliveClient, pairAddresses, liquidityProviderFee);
+
+  const allPools = [...pools];
 
   let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
+  allPools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
-    apys = { ...apys, ...item };
+  for (let item of values) {
+    const simpleApr = item.simpleApr;
+    const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
+    const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    const tradingApr = tradingAprs[item.address.toLowerCase()] ?? new BigNumber(0);
+    const totalApy = getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, 0.955);
+    const legacyApyValue = { [item.name]: totalApy };
+    // Add token to APYs object
+    apys = { ...apys, ...legacyApyValue };
+
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [item.name]: {
+        vaultApr: vaultApr.toNumber(),
+        compoundingsPerYear: BASE_HPY,
+        beefyPerformanceFee: beefyPerformanceFee,
+        vaultApy: vaultApy,
+        lpFee: liquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
+      },
+    };
+    // Add token to APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   }
 
-  return apys;
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const getPoolApy = async (masterchef, pool) => {
@@ -44,16 +82,16 @@ const getPoolApy = async (masterchef, pool) => {
       chainId
     );
   } else {
-    getTotalStaked = getTotalLpStakedInUsd(masterchef, pool, chainId);
+    getTotalStaked = getTotalLpStakedInUsd(masterchef, pool, AVAX_CHAIN_ID);
   }
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(masterchef, pool),
     getTotalStaked,
   ]);
-  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-  // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-  return { [pool.name]: apy };
+  const simpleApr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const address = pool.address;
+  const name = pool.name;
+  return { name, address, simpleApr };
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {

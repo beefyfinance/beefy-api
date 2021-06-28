@@ -6,10 +6,10 @@ const IRewardPool = require('../../../abis/IRewardPool.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/quickLpPools.json');
-const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
+const { POLYGON_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { quickClient } = require('../../../apollo/client');
+import getApyBreakdown from '../common/getApyBreakdown';
 
 const oracle = 'tokens';
 const oracleId = 'QUICK';
@@ -20,21 +20,11 @@ const BLOCKS_PER_DAY = 28800;
 const quickLiquidityProviderFee = 0.003;
 
 const getQuickLpApys = async () => {
-  let apys = {};
-
   const pairAddresses = pools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, quickLiquidityProviderFee);
   const farmApys = await getFarmApys(pools);
 
-  pools.forEach((pool, i) => {
-    const simpleApy = farmApys[i];
-    const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
-    //console.log( pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy )
-    apys = { ...apys, ...{ [pool.name]: apy } };
-  });
-
-  return apys;
+  return getApyBreakdown(pools, tradingAprs, farmApys, quickLiquidityProviderFee);
 };
 
 const getFarmApys = async pools => {
@@ -77,4 +67,4 @@ const getPoolsData = async pools => {
   return { balances, rewardRates };
 };
 
-module.exports = getQuickLpApys;
+module.exports = { getQuickLpApys, quickLiquidityProviderFee };

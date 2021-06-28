@@ -53,7 +53,7 @@ const fetchAmmPrices = async (pools, knownPrices) => {
 
     // Old BSC pools don't have the chainId attr
     if (chain == '56') {
-      filtered = filtered.concat(pools.filter(p => p.chainId === undefined));
+      filtered = pools.filter(p => p.chainId === undefined).concat(filtered);
     }
 
     // Setup multichain
@@ -79,7 +79,7 @@ const fetchAmmPrices = async (pools, knownPrices) => {
       const oneInch = filtered.filter(p => p.name === '1inch-1inch-bnb')[0];
       if (oneInch) {
         const balance = await provider.getBalance(oneInch.address);
-        oneInch.lp1.balance = new BigNumber(balance.toString());
+        oneInch.lp0.balance = new BigNumber(balance.toString());
       }
     }
 
@@ -99,7 +99,7 @@ const fetchAmmPrices = async (pools, knownPrices) => {
           knownToken = pool.lp1;
           unknownToken = pool.lp0;
         } else {
-          console.log('unsolved: ', pool.lp0.oracleId, pool.lp1.oracleId);
+          console.log('unsolved: ', pool.lp0.oracleId, pool.lp1.oracleId, pool.name);
           continue;
         }
 

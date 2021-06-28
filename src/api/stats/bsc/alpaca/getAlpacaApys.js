@@ -11,7 +11,7 @@ const getAlpacaApys = async () => {
   pools.forEach(pool => promises.push(getPoolApy(pool)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
 

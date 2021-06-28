@@ -1,0 +1,16 @@
+[
+  {
+    "name": "curve-ftm-fusdt",
+    "pool": "0x92D5ebF3593a92888C25C0AbEF126583d4b5312E",
+    "gauge": "0x4f3E8F405CF5aFC05D68142F3783bDfE13811522",
+    "rewards": "0xfE1A3dD8b169fB5BF0D5dbFe813d956F39fF6310",
+    "baseApyKey": "fusdt"
+  },
+  {
+    "name": "curve-ftm-2pool",
+    "pool": "0x27E611FD27b276ACbd5Ffd632E5eAEBEC9761E40",
+    "gauge": "0x0a53FaDa2d943057C47A301D25a4D9b3B8e01e8E",
+    "rewards": "0xb9C05B8EE41FDCbd9956114B3aF15834FDEDCb54",
+    "baseApyKey": "2pool"
+  }
+]

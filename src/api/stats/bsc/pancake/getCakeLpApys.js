@@ -9,6 +9,9 @@ const getBlockNumber = require('../../../../utils/getBlockNumber');
 const pools = require('../../../../data/cakeLpPools.json');
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
+const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
+const { cakeClient } = require('../../../../apollo/client');
 
 const masterchef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
 const oracle = 'tokens';
@@ -17,12 +20,24 @@ const DECIMALS = '1e18';
 const secondsPerBlock = 3;
 const secondsPerYear = 31536000;
 
+const pancakeLiquidityProviderFee = 0.0017;
+const beefyPerformanceFee = 0.045;
+const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+
 const getCakeLpApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const { multiplier, blockRewards, totalAllocPoint } = await getMasterChefData();
   const { balances, allocPoints } = await getPoolsData(pools);
+
+  const pairAddresses = pools.map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(
+    cakeClient,
+    pairAddresses,
+    pancakeLiquidityProviderFee
+  );
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -39,14 +54,35 @@ const getCakeLpApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-    const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
-    // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-    const item = { [pool.name]: apy };
+    const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
+    const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
+    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const legacyApyValue = { [pool.name]: totalApy };
+    // Add token to APYs object
+    apys = { ...apys, ...legacyApyValue };
 
-    apys = { ...apys, ...item };
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [pool.name]: {
+        vaultApr: vaultApr.toNumber(),
+        compoundingsPerYear: BASE_HPY,
+        beefyPerformanceFee: beefyPerformanceFee,
+        vaultApy: vaultApy,
+        lpFee: pancakeLiquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
+      },
+    };
+    // Add token to APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   }
 
-  return apys;
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const getMasterChefData = async () => {

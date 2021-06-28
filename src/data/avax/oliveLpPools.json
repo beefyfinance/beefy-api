@@ -20,7 +20,7 @@
   },
   {
     "name": "olive-olive-usdt",
-    "address": "0xf54a719215622f602fca5bf5a6509734c3574a4c",
+    "address": "0xF54a719215622f602FCA5BF5a6509734C3574a4c",
     "decimals": "1e18",
     "poolId": 9,
     "chainId": 43114,

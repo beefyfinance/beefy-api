@@ -1,11 +1,88 @@
 [
   {
+    "name": "banana-ata-bnb",
+    "address": "0x51DA890085da091b84e27c7A8234E371943b0af0",
+    "decimals": "1e18",
+    "poolId": 67,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xa2120b9e674d3fc3875f415a7df52e382f141225",
+      "oracle": "tokens",
+      "oracleId": "ATA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-typh-bnb",
+    "address": "0xFEaf192c2662E5700bDa860c58d2686d9cc12Ec8",
+    "decimals": "1e18",
+    "poolId": 63,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x4090e535F2e251F5F88518998B18b54d26B3b07c",
+      "oracle": "tokens",
+      "oracleId": "TYPH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-celr-bnb",
+    "address": "0xB7F42e58Cf2364ac994F93f7afF3b158CFA3dC76",
+    "decimals": "1e18",
+    "poolId": 59,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x1f9f6a696C6Fd109cD3956F45dC709d2b3902163",
+      "oracle": "tokens",
+      "oracleId": "CELR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-shib-bnb",
+    "address": "0xC0AFB6078981629F7eAe4f2ae93b6DBEA9D7a7e9",
+    "decimals": "1e18",
+    "poolId": 60,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x2859e4544C4bB03966803b044A93563Bd2D0DD4D",
+      "oracle": "tokens",
+      "oracleId": "SHIB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-sushi-bnb",
     "address": "0x1D0C3044eBf055986c52D38b19B5369374E6Bc6A",
     "decimals": "1e18",
     "poolId": 13,
+    "chainId": 56,
     "lp0": {
-      "address": "0x947950bcc74888a40ffa2593c5798f11fc9124c4",
+      "address": "0x947950BcC74888a40Ffa2593C5798F11Fc9124C4",
       "oracle": "tokens",
       "oracleId": "SUSHI",
       "decimals": "1e18"
@@ -22,8 +99,9 @@
     "address": "0x21CBb561c5d7D70e9E6Cc42136CB22F07552aEef",
     "decimals": "1e18",
     "poolId": 33,
+    "chainId": 56,
     "lp0": {
-      "address": "0x7083609fce4d1d8dc0c979aab8c869ea2c873402",
+      "address": "0x7083609fCE4d1d8Dc0C979AAb8c869Ea2C873402",
       "oracle": "tokens",
       "oracleId": "DOT",
       "decimals": "1e18"
@@ -40,8 +118,9 @@
     "address": "0x6f0f18f5fcC1466ec41c8106689e10BeFE68D1c0",
     "decimals": "1e18",
     "poolId": 32,
+    "chainId": 56,
     "lp0": {
-      "address": "0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe",
+      "address": "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE",
       "oracle": "tokens",
       "oracleId": "XRP",
       "decimals": "1e18"
@@ -55,11 +134,12 @@
   },
   {
     "name": "banana-blz-bnb",
-    "address": "0x015f807d0186f7e62810d0c597a23cb19ff57e4d",
+    "address": "0x015f807d0186f7e62810D0C597A23CB19Ff57E4d",
     "decimals": "1e18",
     "poolId": 57,
+    "chainId": 56,
     "lp0": {
-      "address": "0x935a544bf5816e3a7c13db2efe3009ffda0acda2",
+      "address": "0x935a544Bf5816E3A7C13DB2EFe3009Ffda0aCdA2",
       "oracle": "tokens",
       "oracleId": "BLZ",
       "decimals": "1e18"
@@ -73,11 +153,12 @@
   },
   {
     "name": "banana-snx-bnb",
-    "address": "0x8b1f1f28a8ccbaa8a8bc1582921ece97ce99d9e1",
+    "address": "0x8b1F1F28a8CcbaA8a8Bc1582921ECe97Ce99d9e1",
     "decimals": "1e18",
     "poolId": 56,
+    "chainId": 56,
     "lp0": {
-      "address": "0x9ac983826058b8a9c7aa1c9171441191232e8404",
+      "address": "0x9Ac983826058b8a9C7Aa1C9171441191232E8404",
       "oracle": "tokens",
       "oracleId": "SNX",
       "decimals": "1e18"
@@ -94,8 +175,9 @@
     "address": "0x0F12362c017Fe5101c7bBa09390f1CB729f5B318",
     "decimals": "1e18",
     "poolId": 39,
+    "chainId": 56,
     "lp0": {
-      "address": "0x4338665cbb7b2485a8855a139b75d5e34ab0db94",
+      "address": "0x4338665CBB7B2485A8855A139b75D5e34AB0DB94",
       "oracle": "tokens",
       "oracleId": "LTC",
       "decimals": "1e18"
@@ -109,11 +191,12 @@
   },
   {
     "name": "banana-near-bnb",
-    "address": "0xb75724635a6cda850f08b578f23a568cedba099d",
+    "address": "0xB75724635A6cDa850f08b578F23a568CeDba099D",
     "decimals": "1e18",
     "poolId": 54,
+    "chainId": 56,
     "lp0": {
-      "address": "0x1fa4a73a3f0133f0025378af00236f3abdee5d63",
+      "address": "0x1Fa4a73a3F0133f0025378af00236f3aBDEE5D63",
       "oracle": "tokens",
       "oracleId": "NEAR",
       "decimals": "1e18"
@@ -127,11 +210,12 @@
   },
   {
     "name": "banana-coti-bnb",
-    "address": "0xacfdcf0486adc2421aac3ffc0923b9c56faebc47",
+    "address": "0xaCfDCF0486ADC2421aAc3FFc0923b9c56FAEBC47",
     "decimals": "1e18",
     "poolId": 53,
+    "chainId": 56,
     "lp0": {
-      "address": "0xadbaf88b39d37dc68775ed1541f1bf83a5a45feb",
+      "address": "0xAdBAF88B39D37Dc68775eD1541F1bf83A5A45feB",
       "oracle": "tokens",
       "oracleId": "COTI",
       "decimals": "1e18"
@@ -145,11 +229,12 @@
   },
   {
     "name": "banana-etc-bnb",
-    "address": "0xdd6c7a955c72b3ffd546d8dadbf7669528d8f785",
+    "address": "0xDd6C7A955C72B3FFD546d8dadBf7669528d8F785",
     "decimals": "1e18",
     "poolId": 47,
+    "chainId": 56,
     "lp0": {
-      "address": "0x3d6545b08693dae087e957cb1180ee38b9e3c25e",
+      "address": "0x3d6545b08693daE087E957cb1180ee38B9e3c25E",
       "oracle": "tokens",
       "oracleId": "ETC",
       "decimals": "1e18"
@@ -166,6 +251,7 @@
     "address": "0x2B2C771e44aF4C6f858598308e05FB89b23f11cE",
     "decimals": "1e18",
     "poolId": 52,
+    "chainId": 56,
     "lp0": {
       "address": "0x1Ba42e5193dfA8B03D15dd1B86a3113bbBEF8Eeb",
       "oracle": "tokens",
@@ -184,8 +270,9 @@
     "address": "0x40aFc7CBd0Dc2bE5860F0035b717d20Afb4827b2",
     "decimals": "1e18",
     "poolId": 51,
+    "chainId": 56,
     "lp0": {
-      "address": "0x1ce0c2827e2ef14d5c4f29a091d735a204794041",
+      "address": "0x1CE0c2827e2eF14D5C4f29a091d735A204794041",
       "oracle": "tokens",
       "oracleId": "AVAX",
       "decimals": "1e18"
@@ -202,8 +289,9 @@
     "address": "0x47A0B7bA18Bb80E4888ca2576c2d34BE290772a6",
     "decimals": "1e18",
     "poolId": 49,
+    "chainId": 56,
     "lp0": {
-      "address": "0xad29abb318791d579433d831ed122afeaf29dcfe",
+      "address": "0xAD29AbB318791D579433D831ed122aFeAf29dcfe",
       "oracle": "tokens",
       "oracleId": "FTM",
       "decimals": "1e18"
@@ -220,8 +308,9 @@
     "address": "0xb4c0c621B2eDfE6C22585ebAC56b0e634907B8A7",
     "decimals": "1e18",
     "poolId": 48,
+    "chainId": 56,
     "lp0": {
-      "address": "0x52ce071bd9b1c4b00a0b92d298c512478cad67e8",
+      "address": "0x52CE071Bd9b1C4B00A0b92D298c512478CaD67e8",
       "oracle": "tokens",
       "oracleId": "COMP",
       "decimals": "1e18"
@@ -238,16 +327,17 @@
     "address": "0xf13e007e181A8F57eD3a4D4CcE0A9ff9E7241CEf",
     "decimals": "1e18",
     "poolId": 46,
+    "chainId": 56,
     "lp0": {
-      "address": "0xfb6115445bff7b52feb98650c87f44907e58f802",
-      "oracle": "tokens",
-      "oracleId": "AAVE",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfb6115445Bff7b52FeB98650C87f44907E58f802",
+      "oracle": "tokens",
+      "oracleId": "AAVE",
       "decimals": "1e18"
     }
   },
@@ -256,16 +346,17 @@
     "address": "0x092ADA3818DB7FBb8e0A2124Ff218C5125C1CcE6",
     "decimals": "1e18",
     "poolId": 36,
+    "chainId": 56,
     "lp0": {
-      "address": "0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd",
-      "oracle": "tokens",
-      "oracleId": "LINK",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD",
+      "oracle": "tokens",
+      "oracleId": "LINK",
       "decimals": "1e18"
     }
   },
@@ -274,6 +365,7 @@
     "address": "0x40d4543887E4170A1A40Cd8dB15A6b297c812Cb1",
     "decimals": "1e18",
     "poolId": 17,
+    "chainId": 56,
     "lp0": {
       "address": "0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47",
       "oracle": "tokens",
@@ -292,16 +384,17 @@
     "address": "0x29A4A3D77c010CE100A45831BF7e798f0f0B325D",
     "decimals": "1e18",
     "poolId": 45,
+    "chainId": 56,
     "lp0": {
-      "address": "0xcc42724c6683b7e57334c4e856f4c9965ed682bd",
-      "oracle": "tokens",
-      "oracleId": "MATIC",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCC42724C6683B7E57334c4E856f4c9965ED682bD",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
       "decimals": "1e18"
     }
   },
@@ -310,6 +403,7 @@
     "address": "0xa00A91fBB39051e2a6368424A93895c3f1F2290b",
     "decimals": "1e18",
     "poolId": 44,
+    "chainId": 56,
     "lp0": {
       "address": "0x7A9f28EB62C791422Aa23CeAE1dA9C847cBeC9b0",
       "oracle": "tokens",
@@ -328,8 +422,9 @@
     "address": "0x288EA5437c7aaD045a393cee2F41E548df24d1C8",
     "decimals": "1e18",
     "poolId": 24,
+    "chainId": 56,
     "lp0": {
-      "address": "0x05b339b0a346bf01f851dde47a5d485c34fe220c",
+      "address": "0x05B339B0A346bF01f851ddE47a5d485c34FE220c",
       "oracle": "tokens",
       "oracleId": "NAUT",
       "decimals": "1e8"
@@ -346,8 +441,9 @@
     "address": "0xc2feF4BEC915315beF9f6E8a06b2516E64D29D06",
     "decimals": "1e18",
     "poolId": 42,
+    "chainId": 56,
     "lp0": {
-      "address": "0xab111d5948470ba73d98d66bbdf2798fbe093546",
+      "address": "0xab111D5948470Ba73d98D66BBdf2798FBE093546",
       "oracle": "tokens",
       "oracleId": "bxBTC",
       "decimals": "1e9"
@@ -364,6 +460,7 @@
     "address": "0xC087C78AbaC4A0E900a327444193dBF9BA69058E",
     "decimals": "1e18",
     "poolId": 8,
+    "chainId": 56,
     "lp0": {
       "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
       "oracle": "tokens",
@@ -371,7 +468,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"
@@ -382,17 +479,18 @@
     "address": "0xfd1ef328A17A8e8Eeaf7e4Ea1ed8a108E1F2d096",
     "decimals": "1e18",
     "poolId": 38,
+    "chainId": 56,
     "lp0": {
+      "address": "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
+      "oracle": "tokens",
+      "oracleId": "DOGE",
+      "decimals": "1e8"
+    },
+    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
       "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xba2ae424d960c26247dd6c32edc70b295c744c43",
-      "oracle": "tokens",
-      "oracleId": "DOGE",
-      "decimals": "1e8"
     }
   },
   {
@@ -400,6 +498,7 @@
     "address": "0x924D3f2F94618e8Ee837d4C2b8d703F0de12a57e",
     "decimals": "1e18",
     "poolId": 31,
+    "chainId": 56,
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
@@ -407,7 +506,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xfd7b3a77848f1c2d67e05e54d78d174a0c850335",
+      "address": "0xFd7B3A77848f1C2D67E05E54d78d174a0C850335",
       "oracle": "tokens",
       "oracleId": "ONT",
       "decimals": "1e18"
@@ -418,8 +517,9 @@
     "address": "0x7A8ACAEAfC4Fa051De4EAbff8D1abdD0388aE08a",
     "decimals": "1e18",
     "poolId": 30,
+    "chainId": 56,
     "lp0": {
-      "address": "0x4b6000f9163de2e3f0a01ec37e06e1469dbbce9d",
+      "address": "0x4b6000F9163de2E3f0a01eC37E06e1469DBbcE9d",
       "oracle": "tokens",
       "oracleId": "KEYFI",
       "decimals": "1e18"
@@ -433,17 +533,18 @@
   },
   {
     "name": "banana-ada-eth",
-    "address": "0x61fe209e404166a53cc627d0ae30a65606315da7",
+    "address": "0x61FE209E404166a53Cc627d0ae30A65606315dA7",
     "decimals": "1e18",
     "poolId": 18,
+    "chainId": 56,
     "lp0": {
-      "address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
       "oracle": "tokens",
       "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x3ee2200efb3400fabb9aacf31297cbdd1d435d47",
+      "address": "0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47",
       "oracle": "tokens",
       "oracleId": "ADA",
       "decimals": "1e18"
@@ -451,9 +552,10 @@
   },
   {
     "name": "banana-iota-bnb",
-    "address": "0x0d70924695b6ae496f0a74a36bf79d47307dd519",
+    "address": "0x0D70924695B6Ae496F0A74A36bf79d47307dD519",
     "decimals": "1e18",
     "poolId": 22,
+    "chainId": 56,
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
@@ -461,19 +563,20 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xd944f1d1e9d5f9bb90b62f9d45e447d989580782",
+      "address": "0xd944f1D1e9d5f9Bb90b62f9D45e447D989580782",
       "oracle": "tokens",
       "oracleId": "IOTA",
-      "decimals": "1e18"
+      "decimals": "1e6"
     }
   },
   {
     "name": "banana-bat-bnb",
-    "address": "0x6e425b4fc4efd070dc0def1654a17946c7e6b3c4",
+    "address": "0x6e425B4fc4Efd070Dc0deF1654a17946C7e6b3C4",
     "decimals": "1e18",
     "poolId": 20,
+    "chainId": 56,
     "lp0": {
-      "address": "0x101d82428437127bf1608f699cd651e6abf9766e",
+      "address": "0x101d82428437127bF1608F699CD651e6Abf9766E",
       "oracle": "tokens",
       "oracleId": "BAT",
       "decimals": "1e18"
@@ -490,16 +593,17 @@
     "address": "0xDDd3f9d5Bd347c55D18752c0C2075698EC657750",
     "decimals": "1e18",
     "poolId": 11,
+    "chainId": 56,
     "lp0": {
-      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
-      "oracle": "tokens",
-      "oracleId": "BIFI",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
       "decimals": "1e18"
     }
   },
@@ -508,8 +612,9 @@
     "address": "0xF65C1C0478eFDe3c19b49EcBE7ACc57BB6B1D713",
     "decimals": "1e18",
     "poolId": 1,
+    "chainId": 56,
     "lp0": {
-      "address": "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
+      "address": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
       "oracle": "tokens",
       "oracleId": "BANANA",
       "decimals": "1e18"
@@ -526,14 +631,15 @@
     "address": "0x7Bd46f6Da97312AC2DBD1749f82E202764C0B914",
     "decimals": "1e18",
     "poolId": 2,
+    "chainId": 56,
     "lp0": {
-      "address": "0x603c7f932ed1fc6575303d8fb018fdcbb0f39a95",
+      "address": "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
       "oracle": "tokens",
       "oracleId": "BANANA",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"

@@ -1,0 +1,268 @@
+[
+  {
+    "name": "wexpoly-polydoge-matic",
+    "address": "0x1a881D021d346C5433B2cf8FB46Ee00Dec89070d",
+    "decimals": "1e18",
+    "poolId": 18,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8A953CfE442c5E8855cc6c61b1293FA648BAE472",
+      "oracle": "tokens",
+      "oracleId": "PolyDoge",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-snx-eth",
+    "address": "0x2857Ec555c1E4fA20982AcBf985b8b8807157A5B",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x50B728D8D964fd00C2d0AAD81718b71311feF68a",
+      "oracle": "tokens",
+      "oracleId": "SNX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-link-eth",
+    "address": "0x70bF5ffCC6090A8D243FD05485Ec4c084BD10Ae5",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39",
+      "oracle": "tokens",
+      "oracleId": "LINK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-aave-eth",
+    "address": "0x58401db5eD194cBA60f2b7D59b9619D54e0B493c",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+      "oracle": "tokens",
+      "oracleId": "AAVE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-dai-eth",
+    "address": "0xaEF35d720C56eF3c259BCCdB6931F331c7f15b3F",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-usdc-dai",
+    "address": "0x8E5c5AE2542116b5715b12bb2d391A770a607075",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-wbtc-usdc",
+    "address": "0x30eEf213D4B9C809f5776Ae56cC39f02f19F742f",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "wexpoly-wbtc-eth",
+    "address": "0x30AdBCAb9Fbb4436109fcf3058D1Af27E6E33F3F",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-matic-eth",
+    "address": "0x679B8Ab80F298bF802fB294137765C6386D43dcA",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-matic-usdc",
+    "address": "0x8312A29A91D9Fac706F4d2ADEB1FA4540faD1673",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "wexpoly-usdc-usdt",
+    "address": "0x7242e19A0937ac33472febD69462668a4cf5bbC5",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "wexpoly-wex-usdc",
+    "address": "0x5DE6a3CcA10d3F788EEdbD4923e31D4658bf6f9a",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x4c4BF319237D98a30A929A96112EfFa8DA3510EB",
+      "oracle": "tokens",
+      "oracleId": "WEXpoly",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-bifi-matic",
+    "address": "0xE60afed80406190C3AB2C17501d417097Dd741DB",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wexpoly-wex-matic",
+    "address": "0xC46991072C7eAC184F7bd69d3122cd1750300b27",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4c4BF319237D98a30A929A96112EfFa8DA3510EB",
+      "oracle": "tokens",
+      "oracleId": "WEXpoly",
+      "decimals": "1e18"
+    }
+  }
+]

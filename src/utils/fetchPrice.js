@@ -1,4 +1,3 @@
-const axios = require('axios');
 const { getAmmTokenPrice, getAmmLpPrice } = require('../api/stats/getAmmPrices');
 
 const CACHE_TIMEOUT = 10 * 60 * 1000;
@@ -18,19 +17,6 @@ function getCachedPrice({ oracle, id }) {
 function addToCache({ oracle, id, price }) {
   cache[`${oracle}-${id}`] = { price: price, t: Date.now() };
 }
-
-const fetchCoingecko = async id => {
-  console.warn('coingecko is deprecated');
-  try {
-    const response = await axios.get('https://api.coingecko.com/api/v3/simple/price', {
-      params: { ids: id, vs_currencies: 'usd' },
-    });
-    return response.data[id].usd;
-  } catch (err) {
-    console.error('fetchCoingecko error:', err);
-    return 0;
-  }
-};
 
 const fetchPrice = async ({ oracle, id }) => {
   if (oracle === undefined) {
@@ -54,10 +40,6 @@ const fetchPrice = async ({ oracle, id }) => {
 
     case 'tokens':
       price = await getAmmTokenPrice(id);
-      break;
-
-    case 'coingecko':
-      price = await fetchCoingecko(id);
       break;
 
     case 'hardcode':

@@ -17,7 +17,7 @@ const getMasterChefApys = async masterchefParams => {
   }
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
 
@@ -27,11 +27,14 @@ const getMasterChefApys = async masterchefParams => {
 const getPoolApy = async (params, pool) => {
   let getTotalStaked;
   if (pool.token) {
+    const oracleId = pool.oracleId ? pool.oracleId : params.oracleId;
+    const decimals = pool.decimals ? pool.decimals : params.decimals;
     getTotalStaked = getTotalStakedInUsd(
       params.masterchef,
       pool.token,
       params.oracle,
-      params.oracleId
+      oracleId,
+      decimals
     );
   } else {
     getTotalStaked = getTotalStakedInUsd(params.masterchef, pool.address, 'lps', pool.name);

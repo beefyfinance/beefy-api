@@ -8,21 +8,21 @@ const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 
-const getApeBananaApy = async () => {
-  const masterChef = '0x5c8d727b265dbafaba67e050f2f739caeeb4a6f9';
-  const banana = '0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95';
+const getCakeV2PoolApy = async () => {
+  const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
+  const cake = '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82';
   const oracle = 'tokens';
-  const oracleId = 'BANANA';
+  const oracleId = 'Cake';
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(masterChef, oracle, oracleId),
-    getTotalStakedInUsd(masterChef, banana, oracle, oracleId),
+    getTotalStakedInUsd(masterChef, cake, oracle, oracleId),
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.94);
+  const apy = compound(simpleApy, 8760, 1, 0.99);
 
-  return { 'banana-banana': apy };
+  return { 'cake-cakev2': apy };
 };
 
 const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
@@ -54,4 +54,4 @@ const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   return yearlyRewardsInUsd;
 };
 
-module.exports = getApeBananaApy;
+module.exports = getCakeV2PoolApy;

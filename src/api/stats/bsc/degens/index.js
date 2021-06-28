@@ -2,15 +2,14 @@ const getRamenLpApys = require('./getRamenLpApys');
 const getBlizzardApy = require('./getBlizzardApy');
 const getBlizzardLpApys = require('./getBlizzardLpApys');
 const getSaltLpApys = require('./getSaltLpApys');
-const getApeApys = require('./getApeLpApys');
-const getApeBananaApys = require('./getApeBananaApy');
+const getApeApys = require('./getApeApys');
 const getSoupApys = require('./getSoupLpApys');
 const getSquirrelApys = require('./getSquirrelLpApys');
 const getSpaceLpApys = require('./getSpaceLpApys');
 const getHpsApys = require('./getHpsApys');
 const getZefiLpApys = require('./getZefiLpApys');
 const getThunderLpApys = require('./getThunderLpApys');
-const getSwampyLpApys = require('./getSwampyLpApys');
+const getSwampApys = require('./getSwampApys');
 const getSwampyCakeLpApys = require('./getSwampyCakeLpApys');
 const getYieldBayLpApys = require('./getYieldBayLpApys');
 const getSwampySwampApy = require('./getSwampySwampApy');
@@ -22,9 +21,10 @@ const getTofyLpApys = require('./getTofyLpApys');
 const getGarudaApys = require('./getGarudaApys');
 const getIronApys = require('./getIronApys');
 const getIronDndApys = require('./getIronDndApys');
-const getIronSingleDndApys = require('./getIronSingleDndApys');
+const getIronSingleApys = require('./getIronSingleApys');
 const getDumplingApys = require('./getDumplingApys');
 const getPantherApys = require('./getPantherApys');
+const getMemeFarmApys = require('./getMemeFarmLpApys');
 
 const getApys = [
   getRamenLpApys,
@@ -32,14 +32,13 @@ const getApys = [
   getBlizzardLpApys,
   getSaltLpApys,
   getApeApys,
-  getApeBananaApys,
   getSoupApys,
   getSquirrelApys,
   getSpaceLpApys,
   getHpsApys,
   getZefiLpApys,
   getThunderLpApys,
-  getSwampyLpApys,
+  getSwampApys,
   getSwampyCakeLpApys,
   getSwampyCakeApy,
   getYieldBayLpApys,
@@ -51,23 +50,54 @@ const getApys = [
   getGarudaApys,
   getIronApys,
   getIronDndApys,
-  getIronSingleDndApys,
+  getIronSingleApys,
   getDumplingApys,
   getPantherApys,
+  getMemeFarmApys,
 ];
 
 const getDegensLpApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
 
   let promises = [];
   getApys.forEach(getApy => promises.push(getApy()));
-  const values = await Promise.all(promises);
+  const results = await Promise.allSettled(promises);
 
-  for (const item of values) {
-    apys = { ...apys, ...item };
+  for (const result of results) {
+    if (result.status !== 'fulfilled') {
+      console.warn('getDegensApys error', result.reason);
+      continue;
+    }
+
+    // Set default APY values
+    let mappedApyValues = result.value;
+    let mappedApyBreakdownValues = {};
+
+    // Loop through key values and move default breakdown format
+    // To require totalApy key
+    for (const [key, value] of Object.entries(result.value)) {
+      mappedApyBreakdownValues[key] = {
+        totalApy: value,
+      };
+    }
+
+    // Break out to apy and breakdowns if possible
+    let hasApyBreakdowns = 'apyBreakdowns' in result.value;
+    if (hasApyBreakdowns) {
+      mappedApyValues = result.value.apys;
+      mappedApyBreakdownValues = result.value.apyBreakdowns;
+    }
+
+    apys = { ...apys, ...mappedApyValues };
+
+    apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
 
-  return apys;
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 module.exports = { getDegensLpApys };

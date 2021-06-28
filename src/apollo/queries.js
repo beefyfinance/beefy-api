@@ -10,7 +10,7 @@ const pairDayDataQuery = (pairs, startTimestamp, endTimestamp) => {
     query days {
       pairDayDatas(first: 1000, orderBy: date, orderDirection: asc, where: { pairAddress_in: ${pairsString}, date_gt: ${startTimestamp}, date_lt: ${endTimestamp} }) {
         id
-        pairAddress 
+        pairAddress
         date
         dailyVolumeToken0
         dailyVolumeToken1

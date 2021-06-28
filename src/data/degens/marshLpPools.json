@@ -4,6 +4,7 @@
     "address": "0x87C182EDB12f74d561519AB586205fE6CD75363a",
     "decimals": "1e18",
     "poolId": 0,
+    "chainId": 56,
     "lp0": {
       "address": "0x787732f27D18495494cea3792ed7946BbCFF8db2",
       "oracle": "tokens",
@@ -11,7 +12,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
       "oracle": "tokens",
       "oracleId": "BUSD",
       "decimals": "1e18"
@@ -22,6 +23,7 @@
     "address": "0x7621886AC71e985DBea4f3f563BBB5a7865876A8",
     "decimals": "1e18",
     "poolId": 1,
+    "chainId": 56,
     "lp0": {
       "address": "0x787732f27D18495494cea3792ed7946BbCFF8db2",
       "oracle": "tokens",

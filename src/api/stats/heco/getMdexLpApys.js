@@ -6,21 +6,62 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/heco/mdexLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { BASE_HPY } = require('../../../constants');
+const { BASE_HPY, HECO_CHAIN_ID } = require('../../../constants');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+const { mdexHecoClient } = require('../../../apollo/client');
+const getBlockNumber = require('../../../utils/getBlockNumber');
+
+const hecoPool = '0xFB03e11D93632D97a8981158A632Dd5986F5E909';
+
+const liquidityProviderFee = 0.0014;
+const beefyPerformanceFee = 0.045;
+const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getMdexLpApys = async () => {
   let apys = {};
-  const hecoPool = '0xFB03e11D93632D97a8981158A632Dd5986F5E909';
+  let apyBreakdowns = {};
+
+  const pairAddresses = pools.map(pool => pool.address);
+  const tradingAprs = {}; //await getTradingFeeApr(mdexHecoClient, pairAddresses, liquidityProviderFee);
+
+  const allPools = [...pools];
 
   let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(hecoPool, pool)));
+  allPools.forEach(pool => promises.push(getPoolApy(hecoPool, pool)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
-    apys = { ...apys, ...item };
+  for (let item of values) {
+    const simpleApr = item.simpleApr;
+    const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
+    const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    const tradingApr = tradingAprs[item.address.toLowerCase()] ?? new BigNumber(0);
+    const totalApy = getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, 0.955);
+    const legacyApyValue = { [item.name]: totalApy };
+    // Add token to APYs object
+    apys = { ...apys, ...legacyApyValue };
+
+    // Create reference for breakdown /apy
+    const componentValues = {
+      [item.name]: {
+        vaultApr: vaultApr.toNumber(),
+        compoundingsPerYear: BASE_HPY,
+        beefyPerformanceFee: beefyPerformanceFee,
+        vaultApy: vaultApy,
+        lpFee: liquidityProviderFee,
+        tradingApr: tradingApr.toNumber(),
+        totalApy: totalApy,
+      },
+    };
+    // Add token to APYs object
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   }
 
-  return apys;
+  // Return both objects for later parsing
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const getPoolApy = async (hecoPool, pool) => {
@@ -28,15 +69,17 @@ const getPoolApy = async (hecoPool, pool) => {
     getYearlyRewardsInUsd(hecoPool, pool),
     getTotalLpStakedInUsd(hecoPool, pool, pool.chainId),
   ]);
-  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
-  return { [pool.name]: apy };
+  const simpleApr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const address = pool.address;
+  const name = pool.name;
+  return { name, address, simpleApr };
 };
 
 const getYearlyRewardsInUsd = async (hecoPool, pool) => {
   const hecoPoolContract = new web3.eth.Contract(HecoPool, hecoPool);
 
-  const blockRewards = new BigNumber(await hecoPoolContract.methods.mdxPerBlock().call());
+  const blockNum = await getBlockNumber(HECO_CHAIN_ID);
+  const blockRewards = new BigNumber(await hecoPoolContract.methods.reward(blockNum).call());
 
   let { allocPoint } = await hecoPoolContract.methods.poolInfo(pool.poolId).call();
   allocPoint = new BigNumber(allocPoint);

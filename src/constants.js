@@ -1,6 +1,7 @@
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
 const BASE_HPY = 2190;
+const MINUTELY_HPY = 525600;
 const HOURLY_HPY = 8760;
 const DAILY_HPY = 365;
 const WEEKLY_HPY = 52;
@@ -51,25 +52,59 @@ const MULTICHAIN_RPC = {
   250: FANTOM_RPC,
 };
 
+const BSC_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/bsc_pools.js';
+const HECO_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/heco_pools.js';
+const AVAX_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/avalanche_pools.js';
+const POLYGON_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/polygon_pools.js';
+const FANTOM_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fantom_pools.js';
+
+const MULTICHAIN_ENDPOINTS = {
+  bsc: BSC_VAULTS_ENDPOINT,
+  heco: HECO_VAULTS_ENDPOINT,
+  avax: AVAX_VAULTS_ENDPOINT,
+  polygon: POLYGON_VAULTS_ENDPOINT,
+  fantom: FANTOM_VAULTS_ENDPOINT,
+};
+
 module.exports = {
   API_BASE_URL,
+
   BSC_RPC,
   BSC_RPC_ENDPOINTS,
   BSC_CHAIN_ID,
+  BSC_VAULTS_ENDPOINT,
+
   HECO_RPC,
   HECO_CHAIN_ID,
+  HECO_VAULTS_ENDPOINT,
+
   AVAX_RPC,
   AVAX_CHAIN_ID,
+  AVAX_VAULTS_ENDPOINT,
+
   POLYGON_RPC,
   POLYGON_CHAIN_ID,
+  POLYGON_VAULTS_ENDPOINT,
+
   FANTOM_RPC,
   FANTOM_CHAIN_ID,
+  FANTOM_VAULTS_ENDPOINT,
+
   BASE_HPY,
+  MINUTELY_HPY,
   HOURLY_HPY,
   DAILY_HPY,
   WEEKLY_HPY,
+
   FORTUBE_REQ_TOKENS,
   FORTUBE_REQ_MARKETS,
   FORTUBE_API_TOKEN,
+
   MULTICHAIN_RPC,
+  MULTICHAIN_ENDPOINTS,
 };

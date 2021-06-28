@@ -18,7 +18,7 @@ const getLendhubApys = async () => {
   pools.forEach(pool => promises.push(getPoolApy(pool)));
   const values = await Promise.all(promises);
 
-  for (item of values) {
+  for (let item of values) {
     apys = { ...apys, ...item };
   }
 
@@ -38,7 +38,14 @@ const getPoolApy = async pool => {
     leveragedBorrowBase,
     leveragedSupplyVxs,
     leveragedBorrowVxs,
-  } = getLeveragedApys(supplyBase, borrowBase, supplyVxs, borrowVxs, 4, 0.58);
+  } = getLeveragedApys(
+    supplyBase,
+    borrowBase,
+    supplyVxs,
+    borrowVxs,
+    pool.borrowDepth,
+    pool.borrowPercent
+  );
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
   const compoundedVxs = compound(totalVxs, BASE_HPY, 0.955);

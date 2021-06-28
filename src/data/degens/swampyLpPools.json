@@ -5,6 +5,7 @@
     "strategy": "0x66C0Fb89F559FA58E2786C95b2C5E7f701aB2130",
     "decimals": "1e18",
     "poolId": 3,
+    "chainId": 56,
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
@@ -24,6 +25,7 @@
     "strategy": "0x65c480303AFF5D40c917F3CeE4B5794D7a75d04A",
     "decimals": "1e18",
     "poolId": 18,
+    "chainId": 56,
     "lp0": {
       "address": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
       "oracle": "tokens",
@@ -43,6 +45,7 @@
     "strategy": "0x06c4e55A6392918774593df505d2Ba79dd654DA7",
     "decimals": "1e18",
     "poolId": 103,
+    "chainId": 56,
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
@@ -62,6 +65,7 @@
     "strategy": "0x01e8F8bf88915d362BE94c5Ba59Da15626De4e45",
     "decimals": "1e18",
     "poolId": 104,
+    "chainId": 56,
     "lp0": {
       "address": "0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d",
       "oracle": "tokens",
