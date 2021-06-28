@@ -1,4 +1,4 @@
-import { BlockApiResponse, ERC20TxApiResponse } from './EtherscanApiResponseTypes';
+import { BlockApiResponse, ERC20TxApiResponse } from './etherscanApiResponseTypes';
 
 import BigNumber from 'bignumber.js';
 import fetch from 'node-fetch';
@@ -7,8 +7,8 @@ import { addressBook } from 'blockchain-addressbook';
 import fetchPrice from '../../../utils/fetchPrice';
 import { getUtcSecondsFromDayRange } from '../../../utils/getUtcSecondsFromDayRange';
 import { getEDecimals } from '../../../utils/getEDecimals';
-import { etherscanApiUrlMap } from './EtherscanApiUrlMap';
-import { bifiLpMap } from './BifiLpMap';
+import { etherscanApiUrlMap } from './etherscanApiUrlMap';
+import { bifiLpMap } from './bifiLpMap';
 
 const INIT_DELAY = 40 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
