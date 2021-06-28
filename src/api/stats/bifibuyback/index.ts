@@ -1,13 +1,13 @@
 import { BigNumber } from 'bignumber.js';
 import { getBifiBuyback } from './getBifiBuyback';
-import { BifiBuybackByChainMap } from './getBifiBuyback';
+import { DailyBifiBuybackStats } from './getBifiBuyback';
 
 const TIMEOUT = 5 * 60 * 1000;
 
 export async function bifibuyback(ctx) {
   try {
     ctx.request.socket.setTimeout(TIMEOUT);
-    let bifibuyback: BifiBuybackByChainMap = await getBifiBuyback();
+    let bifibuyback: DailyBifiBuybackStats | undefined = await getBifiBuyback();
 
     if (!bifibuyback) {
       throw 'There is no bifibuyback data yet';
