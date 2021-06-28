@@ -1,9 +1,9 @@
-const { startOfMinute, subDays } = require('date-fns');
+const { getUtcSecondsFromDayRange } = require('./getUtcSecondsFromDayRange');
 const { pairDayDataQuery, pairDayDataSushiQuery } = require('../apollo/queries');
 const BigNumber = require('bignumber.js');
 
 const getTradingFeeApr = async (client, pairAddresses, liquidityProviderFee) => {
-  const [start, end] = getStartAndEndDate(1, 2);
+  const [start, end] = getUtcSecondsFromDayRange(1, 2);
   const pairAddressToAprMap = {};
 
   try {
@@ -28,8 +28,8 @@ const getTradingFeeApr = async (client, pairAddresses, liquidityProviderFee) => 
 };
 
 const getTradingFeeAprSushi = async (client, pairAddresses, liquidityProviderFee) => {
-  const [start0, end0] = getStartAndEndDate(8, 9);
-  const [start1, end1] = getStartAndEndDate(11, 12);
+  const [start0, end0] = getUtcSecondsFromDayRange(8, 9);
+  const [start1, end1] = getUtcSecondsFromDayRange(11, 12);
   const pairAddressToAprMap = {};
 
   try {
@@ -65,16 +65,6 @@ const getTradingFeeAprSushi = async (client, pairAddresses, liquidityProviderFee
   }
 
   return pairAddressToAprMap;
-};
-
-const getUTCSeconds = (date /*: Date*/) => Math.floor(Number(date) / 1000);
-
-const getStartAndEndDate = (daysAgo0, daysAgo1) => {
-  // Use data between (now - 2) days and (now - 1) day, since current day data is still being produced
-  const endDate = startOfMinute(subDays(Date.now(), daysAgo0));
-  const startDate = startOfMinute(subDays(Date.now(), daysAgo1));
-  const [start, end] = [startDate, endDate].map(getUTCSeconds);
-  return [start, end];
 };
 
 const addressesToLowercase = (pairAddresses /*: string[]*/) =>
