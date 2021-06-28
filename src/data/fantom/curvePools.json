@@ -2,15 +2,23 @@
   {
     "name": "curve-ftm-fusdt",
     "pool": "0x92D5ebF3593a92888C25C0AbEF126583d4b5312E",
-    "gauge": "0x4f3E8F405CF5aFC05D68142F3783bDfE13811522",
+    "gauge": "0x06e3C4da96fd076b97b7ca3Ae23527314b6140dF",
     "rewards": "0xfE1A3dD8b169fB5BF0D5dbFe813d956F39fF6310",
     "baseApyKey": "fusdt"
   },
   {
     "name": "curve-ftm-2pool",
     "pool": "0x27E611FD27b276ACbd5Ffd632E5eAEBEC9761E40",
-    "gauge": "0x0a53FaDa2d943057C47A301D25a4D9b3B8e01e8E",
+    "gauge": "0x8866414733F22295b7563f9C5299715D2D76CAf4",
     "rewards": "0xb9C05B8EE41FDCbd9956114B3aF15834FDEDCb54",
     "baseApyKey": "2pool"
+  },
+  {
+    "name": "curve-ftm-ren",
+    "pool": "0x3eF6A01A0f81D6046290f3e2A8c5b843e738E604",
+    "gauge": "0xBdFF0C27dd073C119ebcb1299a68A6A92aE607F0",
+    "rewards": "0xfDb129ea4b6f557b07BcDCedE54F665b7b6Bc281",
+    "baseApyKey": "ren",
+    "oracleId": "BTC"
   }
 ]

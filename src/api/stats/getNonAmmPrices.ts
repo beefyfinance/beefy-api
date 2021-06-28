@@ -19,7 +19,7 @@ const getNonAmmPrices = async tokenPrices => {
     getFroyoPrices(),
     getGondolaPrices(tokenPrices),
     getCurvePrices(),
-    getCurveFantomPrices(),
+    getCurveFantomPrices(tokenPrices),
     getDopplePrices(),
   ];
 
