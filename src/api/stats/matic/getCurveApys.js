@@ -7,19 +7,16 @@ const IRewardGauge = require('../../../abis/IRewardPool.json');
 const IRewardStream = require('../../../abis/ICurveRewardStream.json');
 const ICurveRewards = require('../../../abis/ICurveRewards.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const { compound } = require('../../../utils/compound');
 const { getAavePoolData } = require('./getAaveApys');
-const aavePools = require('../../../data/matic/aavePools.json');
+import getApyBreakdown from '../common/getApyBreakdown';
 
-const poolId = 'curve-am3crv';
+const aavePools = require('../../../data/matic/aavePools.json');
+const pools = require('../../../data/matic/curvePools.json');
+
 const curvePool = '0x445FE580eF8d70FF569aB36e80c647af338db351';
-const rewardGauge = '0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c';
-const rewardStream = '0xBdFF0C27dd073C119ebcb1299a68A6A92aE607F0';
-const crvRewards = '0xC48f4653dd6a9509De44c92beb0604BEA3AEe714';
-const crv = '0x172370d5Cd63279eFa6d502DAB29171933a610AF';
-const oracle = 'tokens';
-const DECIMALS = '1e18';
+
 const secondsPerYear = 31536000;
+const tradingFees = 0.00015;
 
 const tokens = [
   { i: 0, aaveId: 'aave-dai', decimals: '1e18' },
@@ -28,56 +25,97 @@ const tokens = [
 ];
 
 const getCurveApys = async () => {
-  const aaveMaticApy = await getAaveMaticApy();
-  const baseApy = await getBaseApy();
-  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(),
-    getTotalStakedInUsd(),
-  ]);
-  const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const simpleApy = rewardsApy.plus(aaveMaticApy).times(955).dividedBy(1000).plus(baseApy);
-  const apy = compound(simpleApy, process.env.BASE_HPY);
-  // console.log(poolId, baseApy, aaveMaticApy.toNumber(), rewardsApy.toNumber(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-  return { [poolId]: apy };
+  const baseApys = await getBaseApys(pools);
+  const farmApys = await getPoolApys(pools);
+  const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
+  return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
 };
 
-const getBaseApy = async () => {
+const getBaseApys = async pools => {
+  let apys = {};
   try {
     const response = await axios.get('https://stats.curve.fi/raw-stats-polygon/apys.json');
-    const data = response.data.apy.total.aave;
-    return Number(data);
+    const apyData = response.data.apy;
+    pools.forEach(pool => {
+      const apy = new BigNumber(getBaseApy(apyData, pool));
+      apys = { ...apys, ...{ [pool.name]: apy } };
+    });
+  } catch (err) {
+    console.error(err);
+  }
+  return apys;
+};
+
+const getBaseApy = (baseApyData, pool) => {
+  try {
+    return Math.max(
+      baseApyData.day[pool.baseApyKey],
+      baseApyData.week[pool.baseApyKey],
+      baseApyData.month[pool.baseApyKey],
+      baseApyData.total[pool.baseApyKey]
+    );
   } catch (err) {
     console.error(err);
     return 0;
   }
 };
 
-const getTotalStakedInUsd = async () => {
-  const gauge = new web3.eth.Contract(IRewardGauge, rewardGauge);
-  const totalSupply = new BigNumber(await gauge.methods.totalSupply().call());
-  const lpPrice = await fetchPrice({ oracle: 'lps', id: poolId });
-  return totalSupply.multipliedBy(lpPrice).dividedBy(DECIMALS);
+const getPoolApys = async pools => {
+  const apys = [];
+
+  let promises = [];
+  pools.forEach(pool => promises.push(getPoolApy(pool)));
+  const values = await Promise.all(promises);
+  values.forEach(item => apys.push(item));
+
+  return apys;
 };
 
-const getYearlyRewardsInUsd = async () => {
-  const maticPrice = await fetchPrice({ oracle, id: 'WMATIC' });
-  const rewardPool = new web3.eth.Contract(IRewardStream, rewardStream);
-  const periodFinish = Number(await rewardPool.methods.period_finish().call());
-  let maticRewardsInUsd = new BigNumber(0);
-  if (periodFinish > Date.now() / 1000) {
-    const rewardRate = new BigNumber(await rewardPool.methods.reward_rate().call());
-    maticRewardsInUsd = rewardRate.times(secondsPerYear).times(maticPrice).dividedBy(DECIMALS);
+const getPoolApy = async pool => {
+  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
+    getYearlyRewardsInUsd(pool),
+    getTotalStakedInUsd(pool),
+  ]);
+  const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const aaveMaticApy = await getAaveMaticApy();
+  const simpleApy = rewardsApy.plus(aaveMaticApy);
+  // console.log(pool.name, aaveMaticApy.toNumber(), rewardsApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+  return simpleApy;
+};
+
+const getTotalStakedInUsd = async pool => {
+  const gauge = new web3.eth.Contract(IRewardGauge, pool.gauge);
+  const totalSupply = new BigNumber(await gauge.methods.totalSupply().call());
+  const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
+  return totalSupply.multipliedBy(lpPrice).dividedBy('1e18');
+};
+
+const getYearlyRewardsInUsd = async pool => {
+  let yearlyRewardsInUsd = new BigNumber(0);
+
+  for (const rewards of pool.rewards) {
+    let periodFinish, rewardRate;
+    if (rewards.token) {
+      const rewardStream = new web3.eth.Contract(ICurveRewards, rewards.stream);
+      let { period_finish, rate } = await rewardStream.methods.reward_data(rewards.token).call();
+      periodFinish = Number(period_finish);
+      rewardRate = new BigNumber(rate);
+    } else {
+      const rewardStream = new web3.eth.Contract(IRewardStream, rewards.stream);
+      periodFinish = Number(await rewardStream.methods.period_finish().call());
+      rewardRate = new BigNumber(await rewardStream.methods.reward_rate().call());
+    }
+
+    if (periodFinish < Date.now() / 1000) {
+      continue;
+    }
+
+    const price = await fetchPrice({ oracle: rewards.oracle, id: rewards.oracleId });
+    const rewardsInUsd = rewardRate.times(secondsPerYear).times(price).dividedBy(rewards.decimals);
+    yearlyRewardsInUsd = yearlyRewardsInUsd.plus(rewardsInUsd);
   }
 
-  const crvPrice = await fetchPrice({ oracle, id: 'CRV' });
-  const crvRewardsContract = new web3.eth.Contract(ICurveRewards, crvRewards);
-  let { rate } = await crvRewardsContract.methods.reward_data(crv).call();
-  rate = new BigNumber(rate);
-  const crvRewardsInUsd = rate.times(secondsPerYear).times(crvPrice).dividedBy(DECIMALS);
-
-  // console.log('curve matic', maticRewardsInUsd.toNumber(), 'crv', crvRewardsInUsd.toNumber());
-
-  return maticRewardsInUsd.plus(crvRewardsInUsd);
+  return yearlyRewardsInUsd;
 };
 
 const getAaveMaticApy = async () => {

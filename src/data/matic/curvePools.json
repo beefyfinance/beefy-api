@@ -1,0 +1,23 @@
+[
+  {
+    "name": "curve-am3crv",
+    "pool": "0x445FE580eF8d70FF569aB36e80c647af338db351",
+    "gauge": "0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c",
+    "baseApyKey": "aave",
+    "rewards": [
+      {
+        "stream": "0xBdFF0C27dd073C119ebcb1299a68A6A92aE607F0",
+        "oracle": "tokens",
+        "oracleId": "WMATIC",
+        "decimals": "1e18"
+      },
+      {
+        "stream": "0xC48f4653dd6a9509De44c92beb0604BEA3AEe714",
+        "token": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]
