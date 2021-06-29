@@ -36,6 +36,7 @@ const getWaultLpApys = require('./wault/getWaultLpApys');
 const getTenfiApys = require('./tenfi/getTenfiApys');
 const getCakeV2PoolApy = require('./pancake/getCakeV2PoolApy');
 const getMerlinRewardsApy = require('./merlin/getMerlinRewardsApy');
+const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 
 const getApys = [
   get1inchLpApys,
@@ -47,6 +48,7 @@ const getApys = [
   getBakeryLpApys,
   getBeltApys,
   getBhcPoolApy,
+  getBifiMaxiApy,
   getBtdLpApys,
   getBtsLpApys,
   getBunnyRewardsApy,

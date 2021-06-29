@@ -1,5 +1,3 @@
-const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
-
 const { getAvaxApys } = require('./avax');
 const { getMaticApys } = require('./matic');
 const { getHecoApys } = require('./heco');
@@ -24,7 +22,6 @@ const updateApys = async () => {
 
   try {
     const results = await Promise.allSettled([
-      getBifiMaxiApy(),
       getMaticApys(),
       getAvaxApys(),
       getFantomApys(),
