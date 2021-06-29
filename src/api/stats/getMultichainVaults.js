@@ -42,14 +42,14 @@ const updateMultichainVaults = async () => {
         }
       }
 
-      console.log(
-        'Found',
-        chainVaultsCounter,
-        'vaults (',
-        chainActiveVaultsCounter,
-        'active ) in',
-        chain
-      );
+      // console.log(
+      //   'Found',
+      //   chainVaultsCounter,
+      //   'vaults (',
+      //   chainActiveVaultsCounter,
+      //   'active ) in',
+      //   chain
+      // );
     }
 
     console.log(

@@ -55,7 +55,7 @@ const getBuyback = async (
       txCount += 1;
     }
   }
-  console.log(`Harvest count: ${txCount}`);
+  // console.log(`Harvest count: ${txCount}`);
   return { [chainName]: bifiBuybackTokenAmount };
 };
 
