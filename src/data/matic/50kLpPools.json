@@ -1,0 +1,40 @@
+[
+  {
+    "name": "50k-50c-wmatic",
+    "address": "0xFBA2F99E33EcdC7455d5702a8061C171e155A26D",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0102bbfDdFFBd8d28d3a1b9C47017F62F42768f2",
+      "oracle": "tokens",
+      "oracleId": "50C",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "50k-50k-usdc",
+    "address": "0xB9fF3D3470715EdC6438f8a9A3c6f8Fd4FedB751",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xa656DC2b1061f80F4E847bbA2D9Bd52db4889836",
+      "oracle": "tokens",
+      "oracleId": "50K",
+      "decimals": "1e18"
+    }
+  }
+]
