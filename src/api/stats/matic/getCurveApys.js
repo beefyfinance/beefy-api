@@ -1,63 +1,28 @@
-const axios = require('axios');
 const BigNumber = require('bignumber.js');
 const { polygonWeb3: web3 } = require('../../../utils/web3');
 
-const ICurvePool = require('../../../abis/ICurvePool.json');
-const IRewardGauge = require('../../../abis/IRewardPool.json');
-const IRewardStream = require('../../../abis/ICurveRewardStream.json');
-const ICurveRewards = require('../../../abis/ICurveRewards.json');
-const fetchPrice = require('../../../utils/fetchPrice');
-const { getAavePoolData } = require('./getAaveApys');
+import fetchPrice from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';
+import {
+  getCurveBaseApys,
+  getTotalStakedInUsd,
+  getYearlyRewardsInUsd,
+} from '../common/curve/getCurveApyData';
+
+const ICurvePool = require('../../../abis/ICurvePool.json');
+const { getAavePoolData } = require('./getAaveApys');
 
 const aavePools = require('../../../data/matic/aavePools.json');
 const pools = require('../../../data/matic/curvePools.json');
 
-const curvePool = '0x445FE580eF8d70FF569aB36e80c647af338db351';
-
-const secondsPerYear = 31536000;
+const baseApyUrl = 'https://stats.curve.fi/raw-stats-polygon/apys.json';
 const tradingFees = 0.00015;
 
-const tokens = [
-  { i: 0, aaveId: 'aave-dai', decimals: '1e18' },
-  { i: 1, aaveId: 'aave-usdc', decimals: '1e6' },
-  { i: 2, aaveId: 'aave-usdt', decimals: '1e6' },
-];
-
 const getCurveApys = async () => {
-  const baseApys = await getBaseApys(pools);
+  const baseApys = await getCurveBaseApys(pools, baseApyUrl);
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
-};
-
-const getBaseApys = async pools => {
-  let apys = {};
-  try {
-    const response = await axios.get('https://stats.curve.fi/raw-stats-polygon/apys.json');
-    const apyData = response.data.apy;
-    pools.forEach(pool => {
-      const apy = new BigNumber(getBaseApy(apyData, pool));
-      apys = { ...apys, ...{ [pool.name]: apy } };
-    });
-  } catch (err) {
-    console.error(err);
-  }
-  return apys;
-};
-
-const getBaseApy = (baseApyData, pool) => {
-  try {
-    return Math.max(
-      baseApyData.day[pool.baseApyKey],
-      baseApyData.week[pool.baseApyKey],
-      baseApyData.month[pool.baseApyKey],
-      baseApyData.total[pool.baseApyKey]
-    );
-  } catch (err) {
-    console.error(err);
-    return 0;
-  }
 };
 
 const getPoolApys = async pools => {
@@ -72,81 +37,59 @@ const getPoolApys = async pools => {
 };
 
 const getPoolApy = async pool => {
-  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(pool),
-    getTotalStakedInUsd(pool),
+  const [yearlyRewardsInUsd, totalStakedInUsd, aaveMaticApy] = await Promise.all([
+    getYearlyRewardsInUsd(web3, pool),
+    getTotalStakedInUsd(web3, pool),
+    getAaveApy(pool),
   ]);
   const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const aaveMaticApy = await getAaveMaticApy();
   const simpleApy = rewardsApy.plus(aaveMaticApy);
   // console.log(pool.name, aaveMaticApy.toNumber(), rewardsApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return simpleApy;
 };
 
-const getTotalStakedInUsd = async pool => {
-  const gauge = new web3.eth.Contract(IRewardGauge, pool.gauge);
-  const totalSupply = new BigNumber(await gauge.methods.totalSupply().call());
-  const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
-  return totalSupply.multipliedBy(lpPrice).dividedBy('1e18');
-};
-
-const getYearlyRewardsInUsd = async pool => {
-  let yearlyRewardsInUsd = new BigNumber(0);
-
-  for (const rewards of pool.rewards) {
-    let periodFinish, rewardRate;
-    if (rewards.token) {
-      const rewardStream = new web3.eth.Contract(ICurveRewards, rewards.stream);
-      let { period_finish, rate } = await rewardStream.methods.reward_data(rewards.token).call();
-      periodFinish = Number(period_finish);
-      rewardRate = new BigNumber(rate);
-    } else {
-      const rewardStream = new web3.eth.Contract(IRewardStream, rewards.stream);
-      periodFinish = Number(await rewardStream.methods.period_finish().call());
-      rewardRate = new BigNumber(await rewardStream.methods.reward_rate().call());
-    }
-
-    if (periodFinish < Date.now() / 1000) {
-      continue;
-    }
-
-    const price = await fetchPrice({ oracle: rewards.oracle, id: rewards.oracleId });
-    const rewardsInUsd = rewardRate.times(secondsPerYear).times(price).dividedBy(rewards.decimals);
-    yearlyRewardsInUsd = yearlyRewardsInUsd.plus(rewardsInUsd);
-  }
-
-  return yearlyRewardsInUsd;
-};
-
-const getAaveMaticApy = async () => {
-  const curveAaveIds = tokens.map(({ aaveId }) => aaveId);
-  const curveAavePools = aavePools.filter(p => curveAaveIds.includes(p.name));
-
+const getAaveApy = async pool => {
   let promises = [];
-  curveAavePools.forEach(pool => promises.push(getAavePoolData(pool)));
-  const aaveApys = await Promise.all(promises);
-
-  promises = [];
-  tokens.forEach(token => promises.push(getTokenBalance(curvePool, token)));
-  const balances = await Promise.all(promises);
+  pool.tokens.forEach(token => promises.push(getAaveMaticApy(token)));
+  pool.tokens.forEach((token, i) => promises.push(getTokenBalance(pool.pool, token, i)));
+  const results = await Promise.all(promises);
 
   let totalBalances = new BigNumber(0);
-  balances.forEach(b => (totalBalances = totalBalances.plus(b)));
+  for (let i = pool.tokens.length; i < 2 * pool.tokens.length; i++) {
+    totalBalances = totalBalances.plus(results[i]);
+  }
 
   let totalApy = new BigNumber(0);
-  tokens.forEach(({ aaveId }, i) => {
-    const aaveApy = aaveApys[i].supplyMatic;
-    const balance = balances[i];
+  for (let i = 0; i < pool.tokens.length; i++) {
+    const aaveApy = results[i];
+    const balance = results[i + pool.tokens.length];
     totalApy = totalApy.plus(aaveApy.times(balance).dividedBy(totalBalances));
-  });
+  }
 
   return totalApy;
 };
 
-const getTokenBalance = async (curvePool, token) => {
+const getAaveMaticApy = async token => {
+  if (token.basePool) {
+    const pool = pools.find(p => p.name === token.basePool);
+    return getAaveApy(pool);
+  }
+
+  if (!token.aaveId) return new BigNumber(0);
+
+  const aavePool = aavePools.find(p => p.name === token.aaveId);
+  const { supplyMatic } = await getAavePoolData(aavePool);
+  return supplyMatic;
+};
+
+const getTokenBalance = async (curvePool, token, index) => {
   const pool = new web3.eth.Contract(ICurvePool, curvePool);
-  const balance = await pool.methods.balances(token.i).call();
-  return new BigNumber(balance).dividedBy(token.decimals);
+  const balance = await pool.methods.balances(index).call();
+  let price = 1;
+  if (token.oracleId) {
+    price = await fetchPrice({ oracle: token.oracle, id: token.oracleId });
+  }
+  return new BigNumber(balance).times(price).dividedBy(token.decimals);
 };
 
 module.exports = getCurveApys;
