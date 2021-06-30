@@ -2,13 +2,13 @@ const getMasterChefApys = require('./getMaticMasterChefApys');
 const {
   addressBook: {
     polygon: {
-      tokens: { PUP },
-      platforms: { polypup },
+      tokens: { BONE },
+      platforms: { polypupBone },
     },
   },
 } = require('blockchain-addressbook');
 
-const MasterChefAbi = require('../../../abis/matic/PolypupMasterChef.json');
+const MasterChefAbi = require('../../../abis/matic/PolypupBoneMasterChef.json');
 const pools = require('../../../data/matic/polypupLpPools.json');
 const singlePools = require('../../../data/matic/polypupSinglePools.json');
 const { quickClient } = require('../../../apollo/client');
@@ -17,15 +17,15 @@ const { getEDecimals } = require('../../../utils/getEDecimals');
 
 const getPolypupApys = async () => {
   const all = getMasterChefApys({
-    masterchef: polypup.masterchef,
+    masterchef: polypupBone.masterchef,
     masterchefAbi: MasterChefAbi,
-    tokenPerBlock: 'PupPerBlock',
+    tokenPerBlock: 'BonePerBlock',
     hasMultiplier: true,
     singlePools: singlePools,
     pools: pools,
     oracle: 'tokens',
-    oracleId: PUP.symbol,
-    decimals: getEDecimals(PUP.decimals),
+    oracleId: BONE.symbol,
+    decimals: getEDecimals(BONE.decimals),
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: quickLiquidityProviderFee,
     // log: true,
