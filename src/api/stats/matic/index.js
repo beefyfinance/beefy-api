@@ -15,7 +15,7 @@ const { getApeLpApys } = require('./getApeLpApys');
 const { getPolyyeldApys } = require('./getPolyyeldApys');
 const { getPolypupApys } = require('./getPolypupApys');
 const { get50kLpApys } = require('./get50kLpApys');
-const { getDyfnLpApys } = require('./getDyfnLpApys');
+const { getDfynLpApys } = require('./getDfynLpApys');
 
 const getApys = [
   getComethLpApys,
@@ -35,7 +35,7 @@ const getApys = [
   getPolypupApys,
   // getPolyQuityLpApys,
   get50kLpApys,
-  getDyfnLpApys,
+  getDfynLpApys,
 ];
 
 const getMaticApys = async () => {

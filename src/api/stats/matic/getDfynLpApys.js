@@ -5,24 +5,24 @@ const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/matic/dyfnLpPools.json');
-const { POLYGON_CHAIN_ID, DYFN_LPF } = require('../../../constants');
+const pools = require('../../../data/matic/dfynLpPools.json');
+const { POLYGON_CHAIN_ID, DFYN_LPF } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const { dyfnClient } = require('../../../apollo/client');
+const { dfynClient } = require('../../../apollo/client');
 import getApyBreakdown from '../common/getApyBreakdown';
 
 const oracle = 'tokens';
-const oracleId = 'DYFN';
+const oracleId = 'DFYN';
 
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const getDyfnLpApys = async () => {
+const getDfynLpApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(dyfnClient, pairAddresses, DYFN_LPF);
+  const tradingAprs = await getTradingFeeApr(dfynClient, pairAddresses, DFYN_LPF);
   const farmApys = await getFarmApys(pools);
 
-  return getApyBreakdown(pools, tradingAprs, farmApys, DYFN_LPF);
+  return getApyBreakdown(pools, tradingAprs, farmApys, DFYN_LPF);
 };
 
 const getFarmApys = async pools => {
@@ -65,4 +65,4 @@ const getPoolsData = async pools => {
   return { balances, rewardRates };
 };
 
-module.exports = { getDyfnLpApys, DYFN_LPF };
+module.exports = { getDfynLpApys, DFYN_LPF };
