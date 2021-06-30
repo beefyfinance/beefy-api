@@ -148,7 +148,16 @@ const jetswapClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const dyfnClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/ss-sonic/dfyn-v5',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 module.exports = {
+  dyfnClient,
   apePolyClient,
   sushiClient,
   comethClient,

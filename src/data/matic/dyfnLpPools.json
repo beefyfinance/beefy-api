@@ -1,0 +1,154 @@
+[
+  {
+    "name": "dyfn-ust-usdt",
+    "address": "0x39BEd7f1C412ab64443196A6fEcb2ac20C707224",
+    "rewardPool": "0x4B47d7299Ac443827d4468265A725750475dE9E6",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x692597b009d13c4049a947cab2239b7d6517875f",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "dyfn-wbtc-eth",
+    "address": "0x39eAA90a70E8FdC04E1f63Db04e1c62c9aCe0641",
+    "rewardPool": "0xA51aF13F630489eE77B4489844041031e4e36824",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1bfd67037b42cf73acf2047067bd4f2c47d9bfd6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dyfn-eth-usdc",
+    "address": "0x7D51bAd48d253dae37cC82cad07f73849286Deec",
+    "rewardPool": "0x12286A4a13FCAFB77f08c48A00e6963A0ca6d917",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dyfn-usdc-dai",
+    "address": "0xb7bd6d48C9b1aF7E126d0389C6970F157D974f33",
+    "rewardPool": "0xbd7BD38EC111A1789158b25240B5DaAE043113aE",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dyfn-dai-usdt",
+    "address": "0xdd228fdC8A41A02BDEa72060F53C1f88A2FD48B6",
+    "rewardPool": "0xf01adB0eF728D4544E9a1E3543FC98F0C1CAE7FD",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x8f3cf7ad23cd3cadbd9735aff958023239c6a063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "dyfn-usdc-usdt",
+    "address": "0xBe40F7Fff5A2235aF9a8cb79A17373162eFeFA9C",
+    "rewardPool": "0xa55D1729eF64755D44640C67feA6D18A44EE9326",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc2132d05d31c914a87c6611c10748aeb04b58e8f",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "dyfn-dyfn-eth",
+    "address": "0x6fA867BBFDd025780a8CFE988475220AfF51FB8b",
+    "rewardPool": "0x17e8732E2f0f6c35a794e9db4e63AeaDa9ce927C",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc168e40227e4ebd8c1cae80f7a55a4f0e6d66c97",
+      "oracle": "tokens",
+      "oracleId": "DYFN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dyfn-dyfn-usdc",
+    "address": "0x4c38938E21cB9796932B0B0Cc3f8a088f07b49B0",
+    "rewardPool": "0xeee84F55F493c6ea89b655FFF09F2a2f9C2D1Dd8",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc168e40227e4ebd8c1cae80f7a55a4f0e6d66c97",
+      "oracle": "tokens",
+      "oracleId": "DYFN",
+      "decimals": "1e18"
+    }
+  }
+]

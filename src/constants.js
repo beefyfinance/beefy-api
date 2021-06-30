@@ -44,6 +44,8 @@ const POLYGON_CHAIN_ID = 137;
 const AVAX_CHAIN_ID = 43114;
 const FANTOM_CHAIN_ID = 250;
 
+const DYFN_LPF = 0.0025;
+
 const MULTICHAIN_RPC = {
   56: BSC_RPC,
   128: HECO_RPC,
@@ -107,4 +109,6 @@ module.exports = {
 
   MULTICHAIN_RPC,
   MULTICHAIN_ENDPOINTS,
+
+  DYFN_LPF,
 };
