@@ -1,6 +1,6 @@
 [
   {
-    "name": "polypup-bone-bone",
+    "name": "polypup-bone",
     "poolId": 6,
     "address": "0x6bb45cEAC714c52342Ef73ec663479da35934bf7",
     "oracle": "tokens",
@@ -8,7 +8,7 @@
     "decimals": "1e18"
   },
   {
-    "name": "polypup-bone-pup",
+    "name": "polypup-pup",
     "poolId": 7,
     "address": "0xcFe2cF35D2bDDE84967e67d00aD74237e234CE59",
     "oracle": "tokens",

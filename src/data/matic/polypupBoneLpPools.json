@@ -1,6 +1,6 @@
 [
   {
-    "name": "polypup-bone-quick-usdc-bone",
+    "name": "polypup-usdc-bone",
     "address": "0x2CC05c660f35E8692CA99dB95922CB744d44ef20",
     "decimals": "1e18",
     "poolId": 0,
@@ -19,7 +19,7 @@
     }
   },
   {
-    "name": "polypup-bone-quick-wmatic-bone",
+    "name": "polypup-wmatic-bone",
     "address": "0xeb168C9D678dC34D64337F4eA12cf14ed6fbE34B",
     "decimals": "1e18",
     "poolId": 1,
@@ -38,7 +38,7 @@
     }
   },
   {
-    "name": "polypup-bone-quick-usdc-pup",
+    "name": "polypup-usdc-pup",
     "address": "0x767f8BD67a5f133BdDF3b285c5E2FD3D157A2cdC",
     "decimals": "1e18",
     "poolId": 2,
@@ -57,7 +57,7 @@
     }
   },
   {
-    "name": "polypup-bone-quick-wmatic-pup",
+    "name": "polypup-wmatic-pup",
     "address": "0xBC68d2A5920c4ffaEa20E2BE48a0E09055481976",
     "decimals": "1e18",
     "poolId": 3,
