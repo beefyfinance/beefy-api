@@ -5,7 +5,7 @@ import getEllipsisPrices from './bsc/ellipsis/getEllipsisPrices';
 import getSnob3PoolPrice from './avax/getSnob3PoolPrice';
 import getFroyoPrices from './fantom/getFroyoPrices';
 import getGondolaPrices from './avax/getGondolaPrices';
-import getCurvePrices from './matic/getCurvePrices';
+import getCurvePolygonPrices from './matic/getCurvePrices';
 import getCurveFantomPrices from './fantom/getCurvePrices';
 import getDopplePrices from './bsc/dopple/getDopplePrices';
 
@@ -18,7 +18,7 @@ const getNonAmmPrices = async tokenPrices => {
     getSnob3PoolPrice(),
     getFroyoPrices(),
     getGondolaPrices(tokenPrices),
-    getCurvePrices(),
+    getCurvePolygonPrices(tokenPrices),
     getCurveFantomPrices(tokenPrices),
     getDopplePrices(),
   ];
