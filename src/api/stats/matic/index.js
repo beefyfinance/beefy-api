@@ -24,15 +24,15 @@ const getApys = [
   getComethMultiApys,
   getPolyzapApys,
   getPolygonBifiMaxiApy,
-  getAddyApy,
+  // getAddyApy,
   getCurveApys,
-  getIronApys,
+  // getIronApys,
   getPolycatApys,
   getWexPolyApys,
   getPolyyeldApys,
   getApeLpApys,
   getPolypupApys,
-  getPolyQuityLpApys,
+  // getPolyQuityLpApys,
   get50kLpApys,
 ];
 
