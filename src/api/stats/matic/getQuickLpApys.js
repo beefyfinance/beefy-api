@@ -6,7 +6,7 @@ const IRewardPool = require('../../../abis/IRewardPool.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/quickLpPools.json');
-const { POLYGON_CHAIN_ID } = require('../../../constants');
+const { POLYGON_CHAIN_ID, QUICK_LPF } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { quickClient } = require('../../../apollo/client');
 import getApyBreakdown from '../common/getApyBreakdown';
@@ -17,14 +17,12 @@ const oracleId = 'QUICK';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const quickLiquidityProviderFee = 0.003;
-
 const getQuickLpApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, quickLiquidityProviderFee);
+  const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, QUICK_LPF);
   const farmApys = await getFarmApys(pools);
 
-  return getApyBreakdown(pools, tradingAprs, farmApys, quickLiquidityProviderFee);
+  return getApyBreakdown(pools, tradingAprs, farmApys, QUICK_LPF);
 };
 
 const getFarmApys = async pools => {
@@ -67,4 +65,4 @@ const getPoolsData = async pools => {
   return { balances, rewardRates };
 };
 
-module.exports = { getQuickLpApys, quickLiquidityProviderFee };
+module.exports = { getQuickLpApys, QUICK_LPF };

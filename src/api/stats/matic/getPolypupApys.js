@@ -8,11 +8,11 @@ const {
   },
 } = require('blockchain-addressbook');
 
+const { QUICK_LPF } = require('../../../constants');
 const MasterChefAbi = require('../../../abis/matic/PolypupBoneMasterChef.json');
 const pools = require('../../../data/matic/polypupLpPools.json');
 const singlePools = require('../../../data/matic/polypupSinglePools.json');
 const { quickClient } = require('../../../apollo/client');
-const { quickLiquidityProviderFee } = require('./getQuickLpApys');
 const { getEDecimals } = require('../../../utils/getEDecimals');
 
 const getPolypupApys = async () => {
@@ -27,7 +27,7 @@ const getPolypupApys = async () => {
     oracleId: BONE.symbol,
     decimals: getEDecimals(BONE.decimals),
     tradingFeeInfoClient: quickClient,
-    liquidityProviderFee: quickLiquidityProviderFee,
+    liquidityProviderFee: QUICK_LPF,
     // log: true,
   });
 
