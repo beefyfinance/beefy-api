@@ -3,7 +3,7 @@
     "name": "polycat-dfyn-fish-matic",
     "address": "0x9e2fbb31fbd68472f6cd54a1635b8cd64d78fc1c",
     "decimals": "1e18",
-    "poolId": 0,
+    "poolId": 21,
     "chainId": 137,
     "lp1": {
       "address": "0x3a3Df212b7AA91Aa0402B9035b098891d276572B",
