@@ -41,6 +41,11 @@
         "stream": "0x488E6ef919C2bB9de535C634a80afb0114DA8F62",
         "token": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
         "oracleId": "CRV"
+      },
+      {
+        "stream": "0x488E6ef919C2bB9de535C634a80afb0114DA8F62",
+        "token": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "oracleId": "WMATIC"
       }
     ],
     "tokens": [
