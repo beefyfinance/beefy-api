@@ -114,4 +114,4 @@ const getRewardTokensPrices = async rewardTokens => {
   return tokenToPriceMap;
 };
 
-module.exports = getDfynDualFarmLpApys;
+module.exports = { getDfynDualFarmLpApys };
