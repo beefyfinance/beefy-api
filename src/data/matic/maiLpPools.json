@@ -1,0 +1,42 @@
+[
+  {
+    "name": "mai-usdc-mimatic",
+    "address": "0x160532D2536175d65C03B97b0630A9802c274daD",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 137,
+    "depositFee": 0.005,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mai-qi-mimatic",
+    "address": "0x7AfcF11F3e2f01e71B7Cc6b8B5e707E42e6Ea397",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 137,
+    "depositFee": 0.005,
+    "lp0": {
+      "address": "0x580A84C73811E1839F75d86d75d88cCa0c241fF4",
+      "oracle": "tokens",
+      "oracleId": "QI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  }
+]
