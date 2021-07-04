@@ -1,5 +1,47 @@
 [
   {
+    "name": "dfyn-uft-dfyn",
+    "farmType": "eco",
+    "address": "0x8f07eaC653cd812b3Ac691729CD16616E232de68",
+    "rewardPool": "0x4cAE3C18b058eBF1EC439f01457348a9dD9CcC53",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x5B4CF2C120A9702225814E18543ee658c5f8631e",
+      "oracle": "tokens",
+      "oracleId": "UFT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dfyn-ez-dfyn",
+    "farmType": "dual",
+    "address": "0x3a89F0B87E6249Cc44A9420EfBe96ed6173aD0Dc",
+    "rewardPool": "0xA8453cFae7EC47e7099115789258226C5cb75534",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x34C1b299A74588D6Abdc1b85A53345A48428a521",
+      "oracle": "tokens",
+      "oracleId": "EZ",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "dfyn-sx-dfyn",
     "farmType": "dual",
     "address": "0x863325397751C51f85818A7958a7Dd45209bf501",

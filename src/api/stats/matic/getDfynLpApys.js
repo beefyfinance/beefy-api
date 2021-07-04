@@ -18,7 +18,7 @@ const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const getDfynLpApys = async () => {
-  const popularFarms = pools.filter(pool => pool.farmType === 'popular');
+  const popularFarms = pools.filter(pool => pool.farmType === 'popular' || pool.farmType === 'eco');
   const pairAddresses = popularFarms.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(dfynClient, pairAddresses, DFYN_LPF);
 
