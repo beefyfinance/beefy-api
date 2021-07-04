@@ -21,19 +21,13 @@ const oracle = 'tokens';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const liquidityProviderFee = 0.003;
-
 const getDfynDualFarmLpApys = async () => {
-  let apys = {};
-
   const dualFarms = pools.filter(pool => pool.farmType === 'dual');
-
   const pairAddresses = dualFarms.map(pool => pool.address);
-  const tradingAprs = (await getTradingFeeApr(
-    dfynClient,
-    pairAddresses,
-    liquidityProviderFee
-  )) as Record<string, BigNumber>;
+  const tradingAprs = (await getTradingFeeApr(dfynClient, pairAddresses, DFYN_LPF)) as Record<
+    string,
+    BigNumber
+  >;
   const farmApys = await getFarmApys(dualFarms);
 
   return getApyBreakdown(dualFarms, tradingAprs, farmApys, DFYN_LPF);

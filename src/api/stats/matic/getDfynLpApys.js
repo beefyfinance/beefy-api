@@ -18,11 +18,13 @@ const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const getDfynLpApys = async () => {
-  const pairAddresses = pools.map(pool => pool.address);
+  const popularFarms = pools.filter(pool => pool.farmType === 'popular');
+  const pairAddresses = popularFarms.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(dfynClient, pairAddresses, DFYN_LPF);
-  const farmApys = await getFarmApys(pools);
 
-  return getApyBreakdown(pools, tradingAprs, farmApys, DFYN_LPF);
+  const farmApys = await getFarmApys(popularFarms);
+
+  return getApyBreakdown(popularFarms, tradingAprs, farmApys, DFYN_LPF);
 };
 
 const getFarmApys = async pools => {
