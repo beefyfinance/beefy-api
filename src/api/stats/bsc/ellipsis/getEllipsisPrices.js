@@ -1,55 +1,38 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../../utils/web3');
 
-const BeltLP = require('../../../../abis/BeltLP.json');
+const ICurvePool = require('../../../../abis/ICurvePool.json');
 const EllipsisOracle = require('../../../../abis/EllipsisOracle.json');
+const pools = require('../../../../data/ellipsisPools.json');
 
 const DECIMALS = '1e18';
 
 const getEllipsisPrices = async () => {
-  const getPrices = [getEllipsis3PoolPrice, getEllipsisFUsdt3PoolPrice, getEllipsisRenBtcPoolPrice];
-
   let prices = {};
+
   let promises = [];
-  getPrices.forEach(getPrice => promises.push(getPrice()));
+  pools.forEach(pool => promises.push(getPoolPrice(pool)));
   const values = await Promise.all(promises);
 
-  for (let item of values) {
+  for (const item of values) {
     prices = { ...prices, ...item };
   }
 
   return prices;
 };
 
-const getEllipsis3PoolPrice = async () => {
-  const lpContract = new web3.eth.Contract(BeltLP, '0x160CAed03795365F3A589f10C379FfA7d75d4E76');
-  let tokenPrice = new BigNumber(await lpContract.methods.get_virtual_price().call());
-  tokenPrice = Number(tokenPrice.dividedBy(DECIMALS).toFixed(6));
-
-  return { 'ellipsis-3eps': tokenPrice };
-};
-
-const getEllipsisFUsdt3PoolPrice = async () => {
-  const lpContract = new web3.eth.Contract(BeltLP, '0x556ea0b4c06D043806859c9490072FaadC104b63');
-  let tokenPrice = new BigNumber(await lpContract.methods.get_virtual_price().call());
-  tokenPrice = Number(tokenPrice.dividedBy(DECIMALS).toFixed(6));
-
-  return { 'ellipsis-fusdt-3eps': tokenPrice };
-};
-
-const getEllipsisRenBtcPoolPrice = async () => {
-  const lpContract = new web3.eth.Contract(BeltLP, '0x2477fB288c5b4118315714ad3c7Fd7CC69b00bf9');
+const getPoolPrice = async pool => {
+  const lpContract = new web3.eth.Contract(ICurvePool, pool.address);
   const virtualPrice = new BigNumber(await lpContract.methods.get_virtual_price().call());
 
-  const oracle = new web3.eth.Contract(
-    EllipsisOracle,
-    '0x264990fbd0A4796A3E3d8E37C4d5F87a3aCa5Ebf'
-  );
-  const btcPrice = new BigNumber(await oracle.methods.latestAnswer().call()).dividedBy('1e8');
-
-  const tokenPrice = Number(virtualPrice.multipliedBy(btcPrice).dividedBy(DECIMALS).toFixed(6));
-
-  return { 'ellipsis-renbtc': tokenPrice };
+  let price = new BigNumber(1);
+  if (pool.poolOracle) {
+    const oracle = new web3.eth.Contract(EllipsisOracle, pool.poolOracle);
+    const answer = await oracle.methods.latestAnswer().call();
+    price = new BigNumber(answer).dividedBy(pool.poolOracleDecimals);
+  }
+  const tokenPrice = Number(virtualPrice.multipliedBy(price).dividedBy(DECIMALS).toFixed(6));
+  return { [pool.name]: tokenPrice };
 };
 
 module.exports = getEllipsisPrices;
