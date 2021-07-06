@@ -1,0 +1,40 @@
+[
+  {
+    "name": "boneswap-quick-wmatic-bone",
+    "address": "0x2d10b334646F6e61F2556c0f7eda2fF3D82d001e",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x80244C2441779361F35803b8C711C6c8fC6054a3",
+      "oracle": "tokens",
+      "oracleId": "BONEswap",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boneswap-quick-usdc-bone",
+    "address": "0xc4DA04f471210063f8C79a09D6152D63085451a5",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x80244C2441779361F35803b8C711C6c8fC6054a3",
+      "oracle": "tokens",
+      "oracleId": "BONEswap",
+      "decimals": "1e18"
+    }
+  }
+]

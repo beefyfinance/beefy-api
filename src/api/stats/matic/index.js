@@ -10,6 +10,7 @@ const getCurveApys = require('./getCurveApys');
 const getIronApys = require('./getIronApys');
 const getPolycatApys = require('./getPolycatApys');
 const getWexPolyApys = require('./getWexPolyApys');
+const { getBoneSwapApys } = require('./getBoneSwapApys');
 const { getPolyQuityLpApys } = require('./getPolyQuityApys');
 const { getApeLpApys } = require('./getApeLpApys');
 const { getPolyyeldApys } = require('./getPolyyeldApys');
@@ -38,6 +39,7 @@ const getApys = [
   get50kLpApys,
   getDfynLpApys,
   getDfynDualFarmLpApys,
+  getBoneSwapApys,
 ];
 
 const getMaticApys = async () => {

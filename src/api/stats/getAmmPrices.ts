@@ -103,6 +103,9 @@ import apePolyPools from '../../data/matic/apePolyLpPools.json';
 import polyQuityPools from '../../data/matic/polyQuityLpPools.json';
 import keeper50pools from '../../data/matic/50kLpPools.json';
 import dfynPools from '../../data/matic/dfynLpPools.json';
+import boneswapQuickPools from '../../data/matic/boneswapQuickLpPools.json';
+import boneswapSushiPools from '../../data/matic/boneswapSushiLpPools.json';
+import boneswapApePools from '../../data/matic/boneswapApeLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -110,6 +113,9 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...boneswapApePools,
+  ...boneswapSushiPools,
+  ...boneswapQuickPools,
   ...polycatDfynPool,
   ...dfynPools,
   ...keeper50pools,
