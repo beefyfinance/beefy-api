@@ -20,7 +20,7 @@ const getPolypupApys = async () => {
     masterchef: polypupBone.masterchef,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'BonePerBlock',
-    hasMultiplier: true,
+    hasMultiplier: false,
     singlePools: singlePools,
     pools: pools,
     oracle: 'tokens',
