@@ -1,7 +1,7 @@
 [
   {
-    "name": "boo-bifi-ftm",
-    "address": "0x1656728af3a14e1319F030Dc147fAbf6f627059e",
+    "name": "boo-mim-ftm",
+    "address": "0x6f86e65b255c9111109d2d2325ca2dfc82456efc",
     "decimals": "1e18",
     "poolId": 23,
     "chainId": 250,
@@ -12,9 +12,9 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xd6070ae98b8069de6B494332d1A1a81B6179D960",
+      "address": "0x82f0b8b456c1a451378467398982d4834b6829c1",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "oracleId": "MIM",
       "decimals": "1e18"
     }
   },
