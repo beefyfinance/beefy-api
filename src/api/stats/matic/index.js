@@ -18,6 +18,7 @@ const { getPolypupApys } = require('./getPolypupApys');
 const { get50kLpApys } = require('./get50kLpApys');
 const { getDfynLpApys } = require('./getDfynLpApys');
 const { getDfynDualFarmLpApys } = require('./getDfynDualFarmLpApys');
+const { getBrainswapApys } = require('./getBrainswapApys');
 
 const getApys = [
   getComethLpApys,
@@ -40,6 +41,7 @@ const getApys = [
   getDfynLpApys,
   getDfynDualFarmLpApys,
   getBoneSwapApys,
+  getBrainswapApys,
 ];
 
 const getMaticApys = async () => {

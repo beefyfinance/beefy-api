@@ -1,0 +1,21 @@
+[
+  {
+    "name": "brainswap-wmatic-brain",
+    "address": "0xd206f68B753086920338088E5Ed9b2aB7607f5aa",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5C6014246FC7911F4dB270aA3910F23EECD61720",
+      "oracle": "tokens",
+      "oracleId": "BRAIN",
+      "decimals": "1e18"
+    }
+  }
+]
