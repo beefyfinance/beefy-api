@@ -1,6 +1,6 @@
 [
   {
-    "name": "quick-polyBUNNY-QUICK",
+    "name": "quick-polybunny-quick",
     "address": "0x976b7b7fe4293111cacd946c422a64f24a223564",
     "rewardPool": "0xdaC489D994d12Be53388D4dB3cAC5135177390f0",
     "decimals": "1e18",
@@ -20,7 +20,7 @@
     }
   },
   {
-    "name": "quick-polyBUNNY-ETH",
+    "name": "quick-polybunny-eth",
     "address": "0x62052b489cb5bc72a9dc8eeae4b24fd50639921a",
     "rewardPool": "0x9F37eF37818b3b81Cd8600d602DC5D8Df7B9e3E4",
     "decimals": "1e18",
