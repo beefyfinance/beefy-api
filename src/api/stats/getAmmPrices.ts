@@ -106,6 +106,7 @@ import dfynPools from '../../data/matic/dfynLpPools.json';
 import boneswapQuickPools from '../../data/matic/boneswapQuickLpPools.json';
 import boneswapSushiPools from '../../data/matic/boneswapSushiLpPools.json';
 import boneswapApePools from '../../data/matic/boneswapApeLpPools.json';
+import maiPools from '../../data/matic/maiLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -216,6 +217,7 @@ const pools = [
   ...thugsPools,
   ...cakeLpV1Pools,
   ...cakeLpPools,
+  ...maiPools,
 ];
 
 const knownPrices = {
