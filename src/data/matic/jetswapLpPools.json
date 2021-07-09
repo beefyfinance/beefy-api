@@ -1,5 +1,24 @@
 [
   {
+    "name": "jetswap-poly-usdc-usdt",
+    "address": "0x20BF018FDDBa3b352f3d913FE1c81b846fE0F490",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "jetswap-poly-pwings-usdt",
     "address": "0xA39a7640790907D4865a74c1F9715715DBd00431",
     "decimals": "1e18",
