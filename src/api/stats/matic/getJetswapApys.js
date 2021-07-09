@@ -2,6 +2,7 @@ const getMasterChefApys = require('./getMaticMasterChefApys');
 
 const MasterChefAbi = require('../../../abis/MasterChef.json');
 const pools = require('../../../data/matic/jetswapLpPools.json');
+import { jetswapPolyClient } from '../../../apollo/client';
 
 const getJetswapApys = async () =>
   await getMasterChefApys({
@@ -23,6 +24,8 @@ const getJetswapApys = async () =>
     oracleId: 'pWINGS',
     oracle: 'tokens',
     decimals: '1e18',
+    tradingFeeInfoClient: jetswapPolyClient,
+    liquidityProviderFee: 0.001,
     // log: true,
   });
 
