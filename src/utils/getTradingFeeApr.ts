@@ -1,15 +1,27 @@
-const { getUtcSecondsFromDayRange } = require('./getUtcSecondsFromDayRange');
-const { pairDayDataQuery, pairDayDataSushiQuery } = require('../apollo/queries');
-const BigNumber = require('bignumber.js');
+import { getUtcSecondsFromDayRange } from './getUtcSecondsFromDayRange';
+import { pairDayDataQuery, pairDayDataSushiQuery } from '../apollo/queries';
+import BigNumber from 'bignumber.js';
+import { NormalizedCacheObject } from 'apollo-cache-inmemory';
+import ApolloClient from 'apollo-client';
 
-const getTradingFeeApr = async (client, pairAddresses, liquidityProviderFee) => {
+interface PairDayData {
+  id: string;
+  dailyVolumeUSD: number;
+  reserveUSD: number;
+}
+
+export const getTradingFeeApr = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  pairAddresses: string[],
+  liquidityProviderFee: number
+) => {
   const [start, end] = getUtcSecondsFromDayRange(1, 2);
-  const pairAddressToAprMap = {};
+  const pairAddressToAprMap: Record<string, BigNumber> = {};
 
   try {
     let {
       data: { pairDayDatas },
-    } = await client.query({
+    }: { data: { pairDayDatas: PairDayData[] } } = await client.query({
       query: pairDayDataQuery(addressesToLowercase(pairAddresses), start, end),
     });
 
@@ -27,10 +39,14 @@ const getTradingFeeApr = async (client, pairAddresses, liquidityProviderFee) => 
   return pairAddressToAprMap;
 };
 
-const getTradingFeeAprSushi = async (client, pairAddresses, liquidityProviderFee) => {
+export const getTradingFeeAprSushi = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  pairAddresses: string[],
+  liquidityProviderFee: number
+) => {
   const [start0, end0] = getUtcSecondsFromDayRange(8, 9);
   const [start1, end1] = getUtcSecondsFromDayRange(11, 12);
-  const pairAddressToAprMap = {};
+  const pairAddressToAprMap: Record<string, BigNumber> = {};
 
   try {
     let queryResponse0 = await client.query({
@@ -66,7 +82,7 @@ const getTradingFeeAprSushi = async (client, pairAddresses, liquidityProviderFee
   return pairAddressToAprMap;
 };
 
-const addressesToLowercase = (pairAddresses /*: string[]*/) =>
+const addressesToLowercase = (pairAddresses: string[]) =>
   pairAddresses.map(address => address.toLowerCase());
 
 const zip = arrays => {
@@ -75,9 +91,4 @@ const zip = arrays => {
       return array[i];
     });
   });
-};
-
-module.exports = {
-  getTradingFeeApr,
-  getTradingFeeAprSushi,
 };
