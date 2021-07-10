@@ -1,5 +1,26 @@
 [
   {
+    "name": "dfyn-bifi-dfyn",
+    "farmType": "eco",
+    "address": "0x759738096589b9c39da78a603565635a3cee6013",
+    "rewardPool": "0xECe1b93A70A0429Db6cF4580C325F831FBB16d52",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfbdd194376de19a88118e84e279b977f165d01b8",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "dfyn-uft-dfyn",
     "farmType": "eco",
     "address": "0x8f07eaC653cd812b3Ac691729CD16616E232de68",
