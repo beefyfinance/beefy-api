@@ -3,10 +3,8 @@ import { MultiCall } from 'eth-multicall';
 import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
 // abis
-import _FarmHeroChef from '../../../abis/matic/FarmHeroChef.json';
-const FarmHeroChef = _FarmHeroChef as AbiItem[];
-import _ERC20 from '../../../abis/ERC20.json';
-const ERC20 = _ERC20 as AbiItem[];
+import { FarmHeroChef_ABI, FarmHeroChef_MethodName } from '../../../abis/matic/FarmHeroChef';
+import { ERC20_ABI, ERC20_MethodName } from '../../../abis/ERC20';
 // json data
 import _pools from '../../../data/matic/farmheroPools.json';
 const pools = _pools as LpPool[];
@@ -43,8 +41,9 @@ export const getFarmheroApys = async () => {
 
 const getFarmApys = async (pools: LpPool[]) => {
   const apys = [];
-  const chefContract = new web3.eth.Contract(FarmHeroChef, chef);
-  const heroPerSecond = new BigNumber(await chefContract.methods.bananaPerSecond().call());
+  const chefContract = new web3.eth.Contract(FarmHeroChef_ABI, chef);
+  const methods: Record<FarmHeroChef_MethodName, any> = chefContract.methods;
+  const heroPerSecond = new BigNumber(await methods.HERORewardPerSecond().call());
   const totalAllocPoint = new BigNumber(await chefContract.methods.totalAllocPoint().call());
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
@@ -66,17 +65,19 @@ const getFarmApys = async (pools: LpPool[]) => {
 };
 
 const getPoolsData = async (pools: LpPool[]) => {
-  const chefContract = new web3.eth.Contract(FarmHeroChef as AbiItem[], chef);
+  const chefContract = new web3.eth.Contract(FarmHeroChef_ABI, chef);
+  const chefMethods: Record<FarmHeroChef_MethodName, any> = chefContract.methods;
 
   const balanceCalls = [];
   const allocPointCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20 as AbiItem[], pool.address);
+    const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address);
+    const erc20Methods: Record<ERC20_MethodName, any> = tokenContract.methods;
     balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(chef),
+      balance: erc20Methods.balanceOf(chef),
     });
     allocPointCalls.push({
-      allocPoint: chefContract.methods.poolInfo(pool.poolId),
+      allocPoint: chefMethods.poolInfo(pool.poolId),
     });
   });
 
