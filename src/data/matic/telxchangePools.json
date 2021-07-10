@@ -65,28 +65,6 @@
     }
   },
   {
-    "name": "telxchange-quick-eth-tel",
-    "farmType": "dual",
-    "address": "0xFc2fC983a411C4B1E238f7Eb949308CF0218C750",
-    "rewardPool": "0x09315f2577c2BcceE0119790F706EB70Dd67c2DF",
-    "sOracleId": "QUICK",
-    "decimals": "1e18",
-    "poolId": 0,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-      "oracle": "tokens",
-      "oracleId": "ETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xdF7837DE1F2Fa4631D716CF2502f8b230F1dcc32",
-      "oracle": "tokens",
-      "oracleId": "TEL",
-      "decimals": "1e2"
-    }
-  },
-  {
     "name": "telxchange-quick-aave-tel",
     "farmType": "single",
     "address": "0x4917bC6b8E705Ad462ef525937E7eB7C6c87C356",
