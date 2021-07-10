@@ -1,0 +1,42 @@
+[
+  {
+    "name": "farmhero-quick-usdc-honor",
+    "platform": "quickswap",
+    "address": "0x46489f825f11d7473D20279699b108aCAA246e73",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xb82A20B4522680951F11c94c54B8800c1C237693",
+      "oracle": "tokens",
+      "oracleId": "HONOR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "farmhero-wault-usdc-honor",
+    "platform": "waultswap",
+    "address": "0x4Bd5dF4300b7c5309cB1A0143e4A6d0184B878e1",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xb82A20B4522680951F11c94c54B8800c1C237693",
+      "oracle": "tokens",
+      "oracleId": "HONOR",
+      "decimals": "1e18"
+    }
+  }
+]
