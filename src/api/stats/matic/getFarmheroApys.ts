@@ -14,7 +14,7 @@ const pools = _pools as LpPool[];
 import fetchPrice from '../../../utils/fetchPrice';
 import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
-import { apePolyClient } from '../../../apollo/client';
+import { quickClient } from '../../../apollo/client';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { addressBook } from 'blockchain-addressbook';
 import { getEDecimals } from '../../../utils/getEDecimals';
@@ -35,7 +35,7 @@ const secondsPerYear = 31536000;
 
 export const getFarmheroApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(apePolyClient, pairAddresses, QUICK_LPF);
+  const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, QUICK_LPF);
   const farmApys = await getFarmApys(pools);
 
   return getApyBreakdown(pools, tradingAprs, farmApys, QUICK_LPF);
