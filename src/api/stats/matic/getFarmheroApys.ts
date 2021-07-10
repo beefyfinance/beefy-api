@@ -2,16 +2,25 @@ import BigNumber from 'bignumber.js';
 import { MultiCall } from 'eth-multicall';
 import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
-import FarmHeroChef from '../../../abis/matic/FarmHeroChef.json';
-import ERC20 from '../../../abis/ERC20.json';
+// abis
+import _FarmHeroChef from '../../../abis/matic/FarmHeroChef.json';
+const FarmHeroChef = _FarmHeroChef as AbiItem[];
+import _ERC20 from '../../../abis/ERC20.json';
+const ERC20 = _ERC20 as AbiItem[];
+// json data
+import _pools from '../../../data/matic/farmheroPools.json';
+const pools = _pools as LpPool[];
+
 import fetchPrice from '../../../utils/fetchPrice';
-import pools from '../../../data/matic/farmheroPools.json';
 import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { apePolyClient } from '../../../apollo/client';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { addressBook } from 'blockchain-addressbook';
 import { getEDecimals } from '../../../utils/getEDecimals';
+import { AbiItem } from 'web3-utils';
+import { LpPool } from '../../../types/LpPool';
+
 const {
   platforms: { farmhero },
   tokens: { HONOR },
@@ -32,7 +41,7 @@ export const getFarmheroApys = async () => {
   return getApyBreakdown(pools, tradingAprs, farmApys, QUICK_LPF);
 };
 
-const getFarmApys = async pools => {
+const getFarmApys = async (pools: LpPool[]) => {
   const apys = [];
   const chefContract = new web3.eth.Contract(FarmHeroChef, chef);
   const heroPerSecond = new BigNumber(await chefContract.methods.bananaPerSecond().call());
@@ -44,7 +53,7 @@ const getFarmApys = async pools => {
     const pool = pools[i];
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
-    const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
+    const totalStakedInUsd = balances[i].times(lpPrice).dividedBy(pool.decimals);
 
     const poolBlockRewards = heroPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
@@ -52,19 +61,17 @@ const getFarmApys = async pools => {
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
-    // console.log(pool.name, 'staked:', totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf(), apy.valueOf());
   }
   return apys;
 };
 
-const getPoolsData = async pools => {
-  const chefContract = new web3.eth.Contract(FarmHeroChef, chef);
+const getPoolsData = async (pools: LpPool[]) => {
+  const chefContract = new web3.eth.Contract(FarmHeroChef as AbiItem[], chef);
 
   const balanceCalls = [];
   const allocPointCalls = [];
-  const rewardAllocPointCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = new web3.eth.Contract(ERC20 as AbiItem[], pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(chef),
     });
@@ -73,8 +80,8 @@ const getPoolsData = async pools => {
     });
   });
 
-  const multicall = new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID));
-  const res = await multicall.all([balanceCalls, allocPointCalls, rewardAllocPointCalls]);
+  const multicall = new MultiCall(web3 as any, multicallAddress(POLYGON_CHAIN_ID));
+  const res = await multicall.all([balanceCalls, allocPointCalls]);
 
   const balances = res[0].map(v => new BigNumber(v.balance));
   const allocPoints = res[1].map(v => v.allocPoint['2']);
