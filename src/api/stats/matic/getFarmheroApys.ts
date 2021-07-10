@@ -2,8 +2,6 @@ import BigNumber from 'bignumber.js';
 import { MultiCall } from 'eth-multicall';
 import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
-import MiniChefV2 from '../../../abis/matic/ApeMiniApe.json';
-import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime.json';
 import ERC20 from '../../../abis/ERC20.json';
 import fetchPrice from '../../../utils/fetchPrice';
 import pools from '../../../data/matic/apePolyLpPools.json';
@@ -11,19 +9,21 @@ import { POLYGON_CHAIN_ID, APEPOLY_LPF } from '../../../constants';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { apePolyClient } from '../../../apollo/client';
 import getApyBreakdown from '../common/getApyBreakdown';
+import { addressBook } from 'blockchain-addressbook';
+import { getEDecimals } from '../../../utils/getEDecimals';
+const {
+  platforms: { farmhero },
+  tokens: { HONOR },
+} = addressBook.polygon;
 
-const minichef = '0x54aff400858Dcac39797a81894D9920f16972D1D';
-const oracleId = 'BANANApoly';
+const chef = farmhero.chef;
+const oracleId = HONOR.symbol;
 const oracle = 'tokens';
-const DECIMALS = '1e18';
+const DECIMALS = getEDecimals(HONOR.decimals);
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
-// matic
-const complexRewarderTime = '0x1F234B1b83e21Cb5e2b99b4E498fe70Ef2d6e3bf';
-const oracleIdMatic = 'WMATIC';
-
-const getApeLpApys = async () => {
+export const getFarmheroApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(apePolyClient, pairAddresses, APEPOLY_LPF);
   const farmApys = await getFarmApys(pools);
@@ -33,12 +33,9 @@ const getApeLpApys = async () => {
 
 const getFarmApys = async pools => {
   const apys = [];
-  const minichefContract = new web3.eth.Contract(MiniChefV2, minichef);
-  const bananaPerSecond = new BigNumber(await minichefContract.methods.bananaPerSecond().call());
-  const totalAllocPoint = new BigNumber(await minichefContract.methods.totalAllocPoint().call());
-
-  const rewardContract = new web3.eth.Contract(SushiComplexRewarderTime, complexRewarderTime);
-  const rewardPerSecond = new BigNumber(await rewardContract.methods.rewardPerSecond().call());
+  const chefContract = new web3.eth.Contract(MiniChefV2, chef);
+  const bananaPerSecond = new BigNumber(await chefContract.methods.bananaPerSecond().call());
+  const totalAllocPoint = new BigNumber(await chefContract.methods.totalAllocPoint().call());
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const maticPrice = await fetchPrice({ oracle, id: oracleIdMatic });
@@ -53,12 +50,7 @@ const getFarmApys = async pools => {
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
-    const allocPoint = rewardAllocPoints[i];
-    const maticRewards = rewardPerSecond.times(allocPoint).dividedBy(totalAllocPoint);
-    const yearlyMaticRewards = maticRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-    const maticRewardsInUsd = yearlyMaticRewards.times(maticPrice).dividedBy(DECIMALS);
-
-    const apy = yearlyRewardsInUsd.plus(maticRewardsInUsd).dividedBy(totalStakedInUsd);
+    const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
     // console.log(pool.name, 'staked:', totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf(), apy.valueOf());
   }
@@ -66,8 +58,7 @@ const getFarmApys = async pools => {
 };
 
 const getPoolsData = async pools => {
-  const minichefContract = new web3.eth.Contract(MiniChefV2, minichef);
-  const rewardContract = new web3.eth.Contract(SushiComplexRewarderTime, complexRewarderTime);
+  const chefContract = new web3.eth.Contract(MiniChefV2, chef);
 
   const balanceCalls = [];
   const allocPointCalls = [];
@@ -75,13 +66,10 @@ const getPoolsData = async pools => {
   pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20, pool.address);
     balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(minichef),
+      balance: tokenContract.methods.balanceOf(chef),
     });
     allocPointCalls.push({
-      allocPoint: minichefContract.methods.poolInfo(pool.poolId),
-    });
-    rewardAllocPointCalls.push({
-      allocPoint: rewardContract.methods.poolInfo(pool.poolId),
+      allocPoint: chefContract.methods.poolInfo(pool.poolId),
     });
   });
 
@@ -90,8 +78,5 @@ const getPoolsData = async pools => {
 
   const balances = res[0].map(v => new BigNumber(v.balance));
   const allocPoints = res[1].map(v => v.allocPoint['2']);
-  const rewardAllocPoints = res[2].map(v => v.allocPoint['2']);
-  return { balances, allocPoints, rewardAllocPoints };
+  return { balances, allocPoints };
 };
-
-module.exports = { getApeLpApys, APEPOLY_LPF };
