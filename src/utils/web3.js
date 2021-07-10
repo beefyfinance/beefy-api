@@ -1,5 +1,6 @@
-// to not break back compat module format, but still use ts for the logic.
-import { chainRandomClients, _web3Factory, _multicallAddress } from './web3Helpers';
+const { chainRandomClients, _web3Factory, _multicallAddress } = require('./web3Helpers');
+
+// keep backwards compat for commonJs export system, but still get types in code by importing from web3Helpers.js
 
 module.exports = {
   get bscWeb3() {

@@ -2,7 +2,7 @@ import Web3 from 'web3';
 import { addressBookByChainId, ChainId } from 'blockchain-addressbook';
 import { BeefyFinance } from 'blockchain-addressbook/build/types/beefyfinance';
 
-const {
+import {
   BSC_RPC_ENDPOINTS,
   HECO_RPC,
   AVAX_RPC,
@@ -13,7 +13,7 @@ const {
   AVAX_CHAIN_ID,
   POLYGON_CHAIN_ID,
   FANTOM_CHAIN_ID,
-} = require('../constants');
+} from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
   [ChainId.bsc]: addressBookByChainId[ChainId.bsc].platforms.beefyfinance.multicall,
