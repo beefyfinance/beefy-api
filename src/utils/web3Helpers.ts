@@ -38,45 +38,27 @@ clients.avax.push(new Web3(AVAX_RPC));
 clients.polygon.push(new Web3(POLYGON_RPC));
 clients.fantom.push(new Web3(FANTOM_RPC));
 
-const bscRandomClient = () => clients.bsc[~~(clients.bsc.length * Math.random())];
-const hecoRandomClient = () => clients.heco[~~(clients.heco.length * Math.random())];
-const avaxRandomClient = () => clients.avax[~~(clients.avax.length * Math.random())];
-const polygonRandomClient = () => clients.polygon[~~(clients.polygon.length * Math.random())];
-const fantomRandomClient = () => clients.fantom[~~(clients.fantom.length * Math.random())];
-
-export const bscWeb3 = () => {
-  return bscRandomClient();
+export const chainRandomClients = {
+  bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
+  hecoRandomClient: () => clients.heco[~~(clients.heco.length * Math.random())],
+  avaxRandomClient: () => clients.avax[~~(clients.avax.length * Math.random())],
+  polygonRandomClient: () => clients.polygon[~~(clients.polygon.length * Math.random())],
+  fantomRandomClient: () => clients.fantom[~~(clients.fantom.length * Math.random())],
 };
 
-export const hecoWeb3 = () => {
-  return hecoRandomClient();
-};
-
-export const avaxWeb3 = () => {
-  return avaxRandomClient();
-};
-
-export const polygonWeb3 = () => {
-  return polygonRandomClient();
-};
-
-export const fantomWeb3 = () => {
-  return fantomRandomClient();
-};
-
-export const web3Factory = (chainId: ChainId) => {
+export const _web3Factory = (chainId: ChainId) => {
   switch (chainId) {
     case BSC_CHAIN_ID:
-      return bscRandomClient();
+      return chainRandomClients.bscRandomClient();
     case HECO_CHAIN_ID:
-      return hecoRandomClient();
+      return chainRandomClients.hecoRandomClient();
     case AVAX_CHAIN_ID:
-      return avaxRandomClient();
+      return chainRandomClients.avaxRandomClient();
     case POLYGON_CHAIN_ID:
-      return polygonRandomClient();
+      return chainRandomClients.polygonRandomClient();
     case FANTOM_CHAIN_ID:
-      return fantomRandomClient();
+      return chainRandomClients.fantomRandomClient();
   }
 };
 
-export const multicallAddress = (chainId: ChainId) => MULTICALLS[chainId];
+export const _multicallAddress = (chainId: ChainId) => MULTICALLS[chainId];
