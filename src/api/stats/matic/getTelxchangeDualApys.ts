@@ -10,11 +10,16 @@ import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { quickClient } from '../../../apollo/client';
 import getApyBreakdown from '../common/getApyBreakdown';
+import { addressBook } from 'blockchain-addressbook';
+import { getEDecimals } from '../../../utils/getEDecimals';
+const {
+  polygon: {
+    tokens: { TEL, QUICK },
+  },
+} = addressBook;
 
 const oracle = 'tokens';
-const oracleId = 'MUST';
 
-const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 export const getTelxchangeDualApys = async () => {
@@ -27,7 +32,9 @@ export const getTelxchangeDualApys = async () => {
 
 const getFarmApys = async pools => {
   const apys = [];
-  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
+  const primaryRewardTokenPrice = await fetchPrice({ oracle, id: TEL.symbol });
+  const secondRewardTokenPrice = await fetchPrice({ oracle, id: QUICK.symbol });
+  const [telDecimals, quickDecimals] = [TEL, QUICK].map(token => getEDecimals(token.decimals));
   const { balances, rewardRates, secondRewardRates } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -37,9 +44,10 @@ const getFarmApys = async pools => {
 
     const yearlyRewards = rewardRates[i].times(3).times(BLOCKS_PER_DAY).times(365);
     const secondYearlyRewards = secondRewardRates[i].times(3).times(BLOCKS_PER_DAY).times(365);
-    const secondReward = await fetchPrice({ oracle: 'tokens', id: pool.sOracleId });
-    const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
-    const secondYearlyRewardsInUsd = secondYearlyRewards.times(secondReward).dividedBy(DECIMALS);
+    const yearlyRewardsInUsd = yearlyRewards.times(primaryRewardTokenPrice).dividedBy(telDecimals);
+    const secondYearlyRewardsInUsd = secondYearlyRewards
+      .times(secondRewardTokenPrice)
+      .dividedBy(quickDecimals);
     const rewards = yearlyRewardsInUsd.plus(secondYearlyRewardsInUsd);
 
     apys.push(rewards.dividedBy(totalStakedInUsd));
