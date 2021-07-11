@@ -10,7 +10,8 @@
     "prettier:check": "prettier --check src/**/*",
     "prettier:fix": "prettier --write src/**/*",
     "prepare": "husky install",
-    "bsc:pancake:farm:add": "node scripts/bscPancakeFarmAdd.js"
+    "bsc:pancake:farm:add": "node scripts/bscPancakeFarmAdd.js",
+    "gen-ts": "abi-types-generator ./src/abis/matic/FarmHero/FarmHeroChef.json --output='./src/abis/matic/FarmHero/types'"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
@@ -24,6 +25,7 @@
     "blockchain-addressbook": "^0.1.91",
     "date-fns": "^2.21.3",
     "eth-multicall": "^1.3.13",
+    "ethereum-abi-types-generator": "^1.1.7",
     "ethers": "^5.0.26",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.12.4",
