@@ -83,6 +83,7 @@ import ironMaticPools from '../../data/matic/ironLpPools.json';
 import ironTitanPools from '../../data/matic/ironTitanLpPools.json';
 import ironQuickPools from '../../data/matic/ironQuickLpPools.json';
 import polycatQuickPool from '../../data/matic/polycatQuickLpPool.json';
+import polycatDfynPool from '../../data/matic/polycatDfynLpPool.json';
 import polycatSushiPool from '../../data/matic/polycatSushiLpPool.json';
 import lendhubPools from '../../data/heco/lendhubLpPools.json';
 import pantherPools from '../../data/degens/pantherLpPools.json';
@@ -95,7 +96,6 @@ import wexPolyPools from '../../data/matic/wexPolyLpPools.json';
 import icarusV2Pools from '../../data/icarusV2LpPools.json';
 import merlinPools from '../../data/merlinLpPools.json';
 import polypupLpPools from '../../data/matic/polypupLpPools.json';
-import polypupBoneLpPools from '../../data/matic/polypupBoneLpPools.json';
 import polyyeldQuickLpPools from '../../data/matic/polyyeldQuickLpPools.json';
 import polyyeldSushiLpPools from '../../data/matic/polyyeldSushiLpPools.json';
 import polyyeldApeLpPools from '../../data/matic/polyyeldApeLpPools.json';
@@ -103,6 +103,11 @@ import apePolyPools from '../../data/matic/apePolyLpPools.json';
 import polyQuityPools from '../../data/matic/polyQuityLpPools.json';
 import keeper50pools from '../../data/matic/50kLpPools.json';
 import dfynPools from '../../data/matic/dfynLpPools.json';
+import boneswapQuickPools from '../../data/matic/boneswapQuickLpPools.json';
+import boneswapSushiPools from '../../data/matic/boneswapSushiLpPools.json';
+import boneswapApePools from '../../data/matic/boneswapApeLpPools.json';
+import maiPools from '../../data/matic/maiLpPools.json';
+import jetswapPolyPools from '../../data/matic/jetswapLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -110,10 +115,15 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...jetswapPolyPools,
+  ...maiPools,
+  ...boneswapApePools,
+  ...boneswapSushiPools,
+  ...boneswapQuickPools,
+  ...polycatDfynPool,
   ...dfynPools,
   ...keeper50pools,
   ...polyQuityPools,
-  ...polypupBoneLpPools,
   ...polypupLpPools,
   ...apePolyPools,
   ...polyyeldApeLpPools,

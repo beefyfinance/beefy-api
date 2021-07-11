@@ -9,7 +9,7 @@ const getPolyzapApys = async () =>
     masterchef: '0xB93C082bCfCCf5BAeA0E0f0c556668E25A41B896',
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'pZapPerBlock',
-    hasMultiplier: true,
+    hasMultiplier: false,
     pools: pools,
     oracleId: 'PZAP',
     oracle: 'tokens',

@@ -6,7 +6,7 @@ const IRewardPool = require('../../../abis/IRewardPool.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/polyQuityLpPools.json');
-const { POLYGON_CHAIN_ID } = require('../../../constants');
+const { POLYGON_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
 const { getTradingFeeAprSushi } = require('../../../utils/getTradingFeeApr');
 const { sushiClient } = require('../../../apollo/client');
 import getApyBreakdown from '../common/getApyBreakdown';
@@ -17,14 +17,12 @@ const oracleId = 'PYQ';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const liquidityProviderFee = 0.003;
-
 const getPolyQuityLpApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeAprSushi(sushiClient, pairAddresses, liquidityProviderFee);
+  const tradingAprs = await getTradingFeeAprSushi(sushiClient, pairAddresses, SUSHI_LPF);
   const farmApys = await getFarmApys(pools);
 
-  return getApyBreakdown(pools, tradingAprs, farmApys, liquidityProviderFee);
+  return getApyBreakdown(pools, tradingAprs, farmApys, SUSHI_LPF);
 };
 
 const getFarmApys = async pools => {

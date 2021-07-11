@@ -100,7 +100,8 @@ const getFarmApys = async params => {
     const poolBlockRewards = blockRewards
       .times(multiplier)
       .times(allocPoints[i])
-      .dividedBy(totalAllocPoint);
+      .dividedBy(totalAllocPoint)
+      .times(1 - (pool.depositFee ?? 0));
 
     const secondsPerBlock = params.secondsPerBlock ?? 2;
     const secondsPerYear = 31536000;

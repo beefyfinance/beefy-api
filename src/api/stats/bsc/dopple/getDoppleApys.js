@@ -2,11 +2,9 @@ const axios = require('axios');
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../../utils/web3');
 
-const MasterChef = require('../../../../abis/DoppleMasterChef.json');
+import getApyBreakdown from '../../common/getApyBreakdown';
+
 const fetchPrice = require('../../../../utils/fetchPrice');
-const lpPools = require('../../../../data/doppleLpPools.json');
-const pools = require('../../../../data/dopplePools.json');
-const { compound } = require('../../../../utils/compound');
 const {
   getTotalLpStakedInUsd,
   getTotalStakedInUsd,
@@ -14,24 +12,31 @@ const {
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 
-const getDoppleApys = async () => {
-  let apys = {};
-  const masterchef = '0xDa0a175960007b0919DBF11a38e6EC52896bddbE';
+const MasterChef = require('../../../../abis/DoppleMasterChef.json');
+const lpPools = require('../../../../data/doppleLpPools.json');
+const pools = require('../../../../data/dopplePools.json');
+const tradingFees = 0.00045;
 
+const getDoppleApys = async () => {
   const baseApys = await getBaseApys();
+  const farmApys = [];
 
   let promises = [];
-  [...lpPools, ...pools].forEach(pool => promises.push(getPoolApy(masterchef, pool, baseApys)));
+  const masterchef = '0xDa0a175960007b0919DBF11a38e6EC52896bddbE';
+  [...lpPools, ...pools].forEach(pool => promises.push(getPoolApy(masterchef, pool)));
   const values = await Promise.all(promises);
-
   for (const item of values) {
-    apys = { ...apys, ...item };
+    farmApys.push(item);
   }
 
-  return apys;
+  const poolsMap = [...lpPools, ...pools].map(p => ({
+    name: p.name,
+    address: p.address ?? p.swap,
+  }));
+  return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
 };
 
-const getPoolApy = async (masterchef, pool, baseApys) => {
+const getPoolApy = async (masterchef, pool) => {
   let getTotalStaked;
   if (pool.token) {
     getTotalStaked = getTotalStakedInUsd(masterchef, pool.token, pool.oracle, pool.oracleId);
@@ -42,31 +47,24 @@ const getPoolApy = async (masterchef, pool, baseApys) => {
     getYearlyRewardsInUsd(masterchef, pool),
     getTotalStaked,
   ]);
-  const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const baseApy = getPoolBaseApy(pool, baseApys);
-  const simpleApy = rewardsApy.plus(baseApy);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-  // console.log(pool.name, baseApy, rewardsApy.valueOf(), simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-  return { [pool.name]: apy };
-};
-
-const getPoolBaseApy = (pool, baseApys) => {
-  if (!baseApys || !pool.swap) return 0;
-  try {
-    return Number(baseApys[pool.swap].apy) / 100;
-  } catch (err) {
-    console.error(err);
-    return 0;
-  }
+  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  // console.log(pool.name, simpleApy.valueOf(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+  return simpleApy;
 };
 
 const getBaseApys = async () => {
+  let apys = {};
   try {
     const response = await axios.get('https://dopple-api.kowito.com/');
-    return response.data.pool;
+    const pools = response.data.pool;
+    Object.keys(pools).forEach(pool => {
+      const apy = new BigNumber((pools[pool].apy ?? 0) / 100);
+      apys = { ...apys, ...{ [pool.toLowerCase()]: apy } };
+    });
   } catch (err) {
     console.error(err);
   }
+  return apys;
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {

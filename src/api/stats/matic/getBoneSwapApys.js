@@ -1,59 +1,52 @@
 const getMasterChefApys = require('./getMaticMasterChefApys');
-const {
-  addressBook: {
-    polygon: {
-      tokens: { YELD },
-      platforms: { polyyeld },
-    },
-  },
-} = require('blockchain-addressbook');
 
-const MasterChefAbi = require('../../../abis/matic/PolyyeldMasterChef.json');
-const quickPools = require('../../../data/matic/polyyeldQuickLpPools.json');
-const sushiPools = require('../../../data/matic/polyyeldSushiLpPools.json');
-const apePools = require('../../../data/matic/polyyeldApeLpPools.json');
+const MasterChefAbi = require('../../../abis/matic/BoneSwapMasterChef.json');
+const quickPools = require('../../../data/matic/boneswapQuickLpPools.json');
+const sushiPools = require('../../../data/matic/boneswapSushiLpPools.json');
+const apePools = require('../../../data/matic/boneswapApeLpPools.json');
 const { quickClient, sushiClient, apePolyClient } = require('../../../apollo/client');
 const { QUICK_LPF, SUSHI_LPF, APEPOLY_LPF } = require('../../../constants');
-const { getEDecimals } = require('../../../utils/getEDecimals');
 
-const getPolyyeldApys = async () => {
+const getBoneSwapApys = async () => {
+  const chef = '0x0d17C30aFBD4d29EEF3639c7B1F009Fd6C9f1F72';
+
   const quick = getMasterChefApys({
-    masterchef: polyyeld.masterchef,
+    masterchef: chef,
     masterchefAbi: MasterChefAbi,
-    tokenPerBlock: 'YeldPerBlock',
+    tokenPerBlock: 'BONE_PER_BLOCK',
     hasMultiplier: false,
     pools: quickPools,
     oracle: 'tokens',
-    oracleId: YELD.symbol,
-    decimals: getEDecimals(YELD.decimals),
+    oracleId: 'BONEswap',
+    decimals: '1e18',
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: QUICK_LPF,
     // log: true,
   });
 
   const sushi = getMasterChefApys({
-    masterchef: polyyeld.masterchef,
+    masterchef: chef,
     masterchefAbi: MasterChefAbi,
-    tokenPerBlock: 'YeldPerBlock',
+    tokenPerBlock: 'BONE_PER_BLOCK',
     hasMultiplier: false,
     pools: sushiPools,
     oracle: 'tokens',
-    oracleId: YELD.symbol,
-    decimals: getEDecimals(YELD.decimals),
+    oracleId: 'BONEswap',
+    decimals: '1e18',
     tradingFeeInfoClient: sushiClient,
     liquidityProviderFee: SUSHI_LPF,
     // log: true,
   });
 
   const ape = getMasterChefApys({
-    masterchef: polyyeld.masterchef,
+    masterchef: chef,
     masterchefAbi: MasterChefAbi,
-    tokenPerBlock: 'YeldPerBlock',
+    tokenPerBlock: 'BONE_PER_BLOCK',
     hasMultiplier: false,
     pools: apePools,
     oracle: 'tokens',
-    oracleId: YELD.symbol,
-    decimals: getEDecimals(YELD.decimals),
+    oracleId: 'BONEswap',
+    decimals: '1e18',
     tradingFeeInfoClient: apePolyClient,
     liquidityProviderFee: APEPOLY_LPF,
     // log: true,
@@ -67,7 +60,7 @@ const getPolyyeldApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getPolyyeldApys error', result.reason);
+      console.warn('getBoneSwap error', result.reason);
       continue;
     }
 
@@ -101,4 +94,4 @@ const getPolyyeldApys = async () => {
   };
 };
 
-module.exports = { getPolyyeldApys };
+module.exports = { getBoneSwapApys };

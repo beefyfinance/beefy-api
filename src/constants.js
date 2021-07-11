@@ -45,6 +45,10 @@ const AVAX_CHAIN_ID = 43114;
 const FANTOM_CHAIN_ID = 250;
 
 const DFYN_LPF = 0.0025;
+const SUSHI_LPF = 0.0025;
+const QUICK_LPF = 0.003;
+const APEPOLY_LPF = 0.0015;
+const COMETH_LPF = 0.005;
 
 const MULTICHAIN_RPC = {
   56: BSC_RPC,
@@ -111,4 +115,8 @@ module.exports = {
   MULTICHAIN_ENDPOINTS,
 
   DFYN_LPF,
+  SUSHI_LPF,
+  QUICK_LPF,
+  APEPOLY_LPF,
+  COMETH_LPF,
 };

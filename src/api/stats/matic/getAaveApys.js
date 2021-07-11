@@ -104,7 +104,6 @@ const getMaticPerYear = async pool => {
   const borrowMaticRate = new BigNumber(res.emissionPerSecond);
 
   const maticPrice = await fetchPrice({ oracle: 'tokens', id: 'WMATIC' });
-  // const maticPrice = 1.54
   const supplyMaticInUsd = supplyMaticRate.times(secondsPerYear).div('1e18').times(maticPrice);
   const borrowMaticInUsd = borrowMaticRate.times(secondsPerYear).div('1e18').times(maticPrice);
 

@@ -1,0 +1,21 @@
+[
+  {
+    "name": "polycat-dfyn-fish-matic",
+    "address": "0x9e2fbb31fbd68472f6cd54a1635b8cd64d78fc1c",
+    "decimals": "1e18",
+    "poolId": 21,
+    "chainId": 137,
+    "lp1": {
+      "address": "0x3a3Df212b7AA91Aa0402B9035b098891d276572B",
+      "oracle": "tokens",
+      "oracleId": "FISH",
+      "decimals": "1e18"
+    },
+    "lp0": {
+      "address": "0x4c28f48448720e9000907bc2611f73022fdce1fa",
+      "oracle": "tokens",
+      "oracleId": "WMATIC_DYFN",
+      "decimals": "1e18"
+    }
+  }
+]
