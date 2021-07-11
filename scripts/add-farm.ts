@@ -1,3 +1,6 @@
+import { ChainId } from '../packages/address-book/address-book';
+
+const yargs = require('yargs');
 const fs = require('fs');
 const path = require('path');
 
@@ -8,19 +11,55 @@ const masterchefABI = require('../src/abis/MasterChef.json');
 const LPPairABI = require('../src/abis/LPPair.json');
 const ERC20ABI = require('../src/abis/ERC20.json');
 
-const poolsJsonFile = '../src/data/cakeLpPools.json';
+const projects = {
+  pancake: {
+    prefix: 'cakev2',
+    file: '../src/data/cakeLpPools.json',
+    masterchef: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
+  },
+  wault: {
+    prefix: 'wex',
+    file: '../src/data/waultLpPools.json',
+    masterchef: '0x22fB2663C7ca71Adc2cc99481C77Aaf21E152e2D',
+  },
+  mdex: {
+    prefix: 'mdex-bsc',
+    file: '../src/data/mdexBscLpPools.json',
+    masterchef: '0xc48FE252Aa631017dF253578B1405ea399728A50',
+  },
+};
+
+const args = yargs.options({
+  network: {
+    type: 'string',
+    demandOption: true,
+    describe: 'blockchain network',
+    choices: Object.keys(ChainId),
+  },
+  project: {
+    type: 'string',
+    demandOption: true,
+    describe: 'project name',
+    choices: Object.keys(projects),
+  },
+  pool: {
+    type: 'interger',
+    demandOption: true,
+    describe: 'poolId from respective masterchef contract',
+  },
+}).argv;
+
+const poolPrefix = projects[args['project']].prefix;
+const poolId = args['pool'];
+const masterchef = projects[args['project']].masterchef;
+const poolsJsonFile = projects[args['project']].file;
 const poolsJson = require(poolsJsonFile);
 
-const chainId = 56;
+const chainId = ChainId[args['network']];
 const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
 
-const poolId = parseInt(process.argv[2], 10);
-if (poolId < 1) {
-  throw Error('Usage: Need to pass a poolId as argument.');
-}
-
-async function fetchFarm(poolId) {
-  const masterchefAddress = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
+async function fetchFarm(masterchefAddress, poolId) {
+  console.log(`fetchFarm(${masterchefAddress}, ${poolId})`);
   const masterchefContract = new ethers.Contract(masterchefAddress, masterchefABI, provider);
   const poolInfo = await masterchefContract.poolInfo(poolId);
   return {
@@ -32,6 +71,7 @@ async function fetchFarm(poolId) {
 }
 
 async function fetchLiquidityPair(lpAddress) {
+  console.log(`fetchLiquidityPair(${lpAddress})`);
   const lpContract = new ethers.Contract(lpAddress, LPPairABI, provider);
   const lpTokenContract = new ethers.Contract(lpAddress, ERC20ABI, provider);
   return {
@@ -58,12 +98,12 @@ async function fetchToken(tokenAddress) {
 }
 
 async function main() {
-  const farm = await fetchFarm(poolId);
+  const farm = await fetchFarm(masterchef, poolId);
   const lp = await fetchLiquidityPair(farm.lpToken);
   const token0 = await fetchToken(lp.token0);
   const token1 = await fetchToken(lp.token1);
 
-  const newPoolName = `cakev2-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
+  const newPoolName = `${poolPrefix}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
   const newPool = {
     name: newPoolName,
     address: lp.address,

@@ -11,7 +11,9 @@
     "prettier:check": "prettier --check src/**/*",
     "prettier:fix": "prettier --write src/**/*",
     "prepare": "husky install",
-    "bsc:pancake:farm:add": "node scripts/bscPancakeFarmAdd.js"
+    "bsc:pancake:add": "ts-node scripts/add-farm.ts --network bsc --project pancake",
+    "bsc:wault:add": "ts-node scripts/add-farm.ts --network bsc --project wault",
+    "bsc:mdex:add": "ts-node scripts/add-farm.ts --network bsc --project mdex"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
@@ -45,7 +47,8 @@
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.6",
     "nyc": "^15.1.0",
-    "prettier": "2.1.1"
+    "prettier": "2.1.1",
+    "yargs": "^17.0.1"
   },
   "lint-staged": {
     "*.ts": "prettier --write",
