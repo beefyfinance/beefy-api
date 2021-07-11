@@ -1,17 +1,13 @@
-import { Token } from './tokenList';
+import type Token from "../types/token";
 
-export type AddressKey<T extends Record<string, Token>> = T[keyof T]['address'];
-
-export type AddressToTokenMap<T extends Record<string, Token>> = Record<AddressKey<T>, T[keyof T]>;
-
-export const convertSymbolTokenMapToAddressTokenMap = <T extends Record<string, Token>>(
-  symbolTokenMap: T
-): AddressToTokenMap<T> => {
-  const output: AddressToTokenMap<T> = {} as AddressToTokenMap<T>;
-  for (const tokenSymbol in symbolTokenMap) {
-    const token = symbolTokenMap[tokenSymbol];
-    const address: AddressKey<T> = token.address;
-    output[address] = token;
-  }
-  return output;
+export type AddressToTokenMap<T extends Record<string, Token>> = {
+  readonly [Obj in T[keyof T] as Obj["address"]]: Obj;
 };
+
+export function convertSymbolTokenMapToAddressTokenMap<
+  T extends Record<string, Token>
+>(symbolTokenMap: T): AddressToTokenMap<T> {
+  return Object.fromEntries(
+    Object.values<Token>(symbolTokenMap).map((t) => [t.address, t])
+  ) as AddressToTokenMap<T>;
+}
