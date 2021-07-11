@@ -5,7 +5,7 @@ const {
       platforms: { ironfinance },
     },
   },
-} = require('blockchain-addressbook');
+} = require('../../../../../packages/address-book/address-book');
 const getMasterChefApys = require('./getMasterChefApys');
 
 const MasterChefAbi = require('../../../../abis/degens/IronMasterChef.json');

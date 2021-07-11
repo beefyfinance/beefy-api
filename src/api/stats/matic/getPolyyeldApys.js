@@ -6,7 +6,7 @@ const {
       platforms: { polyyeld },
     },
   },
-} = require('blockchain-addressbook');
+} = require('../../../../packages/address-book/address-book');
 
 const MasterChefAbi = require('../../../abis/matic/PolyyeldMasterChef.json');
 const quickPools = require('../../../data/matic/polyyeldQuickLpPools.json');
