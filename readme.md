@@ -15,11 +15,12 @@ Optional enviroment vars:
 Afterwards just do
 
 ```
-yarn
+yarn install-all
 yarn start
 ```
 
 ---
+
 ---
 
 ## Endpoints
@@ -42,22 +43,23 @@ The main endpoint used by the frontend. It returns the APY of all the vaults in 
 ```
 
 #### **/apy/breakdown**
+
 The new version of the APY endpoint, broken down into component parts when they are available. The endpoint moves to a new format, which is consistent whether or not the breakdown stats are possible to display. It has the following structure:
 
-``` json
+```json
 {
-	"bifi-maxi": {
-        "totalApy": 0.07598675804818633
-	},
-	"cometh-must-eth": {
-        "vaultApr": 1.186973388240745,
-        "compoundingsPerYear": 2190,
-        "beefyPerformanceFee": 0.045,
-        "vaultApy": 2.1057844292858614,
-        "lpFee": 0.005,
-        "tradingApr": 0.22324214039526927,
-        "totalApy": 2.8825691266420788
-	},
+  "bifi-maxi": {
+    "totalApy": 0.07598675804818633
+  },
+  "cometh-must-eth": {
+    "vaultApr": 1.186973388240745,
+    "compoundingsPerYear": 2190,
+    "beefyPerformanceFee": 0.045,
+    "vaultApy": 2.1057844292858614,
+    "lpFee": 0.005,
+    "tradingApr": 0.22324214039526927,
+    "totalApy": 2.8825691266420788
+  }
 }
 ```
 
@@ -71,7 +73,7 @@ Each of these fields within the structure are:
 - **vaultApy** - The vaultApr compounded, using compoundingsPerYear and beefyPerformanceFee in the calculation.
 - **lpFee** - The Liquidity Provider (LP) fee per trade. This is an internal field for reference.
 - **tradingApr** - Annual interest from trading fees, not compounded.
-- **totalApy** - The known Total APY. Where fields are available to calculate the Total APY including trading fees, this is calculated. The final calculation is totalApy = (1 + vaultApr) * (1 + (compounded tradingApr)) - 1.
+- **totalApy** - The known Total APY. Where fields are available to calculate the Total APY including trading fees, this is calculated. The final calculation is totalApy = (1 + vaultApr) \* (1 + (compounded tradingApr)) - 1.
 
 After you start the API it can take a minute or two before you can fetch the APYs. We currently log `getApys()` to the console when all the data is available.
 
@@ -96,6 +98,7 @@ After you start the API it can take a minute or two before you can fetch the APY
 #### **/supply**: Used by [Coingecko](https://coingecko.com) to display BIFI's total supply and circulating supply
 
 ---
+
 ---
 
 ## Contribute
@@ -103,6 +106,7 @@ After you start the API it can take a minute or two before you can fetch the APY
 Beefy.Finance exists thanks to its contributors. There are many ways you can participate and help build high quality software. Check out the [contribution guide](CONTRIBUTING.md)!
 
 ---
+
 ---
 
 ## License
