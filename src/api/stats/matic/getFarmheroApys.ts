@@ -3,7 +3,7 @@ import { MultiCall } from 'eth-multicall';
 import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
 // abis
-import { FarmHeroChef_ABI, FarmHeroChef_MethodName } from '../../../abis/matic/FarmHeroChef';
+import { ContractContext as FarmHeroChef, FarmHeroChef_ABI } from '../../../abis/matic/FarmHero';
 import { ERC20_ABI, ERC20_MethodName } from '../../../abis/ERC20';
 // json data
 import _pools from '../../../data/matic/farmheroPools.json';
@@ -16,7 +16,6 @@ import { quickClient } from '../../../apollo/client';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { addressBook } from 'blockchain-addressbook';
 import { getEDecimals } from '../../../utils/getEDecimals';
-import { AbiItem } from 'web3-utils';
 import { LpPool } from '../../../types/LpPool';
 
 const {
@@ -41,7 +40,7 @@ export const getFarmheroApys = async () => {
 
 const getFarmApys = async (pools: LpPool[]) => {
   const apys = [];
-  const chefContract = new web3.eth.Contract(FarmHeroChef_ABI, chef);
+  const chefContract = (new web3.eth.Contract(ABI, chef) as unknown) as FarmHeroChef;
   const methods: Record<FarmHeroChef_MethodName, any> = chefContract.methods;
   const heroPerSecond = new BigNumber(await methods.HERORewardPerSecond().call());
   const totalAllocPoint = new BigNumber(await chefContract.methods.totalAllocPoint().call());
