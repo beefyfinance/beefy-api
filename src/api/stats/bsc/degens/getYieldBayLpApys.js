@@ -2,6 +2,7 @@ const getMasterChefApys = require('./getMasterChefApys');
 
 const MasterChefAbi = require('../../../../abis/MasterChef.json');
 const pools = require('../../../../data/degens/yieldBayLpPools.json');
+const { cakeClient } = require('../../../../apollo/client');
 
 const getYieldBayLpApys = async () =>
   await getMasterChefApys({

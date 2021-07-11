@@ -29,7 +29,7 @@ const getMdexBscLpApys = async () => {
   const allPools = [...pools];
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(mdexBscClient, pairAddresses, liquidityProviderFee);
+  const tradingAprs = {}; //await getTradingFeeApr(mdexBscClient, pairAddresses, liquidityProviderFee);
 
   let promises = [];
   allPools.forEach(pool => promises.push(getPoolApy(mdxPool, pool)));

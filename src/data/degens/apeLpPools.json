@@ -1,5 +1,81 @@
 [
   {
+    "name": "banana-twt-bnb",
+    "address": "0x4c48D692e3de076C7b844B956b28cdd1DD5C0945",
+    "decimals": "1e18",
+    "poolId": 84,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
+      "oracle": "tokens",
+      "oracleId": "TWT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-xvs-bnb",
+    "address": "0x9e199da6f87E09a290724EbA866eEdae2e971A0b",
+    "decimals": "1e18",
+    "poolId": 86,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "oracle": "tokens",
+      "oracleId": "XVS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-eps-bnb",
+    "address": "0x97c4C531e739E870d958940E8688017894084003",
+    "decimals": "1e18",
+    "poolId": 85,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xA7f552078dcC247C2684336020c03648500C6d9F",
+      "oracle": "tokens",
+      "oracleId": "EPS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-sfp-bnb",
+    "address": "0x6411A2240c8cD1dd48718eEE1ae4a10E71123Fd3",
+    "decimals": "1e18",
+    "poolId": 83,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xD41FDb03Ba84762dD66a0af1a6C8540FF1ba5dfb",
+      "oracle": "tokens",
+      "oracleId": "SFP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-ata-bnb",
     "address": "0x51DA890085da091b84e27c7A8234E371943b0af0",
     "decimals": "1e18",

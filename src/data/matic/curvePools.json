@@ -1,0 +1,110 @@
+[
+  {
+    "name": "curve-am3crv",
+    "pool": "0x445FE580eF8d70FF569aB36e80c647af338db351",
+    "gauge": "0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c",
+    "baseApyKey": "aave",
+    "rewards": [
+      {
+        "stream": "0xBdFF0C27dd073C119ebcb1299a68A6A92aE607F0",
+        "oracleId": "WMATIC"
+      },
+      {
+        "stream": "0xC48f4653dd6a9509De44c92beb0604BEA3AEe714",
+        "token": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
+        "oracleId": "CRV"
+      },
+      {
+        "stream": "0xC48f4653dd6a9509De44c92beb0604BEA3AEe714",
+        "token": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "oracleId": "WMATIC"
+      }
+    ],
+    "tokens": [
+      {
+        "aaveId": "aave-dai",
+        "decimals": "1e18"
+      },
+      {
+        "aaveId": "aave-usdc",
+        "decimals": "1e6"
+      },
+      {
+        "aaveId": "aave-usdt",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-poly-ren",
+    "pool": "0xC2d95EEF97Ec6C17551d45e77B590dc1F9117C67",
+    "gauge": "0xffbACcE0CC7C19d46132f1258FC16CF6871D153c",
+    "baseApyKey": "ren",
+    "oracleId": "WBTC",
+    "rewards": [
+      {
+        "stream": "0x488E6ef919C2bB9de535C634a80afb0114DA8F62",
+        "token": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
+        "oracleId": "CRV"
+      },
+      {
+        "stream": "0x488E6ef919C2bB9de535C634a80afb0114DA8F62",
+        "token": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "oracleId": "WMATIC"
+      }
+    ],
+    "tokens": [
+      {
+        "aaveId": "aave-wbtc",
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      }
+    ]
+  },
+  {
+    "name": "curve-poly-atricrypto",
+    "pool": "0x751B1e21756bDbc307CBcC5085c042a0e9AaEf36",
+    "token": "0x8096ac61db23291252574D49f036f0f9ed8ab390",
+    "gauge": "0xb0a366b987d77b5eD5803cBd95C80bB6DEaB48C0",
+    "baseApyKey": "atricrypto",
+    "volatile": true,
+    "rewards": [
+      {
+        "stream": "0x060e386eCfBacf42Aa72171Af9EFe17b3993fC4F",
+        "token": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
+        "oracleId": "CRV"
+      },
+      {
+        "stream": "0x060e386eCfBacf42Aa72171Af9EFe17b3993fC4F",
+        "token": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "oracleId": "WMATIC"
+      }
+    ],
+    "tokens": [
+      {
+        "basePool": "curve-am3crv",
+        "oracle": "lps",
+        "oracleId": "curve-am3crv",
+        "decimals": "1e18"
+      },
+      {
+        "aaveId": "aave-wbtc",
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "aaveId": "aave-eth",
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

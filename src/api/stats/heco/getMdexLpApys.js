@@ -23,7 +23,7 @@ const getMdexLpApys = async () => {
   let apyBreakdowns = {};
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(mdexHecoClient, pairAddresses, liquidityProviderFee);
+  const tradingAprs = {}; //await getTradingFeeApr(mdexHecoClient, pairAddresses, liquidityProviderFee);
 
   const allPools = [...pools];
 

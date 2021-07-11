@@ -132,7 +132,40 @@ const complusAvaxClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const pantherClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.bscgraph.org/subgraphs/name/pantherswap/exchange',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const jetswapClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/smartcookie0501/jetswap-subgraph',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const jetswapPolyClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/smartcookie0501/jetswap-subgraph-polygon',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const dfynClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/ss-sonic/dfyn-v5',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 module.exports = {
+  dfynClient,
   apePolyClient,
   sushiClient,
   comethClient,
@@ -149,4 +182,7 @@ module.exports = {
   complusAvaxClient,
   oliveClient,
   lydiaClient,
+  pantherClient,
+  jetswapClient,
+  jetswapPolyClient,
 };

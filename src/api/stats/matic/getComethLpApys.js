@@ -6,7 +6,7 @@ const IRewardPool = require('../../../abis/IRewardPool.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/comethLpPools.json');
-const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
+const { BASE_HPY, POLYGON_CHAIN_ID, COMETH_LPF } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { comethClient } = require('../../../apollo/client');
@@ -18,7 +18,6 @@ const oracleId = 'MUST';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const comethLiquidityProviderFee = 0.005;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
@@ -27,11 +26,7 @@ const getComethLpApys = async () => {
   let apyBreakdowns = {};
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(
-    comethClient,
-    pairAddresses,
-    comethLiquidityProviderFee
-  );
+  const tradingAprs = await getTradingFeeApr(comethClient, pairAddresses, COMETH_LPF);
   const farmApys = await getFarmApys(pools);
 
   pools.forEach((pool, i) => {
@@ -51,7 +46,7 @@ const getComethLpApys = async () => {
         compoundingsPerYear: BASE_HPY,
         beefyPerformanceFee: beefyPerformanceFee,
         vaultApy: vaultApy,
-        lpFee: comethLiquidityProviderFee,
+        lpFee: COMETH_LPF,
         tradingApr: tradingApr.toNumber(),
         totalApy: totalApy,
       },

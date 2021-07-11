@@ -1,5 +1,41 @@
 [
   {
+    "name": "wex-wex-btcb",
+    "address": "0xB621C33747D508CC16E83214823D644713DCA02e",
+    "decimals": "1e18",
+    "poolId": 49,
+    "lp0": {
+      "address": "0xa9c41a46a6b3531d28d5c32f6633dd2ff05dfb90",
+      "oracle": "tokens",
+      "oracleId": "WEX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "wex-watch-bnb",
+    "address": "0xd10382b532B75bCf58fa5bd5Af2470Bd29031337",
+    "decimals": "1e18",
+    "poolId": 46,
+    "lp0": {
+      "address": "0x7A9f28EB62C791422Aa23CeAE1dA9C847cBeC9b0",
+      "oracle": "tokens",
+      "oracleId": "WATCH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "wex-eth-beth",
     "address": "0x11040f3c467993556B19813d4A18b684598Ba4BD",
     "decimals": "1e18",

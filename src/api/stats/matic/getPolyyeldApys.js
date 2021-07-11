@@ -11,9 +11,9 @@ const {
 const MasterChefAbi = require('../../../abis/matic/PolyyeldMasterChef.json');
 const quickPools = require('../../../data/matic/polyyeldQuickLpPools.json');
 const sushiPools = require('../../../data/matic/polyyeldSushiLpPools.json');
-const { quickClient, sushiClient } = require('../../../apollo/client');
-const { quickLiquidityProviderFee } = require('./getQuickLpApys');
-const { sushiLiquidityProviderFee } = require('./getSushiLpApys');
+const apePools = require('../../../data/matic/polyyeldApeLpPools.json');
+const { quickClient, sushiClient, apePolyClient } = require('../../../apollo/client');
+const { QUICK_LPF, SUSHI_LPF, APEPOLY_LPF } = require('../../../constants');
 const { getEDecimals } = require('../../../utils/getEDecimals');
 
 const getPolyyeldApys = async () => {
@@ -21,13 +21,13 @@ const getPolyyeldApys = async () => {
     masterchef: polyyeld.masterchef,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'YeldPerBlock',
-    hasMultiplier: true,
+    hasMultiplier: false,
     pools: quickPools,
     oracle: 'tokens',
     oracleId: YELD.symbol,
     decimals: getEDecimals(YELD.decimals),
     tradingFeeInfoClient: quickClient,
-    liquidityProviderFee: quickLiquidityProviderFee,
+    liquidityProviderFee: QUICK_LPF,
     // log: true,
   });
 
@@ -35,20 +35,34 @@ const getPolyyeldApys = async () => {
     masterchef: polyyeld.masterchef,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'YeldPerBlock',
-    hasMultiplier: true,
+    hasMultiplier: false,
     pools: sushiPools,
     oracle: 'tokens',
     oracleId: YELD.symbol,
     decimals: getEDecimals(YELD.decimals),
     tradingFeeInfoClient: sushiClient,
-    liquidityProviderFee: sushiLiquidityProviderFee,
+    liquidityProviderFee: SUSHI_LPF,
+    // log: true,
+  });
+
+  const ape = getMasterChefApys({
+    masterchef: polyyeld.masterchef,
+    masterchefAbi: MasterChefAbi,
+    tokenPerBlock: 'YeldPerBlock',
+    hasMultiplier: false,
+    pools: apePools,
+    oracle: 'tokens',
+    oracleId: YELD.symbol,
+    decimals: getEDecimals(YELD.decimals),
+    tradingFeeInfoClient: apePolyClient,
+    liquidityProviderFee: APEPOLY_LPF,
     // log: true,
   });
 
   let apys = {};
   let apyBreakdowns = {};
 
-  let promises = [quick, sushi];
+  let promises = [quick, sushi, ape];
   const results = await Promise.allSettled(promises);
 
   for (const result of results) {

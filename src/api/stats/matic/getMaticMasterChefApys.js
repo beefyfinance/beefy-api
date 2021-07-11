@@ -38,7 +38,9 @@ const getMasterChefApys = async masterchefParams => {
       1,
       shareAfterPerformanceFee
     );
-    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+    if (masterchefParams.log) {
+      console.log(pool.name, simpleApr.valueOf(), tradingApr.valueOf(), totalApy);
+    }
 
     // Create reference for legacy /apy
     const legacyApyValue = { [pool.name]: totalApy };
@@ -98,7 +100,8 @@ const getFarmApys = async params => {
     const poolBlockRewards = blockRewards
       .times(multiplier)
       .times(allocPoints[i])
-      .dividedBy(totalAllocPoint);
+      .dividedBy(totalAllocPoint)
+      .times(1 - (pool.depositFee ?? 0));
 
     const secondsPerBlock = params.secondsPerBlock ?? 2;
     const secondsPerYear = 31536000;

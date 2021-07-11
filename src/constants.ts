@@ -1,3 +1,5 @@
+import { ChainId } from 'blockchain-addressbook';
+
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
 const BASE_HPY = 2190;
@@ -38,18 +40,24 @@ const AVAX_RPC = process.env.AVAX_RPC || 'https://api.avax.network/ext/bc/C/rpc'
 const POLYGON_RPC = process.env.POLYGON_RPC || 'https://rpc-mainnet.maticvigil.com/';
 const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpc.ftm.tools';
 
-const BSC_CHAIN_ID = 56;
-const HECO_CHAIN_ID = 128;
-const POLYGON_CHAIN_ID = 137;
-const AVAX_CHAIN_ID = 43114;
-const FANTOM_CHAIN_ID = 250;
+const BSC_CHAIN_ID = ChainId.bsc;
+const HECO_CHAIN_ID = ChainId.heco;
+const POLYGON_CHAIN_ID = ChainId.polygon;
+const AVAX_CHAIN_ID = ChainId.avax;
+const FANTOM_CHAIN_ID = ChainId.fantom;
 
-const MULTICHAIN_RPC = {
-  56: BSC_RPC,
-  128: HECO_RPC,
-  137: POLYGON_RPC,
-  43114: AVAX_RPC,
-  250: FANTOM_RPC,
+const DFYN_LPF = 0.0025;
+const SUSHI_LPF = 0.0025;
+const QUICK_LPF = 0.003;
+const APEPOLY_LPF = 0.0015;
+const COMETH_LPF = 0.005;
+
+const MULTICHAIN_RPC: Record<ChainId, string> = {
+  [ChainId.bsc]: BSC_RPC,
+  [ChainId.heco]: HECO_RPC,
+  [ChainId.polygon]: POLYGON_RPC,
+  [ChainId.avax]: AVAX_RPC,
+  [ChainId.fantom]: FANTOM_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -63,7 +71,14 @@ const POLYGON_VAULTS_ENDPOINT =
 const FANTOM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fantom_pools.js';
 
-const MULTICHAIN_ENDPOINTS = {
+const MULTICHAIN_ENDPOINTS: Record<
+  keyof typeof ChainId,
+  | typeof BSC_VAULTS_ENDPOINT
+  | typeof HECO_VAULTS_ENDPOINT
+  | typeof AVAX_VAULTS_ENDPOINT
+  | typeof POLYGON_VAULTS_ENDPOINT
+  | typeof FANTOM_VAULTS_ENDPOINT
+> = {
   bsc: BSC_VAULTS_ENDPOINT,
   heco: HECO_VAULTS_ENDPOINT,
   avax: AVAX_VAULTS_ENDPOINT,
@@ -71,40 +86,37 @@ const MULTICHAIN_ENDPOINTS = {
   fantom: FANTOM_VAULTS_ENDPOINT,
 };
 
-module.exports = {
+export {
   API_BASE_URL,
-
   BSC_RPC,
   BSC_RPC_ENDPOINTS,
   BSC_CHAIN_ID,
   BSC_VAULTS_ENDPOINT,
-
   HECO_RPC,
   HECO_CHAIN_ID,
   HECO_VAULTS_ENDPOINT,
-
   AVAX_RPC,
   AVAX_CHAIN_ID,
   AVAX_VAULTS_ENDPOINT,
-
   POLYGON_RPC,
   POLYGON_CHAIN_ID,
   POLYGON_VAULTS_ENDPOINT,
-
   FANTOM_RPC,
   FANTOM_CHAIN_ID,
   FANTOM_VAULTS_ENDPOINT,
-
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
   DAILY_HPY,
   WEEKLY_HPY,
-
   FORTUBE_REQ_TOKENS,
   FORTUBE_REQ_MARKETS,
   FORTUBE_API_TOKEN,
-
   MULTICHAIN_RPC,
   MULTICHAIN_ENDPOINTS,
+  DFYN_LPF,
+  SUSHI_LPF,
+  QUICK_LPF,
+  APEPOLY_LPF,
+  COMETH_LPF,
 };

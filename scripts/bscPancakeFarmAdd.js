@@ -44,11 +44,17 @@ async function fetchLiquidityPair(lpAddress) {
 
 async function fetchToken(tokenAddress) {
   const tokenContract = new ethers.Contract(tokenAddress, ERC20ABI, provider);
-  return {
-    address: ethers.utils.getAddress(tokenAddress),
+  const checksummedTokenAddress = ethers.utils.getAddress(tokenAddress);
+  const token = {
+    name: await tokenContract.name(),
     symbol: await tokenContract.symbol(),
+    address: checksummedTokenAddress,
+    chainId: chainId,
     decimals: await tokenContract.decimals(),
+    logoURI: `https://pancakeswap.finance/images/tokens/${checksummedTokenAddress}.svg`,
   };
+  console.log({ [token.symbol]: token }); // Prepare token data for address-book
+  return token;
 }
 
 async function main() {
