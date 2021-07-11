@@ -985,7 +985,8 @@ const _tokens = {
     address: '0x4EaC4c4e9050464067D673102F8E24b2FccEB350',
     chainId: 137,
     decimals: 18,
-    logoURI: '',
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
   },
   BNB: {
     name: 'AnySwap Bridge Polygon Binance Coin',
