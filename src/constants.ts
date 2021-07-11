@@ -1,4 +1,4 @@
-import { ChainId } from 'blockchain-addressbook';
+import { ChainId } from '../packages/address-book/address-book';
 
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 

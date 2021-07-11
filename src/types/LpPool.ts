@@ -1,4 +1,4 @@
-import { ChainId } from 'blockchain-addressbook';
+import { ChainId } from '../../packages/address-book/address-book';
 
 export interface LpPool {
   name: string;
