@@ -1,6 +1,6 @@
 import Web3 from 'web3';
-import { addressBookByChainId, ChainId } from 'blockchain-addressbook';
-import { BeefyFinance } from 'blockchain-addressbook/build/types/beefyfinance';
+import { addressBookByChainId, ChainId } from '../../packages/address-book/address-book';
+import { BeefyFinance } from '../../packages/address-book/types/beefyfinance';
 
 import {
   BSC_RPC_ENDPOINTS,

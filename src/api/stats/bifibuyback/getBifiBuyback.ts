@@ -2,7 +2,7 @@ import { BlockApiResponse, ERC20TxApiResponse } from './etherscanApiResponseType
 
 import BigNumber from 'bignumber.js';
 import fetch from 'node-fetch';
-import { addressBook } from 'blockchain-addressbook';
+import { addressBook } from '../../../../packages/address-book/address-book';
 
 import fetchPrice from '../../../utils/fetchPrice';
 import { getUtcSecondsFromDayRange } from '../../../utils/getUtcSecondsFromDayRange';

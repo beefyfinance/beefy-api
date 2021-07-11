@@ -1,4 +1,4 @@
-import { addressBook } from 'blockchain-addressbook';
+import { addressBook } from '../../../../packages/address-book/address-book';
 const { bsc, heco, polygon, fantom } = addressBook;
 
 // BIFI lp pair bifi maxi uses per chain

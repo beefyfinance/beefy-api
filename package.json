@@ -4,6 +4,7 @@
   "repository": "beefyfinance/beefy-api",
   "license": "MIT",
   "scripts": {
+    "install-all": "yarn && cd packages/address-book && yarn",
     "start": "ts-node src/app.ts",
     "dev": "nodemon -e js,ts,json src/app.ts",
     "test": "nyc ava",
@@ -22,7 +23,6 @@
     "apollo-link-http": "^1.5.17",
     "axios": "^0.20.0",
     "bignumber.js": "^9.0.1",
-    "blockchain-addressbook": "^0.1.91",
     "date-fns": "^2.21.3",
     "eth-multicall": "^1.3.13",
     "ethereum-abi-types-generator": "^1.1.7",
