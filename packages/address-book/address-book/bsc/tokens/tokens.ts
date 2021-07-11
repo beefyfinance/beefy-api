@@ -1,14 +1,92 @@
+import { ConstRecord } from '../../../types/const';
+import Token from '../../../types/token';
+
 const BNB = {
   name: 'WBNB Token',
   symbol: 'WBNB',
   address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
   chainId: 56,
   decimals: 18,
+  website: 'https://www.binance.com/',
+  description:
+    'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
   logoURI:
     'https://exchange.pancakeswap.finance/images/coins/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
-};
+} as const;
 
-export const tokens = {
+const _tokens = {
+  TITAN: {
+    name: 'TitanSwap',
+    symbol: 'TITAN',
+    address: '0xe898EDc43920F357A93083F1d4460437dE6dAeC2',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xe898EDc43920F357A93083F1d4460437dE6dAeC2.svg',
+  },
+  MASK: {
+    name: 'Mask Network',
+    symbol: 'MASK',
+    address: '0x2eD9a5C8C13b93955103B9a7C167B67Ef4d568a3',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x2eD9a5C8C13b93955103B9a7C167B67Ef4d568a3.svg',
+  },
+  FORM: {
+    name: 'Formation Finance',
+    symbol: 'FORM',
+    address: '0x25A528af62e56512A19ce8c3cAB427807c28CC19',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x25A528af62e56512A19ce8c3cAB427807c28CC19.svg',
+  },
+  ORBS: {
+    name: 'Orbs',
+    symbol: 'ORBS',
+    address: '0xeBd49b26169e1b52c04cFd19FCf289405dF55F80',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xeBd49b26169e1b52c04cFd19FCf289405dF55F80.svg',
+  },
+  DVI: {
+    name: 'Dvision',
+    symbol: 'DVI',
+    address: '0x758FB037A375F17c7e195CC634D77dA4F554255B',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x758FB037A375F17c7e195CC634D77dA4F554255B.svg',
+  },
+  ADX: {
+    name: 'AdEx Network',
+    symbol: 'ADX',
+    address: '0x6bfF4Fb161347ad7de4A625AE5aa3A1CA7077819',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x6bfF4Fb161347ad7de4A625AE5aa3A1CA7077819.svg',
+  },
+  BSCPAD: {
+    name: 'BSCPAD.com',
+    symbol: 'BSCPAD',
+    address: '0x5A3010d4d8D3B5fB49f8B6E57FB9E48063f16700',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x5A3010d4d8D3B5fB49f8B6E57FB9E48063f16700.svg',
+  },
+  RABBIT: {
+    name: 'Rabbit Coin',
+    symbol: 'RABBIT',
+    address: '0x95a1199EBA84ac5f19546519e287d43D2F0E1b41',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x95a1199EBA84ac5f19546519e287d43D2F0E1b41.svg',
+  },
   WEX: {
     name: 'WaultSwap',
     symbol: 'WEX',
@@ -695,7 +773,7 @@ export const tokens = {
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x658E64FFcF40D240A43D52CA9342140316Ae44fA.png',
   },
-  ONE: {
+  BigONE: {
     name: 'BigONE Token',
     symbol: 'ONE',
     address: '0x04BAf95Fd4C52fd09a56D840bAEe0AB8D7357bf0',
@@ -866,6 +944,9 @@ export const tokens = {
     address: '0xCC42724C6683B7E57334c4E856f4c9965ED682bD',
     chainId: 56,
     decimals: 18,
+    website: 'https://polygon.technology/',
+    description:
+      'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
     logoURI: 'https://dex.apeswap.finance/images/coins/MATIC.svg',
   },
   DOGE: {
@@ -1016,6 +1097,9 @@ export const tokens = {
     address: '0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
   },
@@ -1025,6 +1109,9 @@ export const tokens = {
     address: '0x2170Ed0880ac9A755fd29B2688956BD959F933F8',
     chainId: 56,
     decimals: 18,
+    website: 'https://ethereum.org/',
+    description:
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x2170ed0880ac9a755fd29b2688956bd959f933f8.png',
   },
@@ -1061,6 +1148,9 @@ export const tokens = {
     address: '0x55d398326f99059fF775485246999027B3197955',
     chainId: 56,
     decimals: 18,
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x55d398326f99059ff775485246999027b3197955.png',
   },
@@ -1070,6 +1160,9 @@ export const tokens = {
     address: '0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE',
     chainId: 56,
     decimals: 18,
+    website: 'https://ripple.com/xrp/',
+    description:
+      'XRP Ledger (XRPL) is the open-source distributed ledger that is created by Ripple. The native cryptocurrency of the XRP Ledger is XRP.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe.png',
   },
@@ -1088,6 +1181,9 @@ export const tokens = {
     address: '0x4338665CBB7B2485A8855A139b75D5e34AB0DB94',
     chainId: 56,
     decimals: 18,
+    website: 'https://litecoin.org/',
+    description:
+      'Litecoin is a peer-to-peer cryptocurrency and open-source software project released under the MIT/X11 license. Litecoin was an early bitcoin spinoff or altcoin, starting in October 2011.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x4338665cbb7b2485a8855a139b75d5e34ab0db94.png',
   },
@@ -1097,6 +1193,9 @@ export const tokens = {
     address: '0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47',
     chainId: 56,
     decimals: 18,
+    website: 'https://cardano.org/',
+    description:
+      'Within the Cardano platform, Ada exists on the settlement layer.Cardano is a public blockchain platform. It is open-source and decentralized, with consensus achieved using proof of stake.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x3ee2200efb3400fabb9aacf31297cbdd1d435d47.png',
   },
@@ -1214,6 +1313,9 @@ export const tokens = {
     address: '0xF8A0BF9cF54Bb92F17374d9e9A321E6a111a51bD',
     chainId: 56,
     decimals: 18,
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd.png',
   },
@@ -1313,6 +1415,9 @@ export const tokens = {
     address: '0xBf5140A22578168FD562DCcF235E5D43A02ce9B1',
     chainId: 56,
     decimals: 18,
+    website: 'https://uniswap.org/',
+    description:
+      'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
   },
@@ -1385,6 +1490,9 @@ export const tokens = {
     address: '0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
   },
@@ -2207,7 +2315,7 @@ export const tokens = {
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xc53708664b99DF348dd27C3Ac0759d2DA9c40462.png',
   },
-  'ONE-Harmony One': {
+  ONE: {
     name: 'Harmony One',
     symbol: 'ONE',
     address: '0x03fF0ff224f904be3118461335064bB48Df47938',
@@ -2440,4 +2548,13 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
   },
+  HERO: {
+    name: 'FarmHero HERO',
+    symbol: 'HERO',
+    address: '0x9B26e16377ad29A6CCC01770bcfB56DE3A36d8b2',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
+  },
 } as const;
+export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

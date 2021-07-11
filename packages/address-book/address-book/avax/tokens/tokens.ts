@@ -1,3 +1,6 @@
+import { ConstRecord } from '../../../types/const';
+import Token from '../../../types/token';
+
 const AVAX = {
   chainId: 43114,
   address: '0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7',
@@ -6,9 +9,9 @@ const AVAX = {
   symbol: 'WAVAX',
   logoURI:
     'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7/logo.png',
-};
+} as const;
 
-export const tokens = {
+const _tokens = {
   PNG: {
     chainId: 43114,
     address: '0x60781C2586D68229fde47564546784ab3fACA982',
@@ -26,6 +29,9 @@ export const tokens = {
     decimals: 18,
     name: 'Ether',
     symbol: 'ETH',
+    website: 'https://ethereum.org/',
+    description:
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf20d962a6c8f70c731bd838a3a388D7d48fA6e15/logo.png',
   },
@@ -557,6 +563,9 @@ export const tokens = {
     decimals: 18,
     name: 'ChainLink Token',
     symbol: 'LINK',
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB3fe5374F67D7a22886A0eE082b2E2f9d2651651/logo.png',
   },
@@ -1655,6 +1664,9 @@ export const tokens = {
     decimals: 18,
     name: 'Matic Token',
     symbol: 'MATIC',
+    website: 'https://polygon.technology/',
+    description:
+      'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x885ca6663E1E19DAD31c1e08D9958a2b8F538D53/logo.png',
   },
@@ -2762,6 +2774,9 @@ export const tokens = {
     decimals: 6,
     name: 'Tether USD',
     symbol: 'USDT',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
   },
@@ -2987,6 +3002,9 @@ export const tokens = {
     decimals: 18,
     name: 'Uniswap',
     symbol: 'UNI',
+    website: 'https://uniswap.org/',
+    description:
+      'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf39f9671906d8630812f9d9863bBEf5D523c84Ab/logo.png',
   },
@@ -3113,6 +3131,9 @@ export const tokens = {
     decimals: 8,
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
@@ -3482,6 +3503,9 @@ export const tokens = {
     decimals: 6,
     name: 'Tether USD',
     symbol: 'USDT',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
   },
@@ -3513,3 +3537,5 @@ export const tokens = {
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xDC42728B0eA910349ed3c6e1c9Dc06b5FB591f98/logo.png',
   },
 } as const;
+
+export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

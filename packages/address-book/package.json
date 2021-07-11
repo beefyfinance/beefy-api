@@ -1,12 +1,13 @@
 {
   "name": "blockchain-addressbook-temp",
-  "version": "0.1.62",
+  "version": "0.1.97",
   "description": "A collection of useful addresses on various chains for defi development",
   "main": "build/address-book/index.js",
   "types": "build/address-book/index.d.ts",
   "files": [
     "build/address-book/",
-    "build/util/"
+    "build/util/",
+    "build/types/"
   ],
   "repository": "beefyfinance/beefy-api",
   "license": "MIT",

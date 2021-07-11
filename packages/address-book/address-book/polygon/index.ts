@@ -10,12 +10,19 @@ import { polycat } from './platforms/polycat';
 import { iron } from './platforms/iron';
 import { adamant } from './platforms/adamant';
 import { polyyeld } from './platforms/polyyeld';
-import { polypup } from './platforms/polypup';
+import * as polypup from './platforms/polypup';
 import { apeswap } from './platforms/apeswap';
+import { helioscash } from './platforms/helioscash';
+import { brainswap } from './platforms/brainswap';
+import mai from './platforms/mai';
+import jetswap from './platforms/jetswap';
+import { farmhero } from './platforms/farmhero';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
+import Chain from '../../types/chain';
+import { ConstInterface } from '../../types/const';
 
-export const polygon = {
+const _polygon = {
   platforms: {
     beefyfinance,
     cometh,
@@ -29,9 +36,16 @@ export const polygon = {
     iron,
     adamant,
     polyyeld,
-    polypup,
+    ...polypup,
     apeswap,
+    helioscash,
+    brainswap,
+    mai,
+    jetswap,
+    farmhero,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
-};
+} as const;
+
+export const polygon: ConstInterface<typeof _polygon, Chain> = _polygon;

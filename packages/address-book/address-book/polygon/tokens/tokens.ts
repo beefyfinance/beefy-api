@@ -1,3 +1,6 @@
+import { ConstRecord } from '../../../types/const';
+import Token from '../../../types/token';
+
 const MATIC = {
   name: 'Wrapped Matic',
   address: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
@@ -6,9 +9,18 @@ const MATIC = {
   chainId: 137,
   logoURI:
     'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png',
-};
+} as const;
 
-export const tokens = {
+const MAI = {
+  name: 'Mai',
+  address: '0xa3Fa99A148fA48D14Ed51d610c367C61876997F1',
+  symbol: 'MAI',
+  decimals: 18,
+  chainId: 137,
+  logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+} as const;
+
+const _tokens = {
   $DG: {
     name: 'decentral.games',
     address: '0x2a93172c8DCCbfBC60a39d56183B7279a2F647b4',
@@ -224,6 +236,9 @@ export const tokens = {
     symbol: 'ETH',
     decimals: 18,
     chainId: 137,
+    website: 'https://ethereum.org/',
+    description:
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
@@ -337,6 +352,9 @@ export const tokens = {
     address: '0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39',
     symbol: 'LINK',
     decimals: 18,
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x514910771AF9Ca656af840dff83E8264EcF986CA/logo.png',
@@ -430,14 +448,8 @@ export const tokens = {
     chainId: 137,
     logoURI: 'https://etherscan.io/token/images/deflect_32.png?=v1',
   },
-  miMATIC: {
-    name: 'miMATIC',
-    address: '0xa3Fa99A148fA48D14Ed51d610c367C61876997F1',
-    symbol: 'miMATIC',
-    decimals: 18,
-    chainId: 137,
-    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
-  },
+  miMATIC: MAI,
+  MAI: MAI,
   mOCEAN: {
     name: 'Ocean Token',
     address: '0x282d8efCe846A88B159800bd4130ad77443Fa1A1',
@@ -511,6 +523,15 @@ export const tokens = {
     chainId: 137,
     logoURI: 'https://polydoge.com/doge-webpage_files/doge.png',
   },
+  polyBUNNY: {
+    name: 'Bunny',
+    address: '0x4C16f69302CcB511c5Fac682c7626B9eF0Dc126a',
+    symbol: 'polyBUNNY',
+    decimals: 18,
+    chainId: 137,
+    logoURI:
+      'https://raw.githubusercontent.com/PancakeBunny-finance/PolygonBUNNY/main/assets/token-bunny_32x32.png',
+  },
   PPDEX: {
     name: 'Pepedex',
     address: '0x127984b5E6d5c59f81DACc9F1C8b3Bdc8494572e',
@@ -518,6 +539,22 @@ export const tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'https://etherscan.io/token/images/pepedex_32.png?v=2',
+  },
+  PUSD: {
+    name: 'PUSD',
+    address: '0x9aF3b7DC29D3C4B1A5731408B6A9656fA7aC3b72',
+    symbol: 'PUSD',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://app.polyquity.org/static/media/icon-lqty.06b7d013.svg',
+  },
+  PYQ: {
+    name: 'PYQ',
+    address: '0x5a3064CbDCCF428ae907796cF6aD5a664CD7F3d8',
+    symbol: 'PYQ',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://app.polyquity.org/static/media/icon-lqty1.3df5c310.svg',
   },
   QI: {
     name: 'Qi Dao',
@@ -543,6 +580,24 @@ export const tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'http://rebalancetoken.io/images/logo/RBAL_ERC20_small_001_256.png',
+  },
+  SDO: {
+    name: 'SafeDollar.Fi',
+    address: '0x86BC05a6f65efdaDa08528Ec66603Aef175D967f',
+    symbol: 'SDO',
+    decimals: 18,
+    chainId: 137,
+    logoURI:
+      'https://storage.googleapis.com/polydex/tokens/0x86BC05a6f65efdaDa08528Ec66603Aef175D967f.png',
+  },
+  SDS: {
+    name: 'SafeDollar Share',
+    address: '0x352db329B707773DD3174859F1047Fb4Fd2030BC',
+    symbol: 'SDS',
+    decimals: 18,
+    chainId: 137,
+    logoURI:
+      'https://storage.googleapis.com/polydex/tokens/0x352db329B707773DD3174859F1047Fb4Fd2030BC.png',
   },
   SENT: {
     name: 'Sentinel',
@@ -607,6 +662,9 @@ export const tokens = {
     address: '0xb33EaAd8d922B1083446DC23f610c2567fB5180f',
     symbol: 'UNI',
     decimals: 18,
+    website: 'https://uniswap.org/',
+    description:
+      'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-interface/master/public/favicon1.png',
@@ -616,6 +674,9 @@ export const tokens = {
     address: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
     symbol: 'USDC',
     decimals: 6,
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
@@ -642,6 +703,9 @@ export const tokens = {
     address: '0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6',
     symbol: 'WBTC',
     decimals: 8,
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
@@ -923,6 +987,18 @@ export const tokens = {
     decimals: 18,
     logoURI: '',
   },
+  BNB: {
+    name: 'AnySwap Bridge Polygon Binance Coin',
+    symbol: 'BNB',
+    address: '0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    logoURI:
+      'https://exchange.pancakeswap.finance/images/coins/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+  },
   PBNB: {
     name: 'Orbit Bridge Polygon Binance Coin',
     symbol: 'PBNB',
@@ -948,4 +1024,95 @@ export const tokens = {
     decimals: 18,
     logoURI: 'https://polypup.finance/images/egg/9.png',
   },
+  rUSD: {
+    name: 'Ramp USD',
+    symbol: 'rUSD',
+    address: '0xfC40a4F89b410a1b855b5e205064a38fC29F5eb5',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://appv2.rampdefi.com/assets/icon/rusdc.svg',
+  },
+  RAMP: {
+    name: 'Ramp DeFi',
+    symbol: 'RAMP',
+    address: '0xaECeBfcF604AD245Eaf0D5BD68459C3a7A6399c2',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://appv2.rampdefi.com/assets/icon/ramp.png',
+  },
+  UST: {
+    name: 'USD Terra',
+    symbol: 'UST',
+    address: '0x692597b009d13C4049a947CAB2239b7d6517875F',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
+  },
+  WMATIC_DFYN: {
+    name: 'Wrapped Matic, DFYN version',
+    symbol: 'WMATIC',
+    address: '0x4c28f48448720e9000907BC2611F73022fdcE1fA',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png',
+  },
+  BONE: {
+    name: 'Polypup Bone',
+    symbol: 'BONE',
+    address: '0x6bb45cEAC714c52342Ef73ec663479da35934bf7',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://bone.polypup.finance/images/egg/9.png',
+  },
+  BONEswap: {
+    name: 'BoneSwap',
+    symbol: 'BONE',
+    address: '0x80244C2441779361F35803b8C711C6c8fC6054a3',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://farm.boneswap.finance/images/bone/logo.png',
+  },
+  EZ: {
+    name: 'EasyFi',
+    symbol: 'EZ',
+    address: '0x34C1b299A74588D6Abdc1b85A53345A48428a521',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://etherscan.io/token/images/easyfi_32.png',
+  },
+  HEO: {
+    name: 'Helios.cash',
+    symbol: 'HEO',
+    address: '0x03aA5Daf9Fd5f7F33C67AfbCd53c1C1e87c4c9F7',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://www.helios.cash/static/media/logo1024.08eac992.svg',
+  },
+  BRAIN: {
+    name: 'BrainSwap',
+    symbol: 'BRAIN',
+    address: '0x5C6014246FC7911F4dB270aA3910F23EECD61720',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://brainswap.finance/images/egg/9.png',
+  },
+  pWINGS: {
+    name: 'JetSwap Polygon Token',
+    symbol: 'pWINGS',
+    address: '0x845E76A8691423fbc4ECb8Dd77556Cb61c09eE25',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://polygon-info.jetswap.finance/static/media/wings.dca9f9fe.png',
+  },
+  HONOR: {
+    name: 'FarmHero HONOR',
+    symbol: 'HONOR',
+    address: '0xb82A20B4522680951F11c94c54B8800c1C237693',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
+  },
 } as const;
+
+export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

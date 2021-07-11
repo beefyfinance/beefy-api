@@ -2,8 +2,10 @@ import { beefyfinance } from './platforms/beefyfinance';
 import { lydia } from './platforms/lydia';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
+import Chain from '../../types/chain';
+import { ConstInterface } from '../../types/const';
 
-export const avax = {
+const _avax = {
   platforms: {
     beefyfinance,
     lydia,
@@ -11,3 +13,4 @@ export const avax = {
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
 };
+export const avax: ConstInterface<typeof _avax, Chain> = _avax;

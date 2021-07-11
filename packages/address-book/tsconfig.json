@@ -16,5 +16,5 @@
     "pretty": true,
     "declaration": true
   },
-  "include": ["address-book/", "scripts/", "util/"]
+  "include": ["address-book/", "scripts/", "util/", "types/"]
 }

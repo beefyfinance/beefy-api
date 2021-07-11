@@ -1,4 +1,5 @@
-import { TokenList, Token } from './tokenList';
+import type Token from '../types/token';
+import { TokenList } from './tokenList';
 
 const transformTokenListToObject = (
   tokenList: TokenList,
