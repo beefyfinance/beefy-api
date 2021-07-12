@@ -109,6 +109,7 @@ import boneswapApePools from '../../data/matic/boneswapApeLpPools.json';
 import maiPools from '../../data/matic/maiLpPools.json';
 import jetswapPolyPools from '../../data/matic/jetswapLpPools.json';
 import ironSwapPools from '../../data/matic/ironSwapLpPools.json';
+import ooePools from '../../data/ooeLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -116,6 +117,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...ooePools,
   ...ironSwapPools,
   ...jetswapPolyPools,
   ...maiPools,
