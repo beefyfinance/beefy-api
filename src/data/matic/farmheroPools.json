@@ -24,7 +24,7 @@
     "platform": "waultswap",
     "address": "0x4Bd5dF4300b7c5309cB1A0143e4A6d0184B878e1",
     "decimals": "1e18",
-    "poolId": 0,
+    "poolId": 18,
     "chainId": 137,
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
