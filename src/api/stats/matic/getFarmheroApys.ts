@@ -80,8 +80,11 @@ const getPoolsData = async (
     const poolInfo = await chefContract.methods.poolInfo(pool.poolId.toString()).call();
     const allocPoint = new BigNumber(parseInt(poolInfo.allocPoint));
     const { strat } = poolInfo;
-    const tokenContract = (new web3.eth.Contract(ERC20_ABI, pool.address) as unknown) as ERC20;
-    const balanceString = await tokenContract.methods.balanceOf(strat).call();
+    const stratContract = (new web3.eth.Contract(
+      IFarmHeroStrategy_ABI,
+      strat
+    ) as unknown) as IFarmHeroStrategy;
+    const balanceString = await stratContract.methods.wantLockedTotal().call();
     const balance = new BigNumber(parseInt(balanceString));
     balances.push(balance);
     allocPoints.push(allocPoint);
