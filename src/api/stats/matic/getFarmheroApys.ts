@@ -82,7 +82,7 @@ const getPoolsData = async (
     const { strat } = poolInfo;
     const tokenContract = (new web3.eth.Contract(ERC20_ABI, pool.address) as unknown) as ERC20;
     const balanceString = await tokenContract.methods.balanceOf(strat).call();
-    const balance = new BigNumber(parseInt(poolInfo.allocPoint));
+    const balance = new BigNumber(parseInt(balanceString));
     balances.push(balance);
     allocPoints.push(allocPoint);
   }
