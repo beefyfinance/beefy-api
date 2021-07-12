@@ -152,7 +152,7 @@ const getPoolsData = async params => {
   const res = await multicall.all([balanceCalls, allocPointCalls]);
 
   const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.allocPoint['1']);
+  const allocPoints = res[1].map(v => v.allocPoint[params.allocPointIndex ?? '1']);
   return { balances, allocPoints };
 };
 

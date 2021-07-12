@@ -1,0 +1,21 @@
+[
+  {
+    "name": "ironswap-ice-usdc",
+    "address": "0x34832D9AC4127a232C1919d840f7aaE0fcb7315B",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x4A81f8796e0c6Ad4877A51C86693B0dE8093F2ef",
+      "oracle": "tokens",
+      "oracleId": "ICEiron",
+      "decimals": "1e18"
+    }
+  }
+]
