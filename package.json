@@ -12,7 +12,7 @@
     "prettier:fix": "prettier --write src/**/*",
     "prepare": "husky install",
     "bsc:pancake:farm:add": "node scripts/bscPancakeFarmAdd.js",
-    "gen-ts": "abi-types-generator ./src/abis/common/ERC20/ERC20.json --output='./src/abis/common/ERC20/types'"
+    "gen-ts": "abi-types-generator ./src/abis/matic/FarmHero/IFarmHeroStrategy/IFarmHeroStrategy.json --output='./src/abis/matic/FarmHero/IFarmHeroStrategy/types'"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",

@@ -4,7 +4,7 @@
     "platform": "quickswap",
     "address": "0x46489f825f11d7473D20279699b108aCAA246e73",
     "decimals": "1e18",
-    "poolId": 0,
+    "poolId": 11,
     "chainId": 137,
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",

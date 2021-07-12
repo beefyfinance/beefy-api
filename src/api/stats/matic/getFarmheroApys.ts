@@ -3,7 +3,14 @@ import { MultiCall } from 'eth-multicall';
 import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
 // abis
-import { ContractContext as FarmHeroChef, FarmHeroChef_ABI } from '../../../abis/matic/FarmHero';
+import {
+  ContractContext as FarmHeroChef,
+  FarmHeroChef_ABI,
+} from '../../../abis/matic/FarmHero/FarmHeroChef';
+import {
+  ContractContext as IFarmHeroStrategy,
+  IFarmHeroStrategy_ABI,
+} from '../../../abis/matic/FarmHero/IFarmHeroStrategy';
 import { ContractContext as ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
 // json data
 import _pools from '../../../data/matic/farmheroPools.json';
@@ -39,12 +46,12 @@ export const getFarmheroApys = async () => {
 };
 
 const getFarmApys = async (pools: LpPool[]) => {
-  const apys = [];
+  const apys: BigNumber[] = [];
   const chefContract = (new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown) as FarmHeroChef;
   const heroPerSecond = new BigNumber(await chefContract.methods.HERORewardPerSecond().call());
-  const totalAllocPoint = new BigNumber(await chefContract.methods.totalAllocPoint(0).call()); //  enum PoolType { ERC20, ERC721, ERC1155 }
+  const totalAllocPoint = new BigNumber(await chefContract.methods.totalAllocPoint(0).call()); //  enum PoolType { ERC20, ERC721, ERC1155 } // thus ERC20 = 0
 
-  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
+  const tokenPrice: number = await fetchPrice({ oracle, id: oracleId });
   const { balances, allocPoints } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -62,26 +69,23 @@ const getFarmApys = async (pools: LpPool[]) => {
   return apys;
 };
 
-const getPoolsData = async (pools: LpPool[]) => {
+const getPoolsData = async (
+  pools: LpPool[]
+): Promise<{ balances: BigNumber[]; allocPoints: BigNumber[] }> => {
   const chefContract = (new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown) as FarmHeroChef;
 
-  const balanceCalls = [];
-  const allocPointCalls = [];
-  pools.forEach(pool => {
+  const balances: BigNumber[] = [];
+  const allocPoints: BigNumber[] = [];
+  for (const pool of pools) {
+    const poolInfo = await chefContract.methods.poolInfo(pool.poolId.toString()).call();
+    const allocPoint = new BigNumber(parseInt(poolInfo.allocPoint));
+    const { strat } = poolInfo;
     const tokenContract = (new web3.eth.Contract(ERC20_ABI, pool.address) as unknown) as ERC20;
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(chef),
-    });
-    allocPointCalls.push({
-      allocPoint: chefContract.methods.poolInfo(pool.poolId.toString()),
-    });
-  });
+    const balanceString = await tokenContract.methods.balanceOf(strat).call();
+    const balance = new BigNumber(parseInt(poolInfo.allocPoint));
+    balances.push(balance);
+    allocPoints.push(allocPoint);
+  }
 
-  const multicall = new MultiCall(web3 as any, multicallAddress(POLYGON_CHAIN_ID));
-  const res = await multicall.all([balanceCalls, allocPointCalls]);
-
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPointPropertyPosition = '2';
-  const allocPoints = res[1].map(v => v.allocPoint[allocPointPropertyPosition]);
   return { balances, allocPoints };
 };
