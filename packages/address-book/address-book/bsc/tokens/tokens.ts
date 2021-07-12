@@ -15,6 +15,15 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  CHESS: {
+    name: 'Chess',
+    symbol: 'CHESS',
+    address: '0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6.svg',
+  },
   TITAN: {
     name: 'TitanSwap',
     symbol: 'TITAN',
