@@ -49,6 +49,7 @@ const getFarmApys = async (pools: LpPool[]) => {
   const apys: BigNumber[] = [];
   const chefContract = (new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown) as FarmHeroChef;
   const heroPerSecond = new BigNumber(await chefContract.methods.HERORewardPerSecond().call());
+  const erc20PoolRate = new BigNumber(await chefContract.methods.erc20PoolRate().call());
   const totalAllocPoint = new BigNumber(await chefContract.methods.totalAllocPoint(0).call()); //  enum PoolType { ERC20, ERC721, ERC1155 } // thus ERC20 = 0
 
   const tokenPrice: number = await fetchPrice({ oracle, id: oracleId });
@@ -58,8 +59,10 @@ const getFarmApys = async (pools: LpPool[]) => {
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy(pool.decimals);
-
-    const poolBlockRewards = heroPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
+    const erc20PoolHeroPerSecond = heroPerSecond.times(erc20PoolRate).dividedBy(1000);
+    const poolBlockRewards = erc20PoolHeroPerSecond
+      .times(allocPoints[i])
+      .dividedBy(totalAllocPoint);
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
