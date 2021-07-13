@@ -2,6 +2,7 @@ const getMasterChefApys = require('./getMaticMasterChefApys');
 
 const MasterChefAbi = require('../../../abis/degens/IronChef.json');
 const pools = require('../../../data/matic/ironSwapPools.json');
+const lpPools = require('../../../data/matic/ironSwapLpPools.json');
 
 const getIronSwapApys = async () => {
   return getMasterChefApys({
@@ -11,7 +12,7 @@ const getIronSwapApys = async () => {
     secondsPerBlock: 1,
     allocPointIndex: '2',
     hasMultiplier: false,
-    pools: pools,
+    pools: [...pools, ...lpPools],
     oracle: 'tokens',
     oracleId: 'ICEiron',
     decimals: '1e18',
