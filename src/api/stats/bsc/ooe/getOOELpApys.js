@@ -42,7 +42,7 @@ const getYearlyRewardsInUsd = async pool => {
 
   const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardSpeed().call());
-  const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
+  const yearlyRewards = rewardRate.times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
   return yearlyRewardsInUsd;
