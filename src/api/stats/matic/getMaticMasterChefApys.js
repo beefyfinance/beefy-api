@@ -71,13 +71,14 @@ const getMasterChefApys = async masterchefParams => {
 };
 
 const getTradingAprs = async params => {
-  let tradingAprs = [];
+  let tradingAprs = params.tradingAprs ?? {};
   const client = params.tradingFeeInfoClient;
   const fee = params.liquidityProviderFee;
   if (client && fee) {
     const pairAddresses = params.pools.map(pool => pool.address.toLowerCase());
     const getAprs = client === sushiClient ? getTradingFeeAprSushi : getTradingFeeApr;
-    tradingAprs = await getAprs(client, pairAddresses, fee);
+    const aprs = await getAprs(client, pairAddresses, fee);
+    tradingAprs = { ...tradingAprs, ...aprs };
   }
   return tradingAprs;
 };
