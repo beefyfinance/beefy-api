@@ -1114,6 +1114,14 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
   },
+  ICE: {
+    name: 'Iron Finance ICE Token',
+    symbol: 'ICE',
+    address: '0x4A81f8796e0c6Ad4877A51C86693B0dE8093F2ef',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://app.iron.finance/static/media/ice-square.6e960434.svg',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
