@@ -77,10 +77,10 @@ const getPoolsData = async (pools: LpPool[]) => {
       pool.rewardPool
     ) as unknown as StakingMultiRewards;
     rewardRateCalls.push({
-      rewardRate: rewardPool.methods.rewardRates('0'),
+      rewardRate: rewardPool.methods.rewardRateA(),
     });
     secondRewardRateCalls.push({
-      secondRewardRate: rewardPool.methods.rewardRates('1'),
+      secondRewardRate: rewardPool.methods.rewardRateB(),
     });
   });
 
