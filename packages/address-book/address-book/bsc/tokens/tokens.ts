@@ -2568,13 +2568,13 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
   },
-  HERO: {
-    name: 'FarmHero HERO',
-    symbol: 'HERO',
-    address: '0x9B26e16377ad29A6CCC01770bcfB56DE3A36d8b2',
+  KROWN: {
+    name: 'Krown',
+    symbol: 'KRW',
+    address: '0x1446f3CEdf4d86a9399E49f7937766E6De2A3AAB',
     chainId: 56,
     decimals: 18,
-    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
+    logoURI: 'https://kingdefi.io/assets/images/KRW@2x.png',
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
