@@ -30,9 +30,10 @@ const oracle = 'tokens';
 const BLOCKS_PER_DAY = 28800;
 
 export const getTelxchangeDualApys = async () => {
-  const pairAddresses = pools.map(pool => pool.address);
+  const dualFarms = pools.filter(pool => pool.farmType === 'dual');
+  const pairAddresses = dualFarms.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, QUICK_LPF);
-  const farmApys = await getFarmApys(pools);
+  const farmApys = await getFarmApys(dualFarms);
 
   return getApyBreakdown(pools, tradingAprs, farmApys, QUICK_LPF);
 };
