@@ -11,7 +11,7 @@ import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import getFarmWithTradingFeesApy from '../../../utils/getFarmWithTradingFeesApy';
 import { dfynClient } from '../../../apollo/client';
 import getApyBreakdown from '../common/getApyBreakdown';
-import { addressBook } from 'blockchain-addressbook';
+import { addressBook } from '../../../../packages/address-book/address-book';
 const {
   polygon: { tokens },
 } = addressBook;

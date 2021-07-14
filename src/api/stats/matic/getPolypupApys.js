@@ -6,7 +6,7 @@ const {
       platforms: { polypupBone },
     },
   },
-} = require('blockchain-addressbook');
+} = require('../../../../packages/address-book/address-book');
 
 const { QUICK_LPF } = require('../../../constants');
 const MasterChefAbi = require('../../../abis/matic/PolypupBoneMasterChef.json');

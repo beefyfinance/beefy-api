@@ -1,0 +1,78 @@
+[
+  {
+    "name": "jetswap-poly-usdc-usdt",
+    "address": "0x20BF018FDDBa3b352f3d913FE1c81b846fE0F490",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "jetswap-poly-pwings-usdt",
+    "address": "0xA39a7640790907D4865a74c1F9715715DBd00431",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x845E76A8691423fbc4ECb8Dd77556Cb61c09eE25",
+      "oracle": "tokens",
+      "oracleId": "pWINGS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "jetswap-poly-pwings-matic",
+    "address": "0xA0A6e9A5185d5737CF6F7920CB417EA2F07F03B3",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x845E76A8691423fbc4ECb8Dd77556Cb61c09eE25",
+      "oracle": "tokens",
+      "oracleId": "pWINGS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "jetswap-poly-pwings-usdc",
+    "address": "0xaf623E96d38191038C48990Df298e07Fb77b56c3",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x845E76A8691423fbc4ECb8Dd77556Cb61c09eE25",
+      "oracle": "tokens",
+      "oracleId": "pWINGS",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -8,6 +8,7 @@ import getGondolaPrices from './avax/getGondolaPrices';
 import getCurvePolygonPrices from './matic/getCurvePrices';
 import getCurveFantomPrices from './fantom/getCurvePrices';
 import getDopplePrices from './bsc/dopple/getDopplePrices';
+import getIronSwapPrices from './matic/getIronSwapPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
@@ -21,6 +22,7 @@ const getNonAmmPrices = async tokenPrices => {
     getCurvePolygonPrices(tokenPrices),
     getCurveFantomPrices(tokenPrices),
     getDopplePrices(),
+    getIronSwapPrices(),
   ];
 
   // Setup error logs

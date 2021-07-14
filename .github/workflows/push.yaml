@@ -1,0 +1,46 @@
+name: Push actions
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - packages/address-book/**
+      - '!packages/address-book/package.json'
+      - '!packages/address-book/CHANGELOG.md'
+      - '!packages/address-book/README.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      packages: write
+    defaults:
+      run:
+        working-directory: packages/address-book
+    steps:
+      # get repo code
+      - uses: actions/checkout@v2
+      # install node
+      - name: Use Node.js 15.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '15.x'
+          registry-url: 'https://registry.npmjs.org'
+      # install packages
+      - run: yarn --frozen-lockfile
+      # run checksum test
+      - run: yarn checksum
+      # transpile from Typescript to Javascript
+      - run: yarn compile
+      # bump package version and commit. Note that this won't create an infinite github action push loop, as we have added package.json to paths-ignore.
+      - name: 'Automated Version Bump'
+        uses: 'phips28/gh-action-bump-version@v8.0.18'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PACKAGEJSON_DIR: 'packages/address-book'
+      # publish package
+      - run: yarn publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

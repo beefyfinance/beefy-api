@@ -1,5 +1,24 @@
 [
   {
+    "name": "banana-yfi-bnb",
+    "address": "0xA3421Bd2B3B1578FF43Ab95C10f667e5A3bbCeF7",
+    "decimals": "1e18",
+    "poolId": 90,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x88f1A5ae2A3BF98AEAF342D26B30a79438c9142e",
+      "oracle": "tokens",
+      "oracleId": "YFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-twt-bnb",
     "address": "0x4c48D692e3de076C7b844B956b28cdd1DD5C0945",
     "decimals": "1e18",
