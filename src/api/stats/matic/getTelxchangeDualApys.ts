@@ -2,13 +2,18 @@ import BigNumber from 'bignumber.js';
 import { MultiCall } from 'eth-multicall';
 import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
+// abis
 import {
   ContractContext as StakingMultiRewards,
   StakingMultiRewards_ABI,
 } from '../../../abis/matic/Telxchange/StakingMultiRewards';
 import { ContractContext as ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
+// json data
+import { LpPool } from '../../../types/LpPool';
+import _pools from '../../../data/matic/telxchangePools.json';
+const pools = _pools as LpPool[];
+
 import fetchPrice from '../../../utils/fetchPrice';
-import pools from '../../../data/matic/telxchangePools.json';
 import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { quickClient } from '../../../apollo/client';
@@ -22,7 +27,6 @@ const {
 } = addressBook;
 
 const oracle = 'tokens';
-
 const BLOCKS_PER_DAY = 28800;
 
 export const getTelxchangeDualApys = async () => {
@@ -33,7 +37,7 @@ export const getTelxchangeDualApys = async () => {
   return getApyBreakdown(pools, tradingAprs, farmApys, QUICK_LPF);
 };
 
-const getFarmApys = async pools => {
+const getFarmApys = async (pools: LpPool[]) => {
   const apys = [];
   const primaryRewardTokenPrice = await fetchPrice({ oracle, id: TEL.symbol });
   const secondRewardTokenPrice = await fetchPrice({ oracle, id: QUICK.symbol });
@@ -58,7 +62,7 @@ const getFarmApys = async pools => {
   return apys;
 };
 
-const getPoolsData = async pools => {
+const getPoolsData = async (pools: LpPool[]) => {
   const multicall = new MultiCall(web3 as any, multicallAddress(POLYGON_CHAIN_ID));
   const balanceCalls = [];
   const rewardRateCalls = [];

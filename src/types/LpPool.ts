@@ -3,6 +3,7 @@ import { ChainId } from '../../packages/address-book/address-book';
 export interface LpPool {
   name: string;
   platform?: string;
+  rewardPool?: string;
   address: string;
   decimals: string;
   poolId?: number;
