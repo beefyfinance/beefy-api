@@ -59,8 +59,53 @@ export type ContractContext = Web3ContractContext<
   StakingMultiRewardsEventsContext,
   StakingMultiRewardsEvents
 >;
-export type StakingMultiRewardsEvents = 'RewardAdded' | 'RewardPaid' | 'Staked' | 'Withdrawn';
+export type StakingMultiRewardsEvents =
+  | 'OwnerChanged'
+  | 'OwnerNominated'
+  | 'PauseChanged'
+  | 'Recovered'
+  | 'RewardAdded'
+  | 'RewardPaid'
+  | 'RewardsDurationUpdated'
+  | 'Staked'
+  | 'Withdrawn';
 export interface StakingMultiRewardsEventsContext {
+  OwnerChanged(
+    parameters: {
+      filter?: {};
+      fromBlock?: number;
+      toBlock?: 'latest' | number;
+      topics?: string[];
+    },
+    callback?: (error: Error, event: EventData) => void
+  ): EventResponse;
+  OwnerNominated(
+    parameters: {
+      filter?: {};
+      fromBlock?: number;
+      toBlock?: 'latest' | number;
+      topics?: string[];
+    },
+    callback?: (error: Error, event: EventData) => void
+  ): EventResponse;
+  PauseChanged(
+    parameters: {
+      filter?: {};
+      fromBlock?: number;
+      toBlock?: 'latest' | number;
+      topics?: string[];
+    },
+    callback?: (error: Error, event: EventData) => void
+  ): EventResponse;
+  Recovered(
+    parameters: {
+      filter?: {};
+      fromBlock?: number;
+      toBlock?: 'latest' | number;
+      topics?: string[];
+    },
+    callback?: (error: Error, event: EventData) => void
+  ): EventResponse;
   RewardAdded(
     parameters: {
       filter?: {};
@@ -73,6 +118,15 @@ export interface StakingMultiRewardsEventsContext {
   RewardPaid(
     parameters: {
       filter?: { user?: string | string[] };
+      fromBlock?: number;
+      toBlock?: 'latest' | number;
+      topics?: string[];
+    },
+    callback?: (error: Error, event: EventData) => void
+  ): EventResponse;
+  RewardsDurationUpdated(
+    parameters: {
+      filter?: {};
       fromBlock?: number;
       toBlock?: 'latest' | number;
       topics?: string[];
@@ -100,32 +154,45 @@ export interface StakingMultiRewardsEventsContext {
 }
 export type StakingMultiRewardsMethodNames =
   | 'new'
+  | 'acceptOwnership'
   | 'balanceOf'
-  | 'earned'
+  | 'dualRewardsDistribution'
+  | 'earnedA'
+  | 'earnedB'
   | 'exit'
   | 'getReward'
-  | 'getRewardRates'
-  | 'getRewards'
-  | 'getRewardsForDuration'
-  | 'getRewardsPerTokenStored'
-  | 'getRewardsTokens'
-  | 'getUserRewardPerTokenPaid'
+  | 'getRewardAForDuration'
+  | 'getRewardBForDuration'
+  | 'lastPauseTime'
   | 'lastTimeRewardApplicable'
   | 'lastUpdateTime'
+  | 'nominateNewOwner'
+  | 'nominatedOwner'
   | 'notifyRewardAmount'
+  | 'owner'
+  | 'paused'
   | 'periodFinish'
-  | 'rewardRates'
-  | 'rewards'
-  | 'rewardsDistribution'
+  | 'recoverERC20'
+  | 'rewardPerTokenA'
+  | 'rewardPerTokenAStored'
+  | 'rewardPerTokenB'
+  | 'rewardPerTokenBStored'
+  | 'rewardRateA'
+  | 'rewardRateB'
+  | 'rewardsA'
+  | 'rewardsB'
   | 'rewardsDuration'
-  | 'rewardsPerToken'
-  | 'rewardsPerTokenStored'
-  | 'rewardsTokens'
+  | 'rewardsTokenA'
+  | 'rewardsTokenB'
+  | 'setDualRewardsDistribution'
+  | 'setPaused'
+  | 'setRewardsDuration'
   | 'stake'
-  | 'stakeWithPermit'
   | 'stakingToken'
   | 'totalSupply'
-  | 'userRewardPerTokenPaid'
+  | 'updatePeriodFinish'
+  | 'userRewardPerTokenAPaid'
+  | 'userRewardPerTokenBPaid'
   | 'withdraw';
 export interface StakingMultiRewards {
   /**
@@ -133,15 +200,26 @@ export interface StakingMultiRewards {
    * Constant: false
    * StateMutability: nonpayable
    * Type: constructor
-   * @param _rewardsDistribution Type: address, Indexed: false
-   * @param _rewardsTokens Type: address[], Indexed: false
+   * @param _owner Type: address, Indexed: false
+   * @param _dualRewardsDistribution Type: address, Indexed: false
+   * @param _rewardsTokenA Type: address, Indexed: false
+   * @param _rewardsTokenB Type: address, Indexed: false
    * @param _stakingToken Type: address, Indexed: false
    */
   'new'(
-    _rewardsDistribution: string,
-    _rewardsTokens: string[],
+    _owner: string,
+    _dualRewardsDistribution: string,
+    _rewardsTokenA: string,
+    _rewardsTokenB: string,
     _stakingToken: string
   ): MethodReturnContext;
+  /**
+   * Payable: false
+   * Constant: false
+   * StateMutability: nonpayable
+   * Type: function
+   */
+  acceptOwnership(): MethodReturnContext;
   /**
    * Payable: false
    * Constant: true
@@ -155,9 +233,24 @@ export interface StakingMultiRewards {
    * Constant: true
    * StateMutability: view
    * Type: function
+   */
+  dualRewardsDistribution(): MethodConstantReturnContext<string>;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
    * @param account Type: address, Indexed: false
    */
-  earned(account: string): MethodConstantReturnContext<string[]>;
+  earnedA(account: string): MethodConstantReturnContext<string>;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   * @param account Type: address, Indexed: false
+   */
+  earnedB(account: string): MethodConstantReturnContext<string>;
   /**
    * Payable: false
    * Constant: false
@@ -178,44 +271,21 @@ export interface StakingMultiRewards {
    * StateMutability: view
    * Type: function
    */
-  getRewardRates(): MethodConstantReturnContext<string[]>;
-  /**
-   * Payable: false
-   * Constant: true
-   * StateMutability: view
-   * Type: function
-   * @param user Type: address, Indexed: false
-   */
-  getRewards(user: string): MethodConstantReturnContext<string[]>;
+  getRewardAForDuration(): MethodConstantReturnContext<string>;
   /**
    * Payable: false
    * Constant: true
    * StateMutability: view
    * Type: function
    */
-  getRewardsForDuration(): MethodConstantReturnContext<string[]>;
+  getRewardBForDuration(): MethodConstantReturnContext<string>;
   /**
    * Payable: false
    * Constant: true
    * StateMutability: view
    * Type: function
    */
-  getRewardsPerTokenStored(): MethodConstantReturnContext<string[]>;
-  /**
-   * Payable: false
-   * Constant: true
-   * StateMutability: view
-   * Type: function
-   */
-  getRewardsTokens(): MethodConstantReturnContext<string[]>;
-  /**
-   * Payable: false
-   * Constant: true
-   * StateMutability: view
-   * Type: function
-   * @param user Type: address, Indexed: false
-   */
-  getUserRewardPerTokenPaid(user: string): MethodConstantReturnContext<string[]>;
+  lastPauseTime(): MethodConstantReturnContext<string>;
   /**
    * Payable: false
    * Constant: true
@@ -235,9 +305,39 @@ export interface StakingMultiRewards {
    * Constant: false
    * StateMutability: nonpayable
    * Type: function
-   * @param addedRewards Type: uint256[], Indexed: false
+   * @param _owner Type: address, Indexed: false
    */
-  notifyRewardAmount(addedRewards: string[]): MethodReturnContext;
+  nominateNewOwner(_owner: string): MethodReturnContext;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   */
+  nominatedOwner(): MethodConstantReturnContext<string>;
+  /**
+   * Payable: false
+   * Constant: false
+   * StateMutability: nonpayable
+   * Type: function
+   * @param rewardA Type: uint256, Indexed: false
+   * @param rewardB Type: uint256, Indexed: false
+   */
+  notifyRewardAmount(rewardA: string, rewardB: string): MethodReturnContext;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   */
+  owner(): MethodConstantReturnContext<string>;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   */
+  paused(): MethodConstantReturnContext<boolean>;
   /**
    * Payable: false
    * Constant: true
@@ -247,28 +347,71 @@ export interface StakingMultiRewards {
   periodFinish(): MethodConstantReturnContext<string>;
   /**
    * Payable: false
+   * Constant: false
+   * StateMutability: nonpayable
+   * Type: function
+   * @param tokenAddress Type: address, Indexed: false
+   * @param tokenAmount Type: uint256, Indexed: false
+   */
+  recoverERC20(tokenAddress: string, tokenAmount: string): MethodReturnContext;
+  /**
+   * Payable: false
    * Constant: true
    * StateMutability: view
    * Type: function
-   * @param parameter0 Type: uint256, Indexed: false
    */
-  rewardRates(parameter0: string): MethodConstantReturnContext<string>;
+  rewardPerTokenA(): MethodConstantReturnContext<string>;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   */
+  rewardPerTokenAStored(): MethodConstantReturnContext<string>;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   */
+  rewardPerTokenB(): MethodConstantReturnContext<string>;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   */
+  rewardPerTokenBStored(): MethodConstantReturnContext<string>;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   */
+  rewardRateA(): MethodConstantReturnContext<string>;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   */
+  rewardRateB(): MethodConstantReturnContext<string>;
   /**
    * Payable: false
    * Constant: true
    * StateMutability: view
    * Type: function
    * @param parameter0 Type: address, Indexed: false
-   * @param parameter1 Type: uint256, Indexed: false
    */
-  rewards(parameter0: string, parameter1: string): MethodConstantReturnContext<string>;
+  rewardsA(parameter0: string): MethodConstantReturnContext<string>;
   /**
    * Payable: false
    * Constant: true
    * StateMutability: view
    * Type: function
+   * @param parameter0 Type: address, Indexed: false
    */
-  rewardsDistribution(): MethodConstantReturnContext<string>;
+  rewardsB(parameter0: string): MethodConstantReturnContext<string>;
   /**
    * Payable: false
    * Constant: true
@@ -282,23 +425,38 @@ export interface StakingMultiRewards {
    * StateMutability: view
    * Type: function
    */
-  rewardsPerToken(): MethodConstantReturnContext<string[]>;
+  rewardsTokenA(): MethodConstantReturnContext<string>;
   /**
    * Payable: false
    * Constant: true
    * StateMutability: view
    * Type: function
-   * @param parameter0 Type: uint256, Indexed: false
    */
-  rewardsPerTokenStored(parameter0: string): MethodConstantReturnContext<string>;
+  rewardsTokenB(): MethodConstantReturnContext<string>;
   /**
    * Payable: false
-   * Constant: true
-   * StateMutability: view
+   * Constant: false
+   * StateMutability: nonpayable
    * Type: function
-   * @param parameter0 Type: uint256, Indexed: false
+   * @param _dualRewardsDistribution Type: address, Indexed: false
    */
-  rewardsTokens(parameter0: string): MethodConstantReturnContext<string>;
+  setDualRewardsDistribution(_dualRewardsDistribution: string): MethodReturnContext;
+  /**
+   * Payable: false
+   * Constant: false
+   * StateMutability: nonpayable
+   * Type: function
+   * @param _paused Type: bool, Indexed: false
+   */
+  setPaused(_paused: boolean): MethodReturnContext;
+  /**
+   * Payable: false
+   * Constant: false
+   * StateMutability: nonpayable
+   * Type: function
+   * @param _rewardsDuration Type: uint256, Indexed: false
+   */
+  setRewardsDuration(_rewardsDuration: string): MethodReturnContext;
   /**
    * Payable: false
    * Constant: false
@@ -307,24 +465,6 @@ export interface StakingMultiRewards {
    * @param amount Type: uint256, Indexed: false
    */
   stake(amount: string): MethodReturnContext;
-  /**
-   * Payable: false
-   * Constant: false
-   * StateMutability: nonpayable
-   * Type: function
-   * @param amount Type: uint256, Indexed: false
-   * @param deadline Type: uint256, Indexed: false
-   * @param v Type: uint8, Indexed: false
-   * @param r Type: bytes32, Indexed: false
-   * @param s Type: bytes32, Indexed: false
-   */
-  stakeWithPermit(
-    amount: string,
-    deadline: string,
-    v: string | number,
-    r: string | number[],
-    s: string | number[]
-  ): MethodReturnContext;
   /**
    * Payable: false
    * Constant: true
@@ -341,16 +481,28 @@ export interface StakingMultiRewards {
   totalSupply(): MethodConstantReturnContext<string>;
   /**
    * Payable: false
+   * Constant: false
+   * StateMutability: nonpayable
+   * Type: function
+   * @param timestamp Type: uint256, Indexed: false
+   */
+  updatePeriodFinish(timestamp: string): MethodReturnContext;
+  /**
+   * Payable: false
    * Constant: true
    * StateMutability: view
    * Type: function
    * @param parameter0 Type: address, Indexed: false
-   * @param parameter1 Type: uint256, Indexed: false
    */
-  userRewardPerTokenPaid(
-    parameter0: string,
-    parameter1: string
-  ): MethodConstantReturnContext<string>;
+  userRewardPerTokenAPaid(parameter0: string): MethodConstantReturnContext<string>;
+  /**
+   * Payable: false
+   * Constant: true
+   * StateMutability: view
+   * Type: function
+   * @param parameter0 Type: address, Indexed: false
+   */
+  userRewardPerTokenBPaid(parameter0: string): MethodConstantReturnContext<string>;
   /**
    * Payable: false
    * Constant: false
