@@ -8,7 +8,7 @@ import {
 } from '../../../abis/matic/Telxchange/StakingMultiRewards';
 import { ContractContext as ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
 import fetchPrice from '../../../utils/fetchPrice';
-import pools from '../../../data/matic/comethMultiLpPools.json';
+import pools from '../../../data/matic/telxchangePools.json';
 import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { quickClient } from '../../../apollo/client';
