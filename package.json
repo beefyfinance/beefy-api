@@ -14,7 +14,7 @@
     "bsc:pancake:add": "ts-node scripts/add-farm.ts --network bsc --project pancake",
     "bsc:wault:add": "ts-node scripts/add-farm.ts --network bsc --project wault",
     "bsc:mdex:add": "ts-node scripts/add-farm.ts --network bsc --project mdex",
-    "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingMultiRewards/StakingMultiRewards.json --output='./src/abis/matic/Telxchange/StakingMultiRewards/types'"
+    "gen-abi-types": "abi-types-generator ./src/abis/common/ERC20/ERC20.json --output='./src/abis/common/ERC20/types'"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",

@@ -2,8 +2,11 @@ import BigNumber from 'bignumber.js';
 import { MultiCall } from 'eth-multicall';
 import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
-import IRewardPool from '../../../abis/matic/StakingMultiRewards.json';
-import ERC20 from '../../../abis/ERC20.json';
+import {
+  ContractContext as StakingMultiRewards,
+  StakingMultiRewards_ABI,
+} from '../../../abis/matic/Telxchange/StakingMultiRewards';
+import { ContractContext as ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
 import fetchPrice from '../../../utils/fetchPrice';
 import pools from '../../../data/matic/comethMultiLpPools.json';
 import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
@@ -56,21 +59,24 @@ const getFarmApys = async pools => {
 };
 
 const getPoolsData = async pools => {
-  const multicall = new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID));
+  const multicall = new MultiCall(web3 as any, multicallAddress(POLYGON_CHAIN_ID));
   const balanceCalls = [];
   const rewardRateCalls = [];
   const secondRewardRateCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address) as unknown as ERC20;
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(pool.rewardPool),
     });
-    const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
+    const rewardPool = new web3.eth.Contract(
+      StakingMultiRewards_ABI,
+      pool.rewardPool
+    ) as unknown as StakingMultiRewards;
     rewardRateCalls.push({
-      rewardRate: rewardPool.methods.rewardRates(0),
+      rewardRate: rewardPool.methods.rewardRates('0'),
     });
     secondRewardRateCalls.push({
-      secondRewardRate: rewardPool.methods.rewardRates(1),
+      secondRewardRate: rewardPool.methods.rewardRates('1'),
     });
   });
 
