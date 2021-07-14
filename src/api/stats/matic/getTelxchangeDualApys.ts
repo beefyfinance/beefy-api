@@ -35,7 +35,7 @@ export const getTelxchangeDualApys = async () => {
   const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, QUICK_LPF);
   const farmApys = await getFarmApys(dualFarms);
 
-  return getApyBreakdown(pools, tradingAprs, farmApys, QUICK_LPF);
+  return getApyBreakdown(dualFarms, tradingAprs, farmApys, QUICK_LPF);
 };
 
 const getFarmApys = async (pools: LpPool[]) => {
