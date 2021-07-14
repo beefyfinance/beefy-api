@@ -10,7 +10,7 @@ import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { quickClient } from '../../../apollo/client';
 import getApyBreakdown from '../common/getApyBreakdown';
-import { addressBook } from 'blockchain-addressbook';
+import { addressBook } from '../../../../packages/address-book/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
 const {
   polygon: {
