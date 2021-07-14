@@ -4,10 +4,10 @@ import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
 // abis
 import {
-  ContractContext as StakingMultiRewards,
+  StakingMultiRewards,
   StakingMultiRewards_ABI,
 } from '../../../abis/matic/Telxchange/StakingMultiRewards';
-import { ContractContext as ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
+import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
 // json data
 import { LpPool } from '../../../types/LpPool';
 import _pools from '../../../data/matic/telxchangePools.json';
