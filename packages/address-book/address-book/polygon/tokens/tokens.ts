@@ -152,6 +152,9 @@ const _tokens = {
     symbol: 'CEL',
     decimals: 4,
     chainId: 137,
+    website: 'https://celsius.network/',
+    description:
+      'Meet Celsius. The first and only platform that earns you up to 17% yield on your crypto, rewards you every week and lets you borrow cash at the lowest rates. On Web, iOS, and Android.',
     logoURI: 'https://assets.coingecko.com/coins/images/3263/small/CEL_logo.png?1609598753',
   },
   CFI: {
@@ -1267,6 +1270,17 @@ const _tokens = {
     description:
       'Iron Finance is building a full suite of decentralized finance ecosystem of products and use cases on the Polygon network. The official Iron Finance token is the ICE token, inspired by A Song of Ice and Fire novels, where the Iron Throne is a well-known symbol.',
     logoURI: 'https://app.iron.finance/static/media/ice-square.6e960434.svg',
+  },
+  NEXO: {
+    name: 'Nexo',
+    symbol: 'NEXO',
+    address: '0x41b3966B4FF7b427969ddf5da3627d6AEAE9a48E',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://nexo.io/',
+    description:
+      'Since 2018 Nexo has strived to bring professional financial services to the world of digital assets. Leveraging the best of the team’s years of experience in FinTech along with the power of blockchain technology, Nexo is empowering thousands of people to harness the value behind their crypto assets and live the future of finance today.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2694.png',
   },
 } as const;
 
