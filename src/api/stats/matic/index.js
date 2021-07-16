@@ -20,9 +20,11 @@ const { getPolypupApys } = require('./getPolypupApys');
 const { get50kLpApys } = require('./get50kLpApys');
 const { getDfynLpApys } = require('./getDfynLpApys');
 const { getDfynDualFarmLpApys } = require('./getDfynDualFarmLpApys');
+const { getFarmheroApys } = require('./getFarmheroApys');
 const getMaiApys = require('./getMaiApys').default;
 const { getTelxchangeDualApys } = require('./getTelxchangeDualApys');
 const { getTelxchangeApys } = require('./getTelxchangeApys');
+const { getFarmheroSingleApy } = require('./getFarmheroSingleApy');
 
 const getApys = [
   getComethLpApys,
@@ -50,6 +52,8 @@ const getApys = [
   getIronSwapApys,
   getTelxchangeDualApys,
   getTelxchangeApys,
+  getFarmheroApys,
+  getFarmheroSingleApy,
 ];
 
 const getMaticApys = async () => {
