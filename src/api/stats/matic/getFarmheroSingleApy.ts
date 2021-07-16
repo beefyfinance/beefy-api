@@ -8,7 +8,7 @@ const {
   },
 } = addressBook;
 
-const getAddyApy = async () =>
+export const getFarmheroSingleApy = async () =>
   await getMultiFeeDistributionSingleAssetApy({
     web3,
     multiFeeDistributionAddress: farmhero.multiFeeDistribution,
@@ -17,5 +17,3 @@ const getAddyApy = async () =>
     outputTokenAddress: WMATIC.address,
     poolName: 'farmhero-honor',
   });
-
-module.exports = getAddyApy;
