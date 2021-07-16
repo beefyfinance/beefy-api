@@ -11,8 +11,10 @@
     "prettier:check": "prettier --check src/**/*",
     "prettier:fix": "prettier --write src/**/*",
     "prepare": "husky install",
-    "bsc:pancake:farm:add": "node scripts/bscPancakeFarmAdd.js",
-    "gen-ts": "abi-types-generator ./src/abis/matic/FarmHero/IFarmHeroStrategy/IFarmHeroStrategy.json --output='./src/abis/matic/FarmHero/IFarmHeroStrategy/types'"
+    "bsc:pancake:add": "ts-node scripts/add-farm.ts --network bsc --project pancake",
+    "bsc:wault:add": "ts-node scripts/add-farm.ts --network bsc --project wault",
+    "bsc:mdex:add": "ts-node scripts/add-farm.ts --network bsc --project mdex",
+    "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
@@ -47,7 +49,8 @@
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.6",
     "nyc": "^15.1.0",
-    "prettier": "2.1.1"
+    "prettier": "^2.3.2",
+    "yargs": "^17.0.1"
   },
   "lint-staged": {
     "*.ts": "prettier --write",

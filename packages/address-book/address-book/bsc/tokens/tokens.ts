@@ -15,6 +15,26 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  OOE: {
+    name: 'Open Ocean Finance',
+    symbol: 'OOE',
+    address: '0x9029FdFAe9A03135846381c7cE16595C3554e10A',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://openocean.finance/',
+    description:
+      'OpenOcean is the worlds first full aggregation protocol for crypto trading that source liquidity from DeFi and CeFi, and enable cross-chain swaps. Our intelligent routing algorithm find the best prices from DEXes and CEXes, and split the routes to provide traders the best prices with low slippage and fast settlement. The function is free to use, OpenOcean users only need to pay the normal blockchain gas fees and exchange fees for the trades, which are charged by the exchanges and not OpenOcean.',
+    logoURI: 'https://ethapi.openocean.finance/asset/icon-ooe.svg?t=2',
+  },
+  CHESS: {
+    name: 'Chess',
+    symbol: 'CHESS',
+    address: '0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6.svg',
+  },
   TITAN: {
     name: 'TitanSwap',
     symbol: 'TITAN',
@@ -2548,13 +2568,13 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
   },
-  HERO: {
-    name: 'FarmHero HERO',
-    symbol: 'HERO',
-    address: '0x9B26e16377ad29A6CCC01770bcfB56DE3A36d8b2',
+  KROWN: {
+    name: 'Krown',
+    symbol: 'KRW',
+    address: '0x1446f3CEdf4d86a9399E49f7937766E6De2A3AAB',
     chainId: 56,
     decimals: 18,
-    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
+    logoURI: 'https://kingdefi.io/assets/images/KRW@2x.png',
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "ironswap-3usd",
+    "address": "0xb4d09ff3dA7f9e9A2BA029cb0A81A989fd7B8f17",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "swap": "0x837503e8A8753ae17fB8C8151B8e6f586defCb57"
+  }
+]

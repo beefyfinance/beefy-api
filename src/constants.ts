@@ -46,11 +46,12 @@ const POLYGON_CHAIN_ID = ChainId.polygon;
 const AVAX_CHAIN_ID = ChainId.avax;
 const FANTOM_CHAIN_ID = ChainId.fantom;
 
-const DFYN_LPF = 0.0025;
+const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.0025;
 const QUICK_LPF = 0.003;
 const APEPOLY_LPF = 0.0015;
 const COMETH_LPF = 0.005;
+const PCS_LPF = 0.003;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
@@ -119,4 +120,5 @@ export {
   QUICK_LPF,
   APEPOLY_LPF,
   COMETH_LPF,
+  PCS_LPF,
 };

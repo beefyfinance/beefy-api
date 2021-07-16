@@ -11,6 +11,7 @@ const getIronApys = require('./getIronApys');
 const getPolycatApys = require('./getPolycatApys');
 const getWexPolyApys = require('./getWexPolyApys');
 const getJetswapApys = require('./getJetswapApys');
+const getIronSwapApys = require('./getIronSwapApys');
 const { getBoneSwapApys } = require('./getBoneSwapApys');
 const { getPolyQuityLpApys } = require('./getPolyQuityApys');
 const { getApeLpApys } = require('./getApeLpApys');
@@ -21,30 +22,35 @@ const { getDfynLpApys } = require('./getDfynLpApys');
 const { getDfynDualFarmLpApys } = require('./getDfynDualFarmLpApys');
 const { getFarmheroApys } = require('./getFarmheroApys');
 const getMaiApys = require('./getMaiApys').default;
+const { getTelxchangeDualApys } = require('./getTelxchangeDualApys');
+const { getTelxchangeApys } = require('./getTelxchangeApys');
 
 const getApys = [
-  // getComethLpApys,
-  // getQuickLpApys,
-  // getAaveApys,
-  // getSushiLpApys,
-  // getComethMultiApys,
-  // getPolyzapApys,
-  // getPolygonBifiMaxiApy,
-  // // getAddyApy,
-  // getCurveApys,
-  // // getIronApys,
-  // getPolycatApys,
-  // getWexPolyApys,
-  // getPolyyeldApys,
-  // getApeLpApys,
-  // getPolypupApys,
-  // // getPolyQuityLpApys,
-  // get50kLpApys,
-  // getDfynLpApys,
-  // getDfynDualFarmLpApys,
-  // getBoneSwapApys,
-  // getMaiApys,
-  // getJetswapApys,
+  getComethLpApys,
+  getQuickLpApys,
+  getAaveApys,
+  getSushiLpApys,
+  getComethMultiApys,
+  getPolyzapApys,
+  getPolygonBifiMaxiApy,
+  // getAddyApy,
+  getCurveApys,
+  // getIronApys,
+  getPolycatApys,
+  getWexPolyApys,
+  getPolyyeldApys,
+  getApeLpApys,
+  getPolypupApys,
+  // getPolyQuityLpApys,
+  get50kLpApys,
+  getDfynLpApys,
+  getDfynDualFarmLpApys,
+  getBoneSwapApys,
+  getMaiApys,
+  getJetswapApys,
+  getIronSwapApys,
+  getTelxchangeDualApys,
+  getTelxchangeApys,
   getFarmheroApys,
 ];
 

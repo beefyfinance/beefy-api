@@ -1,5 +1,24 @@
 [
   {
+    "name": "wexpoly-wbtc-wex",
+    "address": "0xaE183DB956FAf760Aa29bFcfDa4BDDdB02fbdd0E",
+    "decimals": "1e18",
+    "poolId": 24,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x4c4BF319237D98a30A929A96112EfFa8DA3510EB",
+      "oracle": "tokens",
+      "oracleId": "WEXpoly",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "wexpoly-polydoge-matic",
     "address": "0x1a881D021d346C5433B2cf8FB46Ee00Dec89070d",
     "decimals": "1e18",
