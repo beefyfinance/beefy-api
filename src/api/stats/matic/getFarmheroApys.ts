@@ -35,7 +35,9 @@ const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
 export const getFarmheroApys = async () => {
-  const pairAddresses = pools.map(pool => pool.address);
+  const pairAddresses = pools
+    .filter(pool => pool.platform === 'quickswap') // no trading APR reported for waultswap ATM
+    .map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, QUICK_LPF);
   const farmApys = await getFarmApys(pools);
 
