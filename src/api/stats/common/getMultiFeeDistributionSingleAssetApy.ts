@@ -13,7 +13,6 @@ import Token from '../../../../packages/address-book/types/token';
 
 const oracle = 'tokens';
 
-const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 export interface MultiFeeDistributionSingleAssetApyParams {
@@ -46,7 +45,7 @@ const getTotalStakedInUsd = async ({
   ) as unknown as MultiFeeDistribution;
   const totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
   const tokenPrice = await fetchPrice({ oracle, id: want.symbol });
-  return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
+  return totalStaked.times(tokenPrice).dividedBy(want.decimals);
 };
 
 const getYearlyRewardsInUsd = async ({
@@ -61,7 +60,7 @@ const getYearlyRewardsInUsd = async ({
   ) as unknown as MultiFeeDistribution;
   const { rewardRate } = await rewardPool.methods.rewardData(output.address).call();
   const yearlyRewards = new BigNumber(rewardRate).times(3).times(BLOCKS_PER_DAY).times(365);
-  const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
+  const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(output.decimals);
 
   return yearlyRewardsInUsd;
 };
