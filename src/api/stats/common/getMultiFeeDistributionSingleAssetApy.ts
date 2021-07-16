@@ -35,23 +35,31 @@ const getMultiFeeDistributionSingleAssetApy = async (
   return getBreakdown(params.poolName, apr);
 };
 
-const getTotalStakedInUsd = async (params: MultiFeeDistributionSingleAssetApyParams) => {
-  const tokenContract = new params.web3.eth.Contract(
+const getTotalStakedInUsd = async ({
+  web3,
+  multiFeeDistributionAddress,
+  want,
+}: MultiFeeDistributionSingleAssetApyParams) => {
+  const tokenContract = new web3.eth.Contract(
     MultiFeeDistribution_ABI,
-    params.multiFeeDistributionAddress
+    multiFeeDistributionAddress
   ) as unknown as MultiFeeDistribution;
   const totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
-  const tokenPrice = await fetchPrice({ oracle, id: params.wantTokenOracleId });
+  const tokenPrice = await fetchPrice({ oracle, id: want.symbol });
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
 };
 
-const getYearlyRewardsInUsd = async (params: MultiFeeDistributionSingleAssetApyParams) => {
-  const tokenPrice: number = await fetchPrice({ oracle, id: params.outputTokenOracleId });
-  const rewardPool = new params.web3.eth.Contract(
+const getYearlyRewardsInUsd = async ({
+  web3,
+  multiFeeDistributionAddress,
+  output,
+}: MultiFeeDistributionSingleAssetApyParams) => {
+  const tokenPrice: number = await fetchPrice({ oracle, id: output.symbol });
+  const rewardPool = new web3.eth.Contract(
     MultiFeeDistribution_ABI,
-    params.multiFeeDistributionAddress
+    multiFeeDistributionAddress
   ) as unknown as MultiFeeDistribution;
-  const { rewardRate } = await rewardPool.methods.rewardData(params.outputTokenAddress).call();
+  const { rewardRate } = await rewardPool.methods.rewardData(output.address).call();
   const yearlyRewards = new BigNumber(rewardRate).times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
