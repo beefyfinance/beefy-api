@@ -3,15 +3,12 @@ import { MultiCall } from 'eth-multicall';
 import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
 // abis
+import { FarmHeroChef, FarmHeroChef_ABI } from '../../../abis/matic/FarmHero/FarmHeroChef';
 import {
-  ContractContext as FarmHeroChef,
-  FarmHeroChef_ABI,
-} from '../../../abis/matic/FarmHero/FarmHeroChef';
-import {
-  ContractContext as IFarmHeroStrategy,
+  IFarmHeroStrategy,
   IFarmHeroStrategy_ABI,
 } from '../../../abis/matic/FarmHero/IFarmHeroStrategy';
-import { ContractContext as ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
+import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
 // json data
 import _pools from '../../../data/matic/farmheroPools.json';
 const pools = _pools as LpPool[];
@@ -47,7 +44,7 @@ export const getFarmheroApys = async () => {
 
 const getFarmApys = async (pools: LpPool[]) => {
   const apys: BigNumber[] = [];
-  const chefContract = (new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown) as FarmHeroChef;
+  const chefContract = new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown as FarmHeroChef;
   const heroPerSecond = new BigNumber(await chefContract.methods.HERORewardPerSecond().call());
   const erc20PoolRate = new BigNumber(await chefContract.methods.erc20PoolRate().call());
   const totalAllocPoint = new BigNumber(await chefContract.methods.totalAllocPoint(0).call()); //  enum PoolType { ERC20, ERC721, ERC1155 } // thus ERC20 = 0
@@ -75,7 +72,7 @@ const getFarmApys = async (pools: LpPool[]) => {
 const getPoolsData = async (
   pools: LpPool[]
 ): Promise<{ balances: BigNumber[]; allocPoints: BigNumber[] }> => {
-  const chefContract = (new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown) as FarmHeroChef;
+  const chefContract = new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown as FarmHeroChef;
 
   const balances: BigNumber[] = [];
   const allocPoints: BigNumber[] = [];
@@ -83,10 +80,10 @@ const getPoolsData = async (
     const poolInfo = await chefContract.methods.poolInfo(pool.poolId.toString()).call();
     const allocPoint = new BigNumber(parseInt(poolInfo.allocPoint));
     const { strat } = poolInfo;
-    const stratContract = (new web3.eth.Contract(
+    const stratContract = new web3.eth.Contract(
       IFarmHeroStrategy_ABI,
       strat
-    ) as unknown) as IFarmHeroStrategy;
+    ) as unknown as IFarmHeroStrategy;
     const balanceString = await stratContract.methods.wantLockedTotal().call();
     const balance = new BigNumber(parseInt(balanceString));
     balances.push(balance);
