@@ -1,5 +1,23 @@
 [
   {
+    "name": "wex-krown-bnb",
+    "address": "0x81dcbC2a0FF404b7CfcaAfaB6b614262798C89fb",
+    "decimals": "1e18",
+    "poolId": 48,
+    "lp0": {
+      "address": "0x1446f3CEdf4d86a9399E49f7937766E6De2A3AAB",
+      "oracle": "tokens",
+      "oracleId": "KRW",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "wex-wex-btcb",
     "address": "0xB621C33747D508CC16E83214823D644713DCA02e",
     "decimals": "1e18",
