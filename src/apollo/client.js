@@ -94,7 +94,8 @@ const mdexHecoClient = new ApolloClient({
 
 const mdexBscClient = new ApolloClient({
   link: createHttpLink({
-    uri: 'https://bsc-graph.mdex.com/subgraphs/name/chains/bsc',
+    // uri: 'https://bsc-graph.mdex.com/subgraphs/name/chains/bsc',
+    uri: 'https://bsc-lite-graph.mdex.cc/subgraphs/name/chain/bsc',
     fetch,
   }),
   cache: new InMemoryCache(),
