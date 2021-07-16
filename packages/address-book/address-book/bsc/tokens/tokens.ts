@@ -2576,5 +2576,16 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://kingdefi.io/assets/images/KRW@2x.png',
   },
+  CARROT: {
+    name: 'CARROT',
+    symbol: 'CARROT',
+    address: '0xA5043373edC09f3f7d87Fe35CA933e0a7B59D005',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://mdex.co/token-icons/bsc/0xa5043373edc09f3f7d87fe35ca933e0a7b59d005.png',
+    description:
+      'Rabbit Finance is a cross-chain leveraged lending protocol, allowing users to multiply (like Rabbits 🐰🐰🐰) their funds up to 9x, thereby maximizing interest and liquidity farming yields.',
+    website: 'https://rabbitfinance.io/',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
