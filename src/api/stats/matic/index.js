@@ -24,6 +24,7 @@ const { getFarmheroApys } = require('./getFarmheroApys');
 const getMaiApys = require('./getMaiApys').default;
 const { getTelxchangeDualApys } = require('./getTelxchangeDualApys');
 const { getTelxchangeApys } = require('./getTelxchangeApys');
+const { getFarmheroSingleApy } = require('./getFarmheroSingleApy');
 
 const getApys = [
   getComethLpApys,
@@ -51,7 +52,8 @@ const getApys = [
   getIronSwapApys,
   getTelxchangeDualApys,
   getTelxchangeApys,
-  getFarmheroApys,
+  // getFarmheroApys, // not ready yet
+  getFarmheroSingleApy,
 ];
 
 const getMaticApys = async () => {
