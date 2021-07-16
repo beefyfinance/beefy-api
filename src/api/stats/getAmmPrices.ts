@@ -113,6 +113,7 @@ import ironSwapPools from '../../data/matic/ironSwapLpPools.json';
 import ooePools from '../../data/ooeLpPools.json';
 import telxchangePools from '../../data/matic/telxchangePools.json';
 import kingdefiPools from '../../data/degens/kingdefiLpPools.json';
+import rabbitPools from '../../data/degens/rabbitLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -121,6 +122,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...farmheroPolygonPools,
+  ...rabbitPools,
   ...kingdefiPools,
   ...telxchangePools,
   ...ooePools,
