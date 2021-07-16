@@ -8,14 +8,14 @@ import fetchPrice from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
 import { BASE_HPY, BEEFY_PERFORMANCE_FEE, SHARE_AFTER_PERFORMANCE_FEE } from '../../../constants';
 import Web3 from 'web3';
-import { ApyBreakdown } from './getApyBreakdown';
+import { ApyBreakdownResult } from './getApyBreakdown';
 
 const oracle = 'tokens';
 
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-interface MultiFeeDistributionSingleAssetApyParams {
+export interface MultiFeeDistributionSingleAssetApyParams {
   web3: Web3;
   multiFeeDistributionAddress: string;
   wantTokenOracleId: string;
@@ -58,16 +58,13 @@ const getYearlyRewardsInUsd = async (params: MultiFeeDistributionSingleAssetApyP
   return yearlyRewardsInUsd;
 };
 
-const getBreakdown = (poolName: string, apr: BigNumber) => {
-  const result: {
-    apys: Record<string, number>;
-    apyBreakdowns: Record<string, ApyBreakdown>;
-  } = {
+const getBreakdown = (poolName: string, apr: BigNumber): ApyBreakdownResult => {
+  const result: ApyBreakdownResult = {
     apys: {},
     apyBreakdowns: {},
   };
 
-  const vaultApr = apr.times(SHARE_AFTER_PERFORMANCE_FEE).toNumber();
+  const vaultApr = apr.toNumber();
   const vaultApy = compound(vaultApr, BASE_HPY, 1, SHARE_AFTER_PERFORMANCE_FEE);
   const totalApy = vaultApy;
 
@@ -79,6 +76,7 @@ const getBreakdown = (poolName: string, apr: BigNumber) => {
     vaultApy: vaultApy,
     totalApy: totalApy,
   };
+  return result;
 };
 
 export default getMultiFeeDistributionSingleAssetApy;

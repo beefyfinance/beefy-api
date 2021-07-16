@@ -1,6 +1,9 @@
 import { polygonWeb3 as web3 } from '../../../utils/web3';
-import getMultiFeeDistributionSingleAssetApy from '../common/getMultiFeeDistributionSingleAssetApy';
+import getMultiFeeDistributionSingleAssetApy, {
+  MultiFeeDistributionSingleAssetApyParams,
+} from '../common/getMultiFeeDistributionSingleAssetApy';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { ApyBreakdownResult } from '../common/getApyBreakdown';
 const {
   polygon: {
     platforms: { farmhero },
@@ -8,12 +11,15 @@ const {
   },
 } = addressBook;
 
-export const getFarmheroSingleApy = async () =>
-  await getMultiFeeDistributionSingleAssetApy({
+export const getFarmheroSingleApy = async (): Promise<ApyBreakdownResult> => {
+  const params: MultiFeeDistributionSingleAssetApyParams = {
     web3,
     multiFeeDistributionAddress: farmhero.multiFeeDistribution,
     wantTokenOracleId: HONOR.symbol,
     outputTokenOracleId: WMATIC.symbol,
     outputTokenAddress: WMATIC.address,
     poolName: 'farmhero-honor',
-  });
+  };
+  const apy: ApyBreakdownResult = await getMultiFeeDistributionSingleAssetApy(params);
+  return apy;
+};

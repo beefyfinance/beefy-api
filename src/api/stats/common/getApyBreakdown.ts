@@ -17,6 +17,11 @@ export interface ApyBreakdown {
   totalApy?: number;
 }
 
+export interface ApyBreakdownResult {
+  apys: Record<string, number>;
+  apyBreakdowns: Record<string, ApyBreakdown>;
+}
+
 export default function (
   pools: { name: string; address: string }[],
   tradingAprs: Record<string, BigNumber>,
