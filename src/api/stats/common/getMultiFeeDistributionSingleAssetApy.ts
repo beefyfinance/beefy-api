@@ -77,11 +77,11 @@ const getBreakdown = (poolName: string, apr: BigNumber): ApyBreakdownResult => {
 
   result.apys[poolName] = totalApy;
   result.apyBreakdowns[poolName] = {
-    compoundingsPerYear: BASE_HPY,
-    beefyPerformanceFee: BEEFY_PERFORMANCE_FEE,
     vaultApr: vaultApr,
     vaultApy: vaultApy,
     totalApy: totalApy,
+    compoundingsPerYear: BASE_HPY,
+    beefyPerformanceFee: BEEFY_PERFORMANCE_FEE,
   };
   return result;
 };
