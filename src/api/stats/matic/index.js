@@ -52,7 +52,7 @@ const getApys = [
   getIronSwapApys,
   getTelxchangeDualApys,
   getTelxchangeApys,
-  // getFarmheroApys, // not ready yet
+  getFarmheroApys,
   getFarmheroSingleApy,
 ];
 
