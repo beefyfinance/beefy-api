@@ -9,6 +9,7 @@ import { compound } from '../../../utils/compound';
 import { BASE_HPY, BEEFY_PERFORMANCE_FEE, SHARE_AFTER_PERFORMANCE_FEE } from '../../../constants';
 import Web3 from 'web3';
 import { ApyBreakdownResult } from './getApyBreakdown';
+import Token from '../../../../packages/address-book/types/token';
 
 const oracle = 'tokens';
 
@@ -18,9 +19,8 @@ const BLOCKS_PER_DAY = 28800;
 export interface MultiFeeDistributionSingleAssetApyParams {
   web3: Web3;
   multiFeeDistributionAddress: string;
-  wantTokenOracleId: string;
-  outputTokenOracleId: string;
-  outputTokenAddress: string;
+  want: Token;
+  output: Token;
   poolName: string;
 }
 

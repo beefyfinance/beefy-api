@@ -15,9 +15,8 @@ export const getFarmheroSingleApy = async (): Promise<ApyBreakdownResult> => {
   const params: MultiFeeDistributionSingleAssetApyParams = {
     web3,
     multiFeeDistributionAddress: farmhero.multiFeeDistribution,
-    wantTokenOracleId: HONOR.symbol,
-    outputTokenOracleId: WMATIC.symbol,
-    outputTokenAddress: WMATIC.address,
+    want: HONOR,
+    output: WMATIC,
     poolName: 'farmhero-honor',
   };
   const apy: ApyBreakdownResult = await getMultiFeeDistributionSingleAssetApy(params);
