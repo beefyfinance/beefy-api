@@ -11,14 +11,14 @@ export interface LpPool {
   chainId: ChainId;
   lp0: LpToken;
   lp1: LpToken;
-  oracle: string;
-  oracleId: string;
+  oracle?: string;
+  oracleId?: string;
   depositFee?: number;
 }
 
 export interface LpToken {
   address: string;
-  oracle: 'tokens';
+  oracle: string;
   oracleId: string;
   decimals: string;
 }

@@ -10,7 +10,7 @@ import getFarmWithTradingFeesApy from '../../../utils/getFarmWithTradingFeesApy'
 import { getTradingFeeAprSushi, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { sushiClient } from '../../../apollo/client';
 import { compound } from '../../../utils/compound';
-import { AbiItem } from 'ethereum-abi-types-generator';
+import { AbiItem } from 'web3-utils';
 import { LpPool } from '../../../types/LpPool';
 import ApolloClient from 'apollo-client';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';
