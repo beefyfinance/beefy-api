@@ -44,7 +44,7 @@ export const getFarmheroApys = async () => {
   return getApyBreakdown(pools, tradingAprs, farmApys, QUICK_LPF);
 };
 
-const getFarmApys = async (pools: LpPool[]) => {
+const getFarmApys = async (pools: LpPool[]): Promise<BigNumber[]> => {
   const apys: BigNumber[] = [];
   const chefContract = new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown as FarmHeroChef;
   const totalEpoch = await chefContract.methods.totalEpoch().call();

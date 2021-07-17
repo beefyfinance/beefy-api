@@ -11,6 +11,9 @@ export interface LpPool {
   chainId: ChainId;
   lp0: LpToken;
   lp1: LpToken;
+  oracle: string;
+  oracleId: string;
+  depositFee?: number;
 }
 
 export interface LpToken {

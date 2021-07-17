@@ -28,11 +28,8 @@ export default function (
   farmAprs: BigNumber[],
   providerFee: number,
   performanceFee: number = BEEFY_PERFORMANCE_FEE
-) {
-  const result: {
-    apys: Record<string, number>;
-    apyBreakdowns: Record<string, ApyBreakdown>;
-  } = {
+): ApyBreakdownResult {
+  const result: ApyBreakdownResult = {
     apys: {},
     apyBreakdowns: {},
   };

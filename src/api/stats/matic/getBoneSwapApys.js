@@ -1,4 +1,4 @@
-const getMasterChefApys = require('./getMaticMasterChefApys');
+const { getMasterChefApys } = require('./getMaticMasterChefApys');
 
 const MasterChefAbi = require('../../../abis/matic/BoneSwapMasterChef.json');
 const quickPools = require('../../../data/matic/boneswapQuickLpPools.json');

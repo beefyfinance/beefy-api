@@ -5,7 +5,7 @@ import { DFYN_LPF } from '../../../constants';
 const { polygonWeb3: web3 } = require('../../../utils/web3');
 const ERC20 = require('../../../abis/ERC20.json');
 const MasterChefAbi = require('../../../abis/degens/IronChef.json');
-const getMasterChefApys = require('./getMaticMasterChefApys');
+const { getMasterChefApys } = require('./getMaticMasterChefApys');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/ironSwapPools.json');
 const lpPools = require('../../../data/matic/ironSwapLpPools.json');

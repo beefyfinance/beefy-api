@@ -1,4 +1,4 @@
-const getMasterChefApys = require('./getMaticMasterChefApys');
+const { getMasterChefApys } = require('./getMaticMasterChefApys');
 
 const MasterChefAbi = require('../../../abis/matic/PolyzapMasterChef.json');
 const pools = require('../../../data/matic/polyzapLpPools.json');
