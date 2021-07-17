@@ -1,4 +1,4 @@
-const getMasterChefApys = require('./getMaticMasterChefApys');
+const { getMasterChefApys } = require('./getMaticMasterChefApys');
 
 const { DFYN_LPF, QUICK_LPF, SUSHI_LPF } = require('../../../constants');
 const MasterChefAbi = require('../../../abis/matic/PolycatMasterChef.json');
