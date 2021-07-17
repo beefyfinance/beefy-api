@@ -16,6 +16,18 @@ export interface LpPool {
   depositFee?: number;
 }
 
+export interface SingleAssetPool {
+  name: string;
+  farmType?: string;
+  poolId?: number;
+  address: string;
+  oracle?: string;
+  oracleId?: string;
+  decimals: string;
+  chainId: ChainId;
+  depositFee?: number;
+}
+
 export interface LpToken {
   address: string;
   oracle: string;

@@ -11,7 +11,7 @@ import { getTradingFeeAprSushi, getTradingFeeApr } from '../../../utils/getTradi
 import { sushiClient } from '../../../apollo/client';
 import { compound } from '../../../utils/compound';
 import { AbiItem } from 'web3-utils';
-import { LpPool } from '../../../types/LpPool';
+import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import ApolloClient from 'apollo-client';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
@@ -21,8 +21,8 @@ export interface MaticMasterChefApysParams {
   masterchefAbi: AbiItem[];
   tokenPerBlock: string;
   hasMultiplier: boolean;
-  singlePools?: any[];
-  pools?: LpPool[];
+  singlePools?: SingleAssetPool[];
+  pools?: LpPool[] | (LpPool | SingleAssetPool)[];
   oracle: string;
   oracleId: string;
   decimals: string;

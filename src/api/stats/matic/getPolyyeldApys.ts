@@ -4,17 +4,17 @@ import { QUICK_LPF, SUSHI_LPF, APEPOLY_LPF } from '../../../constants';
 import { getEDecimals } from '../../../utils/getEDecimals';
 import { ApyBreakdownResult } from '../common/getApyBreakdown';
 import { getMasterChefApys } from './getMaticMasterChefApys';
-// L1
+import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import quickPools from '../../../data/matic/polyyeldQuickLpPools.json';
 import sushiPools from '../../../data/matic/polyyeldSushiLpPools.json';
 import apePools from '../../../data/matic/polyyeldApeLpPools.json';
+import L2Pools from '../../../data/matic/polyyeldL2Pools.json';
 import {
   PolyyeldMasterChef_ABI,
   PolyyeldMasterChefMethodNames,
   xYeldMasterChef_ABI,
   xYeldMasterChefMethodNames,
 } from '../../../abis/matic/Polyyeld';
-// L2
 
 const {
   polygon: {
@@ -70,13 +70,18 @@ export const getPolyyeldApys = async (): Promise<ApyBreakdownResult> => {
 
   // L2
   const xYeldPerBlock: xYeldMasterChefMethodNames = 'xYeldPerBlock';
+  const singlexYeldPools = L2Pools.filter(
+    pool => pool.farmType === 'singleAsset'
+  ) as SingleAssetPool[];
+  const lpxYeldPools = L2Pools.filter(pool => pool.farmType === 'lp') as LpPool[];
 
   const L2 = getMasterChefApys({
     masterchef: polyyeld_xyeld.masterchef,
     masterchefAbi: xYeldMasterChef_ABI,
     tokenPerBlock: xYeldPerBlock,
     hasMultiplier: false,
-    pools: [], // TODO
+    singlePools: singlexYeldPools,
+    pools: lpxYeldPools,
     oracle: 'tokens',
     oracleId: xYELD.symbol,
     decimals: getEDecimals(xYELD.decimals),
