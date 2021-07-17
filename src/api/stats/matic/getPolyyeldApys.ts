@@ -8,7 +8,8 @@ import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import quickPools from '../../../data/matic/polyyeldQuickLpPools.json';
 import sushiPools from '../../../data/matic/polyyeldSushiLpPools.json';
 import apePools from '../../../data/matic/polyyeldApeLpPools.json';
-import L2Pools from '../../../data/matic/polyyeldL2Pools.json';
+import L2LpPools from '../../../data/matic/polyyeldL2LpPools.json';
+import L2SingleAssetPools from '../../../data/matic/polyyeldL2SingleAssetPools.json';
 import {
   PolyyeldMasterChef_ABI,
   PolyyeldMasterChefMethodNames,
@@ -70,10 +71,8 @@ export const getPolyyeldApys = async (): Promise<ApyBreakdownResult> => {
 
   // L2
   const xYeldPerBlock: xYeldMasterChefMethodNames = 'xYeldPerBlock';
-  const singlexYeldPools = L2Pools.filter(
-    pool => pool.farmType === 'singleAsset'
-  ) as SingleAssetPool[];
-  const lpxYeldPools = L2Pools.filter(pool => pool.farmType === 'lp') as LpPool[];
+  const singlexYeldPools: LpPool[] = L2LpPools;
+  const lpxYeldPools: SingleAssetPool[] = L2SingleAssetPools;
 
   const L2 = getMasterChefApys({
     masterchef: polyyeld_xyeld.masterchef,

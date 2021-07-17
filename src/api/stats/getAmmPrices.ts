@@ -99,6 +99,7 @@ import polypupLpPools from '../../data/matic/polypupLpPools.json';
 import polyyeldQuickLpPools from '../../data/matic/polyyeldQuickLpPools.json';
 import polyyeldSushiLpPools from '../../data/matic/polyyeldSushiLpPools.json';
 import polyyeldApeLpPools from '../../data/matic/polyyeldApeLpPools.json';
+import polyyeldL2LpPools from '../../data/matic/polyyeldL2LpPools.json';
 import apePolyPools from '../../data/matic/apePolyLpPools.json';
 import polyQuityPools from '../../data/matic/polyQuityLpPools.json';
 import keeper50pools from '../../data/matic/50kLpPools.json';
@@ -138,6 +139,7 @@ const pools = [
   ...polyQuityPools,
   ...polypupLpPools,
   ...apePolyPools,
+  ...polyyeldL2LpPools,
   ...polyyeldApeLpPools,
   ...polyyeldQuickLpPools,
   ...polyyeldSushiLpPools,

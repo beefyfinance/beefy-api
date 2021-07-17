@@ -38,25 +38,5 @@
       "oracleId": "YELD",
       "decimals": "1e18"
     }
-  },
-  {
-    "name": "polyyeld-xyeld-xyeld",
-    "farmType": "singleAsset",
-    "poolId": 2,
-    "chainId": 137,
-    "address": "0x90AC3fa9fCD997B168f218041de26eB01399Bb55",
-    "oracle": "tokens",
-    "oracleId": "xYELD",
-    "decimals": "1e18"
-  },
-  {
-    "name": "polyyeld-xyeld-yeld",
-    "farmType": "singleAsset",
-    "poolId": 3,
-    "chainId": 137,
-    "address": "0xd0f3121A190d85dE0AB6131f2bCEcdbfcfB38891",
-    "oracle": "tokens",
-    "oracleId": "YELD",
-    "decimals": "1e18"
   }
 ]
