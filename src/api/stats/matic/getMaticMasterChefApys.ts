@@ -36,9 +36,6 @@ export interface MaticMasterChefApysParams {
   allocPointIndex?: string;
 }
 
-const performanceFee = 0.045;
-const shareAfterPerformanceFee = 1 - performanceFee;
-
 export const getMasterChefApys = async (
   masterchefParams: MaticMasterChefApysParams
 ): Promise<ApyBreakdownResult> => {
