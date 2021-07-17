@@ -9,7 +9,7 @@ import { wault } from './platforms/wault';
 import { polycat } from './platforms/polycat';
 import { iron } from './platforms/iron';
 import { adamant } from './platforms/adamant';
-import { polyyeld } from './platforms/polyyeld';
+import * as polyyeld from './platforms/polyyeld';
 import * as polypup from './platforms/polypup';
 import { apeswap } from './platforms/apeswap';
 import { helioscash } from './platforms/helioscash';
@@ -35,7 +35,7 @@ const _polygon = {
     polycat,
     iron,
     adamant,
-    polyyeld,
+    ...polyyeld,
     ...polypup,
     apeswap,
     helioscash,

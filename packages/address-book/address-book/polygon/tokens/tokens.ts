@@ -1136,6 +1136,17 @@ const _tokens = {
       'PolyYeld Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income.',
     logoURI: 'https://polyyeld.finance/images/egg/9.png',
   },
+  xYELD: {
+    name: 'Polyyeld.Finance Layer 2',
+    symbol: 'xYELD',
+    address: '0x90AC3fa9fCD997B168f218041de26eB01399Bb55',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://layer.polyyeld.finance/',
+    description:
+      "PolyYeld Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income. xYeld is the native token for Polyeld's layer 2 farms",
+    logoURI: 'https://layer.polyyeld.finance/images/egg/Logo_Text_Horizontal.svg',
+  },
   PUP: {
     name: 'Polypup.Finance',
     symbol: 'PUP',
