@@ -3,13 +3,11 @@ import { MultiCall } from 'eth-multicall';
 import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
 import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
-import { MINUTELY_HPY, POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
+import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
 import fetchPrice from '../../../utils/fetchPrice';
 import getBlockNumber from '../../../utils/getBlockNumber';
-import getFarmWithTradingFeesApy from '../../../utils/getFarmWithTradingFeesApy';
 import { getTradingFeeAprSushi, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { sushiClient } from '../../../apollo/client';
-import { compound } from '../../../utils/compound';
 import { AbiItem } from 'web3-utils';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import ApolloClient from 'apollo-client';
@@ -91,11 +89,16 @@ const getFarmApys = async (params: MaticMasterChefApysParams): Promise<BigNumber
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(params.decimals);
 
+    const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    apys.push(apy);
     if (params.log) {
-      console.log(pool.name, 'staked:', totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+      console.log(
+        pool.name,
+        apy.valueOf(),
+        totalStakedInUsd.valueOf(),
+        yearlyRewardsInUsd.valueOf()
+      );
     }
-
-    apys.push(yearlyRewardsInUsd.dividedBy(totalStakedInUsd));
   }
 
   return apys;

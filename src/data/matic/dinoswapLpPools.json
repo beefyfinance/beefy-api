@@ -1,0 +1,59 @@
+[
+  {
+    "name": "dinoswap-dino-usdc",
+    "address": "0x3324af8417844e70b81555A6D1568d78f4D4Bf1f",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAa9654BECca45B5BDFA5ac646c939C62b527D394",
+      "oracle": "tokens",
+      "oracleId": "DINO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dinoswap-usdc-usdt",
+    "address": "0x2cF7252e74036d1Da831d11089D326296e64a728",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "dinoswap-usdc-mimatic",
+    "address": "0x160532D2536175d65C03B97b0630A9802c274daD",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  }
+]

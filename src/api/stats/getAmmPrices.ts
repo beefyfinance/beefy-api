@@ -115,6 +115,7 @@ import ooePools from '../../data/ooeLpPools.json';
 import telxchangePools from '../../data/matic/telxchangePools.json';
 import kingdefiPools from '../../data/degens/kingdefiLpPools.json';
 import rabbitPools from '../../data/degens/rabbitLpPools.json';
+import dinoPools from '../../data/matic/dinoswapLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -122,6 +123,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...dinoPools,
   ...farmheroPolygonPools,
   ...rabbitPools,
   ...kingdefiPools,
