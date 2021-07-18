@@ -1293,6 +1293,17 @@ const _tokens = {
       'Since 2018 Nexo has strived to bring professional financial services to the world of digital assets. Leveraging the best of the team’s years of experience in FinTech along with the power of blockchain technology, Nexo is empowering thousands of people to harness the value behind their crypto assets and live the future of finance today.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2694.png',
   },
+  DINO: {
+    name: 'DINO',
+    symbol: 'DINO',
+    address: '0xAa9654BECca45B5BDFA5ac646c939C62b527D394',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://dinoswap.exchange/',
+    description:
+      'DinoSwap is a cross-chain infrastructure project that builds liquidity for layer-one blockchains, AMMs and partnering projects.',
+    logoURI: 'https://assets.coingecko.com/coins/images/17103/small/DINO.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
