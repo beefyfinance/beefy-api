@@ -4,6 +4,7 @@ import getMultiFeeDistributionSingleAssetApy, {
 } from '../../common/getMultiFeeDistributionSingleAssetApy';
 import { addressBook } from '../../../../../packages/address-book/address-book';
 import { ApyBreakdownResult } from '../../common/getApyBreakdown';
+
 const {
   bsc: {
     platforms: { ellipsis },
@@ -23,4 +24,4 @@ const getEllipsisSingleAssetApy = async () => {
   return apy;
 };
 
-export default getEllipsisSingleAssetApy;
+module.exports = getEllipsisSingleAssetApy;
