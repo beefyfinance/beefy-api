@@ -2587,5 +2587,16 @@ const _tokens = {
       'Rabbit Finance is a cross-chain leveraged lending protocol, allowing users to multiply (like Rabbits 🐰🐰🐰) their funds up to 9x, thereby maximizing interest and liquidity farming yields.',
     website: 'https://rabbitfinance.io/',
   },
+  FRUIT: {
+    name: 'FRUIT',
+    symbol: 'FRUIT',
+    address: '0x4ECfb95896660aa7F54003e967E7b283441a2b0A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://www.fruitsadventures.com/images/coin/FRUIT.png',
+    description:
+      "Fruit's Adventures focus on fun first with our Binance Smart Chain powered fruit adventures. Players can win Fruit tokens by playing our decentralized games.",
+    website: 'https://www.fruitsadventures.com/',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
