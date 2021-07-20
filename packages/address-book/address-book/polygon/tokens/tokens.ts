@@ -593,6 +593,14 @@ const _tokens = {
     chainId: 137,
     logoURI: 'https://etherscan.io/token/images/pepedex_32.png?v=2',
   },
+  pSWAMP: {
+    name: 'pSwamp',
+    address: '0x5f1657896b38c4761dbc5484473c7a7c845910b6',
+    symbol: 'pSWAMP',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://swamp.finance/polygon/static/frontend/img/symbols/pswamp.svg',
+  },
   PUSD: {
     name: 'PUSD',
     address: '0x9aF3b7DC29D3C4B1A5731408B6A9656fA7aC3b72',
