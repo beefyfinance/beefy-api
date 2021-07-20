@@ -247,6 +247,7 @@ const knownPrices = {
   DAI: 1,
   USDC: 1,
   UST: 1,
+  USDN: 1,
 };
 
 let tokenPricesCache: Promise<any>;

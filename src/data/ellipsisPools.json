@@ -1,5 +1,17 @@
 [
   {
+    "name": "ellipsis-usdn",
+    "address": "0x2f8E25C21A17BD9D0C337e1b409e73bc959B41BE",
+    "poolId": 8,
+    "lp": "0x8339156534e2d7354Eed097A6FB4A5820d8d0d27",
+    "rewards": [
+      {
+        "token": "0x03ab98f5dc94996F8C33E15cD4468794d12d41f9",
+        "oracleId": "USDN"
+      }
+    ]
+  },
+  {
     "name": "ellipsis-pbtc",
     "address": "0x60E4ED61C6f17972559E86F2125BF8A30f249088",
     "poolOracle": "0x264990fbd0A4796A3E3d8E37C4d5F87a3aCa5Ebf",
