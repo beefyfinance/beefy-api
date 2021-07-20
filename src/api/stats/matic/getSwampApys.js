@@ -14,7 +14,7 @@ const singlePools = require('../../../data/matic/polypupSinglePools.json');
 const { quickClient } = require('../../../apollo/client');
 const { getEDecimals } = require('../../../utils/getEDecimals');
 
-const getPolypupApys = async () => {
+const getSwampApys = async () => {
   const all = getMasterChefApys({
     masterchef: swamp.masterchef,
     masterchefAbi: MasterChefAbi,
