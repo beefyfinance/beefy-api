@@ -41,21 +41,21 @@
   },
   {
     "name": "png-bnb-png",
-    "address": "0x874685bc6794c8b4bEFBD037147C2eEF990761A9",
+    "address": "0x76BC30aCdC88b2aD2e8A5377e59ed88c7f9287f9",
     "decimals": "1e18",
     "poolId": 0,
-    "rewardPool": "0x4f74bbf6859a994e7c309ea0f11e3cc112955110",
+    "rewardPool": "0x68a90C38bF4f90AC2a870d6FcA5b0A5A218763AD",
     "chainId": 43114,
     "lp0": {
-      "address": "0x60781C2586D68229fde47564546784ab3fACA982",
-      "oracle": "tokens",
-      "oracleId": "PNG",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0x264c1383ea520f73dd837f915ef3a732e204a493",
       "oracle": "tokens",
       "oracleId": "BNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x60781C2586D68229fde47564546784ab3fACA982",
+      "oracle": "tokens",
+      "oracleId": "PNG",
       "decimals": "1e18"
     }
   },
