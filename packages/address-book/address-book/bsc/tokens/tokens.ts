@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  AXS: {
+    name: 'Axie Infinity Shard',
+    symbol: 'AXS',
+    address: '0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://bscscan.com/token/images/axieinfinity_32.png',
+    website: 'https://axieinfinity.com/',
+    description:
+      'Axie Infinity is a Pokémon-inspired digital pet universe built on the Ethereum blockchain where anyone can earn token rewards through skilled gameplay and contributions to the ecosystem.',
+  },
   OOE: {
     name: 'Open Ocean Finance',
     symbol: 'OOE',
