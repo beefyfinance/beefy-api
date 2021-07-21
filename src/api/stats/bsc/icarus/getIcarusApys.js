@@ -42,22 +42,26 @@ const getYearlyRewardsInUsd = async pool => {
   if (pool.stakedReward) {
     const rewardPool = pool.stakedReward;
     const rewardPoolContract = new web3.eth.Contract(IRewardPool, rewardPool.address);
-    const rewardRate = new BigNumber(await rewardPoolContract.methods.rewardRate().call());
-    const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
-    const tokenPrice = await fetchPrice({ oracle: rewardPool.oracle, id: rewardPool.oracleId });
-    const rewardsInUSD = yearlyRewards.times(tokenPrice).dividedBy(rewardPool.decimals);
-    // console.log(pool.name, rewardPool.oracleId, rewardsInUSD.valueOf());
-    yearlyRewardsInUsd = yearlyRewardsInUsd.plus(rewardsInUSD);
+    const periodFinish = await rewardPoolContract.methods.periodFinish().call();
+    if (Number(periodFinish) > Date.now() / 1000) {
+      const rewardRate = new BigNumber(await rewardPoolContract.methods.rewardRate().call());
+      const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
+      const tokenPrice = await fetchPrice({ oracle: rewardPool.oracle, id: rewardPool.oracleId });
+      const rewardsInUSD = yearlyRewards.times(tokenPrice).dividedBy(rewardPool.decimals);
+      yearlyRewardsInUsd = yearlyRewardsInUsd.plus(rewardsInUSD);
+    }
   }
   if (pool.powReward) {
     const rewardPool = pool.powReward;
     const rewardPoolContract = new web3.eth.Contract(IRewardPool, rewardPool.address);
-    const rewardRate = new BigNumber(await rewardPoolContract.methods.rewardRate().call());
-    const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
-    const tokenPrice = await fetchPrice({ oracle: rewardPool.oracle, id: rewardPool.oracleId });
-    const rewardsInUSD = yearlyRewards.times(tokenPrice).dividedBy(rewardPool.decimals);
-    // console.log(pool.name, rewardPool.oracleId, rewardsInUSD.valueOf());
-    yearlyRewardsInUsd = yearlyRewardsInUsd.plus(rewardsInUSD);
+    const periodFinish = await rewardPoolContract.methods.periodFinish().call();
+    if (Number(periodFinish) > Date.now() / 1000) {
+      const rewardRate = new BigNumber(await rewardPoolContract.methods.rewardRate().call());
+      const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
+      const tokenPrice = await fetchPrice({ oracle: rewardPool.oracle, id: rewardPool.oracleId });
+      const rewardsInUSD = yearlyRewards.times(tokenPrice).dividedBy(rewardPool.decimals);
+      yearlyRewardsInUsd = yearlyRewardsInUsd.plus(rewardsInUSD);
+    }
   }
 
   return yearlyRewardsInUsd;
