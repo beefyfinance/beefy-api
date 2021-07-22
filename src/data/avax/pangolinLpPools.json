@@ -1,5 +1,85 @@
 [
   {
+    "name": "png-bifi-avax",
+    "address": "0xaace68f9c8506610929d76a0729c7c24603641fc",
+    "decimals": "1e18",
+    "poolId": 0,
+    "rewardPool": "0x4e258f7ec60234bb6f3ea7ecff5931901182bd6e",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd6070ae98b8069de6b494332d1a1a81b6179d960",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "png-bnb-avax",
+    "address": "0xf776ef63c2e7a81d03e2c67673fd5dcf53231a3f",
+    "decimals": "1e18",
+    "poolId": 0,
+    "rewardPool": "0x21cca1672e95996413046077b8cf1e52f080a165",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x264c1383ea520f73dd837f915ef3a732e204a493",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "png-bnb-png",
+    "address": "0x76BC30aCdC88b2aD2e8A5377e59ed88c7f9287f9",
+    "decimals": "1e18",
+    "poolId": 0,
+    "rewardPool": "0x68a90C38bF4f90AC2a870d6FcA5b0A5A218763AD",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x264c1383ea520f73dd837f915ef3a732e204a493",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x60781C2586D68229fde47564546784ab3fACA982",
+      "oracle": "tokens",
+      "oracleId": "PNG",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "png-bifi-png",
+    "address": "0x7d1f298d41a03eda3ad9cbb06ca061ba60b4bdae",
+    "decimals": "1e18",
+    "poolId": 0,
+    "rewardPool": "0x518b07e2d9e08a8c2e3cb7704336520827a4d399",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x60781C2586D68229fde47564546784ab3fACA982",
+      "oracle": "tokens",
+      "oracleId": "PNG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd6070ae98b8069de6b494332d1a1a81b6179d960",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-uni-png",
     "address": "0x874685bc6794c8b4bEFBD037147C2eEF990761A9",
     "decimals": "1e18",

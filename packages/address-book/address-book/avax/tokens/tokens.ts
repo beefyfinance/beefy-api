@@ -12,6 +12,30 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  BIFI: {
+    chainId: 43114,
+    address: '0xd6070ae98b8069de6B494332d1A1a81B6179D960',
+    decimals: 18,
+    name: 'Binance Smart Chain',
+    symbol: 'BNB',
+    website: 'https://www.beefy.finance/',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+  },
+  BNB: {
+    chainId: 43114,
+    address: '0x264c1383EA520f73dd837F915ef3a732e204a493',
+    decimals: 18,
+    name: 'Binance Smart Chain',
+    symbol: 'BNB',
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    logoURI:
+      'https://exchange.pancakeswap.finance/images/coins/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+  },
   PNG: {
     chainId: 43114,
     address: '0x60781C2586D68229fde47564546784ab3fACA982',
