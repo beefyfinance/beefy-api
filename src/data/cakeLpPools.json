@@ -1,5 +1,24 @@
 [
   {
+    "name": "cakev2-axs-wbnb",
+    "address": "0xC2d00De94795e60FB76Bc37d899170996cBdA436",
+    "decimals": "1e18",
+    "poolId": 430,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0",
+      "oracle": "tokens",
+      "oracleId": "AXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-chess-usdc",
     "address": "0x1472976E0B97F5B2fC93f1FFF14e2b5C4447b64F",
     "decimals": "1e18",
