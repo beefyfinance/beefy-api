@@ -17,7 +17,7 @@ import { brainswap } from './platforms/brainswap';
 import mai from './platforms/mai';
 import jetswap from './platforms/jetswap';
 import { farmhero } from './platforms/farmhero';
-import { pswamp } from './platforms/swamp';
+import { swamp } from './platforms/swamp';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';

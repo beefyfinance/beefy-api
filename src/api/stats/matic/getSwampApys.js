@@ -2,7 +2,7 @@ const { getMasterChefApys } = require('./getMaticMasterChefApys');
 const {
   addressBook: {
     polygon: {
-      tokens: { pSWAMP },
+      tokens: { pSWAMP, MATIC },
       platforms: { swamp },
     },
   },
@@ -10,7 +10,8 @@ const {
 
 const { QUICK_LPF } = require('../../../constants');
 const MasterChefAbi = require('../../../abis/matic/SwampMasterChef.json');
-const singlePools = require('../../../data/matic/polypupSinglePools.json');
+const pools = require('../../../data/matic/swampLpPools.json');
+const singlePools = require('../../../data/matic/swampSinglePools.json');
 const { quickClient } = require('../../../apollo/client');
 const { getEDecimals } = require('../../../utils/getEDecimals');
 
@@ -18,15 +19,16 @@ const getSwampApys = async () => {
   const all = getMasterChefApys({
     masterchef: swamp.masterchef,
     masterchefAbi: MasterChefAbi,
-    tokenPerBlock: 'SwampPerBlock',
+    tokenPerBlock: 'NATIVEPerBlock',
     hasMultiplier: false,
     singlePools: singlePools,
+    pools: pools,
     oracle: 'tokens',
     oracleId: pSWAMP.symbol,
     decimals: getEDecimals(pSWAMP.decimals),
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: QUICK_LPF,
-    // log: true,
+    log: true,
   });
 
   let apys = {};
