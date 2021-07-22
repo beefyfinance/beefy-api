@@ -26,7 +26,8 @@ const getMaiApys = require('./getMaiApys').default;
 const { getTelxchangeDualApys } = require('./getTelxchangeDualApys');
 const { getTelxchangeApys } = require('./getTelxchangeApys');
 const { getFarmheroSingleApy } = require('./getFarmheroSingleApy');
-const { getSwampApys } = require('./getSwampApys');
+const { getSwampSingleApys } = require('./getSwampSingleApys');
+const { getSwampLpApys } = require('./getSwampLpApys');
 
 const getApys = [
   getComethLpApys,
@@ -57,7 +58,8 @@ const getApys = [
   getFarmheroApys,
   getFarmheroSingleApy,
   getDinoswapApys,
-  getSwampApys
+  getSwampLpApys,
+  getSwampSingleApys,
 ];
 
 const getMaticApys = async () => {
