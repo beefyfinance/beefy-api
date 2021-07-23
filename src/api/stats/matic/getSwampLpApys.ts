@@ -4,6 +4,7 @@ import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
 // abis
 const MasterChefAbi = require('../../../abis/matic/SwampMasterChef.json');
+const stratContractAbi = require('../../../abis/matic/SwampStrat.json');
 import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
 // json data
 const pools = require('../../../data/matic/swampLpPools.json');
@@ -71,8 +72,14 @@ const getPoolsData = async (
     const poolInfo = await chefContract.methods.poolInfo(pool.poolId.toString()).call();
     const allocPoint = new BigNumber(parseInt(poolInfo.allocPoint));
     const strat = poolInfo.strat;
+    var farm = strat;
+    // pSWAMP-MATIC has a direct farm contract whereas the rest have a proxy
+    if (pool.poolId !== 1) {
+      const stratContract = new web3.eth.Contract(stratContractAbi, strat) as unknown as Strat;
+      farm = await stratContract.methods.farmContractAddress().call();
+    }
     const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address) as unknown as ERC20;
-    const balanceString = await tokenContract.methods.balanceOf(strat).call();
+    const balanceString = await tokenContract.methods.balanceOf(farm).call();
     const balance = new BigNumber(parseInt(balanceString));
     balances.push(balance);
     allocPoints.push(allocPoint);
