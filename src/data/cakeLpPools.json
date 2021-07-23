@@ -1,12 +1,12 @@
 [
   {
     "name": "cakev2-c98-wbnb",
-    "address": "0x13071d48A5FDe2735102657e15D1132F92eE8C83",
+    "address": "0x92247860A03F48d5c6425c7CA35CDcFCB1013AA1",
     "decimals": "1e18",
     "poolId": 431,
     "chainId": 56,
     "lp0": {
-      "address": "0x92247860A03F48d5c6425c7CA35CDcFCB1013AA1",
+      "address": "0xaEC945e04baF28b135Fa7c640f624f8D90F1C3a6",
       "oracle": "tokens",
       "oracleId": "C98",
       "decimals": "1e18"
