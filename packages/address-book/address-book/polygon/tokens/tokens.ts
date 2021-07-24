@@ -595,7 +595,7 @@ const _tokens = {
   },
   pSWAMP: {
     name: 'pSwamp',
-    address: '0x5f1657896b38c4761dbc5484473c7a7c845910b6',
+    address: '0x5f1657896B38c4761dbc5484473c7A7C845910b6',
     symbol: 'pSWAMP',
     decimals: 18,
     chainId: 137,
