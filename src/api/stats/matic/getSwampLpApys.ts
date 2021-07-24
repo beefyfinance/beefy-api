@@ -26,7 +26,7 @@ const chef = '0x4F04e540A51013aFb6761ee73D71d2fB1F29af80';
 const oracleId = pSWAMP.symbol;
 const oracle = 'tokens';
 const DECIMALS = getEDecimals(pSWAMP.decimals);
-const secondsPerBlock = 2;
+const secondsPerBlock = 3;
 const secondsPerYear = 31536000;
 
 export const getSwampLpApys = async () => {
@@ -72,14 +72,15 @@ const getPoolsData = async (
     const poolInfo = await chefContract.methods.poolInfo(pool.poolId.toString()).call();
     const allocPoint = new BigNumber(parseInt(poolInfo.allocPoint));
     const strat = poolInfo.strat;
-    var farm = strat;
-    // pSWAMP-MATIC has a direct farm contract whereas the rest have a proxy
+    var balanceString = '';
+    // pSWAMP-MATIC (poolId 1) has a direct farm contract whereas the rest have a view function for the staked balance
     if (pool.poolId !== 1) {
       const stratContract = new web3.eth.Contract(stratContractAbi, strat) as unknown as Strat;
-      farm = await stratContract.methods.farmContractAddress().call();
+      balanceString = await stratContract.methods.wantLockedTotal().call();
+    } else {
+      const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address) as unknown as ERC20;
+      balanceString = await tokenContract.methods.balanceOf(strat).call();
     }
-    const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address) as unknown as ERC20;
-    const balanceString = await tokenContract.methods.balanceOf(farm).call();
     const balance = new BigNumber(parseInt(balanceString));
     balances.push(balance);
     allocPoints.push(allocPoint);

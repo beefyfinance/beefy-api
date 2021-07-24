@@ -25,7 +25,7 @@ const chef = '0x4F04e540A51013aFb6761ee73D71d2fB1F29af80';
 const oracleId = pSWAMP.symbol;
 const oracle = 'tokens';
 const DECIMALS = getEDecimals(pSWAMP.decimals);
-const secondsPerBlock = 2;
+const secondsPerBlock = 3;
 const secondsPerYear = 31536000;
 
 export const getSwampSingleApys = async () => {
