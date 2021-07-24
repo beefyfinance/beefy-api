@@ -40,13 +40,14 @@ const _tokens = {
   C98: {
     name: 'Coin98',
     symbol: 'C98',
-    address: '0xaec945e04baf28b135fa7c640f624f8d90f1c3a6',
+    address: '0xaEC945e04baF28b135Fa7c640f624f8D90F1C3a6',
     chainId: 56,
     decimals: 18,
     website: 'https://coin98.com/',
     description:
       'Coin98 enables value transfer as easily as using the Internet by the innovation of Multi-chain Engine, Fully Automatic Liquidity and Space Gate, all in one Super Liquidity Aggregator.',
-    logoURI: 'https://pancakeswap.finance/images/tokens/0xaec945e04baf28b135fa7c640f624f8d90f1c3a6.svg',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xaEC945e04baF28b135Fa7c640f624f8D90F1C3a6.svg',
   },
   CHESS: {
     name: 'Chess',
