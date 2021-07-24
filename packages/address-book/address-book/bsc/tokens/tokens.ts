@@ -37,6 +37,18 @@ const _tokens = {
       'OpenOcean is the worlds first full aggregation protocol for crypto trading that source liquidity from DeFi and CeFi, and enable cross-chain swaps. Our intelligent routing algorithm find the best prices from DEXes and CEXes, and split the routes to provide traders the best prices with low slippage and fast settlement. The function is free to use, OpenOcean users only need to pay the normal blockchain gas fees and exchange fees for the trades, which are charged by the exchanges and not OpenOcean.',
     logoURI: 'https://ethapi.openocean.finance/asset/icon-ooe.svg?t=2',
   },
+  C98: {
+    name: 'Coin98',
+    symbol: 'C98',
+    address: '0xaEC945e04baF28b135Fa7c640f624f8D90F1C3a6',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://coin98.com/',
+    description:
+      'Coin98 enables value transfer as easily as using the Internet by the innovation of Multi-chain Engine, Fully Automatic Liquidity and Space Gate, all in one Super Liquidity Aggregator.',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xaEC945e04baF28b135Fa7c640f624f8D90F1C3a6.svg',
+  },
   CHESS: {
     name: 'Chess',
     symbol: 'CHESS',
