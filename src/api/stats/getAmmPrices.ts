@@ -117,6 +117,7 @@ import kingdefiPools from '../../data/degens/kingdefiLpPools.json';
 import rabbitPools from '../../data/degens/rabbitLpPools.json';
 import dinoPools from '../../data/matic/dinoswapLpPools.json';
 import fruitPools from '../../data/degens/fruitLpPools.json';
+import pswampPools from '../../data/matic/swampLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -238,6 +239,7 @@ const pools = [
   ...thugsPools,
   ...cakeLpV1Pools,
   ...cakeLpPools,
+  ...pswampPools,
 ];
 
 const knownPrices = {
