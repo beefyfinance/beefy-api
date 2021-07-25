@@ -128,7 +128,7 @@ const getPoolsData = async (params: MaticMasterChefApysParams) => {
   params.pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address) as unknown as ERC20;
     balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(params.masterchef),
+      balance: tokenContract.methods.balanceOf(pool.strat ?? params.masterchef),
     });
     allocPointCalls.push({
       allocPoint: masterchefContract.methods.poolInfo(pool.poolId),

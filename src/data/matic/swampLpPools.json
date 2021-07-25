@@ -2,6 +2,7 @@
   {
     "name": "swamp-pswamp-matic",
     "address": "0x1A477272f6030EAB135Cb3BA40646f3eb26b382a",
+    "strat": "0x7242f72Cc26ad52A0Dcac8d203D9983ec28aE342",
     "decimals": "1e18",
     "poolId": 1,
     "chainId": 137,
@@ -16,82 +17,6 @@
       "oracle": "tokens",
       "oracleId": "MATIC",
       "decimals": "1e18"
-    }
-  },
-  {
-    "name": "swamp-bifi-eth",
-    "address": "0x8b80417D92571720949fC22404200AB8FAf7775f",
-    "decimals": "1e18",
-    "poolId": 23,
-    "chainId": 137,
-    "lp0": {
-      "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
-      "oracle": "tokens",
-      "oracleId": "BIFI",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-      "oracle": "tokens",
-      "oracleId": "ETH",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "swamp-quick-eth",
-    "address": "0x1Bd06B96dd42AdA85fDd0795f3B4A79DB914ADD5",
-    "decimals": "1e18",
-    "poolId": 22,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
-      "oracle": "tokens",
-      "oracleId": "QUICK",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-      "oracle": "tokens",
-      "oracleId": "ETH",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "swamp-dai-usdc",
-    "address": "0xf04adBF75cDFc5eD26eeA4bbbb991DB002036Bdd",
-    "decimals": "1e18",
-    "poolId": 6,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
-      "oracle": "tokens",
-      "oracleId": "DAI",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    }
-  },
-  {
-    "name": "swamp-usdc-usdt",
-    "address": "0x2cF7252e74036d1Da831d11089D326296e64a728",
-    "decimals": "1e18",
-    "poolId": 5,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e6"
     }
   }
 ]
