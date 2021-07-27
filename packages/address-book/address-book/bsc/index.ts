@@ -4,6 +4,7 @@ import { pancake } from './platforms/pancake';
 import { ironfinance } from './platforms/ironfinance';
 import { farmhero } from './platforms/farmhero';
 import { ellipsis } from './platforms/ellipsis';
+import { jet } from './platforms/jet';
 import { mdex } from './platforms/mdex';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
@@ -18,6 +19,7 @@ const _bsc = {
     ironfinance,
     farmhero,
     ellipsis,
+    jet,
     mdex,
   },
   tokens,
