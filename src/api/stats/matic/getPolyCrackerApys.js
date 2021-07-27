@@ -14,7 +14,7 @@ const getPolyCrackerApys = async () =>
         poolId: 6,
         address: '0xfE1a200637464FBC9B60Bc7AeCb9b86c0E1d486E',
         oracle: 'tokens',
-        oracleId: 'LITH',
+        oracleId: 'LITHIUM',
         decimals: '1e18',
       },
     ],
