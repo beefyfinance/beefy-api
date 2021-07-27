@@ -4,6 +4,7 @@ import { pancake } from './platforms/pancake';
 import { ironfinance } from './platforms/ironfinance';
 import { farmhero } from './platforms/farmhero';
 import { ellipsis } from './platforms/ellipsis';
+import { wault } from './platforms/wault';
 import { kebab } from './platforms/kebab';
 import { jet } from './platforms/jet';
 import { mdex } from './platforms/mdex';
@@ -20,6 +21,7 @@ const _bsc = {
     ironfinance,
     farmhero,
     ellipsis,
+    wault,
     kebab,
     jet,
     mdex,
