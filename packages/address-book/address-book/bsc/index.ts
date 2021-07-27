@@ -5,6 +5,9 @@ import { ironfinance } from './platforms/ironfinance';
 import { farmhero } from './platforms/farmhero';
 import { ellipsis } from './platforms/ellipsis';
 import { wault } from './platforms/wault';
+import { kebab } from './platforms/kebab';
+import { jet } from './platforms/jet';
+import { mdex } from './platforms/mdex';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -19,6 +22,9 @@ const _bsc = {
     farmhero,
     ellipsis,
     wault,
+    kebab,
+    jet,
+    mdex,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
