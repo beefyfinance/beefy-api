@@ -1312,6 +1312,16 @@ const _tokens = {
       'DinoSwap is a cross-chain infrastructure project that builds liquidity for layer-one blockchains, AMMs and partnering projects.',
     logoURI: 'https://assets.coingecko.com/coins/images/17103/small/DINO.png',
   },
+  LITH: {
+    name: 'LITH',
+    symbol: 'LITH',
+    address: '0xfE1a200637464FBC9B60Bc7AeCb9b86c0E1d486E',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://polywantsacracker.farm/',
+    description: 'PolyWantsACracker Yield Farm',
+    logoURI: 'https://polywantsacracker.farm/images/coins/lithium.svg',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
