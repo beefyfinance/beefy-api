@@ -18,7 +18,7 @@ const getPolyCrackerApys = async () =>
         decimals: '1e18',
       },
     ],
-    oracleId: 'LITH',
+    oracleId: 'LITHIUM',
     oracle: 'tokens',
     decimals: '1e18',
     tradingFeeInfoClient: quickClient,
