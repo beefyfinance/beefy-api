@@ -2,6 +2,7 @@ import BigNumber from 'bignumber.js';
 import { MultiCall } from 'eth-multicall';
 import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
+import MasterChefAbi from '../../../abis/MasterChef.json';
 import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
 import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
 import fetchPrice from '../../../utils/fetchPrice';
@@ -16,7 +17,7 @@ import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
 
 export interface MaticMasterChefApysParams {
   masterchef: string;
-  masterchefAbi: AbiItem[];
+  masterchefAbi?: AbiItem[];
   tokenPerBlock: string;
   hasMultiplier: boolean;
   singlePools?: SingleAssetPool[];
@@ -105,7 +106,8 @@ const getFarmApys = async (params: MaticMasterChefApysParams): Promise<BigNumber
 };
 
 const getMasterChefData = async (params: MaticMasterChefApysParams) => {
-  const masterchefContract = new web3.eth.Contract(params.masterchefAbi, params.masterchef);
+  const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
+  const masterchefContract = new web3.eth.Contract(abi, params.masterchef);
   let multiplier = new BigNumber(1);
   if (params.hasMultiplier) {
     const blockNum = await getBlockNumber(POLYGON_CHAIN_ID);
@@ -121,7 +123,8 @@ const getMasterChefData = async (params: MaticMasterChefApysParams) => {
 };
 
 const getPoolsData = async (params: MaticMasterChefApysParams) => {
-  const masterchefContract = new web3.eth.Contract(params.masterchefAbi, params.masterchef);
+  const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
+  const masterchefContract = new web3.eth.Contract(abi, params.masterchef);
   const multicall = new MultiCall(web3 as any, multicallAddress(POLYGON_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
@@ -140,4 +143,16 @@ const getPoolsData = async (params: MaticMasterChefApysParams) => {
   const balances: BigNumber[] = res[0].map(v => new BigNumber(v.balance));
   const allocPoints: BigNumber[] = res[1].map(v => v.allocPoint[params.allocPointIndex ?? '1']);
   return { balances, allocPoints };
+};
+
+const chefAbi = (tokenPerBlock): AbiItem[] => {
+  const cakeAbi = MasterChefAbi as AbiItem[];
+  cakeAbi.push({
+    inputs: [],
+    name: tokenPerBlock,
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  });
+  return cakeAbi;
 };

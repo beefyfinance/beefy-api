@@ -1,0 +1,21 @@
+[
+  {
+    "name": "polycracker-lith-usdc",
+    "address": "0x1b9c6d8b372C410426CF803fd20a815aA7B454c2",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xfE1a200637464FBC9B60Bc7AeCb9b86c0E1d486E",
+      "oracle": "tokens",
+      "oracleId": "LITH",
+      "decimals": "1e18"
+    }
+  }
+]
