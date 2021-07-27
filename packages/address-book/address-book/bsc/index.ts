@@ -1,4 +1,5 @@
 import { ape } from './platforms/ape';
+import { bakery } from './platforms/bakery';
 import { beefyfinance } from './platforms/beefyfinance';
 import { pancake } from './platforms/pancake';
 import { ironfinance } from './platforms/ironfinance';
@@ -16,6 +17,7 @@ import { ConstInterface } from '../../types/const';
 const _bsc = {
   platforms: {
     ape,
+    bakery,
     beefyfinance,
     pancake,
     ironfinance,
