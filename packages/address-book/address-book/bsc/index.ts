@@ -4,6 +4,7 @@ import { pancake } from './platforms/pancake';
 import { ironfinance } from './platforms/ironfinance';
 import { farmhero } from './platforms/farmhero';
 import { ellipsis } from './platforms/ellipsis';
+import { jet } from './platforms/jet';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -17,6 +18,7 @@ const _bsc = {
     ironfinance,
     farmhero,
     ellipsis,
+    jet,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
