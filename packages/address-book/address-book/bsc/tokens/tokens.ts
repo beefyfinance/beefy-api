@@ -2621,5 +2621,15 @@ const _tokens = {
       "Fruit's Adventures focus on fun first with our Binance Smart Chain powered fruit adventures. Players can win Fruit tokens by playing our decentralized games.",
     website: 'https://www.fruitsadventures.com/',
   },
+  HERO: {
+    name: 'FarmHero HERO',
+    symbol: 'HERO',
+    address: '0x9B26e16377ad29A6CCC01770bcfB56DE3A36d8b2',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
+    description: 'FarmHero.io is a novel protocol that mixes NFT, gaming and DEFI concepts.',
+    website: 'https://bsc.farmhero.io/',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
