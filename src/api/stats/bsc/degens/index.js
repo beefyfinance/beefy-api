@@ -28,6 +28,7 @@ const getMemeFarmApys = require('./getMemeFarmLpApys');
 const getKingdefiApys = require('./getKingdefiApys');
 const getRabbitFinanceApys = require('./getRabbitFinanceApys');
 const getFruitApys = require('./getFruitApys');
+const getPeraApys = require('./getPeraApys');
 
 const getApys = [
   getRamenLpApys,
@@ -60,6 +61,7 @@ const getApys = [
   getKingdefiApys,
   getRabbitFinanceApys,
   getFruitApys,
+  getPeraApys,
 ];
 
 const getDegensLpApys = async () => {

@@ -2630,6 +2630,17 @@ const _tokens = {
       "Fruit's Adventures focus on fun first with our Binance Smart Chain powered fruit adventures. Players can win Fruit tokens by playing our decentralized games.",
     website: 'https://www.fruitsadventures.com/',
   },
+  PERA: {
+    name: 'PERA',
+    symbol: 'PERA',
+    address: '0xb9D8592E16A9c1a3AE6021CDDb324EaC1Cbc70d6',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://app.pera.finance/logo-full.png',
+    description:
+      "Pera Finance is a DeFi platform where traders, liquidity providers and holders yield farm together through the DeFi's first decentralized trading competition.",
+    website: 'https://app.pera.finance/',
+  },
   HERO: {
     name: 'FarmHero HERO',
     symbol: 'HERO',

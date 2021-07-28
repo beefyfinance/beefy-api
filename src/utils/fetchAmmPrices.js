@@ -11,6 +11,7 @@ const MULTICALLS = {
 };
 
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
+const ERC20 = require('../abis/common/ERC20/ERC20.json');
 const BATCH_SIZE = 128;
 
 const sortByKeys = o => {
@@ -80,6 +81,12 @@ const fetchAmmPrices = async (pools, knownPrices) => {
       if (oneInch) {
         const balance = await provider.getBalance(oneInch.address);
         oneInch.lp0.balance = new BigNumber(balance.toString());
+      }
+      const peraBnb = filtered.filter(p => p.name === 'pera-pera-bnb')[0];
+      if (peraBnb) {
+        const pera = new ethers.Contract(peraBnb.lp0.address, ERC20, provider);
+        const balance = await pera.balanceOf(peraBnb.address);
+        peraBnb.lp0.balance = new BigNumber(balance.toString());
       }
     }
 
