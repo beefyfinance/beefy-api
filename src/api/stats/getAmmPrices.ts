@@ -110,6 +110,7 @@ import boneswapApePools from '../../data/matic/boneswapApeLpPools.json';
 import maiPools from '../../data/matic/maiLpPools.json';
 import jetswapPolyPools from '../../data/matic/jetswapLpPools.json';
 import farmheroPolygonPools from '../../data/matic/farmheroPools.json';
+import farmheroBscPools from '../../data/farmheroPools.json';
 import ironSwapPools from '../../data/matic/ironSwapLpPools.json';
 import ooePools from '../../data/ooeLpPools.json';
 import telxchangePools from '../../data/matic/telxchangePools.json';
@@ -130,6 +131,7 @@ const pools = [
   ...pswampPools,
   ...fruitPools,
   ...dinoPools,
+  ...farmheroBscPools,
   ...farmheroPolygonPools,
   ...rabbitPools,
   ...kingdefiPools,
