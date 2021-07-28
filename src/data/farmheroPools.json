@@ -1,0 +1,42 @@
+[
+  {
+    "name": "farmhero-pancake-hero-wbnb",
+    "platform": "pancake",
+    "address": "0x35BC504e05fa91f17552A9c3a6A2E7E9651A0622",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x9B26e16377ad29A6CCC01770bcfB56DE3A36d8b2",
+      "oracle": "tokens",
+      "oracleId": "HERO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "farmhero-pancake-hero-wbnb",
+    "platform": "pancake",
+    "address": "0x4BcaA3bd33fF733a581dF027aAd1EBDbDDb55CC2",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x9B26e16377ad29A6CCC01770bcfB56DE3A36d8b2",
+      "oracle": "tokens",
+      "oracleId": "HERO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  }
+]
