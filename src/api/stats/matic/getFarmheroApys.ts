@@ -8,7 +8,6 @@ import {
   IFarmHeroStrategy,
   IFarmHeroStrategy_ABI,
 } from '../../../abis/matic/FarmHero/IFarmHeroStrategy';
-import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
 // json data
 import _pools from '../../../data/matic/farmheroPools.json';
 const pools = _pools as LpPool[];
@@ -69,8 +68,9 @@ const getFarmApys = async (pools: LpPool[]): Promise<BigNumber[]> => {
       .dividedBy(totalAllocPoint);
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
+    const yearlyRewardsInUsdAfterPenalty = yearlyRewardsInUsd.div(2); // early withdraw penalty from vesting contract
 
-    const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    const apy = yearlyRewardsInUsdAfterPenalty.dividedBy(totalStakedInUsd);
     apys.push(apy);
   }
   return apys;
@@ -80,22 +80,25 @@ const getPoolsData = async (
   pools: LpPool[]
 ): Promise<{ balances: BigNumber[]; allocPoints: BigNumber[] }> => {
   const chefContract = new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown as FarmHeroChef;
-
-  const balances: BigNumber[] = [];
-  const allocPoints: BigNumber[] = [];
-  for (const pool of pools) {
-    const poolInfo = await chefContract.methods.poolInfo(pool.poolId.toString()).call();
-    const allocPoint = new BigNumber(parseInt(poolInfo.allocPoint));
-    const { strat } = poolInfo;
+  const multicall = new MultiCall(web3 as any, multicallAddress(POLYGON_CHAIN_ID));
+  const balanceCalls = [];
+  const allocPointCalls = [];
+  pools.forEach(pool => {
     const stratContract = new web3.eth.Contract(
       IFarmHeroStrategy_ABI,
-      strat
+      pool.strat
     ) as unknown as IFarmHeroStrategy;
-    const balanceString = await stratContract.methods.wantLockedTotal().call();
-    const balance = new BigNumber(parseInt(balanceString));
-    balances.push(balance);
-    allocPoints.push(allocPoint);
-  }
+    balanceCalls.push({
+      balance: stratContract.methods.wantLockedTotal(),
+    });
+    allocPointCalls.push({
+      allocPoint: chefContract.methods.poolInfo(pool.poolId.toString()),
+    });
+  });
 
+  const res = await multicall.all([balanceCalls, allocPointCalls]);
+
+  const balances: BigNumber[] = res[0].map(v => new BigNumber(v.balance));
+  const allocPoints: BigNumber[] = res[1].map(v => v.allocPoint['2']);
   return { balances, allocPoints };
 };
