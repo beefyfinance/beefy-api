@@ -15,6 +15,15 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  SPS: {
+    name: 'Splintershards',
+    symbol: 'SPS',
+    address: '0x1633b7157e7638C4d6593436111Bf125Ee74703F',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x1633b7157e7638C4d6593436111Bf125Ee74703F.svg',
+  },
   AXS: {
     name: 'Axie Infinity Shard',
     symbol: 'AXS',
