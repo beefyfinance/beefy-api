@@ -23,7 +23,7 @@ const getPolyCrackerApys = async () =>
     decimals: '1e18',
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: 0.003,
-    log: true,
+    log: false,
   });
 
 module.exports = getPolyCrackerApys;

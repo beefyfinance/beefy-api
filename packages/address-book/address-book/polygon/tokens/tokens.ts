@@ -1322,6 +1322,17 @@ const _tokens = {
     description: 'PolyWantsACracker Yield Farm',
     logoURI: 'https://polywantsacracker.farm/images/coins/lithium.svg',
   },
+  YAMP: {
+    name: 'Yamp.Finance',
+    symbol: 'YAMP',
+    address: '0x87f654c4b347230C60CAD8d7ea9cF0D7238bcc79',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://yamp.finance/',
+    description:
+      'Yamp brings the ability for Quickswap liquidity providers to borrow funds to leverage their yields. Whenever there’s a surge in yields, liquidity providers can easily multiply their farming positions many times over to take advantage of increased returns.',
+    logoURI: 'https://miro.medium.com/fit/c/262/262/1*Ig_ZORDgALAPAOJEnAJLLw.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

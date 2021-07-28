@@ -1,5 +1,25 @@
 [
   {
+    "name": "quick-yamp-usdc",
+    "address": "0x87d68f797623590E45982AD0f21228557207FdDa",
+    "rewardPool": "0x1DdF6be5B3c6fe04e5161701e2753b28bBF85dc2",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x87f654c4b347230C60CAD8d7ea9cF0D7238bcc79",
+      "oracle": "tokens",
+      "oracleId": "YAMP",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-nexo-eth",
     "address": "0x10062ec62C0bE26cC9e2f50a1CF784a89ded075F",
     "rewardPool": "0x5Ce139242C77fC31479E5329626fef736Ac8CeBE",
