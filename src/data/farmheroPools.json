@@ -20,7 +20,7 @@
     }
   },
   {
-    "name": "farmhero-pancake-hero-wbnb",
+    "name": "farmhero-pancake-hero-busd",
     "platform": "pancake",
     "address": "0x4BcaA3bd33fF733a581dF027aAd1EBDbDDb55CC2",
     "decimals": "1e18",
