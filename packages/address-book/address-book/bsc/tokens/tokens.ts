@@ -15,6 +15,15 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  IF: {
+    name: 'Impossible Finance',
+    symbol: 'IF',
+    address: '0xB0e1fc65C1a741b4662B813eB787d369b8614Af1',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xB0e1fc65C1a741b4662B813eB787d369b8614Af1.svg',
+  },
   SPS: {
     name: 'Splintershards',
     symbol: 'SPS',
