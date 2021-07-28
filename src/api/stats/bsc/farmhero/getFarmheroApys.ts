@@ -23,13 +23,13 @@ import { LpPool } from '../../../../types/LpPool';
 
 const {
   platforms: { farmhero },
-  tokens: { HONOR },
-} = addressBook.polygon;
+  tokens: { HERO },
+} = addressBook.bsc;
 
 const chef = farmhero.chef;
-const oracleId = HONOR.symbol;
+const oracleId = HERO.symbol;
 const oracle = 'tokens';
-const DECIMALS = getEDecimals(HONOR.decimals);
+const DECIMALS = getEDecimals(HERO.decimals);
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
