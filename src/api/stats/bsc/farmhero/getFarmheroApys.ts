@@ -1,46 +1,44 @@
 import BigNumber from 'bignumber.js';
 import { MultiCall } from 'eth-multicall';
-import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
+import { bscWeb3 as web3, multicallAddress } from '../../../../utils/web3';
 
 // abis
-import { FarmHeroChef, FarmHeroChef_ABI } from '../../../abis/matic/FarmHero/FarmHeroChef';
+import { FarmHeroChef, FarmHeroChef_ABI } from '../../../../abis/matic/FarmHero/FarmHeroChef';
 import {
   IFarmHeroStrategy,
   IFarmHeroStrategy_ABI,
-} from '../../../abis/matic/FarmHero/IFarmHeroStrategy';
+} from '../../../../abis/matic/FarmHero/IFarmHeroStrategy';
 // json data
-import _pools from '../../../data/matic/farmheroPools.json';
+import _pools from '../../../../data/farmheroPools.json';
 const pools = _pools as LpPool[];
 
-import fetchPrice from '../../../utils/fetchPrice';
-import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
-import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
-import { quickClient } from '../../../apollo/client';
-import getApyBreakdown from '../common/getApyBreakdown';
-import { addressBook } from '../../../../packages/address-book/address-book/';
-import { getEDecimals } from '../../../utils/getEDecimals';
-import { LpPool } from '../../../types/LpPool';
+import fetchPrice from '../../../../utils/fetchPrice';
+import { BSC_CHAIN_ID, PCS_LPF } from '../../../../constants';
+import { getTradingFeeApr } from '../../../../utils/getTradingFeeApr';
+import { cakeClient } from '../../../../apollo/client';
+import getApyBreakdown from '../../common/getApyBreakdown';
+import { addressBook } from '../../../../../packages/address-book/address-book/';
+import { getEDecimals } from '../../../../utils/getEDecimals';
+import { LpPool } from '../../../../types/LpPool';
 
 const {
   platforms: { farmhero },
-  tokens: { HONOR },
-} = addressBook.polygon;
+  tokens: { HERO },
+} = addressBook.bsc;
 
 const chef = farmhero.chef;
-const oracleId = HONOR.symbol;
+const oracleId = HERO.symbol;
 const oracle = 'tokens';
-const DECIMALS = getEDecimals(HONOR.decimals);
+const DECIMALS = getEDecimals(HERO.decimals);
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
 export const getFarmheroApys = async () => {
-  const pairAddresses = pools
-    .filter(pool => pool.platform === 'quickswap') // no trading APR reported for waultswap ATM
-    .map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, QUICK_LPF);
+  const pairAddresses = pools.filter(pool => pool.platform === 'pancake').map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(cakeClient, pairAddresses, PCS_LPF);
   const farmApys = await getFarmApys(pools);
 
-  return getApyBreakdown(pools, tradingAprs, farmApys, QUICK_LPF);
+  return getApyBreakdown(pools, tradingAprs, farmApys, PCS_LPF);
 };
 
 const getFarmApys = async (pools: LpPool[]): Promise<BigNumber[]> => {
@@ -80,7 +78,7 @@ const getPoolsData = async (
   pools: LpPool[]
 ): Promise<{ balances: BigNumber[]; allocPoints: BigNumber[] }> => {
   const chefContract = new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown as FarmHeroChef;
-  const multicall = new MultiCall(web3 as any, multicallAddress(POLYGON_CHAIN_ID));
+  const multicall = new MultiCall(web3 as any, multicallAddress(BSC_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
   pools.forEach(pool => {
