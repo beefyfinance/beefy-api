@@ -42,7 +42,7 @@ const getApys = [
   // getIronApys,
   getPolycatApys,
   getWexPolyApys,
-  getPolyyeldApys,
+  // getPolyyeldApys,
   getApeLpApys,
   getPolypupApys,
   // getPolyQuityLpApys,
