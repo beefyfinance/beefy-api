@@ -1,5 +1,131 @@
 [
   {
+    "name": "dfyn-crv-dfyn",
+    "farmType": "eco",
+    "address": "0x4ea3e2cfc39fa51df85ebcfa366d7f0eed448a1c",
+    "rewardPool": "0x098fdadCcde328e6CD1168125e1e7685eEa54342",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x172370d5cd63279efa6d502dab29171933a610af",
+      "oracle": "tokens",
+      "oracleId": "CRV",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dfyn-uni-dfyn",
+    "farmType": "eco",
+    "address": "0xe8c9bb82443c55d1c0bdd12f7e9cbec5974ecf43",
+    "rewardPool": "0x4FFfa5713c9fF13a2BF3013cF23810347ca79327",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0xb33eaad8d922b1083446dc23f610c2567fb5180f",
+      "oracle": "tokens",
+      "oracleId": "UNI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dfyn-aave-dfyn",
+    "farmType": "eco",
+    "address": "0xcb1e67ccf171e284e1cec0f344b6593319c77ebc",
+    "rewardPool": "0x3f354D2ca898b43aA4f5460DF940a7FeFAe140e5",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd6df932a45c0f255f85145f286ea0b292b21c90b",
+      "oracle": "tokens",
+      "oracleId": "AAVE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dfyn-link-dfyn",
+    "farmType": "eco",
+    "address": "0x2f653881b6865a41cbf2d7ffb4af1a959ba057d3",
+    "rewardPool": "0xd404AC8ec9F79C4eDd4F34340F7C7be28fDccD24",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x53e0bca35ec356bd5dddfebbd1fc0fd03fabad39",
+      "oracle": "tokens",
+      "oracleId": "LINK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dfyn-luna-dfyn",
+    "farmType": "eco",
+    "address": "0x7e2ce68e76e94cb4c35b3ab66d03e66efd7641a7",
+    "rewardPool": "0x6b975bDb7E815E300c0F4Fa7Ad8833dB61895441",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x24834bbec7e39ef42f4a75eaf8e5b6486d3f0e57",
+      "oracle": "tokens",
+      "oracleId": "LUNA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dfyn-matic-dfyn",
+    "farmType": "eco",
+    "address": "0x740d668883b0faef5eef7e84be28c7152d6f609d",
+    "rewardPool": "0x971e9e1Cb317cd9f9E0dAdA84965EB741582dDF0",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x4c28f48448720e9000907bc2611f73022fdce1fa",
+      "oracle": "tokens",
+      "oracleId": "WMATIC_DFYN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "oracle": "tokens",
+      "oracleId": "DFYN",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "dfyn-ice-dfyn",
     "farmType": "eco",
     "address": "0x9bb608dc0f9308b9beca2f7c80865454d02e74ca",
@@ -116,27 +242,6 @@
       "address": "0x16ECCfDbb4eE1A85A33f3A9B21175Cd7Ae753dB4",
       "oracle": "tokens",
       "oracleId": "ROUTE",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
-      "oracle": "tokens",
-      "oracleId": "DFYN",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "dfyn-matic-dfyn",
-    "farmType": "popular",
-    "address": "0x740d668883b0fAEf5eeF7E84BE28C7152D6f609D",
-    "rewardPool": "0x376920095Ae17e12BC114D4E33D30DFda83f8EfB",
-    "decimals": "1e18",
-    "poolId": 0,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-      "oracle": "tokens",
-      "oracleId": "WMATIC",
       "decimals": "1e18"
     },
     "lp1": {

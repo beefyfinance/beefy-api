@@ -1333,6 +1333,17 @@ const _tokens = {
       'Yamp brings the ability for Quickswap liquidity providers to borrow funds to leverage their yields. Whenever there’s a surge in yields, liquidity providers can easily multiply their farming positions many times over to take advantage of increased returns.',
     logoURI: 'https://miro.medium.com/fit/c/262/262/1*Ig_ZORDgALAPAOJEnAJLLw.png',
   },
+  LUNA: {
+    name: 'LUNA',
+    symbol: 'LUNA',
+    address: '0x24834BBEc7E39ef42f4a75EAF8E5B6486d3F0e57',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://www.terra.money/',
+    description:
+      'Luna directly benefits from the economic growth of the Terra economy, and it suffers from contractions of the Terra coin',
+    logoURI: 'https://etherscan.io/token/images/terra-luna_32.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
