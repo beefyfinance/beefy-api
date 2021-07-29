@@ -561,6 +561,9 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7022.png',
+    website: 'https://www.pickle.finance/',
+    description:
+      'Pickle Finance is a decentralized finance yield farming protocol built on the Ethereum and Polygon blockchain.',
   },
   PLOT: {
     name: 'PLOT',
@@ -662,6 +665,9 @@ const _tokens = {
     decimals: 8,
     chainId: 137,
     logoURI: 'https://etherscan.io/token/images/rendgb_32.png',
+    website: 'https://digibyte.org/',
+    description:
+      'renDGB is the wrapped DigiByte (DGB) token for the DGB open source blockchain and asset creation platform.',
   },
   SDO: {
     name: 'SafeDollar.Fi',
@@ -696,6 +702,8 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'https://polygonscan.com/token/images/starter_32.png',
+    website: 'https://starter.xyz/',
+    description: 'Decentralized fundraising for the Polygon Network.',
   },
   SUPER: {
     name: 'SuperFarm',
@@ -848,6 +856,9 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/7501.png',
+    website: 'https://woo.network/',
+    description:
+      'Wootrade is a layer one trading infrastructure complete with deep liquidity, frontend trading GUI, and the ability to integrate into any trading-related platform.',
   },
   WRX: {
     name: 'WazirX',
