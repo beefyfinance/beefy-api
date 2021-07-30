@@ -15,6 +15,15 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  STARS: {
+    name: 'Mogul Stars',
+    symbol: 'STARS',
+    address: '0xbD83010eB60F12112908774998F65761cf9f6f9a',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/STARS.svg',
+  },
   IF: {
     name: 'Impossible Finance',
     symbol: 'IF',

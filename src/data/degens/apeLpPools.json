@@ -19,6 +19,25 @@
     }
   },
   {
+    "name": "banana-bnb-stars",
+    "address": "0xBc8a4caD743d87e8754Fd5F704C62E378802CBfF",
+    "decimals": "1e18",
+    "poolId": 91,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbD83010eB60F12112908774998F65761cf9f6f9a",
+      "oracle": "tokens",
+      "oracleId": "STARS",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-yfi-bnb",
     "address": "0xA3421Bd2B3B1578FF43Ab95C10f667e5A3bbCeF7",
     "decimals": "1e18",
