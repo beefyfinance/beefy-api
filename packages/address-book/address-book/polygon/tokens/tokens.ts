@@ -554,6 +554,17 @@ const _tokens = {
     chainId: 137,
     logoURI: 'https://www.opucoin.io/wp-content/uploads/2021/04/opu-coiin-icon-border.svg',
   },
+  PICKLE: {
+    name: 'Pickle Token',
+    address: '0x2b88aD57897A8b496595925F43048301C37615Da',
+    symbol: 'PICKLE',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7022.png',
+    website: 'https://www.pickle.finance/',
+    description:
+      'Pickle Finance is a decentralized finance yield farming protocol built on the Ethereum and Polygon blockchain.',
+  },
   PLOT: {
     name: 'PLOT',
     address: '0xe82808eaA78339b06a691fd92E1Be79671cAd8D3',
@@ -647,6 +658,17 @@ const _tokens = {
     chainId: 137,
     logoURI: 'http://rebalancetoken.io/images/logo/RBAL_ERC20_small_001_256.png',
   },
+  renDGB: {
+    name: 'DigiByte',
+    address: '0x2628568509E87c4429fBb5c664Ed11391BE1BD29',
+    symbol: 'renDGB',
+    decimals: 8,
+    chainId: 137,
+    logoURI: 'https://etherscan.io/token/images/rendgb_32.png',
+    website: 'https://digibyte.org/',
+    description:
+      'renDGB is the wrapped DigiByte (DGB) token for the DGB open source blockchain and asset creation platform.',
+  },
   SDO: {
     name: 'SafeDollar.Fi',
     address: '0x86BC05a6f65efdaDa08528Ec66603Aef175D967f',
@@ -672,6 +694,16 @@ const _tokens = {
     decimals: 8,
     chainId: 137,
     logoURI: 'https://cdn-images-1.medium.com/max/1200/1*mK1oPGsQWh4Nfupg-e0S-g.png',
+  },
+  START: {
+    name: 'Starter',
+    address: '0x6Ccf12B480A99C54b23647c995f4525D544A7E72',
+    symbol: 'START',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://polygonscan.com/token/images/starter_32.png',
+    website: 'https://starter.xyz/',
+    description: 'Decentralized fundraising for the Polygon Network.',
   },
   SUPER: {
     name: 'SuperFarm',
@@ -816,6 +848,17 @@ const _tokens = {
     decimals: 9,
     chainId: 137,
     logoURI: 'https://i.imgur.com/UIjlQpC.png',
+  },
+  WOO: {
+    name: 'Wootrade Network',
+    address: '0x1B815d120B3eF02039Ee11dC2d33DE7aA4a8C603',
+    symbol: 'WOO',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/7501.png',
+    website: 'https://woo.network/',
+    description:
+      'Wootrade is a layer one trading infrastructure complete with deep liquidity, frontend trading GUI, and the ability to integrate into any trading-related platform.',
   },
   WRX: {
     name: 'WazirX',

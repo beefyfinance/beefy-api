@@ -1,5 +1,105 @@
 [
   {
+    "name": "quick-quick-woo",
+    "address": "0x7622804bA94940A9EFdDD1546D12d8D0d6a16e53",
+    "rewardPool": "0x1067112E5dB21aEC7eB144C5773f8aef8C85966a",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x1B815d120B3eF02039Ee11dC2d33DE7aA4a8C603",
+      "oracle": "tokens",
+      "oracleId": "WOO",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "quick-quick-rendgb",
+    "address": "0x5Cb85aa163B1B443F88A1f9124153E70F6586400",
+    "rewardPool": "0xE682EB8F4F93EdABe17C52FFf5AA663f80D9B428",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2628568509E87c4429fBb5c664Ed11391BE1BD29",
+      "oracle": "tokens",
+      "oracleId": "renDGB",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "quick-woo-eth",
+    "address": "0x70294d7aa244BD342C536F9B502152564057162e",
+    "rewardPool": "0xfA9A5abaC50B97c61addC7b317C813a006579aeA",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1B815d120B3eF02039Ee11dC2d33DE7aA4a8C603",
+      "oracle": "tokens",
+      "oracleId": "WOO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-quick-pauto",
+    "address": "0x3bb367F673D52d1a5F0812c4d8c9030E5876ad44",
+    "rewardPool": "0x6b9C78e419C3038dAC2DAb9dB2bfd5D9F1E05904",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7f426F6Dc648e50464a0392E60E1BB465a67E9cf",
+      "oracle": "tokens",
+      "oracleId": "PAUTO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-quick-yamp",
+    "address": "0x66fF795535CF162D29f6B15ed546a3e148Eff0Fb",
+    "rewardPool": "0xF42405d54c8F443126Ac06A47b5023BbfC7a85D3",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x87f654c4b347230C60CAD8d7ea9cF0D7238bcc79",
+      "oracle": "tokens",
+      "oracleId": "YAMP",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-quick-polydoge",
     "address": "0xbedEE6a7c572aa855a0c84d2f504311d482862F4",
     "rewardPool": "0xDE571d6ee61a9Ce8358b9cF011452ff5290ACc21",
