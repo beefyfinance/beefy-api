@@ -3,6 +3,7 @@ const { getMaticApys } = require('./matic');
 const { getHecoApys } = require('./heco');
 const { getFantomApys } = require('./fantom');
 const { getBSCApys } = require('./bsc');
+const { getOneApys } = require('./one');
 
 const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -27,6 +28,7 @@ const updateApys = async () => {
       getFantomApys(),
       getHecoApys(),
       getBSCApys(),
+      getOneApys(),
     ]);
 
     for (const result of results) {

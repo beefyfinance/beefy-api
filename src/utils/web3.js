@@ -23,6 +23,10 @@ module.exports = {
     return chainRandomClients.fantomRandomClient();
   },
 
+  get oneWeb3() {
+    return chainRandomClients.oneRandomClient();
+  },
+
   web3Factory: _web3Factory,
 
   multicallAddress: _multicallAddress,
