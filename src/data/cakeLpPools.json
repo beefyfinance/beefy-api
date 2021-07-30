@@ -1,5 +1,24 @@
 [
   {
+    "name": "cakev2-skill-wbnb",
+    "address": "0xC19dfd34D3ba5816dF9CBDaa02D32A9F8dc6F6fC",
+    "decimals": "1e18",
+    "poolId": 434,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab",
+      "oracle": "tokens",
+      "oracleId": "SKILL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-if-busd",
     "address": "0x7b4682D2B3f8670b125aF6AEA8d7eD2Daa43Bdc1",
     "decimals": "1e18",
