@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  TAPE: {
+    name: 'Ape Tooks',
+    symbol: 'TAPE',
+    address: '0xF63400ee0420ce5b1Ebdee0C942D7dE1C734a41f',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.apetools.co/',
+    description:
+      'A decentralized tool platform that provides trading tools for dexes in the Binance Smart Chain and Polygon network, Besides aiming to release unique tokens for the community through IDO sales',
+    logoURI: 'https://bscscan.com/token/images/apetoolsco_32.png',
+  },
   STARS: {
     name: 'Mogul Stars',
     symbol: 'STARS',
