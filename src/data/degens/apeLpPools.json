@@ -1,5 +1,24 @@
 [
   {
+    "name": "banana-axs-bnb",
+    "address": "0x8b85A4228400fa9b2fB5bD47dB8f05b7f8Bb7F5c",
+    "decimals": "1e18",
+    "poolId": 95,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0",
+      "oracle": "tokens",
+      "oracleId": "AXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-fruit-bnb",
     "address": "0x0bE55fd1Fdc7134Ff8412e8BAaC63CBb691B1d64",
     "decimals": "1e18",
