@@ -15,6 +15,15 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  SISTA: {
+    name: 'srnArtGallery Tokenized Arts',
+    symbol: 'SISTA',
+    address: '0xCA6d25C10dad43ae8Be0bc2af4D3CD1114583C08',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/SISTA.svg',
+  },
   TAPE: {
     name: 'Ape Tooks',
     symbol: 'TAPE',
