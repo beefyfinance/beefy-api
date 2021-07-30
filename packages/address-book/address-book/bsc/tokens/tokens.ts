@@ -33,6 +33,15 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xB0e1fc65C1a741b4662B813eB787d369b8614Af1.svg',
   },
+  SKILL: {
+    name: 'CryptoBlades Skill Token',
+    symbol: 'SKILL',
+    address: '0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab.svg',
+  },
   SPS: {
     name: 'Splintershards',
     symbol: 'SPS',
