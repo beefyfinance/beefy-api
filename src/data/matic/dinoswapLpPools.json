@@ -76,25 +76,6 @@
     }
   },
   {
-    "name": "dinoswap-quick-eth-dino",
-    "address": "0x9f03309A588e33A239Bf49ed8D68b2D45C7A1F11",
-    "decimals": "1e18",
-    "poolId": 11,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-      "oracle": "tokens",
-      "oracleId": "ETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xAa9654BECca45B5BDFA5ac646c939C62b527D394",
-      "oracle": "tokens",
-      "oracleId": "DINO",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "dinoswap-dfyn-ust-usdt",
     "address": "0x39BEd7f1C412ab64443196A6fEcb2ac20C707224",
     "decimals": "1e18",
