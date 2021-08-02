@@ -27,6 +27,17 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x833F307aC507D47309fD8CDD1F835BeF8D702a93.svg',
   },
+  DEP: {
+    name: 'DEAPCOIN',
+    symbol: 'DEP',
+    address: '0xcaF5191fc480F43e4DF80106c7695ECA56E48B18',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://dea.sg/',
+    description:
+      'DEAPCOIN is a platform that will create a new economy and culture in the PlayMining gaming field where digital assets will be distributed in a new age infrastructure that compensates users by using blockchain.',
+    logoURI: 'https://pbs.twimg.com/profile_images/1258627009296531456/qGAevdn7_400x400.png',
+  },
   SISTA: {
     name: 'srnArtGallery Tokenized Arts',
     symbol: 'SISTA',
