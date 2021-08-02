@@ -15,6 +15,14 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  DEP: {
+    name: 'DEAPCOIN',
+    symbol: 'DEP',
+    address: '0xcaF5191fc480F43e4DF80106c7695ECA56E48B18',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://pbs.twimg.com/profile_images/1258627009296531456/qGAevdn7_400x400.png',
+  },
   SISTA: {
     name: 'srnArtGallery Tokenized Arts',
     symbol: 'SISTA',
