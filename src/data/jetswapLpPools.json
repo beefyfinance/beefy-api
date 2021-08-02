@@ -1,5 +1,24 @@
 [
   {
+    "name": "jetswap-btcb-bnb",
+    "address": "0xc3C16CaE0cf35615b8716a9A8BB0b1257CdbCA53",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "jetswap-usdc-busd",
     "address": "0xB3D117C8cC60Abd83F0d946d85f3B67c972196dd",
     "decimals": "1e18",

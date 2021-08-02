@@ -3,6 +3,7 @@ import { bsc } from './bsc';
 import { avax } from './avax';
 import { fantom } from './fantom';
 import { heco } from './heco';
+import { one } from './one';
 import Chain from '../types/chain';
 import { ChainId } from '../types/chainid';
 import { ConstRecord } from '../types/const';
@@ -15,6 +16,7 @@ const _addressBook = {
   avax,
   fantom,
   heco,
+  one,
 } as const;
 
 const _addressBookByChainId = {
@@ -23,6 +25,7 @@ const _addressBookByChainId = {
   [ChainId.avax]: avax,
   [ChainId.fantom]: fantom,
   [ChainId.heco]: heco,
+  [ChainId.one]: one,
 } as const;
 
 export const addressBook: ConstRecord<typeof _addressBook, Chain> = _addressBook;

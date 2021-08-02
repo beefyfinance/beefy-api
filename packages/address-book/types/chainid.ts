@@ -4,4 +4,5 @@ export enum ChainId {
   polygon = 137,
   fantom = 250,
   avax = 43114,
+  one = 1666600000,
 }
