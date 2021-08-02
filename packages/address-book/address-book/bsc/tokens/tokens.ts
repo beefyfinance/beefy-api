@@ -15,6 +15,15 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  REVV: {
+    name: 'REVV',
+    symbol: 'REVV',
+    address: '0x833F307aC507D47309fD8CDD1F835BeF8D702a93',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x833F307aC507D47309fD8CDD1F835BeF8D702a93.svg',
+  },
   SISTA: {
     name: 'srnArtGallery Tokenized Arts',
     symbol: 'SISTA',
