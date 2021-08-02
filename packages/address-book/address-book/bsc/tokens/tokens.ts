@@ -21,6 +21,9 @@ const _tokens = {
     address: '0x833F307aC507D47309fD8CDD1F835BeF8D702a93',
     chainId: 56,
     decimals: 18,
+    website: 'https://revvmotorsport.com',
+    description:
+      'The REVV token is an ERC-20 utility token that acts as the main currency for a number of game dApps developed by Animoca Brands.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x833F307aC507D47309fD8CDD1F835BeF8D702a93.svg',
   },
