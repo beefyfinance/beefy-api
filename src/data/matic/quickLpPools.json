@@ -20,6 +20,26 @@
     }
   },
   {
+    "name": "quick-uni-eth",
+    "address": "0xF7135272a5584Eb116f5a77425118a8B4A2ddfDb",
+    "rewardPool": "0x9Bb7C0A778676689E86602d905c4013221AcC7C6",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+      "oracle": "tokens",
+      "oracleId": "UNI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-quick-woo",
     "address": "0x7622804bA94940A9EFdDD1546D12d8D0d6a16e53",
     "rewardPool": "0x1067112E5dB21aEC7eB144C5773f8aef8C85966a",
