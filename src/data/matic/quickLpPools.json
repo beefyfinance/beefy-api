@@ -56,7 +56,7 @@
       "address": "0x1B815d120B3eF02039Ee11dC2d33DE7aA4a8C603",
       "oracle": "tokens",
       "oracleId": "WOO",
-      "decimals": "1e8"
+      "decimals": "1e18"
     }
   },
   {
