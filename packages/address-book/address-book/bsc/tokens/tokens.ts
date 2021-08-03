@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  WUSD: {
+    name: 'Wault USD',
+    symbol: 'WUSD',
+    address: '0x3fF997eAeA488A082fb7Efc8e6B9951990D0c3aB',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://wault.finance/',
+    description:
+      "WUSD is Wault Finance's commerce-backed stablecoin! The world's first commerce-backed stablecoin!",
+    logoURI: 'https://app.wault.finance/bsc/assets/images/stablecoin/wusd.svg',
+  },
   REVV: {
     name: 'REVV',
     symbol: 'REVV',
