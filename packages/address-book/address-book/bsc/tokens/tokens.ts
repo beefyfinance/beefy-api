@@ -73,6 +73,18 @@ const _tokens = {
     website: 'https://www.macaronswap.finance/',
     description: 'MacaronSwap is a Decentralized Exchange AMM and Farm Staking platform',
   },
+  METAHERO: {
+    name: 'Metahero',
+    symbol: 'HERO',
+    address: '0xD40bEDb44C081D2935eebA6eF5a3c8A31A1bBE13',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xD40bEDb44C081D2935eebA6eF5a3c8A31A1bBE13.svg',
+    website: 'https://metahero.io/',
+    description:
+      "Deflationary token with Smart Staking, Burn and Auto Liquidity used to transact in Metahero's ecosystem for real world utility",
+  },
   DEP: {
     name: 'DEAPCOIN',
     symbol: 'DEP',
