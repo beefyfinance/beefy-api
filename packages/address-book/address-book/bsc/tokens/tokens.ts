@@ -27,6 +27,52 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x833F307aC507D47309fD8CDD1F835BeF8D702a93.svg',
   },
+  BABYCAKE: {
+    name: 'BABY CAKE',
+    symbol: 'BABYCAKE',
+    address: '0xdB8D30b74bf098aF214e862C90E647bbB1fcC58c',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xdB8D30b74bf098aF214e862C90E647bbB1fcC58c.svg',
+    website: 'https://babycake.app/',
+    description:
+      'Baby Cake is the first CAKE reflection token. Hold $BABYCAKE tokens and get rewarded in CAKE on every transaction.',
+  },
+  BMON: {
+    name: 'Binamon',
+    symbol: 'BMON',
+    address: '0x08ba0619b1e7A582E0BCe5BBE9843322C954C340',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x08ba0619b1e7A582E0BCe5BBE9843322C954C340.svg',
+    website: 'https://binamon.org/',
+    description: 'A complete metaverse of digital monsters inspired by Axie Infinity',
+  },
+  WSG: {
+    name: 'Wall Street Games',
+    symbol: 'WSG',
+    address: '0xA58950F05FeA2277d2608748412bf9F802eA4901',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xA58950F05FeA2277d2608748412bf9F802eA4901.svg',
+    website: 'https://wsg.gg/',
+    description:
+      'The next generation gaming platform with a unique and immersive way to earn rewards',
+  },
+  MCRN: {
+    name: 'MacaronSwap Token',
+    symbol: 'MCRN',
+    address: '0xacb2d47827C9813AE26De80965845D80935afd0B',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xacb2d47827C9813AE26De80965845D80935afd0B.svg',
+    website: 'https://www.macaronswap.finance/',
+    description: 'MacaronSwap is a Decentralized Exchange AMM and Farm Staking platform',
+  },
   DEP: {
     name: 'DEAPCOIN',
     symbol: 'DEP',
