@@ -1,5 +1,25 @@
 [
   {
+    "name": "quick-guard-usdc",
+    "address": "0xD2EeeEdfcAF1457F7BC9cbA28d5316F73BB83b49",
+    "rewardPool": "0x8782772E35e262Ba7f481DDDb015424Fc1aABC62",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8",
+      "oracle": "tokens",
+      "oracleId": "GUARD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "quick-quick-woo",
     "address": "0x7622804bA94940A9EFdDD1546D12d8D0d6a16e53",
     "rewardPool": "0x1067112E5dB21aEC7eB144C5773f8aef8C85966a",
