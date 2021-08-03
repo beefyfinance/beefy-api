@@ -37,7 +37,7 @@ const getFarmApys = async pools => {
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
-    const yearlyRewards = rewardRates[i].times(3).times(BLOCKS_PER_DAY).times(365).dividedBy(2);
+    const yearlyRewards = rewardRates[i].times(3).times(BLOCKS_PER_DAY).times(365);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     apys.push(yearlyRewardsInUsd.dividedBy(totalStakedInUsd));
