@@ -1,5 +1,25 @@
 [
   {
+    "name": "quick-sol-matic",
+    "address": "0x898386DD8756779a4ba4f1462891B92dd76b78eF",
+    "rewardPool": "0x590226869C2A1334394392231Ed6de5F63C9dC98",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7DfF46370e9eA5f0Bad3C4E29711aD50062EA7A4",
+      "oracle": "tokens",
+      "oracleId": "SOL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-quick-woo",
     "address": "0x7622804bA94940A9EFdDD1546D12d8D0d6a16e53",
     "rewardPool": "0x1067112E5dB21aEC7eB144C5773f8aef8C85966a",
