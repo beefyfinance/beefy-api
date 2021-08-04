@@ -2779,5 +2779,13 @@ const _tokens = {
     description: 'FarmHero.io is a novel protocol that mixes NFT, gaming and DEFI concepts.',
     website: 'https://bsc.farmhero.io/',
   },
+  QUANT: {
+    name: 'StableQuant',
+    symbol: 'QUANT',
+    address: '0xBCA627FEd3b6E8F414C745E12B2b89371497779D',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://stablequant.finance/',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
