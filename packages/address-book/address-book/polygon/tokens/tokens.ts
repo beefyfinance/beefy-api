@@ -707,6 +707,18 @@ const _tokens = {
     chainId: 137,
     logoURI: 'https://cdn-images-1.medium.com/max/1200/1*mK1oPGsQWh4Nfupg-e0S-g.png',
   },
+  SOL: {
+    name: 'Solana',
+    address: '0x898386DD8756779a4ba4f1462891B92dd76b78eF',
+    symbol: 'SOL',
+    decimals: 18,
+    chainId: 137,
+    logoURI:
+      'https://assets.coingecko.com/coins/images/4128/large/coinmarketcap-solana-200.png?1616489452',
+    website: 'https://solana.com/',
+    description:
+      'The Solana protocol is designed to facilitate decentralized app (DApp) creation. It aims to improve scalability by introducing a proof-of-history (PoH) consensus combined with the underlying proof-of-stake (PoS) consensus of the blockchain.',
+  },
   START: {
     name: 'Starter',
     address: '0x6Ccf12B480A99C54b23647c995f4525D544A7E72',
