@@ -323,6 +323,18 @@ const _tokens = {
     chainId: 137,
     logoURI: 'https://i.imgur.com/IIUglm9.png?1',
   },
+  GUARD: {
+    name: 'Helmet.insure',
+    address: '0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8',
+    symbol: 'GUARD',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://www.guard.insure/insurance/',
+    description:
+      'Crypto-assets trading insurance platform on Polygon. Helmet allows users to create an insurance policy for any crypto asset in the market, protecting DeFi users against the risk of price fluctuations.',
+    logoURI:
+      'https://raw.githubusercontent.com/app-helmet-insure/guard-frontend/bb4e07794e41dce0e62ccc7342625ecc4afab247/src/assets/images/gurad-icon.svg',
+  },
   GFARM2: {
     name: 'Gains V2',
     address: '0x7075cAB6bCCA06613e2d071bd918D1a0241379E2',

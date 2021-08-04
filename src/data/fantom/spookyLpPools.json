@@ -1,5 +1,24 @@
 [
   {
+    "name": "boo-yfi-eth",
+    "address": "0x0845c0bfe75691b1e21b24351aac581a7fb6b7df",
+    "decimals": "1e18",
+    "poolId": 26,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x29b0Da86e484E1C0029B56e817912d778aC0EC69",
+      "oracle": "tokens",
+      "oracleId": "YFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451a17c44f4f05243b6b58c76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-bifi-ftm",
     "address": "0x1656728af3a14e1319F030Dc147fAbf6f627059e",
     "decimals": "1e18",

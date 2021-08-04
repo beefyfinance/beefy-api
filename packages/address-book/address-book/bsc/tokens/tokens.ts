@@ -15,6 +15,96 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  REVV: {
+    name: 'REVV',
+    symbol: 'REVV',
+    address: '0x833F307aC507D47309fD8CDD1F835BeF8D702a93',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://revvmotorsport.com',
+    description:
+      'The REVV token is an ERC-20 utility token that acts as the main currency for a number of game dApps developed by Animoca Brands.',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x833F307aC507D47309fD8CDD1F835BeF8D702a93.svg',
+  },
+  BABYCAKE: {
+    name: 'BABY CAKE',
+    symbol: 'BABYCAKE',
+    address: '0xdB8D30b74bf098aF214e862C90E647bbB1fcC58c',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xdB8D30b74bf098aF214e862C90E647bbB1fcC58c.svg',
+    website: 'https://babycake.app/',
+    description:
+      'Baby Cake is the first CAKE reflection token. Hold $BABYCAKE tokens and get rewarded in CAKE on every transaction.',
+  },
+  BMON: {
+    name: 'Binamon',
+    symbol: 'BMON',
+    address: '0x08ba0619b1e7A582E0BCe5BBE9843322C954C340',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x08ba0619b1e7A582E0BCe5BBE9843322C954C340.svg',
+    website: 'https://binamon.org/',
+    description: 'A complete metaverse of digital monsters inspired by Axie Infinity',
+  },
+  WSG: {
+    name: 'Wall Street Games',
+    symbol: 'WSG',
+    address: '0xA58950F05FeA2277d2608748412bf9F802eA4901',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xA58950F05FeA2277d2608748412bf9F802eA4901.svg',
+    website: 'https://wsg.gg/',
+    description:
+      'The next generation gaming platform with a unique and immersive way to earn rewards',
+  },
+  MCRN: {
+    name: 'MacaronSwap Token',
+    symbol: 'MCRN',
+    address: '0xacb2d47827C9813AE26De80965845D80935afd0B',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xacb2d47827C9813AE26De80965845D80935afd0B.svg',
+    website: 'https://www.macaronswap.finance/',
+    description: 'MacaronSwap is a Decentralized Exchange AMM and Farm Staking platform',
+  },
+  METAHERO: {
+    name: 'Metahero',
+    symbol: 'HERO',
+    address: '0xD40bEDb44C081D2935eebA6eF5a3c8A31A1bBE13',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xD40bEDb44C081D2935eebA6eF5a3c8A31A1bBE13.svg',
+    website: 'https://metahero.io/',
+    description:
+      "Deflationary token with Smart Staking, Burn and Auto Liquidity used to transact in Metahero's ecosystem for real world utility",
+  },
+  DEP: {
+    name: 'DEAPCOIN',
+    symbol: 'DEP',
+    address: '0xcaF5191fc480F43e4DF80106c7695ECA56E48B18',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://dea.sg/',
+    description:
+      'DEAPCOIN is a platform that will create a new economy and culture in the PlayMining gaming field where digital assets will be distributed in a new age infrastructure that compensates users by using blockchain.',
+    logoURI: 'https://pbs.twimg.com/profile_images/1258627009296531456/qGAevdn7_400x400.png',
+  },
+  SISTA: {
+    name: 'srnArtGallery Tokenized Arts',
+    symbol: 'SISTA',
+    address: '0xCA6d25C10dad43ae8Be0bc2af4D3CD1114583C08',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/SISTA.svg',
+  },
   TAPE: {
     name: 'Ape Tooks',
     symbol: 'TAPE',
