@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  GUARD: {
+    name: 'Guardian',
+    symbol: 'GUARD',
+    address: '0xF606bd19b1E61574ED625d9ea96C841D4E247A32',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.wolfdencrypto.com',
+    description:
+      'The first decentralized token designed specifically to earn you passive income by unlocking high yield staking and farming opportunities on multiple platforms across the BSC Network',
+    logoURI: 'https://apeswap.finance/images/tokens/GUARD.png',
+  },
   POTS: {
     name: 'Moonpot',
     symbol: 'POTS',
