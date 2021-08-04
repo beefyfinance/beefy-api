@@ -1,5 +1,24 @@
 [
   {
+    "name": "banana-pots-bnb",
+    "address": "0xaa3FCBA2cf7c5f8c8f785A7180F5063144fE53c6",
+    "decimals": "1e18",
+    "poolId": 101,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3Fcca8648651E5b974DD6d3e50F61567779772A8",
+      "oracle": "tokens",
+      "oracleId": "POTS",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-tape-bnb",
     "address": "0x756d4406169273d99aAc8366cf5eAf7865d6a9b9",
     "decimals": "1e18",

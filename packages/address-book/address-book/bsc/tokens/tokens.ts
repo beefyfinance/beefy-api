@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  POTS: {
+    name: 'Moonpot',
+    symbol: 'POTS',
+    address: '0x3Fcca8648651E5b974DD6d3e50F61567779772A8',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://moonpot.com/',
+    description: 'The win-win lottery on BSC where every ticket earns you interest.',
+    logoURI:
+      'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0x3Fcca8648651E5b974DD6d3e50F61567779772A8/logo.png',
+  },
   REVV: {
     name: 'REVV',
     symbol: 'REVV',
