@@ -5,6 +5,7 @@ export const etherscanApiUrlMap = {
   },
   polygon: {
     url: 'https://api.polygonscan.com',
+    apiToken: 'AXIPYQNDK2M98DMKSRMZEJ78PIJSBA9K3V',
   },
   fantom: {
     url: 'https://api.ftmscan.com',
