@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  HONEY: {
+    name: 'HoneyFarm',
+    symbol: 'HONEY',
+    address: '0xFa363022816aBf82f18a9C2809dCd2BB393F6AC5',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://honeyfarm.finance',
+    description:
+      'A new type of layered delegated yield farming project with deflationary tokenomics',
+    logoURI: 'https://honeyfarm.finance/images/polyhoney/token.png',
+  },
   GUARD: {
     name: 'Guardian',
     symbol: 'GUARD',
