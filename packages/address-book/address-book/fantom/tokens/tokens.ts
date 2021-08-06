@@ -506,6 +506,27 @@ const _tokens = {
       "SpookySwap is an automated market-making (AMM) decentralized exchange (DEX) for the Fantom Opera network. Different from other DEXs, we're invested in building a strong foundation with our BOO token as a governance token, diverse farms, grants to encourage a healthy ecology of other Fantom projects, and user-centered service.",
     logoURI: 'https://assets.spookyswap.finance/tokens/BOO.png',
   },
+  SCREAM: {
+    name: 'Scream Finance',
+    symbol: 'SCREAM',
+    address: '0xe0654C8e6fd4D733349ac7E09f6f23DA256bF475',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://scream.sh',
+    description:
+      'SCREAM is a highly-scalable decentralised lending protocol built and powered by the Fantom Blockchain.',
+    logoURI: 'https://scream.sh/img/scream-multi.png',
+  },
+  KEK: {
+    name: 'KEK',
+    symbol: 'KEK',
+    address: '0x627524d78B4fC840C887ffeC90563c7A42b671fD',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://kek.tools/',
+    description: 'A token tracker on the fantom network',
+    logoURI: 'https://scream.sh/img/scream-multi.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
