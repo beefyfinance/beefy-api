@@ -23,7 +23,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://dragonary.com/',
     description:
-      'The CYT token is used as a currency within Coinary gaming multiverse, Dragonary included.',
+      'CYT is used as the currency for the game Dragonary and throughout the Coinary gaming multiverse.',
     logoURI:
       'https://gblobscdn.gitbook.com/spaces%2F-Mdx-7pkiD2Xoca5jkXV%2Favatar-1626481398232.png?alt=media',
   },
