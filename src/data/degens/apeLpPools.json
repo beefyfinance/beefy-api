@@ -1,5 +1,24 @@
 [
   {
+    "name": "banana-cyt-bnb",
+    "address": "0x5a55Fce6F6aCB2B1b20514964301Db4f37028C81",
+    "decimals": "1e18",
+    "poolId": 104,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9025e25Bb6cF39f8c926A704039D2DD51088063",
+      "oracle": "tokens",
+      "oracleId": "CYT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-land-bnb",
     "address": "0xB15f34082Baa4E3515A49E05D4d1D40cE933da0b",
     "decimals": "1e18",

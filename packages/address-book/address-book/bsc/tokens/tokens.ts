@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  CYT: {
+    name: 'Coinary Token',
+    symbol: 'CYT',
+    address: '0xd9025e25Bb6cF39f8c926A704039D2DD51088063',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://dragonary.com/',
+    description:
+      'The CYT token is used as a currency within Coinary gaming multiverse, Dragonary included.',
+    logoURI:
+      'https://gblobscdn.gitbook.com/spaces%2F-Mdx-7pkiD2Xoca5jkXV%2Favatar-1626481398232.png?alt=media',
+  },
   LAND: {
     name: 'Landshare Token',
     symbol: 'LAND',
