@@ -1411,6 +1411,18 @@ const _tokens = {
       'Luna directly benefits from the economic growth of the Terra economy, and it suffers from contractions of the Terra coin',
     logoURI: 'https://etherscan.io/token/images/terra-luna_32.png',
   },
+  SOL: {
+    name: 'Solana',
+    symbol: 'SOL',
+    address: '0x7DfF46370e9eA5f0Bad3C4E29711aD50062EA7A4',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://solana.com/',
+    description:
+      'Solana is a high-performance blockchain supporting builders around the world creating crypto apps that scale today.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/4128/large/coinmarketcap-solana-200.png?1616489452',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
