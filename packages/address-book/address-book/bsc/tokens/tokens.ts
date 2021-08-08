@@ -309,6 +309,8 @@ const _tokens = {
     address: '0x6bfF4Fb161347ad7de4A625AE5aa3A1CA7077819',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.adex.network/',
+    description: 'ADX is the native utility token that is used for incentivizing validator uptime and ensuring the smooth running of all advertising campaigns on the AdEx platform.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x6bfF4Fb161347ad7de4A625AE5aa3A1CA7077819.svg',
   },
@@ -318,6 +320,8 @@ const _tokens = {
     address: '0x5A3010d4d8D3B5fB49f8B6E57FB9E48063f16700',
     chainId: 56,
     decimals: 18,
+    website: 'https://bscpad.com/',
+    description: 'BSCPAD aims to become the next evolution of blockchain launchpads solving the fundamental flaws that plague existing launchpads. This platform benefits all holders of the token and allows for fair launches giving traders of all sizes the opportunity to invest in the best upcoming Binance Smart Chain projects.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x5A3010d4d8D3B5fB49f8B6E57FB9E48063f16700.svg',
   },
@@ -327,6 +331,8 @@ const _tokens = {
     address: '0x95a1199EBA84ac5f19546519e287d43D2F0E1b41',
     chainId: 56,
     decimals: 18,
+    website: 'https://rabbitfinance.io/',
+    description: 'Rabbit Finance is a cross-chain leveraged lending protocol.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x95a1199EBA84ac5f19546519e287d43D2F0E1b41.svg',
   },
@@ -336,6 +342,8 @@ const _tokens = {
     address: '0xa9c41A46a6B3531d28d5c32F6633dd2fF05dFB90',
     chainId: 56,
     decimals: 18,
+    website: 'https://wault.finance/',
+    description: 'Wault Finance is a decentralized finance hub that connects all of the primary DeFi use-cases within one simple ecosystem, on the Binance Smart Chain.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xa9c41A46a6B3531d28d5c32F6633dd2fF05dFB90.svg',
   },
@@ -345,6 +353,8 @@ const _tokens = {
     address: '0xB64E638E60D154B43f660a6BF8fD8a3b249a6a21',
     chainId: 56,
     decimals: 18,
+    website: 'https://wault.finance/',
+    description: 'Wault Finance is a decentralized finance hub that connects all of the primary DeFi use-cases within one simple ecosystem, on the Binance Smart Chain.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xB64E638E60D154B43f660a6BF8fD8a3b249a6a21.svg',
   },
