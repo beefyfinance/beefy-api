@@ -167,6 +167,8 @@ const _tokens = {
     address: '0xbD83010eB60F12112908774998F65761cf9f6f9a',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.mogulproductions.com/',
+    description: 'Mogul is a decentralized film financing platform that brings creators, fans, and film financiers together; allowing everyone to play a part in the next big blockbuster',
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/STARS.svg',
   },
