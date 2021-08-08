@@ -245,6 +245,8 @@ const _tokens = {
     address: '0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6',
     chainId: 56,
     decimals: 18,
+    website: 'https://tranchess.com/',
+    description: 'Tranchess is a tokenized asset management and derivatives trading protocol, which is inspired by tranche funds that cater to different class of investors with varying risk appetites.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6.svg',
   },
@@ -254,6 +256,8 @@ const _tokens = {
     address: '0xe898EDc43920F357A93083F1d4460437dE6dAeC2',
     chainId: 56,
     decimals: 18,
+    website: 'https://titanswap.org/',
+    description: 'TITAN is a blockchain based decentralized financial center that provides optimal liquidity solutions for different digital asset category by adaptive bonding curve. It not only provides a user-centered decentralized exchange, but also it is an aggregated liquidity pool that supports order smart routing.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xe898EDc43920F357A93083F1d4460437dE6dAeC2.svg',
   },
@@ -263,6 +267,8 @@ const _tokens = {
     address: '0x2eD9a5C8C13b93955103B9a7C167B67Ef4d568a3',
     chainId: 56,
     decimals: 18,
+    website: 'https://mask.io/',
+    description: 'Mask Network is a protocol that allows its users to send encrypted messages over Twitter and Facebook. It essentially acts as a bridge between the internet and a decentralized network running on top',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x2eD9a5C8C13b93955103B9a7C167B67Ef4d568a3.svg',
   },
@@ -272,6 +278,8 @@ const _tokens = {
     address: '0x25A528af62e56512A19ce8c3cAB427807c28CC19',
     chainId: 56,
     decimals: 18,
+    website: 'https://formation.fi/',
+    description: 'Formation Fi is a cross-chain decentralized asset management system designed to bring maturity and stability to DeFi by allowing users to quickly create highly diversified portfolios tailored to individual risk preferences.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x25A528af62e56512A19ce8c3cAB427807c28CC19.svg',
   },
@@ -281,6 +289,8 @@ const _tokens = {
     address: '0xeBd49b26169e1b52c04cFd19FCf289405dF55F80',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.orbs.com/',
+    description: 'The Orbs Network is a public blockchain infrastructure designed for businesses looking at trust as a competitive strategy.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xeBd49b26169e1b52c04cFd19FCf289405dF55F80.svg',
   },
