@@ -178,6 +178,8 @@ const _tokens = {
     address: '0xB0e1fc65C1a741b4662B813eB787d369b8614Af1',
     chainId: 56,
     decimals: 18,
+    website: 'https://impossible.finance/',
+    description: 'Impossible Finance is a multi-chain incubator, launchpad, and swap platform which offers a robust product-first ecosystem that supports top-tier blockchain projects to targeted user audiences.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xB0e1fc65C1a741b4662B813eB787d369b8614Af1.svg',
   },
@@ -187,6 +189,8 @@ const _tokens = {
     address: '0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.cryptoblades.io/',
+    description: 'CryptoBlades is a NFT crafting game where players employ powerful weapons to defeat opponents and collect SKILL tokens, which can be used for upgrades and to level up characters.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab.svg',
   },
@@ -196,6 +200,8 @@ const _tokens = {
     address: '0x1633b7157e7638C4d6593436111Bf125Ee74703F',
     chainId: 56,
     decimals: 18,
+    website: 'https://splinterlands.com/',
+    description: 'Splinterlands is a digital, collectible card game where you build up a collection of cards, which all have various different stats and abilities, and use them to battle other players in skill-based matches.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x1633b7157e7638C4d6593436111Bf125Ee74703F.svg',
   },
