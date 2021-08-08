@@ -1,5 +1,24 @@
 [
   {
+    "name": "banana-land-bnb",
+    "address": "0xB15f34082Baa4E3515A49E05D4d1D40cE933da0b",
+    "decimals": "1e18",
+    "poolId": 100,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9D986A3f147212327Dd658F712d5264a73a1fdB0",
+      "oracle": "tokens",
+      "oracleId": "LAND",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-guard-bnb",
     "address": "0xDd2B5E024942F9a83255F41144db5648b71f01c4",
     "decimals": "1e18",

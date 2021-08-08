@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  LAND: {
+    name: 'Landshare Token',
+    symbol: 'LAND',
+    address: '0x9D986A3f147212327Dd658F712d5264a73a1fdB0',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://landshare.io/',
+    description:
+      'Bringing Real Estate to the Blockchain. Landshare offers a hassle-free alternative to traditional real estate investments.',
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/LAND.svg',
+  },
   HONEY: {
     name: 'HoneyFarm',
     symbol: 'HONEY',
