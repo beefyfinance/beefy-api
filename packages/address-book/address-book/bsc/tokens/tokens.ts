@@ -300,6 +300,8 @@ const _tokens = {
     address: '0x758FB037A375F17c7e195CC634D77dA4F554255B',
     chainId: 56,
     decimals: 18,
+    website: 'https://dvision.network/',
+    description: 'Dvision Network is essentially a blockchain-based VR content ecosystem, which also powers the NFT marketplace within virtual reality. Dvision Network presents a new virtual reality world, where humanity can lead an affluent life, at the very center of the ICT based fourth industrial revolution.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x758FB037A375F17c7e195CC634D77dA4F554255B.svg',
   },
@@ -364,6 +366,8 @@ const _tokens = {
     address: '0x9Fdc3ae5c814b79dcA2556564047C5e7e5449C19',
     chainId: 56,
     decimals: 18,
+    website: 'https://decentral.games/',
+    description: 'Decentral.games is a community-owned metaverse casino ecosystem powered by $DG where players earn $DG for playing games.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x9Fdc3ae5c814b79dcA2556564047C5e7e5449C19.png',
   },
@@ -373,6 +377,8 @@ const _tokens = {
     address: '0x4691937a7508860F876c9c0a2a617E7d9E945D4B',
     chainId: 56,
     decimals: 18,
+    website: 'https://woo.network/',
+    description: 'Wootrade is a layer one trading infrastructure complete with deep liquidity, frontend trading GUI, and the ability to integrate into any exchange, trading desk, wallet, dApp, or other trading-related platform.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4691937a7508860F876c9c0a2a617E7d9E945D4B.png',
   },
@@ -391,6 +397,8 @@ const _tokens = {
     address: '0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256',
     chainId: 56,
     decimals: 18,
+    website: 'https://unmarshal.io/',
+    description: 'Unmarshal is a Multi-chain DeFi network of indexers that provides seamless access to Blockchain data for DeFi applications.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png',
   },
