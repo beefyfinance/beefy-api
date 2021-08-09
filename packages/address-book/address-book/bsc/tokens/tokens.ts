@@ -605,6 +605,8 @@ const _tokens = {
     address: '0x53F39324Fbb209693332B87aA94D5519A1a49aB0',
     chainId: 56,
     decimals: 18,
+    website: 'https://bingocash.app/',
+    description: 'Bingo Shares loosely represent the value of the Bingo Cash Finance and trust in its systemic ability to maintain BGO to peg.',
     logoURI: 'https://bscscan.com/token/images/bingocash-share_32.png',
   },
   TNDR: {
@@ -613,6 +615,8 @@ const _tokens = {
     address: '0x7Cc46141AB1057b1928de5Ad5Ee78Bb37eFC4868',
     chainId: 56,
     decimals: 18,
+    website: 'https://thunderswap.finance/',
+    description: 'ThunderSwap is an innovative and reliable, next-generation Decentralized Exchange (AMM) and Yield Farm on the Binance Smart Chain (BSC).',
     logoURI: 'https://bscscan.com/token/images/thunderswap_32.png',
   },
   SWIRL: {
@@ -621,6 +625,8 @@ const _tokens = {
     address: '0x52d86850bc8207b520340B7E39cDaF22561b9E56',
     chainId: 56,
     decimals: 18,
+    website: 'https://swirl.cash/',
+    description: 'Swirl Cash is a aecentralized protocol for private transactions on Binance Smart Chain',
     logoURI: 'https://bscscan.com/token/images/swirlcash_32.png',
   },
   HPS: {
@@ -629,6 +635,8 @@ const _tokens = {
     address: '0xeDa21B525Ac789EaB1a08ef2404dd8505FfB973D',
     chainId: 56,
     decimals: 18,
+    website: 'https://billionhappiness.finance/',
+    description: 'Billion Happiness is a blockchain community-based project, with the goal of introducing Blockchain to billions of people through simple needs including clothes or wearables.',
     logoURI: 'https://bscscan.com/token/images/happiness_32.png',
   },
   PMP: {
@@ -637,6 +645,8 @@ const _tokens = {
     address: '0x8d4FBB3AC63bf33851dCE80D63613Df1A515BC00',
     chainId: 56,
     decimals: 18,
+    website: 'https://pumpy.farm/',
+    description: 'Pumpy is an assets management platform and yield farming aggregator running on Binance Smart Chain',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   COM: {
@@ -645,6 +655,8 @@ const _tokens = {
     address: '0x7fa892544D49598460B821De4D99E8c28b1Decaa',
     chainId: 56,
     decimals: 18,
+    website: 'https://complus.exchange/',
+    description: 'Complus Network is a multi-chain exchange protocol for ERC-20 tokens on Polygon-Matic Network, Avalanche, Binance Smart Chain and the Huobi ECO Chain.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   NUTS: {
@@ -653,6 +665,8 @@ const _tokens = {
     address: '0x8893D5fA71389673C5c4b9b3cb4EE1ba71207556',
     chainId: 56,
     decimals: 18,
+    website: 'https://squirrel.finance/',
+    description: 'Squirrel Finance is the first decentralized insurance solution for yield farming on BSC that instantly & automatically compensates users if their funds are locked or stolen.',
     logoURI: 'https://bscscan.com/token/images/squirrel_32.png',
   },
   APE: {
@@ -661,6 +675,8 @@ const _tokens = {
     address: '0xa9eA4b786ee5b7A733c035564Bfd9341A4c9FC1e',
     chainId: 56,
     decimals: 18,
+    website: 'https://apecoin.dev/',
+    description: 'APE is a BEP-20 token celebrating the "ape" crypto meme.',
     logoURI: 'https://bscscan.com/token/images/apecoin_32.png?=v1',
   },
   MFRM: {
@@ -669,6 +685,8 @@ const _tokens = {
     address: '0x206340f3361404910F45cA0893980EF3f9b418ea',
     chainId: 56,
     decimals: 18,
+    website: 'https://memefarm.io/',
+    description: 'MemeFarm is the native token of the MemeFarm platform where collectors and creators are connected through yield farming, NFTs and community governance.',
     logoURI: 'https://bscscan.com/token/images/memefarm_32.png',
   },
   SLME: {
@@ -677,6 +695,8 @@ const _tokens = {
     address: '0x4fCfA6cC8914ab455B5b33Df916d90BFe70b6AB1',
     chainId: 56,
     decimals: 18,
+    website: 'https://slime.finance/',
+    description: 'Slime Finance is an advanced profit-sharing DeFi protocol aiming to go multi-chain.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   JulD: {
@@ -685,6 +705,8 @@ const _tokens = {
     address: '0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea',
     chainId: 56,
     decimals: 18,
+    website: 'https://julswap.com/',
+    description: 'JulSwap offers automated, decentralized exchange of BSC-20 tokens.',
     logoURI: 'https://tokens.julswap.com/images/0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea.png',
   },
   SOUP: {
@@ -693,6 +715,8 @@ const _tokens = {
     address: '0x94F559aE621F1c810F31a6a620Ad7376776fe09E',
     chainId: 56,
     decimals: 18,
+    website: 'https://soups.finance/',
+    description: 'SOUP tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol aims to maintain SOUP peg to 1 Binance (BNB) token in the long run.',
     logoURI: 'https://bscscan.com/token/images/soupfinance_32.png',
   },
   SOUPS: {
@@ -701,6 +725,8 @@ const _tokens = {
     address: '0x69F27E70E820197A6e495219D9aC34C8C6dA7EeE',
     chainId: 56,
     decimals: 18,
+    website: 'https://soups.finance/',
+    description: 'Soup Shares (SOUPS) is the utility token for Soup protocol. Holders of SOUPS tokens can be locked up to claim a pro-rata share of SOUP tokens accumulated in the Boiler contract.',
     logoURI: 'https://bscscan.com/token/images/soupshare_32.png',
   },
   '1INCH': {
@@ -709,6 +735,8 @@ const _tokens = {
     address: '0x111111111117dC0aa78b770fA6A738034120C302',
     chainId: 56,
     decimals: 18,
+    website: 'https://1inch.io/',
+    description: '1inch is a decentralized exchange (DEX) aggregator, connecting several DEXes into one platform to allow its users to find the most efficient swapping routes across all platforms.',
     logoURI: 'https://tokens.1inch.exchange/0x111111111117dc0aa78b770fa6a738034120c302.png',
   },
   STEAM: {
@@ -717,6 +745,8 @@ const _tokens = {
     address: '0x072e3D0D4f14dd82a16B0a33678c6104e9009ED9',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.sponge.finance/',
+    description: 'The Steam token is an alt token that will be emitted by burning $SOAK.',
     logoURI: 'https://bscscan.com/token/images/steam_32.png',
   },
   SALT: {
@@ -725,6 +755,8 @@ const _tokens = {
     address: '0x2849b1aE7E04A3D9Bc288673A92477CF63F28aF4',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.saltswap.finance/',
+    description: 'SALT is the native token of Saltswap.finance yield aggregator.',
     logoURI: 'https://bscscan.com/token/images/saltswap_32.png',
   },
   CROW: {
@@ -733,6 +765,8 @@ const _tokens = {
     address: '0xcc2E12a9b5b75360c6FBf23B584c275D52cDdb0E',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.crowfinance.net/',
+    description: 'CROW is the native token of Crowfinance.net yield aggregator.',
     logoURI: 'https://bscscan.com/token/images/crowfinance_32.png?=v1',
   },
   RAMEN: {
@@ -741,6 +775,8 @@ const _tokens = {
     address: '0x4F47A0d15c1E53F3d94c069C7D16977c29F9CB6B',
     chainId: 56,
     decimals: 18,
+    website: 'https://ramenswap.finance/',
+    description: 'RamenSwap Finance is a community driven Yield Farming, DeFi Yield Aggregator and DEX Aggregator on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/token/images/ramenswap_32.png',
   },
   BREW: {
@@ -749,6 +785,8 @@ const _tokens = {
     address: '0x790Be81C3cA0e53974bE2688cDb954732C9862e1',
     chainId: 56,
     decimals: 18,
+    website: 'https://cafeswap.finance/',
+    description: 'REW is native Binance Smart Chain token on the cafeswap.finance platform.',
     logoURI: 'https://bscscan.com/token/images/cafeswap_32.png',
   },
   MSC: {
@@ -757,6 +795,8 @@ const _tokens = {
     address: '0x8C784C49097Dcc637b93232e15810D53871992BF',
     chainId: 56,
     decimals: 18,
+    website: 'https://monsterslayer.finance/',
+    description: 'Monster Slayer Cash tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol deterministically expands and contracts the MSC supply to maintain MSC peg to 1 $BUSD token.',
     logoURI: 'https://bscscan.com/token/images/monsterslayer_32.png?=v1',
   },
   BTS: {
