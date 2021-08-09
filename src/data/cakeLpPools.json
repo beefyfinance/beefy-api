@@ -1,5 +1,24 @@
 [
   {
+    "name": "cakev2-pots-busd",
+    "address": "0xF90BAA331Cfd40F094476E752Bf272892170d399",
+    "decimals": "1e18",
+    "poolId": 445,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x3Fcca8648651E5b974DD6d3e50F61567779772A8",
+      "oracle": "tokens",
+      "oracleId": "POTS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-btt-busd",
     "address": "0xdcfbB12DED3FEa12D2A078Bc6324131cD14bF835",
     "decimals": "1e18",
