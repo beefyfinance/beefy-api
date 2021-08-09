@@ -709,7 +709,7 @@ const _tokens = {
   },
   SOL: {
     name: 'Solana',
-    address: '0x898386DD8756779a4ba4f1462891B92dd76b78eF',
+    address: '0x7DfF46370e9eA5f0Bad3C4E29711aD50062EA7A4',
     symbol: 'SOL',
     decimals: 18,
     chainId: 137,
