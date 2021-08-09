@@ -805,6 +805,8 @@ const _tokens = {
     address: '0xc2e1acef50aE55661855E8dcB72adB182A3cC259',
     chainId: 56,
     decimals: 18,
+    website: 'https://boltdollar.finance/',
+    description: 'Bolt Shares, also known as “Bolt True Share” are the governance tokens of the ecosystem. These tokens follow a Seigniorage Shares system that maintains a peg by auctioning coins for shares and shares for coins.',
     logoURI: 'https://bscscan.com/token/images/boltshare_32.png',
   },
   BTD: {
@@ -813,6 +815,8 @@ const _tokens = {
     address: '0xD1102332a213E21faF78B69C03572031F3552c33',
     chainId: 56,
     decimals: 18,
+    website: 'https://boltdollar.finance/',
+    description: 'These tokens are designed to be used as a medium of exchange and are pegged loosely to the value of one BUSD.',
     logoURI: 'https://bscscan.com/token/images/batdollar-btd_32.png',
   },
   KEBAB: {
@@ -821,6 +825,8 @@ const _tokens = {
     address: '0x7979F6C54ebA05E18Ded44C4F986F49a5De551c2',
     chainId: 56,
     decimals: 18,
+    website: 'https://kebabfinance.com/#/',
+    description: 'Kebab Finance is a DEX (Decentralized Exchange), using AMM (Automated Market Maker) technology.',
     logoURI: 'https://bscscan.com/token/images/kebabfinance_32.png',
   },
   SPG: {
@@ -829,6 +835,8 @@ const _tokens = {
     address: '0x3aabCf53A1930A42E18D938C019E83Ebee50a849',
     chainId: 56,
     decimals: 9,
+    website: 'https://www.sponge.finance/',
+    description: 'Sponge is a high passive yield token that absorbs token from other transactions',
     logoURI: 'https://bscscan.com/token/images/sponge_32.png',
   },
   SOAK: {
@@ -837,6 +845,8 @@ const _tokens = {
     address: '0x849233FF1aea15D80EF658B2871664C9Ca994063',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.sponge.finance/',
+    description: 'The Soak token is the main token that will be emitted by Sponge.finance.',
     logoURI: 'https://bscscan.com/token/images/sponge-soak_32.png',
   },
   NYAS: {
@@ -853,6 +863,8 @@ const _tokens = {
     address: '0xAcABD3f9b8F76fFd2724604185Fa5AFA5dF25aC6',
     chainId: 56,
     decimals: 18,
+    website: 'https://monsterslayer.finance/',
+    description: 'Monster Slayer Shares loosely represent the value of the Monster Slayer Cash and trust in its systemic ability to maintain MSC to peg.',
     logoURI: 'https://bscscan.com/token/images/monsterslayer-mss_32.png',
   },
   VAPOR: {
@@ -861,6 +873,8 @@ const _tokens = {
     address: '0x86ac8a05Cc4eEd2BEa32D271dE50e2A3d129b6B6',
     chainId: 56,
     decimals: 9,
+    website: 'https://www.bliquid.io/',
+    description: 'Vapor is a novel protocol that combines the unique mechanisms of several recently successful DeFi projects.',
     logoURI: 'https://tokens.julswap.com/images/0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea.png',
   },
   SBDO: {
@@ -869,6 +883,8 @@ const _tokens = {
     address: '0x0d9319565be7f53CeFE84Ad201Be3f40feAE2740',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.bdollar.fi/',
+    description: 'bDollar tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol deterministically expands and contracts the BDO supply to maintain BDO peg to 1 $BUSD',
     logoURI: 'https://bscscan.com/token/images/bdollar-share_32.png',
   },
   BHC: {
@@ -877,6 +893,8 @@ const _tokens = {
     address: '0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4',
     chainId: 56,
     decimals: 18,
+    website: 'https://billionhappiness.finance/',
+    description: 'Billion Happiness is a blockchain community-based project, with the goal of introducing Blockchain to billions of people through simple needs including clothes or wearables.',
     logoURI: 'https://bscscan.com/token/images/billionhappiness_32.png?v=2',
   },
   GOLD: {
@@ -885,6 +903,8 @@ const _tokens = {
     address: '0x8f4087Cb09E0F378f4278a314C94A636665dE24b',
     chainId: 56,
     decimals: 18,
+    website: 'https://narwhalswap.org/#/swap',
+    description: '$GOLD is the second token introduced by the NAR protocol for this update. You’ll need this token to upgrade your abilities in the near future.',
     logoURI: 'https://bscscan.com/token/images/narwhalswap-gold_32.png',
   },
   CRED: {
@@ -909,6 +929,8 @@ const _tokens = {
     address: '0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.bliquid.io/',
+    description: 'Bliquid is an auto liquidity generating protocol for Binance Smart Chain-',
     logoURI: 'https://bscscan.com/token/images/bliquid_32.png',
   },
   KTN: {
@@ -917,6 +939,8 @@ const _tokens = {
     address: '0xDAe6c2A48BFAA66b43815c5548b10800919c993E',
     chainId: 56,
     decimals: 18,
+    website: 'https://kattana.io/',
+    description: 'Kattana is the native token of Kattana.io trading terminal.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xDAe6c2A48BFAA66b43815c5548b10800919c993E.png',
   },
@@ -926,6 +950,8 @@ const _tokens = {
     address: '0x14016E85a25aeb13065688cAFB43044C2ef86784',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.trueusd.com/',
+    description: 'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x14016e85a25aeb13065688cafb43044c2ef86784.png',
   },
@@ -935,6 +961,8 @@ const _tokens = {
     address: '0x4BA0057f784858a48fe351445C672FF2a3d43515',
     chainId: 56,
     decimals: 18,
+    website: 'https://kalmar.io/',
+    description: 'Kalmar is a decentralized bank powered by DeFi and NFT.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x4BA0057f784858a48fe351445C672FF2a3d43515.png',
   },
@@ -944,6 +972,8 @@ const _tokens = {
     address: '0x5512014efa6Cd57764Fa743756F7a6Ce3358cC83',
     chainId: 56,
     decimals: 18,
+    website: 'https://easyfi.network/',
+    description: 'EasyFi is a multi chain layer 2 money markets with structured lending products to accelerate liquidity deployment at remarkably lowest cost & unimaginable fast speed.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5512014efa6Cd57764Fa743756F7a6Ce3358cC83.png',
   },
@@ -953,6 +983,8 @@ const _tokens = {
     address: '0x5F84ce30DC3cF7909101C69086c50De191895883',
     chainId: 56,
     decimals: 18,
+    website: 'https://venus.io/',
+    description: 'Venus Reward Token is a mechanism created to become an additional mining distribution to suppliers and borrowers of Venus Protocol.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5f84ce30dc3cf7909101c69086c50de191895883.png',
   },
@@ -962,6 +994,8 @@ const _tokens = {
     address: '0xaBaE871B7E3b67aEeC6B46AE9FE1A91660AadAC5',
     chainId: 56,
     decimals: 18,
+    website: 'https://opendao.io/',
+    description: 'The OPEN project is a toolkit to connect the real world to DEFI',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xaBaE871B7E3b67aEeC6B46AE9FE1A91660AadAC5.png',
   },
@@ -971,6 +1005,8 @@ const _tokens = {
     address: '0xf07a32Eb035b786898c00bB1C64d8c6F8E7a46D5',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.bitwellex.com/',
+    description: 'WELL is the native token of the BitWell exchange.',
     logoURI: 'https://bscscan.com/token/images/bitwellex_32.png',
   },
   SNX: {
@@ -979,6 +1015,8 @@ const _tokens = {
     address: '0x9Ac983826058b8a9C7Aa1C9171441191232E8404',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.synthetix.io/',
+    description: 'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets',
     logoURI: 'https://bscscan.com/token/images/snx_32.png',
   },
   BLZ: {
@@ -987,6 +1025,8 @@ const _tokens = {
     address: '0x935a544Bf5816E3A7C13DB2EFe3009Ffda0aCdA2',
     chainId: 56,
     decimals: 18,
+    website: 'https://bluzelle.com/',
+    description: 'Bluzelle is a decentralized storage network for the creator economy.',
     logoURI: 'https://dex.apeswap.finance/images/coins/blz.svg',
   },
   DERI: {
@@ -995,6 +1035,8 @@ const _tokens = {
     address: '0xe60eaf5A997DFAe83739e035b005A33AfdCc6df5',
     chainId: 56,
     decimals: 18,
+    website: 'https://deri.finance/',
+    description: 'DERI Protocol is a decentralized protocol to exchange risk exposures precisely and capital-efficiently.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe60eaf5A997DFAe83739e035b005A33AfdCc6df5.png',
   },
@@ -1004,6 +1046,8 @@ const _tokens = {
     address: '0xf9CeC8d50f6c8ad3Fb6dcCEC577e05aA32B224FE',
     chainId: 56,
     decimals: 6,
+    website: 'https://chromia.com/',
+    description: 'Chromia is a blockchain platform, making it easy for people to build decentralized apps in the real world, for a better world',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xf9CeC8d50f6c8ad3Fb6dcCEC577e05aA32B224FE.png',
   },
@@ -1013,6 +1057,8 @@ const _tokens = {
     address: '0x4a080377f83D669D7bB83B3184a8A5E61B500608',
     chainId: 56,
     decimals: 18,
+    website: 'https://anyswap.exchange/',
+    description: 'Xend Finance is a blockchain-based platform inspired by traditional credit unions. It aims to provide opportunities for those interested in borrowing, investing, saving or lending digital assets.',
     logoURI: 'https://bscscan.com/token/images/xendfinance_32.png',
   },
   CYC: {
@@ -1021,6 +1067,8 @@ const _tokens = {
     address: '0x810EE35443639348aDbbC467b33310d2AB43c168',
     chainId: 56,
     decimals: 18,
+    website: 'https://cyclone.xyz/',
+    description: 'Cyclone is the world first cross-chain, yield enhancement, zkSNARKs-based privacy protocol for all DeFi apps, with the decentralized governance and fair launch.',
     logoURI: 'https://bscscan.com/token/images/cyclone_32.png',
   },
   ZEC: {
@@ -1029,6 +1077,8 @@ const _tokens = {
     address: '0x1Ba42e5193dfA8B03D15dd1B86a3113bbBEF8Eeb',
     chainId: 56,
     decimals: 18,
+    website: 'https://z.cash/',
+    description: 'Zcash is a digital currency - fast and confidential with low fees.',
     logoURI: 'https://dex.apeswap.finance/images/coins/ZEC.svg',
   },
   ETC: {
@@ -1037,6 +1087,8 @@ const _tokens = {
     address: '0x3d6545b08693daE087E957cb1180ee38B9e3c25E',
     chainId: 56,
     decimals: 18,
+    website: 'https://ethereumclassic.org/',
+    description: 'Ethereum Classic is a decentralized computing platform that executes smart contracts. Applications are ran exactly as programmed without the possibility of censorship, downtime, or third-party interference.',
     logoURI: 'https://dex.apeswap.finance/images/coins/ETC.svg',
   },
   COTI: {
@@ -1045,6 +1097,8 @@ const _tokens = {
     address: '0xAdBAF88B39D37Dc68775eD1541F1bf83A5A45feB',
     chainId: 56,
     decimals: 18,
+    website: 'https://coti.io/',
+    description: 'COTI is the first enterprise-grade fintech platform that empowers organizations to build their own payment solution and digitize any currency to save time and money.',
     logoURI: 'https://dex.apeswap.finance/images/coins/coti.svg',
   },
   NEAR: {
@@ -1053,6 +1107,8 @@ const _tokens = {
     address: '0x1Fa4a73a3F0133f0025378af00236f3aBDEE5D63',
     chainId: 56,
     decimals: 18,
+    website: 'https://near.org/',
+    description: 'NEAR is an open source platform that enables creators, communities, and markets to drive a more open, interconnected and consumer-empowered world.',
     logoURI: 'https://dex.apeswap.finance/images/coins/near.svg',
   },
   GRAND: {
@@ -1061,6 +1117,8 @@ const _tokens = {
     address: '0xeE814F5B2bF700D2e843Dc56835D28d095161dd9',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.thegrandbanks.finance/',
+    description: 'GRAND is the native token of The Grand Banks platform.',
     logoURI: 'https://bscscan.com/token/images/grandtoken_32.png',
   },
   SWAMP: {
@@ -1069,6 +1127,8 @@ const _tokens = {
     address: '0xc5A49b4CBe004b6FD55B30Ba1dE6AC360FF9765d',
     chainId: 56,
     decimals: 18,
+    website: 'https://swamp.finance/',
+    description: 'Swampy is the native token of Swamp.finance, a yield farming optimiser on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/token/images/swampfinance_32.png',
   },
   HOTCROSS: {
@@ -1077,6 +1137,8 @@ const _tokens = {
     symbol: 'HOTCROSS',
     decimals: 18,
     chainId: 56,
+    website: 'https://hotcross.com/',
+    description: 'Hot Cross will become an extensive multi-chain and cross-chain tool suite that enables blockchain teams and their communities to thrive.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x4fa7163e153419e0e1064e418dd7a99314ed27b6.png',
   },
@@ -1086,6 +1148,8 @@ const _tokens = {
     symbol: 'RFOX',
     decimals: 18,
     chainId: 56,
+    website: 'https://www.redfoxlabs.io/',
+    description: 'RedFOX Labs is a tech-forward digital venture builder delivering companies & platforms that are secure, scalable, and innovative, bringing the world into a new era of technology and prosperity.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x0a3a21356793b49154fd3bbe91cbc2a16c0457f5.png',
   },
@@ -1095,6 +1159,8 @@ const _tokens = {
     address: '0x9a319b959e33369C5eaA494a770117eE3e585318',
     chainId: 56,
     decimals: 18,
+    website: 'https://hyfi.pro/',
+    description: 'Hyper Finance (HyFi.pro) is a decentralized aggregate mining platform based on the ‌Binance‌ Smart Chain.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x9a319b959e33369C5eaA494a770117eE3e585318.png',
   },
@@ -1104,6 +1170,8 @@ const _tokens = {
     address: '0x4e6415a5727ea08aAE4580057187923aeC331227',
     chainId: 56,
     decimals: 18,
+    website: 'https://app.refinable.com/',
+    description: 'Refinable is the first dedicated NFT marketplace built on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/token/images/refinable_32.png',
   },
   tDOGE: {
@@ -1112,6 +1180,8 @@ const _tokens = {
     address: '0xe550a593d09FBC8DCD557b5C88Cea6946A8b404A',
     chainId: 56,
     decimals: 8,
+    website: 'https://www.btcst.finance/',
+    description: 'τDoge is the second synthetic asset that BTCST stakers can mine. The price of τDoge is pegged 1:1 to that of Dogecoin in accordance with the price pegging mechanism of the Tau Protocol',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe550a593d09fbc8dcd557b5c88cea6946a8b404a.png',
   },
@@ -1121,6 +1191,8 @@ const _tokens = {
     address: '0x658E64FFcF40D240A43D52CA9342140316Ae44fA',
     chainId: 56,
     decimals: 8,
+    website: 'https://oin.finance/',
+    description: 'OIN brings great DeFi functionality, such as stablecoin issuance to blockchain projects through a multi-faceted infrastructure.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x658E64FFcF40D240A43D52CA9342140316Ae44fA.png',
   },
@@ -1130,6 +1202,8 @@ const _tokens = {
     address: '0x04BAf95Fd4C52fd09a56D840bAEe0AB8D7357bf0',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.bigone.com/',
+    description: 'ONE is the native token of the BigONE exchange.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x04BAf95Fd4C52fd09a56D840bAEe0AB8D7357bf0.png',
   },
@@ -1139,6 +1213,8 @@ const _tokens = {
     address: '0x1796ae0b0fa4862485106a0de9b654eFE301D0b2',
     chainId: 56,
     decimals: 18,
+    website: 'https://polychainmonsters.com/',
+    description: 'Polychain Monsters are beautifully animated digital collectibles with varying scarcities. Each Polychain Monster is backed by a truly unique NFT and can be unpacked with $PMON tokens.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x1796ae0b0fa4862485106a0de9b654eFE301D0b2.png',
   },
@@ -1148,6 +1224,8 @@ const _tokens = {
     address: '0x5a16E8cE8cA316407c6E6307095dc9540a8D62B3',
     chainId: 56,
     decimals: 18,
+    website: 'http://www.bitrue.com/',
+    description: 'BTR is the native token of the BiTrue exchange.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5a16E8cE8cA316407c6E6307095dc9540a8D62B3.png',
   },
@@ -1157,6 +1235,8 @@ const _tokens = {
     address: '0xBbEB90cFb6FAFa1F69AA130B7341089AbeEF5811',
     chainId: 56,
     decimals: 18,
+    website: 'https://upbots.com/',
+    description: 'UpBots is an all-in-one platform that brings together the best crypto trading tools and strategies that are generally stand-alone services.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xbbeb90cfb6fafa1f69aa130b7341089abeef5811.png',
   },
@@ -1166,6 +1246,8 @@ const _tokens = {
     address: '0x7e396BfC8a2f84748701167c2d622F041A1D7a17',
     chainId: 56,
     decimals: 8,
+    website: 'https://massnet.org/',
+    description: 'The MASS consensus engine aims to become the basic infrastructure to all blockchain consensus layers.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x7e396bfc8a2f84748701167c2d622f041a1d7a17.png',
   },
@@ -1175,6 +1257,8 @@ const _tokens = {
     address: '0x4437743ac02957068995c48E08465E0EE1769fBE',
     chainId: 56,
     decimals: 18,
+    website: 'https://fortress.loans/',
+    description: 'Fortress is a decentralized marketplace for lenders and borrowers with borderless stablecoins.',
     logoURI: 'https://bscscan.com/token/images/fortress_32.png?v=4',
   },
   DND: {
@@ -1183,6 +1267,8 @@ const _tokens = {
     address: '0x34EA3F7162E6f6Ed16bD171267eC180fD5c848da',
     chainId: 56,
     decimals: 18,
+    website: 'https://diamondhand.fi/',
+    description: 'DiamondHand (DH) is a product for creating decentralized synthetic tokens pegged to cryptocurrencies like BTC, ETH, BNB, ADA, DOT, LINK and others by using the partial-collateralized design concept which was proven to work admirably well with the IRON stablecoin.',
     logoURI: 'https://bscscan.com/token/images/diamond_32.png',
   },
   ZEFI: {
@@ -1191,6 +1277,8 @@ const _tokens = {
     address: '0x0288D3E353fE2299F11eA2c2e1696b4A648eCC07',
     chainId: 56,
     decimals: 18,
+    website: 'https://finance.zcore.network/',
+    description: 'ZCore is a Binance Smart Chain yield farming bundled with an advanced crypto card with integrated burning mechanism.',
     logoURI: 'https://bscscan.com/token/images/zcore-zefi_32.png',
   },
   ICA: {
@@ -1199,6 +1287,8 @@ const _tokens = {
     address: '0x95111f630aC215Eb74599ED42C67E2c2790d69e2',
     chainId: 56,
     decimals: 18,
+    website: 'https://icarus.finance/',
+    description: 'ICA is the Governance token of icarus.finance and will be used to provide holders voting rights in the next direction of the project. This includes voting on what cryptocurrency to actually mine.',
     logoURI: 'https://bscscan.com/token/images/icarus_32.png',
   },
   STEEL: {
@@ -1207,6 +1297,8 @@ const _tokens = {
     address: '0x9001eE054F1692feF3A48330cB543b6FEc6287eb',
     chainId: 56,
     decimals: 18,
+    website: 'https://iron.finance/',
+    description: 'STEEL - Iron Share - is the algorithmic token which accrues seigniorage revenue and excess collateral value.',
     logoURI: 'https://bscscan.com/token/images/ironfinance-share_32.png',
   },
   TYPH: {
@@ -1215,6 +1307,8 @@ const _tokens = {
     address: '0x4090e535F2e251F5F88518998B18b54d26B3b07c',
     chainId: 56,
     decimals: 18,
+    website: 'https://typhoon.network/',
+    description: 'Typhoon enables you to send private transactions between 2 BSC or Polygon wallets',
     logoURI: 'https://bscscan.com/token/images/typhoonnetwork_32.png',
   },
   IRON: {
@@ -1223,6 +1317,8 @@ const _tokens = {
     address: '0x7b65B489fE53fCE1F6548Db886C08aD73111DDd8',
     chainId: 56,
     decimals: 18,
+    website: 'https://iron.finance/',
+    description: 'IRON is the stablecoin token of the iron.finance protocol.',
     logoURI: 'https://bscscan.com/token/images/ironfinance_32.png?=v1',
   },
   KEYFI: {
@@ -1231,6 +1327,8 @@ const _tokens = {
     address: '0x4b6000F9163de2E3f0a01eC37E06e1469DBbcE9d',
     chainId: 56,
     decimals: 18,
+    website: 'https://keyfi.com/',
+    description: 'KeyFi is an all-in-one platform for tracking, swapping, and staking your tokens, and more.',
     logoURI: 'https://dex.apeswap.finance/images/coins/XBTC.svg',
   },
   BXBTC: {
@@ -1239,6 +1337,8 @@ const _tokens = {
     address: '0xab111D5948470Ba73d98D66BBdf2798FBE093546',
     chainId: 56,
     decimals: 9,
+    website: 'https://xbtc.fi/',
+    description: 'xBTC is a new technology that provides a synthetic dominance hedge and synthetic index fund to blockchain assets.',
     logoURI: 'https://dex.apeswap.finance/images/coins/XBTC.svg',
   },
   NAUT: {
@@ -1247,6 +1347,8 @@ const _tokens = {
     address: '0x05B339B0A346bF01f851ddE47a5d485c34FE220c',
     chainId: 56,
     decimals: 8,
+    website: 'https://astronaut.to/',
+    description: 'Astronaut enables projects to raise capital on a decentralized, permission-less and interoperable environment based on the Binance smart chain.',
     logoURI: 'https://dex.apeswap.finance/images/coins/NAUT.png',
   },
   IOTA: {
@@ -1255,6 +1357,8 @@ const _tokens = {
     address: '0xd944f1D1e9d5f9Bb90b62f9D45e447D989580782',
     chainId: 56,
     decimals: 6,
+    website: 'https://www.iota.org/',
+    description: 'IOTA has fundamentally reengineered distributed ledger technology, enabling secure exchange of both value and data, without any fees.',
     logoURI: 'https://dex.apeswap.finance/images/coins/IOTA.png',
   },
   AVAX: {
@@ -1263,6 +1367,8 @@ const _tokens = {
     address: '0x1CE0c2827e2eF14D5C4f29a091d735A204794041',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.avalabs.org/',
+    description: 'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
     logoURI: 'https://dex.apeswap.finance/images/coins/avax.png',
   },
   BANANA: {
@@ -1271,6 +1377,8 @@ const _tokens = {
     address: '0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95',
     chainId: 56,
     decimals: 18,
+    website: 'https://apeswap.finance/',
+    description: 'BANANA is the native token of the Apeswap.finance.',
     logoURI: 'https://dex.apeswap.finance/images/coins/BANANA.svg',
   },
   FTM: {
@@ -1279,6 +1387,8 @@ const _tokens = {
     address: '0xAD29AbB318791D579433D831ed122aFeAf29dcfe',
     chainId: 56,
     decimals: 18,
+    website: 'https://fantom.foundation/',
+    description: 'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
     logoURI: 'https://dex.apeswap.finance/images/coins/FTM.svg',
   },
   AAVE: {
@@ -1287,6 +1397,8 @@ const _tokens = {
     address: '0xfb6115445Bff7b52FeB98650C87f44907E58f802',
     chainId: 56,
     decimals: 18,
+    website: 'https://aave.com/',
+    description: 'Aave is an open source and non-custodial liquidity protocol for earning interest on deposits and borrowing assets.',
     logoURI: 'https://dex.apeswap.finance/images/coins/AAVE.svg',
   },
   MATIC: {
