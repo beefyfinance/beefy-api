@@ -400,6 +400,8 @@ const _tokens = {
     address: '0x4e840AADD28DA189B9906674B4Afcb77C128d9ea',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.hotbit.io/',
+    description: 'Hotbit Token (HTB) is the cryptocurrency project token of Hotbit Platform itself to create an ideal ecology system for digital currency exchange.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4e840AADD28DA189B9906674B4Afcb77C128d9ea.png',
   },
@@ -420,6 +422,8 @@ const _tokens = {
     address: '0xffEecbf8D7267757c2dc3d13D730E97E15BfdF7F',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.boringdao.com/',
+    description: 'BoringDAO deploys a series of decentralized bridges - or tunnels - which allow you to safely move your Bitcoin & other crypto assets between Ethereum & different blockchains to maximize utilization rate of crypto assets in DeFi world.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xffEecbf8D7267757c2dc3d13D730E97E15BfdF7F.png',
   },
@@ -429,6 +433,8 @@ const _tokens = {
     address: '0xaA9E582e5751d703F85912903bacADdFed26484C',
     chainId: 56,
     decimals: 8,
+    website: 'https://hackenfoundation.com/',
+    description: 'Hacken Token (HAI) is a cybersecurity coin underlying the rapidly growing Hacken Foundation. Hacken Foundation is a fully fledged organization that unites cybersecurity products and companies developing secure Web 3.0 infrastructure.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xaA9E582e5751d703F85912903bacADdFed26484C.png',
   },
@@ -438,6 +444,8 @@ const _tokens = {
     address: '0xEe9801669C6138E84bD50dEB500827b776777d28',
     chainId: 56,
     decimals: 18,
+    website: 'https://o3swap.com/',
+    description: 'O3 Swap is a cross-chain aggregation protocol, allowing users to access multi-chain liquidity sources on one platform.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xEe9801669C6138E84bD50dEB500827b776777d28.png',
   },
@@ -447,6 +455,8 @@ const _tokens = {
     address: '0xd15C444F1199Ae72795eba15E8C1db44E47abF62',
     chainId: 56,
     decimals: 18,
+    website: 'https://ten.finance/',
+    description: 'TEN is a yield aggregator / optimizer that simplifies staking and yield farming with the most liquid Binance Smart Chain Liquidity Pools available and provides a robust yield earning environment on the market while adhering to security, sustainability, longevity and simplicity.',
     logoURI: 'https://bscscan.com/token/images/tenfinance_32.png',
   },
   MBOX: {
@@ -455,6 +465,8 @@ const _tokens = {
     address: '0x3203c9E46cA618C8C1cE5dC67e7e9D75f5da2377',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.mobox.io/',
+    description: 'MOBOX Protocol combines the best of yield farming DeFi with Gaming NFTs creating a truly free to play and play to earn ecosystem.',
     logoURI: 'https://bscscan.com/token/images/mobox_32.png',
   },
   ATA: {
@@ -463,6 +475,8 @@ const _tokens = {
     address: '0xA2120b9e674d3fC3875f415A7DF52e382F141225',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.ata.network/',
+    description: 'Automata Network is a decentralized service protocol that provides privacy middleware for dApps across multiple blockchains.',
     logoURI: 'https://bscscan.com/token/images/automata_32.png',
   },
   SHIB: {
@@ -471,6 +485,8 @@ const _tokens = {
     address: '0x2859e4544C4bB03966803b044A93563Bd2D0DD4D',
     chainId: 56,
     decimals: 18,
+    website: 'https://shibatoken.com/',
+    description: 'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
     logoURI: 'https://bscscan.com/token/images/shibatoken_32.png',
   },
   CELR: {
@@ -479,6 +495,8 @@ const _tokens = {
     address: '0x1f9f6a696C6Fd109cD3956F45dC709d2b3902163',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.celer.network/#',
+    description: 'The Celer Network (CELR) is a smartly designed layer-2 scaling solution that provides off-chain transactions handling.',
     logoURI: 'https://bscscan.com/token/images/celernetwork_32.png',
   },
   GARUDA: {
@@ -487,6 +505,8 @@ const _tokens = {
     address: '0x854086dC841e1bfae50Cb615bF41f55BF432a90b',
     chainId: 56,
     decimals: 18,
+    website: 'https://garudaswap.finance/',
+    description: 'GarudaSwap.finance aims to be long live project with low initial supply, and automatic liquidity.',
     logoURI: 'https://bscscan.com/token/images/garudaswap_32.png',
   },
   WINGS: {
@@ -495,6 +515,8 @@ const _tokens = {
     address: '0x0487b824c8261462F88940f97053E65bDb498446',
     chainId: 56,
     decimals: 18,
+    website: 'https://jetswap.finance/',
+    description: 'Jetswap is a decentralized Automated Market Maker (AMM) on Binance Smart Chain with low fees and instant trade execution.',
     logoURI: 'https://bscscan.com/token/images/jetswap_32.png',
   },
   SDUMP: {
@@ -503,6 +525,8 @@ const _tokens = {
     address: '0x13F6751ba11337BC67aBBdAd638a56194ee133B8',
     chainId: 56,
     decimals: 18,
+    website: 'https://dumplingdefi.finance/',
+    description: 'SpaceDumpling token can be used to play various games and farm rewards by providing liquidity on Pancakeswap.',
     logoURI: 'https://bscscan.com/token/images/dumplingdefi2_32.png',
   },
   SAT: {
@@ -511,6 +535,8 @@ const _tokens = {
     address: '0x8fda94079913CB921D065Ed9c004Afb43e1f900e',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.satis.finance/',
+    description: 'SatisFinance is a brand new DeFi project designed by an experienced development team as the 4th generation deflationary yield farm on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   TOFY: {
@@ -519,6 +545,8 @@ const _tokens = {
     address: '0xE1F2d89a6c79b4242F300f880e490A70083E9A1c',
     chainId: 56,
     decimals: 18,
+    website: 'https://safefarms.marshmallowdefi.com/info',
+    description: 'Toffee is the reference token for SAFEFARM within the MarshMallow ecosystem, it is a digital currency received in exchange when you Pool or Farm your Reflection Tokens.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   MASH: {
@@ -527,6 +555,8 @@ const _tokens = {
     address: '0x787732f27D18495494cea3792ed7946BbCFF8db2',
     chainId: 56,
     decimals: 18,
+    website: 'https://marshmallowdefi.com/',
+    description: 'MarshmallowDeFi (MASH) is the next generation of Automated Market Making (AMM) decentralized exchange with a deflationary governance token model.',
     logoURI: 'https://bscscan.com/token/images/marshmellowtoken_32.png?v=4',
   },
   BLZD: {
@@ -535,6 +565,8 @@ const _tokens = {
     address: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.blizzard.money/',
+    description: 'BLZD is the native token of Blizzard.money where users can yield their tokens.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   BITI: {
@@ -543,6 +575,8 @@ const _tokens = {
     address: '0xA25Dab5B75aC0E0738E58E49734295baD43d73F1',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.biti.city/',
+    description: 'Biti is a NFT yield farming game on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   PALM: {
@@ -551,6 +585,8 @@ const _tokens = {
     address: '0x9768E5b2d8e761905BC81Dfc554f9437A46CdCC6',
     chainId: 56,
     decimals: 18,
+    website: 'https://yieldbay.finance/',
+    description: 'PALM is the native token of YieldBay, a Yield Farming project running on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/token/images/yieldbay_32.png',
   },
   BGO: {
@@ -559,6 +595,8 @@ const _tokens = {
     address: '0x579A6277a6c2c63a5b25006F63Bce5DC8D9c25e7',
     chainId: 56,
     decimals: 18,
+    website: 'https://bingocash.app/',
+    description: 'Bingo Cash Finance is the AlgoStable coin protocol built on the Binance Smart Chain ("BSC")  for casino gaming.',
     logoURI: 'https://bscscan.com/token/images/bingocash_32.png',
   },
   sBGO: {
