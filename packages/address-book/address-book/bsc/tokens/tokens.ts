@@ -167,6 +167,8 @@ const _tokens = {
     address: '0xbD83010eB60F12112908774998F65761cf9f6f9a',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.mogulproductions.com/',
+    description: 'Mogul is a decentralized film financing platform that brings creators, fans, and film financiers together; allowing everyone to play a part in the next big blockbuster',
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/STARS.svg',
   },
@@ -176,6 +178,8 @@ const _tokens = {
     address: '0xB0e1fc65C1a741b4662B813eB787d369b8614Af1',
     chainId: 56,
     decimals: 18,
+    website: 'https://impossible.finance/',
+    description: 'Impossible Finance is a multi-chain incubator, launchpad, and swap platform which offers a robust product-first ecosystem that supports top-tier blockchain projects to targeted user audiences.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xB0e1fc65C1a741b4662B813eB787d369b8614Af1.svg',
   },
@@ -185,6 +189,8 @@ const _tokens = {
     address: '0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.cryptoblades.io/',
+    description: 'CryptoBlades is a NFT crafting game where players employ powerful weapons to defeat opponents and collect SKILL tokens, which can be used for upgrades and to level up characters.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab.svg',
   },
@@ -194,6 +200,8 @@ const _tokens = {
     address: '0x1633b7157e7638C4d6593436111Bf125Ee74703F',
     chainId: 56,
     decimals: 18,
+    website: 'https://splinterlands.com/',
+    description: 'Splinterlands is a digital, collectible card game where you build up a collection of cards, which all have various different stats and abilities, and use them to battle other players in skill-based matches.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x1633b7157e7638C4d6593436111Bf125Ee74703F.svg',
   },
@@ -237,6 +245,8 @@ const _tokens = {
     address: '0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6',
     chainId: 56,
     decimals: 18,
+    website: 'https://tranchess.com/',
+    description: 'Tranchess is a tokenized asset management and derivatives trading protocol, which is inspired by tranche funds that cater to different class of investors with varying risk appetites.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6.svg',
   },
@@ -246,6 +256,8 @@ const _tokens = {
     address: '0xe898EDc43920F357A93083F1d4460437dE6dAeC2',
     chainId: 56,
     decimals: 18,
+    website: 'https://titanswap.org/',
+    description: 'TITAN is a blockchain based decentralized financial center that provides optimal liquidity solutions for different digital asset category by adaptive bonding curve. It not only provides a user-centered decentralized exchange, but also it is an aggregated liquidity pool that supports order smart routing.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xe898EDc43920F357A93083F1d4460437dE6dAeC2.svg',
   },
@@ -255,6 +267,8 @@ const _tokens = {
     address: '0x2eD9a5C8C13b93955103B9a7C167B67Ef4d568a3',
     chainId: 56,
     decimals: 18,
+    website: 'https://mask.io/',
+    description: 'Mask Network is a protocol that allows its users to send encrypted messages over Twitter and Facebook. It essentially acts as a bridge between the internet and a decentralized network running on top',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x2eD9a5C8C13b93955103B9a7C167B67Ef4d568a3.svg',
   },
@@ -264,6 +278,8 @@ const _tokens = {
     address: '0x25A528af62e56512A19ce8c3cAB427807c28CC19',
     chainId: 56,
     decimals: 18,
+    website: 'https://formation.fi/',
+    description: 'Formation Fi is a cross-chain decentralized asset management system designed to bring maturity and stability to DeFi by allowing users to quickly create highly diversified portfolios tailored to individual risk preferences.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x25A528af62e56512A19ce8c3cAB427807c28CC19.svg',
   },
@@ -273,6 +289,8 @@ const _tokens = {
     address: '0xeBd49b26169e1b52c04cFd19FCf289405dF55F80',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.orbs.com/',
+    description: 'The Orbs Network is a public blockchain infrastructure designed for businesses looking at trust as a competitive strategy.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xeBd49b26169e1b52c04cFd19FCf289405dF55F80.svg',
   },
@@ -282,6 +300,8 @@ const _tokens = {
     address: '0x758FB037A375F17c7e195CC634D77dA4F554255B',
     chainId: 56,
     decimals: 18,
+    website: 'https://dvision.network/',
+    description: 'Dvision Network is essentially a blockchain-based VR content ecosystem, which also powers the NFT marketplace within virtual reality. Dvision Network presents a new virtual reality world, where humanity can lead an affluent life, at the very center of the ICT based fourth industrial revolution.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x758FB037A375F17c7e195CC634D77dA4F554255B.svg',
   },
@@ -291,6 +311,8 @@ const _tokens = {
     address: '0x6bfF4Fb161347ad7de4A625AE5aa3A1CA7077819',
     chainId: 56,
     decimals: 18,
+    website: 'https://www.adex.network/',
+    description: 'ADX is the native utility token that is used for incentivizing validator uptime and ensuring the smooth running of all advertising campaigns on the AdEx platform.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x6bfF4Fb161347ad7de4A625AE5aa3A1CA7077819.svg',
   },
@@ -300,6 +322,8 @@ const _tokens = {
     address: '0x5A3010d4d8D3B5fB49f8B6E57FB9E48063f16700',
     chainId: 56,
     decimals: 18,
+    website: 'https://bscpad.com/',
+    description: 'BSCPAD aims to become the next evolution of blockchain launchpads solving the fundamental flaws that plague existing launchpads. This platform benefits all holders of the token and allows for fair launches giving traders of all sizes the opportunity to invest in the best upcoming Binance Smart Chain projects.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x5A3010d4d8D3B5fB49f8B6E57FB9E48063f16700.svg',
   },
@@ -309,6 +333,8 @@ const _tokens = {
     address: '0x95a1199EBA84ac5f19546519e287d43D2F0E1b41',
     chainId: 56,
     decimals: 18,
+    website: 'https://rabbitfinance.io/',
+    description: 'Rabbit Finance is a cross-chain leveraged lending protocol.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x95a1199EBA84ac5f19546519e287d43D2F0E1b41.svg',
   },
@@ -318,6 +344,8 @@ const _tokens = {
     address: '0xa9c41A46a6B3531d28d5c32F6633dd2fF05dFB90',
     chainId: 56,
     decimals: 18,
+    website: 'https://wault.finance/',
+    description: 'Wault Finance is a decentralized finance hub that connects all of the primary DeFi use-cases within one simple ecosystem, on the Binance Smart Chain.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xa9c41A46a6B3531d28d5c32F6633dd2fF05dFB90.svg',
   },
@@ -327,6 +355,8 @@ const _tokens = {
     address: '0xB64E638E60D154B43f660a6BF8fD8a3b249a6a21',
     chainId: 56,
     decimals: 18,
+    website: 'https://wault.finance/',
+    description: 'Wault Finance is a decentralized finance hub that connects all of the primary DeFi use-cases within one simple ecosystem, on the Binance Smart Chain.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xB64E638E60D154B43f660a6BF8fD8a3b249a6a21.svg',
   },
@@ -336,6 +366,8 @@ const _tokens = {
     address: '0x9Fdc3ae5c814b79dcA2556564047C5e7e5449C19',
     chainId: 56,
     decimals: 18,
+    website: 'https://decentral.games/',
+    description: 'Decentral.games is a community-owned metaverse casino ecosystem powered by $DG where players earn $DG for playing games.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x9Fdc3ae5c814b79dcA2556564047C5e7e5449C19.png',
   },
@@ -345,6 +377,8 @@ const _tokens = {
     address: '0x4691937a7508860F876c9c0a2a617E7d9E945D4B',
     chainId: 56,
     decimals: 18,
+    website: 'https://woo.network/',
+    description: 'Wootrade is a layer one trading infrastructure complete with deep liquidity, frontend trading GUI, and the ability to integrate into any exchange, trading desk, wallet, dApp, or other trading-related platform.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4691937a7508860F876c9c0a2a617E7d9E945D4B.png',
   },
@@ -363,6 +397,8 @@ const _tokens = {
     address: '0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256',
     chainId: 56,
     decimals: 18,
+    website: 'https://unmarshal.io/',
+    description: 'Unmarshal is a Multi-chain DeFi network of indexers that provides seamless access to Blockchain data for DeFi applications.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png',
   },
