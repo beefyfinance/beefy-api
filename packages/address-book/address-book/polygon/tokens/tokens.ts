@@ -27,6 +27,14 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  SPADE: {
+    name: 'PolygonFarm',
+    symbol: 'SPADE',
+    address: '0xf5EA626334037a2cf0155D49eA6462fDdC6Eff19',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://polygonfarm.finance/images/spade.png',
+  },
   $DG: {
     name: 'decentral.games',
     address: '0x2a93172c8DCCbfBC60a39d56183B7279a2F647b4',

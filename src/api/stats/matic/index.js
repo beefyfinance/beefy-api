@@ -5,9 +5,7 @@ const { getSushiLpApys } = require('./getSushiLpApys');
 const getComethMultiApys = require('./getComethMultiLpApys');
 const getPolyzapApys = require('./getPolyzapApys');
 const getPolygonBifiMaxiApy = require('./getPolygonBifiMaxiApy');
-const getAddyApy = require('./getAddyApy');
 const getCurveApys = require('./getCurveApys');
-const getIronApys = require('./getIronApys');
 const getPolycatApys = require('./getPolycatApys');
 const getWexPolyApys = require('./getWexPolyApys');
 const getJetswapApys = require('./getJetswapApys');
@@ -16,7 +14,6 @@ const getDinoswapApys = require('./getDinoswapApys');
 const { getBoneSwapApys } = require('./getBoneSwapApys');
 const { getPolyQuityLpApys } = require('./getPolyQuityApys');
 const { getApeLpApys } = require('./getApeLpApys');
-const { getPolyyeldApys } = require('./getPolyyeldApys');
 const { getPolypupApys } = require('./getPolypupApys');
 const { get50kLpApys } = require('./get50kLpApys');
 const { getDfynLpApys } = require('./getDfynLpApys');
@@ -28,6 +25,7 @@ const { getTelxchangeApys } = require('./getTelxchangeApys');
 const { getFarmheroSingleApy } = require('./getFarmheroSingleApy');
 const getSwampApys = require('./getSwampApys');
 const getPolyCrackerApys = require('./getPolyCrackerApys');
+const { getPolygonFarmApys } = require('./getPolygonFarmApys');
 
 const getApys = [
   getComethLpApys,
@@ -37,12 +35,9 @@ const getApys = [
   getComethMultiApys,
   getPolyzapApys,
   getPolygonBifiMaxiApy,
-  // getAddyApy,
   getCurveApys,
-  // getIronApys,
   getPolycatApys,
   getWexPolyApys,
-  // getPolyyeldApys,
   getApeLpApys,
   getPolypupApys,
   // getPolyQuityLpApys,
@@ -60,6 +55,7 @@ const getApys = [
   getDinoswapApys,
   getSwampApys,
   getPolyCrackerApys,
+  getPolygonFarmApys,
 ];
 
 const getMaticApys = async () => {
