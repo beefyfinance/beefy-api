@@ -27,6 +27,7 @@ const getSwampApys = require('./getSwampApys');
 const getPolyCrackerApys = require('./getPolyCrackerApys');
 const { getPolygonFarmApys } = require('./getPolygonFarmApys');
 const { getIronLendApys } = require('./getIronLendApys');
+const { getPearzapApys } = require('./getPearzapApys');
 
 const getApys = [
   getComethLpApys,
@@ -58,6 +59,7 @@ const getApys = [
   getPolyCrackerApys,
   getPolygonFarmApys,
   getIronLendApys,
+  getPearzapApys,
 ];
 
 const getMaticApys = async () => {
