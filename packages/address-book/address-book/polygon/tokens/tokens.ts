@@ -27,6 +27,14 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  SPADE: {
+    name: 'PolygonFarm',
+    symbol: 'SPADE',
+    address: '0xf5EA626334037a2cf0155D49eA6462fDdC6Eff19',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://polygonfarm.finance/images/spade.png',
+  },
   $DG: {
     name: 'decentral.games',
     address: '0x2a93172c8DCCbfBC60a39d56183B7279a2F647b4',
@@ -706,6 +714,18 @@ const _tokens = {
     decimals: 8,
     chainId: 137,
     logoURI: 'https://cdn-images-1.medium.com/max/1200/1*mK1oPGsQWh4Nfupg-e0S-g.png',
+  },
+  SOL: {
+    name: 'Solana',
+    address: '0x7DfF46370e9eA5f0Bad3C4E29711aD50062EA7A4',
+    symbol: 'SOL',
+    decimals: 18,
+    chainId: 137,
+    logoURI:
+      'https://assets.coingecko.com/coins/images/4128/large/coinmarketcap-solana-200.png?1616489452',
+    website: 'https://solana.com/',
+    description:
+      'The Solana protocol is designed to facilitate decentralized app (DApp) creation. It aims to improve scalability by introducing a proof-of-history (PoH) consensus combined with the underlying proof-of-stake (PoS) consensus of the blockchain.',
   },
   START: {
     name: 'Starter',

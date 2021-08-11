@@ -34,6 +34,8 @@ async function fetchToken(tokenAddress) {
     chainId: chainId,
     decimals: await tokenContract.decimals(),
     logoURI: `https://pancakeswap.finance/images/tokens/${checksummedTokenAddress}.svg`,
+    website: '',
+    description: '',
   };
   console.log({ [token.symbol]: token }); // Prepare token data for address-book
   return token;

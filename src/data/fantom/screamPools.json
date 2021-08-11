@@ -1,0 +1,56 @@
+[
+  {
+    "name": "scream-usdc",
+    "itoken": "0xE45Ac34E528907d0A0239ab5Db507688070B20bf",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "scream-wbtc",
+    "itoken": "0x4565DC3Ef685E4775cdF920129111DdF43B9d882",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "scream-ftm",
+    "itoken": "0x5AA53f03197E08C4851CAD8C92c7922DA5857E5d",
+    "oracle": "tokens",
+    "oracleId": "WFTM",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "scream-dai",
+    "itoken": "0x8D9AED9882b4953a0c9fa920168fa1FDfA0eBE75",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "scream-eth",
+    "itoken": "0xC772BA6C2c28859B7a0542FAa162a56115dDCE25",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "scream-fusdt",
+    "itoken": "0x02224765BC8D54C21BB51b0951c80315E1c263F9",
+    "oracle": "tokens",
+    "oracleId": "fUSDT",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  }
+]

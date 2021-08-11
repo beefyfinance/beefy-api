@@ -1,13 +1,15 @@
 [
   {
-    "name": "pots-pots-bnb",
-    "address": "0xaa3FCBA2cf7c5f8c8f785A7180F5063144fE53c6",
+    "name": "honeyfarm-honey-bnb",
+    "address": "0x27418bf2E38E613560D2281dB6590f3f6D446259",
     "decimals": "1e18",
+    "poolId": 22,
+    "strat": "0x1716007714547564d29c271c8Df0B95f9c2B6f58",
     "chainId": 56,
     "lp0": {
-      "address": "0x3Fcca8648651E5b974DD6d3e50F61567779772A8",
+      "address": "0xFa363022816aBf82f18a9C2809dCd2BB393F6AC5",
       "oracle": "tokens",
-      "oracleId": "POTS",
+      "oracleId": "HONEY",
       "decimals": "1e18"
     },
     "lp1": {
@@ -18,14 +20,16 @@
     }
   },
   {
-    "name": "pots-pots-busd",
-    "address": "0xF90BAA331Cfd40F094476E752Bf272892170d399",
+    "name": "honeyfarm-honey-busd",
+    "address": "0x2961aa26a1Cb3068E580099045cc79a5b7B9634c",
     "decimals": "1e18",
+    "poolId": 20,
+    "strat": "0x0C96c72d972D23b187D4e647358C2b2Bbd36d0C7",
     "chainId": 56,
     "lp0": {
-      "address": "0x3Fcca8648651E5b974DD6d3e50F61567779772A8",
+      "address": "0xFa363022816aBf82f18a9C2809dCd2BB393F6AC5",
       "oracle": "tokens",
-      "oracleId": "POTS",
+      "oracleId": "HONEY",
       "decimals": "1e18"
     },
     "lp1": {

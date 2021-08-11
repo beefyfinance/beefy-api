@@ -1,5 +1,45 @@
 [
   {
+    "name": "quick-sol-matic",
+    "address": "0x898386DD8756779a4ba4f1462891B92dd76b78eF",
+    "rewardPool": "0x590226869C2A1334394392231Ed6de5F63C9dC98",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7DfF46370e9eA5f0Bad3C4E29711aD50062EA7A4",
+      "oracle": "tokens",
+      "oracleId": "SOL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-uni-eth",
+    "address": "0xF7135272a5584Eb116f5a77425118a8B4A2ddfDb",
+    "rewardPool": "0x9Bb7C0A778676689E86602d905c4013221AcC7C6",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+      "oracle": "tokens",
+      "oracleId": "UNI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-guard-usdc",
     "address": "0xD2EeeEdfcAF1457F7BC9cbA28d5316F73BB83b49",
     "rewardPool": "0x8782772E35e262Ba7f481DDDb015424Fc1aABC62",

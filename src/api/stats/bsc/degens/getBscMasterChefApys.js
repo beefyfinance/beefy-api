@@ -2,6 +2,7 @@ const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { bscWeb3: web3, multicallAddress } = require('../../../../utils/web3');
 
+const MasterChefAbi = require('../../../../abis/MasterChef.json');
 const ERC20 = require('../../../../abis/ERC20.json');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const fetchPrice = require('../../../../utils/fetchPrice');
@@ -115,7 +116,8 @@ const getFarmApys = async params => {
 };
 
 const getMasterChefData = async params => {
-  const masterchefContract = new web3.eth.Contract(params.masterchefAbi, params.masterchef);
+  const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
+  const masterchefContract = new web3.eth.Contract(abi, params.masterchef);
   let multiplier = new BigNumber(1);
   if (params.hasMultiplier) {
     const blockNum = await getBlockNumber(BSC_CHAIN_ID);
@@ -131,14 +133,15 @@ const getMasterChefData = async params => {
 };
 
 const getPoolsData = async params => {
-  const masterchefContract = new web3.eth.Contract(params.masterchefAbi, params.masterchef);
+  const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
+  const masterchefContract = new web3.eth.Contract(abi, params.masterchef);
   const multicall = new MultiCall(web3, multicallAddress(BSC_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
   params.pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20, pool.address);
     balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(params.masterchef),
+      balance: tokenContract.methods.balanceOf(pool.strat ?? params.masterchef),
     });
     allocPointCalls.push({
       allocPoint: masterchefContract.methods.poolInfo(pool.poolId),
@@ -150,6 +153,18 @@ const getPoolsData = async params => {
   const balances = res[0].map(v => new BigNumber(v.balance));
   const allocPoints = res[1].map(v => v.allocPoint['1']);
   return { balances, allocPoints };
+};
+
+const chefAbi = tokenPerBlock => {
+  const cakeAbi = MasterChefAbi;
+  cakeAbi.push({
+    inputs: [],
+    name: tokenPerBlock,
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  });
+  return cakeAbi;
 };
 
 module.exports = getMasterChefApys;

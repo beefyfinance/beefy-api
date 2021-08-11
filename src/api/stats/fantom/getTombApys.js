@@ -2,10 +2,13 @@ const { fantomWeb3: web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
 
 const RewardPool = require('../../../abis/fantom/TombRewardPool.json');
-const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/fantom/tombLpPools.json');
-const { compound } = require('../../../utils/compound');
+const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const { spookyClient } = require('../../../apollo/client');
+import { SPOOKY_LPF } from '../../../constants';
+import getApyBreakdown from '../common/getApyBreakdown';
 
 const rewardPool = '0xcc0a87F7e7c693042a9Cc703661F5060c80ACb43';
 const oracleId = 'TSHARE';
@@ -13,17 +16,14 @@ const oracle = 'tokens';
 const DECIMALS = '1e18';
 
 const getTombApys = async () => {
-  let apys = {};
-
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(rewardPool, pool)));
-  const values = await Promise.all(promises);
+  const farmAprs = await Promise.all(promises);
 
-  for (let item of values) {
-    apys = { ...apys, ...item };
-  }
+  const pairAddresses = pools.map(pool => pool.address);
+  const tradingAprs = await getTradingFeeApr(spookyClient, pairAddresses, SPOOKY_LPF);
 
-  return apys;
+  return getApyBreakdown(pools, tradingAprs, farmAprs, SPOOKY_LPF);
 };
 
 const getPoolApy = async (rewardPool, pool) => {
@@ -32,10 +32,7 @@ const getPoolApy = async (rewardPool, pool) => {
     getTotalLpStakedInUsd(rewardPool, pool, pool.chainId),
   ]);
 
-  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
-  // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-  return { [pool.name]: apy };
+  return yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 };
 
 const getYearlyRewardsInUsd = async (rewardPool, poolId) => {
