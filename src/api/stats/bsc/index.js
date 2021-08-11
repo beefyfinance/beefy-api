@@ -1,6 +1,5 @@
 const get1inchLpApys = require('./1inch/get1inchLpApys');
 const get1inchApy = require('./1inch/get1inchApy');
-const getAlpacaLpApys = require('./alpaca/getAlpacaLpApys');
 const getAlpacaApys = require('./alpaca/getAlpacaApys');
 const getAutoApys = require('./auto/getAutoApys');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
@@ -43,7 +42,6 @@ const { getFarmheroApys } = require('./farmhero/getFarmheroApys');
 const getApys = [
   get1inchLpApys,
   get1inchApy,
-  getAlpacaLpApys,
   getAlpacaApys,
   getAutoApys,
   getBakePoolApy,

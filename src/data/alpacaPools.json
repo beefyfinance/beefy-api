@@ -1,11 +1,11 @@
 [
   {
-    "name": "alpaca-salpaca",
-    "token": "0x6F695Bd5FFD25149176629f8491A5099426Ce7a7",
+    "name": "alpaca-ibalpaca",
+    "token": "0xf1bE8ecC990cBcb90e166b71E368299f0116d421",
     "oracle": "tokens",
     "oracleId": "ALPACA",
     "decimals": "1e18",
-    "poolId": 5
+    "poolId": 11
   },
   {
     "name": "alpaca-ibbnb",
