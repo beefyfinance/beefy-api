@@ -27,6 +27,14 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  PEAR: {
+    name: 'PearZap',
+    symbol: 'PEAR',
+    address: '0xc8bcb58caEf1bE972C0B638B1dD8B0748Fdc8A44',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://assets.coingecko.com/coins/images/17173/small/pear200.png',
+  },
   SPADE: {
     name: 'PolygonFarm',
     symbol: 'SPADE',
