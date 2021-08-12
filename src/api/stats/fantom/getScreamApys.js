@@ -9,7 +9,7 @@ const pools = require('../../../data/fantom/screamPools.json');
 const { BASE_HPY } = require('../../../constants');
 
 const COMPTROLLER = '0x260E596DAbE3AFc463e75B6CC05d8c46aCAcFB09';
-const BLOCKS_PER_YEAR = 10512000;
+const BLOCKS_PER_YEAR = 31536000;
 
 const getScreamApys = async () => {
   let apys = {};
