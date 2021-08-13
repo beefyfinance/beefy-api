@@ -52,7 +52,7 @@
     "lp1": {
       "address": "0xF606bd19b1E61574ED625d9ea96C841D4E247A32",
       "oracle": "tokens",
-      "oracleId": "GUARD",
+      "oracleId": "gGUARD",
       "decimals": "1e18"
     }
   },
