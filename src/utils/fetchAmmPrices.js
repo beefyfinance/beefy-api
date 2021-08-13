@@ -3,7 +3,7 @@ const { ethers } = require('ethers');
 const { MULTICHAIN_RPC } = require('../constants');
 
 const MULTICALLS = {
-  56: '0x0943afe23cb43BD15aC2d58bACa34Eb570BFC278',
+  56: '0xbcf79F67c2d93AD5fd1b919ac4F5613c493ca34F',
   128: '0x6066F766f47aC8dbf6F21aDF2493316A8ACB7e34',
   137: '0xB784bd129a3bA16650Af7BBbcAa4c59D7e60057C',
   250: '0xd9F2Da642FAA1307e4F70a5E3aC31b9bfe920eAF',
