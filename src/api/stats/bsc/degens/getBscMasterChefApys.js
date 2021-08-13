@@ -12,7 +12,6 @@ const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 const { compound } = require('../../../../utils/compound');
 
 const performanceFee = 0.045;
-const shareAfterPerformanceFee = 1 - performanceFee;
 
 const getMasterChefApys = async masterchefParams => {
   let apys = {};
@@ -27,41 +26,35 @@ const getMasterChefApys = async masterchefParams => {
   const farmApys = await getFarmApys(masterchefParams);
 
   masterchefParams.pools.forEach((pool, i, params) => {
+    const hpy = pool.hpy ?? BASE_HPY;
+    const perfFee = pool.perfFee ?? performanceFee;
+    const shareAfterPerfFee = 1 - perfFee;
+
     const simpleApr = farmApys[i];
-    const vaultApr = simpleApr.times(shareAfterPerformanceFee);
+    const vaultApr = simpleApr.times(shareAfterPerfFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterPerformanceFee);
-    const totalApy = getFarmWithTradingFeesApy(
-      simpleApr,
-      tradingApr,
-      BASE_HPY,
-      1,
-      shareAfterPerformanceFee
-    );
-    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+    const vaultApy = compound(simpleApr, hpy, 1, shareAfterPerfFee);
+    const totalApy = getFarmWithTradingFeesApy(simpleApr, tradingApr, hpy, 1, shareAfterPerfFee);
 
     // Create reference for legacy /apy
     const legacyApyValue = { [pool.name]: totalApy };
-    // Add token to Spooky APYs object
     apys = { ...apys, ...legacyApyValue };
 
     // Create reference for breakdown /apy
     const componentValues = {
       [pool.name]: {
         vaultApr: vaultApr.toNumber(),
-        compoundingsPerYear: BASE_HPY,
-        beefyPerformanceFee: performanceFee,
+        compoundingsPerYear: hpy,
+        beefyPerformanceFee: perfFee,
         vaultApy: vaultApy,
         lpFee: params.liquidityProviderFee,
         tradingApr: tradingApr.toNumber(),
         totalApy: totalApy,
       },
     };
-    // Add token to Spooky APYs object
     apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   });
 
-  // Return both objects for later parsing
   return {
     apys,
     apyBreakdowns,
