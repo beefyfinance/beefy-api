@@ -1,11 +1,11 @@
 const { web3Factory } = require('./web3');
 
-const fastestChainBlockTimeInMilliseconds = 3000;
+const updateDelay = 3000000;
 const blockPeriod = 100;
 
 let cache = {};
 const getBlockTime = async chainId => {
-  const cacheKey = Math.floor(Date.now() / fastestChainBlockTimeInMilliseconds);
+  const cacheKey = Math.floor(Date.now() / updateDelay);
 
   if (cache[chainId]?.hasOwnProperty(cacheKey)) {
     return cache[chainId][cacheKey];
@@ -13,13 +13,10 @@ const getBlockTime = async chainId => {
 
   const web3 = web3Factory(chainId);
 
-  const currentBlockNumber = await web3.eth.getBlockNumber();
-  const currentBlock = await web3.eth.getBlock(currentBlockNumber);
+  const currentBlock = await web3.eth.getBlock('latest');
+  const fromBlock = await web3.eth.getBlock(currentBlock.number - blockPeriod);
 
-  const pastBlockNumber = currentBlockNumber - blockPeriod;
-  const pastBlock = await web3.eth.getBlock(pastBlockNumber);
-
-  const blockTimePromise = (currentBlock.timestamp - pastBlock.timestamp) / blockPeriod;
+  const blockTimePromise = (currentBlock.timestamp - fromBlock.timestamp) / blockPeriod;
 
   cache[chainId] = {
     [cacheKey]: blockTimePromise,
