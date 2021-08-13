@@ -1,5 +1,43 @@
 [
   {
+    "name": "banana-cake-bnb",
+    "address": "0x60593Abea55e9Ea9d31c1b6473191cD2475a720D",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "tokens",
+      "oracleId": "CAKE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-btcb-bnb",
+    "address": "0x1E1aFE9D9c5f290d8F6996dDB190bd111908A43D",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-cyt-bnb",
     "address": "0x5a55Fce6F6aCB2B1b20514964301Db4f37028C81",
     "decimals": "1e18",
