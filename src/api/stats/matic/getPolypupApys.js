@@ -16,7 +16,7 @@ const { quickClient } = require('../../../apollo/client');
 const { getEDecimals } = require('../../../utils/getEDecimals');
 
 const getPolypupApys = async () => {
-  const all = getMasterChefApys({
+  const bone = getMasterChefApys({
     masterchef: polypupBone.masterchef,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'BonePerBlock',
@@ -34,7 +34,7 @@ const getPolypupApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  let promises = [all];
+  let promises = [bone];
   const results = await Promise.allSettled(promises);
 
   for (const result of results) {
