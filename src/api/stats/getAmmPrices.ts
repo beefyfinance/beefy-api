@@ -96,6 +96,7 @@ import wexPolyPools from '../../data/matic/wexPolyLpPools.json';
 import icarusV2Pools from '../../data/icarusV2LpPools.json';
 import merlinPools from '../../data/merlinLpPools.json';
 import polypupLpPools from '../../data/matic/polypupLpPools.json';
+import polypupBallLpPools from '../../data/matic/polypupBallLpPools.json';
 import polyyeldQuickLpPools from '../../data/matic/polyyeldQuickLpPools.json';
 import polyyeldSushiLpPools from '../../data/matic/polyyeldSushiLpPools.json';
 import polyyeldApeLpPools from '../../data/matic/polyyeldApeLpPools.json';
@@ -161,6 +162,7 @@ const pools = [
   ...dfynPools,
   ...keeper50pools,
   ...polyQuityPools,
+  ...polypupBallLpPools,
   ...polypupLpPools,
   ...apePolyPools,
   ...polyyeldL2LpPools,
