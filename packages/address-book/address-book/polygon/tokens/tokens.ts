@@ -1427,6 +1427,17 @@ const _tokens = {
       'Luna directly benefits from the economic growth of the Terra economy, and it suffers from contractions of the Terra coin',
     logoURI: 'https://etherscan.io/token/images/terra-luna_32.png',
   },
+  BALL: {
+    name: 'Polypup Ball',
+    symbol: 'BALL',
+    address: '0x883aBe4168705d2e5dA925d28538B7a6AA9d8419',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://ball.polypup.finance/',
+    description:
+      "Ball is PolyPup Finance's 3rd layer, featuring a maximum supply of 94,000 tokens.",
+    logoURI: 'https://ball.polypup.finance/images/egg/9.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
