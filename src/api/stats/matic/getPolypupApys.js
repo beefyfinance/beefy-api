@@ -10,10 +10,11 @@ const {
 
 const { QUICK_LPF } = require('../../../constants');
 const MasterChefAbi = require('../../../abis/matic/PolypupBoneMasterChef.json');
+const BallMasterChefAbi = require('../../../abis/matic/PolypupBallMasterChef.json');
 const bonePools = require('../../../data/matic/polypupLpPools.json');
 const boneSinglePools = require('../../../data/matic/polypupSinglePools.json');
-const ballPools = require('../../../data/matic/polypupLpPools.json');
-const ballSinglePools = require('../../../data/matic/polypupSinglePools.json');
+const ballPools = require('../../../data/matic/polypupBallLpPools.json');
+const ballSinglePools = require('../../../data/matic/polypupBallSinglePools.json');
 const { quickClient } = require('../../../apollo/client');
 const { getEDecimals } = require('../../../utils/getEDecimals');
 
@@ -35,7 +36,7 @@ const getPolypupApys = async () => {
 
   const ball = getMasterChefApys({
     masterchef: polypupBall.masterchef,
-    masterchefAbi: MasterChefAbi,
+    masterchefAbi: BallMasterChefAbi,
     tokenPerBlock: 'BallPerBlock',
     hasMultiplier: false,
     singlePools: ballSinglePools,
