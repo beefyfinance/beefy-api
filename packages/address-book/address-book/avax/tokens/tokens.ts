@@ -45,6 +45,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x60781C2586D68229fde47564546784ab3fACA982/logo.png',
   },
+  AVAX,
   WAVAX: AVAX,
   WNATIVE: AVAX,
   ETH: {

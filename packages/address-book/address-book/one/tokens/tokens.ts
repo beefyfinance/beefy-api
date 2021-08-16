@@ -15,7 +15,9 @@ const ONE = {
 } as const;
 
 const _tokens = {
+  ONE,
   WONE: ONE,
+  WNATIVE: ONE,
   WBTC: {
     chainId: 1666600000,
     address: '0x3095c7557bCb296ccc6e363DE01b760bA031F2d9',

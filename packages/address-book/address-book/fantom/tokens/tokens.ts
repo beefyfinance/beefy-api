@@ -94,6 +94,7 @@ const _tokens = {
       'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage.',
     logoURI: 'https://assets.spookyswap.finance/tokens/TOMB.png',
   },
+  FTM,
   WFTM: FTM,
   WNATIVE: FTM,
   sFTM: {

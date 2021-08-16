@@ -1696,6 +1696,7 @@ const _tokens = {
     description: 'xBLZD is the native token of Blizzard.money where users can yield their tokens.',
     logoURI: 'https://app.beefy.finance/static/media/BLZD.fdf1fc8d.png',
   },
+  BNB,
   WBNB: BNB,
   WNATIVE: BNB,
   BAKE: {

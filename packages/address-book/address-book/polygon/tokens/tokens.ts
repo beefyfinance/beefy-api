@@ -879,6 +879,7 @@ const _tokens = {
       'WISE is an asset-backed cryptocurrency designed to be a highly secure store of value.',
     logoURI: 'https://etherscan.io/token/images/wisetoken_32.png',
   },
+  MATIC,
   WMATIC: MATIC,
   WNATIVE: MATIC,
   WOLF: {

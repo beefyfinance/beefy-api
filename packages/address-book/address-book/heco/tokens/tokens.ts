@@ -11,6 +11,7 @@ const HT = {
 } as const;
 
 const _tokens = {
+  HT,
   WHT: HT,
   WNATIVE: HT,
   ETH: {
