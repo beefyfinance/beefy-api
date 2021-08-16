@@ -27,6 +27,39 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  POOL: {
+    name: 'Pool Together',
+    symbol: 'POOL',
+    address: '0x25788a1a171ec66Da6502f9975a15B609fF54CF6',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://assets.coingecko.com/coins/images/14003/small/PoolTogether.png?1613585632',
+    website: 'https://pooltogether.com/',
+    description:
+      'Pool Together is an open source and decentralized protocol for no-loss prize games',
+  },
+  AVAX: {
+    name: 'Avalanche',
+    symbol: 'AVAX',
+    address: '0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://assets.coingecko.com/coins/images/12559/small/coin-round-red.png?1604021818',
+    website: 'https://www.avax.network/',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+  },
+  HT: {
+    name: 'Huobi Token',
+    symbol: 'HT',
+    address: '0xA731349fa468614c1698fc46ebf06Da6F380239e',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://assets.coingecko.com/coins/images/2822/small/huobi-token-logo.png?1547036992',
+    website: 'https://www.hecochain.com/en-us/',
+    description:
+      'HECO is a decentralized and cost efficient public chain that Ethereum developers can easily get started with and smart contracts are seamlessly compatible.',
+  },
   PEAR: {
     name: 'PearZap',
     symbol: 'PEAR',
