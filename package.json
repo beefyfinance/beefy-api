@@ -14,6 +14,7 @@
     "bsc:pancake:add": "ts-node scripts/add-farm.ts --network bsc --project pancake",
     "bsc:wault:add": "ts-node scripts/add-farm.ts --network bsc --project wault",
     "bsc:mdex:add": "ts-node scripts/add-farm.ts --network bsc --project mdex",
+    "bsc:ape:add": "ts-node scripts/add-farm.ts --network bsc --project ape",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },
   "dependencies": {

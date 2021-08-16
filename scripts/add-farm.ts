@@ -27,6 +27,11 @@ const projects = {
     file: '../src/data/mdexBscLpPools.json',
     masterchef: '0xc48FE252Aa631017dF253578B1405ea399728A50',
   },
+  ape: {
+    prefix: 'banana',
+    file: '../src/data/degens/apeLpPools.json',
+    masterchef: '0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9',
+  },
 };
 
 const args = yargs.options({
