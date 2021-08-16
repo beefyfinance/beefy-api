@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-wmatic-ht",
+    "address": "0x20e28214946B4e0F18B2c1aA7C976dF087695a5d",
+    "rewardPool": "0x58e52a5Bb13c4474a1954CC013B3B70C87ccbC92",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA731349fa468614c1698fc46ebf06Da6F380239e",
+      "oracle": "tokens",
+      "oracleId": "HT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-sol-matic",
     "address": "0x898386DD8756779a4ba4f1462891B92dd76b78eF",
     "rewardPool": "0x590226869C2A1334394392231Ed6de5F63C9dC98",
