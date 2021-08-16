@@ -50,6 +50,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/LAND.svg',
   },
+  BEAR: {
+    name: 'HoneyFarm',
+    symbol: 'BEAR',
+    address: '0xc3EAE9b061Aa0e1B9BD3436080Dc57D2d63FEdc1',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://honeyfarm.finance',
+    description:
+      'A new type of layered delegated yield farming project with deflationary tokenomics',
+    logoURI: 'https://bear.honeyfarm.finance/images/honeybear/token.png',
+  },
   HONEY: {
     name: 'HoneyFarm',
     symbol: 'HONEY',
@@ -191,7 +202,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.mogulproductions.com/',
-    description: 'Mogul is a decentralized film financing platform that brings creators, fans, and film financiers together; allowing everyone to play a part in the next big blockbuster',
+    description:
+      'Mogul is a decentralized film financing platform that brings creators, fans, and film financiers together; allowing everyone to play a part in the next big blockbuster',
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/STARS.svg',
   },
@@ -202,7 +214,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://impossible.finance/',
-    description: 'Impossible Finance is a multi-chain incubator, launchpad, and swap platform which offers a robust product-first ecosystem that supports top-tier blockchain projects to targeted user audiences.',
+    description:
+      'Impossible Finance is a multi-chain incubator, launchpad, and swap platform which offers a robust product-first ecosystem that supports top-tier blockchain projects to targeted user audiences.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xB0e1fc65C1a741b4662B813eB787d369b8614Af1.svg',
   },
@@ -213,7 +226,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.cryptoblades.io/',
-    description: 'CryptoBlades is a NFT crafting game where players employ powerful weapons to defeat opponents and collect SKILL tokens, which can be used for upgrades and to level up characters.',
+    description:
+      'CryptoBlades is a NFT crafting game where players employ powerful weapons to defeat opponents and collect SKILL tokens, which can be used for upgrades and to level up characters.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab.svg',
   },
@@ -224,7 +238,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://splinterlands.com/',
-    description: 'Splinterlands is a digital, collectible card game where you build up a collection of cards, which all have various different stats and abilities, and use them to battle other players in skill-based matches.',
+    description:
+      'Splinterlands is a digital, collectible card game where you build up a collection of cards, which all have various different stats and abilities, and use them to battle other players in skill-based matches.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x1633b7157e7638C4d6593436111Bf125Ee74703F.svg',
   },
@@ -269,7 +284,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://tranchess.com/',
-    description: 'Tranchess is a tokenized asset management and derivatives trading protocol, which is inspired by tranche funds that cater to different class of investors with varying risk appetites.',
+    description:
+      'Tranchess is a tokenized asset management and derivatives trading protocol, which is inspired by tranche funds that cater to different class of investors with varying risk appetites.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6.svg',
   },
@@ -280,7 +296,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://titanswap.org/',
-    description: 'TITAN is a blockchain based decentralized financial center that provides optimal liquidity solutions for different digital asset category by adaptive bonding curve. It not only provides a user-centered decentralized exchange, but also it is an aggregated liquidity pool that supports order smart routing.',
+    description:
+      'TITAN is a blockchain based decentralized financial center that provides optimal liquidity solutions for different digital asset category by adaptive bonding curve. It not only provides a user-centered decentralized exchange, but also it is an aggregated liquidity pool that supports order smart routing.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xe898EDc43920F357A93083F1d4460437dE6dAeC2.svg',
   },
@@ -291,7 +308,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://mask.io/',
-    description: 'Mask Network is a protocol that allows its users to send encrypted messages over Twitter and Facebook. It essentially acts as a bridge between the internet and a decentralized network running on top',
+    description:
+      'Mask Network is a protocol that allows its users to send encrypted messages over Twitter and Facebook. It essentially acts as a bridge between the internet and a decentralized network running on top',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x2eD9a5C8C13b93955103B9a7C167B67Ef4d568a3.svg',
   },
@@ -302,7 +320,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://formation.fi/',
-    description: 'Formation Fi is a cross-chain decentralized asset management system designed to bring maturity and stability to DeFi by allowing users to quickly create highly diversified portfolios tailored to individual risk preferences.',
+    description:
+      'Formation Fi is a cross-chain decentralized asset management system designed to bring maturity and stability to DeFi by allowing users to quickly create highly diversified portfolios tailored to individual risk preferences.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x25A528af62e56512A19ce8c3cAB427807c28CC19.svg',
   },
@@ -313,7 +332,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.orbs.com/',
-    description: 'The Orbs Network is a public blockchain infrastructure designed for businesses looking at trust as a competitive strategy.',
+    description:
+      'The Orbs Network is a public blockchain infrastructure designed for businesses looking at trust as a competitive strategy.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xeBd49b26169e1b52c04cFd19FCf289405dF55F80.svg',
   },
@@ -324,7 +344,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://dvision.network/',
-    description: 'Dvision Network is essentially a blockchain-based VR content ecosystem, which also powers the NFT marketplace within virtual reality. Dvision Network presents a new virtual reality world, where humanity can lead an affluent life, at the very center of the ICT based fourth industrial revolution.',
+    description:
+      'Dvision Network is essentially a blockchain-based VR content ecosystem, which also powers the NFT marketplace within virtual reality. Dvision Network presents a new virtual reality world, where humanity can lead an affluent life, at the very center of the ICT based fourth industrial revolution.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x758FB037A375F17c7e195CC634D77dA4F554255B.svg',
   },
@@ -335,7 +356,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.adex.network/',
-    description: 'ADX is the native utility token that is used for incentivizing validator uptime and ensuring the smooth running of all advertising campaigns on the AdEx platform.',
+    description:
+      'ADX is the native utility token that is used for incentivizing validator uptime and ensuring the smooth running of all advertising campaigns on the AdEx platform.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x6bfF4Fb161347ad7de4A625AE5aa3A1CA7077819.svg',
   },
@@ -346,7 +368,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bscpad.com/',
-    description: 'BSCPAD aims to become the next evolution of blockchain launchpads solving the fundamental flaws that plague existing launchpads. This platform benefits all holders of the token and allows for fair launches giving traders of all sizes the opportunity to invest in the best upcoming Binance Smart Chain projects.',
+    description:
+      'BSCPAD aims to become the next evolution of blockchain launchpads solving the fundamental flaws that plague existing launchpads. This platform benefits all holders of the token and allows for fair launches giving traders of all sizes the opportunity to invest in the best upcoming Binance Smart Chain projects.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x5A3010d4d8D3B5fB49f8B6E57FB9E48063f16700.svg',
   },
@@ -368,7 +391,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://wault.finance/',
-    description: 'Wault Finance is a decentralized finance hub that connects all of the primary DeFi use-cases within one simple ecosystem, on the Binance Smart Chain.',
+    description:
+      'Wault Finance is a decentralized finance hub that connects all of the primary DeFi use-cases within one simple ecosystem, on the Binance Smart Chain.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xa9c41A46a6B3531d28d5c32F6633dd2fF05dFB90.svg',
   },
@@ -379,7 +403,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://wault.finance/',
-    description: 'Wault Finance is a decentralized finance hub that connects all of the primary DeFi use-cases within one simple ecosystem, on the Binance Smart Chain.',
+    description:
+      'Wault Finance is a decentralized finance hub that connects all of the primary DeFi use-cases within one simple ecosystem, on the Binance Smart Chain.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xB64E638E60D154B43f660a6BF8fD8a3b249a6a21.svg',
   },
@@ -390,7 +415,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://decentral.games/',
-    description: 'Decentral.games is a community-owned metaverse casino ecosystem powered by $DG where players earn $DG for playing games.',
+    description:
+      'Decentral.games is a community-owned metaverse casino ecosystem powered by $DG where players earn $DG for playing games.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x9Fdc3ae5c814b79dcA2556564047C5e7e5449C19.png',
   },
@@ -401,7 +427,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://woo.network/',
-    description: 'Wootrade is a layer one trading infrastructure complete with deep liquidity, frontend trading GUI, and the ability to integrate into any exchange, trading desk, wallet, dApp, or other trading-related platform.',
+    description:
+      'Wootrade is a layer one trading infrastructure complete with deep liquidity, frontend trading GUI, and the ability to integrate into any exchange, trading desk, wallet, dApp, or other trading-related platform.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4691937a7508860F876c9c0a2a617E7d9E945D4B.png',
   },
@@ -412,7 +439,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.hotbit.io/',
-    description: 'Hotbit Token (HTB) is the cryptocurrency project token of Hotbit Platform itself to create an ideal ecology system for digital currency exchange.',
+    description:
+      'Hotbit Token (HTB) is the cryptocurrency project token of Hotbit Platform itself to create an ideal ecology system for digital currency exchange.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4e840AADD28DA189B9906674B4Afcb77C128d9ea.png',
   },
@@ -423,7 +451,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://unmarshal.io/',
-    description: 'Unmarshal is a Multi-chain DeFi network of indexers that provides seamless access to Blockchain data for DeFi applications.',
+    description:
+      'Unmarshal is a Multi-chain DeFi network of indexers that provides seamless access to Blockchain data for DeFi applications.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png',
   },
@@ -434,7 +463,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.boringdao.com/',
-    description: 'BoringDAO deploys a series of decentralized bridges - or tunnels - which allow you to safely move your Bitcoin & other crypto assets between Ethereum & different blockchains to maximize utilization rate of crypto assets in DeFi world.',
+    description:
+      'BoringDAO deploys a series of decentralized bridges - or tunnels - which allow you to safely move your Bitcoin & other crypto assets between Ethereum & different blockchains to maximize utilization rate of crypto assets in DeFi world.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xffEecbf8D7267757c2dc3d13D730E97E15BfdF7F.png',
   },
@@ -445,7 +475,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://hackenfoundation.com/',
-    description: 'Hacken Token (HAI) is a cybersecurity coin underlying the rapidly growing Hacken Foundation. Hacken Foundation is a fully fledged organization that unites cybersecurity products and companies developing secure Web 3.0 infrastructure.',
+    description:
+      'Hacken Token (HAI) is a cybersecurity coin underlying the rapidly growing Hacken Foundation. Hacken Foundation is a fully fledged organization that unites cybersecurity products and companies developing secure Web 3.0 infrastructure.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xaA9E582e5751d703F85912903bacADdFed26484C.png',
   },
@@ -456,7 +487,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://o3swap.com/',
-    description: 'O3 Swap is a cross-chain aggregation protocol, allowing users to access multi-chain liquidity sources on one platform.',
+    description:
+      'O3 Swap is a cross-chain aggregation protocol, allowing users to access multi-chain liquidity sources on one platform.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xEe9801669C6138E84bD50dEB500827b776777d28.png',
   },
@@ -467,7 +499,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://ten.finance/',
-    description: 'TEN is a yield aggregator / optimizer that simplifies staking and yield farming with the most liquid Binance Smart Chain Liquidity Pools available and provides a robust yield earning environment on the market while adhering to security, sustainability, longevity and simplicity.',
+    description:
+      'TEN is a yield aggregator / optimizer that simplifies staking and yield farming with the most liquid Binance Smart Chain Liquidity Pools available and provides a robust yield earning environment on the market while adhering to security, sustainability, longevity and simplicity.',
     logoURI: 'https://bscscan.com/token/images/tenfinance_32.png',
   },
   MBOX: {
@@ -477,7 +510,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.mobox.io/',
-    description: 'MOBOX Protocol combines the best of yield farming DeFi with Gaming NFTs creating a truly free to play and play to earn ecosystem.',
+    description:
+      'MOBOX Protocol combines the best of yield farming DeFi with Gaming NFTs creating a truly free to play and play to earn ecosystem.',
     logoURI: 'https://bscscan.com/token/images/mobox_32.png',
   },
   ATA: {
@@ -487,7 +521,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.ata.network/',
-    description: 'Automata Network is a decentralized service protocol that provides privacy middleware for dApps across multiple blockchains.',
+    description:
+      'Automata Network is a decentralized service protocol that provides privacy middleware for dApps across multiple blockchains.',
     logoURI: 'https://bscscan.com/token/images/automata_32.png',
   },
   SHIB: {
@@ -497,7 +532,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://shibatoken.com/',
-    description: 'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
+    description:
+      'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
     logoURI: 'https://bscscan.com/token/images/shibatoken_32.png',
   },
   CELR: {
@@ -507,7 +543,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.celer.network/#',
-    description: 'The Celer Network (CELR) is a smartly designed layer-2 scaling solution that provides off-chain transactions handling.',
+    description:
+      'The Celer Network (CELR) is a smartly designed layer-2 scaling solution that provides off-chain transactions handling.',
     logoURI: 'https://bscscan.com/token/images/celernetwork_32.png',
   },
   GARUDA: {
@@ -517,7 +554,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://garudaswap.finance/',
-    description: 'GarudaSwap.finance aims to be long live project with low initial supply, and automatic liquidity.',
+    description:
+      'GarudaSwap.finance aims to be long live project with low initial supply, and automatic liquidity.',
     logoURI: 'https://bscscan.com/token/images/garudaswap_32.png',
   },
   WINGS: {
@@ -527,7 +565,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://jetswap.finance/',
-    description: 'Jetswap is a decentralized Automated Market Maker (AMM) on Binance Smart Chain with low fees and instant trade execution.',
+    description:
+      'Jetswap is a decentralized Automated Market Maker (AMM) on Binance Smart Chain with low fees and instant trade execution.',
     logoURI: 'https://bscscan.com/token/images/jetswap_32.png',
   },
   SDUMP: {
@@ -537,7 +576,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://dumplingdefi.finance/',
-    description: 'SpaceDumpling token can be used to play various games and farm rewards by providing liquidity on Pancakeswap.',
+    description:
+      'SpaceDumpling token can be used to play various games and farm rewards by providing liquidity on Pancakeswap.',
     logoURI: 'https://bscscan.com/token/images/dumplingdefi2_32.png',
   },
   SAT: {
@@ -547,7 +587,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.satis.finance/',
-    description: 'SatisFinance is a brand new DeFi project designed by an experienced development team as the 4th generation deflationary yield farm on Binance Smart Chain.',
+    description:
+      'SatisFinance is a brand new DeFi project designed by an experienced development team as the 4th generation deflationary yield farm on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   TOFY: {
@@ -557,7 +598,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://safefarms.marshmallowdefi.com/info',
-    description: 'Toffee is the reference token for SAFEFARM within the MarshMallow ecosystem, it is a digital currency received in exchange when you Pool or Farm your Reflection Tokens.',
+    description:
+      'Toffee is the reference token for SAFEFARM within the MarshMallow ecosystem, it is a digital currency received in exchange when you Pool or Farm your Reflection Tokens.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   MASH: {
@@ -567,7 +609,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://marshmallowdefi.com/',
-    description: 'MarshmallowDeFi (MASH) is the next generation of Automated Market Making (AMM) decentralized exchange with a deflationary governance token model.',
+    description:
+      'MarshmallowDeFi (MASH) is the next generation of Automated Market Making (AMM) decentralized exchange with a deflationary governance token model.',
     logoURI: 'https://bscscan.com/token/images/marshmellowtoken_32.png?v=4',
   },
   BLZD: {
@@ -597,7 +640,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://yieldbay.finance/',
-    description: 'PALM is the native token of YieldBay, a Yield Farming project running on Binance Smart Chain.',
+    description:
+      'PALM is the native token of YieldBay, a Yield Farming project running on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/token/images/yieldbay_32.png',
   },
   BGO: {
@@ -607,7 +651,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bingocash.app/',
-    description: 'Bingo Cash Finance is the AlgoStable coin protocol built on the Binance Smart Chain ("BSC")  for casino gaming.',
+    description:
+      'Bingo Cash Finance is the AlgoStable coin protocol built on the Binance Smart Chain ("BSC")  for casino gaming.',
     logoURI: 'https://bscscan.com/token/images/bingocash_32.png',
   },
   sBGO: {
@@ -617,7 +662,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bingocash.app/',
-    description: 'Bingo Shares loosely represent the value of the Bingo Cash Finance and trust in its systemic ability to maintain BGO to peg.',
+    description:
+      'Bingo Shares loosely represent the value of the Bingo Cash Finance and trust in its systemic ability to maintain BGO to peg.',
     logoURI: 'https://bscscan.com/token/images/bingocash-share_32.png',
   },
   TNDR: {
@@ -627,7 +673,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://thunderswap.finance/',
-    description: 'ThunderSwap is an innovative and reliable, next-generation Decentralized Exchange (AMM) and Yield Farm on the Binance Smart Chain (BSC).',
+    description:
+      'ThunderSwap is an innovative and reliable, next-generation Decentralized Exchange (AMM) and Yield Farm on the Binance Smart Chain (BSC).',
     logoURI: 'https://bscscan.com/token/images/thunderswap_32.png',
   },
   SWIRL: {
@@ -637,7 +684,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://swirl.cash/',
-    description: 'Swirl Cash is a aecentralized protocol for private transactions on Binance Smart Chain',
+    description:
+      'Swirl Cash is a aecentralized protocol for private transactions on Binance Smart Chain',
     logoURI: 'https://bscscan.com/token/images/swirlcash_32.png',
   },
   HPS: {
@@ -647,7 +695,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://billionhappiness.finance/',
-    description: 'Billion Happiness is a blockchain community-based project, with the goal of introducing Blockchain to billions of people through simple needs including clothes or wearables.',
+    description:
+      'Billion Happiness is a blockchain community-based project, with the goal of introducing Blockchain to billions of people through simple needs including clothes or wearables.',
     logoURI: 'https://bscscan.com/token/images/happiness_32.png',
   },
   PMP: {
@@ -657,7 +706,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://pumpy.farm/',
-    description: 'Pumpy is an assets management platform and yield farming aggregator running on Binance Smart Chain',
+    description:
+      'Pumpy is an assets management platform and yield farming aggregator running on Binance Smart Chain',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   COM: {
@@ -667,7 +717,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://complus.exchange/',
-    description: 'Complus Network is a multi-chain exchange protocol for ERC-20 tokens on Polygon-Matic Network, Avalanche, Binance Smart Chain and the Huobi ECO Chain.',
+    description:
+      'Complus Network is a multi-chain exchange protocol for ERC-20 tokens on Polygon-Matic Network, Avalanche, Binance Smart Chain and the Huobi ECO Chain.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   NUTS: {
@@ -677,7 +728,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://squirrel.finance/',
-    description: 'Squirrel Finance is the first decentralized insurance solution for yield farming on BSC that instantly & automatically compensates users if their funds are locked or stolen.',
+    description:
+      'Squirrel Finance is the first decentralized insurance solution for yield farming on BSC that instantly & automatically compensates users if their funds are locked or stolen.',
     logoURI: 'https://bscscan.com/token/images/squirrel_32.png',
   },
   APE: {
@@ -697,7 +749,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://memefarm.io/',
-    description: 'MemeFarm is the native token of the MemeFarm platform where collectors and creators are connected through yield farming, NFTs and community governance.',
+    description:
+      'MemeFarm is the native token of the MemeFarm platform where collectors and creators are connected through yield farming, NFTs and community governance.',
     logoURI: 'https://bscscan.com/token/images/memefarm_32.png',
   },
   SLME: {
@@ -707,7 +760,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://slime.finance/',
-    description: 'Slime Finance is an advanced profit-sharing DeFi protocol aiming to go multi-chain.',
+    description:
+      'Slime Finance is an advanced profit-sharing DeFi protocol aiming to go multi-chain.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   JulD: {
@@ -727,7 +781,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://soups.finance/',
-    description: 'SOUP tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol aims to maintain SOUP peg to 1 Binance (BNB) token in the long run.',
+    description:
+      'SOUP tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol aims to maintain SOUP peg to 1 Binance (BNB) token in the long run.',
     logoURI: 'https://bscscan.com/token/images/soupfinance_32.png',
   },
   SOUPS: {
@@ -737,7 +792,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://soups.finance/',
-    description: 'Soup Shares (SOUPS) is the utility token for Soup protocol. Holders of SOUPS tokens can be locked up to claim a pro-rata share of SOUP tokens accumulated in the Boiler contract.',
+    description:
+      'Soup Shares (SOUPS) is the utility token for Soup protocol. Holders of SOUPS tokens can be locked up to claim a pro-rata share of SOUP tokens accumulated in the Boiler contract.',
     logoURI: 'https://bscscan.com/token/images/soupshare_32.png',
   },
   '1INCH': {
@@ -747,7 +803,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://1inch.io/',
-    description: '1inch is a decentralized exchange (DEX) aggregator, connecting several DEXes into one platform to allow its users to find the most efficient swapping routes across all platforms.',
+    description:
+      '1inch is a decentralized exchange (DEX) aggregator, connecting several DEXes into one platform to allow its users to find the most efficient swapping routes across all platforms.',
     logoURI: 'https://tokens.1inch.exchange/0x111111111117dc0aa78b770fa6a738034120c302.png',
   },
   STEAM: {
@@ -787,7 +844,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://ramenswap.finance/',
-    description: 'RamenSwap Finance is a community driven Yield Farming, DeFi Yield Aggregator and DEX Aggregator on Binance Smart Chain.',
+    description:
+      'RamenSwap Finance is a community driven Yield Farming, DeFi Yield Aggregator and DEX Aggregator on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/token/images/ramenswap_32.png',
   },
   BREW: {
@@ -807,7 +865,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://monsterslayer.finance/',
-    description: 'Monster Slayer Cash tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol deterministically expands and contracts the MSC supply to maintain MSC peg to 1 $BUSD token.',
+    description:
+      'Monster Slayer Cash tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol deterministically expands and contracts the MSC supply to maintain MSC peg to 1 $BUSD token.',
     logoURI: 'https://bscscan.com/token/images/monsterslayer_32.png?=v1',
   },
   BTS: {
@@ -817,7 +876,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://boltdollar.finance/',
-    description: 'Bolt Shares, also known as “Bolt True Share” are the governance tokens of the ecosystem. These tokens follow a Seigniorage Shares system that maintains a peg by auctioning coins for shares and shares for coins.',
+    description:
+      'Bolt Shares, also known as “Bolt True Share” are the governance tokens of the ecosystem. These tokens follow a Seigniorage Shares system that maintains a peg by auctioning coins for shares and shares for coins.',
     logoURI: 'https://bscscan.com/token/images/boltshare_32.png',
   },
   BTD: {
@@ -827,7 +887,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://boltdollar.finance/',
-    description: 'These tokens are designed to be used as a medium of exchange and are pegged loosely to the value of one BUSD.',
+    description:
+      'These tokens are designed to be used as a medium of exchange and are pegged loosely to the value of one BUSD.',
     logoURI: 'https://bscscan.com/token/images/batdollar-btd_32.png',
   },
   KEBAB: {
@@ -837,7 +898,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://kebabfinance.com/#/',
-    description: 'Kebab Finance is a DEX (Decentralized Exchange), using AMM (Automated Market Maker) technology.',
+    description:
+      'Kebab Finance is a DEX (Decentralized Exchange), using AMM (Automated Market Maker) technology.',
     logoURI: 'https://bscscan.com/token/images/kebabfinance_32.png',
   },
   SPG: {
@@ -875,7 +937,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://monsterslayer.finance/',
-    description: 'Monster Slayer Shares loosely represent the value of the Monster Slayer Cash and trust in its systemic ability to maintain MSC to peg.',
+    description:
+      'Monster Slayer Shares loosely represent the value of the Monster Slayer Cash and trust in its systemic ability to maintain MSC to peg.',
     logoURI: 'https://bscscan.com/token/images/monsterslayer-mss_32.png',
   },
   VAPOR: {
@@ -885,7 +948,8 @@ const _tokens = {
     chainId: 56,
     decimals: 9,
     website: 'https://www.bliquid.io/',
-    description: 'Vapor is a novel protocol that combines the unique mechanisms of several recently successful DeFi projects.',
+    description:
+      'Vapor is a novel protocol that combines the unique mechanisms of several recently successful DeFi projects.',
     logoURI: 'https://tokens.julswap.com/images/0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea.png',
   },
   SBDO: {
@@ -895,7 +959,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.bdollar.fi/',
-    description: 'bDollar tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol deterministically expands and contracts the BDO supply to maintain BDO peg to 1 $BUSD',
+    description:
+      'bDollar tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol deterministically expands and contracts the BDO supply to maintain BDO peg to 1 $BUSD',
     logoURI: 'https://bscscan.com/token/images/bdollar-share_32.png',
   },
   BHC: {
@@ -905,7 +970,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://billionhappiness.finance/',
-    description: 'Billion Happiness is a blockchain community-based project, with the goal of introducing Blockchain to billions of people through simple needs including clothes or wearables.',
+    description:
+      'Billion Happiness is a blockchain community-based project, with the goal of introducing Blockchain to billions of people through simple needs including clothes or wearables.',
     logoURI: 'https://bscscan.com/token/images/billionhappiness_32.png?v=2',
   },
   GOLD: {
@@ -915,7 +981,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://narwhalswap.org/#/swap',
-    description: '$GOLD is the second token introduced by the NAR protocol for this update. You’ll need this token to upgrade your abilities in the near future.',
+    description:
+      '$GOLD is the second token introduced by the NAR protocol for this update. You’ll need this token to upgrade your abilities in the near future.',
     logoURI: 'https://bscscan.com/token/images/narwhalswap-gold_32.png',
   },
   CRED: {
@@ -962,7 +1029,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.trueusd.com/',
-    description: 'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
+    description:
+      'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x14016e85a25aeb13065688cafb43044c2ef86784.png',
   },
@@ -984,7 +1052,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://easyfi.network/',
-    description: 'EasyFi is a multi chain layer 2 money markets with structured lending products to accelerate liquidity deployment at remarkably lowest cost & unimaginable fast speed.',
+    description:
+      'EasyFi is a multi chain layer 2 money markets with structured lending products to accelerate liquidity deployment at remarkably lowest cost & unimaginable fast speed.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5512014efa6Cd57764Fa743756F7a6Ce3358cC83.png',
   },
@@ -995,7 +1064,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://venus.io/',
-    description: 'Venus Reward Token is a mechanism created to become an additional mining distribution to suppliers and borrowers of Venus Protocol.',
+    description:
+      'Venus Reward Token is a mechanism created to become an additional mining distribution to suppliers and borrowers of Venus Protocol.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5f84ce30dc3cf7909101c69086c50de191895883.png',
   },
@@ -1027,7 +1097,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.synthetix.io/',
-    description: 'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets',
+    description:
+      'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets',
     logoURI: 'https://bscscan.com/token/images/snx_32.png',
   },
   BLZ: {
@@ -1047,7 +1118,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://deri.finance/',
-    description: 'DERI Protocol is a decentralized protocol to exchange risk exposures precisely and capital-efficiently.',
+    description:
+      'DERI Protocol is a decentralized protocol to exchange risk exposures precisely and capital-efficiently.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe60eaf5A997DFAe83739e035b005A33AfdCc6df5.png',
   },
@@ -1058,7 +1130,8 @@ const _tokens = {
     chainId: 56,
     decimals: 6,
     website: 'https://chromia.com/',
-    description: 'Chromia is a blockchain platform, making it easy for people to build decentralized apps in the real world, for a better world',
+    description:
+      'Chromia is a blockchain platform, making it easy for people to build decentralized apps in the real world, for a better world',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xf9CeC8d50f6c8ad3Fb6dcCEC577e05aA32B224FE.png',
   },
@@ -1069,7 +1142,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://anyswap.exchange/',
-    description: 'Xend Finance is a blockchain-based platform inspired by traditional credit unions. It aims to provide opportunities for those interested in borrowing, investing, saving or lending digital assets.',
+    description:
+      'Xend Finance is a blockchain-based platform inspired by traditional credit unions. It aims to provide opportunities for those interested in borrowing, investing, saving or lending digital assets.',
     logoURI: 'https://bscscan.com/token/images/xendfinance_32.png',
   },
   CYC: {
@@ -1079,7 +1153,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://cyclone.xyz/',
-    description: 'Cyclone is the world first cross-chain, yield enhancement, zkSNARKs-based privacy protocol for all DeFi apps, with the decentralized governance and fair launch.',
+    description:
+      'Cyclone is the world first cross-chain, yield enhancement, zkSNARKs-based privacy protocol for all DeFi apps, with the decentralized governance and fair launch.',
     logoURI: 'https://bscscan.com/token/images/cyclone_32.png',
   },
   ZEC: {
@@ -1099,7 +1174,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://ethereumclassic.org/',
-    description: 'Ethereum Classic is a decentralized computing platform that executes smart contracts. Applications are ran exactly as programmed without the possibility of censorship, downtime, or third-party interference.',
+    description:
+      'Ethereum Classic is a decentralized computing platform that executes smart contracts. Applications are ran exactly as programmed without the possibility of censorship, downtime, or third-party interference.',
     logoURI: 'https://dex.apeswap.finance/images/coins/ETC.svg',
   },
   COTI: {
@@ -1109,7 +1185,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://coti.io/',
-    description: 'COTI is the first enterprise-grade fintech platform that empowers organizations to build their own payment solution and digitize any currency to save time and money.',
+    description:
+      'COTI is the first enterprise-grade fintech platform that empowers organizations to build their own payment solution and digitize any currency to save time and money.',
     logoURI: 'https://dex.apeswap.finance/images/coins/coti.svg',
   },
   NEAR: {
@@ -1119,7 +1196,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://near.org/',
-    description: 'NEAR is an open source platform that enables creators, communities, and markets to drive a more open, interconnected and consumer-empowered world.',
+    description:
+      'NEAR is an open source platform that enables creators, communities, and markets to drive a more open, interconnected and consumer-empowered world.',
     logoURI: 'https://dex.apeswap.finance/images/coins/near.svg',
   },
   GRAND: {
@@ -1139,7 +1217,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://swamp.finance/',
-    description: 'Swampy is the native token of Swamp.finance, a yield farming optimiser on Binance Smart Chain.',
+    description:
+      'Swampy is the native token of Swamp.finance, a yield farming optimiser on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/token/images/swampfinance_32.png',
   },
   HOTCROSS: {
@@ -1149,7 +1228,8 @@ const _tokens = {
     decimals: 18,
     chainId: 56,
     website: 'https://hotcross.com/',
-    description: 'Hot Cross will become an extensive multi-chain and cross-chain tool suite that enables blockchain teams and their communities to thrive.',
+    description:
+      'Hot Cross will become an extensive multi-chain and cross-chain tool suite that enables blockchain teams and their communities to thrive.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x4fa7163e153419e0e1064e418dd7a99314ed27b6.png',
   },
@@ -1160,7 +1240,8 @@ const _tokens = {
     decimals: 18,
     chainId: 56,
     website: 'https://www.redfoxlabs.io/',
-    description: 'RedFOX Labs is a tech-forward digital venture builder delivering companies & platforms that are secure, scalable, and innovative, bringing the world into a new era of technology and prosperity.',
+    description:
+      'RedFOX Labs is a tech-forward digital venture builder delivering companies & platforms that are secure, scalable, and innovative, bringing the world into a new era of technology and prosperity.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x0a3a21356793b49154fd3bbe91cbc2a16c0457f5.png',
   },
@@ -1171,7 +1252,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://hyfi.pro/',
-    description: 'Hyper Finance (HyFi.pro) is a decentralized aggregate mining platform based on the ‌Binance‌ Smart Chain.',
+    description:
+      'Hyper Finance (HyFi.pro) is a decentralized aggregate mining platform based on the ‌Binance‌ Smart Chain.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x9a319b959e33369C5eaA494a770117eE3e585318.png',
   },
@@ -1192,7 +1274,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://www.btcst.finance/',
-    description: 'τDoge is the second synthetic asset that BTCST stakers can mine. The price of τDoge is pegged 1:1 to that of Dogecoin in accordance with the price pegging mechanism of the Tau Protocol',
+    description:
+      'τDoge is the second synthetic asset that BTCST stakers can mine. The price of τDoge is pegged 1:1 to that of Dogecoin in accordance with the price pegging mechanism of the Tau Protocol',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe550a593d09fbc8dcd557b5c88cea6946a8b404a.png',
   },
@@ -1203,7 +1286,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://oin.finance/',
-    description: 'OIN brings great DeFi functionality, such as stablecoin issuance to blockchain projects through a multi-faceted infrastructure.',
+    description:
+      'OIN brings great DeFi functionality, such as stablecoin issuance to blockchain projects through a multi-faceted infrastructure.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x658E64FFcF40D240A43D52CA9342140316Ae44fA.png',
   },
@@ -1225,7 +1309,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://polychainmonsters.com/',
-    description: 'Polychain Monsters are beautifully animated digital collectibles with varying scarcities. Each Polychain Monster is backed by a truly unique NFT and can be unpacked with $PMON tokens.',
+    description:
+      'Polychain Monsters are beautifully animated digital collectibles with varying scarcities. Each Polychain Monster is backed by a truly unique NFT and can be unpacked with $PMON tokens.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x1796ae0b0fa4862485106a0de9b654eFE301D0b2.png',
   },
@@ -1247,7 +1332,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://upbots.com/',
-    description: 'UpBots is an all-in-one platform that brings together the best crypto trading tools and strategies that are generally stand-alone services.',
+    description:
+      'UpBots is an all-in-one platform that brings together the best crypto trading tools and strategies that are generally stand-alone services.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xbbeb90cfb6fafa1f69aa130b7341089abeef5811.png',
   },
@@ -1258,7 +1344,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://massnet.org/',
-    description: 'The MASS consensus engine aims to become the basic infrastructure to all blockchain consensus layers.',
+    description:
+      'The MASS consensus engine aims to become the basic infrastructure to all blockchain consensus layers.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x7e396bfc8a2f84748701167c2d622f041a1d7a17.png',
   },
@@ -1269,7 +1356,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://fortress.loans/',
-    description: 'Fortress is a decentralized marketplace for lenders and borrowers with borderless stablecoins.',
+    description:
+      'Fortress is a decentralized marketplace for lenders and borrowers with borderless stablecoins.',
     logoURI: 'https://bscscan.com/token/images/fortress_32.png?v=4',
   },
   DND: {
@@ -1279,7 +1367,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://diamondhand.fi/',
-    description: 'DiamondHand (DH) is a product for creating decentralized synthetic tokens pegged to cryptocurrencies like BTC, ETH, BNB, ADA, DOT, LINK and others by using the partial-collateralized design concept which was proven to work admirably well with the IRON stablecoin.',
+    description:
+      'DiamondHand (DH) is a product for creating decentralized synthetic tokens pegged to cryptocurrencies like BTC, ETH, BNB, ADA, DOT, LINK and others by using the partial-collateralized design concept which was proven to work admirably well with the IRON stablecoin.',
     logoURI: 'https://bscscan.com/token/images/diamond_32.png',
   },
   ZEFI: {
@@ -1289,7 +1378,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://finance.zcore.network/',
-    description: 'ZCore is a Binance Smart Chain yield farming bundled with an advanced crypto card with integrated burning mechanism.',
+    description:
+      'ZCore is a Binance Smart Chain yield farming bundled with an advanced crypto card with integrated burning mechanism.',
     logoURI: 'https://bscscan.com/token/images/zcore-zefi_32.png',
   },
   ICA: {
@@ -1299,7 +1389,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://icarus.finance/',
-    description: 'ICA is the Governance token of icarus.finance and will be used to provide holders voting rights in the next direction of the project. This includes voting on what cryptocurrency to actually mine.',
+    description:
+      'ICA is the Governance token of icarus.finance and will be used to provide holders voting rights in the next direction of the project. This includes voting on what cryptocurrency to actually mine.',
     logoURI: 'https://bscscan.com/token/images/icarus_32.png',
   },
   STEEL: {
@@ -1309,7 +1400,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://iron.finance/',
-    description: 'STEEL - Iron Share - is the algorithmic token which accrues seigniorage revenue and excess collateral value.',
+    description:
+      'STEEL - Iron Share - is the algorithmic token which accrues seigniorage revenue and excess collateral value.',
     logoURI: 'https://bscscan.com/token/images/ironfinance-share_32.png',
   },
   TYPH: {
@@ -1319,7 +1411,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://typhoon.network/',
-    description: 'Typhoon enables you to send private transactions between 2 BSC or Polygon wallets',
+    description:
+      'Typhoon enables you to send private transactions between 2 BSC or Polygon wallets',
     logoURI: 'https://bscscan.com/token/images/typhoonnetwork_32.png',
   },
   IRON: {
@@ -1339,7 +1432,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://keyfi.com/',
-    description: 'KeyFi is an all-in-one platform for tracking, swapping, and staking your tokens, and more.',
+    description:
+      'KeyFi is an all-in-one platform for tracking, swapping, and staking your tokens, and more.',
     logoURI: 'https://dex.apeswap.finance/images/coins/XBTC.svg',
   },
   BXBTC: {
@@ -1349,7 +1443,8 @@ const _tokens = {
     chainId: 56,
     decimals: 9,
     website: 'https://xbtc.fi/',
-    description: 'xBTC is a new technology that provides a synthetic dominance hedge and synthetic index fund to blockchain assets.',
+    description:
+      'xBTC is a new technology that provides a synthetic dominance hedge and synthetic index fund to blockchain assets.',
     logoURI: 'https://dex.apeswap.finance/images/coins/XBTC.svg',
   },
   NAUT: {
@@ -1359,7 +1454,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://astronaut.to/',
-    description: 'Astronaut enables projects to raise capital on a decentralized, permission-less and interoperable environment based on the Binance smart chain.',
+    description:
+      'Astronaut enables projects to raise capital on a decentralized, permission-less and interoperable environment based on the Binance smart chain.',
     logoURI: 'https://dex.apeswap.finance/images/coins/NAUT.png',
   },
   IOTA: {
@@ -1369,7 +1465,8 @@ const _tokens = {
     chainId: 56,
     decimals: 6,
     website: 'https://www.iota.org/',
-    description: 'IOTA has fundamentally reengineered distributed ledger technology, enabling secure exchange of both value and data, without any fees.',
+    description:
+      'IOTA has fundamentally reengineered distributed ledger technology, enabling secure exchange of both value and data, without any fees.',
     logoURI: 'https://dex.apeswap.finance/images/coins/IOTA.png',
   },
   AVAX: {
@@ -1379,7 +1476,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.avalabs.org/',
-    description: 'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
     logoURI: 'https://dex.apeswap.finance/images/coins/avax.png',
   },
   BANANA: {
@@ -1399,7 +1497,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://fantom.foundation/',
-    description: 'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+    description:
+      'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
     logoURI: 'https://dex.apeswap.finance/images/coins/FTM.svg',
   },
   AAVE: {
@@ -1409,7 +1508,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://aave.com/',
-    description: 'Aave is an open source and non-custodial liquidity protocol for earning interest on deposits and borrowing assets.',
+    description:
+      'Aave is an open source and non-custodial liquidity protocol for earning interest on deposits and borrowing assets.',
     logoURI: 'https://dex.apeswap.finance/images/coins/AAVE.svg',
   },
   MATIC: {
@@ -1430,7 +1530,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://dogecoin.com/',
-    description: 'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
+    description:
+      'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xba2ae424d960c26247dd6c32edc70b295c744c43.png',
   },
@@ -1441,7 +1542,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://hakka.finance/',
-    description: 'Hakka Finance is a set of decentralized derivatives & original financial instruments, forming an all-inclusive ecosystem of tools that allow users to pursue financial sovereignty.',
+    description:
+      'Hakka Finance is a set of decentralized derivatives & original financial instruments, forming an all-inclusive ecosystem of tools that allow users to pursue financial sovereignty.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x1d1eb8e8293222e1a29d2c0e4ce6c0acfd89aaac.png',
   },
@@ -1452,7 +1554,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.exeedme.com/',
-    description: 'Exeedme is about using blockchain to allow for skill monetization through digital currencies and assets with open market dynamics, giving gamers a superior sense of ownership and control.',
+    description:
+      'Exeedme is about using blockchain to allow for skill monetization through digital currencies and assets with open market dynamics, giving gamers a superior sense of ownership and control.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5621b5a3f4a8008c4ccdd1b942b121c8b1944f1f.png',
   },
@@ -1463,7 +1566,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://chainguardians.io/',
-    description: 'Chain Guardians positions itself as the first ecosystem that combines blockchain and superheroes. It is a platform that combines traditional gaming concepts with blockchain technologies to enable player-driven economies.',
+    description:
+      'Chain Guardians positions itself as the first ecosystem that combines blockchain and superheroes. It is a platform that combines traditional gaming concepts with blockchain technologies to enable player-driven economies.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x1613957159e9b0ac6c80e824f7eea748a32a0ae2.png',
   },
@@ -1474,7 +1578,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://app.dusd.finance/',
-    description: 'DefiDollar is a multi-chain DeFi Protocol Lab. We are building a range of products for the open finance ecosystem including - indexes, yield diversification and enabling capital efficient loans.',
+    description:
+      'DefiDollar is a multi-chain DeFi Protocol Lab. We are building a range of products for the open finance ecosystem including - indexes, yield diversification and enabling capital efficient loans.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x9899a98b222fcb2f3dbee7df45d943093a4ff9ff.png',
   },
@@ -1485,7 +1590,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://nft.lympo.io/',
-    description: 'The LMT token is a fungible cryptographic token initially released on the Ethereum blockchain and later bridged to Binance Smart Chain.',
+    description:
+      'The LMT token is a fungible cryptographic token initially released on the Ethereum blockchain and later bridged to Binance Smart Chain.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x9617857e191354dbea0b714d78bc59e57c411087.png',
   },
@@ -1496,7 +1602,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://suterusu.io/',
-    description: 'The Suterusu Protocol is a second-layer private payment infrastructure for smart contract platforms. The Suterusu Protocol uses the original and most advanced ZK-ConSnark algorithm that does not require a trusted setup.',
+    description:
+      'The Suterusu Protocol is a second-layer private payment infrastructure for smart contract platforms. The Suterusu Protocol uses the original and most advanced ZK-ConSnark algorithm that does not require a trusted setup.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x4cfbbdfbd5bf0814472ff35c72717bd095ada055.png',
   },
@@ -1527,7 +1634,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.wink.org/',
-    description: 'WINkLink fully integrates the real world with the blockchain space, will be able to provide reliable, unpredictable and verifiable random numbers, and fully restore trust and improve user experience by tapping into data, events, and payment systems.',
+    description:
+      'WINkLink fully integrates the real world with the blockchain space, will be able to provide reliable, unpredictable and verifiable random numbers, and fully restore trust and improve user experience by tapping into data, events, and payment systems.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xaef0d72a118ce24fee3cd1d43d383897d05b4e99.png',
   },
@@ -1538,7 +1646,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://tron.network/',
-    description: 'TRON is a blockchain-based operating system that aims to ensure this technology is suitable for daily use.',
+    description:
+      'TRON is a blockchain-based operating system that aims to ensure this technology is suitable for daily use.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x85eac5ac2f758618dfa09bdbe0cf174e7d574d5b.png',
   },
@@ -1549,7 +1658,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.bittorrent.com/',
-    description: 'BitTorrent is a popular peer-to-peer (P2P) file sharing and torrent platform which has become increasingly decentralized in recent years.',
+    description:
+      'BitTorrent is a popular peer-to-peer (P2P) file sharing and torrent platform which has become increasingly decentralized in recent years.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x8595f9da7b868b1822194faed312235e43007b49.png',
   },
@@ -1560,7 +1670,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://mirror.finance/',
-    description: 'Mirrored COIN (mCOIN) is a synthetic asset tracking the price of a Coinbase stock.',
+    description:
+      'Mirrored COIN (mCOIN) is a synthetic asset tracking the price of a Coinbase stock.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x49022089e78a8d46ec87a3af86a1db6c189afa6f.png',
   },
@@ -1571,7 +1682,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bsc.mdex.com/',
-    description: 'MDEX is a new decentralized trading protocol that launched in January 2021. MDEX is an automated market making (AMM) decentralized exchange protocol that operates on the concept of fund pools, sharing some similarities with standard DEXs.',
+    description:
+      'MDEX is a new decentralized trading protocol that launched in January 2021. MDEX is an automated market making (AMM) decentralized exchange protocol that operates on the concept of fund pools, sharing some similarities with standard DEXs.',
     logoURI: 'https://mdex.com/token-icons/bsc/0x9c65ab58d8d978db963e63f2bfb7121627e3a739.png',
   },
   xBLZD: {
@@ -1593,7 +1705,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.bakeryswap.org/',
-    description: 'BakerySwap is a decentralized automated market-making (AMM) protocol that is based on the Binance Smart Chain (BSC). The BAKE token is a native BEP-20 governance token on the platform.',
+    description:
+      'BakerySwap is a decentralized automated market-making (AMM) protocol that is based on the Binance Smart Chain (BSC). The BAKE token is a native BEP-20 governance token on the platform.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe02df9e3e622debdd69fb838bb799e3f168902c5.png',
   },
@@ -1628,7 +1741,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bitcoin.org/en/',
-    description: 'Bitcoin BEP2 (BTCB) is a token on the Binance Chain. Each BTCB is 100% backed by a BTC reserve, with the price pegged to Bitcoin at a rate of 1 BTCB = 1 BTC.',
+    description:
+      'Bitcoin BEP2 (BTCB) is a token on the Binance Chain. Each BTCB is 100% backed by a BTC reserve, with the price pegged to Bitcoin at a rate of 1 BTCB = 1 BTC.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c.png',
   },
@@ -1639,7 +1753,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bandprotocol.com/',
-    description: 'Band Protocol is a cross-chain data oracle platform that aggregates and connects real-world data and APIs to smart contracts.',
+    description:
+      'Band Protocol is a cross-chain data oracle platform that aggregates and connects real-world data and APIs to smart contracts.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xad6caeb32cd2c308980a548bd0bc5aa4306c6c18.png',
   },
@@ -1650,7 +1765,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://eos.io/',
-    description: 'EOSIO is a highly performant open-source blockchain platform, built to support and operate safe, compliant, and predictable digital infrastructures.',
+    description:
+      'EOSIO is a highly performant open-source blockchain platform, built to support and operate safe, compliant, and predictable digital infrastructures.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x56b6fb708fc5732dec1afc8d8556423a2edccbd6.png',
   },
@@ -1685,7 +1801,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bitcoincash.org/',
-    description: 'Bitcoin Cash brings sound money to the world, fulfilling the original promise of Bitcoin as "Peer-to-Peer Electronic Cash".',
+    description:
+      'Bitcoin Cash brings sound money to the world, fulfilling the original promise of Bitcoin as "Peer-to-Peer Electronic Cash".',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x8ff795a6f4d97e7887c79bea79aba5cc76444adf.png',
   },
@@ -1720,7 +1837,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://cosmos.network/',
-    description: 'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+    description:
+      'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x0eb3a705fc54725037cc9e008bdede697f62f335.png',
   },
@@ -1731,7 +1849,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://tezos.com/',
-    description: 'Tezos is an open-source platform that addresses key barriers facing blockchain adoption for assets and applications backed by a global community of validators, researchers, and builders.',
+    description:
+      'Tezos is an open-source platform that addresses key barriers facing blockchain adoption for assets and applications backed by a global community of validators, researchers, and builders.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x16939ef78684453bfdfb47825f8a5f714f12623a.png',
   },
@@ -1742,7 +1861,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://ont.io/',
-    description: 'Ontology is a high performance, open source blockchain specializing in digital identity and data.',
+    description:
+      'Ontology is a high performance, open source blockchain specializing in digital identity and data.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xfd7b3a77848f1c2d67e05e54d78d174a0c850335.png',
   },
@@ -1753,7 +1873,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://makerdao.com/en/',
-    description: 'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
+    description:
+      'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
   },
@@ -1764,7 +1885,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://dfi.money/',
-    description: 'DFI.money is a DeFi-farming aggregator that automatically puts your crypto assets to work for high yield profits.',
+    description:
+      'DFI.money is a DeFi-farming aggregator that automatically puts your crypto assets to work for high yield profits.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x7f70642d88cf1c4a3a7abb072b53b929b653eda5.png',
   },
@@ -1775,7 +1897,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://cream.finance/',
-    description: 'C.R.E.A.M Finance is a decentralized peer-to-peer (P2P) DeFi platform that provides lending, borrowing, swap, payment and tokenization services for digital assets.',
+    description:
+      'C.R.E.A.M Finance is a decentralized peer-to-peer (P2P) DeFi platform that provides lending, borrowing, swap, payment and tokenization services for digital assets.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xd4cb328a82bdf5f03eb737f37fa6b370aef3e888.png',
   },
@@ -1786,7 +1909,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://prometeus.io/',
-    description: 'Prometeus Network describes itself as a secure and decentralized ecosystem designed to solve real-world problems in data brokerage.',
+    description:
+      'Prometeus Network describes itself as a secure and decentralized ecosystem designed to solve real-world problems in data brokerage.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xaf53d56ff99f1322515e54fdde93ff8b3b7dafd5.png',
   },
@@ -1797,7 +1921,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.canwork.io/',
-    description: 'CanYaCoin or CAN is the native token that powers the CanWork payment system and will be the bridge between all Binance Chain (BEP2) assets',
+    description:
+      'CanYaCoin or CAN is the native token that powers the CanWork payment system and will be the bridge between all Binance Chain (BEP2) assets',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x007ea5c0ea75a8df45d288a4debdd5bb633f9e56.png',
   },
@@ -1808,7 +1933,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://polkadot.network/',
-    description: 'Polkadot is an open-source sharding multichain protocol that facilitates the cross-chain transfer of any data or asset types, not just tokens, thereby making a wide range of blockchains interoperable with each other.',
+    description:
+      'Polkadot is an open-source sharding multichain protocol that facilitates the cross-chain transfer of any data or asset types, not just tokens, thereby making a wide range of blockchains interoperable with each other.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x7083609fce4d1d8dc0c979aab8c869ea2c873402.png',
   },
@@ -1819,7 +1945,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://pancakeswap.finance/',
-    description: 'PancakeSwap is an automated market maker (AMM) — a decentralized finance (DeFi) application that allows users to exchange tokens, providing liquidity via farming and earning fees in return.',
+    description:
+      'PancakeSwap is an automated market maker (AMM) — a decentralized finance (DeFi) application that allows users to exchange tokens, providing liquidity via farming and earning fees in return.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png',
   },
@@ -1830,7 +1957,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://streamity.org/',
-    description: 'Streamity describes itself as an ecosystem that unites several crypto products (e.g.wallet, exchange, educational courses).',
+    description:
+      'Streamity describes itself as an ecosystem that unites several crypto products (e.g.wallet, exchange, educational courses).',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x90df11a8cce420675e73922419e3f4f3fe13cccb.png',
   },
@@ -1841,7 +1969,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.ankr.com/',
-    description: 'Ankr originates as a solution that utilizes shared resources in order to provide easy and affordable blockchain node hosting solutions.',
+    description:
+      'Ankr originates as a solution that utilizes shared resources in order to provide easy and affordable blockchain node hosting solutions.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xf307910a4c7bbc79691fd374889b36d8531b08e3.png',
   },
@@ -1864,7 +1993,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://burgerswap.org/',
-    description: 'BurgerSwap is a democratized AMM on Binance Smart Chain with the following main functions: Swap, Liquidity Pool, Governance,  ERC20-BEP20 token transfer [cross] Bridge, Burger Shack, Farm, and IFO.',
+    description:
+      'BurgerSwap is a democratized AMM on Binance Smart Chain with the following main functions: Swap, Liquidity Pool, Governance,  ERC20-BEP20 token transfer [cross] Bridge, Burger Shack, Farm, and IFO.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xae9269f27437f0fcbc232d39ec814844a51d6b8f.png',
   },
@@ -1886,7 +2016,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://jointer.io/',
-    description: 'Jointer strives to simplify the commercial real estate industry so that every investor, even one with zero knowledge or experience, will have the opportunity to syndicate funds and invest in this historically lucrative asset class.',
+    description:
+      'Jointer strives to simplify the commercial real estate industry so that every investor, even one with zero knowledge or experience, will have the opportunity to syndicate funds and invest in this historically lucrative asset class.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x3c037c4c2296f280bb318d725d0b454b76c199b9.png',
   },
@@ -1897,7 +2028,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://spartanprotocol.org/',
-    description: 'Spartan Protocol provides community-governed and programmable token emissions functions to incentivize the formation of deep liquidity pools.',
+    description:
+      'Spartan Protocol provides community-governed and programmable token emissions functions to incentivize the formation of deep liquidity pools.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe4ae305ebe1abe663f261bc00534067c80ad677c.png',
   },
@@ -1908,7 +2040,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://trustwallet.com/',
-    description: 'Trust Wallet Token, or TWT, is a simple BEP-20 utility token that provides a range of benefits and incentives to Trust Wallet users.',
+    description:
+      'Trust Wallet Token, or TWT, is a simple BEP-20 utility token that provides a range of benefits and incentives to Trust Wallet users.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x4b0f1812e5df2a09796481ff14017e6005508003.png',
   },
@@ -1919,7 +2052,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://trustwallet.com/',
-    description: 'Trust Wallet Token, or TWT, is a simple BEP-20 utility token that provides a range of benefits and incentives to Trust Wallet users.',
+    description:
+      'Trust Wallet Token, or TWT, is a simple BEP-20 utility token that provides a range of benefits and incentives to Trust Wallet users.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63.png',
   },
@@ -1939,7 +2073,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://alphafinance.io/',
-    description: 'Alpha Finance Lab is a DeFi Lab, and on a mission to build Alpha Universe. Alpha Universe includes the Alpha ecosystem, which consists of Alpha products that interoperate to maximize returns while minimizing risks for users, and other ecosystems incubated through the Alpha Launchpad incubator program.',
+    description:
+      'Alpha Finance Lab is a DeFi Lab, and on a mission to build Alpha Universe. Alpha Universe includes the Alpha ecosystem, which consists of Alpha products that interoperate to maximize returns while minimizing risks for users, and other ecosystems incubated through the Alpha Launchpad incubator program.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xa1faa113cbe53436df28ff0aee54275c13b40975.png',
   },
@@ -1950,7 +2085,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.beefy.finance/',
-    description: 'Beefy.Finance (BIFI), is a yield optimization tool on the Binance Smart Chain that helps maximize the return from yield farming.',
+    description:
+      'Beefy.Finance (BIFI), is a yield optimization tool on the Binance Smart Chain that helps maximize the return from yield farming.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xCa3F508B8e4Dd382eE878A314789373D80A5190A.png',
   },
@@ -1961,7 +2097,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://yearn.finance/',
-    description: 'Yearn.finance is an aggregator service for decentralized finance (DeFi) investors, using automation to allow them to maximize profits from yield farming.',
+    description:
+      'Yearn.finance is an aggregator service for decentralized finance (DeFi) investors, using automation to allow them to maximize profits from yield farming.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x88f1a5ae2a3bf98aeaf342d26b30a79438c9142e.png',
   },
@@ -1984,7 +2121,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://fry.world/',
-    description: 'Fries is described to potentially be one of the first projects to build the infrastructure required for yield optimizing strategies on the Binance Smart Chain.',
+    description:
+      'Fries is described to potentially be one of the first projects to build the infrastructure required for yield optimizing strategies on the Binance Smart Chain.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x393B312C01048b3ed2720bF1B090084C09e408A1.png',
   },
@@ -1995,7 +2133,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.stablex.finance/',
-    description: 'StableXSwap is a stablecoin-focused AMM-style decentralized exchange built on Binance Smart Chain.',
+    description:
+      'StableXSwap is a stablecoin-focused AMM-style decentralized exchange built on Binance Smart Chain.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x0da6ed8b13214ff28e9ca979dd37439e8a88f6c4.png',
   },
@@ -2006,7 +2145,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://filecoin.io/',
-    description: 'Filecoin is a decentralized storage system that aims to “store humanity’s most important information.”.',
+    description:
+      'Filecoin is a decentralized storage system that aims to “store humanity’s most important information.”.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x0d8ce2a99bb6e3b7db580ed848240e4a0f9ae153.png',
   },
@@ -2017,7 +2157,8 @@ const _tokens = {
     chainId: 56,
     decimals: 6,
     website: 'https://www.kava.io/',
-    description: 'Kava is a cross-chain DeFi lending platform that allows users to borrow USDX stablecoins and deposit a variety of cryptocurrencies to begin earning a yield.',
+    description:
+      'Kava is a cross-chain DeFi lending platform that allows users to borrow USDX stablecoins and deposit a variety of cryptocurrencies to begin earning a yield.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5F88AB06e8dfe89DF127B2430Bba4Af600866035.png',
   },
@@ -2039,7 +2180,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://injectiveprotocol.com/',
-    description: 'The Injective Protocol project is a revolutionary idea that aims to make currency exchanges completely decentralized, public operated networks.',
+    description:
+      'The Injective Protocol project is a revolutionary idea that aims to make currency exchanges completely decentralized, public operated networks.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xa2B726B1145A4773F68593CF171187d8EBe4d495.png',
   },
@@ -2050,7 +2192,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://swipe.io/',
-    description: 'Swipe powers a robust platform that enable businesses to create card programs for users to spend anything globally.',
+    description:
+      'Swipe powers a robust platform that enable businesses to create card programs for users to spend anything globally.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x47bead2563dcbf3bf2c9407fea4dc236faba485a.png',
   },
@@ -2073,7 +2216,8 @@ const _tokens = {
     chainId: 56,
     decimals: 6,
     website: 'https://www.certik.org/',
-    description: 'CertiK Chain is a security-first, delegated proof-of-stake blockchain, for trustworthy execution of mission-critical applications, including DeFi, NFTs, and autonomous vehicles.',
+    description:
+      'CertiK Chain is a security-first, delegated proof-of-stake blockchain, for trustworthy execution of mission-critical applications, including DeFi, NFTs, and autonomous vehicles.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xa8c2b8eec3d368c0253ad3dae65a5f2bbb89c929.png',
   },
@@ -2113,7 +2257,8 @@ const _tokens = {
     chainId: 56,
     decimals: 6,
     website: 'https://www.hard.kava.io/',
-    description: 'HARD Protocol is a decentralized money market built on Kava, enabling the lending and borrowing of cross-chain assets.',
+    description:
+      'HARD Protocol is a decentralized money market built on Kava, enabling the lending and borrowing of cross-chain assets.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xf79037f6f6be66832de4e7516be52826bc3cbcc4.png',
   },
@@ -2124,7 +2269,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://roobee.io/',
-    description: 'Roobee (ROOBEE) is a blockchain-based investment platform that allows users to invest in products from both the traditional and crypto markets.',
+    description:
+      'Roobee (ROOBEE) is a blockchain-based investment platform that allows users to invest in products from both the traditional and crypto markets.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe64f5cb844946c1f102bd25bbd87a5ab4ae89fbe.png',
   },
@@ -2135,7 +2281,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://unifiprotocol.com/',
-    description: 'Unifi Protocol combines the power of several blockchains and relies on the foundation of Ethereum DApp and DeFi development. However, Unifi makes it its mission to introduce interoperability to the world of DeFi by allowing users access to multiple blockchains and an extremely versatile UNFI token.',
+    description:
+      'Unifi Protocol combines the power of several blockchains and relies on the foundation of Ethereum DApp and DeFi development. However, Unifi makes it its mission to introduce interoperability to the world of DeFi by allowing users access to multiple blockchains and an extremely versatile UNFI token.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x728C5baC3C3e370E372Fc4671f9ef6916b814d8B.png',
   },
@@ -2146,7 +2293,8 @@ const _tokens = {
     chainId: 56,
     decimals: 6,
     website: 'https://blink.wink.org/',
-    description: 'BLINk is a partnership between WINk and Binance community. Together we’ve created a brand new gaming platform running entirely on the Binance Smart Chain.',
+    description:
+      'BLINk is a partnership between WINk and Binance community. Together we’ve created a brand new gaming platform running entirely on the Binance Smart Chain.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x63870A18B6e42b01Ef1Ad8A2302ef50B7132054F.png',
   },
@@ -2168,7 +2316,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://qian.finance/',
-    description: 'QIAN protocol provides a set of open architecture allowing anyone to generate stable-value tokens, anytime and anywhere.',
+    description:
+      'QIAN protocol provides a set of open architecture allowing anyone to generate stable-value tokens, anytime and anywhere.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x1A2fb0Af670D0234c2857FaD35b789F8Cb725584.png',
   },
@@ -2179,7 +2328,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://venus.io/',
-    description: 'Vai is a decentralized stablecoin built on the Venus Protocol that runs on the Binance Smart Chain.',
+    description:
+      'Vai is a decentralized stablecoin built on the Venus Protocol that runs on the Binance Smart Chain.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x4bd17003473389a42daf6a0a729f6fdb328bbbd7.png',
   },
@@ -2190,7 +2340,8 @@ const _tokens = {
     chainId: 56,
     decimals: 2,
     website: 'https://www.socios.com/juventus/',
-    description: 'Juventus Fan Tokens can be used in the Socios.com app, where users acquire voting rights to influence the clubs they support.',
+    description:
+      'Juventus Fan Tokens can be used in the Socios.com app, where users acquire voting rights to influence the clubs they support.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xc40c9a843e1c6d01b7578284a9028854f6683b1b.png',
   },
@@ -2201,7 +2352,8 @@ const _tokens = {
     chainId: 56,
     decimals: 2,
     website: 'https://www.socios.com/paris-saint-germain/',
-    description: 'Paris Saint-Germain Fan Tokens can be used in the Socios.com app, where users acquire voting rights to influence the clubs they support.',
+    description:
+      'Paris Saint-Germain Fan Tokens can be used in the Socios.com app, where users acquire voting rights to influence the clubs they support.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xbc5609612b7c44bef426de600b5fd1379db2ecf1.png',
   },
@@ -2234,7 +2386,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://jetfuel.finance/',
-    description: 'Jetfuel is a yield farming and yield aggregator platform that combines features from the most successful DeFi projects.',
+    description:
+      'Jetfuel is a yield farming and yield aggregator platform that combines features from the most successful DeFi projects.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x2090c8295769791ab7A3CF1CC6e0AA19F35e441A.png',
   },
@@ -2245,7 +2398,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://nuls.io/',
-    description: 'NULS is a microservices-driven blockchain project that uses the Proof of Credit (PoC) consensus mechanism (dPoS plus credit rating) to mine via staking.',
+    description:
+      'NULS is a microservices-driven blockchain project that uses the Proof of Credit (PoC) consensus mechanism (dPoS plus credit rating) to mine via staking.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x8cd6e29d3686d24d3c2018cee54621ea0f89313b.png',
   },
@@ -2256,7 +2410,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://nerve.network/',
-    description: 'Nerve is a decentralized digital asset service network based on the NULS micro-services framework, which uses the NULS ChainBox to develop a blockchain cross-chain interaction protocol.',
+    description:
+      'Nerve is a decentralized digital asset service network based on the NULS micro-services framework, which uses the NULS ChainBox to develop a blockchain cross-chain interaction protocol.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xf0e406c49c63abf358030a299c0e00118c4c6ba5.png',
   },
@@ -2267,7 +2422,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://reef.finance/',
-    description: 'Reef Chain is an EVM compatible chain for DeFi. It is fast, scalable, has low transaction costs and does no wasteful mining. It is built with Polkadot Substrate and comes with on-chain governance.',
+    description:
+      'Reef Chain is an EVM compatible chain for DeFi. It is fast, scalable, has low transaction costs and does no wasteful mining. It is built with Polkadot Substrate and comes with on-chain governance.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xf21768ccbc73ea5b6fd3c687208a7c2def2d966e.png',
   },
@@ -2278,7 +2434,8 @@ const _tokens = {
     chainId: 56,
     decimals: 2,
     website: 'https://www.socios.com/og/',
-    description: 'OG Fan Tokens can be used in the Socios.com app, where users acquire voting rights to influence the clubs they support.',
+    description:
+      'OG Fan Tokens can be used in the Socios.com app, where users acquire voting rights to influence the clubs they support.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xf05e45ad22150677a017fbd94b84fbb63dc9b44c.png',
   },
@@ -2289,7 +2446,8 @@ const _tokens = {
     chainId: 56,
     decimals: 2,
     website: 'https://www.socios.com/atletico-de-madrid/',
-    description: 'Atletico de Madrid Fan Tokens can be used in the Socios.com app, where users acquire voting rights to influence the clubs they support.',
+    description:
+      'Atletico de Madrid Fan Tokens can be used in the Socios.com app, where users acquire voting rights to influence the clubs they support.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x25e9d05365c867e59c1904e7463af9f312296f9e.png',
   },
@@ -2300,7 +2458,8 @@ const _tokens = {
     chainId: 56,
     decimals: 2,
     website: 'https://www.socios.com/asroma/',
-    description: 'AS Roma Fan Tokens can be used in the Socios.com app, where users acquire voting rights to influence the clubs they support.',
+    description:
+      'AS Roma Fan Tokens can be used in the Socios.com app, where users acquire voting rights to influence the clubs they support.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x80d5f92c2c8c682070c95495313ddb680b267320.png',
   },
@@ -2311,7 +2470,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://allianceblock.io/',
-    description: 'The AllianceBlock Protocol is a decentralized, blockchain-agnostic layer 2 that bridges traditional and decentralized finance and automates the process of converting any digital or crypto asset into a bankable product.',
+    description:
+      'The AllianceBlock Protocol is a decentralized, blockchain-agnostic layer 2 that bridges traditional and decentralized finance and automates the process of converting any digital or crypto asset into a bankable product.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x72faa679e1008ad8382959ff48e392042a8b06f7.png',
   },
@@ -2322,7 +2482,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://tenet.farm/',
-    description: 'Tenet is a cross-chain Automated Market Maker (AMM) connector that provides a decentralized Liquidity Tap for various tokens.',
+    description:
+      'Tenet is a cross-chain Automated Market Maker (AMM) connector that provides a decentralized Liquidity Tap for various tokens.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xdff8cb622790b7f92686c722b02cab55592f152c.png',
   },
@@ -2333,7 +2494,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.helmet.insure/',
-    description: 'Helmet.insure is a peer-to-peer (P2P) price-shield insurance protocol launched in January 2021 on Binance Smart Chain (BSC) with the aim to redefine option trading with user-friendly insurance policy wrapping.',
+    description:
+      'Helmet.insure is a peer-to-peer (P2P) price-shield insurance protocol launched in January 2021 on Binance Smart Chain (BSC) with the aim to redefine option trading with user-friendly insurance policy wrapping.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x948d2a81086a075b3130bac19e4c6dee1d2e3fe8.png',
   },
@@ -2344,7 +2506,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bscex.org/',
-    description: 'BSCex is a decentralized non-custodial cryptocurrency exchange-centered ecosystem that runs on Binance Smart Chain (BSC).',
+    description:
+      'BSCex is a decentralized non-custodial cryptocurrency exchange-centered ecosystem that runs on Binance Smart Chain (BSC).',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5ac52ee5b2a633895292ff6d8a89bb9190451587.png',
   },
@@ -2355,7 +2518,8 @@ const _tokens = {
     chainId: 56,
     decimals: 17,
     website: 'https://www.btcst.finance/',
-    description: 'BTCST’s goal is to bridge liquidity to Bitcoin’s mining market. This will allow users to get exposure to mining rewards and hashpower of any size, at a low cost. The ultimate goal of the app is to increase the liquidity and efficiency of mining power markets.',
+    description:
+      'BTCST’s goal is to bridge liquidity to Bitcoin’s mining market. This will allow users to get exposure to mining rewards and hashpower of any size, at a low cost. The ultimate goal of the app is to increase the liquidity and efficiency of mining power markets.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x78650b139471520656b9e7aa7a5e9276814a38e9.png',
   },
@@ -2366,7 +2530,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://frontier.xyz/',
-    description: 'Frontier is a chain-agnostic DeFi aggregation layer. In short, Frontierʼs core mission is to bring the essential pieces of DeFi to users across whichever platforms they prefer.',
+    description:
+      'Frontier is a chain-agnostic DeFi aggregation layer. In short, Frontierʼs core mission is to bring the essential pieces of DeFi to users across whichever platforms they prefer.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x928e55daB735aa8260AF3cEDadA18B5f70C72f1b.png',
   },
@@ -2399,7 +2564,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://mirror.finance/',
-    description: 'Mirrored AMZN (mAMZN) is a synthetic asset tracking the price of an Amazon stock.',
+    description:
+      'Mirrored AMZN (mAMZN) is a synthetic asset tracking the price of an Amazon stock.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x3947B992DC0147D2D89dF0392213781b04B25075.png',
   },
@@ -2410,7 +2576,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://mirror.finance/',
-    description: 'Mirrored NFLX (mNFLX) is a synthetic asset tracking the price of a Netflix stock.',
+    description:
+      'Mirrored NFLX (mNFLX) is a synthetic asset tracking the price of a Netflix stock.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xa04F060077D90Fe2647B61e4dA4aD1F97d6649dc.png',
   },
@@ -2421,7 +2588,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://mirror.finance/',
-    description: 'Mirrored GOOGL (mGOOGL) is a synthetic asset tracking the price of a Google stock.',
+    description:
+      'Mirrored GOOGL (mGOOGL) is a synthetic asset tracking the price of a Google stock.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x62D71B23bF15218C7d2D7E48DBbD9e9c650B173f.png',
   },
@@ -2432,7 +2600,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://mirror.finance/',
-    description: 'TerraUSD (UST) is the decentralized and algorithmic stablecoin of the Terra blockchain. It is a scalable, yield-bearing coin that is value-pegged to the US Dollar.',
+    description:
+      'TerraUSD (UST) is the decentralized and algorithmic stablecoin of the Terra blockchain. It is a scalable, yield-bearing coin that is value-pegged to the US Dollar.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x23396cF899Ca06c4472205fC903bDB4de249D6fC.png',
   },
@@ -2443,7 +2612,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.bearn.fi/',
-    description: 'BFI is a token that is Proof of Stake that acts like a receipt for that you have BFIs Staked in bStake.',
+    description:
+      'BFI is a token that is Proof of Stake that acts like a receipt for that you have BFIs Staked in bStake.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x81859801b01764D4f0Fa5E64729f5a6C3b91435b.png',
   },
@@ -2465,7 +2635,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.bearn.fi/',
-    description: 'Represents the value of the bDollar Protocol and trust in its systemic ability to maintain BDO to peg.',
+    description:
+      'Represents the value of the bDollar Protocol and trust in its systemic ability to maintain BDO to peg.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x0d9319565be7f53CeFE84Ad201Be3f40feAE2740.png',
   },
@@ -2476,7 +2647,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://elrond.com/',
-    description: 'EGLD is a highly scalable, fast and secure blockchain platform for distributed apps, enterprise use cases and the new internet economy.',
+    description:
+      'EGLD is a highly scalable, fast and secure blockchain platform for distributed apps, enterprise use cases and the new internet economy.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xbf7c81fff98bbe61b40ed186e4afd6ddd01337fe.png',
   },
@@ -2509,7 +2681,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.litentry.com/',
-    description: 'LIT is a network that supports cross-chain aggregated identities. Build on Substrate, ready for Polkadot.',
+    description:
+      'LIT is a network that supports cross-chain aggregated identities. Build on Substrate, ready for Polkadot.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xb59490ab09a0f526cc7305822ac65f2ab12f9723.png',
   },
@@ -2520,7 +2693,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://linear.finance/',
-    description: 'Linear is a decentralized delta-one asset protocol capable of instantly creating synthetic assets with unlimited liquidity.',
+    description:
+      'Linear is a decentralized delta-one asset protocol capable of instantly creating synthetic assets with unlimited liquidity.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x762539b45a1dcce3d36d080f74d1aed37844b878.png',
   },
@@ -2531,7 +2705,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://ethereum.org/en/eth2/beacon-chain/',
-    description: 'Beacon ETH is the token of Beacon Chain. Beacon Chain will introduce proof-of-stake to Ethereum.',
+    description:
+      'Beacon ETH is the token of Beacon Chain. Beacon Chain will introduce proof-of-stake to Ethereum.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x250632378e573c6be1ac2f97fcdf00515d0aa91b.png',
   },
@@ -2553,7 +2728,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.safepal.io/',
-    description: 'SafePal is a cryptocurrency wallet launched in 2018 that helps users to protect and grow their digital assets.',
+    description:
+      'SafePal is a cryptocurrency wallet launched in 2018 that helps users to protect and grow their digital assets.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xd41fdb03ba84762dd66a0af1a6c8540ff1ba5dfb.png',
   },
@@ -2564,7 +2740,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://compound.finance/',
-    description: 'Compound is a DeFi lending protocol that allows users to earn interest on their cryptocurrencies by depositing them into one of several pools supported by the platform.',
+    description:
+      'Compound is a DeFi lending protocol that allows users to earn interest on their cryptocurrencies by depositing them into one of several pools supported by the platform.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x52ce071bd9b1c4b00a0b92d298c512478cad67e8.png',
   },
@@ -2575,7 +2752,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.swirge.com/',
-    description: 'Swirge Finance is a Swirge subsidiary focused on building decentralized financial products on the blockchain like a Multi-chain yield optimizer and staking platform operating on Binance Smart Chain',
+    description:
+      'Swirge Finance is a Swirge subsidiary focused on building decentralized financial products on the blockchain like a Multi-chain yield optimizer and staking platform operating on Binance Smart Chain',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe40255c5d7fa7ceec5120408c78c787cecb4cfdb.png',
   },
@@ -2586,7 +2764,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://renproject.io/',
-    description: 'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
+    description:
+      'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
   },
@@ -2597,7 +2776,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://renproject.io/',
-    description: 'RenDOGE is an ERC-20 token built on the Ethereum network, pegged to Dogecoin. This means that each RenDoge can be always redeemed for one Dogecoin, and hence tends to maintain its value at close to the Dogecoin market rate.',
+    description:
+      'RenDOGE is an ERC-20 token built on the Ethereum network, pegged to Dogecoin. This means that each RenDoge can be always redeemed for one Dogecoin, and hence tends to maintain its value at close to the Dogecoin market rate.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xc3fed6eb39178a541d274e6fc748d48f0ca01cc3.png',
   },
@@ -2608,7 +2788,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://mettalex.com/',
-    description: 'Mettalex is the first decentralised derivatives exchange (DEX) powered by Fetch.ai technology.',
+    description:
+      'Mettalex is the first decentralised derivatives exchange (DEX) powered by Fetch.ai technology.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5921dee8556c4593eefcfad3ca5e2f618606483b.png',
   },
@@ -2619,7 +2800,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://zeroswap.io/',
-    description: 'ZeroSwap.io is a Multi-Chain, Zero-fee, On-chain Trading protocol with Liquidity Mining, DeFi Token Offering, and DEX Aggregation.',
+    description:
+      'ZeroSwap.io is a Multi-Chain, Zero-fee, On-chain Trading protocol with Liquidity Mining, DeFi Token Offering, and DEX Aggregation.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x44754455564474a89358b2c2265883df993b12f0.png',
   },
@@ -2641,7 +2823,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://swingby.network/',
-    description: 'Swingby is a decentralized proof-of-stake network that uses the latest advancements in cryptography research to allow you to move your tokens onto other chains without a trusted party.',
+    description:
+      'Swingby is a decentralized proof-of-stake network that uses the latest advancements in cryptography research to allow you to move your tokens onto other chains without a trusted party.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x71DE20e0C4616E7fcBfDD3f875d568492cBE4739.png',
   },
@@ -2652,7 +2835,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://dodoex.io/',
-    description: 'DODO is a DeFi protocol decentralized finance (DeFi) protocol and on-chain liquidity provider whose unique proactive market maker (PMM) algorithm aims to offer better liquidity and price stability than automated market makers (AMM).',
+    description:
+      'DODO is a DeFi protocol decentralized finance (DeFi) protocol and on-chain liquidity provider whose unique proactive market maker (PMM) algorithm aims to offer better liquidity and price stability than automated market makers (AMM).',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x67ee3cb086f8a16f34bee3ca72fad36f7db929e2.png',
   },
@@ -2663,7 +2847,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.sushi.com/',
-    description: 'SushiSwap aims to diversify the AMM market and also add additional features not previously present on Uniswap, such as increased rewards for network participants via its in-house token, SUSHI.',
+    description:
+      'SushiSwap aims to diversify the AMM market and also add additional features not previously present on Uniswap, such as increased rewards for network participants via its in-house token, SUSHI.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x947950bcc74888a40ffa2593c5798f11fc9124c4.png',
   },
@@ -2685,7 +2870,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.boringdao.com/',
-    description: 'BoringDAO deploys a series of decentralized bridges - or tunnels - which allow you to safely move your Bitcoin & other crypto assets between Ethereum & different blockchains to maximize utilization rate of crypto assets in DeFi world.',
+    description:
+      'BoringDAO deploys a series of decentralized bridges - or tunnels - which allow you to safely move your Bitcoin & other crypto assets between Ethereum & different blockchains to maximize utilization rate of crypto assets in DeFi world.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x92d7756c60dcfd4c689290e8a9f4d263b3b32241.png',
   },
@@ -2696,7 +2882,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://renproject.io/',
-    description: 'RenZEC is an ERC-20 token built on the Ethereum network, pegged to ZCash. This means that each RenZEC can be always redeemed for one ZCash, and hence tends to maintain its value at close to the ZCash market rate.',
+    description:
+      'RenZEC is an ERC-20 token built on the Ethereum network, pegged to ZCash. This means that each RenZEC can be always redeemed for one ZCash, and hence tends to maintain its value at close to the ZCash market rate.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x695FD30aF473F2960e81Dc9bA7cB67679d35EDb7.png',
   },
@@ -2707,7 +2894,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://multiplier.finance/',
-    description: 'Multiplier is a non-custodial lending protocol on Binance Smart Chain with flash loans.',
+    description:
+      'Multiplier is a non-custodial lending protocol on Binance Smart Chain with flash loans.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x4131b87f74415190425ccd873048c708f8005823.png',
   },
@@ -2718,7 +2906,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://iotex.io/',
-    description: 'IoTeX is an open ecosystem where people and machines can interact with guaranteed trust, free will, and under properly designed economic incentives.',
+    description:
+      'IoTeX is an open ecosystem where people and machines can interact with guaranteed trust, free will, and under properly designed economic incentives.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x9678e42cebeb63f23197d726b29b1cb20d0064e5.png',
   },
@@ -2729,7 +2918,8 @@ const _tokens = {
     chainId: 56,
     decimals: 9,
     website: 'https://benchmarkprotocol.finance/',
-    description: 'Benchmark Protocol is an elastic stablecoin-alternative bridging capital markets to DeFi.',
+    description:
+      'Benchmark Protocol is an elastic stablecoin-alternative bridging capital markets to DeFi.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x26a5dfab467d4f58fb266648cae769503cec9580.png',
   },
@@ -2740,7 +2930,8 @@ const _tokens = {
     chainId: 56,
     decimals: 4,
     website: 'https://tokenpocket.pro/',
-    description: 'TPT is an applicational token representing TokenPocket users and developers’ rights in the TP ecosystem.',
+    description:
+      'TPT is an applicational token representing TokenPocket users and developers’ rights in the TP ecosystem.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xeca41281c24451168a37211f0bc2b8645af45092.png',
   },
@@ -2751,7 +2942,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.yieldwatch.net/',
-    description: 'Yieldwatch.net is a smart yield farming dashboard that lets you monitor your liquidity pools, yield farming and token staking performance with a casual and sleek UI, which is optimised for mobile use.',
+    description:
+      'Yieldwatch.net is a smart yield farming dashboard that lets you monitor your liquidity pools, yield farming and token staking performance with a casual and sleek UI, which is optimised for mobile use.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x7a9f28eb62c791422aa23ceae1da9c847cbec9b0.png',
   },
@@ -2762,7 +2954,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bella.fi/',
-    description: 'Bella DeFi suite allows users to simply deposit and enjoy high yield from sophisticated arbitrage strategies, either on-chain or via our custodian service.',
+    description:
+      'Bella DeFi suite allows users to simply deposit and enjoy high yield from sophisticated arbitrage strategies, either on-chain or via our custodian service.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x8443f091997f06a61670b735ed92734f5628692f.png',
   },
@@ -2773,7 +2966,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://dexe.network/',
-    description: 'Dexe is a decentralized social trading platform designed to copy the best traders strategies.',
+    description:
+      'Dexe is a decentralized social trading platform designed to copy the best traders strategies.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x039cb485212f996a9dbb85a9a75d898f94d38da6.png',
   },
@@ -2784,7 +2978,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.rampdefi.com/',
-    description: 'RAMP DeFi is a multi-chain DeFi protocol that helps asset owners achieve capital efficiency by offering a powerful and comprehensive solution to multi-task users’ crypto-assets, maximizing the value and returns.',
+    description:
+      'RAMP DeFi is a multi-chain DeFi protocol that helps asset owners achieve capital efficiency by offering a powerful and comprehensive solution to multi-task users’ crypto-assets, maximizing the value and returns.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x8519ea49c997f50ceffa444d240fb655e89248aa.png',
   },
@@ -2795,7 +2990,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://belt.fi/bsc',
-    description: 'Belt.fi is a protocol that allows users to retain the stability of their asset positions and get maximum yields with minimal risk, including automated vault compounding and yield optimization strategies.',
+    description:
+      'Belt.fi is a protocol that allows users to retain the stability of their asset positions and get maximum yields with minimal risk, including automated vault compounding and yield optimization strategies.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xE0e514c71282b6f4e823703a39374Cf58dc3eA4f.png',
   },
@@ -2806,7 +3002,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://basicattentiontoken.org/',
-    description: 'Basic Attention Token, or BAT, is the token that powers a new blockchain-based digital advertising platform designed to fairly reward users for their attention, while providing advertisers with a better return on their ad spend.',
+    description:
+      'Basic Attention Token, or BAT, is the token that powers a new blockchain-based digital advertising platform designed to fairly reward users for their attention, while providing advertisers with a better return on their ad spend.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x101d82428437127bf1608f699cd651e6abf9766e.png',
   },
@@ -2817,7 +3014,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bux-c.com/',
-    description: 'The BUX Token (BUX) is a Binance Smart Chain powered BEP20 utility token that can be used on the BUX Crypto platform to trade with 0% commission and access premium features.',
+    description:
+      'The BUX Token (BUX) is a Binance Smart Chain powered BEP20 utility token that can be used on the BUX Crypto platform to trade with 0% commission and access premium features.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x211ffbe424b90e25a15531ca322adf1559779e45.png',
   },
@@ -2828,7 +3026,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.for.tube/',
-    description: 'ForTube is an open source DeFi lending protocol designed to provide decentralized solutions for lending services.',
+    description:
+      'ForTube is an open source DeFi lending protocol designed to provide decentralized solutions for lending services.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x658A109C5900BC6d2357c87549B651670E5b0539.png',
   },
@@ -2839,7 +3038,8 @@ const _tokens = {
     chainId: 56,
     decimals: 6,
     website: 'https://www.myneighboralice.com/',
-    description: 'My Neighbor Alice is a multiplayer builder game, where anyone can buy and own virtual islands, collect and build exciting items and meet new friends.',
+    description:
+      'My Neighbor Alice is a multiplayer builder game, where anyone can buy and own virtual islands, collect and build exciting items and meet new friends.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xac51066d7bec65dc4589368da368b212745d63e8.png',
   },
@@ -2850,7 +3050,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://pancakebunny.finance/',
-    description: 'PancakeBunny is a decentralized finance (DeFi) yield aggregator and optimizer for the Binance Smart Chain.',
+    description:
+      'PancakeBunny is a decentralized finance (DeFi) yield aggregator and optimizer for the Binance Smart Chain.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xc9849e6fdb743d08faee3e34dd2d1bc69ea11a51.png',
   },
@@ -2861,7 +3062,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bsc.dego.finance/',
-    description: 'Dego Finance is a decentralized ecosystem that offers a diverse combination of non-fungible token (NFT) and decentralized finance (DeFi) tools. It is an independent, open NFT ecosystem.',
+    description:
+      'Dego Finance is a decentralized ecosystem that offers a diverse combination of non-fungible token (NFT) and decentralized finance (DeFi) tools. It is an independent, open NFT ecosystem.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x3fda9383a84c05ec8f7630fe10adf1fac13241cc.png',
   },
@@ -2872,7 +3074,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://ltonetwork.com/',
-    description: 'LTO Network is a hybrid blockchain platform for decentralized workflows and business process automatization.',
+    description:
+      'LTO Network is a hybrid blockchain platform for decentralized workflows and business process automatization.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x857b222fc79e1cbbf8ca5f78cb133d1b7cf34bbd.png',
   },
@@ -2883,7 +3086,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.contentos.io/',
-    description: 'The vision of Contentos is to build a "decentralized digital content community that allows content to be freely produced, distributed, rewarded, and traded, while protecting author rights".',
+    description:
+      'The vision of Contentos is to build a "decentralized digital content community that allows content to be freely produced, distributed, rewarded, and traded, while protecting author rights".',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x96dd399f9c3afda1f194182f71600f1b65946501.png',
   },
@@ -2905,7 +3109,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.alpacafinance.org/',
-    description: 'Alpaca Finance helps lenders earn safe and stable yields, and offers borrowers undercollateralized loans for leveraged yield farming positions, vastly multiplying their farming principals and resulting profits.‌',
+    description:
+      'Alpaca Finance helps lenders earn safe and stable yields, and offers borrowers undercollateralized loans for leveraged yield farming positions, vastly multiplying their farming principals and resulting profits.‌',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x8f0528ce5ef7b51152a59745befdd91d97091d2f.png',
   },
@@ -2916,7 +3121,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://dusk.network/',
-    description: 'Dusk Network is technology for securities. An open source and secure blockchain (DLT) infrastructure that businesses use to tokenize financial instruments and automate costly processes.',
+    description:
+      'Dusk Network is technology for securities. An open source and secure blockchain (DLT) infrastructure that businesses use to tokenize financial instruments and automate costly processes.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xb2bd0749dbe21f623d9baba856d3b0f0e1bfec9c.png',
   },
@@ -2938,7 +3144,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://badger.finance/',
-    description: 'Badger DAO is an open-source, decentralized automated organization that is dedicated to building products and infrastructure of simplifying the use of Bitcoin (BTC) as collateral across many smart contract platforms.',
+    description:
+      'Badger DAO is an open-source, decentralized automated organization that is dedicated to building products and infrastructure of simplifying the use of Bitcoin (BTC) as collateral across many smart contract platforms.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x1f7216fdb338247512ec99715587bb97bbf96eae.png',
   },
@@ -2949,7 +3156,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.unitrade.app/',
-    description: 'Unitrade is embracing all of DeFi on multiple blockchains to introduce a combination of the most impactful and innovative financial offerings that have shaken the core of traditional finance in a single refined app.',
+    description:
+      'Unitrade is embracing all of DeFi on multiple blockchains to introduce a combination of the most impactful and innovative financial offerings that have shaken the core of traditional finance in a single refined app.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x7af173f350d916358af3e218bdf2178494beb748.png',
   },
@@ -2960,7 +3168,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://p.network/',
-    description: 'pNetwork is a solution enabling cross-chain interactions between dApps on multiple networks.',
+    description:
+      'pNetwork is a solution enabling cross-chain interactions between dApps on multiple networks.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x7a1da9f49224ef98389b071b8a3294d1cc5e3e6a.png',
   },
@@ -2982,7 +3191,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://mirror.finance/',
-    description: 'MIR is the governance token of Mirror Protocol, a synthetic assets protocol built by Terraform Labs (TFL) on the Terra blockchain.',
+    description:
+      'MIR is the governance token of Mirror Protocol, a synthetic assets protocol built by Terraform Labs (TFL) on the Terra blockchain.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5b6dcf557e2abe2323c48445e8cc948910d8c2c9.png',
   },
@@ -2993,7 +3203,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://game.seascape.network/',
-    description: 'Crowns are the official token of the Seascape Network. As such, they are designed to reward all key stakeholders within the network.',
+    description:
+      'Crowns are the official token of the Seascape Network. As such, they are designed to reward all key stakeholders within the network.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xbcf39f0edda668c58371e519af37ca705f2bfcbd.png',
   },
@@ -3004,7 +3215,8 @@ const _tokens = {
     chainId: 56,
     decimals: 12,
     website: 'https://www.zilliqa.com/',
-    description: 'Zilliqa is mainly based on the concept of Sharding and primarily aims at improving the scalability of the cryptocurrency networks as in case of Bitcoin or Ethereum.',
+    description:
+      'Zilliqa is mainly based on the concept of Sharding and primarily aims at improving the scalability of the cryptocurrency networks as in case of Bitcoin or Ethereum.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xb86abcb37c3a4b64f74f59301aff131a1becc787.png',
   },
@@ -3015,7 +3227,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://app.lien.finance/',
-    description: 'The project claims to be a self-regulating protocol for creating unique derivative contracts and prevent front-running.',
+    description:
+      'The project claims to be a self-regulating protocol for creating unique derivative contracts and prevent front-running.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x5d684adaf3fcfe9cfb5cede3abf02f0cdd1012e3.png',
   },
@@ -3026,7 +3239,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://switcheo.org/',
-    description: 'SWTH is the native token of Switcheo, a decentralized exchange based in Singapore.',
+    description:
+      'SWTH is the native token of Switcheo, a decentralized exchange based in Singapore.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x250b211EE44459dAd5Cd3bCa803dD6a7EcB5d46C.png',
   },
@@ -3048,7 +3262,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://dfuture.com/',
-    description: 'Dfuture is a decentralization futures trading platform that revolutionizes the existing trading model, so that traders, LP and arbitrageurs can have a fairer, safer and more profitable trading environment.',
+    description:
+      'Dfuture is a decentralization futures trading platform that revolutionizes the existing trading model, so that traders, LP and arbitrageurs can have a fairer, safer and more profitable trading environment.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x42712dF5009c20fee340B245b510c0395896cF6e.png',
   },
@@ -3059,7 +3274,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://gourmetgalaxy.io/',
-    description: 'Gourmet Galaxy is an innovative Yield Farming platform, a combination of DeFi and NFTs in a gaming experience.',
+    description:
+      'Gourmet Galaxy is an innovative Yield Farming platform, a combination of DeFi and NFTs in a gaming experience.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xc53708664b99DF348dd27C3Ac0759d2DA9c40462.png',
   },
@@ -3070,7 +3286,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.harmony.one/',
-    description: 'Harmony is a blockchain platform designed to facilitate the creation and use of decentralized applications (DApps). The network aims to innovate the way decentralized applications work by focusing on random state sharding, which allows creating blocks in seconds.',
+    description:
+      'Harmony is a blockchain platform designed to facilitate the creation and use of decentralized applications (DApps). The network aims to innovate the way decentralized applications work by focusing on random state sharding, which allows creating blocks in seconds.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x03ff0ff224f904be3118461335064bb48df47938.png',
   },
@@ -3081,7 +3298,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://nerve.fi/',
-    description: 'Nerve Finance is a stableswap AMM built on Binance Smart Chain designed to allow trading stablecoins and pegged synthetic assets quickly with minimal slippage and low fees. $NRV is the governance token of the Nerve Finance protocol.',
+    description:
+      'Nerve Finance is a stableswap AMM built on Binance Smart Chain designed to allow trading stablecoins and pegged synthetic assets quickly with minimal slippage and low fees. $NRV is the governance token of the Nerve Finance protocol.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x42f6f551ae042cbe50c739158b4f0cac0edb9096.png',
   },
@@ -3092,7 +3310,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://easyfi.network/',
-    description: 'EasyFi is a multi chain layer 2 money markets with structured lending products to accelerate liquidity deployment at remarkably lowest cost & unimaginable fast speed.',
+    description:
+      'EasyFi is a multi chain layer 2 money markets with structured lending products to accelerate liquidity deployment at remarkably lowest cost & unimaginable fast speed.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x7c17c8bed8d14bacce824d020f994f4880d6ab3b.png',
   },
@@ -3103,7 +3322,8 @@ const _tokens = {
     chainId: 56,
     decimals: 9,
     website: 'https://safemoon.net/',
-    description: 'The SafeMoon Protocol is a community driven, fair launched DeFi Token. Three simple functions occur during each trade: Reflection, LP Acquisition, and Burn.',
+    description:
+      'The SafeMoon Protocol is a community driven, fair launched DeFi Token. Three simple functions occur during each trade: Reflection, LP Acquisition, and Burn.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x8076c74c5e3f5852037f31ff0093eeb8c8add8d3.png',
   },
@@ -3114,7 +3334,8 @@ const _tokens = {
     chainId: 56,
     decimals: 9,
     website: 'https://www.btcst.finance/',
-    description: 'τBitcoin brings Bitcoin to DeFi and its price will be 1:1 pegged to that of Bitcoin. Backed by institutional miners representing 12% of Bitcoin’s global hashrate, τBitcoin will be a synthetic Bitcoin uniquely suitable for DeFi use cases.',
+    description:
+      'τBitcoin brings Bitcoin to DeFi and its price will be 1:1 pegged to that of Bitcoin. Backed by institutional miners representing 12% of Bitcoin’s global hashrate, τBitcoin will be a synthetic Bitcoin uniquely suitable for DeFi use cases.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c.png',
   },
@@ -3125,7 +3346,8 @@ const _tokens = {
     chainId: 56,
     decimals: 8,
     website: 'https://hoo.com/',
-    description: 'HOO(Hoo Token) is the native token of the whole ecosystem of Hoo Exchange, ticker HOO, which is a decentralized blockchain digital assets based on Ethereum.',
+    description:
+      'HOO(Hoo Token) is the native token of the whole ecosystem of Hoo Exchange, ticker HOO, which is a decentralized blockchain digital assets based on Ethereum.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe1d1f66215998786110ba0102ef558b22224c016.png',
   },
@@ -3136,7 +3358,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://oddz.fi/',
-    description: 'Oddz is the Multi-chain options trading platform on Binance Smart Chain, Polkadot & Ethereum.',
+    description:
+      'Oddz is the Multi-chain options trading platform on Binance Smart Chain, Polkadot & Ethereum.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xcd40f2670cf58720b694968698a5514e924f742d.png',
   },
@@ -3147,7 +3370,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://apyswap.com/',
-    description: 'ApySwap is a single point of entry for all the most popular and profitable services from such blockchains as Ethereum, Polkadot, Binance Smart Chain, HECO, Tezos, Solana and others.',
+    description:
+      'ApySwap is a single point of entry for all the most popular and profitable services from such blockchains as Ethereum, Polkadot, Binance Smart Chain, HECO, Tezos, Solana and others.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x37dfACfaeDA801437Ff648A1559d73f4C40aAcb7.png',
   },
@@ -3158,7 +3382,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.bondly.finance/',
-    description: 'Bondly aims to bring DeFi to the masses by bridging the gap between decentralized escrow payments and traditional marketplaces.',
+    description:
+      'Bondly aims to bring DeFi to the masses by bridging the gap between decentralized escrow payments and traditional marketplaces.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x96058f8c3e16576d9bd68766f3836d9a33158f89.png',
   },
@@ -3169,7 +3394,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.tokocrypto.com/',
-    description: 'The token serves several purposes on the Tokocrypto blockchain platform and allows users to participate in crypto exchanges, deposit and savings programs, cross-platform DeFi applications, and NFT marketplaces.',
+    description:
+      'The token serves several purposes on the Tokocrypto blockchain platform and allows users to participate in crypto exchanges, deposit and savings programs, cross-platform DeFi applications, and NFT marketplaces.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x9f589e3eabe42ebc94a44727b3f3531c0c877809.png',
   },
@@ -3180,7 +3406,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://itam.network/',
-    description: 'The project claims to support game developers with blockchain technology and provide an easy way for existing games to be integrated with blockchain.',
+    description:
+      'The project claims to support game developers with blockchain technology and provide an easy way for existing games to be integrated with blockchain.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x04c747b40be4d535fc83d09939fb0f626f32800b.png',
   },
@@ -3191,7 +3418,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://arpachain.io/',
-    description: 'ARPA is a blockchain-based layer 2 solution for privacy-preserving computation, enabled by Multi-Party Computation (“MPC”).',
+    description:
+      'ARPA is a blockchain-based layer 2 solution for privacy-preserving computation, enabled by Multi-Party Computation (“MPC”).',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x6f769e65c14ebd1f68817f5f1dcdb61cfa2d6f7e.png',
   },
@@ -3202,7 +3430,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://perlinx.finance/',
-    description: 'PerlinX is a decentralized synthetic liquidity pool that supports the creation and trade of synthetic assets.',
+    description:
+      'PerlinX is a decentralized synthetic liquidity pool that supports the creation and trade of synthetic assets.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x0f9e4d49f25de22c2202af916b681fbb3790497b.png',
   },
@@ -3213,7 +3442,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://jgndefi.com/',
-    description: 'JGN is described to be an unstoppable commerce network that offers custom synthetic DeFi assets to fit any business use case.',
+    description:
+      'JGN is described to be an unstoppable commerce network that offers custom synthetic DeFi assets to fit any business use case.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xc13b7a43223bb9bf4b69bd68ab20ca1b79d81c75.png',
   },
@@ -3224,7 +3454,8 @@ const _tokens = {
     chainId: 56,
     decimals: 4,
     website: 'https://alienworlds.io/',
-    description: 'Alien Worlds is a game where you can earn Trilium (TLM) for mining and have a chance to mine an NFT game card each time you mine.',
+    description:
+      'Alien Worlds is a game where you can earn Trilium (TLM) for mining and have a chance to mine an NFT game card each time you mine.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0x2222227e22102fe3322098e4cbfe18cfebd57c95.png',
   },
@@ -3235,7 +3466,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://bsc.alpaca.city/',
-    description: 'Alpaca City is endeavoring to create a more accessible DeFi ecosystem by combining the power of yield farming and NFT.',
+    description:
+      'Alpaca City is endeavoring to create a more accessible DeFi ecosystem by combining the power of yield farming and NFT.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xc5e6689c9c8b02be7c49912ef19e79cf24977f03.png',
   },
@@ -3246,7 +3478,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://horizonprotocol.com/',
-    description: 'Horizon protocol is a defi platform facilitating the creation of on-chain synthetic assets representing the real economy.',
+    description:
+      'Horizon protocol is a defi platform facilitating the creation of on-chain synthetic assets representing the real economy.',
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xC0eFf7749b125444953ef89682201Fb8c6A917CD.png',
   },
@@ -3257,7 +3490,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.meter.io/',
-    description: 'Meter is a high performance infrastructure that allows smart contracts to scale and travel seamlessly through heterogeneous blockchain networks.',
+    description:
+      'Meter is a high performance infrastructure that allows smart contracts to scale and travel seamlessly through heterogeneous blockchain networks.',
     logoURI: '',
   },
   QKC: {
@@ -3267,7 +3501,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://quarkchain.io/',
-    description: 'QuarkChain is a flexible, scalable, and user-oriented blockchain infrastructure by using blockchain sharding technology.',
+    description:
+      'QuarkChain is a flexible, scalable, and user-oriented blockchain infrastructure by using blockchain sharding technology.',
     logoURI: '',
   },
   MX: {
@@ -3277,7 +3512,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.mexc.com/',
-    description: 'MX is the native token of the MXC trading platform. MX holders reportedly benefit from asset appreciation, rebates on platform revenue, supervision, and voting.',
+    description:
+      'MX is the native token of the MXC trading platform. MX holders reportedly benefit from asset appreciation, rebates on platform revenue, supervision, and voting.',
     logoURI: '',
   },
   BCFX: {
@@ -3287,7 +3523,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://www.confluxnetwork.org/',
-    description: 'Conflux Network enables the secure and interoperable flow of assets and data to create an internet of value for all.',
+    description:
+      'Conflux Network enables the secure and interoperable flow of assets and data to create an internet of value for all.',
     logoURI: 'https://bscscan.com/token/images/conflux_32.png',
   },
   'AMPL-BSC-mp': {
@@ -3297,7 +3534,8 @@ const _tokens = {
     chainId: 56,
     decimals: 9,
     website: 'https://www.ampleforth.org/',
-    description: 'AMPL is a cryptocurrency and financial building-block. Much like Bitcoin, it is algorithmic and uncollateralized. However unlike Bitcoin, AMPL can be used to denominate stable contracts.',
+    description:
+      'AMPL is a cryptocurrency and financial building-block. Much like Bitcoin, it is algorithmic and uncollateralized. However unlike Bitcoin, AMPL can be used to denominate stable contracts.',
     logoURI: '',
   },
   dBTC: {
@@ -3357,7 +3595,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://kingdefi.io/',
-    description: 'KingDeFi is a DeFi project combining two main areas: analytics and monitoring where they provide a market overview, liquidity pool search engine and portfolio tracking to users and farming as they are a yield optimizer project on BSC and Solana.',
+    description:
+      'KingDeFi is a DeFi project combining two main areas: analytics and monitoring where they provide a market overview, liquidity pool search engine and portfolio tracking to users and farming as they are a yield optimizer project on BSC and Solana.',
     logoURI: 'https://kingdefi.io/assets/images/KRW@2x.png',
   },
   CARROT: {

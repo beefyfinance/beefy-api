@@ -5,11 +5,11 @@ const { cakeClient } = require('../../../../apollo/client');
 
 const getHoneyFarmApys = async () =>
   await getMasterChefApys({
-    masterchef: '0x09Bfd9BEA89db8a0Cc1bFB5b3e0c39c84E7F38B5',
+    masterchef: '0xc3D910c9D2bB024931a44Cf127B6231aC1F04de3',
     tokenPerBlock: 'EarningsPerBlock',
     hasMultiplier: false,
     pools: pools,
-    oracleId: 'HONEY',
+    oracleId: 'BEAR',
     oracle: 'tokens',
     decimals: '1e18',
     tradingFeeInfoClient: cakeClient,

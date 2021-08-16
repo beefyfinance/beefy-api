@@ -3,8 +3,8 @@
     "name": "honeyfarm-honey-bnb",
     "address": "0x27418bf2E38E613560D2281dB6590f3f6D446259",
     "decimals": "1e18",
-    "poolId": 22,
-    "strat": "0x1716007714547564d29c271c8Df0B95f9c2B6f58",
+    "poolId": 0,
+    "strat": "0xe5f496ff1B0340F52B13BAA648736253AB815023",
     "chainId": 56,
     "lp0": {
       "address": "0xFa363022816aBf82f18a9C2809dCd2BB393F6AC5",
@@ -23,13 +23,53 @@
     "name": "honeyfarm-honey-busd",
     "address": "0x2961aa26a1Cb3068E580099045cc79a5b7B9634c",
     "decimals": "1e18",
-    "poolId": 20,
-    "strat": "0x0C96c72d972D23b187D4e647358C2b2Bbd36d0C7",
+    "poolId": 1,
+    "strat": "0x0A39789f1Ea964d8a35fA7E06914CC343f478c7f",
     "chainId": 56,
     "lp0": {
       "address": "0xFa363022816aBf82f18a9C2809dCd2BB393F6AC5",
       "oracle": "tokens",
       "oracleId": "HONEY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "honeyfarm-bear-bnb",
+    "address": "0xC5E96F03414DA6E7eA6D2F051D23964C0B80739F",
+    "decimals": "1e18",
+    "poolId": 25,
+    "strat": "0x2fB75aA5D8151a3e857A9B2F523c838919459E49",
+    "chainId": 56,
+    "lp0": {
+      "address": "0xc3EAE9b061Aa0e1B9BD3436080Dc57D2d63FEdc1",
+      "oracle": "tokens",
+      "oracleId": "BEAR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "honeyfarm-bear-busd",
+    "address": "0x9DD10B5d23A05bBAC9E9Ae0C7ca9890791eABb25",
+    "decimals": "1e18",
+    "poolId": 26,
+    "strat": "0x1773a65AB2d85809f7E4274916d7150b3b568a55",
+    "chainId": 56,
+    "lp0": {
+      "address": "0xc3EAE9b061Aa0e1B9BD3436080Dc57D2d63FEdc1",
+      "oracle": "tokens",
+      "oracleId": "BEAR",
       "decimals": "1e18"
     },
     "lp1": {
