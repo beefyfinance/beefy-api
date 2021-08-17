@@ -1,5 +1,6 @@
 const getVaults = require('../../utils/getVaults.js');
 const { getStrategies } = require('../../utils/getStrategies.js');
+const { getLastHarvests } = require('../../utils/getLastHarvests.js');
 
 const { MULTICHAIN_ENDPOINTS } = require('../../constants');
 
@@ -25,8 +26,9 @@ const updateMultichainVaults = async () => {
   try {
     for (let chain in MULTICHAIN_ENDPOINTS) {
       let endpoint = MULTICHAIN_ENDPOINTS[chain];
-      let chainVaultsNoStrategies = await getVaults(endpoint);
-      let chainVaults = await getStrategies(chainVaultsNoStrategies, chain);
+      let chainVaults = await getVaults(endpoint);
+      chainVaults = await getStrategies(chainVaults, chain);
+      chainVaults = await getLastHarvests(chainVaults, chain);
 
       var chainVaultsCounter = 0;
       var chainActiveVaultsCounter = 0;
