@@ -16,6 +16,10 @@ const projects = {
     prefix: 'quick',
     file: '../src/data/matic/quickLpPools.json',
   },
+  pangolin: {
+    prefix: 'pangolin',
+    file: '../src/data/avax/pangolinLpPools.json',
+  },
 };
 
 const args = yargs.options({

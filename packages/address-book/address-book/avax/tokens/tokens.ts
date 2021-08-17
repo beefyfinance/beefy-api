@@ -60,6 +60,18 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf20d962a6c8f70c731bd838a3a388D7d48fA6e15/logo.png',
   },
+  WETHe: {
+    chainId: 43114,
+    address: '0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB',
+    decimals: 18,
+    name: 'Ether',
+    symbol: 'ETH',
+    website: 'https://ethereum.org/',
+    description:
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf20d962a6c8f70c731bd838a3a388D7d48fA6e15/logo.png',
+  },
   POOLZ: {
     chainId: 43114,
     address: '0x96CE026f10890f4836937e6FDe75f13252fdf414',
@@ -594,6 +606,19 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB3fe5374F67D7a22886A0eE082b2E2f9d2651651/logo.png',
   },
+  LINKe: {
+    chainId: 43114,
+    address: '0x5947BB275c521040051D82396192181b413227A3',
+    decimals: 18,
+    name: 'ChainLink Token',
+    symbol: 'LINK',
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB3fe5374F67D7a22886A0eE082b2E2f9d2651651/logo.png',
+  },
+
   COL: {
     chainId: 43114,
     address: '0xEFb603A7844f11D17aDA15B63e3A876AB443372C',
@@ -3162,6 +3187,19 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
+  WBTCe: {
+    chainId: 43114,
+    address: '0x50b7545627a5162F82A992c33b87aDc75187B218',
+    decimals: 8,
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+  },
+
   wNXM: {
     chainId: 43114,
     address: '0x3585E1f43Af5A0E5a9429A8058BDf999ED67f81d',
@@ -3522,6 +3560,18 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/crackfi/tesla_btc_logo/master/Tesla_Bitcoin_logo.png',
   },
+  USDTe: {
+    chainId: 43114,
+    address: '0xc7198437980c041c805A1EDcbA50c1Ce5db95118',
+    decimals: 6,
+    name: 'Tether USD',
+    symbol: 'USDT',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
+  },
   'USDT-Tether USD': {
     chainId: 43114,
     address: '0xde3A24028580884448a5397872046a019649b084',
@@ -3543,9 +3593,9 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1C20E891Bab6b1727d14Da358FAe2984Ed9B59EB/logo.png',
   },
-  'DAI-Dai Stablecoin': {
+  DAIe: {
     chainId: 43114,
-    address: '0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a',
+    address: '0xd586E7F844cEa2F87f50152665BCbc2C279D8d70',
     decimals: 18,
     name: 'Dai Stablecoin',
     symbol: 'DAI',
