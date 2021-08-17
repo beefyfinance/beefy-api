@@ -131,5 +131,24 @@
       "oracleId": "DFYN",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "dinoswap-dfyn-route-eth",
+    "address": "0xeBC4f9B1cE66258AC3A48578FFEEba1330dDB68B",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x16ECCfDbb4eE1A85A33f3A9B21175Cd7Ae753dB4",
+      "oracle": "tokens",
+      "oracleId": "ROUTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
   }
 ]
