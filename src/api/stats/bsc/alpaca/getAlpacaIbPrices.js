@@ -19,7 +19,7 @@ const getAlpacaIbPrices = async tokenPrices => {
 };
 
 const getPoolPrice = async (pool, tokenPrices) => {
-  const ibToken = new web3.eth.Contract(AlpacaIbVault, pool.token);
+  const ibToken = new web3.eth.Contract(AlpacaIbVault, pool.address);
   const [totalToken, totalSupply] = await Promise.all([
     ibToken.methods.totalToken().call(),
     ibToken.methods.totalSupply().call(),
