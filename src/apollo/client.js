@@ -70,7 +70,7 @@ const cakeClient = new ApolloClient({
 
 const apeClient = new ApolloClient({
   link: createHttpLink({
-    uri: 'https://graph2.apeswap.finance/subgraphs/name/ape-swap/apeswap-subgraph',
+    uri: 'https://graph.apeswap.finance/subgraphs/name/ape-swap/apeswap-subgraph',
     fetch,
   }),
   cache: new InMemoryCache(),
