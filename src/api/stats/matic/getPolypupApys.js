@@ -2,27 +2,30 @@ const { getMasterChefApys } = require('./getMaticMasterChefApys');
 const {
   addressBook: {
     polygon: {
-      tokens: { BONE },
-      platforms: { polypupBone },
+      tokens: { BONE, BALL },
+      platforms: { polypupBone, polypupBall },
     },
   },
 } = require('../../../../packages/address-book/address-book');
 
 const { QUICK_LPF } = require('../../../constants');
 const MasterChefAbi = require('../../../abis/matic/PolypupBoneMasterChef.json');
-const pools = require('../../../data/matic/polypupLpPools.json');
-const singlePools = require('../../../data/matic/polypupSinglePools.json');
+const BallMasterChefAbi = require('../../../abis/matic/PolypupBallMasterChef.json');
+const bonePools = require('../../../data/matic/polypupLpPools.json');
+const boneSinglePools = require('../../../data/matic/polypupSinglePools.json');
+const ballPools = require('../../../data/matic/polypupBallLpPools.json');
+const ballSinglePools = require('../../../data/matic/polypupBallSinglePools.json');
 const { quickClient } = require('../../../apollo/client');
 const { getEDecimals } = require('../../../utils/getEDecimals');
 
 const getPolypupApys = async () => {
-  const all = getMasterChefApys({
+  const bone = getMasterChefApys({
     masterchef: polypupBone.masterchef,
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'BonePerBlock',
     hasMultiplier: false,
-    singlePools: singlePools,
-    pools: pools,
+    singlePools: boneSinglePools,
+    pools: bonePools,
     oracle: 'tokens',
     oracleId: BONE.symbol,
     decimals: getEDecimals(BONE.decimals),
@@ -31,10 +34,25 @@ const getPolypupApys = async () => {
     // log: true,
   });
 
+  const ball = getMasterChefApys({
+    masterchef: polypupBall.masterchef,
+    masterchefAbi: BallMasterChefAbi,
+    tokenPerBlock: 'BallPerBlock',
+    hasMultiplier: false,
+    singlePools: ballSinglePools,
+    pools: ballPools,
+    oracle: 'tokens',
+    oracleId: BALL.symbol,
+    decimals: getEDecimals(BALL.decimals),
+    tradingFeeInfoClient: quickClient,
+    liquidityProviderFee: QUICK_LPF,
+    // log: true,
+  });
+
   let apys = {};
   let apyBreakdowns = {};
 
-  let promises = [all];
+  let promises = [bone, ball];
   const results = await Promise.allSettled(promises);
 
   for (const result of results) {
