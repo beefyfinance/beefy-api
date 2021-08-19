@@ -126,6 +126,15 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xa477b670C46fe58cF48708D9519a5E8875a48062/logo.png',
   },
+  AAVEe: {
+    chainId: 43114,
+    address: '0x63a72806098Bd3D9520cC43356dD78afe5D386D9',
+    decimals: 18,
+    name: 'Aave Token',
+    symbol: 'AAVE',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8cE2Dee54bB9921a2AE0A63dBb2DF8eD88B91dD9/logo.png',
+  },
   AAVE: {
     chainId: 43114,
     address: '0x8cE2Dee54bB9921a2AE0A63dBb2DF8eD88B91dD9',
@@ -2719,6 +2728,15 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xfa0bDf9dF8bb8b3d7687a44dAD2F69Bc7a7B294f/logo.png',
   },
+  SUSHIe: {
+    chainId: 43114,
+    address: '0x37B608519F91f70F2EeB0e5Ed9AF4061722e4F76',
+    decimals: 18,
+    name: 'SushiToken',
+    symbol: 'SUSHI',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x39cf1BD5f15fb22eC3D9Ff86b0727aFc203427cc/logo.png',
+  },
   SUSHI: {
     chainId: 43114,
     address: '0x39cf1BD5f15fb22eC3D9Ff86b0727aFc203427cc',
@@ -3046,6 +3064,18 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xFBD70543a1456ECa6570743256dc2D6E5CE43a2e/logo.png',
   },
+  UNIe: {
+    chainId: 43114,
+    address: '0x8eBAf22B6F053dFFeaf46f4Dd9eFA95D89ba8580',
+    decimals: 18,
+    name: 'Uniswap',
+    symbol: 'UNI',
+    website: 'https://uniswap.org/',
+    description:
+      'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf39f9671906d8630812f9d9863bBEf5D523c84Ab/logo.png',
+  },
   UNI: {
     chainId: 43114,
     address: '0xf39f9671906d8630812f9d9863bBEf5D523c84Ab',
@@ -3253,6 +3283,15 @@ const _tokens = {
     symbol: 'yyDAI+yUSDC+yUSDT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x23f717b177eaf0bB93a726D2b8C4Bd11d4c4950b/logo.png',
+  },
+  YFIe: {
+    chainId: 43114,
+    address: '0x9eAaC1B23d935365bD7b542Fe22cEEe2922f52dc',
+    decimals: 18,
+    name: 'yearn.finance',
+    symbol: 'YFI',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x99519AcB025a0e0d44c3875A4BbF03af65933627/logo.png',
   },
   YFI: {
     chainId: 43114,

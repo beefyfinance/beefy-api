@@ -1,5 +1,81 @@
 [
   {
+    "name": "pangolin-uni.e-wavax",
+    "address": "0x99dD520748eB0355c69DAE2692E4615C8Ab031ce",
+    "rewardPool": "0x6e36a71c1a211f01ff848c1319d4e34bb5483224",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x8eBAf22B6F053dFFeaf46f4Dd9eFA95D89ba8580",
+      "oracle": "tokens",
+      "oracleId": "UNI.e",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pangolin-yfi.e-wavax",
+    "address": "0x9a634CE657681200B8c5fb3Fa1aC59Eb0662f45C",
+    "rewardPool": "0x642c5b7ac22f56a0ef87930a89f0980fca904b03",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x9eAaC1B23d935365bD7b542Fe22cEEe2922f52dc",
+      "oracle": "tokens",
+      "oracleId": "YFI.e",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pangolin-aave.e-wavax",
+    "address": "0x5944f135e4F1E3fA2E5550d4B5170783868cc4fE",
+    "rewardPool": "0xa04fcce7955312709c838982ad0e297375002c32",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x63a72806098Bd3D9520cC43356dD78afe5D386D9",
+      "oracle": "tokens",
+      "oracleId": "AAVE.e",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pangolin-sushi.e-wavax",
+    "address": "0xF62381AFFdfd27Dba91A1Ea2aCf57d426E28c341",
+    "rewardPool": "0x2d55341f2abbb5472020e2d556a4f6b951c8fa22",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x37B608519F91f70F2EeB0e5Ed9AF4061722e4F76",
+      "oracle": "tokens",
+      "oracleId": "SUSHI.e",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "pangolin-png-usdt.e",
     "address": "0x1fFB6ffC629f5D820DCf578409c2d26A2998a140",
     "rewardPool": "0x7216d1e173c1f1ed990239d5c77d74714a837cd5",
