@@ -57,13 +57,13 @@ const getYearlyRewardsInUsd = async (web3, pool) => {
       rewardRate = new BigNumber(rate);
     } else {
       const rewardStream = new web3.eth.Contract(IRewardStream, rewards.stream);
-      periodFinish = Number(await rewardStream.methods.period_finish().call());
+      // periodFinish = Number(await rewardStream.methods.period_finish().call());
       rewardRate = new BigNumber(await rewardStream.methods.reward_rate().call());
     }
 
-    if (periodFinish < Date.now() / 1000) {
-      continue;
-    }
+    // if (periodFinish < Date.now() / 1000) {
+    //   continue;
+    // }
 
     const price = await fetchPrice({ oracle: rewards.oracle ?? 'tokens', id: rewards.oracleId });
     const rewardsInUsd = rewardRate
