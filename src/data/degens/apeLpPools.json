@@ -1,5 +1,24 @@
 [
   {
+    "name": "banana-caps-bnb",
+    "address": "0x6Dfbf17ac70CE03388B1f88cb3C97AD79120e7b1",
+    "decimals": "1e18",
+    "poolId": 93,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFfBa7529AC181c2Ee1844548e6D7061c9A597dF4",
+      "oracle": "tokens",
+      "oracleId": "CAPS",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-hotcross-busd",
     "address": "0x3B9Aa711D1D90A4f8639f66C227881729a3317F2",
     "decimals": "1e18",

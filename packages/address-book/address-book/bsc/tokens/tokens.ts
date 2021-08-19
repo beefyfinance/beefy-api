@@ -15,6 +15,16 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  CAPS: {
+    name: 'Capsule Coin',
+    symbol: 'CAPS',
+    address: '0xFfBa7529AC181c2Ee1844548e6D7061c9A597dF4',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://apeswap.finance/images/tokens/CAPS.svg',
+    description: 'NFT-Based Decentralized Data Transmission Blockchain.',
+    website: 'https://www.ternoa.com/',
+  },
   WUSD: {
     name: 'Wault USD',
     symbol: 'WUSD',
