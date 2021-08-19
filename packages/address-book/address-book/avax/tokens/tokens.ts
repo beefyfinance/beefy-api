@@ -17,7 +17,7 @@ const _tokens = {
     address: '0xd6070ae98b8069de6B494332d1A1a81B6179D960',
     decimals: 18,
     name: 'Binance Smart Chain',
-    symbol: 'BNB',
+    symbol: 'BIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
