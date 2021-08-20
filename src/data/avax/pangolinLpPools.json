@@ -1,5 +1,43 @@
 [
   {
+    "name": "pangolin-png-qi",
+    "address": "0x50E7e19281a80E3C24a07016eDB87EbA9fe8C6cA",
+    "rewardPool": "0x2bd42c357a3e13f18849c67e8dc108cc8462ae33",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x60781C2586D68229fde47564546784ab3fACA982",
+      "oracle": "tokens",
+      "oracleId": "PNG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5",
+      "oracle": "tokens",
+      "oracleId": "QI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pangolin-qi-wavax",
+    "address": "0xE530dC2095Ef5653205CF5ea79F8979a7028065c",
+    "rewardPool": "0xed472431e02ea9ef8cc99b9812c335ac0873bba2",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5",
+      "oracle": "tokens",
+      "oracleId": "QI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "pangolin-uni.e-wavax",
     "address": "0x99dD520748eB0355c69DAE2692E4615C8Ab031ce",
     "rewardPool": "0x6e36a71c1a211f01ff848c1319d4e34bb5483224",
