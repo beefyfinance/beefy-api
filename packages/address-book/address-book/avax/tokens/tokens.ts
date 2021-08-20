@@ -12,7 +12,7 @@ const AVAX = {
 } as const;
 
 const _tokens = {
-  QI: {
+  aQI: {
     chainId: 43114,
     address: '0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5',
     decimals: 18,
