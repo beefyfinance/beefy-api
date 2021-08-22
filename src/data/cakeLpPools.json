@@ -1,5 +1,100 @@
 [
   {
+    "name": "cakev2-sfund-wbnb",
+    "address": "0x74fA517715C4ec65EF01d55ad5335f90dce7CC87",
+    "decimals": "1e18",
+    "poolId": 450,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x477bC8d23c634C154061869478bce96BE6045D12",
+      "oracle": "tokens",
+      "oracleId": "SFUND",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-bp-wbnb",
+    "address": "0x2bF2dEB40639201C9A94c9e33b4852D9AEa5fd2D",
+    "decimals": "1e18",
+    "poolId": 449,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xACB8f52DC63BB752a51186D1c55868ADbFfEe9C1",
+      "oracle": "tokens",
+      "oracleId": "BP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-rusd-busd",
+    "address": "0x59FaC9e98479fc9979aE2a0C7422Af50bCBB9B26",
+    "decimals": "1e18",
+    "poolId": 448,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x07663837218A003e66310a01596af4bf4e44623D",
+      "oracle": "tokens",
+      "oracleId": "rUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-wbnb-gnt",
+    "address": "0x3747e3e107223539FD09bb730b055A1f11F78Adf",
+    "decimals": "1e18",
+    "poolId": 447,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF750A26EB0aCf95556e8529E72eD530f3b60f348",
+      "oracle": "tokens",
+      "oracleId": "GNT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-bmon-busd",
+    "address": "0x00e53C169dA54a7E11172aEEDf8Eb87F060F479e",
+    "decimals": "1e18",
+    "poolId": 446,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x08ba0619b1e7A582E0BCe5BBE9843322C954C340",
+      "oracle": "tokens",
+      "oracleId": "BMON",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-pots-busd",
     "address": "0xF90BAA331Cfd40F094476E752Bf272892170d399",
     "decimals": "1e18",

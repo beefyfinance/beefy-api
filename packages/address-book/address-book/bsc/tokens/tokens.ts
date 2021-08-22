@@ -15,6 +15,49 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  GNT: {
+    name: 'Green Trust',
+    symbol: 'GNT',
+    address: '0xF750A26EB0aCf95556e8529E72eD530f3b60f348',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0xF750A26EB0aCf95556e8529E72eD530f3b60f348/logo.png',
+    description: 'Eco-Friendly Cryptocurrency',
+    website: 'https://www.greentrusttoken.com/',
+  },
+  rUSD: {
+    name: 'Ramp Defi USD',
+    symbol: 'rUSD',
+    address: '0x07663837218A003e66310a01596af4bf4e44623D',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://www.rampdefi.com/icons/ramp_v4.svg',
+    description: 'Ramp Defi USD pegged token',
+    website: 'https://www.rampdefi.com/',
+  },
+  BP: {
+    name: 'Bunny Park',
+    symbol: 'BP',
+    address: '0xACB8f52DC63BB752a51186D1c55868ADbFfEe9C1',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0x477bC8d23c634C154061869478bce96BE6045D12/logo.png',
+    description: 'NFT & Yield Farm on Binance Smart Chain',
+    website: 'https://www.bunnypark.com/',
+  },
+  SFUND: {
+    name: 'Seedify',
+    symbol: 'SFUND',
+    address: '0x477bC8d23c634C154061869478bce96BE6045D12',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0x477bC8d23c634C154061869478bce96BE6045D12/logo.png',
+    description: 'Incubator & Launchpad for Blockchain Games & Gamers',
+    website: 'https://launchpad.seedify.fund/',
+  },
   CAPS: {
     name: 'Capsule Coin',
     symbol: 'CAPS',
