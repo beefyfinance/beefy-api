@@ -1055,12 +1055,13 @@ const _tokens = {
   },
   renDOGE: {
     name: 'renDOGE',
-    address: '0x7C4A54f5d20b4023D6746F1f765f4DFe7C39a7e6',
+    address: '0xcE829A89d4A55a63418bcC43F00145adef0eDB8E',
     symbol: 'renDOGE',
     decimals: 8,
     chainId: 137,
-    logoURI:
-      'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/polygon/assets/0x7C4A54f5d20b4023D6746F1f765f4DFe7C39a7e6/logo.png',
+    website: 'https://renproject.io/',
+    description: 'renDOGE is a one-for-one representation of Dogecoin (DOGE) on Polygon via RenVM.',
+    logoURI: 'https://polygonscan.com/token/images/rendogecoin_32.png',
   },
   SNX: {
     name: 'SNX',
