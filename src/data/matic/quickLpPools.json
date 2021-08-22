@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-eth-rendoge",
+    "address": "0xAB1403De66519B898b38028357B74DF394a54a37",
+    "rewardPool": "0xe2519a7b81Cf038C055ddD667A9c06A0790945f4",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcE829A89d4A55a63418bcC43F00145adef0eDB8E",
+      "oracle": "tokens",
+      "oracleId": "renDOGE",
+      "decimals": "1e8"
+    }
+  },
+  {
     "name": "quick-usdc-quick",
     "address": "0x1F1E4c845183EF6d50E9609F16f6f9cAE43BC9Cb",
     "rewardPool": "0x8cFad56Eb742BA8CAEA813e47779E9C38f27cA6E",
