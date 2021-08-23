@@ -129,6 +129,7 @@ import steakhouseLpPools from '../../data/fantom/steakhouseLpPools.json';
 import polygonFarmPools from '../../data/matic/polygonFarmLpPools.json';
 import pearzapPools from '../../data/matic/pearzapLpPools.json';
 import tosdisPools from '../../data/degens/tosdisLpPools.json';
+import yelPools from '../../data/degens/yelLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -137,6 +138,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...tosdisPools,
+  ...yelPools,
   ...pearzapPools,
   ...polygonFarmPools,
   ...steakhouseLpPools,

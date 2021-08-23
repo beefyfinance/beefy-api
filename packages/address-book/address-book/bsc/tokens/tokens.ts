@@ -26,6 +26,18 @@ const _tokens = {
     description: 'Eco-Friendly Cryptocurrency',
     website: 'https://www.greentrusttoken.com/',
   },
+  YEL: {
+    name: 'YEL Token',
+    symbol: 'YEL',
+    address: '0xD3b71117E6C1558c1553305b44988cd944e97300',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/YEL.svg',
+    website: 'https://yel.finance/',
+    description:
+      'Yield Enhancement Labs core mission is to help projects gain liquidity across multiple chains while building token economics with constant buy-pressure for YEL token',
+  },
   DIS: {
     name: 'TosDis',
     symbol: 'DIS',
