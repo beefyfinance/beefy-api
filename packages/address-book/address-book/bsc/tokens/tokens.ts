@@ -26,6 +26,17 @@ const _tokens = {
     description: 'Eco-Friendly Cryptocurrency',
     website: 'https://www.greentrusttoken.com/',
   },
+  DIS: {
+    name: 'TosDis',
+    symbol: 'DIS',
+    address: '0x57efFdE2759b68d86C544e88F7977e3314144859',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf981547a1D9A0c59C9aba1e2b826BF01a2e5E263/logo.png',
+    website: 'https://tosdis.finance/',
+    description: 'The One Stop Defi Interoperable Solution powered with Liquid Staking',
+  },
   rUSD: {
     name: 'Ramp Defi USD',
     symbol: 'rUSD',

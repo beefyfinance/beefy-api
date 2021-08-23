@@ -49,6 +49,17 @@ const _tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
   },
+  DIS: {
+    name: 'TosDis',
+    symbol: 'DIS',
+    address: '0x0e121961DD741C9D49C9A04379da944A9D2FAc7a',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf981547a1D9A0c59C9aba1e2b826BF01a2e5E263/logo.png',
+    website: 'https://tosdis.finance/',
+    description: 'The One Stop Defi Interoperable Solution powered with Liquid Staking',
+  },
   BUSD: {
     name: 'Binance USD',
     address: '0xC931f61B1534EB21D8c11B24f3f5Ab2471d4aB50',

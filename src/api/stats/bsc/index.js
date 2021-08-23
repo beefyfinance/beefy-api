@@ -33,6 +33,7 @@ const getMdexMdxApy = require('./mdex/getMdexMdxApy');
 const getGrandLpApys = require('./grand/getGrandLpApys');
 const getWaultLpApys = require('./wault/getWaultLpApys');
 const getTenfiApys = require('./tenfi/getTenfiApys');
+const getTosdisLpApys = require('./tosdis/getTosdisLpApys');
 const getCakeV2PoolApy = require('./pancake/getCakeV2PoolApy');
 const getMerlinRewardsApy = require('./merlin/getMerlinRewardsApy');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
@@ -78,6 +79,7 @@ const getApys = [
   getSpongePoolApy,
   getSwipeLpApys,
   getTenfiApys,
+  getTosdisLpApys,
   getVenusApys,
   getWaultLpApys,
 ];

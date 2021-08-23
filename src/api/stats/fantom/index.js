@@ -8,6 +8,7 @@ const getSpiritApys = require('./getSpiritApy');
 const getCurveApys = require('./getCurveApys');
 const getScreamApys = require('./getScreamApys');
 const getSteakHouseLpApys = require('./getSteakHouseLpApys');
+const getTosdisLpApys = require('./tosdis/getTosdisLpApys');
 
 const getApys = [
   getSpookyLpApys,
@@ -20,6 +21,7 @@ const getApys = [
   getCurveApys,
   getScreamApys,
   getSteakHouseLpApys,
+  getTosdisLpApys,
 ];
 
 const getFantomApys = async () => {
