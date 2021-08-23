@@ -1317,17 +1317,17 @@ const _tokens = {
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
   },
-  WMATIC_DFYN: {
-    name: 'Wrapped Matic, DFYN version',
-    symbol: 'WMATIC',
+  WETH: {
+    name: 'Wrapped Ether',
+    symbol: 'WETH',
     address: '0x4c28f48448720e9000907BC2611F73022fdcE1fA',
     chainId: 137,
     decimals: 18,
-    website: 'https://polygon.technology/',
+    website: 'https://ethereum.org/',
     description:
-      'DFyn version. Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png',
+      'https://polygonscan.com/token/images/wETH_32.png',
   },
   BONE: {
     name: 'Polypup Bone',
