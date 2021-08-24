@@ -26,6 +26,29 @@ const _tokens = {
     description: 'Eco-Friendly Cryptocurrency',
     website: 'https://www.greentrusttoken.com/',
   },
+  YEL: {
+    name: 'YEL Token',
+    symbol: 'YEL',
+    address: '0xD3b71117E6C1558c1553305b44988cd944e97300',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/YEL.svg',
+    website: 'https://yel.finance/',
+    description:
+      'Yield Enhancement Labs core mission is to help projects gain liquidity across multiple chains while building token economics with constant buy-pressure for YEL token',
+  },
+  DIS: {
+    name: 'TosDis',
+    symbol: 'DIS',
+    address: '0x57efFdE2759b68d86C544e88F7977e3314144859',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf981547a1D9A0c59C9aba1e2b826BF01a2e5E263/logo.png',
+    website: 'https://tosdis.finance/',
+    description: 'The One Stop Defi Interoperable Solution powered with Liquid Staking',
+  },
   rUSD: {
     name: 'Ramp Defi USD',
     symbol: 'rUSD',
