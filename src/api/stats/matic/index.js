@@ -42,7 +42,7 @@ const getApys = [
   getApeLpApys,
   getPolypupApys,
   // getPolyQuityLpApys,
-  get50kLpApys,
+  // get50kLpApys,
   getDfynLpApys,
   getDfynDualFarmLpApys,
   getBoneSwapApys,
@@ -55,18 +55,25 @@ const getApys = [
   getFarmheroSingleApy,
   getDinoswapApys,
   getSwampApys,
-  getPolyCrackerApys,
+  // getPolyCrackerApys,
   getPolygonFarmApys,
   getPearzapApys,
 ];
+
+const BATCH_SIZE = 20;
 
 const getMaticApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  let promises = [];
-  getApys.forEach(getApy => promises.push(getApy()));
-  const results = await Promise.allSettled(promises);
+  let results = [];
+  for (let i = 0; i < getApys.length; i += BATCH_SIZE) {
+    const batchApys = getApys.slice(i, i + BATCH_SIZE);
+    const promises = [];
+    batchApys.forEach(getApy => promises.push(getApy()));
+    const batchResults = await Promise.allSettled(promises);
+    results = [...results, ...batchResults];
+  }
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
