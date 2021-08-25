@@ -26,6 +26,27 @@ const _tokens = {
     description: 'Eco-Friendly Cryptocurrency',
     website: 'https://www.greentrusttoken.com/',
   },
+  USDO: {
+    name: 'USD Open Dollar',
+    symbol: 'USDO',
+    address: '0x5801D0e1C7D977D78E4890880B8E579eb4943276',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/14828/small/New_USDO_32px_.png',
+    website: 'https://omnifarms.ocp.finance/',
+    description:
+      'USDO is a decentralised stablecoin backed by a verifiable collateral pool of on-chain assets.',
+  },
+  FET: {
+    name: 'Fetch',
+    symbol: 'FET',
+    address: '0x031b41e504677879370e9DBcF937283A8691Fa7f',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/5681/small/Fetch.jpg',
+    website: 'https://fetch.ai/',
+    description: 'Fetch.ai is delivering AI to the crypto economy.',
+  },
   YEL: {
     name: 'YEL Token',
     symbol: 'YEL',
