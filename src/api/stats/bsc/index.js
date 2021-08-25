@@ -40,6 +40,7 @@ const getMerlinRewardsApy = require('./merlin/getMerlinRewardsApy');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getOOELpApys = require('./ooe/getOOELpApys');
 const { getFarmheroApys } = require('./farmhero/getFarmheroApys');
+const getOmnifarmApys = require('./omnifarm/getOmnifarmApys');
 
 const getApys = [
   get1inchLpApys,
@@ -75,6 +76,7 @@ const getApys = [
   getMdexMdxApy,
   getMerlinRewardsApy,
   getNarLpApys,
+  getOmnifarmApys,
   getOOELpApys,
   getSpongeLpApys,
   getSpongePoolApy,

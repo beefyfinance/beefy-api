@@ -130,6 +130,7 @@ import polygonFarmPools from '../../data/matic/polygonFarmLpPools.json';
 import pearzapPools from '../../data/matic/pearzapLpPools.json';
 import tosdisPools from '../../data/degens/tosdisLpPools.json';
 import yelPools from '../../data/degens/yelLpPools.json';
+import omnifarmPools from '../../data/degens/omnifarmLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -137,6 +138,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...omnifarmPools,
   ...tosdisPools,
   ...yelPools,
   ...pearzapPools,
