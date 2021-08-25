@@ -1,6 +1,6 @@
 [
   {
-    "name": "scream-usdc",
+    "name": "scream-usdc-supply",
     "itoken": "0xE45Ac34E528907d0A0239ab5Db507688070B20bf",
     "oracle": "tokens",
     "oracleId": "USDC",
@@ -18,7 +18,7 @@
     "borrowPercent": 0.01
   },
   {
-    "name": "scream-ftm",
+    "name": "scream-ftm-supply",
     "itoken": "0x5AA53f03197E08C4851CAD8C92c7922DA5857E5d",
     "oracle": "tokens",
     "oracleId": "WFTM",
@@ -45,7 +45,7 @@
     "borrowPercent": 0.01
   },
   {
-    "name": "scream-fusdt",
+    "name": "scream-fusdt-supply",
     "itoken": "0x02224765BC8D54C21BB51b0951c80315E1c263F9",
     "oracle": "tokens",
     "oracleId": "fUSDT",
@@ -54,13 +54,13 @@
     "borrowPercent": 0.01
   },
   {
-    "name": "scream-usdc-borrow",
+    "name": "scream-usdc",
     "itoken": "0xE45Ac34E528907d0A0239ab5Db507688070B20bf",
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
     "borrowDepth": 4,
-    "borrowPercent": 0.72
+    "borrowPercent": 0.6
   },
   {
     "name": "scream-wbtc",
@@ -72,13 +72,13 @@
     "borrowPercent": 0.72
   },
   {
-    "name": "scream-ftm-borrow",
+    "name": "scream-ftm",
     "itoken": "0x5AA53f03197E08C4851CAD8C92c7922DA5857E5d",
     "oracle": "tokens",
     "oracleId": "WFTM",
     "decimals": "1e18",
     "borrowDepth": 4,
-    "borrowPercent": 0.72
+    "borrowPercent": 0.6
   },
   {
     "name": "scream-dai",
@@ -99,12 +99,12 @@
     "borrowPercent": 0.72
   },
   {
-    "name": "scream-fusdt-borrow",
+    "name": "scream-fusdt",
     "itoken": "0x02224765BC8D54C21BB51b0951c80315E1c263F9",
     "oracle": "tokens",
     "oracleId": "fUSDT",
     "decimals": "1e6",
     "borrowDepth": 4,
-    "borrowPercent": 0.72
+    "borrowPercent": 0.6
   }
 ]
