@@ -15,6 +15,28 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  NAOS: {
+    name: 'NAOS Finance',
+    symbol: 'NAOS',
+    address: '0x758d08864fB6cCE3062667225ca10b8F00496cc2',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x758d08864fB6cCE3062667225ca10b8F00496cc2.png',
+    description: 'DeFi Lending',
+    website: 'https://naos.finance/',
+  },
+  PHA: {
+    name: 'Phala Network',
+    symbol: 'PHA',
+    address: '0x0112e557d400474717056C4e6D40eDD846F38351',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x0112e557d400474717056C4e6D40eDD846F38351.png',
+    description: 'Global Confidential Compute Cloud',
+    website: 'https://phala.network/en/',
+  },
   GNT: {
     name: 'Green Trust',
     symbol: 'GNT',
