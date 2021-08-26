@@ -1,5 +1,25 @@
 [
   {
+    "name": "sushi-avax-weth",
+    "address": "0x1274De0DE2e9D9b1d0E06313c0E5EdD01CC335eF",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 38,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2C89bbc92BD86F8075d1DEcc58C7F4E0107f286b",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-wbtc-ibbtc",
     "address": "0x8F8e95Ff4B4c5E354ccB005c6B0278492D7B5907",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
