@@ -1,5 +1,24 @@
 [
   {
+    "name": "ironswap-ice-iron",
+    "address": "0x7e2cc09d3d36b3aF6EdfF55B214fd62885234E95",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x4A81f8796e0c6Ad4877A51C86693B0dE8093F2ef",
+      "oracle": "tokens",
+      "oracleId": "ICEiron",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD86b5923F3AD7b585eD81B448170ae026c65ae9a",
+      "oracle": "tokens",
+      "oracleId": "IRON",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "ironswap-ice-usdc",
     "address": "0x34832D9AC4127a232C1919d840f7aaE0fcb7315B",
     "decimals": "1e18",
