@@ -37,6 +37,7 @@ const getPoolApys = async pools => {
 };
 
 const getPoolApy = async pool => {
+  if (pool.status === 'eol') return new BigNumber(0);
   const [yearlyRewardsInUsd, totalStakedInUsd, aaveMaticApy] = await Promise.all([
     getYearlyRewardsInUsd(web3, pool),
     getTotalStakedInUsd(web3, pool),
