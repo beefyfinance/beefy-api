@@ -165,7 +165,16 @@ const dfynClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const joeClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 module.exports = {
+  joeClient,
   dfynClient,
   apePolyClient,
   sushiClient,

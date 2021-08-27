@@ -32,6 +32,11 @@ const projects = {
     file: '../src/data/degens/apeLpPools.json',
     masterchef: '0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9',
   },
+  joe: {
+    prefix: 'joe',
+    file: '../src/data/avax/joeLpPools.json',
+    masterchef: '0xd6a4F121CA35509aF06A0Be99093d08462f53052',
+  },
 };
 
 const args = yargs.options({
