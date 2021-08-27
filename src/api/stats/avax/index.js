@@ -1,5 +1,5 @@
 const getLydLpApys = require('./getLydLpApys');
-const getOliveLpApys = require('./getOliveLpApys');
+const getOliveApys = require('./getOliveApys');
 const getPangolinApys = require('./getPangolinLpApys');
 const getSnobLpApys = require('./getSnobLpApys');
 const getGondolaLpApys = require('./getGondolaLpApys');
@@ -11,7 +11,7 @@ const getApys = [
   getLydLpApys,
   getPangolinApys,
   getSnobLpApys,
-  getOliveLpApys,
+  getOliveApys,
   getGondolaLpApys,
   getAvaxBifiMaxiApy,
 ];

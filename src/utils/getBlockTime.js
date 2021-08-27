@@ -1,7 +1,7 @@
 const { web3Factory } = require('./web3');
 
 const updateDelay = 3000000;
-const blockPeriod = 100;
+const blockPeriod = 1000;
 
 let cache = {};
 const getBlockTime = async chainId => {
