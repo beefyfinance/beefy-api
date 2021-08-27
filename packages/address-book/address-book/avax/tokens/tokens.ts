@@ -3652,6 +3652,15 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a/logo.png',
   },
+  BUSDe: {
+    chainId: 43114,
+    address: '0x19860CCB0A68fd4213aB9D8266F7bBf05A8dDe98',
+    decimals: 18,
+    name: 'Binance USD',
+    symbol: 'BUSD',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/avalanche-bridge-resources/main/tokens/BUSD/logo.png',
+  },
   'FRAX-Frax': {
     chainId: 43114,
     address: '0xDC42728B0eA910349ed3c6e1c9Dc06b5FB591f98',
