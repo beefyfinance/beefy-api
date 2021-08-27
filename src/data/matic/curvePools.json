@@ -99,6 +99,35 @@
     "gauge": "0x9bd996Db02b3f271c6533235D452a56bc2Cd195a",
     "baseApyKey": "atricrypto2",
     "volatile": true,
+    "rewards": [],
+    "tokens": [
+      {
+        "basePool": "curve-am3crv",
+        "oracle": "lps",
+        "oracleId": "curve-am3crv",
+        "decimals": "1e18"
+      },
+      {
+        "aaveId": "aave-wbtc",
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "aaveId": "aave-eth",
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-poly-atricrypto3",
+    "pool": "0x92215849c439E1f8612b6646060B4E3E5ef822cC",
+    "token": "0xdAD97F7713Ae9437fa9249920eC8507e5FbB23d3",
+    "gauge": "0x3B6B158A76fd8ccc297538F454ce7B4787778c7C",
+    "baseApyKey": "atricrypto3",
+    "volatile": true,
     "rewards": [
       {
         "stream": "0x060e386eCfBacf42Aa72171Af9EFe17b3993fC4F",

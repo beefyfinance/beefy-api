@@ -60,7 +60,7 @@ const getApys = [
   getPearzapApys,
 ];
 
-const BATCH_SIZE = 20;
+const BATCH_SIZE = 15;
 
 const getMaticApys = async () => {
   let apys = {};
