@@ -3670,6 +3670,15 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xDC42728B0eA910349ed3c6e1c9Dc06b5FB591f98/logo.png',
   },
+  OLIVE: {
+    chainId: 43114,
+    address: '0x617724974218A18769020A70162165A539c07E8a',
+    decimals: 18,
+    name: 'Olive',
+    symbol: 'OLIVE',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
