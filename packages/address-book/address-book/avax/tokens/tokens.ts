@@ -3697,6 +3697,15 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
   },
+  USDCe: {
+    chainId: 43114,
+    address: '0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664',
+    decimals: 6,
+    name: 'USD Coin',
+    symbol: 'USDCe',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
