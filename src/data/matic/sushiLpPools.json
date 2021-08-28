@@ -1,5 +1,25 @@
 [
   {
+    "name": "sushi-axs-eth",
+    "address": "0x7BA331A8b360F4c31E6014aBdd6852F92Fb21557",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 33,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x61BDD9C7d4dF4Bf47A4508c0c8245505F2Af5b7b",
+      "oracle": "tokens",
+      "oracleId": "AXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-avax-weth",
     "address": "0x1274De0DE2e9D9b1d0E06313c0E5EdD01CC335eF",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
