@@ -31,6 +31,7 @@ const getFruitApys = require('./getFruitApys');
 const getPeraApys = require('./getPeraApys');
 const getStableQuantApys = require('./getStableQuantApys');
 const getHoneyFarmApys = require('./getHoneyFarmApys');
+const getViralataApys = require('./getViralataApys');
 
 const getApys = [
   getRamenLpApys,
@@ -66,6 +67,7 @@ const getApys = [
   getPeraApys,
   getStableQuantApys,
   getHoneyFarmApys,
+  getViralataApys,
 ];
 
 const getDegensLpApys = async () => {

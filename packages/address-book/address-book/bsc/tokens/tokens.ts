@@ -26,6 +26,17 @@ const _tokens = {
       'Elk.Finance is a cross-chain liquidity network, allowing for instantaneous exchange of tokens between chains. Elk.Finance also aims to provide the first gyroscopic stablecoin (CHFT) available on multiple chains for blazing fast payments anytime, anywhere.',
     website: 'https://elk.finance/',
   },
+  AURO: {
+    name: 'Viralata',
+    symbol: 'AURO',
+    address: '0x8d9A79314c4e09A7c53C124195cAeB8B89F4879D',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://app.viralata.finance/nextimg/%2Fimages%2Ftokens%2Fauro.png/128/50?url=%2Fimages%2Ftokens%2Fauro.png&w=128&q=50',
+    description: 'Viralata Finance',
+    website: 'https://app.viralata.finance/',
+  },
   NAOS: {
     name: 'NAOS Finance',
     symbol: 'NAOS',

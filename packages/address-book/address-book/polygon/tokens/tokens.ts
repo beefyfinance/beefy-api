@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  AXS: {
+    name: 'Axie Infinity Shard',
+    symbol: 'AXS',
+    address: '0x61BDD9C7d4dF4Bf47A4508c0c8245505F2Af5b7b',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/6783.png',
+    website: 'https://axieinfinity.com/',
+    description:
+      'Axie Infinity is a Pokémon-inspired digital pet universe built on the Ethereum blockchain where anyone can earn token rewards through skilled gameplay and contributions to the ecosystem.',
+  },
   POOL: {
     name: 'Pool Together',
     symbol: 'POOL',

@@ -112,5 +112,24 @@
       "oracleId": "BANANApoly",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "ape-usdc-dai",
+    "address": "0x5b13B583D4317aB15186Ed660A1E4C65C10da659",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
   }
 ]

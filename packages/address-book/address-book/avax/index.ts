@@ -1,6 +1,7 @@
 import { beefyfinance } from './platforms/beefyfinance';
 import { lydia } from './platforms/lydia';
 import { pangolin } from './platforms/pangolin';
+import { joe } from './platforms/joe';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -11,6 +12,7 @@ const _avax = {
     beefyfinance,
     lydia,
     pangolin,
+    joe,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

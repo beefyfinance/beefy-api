@@ -1,5 +1,24 @@
 [
   {
+    "name": "pangolin-usdc.e-wavax",
+    "address": "0xbd918Ed441767fe7924e99F6a0E0B568ac1970D9",
+    "rewardPool": "0x84b536da1a2d9b0609f9da73139674cc2d75af2d",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+      "oracle": "tokens",
+      "oracleId": "USDC.e",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "pangolin-png-qi",
     "address": "0x50E7e19281a80E3C24a07016eDB87EbA9fe8C6cA",
     "rewardPool": "0x2bd42c357a3e13f18849c67e8dc108cc8462ae33",

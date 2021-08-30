@@ -3679,6 +3679,33 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
   },
+  JOE: {
+    chainId: 43114,
+    address: '0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd',
+    decimals: 18,
+    name: 'Joe Token',
+    symbol: 'JOE',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
+  },
+  SHIBX: {
+    chainId: 43114,
+    address: '0x440aBbf18c54b2782A4917b80a1746d3A2c2Cce1',
+    decimals: 18,
+    name: 'SHIBA',
+    symbol: 'SHIBX',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
+  },
+  USDCe: {
+    chainId: 43114,
+    address: '0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664',
+    decimals: 6,
+    name: 'USD Coin',
+    symbol: 'USDCe',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
