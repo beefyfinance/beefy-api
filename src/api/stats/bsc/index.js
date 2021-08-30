@@ -41,6 +41,7 @@ const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getOOELpApys = require('./ooe/getOOELpApys');
 const { getFarmheroApys } = require('./farmhero/getFarmheroApys');
 const getOmnifarmApys = require('./omnifarm/getOmnifarmApys');
+const getElkApys = require('./elk/getElkApys');
 
 const getApys = [
   get1inchLpApys,
@@ -62,6 +63,7 @@ const getApys = [
   getComBscApys,
   getDegensLpApys,
   getDoppleApys,
+  getElkApys,
   getEllipsisLpApys,
   getEllipsisSingleAssetApy,
   getFarmheroApys,

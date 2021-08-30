@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  ELK: {
+    name: 'Elk Finance',
+    symbol: 'ELK',
+    address: '0xE1C110E1B1b4A1deD0cAf3E42BfBdbB7b5d7cE1C',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/10095.png',
+    description:
+      'Elk.Finance is a cross-chain liquidity network, allowing for instantaneous exchange of tokens between chains. Elk.Finance also aims to provide the first gyroscopic stablecoin (CHFT) available on multiple chains for blazing fast payments anytime, anywhere.',
+    website: 'https://elk.finance/',
+  },
   AURO: {
     name: 'Viralata',
     symbol: 'AURO',
