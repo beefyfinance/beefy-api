@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  ZOO: {
+    name: 'ZooCoin',
+    address: '0x09e145A1D53c0045F41aEEf25D8ff982ae74dD56',
+    symbol: 'ZOO',
+    decimals: 0,
+    chainId: 250,
+    website: 'https://zoocoin.cash/',
+    description:
+      'Zoo is an ecosystem of decentralized applications powered by Fantom network. Primary projects token (ZOO) is utilized within the ecosystem among various of developed and planned projects - portfolio monitoring solution ZooWallet, ZooPet (first ever NFT marketplace released on Fantom), charting provider ZooCharts, decentralized exchange ZooDex, trading insights aggregator ZooTrade and other.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/9007.png',
+  },
   MIM: {
     name: 'albracabra',
     address: '0x82f0B8B456c1A451378467398982d4834b6829c1',
