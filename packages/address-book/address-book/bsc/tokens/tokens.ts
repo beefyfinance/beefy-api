@@ -26,6 +26,18 @@ const _tokens = {
       'Elk.Finance is a cross-chain liquidity network, allowing for instantaneous exchange of tokens between chains. Elk.Finance also aims to provide the first gyroscopic stablecoin (CHFT) available on multiple chains for blazing fast payments anytime, anywhere.',
     website: 'https://elk.finance/',
   },
+  QBT: {
+    name: 'Qubit Token',
+    symbol: 'QBT',
+    address: '0x17B7163cf1Dbd286E262ddc68b553D899B93f526',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x17B7163cf1Dbd286E262ddc68b553D899B93f526.svg',
+    website: 'https://qbt.fi/',
+    description:
+      'Qubit Finance is a DeFi lending protocol developed by MOUND, the team behind Pancake Bunny',
+  },
   AURO: {
     name: 'Viralata',
     symbol: 'AURO',
