@@ -1,5 +1,24 @@
 [
   {
+    "name": "boo-ftm-scream",
+    "address": "0x30872e4fc4edbFD7a352bFC2463eb4fAe9C09086",
+    "decimals": "1e18",
+    "poolId": 28,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe0654C8e6fd4D733349ac7E09f6f23DA256bF475",
+      "oracle": "tokens",
+      "oracleId": "SCREAM",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-zoo-ftm",
     "address": "0x3Cceb477Fcb6cDE90180983642486E68148D7b27",
     "decimals": "1e18",
