@@ -14,8 +14,6 @@ const { getYearlyPlatformTradingFees } = require('../../../utils/getTradingFeeAp
 const { quickClient } = require('../../../apollo/client');
 
 const oracle = 'tokens';
-const rewardOracleId = 'TEL';
-const REWARD_DECIMALS = '1e2';
 const stakedOracleId = 'QUICK';
 const STAKED_DECIMALS = '1e18';
 
@@ -29,7 +27,6 @@ const getQuickSingleApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  const tokenPrice = await fetchPrice({ oracle, id: rewardOracleId });
   const quickPrice = await fetchPrice({ oracle, id: stakedOracleId });
   const { balances, rewardRates } = await getPoolsData(pools);
 
@@ -47,8 +44,9 @@ const getQuickSingleApys = async () => {
 
     const totalStakedInUsd = balances[i].times(quickPrice).dividedBy(STAKED_DECIMALS);
 
+    const tokenPrice = await fetchPrice({ oracle, id: pool.rewardToken });
     const yearlyRewards = rewardRates[i].times(SECONDS_PER_YEAR);
-    const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(REWARD_DECIMALS);
+    const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(pool.rewardDecimals);
 
     const simpleApr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
