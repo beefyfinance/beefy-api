@@ -1,0 +1,10 @@
+[
+  {
+    "name": "quick-quick",
+    "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+    "rewardPool": "0x346C9e501aDc38F1f325CC0c2D44C325283eEaF1",
+    "dragonsLair": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
+    "decimals": "1e18",
+    "chainId": 137
+  }
+]

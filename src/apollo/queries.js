@@ -48,7 +48,20 @@ const pairDayDataSushiQuery = (pairs, startTimestamp, endTimestamp) => {
   return gql(queryString);
 };
 
+const dayDataQuery = timestamp => {
+  const dayId = Math.floor(timestamp / 86400000) - 1;
+  const queryString = `
+    query days {
+      uniswapDayData(id: "${dayId}") {
+        dailyVolumeUSD
+      }
+    }
+`;
+  return gql(queryString);
+};
+
 module.exports = {
   pairDayDataQuery,
   pairDayDataSushiQuery,
+  dayDataQuery,
 };
