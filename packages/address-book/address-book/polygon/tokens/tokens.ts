@@ -27,6 +27,16 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  WATCH: {
+    name: 'YieldWatch',
+    symbol: 'WATCH',
+    address: '0x09211Dc67f9fe98Fb7bBB91Be0ef05f4a12FA2b2',
+    decimals: 18,
+    chainId: 137,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/8621.png',
+    website: 'https://www.yieldwatch.net/',
+    description: 'Smart Defi Dashboard',
+  },
   AXS: {
     name: 'Axie Infinity Shard',
     symbol: 'AXS',
