@@ -27,6 +27,11 @@
         "stream": "0xb9C05B8EE41FDCbd9956114B3aF15834FDEDCb54",
         "token": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
         "oracleId": "CRV"
+      },
+      {
+        "stream": "0xb9C05B8EE41FDCbd9956114B3aF15834FDEDCb54",
+        "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+        "oracleId": "WFTM"
       }
     ]
   },
@@ -41,6 +46,11 @@
         "stream": "0xfDb129ea4b6f557b07BcDCedE54F665b7b6Bc281",
         "token": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
         "oracleId": "CRV"
+      },
+      {
+        "stream": "0xfDb129ea4b6f557b07BcDCedE54F665b7b6Bc281",
+        "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+        "oracleId": "WFTM"
       }
     ]
   }
