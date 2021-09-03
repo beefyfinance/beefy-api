@@ -1,5 +1,24 @@
 [
   {
+    "name": "cakev2-bscdefi-wbnb",
+    "address": "0x5B0A3b98C2f01741A11E57A9d0595B254E62F9F2",
+    "decimals": "1e18",
+    "poolId": 454,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x40E46dE174dfB776BB89E04dF1C47d8a66855EB3",
+      "oracle": "tokens",
+      "oracleId": "BSCDEFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-qbt-wbnb",
     "address": "0x67EFeF66A55c4562144B9AcfCFbc62F9E4269b3e",
     "decimals": "1e18",

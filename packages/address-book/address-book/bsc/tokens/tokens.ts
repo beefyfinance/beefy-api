@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  BSCDEFI: {
+    name: 'BSC Defi Blue Chips',
+    symbol: 'BSCDEFI',
+    address: '0x40E46dE174dfB776BB89E04dF1C47d8a66855EB3',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://powerindex.io/images/index-tokens/sdefi.svg',
+    description:
+      'Build your own exposure to DeFi using bullish, bearish, and hedged investment DAO-managed DeFi products with rewards. More details on powerpool.finance',
+    website: 'https://powerindex.io/#/binance/',
+  },
   ELK: {
     name: 'Elk Finance',
     symbol: 'ELK',
