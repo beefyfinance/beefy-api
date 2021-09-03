@@ -46,7 +46,7 @@
     "lp0": {
       "address": "0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5",
       "oracle": "tokens",
-      "oracleId": "QI",
+      "oracleId": "aQI",
       "decimals": "1e18"
     },
     "lp1": {
