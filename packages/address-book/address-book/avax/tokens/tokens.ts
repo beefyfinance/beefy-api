@@ -2795,9 +2795,9 @@ const _tokens = {
   },
   SYN: {
     chainId: 43114,
-    address: '0x09f60a231C989d0c5AdC9d3609936A3409885Bd0',
+    address: '0x1f1E7c893855525b303f99bDF5c3c05Be09ca251',
     decimals: 18,
-    name: 'SynLev',
+    name: 'Synapse Protocol',
     symbol: 'SYN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x09f60a231C989d0c5AdC9d3609936A3409885Bd0/logo.png',
@@ -3705,6 +3705,17 @@ const _tokens = {
     symbol: 'USDCe',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
+  },
+  MIM: {
+    name: 'albracabra',
+    address: '0x130966628846BFd36ff31a822705796e8cb8C18D',
+    symbol: 'MIM',
+    decimals: 18,
+    chainId: 43114,
+    website: 'https://abracadabra.money/',
+    description:
+      'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
+    logoURI: '',
   },
 } as const;
 
