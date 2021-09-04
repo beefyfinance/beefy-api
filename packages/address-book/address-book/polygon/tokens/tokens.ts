@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  WUSD: {
+    name: 'Wault USD',
+    symbol: 'WUSD',
+    address: '0xb8ab048D6744a276b2772dC81e406a4b769A5c3D',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://wault.finance/',
+    description:
+      "WUSD is Wault Finance's commerce-backed stablecoin! The world's first commerce-backed stablecoin!",
+    logoURI: 'https://app.wault.finance/polygon/assets/images/stablecoin/wusd.svg',
+  },
   WATCH: {
     name: 'YieldWatch',
     symbol: 'WATCH',

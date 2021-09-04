@@ -1,5 +1,24 @@
 [
   {
+    "name": "wexpoly-usdc-wusd",
+    "address": "0x7B93196CD4861f345509c2da31058CA4B1c30D63",
+    "decimals": "1e18",
+    "poolId": 28,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xb8ab048D6744a276b2772dC81e406a4b769A5c3D",
+      "oracle": "tokens",
+      "oracleId": "WUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "wexpoly-usdc-wex",
     "address": "0x5DE6a3CcA10d3F788EEdbD4923e31D4658bf6f9a",
     "decimals": "1e18",
