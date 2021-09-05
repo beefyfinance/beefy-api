@@ -1,5 +1,43 @@
 [
   {
+    "name": "quick-mai-matic",
+    "address": "0x7805B64e2d99412d3b8F10Dfe8fc55217C5cc954",
+    "rewardPool": "0x270be4F2B283496C761f6eba7165028C41D6b769",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-usdt-matic",
+    "address": "0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3",
+    "rewardPool": "0x5191c8391Db53f409b8170faC88d517ACE1edEE4",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "quick-eth-rendoge",
     "address": "0xAB1403De66519B898b38028357B74DF394a54a37",
     "rewardPool": "0xe2519a7b81Cf038C055ddD667A9c06A0790945f4",
