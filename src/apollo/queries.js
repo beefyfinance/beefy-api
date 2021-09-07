@@ -60,8 +60,21 @@ const dayDataQuery = timestamp => {
   return gql(queryString);
 };
 
+const joeDayDataQuery = timestamp => {
+  const dayId = Math.floor(timestamp / 86400000) - 1;
+  const queryString = `
+    query days {
+      dayData(id: "${dayId}") {
+        volumeUSD
+      }
+    }
+`;
+  return gql(queryString);
+};
+
 module.exports = {
   pairDayDataQuery,
   pairDayDataSushiQuery,
   dayDataQuery,
+  joeDayDataQuery,
 };

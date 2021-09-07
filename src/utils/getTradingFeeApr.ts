@@ -1,5 +1,5 @@
 import { getUtcSecondsFromDayRange } from './getUtcSecondsFromDayRange';
-import { pairDayDataQuery, pairDayDataSushiQuery, dayDataQuery } from '../apollo/queries';
+import { pairDayDataQuery, pairDayDataSushiQuery, dayDataQuery, joeDayDataQuery } from '../apollo/queries';
 import BigNumber from 'bignumber.js';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 import ApolloClient from 'apollo-client';
@@ -148,6 +148,26 @@ export const getYearlyPlatformTradingFees = async (
     let data = await client.query({ query: dayDataQuery(timestamp) });
 
     const dailyVolumeUSD = new BigNumber(data.data.uniswapDayData.dailyVolumeUSD);
+
+    yearlyTradingFeesUsd = dailyVolumeUSD.times(liquidityProviderFee).times(365);
+  } catch (e) {
+    console.error(e);
+  }
+
+  return yearlyTradingFeesUsd;
+};
+
+export const getYearlyJoePlatformTradingFees = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  liquidityProviderFee: number
+) => {
+  let yearlyTradingFeesUsd = new BigNumber(0);
+  const timestamp = Date.now();
+
+  try {
+    let data = await client.query({ query: joeDayDataQuery(timestamp) });
+
+    const dailyVolumeUSD = new BigNumber(data.data.dayData.volumeUSD);
 
     yearlyTradingFeesUsd = dailyVolumeUSD.times(liquidityProviderFee).times(365);
   } catch (e) {

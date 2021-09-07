@@ -6,6 +6,7 @@ const getGondolaLpApys = require('./getGondolaLpApys');
 const getComAvaxApys = require('./getComAvaxLpApys');
 const getAvaxBifiMaxiApy = require('./getAvaxBifiMaxiApy');
 const getJoeApys = require('./getJoeLpApys');
+const getJoeApy = require('./getJoeApy');
 
 const getApys = [
   getComAvaxApys,
@@ -16,6 +17,7 @@ const getApys = [
   getGondolaLpApys,
   getAvaxBifiMaxiApy,
   getJoeApys,
+  getJoeApy,
 ];
 
 const getAvaxApys = async () => {
