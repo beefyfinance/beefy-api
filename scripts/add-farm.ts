@@ -1,4 +1,5 @@
 import { ChainId } from '../packages/address-book/address-book';
+import { spookyswap } from '../packages/address-book/address-book/fantom/platforms/spookyswap';
 
 const yargs = require('yargs');
 const fs = require('fs');
@@ -36,6 +37,11 @@ const projects = {
     prefix: 'joe',
     file: '../src/data/avax/joeLpPools.json',
     masterchef: '0xd6a4F121CA35509aF06A0Be99093d08462f53052',
+  },
+  spooky: {
+    prefix: 'boo',
+    file: '../src/data/fantom/spookyLpPools.json',
+    masterchef: spookyswap.masterchef,
   },
 };
 

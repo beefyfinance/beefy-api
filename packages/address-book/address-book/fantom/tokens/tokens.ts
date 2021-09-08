@@ -38,6 +38,27 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  STEAK: {
+    name: 'SteakToken',
+    symbol: 'STEAK',
+    address: '0x05848B832E872d9eDd84AC5718D58f21fD9c9649',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://assets.spookyswap.finance/tokens/STEAK.png',
+    website: 'https://stakesteak.com/',
+    description:
+      "StakeSteak's mission is to build lasting infrastructure to stabilize fUSD at $1.00",
+  },
+  FOO: {
+    name: 'Fantums of Opera Token',
+    symbol: 'FOO',
+    address: '0xFbc3c04845162F067A0B6F8934383E63899c3524',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://assets.spookyswap.finance/tokens/FOO.png',
+    website: 'https://fantums.com/',
+    description: 'Fantums are Opera themed digital collectibles (NFTs) on the Fantom blockchain.',
+  },
   ZOO: {
     name: 'ZooCoin',
     address: '0x09e145A1D53c0045F41aEEf25D8ff982ae74dD56',
