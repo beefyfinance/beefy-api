@@ -15,6 +15,16 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  TLOS: {
+    name: 'Telos',
+    symbol: 'TLOS',
+    address: '0xb6C53431608E626AC81a9776ac3e999c5556717c',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://pancakeswap.finance/images/tokens/0xb6C53431608E626AC81a9776ac3e999c5556717c.svg',
+    description: 'Telos is built for speed and scalability making it the ideal network for mainstream adoption – Telos based Tokens NFT’s and Smart Contracts are already used for DeFi, Gaming, Social Media apps and so much more. ',
+    website: 'https://www.telos.net/',
+  },
   MOON: {
     name: 'HoneyMoon',
     symbol: 'MOON',
