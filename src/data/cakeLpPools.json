@@ -1,5 +1,24 @@
 [
   {
+    "name": "cakev2-tlos-wbnb",
+    "address": "0x3eDb06e2d182d133864fe7C0f9B4C204bBf61D4E",
+    "decimals": "1e18",
+    "poolId": 456,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xb6C53431608E626AC81a9776ac3e999c5556717c",
+      "oracle": "tokens",
+      "oracleId": "TLOS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-bscdefi-wbnb",
     "address": "0x5B0A3b98C2f01741A11E57A9d0595B254E62F9F2",
     "decimals": "1e18",
