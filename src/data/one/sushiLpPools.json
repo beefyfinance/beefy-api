@@ -57,25 +57,6 @@
     }
   },
   {
-    "name": "sushi-one-eth-one",
-    "address": "0xeb049f1ed546f8efc3ad57f6c7d22f081ccc7375",
-    "decimals": "1e18",
-    "poolId": 3,
-    "chainId": 1666600000,
-    "lp0": {
-      "address": "0x6983d1e6def3690c4d616b13597a09e6193ea013",
-      "oracle": "tokens",
-      "oracleId": "1ETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
-      "oracle": "tokens",
-      "oracleId": "WONE",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "sushi-one-btc-one",
     "address": "0xc3670b927ef42eed252e483e2446352c238d9905",
     "decimals": "1e18",
