@@ -15,6 +15,16 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  MOON: {
+    name: 'HoneyMoon',
+    symbol: 'MOON',
+    address: '0xE8c93310af068aa50bd7bF0ebFa459Df2a02ceba',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://honeyfarm.finance/images/honeymoon/token.png',
+    description: 'HoneyMoon is 3rd layer of HoneyFarm Finance',
+    website: 'https://honeyfarm.finance',
+  },
   BSCDEFI: {
     name: 'BSC Defi Blue Chips',
     symbol: 'BSCDEFI',
