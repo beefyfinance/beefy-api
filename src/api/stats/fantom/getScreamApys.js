@@ -26,9 +26,12 @@ const getScreamApys = async () => {
 };
 
 const getPoolApy = async pool => {
+  const blocksPerSecond = await getBlockTime(250);
+  const BLOCKS_PER_YEAR = 31536000 / blocksPerSecond;
+
   const [{ supplyBase, supplyVxs }, { borrowBase, borrowVxs }] = await Promise.all([
-    getSupplyApys(pool),
-    getBorrowApys(pool),
+    getSupplyApys(pool, BLOCKS_PER_YEAR),
+    getBorrowApys(pool, BLOCKS_PER_YEAR),
   ]);
 
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyVxs, leveragedBorrowVxs } =
@@ -47,12 +50,9 @@ const getPoolApy = async pool => {
   return { [pool.name]: apy };
 };
 
-const getSupplyApys = async pool => {
+const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
   const itokenContract = new web3.eth.Contract(IToken, pool.itoken);
   const comptrollerContract = new web3.eth.Contract(Comptroller, COMPTROLLER);
-
-  const blocksPerSecond = await getBlockTime(250);
-  const BLOCKS_PER_YEAR = 31536000 / blocksPerSecond;
 
   let [screamPrice, tokenPrice, supplyRate, compRate, totalSupply, exchangeRateStored] =
     await Promise.all([
@@ -83,12 +83,9 @@ const getSupplyApys = async pool => {
   };
 };
 
-const getBorrowApys = async pool => {
+const getBorrowApys = async (pool, BLOCKS_PER_YEAR) => {
   const comptrollerContract = new web3.eth.Contract(Comptroller, COMPTROLLER);
   const itokenContract = new web3.eth.Contract(IToken, pool.itoken);
-
-  const blocksPerSecond = await getBlockTime(250);
-  const BLOCKS_PER_YEAR = 31536000 / blocksPerSecond;
 
   let [screamPrice, tokenPrice, borrowRate, compRate, totalBorrows] = await Promise.all([
     fetchPrice({ oracle: 'tokens', id: 'SCREAM' }),

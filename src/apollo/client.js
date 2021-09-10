@@ -20,6 +20,15 @@ const sushiClient = new ApolloClient({
   shouldBatch: true,
 });
 
+const sushiOneClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://sushi.graph.t.hmny.io/subgraphs/name/sushiswap/harmony-exchange/',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+  shouldBatch: true,
+});
+
 const comethClient = new ApolloClient({
   link: createHttpLink({
     uri: 'https://api.thegraph.com/subgraphs/name/cometh-game/comethswap',
@@ -195,4 +204,5 @@ module.exports = {
   pantherClient,
   jetswapClient,
   jetswapPolyClient,
+  sushiOneClient,
 };

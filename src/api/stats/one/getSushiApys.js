@@ -8,8 +8,8 @@ const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/one/sushiLpPools.json');
 const { ONE_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
-const { getTradingFeeAprSushi: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const { sushiClient } = require('../../../apollo/client');
+const { getTradingFeeAprSushiOne: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const { sushiOneClient } = require('../../../apollo/client');
 import getApyBreakdown from '../common/getApyBreakdown';
 
 const minichef = '0x67dA5f2FfaDDfF067AB9d5F025F8810634d84287';
@@ -25,7 +25,7 @@ const oracleIdOne = 'WONE';
 
 const getSushiLpApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(sushiClient, pairAddresses, SUSHI_LPF);
+  const tradingAprs = await getTradingFeeApr(sushiOneClient, pairAddresses, SUSHI_LPF);
   const farmApys = await getFarmApys(pools);
 
   return getApyBreakdown(pools, tradingAprs, farmApys, SUSHI_LPF);
