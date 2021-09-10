@@ -9,6 +9,6 @@ export const beefyfinance = {
   launchpoolOwner: cowllector,
   rewardPool: '0x7fB900C14c9889A559C777D016a885995cE759Ee',
   treasury: '0xaDB9DDFA24E326dC9d337561f6c7ba2a6Ecec697',
-  beefyFeeRecipient: '0x4f8865A1FcE2877cCB55264600D4759d222E8fEB',
+  beefyFeeRecipient: '0xaDB9DDFA24E326dC9d337561f6c7ba2a6Ecec697',
   multicall: '0xBa5041B1c06e8c9cFb5dDB4b82BdC52E41EA5FC5',
 } as const;
