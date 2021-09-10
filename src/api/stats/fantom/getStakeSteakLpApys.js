@@ -35,7 +35,7 @@ const getStakeSteakLpApys = async () => {
 
   const rewardTokenPrice = await fetchPrice({ oracle, id: rewardToken.symbol });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances } = await getPoolsData(pools);
+  const { balances, allocPoints } = await getPoolsData(pools);
 
   const pairAddresses = pools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(
@@ -51,7 +51,7 @@ const getStakeSteakLpApys = async () => {
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy(pool.decimals);
 
     const yearlyRewards = rewardPerSecond
-      .times(1000)
+      .times(allocPoints[i])
       .dividedBy(totalAllocPoint)
       .times(secondsPerYear)
       .times(0.9);
@@ -115,17 +115,22 @@ const getPoolsData = async pools => {
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(FANTOM_CHAIN_ID));
   const balanceCalls = [];
-  pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+  const poolInfos = [];
+
+  for (let i = 0; i < pools.length; i++) {
+    const tokenContract = new web3.eth.Contract(ERC20, pools[i].address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });
-  });
+    poolInfos.push(await masterchefContract.methods.getPoolInfo(pools[i].poolId).call());
+  }
 
   const res = await multicall.all([balanceCalls]);
 
   const balances = res[0].map(v => new BigNumber(v.balance));
-  return { balances };
+  const allocPoints = poolInfos.map(v => new BigNumber(v['AllocPoints'][0]));
+
+  return { balances, allocPoints };
 };
 
 module.exports = getStakeSteakLpApys;
