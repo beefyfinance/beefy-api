@@ -31,7 +31,7 @@ const getSpiritApys = async () => {
     masterchefAbi: MasterChefAbi,
     tokenPerBlock: 'spiritPerBlock',
     hasMultiplier: true,
-    pools: spiritPools,
+    pools: spiritPools.filter(pool => !!pool.poolId),
     oracleId: 'SPIRIT',
     oracle: 'tokens',
     decimals: '1e18',

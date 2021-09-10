@@ -126,6 +126,7 @@ import sushiOnePools from '../../data/one/sushiLpPools.json';
 import stablequantPools from '../../data/degens/stablequantLpPools.json';
 import honeyPools from '../../data/degens/honeyFarmLpPools.json';
 import steakhouseLpPools from '../../data/fantom/steakhouseLpPools.json';
+import stakesteakLpPools from '../../data/fantom/stakesteakLpPools.json';
 import polygonFarmPools from '../../data/matic/polygonFarmLpPools.json';
 import pearzapPools from '../../data/matic/pearzapLpPools.json';
 import tosdisPools from '../../data/degens/tosdisLpPools.json';
@@ -150,6 +151,7 @@ const pools = [
   ...pearzapPools,
   ...polygonFarmPools,
   ...steakhouseLpPools,
+  ...stakesteakLpPools,
   ...honeyPools,
   ...stablequantPools,
   ...sushiOnePools,
