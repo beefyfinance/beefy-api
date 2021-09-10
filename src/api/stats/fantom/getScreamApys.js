@@ -6,10 +6,10 @@ const { compound } = require('../../../utils/compound');
 const Comptroller = require('../../../abis/heco/Comptroller.json');
 const IToken = require('../../../abis/VToken.json');
 const pools = require('../../../data/fantom/screamPools.json');
+const getBlockTime = require('../../../utils/getBlockTime');
 const { BASE_HPY } = require('../../../constants');
 
 const COMPTROLLER = '0x260E596DAbE3AFc463e75B6CC05d8c46aCAcFB09';
-const BLOCKS_PER_YEAR = 31536000;
 
 const getScreamApys = async () => {
   let apys = {};
@@ -51,6 +51,9 @@ const getSupplyApys = async pool => {
   const itokenContract = new web3.eth.Contract(IToken, pool.itoken);
   const comptrollerContract = new web3.eth.Contract(Comptroller, COMPTROLLER);
 
+  const blocksPerSecond = await getBlockTime(250);
+  const BLOCKS_PER_YEAR = 31536000 / blocksPerSecond;
+
   let [screamPrice, tokenPrice, supplyRate, compRate, totalSupply, exchangeRateStored] =
     await Promise.all([
       fetchPrice({ oracle: 'tokens', id: 'SCREAM' }),
@@ -83,6 +86,9 @@ const getSupplyApys = async pool => {
 const getBorrowApys = async pool => {
   const comptrollerContract = new web3.eth.Contract(Comptroller, COMPTROLLER);
   const itokenContract = new web3.eth.Contract(IToken, pool.itoken);
+
+  const blocksPerSecond = await getBlockTime(250);
+  const BLOCKS_PER_YEAR = 31536000 / blocksPerSecond;
 
   let [screamPrice, tokenPrice, borrowRate, compRate, totalBorrows] = await Promise.all([
     fetchPrice({ oracle: 'tokens', id: 'SCREAM' }),
