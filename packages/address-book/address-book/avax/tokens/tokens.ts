@@ -12,6 +12,16 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  MAI: {
+    chainId: 43114,
+    address: '0x3B55E45fD6bd7d4724F5c47E0d1bCaEdd059263e',
+    decimals: 18,
+    name: 'MiMatic',
+    symbol: 'MAI',
+    website: 'https://www.mai.finance/',
+    description: "MAI is a stable coin collateralized by your MATIC holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+  },
   aQI: {
     chainId: 43114,
     address: '0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5',
