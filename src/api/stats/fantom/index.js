@@ -8,6 +8,7 @@ const getSpiritApys = require('./getSpiritApy');
 const getCurveApys = require('./getCurveApys');
 const getScreamApys = require('./getScreamApys');
 const getSteakHouseLpApys = require('./getSteakHouseLpApys');
+const getStakeSteakLpApys = require('./getStakeSteakLpApys');
 const getTosdisLpApys = require('./tosdis/getTosdisLpApys');
 
 const getApys = [
@@ -21,6 +22,7 @@ const getApys = [
   getCurveApys,
   getScreamApys,
   getSteakHouseLpApys,
+  getStakeSteakLpApys,
   getTosdisLpApys,
 ];
 
