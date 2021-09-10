@@ -88,6 +88,87 @@ const _tokens = {
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
   },
+  YGG: {
+    name: 'Yield Guild Games',
+    symbol: 'YGG',
+    address: '0x63cf309500d8be0B9fDB8F1fb66C821236c0438c',
+    chainId: 1666600000,
+    decimals: 18,
+    website: 'https://yieldguild.io/',
+    description:
+      'YGG IS A PLAY-TO-EARN GAMING GUILD, BRINGING PLAYERS TOGETHER TO EARN VIA BLOCKCHAIN-BASED ECONOMIES. WE ARE THE SETTLERS OF NEW WORLDS IN THE METAVERSE',
+    logoURI:
+      'https://exchange.pancakeswap.finance/images/coins/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
+  },
+  AAVE: {
+    name: 'Aave',
+    symbol: 'AAVE',
+    address: '0xcF323Aad9E522B93F11c352CaA519Ad0E14eB40F',
+    chainId: 1666600000,
+    decimals: 18,
+    website: 'https://aave.com/',
+    description:
+      'Aave is an open source and non-custodial liquidity protocol for earning interest on deposits and borrowing assets.',
+    logoURI: 'https://dex.apeswap.finance/images/coins/AAVE.svg',
+  },
+  AXS: {
+    name: 'Axie Infinity',
+    symbol: 'AXS',
+    address: '0x14A7B318fED66FfDcc80C1517C172c13852865De',
+    chainId: 1666600000,
+    decimals: 18,
+    logoURI: 'https://bscscan.com/token/images/axieinfinity_32.png',
+    website: 'https://axieinfinity.com/',
+    description:
+      'Axie Infinity is a Pokémon-inspired digital pet universe built on the Ethereum blockchain where anyone can earn token rewards through skilled gameplay and contributions to the ecosystem.',
+  },
+  DAI: {
+    name: 'DAI',
+    symbol: 'DAI',
+    address: '0xEf977d2f931C1978Db5F6747666fa1eACB0d0339',
+    chainId: 1666600000,
+    decimals: 18,
+    website: 'https://makerdao.com/en/',
+    description:
+      'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
+    logoURI:
+      'https://exchange.pancakeswap.finance/images/coins/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
+  },
+  USDT: {
+    name: 'USD Tether',
+    symbol: 'USDT',
+    address: '0x3C2B8Be99c50593081EAA2A724F0B8285F5aba8f',
+    chainId: 1666600000,
+    decimals: 6,
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    logoURI:
+      'https://exchange.pancakeswap.finance/images/coins/0x55d398326f99059ff775485246999027b3197955.png',
+  },
+  FRAX: {
+    name: 'Frax Shares',
+    symbol: 'FRAX',
+    address: '0xeB6C08ccB4421b6088e581ce04fcFBed15893aC3',
+    chainId: 1666600000,
+    decimals: 18,
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+    logoURI: 'https://ftmscan.com/token/images/fraxfinance_32.png',
+  },
+  UST: {
+    name: 'UST',
+    symbol: 'UST',
+    address: '0x224e64ec1BDce3870a6a6c777eDd450454068FEC',
+    chainId: 1666600000,
+    decimals: 18,
+    website: 'https://mirror.finance/',
+    description:
+      'TerraUSD (UST) is the decentralized and algorithmic stablecoin of the Terra blockchain. It is a scalable, yield-bearing coin that is value-pegged to the US Dollar.',
+    logoURI:
+      'https://exchange.pancakeswap.finance/images/coins/0x23396cF899Ca06c4472205fC903bDB4de249D6fC.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
