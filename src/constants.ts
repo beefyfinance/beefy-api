@@ -76,8 +76,8 @@ const POLYGON_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/polygon_pools.js';
 const FANTOM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fantom_pools.js';
-//const ONE_VAULTS_ENDPOINT =
-//  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/one_pools.js';
+const ONE_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/harmony_pools.js';
 
 const MULTICHAIN_ENDPOINTS: Record<
   keyof typeof ChainId,
@@ -86,14 +86,14 @@ const MULTICHAIN_ENDPOINTS: Record<
   | typeof AVAX_VAULTS_ENDPOINT
   | typeof POLYGON_VAULTS_ENDPOINT
   | typeof FANTOM_VAULTS_ENDPOINT
-  //  typeof ONE_VAULTS_ENDPOINT
+  | typeof ONE_VAULTS_ENDPOINT
 > = {
   bsc: BSC_VAULTS_ENDPOINT,
   heco: HECO_VAULTS_ENDPOINT,
   avax: AVAX_VAULTS_ENDPOINT,
   polygon: POLYGON_VAULTS_ENDPOINT,
   fantom: FANTOM_VAULTS_ENDPOINT,
-  // one: ONE_VAULTS_ENDPOINT,
+  one: ONE_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
@@ -119,7 +119,7 @@ export {
   FANTOM_VAULTS_ENDPOINT,
   ONE_RPC,
   ONE_CHAIN_ID,
-  // ONE_VAULTS_ENDPOINT,
+  ONE_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,

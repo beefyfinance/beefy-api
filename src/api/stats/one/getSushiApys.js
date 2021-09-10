@@ -8,7 +8,7 @@ const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/one/sushiLpPools.json');
 const { ONE_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
-const { getTradingFeeAprSushiOne: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+const { getTradingFeeAprSushi: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { sushiOneClient } = require('../../../apollo/client');
 import getApyBreakdown from '../common/getApyBreakdown';
 

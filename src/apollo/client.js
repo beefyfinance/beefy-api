@@ -26,7 +26,6 @@ const sushiOneClient = new ApolloClient({
     fetch,
   }),
   cache: new InMemoryCache(),
-  shouldBatch: true,
 });
 
 const comethClient = new ApolloClient({
