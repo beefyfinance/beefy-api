@@ -1,5 +1,24 @@
 [
   {
+    "name": "joe-mai-usdc.e",
+    "address": "0x58f75d7745ec383491053947Cd2AE6Ee7fc8B8f8",
+    "decimals": "1e18",
+    "poolId": 47,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x3B55E45fD6bd7d4724F5c47E0d1bCaEdd059263e",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+      "oracle": "tokens",
+      "oracleId": "USDC.e",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "joe-syn-wavax",
     "address": "0x20ABdC20758990b6afc90dA2f2D30CD0aa3F73c6",
     "decimals": "1e18",
