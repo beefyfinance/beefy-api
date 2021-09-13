@@ -8,6 +8,7 @@ const MULTICALLS = {
   polygon: '0x7a4098B4a368826BBf0Ba45DAaAe8B0DE1Bf0b12',
   fantom: '0x28373e5fF2Ea0aeabe09b2651cE6Df4Ec10982f7',
   avax: '0x9e95635A4b603AC80e6eaD48324439e7c31c384c',
+  one: '0x42d1760e98F9fd1AcbFd77651D429BB306a3782e',
 };
 const MulticallAbi = require('../abis/BeefyLastHarvestMulticall.json');
 const BATCH_SIZE = 128;

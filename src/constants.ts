@@ -38,7 +38,7 @@ const BSC_RPC = BSC_RPC_ENDPOINTS[0];
 const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
 const AVAX_RPC = process.env.AVAX_RPC || 'https://api.avax.network/ext/bc/C/rpc';
 const POLYGON_RPC = process.env.POLYGON_RPC || 'https://rpc-mainnet.maticvigil.com/';
-const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpc.fantom.network/';
+const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpc.ftm.tools';
 const ONE_RPC = process.env.ONE_RPC || 'https://api.s0.t.hmny.io/';
 
 const BSC_CHAIN_ID = ChainId.bsc;

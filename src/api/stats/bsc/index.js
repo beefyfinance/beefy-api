@@ -64,7 +64,7 @@ const getApys = [
   getCakeV2PoolApy,
   getComBscApys,
   getDegensLpApys,
-  getDoppleApys,
+  // getDoppleApys,
   getElkApys,
   getEllipsisLpApys,
   getEllipsisSingleAssetApy,
