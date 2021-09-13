@@ -15,6 +15,16 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  LONG: {
+    name: 'Longdrink Finance',
+    symbol: 'LONG',
+    address: '0x5317fA16f8603bE9C461DeF5D5A1Bf28DfE42d55',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://longdrink.finance/static/media/longdrink-logo.0b6c21de.png',
+    description: "Longdrink Finance creates index tokens on Binance Smart Chain. LONG is the protocol's governance token enabling holders to decide on the composition of future indices and their weightings, as well as fee capturing within the protocol.",
+    website: 'https://longdrink.finance/#/',
+  },
   TLOS: {
     name: 'Telos',
     symbol: 'TLOS',
