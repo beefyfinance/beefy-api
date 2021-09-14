@@ -54,6 +54,24 @@
     "borrowPercent": 0.01
   },
   {
+    "name": "scream-crv",
+    "itoken": "0x820BdA1786AFA19DA6B92d6AC603574962337326",
+    "oracle": "tokens",
+    "oracleId": "CRV",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.6
+  },
+  {
+    "name": "scream-link",
+    "itoken": "0x2359012ebE36cCa231203D78b914284947B58aa3",
+    "oracle": "tokens",
+    "oracleId": "LINK",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.6
+  },
+  {
     "name": "scream-usdc",
     "itoken": "0xE45Ac34E528907d0A0239ab5Db507688070B20bf",
     "oracle": "tokens",
@@ -87,7 +105,7 @@
     "oracleId": "DAI",
     "decimals": "1e18",
     "borrowDepth": 4,
-    "borrowPercent": 0.6
+    "borrowPercent": 0.72
   },
   {
     "name": "scream-eth",

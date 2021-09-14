@@ -22,7 +22,7 @@ const sushiClient = new ApolloClient({
 
 const sushiOneClient = new ApolloClient({
   link: createHttpLink({
-    uri: 'https://sushi.graph.t.hmny.io/subgraphs/name/sushiswap/harmony-exchange/',
+    uri: 'https://sushi.graph.t.hmny.io/subgraphs/name/sushiswap/harmony-exchange',
     fetch,
   }),
   cache: new InMemoryCache(),

@@ -7,7 +7,7 @@ const Comptroller = require('../../../abis/heco/Comptroller.json');
 const IToken = require('../../../abis/VToken.json');
 const pools = require('../../../data/fantom/screamPools.json');
 const getBlockTime = require('../../../utils/getBlockTime');
-const { BASE_HPY } = require('../../../constants');
+const { BASE_HPY, FANTOM_CHAIN_ID: chainId } = require('../../../constants');
 
 const COMPTROLLER = '0x260E596DAbE3AFc463e75B6CC05d8c46aCAcFB09';
 
@@ -26,7 +26,7 @@ const getScreamApys = async () => {
 };
 
 const getPoolApy = async pool => {
-  const blocksPerSecond = await getBlockTime(250);
+  const blocksPerSecond = await Promise.all([getBlockTime(chainId)]);
   const BLOCKS_PER_YEAR = 31536000 / blocksPerSecond;
 
   const [{ supplyBase, supplyVxs }, { borrowBase, borrowVxs }] = await Promise.all([
