@@ -15,6 +15,16 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  CZF: {
+    name: 'Chinese Zodiac',
+    symbol: 'CZF',
+    address: '0x7c1608C004F20c3520f70b924E2BfeF092dA0043',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://github.com/chinese-zodiac/czodiac-site/blob/main/src/images/czodiac-coin.png?raw=true',
+    description: "Chinese Zodiac is a lending and NFT ecosystem, with a unique NFT Tiger Hunt game.",
+    website: 'https://app.czodiac.com/#/',
+  },
   LONG: {
     name: 'Longdrink Finance',
     symbol: 'LONG',
