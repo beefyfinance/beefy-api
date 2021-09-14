@@ -12,6 +12,16 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  TIME: {
+    chainId: 43114,
+    address: '0xb54f16fB19478766A268F172C9480f8da1a7c9C3',
+    decimals: 9,
+    name: 'Time',
+    symbol: 'TIME',
+    website: 'https://app.wonderland.money/#/stake',
+    description: "Wonderland is the first decentralized reserve currency protocol available on the Avalanche Network based on the TIME token. Each TIME token is backed by a basket of assets (e.g., MIM, TIME-AVAX LP Tokens etc etc) in the Wonderland treasury, giving it an intrinsic value that it cannot fall below. Wonderland also introduces economic and game-theoretic dynamics into the market through staking and bonding.",
+    logoURI: 'https://gblobscdn.gitbook.com/assets%2F-MhzA-YXhEZ1wM1iWJEo%2F-MiQzpjkumrqycMXcTj6%2F-MiR0TC116IqSmoKpkwX%2FTime%20Token.png?alt=media&token=9ba1004c-5e23-4e6e-b4f8-19f109c557d0',
+  },
   MAI: {
     chainId: 43114,
     address: '0x3B55E45fD6bd7d4724F5c47E0d1bCaEdd059263e',
