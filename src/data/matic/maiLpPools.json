@@ -1,5 +1,25 @@
 [
   {
+    "name": "mai-qi-matic",
+    "address": "0x9A8b2601760814019B7E6eE0052E25f1C623D1E6",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 137,
+    "depositFee": 0.005,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x580A84C73811E1839F75d86d75d88cCa0c241fF4",
+      "oracle": "tokens",
+      "oracleId": "QI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "mai-usdc-mimatic",
     "address": "0x160532D2536175d65C03B97b0630A9802c274daD",
     "decimals": "1e18",
