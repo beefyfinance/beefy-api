@@ -1,5 +1,43 @@
 [
   {
+    "name": "joe-frax-wavax",
+    "address": "0x0d84595e8638dBc631076c51000B2d31120D8aa1",
+    "decimals": "1e18",
+    "poolId": 46,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDC42728B0eA910349ed3c6e1c9Dc06b5FB591f98",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-time-wavax",
+    "address": "0xf64e1c5B6E17031f5504481Ac8145F4c3eab4917",
+    "decimals": "1e18",
+    "poolId": 45,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb54f16fB19478766A268F172C9480f8da1a7c9C3",
+      "oracle": "tokens",
+      "oracleId": "TIME",
+      "decimals": "1e9"
+    }
+  },
+  {
     "name": "joe-mai-usdc.e",
     "address": "0x58f75d7745ec383491053947Cd2AE6Ee7fc8B8f8",
     "decimals": "1e18",
