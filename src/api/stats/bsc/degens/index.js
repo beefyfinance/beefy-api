@@ -33,6 +33,7 @@ const getStableQuantApys = require('./getStableQuantApys');
 const getHoneyFarmApys = require('./getHoneyFarmApys');
 const getViralataApys = require('./getViralataApys');
 const getLongApys = require('./getLongApys');
+const getPearzapApys = require('./getPearzapApys');
 const getCZFApys = require('./getCZFApys');
 
 const getApys = [
@@ -72,6 +73,7 @@ const getApys = [
   getViralataApys,
   getLongApys,
   getCZFApys,
+  getPearzapApys,
 ];
 
 const getDegensLpApys = async () => {

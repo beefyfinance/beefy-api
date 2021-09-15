@@ -38,6 +38,16 @@ const _tokens = {
       "Longdrink Finance creates index tokens on Binance Smart Chain. LONG is the protocol's governance token enabling holders to decide on the composition of future indices and their weightings, as well as fee capturing within the protocol.",
     website: 'https://longdrink.finance/#/',
   },
+  PEAR: {
+    name: 'PearZap',
+    symbol: 'PEAR',
+    address: '0xdf7C18ED59EA738070E665Ac3F5c258dcc2FBad8',
+    decimals: 18,
+    chainId: 56,
+    logoURI: 'https://assets.coingecko.com/coins/images/17173/small/pear200.png',
+    description: 'High yields farms & pools on the Polygon chain & Binance Smart Chain',
+    website: 'https://bsc.pearzap.com/',
+  },
   TLOS: {
     name: 'Telos',
     symbol: 'TLOS',
