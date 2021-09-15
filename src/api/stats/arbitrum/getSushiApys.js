@@ -23,7 +23,7 @@ const getSushiLpApys = async () =>
     decimals: '1e18',
     tradingFeeInfoClient: sushiArbitrumClient,
     liquidityProviderFee: SUSHI_LPF,
-    log: true,
+    // log: true,
   });
 
 module.exports = { getSushiLpApys };

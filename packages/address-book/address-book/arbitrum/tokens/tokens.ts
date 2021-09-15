@@ -38,6 +38,17 @@ const _tokens = {
       'SushiSwap is an automated market-making (AMM) decentralized exchange (DEX) currently on the Ethereum blockchain.',
     logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
   },
+  NYAN: {
+    name: 'ArbiNYAN',
+    address: '0xeD3fB761414DA74b74F33e5c5a1f78104b188DfC',
+    symbol: 'NYAN',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://arbinyan.com/',
+    description:
+      'ArbiNYAN is a fun cat token. The first fair launched token on Arbitrum with 95% of the supply distributed via farming rewards',
+    logoURI: 'https://icons.llama.fi/arbinyan.jpg',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
