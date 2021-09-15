@@ -84,23 +84,14 @@ const ONE_VAULTS_ENDPOINT =
 const ARBITRUM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/arbitrum_pools.js';
 
-const MULTICHAIN_ENDPOINTS: Record<
-  keyof typeof ChainId,
-  | typeof BSC_VAULTS_ENDPOINT
-  | typeof HECO_VAULTS_ENDPOINT
-  | typeof AVAX_VAULTS_ENDPOINT
-  | typeof POLYGON_VAULTS_ENDPOINT
-  | typeof FANTOM_VAULTS_ENDPOINT
-  | typeof ONE_VAULTS_ENDPOINT
-  | typeof ARBITRUM_VAULTS_ENDPOINT
-> = {
+const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
   heco: HECO_VAULTS_ENDPOINT,
   avax: AVAX_VAULTS_ENDPOINT,
   polygon: POLYGON_VAULTS_ENDPOINT,
   fantom: FANTOM_VAULTS_ENDPOINT,
   one: ONE_VAULTS_ENDPOINT,
-  arbitrum: ARBITRUM_VAULTS_ENDPOINT,
+  // arbitrum: ARBITRUM_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
