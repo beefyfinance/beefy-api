@@ -136,6 +136,7 @@ import viralataLpPools from '../../data/degens/viralataLpPools.json';
 import joePools from '../../data/avax/joeLpPools.json';
 import elkPools from '../../data/degens/elkLpPools.json';
 import longPools from '../../data/degens/longLpPools.json';
+import CZFPools from '../../data/degens/CZFLpPools.json';
 import sushiArbPools from '../../data/arbitrum/sushiLpPools.json';
 import arbiNyanPools from '../../data/arbitrum/arbiNyanLpPools.json';
 
@@ -145,6 +146,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...CZFPools,
   ...arbiNyanPools,
   ...sushiArbPools,
   ...longPools,
