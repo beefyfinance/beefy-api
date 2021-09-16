@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-usdc-rbnb",
+    "address": "0x40A5Df3E37152d4DaF279e0450289Af76472b02e",
+    "rewardPool": "0x3a353b71ae9b6C688ac474aD07632b8e0d499264",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x5c4b7CCBF908E64F32e12c6650ec0C96d717f03F",
+      "oracle": "tokens",
+      "oracleId": "rBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-qi-eth",
     "address": "0x8C1b40Ea78081B70F661C3286c74E71b4602C9C0",
     "rewardPool": "0xb47f7120a57381c217e4d6F3a79F066bfAAe6C93",
