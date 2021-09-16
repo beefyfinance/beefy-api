@@ -1271,6 +1271,18 @@ const _tokens = {
     logoURI:
       'https://exchange.pancakeswap.finance/images/coins/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
+  rBNB: {
+    name: 'Relay Bridge Polygon Binance Coin',
+    symbol: 'BNB',
+    address: '0x5c4b7CCBF908E64F32e12c6650ec0C96d717f03F',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    logoURI:
+      'https://exchange.pancakeswap.finance/images/coins/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+  },
   PBNB: {
     name: 'Orbit Bridge Polygon Binance Coin',
     symbol: 'PBNB',
