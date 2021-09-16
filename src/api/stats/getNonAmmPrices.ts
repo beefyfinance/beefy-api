@@ -10,6 +10,7 @@ import getCurveFantomPrices from './fantom/getCurvePrices';
 import getDopplePrices from './bsc/dopple/getDopplePrices';
 import getIronSwapPrices from './matic/getIronSwapPrices';
 import getAlpacaIbPrices from './bsc/alpaca/getAlpacaIbPrices';
+import getCurveArbitrumPrices from './arbitrum/getCurvePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
@@ -22,6 +23,7 @@ const getNonAmmPrices = async tokenPrices => {
     getGondolaPrices(tokenPrices),
     getCurvePolygonPrices(tokenPrices),
     getCurveFantomPrices(tokenPrices),
+    getCurveArbitrumPrices(tokenPrices),
     getDopplePrices(),
     getIronSwapPrices(),
     getAlpacaIbPrices(tokenPrices),

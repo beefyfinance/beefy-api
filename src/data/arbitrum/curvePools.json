@@ -1,0 +1,61 @@
+[
+  {
+    "name": "curve-arb-tricrypto",
+    "pool": "0x960ea3e3C7FB317332d990873d354E18d7645590",
+    "token": "0x8e0B8c8BB9db49a46697F3a5Bb8A308e744821D2",
+    "gauge": "0x97E2768e8E73511cA874545DC5Ff8067eB19B787",
+    "baseApyKey": "tricrypto",
+    "volatile": true,
+    "rewards": [
+      {
+        "stream": "0x9044E12fB1732f88ed0c93cfa5E9bB9bD2990cE5",
+        "token": "0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978",
+        "oracleId": "CRV"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-2pool",
+    "pool": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+    "gauge": "0xbF7E49483881C76487b0989CD7d9A8239B20CA41",
+    "baseApyKey": "2pool",
+    "rewards": [
+      {
+        "stream": "0xFf17560d746F85674FE7629cE986E949602EF948",
+        "token": "0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978",
+        "oracleId": "CRV"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-ren",
+    "pool": "0x3E01dD8a5E1fb3481F0F589056b428Fc308AF0Fb",
+    "gauge": "0xC2b1DF84112619D190193E48148000e3990Bf627",
+    "baseApyKey": "ren",
+    "oracleId": "WBTC",
+    "rewards": [
+      {
+        "stream": "0x9F86c5142369B1Ffd4223E5A2F2005FC66807894",
+        "token": "0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978",
+        "oracleId": "CRV"
+      }
+    ]
+  }
+]
