@@ -3,6 +3,7 @@ const { BSC_CHAIN_ID: chainId } = require('../../../../constants');
 const { getMasterChefApys } = require('../../common/getMasterChefApys');
 
 const pools = require('../../../../data/degens/pearzapLpPools.json');
+const { apeClient } = require('../../../../apollo/client');
 
 const getPearzapApys = async () =>
   await getMasterChefApys({
@@ -25,6 +26,7 @@ const getPearzapApys = async () =>
     oracleId: 'bPEAR',
     oracle: 'tokens',
     decimals: '1e18',
+    tradingFeeInfoClient: apeClient,
     liquidityProviderFee: 0.003,
     // log: true,
   });
