@@ -21,8 +21,10 @@ const _tokens = {
     address: '0x7c1608C004F20c3520f70b924E2BfeF092dA0043',
     chainId: 56,
     decimals: 18,
-    logoURI: 'https://github.com/chinese-zodiac/czodiac-site/blob/main/src/images/czodiac-coin.png?raw=true',
-    description: "Chinese Zodiac is a lending and NFT ecosystem, with a unique NFT Tiger Hunt game.",
+    logoURI:
+      'https://github.com/chinese-zodiac/czodiac-site/blob/main/src/images/czodiac-coin.png?raw=true',
+    description:
+      'Chinese Zodiac is a lending and NFT ecosystem, with a unique NFT Tiger Hunt game.',
     website: 'https://app.czodiac.com/#/',
   },
   LONG: {
@@ -32,7 +34,8 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     logoURI: 'https://longdrink.finance/static/media/longdrink-logo.0b6c21de.png',
-    description: "Longdrink Finance creates index tokens on Binance Smart Chain. LONG is the protocol's governance token enabling holders to decide on the composition of future indices and their weightings, as well as fee capturing within the protocol.",
+    description:
+      "Longdrink Finance creates index tokens on Binance Smart Chain. LONG is the protocol's governance token enabling holders to decide on the composition of future indices and their weightings, as well as fee capturing within the protocol.",
     website: 'https://longdrink.finance/#/',
   },
   TLOS: {
@@ -41,8 +44,10 @@ const _tokens = {
     address: '0xb6C53431608E626AC81a9776ac3e999c5556717c',
     chainId: 56,
     decimals: 18,
-    logoURI: 'https://pancakeswap.finance/images/tokens/0xb6C53431608E626AC81a9776ac3e999c5556717c.svg',
-    description: 'Telos is built for speed and scalability making it the ideal network for mainstream adoption – Telos based Tokens NFT’s and Smart Contracts are already used for DeFi, Gaming, Social Media apps and so much more. ',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xb6C53431608E626AC81a9776ac3e999c5556717c.svg',
+    description:
+      'Telos is built for speed and scalability making it the ideal network for mainstream adoption – Telos based Tokens NFT’s and Smart Contracts are already used for DeFi, Gaming, Social Media apps and so much more. ',
     website: 'https://www.telos.net/',
   },
   MOON: {

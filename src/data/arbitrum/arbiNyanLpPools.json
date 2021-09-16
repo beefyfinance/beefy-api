@@ -1,0 +1,21 @@
+[
+  {
+    "name": "arbinyan-nyan-eth",
+    "address": "0x70Df9Dd83be2a9F9Fcc58Dd7C00d032d007b7859",
+    "decimals": "1e18",
+    "rewardPool": "0x62FF5Be795262999fc1EbaC29277575031d2dA2C",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xeD3fB761414DA74b74F33e5c5a1f78104b188DfC",
+      "oracle": "tokens",
+      "oracleId": "NYAN",
+      "decimals": "1e18"
+    }
+  }
+]

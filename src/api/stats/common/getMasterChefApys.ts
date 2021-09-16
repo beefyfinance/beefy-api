@@ -10,7 +10,7 @@ import { ChainId } from '../../../../packages/address-book/address-book';
 
 import MasterChefAbi from '../../../abis/MasterChef.json';
 import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
-import { sushiClient } from '../../../apollo/client';
+import { isSushiClient } from '../../../apollo/client';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import fetchPrice from '../../../utils/fetchPrice';
@@ -62,7 +62,7 @@ const getTradingAprs = async (params: MasterChefApysParams) => {
   const fee = params.liquidityProviderFee;
   if (client && fee) {
     const pairAddresses = params.pools.map(pool => pool.address.toLowerCase());
-    const getAprs = client === sushiClient ? getTradingFeeAprSushi : getTradingFeeApr;
+    const getAprs = isSushiClient(client) ? getTradingFeeAprSushi : getTradingFeeApr;
     const aprs = await getAprs(client, pairAddresses, fee);
     tradingAprs = { ...tradingAprs, ...aprs };
   }

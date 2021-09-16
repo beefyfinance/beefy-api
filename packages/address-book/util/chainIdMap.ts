@@ -5,6 +5,7 @@ const chainIdMap = {
   fantom: 250,
   polygon: 137,
   one: 1666600000,
+  arbitrum: 42161,
 };
 
 export default chainIdMap;

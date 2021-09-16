@@ -28,6 +28,14 @@ const sushiOneClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const sushiArbitrumClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/sushiswap/arbitrum-exchange',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 const comethClient = new ApolloClient({
   link: createHttpLink({
     uri: 'https://api.thegraph.com/subgraphs/name/cometh-game/comethswap',
@@ -181,11 +189,18 @@ const joeClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const isSushiClient = client => {
+  return client === sushiClient || client === sushiOneClient || client === sushiArbitrumClient;
+};
+
 module.exports = {
   joeClient,
   dfynClient,
   apePolyClient,
   sushiClient,
+  sushiOneClient,
+  sushiArbitrumClient,
+  isSushiClient,
   comethClient,
   quickClient,
   polyzapClient,
@@ -203,5 +218,4 @@ module.exports = {
   pantherClient,
   jetswapClient,
   jetswapPolyClient,
-  sushiOneClient,
 };

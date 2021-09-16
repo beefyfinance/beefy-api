@@ -40,6 +40,7 @@ const AVAX_RPC = process.env.AVAX_RPC || 'https://api.avax.network/ext/bc/C/rpc'
 const POLYGON_RPC = process.env.POLYGON_RPC || 'https://rpc-mainnet.maticvigil.com/';
 const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpc.ftm.tools';
 const ONE_RPC = process.env.ONE_RPC || 'https://api.s0.t.hmny.io/';
+const ARBITRUM_RPC = process.env.ARBITRUM_RPC || 'https://arb1.arbitrum.io/rpc';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -47,6 +48,7 @@ const POLYGON_CHAIN_ID = ChainId.polygon;
 const AVAX_CHAIN_ID = ChainId.avax;
 const FANTOM_CHAIN_ID = ChainId.fantom;
 const ONE_CHAIN_ID = ChainId.one;
+const ARBITRUM_CHAIN_ID = ChainId.arbitrum;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.0025;
@@ -64,6 +66,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.avax]: AVAX_RPC,
   [ChainId.fantom]: FANTOM_RPC,
   [ChainId.one]: ONE_RPC,
+  [ChainId.arbitrum]: ARBITRUM_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -78,22 +81,17 @@ const FANTOM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fantom_pools.js';
 const ONE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/harmony_pools.js';
+const ARBITRUM_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/arbitrum_pools.js';
 
-const MULTICHAIN_ENDPOINTS: Record<
-  keyof typeof ChainId,
-  | typeof BSC_VAULTS_ENDPOINT
-  | typeof HECO_VAULTS_ENDPOINT
-  | typeof AVAX_VAULTS_ENDPOINT
-  | typeof POLYGON_VAULTS_ENDPOINT
-  | typeof FANTOM_VAULTS_ENDPOINT
-  | typeof ONE_VAULTS_ENDPOINT
-> = {
+const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
   heco: HECO_VAULTS_ENDPOINT,
   avax: AVAX_VAULTS_ENDPOINT,
   polygon: POLYGON_VAULTS_ENDPOINT,
   fantom: FANTOM_VAULTS_ENDPOINT,
   one: ONE_VAULTS_ENDPOINT,
+  // arbitrum: ARBITRUM_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
@@ -120,6 +118,9 @@ export {
   ONE_RPC,
   ONE_CHAIN_ID,
   ONE_VAULTS_ENDPOINT,
+  ARBITRUM_RPC,
+  ARBITRUM_CHAIN_ID,
+  ARBITRUM_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
