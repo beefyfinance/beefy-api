@@ -1,5 +1,81 @@
 [
   {
+    "name": "boo-wftm-treeb",
+    "address": "0xe8b72a866b8D59F5c13D2ADEF96E40A3EF5b3152",
+    "decimals": "1e18",
+    "poolId": 34,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc60D7067dfBc6f2caf30523a064f416A5Af52963",
+      "oracle": "tokens",
+      "oracleId": "TREEB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-usdc-woo",
+    "address": "0x7d4CdDAB6774Ff47D62253067958dbD749Cb7F06",
+    "decimals": "1e18",
+    "poolId": 33,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x6626c47c00F1D87902fc13EECfaC3ed06D5E8D8a",
+      "oracle": "tokens",
+      "oracleId": "WOO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-wftm-shade",
+    "address": "0x20aa395F3bcc4dc44a94215D129650533B3da0b3",
+    "decimals": "1e18",
+    "poolId": 32,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3A3841f5fa9f2c283EA567d5Aeea3Af022dD2262",
+      "oracle": "tokens",
+      "oracleId": "SHADE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-usdc-fusdt",
+    "address": "0xFdef392aDc84607135C24ca45DE5452d77aa10DE",
+    "decimals": "1e18",
+    "poolId": 31,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+      "oracle": "tokens",
+      "oracleId": "fUSDT",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "boo-steak-wftm",
     "address": "0xD10CC1b46D806D6ac803AF367Da489dEA5EE76FA",
     "decimals": "1e18",

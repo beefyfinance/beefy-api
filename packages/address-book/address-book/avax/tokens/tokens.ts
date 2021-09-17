@@ -19,8 +19,10 @@ const _tokens = {
     name: 'Time',
     symbol: 'TIME',
     website: 'https://app.wonderland.money/#/stake',
-    description: "Wonderland is the first decentralized reserve currency protocol available on the Avalanche Network based on the TIME token. Each TIME token is backed by a basket of assets (e.g., MIM, TIME-AVAX LP Tokens etc etc) in the Wonderland treasury, giving it an intrinsic value that it cannot fall below. Wonderland also introduces economic and game-theoretic dynamics into the market through staking and bonding.",
-    logoURI: 'https://gblobscdn.gitbook.com/assets%2F-MhzA-YXhEZ1wM1iWJEo%2F-MiQzpjkumrqycMXcTj6%2F-MiR0TC116IqSmoKpkwX%2FTime%20Token.png?alt=media&token=9ba1004c-5e23-4e6e-b4f8-19f109c557d0',
+    description:
+      'Wonderland is the first decentralized reserve currency protocol available on the Avalanche Network based on the TIME token. Each TIME token is backed by a basket of assets (e.g., MIM, TIME-AVAX LP Tokens etc etc) in the Wonderland treasury, giving it an intrinsic value that it cannot fall below. Wonderland also introduces economic and game-theoretic dynamics into the market through staking and bonding.',
+    logoURI:
+      'https://gblobscdn.gitbook.com/assets%2F-MhzA-YXhEZ1wM1iWJEo%2F-MiQzpjkumrqycMXcTj6%2F-MiR0TC116IqSmoKpkwX%2FTime%20Token.png?alt=media&token=9ba1004c-5e23-4e6e-b4f8-19f109c557d0',
   },
   MAI: {
     chainId: 43114,
@@ -29,7 +31,8 @@ const _tokens = {
     name: 'MiMatic',
     symbol: 'MAI',
     website: 'https://www.mai.finance/',
-    description: "MAI is a stable coin collateralized by your MATIC holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    description:
+      "MAI is a stable coin collateralized by your MATIC holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
   },
   aQI: {
@@ -3730,6 +3733,17 @@ const _tokens = {
     name: 'albracabra',
     address: '0x130966628846BFd36ff31a822705796e8cb8C18D',
     symbol: 'MIM',
+    decimals: 18,
+    chainId: 43114,
+    website: 'https://abracadabra.money/',
+    description:
+      'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
+    logoURI: '',
+  },
+  SPELL: {
+    name: 'albracabra',
+    address: '0xCE1bFFBD5374Dac86a2893119683F4911a2F7814',
+    symbol: 'SPELL',
     decimals: 18,
     chainId: 43114,
     website: 'https://abracadabra.money/',

@@ -571,6 +571,38 @@ const _tokens = {
     description: 'A token tracker on the fantom network',
     logoURI: 'https://scream.sh/img/scream-multi.png',
   },
+  TREEB: {
+    name: 'retreeb',
+    symbol: 'TREEB',
+    address: '0xc60D7067dfBc6f2caf30523a064f416A5Af52963',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://retreeb.io/',
+    description:
+      'Discover retreeb, a new decentralized way to pay, simple, practical, economical, which allows you to act in accordance with the universal values of ethics, sharing and solidarity.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/TREEB.png',
+  },
+  WOO: {
+    name: 'Woo Exchange',
+    symbol: 'WOO',
+    address: '0x6626c47c00F1D87902fc13EECfaC3ed06D5E8D8a',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://woo.org/',
+    description:
+      'Featuring deep liquidity for superior order execution, zero-fee trading, and fully customizable trading workspaces.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/WOO.png',
+  },
+  SHADE: {
+    name: 'Shade Cash',
+    symbol: 'SHADE',
+    address: '0x3A3841f5fa9f2c283EA567d5Aeea3Af022dD2262',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://shade.cash/',
+    description: 'A decentralized protocol for private transactions on Fantom Opera',
+    logoURI: 'https://assets.spookyswap.finance/tokens/SHADE.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
