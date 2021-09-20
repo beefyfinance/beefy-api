@@ -1,5 +1,24 @@
 [
   {
+    "name": "joe-usdc.e-usdt.e",
+    "address": "0x2E02539203256c83c7a9F6fA6f8608A32A2b1Ca2",
+    "decimals": "1e18",
+    "poolId": 49,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+      "oracle": "tokens",
+      "oracleId": "USDC.e",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
+      "oracle": "tokens",
+      "oracleId": "USDT.e",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "joe-wavax-spell",
     "address": "0x62cf16BF2BC053E7102E2AC1DEE5029b94008d99",
     "decimals": "1e18",
