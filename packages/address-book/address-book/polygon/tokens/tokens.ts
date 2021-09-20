@@ -27,6 +27,16 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  DELIRIUM: {
+    name: 'DELIRIUM',
+    symbol: 'DELIRIUM',
+    address: '0x238779aFfE6FFD475cB7e84582FcA7789F310Dc8',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://app.delirium.sandman.finance/farms',
+    description: 'The first Polygon Community Owned AMM',
+    logoURI: 'https://app.delirium.sandman.finance/images/farms/delirium.png',
+  },
   WUSD: {
     name: 'Wault USD',
     symbol: 'WUSD',
