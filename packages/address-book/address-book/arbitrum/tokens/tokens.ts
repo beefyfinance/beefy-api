@@ -110,7 +110,7 @@ const _tokens = {
     name: 'USDT',
     symbol: 'USDT',
     address: '0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9',
-    chainId: 128,
+    chainId: 42161,
     decimals: 6,
     website: 'https://tether.to/',
     description:
