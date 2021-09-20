@@ -18,6 +18,11 @@ const projects = {
     file: '../src/data/one/sushiLpPools.json',
     masterchef: sushi.minichef,
   },
+  sushiArb: {
+    prefix: 'sushi-arb',
+    file: '../src/data/arbitrum/sushiLpPools.json',
+    masterchef: '0xF4d73326C13a4Fc5FD7A064217e12780e9Bd62c3',
+  },
 };
 
 const args = yargs.options({
