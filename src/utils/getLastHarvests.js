@@ -9,6 +9,7 @@ const MULTICALLS = {
   fantom: '0x28373e5fF2Ea0aeabe09b2651cE6Df4Ec10982f7',
   avax: '0x9e95635A4b603AC80e6eaD48324439e7c31c384c',
   one: '0x42d1760e98F9fd1AcbFd77651D429BB306a3782e',
+  arbitrum: '0xF9eBb381dC153D0966B2BaEe776de2F400405755',
 };
 const MulticallAbi = require('../abis/BeefyLastHarvestMulticall.json');
 const BATCH_SIZE = 128;
