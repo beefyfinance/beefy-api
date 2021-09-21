@@ -29,6 +29,7 @@ const { getPolygonFarmApys } = require('./getPolygonFarmApys');
 const { getPearzapApys } = require('./getPearzapApys');
 const getQuickSingleApys = require('./getQuickSingleApys');
 const { getSandmanApys } = require('./getSandmanApys');
+const { getPolyAlphaApys } = require('./getPolyAlphaApys');
 
 const getApys = [
   getComethLpApys,
@@ -62,6 +63,7 @@ const getApys = [
   getPearzapApys,
   getQuickSingleApys,
   getSandmanApys,
+  getPolyAlphaApys,
 ];
 
 const BATCH_SIZE = 15;

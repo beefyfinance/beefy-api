@@ -27,6 +27,16 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  ALPHA: {
+    name: 'ALPHA',
+    symbol: 'ALPHA',
+    address: '0x0B048D6e01a6b9002C291060bF2179938fd8264c',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://polyalpha.finance',
+    description: 'A next generation decentralized stable-yield aggregating farm on Polygon.',
+    logoURI: 'https://polyalpha.finance/images/pools/alpha.png',
+  },
   DELIRIUM: {
     name: 'DELIRIUM',
     symbol: 'DELIRIUM',
