@@ -42,10 +42,10 @@ const getPoolApy = async (masterchef, pool) => {
 };
 
 const fetchBeltLpBaseApr = async pool => {
-  if (pool.poolId !== 3) return 0;
+  if (pool.poolId === 11) return 0;
   try {
-    const response = await axios.get('https://s.belt.fi/status/A_getMainInfo.json');
-    const data = response.data.vaultPools.filter(p => Number(p.pid) === pool.poolId)[0];
+    const response = await axios.get('https://s.belt.fi/info/all.json');
+    const data = response.data.info.BSC.vaultPools.filter(p => Number(p.pid) === pool.poolId)[0];
     const baseApr = Number(data.baseAPR) / 100;
     const feeApr = Number(data.feeAPR) / 100;
     return baseApr + feeApr;
