@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  ANN: {
+    name: 'Annex',
+    symbol: 'ANN',
+    address: '0x98936Bde1CF1BFf1e7a8012Cee5e2583851f2067',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://app.annex.finance/images/coins/ANN.png',
+    description:
+      'A Decentralized Marketplace for Lenders and Borrowers with Borderless Stablecoins.',
+    website: 'https://www.annex.finance/',
+  },
   CZF: {
     name: 'Chinese Zodiac',
     symbol: 'CZF',
