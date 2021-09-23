@@ -1537,7 +1537,7 @@ const _tokens = {
       "Ball is PolyPup Finance's 3rd layer, featuring a maximum supply of 94,000 tokens.",
     logoURI: 'https://ball.polypup.finance/images/egg/9.png',
   },
-  WISE_POLYWISE: {
+  polyWISE: {
     name: 'Polywise',
     symbol: 'WISE',
     address: '0x4c19DdeebAF84cA3A255730295AD9d824D4Ff51f',

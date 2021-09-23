@@ -30,6 +30,7 @@ const { getPearzapApys } = require('./getPearzapApys');
 const getQuickSingleApys = require('./getQuickSingleApys');
 const { getSandmanApys } = require('./getSandmanApys');
 const { getPolyAlphaApys } = require('./getPolyAlphaApys');
+import { getPolywiseApys } from './getPolywiseApys';
 
 const getApys = [
   getComethLpApys,
@@ -64,6 +65,7 @@ const getApys = [
   getQuickSingleApys,
   getSandmanApys,
   getPolyAlphaApys,
+  getPolywiseApys,
 ];
 
 const BATCH_SIZE = 15;
