@@ -33,22 +33,18 @@ const getPoolApy = async pool => {
     getBorrowApys(pool),
   ]);
 
-  const {
-    leveragedSupplyBase,
-    leveragedBorrowBase,
-    leveragedSupplyVxs,
-    leveragedBorrowVxs,
-  } = getLeveragedApys(
-    supplyBase,
-    borrowBase,
-    supplyVxs,
-    borrowVxs,
-    pool.borrowDepth,
-    pool.borrowPercent
-  );
+  const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyVxs, leveragedBorrowVxs } =
+    getLeveragedApys(
+      supplyBase,
+      borrowBase,
+      supplyVxs,
+      borrowVxs,
+      pool.borrowDepth,
+      pool.borrowPercent
+    );
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
-  const compoundedVxs = compound(totalVxs, BASE_HPY, 0.955);
+  const compoundedVxs = compound(totalVxs, BASE_HPY, 1, 0.955);
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedVxs).toNumber();
   return { [pool.name]: apy };
 };
@@ -57,21 +53,15 @@ const getSupplyApys = async pool => {
   const itokenContract = new web3.eth.Contract(IToken, pool.itoken);
   const comptrollerContract = new web3.eth.Contract(Comptroller, COMPTROLLER);
 
-  let [
-    lhbPrice,
-    tokenPrice,
-    supplyRate,
-    compRate,
-    totalSupply,
-    exchangeRateStored,
-  ] = await Promise.all([
-    fetchPrice({ oracle: 'tokens', id: 'LHB' }),
-    fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-    itokenContract.methods.supplyRatePerBlock().call(),
-    comptrollerContract.methods.compSpeeds(pool.itoken).call(),
-    itokenContract.methods.totalSupply().call(),
-    itokenContract.methods.exchangeRateStored().call(),
-  ]);
+  let [lhbPrice, tokenPrice, supplyRate, compRate, totalSupply, exchangeRateStored] =
+    await Promise.all([
+      fetchPrice({ oracle: 'tokens', id: 'LHB' }),
+      fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
+      itokenContract.methods.supplyRatePerBlock().call(),
+      comptrollerContract.methods.compSpeeds(pool.itoken).call(),
+      itokenContract.methods.totalSupply().call(),
+      itokenContract.methods.exchangeRateStored().call(),
+    ]);
 
   supplyRate = new BigNumber(supplyRate);
   compRate = new BigNumber(compRate);

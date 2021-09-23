@@ -31,15 +31,11 @@ const getPoolApy = async pool => {
     getBorrowApys(pool),
   ]);
 
-  const {
-    leveragedSupplyBase,
-    leveragedBorrowBase,
-    leveragedSupplyFts,
-    leveragedBorrowFts,
-  } = getLeveragedApys(supplyBase, borrowBase, supplyFts, borrowFts, 4, 0.58);
+  const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyFts, leveragedBorrowFts } =
+    getLeveragedApys(supplyBase, borrowBase, supplyFts, borrowFts, 4, 0.58);
 
   const totalFts = leveragedSupplyFts.plus(leveragedBorrowFts);
-  const compoundedFts = compound(totalFts, BASE_HPY, 0.955);
+  const compoundedFts = compound(totalFts, BASE_HPY, 1, 0.955);
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedFts).toNumber();
 
   // console.log(pool.name, 'base', supplyBase.valueOf(), supplyFts.valueOf(), borrowBase.valueOf(), borrowFts.valueOf());
@@ -52,21 +48,15 @@ const getSupplyApys = async pool => {
   const vtokenContract = new web3.eth.Contract(VToken, pool.vtoken);
   const unitrollerContract = new web3.eth.Contract(IUnitroller, UNITROLLER);
 
-  let [
-    fortressPrice,
-    tokenPrice,
-    supplyRate,
-    fortressRate,
-    totalSupply,
-    exchangeRateStored,
-  ] = await Promise.all([
-    fetchPrice({ oracle: 'tokens', id: 'FTS' }),
-    fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-    vtokenContract.methods.supplyRatePerBlock().call(),
-    unitrollerContract.methods.fortressSpeeds(pool.vtoken).call(),
-    vtokenContract.methods.totalSupply().call(),
-    vtokenContract.methods.exchangeRateStored().call(),
-  ]);
+  let [fortressPrice, tokenPrice, supplyRate, fortressRate, totalSupply, exchangeRateStored] =
+    await Promise.all([
+      fetchPrice({ oracle: 'tokens', id: 'FTS' }),
+      fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
+      vtokenContract.methods.supplyRatePerBlock().call(),
+      unitrollerContract.methods.fortressSpeeds(pool.vtoken).call(),
+      vtokenContract.methods.totalSupply().call(),
+      vtokenContract.methods.exchangeRateStored().call(),
+    ]);
 
   supplyRate = new BigNumber(supplyRate);
   fortressRate = new BigNumber(fortressRate);

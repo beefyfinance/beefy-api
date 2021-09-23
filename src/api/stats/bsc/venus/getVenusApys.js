@@ -33,15 +33,11 @@ const getPoolApy = async pool => {
     getBorrowApys(pool),
   ]);
 
-  const {
-    leveragedSupplyBase,
-    leveragedBorrowBase,
-    leveragedSupplyVxs,
-    leveragedBorrowVxs,
-  } = getLeveragedApys(supplyBase, borrowBase, supplyVxs, borrowVxs, 4, 0.58);
+  const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyVxs, leveragedBorrowVxs } =
+    getLeveragedApys(supplyBase, borrowBase, supplyVxs, borrowVxs, 4, 0.58);
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
-  const compoundedVxs = compound(totalVxs, BASE_HPY, 0.955);
+  const compoundedVxs = compound(totalVxs, BASE_HPY, 1, 0.955);
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedVxs).toNumber();
   return { [pool.name]: apy };
 };
@@ -50,21 +46,15 @@ const getSupplyApys = async pool => {
   const vtokenContract = new web3.eth.Contract(VToken, pool.vtoken);
   const unitrollerContract = new web3.eth.Contract(IUnitroller, UNITROLLER);
 
-  let [
-    venusPrice,
-    tokenPrice,
-    supplyRate,
-    venusRate,
-    totalSupply,
-    exchangeRateStored,
-  ] = await Promise.all([
-    fetchPrice({ oracle: 'tokens', id: 'XVS' }),
-    fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-    vtokenContract.methods.supplyRatePerBlock().call(),
-    unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
-    vtokenContract.methods.totalSupply().call(),
-    vtokenContract.methods.exchangeRateStored().call(),
-  ]);
+  let [venusPrice, tokenPrice, supplyRate, venusRate, totalSupply, exchangeRateStored] =
+    await Promise.all([
+      fetchPrice({ oracle: 'tokens', id: 'XVS' }),
+      fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
+      vtokenContract.methods.supplyRatePerBlock().call(),
+      unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
+      vtokenContract.methods.totalSupply().call(),
+      vtokenContract.methods.exchangeRateStored().call(),
+    ]);
 
   supplyRate = new BigNumber(supplyRate);
   venusRate = new BigNumber(venusRate);

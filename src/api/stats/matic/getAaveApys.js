@@ -44,22 +44,18 @@ const getAaveApys = async () => {
 const getPoolApy = async pool => {
   const { supplyBase, supplyMatic, borrowBase, borrowMatic } = await getAavePoolData(pool);
 
-  const {
-    leveragedSupplyBase,
-    leveragedBorrowBase,
-    leveragedSupplyMatic,
-    leveragedBorrowMatic,
-  } = getLeveragedApys(
-    supplyBase,
-    borrowBase,
-    supplyMatic,
-    borrowMatic,
-    pool.borrowDepth,
-    pool.borrowPercent
-  );
+  const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyMatic, leveragedBorrowMatic } =
+    getLeveragedApys(
+      supplyBase,
+      borrowBase,
+      supplyMatic,
+      borrowMatic,
+      pool.borrowDepth,
+      pool.borrowPercent
+    );
 
   let totalMatic = leveragedSupplyMatic.plus(leveragedBorrowMatic);
-  let compoundedMatic = compound(totalMatic, BASE_HPY, 0.955);
+  let compoundedMatic = compound(totalMatic, BASE_HPY, 1, 0.955);
   let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedMatic).toNumber();
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyMatic.valueOf(), borrowMatic.valueOf());
   return { [pool.name]: apy };
