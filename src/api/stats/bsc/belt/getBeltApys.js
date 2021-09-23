@@ -36,7 +36,7 @@ const getPoolApy = async (masterchef, pool) => {
   ]);
   let simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const baseApy = await fetchBeltLpBaseApr(pool);
-  const apy = compound(baseApy + simpleApy * 0.955, process.env.BASE_HPY, 1);
+  const apy = compound(baseApy + simpleApy * 0.955, process.env.BASE_HPY, 1, 1);
   // console.log(pool.name, baseApy.valueOf(), simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { [pool.name]: apy };
 };
