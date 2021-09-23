@@ -12,7 +12,7 @@ const {
   },
 } = addressBook;
 
-export const getPolyAlphaApys = async () =>
+export const getPolywiseApys = async () =>
   await getMasterChefApys({
     masterchef: polywise.masterchef,
     tokenPerBlock: 'WisePerBlock',
