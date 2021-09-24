@@ -1537,6 +1537,16 @@ const _tokens = {
       "Ball is PolyPup Finance's 3rd layer, featuring a maximum supply of 94,000 tokens.",
     logoURI: 'https://ball.polypup.finance/images/egg/9.png',
   },
+  polyWISE: {
+    name: 'Polywise',
+    symbol: 'WISE',
+    address: '0x4c19DdeebAF84cA3A255730295AD9d824D4Ff51f',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://polywise.finance/',
+    description:
+      'PolyWise Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income. We are trying to create a protocol like Yearn, but with a reduced token supply and high value for Polygon Network users, LP providers and stakers. The max supply of WISE token is 5400.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
