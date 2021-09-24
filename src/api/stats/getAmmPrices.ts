@@ -145,6 +145,7 @@ import sushiMimPools from '../../data/arbitrum/sushiLpMimPools.json';
 import polyalphaPools from '../../data/matic/polyalphaLpPools.json';
 import annexPools from '../../data/degens/annexLpPools.json';
 import polywisePools from '../../data/matic/polywiseLpPools.json';
+import pacocaPools from '../../data/degens/pacocaLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -153,6 +154,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...polywisePools,
+  ...pacocaPools,
   ...annexPools,
   ...sushiMimPools,
   ...polyalphaPools,
