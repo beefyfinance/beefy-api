@@ -15,6 +15,16 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  PACOCA: {
+    name: 'Pacoca',
+    symbol: 'PACOCA',
+    address: '0x55671114d774ee99D653D6C12460c780a67f1D18',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://bscscan.com/token/images/pacoca_32.png',
+    description: 'Invest in yield-optimizing vaults and track your DeFi assets on BSC',
+    website: 'https://pacoca.io/',
+  },
   ANN: {
     name: 'Annex',
     symbol: 'ANN',
