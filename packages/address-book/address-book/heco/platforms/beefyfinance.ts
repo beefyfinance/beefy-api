@@ -5,7 +5,7 @@ export const beefyfinance = {
   vaultOwner: '0x4E2a43a0Bf6480ee8359b7eAE244A9fBe9862Cdf',
   keeper: '0x10aee6B5594942433e7Fc2783598c979B030eF3D',
   rewarder: cowllector,
-  treasurer: '0x565EB5e5B21F97AE9200D121e77d2760FFf106cb',
+  treasurer: '0x3Eb7fB70C03eC4AEEC97C6C6C1B59B014600b7F7',
   launchpoolOwner: cowllector,
   rewardPool: '0x5f7347fedfD0b374e8CE8ed19Fc839F59FB59a3B',
   treasury: '0xf4859A3f36fBcA24BF8299bf56359fB441b03034',
