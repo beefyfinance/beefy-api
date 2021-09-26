@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  ONG: {
+    name: 'Ontology Gas Token',
+    symbol: 'ONG',
+    address: '0x308bfaeAaC8BDab6e9Fc5Ead8EdCb5f95b0599d9',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://ont.io/',
+    description:
+      'Ontology is a high performance, open source blockchain specializing in digital identity and data.',
+    logoURI: 'https://apeswap.finance/images/tokens/ONG.svg',
+  },
   PACOCA: {
     name: 'Pacoca',
     symbol: 'PACOCA',
