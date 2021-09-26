@@ -3894,6 +3894,16 @@ const _tokens = {
     description: 'FarmHero.io is a novel protocol that mixes NFT, gaming and DEFI concepts.',
     website: 'https://bsc.farmhero.io/',
   },
+  NFT: {
+    name: 'APENFT',
+    symbol: 'NFT',
+    address: '0x1fC9004eC7E5722891f5f38baE7678efCB11d34D',
+    chainId: 56,
+    decimals: 6,
+    logoURI: 'https://www.apenft.org/img/logo.svg',
+    description: 'APENFT GALLERY ART FOR EVERYONE',
+    website: 'https://www.apenft.org/',
+  },
   QUANT: {
     name: 'StableQuant',
     symbol: 'QUANT',
