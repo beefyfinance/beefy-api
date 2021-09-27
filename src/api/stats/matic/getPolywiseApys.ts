@@ -23,5 +23,5 @@ export const getPolywiseApys = async () =>
     decimals: getEDecimals(polyWISE.decimals),
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: QUICK_LPF,
-    log: true,
+    log: false,
   });

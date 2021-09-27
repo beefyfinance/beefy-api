@@ -27,6 +27,16 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  TETU: {
+    name: 'TETU',
+    symbol: 'TETU',
+    address: '0x255707B70BF90aa112006E1b07B9AeA6De021424',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://app.tetu.io/',
+    description: 'Tetu implements automated yield farming strategies in order to provide investors with a safe and secure method of receiving high yield on their investments.',
+    logoURI: 'https://github.com/tetu-io/tetu-brand-assets/blob/master/token_icons/flat_icon.svg',
+  },
   ALPHA: {
     name: 'ALPHA',
     symbol: 'ALPHA',
