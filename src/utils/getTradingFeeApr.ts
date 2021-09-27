@@ -1,5 +1,10 @@
 import { getUtcSecondsFromDayRange } from './getUtcSecondsFromDayRange';
-import { pairDayDataQuery, pairDayDataSushiQuery, dayDataQuery, joeDayDataQuery } from '../apollo/queries';
+import {
+  pairDayDataQuery,
+  pairDayDataSushiQuery,
+  dayDataQuery,
+  joeDayDataQuery,
+} from '../apollo/queries';
 import BigNumber from 'bignumber.js';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 import ApolloClient from 'apollo-client';
@@ -88,8 +93,8 @@ export const getTradingFeeAprSushi = async (
   pairAddresses: string[],
   liquidityProviderFee: number
 ) => {
-  const [start0, end0] = getUtcSecondsFromDayRange(8, 9);
-  const [start1, end1] = getUtcSecondsFromDayRange(11, 12);
+  const [start0, end0] = getUtcSecondsFromDayRange(1, 2);
+  const [start1, end1] = getUtcSecondsFromDayRange(3, 4);
   const pairAddressToAprMap: Record<string, BigNumber> = {};
 
   try {
