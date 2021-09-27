@@ -1,0 +1,40 @@
+[
+  {
+    "name": "tetu-tetu-usdc",
+    "address": "0x22E2BDaBEbA9b5ff8924275DbE47aDE5cf7b822B",
+    "rewardPool": "0x301204E50C4295FE38c87F774Cbdf984a1B66e87",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x255707B70BF90aa112006E1b07B9AeA6De021424",
+      "oracle": "tokens",
+      "oracleId": "TETU",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "tetu-matic-tetu",
+    "address": "0x34dA30D1f8Ef9799F5Ae3B9989e1dEf926052e78",
+    "rewardPool": "0x2fC753522260c2ee6bEf62d5800640f0a04C212C",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x255707B70BF90aa112006E1b07B9AeA6De021424",
+      "oracle": "tokens",
+      "oracleId": "TETU",
+      "decimals": "1e18"
+    }
+  }
+]
