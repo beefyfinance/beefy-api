@@ -84,7 +84,7 @@
     "lp0": {
       "address": "0x50b7545627a5162F82A992c33b87aDc75187B218",
       "oracle": "tokens",
-      "oracleId": "WBTH.e",
+      "oracleId": "WBTC.e",
       "decimals": "1e8"
     },
     "lp1": {
