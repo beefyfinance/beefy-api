@@ -173,6 +173,14 @@ const jetswapPolyClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const jetswapFantomClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/smartcookie0501/jetswap-subgraph-fantom',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 const dfynClient = new ApolloClient({
   link: createHttpLink({
     uri: 'https://api.thegraph.com/subgraphs/name/ss-sonic/dfyn-v5',
@@ -218,4 +226,5 @@ module.exports = {
   pantherClient,
   jetswapClient,
   jetswapPolyClient,
+  jetswapFantomClient,
 };

@@ -38,6 +38,16 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  fWINGS: {
+    name: 'fWINGS',
+    symbol: 'fWINGS',
+    address: '0x3D8f1ACCEe8e263F837138829B6C4517473d0688',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://fantom-exchange.jetswap.finance/images/coins/wings.png',
+    website: 'https://fantom.jetswap.finance/',
+    description: 'JetSwap AMM',
+  },
   STEAK: {
     name: 'SteakToken',
     symbol: 'STEAK',
