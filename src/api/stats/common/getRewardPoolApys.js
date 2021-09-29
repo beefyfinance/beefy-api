@@ -3,12 +3,13 @@ const { MultiCall } = require('eth-multicall');
 const { multicallAddress } = require('../../../utils/web3');
 
 const IRewardPool = require('../../../abis/IRewardPool.json');
+const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
 
-const getRewardPoolApys = async params => {
+export const getRewardPoolApys = async params => {
   const tradingAprs = await getTradingAprs(params);
   const farmApys = await getFarmApys(params);
 
@@ -33,6 +34,9 @@ const getTradingAprs = async params => {
 const getFarmApys = async params => {
   const apys = [];
   const tokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
+  const rewardTokenPrice = params.isRewardInXToken
+                             ? await getXPrice(tokenPrice, params)
+                             : tokenPrice;
   const { balances, rewardRates } = await getPoolsData(params);
 
   for (let i = 0; i < params.pools.length; i++) {
@@ -45,7 +49,7 @@ const getFarmApys = async params => {
 
     const secondsPerYear = 31536000;
     const yearlyRewards = rewardRates[i].times(secondsPerYear);
-    const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(params.decimals);
+    const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
@@ -83,5 +87,14 @@ const getPoolsData = async params => {
   const rewardRates = res[1].map(v => new BigNumber(v.rewardRate));
   return { balances, rewardRates };
 };
+
+const getXPrice = async (tokenPrice, params) => {
+  const tokenContract = new params.web3.eth.Contract(ERC20, params.tokenAddress);
+  const xTokenContract = new params.web3.eth.Contract(ERC20, params.xTokenAddress);
+  const stakedInXPool = new BigNumber(await tokenContract.methods.balanceOf(params.xTokenAddress).call());
+  const totalXSupply = new BigNumber(await xTokenContract.methods.totalSupply().call());
+
+  return stakedInXPool.times(tokenPrice).dividedBy(totalXSupply);
+}
 
 module.exports = { getRewardPoolApys };
