@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  CRYSTL: {
+    name: 'CrystalToken',
+    symbol: 'CRYSTL',
+    address: '0x76bF0C28e604CC3fE9967c83b3C3F31c213cfE64',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://www.crystl.finance/',
+    description:
+      'Crystl Finance is a decentralized yield farm that runs on Polygon and ApeSwap Polygon Exchange, and pays out $CRYSTL, the native currency. With it, you can earn profits from your capital in a way that is fair, transparent, and secure.',
+    logoURI: 'https://www.crystl.finance/images/crystlbg.png',
+  },
   TETU: {
     name: 'TETU',
     symbol: 'TETU',
@@ -34,7 +45,8 @@ const _tokens = {
     chainId: 137,
     decimals: 18,
     website: 'https://app.tetu.io/',
-    description: 'Tetu implements automated yield farming strategies in order to provide investors with a safe and secure method of receiving high yield on their investments.',
+    description:
+      'Tetu implements automated yield farming strategies in order to provide investors with a safe and secure method of receiving high yield on their investments.',
     logoURI: 'https://github.com/tetu-io/tetu-brand-assets/blob/master/token_icons/flat_icon.svg',
   },
   ALPHA: {
