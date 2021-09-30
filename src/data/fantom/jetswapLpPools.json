@@ -1,5 +1,81 @@
 [
   {
+    "name": "jetswap-fantom-fusdt-usdc",
+    "address": "0xB8D08e75440b89c2c25a400Ab1883B689C0A1A64",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+      "oracle": "tokens",
+      "oracleId": "fUSDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "jetswap-fantom-btc-usdc",
+    "address": "0x6B5340dFcd7D509Ea931cC4E69462797DbBc0197",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "BTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "jetswap-fantom-eth-usdc",
+    "address": "0xD21A2c9032D09B7174dB93736b834D2a7eaDab15",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x74b23882a30290451a17c44f4f05243b6b58c76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "jetswap-fantom-eth-btc",
+    "address": "0x04C25d06eD3984AAE14CA705d3CaF97Fb7238799",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x74b23882a30290451a17c44f4f05243b6b58c76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "BTC",
+      "decimals": "1e8"
+    }
+  },
+  {
     "name": "jetswap-fantom-fwings-usdc",
     "address": "0x89fF795017AE21A8696d371F685Cd02FC219F56F",
     "decimals": "1e18",
