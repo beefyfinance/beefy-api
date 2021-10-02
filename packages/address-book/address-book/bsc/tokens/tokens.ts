@@ -1739,7 +1739,8 @@ const _tokens = {
     decimals: 18,
     website: 'https://apeswap.finance/',
     description: 'BANANA is the native token of the Apeswap.finance.',
-    logoURI: 'https://dex.apeswap.finance/images/coins/BANANA.svg',
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/BANANA.svg',
   },
   FTM: {
     name: 'Fantom',
