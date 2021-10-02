@@ -228,6 +228,25 @@
     }
   },
   {
+    "name": "spirit-crv-ftm",
+    "address": "0x374C8ACb146407Ef0AE8F82BaAFcF8f4EC1708CF",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
+      "oracle": "tokens",
+      "oracleId": "CRV",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spirit-fusd-usdc",
     "address": "0x679449a920087828776aeEF4074549410D5c8065",
     "decimals": "1e18",
