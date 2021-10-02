@@ -190,6 +190,25 @@
     }
   },
   {
+    "name": "spirit-ftm-ice",
+    "address": "0x936D23C83c2469f6a14B9f5bEaec13879598A5aC",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf16e81dce15B08F326220742020379B855B87DF9",
+      "oracle": "tokens",
+      "oracleId": "ICE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spirit-fusd-usdc",
     "address": "0x679449a920087828776aeEF4074549410D5c8065",
     "decimals": "1e18",
