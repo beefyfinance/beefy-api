@@ -613,6 +613,17 @@ const _tokens = {
     description: 'A decentralized protocol for private transactions on Fantom Opera',
     logoURI: 'https://assets.spookyswap.finance/tokens/SHADE.png',
   },
+  JUST: {
+    name: 'JustYours',
+    symbol: 'JUST',
+    address: '0x37C045bE4641328DFEB625f1Dde610D061613497',
+    chainId: 250,
+    decimals: 10,
+    website: 'https://justyours.me/',
+    description:
+      'JustYours is building a multi-functional platform that can seamlessly integrate both users and creators of Adult Content',
+    logoURI: 'https://ftmscan.com/token/images/justyours2_32.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
