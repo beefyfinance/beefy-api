@@ -622,7 +622,17 @@ const _tokens = {
     website: 'https://justyours.me/',
     description:
       'JustYours is building a multi-functional platform that can seamlessly integrate both users and creators of Adult Content',
-    logoURI: 'https://ftmscan.com/token/images/justyours2_32.png',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/JUST.png',
+  },
+  SPELL: {
+    name: 'Spell Token',
+    symbol: 'SPELL',
+    address: '0x468003B688943977e6130F4F68F23aad939a1040',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://abracadabra.money/',
+    description: 'SPELL is the incentivation token of Abracadabra.money',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/SPELL.png',
   },
 } as const;
 
