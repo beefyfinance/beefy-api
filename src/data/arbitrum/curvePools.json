@@ -57,5 +57,10 @@
         "oracleId": "CRV"
       }
     ]
+  },
+  {
+    "name": "curve-arb-mim",
+    "pool": "0x30dF229cefa463e991e29D42DB0bae2e122B2AC7",
+    "rewards": []
   }
 ]

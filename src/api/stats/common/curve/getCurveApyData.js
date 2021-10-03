@@ -39,6 +39,7 @@ const getBaseApy = (baseApyData, pool) => {
 };
 
 const getTotalStakedInUsd = async (web3, pool) => {
+  if (!pool.gauge) return new BigNumber(1);
   const gauge = new web3.eth.Contract(IRewardGauge, pool.gauge);
   const totalSupply = new BigNumber(await gauge.methods.totalSupply().call());
   const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
