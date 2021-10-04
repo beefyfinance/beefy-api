@@ -53,4 +53,4 @@ const getTotalStakedInUsd = async () => {
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
 };
 
-module.exports = getArbiBifiGovApy;
+module.exports = { getArbiBifiGovApy };
