@@ -1,3 +1,4 @@
+const getTianguisLpApys = require('./tianguis/getTianguisLpApys');
 const get1inchLpApys = require('./1inch/get1inchLpApys');
 const get1inchApy = require('./1inch/get1inchApy');
 const getAlpacaApys = require('./alpaca/getAlpacaApys');
@@ -45,6 +46,7 @@ const getElkApys = require('./elk/getElkApys');
 const getBifiMaxiV2Apy = require('./beefy/getBifiMaxiV2Apy');
 
 const getApys = [
+  getTianguisLpApys,
   get1inchLpApys,
   get1inchApy,
   getAlpacaApys,

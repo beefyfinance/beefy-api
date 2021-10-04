@@ -1,0 +1,129 @@
+[
+  {
+    "name": "tianguis-morralla-cake",
+    "address": "0xcdC7497E6c4C9605af0a889FB800B9754d3f442c",
+    "decimals": "1e18",
+    "poolId": 9,
+    "lp0": {
+      "address": "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+      "oracle": "tokens",
+      "oracleId": "CAKE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5625eb03D999817941BaD868BbF8A0eaf0749557",
+      "oracle": "tokens",
+      "oracleId": "MORRALLA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tianguis-morralla-ada",
+    "address": "0x5709e5F67E4492742Ff46890A7107Fbb99CD096E",
+    "decimals": "1e18",
+    "poolId": 8,
+    "lp0": {
+      "address": "0x3EE2200Efb3400fAbB9AacF31297cBdD1d435D47",
+      "oracle": "tokens",
+      "oracleId": "ADA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5625eb03D999817941BaD868BbF8A0eaf0749557",
+      "oracle": "tokens",
+      "oracleId": "MORRALLA",
+      "decimals": "1e18"
+    }
+  },
+
+  {
+    "name": "tianguis-morralla-eth",
+    "address": "0x3678463a9805D7B4E59a61C9a3D52C9A6dB54fB0",
+    "decimals": "1e18",
+    "poolId": 7,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5625eb03D999817941BaD868BbF8A0eaf0749557",
+      "oracle": "tokens",
+      "oracleId": "MORRALLA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tianguis-morralla-btcb",
+    "address": "0xBc0cf9dFC4A58e698F8198ad3A5621c027b5412D",
+    "decimals": "1e18",
+    "poolId": 6,
+    "lp0": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5625eb03D999817941BaD868BbF8A0eaf0749557",
+      "oracle": "tokens",
+      "oracleId": "MORRALLA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tianguis-morralla-xrp",
+    "address": "0x211cBcdD63D919CE33EeE83518801F2A3ea63faa",
+    "decimals": "1e18",
+    "poolId": 5,
+    "lp0": {
+      "address": "0x1D2F0da169ceB9fC7B3144628dB156f3F6c60dBE",
+      "oracle": "tokens",
+      "oracleId": "XRP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5625eb03D999817941BaD868BbF8A0eaf0749557",
+      "oracle": "tokens",
+      "oracleId": "MORRALLA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tianguis-morralla-bnb",
+    "address": "0x2a8a0d9f3e18b27b9de5b04cca02f229c9745d18",
+    "decimals": "1e18",
+    "poolId": 1,
+    "lp0": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5625eb03D999817941BaD868BbF8A0eaf0749557",
+      "oracle": "tokens",
+      "oracleId": "MORRALLA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tianguis-morralla-busd",
+    "address": "0x8E4b9AC4FA97530ECE7ddD477c2768F462684764",
+    "decimals": "1e18",
+    "poolId": 2,
+    "lp0": {
+      "address": "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5625eb03D999817941BaD868BbF8A0eaf0749557",
+      "oracle": "tokens",
+      "oracleId": "MORRALLA",
+      "decimals": "1e18"
+    }
+  }
+]
