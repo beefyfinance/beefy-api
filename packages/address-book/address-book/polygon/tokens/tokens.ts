@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  FOX: {
+    name: 'FOX',
+    symbol: 'FOX',
+    address: '0x65A05DB8322701724c197AF82C9CaE41195B0aA8',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://shapeshift.com/',
+    description:
+      'FOX is ShapeShift’s official loyalty token. Holders of FOX enjoy zero-commission trading and win ongoing USDC crypto payments from Rainfall (payments increase in proportion to your FOX holdings). Use at ShapeShift.com.',
+    logoURI: 'https://assets.coingecko.com/coins/images/9988/large/FOX.png',
+  },
   CRYSTL: {
     name: 'CrystalToken',
     symbol: 'CRYSTL',
