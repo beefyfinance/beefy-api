@@ -144,7 +144,7 @@ const _tokens = {
     chainId: 250,
     website: 'https://tomb.finance/',
     description:
-      'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage.',
+      'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage',
     logoURI: 'https://assets.spookyswap.finance/tokens/TOMB.png',
   },
   FTM,
