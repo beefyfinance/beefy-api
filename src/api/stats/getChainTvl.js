@@ -5,6 +5,7 @@ const getVaults = require('../../utils/getVaults.js');
 const fetchPrice = require('../../utils/fetchPrice');
 
 const BeefyVaultV6ABI = require('../../abis/BeefyVaultV6.json');
+const { getTotalStakedInUsd } = require('../../utils/getTotalStakedInUsd');
 
 const getChainTvl = async chain => {
   const chainId = chain.chainId;
@@ -30,6 +31,12 @@ const getChainTvl = async chain => {
 
     tvls[chainId] = { ...tvls[chainId], ...item };
   }
+
+  if ('governancePool' in chain) {
+    let governanceTvl = await getGovernanceTvl(chainId, chain.governancePool);
+    tvls[chainId] = { ...tvls[chainId], ...governanceTvl };
+  }
+
   return tvls;
 };
 
@@ -45,6 +52,45 @@ const getVaultBalances = async (chainId, vaults) => {
   });
   const res = await multicall.all([balanceCalls]);
   return res[0].map(v => new BigNumber(v.balance));
+};
+
+//Fetches chain's governance pool tvl and removes tvl from the excluded vault list
+const getGovernanceTvl = async (chainId, governancePool) => {
+  const excludedVaults = Object.values(governancePool.exclude);
+
+  const excludedBalances = await getVaultBalances(chainId, excludedVaults);
+  let tokenPrice = 0;
+
+  try {
+    tokenPrice = await fetchPrice({ oracle: governancePool.oracle, id: governancePool.oracleId });
+  } catch (e) {
+    console.error(
+      'getGovernanceTvl fetchPrice',
+      chainId,
+      governancePool.oracle,
+      governancePool.oracleId,
+      e
+    );
+  }
+
+  const excludedBalance = excludedBalances.reduce(
+    (tot, cur) => tot.plus(cur.times(tokenPrice).dividedBy(governancePool.tokenDecimals)),
+    new BigNumber(0)
+  );
+
+  let totalStaked = await getTotalStakedInUsd(
+    governancePool.address,
+    governancePool.tokenAddress,
+    governancePool.oracle,
+    governancePool.oracleId,
+    governancePool.tokenDecimals,
+    chainId
+  );
+
+  let tvl = {};
+  tvl[governancePool.name] = Number(totalStaked.minus(excludedBalance)).toFixed(2);
+
+  return tvl;
 };
 
 module.exports = getChainTvl;
