@@ -478,5 +478,25 @@
       "oracleId": "GHST",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "sushi-fox-eth",
+    "address": "0x93eF615F1DdD27d0E141Ad7192623A5c45e8f200",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 40,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x65A05DB8322701724c197AF82C9CaE41195B0aA8",
+      "oracle": "tokens",
+      "oracleId": "FOX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
   }
 ]
