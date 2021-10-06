@@ -2792,6 +2792,9 @@ const _tokens = {
     decimals: 18,
     name: 'SushiToken',
     symbol: 'SUSHI',
+    website: 'https://sushi.com/',
+    description:
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x39cf1BD5f15fb22eC3D9Ff86b0727aFc203427cc/logo.png',
   },
@@ -2801,6 +2804,9 @@ const _tokens = {
     decimals: 18,
     name: 'SushiToken',
     symbol: 'SUSHI',
+    website: 'https://sushi.com/',
+    description:
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x39cf1BD5f15fb22eC3D9Ff86b0727aFc203427cc/logo.png',
   },
@@ -3348,6 +3354,9 @@ const _tokens = {
     decimals: 18,
     name: 'yearn.finance',
     symbol: 'YFI',
+    website: 'https://yearn.finance/',
+    description:
+      'Yearn Finance is a suite of products in Decentralized Finance (DeFi) that provides lending aggregation, yield generation, and insurance on the Ethereum blockchain. The protocol is maintained by various independent developers and is governed by YFI holders.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x99519AcB025a0e0d44c3875A4BbF03af65933627/logo.png',
   },
@@ -3500,6 +3509,8 @@ const _tokens = {
     chainId: 43114,
     name: 'Pangolin',
     symbol: 'PNG',
+    website: 'https://pangolin.exchange/',
+    description: 'A community-driven decentralized exchange for Avalanche and Ethereum assets with fast settlement, low transaction fees, and a democratic distribution–powered by Avalanche. Pangolin brings you the best trading opportunities to find and maximize your yield.',
     decimals: 18,
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x60781C2586D68229fde47564546784ab3fACA982/logo.png',
@@ -3510,6 +3521,8 @@ const _tokens = {
     decimals: 18,
     name: 'COMPLUS',
     symbol: 'COM',
+    website: 'https://complus.exchange/',
+    description: 'Complus Network is a multi-chain exchange protocol for ERC-20 tokens on several blockchains.',
     logoURI:
       'https://raw.githubusercontent.com/complusnetwork/default-token-list/master/src/ava/0x3711c397B6c8F7173391361e27e67d72F252cAad/logo.png',
   },
@@ -3535,6 +3548,8 @@ const _tokens = {
     decimals: 18,
     name: 'Snowball',
     symbol: 'SNOB',
+    website: 'https://snowball.network/',
+    description: 'Snowball combines multiple DeFi protocols to create an interconnected experience. Swap stablecoins, deposit liquidity, or auto-compound liquidity rewards.',
     logoURI: 'https://raw.githubusercontent.com/Snowball-Finance/Assets/main/Uphill%20snowball.png',
   },
   'SFI-sled.finance': {
@@ -3577,6 +3592,8 @@ const _tokens = {
     decimals: 18,
     name: 'Lydia Finance',
     symbol: 'LYD',
+    website: 'https://www.lydia.finance/',
+    description: 'Lydia Finance is a decentralized exchange (DEX) running on Avalanche.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4C9B4E1AC6F24CdE3660D5E4Ef1eBF77C710C084/logo.png',
   },
@@ -3646,6 +3663,8 @@ const _tokens = {
     decimals: 18,
     name: 'Avalaunch',
     symbol: 'XAVA',
+    website: 'https://avalaunch.app/',
+    description: 'Interoperable Token Pools & Auctions for the Avalanche Blockchain.',
     logoURI: 'https://raw.githubusercontent.com/avalaunch-app/xava-protocol/master/logo.png',
   },
   TESLABTC: {
@@ -3696,6 +3715,9 @@ const _tokens = {
     decimals: 18,
     name: 'Dai Stablecoin',
     symbol: 'DAI',
+    website: 'https://makerdao.com/en/',
+    description:
+      'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a/logo.png',
   },
@@ -3705,6 +3727,9 @@ const _tokens = {
     decimals: 18,
     name: 'Binance USD',
     symbol: 'BUSD',
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/avalanche-bridge-resources/main/tokens/BUSD/logo.png',
   },
@@ -3714,6 +3739,8 @@ const _tokens = {
     decimals: 18,
     name: 'Frax',
     symbol: 'FRAX',
+    website: 'https://frax.finance/',
+    description: 'Frax is the world’s first fractional-algorithmic stablecoin. The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xDC42728B0eA910349ed3c6e1c9Dc06b5FB591f98/logo.png',
   },
@@ -3723,6 +3750,8 @@ const _tokens = {
     decimals: 18,
     name: 'Olive',
     symbol: 'OLIVE',
+    website: 'https://avax.olive.cash/',
+    description: 'OLIVE token is at the heart of the OliveCash ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
   },
@@ -3732,8 +3761,10 @@ const _tokens = {
     decimals: 18,
     name: 'Joe Token',
     symbol: 'JOE',
+    website: 'https://www.traderjoexyz.com/#/home',
+    description: 'Trader Joe is your one-stop decentralized trading platform on the Avalanche network, of which JOE is the governance token that rewards its holders with a share of exchange revenues.',
     logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
+      'https://www.traderjoexyz.com/static/media/logo.bc60f78d.png',
   },
   SHIBX: {
     chainId: 43114,
@@ -3750,8 +3781,10 @@ const _tokens = {
     decimals: 6,
     name: 'USD Coin',
     symbol: 'USDCe',
+    website: 'https://www.circle.com/usdc'
+    description: 'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
+      'https://pancakeswap.finance/images/tokens/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
   },
   MIM: {
     name: 'albracabra',
