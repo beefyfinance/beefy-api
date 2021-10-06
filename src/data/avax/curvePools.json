@@ -18,15 +18,15 @@
     ],
     "tokens": [
       {
-        "aaveId": "aave-avax-dai",
+        "aaveId": "aave-dai.e",
         "decimals": "1e18"
       },
       {
-        "aaveId": "aave-avax-usdc",
+        "aaveId": "aave-usdc.e",
         "decimals": "1e6"
       },
       {
-        "aaveId": "aave-avax-usdt",
+        "aaveId": "aave-usdt.e",
         "decimals": "1e6"
       }
     ]
@@ -51,7 +51,7 @@
     ],
     "tokens": [
       {
-        "aaveId": "aave-avax-wbtc",
+        "aaveId": "aave-wbtc.e",
         "oracle": "tokens",
         "oracleId": "WBTC.e",
         "decimals": "1e8"
@@ -90,13 +90,13 @@
         "decimals": "1e18"
       },
       {
-        "aaveId": "aave-avax-wbtc",
+        "aaveId": "aave-wbtc.e",
         "oracle": "tokens",
         "oracleId": "WBTC.e",
         "decimals": "1e8"
       },
       {
-        "aaveId": "aave-avax-eth",
+        "aaveId": "aave-weth.e",
         "oracle": "tokens",
         "oracleId": "WETH.e",
         "decimals": "1e18"

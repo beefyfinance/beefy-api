@@ -10,9 +10,9 @@ import {
 } from '../common/curve/getCurveApyData';
 
 const ICurvePool = require('../../../abis/ICurvePool.json');
-// const { getAavePoolData } = require('./getAaveApys');
+const { getAavePoolData } = require('./getAaveApys');
 
-// const aavePools = require('../../../data/matic/aavePools.json');
+const aavePools = require('../../../data/avax/aavePools.json');
 const pools = require('../../../data/avax/curvePools.json');
 
 const baseApyUrl = 'https://stats.curve.fi/raw-stats-avalanche/apys.json';
@@ -50,10 +50,8 @@ const getPoolApy = async pool => {
 };
 
 const getAaveApy = async pool => {
-  // TODO open when AAVE apy is ready
-  return new BigNumber(0);
   let promises = [];
-  pool.tokens.forEach(token => promises.push(getAaveMaticApy(token)));
+  pool.tokens.forEach(token => promises.push(getAaveRewardApy(token)));
   pool.tokens.forEach((token, i) => promises.push(getTokenBalance(pool.pool, token, i)));
   const results = await Promise.all(promises);
 
@@ -72,7 +70,7 @@ const getAaveApy = async pool => {
   return totalApy;
 };
 
-const getAaveMaticApy = async token => {
+const getAaveRewardApy = async token => {
   if (token.basePool) {
     const pool = pools.find(p => p.name === token.basePool);
     return getAaveApy(pool);
@@ -81,8 +79,8 @@ const getAaveMaticApy = async token => {
   if (!token.aaveId) return new BigNumber(0);
 
   const aavePool = aavePools.find(p => p.name === token.aaveId);
-  const { supplyMatic } = await getAavePoolData(aavePool);
-  return supplyMatic;
+  const { supplyNative } = await getAavePoolData(aavePool);
+  return supplyNative;
 };
 
 const getTokenBalance = async (curvePool, token, index) => {
