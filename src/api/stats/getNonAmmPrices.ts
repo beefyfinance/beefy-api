@@ -11,6 +11,7 @@ import getDopplePrices from './bsc/dopple/getDopplePrices';
 import getIronSwapPrices from './matic/getIronSwapPrices';
 import getAlpacaIbPrices from './bsc/alpaca/getAlpacaIbPrices';
 import getCurveArbitrumPrices from './arbitrum/getCurvePrices';
+import getCurveAvaxPrices from './avax/getCurvePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
@@ -24,6 +25,7 @@ const getNonAmmPrices = async tokenPrices => {
     getCurvePolygonPrices(tokenPrices),
     getCurveFantomPrices(tokenPrices),
     getCurveArbitrumPrices(tokenPrices),
+    getCurveAvaxPrices(tokenPrices),
     getDopplePrices(),
     getIronSwapPrices(),
     getAlpacaIbPrices(tokenPrices),

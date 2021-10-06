@@ -458,5 +458,45 @@
       "oracleId": "ETH",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "sushi-wmatic-ghst",
+    "address": "0xf69e93771f11aecd8e554aa165c3fe7fd811530c",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 39,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
+      "oracle": "tokens",
+      "oracleId": "GHST",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-fox-eth",
+    "address": "0x93eF615F1DdD27d0E141Ad7192623A5c45e8f200",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 40,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x65A05DB8322701724c197AF82C9CaE41195B0aA8",
+      "oracle": "tokens",
+      "oracleId": "FOX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
   }
 ]

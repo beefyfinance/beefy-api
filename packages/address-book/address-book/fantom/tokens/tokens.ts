@@ -144,7 +144,7 @@ const _tokens = {
     chainId: 250,
     website: 'https://tomb.finance/',
     description:
-      'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage.',
+      'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage',
     logoURI: 'https://assets.spookyswap.finance/tokens/TOMB.png',
   },
   FTM,
@@ -612,6 +612,27 @@ const _tokens = {
     website: 'https://shade.cash/',
     description: 'A decentralized protocol for private transactions on Fantom Opera',
     logoURI: 'https://assets.spookyswap.finance/tokens/SHADE.png',
+  },
+  JUST: {
+    name: 'JustYours',
+    symbol: 'JUST',
+    address: '0x37C045bE4641328DFEB625f1Dde610D061613497',
+    chainId: 250,
+    decimals: 10,
+    website: 'https://justyours.me/',
+    description:
+      'JustYours is building a multi-functional platform that can seamlessly integrate both users and creators of Adult Content',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/JUST.png',
+  },
+  SPELL: {
+    name: 'Spell Token',
+    symbol: 'SPELL',
+    address: '0x468003B688943977e6130F4F68F23aad939a1040',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://abracadabra.money/',
+    description: 'SPELL is the incentivation token of Abracadabra.money',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/SPELL.png',
   },
 } as const;
 

@@ -1,5 +1,42 @@
 [
   {
+    "name": "curve-ftm-tricrypto",
+    "pool": "0x3a1659Ddcf2339Be3aeA159cA010979FB49155FF",
+    "token": "0x58e57cA18B7A47112b877E31929798Cd3D703b0f",
+    "gauge": "0x00702BbDEaD24C40647f235F15971dB0867F6bdB",
+    "baseApyKey": "tricrypto",
+    "volatile": true,
+    "rewards": [
+      {
+        "stream": "0x260e4fBb13DD91e187AE992c3435D0cf97172316",
+        "token": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
+        "oracleId": "CRV"
+      },
+      {
+        "stream": "0x260e4fBb13DD91e187AE992c3435D0cf97172316",
+        "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+        "oracleId": "WFTM"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "fUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-ftm-fusdt",
     "pool": "0x92D5ebF3593a92888C25C0AbEF126583d4b5312E",
     "gauge": "0x06e3C4da96fd076b97b7ca3Ae23527314b6140dF",

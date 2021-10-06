@@ -2,8 +2,9 @@ const { getSushiLpApys } = require('./getSushiApys');
 const { getArbiNyanApys } = require('./getArbiNyanApys');
 const { getCurveApys } = require('./getCurveApys');
 const { getSushiMimApys } = require('./getSushiMimApys');
+const { getSpellApys } = require('./getSpellApys');
 
-const getApys = [getSushiLpApys, getArbiNyanApys, getCurveApys, getSushiMimApys];
+const getApys = [getSushiLpApys, getArbiNyanApys, getCurveApys, getSushiMimApys, getSpellApys];
 
 const getArbitrumApys = async () => {
   let apys = {};

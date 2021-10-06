@@ -27,6 +27,28 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  FOX: {
+    name: 'FOX',
+    symbol: 'FOX',
+    address: '0x65A05DB8322701724c197AF82C9CaE41195B0aA8',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://shapeshift.com/',
+    description:
+      'FOX is ShapeShift’s official loyalty token. Holders of FOX enjoy zero-commission trading and win ongoing USDC crypto payments from Rainfall (payments increase in proportion to your FOX holdings). Use at ShapeShift.com.',
+    logoURI: 'https://assets.coingecko.com/coins/images/9988/large/FOX.png',
+  },
+  CRYSTL: {
+    name: 'CrystalToken',
+    symbol: 'CRYSTL',
+    address: '0x76bF0C28e604CC3fE9967c83b3C3F31c213cfE64',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://www.crystl.finance/',
+    description:
+      'Crystl Finance is a decentralized yield farm that runs on Polygon and ApeSwap Polygon Exchange, and pays out $CRYSTL, the native currency. With it, you can earn profits from your capital in a way that is fair, transparent, and secure.',
+    logoURI: 'https://www.crystl.finance/images/crystlbg.png',
+  },
   TETU: {
     name: 'TETU',
     symbol: 'TETU',
@@ -34,7 +56,8 @@ const _tokens = {
     chainId: 137,
     decimals: 18,
     website: 'https://app.tetu.io/',
-    description: 'Tetu implements automated yield farming strategies in order to provide investors with a safe and secure method of receiving high yield on their investments.',
+    description:
+      'Tetu implements automated yield farming strategies in order to provide investors with a safe and secure method of receiving high yield on their investments.',
     logoURI: 'https://github.com/tetu-io/tetu-brand-assets/blob/master/token_icons/flat_icon.svg',
   },
   ALPHA: {
@@ -223,7 +246,7 @@ const _tokens = {
     description:
       'ApeSwap is a leading decentralized exchange (DEX) on Binance Smart Chain and Polygon focused on offering a premier trading experience. Users are incentivized to pool liquidity on ApeSwap through yield farming to earn the native currency, $BANANA. Additionally, apes can use their earned $BANANA to stake and earn other tokens and unlock exclusive features. Built by DeFi apes, for DeFi apes, we have a dedicated team with years of experience who are committed to the DeFi community and growing the ApeSwap Jungle.',
     logoURI:
-      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/degens/BANANA.svg',
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/BANANA.svg',
   },
   BIFI: {
     name: 'beefy.finance',
@@ -1299,7 +1322,7 @@ const _tokens = {
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
     logoURI:
-      'https://exchange.pancakeswap.finance/images/coins/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+      'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
   rBNB: {
     name: 'Relay Bridge Polygon Binance Coin',
@@ -1311,7 +1334,7 @@ const _tokens = {
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
     logoURI:
-      'https://exchange.pancakeswap.finance/images/coins/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+      'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
   PBNB: {
     name: 'Orbit Bridge Polygon Binance Coin',
@@ -1323,7 +1346,7 @@ const _tokens = {
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
     logoURI:
-      'https://exchange.pancakeswap.finance/images/coins/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+      'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
   YELD: {
     name: 'Polyyeld.Finance',
