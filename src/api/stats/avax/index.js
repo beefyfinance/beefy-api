@@ -8,6 +8,7 @@ const getAvaxBifiMaxiApy = require('./getAvaxBifiMaxiApy');
 const getJoeApys = require('./getJoeLpApys');
 const getJoeApy = require('./getJoeApy');
 const getPangolinPNGApy = require('./getPangolinPNGApy');
+const getCurveApys = require('./getCurveApys');
 
 const getApys = [
   getComAvaxApys,
@@ -20,6 +21,7 @@ const getApys = [
   getJoeApys,
   getJoeApy,
   getPangolinPNGApy,
+  getCurveApys,
 ];
 
 const getAvaxApys = async () => {
