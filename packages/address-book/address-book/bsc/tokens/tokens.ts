@@ -3101,7 +3101,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://www.sushi.com/',
     description:
-      'SushiSwap aims to diversify the AMM market and also add additional features not previously present on Uniswap, such as increased rewards for network participants via its in-house token, SUSHI.',
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x947950bcc74888a40ffa2593c5798f11fc9124c4.png',
   },

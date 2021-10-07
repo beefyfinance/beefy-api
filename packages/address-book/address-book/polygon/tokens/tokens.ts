@@ -1111,7 +1111,7 @@ const _tokens = {
     chainId: 137,
     website: 'https://sushi.com/',
     description:
-      'SushiSwap is an automated market-making (AMM) decentralized exchange (DEX) currently on the Ethereum blockchain.',
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     logoURI: 'https://app.sushi.com/static/media/logo.11fafaa5.png',
   },
   GRT: {
