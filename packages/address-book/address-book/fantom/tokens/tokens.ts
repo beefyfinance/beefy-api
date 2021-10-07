@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  GEIST: {
+    name: 'GEIST',
+    symbol: 'GEIST',
+    address: '0xd8321AA83Fb0a4ECd6348D4577431310A6E0814d',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/18832/small/GEIST-token.png?1633560935',
+    website: 'https://geist.finance/',
+    description:
+      'Geist is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
+  },
   fWINGS: {
     name: 'fWINGS',
     symbol: 'fWINGS',
