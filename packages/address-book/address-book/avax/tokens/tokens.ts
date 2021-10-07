@@ -3781,7 +3781,7 @@ const _tokens = {
     decimals: 6,
     name: 'USD Coin',
     symbol: 'USDCe',
-    website: 'https://www.circle.com/usdc'
+    website: 'https://www.circle.com/usdc',
     description: 'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
