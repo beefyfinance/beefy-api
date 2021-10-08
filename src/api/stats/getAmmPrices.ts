@@ -149,6 +149,8 @@ import pacocaPools from '../../data/degens/pacocaLpPools.json';
 import jetswapFantomPools from '../../data/fantom/jetswapLpPools.json';
 import tetuPools from '../../data/matic/tetuLpPools.json';
 import geistPools from '../../data/fantom/geistLpPools.json';
+import cafeBscPools from '../../data/degens/cafeLpPools.json';
+import cafePolyPools from '../../data/matic/cafeLpPools.json';
 import oldPools from '../../data/archive/oldLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
@@ -157,6 +159,8 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...cafePolyPools,
+  ...cafeBscPools,
   ...oldPools,
   ...geistPools,
   ...jetswapFantomPools,

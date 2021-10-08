@@ -27,6 +27,16 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  pBREW: {
+    name: 'pBREW',
+    symbol: 'pBREW',
+    address: '0xb5106A3277718eCaD2F20aB6b86Ce0Fee7A21F09',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://polygon.cafeswap.finance/',
+    description: 'Safest & Lowest fee AMM on BSC & Polygon.',
+    logoURI: 'https://polygon.cafeswap.finance/images/tokens/pbrew.png',
+  },
   FOX: {
     name: 'FOX',
     symbol: 'FOX',

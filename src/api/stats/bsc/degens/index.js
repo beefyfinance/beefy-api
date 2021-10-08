@@ -37,6 +37,7 @@ const getPearzapApys = require('./getPearzapApys');
 const getCZFApys = require('./getCZFApys');
 const getAnnexApys = require('./getAnnexApys');
 const getPacocaApys = require('./getPacocaApys');
+const getCafeLpApys = require('./getCafeLpApys');
 
 const getApys = [
   getRamenLpApys,
@@ -78,6 +79,7 @@ const getApys = [
   getPearzapApys,
   getAnnexApys,
   getPacocaApys,
+  getCafeLpApys,
 ];
 
 const getDegensLpApys = async () => {
