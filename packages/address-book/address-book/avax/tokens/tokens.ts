@@ -14,7 +14,7 @@ const AVAX = {
 const _tokens = {
   SING: {
     chainId: 43114,
-    address: '0xF9A075C9647e91410bF6C402bDF166e1540f67F0 ',
+    address: '0xF9A075C9647e91410bF6C402bDF166e1540f67F0',
     decimals: 18,
     name: 'Sing Token',
     symbol: 'SING',
