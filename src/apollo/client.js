@@ -198,7 +198,7 @@ const joeClient = new ApolloClient({
 });
 
 const isSushiClient = client => {
-  return client === sushiClient || client === sushiOneClient || client === sushiArbitrumClient;
+  return client === sushiClient || client === sushiOneClient || client === sushiArbitrumClient || client === joeClient;
 };
 
 module.exports = {

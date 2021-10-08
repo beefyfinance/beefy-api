@@ -149,6 +149,9 @@ import pacocaPools from '../../data/degens/pacocaLpPools.json';
 import jetswapFantomPools from '../../data/fantom/jetswapLpPools.json';
 import tetuPools from '../../data/matic/tetuLpPools.json';
 import geistPools from '../../data/fantom/geistLpPools.json';
+import singularPolyPools from '../../data/matic/singularLpPools.json';
+import singularBscPools from '../../data/degens/singularLpPools.json';
+import singularAvaxPools from '../../data/avax/singularLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -157,6 +160,9 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...geistPools,
+  ...singularPolyPools,
+  ...singularBscPools,
+  ...singularAvaxPools,
   ...jetswapFantomPools,
   ...tetuPools,
   ...polywisePools,
