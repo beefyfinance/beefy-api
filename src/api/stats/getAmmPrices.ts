@@ -149,6 +149,9 @@ import pacocaPools from '../../data/degens/pacocaLpPools.json';
 import jetswapFantomPools from '../../data/fantom/jetswapLpPools.json';
 import tetuPools from '../../data/matic/tetuLpPools.json';
 import geistPools from '../../data/fantom/geistLpPools.json';
+import singularPolyPools from '../../data/matic/singularLpPools.json';
+import singularBscPools from '../../data/degens/singularLpPools.json';
+import singularAvaxPools from '../../data/avax/singularLpPools.json';
 import cafeBscPools from '../../data/degens/cafeLpPools.json';
 import cafePolyPools from '../../data/matic/cafeLpPools.json';
 import oldPools from '../../data/archive/oldLpPools.json';
@@ -163,6 +166,9 @@ const pools = [
   ...cafeBscPools,
   ...oldPools,
   ...geistPools,
+  ...singularPolyPools,
+  ...singularBscPools,
+  ...singularAvaxPools,
   ...jetswapFantomPools,
   ...tetuPools,
   ...polywisePools,

@@ -7,7 +7,7 @@ const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/joeLpPools.json');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
-const { getTradingFeeAprJoe } = require('../../../utils/getTradingFeeApr');
+const { getTradingFeeAprSushi } = require('../../../utils/getTradingFeeApr');
 const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
 const { joeClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -32,7 +32,7 @@ const getJoeApys = async () => {
   const { balances, allocPoints } = await getPoolsData(pools);
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeAprJoe(joeClient, pairAddresses, liquidityProviderFee);
+  const tradingAprs = await getTradingFeeAprSushi(joeClient, pairAddresses, liquidityProviderFee);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];

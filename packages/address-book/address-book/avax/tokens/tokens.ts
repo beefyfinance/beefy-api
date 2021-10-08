@@ -12,6 +12,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  SING: {
+    chainId: 43114,
+    address: '0xF9A075C9647e91410bF6C402bDF166e1540f67F0',
+    decimals: 18,
+    name: 'Sing Token',
+    symbol: 'SING',
+    website: 'https://singular.farm/',
+    description:
+      'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
+    logoURI: 'https://github.com/singularfarm/assets/blob/main/400.png?raw=true',
+  },
   TEDDY: {
     chainId: 43114,
     address: '0x094bd7B2D99711A1486FB94d4395801C6d0fdDcC',

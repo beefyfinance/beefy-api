@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  SING: {
+    name: 'Sing Token',
+    symbol: 'SING',
+    address: '0xCB898b0eFb084Df14dd8E018dA37B4d0f06aB26D',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://singular.farm/',
+    description:
+      'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
+    logoURI: 'https://github.com/singularfarm/assets/blob/main/400.png?raw=true',
+  },
   pBREW: {
     name: 'pBREW',
     symbol: 'pBREW',

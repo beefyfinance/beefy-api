@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  SING: {
+    name: 'Sing Token',
+    symbol: 'SING',
+    address: '0x23894C0ce2d79B79Ea33A4D02e67ae843Ef6e563',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://singular.farm/',
+    description:
+      'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
+    logoURI: 'https://github.com/singularfarm/assets/blob/main/400.png?raw=true',
+  },
   ONG: {
     name: 'Ontology Gas Token',
     symbol: 'ONG',

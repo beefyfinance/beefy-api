@@ -10,6 +10,7 @@ const getJoeApy = require('./getJoeApy');
 const getPangolinPNGApy = require('./getPangolinPNGApy');
 const getCurveApys = require('./getCurveApys');
 const { getAaveApys } = require('./getAaveApys');
+const getSingularApys = require('./getSingularApys');
 
 const getApys = [
   getComAvaxApys,
@@ -24,6 +25,7 @@ const getApys = [
   getPangolinPNGApy,
   getCurveApys,
   getAaveApys,
+  getSingularApys,
 ];
 
 const getAvaxApys = async () => {

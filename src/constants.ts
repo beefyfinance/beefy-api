@@ -58,6 +58,7 @@ const COMETH_LPF = 0.005;
 const PCS_LPF = 0.003;
 const APE_LPF = 0.002;
 const SPOOKY_LPF = 0.002;
+const JOE_LPF = 0.0025;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
@@ -139,6 +140,7 @@ export {
   PCS_LPF,
   APE_LPF,
   SPOOKY_LPF,
+  JOE_LPF,
   BEEFY_PERFORMANCE_FEE,
   SHARE_AFTER_PERFORMANCE_FEE,
 };
