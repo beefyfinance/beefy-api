@@ -38,6 +38,16 @@ const _tokens = {
       'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
     logoURI: 'https://github.com/singularfarm/assets/blob/main/400.png?raw=true',
   },
+  pBREW: {
+    name: 'pBREW',
+    symbol: 'pBREW',
+    address: '0xb5106A3277718eCaD2F20aB6b86Ce0Fee7A21F09',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://polygon.cafeswap.finance/',
+    description: 'Safest & Lowest fee AMM on BSC & Polygon.',
+    logoURI: 'https://polygon.cafeswap.finance/images/tokens/pbrew.png',
+  },
   FOX: {
     name: 'FOX',
     symbol: 'FOX',
