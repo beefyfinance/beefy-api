@@ -33,6 +33,7 @@ const { getPolyAlphaApys } = require('./getPolyAlphaApys');
 import { getPolywiseApys } from './getPolywiseApys';
 import { getTetuApys } from './getTetuApys';
 const { getSingularApys } = require('./getSingularApys');
+import getCafeLpApys from './getCafeLpApys';
 
 const getApys = [
   getComethLpApys,
@@ -70,6 +71,7 @@ const getApys = [
   getPolywiseApys,
   getTetuApys,
   getSingularApys,
+  getCafeLpApys,
 ];
 
 const BATCH_SIZE = 15;
