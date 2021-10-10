@@ -38,6 +38,23 @@ const getBaseApy = (baseApyData, pool) => {
   }
 };
 
+const getCurveFactoryApy = async (address, url) => {
+  let apys = {};
+  try {
+    const response = await axios.get(url);
+    const pools = response.data.data.poolDetails;
+    pools.forEach(pool => {
+      if (pool.poolAddress.toLowerCase() === address.toLowerCase()) {
+        const apy = new BigNumber(pool.apy).dividedBy(100);
+        apys = { ...apys, ...{ [address.toLowerCase()]: apy } };
+      }
+    });
+  } catch (err) {
+    console.error(err);
+  }
+  return apys;
+};
+
 const getTotalStakedInUsd = async (web3, pool) => {
   if (!pool.gauge) return new BigNumber(1);
   const gauge = new web3.eth.Contract(IRewardGauge, pool.gauge);
@@ -77,4 +94,9 @@ const getYearlyRewardsInUsd = async (web3, pool) => {
   return yearlyRewardsInUsd;
 };
 
-module.exports = { getCurveBaseApys, getTotalStakedInUsd, getYearlyRewardsInUsd };
+module.exports = {
+  getCurveBaseApys,
+  getCurveFactoryApy,
+  getTotalStakedInUsd,
+  getYearlyRewardsInUsd,
+};

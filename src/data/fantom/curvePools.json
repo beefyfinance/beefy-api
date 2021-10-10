@@ -90,5 +90,10 @@
         "oracleId": "WFTM"
       }
     ]
+  },
+  {
+    "name": "curve-ftm-mim",
+    "pool": "0x2dd7C9371965472E5A5fD28fbE165007c61439E1",
+    "rewards": []
   }
 ]

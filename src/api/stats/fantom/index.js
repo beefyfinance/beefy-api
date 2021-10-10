@@ -12,6 +12,7 @@ const getStakeSteakLpApys = require('./getStakeSteakLpApys');
 const getTosdisLpApys = require('./tosdis/getTosdisLpApys');
 const getJetswapApys = require('./getJetswapApys');
 const getGeistLpApys = require('./getGeistLpApys');
+const getSpellApys = require('./getSpellApys');
 
 const getApys = [
   getSpookyLpApys,
@@ -27,6 +28,7 @@ const getApys = [
   getStakeSteakLpApys,
   getTosdisLpApys,
   getJetswapApys,
+  getSpellApys,
   getGeistLpApys,
 ];
 
