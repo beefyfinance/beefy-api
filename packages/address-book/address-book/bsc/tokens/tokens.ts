@@ -3589,7 +3589,7 @@ const _tokens = {
     description:
       'The SafeMoon Protocol is a community driven, fair launched DeFi Token. Three simple functions occur during each trade: Reflection, LP Acquisition, and Burn.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x8076c74c5e3f5852037f31ff0093eeb8c8add8d3.png',
+      'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3/logo.png',
   },
   tBTC: {
     name: 'Tau Bitcoin',
