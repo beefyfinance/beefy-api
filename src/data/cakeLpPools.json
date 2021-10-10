@@ -1,5 +1,24 @@
 [
   {
+    "name": "cakev2-wbnb-beta",
+    "address": "0x88a02D94F437799f06f8c256ff07Aa397E6D0016",
+    "decimals": "1e18",
+    "poolId": 461,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xBe1a001FE942f96Eea22bA08783140B9Dcc09D28",
+      "oracle": "tokens",
+      "oracleId": "BETA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-nft-wbnb",
     "address": "0x0ecc84c9629317a494f12Bc56aA2522475bF32e8",
     "decimals": "1e18",

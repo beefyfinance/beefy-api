@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  BETA: {
+    name: 'Beta Token',
+    symbol: 'BETA',
+    address: '0xBe1a001FE942f96Eea22bA08783140B9Dcc09D28',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xBe1a001FE942f96Eea22bA08783140B9Dcc09D28.svg',
+    website: 'https://betafinance.org/',
+    description:
+      'Beta Finance is the permissionless money market for borrowing, lending, and shorting crypto assets.',
+  },
   SING: {
     name: 'Sing Token',
     symbol: 'SING',
