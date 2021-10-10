@@ -31,6 +31,7 @@ const getQuickSingleApys = require('./getQuickSingleApys');
 const { getSandmanApys } = require('./getSandmanApys');
 const { getPolyAlphaApys } = require('./getPolyAlphaApys');
 import { getPolywiseApys } from './getPolywiseApys';
+import { getPolysageApys } from './getPolysageApys';
 import { getTetuApys } from './getTetuApys';
 const { getSingularApys } = require('./getSingularApys');
 import getCafeLpApys from './getCafeLpApys';
@@ -69,6 +70,7 @@ const getApys = [
   getSandmanApys,
   getPolyAlphaApys,
   getPolywiseApys,
+  getPolysageApys,
   getTetuApys,
   getSingularApys,
   getCafeLpApys,

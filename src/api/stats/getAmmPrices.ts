@@ -145,6 +145,7 @@ import sushiMimPools from '../../data/arbitrum/sushiLpMimPools.json';
 import polyalphaPools from '../../data/matic/polyalphaLpPools.json';
 import annexPools from '../../data/degens/annexLpPools.json';
 import polywisePools from '../../data/matic/polywiseLpPools.json';
+import polySagePools from '../../data/matic/polysageLpPools.json';
 import pacocaPools from '../../data/degens/pacocaLpPools.json';
 import jetswapFantomPools from '../../data/fantom/jetswapLpPools.json';
 import tetuPools from '../../data/matic/tetuLpPools.json';
@@ -172,6 +173,7 @@ const pools = [
   ...jetswapFantomPools,
   ...tetuPools,
   ...polywisePools,
+  ...polySagePools,
   ...pacocaPools,
   ...annexPools,
   ...sushiMimPools,
