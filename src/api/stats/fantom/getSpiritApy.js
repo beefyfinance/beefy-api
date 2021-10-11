@@ -2,26 +2,11 @@ const getMasterChefApys = require('./getFantomMasterChefApys');
 
 const MasterChefAbi = require('../../../abis/fantom/SpiritChef.json');
 const spiritPools = require('../../../data/fantom/spiritPools.json');
-const { spiritClient, spookyClient, sushiArbitrumClient } = require('../../../apollo/client');
+const { spiritClient } = require('../../../apollo/client');
 const { fantomWeb3: web3 } = require('../../../utils/web3');
 const { getRewardPoolApys } = require('../common/getRewardPoolApys');
-const {
-  FANTOM_CHAIN_ID: chainId,
-  SPIRIT_LPF,
-  SPOOKY_LPF,
-  SUSHI_LPF,
-} = require('../../../constants');
+const { FANTOM_CHAIN_ID: chainId, SPIRIT_LPF } = require('../../../constants');
 const pools = require('../../../data/fantom/spiritGauges.json');
-const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const getApyBreakdown = require('../common/getApyBreakdown');
-const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const IRewardPool = require('../../../abis/IRewardPool.json');
-const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
-
-const oracleId = 'SPIRIT';
-const oracle = 'tokens';
-const DECIMALS = '1e18';
 
 const getSpiritApys = async () => {
   const single = getMasterChefApys({
