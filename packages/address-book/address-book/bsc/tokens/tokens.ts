@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  NFTY: {
+    name: 'NFTY Token',
+    symbol: 'NFTY',
+    address: '0x5774B2fc3e91aF89f89141EacF76545e74265982',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/NFTY.png',
+    website: 'https://nftynetwork.io/',
+    description:
+      'NFTYLabs envisions a world where NFTs function as a medium of access, bringing a means of utility and privilege to NFT holders in a secure and confidential manner.',
+  },
   BETA: {
     name: 'Beta Token',
     symbol: 'BETA',
