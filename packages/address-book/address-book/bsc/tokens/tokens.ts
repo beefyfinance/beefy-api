@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  BABY: {
+    name: 'BabySwap Token',
+    symbol: 'BABY',
+    address: '0x53E562b9B7E5E94b81f10e96Ee70Ad06df3D2657',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://bscscan.com/token/images/babyswap_32.png',
+    website: 'https://babyswap.finance',
+    description:
+      'BabySwap is the best AMM+NFT decentralized exchange for newborn projects on Binance Smart Chain, providing a more friendly trading experience and better project support.',
+  },
   NFTY: {
     name: 'NFTY Token',
     symbol: 'NFTY',
