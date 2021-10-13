@@ -141,6 +141,9 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'https://assets.coingecko.com/coins/images/17173/small/pear200.png',
+    website: 'https://pearzap.com/',
+    description:
+      'PearZap is a high yield farm & pool on the Polygon Chain (MATIC) and Binance Smart Chain',
   },
   SPADE: {
     name: 'PolygonFarm',
@@ -149,6 +152,9 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'https://polygonfarm.finance/images/spade.png',
+    website: 'https://polygonfarm.finance/',
+    description:
+      'PolygonFarm Finance is a community led next generation stable-yield farming protocol established exclusively on the Polygon ecosystem',
   },
   $DG: {
     name: 'decentral.games',
@@ -158,6 +164,9 @@ const _tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-default-token-list/master/assets/dg.jpg',
+    website: 'https://decentral.games/',
+    description:
+      'decentral.games is a DAO-governed metaverse casino powered by $DG',  
   },
   '0xBTC': {
     name: '0xBitcoin Token',
@@ -167,6 +176,9 @@ const _tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xB6eD7644C69416d67B522e20bC294A9a9B405B31/logo.png',
+    website: 'https://0xbitcoin.org/',
+    description:
+      'Pure-mined neutral token.',  
   },
   AAVE: {
     name: 'Aave',
@@ -294,6 +306,9 @@ const _tokens = {
     symbol: 'COMP',
     decimals: 18,
     chainId: 137,
+    website: 'https://compound.finance/',
+    description:
+      'Compound is an algorithmic, autonomous interest rate protocol built for developers, to unlock a universe of open financial applications.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xc00e94Cb662C3520282E6f5717214004A7f26888/logo.png',
   },
@@ -311,6 +326,9 @@ const _tokens = {
     symbol: 'DAI',
     decimals: 18,
     chainId: 137,
+    website: 'https://makerdao.com/',
+    description:
+      'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
   },
@@ -472,6 +490,9 @@ const _tokens = {
     symbol: 'GHST',
     decimals: 18,
     chainId: 137,
+    website: 'https://www.aavegotchi.com/',
+    description:
+      'Aavegotchis are crypto-collectibles living on the Ethereum blockchain, backed by the ERC721 standard used in popular blockchain games.',
     logoURI: 'https://aavegotchi.com/images/ghsttoken.svg',
   },
   HEX: {
@@ -891,6 +912,9 @@ const _tokens = {
     symbol: 'TEL',
     decimals: 2,
     chainId: 137,
+    website: 'https://www.telco.in/',
+    description:
+      'A cryptocurrency distributed by your mobile operator and accepted everywhere.',
     logoURI: 'https://pbs.twimg.com/profile_images/933388441475194881/57fOk40N_400x400.jpg',
   },
   UBT: {
@@ -1024,6 +1048,9 @@ const _tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/8cb78aca77b340510958ed98a3cd260d2d7f0420/blockchains/ethereum/assets/0x36b679bd64Ed73DBfd88909cDCB892cB66Bd4CBb/logo.png',
+    website: 'https://benchmarkprotocol.finance/',
+    description:
+      'Benchmark Protocol is an elastic stablecoin-alternative bridging capital markets to DeFi.',
   },
   YFI: {
     name: 'yearn.finance',
@@ -1481,6 +1508,9 @@ const _tokens = {
     address: '0xb82A20B4522680951F11c94c54B8800c1C237693',
     chainId: 137,
     decimals: 18,
+    website: 'https://polygon.farmhero.io/',
+    description:
+      'FarmHero is a protocol that mixes NFT, gaming and DEFI concepts.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
   },
   ICE: {

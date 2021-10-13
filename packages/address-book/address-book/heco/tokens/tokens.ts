@@ -7,6 +7,9 @@ const HT = {
   address: '0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F',
   chainId: 128,
   decimals: 18,
+  website: 'https://www.huobi.com/en-us/',
+    description:
+      'HT (Huobi Token) is a blockchain-powered loyalty point system. It is the only token that Huobi officially launched. HT supports Huobi Global business and all products, such as VIP discount, HT exclusive events, trading against popular coins and "let your voice be heard".',
   logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/8524.png',
 } as const;
 
