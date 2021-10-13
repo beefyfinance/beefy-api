@@ -49,7 +49,7 @@ const getFarmWithTradingFeesApy = (
   const farmApy = farmApr
     ? compound(farmApr, compoundingsPerYear, t, shareAfterBeefyPerformanceFee)
     : 0;
-  const finalAPY = (1 + farmApy) * (1 + tradingApr) - 1;
+  const finalAPY = (1 + farmApy) * (1 + Number(tradingApr || 0)) - 1;
   return finalAPY;
 };
 
