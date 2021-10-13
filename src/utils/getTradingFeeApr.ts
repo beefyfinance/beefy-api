@@ -88,6 +88,37 @@ export const getTradingFeeAprSushi = async (
   return pairAddressToAprMap;
 };
 
+export const getVariableTradingFeeApr = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  pairAddresses: string[],
+  liquidityProviderFee: number[]
+) => {
+  const [start, end] = getUtcSecondsFromDayRange(1, 2);
+  const pairAddressToAprMap: Record<string, BigNumber> = {};
+
+  try {
+    let {
+      data: { pairDayDatas },
+    }: { data: { pairDayDatas: PairDayData[] } } = await client.query({
+      query: pairDayDataQuery(addressesToLowercase(pairAddresses), start, end),
+    });
+;
+    let i = 0;
+    for (const pairDayData of pairDayDatas) {
+      const pairAddress = pairDayData.id.split('-')[0].toLowerCase();
+      pairAddressToAprMap[pairAddress] = new BigNumber(pairDayData.dailyVolumeUSD)
+        .times(liquidityProviderFee[i])
+        .times(365)
+        .dividedBy(pairDayData.reserveUSD);
+      i++;
+    }
+  } catch (e) {
+    console.error(e);
+  }
+
+  return pairAddressToAprMap;
+};
+
 const addressesToLowercase = (pairAddresses: string[]) =>
   pairAddresses.map(address => address.toLowerCase());
 

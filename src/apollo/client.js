@@ -197,6 +197,14 @@ const joeClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const kyberClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 const isSushiClient = client => {
   return client === sushiClient || client === sushiOneClient || client === sushiArbitrumClient || client === joeClient;
 };
@@ -227,4 +235,5 @@ module.exports = {
   jetswapClient,
   jetswapPolyClient,
   jetswapFantomClient,
+  kyberClient,
 };
