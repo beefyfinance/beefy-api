@@ -1645,6 +1645,17 @@ const _tokens = {
     description:
       'PolyWise Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income. We are trying to create a protocol like Yearn, but with a reduced token supply and high value for Polygon Network users, LP providers and stakers. The max supply of WISE token is 5400.',
   },
+  polySAGE: {
+    name: 'PolySage',
+    symbol: 'SAGE',
+    address: '0x2ed945Dc703D85c80225d95ABDe41cdeE14e1992',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://polysage.finance/',
+    description:
+      'PolySage Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income.',
+    logoURI: 'https://polysage.finance/images/sage.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
