@@ -27,6 +27,50 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  jEUR: {
+    name: 'Jarvis Synthetic Euro',
+    symbol: 'jEUR',
+    address: '0x4e3Decbb3645551B8A19f0eA1678079FCB33fB4c',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://i.imgur.com/ZvP634G.png',
+  },
+  jGBP: {
+    name: 'Jarvis Synthetic British Pound',
+    symbol: 'jGBP',
+    address: '0x767058F11800FBA6A682E73A6e79ec5eB74Fac8c',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jGBP is a multi-collateralized synthetic token tracking the price of the British Pound. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://i.imgur.com/zOLD6Vf.png',
+  },
+  jCHF: {
+    name: 'Jarvis Synthetic Swiss Franc',
+    symbol: 'jCHF',
+    address: '0xbD1463F02f61676d53fd183C2B19282BFF93D099',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jCHF is a multi-collateralized synthetic token tracking the price of the Swiss Franc. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://i.imgur.com/EknGhAl.png',
+  },
+  AUR: {
+    name: 'AUREUS',
+    symbol: 'AUR',
+    address: '0xfAdE2934b8E7685070149034384fB7863860D86e',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'AUR is the reward token for staking jFIAT LPs on KyberDMM and can be sold immediately or redeemed at the end of the fair launch for a share of the reserve pool.',
+    logoURI: 'https://i.imgur.com/PyipL43.png',
+  },
   pSING: {
     name: 'Sing Token',
     symbol: 'SING',

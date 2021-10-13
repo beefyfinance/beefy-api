@@ -198,6 +198,7 @@ const dfynClient = new ApolloClient({
 
 const joeClient = client('https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange');
 const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph/exchange3');
+const kyberClient = client('https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic');
 
 const isSushiClient = client => {
   return (
@@ -234,5 +235,6 @@ module.exports = {
   jetswapClient,
   jetswapPolyClient,
   jetswapFantomClient,
+  kyberClient,
   babyClient,
 };
