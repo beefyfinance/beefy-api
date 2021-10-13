@@ -1,0 +1,78 @@
+[
+  {
+    "name": "kyber-usdc-jeur",
+    "address": "0xa1219DBE76eEcBf7571Fed6b020Dd9154396B70e",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x4e3Decbb3645551B8A19f0eA1678079FCB33fB4c",
+      "oracle": "tokens",
+      "oracleId": "jEUR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "kyber-usdc-jgbp",
+    "address": "0xbb2d00675B775E0F8acd590e08DA081B2a36D3a6",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x767058F11800FBA6A682E73A6e79ec5eB74Fac8c",
+      "oracle": "tokens",
+      "oracleId": "jGBP",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "kyber-usdc-jchf",
+    "address": "0x439E6A13a5ce7FdCA2CC03bF31Fb631b3f5EF157",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xbD1463F02f61676d53fd183C2B19282BFF93D099",
+      "oracle": "tokens",
+      "oracleId": "jCHF",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "kyber-usdc-aur",
+    "address": "0xA0fB4487c0935f01cBf9F0274FE3CdB21a965340",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xfAdE2934b8E7685070149034384fB7863860D86e",
+      "oracle": "tokens",
+      "oracleId": "AUR",
+      "decimals": "1e18"
+    }
+  }
+]
