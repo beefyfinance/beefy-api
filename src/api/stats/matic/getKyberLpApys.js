@@ -29,12 +29,8 @@ const getKyberLpApys = async () => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const { balances, rewardPerBlocks, tradingFees } = await getPoolsData(pools);
 
-  const pairAddresses = pools.map(pool => (pool.lp0.address).concat("_", pool.lp1.address));
-  const tradingAprs = await getVariableTradingFeeApr(
-    kyberClient,
-    pairAddresses,
-    tradingFees,
-  );
+  const pairAddresses = pools.map(pool => pool.lp0.address.concat('_', pool.lp1.address));
+  const tradingAprs = await getVariableTradingFeeApr(kyberClient, pairAddresses, tradingFees);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -50,7 +46,8 @@ const getKyberLpApys = async () => {
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
-    const tradingApr = tradingAprs[(pool.lp0.address).concat("_", pool.lp1.address).toLowerCase()] ?? new BigNumber(0);
+    const tradingApr =
+      tradingAprs[pool.lp0.address.concat('_', pool.lp1.address).toLowerCase()] ?? new BigNumber(0);
     const totalApy = getFarmWithTradingFeesApy(
       simpleApy,
       tradingApr,
@@ -72,7 +69,7 @@ const getKyberLpApys = async () => {
         compoundingsPerYear: BASE_HPY,
         beefyPerformanceFee: beefyPerformanceFee,
         vaultApy: vaultApy,
-        lpFee: tradingFees[i],
+        lpFee: tradingFees[i].toNumber(),
         tradingApr: tradingApr.toNumber(),
         totalApy: totalApy,
       },
