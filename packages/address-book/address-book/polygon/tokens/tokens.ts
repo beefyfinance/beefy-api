@@ -27,7 +27,7 @@ const MAI = {
 } as const;
 
 const _tokens = {
-  SING: {
+  pSING: {
     name: 'Sing Token',
     symbol: 'SING',
     address: '0xCB898b0eFb084Df14dd8E018dA37B4d0f06aB26D',

@@ -14,7 +14,7 @@
     "lp1": {
       "address": "0xF9A075C9647e91410bF6C402bDF166e1540f67F0",
       "oracle": "tokens",
-      "oracleId": "SING",
+      "oracleId": "aSING",
       "decimals": "1e18"
     }
   }

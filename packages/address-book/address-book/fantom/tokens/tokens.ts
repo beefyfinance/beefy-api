@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  fSING: {
+    name: 'Sing Token',
+    symbol: 'SING',
+    address: '0x53D831e1db0947c74e8a52618f662209ec5dE0cE',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://singular.farm/',
+    description:
+      'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
+    logoURI: 'https://github.com/singularfarm/assets/blob/main/400.png?raw=true',
+  },
   GEIST: {
     name: 'GEIST',
     symbol: 'GEIST',
