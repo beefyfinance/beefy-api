@@ -36,6 +36,7 @@ import { getTetuApys } from './getTetuApys';
 const { getSingularApys } = require('./getSingularApys');
 import getCafeLpApys from './getCafeLpApys';
 import getKyberLpApys from './getKyberLpApys';
+import { getQuickDualLpApys } from './getQuickDualLpApys';
 
 const getApys = [
   getComethLpApys,
@@ -76,6 +77,7 @@ const getApys = [
   getSingularApys,
   getCafeLpApys,
   getKyberLpApys,
+  getQuickDualLpApys,
 ];
 
 const BATCH_SIZE = 15;
