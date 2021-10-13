@@ -52,6 +52,7 @@ const ARBITRUM_CHAIN_ID = ChainId.arbitrum;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.0025;
+const SPIRIT_LPF = 0.0025;
 const QUICK_LPF = 0.003;
 const APEPOLY_LPF = 0.0015;
 const COMETH_LPF = 0.005;
@@ -134,6 +135,7 @@ export {
   MULTICHAIN_ENDPOINTS,
   DFYN_LPF,
   SUSHI_LPF,
+  SPIRIT_LPF,
   QUICK_LPF,
   APEPOLY_LPF,
   COMETH_LPF,
