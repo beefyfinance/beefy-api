@@ -26,7 +26,7 @@ const _tokens = {
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     logoURI: 'https://external-content.duckduckgo.com/ip3/resources.curve.fi.ico',
   },
-  SING: {
+  aSING: {
     chainId: 43114,
     address: '0xF9A075C9647e91410bF6C402bDF166e1540f67F0',
     decimals: 18,

@@ -10,7 +10,7 @@ const getSingularApys = async () =>
     tokenPerBlock: 'singPerSec',
     hasMultiplier: false,
     pools: pools,
-    oracleId: 'SING',
+    oracleId: 'pSING',
     oracle: 'tokens',
     decimals: '1e18',
     secondsPerBlock: 1,

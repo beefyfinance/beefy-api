@@ -71,7 +71,7 @@ const _tokens = {
       'AUR is the reward token for staking jFIAT LPs on KyberDMM and can be sold immediately or redeemed at the end of the fair launch for a share of the reserve pool.',
     logoURI: 'https://i.imgur.com/PyipL43.png',
   },
-  SING: {
+  pSING: {
     name: 'Sing Token',
     symbol: 'SING',
     address: '0xCB898b0eFb084Df14dd8E018dA37B4d0f06aB26D',

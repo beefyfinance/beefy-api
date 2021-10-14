@@ -154,6 +154,7 @@ import geistPools from '../../data/fantom/geistLpPools.json';
 import singularPolyPools from '../../data/matic/singularLpPools.json';
 import singularBscPools from '../../data/degens/singularLpPools.json';
 import singularAvaxPools from '../../data/avax/singularLpPools.json';
+import singularFantomPools from '../../data/fantom/singularLpPools.json';
 import cafeBscPools from '../../data/degens/cafeLpPools.json';
 import cafePolyPools from '../../data/matic/cafeLpPools.json';
 import oldPools from '../../data/archive/oldLpPools.json';
@@ -175,6 +176,7 @@ const pools = [
   ...singularPolyPools,
   ...singularBscPools,
   ...singularAvaxPools,
+  ...singularFantomPools,
   ...jetswapFantomPools,
   ...tetuPools,
   ...polywisePools,
