@@ -39,7 +39,6 @@ const getFarmApys = async params => {
                              : tokenPrice;
   const rewardBTokenPrice = await fetchPrice({ oracle: params.oracleB, id: params.oracleIdB });
   const { balances, rewardRatesA, rewardRatesB } = await getPoolsData(params);
-  console.log(balances, rewardRatesA, rewardRatesB);
 
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
