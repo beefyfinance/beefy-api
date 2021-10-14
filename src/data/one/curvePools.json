@@ -1,0 +1,20 @@
+[
+  {
+    "name": "curve-harmony-3pool",
+    "pool": "0xC5cfaDA84E902aD92DD40194f0883ad49639b023",
+    "gauge": "0xbF7E49483881C76487b0989CD7d9A8239B20CA41",
+    "baseApyKey": "3pool",
+    "rewards": [
+      {
+        "stream": "0xf2Cde8c47C20aCbffC598217Ad5FE6DB9E00b163",
+        "token": "0x352cd428EFd6F31B5cae636928b7B84149cF369F",
+        "oracleId": "CRV"
+      },
+      {
+        "stream": "0xf2Cde8c47C20aCbffC598217Ad5FE6DB9E00b163",
+        "token": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+        "oracleId": "WONE"
+      }
+    ]
+  }
+]

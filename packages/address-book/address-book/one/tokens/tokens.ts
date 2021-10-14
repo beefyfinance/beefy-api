@@ -18,6 +18,17 @@ const _tokens = {
   ONE,
   WONE: ONE,
   WNATIVE: ONE,
+  CRV: {
+    chainId: 1666600000,
+    address: '0x352cd428EFd6F31B5cae636928b7B84149cF369F',
+    decimals: 18,
+    name: 'Curve',
+    symbol: 'CRV',
+    website: 'https://curve.fi/',
+    description:
+      'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    logoURI: 'https://external-content.duckduckgo.com/ip3/resources.curve.fi.ico',
+  },
   WBTC: {
     chainId: 1666600000,
     address: '0x3095c7557bCb296ccc6e363DE01b760bA031F2d9',
