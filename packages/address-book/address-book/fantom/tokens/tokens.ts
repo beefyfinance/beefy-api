@@ -430,9 +430,20 @@ const _tokens = {
       'Trade non-custodial options for profits or to hedge your positions. Enjoy fixed price and unlimited upside of the options contracts.',
     logoURI: 'https://ftmscan.com/token/images/hegic_32.png',
   },
-  FRAX: {
+  anyFRAX: {
     name: 'Frax',
     address: '0xaf319E5789945197e365E7f7fbFc56B130523B33',
+    symbol: 'FRAX',
+    decimals: 18,
+    chainId: 250,
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+    logoURI: 'https://ftmscan.com/token/images/fraxfinance_32.png',
+  },
+  FRAX: {
+    name: 'Frax',
+    address: '0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355',
     symbol: 'FRAX',
     decimals: 18,
     chainId: 250,
