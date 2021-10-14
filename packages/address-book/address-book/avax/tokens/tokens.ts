@@ -7,6 +7,9 @@ const AVAX = {
   decimals: 18,
   name: 'Wrapped AVAX',
   symbol: 'WAVAX',
+  website: 'https://www.avalabs.org/',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
   logoURI:
     'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7/logo.png',
 } as const;
@@ -120,6 +123,9 @@ const _tokens = {
     decimals: 18,
     name: 'Pangolin',
     symbol: 'PNG',
+    website: 'https://pangolin.exchange/',
+    description:
+      'Pangolin is a community-driven decentralized exchange for Avalanche and Ethereum assets with fast settlement, low transaction fees, and a democratic distribution–powered by Avalanche.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x60781C2586D68229fde47564546784ab3fACA982/logo.png',
   },
@@ -210,6 +216,9 @@ const _tokens = {
     decimals: 18,
     name: 'Aave Token',
     symbol: 'AAVE',
+    website: 'https://app.aave.com/markets',
+    description:
+      'Aave is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8cE2Dee54bB9921a2AE0A63dBb2DF8eD88B91dD9/logo.png',
   },
@@ -219,6 +228,9 @@ const _tokens = {
     decimals: 18,
     name: 'Aave Token',
     symbol: 'AAVE',
+    website: 'https://app.aave.com/markets',
+    description:
+      'Aave is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8cE2Dee54bB9921a2AE0A63dBb2DF8eD88B91dD9/logo.png',
   },
@@ -829,6 +841,9 @@ const _tokens = {
     decimals: 18,
     name: 'Dai Stablecoin',
     symbol: 'DAI',
+    website: 'https://makerdao.com/en/',
+    description:
+      'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbA7dEebBFC5fA1100Fb055a87773e1E99Cd3507a/logo.png',
   },
@@ -1288,6 +1303,9 @@ const _tokens = {
     decimals: 18,
     name: 'Frax',
     symbol: 'FRAX',
+    website: 'https://frax.finance/',
+    description:
+      'Frax is the first fractional-algorithmic stablecoin protocol.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBB69c92FBb4F1aFf528875056650c862F94D3CC1/logo.png',
   },

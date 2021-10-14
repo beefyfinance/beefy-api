@@ -478,6 +478,9 @@ const _tokens = {
     address: '0xCA6d25C10dad43ae8Be0bc2af4D3CD1114583C08',
     chainId: 56,
     decimals: 18,
+    website: 'https://srnartgallery.com/',
+    description:
+      'srnArtGallery is a platform where a union of artists use NFT art to connect people through the things they love…',
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/SISTA.svg',
   },
@@ -3957,6 +3960,7 @@ const _tokens = {
     address: '0xBCA627FEd3b6E8F414C745E12B2b89371497779D',
     chainId: 56,
     decimals: 18,
+    description: 'StableQuant is a simple, stripped-down swap designed to be the go-to DEX for stablecoins',
     website: 'https://stablequant.finance/',
   },
 } as const;

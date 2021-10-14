@@ -167,6 +167,9 @@ const _tokens = {
     symbol: 'sFTM',
     decimals: 18,
     chainId: 250,
+    website: 'https://fantom.foundation/defi/?__cf_chl_jschl_tk__=pmd_vfkYw1Z8PZor5oxGKrd9bxYd66paY0bLiQmy1dKOLpY-1633331752-0-gqNtZGzNAdCjcnBszQlR',
+    description:
+      'Fantom offers the first DeFi stack built on an aBFT consensus. It’s much faster, cheaper, and more reliable and secure than its predecessors.',
     logoURI: 'https://repository.fantom.network/logos/sftm.svg',
   },
   fWTIOIL: {
@@ -175,6 +178,9 @@ const _tokens = {
     symbol: 'fWTIOIL',
     decimals: 18,
     chainId: 250,
+    website: 'https://fantom.foundation/defi/',
+    description:
+      'Fantom offers the first DeFi stack built on an aBFT consensus. It’s much faster, cheaper, and more reliable and secure than its predecessors.',
     logoURI: 'https://repository.fantom.network/logos/wti.svg',
   },
   fUSD: {
@@ -193,6 +199,8 @@ const _tokens = {
     symbol: 'fSILVER',
     decimals: 18,
     chainId: 250,
+    website: 'https://fantom.foundation/defi/',
+    description: 'Frapped an innovative wrapper for silver tokens.',
     logoURI: 'https://repository.fantom.network/logos/silver.svg',
   },
   fLINK: {
@@ -201,6 +209,8 @@ const _tokens = {
     symbol: 'fLINK',
     decimals: 18,
     chainId: 250,
+    website: 'https://fantom.foundation/defi/',
+    description: 'Frapped an innovative wrapper for LINK tokens.',
     logoURI: 'https://repository.fantom.network/logos/link.svg',
   },
   fKRW: {
