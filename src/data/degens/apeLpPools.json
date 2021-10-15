@@ -1,5 +1,24 @@
 [
   {
+    "name": "banana-wbnb-ceek",
+    "address": "0x119D6Ebe840966c9Cf4fF6603E76208d30BA2179",
+    "decimals": "1e18",
+    "poolId": 117,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe0F94Ac5462997D2BC57287Ac3a3aE4C31345D66",
+      "oracle": "tokens",
+      "oracleId": "CEEK",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-nfty-wbnb",
     "address": "0x884BE30e2c95b9cFed614aD2B5Edf40AF2A144ad",
     "decimals": "1e18",

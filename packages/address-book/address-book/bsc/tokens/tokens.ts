@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  CEEK: {
+    name: 'CEEK',
+    symbol: 'CEEK',
+    address: '0xe0F94Ac5462997D2BC57287Ac3a3aE4C31345D66',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/CEEK.png',
+    website: 'https://www.ceek.com/',
+    description:
+      'CEEK (CEEK) is a decentralized platform featuring global superstars like Lady Gaga, Katy Perry, Ziggy Marley, Bon Jovi, UFC Champion Francis Ngannou, 3x NBA Champion Dwyane Wade and more.',
+  },
   BABY: {
     name: 'BabySwap Token',
     symbol: 'BABY',
@@ -3960,7 +3972,8 @@ const _tokens = {
     address: '0xBCA627FEd3b6E8F414C745E12B2b89371497779D',
     chainId: 56,
     decimals: 18,
-    description: 'StableQuant is a simple, stripped-down swap designed to be the go-to DEX for stablecoins',
+    description:
+      'StableQuant is a simple, stripped-down swap designed to be the go-to DEX for stablecoins',
     website: 'https://stablequant.finance/',
   },
 } as const;
