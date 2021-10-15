@@ -178,7 +178,8 @@ const _tokens = {
     symbol: 'sFTM',
     decimals: 18,
     chainId: 250,
-    website: 'https://fantom.foundation/defi/?__cf_chl_jschl_tk__=pmd_vfkYw1Z8PZor5oxGKrd9bxYd66paY0bLiQmy1dKOLpY-1633331752-0-gqNtZGzNAdCjcnBszQlR',
+    website:
+      'https://fantom.foundation/defi/?__cf_chl_jschl_tk__=pmd_vfkYw1Z8PZor5oxGKrd9bxYd66paY0bLiQmy1dKOLpY-1633331752-0-gqNtZGzNAdCjcnBszQlR',
     description:
       'Fantom offers the first DeFi stack built on an aBFT consensus. It’s much faster, cheaper, and more reliable and secure than its predecessors.',
     logoURI: 'https://repository.fantom.network/logos/sftm.svg',
@@ -676,6 +677,17 @@ const _tokens = {
     website: 'https://abracadabra.money/',
     description: 'SPELL is the incentivation token of Abracadabra.money',
     logoURI: 'https://app.spiritswap.finance/images/tokens/SPELL.png',
+  },
+  wMEMO: {
+    name: 'Wrapped MEMO',
+    symbol: 'wMEMO',
+    address: '0xDDc0385169797937066bBd8EF409b5B3c0dFEB52',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://abracadabra.money/',
+    description:
+      'wMEMO is a wrapped version of MEMO. MEMO (Memories) is the reciept of staked TIME.',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/WMEMO.png',
   },
 } as const;
 
