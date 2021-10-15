@@ -114,25 +114,6 @@
     }
   },
   {
-    "name": "quick-usdt-matic",
-    "address": "0x604229c960e5CACF2aaEAc8Be68Ac07BA9dF81c3",
-    "rewardPool": "0xE1F991f93997085472469B2fA72Fd5454469Fa94",
-    "decimals": "1e18",
-    "chainId": 137,
-    "lp0": {
-      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-      "oracle": "tokens",
-      "oracleId": "MATIC",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "quick-eth-rendoge",
     "address": "0xAB1403De66519B898b38028357B74DF394a54a37",
     "rewardPool": "0x16043947b496a5B31932bcF9f41dD66880ff2Bb7",
@@ -689,46 +670,6 @@
     }
   },
   {
-    "name": "quick-quick-matic",
-    "address": "0x019ba0325f1988213D448b3472fA1cf8D07618d7",
-    "rewardPool": "0xdD8758eBB792C9aed3517e9E28ce03C090564DA0",
-    "decimals": "1e18",
-    "poolId": 0,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-      "oracle": "tokens",
-      "oracleId": "WMATIC",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
-      "oracle": "tokens",
-      "oracleId": "QUICK",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "quick-eth-matic",
-    "address": "0xadbF1854e5883eB8aa7BAf50705338739e558E5b",
-    "rewardPool": "0x4b678cA360c5f53a2B0590e53079140F302A9DcD",
-    "decimals": "1e18",
-    "poolId": 0,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-      "oracle": "tokens",
-      "oracleId": "WMATIC",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-      "oracle": "tokens",
-      "oracleId": "ETH",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "quick-eth-btc",
     "address": "0xdC9232E2Df177d7a12FdFf6EcBAb114E2231198D",
     "rewardPool": "0x2972175e1a35C403B5596354D6459C34Ae6A1070",
@@ -785,26 +726,6 @@
       "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
       "oracle": "tokens",
       "oracleId": "USDT",
-      "decimals": "1e6"
-    }
-  },
-  {
-    "name": "quick-matic-usdc",
-    "address": "0x6e7a5FAFcec6BB1e78bAE2A1F0B612012BF14827",
-    "rewardPool": "0x9854e01432b348194e025DF773e6412892cBc900",
-    "decimals": "1e18",
-    "poolId": 0,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-      "oracle": "tokens",
-      "oracleId": "WMATIC",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "USDC",
       "decimals": "1e6"
     }
   }
