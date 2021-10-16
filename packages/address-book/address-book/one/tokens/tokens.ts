@@ -18,6 +18,18 @@ const _tokens = {
   ONE,
   WONE: ONE,
   WNATIVE: ONE,
+  BIFI: {
+    chainId: 1666600000,
+    address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
+    decimals: 18,
+    name: 'Beefy.Finance',
+    symbol: 'BIFI',
+    website: 'https://www.beefy.finance/',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+  },
   CRV: {
     chainId: 1666600000,
     address: '0x352cd428EFd6F31B5cae636928b7B84149cF369F',
