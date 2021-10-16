@@ -263,5 +263,24 @@
       "oracleId": "LINK",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "spirit-wmemo-mim",
+    "address": "0xC9B98e4A4e306DFc24bc5b5F66e271e19Fd74c5A",
+    "decimals": "1e18",
+    "poolId": 57,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x82f0B8B456c1A451378467398982d4834b6829c1",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDDc0385169797937066bBd8EF409b5B3c0dFEB52",
+      "oracle": "tokens",
+      "oracleId": "wMEMO",
+      "decimals": "1e18"
+    }
   }
 ]
