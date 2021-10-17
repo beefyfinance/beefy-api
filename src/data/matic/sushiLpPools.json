@@ -461,7 +461,7 @@
   },
   {
     "name": "sushi-wmatic-ghst",
-    "address": "0xf69e93771F11AECd8E554aA165C3Fe7fd811530c",
+    "address": "0xf69e93771f11aecd8e554aa165c3fe7fd811530c",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
     "poolId": 39,
