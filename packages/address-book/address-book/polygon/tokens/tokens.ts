@@ -63,7 +63,7 @@ const _tokens = {
   JRT: {
     name: 'Jarvis Reward Token',
     symbol: 'jCHF',
-    address: '0x596ebe76e2db4470966ea395b0d063ac6197a8c5',
+    address: '0x596eBE76e2DB4470966ea395B0d063aC6197A8C5',
     chainId: 137,
     decimals: 18,
     website: 'https://jarvis.network/',
