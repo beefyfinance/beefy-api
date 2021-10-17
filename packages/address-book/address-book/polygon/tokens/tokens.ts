@@ -60,6 +60,17 @@ const _tokens = {
       'jCHF is a multi-collateralized synthetic token tracking the price of the Swiss Franc. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://i.imgur.com/EknGhAl.png',
   },
+  JRT: {
+    name: 'Jarvis Reward Token',
+    symbol: 'jCHF',
+    address: '0x596ebe76e2db4470966ea395b0d063ac6197a8c5',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'The Jarvis Reward Token  is a utility token for securing and governing the Jarvis network, and rewarding agents who would bring value to it.',
+    logoURI: 'https://cdn.coinranking.com/vLU4_a_Zp/jarvis.svg?size=48x48',
+  },
   AUR: {
     name: 'AUREUS',
     symbol: 'AUR',
@@ -241,8 +252,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-default-token-list/master/assets/dg.jpg',
     website: 'https://decentral.games/',
-    description:
-      'decentral.games is a DAO-governed metaverse casino powered by $DG',  
+    description: 'decentral.games is a DAO-governed metaverse casino powered by $DG',
   },
   '0xBTC': {
     name: '0xBitcoin Token',
@@ -253,8 +263,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xB6eD7644C69416d67B522e20bC294A9a9B405B31/logo.png',
     website: 'https://0xbitcoin.org/',
-    description:
-      'Pure-mined neutral token.',  
+    description: 'Pure-mined neutral token.',
   },
   AAVE: {
     name: 'Aave',
@@ -989,8 +998,7 @@ const _tokens = {
     decimals: 2,
     chainId: 137,
     website: 'https://www.telco.in/',
-    description:
-      'A cryptocurrency distributed by your mobile operator and accepted everywhere.',
+    description: 'A cryptocurrency distributed by your mobile operator and accepted everywhere.',
     logoURI: 'https://pbs.twimg.com/profile_images/933388441475194881/57fOk40N_400x400.jpg',
   },
   UBT: {
@@ -1585,8 +1593,7 @@ const _tokens = {
     chainId: 137,
     decimals: 18,
     website: 'https://polygon.farmhero.io/',
-    description:
-      'FarmHero is a protocol that mixes NFT, gaming and DEFI concepts.',
+    description: 'FarmHero is a protocol that mixes NFT, gaming and DEFI concepts.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
   },
   ICE: {
