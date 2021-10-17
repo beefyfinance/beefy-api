@@ -3976,5 +3976,29 @@ const _tokens = {
       'StableQuant is a simple, stripped-down swap designed to be the go-to DEX for stablecoins',
     website: 'https://stablequant.finance/',
   },
+  MCB: {
+    name: 'MCDEX Token',
+    symbol: 'MCB',
+    address: '0x5fE80d2CD054645b9419657d3d10d26391780A7B',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x5fE80d2CD054645b9419657d3d10d26391780A7B.svg',
+    website: 'https://mcdex.io/homepage/',
+    description:
+      'MCDEX is the first fully-permissionless DEX for trading perpetual contracts, powered by MCDEXs revolutionary AMM technology',
+  },
+  RPG: {
+    name: 'Rangers Protocol Gas',
+    symbol: 'RPG',
+    address: '0xc2098a8938119A52B1F7661893c0153A6CB116d5',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xc2098a8938119A52B1F7661893c0153A6CB116d5.svg',
+    website: 'https://rangersprotocol.com/',
+    description:
+      'Rangers Protocol can realize a high-performance blockchain group with cross-chain contract interoperability among the EVM systems of multiple blockchains.',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
