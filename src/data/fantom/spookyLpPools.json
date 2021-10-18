@@ -1,5 +1,24 @@
 [
   {
+    "name": "boo-btc-eth",
+    "address": "0xEc454EdA10accdD66209C57aF8C12924556F3aBD",
+    "decimals": "1e18",
+    "poolId": 35,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "BTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-wftm-spell",
     "address": "0x78f82c16992932EfDd18d93f889141CcF326DBc2",
     "decimals": "1e18",
