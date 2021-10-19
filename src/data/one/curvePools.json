@@ -16,5 +16,43 @@
         "oracleId": "WONE"
       }
     ]
+  },
+  {
+    "name": "curve-harmony-tricrypto",
+    "pool": "0x0e3Dc2BcbFEa84072A0c794B7653d3db364154e0",
+    "token": "0x99E8eD28B97c7F1878776eD94fFC77CABFB9B726",
+    "gauge": "0xf98450b5602fa59cc66e1379dffb6fddc724cfc4",
+    "baseApyKey": "wtricrypto",
+    "volatile": true,
+    "rewards": [
+      {
+        "stream": "0x0b2C8fD6110F31F340D3C78A0AEf6c568B60695B",
+        "token": "0x352cd428EFd6F31B5cae636928b7B84149cF369F",
+        "oracleId": "CRV"
+      },
+      {
+        "stream": "0x0b2C8fD6110F31F340D3C78A0AEf6c568B60695B",
+        "token": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+        "oracleId": "WONE"
+      }
+    ],
+    "tokens": [
+      {
+        "basePool": "curve-harmony-3pool",
+        "oracle": "lps",
+        "oracleId": "curve-harmony-3pool",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "1WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "1ETH",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
