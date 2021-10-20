@@ -38,6 +38,39 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  TAROT: {
+    name: 'Tarot',
+    symbol: 'TAROT',
+    address: '0xC5e2B037D30a390e62180970B3aa4E91868764cD',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.tarot.to/',
+    description:
+      "Tarot is a decentralized lending protocol on Fantom Opera where users can participate as lenders or borrowers in isolated lending pools.",
+    logoURI: 'https://assets.coingecko.com/coins/images/17881/large/tarot-200px.png?1629704943',
+  },
+  MAI: {
+    name: 'Mai',
+    symbol: 'miMATIC',
+    address: '0xfB98B335551a418cD0737375a2ea0ded62Ea213b',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.mai.finance/',
+    description:
+      "MAI is a stable coin collateralized by assets. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+  },
+  BEETS: {
+    name: 'Beethoven X Token',
+    symbol: 'BEETS',
+    address: '0xF24Bcf4d1e507740041C9cFd2DddB29585aDCe1e',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://beethovenx.io/',
+    description:
+      'BEETS is the governance token for the Beethoven X protocol. Built on Balancer V2, Beethoven X is the first next-generation AMM protocol on Fantom.',
+    logoURI: 'https://assets.coingecko.com/coins/images/19158/small/beets-icon-large.png?1634545465',
+  },
   fSING: {
     name: 'Sing Token',
     symbol: 'SING',
