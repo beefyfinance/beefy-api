@@ -37,8 +37,10 @@ export interface DualRewardPoolParams {
   };
 
   isRewardInXToken: boolean;
+  xTokenAddress: string;
+  isXTokenAorB: 'A' | 'B';
 
-  log: boolean;
+  log?: boolean;
 }
 
 export const getRewardPoolDualApys = async (params: DualRewardPoolParams) => {
@@ -140,5 +142,3 @@ const getXPrice = async (tokenPrice, params) => {
 
   return stakedInXPool.times(tokenPrice).dividedBy(totalXSupply);
 };
-
-module.exports = { getRewardPoolDualApys };
