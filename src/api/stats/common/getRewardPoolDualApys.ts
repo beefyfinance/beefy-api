@@ -8,8 +8,40 @@ import fetchPrice from '../../../utils/fetchPrice';
 import getApyBreakdown from './getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
+import { LpPool } from '../../../types/LpPool';
+import { ApolloClient } from 'apollo-client';
+import { NormalizedCacheObject } from 'apollo-cache-inmemory';
+import Web3 from 'web3';
 
-export const getRewardPoolDualApys = async params => {
+export interface DualRewardPoolParams {
+  pools: LpPool[];
+
+  oracleIdA: string;
+  oracleA: string;
+  decimalsA: string;
+
+  oracleB: string;
+  oracleIdB: string;
+  decimalsB: string;
+
+  tokenAddress: string;
+  decimals: string;
+
+  web3: Web3;
+  chainId: number;
+
+  tradingFeeInfoClient?: ApolloClient<NormalizedCacheObject>;
+  liquidityProviderFee?: number;
+  tradingAprs?: {
+    [x: string]: any;
+  };
+
+  isRewardInXToken: boolean;
+
+  log: boolean;
+}
+
+export const getRewardPoolDualApys = async (params: DualRewardPoolParams) => {
   const tradingAprs = await getTradingAprs(params);
   const farmApys = await getFarmApys(params);
 
@@ -18,7 +50,7 @@ export const getRewardPoolDualApys = async params => {
   return getApyBreakdown(params.pools, tradingAprs, farmApys, liquidityProviderFee);
 };
 
-const getTradingAprs = async params => {
+const getTradingAprs = async (params: DualRewardPoolParams) => {
   let tradingAprs = params.tradingAprs ?? {};
   const client = params.tradingFeeInfoClient;
   const fee = params.liquidityProviderFee;
