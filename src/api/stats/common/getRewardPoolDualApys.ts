@@ -1,10 +1,10 @@
-const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { multicallAddress } = require('../../../utils/web3');
+import BigNumber from 'bignumber.js';
+import { MultiCall } from 'eth-multicall';
+import { multicallAddress } from '../../../utils/web3';
 
-const IStakingDualRewards = require('../../../abis/StakingDualRewards.json');
-const ERC20 = require('../../../abis/ERC20.json');
-const fetchPrice = require('../../../utils/fetchPrice');
+import IStakingDualRewards from '../../../abis/StakingDualRewards.json';
+import ERC20 from '../../../abis/ERC20.json';
+import fetchPrice from '../../../utils/fetchPrice';
 import getApyBreakdown from './getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
