@@ -27,8 +27,9 @@ export const getQuickDualLpApys = async () =>
     chainId: 137,
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: QUICK_LPF,
-    isRewardInXToken: true,
-    xTokenAddress: '0xf28164A485B0B2C90639E47b0f377b4a438a16B1',
-    isXTokenAorB: 'A',
+    xTokenConfig: {
+      xTokenAddress: '0xf28164A485B0B2C90639E47b0f377b4a438a16B1',
+      isXTokenAorB: 'A',
+    },
     // log: true,
   });
