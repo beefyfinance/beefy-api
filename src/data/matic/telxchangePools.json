@@ -1,26 +1,5 @@
 [
   {
-    "name": "telxchange-quick-quick-tel",
-    "farmType": "dual",
-    "address": "0xE88e24F49338f974B528AcE10350Ac4576c5c8A1",
-    "rewardPool": "0x51CfB74628C7484c9128d979650dA2512947e532",
-    "decimals": "1e18",
-    "poolId": 0,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
-      "oracle": "tokens",
-      "oracleId": "QUICK",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xdF7837DE1F2Fa4631D716CF2502f8b230F1dcc32",
-      "oracle": "tokens",
-      "oracleId": "TEL",
-      "decimals": "1e2"
-    }
-  },
-  {
     "name": "telxchange-quick-wmatic-tel",
     "farmType": "single",
     "address": "0x9b5c71936670e9f1f36e63f03384de7e06e60d2a",
@@ -32,27 +11,6 @@
       "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
       "oracle": "tokens",
       "oracleId": "WMATIC",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xdF7837DE1F2Fa4631D716CF2502f8b230F1dcc32",
-      "oracle": "tokens",
-      "oracleId": "TEL",
-      "decimals": "1e2"
-    }
-  },
-  {
-    "name": "telxchange-quick-eth-tel",
-    "farmType": "dual",
-    "address": "0xFc2fC983a411C4B1E238f7Eb949308CF0218C750",
-    "rewardPool": "0x09315f2577c2BcceE0119790F706EB70Dd67c2DF",
-    "decimals": "1e18",
-    "poolId": 0,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-      "oracle": "tokens",
-      "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
