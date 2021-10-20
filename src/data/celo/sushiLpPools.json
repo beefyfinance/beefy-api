@@ -1,0 +1,154 @@
+[
+  {
+    "name": "sushi-celo-celo-weth",
+    "address": "0x38F3c44552a3F6E4D21C8c328cE4904DA766D12f",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 42220,
+    "lp0": {
+      "address": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+      "oracle": "tokens",
+      "oracleId": "CELO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-celo-csushi-celo",
+    "address": "0x02F726B5E819eCF33aA93be5274c94a22Df3619f",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 42220,
+    "lp0": {
+      "address": "0xD15EC721C2A896512Ad29C671997DD68f9593226",
+      "oracle": "tokens",
+      "oracleId": "cSUSHI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+      "oracle": "tokens",
+      "oracleId": "CELO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-celo-cusd-dai",
+    "address": "0x850197dd5A4865324291d7B5745622A8cd732BCb",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 42220,
+    "lp0": {
+      "address": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+      "oracle": "tokens",
+      "oracleId": "cUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE4fE50cdD716522A56204352f00AA110F731932d",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-celo-celo-weth",
+    "address": "0x38F3c44552a3F6E4D21C8c328cE4904DA766D12f",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 42220,
+    "lp0": {
+      "address": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+      "oracle": "tokens",
+      "oracleId": "CELO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-celo-dai-weth",
+    "address": "0x62F6470Fbb1b0f8D2B2C7f497e4E12F820C318A6",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 42220,
+    "lp0": {
+      "address": "0xE4fE50cdD716522A56204352f00AA110F731932d",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-celo-ceur-weth",
+    "address": "0xfED4f77af916B62CB073aD7AD2b2C1794c939023",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 42220,
+    "lp0": {
+      "address": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+      "oracle": "tokens",
+      "oracleId": "cEUR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-celo-cusd-weth",
+    "address": "0xD7cb7686Ed438c55149ded0D4762c70AF3D9923a",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 42220,
+    "lp0": {
+      "address": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+      "oracle": "tokens",
+      "oracleId": "cUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-celo-cusd-ceur",
+    "address": "0x0b655E7D966CB27998af94AA5719ab7BFe07D3b3",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 42220,
+    "lp0": {
+      "address": "0x765DE816845861e75A25fCA122bb6898B8B1282a",
+      "oracle": "tokens",
+      "oracleId": "cUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73",
+      "oracle": "tokens",
+      "oracleId": "cEUR",
+      "decimals": "1e18"
+    }
+  }
+]

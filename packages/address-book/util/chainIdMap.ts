@@ -6,6 +6,7 @@ const chainIdMap = {
   polygon: 137,
   one: 1666600000,
   arbitrum: 42161,
+  celo: 42220,
 };
 
 export default chainIdMap;

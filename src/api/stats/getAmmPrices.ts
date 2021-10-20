@@ -161,6 +161,7 @@ import oldPools from '../../data/archive/oldLpPools.json';
 import kyberPools from '../../data/matic/kyberLpPools.json';
 import babyPools from '../../data/degens/babyLpPools.json';
 import quickDualLpPools from '../../data/matic/quickDualLpPools.json';
+import sushiCeloPools from '../../data/celo/sushiLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -168,6 +169,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...sushiCeloPools,
   ...quickDualLpPools,
   ...kyberPools,
   ...babyPools,
@@ -336,6 +338,7 @@ const knownPrices = {
   USDC: 1,
   UST: 1,
   USDN: 1,
+  cUSD: 1,
 };
 
 let tokenPricesCache: Promise<any>;
