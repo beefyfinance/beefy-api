@@ -116,7 +116,6 @@ import farmheroBscPools from '../../data/farmheroPools.json';
 import ironSwapPools from '../../data/matic/ironSwapLpPools.json';
 import ooePools from '../../data/ooeLpPools.json';
 import telxchangePools from '../../data/matic/telxchangePools.json';
-import telxchangeDualPools from '../../data/matic/telxchangeDualPools.json';
 import kingdefiPools from '../../data/degens/kingdefiLpPools.json';
 import rabbitPools from '../../data/degens/rabbitLpPools.json';
 import dinoPools from '../../data/matic/dinoswapLpPools.json';
@@ -219,7 +218,6 @@ const pools = [
   ...rabbitPools,
   ...kingdefiPools,
   ...telxchangePools,
-  ...telxchangeDualPools,
   ...ooePools,
   ...ironSwapPools,
   ...jetswapPolyPools,
