@@ -1,5 +1,24 @@
 [
   {
+    "name": "spirit-ftm-tarot",
+    "address": "0xF050133847bb537C7476D054B8bE6e30253Fbd05",
+    "decimals": "1e18",
+    "poolId": 40,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC5e2B037D30a390e62180970B3aa4E91868764cD",
+      "oracle": "tokens",
+      "oracleId": "TAROT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spirit-ftm-mim",
     "address": "0xB32b31DfAfbD53E310390F641C7119b5B9Ea0488",
     "decimals": "1e18",

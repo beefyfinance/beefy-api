@@ -209,6 +209,7 @@ const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph
 const kyberClient = client(
   'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic'
 );
+const beetClient = client('https://graph.beethovenx.io/subgraphs/name/beethovenx');
 
 const isSushiClient = client => {
   return (
@@ -218,6 +219,10 @@ const isSushiClient = client => {
     client === joeClient ||
     client === sushiCeloClient
   );
+};
+
+const isBeetClient = client => {
+  return client === beetClient;
 };
 
 module.exports = {
@@ -249,4 +254,6 @@ module.exports = {
   jetswapFantomClient,
   kyberClient,
   babyClient,
+  beetClient,
+  isBeetClient,
 };

@@ -11,7 +11,7 @@ import { getTradingFeeAprSushi, getTradingFeeApr } from '../../../utils/getTradi
 import { sushiClient } from '../../../apollo/client';
 import { AbiItem } from 'web3-utils';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
-import ApolloClient from 'apollo-client';
+import { ApolloClient } from 'apollo-client';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
 

@@ -20,7 +20,6 @@ const { getDfynLpApys } = require('./getDfynLpApys');
 const { getDfynDualFarmLpApys } = require('./getDfynDualFarmLpApys');
 const { getFarmheroApys } = require('./getFarmheroApys');
 const getMaiApys = require('./getMaiApys').default;
-const { getTelxchangeDualApys } = require('./getTelxchangeDualApys');
 const { getTelxchangeApys } = require('./getTelxchangeApys');
 const { getFarmheroSingleApy } = require('./getFarmheroSingleApy');
 const getSwampApys = require('./getSwampApys');
@@ -59,7 +58,6 @@ const getApys = [
   getMaiApys,
   getJetswapApys,
   getIronSwapApys,
-  getTelxchangeDualApys,
   getTelxchangeApys,
   getFarmheroApys,
   getFarmheroSingleApy,

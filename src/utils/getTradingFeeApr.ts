@@ -2,9 +2,12 @@ import { getUtcSecondsFromDayRange } from './getUtcSecondsFromDayRange';
 import {
   pairDayDataQuery,
   pairDayDataSushiQuery,
+  poolsDataQuery,
   dayDataQuery,
   joeDayDataQuery,
 } from '../apollo/queries';
+import getBlockTime from './getBlockTime';
+import getBlockNumber from './getBlockNumber';
 import BigNumber from 'bignumber.js';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 import ApolloClient from 'apollo-client';
@@ -14,6 +17,12 @@ interface PairDayData {
   dailyVolumeUSD: number;
   volumeUSD: number;
   reserveUSD: number;
+}
+
+interface Pools {
+  address: string;
+  totalSwapFee: number;
+  totalLiquidity: number;
 }
 
 export const getTradingFeeApr = async (
@@ -86,6 +95,43 @@ export const getTradingFeeAprSushi = async (
   }
 
   return pairAddressToAprMap;
+};
+
+export const getTradingFeeAprBalancer = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  pairAddresses: string[],
+  liquidityProviderFee: number
+) => {
+  const blockTime = await getBlockTime(250);
+  const currentBlock = await getBlockNumber(250);
+  const pastBlock = Math.floor(currentBlock - (86400 / blockTime));
+  const pairAddressesToAprMap: Record<string, BigNumber> = {};
+
+  try {
+    const queryCurrent = await client.query({
+      query: poolsDataQuery(addressesToLowercase(pairAddresses), currentBlock),
+    });
+
+    const queryPast = await client.query({
+      query: poolsDataQuery(addressesToLowercase(pairAddresses), pastBlock),
+    });
+
+    const poolDayDatas0 = queryCurrent.data.pools;
+    const poolDayDatas1 = queryPast.data.pools;
+
+    for (const pool of poolDayDatas0) {
+      const pair = pool.address.toLowerCase();
+      const pastPool = poolDayDatas1.filter(p => {return p.address === pool.address})[0];
+      pairAddressesToAprMap[pair] = new BigNumber(pool.totalSwapFee)
+        .minus(pastPool.totalSwapFee)
+        .times(365)
+        .dividedBy(pool.totalLiquidity);
+    }
+  } catch (e) {
+    console.error(e);
+  }
+
+  return pairAddressesToAprMap;
 };
 
 export const getVariableTradingFeeApr = async (

@@ -1,0 +1,342 @@
+[
+  {
+    "name": "beets-symphony-nr-10",
+    "address": "0x03c6B3f09D2504606936b1A4DeCeFaD204687890",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x03c6b3f09d2504606936b1a4decefad204687890000200000000000000000015",
+    "poolId": 0,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-grand-orchestra",
+    "address": "0xd47D2791d3B46f9452709Fa41855a045304D6f9d",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xd47d2791d3b46f9452709fa41855a045304d6f9d000100000000000000000004",
+    "poolId": 1,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-steady-beets",
+    "address": "0xd41bF724b6e31311Db582c5388Af6B316e812Fe4",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xd41bf724b6e31311db582c5388af6b316e812fe4000200000000000000000003",
+    "poolId": 2,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-ftm-sonata",
+    "address": "0xf0e2c47d4C9FBBbc2F2E19ACdaA3c773A3ECD221",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xf0e2c47d4c9fbbbc2f2e19acdaa3c773a3ecd22100010000000000000000000a",
+    "poolId": 3,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SPIRIT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BOO",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "LINK",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-e-major",
+    "address": "0xA07De66AeF84e2c01D88a48D57D1463377Ee602b",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xa07de66aef84e2c01d88a48d57d1463377ee602b000200000000000000000002",
+    "poolId": 4,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-b-major",
+    "address": "0x22B30B00e6796Daf710fBE5cAFBFc9Cdd1377f2A",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x22b30b00e6796daf710fbe5cafbfc9cdd1377f2a000200000000000000000001",
+    "poolId": 5,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      }
+    ]
+  },
+  {
+    "name": "beets-classic-trio",
+    "address": "0x6FDC8415B654B0F60475944A0b9421Dc36ee1363",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x6fdc8415b654b0f60475944a0b9421dc36ee1363000100000000000000000000",
+    "poolId": 6,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-dance-of-degens",
+    "address": "0x72C0eB973Dc95e2d185563f58fC26626CC2e8034",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x72c0eb973dc95e2d185563f58fc26626cc2e8034000100000000000000000011",
+    "poolId": 7,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SPELL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SPIRIT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BOO",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "TAROT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ANY",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SCREAM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ICE",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-fantom-of-opera",
+    "address": "0xcdF68a4d525Ba2E90Fe959c74330430A5a6b8226",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xcdf68a4d525ba2e90fe959c74330430a5a6b8226000200000000000000000008",
+    "poolId": 8,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-fidelio-duetto",
+    "address": "0xcdE5a11a4ACB4eE4c805352Cec57E236bdBC3837",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xcde5a11a4acb4ee4c805352cec57e236bdbc3837000200000000000000000019",
+    "poolId": 9,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-ziggy-mim",
+    "address": "0xD163415BD34EF06f57C58D2AEd5A5478AfB464cC",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xd163415bd34ef06f57c58d2aed5a5478afb464cc00000000000000000000000e",
+    "poolId": 10,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "fUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-guqin-qi",
+    "address": "0x2ed55f12e700CdE978E1F0491D681919814ca44B",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x2ed55f12e700cde978e1f0491d681919814ca44b000200000000000000000021",
+    "poolId": 11,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-magic-touch-daniele",
+    "address": "0x6d12D3fE16dD83115254a32B273B05Ac5444C349",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x6d12d3fe16dd83115254a32b273b05ac5444c349000100000000000000000029",
+    "poolId": 12,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SPELL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wMEMO",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ICE",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]
