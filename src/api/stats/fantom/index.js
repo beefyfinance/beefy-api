@@ -14,6 +14,7 @@ const getJetswapApys = require('./getJetswapApys');
 const getGeistLpApys = require('./getGeistLpApys');
 const getSpellApys = require('./getSpellApys');
 const getSingularApys = require('./getSingularApys');
+const getBeethovenxApys = require('./getBeethovenxApys');
 
 const getApys = [
   getSpookyLpApys,
@@ -32,6 +33,7 @@ const getApys = [
   getSpellApys,
   getGeistLpApys,
   getSingularApys,
+  getBeethovenxApys,
 ];
 
 const getFantomApys = async () => {

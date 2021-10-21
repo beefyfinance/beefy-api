@@ -10,13 +10,13 @@ import { ChainId } from '../../../../packages/address-book/address-book';
 
 import MasterChefAbi from '../../../abis/MasterChef.json';
 import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
-import { isSushiClient } from '../../../apollo/client';
+import { isSushiClient, isBeetClient } from '../../../apollo/client';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import fetchPrice from '../../../utils/fetchPrice';
 import getBlockNumber from '../../../utils/getBlockNumber';
 import getBlockTime from '../../../utils/getBlockTime';
-import { getTradingFeeAprSushi, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
+import { getTradingFeeAprSushi, getTradingFeeAprBalancer, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 
 export interface MasterChefApysParams {
   web3: Web3;
@@ -38,6 +38,7 @@ export interface MasterChefApysParams {
   };
   secondsPerBlock?: number;
   allocPointIndex?: string;
+  burn?: number;
 }
 
 export const getMasterChefApys = async (
@@ -62,7 +63,11 @@ const getTradingAprs = async (params: MasterChefApysParams) => {
   const fee = params.liquidityProviderFee;
   if (client && fee) {
     const pairAddresses = params.pools.map(pool => pool.address.toLowerCase());
-    const getAprs = isSushiClient(client) ? getTradingFeeAprSushi : getTradingFeeApr;
+    const getAprs = isSushiClient(client)
+                      ? getTradingFeeAprSushi
+                      : isBeetClient(client)
+                      ? getTradingFeeAprBalancer
+                      : getTradingFeeApr;
     const aprs = await getAprs(client, pairAddresses, fee);
     tradingAprs = { ...tradingAprs, ...aprs };
   }
@@ -103,7 +108,11 @@ const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> =
 
     const secondsPerYear = 31536000;
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-    const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(params.decimals);
+    let yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(params.decimals);
+
+    if (params.burn) {
+    yearlyRewardsInUsd = yearlyRewardsInUsd.times(1 - params.burn);
+  }
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);

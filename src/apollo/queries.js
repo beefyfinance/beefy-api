@@ -48,6 +48,24 @@ const pairDayDataSushiQuery = (pairs, startTimestamp, endTimestamp) => {
   return gql(queryString);
 };
 
+const poolsDataQuery = (pairs, block) => {
+  let pairsString = `[`;
+  pairs.map(pair => {
+    return (pairsString += `"${pair}"`);
+  });
+  pairsString += ']';
+  const queryString = `
+    query days {
+      pools(first: 1000, block: { number: ${block} }, where: { address_in: ${pairsString} }) {
+        address
+        totalSwapFee
+        totalLiquidity
+      }
+    }
+`;
+  return gql(queryString);
+};
+
 const dayDataQuery = timestamp => {
   const dayId = Math.floor(timestamp / 86400000) - 1;
   const queryString = `
@@ -75,6 +93,7 @@ const joeDayDataQuery = timestamp => {
 module.exports = {
   pairDayDataQuery,
   pairDayDataSushiQuery,
+  poolsDataQuery,
   dayDataQuery,
   joeDayDataQuery,
 };
