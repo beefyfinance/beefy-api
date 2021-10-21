@@ -24,6 +24,9 @@ module.exports = {
   get arbitrumWeb3() {
     return chainRandomClients.arbitrumRandomClient();
   },
+  get celoWeb3() {
+    return chainRandomClients.celoRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

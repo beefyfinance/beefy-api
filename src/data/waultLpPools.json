@@ -1,5 +1,24 @@
 [
   {
+    "name": "wex-wusd-dep",
+    "address": "0xb03b009117F8cbBD5A9381b621724E7921F53d73",
+    "decimals": "1e18",
+    "poolId": 67,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x3fF997eAeA488A082fb7Efc8e6B9951990D0c3aB",
+      "oracle": "tokens",
+      "oracleId": "WUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcaF5191fc480F43e4DF80106c7695ECA56E48B18",
+      "oracle": "tokens",
+      "oracleId": "DEP",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "wex-wusd-wex",
     "address": "0xE5821F993A6578033c0bA38bc2B0F7bCF74F5Dc3",
     "decimals": "1e18",

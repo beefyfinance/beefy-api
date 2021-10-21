@@ -23,6 +23,11 @@ const projects = {
     file: '../src/data/arbitrum/sushiLpPools.json',
     masterchef: '0xF4d73326C13a4Fc5FD7A064217e12780e9Bd62c3',
   },
+  sushiCelo: {
+    prefix: 'sushi-celo',
+    file: '../src/data/celo/sushiLpPools.json',
+    masterchef: '0x0769fd68dFb93167989C6f7254cd0D766Fb2841F',
+  },
 };
 
 const args = yargs.options({
