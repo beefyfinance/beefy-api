@@ -206,11 +206,10 @@ const dfynClient = new ApolloClient({
 
 const joeClient = client('https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange');
 const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph/exchange3');
-const kyberClient = client('https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic');
-const beetClient = client('https://graph.beethovenx.io/subgraphs/name/beethovenx');
 const kyberClient = client(
   'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic'
 );
+const beetClient = client('https://graph.beethovenx.io/subgraphs/name/beethovenx');
 
 const isSushiClient = client => {
   return (
@@ -223,10 +222,8 @@ const isSushiClient = client => {
 };
 
 const isBeetClient = client => {
-  return (
-    client === beetClient
-  );
-}
+  return client === beetClient;
+};
 
 module.exports = {
   joeClient,
