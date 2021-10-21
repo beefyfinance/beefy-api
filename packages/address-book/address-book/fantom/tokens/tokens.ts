@@ -38,6 +38,16 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  PEAR: {
+    name: 'PearZap',
+    symbol: 'PEAR',
+    address: '0x7C10108d4B7f4bd659ee57A53b30dF928244b354',
+    decimals: 18,
+    chainId: 250,
+    logoURI: 'https://assets.coingecko.com/coins/images/17173/small/pear200.png',
+    description: 'High yields farms & pools on the Polygon chain & Binance Smart Chain',
+    website: 'https://fantom.pearzap.com/',
+  },
   TAROT: {
     name: 'Tarot',
     symbol: 'TAROT',
