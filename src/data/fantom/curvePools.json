@@ -95,5 +95,26 @@
     "name": "curve-ftm-mim",
     "pool": "0x2dd7C9371965472E5A5fD28fbE165007c61439E1",
     "rewards": []
+  },
+  {
+    "name": "curve-ftm-geist",
+    "pool": "0x0fa949783947Bf6c1b171DB13AEACBB488845B3f",
+    "gauge": "0xd4F94D0aaa640BBb72b5EEc2D85F6D114D81a88E",
+    "baseApyKey": "geist",
+    "rewards": [],
+    "tokens": [
+      {
+        "geistToken": "0x07E6332dD090D287d3489245038daF987955DCFB",
+        "decimals": "1e18"
+      },
+      {
+        "geistToken": "0xe578C856933D8e1082740bf7661e379Aa2A30b26",
+        "decimals": "1e6"
+      },
+      {
+        "geistToken": "0x940F41F0ec9ba1A34CF001cc03347ac092F5F6B5",
+        "decimals": "1e6"
+      }
+    ]
   }
 ]
