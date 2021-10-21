@@ -18,9 +18,9 @@ const _tokens = {
   CELO,
   WCELO: CELO,
   WNATIVE: CELO,
-  /* BIFI: {
+  BIFI: {
     chainId: 42220,
-    address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
+    address: '0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C',
     decimals: 18,
     name: 'Beefy.Finance',
     symbol: 'BIFI',
@@ -29,7 +29,7 @@ const _tokens = {
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
-  },*/
+  },
   cUSD: {
     name: 'Celo Dollar',
     symbol: 'cUSD',
