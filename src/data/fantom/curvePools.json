@@ -38,6 +38,7 @@
   },
   {
     "name": "curve-ftm-fusdt",
+    "status": "eol",
     "pool": "0x92D5ebF3593a92888C25C0AbEF126583d4b5312E",
     "gauge": "0x06e3C4da96fd076b97b7ca3Ae23527314b6140dF",
     "baseApyKey": "fusdt",

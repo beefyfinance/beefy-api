@@ -1,6 +1,6 @@
 [
   {
-    "name": "beltv2-beltbnb",
+    "name": "belt-beltbnb",
     "address": "0xa8Bb71facdd46445644C277F9499Dd22f6F0A30C",
     "token": "WBNB",
     "poolId": 9,
@@ -8,7 +8,7 @@
     "oracleId": "belt-beltbnb"
   },
   {
-    "name": "beltv2-beltbtc",
+    "name": "belt-beltbtc",
     "address": "0x51bd63F240fB13870550423D208452cA87c44444",
     "token": "BTCB",
     "poolId": 7,
@@ -16,12 +16,18 @@
     "oracleId": "belt-beltbtc"
   },
   {
-    "name": "beltv2-belteth",
+    "name": "belt-belteth",
     "address": "0xAA20E8Cb61299df2357561C2AC2e1172bC68bc25",
     "token": "ETH",
     "poolId": 8,
     "oracle": "lps",
     "oracleId": "belt-belteth"
+  },
+  {
+    "name": "belt-4belt",
+    "poolId": 3,
+    "oracle": "lps",
+    "oracleId": "belt-4belt"
   },
   {
     "name": "beltv2-4belt",
