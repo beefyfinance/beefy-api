@@ -27,6 +27,18 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  EROWAN: {
+    name: 'SifChain EROWAN',
+    symbol: 'EROWAN',
+    address: '0xa7051C5a22d963b81D71C2BA64D46a877fBc1821',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://sifchain.finance/',
+    description:
+      'Sifchain aims to be the first Omni-Chain DEX, targeting 20–25 blockchains for cross-chain integration.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/14044/small/EROWAN.png?1614656300',
+  },
   DPI: {
     name: 'Defipulse Index',
     symbol: 'DPI',

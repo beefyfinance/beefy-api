@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-quick-erowan",
+    "address": "0x631F39D22430E889A3CFbEA4FD73Ed101059075f",
+    "rewardPool": "0xf113B8dec8368b7FeC4802fF7126cA317131F7cF",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa7051C5a22d963b81D71C2BA64D46a877fBc1821",
+      "oracle": "tokens",
+      "oracleId": "EROWAN",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-shib-matic",
     "address": "0x5fb641de2663e8a94c9dea0a539817850d996e99",
     "rewardPool": "0x807a2ef804a8557bf5ec9c03ff869888e6af8e83",
