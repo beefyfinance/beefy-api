@@ -19,7 +19,7 @@
     }
   },
   {
-    "name": "pearzap-fpear-busd",
+    "name": "pearzap-fpear-usdc",
     "address": "0xeD58D2f291512eB773e2174D2A16946dC140C7f4",
     "decimals": "1e18",
     "poolId": 1,
