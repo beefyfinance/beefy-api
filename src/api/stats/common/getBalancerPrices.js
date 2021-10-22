@@ -7,7 +7,7 @@ const ERC20 = require('../../../abis/ERC20.json');
 
 const getBalancerPrices = async (web3, chainId, pools, tokenPrices) => {
   let prices = {};
-  const { balances, totalSupplys } = await getPoolsData(web3, chainId, pools, tokenPrices);
+  const { balances, totalSupplys } = await getPoolsData(web3, chainId, pools);
 
   for (let i = 0; i < pools.length; i++) {
     let price = await getPoolPrice(pools[i], balances[i], totalSupplys[i], tokenPrices);
@@ -17,7 +17,7 @@ const getBalancerPrices = async (web3, chainId, pools, tokenPrices) => {
   return prices;
 };
 
-const getPoolsData = async (web3, chainId, pools, tokenPrices) => {
+const getPoolsData = async (web3, chainId, pools) => {
   const multicall = new MultiCall(web3, multicallAddress(chainId));
   const totalSupplyCalls = [];
   const balanceCalls = [];

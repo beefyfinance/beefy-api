@@ -338,5 +338,35 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "beets-sound-of-moosic",
+    "address": "0x2975035545008935152FdF48ca13406cc5D4e475",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x2975035545008935152fdf48ca13406cc5d4e47500010000000000000000002a",
+    "poolId": 13,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "mooFantomBIFI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BIFI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

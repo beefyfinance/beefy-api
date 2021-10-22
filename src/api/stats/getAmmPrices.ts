@@ -1,6 +1,7 @@
 `use strict`;
 
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
+import { fetchMooPrices } from '../../utils/fetchMooPrices';
 
 import getNonAmmPrices from './getNonAmmPrices';
 import bakeryPools from '../../data/bakeryLpPools.json';
@@ -164,6 +165,7 @@ import quickDualLpPools from '../../data/matic/quickDualLpPools.json';
 import pearzapFantomPools from '../../data/fantom/pearzapLpPools.json';
 import beetsPool from '../../data/fantom/beetsPool.json';
 import sushiCeloPools from '../../data/celo/sushiLpPools.json';
+import mooTokens from '../../data/mooTokens';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -353,10 +355,17 @@ const updateAmmPrices = async () => {
   try {
     const ammPrices = fetchAmmPrices(pools, knownPrices);
 
-    const tokenPrices = ammPrices.then(({ _, tokenPrices }) => tokenPrices);
+    const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+      return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
+    });
 
-    const lpPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
-      const nonAmmPrices = await getNonAmmPrices(tokenPrices);
+    const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
+      const mooTokenPrices = await mooPrices;
+      return { ...tokenPrices, ...mooTokenPrices };
+    });
+
+    const lpPrices = ammPrices.then(async ({ poolPrices, _ }) => {
+      const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
       return { ...poolPrices, ...nonAmmPrices };
     });
 

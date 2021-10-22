@@ -1,0 +1,10 @@
+[
+  {
+    "name": "mooFantomBIFI",
+    "address": "0xbF07093ccd6adFC3dEB259C557b61E94c1F66945",
+    "decimals": "1e18",
+    "chainId": 250,
+    "oracle": "tokens",
+    "oracleId": "BIFI"
+  }
+]
