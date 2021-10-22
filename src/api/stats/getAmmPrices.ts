@@ -1,8 +1,10 @@
 `use strict`;
 
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
+import { fetchMooPrices } from '../../utils/fetchMooPrices';
 
 import getNonAmmPrices from './getNonAmmPrices';
+import getBalancerPrices from './getBalancerPrices';
 import bakeryPools from '../../data/bakeryLpPools.json';
 import blizzardLpPools from '../../data/degens/blizzardLpPools.json';
 import alpacaLpPools from '../../data/alpacaLpPools.json';
@@ -163,6 +165,7 @@ import babyPools from '../../data/degens/babyLpPools.json';
 import quickDualLpPools from '../../data/matic/quickDualLpPools.json';
 import beetsPool from '../../data/fantom/beetsPool.json';
 import sushiCeloPools from '../../data/celo/sushiLpPools.json';
+import fantomMooTokens from '../../data/fantom/mooTokens';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -332,6 +335,10 @@ const pools = [
   ...cakeLpPools,
 ];
 
+const mooTokens = [
+  ...fantomMooTokens,
+]
+
 const knownPrices = {
   BUSD: 1,
   USDT: 1,
@@ -358,15 +365,21 @@ const updateAmmPrices = async () => {
       return { ...poolPrices, ...nonAmmPrices };
     });
 
-    await tokenPrices;
-    await lpPrices;
+    let allTokenPrices = await tokenPrices;
+    let allLpPrices = await lpPrices;
 
-    tokenPricesCache = tokenPrices;
-    lpPricesCache = lpPrices;
+    const mooPrices = await fetchMooPrices(mooTokens, allTokenPrices, allLpPrices);
+    allTokenPrices = { ...allTokenPrices, ...mooPrices };
+
+    const balancerPrices = await getBalancerPrices(allTokenPrices, mooPrices);
+    allLpPrices = { ...allLpPrices, ...balancerPrices };
+
+    tokenPricesCache = allTokenPrices;
+    lpPricesCache = allLpPrices;
 
     return {
-      tokenPrices,
-      lpPrices,
+      allTokenPrices,
+      allLpPrices,
     };
   } catch (err) {
     console.error(err);

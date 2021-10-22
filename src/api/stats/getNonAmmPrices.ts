@@ -13,13 +13,11 @@ import getAlpacaIbPrices from './bsc/alpaca/getAlpacaIbPrices';
 import getCurveArbitrumPrices from './arbitrum/getCurvePrices';
 import getCurveAvaxPrices from './avax/getCurvePrices';
 import getCurveHarmonyPrices from './one/getCurvePrices';
-import getBeethovenxPrices from './fantom/getBeethovenxPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
 
   const promises = [
-    getBeethovenxPrices(tokenPrices),
     getBeltPrices(tokenPrices),
     getEllipsisPrices(),
     getSnob3PoolPrice(),
