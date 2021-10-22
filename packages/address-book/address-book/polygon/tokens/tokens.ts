@@ -30,7 +30,7 @@ const _tokens = {
   DPI: {
     name: 'Defipulse Index',
     symbol: 'DPI',
-    address: '0x85955046df4668e1dd369d2de9f3aeb98dd2a369',
+    address: '0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369',
     chainId: 137,
     decimals: 18,
     website: 'https://defipulse.com/',
