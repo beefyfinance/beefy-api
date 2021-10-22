@@ -101,6 +101,11 @@
         "oracle": "tokens",
         "oracleId": "LINK",
         "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SCREAM",
+        "decimals": "1e18"
       }
     ]
   },
