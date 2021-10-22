@@ -40,7 +40,7 @@ const fetchPpfs = async (pools) => {
     const ppfss = res[0].map(v => new BigNumber(v.ppfs));
 
     for (let i = 0; i < ppfss.length; i++) {
-      filtered[i].ppfs = new BigNumber(ppfss[i].toString());
+      filtered[i].ppfs = ppfss[i];
     }
   }
 };
