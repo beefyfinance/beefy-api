@@ -27,6 +27,39 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  DPI: {
+    name: 'Defipulse Index',
+    symbol: 'DPI',
+    address: '0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://defipulse.com/',
+    description:
+      'The DeFi Pulse Index is a capitalization-weighted index that tracks the performance of decentralized financial assets across the market.',
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x1494CA1F11D487c2bBe4543E90080AeBa4BA3C2b/logo.png',
+  },
+  SHIB: {
+    name: 'SHIBA INU',
+    symbol: 'SHIB',
+    address: '0x6f8a06447Ff6FcF75d803135a7de15CE88C1d4ec',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://shibatoken.com/',
+    description: 'A Decentralized Meme Token that Evolved into a Vibrant Ecosystem.',
+    logoURI: 'https://assets.coingecko.com/coins/images/11939/small/shiba.png?1622619446',
+  },
+  FTM: {
+    name: 'Fantom Token',
+    symbol: 'FTM  ',
+    address: '0xB85517b87BF64942adf3A0B9E4c71E4Bc5Caa4e5',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://fantom.foundation/',
+    description:
+      'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+    logoURI: 'https://ftmscan.com/token/images/wFtm_32.png',
+  },
   jEUR: {
     name: 'Jarvis Synthetic Euro',
     symbol: 'jEUR',
