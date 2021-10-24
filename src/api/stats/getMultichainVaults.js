@@ -7,12 +7,18 @@ const { MULTICHAIN_ENDPOINTS } = require('../../constants');
 const INIT_DELAY = 0 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 
+let dataRefreshTimestamp = null;
+
 let multichainVaults = [];
 var multichainVaultsCounter = 0;
 var multichainActiveVaultsCounter = 0;
 
 const getMultichainVaults = () => {
-  return multichainVaults;
+  return {
+    // Use the last data refresh timestamp in response headers as Last-Modified
+    dataRefreshTimestamp: dataRefreshTimestamp,
+    data: multichainVaults,
+  };
 };
 
 const updateMultichainVaults = async () => {
@@ -63,6 +69,8 @@ const updateMultichainVaults = async () => {
       multichainActiveVaultsCounter,
       'active )'
     );
+
+    dataRefreshTimestamp = Date.now();
   } catch (err) {
     console.error('> vaults update failed', err);
   }
