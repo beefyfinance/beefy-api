@@ -1,5 +1,43 @@
 [
   {
+    "name": "banana-tusd-busd",
+    "address": "0xeDbA62A5d133Fa340e4ef1D58D72F6e773554318",
+    "decimals": "1e18",
+    "poolId": 143,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x14016E85a25aeb13065688cAFB43044C2ef86784",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-fil-wbnb",
+    "address": "0xcAEC8648dbaC41b6504A8E408892931796D67d87",
+    "decimals": "1e18",
+    "poolId": 142,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0D8Ce2A99Bb6e3B7Db580eD848240e4a0F9aE153",
+      "oracle": "tokens",
+      "oracleId": "FIL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-wbnb-dep",
     "address": "0x6518709dC42F70Dbf89934cA382F1d9dB26370e8",
     "decimals": "1e18",
