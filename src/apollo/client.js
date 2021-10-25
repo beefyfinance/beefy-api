@@ -3,6 +3,13 @@ const fetch = require('node-fetch');
 const createHttpLink = require('apollo-link-http').createHttpLink;
 const InMemoryCache = require('apollo-cache-inmemory').InMemoryCache;
 
+function client(url) {
+  return new ApolloClient({
+    link: createHttpLink({ uri: url, fetch }),
+    cache: new InMemoryCache(),
+  });
+}
+
 const apePolyClient = new ApolloClient({
   link: createHttpLink({
     uri: 'https://api.thegraph.com/subgraphs/name/apeswapfinance/dex-polygon',
@@ -18,6 +25,30 @@ const sushiClient = new ApolloClient({
   }),
   cache: new InMemoryCache(),
   shouldBatch: true,
+});
+
+const sushiOneClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://sushi.graph.t.hmny.io/subgraphs/name/sushiswap/harmony-exchange',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const sushiArbitrumClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/sushiswap/arbitrum-exchange',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const sushiCeloClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/sushiswap/celo-exchange',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
 });
 
 const comethClient = new ApolloClient({
@@ -70,7 +101,7 @@ const cakeClient = new ApolloClient({
 
 const apeClient = new ApolloClient({
   link: createHttpLink({
-    uri: 'https://graph2.apeswap.finance/subgraphs/name/ape-swap/apeswap-subgraph',
+    uri: 'https://graph.apeswap.finance/subgraphs/name/ape-swap/apeswap-subgraph',
     fetch,
   }),
   cache: new InMemoryCache(),
@@ -94,7 +125,8 @@ const mdexHecoClient = new ApolloClient({
 
 const mdexBscClient = new ApolloClient({
   link: createHttpLink({
-    uri: 'https://bsc-graph.mdex.com/subgraphs/name/chains/bsc',
+    // uri: 'https://bsc-graph.mdex.com/subgraphs/name/chains/bsc',
+    uri: 'https://bsc-lite-graph.mdex.cc/subgraphs/name/chain/bsc',
     fetch,
   }),
   cache: new InMemoryCache(),
@@ -148,9 +180,60 @@ const jetswapClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const jetswapPolyClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/smartcookie0501/jetswap-subgraph-polygon',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const jetswapFantomClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/smartcookie0501/jetswap-subgraph-fantom',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const dfynClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/ss-sonic/dfyn-v5',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const joeClient = client('https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange');
+const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph/exchange3');
+const kyberClient = client(
+  'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic'
+);
+const beetClient = client('https://graph.beethovenx.io/subgraphs/name/beethovenx');
+
+const isSushiClient = client => {
+  return (
+    client === sushiClient ||
+    client === sushiOneClient ||
+    client === sushiArbitrumClient ||
+    client === joeClient ||
+    client === sushiCeloClient
+  );
+};
+
+const isBeetClient = client => {
+  return client === beetClient;
+};
+
 module.exports = {
+  joeClient,
+  dfynClient,
   apePolyClient,
   sushiClient,
+  sushiOneClient,
+  sushiArbitrumClient,
+  sushiCeloClient,
+  isSushiClient,
   comethClient,
   quickClient,
   polyzapClient,
@@ -167,4 +250,10 @@ module.exports = {
   lydiaClient,
   pantherClient,
   jetswapClient,
+  jetswapPolyClient,
+  jetswapFantomClient,
+  kyberClient,
+  babyClient,
+  beetClient,
+  isBeetClient,
 };

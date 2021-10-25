@@ -2,6 +2,7 @@ const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { bscWeb3: web3, multicallAddress } = require('../../../../utils/web3');
 
+const MasterChefAbi = require('../../../../abis/MasterChef.json');
 const ERC20 = require('../../../../abis/ERC20.json');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const fetchPrice = require('../../../../utils/fetchPrice');
@@ -11,7 +12,6 @@ const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 const { compound } = require('../../../../utils/compound');
 
 const performanceFee = 0.045;
-const shareAfterPerformanceFee = 1 - performanceFee;
 
 const getMasterChefApys = async masterchefParams => {
   let apys = {};
@@ -26,41 +26,35 @@ const getMasterChefApys = async masterchefParams => {
   const farmApys = await getFarmApys(masterchefParams);
 
   masterchefParams.pools.forEach((pool, i, params) => {
+    const hpy = pool.hpy ?? BASE_HPY;
+    const perfFee = pool.perfFee ?? performanceFee;
+    const shareAfterPerfFee = 1 - perfFee;
+
     const simpleApr = farmApys[i];
-    const vaultApr = simpleApr.times(shareAfterPerformanceFee);
+    const vaultApr = simpleApr.times(shareAfterPerfFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterPerformanceFee);
-    const totalApy = getFarmWithTradingFeesApy(
-      simpleApr,
-      tradingApr,
-      BASE_HPY,
-      1,
-      shareAfterPerformanceFee
-    );
-    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+    const vaultApy = compound(simpleApr, hpy, 1, shareAfterPerfFee);
+    const totalApy = getFarmWithTradingFeesApy(simpleApr, tradingApr, hpy, 1, shareAfterPerfFee);
 
     // Create reference for legacy /apy
     const legacyApyValue = { [pool.name]: totalApy };
-    // Add token to Spooky APYs object
     apys = { ...apys, ...legacyApyValue };
 
     // Create reference for breakdown /apy
     const componentValues = {
       [pool.name]: {
         vaultApr: vaultApr.toNumber(),
-        compoundingsPerYear: BASE_HPY,
-        beefyPerformanceFee: performanceFee,
+        compoundingsPerYear: hpy,
+        beefyPerformanceFee: perfFee,
         vaultApy: vaultApy,
         lpFee: params.liquidityProviderFee,
         tradingApr: tradingApr.toNumber(),
         totalApy: totalApy,
       },
     };
-    // Add token to Spooky APYs object
     apyBreakdowns = { ...apyBreakdowns, ...componentValues };
   });
 
-  // Return both objects for later parsing
   return {
     apys,
     apyBreakdowns,
@@ -115,7 +109,8 @@ const getFarmApys = async params => {
 };
 
 const getMasterChefData = async params => {
-  const masterchefContract = new web3.eth.Contract(params.masterchefAbi, params.masterchef);
+  const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
+  const masterchefContract = new web3.eth.Contract(abi, params.masterchef);
   let multiplier = new BigNumber(1);
   if (params.hasMultiplier) {
     const blockNum = await getBlockNumber(BSC_CHAIN_ID);
@@ -131,14 +126,15 @@ const getMasterChefData = async params => {
 };
 
 const getPoolsData = async params => {
-  const masterchefContract = new web3.eth.Contract(params.masterchefAbi, params.masterchef);
+  const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
+  const masterchefContract = new web3.eth.Contract(abi, params.masterchef);
   const multicall = new MultiCall(web3, multicallAddress(BSC_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
   params.pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20, pool.address);
     balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(params.masterchef),
+      balance: tokenContract.methods.balanceOf(pool.strat ?? params.masterchef),
     });
     allocPointCalls.push({
       allocPoint: masterchefContract.methods.poolInfo(pool.poolId),
@@ -150,6 +146,18 @@ const getPoolsData = async params => {
   const balances = res[0].map(v => new BigNumber(v.balance));
   const allocPoints = res[1].map(v => v.allocPoint['1']);
   return { balances, allocPoints };
+};
+
+const chefAbi = tokenPerBlock => {
+  const cakeAbi = MasterChefAbi;
+  cakeAbi.push({
+    inputs: [],
+    name: tokenPerBlock,
+    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+    stateMutability: 'view',
+    type: 'function',
+  });
+  return cakeAbi;
 };
 
 module.exports = getMasterChefApys;

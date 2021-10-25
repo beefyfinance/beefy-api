@@ -1,0 +1,40 @@
+[
+  {
+    "name": "polyquity-pyq-usdc",
+    "address": "0xd3924Ad8F881514efF89503Be9027B877E9e2bd0",
+    "rewardPool": "0x2B8E5367628dF1481Be945B685ADf0968f1965E7",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x5a3064CbDCCF428ae907796cF6aD5a664CD7F3d8",
+      "oracle": "tokens",
+      "oracleId": "PYQ",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "polyquity-pusd-usdc",
+    "address": "0xc30D6Bc42911Aa21A63E51c7121B33b3E65cC3c4",
+    "rewardPool": "0xCB881b62A97Cb733D01C59Eb8326B239E283E6a4",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x9aF3b7DC29D3C4B1A5731408B6A9656fA7aC3b72",
+      "oracle": "tokens",
+      "oracleId": "PUSD",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -1,5 +1,765 @@
 [
   {
+    "name": "cakev2-mcb-wbnb",
+    "address": "0xE4077A90f8600d9599440cC6d9057785f43a6Ac9",
+    "decimals": "1e18",
+    "poolId": 463,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x5fE80d2CD054645b9419657d3d10d26391780A7B",
+      "oracle": "tokens",
+      "oracleId": "MCB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-rpg-busd",
+    "address": "0x55cdb14855220b239Cf857A03849D96736b9103f",
+    "decimals": "1e18",
+    "poolId": 462,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xc2098a8938119A52B1F7661893c0153A6CB116d5",
+      "oracle": "tokens",
+      "oracleId": "RPG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-wbnb-beta",
+    "address": "0x88a02D94F437799f06f8c256ff07Aa397E6D0016",
+    "decimals": "1e18",
+    "poolId": 461,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xBe1a001FE942f96Eea22bA08783140B9Dcc09D28",
+      "oracle": "tokens",
+      "oracleId": "BETA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-nft-wbnb",
+    "address": "0x0ecc84c9629317a494f12Bc56aA2522475bF32e8",
+    "decimals": "1e18",
+    "poolId": 457,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x1fC9004eC7E5722891f5f38baE7678efCB11d34D",
+      "oracle": "tokens",
+      "oracleId": "NFT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-tlos-wbnb",
+    "address": "0x3eDb06e2d182d133864fe7C0f9B4C204bBf61D4E",
+    "decimals": "1e18",
+    "poolId": 456,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xb6C53431608E626AC81a9776ac3e999c5556717c",
+      "oracle": "tokens",
+      "oracleId": "TLOS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-bscdefi-wbnb",
+    "address": "0x5B0A3b98C2f01741A11E57A9d0595B254E62F9F2",
+    "decimals": "1e18",
+    "poolId": 454,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x40E46dE174dfB776BB89E04dF1C47d8a66855EB3",
+      "oracle": "tokens",
+      "oracleId": "BSCDEFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-qbt-wbnb",
+    "address": "0x67EFeF66A55c4562144B9AcfCFbc62F9E4269b3e",
+    "decimals": "1e18",
+    "poolId": 453,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x17B7163cf1Dbd286E262ddc68b553D899B93f526",
+      "oracle": "tokens",
+      "oracleId": "QBT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-naos-wbnb",
+    "address": "0xCAA662aD41a662b81be2AEa5D59EC0697628665F",
+    "decimals": "1e18",
+    "poolId": 452,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x758d08864fB6cCE3062667225ca10b8F00496cc2",
+      "oracle": "tokens",
+      "oracleId": "NAOS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-pha-busd",
+    "address": "0x4ddd56e2f34338839BB5953515833950eA680aFb",
+    "decimals": "1e18",
+    "poolId": 451,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0112e557d400474717056C4e6D40eDD846F38351",
+      "oracle": "tokens",
+      "oracleId": "PHA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-sfund-wbnb",
+    "address": "0x74fA517715C4ec65EF01d55ad5335f90dce7CC87",
+    "decimals": "1e18",
+    "poolId": 450,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x477bC8d23c634C154061869478bce96BE6045D12",
+      "oracle": "tokens",
+      "oracleId": "SFUND",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-bp-wbnb",
+    "address": "0x2bF2dEB40639201C9A94c9e33b4852D9AEa5fd2D",
+    "decimals": "1e18",
+    "poolId": 449,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xACB8f52DC63BB752a51186D1c55868ADbFfEe9C1",
+      "oracle": "tokens",
+      "oracleId": "BP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-rusd-busd",
+    "address": "0x59FaC9e98479fc9979aE2a0C7422Af50bCBB9B26",
+    "decimals": "1e18",
+    "poolId": 448,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x07663837218A003e66310a01596af4bf4e44623D",
+      "oracle": "tokens",
+      "oracleId": "rUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-wbnb-gnt",
+    "address": "0x3747e3e107223539FD09bb730b055A1f11F78Adf",
+    "decimals": "1e18",
+    "poolId": 447,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF750A26EB0aCf95556e8529E72eD530f3b60f348",
+      "oracle": "tokens",
+      "oracleId": "GNT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-bmon-busd",
+    "address": "0x00e53C169dA54a7E11172aEEDf8Eb87F060F479e",
+    "decimals": "1e18",
+    "poolId": 446,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x08ba0619b1e7A582E0BCe5BBE9843322C954C340",
+      "oracle": "tokens",
+      "oracleId": "BMON",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-pots-busd",
+    "address": "0xF90BAA331Cfd40F094476E752Bf272892170d399",
+    "decimals": "1e18",
+    "poolId": 445,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x3Fcca8648651E5b974DD6d3e50F61567779772A8",
+      "oracle": "tokens",
+      "oracleId": "POTS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-btt-busd",
+    "address": "0xdcfbB12DED3FEa12D2A078Bc6324131cD14bF835",
+    "decimals": "1e18",
+    "poolId": 443,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x8595F9dA7b868b1822194fAEd312235E43007b49",
+      "oracle": "tokens",
+      "oracleId": "BTT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-trx-busd",
+    "address": "0xb5D108578Be3750209d1b3A8f45FFee8C5a75146",
+    "decimals": "1e18",
+    "poolId": 442,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x85EAC5Ac2F758618dFa09bDbe0cf174e7d574D5B",
+      "oracle": "tokens",
+      "oracleId": "TRX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-win-busd",
+    "address": "0x6a445cEB72c8B1751755386c3990055ff92e14A0",
+    "decimals": "1e18",
+    "poolId": 441,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xaeF0d72a118ce24feE3cD1d43d383897D05B4e99",
+      "oracle": "tokens",
+      "oracleId": "WIN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-wbnb-metahero",
+    "address": "0xe267018C943E77992e7e515724B07b9CE7938124",
+    "decimals": "1e18",
+    "poolId": 440,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD40bEDb44C081D2935eebA6eF5a3c8A31A1bBE13",
+      "oracle": "tokens",
+      "oracleId": "METAHERO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-mcrn-wbnb",
+    "address": "0xe8D5d81dac092Ae61d097f84EFE230759BF2e522",
+    "decimals": "1e18",
+    "poolId": 439,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xacb2d47827C9813AE26De80965845D80935afd0B",
+      "oracle": "tokens",
+      "oracleId": "MCRN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-wsg-wbnb",
+    "address": "0x37Ff7D4459ad96E0B01275E5efffe091f33c2CAD",
+    "decimals": "1e18",
+    "poolId": 438,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xA58950F05FeA2277d2608748412bf9F802eA4901",
+      "oracle": "tokens",
+      "oracleId": "WSG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-bmon-wbnb",
+    "address": "0x3C2b7B578Dd2175A1c3524Aa0D515106282Bf108",
+    "decimals": "1e18",
+    "poolId": 437,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x08ba0619b1e7A582E0BCe5BBE9843322C954C340",
+      "oracle": "tokens",
+      "oracleId": "BMON",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-wbnb-babycake",
+    "address": "0xb5e33fE13a821e55ED33C884589a804B1b4F6fD8",
+    "decimals": "1e18",
+    "poolId": 436,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdB8D30b74bf098aF214e862C90E647bbB1fcC58c",
+      "oracle": "tokens",
+      "oracleId": "BABYCAKE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-revv-bnb",
+    "address": "0x1Cc18962B919ef90085a8b21f8dDC95824Fbad9E",
+    "decimals": "1e18",
+    "poolId": 435,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x833F307aC507D47309fD8CDD1F835BeF8D702a93",
+      "oracle": "tokens",
+      "oracleId": "REVV",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-skill-wbnb",
+    "address": "0xC19dfd34D3ba5816dF9CBDaa02D32A9F8dc6F6fC",
+    "decimals": "1e18",
+    "poolId": 434,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x154A9F9cbd3449AD22FDaE23044319D6eF2a1Fab",
+      "oracle": "tokens",
+      "oracleId": "SKILL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-if-busd",
+    "address": "0x7b4682D2B3f8670b125aF6AEA8d7eD2Daa43Bdc1",
+    "decimals": "1e18",
+    "poolId": 433,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xB0e1fc65C1a741b4662B813eB787d369b8614Af1",
+      "oracle": "tokens",
+      "oracleId": "IF",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-sps-wbnb",
+    "address": "0xFdFde3aF740A22648B9dD66D05698e5095940850",
+    "decimals": "1e18",
+    "poolId": 432,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x1633b7157e7638C4d6593436111Bf125Ee74703F",
+      "oracle": "tokens",
+      "oracleId": "SPS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-c98-wbnb",
+    "address": "0x92247860A03F48d5c6425c7CA35CDcFCB1013AA1",
+    "decimals": "1e18",
+    "poolId": 431,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xaEC945e04baF28b135Fa7c640f624f8D90F1C3a6",
+      "oracle": "tokens",
+      "oracleId": "C98",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-axs-wbnb",
+    "address": "0xC2d00De94795e60FB76Bc37d899170996cBdA436",
+    "decimals": "1e18",
+    "poolId": 430,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0",
+      "oracle": "tokens",
+      "oracleId": "AXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-chess-usdc",
+    "address": "0x1472976E0B97F5B2fC93f1FFF14e2b5C4447b64F",
+    "decimals": "1e18",
+    "poolId": 429,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6",
+      "oracle": "tokens",
+      "oracleId": "CHESS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-titan-busd",
+    "address": "0x9392a1f471d9Aa14c0B8EB28bD7a3F4A814727bE",
+    "decimals": "1e18",
+    "poolId": 428,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xe898EDc43920F357A93083F1d4460437dE6dAeC2",
+      "oracle": "tokens",
+      "oracleId": "TITAN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-one-wbnb",
+    "address": "0x9D2296e2Fe3CdBf2EB3e3e2CA8811BaFA42eeDFF",
+    "decimals": "1e18",
+    "poolId": 427,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x03fF0ff224f904be3118461335064bB48Df47938",
+      "oracle": "tokens",
+      "oracleId": "ONE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-mask-wbnb",
+    "address": "0x46c6bA71af7648cD7f67D0AD4d16f75bE251ed12",
+    "decimals": "1e18",
+    "poolId": 426,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x2eD9a5C8C13b93955103B9a7C167B67Ef4d568a3",
+      "oracle": "tokens",
+      "oracleId": "MASK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-form-busd",
+    "address": "0x3E19C18Fe3458A6065D8F0844cB7Eae52C9DAE07",
+    "decimals": "1e18",
+    "poolId": 417,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x25A528af62e56512A19ce8c3cAB427807c28CC19",
+      "oracle": "tokens",
+      "oracleId": "FORM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-busd-orbs",
+    "address": "0xB87b857670A44356f2b70337E0F218713D2378e8",
+    "decimals": "1e18",
+    "poolId": 416,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xeBd49b26169e1b52c04cFd19FCf289405dF55F80",
+      "oracle": "tokens",
+      "oracleId": "ORBS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-dvi-wbnb",
+    "address": "0x89EBF9cD99864f6E51bd7a578965922029cAB977",
+    "decimals": "1e18",
+    "poolId": 425,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x758FB037A375F17c7e195CC634D77dA4F554255B",
+      "oracle": "tokens",
+      "oracleId": "DVI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-adx-busd",
+    "address": "0x0648ff5de80Adf54aAc07EcE2490f50a418Dde23",
+    "decimals": "1e18",
+    "poolId": 424,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x6bfF4Fb161347ad7de4A625AE5aa3A1CA7077819",
+      "oracle": "tokens",
+      "oracleId": "ADX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-usdt-usdc",
+    "address": "0xEc6557348085Aa57C72514D67070dC863C0a5A8c",
+    "decimals": "1e18",
+    "poolId": 423,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-cake-usdt",
+    "address": "0xA39Af17CE4a8eb807E076805Da1e2B8EA7D0755b",
+    "decimals": "1e18",
+    "poolId": 422,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "tokens",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-bscpad-wbnb",
+    "address": "0xba01662E978DE7d67F8FfC937726215eb8995d17",
+    "decimals": "1e18",
+    "poolId": 421,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x5A3010d4d8D3B5fB49f8B6E57FB9E48063f16700",
+      "oracle": "tokens",
+      "oracleId": "BSCPAD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-rabbit-wbnb",
     "address": "0x04b56A5B3f45CFeaFbfDCFc999c14be5434f2146",
     "decimals": "1e18",
@@ -578,7 +1338,7 @@
     "lp0": {
       "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
       "oracle": "tokens",
-      "oracleId": "CAKE",
+      "oracleId": "Cake",
       "decimals": "1e18"
     },
     "lp1": {
@@ -692,7 +1452,7 @@
     "lp0": {
       "address": "0x04BAf95Fd4C52fd09a56D840bAEe0AB8D7357bf0",
       "oracle": "tokens",
-      "oracleId": "ONE",
+      "oracleId": "BigONE",
       "decimals": "1e18"
     },
     "lp1": {

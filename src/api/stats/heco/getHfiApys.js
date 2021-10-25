@@ -17,7 +17,7 @@ const getHfiApys = async () => {
     const vaultDec = vaultApy / 100;
     const aprHfi = Number(poolStat['hfi_annual']);
     const aprDec = aprHfi / 100;
-    const hfiApy = compound(aprDec * 0.955, BASE_HPY, 1);
+    const hfiApy = compound(aprDec * 0.955, BASE_HPY, 1, 1);
     const apy = vaultDec + hfiApy;
 
     // console.log(pool.name, apy);

@@ -1,0 +1,164 @@
+[
+  {
+    "name": "scream-usdc-supply",
+    "itoken": "0xE45Ac34E528907d0A0239ab5Db507688070B20bf",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "scream-wbtc-supply",
+    "itoken": "0x4565DC3Ef685E4775cdF920129111DdF43B9d882",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "scream-ftm-supply",
+    "itoken": "0x5AA53f03197E08C4851CAD8C92c7922DA5857E5d",
+    "oracle": "tokens",
+    "oracleId": "WFTM",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "scream-dai-supply",
+    "itoken": "0x8D9AED9882b4953a0c9fa920168fa1FDfA0eBE75",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "scream-eth-supply",
+    "itoken": "0xC772BA6C2c28859B7a0542FAa162a56115dDCE25",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "scream-fusdt-supply",
+    "itoken": "0x02224765BC8D54C21BB51b0951c80315E1c263F9",
+    "oracle": "tokens",
+    "oracleId": "fUSDT",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "scream-frax-supply",
+    "itoken": "0x4E6854EA84884330207fB557D1555961D85Fc17E",
+    "oracle": "tokens",
+    "oracleId": "FRAX",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "scream-mim-supply",
+    "itoken": "0x90B7C21Be43855aFD2515675fc307c084427404f",
+    "oracle": "tokens",
+    "oracleId": "MIM",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "scream-crv",
+    "itoken": "0x820BdA1786AFA19DA6B92d6AC603574962337326",
+    "oracle": "tokens",
+    "oracleId": "CRV",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.6
+  },
+  {
+    "name": "scream-link",
+    "itoken": "0x2359012ebE36cCa231203D78b914284947B58aa3",
+    "oracle": "tokens",
+    "oracleId": "LINK",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.6
+  },
+  {
+    "name": "scream-usdc",
+    "itoken": "0xE45Ac34E528907d0A0239ab5Db507688070B20bf",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.6
+  },
+  {
+    "name": "scream-wbtc",
+    "itoken": "0x4565DC3Ef685E4775cdF920129111DdF43B9d882",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "borrowDepth": 4,
+    "borrowPercent": 0.6
+  },
+  {
+    "name": "scream-ftm",
+    "itoken": "0x5AA53f03197E08C4851CAD8C92c7922DA5857E5d",
+    "oracle": "tokens",
+    "oracleId": "WFTM",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.6
+  },
+  {
+    "name": "scream-dai",
+    "itoken": "0x8D9AED9882b4953a0c9fa920168fa1FDfA0eBE75",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "scream-eth",
+    "itoken": "0xC772BA6C2c28859B7a0542FAa162a56115dDCE25",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.6
+  },
+  {
+    "name": "scream-fusdt",
+    "itoken": "0x02224765BC8D54C21BB51b0951c80315E1c263F9",
+    "oracle": "tokens",
+    "oracleId": "fUSDT",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.6
+  },
+  {
+    "name": "scream-frax",
+    "itoken": "0x4E6854EA84884330207fB557D1555961D85Fc17E",
+    "oracle": "tokens",
+    "oracleId": "FRAX",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "scream-mim",
+    "itoken": "0x90B7C21Be43855aFD2515675fc307c084427404f",
+    "oracle": "tokens",
+    "oracleId": "MIM",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  }
+]

@@ -4,13 +4,26 @@
   "repository": "beefyfinance/beefy-api",
   "license": "MIT",
   "scripts": {
+    "install-all": "yarn && cd packages/address-book && yarn",
     "start": "ts-node src/app.ts",
     "dev": "nodemon -e js,ts,json src/app.ts",
     "test": "nyc ava",
     "prettier:check": "prettier --check src/**/*",
     "prettier:fix": "prettier --write src/**/*",
     "prepare": "husky install",
-    "bsc:pancake:farm:add": "node scripts/bscPancakeFarmAdd.js"
+    "bsc:pancake:add": "ts-node scripts/add-farm.ts --network bsc --project pancake",
+    "bsc:wault:add": "ts-node scripts/add-farm.ts --network bsc --project wault",
+    "bsc:mdex:add": "ts-node scripts/add-farm.ts --network bsc --project mdex",
+    "bsc:ape:add": "ts-node scripts/add-farm.ts --network bsc --project ape",
+    "bsc:omni:add": "ts-node scripts/add-omni.ts --network bsc --project omni",
+    "fantom:spooky:add": "ts-node scripts/add-farm.ts --network fantom --project spooky",
+    "polygon:quick:add": "ts-node scripts/add-quick.ts --network polygon --project quick",
+    "one:sushi:add": "ts-node scripts/add-sushi.ts --network one --project sushiOne",
+    "arb:sushi:add": "ts-node scripts/add-sushi.ts --network arbitrum --project sushiArb",
+    "celo:sushi:add": "ts-node scripts/add-sushi.ts --network celo --project sushiCelo",
+    "avax:pangolin:add": "ts-node scripts/add-quick.ts --network avax --project pangolin",
+    "avax:joe:add": "ts-node scripts/add-farm.ts --network avax --project joe",
+    "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },
   "dependencies": {
     "@koa/cors": "^3.1.0",
@@ -21,9 +34,9 @@
     "apollo-link-http": "^1.5.17",
     "axios": "^0.20.0",
     "bignumber.js": "^9.0.1",
-    "blockchain-addressbook": "^0.1.69",
     "date-fns": "^2.21.3",
     "eth-multicall": "^1.3.13",
+    "ethereum-abi-types-generator": "^1.1.7",
     "ethers": "^5.0.26",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.12.4",
@@ -34,7 +47,7 @@
     "koa-etag": "^4.0.0",
     "koa-helmet": "^5.2.0",
     "koa-router": "^9.4.0",
-    "lint-staged": "^11.0.0",
+    "lint-staged": "^11.1.2",
     "node-fetch": "^2.6.1",
     "ts-node": "^10.0.0",
     "typescript": "^4.3.2",
@@ -45,7 +58,8 @@
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.6",
     "nyc": "^15.1.0",
-    "prettier": "2.1.1"
+    "prettier": "^2.3.2",
+    "yargs": "^17.0.1"
   },
   "lint-staged": {
     "*.ts": "prettier --write",

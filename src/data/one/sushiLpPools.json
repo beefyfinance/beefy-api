@@ -1,0 +1,344 @@
+[
+  {
+    "name": "sushi-one-1ygg-1eth",
+    "address": "0x40112850EFd90e9e17b56de35d86BdFf9f4d07Fd",
+    "decimals": "1e18",
+    "poolId": 18,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x63cf309500d8be0B9fDB8F1fb66C821236c0438c",
+      "oracle": "tokens",
+      "oracleId": "1YGG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6983D1E6DEf3690C4d616b13597A09e6193EA013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-1eth-1aave",
+    "address": "0x913De0F91169680c32C8F27212361272Ef4FDfd9",
+    "decimals": "1e18",
+    "poolId": 17,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x6983D1E6DEf3690C4d616b13597A09e6193EA013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcF323Aad9E522B93F11c352CaA519Ad0E14eB40F",
+      "oracle": "tokens",
+      "oracleId": "1AAVE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-1axs-1eth",
+    "address": "0xbB680Ba75F7e3e404923D04D484af5ce96b4A4bF",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x14A7B318fED66FfDcc80C1517C172c13852865De",
+      "oracle": "tokens",
+      "oracleId": "1AXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6983D1E6DEf3690C4d616b13597A09e6193EA013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-1eth-1dai",
+    "address": "0xc5B8129B411EF5f5BE22e74De6fE86C3b69e641d",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x6983D1E6DEf3690C4d616b13597A09e6193EA013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEf977d2f931C1978Db5F6747666fa1eACB0d0339",
+      "oracle": "tokens",
+      "oracleId": "1DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-1usdt-1eth",
+    "address": "0x02f4d0021E3cb8736108E11C8DF02FbBd6EEEDBf",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x3C2B8Be99c50593081EAA2A724F0B8285F5aba8f",
+      "oracle": "tokens",
+      "oracleId": "1USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x6983D1E6DEf3690C4d616b13597A09e6193EA013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-1eth-1frax",
+    "address": "0xa46BBA980512E328E344Ce12BB969563f3429F05",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x6983D1E6DEf3690C4d616b13597A09e6193EA013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xeB6C08ccB4421b6088e581ce04fcFBed15893aC3",
+      "oracle": "tokens",
+      "oracleId": "1FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-ust-1eth",
+    "address": "0x9293DFDd719eE2163f2e158E66Ef75722Ed712B4",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x224e64ec1BDce3870a6a6c777eDd450454068FEC",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6983D1E6DEf3690C4d616b13597A09e6193EA013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-1eth-1usdc",
+    "address": "0xf74dBC6B2cC589542551BAd527f4E6b20d746724",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x6983D1E6DEf3690C4d616b13597A09e6193EA013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x985458E523dB3d53125813eD68c274899e9DfAb4",
+      "oracle": "tokens",
+      "oracleId": "1USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "sushi-one-1wbtc-1eth",
+    "address": "0x39bE7c95276954a6f7070F9BAa38db2123691Ed0",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x3095c7557bCb296ccc6e363DE01b760bA031F2d9",
+      "oracle": "tokens",
+      "oracleId": "1WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x6983D1E6DEf3690C4d616b13597A09e6193EA013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-ust-wone",
+    "address": "0x4dABF6C57A8beA012F1EAa1259Ceed2a62AC7df2",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x224e64ec1BDce3870a6a6c777eDd450454068FEC",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+      "oracle": "tokens",
+      "oracleId": "WONE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-1usdt-1usdc",
+    "address": "0x0c51171b913Db10ade3fd625548E69C9C63aFb96",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x3C2B8Be99c50593081EAA2A724F0B8285F5aba8f",
+      "oracle": "tokens",
+      "oracleId": "1USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x985458E523dB3d53125813eD68c274899e9DfAb4",
+      "oracle": "tokens",
+      "oracleId": "1USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "sushi-one-1usdt-wone",
+    "address": "0x2c7862b408bb3DBFF277110FFdE1B4EAa45C692a",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x3C2B8Be99c50593081EAA2A724F0B8285F5aba8f",
+      "oracle": "tokens",
+      "oracleId": "1USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+      "oracle": "tokens",
+      "oracleId": "WONE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-busd-one",
+    "address": "0x8c36ede15c5e4b0e1f9764351a7a7a0037c5e103",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
+      "oracle": "tokens",
+      "oracleId": "WONE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe176ebe47d621b984a73036b9da5d834411ef734",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-bscbusd-busd",
+    "address": "0xda64f9053a971531a75071a729a6432fb65ed60d",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x0ab43550a6915f9f67d0c454c2e90385e6497eaa",
+      "oracle": "tokens",
+      "oracleId": "bscBUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe176ebe47d621b984a73036b9da5d834411ef734",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-eth-one",
+    "address": "0xeb049f1ed546f8efc3ad57f6c7d22f081ccc7375",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x6983d1e6def3690c4d616b13597a09e6193ea013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
+      "oracle": "tokens",
+      "oracleId": "WONE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-btc-one",
+    "address": "0xc3670b927ef42eed252e483e2446352c238d9905",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x3095c7557bcb296ccc6e363de01b760ba031f2d9",
+      "oracle": "tokens",
+      "oracleId": "1WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
+      "oracle": "tokens",
+      "oracleId": "WONE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-sushi-one",
+    "address": "0x468dc50884962d6f81733ac0c23c04611ac219f9",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0xbec775cb42abfa4288de81f387a9b1a3c4bc552a",
+      "oracle": "tokens",
+      "oracleId": "1SUSHI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
+      "oracle": "tokens",
+      "oracleId": "WONE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-usdc-one",
+    "address": "0xbf255d8c30dbab84ea42110ea7dc870f01c0013a",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x985458e523db3d53125813ed68c274899e9dfab4",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xcf664087a5bb0237a0bad6742852ec6c8d69a27a",
+      "oracle": "tokens",
+      "oracleId": "WONE",
+      "decimals": "1e18"
+    }
+  }
+]

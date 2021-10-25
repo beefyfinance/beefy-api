@@ -1,5 +1,65 @@
 [
   {
+    "name": "cometh-eth-wbtc",
+    "address": "0x4282C6b1c21CD1A0C363a70e4292f8Bf4D7c898c",
+    "rewardPool": "0xd6161AdBf80602f0ecf74F92ce0271556ddbf98B",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "cometh-eth-usdc",
+    "address": "0x1Edb2D8f791D2a51D56979bf3A25673D6E783232",
+    "rewardPool": "0x1c30Cfe08506BA215c02bc2723C6D310671BAb62",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "cometh-must-pickle",
+    "address": "0xb0b5E3Bd18eb1E316bcD0bBa876570b3c1779C55",
+    "rewardPool": "0x52f68A09AEe9503367bc0cda0748C4D81807Ae9a",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2b88aD57897A8b496595925F43048301C37615Da",
+      "oracle": "tokens",
+      "oracleId": "PICKLE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9C78EE466D6Cb57A4d01Fd887D2b5dFb2D46288f",
+      "oracle": "tokens",
+      "oracleId": "MUST",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cometh-must-eth",
     "address": "0x8826C072657983939c26E684edcfb0e4133f0B3d",
     "rewardPool": "0x2cc6a7A06B32E0796D8f9225E2e33ae51C93d715",

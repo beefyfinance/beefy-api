@@ -1,0 +1,21 @@
+[
+  {
+    "name": "sing-usdc-sing",
+    "address": "0x6046eB198AbC5Ea4f17027bC00a2aeE0420E84EE",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xCB898b0eFb084Df14dd8E018dA37B4d0f06aB26D",
+      "oracle": "tokens",
+      "oracleId": "pSING",
+      "decimals": "1e18"
+    }
+  }
+]

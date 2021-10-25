@@ -17,12 +17,6 @@ const pools = [
     oracle: 'lps',
     oracleId: 'hps-hps-bnb',
   },
-  {
-    name: 'hps-hps',
-    pool: '0xDC284d444A5Ec2B594267F29FFB8eB7Fde76B8fD',
-    oracle: 'tokens',
-    oracleId: 'HPS',
-  },
 ];
 
 const getHpsApys = async () => {

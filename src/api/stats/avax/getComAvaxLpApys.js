@@ -26,11 +26,13 @@ const getComAvaxApys = async () => {
   let apyBreakdowns = {};
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(
-    complusAvaxClient,
-    pairAddresses,
-    liquidityProviderFee
-  );
+  const tradingAprs = {};
+  // graph.avagraph.live is down
+  // const tradingAprs = await getTradingFeeApr(
+  //   complusAvaxClient,
+  //   pairAddresses,
+  //   liquidityProviderFee
+  // );
 
   const allPools = [...pools];
 

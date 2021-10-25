@@ -15,6 +15,12 @@ const {
 
   FANTOM_CHAIN_ID,
   FANTOM_VAULTS_ENDPOINT,
+
+  ONE_CHAIN_ID,
+  ONE_VAULTS_ENDPOINT,
+
+  ARBITRUM_CHAIN_ID,
+  ARBITRUM_VAULTS_ENDPOINT,
 } = require('../../constants');
 
 const INIT_DELAY = 40 * 1000;
@@ -42,6 +48,14 @@ const chains = [
   {
     chainId: AVAX_CHAIN_ID,
     vaultsEndpoint: AVAX_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: ONE_CHAIN_ID,
+    vaultsEndpoint: ONE_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: ARBITRUM_CHAIN_ID,
+    vaultsEndpoint: ARBITRUM_VAULTS_ENDPOINT,
   },
 ];
 

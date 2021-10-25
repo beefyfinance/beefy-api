@@ -1,6 +1,5 @@
 const get1inchLpApys = require('./1inch/get1inchLpApys');
 const get1inchApy = require('./1inch/get1inchApy');
-const getAlpacaLpApys = require('./alpaca/getAlpacaLpApys');
 const getAlpacaApys = require('./alpaca/getAlpacaApys');
 const getAutoApys = require('./auto/getAutoApys');
 const getBakePoolApy = require('./bakery/getBakePoolApy');
@@ -34,19 +33,28 @@ const getMdexMdxApy = require('./mdex/getMdexMdxApy');
 const getGrandLpApys = require('./grand/getGrandLpApys');
 const getWaultLpApys = require('./wault/getWaultLpApys');
 const getTenfiApys = require('./tenfi/getTenfiApys');
+const getTosdisLpApys = require('./tosdis/getTosdisLpApys');
+const getYelApys = require('./yel/getYelApys');
 const getCakeV2PoolApy = require('./pancake/getCakeV2PoolApy');
 const getMerlinRewardsApy = require('./merlin/getMerlinRewardsApy');
+const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
+const getOOELpApys = require('./ooe/getOOELpApys');
+const { getFarmheroApys } = require('./farmhero/getFarmheroApys');
+const getOmnifarmApys = require('./omnifarm/getOmnifarmApys');
+const getElkApys = require('./elk/getElkApys');
+const getBifiMaxiV2Apy = require('./beefy/getBifiMaxiV2Apy');
 
 const getApys = [
   get1inchLpApys,
   get1inchApy,
-  getAlpacaLpApys,
   getAlpacaApys,
   getAutoApys,
   getBakePoolApy,
   getBakeryLpApys,
   getBeltApys,
   getBhcPoolApy,
+  getBifiMaxiApy,
+  getBifiMaxiV2Apy,
   getBtdLpApys,
   getBtsLpApys,
   getBunnyRewardsApy,
@@ -56,9 +64,11 @@ const getApys = [
   getCakeV2PoolApy,
   getComBscApys,
   getDegensLpApys,
-  getDoppleApys,
+  // getDoppleApys,
+  getElkApys,
   getEllipsisLpApys,
   getEllipsisSingleAssetApy,
+  getFarmheroApys,
   getFortressApys,
   getGrandLpApys,
   getIcarusApys,
@@ -70,12 +80,16 @@ const getApys = [
   getMdexMdxApy,
   getMerlinRewardsApy,
   getNarLpApys,
+  getOmnifarmApys,
+  getOOELpApys,
   getSpongeLpApys,
   getSpongePoolApy,
   getSwipeLpApys,
   getTenfiApys,
+  getTosdisLpApys,
   getVenusApys,
   getWaultLpApys,
+  getYelApys,
 ];
 // ^^ APYs are sorted alphabetically
 

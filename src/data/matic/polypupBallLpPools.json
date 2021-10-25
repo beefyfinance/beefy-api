@@ -1,0 +1,40 @@
+[
+  {
+    "name": "polypup-ball-usdc-ball",
+    "address": "0x0097692463fD591aEf388851FE2d756505f498AC",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x883aBe4168705d2e5dA925d28538B7a6AA9d8419",
+      "oracle": "tokens",
+      "oracleId": "BALL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "polypup-ball-wmatic-ball",
+    "address": "0xe11eb426206960e9533828031cDFED0B4B61749C",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x883aBe4168705d2e5dA925d28538B7a6AA9d8419",
+      "oracle": "tokens",
+      "oracleId": "BALL",
+      "decimals": "1e18"
+    }
+  }
+]

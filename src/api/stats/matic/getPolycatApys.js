@@ -1,9 +1,11 @@
-const getMasterChefApys = require('./getMaticMasterChefApys');
+const { getMasterChefApys } = require('./getMaticMasterChefApys');
 
+const { DFYN_LPF, QUICK_LPF, SUSHI_LPF } = require('../../../constants');
 const MasterChefAbi = require('../../../abis/matic/PolycatMasterChef.json');
 const sushiPools = require('../../../data/matic/polycatSushiLpPool.json');
 const quickPools = require('../../../data/matic/polycatQuickLpPool.json');
-const { sushiClient, quickClient } = require('../../../apollo/client');
+const dfynPools = require('../../../data/matic/polycatDfynLpPool.json');
+const { sushiClient, quickClient, dfynClient } = require('../../../apollo/client');
 
 const getPolycatApys = async () => {
   const sushi = getMasterChefApys({
@@ -17,7 +19,7 @@ const getPolycatApys = async () => {
     decimals: '1e18',
     // log: true,
     tradingFeeInfoClient: sushiClient,
-    liquidityProviderFee: 0.0025,
+    liquidityProviderFee: SUSHI_LPF,
   });
 
   const single = getMasterChefApys({
@@ -52,13 +54,27 @@ const getPolycatApys = async () => {
     decimals: '1e18',
     // log: true,
     tradingFeeInfoClient: quickClient,
-    liquidityProviderFee: 0.003,
+    liquidityProviderFee: QUICK_LPF,
+  });
+
+  const dfyn = getMasterChefApys({
+    masterchef: '0x8CFD1B9B7478E7B0422916B72d1DB6A9D513D734',
+    masterchefAbi: MasterChefAbi,
+    tokenPerBlock: 'fishPerBlock',
+    hasMultiplier: false,
+    pools: dfynPools,
+    oracleId: 'FISH',
+    oracle: 'tokens',
+    decimals: '1e18',
+    // log: true,
+    tradingFeeInfoClient: dfynClient,
+    liquidityProviderFee: DFYN_LPF,
   });
 
   let apys = {};
   let apyBreakdowns = {};
 
-  let promises = [sushi, quick, single];
+  let promises = [sushi, quick, dfyn, single];
   const results = await Promise.allSettled(promises);
 
   for (const result of results) {

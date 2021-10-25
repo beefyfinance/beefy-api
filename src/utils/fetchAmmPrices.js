@@ -3,14 +3,19 @@ const { ethers } = require('ethers');
 const { MULTICHAIN_RPC } = require('../constants');
 
 const MULTICALLS = {
-  56: '0x0943afe23cb43BD15aC2d58bACa34Eb570BFC278',
+  56: '0xbcf79F67c2d93AD5fd1b919ac4F5613c493ca34F',
   128: '0x6066F766f47aC8dbf6F21aDF2493316A8ACB7e34',
   137: '0xB784bd129a3bA16650Af7BBbcAa4c59D7e60057C',
   250: '0xd9F2Da642FAA1307e4F70a5E3aC31b9bfe920eAF',
   43114: '0xF7d6f0418d37B7Ec8D207fF0d10897C2a3F92Ed5',
+  1666600000: '0xa9E6E271b27b20F65394914f8784B3B860dBd259',
+  42161: '0x405EE7F4f067604b787346bC22ACb66b06b15A4B',
+  42220: '0xE99c8A590c98c7Ae9FB3B7ecbC115D2eBD533B50',
 };
 
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
+const ERC20 = require('../abis/common/ERC20/ERC20.json');
+const IBalancerVault = require('../abis/IBalancerVault');
 const BATCH_SIZE = 128;
 
 const sortByKeys = o => {
@@ -80,6 +85,26 @@ const fetchAmmPrices = async (pools, knownPrices) => {
       if (oneInch) {
         const balance = await provider.getBalance(oneInch.address);
         oneInch.lp0.balance = new BigNumber(balance.toString());
+      }
+      const peraBnb = filtered.filter(p => p.name === 'pera-pera-bnb')[0];
+      if (peraBnb) {
+        const pera = new ethers.Contract(peraBnb.lp0.address, ERC20, provider);
+        const balance = await pera.balanceOf(peraBnb.address);
+        peraBnb.lp0.balance = new BigNumber(balance.toString());
+      }
+    }
+
+    if (chain == '250') {
+      const beets = filtered.filter(p => p.name === 'beets-fidelio-duetto')[0];
+      if (beets) {
+        const beetVault = new ethers.Contract(beets.vault, IBalancerVault, provider);
+        const balance = await beetVault.getPoolTokens(beets.vaultPoolId);
+        beets.lp0.balance = new BigNumber(balance.balances[0].toString()).times(
+          100 - beets.lp0.split
+        );
+        beets.lp1.balance = new BigNumber(balance.balances[1].toString()).times(
+          100 - beets.lp1.split
+        );
       }
     }
 

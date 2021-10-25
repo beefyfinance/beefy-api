@@ -44,22 +44,18 @@ const getAaveApys = async () => {
 const getPoolApy = async pool => {
   const { supplyBase, supplyMatic, borrowBase, borrowMatic } = await getAavePoolData(pool);
 
-  const {
-    leveragedSupplyBase,
-    leveragedBorrowBase,
-    leveragedSupplyMatic,
-    leveragedBorrowMatic,
-  } = getLeveragedApys(
-    supplyBase,
-    borrowBase,
-    supplyMatic,
-    borrowMatic,
-    pool.borrowDepth,
-    pool.borrowPercent
-  );
+  const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyMatic, leveragedBorrowMatic } =
+    getLeveragedApys(
+      supplyBase,
+      borrowBase,
+      supplyMatic,
+      borrowMatic,
+      pool.borrowDepth,
+      pool.borrowPercent
+    );
 
   let totalMatic = leveragedSupplyMatic.plus(leveragedBorrowMatic);
-  let compoundedMatic = compound(totalMatic, BASE_HPY, 0.955);
+  let compoundedMatic = compound(totalMatic, BASE_HPY, 1, 0.955);
   let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedMatic).toNumber();
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyMatic.valueOf(), borrowMatic.valueOf());
   return { [pool.name]: apy };
@@ -104,7 +100,6 @@ const getMaticPerYear = async pool => {
   const borrowMaticRate = new BigNumber(res.emissionPerSecond);
 
   const maticPrice = await fetchPrice({ oracle: 'tokens', id: 'WMATIC' });
-  // const maticPrice = 1.54
   const supplyMaticInUsd = supplyMaticRate.times(secondsPerYear).div('1e18').times(maticPrice);
   const borrowMaticInUsd = borrowMaticRate.times(secondsPerYear).div('1e18').times(maticPrice);
 

@@ -25,6 +25,21 @@ const getIronSingleApys = require('./getIronSingleApys');
 const getDumplingApys = require('./getDumplingApys');
 const getPantherApys = require('./getPantherApys');
 const getMemeFarmApys = require('./getMemeFarmLpApys');
+const getKingdefiApys = require('./getKingdefiApys');
+const getRabbitFinanceApys = require('./getRabbitFinanceApys');
+const getFruitApys = require('./getFruitApys');
+const getPeraApys = require('./getPeraApys');
+const getStableQuantApys = require('./getStableQuantApys');
+const getHoneyFarmApys = require('./getHoneyFarmApys');
+const getViralataApys = require('./getViralataApys');
+const getLongApys = require('./getLongApys');
+const getPearzapApys = require('./getPearzapApys');
+const getCZFApys = require('./getCZFApys');
+const getAnnexApys = require('./getAnnexApys');
+const getPacocaApys = require('./getPacocaApys');
+const getSingularApys = require('./getSingularApys');
+const getCafeLpApys = require('./getCafeLpApys');
+const getBabyApys = require('./getBabyApys');
 
 const getApys = [
   getRamenLpApys,
@@ -54,6 +69,21 @@ const getApys = [
   getDumplingApys,
   getPantherApys,
   getMemeFarmApys,
+  getKingdefiApys,
+  getRabbitFinanceApys,
+  getFruitApys,
+  getPeraApys,
+  getStableQuantApys,
+  getHoneyFarmApys,
+  getViralataApys,
+  getLongApys,
+  getCZFApys,
+  getPearzapApys,
+  getAnnexApys,
+  getPacocaApys,
+  getSingularApys,
+  getCafeLpApys,
+  getBabyApys,
 ];
 
 const getDegensLpApys = async () => {

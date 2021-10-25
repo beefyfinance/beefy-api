@@ -1,21 +1,5 @@
 [
   {
-    "name": "belt-beltbnb",
-    "poolId": 338
-  },
-  {
-    "name": "belt-beltbtc",
-    "poolId": 339
-  },
-  {
-    "name": "belt-belteth",
-    "poolId": 340
-  },
-  {
-    "name": "belt-4belt",
-    "poolId": 341
-  },
-  {
     "name": "auto-ada-v2",
     "poolId": 94
   },

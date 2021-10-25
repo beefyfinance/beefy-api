@@ -1,5 +1,518 @@
 [
   {
+    "name": "banana-wbnb-dep",
+    "address": "0x6518709dC42F70Dbf89934cA382F1d9dB26370e8",
+    "decimals": "1e18",
+    "poolId": 120,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcaF5191fc480F43e4DF80106c7695ECA56E48B18",
+      "oracle": "tokens",
+      "oracleId": "DEP",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-wbnb-ceek",
+    "address": "0x119D6Ebe840966c9Cf4fF6603E76208d30BA2179",
+    "decimals": "1e18",
+    "poolId": 117,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe0F94Ac5462997D2BC57287Ac3a3aE4C31345D66",
+      "oracle": "tokens",
+      "oracleId": "CEEK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-nfty-wbnb",
+    "address": "0x884BE30e2c95b9cFed614aD2B5Edf40AF2A144ad",
+    "decimals": "1e18",
+    "poolId": 132,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x5774B2fc3e91aF89f89141EacF76545e74265982",
+      "oracle": "tokens",
+      "oracleId": "NFTY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-ong-bnb",
+    "address": "0xe569fDBE1EA6B7e49c3fB3AD7Fe3758CA701e90f",
+    "decimals": "1e18",
+    "poolId": 119,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x308bfaeAaC8BDab6e9Fc5Ead8EdCb5f95b0599d9",
+      "oracle": "tokens",
+      "oracleId": "ONG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-bhc-bnb",
+    "address": "0x59B2A38F67e312D312121614d1Daa7ad8c5773fC",
+    "decimals": "1e18",
+    "poolId": 103,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x6fd7c98458a943f469E1Cf4eA85B173f5Cd342F4",
+      "oracle": "tokens",
+      "oracleId": "BHC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-caps-bnb",
+    "address": "0x6Dfbf17ac70CE03388B1f88cb3C97AD79120e7b1",
+    "decimals": "1e18",
+    "poolId": 93,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFfBa7529AC181c2Ee1844548e6D7061c9A597dF4",
+      "oracle": "tokens",
+      "oracleId": "CAPS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-hotcross-busd",
+    "address": "0x3B9Aa711D1D90A4f8639f66C227881729a3317F2",
+    "decimals": "1e18",
+    "poolId": 105,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x4FA7163E153419E0E1064e418dd7A99314Ed27b6",
+      "oracle": "tokens",
+      "oracleId": "HOTCROSS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-busd-bnb",
+    "address": "0x51e6D27FA57373d8d4C256231241053a70Cb1d93",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-eth-bnb",
+    "address": "0xA0C3Ef24414ED9C9B456740128d8E63D016A9e11",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-sxp-bnb",
+    "address": "0xF726b3e81FA7166B9C2cFd7eB7fe8CcBcb6B1355",
+    "decimals": "1e18",
+    "poolId": 35,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x47BEAd2563dCBf3bF2c9407fEa4dC236fAbA485A",
+      "oracle": "tokens",
+      "oracleId": "SXP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-bake-bnb",
+    "address": "0xc1C7a1D33B34019F82808F64bA07e77512a13d1A",
+    "decimals": "1e18",
+    "poolId": 26,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5",
+      "oracle": "tokens",
+      "oracleId": "BAKE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-cake-bnb",
+    "address": "0x60593Abea55e9Ea9d31c1b6473191cD2475a720D",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "tokens",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-btcb-bnb",
+    "address": "0x1E1aFE9D9c5f290d8F6996dDB190bd111908A43D",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-cyt-bnb",
+    "address": "0x5a55Fce6F6aCB2B1b20514964301Db4f37028C81",
+    "decimals": "1e18",
+    "poolId": 104,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9025e25Bb6cF39f8c926A704039D2DD51088063",
+      "oracle": "tokens",
+      "oracleId": "CYT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-land-bnb",
+    "address": "0xB15f34082Baa4E3515A49E05D4d1D40cE933da0b",
+    "decimals": "1e18",
+    "poolId": 100,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9D986A3f147212327Dd658F712d5264a73a1fdB0",
+      "oracle": "tokens",
+      "oracleId": "LAND",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-guard-bnb",
+    "address": "0xDd2B5E024942F9a83255F41144db5648b71f01c4",
+    "decimals": "1e18",
+    "poolId": 99,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF606bd19b1E61574ED625d9ea96C841D4E247A32",
+      "oracle": "tokens",
+      "oracleId": "gGUARD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-pots-bnb",
+    "address": "0xaa3FCBA2cf7c5f8c8f785A7180F5063144fE53c6",
+    "decimals": "1e18",
+    "poolId": 101,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3Fcca8648651E5b974DD6d3e50F61567779772A8",
+      "oracle": "tokens",
+      "oracleId": "POTS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-tape-bnb",
+    "address": "0x756d4406169273d99aAc8366cf5eAf7865d6a9b9",
+    "decimals": "1e18",
+    "poolId": 58,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF63400ee0420ce5b1Ebdee0C942D7dE1C734a41f",
+      "oracle": "tokens",
+      "oracleId": "TAPE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-bnb-sista",
+    "address": "0x45546310FDA2fbDB7Ee26EA0A5b6F82D075254bC",
+    "decimals": "1e18",
+    "poolId": 92,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCA6d25C10dad43ae8Be0bc2af4D3CD1114583C08",
+      "oracle": "tokens",
+      "oracleId": "SISTA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-axs-bnb",
+    "address": "0x8b85A4228400fa9b2fB5bD47dB8f05b7f8Bb7F5c",
+    "decimals": "1e18",
+    "poolId": 95,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x715D400F88C167884bbCc41C5FeA407ed4D2f8A0",
+      "oracle": "tokens",
+      "oracleId": "AXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-fruit-bnb",
+    "address": "0x0bE55fd1Fdc7134Ff8412e8BAaC63CBb691B1d64",
+    "decimals": "1e18",
+    "poolId": 80,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x4ECfb95896660aa7F54003e967E7b283441a2b0A",
+      "oracle": "tokens",
+      "oracleId": "FRUIT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-bnb-stars",
+    "address": "0xBc8a4caD743d87e8754Fd5F704C62E378802CBfF",
+    "decimals": "1e18",
+    "poolId": 91,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbD83010eB60F12112908774998F65761cf9f6f9a",
+      "oracle": "tokens",
+      "oracleId": "STARS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-yfi-bnb",
+    "address": "0xA3421Bd2B3B1578FF43Ab95C10f667e5A3bbCeF7",
+    "decimals": "1e18",
+    "poolId": 90,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x88f1A5ae2A3BF98AEAF342D26B30a79438c9142e",
+      "oracle": "tokens",
+      "oracleId": "YFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-twt-bnb",
+    "address": "0x4c48D692e3de076C7b844B956b28cdd1DD5C0945",
+    "decimals": "1e18",
+    "poolId": 84,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x4B0F1812e5Df2A09796481Ff14017e6005508003",
+      "oracle": "tokens",
+      "oracleId": "TWT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-xvs-bnb",
+    "address": "0x9e199da6f87E09a290724EbA866eEdae2e971A0b",
+    "decimals": "1e18",
+    "poolId": 86,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63",
+      "oracle": "tokens",
+      "oracleId": "XVS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-eps-bnb",
+    "address": "0x97c4C531e739E870d958940E8688017894084003",
+    "decimals": "1e18",
+    "poolId": 85,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xA7f552078dcC247C2684336020c03648500C6d9F",
+      "oracle": "tokens",
+      "oracleId": "EPS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-sfp-bnb",
+    "address": "0x6411A2240c8cD1dd48718eEE1ae4a10E71123Fd3",
+    "decimals": "1e18",
+    "poolId": 83,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xD41FDb03Ba84762dD66a0af1a6C8540FF1ba5dfb",
+      "oracle": "tokens",
+      "oracleId": "SFP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-ata-bnb",
     "address": "0x51DA890085da091b84e27c7A8234E371943b0af0",
     "decimals": "1e18",

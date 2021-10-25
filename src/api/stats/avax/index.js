@@ -1,17 +1,31 @@
 const getLydLpApys = require('./getLydLpApys');
-const getOliveLpApys = require('./getOliveLpApys');
+const getOliveApys = require('./getOliveApys');
 const getPangolinApys = require('./getPangolinLpApys');
 const getSnobLpApys = require('./getSnobLpApys');
 const getGondolaLpApys = require('./getGondolaLpApys');
 const getComAvaxApys = require('./getComAvaxLpApys');
+const getAvaxBifiMaxiApy = require('./getAvaxBifiMaxiApy');
+const getJoeApys = require('./getJoeLpApys');
+const getJoeApy = require('./getJoeApy');
+const getPangolinPNGApy = require('./getPangolinPNGApy');
+const getCurveApys = require('./getCurveApys');
+const { getAaveApys } = require('./getAaveApys');
+const getSingularApys = require('./getSingularApys');
 
 const getApys = [
   getComAvaxApys,
   getLydLpApys,
   getPangolinApys,
   getSnobLpApys,
-  getOliveLpApys,
+  getOliveApys,
   getGondolaLpApys,
+  getAvaxBifiMaxiApy,
+  getJoeApys,
+  getJoeApy,
+  getPangolinPNGApy,
+  getCurveApys,
+  getAaveApys,
+  getSingularApys,
 ];
 
 const getAvaxApys = async () => {

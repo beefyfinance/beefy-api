@@ -7,7 +7,12 @@ const VaultPool = require('../../../../abis/BeltVaultPool.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/beltPools.json');
 const { compound } = require('../../../../utils/compound');
-const { BSC_CHAIN_ID } = require('../../../../constants');
+const {
+  BSC_CHAIN_ID,
+  BASE_HPY,
+  BEEFY_PERFORMANCE_FEE,
+  SHARE_AFTER_PERFORMANCE_FEE,
+} = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 
 const masterbelt = '0xD4BbC80b9B102b77B21A06cb77E954049605E6c1';
@@ -17,16 +22,21 @@ const DECIMALS = '1e18';
 
 const getBeltApys = async () => {
   let apys = {};
+  let apyBreakdowns = {};
 
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(masterbelt, pool)));
   const values = await Promise.all(promises);
 
   for (let item of values) {
-    apys = { ...apys, ...item };
+    apys = { ...apys, ...item.apy };
+    apyBreakdowns = { ...apyBreakdowns, ...item.apyBreakdown };
   }
 
-  return apys;
+  return {
+    apys,
+    apyBreakdowns,
+  };
 };
 
 const getPoolApy = async (masterchef, pool) => {
@@ -36,16 +46,30 @@ const getPoolApy = async (masterchef, pool) => {
   ]);
   let simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const baseApy = await fetchBeltLpBaseApr(pool);
-  const apy = compound(baseApy + simpleApy * 0.955, process.env.BASE_HPY, 1);
+  const apy = compound(baseApy + simpleApy * 0.955, BASE_HPY, 1, 1);
   // console.log(pool.name, baseApy.valueOf(), simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-  return { [pool.name]: apy };
+
+  const apyBreakdown = {
+    vaultApr: simpleApy.toNumber(),
+    compoundingsPerYear: BASE_HPY,
+    beefyPerformanceFee: BEEFY_PERFORMANCE_FEE,
+    vaultApy: compound(simpleApy, BASE_HPY, 1, SHARE_AFTER_PERFORMANCE_FEE),
+    lpFee: 0.001,
+    tradingApr: baseApy,
+    totalApy: compound(baseApy + simpleApy * 0.955, BASE_HPY, 1, 1),
+  };
+
+  return {
+    apy: { [pool.name]: apy },
+    apyBreakdown: { [pool.name]: apyBreakdown },
+  };
 };
 
 const fetchBeltLpBaseApr = async pool => {
-  if (pool.poolId !== 3) return 0;
+  if (pool.poolId === 11) return 0;
   try {
-    const response = await axios.get('https://s.belt.fi/status/A_getMainInfo.json');
-    const data = response.data.vaultPools.filter(p => Number(p.pid) === pool.poolId)[0];
+    const response = await axios.get('https://s.belt.fi/info/all.json');
+    const data = response.data.info.BSC.vaultPools.filter(p => Number(p.pid) === pool.poolId)[0];
     const baseApr = Number(data.baseAPR) / 100;
     const feeApr = Number(data.feeAPR) / 100;
     return baseApr + feeApr;
