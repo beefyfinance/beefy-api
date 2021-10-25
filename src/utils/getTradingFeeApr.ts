@@ -48,7 +48,7 @@ export const getTradingFeeApr = async (
         .dividedBy(pairDayData.reserveUSD);
     }
   } catch (e) {
-    console.error(e);
+    console.error('> getTradingFeeApr error', pairAddresses[0]);
   }
 
   return pairAddressToAprMap;
@@ -91,7 +91,7 @@ export const getTradingFeeAprSushi = async (
       }
     }
   } catch (e) {
-    console.error(e);
+    console.error('> getTradingFeeAprSushi error', pairAddresses[0]);
   }
 
   return pairAddressToAprMap;
@@ -104,7 +104,7 @@ export const getTradingFeeAprBalancer = async (
 ) => {
   const blockTime = await getBlockTime(250);
   const currentBlock = await getBlockNumber(250);
-  const pastBlock = Math.floor(currentBlock - (86400 / blockTime));
+  const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
   const pairAddressesToAprMap: Record<string, BigNumber> = {};
 
   try {
@@ -121,14 +121,16 @@ export const getTradingFeeAprBalancer = async (
 
     for (const pool of poolDayDatas0) {
       const pair = pool.address.toLowerCase();
-      const pastPool = poolDayDatas1.filter(p => {return p.address === pool.address})[0];
+      const pastPool = poolDayDatas1.filter(p => {
+        return p.address === pool.address;
+      })[0];
       pairAddressesToAprMap[pair] = new BigNumber(pool.totalSwapFee)
         .minus(pastPool.totalSwapFee)
         .times(365)
         .dividedBy(pool.totalLiquidity);
     }
   } catch (e) {
-    console.error(e);
+    console.error('> getTradingFeeAprBalancer error', pairAddresses[0]);
   }
 
   return pairAddressesToAprMap;
@@ -148,7 +150,6 @@ export const getVariableTradingFeeApr = async (
     }: { data: { pairDayDatas: PairDayData[] } } = await client.query({
       query: pairDayDataQuery(addressesToLowercase(pairAddresses), start, end),
     });
-;
     let i = 0;
     for (const pairDayData of pairDayDatas) {
       const pairAddress = pairDayData.id.split('-')[0].toLowerCase();
@@ -159,7 +160,7 @@ export const getVariableTradingFeeApr = async (
       i++;
     }
   } catch (e) {
-    console.error(e);
+    console.error('> getVariableTradingFeeApr error', pairAddresses[0]);
   }
 
   return pairAddressToAprMap;
@@ -190,7 +191,7 @@ export const getYearlyPlatformTradingFees = async (
 
     yearlyTradingFeesUsd = dailyVolumeUSD.times(liquidityProviderFee).times(365);
   } catch (e) {
-    console.error(e);
+    console.error('> getYearlyPlatformTradingFees error');
   }
 
   return yearlyTradingFeesUsd;
@@ -210,7 +211,7 @@ export const getYearlyJoePlatformTradingFees = async (
 
     yearlyTradingFeesUsd = dailyVolumeUSD.times(liquidityProviderFee).times(365);
   } catch (e) {
-    console.error(e);
+    console.error('> getYearlyJoePlatformTradingFees error');
   }
 
   return yearlyTradingFeesUsd;
