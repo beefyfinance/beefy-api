@@ -4,7 +4,7 @@ API that powers [Beefy Finance](https://app.beefy.finance). You can find the rep
 
 ---
 
-## To Run.
+## To Run
 
 Optional enviroment vars:
 
