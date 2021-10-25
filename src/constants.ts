@@ -88,8 +88,8 @@ const ONE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/harmony_pools.js';
 const ARBITRUM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/arbitrum_pools.js';
-//const CELO_VAULTS_ENDPOINT =
-//'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/celo_pools.js';
+const CELO_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/celo_pools.js';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -99,7 +99,7 @@ const MULTICHAIN_ENDPOINTS = {
   fantom: FANTOM_VAULTS_ENDPOINT,
   one: ONE_VAULTS_ENDPOINT,
   arbitrum: ARBITRUM_VAULTS_ENDPOINT,
-  //  celo: CELO_VAULTS_ENDPOINT,
+  celo: CELO_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
@@ -133,7 +133,7 @@ export {
   ARBITRUM_VAULTS_ENDPOINT,
   CELO_RPC,
   CELO_CHAIN_ID,
-  // CELO_VAULTS_ENDPOINT,
+  CELO_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
