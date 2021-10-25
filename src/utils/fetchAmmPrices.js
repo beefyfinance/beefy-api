@@ -15,7 +15,6 @@ const MULTICALLS = {
 
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
 const ERC20 = require('../abis/common/ERC20/ERC20.json');
-const IBalancerVault = require('../abis/IBalancerVault');
 const BATCH_SIZE = 128;
 
 const sortByKeys = o => {
@@ -90,20 +89,6 @@ const fetchAmmPrices = async (pools, knownPrices) => {
       if (oneInch) {
         const balance = await provider.getBalance(oneInch.address);
         oneInch.lp0.balance = new BigNumber(balance.toString());
-      }
-    }
-
-    if (chain == '250') {
-      const beets = filtered.filter(p => p.name === 'beets-fidelio-duetto')[0];
-      if (beets) {
-        const beetVault = new ethers.Contract(beets.vault, IBalancerVault, provider);
-        const balance = await beetVault.getPoolTokens(beets.vaultPoolId);
-        beets.lp0.balance = new BigNumber(balance.balances[0].toString()).times(
-          100 - beets.lp0.split
-        );
-        beets.lp1.balance = new BigNumber(balance.balances[1].toString()).times(
-          100 - beets.lp1.split
-        );
       }
     }
 
