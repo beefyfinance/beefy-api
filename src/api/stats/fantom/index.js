@@ -16,6 +16,7 @@ const getSpellApys = require('./getSpellApys');
 const getSingularApys = require('./getSingularApys');
 const getPearzapApys = require('./getPearzapApys');
 const getBeethovenxApys = require('./getBeethovenxApys');
+const getSummitApys = require('./getSummitApys');
 
 const getApys = [
   getSpookyLpApys,
@@ -36,6 +37,7 @@ const getApys = [
   getSingularApys,
   getPearzapApys,
   getBeethovenxApys,
+  getSummitApys,
 ];
 
 const getFantomApys = async () => {
