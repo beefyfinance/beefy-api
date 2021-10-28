@@ -293,7 +293,7 @@
     "lp0": {
       "address": "0x130966628846BFd36ff31a822705796e8cb8C18D",
       "oracle": "tokens",
-      "oracleId": "MIM",
+      "oracleId": "aMIM",
       "decimals": "1e18"
     },
     "lp1": {
