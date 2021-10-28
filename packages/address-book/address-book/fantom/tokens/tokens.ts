@@ -743,6 +743,28 @@ const _tokens = {
       'wMEMO is a wrapped version of MEMO. MEMO (Memories) is the reciept of staked TIME.',
     logoURI: 'https://app.spiritswap.finance/images/tokens/WMEMO.png',
   },
+  DOLA: {
+    name: 'DOLA USD',
+    symbol: 'DOLA',
+    address: '0x3129662808bEC728a27Ab6a6b9AFd3cBacA8A43c',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
+  },
+  INV: {
+    name: 'Inverse Finance',
+    symbol: 'INV',
+    address: '0xb84527D59b6Ecb96F433029ECc890D4492C5dCe1',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
