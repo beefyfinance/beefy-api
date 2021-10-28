@@ -10,7 +10,6 @@ const oracle = 'tokens';
 const oracleId = 'POTS';
 
 const DECIMALS = '1e18';
-const BLOCKS_PER_DAY = 28800;
 
 const rewards = '0xcF4C1D926547a491204C3C9BD52F282EdE0539E5';
 
@@ -39,7 +38,8 @@ const getYearlyRewardsInUsd = async () => {
 
   const rewardPool = new web3.eth.Contract(IRewardPool, rewards);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
-  const yearlyRewards = rewardRate.times(BLOCKS_PER_DAY).times(365);
+  const secondsPerYear = 31536000;
+  const yearlyRewards = rewardRate.times(secondsPerYear);
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
   return yearlyRewardsInUsd;
