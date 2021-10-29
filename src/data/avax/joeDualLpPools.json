@@ -22,7 +22,7 @@
     "name": "joe-wavax-spell",
     "address": "0x62cf16BF2BC053E7102E2AC1DEE5029b94008d99",
     "decimals": "1e18",
-    "poolId": 48,
+    "poolId": 3,
     "chainId": 43114,
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",

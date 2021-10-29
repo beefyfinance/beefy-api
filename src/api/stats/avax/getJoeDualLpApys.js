@@ -6,7 +6,7 @@ const MasterChef = require('../../../abis/avax/MasterChefJoeV3.json');
 const SimpleRewarder = require('../../../abis/avax/SimpleRewarderPerSec.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/avax/joeLpPools.json');
+const pools = require('../../../data/avax/joeDualLpPools.json');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeAprSushi } = require('../../../utils/getTradingFeeApr');
 const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
@@ -33,9 +33,8 @@ const getJoeApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  const tokenPriceA = await fetchPrice({ oracleA, id: oracleIdA });
-  const tokenPriceB = await fetchPrice({ oracleB, id: oracleIdB });
-
+  const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
+  const tokenPriceB = await fetchPrice({ oracle: oracleB, id: oracleIdB });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
   const { balances, allocPoints, rewarders } = await getPoolsData(pools);
 
@@ -43,6 +42,8 @@ const getJoeApys = async () => {
   const tradingAprs = await getTradingFeeAprSushi(joeClient, pairAddresses, liquidityProviderFee);
 
   for (let i = 0; i < pools.length; i++) {
+    console.log('joe duals');
+
     const pool = pools[i];
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
@@ -54,9 +55,8 @@ const getJoeApys = async () => {
 
     const rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarders[i]);
 
-    const tokenBPerSec = new BigNumber(await rewarderContract.tokensPerSec().call());
-    const poolBlockRewardsB = tokenBPerSec.times(allocPoints[i]).dividedBy(totalAllocPoint);
-    const yearlyRewardsB = poolBlockRewardsB.dividedBy(secondsPerBlock).times(secondsPerYear);
+    const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerSec().call());
+    const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsBInUsd = yearlyRewardsB.times(tokenPriceB).dividedBy(DECIMALSB).dividedBy(2);
 
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
@@ -120,16 +120,17 @@ const getPoolsData = async pools => {
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });
+    let poolInfo = masterchefContract.methods.poolInfo(pool.poolId);
     poolInfoCalls.push({
-      allocPoint: masterchefContract.methods.poolInfo(pool.poolId),
+      poolInfo: poolInfo,
     });
   });
 
   const res = await multicall.all([balanceCalls, poolInfoCalls]);
 
   const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.allocPoint['1']);
-  const rewarders = res[4].map(v => v.rewarder);
+  const allocPoints = res[1].map(v => v.poolInfo['3']);
+  const rewarders = res[1].map(v => v.poolInfo[4]);
   return { balances, allocPoints, rewarders };
 };
 
