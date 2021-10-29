@@ -1,8 +1,8 @@
 const cowllector = '0xd529b1894491a0a26B18939274ae8ede93E81dbA';
 
 export const beefyfinance = {
-  strategyOwner: '0x6d28afD25a1FBC5409B1BeFFf6AEfEEe2902D89F',
-  vaultOwner: '0x4E2a43a0Bf6480ee8359b7eAE244A9fBe9862Cdf',
+  strategyOwner: '0x37DC61A76113E7840d4A8F1c1B799cC9ac5Aa854',
+  vaultOwner: '0x3Eb7fB70C03eC4AEEC97C6C6C1B59B014600b7F7',
   keeper: '0x10aee6B5594942433e7Fc2783598c979B030eF3D',
   rewarder: cowllector,
   treasurer: '0x3Eb7fB70C03eC4AEEC97C6C6C1B59B014600b7F7',

@@ -1,8 +1,7 @@
-const timelock = '0x8f0fFc8C7FC3157697Bdbf94B328F7141d6B41de';
-
 export const beefyfinance = {
-  strategyOwner: timelock,
-  vaultOwner: timelock,
+  oldTimelock: '0x8f0fFc8C7FC3157697Bdbf94B328F7141d6B41de',
+  strategyOwner: '0x65CF7E8C0d431f59787D07Fa1A9f8725bbC33F7E',
+  vaultOwner: '0xA2E6391486670D2f1519461bcc915E4818aD1c9a',
   keeper: '0x10aee6B5594942433e7Fc2783598c979B030eF3D',
   rewarder: '0xd529b1894491a0a26B18939274ae8ede93E81dbA',
   treasurer: '0x7C780b8A63eE9B7d0F985E8a922Be38a1F7B2141',
