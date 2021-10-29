@@ -1,6 +1,7 @@
 `use strict`;
 
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
+import { fetchMooPrices } from '../../utils/fetchMooPrices';
 
 import getNonAmmPrices from './getNonAmmPrices';
 import bakeryPools from '../../data/bakeryLpPools.json';
@@ -92,6 +93,7 @@ import tenfiPools from '../../data/tenfiLpPools.json';
 import burgerPools from '../../data/burgerLpPools.json';
 import tombPools from '../../data/fantom/tombLpPools.json';
 import spiritPools from '../../data/fantom/spiritPools.json';
+import spiritGauges from '../../data/fantom/spiritGauges.json';
 import wexPolyPools from '../../data/matic/wexPolyLpPools.json';
 import icarusV2Pools from '../../data/icarusV2LpPools.json';
 import merlinPools from '../../data/merlinLpPools.json';
@@ -145,9 +147,26 @@ import sushiMimPools from '../../data/arbitrum/sushiLpMimPools.json';
 import polyalphaPools from '../../data/matic/polyalphaLpPools.json';
 import annexPools from '../../data/degens/annexLpPools.json';
 import polywisePools from '../../data/matic/polywiseLpPools.json';
+import polySagePools from '../../data/matic/polysageLpPools.json';
 import pacocaPools from '../../data/degens/pacocaLpPools.json';
 import jetswapFantomPools from '../../data/fantom/jetswapLpPools.json';
 import tetuPools from '../../data/matic/tetuLpPools.json';
+import geistPools from '../../data/fantom/geistLpPools.json';
+import singularPolyPools from '../../data/matic/singularLpPools.json';
+import singularBscPools from '../../data/degens/singularLpPools.json';
+import singularAvaxPools from '../../data/avax/singularLpPools.json';
+import singularFantomPools from '../../data/fantom/singularLpPools.json';
+import cafeBscPools from '../../data/degens/cafeLpPools.json';
+import cafePolyPools from '../../data/matic/cafeLpPools.json';
+import oldPools from '../../data/archive/oldLpPools.json';
+import kyberPools from '../../data/matic/kyberLpPools.json';
+import babyPools from '../../data/degens/babyLpPools.json';
+import quickDualLpPools from '../../data/matic/quickDualLpPools.json';
+import pearzapFantomPools from '../../data/fantom/pearzapLpPools.json';
+import sushiCeloPools from '../../data/celo/sushiLpPools.json';
+import mooTokens from '../../data/mooTokens.json';
+import wsgPools from '../../data/degens/wsgLpPools.json';
+import summitPools from '../../data/fantom/summitLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -155,9 +174,25 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...summitPools,
+  ...wsgPools,
+  ...pearzapFantomPools,
+  ...sushiCeloPools,
+  ...quickDualLpPools,
+  ...kyberPools,
+  ...babyPools,
+  ...cafePolyPools,
+  ...cafeBscPools,
+  ...oldPools,
+  ...geistPools,
+  ...singularPolyPools,
+  ...singularBscPools,
+  ...singularAvaxPools,
+  ...singularFantomPools,
   ...jetswapFantomPools,
   ...tetuPools,
   ...polywisePools,
+  ...polySagePools,
   ...pacocaPools,
   ...annexPools,
   ...sushiMimPools,
@@ -212,6 +247,7 @@ const pools = [
   ...merlinPools,
   ...icarusV2Pools,
   ...spiritPools,
+  ...spiritGauges,
   ...wexPolyPools,
   ...tombPools,
   ...burgerPools,
@@ -310,6 +346,7 @@ const knownPrices = {
   USDC: 1,
   UST: 1,
   USDN: 1,
+  cUSD: 1,
 };
 
 let tokenPricesCache: Promise<any>;
@@ -320,10 +357,17 @@ const updateAmmPrices = async () => {
   try {
     const ammPrices = fetchAmmPrices(pools, knownPrices);
 
-    const tokenPrices = ammPrices.then(({ _, tokenPrices }) => tokenPrices);
+    const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+      return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
+    });
 
-    const lpPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
-      const nonAmmPrices = await getNonAmmPrices(tokenPrices);
+    const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
+      const mooTokenPrices = await mooPrices;
+      return { ...tokenPrices, ...mooTokenPrices };
+    });
+
+    const lpPrices = ammPrices.then(async ({ poolPrices, _ }) => {
+      const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
       return { ...poolPrices, ...nonAmmPrices };
     });
 
@@ -366,7 +410,7 @@ export const getAmmLpPrice = async lpName => {
   if (lpPrices.hasOwnProperty(lpName)) {
     return lpPrices[lpName];
   }
-  console.error(`Unknown liqudity pair '${lpName}'. Consider adding it to .json file`);
+  console.error(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
 };
 
 const init =

@@ -6,16 +6,39 @@ import {
   getYearlyRewardsInUsd,
 } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
+import ICurvePool from '../../../abis/ICurvePool.json';
+import fetchPrice from '../../../utils/fetchPrice';
+import axios from 'axios';
+import BigNumber from 'bignumber.js';
 
 const pools = require('../../../data/fantom/curvePools.json');
 const baseApyUrl = 'https://stats.curve.fi/raw-stats-ftm/apys.json';
 const tradingFees = 0.0002;
+let geistRewardApys = {};
 
 const getCurveApys = async () => {
-  const baseApys = await getCurveBaseApys(pools, baseApyUrl);
+  const [baseApys, geistApys] = await Promise.all([
+    getCurveBaseApys(pools, baseApyUrl),
+    getGeistApys(),
+  ]);
+  geistRewardApys = geistApys;
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
+};
+
+const getGeistApys = async () => {
+  let apys = {};
+  try {
+    const response = await axios.get('https://api.geist.finance/api/getApys');
+    const apyData = response.data.data.apyDetails;
+    apyData.forEach(apy => {
+      apys = { ...apys, ...{ [apy.tokenAddress]: apy.apy / 2 } }; // 50% penalty fee
+    });
+  } catch (err) {
+    console.error(err);
+  }
+  return apys;
 };
 
 const getPoolApys = async pools => {
@@ -30,13 +53,47 @@ const getPoolApys = async pools => {
 };
 
 const getPoolApy = async pool => {
-  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
+  if (pool.status === 'eol') return new BigNumber(0);
+  const [yearlyRewardsInUsd, totalStakedInUsd, geistApy] = await Promise.all([
     getYearlyRewardsInUsd(web3, pool),
     getTotalStakedInUsd(web3, pool),
+    getGeistPoolApy(pool),
   ]);
-  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  // console.log(pool.name, simpleApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+  const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const simpleApy = rewardsApy.plus(geistApy);
+  // console.log(pool.name,geistApy.toNumber(),rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
   return simpleApy;
+};
+
+const getGeistPoolApy = async pool => {
+  if (!pool.tokens) return new BigNumber(0);
+  if (!pool.tokens.find(t => t.geistToken !== undefined)) return new BigNumber(0);
+
+  let promises = [];
+  pool.tokens.forEach((token, i) => promises.push(getTokenBalance(pool.pool, token, i)));
+  const results = await Promise.all(promises);
+
+  let totalBalances = new BigNumber(0);
+  results.forEach(r => (totalBalances = totalBalances.plus(r)));
+
+  let totalApy = new BigNumber(0);
+  for (let i = 0; i < pool.tokens.length; i++) {
+    const geistApy = new BigNumber(geistRewardApys[pool.tokens[i].geistToken] || 0);
+    const balance = results[i];
+    totalApy = totalApy.plus(geistApy.times(balance).dividedBy(totalBalances));
+  }
+
+  return totalApy;
+};
+
+const getTokenBalance = async (curvePool, token, index) => {
+  const pool = new web3.eth.Contract(ICurvePool, curvePool);
+  const balance = await pool.methods.balances(index).call();
+  let price = 1;
+  if (token.oracleId) {
+    price = await fetchPrice({ oracle: token.oracle, id: token.oracleId });
+  }
+  return new BigNumber(balance).times(price).dividedBy(token.decimals);
 };
 
 module.exports = getCurveApys;

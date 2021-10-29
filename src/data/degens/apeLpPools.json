@@ -1,5 +1,100 @@
 [
   {
+    "name": "banana-tusd-busd",
+    "address": "0xeDbA62A5d133Fa340e4ef1D58D72F6e773554318",
+    "decimals": "1e18",
+    "poolId": 143,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x14016E85a25aeb13065688cAFB43044C2ef86784",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-fil-wbnb",
+    "address": "0xcAEC8648dbaC41b6504A8E408892931796D67d87",
+    "decimals": "1e18",
+    "poolId": 142,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0D8Ce2A99Bb6e3B7Db580eD848240e4a0F9aE153",
+      "oracle": "tokens",
+      "oracleId": "FIL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-wbnb-dep",
+    "address": "0x6518709dC42F70Dbf89934cA382F1d9dB26370e8",
+    "decimals": "1e18",
+    "poolId": 120,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcaF5191fc480F43e4DF80106c7695ECA56E48B18",
+      "oracle": "tokens",
+      "oracleId": "DEP",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-wbnb-ceek",
+    "address": "0x119D6Ebe840966c9Cf4fF6603E76208d30BA2179",
+    "decimals": "1e18",
+    "poolId": 117,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe0F94Ac5462997D2BC57287Ac3a3aE4C31345D66",
+      "oracle": "tokens",
+      "oracleId": "CEEK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-nfty-wbnb",
+    "address": "0x884BE30e2c95b9cFed614aD2B5Edf40AF2A144ad",
+    "decimals": "1e18",
+    "poolId": 132,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x5774B2fc3e91aF89f89141EacF76545e74265982",
+      "oracle": "tokens",
+      "oracleId": "NFTY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-ong-bnb",
     "address": "0xe569fDBE1EA6B7e49c3fB3AD7Fe3758CA701e90f",
     "decimals": "1e18",

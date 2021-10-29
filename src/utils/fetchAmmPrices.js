@@ -10,6 +10,7 @@ const MULTICALLS = {
   43114: '0xF7d6f0418d37B7Ec8D207fF0d10897C2a3F92Ed5',
   1666600000: '0xa9E6E271b27b20F65394914f8784B3B860dBd259',
   42161: '0x405EE7F4f067604b787346bC22ACb66b06b15A4B',
+  42220: '0xE99c8A590c98c7Ae9FB3B7ecbC115D2eBD533B50',
 };
 
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
@@ -67,13 +68,18 @@ const fetchAmmPrices = async (pools, knownPrices) => {
     const query = filtered.map(p => [p.address, p.lp0.address, p.lp1.address]);
     for (let i = 0; i < filtered.length; i += BATCH_SIZE) {
       const batch = query.slice(i, i + BATCH_SIZE);
-      const buf = await multicall.getLpInfo(batch);
+      let buf = [];
+      try {
+        buf = await multicall.getLpInfo(batch);
+      } catch (e) {
+        console.error('fetchAmmPrices', e);
+      }
 
       // Merge fetched data
       for (let j = 0; j < batch.length; j++) {
-        filtered[j + i].totalSupply = new BigNumber(buf[j * 3 + 0].toString());
-        filtered[j + i].lp0.balance = new BigNumber(buf[j * 3 + 1].toString());
-        filtered[j + i].lp1.balance = new BigNumber(buf[j * 3 + 2].toString());
+        filtered[j + i].totalSupply = new BigNumber(buf[j * 3 + 0]?.toString());
+        filtered[j + i].lp0.balance = new BigNumber(buf[j * 3 + 1]?.toString());
+        filtered[j + i].lp1.balance = new BigNumber(buf[j * 3 + 2]?.toString());
       }
     }
 
@@ -83,12 +89,6 @@ const fetchAmmPrices = async (pools, knownPrices) => {
       if (oneInch) {
         const balance = await provider.getBalance(oneInch.address);
         oneInch.lp0.balance = new BigNumber(balance.toString());
-      }
-      const peraBnb = filtered.filter(p => p.name === 'pera-pera-bnb')[0];
-      if (peraBnb) {
-        const pera = new ethers.Contract(peraBnb.lp0.address, ERC20, provider);
-        const balance = await pera.balanceOf(peraBnb.address);
-        peraBnb.lp0.balance = new BigNumber(balance.toString());
       }
     }
 

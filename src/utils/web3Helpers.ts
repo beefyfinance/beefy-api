@@ -17,6 +17,8 @@ import {
   ONE_CHAIN_ID,
   ARBITRUM_RPC,
   ARBITRUM_CHAIN_ID,
+  CELO_RPC,
+  CELO_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -27,6 +29,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.avax]: addressBookByChainId[ChainId.avax].platforms.beefyfinance.multicall,
   [ChainId.one]: addressBookByChainId[ChainId.one].platforms.beefyfinance.multicall,
   [ChainId.arbitrum]: addressBookByChainId[ChainId.arbitrum].platforms.beefyfinance.multicall,
+  [ChainId.celo]: addressBookByChainId[ChainId.celo].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -37,6 +40,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   fantom: [],
   one: [],
   arbitrum: [],
+  celo: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -47,6 +51,7 @@ clients.polygon.push(new Web3(POLYGON_RPC));
 clients.fantom.push(new Web3(FANTOM_RPC));
 clients.one.push(new Web3(ONE_RPC));
 clients.arbitrum.push(new Web3(ARBITRUM_RPC));
+clients.celo.push(new Web3(CELO_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -56,6 +61,7 @@ export const chainRandomClients = {
   fantomRandomClient: () => clients.fantom[~~(clients.fantom.length * Math.random())],
   oneRandomClient: () => clients.one[~~(clients.one.length * Math.random())],
   arbitrumRandomClient: () => clients.arbitrum[~~(clients.arbitrum.length * Math.random())],
+  celoRandomClient: () => clients.celo[~~(clients.celo.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -74,6 +80,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.oneRandomClient();
     case ARBITRUM_CHAIN_ID:
       return chainRandomClients.arbitrumRandomClient();
+    case CELO_CHAIN_ID:
+      return chainRandomClients.celoRandomClient();
   }
 };
 

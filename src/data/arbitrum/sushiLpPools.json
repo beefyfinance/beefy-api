@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -33,7 +33,7 @@
     "lp1": {
       "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   },
@@ -46,13 +46,32 @@
     "lp0": {
       "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4",
       "oracle": "tokens",
       "oracleId": "LINK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-arb-sushi-eth",
+    "address": "0x3221022e37029923ace4235d812273c5a42c322d",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd4d42f0b6def4ce0383636770ef773390d85c61a",
+      "oracle": "tokens",
+      "oracleId": "SUSHI",
       "decimals": "1e18"
     }
   },
@@ -65,7 +84,7 @@
     "lp0": {
       "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -73,25 +92,6 @@
       "oracle": "tokens",
       "oracleId": "USDC",
       "decimals": "1e6"
-    }
-  },
-  {
-    "name": "sushi-arb-sushi-eth",
-    "address": "0x3221022e37029923ace4235d812273c5a42c322d",
-    "decimals": "1e18",
-    "poolId": 2,
-    "chainId": 42161,
-    "lp0": {
-      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-      "oracle": "tokens",
-      "oracleId": "WETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xd4d42f0b6def4ce0383636770ef773390d85c61a",
-      "oracle": "tokens",
-      "oracleId": "SUSHI",
-      "decimals": "1e18"
     }
   }
 ]

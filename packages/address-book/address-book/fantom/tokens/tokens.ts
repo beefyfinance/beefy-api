@@ -38,6 +38,82 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  SUMMIT: {
+    name: 'SUMMIT',
+    symbol: 'SUMMIT',
+    address: '0x8F9bCCB6Dd999148Da1808aC290F2274b13D7994',
+    decimals: 18,
+    chainId: 250,
+    logoURI: 'https://assets.coingecko.com/coins/images/19389/small/CE2Sdy2.png',
+    description: 'Introducing "Yield Multiplying" to the world of DeFi.',
+    website: 'https://summitdefi.com/',
+  },
+  PEAR: {
+    name: 'PearZap',
+    symbol: 'PEAR',
+    address: '0x7C10108d4B7f4bd659ee57A53b30dF928244b354',
+    decimals: 18,
+    chainId: 250,
+    logoURI: 'https://assets.coingecko.com/coins/images/17173/small/pear200.png',
+    description: 'High yields farms & pools on the Polygon chain & Binance Smart Chain',
+    website: 'https://fantom.pearzap.com/',
+  },
+  TAROT: {
+    name: 'Tarot',
+    symbol: 'TAROT',
+    address: '0xC5e2B037D30a390e62180970B3aa4E91868764cD',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.tarot.to/',
+    description:
+      'Tarot is a decentralized lending protocol on Fantom Opera where users can participate as lenders or borrowers in isolated lending pools.',
+    logoURI: 'https://assets.coingecko.com/coins/images/17881/large/tarot-200px.png?1629704943',
+  },
+  MAI: {
+    name: 'Mai',
+    symbol: 'miMATIC',
+    address: '0xfB98B335551a418cD0737375a2ea0ded62Ea213b',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.mai.finance/',
+    description:
+      "MAI is a stable coin collateralized by assets. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+  },
+  BEETS: {
+    name: 'Beethoven X Token',
+    symbol: 'BEETS',
+    address: '0xF24Bcf4d1e507740041C9cFd2DddB29585aDCe1e',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://beethovenx.io/',
+    description:
+      'BEETS is the governance token for the Beethoven X protocol. Built on Balancer V2, Beethoven X is the first next-generation AMM protocol on Fantom.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/19158/small/beets-icon-large.png?1634545465',
+  },
+  fSING: {
+    name: 'Sing Token',
+    symbol: 'SING',
+    address: '0x53D831e1db0947c74e8a52618f662209ec5dE0cE',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://singular.farm/',
+    description:
+      'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
+    logoURI: 'https://github.com/singularfarm/assets/blob/main/400.png?raw=true',
+  },
+  GEIST: {
+    name: 'GEIST',
+    symbol: 'GEIST',
+    address: '0xd8321AA83Fb0a4ECd6348D4577431310A6E0814d',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/18832/small/GEIST-token.png?1633560935',
+    website: 'https://geist.finance/',
+    description:
+      'Geist is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
+  },
   fWINGS: {
     name: 'fWINGS',
     symbol: 'fWINGS',
@@ -144,7 +220,7 @@ const _tokens = {
     chainId: 250,
     website: 'https://tomb.finance/',
     description:
-      'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage.',
+      'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage',
     logoURI: 'https://assets.spookyswap.finance/tokens/TOMB.png',
   },
   FTM,
@@ -156,6 +232,10 @@ const _tokens = {
     symbol: 'sFTM',
     decimals: 18,
     chainId: 250,
+    website:
+      'https://fantom.foundation/defi/?__cf_chl_jschl_tk__=pmd_vfkYw1Z8PZor5oxGKrd9bxYd66paY0bLiQmy1dKOLpY-1633331752-0-gqNtZGzNAdCjcnBszQlR',
+    description:
+      'Fantom offers the first DeFi stack built on an aBFT consensus. It’s much faster, cheaper, and more reliable and secure than its predecessors.',
     logoURI: 'https://repository.fantom.network/logos/sftm.svg',
   },
   fWTIOIL: {
@@ -164,6 +244,9 @@ const _tokens = {
     symbol: 'fWTIOIL',
     decimals: 18,
     chainId: 250,
+    website: 'https://fantom.foundation/defi/',
+    description:
+      'Fantom offers the first DeFi stack built on an aBFT consensus. It’s much faster, cheaper, and more reliable and secure than its predecessors.',
     logoURI: 'https://repository.fantom.network/logos/wti.svg',
   },
   fUSD: {
@@ -182,6 +265,8 @@ const _tokens = {
     symbol: 'fSILVER',
     decimals: 18,
     chainId: 250,
+    website: 'https://fantom.foundation/defi/',
+    description: 'Frapped an innovative wrapper for silver tokens.',
     logoURI: 'https://repository.fantom.network/logos/silver.svg',
   },
   fLINK: {
@@ -190,6 +275,8 @@ const _tokens = {
     symbol: 'fLINK',
     decimals: 18,
     chainId: 250,
+    website: 'https://fantom.foundation/defi/',
+    description: 'Frapped an innovative wrapper for LINK tokens.',
     logoURI: 'https://repository.fantom.network/logos/link.svg',
   },
   fKRW: {
@@ -340,7 +427,7 @@ const _tokens = {
     chainId: 250,
     website: 'https://sushi.com/',
     description:
-      'SushiSwap is an automated market-making (AMM) decentralized exchange (DEX) currently on the Ethereum blockchain.',
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
   },
   YFI: {
@@ -398,9 +485,20 @@ const _tokens = {
       'Trade non-custodial options for profits or to hedge your positions. Enjoy fixed price and unlimited upside of the options contracts.',
     logoURI: 'https://ftmscan.com/token/images/hegic_32.png',
   },
-  FRAX: {
+  anyFRAX: {
     name: 'Frax',
     address: '0xaf319E5789945197e365E7f7fbFc56B130523B33',
+    symbol: 'FRAX',
+    decimals: 18,
+    chainId: 250,
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+    logoURI: 'https://ftmscan.com/token/images/fraxfinance_32.png',
+  },
+  FRAX: {
+    name: 'Frax',
+    address: '0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355',
     symbol: 'FRAX',
     decimals: 18,
     chainId: 250,
@@ -612,6 +710,60 @@ const _tokens = {
     website: 'https://shade.cash/',
     description: 'A decentralized protocol for private transactions on Fantom Opera',
     logoURI: 'https://assets.spookyswap.finance/tokens/SHADE.png',
+  },
+  JUST: {
+    name: 'JustYours',
+    symbol: 'JUST',
+    address: '0x37C045bE4641328DFEB625f1Dde610D061613497',
+    chainId: 250,
+    decimals: 10,
+    website: 'https://justyours.me/',
+    description:
+      'JustYours is building a multi-functional platform that can seamlessly integrate both users and creators of Adult Content',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/JUST.png',
+  },
+  SPELL: {
+    name: 'Spell Token',
+    symbol: 'SPELL',
+    address: '0x468003B688943977e6130F4F68F23aad939a1040',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://abracadabra.money/',
+    description: 'SPELL is the incentivation token of Abracadabra.money',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/SPELL.png',
+  },
+  wMEMO: {
+    name: 'Wrapped MEMO',
+    symbol: 'wMEMO',
+    address: '0xDDc0385169797937066bBd8EF409b5B3c0dFEB52',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://abracadabra.money/',
+    description:
+      'wMEMO is a wrapped version of MEMO. MEMO (Memories) is the reciept of staked TIME.',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/WMEMO.png',
+  },
+  DOLA: {
+    name: 'DOLA USD',
+    symbol: 'DOLA',
+    address: '0x3129662808bEC728a27Ab6a6b9AFd3cBacA8A43c',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
+  },
+  INV: {
+    name: 'Inverse Finance',
+    symbol: 'INV',
+    address: '0xb84527D59b6Ecb96F433029ECc890D4492C5dCe1',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
   },
 } as const;
 

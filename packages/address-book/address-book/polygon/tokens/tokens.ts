@@ -27,6 +27,138 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  EROWAN: {
+    name: 'SifChain EROWAN',
+    symbol: 'EROWAN',
+    address: '0xa7051C5a22d963b81D71C2BA64D46a877fBc1821',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://sifchain.finance/',
+    description:
+      'Sifchain aims to be the first Omni-Chain DEX, targeting 20–25 blockchains for cross-chain integration.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/14044/small/EROWAN.png?1614656300',
+  },
+  DPI: {
+    name: 'Defipulse Index',
+    symbol: 'DPI',
+    address: '0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://defipulse.com/',
+    description:
+      'The DeFi Pulse Index is a capitalization-weighted index that tracks the performance of decentralized financial assets across the market.',
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x1494CA1F11D487c2bBe4543E90080AeBa4BA3C2b/logo.png',
+  },
+  SHIB: {
+    name: 'SHIBA INU',
+    symbol: 'SHIB',
+    address: '0x6f8a06447Ff6FcF75d803135a7de15CE88C1d4ec',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://shibatoken.com/',
+    description: 'A Decentralized Meme Token that Evolved into a Vibrant Ecosystem.',
+    logoURI: 'https://assets.coingecko.com/coins/images/11939/small/shiba.png?1622619446',
+  },
+  FTM: {
+    name: 'Fantom Token',
+    symbol: 'FTM  ',
+    address: '0xB85517b87BF64942adf3A0B9E4c71E4Bc5Caa4e5',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://fantom.foundation/',
+    description:
+      'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+    logoURI: 'https://ftmscan.com/token/images/wFtm_32.png',
+  },
+  jEUR: {
+    name: 'Jarvis Synthetic Euro',
+    symbol: 'jEUR',
+    address: '0x4e3Decbb3645551B8A19f0eA1678079FCB33fB4c',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://i.imgur.com/ZvP634G.png',
+  },
+  jGBP: {
+    name: 'Jarvis Synthetic British Pound',
+    symbol: 'jGBP',
+    address: '0x767058F11800FBA6A682E73A6e79ec5eB74Fac8c',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jGBP is a multi-collateralized synthetic token tracking the price of the British Pound. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://i.imgur.com/zOLD6Vf.png',
+  },
+  jCHF: {
+    name: 'Jarvis Synthetic Swiss Franc',
+    symbol: 'jCHF',
+    address: '0xbD1463F02f61676d53fd183C2B19282BFF93D099',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jCHF is a multi-collateralized synthetic token tracking the price of the Swiss Franc. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://i.imgur.com/EknGhAl.png',
+  },
+  JRT: {
+    name: 'Jarvis Reward Token',
+    symbol: 'JRT',
+    address: '0x596eBE76e2DB4470966ea395B0d063aC6197A8C5',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'The Jarvis Reward Token  is a utility token for securing and governing the Jarvis network, and rewarding agents who would bring value to it.',
+    logoURI: 'https://cdn.coinranking.com/vLU4_a_Zp/jarvis.svg?size=48x48',
+  },
+  AUR: {
+    name: 'AUREUS',
+    symbol: 'AUR',
+    address: '0xfAdE2934b8E7685070149034384fB7863860D86e',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'AUR is the reward token for staking jFIAT LPs on KyberDMM and can be sold immediately or redeemed at the end of the fair launch for a share of the reserve pool.',
+    logoURI: 'https://i.imgur.com/PyipL43.png',
+  },
+  pSING: {
+    name: 'Sing Token',
+    symbol: 'SING',
+    address: '0xCB898b0eFb084Df14dd8E018dA37B4d0f06aB26D',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://singular.farm/',
+    description:
+      'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
+    logoURI: 'https://github.com/singularfarm/assets/blob/main/400.png?raw=true',
+  },
+  pBREW: {
+    name: 'pBREW',
+    symbol: 'pBREW',
+    address: '0xb5106A3277718eCaD2F20aB6b86Ce0Fee7A21F09',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://polygon.cafeswap.finance/',
+    description: 'Safest & Lowest fee AMM on BSC & Polygon.',
+    logoURI: 'https://polygon.cafeswap.finance/images/tokens/pbrew.png',
+  },
+  FOX: {
+    name: 'FOX',
+    symbol: 'FOX',
+    address: '0x65A05DB8322701724c197AF82C9CaE41195B0aA8',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://shapeshift.com/',
+    description:
+      'FOX is ShapeShift’s official loyalty token. Holders of FOX enjoy zero-commission trading and win ongoing USDC crypto payments from Rainfall (payments increase in proportion to your FOX holdings). Use at ShapeShift.com.',
+    logoURI: 'https://assets.coingecko.com/coins/images/9988/large/FOX.png',
+  },
   CRYSTL: {
     name: 'CrystalToken',
     symbol: 'CRYSTL',
@@ -141,6 +273,9 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'https://assets.coingecko.com/coins/images/17173/small/pear200.png',
+    website: 'https://pearzap.com/',
+    description:
+      'PearZap is a high yield farm & pool on the Polygon Chain (MATIC) and Binance Smart Chain',
   },
   SPADE: {
     name: 'PolygonFarm',
@@ -149,6 +284,9 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'https://polygonfarm.finance/images/spade.png',
+    website: 'https://polygonfarm.finance/',
+    description:
+      'PolygonFarm Finance is a community led next generation stable-yield farming protocol established exclusively on the Polygon ecosystem',
   },
   $DG: {
     name: 'decentral.games',
@@ -158,6 +296,8 @@ const _tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-default-token-list/master/assets/dg.jpg',
+    website: 'https://decentral.games/',
+    description: 'decentral.games is a DAO-governed metaverse casino powered by $DG',
   },
   '0xBTC': {
     name: '0xBitcoin Token',
@@ -167,6 +307,8 @@ const _tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xB6eD7644C69416d67B522e20bC294A9a9B405B31/logo.png',
+    website: 'https://0xbitcoin.org/',
+    description: 'Pure-mined neutral token.',
   },
   AAVE: {
     name: 'Aave',
@@ -294,6 +436,9 @@ const _tokens = {
     symbol: 'COMP',
     decimals: 18,
     chainId: 137,
+    website: 'https://compound.finance/',
+    description:
+      'Compound is an algorithmic, autonomous interest rate protocol built for developers, to unlock a universe of open financial applications.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xc00e94Cb662C3520282E6f5717214004A7f26888/logo.png',
   },
@@ -311,6 +456,9 @@ const _tokens = {
     symbol: 'DAI',
     decimals: 18,
     chainId: 137,
+    website: 'https://makerdao.com/',
+    description:
+      'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
   },
@@ -472,6 +620,9 @@ const _tokens = {
     symbol: 'GHST',
     decimals: 18,
     chainId: 137,
+    website: 'https://www.aavegotchi.com/',
+    description:
+      'Aavegotchis are crypto-collectibles living on the Ethereum blockchain, backed by the ERC721 standard used in popular blockchain games.',
     logoURI: 'https://aavegotchi.com/images/ghsttoken.svg',
   },
   HEX: {
@@ -891,6 +1042,8 @@ const _tokens = {
     symbol: 'TEL',
     decimals: 2,
     chainId: 137,
+    website: 'https://www.telco.in/',
+    description: 'A cryptocurrency distributed by your mobile operator and accepted everywhere.',
     logoURI: 'https://pbs.twimg.com/profile_images/933388441475194881/57fOk40N_400x400.jpg',
   },
   UBT: {
@@ -1024,6 +1177,9 @@ const _tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/8cb78aca77b340510958ed98a3cd260d2d7f0420/blockchains/ethereum/assets/0x36b679bd64Ed73DBfd88909cDCB892cB66Bd4CBb/logo.png',
+    website: 'https://benchmarkprotocol.finance/',
+    description:
+      'Benchmark Protocol is an elastic stablecoin-alternative bridging capital markets to DeFi.',
   },
   YFI: {
     name: 'yearn.finance',
@@ -1100,7 +1256,7 @@ const _tokens = {
     chainId: 137,
     website: 'https://sushi.com/',
     description:
-      'SushiSwap is an automated market-making (AMM) decentralized exchange (DEX) currently on the Ethereum blockchain.',
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     logoURI: 'https://app.sushi.com/static/media/logo.11fafaa5.png',
   },
   GRT: {
@@ -1481,6 +1637,8 @@ const _tokens = {
     address: '0xb82A20B4522680951F11c94c54B8800c1C237693',
     chainId: 137,
     decimals: 18,
+    website: 'https://polygon.farmhero.io/',
+    description: 'FarmHero is a protocol that mixes NFT, gaming and DEFI concepts.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
   },
   ICE: {
@@ -1568,6 +1726,17 @@ const _tokens = {
     website: 'https://polywise.finance/',
     description:
       'PolyWise Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income. We are trying to create a protocol like Yearn, but with a reduced token supply and high value for Polygon Network users, LP providers and stakers. The max supply of WISE token is 5400.',
+  },
+  polySAGE: {
+    name: 'PolySage',
+    symbol: 'SAGE',
+    address: '0x2ed945Dc703D85c80225d95ABDe41cdeE14e1992',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://polysage.finance/',
+    description:
+      'PolySage Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income.',
+    logoURI: 'https://polysage.finance/images/sage.png',
   },
 } as const;
 

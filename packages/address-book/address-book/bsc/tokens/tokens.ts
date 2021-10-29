@@ -15,6 +15,64 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  CEEK: {
+    name: 'CEEK',
+    symbol: 'CEEK',
+    address: '0xe0F94Ac5462997D2BC57287Ac3a3aE4C31345D66',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/CEEK.png',
+    website: 'https://www.ceek.com/',
+    description:
+      'CEEK (CEEK) is a decentralized platform featuring global superstars like Lady Gaga, Katy Perry, Ziggy Marley, Bon Jovi, UFC Champion Francis Ngannou, 3x NBA Champion Dwyane Wade and more.',
+  },
+  BABY: {
+    name: 'BabySwap Token',
+    symbol: 'BABY',
+    address: '0x53E562b9B7E5E94b81f10e96Ee70Ad06df3D2657',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://bscscan.com/token/images/babyswap_32.png',
+    website: 'https://babyswap.finance',
+    description:
+      'BabySwap is the best AMM+NFT decentralized exchange for newborn projects on Binance Smart Chain, providing a more friendly trading experience and better project support.',
+  },
+  NFTY: {
+    name: 'NFTY Token',
+    symbol: 'NFTY',
+    address: '0x5774B2fc3e91aF89f89141EacF76545e74265982',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/NFTY.png',
+    website: 'https://nftynetwork.io/',
+    description:
+      'NFTYLabs envisions a world where NFTs function as a medium of access, bringing a means of utility and privilege to NFT holders in a secure and confidential manner.',
+  },
+  BETA: {
+    name: 'Beta Token',
+    symbol: 'BETA',
+    address: '0xBe1a001FE942f96Eea22bA08783140B9Dcc09D28',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xBe1a001FE942f96Eea22bA08783140B9Dcc09D28.svg',
+    website: 'https://betafinance.org/',
+    description:
+      'Beta Finance is the permissionless money market for borrowing, lending, and shorting crypto assets.',
+  },
+  SING: {
+    name: 'Sing Token',
+    symbol: 'SING',
+    address: '0x23894C0ce2d79B79Ea33A4D02e67ae843Ef6e563',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://singular.farm/',
+    description:
+      'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
+    logoURI: 'https://github.com/singularfarm/assets/blob/main/400.png?raw=true',
+  },
   ONG: {
     name: 'Ontology Gas Token',
     symbol: 'ONG',
@@ -432,6 +490,9 @@ const _tokens = {
     address: '0xCA6d25C10dad43ae8Be0bc2af4D3CD1114583C08',
     chainId: 56,
     decimals: 18,
+    website: 'https://srnartgallery.com/',
+    description:
+      'srnArtGallery is a platform where a union of artists use NFT art to connect people through the things they love…',
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/SISTA.svg',
   },
@@ -3101,7 +3162,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://www.sushi.com/',
     description:
-      'SushiSwap aims to diversify the AMM market and also add additional features not previously present on Uniswap, such as increased rewards for network participants via its in-house token, SUSHI.',
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x947950bcc74888a40ffa2593c5798f11fc9124c4.png',
   },
@@ -3578,7 +3639,7 @@ const _tokens = {
     description:
       'The SafeMoon Protocol is a community driven, fair launched DeFi Token. Three simple functions occur during each trade: Reflection, LP Acquisition, and Burn.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x8076c74c5e3f5852037f31ff0093eeb8c8add8d3.png',
+      'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3/logo.png',
   },
   tBTC: {
     name: 'Tau Bitcoin',
@@ -3911,7 +3972,33 @@ const _tokens = {
     address: '0xBCA627FEd3b6E8F414C745E12B2b89371497779D',
     chainId: 56,
     decimals: 18,
+    description:
+      'StableQuant is a simple, stripped-down swap designed to be the go-to DEX for stablecoins',
     website: 'https://stablequant.finance/',
+  },
+  MCB: {
+    name: 'MCDEX Token',
+    symbol: 'MCB',
+    address: '0x5fE80d2CD054645b9419657d3d10d26391780A7B',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x5fE80d2CD054645b9419657d3d10d26391780A7B.svg',
+    website: 'https://mcdex.io/homepage/',
+    description:
+      'MCDEX is the first fully-permissionless DEX for trading perpetual contracts, powered by MCDEXs revolutionary AMM technology',
+  },
+  RPG: {
+    name: 'Rangers Protocol Gas',
+    symbol: 'RPG',
+    address: '0xc2098a8938119A52B1F7661893c0153A6CB116d5',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xc2098a8938119A52B1F7661893c0153A6CB116d5.svg',
+    website: 'https://rangersprotocol.com/',
+    description:
+      'Rangers Protocol can realize a high-performance blockchain group with cross-chain contract interoperability among the EVM systems of multiple blockchains.',
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

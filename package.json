@@ -20,6 +20,7 @@
     "polygon:quick:add": "ts-node scripts/add-quick.ts --network polygon --project quick",
     "one:sushi:add": "ts-node scripts/add-sushi.ts --network one --project sushiOne",
     "arb:sushi:add": "ts-node scripts/add-sushi.ts --network arbitrum --project sushiArb",
+    "celo:sushi:add": "ts-node scripts/add-sushi.ts --network celo --project sushiCelo",
     "avax:pangolin:add": "ts-node scripts/add-quick.ts --network avax --project pangolin",
     "avax:joe:add": "ts-node scripts/add-farm.ts --network avax --project joe",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"

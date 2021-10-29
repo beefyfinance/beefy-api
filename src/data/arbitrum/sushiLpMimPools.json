@@ -9,13 +9,13 @@
     "lp0": {
       "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A",
       "oracle": "tokens",
-      "oracleId": "MIM",
+      "oracleId": "arbMIM",
       "decimals": "1e18"
     }
   },
@@ -35,7 +35,7 @@
     "lp1": {
       "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   }

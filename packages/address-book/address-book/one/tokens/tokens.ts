@@ -18,6 +18,29 @@ const _tokens = {
   ONE,
   WONE: ONE,
   WNATIVE: ONE,
+  BIFI: {
+    chainId: 1666600000,
+    address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
+    decimals: 18,
+    name: 'Beefy.Finance',
+    symbol: 'BIFI',
+    website: 'https://www.beefy.finance/',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+  },
+  CRV: {
+    chainId: 1666600000,
+    address: '0x352cd428EFd6F31B5cae636928b7B84149cF369F',
+    decimals: 18,
+    name: 'Curve',
+    symbol: 'CRV',
+    website: 'https://curve.fi/',
+    description:
+      'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    logoURI: 'https://external-content.duckduckgo.com/ip3/resources.curve.fi.ico',
+  },
   WBTC: {
     chainId: 1666600000,
     address: '0x3095c7557bCb296ccc6e363DE01b760bA031F2d9',
@@ -61,7 +84,7 @@ const _tokens = {
     chainId: 1666600000,
     website: 'https://sushi.com/',
     description:
-      'SushiSwap is an automated market-making (AMM) decentralized exchange (DEX) currently on the Ethereum blockchain.',
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
   },
   BUSD: {

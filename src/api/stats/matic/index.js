@@ -21,7 +21,6 @@ const { getDfynLpApys } = require('./getDfynLpApys');
 const { getDfynDualFarmLpApys } = require('./getDfynDualFarmLpApys');
 const { getFarmheroApys } = require('./getFarmheroApys');
 const getMaiApys = require('./getMaiApys').default;
-const { getTelxchangeDualApys } = require('./getTelxchangeDualApys');
 const { getTelxchangeApys } = require('./getTelxchangeApys');
 const { getFarmheroSingleApy } = require('./getFarmheroSingleApy');
 const getSwampApys = require('./getSwampApys');
@@ -32,7 +31,12 @@ const getQuickSingleApys = require('./getQuickSingleApys');
 const { getSandmanApys } = require('./getSandmanApys');
 const { getPolyAlphaApys } = require('./getPolyAlphaApys');
 import { getPolywiseApys } from './getPolywiseApys';
+import { getPolysageApys } from './getPolysageApys';
 import { getTetuApys } from './getTetuApys';
+const { getSingularApys } = require('./getSingularApys');
+import getCafeLpApys from './getCafeLpApys';
+import getKyberLpApys from './getKyberLpApys';
+import { getQuickDualLpApys } from './getQuickDualLpApys';
 
 const getApys = [
   getComethLpApys,
@@ -56,7 +60,6 @@ const getApys = [
   getMaiApys,
   getJetswapApys,
   getIronSwapApys,
-  getTelxchangeDualApys,
   getTelxchangeApys,
   getFarmheroApys,
   getFarmheroSingleApy,
@@ -69,7 +72,12 @@ const getApys = [
   getSandmanApys,
   getPolyAlphaApys,
   getPolywiseApys,
+  getPolysageApys,
   getTetuApys,
+  getSingularApys,
+  getCafeLpApys,
+  getKyberLpApys,
+  getQuickDualLpApys,
 ];
 
 const BATCH_SIZE = 15;

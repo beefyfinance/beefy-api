@@ -6,4 +6,5 @@ export enum ChainId {
   avax = 43114,
   one = 1666600000,
   arbitrum = 42161,
+  celo = 42220,
 }

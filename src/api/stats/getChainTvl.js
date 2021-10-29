@@ -3,6 +3,7 @@ const { MultiCall } = require('eth-multicall');
 const { web3Factory, multicallAddress } = require('../../utils/web3');
 const getVaults = require('../../utils/getVaults.js');
 const fetchPrice = require('../../utils/fetchPrice');
+const { EXCLUDED_IDS_FROM_TVL } = require('../../constants');
 
 const BeefyVaultV6ABI = require('../../abis/BeefyVaultV6.json');
 const { getTotalStakedInUsd } = require('../../utils/getTotalStakedInUsd');
@@ -15,6 +16,12 @@ const getChainTvl = async chain => {
   let tvls = { [chainId]: {} };
   for (let i = 0; i < vaults.length; i++) {
     const vault = vaults[i];
+
+    if (EXCLUDED_IDS_FROM_TVL.includes(vault.id)) {
+      console.warn('Excluding', vault.id, 'from tvl');
+      continue;
+    }
+
     const vaultBal = vaultBalances[i];
     let tokenPrice = 0;
     try {

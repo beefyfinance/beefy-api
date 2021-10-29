@@ -34,13 +34,14 @@ const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
   ? CUSTOM_BSC_RPC_ENDPOINTS
   : MAINNET_BSC_RPC_ENDPOINTS;
 
-const BSC_RPC = BSC_RPC_ENDPOINTS[0];
+const BSC_RPC = process.env.BSC_RPC || BSC_RPC_ENDPOINTS[0];
 const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
 const AVAX_RPC = process.env.AVAX_RPC || 'https://api.avax.network/ext/bc/C/rpc';
 const POLYGON_RPC = process.env.POLYGON_RPC || 'https://rpc-mainnet.maticvigil.com/';
 const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpc.ftm.tools';
 const ONE_RPC = process.env.ONE_RPC || 'https://api.s0.t.hmny.io/';
 const ARBITRUM_RPC = process.env.ARBITRUM_RPC || 'https://arb1.arbitrum.io/rpc';
+const CELO_RPC = process.env.CELO_RPC || 'https://forno.celo.org';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -49,15 +50,18 @@ const AVAX_CHAIN_ID = ChainId.avax;
 const FANTOM_CHAIN_ID = ChainId.fantom;
 const ONE_CHAIN_ID = ChainId.one;
 const ARBITRUM_CHAIN_ID = ChainId.arbitrum;
+const CELO_CHAIN_ID = ChainId.celo;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.0025;
+const SPIRIT_LPF = 0.0025;
 const QUICK_LPF = 0.003;
 const APEPOLY_LPF = 0.0015;
 const COMETH_LPF = 0.005;
 const PCS_LPF = 0.003;
 const APE_LPF = 0.002;
 const SPOOKY_LPF = 0.002;
+const JOE_LPF = 0.0025;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
@@ -67,6 +71,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.fantom]: FANTOM_RPC,
   [ChainId.one]: ONE_RPC,
   [ChainId.arbitrum]: ARBITRUM_RPC,
+  [ChainId.celo]: CELO_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -83,6 +88,8 @@ const ONE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/harmony_pools.js';
 const ARBITRUM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/arbitrum_pools.js';
+const CELO_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/celo_pools.js';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -92,10 +99,13 @@ const MULTICHAIN_ENDPOINTS = {
   fantom: FANTOM_VAULTS_ENDPOINT,
   one: ONE_VAULTS_ENDPOINT,
   arbitrum: ARBITRUM_VAULTS_ENDPOINT,
+  celo: CELO_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
 const SHARE_AFTER_PERFORMANCE_FEE = 1 - BEEFY_PERFORMANCE_FEE;
+
+const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
 
 export {
   API_BASE_URL,
@@ -121,6 +131,9 @@ export {
   ARBITRUM_RPC,
   ARBITRUM_CHAIN_ID,
   ARBITRUM_VAULTS_ENDPOINT,
+  CELO_RPC,
+  CELO_CHAIN_ID,
+  CELO_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
@@ -133,12 +146,15 @@ export {
   MULTICHAIN_ENDPOINTS,
   DFYN_LPF,
   SUSHI_LPF,
+  SPIRIT_LPF,
   QUICK_LPF,
   APEPOLY_LPF,
   COMETH_LPF,
   PCS_LPF,
   APE_LPF,
   SPOOKY_LPF,
+  JOE_LPF,
   BEEFY_PERFORMANCE_FEE,
   SHARE_AFTER_PERFORMANCE_FEE,
+  EXCLUDED_IDS_FROM_TVL,
 };

@@ -21,6 +21,9 @@ const {
 
   ARBITRUM_CHAIN_ID,
   ARBITRUM_VAULTS_ENDPOINT,
+
+  CELO_CHAIN_ID,
+  CELO_VAULTS_ENDPOINT,
 } = require('../../constants');
 
 const INIT_DELAY = 40 * 1000;
@@ -63,6 +66,10 @@ const chains = [
     chainId: ARBITRUM_CHAIN_ID,
     vaultsEndpoint: ARBITRUM_VAULTS_ENDPOINT,
     governancePool: require('../../data/arbitrum/governancePool.json'),
+  },
+  {
+    chainId: CELO_CHAIN_ID,
+    vaultsEndpoint: CELO_VAULTS_ENDPOINT,
   },
 ];
 

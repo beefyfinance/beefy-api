@@ -12,6 +12,12 @@ const getSteakHouseLpApys = require('./getSteakHouseLpApys');
 const getStakeSteakLpApys = require('./getStakeSteakLpApys');
 const getTosdisLpApys = require('./tosdis/getTosdisLpApys');
 const getJetswapApys = require('./getJetswapApys');
+const getGeistLpApys = require('./getGeistLpApys');
+const getSpellApys = require('./getSpellApys');
+const getSingularApys = require('./getSingularApys');
+const getPearzapApys = require('./getPearzapApys');
+const getBeethovenxApys = require('./getBeethovenxApys');
+const getSummitApys = require('./getSummitApys');
 
 const getApys = [
   getSpookyLpApys,
@@ -28,6 +34,12 @@ const getApys = [
   getStakeSteakLpApys,
   getTosdisLpApys,
   getJetswapApys,
+  getSpellApys,
+  getGeistLpApys,
+  getSingularApys,
+  getPearzapApys,
+  getBeethovenxApys,
+  getSummitApys,
 ];
 
 const getFantomApys = async () => {

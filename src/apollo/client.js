@@ -3,6 +3,13 @@ const fetch = require('node-fetch');
 const createHttpLink = require('apollo-link-http').createHttpLink;
 const InMemoryCache = require('apollo-cache-inmemory').InMemoryCache;
 
+function client(url) {
+  return new ApolloClient({
+    link: createHttpLink({ uri: url, fetch }),
+    cache: new InMemoryCache(),
+  });
+}
+
 const apePolyClient = new ApolloClient({
   link: createHttpLink({
     uri: 'https://api.thegraph.com/subgraphs/name/apeswapfinance/dex-polygon',
@@ -31,6 +38,14 @@ const sushiOneClient = new ApolloClient({
 const sushiArbitrumClient = new ApolloClient({
   link: createHttpLink({
     uri: 'https://api.thegraph.com/subgraphs/name/sushiswap/arbitrum-exchange',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
+const sushiCeloClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/sushiswap/celo-exchange',
     fetch,
   }),
   cache: new InMemoryCache(),
@@ -189,16 +204,25 @@ const dfynClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const joeClient = new ApolloClient({
-  link: createHttpLink({
-    uri: 'https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange',
-    fetch,
-  }),
-  cache: new InMemoryCache(),
-});
+const joeClient = client('https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange');
+const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph/exchange3');
+const kyberClient = client(
+  'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic'
+);
+const beetClient = client('https://graph.beethovenx.io/subgraphs/name/beethovenx');
 
 const isSushiClient = client => {
-  return client === sushiClient || client === sushiOneClient || client === sushiArbitrumClient;
+  return (
+    client === sushiClient ||
+    client === sushiOneClient ||
+    client === sushiArbitrumClient ||
+    client === joeClient ||
+    client === sushiCeloClient
+  );
+};
+
+const isBeetClient = client => {
+  return client === beetClient;
 };
 
 module.exports = {
@@ -208,6 +232,7 @@ module.exports = {
   sushiClient,
   sushiOneClient,
   sushiArbitrumClient,
+  sushiCeloClient,
   isSushiClient,
   comethClient,
   quickClient,
@@ -227,4 +252,8 @@ module.exports = {
   jetswapClient,
   jetswapPolyClient,
   jetswapFantomClient,
+  kyberClient,
+  babyClient,
+  beetClient,
+  isBeetClient,
 };

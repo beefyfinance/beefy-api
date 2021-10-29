@@ -1,0 +1,79 @@
+[
+  {
+    "name": "aave-wavax",
+    "token": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    "aToken": "0xDFE521292EcE2A4f44242efBcD66Bc594CA9714B",
+    "debtToken": "0x66A0FE52Fb629a6cB4D10B8580AFDffE888F5Fd4",
+    "oracle": "tokens",
+    "oracleId": "WAVAX",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.47
+  },
+  {
+    "name": "aave-dai.e",
+    "token": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+    "aToken": "0x47AFa96Cdc9fAb46904A55a6ad4bf6660B53c38a",
+    "debtToken": "0x1852DC24d1a8956a0B356AA18eDe954c7a0Ca5ae",
+    "oracle": "tokens",
+    "oracleId": "DAI.e",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "aave-usdc.e",
+    "token": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+    "aToken": "0x46A51127C3ce23fb7AB1DE06226147F446e4a857",
+    "debtToken": "0x848c080d2700CBE1B894a3374AD5E887E5cCb89c",
+    "oracle": "tokens",
+    "oracleId": "USDC.e",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "aave-usdt.e",
+    "token": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
+    "aToken": "0x532E6537FEA298397212F09A61e03311686f548e",
+    "debtToken": "0xfc1AdA7A288d6fCe0d29CcfAAa57Bc9114bb2DbE",
+    "oracle": "tokens",
+    "oracleId": "USDT.e",
+    "decimals": "1e6",
+    "borrowDepth": 0,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aave-weth.e",
+    "token": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+    "aToken": "0x53f7c5869a859F0AeC3D334ee8B4Cf01E3492f21",
+    "debtToken": "0x4e575CacB37bc1b5afEc68a0462c4165A5268983",
+    "oracle": "tokens",
+    "oracleId": "WETH.e",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "aave-wbtc.e",
+    "token": "0x50b7545627a5162F82A992c33b87aDc75187B218",
+    "aToken": "0x686bEF2417b6Dc32C50a3cBfbCC3bb60E1e9a15D",
+    "debtToken": "0x2dc0E35eC3Ab070B8a175C829e23650Ee604a9eB",
+    "oracle": "tokens",
+    "oracleId": "WBTC.e",
+    "decimals": "1e8",
+    "borrowDepth": 4,
+    "borrowPercent": 0.57
+  },
+  {
+    "name": "aave-aave.e",
+    "token": "0x63a72806098Bd3D9520cC43356dD78afe5D386D9",
+    "aToken": "0xD45B7c061016102f9FA220502908f2c0f1add1D7",
+    "debtToken": "0x8352E3fd18B8d84D3c8a1b538d788899073c7A8E",
+    "oracle": "tokens",
+    "oracleId": "AAVE.e",
+    "decimals": "1e18",
+    "borrowDepth": 0,
+    "borrowPercent": 0
+  }
+]
