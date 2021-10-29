@@ -37,7 +37,6 @@ const getTosdisLpApys = require('./tosdis/getTosdisLpApys');
 const getYelApys = require('./yel/getYelApys');
 const getCakeV2PoolApy = require('./pancake/getCakeV2PoolApy');
 const getMerlinRewardsApy = require('./merlin/getMerlinRewardsApy');
-const getBifiGovApy = require('./beefy/getBifiGovApy');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getOOELpApys = require('./ooe/getOOELpApys');
 const { getFarmheroApys } = require('./farmhero/getFarmheroApys');
@@ -55,7 +54,6 @@ const getApys = [
   getBakeryLpApys,
   getBeltApys,
   getBhcPoolApy,
-  getBifiGovApy,
   getBifiMaxiApy,
   getBifiMaxiV2Apy,
   getBtdLpApys,

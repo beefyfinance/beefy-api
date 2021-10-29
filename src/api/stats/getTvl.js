@@ -35,37 +35,30 @@ const chains = [
   {
     chainId: BSC_CHAIN_ID,
     vaultsEndpoint: BSC_VAULTS_ENDPOINT,
-    governancePool: require('../../data/governancePool.json'),
   },
   {
     chainId: POLYGON_CHAIN_ID,
     vaultsEndpoint: POLYGON_VAULTS_ENDPOINT,
-    governancePool: require('../../data/matic/governancePool.json'),
   },
   {
     chainId: FANTOM_CHAIN_ID,
     vaultsEndpoint: FANTOM_VAULTS_ENDPOINT,
-    governancePool: require('../../data/fantom/governancePool.json'),
   },
   {
     chainId: HECO_CHAIN_ID,
     vaultsEndpoint: HECO_VAULTS_ENDPOINT,
-    governancePool: require('../../data/heco/governancePool.json'),
   },
   {
     chainId: AVAX_CHAIN_ID,
     vaultsEndpoint: AVAX_VAULTS_ENDPOINT,
-    governancePool: require('../../data/avax/governancePool.json'),
   },
   {
     chainId: ONE_CHAIN_ID,
     vaultsEndpoint: ONE_VAULTS_ENDPOINT,
-    governancePool: require('../../data/one/governancePool.json'),
   },
   {
     chainId: ARBITRUM_CHAIN_ID,
     vaultsEndpoint: ARBITRUM_VAULTS_ENDPOINT,
-    governancePool: require('../../data/arbitrum/governancePool.json'),
   },
   {
     chainId: CELO_CHAIN_ID,
