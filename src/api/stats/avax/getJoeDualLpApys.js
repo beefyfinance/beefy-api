@@ -42,8 +42,6 @@ const getJoeApys = async () => {
   const tradingAprs = await getTradingFeeAprSushi(joeClient, pairAddresses, liquidityProviderFee);
 
   for (let i = 0; i < pools.length; i++) {
-    console.log('joe duals');
-
     const pool = pools[i];
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
