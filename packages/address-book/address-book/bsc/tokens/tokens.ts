@@ -4000,5 +4000,29 @@ const _tokens = {
     description:
       'Rangers Protocol can realize a high-performance blockchain group with cross-chain contract interoperability among the EVM systems of multiple blockchains.',
   },
+  LAZIO: {
+    name: 'FC Lazio Fan Token',
+    symbol: 'LAZIO',
+    address: '0x77d547256A2cD95F32F67aE0313E450Ac200648d',
+    chainId: 56,
+    decimals: 8,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x77d547256A2cD95F32F67aE0313E450Ac200648d.svg',
+    website: 'https://www.sslazio.it/en',
+    description:
+      'The Lazio Fan Token is a BEP-20 utility token designed to revolutionize the fan experience for all S.S. Lazio supporters.',
+  },
+  DKT: {
+    name: 'Duelist King Token',
+    symbol: 'DKT',
+    address: '0x7Ceb519718A80Dd78a8545AD8e7f401dE4f2faA7',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x7Ceb519718A80Dd78a8545AD8e7f401dE4f2faA7.svg',
+    website: 'https://duelistking.com/',
+    description:
+      'Powered by in-house Decentralized Autonomous Organization (DAO), Oracle and Random Number Generator on DKDAO platform, Duelist King offers dual values for investors from token utilities and card sales (projected at roughly 40 million USD).',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
