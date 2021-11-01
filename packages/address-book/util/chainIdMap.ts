@@ -7,6 +7,7 @@ const chainIdMap = {
   one: 1666600000,
   arbitrum: 42161,
   celo: 42220,
+  moonriver: 1285,
 };
 
 export default chainIdMap;

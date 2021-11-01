@@ -6,6 +6,7 @@ import { heco } from './heco';
 import { one } from './one';
 import { arbitrum } from './arbitrum';
 import { celo } from './celo';
+import { moonriver } from './moonriver';
 import Chain from '../types/chain';
 import { ChainId } from '../types/chainid';
 import { ConstRecord } from '../types/const';
@@ -21,6 +22,7 @@ const _addressBook = {
   one,
   arbitrum,
   celo,
+  moonriver,
 } as const;
 
 const _addressBookByChainId = {
@@ -32,6 +34,7 @@ const _addressBookByChainId = {
   [ChainId.one]: one,
   [ChainId.arbitrum]: arbitrum,
   [ChainId.celo]: celo,
+  [ChainId.moonriver]: moonriver,
 } as const;
 
 export const addressBook: ConstRecord<typeof _addressBook, Chain> = _addressBook;

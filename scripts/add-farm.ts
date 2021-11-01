@@ -1,5 +1,6 @@
 import { ChainId } from '../packages/address-book/address-book';
 import { spookyswap } from '../packages/address-book/address-book/fantom/platforms/spookyswap';
+import { solarbeam } from '../packages/address-book/address-book/moonriver/platforms/solarbeam';
 
 const yargs = require('yargs');
 const fs = require('fs');
@@ -42,6 +43,11 @@ const projects = {
     prefix: 'boo',
     file: '../src/data/fantom/spookyLpPools.json',
     masterchef: spookyswap.masterchef,
+  },
+  solarbeam: {
+    prefix: 'solarbeam',
+    file: '../src/data/moonriver/solarbeamLpPools.json',
+    masterchef: solarbeam.masterchef,
   },
 };
 

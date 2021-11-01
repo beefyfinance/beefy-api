@@ -7,4 +7,5 @@ export enum ChainId {
   one = 1666600000,
   arbitrum = 42161,
   celo = 42220,
+  moonriver = 1285,
 }

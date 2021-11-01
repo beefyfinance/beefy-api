@@ -11,6 +11,7 @@ const MULTICALLS = {
   one: '0x42d1760e98F9fd1AcbFd77651D429BB306a3782e',
   arbitrum: '0xF9eBb381dC153D0966B2BaEe776de2F400405755',
   celo: '0xaDB9DDFA24E326dC9d337561f6c7ba2a6Ecec697',
+  moonriver: '0x32d272C7F753698BB6ecde56CC599411C57Fa93a',
 };
 const MulticallAbi = require('../abis/BeefyLastHarvestMulticall.json');
 const BATCH_SIZE = 128;

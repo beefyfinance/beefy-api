@@ -42,6 +42,7 @@ const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpc.ftm.tools';
 const ONE_RPC = process.env.ONE_RPC || 'https://api.s0.t.hmny.io/';
 const ARBITRUM_RPC = process.env.ARBITRUM_RPC || 'https://arb1.arbitrum.io/rpc';
 const CELO_RPC = process.env.CELO_RPC || 'https://forno.celo.org';
+const MOONRIVER_RPC = process.env.MOONRIVER_RPC || 'https://rpc.moonriver.moonbeam.network';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -51,6 +52,7 @@ const FANTOM_CHAIN_ID = ChainId.fantom;
 const ONE_CHAIN_ID = ChainId.one;
 const ARBITRUM_CHAIN_ID = ChainId.arbitrum;
 const CELO_CHAIN_ID = ChainId.celo;
+const MOONRIVER_CHAIN_ID = ChainId.moonriver;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.0025;
@@ -62,6 +64,7 @@ const PCS_LPF = 0.003;
 const APE_LPF = 0.002;
 const SPOOKY_LPF = 0.002;
 const JOE_LPF = 0.0025;
+const SOLAR_LPF = 0.002;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
@@ -72,6 +75,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.one]: ONE_RPC,
   [ChainId.arbitrum]: ARBITRUM_RPC,
   [ChainId.celo]: CELO_RPC,
+  [ChainId.moonriver]: MOONRIVER_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -90,6 +94,8 @@ const ARBITRUM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/arbitrum_pools.js';
 const CELO_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/celo_pools.js';
+//const MOONRIVER_VAULTS_ENDPOINT =
+//  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonriver_pools.js';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -100,6 +106,7 @@ const MULTICHAIN_ENDPOINTS = {
   one: ONE_VAULTS_ENDPOINT,
   arbitrum: ARBITRUM_VAULTS_ENDPOINT,
   celo: CELO_VAULTS_ENDPOINT,
+  // moonriver: MOONRIVER_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
@@ -134,6 +141,9 @@ export {
   CELO_RPC,
   CELO_CHAIN_ID,
   CELO_VAULTS_ENDPOINT,
+  MOONRIVER_RPC,
+  MOONRIVER_CHAIN_ID,
+  //MOONRIVER_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
@@ -154,6 +164,7 @@ export {
   APE_LPF,
   SPOOKY_LPF,
   JOE_LPF,
+  SOLAR_LPF,
   BEEFY_PERFORMANCE_FEE,
   SHARE_AFTER_PERFORMANCE_FEE,
   EXCLUDED_IDS_FROM_TVL,

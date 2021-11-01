@@ -168,6 +168,7 @@ import sushiCeloPools from '../../data/celo/sushiLpPools.json';
 import mooTokens from '../../data/mooTokens.json';
 import wsgPools from '../../data/degens/wsgLpPools.json';
 import summitPools from '../../data/fantom/summitLpPools.json';
+import solarbeamPools from '../../data/moonriver/solarbeamLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -175,6 +176,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...solarbeamPools,
   ...summitPools,
   ...wsgPools,
   ...pearzapFantomPools,
