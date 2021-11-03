@@ -1,6 +1,10 @@
 const { getSolarbeamLpApys } = require('./getSolarbeamLpApys');
+const { getSolarApy } = require('./getSolarApy');
 
-const getApys = [getSolarbeamLpApys];
+const getApys = [
+  getSolarbeamLpApys,
+  getSolarApy
+];
 
 const getMoonriverApys = async () => {
   let apys = {};
