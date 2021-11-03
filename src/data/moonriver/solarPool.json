@@ -1,0 +1,11 @@
+[
+  {
+    "name": "solarbeam-solar",
+    "poolId": 0,
+    "masterchef": "0x7e6E03822D0077F3C417D33caeAc900Fc2645679",
+    "address": "0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B",
+    "oracle": "tokens",
+    "oracleId": "SOLAR",
+    "decimals": "1e18"
+  }
+]
