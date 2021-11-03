@@ -6,6 +6,7 @@ const getGondolaLpApys = require('./getGondolaLpApys');
 const getComAvaxApys = require('./getComAvaxLpApys');
 const getAvaxBifiMaxiApy = require('./getAvaxBifiMaxiApy');
 const getJoeApys = require('./getJoeLpApys');
+const getJoeDualApys = require('./getJoeDualLpApys');
 const getJoeApy = require('./getJoeApy');
 const getPangolinPNGApy = require('./getPangolinPNGApy');
 const getCurveApys = require('./getCurveApys');
@@ -21,6 +22,7 @@ const getApys = [
   getGondolaLpApys,
   getAvaxBifiMaxiApy,
   getJoeApys,
+  getJoeDualApys,
   getJoeApy,
   getPangolinPNGApy,
   getCurveApys,

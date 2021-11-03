@@ -27,6 +27,9 @@ module.exports = {
   get celoWeb3() {
     return chainRandomClients.celoRandomClient();
   },
+  get moonriverWeb3() {
+    return chainRandomClients.moonriverRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

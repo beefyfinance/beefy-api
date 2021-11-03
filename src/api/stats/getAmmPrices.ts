@@ -136,6 +136,7 @@ import yelPools from '../../data/degens/yelLpPools.json';
 import omnifarmPools from '../../data/degens/omnifarmLpPools.json';
 import viralataLpPools from '../../data/degens/viralataLpPools.json';
 import joePools from '../../data/avax/joeLpPools.json';
+import joeDualLpPools from '../../data/avax/joeDualLpPools.json';
 import elkPools from '../../data/degens/elkLpPools.json';
 import longPools from '../../data/degens/longLpPools.json';
 import CZFPools from '../../data/degens/CZFLpPools.json';
@@ -166,6 +167,8 @@ import pearzapFantomPools from '../../data/fantom/pearzapLpPools.json';
 import sushiCeloPools from '../../data/celo/sushiLpPools.json';
 import mooTokens from '../../data/mooTokens.json';
 import wsgPools from '../../data/degens/wsgLpPools.json';
+import summitPools from '../../data/fantom/summitLpPools.json';
+import solarbeamPools from '../../data/moonriver/solarbeamLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -173,6 +176,8 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...solarbeamPools,
+  ...summitPools,
   ...wsgPools,
   ...pearzapFantomPools,
   ...sushiCeloPools,
@@ -204,6 +209,7 @@ const pools = [
   ...elkPools,
   ...viralataLpPools,
   ...joePools,
+  ...joeDualLpPools,
   ...omnifarmPools,
   ...tosdisPools,
   ...yelPools,

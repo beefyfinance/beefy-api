@@ -1,5 +1,43 @@
 [
   {
+    "name": "cakev2-dkt-wbnb",
+    "address": "0x365c3F921b2915a480308D0b1C04aEF7B99c2876",
+    "decimals": "1e18",
+    "poolId": 466,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x7Ceb519718A80Dd78a8545AD8e7f401dE4f2faA7",
+      "oracle": "tokens",
+      "oracleId": "DKT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-lazio-wbnb",
+    "address": "0x11c0b2BB4fbB430825d07507A9E24e4c32f7704D",
+    "decimals": "1e18",
+    "poolId": 464,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x77d547256A2cD95F32F67aE0313E450Ac200648d",
+      "oracle": "tokens",
+      "oracleId": "LAZIO",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-mcb-wbnb",
     "address": "0xE4077A90f8600d9599440cC6d9057785f43a6Ac9",
     "decimals": "1e18",

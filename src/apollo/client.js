@@ -204,6 +204,14 @@ const dfynClient = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const solarbeamClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://analytics.solarbeam.io/api/subgraph',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 const joeClient = client('https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange');
 const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph/exchange3');
 const kyberClient = client(
@@ -253,6 +261,7 @@ module.exports = {
   jetswapPolyClient,
   jetswapFantomClient,
   kyberClient,
+  solarbeamClient,
   babyClient,
   beetClient,
   isBeetClient,

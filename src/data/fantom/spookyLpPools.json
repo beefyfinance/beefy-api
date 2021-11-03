@@ -19,6 +19,44 @@
     }
   },
   {
+    "name": "boo-dola-inv",
+    "address": "0x26519b547416E4f53f3A4b05b95Ef859C3BD89Fe",
+    "decimals": "1e18",
+    "poolId": 40,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x3129662808bEC728a27Ab6a6b9AFd3cBacA8A43c",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb84527D59b6Ecb96F433029ECc890D4492C5dCe1",
+      "oracle": "tokens",
+      "oracleId": "INV",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-wftm-dola",
+    "address": "0x49EC56Cc2adAf19C1688d3131304Dbc3Df5e1cCd",
+    "decimals": "1e18",
+    "poolId": 41,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3129662808bEC728a27Ab6a6b9AFd3cBacA8A43c",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-wftm-spell",
     "address": "0x78f82c16992932EfDd18d93f889141CcF326DBc2",
     "decimals": "1e18",

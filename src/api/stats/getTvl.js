@@ -24,6 +24,9 @@ const {
 
   CELO_CHAIN_ID,
   CELO_VAULTS_ENDPOINT,
+
+  MOONRIVER_CHAIN_ID,
+  MOONRIVER_VAULTS_ENDPOINT,
 } = require('../../constants');
 
 const INIT_DELAY = 40 * 1000;
@@ -63,6 +66,10 @@ const chains = [
   {
     chainId: CELO_CHAIN_ID,
     vaultsEndpoint: CELO_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: MOONRIVER_CHAIN_ID,
+    vaultsEndpoint: MOONRIVER_VAULTS_ENDPOINT,
   },
 ];
 

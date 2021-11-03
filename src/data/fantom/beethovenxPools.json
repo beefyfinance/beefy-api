@@ -373,5 +373,105 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "beets-fantom-conservatory",
+    "address": "0xfC092F85125907fFcb0f9012e6e40B3f37c4De60",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xfc092f85125907ffcb0f9012e6e40b3f37c4de60000100000000000000000044",
+    "poolId": 15,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SPIRIT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BOO",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "TAROT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ANY",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SCREAM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-guqin-qi-2",
+    "address": "0x2C580C6F08044D6dfACA8976a66C8fAddDBD9901",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x2c580c6f08044d6dfaca8976a66c8fadddbd9901000000000000000000000038",
+    "poolId": 16,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-late-quartet",
+    "address": "0xf3A602d30dcB723A74a0198313a7551FEacA7DAc",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xf3a602d30dcb723a74a0198313a7551feaca7dac00010000000000000000005f",
+    "poolId": 17,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

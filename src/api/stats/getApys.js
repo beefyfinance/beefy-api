@@ -6,6 +6,7 @@ const { getBSCApys } = require('./bsc');
 const { getOneApys } = require('./one');
 const { getArbitrumApys } = require('./arbitrum');
 const { getCeloApys } = require('./celo');
+const { getMoonriverApys } = require('./moonriver');
 
 const INIT_DELAY = process.env.INIT_DELAY || 60 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -33,6 +34,7 @@ const updateApys = async () => {
       getOneApys(),
       getArbitrumApys(),
       getCeloApys(),
+      getMoonriverApys(),
     ]);
 
     for (const result of results) {

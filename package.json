@@ -23,6 +23,7 @@
     "celo:sushi:add": "ts-node scripts/add-sushi.ts --network celo --project sushiCelo",
     "avax:pangolin:add": "ts-node scripts/add-quick.ts --network avax --project pangolin",
     "avax:joe:add": "ts-node scripts/add-farm.ts --network avax --project joe",
+    "moonriver:solarbeam:add": "ts-node scripts/add-farm.ts --network moonriver --project solarbeam",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },
   "dependencies": {

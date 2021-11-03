@@ -38,6 +38,16 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  SUMMIT: {
+    name: 'SUMMIT',
+    symbol: 'SUMMIT',
+    address: '0x8F9bCCB6Dd999148Da1808aC290F2274b13D7994',
+    decimals: 18,
+    chainId: 250,
+    logoURI: 'https://assets.coingecko.com/coins/images/19389/small/CE2Sdy2.png',
+    description: 'Introducing "Yield Multiplying" to the world of DeFi.',
+    website: 'https://summitdefi.com/',
+  },
   PEAR: {
     name: 'PearZap',
     symbol: 'PEAR',
@@ -56,7 +66,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://www.tarot.to/',
     description:
-      "Tarot is a decentralized lending protocol on Fantom Opera where users can participate as lenders or borrowers in isolated lending pools.",
+      'Tarot is a decentralized lending protocol on Fantom Opera where users can participate as lenders or borrowers in isolated lending pools.',
     logoURI: 'https://assets.coingecko.com/coins/images/17881/large/tarot-200px.png?1629704943',
   },
   MAI: {
@@ -79,7 +89,8 @@ const _tokens = {
     website: 'https://beethovenx.io/',
     description:
       'BEETS is the governance token for the Beethoven X protocol. Built on Balancer V2, Beethoven X is the first next-generation AMM protocol on Fantom.',
-    logoURI: 'https://assets.coingecko.com/coins/images/19158/small/beets-icon-large.png?1634545465',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/19158/small/beets-icon-large.png?1634545465',
   },
   fSING: {
     name: 'Sing Token',
@@ -731,6 +742,28 @@ const _tokens = {
     description:
       'wMEMO is a wrapped version of MEMO. MEMO (Memories) is the reciept of staked TIME.',
     logoURI: 'https://app.spiritswap.finance/images/tokens/WMEMO.png',
+  },
+  DOLA: {
+    name: 'DOLA USD',
+    symbol: 'DOLA',
+    address: '0x3129662808bEC728a27Ab6a6b9AFd3cBacA8A43c',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
+  },
+  INV: {
+    name: 'Inverse Finance',
+    symbol: 'INV',
+    address: '0xb84527D59b6Ecb96F433029ECc890D4492C5dCe1',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
   },
 } as const;
 
