@@ -1,0 +1,134 @@
+[
+  {
+    "name": "geist-ftm-supply",
+    "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+    "aToken": "0x39B3bd37208CBaDE74D0fcBDBb12D606295b430a",
+    "debtToken": "0x53d01d351Fa001DB3c893388E43e3C630A8764F5",
+    "oracle": "tokens",
+    "oracleId": "WFTM",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "geist-fusdt-supply",
+    "token": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+    "aToken": "0x940F41F0ec9ba1A34CF001cc03347ac092F5F6B5",
+    "debtToken": "0x816eD5Ee0c7b011024be3fb5b6166f59A7cbe0e4",
+    "oracle": "tokens",
+    "oracleId": "fUSDT",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "geist-dai-supply",
+    "token": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+    "aToken": "0x07E6332dD090D287d3489245038daF987955DCFB",
+    "debtToken": "0xd25aa085EF6a304C6861750f16A3Fa0D03d25DDB",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "geist-usdc-supply",
+    "token": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+    "aToken": "0xe578C856933D8e1082740bf7661e379Aa2A30b26",
+    "debtToken": "0x3EeF981640064d63BB7eaD4c6E3C0457E5c2934D",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "geist-eth-supply",
+    "token": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+    "aToken": "0x25c130B2624CF12A4Ea30143eF50c5D68cEFA22f",
+    "debtToken": "0xbDCE00a99a4b7E99f7A6Af7D44724F77D471F923",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "geist-wbtc-supply",
+    "token": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+    "aToken": "0x38aCa5484B8603373Acc6961Ecd57a6a594510A3",
+    "debtToken": "0x4318d7aD332A0feE9Db6D2B9b4B021fDA865aBdB",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "geist-ftm",
+    "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+    "aToken": "0x39B3bd37208CBaDE74D0fcBDBb12D606295b430a",
+    "debtToken": "0x53d01d351Fa001DB3c893388E43e3C630A8764F5",
+    "oracle": "tokens",
+    "oracleId": "WFTM",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.47
+  },
+  {
+    "name": "geist-fusdt",
+    "token": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+    "aToken": "0x940F41F0ec9ba1A34CF001cc03347ac092F5F6B5",
+    "debtToken": "0x816eD5Ee0c7b011024be3fb5b6166f59A7cbe0e4",
+    "oracle": "tokens",
+    "oracleId": "fUSDT",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "geist-dai",
+    "token": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+    "aToken": "0x07E6332dD090D287d3489245038daF987955DCFB",
+    "debtToken": "0xd25aa085EF6a304C6861750f16A3Fa0D03d25DDB",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "geist-usdc",
+    "token": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+    "aToken": "0xe578C856933D8e1082740bf7661e379Aa2A30b26",
+    "debtToken": "0x3EeF981640064d63BB7eaD4c6E3C0457E5c2934D",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "geist-eth",
+    "token": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+    "aToken": "0x25c130B2624CF12A4Ea30143eF50c5D68cEFA22f",
+    "debtToken": "0xbDCE00a99a4b7E99f7A6Af7D44724F77D471F923",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "geist-wbtc",
+    "token": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+    "aToken": "0x38aCa5484B8603373Acc6961Ecd57a6a594510A3",
+    "debtToken": "0x4318d7aD332A0feE9Db6D2B9b4B021fDA865aBdB",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "borrowDepth": 4,
+    "borrowPercent": 0.67
+  }
+]
