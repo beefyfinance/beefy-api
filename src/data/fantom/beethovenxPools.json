@@ -473,5 +473,65 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "beets-song-ice-fire",
+    "address": "0x2BeA17EdE5D83ad19ae112B8592AadaA2B015De7",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x2bea17ede5d83ad19ae112b8592aadaa2b015de7000100000000000000000069",
+    "poolId": 18,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SPELL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ICE",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-tubular-bells",
+    "address": "0x65Bf2d53BD1d7050d22873f6B9Bb59edb0cA0b20",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x65bf2d53bd1d7050d22873f6b9bb59edb0ca0b2000010000000000000000006e",
+    "poolId": 19,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "LINK",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
