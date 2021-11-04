@@ -1,5 +1,24 @@
 [
   {
+    "name": "banana-exp-wbnb",
+    "address": "0xe93855Cb88fAa221e648c157670a28f0c2449A60",
+    "decimals": "1e18",
+    "poolId": 126,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x639d4C62F58a4048AD0F69B8CE675dB1A3e8e00e",
+      "oracle": "tokens",
+      "oracleId": "EXP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-tusd-busd",
     "address": "0xeDbA62A5d133Fa340e4ef1D58D72F6e773554318",
     "decimals": "1e18",

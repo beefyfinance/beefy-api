@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  EXP: {
+    name: 'Game X Change',
+    symbol: 'EXP',
+    address: '0x639d4C62F58a4048AD0F69B8CE675dB1A3e8e00e',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/EXP.svg ',
+    website: 'https://gamexchange.app/',
+    description:
+      'Game X Change is the global gaming exchange for the movements of assets (NFT’s) and in-game currency across the gaming ecosystem.',
+  },
   CEEK: {
     name: 'CEEK',
     symbol: 'CEEK',
