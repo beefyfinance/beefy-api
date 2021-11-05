@@ -29,7 +29,7 @@ const liquidityProviderFee = 0.0025;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
-const getJoeApys = async () => {
+const getJoeDualLpApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
@@ -49,13 +49,13 @@ const getJoeApys = async () => {
 
     const poolBlockRewards = rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-    const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA).dividedBy(2);
+    const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
 
     const rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarders[i]);
 
     const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerSec().call());
     const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
-    const yearlyRewardsBInUsd = yearlyRewardsB.times(tokenPriceB).dividedBy(DECIMALSB).dividedBy(2);
+    const yearlyRewardsBInUsd = yearlyRewardsB.times(tokenPriceB).dividedBy(DECIMALSB);
 
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
 
@@ -132,4 +132,4 @@ const getPoolsData = async pools => {
   return { balances, allocPoints, rewarders };
 };
 
-module.exports = getJoeApys;
+module.exports = getJoeDualLpApys;
