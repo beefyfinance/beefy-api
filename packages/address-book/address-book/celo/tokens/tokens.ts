@@ -14,6 +14,18 @@ const CELO = {
     'https://res.cloudinary.com/dnz2bkszg/image/fetch/f_auto/https://raw.githubusercontent.com/sushiswap/icons/master/token/one.jpg',
 } as const;
 
+const SUSHI = {
+  name: 'Sushi Swap',
+  symbol: 'SUSHI',
+  address: '0xD15EC721C2A896512Ad29C671997DD68f9593226',
+  chainId: 42220,
+  decimals: 18,
+  website: 'https://sushi.com/',
+  description:
+    'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+  logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
+};
+
 const _tokens = {
   CELO,
   WCELO: CELO,
@@ -76,16 +88,10 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
   },
-  SUSHI: {
-    name: 'Sushi Swap',
-    symbol: 'SUSHI',
-    address: '0xD15EC721C2A896512Ad29C671997DD68f9593226',
-    chainId: 42220,
-    decimals: 18,
-    website: 'https://sushi.com/',
-    description:
-      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
-    logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
+  SUSHI,
+  cSUSHI: {
+    ...SUSHI,
+    symbol: 'cSUSHI',
   },
 } as const;
 
