@@ -214,6 +214,17 @@ const _tokens = {
     description:
       'An immersive NFT collection created in partnership with the biggest and best Polkadot projects',
   },
+  mSUSHI: {
+    name: 'mSUSHI',
+    address: '0xf390830DF829cf22c53c8840554B98eafC5dCBc2',
+    symbol: 'mSUSHI',
+    decimals: 18,
+    chainId: 1285,
+    website: 'https://sushi.com/',
+    description:
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+    logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
