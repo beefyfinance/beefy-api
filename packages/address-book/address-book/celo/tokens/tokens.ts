@@ -2,9 +2,9 @@ import { ConstRecord } from '../../../types/const';
 import Token from '../../../types/token';
 
 const CELO = {
-  name: 'Wrapped CELO',
+  name: 'CELO',
   address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
-  symbol: 'WCELO',
+  symbol: 'CELO',
   decimals: 18,
   chainId: 42220,
   website: 'https://celo.org/',
@@ -13,6 +13,11 @@ const CELO = {
   logoURI:
     'https://res.cloudinary.com/dnz2bkszg/image/fetch/f_auto/https://raw.githubusercontent.com/sushiswap/icons/master/token/one.jpg',
 } as const;
+
+const WCELO = {
+  ...CELO,
+  symbol: 'WCELO',
+};
 
 const SUSHI = {
   name: 'Sushi Swap',
@@ -28,8 +33,8 @@ const SUSHI = {
 
 const _tokens = {
   CELO,
-  WCELO: CELO,
-  WNATIVE: CELO,
+  WCELO: WCELO,
+  WNATIVE: WCELO,
   BIFI: {
     chainId: 42220,
     address: '0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C',
