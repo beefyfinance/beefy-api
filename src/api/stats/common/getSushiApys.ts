@@ -28,6 +28,7 @@ const secondsPerYear = 31536000;
 interface SushyApyParams {
   minichef: string; // address
   complexRewarderTime: string; // address
+  sushiOracleId: string; // i.e. SUSHI
   nativeOracleId: string; // i.e. WMATIC
   // totalAllocPoint is non public
   // https://github.com/sushiswap/sushiswap/blob/37026f3749f9dcdae89891f168d63667845576a7/contracts/mocks/ComplexRewarderTime.sol#L44

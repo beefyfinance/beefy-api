@@ -12,6 +12,7 @@ const {
     platforms: {
       sushi: { minichef, complexRewarderTime },
     },
+    tokens: { SUSHI, WMATIC },
   },
 } = addressBook;
 
@@ -19,7 +20,8 @@ export const getSushiLpApys = () => {
   return getSushiApys({
     minichef,
     complexRewarderTime,
-    nativeOracleId: 'WMATIC',
+    sushiOracleId: SUSHI.symbol,
+    nativeOracleId: WMATIC.symbol,
     nativeTotalAllocPoint: 1000,
     pools,
     sushiClient,
