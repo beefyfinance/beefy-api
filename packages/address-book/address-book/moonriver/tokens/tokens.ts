@@ -14,6 +14,18 @@ const MOVR = {
     'https://app.solarbeam.io/_next/image?url=https%3A%2F%2Fapp.solarbeam.io%2Fimages%2Ftokens%2Fmovr.png&w=32&q=50',
 } as const;
 
+const SUSHI = {
+  name: 'SUSHI',
+  address: '0xf390830DF829cf22c53c8840554B98eafC5dCBc2',
+  symbol: 'SUSHI',
+  decimals: 18,
+  chainId: 1285,
+  website: 'https://sushi.com/',
+  description:
+    'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+  logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
+};
+
 const _tokens = {
   MOVR,
   WMOVR: MOVR,
@@ -213,6 +225,11 @@ const _tokens = {
     website: 'https://www.polkapet.world/',
     description:
       'An immersive NFT collection created in partnership with the biggest and best Polkadot projects',
+  },
+  SUSHI,
+  mSUSHI: {
+    ...SUSHI,
+    symbol: 'mSUSHI',
   },
 } as const;
 
