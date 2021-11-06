@@ -14,6 +14,18 @@ const ONE = {
     'https://res.cloudinary.com/dnz2bkszg/image/fetch/f_auto/https://raw.githubusercontent.com/sushiswap/icons/master/token/one.jpg',
 } as const;
 
+const SUSHI = {
+  name: 'Sushi',
+  address: '0xBEC775Cb42AbFa4288dE81F387a9b1A3c4Bc552A',
+  symbol: 'SUSHI',
+  decimals: 18,
+  chainId: 1666600000,
+  website: 'https://sushi.com/',
+  description:
+    'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+  logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
+};
+
 const _tokens = {
   ONE,
   WONE: ONE,
@@ -76,16 +88,10 @@ const _tokens = {
     chainId: 1666600000,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
   },
-  SUSHI: {
-    name: 'Sushi',
-    address: '0xBEC775Cb42AbFa4288dE81F387a9b1A3c4Bc552A',
-    symbol: 'SUSHI',
-    decimals: 18,
-    chainId: 1666600000,
-    website: 'https://sushi.com/',
-    description:
-      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
-    logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
+  SUSHI,
+  oneSUSHI: {
+    ...SUSHI,
+    symbol: 'oneSUSHI',
   },
   BUSD: {
     name: 'BUSD Token',

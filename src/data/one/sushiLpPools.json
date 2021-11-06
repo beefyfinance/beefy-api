@@ -312,7 +312,7 @@
     "lp0": {
       "address": "0xbec775cb42abfa4288de81f387a9b1a3c4bc552a",
       "oracle": "tokens",
-      "oracleId": "1SUSHI",
+      "oracleId": "oneSUSHI",
       "decimals": "1e18"
     },
     "lp1": {
