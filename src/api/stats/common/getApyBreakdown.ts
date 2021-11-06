@@ -1,5 +1,3 @@
-'use strict';
-
 import BigNumber from 'bignumber.js';
 
 import getFarmWithTradingFeesApy from '../../../utils/getFarmWithTradingFeesApy';
@@ -22,13 +20,13 @@ export interface ApyBreakdownResult {
   apyBreakdowns: Record<string, ApyBreakdown>;
 }
 
-export default function (
+export const getApyBreakdown = (
   pools: { name: string; address: string }[],
   tradingAprs: Record<string, BigNumber>,
   farmAprs: BigNumber[],
   providerFee: number,
   performanceFee: number = BEEFY_PERFORMANCE_FEE
-): ApyBreakdownResult {
+): ApyBreakdownResult => {
   const result: ApyBreakdownResult = {
     apys: {},
     apyBreakdowns: {},
@@ -61,4 +59,6 @@ export default function (
   });
 
   return result;
-}
+};
+
+export default getApyBreakdown;
