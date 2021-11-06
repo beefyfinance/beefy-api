@@ -16,7 +16,7 @@ const {
   },
 } = addressBook;
 
-export const getSushiLpApys = () => {
+export const getSushiCeloApys = () => {
   return getSushiApys({
     minichef,
     complexRewarderTime,
