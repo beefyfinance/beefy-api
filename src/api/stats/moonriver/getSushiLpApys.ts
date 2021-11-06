@@ -4,7 +4,7 @@ import { MOONRIVER_CHAIN_ID } from '../../../constants';
 import { getSushiApys } from '../common/getSushiApys';
 import { sushiMoonriverClient } from '../../../apollo/client';
 
-import pools from '../../../data/matic/sushiLpPools.json';
+import pools from '../../../data/moonriver/sushiLpPools.json';
 
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
