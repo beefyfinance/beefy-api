@@ -8,8 +8,8 @@ const AVAX = {
   name: 'Wrapped AVAX',
   symbol: 'WAVAX',
   website: 'https://www.avalabs.org/',
-    description:
-      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+  description:
+    'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
   logoURI:
     'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7/logo.png',
 } as const;
@@ -72,6 +72,17 @@ const _tokens = {
       'https://gblobscdn.gitbook.com/assets%2F-MhzA-YXhEZ1wM1iWJEo%2F-MiQzpjkumrqycMXcTj6%2F-MiR0TC116IqSmoKpkwX%2FTime%20Token.png?alt=media&token=9ba1004c-5e23-4e6e-b4f8-19f109c557d0',
   },
   MAI: {
+    chainId: 43114,
+    address: '0x5c49b268c9841aff1cc3b0a418ff5c3442ee3f3b',
+    decimals: 18,
+    name: 'Mai Stablecoin',
+    symbol: 'MAI',
+    website: 'https://www.mai.finance/',
+    description:
+      "MAI is a stable coin collateralized by your MATIC holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+  },
+  miMatic: {
     chainId: 43114,
     address: '0x3B55E45fD6bd7d4724F5c47E0d1bCaEdd059263e',
     decimals: 18,
@@ -1304,8 +1315,7 @@ const _tokens = {
     name: 'Frax',
     symbol: 'FRAX',
     website: 'https://frax.finance/',
-    description:
-      'Frax is the first fractional-algorithmic stablecoin protocol.',
+    description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBB69c92FBb4F1aFf528875056650c862F94D3CC1/logo.png',
   },
