@@ -51,7 +51,7 @@ const getJoeDualLpApys = async () => {
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
 
-    const yearlyRewardsBInUsd = (() => {
+    const yearlyRewardsBInUsd = await (async () => {
       if (rewarders[i] === '0x0000000000000000000000000000000000000000') {
         return 0;
       } else {
