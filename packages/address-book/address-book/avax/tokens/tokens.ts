@@ -71,9 +71,20 @@ const _tokens = {
     logoURI:
       'https://gblobscdn.gitbook.com/assets%2F-MhzA-YXhEZ1wM1iWJEo%2F-MiQzpjkumrqycMXcTj6%2F-MiR0TC116IqSmoKpkwX%2FTime%20Token.png?alt=media&token=9ba1004c-5e23-4e6e-b4f8-19f109c557d0',
   },
+  AMPL: {
+    chainId: 43114,
+    address: '0x027dbcA046ca156De9622cD1e2D907d375e53aa7',
+    decimals: 9,
+    name: 'Ampleforth secured by Meter Passport',
+    symbol: 'AMPL',
+    website: 'https://www.ampleforth.org/',
+    description:
+      'Meter Passport is a N-way blockchain router that allows assets and information to flow directly from one blockchain to another within minutes or even seconds',
+    logoURI: 'https://cryptologos.cc/logos/ampleforth-ampl-logo.png',
+  },
   MAI: {
     chainId: 43114,
-    address: '0x5c49b268c9841aff1cc3b0a418ff5c3442ee3f3b',
+    address: '0x5c49b268c9841AFF1Cc3B0a418ff5c3442eE3F3b',
     decimals: 18,
     name: 'Mai Stablecoin',
     symbol: 'MAI',
