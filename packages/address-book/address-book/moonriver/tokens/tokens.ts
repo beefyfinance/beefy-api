@@ -16,7 +16,7 @@ const MOVR = {
 
 const WMOVR_SUSHI = {
   name: 'Wrapped MOVR on Sushiswap',
-  address: '0xf50225a84382c74cbdea10b0c176f71fc3de0c4d',
+  address: '0xf50225a84382c74CbdeA10b0c176f71fc3DE0C4d',
   symbol: 'WMOVR',
   decimals: 18,
   chainId: 1285,
