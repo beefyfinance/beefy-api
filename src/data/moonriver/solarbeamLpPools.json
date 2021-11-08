@@ -1,5 +1,24 @@
 [
   {
+    "name": "solarbeam-frax-wmovr",
+    "address": "0x56d095C15706e1199A2402373066700385DB5372",
+    "decimals": "1e18",
+    "poolId": 21,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x965f84D915a9eFa2dD81b653e3AE736555d945f4",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "solarbeam-pets-wmovr",
     "address": "0x9f9a7a3f8F56AFB1a2059daE1E978165816cea44",
     "decimals": "1e18",
