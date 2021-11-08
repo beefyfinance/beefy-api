@@ -1,0 +1,146 @@
+[
+  {
+    "name": "bankerjoe-avax-supply",
+    "itoken": "0xC22F01ddc8010Ee05574028528614634684EC29e",
+    "oracle": "tokens",
+    "oracleId": "AVAX",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "bankerjoe-weth.e-supply",
+    "itoken": "0x929f5caB61DFEc79a5431a7734a68D714C4633fa",
+    "oracle": "tokens",
+    "oracleId": "WETH.e",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "bankerjoe-wbtc.e-supply",
+    "itoken": "0x3fE38b7b610C0ACD10296fEf69d9b18eB7a9eB1F",
+    "oracle": "tokens",
+    "oracleId": "WBTC.e",
+    "decimals": "1e8",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "bankerjoe-usdc.e-supply",
+    "itoken": "0xEd6AaF91a2B084bd594DBd1245be3691F9f637aC",
+    "oracle": "tokens",
+    "oracleId": "USDC.e",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "bankerjoe-usdt.e-supply",
+    "itoken": "0x8b650e26404AC6837539ca96812f0123601E4448",
+    "oracle": "tokens",
+    "oracleId": "USDT.e",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "bankerjoe-dai.e-supply",
+    "itoken": "0xc988c170d0E38197DC634A45bF00169C7Aa7CA19",
+    "oracle": "tokens",
+    "oracleId": "DAI.e",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "bankerjoe-link.e-supply",
+    "itoken": "0x585E7bC75089eD111b656faA7aeb1104F5b96c15",
+    "oracle": "tokens",
+    "oracleId": "LINK.e",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "bankerjoe-mim-supply",
+    "itoken": "0xcE095A9657A02025081E0607c8D8b081c76A75ea",
+    "oracle": "tokens",
+    "oracleId": "MIM",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "bankerjoe-avax",
+    "itoken": "0xC22F01ddc8010Ee05574028528614634684EC29e",
+    "oracle": "tokens",
+    "oracleId": "AVAX",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "bankerjoe-weth.e",
+    "itoken": "0x929f5caB61DFEc79a5431a7734a68D714C4633fa",
+    "oracle": "tokens",
+    "oracleId": "WETH.e",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "bankerjoe-wbtc.e",
+    "itoken": "0x3fE38b7b610C0ACD10296fEf69d9b18eB7a9eB1F",
+    "oracle": "tokens",
+    "oracleId": "WBTC.e",
+    "decimals": "1e8",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "bankerjoe-usdc.e",
+    "itoken": "0xEd6AaF91a2B084bd594DBd1245be3691F9f637aC",
+    "oracle": "tokens",
+    "oracleId": "USDC.e",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "bankerjoe-usdt.e",
+    "itoken": "0x8b650e26404AC6837539ca96812f0123601E4448",
+    "oracle": "tokens",
+    "oracleId": "USDT.e",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "bankerjoe-dai.e",
+    "itoken": "0xc988c170d0E38197DC634A45bF00169C7Aa7CA19",
+    "oracle": "tokens",
+    "oracleId": "DAI.e",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "bankerjoe-link.e",
+    "itoken": "0x585E7bC75089eD111b656faA7aeb1104F5b96c15",
+    "oracle": "tokens",
+    "oracleId": "LINK.e",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.57
+  },
+  {
+    "name": "bankerjoe-mim",
+    "itoken": "0xcE095A9657A02025081E0607c8D8b081c76A75ea",
+    "oracle": "tokens",
+    "oracleId": "MIM",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.57
+  }
+]

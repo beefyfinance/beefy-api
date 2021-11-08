@@ -13,6 +13,7 @@ const getCurveApys = require('./getCurveApys');
 const { getAaveApys } = require('./getAaveApys');
 const getSingularApys = require('./getSingularApys');
 const getBlizzLpApys = require('./getBlizzLpApys');
+const getBankerJoeApys = require('./getBankerJoeApys');
 
 const getApys = [
   getComAvaxApys,
@@ -30,6 +31,7 @@ const getApys = [
   getAaveApys,
   getSingularApys,
   getBlizzLpApys,
+  getBankerJoeApys,
 ];
 
 const getAvaxApys = async () => {
