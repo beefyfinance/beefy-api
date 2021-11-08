@@ -246,6 +246,17 @@ const _tokens = {
     ...SUSHI,
     symbol: 'mSUSHI',
   },
+  FRAX: {
+    name: 'FRAX',
+    symbol: 'FRAX',
+    address: '0x965f84D915a9eFa2dD81b653e3AE736555d945f4',
+    chainId: 1285,
+    decimals: 18,
+    logoURI: 'https://cryptologos.cc/logos/frax-frax-logo.svg?v=014',
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
