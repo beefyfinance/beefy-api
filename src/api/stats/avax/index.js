@@ -12,6 +12,7 @@ const getPangolinPNGApy = require('./getPangolinPNGApy');
 const getCurveApys = require('./getCurveApys');
 const { getAaveApys } = require('./getAaveApys');
 const getSingularApys = require('./getSingularApys');
+const getBlizzLpApys = require('./getBlizzLpApys');
 
 const getApys = [
   getComAvaxApys,
@@ -28,6 +29,7 @@ const getApys = [
   getCurveApys,
   getAaveApys,
   getSingularApys,
+  getBlizzLpApys,
 ];
 
 const getAvaxApys = async () => {

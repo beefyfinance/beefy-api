@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  BLZZ: {
+    chainId: 43114,
+    address: '0x0f34919404a290e71fc6A510cB4a6aCb8D764b24',
+    decimals: 18,
+    name: 'BLIZZ',
+    symbol: 'BLZZ',
+    website: 'https://blizz.finance/',
+    description:
+      'Blizz is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
+    logoURI: 'https://pbs.twimg.com/profile_images/1456581025392377856/FEA_z1P0_x96.jpg',
+  },
   CRV: {
     chainId: 43114,
     address: '0x47536F17F4fF30e64A96a7555826b8f9e66ec468',
