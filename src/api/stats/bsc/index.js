@@ -43,6 +43,7 @@ const { getFarmheroApys } = require('./farmhero/getFarmheroApys');
 const getOmnifarmApys = require('./omnifarm/getOmnifarmApys');
 const getElkApys = require('./elk/getElkApys');
 const getBifiMaxiV2Apy = require('./beefy/getBifiMaxiV2Apy');
+const getBifiGovApy = require('./beefy/getBifiGovApy');
 const getPotsApy = require('./pots/getPotsApy');
 
 const getApys = [
@@ -54,6 +55,7 @@ const getApys = [
   getBakeryLpApys,
   getBeltApys,
   getBhcPoolApy,
+  getBifiGovApy,
   getBifiMaxiApy,
   getBifiMaxiV2Apy,
   getBtdLpApys,

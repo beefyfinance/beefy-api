@@ -1,0 +1,9 @@
+{
+  "name": "celo-bifi-gov",
+  "address": "0x2D250016E3621CfC50A0ff7e5f6E34bbC6bfE50E",
+  "tokenAddress": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
+  "tokenDecimals": 1e18,
+  "oracle": "tokens",
+  "oracleId": "BIFI",
+  "exclude": {}
+}
