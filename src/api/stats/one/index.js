@@ -1,7 +1,8 @@
 const { getSushiLpApys } = require('./getSushiApys');
 const getCurveApys = require('./getCurveApys');
+const { getOneBifiGovApy } = require('./getOneBifiGovApy');
 
-const getApys = [getSushiLpApys, getCurveApys];
+const getApys = [getSushiLpApys, getCurveApys, getOneBifiGovApy];
 
 const getOneApys = async () => {
   let apys = {};
