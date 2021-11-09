@@ -6,6 +6,7 @@ const fetchPrice = require('../../utils/fetchPrice');
 const { EXCLUDED_IDS_FROM_TVL } = require('../../constants');
 
 const BeefyVaultV6ABI = require('../../abis/BeefyVaultV6.json');
+const { getTotalStakedInUsd } = require('../../utils/getTotalStakedInUsd');
 
 const getChainTvl = async chain => {
   const chainId = chain.chainId;
@@ -37,6 +38,14 @@ const getChainTvl = async chain => {
 
     tvls[chainId] = { ...tvls[chainId], ...item };
   }
+
+  if (chain.governancePool) {
+    let governanceTvl = await getGovernanceTvl(chainId, chain.governancePool);
+    tvls[chainId] = { ...tvls[chainId], ...governanceTvl };
+  } else {
+    console.log('no gov pool');
+  }
+
   return tvls;
 };
 
@@ -52,6 +61,47 @@ const getVaultBalances = async (chainId, vaults) => {
   });
   const res = await multicall.all([balanceCalls]);
   return res[0].map(v => new BigNumber(v.balance));
+};
+
+//Fetches chain's governance pool tvl excluding vaults already depositing in it
+// to as to not count twice. (Ex: Maxi deposits in gov pool so shouldn't be counted
+// twice per chain)
+const getGovernanceTvl = async (chainId, governancePool) => {
+  const excludedVaults = Object.values(governancePool.exclude);
+
+  const excludedBalances = await getVaultBalances(chainId, excludedVaults);
+  let tokenPrice = 0;
+
+  try {
+    tokenPrice = await fetchPrice({ oracle: governancePool.oracle, id: governancePool.oracleId });
+  } catch (e) {
+    console.error(
+      'getGovernanceTvl fetchPrice',
+      chainId,
+      governancePool.oracle,
+      governancePool.oracleId,
+      e
+    );
+  }
+
+  const excludedBalance = excludedBalances.reduce(
+    (tot, cur) => tot.plus(cur.times(tokenPrice).dividedBy(governancePool.tokenDecimals)),
+    new BigNumber(0)
+  );
+
+  let totalStaked = await getTotalStakedInUsd(
+    governancePool.address,
+    governancePool.tokenAddress,
+    governancePool.oracle,
+    governancePool.oracleId,
+    governancePool.tokenDecimals,
+    chainId
+  );
+
+  let response = {};
+  response[governancePool.name] = Number(totalStaked.minus(excludedBalance)).toFixed(2);
+
+  return response;
 };
 
 module.exports = getChainTvl;

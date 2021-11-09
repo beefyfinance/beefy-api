@@ -333,7 +333,7 @@
     "lp0": {
       "address": "0x264c1383ea520f73dd837f915ef3a732e204a493",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "aBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -353,7 +353,7 @@
     "lp0": {
       "address": "0x264c1383ea520f73dd837f915ef3a732e204a493",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "aBNB",
       "decimals": "1e18"
     },
     "lp1": {

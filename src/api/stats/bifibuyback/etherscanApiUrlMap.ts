@@ -15,4 +15,8 @@ export const etherscanApiUrlMap = {
     url: 'https://api.hecoinfo.com',
     apiToken: '6XRRGTTB5ZQWXV55IDQJWYNF2F4GK7I1KK',
   },
+  avax: {
+    url: 'https://api.snowtrace.io',
+    apiToken: 'RAQVQ1H9766QWV3JYF49CCYCB6WAK8STVB',
+  },
 } as const;

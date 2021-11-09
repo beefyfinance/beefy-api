@@ -14,10 +14,37 @@ const MOVR = {
     'https://app.solarbeam.io/_next/image?url=https%3A%2F%2Fapp.solarbeam.io%2Fimages%2Ftokens%2Fmovr.png&w=32&q=50',
 } as const;
 
+const WMOVR_SUSHI = {
+  name: 'Wrapped MOVR on Sushiswap',
+  address: '0xf50225a84382c74CbdeA10b0c176f71fc3DE0C4d',
+  symbol: 'WMOVR',
+  decimals: 18,
+  chainId: 1285,
+  website: 'https://moonbeam.network/networks/moonriver/',
+  description:
+    'Moonriver is a companion network to Moonbeam and provides a permanently incentivized canary network. New code ships to Moonriver first, where it can be tested and verified under real economic conditions. Once proven, the same code ships to Moonbeam on Polkadot.',
+  logoURI:
+    'https://app.solarbeam.io/_next/image?url=https%3A%2F%2Fapp.solarbeam.io%2Fimages%2Ftokens%2Fmovr.png&w=32&q=50',
+} as const;
+
+const SUSHI = {
+  name: 'SUSHI',
+  address: '0xf390830DF829cf22c53c8840554B98eafC5dCBc2',
+  symbol: 'SUSHI',
+  decimals: 18,
+  chainId: 1285,
+  website: 'https://sushi.com/',
+  description:
+    'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+  logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
+};
+
 const _tokens = {
   MOVR,
   WMOVR: MOVR,
   WNATIVE: MOVR,
+  WMOVR_SUSHI: WMOVR_SUSHI,
+  WNATIVE_SUSHI: WMOVR_SUSHI,
   BIFI: {
     chainId: 1285,
     address: '0x173fd7434B8B50dF08e3298f173487ebDB35FD14',
@@ -213,6 +240,22 @@ const _tokens = {
     website: 'https://www.polkapet.world/',
     description:
       'An immersive NFT collection created in partnership with the biggest and best Polkadot projects',
+  },
+  SUSHI,
+  mSUSHI: {
+    ...SUSHI,
+    symbol: 'mSUSHI',
+  },
+  FRAX: {
+    name: 'FRAX',
+    symbol: 'FRAX',
+    address: '0x965f84D915a9eFa2dD81b653e3AE736555d945f4',
+    chainId: 1285,
+    decimals: 18,
+    logoURI: 'https://cryptologos.cc/logos/frax-frax-logo.svg?v=014',
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
   },
 } as const;
 

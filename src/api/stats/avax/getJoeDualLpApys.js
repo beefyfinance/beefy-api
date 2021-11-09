@@ -51,11 +51,16 @@ const getJoeDualLpApys = async () => {
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
 
-    const rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarders[i]);
-
-    const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerSec().call());
-    const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
-    const yearlyRewardsBInUsd = yearlyRewardsB.times(tokenPriceB).dividedBy(DECIMALSB);
+    const yearlyRewardsBInUsd = await (async () => {
+      if (rewarders[i] === '0x0000000000000000000000000000000000000000') {
+        return 0;
+      } else {
+        const rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarders[i]);
+        const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerSec().call());
+        const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
+        return yearlyRewardsB.times(tokenPriceB).dividedBy(DECIMALSB);
+      }
+    })();
 
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
 

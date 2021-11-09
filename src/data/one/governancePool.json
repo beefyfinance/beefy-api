@@ -1,0 +1,9 @@
+{
+  "name": "one-bifi-gov",
+  "address": "0x5b96bbaca98d777cb736dd89a519015315e00d02",
+  "tokenAddress": "0x6ab6d61428fde76768d7b45d8bfeec19c6ef91a8",
+  "tokenDecimals": 1e18,
+  "oracle": "tokens",
+  "oracleId": "BIFI",
+  "exclude": {}
+}

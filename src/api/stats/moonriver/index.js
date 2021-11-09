@@ -1,15 +1,13 @@
 const { getSolarbeamLpApys } = require('./getSolarbeamLpApys');
 const { getSolarApy } = require('./getSolarApy');
+const { getSushiLpApys } = require('./getSushiLpApys');
+const { getMovrBifiGovApy } = require('./getMovrBifiGovApy');
 
-const getApys = [
-  getSolarbeamLpApys,
-  getSolarApy
-];
+const getApys = [getSolarbeamLpApys, getSolarApy, getSushiLpApys, getMovrBifiGovApy];
 
 const getMoonriverApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
-
   let promises = [];
   getApys.forEach(getApy => promises.push(getApy()));
   const results = await Promise.allSettled(promises);

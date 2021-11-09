@@ -1,0 +1,9 @@
+{
+  "name": "movr-bifi-gov",
+  "address": "0x4aabd0d73181325dd1609ce696ef048702de7153",
+  "tokenAddress": "0x173fd7434B8B50dF08e3298f173487ebDB35FD14",
+  "tokenDecimals": 1e18,
+  "oracle": "tokens",
+  "oracleId": "BIFI",
+  "exclude": {}
+}
