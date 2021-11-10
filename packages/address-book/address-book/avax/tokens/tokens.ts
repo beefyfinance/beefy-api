@@ -138,7 +138,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
-  BNB: {
+  avaxBNB: {
     chainId: 43114,
     address: '0x264c1383EA520f73dd837F915ef3a732e204a493',
     decimals: 18,

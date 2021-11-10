@@ -160,7 +160,7 @@
     "lp0": {
       "address": "0x264c1383EA520f73dd837F915ef3a732e204a493",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "avaxBNB",
       "decimals": "1e18"
     },
     "lp1": {
