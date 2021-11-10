@@ -1,0 +1,134 @@
+[
+  {
+    "name": "blizz-avax-supply",
+    "token": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    "aToken": "0xB2AC04b71888E17Aa2c5102cf3d0215467D74100",
+    "debtToken": "0x85dB3E9D6b12fB8140D202A5695a04b5C4c863Cd",
+    "oracle": "tokens",
+    "oracleId": "AVAX",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "blizz-dai-supply",
+    "token": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+    "aToken": "0x6807eD4369d9399847F306D7d835538915fA749d",
+    "debtToken": "0x3FFcdCA932D9bFf71B675f3D793AE7fA5eB23F7e",
+    "oracle": "tokens",
+    "oracleId": "DAI.e",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "blizz-usdt-supply",
+    "token": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
+    "aToken": "0x18cb11C9F2B6F45A7ac0A95eFD322ED4cf9EEEBF",
+    "debtToken": "0xE928AC9837e703f5d36066De9ca98e95bA7774d1",
+    "oracle": "tokens",
+    "oracleId": "USDT.e",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "blizz-usdc-supply",
+    "token": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+    "aToken": "0xC25Ff1aF397b76252D6975b4D7649b35C0E60F69",
+    "debtToken": "0x711E6BB75D73972fF05f396a5AAE564Bf08751eA",
+    "oracle": "tokens",
+    "oracleId": "USDC.e",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "blizz-eth-supply",
+    "token": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+    "aToken": "0xCcC9b2c9D96C33cECc064ddd444B132EFF56E232",
+    "debtToken": "0xE1C084e3029125BD4aFdAA6b86940593B4DEE7B0",
+    "oracle": "tokens",
+    "oracleId": "WETH.e",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "blizz-wbtc-supply",
+    "token": "0x50b7545627a5162F82A992c33b87aDc75187B218",
+    "aToken": "0x81CCdD9e44C518caEe2F720C43CD0853032A1779",
+    "debtToken": "0x52B9879984dC9565359Bb52117c43665e699397B",
+    "oracle": "tokens",
+    "oracleId": "WBTC.e",
+    "decimals": "1e8",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "blizz-avax",
+    "token": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    "aToken": "0xB2AC04b71888E17Aa2c5102cf3d0215467D74100",
+    "debtToken": "0x85dB3E9D6b12fB8140D202A5695a04b5C4c863Cd",
+    "oracle": "tokens",
+    "oracleId": "AVAX",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.47
+  },
+  {
+    "name": "blizz-dai",
+    "token": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+    "aToken": "0x6807eD4369d9399847F306D7d835538915fA749d",
+    "debtToken": "0x3FFcdCA932D9bFf71B675f3D793AE7fA5eB23F7e",
+    "oracle": "tokens",
+    "oracleId": "DAI.e",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "blizz-usdt",
+    "token": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
+    "aToken": "0x18cb11C9F2B6F45A7ac0A95eFD322ED4cf9EEEBF",
+    "debtToken": "0xE928AC9837e703f5d36066De9ca98e95bA7774d1",
+    "oracle": "tokens",
+    "oracleId": "USDT.e",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "blizz-usdc",
+    "token": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+    "aToken": "0xC25Ff1aF397b76252D6975b4D7649b35C0E60F69",
+    "debtToken": "0x711E6BB75D73972fF05f396a5AAE564Bf08751eA",
+    "oracle": "tokens",
+    "oracleId": "USDC.e",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "blizz-eth",
+    "token": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+    "aToken": "0xCcC9b2c9D96C33cECc064ddd444B132EFF56E232",
+    "debtToken": "0xE1C084e3029125BD4aFdAA6b86940593B4DEE7B0",
+    "oracle": "tokens",
+    "oracleId": "WETH.e",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "blizz-wbtc",
+    "token": "0x50b7545627a5162F82A992c33b87aDc75187B218",
+    "aToken": "0x81CCdD9e44C518caEe2F720C43CD0853032A1779",
+    "debtToken": "0x52B9879984dC9565359Bb52117c43665e699397B",
+    "oracle": "tokens",
+    "oracleId": "WBTC.e",
+    "decimals": "1e8",
+    "borrowDepth": 4,
+    "borrowPercent": 0.67
+  }
+]

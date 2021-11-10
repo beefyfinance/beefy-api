@@ -14,6 +14,7 @@ const getCurveApys = require('./getCurveApys');
 const { getAaveApys } = require('./getAaveApys');
 const getSingularApys = require('./getSingularApys');
 const getBlizzLpApys = require('./getBlizzLpApys');
+const getBlizzLendingApys = require('./getBlizzLendingApys');
 const getBankerJoeApys = require('./getBankerJoeApys');
 
 const getApys = [
@@ -33,6 +34,7 @@ const getApys = [
   getAaveApys,
   getSingularApys,
   getBlizzLpApys,
+  getBlizzLendingApys,
   getBankerJoeApys,
 ];
 
