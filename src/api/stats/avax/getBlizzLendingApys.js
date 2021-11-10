@@ -67,14 +67,7 @@ const getPoolApy = async (pool, rewardsPerSecond, totalAllocPoint) => {
   let totalReward = leveragedSupplyReward.plus(leveragedBorrowReward);
   let compoundedReward = compound(totalReward, BASE_HPY, 1, 0.955);
   let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedReward).toNumber();
-  console.log(
-    pool.name,
-    apy,
-    supplyBase.valueOf(),
-    borrowBase.valueOf(),
-    supplyReward.valueOf(),
-    borrowReward.valueOf()
-  );
+  // console.log(pool.name,apy,supplyBase.valueOf(),borrowBase.valueOf(),supplyReward.valueOf(),borrowReward.valueOf());
   return { [pool.name]: apy };
 };
 

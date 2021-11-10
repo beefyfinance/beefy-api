@@ -41,6 +41,7 @@ const getSingularApys = require('./getSingularApys');
 const getCafeLpApys = require('./getCafeLpApys');
 const getBabyApys = require('./getBabyApys');
 const { getWSGApys } = require('./getWSGApys');
+const getNftyApys = require('./getNftyApys');
 
 const getApys = [
   getRamenLpApys,
@@ -86,6 +87,7 @@ const getApys = [
   getCafeLpApys,
   getBabyApys,
   getWSGApys,
+  getNftyApys,
 ];
 
 const getDegensLpApys = async () => {
