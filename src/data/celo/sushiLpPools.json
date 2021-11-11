@@ -1,5 +1,24 @@
 [
   {
+    "name": "sushi-celo-bifi-weth",
+    "address": "0xa9fcf373b6bc717223d9464e8c481c9afae3f861",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 42220,
+    "lp0": {
+      "address": "0x471EcE3750Da237f93B8E339c536989b8978a438",
+      "oracle": "tokens",
+      "oracleId": "CELO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x639a647fbe20b6c8ac19e48e2de44ea792c62c5c",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-celo-celo-weth",
     "address": "0x38F3c44552a3F6E4D21C8c328cE4904DA766D12f",
     "decimals": "1e18",

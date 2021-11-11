@@ -1,5 +1,24 @@
 [
   {
+    "name": "sushi-one-bifi-wone",
+    "address": "0x27f3b2df4a81382202e87ee40429e0212ecc7d3f",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x6ab6d61428fde76768d7b45d8bfeec19c6ef91a8",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+      "oracle": "tokens",
+      "oracleId": "WONE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-one-1ygg-1eth",
     "address": "0x40112850EFd90e9e17b56de35d86BdFf9f4d07Fd",
     "decimals": "1e18",

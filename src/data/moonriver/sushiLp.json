@@ -1,5 +1,24 @@
 [
   {
+    "name": "sushi-mr-bifi-wmovr",
+    "address": "0xac726ee53edfae5f8f4c2c0d611fd71d58e743ba",
+    "rewardPool": "0x3dB01570D97631f69bbb0ba39796865456Cf89A5",
+    "decimals": "1e18",
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x173fd7434b8b50df08e3298f173487ebdb35fd14",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf50225a84382c74CbdeA10b0c176f71fc3DE0C4d",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-mr-msushi-wmovr",
     "address": "0xD8A8f47b850C1543fa9F9AbB90f3137446cF870C",
     "rewardPool": "0x3dB01570D97631f69bbb0ba39796865456Cf89A5",
