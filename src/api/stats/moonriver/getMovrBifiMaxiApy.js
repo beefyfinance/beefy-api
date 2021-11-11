@@ -1,24 +1,24 @@
-const { hecoWeb3: web3 } = require('../../../utils/web3');
+const { moonriverWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
 
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
-  heco: {
+  moonriver: {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI, WHT }
+    tokens: { BIFI, WMOVR }
   },
 } = addressBook;
 
-export const getHecoBifiMaxiApy = () => {
+export const getMovrBifiMaxiApy = () => {
   return getBifiMaxiApys({
     bifi: BIFI.address,
     rewardPool: rewardPool,
-    rewardId: WHT.symbol,
-    rewardDecimals: getEDecimals(WHT.decimals),
-    chain: 'heco',
+    rewardId: WMOVR.symbol,
+    rewardDecimals: getEDecimals(WMOVR.decimals),
+    chain: 'movr',
     web3: web3,
   });
 };
