@@ -1,24 +1,24 @@
-const { hecoWeb3: web3 } = require('../../../utils/web3');
+const { arbitrumWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
 
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
-  heco: {
+  arbitrum: {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI, WHT }
+    tokens: { BIFI, ETH }
   },
 } = addressBook;
 
-export const getHecoBifiMaxiApy = () => {
+export const getArbiBifiMaxiApy = () => {
   return getBifiMaxiApys({
     bifi: BIFI.address,
     rewardPool: rewardPool,
-    rewardId: WHT.symbol,
-    rewardDecimals: getEDecimals(WHT.decimals),
-    chain: 'heco',
+    rewardId: ETH.symbol,
+    rewardDecimals: getEDecimals(ETH.decimals),
+    chain: 'arbi',
     web3: web3,
   });
 };

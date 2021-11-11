@@ -4,6 +4,7 @@ const { getCurveApys } = require('./getCurveApys');
 const { getSushiMimApys } = require('./getSushiMimApys');
 const { getSpellApys } = require('./getSpellApys');
 const { getArbiBifiGovApy } = require('./getArbiBifiGovApy');
+const { getArbiBifiMaxiApy } = require('./getArbiBifiMaxiApy');
 
 const getApys = [
   getSushiLpApys,
@@ -12,6 +13,7 @@ const getApys = [
   getSushiMimApys,
   getSpellApys,
   getArbiBifiGovApy,
+  getArbiBifiMaxiApy,
 ];
 
 const getArbitrumApys = async () => {
