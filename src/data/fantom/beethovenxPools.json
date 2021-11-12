@@ -9,17 +9,17 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "BNB",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
         "oracleId": "USDC",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
         "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBNB",
         "decimals": "1e18"
       }
     ]
