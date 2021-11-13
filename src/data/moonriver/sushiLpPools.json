@@ -115,7 +115,7 @@
     "lp1": {
       "address": "0x868892CCcEdbfF0B028F3b3595205Ea91b99376B",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "mrBNB",
       "decimals": "1e8"
     }
   },
