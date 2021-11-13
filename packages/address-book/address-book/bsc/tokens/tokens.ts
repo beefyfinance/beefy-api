@@ -4036,5 +4036,17 @@ const _tokens = {
     description:
       'Powered by in-house Decentralized Autonomous Organization (DAO), Oracle and Random Number Generator on DKDAO platform, Duelist King offers dual values for investors from token utilities and card sales (projected at roughly 40 million USD).',
   },
+  DAR: {
+    name: 'Mines of Dalarnia Token',
+    symbol: 'DAR',
+    address: '0x23CE9e926048273eF83be0A3A8Ba9Cb6D45cd978',
+    chainId: 56,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x23CE9e926048273eF83be0A3A8Ba9Cb6D45cd978.svg',
+    website: 'https://www.minesofdalarnia.com/',
+    description:
+      'Mines of Dalarnia is a free action game with a unique blockchain real-estate market.',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
