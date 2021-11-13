@@ -9,7 +9,7 @@
       "address": "0x23CE9e926048273eF83be0A3A8Ba9Cb6D45cd978",
       "oracle": "tokens",
       "oracleId": "DAR",
-      "decimals": "1e18"
+      "decimals": "1e6"
     },
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
