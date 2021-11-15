@@ -292,7 +292,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf981547a1D9A0c59C9aba1e2b826BF01a2e5E263/logo.png',
     website: 'https://tosdis.finance/',
-    description: 'The One Stop Defi Interoperable Solution powered with Liquid Staking',
+    description: 'The One Stop Defi Interoperable Solution powered with Liquid Staking.',
   },
   rUSD: {
     name: 'Ramp Defi USD',

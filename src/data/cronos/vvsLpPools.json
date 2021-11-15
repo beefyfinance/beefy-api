@@ -34,7 +34,7 @@
       "address": "0xe44Fd7fCb2b1581822D0c862B68222998a0c299a",
       "oracle": "tokens",
       "oracleId": "ETH",
-      "decimals": "1e6"
+      "decimals": "1e18"
     }
   },
   {
