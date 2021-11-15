@@ -1,5 +1,30 @@
 [
   {
+    "name": "beets-baron-von-binance",
+    "address": "0x5E65474c8400d0BB76eDBBE066B2D2E7b0b6e7fb",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x5e65474c8400d0bb76edbbe066b2d2e7b0b6e7fb00010000000000000000007c",
+    "poolId": 21,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBNB",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-symphony-nr-10",
     "address": "0x03c6B3f09D2504606936b1A4DeCeFaD204687890",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
