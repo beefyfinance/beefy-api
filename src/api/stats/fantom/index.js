@@ -19,29 +19,31 @@ const getPearzapApys = require('./getPearzapApys');
 const getBeethovenxApys = require('./getBeethovenxApys');
 const getSummitApys = require('./getSummitApys');
 const getGeistLendingApys = require('./getGeistLendingApys');
+const getMaiApys = require('./getMaiApys');
 
 const getApys = [
-  getSpookyLpApys,
-  getFroyoLpApys,
-  getEsterApys,
-  getSpookyBooApy,
-  getFantomBifiGovApy,
-  getFantomBifiMaxiApy,
-  getTombApys,
-  getSpiritApys,
-  getCurveApys,
-  getScreamApys,
-  getSteakHouseLpApys,
-  getStakeSteakLpApys,
-  getTosdisLpApys,
-  getJetswapApys,
-  getSpellApys,
-  getGeistLpApys,
-  getSingularApys,
-  getPearzapApys,
-  getBeethovenxApys,
-  getSummitApys,
-  getGeistLendingApys,
+  getMaiApys,
+  // getSpookyLpApys,
+  // getFroyoLpApys,
+  // getEsterApys,
+  // getSpookyBooApy,
+  // getFantomBifiGovApy,
+  // getFantomBifiMaxiApy,
+  // getTombApys,
+  // getSpiritApys,
+  // getCurveApys,
+  // getScreamApys,
+  // getSteakHouseLpApys,
+  // getStakeSteakLpApys,
+  // getTosdisLpApys,
+  // getJetswapApys,
+  // getSpellApys,
+  // getGeistLpApys,
+  // getSingularApys,
+  // getPearzapApys,
+  // getBeethovenxApys,
+  // getSummitApys,
+  // getGeistLendingApys,
 ];
 
 const getFantomApys = async () => {
