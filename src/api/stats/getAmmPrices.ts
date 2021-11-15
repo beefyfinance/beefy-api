@@ -1,6 +1,7 @@
 `use strict`;
 
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
+import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 
 import getNonAmmPrices from './getNonAmmPrices';
@@ -190,7 +191,6 @@ const pools = [
   ...pearzapFantomPools,
   ...sushiCeloPools,
   ...quickDualLpPools,
-  ...kyberPools,
   ...babyPools,
   ...cafePolyPools,
   ...cafeBscPools,
@@ -350,6 +350,8 @@ const pools = [
   ...cakeLpPools,
 ];
 
+const dmmPools = [...kyberPools];
+
 const knownPrices = {
   BUSD: 1,
   USDT: 1,
@@ -369,18 +371,22 @@ const updateAmmPrices = async () => {
   try {
     const ammPrices = fetchAmmPrices(pools, knownPrices);
 
+    const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
+
     const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
       return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
     });
 
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
+      const dmm = await dmmPrices;
       const mooTokenPrices = await mooPrices;
-      return { ...tokenPrices, ...mooTokenPrices };
+      return { ...tokenPrices, ...dmm.tokenPrices, ...mooTokenPrices };
     });
 
     const lpPrices = ammPrices.then(async ({ poolPrices, _ }) => {
+      const dmm = await dmmPrices;
       const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
-      return { ...poolPrices, ...nonAmmPrices };
+      return { ...poolPrices, ...dmm.poolPrices, ...nonAmmPrices };
     });
 
     await tokenPrices;

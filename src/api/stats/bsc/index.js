@@ -44,7 +44,7 @@ const getOmnifarmApys = require('./omnifarm/getOmnifarmApys');
 const getElkApys = require('./elk/getElkApys');
 const getBifiMaxiV2Apy = require('./beefy/getBifiMaxiV2Apy');
 const getBifiGovApy = require('./beefy/getBifiGovApy');
-const getPotsApy = require('./pots/getPotsApy');
+const getMoonpotApys = require('./pots/getMoonpotApys');
 
 const getApys = [
   get1inchLpApys,
@@ -85,7 +85,7 @@ const getApys = [
   getNarLpApys,
   getOmnifarmApys,
   getOOELpApys,
-  getPotsApy,
+  getMoonpotApys,
   getSpongeLpApys,
   getSpongePoolApy,
   getSwipeLpApys,
