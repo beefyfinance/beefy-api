@@ -8,6 +8,7 @@ const chainIdMap = {
   arbitrum: 42161,
   celo: 42220,
   moonriver: 1285,
+  cronos: 25,
 };
 
 export default chainIdMap;

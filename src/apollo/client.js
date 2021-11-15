@@ -226,6 +226,7 @@ const kyberClient = client(
   'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic'
 );
 const beetClient = client('https://graph.beethovenx.io/subgraphs/name/beethovenx');
+const vvsClient = client('https://graph.vvs.finance/exchange');
 
 const isSushiClient = client => {
   return (
@@ -275,4 +276,5 @@ module.exports = {
   babyClient,
   beetClient,
   isBeetClient,
+  vvsClient,
 };

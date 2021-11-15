@@ -43,6 +43,7 @@ const ONE_RPC = process.env.ONE_RPC || 'https://api.s0.t.hmny.io/';
 const ARBITRUM_RPC = process.env.ARBITRUM_RPC || 'https://arb1.arbitrum.io/rpc';
 const CELO_RPC = process.env.CELO_RPC || 'https://forno.celo.org';
 const MOONRIVER_RPC = process.env.MOONRIVER_RPC || 'https://rpc.moonriver.moonbeam.network';
+const CRONOS_RPC = process.env.CRONOS_RPC || 'https://evm-cronos.crypto.org';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -53,6 +54,7 @@ const ONE_CHAIN_ID = ChainId.one;
 const ARBITRUM_CHAIN_ID = ChainId.arbitrum;
 const CELO_CHAIN_ID = ChainId.celo;
 const MOONRIVER_CHAIN_ID = ChainId.moonriver;
+const CRONOS_CHAIN_ID = ChainId.cronos;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.0025;
@@ -76,6 +78,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.arbitrum]: ARBITRUM_RPC,
   [ChainId.celo]: CELO_RPC,
   [ChainId.moonriver]: MOONRIVER_RPC,
+  [ChainId.cronos]: CRONOS_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -96,6 +99,8 @@ const CELO_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/celo_pools.js';
 const MOONRIVER_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonriver_pools.js';
+const CRONOS_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/cronos_pools.js';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -107,6 +112,7 @@ const MULTICHAIN_ENDPOINTS = {
   arbitrum: ARBITRUM_VAULTS_ENDPOINT,
   celo: CELO_VAULTS_ENDPOINT,
   moonriver: MOONRIVER_VAULTS_ENDPOINT,
+  // cronos: CRONOS_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
@@ -144,6 +150,9 @@ export {
   MOONRIVER_RPC,
   MOONRIVER_CHAIN_ID,
   MOONRIVER_VAULTS_ENDPOINT,
+  CRONOS_RPC,
+  CRONOS_CHAIN_ID,
+  CRONOS_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,

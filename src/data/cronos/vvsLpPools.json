@@ -1,0 +1,78 @@
+[
+  {
+    "name": "vvs-cro-btc",
+    "address": "0x8F09fFf247B8fDB80461E5Cf5E82dD1aE2EBd6d7",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x062E66477Faf219F25D27dCED647BF57C3107d52",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "vvs-cro-eth",
+    "address": "0xA111C17f8B8303280d3EB01BBcd61000AA7F39F9",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe44Fd7fCb2b1581822D0c862B68222998a0c299a",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "vvs-vvs-cro",
+    "address": "0xbf62c67eA509E86F07c8c69d0286C0636C50270b",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x2D03bECE6747ADC00E1a131BBA1469C15fD11e03",
+      "oracle": "tokens",
+      "oracleId": "VVS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "vvs-vvs-usdc",
+    "address": "0x814920D1b8007207db6cB5a2dD92bF0b082BDBa1",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x2D03bECE6747ADC00E1a131BBA1469C15fD11e03",
+      "oracle": "tokens",
+      "oracleId": "VVS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]

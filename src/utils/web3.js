@@ -30,6 +30,9 @@ module.exports = {
   get moonriverWeb3() {
     return chainRandomClients.moonriverRandomClient();
   },
+  get cronosWeb3() {
+    return chainRandomClients.cronosRandomClient();
+  },
 
   web3Factory: _web3Factory,
 
