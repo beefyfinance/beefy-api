@@ -42,7 +42,7 @@ const _tokens = {
   USDC: {
     name: 'USD Coin',
     symbol: 'USDC',
-    address: '0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+    address: '0xc21223249CA28397B4B6541dfFaEcC539BfF0c59',
     chainId: 25,
     decimals: 6,
     logoURI:
