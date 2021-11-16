@@ -1,6 +1,7 @@
 const getVvsApys = require('./getVvsApys');
+const getCronaApys = require('./getCronaApys');
 
-const getApys = [getVvsApys];
+const getApys = [getVvsApys, getCronaApys];
 
 const getCronosApys = async () => {
   let apys = {};
