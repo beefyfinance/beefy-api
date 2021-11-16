@@ -1,5 +1,23 @@
 [
   {
+    "name": "cakev2-betu-wbnb",
+    "address": "0xe6f4DFadd8d83bC1963a2077Ee03680149E4baD4",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0df1B3F30865C5b324797F8dB9d339514caC4e94",
+      "oracle": "tokens",
+      "oracleId": "BETU",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-quick-woo",
     "address": "0x7622804bA94940A9EFdDD1546D12d8D0d6a16e53",
     "rewardPool": "0x1067112E5dB21aEC7eB144C5773f8aef8C85966a",
