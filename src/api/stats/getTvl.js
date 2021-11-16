@@ -27,6 +27,9 @@ const {
 
   MOONRIVER_CHAIN_ID,
   MOONRIVER_VAULTS_ENDPOINT,
+
+  CRONOS_CHAIN_ID,
+  CRONOS_VAULTS_ENDPOINT,
 } = require('../../constants');
 
 const INIT_DELAY = 40 * 1000;
@@ -79,6 +82,11 @@ const chains = [
     chainId: MOONRIVER_CHAIN_ID,
     vaultsEndpoint: MOONRIVER_VAULTS_ENDPOINT,
     governancePool: require('../../data/moonriver/governancePool.json'),
+  },
+  {
+    chainId: CRONOS_CHAIN_ID,
+    vaultsEndpoint: CRONOS_VAULTS_ENDPOINT,
+    governancePool: require('../../data/cronos/governancePool.json'),
   },
 ];
 
