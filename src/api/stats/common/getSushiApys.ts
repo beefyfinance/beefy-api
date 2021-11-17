@@ -5,7 +5,7 @@ import { multicallAddress } from '../../../utils/web3';
 import { ChainId } from '../../../../packages/address-book/types/chainid';
 
 import fetchPrice from '../../../utils/fetchPrice';
-import { getApyBreakdown } from '../common/getApyBreakdown';
+import { getApyBreakdown } from './getApyBreakdown';
 import { LpPool } from '../../../types/LpPool';
 
 // trading apr
@@ -19,53 +19,60 @@ import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2.json';
 import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime.json';
 import ERC20 from '../../../abis/ERC20.json';
 
-const sushiOracleId = 'SUSHI';
 const oracle = 'tokens';
 const DECIMALS = '1e18';
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
-interface SushyApyParams {
-  minichef: string; // address
-  complexRewarderTime: string; // address
-  sushiOracleId: string; // i.e. SUSHI
-  nativeOracleId: string; // i.e. WMATIC
-  // totalAllocPoint is non public
-  // https://github.com/sushiswap/sushiswap/blob/37026f3749f9dcdae89891f168d63667845576a7/contracts/mocks/ComplexRewarderTime.sol#L44
-  // need to pass in same hardcoded value found here:
-  // https://github.com/sushiswap/sushiswap-interface/blob/6300093e17756038a5b5089282d7bbe6dce87759/src/hooks/minichefv2/useFarms.ts#L77
-  nativeTotalAllocPoint: number;
+interface MiniChefApyParams {
+  minichefConfig: {
+    minichef: string; // address
+    outputOracleId: string; // i.e. SUSHI
+    tokenPerSecondContractMethodName: `${string}PerSecond`;
+  };
+  rewarderConfig: {
+    rewarder: string; // address
+    rewarderTokenOracleId: string; // i.e. WMATIC
+    // totalAllocPoint is non public
+    // https://github.com/sushiswap/sushiswap/blob/37026f3749f9dcdae89891f168d63667845576a7/contracts/mocks/ComplexRewarderTime.sol#L44
+    // need to pass in same hardcoded value found here:
+    // https://github.com/sushiswap/sushiswap-interface/blob/6300093e17756038a5b5089282d7bbe6dce87759/src/hooks/minichefv2/useFarms.ts#L77
+    rewarderTotalAllocPoint: number;
+  };
   pools: LpPool[];
-  sushiClient: ApolloClient<NormalizedCacheObject>;
+  tradingClient: ApolloClient<NormalizedCacheObject>;
   web3: Web3;
   chainId: ChainId;
 }
 
-export const getSushiApys = async (params: SushyApyParams) => {
-  const { pools, sushiClient } = params;
+export const getMiniChefApys = async (params: MiniChefApyParams) => {
+  const { pools, tradingClient } = params;
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(sushiClient, pairAddresses, SUSHI_LPF);
+  const tradingAprs = tradingClient
+    ? await getTradingFeeApr(tradingClient, pairAddresses, SUSHI_LPF)
+    : {};
   const farmApys = await getFarmApys(params);
 
   return getApyBreakdown(pools, tradingAprs, farmApys, SUSHI_LPF);
 };
 
-const getFarmApys = async (params: SushyApyParams) => {
-  const { web3, pools, minichef, complexRewarderTime, nativeOracleId, nativeTotalAllocPoint } =
-    params;
+const getFarmApys = async (params: MiniChefApyParams) => {
+  const { web3, pools, minichefConfig, rewarderConfig } = params;
   const apys = [];
-  const minichefContract = new web3.eth.Contract(SushiMiniChefV2 as any, minichef);
-  const sushiPerSecond = new BigNumber(await minichefContract.methods.sushiPerSecond().call());
+  const minichefContract = new web3.eth.Contract(SushiMiniChefV2 as any, minichefConfig.minichef);
+  const sushiPerSecond = new BigNumber(
+    await minichefContract.methods[minichefConfig.tokenPerSecondContractMethodName]().call()
+  );
   const totalAllocPoint = new BigNumber(await minichefContract.methods.totalAllocPoint().call());
 
   const rewardContract = new web3.eth.Contract(
     SushiComplexRewarderTime as any,
-    complexRewarderTime
+    rewarderConfig.rewarder
   );
   const rewardPerSecond = new BigNumber(await rewardContract.methods.rewardPerSecond().call());
 
-  const tokenPrice = await fetchPrice({ oracle, id: sushiOracleId });
-  const nativePrice = await fetchPrice({ oracle, id: nativeOracleId });
+  const tokenPrice = await fetchPrice({ oracle, id: minichefConfig.outputOracleId });
+  const nativePrice = await fetchPrice({ oracle, id: rewarderConfig.rewarderTokenOracleId });
   const { balances, allocPoints, rewardAllocPoints } = await getPoolsData(params);
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -78,7 +85,9 @@ const getFarmApys = async (params: SushyApyParams) => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const allocPoint = rewardAllocPoints[i];
-    const nativeRewards = rewardPerSecond.times(allocPoint).dividedBy(nativeTotalAllocPoint);
+    const nativeRewards = rewardPerSecond
+      .times(allocPoint)
+      .dividedBy(rewarderConfig.rewarderTotalAllocPoint);
     const yearlyNativeRewards = nativeRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const nativeRewardsInUsd = yearlyNativeRewards.times(nativePrice).dividedBy(DECIMALS);
 
@@ -88,12 +97,12 @@ const getFarmApys = async (params: SushyApyParams) => {
   return apys;
 };
 
-const getPoolsData = async (params: SushyApyParams) => {
-  const { web3, pools, minichef, complexRewarderTime, chainId } = params;
-  const minichefContract = new web3.eth.Contract(SushiMiniChefV2 as any, minichef);
+const getPoolsData = async (params: MiniChefApyParams) => {
+  const { web3, pools, minichefConfig, rewarderConfig, chainId } = params;
+  const minichefContract = new web3.eth.Contract(SushiMiniChefV2 as any, minichefConfig.minichef);
   const rewardContract = new web3.eth.Contract(
     SushiComplexRewarderTime as any,
-    complexRewarderTime
+    rewarderConfig.rewarder
   );
 
   const balanceCalls = [];
@@ -102,7 +111,7 @@ const getPoolsData = async (params: SushyApyParams) => {
   pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20 as any, pool.address);
     balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(minichef),
+      balance: tokenContract.methods.balanceOf(minichefConfig.minichef),
     });
     allocPointCalls.push({
       allocPoint: minichefContract.methods.poolInfo(pool.poolId),
