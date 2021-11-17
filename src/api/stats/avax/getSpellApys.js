@@ -16,6 +16,7 @@ const getSpellApys = async () => {
     masterchef: '0x06408571E0aD5e8F52eAd01450Bde74E5074dC74',
     tokenPerBlock: 'icePerSecond',
     hasMultiplier: false,
+    secondsPerBlock: 1,
     allocPointIndex: '4',
     pools: [
       {
