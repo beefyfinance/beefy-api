@@ -3,6 +3,7 @@ import { cronosWeb3 as web3 } from '../../../utils/web3';
 
 import IRewardPool from '../../../abis/IRewardPool.json';
 import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
+import fetchPrice from '../../../utils/fetchPrice';
 
 const BIFI = '0xe6801928061CDbE32AC5AD0634427E140EFd05F9';
 const REWARDS = '0x107Dbf9c9C0EF2Df114159e5C7DC2baf7C444cFF';
