@@ -16,6 +16,7 @@ const getSingularApys = require('./getSingularApys');
 const getBlizzLpApys = require('./getBlizzLpApys');
 const getBlizzLendingApys = require('./getBlizzLendingApys');
 const getBankerJoeApys = require('./getBankerJoeApys');
+import { getSynapseApys } from './getSynapseApys';
 const getSpellApys = require('./getSpellApys');
 
 const getApys = [
@@ -37,6 +38,7 @@ const getApys = [
   getBlizzLpApys,
   getBlizzLendingApys,
   getBankerJoeApys,
+  getSynapseApys,
   getSpellApys,
 ];
 
