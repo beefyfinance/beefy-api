@@ -732,6 +732,17 @@ const _tokens = {
     description: 'SPELL is the incentivation token of Abracadabra.money',
     logoURI: 'https://app.spiritswap.finance/images/tokens/SPELL.png',
   },
+  sSPELL: {
+    name: 'Staked Spell Token',
+    symbol: 'sSPELL',
+    address: '0xbB29D2A58d880Af8AA5859e30470134dEAf84F2B',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://abracadabra.money/',
+    description:
+      'SPELL is the incentivation token of Abracadabra.money. sSPELL is the staked version of it',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/SSPELL.png',
+  },
   wMEMO: {
     name: 'Wrapped MEMO',
     symbol: 'wMEMO',
