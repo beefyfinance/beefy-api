@@ -13,7 +13,7 @@ const ORACLE = 'tokens';
 const ORACLE_ID = 'BIFI';
 const DECIMALS = '1e18';
 
-const getCronosBifiGovApy = async () => {
+export const getCronosBifiGovApy = async () => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(),
     getTotalStakedInUsd(),
@@ -55,5 +55,3 @@ const getTotalStakedInUsd = async () => {
 
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
 };
-
-export { getCronosBifiGovApy };
