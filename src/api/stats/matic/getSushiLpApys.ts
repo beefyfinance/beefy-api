@@ -1,7 +1,7 @@
 import { polygonWeb3 } from '../../../utils/web3';
 import { POLYGON_CHAIN_ID } from '../../../constants';
 
-import { getSushiApys } from '../common/getSushiApys';
+import { getMiniChefApys } from '../common/getMiniChefApys';
 import { sushiClient } from '../../../apollo/client';
 
 import pools from '../../../data/matic/sushiLpPools.json';
@@ -17,14 +17,19 @@ const {
 } = addressBook;
 
 export const getSushiLpApys = () => {
-  return getSushiApys({
-    minichef,
-    complexRewarderTime,
-    sushiOracleId: SUSHI.symbol,
-    nativeOracleId: WMATIC.symbol,
-    nativeTotalAllocPoint: 1000,
+  return getMiniChefApys({
+    minichefConfig: {
+      minichef,
+      outputOracleId: SUSHI.symbol,
+      tokenPerSecondContractMethodName: 'sushiPerSecond',
+    },
+    rewarderConfig: {
+      rewarder: complexRewarderTime,
+      rewarderTokenOracleId: WMATIC.symbol,
+      rewarderTotalAllocPoint: 1000,
+    },
     pools,
-    sushiClient,
+    tradingClient: sushiClient,
     web3: polygonWeb3,
     chainId: POLYGON_CHAIN_ID,
   });

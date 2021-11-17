@@ -1,7 +1,7 @@
 import { oneWeb3 } from '../../../utils/web3';
 import { ONE_CHAIN_ID } from '../../../constants';
 
-import { getSushiApys } from '../common/getSushiApys';
+import { getMiniChefApys } from '../common/getMiniChefApys';
 import { sushiOneClient } from '../../../apollo/client';
 
 import pools from '../../../data/one/sushiLpPools.json';
@@ -17,14 +17,19 @@ const {
 } = addressBook;
 
 export const getSushiLpApys = () => {
-  return getSushiApys({
-    minichef,
-    complexRewarderTime,
-    sushiOracleId: oneSUSHI.symbol,
-    nativeOracleId: WONE.symbol,
-    nativeTotalAllocPoint: 9600,
+  return getMiniChefApys({
+    minichefConfig: {
+      minichef,
+      outputOracleId: oneSUSHI.symbol,
+      tokenPerSecondContractMethodName: 'sushiPerSecond',
+    },
+    rewarderConfig: {
+      rewarder: complexRewarderTime,
+      rewarderTokenOracleId: WONE.symbol,
+      rewarderTotalAllocPoint: 9600,
+    },
     pools,
-    sushiClient: sushiOneClient,
+    tradingClient: sushiOneClient,
     web3: oneWeb3,
     chainId: ONE_CHAIN_ID,
   });

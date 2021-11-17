@@ -9,7 +9,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/quickPools.json');
 const { POLYGON_CHAIN_ID, BASE_HPY } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
-const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { getYearlyPlatformTradingFees } = require('../../../utils/getTradingFeeApr');
 const { quickClient } = require('../../../apollo/client');
 

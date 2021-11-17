@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 
-import getFarmWithTradingFeesApy from '../../../utils/getFarmWithTradingFeesApy';
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { compound } from '../../../utils/compound';
 
 import { BASE_HPY, BEEFY_PERFORMANCE_FEE, SHARE_AFTER_PERFORMANCE_FEE } from '../../../constants';
@@ -36,7 +36,7 @@ export const getApyBreakdown = (
     const simpleApr = farmAprs[i]?.toNumber();
     const vaultApr = simpleApr * SHARE_AFTER_PERFORMANCE_FEE;
     const vaultApy = compound(simpleApr, BASE_HPY, 1, SHARE_AFTER_PERFORMANCE_FEE);
-    const tradingApr = tradingAprs[pool.address.toLowerCase()]?.toNumber();
+    const tradingApr: number | undefined = tradingAprs[pool.address.toLowerCase()]?.toNumber();
     const totalApy = getFarmWithTradingFeesApy(
       simpleApr,
       tradingApr,

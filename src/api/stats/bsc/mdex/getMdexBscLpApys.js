@@ -8,7 +8,7 @@ const pools = require('../../../../data/mdexBscLpPools.json');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 const { mdexBscClient } = require('../../../../apollo/client');
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY } = require('../../../../constants');
