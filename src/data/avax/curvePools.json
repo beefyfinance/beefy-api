@@ -102,5 +102,10 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "curve-avax-mim",
+    "pool": "0xAEA2E71b631fA93683BCF256A8689dFa0e094fcD",
+    "rewards": []
   }
 ]

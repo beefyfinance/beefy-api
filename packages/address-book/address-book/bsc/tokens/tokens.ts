@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  OASIS: {
+    name: 'OASIS',
+    symbol: 'OASIS',
+    address: '0xb19289b436b2F7A92891ac391D8f52580d3087e4',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/OASIS.svg',
+    website: 'https://projectoasis.io/',
+    description:
+      'ProjectOasis is a metaverse built for users to socialize and interact with various Dapps and protocols available within DeFi',
+  },
   EXP: {
     name: 'Game X Change',
     symbol: 'EXP',

@@ -1,5 +1,24 @@
 [
   {
+    "name": "banana-oasis-wbnb",
+    "address": "0xeF2b0B3e0077106249946c42CDf3F6a29942d44A",
+    "decimals": "1e18",
+    "poolId": 147,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xb19289b436b2F7A92891ac391D8f52580d3087e4",
+      "oracle": "tokens",
+      "oracleId": "OASIS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-exp-wbnb",
     "address": "0xe93855Cb88fAa221e648c157670a28f0c2449A60",
     "decimals": "1e18",
