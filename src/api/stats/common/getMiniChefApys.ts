@@ -15,10 +15,10 @@ import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 import { ApolloClient } from 'apollo-client';
 
 // abis
-import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2.json';
 import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime.json';
 import ERC20 from '../../../abis/ERC20.json';
 import { Contract } from 'web3-eth-contract';
+import { AbiItem } from 'web3-utils';
 
 const oracle = 'tokens';
 const DECIMALS = '1e18';
@@ -28,6 +28,7 @@ const secondsPerYear = 31536000;
 interface MiniChefApyParams {
   minichefConfig: {
     minichef: string; // address
+    minichefAbi: AbiItem[];
     outputOracleId: string; // i.e. SUSHI
     tokenPerSecondContractMethodName: `${string}PerSecond`;
   };
