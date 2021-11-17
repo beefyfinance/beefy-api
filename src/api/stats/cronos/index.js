@@ -1,4 +1,4 @@
-const { getCronosBifiGovApy } = require('./getCronosBifiGovApy');
+import { getCronosBifiGovApy } from './getCronosBifiGovApy';
 const getVvsApys = require('./getVvsApys');
 const getCronaApys = require('./getCronaApys');
 
