@@ -9,7 +9,7 @@ const pools = require('../../../data/avax/pangolinLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { pangolinClient } = require('../../../apollo/client');
 
 const oracle = 'tokens';

@@ -7,7 +7,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pool = require('../../../data/avax/joePool.json');
 const { BASE_HPY } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
-const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { getYearlyJoePlatformTradingFees } = require('../../../utils/getTradingFeeApr');
 const { joeClient } = require('../../../apollo/client');
 

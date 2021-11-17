@@ -12,7 +12,7 @@ const {
   getTotalStakedInUsd,
 } = require('../../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 const { cakeClient } = require('../../../../apollo/client');
 
 const masterchef = '0x264A1b3F6db28De4D3dD4eD23Ab31A468B0C1A96';

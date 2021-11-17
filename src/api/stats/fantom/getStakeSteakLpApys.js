@@ -8,7 +8,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/fantom/stakesteakLpPools.json');
 const { BASE_HPY, FANTOM_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { spiritClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 

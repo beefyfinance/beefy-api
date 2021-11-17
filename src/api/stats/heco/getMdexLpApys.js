@@ -8,7 +8,7 @@ const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY, HECO_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { mdexHecoClient } = require('../../../apollo/client');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
