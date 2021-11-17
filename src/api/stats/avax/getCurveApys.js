@@ -50,6 +50,7 @@ const getPoolApy = async pool => {
 };
 
 const getAaveApy = async pool => {
+  if (!pool.tokens) return new BigNumber(0);
   let promises = [];
   pool.tokens.forEach(token => promises.push(getAaveRewardApy(token)));
   pool.tokens.forEach((token, i) => promises.push(getTokenBalance(pool.pool, token, i)));
