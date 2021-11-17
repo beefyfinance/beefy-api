@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import Web3 from 'web3';
 
-import { Swap, Swap_ABI } from '../../../../abis/common/Swap/Swap';
+import { Swap, Swap_ABI } from '../../../../abis/common/Swap';
 import { SingleAssetPool } from '../../../../types/LpPool';
 
 // gets the prices of LPToken contracts deployed from Swap contracts.
