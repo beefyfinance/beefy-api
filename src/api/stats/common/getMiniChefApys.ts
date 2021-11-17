@@ -65,7 +65,10 @@ const getFarmApys = async (params: MiniChefApyParams) => {
   const apys = [];
 
   // minichef
-  const minichefContract = new web3.eth.Contract(SushiMiniChefV2 as any, minichefConfig.minichef);
+  const minichefContract = new web3.eth.Contract(
+    minichefConfig.minichefAbi as any,
+    minichefConfig.minichef
+  );
   const miniChefTokenPerSecond = new BigNumber(
     await minichefContract.methods[minichefConfig.tokenPerSecondContractMethodName]().call()
   );
@@ -134,7 +137,10 @@ const getFarmApys = async (params: MiniChefApyParams) => {
 const getPoolsData = async (params: MiniChefApyParams) => {
   const { web3, pools, minichefConfig, rewarderConfig, chainId } = params;
 
-  const minichefContract = new web3.eth.Contract(SushiMiniChefV2 as any, minichefConfig.minichef);
+  const minichefContract = new web3.eth.Contract(
+    minichefConfig.minichefAbi as any,
+    minichefConfig.minichef
+  );
 
   // rewarder, if rewarder is set
   let rewarderContract: Contract | undefined = undefined;
