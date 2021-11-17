@@ -1,10 +1,11 @@
-const BigNumber = require('bignumber.js');
-const { cronosWeb3: web3, web3Factory } = require('../../../utils/web3');
+import BigNumber from 'bignumber.js';
+import { cronosWeb3 as web3 } from '../../../utils/web3';
 
-const IRewardPool = require('../../../abis/IRewardPool.json');
-const fetchPrice = require('../../../utils/fetchPrice');
-const ERC20 = require('../../../abis/ERC20.json');
-const getBlockTime = require('../../../utils/getBlockTime');
+import IRewardPool from '../../../abis/IRewardPool.json';
+import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
+
+import fetchPrice from '../../../utils/fetchPrice';
+import getBlockTime from '../../../utils/getBlockTime';
 
 const BIFI = '0xe6801928061CDbE32AC5AD0634427E140EFd05F9';
 const REWARDS = '0x107Dbf9c9C0EF2Df114159e5C7DC2baf7C444cFF';
@@ -35,11 +36,11 @@ const getCronosBifiGovApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const celoPrice = await fetchPrice({ oracle: ORACLE, id: 'WCRO' });
 
-  const secondsPerYear = 31536000;
+  const secondsPerYear = new BigNumber(31536000);
   const secondsPerBlock = await getBlockTime(25);
   const blocksPerDay = new BigNumber(secondsPerYear.dividedBy(secondsPerBlock));
 
-  const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
+  const rewardPool = new web3.eth.Contract(IRewardPool as any, REWARDS);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(3).times(blocksPerDay).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(celoPrice).dividedBy(DECIMALS);
@@ -48,13 +49,11 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const web3 = web3Factory(25);
-
-  const tokenContract = new web3.eth.Contract(ERC20, BIFI);
+  const tokenContract = new web3.eth.Contract(ERC20_ABI, BIFI) as unknown as ERC20;
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(REWARDS).call());
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: ORACLE_ID });
 
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
 };
 
-module.exports = { getCronosBifiGovApy };
+export { getCronosBifiGovApy };
