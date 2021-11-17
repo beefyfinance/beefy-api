@@ -9,7 +9,7 @@ const pools = require('../../../../data/degens/elkLpPools.json');
 const { BSC_CHAIN_ID, BASE_HPY } = require('../../../../constants');
 const { compound } = require('../../../../utils/compound');
 import getApyBreakdown from '../../common/getApyBreakdown';
-const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 
 const oracle = 'tokens';
 const oracleId = 'ELK';

@@ -1,7 +1,7 @@
 import { moonriverWeb3 } from '../../../utils/web3';
 import { MOONRIVER_CHAIN_ID } from '../../../constants';
 
-import { getSushiApys } from '../common/getSushiApys';
+import { getMiniChefApys } from '../common/getMiniChefApys';
 import { sushiMoonriverClient } from '../../../apollo/client';
 
 import pools from '../../../data/moonriver/sushiLpPools.json';
@@ -17,14 +17,19 @@ const {
 } = addressBook;
 
 export const getSushiLpApys = () => {
-  return getSushiApys({
-    minichef,
-    complexRewarderTime,
-    sushiOracleId: mSUSHI.symbol,
-    nativeOracleId: WMOVR.symbol,
-    nativeTotalAllocPoint: 10000,
+  return getMiniChefApys({
+    minichefConfig: {
+      minichef,
+      outputOracleId: mSUSHI.symbol,
+      tokenPerSecondContractMethodName: 'sushiPerSecond',
+    },
+    rewarderConfig: {
+      rewarder: complexRewarderTime,
+      rewarderTokenOracleId: WMOVR.symbol,
+      rewarderTotalAllocPoint: 10000,
+    },
     pools,
-    sushiClient: sushiMoonriverClient,
+    tradingClient: sushiMoonriverClient,
     web3: moonriverWeb3,
     chainId: MOONRIVER_CHAIN_ID,
   });

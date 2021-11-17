@@ -10,7 +10,7 @@ const pools = require('../../../../data/cakeLpPools.json');
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 const { cakeClient } = require('../../../../apollo/client');
 
 const masterchef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';

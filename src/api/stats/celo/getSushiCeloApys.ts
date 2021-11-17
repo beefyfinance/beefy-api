@@ -1,7 +1,7 @@
 import { celoWeb3 } from '../../../utils/web3';
 import { CELO_CHAIN_ID } from '../../../constants';
 
-import { getSushiApys } from '../common/getSushiApys';
+import { getMiniChefApys } from '../common/getMiniChefApys';
 import { sushiCeloClient } from '../../../apollo/client';
 
 import pools from '../../../data/celo/sushiLpPools.json';
@@ -17,14 +17,19 @@ const {
 } = addressBook;
 
 export const getSushiCeloApys = () => {
-  return getSushiApys({
-    minichef,
-    complexRewarderTime,
-    sushiOracleId: cSUSHI.symbol,
-    nativeOracleId: CELO.symbol,
-    nativeTotalAllocPoint: 9600,
+  return getMiniChefApys({
+    minichefConfig: {
+      minichef,
+      outputOracleId: cSUSHI.symbol,
+      tokenPerSecondContractMethodName: 'sushiPerSecond',
+    },
+    rewarderConfig: {
+      rewarder: complexRewarderTime,
+      rewarderTokenOracleId: CELO.symbol,
+      rewarderTotalAllocPoint: 9600,
+    },
     pools,
-    sushiClient: sushiCeloClient,
+    tradingClient: sushiCeloClient,
     web3: celoWeb3,
     chainId: CELO_CHAIN_ID,
   });
