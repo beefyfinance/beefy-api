@@ -8,7 +8,7 @@ import getGondolaPrices from './avax/getGondolaPrices';
 import getCurvePolygonPrices from './matic/getCurvePrices';
 import getCurveFantomPrices from './fantom/getCurvePrices';
 import getDopplePrices from './bsc/dopple/getDopplePrices';
-import getIronSwapPrices from './matic/getIronSwapPrices';
+import { getIronSwapPrices } from './matic/getIronSwapPrices';
 import getAlpacaIbPrices from './bsc/alpaca/getAlpacaIbPrices';
 import getCurveArbitrumPrices from './arbitrum/getCurvePrices';
 import getCurveAvaxPrices from './avax/getCurvePrices';
