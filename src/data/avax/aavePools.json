@@ -5,7 +5,7 @@
     "aToken": "0xDFE521292EcE2A4f44242efBcD66Bc594CA9714B",
     "debtToken": "0x66A0FE52Fb629a6cB4D10B8580AFDffE888F5Fd4",
     "oracle": "tokens",
-    "oracleId": "WAVAX",
+    "oracleId": "AVAX",
     "decimals": "1e18",
     "borrowDepth": 4,
     "borrowPercent": 0.47
