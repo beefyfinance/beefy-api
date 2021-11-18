@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  BOO: {
+    chainId: 43114,
+    address: '0xbD83010eB60F12112908774998F65761cf9f6f9a',
+    decimals: 18,
+    name: 'Spooky Token',
+    symbol: 'BOO',
+    website: 'https://spookyswap.finance/',
+    description:
+      "SpookySwap is an automated market-making (AMM) decentralized exchange (DEX) for the Fantom Opera network. Different from other DEXs, we're invested in building a strong foundation with our BOO token as a governance token, diverse farms, grants to encourage a healthy ecology of other Fantom projects, and user-centered service.",
+    logoURI: 'https://assets.spookyswap.finance/tokens/BOO.png',
+  },
   BLZZ: {
     chainId: 43114,
     address: '0x0f34919404a290e71fc6A510cB4a6aCb8D764b24',
