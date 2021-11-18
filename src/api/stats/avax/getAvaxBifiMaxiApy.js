@@ -8,7 +8,7 @@ const {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI, WAVAX }
+    tokens: { BIFI, AVAX },
   },
 } = addressBook;
 
@@ -16,8 +16,8 @@ export const getAvaxBifiMaxiApy = () => {
   return getBifiMaxiApys({
     bifi: BIFI.address,
     rewardPool: rewardPool,
-    rewardId: WAVAX.symbol,
-    rewardDecimals: getEDecimals(WAVAX.decimals),
+    rewardId: AVAX.symbol,
+    rewardDecimals: getEDecimals(AVAX.decimals),
     chain: 'avax',
     web3: web3,
   });
