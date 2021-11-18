@@ -1,5 +1,43 @@
 [
   {
+    "name": "banana-frax-busd",
+    "address": "0x5292600758A090490D34367d4864ed6291D254fe",
+    "decimals": "1e18",
+    "poolId": 157,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x90C97F71E18723b0Cf0dfa30ee176Ab653E89F40",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "banana-wbnb-fxs",
+    "address": "0x8210D92a8951d50de3D46AC0ee39cb5E2C14e18A",
+    "decimals": "1e18",
+    "poolId": 156,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe48A3d7d0Bc88d552f730B62c006bC925eadB9eE",
+      "oracle": "tokens",
+      "oracleId": "FXS",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-oasis-wbnb",
     "address": "0xeF2b0B3e0077106249946c42CDf3F6a29942d44A",
     "decimals": "1e18",
