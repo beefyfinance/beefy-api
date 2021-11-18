@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  BETU: {
+    name: 'BETU Token',
+    symbol: 'BETU',
+    address: '0x0df1B3F30865C5b324797F8dB9d339514caC4e94',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0x0df1B3F30865C5b324797F8dB9d339514caC4e94/logo.png',
+    website: 'https://www.betu.io/',
+    description:
+      'Sports, esports & crypto betting platform. Secured by smart contracts & powered by the BETU token.',
+  },
   OASIS: {
     name: 'OASIS',
     symbol: 'OASIS',
