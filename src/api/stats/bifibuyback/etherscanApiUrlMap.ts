@@ -23,7 +23,7 @@ export const etherscanApiUrlMap = {
     apiToken: 'RAQVQ1H9766QWV3JYF49CCYCB6WAK8STVB',
   },
   moonriver: {
-    url: 'https://api.moonriver.moonscan.io',
+    url: 'https://api-moonriver.moonscan.io',
     apiToken: 'ERD8CW11NEI89IFQPJ1I5SJTCIDEG9SZCW',
   },
   arbitrum: {
