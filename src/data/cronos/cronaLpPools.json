@@ -1,0 +1,230 @@
+[
+  {
+    "name": "crona-busd-bnb",
+    "address": "0xe8B18116040acf83D6e1f873375adF61103AB45c",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
+      "oracle": "tokens",
+      "oracleId": "cBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-usdt-usdc",
+    "address": "0x968fe4c06fdd503e278d89d5dfe29935a111476c",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "crona-usdt-ftm",
+    "address": "0xDee7A79bb414FFB248EF4d4c5560AdC91F547F41",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB44a9B6905aF7c801311e8F4E76932ee959c663C",
+      "oracle": "tokens",
+      "oracleId": "cFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-usdt-avax",
+    "address": "0x193add22b0a333956C2Cb13F4D574aF129629c5f",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x765277EebeCA2e31912C9946eAe1021199B39C61",
+      "oracle": "tokens",
+      "oracleId": "cAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-usdt-matic",
+    "address": "0x394080F7c770771B6EE4f4649bC477F0676ceA5C",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055",
+      "oracle": "tokens",
+      "oracleId": "cMATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-usdt-busd",
+    "address": "0x503d56B2f535784B7f2bcD6581F7e1b46DC0e60c",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-cro-dai",
+    "address": "0xDA2FC0fE4B03deFf09Fd8CFb92d14e7ebC1F9690",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF2001B145b43032AAF5Ee2884e456CCd805F677D",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-wbtc-cro",
+    "address": "0xb4684F52867dC0dDe6F931fBf6eA66Ce94666860",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x062E66477Faf219F25D27dCED647BF57C3107d52",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-cro-eth",
+    "address": "0x8232aA9C3EFf79cd845FcDa109B461849Bf1Be83",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe44Fd7fCb2b1581822D0c862B68222998a0c299a",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-cro-usdt",
+    "address": "0x19Dd1683e8c5F6Cc338C1438f2D25EBb4e0b0b08",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "crona-cro-usdc",
+    "address": "0x0625A68D25d304aed698c806267a4e369e8Eb12a",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "crona-cro-crona",
+    "address": "0xeD75347fFBe08d5cce4858C70Df4dB4Bbe8532a0",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xadbd1231fb360047525BEdF962581F3eee7b49fe",
+      "oracle": "tokens",
+      "oracleId": "CRONA",
+      "decimals": "1e18"
+    }
+  }
+]

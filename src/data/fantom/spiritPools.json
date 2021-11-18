@@ -1,5 +1,24 @@
 [
   {
+    "name": "spirit-spell-sspell",
+    "address": "0x4f41D03631Ea4dC14016CcF90690d6D22b24C12D",
+    "decimals": "1e18",
+    "poolId": 60,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x468003B688943977e6130F4F68F23aad939a1040",
+      "oracle": "tokens",
+      "oracleId": "SPELL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbB29D2A58d880Af8AA5859e30470134dEAf84F2B",
+      "oracle": "tokens",
+      "oracleId": "sSPELL",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spirit-ftm-beets",
     "address": "0x2d6de488Fc701eB5AC687dE9Ad06F58fcBaE45DB",
     "decimals": "1e18",

@@ -1,11 +1,14 @@
+import Chain from '../../types/chain';
+import { ConstInterface } from '../../types/const';
+
 import { beefyfinance } from './platforms/beefyfinance';
 import { lydia } from './platforms/lydia';
 import { pangolin } from './platforms/pangolin';
 import { joe } from './platforms/joe';
+import { synapse } from './platforms/synapse';
+
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
-import Chain from '../../types/chain';
-import { ConstInterface } from '../../types/const';
 
 const _avax = {
   platforms: {
@@ -13,6 +16,7 @@ const _avax = {
     lydia,
     pangolin,
     joe,
+    synapse,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

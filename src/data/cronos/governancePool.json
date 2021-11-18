@@ -1,0 +1,9 @@
+{
+  "name": "cronos-bifi-gov",
+  "address": "0x107Dbf9c9C0EF2Df114159e5C7DC2baf7C444cFF",
+  "tokenAddress": "0xe6801928061CDbE32AC5AD0634427E140EFd05F9",
+  "tokenDecimals": 1e18,
+  "oracle": "tokens",
+  "oracleId": "BIFI",
+  "exclude": {}
+}

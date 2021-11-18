@@ -16,6 +16,8 @@ const getSingularApys = require('./getSingularApys');
 const getBlizzLpApys = require('./getBlizzLpApys');
 const getBlizzLendingApys = require('./getBlizzLendingApys');
 const getBankerJoeApys = require('./getBankerJoeApys');
+import { getSynapseApys } from './getSynapseApys';
+const getSpellApys = require('./getSpellApys');
 
 const getApys = [
   getComAvaxApys,
@@ -36,6 +38,8 @@ const getApys = [
   getBlizzLpApys,
   getBlizzLendingApys,
   getBankerJoeApys,
+  getSynapseApys,
+  getSpellApys,
 ];
 
 const getAvaxApys = async () => {

@@ -9,7 +9,7 @@ const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { complusAvaxClient } = require('../../../apollo/client');
 
 const masterchef = '0xa329D806fbC80a14415588334ae4b205813C6BB2';

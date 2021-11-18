@@ -9,7 +9,7 @@ const pools = require('../../../data/heco/lendhubLpPools.json');
 const { BASE_HPY, HECO_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 //const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-//const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+//import { getFarmWithTradingFeesApy  } from '../../../utils/getFarmWithTradingFeesApy';
 //const { mdexClient } = require('../../../apollo/client');
 
 const masterchef = '0x00A5BF6ab1166bce027D9d4b0E829f92781ab1A7';
