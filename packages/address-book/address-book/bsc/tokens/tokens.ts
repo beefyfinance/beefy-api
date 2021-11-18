@@ -15,6 +15,29 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  FRAX: {
+    name: 'Frax Token',
+    symbol: 'FRAX',
+    address: '0x90C97F71E18723b0Cf0dfa30ee176Ab653E89F40',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/FRAX.png',
+    website: 'https://frax.finance/',
+    description: 'Frax is the world’s first fractional-algorithmic stablecoin.',
+  },
+  FXS: {
+    name: 'Frax Share',
+    symbol: 'FXS',
+    address: '0xe48A3d7d0Bc88d552f730B62c006bC925eadB9eE',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/FXS.png',
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+  },
   BETU: {
     name: 'BETU Token',
     symbol: 'BETU',
