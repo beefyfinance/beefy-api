@@ -16,7 +16,7 @@ export const getAvaxBifiMaxiApy = () => {
   return getBifiMaxiApys({
     bifi: BIFI.address,
     rewardPool: rewardPool,
-    rewardId: AVAX.symbol,
+    rewardId: 'AVAX',
     rewardDecimals: getEDecimals(AVAX.decimals),
     chain: 'avax',
     web3: web3,
