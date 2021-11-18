@@ -121,7 +121,7 @@ const _tokens = {
     logoURI:
       'https://app.cronaswap.org/images/tokens/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8.svg',
   },
-  cMATIC: {
+  MATIC: {
     name: 'MATIC Token',
     symbol: 'MATIC',
     address: '0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055',
@@ -133,7 +133,7 @@ const _tokens = {
     logoURI:
       'https://app.cronaswap.org/images/tokens/0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055.svg',
   },
-  cAVAX: {
+  AVAX: {
     name: 'Avalanche Token',
     symbol: 'AVAX',
     address: '0x765277EebeCA2e31912C9946eAe1021199B39C61',
@@ -145,7 +145,7 @@ const _tokens = {
     logoURI:
       'https://app.cronaswap.org/images/tokens/0x765277EebeCA2e31912C9946eAe1021199B39C61.svg',
   },
-  cFTM: {
+  FTM: {
     name: 'Fantom Token',
     symbol: 'FTM',
     address: '0xB44a9B6905aF7c801311e8F4E76932ee959c663C',
@@ -157,7 +157,7 @@ const _tokens = {
     logoURI:
       'https://app.cronaswap.org/images/tokens/0xB44a9B6905aF7c801311e8F4E76932ee959c663C.svg',
   },
-  cBNB: {
+  BNB: {
     name: 'Binance Token',
     symbol: 'BNB',
     address: '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f',
