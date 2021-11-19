@@ -87,7 +87,7 @@
     "oracleId": "WETH.e",
     "decimals": "1e18",
     "borrowDepth": 4,
-    "borrowPercent": 0.72
+    "borrowPercent": 0.30
   },
   {
     "name": "bankerjoe-wbtc.e",
@@ -95,8 +95,8 @@
     "oracle": "tokens",
     "oracleId": "WBTC.e",
     "decimals": "1e8",
-    "borrowDepth": 4,
-    "borrowPercent": 0.72
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
   },
   {
     "name": "bankerjoe-usdc.e",
