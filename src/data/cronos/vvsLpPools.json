@@ -98,7 +98,7 @@
     "name": "vvs-vvs-usdt",
     "address": "0x280aCAD550B2d3Ba63C8cbff51b503Ea41a1c61B",
     "decimals": "1e18",
-    "poolId": 6,
+    "poolId": 7,
     "chainId": 25,
     "lp0": {
       "address": "0x2D03bECE6747ADC00E1a131BBA1469C15fD11e03",
