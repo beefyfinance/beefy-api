@@ -1,4 +1,5 @@
 const { getSolarbeamLpApys } = require('./getSolarbeamLpApys');
+const { getSolarbeamDualLpApys } = require('./getSolarbeamDualLpApys');
 const { getSolarApy } = require('./getSolarApy');
 const { getSushiLpApys } = require('./getSushiLpApys');
 const { getMovrBifiGovApy } = require('./getMovrBifiGovApy');
@@ -6,6 +7,7 @@ const { getMovrBifiMaxiApy } = require('./getMovrBifiMaxiApy');
 
 const getApys = [
   getSolarbeamLpApys,
+  getSolarbeamDualLpApys,
   getSolarApy,
   getSushiLpApys,
   getMovrBifiGovApy,
