@@ -12,7 +12,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "address": "0x9F47F313ACFd4bdC52F4373b493EaE7d5aC5b765",
       "oracle": "tokens",
       "oracleId": "JOE",
       "decimals": "1e18"
