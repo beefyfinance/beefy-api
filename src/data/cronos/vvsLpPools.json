@@ -93,5 +93,24 @@
       "oracleId": "USDC",
       "decimals": "1e6"
     }
+  },
+  {
+    "name": "vvs-vvs-usdt",
+    "address": "0x280aCAD550B2d3Ba63C8cbff51b503Ea41a1c61B",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x2D03bECE6747ADC00E1a131BBA1469C15fD11e03",
+      "oracle": "tokens",
+      "oracleId": "VVS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
   }
 ]
