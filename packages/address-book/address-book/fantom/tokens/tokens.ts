@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  JOE: {
+    name: 'Joe Token',
+    symbol: 'JOE',
+    address: '0x9F47F313ACFd4bdC52F4373b493EaE7d5aC5b765',
+    decimals: 18,
+    chainId: 250,
+    website: 'https://www.traderjoexyz.com/#/home',
+    description:
+      'Trader Joe is your one-stop decentralized trading platform on the Avalanche network, of which JOE is the governance token that rewards its holders with a share of exchange revenues.',
+    logoURI: 'https://www.traderjoexyz.com/static/media/logo.bc60f78d.png',
+  },
   SUMMIT: {
     name: 'SUMMIT',
     symbol: 'SUMMIT',
