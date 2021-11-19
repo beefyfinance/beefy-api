@@ -42,7 +42,7 @@ const _tokens = {
   USDC: {
     name: 'USD Coin',
     symbol: 'USDC',
-    address: '0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
+    address: '0xc21223249CA28397B4B6541dfFaEcC539BfF0c59',
     chainId: 25,
     decimals: 6,
     logoURI:
@@ -72,6 +72,102 @@ const _tokens = {
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+  },
+  CRONA: {
+    name: 'CronaSwap Token',
+    symbol: 'CRONA',
+    address: '0xadbd1231fb360047525BEdF962581F3eee7b49fe',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://app.cronaswap.org/',
+    description:
+      'CronaSwap is the first decentralized exchange platform on the Cronos Chain and the lowest platform transaction fees (0.25%).',
+    logoURI:
+      'https://app.cronaswap.org/images/tokens/0xadbd1231fb360047525BEdF962581F3eee7b49fe.svg',
+  },
+  USDT: {
+    name: 'Tether USD',
+    symbol: 'USDT',
+    address: '0x66e428c3f67a68878562e79A0234c1F83c208770',
+    chainId: 25,
+    decimals: 6,
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    logoURI:
+      'https://app.cronaswap.org/images/tokens/0x66e428c3f67a68878562e79A0234c1F83c208770.svg',
+  },
+  DAI: {
+    name: 'DAI Token',
+    symbol: 'DAI',
+    address: '0xF2001B145b43032AAF5Ee2884e456CCd805F677D',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://makerdao.com/en/',
+    description:
+      'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
+    logoURI:
+      'https://app.cronaswap.org/images/tokens/0xF2001B145b43032AAF5Ee2884e456CCd805F677D.svg',
+  },
+  BUSD: {
+    name: 'BUSD Token',
+    symbol: 'BUSD',
+    address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
+    logoURI:
+      'https://app.cronaswap.org/images/tokens/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8.svg',
+  },
+  MATIC: {
+    name: 'MATIC Token',
+    symbol: 'MATIC',
+    address: '0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://polygon.technology/',
+    description:
+      'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
+    logoURI:
+      'https://app.cronaswap.org/images/tokens/0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055.svg',
+  },
+  AVAX: {
+    name: 'Avalanche Token',
+    symbol: 'AVAX',
+    address: '0x765277EebeCA2e31912C9946eAe1021199B39C61',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://www.avalabs.org/',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    logoURI:
+      'https://app.cronaswap.org/images/tokens/0x765277EebeCA2e31912C9946eAe1021199B39C61.svg',
+  },
+  FTM: {
+    name: 'Fantom Token',
+    symbol: 'FTM',
+    address: '0xB44a9B6905aF7c801311e8F4E76932ee959c663C',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://fantom.foundation/',
+    description:
+      'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+    logoURI:
+      'https://app.cronaswap.org/images/tokens/0xB44a9B6905aF7c801311e8F4E76932ee959c663C.svg',
+  },
+  BNB: {
+    name: 'Binance Token',
+    symbol: 'BNB',
+    address: '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    logoURI:
+      'https://app.cronaswap.org/images/tokens/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
   },
 } as const;
 

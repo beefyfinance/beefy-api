@@ -28,6 +28,7 @@ export interface SingleAssetPool {
   decimals: string;
   chainId: ChainId;
   depositFee?: number;
+  swap?: string; // used in swap contracts, like IronSwap (0x837503e8A8753ae17fB8C8151B8e6f586defCb57) on polygon
 }
 
 export interface LpToken {

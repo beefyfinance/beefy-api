@@ -7,13 +7,13 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pool = require('../../../data/fantom/spookySinglePool.json');
 const { BASE_HPY } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
-const getFarmWithTradingFeesApy = require('../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { getYearlyPlatformTradingFees } = require('../../../utils/getTradingFeeApr');
 const { spookyClient } = require('../../../apollo/client');
 
 const oracle = 'tokens';
 const oracleId = 'BOO';
-const BOO = '0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE'
+const BOO = '0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE';
 const xBOOChefAddress = '0x2352b745561e7e6FCD03c093cE7220e3e126ace0';
 const xBOO = '0xa48d959AE2E88f1dAA7D5F611E01908106dE7598';
 const DECIMALS = '1e18';

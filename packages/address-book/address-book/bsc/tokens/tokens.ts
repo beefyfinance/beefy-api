@@ -15,6 +15,53 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  FRAX: {
+    name: 'Frax Token',
+    symbol: 'FRAX',
+    address: '0x90C97F71E18723b0Cf0dfa30ee176Ab653E89F40',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/FRAX.png',
+    website: 'https://frax.finance/',
+    description: 'Frax is the world’s first fractional-algorithmic stablecoin.',
+  },
+  FXS: {
+    name: 'Frax Share',
+    symbol: 'FXS',
+    address: '0xe48A3d7d0Bc88d552f730B62c006bC925eadB9eE',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/FXS.png',
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+  },
+  BETU: {
+    name: 'BETU Token',
+    symbol: 'BETU',
+    address: '0x0df1B3F30865C5b324797F8dB9d339514caC4e94',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0x0df1B3F30865C5b324797F8dB9d339514caC4e94/logo.png',
+    website: 'https://www.betu.io/',
+    description:
+      'Sports, esports & crypto betting platform. Secured by smart contracts & powered by the BETU token.',
+  },
+  OASIS: {
+    name: 'OASIS',
+    symbol: 'OASIS',
+    address: '0xb19289b436b2F7A92891ac391D8f52580d3087e4',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/OASIS.svg',
+    website: 'https://projectoasis.io/',
+    description:
+      'ProjectOasis is a metaverse built for users to socialize and interact with various Dapps and protocols available within DeFi',
+  },
   EXP: {
     name: 'Game X Change',
     symbol: 'EXP',
@@ -292,7 +339,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf981547a1D9A0c59C9aba1e2b826BF01a2e5E263/logo.png',
     website: 'https://tosdis.finance/',
-    description: 'The One Stop Defi Interoperable Solution powered with Liquid Staking',
+    description: 'The One Stop Defi Interoperable Solution powered with Liquid Staking.',
   },
   rUSD: {
     name: 'Ramp Defi USD',

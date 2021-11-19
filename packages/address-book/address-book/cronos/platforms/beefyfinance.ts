@@ -2,8 +2,8 @@ const cowllector = '0xd529b1894491a0a26B18939274ae8ede93E81dbA';
 
 export const beefyfinance = {
   devMultisig: cowllector,
-  strategyOwner: '0x0000000000000000000000000000000000000000',
-  vaultOwner: '0x0000000000000000000000000000000000000000',
+  strategyOwner: '0x4f4DB83d75876f34fd927d5fa78D5D7b4479E6ce',
+  vaultOwner: '0x8c2839aCcC801A61f4F0F7CCf4F92D0895ad2AeC',
   keeper: '0x10aee6B5594942433e7Fc2783598c979B030eF3D',
   rewarder: cowllector,
   treasurer: '0x3Eb7fB70C03eC4AEEC97C6C6C1B59B014600b7F7',

@@ -7,7 +7,7 @@ const { compound } = require('../../../../utils/compound');
 const { FANTOM_CHAIN_ID, BASE_HPY } = require('../../../../constants');
 const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 const { spiritClient } = require('../../../../apollo/client');
 const pools = require('../../../../data/degens/tosdisLpPools.json');
 

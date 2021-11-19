@@ -98,8 +98,10 @@ const getGovernanceTvl = async (chainId, governancePool) => {
     chainId
   );
 
+  const tvl = Number(totalStaked.minus(excludedBalance));
+
   let response = {};
-  response[governancePool.name] = Number(totalStaked.minus(excludedBalance)).toFixed(2);
+  response[governancePool.name] = Number(tvl.toFixed(2));
 
   return response;
 };

@@ -9,7 +9,7 @@ const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd')
 const { BSC_CHAIN_ID, BASE_HPY } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
-const getFarmWithTradingFeesApy = require('../../../../utils/getFarmWithTradingFeesApy');
+import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 const { cakeClient } = require('../../../../apollo/client');
 
 const masterchef = '0x986581a915f8abf4C8E21781a2c45FD4Eb21699D';

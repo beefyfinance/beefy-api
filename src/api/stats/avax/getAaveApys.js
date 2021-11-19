@@ -99,7 +99,7 @@ const getNativePerYear = async pool => {
   res = await distribution.methods.assets(pool.debtToken).call();
   const borrowNativeRate = new BigNumber(res.emissionPerSecond);
 
-  const nativePrice = await fetchPrice({ oracle: 'tokens', id: 'WAVAX' });
+  const nativePrice = await fetchPrice({ oracle: 'tokens', id: 'AVAX' });
   const supplyNativeInUsd = supplyNativeRate.times(secondsPerYear).div('1e18').times(nativePrice);
   const borrowNativeInUsd = borrowNativeRate.times(secondsPerYear).div('1e18').times(nativePrice);
 
