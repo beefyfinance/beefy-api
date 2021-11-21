@@ -9,6 +9,7 @@ const chainIdMap = {
   celo: 42220,
   moonriver: 1285,
   cronos: 25,
+  aurora: 1313161554,
 };
 
 export default chainIdMap;

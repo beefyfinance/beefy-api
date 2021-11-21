@@ -13,6 +13,7 @@ const MULTICALLS = {
   celo: '0xaDB9DDFA24E326dC9d337561f6c7ba2a6Ecec697',
   moonriver: '0x32d272C7F753698BB6ecde56CC599411C57Fa93a',
   cronos: '0x3C9C884eFAB85c44D675039de227b3Dd275c360e',
+  aurora: '0xc5Be4084b3D945fe83e1Be4bd96522FA1D1c722D',
 };
 const MulticallAbi = require('../abis/BeefyLastHarvestMulticall.json');
 const BATCH_SIZE = 128;

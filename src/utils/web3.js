@@ -33,6 +33,9 @@ module.exports = {
   get cronosWeb3() {
     return chainRandomClients.cronosRandomClient();
   },
+  get auroraWeb3() {
+    return chainRandomClients.auroraRandomClient();
+  },
 
   web3Factory: _web3Factory,
 
