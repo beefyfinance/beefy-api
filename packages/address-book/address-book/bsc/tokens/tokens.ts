@@ -4142,7 +4142,7 @@ const _tokens = {
     description:
       'In 2088, the planet Kart is invaded by forces from outer space who are called Kaman. They sealed and reorganized the entire planet Kart in order to dominate and plunder their wealth and divide it into many different lands. Each land is run by a Boss. Kaman tries to destroy the entire planet, plunder the wealth to bring back to his planet and exhaust the resources of Kart.',
   },
-  QI: {
+  bQI: {
     name: 'BENQI',
     symbol: 'QI',
     address: '0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5',
