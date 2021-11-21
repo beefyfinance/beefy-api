@@ -4095,5 +4095,63 @@ const _tokens = {
     description:
       'Mines of Dalarnia is a free action game with a unique blockchain real-estate market.',
   },
+  XWG: {
+    name: 'XWG',
+    symbol: 'XWG',
+    address: '0x6b23C89196DeB721e6Fd9726E6C76E4810a464bc',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x6b23C89196DeB721e6Fd9726E6C76E4810a464bc.svg',
+    website: 'https://xwg.games/#/',
+    description:
+      'A true decentralized ownership of a gaming world via DAO.  Games that hold XWG tokens get to decide the platform governance policy or the next in-game development, including reward mechanisms and tokenomic systems.',
+  },
+  ETERNAL: {
+    name: 'CryptoMines Eternal',
+    symbol: 'ETERNAL',
+    address: '0xD44FD09d74cd13838F137B590497595d6b3FEeA4',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xD44FD09d74cd13838F137B590497595d6b3FEeA4.svg',
+    website: 'https://cryptomines.app/',
+    description:
+      'CryptoMines is a SciFi play-to-earn NFT game designed to provide the users with a fun experience by collecting and Spaceships to travel through the universe searching for , this mineral allows them to live another day and make some profits along the way.',
+  },
+  PORTO: {
+    name: 'FC Porto Fan Token',
+    symbol: 'PORTO',
+    address: '0x49f2145d6366099e13B10FbF80646C0F377eE7f6',
+    chainId: 56,
+    decimals: 8,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x49f2145d6366099e13B10FbF80646C0F377eE7f6.svg',
+    website: 'https://www.fcporto.pt/',
+    description: 'FC Porto Fan Token',
+  },
+  KART: {
+    name: 'Dragon Kart',
+    symbol: 'KART',
+    address: '0x8BDd8DBcBDf0C066cA5f3286d33673aA7A553C10',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x8BDd8DBcBDf0C066cA5f3286d33673aA7A553C10.svg',
+    website: 'https://dragonkart.com/',
+    description:
+      'In 2088, the planet Kart is invaded by forces from outer space who are called Kaman. They sealed and reorganized the entire planet Kart in order to dominate and plunder their wealth and divide it into many different lands. Each land is run by a Boss. Kaman tries to destroy the entire planet, plunder the wealth to bring back to his planet and exhaust the resources of Kart.',
+  },
+  QI: {
+    name: 'BENQI',
+    symbol: 'QI',
+    address: '0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5.svg',
+    website: 'https://app.benqi.fi/overview',
+    description: 'BenQI is lending protocol on the Avalanche blockchain',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
