@@ -1,4 +1,4 @@
-const { getTrisolarisApys } = require('./getTrisolarisApys');
+const getTrisolarisApys = require('./getTrisolarisApys');
 
 const getApys = [getTrisolarisApys];
 
