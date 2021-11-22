@@ -62,5 +62,33 @@
     "name": "curve-arb-mim",
     "pool": "0x30dF229cefa463e991e29D42DB0bae2e122B2AC7",
     "rewards": []
+  },
+  {
+    "name": "curve-arb-eurs",
+    "pool": "0xA827a652Ead76c6B0b3D19dba05452E06e25c27e",
+    "token": "0x3dFe1324A0ee9d86337d06aEB829dEb4528DB9CA",
+    "gauge": "0x37C7ef6B0E23C9bd9B620A6daBbFEC13CE30D824",
+    "baseApyKey": "eursusd",
+    "volatile": true,
+    "rewards": [
+      {
+        "stream": "0x56eda719d82aE45cBB87B7030D3FB485685Bea45",
+        "token": "0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978",
+        "oracleId": "CRV"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "stasis-eurs",
+        "decimals": "1e2"
+      },
+      {
+        "basePool": "curve-arb-2pool",
+        "oracle": "lps",
+        "oracleId": "curve-arb-2pool",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
