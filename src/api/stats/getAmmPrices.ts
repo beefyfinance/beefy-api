@@ -178,6 +178,7 @@ import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
 import solarbeamDualLpPools from '../../data/moonriver/solarbeamDualLpPools.json';
 import trisolarisLpPools from '../../data/aurora/trisolarisLpPools.json';
+import maiAvaxLpPools from '../../data/avax/maiLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -185,6 +186,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...maiAvaxLpPools,
   ...trisolarisLpPools,
   ...solarbeamDualLpPools,
   ...cronaPools,
