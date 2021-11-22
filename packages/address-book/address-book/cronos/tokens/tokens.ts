@@ -28,6 +28,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  SHIB: {
+    name: 'Shiba Inu',
+    symbol: 'SHIB',
+    address: '0xbED48612BC69fA1CaB67052b42a95FB30C1bcFee',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://shibatoken.com/',
+    description:
+      'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
+    logoURI: 'https://bscscan.com/token/images/shibatoken_32.png',
+  },
   VVS: {
     name: 'VVSToken',
     symbol: 'VVS',
