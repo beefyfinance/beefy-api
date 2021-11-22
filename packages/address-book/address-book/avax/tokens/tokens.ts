@@ -3895,6 +3895,18 @@ const _tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
   },
+  CRA: {
+    name: 'CRA',
+    symbol: 'CRA',
+    address: '0xA32608e873F9DdEF944B24798db69d80Bbb4d1ed',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xA32608e873F9DdEF944B24798db69d80Bbb4d1ed.svg',
+    website: 'https://www.crabada.com/',
+    description:
+      'Rediscover the prosperous ancient Crabada Kingdom once ruled by Crustaco, King of the Crabada. Mine. Loot. Breed. Expand your forces. Earn CRA tokens by playing and use them to determine the future of the Kingdom!',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

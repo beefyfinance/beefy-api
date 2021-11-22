@@ -37,8 +37,8 @@ const projects = {
   },
   joe: {
     prefix: 'joe',
-    file: '../src/data/avax/joeLpPools.json',
-    masterchef: '0xd6a4F121CA35509aF06A0Be99093d08462f53052',
+    file: '../src/data/avax/joeDualLpPools.json',
+    masterchef: '0x188bED1968b795d5c9022F6a0bb5931Ac4c18F00',
   },
   spooky: {
     prefix: 'boo',
