@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  QI: {
+    chainId: 43114,
+    address: '0xA56F9A54880afBc30CF29bB66d2D9ADCdcaEaDD6',
+    decimals: 18,
+    name: 'Qi Dao',
+    symbol: 'QI',
+    website: 'https://www.mai.finance/',
+    description:
+      "Qi (pronounced CHEE) is the governance token of the QiDao Protocol. It allows those who hold it to vote on changes to the QiDao Protocol.",
+    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/qi.png',
+  },
   BOO: {
     chainId: 43114,
     address: '0xbD83010eB60F12112908774998F65761cf9f6f9a',
