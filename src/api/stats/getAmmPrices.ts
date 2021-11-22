@@ -3,6 +3,7 @@
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
+import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 
 import getNonAmmPrices from './getNonAmmPrices';
 import bakeryPools from '../../data/bakeryLpPools.json';
@@ -358,6 +359,8 @@ const pools = [
 
 const dmmPools = [...kyberPools];
 
+const coinGeckoCoins = ['stasis-eurs', 'tether-eurt'];
+
 const knownPrices = {
   BUSD: 1,
   USDT: 1,
@@ -375,8 +378,8 @@ let lpPricesCache: Promise<any>;
 const updateAmmPrices = async () => {
   console.log('> updating amm prices');
   try {
+    const coinGeckoPrices = fetchCoinGeckoPrices(coinGeckoCoins);
     const ammPrices = fetchAmmPrices(pools, knownPrices);
-
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
     const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
@@ -386,7 +389,7 @@ const updateAmmPrices = async () => {
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
       const dmm = await dmmPrices;
       const mooTokenPrices = await mooPrices;
-      return { ...tokenPrices, ...dmm.tokenPrices, ...mooTokenPrices };
+      return { ...tokenPrices, ...dmm.tokenPrices, ...mooTokenPrices, ...(await coinGeckoPrices) };
     });
 
     const lpPrices = ammPrices.then(async ({ poolPrices, _ }) => {
