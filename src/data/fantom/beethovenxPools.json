@@ -1,5 +1,25 @@
 [
   {
+    "name": "beets-phantom-dai-opera",
+    "address": "0x63386eF152E1Ddef96c065636D6cC0165Ff33291",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x63386ef152e1ddef96c065636d6cc0165ff332910002000000000000000000a1",
+    "poolId": 23,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-baron-von-binance",
     "address": "0x5E65474c8400d0BB76eDBBE066B2D2E7b0b6e7fb",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
