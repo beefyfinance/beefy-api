@@ -1,14 +1,12 @@
 const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { multicallAddress } = require('../../../utils/web3');
-import { AbiItem } from 'web3-utils';
 
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
-import getBlockTime from '../../../utils/getBlockTime';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
 
 export const getRewardPoolApys = async params => {
@@ -40,8 +38,6 @@ const getFarmApys = async params => {
                              ? await getXPrice(tokenPrice, params)
                              : tokenPrice;
   const { balances, rewardRates } = await getPoolsData(params);
-  const secondsPerYear = 31536000;
-  const secondsPerBlock = params.perBlock ? (await getBlockTime(params.chainId)) : 1;
 
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
@@ -51,7 +47,8 @@ const getFarmApys = async params => {
     const stakedPrice = await fetchPrice({ oracle, id });
     const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
-    const yearlyRewards = rewardRates[i].times(secondsPerYear).dividedBy(secondsPerBlock);
+    const secondsPerYear = 31536000;
+    const yearlyRewards = rewardRates[i].times(secondsPerYear);
     const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
@@ -75,15 +72,12 @@ const getPoolsData = async params => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   params.pools.forEach(pool => {
-    const abi = params.tokenPerBlock ? chefAbi(params.tokenPerBlock) : IRewardPool;
-    const tokenPerBlock = params.tokenPerBlock ?? 'rewardRate';
-    const tokenContract = new params.web3.eth.Contract(ERC20, pool.address);
-    const rewardPool = new params.web3.eth.Contract(abi, pool.rewardPool);
+    const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
     balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(pool.rewardPool),
+      balance: rewardPool.methods.totalSupply(),
     });
     rewardRateCalls.push({
-      rewardRate: rewardPool.methods[tokenPerBlock](),
+      rewardRate: rewardPool.methods.rewardRate(),
     });
   });
 
@@ -102,17 +96,5 @@ const getXPrice = async (tokenPrice, params) => {
 
   return stakedInXPool.times(tokenPrice).dividedBy(totalXSupply);
 }
-
-const chefAbi = (tokenPerBlock): AbiItem[] => {
-  const cakeAbi = IRewardPool as AbiItem[];
-  cakeAbi.push({
-    inputs: [],
-    name: tokenPerBlock,
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
-    stateMutability: 'view',
-    type: 'function',
-  });
-  return cakeAbi;
-};
 
 module.exports = { getRewardPoolApys };

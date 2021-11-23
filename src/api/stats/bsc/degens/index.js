@@ -43,7 +43,7 @@ const getBabyApys = require('./getBabyApys');
 const { getWSGApys } = require('./getWSGApys');
 const getNftyApys = require('./getNftyApys');
 const getBetuApys = require('./getBetuApys');
-const { getBisonApys } = require('./getBisonApys');
+const getBisonApys = require('./getBisonApys');
 
 const getApys = [
   getRamenLpApys,
