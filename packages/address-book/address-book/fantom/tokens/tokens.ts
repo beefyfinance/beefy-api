@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  TUSD: {
+    name: 'True USD',
+    symbol: 'TUSD',
+    address: '0x9879aBDea01a879644185341F7aF7d8343556B7a',
+    decimals: 18,
+    chainId: 250,
+    website: 'https://www.trueusd.com/',
+    description:
+      'TrueUSD is one of a number of cryptocurrency stablecoins administered by TrustToken, a platform for tokenizing real-world assets.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2563.png',
+  },
   JOE: {
     name: 'Joe Token',
     symbol: 'JOE',

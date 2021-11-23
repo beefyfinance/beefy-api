@@ -1,5 +1,24 @@
 [
   {
+    "name": "boo-usdc-tusd",
+    "address": "0x12692B3bf8dd9Aa1d2E721d1a79efD0C244d7d96",
+    "decimals": "1e18",
+    "poolId": 45,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x9879aBDea01a879644185341F7aF7d8343556B7a",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-wftm-joe",
     "address": "0xd518737Ff601c2A7C67F55EbbEb0a4e3fF5C0C35",
     "decimals": "1e18",
