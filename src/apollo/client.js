@@ -227,6 +227,7 @@ const kyberClient = client(
 );
 const beetClient = client('https://graph.beethovenx.io/subgraphs/name/beethovenx');
 const vvsClient = client('https://graph.vvs.finance/exchange');
+const finnClient = client('https://graph-node.huckleberry.finance/subgraphs/name/huckleberry/huckleberry-subgraph');
 
 const isSushiClient = client => {
   return (
