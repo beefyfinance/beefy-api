@@ -10,7 +10,6 @@ import { AbiItem } from 'web3-utils';
 const mai = addressBook.avax.platforms.mai;
 
 export const getMaiApys = () => {
-  console.log(mai);
   return getMasterChefApys({
     web3: web3,
     chainId: chainId,
