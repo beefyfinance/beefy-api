@@ -1,8 +1,9 @@
 import { getCronosBifiGovApy } from './getCronosBifiGovApy';
+import { getCronosBifiMaxiApy } from './getCronosBifiMaxiApy';
 const getVvsApys = require('./getVvsApys');
 const getCronaApys = require('./getCronaApys');
 
-const getApys = [getVvsApys, getCronaApys, getCronosBifiGovApy];
+const getApys = [getVvsApys, getCronaApys, getCronosBifiGovApy.getCronosBifiMaxiApy];
 
 const getCronosApys = async () => {
   let apys = {};
