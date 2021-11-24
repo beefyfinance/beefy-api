@@ -57,6 +57,40 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  FINN: {
+    name: 'FINN Token',
+    symbol: 'FINN',
+    address: '0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756',
+    chainId: 1285,
+    decimals: 18,
+    logoURI: 'https://www.huckleberry.finance/static/media/02.edc46c96.png',
+    website: 'https://www.huckleberry.finance/#/swap',
+    description:
+      'Huckleberry is a community driven AMM crosschain DEX built on Moonriver.',
+  },
+  DOTm: {
+    name: 'Polkadot Token',
+    symbol: 'DOTm',
+    address: '0x15B9CA9659F5dfF2b7d35a98dd0790a3CBb3D445',
+    chainId: 1285,
+    decimals: 10,
+    logoURI: 'https://assets.coingecko.com/coins/images/12171/large/aJGBjJFU_400x400.jpg?1597804776',
+    website: 'https://polkadot.network/',
+    description:
+      'Polkadot is an open source, blockchain-based distributed computing platform that enables the blockchains built on top of it, known as "parachains", to execute atomic inter-chain transactions between themselves in a trust-minimized way, thereby creating an interconnected internet of blockchains.',
+  },
+  USDCm: {
+    name: 'USD Coin',
+    symbol: 'USDCm',
+    address: '0x748134b5F553F2bcBD78c6826De99a70274bDEb3',
+    chainId: 1285,
+    decimals: 6,
+    logoURI:
+      'https://app.solarbeam.io/_next/image?url=https%3A%2F%2Fapp.solarbeam.io%2Fimages%2Ftokens%2Fusdc.png&w=48&q=50',
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
   SOLAR: {
     name: 'SolarBeam Token',
     symbol: 'SOLAR',

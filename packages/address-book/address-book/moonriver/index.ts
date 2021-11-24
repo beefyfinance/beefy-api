@@ -1,6 +1,7 @@
 import { beefyfinance } from './platforms/beefyfinance';
 import { solarbeam } from './platforms/solarbeam';
 import { sushi } from './platforms/sushi';
+import { finn } from './platforms/finn';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -11,6 +12,7 @@ const _moonriver = {
     beefyfinance,
     solarbeam,
     sushi,
+    finn,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
