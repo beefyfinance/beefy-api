@@ -81,6 +81,15 @@
     "borrowPercent": 0.01
   },
   {
+    "name": "scream-tusd-supply",
+    "itoken": "0x789B5DBd47d7Ca3799f8E9FdcE01bC5E356fcDF1",
+    "oracle": "tokens",
+    "oracleId": "TUSD",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
     "name": "scream-crv",
     "itoken": "0x820BdA1786AFA19DA6B92d6AC603574962337326",
     "oracle": "tokens",
@@ -175,6 +184,15 @@
     "itoken": "0x5A3B9Dcdd462f264eC1bD56D618BF4552C2EaF8A",
     "oracle": "tokens",
     "oracleId": "DOLA",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "scream-tusd",
+    "itoken": "0x789B5DBd47d7Ca3799f8E9FdcE01bC5E356fcDF1",
+    "oracle": "tokens",
+    "oracleId": "TUSD",
     "decimals": "1e18",
     "borrowDepth": 4,
     "borrowPercent": 0.72
