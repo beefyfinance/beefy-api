@@ -44,6 +44,7 @@ const { getWSGApys } = require('./getWSGApys');
 const getNftyApys = require('./getNftyApys');
 const getBetuApys = require('./getBetuApys');
 const getBisonApys = require('./getBisonApys');
+const getBlockMineApys = require('./getBlockMineApys');
 
 const getApys = [
   getRamenLpApys,
@@ -92,6 +93,7 @@ const getApys = [
   getNftyApys,
   getBetuApys,
   getBisonApys,
+  getBlockMineApys,
 ];
 
 const getDegensLpApys = async () => {
