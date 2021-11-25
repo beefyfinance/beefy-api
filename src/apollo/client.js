@@ -278,4 +278,5 @@ module.exports = {
   beetClient,
   isBeetClient,
   vvsClient,
+  finnClient,
 };
