@@ -15,6 +15,28 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  NUGGET: {
+    name: 'Gold Nugget',
+    symbol: 'NUGGET',
+    address: '0xE0B58022487131eC9913C1F3AcFD8F74FC6A6C7E',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/NUGGET.svg',
+    website: 'https://block-mine.io/',
+    description: 'A revolutionary sustainable Liquidity Mining Solution on Binance Smart Chain (Sustainable Mining, Token Evolution, Wild-West Gaming & Restricted Chain Routing).',
+  },
+  GOLDCOIN: {
+    name: 'Goldcoin',
+    symbol: 'GOLDCOIN',
+    address: '0xF2f02f60fD1a376270e777Aa2a4667329E3984eD',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/GOLDCOIN.svg',
+    website: 'https://block-mine.io/',
+    description: 'A revolutionary sustainable Liquidity Mining Solution on Binance Smart Chain (Sustainable Mining, Token Evolution, Wild-West Gaming & Restricted Chain Routing).',
+  },
   FRAX: {
     name: 'Frax Token',
     symbol: 'FRAX',
