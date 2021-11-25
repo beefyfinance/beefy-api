@@ -57,6 +57,39 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  DOGE: {
+    name: 'Doge Token',
+    symbol: 'DOGE',
+    address: '0xb668Cd490a4421F993f93be2819A922DBbB32804',
+    chainId: 1285,
+    decimals: 8,
+    logoURI: 'https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=014',
+    website: 'https://dogecoin.com/',
+    description:
+      'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
+  },
+  XRP: {
+    name: 'XRP Token',
+    symbol: 'XRP',
+    address: '0x9D5bc9B873AeD984e2B6A64d4792249D68BbA2Fe',
+    chainId: 1285,
+    decimals: 6,
+    logoURI: 'https://cryptologos.cc/logos/xrp-xrp-logo.svg?v=014',
+    website: 'https://ripple.com/xrp/',
+    description:
+      'XRP is a digital asset built for payments. It is the native digital asset on the XRP Ledger—an open-source, permissionless and decentralized blockchain technology that can settle transactions in 3-5 seconds.',
+  },
+  WAN: {
+    name: 'WAN Token',
+    symbol: 'WAN',
+    address: '0x41562ae242d194247389152aCAa7a9397136b09F',
+    chainId: 1285,
+    decimals: 18,
+    logoURI: 'https://cryptologos.cc/logos/wanchain-wan-logo.svg?v=014',
+    website: 'https://www.wanchain.org/',
+    description:
+      'Wanchain is a distributed ledger that allows for cross-chain transactions and the interoperability of multiple chains. Although Wanchain facilitates transactions between blockchains, it is also a stand-alone blockchain that runs autonomously.',
+  },
   FINN: {
     name: 'FINN Token',
     symbol: 'FINN',

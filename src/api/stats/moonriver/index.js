@@ -5,6 +5,7 @@ const { getSushiLpApys } = require('./getSushiLpApys');
 const { getMovrBifiGovApy } = require('./getMovrBifiGovApy');
 const { getMovrBifiMaxiApy } = require('./getMovrBifiMaxiApy');
 const { getFinnLpApys } = require('./getFinnLpApys');
+const getFinnApy = require('./getFinnApy');
 
 const getApys = [
   getSolarbeamLpApys,
@@ -14,6 +15,7 @@ const getApys = [
   getMovrBifiGovApy,
   getMovrBifiMaxiApy,
   getFinnLpApys,
+  getFinnApy,
   ];
 
 const getMoonriverApys = async () => {
