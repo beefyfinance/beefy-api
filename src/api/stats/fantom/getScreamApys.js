@@ -26,8 +26,8 @@ const getScreamApys = async () => {
 };
 
 const getPoolApy = async pool => {
-  const blocksPerSecond = await Promise.all([getBlockTime(chainId)]);
-  const BLOCKS_PER_YEAR = 31536000 / blocksPerSecond;
+  const secondsPerBlock = await Promise.all([getBlockTime(chainId)]);
+  const BLOCKS_PER_YEAR = 31536000 / secondsPerBlock;
 
   const [{ supplyBase, supplyVxs }, { borrowBase, borrowVxs }] = await Promise.all([
     getSupplyApys(pool, BLOCKS_PER_YEAR),
