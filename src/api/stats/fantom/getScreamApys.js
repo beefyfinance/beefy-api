@@ -142,14 +142,3 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
 };
 
 module.exports = getScreamApys;
-
-let supplyBase = 0.028;
-let leveragedSupplyBase = 0;
-let borrowPercent = 0.75;
-let depth = 4;
-for (let i = 0; i <= depth; i++) {
-  leveragedSupplyBase = leveragedSupplyBase.plus(
-    supplyBase.times(borrowPercent.exponentiatedBy(depth - i))
-  );
-  console.log(leveragedSupplyBase);
-}
