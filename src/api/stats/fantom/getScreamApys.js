@@ -119,22 +119,18 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
   let leveragedSupplyVxs = new BigNumber(0);
   let leveragedBorrowVxs = new BigNumber(0);
 
-  for (let i = 0; i <= depth; i++) {
+  for (let i = 0; i < depth; i++) {
     leveragedSupplyBase = leveragedSupplyBase.plus(
-      supplyBase.times(borrowPercent.exponentiatedBy(depth - i))
+      supplyBase.times(borrowPercent.exponentiatedBy(i + i))
     );
     leveragedSupplyVxs = leveragedSupplyVxs.plus(
-      supplyVxs.times(borrowPercent.exponentiatedBy(depth - i))
+      supplyVxs.times(borrowPercent.exponentiatedBy(i + i))
     );
-  }
 
-  for (let i = 0; i < depth; i++) {
     leveragedBorrowBase = leveragedBorrowBase.plus(
-      borrowBase.times(borrowPercent.exponentiatedBy(depth - i))
+      borrowBase.times(borrowPercent.exponentiatedBy(i))
     );
-    leveragedBorrowVxs = leveragedBorrowVxs.plus(
-      borrowVxs.times(borrowPercent.exponentiatedBy(depth - i))
-    );
+    leveragedBorrowVxs = leveragedBorrowVxs.plus(borrowVxs.times(borrowPercent.exponentiatedBy(i)));
   }
 
   return {
@@ -146,3 +142,14 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
 };
 
 module.exports = getScreamApys;
+
+let supplyBase = 0.028;
+let leveragedSupplyBase = 0;
+let borrowPercent = 0.75;
+let depth = 4;
+for (let i = 0; i <= depth; i++) {
+  leveragedSupplyBase = leveragedSupplyBase.plus(
+    supplyBase.times(borrowPercent.exponentiatedBy(depth - i))
+  );
+  console.log(leveragedSupplyBase);
+}
