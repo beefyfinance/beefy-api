@@ -247,7 +247,7 @@
     }
   },
   {
-    "name": "finn-wmovr-usdc",
+    "name": "finn-wmovr-usdt",
     "address": "0x037f019B6d98A61AF80c0da5ecFdc23612B0C134",
     "decimals": "1e18",
     "poolId": 0,
@@ -259,9 +259,9 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x748134b5F553F2bcBD78c6826De99a70274bDEb3",
+      "address": "0xE936CAA7f6d9F5C9e907111FCAf7c351c184CDA7",
       "oracle": "tokens",
-      "oracleId": "USDCm",
+      "oracleId": "USDTm",
       "decimals": "1e6"
     }
   },
