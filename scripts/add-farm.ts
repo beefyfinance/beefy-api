@@ -47,8 +47,8 @@ const projects = {
   },
   solarbeam: {
     prefix: 'solarbeam',
-    file: '../src/data/moonriver/solarbeamLpPools.json',
-    masterchef: solarbeam.masterchef,
+    file: '../src/data/moonriver/solarbeamDualLpPools.json',
+    masterchef: solarbeam.masterchefV2,
   },
   trisolaris: {
     prefix: 'trisolaris',

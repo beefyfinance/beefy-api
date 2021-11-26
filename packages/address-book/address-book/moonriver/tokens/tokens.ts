@@ -98,8 +98,7 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://www.huckleberry.finance/static/media/02.edc46c96.png',
     website: 'https://www.huckleberry.finance/#/swap',
-    description:
-      'Huckleberry is a community driven AMM crosschain DEX built on Moonriver.',
+    description: 'Huckleberry is a community driven AMM crosschain DEX built on Moonriver.',
   },
   DOTm: {
     name: 'Polkadot Token',
@@ -107,7 +106,8 @@ const _tokens = {
     address: '0x15B9CA9659F5dfF2b7d35a98dd0790a3CBb3D445',
     chainId: 1285,
     decimals: 10,
-    logoURI: 'https://assets.coingecko.com/coins/images/12171/large/aJGBjJFU_400x400.jpg?1597804776',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/12171/large/aJGBjJFU_400x400.jpg?1597804776',
     website: 'https://polkadot.network/',
     description:
       'Polkadot is an open source, blockchain-based distributed computing platform that enables the blockchains built on top of it, known as "parachains", to execute atomic inter-chain transactions between themselves in a trust-minimized way, thereby creating an interconnected internet of blockchains.',
@@ -334,6 +334,18 @@ const _tokens = {
     website: 'https://frax.finance/',
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+  },
+  aROME: {
+    name: 'Alpha Rome',
+    symbol: 'aROME',
+    address: '0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE',
+    chainId: 1285,
+    decimals: 9,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE.svg',
+    website: 'https://romedao.finance/',
+    description:
+      'RomeDAO is a community project with no central team. It’s a community project built by and for the community. This means it’s up to the community contributors to build a prospering Rome.',
   },
 } as const;
 
