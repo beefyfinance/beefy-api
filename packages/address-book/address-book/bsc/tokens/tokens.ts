@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  BISON: {
+    name: 'Bison',
+    symbol: 'BISON',
+    address: '0x19A6Da6e382b85F827088092a3DBe864d9cCba73',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/BISON.svg',
+    website: 'https://bishares.finance/',
+    description: 'Gain exposure in an easy and fast way to several crypto assets represented by a single token. Earn passive yield by staking on BiShares farms.',
+  },
   NUGGET: {
     name: 'Gold Nugget',
     symbol: 'NUGGET',
