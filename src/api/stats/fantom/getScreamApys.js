@@ -121,16 +121,16 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
 
   for (let i = 0; i < depth; i++) {
     leveragedSupplyBase = leveragedSupplyBase.plus(
-      supplyBase.times(borrowPercent.exponentiatedBy(i + i))
+      supplyBase.times(borrowPercent.exponentiatedBy(i))
     );
-    leveragedSupplyVxs = leveragedSupplyVxs.plus(
-      supplyVxs.times(borrowPercent.exponentiatedBy(i + i))
-    );
+    leveragedSupplyVxs = leveragedSupplyVxs.plus(supplyVxs.times(borrowPercent.exponentiatedBy(i)));
 
     leveragedBorrowBase = leveragedBorrowBase.plus(
-      borrowBase.times(borrowPercent.exponentiatedBy(i))
+      borrowBase.times(borrowPercent.exponentiatedBy(i + 1))
     );
-    leveragedBorrowVxs = leveragedBorrowVxs.plus(borrowVxs.times(borrowPercent.exponentiatedBy(i)));
+    leveragedBorrowVxs = leveragedBorrowVxs.plus(
+      borrowVxs.times(borrowPercent.exponentiatedBy(i + 1))
+    );
   }
 
   return {
