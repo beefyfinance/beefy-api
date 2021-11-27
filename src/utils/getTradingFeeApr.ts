@@ -5,6 +5,7 @@ import {
   poolsDataQuery,
   dayDataQuery,
   joeDayDataQuery,
+  balancerDataQuery,
 } from '../apollo/queries';
 import getBlockTime from './getBlockTime';
 import getBlockNumber from './getBlockNumber';
@@ -212,6 +213,32 @@ export const getYearlyJoePlatformTradingFees = async (
     yearlyTradingFeesUsd = dailyVolumeUSD.times(liquidityProviderFee).times(365);
   } catch (e) {
     console.error('> getYearlyJoePlatformTradingFees error');
+  }
+
+  return yearlyTradingFeesUsd;
+};
+
+export const getYearlyBalancerPlatformTradingFees = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  liquidityProviderFeeShare: number
+) => {
+  const blockTime = await getBlockTime(250);
+  const currentBlock = await getBlockNumber(250);
+  const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
+
+  let yearlyTradingFeesUsd = new BigNumber(0);
+
+  try {
+    const currentData = await client.query({ query: balancerDataQuery(currentBlock) });
+    const pastData = await client.query({ query: balancerDataQuery(pastBlock) });
+    const currentSwapFee = new BigNumber(currentData.data.balancers[0].totalSwapFee);
+    const pastSwapFee = new BigNumber(pastData.data.balancers[0].totalSwapFee)
+
+    const dailySwapFeeUsd = currentSwapFee.minus(pastSwapFee);
+
+    yearlyTradingFeesUsd = dailySwapFeeUsd.times(365).times(liquidityProviderFeeShare);
+  } catch (e) {
+    console.error('> getYearlyBalancerPlatformTradingFees error');
   }
 
   return yearlyTradingFeesUsd;
