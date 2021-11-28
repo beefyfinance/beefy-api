@@ -27,6 +27,16 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  WCRO: {
+    name: 'WCRO',
+    symbol: 'WCRO',
+    address: '0xf2D8124b8F9267DaD61351c7aD252362880C6638',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://cronos.crypto.org/',
+    description: 'Crypto.com Coin',
+    logoURI: 'https://vvs.finance/images/tokens/0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23.svg',
+  },
   EROWAN: {
     name: 'SifChain EROWAN',
     symbol: 'EROWAN',
@@ -36,8 +46,7 @@ const _tokens = {
     website: 'https://sifchain.finance/',
     description:
       'Sifchain aims to be the first Omni-Chain DEX, targeting 20–25 blockchains for cross-chain integration.',
-    logoURI:
-      'https://assets.coingecko.com/coins/images/14044/small/EROWAN.png?1614656300',
+    logoURI: 'https://assets.coingecko.com/coins/images/14044/small/EROWAN.png?1614656300',
   },
   DPI: {
     name: 'Defipulse Index',
