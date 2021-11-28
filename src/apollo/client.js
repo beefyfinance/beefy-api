@@ -225,7 +225,7 @@ const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph
 const kyberClient = client(
   'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic'
 );
-const beetClient = client('https://graph.beethovenx.io/subgraphs/name/beethovenx');
+const beetClient = client('https://graph-node.beets-ftm-node.com/subgraphs/name/beethovenx');
 const vvsClient = client('https://graph.vvs.finance/exchange');
 const finnClient = client('https://graph-node.huckleberry.finance/subgraphs/name/huckleberry/huckleberry-subgraph');
 
