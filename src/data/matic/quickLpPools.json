@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-matic-mana",
+    "address": "0x6b0ce31ead9b14c2281d80a5dde903ab0855313a",
+    "rewardPool": "0xee61B0C32ADf887d265236f57AC0a2449CC931C7",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA1c57f48F0Deb89f569dFbE6E2B7f46D33606fD4",
+      "oracle": "tokens",
+      "oracleId": "MANA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-quick-erowan",
     "address": "0x631F39D22430E889A3CFbEA4FD73Ed101059075f",
     "rewardPool": "0xf113B8dec8368b7FeC4802fF7126cA317131F7cF",
