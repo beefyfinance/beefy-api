@@ -290,26 +290,6 @@
     ]
   },
   {
-    "name": "beets-fidelio-duetto",
-    "address": "0xcdE5a11a4ACB4eE4c805352Cec57E236bdBC3837",
-    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
-    "vaultPoolId": "0xcde5a11a4acb4ee4c805352cec57e236bdbc3837000200000000000000000019",
-    "poolId": 9,
-    "decimals": "1e18",
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "WFTM",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "BEETS",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "beets-ziggy-mim",
     "address": "0xD163415BD34EF06f57C58D2AEd5A5478AfB464cC",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
