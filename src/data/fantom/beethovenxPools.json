@@ -1,5 +1,30 @@
 [
   {
+    "name": "beets-solana-sonata",
+    "address": "0x41870439b607A29293D48f7c9da10e6714217624",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x41870439b607a29293d48f7c9da10e67142176240001000000000000000000a4",
+    "poolId": 24,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SOL",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-phantom-dai-opera",
     "address": "0x63386eF152E1Ddef96c065636D6cC0165Ff33291",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
