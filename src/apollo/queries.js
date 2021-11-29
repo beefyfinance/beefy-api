@@ -90,7 +90,7 @@ const joeDayDataQuery = timestamp => {
   return gql(queryString);
 };
 
-const balancerDataQuery = (block) => {
+const balancerDataQuery = block => {
   const queryString = `
     query balancer {
       balancers(block: { number: ${block} }) {

@@ -11,5 +11,3 @@ const getBeethovenxPrices = async tokenPrices => {
 };
 
 module.exports = getBeethovenxPrices;
-
-

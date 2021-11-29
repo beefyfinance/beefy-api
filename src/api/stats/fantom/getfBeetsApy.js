@@ -36,7 +36,10 @@ const getfBeetsApy = async () => {
     .times(tokenPrice)
     .dividedBy(pool[0].decimals);
 
-  const yearlyTradingFees = await getYearlyBalancerPlatformTradingFees(beetClient, liquidityProviderFeeShare);
+  const yearlyTradingFees = await getYearlyBalancerPlatformTradingFees(
+    beetClient,
+    liquidityProviderFeeShare
+  );
   const totalStakedInUsd = balance.times(tokenPrice).dividedBy(pool[0].decimals);
 
   const poolRewards = rewardPerBlock.times(allocPoint).dividedBy(totalAllocPoint);

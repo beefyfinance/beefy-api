@@ -232,7 +232,7 @@ export const getYearlyBalancerPlatformTradingFees = async (
     const currentData = await client.query({ query: balancerDataQuery(currentBlock) });
     const pastData = await client.query({ query: balancerDataQuery(pastBlock) });
     const currentSwapFee = new BigNumber(currentData.data.balancers[0].totalSwapFee);
-    const pastSwapFee = new BigNumber(pastData.data.balancers[0].totalSwapFee)
+    const pastSwapFee = new BigNumber(pastData.data.balancers[0].totalSwapFee);
 
     const dailySwapFeeUsd = currentSwapFee.minus(pastSwapFee);
 

@@ -7,16 +7,16 @@
     "decimals": "1e18",
     "poolId": 22,
     "tokens": [
-        {
-          "oracle": "tokens",
-          "oracleId": "WFTM",
-          "decimals": "1e18"
-        },
-        {
-          "oracle": "tokens",
-          "oracleId": "BEETS",
-          "decimals": "1e18"
-        }
-      ]
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
