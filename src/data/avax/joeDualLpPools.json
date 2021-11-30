@@ -1,5 +1,24 @@
 [
   {
+    "name": "joe-gohm-wavax",
+    "address": "0xB674f93952F02F2538214D4572Aa47F262e990Ff",
+    "decimals": "1e18",
+    "poolId": 21,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x321E7092a180BB43555132ec53AaA65a5bF84251",
+      "oracle": "tokens",
+      "oracleId": "gOHM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-cra-wavax",
     "address": "0x140CAc5f0e05cBEc857e65353839FddD0D8482C1",
     "decimals": "1e18",

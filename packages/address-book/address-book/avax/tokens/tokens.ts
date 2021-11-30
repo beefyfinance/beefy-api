@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  gOHM: {
+    chainId: 43114,
+    address: '0x321E7092a180BB43555132ec53AaA65a5bF84251',
+    decimals: 18,
+    name: 'Governance OHM',
+    symbol: 'gOHM',
+    website: 'https://www.olympusdao.finance/',
+    description:
+      "Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.",
+    logoURI: 'https://assets.coingecko.com/coins/images/14483/large/token_OHM_%281%29.png?1628311611',
+  },
   QI: {
     chainId: 43114,
     address: '0xA56F9A54880afBc30CF29bB66d2D9ADCdcaEaDD6',
