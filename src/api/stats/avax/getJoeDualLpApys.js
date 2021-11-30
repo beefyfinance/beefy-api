@@ -18,10 +18,6 @@ const oracleIdA = 'JOE';
 const oracleA = 'tokens';
 const DECIMALSA = '1e18';
 
-const oracleIdB = 'AVAX';
-const oracleB = 'tokens';
-const DECIMALSB = '1e18';
-
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
@@ -34,7 +30,6 @@ const getJoeDualLpApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
-  const tokenPriceB = await fetchPrice({ oracle: oracleB, id: oracleIdB });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
   const { balances, allocPoints, rewarders } = await getPoolsData(pools);
 
@@ -43,6 +38,8 @@ const getJoeDualLpApys = async () => {
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
+
+    const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
@@ -58,7 +55,7 @@ const getJoeDualLpApys = async () => {
         const rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarders[i]);
         const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerSec().call());
         const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
-        return yearlyRewardsB.times(tokenPriceB).dividedBy(DECIMALSB);
+        return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
       }
     })();
 
