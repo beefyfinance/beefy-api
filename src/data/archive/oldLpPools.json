@@ -1,5 +1,23 @@
 [
   {
+    "name": "vvs-cro-bifi",
+    "address": "0x1803e360393a472bec6e1a688bdf7048d3076b1a",
+    "decimals": "1e18",
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe6801928061CDbE32AC5AD0634427E140EFd05F9",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-wbnb-nugget",
     "address": "0x93ebebff79C504e1F0B6946A6F2fe693E811470A",
     "decimals": "1e18",
