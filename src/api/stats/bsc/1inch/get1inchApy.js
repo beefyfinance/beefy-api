@@ -34,6 +34,10 @@ const getYearlyRewardsInUsd = async () => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 
   const rewardPool = new web3.eth.Contract(IRewardPool, rewardsPool);
+  const periodFinish = await rewardPool.methods.periodFinish().call();
+  if (periodFinish < Date.now() / 1000) {
+    return new BigNumber(0);
+  }
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
