@@ -15,6 +15,26 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  STATIC: {
+    name: 'STATIC',
+    symbol: 'STATIC',
+    address: '0x7dEb9906BD1d77B410a56E5C23c36340Bd60C983',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://www.chargedefi.fi/static/media/static.180ec003.png',
+    website: 'https://www.chargedefi.fi/',
+    description: 'Algorithmic Stablecoin ecosystem with rebase mechanics.',
+  },
+  CHARGE: {
+    name: 'CHARGE',
+    symbol: 'CHARGE',
+    address: '0x1C6bc8e962427dEb4106aE06A7fA2d715687395c',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://www.chargedefi.fi/static/media/charge.53089c19.png',
+    website: 'https://www.chargedefi.fi/',
+    description: 'Algorithmic Stablecoin ecosystem with rebase mechanics.',
+  },
   BISON: {
     name: 'Bison',
     symbol: 'BISON',
@@ -24,7 +44,8 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/BISON.svg',
     website: 'https://bishares.finance/',
-    description: 'Gain exposure in an easy and fast way to several crypto assets represented by a single token. Earn passive yield by staking on BiShares farms.',
+    description:
+      'Gain exposure in an easy and fast way to several crypto assets represented by a single token. Earn passive yield by staking on BiShares farms.',
   },
   NUGGET: {
     name: 'Gold Nugget',
@@ -35,7 +56,8 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/NUGGET.svg',
     website: 'https://block-mine.io/',
-    description: 'A revolutionary sustainable Liquidity Mining Solution on Binance Smart Chain (Sustainable Mining, Token Evolution, Wild-West Gaming & Restricted Chain Routing).',
+    description:
+      'A revolutionary sustainable Liquidity Mining Solution on Binance Smart Chain (Sustainable Mining, Token Evolution, Wild-West Gaming & Restricted Chain Routing).',
   },
   GOLDCOIN: {
     name: 'Goldcoin',
@@ -46,7 +68,8 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/GOLDCOIN.svg',
     website: 'https://block-mine.io/',
-    description: 'A revolutionary sustainable Liquidity Mining Solution on Binance Smart Chain (Sustainable Mining, Token Evolution, Wild-West Gaming & Restricted Chain Routing).',
+    description:
+      'A revolutionary sustainable Liquidity Mining Solution on Binance Smart Chain (Sustainable Mining, Token Evolution, Wild-West Gaming & Restricted Chain Routing).',
   },
   FRAX: {
     name: 'Frax Token',
