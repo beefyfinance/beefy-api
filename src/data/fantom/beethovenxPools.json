@@ -1,5 +1,30 @@
 [
   {
+    "name": "beets-double-dollar-fugue",
+    "address": "0xF3f0970BCA8ce7E9672d17a301b54D1485D93807",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xf3f0970bca8ce7e9672d17a301b54d1485d938070000000000000000000000c8",
+    "poolId": 25,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "UST",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "beets-solana-sonata",
     "address": "0x41870439b607A29293D48f7c9da10e6714217624",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
