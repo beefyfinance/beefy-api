@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  UST: {
+    name: 'USD Terra',
+    symbol: 'UST',
+    address: '0xe2D27f06F63d98b8e11b38b5b08A75D0c8dD62B9',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
+  },
   SOL: {
     name: 'Solana',
     symbol: 'SOL',
