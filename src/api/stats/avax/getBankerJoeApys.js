@@ -9,7 +9,7 @@ const IToken = require('../../../abis/avax/BankerJoeIToken.json');
 const pools = require('../../../data/avax/bankerJoePools.json');
 const { BASE_HPY } = require('../../../constants');
 
-const rewardDistributor = '0xe72438E508039E94250756C69C3E6b520E4d3F99';
+const rewardDistributor = '0x45B2C4139d96F44667577C0D7F7a7D170B420324';
 const BLOCKS_PER_YEAR = 31536000;
 
 const getBankerJoeApys = async () => {
