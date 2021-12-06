@@ -1,5 +1,81 @@
 [
   {
+    "name": "crona-cro-shib",
+    "address": "0x912e17882893f8361e87e81742c764b032de8d76",
+    "decimals": "1e18",
+    "poolId": 19,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbED48612BC69fA1CaB67052b42a95FB30C1bcFee",
+      "oracle": "tokens",
+      "oracleId": "SHIB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-usdc-dai",
+    "address": "0xaEbaFDbe975DB0bfbF4e95a6493CB93d02cc86aE",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 25,
+    "lp0": {
+      "address": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xF2001B145b43032AAF5Ee2884e456CCd805F677D",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-usdt-crona",
+    "address": "0x0427F9C304b0028f67A5fD61ffdD613186c1894B",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xadbd1231fb360047525BEdF962581F3eee7b49fe",
+      "oracle": "tokens",
+      "oracleId": "CRONA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-crona-usdc",
+    "address": "0x482E0eEb877091cfca439D131321bDE23ddf9bB5",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 25,
+    "lp0": {
+      "address": "0xadbd1231fb360047525BEdF962581F3eee7b49fe",
+      "oracle": "tokens",
+      "oracleId": "CRONA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "crona-busd-bnb",
     "address": "0xe8B18116040acf83D6e1f873375adF61103AB45c",
     "decimals": "1e18",

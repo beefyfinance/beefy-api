@@ -38,6 +38,28 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  UST: {
+    name: 'USD Terra',
+    symbol: 'UST',
+    address: '0xe2D27f06F63d98b8e11b38b5b08A75D0c8dD62B9',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
+  },
+  SOL: {
+    name: 'Solana',
+    symbol: 'SOL',
+    address: '0x44F7237df00E386af8e79B817D05ED9f6FE0f296',
+    decimals: 18,
+    chainId: 250,
+    website: 'https://solana.com/',
+    description:
+      'Solana is the fastest blockchain in the world and the fastest growing ecosystem in crypto, with over 400 projects spanning DeFi, NFTs, Web3 and more.',
+    logoURI: 'https://assets.coingecko.com/coins/images/4128/large/Solana.jpg?1635329178',
+  },
   TUSD: {
     name: 'True USD',
     symbol: 'TUSD',

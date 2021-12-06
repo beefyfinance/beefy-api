@@ -90,10 +90,22 @@ const joeDayDataQuery = timestamp => {
   return gql(queryString);
 };
 
+const balancerDataQuery = block => {
+  const queryString = `
+    query balancer {
+      balancers(block: { number: ${block} }) {
+        totalSwapFee
+      }
+    }
+`;
+  return gql(queryString);
+};
+
 module.exports = {
   pairDayDataQuery,
   pairDayDataSushiQuery,
   poolsDataQuery,
   dayDataQuery,
   joeDayDataQuery,
+  balancerDataQuery,
 };
