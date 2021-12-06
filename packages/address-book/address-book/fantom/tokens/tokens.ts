@@ -38,6 +38,18 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  CHARM: {
+    name: 'CHARM',
+    symbol: 'CHARM',
+    address: '0x248CB87DDA803028dfeaD98101C9465A2fbdA0d4',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://spartacadabra.money/',
+    description:
+      'Spartacadabra unlocks yield bearing assets and conjures magic stable coin Lambda (λ).',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/21208/small/vXl4xT-P_400x400.png?1638567924',
+  },
   UST: {
     name: 'USD Terra',
     symbol: 'UST',

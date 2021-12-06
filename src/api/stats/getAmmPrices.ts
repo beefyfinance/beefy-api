@@ -183,6 +183,7 @@ import bisonPools from '../../data/degens/bisonLpPools.json';
 import finnLpPools from '../../data/moonriver/finnLpPools.json';
 import blockMinePools from '../../data/degens/blockMineLpPools.json';
 import chargePools from '../../data/degens/chargeLpPools.json';
+import charmPools from '../../data/fantom/charmLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -190,6 +191,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...charmPools,
   ...chargePools,
   ...blockMinePools,
   ...oldPools,
