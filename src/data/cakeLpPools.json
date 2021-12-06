@@ -1,5 +1,81 @@
 [
   {
+    "name": "cakev2-nabox-busd",
+    "address": "0x29b4abb0f8734EA672a0e82FA47998F710B6A07a",
+    "decimals": "1e18",
+    "poolId": 482,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x755f34709E369D37C6Fa52808aE84A32007d1155",
+      "oracle": "tokens",
+      "oracleId": "NABOX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-santos-wbnb",
+    "address": "0x06043B346450BbCfdE066ebc39fdc264FdFFeD74",
+    "decimals": "1e18",
+    "poolId": 481,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xA64455a4553C9034236734FadDAddbb64aCE4Cc7",
+      "oracle": "tokens",
+      "oracleId": "SANTOS",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-quidd-wbnb",
+    "address": "0xD6d206F59cC5a3BfA4Cc10bc8Ba140ac37Ad1C89",
+    "decimals": "1e18",
+    "poolId": 480,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x7961Ade0a767c0E5B67Dd1a1F78ba44F727642Ed",
+      "oracle": "tokens",
+      "oracleId": "QUIDD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-zoo-wbnb",
+    "address": "0x85e5889Fc3Ed01B4e8B56bbc717D7643294d2c31",
+    "decimals": "1e18",
+    "poolId": 479,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x1D229B958D5DDFca92146585a8711aECbE56F095",
+      "oracle": "tokens",
+      "oracleId": "Zoo",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-qi-wbnb",
     "address": "0xf924E642f05ACC57fc3b14990c2B1a137683b201",
     "decimals": "1e18",
