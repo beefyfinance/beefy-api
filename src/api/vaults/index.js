@@ -1,4 +1,5 @@
 const getMultichainVaults = require('../stats/getMultichainVaults');
+const getMultichainStakeVaults = require('../stats/getMultichainStakeVaults');
 
 async function multichainVaults(ctx) {
   try {
@@ -11,6 +12,18 @@ async function multichainVaults(ctx) {
   }
 }
 
+async function multichainStakeVaults(ctx) {
+  try {
+    const multichainStakeVaults = await getMultichainStakeVaults();
+    ctx.status = 200;
+    ctx.body = [...multichainStakeVaults];
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
 module.exports = {
   multichainVaults,
+  multichainStakeVaults,
 };

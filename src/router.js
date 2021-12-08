@@ -31,6 +31,7 @@ router.get('/lps', price.lpsPrices);
 router.get('/prices', price.tokenPrices);
 
 router.get('/vaults', multichainVaults.multichainVaults);
+router.get('/vaults/stake', multichainVaults.multichainStakeVaults);
 
 router.get('/', noop);
 

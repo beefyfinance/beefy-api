@@ -123,6 +123,16 @@ const MULTICHAIN_ENDPOINTS = {
   // aurora: AURORA_VAULTS_ENDPOINT,
 };
 
+const BSC_STAKE_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/master/src/features/configure/stake/bsc_stake.js';
+
+const MULTICHAIN_STAKE_VAULTS_ENDPOINTS = {
+  bsc: BSC_STAKE_VAULTS_ENDPOINT,
+};
+
+const ABI_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/master/src/features/configure/abi.js';
+
 const BEEFY_PERFORMANCE_FEE = 0.045;
 const SHARE_AFTER_PERFORMANCE_FEE = 1 - BEEFY_PERFORMANCE_FEE;
 
@@ -174,6 +184,8 @@ export {
   FORTUBE_API_TOKEN,
   MULTICHAIN_RPC,
   MULTICHAIN_ENDPOINTS,
+  MULTICHAIN_STAKE_VAULTS_ENDPOINTS,
+  ABI_ENDPOINT,
   DFYN_LPF,
   SUSHI_LPF,
   SPIRIT_LPF,
