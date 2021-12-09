@@ -6,5 +6,13 @@
     "chainId": 250,
     "oracle": "tokens",
     "oracleId": "BIFI"
+  },
+  {
+    "name": "mooNfty",
+    "address": "0x55669f1c00D55F55bA1E736A23cEE54877D922Be",
+    "decimals": "1e18",
+    "chainId": 56,
+    "oracle": "tokens",
+    "oracleId": "NFTY"
   }
 ]
