@@ -129,6 +129,18 @@ const _tokens = {
     description:
       'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
   },
+  MAGIC: {
+    name: 'MAGIC',
+    symbol: 'MAGIC',
+    address: '0x539bdE0d7Dbd336b79148AA742883198BBF60342',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x539bdE0d7Dbd336b79148AA742883198BBF60342.svg',
+    website: 'https://www.treasure.lol/',
+    description:
+      'Treasure bridges the growing network of metaverses through an open and composable approach to the convergence of NFTs, DeFi and Gaming. Cross-ecosystem ties are bolstered through our interrelated resource model. $MAGIC (Power), Treasures (NFT | Resources) and Legions (NFT | Players)',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
