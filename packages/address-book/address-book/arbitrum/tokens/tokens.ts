@@ -117,6 +117,18 @@ const _tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
   },
+  gOHM: {
+    name: 'Governance OHM',
+    symbol: 'gOHM',
+    address: '0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1.svg',
+    website: 'https://www.olympusdao.finance/',
+    description:
+      'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

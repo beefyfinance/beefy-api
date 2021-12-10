@@ -1,5 +1,24 @@
 [
   {
+    "name": "sushi-arb-weth-gohm",
+    "address": "0xaa5bD49f2162ffdC15634c87A77AC67bD51C6a6D",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1",
+      "oracle": "tokens",
+      "oracleId": "gOHM",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-arb-weth-bifi",
     "address": "0xcda9b8e5867b5746755fe6e505b6300a76b2fac3",
     "decimals": "1e18",
