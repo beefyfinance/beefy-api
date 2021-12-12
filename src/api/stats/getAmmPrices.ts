@@ -64,6 +64,7 @@ import icarusPools from '../../data/icarusLpPools.json';
 import quickPools from '../../data/matic/quickLpPools.json';
 import krillPools from '../../data/matic/krillLpPools.json';
 import sushiLpPools from '../../data/matic/sushiLpPools.json';
+import sushiOhmPools from '../../data/matic/sushiOhmLpPools.json';
 import satisPools from '../../data/degens/satisLpPools.json';
 import satisXPools from '../../data/degens/satisXLpPools.json';
 import zefiV2Pools from '../../data/degens/zefiLpPoolsV2.json';
@@ -313,6 +314,7 @@ const pools = [
   ...satisPools,
   ...krillPools,
   ...sushiLpPools,
+  ...sushiOhmPools,
   ...quickPools,
   ...lydPools,
   ...icarusPools,

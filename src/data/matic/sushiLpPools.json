@@ -1,5 +1,65 @@
 [
   {
+    "name": "sushi-eth2x-eth",
+    "address": "0xadd053A09F95E565B25d8b9B84D0fcFaa962465E",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 48,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x3Ad707dA309f3845cd602059901E39C4dcd66473",
+      "oracle": "tokens",
+      "oracleId": "ETH2x",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-fxs-frax",
+    "address": "0xDf45B5B68d9dC84173DD963c763AeA8CAD3E24A6",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 45,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1a3acf6D19267E2d3e7f898f42803e90C9219062",
+      "oracle": "tokens",
+      "oracleId": "FXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x45c32fA6DF82ead1e2EF74d17b76547EDdFaFF89",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-usdc-tusd",
+    "address": "0x4AB66a7138F50Db9B7aDaF8CE8aFB3F638B22f7f",
+    "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
+    "decimals": "1e18",
+    "poolId": 42,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x2e1AD108fF1D8C782fcBbB89AAd783aC49586756",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-axs-eth",
     "address": "0x7BA331A8b360F4c31E6014aBdd6852F92Fb21557",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",

@@ -27,6 +27,41 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  ETH2x: {
+    name: 'ETH 2x Flexible Leverage Index',
+    symbol: 'ETH2x',
+    address: '0x3Ad707dA309f3845cd602059901E39C4dcd66473',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://s2.coinmarketcap.com/static/img/coins/64x64/9789.png',
+    website: 'https://www.indexcoop.com/ethfli',
+    description:
+      'The Ethereum Flexible Leverage Index lets you leverage a collateralized debt position in a safe and efficient way, by abstracting its management into a simple index. It enabled market participants to take on leverage while minimizing the transaction costs and risks associated with maintaining collateralized debt.',
+  },
+  gOHM: {
+    name: 'Governance OHM',
+    symbol: 'gOHM',
+    address: '0xd8cA34fd379d9ca3C6Ee3b3905678320F5b45195',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1.svg',
+    website: 'https://www.olympusdao.finance/',
+    description:
+      'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
+  },
+  TUSD: {
+    name: 'True USD',
+    symbol: 'TUSD',
+    address: '0x2e1AD108fF1D8C782fcBbB89AAd783aC49586756',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://www.trueusd.com/',
+    description:
+      'TrueUSD is one of a number of cryptocurrency stablecoins administered by TrustToken, a platform for tokenizing real-world assets.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2563.png',
+  },
   WCRO: {
     name: 'WCRO',
     symbol: 'WCRO',
@@ -567,7 +602,7 @@ const _tokens = {
   },
   FRAX: {
     name: 'Frax',
-    address: '0x104592a158490a9228070E0A8e5343B499e125D0',
+    address: '0x45c32fA6DF82ead1e2EF74d17b76547EDdFaFF89',
     symbol: 'FRAX',
     decimals: 18,
     chainId: 137,
@@ -586,7 +621,7 @@ const _tokens = {
   },
   FXS: {
     name: 'Frax Share',
-    address: '0x3e121107F6F22DA4911079845a470757aF4e1A1b',
+    address: '0x1a3acf6D19267E2d3e7f898f42803e90C9219062',
     symbol: 'FXS',
     decimals: 18,
     chainId: 137,
