@@ -24,6 +24,7 @@ export interface MasterChefApysParams {
   masterchef: string;
   masterchefAbi?: AbiItem[];
   tokenPerBlock: string;
+  totalAllocPoint?: number;
   hasMultiplier: boolean;
   singlePools?: SingleAssetPool[];
   pools?: LpPool[] | (LpPool | SingleAssetPool)[];
@@ -142,7 +143,7 @@ const getMasterChefData = async (params: MasterChefApysParams) => {
   const blockRewards = new BigNumber(
     await masterchefContract.methods[params.tokenPerBlock]().call()
   );
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const totalAllocPoint = new BigNumber(params.totalAllocPoint) ?? new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { multiplier, blockRewards, totalAllocPoint };
 };
 
