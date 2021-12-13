@@ -50,7 +50,7 @@
     "depositsPaused": false,
     "status": "active",
     "platform": "bombfarm",
-    "assets": ["BSHARE", "BNB"],
+    "assets": ["BSHARE", "WBNB"],
     "risks": [
       "COMPLEXITY_LOW",
       "BATTLE_TESTED",
