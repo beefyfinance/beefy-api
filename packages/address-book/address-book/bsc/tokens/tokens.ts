@@ -15,6 +15,27 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  BOMB: {
+    name: 'bomb.money',
+    symbol: 'BOMB',
+    address: '0x522348779DCb2911539e76A1042aA922F9C47Ee3',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://raw.githubusercontent.com/bombmoney/bomb-assets/master/bomb-token-icon.png',
+    website: 'https://bomb.money/',
+    description: 'Algorithmic Stablecoin pegged to BTC.',
+  },
+
+  BSHARE: {
+    name: 'BSHARE',
+    symbol: 'BSHARE',
+    address: '0x531780FAcE85306877D7e1F05d713D1B50a37F7A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://raw.githubusercontent.com/bombmoney/bomb-assets/master/bshare-token-icon.png',
+    website: 'https://bomb.money/',
+    description: 'Algorithmic Stablecoin pegged to BTC.',
+  },
   STATIC: {
     name: 'STATIC',
     symbol: 'STATIC',
