@@ -1,7 +1,7 @@
 {
-  "name": "beefy-api",
-  "version": "1.0.0",
-  "repository": "beefyfinance/beefy-api",
+  "name": "bombfarm-api",
+  "version": "1.0.1",
+  "repository": "bombmoney/bombfarm-api",
   "license": "MIT",
   "scripts": {
     "install-all": "yarn && cd packages/address-book && yarn",
