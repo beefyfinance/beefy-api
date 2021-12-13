@@ -375,7 +375,7 @@ const pools = [
 
 const dmmPools = [...kyberPools];
 
-const coinGeckoCoins = ['stasis-eurs', 'tether-eurt', 'par-stablecoin', 'jarvis-synthetic-euro'];
+const coinGeckoCoins = ['stasis-eurs', 'tether-eurt'];
 
 const knownPrices = {
   BUSD: 1,
