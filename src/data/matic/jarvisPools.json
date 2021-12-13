@@ -1,0 +1,34 @@
+[
+  {
+    "name": "jarvis-4eur",
+    "pool": "0xAd326c253A84e9805559b73A08724e11E49ca651",
+    "address": "0xAd326c253A84e9805559b73A08724e11E49ca651",
+    "poolId": 1,
+    "chainId": 137,
+    "token": "0xAd326c253A84e9805559b73A08724e11E49ca651",
+    "baseApyKey": "4eur-f",
+    "volatile": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "jarvis-synthetic-euro",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "par-stablecoin",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "stasis-eurs",
+        "decimals": "1e2"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "tether-eurt",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]
