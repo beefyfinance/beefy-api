@@ -3984,8 +3984,7 @@ const _tokens = {
     address: '0x47EB6F7525C1aA999FBC9ee92715F5231eB1241D',
     chainId: 43114,
     decimals: 18,
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x47EB6F7525C1aA999FBC9ee92715F5231eB1241D.svg',
+    logoURI: '',
     website: 'https://www.defrost.finance/home',
     description:
       'Defrost Finance is the platform behind the next generation stablecoin and provides remunerative investment opportunities. A fully fair launch, decentralized project, its aim is to change the world of finance for good.',
