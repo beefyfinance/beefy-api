@@ -1,6 +1,6 @@
 {
-  "name": "bomfarm-addressbook",
-  "version": "0.5.0",
+  "name": "bombfarm-addressbook",
+  "version": "0.5.1",
   "description": "A collection of useful addresses on various chains for defi development",
   "main": "build/address-book/index.js",
   "types": "build/address-book/index.d.ts",
