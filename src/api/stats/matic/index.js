@@ -38,7 +38,6 @@ const { getSingularApys } = require('./getSingularApys');
 import getCafeLpApys from './getCafeLpApys';
 import getKyberLpApys from './getKyberLpApys';
 import { getQuickDualLpApys } from './getQuickDualLpApys';
-import { getJarvisApys } from './getJarvisApys';
 
 const getApys = [
   getComethLpApys,
@@ -81,7 +80,6 @@ const getApys = [
   getCafeLpApys,
   getKyberLpApys,
   getQuickDualLpApys,
-  getJarvisApys,
 ];
 
 const BATCH_SIZE = 15;
