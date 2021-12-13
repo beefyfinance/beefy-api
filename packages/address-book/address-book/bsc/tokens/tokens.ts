@@ -25,7 +25,6 @@ const _tokens = {
     website: 'https://bomb.money/',
     description: 'Algorithmic Stablecoin pegged to BTC.',
   },
-
   BSHARE: {
     name: 'BSHARE',
     symbol: 'BSHARE',

@@ -49,7 +49,6 @@ const getBifiGovApy = require('./beefy/getBifiGovApy');
 const getMoonpotApys = require('./pots/getMoonpotApys');
 
 const getApys = [
-  getBombLpApys,
   get1inchLpApys,
   get1inchApy,
   getAlpacaApys,
@@ -61,6 +60,7 @@ const getApys = [
   getBifiGovApy,
   getBifiMaxiApy,
   getBifiMaxiV2Apy,
+  getBombLpApys,
   getBtdLpApys,
   getBtsLpApys,
   getBunnyRewardsApy,
@@ -113,6 +113,8 @@ const getBSCApys = async () => {
       console.warn('getBscApys error', result.reason);
       continue;
     }
+
+    console.log(getBombLpApys);
 
     // Set default APY values
     let mappedApyValues = result.value;

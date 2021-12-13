@@ -6,10 +6,10 @@ const pools = require('../../../../data/bombLpPools.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
-const { cakeClient } = require('../../../../apollo/client');
-// import { SPOOKY_LPF } from '../../../constants';
+const { spookyClient } = require('../../../../apollo/client');
+import { SPOOKY_LPF } from '../../../../constants';
 import getApyBreakdown from '../../common/getApyBreakdown';
-const SPOOKY_LPF = 0.0017;
+//const SPOOKY_LPF = 0.0017;
 
 const rewardPool = '0x1083926054069AaD75d7238E9B809b0eF9d94e5B';
 const oracleId = 'BSHARE';
@@ -22,7 +22,7 @@ const getBombLpApys = async () => {
   const farmAprs = await Promise.all(promises);
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(cakeClient, pairAddresses, SPOOKY_LPF);
+  const tradingAprs = await getTradingFeeApr(spookyClient, pairAddresses, SPOOKY_LPF);
 
   return getApyBreakdown(pools, tradingAprs, farmAprs, SPOOKY_LPF);
 };
