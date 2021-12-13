@@ -15,7 +15,7 @@ const { cakeClient } = require('../../../../apollo/client');
 
 const masterchef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
 const oracle = 'tokens';
-const oracleId = 'Cake';
+const oracleId = 'BSHARE';
 const DECIMALS = '1e18';
 const secondsPerBlock = 3;
 const secondsPerYear = 31536000;
