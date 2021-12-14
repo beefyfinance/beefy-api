@@ -45,6 +45,7 @@ const getElkApys = require('./elk/getElkApys');
 const getBifiMaxiV2Apy = require('./beefy/getBifiMaxiV2Apy');
 const getBifiGovApy = require('./beefy/getBifiGovApy');
 const getMoonpotApys = require('./pots/getMoonpotApys');
+const getBiswapApys = require('./biswap/getBiswapApys');
 
 const getApys = [
   get1inchLpApys,
@@ -58,6 +59,7 @@ const getApys = [
   getBifiGovApy,
   getBifiMaxiApy,
   getBifiMaxiV2Apy,
+  getBiswapApys,
   getBtdLpApys,
   getBtsLpApys,
   getBunnyRewardsApy,
