@@ -28,6 +28,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  DOGE: {
+    name: 'Doge Token',
+    symbol: 'DOGE',
+    address: '0x1a8E39ae59e5556B56b76fCBA98d22c9ae557396',
+    chainId: 25,
+    decimals: 8,
+    logoURI: 'https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=014',
+    website: 'https://dogecoin.com/',
+    description:
+      'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
+  },
   SHIB: {
     name: 'Shiba Inu',
     symbol: 'SHIB',
