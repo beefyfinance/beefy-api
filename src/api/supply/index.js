@@ -2,17 +2,17 @@
 
 function supply(ctx) {
   ctx.body = {
-    total: 80000,
-    circulating: 78000,
+    total: 70001,
+    circulating: 70001,
   };
 }
 
 function total(ctx) {
-  ctx.body = 80000;
+  ctx.body = 70001;
 }
 
 function circulating(ctx) {
-  ctx.body = 78000;
+  ctx.body = 70001;
 }
 
 module.exports = { supply, total, circulating };

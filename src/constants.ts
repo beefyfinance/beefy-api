@@ -2,7 +2,7 @@ import { ChainId } from '../packages/address-book/address-book';
 
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
-const BASE_HPY = 2190;
+const BASE_HPY = 1051200;
 const MINUTELY_HPY = 525600;
 const HOURLY_HPY = 8760;
 const DAILY_HPY = 365;
@@ -88,38 +88,38 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
 
 const BSC_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/bombmoney/farm-frontend/master/src/features/configure/vault/bsc_pools.js';
-const HECO_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/heco_pools.js';
-const AVAX_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/avalanche_pools.js';
-const POLYGON_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/polygon_pools.js';
-const FANTOM_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fantom_pools.js';
-const ONE_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/harmony_pools.js';
-const ARBITRUM_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/arbitrum_pools.js';
-const CELO_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/celo_pools.js';
-const MOONRIVER_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonriver_pools.js';
-const CRONOS_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/cronos_pools.js';
-//const AURORA_VAULTS_ENDPOINT =
+// const HECO_VAULTS_ENDPOINT =
+//   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/heco_pools.js';
+// const AVAX_VAULTS_ENDPOINT =
+//   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/avalanche_pools.js';
+// const POLYGON_VAULTS_ENDPOINT =
+//   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/polygon_pools.js';
+// const FANTOM_VAULTS_ENDPOINT =
+//   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fantom_pools.js';
+// const ONE_VAULTS_ENDPOINT =
+//   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/harmony_pools.js';
+// const ARBITRUM_VAULTS_ENDPOINT =
+//   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/arbitrum_pools.js';
+// const CELO_VAULTS_ENDPOINT =
+//   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/celo_pools.js';
+// const MOONRIVER_VAULTS_ENDPOINT =
+//   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonriver_pools.js';
+// const CRONOS_VAULTS_ENDPOINT =
+//   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/cronos_pools.js';
+// //const AURORA_VAULTS_ENDPOINT =
 //  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/aurora_pools.js';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
-  heco: HECO_VAULTS_ENDPOINT,
-  avax: AVAX_VAULTS_ENDPOINT,
-  polygon: POLYGON_VAULTS_ENDPOINT,
-  fantom: FANTOM_VAULTS_ENDPOINT,
-  one: ONE_VAULTS_ENDPOINT,
-  arbitrum: ARBITRUM_VAULTS_ENDPOINT,
-  celo: CELO_VAULTS_ENDPOINT,
-  moonriver: MOONRIVER_VAULTS_ENDPOINT,
-  cronos: CRONOS_VAULTS_ENDPOINT,
+  // heco: HECO_VAULTS_ENDPOINT,
+  // avax: AVAX_VAULTS_ENDPOINT,
+  // polygon: POLYGON_VAULTS_ENDPOINT,
+  // fantom: FANTOM_VAULTS_ENDPOINT,
+  // one: ONE_VAULTS_ENDPOINT,
+  // arbitrum: ARBITRUM_VAULTS_ENDPOINT,
+  // celo: CELO_VAULTS_ENDPOINT,
+  // moonriver: MOONRIVER_VAULTS_ENDPOINT,
+  // cronos: CRONOS_VAULTS_ENDPOINT,
   // aurora: AURORA_VAULTS_ENDPOINT,
 };
 
