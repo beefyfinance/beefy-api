@@ -16,6 +16,7 @@ import kebabPools from '../../data/kebabLpPools.json';
 import bdollarSbdoPools from '../../data/bdollarSbdoLpPools.json';
 import boltBtdPools from '../../data/boltBtdLpPools.json';
 import boltBtsPools from '../../data/boltBtsLpPools.json';
+import bombLpPools from '../../data/bombLpPools.json';
 import mdexPools from '../../data/heco/mdexLpPools.json';
 import monsterPools from '../../data/monsterLpPools.json';
 import narPools from '../../data/narLpPools.json';
@@ -193,6 +194,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...solarbeamDualLpV2Pools,
+  ...bombLpPools,
   ...charmPools,
   ...chargePools,
   ...blockMinePools,

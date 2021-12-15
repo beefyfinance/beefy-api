@@ -19,14 +19,7 @@
     "status": "active",
     "platform": "bombfarm",
     "assets": ["BOMB", "BTCB"],
-    "risks": [
-      "COMPLEXITY_LOW",
-      "BATTLE_TESTED",
-      "IL_LOW",
-      "MCAP_SMALL",
-      "AUDIT",
-      "CONTRACTS_VERIFIED"
-    ],
+    "risks": ["COMPLEXITY_LOW", "BATTLE_TESTED", "IL_LOW", "AUDIT", "CONTRACTS_VERIFIED"],
     "stratType": "StratLP",
     "addLiquidityUrl": "https://pancakeswap.finance/add/0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c/0x522348779DCb2911539e76A1042aA922F9C47Ee3",
     "buyTokenUrl": "https://pancakeswap.finance/swap?inputCurrency=0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c&outputCurrency=0x522348779DCb2911539e76A1042aA922F9C47Ee3"
@@ -51,14 +44,7 @@
     "status": "active",
     "platform": "bombfarm",
     "assets": ["BSHARE", "WBNB"],
-    "risks": [
-      "COMPLEXITY_LOW",
-      "BATTLE_TESTED",
-      "IL_LOW",
-      "MCAP_SMALL",
-      "AUDIT",
-      "CONTRACTS_VERIFIED"
-    ],
+    "risks": ["COMPLEXITY_LOW", "BATTLE_TESTED", "IL_LOW", "AUDIT", "CONTRACTS_VERIFIED"],
     "stratType": "StratLP",
     "addLiquidityUrl": "https://pancakeswap.finance/add/BNB/0x531780FAcE85306877D7e1F05d713D1B50a37F7A",
     "buyTokenUrl": "https://pancakeswap.finance/swap?outputCurrency=0x531780FAcE85306877D7e1F05d713D1B50a37F7A"

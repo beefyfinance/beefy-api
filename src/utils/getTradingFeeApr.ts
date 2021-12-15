@@ -33,7 +33,6 @@ export const getTradingFeeApr = async (
 ) => {
   const [start, end] = getUtcSecondsFromDayRange(1, 2);
   const pairAddressToAprMap: Record<string, BigNumber> = {};
-
   try {
     let {
       data: { pairDayDatas },
