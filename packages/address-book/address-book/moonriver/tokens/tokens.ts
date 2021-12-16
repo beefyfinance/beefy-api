@@ -370,6 +370,18 @@ const _tokens = {
     description:
       'RomeDAO is a community project with no central team. It’s a community project built by and for the community. This means it’s up to the community contributors to build a prospering Rome.',
   },
+  mrBNB: {
+    name: 'Binance',
+    symbol: 'mrBNB',
+    address: '0x868892cccedbff0b028f3b3595205ea91b99376b',
+    chainId: 1285,
+    decimals: 8,
+    website: 'https://www.binance.com/',
+    description:
+      'BNB from BSC wrapped by passport.meter.io',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
