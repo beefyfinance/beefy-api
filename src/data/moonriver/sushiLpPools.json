@@ -138,5 +138,25 @@
       "oracleId": "WBTC",
       "decimals": "1e8"
     }
+  },
+  {
+    "name": "sushi-mr-eth-dai",
+    "address": "0xc6ca9c83c07a7a3a5461c817ea5210723508a9fd",
+    "rewardPool": "0x3dB01570D97631f69bbb0ba39796865456Cf89A5",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x80a16016cc4a2e6a2caca8a4a498b1699ff0f844",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
   }
 ]
