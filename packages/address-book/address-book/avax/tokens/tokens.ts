@@ -3989,6 +3989,40 @@ const _tokens = {
     description:
       'Defrost Finance is the platform behind the next generation stablecoin and provides remunerative investment opportunities. A fully fair launch, decentralized project, its aim is to change the world of finance for good.',
   },
+  PTP: {
+    chainId: 43114,
+    address: '0x22d4002028f537599bE9f666d1c4Fa138522f9c8',
+    decimals: 18,
+    name: 'Platypus',
+    symbol: 'PTP',
+    website: 'https://platypus.finance/',
+    description:
+      'Platypus invents a whole new AMM on Avalanche - Open liquidity single-sided AMM managing risk autonomously based on the coverage ratio, allowing maximal capital efficiency.',
+    logoURI: 'https://img.api.cryptorank.io/coins/platypus%20finance1639051361866.png',
+  },
+  CLY: {
+    chainId: 43114,
+    address: '0xec3492a2508DDf4FDc0cD76F31f340b30d1793e6',
+    decimals: 18,
+    name: 'Colony Token',
+    symbol: 'CLY',
+    website: 'https://www.colonylab.io/',
+    description:
+      'Colony is a community-driven Avalanche ecosystem accelerator, powered by Colony’s CLY token.',
+    logoURI: 'https://assets.coingecko.com/coins/images/21358/large/colony.PNG?1639013005',
+  },
+  USDC: {
+    chainId: 43114,
+    address: '0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E',
+    decimals: 6,
+    name: 'USD Coin',
+    symbol: 'USDC',
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
