@@ -373,7 +373,7 @@ const _tokens = {
   mrBNB: {
     name: 'Binance',
     symbol: 'mrBNB',
-    address: '0x868892cccedbff0b028f3b3595205ea91b99376b',
+    address: '0x868892CCcEdbfF0B028F3b3595205Ea91b99376B',
     chainId: 1285,
     decimals: 8,
     website: 'https://www.binance.com/',
