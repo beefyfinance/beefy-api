@@ -120,21 +120,19 @@ const getLeveragedApys = (
   let leveragedSupplyMatic = new BigNumber(0);
   let leveragedBorrowMatic = new BigNumber(0);
 
-  for (let i = 0; i <= depth; i++) {
+  for (let i = 0; i < depth; i++) {
     leveragedSupplyBase = leveragedSupplyBase.plus(
-      supplyBase.times(borrowPercent.exponentiatedBy(depth - i))
+      supplyBase.times(borrowPercent.exponentiatedBy(i))
     );
     leveragedSupplyMatic = leveragedSupplyMatic.plus(
-      supplyMatic.times(borrowPercent.exponentiatedBy(depth - i))
+      supplyMatic.times(borrowPercent.exponentiatedBy(i))
     );
-  }
 
-  for (let i = 0; i < depth; i++) {
     leveragedBorrowBase = leveragedBorrowBase.plus(
-      borrowBase.times(borrowPercent.exponentiatedBy(depth - i))
+      borrowBase.times(borrowPercent.exponentiatedBy(i + 1))
     );
     leveragedBorrowMatic = leveragedBorrowMatic.plus(
-      borrowMatic.times(borrowPercent.exponentiatedBy(depth - i))
+      borrowMatic.times(borrowPercent.exponentiatedBy(i + 1))
     );
   }
 

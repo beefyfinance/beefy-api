@@ -40,7 +40,7 @@
     "oracle": "tokens",
     "oracleId": "USDT.e",
     "decimals": "1e6",
-    "borrowDepth": 0,
+    "borrowDepth": 1,
     "borrowPercent": 0
   },
   {
@@ -73,7 +73,7 @@
     "oracle": "tokens",
     "oracleId": "AAVE.e",
     "decimals": "1e18",
-    "borrowDepth": 0,
+    "borrowDepth": 1,
     "borrowPercent": 0
   }
 ]

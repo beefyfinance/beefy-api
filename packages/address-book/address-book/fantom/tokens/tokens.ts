@@ -38,6 +38,29 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  CHARM: {
+    name: 'CHARM',
+    symbol: 'CHARM',
+    address: '0x248CB87DDA803028dfeaD98101C9465A2fbdA0d4',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://spartacadabra.money/',
+    description:
+      'Spartacadabra unlocks yield bearing assets and conjures magic stable coin Lambda (λ).',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/21208/small/vXl4xT-P_400x400.png?1638567924',
+  },
+  UST: {
+    name: 'USD Terra',
+    symbol: 'UST',
+    address: '0xe2D27f06F63d98b8e11b38b5b08A75D0c8dD62B9',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
+  },
   SOL: {
     name: 'Solana',
     symbol: 'SOL',
@@ -808,6 +831,54 @@ const _tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
+  },
+  YOSHI: {
+    name: 'Yoshi.exchange',
+    symbol: 'YOSHI',
+    address: '0x3dc57B391262e3aAe37a08D91241f9bA9d58b570',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x3dc57B391262e3aAe37a08D91241f9bA9d58b570.svg',
+    website: 'https://yoshi.exchange/',
+    description:
+      'Yoshi offers users a simple way to buy crypto tokens via credit card. We use native Yoshi token to provide fast and simple buying proccess. Connect your crypto wallet via MetaMask or WalletConnect. To procced for bying you’ll need to surpass a KYC and add a valid credit card. Once everything is done you’ll see the actual exchange rate and get your tokens after the buying proccess is done.',
+  },
+  wsSPA: {
+    name: 'Wrapped sSPA',
+    symbol: 'wsSPA',
+    address: '0x89346B51A54263cF2e92dA79B1863759eFa68692',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x89346B51A54263cF2e92dA79B1863759eFa68692.svg',
+    website: 'https://app.spartacus.finance/',
+    description:
+      'Let’s start off by saying Zeus from OlympusDAO has done a marvellous job in creating the "Protocol Owned Liquidity" (POL) concept. A community is formed when everyone bonds the underlying assets into a common reserve currency, creating a strong “bonding” for the whole community. As Spartacus we carry on the legacy and we shall aim higher and something even bigger.',
+  },
+  wsHEC: {
+    name: 'Wrapped sHEC',
+    symbol: 'wsHEC',
+    address: '0x94CcF60f700146BeA8eF7832820800E2dFa92EdA',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x94CcF60f700146BeA8eF7832820800E2dFa92EdA.svg',
+    website: 'https://app.hectordao.com/#/stake',
+    description:
+      'Hector DAO aims to become the de-facto reserve currency of the FTM Opera network, one which is truly owned and maintained by a decentralised protocol which serves the majority. Our goal is for $HEC to be a common trading pair which is backed by real assets.',
+  },
+  OOE: {
+    name: 'OpenOcean',
+    symbol: 'OOE',
+    address: '0x9d8F97A3C2f9f397B6D46Cbe2d39CC1D8Cf19010',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x9d8F97A3C2f9f397B6D46Cbe2d39CC1D8Cf19010.svg',
+    website: 'https://openocean.finance/',
+    description:
+      'OpenOcean is the world’s first full aggregation protocol for crypto trading that sources liquidity from DeFi and CeFi markets and enables cross-chain swaps. Our intelligent routing algorithm finds the best prices from DEXes and CEXes and splits the routes to provide traders the best prices with low slippage and fast settlement. The product is free to use; OpenOcean users only need to pay the regular blockchain gas and exchange fees for the trades, which are charged by the exchanges and not OpenOcean.',
   },
 } as const;
 

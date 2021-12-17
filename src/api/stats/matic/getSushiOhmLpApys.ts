@@ -1,27 +1,27 @@
 const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
-const { arbitrumWeb3: web3, multicallAddress } = require('../../../utils/web3');
+const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
 const SushiMiniChefV2 = require('../../../abis/matic/SushiMiniChefV2.json');
 const SushiComplexRewarderTime = require('../../../abis/matic/SushiComplexRewarderTime.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/arbitrum/sushiLpMimPools.json');
-const { ARBITRUM_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
+const pools = require('../../../data/matic/sushiOhmLpPools.json');
+const { POLYGON_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
 const { getTradingFeeAprSushi: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const { sushiArbitrumClient } = require('../../../apollo/client');
+const { sushiClient } = require('../../../apollo/client');
 import getApyBreakdown from '../common/getApyBreakdown';
 
-const minichef = '0xF4d73326C13a4Fc5FD7A064217e12780e9Bd62c3';
+const minichef = '0x0769fd68dFb93167989C6f7254cd0D766Fb2841F';
 const oracleId = 'SUSHI';
 const oracle = 'tokens';
 const DECIMALS = '1e18';
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
-const getSushiMimApys = async () => {
+const getSushiOhmLpApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(sushiArbitrumClient, pairAddresses, SUSHI_LPF);
+  const tradingAprs = await getTradingFeeApr(sushiClient, pairAddresses, SUSHI_LPF);
   const farmApys = await getFarmApys(pools);
 
   return getApyBreakdown(pools, tradingAprs, farmApys, SUSHI_LPF);
@@ -37,13 +37,13 @@ const getFarmApys = async pools => {
   // https://github.com/sushiswap/sushiswap/blob/37026f3749f9dcdae89891f168d63667845576a7/contracts/mocks/ComplexRewarderTime.sol#L44
   // hardcoding to the same value SushiSwap hardcoded to
   // https://github.com/sushiswap/sushiswap-interface/blob/6300093e17756038a5b5089282d7bbe6dce87759/src/hooks/minichefv2/useFarms.ts#L77
-  const hardcodedTotalAllocPoint = 8400;
+  const hardcodedTotalAllocPoint = 1000;
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const { balances, allocPoints } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
-    const spellPrice = await fetchPrice({ oracle, id: pool.secondOracleId });
+    const ohmPrice = await fetchPrice({ oracle, id: pool.secondOracleId });
 
     const rewardContract = new web3.eth.Contract(SushiComplexRewarderTime, pool.rewarder);
     const rewardPerSecond = new BigNumber(await rewardContract.methods.rewardPerSecond().call());
@@ -54,10 +54,10 @@ const getFarmApys = async pools => {
     const poolBlockRewards = sushiPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
-    const yearlySpellRewards = rewardPerSecond.dividedBy(secondsPerBlock).times(secondsPerYear);
-    const spellRewardsInUsd = yearlySpellRewards.times(spellPrice).dividedBy(DECIMALS);
+    const yearlyOhmRewards = rewardPerSecond.dividedBy(secondsPerBlock).times(secondsPerYear);
+    const ohmRewardsInUsd = yearlyOhmRewards.times(ohmPrice).dividedBy(DECIMALS);
 
-    const apy = yearlyRewardsInUsd.plus(spellRewardsInUsd).dividedBy(totalStakedInUsd);
+    const apy = yearlyRewardsInUsd.plus(ohmRewardsInUsd).dividedBy(totalStakedInUsd);
 
     apys.push(apy);
   }
@@ -79,7 +79,7 @@ const getPoolsData = async pools => {
     });
   });
 
-  const multicall = new MultiCall(web3, multicallAddress(ARBITRUM_CHAIN_ID));
+  const multicall = new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID));
   const res = await multicall.all([balanceCalls, allocPointCalls]);
 
   const balances = res[0].map(v => new BigNumber(v.balance));
@@ -87,4 +87,4 @@ const getPoolsData = async pools => {
   return { balances, allocPoints };
 };
 
-module.exports = { getSushiMimApys, SUSHI_LPF };
+module.exports = { getSushiOhmLpApys };

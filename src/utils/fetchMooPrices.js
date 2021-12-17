@@ -12,13 +12,12 @@ const fetchMooPrices = async (pools, tokenPrices, lpPrices) => {
 
   for (let i = 0; i < pools.length; i++) {
     const mooPrice = calcMooPrice(pools[i], tokenPrices, lpPrices);
-    moo = {...moo, ...mooPrice};
+    moo = { ...moo, ...mooPrice };
   }
   return moo;
-}
+};
 
-const fetchPpfs = async (pools) => {
-
+const fetchPpfs = async pools => {
   const chainIds = pools.map(p => p.chainId);
   const uniqueChainIds = [...new Set(chainIds)];
 
@@ -28,7 +27,7 @@ const fetchPpfs = async (pools) => {
     const multicall = new MultiCall(web3, multicallAddress(uniqueChainIds[i]));
 
     const ppfsCalls = [];
-    pools.forEach(pool => {
+    filtered.forEach(pool => {
       const tokenContract = new web3.eth.Contract(IVault, pool.address);
       ppfsCalls.push({
         ppfs: tokenContract.methods.getPricePerFullShare(),
@@ -46,13 +45,9 @@ const fetchPpfs = async (pools) => {
 };
 
 const calcMooPrice = (pool, tokenPrices, lpPrices) => {
-  const price = pool.oracle == 'tokens'
-    ? tokenPrices[pool.oracleId]
-    : lpPrices[pool.oracleId];
-  const mooPrice = pool.ppfs
-    .times(price)
-    .dividedBy(pool.decimals);
-  return {[pool.name]: mooPrice.toNumber()};
+  const price = pool.oracle == 'tokens' ? tokenPrices[pool.oracleId] : lpPrices[pool.oracleId];
+  const mooPrice = pool.ppfs.times(price).dividedBy(pool.decimals);
+  return { [pool.name]: mooPrice.toNumber() };
 };
 
 module.exports = { fetchMooPrices };

@@ -12,7 +12,7 @@ import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFees
 const { kyberClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 
-const fairlaunch = '0x7EB05d3115984547a50Ff0e2d247fB6948E1c252';
+const fairlaunch = '0xc39bD0fAE646Cb026C73943C5B50E703de2a6532';
 const oracleId = 'AUR';
 const oracle = 'tokens';
 const DECIMALS = '1e18';

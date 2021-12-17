@@ -1,5 +1,62 @@
 [
   {
+    "name": "crona-wbtc-eth",
+    "address": "0x285a569EDD6210a0410883d2E29471A6B0c7790d",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x062E66477Faf219F25D27dCED647BF57C3107d52",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xe44Fd7fCb2b1581822D0c862B68222998a0c299a",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-usdc-eth",
+    "address": "0x5cc953f278bf6908B2632c65D6a202D6fd1370f9",
+    "decimals": "1e18",
+    "poolId": 24,
+    "chainId": 25,
+    "lp0": {
+      "address": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xe44Fd7fCb2b1581822D0c862B68222998a0c299a",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "crona-wbtc-usdc",
+    "address": "0xea7fc6A39B0d0344e1662E6ABF2FEcD19Bf3D029",
+    "decimals": "1e18",
+    "poolId": 23,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x062E66477Faf219F25D27dCED647BF57C3107d52",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "crona-cro-shib",
     "address": "0x912e17882893f8361e87e81742c764b032de8d76",
     "decimals": "1e18",

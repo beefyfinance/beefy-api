@@ -140,8 +140,8 @@
     "oracle": "tokens",
     "oracleId": "DAI",
     "decimals": "1e18",
-    "borrowDepth": 4,
-    "borrowPercent": 0.72
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
   },
   {
     "name": "scream-eth",

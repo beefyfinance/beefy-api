@@ -57,6 +57,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  MAI: {
+    name: 'MAI',
+    symbol: 'Mai Stablecoin',
+    address: '0xFb2019DfD635a03cfFF624D210AEe6AF2B00fC2C',
+    chainId: 1285,
+    decimals: 18,
+    website: 'https://www.mai.finance/',
+    description:
+      "MAI is a stable coin collateralized by your MATIC holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+  },
   DOGE: {
     name: 'Doge Token',
     symbol: 'DOGE',
@@ -263,7 +274,7 @@ const _tokens = {
     description:
       'Cross-chain token transfers on the worlds top blockchains using Relays fast, secure chain bridge',
   },
-  MAI: {
+  miMatic: {
     name: 'MAI',
     symbol: 'miMatic',
     address: '0x7f5a79576620C046a293F54FFCdbd8f2468174F1',
@@ -339,6 +350,18 @@ const _tokens = {
     name: 'Alpha Rome',
     symbol: 'aROME',
     address: '0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE',
+    chainId: 1285,
+    decimals: 9,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE.svg',
+    website: 'https://romedao.finance/',
+    description:
+      'RomeDAO is a community project with no central team. It’s a community project built by and for the community. This means it’s up to the community contributors to build a prospering Rome.',
+  },
+  ROME: {
+    name: 'Rome',
+    symbol: 'ROME',
+    address: '0x4a436073552044D5f2f49B176853ad3Ad473d9d6',
     chainId: 1285,
     decimals: 9,
     logoURI:

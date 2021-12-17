@@ -64,6 +64,7 @@ import icarusPools from '../../data/icarusLpPools.json';
 import quickPools from '../../data/matic/quickLpPools.json';
 import krillPools from '../../data/matic/krillLpPools.json';
 import sushiLpPools from '../../data/matic/sushiLpPools.json';
+import sushiOhmPools from '../../data/matic/sushiOhmLpPools.json';
 import satisPools from '../../data/degens/satisLpPools.json';
 import satisXPools from '../../data/degens/satisXLpPools.json';
 import zefiV2Pools from '../../data/degens/zefiLpPoolsV2.json';
@@ -183,6 +184,9 @@ import bisonPools from '../../data/degens/bisonLpPools.json';
 import finnLpPools from '../../data/moonriver/finnLpPools.json';
 import blockMinePools from '../../data/degens/blockMineLpPools.json';
 import biswapPools from '../../data/biswapLpPools.json';
+import chargePools from '../../data/degens/chargeLpPools.json';
+import charmPools from '../../data/fantom/charmLpPools.json';
+import solarbeamDualLpV2Pools from '../../data/moonriver/solarbeamDualLpV2Pools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -191,6 +195,9 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...biswapPools,
+  ...solarbeamDualLpV2Pools,
+  ...charmPools,
+  ...chargePools,
   ...blockMinePools,
   ...oldPools,
   ...finnLpPools,
@@ -309,6 +316,7 @@ const pools = [
   ...satisPools,
   ...krillPools,
   ...sushiLpPools,
+  ...sushiOhmPools,
   ...quickPools,
   ...lydPools,
   ...icarusPools,
@@ -369,7 +377,7 @@ const pools = [
 
 const dmmPools = [...kyberPools];
 
-const coinGeckoCoins = ['stasis-eurs', 'tether-eurt'];
+const coinGeckoCoins = ['stasis-eurs', 'tether-eurt', 'par-stablecoin', 'jarvis-synthetic-euro'];
 
 const knownPrices = {
   BUSD: 1,

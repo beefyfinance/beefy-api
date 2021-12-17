@@ -58,7 +58,7 @@
   },
   {
     "name": "kyber-usdc-aur",
-    "address": "0xA0fB4487c0935f01cBf9F0274FE3CdB21a965340",
+    "address": "0xA623aacf9eB4Fc0a29515F08bdABB0d8Ce385cF7",
     "decimals": "1e18",
     "poolId": 3,
     "chainId": 137,
@@ -69,7 +69,7 @@
       "decimals": "1e6"
     },
     "lp1": {
-      "address": "0xfAdE2934b8E7685070149034384fB7863860D86e",
+      "address": "0x6Fb2415463e949aF08ce50F83E94b7e008BABf07",
       "oracle": "tokens",
       "oracleId": "AUR",
       "decimals": "1e18"

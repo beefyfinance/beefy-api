@@ -2,6 +2,7 @@ const getComethLpApys = require('./getComethLpApys');
 const { getQuickLpApys } = require('./getQuickLpApys');
 const { getAaveApys } = require('./getAaveApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
+const { getSushiOhmLpApys } = require('./getSushiOhmLpApys');
 const getComethMultiApys = require('./getComethMultiLpApys');
 const getPolyzapApys = require('./getPolyzapApys');
 const getPolygonBifiGovApy = require('./getPolygonBifiGovApy');
@@ -37,12 +38,14 @@ const { getSingularApys } = require('./getSingularApys');
 import getCafeLpApys from './getCafeLpApys';
 import getKyberLpApys from './getKyberLpApys';
 import { getQuickDualLpApys } from './getQuickDualLpApys';
+import { getJarvisApys } from './getJarvisApys';
 
 const getApys = [
   getComethLpApys,
   getQuickLpApys,
   getAaveApys,
   getSushiLpApys,
+  getSushiOhmLpApys,
   getComethMultiApys,
   getPolyzapApys,
   getPolygonBifiGovApy,
@@ -78,6 +81,7 @@ const getApys = [
   getCafeLpApys,
   getKyberLpApys,
   getQuickDualLpApys,
+  getJarvisApys,
 ];
 
 const BATCH_SIZE = 15;

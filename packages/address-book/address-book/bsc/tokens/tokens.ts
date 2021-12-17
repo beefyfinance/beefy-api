@@ -15,6 +15,38 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  CRUSH: {
+    name: 'Crush Coin',
+    symbol: 'CRUSH',
+    address: '0x0Ef0626736c2d484A792508e99949736D0AF807e',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/CRUSH.svg',
+    website: 'https://www.bitcrush.com/',
+    description:
+      'Bitcrush uses a hybrid approach that allows centralized gameplay utilizing a non-custodial live wallet.',
+  },
+  STATIC: {
+    name: 'STATIC',
+    symbol: 'STATIC',
+    address: '0x7dEb9906BD1d77B410a56E5C23c36340Bd60C983',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://www.chargedefi.fi/static/media/static.180ec003.png',
+    website: 'https://www.chargedefi.fi/',
+    description: 'Algorithmic Stablecoin ecosystem with rebase mechanics.',
+  },
+  CHARGE: {
+    name: 'CHARGE',
+    symbol: 'CHARGE',
+    address: '0x1C6bc8e962427dEb4106aE06A7fA2d715687395c',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://www.chargedefi.fi/static/media/charge.53089c19.png',
+    website: 'https://www.chargedefi.fi/',
+    description: 'Algorithmic Stablecoin ecosystem with rebase mechanics.',
+  },
   BISON: {
     name: 'Bison',
     symbol: 'BISON',
@@ -24,7 +56,8 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/BISON.svg',
     website: 'https://bishares.finance/',
-    description: 'Gain exposure in an easy and fast way to several crypto assets represented by a single token. Earn passive yield by staking on BiShares farms.',
+    description:
+      'Gain exposure in an easy and fast way to several crypto assets represented by a single token. Earn passive yield by staking on BiShares farms.',
   },
   NUGGET: {
     name: 'Gold Nugget',
@@ -35,7 +68,8 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/NUGGET.svg',
     website: 'https://block-mine.io/',
-    description: 'A revolutionary sustainable Liquidity Mining Solution on Binance Smart Chain (Sustainable Mining, Token Evolution, Wild-West Gaming & Restricted Chain Routing).',
+    description:
+      'A revolutionary sustainable Liquidity Mining Solution on Binance Smart Chain (Sustainable Mining, Token Evolution, Wild-West Gaming & Restricted Chain Routing).',
   },
   GOLDCOIN: {
     name: 'Goldcoin',
@@ -46,7 +80,8 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/GOLDCOIN.svg',
     website: 'https://block-mine.io/',
-    description: 'A revolutionary sustainable Liquidity Mining Solution on Binance Smart Chain (Sustainable Mining, Token Evolution, Wild-West Gaming & Restricted Chain Routing).',
+    description:
+      'A revolutionary sustainable Liquidity Mining Solution on Binance Smart Chain (Sustainable Mining, Token Evolution, Wild-West Gaming & Restricted Chain Routing).',
   },
   FRAX: {
     name: 'Frax Token',
@@ -4185,6 +4220,52 @@ const _tokens = {
       'https://pancakeswap.finance/images/tokens/0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5.svg',
     website: 'https://app.benqi.fi/overview',
     description: 'BenQI is lending protocol on the Avalanche blockchain',
+  },
+  Zoo: {
+    name: 'ZooToken',
+    symbol: 'Zoo',
+    address: '0x1D229B958D5DDFca92146585a8711aECbE56F095',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x1D229B958D5DDFca92146585a8711aECbE56F095.svg',
+    website: 'https://zoogame.app/#/farm',
+    description:
+      'Swap, Stake, Battle, Mine - ZOO Crypto World is revolutionising the GameFi space by gamifying DeFi. Battle against your foes, stake in pools or have action-packed fights with mega bosses! ZOO Crypto World is based on the decentralized chain, Binance Smart Chain, which guarantees superior speed and much lower network transaction cost for all ZOO warriors.',
+  },
+  QUIDD: {
+    name: 'QUIDD',
+    symbol: 'QUIDD',
+    address: '0x7961Ade0a767c0E5B67Dd1a1F78ba44F727642Ed',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x7961Ade0a767c0E5B67Dd1a1F78ba44F727642Ed.svg',
+    website: 'https://www.quiddtoken.com/',
+    description:
+      'Collect officially-licensed digital collectibles from 325 of the worlds most beloved brands.',
+  },
+  SANTOS: {
+    name: 'FC Santos Fan Token',
+    symbol: 'SANTOS',
+    address: '0xA64455a4553C9034236734FadDAddbb64aCE4Cc7',
+    chainId: 56,
+    decimals: 8,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xA64455a4553C9034236734FadDAddbb64aCE4Cc7.svg',
+    website: 'https://www.santosfc.com.br/en/',
+    description: 'FC Santos Fan Token',
+  },
+  NABOX: {
+    name: 'Nabox Token',
+    symbol: 'NABOX',
+    address: '0x755f34709E369D37C6Fa52808aE84A32007d1155',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x755f34709E369D37C6Fa52808aE84A32007d1155.svg',
+    website: 'https://nabox.io/',
+    description: 'Cross-Chain DeFi Wallet with Decentralized Identifier for Web 3.0',
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -1,624 +1,382 @@
 [
+  { "inputs": [], "payable": false, "stateMutability": "nonpayable", "type": "constructor" },
   {
-    "type": "constructor",
-    "stateMutability": "nonpayable",
-    "payable": false,
-    "inputs": []
-  },
-  {
-    "type": "event",
-    "name": "DistributedBorrowerReward",
+    "anonymous": false,
     "inputs": [
+      { "indexed": false, "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "indexed": true, "internalType": "contract JToken", "name": "jToken", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "borrower", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "rewardDelta", "type": "uint256" },
       {
-        "type": "uint8",
-        "name": "rewardType",
-        "internalType": "uint8",
-        "indexed": false
-      },
-      {
-        "type": "address",
-        "name": "jToken",
-        "internalType": "contract JToken",
-        "indexed": true
-      },
-      {
-        "type": "address",
-        "name": "borrower",
-        "internalType": "address",
-        "indexed": true
-      },
-      {
-        "type": "uint256",
-        "name": "rewardDelta",
+        "indexed": false,
         "internalType": "uint256",
-        "indexed": false
-      },
-      {
-        "type": "uint256",
         "name": "rewardBorrowIndex",
-        "internalType": "uint256",
-        "indexed": false
+        "type": "uint256"
       }
     ],
-    "anonymous": false
+    "name": "DistributedBorrowerReward",
+    "type": "event"
   },
   {
-    "type": "event",
-    "name": "DistributedSupplierReward",
+    "anonymous": false,
     "inputs": [
+      { "indexed": false, "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "indexed": true, "internalType": "contract JToken", "name": "jToken", "type": "address" },
+      { "indexed": true, "internalType": "address", "name": "supplier", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "rewardDelta", "type": "uint256" },
       {
-        "type": "uint8",
-        "name": "rewardType",
-        "internalType": "uint8",
-        "indexed": false
-      },
-      {
-        "type": "address",
-        "name": "jToken",
-        "internalType": "contract JToken",
-        "indexed": true
-      },
-      {
-        "type": "address",
-        "name": "supplier",
-        "internalType": "address",
-        "indexed": true
-      },
-      {
-        "type": "uint256",
-        "name": "rewardDelta",
+        "indexed": false,
         "internalType": "uint256",
-        "indexed": false
-      },
-      {
-        "type": "uint256",
         "name": "rewardSupplyIndex",
-        "internalType": "uint256",
-        "indexed": false
+        "type": "uint256"
       }
     ],
-    "anonymous": false
+    "name": "DistributedSupplierReward",
+    "type": "event"
   },
   {
-    "type": "event",
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "indexed": true, "internalType": "contract JToken", "name": "jToken", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "newSpeed", "type": "uint256" }
+    ],
+    "name": "RewardBorrowSpeedUpdated",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      { "indexed": false, "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "indexed": false, "internalType": "address", "name": "recipient", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "amount", "type": "uint256" }
+    ],
     "name": "RewardGranted",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
     "inputs": [
-      {
-        "type": "uint8",
-        "name": "rewardType",
-        "internalType": "uint8",
-        "indexed": false
-      },
-      {
-        "type": "address",
-        "name": "recipient",
-        "internalType": "address",
-        "indexed": false
-      },
-      {
-        "type": "uint256",
-        "name": "amount",
-        "internalType": "uint256",
-        "indexed": false
-      }
+      { "indexed": false, "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "indexed": true, "internalType": "contract JToken", "name": "jToken", "type": "address" },
+      { "indexed": false, "internalType": "uint256", "name": "newSpeed", "type": "uint256" }
     ],
-    "anonymous": false
+    "name": "RewardSupplySpeedUpdated",
+    "type": "event"
   },
+  { "payable": true, "stateMutability": "payable", "type": "fallback" },
   {
-    "type": "event",
-    "name": "RewardSpeedUpdated",
+    "constant": false,
     "inputs": [
-      {
-        "type": "uint8",
-        "name": "rewardType",
-        "internalType": "uint8",
-        "indexed": false
-      },
-      {
-        "type": "address",
-        "name": "jToken",
-        "internalType": "contract JToken",
-        "indexed": true
-      },
-      {
-        "type": "uint256",
-        "name": "newSpeed",
-        "internalType": "uint256",
-        "indexed": false
-      }
+      { "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "internalType": "address payable", "name": "recipient", "type": "address" },
+      { "internalType": "uint256", "name": "amount", "type": "uint256" }
     ],
-    "anonymous": false
-  },
-  {
-    "type": "fallback",
-    "stateMutability": "payable",
-    "payable": true
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "payable": false,
-    "outputs": [],
     "name": "_grantReward",
-    "inputs": [
-      {
-        "type": "uint8",
-        "name": "rewardType",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address",
-        "name": "recipient",
-        "internalType": "address payable"
-      },
-      {
-        "type": "uint256",
-        "name": "amount",
-        "internalType": "uint256"
-      }
-    ],
-    "constant": false
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "payable": false,
-    "outputs": [],
+    "constant": false,
+    "inputs": [
+      { "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "internalType": "contract JToken", "name": "jToken", "type": "address" },
+      { "internalType": "uint256", "name": "rewardSupplySpeed", "type": "uint256" },
+      { "internalType": "uint256", "name": "rewardBorrowSpeed", "type": "uint256" }
+    ],
     "name": "_setRewardSpeed",
-    "inputs": [
-      {
-        "type": "uint8",
-        "name": "rewardType",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address",
-        "name": "jToken",
-        "internalType": "contract JToken"
-      },
-      {
-        "type": "uint256",
-        "name": "rewardSpeed",
-        "internalType": "uint256"
-      }
-    ],
-    "constant": false
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
-    "payable": false,
-    "outputs": [
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "address"
-      }
-    ],
+    "constant": true,
+    "inputs": [],
     "name": "admin",
-    "inputs": [],
-    "constant": true
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
     "payable": false,
-    "outputs": [],
-    "name": "claimReward",
-    "inputs": [
-      {
-        "type": "uint8",
-        "name": "rewardType",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address",
-        "name": "holder",
-        "internalType": "address payable"
-      }
-    ],
-    "constant": false
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
+    "constant": false,
+    "inputs": [
+      { "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "internalType": "address payable", "name": "holder", "type": "address" }
+    ],
+    "name": "claimReward",
+    "outputs": [],
     "payable": false,
-    "outputs": [],
-    "name": "claimReward",
-    "inputs": [
-      {
-        "type": "uint8",
-        "name": "rewardType",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address",
-        "name": "holder",
-        "internalType": "address payable"
-      },
-      {
-        "type": "address[]",
-        "name": "jTokens",
-        "internalType": "contract JToken[]"
-      }
-    ],
-    "constant": false
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "payable",
+    "constant": false,
+    "inputs": [
+      { "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "internalType": "address payable", "name": "holder", "type": "address" },
+      { "internalType": "contract JToken[]", "name": "jTokens", "type": "address[]" }
+    ],
+    "name": "claimReward",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      { "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "internalType": "address payable[]", "name": "holders", "type": "address[]" },
+      { "internalType": "contract JToken[]", "name": "jTokens", "type": "address[]" },
+      { "internalType": "bool", "name": "borrowers", "type": "bool" },
+      { "internalType": "bool", "name": "suppliers", "type": "bool" }
+    ],
+    "name": "claimReward",
+    "outputs": [],
     "payable": true,
-    "outputs": [],
-    "name": "claimReward",
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
+    "constant": false,
     "inputs": [
+      { "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "internalType": "address", "name": "jToken", "type": "address" },
+      { "internalType": "address", "name": "borrower", "type": "address" },
       {
-        "type": "uint8",
-        "name": "rewardType",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address[]",
-        "name": "holders",
-        "internalType": "address payable[]"
-      },
-      {
-        "type": "address[]",
-        "name": "jTokens",
-        "internalType": "contract JToken[]"
-      },
-      {
-        "type": "bool",
-        "name": "borrowers",
-        "internalType": "bool"
-      },
-      {
-        "type": "bool",
-        "name": "suppliers",
-        "internalType": "bool"
+        "components": [{ "internalType": "uint256", "name": "mantissa", "type": "uint256" }],
+        "internalType": "struct Exponential.Exp",
+        "name": "marketBorrowIndex",
+        "type": "tuple"
       }
     ],
-    "constant": false
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "payable": false,
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": "",
-        "internalType": "uint256"
-      }
-    ],
-    "name": "getBlockTimestamp",
-    "inputs": [],
-    "constant": true
-  },
-  {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "payable": false,
+    "name": "distributeBorrowerReward",
     "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      { "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "internalType": "address", "name": "jToken", "type": "address" },
+      { "internalType": "address", "name": "supplier", "type": "address" }
+    ],
+    "name": "distributeSupplierReward",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getBlockTimestamp",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [],
     "name": "initialize",
-    "inputs": [],
-    "constant": false
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
-    "payable": false,
-    "outputs": [
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "address"
-      }
-    ],
+    "constant": true,
+    "inputs": [],
     "name": "joeAddress",
-    "inputs": [],
-    "constant": true
+    "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
-    "payable": false,
-    "outputs": [
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "contract Joetroller"
-      }
-    ],
+    "constant": true,
+    "inputs": [],
     "name": "joetroller",
-    "inputs": [],
-    "constant": true
+    "outputs": [{ "internalType": "contract Joetroller", "name": "", "type": "address" }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
-    "payable": false,
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": "",
-        "internalType": "uint256"
-      }
+    "constant": true,
+    "inputs": [
+      { "internalType": "uint8", "name": "", "type": "uint8" },
+      { "internalType": "address", "name": "", "type": "address" }
     ],
     "name": "rewardAccrued",
-    "inputs": [
-      {
-        "type": "uint8",
-        "name": "",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "address"
-      }
-    ],
-    "constant": true
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
+    "constant": true,
+    "inputs": [
+      { "internalType": "uint8", "name": "", "type": "uint8" },
+      { "internalType": "address", "name": "", "type": "address" }
+    ],
+    "name": "rewardBorrowSpeeds",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
-    "outputs": [
-      {
-        "type": "uint224",
-        "name": "index",
-        "internalType": "uint224"
-      },
-      {
-        "type": "uint32",
-        "name": "timestamp",
-        "internalType": "uint32"
-      }
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      { "internalType": "uint8", "name": "", "type": "uint8" },
+      { "internalType": "address", "name": "", "type": "address" }
     ],
     "name": "rewardBorrowState",
-    "inputs": [
-      {
-        "type": "uint8",
-        "name": "",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "address"
-      }
+    "outputs": [
+      { "internalType": "uint224", "name": "index", "type": "uint224" },
+      { "internalType": "uint32", "name": "timestamp", "type": "uint32" }
     ],
-    "constant": true
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
-    "payable": false,
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": "",
-        "internalType": "uint256"
-      }
+    "constant": true,
+    "inputs": [
+      { "internalType": "uint8", "name": "", "type": "uint8" },
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "address", "name": "", "type": "address" }
     ],
     "name": "rewardBorrowerIndex",
-    "inputs": [
-      {
-        "type": "uint8",
-        "name": "",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "address"
-      },
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "address"
-      }
-    ],
-    "constant": true
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
-    "payable": false,
-    "outputs": [
-      {
-        "type": "uint224",
-        "name": "",
-        "internalType": "uint224"
-      }
-    ],
-    "name": "rewardInitialIndex",
+    "constant": true,
     "inputs": [],
-    "constant": true
+    "name": "rewardInitialIndex",
+    "outputs": [{ "internalType": "uint224", "name": "", "type": "uint224" }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
-    "payable": false,
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": "",
-        "internalType": "uint256"
-      }
-    ],
-    "name": "rewardSpeeds",
+    "constant": true,
     "inputs": [
-      {
-        "type": "uint8",
-        "name": "",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "address"
-      }
-    ],
-    "constant": true
-  },
-  {
-    "type": "function",
-    "stateMutability": "view",
-    "payable": false,
-    "outputs": [
-      {
-        "type": "uint256",
-        "name": "",
-        "internalType": "uint256"
-      }
+      { "internalType": "uint8", "name": "", "type": "uint8" },
+      { "internalType": "address", "name": "", "type": "address" },
+      { "internalType": "address", "name": "", "type": "address" }
     ],
     "name": "rewardSupplierIndex",
-    "inputs": [
-      {
-        "type": "uint8",
-        "name": "",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "address"
-      },
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "address"
-      }
-    ],
-    "constant": true
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "view",
+    "constant": true,
+    "inputs": [
+      { "internalType": "uint8", "name": "", "type": "uint8" },
+      { "internalType": "address", "name": "", "type": "address" }
+    ],
+    "name": "rewardSupplySpeeds",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "payable": false,
-    "outputs": [
-      {
-        "type": "uint224",
-        "name": "index",
-        "internalType": "uint224"
-      },
-      {
-        "type": "uint32",
-        "name": "timestamp",
-        "internalType": "uint32"
-      }
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      { "internalType": "uint8", "name": "", "type": "uint8" },
+      { "internalType": "address", "name": "", "type": "address" }
     ],
     "name": "rewardSupplyState",
-    "inputs": [
-      {
-        "type": "uint8",
-        "name": "",
-        "internalType": "uint8"
-      },
-      {
-        "type": "address",
-        "name": "",
-        "internalType": "address"
-      }
+    "outputs": [
+      { "internalType": "uint224", "name": "index", "type": "uint224" },
+      { "internalType": "uint32", "name": "timestamp", "type": "uint32" }
     ],
-    "constant": true
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "payable": false,
-    "outputs": [],
+    "constant": false,
+    "inputs": [{ "internalType": "address", "name": "_newAdmin", "type": "address" }],
     "name": "setAdmin",
-    "inputs": [
-      {
-        "type": "address",
-        "name": "_newAdmin",
-        "internalType": "address"
-      }
-    ],
-    "constant": false
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "payable": false,
-    "outputs": [],
+    "constant": false,
+    "inputs": [{ "internalType": "address", "name": "newJoeAddress", "type": "address" }],
     "name": "setJoeAddress",
-    "inputs": [
-      {
-        "type": "address",
-        "name": "newJoeAddress",
-        "internalType": "address"
-      }
-    ],
-    "constant": false
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "payable": false,
-    "outputs": [],
+    "constant": false,
+    "inputs": [{ "internalType": "address", "name": "_joetroller", "type": "address" }],
     "name": "setJoetroller",
-    "inputs": [
-      {
-        "type": "address",
-        "name": "_joetroller",
-        "internalType": "address"
-      }
-    ],
-    "constant": false
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "payable": false,
-    "outputs": [],
-    "name": "updateAndDistributeBorrowerRewardsForToken",
+    "constant": false,
     "inputs": [
+      { "internalType": "address", "name": "jToken", "type": "address" },
+      { "internalType": "address", "name": "borrower", "type": "address" },
       {
-        "type": "address",
-        "name": "jToken",
-        "internalType": "address"
-      },
-      {
-        "type": "address",
-        "name": "borrower",
-        "internalType": "address"
-      },
-      {
-        "type": "tuple",
-        "name": "marketBorrowIndex",
+        "components": [{ "internalType": "uint256", "name": "mantissa", "type": "uint256" }],
         "internalType": "struct Exponential.Exp",
-        "components": [
-          {
-            "type": "uint256",
-            "name": "mantissa",
-            "internalType": "uint256"
-          }
-        ]
+        "name": "marketBorrowIndex",
+        "type": "tuple"
       }
     ],
-    "constant": false
+    "name": "updateAndDistributeBorrowerRewardsForToken",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    "type": "function",
-    "stateMutability": "nonpayable",
-    "payable": false,
-    "outputs": [],
-    "name": "updateAndDistributeSupplierRewardsForToken",
+    "constant": false,
     "inputs": [
-      {
-        "type": "address",
-        "name": "jToken",
-        "internalType": "address"
-      },
-      {
-        "type": "address",
-        "name": "supplier",
-        "internalType": "address"
-      }
+      { "internalType": "address", "name": "jToken", "type": "address" },
+      { "internalType": "address", "name": "supplier", "type": "address" }
     ],
-    "constant": false
+    "name": "updateAndDistributeSupplierRewardsForToken",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      { "internalType": "uint8", "name": "rewardType", "type": "uint8" },
+      { "internalType": "address", "name": "jToken", "type": "address" }
+    ],
+    "name": "updateRewardSupplyIndex",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
   }
 ]

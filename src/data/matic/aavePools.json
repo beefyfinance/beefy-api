@@ -62,8 +62,8 @@
     "oracle": "tokens",
     "oracleId": "AAVE",
     "decimals": "1e18",
-    "borrowDepth": 0,
-    "borrowPercent": 0.48
+    "borrowDepth": 1,
+    "borrowPercent": 0
   },
   {
     "name": "aave-usdt",
@@ -73,7 +73,7 @@
     "oracle": "tokens",
     "oracleId": "USDT",
     "decimals": "1e6",
-    "borrowDepth": 0,
-    "borrowPercent": 0.48
+    "borrowDepth": 1,
+    "borrowPercent": 0
   }
 ]
