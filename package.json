@@ -15,6 +15,7 @@
     "bsc:wault:add": "ts-node scripts/add-farm.ts --network bsc --project wault",
     "bsc:mdex:add": "ts-node scripts/add-farm.ts --network bsc --project mdex",
     "bsc:ape:add": "ts-node scripts/add-farm.ts --network bsc --project ape",
+    "bsc:biswap:add": "ts-node scripts/add-farm.ts --network bsc --project biswap",
     "bsc:omni:add": "ts-node scripts/add-omni.ts --network bsc --project omni",
     "fantom:spooky:add": "ts-node scripts/add-farm.ts --network fantom --project spooky",
     "polygon:quick:add": "ts-node scripts/add-quick.ts --network polygon --project quick",

@@ -2,6 +2,7 @@ import { ChainId } from '../packages/address-book/address-book';
 import { spookyswap } from '../packages/address-book/address-book/fantom/platforms/spookyswap';
 import { solarbeam } from '../packages/address-book/address-book/moonriver/platforms/solarbeam';
 import { trisolaris } from '../packages/address-book/address-book/aurora/platforms/trisolaris';
+import { biswap } from '../packages/address-book/address-book/bsc/platforms/biswap';
 
 const yargs = require('yargs');
 const fs = require('fs');
@@ -55,6 +56,11 @@ const projects = {
     file: '../src/data/aurora/trisolarisLpPools.json',
     masterchef: trisolaris.masterchef,
   },
+  biswap: {
+    prefix: 'biswap',
+    file: '../src/data/biswapLpPools.json',
+    masterchef: biswap.masterchef,
+  },
 };
 
 const args = yargs.options({
@@ -71,7 +77,7 @@ const args = yargs.options({
     choices: Object.keys(projects),
   },
   pool: {
-    type: 'interger',
+    type: 'integer',
     demandOption: true,
     describe: 'poolId from respective masterchef contract',
   },
