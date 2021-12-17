@@ -115,7 +115,7 @@
     "lp1": {
       "address": "0x868892CCcEdbfF0B028F3b3595205Ea91b99376B",
       "oracle": "tokens",
-      "oracleId": "mrBNB",
+      "oracleId": "sushiBNB",
       "decimals": "1e8"
     }
   },
@@ -135,7 +135,7 @@
     "lp1": {
       "address": "0xE6a991Ffa8CfE62B0bf6BF72959A3d4f11B2E0f5",
       "oracle": "tokens",
-      "oracleId": "WBTC",
+      "oracleId": "sushiWBTC",
       "decimals": "1e8"
     }
   },
