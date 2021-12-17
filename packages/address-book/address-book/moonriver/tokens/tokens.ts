@@ -37,7 +37,7 @@ const SUSHI = {
   description:
     'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
   logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
-};
+} as const;
 
 const _tokens = {
   MOVR,
@@ -377,8 +377,7 @@ const _tokens = {
     chainId: 1285,
     decimals: 18,
     website: 'https://www.binance.com/',
-    description:
-      'BNB from BSC wrapped by passport.meter.io',
+    description: 'BNB from BSC wrapped by passport.meter.io',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
@@ -389,8 +388,7 @@ const _tokens = {
     chainId: 1285,
     decimals: 8,
     website: 'https://passport.meter.io/transfer#/ ',
-    description:
-      'WBTC from Etherem wrapped by passport.meter.io',
+    description: 'WBTC from Etherem wrapped by passport.meter.io',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },

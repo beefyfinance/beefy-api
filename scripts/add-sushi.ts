@@ -1,5 +1,11 @@
 import { ChainId } from '../packages/address-book/address-book';
 import { sushi } from '../packages/address-book/address-book/one/platforms/sushi';
+import { addressBook } from '../packages/address-book/address-book';
+const {
+  polygon: {
+    platforms: { sushi: sushiPolygon },
+  },
+} = addressBook;
 
 const yargs = require('yargs');
 const fs = require('fs');
@@ -27,6 +33,11 @@ const projects = {
     prefix: 'sushi-celo',
     file: '../src/data/celo/sushiLpPools.json',
     masterchef: '0x0769fd68dFb93167989C6f7254cd0D766Fb2841F',
+  },
+  sushiPoly: {
+    prefix: 'sushi',
+    file: '../src/data/matic/sushiLpPools.json',
+    masterchef: sushiPolygon.minichef,
   },
 };
 

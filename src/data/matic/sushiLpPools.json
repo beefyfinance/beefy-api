@@ -1,5 +1,43 @@
 [
   {
+    "name": "sushi-usdc-bct",
+    "address": "0x1E67124681b402064CD0ABE8ed1B5c79D2e02f64",
+    "decimals": "1e18",
+    "poolId": 50,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x2F800Db0fdb5223b3C3f354886d907A671414A7F",
+      "oracle": "tokens",
+      "oracleId": "BCT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-bct-klima",
+    "address": "0x9803c7aE526049210a1725F7487AF26fE2c24614",
+    "decimals": "1e18",
+    "poolId": 49,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2F800Db0fdb5223b3C3f354886d907A671414A7F",
+      "oracle": "tokens",
+      "oracleId": "BCT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4e78011Ce80ee02d2c3e649Fb657E45898257815",
+      "oracle": "tokens",
+      "oracleId": "KLIMA",
+      "decimals": "1e9"
+    }
+  },
+  {
     "name": "sushi-eth2x-eth",
     "address": "0xadd053A09F95E565B25d8b9B84D0fcFaa962465E",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",

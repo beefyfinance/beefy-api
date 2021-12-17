@@ -19,6 +19,7 @@
     "bsc:omni:add": "ts-node scripts/add-omni.ts --network bsc --project omni",
     "fantom:spooky:add": "ts-node scripts/add-farm.ts --network fantom --project spooky",
     "polygon:quick:add": "ts-node scripts/add-quick.ts --network polygon --project quick",
+    "polygon:sushi:add": "ts-node scripts/add-sushi.ts --network polygon --project sushiPoly",
     "one:sushi:add": "ts-node scripts/add-sushi.ts --network one --project sushiOne",
     "arb:sushi:add": "ts-node scripts/add-sushi.ts --network arbitrum --project sushiArb",
     "celo:sushi:add": "ts-node scripts/add-sushi.ts --network celo --project sushiCelo",
