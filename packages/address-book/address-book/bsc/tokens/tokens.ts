@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  CRUSH: {
+    name: 'Crush Coin',
+    symbol: 'CRUSH',
+    address: '0x0Ef0626736c2d484A792508e99949736D0AF807e',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/CRUSH.svg',
+    website: 'https://www.bitcrush.com/',
+    description:
+      'Bitcrush uses a hybrid approach that allows centralized gameplay utilizing a non-custodial live wallet.',
+  },
   STATIC: {
     name: 'STATIC',
     symbol: 'STATIC',
