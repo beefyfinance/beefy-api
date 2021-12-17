@@ -116,7 +116,7 @@
       "address": "0x868892CCcEdbfF0B028F3b3595205Ea91b99376B",
       "oracle": "tokens",
       "oracleId": "sushiBNB",
-      "decimals": "1e8"
+      "decimals": "1e18"
     }
   },
   {
