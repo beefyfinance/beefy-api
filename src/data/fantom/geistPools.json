@@ -66,6 +66,17 @@
     "borrowPercent": 0.01
   },
   {
+    "name": "geist-crv-supply",
+    "token": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
+    "aToken": "0x690754A168B022331cAA2467207c61919b3F8A98",
+    "debtToken": "0x811A951D15f4DD33e9Aa8D6F7AfF6d1433fe644A",
+    "oracle": "tokens",
+    "oracleId": "CRV",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
     "name": "geist-ftm",
     "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
     "aToken": "0x39B3bd37208CBaDE74D0fcBDBb12D606295b430a",
@@ -106,8 +117,8 @@
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
-    "borrowDepth": 1,
-    "borrowPercent": 0.01
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
   },
   {
     "name": "geist-eth",
@@ -128,7 +139,18 @@
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",
-    "borrowDepth": 1,
-    "borrowPercent": 0.01
+    "borrowDepth": 4,
+    "borrowPercent": 0.67
+  },
+  {
+    "name": "geist-crv",
+    "token": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
+    "aToken": "0x690754A168B022331cAA2467207c61919b3F8A98",
+    "debtToken": "0x811A951D15f4DD33e9Aa8D6F7AfF6d1433fe644A",
+    "oracle": "tokens",
+    "oracleId": "CRV",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.47
   }
 ]
