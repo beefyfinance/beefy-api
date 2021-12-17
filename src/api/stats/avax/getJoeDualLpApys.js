@@ -39,8 +39,6 @@ const getJoeDualLpApys = async () => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
-    const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
@@ -52,6 +50,7 @@ const getJoeDualLpApys = async () => {
       if (rewarders[i] === '0x0000000000000000000000000000000000000000') {
         return 0;
       } else {
+        const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
         const rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarders[i]);
         const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerSec().call());
         const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
