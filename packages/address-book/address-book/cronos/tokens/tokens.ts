@@ -28,6 +28,18 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  ATOM: {
+    name: 'Cosmos Token',
+    symbol: 'ATOM',
+    address: '0xB888d8Dd1733d72681b30c00ee76BDE93ae7aa93',
+    chainId: 25,
+    decimals: 6,
+    website: 'https://cosmos.network/',
+    description:
+      'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x0eb3a705fc54725037cc9e008bdede697f62f335.png',
+  },
   DOGE: {
     name: 'Doge Token',
     symbol: 'DOGE',
