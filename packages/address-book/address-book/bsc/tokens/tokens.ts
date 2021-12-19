@@ -578,18 +578,6 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/STARS.svg',
   },
-  IF: {
-    name: 'Impossible Finance',
-    symbol: 'IF',
-    address: '0xB0e1fc65C1a741b4662B813eB787d369b8614Af1',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://impossible.finance/',
-    description:
-      'Impossible Finance is a multi-chain incubator, launchpad, and swap platform which offers a robust product-first ecosystem that supports top-tier blockchain projects to targeted user audiences.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xB0e1fc65C1a741b4662B813eB787d369b8614Af1.svg',
-  },
   SKILL: {
     name: 'CryptoBlades Skill Token',
     symbol: 'SKILL',
@@ -1213,17 +1201,6 @@ const _tokens = {
       'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x14016e85a25aeb13065688cafb43044c2ef86784.png',
-  },
-  KALM: {
-    name: 'KALM',
-    symbol: 'KALM',
-    address: '0x4BA0057f784858a48fe351445C672FF2a3d43515',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://kalmar.io/',
-    description: 'Kalmar is a decentralized bank powered by DeFi and NFT.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x4BA0057f784858a48fe351445C672FF2a3d43515.png',
   },
   VRT: {
     name: 'VRT',
@@ -2353,18 +2330,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xb8C540d00dd0Bf76ea12E4B4B95eFC90804f924E.png',
   },
-  KUN: {
-    name: 'Qian Governance Token',
-    symbol: 'KUN',
-    address: '0x1A2fb0Af670D0234c2857FaD35b789F8Cb725584',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://qian.finance/',
-    description:
-      'QIAN protocol provides a set of open architecture allowing anyone to generate stable-value tokens, anytime and anywhere.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x1A2fb0Af670D0234c2857FaD35b789F8Cb725584.png',
-  },
   VAI: {
     name: 'VAI Stablecoin',
     symbol: 'VAI',
@@ -2589,18 +2554,6 @@ const _tokens = {
     description: 'Mirrored TSLA (mTSLA) is a synthetic asset tracking the price of a Tesla stock.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xF215A127A196e3988C09d052e16BcFD365Cd7AA3.png',
-  },
-  MAMZN: {
-    name: 'Mirror AMZN Token',
-    symbol: 'MAMZN',
-    address: '0x3947B992DC0147D2D89dF0392213781b04B25075',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://mirror.finance/',
-    description:
-      'Mirrored AMZN (mAMZN) is a synthetic asset tracking the price of an Amazon stock.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x3947B992DC0147D2D89dF0392213781b04B25075.png',
   },
   MNFLX: {
     name: 'Mirror NFLX Token',
@@ -2995,18 +2948,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xc9849e6fdb743d08faee3e34dd2d1bc69ea11a51.png',
   },
-  LTO: {
-    name: 'LTO Network',
-    symbol: 'LTO',
-    address: '0x857B222Fc79e1cBBf8Ca5f78CB133d1b7CF34BBd',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://ltonetwork.com/',
-    description:
-      'LTO Network is a hybrid blockchain platform for decentralized workflows and business process automatization.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x857b222fc79e1cbbf8ca5f78cb133d1b7cf34bbd.png',
-  },
   COS: {
     name: 'Contentos',
     symbol: 'COS',
@@ -3147,18 +3088,6 @@ const _tokens = {
       'Zilliqa is mainly based on the concept of Sharding and primarily aims at improving the scalability of the cryptocurrency networks as in case of Bitcoin or Ethereum.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xb86abcb37c3a4b64f74f59301aff131a1becc787.png',
-  },
-  LIEN: {
-    name: 'Lien',
-    symbol: 'LIEN',
-    address: '0x5d684ADaf3FcFe9CFb5ceDe3abf02F0Cdd1012E3',
-    chainId: 56,
-    decimals: 8,
-    website: 'https://app.lien.finance/',
-    description:
-      'The project claims to be a self-regulating protocol for creating unique derivative contracts and prevent front-running.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x5d684adaf3fcfe9cfb5cede3abf02f0cdd1012e3.png',
   },
   SWTH: {
     name: 'Switcheo',
