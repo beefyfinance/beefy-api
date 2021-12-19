@@ -542,18 +542,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x833F307aC507D47309fD8CDD1F835BeF8D702a93.svg',
   },
-  BABYCAKE: {
-    name: 'BABY CAKE',
-    symbol: 'BABYCAKE',
-    address: '0xdB8D30b74bf098aF214e862C90E647bbB1fcC58c',
-    chainId: 56,
-    decimals: 18,
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xdB8D30b74bf098aF214e862C90E647bbB1fcC58c.svg',
-    website: 'https://babycake.app/',
-    description:
-      'Baby Cake is the first CAKE reflection token. Hold $BABYCAKE tokens and get rewarded in CAKE on every transaction.',
-  },
   BMON: {
     name: 'Binamon',
     symbol: 'BMON',
@@ -1369,17 +1357,6 @@ const _tokens = {
     description:
       'Vapor is a novel protocol that combines the unique mechanisms of several recently successful DeFi projects.',
     logoURI: 'https://tokens.julswap.com/images/0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea.png',
-  },
-  SBDO: {
-    name: 'bDollar Share',
-    symbol: 'SBDO',
-    address: '0x0d9319565be7f53CeFE84Ad201Be3f40feAE2740',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.bdollar.fi/',
-    description:
-      'bDollar tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol deterministically expands and contracts the BDO supply to maintain BDO peg to 1 $BUSD',
-    logoURI: 'https://bscscan.com/token/images/bdollar-share_32.png',
   },
   BHC: {
     name: 'Billion Happiness',
@@ -3036,29 +3013,6 @@ const _tokens = {
       'BFI is a token that is Proof of Stake that acts like a receipt for that you have BFIs Staked in bStake.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x81859801b01764D4f0Fa5E64729f5a6C3b91435b.png',
-  },
-  BDO: {
-    name: 'bDollar',
-    symbol: 'BDO',
-    address: '0x190b589cf9Fb8DDEabBFeae36a813FFb2A702454',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.bearn.fi/',
-    description: 'bDollar (BDO) is an algorithmic stablecoin running on Binance Smart-chain.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x190b589cf9Fb8DDEabBFeae36a813FFb2A702454.png',
-  },
-  sBDO: {
-    name: 'bDollar Share',
-    symbol: 'sBDO',
-    address: '0x0d9319565be7f53CeFE84Ad201Be3f40feAE2740',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.bearn.fi/',
-    description:
-      'Represents the value of the bDollar Protocol and trust in its systemic ability to maintain BDO to peg.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x0d9319565be7f53CeFE84Ad201Be3f40feAE2740.png',
   },
   EGLD: {
     name: 'Elrond',
