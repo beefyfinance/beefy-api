@@ -2,7 +2,7 @@ import { ChainId } from '../packages/address-book/address-book';
 
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
-const BASE_HPY = 1051200;
+const BASE_HPY = 4380;
 const MINUTELY_HPY = 525600;
 const HOURLY_HPY = 8760;
 const DAILY_HPY = 365;
