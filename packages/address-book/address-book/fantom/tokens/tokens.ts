@@ -880,6 +880,18 @@ const _tokens = {
     description:
       'OpenOcean is the world’s first full aggregation protocol for crypto trading that sources liquidity from DeFi and CeFi markets and enables cross-chain swaps. Our intelligent routing algorithm finds the best prices from DEXes and CEXes and splits the routes to provide traders the best prices with low slippage and fast settlement. The product is free to use; OpenOcean users only need to pay the regular blockchain gas and exchange fees for the trades, which are charged by the exchanges and not OpenOcean.',
   },
+  AVAX: {
+    name: 'Avalanche',
+    symbol: 'AVAX',
+    address: '0x511D35c52a3C244E7b8bd92c0C297755FbD89212',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x511D35c52a3C244E7b8bd92c0C297755FbD89212.svg',
+    website: 'https://www.avalabs.org/',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
