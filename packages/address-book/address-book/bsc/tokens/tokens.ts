@@ -265,16 +265,6 @@ const _tokens = {
       'Telos is built for speed and scalability making it the ideal network for mainstream adoption – Telos based Tokens NFT’s and Smart Contracts are already used for DeFi, Gaming, Social Media apps and so much more. ',
     website: 'https://www.telos.net/',
   },
-  MOON: {
-    name: 'HoneyMoon',
-    symbol: 'MOON',
-    address: '0xE8c93310af068aa50bd7bF0ebFa459Df2a02ceba',
-    chainId: 56,
-    decimals: 18,
-    logoURI: 'https://honeyfarm.finance/images/honeymoon/token.png',
-    description: 'HoneyMoon is 3rd layer of HoneyFarm Finance',
-    website: 'https://honeyfarm.finance',
-  },
   BSCDEFI: {
     name: 'BSC Defi Blue Chips',
     symbol: 'BSCDEFI',
@@ -508,17 +498,6 @@ const _tokens = {
     website: 'https://wsg.gg/',
     description:
       'The next generation gaming platform with a unique and immersive way to earn rewards',
-  },
-  MCRN: {
-    name: 'MacaronSwap Token',
-    symbol: 'MCRN',
-    address: '0xacb2d47827C9813AE26De80965845D80935afd0B',
-    chainId: 56,
-    decimals: 18,
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xacb2d47827C9813AE26De80965845D80935afd0B.svg',
-    website: 'https://www.macaronswap.finance/',
-    description: 'MacaronSwap is a Decentralized Exchange AMM and Farm Staking platform',
   },
   METAHERO: {
     name: 'Metahero',
@@ -767,18 +746,6 @@ const _tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4691937a7508860F876c9c0a2a617E7d9E945D4B.png',
   },
-  MARSH: {
-    name: 'MARSH',
-    symbol: 'MARSH',
-    address: '0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://unmarshal.io/',
-    description:
-      'Unmarshal is a Multi-chain DeFi network of indexers that provides seamless access to Blockchain data for DeFi applications.',
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png',
-  },
   HAI: {
     name: 'Hai',
     symbol: 'HAI',
@@ -902,28 +869,6 @@ const _tokens = {
       'Toffee is the reference token for SAFEFARM within the MarshMallow ecosystem, it is a digital currency received in exchange when you Pool or Farm your Reflection Tokens.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
-  MASH: {
-    name: 'Marshmallow',
-    symbol: 'MASH',
-    address: '0x787732f27D18495494cea3792ed7946BbCFF8db2',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://marshmallowdefi.com/',
-    description:
-      'MarshmallowDeFi (MASH) is the next generation of Automated Market Making (AMM) decentralized exchange with a deflationary governance token model.',
-    logoURI: 'https://bscscan.com/token/images/marshmellowtoken_32.png?v=4',
-  },
-  PALM: {
-    name: 'Palm',
-    symbol: 'PALM',
-    address: '0x9768E5b2d8e761905BC81Dfc554f9437A46CdCC6',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://yieldbay.finance/',
-    description:
-      'PALM is the native token of YieldBay, a Yield Farming project running on Binance Smart Chain.',
-    logoURI: 'https://bscscan.com/token/images/yieldbay_32.png',
-  },
   TNDR: {
     name: 'Thunder',
     symbol: 'TNDR',
@@ -967,17 +912,6 @@ const _tokens = {
     description:
       'Pumpy is an assets management platform and yield farming aggregator running on Binance Smart Chain',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
-  },
-  NUTS: {
-    name: 'Squirrel Finance',
-    symbol: 'NUTS',
-    address: '0x8893D5fA71389673C5c4b9b3cb4EE1ba71207556',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://squirrel.finance/',
-    description:
-      'Squirrel Finance is the first decentralized insurance solution for yield farming on BSC that instantly & automatically compensates users if their funds are locked or stolen.',
-    logoURI: 'https://bscscan.com/token/images/squirrel_32.png',
   },
   SLME: {
     name: 'Slime',
@@ -1126,14 +1060,6 @@ const _tokens = {
     website: 'https://www.sponge.finance/',
     description: 'The Soak token is the main token that will be emitted by Sponge.finance.',
     logoURI: 'https://bscscan.com/token/images/sponge-soak_32.png',
-  },
-  NYAS: {
-    name: 'NYA Share',
-    symbol: 'NYAS',
-    address: '0xD7410C38a86DCf3D5EC0F75e9763111E07D9C95b',
-    chainId: 56,
-    decimals: 18,
-    logoURI: 'https://bscscan.com/token/images/nyacash-share_32.png',
   },
   MSS: {
     name: 'Monster Slayer Share',
@@ -2254,26 +2180,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xa8c2b8eec3d368c0253ad3dae65a5f2bbb89c929.png',
   },
-  NAR: {
-    name: 'NAR Token',
-    symbol: 'NAR',
-    address: '0xA1303E6199b319a891b79685F0537D289af1FC83',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://narwhalswap.org',
-    description: 'NAR is the native token of Narwhalswap AMM built on Binance Smart Chain.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xa1303e6199b319a891b79685f0537d289af1fc83.png',
-  },
-  NYA: {
-    name: 'Nyanswop Token',
-    symbol: 'NYA',
-    address: '0xbFa0841F7a90c4CE6643f651756EE340991F99D5',
-    chainId: 56,
-    decimals: 18,
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xbfa0841f7a90c4ce6643f651756ee340991f99d5.png',
-  },
   DANGO: {
     name: 'DANGO',
     symbol: 'DANGO',
@@ -2543,41 +2449,6 @@ const _tokens = {
     description: 'Soteria is a blockchain based mutual to share the risks of DeFi.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x541e619858737031a1244a5d0cd47e5ef480342c.png',
-  },
-  MTSLA: {
-    name: 'Mirror TSLA Token',
-    symbol: 'MTSLA',
-    address: '0xF215A127A196e3988C09d052e16BcFD365Cd7AA3',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://mirror.finance/',
-    description: 'Mirrored TSLA (mTSLA) is a synthetic asset tracking the price of a Tesla stock.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xF215A127A196e3988C09d052e16BcFD365Cd7AA3.png',
-  },
-  MNFLX: {
-    name: 'Mirror NFLX Token',
-    symbol: 'MNFLX',
-    address: '0xa04F060077D90Fe2647B61e4dA4aD1F97d6649dc',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://mirror.finance/',
-    description:
-      'Mirrored NFLX (mNFLX) is a synthetic asset tracking the price of a Netflix stock.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xa04F060077D90Fe2647B61e4dA4aD1F97d6649dc.png',
-  },
-  MGOOGL: {
-    name: 'Mirror GOOGL Token',
-    symbol: 'MGOOGL',
-    address: '0x62D71B23bF15218C7d2D7E48DBbD9e9c650B173f',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://mirror.finance/',
-    description:
-      'Mirrored GOOGL (mGOOGL) is a synthetic asset tracking the price of a Google stock.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x62D71B23bF15218C7d2D7E48DBbD9e9c650B173f.png',
   },
   UST: {
     name: 'UST Token',
@@ -3148,18 +3019,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x03ff0ff224f904be3118461335064bb48df47938.png',
   },
-  NRV: {
-    name: 'Nerve Finance',
-    symbol: 'NRV',
-    address: '0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://nerve.fi/',
-    description:
-      'Nerve Finance is a stableswap AMM built on Binance Smart Chain designed to allow trading stablecoins and pegged synthetic assets quickly with minimal slippage and low fees. $NRV is the governance token of the Nerve Finance protocol.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x42f6f551ae042cbe50c739158b4f0cac0edb9096.png',
-  },
   EASY: {
     name: 'Easyfi Network',
     symbol: 'EASY',
@@ -3316,17 +3175,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xC0eFf7749b125444953ef89682201Fb8c6A917CD.png',
   },
-  MTRG: {
-    name: 'Wrapped MTRG on BSC by Meter.io',
-    symbol: 'MTRG',
-    address: '0xBd2949F67DcdC549c6Ebe98696449Fa79D988A9F',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.meter.io/',
-    description:
-      'Meter is a high performance infrastructure that allows smart contracts to scale and travel seamlessly through heterogeneous blockchain networks.',
-    logoURI: '',
-  },
   QKC: {
     name: 'QuarkChain Token',
     symbol: 'QKC',
@@ -3336,17 +3184,6 @@ const _tokens = {
     website: 'https://quarkchain.io/',
     description:
       'QuarkChain is a flexible, scalable, and user-oriented blockchain infrastructure by using blockchain sharding technology.',
-    logoURI: '',
-  },
-  MX: {
-    name: 'MX Token',
-    symbol: 'MX',
-    address: '0x9F882567A62a5560d147d64871776EeA72Df41D3',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.mexc.com/',
-    description:
-      'MX is the native token of the MXC trading platform. MX holders reportedly benefit from asset appreciation, rebates on platform revenue, supervision, and voting.',
     logoURI: '',
   },
   BCFX: {
