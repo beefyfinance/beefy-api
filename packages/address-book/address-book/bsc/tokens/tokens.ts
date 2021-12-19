@@ -130,18 +130,6 @@ const _tokens = {
     description:
       'ProjectOasis is a metaverse built for users to socialize and interact with various Dapps and protocols available within DeFi',
   },
-  EXP: {
-    name: 'Game X Change',
-    symbol: 'EXP',
-    address: '0x639d4C62F58a4048AD0F69B8CE675dB1A3e8e00e',
-    chainId: 56,
-    decimals: 18,
-    logoURI:
-      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/EXP.svg ',
-    website: 'https://gamexchange.app/',
-    description:
-      'Game X Change is the global gaming exchange for the movements of assets (NFT’s) and in-game currency across the gaming ecosystem.',
-  },
   CEEK: {
     name: 'CEEK',
     symbol: 'CEEK',
@@ -354,17 +342,6 @@ const _tokens = {
     description: 'Global Confidential Compute Cloud',
     website: 'https://phala.network/en/',
   },
-  GNT: {
-    name: 'Green Trust',
-    symbol: 'GNT',
-    address: '0xF750A26EB0aCf95556e8529E72eD530f3b60f348',
-    chainId: 56,
-    decimals: 18,
-    logoURI:
-      'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0xF750A26EB0aCf95556e8529E72eD530f3b60f348/logo.png',
-    description: 'Eco-Friendly Cryptocurrency',
-    website: 'https://www.greentrusttoken.com/',
-  },
   USDO: {
     name: 'USD Open Dollar',
     symbol: 'USDO',
@@ -397,17 +374,6 @@ const _tokens = {
     website: 'https://yel.finance/',
     description:
       'Yield Enhancement Labs core mission is to help projects gain liquidity across multiple chains while building token economics with constant buy-pressure for YEL token',
-  },
-  DIS: {
-    name: 'TosDis',
-    symbol: 'DIS',
-    address: '0x57efFdE2759b68d86C544e88F7977e3314144859',
-    chainId: 56,
-    decimals: 18,
-    logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf981547a1D9A0c59C9aba1e2b826BF01a2e5E263/logo.png',
-    website: 'https://tosdis.finance/',
-    description: 'The One Stop Defi Interoperable Solution powered with Liquid Staking.',
   },
   rUSD: {
     name: 'Ramp Defi USD',
@@ -485,17 +451,6 @@ const _tokens = {
       'Bringing Real Estate to the Blockchain. Landshare offers a hassle-free alternative to traditional real estate investments.',
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/LAND.svg',
-  },
-  HONEY: {
-    name: 'HoneyFarm',
-    symbol: 'HONEY',
-    address: '0xFa363022816aBf82f18a9C2809dCd2BB393F6AC5',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://honeyfarm.finance',
-    description:
-      'A new type of layered delegated yield farming project with deflationary tokenomics',
-    logoURI: 'https://honeyfarm.finance/images/polyhoney/token.png',
   },
   GUARD: {
     name: 'Guardian',
@@ -729,18 +684,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x2eD9a5C8C13b93955103B9a7C167B67Ef4d568a3.svg',
   },
-  FORM: {
-    name: 'Formation Finance',
-    symbol: 'FORM',
-    address: '0x25A528af62e56512A19ce8c3cAB427807c28CC19',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://formation.fi/',
-    description:
-      'Formation Fi is a cross-chain decentralized asset management system designed to bring maturity and stability to DeFi by allowing users to quickly create highly diversified portfolios tailored to individual risk preferences.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x25A528af62e56512A19ce8c3cAB427807c28CC19.svg',
-  },
   ORBS: {
     name: 'Orbs',
     symbol: 'ORBS',
@@ -752,18 +695,6 @@ const _tokens = {
       'The Orbs Network is a public blockchain infrastructure designed for businesses looking at trust as a competitive strategy.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xeBd49b26169e1b52c04cFd19FCf289405dF55F80.svg',
-  },
-  DVI: {
-    name: 'Dvision',
-    symbol: 'DVI',
-    address: '0x758FB037A375F17c7e195CC634D77dA4F554255B',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://dvision.network/',
-    description:
-      'Dvision Network is essentially a blockchain-based VR content ecosystem, which also powers the NFT marketplace within virtual reality. Dvision Network presents a new virtual reality world, where humanity can lead an affluent life, at the very center of the ICT based fourth industrial revolution.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x758FB037A375F17c7e195CC634D77dA4F554255B.svg',
   },
   ADX: {
     name: 'AdEx Network',
@@ -848,18 +779,6 @@ const _tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4691937a7508860F876c9c0a2a617E7d9E945D4B.png',
   },
-  HTB: {
-    name: 'Hotbit',
-    symbol: 'HTB',
-    address: '0x4e840AADD28DA189B9906674B4Afcb77C128d9ea',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.hotbit.io/',
-    description:
-      'Hotbit Token (HTB) is the cryptocurrency project token of Hotbit Platform itself to create an ideal ecology system for digital currency exchange.',
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x4e840AADD28DA189B9906674B4Afcb77C128d9ea.png',
-  },
   MARSH: {
     name: 'MARSH',
     symbol: 'MARSH',
@@ -871,18 +790,6 @@ const _tokens = {
       'Unmarshal is a Multi-chain DeFi network of indexers that provides seamless access to Blockchain data for DeFi applications.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x2FA5dAF6Fe0708fBD63b1A7D1592577284f52256.png',
-  },
-  BORING: {
-    name: 'BoringDAO',
-    symbol: 'BORING',
-    address: '0xffEecbf8D7267757c2dc3d13D730E97E15BfdF7F',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.boringdao.com/',
-    description:
-      'BoringDAO deploys a series of decentralized bridges - or tunnels - which allow you to safely move your Bitcoin & other crypto assets between Ethereum & different blockchains to maximize utilization rate of crypto assets in DeFi world.',
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xffEecbf8D7267757c2dc3d13D730E97E15BfdF7F.png',
   },
   HAI: {
     name: 'Hai',
@@ -962,17 +869,6 @@ const _tokens = {
     description:
       'The Celer Network (CELR) is a smartly designed layer-2 scaling solution that provides off-chain transactions handling.',
     logoURI: 'https://bscscan.com/token/images/celernetwork_32.png',
-  },
-  GARUDA: {
-    name: 'GarudaSwap',
-    symbol: 'GARUDA',
-    address: '0x854086dC841e1bfae50Cb615bF41f55BF432a90b',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://garudaswap.finance/',
-    description:
-      'GarudaSwap.finance aims to be long live project with low initial supply, and automatic liquidity.',
-    logoURI: 'https://bscscan.com/token/images/garudaswap_32.png',
   },
   WINGS: {
     name: 'JetSwap',
@@ -1084,17 +980,6 @@ const _tokens = {
       'Pumpy is an assets management platform and yield farming aggregator running on Binance Smart Chain',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
-  COM: {
-    name: 'Complus',
-    symbol: 'COM',
-    address: '0x7fa892544D49598460B821De4D99E8c28b1Decaa',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://complus.exchange/',
-    description:
-      'Complus Network is a multi-chain exchange protocol for ERC-20 tokens on Polygon-Matic Network, Avalanche, Binance Smart Chain and the Huobi ECO Chain.',
-    logoURI: 'https://bscscan.com/images/main/empty-token.png',
-  },
   NUTS: {
     name: 'Squirrel Finance',
     symbol: 'NUTS',
@@ -1180,16 +1065,6 @@ const _tokens = {
     description: 'SALT is the native token of Saltswap.finance yield aggregator.',
     logoURI: 'https://bscscan.com/token/images/saltswap_32.png',
   },
-  CROW: {
-    name: 'Crow',
-    symbol: 'CROW',
-    address: '0xcc2E12a9b5b75360c6FBf23B584c275D52cDdb0E',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.crowfinance.net/',
-    description: 'CROW is the native token of Crowfinance.net yield aggregator.',
-    logoURI: 'https://bscscan.com/token/images/crowfinance_32.png?=v1',
-  },
   RAMEN: {
     name: 'Ramen',
     symbol: 'RAMEN',
@@ -1232,17 +1107,6 @@ const _tokens = {
     description:
       'Bolt Shares, also known as “Bolt True Share” are the governance tokens of the ecosystem. These tokens follow a Seigniorage Shares system that maintains a peg by auctioning coins for shares and shares for coins.',
     logoURI: 'https://bscscan.com/token/images/boltshare_32.png',
-  },
-  BTD: {
-    name: 'Bat True Dollar',
-    symbol: 'BTD',
-    address: '0xD1102332a213E21faF78B69C03572031F3552c33',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://boltdollar.finance/',
-    description:
-      'These tokens are designed to be used as a medium of exchange and are pegged loosely to the value of one BUSD.',
-    logoURI: 'https://bscscan.com/token/images/batdollar-btd_32.png',
   },
   KEBAB: {
     name: 'Kebab',
@@ -1327,22 +1191,6 @@ const _tokens = {
       '$GOLD is the second token introduced by the NAR protocol for this update. You’ll need this token to upgrade your abilities in the near future.',
     logoURI: 'https://bscscan.com/token/images/narwhalswap-gold_32.png',
   },
-  CRED: {
-    name: 'Street Credit',
-    symbol: 'CRED',
-    address: '0x571D0B55fe30eb1F6E68e8799F181c46De6B0059',
-    chainId: 56,
-    decimals: 18,
-    logoURI: 'https://bscscan.com/token/images/thugs-streetcredit_32.png',
-  },
-  GUNS: {
-    name: 'Lord of War',
-    symbol: 'GUNS',
-    address: '0x179983892eC36287f1F342443B671Ba549762241',
-    chainId: 56,
-    decimals: 18,
-    logoURI: 'https://bscscan.com/token/images/thugs-guns2_32.png',
-  },
   KTN: {
     name: 'Kattana',
     symbol: 'KTN',
@@ -1376,18 +1224,6 @@ const _tokens = {
     description: 'Kalmar is a decentralized bank powered by DeFi and NFT.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x4BA0057f784858a48fe351445C672FF2a3d43515.png',
-  },
-  EZ: {
-    name: 'EZ',
-    symbol: 'EZ',
-    address: '0x5512014efa6Cd57764Fa743756F7a6Ce3358cC83',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://easyfi.network/',
-    description:
-      'EasyFi is a multi chain layer 2 money markets with structured lending products to accelerate liquidity deployment at remarkably lowest cost & unimaginable fast speed.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x5512014efa6Cd57764Fa743756F7a6Ce3358cC83.png',
   },
   VRT: {
     name: 'VRT',
@@ -1532,16 +1368,6 @@ const _tokens = {
       'NEAR is an open source platform that enables creators, communities, and markets to drive a more open, interconnected and consumer-empowered world.',
     logoURI: 'https://dex.apeswap.finance/images/coins/near.svg',
   },
-  GRAND: {
-    name: 'Grand',
-    symbol: 'GRAND',
-    address: '0xeE814F5B2bF700D2e843Dc56835D28d095161dd9',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.thegrandbanks.finance/',
-    description: 'GRAND is the native token of The Grand Banks platform.',
-    logoURI: 'https://bscscan.com/token/images/grandtoken_32.png',
-  },
   SWAMP: {
     name: 'Swampy Token',
     symbol: 'SWAMP',
@@ -1577,18 +1403,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x0a3a21356793b49154fd3bbe91cbc2a16c0457f5.png',
   },
-  HYFI: {
-    name: 'HYFI Token',
-    symbol: 'HYFI',
-    address: '0x9a319b959e33369C5eaA494a770117eE3e585318',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://hyfi.pro/',
-    description:
-      'Hyper Finance (HyFi.pro) is a decentralized aggregate mining platform based on the ‌Binance‌ Smart Chain.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x9a319b959e33369C5eaA494a770117eE3e585318.png',
-  },
   FINE: {
     name: 'Refinable Token',
     symbol: 'FINE',
@@ -1622,17 +1436,6 @@ const _tokens = {
       'OIN brings great DeFi functionality, such as stablecoin issuance to blockchain projects through a multi-faceted infrastructure.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x658E64FFcF40D240A43D52CA9342140316Ae44fA.png',
-  },
-  BigONE: {
-    name: 'BigONE Token',
-    symbol: 'ONE',
-    address: '0x04BAf95Fd4C52fd09a56D840bAEe0AB8D7357bf0',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.bigone.com/',
-    description: 'ONE is the native token of the BigONE exchange.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x04BAf95Fd4C52fd09a56D840bAEe0AB8D7357bf0.png',
   },
   PMON: {
     name: 'Polkamon Token',
@@ -1680,28 +1483,6 @@ const _tokens = {
       'The MASS consensus engine aims to become the basic infrastructure to all blockchain consensus layers.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x7e396bfc8a2f84748701167c2d622f041a1d7a17.png',
-  },
-  FTS: {
-    name: 'Fortress Token',
-    symbol: 'FTS',
-    address: '0x4437743ac02957068995c48E08465E0EE1769fBE',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://fortress.loans/',
-    description:
-      'Fortress is a decentralized marketplace for lenders and borrowers with borderless stablecoins.',
-    logoURI: 'https://bscscan.com/token/images/fortress_32.png?v=4',
-  },
-  DND: {
-    name: 'DIAMOND Token',
-    symbol: 'DND',
-    address: '0x34EA3F7162E6f6Ed16bD171267eC180fD5c848da',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://diamondhand.fi/',
-    description:
-      'DiamondHand (DH) is a product for creating decentralized synthetic tokens pegged to cryptocurrencies like BTC, ETH, BNB, ADA, DOT, LINK and others by using the partial-collateralized design concept which was proven to work admirably well with the IRON stablecoin.',
-    logoURI: 'https://bscscan.com/token/images/diamond_32.png',
   },
   ZEFI: {
     name: 'ZCore Finance Token',
@@ -1766,17 +1547,6 @@ const _tokens = {
     website: 'https://keyfi.com/',
     description:
       'KeyFi is an all-in-one platform for tracking, swapping, and staking your tokens, and more.',
-    logoURI: 'https://dex.apeswap.finance/images/coins/XBTC.svg',
-  },
-  BXBTC: {
-    name: 'bxBTC Token',
-    symbol: 'BXBTC',
-    address: '0xab111D5948470Ba73d98D66BBdf2798FBE093546',
-    chainId: 56,
-    decimals: 9,
-    website: 'https://xbtc.fi/',
-    description:
-      'xBTC is a new technology that provides a synthetic dominance hedge and synthetic index fund to blockchain assets.',
     logoURI: 'https://dex.apeswap.finance/images/coins/XBTC.svg',
   },
   NAUT: {
@@ -1868,18 +1638,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xba2ae424d960c26247dd6c32edc70b295c744c43.png',
   },
-  HAKKA: {
-    name: 'Hakka Finance on xDai on BSC TOKEN',
-    symbol: 'HAKKA',
-    address: '0x1D1eb8E8293222e1a29d2C0E4cE6C0Acfd89AaaC',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://hakka.finance/',
-    description:
-      'Hakka Finance is a set of decentralized derivatives & original financial instruments, forming an all-inclusive ecosystem of tools that allow users to pursue financial sovereignty.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x1d1eb8e8293222e1a29d2c0e4ce6c0acfd89aaac.png',
-  },
   XED: {
     name: 'Exeedme TOKEN',
     symbol: 'XED',
@@ -1891,18 +1649,6 @@ const _tokens = {
       'Exeedme is about using blockchain to allow for skill monetization through digital currencies and assets with open market dynamics, giving gamers a superior sense of ownership and control.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x5621b5a3f4a8008c4ccdd1b942b121c8b1944f1f.png',
-  },
-  CGG: {
-    name: 'pTokens CGG TOKEN',
-    symbol: 'CGG',
-    address: '0x1613957159E9B0ac6c80e824F7Eea748a32a0AE2',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://chainguardians.io/',
-    description:
-      'Chain Guardians positions itself as the first ecosystem that combines blockchain and superheroes. It is a platform that combines traditional gaming concepts with blockchain technologies to enable player-driven economies.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x1613957159e9b0ac6c80e824f7eea748a32a0ae2.png',
   },
   DFD: {
     name: 'DefiDollar DAO TOKEN',
@@ -2091,18 +1837,6 @@ const _tokens = {
       'Band Protocol is a cross-chain data oracle platform that aggregates and connects real-world data and APIs to smart contracts.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xad6caeb32cd2c308980a548bd0bc5aa4306c6c18.png',
-  },
-  EOS: {
-    name: 'EOS Token',
-    symbol: 'EOS',
-    address: '0x56b6fB708fC5732DEC1Afc8D8556423A2EDcCbD6',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://eos.io/',
-    description:
-      'EOSIO is a highly performant open-source blockchain platform, built to support and operate safe, compliant, and predictable digital infrastructures.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x56b6fb708fc5732dec1afc8d8556423a2edccbd6.png',
   },
   USDT: {
     name: 'Tether USD',
@@ -2319,18 +2053,6 @@ const _tokens = {
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd.png',
-  },
-  BURGER: {
-    name: 'Burger Swap',
-    symbol: 'BURGER',
-    address: '0xAe9269f27437f0fcBC232d39Ec814844a51d6b8f',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://burgerswap.org/',
-    description:
-      'BurgerSwap is a democratized AMM on Binance Smart Chain with the following main functions: Swap, Liquidity Pool, Governance,  ERC20-BEP20 token transfer [cross] Bridge, Burger Shack, Farm, and IFO.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xae9269f27437f0fcbc232d39ec814844a51d6b8f.png',
   },
   DICE: {
     name: 'Dice.finance Token',
@@ -2679,17 +2401,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xbc5609612b7c44bef426de600b5fd1379db2ecf1.png',
   },
-  DITTO: {
-    name: 'Ditto',
-    symbol: 'DITTO',
-    address: '0x233d91A0713155003fc4DcE0AFa871b508B3B715',
-    chainId: 56,
-    decimals: 9,
-    website: 'https://ditto.money/',
-    description: 'Ditto is an elastic supply token on the Binance Smart Chain.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x233d91A0713155003fc4DcE0AFa871b508B3B715.png',
-  },
   MATH: {
     name: 'Math',
     symbol: 'MATH',
@@ -2939,17 +2650,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xbf7c81fff98bbe61b40ed186e4afd6ddd01337fe.png',
   },
-  HGET: {
-    name: 'Hedget',
-    symbol: 'HGET',
-    address: '0xC7d8D35EBA58a0935ff2D5a33Df105DD9f071731',
-    chainId: 56,
-    decimals: 6,
-    website: 'https://www.hedget.com/',
-    description: 'Hedget is a decentralized and non-custodial cryptocurrency options protocol.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xC7d8D35EBA58a0935ff2D5a33Df105DD9f071731.png',
-  },
   LIT: {
     name: 'Litentry',
     symbol: 'LIT',
@@ -3163,18 +2863,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x695FD30aF473F2960e81Dc9bA7cB67679d35EDb7.png',
   },
-  BMXX: {
-    name: 'Multiplier',
-    symbol: 'BMXX',
-    address: '0x4131b87F74415190425ccD873048C708F8005823',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://multiplier.finance/',
-    description:
-      'Multiplier is a non-custodial lending protocol on Binance Smart Chain with flash loans.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x4131b87f74415190425ccd873048c708f8005823.png',
-  },
   IOTX: {
     name: 'IoTeX',
     symbol: 'IOTX',
@@ -3283,18 +2971,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x211ffbe424b90e25a15531ca322adf1559779e45.png',
   },
-  FOR: {
-    name: 'ForTube',
-    symbol: 'FOR',
-    address: '0x658A109C5900BC6d2357c87549B651670E5b0539',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.for.tube/',
-    description:
-      'ForTube is an open source DeFi lending protocol designed to provide decentralized solutions for lending services.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x658A109C5900BC6d2357c87549B651670E5b0539.png',
-  },
   ALICE: {
     name: 'My Neigbor Alice',
     symbol: 'ALICE',
@@ -3318,18 +2994,6 @@ const _tokens = {
       'PancakeBunny is a decentralized finance (DeFi) yield aggregator and optimizer for the Binance Smart Chain.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xc9849e6fdb743d08faee3e34dd2d1bc69ea11a51.png',
-  },
-  DEGO: {
-    name: 'Dego.Finance',
-    symbol: 'DEGO',
-    address: '0x3FdA9383A84C05eC8f7630Fe10AdF1fAC13241CC',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://bsc.dego.finance/',
-    description:
-      'Dego Finance is a decentralized ecosystem that offers a diverse combination of non-fungible token (NFT) and decentralized finance (DeFi) tools. It is an independent, open NFT ecosystem.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x3fda9383a84c05ec8f7630fe10adf1fac13241cc.png',
   },
   LTO: {
     name: 'LTO Network',
@@ -3603,18 +3267,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c.png',
   },
-  HOO: {
-    name: 'Hoo',
-    symbol: 'HOO',
-    address: '0xE1d1F66215998786110Ba0102ef558b22224C016',
-    chainId: 56,
-    decimals: 8,
-    website: 'https://hoo.com/',
-    description:
-      'HOO(Hoo Token) is the native token of the whole ecosystem of Hoo Exchange, ticker HOO, which is a decentralized blockchain digital assets based on Ethereum.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xe1d1f66215998786110ba0102ef558b22224c016.png',
-  },
   ODDZ: {
     name: 'Oddz',
     symbol: 'ODDZ',
@@ -3638,18 +3290,6 @@ const _tokens = {
       'ApySwap is a single point of entry for all the most popular and profitable services from such blockchains as Ethereum, Polkadot, Binance Smart Chain, HECO, Tezos, Solana and others.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x37dfACfaeDA801437Ff648A1559d73f4C40aAcb7.png',
-  },
-  BONDLY: {
-    name: 'Bondly',
-    symbol: 'BONDLY',
-    address: '0x96058f8C3e16576D9BD68766f3836d9A33158f89',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.bondly.finance/',
-    description:
-      'Bondly aims to bring DeFi to the masses by bridging the gap between decentralized escrow payments and traditional marketplaces.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x96058f8c3e16576d9bd68766f3836d9a33158f89.png',
   },
   TKO: {
     name: 'TokoCrypto',
@@ -3873,17 +3513,6 @@ const _tokens = {
     description:
       'Rabbit Finance is a cross-chain leveraged lending protocol, allowing users to multiply (like Rabbits 🐰🐰🐰) their funds up to 9x, thereby maximizing interest and liquidity farming yields.',
     website: 'https://rabbitfinance.io/',
-  },
-  FRUIT: {
-    name: 'FRUIT',
-    symbol: 'FRUIT',
-    address: '0x4ECfb95896660aa7F54003e967E7b283441a2b0A',
-    chainId: 56,
-    decimals: 18,
-    logoURI: 'https://www.fruitsadventures.com/images/coin/FRUIT.png',
-    description:
-      "Fruit's Adventures focus on fun first with our Binance Smart Chain powered fruit adventures. Players can win Fruit tokens by playing our decentralized games.",
-    website: 'https://www.fruitsadventures.com/',
   },
   PERA: {
     name: 'PERA',
