@@ -1171,27 +1171,6 @@ const _tokens = {
       'Squirrel Finance is the first decentralized insurance solution for yield farming on BSC that instantly & automatically compensates users if their funds are locked or stolen.',
     logoURI: 'https://bscscan.com/token/images/squirrel_32.png',
   },
-  APE: {
-    name: 'APEcoin',
-    symbol: 'APE',
-    address: '0xa9eA4b786ee5b7A733c035564Bfd9341A4c9FC1e',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://apecoin.dev/',
-    description: 'APE is a BEP-20 token celebrating the "ape" crypto meme.',
-    logoURI: 'https://bscscan.com/token/images/apecoin_32.png?=v1',
-  },
-  MFRM: {
-    name: 'MemeFarm',
-    symbol: 'MFRM',
-    address: '0x206340f3361404910F45cA0893980EF3f9b418ea',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://memefarm.io/',
-    description:
-      'MemeFarm is the native token of the MemeFarm platform where collectors and creators are connected through yield farming, NFTs and community governance.',
-    logoURI: 'https://bscscan.com/token/images/memefarm_32.png',
-  },
   SLME: {
     name: 'Slime',
     symbol: 'SLME',
@@ -3092,17 +3071,6 @@ const _tokens = {
       'EGLD is a highly scalable, fast and secure blockchain platform for distributed apps, enterprise use cases and the new internet economy.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xbf7c81fff98bbe61b40ed186e4afd6ddd01337fe.png',
-  },
-  AUTO: {
-    name: 'AUTOv2',
-    symbol: 'AUTO',
-    address: '0xa184088a740c695E156F91f5cC086a06bb78b827',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://autofarm.network/',
-    description: 'AUTO is the native utility and governance token to the Autofarm protocol.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xa184088a740c695e156f91f5cc086a06bb78b827.png',
   },
   HGET: {
     name: 'Hedget',
