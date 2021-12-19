@@ -486,17 +486,6 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/LAND.svg',
   },
-  BEAR: {
-    name: 'HoneyFarm',
-    symbol: 'BEAR',
-    address: '0xc3EAE9b061Aa0e1B9BD3436080Dc57D2d63FEdc1',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://honeyfarm.finance',
-    description:
-      'A new type of layered delegated yield farming project with deflationary tokenomics',
-    logoURI: 'https://bear.honeyfarm.finance/images/honeybear/token.png',
-  },
   HONEY: {
     name: 'HoneyFarm',
     symbol: 'HONEY',
@@ -1040,26 +1029,6 @@ const _tokens = {
       'MarshmallowDeFi (MASH) is the next generation of Automated Market Making (AMM) decentralized exchange with a deflationary governance token model.',
     logoURI: 'https://bscscan.com/token/images/marshmellowtoken_32.png?v=4',
   },
-  BLZD: {
-    name: 'Blizzard',
-    symbol: 'BLZD',
-    address: '0x57067A6BD75c0E95a6A5f158455926e43E79BeB0',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.blizzard.money/',
-    description: 'BLZD is the native token of Blizzard.money where users can yield their tokens.',
-    logoURI: 'https://bscscan.com/images/main/empty-token.png',
-  },
-  BITI: {
-    name: 'biti city',
-    symbol: 'BITI',
-    address: '0xA25Dab5B75aC0E0738E58E49734295baD43d73F1',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.biti.city/',
-    description: 'Biti is a NFT yield farming game on Binance Smart Chain.',
-    logoURI: 'https://bscscan.com/images/main/empty-token.png',
-  },
   PALM: {
     name: 'Palm',
     symbol: 'PALM',
@@ -1070,28 +1039,6 @@ const _tokens = {
     description:
       'PALM is the native token of YieldBay, a Yield Farming project running on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/token/images/yieldbay_32.png',
-  },
-  BGO: {
-    name: 'Bingo Cash',
-    symbol: 'BGO',
-    address: '0x579A6277a6c2c63a5b25006F63Bce5DC8D9c25e7',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://bingocash.app/',
-    description:
-      'Bingo Cash Finance is the AlgoStable coin protocol built on the Binance Smart Chain ("BSC")  for casino gaming.',
-    logoURI: 'https://bscscan.com/token/images/bingocash_32.png',
-  },
-  sBGO: {
-    name: 'Bingo Share',
-    symbol: 'sBGO',
-    address: '0x53F39324Fbb209693332B87aA94D5519A1a49aB0',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://bingocash.app/',
-    description:
-      'Bingo Shares loosely represent the value of the Bingo Cash Finance and trust in its systemic ability to maintain BGO to peg.',
-    logoURI: 'https://bscscan.com/token/images/bingocash-share_32.png',
   },
   TNDR: {
     name: 'Thunder',
@@ -1395,16 +1342,6 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     logoURI: 'https://bscscan.com/token/images/thugs-guns2_32.png',
-  },
-  BLIQ: {
-    name: 'Bliquid',
-    symbol: 'BLIQ',
-    address: '0xC97faC34CeB0Bb1B2bdAf3b59ADA378b99111a22',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.bliquid.io/',
-    description: 'Bliquid is an auto liquidity generating protocol for Binance Smart Chain-',
-    logoURI: 'https://bscscan.com/token/images/bliquid_32.png',
   },
   KTN: {
     name: 'Kattana',
@@ -2683,18 +2620,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x728C5baC3C3e370E372Fc4671f9ef6916b814d8B.png',
   },
-  BLK: {
-    name: 'BLINk',
-    symbol: 'BLK',
-    address: '0x63870A18B6e42b01Ef1Ad8A2302ef50B7132054F',
-    chainId: 56,
-    decimals: 6,
-    website: 'https://blink.wink.org/',
-    description:
-      'BLINk is a partnership between WINk and Binance community. Together we’ve created a brand new gaming platform running entirely on the Binance Smart Chain.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x63870A18B6e42b01Ef1Ad8A2302ef50B7132054F.png',
-  },
   QUSD: {
     name: 'QUSD Stablecoin',
     symbol: 'QUSD',
@@ -3002,18 +2927,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x23396cF899Ca06c4472205fC903bDB4de249D6fC.png',
   },
-  BFI: {
-    name: 'b.earnfi',
-    symbol: 'BFI',
-    address: '0x81859801b01764D4f0Fa5E64729f5a6C3b91435b',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.bearn.fi/',
-    description:
-      'BFI is a token that is Proof of Stake that acts like a receipt for that you have BFIs Staked in bStake.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x81859801b01764D4f0Fa5E64729f5a6C3b91435b.png',
-  },
   EGLD: {
     name: 'Elrond',
     symbol: 'EGLD',
@@ -3309,18 +3222,6 @@ const _tokens = {
       'Yieldwatch.net is a smart yield farming dashboard that lets you monitor your liquidity pools, yield farming and token staking performance with a casual and sleek UI, which is optimised for mobile use.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x7a9f28eb62c791422aa23ceae1da9c847cbec9b0.png',
-  },
-  BEL: {
-    name: 'Bella Protocol',
-    symbol: 'BEL',
-    address: '0x8443f091997f06a61670B735ED92734F5628692F',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://bella.fi/',
-    description:
-      'Bella DeFi suite allows users to simply deposit and enjoy high yield from sophisticated arbitrage strategies, either on-chain or via our custodian service.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x8443f091997f06a61670b735ed92734f5628692f.png',
   },
   DEXE: {
     name: 'DeXe',
