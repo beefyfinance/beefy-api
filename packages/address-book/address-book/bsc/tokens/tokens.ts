@@ -287,18 +287,6 @@ const _tokens = {
       'Elk.Finance is a cross-chain liquidity network, allowing for instantaneous exchange of tokens between chains. Elk.Finance also aims to provide the first gyroscopic stablecoin (CHFT) available on multiple chains for blazing fast payments anytime, anywhere.',
     website: 'https://elk.finance/',
   },
-  QBT: {
-    name: 'Qubit Token',
-    symbol: 'QBT',
-    address: '0x17B7163cf1Dbd286E262ddc68b553D899B93f526',
-    chainId: 56,
-    decimals: 18,
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x17B7163cf1Dbd286E262ddc68b553D899B93f526.svg',
-    website: 'https://qbt.fi/',
-    description:
-      'Qubit Finance is a DeFi lending protocol developed by MOUND, the team behind Pancake Bunny',
-  },
   AURO: {
     name: 'Viralata',
     symbol: 'AURO',
@@ -320,17 +308,6 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x758d08864fB6cCE3062667225ca10b8F00496cc2.png',
     description: 'DeFi Lending',
     website: 'https://naos.finance/',
-  },
-  PHA: {
-    name: 'Phala Network',
-    symbol: 'PHA',
-    address: '0x0112e557d400474717056C4e6D40eDD846F38351',
-    chainId: 56,
-    decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x0112e557d400474717056C4e6D40eDD846F38351.png',
-    description: 'Global Confidential Compute Cloud',
-    website: 'https://phala.network/en/',
   },
   USDO: {
     name: 'USD Open Dollar',
@@ -627,18 +604,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x20de22029ab63cf9A7Cf5fEB2b737Ca1eE4c82A6.svg',
   },
-  TITAN: {
-    name: 'TitanSwap',
-    symbol: 'TITAN',
-    address: '0xe898EDc43920F357A93083F1d4460437dE6dAeC2',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://titanswap.org/',
-    description:
-      'TITAN is a blockchain based decentralized financial center that provides optimal liquidity solutions for different digital asset category by adaptive bonding curve. It not only provides a user-centered decentralized exchange, but also it is an aggregated liquidity pool that supports order smart routing.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xe898EDc43920F357A93083F1d4460437dE6dAeC2.svg',
-  },
   MASK: {
     name: 'Mask Network',
     symbol: 'MASK',
@@ -687,17 +652,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x5A3010d4d8D3B5fB49f8B6E57FB9E48063f16700.svg',
   },
-  RABBIT: {
-    name: 'Rabbit Coin',
-    symbol: 'RABBIT',
-    address: '0x95a1199EBA84ac5f19546519e287d43D2F0E1b41',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://rabbitfinance.io/',
-    description: 'Rabbit Finance is a cross-chain leveraged lending protocol.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x95a1199EBA84ac5f19546519e287d43D2F0E1b41.svg',
-  },
   WEX: {
     name: 'WaultSwap',
     symbol: 'WEX',
@@ -709,18 +663,6 @@ const _tokens = {
       'Wault Finance is a decentralized finance hub that connects all of the primary DeFi use-cases within one simple ecosystem, on the Binance Smart Chain.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xa9c41A46a6B3531d28d5c32F6633dd2fF05dFB90.svg',
-  },
-  WAULTx: {
-    name: 'Wault',
-    symbol: 'WAULTx',
-    address: '0xB64E638E60D154B43f660a6BF8fD8a3b249a6a21',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://wault.finance/',
-    description:
-      'Wault Finance is a decentralized finance hub that connects all of the primary DeFi use-cases within one simple ecosystem, on the Binance Smart Chain.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xB64E638E60D154B43f660a6BF8fD8a3b249a6a21.svg',
   },
   DG: {
     name: 'Decentralized Game',
@@ -836,61 +778,6 @@ const _tokens = {
       'Jetswap is a decentralized Automated Market Maker (AMM) on Binance Smart Chain with low fees and instant trade execution.',
     logoURI: 'https://bscscan.com/token/images/jetswap_32.png',
   },
-  SDUMP: {
-    name: 'Space Dumpling',
-    symbol: 'SDUMP',
-    address: '0x13F6751ba11337BC67aBBdAd638a56194ee133B8',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://dumplingdefi.finance/',
-    description:
-      'SpaceDumpling token can be used to play various games and farm rewards by providing liquidity on Pancakeswap.',
-    logoURI: 'https://bscscan.com/token/images/dumplingdefi2_32.png',
-  },
-  SAT: {
-    name: 'Satisfi',
-    symbol: 'xSAT',
-    address: '0x8fda94079913CB921D065Ed9c004Afb43e1f900e',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.satis.finance/',
-    description:
-      'SatisFinance is a brand new DeFi project designed by an experienced development team as the 4th generation deflationary yield farm on Binance Smart Chain.',
-    logoURI: 'https://bscscan.com/images/main/empty-token.png',
-  },
-  TOFY: {
-    name: 'Tofy',
-    symbol: 'TOFY',
-    address: '0xE1F2d89a6c79b4242F300f880e490A70083E9A1c',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://safefarms.marshmallowdefi.com/info',
-    description:
-      'Toffee is the reference token for SAFEFARM within the MarshMallow ecosystem, it is a digital currency received in exchange when you Pool or Farm your Reflection Tokens.',
-    logoURI: 'https://bscscan.com/images/main/empty-token.png',
-  },
-  TNDR: {
-    name: 'Thunder',
-    symbol: 'TNDR',
-    address: '0x7Cc46141AB1057b1928de5Ad5Ee78Bb37eFC4868',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://thunderswap.finance/',
-    description:
-      'ThunderSwap is an innovative and reliable, next-generation Decentralized Exchange (AMM) and Yield Farm on the Binance Smart Chain (BSC).',
-    logoURI: 'https://bscscan.com/token/images/thunderswap_32.png',
-  },
-  SWIRL: {
-    name: 'Swirl Cash',
-    symbol: 'SWIRL',
-    address: '0x52d86850bc8207b520340B7E39cDaF22561b9E56',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://swirl.cash/',
-    description:
-      'Swirl Cash is a aecentralized protocol for private transactions on Binance Smart Chain',
-    logoURI: 'https://bscscan.com/token/images/swirlcash_32.png',
-  },
   HPS: {
     name: 'Happiness',
     symbol: 'HPS',
@@ -911,17 +798,6 @@ const _tokens = {
     website: 'https://pumpy.farm/',
     description:
       'Pumpy is an assets management platform and yield farming aggregator running on Binance Smart Chain',
-    logoURI: 'https://bscscan.com/images/main/empty-token.png',
-  },
-  SLME: {
-    name: 'Slime',
-    symbol: 'SLME',
-    address: '0x4fCfA6cC8914ab455B5b33Df916d90BFe70b6AB1',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://slime.finance/',
-    description:
-      'Slime Finance is an advanced profit-sharing DeFi protocol aiming to go multi-chain.',
     logoURI: 'https://bscscan.com/images/main/empty-token.png',
   },
   JulD: {
@@ -945,17 +821,6 @@ const _tokens = {
       'SOUP tokens are designed to be used as a medium of exchange. The built-in stability mechanism in the protocol aims to maintain SOUP peg to 1 Binance (BNB) token in the long run.',
     logoURI: 'https://bscscan.com/token/images/soupfinance_32.png',
   },
-  SOUPS: {
-    name: 'Soup Share',
-    symbol: 'SOUPS',
-    address: '0x69F27E70E820197A6e495219D9aC34C8C6dA7EeE',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://soups.finance/',
-    description:
-      'Soup Shares (SOUPS) is the utility token for Soup protocol. Holders of SOUPS tokens can be locked up to claim a pro-rata share of SOUP tokens accumulated in the Boiler contract.',
-    logoURI: 'https://bscscan.com/token/images/soupshare_32.png',
-  },
   '1INCH': {
     name: '1INCH',
     symbol: '1INCH',
@@ -966,16 +831,6 @@ const _tokens = {
     description:
       '1inch is a decentralized exchange (DEX) aggregator, connecting several DEXes into one platform to allow its users to find the most efficient swapping routes across all platforms.',
     logoURI: 'https://tokens.1inch.exchange/0x111111111117dc0aa78b770fa6a738034120c302.png',
-  },
-  STEAM: {
-    name: 'Steam',
-    symbol: 'STEAM',
-    address: '0x072e3D0D4f14dd82a16B0a33678c6104e9009ED9',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.sponge.finance/',
-    description: 'The Steam token is an alt token that will be emitted by burning $SOAK.',
-    logoURI: 'https://bscscan.com/token/images/steam_32.png',
   },
   SALT: {
     name: 'Salt',
@@ -1041,16 +896,6 @@ const _tokens = {
       'Kebab Finance is a DEX (Decentralized Exchange), using AMM (Automated Market Maker) technology.',
     logoURI: 'https://bscscan.com/token/images/kebabfinance_32.png',
   },
-  SPG: {
-    name: 'Sponge',
-    symbol: 'SPG',
-    address: '0x3aabCf53A1930A42E18D938C019E83Ebee50a849',
-    chainId: 56,
-    decimals: 9,
-    website: 'https://www.sponge.finance/',
-    description: 'Sponge is a high passive yield token that absorbs token from other transactions',
-    logoURI: 'https://bscscan.com/token/images/sponge_32.png',
-  },
   SOAK: {
     name: 'Soak',
     symbol: 'SOAK',
@@ -1071,17 +916,6 @@ const _tokens = {
     description:
       'Monster Slayer Shares loosely represent the value of the Monster Slayer Cash and trust in its systemic ability to maintain MSC to peg.',
     logoURI: 'https://bscscan.com/token/images/monsterslayer-mss_32.png',
-  },
-  VAPOR: {
-    name: 'VAPOR',
-    symbol: 'VAPOR',
-    address: '0x86ac8a05Cc4eEd2BEa32D271dE50e2A3d129b6B6',
-    chainId: 56,
-    decimals: 9,
-    website: 'https://www.bliquid.io/',
-    description:
-      'Vapor is a novel protocol that combines the unique mechanisms of several recently successful DeFi projects.',
-    logoURI: 'https://tokens.julswap.com/images/0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea.png',
   },
   BHC: {
     name: 'Billion Happiness',
@@ -1150,16 +984,6 @@ const _tokens = {
     description: 'The OPEN project is a toolkit to connect the real world to DEFI',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xaBaE871B7E3b67aEeC6B46AE9FE1A91660AadAC5.png',
-  },
-  WELL: {
-    name: 'BitWell',
-    symbol: 'WELL',
-    address: '0xf07a32Eb035b786898c00bB1C64d8c6F8E7a46D5',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.bitwellex.com/',
-    description: 'WELL is the native token of the BitWell exchange.',
-    logoURI: 'https://bscscan.com/token/images/bitwellex_32.png',
   },
   SNX: {
     name: 'Synthetix',
@@ -1294,18 +1118,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x4fa7163e153419e0e1064e418dd7a99314ed27b6.png',
   },
-  RFOX: {
-    name: 'RFOX Token',
-    address: '0x0a3A21356793B49154Fd3BbE91CBc2A16c0457f5',
-    symbol: 'RFOX',
-    decimals: 18,
-    chainId: 56,
-    website: 'https://www.redfoxlabs.io/',
-    description:
-      'RedFOX Labs is a tech-forward digital venture builder delivering companies & platforms that are secure, scalable, and innovative, bringing the world into a new era of technology and prosperity.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x0a3a21356793b49154fd3bbe91cbc2a16c0457f5.png',
-  },
   FINE: {
     name: 'Refinable Token',
     symbol: 'FINE',
@@ -1315,18 +1127,6 @@ const _tokens = {
     website: 'https://app.refinable.com/',
     description: 'Refinable is the first dedicated NFT marketplace built on Binance Smart Chain.',
     logoURI: 'https://bscscan.com/token/images/refinable_32.png',
-  },
-  tDOGE: {
-    name: '╧äDogecoin Token',
-    symbol: 'tDOGE',
-    address: '0xe550a593d09FBC8DCD557b5C88Cea6946A8b404A',
-    chainId: 56,
-    decimals: 8,
-    website: 'https://www.btcst.finance/',
-    description:
-      'τDoge is the second synthetic asset that BTCST stakers can mine. The price of τDoge is pegged 1:1 to that of Dogecoin in accordance with the price pegging mechanism of the Tau Protocol',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xe550a593d09fbc8dcd557b5c88cea6946a8b404a.png',
   },
   OIN: {
     name: 'oinfinance Token',
@@ -1374,18 +1174,6 @@ const _tokens = {
       'UpBots is an all-in-one platform that brings together the best crypto trading tools and strategies that are generally stand-alone services.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xbbeb90cfb6fafa1f69aa130b7341089abeef5811.png',
-  },
-  WMASS: {
-    name: 'Wrapped MASS Token',
-    symbol: 'WMASS',
-    address: '0x7e396BfC8a2f84748701167c2d622F041A1D7a17',
-    chainId: 56,
-    decimals: 8,
-    website: 'https://massnet.org/',
-    description:
-      'The MASS consensus engine aims to become the basic infrastructure to all blockchain consensus layers.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x7e396bfc8a2f84748701167c2d622f041a1d7a17.png',
   },
   ZEFI: {
     name: 'ZCore Finance Token',
@@ -2367,18 +2155,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x80d5f92c2c8c682070c95495313ddb680b267320.png',
   },
-  bALBT: {
-    name: 'AllianceBlock',
-    symbol: 'bALBT',
-    address: '0x72fAa679E1008Ad8382959FF48E392042A8b06f7',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://allianceblock.io/',
-    description:
-      'The AllianceBlock Protocol is a decentralized, blockchain-agnostic layer 2 that bridges traditional and decentralized finance and automates the process of converting any digital or crypto asset into a bankable product.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x72faa679e1008ad8382959ff48e392042a8b06f7.png',
-  },
   TEN: {
     name: 'Tenet',
     symbol: 'TEN',
@@ -2438,17 +2214,6 @@ const _tokens = {
       'Frontier is a chain-agnostic DeFi aggregation layer. In short, Frontierʼs core mission is to bring the essential pieces of DeFi to users across whichever platforms they prefer.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x928e55daB735aa8260AF3cEDadA18B5f70C72f1b.png',
-  },
-  WSOTE: {
-    name: 'Soteria',
-    symbol: 'WSOTE',
-    address: '0x541E619858737031A1244A5d0Cd47E5ef480342c',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://soteria.finance/',
-    description: 'Soteria is a blockchain based mutual to share the risks of DeFi.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x541e619858737031a1244a5d0cd47e5ef480342c.png',
   },
   UST: {
     name: 'UST Token',
@@ -2545,18 +2310,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x52ce071bd9b1c4b00a0b92d298c512478cad67e8.png',
   },
-  SWGB: {
-    name: 'Swirge Pay',
-    symbol: 'SWGB',
-    address: '0xE40255C5d7fa7ceEc5120408C78C787CECB4cfdb',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.swirge.com/',
-    description:
-      'Swirge Finance is a Swirge subsidiary focused on building decentralized financial products on the blockchain like a Multi-chain yield optimizer and staking platform operating on Binance Smart Chain',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xe40255c5d7fa7ceec5120408c78c787cecb4cfdb.png',
-  },
   renBTC: {
     name: 'renBTC',
     symbol: 'renBTC',
@@ -2593,18 +2346,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x5921dee8556c4593eefcfad3ca5e2f618606483b.png',
   },
-  ZEE: {
-    name: 'ZeroSwapToken',
-    symbol: 'ZEE',
-    address: '0x44754455564474A89358B2C2265883DF993b12F0',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://zeroswap.io/',
-    description:
-      'ZeroSwap.io is a Multi-Chain, Zero-fee, On-chain Trading protocol with Liquidity Mining, DeFi Token Offering, and DEX Aggregation.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x44754455564474a89358b2c2265883df993b12f0.png',
-  },
   BRY: {
     name: 'Berry',
     symbol: 'BRY',
@@ -2615,18 +2356,6 @@ const _tokens = {
     description: 'Berry is a decentralized oracle network on the Binance Smart Chain.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xf859Bf77cBe8699013d6Dbc7C2b926Aaf307F830.png',
-  },
-  SWINGBY: {
-    name: 'Swingby',
-    symbol: 'SWINGBY',
-    address: '0x71DE20e0C4616E7fcBfDD3f875d568492cBE4739',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://swingby.network/',
-    description:
-      'Swingby is a decentralized proof-of-stake network that uses the latest advancements in cryptography research to allow you to move your tokens onto other chains without a trusted party.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x71DE20e0C4616E7fcBfDD3f875d568492cBE4739.png',
   },
   DODO: {
     name: 'Dodo',
@@ -2831,17 +2560,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x96dd399f9c3afda1f194182f71600f1b65946501.png',
   },
-  TXL: {
-    name: 'Tixl',
-    symbol: 'TXL',
-    address: '0x1FFD0b47127fdd4097E54521C9E2c7f0D66AafC5',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://tixl.org/',
-    description: 'Tixl aims to build a high-performance network to connect all blockchains.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x1ffd0b47127fdd4097e54521c9e2c7f0d66aafc5.png',
-  },
   ALPACA: {
     name: 'Alpaca',
     symbol: 'ALPACA',
@@ -2889,30 +2607,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x1f7216fdb338247512ec99715587bb97bbf96eae.png',
   },
-  TRADE: {
-    name: 'Unitrade',
-    symbol: 'TRADE',
-    address: '0x7af173F350D916358AF3e218Bdf2178494Beb748',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://www.unitrade.app/',
-    description:
-      'Unitrade is embracing all of DeFi on multiple blockchains to introduce a combination of the most impactful and innovative financial offerings that have shaken the core of traditional finance in a single refined app.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x7af173f350d916358af3e218bdf2178494beb748.png',
-  },
-  PNT: {
-    name: 'PNT',
-    symbol: 'PNT',
-    address: '0xdaacB0Ab6Fb34d24E8a67BfA14BF4D95D4C7aF92',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://p.network/',
-    description:
-      'pNetwork is a solution enabling cross-chain interactions between dApps on multiple networks.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x7a1da9f49224ef98389b071b8a3294d1cc5e3e6a.png',
-  },
   pBTC: {
     name: 'pBTC',
     symbol: 'pBTC',
@@ -2935,18 +2629,6 @@ const _tokens = {
       'MIR is the governance token of Mirror Protocol, a synthetic assets protocol built by Terraform Labs (TFL) on the Terra blockchain.',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x5b6dcf557e2abe2323c48445e8cc948910d8c2c9.png',
-  },
-  pCWS: {
-    name: 'PolyCrowns',
-    symbol: 'pCWS',
-    address: '0xbcf39F0EDDa668C58371E519AF37CA705f2bFcbd',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://game.seascape.network/',
-    description:
-      'Crowns are the official token of the Seascape Network. As such, they are designed to reward all key stakeholders within the network.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xbcf39f0edda668c58371e519af37ca705f2bfcbd.png',
   },
   ZIL: {
     name: 'Zilliqa',
@@ -3043,18 +2725,6 @@ const _tokens = {
     logoURI:
       'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0x8076C74C5e3F5852037F31Ff0093Eeb8c8ADd8D3/logo.png',
   },
-  tBTC: {
-    name: 'Tau Bitcoin',
-    symbol: 'tBTC',
-    address: '0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c',
-    chainId: 56,
-    decimals: 9,
-    website: 'https://www.btcst.finance/',
-    description:
-      'τBitcoin brings Bitcoin to DeFi and its price will be 1:1 pegged to that of Bitcoin. Backed by institutional miners representing 12% of Bitcoin’s global hashrate, τBitcoin will be a synthetic Bitcoin uniquely suitable for DeFi use cases.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c.png',
-  },
   ODDZ: {
     name: 'Oddz',
     symbol: 'ODDZ',
@@ -3114,18 +2784,6 @@ const _tokens = {
       'ARPA is a blockchain-based layer 2 solution for privacy-preserving computation, enabled by Multi-Party Computation (“MPC”).',
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x6f769e65c14ebd1f68817f5f1dcdb61cfa2d6f7e.png',
-  },
-  PERL: {
-    name: 'Perlin X',
-    symbol: 'PERL',
-    address: '0x0F9E4D49f25de22c2202aF916B681FBB3790497B',
-    chainId: 56,
-    decimals: 18,
-    website: 'https://perlinx.finance/',
-    description:
-      'PerlinX is a decentralized synthetic liquidity pool that supports the creation and trade of synthetic assets.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0x0f9e4d49f25de22c2202af916b681fbb3790497b.png',
   },
   JGN: {
     name: 'Juggernaut Finance',
@@ -3310,16 +2968,6 @@ const _tokens = {
     logoURI: 'https://www.apenft.org/img/logo.svg',
     description: 'APENFT GALLERY ART FOR EVERYONE',
     website: 'https://www.apenft.org/',
-  },
-  QUANT: {
-    name: 'StableQuant',
-    symbol: 'QUANT',
-    address: '0xBCA627FEd3b6E8F414C745E12B2b89371497779D',
-    chainId: 56,
-    decimals: 18,
-    description:
-      'StableQuant is a simple, stripped-down swap designed to be the go-to DEX for stablecoins',
-    website: 'https://stablequant.finance/',
   },
   MCB: {
     name: 'MCDEX Token',
