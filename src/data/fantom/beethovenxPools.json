@@ -1,5 +1,45 @@
 [
   {
+    "name": "beets-battle-bands",
+    "address": "0x9af1F0e9aC9C844A4a4439d446c1437807183075",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x9af1f0e9ac9c844a4a4439d446c14378071830750001000000000000000000da",
+    "poolId": 26,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SOL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "AVAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "LUNA",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BNB",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-double-dollar-fugue",
     "address": "0xF3f0970BCA8ce7E9672d17a301b54D1485D93807",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
