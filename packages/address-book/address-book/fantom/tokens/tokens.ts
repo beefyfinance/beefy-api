@@ -892,6 +892,18 @@ const _tokens = {
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
   },
+  LUNA: {
+    name: 'Terra',
+    symbol: 'LUNA',
+    address: '0x95dD59343a893637BE1c3228060EE6afBf6F0730',
+    chainId: 250,
+    decimals: 6,
+    logoURI:
+      'https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png',
+    website: 'https://www.terra.money/',
+    description:
+      "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
