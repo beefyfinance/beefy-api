@@ -3133,5 +3133,16 @@ const _tokens = {
     website: 'https://nabox.io/',
     description: 'Cross-Chain DeFi Wallet with Decentralized Identifier for Web 3.0',
   },
+  MILK: {
+    name: 'MILK Token',
+    symbol: 'MILK',
+    address: '0xBf37f781473f3b50E82C668352984865eac9853f',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://bscscan.com/token/images/thecryptoyou-milk_32.png',
+    website: 'https://thecryptoyou.io/',
+    description: 'The Crypto You is the first Baby Metaverse blockchain game on Binance Smart Chain (BSC). Players can summon characters, complete daily mining missions, conquer the Dark Force, loot rare items to play and earn.',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
