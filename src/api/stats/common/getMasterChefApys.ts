@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
-import { NormalizedCacheObject } from 'apollo-cache-inmemory';
-import ApolloClient from 'apollo-client';
+import { NormalizedCacheObject } from '@apollo/client/core';
+import { ApolloClient } from '@apollo/client/core';
 import { MultiCall } from 'eth-multicall';
 import Web3 from 'web3';
 import { AbiItem } from 'web3-utils';
@@ -16,7 +16,11 @@ import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import fetchPrice from '../../../utils/fetchPrice';
 import getBlockNumber from '../../../utils/getBlockNumber';
 import getBlockTime from '../../../utils/getBlockTime';
-import { getTradingFeeAprSushi, getTradingFeeAprBalancer, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
+import {
+  getTradingFeeAprSushi,
+  getTradingFeeAprBalancer,
+  getTradingFeeApr,
+} from '../../../utils/getTradingFeeApr';
 
 export interface MasterChefApysParams {
   web3: Web3;
@@ -64,10 +68,10 @@ const getTradingAprs = async (params: MasterChefApysParams) => {
   if (client && fee) {
     const pairAddresses = params.pools.map(pool => pool.address.toLowerCase());
     const getAprs = isSushiClient(client)
-                      ? getTradingFeeAprSushi
-                      : isBeetClient(client)
-                      ? getTradingFeeAprBalancer
-                      : getTradingFeeApr;
+      ? getTradingFeeAprSushi
+      : isBeetClient(client)
+      ? getTradingFeeAprBalancer
+      : getTradingFeeApr;
     const aprs = await getAprs(client, pairAddresses, fee);
     tradingAprs = { ...tradingAprs, ...aprs };
   }
@@ -111,8 +115,8 @@ const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> =
     let yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(params.decimals);
 
     if (params.burn) {
-    yearlyRewardsInUsd = yearlyRewardsInUsd.times(1 - params.burn);
-  }
+      yearlyRewardsInUsd = yearlyRewardsInUsd.times(1 - params.burn);
+    }
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);

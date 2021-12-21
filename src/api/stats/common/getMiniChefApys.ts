@@ -11,8 +11,8 @@ import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 // trading apr
 import { SUSHI_LPF } from '../../../constants';
 import { getTradingFeeAprSushi as getTradingFeeApr } from '../../../utils/getTradingFeeApr';
-import { NormalizedCacheObject } from 'apollo-cache-inmemory';
-import { ApolloClient } from 'apollo-client';
+import { NormalizedCacheObject } from '@apollo/client/core';
+import { ApolloClient } from '@apollo/client/core';
 
 // abis
 import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime.json';

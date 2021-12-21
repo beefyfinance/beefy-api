@@ -10,8 +10,8 @@ import {
 import getBlockTime from './getBlockTime';
 import getBlockNumber from './getBlockNumber';
 import BigNumber from 'bignumber.js';
-import { NormalizedCacheObject } from 'apollo-cache-inmemory';
-import ApolloClient from 'apollo-client';
+import { NormalizedCacheObject } from '@apollo/client/core';
+import { ApolloClient } from '@apollo/client/core';
 
 interface PairDayData {
   id: string;
