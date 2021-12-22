@@ -69,10 +69,18 @@ const fetchBeltLpBaseApr = async pool => {
   if (pool.poolId === 11) return 0;
   try {
     const response = await axios.get('https://s.belt.fi/info/all.json');
-    const data = response.data.info.BSC.vaultPools.filter(p => Number(p.pid) === pool.poolId)[0];
-    const baseApr = Number(data.baseAPR) / 100;
-    const feeApr = Number(data.feeAPR) / 100;
-    return baseApr + feeApr;
+    const data = response.data.info.BSC;
+    let apr;
+    if (pool.vault) {
+      const vault = data.vaults.filter(p => p.name === pool.vault)[0];
+      apr = Number(vault.baseAPR) / 100;
+    } else {
+      const vault = data.vaultPools.filter(p => Number(p.pid) === pool.poolId)[0];
+      const baseApr = Number(vault.baseAPR) / 100;
+      const feeApr = Number(vault.feeAPR) / 100;
+      apr = baseApr + feeApr;
+    }
+    return apr;
   } catch (err) {
     console.error(err);
     return 0;
