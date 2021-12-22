@@ -1,9 +1,8 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3, web3Factory } = require('./web3');
+const { web3Factory } = require('./web3');
 
 const ERC20 = require('../abis/ERC20.json');
 const fetchPrice = require('./fetchPrice');
-const { lpTokenPrice } = require('./lpTokens');
 
 const getTotalStakedInUsd = async (
   targetAddr,

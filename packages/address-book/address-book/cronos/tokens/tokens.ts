@@ -28,6 +28,16 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  LIQ: {
+    name: 'Liquidus',
+    symbol: 'LIQ',
+    address: '0xABd380327Fe66724FFDa91A87c772FB8D00bE488',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://farm.liquidus.finance/',
+    description: 'Earn interest on your decentralised crypto assets',
+    logoURI: 'https://farm.liquidus.finance/static/media/liquidus_logo_round.f72f345a.png',
+  },
   ATOM: {
     name: 'Cosmos Token',
     symbol: 'ATOM',
