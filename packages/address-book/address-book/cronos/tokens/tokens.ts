@@ -28,6 +28,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  TONIC: {
+    name: 'Tectonic Governance Token',
+    symbol: 'TONIC',
+    address: '0xDD73dEa10ABC2Bff99c60882EC5b2B81Bb1Dc5B2',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://tectonic.finance/',
+    description:
+      'Tectonic is a cross-chain money market for earning passive yield and accessing instant backed loans',
+    logoURI: 'https://vvs.finance/images/tokens/0xDD73dEa10ABC2Bff99c60882EC5b2B81Bb1Dc5B2.svg',
+  },
   LIQ: {
     name: 'Liquidus',
     symbol: 'LIQ',
