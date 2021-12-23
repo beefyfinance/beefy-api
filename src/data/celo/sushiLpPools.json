@@ -33,20 +33,20 @@
     "lp1": {
       "address": "0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "WETHv1",
       "decimals": "1e18"
     }
   },
   {
     "name": "sushi-celo-csushi-celo",
-    "address": "0x02F726B5E819eCF33aA93be5274c94a22Df3619f",
+    "address": "0x7072a1c2c9A0cb20ae0B3C0C9023a42a49542e8B",
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 42220,
     "lp0": {
-      "address": "0xD15EC721C2A896512Ad29C671997DD68f9593226",
+      "address": "0x29dfce9c22003a4999930382fd00f9fd6133acd1",
       "oracle": "tokens",
-      "oracleId": "cSUSHI",
+      "oracleId": "SUSHIV2",
       "decimals": "1e18"
     },
     "lp1": {
@@ -71,7 +71,7 @@
     "lp1": {
       "address": "0xE4fE50cdD716522A56204352f00AA110F731932d",
       "oracle": "tokens",
-      "oracleId": "DAI",
+      "oracleId": "DAIv1",
       "decimals": "1e18"
     }
   },
@@ -90,7 +90,7 @@
     "lp1": {
       "address": "0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "WETHv1",
       "decimals": "1e18"
     }
   },
@@ -103,13 +103,13 @@
     "lp0": {
       "address": "0xE4fE50cdD716522A56204352f00AA110F731932d",
       "oracle": "tokens",
-      "oracleId": "DAI",
+      "oracleId": "DAIv1",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "WETHv1",
       "decimals": "1e18"
     }
   },
@@ -128,7 +128,7 @@
     "lp1": {
       "address": "0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "WETHv1",
       "decimals": "1e18"
     }
   },
@@ -147,7 +147,7 @@
     "lp1": {
       "address": "0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "WETHv1",
       "decimals": "1e18"
     }
   },
