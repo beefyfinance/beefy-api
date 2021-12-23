@@ -7,7 +7,6 @@ import { sushi } from './platforms/sushi';
 import { wault } from './platforms/wault';
 import { polycat } from './platforms/polycat';
 import { iron } from './platforms/iron';
-import { adamant } from './platforms/adamant';
 import * as polyyeld from './platforms/polyyeld';
 import * as polypup from './platforms/polypup';
 import { apeswap } from './platforms/apeswap';
@@ -33,7 +32,6 @@ const _polygon = {
     wault,
     polycat,
     iron,
-    adamant,
     ...polyyeld,
     ...polypup,
     apeswap,

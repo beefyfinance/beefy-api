@@ -14,7 +14,7 @@
     "isolatedModules": true,
     "outDir": "build",
     "pretty": true,
-    "declaration": false
+    "declaration": true
   },
   "include": ["address-book/", "scripts/", "util/", "types/"]
 }
