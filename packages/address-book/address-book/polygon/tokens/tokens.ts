@@ -844,6 +844,38 @@ const _tokens = {
       'PolySage Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income.',
     logoURI: 'https://polysage.finance/images/sage.png',
   },
+  TOMB: {
+    name: 'TOMB',
+    symbol: 'TOMB',
+    address: '0x0e98C977B943f06075b2D795794238fBfB9b9a34',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://tomb.finance/',
+    description:
+      'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage',
+  },
+  CLAM: {
+    name: 'Otter Clam',
+    symbol: 'CLAM',
+    address: '0xC250e9987A032ACAC293d838726C511E6E1C029d',
+    chainId: 137,
+    decimals: 9,
+    logoURI: '',
+    website: 'https://www.otterclam.finance/#/',
+    description: 'The first store of value meme',
+  },
+  HBAR: {
+    name: 'HBAR[0x]',
+    symbol: 'HBAR',
+    address: '0x1646C835d70F76D9030DF6BaAeec8f65c250353d',
+    chainId: 137,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://hedera.com/',
+    description:
+      'Hedera is the most used enterprise-grade public network for you to make your digital world exactly as it should be – yours. HBAR is the native, energy-efficient cryptocurrency of Hedera that powers the decentralized economy. Whether youre a startup or enterprise, a creator or consumer, Hedera goes beyond blockchain for developers to create the next era of fast, fair, and secure applications.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
