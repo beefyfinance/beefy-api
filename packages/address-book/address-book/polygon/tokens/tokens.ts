@@ -82,18 +82,6 @@ const _tokens = {
       'Sifchain aims to be the first Omni-Chain DEX, targeting 20–25 blockchains for cross-chain integration.',
     logoURI: 'https://assets.coingecko.com/coins/images/14044/small/EROWAN.png?1614656300',
   },
-  DPI: {
-    name: 'Defipulse Index',
-    symbol: 'DPI',
-    address: '0x85955046DF4668e1DD369D2DE9f3AEB98DD2A369',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://defipulse.com/',
-    description:
-      'The DeFi Pulse Index is a capitalization-weighted index that tracks the performance of decentralized financial assets across the market.',
-    logoURI:
-      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x1494CA1F11D487c2bBe4543E90080AeBa4BA3C2b/logo.png',
-  },
   SHIB: {
     name: 'SHIBA INU',
     symbol: 'SHIB',
@@ -224,37 +212,6 @@ const _tokens = {
       'Tetu implements automated yield farming strategies in order to provide investors with a safe and secure method of receiving high yield on their investments.',
     logoURI: 'https://github.com/tetu-io/tetu-brand-assets/blob/master/token_icons/flat_icon.svg',
   },
-  ALPHA: {
-    name: 'ALPHA',
-    symbol: 'ALPHA',
-    address: '0x0B048D6e01a6b9002C291060bF2179938fd8264c',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://polyalpha.finance',
-    description: 'A next generation decentralized stable-yield aggregating farm on Polygon.',
-    logoURI: 'https://polyalpha.finance/images/pools/alpha.png',
-  },
-  DELIRIUM: {
-    name: 'DELIRIUM',
-    symbol: 'DELIRIUM',
-    address: '0x238779aFfE6FFD475cB7e84582FcA7789F310Dc8',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://app.delirium.sandman.finance/farms',
-    description: 'The first Polygon Community Owned AMM',
-    logoURI: 'https://app.delirium.sandman.finance/images/farms/delirium.png',
-  },
-  WUSD: {
-    name: 'Wault USD',
-    symbol: 'WUSD',
-    address: '0xb8ab048D6744a276b2772dC81e406a4b769A5c3D',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://wault.finance/',
-    description:
-      "WUSD is Wault Finance's commerce-backed stablecoin! The world's first commerce-backed stablecoin!",
-    logoURI: 'https://app.wault.finance/polygon/assets/images/stablecoin/wusd.svg',
-  },
   WATCH: {
     name: 'YieldWatch',
     symbol: 'WATCH',
@@ -297,17 +254,6 @@ const _tokens = {
     website: 'https://www.avax.network/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
-  },
-  HT: {
-    name: 'Huobi Token',
-    symbol: 'HT',
-    address: '0xA731349fa468614c1698fc46ebf06Da6F380239e',
-    decimals: 18,
-    chainId: 137,
-    logoURI: 'https://assets.coingecko.com/coins/images/2822/small/huobi-token-logo.png?1547036992',
-    website: 'https://www.hecochain.com/en-us/',
-    description:
-      'HECO is a decentralized and cost efficient public chain that Ethereum developers can easily get started with and smart contracts are seamlessly compatible.',
   },
   PEAR: {
     name: 'PearZap',
@@ -380,17 +326,6 @@ const _tokens = {
     chainId: 137,
     logoURI: 'https://i.imgur.com/06BkcTT.png',
   },
-  ANY: {
-    name: 'Anyswap',
-    address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
-    symbol: 'ANY',
-    decimals: 18,
-    chainId: 137,
-    website: 'https://anyswap.exchange/bridge',
-    description:
-      'Anyswap is a fully decentralized cross chain swap protocol, based on Fusion DCRM technology, with automated pricing and liquidity system. Anyswap is a decentralized application running on the Fusion , Binance Smart Chain , Ethereum and Fantom blockchains. The first application from Anyswap is a DEX (Decentralized Exchange), which is called anyswap.exchange. ',
-    logoURI: 'https://raw.githubusercontent.com/anyswap/Brand-assets/master/logo/c-128-white.svg',
-  },
   ARIA20: {
     name: 'ARIANEE',
     address: '0x46F48FbdedAa6F5500993BEDE9539ef85F4BeE8e',
@@ -443,28 +378,6 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xb683D83a532e2Cb7DFa5275eED3698436371cc9f/logo.png',
   },
-  CC10: {
-    name: 'Cryptocurrency Top Tokens Index',
-    address: '0x9c49BA0212Bb5Db371e66b59D1565b7c06E4894e',
-    symbol: 'CC10',
-    decimals: 18,
-    chainId: 137,
-    website: 'https://indexed.finance/',
-    description:
-      'An index combining several popular medium/large-cap protocols, primarily drawn from decentralized finance',
-    logoURI: 'https://etherscan.io/token/images/indexed-cc10_32.png',
-  },
-  CEL: {
-    name: 'Celsius',
-    address: '0xD85d1e945766Fea5Eda9103F918Bd915FbCa63E6',
-    symbol: 'CEL',
-    decimals: 4,
-    chainId: 137,
-    website: 'https://celsius.network/',
-    description:
-      'Meet Celsius. The first and only platform that earns you up to 17% yield on your crypto, rewards you every week and lets you borrow cash at the lowest rates. On Web, iOS, and Android.',
-    logoURI: 'https://assets.coingecko.com/coins/images/3263/small/CEL_logo.png?1609598753',
-  },
   CFI: {
     name: 'CyberFi Token',
     address: '0xeCf8f2FA183b1C4d2A269BF98A54fCe86C812d3e',
@@ -512,17 +425,6 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'https://dark-build.app/logo192.png',
-  },
-  DEFI5: {
-    name: 'DEFI Top 5 Tokens Index',
-    address: '0x42435F467D33e5C4146a4E8893976ef12BBCE762',
-    symbol: 'DEFI5',
-    decimals: 18,
-    chainId: 137,
-    website: 'https://indexed.finance/',
-    description:
-      'A hyper-focused index of the most successful large-cap decentralized finance protocols across the Ethereum chain',
-    logoURI: 'https://i.imgur.com/uVGtugL.png',
   },
   DEGEN: {
     name: 'DEGEN Index',
@@ -637,18 +539,6 @@ const _tokens = {
     chainId: 137,
     logoURI: 'https://i.imgur.com/IIUglm9.png?1',
   },
-  GUARD: {
-    name: 'Helmet.insure',
-    address: '0x948d2a81086A075b3130BAc19e4c6DEe1D2E3fE8',
-    symbol: 'GUARD',
-    decimals: 18,
-    chainId: 137,
-    website: 'https://www.guard.insure/insurance/',
-    description:
-      'Crypto-assets trading insurance platform on Polygon. Helmet allows users to create an insurance policy for any crypto asset in the market, protecting DeFi users against the risk of price fluctuations.',
-    logoURI:
-      'https://raw.githubusercontent.com/app-helmet-insure/guard-frontend/bb4e07794e41dce0e62ccc7342625ecc4afab247/src/assets/images/gurad-icon.svg',
-  },
   GFARM2: {
     name: 'Gains V2',
     address: '0x7075cAB6bCCA06613e2d071bd918D1a0241379E2',
@@ -699,14 +589,6 @@ const _tokens = {
     decimals: 6,
     chainId: 137,
     logoURI: 'https://assets.coingecko.com/coins/images/7697/small/N7aEdYrY_400x400.png?1561587437',
-  },
-  KRILL: {
-    name: 'Krill',
-    address: '0x05089C9EBFFa4F0AcA269e32056b1b36B37ED71b',
-    symbol: 'KRILL',
-    decimals: 18,
-    chainId: 137,
-    logoURI: 'https://i.imgur.com/REyP9yh.jpg',
   },
   LEND: {
     name: 'EthLend Token',
@@ -778,14 +660,6 @@ const _tokens = {
     chainId: 137,
     logoURI: 'https://aavegotchi.com/images/matokens/maUNI.svg',
   },
-  maUSDC: {
-    name: 'Matic Aave interest bearing USDC',
-    address: '0x9719d867A500Ef117cC201206B8ab51e794d3F82',
-    symbol: 'maUSDC',
-    decimals: 6,
-    chainId: 137,
-    logoURI: 'https://aavegotchi.com/images/matokens/maUSDC.svg',
-  },
   maUSDT: {
     name: 'Matic Aave interest bearing USDT',
     address: '0xDAE5F1590db13E3B40423B5b5c5fbf175515910b',
@@ -820,17 +694,6 @@ const _tokens = {
   },
   miMATIC: MAI,
   MAI: MAI,
-  mOCEAN: {
-    name: 'Ocean Token',
-    address: '0x282d8efCe846A88B159800bd4130ad77443Fa1A1',
-    symbol: 'mOCEAN',
-    decimals: 18,
-    chainId: 137,
-    website: 'https://oceanprotocol.com/',
-    description:
-      'Ocean Protocol unlocks the value of data. Data owners and consumers use Ocean Market app to publish, discover, and consume data in a secure, privacy-preserving fashion. OCEAN holders stake liquidity to data pools. Developers use Ocean libraries to build their own data wallets, data marketplaces, and more. Ocean datatokens wrap data services as industry-standard ERC20 tokens. This enables data wallets, data exchanges, and data co-ops by leveraging crypto wallets, exchanges, and other decentralized finance (DeFi) tools.',
-    logoURI: 'https://oceanprotocol.com/static/4ad704a150d436a1f32d495413fc47cd/favicon-white.png',
-  },
   MONA: {
     name: 'Monavale',
     address: '0x6968105460f67c3BF751bE7C15f92F5286Fd0CE5',
@@ -902,29 +765,6 @@ const _tokens = {
     chainId: 137,
     logoURI: 'https://i.imgur.com/nQDG9AQ.png',
   },
-  PolyDoge: {
-    name: 'PolyDoge',
-    address: '0x8A953CfE442c5E8855cc6c61b1293FA648BAE472',
-    symbol: 'PolyDoge',
-    decimals: 18,
-    chainId: 137,
-    website: 'https://www.polydoge.com/',
-    description:
-      'PolyDoge is a digital currency with one of the most vibrant communities on the powerful Polygon Network. It offers a wide variety of fun interaction to its holders in the form of NFTs, apps, airdrops and access to different DeFi platforms ready to use on Polygon.',
-    logoURI: 'https://polydoge.com/doge-webpage_files/doge.png',
-  },
-  polyBUNNY: {
-    name: 'Bunny',
-    address: '0x4C16f69302CcB511c5Fac682c7626B9eF0Dc126a',
-    symbol: 'polyBUNNY',
-    decimals: 18,
-    chainId: 137,
-    website: 'https://polygon.pancakebunny.finance/pool',
-    description:
-      'PancakeBunny is a new and rapidly growing DeFi yield aggregator that is used for PancakeSwap. The PancakeBunny protocol empowers farmers to leverage their yield-seeking tendencies to optimize yield compounding strategy on BSC. We are providing strategies for the various needs of farmers from the highest yield seekers to the risk reward optimizing smart investors.',
-    logoURI:
-      'https://raw.githubusercontent.com/PancakeBunny-finance/PolygonBUNNY/main/assets/token-bunny_32x32.png',
-  },
   PPDEX: {
     name: 'Pepedex',
     address: '0x127984b5E6d5c59f81DACc9F1C8b3Bdc8494572e',
@@ -986,17 +826,6 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     logoURI: 'http://rebalancetoken.io/images/logo/RBAL_ERC20_small_001_256.png',
-  },
-  renDGB: {
-    name: 'DigiByte',
-    address: '0x2628568509E87c4429fBb5c664Ed11391BE1BD29',
-    symbol: 'renDGB',
-    decimals: 8,
-    chainId: 137,
-    logoURI: 'https://etherscan.io/token/images/rendgb_32.png',
-    website: 'https://digibyte.org/',
-    description:
-      'renDGB is the wrapped DigiByte (DGB) token for the DGB open source blockchain and asset creation platform.',
   },
   SDO: {
     name: 'SafeDollar.Fi',
@@ -1070,15 +899,6 @@ const _tokens = {
     chainId: 137,
     logoURI: 'https://etherscan.io/token/images/swirge_32.png',
   },
-  SX: {
-    name: 'SportX',
-    address: '0x840195888Db4D6A99ED9F73FcD3B225Bb3cB1A79',
-    symbol: 'SX',
-    decimals: 18,
-    chainId: 137,
-    logoURI:
-      'https://raw.githubusercontent.com/sameepsi/quickswap-default-token-list/master/assets/sx.jpg',
-  },
   TEL: {
     name: 'Telcoin',
     address: '0xdF7837DE1F2Fa4631D716CF2502f8b230F1dcc32',
@@ -1088,18 +908,6 @@ const _tokens = {
     website: 'https://www.telco.in/',
     description: 'A cryptocurrency distributed by your mobile operator and accepted everywhere.',
     logoURI: 'https://pbs.twimg.com/profile_images/933388441475194881/57fOk40N_400x400.jpg',
-  },
-  UBT: {
-    name: 'Unibright',
-    address: '0x7FBc10850caE055B27039aF31bD258430e714c62',
-    symbol: 'UBT',
-    decimals: 8,
-    chainId: 137,
-    website: 'https://unibright.io/',
-    description:
-      'Unibright is a team of blockchain specialists, architects, developers and consultants with 20+ years of experience in business processes and integration. We offer Baseledger - The Blockchain for Baselining, Consulting, Low-Code-Integration Tools, programmable DeFi and the Universal Business Token.',
-    logoURI:
-      'https://assets.coingecko.com/coins/images/2707/small/UnibrightLogo_colorful_500x500_preview.png?1547036916',
   },
   UNI: {
     name: 'Uniswap',
@@ -1170,17 +978,6 @@ const _tokens = {
       'WEXpoly, or Wault EXchange Token, is the foundational token of WaultSwap, on the Polygon network. ',
     logoURI:
       'https://assets.coingecko.com/coins/images/16282/small/ws_purple_circle_200x200_%281%29.png',
-  },
-  WISE: {
-    name: 'Wise Token',
-    address: '0xB77e62709e39aD1cbeEBE77cF493745AeC0F453a',
-    symbol: 'WISE',
-    decimals: 18,
-    chainId: 137,
-    website: 'https://wisetoken.net/',
-    description:
-      'WISE is an asset-backed cryptocurrency designed to be a highly secure store of value.',
-    logoURI: 'https://etherscan.io/token/images/wisetoken_32.png',
   },
   MATIC,
   WMATIC: MATIC,
@@ -1273,15 +1070,6 @@ const _tokens = {
     description:
       'With Dfyn nodes spread across multiple Layer 1 and Layer 2 blockchains, Dfyn will act as a multi-chain DEX. This will allow Dfyn to plug into a liquidity super-mesh, enabling users to perform their asset trades seamlessly on several blockchains from a single interface. Dfyn will also build a decentralized swap station to swap large assets natively like BTC, ETH, ADA in a non-custodial way.',
     logoURI: 'https://raw.githubusercontent.com/dfyn/assets/main/DFYN_logo.png',
-  },
-  TITAN: {
-    name: 'Titan',
-    address: '0xaAa5B9e6c589642f98a1cDA99B9D024B8407285A',
-    symbol: 'TITAN',
-    decimals: 18,
-    chainId: 137,
-    logoURI:
-      'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/polygon/assets/0xaAa5B9e6c589642f98a1cDA99B9D024B8407285A/logo.png',
   },
   IRON: {
     name: 'Iron',
@@ -1420,29 +1208,6 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://i.imgur.com/2Tocoq5.png',
   },
-  FFF: {
-    name: 'Future of Finance Fund',
-    symbol: 'FFF',
-    address: '0x9aCeB6f749396d1930aBc9e263eFc449E5e82c13',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://indexed.finance/',
-    description:
-      'A meta-index providing all-in-one exposure to Bitcoin and Ether (20% each), with the remainder weighted across DEFI5, CC10 and DEGEN using circulating market cap weightings',
-    logoURI: 'https://assets.coingecko.com/coins/images/15761/small/xg1NFl0.png?1621825451',
-  },
-  UFT: {
-    name: 'UniLend Finance Token',
-    symbol: 'UFT',
-    address: '0x5B4CF2C120A9702225814E18543ee658c5f8631e',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://unilend.finance/',
-    description:
-      'UniLend is a permission-less decentralized protocol that combines spot trading services and money markets with lending and borrowing services through smart contracts.',
-    logoURI:
-      'https://assets.coingecko.com/coins/images/12819/small/UniLend_Finance_logo_PNG.png?1602748658',
-  },
   CHUM: {
     name: 'ChumHum',
     symbol: 'CHUM',
@@ -1524,40 +1289,6 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
-  PBNB: {
-    name: 'Orbit Bridge Polygon Binance Coin',
-    symbol: 'PBNB',
-    address: '0x7e9928aFe96FefB820b85B4CE6597B8F660Fe4F4',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://www.binance.com/',
-    description:
-      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
-    logoURI:
-      'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
-  },
-  YELD: {
-    name: 'Polyyeld.Finance',
-    symbol: 'YELD',
-    address: '0xd0f3121A190d85dE0AB6131f2bCEcdbfcfB38891',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://polyyeld.finance/',
-    description:
-      'PolyYeld Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income.',
-    logoURI: 'https://polyyeld.finance/images/egg/9.png',
-  },
-  xYELD: {
-    name: 'Polyyeld.Finance Layer 2',
-    symbol: 'xYELD',
-    address: '0x90AC3fa9fCD997B168f218041de26eB01399Bb55',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://layer.polyyeld.finance/',
-    description:
-      "PolyYeld Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income. xYeld is the native token for Polyeld's layer 2 farms",
-    logoURI: 'https://layer.polyyeld.finance/images/egg/Logo_Text_Horizontal.svg',
-  },
   PUP: {
     name: 'Polypup.Finance',
     symbol: 'PUP',
@@ -1579,17 +1310,6 @@ const _tokens = {
     description:
       'Ramp aims to empower users with access to a global, blockchain-agnostic liquidity network. rUSD can be minted on Binance Smart Chain and Polygon, with more chains in the near future.',
     logoURI: 'https://appv2.rampdefi.com/assets/icon/rusdc.svg',
-  },
-  RAMP: {
-    name: 'Ramp DeFi',
-    symbol: 'RAMP',
-    address: '0xaECeBfcF604AD245Eaf0D5BD68459C3a7A6399c2',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://rampdefi.com/',
-    description:
-      'Ramp aims to empower users with access to a global, blockchain-agnostic liquidity network. rUSD can be minted on Binance Smart Chain and Polygon, with more chains in the near future.',
-    logoURI: 'https://appv2.rampdefi.com/assets/icon/ramp.png',
   },
   UST: {
     name: 'USD Terra',
@@ -1613,39 +1333,6 @@ const _tokens = {
       'DFyn version. Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png',
-  },
-  BONE: {
-    name: 'Polypup Bone',
-    symbol: 'BONE',
-    address: '0x6bb45cEAC714c52342Ef73ec663479da35934bf7',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://www.polypup.finance/',
-    description:
-      'PolyPup Finance is a new DeFi project on Polygon featuring a deflationary token model with a maximum supply of 31,000 PUP tokens.',
-    logoURI: 'https://bone.polypup.finance/images/egg/9.png',
-  },
-  BONEswap: {
-    name: 'BoneSwap',
-    symbol: 'BONE',
-    address: '0x80244C2441779361F35803b8C711C6c8fC6054a3',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://farm.boneswap.finance/',
-    description:
-      'Bone Swap is a full ecosystem that have yield farming and automated market-making (AMM) for the Polygon network. We introduce Decentralized Exchange (DEX), Yield Farm, Info Service, which is the strong and secure foundation with our own BONE token as the center of our service.',
-    logoURI: 'https://farm.boneswap.finance/images/bone/logo.png',
-  },
-  EZ: {
-    name: 'EasyFi',
-    symbol: 'EZ',
-    address: '0x34C1b299A74588D6Abdc1b85A53345A48428a521',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://easyfi.network/index.html',
-    description:
-      'Multi chain layer 2 money markets with structured lending products to accelerate liquidity deployment at remarkably lowest cost & unimaginable fast speed.',
-    logoURI: 'https://etherscan.io/token/images/easyfi_32.png',
   },
   HEO: {
     name: 'Helios.cash',
@@ -1716,70 +1403,6 @@ const _tokens = {
     description:
       'DinoSwap is a cross-chain infrastructure project that builds liquidity for layer-one blockchains, AMMs and partnering projects.',
     logoURI: 'https://assets.coingecko.com/coins/images/17103/small/DINO.png',
-  },
-  LITHIUM: {
-    name: 'LITHIUM',
-    symbol: 'LITHIUM',
-    address: '0xfE1a200637464FBC9B60Bc7AeCb9b86c0E1d486E',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://polywantsacracker.farm/',
-    description: 'PolyWantsACracker Yield Farm',
-    logoURI: 'https://polywantsacracker.farm/images/coins/lithium.svg',
-  },
-  YAMP: {
-    name: 'Yamp.Finance',
-    symbol: 'YAMP',
-    address: '0x87f654c4b347230C60CAD8d7ea9cF0D7238bcc79',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://yamp.finance/',
-    description:
-      'Yamp brings the ability for Quickswap liquidity providers to borrow funds to leverage their yields. Whenever there’s a surge in yields, liquidity providers can easily multiply their farming positions many times over to take advantage of increased returns.',
-    logoURI: 'https://miro.medium.com/fit/c/262/262/1*Ig_ZORDgALAPAOJEnAJLLw.png',
-  },
-  LUNA: {
-    name: 'LUNA',
-    symbol: 'LUNA',
-    address: '0x24834BBEc7E39ef42f4a75EAF8E5B6486d3F0e57',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://www.terra.money/',
-    description:
-      'Luna directly benefits from the economic growth of the Terra economy, and it suffers from contractions of the Terra coin',
-    logoURI: 'https://etherscan.io/token/images/terra-luna_32.png',
-  },
-  BALL: {
-    name: 'Polypup Ball',
-    symbol: 'BALL',
-    address: '0x883aBe4168705d2e5dA925d28538B7a6AA9d8419',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://ball.polypup.finance/',
-    description:
-      "Ball is PolyPup Finance's 3rd layer, featuring a maximum supply of 94,000 tokens.",
-    logoURI: 'https://ball.polypup.finance/images/egg/9.png',
-  },
-  polyWISE: {
-    name: 'Polywise',
-    symbol: 'WISE',
-    address: '0x4c19DdeebAF84cA3A255730295AD9d824D4Ff51f',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://polywise.finance/',
-    description:
-      'PolyWise Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income. We are trying to create a protocol like Yearn, but with a reduced token supply and high value for Polygon Network users, LP providers and stakers. The max supply of WISE token is 5400.',
-  },
-  polySAGE: {
-    name: 'PolySage',
-    symbol: 'SAGE',
-    address: '0x2ed945Dc703D85c80225d95ABDe41cdeE14e1992',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://polysage.finance/',
-    description:
-      'PolySage Finance is a next-generation yield farming protocol on the Polygon network with lots of unique and creative features that enable you to earn a passive income.',
-    logoURI: 'https://polysage.finance/images/sage.png',
   },
   BCT: {
     name: 'Toucan Protocol: Base Carbon Tonne',
