@@ -107,5 +107,10 @@
     "name": "curve-avax-mim",
     "pool": "0xAEA2E71b631fA93683BCF256A8689dFa0e094fcD",
     "rewards": []
+  },
+  {
+    "name": "curve-avax-mai",
+    "pool": "0xb0D2EB3C2cA3c6916FAb8DCbf9d9c165649231AE",
+    "rewards": []
   }
 ]
