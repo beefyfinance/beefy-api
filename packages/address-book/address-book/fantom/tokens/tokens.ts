@@ -904,6 +904,17 @@ const _tokens = {
     description:
       "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
   },
+  asUSDC: {
+    name: 'USDC Solana',
+    address: '0xb5E4D17FFD9D0DCE46D290750dad5F9437B5A16B',
+    symbol: 'USDC',
+    decimals: 18,
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    chainId: 250,
+    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
