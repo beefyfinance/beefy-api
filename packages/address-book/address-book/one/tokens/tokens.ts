@@ -198,6 +198,18 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x23396cF899Ca06c4472205fC903bDB4de249D6fC.png',
   },
+  BTC: {
+    name: 'Harmony Bitcoin',
+    symbol: '1BTC',
+    address: '0xdc54046c0451f9269FEe1840aeC808D36015697d',
+    chainId: 1666600000,
+    decimals: 8,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xdc54046c0451f9269FEe1840aeC808D36015697d.svg',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

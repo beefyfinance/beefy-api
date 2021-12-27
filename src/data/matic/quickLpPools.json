@@ -1,5 +1,62 @@
 [
   {
+    "name": "quick-mimatic-clam",
+    "address": "0x1581802317f32A2665005109444233ca6E3e2D68",
+    "rewardPool": "0x0A1Fddba82A78aEE9652971D12eE91b41D8C3dEB",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC250e9987A032ACAC293d838726C511E6E1C029d",
+      "oracle": "tokens",
+      "oracleId": "CLAM",
+      "decimals": "1e9"
+    }
+  },
+  {
+    "name": "quick-hbar[0x]-mimatic",
+    "address": "0x71952D09Aa093aCCCAe0c1d5612D7FE26F20517f",
+    "rewardPool": "0xCa379470379fCb2daBff4eECF975a2b6733bdF9E",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1646C835d70F76D9030DF6BaAeec8f65c250353d",
+      "oracle": "tokens",
+      "oracleId": "HBAR[0x]",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-tomb-mimatic",
+    "address": "0xbDBE9c09fFC1dE53AD9FA3732eC1cD37Da7Ba52F",
+    "rewardPool": "0xe6d8Dda661Ff57Bc45d919AA868Ee219Ca9f03c7",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0e98C977B943f06075b2D795794238fBfB9b9a34",
+      "oracle": "tokens",
+      "oracleId": "TOMB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-matic-mana",
     "address": "0x6b0ce31ead9b14c2281d80a5dde903ab0855313a",
     "rewardPool": "0xee61B0C32ADf887d265236f57AC0a2449CC931C7",

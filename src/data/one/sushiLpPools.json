@@ -1,12 +1,12 @@
 [
   {
     "name": "sushi-one-bifi-wone",
-    "address": "0x27f3b2df4a81382202e87ee40429e0212ecc7d3f",
+    "address": "0x27f3b2Df4a81382202E87EE40429e0212ecc7d3F",
     "decimals": "1e18",
-    "poolId": 9,
+    "poolId": 20,
     "chainId": 1666600000,
     "lp0": {
-      "address": "0x6ab6d61428fde76768d7b45d8bfeec19c6ef91a8",
+      "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
       "oracle": "tokens",
       "oracleId": "BIFI",
       "decimals": "1e18"
@@ -16,6 +16,25 @@
       "oracle": "tokens",
       "oracleId": "WONE",
       "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-one-wone-1btc",
+    "address": "0x4F3d9ac088CDF31b1831db3AaF5803aB35c200c4",
+    "decimals": "1e18",
+    "poolId": 19,
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
+      "oracle": "tokens",
+      "oracleId": "WONE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdc54046c0451f9269FEe1840aeC808D36015697d",
+      "oracle": "tokens",
+      "oracleId": "1BTC",
+      "decimals": "1e8"
     }
   },
   {

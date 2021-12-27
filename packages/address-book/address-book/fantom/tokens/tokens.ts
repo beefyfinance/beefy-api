@@ -880,6 +880,40 @@ const _tokens = {
     description:
       'OpenOcean is the world’s first full aggregation protocol for crypto trading that sources liquidity from DeFi and CeFi markets and enables cross-chain swaps. Our intelligent routing algorithm finds the best prices from DEXes and CEXes and splits the routes to provide traders the best prices with low slippage and fast settlement. The product is free to use; OpenOcean users only need to pay the regular blockchain gas and exchange fees for the trades, which are charged by the exchanges and not OpenOcean.',
   },
+  AVAX: {
+    name: 'Avalanche',
+    symbol: 'AVAX',
+    address: '0x511D35c52a3C244E7b8bd92c0C297755FbD89212',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x511D35c52a3C244E7b8bd92c0C297755FbD89212.svg',
+    website: 'https://www.avalabs.org/',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+  },
+  LUNA: {
+    name: 'Terra',
+    symbol: 'LUNA',
+    address: '0x95dD59343a893637BE1c3228060EE6afBf6F0730',
+    chainId: 250,
+    decimals: 6,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png',
+    website: 'https://www.terra.money/',
+    description:
+      "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
+  },
+  asUSDC: {
+    name: 'USDC Solana',
+    address: '0xb5E4D17FFD9D0DCE46D290750dad5F9437B5A16B',
+    symbol: 'asUSDC',
+    decimals: 18,
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    chainId: 250,
+    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

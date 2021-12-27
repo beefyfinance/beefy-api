@@ -10,6 +10,7 @@ import { wault } from './platforms/wault';
 import { kebab } from './platforms/kebab';
 import { jet } from './platforms/jet';
 import { mdex } from './platforms/mdex';
+import { biswap } from './platforms/biswap';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -29,6 +30,7 @@ const _bsc = {
     kebab,
     jet,
     mdex,
+    biswap,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

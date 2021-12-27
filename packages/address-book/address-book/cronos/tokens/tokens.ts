@@ -28,6 +28,39 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  TONIC: {
+    name: 'Tectonic Governance Token',
+    symbol: 'TONIC',
+    address: '0xDD73dEa10ABC2Bff99c60882EC5b2B81Bb1Dc5B2',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://tectonic.finance/',
+    description:
+      'Tectonic is a cross-chain money market for earning passive yield and accessing instant backed loans',
+    logoURI: 'https://vvs.finance/images/tokens/0xDD73dEa10ABC2Bff99c60882EC5b2B81Bb1Dc5B2.svg',
+  },
+  LIQ: {
+    name: 'Liquidus',
+    symbol: 'LIQ',
+    address: '0xABd380327Fe66724FFDa91A87c772FB8D00bE488',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://farm.liquidus.finance/',
+    description: 'Earn interest on your decentralised crypto assets',
+    logoURI: 'https://farm.liquidus.finance/static/media/liquidus_logo_round.f72f345a.png',
+  },
+  ATOM: {
+    name: 'Cosmos Token',
+    symbol: 'ATOM',
+    address: '0xB888d8Dd1733d72681b30c00ee76BDE93ae7aa93',
+    chainId: 25,
+    decimals: 6,
+    website: 'https://cosmos.network/',
+    description:
+      'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x0eb3a705fc54725037cc9e008bdede697f62f335.png',
+  },
   DOGE: {
     name: 'Doge Token',
     symbol: 'DOGE',

@@ -1,5 +1,43 @@
 [
   {
+    "name": "spirit-yfi-ftm",
+    "address": "0x4fc38a2735C7da1d71ccAbf6DeC235a7DA4Ec52C",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x29b0Da86e484E1C0029B56e817912d778aC0EC69",
+      "oracle": "tokens",
+      "oracleId": "YFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "spirit-dai-usdc",
+    "address": "0x9606D683d03f012DDa296eF0ae9261207C4A5847",
+    "decimals": "1e18",
+    "poolId": 62,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spirit-spell-sspell",
     "address": "0x4f41D03631Ea4dC14016CcF90690d6D22b24C12D",
     "decimals": "1e18",

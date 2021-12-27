@@ -183,9 +183,12 @@ import maiAvaxLpPools from '../../data/avax/maiLpPools.json';
 import bisonPools from '../../data/degens/bisonLpPools.json';
 import finnLpPools from '../../data/moonriver/finnLpPools.json';
 import blockMinePools from '../../data/degens/blockMineLpPools.json';
+import biswapPools from '../../data/biswapLpPools.json';
 import chargePools from '../../data/degens/chargeLpPools.json';
 import charmPools from '../../data/fantom/charmLpPools.json';
 import solarbeamDualLpV2Pools from '../../data/moonriver/solarbeamDualLpV2Pools.json';
+import liquidusPools from '../../data/cronos/liquidusLpPools.json';
+import sushiv2Celo from '../../data/celo/sushiv2LpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -193,6 +196,9 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...sushiv2Celo,
+  ...liquidusPools,
+  ...biswapPools,
   ...solarbeamDualLpV2Pools,
   ...charmPools,
   ...chargePools,
@@ -386,6 +392,7 @@ const knownPrices = {
   UST: 1,
   USDN: 1,
   cUSD: 1,
+  asUSDC: 1,
 };
 
 let tokenPricesCache: Promise<any>;

@@ -1,5 +1,24 @@
 [
   {
+    "name": "banana-crush-wbnb",
+    "address": "0x8A10489f1255fb63217Be4cc96B8F4CD4D42a469",
+    "decimals": "1e18",
+    "poolId": 61,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0Ef0626736c2d484A792508e99949736D0AF807e",
+      "oracle": "tokens",
+      "oracleId": "CRUSH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "banana-frax-busd",
     "address": "0x5292600758A090490D34367d4864ed6291D254fe",
     "decimals": "1e18",
