@@ -90,6 +90,15 @@
     "borrowPercent": 0.01
   },
   {
+    "name": "scream-spell-supply",
+    "itoken": "0xB19b33fFf3A9B21F120B6aC585b8ce21635BEb96",
+    "oracle": "tokens",
+    "oracleId": "SPELL",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
     "name": "scream-crv",
     "itoken": "0x820BdA1786AFA19DA6B92d6AC603574962337326",
     "oracle": "tokens",
@@ -196,5 +205,14 @@
     "decimals": "1e18",
     "borrowDepth": 4,
     "borrowPercent": 0.72
+  },
+  {
+    "name": "scream-spell",
+    "itoken": "0xB19b33fFf3A9B21F120B6aC585b8ce21635BEb96",
+    "oracle": "tokens",
+    "oracleId": "SPELL",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.42
   }
 ]
