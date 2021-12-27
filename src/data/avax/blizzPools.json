@@ -1,5 +1,27 @@
 [
   {
+    "name": "blizz-mim-supply",
+    "token": "0x130966628846BFd36ff31a822705796e8cb8C18D",
+    "aToken": "0x943df430F7f9F734EC7625b561dc5e17A173Adf8",
+    "debtToken": "0x175C017447E087768fDdF3C5A13b1cfc0282ddB2",
+    "oracle": "tokens",
+    "oracleId": "MIM",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "blizz-mim",
+    "token": "0x130966628846BFd36ff31a822705796e8cb8C18D",
+    "aToken": "0x943df430F7f9F734EC7625b561dc5e17A173Adf8",
+    "debtToken": "0x175C017447E087768fDdF3C5A13b1cfc0282ddB2",
+    "oracle": "tokens",
+    "oracleId": "MIM",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
     "name": "blizz-avax-supply",
     "token": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
     "aToken": "0xB2AC04b71888E17Aa2c5102cf3d0215467D74100",
