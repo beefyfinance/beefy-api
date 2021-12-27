@@ -907,7 +907,7 @@ const _tokens = {
   asUSDC: {
     name: 'USDC Solana',
     address: '0xb5E4D17FFD9D0DCE46D290750dad5F9437B5A16B',
-    symbol: 'USDC',
+    symbol: 'asUSDC',
     decimals: 18,
     website: 'https://www.circle.com/usdc',
     description:

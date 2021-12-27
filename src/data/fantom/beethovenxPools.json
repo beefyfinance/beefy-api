@@ -14,7 +14,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "asUSDC",
         "decimals": "1e18"
       }
     ]
