@@ -70,6 +70,8 @@ const getFarmApys = async (params: DualRewardPoolParams) => {
   const apys = [];
   let rewardATokenPrice = await fetchPrice({ oracle: params.oracleA, id: params.oracleIdA });
   let rewardBTokenPrice = await fetchPrice({ oracle: params.oracleB, id: params.oracleIdB });
+  let decimalsA = params.decimalsA;
+  let decimalsB = params.decimalsB;
 
   if (params.xTokenConfig) {
     if (params.xTokenConfig.isXTokenAorB == 'A') {
@@ -84,6 +86,12 @@ const getFarmApys = async (params: DualRewardPoolParams) => {
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
 
+    if (pool['rewardB']) {
+      let rewardB = pool['rewardB'];
+      decimalsB = rewardB.decimals;
+      rewardBTokenPrice = await fetchPrice({ oracle: rewardB.oracle, id: rewardB.oracleId });
+    }
+
     const oracle = pool.oracle ?? 'lps';
     const id = pool.oracleId ?? pool.name;
     const stakedPrice = await fetchPrice({ oracle, id });
@@ -91,10 +99,10 @@ const getFarmApys = async (params: DualRewardPoolParams) => {
 
     const secondsPerYear = 31536000;
     const yearlyRewardsA = rewardRatesA[i].times(secondsPerYear);
-    const yearlyRewardsAInUsd = yearlyRewardsA.times(rewardATokenPrice).dividedBy(params.decimalsA);
+    const yearlyRewardsAInUsd = yearlyRewardsA.times(rewardATokenPrice).dividedBy(decimalsA);
 
     const yearlyRewardsB = rewardRatesB[i].times(secondsPerYear);
-    const yearlyRewardsBInUsd = yearlyRewardsB.times(rewardBTokenPrice).dividedBy(params.decimalsB);
+    const yearlyRewardsBInUsd = yearlyRewardsB.times(rewardBTokenPrice).dividedBy(decimalsB);
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
