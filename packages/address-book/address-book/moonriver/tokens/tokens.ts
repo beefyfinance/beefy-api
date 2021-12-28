@@ -370,9 +370,9 @@ const _tokens = {
     description:
       'RomeDAO is a community project with no central team. It’s a community project built by and for the community. This means it’s up to the community contributors to build a prospering Rome.',
   },
-  sushiBNB: {
+  BNBbsc: {
     name: 'Binance',
-    symbol: 'sushiBNB',
+    symbol: 'BNBbsc',
     address: '0x868892CCcEdbfF0B028F3b3595205Ea91b99376B',
     chainId: 1285,
     decimals: 18,
@@ -381,9 +381,9 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
-  sushiWBTC: {
+  WBTCeth: {
     name: 'Wrapped Bitcoin',
-    symbol: 'sushiWBTC',
+    symbol: 'WBTCeth',
     address: '0xE6a991Ffa8CfE62B0bf6BF72959A3d4f11B2E0f5',
     chainId: 1285,
     decimals: 8,

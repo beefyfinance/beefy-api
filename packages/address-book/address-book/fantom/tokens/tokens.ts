@@ -898,8 +898,7 @@ const _tokens = {
     address: '0x95dD59343a893637BE1c3228060EE6afBf6F0730',
     chainId: 250,
     decimals: 6,
-    logoURI:
-      'https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png',
     website: 'https://www.terra.money/',
     description:
       "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
