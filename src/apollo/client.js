@@ -27,6 +27,9 @@ const sushiCeloClient = client('https://api.thegraph.com/subgraphs/name/sushiswa
 const sushiMoonriverClient = client(
   'https://api.thegraph.com/subgraphs/name/sushiswap/moonriver-exchange'
 );
+const sushiFantomClient = client(
+  'https://api.thegraph.com/subgraphs/name/sushiswap/fantom-exchange'
+);
 const comethClient = client('https://api.thegraph.com/subgraphs/name/cometh-game/comethswap');
 const quickClient = client('https://api.thegraph.com/subgraphs/name/sameepsi/quickswap06');
 const polyzapClient = client('https://api.thegraph.com/subgraphs/name/polyzap/exchange');
@@ -79,7 +82,8 @@ const isSushiClient = client => {
     client === sushiArbitrumClient ||
     client === joeClient ||
     client === sushiCeloClient ||
-    client === sushiMoonriverClient
+    client === sushiMoonriverClient ||
+    client === sushiFantomClient
   );
 };
 
@@ -96,6 +100,7 @@ module.exports = {
   sushiArbitrumClient,
   sushiCeloClient,
   sushiMoonriverClient,
+  sushiFantomClient,
   isSushiClient,
   comethClient,
   quickClient,

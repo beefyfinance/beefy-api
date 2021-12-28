@@ -21,6 +21,7 @@ const getSummitApys = require('./getSummitApys');
 const getGeistLendingApys = require('./getGeistLendingApys');
 const getfBeetsApy = require('./getfBeetsApy');
 const getSpartacadabraApys = require('./getSpartacadabraApys');
+const getPopsicleApys = require('./getPopsicleApys');
 
 const getApys = [
   getSpookyLpApys,
@@ -46,6 +47,7 @@ const getApys = [
   getGeistLendingApys,
   getfBeetsApy,
   getSpartacadabraApys,
+  getPopsicleApys,
 ];
 
 const getFantomApys = async () => {
