@@ -3144,5 +3144,17 @@ const _tokens = {
     description:
       'The Crypto You is the first Baby Metaverse blockchain game on Binance Smart Chain (BSC). Players can summon characters, complete daily mining missions, conquer the Dark Force, loot rare items to play and earn.',
   },
+  IDIA: {
+    name: 'Impossible Decentralized Incubator Access Token',
+    symbol: 'IDIA',
+    address: '0x0b15Ddf19D47E6a86A56148fb4aFFFc6929BcB89',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x0b15ddf19d47e6a86a56148fb4afffc6929bcb89.svg',
+    website: 'https://impossible.finance/',
+    description:
+      'Impossible Finance is a multi-chain incubator, launchpad, and swap platform which offers a robust product-first ecosystem that supports top-tier blockchain projects to targeted user audiences.',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
