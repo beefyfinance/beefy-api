@@ -4,6 +4,7 @@
     "address": "0x985976228a4685ac4ecb0cfdbeed72154659b6d9",
     "farm": "0x230917f8a262bF9f2C3959eC495b11D1B7E1aFfC",
     "vaultPoolId": "0x985976228a4685ac4ecb0cfdbeed72154659b6d900020000000000000000008d",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
     "poolId": 0,
     "decimals": "1e18",
     "tokens": [
@@ -24,13 +25,14 @@
     "address": "0x7ae6a223cde3a17e0b95626ef71a2db5f03f540a",
     "farm": "0x230917f8a262bF9f2C3959eC495b11D1B7E1aFfC",
     "vaultPoolId": "0x7ae6a223cde3a17e0b95626ef71a2db5f03f540a00020000000000000000008a",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
     "poolId": 1,
     "decimals": "1e18",
     "tokens": [
       {
         "oracle": "tokens",
         "oracleId": "WFTM",
-        "decimals": "1e6"
+        "decimals": "1e18"
       },
       {
         "oracle": "tokens",

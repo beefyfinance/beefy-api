@@ -22,7 +22,8 @@ const getMaiApys = async () => {
     decimals: '1e18',
     tradingFeeInfoClient: beetClient,
     liquidityProviderFee: 0.0025,
-    burn: 0.5,
+    burn: 0.05,
+    chainId: 250,
     // log: true,
   });
 };
