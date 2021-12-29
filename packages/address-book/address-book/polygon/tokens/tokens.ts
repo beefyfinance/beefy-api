@@ -876,6 +876,17 @@ const _tokens = {
     description:
       'Hedera is the most used enterprise-grade public network for you to make your digital world exactly as it should be – yours. HBAR is the native, energy-efficient cryptocurrency of Hedera that powers the decentralized economy. Whether youre a startup or enterprise, a creator or consumer, Hedera goes beyond blockchain for developers to create the next era of fast, fair, and secure applications.',
   },
+  agEUR: {
+    name: 'agEUR',
+    symbol: 'agEUR',
+    address: '0xE0B52e49357Fd4DAf2c15e02058DCE6BC0057db4',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.angle.money/',
+    description:
+      'Angle is an over-collateralized, decentralized and capital-efficient stablecoin protocol. It offers full convertibility between stable assets and collateral at oracle value.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
