@@ -74,6 +74,7 @@ const vvsClient = client('https://graph.vvs.finance/exchange');
 const finnClient = client(
   'https://graph-node.huckleberry.finance/subgraphs/name/huckleberry/huckleberry-subgraph'
 );
+const dinoClient = client('https://api.thegraph.com/subgraphs/name/jannerveglobal/dino-swap-dex');
 
 const isSushiClient = client => {
   return (
@@ -83,7 +84,8 @@ const isSushiClient = client => {
     client === joeClient ||
     client === sushiCeloClient ||
     client === sushiMoonriverClient ||
-    client === sushiFantomClient
+    client === sushiFantomClient ||
+    client === dinoClient
   );
 };
 
@@ -92,6 +94,7 @@ const isBeetClient = client => {
 };
 
 module.exports = {
+  dinoClient,
   joeClient,
   dfynClient,
   apePolyClient,
