@@ -3,6 +3,7 @@ const { ethers } = require('ethers');
 const { MULTICHAIN_RPC } = require('../constants');
 import { multicallAddress, web3Factory } from './web3';
 import { MultiCall } from 'eth-multicall';
+
 const IVault = require('../abis/BeefyVaultV6');
 
 const fetchMooPrices = async (pools, tokenPrices, lpPrices) => {
@@ -28,13 +29,20 @@ const fetchPpfs = async pools => {
 
     const ppfsCalls = [];
     filtered.forEach(pool => {
+      pool.ppfs = new BigNumber(1);
       const tokenContract = new web3.eth.Contract(IVault, pool.address);
       ppfsCalls.push({
         ppfs: tokenContract.methods.getPricePerFullShare(),
       });
     });
 
-    const res = await multicall.all([ppfsCalls]);
+    let res;
+    try {
+      res = await multicall.all([ppfsCalls]);
+    } catch (e) {
+      console.error('fetchMooPrices', e);
+      continue;
+    }
 
     const ppfss = res[0].map(v => new BigNumber(v.ppfs));
 

@@ -86,15 +86,6 @@ const fetchAmmPrices = async (pools, knownPrices) => {
       }
     }
 
-    // 1inch uses raw bnb so it needs a custom query to fetch balance
-    if (chain == '56') {
-      const oneInch = filtered.filter(p => p.name === '1inch-1inch-bnb')[0];
-      if (oneInch) {
-        const balance = await provider.getBalance(oneInch.address);
-        oneInch.lp0.balance = new BigNumber(balance.toString());
-      }
-    }
-
     const unsolved = filtered.slice();
     let solving = true;
     while (solving) {
