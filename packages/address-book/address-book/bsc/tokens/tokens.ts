@@ -3156,5 +3156,16 @@ const _tokens = {
     description:
       'Impossible Finance is a multi-chain incubator, launchpad, and swap platform which offers a robust product-first ecosystem that supports top-tier blockchain projects to targeted user audiences.',
   },
+  XCV: {
+    name: 'XCarnival Token',
+    symbol: 'XCV',
+    address: '0x4be63a9b26EE89b9a3a13fd0aA1D0b2427C135f8',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x4be63a9b26EE89b9a3a13fd0aA1D0b2427C135f8.svg',
+    website: 'https://impossible.finance/',
+    description: 'The Metaverse Assets Liquidity Aggregator for Everyone',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
