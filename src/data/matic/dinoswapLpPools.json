@@ -19,25 +19,6 @@
     }
   },
   {
-    "name": "dinoswap-xmark-usdc",
-    "address": "0x97A95deb56d689802F02f50c25EBCda5d0A49591",
-    "decimals": "1e18",
-    "poolId": 2,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xf153EfF70DC0bf3b085134928daeEA248d9B30d0",
-      "oracle": "tokens",
-      "oracleId": "xMARK",
-      "decimals": "1e9"
-    }
-  },
-  {
     "name": "dinoswap-dino-usdc",
     "address": "0x3324af8417844e70b81555A6D1568d78f4D4Bf1f",
     "decimals": "1e18",
@@ -57,10 +38,10 @@
     }
   },
   {
-    "name": "dinoswap-usdc-usdt",
-    "address": "0x2cF7252e74036d1Da831d11089D326296e64a728",
+    "name": "dinoswapv2-dino-usdc",
+    "address": "0xC419c78039Dc2E35e639cB0aB1aC7351A4A9AA44",
     "decimals": "1e18",
-    "poolId": 8,
+    "poolId": 27,
     "chainId": 137,
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
@@ -69,55 +50,17 @@
       "decimals": "1e6"
     },
     "lp1": {
-      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "address": "0xAa9654BECca45B5BDFA5ac646c939C62b527D394",
       "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e6"
-    }
-  },
-  {
-    "name": "dinoswap-usdc-mimatic",
-    "address": "0x160532D2536175d65C03B97b0630A9802c274daD",
-    "decimals": "1e18",
-    "poolId": 9,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
-      "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "DINO",
       "decimals": "1e18"
     }
   },
   {
-    "name": "dinoswap-dfyn-ust-usdt",
-    "address": "0x39BEd7f1C412ab64443196A6fEcb2ac20C707224",
+    "name": "dinoswapv2-dino-eth",
+    "address": "0xcE621CE85eABC6dd95088B81CaB683DFb4628864",
     "decimals": "1e18",
-    "poolId": 12,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x692597b009d13C4049a947CAB2239b7d6517875F",
-      "oracle": "tokens",
-      "oracleId": "UST",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e6"
-    }
-  },
-  {
-    "name": "dinoswap-dfyn-eth-dfyn",
-    "address": "0x6fA867BBFDd025780a8CFE988475220AfF51FB8b",
-    "decimals": "1e18",
-    "poolId": 1,
+    "poolId": 28,
     "chainId": 137,
     "lp0": {
       "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
@@ -126,28 +69,9 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xC168E40227E4ebD8C1caE80F7a55a4F0e6D66C97",
+      "address": "0xAa9654BECca45B5BDFA5ac646c939C62b527D394",
       "oracle": "tokens",
-      "oracleId": "DFYN",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "dinoswap-dfyn-route-eth",
-    "address": "0xeBC4f9B1cE66258AC3A48578FFEEba1330dDB68B",
-    "decimals": "1e18",
-    "poolId": 15,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x16ECCfDbb4eE1A85A33f3A9B21175Cd7Ae753dB4",
-      "oracle": "tokens",
-      "oracleId": "ROUTE",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-      "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "DINO",
       "decimals": "1e18"
     }
   }

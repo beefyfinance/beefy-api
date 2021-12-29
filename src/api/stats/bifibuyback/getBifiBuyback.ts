@@ -59,7 +59,10 @@ const getBuyback = async (
   return { [chainName]: bifiBuybackTokenAmount };
 };
 
-let dailyBifiBuybackStats: DailyBifiBuybackStats | undefined = undefined;
+let dailyBifiBuybackStats: DailyBifiBuybackStats = {
+  buybackTokenAmount: new BigNumber(0),
+  buybackUsdAmount: new BigNumber(0),
+};
 
 const updateBifiBuyback = async () => {
   console.log('> updating bifi buyback');
@@ -112,7 +115,7 @@ const updateBifiBuyback = async () => {
   setTimeout(updateBifiBuyback, REFRESH_INTERVAL);
 };
 
-setTimeout(updateBifiBuyback, INIT_DELAY);
+// setTimeout(updateBifiBuyback, INIT_DELAY);
 
 export const getBifiBuyback = (): DailyBifiBuybackStats | undefined => {
   return dailyBifiBuybackStats;

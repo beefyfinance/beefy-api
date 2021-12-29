@@ -70,6 +70,6 @@ const updateMultichainVaults = async () => {
   setTimeout(updateMultichainVaults, REFRESH_INTERVAL);
 };
 
-setTimeout(updateMultichainVaults, INIT_DELAY);
+// setTimeout(updateMultichainVaults, INIT_DELAY);
 
 module.exports = getMultichainVaults;
