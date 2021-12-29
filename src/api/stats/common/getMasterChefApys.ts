@@ -166,7 +166,7 @@ const getPoolsData = async (params: MasterChefApysParams) => {
     });
   });
 
-  const res = await multicall.all([allocPointCalls]);
+  const res = await multicall.all([balanceCalls, allocPointCalls]);
 
   const balances: BigNumber[] = res[0].map(v => new BigNumber(v.balance));
   const allocPoints: BigNumber[] = res[1].map(v => v.allocPoint[params.allocPointIndex ?? '1']);
