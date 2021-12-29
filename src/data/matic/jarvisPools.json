@@ -1,10 +1,25 @@
 [
   {
+    "name": "curve-jarvis-5eur",
+    "pool": "0x81212149b983602474fcD0943E202f38b38d7484",
+    "address": "0x81212149b983602474fcD0943E202f38b38d7484",
+    "masterchef": "0x1Dc366c5aC2f3Ac16af20212B46cDC0c92235A20",
+    "poolId": 0,
+    "chainId": 137,
+    "rewardToken": "agDEN",
+    "rewardOracle": "tokens",
+    "token": "0x81212149b983602474fcD0943E202f38b38d7484",
+    "baseApyKey": "agEUR+4eur-f"
+  },
+  {
     "name": "jarvis-4eur",
     "pool": "0xAd326c253A84e9805559b73A08724e11E49ca651",
     "address": "0xAd326c253A84e9805559b73A08724e11E49ca651",
+    "masterchef": "0xf8347d0C225e26B45A6ea9a719012F1153D7Ca15",
     "poolId": 1,
     "chainId": 137,
+    "rewardToken": "DEN",
+    "rewardOracle": "lps",
     "token": "0xAd326c253A84e9805559b73A08724e11E49ca651",
     "baseApyKey": "4eur-f",
     "volatile": true,
