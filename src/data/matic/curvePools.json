@@ -162,5 +162,33 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "curve-poly-eurt",
+    "pool": "0xB446BF7b8D6D4276d0c75eC0e3ee8dD7Fe15783A",
+    "token": "0x600743b1d8a96438bd46836fd34977a00293f6aa",
+    "gauge": "0x40c0e9376468b4f257d15F8c47E5D0C646C28880",
+    "baseApyKey": "eurtusd",
+    "volatile": true,
+    "rewards": [
+      {
+        "stream": "0xAF78381216a8eCC7Ad5957f3cD12a431500E0B0D",
+        "token": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
+        "oracleId": "CRV"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "tether-eurt",
+        "decimals": "1e6"
+      },
+      {
+        "basePool": "curve-am3crv",
+        "oracle": "lps",
+        "oracleId": "curve-am3crv",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

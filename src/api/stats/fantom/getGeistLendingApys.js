@@ -44,14 +44,21 @@ const getGeistLendingApys = async () => {
 };
 
 const getIncentiveControllerData = async () => {
-  const incentivesControllerContract = new web3.eth.Contract(IncentivesController, incentivesController);
+  const incentivesControllerContract = new web3.eth.Contract(
+    IncentivesController,
+    incentivesController
+  );
   const rewardsPerSecond = await incentivesControllerContract.methods.rewardsPerSecond().call();
   const totalAllocPoint = await incentivesControllerContract.methods.totalAllocPoint().call();
   return { rewardsPerSecond, totalAllocPoint };
-}
+};
 
 const getPoolApy = async (pool, rewardsPerSecond, totalAllocPoint) => {
-  const { supplyBase, supplyGeist, borrowBase, borrowGeist } = await getGeistPoolData(pool, rewardsPerSecond, totalAllocPoint);
+  const { supplyBase, supplyGeist, borrowBase, borrowGeist } = await getGeistPoolData(
+    pool,
+    rewardsPerSecond,
+    totalAllocPoint
+  );
 
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyGeist, leveragedBorrowGeist } =
     getLeveragedApys(
@@ -91,7 +98,11 @@ const getGeistPoolData = async (pool, rewardsPerSecond, totalAllocPoint) => {
     .div(pool.decimals)
     .times(tokenPrice);
 
-  const { supplyGeistInUsd, borrowGeistInUsd } = await getGeistPerYear(pool, rewardsPerSecond, totalAllocPoint);
+  const { supplyGeistInUsd, borrowGeistInUsd } = await getGeistPerYear(
+    pool,
+    rewardsPerSecond,
+    totalAllocPoint
+  );
   const supplyGeist = supplyGeistInUsd.div(totalSupplyInUsd);
   const borrowGeist = totalBorrowInUsd.isZero()
     ? new BigNumber(0)
@@ -101,16 +112,31 @@ const getGeistPoolData = async (pool, rewardsPerSecond, totalAllocPoint) => {
 };
 
 const getGeistPerYear = async (pool, rewardsPerSecond, totalAllocPoint) => {
-  const incentivesControllerContract = new web3.eth.Contract(IncentivesController, incentivesController);
+  const incentivesControllerContract = new web3.eth.Contract(
+    IncentivesController,
+    incentivesController
+  );
 
   let res = await incentivesControllerContract.methods.poolInfo(pool.aToken).call();
-  const supplyGeistRate = new BigNumber(res.allocPoint).times(rewardsPerSecond).dividedBy(totalAllocPoint);
+  const supplyGeistRate = new BigNumber(res.allocPoint)
+    .times(rewardsPerSecond)
+    .dividedBy(totalAllocPoint);
   res = await incentivesControllerContract.methods.poolInfo(pool.debtToken).call();
-  const borrowGeistRate = new BigNumber(res.allocPoint).times(rewardsPerSecond).dividedBy(totalAllocPoint);
+  const borrowGeistRate = new BigNumber(res.allocPoint)
+    .times(rewardsPerSecond)
+    .dividedBy(totalAllocPoint);
 
   const GeistPrice = await fetchPrice({ oracle: 'tokens', id: 'GEIST' });
-  const supplyGeistInUsd = supplyGeistRate.times(secondsPerYear).div('1e18').times(GeistPrice).dividedBy(2);
-  const borrowGeistInUsd = borrowGeistRate.times(secondsPerYear).div('1e18').times(GeistPrice).dividedBy(2);
+  const supplyGeistInUsd = supplyGeistRate
+    .times(secondsPerYear)
+    .div('1e18')
+    .times(GeistPrice)
+    .dividedBy(2);
+  const borrowGeistInUsd = borrowGeistRate
+    .times(secondsPerYear)
+    .div('1e18')
+    .times(GeistPrice)
+    .dividedBy(2);
 
   return { supplyGeistInUsd, borrowGeistInUsd };
 };
@@ -129,21 +155,19 @@ const getLeveragedApys = (
   let leveragedSupplyGeist = new BigNumber(0);
   let leveragedBorrowGeist = new BigNumber(0);
 
-  for (let i = 0; i <= depth; i++) {
+  for (let i = 0; i < depth; i++) {
     leveragedSupplyBase = leveragedSupplyBase.plus(
-      supplyBase.times(borrowPercent.exponentiatedBy(depth - i))
+      supplyBase.times(borrowPercent.exponentiatedBy(i))
     );
     leveragedSupplyGeist = leveragedSupplyGeist.plus(
-      supplyGeist.times(borrowPercent.exponentiatedBy(depth - i))
+      supplyGeist.times(borrowPercent.exponentiatedBy(i))
     );
-  }
 
-  for (let i = 0; i < depth; i++) {
     leveragedBorrowBase = leveragedBorrowBase.plus(
-      borrowBase.times(borrowPercent.exponentiatedBy(depth - i))
+      borrowBase.times(borrowPercent.exponentiatedBy(i + 1))
     );
     leveragedBorrowGeist = leveragedBorrowGeist.plus(
-      borrowGeist.times(borrowPercent.exponentiatedBy(depth - i))
+      borrowGeist.times(borrowPercent.exponentiatedBy(i + 1))
     );
   }
 

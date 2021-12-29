@@ -26,8 +26,8 @@ const getScreamApys = async () => {
 };
 
 const getPoolApy = async pool => {
-  const blocksPerSecond = await Promise.all([getBlockTime(chainId)]);
-  const BLOCKS_PER_YEAR = 31536000 / blocksPerSecond;
+  const secondsPerBlock = await Promise.all([getBlockTime(chainId)]);
+  const BLOCKS_PER_YEAR = 31536000 / secondsPerBlock;
 
   const [{ supplyBase, supplyVxs }, { borrowBase, borrowVxs }] = await Promise.all([
     getSupplyApys(pool, BLOCKS_PER_YEAR),
@@ -119,21 +119,17 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
   let leveragedSupplyVxs = new BigNumber(0);
   let leveragedBorrowVxs = new BigNumber(0);
 
-  for (let i = 0; i <= depth; i++) {
-    leveragedSupplyBase = leveragedSupplyBase.plus(
-      supplyBase.times(borrowPercent.exponentiatedBy(depth - i))
-    );
-    leveragedSupplyVxs = leveragedSupplyVxs.plus(
-      supplyVxs.times(borrowPercent.exponentiatedBy(depth - i))
-    );
-  }
-
   for (let i = 0; i < depth; i++) {
+    leveragedSupplyBase = leveragedSupplyBase.plus(
+      supplyBase.times(borrowPercent.exponentiatedBy(i))
+    );
+    leveragedSupplyVxs = leveragedSupplyVxs.plus(supplyVxs.times(borrowPercent.exponentiatedBy(i)));
+
     leveragedBorrowBase = leveragedBorrowBase.plus(
-      borrowBase.times(borrowPercent.exponentiatedBy(depth - i))
+      borrowBase.times(borrowPercent.exponentiatedBy(i + 1))
     );
     leveragedBorrowVxs = leveragedBorrowVxs.plus(
-      borrowVxs.times(borrowPercent.exponentiatedBy(depth - i))
+      borrowVxs.times(borrowPercent.exponentiatedBy(i + 1))
     );
   }
 

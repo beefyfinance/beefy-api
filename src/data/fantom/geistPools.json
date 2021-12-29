@@ -66,6 +66,28 @@
     "borrowPercent": 0.01
   },
   {
+    "name": "geist-crv-supply",
+    "token": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
+    "aToken": "0x690754A168B022331cAA2467207c61919b3F8A98",
+    "debtToken": "0x811A951D15f4DD33e9Aa8D6F7AfF6d1433fe644A",
+    "oracle": "tokens",
+    "oracleId": "CRV",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "geist-mim-supply",
+    "token": "0x82f0B8B456c1A451378467398982d4834b6829c1",
+    "aToken": "0xc664Fc7b8487a3E10824Cda768c1d239F2403bBe",
+    "debtToken": "0xe6f5b2d4DE014d8fa4c45b744921fFDf13f15D4a",
+    "oracle": "tokens",
+    "oracleId": "MIM",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
     "name": "geist-ftm",
     "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
     "aToken": "0x39B3bd37208CBaDE74D0fcBDBb12D606295b430a",
@@ -130,5 +152,27 @@
     "decimals": "1e8",
     "borrowDepth": 4,
     "borrowPercent": 0.67
+  },
+  {
+    "name": "geist-crv",
+    "token": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
+    "aToken": "0x690754A168B022331cAA2467207c61919b3F8A98",
+    "debtToken": "0x811A951D15f4DD33e9Aa8D6F7AfF6d1433fe644A",
+    "oracle": "tokens",
+    "oracleId": "CRV",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.47
+  },
+  {
+    "name": "geist-mim",
+    "token": "0x82f0B8B456c1A451378467398982d4834b6829c1",
+    "aToken": "0xc664Fc7b8487a3E10824Cda768c1d239F2403bBe",
+    "debtToken": "0xe6f5b2d4DE014d8fa4c45b744921fFDf13f15D4a",
+    "oracle": "tokens",
+    "oracleId": "MIM",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
   }
 ]

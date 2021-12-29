@@ -19,9 +19,6 @@ const DECIMALS = '1e18';
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
-// matic
-const oracleIdSpell = 'SPELL';
-
 const getSushiMimApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(sushiArbitrumClient, pairAddresses, SUSHI_LPF);
@@ -43,10 +40,10 @@ const getFarmApys = async pools => {
   const hardcodedTotalAllocPoint = 8400;
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const spellPrice = await fetchPrice({ oracle, id: oracleIdSpell });
   const { balances, allocPoints } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
+    const spellPrice = await fetchPrice({ oracle, id: pool.secondOracleId });
 
     const rewardContract = new web3.eth.Contract(SushiComplexRewarderTime, pool.rewarder);
     const rewardPerSecond = new BigNumber(await rewardContract.methods.rewardPerSecond().call());

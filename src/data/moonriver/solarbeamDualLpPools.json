@@ -1,0 +1,116 @@
+[
+  {
+    "name": "solarbeam-frax-arome",
+    "address": "0xcf06cFB361615C49403B45a5E56E3B7da3462EEA",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x1A93B23281CC1CDE4C4741353F3064709A16197d",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE",
+      "oracle": "tokens",
+      "oracleId": "aROME",
+      "decimals": "1e9"
+    }
+  },
+  {
+    "name": "solarbeam-wbtc-wmovr",
+    "address": "0x32E33B774372c700da12F2D0F7A834045F5651B2",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarbeam-eth-wmovr",
+    "address": "0x0d171b55fC8d3BDDF17E376FdB2d90485f900888",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarbeam-bnb-wmovr",
+    "address": "0xBe2aBe58eDAae96B4303F194d2fAD5233BaD3d87",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
+      "oracle": "tokens",
+      "oracleId": "mBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarbeam-mim-wmovr",
+    "address": "0x9432B25fBD8a37e5A1300e36a96BD14E1E6f5c90",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x0caE51e1032e8461f4806e26332c030E34De3aDb",
+      "oracle": "tokens",
+      "oracleId": "mMIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarbeam-frax-wmovr-2",
+    "address": "0x2cc54b4A3878e36E1C754871438113C1117a3ad7",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x1A93B23281CC1CDE4C4741353F3064709A16197d",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  }
+]

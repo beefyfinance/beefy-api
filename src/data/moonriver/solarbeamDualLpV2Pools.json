@@ -1,0 +1,40 @@
+[
+  {
+    "name": "solarbeam-wmovr-mai",
+    "address": "0xcD450B46dbED11C4F1cf159457B28ed7e2Ed7fBB",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFb2019DfD635a03cfFF624D210AEe6AF2B00fC2C",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarbeam-frax-rome",
+    "address": "0x069C2065100b4D3D982383f7Ef3EcD1b95C05894",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x1A93B23281CC1CDE4C4741353F3064709A16197d",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4a436073552044D5f2f49B176853ad3Ad473d9d6",
+      "oracle": "tokens",
+      "oracleId": "ROME",
+      "decimals": "1e9"
+    }
+  }
+]

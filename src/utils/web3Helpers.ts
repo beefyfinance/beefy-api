@@ -23,6 +23,8 @@ import {
   MOONRIVER_CHAIN_ID,
   CRONOS_RPC,
   CRONOS_CHAIN_ID,
+  AURORA_RPC,
+  AURORA_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -36,6 +38,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.celo]: addressBookByChainId[ChainId.celo].platforms.beefyfinance.multicall,
   [ChainId.moonriver]: addressBookByChainId[ChainId.moonriver].platforms.beefyfinance.multicall,
   [ChainId.cronos]: addressBookByChainId[ChainId.cronos].platforms.beefyfinance.multicall,
+  [ChainId.aurora]: addressBookByChainId[ChainId.aurora].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -49,6 +52,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   celo: [],
   moonriver: [],
   cronos: [],
+  aurora: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -62,6 +66,7 @@ clients.arbitrum.push(new Web3(ARBITRUM_RPC));
 clients.celo.push(new Web3(CELO_RPC));
 clients.moonriver.push(new Web3(MOONRIVER_RPC));
 clients.cronos.push(new Web3(CRONOS_RPC));
+clients.aurora.push(new Web3(AURORA_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -74,6 +79,7 @@ export const chainRandomClients = {
   celoRandomClient: () => clients.celo[~~(clients.celo.length * Math.random())],
   moonriverRandomClient: () => clients.moonriver[~~(clients.moonriver.length * Math.random())],
   cronosRandomClient: () => clients.cronos[~~(clients.cronos.length * Math.random())],
+  auroraRandomClient: () => clients.aurora[~~(clients.aurora.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -98,6 +104,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.moonriverRandomClient();
     case CRONOS_CHAIN_ID:
       return chainRandomClients.cronosRandomClient();
+    case AURORA_CHAIN_ID:
+      return chainRandomClients.auroraRandomClient();
   }
 };
 

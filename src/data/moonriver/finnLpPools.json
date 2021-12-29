@@ -1,0 +1,325 @@
+[
+  {
+    "name": "finn-finn-bnb",
+    "address": "0x3F7db2e5Ca0Fe2372a9Bc762C9984213B937c248",
+    "decimals": "1e18",
+    "poolId": 21,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf47002E6151E06554b8f16E9Cc704edD3fC078b8",
+      "oracle": "tokens",
+      "oracleId": "BNBm",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-finn-ftm",
+    "address": "0x135C0c09517AF7445a4B27976d3549B996483f4e",
+    "decimals": "1e18",
+    "poolId": 18,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd924f195C6012C301f42290cf0fdE385A66039DE",
+      "oracle": "tokens",
+      "oracleId": "FTMm",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-finn-doge",
+    "address": "0xB4939f65f27cac1e220D8A86E0274860aDa9d825",
+    "decimals": "1e18",
+    "poolId": 17,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb668Cd490a4421F993f93be2819A922DBbB32804",
+      "oracle": "tokens",
+      "oracleId": "DOGEm",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "finn-wan-finn",
+    "address": "0xF3d89313F508f877f086b7FFA8BeA6926b886B5f",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x41562ae242d194247389152aCAa7a9397136b09F",
+      "oracle": "tokens",
+      "oracleId": "WANm",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-eth-finn",
+    "address": "0x03bF745884513869AFE685af099e8c738F3697E3",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x576fDe3f61B7c97e381c94e7A03DBc2e08Af1111",
+      "oracle": "tokens",
+      "oracleId": "ETHm",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-wbtc-finn",
+    "address": "0x0A1Af960473e170773a33012bf2C291e6f7e3E2C",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x78F811A431D248c1EDcF6d95ec8551879B2897C3",
+      "oracle": "tokens",
+      "oracleId": "WBTCm",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-finn-usdt",
+    "address": "0xBE1C572E40150EaCf046ceFB4A4552FbB13E68f8",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE936CAA7f6d9F5C9e907111FCAf7c351c184CDA7",
+      "oracle": "tokens",
+      "oracleId": "USDTm",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "finn-finn-avax",
+    "address": "0x10300C5FD4Af0F81fC8DA3f48e44dbccd189f253",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc005A7A1502c9DE16CCDaBA7CDA0cee4Ac304993",
+      "oracle": "tokens",
+      "oracleId": "AVAXm",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-finn-xrp",
+    "address": "0x7491D6e5aC2785Fc9c873922F9B424fCA7720519",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9D5bc9B873AeD984e2B6A64d4792249D68BbA2Fe",
+      "oracle": "tokens",
+      "oracleId": "XRPm",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "finn-usdc-usdt",
+    "address": "0xce634Ae7191aB885Fb4ce8d1ed58f80EA988D52a",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x748134b5F553F2bcBD78c6826De99a70274bDEb3",
+      "oracle": "tokens",
+      "oracleId": "USDCm",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xE936CAA7f6d9F5C9e907111FCAf7c351c184CDA7",
+      "oracle": "tokens",
+      "oracleId": "USDTm",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "finn-wbtc-wmovr",
+    "address": "0x3fAF6e9Bf107199dB347B146F80A68CBD0B598B2",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x78F811A431D248c1EDcF6d95ec8551879B2897C3",
+      "oracle": "tokens",
+      "oracleId": "WBTCm",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-eth-wmovr",
+    "address": "0xBaf9eB00574C42Cf678778790b04705B435B65F8",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x576fDe3f61B7c97e381c94e7A03DBc2e08Af1111",
+      "oracle": "tokens",
+      "oracleId": "ETHm",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-wan-wmovr",
+    "address": "0x0Df4cD5fD2f69E54A3E6d13e5cad54f1eB995E8c",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x41562ae242d194247389152aCAa7a9397136b09F",
+      "oracle": "tokens",
+      "oracleId": "WANm",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-wmovr-usdt",
+    "address": "0x037f019B6d98A61AF80c0da5ecFdc23612B0C134",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE936CAA7f6d9F5C9e907111FCAf7c351c184CDA7",
+      "oracle": "tokens",
+      "oracleId": "USDTm",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "finn-dot-finn",
+    "address": "0xF09211fb5eD5019b072774cfD7Db0c9f4ccd5Be0",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x15B9CA9659F5dfF2b7d35a98dd0790a3CBb3D445",
+      "oracle": "tokens",
+      "oracleId": "DOTm",
+      "decimals": "1e10"
+    },
+    "lp1": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-usdc-finn",
+    "address": "0xb04492345b0618acFf27AC27CeC4244fBdd30208",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x748134b5F553F2bcBD78c6826De99a70274bDEb3",
+      "oracle": "tokens",
+      "oracleId": "USDCm",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "finn-wmovr-finn",
+    "address": "0xbBe2f34367972Cb37ae8dea849aE168834440685",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    }
+  }
+]

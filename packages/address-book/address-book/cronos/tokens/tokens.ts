@@ -28,6 +28,61 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  TONIC: {
+    name: 'Tectonic Governance Token',
+    symbol: 'TONIC',
+    address: '0xDD73dEa10ABC2Bff99c60882EC5b2B81Bb1Dc5B2',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://tectonic.finance/',
+    description:
+      'Tectonic is a cross-chain money market for earning passive yield and accessing instant backed loans',
+    logoURI: 'https://vvs.finance/images/tokens/0xDD73dEa10ABC2Bff99c60882EC5b2B81Bb1Dc5B2.svg',
+  },
+  LIQ: {
+    name: 'Liquidus',
+    symbol: 'LIQ',
+    address: '0xABd380327Fe66724FFDa91A87c772FB8D00bE488',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://farm.liquidus.finance/',
+    description: 'Earn interest on your decentralised crypto assets',
+    logoURI: 'https://farm.liquidus.finance/static/media/liquidus_logo_round.f72f345a.png',
+  },
+  ATOM: {
+    name: 'Cosmos Token',
+    symbol: 'ATOM',
+    address: '0xB888d8Dd1733d72681b30c00ee76BDE93ae7aa93',
+    chainId: 25,
+    decimals: 6,
+    website: 'https://cosmos.network/',
+    description:
+      'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x0eb3a705fc54725037cc9e008bdede697f62f335.png',
+  },
+  DOGE: {
+    name: 'Doge Token',
+    symbol: 'DOGE',
+    address: '0x1a8E39ae59e5556B56b76fCBA98d22c9ae557396',
+    chainId: 25,
+    decimals: 8,
+    logoURI: 'https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=014',
+    website: 'https://dogecoin.com/',
+    description:
+      'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
+  },
+  SHIB: {
+    name: 'Shiba Inu',
+    symbol: 'SHIB',
+    address: '0xbED48612BC69fA1CaB67052b42a95FB30C1bcFee',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://shibatoken.com/',
+    description:
+      'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
+    logoURI: 'https://bscscan.com/token/images/shibatoken_32.png',
+  },
   VVS: {
     name: 'VVSToken',
     symbol: 'VVS',

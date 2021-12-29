@@ -3,37 +3,19 @@ const getBlizzardApy = require('./getBlizzardApy');
 const getBlizzardLpApys = require('./getBlizzardLpApys');
 const getSaltLpApys = require('./getSaltLpApys');
 const getApeApys = require('./getApeApys');
-const getSoupApys = require('./getSoupLpApys');
-const getSquirrelApys = require('./getSquirrelLpApys');
 const getSpaceLpApys = require('./getSpaceLpApys');
-const getHpsApys = require('./getHpsApys');
 const getZefiLpApys = require('./getZefiLpApys');
-const getThunderLpApys = require('./getThunderLpApys');
 const getSwampApys = require('./getSwampApys');
-const getSwampyCakeLpApys = require('./getSwampyCakeLpApys');
-const getYieldBayLpApys = require('./getYieldBayLpApys');
 const getSwampySwampApy = require('./getSwampySwampApy');
-const getSwampyCakeApy = require('./getSwampyCakeApy');
-const getMarshLpApys = require('./getMarshLpApys');
-const getSatisLpApys = require('./getSatisLpApys');
 const getGoalLpApys = require('./getGoalLpApys');
-const getTofyLpApys = require('./getTofyLpApys');
-const getGarudaApys = require('./getGarudaApys');
-const getIronApys = require('./getIronApys');
-const getIronDndApys = require('./getIronDndApys');
-const getIronSingleApys = require('./getIronSingleApys');
-const getDumplingApys = require('./getDumplingApys');
 const getPantherApys = require('./getPantherApys');
-const getMemeFarmApys = require('./getMemeFarmLpApys');
 const getKingdefiApys = require('./getKingdefiApys');
 const getRabbitFinanceApys = require('./getRabbitFinanceApys');
 const getFruitApys = require('./getFruitApys');
 const getPeraApys = require('./getPeraApys');
 const getStableQuantApys = require('./getStableQuantApys');
-const getHoneyFarmApys = require('./getHoneyFarmApys');
 const getViralataApys = require('./getViralataApys');
 const getLongApys = require('./getLongApys');
-const getPearzapApys = require('./getPearzapApys');
 const getCZFApys = require('./getCZFApys');
 const getAnnexApys = require('./getAnnexApys');
 const getPacocaApys = require('./getPacocaApys');
@@ -43,6 +25,9 @@ const getBabyApys = require('./getBabyApys');
 const { getWSGApys } = require('./getWSGApys');
 const getNftyApys = require('./getNftyApys');
 const getBetuApys = require('./getBetuApys');
+const getBisonApys = require('./getBisonApys');
+const getBlockMineApys = require('./getBlockMineApys');
+const getChargeApys = require('./getChargeApys');
 
 const getApys = [
   getRamenLpApys,
@@ -50,38 +35,39 @@ const getApys = [
   getBlizzardLpApys,
   getSaltLpApys,
   getApeApys,
-  getSoupApys,
-  getSquirrelApys,
+  // TODO remove all commented if no complains
+  // getSoupApys,
+  // getSquirrelApys,
   getSpaceLpApys,
-  getHpsApys,
+  // getHpsApys,
   getZefiLpApys,
-  getThunderLpApys,
+  // getThunderLpApys,
   getSwampApys,
-  getSwampyCakeLpApys,
-  getSwampyCakeApy,
-  getYieldBayLpApys,
   getSwampySwampApy,
-  getMarshLpApys,
-  getSatisLpApys,
+  // getSwampyCakeLpApys,
+  // getSwampyCakeApy,
+  // getYieldBayLpApys,
+  // getMarshLpApys,
+  // getSatisLpApys,
   getGoalLpApys,
-  getTofyLpApys,
-  getGarudaApys,
-  getIronApys,
-  getIronDndApys,
-  getIronSingleApys,
-  getDumplingApys,
+  // getTofyLpApys,
+  // getGarudaApys,
+  // getIronApys,
+  // getIronDndApys,
+  // getIronSingleApys,
+  // getDumplingApys,
   getPantherApys,
-  getMemeFarmApys,
+  // getMemeFarmApys,
   getKingdefiApys,
   getRabbitFinanceApys,
   getFruitApys,
   getPeraApys,
   getStableQuantApys,
-  getHoneyFarmApys,
+  // getHoneyFarmApys,
   getViralataApys,
   getLongApys,
   getCZFApys,
-  getPearzapApys,
+  // getPearzapApys,
   getAnnexApys,
   getPacocaApys,
   getSingularApys,
@@ -90,6 +76,9 @@ const getApys = [
   getWSGApys,
   getNftyApys,
   getBetuApys,
+  getBisonApys,
+  getBlockMineApys,
+  getChargeApys,
 ];
 
 const getDegensLpApys = async () => {

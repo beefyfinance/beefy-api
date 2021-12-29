@@ -37,7 +37,7 @@ const SUSHI = {
   description:
     'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
   logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
-};
+} as const;
 
 const _tokens = {
   MOVR,
@@ -56,6 +56,84 @@ const _tokens = {
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+  },
+  MAI: {
+    name: 'MAI',
+    symbol: 'Mai Stablecoin',
+    address: '0xFb2019DfD635a03cfFF624D210AEe6AF2B00fC2C',
+    chainId: 1285,
+    decimals: 18,
+    website: 'https://www.mai.finance/',
+    description:
+      "MAI is a stable coin collateralized by your MATIC holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+  },
+  DOGE: {
+    name: 'Doge Token',
+    symbol: 'DOGE',
+    address: '0xb668Cd490a4421F993f93be2819A922DBbB32804',
+    chainId: 1285,
+    decimals: 8,
+    logoURI: 'https://cryptologos.cc/logos/dogecoin-doge-logo.svg?v=014',
+    website: 'https://dogecoin.com/',
+    description:
+      'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
+  },
+  XRP: {
+    name: 'XRP Token',
+    symbol: 'XRP',
+    address: '0x9D5bc9B873AeD984e2B6A64d4792249D68BbA2Fe',
+    chainId: 1285,
+    decimals: 6,
+    logoURI: 'https://cryptologos.cc/logos/xrp-xrp-logo.svg?v=014',
+    website: 'https://ripple.com/xrp/',
+    description:
+      'XRP is a digital asset built for payments. It is the native digital asset on the XRP Ledger—an open-source, permissionless and decentralized blockchain technology that can settle transactions in 3-5 seconds.',
+  },
+  WAN: {
+    name: 'WAN Token',
+    symbol: 'WAN',
+    address: '0x41562ae242d194247389152aCAa7a9397136b09F',
+    chainId: 1285,
+    decimals: 18,
+    logoURI: 'https://cryptologos.cc/logos/wanchain-wan-logo.svg?v=014',
+    website: 'https://www.wanchain.org/',
+    description:
+      'Wanchain is a distributed ledger that allows for cross-chain transactions and the interoperability of multiple chains. Although Wanchain facilitates transactions between blockchains, it is also a stand-alone blockchain that runs autonomously.',
+  },
+  FINN: {
+    name: 'FINN Token',
+    symbol: 'FINN',
+    address: '0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756',
+    chainId: 1285,
+    decimals: 18,
+    logoURI: 'https://www.huckleberry.finance/static/media/02.edc46c96.png',
+    website: 'https://www.huckleberry.finance/#/swap',
+    description: 'Huckleberry is a community driven AMM crosschain DEX built on Moonriver.',
+  },
+  DOTm: {
+    name: 'Polkadot Token',
+    symbol: 'DOTm',
+    address: '0x15B9CA9659F5dfF2b7d35a98dd0790a3CBb3D445',
+    chainId: 1285,
+    decimals: 10,
+    logoURI:
+      'https://assets.coingecko.com/coins/images/12171/large/aJGBjJFU_400x400.jpg?1597804776',
+    website: 'https://polkadot.network/',
+    description:
+      'Polkadot is an open source, blockchain-based distributed computing platform that enables the blockchains built on top of it, known as "parachains", to execute atomic inter-chain transactions between themselves in a trust-minimized way, thereby creating an interconnected internet of blockchains.',
+  },
+  USDCm: {
+    name: 'USD Coin',
+    symbol: 'USDCm',
+    address: '0x748134b5F553F2bcBD78c6826De99a70274bDEb3',
+    chainId: 1285,
+    decimals: 6,
+    logoURI:
+      'https://app.solarbeam.io/_next/image?url=https%3A%2F%2Fapp.solarbeam.io%2Fimages%2Ftokens%2Fusdc.png&w=48&q=50',
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
   SOLAR: {
     name: 'SolarBeam Token',
@@ -196,7 +274,7 @@ const _tokens = {
     description:
       'Cross-chain token transfers on the worlds top blockchains using Relays fast, secure chain bridge',
   },
-  MAI: {
+  miMatic: {
     name: 'MAI',
     symbol: 'miMatic',
     address: '0x7f5a79576620C046a293F54FFCdbd8f2468174F1',
@@ -246,7 +324,7 @@ const _tokens = {
     ...SUSHI,
     symbol: 'mSUSHI',
   },
-  FRAX: {
+  anyFRAX: {
     name: 'FRAX',
     symbol: 'FRAX',
     address: '0x965f84D915a9eFa2dD81b653e3AE736555d945f4',
@@ -256,6 +334,63 @@ const _tokens = {
     website: 'https://frax.finance/',
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+  },
+  FRAX: {
+    name: 'FRAX',
+    symbol: 'FRAX',
+    address: '0x1A93B23281CC1CDE4C4741353F3064709A16197d',
+    chainId: 1285,
+    decimals: 18,
+    logoURI: 'https://cryptologos.cc/logos/frax-frax-logo.svg?v=014',
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+  },
+  aROME: {
+    name: 'Alpha Rome',
+    symbol: 'aROME',
+    address: '0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE',
+    chainId: 1285,
+    decimals: 9,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE.svg',
+    website: 'https://romedao.finance/',
+    description:
+      'RomeDAO is a community project with no central team. It’s a community project built by and for the community. This means it’s up to the community contributors to build a prospering Rome.',
+  },
+  ROME: {
+    name: 'Rome',
+    symbol: 'ROME',
+    address: '0x4a436073552044D5f2f49B176853ad3Ad473d9d6',
+    chainId: 1285,
+    decimals: 9,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE.svg',
+    website: 'https://romedao.finance/',
+    description:
+      'RomeDAO is a community project with no central team. It’s a community project built by and for the community. This means it’s up to the community contributors to build a prospering Rome.',
+  },
+  BNBbsc: {
+    name: 'Binance',
+    symbol: 'BNBbsc',
+    address: '0x868892CCcEdbfF0B028F3b3595205Ea91b99376B',
+    chainId: 1285,
+    decimals: 18,
+    website: 'https://www.binance.com/',
+    description: 'BNB from BSC wrapped by passport.meter.io',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+  },
+  WBTCeth: {
+    name: 'Wrapped Bitcoin',
+    symbol: 'WBTCeth',
+    address: '0xE6a991Ffa8CfE62B0bf6BF72959A3d4f11B2E0f5',
+    chainId: 1285,
+    decimals: 8,
+    website: 'https://passport.meter.io/transfer#/ ',
+    description: 'WBTC from Etherem wrapped by passport.meter.io',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
 } as const;
 

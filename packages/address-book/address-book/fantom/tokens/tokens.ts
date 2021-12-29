@@ -38,6 +38,62 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  CHARM: {
+    name: 'CHARM',
+    symbol: 'CHARM',
+    address: '0x248CB87DDA803028dfeaD98101C9465A2fbdA0d4',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://spartacadabra.money/',
+    description:
+      'Spartacadabra unlocks yield bearing assets and conjures magic stable coin Lambda (λ).',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/21208/small/vXl4xT-P_400x400.png?1638567924',
+  },
+  UST: {
+    name: 'USD Terra',
+    symbol: 'UST',
+    address: '0xe2D27f06F63d98b8e11b38b5b08A75D0c8dD62B9',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
+  },
+  SOL: {
+    name: 'Solana',
+    symbol: 'SOL',
+    address: '0x44F7237df00E386af8e79B817D05ED9f6FE0f296',
+    decimals: 18,
+    chainId: 250,
+    website: 'https://solana.com/',
+    description:
+      'Solana is the fastest blockchain in the world and the fastest growing ecosystem in crypto, with over 400 projects spanning DeFi, NFTs, Web3 and more.',
+    logoURI: 'https://assets.coingecko.com/coins/images/4128/large/Solana.jpg?1635329178',
+  },
+  TUSD: {
+    name: 'True USD',
+    symbol: 'TUSD',
+    address: '0x9879aBDea01a879644185341F7aF7d8343556B7a',
+    decimals: 18,
+    chainId: 250,
+    website: 'https://www.trueusd.com/',
+    description:
+      'TrueUSD is one of a number of cryptocurrency stablecoins administered by TrustToken, a platform for tokenizing real-world assets.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2563.png',
+  },
+  JOE: {
+    name: 'Joe Token',
+    symbol: 'JOE',
+    address: '0x9F47F313ACFd4bdC52F4373b493EaE7d5aC5b765',
+    decimals: 18,
+    chainId: 250,
+    website: 'https://www.traderjoexyz.com/#/home',
+    description:
+      'Trader Joe is your one-stop decentralized trading platform on the Avalanche network, of which JOE is the governance token that rewards its holders with a share of exchange revenues.',
+    logoURI: 'https://www.traderjoexyz.com/static/media/logo.bc60f78d.png',
+  },
   SUMMIT: {
     name: 'SUMMIT',
     symbol: 'SUMMIT',
@@ -775,6 +831,88 @@ const _tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
+  },
+  YOSHI: {
+    name: 'Yoshi.exchange',
+    symbol: 'YOSHI',
+    address: '0x3dc57B391262e3aAe37a08D91241f9bA9d58b570',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x3dc57B391262e3aAe37a08D91241f9bA9d58b570.svg',
+    website: 'https://yoshi.exchange/',
+    description:
+      'Yoshi offers users a simple way to buy crypto tokens via credit card. We use native Yoshi token to provide fast and simple buying proccess. Connect your crypto wallet via MetaMask or WalletConnect. To procced for bying you’ll need to surpass a KYC and add a valid credit card. Once everything is done you’ll see the actual exchange rate and get your tokens after the buying proccess is done.',
+  },
+  wsSPA: {
+    name: 'Wrapped sSPA',
+    symbol: 'wsSPA',
+    address: '0x89346B51A54263cF2e92dA79B1863759eFa68692',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x89346B51A54263cF2e92dA79B1863759eFa68692.svg',
+    website: 'https://app.spartacus.finance/',
+    description:
+      'Let’s start off by saying Zeus from OlympusDAO has done a marvellous job in creating the "Protocol Owned Liquidity" (POL) concept. A community is formed when everyone bonds the underlying assets into a common reserve currency, creating a strong “bonding” for the whole community. As Spartacus we carry on the legacy and we shall aim higher and something even bigger.',
+  },
+  wsHEC: {
+    name: 'Wrapped sHEC',
+    symbol: 'wsHEC',
+    address: '0x94CcF60f700146BeA8eF7832820800E2dFa92EdA',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x94CcF60f700146BeA8eF7832820800E2dFa92EdA.svg',
+    website: 'https://app.hectordao.com/#/stake',
+    description:
+      'Hector DAO aims to become the de-facto reserve currency of the FTM Opera network, one which is truly owned and maintained by a decentralised protocol which serves the majority. Our goal is for $HEC to be a common trading pair which is backed by real assets.',
+  },
+  OOE: {
+    name: 'OpenOcean',
+    symbol: 'OOE',
+    address: '0x9d8F97A3C2f9f397B6D46Cbe2d39CC1D8Cf19010',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x9d8F97A3C2f9f397B6D46Cbe2d39CC1D8Cf19010.svg',
+    website: 'https://openocean.finance/',
+    description:
+      'OpenOcean is the world’s first full aggregation protocol for crypto trading that sources liquidity from DeFi and CeFi markets and enables cross-chain swaps. Our intelligent routing algorithm finds the best prices from DEXes and CEXes and splits the routes to provide traders the best prices with low slippage and fast settlement. The product is free to use; OpenOcean users only need to pay the regular blockchain gas and exchange fees for the trades, which are charged by the exchanges and not OpenOcean.',
+  },
+  AVAX: {
+    name: 'Avalanche',
+    symbol: 'AVAX',
+    address: '0x511D35c52a3C244E7b8bd92c0C297755FbD89212',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x511D35c52a3C244E7b8bd92c0C297755FbD89212.svg',
+    website: 'https://www.avalabs.org/',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+  },
+  LUNA: {
+    name: 'Terra',
+    symbol: 'LUNA',
+    address: '0x95dD59343a893637BE1c3228060EE6afBf6F0730',
+    chainId: 250,
+    decimals: 6,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png',
+    website: 'https://www.terra.money/',
+    description:
+      "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
+  },
+  asUSDC: {
+    name: 'USDC Solana',
+    address: '0xb5E4D17FFD9D0DCE46D290750dad5F9437B5A16B',
+    symbol: 'asUSDC',
+    decimals: 18,
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    chainId: 250,
+    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
   },
 } as const;
 

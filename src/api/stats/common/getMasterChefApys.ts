@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
-import { NormalizedCacheObject } from 'apollo-cache-inmemory';
-import ApolloClient from 'apollo-client';
+import { NormalizedCacheObject } from '@apollo/client/core';
+import { ApolloClient } from '@apollo/client/core';
 import { MultiCall } from 'eth-multicall';
 import Web3 from 'web3';
 import { AbiItem } from 'web3-utils';

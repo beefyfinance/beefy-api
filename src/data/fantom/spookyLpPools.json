@@ -1,5 +1,157 @@
 [
   {
+    "name": "boo-wftm-woo",
+    "address": "0xa7010b3ba9efb1AF9Fa8a30efe74C16A93891775",
+    "decimals": "1e18",
+    "poolId": 53,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6626c47c00F1D87902fc13EECfaC3ed06D5E8D8a",
+      "oracle": "tokens",
+      "oracleId": "WOO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-wftm-avax",
+    "address": "0x5DF809e410d9CC577f0d01b4E623C567C7aD56c1",
+    "decimals": "1e18",
+    "poolId": 52,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x511D35c52a3C244E7b8bd92c0C297755FbD89212",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-wftm-ooe",
+    "address": "0x0F941ac6b81E27afdB883244b5C537dCBa8A6fCe",
+    "decimals": "1e18",
+    "poolId": 51,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9d8F97A3C2f9f397B6D46Cbe2d39CC1D8Cf19010",
+      "oracle": "tokens",
+      "oracleId": "OOE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-wftm-wshec",
+    "address": "0x0BfE6f893a6bc443B575Ddf361A30f39aa03e59c",
+    "decimals": "1e18",
+    "poolId": 49,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x94CcF60f700146BeA8eF7832820800E2dFa92EdA",
+      "oracle": "tokens",
+      "oracleId": "wsHEC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-wftm-wsspa",
+    "address": "0x011732f65e2f28C50F528e32420A2F69937b9e68",
+    "decimals": "1e18",
+    "poolId": 47,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x89346B51A54263cF2e92dA79B1863759eFa68692",
+      "oracle": "tokens",
+      "oracleId": "wsSPA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-wftm-yoshi",
+    "address": "0x6bB685358BC3991D9279562710F3a44B7e5F2D9b",
+    "decimals": "1e18",
+    "poolId": 46,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3dc57B391262e3aAe37a08D91241f9bA9d58b570",
+      "oracle": "tokens",
+      "oracleId": "YOSHI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-usdc-tusd",
+    "address": "0x12692B3bf8dd9Aa1d2E721d1a79efD0C244d7d96",
+    "decimals": "1e18",
+    "poolId": 45,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x9879aBDea01a879644185341F7aF7d8343556B7a",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-wftm-joe",
+    "address": "0xd518737Ff601c2A7C67F55EbbEb0a4e3fF5C0C35",
+    "decimals": "1e18",
+    "poolId": 44,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9F47F313ACFd4bdC52F4373b493EaE7d5aC5b765",
+      "oracle": "tokens",
+      "oracleId": "JOE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-usdc-mai",
     "address": "0x4dE9f0ED95de2461B6dB1660f908348c42893b1A",
     "decimals": "1e18",

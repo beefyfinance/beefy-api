@@ -93,11 +93,6 @@
     ]
   },
   {
-    "name": "curve-ftm-mim",
-    "pool": "0x2dd7C9371965472E5A5fD28fbE165007c61439E1",
-    "rewards": []
-  },
-  {
     "name": "curve-ftm-geist",
     "pool": "0x0fa949783947Bf6c1b171DB13AEACBB488845B3f",
     "gauge": "0xd4F94D0aaa640BBb72b5EEc2D85F6D114D81a88E",
@@ -128,5 +123,15 @@
         "decimals": "1e6"
       }
     ]
+  },
+  {
+    "name": "curve-ftm-mim",
+    "pool": "0x2dd7C9371965472E5A5fD28fbE165007c61439E1",
+    "rewards": []
+  },
+  {
+    "name": "curve-ftm-lambda",
+    "pool": "0x075C1D1d7E9E1aF077B0b6117C6eA06CD0a260b5",
+    "rewards": []
   }
 ]

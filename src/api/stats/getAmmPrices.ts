@@ -3,6 +3,7 @@
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
+import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 
 import getNonAmmPrices from './getNonAmmPrices';
 import bakeryPools from '../../data/bakeryLpPools.json';
@@ -63,6 +64,7 @@ import icarusPools from '../../data/icarusLpPools.json';
 import quickPools from '../../data/matic/quickLpPools.json';
 import krillPools from '../../data/matic/krillLpPools.json';
 import sushiLpPools from '../../data/matic/sushiLpPools.json';
+import sushiOhmPools from '../../data/matic/sushiOhmLpPools.json';
 import satisPools from '../../data/degens/satisLpPools.json';
 import satisXPools from '../../data/degens/satisXLpPools.json';
 import zefiV2Pools from '../../data/degens/zefiLpPoolsV2.json';
@@ -175,6 +177,19 @@ import sushiMrPools from '../../data/moonriver/sushiLpPools.json';
 import blizzPools from '../../data/avax/blizzLpPools.json';
 import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
+import solarbeamDualLpPools from '../../data/moonriver/solarbeamDualLpPools.json';
+import trisolarisLpPools from '../../data/aurora/trisolarisLpPools.json';
+import maiAvaxLpPools from '../../data/avax/maiLpPools.json';
+import bisonPools from '../../data/degens/bisonLpPools.json';
+import finnLpPools from '../../data/moonriver/finnLpPools.json';
+import blockMinePools from '../../data/degens/blockMineLpPools.json';
+import biswapPools from '../../data/biswapLpPools.json';
+import chargePools from '../../data/degens/chargeLpPools.json';
+import charmPools from '../../data/fantom/charmLpPools.json';
+import solarbeamDualLpV2Pools from '../../data/moonriver/solarbeamDualLpV2Pools.json';
+import liquidusPools from '../../data/cronos/liquidusLpPools.json';
+import sushiv2Celo from '../../data/celo/sushiv2LpPools.json';
+import popsicleFantomPools from '../../data/fantom/popsicleLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -182,6 +197,20 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...popsicleFantomPools,
+  ...sushiv2Celo,
+  ...liquidusPools,
+  ...biswapPools,
+  ...solarbeamDualLpV2Pools,
+  ...charmPools,
+  ...chargePools,
+  ...blockMinePools,
+  ...oldPools,
+  ...finnLpPools,
+  ...bisonPools,
+  ...maiAvaxLpPools,
+  ...trisolarisLpPools,
+  ...solarbeamDualLpPools,
   ...cronaPools,
   ...vvsPools,
   ...blizzPools,
@@ -196,7 +225,6 @@ const pools = [
   ...babyPools,
   ...cafePolyPools,
   ...cafeBscPools,
-  ...oldPools,
   ...geistPools,
   ...singularPolyPools,
   ...singularBscPools,
@@ -294,6 +322,7 @@ const pools = [
   ...satisPools,
   ...krillPools,
   ...sushiLpPools,
+  ...sushiOhmPools,
   ...quickPools,
   ...lydPools,
   ...icarusPools,
@@ -354,6 +383,8 @@ const pools = [
 
 const dmmPools = [...kyberPools];
 
+const coinGeckoCoins = ['stasis-eurs', 'tether-eurt', 'par-stablecoin', 'jarvis-synthetic-euro'];
+
 const knownPrices = {
   BUSD: 1,
   USDT: 1,
@@ -363,6 +394,7 @@ const knownPrices = {
   UST: 1,
   USDN: 1,
   cUSD: 1,
+  asUSDC: 1,
 };
 
 let tokenPricesCache: Promise<any>;
@@ -371,8 +403,8 @@ let lpPricesCache: Promise<any>;
 const updateAmmPrices = async () => {
   console.log('> updating amm prices');
   try {
+    const coinGeckoPrices = fetchCoinGeckoPrices(coinGeckoCoins);
     const ammPrices = fetchAmmPrices(pools, knownPrices);
-
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
     const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
@@ -382,7 +414,7 @@ const updateAmmPrices = async () => {
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
       const dmm = await dmmPrices;
       const mooTokenPrices = await mooPrices;
-      return { ...tokenPrices, ...dmm.tokenPrices, ...mooTokenPrices };
+      return { ...tokenPrices, ...dmm.tokenPrices, ...mooTokenPrices, ...(await coinGeckoPrices) };
     });
 
     const lpPrices = ammPrices.then(async ({ poolPrices, _ }) => {

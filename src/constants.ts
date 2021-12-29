@@ -37,13 +37,16 @@ const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
 const BSC_RPC = process.env.BSC_RPC || BSC_RPC_ENDPOINTS[0];
 const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
 const AVAX_RPC = process.env.AVAX_RPC || 'https://api.avax.network/ext/bc/C/rpc';
-const POLYGON_RPC = process.env.POLYGON_RPC || 'https://rpc-mainnet.maticvigil.com/';
+const POLYGON_RPC = process.env.POLYGON_RPC || 'https://polygon-rpc.com/';
 const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpc.ftm.tools';
 const ONE_RPC = process.env.ONE_RPC || 'https://api.s0.t.hmny.io/';
 const ARBITRUM_RPC = process.env.ARBITRUM_RPC || 'https://arb1.arbitrum.io/rpc';
 const CELO_RPC = process.env.CELO_RPC || 'https://forno.celo.org';
 const MOONRIVER_RPC = process.env.MOONRIVER_RPC || 'https://rpc.moonriver.moonbeam.network';
-const CRONOS_RPC = process.env.CRONOS_RPC || 'https://evm-cronos.crypto.org';
+const CRONOS_RPC = process.env.CRONOS_RPC || 'https://rpc.vvs.finance';
+const AURORA_RPC =
+  process.env.AURORA_RPC ||
+  'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -55,6 +58,7 @@ const ARBITRUM_CHAIN_ID = ChainId.arbitrum;
 const CELO_CHAIN_ID = ChainId.celo;
 const MOONRIVER_CHAIN_ID = ChainId.moonriver;
 const CRONOS_CHAIN_ID = ChainId.cronos;
+const AURORA_CHAIN_ID = ChainId.aurora;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.0025;
@@ -79,6 +83,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.celo]: CELO_RPC,
   [ChainId.moonriver]: MOONRIVER_RPC,
   [ChainId.cronos]: CRONOS_RPC,
+  [ChainId.aurora]: AURORA_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -101,6 +106,8 @@ const MOONRIVER_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonriver_pools.js';
 const CRONOS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/cronos_pools.js';
+//const AURORA_VAULTS_ENDPOINT =
+//  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/aurora_pools.js';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -113,6 +120,7 @@ const MULTICHAIN_ENDPOINTS = {
   celo: CELO_VAULTS_ENDPOINT,
   moonriver: MOONRIVER_VAULTS_ENDPOINT,
   cronos: CRONOS_VAULTS_ENDPOINT,
+  // aurora: AURORA_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
@@ -153,6 +161,9 @@ export {
   CRONOS_RPC,
   CRONOS_CHAIN_ID,
   CRONOS_VAULTS_ENDPOINT,
+  AURORA_RPC,
+  AURORA_CHAIN_ID,
+  // AURORA_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,

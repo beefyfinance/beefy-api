@@ -9,4 +9,5 @@ export enum ChainId {
   celo = 42220,
   moonriver = 1285,
   cronos = 25,
+  aurora = 1313161554,
 }

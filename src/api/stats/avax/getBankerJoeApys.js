@@ -9,7 +9,7 @@ const IToken = require('../../../abis/avax/BankerJoeIToken.json');
 const pools = require('../../../data/avax/bankerJoePools.json');
 const { BASE_HPY } = require('../../../constants');
 
-const rewardDistributor = '0x2274491950B2D6d79b7e69b683b482282ba14885';
+const rewardDistributor = '0x45B2C4139d96F44667577C0D7F7a7D170B420324';
 const BLOCKS_PER_YEAR = 31536000;
 
 const getBankerJoeApys = async () => {
@@ -27,7 +27,6 @@ const getBankerJoeApys = async () => {
 };
 
 const getPoolApy = async pool => {
-
   const [{ supplyBase, supplyVxs }, { borrowBase, borrowVxs }] = await Promise.all([
     getSupplyApys(pool, BLOCKS_PER_YEAR),
     getBorrowApys(pool, BLOCKS_PER_YEAR),
@@ -53,17 +52,25 @@ const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
   const itokenContract = new web3.eth.Contract(IToken, pool.itoken);
   const rewardDistributorContract = new web3.eth.Contract(RewardDistributor, rewardDistributor);
 
-  let [joePrice, avaxPrice, tokenPrice, supplyRate, joeCompRate, avaxCompRate, totalSupply, exchangeRateStored] =
-    await Promise.all([
-      fetchPrice({ oracle: 'tokens', id: 'JOE' }),
-      fetchPrice({ oracle: 'tokens', id: 'AVAX' }),
-      fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-      itokenContract.methods.supplyRatePerSecond().call(),
-      rewardDistributorContract.methods.rewardSpeeds(0, pool.itoken).call(),
-      rewardDistributorContract.methods.rewardSpeeds(1, pool.itoken).call(),
-      itokenContract.methods.totalSupply().call(),
-      itokenContract.methods.exchangeRateStored().call(),
-    ]);
+  let [
+    joePrice,
+    avaxPrice,
+    tokenPrice,
+    supplyRate,
+    joeCompRate,
+    avaxCompRate,
+    totalSupply,
+    exchangeRateStored,
+  ] = await Promise.all([
+    fetchPrice({ oracle: 'tokens', id: 'JOE' }),
+    fetchPrice({ oracle: 'tokens', id: 'AVAX' }),
+    fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
+    itokenContract.methods.supplyRatePerSecond().call(),
+    rewardDistributorContract.methods.rewardSupplySpeeds(0, pool.itoken).call(),
+    rewardDistributorContract.methods.rewardSupplySpeeds(1, pool.itoken).call(),
+    itokenContract.methods.totalSupply().call(),
+    itokenContract.methods.exchangeRateStored().call(),
+  ]);
 
   supplyRate = new BigNumber(supplyRate);
   joeCompRate = new BigNumber(joeCompRate);
@@ -93,15 +100,16 @@ const getBorrowApys = async (pool, BLOCKS_PER_YEAR) => {
   const rewardDistributorContract = new web3.eth.Contract(RewardDistributor, rewardDistributor);
   const itokenContract = new web3.eth.Contract(IToken, pool.itoken);
 
-  let [joePrice, avaxPrice, tokenPrice, borrowRate, joeCompRate, avaxCompRate, totalBorrows] = await Promise.all([
-    fetchPrice({ oracle: 'tokens', id: 'JOE' }),
-    fetchPrice({ oracle: 'tokens', id: 'AVAX' }),
-    fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-    itokenContract.methods.borrowRatePerSecond().call(),
-    rewardDistributorContract.methods.rewardSpeeds(0, pool.itoken).call(),
-    rewardDistributorContract.methods.rewardSpeeds(1, pool.itoken).call(),
-    itokenContract.methods.totalBorrows().call(),
-  ]);
+  let [joePrice, avaxPrice, tokenPrice, borrowRate, joeCompRate, avaxCompRate, totalBorrows] =
+    await Promise.all([
+      fetchPrice({ oracle: 'tokens', id: 'JOE' }),
+      fetchPrice({ oracle: 'tokens', id: 'AVAX' }),
+      fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
+      itokenContract.methods.borrowRatePerSecond().call(),
+      rewardDistributorContract.methods.rewardBorrowSpeeds(0, pool.itoken).call(),
+      rewardDistributorContract.methods.rewardBorrowSpeeds(1, pool.itoken).call(),
+      itokenContract.methods.totalBorrows().call(),
+    ]);
 
   borrowRate = new BigNumber(borrowRate);
   joeCompRate = new BigNumber(joeCompRate);
@@ -132,21 +140,17 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
   let leveragedSupplyVxs = new BigNumber(0);
   let leveragedBorrowVxs = new BigNumber(0);
 
-  for (let i = 0; i <= depth; i++) {
-    leveragedSupplyBase = leveragedSupplyBase.plus(
-      supplyBase.times(borrowPercent.exponentiatedBy(depth - i))
-    );
-    leveragedSupplyVxs = leveragedSupplyVxs.plus(
-      supplyVxs.times(borrowPercent.exponentiatedBy(depth - i))
-    );
-  }
-
   for (let i = 0; i < depth; i++) {
+    leveragedSupplyBase = leveragedSupplyBase.plus(
+      supplyBase.times(borrowPercent.exponentiatedBy(i))
+    );
+    leveragedSupplyVxs = leveragedSupplyVxs.plus(supplyVxs.times(borrowPercent.exponentiatedBy(i)));
+
     leveragedBorrowBase = leveragedBorrowBase.plus(
-      borrowBase.times(borrowPercent.exponentiatedBy(depth - i))
+      borrowBase.times(borrowPercent.exponentiatedBy(i + 1))
     );
     leveragedBorrowVxs = leveragedBorrowVxs.plus(
-      borrowVxs.times(borrowPercent.exponentiatedBy(depth - i))
+      borrowVxs.times(borrowPercent.exponentiatedBy(i + 1))
     );
   }
 

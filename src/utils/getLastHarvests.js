@@ -1,36 +1,35 @@
-const { ethers } = require('ethers');
-const { MULTICHAIN_RPC } = require('../constants');
+const { MultiCall } = require('eth-multicall');
+const { multicallAddress } = require('./web3');
+const { _web3Factory } = require('./web3Helpers');
 import { ChainId } from '../../packages/address-book/address-book';
 
-const MULTICALLS = {
-  bsc: '0xE09C534adE063222BDDC1EB5DD86bBF4bf194F90',
-  heco: '0x1b6Bc65dBd597220DD0e8d3D8f976F0D18DfffB6',
-  polygon: '0x7a4098B4a368826BBf0Ba45DAaAe8B0DE1Bf0b12',
-  fantom: '0x28373e5fF2Ea0aeabe09b2651cE6Df4Ec10982f7',
-  avax: '0x9e95635A4b603AC80e6eaD48324439e7c31c384c',
-  one: '0x42d1760e98F9fd1AcbFd77651D429BB306a3782e',
-  arbitrum: '0xF9eBb381dC153D0966B2BaEe776de2F400405755',
-  celo: '0xaDB9DDFA24E326dC9d337561f6c7ba2a6Ecec697',
-  moonriver: '0x32d272C7F753698BB6ecde56CC599411C57Fa93a',
-  cronos: '0x3C9C884eFAB85c44D675039de227b3Dd275c360e',
-};
-const MulticallAbi = require('../abis/BeefyLastHarvestMulticall.json');
 const BATCH_SIZE = 128;
+
+const strategyAbi = require('../abis/common/Strategy/StrategyCommonChefLP.json');
 
 const getLastHarvests = async (vaults, chain) => {
   // Setup multichain
-  const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[ChainId[chain]]);
-  const multicall = new ethers.Contract(MULTICALLS[chain], MulticallAbi, provider);
+  const web3 = _web3Factory(ChainId[chain]);
+  const multicall = new MultiCall(web3, multicallAddress(ChainId[chain]));
 
   // Split query in batches
   const query = vaults.map(v => v.strategy);
   for (let i = 0; i < vaults.length; i += BATCH_SIZE) {
+    const harvestCalls = [];
     let batch = query.slice(i, i + BATCH_SIZE);
-    const buf = await multicall.getLastHarvests(batch);
+    for (let j = 0; j < batch.length; j++) {
+      const strategyContract = new web3.eth.Contract(strategyAbi, batch[j]);
+      harvestCalls.push({
+        harvest: strategyContract.methods.lastHarvest(),
+      });
+    }
+
+    const res = await multicall.all([harvestCalls]);
+    const harvests = res[0].map(v => v.harvest);
 
     // Merge fetched data
     for (let j = 0; j < batch.length; j++) {
-      vaults[j + i].lastHarvest = buf[j].toNumber();
+      vaults[j + i].lastHarvest = harvests[j] ? parseInt(harvests[j]) : 0;
     }
   }
 

@@ -2,6 +2,7 @@ const getComethLpApys = require('./getComethLpApys');
 const { getQuickLpApys } = require('./getQuickLpApys');
 const { getAaveApys } = require('./getAaveApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
+const { getSushiOhmLpApys } = require('./getSushiOhmLpApys');
 const getComethMultiApys = require('./getComethMultiLpApys');
 const getPolyzapApys = require('./getPolyzapApys');
 const getPolygonBifiGovApy = require('./getPolygonBifiGovApy');
@@ -15,10 +16,8 @@ const getDinoswapApys = require('./getDinoswapApys');
 const { getBoneSwapApys } = require('./getBoneSwapApys');
 const { getPolyQuityLpApys } = require('./getPolyQuityApys');
 const { getApeLpApys } = require('./getApeLpApys');
-const { getPolypupApys } = require('./getPolypupApys');
 const { get50kLpApys } = require('./get50kLpApys');
 const { getDfynLpApys } = require('./getDfynLpApys');
-const { getDfynDualFarmLpApys } = require('./getDfynDualFarmLpApys');
 const { getFarmheroApys } = require('./getFarmheroApys');
 const getMaiApys = require('./getMaiApys').default;
 const { getTelxchangeApys } = require('./getTelxchangeApys');
@@ -37,12 +36,14 @@ const { getSingularApys } = require('./getSingularApys');
 import getCafeLpApys from './getCafeLpApys';
 import getKyberLpApys from './getKyberLpApys';
 import { getQuickDualLpApys } from './getQuickDualLpApys';
+import { getJarvisApys } from './getJarvisApys';
 
 const getApys = [
   getComethLpApys,
   getQuickLpApys,
   getAaveApys,
   getSushiLpApys,
+  getSushiOhmLpApys,
   getComethMultiApys,
   getPolyzapApys,
   getPolygonBifiGovApy,
@@ -51,11 +52,9 @@ const getApys = [
   getPolycatApys,
   getWexPolyApys,
   getApeLpApys,
-  getPolypupApys,
   // getPolyQuityLpApys,
   // get50kLpApys,
   getDfynLpApys,
-  getDfynDualFarmLpApys,
   getBoneSwapApys,
   getMaiApys,
   getJetswapApys,
@@ -78,6 +77,7 @@ const getApys = [
   getCafeLpApys,
   getKyberLpApys,
   getQuickDualLpApys,
+  getJarvisApys,
 ];
 
 const BATCH_SIZE = 15;

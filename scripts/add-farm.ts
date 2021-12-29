@@ -1,6 +1,8 @@
 import { ChainId } from '../packages/address-book/address-book';
 import { spookyswap } from '../packages/address-book/address-book/fantom/platforms/spookyswap';
 import { solarbeam } from '../packages/address-book/address-book/moonriver/platforms/solarbeam';
+import { trisolaris } from '../packages/address-book/address-book/aurora/platforms/trisolaris';
+import { biswap } from '../packages/address-book/address-book/bsc/platforms/biswap';
 
 const yargs = require('yargs');
 const fs = require('fs');
@@ -36,8 +38,8 @@ const projects = {
   },
   joe: {
     prefix: 'joe',
-    file: '../src/data/avax/joeLpPools.json',
-    masterchef: '0xd6a4F121CA35509aF06A0Be99093d08462f53052',
+    file: '../src/data/avax/joeDualLpPools.json',
+    masterchef: '0x188bED1968b795d5c9022F6a0bb5931Ac4c18F00',
   },
   spooky: {
     prefix: 'boo',
@@ -46,8 +48,18 @@ const projects = {
   },
   solarbeam: {
     prefix: 'solarbeam',
-    file: '../src/data/moonriver/solarbeamLpPools.json',
-    masterchef: solarbeam.masterchef,
+    file: '../src/data/moonriver/solarbeamDualLpPools.json',
+    masterchef: solarbeam.masterchefV2,
+  },
+  trisolaris: {
+    prefix: 'trisolaris',
+    file: '../src/data/aurora/trisolarisLpPools.json',
+    masterchef: trisolaris.masterchef,
+  },
+  biswap: {
+    prefix: 'biswap',
+    file: '../src/data/biswapLpPools.json',
+    masterchef: biswap.masterchef,
   },
 };
 
@@ -65,7 +77,7 @@ const args = yargs.options({
     choices: Object.keys(projects),
   },
   pool: {
-    type: 'interger',
+    type: 'integer',
     demandOption: true,
     describe: 'poolId from respective masterchef contract',
   },

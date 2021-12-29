@@ -13,6 +13,7 @@ const MULTICALLS = {
   42220: '0xE99c8A590c98c7Ae9FB3B7ecbC115D2eBD533B50',
   1285: '0x8a198BCbF313A5565c64A7Ed61FaA413eB4E0931',
   25: '0x405EE7F4f067604b787346bC22ACb66b06b15A4B',
+  1313161554: '0xFE40f6eAD11099D91D51a945c145CFaD1DD15Bb8',
 };
 
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
@@ -82,15 +83,6 @@ const fetchAmmPrices = async (pools, knownPrices) => {
         filtered[j + i].totalSupply = new BigNumber(buf[j * 3 + 0]?.toString());
         filtered[j + i].lp0.balance = new BigNumber(buf[j * 3 + 1]?.toString());
         filtered[j + i].lp1.balance = new BigNumber(buf[j * 3 + 2]?.toString());
-      }
-    }
-
-    // 1inch uses raw bnb so it needs a custom query to fetch balance
-    if (chain == '56') {
-      const oneInch = filtered.filter(p => p.name === '1inch-1inch-bnb')[0];
-      if (oneInch) {
-        const balance = await provider.getBalance(oneInch.address);
-        oneInch.lp0.balance = new BigNumber(balance.toString());
       }
     }
 
