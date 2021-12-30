@@ -1,8 +1,9 @@
+const { ethers } = require('ethers');
 const getVaults = require('../../utils/getVaults.js');
-const { getStrategies } = require('../../utils/getStrategies.js');
-const { getLastHarvests } = require('../../utils/getLastHarvests.js');
-
-const { MULTICHAIN_ENDPOINTS } = require('../../constants');
+const { getStrategiesSAFE } = require('../../utils/getStrategies.js');
+const { getLastHarvestsSAFE } = require('../../utils/getLastHarvests.js');
+const { ChainId } = require('../../../packages/address-book/address-book');
+const { MULTICHAIN_ENDPOINTS, MULTICHAIN_RPC } = require('../../constants');
 
 const INIT_DELAY = 0 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -25,10 +26,13 @@ const updateMultichainVaults = async () => {
 
   try {
     for (let chain in MULTICHAIN_ENDPOINTS) {
+      const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[ChainId[chain]]);
+
       let endpoint = MULTICHAIN_ENDPOINTS[chain];
       let chainVaults = await getVaults(endpoint);
-      chainVaults = await getStrategies(chainVaults, chain);
-      chainVaults = await getLastHarvests(chainVaults, chain);
+      console.log('total of vaults ', chainVaults.length);
+      chainVaults = await getStrategiesSAFE(chainVaults, provider);
+      chainVaults = await getLastHarvestsSAFE(chainVaults, provider);
 
       var chainVaultsCounter = 0;
       var chainActiveVaultsCounter = 0;
@@ -46,14 +50,14 @@ const updateMultichainVaults = async () => {
         }
       }
 
-      // console.log(
-      //   'Found',
-      //   chainVaultsCounter,
-      //   'vaults (',
-      //   chainActiveVaultsCounter,
-      //   'active ) in',
-      //   chain
-      // );
+      console.log(
+        'Found',
+        chainVaultsCounter,
+        'vaults (',
+        chainActiveVaultsCounter,
+        'active ) in',
+        chain
+      );
     }
 
     console.log(
@@ -70,6 +74,6 @@ const updateMultichainVaults = async () => {
   setTimeout(updateMultichainVaults, REFRESH_INTERVAL);
 };
 
-// setTimeout(updateMultichainVaults, INIT_DELAY);
+setTimeout(updateMultichainVaults, INIT_DELAY);
 
 module.exports = getMultichainVaults;

@@ -1,4 +1,5 @@
 const { MultiCall } = require('eth-multicall');
+const { ethers } = require('ethers');
 const { multicallAddress } = require('./web3');
 const { _web3Factory } = require('./web3Helpers');
 import { ChainId } from '../../packages/address-book/address-book';
@@ -36,4 +37,27 @@ const getLastHarvests = async (vaults, chain) => {
   return vaults;
 };
 
-module.exports = { getLastHarvests };
+const addLastHarvest = async (vault, provider) => {
+  try {
+    let contract = new ethers.Contract(vault.strategy, strategyAbi, provider);
+    let harvests = await contract.lastHarvest();
+    vault.harvests = parseInt(harvests);
+    return vault;
+  } catch (error) {
+    throw error;
+  }
+};
+
+const getLastHarvestsSAFE = async (vaults, provider) => {
+  const responses = await Promise.allSettled(vaults.map(vault => addLastHarvest(vault, provider)));
+  console.log('total of responses ', responses.length);
+  let fulfilled = responses.filter(r => r.status === 'fulfilled');
+  console.log('total of fulfilled ', fulfilled.length);
+  let fails = responses.filter(r => r.status !== 'fulfilled').map(r => JSON.stringify(r.reason));
+  console.log('total of not fulfilled ', fails.length);
+  console.log({ fails });
+  const fulilleds = fulfilled.map(s => s.value);
+  return fulilleds;
+};
+
+module.exports = { getLastHarvests, getLastHarvestsSAFE };
