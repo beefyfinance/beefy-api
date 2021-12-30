@@ -5,6 +5,8 @@ const { getLastHarvestsSAFE } = require('../../utils/getLastHarvests.js');
 const { ChainId } = require('../../../packages/address-book/address-book');
 const { MULTICHAIN_ENDPOINTS, MULTICHAIN_RPC } = require('../../constants');
 
+ethers.errors.setLogLevel('error');
+
 const INIT_DELAY = 0 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 
