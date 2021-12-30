@@ -7,6 +7,7 @@ export const beefyfinance = {
   rewarder: cowllector,
   treasurer: '0x3Eb7fB70C03eC4AEEC97C6C6C1B59B014600b7F7',
   launchpoolOwner: cowllector,
+  devMultisig: '0x3A0b8B7a3ea8D1670e000b1Da5bD41373bF8da42',
   rewardPool: '0x86d38c6b6313c5A3021D68D1F57CF5e69197592A',
   treasury: '0xA3e3Af161943CfB3941B631676134bb048739727',
   beefyFeeRecipient: '0x8Ef7C232470f85Af0809ce5E43888F989eFcAF47',
