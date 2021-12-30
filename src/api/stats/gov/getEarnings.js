@@ -25,6 +25,6 @@ const dailyEarnings = async () => {
   return earned;
 };
 
-// setTimeout(updateEarnings, INIT_DELAY);
+setTimeout(updateEarnings, INIT_DELAY);
 
 module.exports = dailyEarnings;
