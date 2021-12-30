@@ -8,29 +8,15 @@ const getPolyzapApys = require('./getPolyzapApys');
 const getPolygonBifiGovApy = require('./getPolygonBifiGovApy');
 const { getPolygonBifiMaxiApy } = require('./getPolygonBifiMaxiApy');
 const getCurveApys = require('./getCurveApys');
-const getPolycatApys = require('./getPolycatApys');
-const getWexPolyApys = require('./getWexPolyApys');
 const getJetswapApys = require('./getJetswapApys');
 const getIronSwapApys = require('./getIronSwapApys');
 const getDinoswapApys = require('./getDinoswapApys');
-const { getBoneSwapApys } = require('./getBoneSwapApys');
-const { getPolyQuityLpApys } = require('./getPolyQuityApys');
 const { getApeLpApys } = require('./getApeLpApys');
-const { get50kLpApys } = require('./get50kLpApys');
-const { getDfynLpApys } = require('./getDfynLpApys');
 const { getFarmheroApys } = require('./getFarmheroApys');
 const getMaiApys = require('./getMaiApys').default;
 const { getTelxchangeApys } = require('./getTelxchangeApys');
-const { getFarmheroSingleApy } = require('./getFarmheroSingleApy');
-const getSwampApys = require('./getSwampApys');
-const getPolyCrackerApys = require('./getPolyCrackerApys');
 const { getPolygonFarmApys } = require('./getPolygonFarmApys');
-const { getPearzapApys } = require('./getPearzapApys');
 const getQuickSingleApys = require('./getQuickSingleApys');
-const { getSandmanApys } = require('./getSandmanApys');
-const { getPolyAlphaApys } = require('./getPolyAlphaApys');
-import { getPolywiseApys } from './getPolywiseApys';
-import { getPolysageApys } from './getPolysageApys';
 import { getTetuApys } from './getTetuApys';
 const { getSingularApys } = require('./getSingularApys');
 import getCafeLpApys from './getCafeLpApys';
@@ -41,6 +27,8 @@ import { getJarvisApys } from './getJarvisApys';
 const getApys = [
   getComethLpApys,
   getQuickLpApys,
+  getQuickSingleApys,
+  getQuickDualLpApys,
   getAaveApys,
   getSushiLpApys,
   getSushiOhmLpApys,
@@ -49,34 +37,18 @@ const getApys = [
   getPolygonBifiGovApy,
   getPolygonBifiMaxiApy,
   getCurveApys,
-  getPolycatApys,
-  getWexPolyApys,
   getApeLpApys,
-  // getPolyQuityLpApys,
-  // get50kLpApys,
-  getDfynLpApys,
-  getBoneSwapApys,
   getMaiApys,
   getJetswapApys,
   getIronSwapApys,
   getTelxchangeApys,
   getFarmheroApys,
-  getFarmheroSingleApy,
   getDinoswapApys,
-  getSwampApys,
-  // getPolyCrackerApys,
   getPolygonFarmApys,
-  getPearzapApys,
-  getQuickSingleApys,
-  getSandmanApys,
-  getPolyAlphaApys,
-  getPolywiseApys,
-  getPolysageApys,
   getTetuApys,
   getSingularApys,
   getCafeLpApys,
   getKyberLpApys,
-  getQuickDualLpApys,
   getJarvisApys,
 ];
 

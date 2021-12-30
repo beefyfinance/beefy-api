@@ -57,7 +57,7 @@
     }
   },
   {
-    "name": "mdex-bsc-rabbit-busd",
+    "name": "mdex-rabbit-busd",
     "address": "0x0025D20D85788C2cAE2FEB9C298bdaFc93bF08Ce",
     "decimals": "1e18",
     "poolId": 91,
