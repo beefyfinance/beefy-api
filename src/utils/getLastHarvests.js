@@ -40,8 +40,11 @@ const getLastHarvests = async (vaults, chain) => {
 const addLastHarvest = async (vault, provider) => {
   try {
     let contract = new ethers.Contract(vault.strategy, strategyAbi, provider);
-    let harvests = await contract.lastHarvest();
-    vault.harvests = parseInt(harvests);
+    let lastHarvest = 0;
+    try {
+      lastHarvest = await contract.lastHarvest();
+    } catch (error) {}
+    vault.lastHarvest = parseInt(lastHarvest);
     return vault;
   } catch (error) {
     throw error;
