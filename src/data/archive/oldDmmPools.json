@@ -1,0 +1,20 @@
+[
+  {
+    "name": "kyber-usdc-agden",
+    "address": "0xBD0F10CE8F794f17499aEf6987dc8d21a59F46ad",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xbAbC2dE9cE26a5674F8da84381e2f06e1Ee017A1",
+      "oracle": "tokens",
+      "oracleId": "agDEN",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -189,6 +189,7 @@ import charmPools from '../../data/fantom/charmLpPools.json';
 import solarbeamDualLpV2Pools from '../../data/moonriver/solarbeamDualLpV2Pools.json';
 import liquidusPools from '../../data/cronos/liquidusLpPools.json';
 import sushiv2Celo from '../../data/celo/sushiv2LpPools.json';
+import oldDmmPools from '../../data/archive/oldDmmPools.json';
 import popsicleFantomPools from '../../data/fantom/popsicleLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
@@ -381,7 +382,7 @@ const pools = [
   ...cakeLpPools,
 ];
 
-const dmmPools = [...kyberPools];
+const dmmPools = [...kyberPools, ...oldDmmPools];
 
 const coinGeckoCoins = ['stasis-eurs', 'tether-eurt', 'par-stablecoin', 'jarvis-synthetic-euro'];
 

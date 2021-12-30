@@ -9,14 +9,11 @@ const getBlockTime = require('../../../utils/getBlockTime');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
 
-const masterchef = '0xf8347d0C225e26B45A6ea9a719012F1153D7Ca15';
-const oracleId = 'DEN';
-const oracle = 'lps';
 const DECIMALS = '1e18';
 
 const getJarvisApys = async () => {
   let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
+  pools.forEach(pool => promises.push(getPoolApy(pool)));
   const farmAprs = await Promise.all(promises);
   const tradingAprs = await getCurveFactoryApy(
     pools[0].address,
@@ -26,16 +23,16 @@ const getJarvisApys = async () => {
   return getApyBreakdown(pools, tradingAprs, farmAprs, 0.004);
 };
 
-const getPoolApy = async (masterchef, pool) => {
+const getPoolApy = async (pool) => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(masterchef, pool.poolId),
-    getTotalLpStakedInUsd(masterchef, pool, pool.chainId),
+    getYearlyRewardsInUsd(pool.masterchef, pool.poolId, pool.rewardOracle, pool.rewardToken),
+    getTotalLpStakedInUsd(pool.masterchef, pool, pool.chainId),
   ]);
 
   return yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 };
 
-const getYearlyRewardsInUsd = async (masterchef, poolId) => {
+const getYearlyRewardsInUsd = async (masterchef, poolId, oracle, oracleId) => {
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(poolId).call();
