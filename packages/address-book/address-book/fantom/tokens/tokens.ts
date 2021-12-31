@@ -914,6 +914,17 @@ const _tokens = {
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
   },
+  MATIC: {
+    name: 'MATIC',
+    address: '0x40DF1Ae6074C35047BFF66675488Aa2f9f6384F3',
+    symbol: 'MATIC',
+    decimals: 18,
+    website: 'https://polygon.technology/',
+  description:
+    'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
+  logoURI:
+    'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png',
+  }
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
