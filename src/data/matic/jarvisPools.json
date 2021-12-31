@@ -1,5 +1,18 @@
 [
   {
+    "name": "jarvis-2jpy",
+    "pool": "0xE8dCeA7Fb2Baf7a9F4d9af608F06d78a687F8d9A",
+    "address": "0xE8dCeA7Fb2Baf7a9F4d9af608F06d78a687F8d9A",
+    "masterchef": "0xeb4a4Ba3EF5e3A286Dc49408C27F9BDaA286db84",
+    "poolId": 0,
+    "chainId": 137,
+    "oracleId": "jpyc",
+    "rewardToken": "SES",
+    "rewardOracle": "lps",
+    "token": "0xe8dcea7fb2baf7a9f4d9af608f06d78a687f8d9a",
+    "baseApyKey": "2jpy-f"
+  },
+  {
     "name": "jarvis-5eur",
     "pool": "0x81212149b983602474fcD0943E202f38b38d7484",
     "address": "0x81212149b983602474fcD0943E202f38b38d7484",
