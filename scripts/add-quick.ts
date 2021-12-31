@@ -20,6 +20,10 @@ const projects = {
     prefix: 'pangolin',
     file: '../src/data/avax/pangolinLpPools.json',
   },
+  fusefi: {
+    prefix: 'fusefi',
+    file: '../src/data/fuse/fusefiLpPools.json',
+  },
 };
 
 const args = yargs.options({

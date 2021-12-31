@@ -9,6 +9,7 @@ import { celo } from './celo';
 import { moonriver } from './moonriver';
 import { cronos } from './cronos';
 import { aurora } from './aurora';
+import { fuse } from './fuse';
 import Chain from '../types/chain';
 import { ChainId } from '../types/chainid';
 import { ConstRecord } from '../types/const';
@@ -27,6 +28,7 @@ const _addressBook = {
   moonriver,
   cronos,
   aurora,
+  fuse,
 } as const;
 
 const _addressBookByChainId = {
@@ -41,6 +43,7 @@ const _addressBookByChainId = {
   [ChainId.moonriver]: moonriver,
   [ChainId.cronos]: cronos,
   [ChainId.aurora]: aurora,
+  [ChainId.fuse]: fuse,
 } as const;
 
 export const addressBook: ConstRecord<typeof _addressBook, Chain> = _addressBook;

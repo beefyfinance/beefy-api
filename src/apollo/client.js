@@ -75,6 +75,7 @@ const finnClient = client(
   'https://graph-node.huckleberry.finance/subgraphs/name/huckleberry/huckleberry-subgraph'
 );
 const dinoClient = client('https://api.thegraph.com/subgraphs/name/jannerveglobal/dino-swap-dex');
+const fusefiClient = client('https://api.thegraph.com/subgraphs/name/fuseio/fuseswap');
 
 const isSushiClient = client => {
   return (
@@ -130,4 +131,5 @@ module.exports = {
   isBeetClient,
   vvsClient,
   finnClient,
+  fusefiClient,
 };

@@ -25,6 +25,8 @@ import {
   CRONOS_CHAIN_ID,
   AURORA_RPC,
   AURORA_CHAIN_ID,
+  FUSE_RPC,
+  FUSE_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -39,6 +41,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.moonriver]: addressBookByChainId[ChainId.moonriver].platforms.beefyfinance.multicall,
   [ChainId.cronos]: addressBookByChainId[ChainId.cronos].platforms.beefyfinance.multicall,
   [ChainId.aurora]: addressBookByChainId[ChainId.aurora].platforms.beefyfinance.multicall,
+  [ChainId.fuse]: addressBookByChainId[ChainId.fuse].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -53,6 +56,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   moonriver: [],
   cronos: [],
   aurora: [],
+  fuse: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -67,6 +71,7 @@ clients.celo.push(new Web3(CELO_RPC));
 clients.moonriver.push(new Web3(MOONRIVER_RPC));
 clients.cronos.push(new Web3(CRONOS_RPC));
 clients.aurora.push(new Web3(AURORA_RPC));
+clients.fuse.push(new Web3(FUSE_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -80,6 +85,7 @@ export const chainRandomClients = {
   moonriverRandomClient: () => clients.moonriver[~~(clients.moonriver.length * Math.random())],
   cronosRandomClient: () => clients.cronos[~~(clients.cronos.length * Math.random())],
   auroraRandomClient: () => clients.aurora[~~(clients.aurora.length * Math.random())],
+  fuseRandomClient: () => clients.fuse[~~(clients.fuse.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -106,6 +112,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.cronosRandomClient();
     case AURORA_CHAIN_ID:
       return chainRandomClients.auroraRandomClient();
+    case FUSE_CHAIN_ID:
+      return chainRandomClients.fuseRandomClient();
   }
 };
 

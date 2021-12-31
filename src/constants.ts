@@ -47,6 +47,7 @@ const CRONOS_RPC = process.env.CRONOS_RPC || 'https://rpc.vvs.finance';
 const AURORA_RPC =
   process.env.AURORA_RPC ||
   'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';
+const FUSE_RPC = process.env.FUSE_RPC || 'https://rpc.fuse.io';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -59,6 +60,7 @@ const CELO_CHAIN_ID = ChainId.celo;
 const MOONRIVER_CHAIN_ID = ChainId.moonriver;
 const CRONOS_CHAIN_ID = ChainId.cronos;
 const AURORA_CHAIN_ID = ChainId.aurora;
+const FUSE_CHAIN_ID = ChainId.fuse;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.0025;
@@ -71,6 +73,7 @@ const APE_LPF = 0.002;
 const SPOOKY_LPF = 0.002;
 const JOE_LPF = 0.0025;
 const SOLAR_LPF = 0.002;
+const FUSEFI_LPF = 0.003;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
@@ -84,6 +87,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.moonriver]: MOONRIVER_RPC,
   [ChainId.cronos]: CRONOS_RPC,
   [ChainId.aurora]: AURORA_RPC,
+  [ChainId.fuse]: FUSE_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -108,6 +112,8 @@ const CRONOS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/cronos_pools.js';
 //const AURORA_VAULTS_ENDPOINT =
 //  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/aurora_pools.js';
+//const FUSE_VAULTS_ENDPOINT =
+//  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fuse_pools.js';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -121,6 +127,7 @@ const MULTICHAIN_ENDPOINTS = {
   moonriver: MOONRIVER_VAULTS_ENDPOINT,
   cronos: CRONOS_VAULTS_ENDPOINT,
   // aurora: AURORA_VAULTS_ENDPOINT,
+  // fuse: FUSE_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
@@ -164,6 +171,9 @@ export {
   AURORA_RPC,
   AURORA_CHAIN_ID,
   // AURORA_VAULTS_ENDPOINT,
+  FUSE_RPC,
+  FUSE_CHAIN_ID,
+  // FUSE_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
@@ -185,6 +195,7 @@ export {
   SPOOKY_LPF,
   JOE_LPF,
   SOLAR_LPF,
+  FUSEFI_LPF,
   BEEFY_PERFORMANCE_FEE,
   SHARE_AFTER_PERFORMANCE_FEE,
   EXCLUDED_IDS_FROM_TVL,

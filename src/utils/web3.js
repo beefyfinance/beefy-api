@@ -36,6 +36,9 @@ module.exports = {
   get auroraWeb3() {
     return chainRandomClients.auroraRandomClient();
   },
+  get fuseWeb3() {
+    return chainRandomClients.fuseRandomClient();
+  },
 
   web3Factory: _web3Factory,
 
