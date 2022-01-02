@@ -19,6 +19,7 @@
     "masterchef": "0x1Dc366c5aC2f3Ac16af20212B46cDC0c92235A20",
     "poolId": 0,
     "chainId": 137,
+    "oracleId": "jarvis-synthetic-euro",
     "rewardToken": "agDEN",
     "rewardOracle": "tokens",
     "token": "0x81212149b983602474fcD0943E202f38b38d7484",
