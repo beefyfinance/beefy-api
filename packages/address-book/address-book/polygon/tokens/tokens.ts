@@ -887,6 +887,28 @@ const _tokens = {
     description:
       'Angle is an over-collateralized, decentralized and capital-efficient stablecoin protocol. It offers full convertibility between stable assets and collateral at oracle value.',
   },
+  jJPY: {
+    name: 'Jarvis Synthetic Yen',
+    symbol: 'jJPY',
+    address: '0x8343091F2499FD4b6174A46D067A920a3b851FF9',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jJPY is a multi-collateralized synthetic token tracking the price of Yen. It is built on the top of UMA and Chainlink.',
+    logoURI: '',
+  },
+  JPYC: {
+    name: 'JPY Coin',
+    symbol: 'JPYC',
+    address: '0x6AE7Dfc73E0dDE2aa99ac063DcF7e8A63265108c',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jpyc.jp/',
+    description:
+      "JPYC (JPYCoin) is Japan's first Japanese Yen stablecoin that utilizes blockchain technology.",
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

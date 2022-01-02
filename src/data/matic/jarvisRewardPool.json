@@ -1,5 +1,23 @@
 [
   {
+    "name": "kyber-ses-2jpy",
+    "address": "0x3b76F90A8ab3EA7f0EA717F34ec65d194E5e9737",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x9120ECada8dc70Dc62cBD49f58e861a09bf83788",
+      "oracle": "tokens",
+      "oracleId": "SES",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE8dCeA7Fb2Baf7a9F4d9af608F06d78a687F8d9A",
+      "oracle": "tokens",
+      "oracleId": "jarvis-2jpy",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "kyber-4eur-den",
     "address": "0x4924B6E1207EFb244433294619a5ADD08ACB3dfF",
     "decimals": "1e18",
