@@ -1,5 +1,24 @@
 [
   {
+    "name": "baby-aot-usdt",
+    "address": "0x0866Bbea720FBFE4B22e39B8fd318982Bf6DD448",
+    "decimals": "1e18",
+    "poolId": 147,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9589014F7a8547B89A6331eEEe32b7fBd5852af9",
+      "oracle": "tokens",
+      "oracleId": "AOT",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "baby-usdt-milk",
     "address": "0xDB6c248902AD2722A5E01E9689824c28bd0A5f75",
     "decimals": "1e18",

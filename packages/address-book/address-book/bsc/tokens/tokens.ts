@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  AOT: {
+    name: 'A.O.T.',
+    symbol: 'AOT',
+    address: '0x9589014F7a8547B89A6331eEEe32b7fBd5852af9',
+    chainId: 56,
+    decimals: 6,
+    logoURI: 'https://bscscan.com/token/images/ageoftanks2_32.png',
+    website: 'https://ageoftanks.io/',
+    description:
+      'Bitcrush uses a hybrid approach that allows centralized gameplay utilizing a non-custodial live wallet.',
+  },
   CRUSH: {
     name: 'Crush Coin',
     symbol: 'CRUSH',
