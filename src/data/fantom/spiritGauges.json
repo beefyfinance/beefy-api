@@ -1,8 +1,8 @@
 [
   {
     "name": "spirit-ftm-eth",
-    "address": "0x613bf4e46b4817015c01c6bb31c7ae9edaadc26e",
-    "rewardPool": "0xe86cee843a5ce2f40575544b1ffc43cb1701d9ae",
+    "address": "0x613BF4E46b4817015c01c6Bb31C7ae9edAadc26e",
+    "rewardPool": "0xE86CeE843a5CE2F40575544B1fFc43CB1701D9ae",
     "decimals": "1e18",
     "chainId": 250,
     "lp0": {
@@ -12,7 +12,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x74b23882a30290451a17c44f4f05243b6b58c76d",
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
       "oracle": "tokens",
       "oracleId": "ETH",
       "decimals": "1e18"
@@ -20,8 +20,8 @@
   },
   {
     "name": "spirit-ftm-btc",
-    "address": "0x279b2c897737a50405ed2091694f225d83f2d3ba",
-    "rewardPool": "0xdccafce93e6e57f0464b4639d4afd7b9ad006f61",
+    "address": "0x279b2c897737a50405ED2091694F225D83F2D3bA",
+    "rewardPool": "0xDccAFCE93E6e57f0464b4639d4aFD7B9Ad006F61",
     "decimals": "1e18",
     "chainId": 250,
     "lp0": {
@@ -31,10 +31,105 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x321162cd933e2be498cd2267a90534a804051b11",
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
       "oracle": "tokens",
       "oracleId": "BTC",
       "decimals": "1e8"
+    }
+  },
+  {
+    "name": "spirit-ftm-mim",
+    "address": "0xB32b31DfAfbD53E310390F641C7119b5B9Ea0488",
+    "rewardPool": "0x0B905475bEa057060D066f3D1F85E6902Ae62557",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82f0B8B456c1A451378467398982d4834b6829c1",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "spirit-ftm-mai",
+    "address": "0x51Eb93ECfEFFbB2f6fE6106c4491B5a0B944E8bd",
+    "rewardPool": "0x27Dc7cc7175F8Ac26dc7421a3a92DAcdc1a9EF0D",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "spirit-ftm-frax",
+    "address": "0x7ed0cdDB9BB6c6dfEa6fB63E117c8305479B8D7D",
+    "rewardPool": "0x805f756d7B2592637725a1b797088c29c9D6A1F8",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "spirit-ftm-ice",
+    "address": "0x936D23C83c2469f6a14B9f5bEaec13879598A5aC",
+    "rewardPool": "0xA6A6f26426FB5FE15b33fAe65d1335B02dC54372",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf16e81dce15B08F326220742020379B855B87DF9",
+      "oracle": "tokens",
+      "oracleId": "ICE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "spirit-ftm-wshec",
+    "address": "0xE1fd274Ef08D50C3ecdaEe90c322b6c2342AE5DE",
+    "rewardPool": "0xaAdd9A7155Dbd447c62C1EB574E2FE3967af2E81",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x94CcF60f700146BeA8eF7832820800E2dFa92EdA",
+      "oracle": "tokens",
+      "oracleId": "wsHEC",
+      "decimals": "1e18"
     }
   }
 ]
