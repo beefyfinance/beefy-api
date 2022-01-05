@@ -71,8 +71,7 @@ const getFusefiLpApys = async () => {
 const getFarmApys = async pools => {
   const apys = [];
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const secondsPerBlock = await Promise.all([getBlockTime(FUSE_CHAIN_ID)]);
-  const BLOCKS_PER_YEAR = new BigNumber(31536000 / secondsPerBlock);
+  const SECONDS_PER_YEAR = 31536000;
   const { balances, rewardRates } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -80,7 +79,7 @@ const getFarmApys = async pools => {
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
-    const yearlyRewards = BLOCKS_PER_YEAR.times(rewardRates[i]);
+    const yearlyRewards = SECONDS_PER_YEAR.times(rewardRates[i]);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     apys.push(yearlyRewardsInUsd.dividedBy(totalStakedInUsd));
