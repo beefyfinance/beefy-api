@@ -34,8 +34,8 @@ const {
   //AURORA_CHAIN_ID,
   //AURORA_VAULTS_ENDPOINT,
 
-  //FUSE_CHAIN_ID,
-  //FUSE_VAULTS_ENDPOINT,
+  FUSE_CHAIN_ID,
+  FUSE_VAULTS_ENDPOINT,
 } = require('../../constants');
 
 const INIT_DELAY = 40 * 1000;
@@ -99,11 +99,11 @@ const chains = [
   //  vaultsEndpoint: AURORA_VAULTS_ENDPOINT,
   //  governancePool: require('../../data/aurora/governancePool.json'),
   //},
-  // {
-  //  chainId: FUSE_CHAIN_ID,
-  //  vaultsEndpoint: FUSE_VAULTS_ENDPOINT,
-  //  governancePool: require('../../data/fuse/governancePool.json'),
-  //},
+  {
+    chainId: FUSE_CHAIN_ID,
+    vaultsEndpoint: FUSE_VAULTS_ENDPOINT,
+    //governancePool: require('../../data/fuse/governancePool.json'),
+  },
 ];
 
 const getTvl = () => {
