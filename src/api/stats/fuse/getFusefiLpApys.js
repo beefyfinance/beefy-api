@@ -71,7 +71,7 @@ const getFusefiLpApys = async () => {
 const getFarmApys = async pools => {
   const apys = [];
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const SECONDS_PER_YEAR = 31536000;
+  const SECONDS_PER_YEAR = new BigNumber(31536000);
   const { balances, rewardRates } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
