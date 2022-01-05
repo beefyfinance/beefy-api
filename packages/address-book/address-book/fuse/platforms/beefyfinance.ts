@@ -5,8 +5,8 @@ const treasury = '0x922f8807E781739DDefEe51df990457B522cBCf5';
 export const beefyfinance = {
   devMultisig: zeroAddress,
   treasuryMultisig: zeroAddress,
-  strategyOwner: '0xc8BD4Ae3d3A69f0d75e3788d2ee557E66EBC98D8',
-  vaultOwner: '0x8B157c6DAeC439b447337A2F08ef055F5182B817',
+  strategyOwner: '0xa9E6E271b27b20F65394914f8784B3B860dBd259',
+  vaultOwner: '0xaDB9DDFA24E326dC9d337561f6c7ba2a6Ecec697',
   keeper: '0x10aee6B5594942433e7Fc2783598c979B030eF3D',
   rewarder: cowllector,
   treasurer: '0x3Eb7fB70C03eC4AEEC97C6C6C1B59B014600b7F7',
