@@ -9,7 +9,7 @@ export const beefyfinance = {
   vaultOwner: '0xaDB9DDFA24E326dC9d337561f6c7ba2a6Ecec697',
   keeper: '0x10aee6B5594942433e7Fc2783598c979B030eF3D',
   rewarder: cowllector,
-  treasurer: '0x3Eb7fB70C03eC4AEEC97C6C6C1B59B014600b7F7',
+  treasurer: '0x1C124c2CaB83b3C3B5D0f0899CeeA5e06964599F',
   launchpoolOwner: cowllector,
   rewardPool: zeroAddress,
   treasury,
