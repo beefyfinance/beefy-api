@@ -921,11 +921,23 @@ const _tokens = {
     decimals: 18,
     website: 'https://polygon.technology/',
     description:
-        'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
+      'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
     chainId: 250,
     logoURI:
-        'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png',
-  }
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png',
+  },
+  HND: {
+    name: 'Hundred Finance',
+    symbol: 'HND',
+    address: '0x10010078a54396F62c96dF8532dc2B4847d47ED3',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x10010078a54396F62c96dF8532dc2B4847d47ED3.svg',
+    website: 'https://hundred.finance/',
+    description:
+      'Since the explosion in popularity of the decentralized finance ecosystem in 2020, borrowing and lending platforms have become core infrastructure within the cryptocurrency space. Not only do they provide users the ability to “hodl” or leverage their crypto assets, obtaining liquidity from their investment (a crypto-backed loan) while simultaneously earning interest, they also underpin the workings of other protocols. The movement of assets from the Ethereum mainnet to EVM-compatible blockchains and scaling solutions has done nothing to alter this. Platforms that grant the ability to borrow and lend are one of the key applications users look for in any emerging chain. Hundred Finance aims to play a central role in provisioning these services in the multi-chain environment that has flourished since early 2021, delivering the freedom to earn yield and borrow assets to a growing number of users in a trustless, secure and economically efficient manner.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
