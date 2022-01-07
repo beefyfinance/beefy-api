@@ -1,5 +1,30 @@
 [
   {
+    "name": "beets-two-became-one",
+    "address": "0xD57Cda2caEBb9B64BB88905C4dE0F0Da217a77d7",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xd57cda2caebb9b64bb88905c4de0f0da217a77d7000100000000000000000073",
+    "poolId": 20,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "HND",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-variation-theme",
     "address": "0x8Bb1839393359895836688165f7c5878f8C81C5e",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
