@@ -3178,5 +3178,90 @@ const _tokens = {
     website: 'https://impossible.finance/',
     description: 'The Metaverse Assets Liquidity Aggregator for Everyone',
   },
+  HG: {
+    name: 'Thetan Gem',
+    symbol: 'THG',
+    address: '0x9fD87aEfe02441B123c3c32466cD9dB4c578618f',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x9fD87aEfe02441B123c3c32466cD9dB4c578618f.svg',
+    website: 'https://thetanarena.com/',
+    description:
+      'Thetan Arena is an esport game based on blockchain technology. You can gather your friends, form a team, battle with others and earn money with just your skills.',
+  },
+  DPT: {
+    name: 'Diviner Protocol',
+    symbol: 'DPT',
+    address: '0xE69cAef10A488D7AF31Da46c89154d025546e990',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xE69cAef10A488D7AF31Da46c89154d025546e990.svg',
+    website: 'https://www.diviner.finance/',
+    description:
+      'Diviner Protocol aims to build a Metaverse “Diviner Harbour City” to offer users a gamified & diversified prediction marketplace.',
+  },
+  CCAR: {
+    name: 'CryptoCars',
+    symbol: 'CCAR',
+    address: '0x50332bdca94673F33401776365b66CC4e81aC81d',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x50332bdca94673F33401776365b66CC4e81aC81d.svg',
+    website: 'https://cryptocars.me/',
+    description:
+      'CryptoCars is inspired by: Movie Cars - A 2006 American computer-animated sports comedy film produced by Pixar Animation Studios and released by Walt Disney Pictures. The NFT Blockchain Technology helps to prove your ownership of digital assets. We know that many of us, especially man players, love role-playing games and intensive racing matches with other players. We do too, this is why we create the CryptoCars Blockchain-based game to make your cars more unique and special from others. Going along with that is the diverse racing mode for you to enjoy every moment with CryptoCars from Virtual Race, Players vs. Computers, Players vs. Players, Tournaments',
+  },
+  HIGH: {
+    name: 'Highstreet Token',
+    symbol: 'HIGH',
+    address: '0x5f4Bde007Dc06b867f86EBFE4802e34A1fFEEd63',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x5f4Bde007Dc06b867f86EBFE4802e34A1fFEEd63.svg',
+    website: 'https://www.highstreet.market/',
+    description:
+      'Highstreet is created from LumiereVR, a computer vision based VR retail company established in 2015. The team has built a commerce based metaverse over the years by piecing together components built by various household names from brands like Hershey’s Chocolate to Victoria Secrets, bigger groups like L’Oreal to Madison Square Garden as well.',
+  },
+  WOOP: {
+    name: 'Woonkly Power',
+    symbol: 'WOOP',
+    address: '0x8b303d5BbfBbf46F1a4d9741E491e06986894e18',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x8b303d5BbfBbf46F1a4d9741E491e06986894e18.svg',
+    website: 'https://mainnet.woonkly.com/',
+    description:
+      'A decentralized Social Network based on NFTs and IPFS. Create NFTs in Seconds, start gaining followers and capitalize on your inspiration and best moments.',
+  },
+  GM: {
+    name: 'GoldMiner',
+    symbol: 'GM',
+    address: '0xe2604C9561D490624AA35e156e65e590eB749519',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xe2604C9561D490624AA35e156e65e590eB749519.svg',
+    website: 'https://goldminer.games/#/',
+    description:
+      'GoldMiner is a Free-to-Play Third-person shooter NFT game where everyone can start playing without the need to pay. GoldMiner also employs the Play-to-Earn model to reward players with tokens and equipment through dynamic gameplay and participation in PvP tournaments. With this seamless combination of the DeFi and P2E models, GoldMiner gives players the opportunity to play and earn rewards at the same time. To create a friendly environment for players who are unfamiliar with Cryptocurrency market and NFTs, a mechanism called Crypto Play against is incorporated into the gameplay to give incentives to such players to do their own research and learn about the market',
+  },
+  INSUR: {
+    name: 'Bsc-Peg INSUR Token',
+    symbol: 'INSUR',
+    address: '0x3192CCDdf1CDcE4Ff055EbC80f3F0231b86A7E30',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x3192CCDdf1CDcE4Ff055EbC80f3F0231b86A7E30.svg',
+    website:
+      'https://app.insurace.io/Insurance/Cart?id=110&chain=BSC&referrer=95244279533280151623141934507761661103282646845',
+    description:
+      'InsurAce.io is a leading decentralized multi-chain insurance protocol that provides reliable, robust and secure insurance services to DeFi users, allowing them to protect their investment funds against various risks. ',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

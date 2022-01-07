@@ -1,5 +1,138 @@
 [
   {
+    "name": "cakev2-insur-wbnb",
+    "address": "0xD01bf29EdCA0285A004a25e325A449ba56e5926E",
+    "decimals": "1e18",
+    "poolId": 500,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x3192CCDdf1CDcE4Ff055EbC80f3F0231b86A7E30",
+      "oracle": "tokens",
+      "oracleId": "INSUR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-wbnb-gm",
+    "address": "0x1C640a98a0c62120B0AD23C15FfF8dC1a2Fb9C4D",
+    "decimals": "1e18",
+    "poolId": 496,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe2604C9561D490624AA35e156e65e590eB749519",
+      "oracle": "tokens",
+      "oracleId": "GM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-woop-wbnb",
+    "address": "0x2AE94A6C768D59f5DDc25bd7f12C7cBE1D51dc04",
+    "decimals": "1e18",
+    "poolId": 495,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x8b303d5BbfBbf46F1a4d9741E491e06986894e18",
+      "oracle": "tokens",
+      "oracleId": "WOOP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-high-busd",
+    "address": "0xe98ac95A1dB2fCaaa9c7D4ba7ecfCE4877ca2bEa",
+    "decimals": "1e18",
+    "poolId": 491,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x5f4Bde007Dc06b867f86EBFE4802e34A1fFEEd63",
+      "oracle": "tokens",
+      "oracleId": "HIGH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-ccar-wbnb",
+    "address": "0x845d301C864d48027DB73ec4394e6DDBE52Cbc39",
+    "decimals": "1e18",
+    "poolId": 490,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x50332bdca94673F33401776365b66CC4e81aC81d",
+      "oracle": "tokens",
+      "oracleId": "CCAR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-wbnb-dpt",
+    "address": "0x141e9558f66Cc21c93628400cCa7d830c15c2c24",
+    "decimals": "1e18",
+    "poolId": 489,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE69cAef10A488D7AF31Da46c89154d025546e990",
+      "oracle": "tokens",
+      "oracleId": "DPT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-thg-wbnb",
+    "address": "0x486697ae24469cB1122F537924Aa46E705B142Aa",
+    "decimals": "1e18",
+    "poolId": 488,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x9fD87aEfe02441B123c3c32466cD9dB4c578618f",
+      "oracle": "tokens",
+      "oracleId": "THG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-xcv-busd",
     "address": "0xD39F05AB936Aa201235005c47B83268f2d9833f8",
     "decimals": "1e18",
