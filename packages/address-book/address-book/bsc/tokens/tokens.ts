@@ -3178,7 +3178,7 @@ const _tokens = {
     website: 'https://impossible.finance/',
     description: 'The Metaverse Assets Liquidity Aggregator for Everyone',
   },
-  HG: {
+  THG: {
     name: 'Thetan Gem',
     symbol: 'THG',
     address: '0x9fD87aEfe02441B123c3c32466cD9dB4c578618f',
