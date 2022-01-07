@@ -2,16 +2,23 @@ const { fantomWeb3: web3 } = require('../../../utils/web3');
 import { FANTOM_CHAIN_ID as chainId, SPOOKY_LPF } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
+import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
+import { spookyClient } from '../../../apollo/client';
 
 import SpellMasterChef from '../../../abis/arbitrum/SpellMasterChef.json';
 import lpPools from '../../../data/fantom/charmLpPools.json';
 
 const getSpartacadabraApys = async () => {
   const pool = '0x075C1D1d7E9E1aF077B0b6117C6eA06CD0a260b5';
-  const tradingAprs = await getCurveFactoryApy(
+
+  const curveTradingAprs = await getCurveFactoryApy(
     pool,
     'https://api.curve.fi/api/getFactoryAPYs-fantom'
   );
+  const pairAddresses = lpPools.map(pool => pool.address);
+  const lpTradingAprs = await getTradingFeeApr(spookyClient, pairAddresses, SPOOKY_LPF);
+  const tradingAprs = { ...curveTradingAprs, ...lpTradingAprs };
+
   return await getMasterChefApys({
     web3: web3,
     chainId: chainId,
