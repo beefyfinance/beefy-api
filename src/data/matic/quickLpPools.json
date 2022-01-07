@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-UST-MATIC",
+    "address": "0x9b7e966fe005d616b5560e4baa7cfa8747d6cbb9",
+    "rewardPool": "0x03E215DeA6227af79FF4fEf1be4a7F1198ca43B7",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x692597b009d13C4049a947CAB2239b7d6517875F",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-mimatic-clam",
     "address": "0x1581802317f32A2665005109444233ca6E3e2D68",
     "rewardPool": "0x0A1Fddba82A78aEE9652971D12eE91b41D8C3dEB",
