@@ -30,4 +30,8 @@ export const etherscanApiUrlMap = {
     url: 'https://api.arbiscan.io',
     apiToken: 'QR9KETWZEU64T1TQN4V8VD7H6HIE3X95UW',
   },
+  cronos: {
+    url: 'https://api.cronoscan.com',
+    apiToken: 'YPA7TM6IBEYHVVG9S5WQZT7URDNFVNTRDJ',
+  },
 } as const;
