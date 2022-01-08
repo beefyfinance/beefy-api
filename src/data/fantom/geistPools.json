@@ -174,5 +174,16 @@
     "decimals": "1e18",
     "borrowDepth": 4,
     "borrowPercent": 0.72
+  },
+  {
+    "name": "geist-link",
+    "token": "0xb3654dc3D10Ea7645f8319668E8F54d2574FBdC8",
+    "aToken": "0xBeCF29265B0cc8D33fA24446599955C7bcF7F73B",
+    "debtToken": "0xFc8F690B285A013A86B7A71c0aF70bC57302e7e4",
+    "oracle": "tokens",
+    "oracleId": "LINK",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.47
   }
 ]
