@@ -11,9 +11,9 @@ export const beefyfinance = {
   rewarder: cowllector,
   treasurer: treasuryMultisig,
   launchpoolOwner: cowllector,
-  rewardPool: '0xc8BD4Ae3d3A69f0d75e3788d2ee557E66EBC98D8',
+  rewardPool: '0x60a4DedF7fC45F73d9ca46222B016c2d755C79A8',
   treasury: '0x922f8807E781739DDefEe51df990457B522cBCf5',
-  beefyFeeRecipient: '0x8B157c6DAeC439b447337A2F08ef055F5182B817',
+  beefyFeeRecipient: '0x32C82EE8Fca98ce5114D2060c5715AEc714152FB',
   multicall: '0xFE40f6eAD11099D91D51a945c145CFaD1DD15Bb8',
   bifiMaxiStrategy: zeroAddress,
 } as const;
