@@ -735,7 +735,7 @@ const _tokens = {
   },
   USTw: {
     name: 'UST (Wormhole)',
-    symbol: 'UST',
+    symbol: 'USTw',
     address: '0xE6469Ba6D2fD6130788E0eA9C0a0515900563b59',
     chainId: 137,
     decimals: 18,
