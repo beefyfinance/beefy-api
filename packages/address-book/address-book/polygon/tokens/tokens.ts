@@ -372,7 +372,7 @@ const _tokens = {
   },
   GNS: {
     name: 'Gains Network Token',
-    address: '0xe5417af564e4bfda1c483642db72007871397896',
+    address: '0xE5417Af564e4bFDA1c483642db72007871397896',
     symbol: 'GNS',
     decimals: 18,
     chainId: 137,
