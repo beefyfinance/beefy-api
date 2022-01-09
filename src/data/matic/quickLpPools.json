@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-gns-dai",
+    "address": "0x6E53cB6942e518376E9e763554dB1A45DDCd25c4",
+    "rewardPool": "0x33025b177A35F6275b78f9c25684273fc24B4e43",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0xE5417Af564e4bFDA1c483642db72007871397896",
+      "oracle": "tokens",
+      "oracleId": "GNS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-mimatic-clam",
     "address": "0x1581802317f32A2665005109444233ca6E3e2D68",
     "rewardPool": "0x0A1Fddba82A78aEE9652971D12eE91b41D8C3dEB",

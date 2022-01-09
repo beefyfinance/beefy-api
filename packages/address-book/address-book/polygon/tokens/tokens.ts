@@ -370,6 +370,16 @@ const _tokens = {
       'Aavegotchis are crypto-collectibles living on the Ethereum blockchain, backed by the ERC721 standard used in popular blockchain games.',
     logoURI: 'https://aavegotchi.com/images/ghsttoken.svg',
   },
+  GNS: {
+    name: 'Gains Network Token',
+    address: '0xe5417af564e4bfda1c483642db72007871397896',
+    symbol: 'GNS',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://gainsnetwork.io/',
+    description: 'Decentralized leverage trading platform on Polygon.',
+    logoURI: 'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
+  },
   LINK: {
     name: 'ChainLink Token',
     address: '0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39',
