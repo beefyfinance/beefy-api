@@ -733,6 +733,17 @@ const _tokens = {
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
   },
+  USTw: {
+    name: 'UST (Wormhole)',
+    symbol: 'UST',
+    address: '0xE6469Ba6D2fD6130788E0eA9C0a0515900563b59',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://wormholebridge.com/',
+    description:
+      'The Wormhole Token Bridge allows you to seamlessly transfer tokenized assets across Solana, Ethereum, BSC, Terra, Polygon, Avalanche, and Oasis.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
+  },
   WMATIC_DFYN: {
     name: 'Wrapped Matic, DFYN version',
     symbol: 'WMATIC',
