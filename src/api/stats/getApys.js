@@ -30,7 +30,7 @@ const updateApys = async () => {
 
   try {
     const results = await Promise.allSettled([
-      /*  getMaticApys(),
+      getMaticApys(),
       getAvaxApys(),
       getFantomApys(),
       getHecoApys(),
@@ -41,7 +41,7 @@ const updateApys = async () => {
       getMoonriverApys(),
       getCronosApys(),
       getAuroraApys(),
-      getFuseApys(),*/
+      getFuseApys(),
       getMetisApys(),
     ]);
 
