@@ -39,6 +39,9 @@ module.exports = {
   get fuseWeb3() {
     return chainRandomClients.fuseRandomClient();
   },
+  get metisWeb3() {
+    return chainRandomClients.metisRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

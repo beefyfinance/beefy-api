@@ -10,6 +10,7 @@ import { moonriver } from './moonriver';
 import { cronos } from './cronos';
 import { aurora } from './aurora';
 import { fuse } from './fuse';
+import { metis } from './metis';
 import Chain from '../types/chain';
 import { ChainId } from '../types/chainid';
 import { ConstRecord } from '../types/const';
@@ -29,6 +30,7 @@ const _addressBook = {
   cronos,
   aurora,
   fuse,
+  metis,
 } as const;
 
 const _addressBookByChainId = {
@@ -44,6 +46,7 @@ const _addressBookByChainId = {
   [ChainId.cronos]: cronos,
   [ChainId.aurora]: aurora,
   [ChainId.fuse]: fuse,
+  [ChainId.metis]: metis,
 } as const;
 
 export const addressBook: ConstRecord<typeof _addressBook, Chain> = _addressBook;

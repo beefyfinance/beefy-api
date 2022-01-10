@@ -36,6 +36,9 @@ const {
 
   FUSE_CHAIN_ID,
   FUSE_VAULTS_ENDPOINT,
+
+  //  METIS_CHAIN_ID,
+  //  METIS_VAULTS_ENDPOINT,
 } = require('../../constants');
 
 const INIT_DELAY = 40 * 1000;
@@ -104,6 +107,11 @@ const chains = [
     vaultsEndpoint: FUSE_VAULTS_ENDPOINT,
     //governancePool: require('../../data/fuse/governancePool.json'),
   },
+  // {
+  //  chainId: METIS_CHAIN_ID,
+  //  vaultsEndpoint: METIS_VAULTS_ENDPOINT,
+  //governancePool: require('../../data/metis/governancePool.json'),
+  //},
 ];
 
 const getTvl = () => {
