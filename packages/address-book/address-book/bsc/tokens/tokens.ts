@@ -15,6 +15,26 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  DSHARE: {
+    name: 'DSHARE',
+    symbol: 'DSHARE',
+    address: '0x26d3163b165BE95137CEe97241E716b2791a7572',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://www.dibs.money/static/media/dshare.27e9dda3.png',
+    website: 'https://www.dibs.money/',
+    description: 'DIBS is a stablecoin pegged to the price of BNB.',
+  },
+  DIBS: {
+    name: 'DIBS',
+    symbol: 'DIBS',
+    address: '0xFd81Ef21EA7CF1dC00e9c6Dd261B4F3BE0341d5c',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://www.dibs.money/static/media/dibs.01460d5a.png',
+    website: 'https://www.dibs.money/',
+    description: 'DIBS is a stablecoin pegged to the price of BNB.',
+  },
   AOT: {
     name: 'A.O.T.',
     symbol: 'AOT',

@@ -3,6 +3,7 @@ import { spookyswap } from '../packages/address-book/address-book/fantom/platfor
 import { solarbeam } from '../packages/address-book/address-book/moonriver/platforms/solarbeam';
 import { trisolaris } from '../packages/address-book/address-book/aurora/platforms/trisolaris';
 import { biswap } from '../packages/address-book/address-book/bsc/platforms/biswap';
+import { netswap } from '../packages/address-book/address-book/metis/platforms/netswap';
 
 const yargs = require('yargs');
 const fs = require('fs');
@@ -60,6 +61,11 @@ const projects = {
     prefix: 'biswap',
     file: '../src/data/biswapLpPools.json',
     masterchef: biswap.masterchef,
+  },
+  netswap: {
+    prefix: 'netswap',
+    file: '../src/data/metis/netswapLpPools.json',
+    masterchef: netswap.masterchef,
   },
 };
 

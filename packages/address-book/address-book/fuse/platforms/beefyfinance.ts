@@ -1,6 +1,5 @@
 const cowllector = '0xd529b1894491a0a26B18939274ae8ede93E81dbA';
 const zeroAddress = '0x0000000000000000000000000000000000000000';
-const treasury = '0x922f8807E781739DDefEe51df990457B522cBCf5';
 const treasuryMultisig = '0x1C124c2CaB83b3C3B5D0f0899CeeA5e06964599F';
 
 export const beefyfinance = {
@@ -12,9 +11,9 @@ export const beefyfinance = {
   rewarder: cowllector,
   treasurer: treasuryMultisig,
   launchpoolOwner: cowllector,
-  rewardPool: '0x5B96bbAca98D777cb736dd89A519015315E00D02',
-  treasury,
-  beefyFeeRecipient: treasury,
+  rewardPool: '0x60a4DedF7fC45F73d9ca46222B016c2d755C79A8',
+  treasury: '0x922f8807E781739DDefEe51df990457B522cBCf5',
+  beefyFeeRecipient: '0x32C82EE8Fca98ce5114D2060c5715AEc714152FB',
   multicall: '0xFE40f6eAD11099D91D51a945c145CFaD1DD15Bb8',
   bifiMaxiStrategy: zeroAddress,
 } as const;

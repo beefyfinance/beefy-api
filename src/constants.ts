@@ -39,7 +39,7 @@ const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
 const AVAX_RPC = process.env.AVAX_RPC || 'https://api.avax.network/ext/bc/C/rpc';
 const POLYGON_RPC = process.env.POLYGON_RPC || 'https://polygon-rpc.com/';
 const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpc.ftm.tools';
-const ONE_RPC = process.env.ONE_RPC || 'https://api.s0.t.hmny.io/';
+const ONE_RPC = process.env.ONE_RPC || 'https://api.harmony.one/';
 const ARBITRUM_RPC = process.env.ARBITRUM_RPC || 'https://arb1.arbitrum.io/rpc';
 const CELO_RPC = process.env.CELO_RPC || 'https://forno.celo.org';
 const MOONRIVER_RPC = process.env.MOONRIVER_RPC || 'https://rpc.moonriver.moonbeam.network';
@@ -48,6 +48,7 @@ const AURORA_RPC =
   process.env.AURORA_RPC ||
   'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';
 const FUSE_RPC = process.env.FUSE_RPC || 'https://rpc.fuse.io';
+const METIS_RPC = process.env.METIS_RPC || 'https://andromeda.metis.io/?owner=1088';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -61,6 +62,7 @@ const MOONRIVER_CHAIN_ID = ChainId.moonriver;
 const CRONOS_CHAIN_ID = ChainId.cronos;
 const AURORA_CHAIN_ID = ChainId.aurora;
 const FUSE_CHAIN_ID = ChainId.fuse;
+const METIS_CHAIN_ID = ChainId.metis;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.0025;
@@ -74,6 +76,7 @@ const SPOOKY_LPF = 0.002;
 const JOE_LPF = 0.0025;
 const SOLAR_LPF = 0.002;
 const FUSEFI_LPF = 0.003;
+const NET_LPF = 0.0025;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
@@ -88,6 +91,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.cronos]: CRONOS_RPC,
   [ChainId.aurora]: AURORA_RPC,
   [ChainId.fuse]: FUSE_RPC,
+  [ChainId.metis]: METIS_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -114,6 +118,8 @@ const CRONOS_VAULTS_ENDPOINT =
 //  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/aurora_pools.js';
 const FUSE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fuse_pools.js';
+//const METIS_VAULTS_ENDPOINT =
+//  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/metis_pools.js';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -128,6 +134,7 @@ const MULTICHAIN_ENDPOINTS = {
   cronos: CRONOS_VAULTS_ENDPOINT,
   // aurora: AURORA_VAULTS_ENDPOINT,
   fuse: FUSE_VAULTS_ENDPOINT,
+  //  metis: METIS_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
@@ -174,6 +181,9 @@ export {
   FUSE_RPC,
   FUSE_CHAIN_ID,
   FUSE_VAULTS_ENDPOINT,
+  METIS_RPC,
+  METIS_CHAIN_ID,
+  // METIS_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
@@ -196,6 +206,7 @@ export {
   JOE_LPF,
   SOLAR_LPF,
   FUSEFI_LPF,
+  NET_LPF,
   BEEFY_PERFORMANCE_FEE,
   SHARE_AFTER_PERFORMANCE_FEE,
   EXCLUDED_IDS_FROM_TVL,
