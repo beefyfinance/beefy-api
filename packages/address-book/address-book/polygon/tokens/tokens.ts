@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  USTw: {
+    name: 'TerraUSD (Wormhole)',
+    symbol: 'WORMHOLE',
+    address: '0xE6469Ba6D2fD6130788E0eA9C0a0515900563b59',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/15610.png',
+    website: 'https://coinmarketcap.com/currencies/terrausd-wormhole/',
+    description:
+      'Wormhole builds bridges between chains, facilitating fast transfer of any kind of information from one chain to another.',
+  },
   ETH2x: {
     name: 'ETH 2x Flexible Leverage Index',
     symbol: 'ETH2x',
@@ -378,7 +389,8 @@ const _tokens = {
     chainId: 137,
     website: 'https://gainsnetwork.io/',
     description: 'Decentralized leverage trading platform on Polygon.',
-    logoURI: 'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
   },
   LINK: {
     name: 'ChainLink Token',

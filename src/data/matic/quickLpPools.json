@@ -12,9 +12,9 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x692597b009d13C4049a947CAB2239b7d6517875F",
+      "address": "0xE6469Ba6D2fD6130788E0eA9C0a0515900563b59",
       "oracle": "tokens",
-      "oracleId": "UST",
+      "oracleId": "WORMHOLE",
       "decimals": "1e18"
     }
   },
