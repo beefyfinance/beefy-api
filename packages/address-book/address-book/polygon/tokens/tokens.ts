@@ -27,7 +27,7 @@ const MAI = {
 } as const;
 
 const _tokens = {
-  USTw: {
+  WORMHOLE: {
     name: 'TerraUSD (Wormhole)',
     symbol: 'WORMHOLE',
     address: '0xE6469Ba6D2fD6130788E0eA9C0a0515900563b59',
