@@ -378,7 +378,8 @@ const _tokens = {
     chainId: 137,
     website: 'https://gainsnetwork.io/',
     description: 'Decentralized leverage trading platform on Polygon.',
-    logoURI: 'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
   },
   LINK: {
     name: 'ChainLink Token',
@@ -917,6 +918,17 @@ const _tokens = {
     website: 'https://jpyc.jp/',
     description:
       "JPYC (JPYCoin) is Japan's first Japanese Yen stablecoin that utilizes blockchain technology.",
+    logoURI: '',
+  },
+  PSP: {
+    name: 'ParaSwap',
+    symbol: 'PSP',
+    address: '0x42d61D766B85431666B39B89C43011f24451bFf6',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://paraswap.io/',
+    description:
+      "ParaSwap aggregates decentralized exchanges and other DeFi services in one comprehensive interface to streamline and facilitate users' interactions with decentralized finance on Ethereum and EVM-compatible chains: Polygon, Avalanche, BSC & more to come.",
     logoURI: '',
   },
 } as const;
