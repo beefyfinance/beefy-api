@@ -38,6 +38,18 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  WSTA: {
+    name: 'Wrapped STA',
+    symbol: 'WSTA',
+    address: '0xCEeBDE49eC95E21F7eE63C5c6f98CaB3519570de',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.stateratoken.com/',
+    description:
+      'Statera (consisting of the STA and wSTA tokens) is a smart contract powered Indexed Deflationary Ecosystem, which synergizes with a trustless and community-driven portfolio of class-leading cryptocurrencies.',
+    logoURI:
+      'https://ftmscan.com/token/images/stateratoken_32.png',
+  },
   CHARM: {
     name: 'CHARM',
     symbol: 'CHARM',
