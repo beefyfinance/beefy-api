@@ -1,0 +1,631 @@
+[
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getLastSnapshotTakenAtBlock",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "jailedValidatorsLength",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address", "name": "" }],
+    "name": "pendingValidatorsAtPosition",
+    "inputs": [{ "type": "uint256", "name": "_p" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address[]", "name": "" }],
+    "name": "getSnapshotAddresses",
+    "inputs": [{ "type": "uint256", "name": "_snapshotId" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "setProxyStorage",
+    "inputs": [{ "type": "address", "name": "_newAddress" }],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "pure",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getMinValidatorFee",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "bool", "name": "" }],
+    "name": "isJailed",
+    "inputs": [{ "type": "address", "name": "_address" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "delegatedAmount",
+    "inputs": [
+      { "type": "address", "name": "_address" },
+      { "type": "address", "name": "_validator" }
+    ],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "SNAPSHOTS_PER_CYCLE",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "pendingValidatorsLength",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "newValidatorSetLength",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "DECIMALS",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "withdraw",
+    "inputs": [{ "type": "uint256", "name": "_amount" }],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "bool", "name": "" }],
+    "name": "isInitialized",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "payable",
+    "payable": true,
+    "outputs": [],
+    "name": "stake",
+    "inputs": [],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "currentValidatorsLength",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "setValidatorFee",
+    "inputs": [{ "type": "uint256", "name": "_amount" }],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "pure",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getMinStake",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address", "name": "" }],
+    "name": "currentValidatorsAtPosition",
+    "inputs": [{ "type": "uint256", "name": "_p" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "payable",
+    "payable": true,
+    "outputs": [],
+    "name": "delegate",
+    "inputs": [{ "type": "address", "name": "_validator" }],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address[]", "name": "" }],
+    "name": "newValidatorSet",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address[]", "name": "" }],
+    "name": "jailedValidators",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [
+      { "type": "address[]", "name": "" },
+      { "type": "uint256[]", "name": "" }
+    ],
+    "name": "getDelegatorsForRewardDistribution",
+    "inputs": [
+      { "type": "address", "name": "_validator" },
+      { "type": "uint256", "name": "_rewardAmount" }
+    ],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "STRIKE_RESET",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "maintenance",
+    "inputs": [],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "unJail",
+    "inputs": [],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "MAX_VALIDATORS",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "VALIDATOR_PRODUCTIVITY_BP",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "finalizeChange",
+    "inputs": [],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "pure",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getMaxValidators",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getStrikes",
+    "inputs": [{ "type": "address", "name": "_validator" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "blockCounter",
+    "inputs": [{ "type": "address", "name": "_validator" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "CYCLE_DURATION_BLOCKS",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "cycle",
+    "inputs": [{ "type": "address", "name": "_validator" }],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "MAX_STRIKE_COUNT",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "pure",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getSnapshotsPerCycle",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "requiredSignatures",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address[]", "name": "" }],
+    "name": "delegators",
+    "inputs": [{ "type": "address", "name": "_validator" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "bool", "name": "" }],
+    "name": "isFinalized",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address", "name": "" }],
+    "name": "jailedValidatorsAtPosition",
+    "inputs": [{ "type": "uint256", "name": "_p" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "DEFAULT_VALIDATOR_FEE",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getCurrentCycleStartBlock",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "emitInitiateChange",
+    "inputs": [],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "totalStakeAmount",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "validatorFee",
+    "inputs": [{ "type": "address", "name": "_validator" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "bool", "name": "" }],
+    "name": "isDelegator",
+    "inputs": [
+      { "type": "address", "name": "_validator" },
+      { "type": "address", "name": "_address" }
+    ],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address[]", "name": "" }],
+    "name": "currentValidators",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "pure",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getCycleDurationBlocks",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address[]", "name": "" }],
+    "name": "pendingValidators",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getCurrentCycleEndBlock",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address[]", "name": "" }],
+    "name": "getValidators",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "stakeAmount",
+    "inputs": [{ "type": "address", "name": "_address" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "initialize",
+    "inputs": [{ "type": "address", "name": "_initialValidator" }],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "MAX_STAKE",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "MIN_STAKE",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getStrikeReset",
+    "inputs": [{ "type": "address", "name": "_validator" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "delegatorsLength",
+    "inputs": [{ "type": "address", "name": "_validator" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getNextSnapshotId",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address", "name": "" }],
+    "name": "delegatorsAtPosition",
+    "inputs": [
+      { "type": "address", "name": "_validator" },
+      { "type": "uint256", "name": "_p" }
+    ],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address", "name": "" }],
+    "name": "getProxyStorage",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getReleaseBlock",
+    "inputs": [{ "type": "address", "name": "_validator" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "bool", "name": "" }],
+    "name": "shouldEmitInitiateChange",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "withdraw",
+    "inputs": [
+      { "type": "address", "name": "_validator" },
+      { "type": "uint256", "name": "_amount" }
+    ],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "bool", "name": "" }],
+    "name": "isValidator",
+    "inputs": [{ "type": "address", "name": "_address" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "bool", "name": "" }],
+    "name": "isPendingValidator",
+    "inputs": [{ "type": "address", "name": "_address" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "pure",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getMaxStake",
+    "inputs": [],
+    "constant": true
+  },
+  { "type": "fallback", "stateMutability": "payable", "payable": true },
+  {
+    "type": "event",
+    "name": "ChangeFinalized",
+    "inputs": [{ "type": "address[]", "name": "newSet", "indexed": false }],
+    "anonymous": false
+  },
+  { "type": "event", "name": "ShouldEmitInitiateChange", "inputs": [], "anonymous": false },
+  {
+    "type": "event",
+    "name": "InitiateChange",
+    "inputs": [
+      { "type": "bytes32", "name": "parentHash", "indexed": true },
+      { "type": "address[]", "name": "newSet", "indexed": false }
+    ],
+    "anonymous": false
+  }
+]

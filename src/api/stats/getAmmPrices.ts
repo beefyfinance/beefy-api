@@ -194,6 +194,7 @@ import popsicleFantomPools from '../../data/fantom/popsicleLpPools.json';
 import fusefiPools from '../../data/fuse/fusefiLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
 import dibsLpPools from '../../data/degens/dibsLpPools.json';
+import pangolinV2Pools from '../../data/avax/pangolinv2LpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -201,6 +202,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...pangolinV2Pools,
   ...dibsLpPools,
   ...netswapPools,
   ...fusefiPools,

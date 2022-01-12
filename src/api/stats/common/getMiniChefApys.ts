@@ -10,7 +10,7 @@ import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 
 // trading apr
 import { SUSHI_LPF } from '../../../constants';
-import { getTradingFeeAprSushi as getTradingFeeApr } from '../../../utils/getTradingFeeApr';
+import { getTradingFeeAprSushi, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
 
@@ -44,20 +44,28 @@ interface MiniChefApyParams {
   };
   pools: (LpPool | SingleAssetPool)[];
   tradingClient?: ApolloClient<NormalizedCacheObject>;
+  sushiClient?: boolean;
+  liquidityProviderFee?: number;
   web3: Web3;
   chainId: ChainId;
 }
 
 export const getMiniChefApys = async (params: MiniChefApyParams) => {
-  const { pools, tradingClient } = params;
+  const { pools, tradingClient, sushiClient, liquidityProviderFee } = params;
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs =
-    tradingClient !== undefined
-      ? await getTradingFeeApr(tradingClient, pairAddresses, SUSHI_LPF)
-      : {};
+  let tradingAprs: Record<string, BigNumber> | undefined;
+  let fee: number | undefined;
+  if (tradingClient !== undefined) {
+    fee = liquidityProviderFee !== undefined ? liquidityProviderFee : SUSHI_LPF;
+    tradingAprs = sushiClient
+      ? await getTradingFeeAprSushi(tradingClient, pairAddresses, fee)
+      : await getTradingFeeApr(tradingClient, pairAddresses, fee);
+  } else {
+    tradingAprs = {};
+  }
   const farmApys = await getFarmApys(params);
 
-  return getApyBreakdown(pools, tradingAprs, farmApys, SUSHI_LPF);
+  return getApyBreakdown(pools, tradingAprs, farmApys, fee);
 };
 
 const getFarmApys = async (params: MiniChefApyParams) => {

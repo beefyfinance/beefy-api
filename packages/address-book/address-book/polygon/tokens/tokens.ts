@@ -931,6 +931,17 @@ const _tokens = {
       "JPYC (JPYCoin) is Japan's first Japanese Yen stablecoin that utilizes blockchain technology.",
     logoURI: '',
   },
+  PSP: {
+    name: 'ParaSwap',
+    symbol: 'PSP',
+    address: '0x42d61D766B85431666B39B89C43011f24451bFf6',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://paraswap.io/',
+    description:
+      "ParaSwap aggregates decentralized exchanges and other DeFi services in one comprehensive interface to streamline and facilitate users' interactions with decentralized finance on Ethereum and EVM-compatible chains: Polygon, Avalanche, BSC & more to come.",
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

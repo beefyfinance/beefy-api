@@ -1,5 +1,23 @@
 [
   {
+    "name": "boo-eth-wsta",
+    "address": "0x47dcD7Ee93434912b0B8eEeb4fd1cd76A37ca2A1",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCEeBDE49eC95E21F7eE63C5c6f98CaB3519570de",
+      "oracle": "tokens",
+      "oracleId": "WSTA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "vvs-cro-bifi",
     "address": "0x1803e360393a472bec6e1a688bdf7048d3076b1a",
     "decimals": "1e18",

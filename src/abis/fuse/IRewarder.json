@@ -1,0 +1,167 @@
+[
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "DECIMALS",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "bool", "name": "" }],
+    "name": "isInitialized",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getRewardedOnCycle",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "bool", "name": "" }],
+    "name": "shouldEmitRewardedOnCycle",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getBlockRewardAmount",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getBlockRewardAmountPerValidator",
+    "inputs": [{ "type": "address", "name": "_validator" }],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "INFLATION",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "pure",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getBlocksPerYear",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "onCycleEnd",
+    "inputs": [],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getTotalSupply",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "BLOCKS_PER_YEAR",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "emitRewardedOnCycle",
+    "inputs": [],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "pure",
+    "payable": false,
+    "outputs": [{ "type": "uint256", "name": "" }],
+    "name": "getInflation",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "view",
+    "payable": false,
+    "outputs": [{ "type": "address", "name": "" }],
+    "name": "getProxyStorage",
+    "inputs": [],
+    "constant": true
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [
+      { "type": "address[]", "name": "" },
+      { "type": "uint256[]", "name": "" }
+    ],
+    "name": "reward",
+    "inputs": [
+      { "type": "address[]", "name": "benefactors" },
+      { "type": "uint16[]", "name": "kind" }
+    ],
+    "constant": false
+  },
+  {
+    "type": "function",
+    "stateMutability": "nonpayable",
+    "payable": false,
+    "outputs": [],
+    "name": "initialize",
+    "inputs": [{ "type": "uint256", "name": "_supply" }],
+    "constant": false
+  },
+  {
+    "type": "event",
+    "name": "Rewarded",
+    "inputs": [
+      { "type": "address[]", "name": "receivers", "indexed": false },
+      { "type": "uint256[]", "name": "rewards", "indexed": false }
+    ],
+    "anonymous": false
+  },
+  {
+    "type": "event",
+    "name": "RewardedOnCycle",
+    "inputs": [{ "type": "uint256", "name": "amount", "indexed": false }],
+    "anonymous": false
+  }
+]

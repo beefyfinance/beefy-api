@@ -77,6 +77,7 @@ const JOE_LPF = 0.0025;
 const SOLAR_LPF = 0.002;
 const FUSEFI_LPF = 0.003;
 const NET_LPF = 0.0025;
+const PANGOLIN_LPF = 0.003;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
@@ -207,6 +208,7 @@ export {
   SOLAR_LPF,
   FUSEFI_LPF,
   NET_LPF,
+  PANGOLIN_LPF,
   BEEFY_PERFORMANCE_FEE,
   SHARE_AFTER_PERFORMANCE_FEE,
   EXCLUDED_IDS_FROM_TVL,
