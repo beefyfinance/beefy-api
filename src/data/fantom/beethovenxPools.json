@@ -1,5 +1,25 @@
 [
   {
+    "name": "beets-steady-beets-2",
+    "address": "0xeCAa1cBd28459d34B766F9195413Cb20122Fb942",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xecaa1cbd28459d34b766f9195413cb20122fb942000200000000000000000120",
+    "poolId": 33,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-two-became-one",
     "address": "0xD57Cda2caEBb9B64BB88905C4dE0F0Da217a77d7",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
