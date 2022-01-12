@@ -20,6 +20,101 @@
     ]
   },
   {
+    "name": "beets-dante-symphony",
+    "address": "0xc042EF6cA08576BdFb57d3055A7654344fd153E4",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xc042ef6ca08576bdfb57d3055a7654344fd153e400010000000000000000003a",
+    "poolId": 32,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WSTA",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-ode-to-joy",
+    "address": "0x5dD0D5D6c13E9302271Be0DfAde2b9Fd708E5dDB",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x5dd0d5d6c13e9302271be0dfade2b9fd708e5ddb0002000000000000000000e7",
+    "poolId": 31,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-wagmi-index",
+    "address": "0x713ee620a7702b79eA5413096A90702244FE4532",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x713ee620a7702b79ea5413096a90702244fe4532000100000000000000000105",
+    "poolId": 29,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SPELL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SUSHI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wMEMO",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ICE",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-two-became-one",
     "address": "0xD57Cda2caEBb9B64BB88905C4dE0F0Da217a77d7",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
