@@ -942,17 +942,6 @@ const _tokens = {
       'Kirobos decentralized applications remove the risk of losing funds enabling you to use blockchain technology to its fullest potential from one consolidated platform.',
     logoURI: '',
   },
-  LMT: {
-    name: 'Lympo Market Token',
-    symbol: 'LMT',
-    address: '0x873801Ae2ff12d816Db9a7B082F5796BEC64C82C',
-    chainId: 137,
-    decimals: 18,
-    website: 'https://lympo.io/lmt/',
-    description:
-      'Lympo is building a sports NFTs ecosystem including NFTs with IP rights of world-famous athletes and clubs. The ecosystem will also include custom sports characters created by various artists and sports influencers.',
-    logoURI: '',
-  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
