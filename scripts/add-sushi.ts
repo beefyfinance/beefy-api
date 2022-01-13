@@ -5,6 +5,9 @@ const {
   polygon: {
     platforms: { sushi: sushiPolygon },
   },
+  avax: {
+    platforms: { pangolin: pangolin },
+  },
 } = addressBook;
 
 const yargs = require('yargs');
@@ -38,6 +41,11 @@ const projects = {
     prefix: 'sushi',
     file: '../src/data/matic/sushiLpPools.json',
     masterchef: sushiPolygon.minichef,
+  },
+  pangolin: {
+    prefix: 'png',
+    file: '../src/data/avax/pangolinv2LpPools.json',
+    masterchef: pangolin.minichef,
   },
 };
 

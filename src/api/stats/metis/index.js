@@ -1,9 +1,8 @@
-const getFusefiLpApys = require('./getFusefiLpApys');
-const getFuseBeefySingleApy = require('./getFuseBeefySingleApy');
+const getNetswapApys = require('./getNetswapApys');
 
-const getApys = [getFusefiLpApys, getFuseBeefySingleApy];
+const getApys = [getNetswapApys];
 
-const getFuseApys = async () => {
+const getMetisApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
@@ -13,7 +12,7 @@ const getFuseApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getFuseApys error', result.reason);
+      console.warn('getMetisApys error', result.reason);
       continue;
     }
 
@@ -47,4 +46,4 @@ const getFuseApys = async () => {
   };
 };
 
-module.exports = { getFuseApys };
+module.exports = { getMetisApys };

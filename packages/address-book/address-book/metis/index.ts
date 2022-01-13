@@ -1,19 +1,17 @@
 import { beefyfinance } from './platforms/beefyfinance';
-import { fusefi } from './platforms/fusefi';
-import { fuseNetwork } from './platforms/fuseNetwork';
+import { netswap } from './platforms/netswap';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
 import { ConstInterface } from '../../types/const';
 
-const _fuse = {
+const _metis = {
   platforms: {
     beefyfinance,
-    fusefi,
-    fuseNetwork,
+    netswap,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
 } as const;
 
-export const fuse: ConstInterface<typeof _fuse, Chain> = _fuse;
+export const metis: ConstInterface<typeof _metis, Chain> = _metis;
