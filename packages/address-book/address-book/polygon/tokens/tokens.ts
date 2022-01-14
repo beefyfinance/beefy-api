@@ -931,6 +931,17 @@ const _tokens = {
       "ParaSwap aggregates decentralized exchanges and other DeFi services in one comprehensive interface to streamline and facilitate users' interactions with decentralized finance on Ethereum and EVM-compatible chains: Polygon, Avalanche, BSC & more to come.",
     logoURI: '',
   },
+  KIRO: {
+    name: 'Kirobo',
+    symbol: 'KIRO',
+    address: '0xB382C1cfA622795a534e5bd56Fac93d59BAc8B0D',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://www.kirobo.io/',
+    description:
+      'Kirobos decentralized applications remove the risk of losing funds enabling you to use blockchain technology to its fullest potential from one consolidated platform.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
