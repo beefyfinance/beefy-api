@@ -438,18 +438,18 @@
   },
   {
     "name": "boo-kek-ftm",
-    "address": "0xf3582dbaebb4287b462f00d308911621a960a5fd",
+    "address": "0xf3582dbAEbb4287B462f00d308911621a960A5FD",
     "decimals": "1e18",
     "poolId": 25,
     "chainId": 250,
     "lp0": {
-      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
       "oracleId": "WFTM",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x627524d78b4fc840c887ffec90563c7a42b671fd",
+      "address": "0x627524d78B4fC840C887ffeC90563c7A42b671fD",
       "oracle": "tokens",
       "oracleId": "KEK",
       "decimals": "1e18"

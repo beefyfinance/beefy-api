@@ -744,8 +744,8 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://kek.tools/',
-    description: 'A token tracker on the fantom network',
-    logoURI: 'https://scream.sh/img/scream-multi.png',
+    description: 'A token tracker on the Fantom network',
+    logoURI: 'https://assets.spookyswap.finance/tokens/KEK.png',
   },
   TREEB: {
     name: 'retreeb',
