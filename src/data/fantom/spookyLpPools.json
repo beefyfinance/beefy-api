@@ -1,5 +1,24 @@
 [
   {
+    "name": "boo-lqdr-ftm",
+    "address": "0x506DdcC751C7d500F983FfdA6DdEfbE458Ba2c33",
+    "decimals": "1e18",
+    "poolId": 37,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x10b620b2dbAC4Faa7D7FFD71Da486f5D44cd86f9",
+      "oracle": "tokens",
+      "oracleId": "HND",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-hnd-wftm",
     "address": "0x16b6DeEE778bbcF427e40FfA3c14c4840Be10e6a",
     "decimals": "1e18",
