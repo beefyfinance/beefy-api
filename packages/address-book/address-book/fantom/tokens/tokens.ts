@@ -953,7 +953,7 @@ const _tokens = {
   LQDR: {
     name: 'Liquid Driver',
     symbol: 'LQDR',
-    address: '0x10b620b2dbac4faa7d7ffd71da486f5d44cd86f9',
+    address: '0x10b620b2dbAC4Faa7D7FFD71Da486f5D44cd86f9',
     chainId: 250,
     decimals: 18,
     logoURI:
