@@ -38,7 +38,7 @@ const FTM = {
 } as const;
 
 const _tokens = {
-  T2SHARES: {
+  '2SHARES': {
     name: '2SHARES',
     symbol: '2SHARES',
     address: '0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca',
@@ -49,7 +49,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/2SHARES.png',
   },
-  T2OMB: {
+  '2OMB': {
     name: '2OMB',
     symbol: '2OMB',
     address: '0x7a6e4E3CC2ac9924605DCa4bA31d1831c84b44aE',
