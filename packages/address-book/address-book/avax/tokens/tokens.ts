@@ -3897,7 +3897,7 @@ const _tokens = {
       'https://pancakeswap.finance/images/tokens/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
   },
   MIM: {
-    name: 'albracabra',
+    name: 'Magic Internet Money',
     address: '0x130966628846BFd36ff31a822705796e8cb8C18D',
     symbol: 'MIM',
     decimals: 18,
