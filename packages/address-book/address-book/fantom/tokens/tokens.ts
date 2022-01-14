@@ -38,6 +38,28 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  T2SHARES: {
+    name: '2SHARES',
+    symbol: '2SHARES',
+    address: '0xc54A1684fD1bef1f077a336E6be4Bd9a3096a6Ca',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://2omb.finance/',
+    description: 'A fork of tomb.finance, pegged to the price of 1 FTM via seigniorage.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/2SHARES.png',
+  },
+  T2OMB: {
+    name: '2OMB',
+    symbol: '2OMB',
+    address: '0x7a6e4E3CC2ac9924605DCa4bA31d1831c84b44aE',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://2omb.finance/',
+    description: 'A fork of tomb.finance, pegged to the price of 1 FTM via seigniorage.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/2OMB.png',
+  },
   WSTA: {
     name: 'Wrapped STA',
     symbol: 'WSTA',
@@ -47,8 +69,7 @@ const _tokens = {
     website: 'https://www.stateratoken.com/',
     description:
       'Statera (consisting of the STA and wSTA tokens) is a smart contract powered Indexed Deflationary Ecosystem, which synergizes with a trustless and community-driven portfolio of class-leading cryptocurrencies.',
-    logoURI:
-      'https://ftmscan.com/token/images/stateratoken_32.png',
+    logoURI: 'https://ftmscan.com/token/images/stateratoken_32.png',
   },
   CHARM: {
     name: 'CHARM',
