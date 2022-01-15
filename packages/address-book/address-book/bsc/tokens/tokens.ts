@@ -3283,5 +3283,16 @@ const _tokens = {
     description:
       'InsurAce.io is a leading decentralized multi-chain insurance protocol that provides reliable, robust and secure insurance services to DeFi users, allowing them to protect their investment funds against various risks. ',
   },
+  LAC: {
+    name: 'La Cucina',
+    symbol: 'LAC',
+    address: '0xe6f079E74000a0AFc517c1EFf9624d866d163B75',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xe6f079E74000a0AFc517c1EFf9624d866d163B75.svg',
+    website: 'https://www.lacucina.io/',
+    description: 'LaCucina will offer you new and exciting ways to succeed in DeFi with NFTs',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
