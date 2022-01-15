@@ -114,7 +114,7 @@
     "oracleId": "LINK",
     "decimals": "1e18",
     "borrowDepth": 4,
-    "borrowPercent": 0.4
+    "borrowPercent": 0.62
   },
   {
     "name": "scream-usdc",
@@ -132,7 +132,7 @@
     "oracleId": "WBTC",
     "decimals": "1e8",
     "borrowDepth": 4,
-    "borrowPercent": 0.3
+    "borrowPercent": 0.72
   },
   {
     "name": "scream-ftm",
@@ -141,7 +141,7 @@
     "oracleId": "WFTM",
     "decimals": "1e18",
     "borrowDepth": 4,
-    "borrowPercent": 0.6
+    "borrowPercent": 0.72
   },
   {
     "name": "scream-dai",
@@ -159,7 +159,7 @@
     "oracleId": "ETH",
     "decimals": "1e18",
     "borrowDepth": 4,
-    "borrowPercent": 0.3
+    "borrowPercent": 0.6
   },
   {
     "name": "scream-fusdt",
@@ -186,7 +186,7 @@
     "oracleId": "MIM",
     "decimals": "1e18",
     "borrowDepth": 4,
-    "borrowPercent": 0.40
+    "borrowPercent": 0.5
   },
   {
     "name": "scream-dola",
