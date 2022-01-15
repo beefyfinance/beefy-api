@@ -8,7 +8,7 @@ const { DAILY_HPY } = require('../../../constants');
 const ERC20 = require('../../../abis/ERC20.json');
 
 const PNG = '0x60781C2586D68229fde47564546784ab3fACA982';
-const REWARDS = '0xD49B406A7A29D64e081164F6C3353C599A2EeAE9';
+const REWARDS = '0x88afdaE1a9F58Da3E68584421937E5F564A0135b';
 const ORACLE = 'tokens';
 const ORACLE_ID = 'PNG';
 const DECIMALS = '1e18';
@@ -23,16 +23,16 @@ const getPangolinPNGApy = async () => {
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const apy = compound(simpleApy, DAILY_HPY, 1, 0.955);
 
-  return { 'pangolin-png': apy };
+  return { 'png-png': apy };
 };
 
 const getYearlyRewardsInUsd = async () => {
-  const avaxPrice = await fetchPrice({ oracle: ORACLE, id: 'AVAX' });
+  const pngPrice = await fetchPrice({ oracle: ORACLE, id: ORACLE_ID });
 
   const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
-  const yearlyRewardsInUsd = yearlyRewards.times(avaxPrice).dividedBy(DECIMALS);
+  const yearlyRewardsInUsd = yearlyRewards.times(pngPrice).dividedBy(DECIMALS);
 
   return yearlyRewardsInUsd;
 };
