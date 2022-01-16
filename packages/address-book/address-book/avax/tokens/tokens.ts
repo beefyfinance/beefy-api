@@ -4034,6 +4034,17 @@ const _tokens = {
     logoURI:
       'https://pancakeswap.finance/images/tokens/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
   },
+  ROCO: {
+    chainId: 43114,
+    address: '0xb2a85C5ECea99187A977aC34303b80AcbDdFa208',
+    decimals: 18,
+    name: 'Roco Finance',
+    symbol: 'ROCO',
+    website: 'https://roco.finance/',
+    description:
+      'ROCO is a decentralized GAMEFI platform which provide blockchain services to game developers, content creators and player communities through the blockchain network.',
+    logoURI: 'https://assets.coingecko.com/coins/images/19234/large/86109466.png?1634769540',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
