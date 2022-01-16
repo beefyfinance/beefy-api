@@ -1377,14 +1377,14 @@ const _tokens = {
   },
   FRAX: {
     chainId: 43114,
-    address: '0xBB69c92FBb4F1aFf528875056650c862F94D3CC1',
+    address: '0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64',
     decimals: 18,
     name: 'Frax',
     symbol: 'FRAX',
     website: 'https://frax.finance/',
     description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
     logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBB69c92FBb4F1aFf528875056650c862F94D3CC1/logo.png',
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
   },
   FXS: {
     chainId: 43114,

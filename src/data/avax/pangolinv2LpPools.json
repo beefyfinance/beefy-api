@@ -115,9 +115,9 @@
   },
   {
     "name": "png-wavax-frax",
-    "address": "0xf0252ffAF3D3c7b3283E0afF56B66Db7105c318C",
+    "address": "0x0CE543c0f81ac9AAa665cCaAe5EeC70861a6b559",
     "decimals": "1e18",
-    "poolId": 20,
+    "poolId": 37,
     "chainId": 43114,
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
@@ -126,7 +126,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xDC42728B0eA910349ed3c6e1c9Dc06b5FB591f98",
+      "address": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64",
       "oracle": "tokens",
       "oracleId": "FRAX",
       "decimals": "1e18"
