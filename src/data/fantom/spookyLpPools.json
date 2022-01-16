@@ -1,5 +1,24 @@
 [
   {
+    "name": "boo-wftm-brush",
+    "address": "0x4EE115137ac73A3e5F99598564905465C101b11F",
+    "decimals": "1e18",
+    "poolId": 57,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x85dec8c4B2680793661bCA91a8F129607571863d",
+      "oracle": "tokens",
+      "oracleId": "BRUSH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-inv-wftm",
     "address": "0x9380485d65Fb628Ccd87Ddec4854F5306554d9d9",
     "decimals": "1e18",

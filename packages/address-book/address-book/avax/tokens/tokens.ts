@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  JEWEL: {
+    chainId: 43114,
+    address: '0x4f60a160D8C2DDdaAfe16FCC57566dB84D674BD6',
+    decimals: 18,
+    name: 'DeFi Kingdoms',
+    symbol: 'JEWEL',
+    website: 'https://defikingdoms.com/',
+    description:
+      'JEWEL is the governance token that powers DeFi Kingdoms which can be used to purchase NFTs such as items, heroes, and kingdoms. Holders can also stake them into liquidity mining pools to earn a yield from the protocol.',
+    logoURI: 'https://assets.coingecko.com/coins/images/18570/large/fAisLIV.png?1632449282',
+  },
   gOHM: {
     chainId: 43114,
     address: '0x321E7092a180BB43555132ec53AaA65a5bF84251',
@@ -1366,14 +1377,14 @@ const _tokens = {
   },
   FRAX: {
     chainId: 43114,
-    address: '0xBB69c92FBb4F1aFf528875056650c862F94D3CC1',
+    address: '0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64',
     decimals: 18,
     name: 'Frax',
     symbol: 'FRAX',
     website: 'https://frax.finance/',
     description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
     logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBB69c92FBb4F1aFf528875056650c862F94D3CC1/logo.png',
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
   },
   FXS: {
     chainId: 43114,
