@@ -1,6 +1,7 @@
+const getMetisBifiGovApy = require('./getMetisBifiGovApy');
 const getNetswapApys = require('./getNetswapApys');
 
-const getApys = [getNetswapApys];
+const getApys = [getNetswapApys, getMetisBifiGovApy];
 
 const getMetisApys = async () => {
   let apys = {};
