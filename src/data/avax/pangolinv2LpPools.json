@@ -1,5 +1,24 @@
 [
   {
+    "name": "png-jewel-wavax",
+    "address": "0x9AA76aE9f804E7a70bA3Fb8395D0042079238E9C",
+    "decimals": "1e18",
+    "poolId": 46,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x4f60a160D8C2DDdaAfe16FCC57566dB84D674BD6",
+      "oracle": "tokens",
+      "oracleId": "JEWEL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-dyp-wavax",
     "address": "0x497070e8b6C55fD283D8B259a6971261E2021C01",
     "decimals": "1e18",
