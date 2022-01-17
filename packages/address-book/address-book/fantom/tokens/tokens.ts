@@ -982,6 +982,18 @@ const _tokens = {
     description:
       'Since the explosion in popularity of the decentralized finance ecosystem in 2020, borrowing and lending platforms have become core infrastructure within the cryptocurrency space. Not only do they provide users the ability to “hodl” or leverage their crypto assets, obtaining liquidity from their investment (a crypto-backed loan) while simultaneously earning interest, they also underpin the workings of other protocols. The movement of assets from the Ethereum mainnet to EVM-compatible blockchains and scaling solutions has done nothing to alter this. Platforms that grant the ability to borrow and lend are one of the key applications users look for in any emerging chain. Hundred Finance aims to play a central role in provisioning these services in the multi-chain environment that has flourished since early 2021, delivering the freedom to earn yield and borrow assets to a growing number of users in a trustless, secure and economically efficient manner.',
   },
+  LQDR: {
+    name: 'Liquid Driver',
+    symbol: 'LQDR',
+    address: '0x10b620b2dbAC4Faa7D7FFD71Da486f5D44cd86f9',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://ftmscan.com/token/images/liquiddriver_32.png',
+    website: 'https://www.liquiddriver.finance/',
+    description:
+      'Incentivizing deep liquidity for SushiSwap on Fantom Opera.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
