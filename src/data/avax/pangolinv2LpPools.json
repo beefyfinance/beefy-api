@@ -1,5 +1,24 @@
 [
   {
+    "name": "png-jewel-wavax",
+    "address": "0x9AA76aE9f804E7a70bA3Fb8395D0042079238E9C",
+    "decimals": "1e18",
+    "poolId": 46,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x4f60a160D8C2DDdaAfe16FCC57566dB84D674BD6",
+      "oracle": "tokens",
+      "oracleId": "JEWEL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-dyp-wavax",
     "address": "0x497070e8b6C55fD283D8B259a6971261E2021C01",
     "decimals": "1e18",
@@ -96,9 +115,9 @@
   },
   {
     "name": "png-wavax-frax",
-    "address": "0xf0252ffAF3D3c7b3283E0afF56B66Db7105c318C",
+    "address": "0x0CE543c0f81ac9AAa665cCaAe5EeC70861a6b559",
     "decimals": "1e18",
-    "poolId": 20,
+    "poolId": 37,
     "chainId": 43114,
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
@@ -107,7 +126,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xDC42728B0eA910349ed3c6e1c9Dc06b5FB591f98",
+      "address": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64",
       "oracle": "tokens",
       "oracleId": "FRAX",
       "decimals": "1e18"
@@ -471,6 +490,44 @@
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
       "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "png-mim-usdc.e",
+    "address": "0xE75eD6E50e3e2dc6b06FAf38b943560BD22e343B",
+    "decimals": "1e18",
+    "poolId": 38,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x130966628846BFd36ff31a822705796e8cb8C18D",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+      "oracle": "tokens",
+      "oracleId": "USDC.e",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "png-mim-wavax",
+    "address": "0x239aAE4AaBB5D60941D7DFFAeaFE8e063C63Ab25",
+    "decimals": "1e18",
+    "poolId": 52,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x130966628846BFd36ff31a822705796e8cb8C18D",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
       "decimals": "1e18"
     }
   }

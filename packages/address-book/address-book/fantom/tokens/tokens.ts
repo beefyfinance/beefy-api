@@ -60,6 +60,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/2OMB.png',
   },
+  BRUSH: {
+    name: 'PaintSwap',
+    symbol: 'BRUSH',
+    address: '0x85dec8c4B2680793661bCA91a8F129607571863d',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://paintswap.finance/',
+    description:
+      'PaintSwap combines an open NFT marketplace with a decentralized exchange (AMM) on the Fantom Opera Network.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/BRUSH.png',
+  },
   WSTA: {
     name: 'Wrapped STA',
     symbol: 'WSTA',
