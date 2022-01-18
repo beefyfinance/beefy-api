@@ -96,7 +96,6 @@ import tenfiPools from '../../data/tenfiLpPools.json';
 import burgerPools from '../../data/burgerLpPools.json';
 import tombPools from '../../data/fantom/tombLpPools.json';
 import spiritPools from '../../data/fantom/spiritPools.json';
-import spiritGauges from '../../data/fantom/spiritGauges.json';
 import wexPolyPools from '../../data/matic/wexPolyLpPools.json';
 import icarusV2Pools from '../../data/icarusV2LpPools.json';
 import merlinPools from '../../data/merlinLpPools.json';
@@ -300,7 +299,6 @@ const pools = [
   ...merlinPools,
   ...icarusV2Pools,
   ...spiritPools,
-  ...spiritGauges,
   ...wexPolyPools,
   ...tombPools,
   ...burgerPools,
