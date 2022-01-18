@@ -38,6 +38,39 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  binSPIRIT: {
+    name: 'binSPIRIT',
+    symbol: 'binSPIRIT',
+    address: '0xe1908Ab7e03F0699773ceCc4Dc5D38893E532cd1',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.beefy.finance/',
+    description:
+      'binSPIRIT is the Beefy wrapped version of inSPIRIT which boosts Spirit vaults on Beefy. binSPIRIT can be traded or minted 1:1 with SPIRIT.',
+    logoURI: '',
+  },
+  MULTI: {
+    name: 'Multichain',
+    symbol: 'MULTI',
+    address: '0x9Fb9a33956351cf4fa040f65A13b835A3C8764E3',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://multichain.org/',
+    description:
+      'Multichain is the ultimate Router for web3. It is an infrastructure developed for arbitrary cross-chain interactions.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/17050.png',
+  },
+  JEWEL: {
+    name: 'Jewels',
+    symbol: 'JEWEL',
+    address: '0xD97F9674E2597e7a252de4875985f4385B9608fB',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://defikingdoms.com/',
+    description:
+      'The JEWEL token can be used to purchase the most useful items and unique NFTs such as Heroes and Kingdoms in the game DefiKingdoms. JEWEL is also a governance token, so holders will have a say in the growth and evolution of the project.',
+    logoURI: 'https://assets.coingecko.com/coins/images/18570/small/fAisLIV.png?1632449282',
+  },
   '2SHARES': {
     name: '2SHARES',
     symbol: '2SHARES',
