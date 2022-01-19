@@ -398,6 +398,7 @@ const coinGeckoCoins = [
   'par-stablecoin',
   'jarvis-synthetic-euro',
   'jpyc',
+  'cad-coin'
 ];
 
 const knownPrices = {
