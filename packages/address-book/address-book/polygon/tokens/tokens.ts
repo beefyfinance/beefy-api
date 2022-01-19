@@ -27,6 +27,28 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  CADC: {
+    name: 'CAD Coin',
+    symbol: 'CADC',
+    address: '0x5d146d8B1dACb1EBBA5cb005ae1059DA8a1FbF57',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://paytrie.com/cadc',
+    description:
+      "CADC is a fully-backed stable coin for the Canadian Dollar, issued by PayTrie.",
+    logoURI: 'https://assets.coingecko.com/coins/images/14149/small/cadc_2.png?1614666625',
+  },
+  jCAD: {
+    name: 'Jarvis Synthetic Canadian Dollar',
+    symbol: 'jCAD',
+    address: '0x8ca194A3b22077359b5732DE53373D4afC11DeE3',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jCHF is a multi-collateralized synthetic token tracking the price of the Canadian Dollar. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://yield.jarvis.network/static/media/jCAD.832ff304.png',
+  },
   USTw: {
     name: 'TerraUSD (Wormhole)',
     symbol: 'UST',
