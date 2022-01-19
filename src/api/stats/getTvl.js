@@ -105,7 +105,7 @@ const chains = [
   {
     chainId: FUSE_CHAIN_ID,
     vaultsEndpoint: FUSE_VAULTS_ENDPOINT,
-    //governancePool: require('../../data/fuse/governancePool.json'),
+    governancePool: require('../../data/fuse/governancePool.json'),
   },
   {
     chainId: METIS_CHAIN_ID,

@@ -246,7 +246,7 @@
     }
   },
   {
-    "name": "spirit-ftm-link",
+    "name": "spirit-link-ftm",
     "address": "0xd061c6586670792331e14a80f3b3bb267189c681",
     "gauge": "0x1360E082C01C897339B82eF098ab4e8B271252C8",
     "decimals": "1e18",
@@ -265,7 +265,7 @@
     }
   },
   {
-    "name": "spirit-usdc-ftm",
+    "name": "spirit-ftm-usdc",
     "address": "0xe7e90f5a767406eff87fdad7eb07ef407922ec1d",
     "gauge": "0xa3C6D55397Dcddaf9f600B082F7a6A918f2F4A5C",
     "decimals": "1e18",
