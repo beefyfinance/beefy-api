@@ -1,0 +1,97 @@
+[
+  {
+    "name": "tethys-avax-metis",
+    "address": "0xa41dCA7fC984686ACfD4b02DA49B6f318814135b",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "METIS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tethys-weth-metis",
+    "address": "0xEE5adB5b0DfC51029Aca5Ad4Bc684Ad676b307F7",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0x420000000000000000000000000000000000000A",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "METIS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tethys-metis-m.usdc",
+    "address": "0xDd7dF3522a49e6e1127bf1A1d3bAEa3bc100583B",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "METIS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEA32A96608495e54156Ae48931A7c20f0dcc1a21",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "tethys-m.usdt-metis",
+    "address": "0x8121113eB9952086deC3113690Af0538BB5506fd",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0xbB06DCA3AE6887fAbF931640f67cab3e3a16F4dC",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "METIS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tethys-tethys-metis",
+    "address": "0xc9b290FF37fA53272e9D71A0B13a444010aF4497",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0x69fdb77064ec5c84FA2F21072973eB28441F43F3",
+      "oracle": "tokens",
+      "oracleId": "TETHYS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "METIS",
+      "decimals": "1e18"
+    }
+  }
+]

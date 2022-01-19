@@ -4,6 +4,7 @@ import { solarbeam } from '../packages/address-book/address-book/moonriver/platf
 import { trisolaris } from '../packages/address-book/address-book/aurora/platforms/trisolaris';
 import { biswap } from '../packages/address-book/address-book/bsc/platforms/biswap';
 import { netswap } from '../packages/address-book/address-book/metis/platforms/netswap';
+import { tethys } from '../packages/address-book/address-book/metis/platforms/tethys';
 
 const yargs = require('yargs');
 const fs = require('fs');
@@ -66,6 +67,11 @@ const projects = {
     prefix: 'netswap',
     file: '../src/data/metis/netswapLpPools.json',
     masterchef: netswap.masterchef,
+  },
+  tethys: {
+    prefix: 'tethys',
+    file: '../src/data/metis/tethysLpPools.json',
+    masterchef: tethys.masterchef,
   },
 };
 
