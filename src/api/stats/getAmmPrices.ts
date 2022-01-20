@@ -96,7 +96,6 @@ import tenfiPools from '../../data/tenfiLpPools.json';
 import burgerPools from '../../data/burgerLpPools.json';
 import tombPools from '../../data/fantom/tombLpPools.json';
 import spiritPools from '../../data/fantom/spiritPools.json';
-import spiritGauges from '../../data/fantom/spiritGauges.json';
 import wexPolyPools from '../../data/matic/wexPolyLpPools.json';
 import icarusV2Pools from '../../data/icarusV2LpPools.json';
 import merlinPools from '../../data/merlinLpPools.json';
@@ -196,6 +195,7 @@ import netswapPools from '../../data/metis/netswapLpPools.json';
 import dibsLpPools from '../../data/degens/dibsLpPools.json';
 import pangolinV2Pools from '../../data/avax/pangolinv2LpPools.json';
 import t2ombLpPools from '../../data/fantom/2ombLpPools.json';
+import tethysPools from '../../data/metis/tethysLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -203,6 +203,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...tethysPools,
   ...t2ombLpPools,
   ...pangolinV2Pools,
   ...dibsLpPools,
@@ -300,7 +301,6 @@ const pools = [
   ...merlinPools,
   ...icarusV2Pools,
   ...spiritPools,
-  ...spiritGauges,
   ...wexPolyPools,
   ...tombPools,
   ...burgerPools,
@@ -400,6 +400,7 @@ const coinGeckoCoins = [
   'par-stablecoin',
   'jarvis-synthetic-euro',
   'jpyc',
+  'cad-coin'
 ];
 
 const knownPrices = {

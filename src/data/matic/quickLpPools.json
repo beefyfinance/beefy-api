@@ -1,7 +1,7 @@
 [
   {
-    "name": "quick-ust-matic",
-    "address": "0x9b7e966fe005d616b5560e4baa7cfa8747d6cbb9",
+    "name": "quick-ustw-matic",
+    "address": "0x9b7e966fe005d616b5560E4BaA7cFA8747d6cBb9",
     "rewardPool": "0x03E215DeA6227af79FF4fEf1be4a7F1198ca43B7",
     "decimals": "1e18",
     "chainId": 137,
@@ -12,10 +12,10 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0x692597b009d13C4049a947CAB2239b7d6517875F",
+      "address": "0xE6469Ba6D2fD6130788E0eA9C0a0515900563b59",
       "oracle": "tokens",
-      "oracleId": "UST",
-      "decimals": "1e18"
+      "oracleId": "USTw",
+      "decimals": "1e6"
     }
   },
   {

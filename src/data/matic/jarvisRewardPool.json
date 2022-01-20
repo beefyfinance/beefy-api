@@ -1,5 +1,23 @@
 [
   {
+    "name": "kyber-2cad-qui",
+    "address": "0x32d8513eDDa5AEf930080F15270984A043933A95",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0xA69b0D5c0C401BBA2d5162138613B5E38584F63F",
+      "oracle": "tokens",
+      "oracleId": "jarvis-2cad",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF65fb31ad1ccb2E7A6Ec3B34BEA4c81b68af6695",
+      "oracle": "tokens",
+      "oracleId": "QUI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "kyber-ses-2jpy",
     "address": "0x3b76F90A8ab3EA7f0EA717F34ec65d194E5e9737",
     "decimals": "1e18",

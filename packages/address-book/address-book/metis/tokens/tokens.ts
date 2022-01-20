@@ -89,6 +89,19 @@ const _tokens = {
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
   },
+  TETHYS: {
+    name: 'Tethys',
+    symbol: 'TETHYS',
+    address: '0x69fdb77064ec5c84FA2F21072973eB28441F43F3',
+    chainId: 1088,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x69fdb77064ec5c84FA2F21072973eB28441F43F3.svg',
+    website:
+      'https://tethys.finance/swap?inputCurrency=METIS&outputCurrency=0x69fdb77064ec5c84FA2F21072973eB28441F43F3',
+    description:
+      'We believe that in the future, L2 solutions will help Ethereum with scaling. Our mission is to empower the Metis Andromeda network with a fast, secure, reliable, and advanced native decentralized exchange app to handle all kinds of trading needs. Tethys was released on the 17th of December 2021 on Metis Andromeda network.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

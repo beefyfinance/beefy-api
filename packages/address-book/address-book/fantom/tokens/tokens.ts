@@ -38,6 +38,39 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  binSPIRIT: {
+    name: 'binSPIRIT',
+    symbol: 'binSPIRIT',
+    address: '0xe1908Ab7e03F0699773ceCc4Dc5D38893E532cd1',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.beefy.finance/',
+    description:
+      'binSPIRIT is the Beefy wrapped version of inSPIRIT which boosts Spirit vaults on Beefy. binSPIRIT can be traded or minted 1:1 with SPIRIT.',
+    logoURI: '',
+  },
+  MULTI: {
+    name: 'Multichain',
+    symbol: 'MULTI',
+    address: '0x9Fb9a33956351cf4fa040f65A13b835A3C8764E3',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://multichain.org/',
+    description:
+      'Multichain is the ultimate Router for web3. It is an infrastructure developed for arbitrary cross-chain interactions.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/17050.png',
+  },
+  JEWEL: {
+    name: 'Jewels',
+    symbol: 'JEWEL',
+    address: '0xD97F9674E2597e7a252de4875985f4385B9608fB',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://defikingdoms.com/',
+    description:
+      'The JEWEL token can be used to purchase the most useful items and unique NFTs such as Heroes and Kingdoms in the game DefiKingdoms. JEWEL is also a governance token, so holders will have a say in the growth and evolution of the project.',
+    logoURI: 'https://assets.coingecko.com/coins/images/18570/small/fAisLIV.png?1632449282',
+  },
   '2SHARES': {
     name: '2SHARES',
     symbol: '2SHARES',
@@ -59,6 +92,17 @@ const _tokens = {
     description: 'A fork of tomb.finance, pegged to the price of 1 FTM via seigniorage.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/2OMB.png',
+  },
+  BRUSH: {
+    name: 'PaintSwap',
+    symbol: 'BRUSH',
+    address: '0x85dec8c4B2680793661bCA91a8F129607571863d',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://paintswap.finance/',
+    description:
+      'PaintSwap combines an open NFT marketplace with a decentralized exchange (AMM) on the Fantom Opera Network.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/BRUSH.png',
   },
   WSTA: {
     name: 'Wrapped STA',
@@ -970,6 +1014,18 @@ const _tokens = {
     website: 'https://hundred.finance/',
     description:
       'Since the explosion in popularity of the decentralized finance ecosystem in 2020, borrowing and lending platforms have become core infrastructure within the cryptocurrency space. Not only do they provide users the ability to “hodl” or leverage their crypto assets, obtaining liquidity from their investment (a crypto-backed loan) while simultaneously earning interest, they also underpin the workings of other protocols. The movement of assets from the Ethereum mainnet to EVM-compatible blockchains and scaling solutions has done nothing to alter this. Platforms that grant the ability to borrow and lend are one of the key applications users look for in any emerging chain. Hundred Finance aims to play a central role in provisioning these services in the multi-chain environment that has flourished since early 2021, delivering the freedom to earn yield and borrow assets to a growing number of users in a trustless, secure and economically efficient manner.',
+  },
+  LQDR: {
+    name: 'Liquid Driver',
+    symbol: 'LQDR',
+    address: '0x10b620b2dbAC4Faa7D7FFD71Da486f5D44cd86f9',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://ftmscan.com/token/images/liquiddriver_32.png',
+    website: 'https://www.liquiddriver.finance/',
+    description:
+      'Incentivizing deep liquidity for SushiSwap on Fantom Opera.',
   },
 } as const;
 

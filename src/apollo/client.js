@@ -77,6 +77,7 @@ const finnClient = client(
 const dinoClient = client('https://api.thegraph.com/subgraphs/name/jannerveglobal/dino-swap-dex');
 const fusefiClient = client('https://api.thegraph.com/subgraphs/name/fuseio/fuseswap');
 const netswapClient = client('https://api.netswap.io/graph/subgraphs/name/netswap/exchange');
+const tethysClient = client('https://node.tethys.finance/subgraphs/name/tethys');
 
 const isSushiClient = client => {
   return (
@@ -134,4 +135,5 @@ module.exports = {
   finnClient,
   fusefiClient,
   netswapClient,
+  tethysClient,
 };

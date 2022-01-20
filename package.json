@@ -29,6 +29,7 @@
     "moonriver:solarbeam:add": "ts-node scripts/add-farm.ts --network moonriver --project solarbeam",
     "fuse:fusefi:add": "ts-node scripts/add-quick.ts --network fuse --project fusefi",
     "metis:netswap:add": "ts-node scripts/add-farm.ts --network metis --project netswap",
+    "metis:tethys:add": "ts-node scripts/add-farm.ts --network metis --project tethys",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },
   "dependencies": {
@@ -61,7 +62,7 @@
   "devDependencies": {
     "ava": "^3.12.1",
     "dotenv": "^8.2.0",
-    "lint-staged": "^12.1.4",
+    "lint-staged": "^12.1.7",
     "nodemon": "^2.0.6",
     "nyc": "^15.1.0",
     "prettier": "^2.3.2",
