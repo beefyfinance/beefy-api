@@ -21,6 +21,13 @@ const pools = [
     oracleId: 'WATCH',
     decimals: '1e18',
   },
+  {
+    name: 'pots-bino',
+    rewardPool: '0x71e3d841681fecE65Be9BFcBD318386184f784bC',
+    oracle: 'tokens',
+    oracleId: 'BINO',
+    decimals: '1e18',
+  },
 ];
 
 const getMoonpotApys = async () => {
