@@ -1,5 +1,24 @@
 [
   {
+    "name": "netswap-bifi-metis",
+    "address": "0x89D433e8cCC871B3f12EA17b651ff3633DFb5DC0",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "METIS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe6801928061CDbE32AC5AD0634427E140EFd05F9",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "netswap-m.usdt-m.usdc",
     "address": "0x1caD5f8f5D4C0AD49646B2565CC0cA725E4280EA",
     "decimals": "1e18",
