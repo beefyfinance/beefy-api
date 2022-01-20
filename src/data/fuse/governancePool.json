@@ -1,0 +1,9 @@
+{
+  "name": "fuse-bifi-gov",
+  "address": "0x60a4DedF7fC45F73d9ca46222B016c2d755C79A8",
+  "tokenAddress": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
+  "tokenDecimals": 1e18,
+  "oracle": "tokens",
+  "oracleId": "BIFI",
+  "exclude": {}
+}

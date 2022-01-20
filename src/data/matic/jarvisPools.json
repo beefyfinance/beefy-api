@@ -1,5 +1,18 @@
 [
   {
+    "name": "jarvis-2cad",
+    "pool": "0xA69b0D5c0C401BBA2d5162138613B5E38584F63F",
+    "address": "0xA69b0D5c0C401BBA2d5162138613B5E38584F63F",
+    "masterchef": "0x16Ef7a2F8156819bAE95CFcE0CA712D01498b665",
+    "poolId": 0,
+    "chainId": 137,
+    "oracleId": "cad-coin",
+    "rewardToken": "QUI",
+    "rewardOracle": "lps",
+    "token": "0xA69b0D5c0C401BBA2d5162138613B5E38584F63F",
+    "baseApyKey": "jCAD+CADC-f"
+  },
+  {
     "name": "jarvis-2jpy",
     "pool": "0xE8dCeA7Fb2Baf7a9F4d9af608F06d78a687F8d9A",
     "address": "0xE8dCeA7Fb2Baf7a9F4d9af608F06d78a687F8d9A",

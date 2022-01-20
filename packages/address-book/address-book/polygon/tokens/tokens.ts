@@ -27,16 +27,38 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  CADC: {
+    name: 'CAD Coin',
+    symbol: 'CADC',
+    address: '0x5d146d8B1dACb1EBBA5cb005ae1059DA8a1FbF57',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://paytrie.com/cadc',
+    description:
+      "CADC is a fully-backed stable coin for the Canadian Dollar, issued by PayTrie.",
+    logoURI: 'https://assets.coingecko.com/coins/images/14149/small/cadc_2.png?1614666625',
+  },
+  jCAD: {
+    name: 'Jarvis Synthetic Canadian Dollar',
+    symbol: 'jCAD',
+    address: '0x8ca194A3b22077359b5732DE53373D4afC11DeE3',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jCHF is a multi-collateralized synthetic token tracking the price of the Canadian Dollar. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://yield.jarvis.network/static/media/jCAD.832ff304.png',
+  },
   USTw: {
     name: 'TerraUSD (Wormhole)',
-    symbol: 'USTw',
+    symbol: 'UST',
     address: '0xE6469Ba6D2fD6130788E0eA9C0a0515900563b59',
     chainId: 137,
     decimals: 6,
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
     website: 'https://coinmarketcap.com/currencies/terrausd-wormhole/',
     description:
-      'Wormhole builds bridges between chains, facilitating fast transfer of any kind of information from one chain to another.',
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
   },
   ETH2x: {
     name: 'ETH 2x Flexible Leverage Index',

@@ -7,7 +7,7 @@
   "oracleId": "BIFI",
   "exclude": {
     "maxi": {
-      "earnedTokenAddress": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000"
+      "earnedTokenAddress": "0xEA01ca0423acb8476E1D3Bae572021c2aA9bd410"
     }
   }
 }
