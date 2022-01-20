@@ -29,14 +29,14 @@ const MAI = {
 const _tokens = {
   USTw: {
     name: 'TerraUSD (Wormhole)',
-    symbol: 'USTw',
+    symbol: 'UST',
     address: '0xE6469Ba6D2fD6130788E0eA9C0a0515900563b59',
     chainId: 137,
     decimals: 6,
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
     website: 'https://coinmarketcap.com/currencies/terrausd-wormhole/',
     description:
-      'Wormhole builds bridges between chains, facilitating fast transfer of any kind of information from one chain to another.',
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
   },
   ETH2x: {
     name: 'ETH 2x Flexible Leverage Index',
