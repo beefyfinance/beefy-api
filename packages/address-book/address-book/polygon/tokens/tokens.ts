@@ -34,8 +34,7 @@ const _tokens = {
     chainId: 137,
     decimals: 18,
     website: 'https://paytrie.com/cadc',
-    description:
-      "CADC is a fully-backed stable coin for the Canadian Dollar, issued by PayTrie.",
+    description: 'CADC is a fully-backed stable coin for the Canadian Dollar, issued by PayTrie.',
     logoURI: 'https://assets.coingecko.com/coins/images/14149/small/cadc_2.png?1614666625',
   },
   jCAD: {
@@ -82,16 +81,6 @@ const _tokens = {
     website: 'https://www.olympusdao.finance/',
     description:
       'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
-  },
-  GNS: {
-    name: 'Gains Network Token',
-    address: '0xe5417af564e4bfda1c483642db72007871397896',
-    symbol: 'GNS',
-    decimals: 18,
-    chainId: 137,
-    website: 'https://gainsnetwork.io/',
-    description: 'Decentralized leverage trading platform on Polygon.',
-    logoURI: 'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
   },
   TUSD: {
     name: 'True USD',
@@ -830,6 +819,18 @@ const _tokens = {
     description:
       'Iron Finance is building a full suite of decentralized finance ecosystem of products and use cases on the Polygon network. The official Iron Finance token is the ICE token, inspired by A Song of Ice and Fire novels, where the Iron Throne is a well-known symbol.',
     logoURI: 'https://app.iron.finance/static/media/ice-square.6e960434.svg',
+  },
+  PopsicleICE: {
+    name: 'IceToken',
+    address: '0x4e1581f01046eFDd7a1a2CDB0F82cdd7F71F2E59',
+    symbol: 'ICE',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://popsicle.finance/',
+    description:
+      'Popsicle is a next-gen cross-chain yield enhancement platform focusing on Automated Market-Making (AMM) Liquidity Providers (LP).',
+    logoURI:
+      'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0xf16e81dce15B08F326220742020379B855B87DF9/logo.png',
   },
   NEXO: {
     name: 'Nexo',

@@ -23,6 +23,7 @@ import getCafeLpApys from './getCafeLpApys';
 import getKyberLpApys from './getKyberLpApys';
 import { getQuickDualLpApys } from './getQuickDualLpApys';
 import { getJarvisApys } from './getJarvisApys';
+const getPopsicleApys = require('./getPopsicleApys');
 
 const getApys = [
   getComethLpApys,
@@ -50,6 +51,7 @@ const getApys = [
   getCafeLpApys,
   getKyberLpApys,
   getJarvisApys,
+  getPopsicleApys,
 ];
 
 const BATCH_SIZE = 15;
