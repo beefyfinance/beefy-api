@@ -809,7 +809,7 @@ const _tokens = {
     description: 'FarmHero is a protocol that mixes NFT, gaming and DEFI concepts.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
   },
-  ICE: {
+  ironICE: {
     name: 'Iron Finance ICE Token',
     symbol: 'ICE',
     address: '0x4A81f8796e0c6Ad4877A51C86693B0dE8093F2ef',
@@ -820,7 +820,7 @@ const _tokens = {
       'Iron Finance is building a full suite of decentralized finance ecosystem of products and use cases on the Polygon network. The official Iron Finance token is the ICE token, inspired by A Song of Ice and Fire novels, where the Iron Throne is a well-known symbol.',
     logoURI: 'https://app.iron.finance/static/media/ice-square.6e960434.svg',
   },
-  PopsicleICE: {
+  ICE: {
     name: 'IceToken',
     address: '0x4e1581f01046eFDd7a1a2CDB0F82cdd7F71F2E59',
     symbol: 'ICE',
