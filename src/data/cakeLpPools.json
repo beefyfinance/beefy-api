@@ -1,5 +1,24 @@
 [
   {
+    "name": "cakev2-fuse-wbnb",
+    "address": "0x6483F166b9E4310A165a55FEa04F867499aded06",
+    "decimals": "1e18",
+    "poolId": 505,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x5857c96DaE9cF8511B08Cb07f85753C472D36Ea3",
+      "oracle": "tokens",
+      "oracleId": "FUSE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-insur-wbnb",
     "address": "0xD01bf29EdCA0285A004a25e325A449ba56e5926E",
     "decimals": "1e18",
