@@ -9,6 +9,11 @@
     "tokens": [
       {
         "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
         "oracleId": "FTM",
         "decimals": "1e18"
       },
@@ -16,11 +21,6 @@
         "oracle": "tokens",
         "oracleId": "BOO",
         "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "USDC",
-        "decimals": "1e6"
       }
     ]
   },
@@ -39,12 +39,12 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "BEETS",
+        "oracleId": "BRUSH",
         "decimals": "1e18"
       },
       {
         "oracle": "tokens",
-        "oracleId": "BRUSH",
+        "oracleId": "BEETS",
         "decimals": "1e18"
       }
     ]
