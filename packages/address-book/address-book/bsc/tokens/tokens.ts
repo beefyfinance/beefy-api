@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  FUSE: {
+    name: 'Fuse Token on BSC',
+    symbol: 'FUSE',
+    address: '0x5857c96DaE9cF8511B08Cb07f85753C472D36Ea3',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x5857c96DaE9cF8511B08Cb07f85753C472D36Ea3.svg',
+    website: 'https://fuse.io/',
+    description:
+      'Fuse token is the primary currency of the network and the decentralized applications that it support.',
+  },
   DSHARE: {
     name: 'DSHARE',
     symbol: 'DSHARE',
