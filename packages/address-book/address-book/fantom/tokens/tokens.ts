@@ -60,6 +60,17 @@ const _tokens = {
       'The aim of 0xDAO is to provide a fully decentralized infrastructure, one that maximizes profits, capital efficiency and voting power for 0xDAO, creating a free market for established protocols on Fantom looking to increase liquidity.',
     logoURI: 'https://assets.spookyswap.finance/tokens/OXD.png',
   },
+  XBOO: {
+    name: 'xBOO',
+    symbol: 'xBOO',
+    address: '0xa48d959AE2E88f1dAA7D5F611E01908106dE7598',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://docs.spookyswap.finance/products/buyback-boo',
+    description:
+      'When you stake your BOOs into xBOO (in the Buyback BOO Pool) and then into a pool listed, you are earning a sum of the APRs!',
+    logoURI: 'https://assets.coingecko.com/coins/images/22609/large/xboo.png?1642220445',
+  },
   MULTI: {
     name: 'Multichain',
     symbol: 'MULTI',
