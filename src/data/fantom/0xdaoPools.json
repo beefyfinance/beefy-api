@@ -1,0 +1,21 @@
+[
+  {
+    "name": "oxd-oxd-usdc",
+    "address": "0xD5fa400a24EB2EA55BC5Bd29c989E70fbC626FfF",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc165d941481e68696f43EE6E99BFB2B23E0E3114",
+      "oracle": "tokens",
+      "oracleId": "OXD",
+      "decimals": "1e18"
+    }
+  }
+]
