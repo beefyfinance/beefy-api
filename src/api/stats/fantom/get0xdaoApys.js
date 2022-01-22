@@ -15,7 +15,7 @@ const get0xdaoApys = async () =>
     pools: pools,
     singlePools: [
       {
-        name: '0xdao-wtfm',
+        name: '0xdao-wftm',
         poolId: 1,
         address: '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83',
         oracle: 'tokens',
