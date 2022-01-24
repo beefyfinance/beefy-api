@@ -811,7 +811,7 @@ const _tokens = {
   },
   ironICE: {
     name: 'Iron Finance ICE Token',
-    symbol: 'ICE',
+    symbol: 'ironICE',
     address: '0x4A81f8796e0c6Ad4877A51C86693B0dE8093F2ef',
     chainId: 137,
     decimals: 18,
