@@ -11,6 +11,9 @@ const {
   fantom: {
     platforms: { sushiFtm: sushiFtm },
   },
+  fuse: {
+    platforms: { sushiFuse: sushiFuse },
+  },
 } = addressBook;
 
 const yargs = require('yargs');
@@ -54,6 +57,11 @@ const projects = {
     prefix: 'sushi',
     file: '../src/data/fantom/sushiFtmLpPools.json',
     masterchef: sushiFtm.minichef,
+  },
+  sushiFuse: {
+    prefix: 'sushi',
+    file: '../src/data/fuse/sushiFuseLpPools.json',
+    masterchef: sushiFuse.minichef,
   },
 };
 

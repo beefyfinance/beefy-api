@@ -1,0 +1,78 @@
+[
+  {
+    "name": "sushi-usdc-usdt",
+    "address": "0x00E485d833099679eD7D121CE46a9557ea8aDa1e",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 122,
+    "lp0": {
+      "address": "0x620fd5fa44BE6af63715Ef4E65DDFA0387aD13F5",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xFaDbBF8Ce7D5b7041bE672561bbA99f79c532e10",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "sushi-sushi-weth",
+    "address": "0xF9C63E6e21d65ba3Cb6B95790F559E8Da1B38764",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 122,
+    "lp0": {
+      "address": "0x90708b20ccC1eb95a4FA7C8b18Fd2C22a0Ff9E78",
+      "oracle": "tokens",
+      "oracleId": "SUSHI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa722c13135930332Eb3d749B2F0906559D2C5b99",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-wfuse-usdc",
+    "address": "0xba9CA720e314F42E17E80991c1d0AFfE47387108",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 122,
+    "lp0": {
+      "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
+      "oracle": "tokens",
+      "oracleId": "WFUSE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x620fd5fa44BE6af63715Ef4E65DDFA0387aD13F5",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "sushi-wfuse-weth",
+    "address": "0x90c3bA00d2F7F15Cd9FDE087538be3A2865E7E2F",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 122,
+    "lp0": {
+      "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
+      "oracle": "tokens",
+      "oracleId": "WFUSE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa722c13135930332Eb3d749B2F0906559D2C5b99",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

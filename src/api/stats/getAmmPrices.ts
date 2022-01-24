@@ -198,6 +198,7 @@ import t2ombLpPools from '../../data/fantom/2ombLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
 import oxdaoPools from '../../data/fantom/0xdaoPools.json';
 import sushiFtmPools from '../../data/fantom/sushiFtmLpPools.json';
+import sushiFusePools from '../../data/fuse/sushiFuseLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -205,6 +206,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...sushiFusePools,
   ...sushiFtmPools,
   ...oxdaoPools,
   ...tethysPools,

@@ -105,6 +105,18 @@ const _tokens = {
     description:
       'The GoodDollar protocol is a community-driven, distributed framework designed to generate, fund, and distribute global basic income via the GoodDollar token (hereafter “G$”). G$ is an ERC-20 digital asset built on the Ethereum blockchain that operates within the emerging ecosystem of decentralized and open finance. GoodDollar leverages new protocols and smart contracts across the ecosystem to deliver its basic income economy.',
   },
+  SUSHI: {
+    name: 'SushiToken on Fuse',
+    symbol: 'SUSHI',
+    address: '0x90708b20ccC1eb95a4FA7C8b18Fd2C22a0Ff9E78',
+    chainId: 122,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x90708b20ccC1eb95a4FA7C8b18Fd2C22a0Ff9E78.svg',
+    website: 'https://sushi.com/',
+    description:
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
