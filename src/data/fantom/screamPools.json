@@ -123,7 +123,7 @@
     "oracleId": "USDC",
     "decimals": "1e6",
     "borrowDepth": 4,
-    "borrowPercent": 0.6
+    "borrowPercent": 0.45
   },
   {
     "name": "scream-wbtc",
@@ -159,7 +159,7 @@
     "oracleId": "ETH",
     "decimals": "1e18",
     "borrowDepth": 4,
-    "borrowPercent": 0.6
+    "borrowPercent": 0.45
   },
   {
     "name": "scream-fusdt",
@@ -185,8 +185,8 @@
     "oracle": "tokens",
     "oracleId": "MIM",
     "decimals": "1e18",
-    "borrowDepth": 4,
-    "borrowPercent": 0.5
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
   },
   {
     "name": "scream-dola",
