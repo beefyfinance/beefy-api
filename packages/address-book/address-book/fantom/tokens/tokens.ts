@@ -60,13 +60,35 @@ const _tokens = {
       'The aim of 0xDAO is to provide a fully decentralized infrastructure, one that maximizes profits, capital efficiency and voting power for 0xDAO, creating a free market for established protocols on Fantom looking to increase liquidity.',
     logoURI: 'https://assets.spookyswap.finance/tokens/OXD.png',
   },
-  XBOO: {
-    name: 'xBOO',
+  fBEETS: {
+    name: 'Fresh BEETS',
+    symbol: 'fBEETS',
+    address: '0xfcef8a994209d6916EB2C86cDD2AFD60Aa6F54b1',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://beets.fi/#/stake',
+    description:
+      '30% of Beethoven X protocol revenue is used to reward fBEETS holders. When you stake your Fidelio Duetto BPTs, you receive fBEETS in return.',
+    logoURI: 'https://beets.fi/img/fBEETS.a3146dd6.png',
+  },
+  xSCREAM: {
+    name: 'xSCREAM',
+    symbol: 'xSCREAM',
+    address: '0xe3D17C7e840ec140a7A51ACA351a482231760824',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://scream.sh/stake',
+    description:
+      'When SCREAM is deposited for xSCREAM, your share of xSCREAM increases your holding of SCREAM as fees are accumulated to do buybacks of SCREAM tokens.',
+    logoURI: 'https://scream.sh/img/scream-multi.png',
+  },
+  xBOO: {
+    name: 'BOO MirrorWorld',
     symbol: 'xBOO',
     address: '0xa48d959AE2E88f1dAA7D5F611E01908106dE7598',
     chainId: 250,
     decimals: 18,
-    website: 'https://docs.spookyswap.finance/products/buyback-boo',
+    website: 'https://spookyswap.finance/pools',
     description:
       'When you stake your BOOs into xBOO (in the Buyback BOO Pool) and then into a pool listed, you are earning a sum of the APRs!',
     logoURI: 'https://assets.coingecko.com/coins/images/22609/large/xboo.png?1642220445',
