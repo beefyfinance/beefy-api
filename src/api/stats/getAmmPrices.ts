@@ -196,6 +196,7 @@ import dibsLpPools from '../../data/degens/dibsLpPools.json';
 import pangolinV2Pools from '../../data/avax/pangolinv2LpPools.json';
 import t2ombLpPools from '../../data/fantom/2ombLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
+import popsicleMaticPools from '../../data/matic/popsicleLpPools.json';
 import oxdaoPools from '../../data/fantom/0xdaoPools.json';
 import sushiFtmPools from '../../data/fantom/sushiFtmLpPools.json';
 import sushiFusePools from '../../data/fuse/sushiFuseLpPools.json';
@@ -216,6 +217,7 @@ const pools = [
   ...netswapPools,
   ...fusefiPools,
   ...popsicleFantomPools,
+  ...popsicleMaticPools,
   ...sushiv2Celo,
   ...liquidusPools,
   ...biswapPools,
