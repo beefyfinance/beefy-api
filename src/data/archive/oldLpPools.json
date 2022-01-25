@@ -905,5 +905,23 @@
       "oracleId": "PUP",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "fusefi-wfuse-bifi",
+    "address": "0xbD8923A4028c5D6b6B8698ad4342104302611914",
+    "decimals": "1e18",
+    "chainId": 122,
+    "lp0": {
+      "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
+      "oracle": "tokens",
+      "oracleId": "WFUSE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
   }
 ]
