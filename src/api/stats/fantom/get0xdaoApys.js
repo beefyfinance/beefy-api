@@ -70,6 +70,14 @@ const get0xdaoApys = async () =>
         oracleId: 'TOMB',
         decimals: '1e18',
       },
+      {
+        name: '0xdao-oxd',
+        poolId: 14,
+        address: '0xc165d941481e68696f43EE6E99BFB2B23E0E3114',
+        oracle: 'tokens',
+        oracleId: 'OXD',
+        decimals: '1e18',
+      },
       // TODO add xBOO price
       // {
       //   name: '0xdao-xboo',
