@@ -1,4 +1,5 @@
 import { beefyfinance } from './platforms/beefyfinance';
+import { chainlink } from './platforms/chainlink';
 import { cometh } from './platforms/cometh';
 import { dfyn } from './platforms/dfyn';
 import { polyzap } from './platforms/polyzap';
@@ -24,6 +25,7 @@ import { ConstInterface } from '../../types/const';
 const _polygon = {
   platforms: {
     beefyfinance,
+    chainlink,
     cometh,
     dfyn,
     polyzap,

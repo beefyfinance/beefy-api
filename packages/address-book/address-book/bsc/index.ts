@@ -1,4 +1,5 @@
 import { ape } from './platforms/ape';
+import { chainlink } from './platforms/chainlink';
 import { bakery } from './platforms/bakery';
 import { beefyfinance } from './platforms/beefyfinance';
 import { pancake } from './platforms/pancake';
@@ -19,6 +20,7 @@ import { ConstInterface } from '../../types/const';
 const _bsc = {
   platforms: {
     ape,
+    chainlink,
     bakery,
     beefyfinance,
     pancake,
