@@ -923,5 +923,23 @@
       "oracleId": "BIFI",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "sushi-one-1crv-1eth",
+    "address": "0xE21F393cA66607800042EbbeE0e8D9A0c3B8b333",
+    "decimals": "1e18",
+    "chainId": 1666600000,
+    "lp0": {
+      "address": "0x352cd428EFd6F31B5cae636928b7B84149cF369F",
+      "oracle": "tokens",
+      "oracleId": "1CRV",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6983D1E6DEf3690C4d616b13597A09e6193EA013",
+      "oracle": "tokens",
+      "oracleId": "1ETH",
+      "decimals": "1e18"
+    }
   }
 ]
