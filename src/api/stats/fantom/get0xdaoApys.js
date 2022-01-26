@@ -71,11 +71,19 @@ const get0xdaoApys = async () =>
         decimals: '1e18',
       },
       {
+        name: '0xdao-oxd',
+        poolId: 14,
+        address: '0xc165d941481e68696f43EE6E99BFB2B23E0E3114',
+        oracle: 'tokens',
+        oracleId: 'OXD',
+        decimals: '1e18',
+      },
+      {
         name: '0xdao-xboo',
         poolId: 7,
         address: '0xa48d959AE2E88f1dAA7D5F611E01908106dE7598',
         oracle: 'tokens',
-        oracleId: 'boo-mirrorworld',
+        oracleId: 'xBOO',
         decimals: '1e18',
       },
       // TODO add xSCREAM and fBEETS prices
