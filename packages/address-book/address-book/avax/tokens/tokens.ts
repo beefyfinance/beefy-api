@@ -15,6 +15,41 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  UST: {
+    name: 'Axelar Wrapped UST',
+    symbol: 'UST',
+    address: '0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11',
+    chainId: 43114,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11.svg',
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+  },
+  MORE: {
+    name: 'More Token',
+    symbol: 'MORE',
+    address: '0xd9D90f882CDdD6063959A9d837B05Cb748718A05',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xd9D90f882CDdD6063959A9d837B05Cb748718A05.svg',
+    website: 'https://app.moremoney.finance/',
+    description:
+      'Moremoney is a lending protocol for opening interest-free collateralised debt positions (CDP) using liquidity pool tokens, interest-bearing tokens (ibTKNs) and other major tokens as collateral. Borrowers mint MONEY, a USD softly pegged stablecoin backed by an over-collateralised debt position as well as the yield earned by the collateral.  After minting MONEY, borrowers can use it across the DeFi landscape, for interest free leverage, or simply use it to farm MORE. Moremoney is designed to support the further conversion of base tokens like ETH, AVAX, USDT into ibTKNs. Upon depositing, collateral assets are forwarded to trusted partner protocols where these tokens earn yield, which is either compounded into collateral token or into $MONEY to automatically repay debts owed by a vault.',
+  },
+  GMX: {
+    name: 'GMX',
+    symbol: 'GMX',
+    address: '0x62edc0692BD897D2295872a9FFCac5425011c661',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x62edc0692BD897D2295872a9FFCac5425011c661.svg',
+    website: 'https://gmx.io/buy',
+    description: 'Swaps and leverage trading of up to 30x is now live on Avalanche!',
+  },
   JEWEL: {
     chainId: 43114,
     address: '0x4f60a160D8C2DDdaAfe16FCC57566dB84D674BD6',

@@ -1,5 +1,81 @@
 [
   {
+    "name": "joe-wavax-frm",
+    "address": "0x224B49B3FC8Ef9FB1515b633F6C2537E87315B6d",
+    "decimals": "1e18",
+    "poolId": 42,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE5CAeF4Af8780E59Df925470b050Fb23C43CA68C",
+      "oracle": "tokens",
+      "oracleId": "FRM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-gmx-wavax",
+    "address": "0x0c91a070f862666bBcce281346BE45766d874D98",
+    "decimals": "1e18",
+    "poolId": 43,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x62edc0692BD897D2295872a9FFCac5425011c661",
+      "oracle": "tokens",
+      "oracleId": "GMX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-wavax-more",
+    "address": "0xb8361D0E3F3B0fc5e6071f3a3C3271223C49e3d9",
+    "decimals": "1e18",
+    "poolId": 44,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9D90f882CDdD6063959A9d837B05Cb748718A05",
+      "oracle": "tokens",
+      "oracleId": "MORE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-ust-wavax",
+    "address": "0x7BF98BD74E19AD8eB5e14076140Ee0103F8F872B",
+    "decimals": "1e18",
+    "poolId": 45,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-wavax-frax",
     "address": "0x862905a82382Db9405a40DCAa8Ee9e8F4af52C89",
     "decimals": "1e18",
