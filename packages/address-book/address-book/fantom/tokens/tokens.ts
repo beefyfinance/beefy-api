@@ -49,6 +49,28 @@ const _tokens = {
       'binSPIRIT is the Beefy wrapped version of inSPIRIT which boosts Spirit vaults on Beefy. binSPIRIT can be traded or minted 1:1 with SPIRIT.',
     logoURI: '',
   },
+  OXD: {
+    name: '0xDAO',
+    symbol: 'OXD',
+    address: '0xc165d941481e68696f43EE6E99BFB2B23E0E3114',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.oxdao.fi/',
+    description:
+      'The aim of 0xDAO is to provide a fully decentralized infrastructure, one that maximizes profits, capital efficiency and voting power for 0xDAO, creating a free market for established protocols on Fantom looking to increase liquidity.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/OXD.png',
+  },
+  XBOO: {
+    name: 'xBOO',
+    symbol: 'xBOO',
+    address: '0xa48d959AE2E88f1dAA7D5F611E01908106dE7598',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://docs.spookyswap.finance/products/buyback-boo',
+    description:
+      'When you stake your BOOs into xBOO (in the Buyback BOO Pool) and then into a pool listed, you are earning a sum of the APRs!',
+    logoURI: 'https://assets.coingecko.com/coins/images/22609/large/xboo.png?1642220445',
+  },
   MULTI: {
     name: 'Multichain',
     symbol: 'MULTI',
@@ -1021,11 +1043,9 @@ const _tokens = {
     address: '0x10b620b2dbAC4Faa7D7FFD71Da486f5D44cd86f9',
     chainId: 250,
     decimals: 18,
-    logoURI:
-      'https://ftmscan.com/token/images/liquiddriver_32.png',
+    logoURI: 'https://ftmscan.com/token/images/liquiddriver_32.png',
     website: 'https://www.liquiddriver.finance/',
-    description:
-      'Incentivizing deep liquidity for SushiSwap on Fantom Opera.',
+    description: 'Incentivizing deep liquidity for SushiSwap on Fantom Opera.',
   },
 } as const;
 

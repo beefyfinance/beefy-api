@@ -196,6 +196,10 @@ import dibsLpPools from '../../data/degens/dibsLpPools.json';
 import pangolinV2Pools from '../../data/avax/pangolinv2LpPools.json';
 import t2ombLpPools from '../../data/fantom/2ombLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
+import popsicleMaticPools from '../../data/matic/popsicleLpPools.json';
+import oxdaoPools from '../../data/fantom/0xdaoPools.json';
+import sushiFtmPools from '../../data/fantom/sushiFtmLpPools.json';
+import sushiFusePools from '../../data/fuse/sushiFuseLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -203,6 +207,9 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...sushiFusePools,
+  ...sushiFtmPools,
+  ...oxdaoPools,
   ...tethysPools,
   ...t2ombLpPools,
   ...pangolinV2Pools,
@@ -210,6 +217,7 @@ const pools = [
   ...netswapPools,
   ...fusefiPools,
   ...popsicleFantomPools,
+  ...popsicleMaticPools,
   ...sushiv2Celo,
   ...liquidusPools,
   ...biswapPools,
@@ -400,7 +408,7 @@ const coinGeckoCoins = [
   'par-stablecoin',
   'jarvis-synthetic-euro',
   'jpyc',
-  'cad-coin'
+  'cad-coin',
 ];
 
 const knownPrices = {

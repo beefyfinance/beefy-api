@@ -18,6 +18,7 @@
     "bsc:biswap:add": "ts-node scripts/add-farm.ts --network bsc --project biswap",
     "bsc:omni:add": "ts-node scripts/add-omni.ts --network bsc --project omni",
     "fantom:spooky:add": "ts-node scripts/add-farm.ts --network fantom --project spooky",
+    "fantom:sushi:add": "ts-node scripts/add-sushi.ts --network fantom --project sushiFtm",
     "polygon:quick:add": "ts-node scripts/add-quick.ts --network polygon --project quick",
     "polygon:sushi:add": "ts-node scripts/add-sushi.ts --network polygon --project sushiPoly",
     "one:sushi:add": "ts-node scripts/add-sushi.ts --network one --project sushiOne",
@@ -28,6 +29,7 @@
     "aurora:trisolaris:add": "ts-node scripts/add-farm.ts --network aurora --project trisolaris",
     "moonriver:solarbeam:add": "ts-node scripts/add-farm.ts --network moonriver --project solarbeam",
     "fuse:fusefi:add": "ts-node scripts/add-quick.ts --network fuse --project fusefi",
+    "fuse:sushi:add": "ts-node scripts/add-sushi.ts --network fuse --project sushiFuse",
     "metis:netswap:add": "ts-node scripts/add-farm.ts --network metis --project netswap",
     "metis:tethys:add": "ts-node scripts/add-farm.ts --network metis --project tethys",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"

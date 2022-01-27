@@ -136,7 +136,7 @@
     "lp0": {
       "address": "0x4a81f8796e0c6ad4877a51c86693b0de8093f2ef",
       "oracle": "tokens",
-      "oracleId": "ICE",
+      "oracleId": "ICEiron",
       "decimals": "1e18"
     },
     "lp1": {

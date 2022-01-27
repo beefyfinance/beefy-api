@@ -23,8 +23,11 @@ const getfBeetsApy = require('./getfBeetsApy');
 const getSpartacadabraApys = require('./getSpartacadabraApys');
 const getPopsicleApys = require('./getPopsicleApys');
 const get2ombApys = require('./get2ombApys');
+const get0xdaoApys = require('./get0xdaoApys');
+const { getSushiLpApys } = require('./getSushiLpApys');
 
 const getApys = [
+  getSushiLpApys,
   getSpookyLpApys,
   getFroyoLpApys,
   getEsterApys,
@@ -50,6 +53,7 @@ const getApys = [
   getSpartacadabraApys,
   getPopsicleApys,
   get2ombApys,
+  get0xdaoApys,
 ];
 
 const getFantomApys = async () => {

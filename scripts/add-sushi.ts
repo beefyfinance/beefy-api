@@ -8,6 +8,12 @@ const {
   avax: {
     platforms: { pangolin: pangolin },
   },
+  fantom: {
+    platforms: { sushiFtm: sushiFtm },
+  },
+  fuse: {
+    platforms: { sushiFuse: sushiFuse },
+  },
 } = addressBook;
 
 const yargs = require('yargs');
@@ -46,6 +52,16 @@ const projects = {
     prefix: 'png',
     file: '../src/data/avax/pangolinv2LpPools.json',
     masterchef: pangolin.minichef,
+  },
+  sushiFtm: {
+    prefix: 'sushi',
+    file: '../src/data/fantom/sushiFtmLpPools.json',
+    masterchef: sushiFtm.minichef,
+  },
+  sushiFuse: {
+    prefix: 'sushi',
+    file: '../src/data/fuse/sushiFuseLpPools.json',
+    masterchef: sushiFuse.minichef,
   },
 };
 

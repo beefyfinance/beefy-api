@@ -34,8 +34,7 @@ const _tokens = {
     chainId: 137,
     decimals: 18,
     website: 'https://paytrie.com/cadc',
-    description:
-      "CADC is a fully-backed stable coin for the Canadian Dollar, issued by PayTrie.",
+    description: 'CADC is a fully-backed stable coin for the Canadian Dollar, issued by PayTrie.',
     logoURI: 'https://assets.coingecko.com/coins/images/14149/small/cadc_2.png?1614666625',
   },
   jCAD: {
@@ -820,9 +819,9 @@ const _tokens = {
     description: 'FarmHero is a protocol that mixes NFT, gaming and DEFI concepts.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10620.png',
   },
-  ICE: {
+  ironICE: {
     name: 'Iron Finance ICE Token',
-    symbol: 'ICE',
+    symbol: 'ironICE',
     address: '0x4A81f8796e0c6Ad4877A51C86693B0dE8093F2ef',
     chainId: 137,
     decimals: 18,
@@ -830,6 +829,18 @@ const _tokens = {
     description:
       'Iron Finance is building a full suite of decentralized finance ecosystem of products and use cases on the Polygon network. The official Iron Finance token is the ICE token, inspired by A Song of Ice and Fire novels, where the Iron Throne is a well-known symbol.',
     logoURI: 'https://app.iron.finance/static/media/ice-square.6e960434.svg',
+  },
+  ICE: {
+    name: 'IceToken',
+    address: '0x4e1581f01046eFDd7a1a2CDB0F82cdd7F71F2E59',
+    symbol: 'ICE',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://popsicle.finance/',
+    description:
+      'Popsicle is a next-gen cross-chain yield enhancement platform focusing on Automated Market-Making (AMM) Liquidity Providers (LP).',
+    logoURI:
+      'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0xf16e81dce15B08F326220742020379B855B87DF9/logo.png',
   },
   NEXO: {
     name: 'Nexo',

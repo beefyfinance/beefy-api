@@ -1,5 +1,43 @@
 [
   {
+    "name": "joe-wavax-frax",
+    "address": "0x862905a82382Db9405a40DCAa8Ee9e8F4af52C89",
+    "decimals": "1e18",
+    "poolId": 33,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-usdt-usdt.e",
+    "address": "0x74B651Eff97871eA99fcc14423E611d85Eb0EA93",
+    "decimals": "1e18",
+    "poolId": 39,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+      "oracle": "tokens",
+      "oracleId": "USDt",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
+      "oracle": "tokens",
+      "oracleId": "USDT.e",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "joe-usdc.e-usdc",
     "address": "0x2A8A315e82F85D1f0658C5D66A452Bbdd9356783",
     "decimals": "1e18",

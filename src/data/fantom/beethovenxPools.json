@@ -1,5 +1,55 @@
 [
   {
+    "name": "beets-spooky-tempered-clavier",
+    "address": "0xfA901cAdCAf38cd533E8B1f693D090Fc7005658e",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xfa901cadcaf38cd533e8b1f693d090fc7005658e000100000000000000000165",
+    "poolId": 35,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BOO",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-paint-it-black",
+    "address": "0x7cA132d9E8c420b84578a6618F10b23545513058",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x7ca132d9e8c420b84578a6618f10b2354551305800010000000000000000002b",
+    "poolId": 14,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BRUSH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-steady-beets-2",
     "address": "0xeCAa1cBd28459d34B766F9195413Cb20122Fb942",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
