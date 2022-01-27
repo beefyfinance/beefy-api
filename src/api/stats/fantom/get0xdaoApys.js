@@ -1,13 +1,13 @@
 import { SPOOKY_LPF } from '../../../constants';
 
 const { getMasterChefApys } = require('../common/getMasterChefApys');
-const { fantomWeb3 } = require('../../../utils/web3');
+const { fantomWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/fantom/0xdaoPools.json');
 import { spookyClient } from '../../../apollo/client';
 
 const get0xdaoApys = async () =>
   await getMasterChefApys({
-    web3: fantomWeb3,
+    web3: web3,
     chainId: 250,
     masterchef: '0xa7821C3e9fC1bF961e280510c471031120716c3d',
     tokenPerBlock: 'oxdPerSecond',
@@ -71,30 +71,37 @@ const get0xdaoApys = async () =>
         decimals: '1e18',
       },
       {
+        name: '0xdao-oxd',
+        poolId: 14,
+        address: '0xc165d941481e68696f43EE6E99BFB2B23E0E3114',
+        oracle: 'tokens',
+        oracleId: 'OXD',
+        decimals: '1e18',
+      },
+      {
         name: '0xdao-xboo',
         poolId: 7,
         address: '0xa48d959AE2E88f1dAA7D5F611E01908106dE7598',
         oracle: 'tokens',
-        oracleId: 'boo-mirrorworld',
+        oracleId: 'xBOO',
         decimals: '1e18',
       },
-      // TODO add xSCREAM and fBEETS prices
-      // {
-      //   name: '0xdao-xscream',
-      //   poolId: 8,
-      //   address: '0xe3D17C7e840ec140a7A51ACA351a482231760824',
-      //   oracle: 'tokens',
-      //   oracleId: 'xSCREAM',
-      //   decimals: '1e18',
-      // },
-      // {
-      //   name: '0xdao-fbeets',
-      //   poolId: 13,
-      //   address: '0xfcef8a994209d6916EB2C86cDD2AFD60Aa6F54b1',
-      //   oracle: 'tokens',
-      //   oracleId: 'fBEETS',
-      //   decimals: '1e18',
-      // },
+      {
+        name: '0xdao-xscream',
+        poolId: 8,
+        address: '0xe3D17C7e840ec140a7A51ACA351a482231760824',
+        oracle: 'tokens',
+        oracleId: 'xSCREAM',
+        decimals: '1e18',
+      },
+      {
+        name: '0xdao-fbeets',
+        poolId: 13,
+        address: '0xfcef8a994209d6916EB2C86cDD2AFD60Aa6F54b1',
+        oracle: 'tokens',
+        oracleId: 'fBEETS',
+        decimals: '1e18',
+      },
     ],
     oracleId: 'OXD',
     oracle: 'tokens',
