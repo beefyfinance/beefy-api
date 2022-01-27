@@ -47,7 +47,7 @@
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xf379CB529aE58E1A03E62d3e31565f4f7c1F2020",
+      "address": "0xa286eeDAa5aBbAE98F65b152B5057b8bE9893fbB",
       "oracle": "tokens",
       "oracleId": "DEN",
       "decimals": "1e18"
