@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  SAND: {
+    name: 'Sandbox',
+    symbol: 'SAND',
+    address: '0xBbba073C31bF03b8ACf7c28EF0738DeCF3695683',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://www.sandbox.game',
+    description:
+      'The Sandbox is a virtual Metaverse where players can play, build, own, and monetize their virtual experiences. ',
+    logoURI: 'https://assets.coingecko.com/coins/images/12129/large/sandbox_logo.jpg?1597397942',
+  },
   CADC: {
     name: 'CAD Coin',
     symbol: 'CADC',

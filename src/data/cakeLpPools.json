@@ -1,5 +1,24 @@
 [
   {
+    "name": "cakev2-ertha-wbnb",
+    "address": "0x70531B39E2Bb4d8dA59E2Ce41a98eBA2990F8497",
+    "decimals": "1e18",
+    "poolId": 506,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x62823659d09F9F9D2222058878f89437425eB261",
+      "oracle": "tokens",
+      "oracleId": "ERTHA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-fuse-wbnb",
     "address": "0x6483F166b9E4310A165a55FEa04F867499aded06",
     "decimals": "1e18",

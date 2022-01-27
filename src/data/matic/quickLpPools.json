@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-sand-matic",
+    "address": "0x369582d2010B6eD950B571F4101e3bB9b554876F",
+    "rewardPool": "0x411b772B9eb19a33E7af5fCD9B1629D2015DC886",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xBbba073C31bF03b8ACf7c28EF0738DeCF3695683",
+      "oracle": "tokens",
+      "oracleId": "SAND",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-ustw-matic",
     "address": "0x9b7e966fe005d616b5560E4BaA7cFA8747d6cBb9",
     "rewardPool": "0x03E215DeA6227af79FF4fEf1be4a7F1198ca43B7",
