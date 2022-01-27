@@ -5,6 +5,9 @@
     "decimals": "1e18",
     "poolId": 42,
     "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "FRM",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
@@ -24,6 +27,9 @@
     "decimals": "1e18",
     "poolId": 43,
     "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "GMX",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0x62edc0692BD897D2295872a9FFCac5425011c661",
       "oracle": "tokens",
@@ -43,6 +49,9 @@
     "decimals": "1e18",
     "poolId": 44,
     "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "MORE",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
@@ -62,6 +71,9 @@
     "decimals": "1e18",
     "poolId": 45,
     "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "LUNA",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11",
       "oracle": "tokens",
