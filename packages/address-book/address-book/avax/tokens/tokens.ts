@@ -50,6 +50,18 @@ const _tokens = {
     website: 'https://gmx.io/buy',
     description: 'Swaps and leverage trading of up to 30x is now live on Avalanche!',
   },
+  FRM: {
+    name: 'Ferrum Network Token',
+    symbol: 'FRM',
+    address: '0xE5CAeF4Af8780E59Df925470b050Fb23C43CA68C',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xE5CAeF4Af8780E59Df925470b050Fb23C43CA68C.svg',
+    website: 'https://ferrum.network/',
+    description:
+      'Ferrum Network is a cross-chain Blockchain as a Service DeFi company that specializes in adding deflationary token utility and advisory services to projects across the crypto space. With the mission of breaking down barriers to mass adoption in mind, Ferrum builds white-label blockchain solutions that empower startups and established organizations, enabling them to get their core products to market faster.Become Cross-Chain Compatible Today',
+  },
   JEWEL: {
     chainId: 43114,
     address: '0x4f60a160D8C2DDdaAfe16FCC57566dB84D674BD6',
