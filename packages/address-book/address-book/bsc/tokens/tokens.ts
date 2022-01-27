@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  ERTHA: {
+    name: 'ERTHA',
+    symbol: 'ERTHA',
+    address: '0x62823659d09F9F9D2222058878f89437425eB261',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://assets.coingecko.com/coins/images/20317/large/Ry9tgUal_400x400.jpg?1636856709',
+    website: 'https://ertha.io/',
+    description: 'Own NFT land in ERTHA metaverse & generate lifetime revenue',
+  },
   FUSE: {
     name: 'Fuse Token on BSC',
     symbol: 'FUSE',
