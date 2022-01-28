@@ -3,6 +3,7 @@
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
+import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 
 import getNonAmmPrices from './getNonAmmPrices';
@@ -433,14 +434,25 @@ const updateAmmPrices = async () => {
     const ammPrices = fetchAmmPrices(pools, knownPrices);
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
+    const xPrices = ammPrices.then(async pools => {
+      return await fetchXPrices(pools.tokenPrices);
+    });
+
     const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
       return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
     });
 
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
       const dmm = await dmmPrices;
+      const xTokenPrices = await xPrices;
       const mooTokenPrices = await mooPrices;
-      return { ...tokenPrices, ...dmm.tokenPrices, ...mooTokenPrices, ...(await coinGeckoPrices) };
+      return {
+        ...tokenPrices,
+        ...dmm.tokenPrices,
+        ...mooTokenPrices,
+        ...xTokenPrices,
+        ...(await coinGeckoPrices),
+      };
     });
 
     const lpPrices = ammPrices.then(async ({ poolPrices, _ }) => {
