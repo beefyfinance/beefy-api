@@ -1,31 +1,62 @@
 const BigNumber = require('bignumber.js');
-const { fantomWeb3: web3 } = require('./web3');
+const { MultiCall } = require('eth-multicall');
+const { web3Factory, multicallAddress } = require('./web3');
 const ERC20 = require('../abis/ERC20.json');
-const fBEETSPool = require('../data/fantom/fBeetsPool.json');
 
+import { FANTOM_CHAIN_ID, POLYGON_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 const {
   fantom: {
-    tokens: { BOO, xBOO, SCREAM, xSCREAM, BEETS, fBEETS },
+    tokens: { BOO, xBOO, SCREAM, xSCREAM },
+  },
+  polygon: {
+    tokens: { QUICK, dQUICK },
   },
 } = addressBook;
 
-const getXPrice = async (tokenPrice, tokenAddress, xTokenAddress) => {
-  const tokenContract = new web3.eth.Contract(ERC20, tokenAddress);
-  const xTokenContract = new web3.eth.Contract(ERC20, xTokenAddress);
-
-  const stakedInXPool = new BigNumber(await tokenContract.methods.balanceOf(xTokenAddress).call());
-  const totalXSupply = new BigNumber(await xTokenContract.methods.totalSupply().call());
-
-  return stakedInXPool.times(tokenPrice).dividedBy(totalXSupply).toNumber();
+const tokens = {
+  fantom: [
+    [BOO, xBOO],
+    [SCREAM, xSCREAM],
+  ],
+  polygon: [[QUICK, dQUICK]],
 };
 
-const fetchXPrices = async tokenPrices => {
-  return {
-    xBOO: await getXPrice(tokenPrices.BOO, BOO.address, xBOO.address),
-    xSCREAM: await getXPrice(tokenPrices.SCREAM, SCREAM.address, xSCREAM.address),
-    fBEETS: await getXPrice(tokenPrices.BEETS, fBEETSPool[0].address, fBEETS.address),
-  };
+const getXPrices = async (tokenPrices, tokens, chainId) => {
+  const web3 = web3Factory(chainId);
+  const multicall = new MultiCall(web3, multicallAddress(chainId));
+
+  const stakedInXPoolCalls = [];
+  const totalXSupplyCalls = [];
+
+  tokens.forEach(token => {
+    const tokenContract = new web3.eth.Contract(ERC20, token[0].address);
+    const xTokenContract = new web3.eth.Contract(ERC20, token[1].address);
+    stakedInXPoolCalls.push({
+      stakedInXPool: tokenContract.methods.balanceOf(token[1].address),
+    });
+    totalXSupplyCalls.push({
+      totalXSupply: xTokenContract.methods.totalSupply(),
+    });
+  });
+
+  const res = await multicall.all([stakedInXPoolCalls, totalXSupplyCalls]);
+  const stakedInXPool = res[0].map(v => new BigNumber(v.stakedInXPool));
+  const totalXSupply = res[1].map(v => new BigNumber(v.totalXSupply));
+
+  return stakedInXPool.map((v, i) =>
+    v.times(tokenPrices[tokens[i][0].symbol]).dividedBy(totalXSupply[i]).toNumber()
+  );
 };
+
+const fetchXPrices = async tokenPrices =>
+  Promise.all([
+    getXPrices(tokenPrices, tokens.fantom, FANTOM_CHAIN_ID),
+    getXPrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
+  ]).then(data =>
+    data
+      .flat()
+      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})
+  );
 
 module.exports = { fetchXPrices };

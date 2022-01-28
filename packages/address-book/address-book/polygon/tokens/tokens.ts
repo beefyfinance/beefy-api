@@ -466,8 +466,17 @@ const _tokens = {
     chainId: 137,
     website: 'https://quickswap.exchange/#/swap',
     description: 'Next-gen Layer 2 DEX. Trade at lightning-fast speeds with near-zero gas fees.',
-    logoURI:
-      'https://raw.githubusercontent.com/sameepsi/quickswap-interface/master/public/favicon.jpeg',
+    logoURI: 'https://assets.coingecko.com/coins/images/15185/small/quickswap.png?1620044811',
+  },
+  dQUICK: {
+    name: "Dragon's Quick",
+    address: '0xf28164A485B0B2C90639E47b0f377b4a438a16B1',
+    symbol: 'dQUICK',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://quickswap.exchange/#/syrup',
+    description: 'Deposit your dQUICK tokens to earn more through the QuickSwap platform.',
+    logoURI: 'https://assets.coingecko.com/coins/images/15185/small/quickswap.png?1620044811',
   },
   SOL: {
     name: 'Solana',
