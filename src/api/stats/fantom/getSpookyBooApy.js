@@ -33,10 +33,7 @@ const getSpookyBooApy = async () => {
   const totalStakedInxBOOInUsd = new BigNumber(totalStakedInxBOO)
     .times(BOOPrice)
     .dividedBy(DECIMALS);
-
-  const xBOOContract = new web3.eth.Contract(ERC20, xBOO);
-  const xBOOTotalSupply = await xBOOContract.methods.totalSupply().call();
-  const xBOOPrice = totalStakedInxBOOInUsd.dividedBy(xBOOTotalSupply).times(DECIMALS);
+  const xBOOPrice = await fetchPrice({ oracle: 'tokens', id: 'xBOO' });
 
   const yearlyTradingFees = await getYearlyPlatformTradingFees(spookyClient, liquidityProviderFee);
 
