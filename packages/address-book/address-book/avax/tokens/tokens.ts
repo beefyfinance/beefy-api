@@ -15,6 +15,42 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  DCAU: {
+    name: 'Dragon Crypto Aurum DCAU',
+    symbol: 'DCAU',
+    address: '0x100Cc3a819Dd3e8573fD2E46D1E66ee866068f30',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x100Cc3a819Dd3e8573fD2E46D1E66ee866068f30/logo.png',
+    website: 'https://aurum.dragoncrypto.io/',
+    description:
+      'Dragon Crypto Gaming (DCG), a Game-Fi platform which offers NFTs, play-to-earn games and yield farming.',
+  },
+  HEC: {
+    name: 'HeroesChained HEC',
+    symbol: 'HEC',
+    address: '0xC7f4debC8072e23fe9259A5C0398326d8EfB7f5c',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xC7f4debC8072e23fe9259A5C0398326d8EfB7f5c/logo.png',
+    website: 'https://heroeschained.com/',
+    description:
+      'Heroes Chained is a fantasy action RPG game, where the player becomes a Guild Master and gathers heroes.',
+  },
+  COOK: {
+    name: 'Cook COOK',
+    symbol: 'COOK',
+    address: '0x637afeff75ca669fF92e4570B14D6399A658902f',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x637afeff75ca669fF92e4570B14D6399A658902f/logo.png',
+    website: 'https://app.cook.finance/',
+    description:
+      'Cook Protocol establishes a transparent and flexible asset management platform suited to diverse investors and asset management service providers alike.',
+  },
   UST: {
     name: 'Axelar Wrapped UST',
     symbol: 'UST',
