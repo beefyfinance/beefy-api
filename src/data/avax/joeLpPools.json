@@ -779,25 +779,6 @@
     }
   },
   {
-    "name": "joe-wavax-xava",
-    "address": "0x72c3438cf1c915EcF5D9F17A6eD346B273d5bF71",
-    "decimals": "1e18",
-    "poolId": 7,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xd1c3f94DE7e5B45fa4eDBBA472491a9f4B166FC4",
-      "oracle": "tokens",
-      "oracleId": "XAVA",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "joe-png-wavax",
     "address": "0x3dAF1C6268362214eBB064647555438c6f365F96",
     "decimals": "1e18",
