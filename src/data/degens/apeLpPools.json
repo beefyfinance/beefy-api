@@ -189,6 +189,25 @@
       "decimals": "1e18"
     }
   },
+   {
+    "name": "banana-sushi-eth",
+    "address": "0x044F2b275A344D4edfc3d98e1cb7c02B30e6484e",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x947950BcC74888a40Ffa2593C5798F11Fc9124C4",
+      "oracle": "tokens",
+      "oracleId": "SUSHI",
+      "decimals": "1e18"
+    }
+  },
   {
     "name": "banana-nfty-wbnb",
     "address": "0x884BE30e2c95b9cFed614aD2B5Edf40AF2A144ad",
