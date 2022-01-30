@@ -1,5 +1,24 @@
 [
   {
+    "name": "boo-usdc-dai",
+    "address": "0x484237bc35cA671302d19694c66d617142FBC235",
+    "decimals": "1e18",
+    "poolId": 59,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-wftm-beets",
     "address": "0x648a7452DA25B4fB4BDB79bADf374a8f8a5ea2b5",
     "decimals": "1e18",
