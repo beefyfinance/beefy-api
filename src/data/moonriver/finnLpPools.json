@@ -1,5 +1,62 @@
 [
   {
+    "name": "finn-finn-xcrmrk",
+    "address": "0xd9e98aD7AE9E5612b90cd0bdcD82df4FA5b943b8",
+    "decimals": "1e18",
+    "poolId": 31,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xffffffFF893264794d9d57E1E0E21E0042aF5A0A",
+      "oracle": "tokens",
+      "oracleId": "xcRMRK",
+      "decimals": "1e10"
+    }
+  },
+  {
+    "name": "finn-finn-xcksm",
+    "address": "0x14BE4d09c5A8237403b83A8A410bAcE16E8667DC",
+    "decimals": "1e18",
+    "poolId": 30,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756",
+      "oracle": "tokens",
+      "oracleId": "FINN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080",
+      "oracle": "tokens",
+      "oracleId": "xcKSM",
+      "decimals": "1e12"
+    }
+  },
+  {
+    "name": "finn-usdc.m-wmovr",
+    "address": "0x7128C61Da34c27eAD5419B8EB50c71CE0B15CD50",
+    "decimals": "1e18",
+    "poolId": 28,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x748134b5F553F2bcBD78c6826De99a70274bDEb3",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "finn-finn-bnb",
     "address": "0x3F7db2e5Ca0Fe2372a9Bc762C9984213B937c248",
     "decimals": "1e18",

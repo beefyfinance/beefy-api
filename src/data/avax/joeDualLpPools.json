@@ -1,14 +1,193 @@
 [
   {
+    "name": "joe-wavax-frm",
+    "address": "0x224B49B3FC8Ef9FB1515b633F6C2537E87315B6d",
+    "decimals": "1e18",
+    "poolId": 42,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "FRM",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE5CAeF4Af8780E59Df925470b050Fb23C43CA68C",
+      "oracle": "tokens",
+      "oracleId": "FRM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-wavax-xava",
+    "address": "0x72c3438cf1c915EcF5D9F17A6eD346B273d5bF71",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "WAVAX",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd1c3f94DE7e5B45fa4eDBBA472491a9f4B166FC4",
+      "oracle": "tokens",
+      "oracleId": "XAVA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-wavax-cook",
+    "address": "0x3fcD1d5450e63FA6af495A601E6EA1230f01c4E3",
+    "decimals": "1e18",
+    "poolId": 37,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "COOK",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0x637afeff75ca669ff92e4570b14d6399a658902f",
+      "oracle": "tokens",
+      "oracleId": "COOK",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-wavax-dcau",
+    "address": "0x81034A38a124A3290DC226798f34c6645B153a02",
+    "decimals": "1e18",
+    "poolId": 40,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "DCAU",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0x100Cc3a819Dd3e8573fD2E46D1E66ee866068f30",
+      "oracle": "tokens",
+      "oracleId": "DCAU",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-wavax-hec",
+    "address": "0x4dC5291cdc7Ad03342994E35D0Ccc76De065A566",
+    "decimals": "1e18",
+    "poolId": 41,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "HEC",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC7f4debC8072e23fe9259A5C0398326d8EfB7f5c",
+      "oracle": "tokens",
+      "oracleId": "HEC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-gmx-wavax",
+    "address": "0x0c91a070f862666bBcce281346BE45766d874D98",
+    "decimals": "1e18",
+    "poolId": 43,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "GMX",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0x62edc0692BD897D2295872a9FFCac5425011c661",
+      "oracle": "tokens",
+      "oracleId": "GMX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-wavax-more",
+    "address": "0xb8361D0E3F3B0fc5e6071f3a3C3271223C49e3d9",
+    "decimals": "1e18",
+    "poolId": 44,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "MORE",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9D90f882CDdD6063959A9d837B05Cb748718A05",
+      "oracle": "tokens",
+      "oracleId": "MORE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-ust-wavax",
+    "address": "0x7BF98BD74E19AD8eB5e14076140Ee0103F8F872B",
+    "decimals": "1e18",
+    "poolId": 45,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "LUNA",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-wavax-frax",
     "address": "0x862905a82382Db9405a40DCAa8Ee9e8F4af52C89",
     "decimals": "1e18",
     "poolId": 33,
     "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "FXS",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
-      "oracleId": "WAVAX",
+      "oracleId": "AVAX",
       "decimals": "1e18"
     },
     "lp1": {

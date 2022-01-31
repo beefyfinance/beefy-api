@@ -392,6 +392,30 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
+  xcKSM: {
+    name: 'xcKSM',
+    symbol: 'xcKSM',
+    address: '0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080',
+    chainId: 1285,
+    decimals: 12,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080.svg',
+    website: 'https://kusama.network/',
+    description:
+      'Unprecedented interoperability and scalability for blockchain developers who want to quickly push the limits of what’s possible. Built using Substrate with nearly the same codebase and industry-leading multichain infrastructure as Kusama’s cousin, Polkadot.',
+  },
+  xcRMRK: {
+    name: 'xcRMRK',
+    symbol: 'xcRMRK',
+    address: '0xffffffFF893264794d9d57E1E0E21E0042aF5A0A',
+    chainId: 1285,
+    decimals: 10,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xffffffFF893264794d9d57E1E0E21E0042aF5A0A.svg',
+    website: 'https://www.rmrk.app/',
+    description:
+      'ETERNALLY liquid. FORWARD compatible.Nested, conditional, & Multi-resourced NFTs.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

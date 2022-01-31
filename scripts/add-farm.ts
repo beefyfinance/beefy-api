@@ -1,10 +1,21 @@
-import { ChainId } from '../packages/address-book/address-book';
-import { spookyswap } from '../packages/address-book/address-book/fantom/platforms/spookyswap';
-import { solarbeam } from '../packages/address-book/address-book/moonriver/platforms/solarbeam';
-import { trisolaris } from '../packages/address-book/address-book/aurora/platforms/trisolaris';
-import { biswap } from '../packages/address-book/address-book/bsc/platforms/biswap';
-import { netswap } from '../packages/address-book/address-book/metis/platforms/netswap';
-import { tethys } from '../packages/address-book/address-book/metis/platforms/tethys';
+import { ChainId, addressBook } from '../packages/address-book/address-book';
+const {
+  fantom: {
+    platforms: { spookyswap },
+  },
+  moonriver: {
+    platforms: { finn, solarbeam },
+  },
+  aurora: {
+    platforms: { trisolaris },
+  },
+  bsc: {
+    platforms: { biswap },
+  },
+  metis: {
+    platforms: { netswap, tethys },
+  },
+} = addressBook;
 
 const yargs = require('yargs');
 const fs = require('fs');
@@ -72,6 +83,11 @@ const projects = {
     prefix: 'tethys',
     file: '../src/data/metis/tethysLpPools.json',
     masterchef: tethys.masterchef,
+  },
+  finn: {
+    prefix: 'finn',
+    file: '../src/data/moonriver/finnLpPools.json',
+    masterchef: finn.masterchef,
   },
 };
 

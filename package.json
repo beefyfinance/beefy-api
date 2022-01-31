@@ -11,6 +11,7 @@
     "prettier:check": "prettier --check src/**/*",
     "prettier:fix": "prettier --write src/**/*",
     "prepare": "husky install",
+    "addFarm": "ts-node scripts/add-farm.ts",
     "bsc:pancake:add": "ts-node scripts/add-farm.ts --network bsc --project pancake",
     "bsc:wault:add": "ts-node scripts/add-farm.ts --network bsc --project wault",
     "bsc:mdex:add": "ts-node scripts/add-farm.ts --network bsc --project mdex",

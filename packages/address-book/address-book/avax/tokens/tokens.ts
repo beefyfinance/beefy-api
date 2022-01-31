@@ -15,6 +15,89 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  DCAU: {
+    name: 'Dragon Crypto Aurum DCAU',
+    symbol: 'DCAU',
+    address: '0x100Cc3a819Dd3e8573fD2E46D1E66ee866068f30',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x100Cc3a819Dd3e8573fD2E46D1E66ee866068f30/logo.png',
+    website: 'https://aurum.dragoncrypto.io/',
+    description:
+      'Dragon Crypto Gaming (DCG), a Game-Fi platform which offers NFTs, play-to-earn games and yield farming.',
+  },
+  HEC: {
+    name: 'HeroesChained HEC',
+    symbol: 'HEC',
+    address: '0xC7f4debC8072e23fe9259A5C0398326d8EfB7f5c',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xC7f4debC8072e23fe9259A5C0398326d8EfB7f5c/logo.png',
+    website: 'https://heroeschained.com/',
+    description:
+      'Heroes Chained is a fantasy action RPG game, where the player becomes a Guild Master and gathers heroes.',
+  },
+  COOK: {
+    name: 'Cook COOK',
+    symbol: 'COOK',
+    address: '0x637afeff75ca669fF92e4570B14D6399A658902f',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x637afeff75ca669fF92e4570B14D6399A658902f/logo.png',
+    website: 'https://app.cook.finance/',
+    description:
+      'Cook Protocol establishes a transparent and flexible asset management platform suited to diverse investors and asset management service providers alike.',
+  },
+  UST: {
+    name: 'Axelar Wrapped UST',
+    symbol: 'UST',
+    address: '0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11',
+    chainId: 43114,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11.svg',
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+  },
+  MORE: {
+    name: 'More Token',
+    symbol: 'MORE',
+    address: '0xd9D90f882CDdD6063959A9d837B05Cb748718A05',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xd9D90f882CDdD6063959A9d837B05Cb748718A05.svg',
+    website: 'https://app.moremoney.finance/',
+    description:
+      'Moremoney is a lending protocol for opening interest-free collateralised debt positions (CDP) using liquidity pool tokens, interest-bearing tokens (ibTKNs) and other major tokens as collateral. Borrowers mint MONEY, a USD softly pegged stablecoin backed by an over-collateralised debt position as well as the yield earned by the collateral.  After minting MONEY, borrowers can use it across the DeFi landscape, for interest free leverage, or simply use it to farm MORE. Moremoney is designed to support the further conversion of base tokens like ETH, AVAX, USDT into ibTKNs. Upon depositing, collateral assets are forwarded to trusted partner protocols where these tokens earn yield, which is either compounded into collateral token or into $MONEY to automatically repay debts owed by a vault.',
+  },
+  GMX: {
+    name: 'GMX',
+    symbol: 'GMX',
+    address: '0x62edc0692BD897D2295872a9FFCac5425011c661',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x62edc0692BD897D2295872a9FFCac5425011c661.svg',
+    website: 'https://gmx.io/buy',
+    description: 'Swaps and leverage trading of up to 30x is now live on Avalanche!',
+  },
+  FRM: {
+    name: 'Ferrum Network Token',
+    symbol: 'FRM',
+    address: '0xE5CAeF4Af8780E59Df925470b050Fb23C43CA68C',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xE5CAeF4Af8780E59Df925470b050Fb23C43CA68C.svg',
+    website: 'https://ferrum.network/',
+    description:
+      'Ferrum Network is a cross-chain Blockchain as a Service DeFi company that specializes in adding deflationary token utility and advisory services to projects across the crypto space. With the mission of breaking down barriers to mass adoption in mind, Ferrum builds white-label blockchain solutions that empower startups and established organizations, enabling them to get their core products to market faster.Become Cross-Chain Compatible Today',
+  },
   JEWEL: {
     chainId: 43114,
     address: '0x4f60a160D8C2DDdaAfe16FCC57566dB84D674BD6',
