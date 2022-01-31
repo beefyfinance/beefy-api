@@ -117,6 +117,17 @@ const _tokens = {
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
   },
+  USDT: {
+    name: 'Tether USD on Fuse',
+    symbol: 'USDT',
+    address: '0xFaDbBF8Ce7D5b7041bE672561bbA99f79c532e10',
+    chainId: 122,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
