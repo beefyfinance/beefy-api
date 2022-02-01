@@ -2,7 +2,7 @@ const getMasterChefApys = require('./getBscMasterChefApys');
 
 const pools = require('../../../../data/degens/apeLpPools.json');
 const { apeClient } = require('../../../../apollo/client');
-const { HOURLY_HPY } = require('../../../../constants');
+const { HOURLY_HPY, APE_LPF } = require('../../../../constants');
 
 const getApeApys = () =>
   getMasterChefApys({
@@ -34,7 +34,7 @@ const getApeApys = () =>
     oracle: 'tokens',
     decimals: '1e18',
     tradingFeeInfoClient: apeClient,
-    liquidityProviderFee: 0.0015,
+    liquidityProviderFee: APE_LPF,
     // log: true,
   });
 

@@ -37,19 +37,19 @@
   },
   {
     "name": "kyber-4eur-den",
-    "address": "0x4924B6E1207EFb244433294619a5ADD08ACB3dfF",
+    "address": "0xEb6f426963140471a7c1E4337877e6dBf834d2A8",
     "decimals": "1e18",
     "chainId": 137,
     "lp0": {
-      "address": "0xAd326c253A84e9805559b73A08724e11E49ca651",
-      "oracle": "tokens",
-      "oracleId": "jarvis-4eur",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xa286eeDAa5aBbAE98F65b152B5057b8bE9893fbB",
       "oracle": "tokens",
       "oracleId": "DEN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAd326c253A84e9805559b73A08724e11E49ca651",
+      "oracle": "tokens",
+      "oracleId": "jarvis-4eur",
       "decimals": "1e18"
     }
   }

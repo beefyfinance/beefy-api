@@ -9,6 +9,8 @@ const pools = require('../../../data/avax/joeLpPools.json');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeAprSushi } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { JOE_LPF } from '../../../constants';
+
 const { joeClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 
@@ -19,7 +21,7 @@ const DECIMALS = '1e18';
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
-const liquidityProviderFee = 0.0025;
+const liquidityProviderFee = JOE_LPF;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 

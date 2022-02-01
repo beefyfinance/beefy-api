@@ -65,20 +65,20 @@ const FUSE_CHAIN_ID = ChainId.fuse;
 const METIS_CHAIN_ID = ChainId.metis;
 
 const DFYN_LPF = 0.003;
-const SUSHI_LPF = 0.0025;
-const SPIRIT_LPF = 0.0025;
+const SUSHI_LPF = 0.003;
+const SPIRIT_LPF = 0.003;
 const QUICK_LPF = 0.003;
-const APEPOLY_LPF = 0.0015;
+const APEPOLY_LPF = 0.002;
 const COMETH_LPF = 0.005;
-const PCS_LPF = 0.003;
+const PCS_LPF = 0.0025;
 const APE_LPF = 0.002;
 const SPOOKY_LPF = 0.002;
-const JOE_LPF = 0.0025;
-const SOLAR_LPF = 0.002;
+const JOE_LPF = 0.003;
+const SOLAR_LPF = 0.0025;
 const FUSEFI_LPF = 0.003;
-const NET_LPF = 0.0025;
+const NET_LPF = 0.003;
 const PANGOLIN_LPF = 0.003;
-const TETHYS_LPF = 0.0017;
+const TETHYS_LPF = 0.002;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
