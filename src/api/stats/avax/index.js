@@ -12,6 +12,7 @@ const getSingularApys = require('./getSingularApys');
 const getBlizzLpApys = require('./getBlizzLpApys');
 const getBlizzLendingApys = require('./getBlizzLendingApys');
 const getBankerJoeApys = require('./getBankerJoeApys');
+const getPangolinV2DualApys = require('./getPangolinV2DualApys');
 import { getSynapseApys } from './getSynapseApys';
 
 const getSpellApys = require('./getSpellApys');
@@ -21,6 +22,7 @@ import { getPangolinV2Apys } from './getPangolinV2Apys';
 
 const getApys = [
   getPangolinV2Apys,
+  getPangolinV2DualApys,
   getLydLpApys,
   getPangolinPNGApy,
   getOliveApys,

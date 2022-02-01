@@ -3,7 +3,7 @@ const { MultiCall } = require('eth-multicall');
 const { avaxWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/avax/PangolinChef.json');
-const SimpleRewarder = require('../../../abis/avax/SimpleRewarderPerSec.json');
+const Rewarder = require('../../../abis/avax/PangolinRewarderViaMultiplier.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/pangolinV2DualLpPools.json');
@@ -49,15 +49,16 @@ const getPangolinV2DualApys = async () => {
     const poolBlockRewards = rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
-
     const yearlyRewardsBInUsd = await (async () => {
       if (rewarders[i] === '0x0000000000000000000000000000000000000000') {
         return 0;
       } else {
         const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-        const rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarders[i]);
-        const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerSec().call());
-        const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
+        const rewarderContract = new web3.eth.Contract(Rewarder, rewarders[i]);
+        const tokenBMultiplier = new BigNumber(
+          await rewarderContract.methods.getRewardMultipliers().call()
+        );
+        const yearlyRewardsB = yearlyRewards.times(tokenBMultiplier).dividedBy(pool.decimalsB);
         return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
       }
     })();
@@ -76,7 +77,6 @@ const getPangolinV2DualApys = async () => {
       1,
       shareAfterBeefyPerformanceFee
     );
-    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
 
     // Create reference for legacy /apy
     const legacyApyValue = { [pool.name]: totalApy };
@@ -118,6 +118,7 @@ const getPoolsData = async pools => {
   const multicall = new MultiCall(web3, multicallAddress(AVAX_CHAIN_ID));
   const balanceCalls = [];
   const poolInfoCalls = [];
+  const rewarderCalls = [];
   pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20, pool.address);
     balanceCalls.push({
@@ -127,13 +128,17 @@ const getPoolsData = async pools => {
     poolInfoCalls.push({
       poolInfo: poolInfo,
     });
+    let rewarder = masterchefContract.methods.rewarder(pool.poolId);
+    rewarderCalls.push({
+      rewarder: rewarder,
+    });
   });
 
-  const res = await multicall.all([balanceCalls, poolInfoCalls]);
+  const res = await multicall.all([balanceCalls, poolInfoCalls, rewarderCalls]);
 
   const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.poolInfo['3']);
-  const rewarders = res[1].map(v => v.poolInfo[4]);
+  const allocPoints = res[1].map(v => v.poolInfo[2]);
+  const rewarders = res[2].map(v => v.rewarder);
   return { balances, allocPoints, rewarders };
 };
 
