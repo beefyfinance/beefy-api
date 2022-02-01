@@ -116,8 +116,8 @@ const MOONRIVER_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonriver_pools.js';
 const CRONOS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/cronos_pools.js';
-//const AURORA_VAULTS_ENDPOINT =
-//  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/aurora_pools.js';
+const AURORA_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/aurora_pools.js';
 const FUSE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fuse_pools.js';
 const METIS_VAULTS_ENDPOINT =
@@ -134,7 +134,7 @@ const MULTICHAIN_ENDPOINTS = {
   celo: CELO_VAULTS_ENDPOINT,
   moonriver: MOONRIVER_VAULTS_ENDPOINT,
   cronos: CRONOS_VAULTS_ENDPOINT,
-  // aurora: AURORA_VAULTS_ENDPOINT,
+  aurora: AURORA_VAULTS_ENDPOINT,
   fuse: FUSE_VAULTS_ENDPOINT,
   metis: METIS_VAULTS_ENDPOINT,
 };
@@ -179,7 +179,7 @@ export {
   CRONOS_VAULTS_ENDPOINT,
   AURORA_RPC,
   AURORA_CHAIN_ID,
-  // AURORA_VAULTS_ENDPOINT,
+  AURORA_VAULTS_ENDPOINT,
   FUSE_RPC,
   FUSE_CHAIN_ID,
   FUSE_VAULTS_ENDPOINT,

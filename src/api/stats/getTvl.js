@@ -31,8 +31,8 @@ const {
   CRONOS_CHAIN_ID,
   CRONOS_VAULTS_ENDPOINT,
 
-  //AURORA_CHAIN_ID,
-  //AURORA_VAULTS_ENDPOINT,
+  AURORA_CHAIN_ID,
+  AURORA_VAULTS_ENDPOINT,
 
   FUSE_CHAIN_ID,
   FUSE_VAULTS_ENDPOINT,
@@ -97,11 +97,11 @@ const chains = [
     vaultsEndpoint: CRONOS_VAULTS_ENDPOINT,
     governancePool: require('../../data/cronos/governancePool.json'),
   },
-  // {
-  //  chainId: AURORA_CHAIN_ID,
-  //  vaultsEndpoint: AURORA_VAULTS_ENDPOINT,
-  //  governancePool: require('../../data/aurora/governancePool.json'),
-  //},
+  {
+    chainId: AURORA_CHAIN_ID,
+    vaultsEndpoint: AURORA_VAULTS_ENDPOINT,
+    governancePool: require('../../data/aurora/governancePool.json'),
+  },
   {
     chainId: FUSE_CHAIN_ID,
     vaultsEndpoint: FUSE_VAULTS_ENDPOINT,
