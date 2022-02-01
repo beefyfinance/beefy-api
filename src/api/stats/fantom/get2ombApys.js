@@ -15,7 +15,7 @@ const oracleId = '2SHARES';
 const oracle = 'tokens';
 const DECIMALS = '1e18';
 
-const getTombApys = async () => {
+const get2ombApys = async () => {
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(rewardPool, pool)));
   const farmAprs = await Promise.all(promises);
@@ -62,4 +62,4 @@ const getYearlyRewardsInUsd = async (rewardPool, poolId) => {
   return yearlyRewardsInUsd;
 };
 
-module.exports = getTombApys;
+module.exports = get2ombApys;

@@ -10,7 +10,9 @@ const { compound } = require('../../../utils/compound');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+
 const { pangolinClient } = require('../../../apollo/client');
+import { PANGOLIN_LPF } from '../../../constants';
 
 const oracle = 'tokens';
 const oracleId = 'PNG';
@@ -18,7 +20,7 @@ const oracleId = 'PNG';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
-const liquidityProviderFee = 0.003;
+const liquidityProviderFee = PANGOLIN_LPF;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 

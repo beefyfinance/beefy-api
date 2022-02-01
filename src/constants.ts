@@ -65,20 +65,20 @@ const FUSE_CHAIN_ID = ChainId.fuse;
 const METIS_CHAIN_ID = ChainId.metis;
 
 const DFYN_LPF = 0.003;
-const SUSHI_LPF = 0.0025;
-const SPIRIT_LPF = 0.0025;
+const SUSHI_LPF = 0.003;
+const SPIRIT_LPF = 0.003;
 const QUICK_LPF = 0.003;
-const APEPOLY_LPF = 0.0015;
+const APEPOLY_LPF = 0.002;
 const COMETH_LPF = 0.005;
-const PCS_LPF = 0.003;
+const PCS_LPF = 0.0025;
 const APE_LPF = 0.002;
 const SPOOKY_LPF = 0.002;
-const JOE_LPF = 0.0025;
-const SOLAR_LPF = 0.002;
+const JOE_LPF = 0.003;
+const SOLAR_LPF = 0.0025;
 const FUSEFI_LPF = 0.003;
-const NET_LPF = 0.0025;
+const NET_LPF = 0.003;
 const PANGOLIN_LPF = 0.003;
-const TETHYS_LPF = 0.0017;
+const TETHYS_LPF = 0.002;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
@@ -116,8 +116,8 @@ const MOONRIVER_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonriver_pools.js';
 const CRONOS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/cronos_pools.js';
-//const AURORA_VAULTS_ENDPOINT =
-//  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/aurora_pools.js';
+const AURORA_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/aurora_pools.js';
 const FUSE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fuse_pools.js';
 const METIS_VAULTS_ENDPOINT =
@@ -134,7 +134,7 @@ const MULTICHAIN_ENDPOINTS = {
   celo: CELO_VAULTS_ENDPOINT,
   moonriver: MOONRIVER_VAULTS_ENDPOINT,
   cronos: CRONOS_VAULTS_ENDPOINT,
-  // aurora: AURORA_VAULTS_ENDPOINT,
+  aurora: AURORA_VAULTS_ENDPOINT,
   fuse: FUSE_VAULTS_ENDPOINT,
   metis: METIS_VAULTS_ENDPOINT,
 };
@@ -179,7 +179,7 @@ export {
   CRONOS_VAULTS_ENDPOINT,
   AURORA_RPC,
   AURORA_CHAIN_ID,
-  // AURORA_VAULTS_ENDPOINT,
+  AURORA_VAULTS_ENDPOINT,
   FUSE_RPC,
   FUSE_CHAIN_ID,
   FUSE_VAULTS_ENDPOINT,

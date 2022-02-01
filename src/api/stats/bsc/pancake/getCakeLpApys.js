@@ -10,8 +10,9 @@ const pools = require('../../../../data/cakeLpPools.json');
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
-import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 const { cakeClient } = require('../../../../apollo/client');
+import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
+import { PCS_LPF } from '../../../../constants';
 
 const masterchef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
 const oracle = 'tokens';
@@ -20,7 +21,7 @@ const DECIMALS = '1e18';
 const secondsPerBlock = 3;
 const secondsPerYear = 31536000;
 
-const pancakeLiquidityProviderFee = 0.0017;
+const pancakeLiquidityProviderFee = PCS_LPF;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
