@@ -15,6 +15,26 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  WINE: {
+    name: 'WINE',
+    symbol: 'WINE',
+    address: '0xC55036B5348CfB45a932481744645985010d3A44',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/22739/small/gshare.png',
+    website: 'https://grapefinance.app/',
+    description: 'GRAPE is an algorithmic stable coin designed to maintain a 1:1 peg to MIM.',
+  },
+  GRAPE: {
+    name: 'GRAPE',
+    symbol: 'GRAPE',
+    address: '0x5541D83EFaD1f281571B343977648B75d95cdAC2',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/22718/small/grape.png',
+    website: 'https://grapefinance.app/',
+    description: 'GRAPE is an algorithmic stable coin designed to maintain a 1:1 peg to MIM.',
+  },
   DCAU: {
     name: 'Dragon Crypto Aurum DCAU',
     symbol: 'DCAU',
