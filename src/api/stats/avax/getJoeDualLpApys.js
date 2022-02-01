@@ -12,6 +12,7 @@ const { getTradingFeeAprSushi } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { joeClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
+import { JOE_LPF } from '../../../constants';
 
 const masterchef = '0x188bED1968b795d5c9022F6a0bb5931Ac4c18F00';
 const oracleIdA = 'JOE';
@@ -21,7 +22,7 @@ const DECIMALSA = '1e18';
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
-const liquidityProviderFee = 0.0025;
+const liquidityProviderFee = JOE_LPF;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 

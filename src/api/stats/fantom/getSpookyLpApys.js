@@ -9,6 +9,8 @@ const pools = require('../../../data/fantom/spookyLpPools.json');
 const { BASE_HPY, FANTOM_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { SPOOKY_LPF } from '../../../constants';
+
 const { spookyClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 
@@ -19,7 +21,7 @@ const DECIMALS = '1e18';
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
-const spookyLiquidityProviderFee = 0.002;
+const spookyLiquidityProviderFee = SPOOKY_LPF;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
