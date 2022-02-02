@@ -1480,7 +1480,7 @@ const _tokens = {
   },
   IME: {
     chainId: 43114,
-    address: '0xf891214fdcf9cdaa5fdc42369ee4f27f226adad6',
+    address: '0xF891214fdcF9cDaa5fdC42369eE4F27F226AdaD6',
     decimals: 18,
     name: ' Imperium Empires Token',
     symbol: 'IME',
