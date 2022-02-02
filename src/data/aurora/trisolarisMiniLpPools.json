@@ -1,0 +1,210 @@
+[
+  {
+    "name": "tri-mecha-near",
+    "address": "0xd62f9ec4C4d323A0C111d5e78b77eA33A2AA862f",
+    "decimals": "1e18",
+    "poolId": 9,
+    "oracleB": "tokens",
+    "oracleIdB": "MECHA",
+    "decimalsB": "1e18",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xa33C3B53694419824722C10D99ad7cB16Ea62754",
+      "oracle": "tokens",
+      "oracleId": "MECHA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
+    "name": "tri-near-flx",
+    "address": "0x48887cEEA1b8AD328d5254BeF774Be91B90FaA09",
+    "decimals": "1e18",
+    "poolId": 8,
+    "oracleB": "tokens",
+    "oracleIdB": "FLX",
+    "decimalsB": "1e18",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0xea62791aa682d455614eaA2A12Ba3d9A2fD197af",
+      "oracle": "tokens",
+      "oracleId": "FLX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tri-matic-near",
+    "address": "0x3dC236Ea01459F57EFc737A12BA3Bb5F3BFfD071",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
+    "name": "tri-bnb-near",
+    "address": "0x7be4a49AA41B34db70e539d4Ae43c7fBDf839DfA",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
+    "name": "tri-avax-near",
+    "address": "0x6443532841a5279cb04420E61Cf855cBEb70dc8C",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
+    "name": "tri-usdt-tri",
+    "address": "0x61C9E05d1Cdb1b70856c7a2c53fA9c220830633c",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x4988a896b1227218e4A686fdE5EabdcAbd91571f",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xFa94348467f64D5A457F75F8bc40495D33c65aBB",
+      "oracle": "tokens",
+      "oracleId": "TRI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tri-atust-near",
+    "address": "0xa9eded3E339b9cd92bB6DEF5c5379d678131fF90",
+    "decimals": "1e18",
+    "poolId": 3,
+    "oracleB": "tokens",
+    "oracleIdB": "atLUNA",
+    "decimalsB": "1e18",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x5ce9F0B6AFb36135b5ddBF11705cEB65E634A9dC",
+      "oracle": "tokens",
+      "oracleId": "atUST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
+    "name": "tri-near-atluna",
+    "address": "0xdF8CbF89ad9b7dAFdd3e37acEc539eEcC8c47914",
+    "decimals": "1e18",
+    "poolId": 2,
+    "oracleB": "tokens",
+    "oracleIdB": "atLUNA",
+    "decimalsB": "1e18",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0xC4bdd27c33ec7daa6fcfd8532ddB524Bf4038096",
+      "oracle": "tokens",
+      "oracleId": "atLUNA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tri-aurora-tri",
+    "address": "0xd1654a7713617d41A8C9530Fb9B948d00e162194",
+    "decimals": "1e18",
+    "poolId": 1,
+    "oracleB": "tokens",
+    "oracleIdB": "AURORA",
+    "decimalsB": "1e18",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x8BEc47865aDe3B172A928df8f990Bc7f2A3b9f79",
+      "oracle": "tokens",
+      "oracleId": "AURORA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFa94348467f64D5A457F75F8bc40495D33c65aBB",
+      "oracle": "tokens",
+      "oracleId": "TRI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tri-aurora-weth",
+    "address": "0x5eeC60F348cB1D661E4A5122CF4638c7DB7A886e",
+    "decimals": "1e18",
+    "poolId": 0,
+    "oracleB": "tokens",
+    "oracleIdB": "AURORA",
+    "decimalsB": "1e18",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x8BEc47865aDe3B172A928df8f990Bc7f2A3b9f79",
+      "oracle": "tokens",
+      "oracleId": "AURORA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]
