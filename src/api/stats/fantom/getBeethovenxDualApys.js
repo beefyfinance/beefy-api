@@ -38,7 +38,7 @@ const getFarmApys = async pools => {
   const secondsPerBlock = await getBlockTime(FANTOM_CHAIN_ID);
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
   const { blockRewards, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints } = await getPoolsData(pools);
+  const { balances, allocPoints, rewarders } = await getPoolsData(pools);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -47,28 +47,25 @@ const getFarmApys = async pools => {
 
     const poolBlockRewards = blockRewards.times(allocPoints[i]).dividedBy(totalAllocPoint);
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-    const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
+    const yearlyRewardsAInUsd = yearlyRewards
+      .times(tokenPriceA)
+      .times(1 - burn)
+      .dividedBy(DECIMALSA);
     const yearlyRewardsBInUsd = await (async () => {
       const masterchefContract = new web3.eth.Contract(MasterChefAbi, masterchef);
-      try {
-        let rewarder = await masterchefContract.methods.rewarder(pool.poolId).call();
-        if (!rewarder) {
-          return 0;
-        } else {
-          const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-          const rewarderContract = new web3.eth.Contract(BeethovenRewarder, rewarder);
-          const tokenBPerSec = new BigNumber(
-            await rewarderContract.methods.rewardPerSecond().call()
-          );
-          const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
-          return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
-        }
-      } catch (err) {
-        console.log('Error: ', err);
+
+      if (rewarders[i] === '0x0000000000000000000000000000000000000000') {
+        return 0;
+      } else {
+        const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
+        const rewarderContract = new web3.eth.Contract(BeethovenRewarder, rewarders[i]);
+        const tokenBPerSec = new BigNumber(await rewarderContract.methods.rewardPerSecond().call());
+        const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
+        return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
       }
     })();
 
-    let yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd).times(1 - burn);
+    let yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
   }
@@ -88,6 +85,7 @@ const getPoolsData = async pools => {
   const multicall = new MultiCall(web3, multicallAddress(FANTOM_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
+  const rewarderCalls = [];
   pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address);
     balanceCalls.push({
@@ -96,12 +94,17 @@ const getPoolsData = async pools => {
     allocPointCalls.push({
       allocPoint: masterchefContract.methods.poolInfo(pool.poolId),
     });
+    let rewarder = masterchefContract.methods.rewarder(pool.poolId);
+    rewarderCalls.push({
+      rewarder: rewarder,
+    });
   });
 
-  const res = await multicall.all([balanceCalls, allocPointCalls]);
+  const res = await multicall.all([balanceCalls, allocPointCalls, rewarderCalls]);
   const balances = res[0].map(v => new BigNumber(v.balance));
   const allocPoints = res[1].map(v => v.allocPoint[0]);
-  return { balances, allocPoints };
+  const rewarders = res[2].map(v => v.rewarder);
+  return { balances, allocPoints, rewarders };
 };
 
 module.exports = getBeethovenxDualApys;
