@@ -49,6 +49,18 @@ const _tokens = {
       'binSPIRIT is the Beefy wrapped version of inSPIRIT which boosts Spirit vaults on Beefy. binSPIRIT can be traded or minted 1:1 with SPIRIT.',
     logoURI: '',
   },
+  gOHM: {
+    chainId: 250,
+    address: '0x91fa20244Fb509e8289CA630E5db3E9166233FDc',
+    decimals: 18,
+    name: 'Governance OHM',
+    symbol: 'gOHM',
+    website: 'https://www.olympusdao.finance/',
+    description:
+      'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/14483/large/token_OHM_%281%29.png?1628311611',
+  },
   OXD: {
     name: '0xDAO',
     symbol: 'OXD',
