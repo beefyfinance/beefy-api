@@ -41,7 +41,7 @@ const _tokens = {
   binSPIRIT: {
     name: 'binSPIRIT',
     symbol: 'binSPIRIT',
-    address: '0xe1908Ab7e03F0699773ceCc4Dc5D38893E532cd1',
+    address: '0x44e314190D9E4cE6d4C0903459204F8E21ff940A',
     chainId: 250,
     decimals: 18,
     website: 'https://www.beefy.finance/',
