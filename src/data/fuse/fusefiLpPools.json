@@ -1,5 +1,24 @@
 [
   {
+    "name": "voltage-luna-ust",
+    "address": "0x44cB3a602AE57b60A5dc808a44544Ab9ec8dDB36",
+    "rewardPool": "0xE25d7A32903e29F5909d461cD89729aF6f2c9399",
+    "decimals": "1e18",
+    "chainId": 122,
+    "lp0": {
+      "address": "0x0D58a44be3dCA0aB449965dcc2c46932547Fea2f",
+      "oracle": "tokens",
+      "oracleId": "atUST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x588e24DEd8f850b14BB2e62E9c50A7Cd5Ee13Da9",
+      "oracle": "tokens",
+      "oracleId": "atLUNA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "voltage-wfuse-ust",
     "address": "0x53B1B8Fb8bE9aA94076e6B29fb9D08bd9ced2D30",
     "rewardPool": "0xe39c87605FeE81b509034E408EC2D2cE592E8B33",
