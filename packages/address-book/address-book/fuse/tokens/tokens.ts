@@ -39,6 +39,17 @@ const _tokens = {
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   },
+  atUST: {
+    name: 'UST Terra',
+    symbol: 'atUST',
+    address: '0x0D58a44be3dCA0aB449965dcc2c46932547Fea2f',
+    chainId: 122,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.terra.money/',
+    description:
+      'Terra is a public blockchain protocol deploying a suite of algorithmic decentralized stablecoins which underpin a thriving ecosystem that brings DeFi to the masses.',
+  },
   WBTC: {
     name: 'Wrapped BTC on Fuse',
     symbol: 'WBTC',
