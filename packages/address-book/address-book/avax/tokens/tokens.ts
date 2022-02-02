@@ -1478,6 +1478,15 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb1BA5Cf8EAa4D3c3439e91c190553E9c92e98E30/logo.png',
   },
+  IME: {
+    chainId: 43114,
+    address: '0xf891214fdcf9cdaa5fdc42369ee4f27f226adad6',
+    decimals: 18,
+    name: ' Imperium Empires Token',
+    symbol: 'IME',
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xF891214fdcF9cDaa5fdC42369eE4F27F226AdaD6/logo.png',
+  },
   FRONT: {
     chainId: 43114,
     address: '0x3441061CbfDF2351E010DF5D962f1cF0626CF19F',
