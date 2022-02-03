@@ -8,7 +8,7 @@ const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/pangolinV2DualLpPools.json');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
-const { getTradingFeeAprSushi } = require('../../../utils/getTradingFeeApr');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { pangolinClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -18,7 +18,6 @@ const oracleIdA = 'PNG';
 const oracleA = 'tokens';
 const DECIMALSA = '1e18';
 
-const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
 const liquidityProviderFee = 0.0025;
@@ -31,14 +30,10 @@ const getPangolinV2DualApys = async () => {
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, rewarders } = await getPoolsData(pools);
+  const { balances, allocPoints, multipliers } = await getPoolsData(pools);
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeAprSushi(
-    pangolinClient,
-    pairAddresses,
-    liquidityProviderFee
-  );
+  const tradingAprs = await getTradingFeeApr(pangolinClient, pairAddresses, liquidityProviderFee);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -46,24 +41,28 @@ const getPangolinV2DualApys = async () => {
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
-    const poolBlockRewards = rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
-    const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
+    const relativeRewards = rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
+    const yearlyRewards = relativeRewards.times(secondsPerYear);
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
-    const yearlyRewardsBInUsd = await (async () => {
-      if (rewarders[i] === '0x0000000000000000000000000000000000000000') {
-        return 0;
-      } else {
-        const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-        const rewarderContract = new web3.eth.Contract(Rewarder, rewarders[i]);
-        const tokenBMultiplier = new BigNumber(
-          await rewarderContract.methods.getRewardMultipliers().call()
-        );
-        const yearlyRewardsB = yearlyRewards.times(tokenBMultiplier).dividedBy(pool.decimalsB);
-        return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
-      }
-    })();
+    var yearlyRewardsBInUsd = new BigNumber(0);
+    var yearlyRewardsCInUsd = new BigNumber(0);
 
-    const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
+    if (multipliers[i][0] != null) {
+      const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
+      const tokenBMultiplier = multipliers[i].map(v => v.multiplier[0]);
+      const yearlyRewardsB = yearlyRewards.times(tokenBMultiplier).dividedBy(pool.decimalsB);
+      yearlyRewardsBInUsd = yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
+    }
+    if (multipliers[i][1] != null) {
+      const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdC });
+      const tokenBMultiplier = multipliers[i][1];
+      const yearlyRewardsB = yearlyRewards.times(tokenBMultiplier).dividedBy(pool.decimalsC);
+      yearlyRewardsCInUsd = yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
+    }
+
+    const yearlyRewardsInUsd = yearlyRewardsAInUsd
+      .plus(yearlyRewardsBInUsd)
+      .plus(yearlyRewardsCInUsd);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
@@ -119,6 +118,7 @@ const getPoolsData = async pools => {
   const balanceCalls = [];
   const poolInfoCalls = [];
   const rewarderCalls = [];
+  const multipliersCalls = [];
   pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20, pool.address);
     balanceCalls.push({
@@ -139,7 +139,18 @@ const getPoolsData = async pools => {
   const balances = res[0].map(v => new BigNumber(v.balance));
   const allocPoints = res[1].map(v => v.poolInfo[2]);
   const rewarders = res[2].map(v => v.rewarder);
-  return { balances, allocPoints, rewarders };
+
+  rewarders.forEach(rewarder => {
+    let rewarderContract = new web3.eth.Contract(Rewarder, rewarder);
+    let multiplier = rewarderContract.methods.getRewardMultipliers();
+    multipliersCalls.push({
+      multiplier: multiplier,
+    });
+  });
+
+  const multipliers = await multicall.all([multipliersCalls]);
+
+  return { balances, allocPoints, multipliers };
 };
 
 module.exports = getPangolinV2DualApys;
