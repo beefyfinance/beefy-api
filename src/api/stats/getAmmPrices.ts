@@ -196,6 +196,7 @@ import netswapPools from '../../data/metis/netswapLpPools.json';
 import dibsLpPools from '../../data/degens/dibsLpPools.json';
 import pangolinV2Pools from '../../data/avax/pangolinv2LpPools.json';
 import t2ombLpPools from '../../data/fantom/2ombLpPools.json';
+import t3ombLpPools from '../../data/fantom/3ombLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
 import popsicleMaticPools from '../../data/matic/popsicleLpPools.json';
 import oxdaoPools from '../../data/fantom/0xdaoPools.json';
@@ -217,6 +218,7 @@ const pools = [
   ...oxdaoPools,
   ...tethysPools,
   ...t2ombLpPools,
+  ...t3ombLpPools,
   ...pangolinV2Pools,
   ...dibsLpPools,
   ...netswapPools,
