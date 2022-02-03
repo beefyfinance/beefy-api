@@ -38,7 +38,7 @@ const getFarmApys = async pools => {
   const secondsPerBlock = await getBlockTime(FANTOM_CHAIN_ID);
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
   const { blockRewards, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, rewarders } = await getPoolsData(pools);
+  const { balances, allocPoints, rewarders, tokenBRewardRates } = await getPoolsData(pools);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -52,15 +52,13 @@ const getFarmApys = async pools => {
       .times(1 - burn)
       .dividedBy(DECIMALSA);
     const yearlyRewardsBInUsd = await (async () => {
-      const masterchefContract = new web3.eth.Contract(MasterChefAbi, masterchef);
-
       if (rewarders[i] === '0x0000000000000000000000000000000000000000') {
         return 0;
       } else {
         const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-        const rewarderContract = new web3.eth.Contract(BeethovenRewarder, rewarders[i]);
-        const tokenBPerSec = new BigNumber(await rewarderContract.methods.rewardPerSecond().call());
-        const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
+        const yearlyRewardsB = tokenBRewardRates[i]
+          .dividedBy(secondsPerBlock)
+          .times(secondsPerYear);
         return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
       }
     })();
@@ -86,6 +84,7 @@ const getPoolsData = async pools => {
   const balanceCalls = [];
   const allocPointCalls = [];
   const rewarderCalls = [];
+  const tokenBPerSecCalls = [];
   pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address);
     balanceCalls.push({
@@ -101,10 +100,25 @@ const getPoolsData = async pools => {
   });
 
   const res = await multicall.all([balanceCalls, allocPointCalls, rewarderCalls]);
+
   const balances = res[0].map(v => new BigNumber(v.balance));
   const allocPoints = res[1].map(v => v.allocPoint[0]);
   const rewarders = res[2].map(v => v.rewarder);
-  return { balances, allocPoints, rewarders };
+
+  pools.forEach((pool, i) => {
+    if (rewarders[i] !== '0x0000000000000000000000000000000000000000') {
+      const rewarderContract = new web3.eth.Contract(BeethovenRewarder, rewarders[i]);
+      const tokenBPerSec = rewarderContract.methods.rewardPerSecond();
+      tokenBPerSecCalls.push({
+        tokenBPerSec: tokenBPerSec,
+      });
+    }
+  });
+
+  const tokenRewardsMulticalls = await multicall.all([tokenBPerSecCalls]);
+  const tokenBRewardRates = tokenRewardsMulticalls[0].map(v => new BigNumber(v.tokenBPerSec));
+
+  return { balances, allocPoints, rewarders, tokenBRewardRates };
 };
 
 module.exports = getBeethovenxDualApys;
