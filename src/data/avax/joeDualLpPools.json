@@ -1,14 +1,17 @@
 [
   {
-    "name": "joe-wavax-pefi",
+    "name": "joe-wavax-pefi2",
     "address": "0xb78c8238bD907c42BE45AeBdB4A8C8a5D7B49755",
     "decimals": "1e18",
     "poolId": 12,
     "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "WAVAX",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
-      "oracleId": "WAVAX",
+      "oracleId": "AVAX",
       "decimals": "1e18"
     },
     "lp1": {
@@ -30,7 +33,7 @@
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
-      "oracleId": "WAVAX",
+      "oracleId": "AVAX",
       "decimals": "1e18"
     },
     "lp1": {

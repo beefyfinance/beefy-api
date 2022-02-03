@@ -16,8 +16,8 @@ const {
     platforms: { netswap, tethys },
   },
   avax: {
-    platforms: { joe }
-  }
+    platforms: { joe },
+  },
 } = addressBook;
 
 const yargs = require('yargs');
