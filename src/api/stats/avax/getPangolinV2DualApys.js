@@ -44,20 +44,20 @@ const getPangolinV2DualApys = async () => {
     const relativeRewards = rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
     const yearlyRewards = relativeRewards.times(secondsPerYear);
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
-    var yearlyRewardsBInUsd = new BigNumber(0);
-    var yearlyRewardsCInUsd = new BigNumber(0);
+    let yearlyRewardsBInUsd = new BigNumber(0);
+    let yearlyRewardsCInUsd = new BigNumber(0);
 
     if (multipliers[i][0] != null) {
+      let multiplier = multipliers[i][0];
       const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-      const tokenBMultiplier = multipliers[i].map(v => v.multiplier[0]);
-      const yearlyRewardsB = yearlyRewards.times(tokenBMultiplier).dividedBy(pool.decimalsB);
+      const yearlyRewardsB = yearlyRewards.times(multiplier).dividedBy(DECIMALSA);
       yearlyRewardsBInUsd = yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
     }
     if (multipliers[i][1] != null) {
-      const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdC });
-      const tokenBMultiplier = multipliers[i][1];
-      const yearlyRewardsB = yearlyRewards.times(tokenBMultiplier).dividedBy(pool.decimalsC);
-      yearlyRewardsCInUsd = yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
+      let multiplier = multipliers[i][1];
+      const tokenPriceC = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdC });
+      const yearlyRewardsC = yearlyRewards.times(multiplier).dividedBy(DECIMALSA);
+      yearlyRewardsCInUsd = yearlyRewardsC.times(tokenPriceC).dividedBy(pool.decimalsC);
     }
 
     const yearlyRewardsInUsd = yearlyRewardsAInUsd
@@ -148,7 +148,9 @@ const getPoolsData = async pools => {
     });
   });
 
-  const multipliers = await multicall.all([multipliersCalls]);
+  const multipliers = (await multicall.all([multipliersCalls]))[0].map(m =>
+    m.multiplier.map(v => new BigNumber(v))
+  );
 
   return { balances, allocPoints, multipliers };
 };
