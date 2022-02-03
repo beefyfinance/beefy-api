@@ -102,7 +102,7 @@ const _tokens = {
   },
   atUST: {
     name: 'UST Terra',
-    symbol: 'atUST',
+    symbol: 'UST',
     address: '0x5ce9F0B6AFb36135b5ddBF11705cEB65E634A9dC',
     chainId: 1313161554,
     decimals: 18,
@@ -114,7 +114,7 @@ const _tokens = {
   },
   atLUNA: {
     name: 'Luna Terra',
-    symbol: 'atLUNA',
+    symbol: 'LUNA',
     address: '0xC4bdd27c33ec7daa6fcfd8532ddB524Bf4038096',
     chainId: 1313161554,
     decimals: 18,
