@@ -796,24 +796,5 @@
       "oracleId": "AVAX",
       "decimals": "1e18"
     }
-  },
-  {
-    "name": "joe-gohm-frax",
-    "address": "0x3E6Be71dE004363379d864006AAC37C9F55F8329",
-    "decimals": "1e18",
-    "poolId": 34,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x321E7092a180BB43555132ec53AaA65a5bF84251",
-      "oracle": "tokens",
-      "oracleId": "gOHM",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64",
-      "oracle": "tokens",
-      "oracleId": "FRAX",
-      "decimals": "1e18"
-    }
   }
 ]
