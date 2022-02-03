@@ -100,6 +100,90 @@ const _tokens = {
     description:
       'Aurora is a decentralized application platform based on third-generation blockchain technology dedicated to providing mature blockchain technology solutions for the entire industry.',
   },
+  atUST: {
+    name: 'UST Terra',
+    symbol: 'atUST',
+    address: '0x5ce9F0B6AFb36135b5ddBF11705cEB65E634A9dC',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x5ce9F0B6AFb36135b5ddBF11705cEB65E634A9dC.svg',
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+  },
+  atLUNA: {
+    name: 'Luna Terra',
+    symbol: 'atLUNA',
+    address: '0xC4bdd27c33ec7daa6fcfd8532ddB524Bf4038096',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xC4bdd27c33ec7daa6fcfd8532ddB524Bf4038096.svg',
+    website: 'https://www.terra.money/',
+    description:
+      "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
+  },
+  AVAX: {
+    name: 'Avalanche',
+    symbol: 'AVAX',
+    address: '0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844.svg',
+    website: 'https://www.avalabs.org/',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+  },
+  BNB: {
+    name: 'Binance',
+    symbol: 'BNB',
+    address: '0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c.svg',
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+  },
+  MATIC: {
+    name: 'Matic',
+    symbol: 'MATIC',
+    address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8.svg',
+    website: 'https://polygon.technology/',
+    description:
+      'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
+  },
+  FLX: {
+    name: 'Flux Token',
+    symbol: 'FLX',
+    address: '0xea62791aa682d455614eaA2A12Ba3d9A2fD197af',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xea62791aa682d455614eaA2A12Ba3d9A2fD197af.svg',
+    website: 'https://www.fluxprotocol.org/',
+    description:
+      'Flux is the trustless data layer for web3. Flux is a cross-chain oracle that provides smart contracts with access to economically secure data feeds on anything.',
+  },
+  MECHA: {
+    name: 'Mecha',
+    symbol: 'MECHA',
+    address: '0xa33C3B53694419824722C10D99ad7cB16Ea62754',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xa33C3B53694419824722C10D99ad7cB16Ea62754.svg',
+    website: 'https://www.mechatracker.finance/#/',
+    description:
+      'Our mission is making Aurora easier, thus making it bigger. Track your assets and DeFi portfolio with #MechaDashboards, easily swap tokens on a tap, visualize your NFTs and unleash the platform full power through the MECHA token.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

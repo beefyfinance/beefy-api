@@ -19,6 +19,25 @@
     }
   },
   {
+    "name": "sushi-eth-mana",
+    "address": "0xc48ae82ca34c63887b975f20aba91a38f2a900b8",
+    "decimals": "1e18",
+    "poolId": 34,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceb23fd6bc0add59e62ac25578270cff1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa1c57f48f0deb89f569dfbe6e2b7f46d33606fd4",
+      "oracle": "tokens",
+      "oracleId": "MANA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-usdc-bct",
     "address": "0x1E67124681b402064CD0ABE8ed1B5c79D2e02f64",
     "decimals": "1e18",
