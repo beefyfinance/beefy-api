@@ -1,8 +1,9 @@
 const getTrisolarisApys = require('./getTrisolarisApys');
+const getAuroraSwapApys = require('./getAuroraSwapApys');
 const getAuroraBifiGovApy = require('./getAuroraBifiGovApy');
 const getTriMinichefApys = require('./getTriMinichefApys');
 
-const getApys = [getTrisolarisApys, getAuroraBifiGovApy, getTriMinichefApys];
+const getApys = [getTrisolarisApys, getAuroraSwapApys, getAuroraBifiGovApy, getTriMinichefApys];
 
 const getAuroraApys = async () => {
   let apys = {};

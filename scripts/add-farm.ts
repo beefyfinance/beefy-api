@@ -7,7 +7,7 @@ const {
     platforms: { finn, solarbeam },
   },
   aurora: {
-    platforms: { trisolaris },
+    platforms: { auroraswap, trisolaris },
   },
   bsc: {
     platforms: { biswap },
@@ -68,6 +68,11 @@ const projects = {
     prefix: 'trisolaris',
     file: '../src/data/aurora/trisolarisLpPools.json',
     masterchef: trisolaris.masterchef,
+  },
+  auroraswap: {
+    prefix: 'auroraswap',
+    file: '../src/data/aurora/auroraSwapLpPools.json',
+    masterchef: auroraswap.masterchef,
   },
   biswap: {
     prefix: 'biswap',

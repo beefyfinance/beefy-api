@@ -179,6 +179,7 @@ import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
 import solarbeamDualLpPools from '../../data/moonriver/solarbeamDualLpPools.json';
 import trisolarisLpPools from '../../data/aurora/trisolarisLpPools.json';
+import auroraSwapLpPools from '../../data/aurora/auroraSwapLpPools.json';
 import maiAvaxLpPools from '../../data/avax/maiLpPools.json';
 import bisonPools from '../../data/degens/bisonLpPools.json';
 import finnLpPools from '../../data/moonriver/finnLpPools.json';
@@ -235,6 +236,7 @@ const pools = [
   ...bisonPools,
   ...maiAvaxLpPools,
   ...trisolarisLpPools,
+  ...auroraSwapLpPools,
   ...solarbeamDualLpPools,
   ...cronaPools,
   ...vvsPools,

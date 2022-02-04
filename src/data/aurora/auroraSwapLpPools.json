@@ -1,0 +1,306 @@
+[
+  {
+    "name": "auroraswap-near-weth",
+    "address": "0xc57eCc341aE4df32442Cf80F34f41Dc1782fE067",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auroraswap-usdt-usdc",
+    "address": "0xEc538fAfaFcBB625C394c35b11252cef732368cd",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x4988a896b1227218e4A686fdE5EabdcAbd91571f",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB12BFcA5A55806AaF64E99521918A4bf0fC40802",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "auroraswap-near-usdc",
+    "address": "0x480A68bA97d70495e80e11e05D59f6C659749F27",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0xB12BFcA5A55806AaF64E99521918A4bf0fC40802",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "auroraswap-near-usdt",
+    "address": "0xF3DE9dc38f62608179c45fE8943a0cA34Ba9CEfc",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0x4988a896b1227218e4A686fdE5EabdcAbd91571f",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "auroraswap-near-wbtc",
+    "address": "0xe11A3f2BAB372d88D133b64487D1772847Eec4eA",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0xF4eB217Ba2454613b15dBdea6e5f22276410e89e",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "auroraswap-weth-wbtc",
+    "address": "0xcb8584360Dc7A4eAC4878b48fB857AA794E46Fa8",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF4eB217Ba2454613b15dBdea6e5f22276410e89e",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "auroraswap-near-luna",
+    "address": "0x388D5EE199aC8dAD049B161b57487271Cd787941",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0xC4bdd27c33ec7daa6fcfd8532ddB524Bf4038096",
+      "oracle": "tokens",
+      "oracleId": "atLUNA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auroraswap-near-ust",
+    "address": "0x729dB9dB6d3cA82EF7e4c886C352749758BaD0eb",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0x5ce9F0B6AFb36135b5ddBF11705cEB65E634A9dC",
+      "oracle": "tokens",
+      "oracleId": "atUST",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auroraswap-near-wbnb",
+    "address": "0x314ab6AaeE15424ea8De07e2007646EcF3772357",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auroraswap-near-busd",
+    "address": "0x1C393468D95ADF8960E64939bCDd6eE602DE221C",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auroraswap-near-avax",
+    "address": "0x8F6e13B3D28B09535EB82BE539c1E4802B0c25B7",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auroraswap-near-matic",
+    "address": "0x8298B8C863c2213B9698A08de009cC0aB0F87FEe",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auroraswap-brl-near",
+    "address": "0x5BdAC608cd38C5C8738f5bE20813194A3150d4Ff",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0x12c87331f086c3C926248f964f8702C0842Fd77F",
+      "oracle": "tokens",
+      "oracleId": "BRL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auroraswap-brl-weth",
+    "address": "0xEfCF518CA36DC3362F539965807b42A77DC26Be0",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x12c87331f086c3C926248f964f8702C0842Fd77F",
+      "oracle": "tokens",
+      "oracleId": "BRL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auroraswap-brl-aurora",
+    "address": "0xDB0363ee28a5B40BDc2f4701e399c63E00f91Aa8",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x12c87331f086c3C926248f964f8702C0842Fd77F",
+      "oracle": "tokens",
+      "oracleId": "BRL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8BEc47865aDe3B172A928df8f990Bc7f2A3b9f79",
+      "oracle": "tokens",
+      "oracleId": "AURORA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "auroraswap-aurora-near",
+    "address": "0x84567E7511E0d97DE676d236AEa7aE688221799e",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0x8BEc47865aDe3B172A928df8f990Bc7f2A3b9f79",
+      "oracle": "tokens",
+      "oracleId": "AURORA",
+      "decimals": "1e18"
+    }
+  }
+]
