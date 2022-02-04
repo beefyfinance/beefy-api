@@ -1,12 +1,34 @@
 [
   {
+    "name": "joe-gohm-frax",
+    "address": "0x3E6Be71dE004363379d864006AAC37C9F55F8329",
+    "decimals": "1e18",
+    "poolId": 34,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "gOHM",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0x321E7092a180BB43555132ec53AaA65a5bF84251",
+      "oracle": "tokens",
+      "oracleId": "gOHM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-wavax-pefi2",
     "address": "0xb78c8238bD907c42BE45AeBdB4A8C8a5D7B49755",
     "decimals": "1e18",
     "poolId": 12,
     "chainId": 43114,
     "oracleB": "tokens",
-    "oracleIdB": "WAVAX",
+    "oracleIdB": "AVAX",
     "decimalsB": "1e18",
     "lp0": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
@@ -584,28 +606,6 @@
       "address": "0xCE1bFFBD5374Dac86a2893119683F4911a2F7814",
       "oracle": "tokens",
       "oracleId": "SPELL",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "joe-gohm-frax",
-    "address": "0x3E6Be71dE004363379d864006AAC37C9F55F8329",
-    "decimals": "1e18",
-    "poolId": 34,
-    "chainId": 43114,
-    "oracleB": "tokens",
-    "oracleIdB": "gOHM",
-    "decimalsB": "1e18",
-    "lp0": {
-      "address": "0x321E7092a180BB43555132ec53AaA65a5bF84251",
-      "oracle": "tokens",
-      "oracleId": "gOHM",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
       "decimals": "1e18"
     }
   }
