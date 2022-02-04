@@ -148,6 +148,17 @@ const _tokens = {
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
   },
+  BUSD: {
+    name: 'Binance USD',
+    symbol: 'BUSD',
+    address: '0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: 'https://cdn.auroraswap.net/tokens/busd.png',
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
+  },
   MATIC: {
     name: 'Matic',
     symbol: 'MATIC',
