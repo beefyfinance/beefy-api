@@ -184,6 +184,16 @@ const _tokens = {
     description:
       'Our mission is making Aurora easier, thus making it bigger. Track your assets and DeFi portfolio with #MechaDashboards, easily swap tokens on a tap, visualize your NFTs and unleash the platform full power through the MECHA token.',
   },
+  BRL: {
+    name: 'Borealis',
+    symbol: 'BRL',
+    address: '0x12c87331f086c3C926248f964f8702C0842Fd77F',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: 'https://cdn.auroraswap.net/tokens/brl.png',
+    website: 'https://auroraswap.net/',
+    description: 'AuroraSwap is a decentralized exchange (DEX) on the Aurora Chain.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
