@@ -268,7 +268,7 @@
   {
     "name": "spirit-ftm-usdc",
     "address": "0xe7e90f5a767406eff87fdad7eb07ef407922ec1d",
-    "gauge": "0xa3C6D55397Dcddaf9f600B082F7a6A918f2F4A5C",
+    "poolId": 4,
     "decimals": "1e18",
     "chainId": 250,
     "lp0": {
