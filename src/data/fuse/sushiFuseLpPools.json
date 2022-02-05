@@ -1,6 +1,6 @@
 [
   {
-    "name": "sushi-usdc-usdt",
+    "name": "sushi-fuse-usdc-usdt",
     "address": "0x00E485d833099679eD7D121CE46a9557ea8aDa1e",
     "decimals": "1e18",
     "poolId": 5,
