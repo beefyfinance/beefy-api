@@ -29,7 +29,7 @@ export const getSushiLpApys = () => {
     rewarderConfig: {
       rewarder: complexRewarderTime,
       rewarderTokenOracleId: WMATIC.symbol,
-      rewarderTotalAllocPoint: 1000,
+      rewarderTotalAllocPoint: 1028,
     },
     pools,
     tradingClient: sushiClient,
