@@ -38,6 +38,18 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  PILLS: {
+    chainId: 250,
+    address: '0xB66b5D38E183De42F21e92aBcAF3c712dd5d6286',
+    decimals: 18,
+    name: 'Morpheus Swap',
+    symbol: 'PILLS',
+    website: 'https://www.morpheusswap.app/',
+    description:
+      'A community DEX powered by Fantom.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/18306/small/pills.png?1639992136',
+  },
   binSPIRIT: {
     name: 'binSPIRIT',
     symbol: 'binSPIRIT',
