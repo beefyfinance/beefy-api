@@ -38,41 +38,41 @@
     }
   },
   {
-    "name": "auroraswap-near-usdc",
+    "name": "auroraswap-usdc-near",
     "address": "0x480A68bA97d70495e80e11e05D59f6C659749F27",
     "decimals": "1e18",
     "poolId": 3,
     "chainId": 1313161554,
     "lp0": {
-      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
-      "oracle": "tokens",
-      "oracleId": "NEAR",
-      "decimals": "1e24"
-    },
-    "lp1": {
       "address": "0xB12BFcA5A55806AaF64E99521918A4bf0fC40802",
       "oracle": "tokens",
       "oracleId": "USDC",
       "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
     }
   },
   {
-    "name": "auroraswap-near-usdt",
+    "name": "auroraswap-usdt-near",
     "address": "0xF3DE9dc38f62608179c45fE8943a0cA34Ba9CEfc",
     "decimals": "1e18",
     "poolId": 4,
     "chainId": 1313161554,
     "lp0": {
-      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
-      "oracle": "tokens",
-      "oracleId": "NEAR",
-      "decimals": "1e24"
-    },
-    "lp1": {
       "address": "0x4988a896b1227218e4A686fdE5EabdcAbd91571f",
       "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
     }
   },
   {
