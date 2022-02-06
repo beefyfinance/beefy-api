@@ -1,5 +1,26 @@
 [
   {
+    "name": "cometh-matic-psp",
+    "address": "0xe3ae064907e9d49c7355504c25f8cae2e7831501",
+    "rewardPool": "0x13E4473aE9A8bE50d7aB6F5F5574165e98d58a34",
+    "sOracleId": "PSP",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x42d61d766b85431666b39b89c43011f24451bff6",
+      "oracle": "tokens",
+      "oracleId": "PSP",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cometh-bifi-must",
     "address": "0x9292aa90F81dc77fE6e6BB34b276502b6a047F7d",
     "rewardPool": "0x3a68F45a3Bc648365a80AbafA2528cd3277eEB96",
