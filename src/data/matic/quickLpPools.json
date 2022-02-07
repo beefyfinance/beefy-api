@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-bnb-usdc",
+    "address": "0x40A5Df3E37152d4DaF279e0450289Af76472b02e",
+    "rewardPool": "0xCd7E62D9E2D209EcB22EC48A942b4db9503aB97B",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x5c4b7CCBF908E64F32e12c6650ec0C96d717f03F",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-sand-matic",
     "address": "0x369582d2010B6eD950B571F4101e3bB9b554876F",
     "rewardPool": "0x411b772B9eb19a33E7af5fCD9B1629D2015DC886",
