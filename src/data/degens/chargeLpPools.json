@@ -3,7 +3,7 @@
     "name": "charge-static-busd",
     "address": "0x69758726b04e527238B261ab00236AFE9F34929D",
     "decimals": "1e18",
-    "pool": "0xA48B61392B240E122d00Fe334EF995a9A23deCFF",
+    "pool": "0x36959C1A554f4efEf98024fd81E5c1f74694D9b6",
     "chainId": 56,
     "lp0": {
       "address": "0x7dEb9906BD1d77B410a56E5C23c36340Bd60C983",

@@ -38,17 +38,26 @@ const FTM = {
 } as const;
 
 const _tokens = {
-  PILLS: {
+  FS: {
+    name: 'FantomStarter',
+    symbol: 'FS',
+    address: '0xC758295Cd1A564cdb020a78a681a838CF8e0627D',
     chainId: 250,
-    address: '0xB66b5D38E183De42F21e92aBcAF3c712dd5d6286',
     decimals: 18,
+    website: 'https://fantomstarter.io/',
+    description:
+      'With FantomStarter, you can raise and invest capital on any blockchain while the decentralized investment app manages all the regulatory, compliance, and multi network responsibilities.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/FS.png',
+  },
+  PILLS: {
     name: 'Morpheus Swap',
     symbol: 'PILLS',
+    address: '0xB66b5D38E183De42F21e92aBcAF3c712dd5d6286',
+    chainId: 250,
+    decimals: 18,
     website: 'https://www.morpheusswap.app/',
-    description:
-      'A community DEX powered by Fantom.',
-    logoURI:
-      'https://assets.coingecko.com/coins/images/18306/small/pills.png?1639992136',
+    description: 'A community DEX powered by Fantom.',
+    logoURI: 'https://assets.coingecko.com/coins/images/18306/small/pills.png?1639992136',
   },
   binSPIRIT: {
     name: 'binSPIRIT',
@@ -62,11 +71,11 @@ const _tokens = {
     logoURI: '',
   },
   gOHM: {
-    chainId: 250,
-    address: '0x91fa20244Fb509e8289CA630E5db3E9166233FDc',
-    decimals: 18,
     name: 'Governance OHM',
     symbol: 'gOHM',
+    address: '0x91fa20244Fb509e8289CA630E5db3E9166233FDc',
+    chainId: 250,
+    decimals: 18,
     website: 'https://www.olympusdao.finance/',
     description:
       'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
