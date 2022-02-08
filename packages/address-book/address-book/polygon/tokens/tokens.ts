@@ -27,6 +27,28 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  BOOK: {
+    name: 'Bookie Dao BOOK',
+    symbol: 'BOOK',
+    address: '0x8192759Bf7f247cC92F74E39B3A4225516624fC1',
+    chainId: 137,
+    decimals: 8,
+    logoURI: 'https://bookie.farm/logoether/bookie200.png',
+    website: 'https://bookie.farm/',
+    description:
+      'Decentralized Betting, where Odds & Games meet the Bookie - play the game or be the house, your stake!',
+  },
+  FODL: {
+    name: 'Fodl Finance FODL',
+    symbol: 'FODL',
+    address: '0x5314bA045a459f63906Aa7C76d9F337DcB7d6995',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/19040/large/new.jpg?1634559024',
+    website: 'https://fodl.finance/',
+    description:
+      'Fodl enables traders to utilize leverage for their trades without paying a funding rate. This leverage is derived from existing DeFi building blocks, such as Compound and Aave.',
+  },
   SAND: {
     name: 'Sandbox',
     symbol: 'SAND',
