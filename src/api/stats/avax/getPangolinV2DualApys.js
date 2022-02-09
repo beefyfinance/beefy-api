@@ -2,40 +2,38 @@ const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { avaxWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/avax/MasterChefJoeV3.json');
-const SimpleRewarder = require('../../../abis/avax/SimpleRewarderPerSec.json');
+const MasterChef = require('../../../abis/avax/PangolinChef.json');
+const Rewarder = require('../../../abis/avax/PangolinRewarderViaMultiplier.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/avax/joeDualLpPools.json');
+const pools = require('../../../data/avax/pangolinV2DualLpPools.json');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
-const { getTradingFeeAprSushi } = require('../../../utils/getTradingFeeApr');
+const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
-const { joeClient } = require('../../../apollo/client');
+const { pangolinClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
-import { JOE_LPF } from '../../../constants';
 
-const masterchef = '0x188bED1968b795d5c9022F6a0bb5931Ac4c18F00';
-const oracleIdA = 'JOE';
+const masterchef = '0x1f806f7C8dED893fd3caE279191ad7Aa3798E928';
+const oracleIdA = 'PNG';
 const oracleA = 'tokens';
 const DECIMALSA = '1e18';
 
-const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
-const liquidityProviderFee = JOE_LPF;
+const liquidityProviderFee = 0.0025;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
-const getJoeDualLpApys = async () => {
+const getPangolinV2DualApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, tokenPerSecData } = await getPoolsData(pools);
+  const { balances, allocPoints, multipliers } = await getPoolsData(pools);
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeAprSushi(joeClient, pairAddresses, liquidityProviderFee);
+  const tradingAprs = await getTradingFeeApr(pangolinClient, pairAddresses, liquidityProviderFee);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -43,19 +41,28 @@ const getJoeDualLpApys = async () => {
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
-    const poolBlockRewards = rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
-    const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
+    const relativeRewards = rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
+    const yearlyRewards = relativeRewards.times(secondsPerYear);
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
     let yearlyRewardsBInUsd = new BigNumber(0);
+    let yearlyRewardsCInUsd = new BigNumber(0);
 
-    if (!tokenPerSecData[i].isNaN()) {
-      let tokenBPerSec = tokenPerSecData[i];
+    if (multipliers[i][0] != null) {
+      let multiplier = multipliers[i][0];
       const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-      const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
+      const yearlyRewardsB = yearlyRewards.times(multiplier).dividedBy(DECIMALSA);
       yearlyRewardsBInUsd = yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
     }
+    if (multipliers[i][1] != null) {
+      let multiplier = multipliers[i][1];
+      const tokenPriceC = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdC });
+      const yearlyRewardsC = yearlyRewards.times(multiplier).dividedBy(DECIMALSA);
+      yearlyRewardsCInUsd = yearlyRewardsC.times(tokenPriceC).dividedBy(pool.decimalsC);
+    }
 
-    const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
+    const yearlyRewardsInUsd = yearlyRewardsAInUsd
+      .plus(yearlyRewardsBInUsd)
+      .plus(yearlyRewardsCInUsd);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
@@ -69,7 +76,6 @@ const getJoeDualLpApys = async () => {
       1,
       shareAfterBeefyPerformanceFee
     );
-    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
 
     // Create reference for legacy /apy
     const legacyApyValue = { [pool.name]: totalApy };
@@ -101,7 +107,7 @@ const getJoeDualLpApys = async () => {
 
 const getMasterChefData = async () => {
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.joePerSec().call());
+  const rewardPerSecond = new BigNumber(await masterchefContract.methods.rewardPerSecond().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { rewardPerSecond, totalAllocPoint };
 };
@@ -111,7 +117,8 @@ const getPoolsData = async pools => {
   const multicall = new MultiCall(web3, multicallAddress(AVAX_CHAIN_ID));
   const balanceCalls = [];
   const poolInfoCalls = [];
-  const tokenPerSecCalls = [];
+  const rewarderCalls = [];
+  const multipliersCalls = [];
   pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20, pool.address);
     balanceCalls.push({
@@ -121,27 +128,31 @@ const getPoolsData = async pools => {
     poolInfoCalls.push({
       poolInfo: poolInfo,
     });
-  });
-
-  const res = await multicall.all([balanceCalls, poolInfoCalls]);
-
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.poolInfo['3']);
-  const rewarders = res[1].map(v => v.poolInfo[4]);
-
-  rewarders.forEach(rewarder => {
-    let rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarder);
-    let tokenPerSec = rewarderContract.methods.tokenPerSec();
-    tokenPerSecCalls.push({
-      tokenPerSec: tokenPerSec,
+    let rewarder = masterchefContract.methods.rewarder(pool.poolId);
+    rewarderCalls.push({
+      rewarder: rewarder,
     });
   });
 
-  const tokenPerSecData = (await multicall.all([tokenPerSecCalls]))[0].map(
-    t => new BigNumber(t.tokenPerSec)
+  const res = await multicall.all([balanceCalls, poolInfoCalls, rewarderCalls]);
+
+  const balances = res[0].map(v => new BigNumber(v.balance));
+  const allocPoints = res[1].map(v => v.poolInfo[2]);
+  const rewarders = res[2].map(v => v.rewarder);
+
+  rewarders.forEach(rewarder => {
+    let rewarderContract = new web3.eth.Contract(Rewarder, rewarder);
+    let multiplier = rewarderContract.methods.getRewardMultipliers();
+    multipliersCalls.push({
+      multiplier: multiplier,
+    });
+  });
+
+  const multipliers = (await multicall.all([multipliersCalls]))[0].map(m =>
+    m.multiplier.map(v => new BigNumber(v))
   );
 
-  return { balances, allocPoints, tokenPerSecData };
+  return { balances, allocPoints, multipliers };
 };
 
-module.exports = getJoeDualLpApys;
+module.exports = getPangolinV2DualApys;

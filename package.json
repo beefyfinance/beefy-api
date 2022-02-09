@@ -27,7 +27,7 @@
     "celo:sushi:add": "ts-node scripts/add-sushi.ts --network celo --project sushiCelo",
     "avax:pangolin:add": "ts-node scripts/add-sushi.ts --network avax --project pangolin",
     "avax:joe:add": "ts-node scripts/add-farm.ts --network avax --project joe",
-    "aurora:trisolaris:add": "ts-node scripts/add-farm.ts --network aurora --project trisolaris",
+    "aurora:tri:add": "ts-node scripts/add-sushi.ts --network aurora --project tri",
     "moonriver:solarbeam:add": "ts-node scripts/add-farm.ts --network moonriver --project solarbeam",
     "fuse:fusefi:add": "ts-node scripts/add-quick.ts --network fuse --project fusefi",
     "fuse:sushi:add": "ts-node scripts/add-sushi.ts --network fuse --project sushiFuse",

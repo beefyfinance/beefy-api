@@ -29,6 +29,28 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  atUST: {
+    name: 'UST Terra',
+    symbol: 'atUST',
+    address: '0x0D58a44be3dCA0aB449965dcc2c46932547Fea2f',
+    chainId: 122,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.terra.money/',
+    description:
+      'Terra is a public blockchain protocol deploying a suite of algorithmic decentralized stablecoins which underpin a thriving ecosystem that brings DeFi to the masses.',
+  },
+  atLUNA: {
+    name: 'Luna Terra',
+    symbol: 'atUST',
+    address: '0x588e24DEd8f850b14BB2e62E9c50A7Cd5Ee13Da9',
+    chainId: 122,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.terra.money/',
+    description:
+      'The Terra protocols native staking token that absorbs the price volatility of Terra. Luna is used for governance and in mining. Users stake Luna to validators who record and verify transactions on the blockchain in exchange for rewards from transaction fees. The more Terra is used, the more Luna is worth.',
+  },
   WETH: {
     name: 'Wrapped Ether on Fuse',
     symbol: 'WETH',

@@ -38,16 +38,37 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  FS: {
+    name: 'FantomStarter',
+    symbol: 'FS',
+    address: '0xC758295Cd1A564cdb020a78a681a838CF8e0627D',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://fantomstarter.io/',
+    description:
+      'With FantomStarter, you can raise and invest capital on any blockchain while the decentralized investment app manages all the regulatory, compliance, and multi network responsibilities.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/FS.png',
+  },
+  PILLS: {
+    name: 'Morpheus Swap',
+    symbol: 'PILLS',
+    address: '0xB66b5D38E183De42F21e92aBcAF3c712dd5d6286',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.morpheusswap.app/',
+    description: 'A community DEX powered by Fantom.',
+    logoURI: 'https://assets.coingecko.com/coins/images/18306/small/pills.png?1639992136',
+  },
   binSPIRIT: {
     name: 'binSPIRIT',
     symbol: 'binSPIRIT',
-    address: '0xe1908Ab7e03F0699773ceCc4Dc5D38893E532cd1',
+    address: '0x44e314190D9E4cE6d4C0903459204F8E21ff940A',
     chainId: 250,
     decimals: 18,
     website: 'https://www.beefy.finance/',
     description:
       'binSPIRIT is the Beefy wrapped version of inSPIRIT which boosts Spirit vaults on Beefy. binSPIRIT can be traded or minted 1:1 with SPIRIT.',
-    logoURI: '',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/BINSPIRIT.png',
   },
   CREDIT: {
     name: 'Creditum',
@@ -81,6 +102,18 @@ const _tokens = {
     description:
       'Users can deposit collateral into the Creditum platform and then borrow (mint) cUSD based on the USD value of the collateral deposited.',
     logoURI: 'https://revenant.finance/img/tokens/cUSD.png',
+  },
+  gOHM: {
+    name: 'Governance OHM',
+    symbol: 'gOHM',
+    address: '0x91fa20244Fb509e8289CA630E5db3E9166233FDc',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.olympusdao.finance/',
+    description:
+      'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/14483/large/token_OHM_%281%29.png?1628311611',
   },
   OXD: {
     name: '0xDAO',

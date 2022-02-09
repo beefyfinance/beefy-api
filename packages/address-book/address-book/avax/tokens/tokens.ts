@@ -15,6 +15,18 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  LOOT: {
+    name: 'Police and Thief Game LOOT',
+    symbol: 'LOOT',
+    address: '0x7f041ce89A2079873693207653b24C15B5e6A293',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0x7f041ce89A2079873693207653b24C15B5e6A293/logo.png',
+    website: 'https://policeandthief.game/',
+    description:
+      'Police and Thief Game is a NFT P2E game on Avalanche, a Wolf Game derivative. The game incorporates probability based derivatives and decision making possibilities to allow players to make various decisions to come out on top.',
+  },
   WINE: {
     name: 'WINE',
     symbol: 'WINE',
@@ -1497,6 +1509,15 @@ const _tokens = {
     symbol: 'FXS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb1BA5Cf8EAa4D3c3439e91c190553E9c92e98E30/logo.png',
+  },
+  IME: {
+    chainId: 43114,
+    address: '0xF891214fdcF9cDaa5fdC42369eE4F27F226AdaD6',
+    decimals: 18,
+    name: ' Imperium Empires Token',
+    symbol: 'IME',
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xF891214fdcF9cDaa5fdC42369eE4F27F226AdaD6/logo.png',
   },
   FRONT: {
     chainId: 43114,

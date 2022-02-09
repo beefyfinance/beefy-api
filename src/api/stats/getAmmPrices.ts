@@ -195,6 +195,7 @@ import fusefiPools from '../../data/fuse/fusefiLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
 import dibsLpPools from '../../data/degens/dibsLpPools.json';
 import pangolinV2Pools from '../../data/avax/pangolinv2LpPools.json';
+import pangolinV2DualPools from '../../data/avax/pangolinV2DualLpPools.json';
 import t2ombLpPools from '../../data/fantom/2ombLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
 import popsicleMaticPools from '../../data/matic/popsicleLpPools.json';
@@ -202,6 +203,7 @@ import oxdaoPools from '../../data/fantom/0xdaoPools.json';
 import sushiFtmPools from '../../data/fantom/sushiFtmLpPools.json';
 import sushiFusePools from '../../data/fuse/sushiFuseLpPools.json';
 import grapePools from '../../data/avax/grapeLpPools.json';
+import trisolarisMiniPools from '../../data/aurora/trisolarisMiniLpPools.json';
 import creditumPools from '../../data/fantom/creditumPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
@@ -211,6 +213,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...creditumPools,
+  ...trisolarisMiniPools,
   ...grapePools,
   ...sushiFusePools,
   ...sushiFtmPools,
@@ -218,6 +221,7 @@ const pools = [
   ...tethysPools,
   ...t2ombLpPools,
   ...pangolinV2Pools,
+  ...pangolinV2DualPools,
   ...dibsLpPools,
   ...netswapPools,
   ...fusefiPools,
