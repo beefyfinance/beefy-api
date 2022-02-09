@@ -7,7 +7,7 @@ import { FANTOM_CHAIN_ID, POLYGON_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 const {
   fantom: {
-    tokens: { BOO, xBOO, SCREAM, xSCREAM },
+    tokens: { BOO, xBOO, SCREAM, xSCREAM, CREDIT, xCREDIT },
   },
   polygon: {
     tokens: { QUICK, dQUICK },
@@ -18,6 +18,7 @@ const tokens = {
   fantom: [
     [BOO, xBOO],
     [SCREAM, xSCREAM],
+    [CREDIT, xCREDIT],
   ],
   polygon: [[QUICK, dQUICK]],
 };

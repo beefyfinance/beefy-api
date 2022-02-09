@@ -133,5 +133,10 @@
     "name": "curve-ftm-lambda",
     "pool": "0x075C1D1d7E9E1aF077B0b6117C6eA06CD0a260b5",
     "rewards": []
+  },
+  {
+    "name": "curve-ftm-cusd",
+    "pool": "0x96059756980fF6ced0473898d26F0EF828a59820",
+    "rewards": []
   }
 ]

@@ -49,6 +49,39 @@ const _tokens = {
       'binSPIRIT is the Beefy wrapped version of inSPIRIT which boosts Spirit vaults on Beefy. binSPIRIT can be traded or minted 1:1 with SPIRIT.',
     logoURI: '',
   },
+  CREDIT: {
+    name: 'Creditum',
+    symbol: 'CREDIT',
+    address: '0x77128DFdD0ac859B33F44050c6fa272F34872B5E',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://revenant.finance/creditum',
+    description:
+      'Creditum is a lending and borrowing protocol within the Fantom Ecosystem that allows users to borrow (or mint) cUSD, a stablecoin pegged at $1 USD, by posting different tokens as collateral.',
+    logoURI: 'https://revenant.finance/img/tokens/creditum.png',
+  },
+  xCREDIT: {
+    name: 'xCREDIT',
+    symbol: 'xCREDIT',
+    address: '0xd9e28749e80D867d5d14217416BFf0e668C10645',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://revenant.finance/creditum/farm',
+    description:
+      'As users farm the Creditum LP rewards, 10% of the rewards are added to the xCREDIT contract to increase the staked CREDIT pool size for all xCREDIT holders.',
+    logoURI: 'https://revenant.finance/img/tokens/creditum.png',
+  },
+  cUSD: {
+    name: 'Creditum USD',
+    symbol: 'cUSD',
+    address: '0xE3a486C1903Ea794eED5d5Fa0C9473c7D7708f40',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://revenant.finance/creditum/cusd',
+    description:
+      'Users can deposit collateral into the Creditum platform and then borrow (mint) cUSD based on the USD value of the collateral deposited.',
+    logoURI: 'https://revenant.finance/img/tokens/cUSD.png',
+  },
   OXD: {
     name: '0xDAO',
     symbol: 'OXD',
