@@ -1,5 +1,27 @@
 [
   {
+    "name": "joe-wavax-domi",
+    "address": "0x5B9Faf0feA95df4D4cB894Ef920704daFf656f3E",
+    "decimals": "1e18",
+    "poolId": 47,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "DOMI",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFc6Da929c031162841370af240dEc19099861d3B",
+      "oracle": "tokens",
+      "oracleId": "DOMI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-gohm-frax",
     "address": "0x3E6Be71dE004363379d864006AAC37C9F55F8329",
     "decimals": "1e18",
