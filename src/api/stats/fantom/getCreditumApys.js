@@ -141,9 +141,6 @@ const getPoolsData = async pools => {
   const balances = res[0].map(v => new BigNumber(v.balance));
   const allocPoints = poolInfos.map(v => new BigNumber(v['AllocPoints'][0]));
 
-  console.log('balances: ' + balances);
-  console.log('allocPoints: ' + allocPoints);
-
   return { balances, allocPoints };
 };
 
