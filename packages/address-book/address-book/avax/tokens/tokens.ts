@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  DOMI: {
+    name: 'DOMI Online DOMI',
+    symbol: 'DOMI',
+    address: '0xFc6Da929c031162841370af240dEc19099861d3B',
+    chainId: 43114,
+    decimals: 6,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xFc6Da929c031162841370af240dEc19099861d3B/logo.png',
+    website: 'https://domionline.io/',
+    description: 'Domi Online is a play to earn 3D Blockchain MMORPG underpinned by NFTs.',
+  },
   LOOT: {
     name: 'Police and Thief Game LOOT',
     symbol: 'LOOT',
