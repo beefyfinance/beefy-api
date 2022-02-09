@@ -1,6 +1,7 @@
 const { arbitrumWeb3: web3 } = require('../../../utils/web3');
 import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
+import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
 
 import axios from 'axios';
 import BigNumber from 'bignumber.js';
@@ -8,7 +9,10 @@ import SpellMasterChef from '../../../abis/arbitrum/SpellMasterChef.json';
 
 const getSpellApys = async () => {
   const pool = '0x30df229cefa463e991e29d42db0bae2e122b2ac7';
-  const tradingAprs = await getCurveBaseApy(pool);
+  const tradingAprs = await getCurveFactoryApy(
+    pool,
+    'https://api.curve.fi/api/getFactoryAPYs-arbitrum'
+  );
   return await getMasterChefApys({
     web3: web3,
     chainId: chainId,
@@ -35,23 +39,6 @@ const getSpellApys = async () => {
     liquidityProviderFee: 0.0002,
     // log: true,
   });
-};
-
-const getCurveBaseApy = async address => {
-  let apys = {};
-  try {
-    const response = await axios.get('https://api.curve.fi/api/getFactoryAPYs-arbitrum');
-    const pools = response.data.data.poolDetails;
-    pools.forEach(pool => {
-      if (pool.poolAddress.toLowerCase() === address.toLowerCase()) {
-        const apy = new BigNumber(pool.apy).dividedBy(100);
-        apys = { ...apys, ...{ [address.toLowerCase()]: apy } };
-      }
-    });
-  } catch (err) {
-    console.error(err);
-  }
-  return apys;
 };
 
 module.exports = { getSpellApys };
