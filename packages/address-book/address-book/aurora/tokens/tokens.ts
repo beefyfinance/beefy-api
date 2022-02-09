@@ -184,6 +184,18 @@ const _tokens = {
     description:
       'Our mission is making Aurora easier, thus making it bigger. Track your assets and DeFi portfolio with #MechaDashboards, easily swap tokens on a tap, visualize your NFTs and unleash the platform full power through the MECHA token.',
   },
+  SOLACE: {
+    name: 'solace',
+    symbol: 'SOLACE',
+    address: '0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40.svg',
+    website: 'https://solace.fi/',
+    description:
+      'Solace is building a community around making this space safe, secure and trusted so that we can onboard and de-risk DeFi and other crypto applications while opening the space to millions of users. We recently launched a coverage policy protocol that enables protection for liquidity providers, Defi protocols or DAOs to mitigate loss from hacks, bugs and exploits. Our purpose is to transform DeFi by delivering intelligent and empowering tools for a safe, secure and trusted industry.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

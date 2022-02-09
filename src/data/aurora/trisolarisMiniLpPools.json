@@ -1,5 +1,27 @@
 [
   {
+    "name": "tri-solace-near",
+    "address": "0xdDAdf88b007B95fEb42DDbd110034C9a8e9746F2",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "SOLACE",
+    "decimalsB": "1e18",
+    "poolId": 10,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40",
+      "oracle": "tokens",
+      "oracleId": "SOLACE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
     "name": "tri-mecha-near",
     "address": "0xd62f9ec4C4d323A0C111d5e78b77eA33A2AA862f",
     "decimals": "1e18",
