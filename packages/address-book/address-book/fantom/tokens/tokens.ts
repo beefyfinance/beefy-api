@@ -38,6 +38,28 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  PAE: {
+    name: 'Ripae',
+    symbol: 'PAE',
+    address: '0x8a41f13a4FaE75ca88B1ee726ee9D52B148b0498',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://ripae.finance/logo_pae.svg',
+  },
+  pFTM: {
+    name: 'pFTM',
+    symbol: 'pFTM',
+    address: '0x112dF7E3b4B7Ab424F07319D4E92F41e6608c48B',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://ripae.finance/logo_pftm.svg',
+  },
   FS: {
     name: 'FantomStarter',
     symbol: 'FS',
