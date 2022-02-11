@@ -1,0 +1,118 @@
+import { ConstRecord } from '../../../types/const';
+import Token from '../../../types/token';
+
+const GLMR = {
+  name: 'Moonbeam',
+  address: '0xAcc15dC74880C9944775448304B263D191c6077F',
+  symbol: 'WGLMR',
+  decimals: 18,
+  chainId: 1284,
+  website: 'https://moonbeam.network/networks/moonbeam/',
+  description:
+    'A Polkadot Parachain Designed for Developers Moonbeam simplifies the developer experience by combining full Ethereum compatibility with the power of Polkadot, including scalability, cross-chain integrations, and on-chain governance.',
+  logoURI: '',
+} as const;
+
+const _tokens = {
+  GLMR,
+  WGLMR: GLMR,
+  WNATIVE: GLMR,
+  BIFI: {
+    name: 'Beefy.Finance',
+    symbol: 'BIFI',
+    address: '0x595c8481c48894771CE8FaDE54ac6Bf59093F9E8',
+    chainId: 1284,
+    decimals: 18,
+    website: 'https://www.beefy.finance/',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+  },
+  GLINT: {
+    name: 'Beamswap Token',
+    symbol: 'GLINT',
+    address: '0xcd3B51D98478D53F4515A306bE565c6EebeF1D58',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xcd3B51D98478D53F4515A306bE565c6EebeF1D58.svg',
+    website: 'https://beamswap.io/',
+    description:
+      'Beamswap is a decentralized exchange (DEX) with an automated market maker (AMM), providing liquidity and peer-to-peer transactions. But it aims to be so much more than that. Supporting an array of services and features, it will allow you to swap crypto assets, both fungible and non-fungible, earn passive income from staking and yield farming, and even launch your own crypto projects on Moonbeam.',
+  },
+  USDC: {
+    name: 'USD Coin',
+    symbol: 'USDC',
+    address: '0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  BUSD: {
+    name: 'Binance-Peg BUSD Token',
+    symbol: 'BUSD',
+    address: '0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F.svg',
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
+  },
+  BNB: {
+    name: 'Binance',
+    symbol: 'BNB',
+    address: '0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055.svg',
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+  },
+  ETH: {
+    name: 'Ethereum',
+    symbol: 'ETH',
+    address: '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
+    website: 'https://ethereum.org/',
+    description:
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+  },
+  USDT: {
+    name: 'Tether USD',
+    symbol: 'USDT',
+    address: '0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73.svg',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  DAI: {
+    name: 'Dai Stablecoin',
+    symbol: 'DAI',
+    address: '0x765277EebeCA2e31912C9946eAe1021199B39C61',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x765277EebeCA2e31912C9946eAe1021199B39C61.svg',
+    website: 'https://makerdao.com/en/',
+    description:
+      'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
+  },
+} as const;
+
+export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

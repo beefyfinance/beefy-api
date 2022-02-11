@@ -29,6 +29,8 @@ import {
   FUSE_CHAIN_ID,
   METIS_RPC,
   METIS_CHAIN_ID,
+  MOONBEAM_RPC,
+  MOONBEAM_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -45,6 +47,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.aurora]: addressBookByChainId[ChainId.aurora].platforms.beefyfinance.multicall,
   [ChainId.fuse]: addressBookByChainId[ChainId.fuse].platforms.beefyfinance.multicall,
   [ChainId.metis]: addressBookByChainId[ChainId.metis].platforms.beefyfinance.multicall,
+  [ChainId.moonbeam]: addressBookByChainId[ChainId.moonbeam].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -61,6 +64,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   aurora: [],
   fuse: [],
   metis: [],
+  moonbeam: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -77,6 +81,7 @@ clients.cronos.push(new Web3(CRONOS_RPC));
 clients.aurora.push(new Web3(AURORA_RPC));
 clients.fuse.push(new Web3(FUSE_RPC));
 clients.metis.push(new Web3(METIS_RPC));
+clients.moonbeam.push(new Web3(MOONBEAM_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -92,6 +97,7 @@ export const chainRandomClients = {
   auroraRandomClient: () => clients.aurora[~~(clients.aurora.length * Math.random())],
   fuseRandomClient: () => clients.fuse[~~(clients.fuse.length * Math.random())],
   metisRandomClient: () => clients.metis[~~(clients.metis.length * Math.random())],
+  moonbeamRandomClient: () => clients.moonbeam[~~(clients.moonbeam.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -122,6 +128,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.fuseRandomClient();
     case METIS_CHAIN_ID:
       return chainRandomClients.metisRandomClient();
+    case MOONBEAM_CHAIN_ID:
+      return chainRandomClients.moonbeamRandomClient();
   }
 };
 

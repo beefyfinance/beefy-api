@@ -16,7 +16,7 @@ function client(url) {
 }
 
 const apePolyClient = client('https://api.thegraph.com/subgraphs/name/apeswapfinance/dex-polygon');
-const sushiClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/matic-exchange');
+const sushiPolyClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/matic-exchange');
 const sushiOneClient = client(
   'https://sushi.graph.t.hmny.io/subgraphs/name/sushiswap/harmony-exchange'
 );
@@ -71,6 +71,7 @@ const kyberClient = client(
   'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic'
 );
 const beetClient = client('https://graph-node.beets-ftm-node.com/subgraphs/name/beethovenx');
+const beamClient = client('https://api.thegraph.com/subgraphs/name/beamswap/beamswap-dex');
 const vvsClient = client('https://graph.vvs.finance/exchange');
 const finnClient = client(
   'https://graph-node.huckleberry.finance/subgraphs/name/huckleberry/huckleberry-subgraph'
@@ -82,7 +83,7 @@ const tethysClient = client('https://node.tethys.finance/subgraphs/name/tethys')
 
 const isSushiClient = client => {
   return (
-    client === sushiClient ||
+    client === sushiPolyClient ||
     client === sushiOneClient ||
     client === sushiArbitrumClient ||
     client === joeClient ||
@@ -103,7 +104,7 @@ module.exports = {
   joeClient,
   dfynClient,
   apePolyClient,
-  sushiClient,
+  sushiPolyClient,
   sushiOneClient,
   sushiArbitrumClient,
   sushiCeloClient,
@@ -139,4 +140,5 @@ module.exports = {
   fusefiClient,
   netswapClient,
   tethysClient,
+  beamClient,
 };

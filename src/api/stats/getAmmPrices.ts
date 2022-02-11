@@ -206,6 +206,7 @@ import grapePools from '../../data/avax/grapeLpPools.json';
 import trisolarisMiniPools from '../../data/aurora/trisolarisMiniLpPools.json';
 import creditumPools from '../../data/fantom/creditumPools.json';
 import ripaePools from '../../data/fantom/ripaeLpPools.json';
+import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -213,6 +214,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...beamswapPools,
   ...ripaePools,
   ...creditumPools,
   ...trisolarisMiniPools,

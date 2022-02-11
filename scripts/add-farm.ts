@@ -18,6 +18,9 @@ const {
   avax: {
     platforms: { joe },
   },
+  moonbeam: {
+    platforms: { beamswap },
+  },
 } = addressBook;
 
 const yargs = require('yargs');
@@ -91,6 +94,11 @@ const projects = {
     prefix: 'finn',
     file: '../src/data/moonriver/finnLpPools.json',
     masterchef: finn.masterchef,
+  },
+  beamswap: {
+    prefix: 'beamswap',
+    file: '../src/data/moonbeam/beamswapLpPools.json',
+    masterchef: beamswap.masterchef,
   },
 };
 

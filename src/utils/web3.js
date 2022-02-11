@@ -42,6 +42,9 @@ module.exports = {
   get metisWeb3() {
     return chainRandomClients.metisRandomClient();
   },
+  get moonbeamWeb3() {
+    return chainRandomClients.moonbeamRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

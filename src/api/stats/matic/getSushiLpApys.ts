@@ -1,8 +1,8 @@
 import { polygonWeb3 } from '../../../utils/web3';
-import { POLYGON_CHAIN_ID } from '../../../constants';
+import { POLYGON_CHAIN_ID, SUSHI_LPF } from '../../../constants';
 
 import { getMiniChefApys } from '../common/getMiniChefApys';
-import { sushiClient } from '../../../apollo/client';
+import { sushiPolyClient } from '../../../apollo/client';
 
 import pools from '../../../data/matic/sushiLpPools.json';
 import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2.json';
@@ -32,7 +32,7 @@ export const getSushiLpApys = () => {
       rewarderTotalAllocPoint: 1028,
     },
     pools,
-    tradingClient: sushiClient,
+    tradingClient: sushiPolyClient,
     web3: polygonWeb3,
     chainId: POLYGON_CHAIN_ID,
   });

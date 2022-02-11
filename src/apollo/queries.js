@@ -34,7 +34,6 @@ const pairDayDataSushiQuery = (pairs, startTimestamp, endTimestamp) => {
       pairs(where: { id_in: ${pairsString}}) {
         dayData(first: 1000, orderBy: date, orderDirection: asc, where: { date_gt: ${startTimestamp}, date_lt: ${endTimestamp} }) {
           id
-          pair
           date
           volumeToken0
           volumeToken1
