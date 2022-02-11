@@ -15,6 +15,18 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  LUNA: {
+    name: 'Axelar Wrapped LUNA',
+    symbol: 'LUNA',
+    address: '0x120AD3e5A7c796349e591F1570D9f7980F4eA9cb',
+    chainId: 43114,
+    decimals: 6,
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0x120AD3e5A7c796349e591F1570D9f7980F4eA9cb/logo.png',
+    website: 'https://www.terra.money/',
+    description:
+      'The Terra protocols native staking token that absorbs the price volatility of Terra. Luna is used for governance and in mining. Users stake Luna to validators who record and verify transactions on the blockchain in exchange for rewards from transaction fees. The more Terra is used, the more Luna is worth.',
+  },
   DOMI: {
     name: 'DOMI Online DOMI',
     symbol: 'DOMI',
