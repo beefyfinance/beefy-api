@@ -116,6 +116,17 @@ const _tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
+  ELON: {
+    name: 'Dogelon on Fuse',
+    symbol: 'ELON',
+    address: '0x5DD8015cec49F4dB01fd228F688BF30337d3e0A9',
+    chainId: 122,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://dogelonmars.com/',
+    description:
+      'Dogelon Mars is a dog-themed meme coin. Its name is a mixture of Dogecoin and Elon Musk, the billionaire entrepreneur who is an outspoken supporter of Doge.',
+  },
   G: {
     name: 'GoodDollar',
     symbol: 'G$',
