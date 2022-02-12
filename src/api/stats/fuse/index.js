@@ -2,8 +2,15 @@ const getFusefiLpApys = require('./getFusefiLpApys');
 const getFuseBeefySingleApy = require('./getFuseBeefySingleApy');
 const getFuseBifiGovApy = require('./getFuseBifiGovApy');
 const { getSushiLpApys } = require('./getSushiLpApys');
+const { getFuseBifiMaxiApy } = require('./getFuseBifiMaxiApy');
 
-const getApys = [getFusefiLpApys, getFuseBeefySingleApy, getFuseBifiGovApy, getSushiLpApys];
+const getApys = [
+    getFusefiLpApys,
+    getFuseBeefySingleApy,
+    getFuseBifiGovApy,
+    getSushiLpApys,
+    getFuseBifiMaxiApy
+];
 
 const getFuseApys = async () => {
   let apys = {};

@@ -2,8 +2,9 @@ const getTrisolarisApys = require('./getTrisolarisApys');
 const getAuroraBifiGovApy = require('./getAuroraBifiGovApy');
 const getTriMinichefApys = require('./getTriMinichefApys');
 const getSolaceApy = require('./getSolaceApy');
+const { getAuroraBifiMaxiApy } = require('./getAuroraBifiMaxiApy');
 
-const getApys = [getTrisolarisApys, getAuroraBifiGovApy, getTriMinichefApys, getSolaceApy];
+const getApys = [getTrisolarisApys, getAuroraBifiGovApy, getTriMinichefApys, getSolaceApy, getAuroraBifiMaxiApy];
 
 const getAuroraApys = async () => {
   let apys = {};
