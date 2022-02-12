@@ -959,5 +959,23 @@
       "oracleId": "WETH",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "beamswap-bifi-wglmr",
+    "address": "0x321e45B7134b5Ed52129027F1743c8E71DA0A339",
+    "decimals": "1e18",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x595c8481c48894771CE8FaDE54ac6Bf59093F9E8",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
   }
 ]
