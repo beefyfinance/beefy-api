@@ -1,5 +1,24 @@
 [
   {
+    "name": "beamswap-bifi-wglmr",
+    "address": "0x321e45B7134b5Ed52129027F1743c8E71DA0A339",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x595c8481c48894771CE8FaDE54ac6Bf59093F9E8",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "beamswap-usdc-ftm",
     "address": "0xA135de8E019447DA28f15eb480AEa0a242af5335",
     "decimals": "1e18",
