@@ -5,5 +5,9 @@
   "tokenDecimals": 1e18,
   "oracle": "tokens",
   "oracleId": "BIFI",
-  "exclude": {}
+  "exclude": {
+    "maxi": {
+      "earnedTokenAddress": "0xd1bAb603eee03fA99A378d90d5d83186fEB81aA9"
+    }
+  }
 }
