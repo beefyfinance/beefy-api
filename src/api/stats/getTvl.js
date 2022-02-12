@@ -41,7 +41,7 @@ const {
   METIS_VAULTS_ENDPOINT,
 
   MOONBEAM_CHAIN_ID,
-  //  MOONBEAM_VAULTS_ENDPOINT,
+  MOONBEAM_VAULTS_ENDPOINT,
 } = require('../../constants');
 
 const INIT_DELAY = 40 * 1000;
@@ -115,11 +115,11 @@ const chains = [
     vaultsEndpoint: METIS_VAULTS_ENDPOINT,
     governancePool: require('../../data/metis/governancePool.json'),
   },
-  // {
-  //  chainId: MOONBEAM_CHAIN_ID,
-  //vaultsEndpoint: MOONBEAM_VAULTS_ENDPOINT,
-  // governancePool: require('../../data/moonbeam/governancePool.json'),
-  // },
+  {
+    chainId: MOONBEAM_CHAIN_ID,
+    vaultsEndpoint: MOONBEAM_VAULTS_ENDPOINT,
+    governancePool: require('../../data/moonbeam/governancePool.json'),
+  },
 ];
 
 const getTvl = () => {

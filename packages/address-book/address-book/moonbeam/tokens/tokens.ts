@@ -113,6 +113,18 @@ const _tokens = {
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
   },
+  FTM: {
+    name: 'Fantom',
+    symbol: 'FTM',
+    address: '0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327.svg',
+    website: 'https://fantom.foundation/',
+    description:
+      'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -126,8 +126,8 @@ const FUSE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fuse_pools.js';
 const METIS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/metis_pools.js';
-//const MOONBEAM_VAULTS_ENDPOINT =
-//  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonbeam_pools.js';
+const MOONBEAM_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonbeam_pools.js';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -143,7 +143,7 @@ const MULTICHAIN_ENDPOINTS = {
   aurora: AURORA_VAULTS_ENDPOINT,
   fuse: FUSE_VAULTS_ENDPOINT,
   metis: METIS_VAULTS_ENDPOINT,
-  // moonbeam: MOONBEAM_VAULTS_ENDPOINT,
+  moonbeam: MOONBEAM_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
@@ -195,7 +195,7 @@ export {
   METIS_VAULTS_ENDPOINT,
   MOONBEAM_RPC,
   MOONBEAM_CHAIN_ID,
-  // MOONBEAM_VAULTS_ENDPOINT,
+  MOONBEAM_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,

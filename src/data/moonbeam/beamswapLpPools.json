@@ -1,5 +1,24 @@
 [
   {
+    "name": "beamswap-usdc-ftm",
+    "address": "0xA135de8E019447DA28f15eb480AEa0a242af5335",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "beamswap-usdc-usdt",
     "address": "0xA35B2c07Cb123EA5E1B9c7530d0812e7e03eC3c1",
     "decimals": "1e18",
