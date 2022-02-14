@@ -93,5 +93,24 @@
       "oracleId": "METIS",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "tethys-m.usdc-m.usdt",
+    "address": "0x6c4768d4b3acD4a3fF01F179FaffDaEbe084D12D",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0xbB06DCA3AE6887fAbF931640f67cab3e3a16F4dC",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xEA32A96608495e54156Ae48931A7c20f0dcc1a21",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
   }
 ]
