@@ -60,6 +60,17 @@ const _tokens = {
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: 'https://ripae.finance/logo_pftm.svg',
   },
+  MST: {
+    name: 'Monster',
+    symbol: 'MST',
+    address: '0x152888854378201e173490956085c711f1DeD565',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.metaland.game/',
+    description:
+      "MetaLand is an RPG in monsters' perspective based on the D20 rules. It balances casual and strategy, with a complete social system and an extremely strong meta-universe immersion.",
+    logoURI: 'https://assets.spookyswap.finance/tokens/MST.png',
+  },
   FS: {
     name: 'FantomStarter',
     symbol: 'FS',
