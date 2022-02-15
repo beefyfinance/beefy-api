@@ -18,7 +18,22 @@ import { ConstRecord } from '../types/const';
 
 export * from '../types/chainid';
 
-const _addressBook = {
+const _addressBook: {
+  readonly avax: Chain;
+  readonly fantom: Chain;
+  readonly one: Chain;
+  readonly metis: Chain;
+  readonly moonbeam: Chain;
+  readonly celo: Chain;
+  readonly aurora: Chain;
+  readonly moonriver: Chain;
+  readonly fuse: Chain;
+  readonly bsc: Chain;
+  readonly polygon: Chain;
+  readonly cronos: Chain;
+  readonly heco: Chain;
+  readonly arbitrum: Chain;
+} = {
   polygon,
   bsc,
   avax,
@@ -35,7 +50,22 @@ const _addressBook = {
   moonbeam,
 } as const;
 
-const _addressBookByChainId = {
+const _addressBookByChainId: {
+  readonly '56': Chain;
+  readonly '43114': Chain;
+  readonly '25': Chain;
+  readonly '42220': Chain;
+  readonly '1088': Chain;
+  readonly '1285': Chain;
+  readonly '1284': Chain;
+  readonly '250': Chain;
+  readonly '1666600000': Chain;
+  readonly '122': Chain;
+  readonly '137': Chain;
+  readonly '128': Chain;
+  readonly '1313161554': Chain;
+  readonly '42161': Chain;
+} = {
   [ChainId.polygon]: polygon,
   [ChainId.bsc]: bsc,
   [ChainId.avax]: avax,
