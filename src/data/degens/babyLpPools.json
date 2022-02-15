@@ -38,6 +38,25 @@
     }
   },
   {
+    "name": "baby-avax-usdt",
+    "address": "0x74c4da0daca1a9e52faec732d96bc7dea9fb3ac1",
+    "decimals": "1e18",
+    "poolId": 24,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x1ce0c2827e2ef14d5c4f29a091d735a204794041",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "baby-usdt-milk",
     "address": "0xDB6c248902AD2722A5E01E9689824c28bd0A5f75",
     "decimals": "1e18",
