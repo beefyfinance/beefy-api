@@ -1,0 +1,40 @@
+[
+  {
+    "name": "dark-sky-cro",
+    "address": "0xaA0845EE17e4f1D4F3A8c22cB1e8102baCf56a77",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9D3BBb0e988D9Fb2d55d07Fe471Be2266AD9c81c",
+      "oracle": "tokens",
+      "oracleId": "SKY",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dark-dark-cro",
+    "address": "0xA4AA24B8e855052071Df60E174219e6c8FEe45a3",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x83b2AC8642aE46FC2823Bc959fFEB3c1742c48B5",
+      "oracle": "tokens",
+      "oracleId": "DARK",
+      "decimals": "1e18"
+    }
+  }
+]

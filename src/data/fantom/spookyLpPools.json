@@ -16,7 +16,8 @@
       "oracle": "tokens",
       "oracleId": "WFTM",
       "decimals": "1e18"
-  }
+    }
+  },
   {
     "name": "boo-font-ftm",
     "address": "0x1C8D76074619BCA749b521343Ce16bb96d9F3614",
