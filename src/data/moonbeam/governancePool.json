@@ -1,0 +1,13 @@
+{
+  "name": "moonbeam-bifi-gov",
+  "address": "0x1198f78efd67DFc917510aaA07d49545f4B24f11",
+  "tokenAddress": "0x595c8481c48894771CE8FaDE54ac6Bf59093F9E8",
+  "tokenDecimals": 1e18,
+  "oracle": "tokens",
+  "oracleId": "BIFI",
+  "exclude": {
+    "maxi": {
+      "earnedTokenAddress": "0xd1bAb603eee03fA99A378d90d5d83186fEB81aA9"
+    }
+  }
+}

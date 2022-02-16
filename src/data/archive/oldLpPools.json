@@ -941,5 +941,23 @@
       "oracleId": "1ETH",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "trisolaris-bifi-weth",
+    "address": "0x1BA69B9F1843215110E0c50C7FF75d26B4459e10",
+    "decimals": "1e18",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x218c3c3D49d0E7B37aff0D8bB079de36Ae61A4c0",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
   }
 ]

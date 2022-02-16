@@ -4,6 +4,7 @@ import getLiquidusApys from './getLiquidusApys';
 
 const getVvsApys = require('./getVvsApys');
 const getCronaApys = require('./getCronaApys');
+const getDarkApys = require('./getDarkApys');
 
 const getApys = [
   getVvsApys,
@@ -11,6 +12,7 @@ const getApys = [
   getCronosBifiGovApy,
   getCronosBifiMaxiApy,
   getLiquidusApys,
+  getDarkApys,
 ];
 
 const getCronosApys = async () => {

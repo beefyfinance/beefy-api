@@ -1,5 +1,24 @@
 [
   {
+    "name": "png-luna-wavax",
+    "address": "0x40e747f27E6398b1f7C017c5ff5c31a2Ab69261c",
+    "decimals": "1e18",
+    "poolId": 76,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x120AD3e5A7c796349e591F1570D9f7980F4eA9cb",
+      "oracle": "tokens",
+      "oracleId": "LUNA",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-klo-wavax",
     "address": "0x6745d7F9289d7d75B5121876B1b9D8DA775c9a3E",
     "decimals": "1e18",

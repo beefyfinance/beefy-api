@@ -1,5 +1,75 @@
 [
   {
+    "name": "beets-multichain-maxi",
+    "address": "0xf5c690b7Af4fDC551eC89aCbaD91C6D646762A93",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xf5c690b7af4fdc551ec89acbad91c6d646762a93000100000000000000000116",
+    "poolId": 45,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MULTI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-treeb-me-bro",
+    "address": "0xA1C5698A042638b6220e336Ed9cFAFb499560c20",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xa1c5698a042638b6220e336ed9cfafb499560c200002000000000000000001b6",
+    "poolId": 46,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "TREEB",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-beardhemian-brushsody",
+    "address": "0x8FdD16a23aEBe95B928f1863760618E9EC29e72D",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x8fdd16a23aebe95b928f1863760618e9ec29e72d000100000000000000000166",
+    "poolId": 38,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BRUSH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-spooky-tempered-clavier",
     "address": "0xfA901cAdCAf38cd533E8B1f693D090Fc7005658e",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
@@ -160,31 +230,6 @@
       {
         "oracle": "tokens",
         "oracleId": "ICE",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "beets-two-became-one",
-    "address": "0xD57Cda2caEBb9B64BB88905C4dE0F0Da217a77d7",
-    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
-    "vaultPoolId": "0xd57cda2caebb9b64bb88905c4de0f0da217a77d7000100000000000000000073",
-    "poolId": 20,
-    "decimals": "1e18",
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "USDC",
-        "decimals": "1e6"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "HND",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "FTM",
         "decimals": "1e18"
       }
     ]

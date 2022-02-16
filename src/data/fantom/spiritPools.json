@@ -1,8 +1,28 @@
 [
   {
+    "name": "spirit-ftm-pills",
+    "address": "0x9C775D3D66167685B2A3F4567B548567D2875350",
+    "gauge": "0x3A514Ce911E86164064F30Bf9134085Ae0E514aC",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB66b5D38E183De42F21e92aBcAF3c712dd5d6286",
+      "oracle": "tokens",
+      "oracleId": "PILLS",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spirit-binspirit-spirit",
     "address": "0xD4F6574fD9ba1e218673971f92Ad0f73abe31dEE",
     "decimals": "1e18",
+    "poolId": 68,
     "chainId": 250,
     "lp0": {
       "address": "0x44e314190D9E4cE6d4C0903459204F8E21ff940A",
@@ -267,7 +287,7 @@
   {
     "name": "spirit-ftm-usdc",
     "address": "0xe7e90f5a767406eff87fdad7eb07ef407922ec1d",
-    "gauge": "0xa3C6D55397Dcddaf9f600B082F7a6A918f2F4A5C",
+    "poolId": 4,
     "decimals": "1e18",
     "chainId": 250,
     "lp0": {

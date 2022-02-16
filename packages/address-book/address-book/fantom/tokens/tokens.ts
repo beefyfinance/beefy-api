@@ -38,6 +38,60 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  PAE: {
+    name: 'Ripae',
+    symbol: 'PAE',
+    address: '0x8a41f13a4FaE75ca88B1ee726ee9D52B148b0498',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://ripae.finance/logo_pae.svg',
+  },
+  pFTM: {
+    name: 'pFTM',
+    symbol: 'pFTM',
+    address: '0x112dF7E3b4B7Ab424F07319D4E92F41e6608c48B',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://ripae.finance/logo_pftm.svg',
+  },
+  MST: {
+    name: 'Monster',
+    symbol: 'MST',
+    address: '0x152888854378201e173490956085c711f1DeD565',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.metaland.game/',
+    description:
+      "MetaLand is an RPG in monsters' perspective based on the D20 rules. It balances casual and strategy, with a complete social system and an extremely strong meta-universe immersion.",
+    logoURI: 'https://assets.spookyswap.finance/tokens/MST.png',
+  },
+  FS: {
+    name: 'FantomStarter',
+    symbol: 'FS',
+    address: '0xC758295Cd1A564cdb020a78a681a838CF8e0627D',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://fantomstarter.io/',
+    description:
+      'With FantomStarter, you can raise and invest capital on any blockchain while the decentralized investment app manages all the regulatory, compliance, and multi network responsibilities.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/FS.png',
+  },
+  PILLS: {
+    name: 'Morpheus Swap',
+    symbol: 'PILLS',
+    address: '0xB66b5D38E183De42F21e92aBcAF3c712dd5d6286',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.morpheusswap.app/',
+    description: 'A community DEX powered by Fantom.',
+    logoURI: 'https://assets.coingecko.com/coins/images/18306/small/pills.png?1639992136',
+  },
   binSPIRIT: {
     name: 'binSPIRIT',
     symbol: 'binSPIRIT',
@@ -47,7 +101,52 @@ const _tokens = {
     website: 'https://www.beefy.finance/',
     description:
       'binSPIRIT is the Beefy wrapped version of inSPIRIT which boosts Spirit vaults on Beefy. binSPIRIT can be traded or minted 1:1 with SPIRIT.',
-    logoURI: '',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/BINSPIRIT.png',
+  },
+  CREDIT: {
+    name: 'Creditum',
+    symbol: 'CREDIT',
+    address: '0x77128DFdD0ac859B33F44050c6fa272F34872B5E',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://revenant.finance/creditum',
+    description:
+      'Creditum is a lending and borrowing protocol within the Fantom Ecosystem that allows users to borrow (or mint) cUSD, a stablecoin pegged at $1 USD, by posting different tokens as collateral.',
+    logoURI: 'https://revenant.finance/img/tokens/creditum.png',
+  },
+  xCREDIT: {
+    name: 'xCREDIT',
+    symbol: 'xCREDIT',
+    address: '0xd9e28749e80D867d5d14217416BFf0e668C10645',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://revenant.finance/creditum/farm',
+    description:
+      'As users farm the Creditum LP rewards, 10% of the rewards are added to the xCREDIT contract to increase the staked CREDIT pool size for all xCREDIT holders.',
+    logoURI: 'https://revenant.finance/img/tokens/creditum.png',
+  },
+  cUSD: {
+    name: 'Creditum USD',
+    symbol: 'cUSD',
+    address: '0xE3a486C1903Ea794eED5d5Fa0C9473c7D7708f40',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://revenant.finance/creditum/cusd',
+    description:
+      'Users can deposit collateral into the Creditum platform and then borrow (mint) cUSD based on the USD value of the collateral deposited.',
+    logoURI: 'https://revenant.finance/img/tokens/cUSD.png',
+  },
+  gOHM: {
+    name: 'Governance OHM',
+    symbol: 'gOHM',
+    address: '0x91fa20244Fb509e8289CA630E5db3E9166233FDc',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.olympusdao.finance/',
+    description:
+      'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/14483/large/token_OHM_%281%29.png?1628311611',
   },
   OXD: {
     name: '0xDAO',

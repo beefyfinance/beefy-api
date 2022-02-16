@@ -195,6 +195,7 @@ import fusefiPools from '../../data/fuse/fusefiLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
 import dibsLpPools from '../../data/degens/dibsLpPools.json';
 import pangolinV2Pools from '../../data/avax/pangolinv2LpPools.json';
+import pangolinV2DualPools from '../../data/avax/pangolinV2DualLpPools.json';
 import t2ombLpPools from '../../data/fantom/2ombLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
 import popsicleMaticPools from '../../data/matic/popsicleLpPools.json';
@@ -203,6 +204,12 @@ import sushiFtmPools from '../../data/fantom/sushiFtmLpPools.json';
 import sushiFusePools from '../../data/fuse/sushiFuseLpPools.json';
 import grapePools from '../../data/avax/grapeLpPools.json';
 import trisolarisMiniPools from '../../data/aurora/trisolarisMiniLpPools.json';
+import creditumPools from '../../data/fantom/creditumPools.json';
+import ripaePools from '../../data/fantom/ripaeLpPools.json';
+import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
+import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
+import solidlyPools from '../../data/fantom/solidlyLpPools.json';
+import { solidly } from '../../../packages/address-book/address-book/fantom/platforms/solidly';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -210,6 +217,11 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...solidlyPools,
+  ...darkCryptoPools,
+  ...beamswapPools,
+  ...ripaePools,
+  ...creditumPools,
   ...trisolarisMiniPools,
   ...grapePools,
   ...sushiFusePools,
@@ -218,6 +230,7 @@ const pools = [
   ...tethysPools,
   ...t2ombLpPools,
   ...pangolinV2Pools,
+  ...pangolinV2DualPools,
   ...dibsLpPools,
   ...netswapPools,
   ...fusefiPools,

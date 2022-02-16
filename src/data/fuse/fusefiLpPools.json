@@ -1,5 +1,24 @@
 [
   {
+    "name": "voltage-wfuse-elon",
+    "address": "0xe418c323fA450e7e18c4dB304bEFC7ffF92D2Cc1",
+    "rewardPool": "0xf8438EE654782a11084b2Be90d1153eaf34C0F82",
+    "decimals": "1e18",
+    "chainId": 122,
+    "lp0": {
+      "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
+      "oracle": "tokens",
+      "oracleId": "WFUSE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5DD8015cec49F4dB01fd228F688BF30337d3e0A9",
+      "oracle": "tokens",
+      "oracleId": "ELON",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "voltage-luna-ust",
     "address": "0x44cB3a602AE57b60A5dc808a44544Ab9ec8dDB36",
     "rewardPool": "0xE25d7A32903e29F5909d461cD89729aF6f2c9399",
