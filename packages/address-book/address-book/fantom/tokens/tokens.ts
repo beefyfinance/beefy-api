@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  WIGO: {
+    name: 'WigoSwap',
+    symbol: 'WIGO',
+    address: '0xE992bEAb6659BFF447893641A378FbbF031C5bD6',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://wigoswap.io/',
+    description:
+      'WigoSwap is a Decentralized Exchange (DEX), and also a platform for staking, farming, buying and selling of non-fungible tokens (NFTs).',
+    logoURI: 'https://wigoswap.io/images/tokens/0xE992bEAb6659BFF447893641A378FbbF031C5bD6.svg',
+  },
   PAE: {
     name: 'Ripae',
     symbol: 'PAE',
