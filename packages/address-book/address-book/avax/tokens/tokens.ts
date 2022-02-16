@@ -4192,6 +4192,17 @@ const _tokens = {
       'ROCO is a decentralized GAMEFI platform which provide blockchain services to game developers, content creators and player communities through the blockchain network.',
     logoURI: 'https://assets.coingecko.com/coins/images/19234/large/86109466.png?1634769540',
   },
+  HON: {
+    chainId: 43114,
+    address: '0xEd2b42D3C9c6E97e11755BB37df29B6375ede3EB',
+    decimals: 18,
+    name: 'Heroes of NFT',
+    symbol: 'HON',
+    website: 'https://heroesofnft.com/',
+    description:
+      'Heroes of NFT is an online card game where you can attend tournaments and defeat your opponents to rise to victory.',
+    logoURI: 'https://assets.coingecko.com/coins/images/23527/small/tokenlogo200.png?1644368289',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
