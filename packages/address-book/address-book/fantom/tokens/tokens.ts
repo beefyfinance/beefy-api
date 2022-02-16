@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  CRE8R: {
+    name: 'CRE8R DAO',
+    symbol: 'CRE8R',
+    address: '0x2aD402655243203fcfa7dCB62F8A08cc2BA88ae0',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://cre8r.vip/',
+    description:
+      'The worlds first & only decentralized Web3 content marketing agency DAO. Massively scalable. Fueled by DeFi. ',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/CRE8R.png',
+  },
   DEI: {
     name: 'DEI',
     symbol: 'DEI',
