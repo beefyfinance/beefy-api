@@ -15,6 +15,18 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  sAVAX: {
+    name: 'Staked Avax',
+    symbol: 'sAVAX',
+    address: '0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE/logo.png',
+    website: 'https://benqi.fi/',
+    description:
+      'BENQI Liquid Staking is a protocol enabling users to stake AVAX to receive sAVAX, an interest bearing version of AVAX',
+  },
   LUNA: {
     name: 'Axelar Wrapped LUNA',
     symbol: 'LUNA',
