@@ -1,0 +1,59 @@
+[
+  {
+    "name": "solidly-binspirit-spirit",
+    "address": "0xa7Ea870dc93ffB712ca74b43eFCA9B07556d1303",
+    "gauge": "0x37b99113760cFb7D9A7152142Cc36b3EaB121B5F",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x44e314190D9E4cE6d4C0903459204F8E21ff940A",
+      "oracle": "tokens",
+      "oracleId": "binSPIRIT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5Cc61A78F164885776AA610fb0FE1257df78E59B",
+      "oracle": "tokens",
+      "oracleId": "SPIRIT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solidly-binspirit-mimatic",
+    "address": "0xAa690c101C553ccb21E85d082c9e52Fb70e84f76",
+    "gauge": "0x76d3245463C429919De3515E1cdf85FDA1D27029",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x44e314190D9E4cE6d4C0903459204F8E21ff940A",
+      "oracle": "tokens",
+      "oracleId": "binSPIRIT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
+      "oracle": "tokens",
+      "oracleId": "miMATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solidly-bifi-mimatic",
+    "address": "0x8aeB0503E13F7bea02F80986a8FDb2AccE5C6b6C",
+    "gauge": "0x18b03e6Da8cae2249f591C8a71e48C10C77680e3",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0xd6070ae98b8069de6B494332d1A1a81B6179D960",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
+      "oracle": "tokens",
+      "oracleId": "miMATIC",
+      "decimals": "1e18"
+    }
+  }
+]
