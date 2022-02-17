@@ -1,5 +1,53 @@
 [
   {
+    "name": "quick-genesis-quick",
+    "address": "0xF0696be85fa54F7a8C9F20AA98aA4409CD5C9D1B",
+    "rewardPool": "0x3620418dD43853c35fF8Df90cAb5508FB5df46Bf",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x51869836681BcE74a514625c856aFb697a013797",
+      "oracle": "tokens",
+      "oracleId": "GENESIS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    },
+    "rewardB": {
+      "oracle": "tokens",
+      "oracleId": "GENESIS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-bico-eth",
+    "address": "0x7E02A82a9F2b96eE2836c5C64c44e0aB13020f4b",
+    "rewardPool": "0x3C943fB971BCaB9C4919e5FA71612655Ebd663e5",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x91c89A94567980f0e9723b487b0beD586eE96aa7",
+      "oracle": "tokens",
+      "oracleId": "BICO",
+      "decimals": "1e18"
+    },
+    "rewardB": {
+      "oracle": "tokens",
+      "oracleId": "BICO",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-quick-tel",
     "address": "0xE88e24F49338f974B528AcE10350Ac4576c5c8A1",
     "rewardPool": "0xF8bdC7bC282847EeB5d4291ec79172B48526e9dE",
