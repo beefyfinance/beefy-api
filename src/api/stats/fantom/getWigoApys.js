@@ -9,14 +9,15 @@ const getWigoApys = async () =>
     chainId: chainId,
     masterchef: '0xA1a938855735C0651A6CfE2E93a32A28A236d0E9',
     tokenPerBlock: 'wigoPerSecond',
-    hasMultiplier: true, // todo: fix calculation
+    hasMultiplier: true,
+    useTimestamp: true,
     pools: pools,
     oracleId: 'WIGO',
     oracle: 'tokens',
     decimals: '1e18',
     secondsPerBlock: 1,
     liquidityProviderFee: 0.0018,
-    log: true, // todo: comment out
+    // log: true,
   });
 
 module.exports = getWigoApys;

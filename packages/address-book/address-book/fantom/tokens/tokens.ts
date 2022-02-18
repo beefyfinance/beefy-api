@@ -46,7 +46,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://wigoswap.io/',
     description:
-      'WigoSwap is a Decentralized Exchange (DEX), and also a platform for staking, farming, buying and selling of non-fungible tokens (NFTs).',
+      'WigoSwap is a DeFi hub with lifetime farming earnings powered by Gamified Burning Mechanism (GBM).',
     logoURI: 'https://wigoswap.io/images/tokens/0xE992bEAb6659BFF447893641A378FbbF031C5bD6.svg',
   },
   PAE: {
