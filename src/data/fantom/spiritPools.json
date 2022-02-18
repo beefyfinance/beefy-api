@@ -1,5 +1,62 @@
 [
   {
+    "name": "spirit-wftm-cre8r",
+    "address": "0x459e7c947E04d73687e786E4A48815005dFBd49A",
+    "gauge": "0xDcD990038d9CBe98B84a6aD9dBc880e3d4b06599",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2aD402655243203fcfa7dCB62F8A08cc2BA88ae0",
+      "oracle": "tokens",
+      "oracleId": "CRE8R",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "spirit-ftm-deus",
+    "address": "0x2599Eba5fD1e49F294C76D034557948034d6C96E",
+    "gauge": "0x7a91957097e85bb933828d4cC7db287F573D0B2f",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44",
+      "oracle": "tokens",
+      "oracleId": "DEUS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "spirit-usdc-dei",
+    "address": "0x8eFD36aA4Afa9F4E157bec759F1744A7FeBaEA0e",
+    "gauge": "0x6cb0CA6635027623684Ebd3387A6F5188fE90ea2",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xDE12c7959E1a72bbe8a5f7A1dc8f8EeF9Ab011B3",
+      "oracle": "tokens",
+      "oracleId": "DEI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spirit-ftm-pills",
     "address": "0x9C775D3D66167685B2A3F4567B548567D2875350",
     "gauge": "0x3A514Ce911E86164064F30Bf9134085Ae0E514aC",

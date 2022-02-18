@@ -15,6 +15,18 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  sAVAX: {
+    name: 'Staked Avax',
+    symbol: 'sAVAX',
+    address: '0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE/logo.png',
+    website: 'https://benqi.fi/',
+    description:
+      'BENQI Liquid Staking is a protocol enabling users to stake AVAX to receive sAVAX, an interest bearing version of AVAX',
+  },
   LUNA: {
     name: 'Axelar Wrapped LUNA',
     symbol: 'LUNA',
@@ -4191,6 +4203,17 @@ const _tokens = {
     description:
       'ROCO is a decentralized GAMEFI platform which provide blockchain services to game developers, content creators and player communities through the blockchain network.',
     logoURI: 'https://assets.coingecko.com/coins/images/19234/large/86109466.png?1634769540',
+  },
+  HON: {
+    chainId: 43114,
+    address: '0xEd2b42D3C9c6E97e11755BB37df29B6375ede3EB',
+    decimals: 18,
+    name: 'Heroes of NFT',
+    symbol: 'HON',
+    website: 'https://heroesofnft.com/',
+    description:
+      'Heroes of NFT is an online card game where you can attend tournaments and defeat your opponents to rise to victory.',
+    logoURI: 'https://assets.coingecko.com/coins/images/23527/small/tokenlogo200.png?1644368289',
   },
 } as const;
 
