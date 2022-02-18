@@ -10,7 +10,7 @@ const getWigoApys = async () =>
     masterchef: '0xA1a938855735C0651A6CfE2E93a32A28A236d0E9',
     tokenPerBlock: 'wigoPerSecond',
     hasMultiplier: true,
-    useTimestamp: true,
+    useMultiplierTimestamp: true,
     pools: pools,
     oracleId: 'WIGO',
     oracle: 'tokens',

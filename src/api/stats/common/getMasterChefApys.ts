@@ -29,7 +29,7 @@ export interface MasterChefApysParams {
   masterchefAbi?: AbiItem[];
   tokenPerBlock: string;
   hasMultiplier: boolean;
-  useTimestamp?: boolean;
+  useMultiplierTimestamp?: boolean;
   singlePools?: SingleAssetPool[];
   pools?: LpPool[] | (LpPool | SingleAssetPool)[];
   oracle: string;
@@ -140,9 +140,7 @@ const getMasterChefData = async (params: MasterChefApysParams) => {
   let multiplier = new BigNumber(1);
   if (params.hasMultiplier) {
     const blockNum = await getBlockNumber(params.chainId);
-    const period = params.useTimestamp
-      ? (await params.web3.eth.getBlock(blockNum)).timestamp
-      : blockNum;
+    const period = params.useMultiplierTimestamp ? Math.floor(Date.now() / 1000) : blockNum;
     multiplier = new BigNumber(
       await masterchefContract.methods.getMultiplier(period - 1, period).call()
     );
