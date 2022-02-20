@@ -157,6 +157,9 @@
     "decimals": "1e18",
     "poolId": 3,
     "chainId": 1088,
+    "oracleB": "tokens",
+    "oracleIdB": "METIS",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0x420000000000000000000000000000000000000A",
       "oracle": "tokens",
@@ -195,6 +198,9 @@
     "decimals": "1e18",
     "poolId": 1,
     "chainId": 1088,
+    "oracleB": "tokens",
+    "oracleIdB": "METIS",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0x90fE084F877C65e1b577c7b2eA64B8D8dd1AB278",
       "oracle": "tokens",
@@ -214,6 +220,9 @@
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 1088,
+    "oracleB": "tokens",
+    "oracleIdB": "METIS",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0x90fE084F877C65e1b577c7b2eA64B8D8dd1AB278",
       "oracle": "tokens",
