@@ -15,6 +15,18 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  FIRE: {
+    name: 'The Phoenix FIRE',
+    symbol: 'FIRE',
+    address: '0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5/logo.png',
+    website: 'https://thephoenix.finance/',
+    description:
+      'Phoenix Community Capital is a community investment project focused on using a shared asset pool to perform on-chain and off-chain investments into yield bearing instruments.',
+  },
   sAVAX: {
     name: 'Staked Avax',
     symbol: 'sAVAX',
