@@ -1,6 +1,7 @@
 import { beefyfinance } from './platforms/beefyfinance';
 import { trisolaris } from './platforms/trisolaris';
 import { auroraswap } from './platforms/auroraswap';
+import { solace } from './platforms/solace';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -11,6 +12,7 @@ const _aurora = {
     beefyfinance,
     trisolaris,
     auroraswap,
+    solace,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

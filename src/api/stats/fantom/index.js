@@ -17,6 +17,7 @@ const getSpellApys = require('./getSpellApys');
 const getSingularApys = require('./getSingularApys');
 const getPearzapApys = require('./getPearzapApys');
 const getBeethovenxApys = require('./getBeethovenxApys');
+const getBeethovenxDualApys = require('./getBeethovenxDualApys');
 const getSummitApys = require('./getSummitApys');
 const getGeistLendingApys = require('./getGeistLendingApys');
 const getfBeetsApy = require('./getfBeetsApy');
@@ -25,6 +26,8 @@ const getPopsicleApys = require('./getPopsicleApys');
 const get2ombApys = require('./get2ombApys');
 const get0xdaoApys = require('./get0xdaoApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
+const getCreditumApys = require('./getCreditumApys');
+const getRipaeApys = require('./getRipaeApys');
 
 const getApys = [
   getSushiLpApys,
@@ -47,6 +50,7 @@ const getApys = [
   getSingularApys,
   getPearzapApys,
   getBeethovenxApys,
+  getBeethovenxDualApys,
   getSummitApys,
   getGeistLendingApys,
   getfBeetsApy,
@@ -54,6 +58,8 @@ const getApys = [
   getPopsicleApys,
   get2ombApys,
   get0xdaoApys,
+  getCreditumApys,
+  getRipaeApys,
 ];
 
 const getFantomApys = async () => {

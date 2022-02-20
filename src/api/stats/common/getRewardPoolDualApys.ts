@@ -131,12 +131,21 @@ const getPoolsData = async (params: DualRewardPoolParams) => {
     balanceCalls.push({
       balance: rewardPool.methods.totalSupply(),
     });
-    rewardRateACalls.push({
-      rewardRateA: rewardPool.methods.rewardRateA(),
-    });
-    rewardRateBCalls.push({
-      rewardRateB: rewardPool.methods.rewardRateB(),
-    });
+    if (pool.name == 'quick-quick-tel') {
+      rewardRateACalls.push({
+        rewardRateA: rewardPool.methods.rewardRateB(),
+      });
+      rewardRateBCalls.push({
+        rewardRateB: rewardPool.methods.rewardRateA(),
+      });
+    } else {
+      rewardRateACalls.push({
+        rewardRateA: rewardPool.methods.rewardRateA(),
+      });
+      rewardRateBCalls.push({
+        rewardRateB: rewardPool.methods.rewardRateB(),
+      });
+    }
   });
 
   const res = await multicall.all([balanceCalls, rewardRateACalls, rewardRateBCalls]);

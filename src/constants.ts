@@ -49,6 +49,7 @@ const AURORA_RPC =
   'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';
 const FUSE_RPC = process.env.FUSE_RPC || 'https://rpc.fuse.io';
 const METIS_RPC = process.env.METIS_RPC || 'https://andromeda.metis.io/?owner=1088';
+const MOONBEAM_RPC = process.env.MOONBEAM_RPC || 'https://rpc.api.moonbeam.network';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -63,6 +64,7 @@ const CRONOS_CHAIN_ID = ChainId.cronos;
 const AURORA_CHAIN_ID = ChainId.aurora;
 const FUSE_CHAIN_ID = ChainId.fuse;
 const METIS_CHAIN_ID = ChainId.metis;
+const MOONBEAM_CHAIN_ID = ChainId.moonbeam;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.003;
@@ -79,6 +81,7 @@ const FUSEFI_LPF = 0.003;
 const NET_LPF = 0.003;
 const PANGOLIN_LPF = 0.003;
 const TETHYS_LPF = 0.002;
+const BEAMSWAP_LPF = 0.0017;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
@@ -94,6 +97,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.aurora]: AURORA_RPC,
   [ChainId.fuse]: FUSE_RPC,
   [ChainId.metis]: METIS_RPC,
+  [ChainId.moonbeam]: MOONBEAM_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -122,6 +126,8 @@ const FUSE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/fuse_pools.js';
 const METIS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/metis_pools.js';
+const MOONBEAM_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonbeam_pools.js';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -137,6 +143,7 @@ const MULTICHAIN_ENDPOINTS = {
   aurora: AURORA_VAULTS_ENDPOINT,
   fuse: FUSE_VAULTS_ENDPOINT,
   metis: METIS_VAULTS_ENDPOINT,
+  moonbeam: MOONBEAM_VAULTS_ENDPOINT,
 };
 
 const BEEFY_PERFORMANCE_FEE = 0.045;
@@ -186,6 +193,9 @@ export {
   METIS_RPC,
   METIS_CHAIN_ID,
   METIS_VAULTS_ENDPOINT,
+  MOONBEAM_RPC,
+  MOONBEAM_CHAIN_ID,
+  MOONBEAM_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
@@ -211,6 +221,7 @@ export {
   NET_LPF,
   PANGOLIN_LPF,
   TETHYS_LPF,
+  BEAMSWAP_LPF,
   BEEFY_PERFORMANCE_FEE,
   SHARE_AFTER_PERFORMANCE_FEE,
   EXCLUDED_IDS_FROM_TVL,

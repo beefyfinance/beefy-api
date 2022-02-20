@@ -205,6 +205,42 @@ const _tokens = {
     website: 'https://auroraswap.net/',
     description: 'AuroraSwap is a decentralized exchange (DEX) on the Aurora Chain.',
   },
+  SOLACE: {
+    name: 'solace',
+    symbol: 'SOLACE',
+    address: '0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40.svg',
+    website: 'https://solace.fi/',
+    description:
+      'Solace is building a community around making this space safe, secure and trusted so that we can onboard and de-risk DeFi and other crypto applications while opening the space to millions of users. We recently launched a coverage policy protocol that enables protection for liquidity providers, Defi protocols or DAOs to mitigate loss from hacks, bugs and exploits. Our purpose is to transform DeFi by delivering intelligent and empowering tools for a safe, secure and trusted industry.',
+  },
+  STNEAR: {
+    name: 'Staked NEAR',
+    symbol: 'STNEAR',
+    address: '0x07F9F7f963C5cD2BBFFd30CcfB964Be114332E30',
+    chainId: 1313161554,
+    decimals: 24,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x07F9F7f963C5cD2BBFFd30CcfB964Be114332E30.svg',
+    website: 'https://near.org/',
+    description:
+      'Staked NEAR. Through simple, secure, and scalable technology, NEAR empowers millions to invent and explore new experiences. Business, creativity, and community are being reimagined for a more sustainable and inclusive future.',
+  },
+  xTRI: {
+    name: 'TriBar',
+    symbol: 'xTRI',
+    address: '0x802119e4e253D5C19aA06A5d567C5a41596D6803',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x802119e4e253D5C19aA06A5d567C5a41596D6803.svg',
+    website: 'https://www.trisolaris.io/#/swap',
+    description:
+      'Staked TRI. Trisolaris is #1 Dex on the Aurora engine, an EVM compatible blockchain running in the near ecosystem.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -15,6 +15,53 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  sAVAX: {
+    name: 'Staked Avax',
+    symbol: 'sAVAX',
+    address: '0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE/logo.png',
+    website: 'https://benqi.fi/',
+    description:
+      'BENQI Liquid Staking is a protocol enabling users to stake AVAX to receive sAVAX, an interest bearing version of AVAX',
+  },
+  LUNA: {
+    name: 'Axelar Wrapped LUNA',
+    symbol: 'LUNA',
+    address: '0x120AD3e5A7c796349e591F1570D9f7980F4eA9cb',
+    chainId: 43114,
+    decimals: 6,
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0x120AD3e5A7c796349e591F1570D9f7980F4eA9cb/logo.png',
+    website: 'https://www.terra.money/',
+    description:
+      'The Terra protocols native staking token that absorbs the price volatility of Terra. Luna is used for governance and in mining. Users stake Luna to validators who record and verify transactions on the blockchain in exchange for rewards from transaction fees. The more Terra is used, the more Luna is worth.',
+  },
+  DOMI: {
+    name: 'DOMI Online DOMI',
+    symbol: 'DOMI',
+    address: '0xFc6Da929c031162841370af240dEc19099861d3B',
+    chainId: 43114,
+    decimals: 6,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xFc6Da929c031162841370af240dEc19099861d3B/logo.png',
+    website: 'https://domionline.io/',
+    description: 'Domi Online is a play to earn 3D Blockchain MMORPG underpinned by NFTs.',
+  },
+  LOOT: {
+    name: 'Police and Thief Game LOOT',
+    symbol: 'LOOT',
+    address: '0x7f041ce89A2079873693207653b24C15B5e6A293',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0x7f041ce89A2079873693207653b24C15B5e6A293/logo.png',
+    website: 'https://policeandthief.game/',
+    description:
+      'Police and Thief Game is a NFT P2E game on Avalanche, a Wolf Game derivative. The game incorporates probability based derivatives and decision making possibilities to allow players to make various decisions to come out on top.',
+  },
   WINE: {
     name: 'WINE',
     symbol: 'WINE',
@@ -1497,6 +1544,15 @@ const _tokens = {
     symbol: 'FXS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb1BA5Cf8EAa4D3c3439e91c190553E9c92e98E30/logo.png',
+  },
+  IME: {
+    chainId: 43114,
+    address: '0xF891214fdcF9cDaa5fdC42369eE4F27F226AdaD6',
+    decimals: 18,
+    name: ' Imperium Empires Token',
+    symbol: 'IME',
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xF891214fdcF9cDaa5fdC42369eE4F27F226AdaD6/logo.png',
   },
   FRONT: {
     chainId: 43114,
@@ -4147,6 +4203,17 @@ const _tokens = {
     description:
       'ROCO is a decentralized GAMEFI platform which provide blockchain services to game developers, content creators and player communities through the blockchain network.',
     logoURI: 'https://assets.coingecko.com/coins/images/19234/large/86109466.png?1634769540',
+  },
+  HON: {
+    chainId: 43114,
+    address: '0xEd2b42D3C9c6E97e11755BB37df29B6375ede3EB',
+    decimals: 18,
+    name: 'Heroes of NFT',
+    symbol: 'HON',
+    website: 'https://heroesofnft.com/',
+    description:
+      'Heroes of NFT is an online card game where you can attend tournaments and defeat your opponents to rise to victory.',
+    logoURI: 'https://assets.coingecko.com/coins/images/23527/small/tokenlogo200.png?1644368289',
   },
 } as const;
 

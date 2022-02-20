@@ -27,6 +27,51 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  GENESIS: {
+    name: 'Genesis Worlds GENESIS',
+    symbol: 'GENESIS',
+    address: '0x51869836681BcE74a514625c856aFb697a013797',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://assets.coingecko.com/coins/images/19905/large/kKkWmniB_400x400.jpg?1636100432',
+    website: 'https://genesis.game/',
+    description:
+      'Genesis is a multicreator gaming universe, with a diverse community working together to achieve a common goal: A metaverse that will still be growing, evolving, and actively played in 100 years',
+  },
+  BICO: {
+    name: 'Biconomy BICO',
+    symbol: 'BICO',
+    address: '0x91c89A94567980f0e9723b487b0beD586eE96aa7',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/21061/large/biconomy_logo.jpg?1638269749',
+    website: 'https://www.biconomy.io/',
+    description:
+      'Biconomy is a multichain relayer protocol that aims to improve the user onboarding and transaction experience on decentralized applications (DApps)',
+  },
+  BOOK: {
+    name: 'Bookie Dao BOOK',
+    symbol: 'BOOK',
+    address: '0x8192759Bf7f247cC92F74E39B3A4225516624fC1',
+    chainId: 137,
+    decimals: 8,
+    logoURI: 'https://bookie.farm/logoether/bookie200.png',
+    website: 'https://bookie.farm/',
+    description:
+      'Decentralized Betting, where Odds & Games meet the Bookie - play the game or be the house, your stake!',
+  },
+  FODL: {
+    name: 'Fodl Finance FODL',
+    symbol: 'FODL',
+    address: '0x5314bA045a459f63906Aa7C76d9F337DcB7d6995',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/19040/large/new.jpg?1634559024',
+    website: 'https://fodl.finance/',
+    description:
+      'Fodl enables traders to utilize leverage for their trades without paying a funding rate. This leverage is derived from existing DeFi building blocks, such as Compound and Aave.',
+  },
   SAND: {
     name: 'Sandbox',
     symbol: 'SAND',

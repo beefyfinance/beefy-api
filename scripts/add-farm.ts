@@ -15,6 +15,12 @@ const {
   metis: {
     platforms: { netswap, tethys },
   },
+  avax: {
+    platforms: { joe },
+  },
+  moonbeam: {
+    platforms: { beamswap },
+  },
 } = addressBook;
 
 const yargs = require('yargs');
@@ -52,7 +58,7 @@ const projects = {
   joe: {
     prefix: 'joe',
     file: '../src/data/avax/joeDualLpPools.json',
-    masterchef: '0x188bED1968b795d5c9022F6a0bb5931Ac4c18F00',
+    masterchef: joe.masterchefV3,
   },
   spooky: {
     prefix: 'boo',
@@ -93,6 +99,11 @@ const projects = {
     prefix: 'finn',
     file: '../src/data/moonriver/finnLpPools.json',
     masterchef: finn.masterchef,
+  },
+  beamswap: {
+    prefix: 'beamswap',
+    file: '../src/data/moonbeam/beamswapLpPools.json',
+    masterchef: beamswap.masterchef,
   },
 };
 
