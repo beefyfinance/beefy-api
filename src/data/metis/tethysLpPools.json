@@ -1,5 +1,24 @@
 [
   {
+    "name": "tethys-wbtc-metis",
+    "address": "0xA0081C6D591c53Ae651bD71B8d90C83C1F1106C2",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0xa5B55ab1dAF0F8e1EFc0eB1931a957fd89B918f4",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "METIS",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "tethys-avax-metis",
     "address": "0xa41dCA7fC984686ACfD4b02DA49B6f318814135b",
     "decimals": "1e18",
