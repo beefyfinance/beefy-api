@@ -48,5 +48,30 @@
     "stratType": "StratLP",
     "addLiquidityUrl": "https://pancakeswap.finance/add/BNB/0x531780FAcE85306877D7e1F05d713D1B50a37F7A",
     "buyTokenUrl": "https://pancakeswap.finance/swap?outputCurrency=0x531780FAcE85306877D7e1F05d713D1B50a37F7A"
+  },
+  {
+    "id": "bomb-bomb-bshare",
+    "name": "BOMB-BSHARE LP",
+    "token": "BOMB-BSHARE LP",
+    "tokenDescription": "bomb.money",
+    "tokenAddress": "0x54f9fE531224Fa43Feb218B20ABa84d22a8fDc0C",
+    "tokenDecimals": 18,
+    "tokenDescriptionUrl": "#",
+    "earnedToken": "bomfarmBOMB-BSHARE",
+    "earnedTokenAddress": "0x4d574e560Fc5C2dc8997c13e1a5eEd1941dF9914",
+    "earnContractAddress": "0x4d574e560Fc5C2dc8997c13e1a5eEd1941dF9914",
+    "pricePerFullShare": 1,
+    "tvl": 0,
+    "oracle": "lps",
+    "oracleId": "bomb-bomb-bshare",
+    "oraclePrice": 0,
+    "depositsPaused": false,
+    "status": "active",
+    "platform": "bombfarm",
+    "assets": ["BSHARE", "BOMB"],
+    "risks": ["COMPLEXITY_LOW", "BATTLE_TESTED", "IL_LOW", "AUDIT", "CONTRACTS_VERIFIED"],
+    "stratType": "StratLP",
+    "addLiquidityUrl": "https://pancakeswap.finance/add/0x522348779DCb2911539e76A1042aA922F9C47Ee3/0x531780FAcE85306877D7e1F05d713D1B50a37F7A",
+    "buyTokenUrl": "https://pancakeswap.finance/swap?outputCurrency=0x522348779DCb2911539e76A1042aA922F9C47Ee3"
   }
 ]
