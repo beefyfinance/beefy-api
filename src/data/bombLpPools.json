@@ -36,5 +36,24 @@
       "oracleId": "BTCB",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "bomb-bomb-bshare",
+    "address": "0x54f9fE531224Fa43Feb218B20ABa84d22a8fDc0C",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x522348779DCb2911539e76A1042aA922F9C47Ee3",
+      "oracle": "tokens",
+      "oracleId": "BOMB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x531780FAcE85306877D7e1F05d713D1B50a37F7A",
+      "oracle": "tokens",
+      "oracleId": "BSHARE",
+      "decimals": "1e18"
+    }
   }
 ]

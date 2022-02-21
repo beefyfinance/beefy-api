@@ -10,13 +10,14 @@ import getNonAmmPrices from './getNonAmmPrices';
 // import blizzardLpPools from '../../data/degens/blizzardLpPools.json';
 // import alpacaLpPools from '../../data/alpacaLpPools.json';
 // import cafePools from '../../data/cafeLpPools.json';
-import cakeLpPools from '../../data/cakeLpPools.json';
-import cakeLpV1Pools from '../../data/cakeLpV1Pools.json';
+
 // import kebabPools from '../../data/kebabLpPools.json';
 // import bdollarSbdoPools from '../../data/bdollarSbdoLpPools.json';
 // import boltBtdPools from '../../data/boltBtdLpPools.json';
 // import boltBtsPools from '../../data/boltBtsLpPools.json';
 import bombLpPools from '../../data/bombLpPools.json';
+import cakeLpPools from '../../data/cakeLpPools.json';
+import cakeLpV1Pools from '../../data/cakeLpV1Pools.json';
 // import mdexPools from '../../data/heco/mdexLpPools.json';
 // import monsterPools from '../../data/monsterLpPools.json';
 // import narPools from '../../data/narLpPools.json';
@@ -411,7 +412,7 @@ const updateAmmPrices = async () => {
     const lpPrices = ammPrices.then(async ({ poolPrices, _ }) => {
       //const dmm = await dmmPrices;
       const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
-      return { ...poolPrices, ...nonAmmPrices };
+      return { ...poolPrices, ...nonAmmPrices }; // };
     });
 
     await tokenPrices;
