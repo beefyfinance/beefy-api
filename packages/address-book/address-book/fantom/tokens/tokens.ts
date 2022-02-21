@@ -71,6 +71,17 @@ const _tokens = {
       'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
     logoURI: 'https://app.deus.finance/tokens/deus.svg',
   },
+  WIGO: {
+    name: 'WigoSwap',
+    symbol: 'WIGO',
+    address: '0xE992bEAb6659BFF447893641A378FbbF031C5bD6',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://wigoswap.io/',
+    description:
+      'WigoSwap is a DeFi hub with lifetime farming earnings powered by Gamified Burning Mechanism (GBM).',
+    logoURI: 'https://wigoswap.io/images/tokens/0xE992bEAb6659BFF447893641A378FbbF031C5bD6.svg',
+  },
   PAE: {
     name: 'Ripae',
     symbol: 'PAE',
