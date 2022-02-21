@@ -5,7 +5,7 @@ import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 // import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 
-//import getNonAmmPrices from './getNonAmmPrices';
+import getNonAmmPrices from './getNonAmmPrices';
 // import bakeryPools from '../../data/bakeryLpPools.json';
 // import blizzardLpPools from '../../data/degens/blizzardLpPools.json';
 // import alpacaLpPools from '../../data/alpacaLpPools.json';
@@ -411,8 +411,8 @@ const updateAmmPrices = async () => {
 
     const lpPrices = ammPrices.then(async ({ poolPrices, _ }) => {
       //const dmm = await dmmPrices;
-      //  const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
-      return { ...poolPrices }; //...nonAmmPrices };
+      const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
+      return { ...poolPrices, ...nonAmmPrices }; // };
     });
 
     await tokenPrices;
