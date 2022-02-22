@@ -1,5 +1,90 @@
 [
   {
+    "name": "netswap-busd-m.usdc",
+    "address": "0x8014c801F6cF32445D503f7BaC30976B3161eE52",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0x12D84f1CFe870cA9C9dF9785f8954341d7fbb249",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEA32A96608495e54156Ae48931A7c20f0dcc1a21",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "netswap-wbtc-m.usdt",
+    "address": "0xAd9b903451dfdc3D79d2021289F9d864fd8c8119",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 1088,
+    "oracleB": "tokens",
+    "oracleIdB": "WBTC",
+    "decimalsB": "1e8",
+    "lp0": {
+      "address": "0xa5B55ab1dAF0F8e1EFc0eB1931a957fd89B918f4",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xbB06DCA3AE6887fAbF931640f67cab3e3a16F4dC",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "netswap-wbtc-metis",
+    "address": "0xE0cc462fe369146BAef2306EC6B4BF26704eE84e",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 1088,
+    "oracleB": "tokens",
+    "oracleIdB": "METIS",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xa5B55ab1dAF0F8e1EFc0eB1931a957fd89B918f4",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "METIS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "netswap-metis-relay",
+    "address": "0xA58bd557BFBC12f8cEaCcc6E1668F5FBFB2118BB",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 1088,
+    "oracleB": "tokens",
+    "oracleIdB": "RELAY",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "METIS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfe282Af5f9eB59C30A3f78789EEfFA704188bdD4",
+      "oracle": "tokens",
+      "oracleId": "RELAY",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "netswap-bifi-metis",
     "address": "0x89D433e8cCC871B3f12EA17b651ff3633DFb5DC0",
     "decimals": "1e18",
