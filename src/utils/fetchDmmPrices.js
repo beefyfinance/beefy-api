@@ -68,7 +68,13 @@ const fetchDmmPrices = async (pools, knownPrices) => {
       });
     });
 
-    const res = await multicall.all([dmmCalls, lp0Calls, lp1Calls]);
+    let res;
+    try {
+      res = await multicall.all([dmmCalls, lp0Calls, lp1Calls]);
+    } catch (e) {
+      console.error('fetchDmmPrices', e);
+      continue;
+    }
 
     const totalSupply = res[0].map(v => new BigNumber(v.totalSupply));
     const virtualBal0 = res[0].map(v => new BigNumber(v.tradeInfo['2']));
