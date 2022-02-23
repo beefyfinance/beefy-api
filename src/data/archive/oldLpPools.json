@@ -1,5 +1,23 @@
 [
   {
+    "name": "quick-zig-quick",
+    "address": "0x9D6D31d8bD564cd77a70b7a0Cc1416Be9DCD8B6f",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7BeBd226154E865954A87650FAefA8F485d36081",
+      "oracle": "tokens",
+      "oracleId": "ZIG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+      "oracle": "tokens",
+      "oracleId": "QUICK",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-eth-wsta",
     "address": "0x47dcD7Ee93434912b0B8eEeb4fd1cd76A37ca2A1",
     "decimals": "1e18",
