@@ -29,6 +29,18 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  WBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    address: '0xa5B55ab1dAF0F8e1EFc0eB1931a957fd89B918f4',
+    chainId: 1088,
+    decimals: 8,
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    logoURI:
+      'https://ftmscan.com/token/images/wBTC_32.png',
+  },
   NETT: {
     name: 'Netswap Token',
     symbol: 'NETT',

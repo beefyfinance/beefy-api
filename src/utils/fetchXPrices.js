@@ -5,6 +5,7 @@ const ERC20 = require('../abis/ERC20.json');
 
 import { FANTOM_CHAIN_ID, POLYGON_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
+
 const {
   fantom: {
     tokens: { BOO, xBOO, SCREAM, xSCREAM, CREDIT, xCREDIT },
@@ -41,7 +42,13 @@ const getXPrices = async (tokenPrices, tokens, chainId) => {
     });
   });
 
-  const res = await multicall.all([stakedInXPoolCalls, totalXSupplyCalls]);
+  let res;
+  try {
+    res = await multicall.all([stakedInXPoolCalls, totalXSupplyCalls]);
+  } catch (e) {
+    console.error('getXPrices', e);
+    return tokens.map(() => 0);
+  }
   const stakedInXPool = res[0].map(v => new BigNumber(v.stakedInXPool));
   const totalXSupply = res[1].map(v => new BigNumber(v.totalXSupply));
 

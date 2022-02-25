@@ -38,6 +38,50 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  CRE8R: {
+    name: 'CRE8R DAO',
+    symbol: 'CRE8R',
+    address: '0x2aD402655243203fcfa7dCB62F8A08cc2BA88ae0',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://cre8r.vip/',
+    description:
+      'The worlds first & only decentralized Web3 content marketing agency DAO. Massively scalable. Fueled by DeFi. ',
+    logoURI: 'https://app.spiritswap.finance/images/tokens/CRE8R.png',
+  },
+  DEI: {
+    name: 'DEI',
+    symbol: 'DEI',
+    address: '0xDE12c7959E1a72bbe8a5f7A1dc8f8EeF9Ab011B3',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
+    logoURI: 'https://app.deus.finance/tokens/dei.svg',
+  },
+  DEUS: {
+    name: 'DEUS',
+    symbol: 'DEUS',
+    address: '0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
+    logoURI: 'https://app.deus.finance/tokens/deus.svg',
+  },
+  WIGO: {
+    name: 'WigoSwap',
+    symbol: 'WIGO',
+    address: '0xE992bEAb6659BFF447893641A378FbbF031C5bD6',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://wigoswap.io/',
+    description:
+      'WigoSwap is a DeFi hub with lifetime farming earnings powered by Gamified Burning Mechanism (GBM).',
+    logoURI: 'https://wigoswap.io/images/tokens/0xE992bEAb6659BFF447893641A378FbbF031C5bD6.svg',
+  },
   PAE: {
     name: 'Ripae',
     symbol: 'PAE',

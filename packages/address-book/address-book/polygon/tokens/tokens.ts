@@ -27,6 +27,29 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  GENESIS: {
+    name: 'Genesis Worlds GENESIS',
+    symbol: 'GENESIS',
+    address: '0x51869836681BcE74a514625c856aFb697a013797',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://assets.coingecko.com/coins/images/19905/large/kKkWmniB_400x400.jpg?1636100432',
+    website: 'https://genesis.game/',
+    description:
+      'Genesis is a multicreator gaming universe, with a diverse community working together to achieve a common goal: A metaverse that will still be growing, evolving, and actively played in 100 years',
+  },
+  BICO: {
+    name: 'Biconomy BICO',
+    symbol: 'BICO',
+    address: '0x91c89A94567980f0e9723b487b0beD586eE96aa7',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/21061/large/biconomy_logo.jpg?1638269749',
+    website: 'https://www.biconomy.io/',
+    description:
+      'Biconomy is a multichain relayer protocol that aims to improve the user onboarding and transaction experience on decentralized applications (DApps)',
+  },
   BOOK: {
     name: 'Bookie Dao BOOK',
     symbol: 'BOOK',

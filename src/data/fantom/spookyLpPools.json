@@ -760,6 +760,25 @@
     }
   },
   {
+    "name": "boo-ftm-multi",
+    "address": "0x297C8990134bf1eE08aE5D8805042fbac8781201",
+    "decimals": "1e18",
+    "poolId": 61,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9Fb9a33956351cf4fa040f65A13b835A3C8764E3",
+      "oracle": "tokens",
+      "oracleId": "MULTI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-any-ftm",
     "address": "0x5c021D9cfaD40aaFC57786b409A9ce571de375b4",
     "decimals": "1e18",

@@ -1,5 +1,27 @@
 [
   {
+    "name": "png-fire-wavax",
+    "address": "0x45324950c6ba08112EbF72754004a66a0a2b7721",
+    "decimals": "1e18",
+    "poolId": 83,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "FIRE",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5",
+      "oracle": "tokens",
+      "oracleId": "FIRE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-ust-wavax",
     "address": "0xdeaBb6e80141F5E557EcBDD7e9580F37D7BBc371",
     "decimals": "1e18",
