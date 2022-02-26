@@ -15,6 +15,18 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  ACRE: {
+    name: 'Arable Protocol ACRE',
+    symbol: 'ACRE',
+    address: '0x00EE200Df31b869a321B10400Da10b561F3ee60d',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0x00EE200Df31b869a321B10400Da10b561F3ee60d/logo.png',
+    website: 'https://www.arablefi.com/',
+    description:
+      'Arable is a synthetic yield farming protocol that is dedicated to helping yield farmers access multiple blockchains (such as Ethereum, Avalanche, Solana, or Polygon) assets and yields on a single chain.',
+  },
   FIRE: {
     name: 'The Phoenix FIRE',
     symbol: 'FIRE',
