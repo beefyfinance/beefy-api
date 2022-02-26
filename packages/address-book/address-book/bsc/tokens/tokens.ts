@@ -26,6 +26,18 @@ const _tokens = {
     website: 'https://ertha.io/',
     description: 'Own NFT land in ERTHA metaverse & generate lifetime revenue',
   },
+  RACA: {
+    name: 'Radio Caca',
+    symbol: 'RACA',
+    address: '0x12BB890508c125661E03b09EC06E404bc9289040',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x12BB890508c125661E03b09EC06E404bc9289040.svg',
+    website: 'https://www.radiocaca.com/',
+    description:
+      'RACA is the native token for blockchain P2E game Metamon and for the Universal Metaverse (a.k.a. USM).',
+  },
   FUSE: {
     name: 'Fuse Token on BSC',
     symbol: 'FUSE',
