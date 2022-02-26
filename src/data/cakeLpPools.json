@@ -1,5 +1,24 @@
 [
   {
+    "name": "cakev2-raca-busd",
+    "address": "0x8e744Ec2795c8B836689d1b4EBE1489204357dAC",
+    "decimals": "1e18",
+    "poolId": 507,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x12BB890508c125661E03b09EC06E404bc9289040",
+      "oracle": "tokens",
+      "oracleId": "RACA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-ertha-wbnb",
     "address": "0x70531B39E2Bb4d8dA59E2Ce41a98eBA2990F8497",
     "decimals": "1e18",
