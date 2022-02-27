@@ -1,5 +1,27 @@
 [
   {
+    "name": "png-bribe-wavax",
+    "address": "0x7472887De3B0aA65168a1Da22164C81DE5fd4044",
+    "decimals": "1e18",
+    "poolId": 85,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "LOOT",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCe2fbed816E320258161CeD52c2d0CEBcdFd8136",
+      "oracle": "tokens",
+      "oracleId": "BRIBE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-acre-wavax",
     "address": "0x64694FC8dFCA286bF1A15b0903FAC98217dC3AD7",
     "decimals": "1e18",
