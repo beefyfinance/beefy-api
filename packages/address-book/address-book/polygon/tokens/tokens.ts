@@ -61,6 +61,36 @@ const _tokens = {
     description:
       'Decentralized Betting, where Odds & Games meet the Bookie - play the game or be the house, your stake!',
   },
+  cxETH: {
+    name: 'CelsiusX Wrapped ETH',
+    symbol: 'cxETH',
+    address: '0xfe4546feFe124F30788c4Cc1BB9AA6907A7987F9',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://i.ibb.co/VDPBwHS/cx-ETH-128x128.png',
+    website: 'https://celsiusx.io/ ',
+    description: 'CelsiusX Wrapped ETH Token',
+  },
+  cxADA: {
+    name: 'CelsiusX Wrapped ADA',
+    symbol: 'cxADA',
+    address: '0x64875Aaa68d1d5521666C67d692Ee0B926b08b2F',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://i.ibb.co/x3RcB6Q/cx-ADA-128x128.png',
+    website: 'https://celsiusx.io/ ',
+    description: 'CelsiusX Wrapped ADA Token',
+  },
+  cxDOGE: {
+    name: 'CelsiusX Wrapped DOGE',
+    symbol: 'cxDOGE',
+    address: '0x9Bd9aD490dD3a52f096D229af4483b94D63BE618',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://i.ibb.co/FH1GMYX/cx-DOGE-128x128.png',
+    website: 'https://celsiusx.io/ ',
+    description: 'CelsiusX Wrapped DOGE Token',
+  },
   FODL: {
     name: 'Fodl Finance FODL',
     symbol: 'FODL',
@@ -137,16 +167,6 @@ const _tokens = {
     website: 'https://www.olympusdao.finance/',
     description:
       'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
-  },
-  GNS: {
-    name: 'Gains Network Token',
-    address: '0xe5417af564e4bfda1c483642db72007871397896',
-    symbol: 'GNS',
-    decimals: 18,
-    chainId: 137,
-    website: 'https://gainsnetwork.io/',
-    description: 'Decentralized leverage trading platform on Polygon.',
-    logoURI: 'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
   },
   TUSD: {
     name: 'True USD',
