@@ -1,5 +1,24 @@
 [
   {
+    "name": "wigo-solid-wigo",
+    "address": "0x86BF67e8B743b25586b7eD88243Efc2f1d09edB3",
+    "decimals": "1e18",
+    "poolId": 17,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x888EF71766ca594DED1F0FA3AE64eD2941740A20",
+      "oracle": "tokens",
+      "oracleId": "SOLID",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE992bEAb6659BFF447893641A378FbbF031C5bD6",
+      "oracle": "tokens",
+      "oracleId": "WIGO",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "wigo-treeb-ftm",
     "address": "0x467c4f18CEDCC768F22233c8b047E990e440B470",
     "decimals": "1e18",
