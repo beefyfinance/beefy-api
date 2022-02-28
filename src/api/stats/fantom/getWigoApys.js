@@ -12,6 +12,16 @@ const getWigoApys = async () =>
     hasMultiplier: true,
     useMultiplierTimestamp: true,
     pools: pools,
+    singlePools: [
+      {
+        name: 'wigo-wigo',
+        poolId: 0,
+        address: '0xE992bEAb6659BFF447893641A378FbbF031C5bD6',
+        oracle: 'tokens',
+        oracleId: 'WIGO',
+        decimals: '1e18',
+      },
+    ],
     oracleId: 'WIGO',
     oracle: 'tokens',
     decimals: '1e18',
