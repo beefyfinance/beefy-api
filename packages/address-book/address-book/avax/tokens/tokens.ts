@@ -15,6 +15,54 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  FIEF: {
+    name: 'Fief FIEF',
+    symbol: 'FIEF',
+    address: '0x65Def5029A0e7591e46B38742bFEdd1Fb7b24436',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xeA068Fba19CE95f12d252aD8Cb2939225C4Ea02D/logo.png',
+    website: 'https://fief.finance/',
+    description:
+      'Fief is the economic guild of the metaverse with the primary objectives to acquire key assets from across the metaverse and drive the value of those assets through the combination of a highly-gamified guild faction system and decentralized protocols.',
+  },
+  BRIBE: {
+    name: 'Police & Thief Game BRIBE',
+    symbol: 'BRIBE',
+    address: '0xCe2fbed816E320258161CeD52c2d0CEBcdFd8136',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xCe2fbed816E320258161CeD52c2d0CEBcdFd8136/logo.png',
+    website: 'https://policeandthief.game/',
+    description:
+      'BRIBE represents the latest token rollout in the Tri-Token Tokenomics of the police & thief game.',
+  },
+  TUS: {
+    name: 'Treasure Under Sea TUS',
+    symbol: 'TUS',
+    address: '0xf693248F96Fe03422FEa95aC0aFbBBc4a8FdD172',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xf693248F96Fe03422FEa95aC0aFbBBc4a8FdD172/logo.png',
+    website: 'https://crabada.com',
+    description:
+      'TUS is the in-game currency earned via playing the game in the form of Mining, Looting and Lending Crabada via the Tavern.',
+  },
+  ACRE: {
+    name: 'Arable Protocol ACRE',
+    symbol: 'ACRE',
+    address: '0x00EE200Df31b869a321B10400Da10b561F3ee60d',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0x00EE200Df31b869a321B10400Da10b561F3ee60d/logo.png',
+    website: 'https://www.arablefi.com/',
+    description:
+      'Arable is a synthetic yield farming protocol that is dedicated to helping yield farmers access multiple blockchains (such as Ethereum, Avalanche, Solana, or Polygon) assets and yields on a single chain.',
+  },
   FIRE: {
     name: 'The Phoenix FIRE',
     symbol: 'FIRE',

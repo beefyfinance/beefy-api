@@ -49,6 +49,17 @@ const _tokens = {
       'Solidly is an AMM allowing fully decentralized token swapping with support for low slippage trades between pegged assets like stablecoins.',
     logoURI: 'https://assets.spookyswap.finance/tokens/SOLID.png',
   },
+  KAE: {
+    name: 'Kanpeki KAE',
+    symbol: 'KAE',
+    address: '0x65Def5029A0e7591e46B38742bFEdd1Fb7b24436',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://assets.spookyswap.finance/tokens/KAE.png',
+    website: 'https://kanpeki.finance/',
+    description:
+      'Kanpeki is an incentivized, non-custodial, individualized, fixed-rate borrowing, and lending platform.',
+  },
   CRE8R: {
     name: 'CRE8R DAO',
     symbol: 'CRE8R',
