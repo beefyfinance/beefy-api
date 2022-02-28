@@ -206,6 +206,7 @@ import grapePools from '../../data/avax/grapeLpPools.json';
 import trisolarisMiniPools from '../../data/aurora/trisolarisMiniLpPools.json';
 import creditumPools from '../../data/fantom/creditumPools.json';
 import ripaePools from '../../data/fantom/ripaeLpPools.json';
+import ripaeAvaxPools from '../../data/avax/ripaeLpPools.json';
 import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
 import wigoPools from '../../data/fantom/wigoLpPools.json';
@@ -223,6 +224,7 @@ const pools = [
   ...darkCryptoPools,
   ...beamswapPools,
   ...ripaePools,
+  ...ripaeAvaxPools,
   ...creditumPools,
   ...trisolarisMiniPools,
   ...grapePools,
