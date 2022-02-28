@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  SOLID: {
+    name: 'Solidly',
+    symbol: 'SOLID',
+    address: '0x888EF71766ca594DED1F0FA3AE64eD2941740A20',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://solidly.exchange/',
+    description:
+      'Solidly is an AMM allowing fully decentralized token swapping with support for low slippage trades between pegged assets like stablecoins.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/SOLID.png',
+  },
   KAE: {
     name: 'Kanpeki KAE',
     symbol: 'KAE',
@@ -57,7 +68,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://cre8r.vip/',
     description:
-      'The worlds first & only decentralized Web3 content marketing agency DAO. Massively scalable. Fueled by DeFi. ',
+      'The worlds first & only decentralized Web3 content marketing agency DAO. Massively scalable. Fueled by DeFi.',
     logoURI: 'https://app.spiritswap.finance/images/tokens/CRE8R.png',
   },
   DEI: {
