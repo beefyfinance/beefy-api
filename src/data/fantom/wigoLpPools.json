@@ -202,7 +202,7 @@
       "decimals": "1e6"
     },
     "lp1": {
-      "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+      "address": "0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355",
       "oracle": "tokens",
       "oracleId": "FRAX",
       "decimals": "1e18"
