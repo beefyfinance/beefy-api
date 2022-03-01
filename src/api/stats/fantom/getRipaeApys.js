@@ -5,7 +5,7 @@ const pools = require('../../../data/fantom/ripaeLpPools.json');
 import { spookyClient } from '../../../apollo/client';
 import { SPOOKY_LPF } from '../../../constants';
 
-const getGrapeApys = async () =>
+const getRipaeApys = async () =>
   await getMasterChefApys({
     web3: web3,
     chainId: chainId,
@@ -22,4 +22,4 @@ const getGrapeApys = async () =>
     // log: true,
   });
 
-module.exports = getGrapeApys;
+module.exports = getRipaeApys;
