@@ -1234,6 +1234,17 @@ const _tokens = {
     website: 'https://www.liquiddriver.finance/',
     description: 'Incentivizing deep liquidity for SushiSwap on Fantom Opera.',
   },
+  beFTM: {
+    name: 'Beefy Escrowed Fantom',
+    symbol: 'beFTM',
+    address: '0x7381eD41F6dE418DdE5e84B55590422a57917886',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'beefy.com',
+    description:
+      'Beefy Escrowed Fantom is 1 year perpetually lock FTM that is delegated and locked to earn the maximum validator reward',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

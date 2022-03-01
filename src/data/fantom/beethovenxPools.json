@@ -26,15 +26,15 @@
   },
   {
     "name": "beets-solid-beets",
-    "address": "0xf7bf0f161d3240488807ffa23894452246049916",
-    "vault": "0x283277751369c6012d9c4384e1779b2a8672f1d7",
+    "address": "0xF2b2103E1351c4D47b27eFC8100bb264364FA92C",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
     "vaultPoolId": "0xf2b2103e1351c4d47b27efc8100bb264364fa92c00020000000000000000025a",
     "poolId": 59,
     "decimals": "1e18",
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "Solid",
+        "oracleId": "SOLID",
         "decimals": "1e18"
       },
       {
