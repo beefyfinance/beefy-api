@@ -15,6 +15,28 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  PAE: {
+    name: 'Ripae',
+    symbol: 'PAE',
+    address: '0x9466Ab927611725B9AF76b9F31B2F879Ff14233d',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://ripae.finance/',
+    description:
+      'Ripae Finances full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://avax.ripae.finance/static/media/ripae_pftm.3832b2f1.svg',
+  },
+  pAVAX: {
+    name: 'pAVAX',
+    symbol: 'pAVAX',
+    address: '0x6ca558bd3eaB53DA1B25aB97916dd14bf6CFEe4E',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://ripae.finance/',
+    description:
+      'Ripae Finances full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://avax.ripae.finance/static/media/ripae_pae.e914457b.svg',
+  },
   FIEF: {
     name: 'Fief FIEF',
     symbol: 'FIEF',
