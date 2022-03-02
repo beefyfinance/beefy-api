@@ -20,7 +20,7 @@ function addToCache({ oracle, id, price }) {
 
 const fetchPrice = async ({ oracle, id }) => {
   if (oracle === undefined) {
-    console.error('Undefined oracle');
+    console.trace('Undefined oracle');
     return 0;
   }
   if (id === undefined) {
