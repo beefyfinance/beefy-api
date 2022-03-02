@@ -16,7 +16,7 @@ const singlePool = [
     address: '0x7381eD41F6dE418DdE5e84B55590422a57917886',
     rewardPool: '0xE00D25938671525C2542A689e42D1cfA56De5888',
     decimals: '1e18',
-    oracleId: 'WFTM',
+    oracleId: 'beFTM',
     oracle: 'tokens',
     chainId: 250,
   },
@@ -25,9 +25,9 @@ const singlePool = [
 const getbeFTMApy = async () => {
   const beFTMApy = getRewardPoolApys({
     pools: singlePool,
-    oracleId: beFTM.symbol,
+    oracleId: 'WFTM',
     oracle: 'tokens',
-    decimals: getEDecimals(beFTM.decimals),
+    decimals: getEDecimals(WFTM.decimals),
     web3: web3,
     chainId: 250,
     // log: true,
