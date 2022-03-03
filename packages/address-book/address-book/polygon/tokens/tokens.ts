@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  SX: {
+    name: 'SX Network SX',
+    symbol: 'SX',
+    address: '0x840195888Db4D6A99ED9F73FcD3B225Bb3cB1A79',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/13779/large/sx.png?1636034699',
+    website: 'https://sx.technology/',
+    description:
+      'SX Network is the first public blockchain to combine a smart contract platform with an on-chain community treasury and a native prediction market protocol.',
+  },
   GENESIS: {
     name: 'Genesis Worlds GENESIS',
     symbol: 'GENESIS',
