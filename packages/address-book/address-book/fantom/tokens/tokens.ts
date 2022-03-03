@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  ATLAS: {
+    name: 'Atlas Cloud',
+    symbol: 'ATLAS',
+    address: '0x92df3eaBf7c1c2A6b3D5793f6d53778eA78c48b2',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://atlascloud.network/',
+    description:
+      'Atlas Cloud is a Nodes-as-a-service protocol on a Fantom chain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/Atlas.png',
+  },
   SOLID: {
     name: 'Solidly',
     symbol: 'SOLID',
