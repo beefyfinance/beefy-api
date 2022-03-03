@@ -1,8 +1,9 @@
 const getMoonbeamBifiGovApy = require('./getMoonbeamBifiGovApy');
 const getBeamswapApys = require('./getBeamswapApys');
 const { getMoonbeamBifiMaxiApy } = require('./getMoonbeamBifiMaxiApy');
+const { getSolarFlareApys } = require('./getSolarFlareApys');
 
-const getApys = [getBeamswapApys, getMoonbeamBifiGovApy, getMoonbeamBifiMaxiApy];
+const getApys = [getBeamswapApys, getMoonbeamBifiGovApy, getMoonbeamBifiMaxiApy, getSolarFlareApys];
 
 const getMoonbeamApys = async () => {
   let apys = {};
