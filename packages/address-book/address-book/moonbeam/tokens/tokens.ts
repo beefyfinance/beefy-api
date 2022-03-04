@@ -53,6 +53,18 @@ const _tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
+  USDCs: {
+    name: 'USD Coin',
+    symbol: 'USDC',
+    address: '0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
   BUSD: {
     name: 'Binance-Peg BUSD Token',
     symbol: 'BUSD',
@@ -81,6 +93,18 @@ const _tokens = {
     name: 'Ethereum',
     symbol: 'ETH',
     address: '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
+    website: 'https://ethereum.org/',
+    description:
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+  },
+  ETHs: {
+    name: 'Ethereum',
+    symbol: 'ETH',
+    address: '0x30D2a9F5FDf90ACe8c17952cbb4eE48a55D916A7',
     chainId: 1284,
     decimals: 18,
     logoURI:
