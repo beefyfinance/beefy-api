@@ -25,6 +25,26 @@
     ]
   },
   {
+    "name": "beets-statera-duet",
+    "address": "0x5Bb2DeE206C2bCc5768B9B2865eA971Bd9c0fF19",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x5bb2dee206c2bcc5768b9b2865ea971bd9c0ff19000200000000000000000219",
+    "poolId": 52,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WSTA",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-solid-beets",
     "address": "0xF2b2103E1351c4D47b27eFC8100bb264364FA92C",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
