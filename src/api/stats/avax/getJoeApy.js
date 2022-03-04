@@ -39,7 +39,6 @@ const getJoeApy = async () => {
 
   const yearlyRewards = scaledAccumulatedRewards.dividedBy(diffDays).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(usdcPrice).dividedBy(pool.decimals);
-  const yearlyNumber = yearlyRewardsInUsd.toNumber();
 
   const simpleApr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
