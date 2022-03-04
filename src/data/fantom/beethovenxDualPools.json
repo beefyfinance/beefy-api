@@ -1,28 +1,5 @@
 [
   {
-    "name": "beets-cre8r-f-major",
-    "address": "0xbb4607beDE4610e80d35C15692eFcB7807A2d0A6",
-    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
-    "poolId": 39,
-    "oracleB": "tokens",
-    "oracleIdB": "CRE8R",
-    "decimalsB": "1e18",
-    "vaultPoolId": "0xbb4607bede4610e80d35c15692efcb7807a2d0a6000200000000000000000140",
-    "decimals": "1e18",
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "FTM",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "CRE8R",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "beets-demeters-degree",
     "address": "0xf7bF0f161d3240488807FFa23894452246049916",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
