@@ -1271,7 +1271,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     logoURI: '',
-    website: 'beefy.com',
+    website: 'https://blog.beefy.finance/articles/introducing-beftm/',
     description:
       'Beefy Escrowed Fantom is 1 year perpetually lock FTM that is delegated and locked to earn the maximum validator reward',
   },
