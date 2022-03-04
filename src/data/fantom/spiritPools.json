@@ -1,5 +1,24 @@
 [
   {
+    "name": "spirit-ftm-treeb",
+    "address": "0x2cEfF1982591c8B0a73b36D2A6C2A6964Da0E869",
+    "gauge": "0x27829EAaB2972fD49eE753abFc67cC3EaC9c7397",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc60D7067dfBc6f2caf30523a064f416A5Af52963",
+      "oracle": "tokens",
+      "oracleId": "TREEB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spirit-ftm-atlas",
     "address": "0xFFcF183126dF14EC4E59409bAb431885ccEEb1C2",
     "gauge": "0x0680938Dc66DcEb3B1D791172d640e2449Db1D1A",
