@@ -38,6 +38,26 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  BSHARE: {
+    name: 'BSHARE',
+    symbol: 'BSHARE',
+    address: '0x49C290Ff692149A4E16611c694fdED42C954ab7a',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://basedfinance.io/',
+    description: 'Based Finance the first algorithmic token pegged to TOMB on the FTM Network.',
+    logoURI: 'https://assets.coingecko.com/coins/images/23507/small/based.PNG',
+  },
+  BASED: {
+    name: 'BASED',
+    symbol: 'BASED',
+    address: '0x8D7d3409881b51466B483B11Ea1B8A03cdEd89ae',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://basedfinance.io/',
+    description: 'Based Finance the first algorithmic token pegged to TOMB on the FTM Network.',
+    logoURI: 'https://assets.coingecko.com/coins/images/23535/small/BASED_TOKEN.109291b9.png',
+  },
   ATLAS: {
     name: 'Atlas Cloud',
     symbol: 'ATLAS',
@@ -45,8 +65,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://atlascloud.network/',
-    description:
-      'Atlas Cloud is a Nodes-as-a-service protocol on a Fantom chain.',
+    description: 'Atlas Cloud is a Nodes-as-a-service protocol on a Fantom chain.',
     logoURI: 'https://assets.spookyswap.finance/tokens/Atlas.png',
   },
   SOLID: {

@@ -31,6 +31,7 @@ const getRipaeApys = require('./getRipaeApys');
 const getWigoApys = require('./getWigoApys');
 const getbeFTMApy = require('./getbeFTMApy');
 const getbeFtmEarnApy = require('./getbeFtmEarnApy');
+const getBasedApy = require('./getBasedApys');
 
 const getApys = [
   getSushiLpApys,
@@ -66,6 +67,7 @@ const getApys = [
   getWigoApys,
   getbeFTMApy,
   getbeFtmEarnApy,
+  getBasedApy,
 ];
 
 const getFantomApys = async () => {
