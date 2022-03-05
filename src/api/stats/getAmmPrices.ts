@@ -4,6 +4,7 @@ import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
+import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 
 import getNonAmmPrices from './getNonAmmPrices';
@@ -466,15 +467,21 @@ const updateAmmPrices = async () => {
       return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
     });
 
+    const beFtmPrice = ammPrices.then(async pools => {
+      return await fetchbeFTMPrice(pools.tokenPrices);
+    });
+
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
       const dmm = await dmmPrices;
       const xTokenPrices = await xPrices;
       const mooTokenPrices = await mooPrices;
+      const beFtmTokenPrice = await beFtmPrice;
       return {
         ...tokenPrices,
         ...dmm.tokenPrices,
         ...mooTokenPrices,
         ...xTokenPrices,
+        ...beFtmTokenPrice,
         ...(await coinGeckoPrices),
       };
     });

@@ -1,24 +1,5 @@
 [
   {
-    "name": "solidly-wftm-beftm",
-    "address": "0x387a11D161f6855Bd3c801bA6C79Fe9b824Ce1f3",
-    "gauge": "0xB8cA7D728548bC25303C73A2faafFE9EB681Bf1c",
-    "decimals": "1e18",
-    "chainId": 250,
-    "lp0": {
-      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
-      "oracle": "tokens",
-      "oracleId": "WFTM",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x7381eD41F6dE418DdE5e84B55590422a57917886",
-      "oracle": "tokens",
-      "oracleId": "beFTM",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "solidly-binspirit-spirit",
     "address": "0xa7Ea870dc93ffB712ca74b43eFCA9B07556d1303",
     "gauge": "0x37b99113760cFb7D9A7152142Cc36b3EaB121B5F",
