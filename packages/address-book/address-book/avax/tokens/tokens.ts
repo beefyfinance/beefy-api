@@ -15,6 +15,30 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  ECD: {
+    name: 'Echidna ECD',
+    symbol: 'ECD',
+    address: '0xeb8343D5284CaEc921F035207ca94DB6BAaaCBcd',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xeb8343d5284caec921f035207ca94db6baaacbcd/logo.png',
+    website: 'https://www.echidna.finance/',
+    description:
+      'Echidna Finance is the ultimate yield boosting protocol for Platypus Finance, Avalanches native stableswap.',
+  },
+  VTX: {
+    name: 'Vector',
+    symbol: 'ECD',
+    address: '0x5817D4F0b62A59b17f75207DA1848C2cE75e7AF4',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x5817D4F0b62A59b17f75207DA1848C2cE75e7AF4/logo.png',
+    website: 'https://vectorfinance.io/',
+    description:
+      'Vector allows users to deposit stablecoins and earn boosted yield from the Platypus platform, without having to stake their PTP and worry about accruing vePTP.',
+  },
   PAE: {
     name: 'Ripae',
     symbol: 'PAE',
