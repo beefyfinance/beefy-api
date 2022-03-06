@@ -20,7 +20,7 @@ const getbeFTMPrice = async (tokenPrices, chainId) => {
   );
   const price = amountOut.times(tokenPrices['WFTM']).dividedBy(1000000000000000000);
 
-  return price;
+  return price.toNumber();
 };
 
 module.exports = { fetchbeFTMPrice };
