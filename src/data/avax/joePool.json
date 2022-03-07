@@ -1,7 +1,4 @@
 {
   "name": "joe-joe",
-  "rewardPool": "0x1a731B2299E22FbAC282E7094EdA41046343Cb51",
-  "rewardToken": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
-  "oracleId": "USDC",
-  "decimals": "1e6"
+  "rewardPool": "0x1a731B2299E22FbAC282E7094EdA41046343Cb51"
 }
