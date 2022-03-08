@@ -15,6 +15,26 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  EGG: {
+    name: 'Chikn Egg',
+    symbol: 'EGG',
+    address: '0x7761E2338B35bCEB6BdA6ce477EF012bde7aE611',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/21811/large/EggToken_200_Transparent.png',
+    website: 'https://chikn.farm/',
+    description: 'Chikn is an ecosystem based around NFTs that lay EGGs.',
+  },
+  FEED: {
+    name: 'Chikn Feed',
+    symbol: 'FEED',
+    address: '0xab592d197ACc575D16C3346f4EB70C703F308D1E',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/22417/large/bJIvBemg_400x400.jpg',
+    website: 'https://chikn.farm/',
+    description: 'Chikn is an ecosystem based around NFTs that lay EGGs.',
+  },
   ECD: {
     name: 'Echidna ECD',
     symbol: 'ECD',
