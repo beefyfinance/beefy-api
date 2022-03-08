@@ -1,5 +1,24 @@
 [
   {
+    "name": "joe-feed-wavax",
+    "address": "0x017025f07b23Bb30e1140dB10D3fe7A1626CFdD0",
+    "decimals": "1e18",
+    "poolId": 32,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xab592d197ACc575D16C3346f4EB70C703F308D1E",
+      "oracle": "tokens",
+      "oracleId": "FEED",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-link.e-usdc.e",
     "address": "0xb9f425bC9AF072a91c423e31e9eb7e04F226B39D",
     "decimals": "1e18",
