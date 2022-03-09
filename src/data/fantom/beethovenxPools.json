@@ -1,5 +1,25 @@
 [
   {
+    "name": "beets-beefy-tale",
+    "address": "0x3bd4c3d1f6F40d77B2e9d0007D6f76E4F183A46d",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x3bd4c3d1f6f40d77b2e9d0007d6f76e4f183a46d0002000000000000000002d7",
+    "poolId": 61,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "beFTM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-multichain-maxi",
     "address": "0xf5c690b7Af4fDC551eC89aCbaD91C6D646762A93",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
