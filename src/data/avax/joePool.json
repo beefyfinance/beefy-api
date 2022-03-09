@@ -1,6 +1,4 @@
 {
   "name": "joe-joe",
-  "address": "0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd",
-  "decimals": "1e18",
-  "poolId": 24
+  "rewardPool": "0x1a731B2299E22FbAC282E7094EdA41046343Cb51"
 }
