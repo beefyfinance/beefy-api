@@ -212,7 +212,6 @@ import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
 import wigoPools from '../../data/fantom/wigoLpPools.json';
 import solidlyPools from '../../data/fantom/solidlyLpPools.json';
-import { solidly } from '../../../packages/address-book/address-book/fantom/platforms/solidly';
 import miniversePools from '../../data/fantom/miniverseLpPools.json';
 import solarflare from '../../data/moonbeam/solarFlareLpPools.json';
 import basedPools from '../../data/fantom/basedLpPools.json';
