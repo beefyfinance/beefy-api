@@ -1,0 +1,249 @@
+[
+  {
+    "name": "solarflare-ust-wglmr",
+    "address": "0xa2844004Ce6336007f09D6Bf959B5602ABbf19fb",
+    "decimals": "1e18",
+    "poolId": 21,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x085416975fe14C2A731a97eC38B9bF8135231F62",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-luna-flare",
+    "address": "0xAc69fa960b5fcc90559BF39284C00946e7d8Eb78",
+    "decimals": "1e18",
+    "poolId": 20,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x31DAB3430f3081dfF3Ccd80F17AD98583437B213",
+      "oracle": "tokens",
+      "oracleId": "LUNA",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xE3e43888fa7803cDC7BEA478aB327cF1A0dc11a7",
+      "oracle": "tokens",
+      "oracleId": "FLARE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-wbtc-wglmr",
+    "address": "0xDF74D67a4Fe29d9D5e0bfAaB3516c65b21a5d7cf",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x1DC78Acda13a8BC4408B207c9E48CDBc096D95e0",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-wglmr-bnb",
+    "address": "0xFD0468F209a9f99a4bc8Beb26816Dc333dd7f1F8",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-usdc-flare",
+    "address": "0x976888647affb4b2d7Ac1952cB12ca048cD67762",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xE3e43888fa7803cDC7BEA478aB327cF1A0dc11a7",
+      "oracle": "tokens",
+      "oracleId": "FLARE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-wbtc-weth",
+    "address": "0x7a8c4C46Ea4eb9c1fE3C99f4a0276d9154B9428B",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x1DC78Acda13a8BC4408B207c9E48CDBc096D95e0",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x30D2a9F5FDf90ACe8c17952cbb4eE48a55D916A7",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-busd-bnb",
+    "address": "0xfD7B6231A9e94BF0417861F350e2B8Cd366b61a5",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-movr-wglmr",
+    "address": "0xa65949fA1053903fcC019Ac21b0335aa4b4B1bFa",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x1d4C2a246311bB9f827F4C768e277FF5787B7D7E",
+      "oracle": "tokens",
+      "oracleId": "MOVR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-usdt-usdc",
+    "address": "0xFE04B2afbA88A2F14c01D1d3C69d4AC095EBB484",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x8e70cD5B4Ff3f62659049e74b6649c6603A0E594",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "solarflare-weth-wglmr",
+    "address": "0xb521C0aCf67390C1364f1e940e44dB25828E5Ef9",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x30D2a9F5FDf90ACe8c17952cbb4eE48a55D916A7",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-usdc-busd",
+    "address": "0x2738Ddff4e24916C56953B0845D0A931C4c47F8c",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-wglmr-flare",
+    "address": "0x26A2abD79583155EA5d34443b62399879D42748A",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE3e43888fa7803cDC7BEA478aB327cF1A0dc11a7",
+      "oracle": "tokens",
+      "oracleId": "FLARE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarflare-usdc-wglmr",
+    "address": "0xAb89eD43D10c7CE0f4D6F21616556AeCb71b9c5f",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  }
+]

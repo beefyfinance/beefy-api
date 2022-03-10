@@ -19,7 +19,7 @@ const {
     platforms: { joe },
   },
   moonbeam: {
-    platforms: { beamswap },
+    platforms: { beamswap, solarflare },
   },
 } = addressBook;
 
@@ -99,6 +99,11 @@ const projects = {
     prefix: 'beamswap',
     file: '../src/data/moonbeam/beamswapLpPools.json',
     masterchef: beamswap.masterchef,
+  },
+  solarflare: {
+    prefix: 'solarflare',
+    file: '../src/data/moonbeam/solarFlareLpPools.json',
+    masterchef: solarflare.masterchef,
   },
 };
 

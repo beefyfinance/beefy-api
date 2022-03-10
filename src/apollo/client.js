@@ -72,6 +72,7 @@ const kyberClient = client(
 );
 const beetClient = client('https://graph-node.beets-ftm-node.com/subgraphs/name/beethovenx');
 const beamClient = client('https://api.thegraph.com/subgraphs/name/beamswap/beamswap-dex');
+const solarflareClient = client('https://analytics.solarflare.io/api/subgraph');
 const vvsClient = client('https://graph.vvs.finance/exchange');
 const finnClient = client(
   'https://graph-node.huckleberry.finance/subgraphs/name/huckleberry/huckleberry-subgraph'
@@ -141,4 +142,5 @@ module.exports = {
   netswapClient,
   tethysClient,
   beamClient,
+  solarflareClient,
 };

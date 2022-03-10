@@ -4,6 +4,7 @@ import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
+import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 
 import getNonAmmPrices from './getNonAmmPrices';
@@ -213,6 +214,8 @@ import wigoPools from '../../data/fantom/wigoLpPools.json';
 import solidlyPools from '../../data/fantom/solidlyLpPools.json';
 import { solidly } from '../../../packages/address-book/address-book/fantom/platforms/solidly';
 import miniversePools from '../../data/fantom/miniverseLpPools.json';
+import solarflare from '../../data/moonbeam/solarFlareLpPools.json';
+import basedPools from '../../data/fantom/basedLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -221,6 +224,8 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...miniversePools,
+  ...basedPools,
+  ...solarflare,
   ...solidlyPools,
   ...wigoPools,
   ...darkCryptoPools,
@@ -465,15 +470,21 @@ const updateAmmPrices = async () => {
       return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
     });
 
+    const beFtmPrice = ammPrices.then(async pools => {
+      return await fetchbeFTMPrice(pools.tokenPrices);
+    });
+
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
       const dmm = await dmmPrices;
       const xTokenPrices = await xPrices;
       const mooTokenPrices = await mooPrices;
+      const beFtmTokenPrice = await beFtmPrice;
       return {
         ...tokenPrices,
         ...dmm.tokenPrices,
         ...mooTokenPrices,
         ...xTokenPrices,
+        ...beFtmTokenPrice,
         ...(await coinGeckoPrices),
       };
     });

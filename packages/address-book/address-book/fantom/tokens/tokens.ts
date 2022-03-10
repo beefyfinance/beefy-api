@@ -60,6 +60,36 @@ const _tokens = {
     description:
       'MShare is a token produced in limited quantity which represents the protocols value and provides the ability to earn the peg through the protocol.',
   },
+  BSHARE: {
+    name: 'BSHARE',
+    symbol: 'BSHARE',
+    address: '0x49C290Ff692149A4E16611c694fdED42C954ab7a',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://basedfinance.io/',
+    description: 'Based Finance the first algorithmic token pegged to TOMB on the FTM Network.',
+    logoURI: 'https://assets.coingecko.com/coins/images/23507/small/based.PNG',
+  },
+  BASED: {
+    name: 'BASED',
+    symbol: 'BASED',
+    address: '0x8D7d3409881b51466B483B11Ea1B8A03cdEd89ae',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://basedfinance.io/',
+    description: 'Based Finance the first algorithmic token pegged to TOMB on the FTM Network.',
+    logoURI: 'https://assets.coingecko.com/coins/images/23535/small/BASED_TOKEN.109291b9.png',
+  },
+  ATLAS: {
+    name: 'Atlas Cloud',
+    symbol: 'ATLAS',
+    address: '0x92df3eaBf7c1c2A6b3D5793f6d53778eA78c48b2',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://atlascloud.network/',
+    description: 'Atlas Cloud is a Nodes-as-a-service protocol on a Fantom chain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/Atlas.png',
+  },
   SOLID: {
     name: 'Solidly',
     symbol: 'SOLID',
@@ -1255,6 +1285,17 @@ const _tokens = {
     logoURI: 'https://ftmscan.com/token/images/liquiddriver_32.png',
     website: 'https://www.liquiddriver.finance/',
     description: 'Incentivizing deep liquidity for SushiSwap on Fantom Opera.',
+  },
+  beFTM: {
+    name: 'Beefy Escrowed Fantom',
+    symbol: 'beFTM',
+    address: '0x7381eD41F6dE418DdE5e84B55590422a57917886',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://blog.beefy.finance/articles/introducing-beftm/',
+    description:
+      'Beefy Escrowed Fantom is 1 year perpetually lock FTM that is delegated and locked to earn the maximum validator reward',
   },
 } as const;
 

@@ -1,5 +1,24 @@
 [
   {
+    "name": "sushi-weth-sx",
+    "address": "0x1bF9805B40a5f69c7d0f9E5d1Ab718642203c652",
+    "decimals": "1e18",
+    "poolId": 52,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x840195888Db4D6A99ED9F73FcD3B225Bb3cB1A79",
+      "oracle": "tokens",
+      "oracleId": "SX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-bct-klima",
     "address": "0x9803c7aE526049210a1725F7487AF26fE2c24614",
     "decimals": "1e18",

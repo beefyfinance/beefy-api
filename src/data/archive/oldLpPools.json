@@ -1,5 +1,23 @@
 [
   {
+    "name": "boo-solid-ftm",
+    "address": "0xc8Cc1B89820791665b6f26b00b3111b00e021f19",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x888EF71766ca594DED1F0FA3AE64eD2941740A20",
+      "oracle": "tokens",
+      "oracleId": "SOLID",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-zig-quick",
     "address": "0x9D6D31d8bD564cd77a70b7a0Cc1416Be9DCD8B6f",
     "decimals": "1e18",

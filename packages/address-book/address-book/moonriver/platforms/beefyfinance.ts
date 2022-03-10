@@ -4,7 +4,7 @@ export const beefyfinance = {
   devMultisig: '0x1FDd00B45eBA7F6d35b92803EadDD68F7Cc4A193',
   strategyOwner: '0xc8BD4Ae3d3A69f0d75e3788d2ee557E66EBC98D8',
   vaultOwner: '0xabCF33106937Ba7f53986F2c339Dd7F1953CE136',
-  keeper: '0x10aee6B5594942433e7Fc2783598c979B030eF3D',
+  keeper: '0x340465d9D2EbDE78F15a3870884757584F97aBB4',
   rewarder: cowllector,
   treasurer: '0x617f12E04097F16e73934e84f35175a1B8196551',
   launchpoolOwner: cowllector,

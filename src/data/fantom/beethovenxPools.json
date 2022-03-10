@@ -1,5 +1,25 @@
 [
   {
+    "name": "beets-beefy-tale",
+    "address": "0x3bd4c3d1f6F40d77B2e9d0007D6f76E4F183A46d",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x3bd4c3d1f6f40d77b2e9d0007d6f76e4f183a46d0002000000000000000002d7",
+    "poolId": 61,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "beFTM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-multichain-maxi",
     "address": "0xf5c690b7Af4fDC551eC89aCbaD91C6D646762A93",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
@@ -20,6 +40,46 @@
       {
         "oracle": "tokens",
         "oracleId": "MULTI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-statera-duet",
+    "address": "0x5Bb2DeE206C2bCc5768B9B2865eA971Bd9c0fF19",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x5bb2dee206c2bcc5768b9b2865ea971bd9c0ff19000200000000000000000219",
+    "poolId": 52,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WSTA",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-solid-beets",
+    "address": "0xF2b2103E1351c4D47b27eFC8100bb264364FA92C",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xf2b2103e1351c4d47b27efc8100bb264364fa92c00020000000000000000025a",
+    "poolId": 59,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "SOLID",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
         "decimals": "1e18"
       }
     ]

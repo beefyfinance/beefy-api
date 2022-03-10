@@ -53,6 +53,18 @@ const _tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
+  USDCs: {
+    name: 'USD Coin',
+    symbol: 'USDC',
+    address: '0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
   BUSD: {
     name: 'Binance-Peg BUSD Token',
     symbol: 'BUSD',
@@ -81,6 +93,18 @@ const _tokens = {
     name: 'Ethereum',
     symbol: 'ETH',
     address: '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
+    website: 'https://ethereum.org/',
+    description:
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+  },
+  ETHs: {
+    name: 'Ethereum',
+    symbol: 'ETH',
+    address: '0x30D2a9F5FDf90ACe8c17952cbb4eE48a55D916A7',
     chainId: 1284,
     decimals: 18,
     logoURI:
@@ -124,6 +148,90 @@ const _tokens = {
     website: 'https://fantom.foundation/',
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+  },
+  FLARE: {
+    name: 'Flare Token',
+    symbol: 'FLARE',
+    address: '0xE3e43888fa7803cDC7BEA478aB327cF1A0dc11a7',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xE3e43888fa7803cDC7BEA478aB327cF1A0dc11a7.svg',
+    website: 'https://app.solarflare.io/exchange/swap',
+    description:
+      'Solarflare is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
+  },
+  veFLARE: {
+    name: 'Vested Flare Token',
+    symbol: 'veFLARE',
+    address: '0x08c98AD2d4856BEC0a0EaF18C2a06E7201613F90',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x08c98AD2d4856BEC0a0EaF18C2a06E7201613F90.svg',
+    website: 'https://app.solarflare.io/exchange/swap',
+    description:
+      'Solarflare is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
+  },
+  veSOLAR: {
+    name: 'Vested SolarBeam Token',
+    symbol: 'veSOLAR',
+    address: '0x0DB6729C03C85B0708166cA92801BcB5CAc781fC',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x0DB6729C03C85B0708166cA92801BcB5CAc781fC.svg',
+    website: 'https://app.solarbeam.io/exchange/swap',
+    description:
+      'Solarbeam is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonriver Network. We are currently the leading DEX on the network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
+  },
+  MOVR: {
+    name: 'Moonriver',
+    symbol: 'MOVR',
+    address: '0x1d4C2a246311bB9f827F4C768e277FF5787B7D7E',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x1d4C2a246311bB9f827F4C768e277FF5787B7D7E.svg',
+    website: 'https://moonbeam.network/networks/moonriver/',
+    description:
+      'Moonriver is a companion network to Moonbeam and provides a permanently incentivized canary network. New code ships to Moonriver first, where it can be tested and verified under real economic conditions. Once proven, the same code ships to Moonbeam on Polkadot.',
+  },
+  WBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    address: '0x1DC78Acda13a8BC4408B207c9E48CDBc096D95e0',
+    chainId: 1284,
+    decimals: 8,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x1DC78Acda13a8BC4408B207c9E48CDBc096D95e0.svg',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+  },
+  LUNA: {
+    name: 'Axelar Wrapped LUNA',
+    symbol: 'LUNA',
+    address: '0x31DAB3430f3081dfF3Ccd80F17AD98583437B213',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x31DAB3430f3081dfF3Ccd80F17AD98583437B213.svg',
+    website: 'https://www.terra.money/',
+    description:
+      "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
+  },
+  UST: {
+    name: 'Axelar Wrapped UST',
+    symbol: 'UST',
+    address: '0x085416975fe14C2A731a97eC38B9bF8135231F62',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x085416975fe14C2A731a97eC38B9bF8135231F62.svg',
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
   },
 } as const;
 
