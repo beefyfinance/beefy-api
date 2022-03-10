@@ -28,6 +28,7 @@ const get0xdaoApys = require('./get0xdaoApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
 const getCreditumApys = require('./getCreditumApys');
 const getRipaeApys = require('./getRipaeApys');
+const getMiniverseApys = require('./getMiniverseApys');
 const getWigoApys = require('./getWigoApys');
 
 const getApys = [
@@ -62,6 +63,7 @@ const getApys = [
   getCreditumApys,
   getRipaeApys,
   getWigoApys,
+  getMiniverseApys,
 ];
 
 const getFantomApys = async () => {

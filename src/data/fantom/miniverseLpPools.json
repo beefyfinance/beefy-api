@@ -1,0 +1,59 @@
+[
+  {
+    "name": "mini-mvdollar-usdc",
+    "address": "0x35bED1E2f3033395a05CD0b1b5900209ECe42774",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x57976c467608983513c9355238dc6de1B1aBbcCA",
+      "oracle": "tokens",
+      "oracleId": "MvDOLLAR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mini-mshare-usdc",
+    "address": "0x92A7b2A9ca7D70573E3a0B0BF9e5232c70db8a89",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xb011EC534d9175cD7a69aFBfc1bcc9990862c462",
+      "oracle": "tokens",
+      "oracleId": "MSHARE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "mini-mvdollar-mshare",
+    "address": "0x85E8DcBc11eF5C5F98277B20A041C8ab90E0e2f7",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x57976c467608983513c9355238dc6de1B1aBbcCA",
+      "oracle": "tokens",
+      "oracleId": "MvDOLLAR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb011EC534d9175cD7a69aFBfc1bcc9990862c462",
+      "oracle": "tokens",
+      "oracleId": "MSHARE",
+      "decimals": "1e18"
+    }
+  }
+]

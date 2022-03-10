@@ -212,6 +212,7 @@ import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
 import wigoPools from '../../data/fantom/wigoLpPools.json';
 import solidlyPools from '../../data/fantom/solidlyLpPools.json';
 import { solidly } from '../../../packages/address-book/address-book/fantom/platforms/solidly';
+import miniversePools from '../../data/fantom/miniverseLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -219,6 +220,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...miniversePools,
   ...solidlyPools,
   ...wigoPools,
   ...darkCryptoPools,

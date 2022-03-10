@@ -38,6 +38,28 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  MVDOLLAR: {
+    name: 'MiniVerse Dollar',
+    symbol: 'MvDOLLAR',
+    address: '0x57976c467608983513c9355238dc6de1B1aBbcCA',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://app.mvfinance.club/static/media/MvDOLLAR.2c236f93.png',
+    website: 'https://app.mvfinance.club/',
+    description:
+      'MiniVerse Dollar is a high yield algorithmic stablecoin on the Fantom Opera Network intended to maintain a 1:1 price peg with USDC.',
+  },
+  MSHARE: {
+    name: 'MiniVerse Share',
+    symbol: 'MSHARE',
+    address: '0xb011EC534d9175cD7a69aFBfc1bcc9990862c462',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://app.mvfinance.club/static/media/MvSHARE.8d0b7194.png',
+    website: 'https://app.mvfinance.club/',
+    description:
+      'MShare is a token produced in limited quantity which represents the protocols value and provides the ability to earn the peg through the protocol.',
+  },
   SOLID: {
     name: 'Solidly',
     symbol: 'SOLID',
