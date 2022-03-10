@@ -4,7 +4,7 @@ const treasuryMultisig = '0x26dE4EBffBE8d3d632A292c972E3594eFc2eCeEd';
 export const beefyfinance = {
   strategyOwner: '0x37DC61A76113E7840d4A8F1c1B799cC9ac5Aa854',
   vaultOwner: '0x690216f462615b749bEEB5AA3f1d89a2BEc45Ecf',
-  keeper: '0x10aee6B5594942433e7Fc2783598c979B030eF3D',
+  keeper: '0x340465d9D2EbDE78F15a3870884757584F97aBB4',
   rewarder: cowllector,
   treasuryMultisig,
   treasurer: treasuryMultisig,
