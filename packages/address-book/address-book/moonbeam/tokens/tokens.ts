@@ -156,7 +156,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x511D35c52a3C244E7b8bd92c0C297755FbD89212.svg',
+      'https://pancakeswap.finance/images/tokens/0x4792C1EcB969B036eb51330c63bD27899A13D84e.svg',
     website: 'https://www.avalabs.org/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
@@ -180,7 +180,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      '**TBD',
+      'https://pancakeswap.finance/images/tokens/0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2.svg',
     website: 'https://app.stellaswap.com/exchange/swap',
     description:
       'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network.',
