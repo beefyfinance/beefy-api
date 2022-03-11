@@ -38,7 +38,7 @@
     }
   },
   {
-    "name": "stellaswap-wglmr-weth",
+    "name": "stellaswap-wglmr-eth",
     "address": "0x49a1cC58dCf28D0139dAEa9c18A3ca23108E78B3",
     "decimals": "1e18",
     "poolId": 7,
@@ -52,7 +52,7 @@
     "lp1": {
       "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   },
