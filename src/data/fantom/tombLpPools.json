@@ -36,5 +36,24 @@
       "oracleId": "TOMB",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "tomb-tomb-mai",
+    "address": "0x45f4682B560d4e3B8FF1F1b3A38FDBe775C7177b",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7",
+      "oracle": "tokens",
+      "oracleId": "TOMB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
+      "oracle": "tokens",
+      "oracleId": "miMATIC",
+      "decimals": "1e18"
+    }
   }
 ]
