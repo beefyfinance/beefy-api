@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const FairLaunch = require('../../../abis/matic/KyberFairLaunch.json');
+const MasterChef = require('../../../abis/matic/ElysianFields.json');
 const DMMPool = require('../../../abis/matic/DMMPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/kyberLpPools.json');
@@ -11,58 +11,111 @@ const { getVariableTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { kyberClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
+const getBlockTime = require('../../../utils/getBlockTime');
 
-const fairlaunch = '0xc39bD0fAE646Cb026C73943C5B50E703de2a6532';
+const masterchef = '0xFAA0f413E67A56cbbE181024279bA5504Ce487EF';
 const oracleId = 'AUR';
 const oracle = 'tokens';
 const DECIMALS = '1e18';
-const secondsPerBlock = 2;
-const secondsPerYear = 31536000;
-
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getKyberLpApys = async () => {
-  let apys = {};
-  let apyBreakdowns = {};
+  const { farmAprs, tradingAprs, tradingFees } = await getAprs();
 
-  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const { balances, rewardPerBlocks, tradingFees } = await getPoolsData(pools);
+  return await getApyBreakdown(farmAprs, tradingAprs, tradingFees);
+}
+
+const getAprs = async () => {
+  const farmAprs = [];
+  const tradingAprs = [];
+
+  const tokenPrice = await fetchPrice({ oracle: oracle, id: oracleId });
+  const { blockRewards, totalAllocPoint } = await getMasterChefData();
+  const { balances, allocPoints, tradingFees } = await getPoolsData();
+  const secondsPerBlock = await getBlockTime(137);
 
   const pairAddresses = pools.map(pool => pool.lp0.address.concat('_', pool.lp1.address));
-  const tradingAprs = await getVariableTradingFeeApr(kyberClient, pairAddresses, tradingFees);
+  const fetchedTradingAprs = await getVariableTradingFeeApr(kyberClient, pairAddresses, tradingFees);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
-    const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
-    const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
+    const stakedPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
+    const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
-    const poolBlockRewards = rewardPerBlocks[i];
+    const poolBlockRewards = blockRewards
+      .times(allocPoints[i])
+      .dividedBy(totalAllocPoint);
+
+    const secondsPerYear = 31536000;
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
-    const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
+    let yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
-    const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-    const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
-    const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    farmAprs.push(apr);
+  }
+
+  return { farmAprs, tradingAprs, tradingFees };
+};
+
+const getMasterChefData = async () => {
+  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const blockRewards = new BigNumber(await masterchefContract.methods.rwdPerBlock().call());
+  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoints().call());
+  return { blockRewards, totalAllocPoint };
+};
+
+const getPoolsData = async () => {
+  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const multicall = new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID));
+
+  const balanceCalls = [];
+  const allocPointsCalls = [];
+  const tradingFeeCalls = [];
+  pools.forEach(pool => {
+    const tokenContract = new web3.eth.Contract(DMMPool, pool.address);
+    balanceCalls.push({
+      balance: tokenContract.methods.balanceOf(masterchef),
+    });
+    allocPointsCalls.push({
+      allocPoint: masterchefContract.methods.poolInfo(pool.poolId),
+    });
+    tradingFeeCalls.push({
+      tradingFee: tokenContract.methods.getTradeInfo(),
+    });
+  });
+
+  const res = await multicall.all([balanceCalls, allocPointsCalls, tradingFeeCalls]);
+
+  const balances = res[0].map(v => new BigNumber(v.balance));
+  const allocPoints = res[1].map(v => new BigNumber(v.allocPoint['1']));
+  const tradingFees = res[2].map(v => new BigNumber(v.tradingFee['4']).dividedBy(DECIMALS));
+
+  return { balances, allocPoints, tradingFees };
+};
+
+const getApyBreakdown = async (farmAprs, tradingAprs, tradingFees) => {
+  let apys = {};
+  let apyBreakdowns = {};
+  const shareAfterBeefyPerformanceFee = 0.955;
+  const beefyPerformanceFee = 0.045;
+
+  pools.forEach((pool, i) => {
+    const vaultApr = farmAprs[i].times(shareAfterBeefyPerformanceFee);
+    const vaultApy = compound(farmAprs[i], BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
     const tradingApr =
       tradingAprs[pool.lp0.address.concat('_', pool.lp1.address).toLowerCase()] ?? new BigNumber(0);
     const totalApy = getFarmWithTradingFeesApy(
-      simpleApy,
+      farmAprs[i],
       tradingApr,
       BASE_HPY,
       1,
       shareAfterBeefyPerformanceFee
     );
-    // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
 
-    // Create reference for legacy /apy
     const legacyApyValue = { [pool.name]: totalApy };
-    // Add token to Spooky APYs object
     apys = { ...apys, ...legacyApyValue };
 
-    // Create reference for breakdown /apy
     const componentValues = {
       [pool.name]: {
         vaultApr: vaultApr.toNumber(),
@@ -74,42 +127,14 @@ const getKyberLpApys = async () => {
         totalApy: totalApy,
       },
     };
-    // Add token to Spooky APYs object
-    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
-  }
 
-  // Return both objects for later parsing
+    apyBreakdowns = { ...apyBreakdowns, ...componentValues };
+  });
+
   return {
     apys,
     apyBreakdowns,
   };
-};
-
-const getPoolsData = async pools => {
-  const fairLaunchContract = new web3.eth.Contract(FairLaunch, fairlaunch);
-  const multicall = new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID));
-  const balanceCalls = [];
-  const rewardPerBlocksCalls = [];
-  const tradingFeeCalls = [];
-  pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(DMMPool, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(fairlaunch),
-    });
-    rewardPerBlocksCalls.push({
-      rewardPerBlock: fairLaunchContract.methods.getPoolInfo(pool.poolId),
-    });
-    tradingFeeCalls.push({
-      tradingFee: tokenContract.methods.getTradeInfo(),
-    });
-  });
-
-  const res = await multicall.all([balanceCalls, rewardPerBlocksCalls, tradingFeeCalls]);
-
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const rewardPerBlocks = res[1].map(v => new BigNumber(v.rewardPerBlock['5']));
-  const tradingFees = res[2].map(v => new BigNumber(v.tradingFee['4']).dividedBy(DECIMALS));
-  return { balances, rewardPerBlocks, tradingFees };
-};
+}
 
 module.exports = getKyberLpApys;

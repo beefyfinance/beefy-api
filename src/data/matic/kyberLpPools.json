@@ -58,7 +58,7 @@
   },
   {
     "name": "kyber-usdc-aur",
-    "address": "0xA623aacf9eB4Fc0a29515F08bdABB0d8Ce385cF7",
+    "address": "0xF40E249737c510CCE832286e54cB30E60D4e4656",
     "decimals": "1e18",
     "poolId": 3,
     "chainId": 137,
@@ -69,28 +69,9 @@
       "decimals": "1e6"
     },
     "lp1": {
-      "address": "0x6Fb2415463e949aF08ce50F83E94b7e008BABf07",
+      "address": "0xBF06D9b11126B140788D842a6ed8dC7885C722B3",
       "oracle": "tokens",
       "oracleId": "AUR",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "kyber-usdc-jrt-eth-kpi",
-    "address": "0x32461FCAB98A34C3F1Ad362dCEC6D290a0be1005",
-    "decimals": "1e18",
-    "poolId": 3,
-    "chainId": 137,
-    "lp0": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0x37c2a140bd1de90d195d7ce3587faba7963879fb",
-      "oracle": "tokens",
-      "oracleId": "JRT-ETH-KPI",
       "decimals": "1e18"
     }
   }
