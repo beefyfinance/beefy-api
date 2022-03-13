@@ -32,7 +32,7 @@ const getBsharePoolApys = async () => {
     },
     apyBreakdowns: {
       'bomb-bomb': {
-        totalApy: apr,
+        totalApr: apr,
       },
     },
   };
