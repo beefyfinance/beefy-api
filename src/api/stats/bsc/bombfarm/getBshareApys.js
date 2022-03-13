@@ -9,7 +9,7 @@ const { compound } = require('../../../../utils/compound');
 const { HOURLY_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 
-const getCakeApys = async () => {
+const getBshareApys = async () => {
   let apys = {};
 
   let promises = [];
@@ -28,9 +28,9 @@ const getPoolApy = async pool => {
     getYearlyRewardsInUsd(pool.smartChef, pool.oracle, pool.oracleId, pool.decimals),
     getTotalStakedInUsd(
       pool.smartChef,
-      '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
+      '0x522348779DCb2911539e76A1042aA922F9C47Ee3',
       'tokens',
-      'Cake'
+      'BOMB'
     ),
   ]);
 
@@ -58,4 +58,4 @@ const getYearlyRewardsInUsd = async (smartChefAddr, oracle, oracleId, decimals) 
   return yearlyRewardsInUsd;
 };
 
-module.exports = getCakeApys;
+module.exports = getBshareApys;

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "bomb-bomb",
+    "address": "0x522348779DCb2911539e76A1042aA922F9C47Ee3",
+    "oracle": "tokens",
+    "oracleId": "BOMB",
+    "asset": "0x522348779DCb2911539e76A1042aA922F9C47Ee3",
+    "decimals": "1e18"
+  }
+]
