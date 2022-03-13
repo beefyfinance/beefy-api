@@ -5,6 +5,8 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const RewardPool = require('../../../../abis/BombReward.json');
 const rewardPool = '0x1083926054069AaD75d7238E9B809b0eF9d94e5B';
+const { compound } = require('../../../../utils/compound');
+const { DAILY_HPY } = require('../../../../constants');
 
 const BIFI = '0x522348779DCb2911539e76A1042aA922F9C47Ee3';
 const bomb = '0x522348779DCb2911539e76A1042aA922F9C47Ee3';
@@ -24,15 +26,17 @@ const getBsharePoolApys = async () => {
   console.log('totalStakedInUsd pool: ', ORACLE_ID2, Number(totalStakedInUsd));
   console.log('yearlyRewardsInUsd pool: ', ORACLE_ID2, Number(yearlyRewardsInUsd));
 
-  const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+
+  const apy = compound(simpleApy, DAILY_HPY, 1, 0.99);
 
   return {
     apys: {
-      'bomb-bomb': apr,
+      'bomb-bomb': apy,
     },
     apyBreakdowns: {
       'bomb-bomb': {
-        totalApy: apr,
+        totalApy: apy,
       },
     },
   };
