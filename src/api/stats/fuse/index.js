@@ -1,4 +1,3 @@
-const getFusefiLpApys = require('./getFusefiLpApys');
 const getVoltageApys = require('./getVoltageApys');
 const getFuseBeefySingleApy = require('./getFuseBeefySingleApy');
 const getFuseBifiGovApy = require('./getFuseBifiGovApy');
@@ -6,7 +5,6 @@ const { getSushiLpApys } = require('./getSushiLpApys');
 const { getFuseBifiMaxiApy } = require('./getFuseBifiMaxiApy');
 
 const getApys = [
-  getFusefiLpApys,
   getFuseBeefySingleApy,
   getFuseBifiGovApy,
   getSushiLpApys,

@@ -192,7 +192,6 @@ import liquidusPools from '../../data/cronos/liquidusLpPools.json';
 import sushiv2Celo from '../../data/celo/sushiv2LpPools.json';
 import oldDmmPools from '../../data/archive/oldDmmPools.json';
 import popsicleFantomPools from '../../data/fantom/popsicleLpPools.json';
-import fusefiPools from '../../data/fuse/fusefiLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
 import dibsLpPools from '../../data/degens/dibsLpPools.json';
 import pangolinV2Pools from '../../data/avax/pangolinv2LpPools.json';
@@ -243,7 +242,6 @@ const pools = [
   ...pangolinV2DualPools,
   ...dibsLpPools,
   ...netswapPools,
-  ...fusefiPools,
   ...popsicleFantomPools,
   ...popsicleMaticPools,
   ...sushiv2Celo,
