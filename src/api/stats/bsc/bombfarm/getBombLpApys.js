@@ -34,7 +34,7 @@ const getPoolApy = async (rewardPool, pool) => {
     getYearlyRewardsInUsd(rewardPool, pool.poolId),
     getTotalLpStakedInUsd(rewardPool, pool, pool.chainId),
   ]);
-
+  console.log('totalStakedInUsd pool: ', pool.poolId, Number(totalStakedInUsd));
   return yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 };
 
@@ -61,6 +61,7 @@ const getYearlyRewardsInUsd = async (rewardPool, poolId) => {
 
   const price = await fetchPrice({ oracle: oracle, id: oracleId });
   const yearlyRewardsInUsd = yearlyRewards.times(price).dividedBy(DECIMALS);
+  console.log('yearlyRewardsInUsd pool: ', poolId, Number(yearlyRewardsInUsd));
 
   return yearlyRewardsInUsd;
 };

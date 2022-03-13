@@ -1,24 +1,28 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../../utils/web3');
 
-const IRewardPool = require('../../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const RewardPool = require('../../../../abis/BombReward.json');
 const rewardPool = '0x1083926054069AaD75d7238E9B809b0eF9d94e5B';
 
 const BIFI = '0x522348779DCb2911539e76A1042aA922F9C47Ee3';
-const REWARDS = '0x1083926054069AaD75d7238E9B809b0eF9d94e5B';
+const bomb = '0x522348779DCb2911539e76A1042aA922F9C47Ee3';
+const bshare = '0x531780FAcE85306877D7e1F05d713D1B50a37F7A';
 const ORACLE = 'tokens';
 const ORACLE_ID = 'BSHARE';
+const ORACLE_ID2 = 'BOMB';
+
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
 const getBsharePoolApys = async () => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(rewardPool, 5),
-    getTotalStakedInUsd(rewardPool, BIFI, ORACLE, ORACLE_ID, DECIMALS),
+    getTotalStakedInUsd(rewardPool, bomb, ORACLE, ORACLE_ID2, DECIMALS),
   ]);
+  console.log('totalStakedInUsd pool: ', ORACLE_ID2, Number(totalStakedInUsd));
+  console.log('yearlyRewardsInUsd pool: ', ORACLE_ID2, Number(yearlyRewardsInUsd));
 
   const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 
