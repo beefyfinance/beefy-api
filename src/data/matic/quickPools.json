@@ -2,10 +2,9 @@
   {
     "name": "quick-quick",
     "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
-    "rewardPool": "0xfE6174429a963bF4E25a80FE0B72d7Cce7Df6e2f",
-    "dragonsLair": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
-    "rewardToken": "ZIG",
-    "rewardDecimals": "1e18",
+    "rewardPool": "0xA518cca4891e274DD85bDCc47ce8191bccA19854",
+    "oracle": "tokens",
+    "oracleId": "QUICK",
     "decimals": "1e18",
     "chainId": 137
   }
