@@ -16,7 +16,7 @@ const { getFarmheroApys } = require('./getFarmheroApys');
 const getMaiApys = require('./getMaiApys').default;
 const { getTelxchangeApys } = require('./getTelxchangeApys');
 const { getPolygonFarmApys } = require('./getPolygonFarmApys');
-const getQuickSingleApys = require('./getQuickSingleApys');
+const { getQuickSingleApys } = require('./getQuickSingleApys');
 import { getTetuApys } from './getTetuApys';
 const { getSingularApys } = require('./getSingularApys');
 import getCafeLpApys from './getCafeLpApys';
