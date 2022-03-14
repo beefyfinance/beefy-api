@@ -33,7 +33,7 @@ git commit "Fix some bug #123"
 git push origin fix/some-bug-#123
 ```
 
-4) Ensure that your local build works. (NB testing done on github is not enough to ensure local build works).
+4) Ensure that local build works. See [to-run-to-test-against-a-local-development-server](https://github.com/beefyfinance/beefy-app#to-run-to-test-against-a-local-development-server) (NB testing done on github is not enough to ensure local build works).
 
 5) Go to [github.com/beefyfinance/beefy-api](https://github.com/beefyfinance/beefy-api) in your web browser and issue a new pull request.
 
