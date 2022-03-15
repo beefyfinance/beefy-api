@@ -27,6 +27,16 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  ORBS: {
+    name: 'Orbs',
+    symbol: 'ORBS',
+    address: '0x614389EaAE0A6821DC49062D56BDA3d9d45Fa2ff',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3835.png',
+    website: 'https://www.orbs.com/',
+    description: 'Making Your Smart Contracts Smarter',
+  },
   SX: {
     name: 'SX Network SX',
     symbol: 'SX',
