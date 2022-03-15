@@ -29,6 +29,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  VOLT: {
+    name: 'Voltage Finance VOLT',
+    symbol: 'VOLT',
+    address: '0x34Ef2Cc892a88415e9f02b91BfA9c91fC0bE6bD4',
+    chainId: 122,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/21886/large/volt.jpg?1643718805',
+    website: 'https://voltage.finance/',
+    description:
+      'Voltage Finance is a decentralized trading protocol, known for its role in facilitating automated trading of decentralized finance (DeFi) tokens on the Fuse network.',
+  },
   atUST: {
     name: 'UST Terra',
     symbol: 'atUST',
