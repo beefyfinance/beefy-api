@@ -1,5 +1,43 @@
 [
   {
+    "name": "voltage-wfuse-atust",
+    "address": "0xd729609735222F203fCe2e0Ed940ac749eaD839a",
+    "decimals": "1e18",
+    "poolId": "9",
+    "chainId": 122,
+    "lp0": {
+      "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
+      "oracle": "tokens",
+      "oracleId": "WFUSE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x0D58a44be3dCA0aB449965dcc2c46932547Fea2f",
+      "oracle": "tokens",
+      "oracleId": "atUST",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "voltage-wfuse-gdollar",
+    "address": "0xa02ed9Fe9e3351FE2cd1F588B23973C1542dCbCC",
+    "decimals": "1e18",
+    "poolId": "10",
+    "chainId": 122,
+    "lp0": {
+      "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
+      "oracle": "tokens",
+      "oracleId": "WFUSE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x495d133B938596C9984d462F007B676bDc57eCEC",
+      "oracle": "tokens",
+      "oracleId": "G$",
+      "decimals": "1e2"
+    }
+  },
+  {
     "name": "voltage-volt-bnb",
     "address": "0x4Eb876bd1e8e4cd4594557890D52EE327BF1B7b2",
     "decimals": "1e18",
