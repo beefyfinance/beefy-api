@@ -27,6 +27,58 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  ORBS: {
+    name: 'Orbs',
+    symbol: 'ORBS',
+    address: '0x614389EaAE0A6821DC49062D56BDA3d9d45Fa2ff',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3835.png',
+    website: 'https://www.orbs.com/',
+    description: 'Making Your Smart Contracts Smarter',
+  },
+  AWX: {
+    name: 'Aurus DeFi',
+    symbol: 'AWX',
+    address: '0x56A0eFEFC9F1FBb54FBd25629Ac2aA764F1b56F7',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7301.png',
+    website: 'https://aurus.io/',
+    description:
+      'Aurus is the decentralized financial infrastructure empowering gold, silver, and platinum-pegged digital assets, creating a more inclusive and efficient precious metals market.',
+  },
+  TOWER: {
+    name: 'Crazy Defense Heroes',
+    symbol: 'TOWER',
+    address: '0x2bC07124D8dAc638E290f401046Ad584546BC47b',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/8620.png',
+    website: 'https://www.crazydefenseheroes.com/',
+    description: 'A medium of exchange, utility, and governance for the Crazy Kings franchise.',
+  },
+  WSG: {
+    name: 'Wall Street Games',
+    symbol: 'WSG',
+    address: '0x3C1BB39bb696B443a1D80BB2b3a3d950Ba9DEE87',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/10040.png',
+    website: 'https://wsg.gg/',
+    description:
+      'The Next Generation gaming platform with a unique and immersive way to earn rewards.',
+  },
+  WRLD: {
+    name: 'NFT Worlds',
+    symbol: 'WRLD',
+    address: '0xD5d86FC8d5C0Ea1aC1Ac5Dfab6E529c9967a45E9',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/16678.png',
+    website: 'https://www.nftworlds.com/',
+    description: '10,000 virtual worlds, living on the Ethereum blockchain.',
+  },
   SX: {
     name: 'SX Network SX',
     symbol: 'SX',
