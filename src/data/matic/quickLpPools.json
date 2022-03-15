@@ -1,5 +1,100 @@
 [
   {
+    "name": "quick-usdc-orbs",
+    "address": "0xB2b6D423e535b57aaD06E9866803B95fB66152EA",
+    "rewardPool": "0x9CA237962823A0a74bbC8354764e1DAC9e4057F0",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x614389EaAE0A6821DC49062D56BDA3d9d45Fa2ff",
+      "oracle": "tokens",
+      "oracleId": "ORBS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-usdc-awx",
+    "address": "0xE55AEA66EA7f71A8AF0506Cb37FdE3c551a9B089",
+    "rewardPool": "0xfC7E3459F10503dDCd3c58C1F029478273B90c37",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x56A0eFEFC9F1FBb54FBd25629Ac2aA764F1b56F7",
+      "oracle": "tokens",
+      "oracleId": "AWX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-wmatic-tower",
+    "address": "0xc74e7A5cDbF0C916d5BFFA7B6BDDD43AB46E72Ea",
+    "rewardPool": "0x9FBd869E09335C568395722AaEfF4d041e72d12B",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2bC07124D8dAc638E290f401046Ad584546BC47b",
+      "oracle": "tokens",
+      "oracleId": "TOWER",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-wsg-eth",
+    "address": "0xCCB65f861266EF7dEF8bF35D4247e3ffA03563c7",
+    "rewardPool": "0x102aBFc497ecC62E9491e7AdC4A3321cf9E08B77",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x3C1BB39bb696B443a1D80BB2b3a3d950Ba9DEE87",
+      "oracle": "tokens",
+      "oracleId": "WSG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-wmatic-wrld",
+    "address": "0xb3Df7C04dA826C7302f5ccaA849e0b016aF07ffe",
+    "rewardPool": "0x2f7Df8EB13b883F7A9B47E6258Cb00e0EB481765",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD5d86FC8d5C0Ea1aC1Ac5Dfab6E529c9967a45E9",
+      "oracle": "tokens",
+      "oracleId": "WRLD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-usdc-cot",
     "address": "0x0d117bbC0E51b4A64b1410bcd5b58DDf5BcF3c13",
     "rewardPool": "0x24C194062f72Bf860dE16cF01BB43b0428Ef4280",
