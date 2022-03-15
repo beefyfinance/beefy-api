@@ -1,5 +1,27 @@
 [
   {
+    "name": "joe-money-wavax",
+    "address": "0x66D12e1cb13EAbAB21f1Fb6628B1Ef33C6dED5a7",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "MORE",
+    "decimalsB": "1e18",
+    "poolId": 57,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x0f577433Bf59560Ef2a79c124E9Ff99fCa258948",
+      "oracle": "tokens",
+      "oracleId": "MONEY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-ape-wavax",
     "address": "0x11bBfA2Fa3b995ceA99D20DFA618fd32e252d8F2",
     "decimals": "1e18",

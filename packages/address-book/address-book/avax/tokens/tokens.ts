@@ -15,6 +15,16 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  MONEY: {
+    name: 'Moremoney USD',
+    symbol: 'MONEY',
+    address: '0x0f577433Bf59560Ef2a79c124E9Ff99fCa258948',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/24237/large/money.png',
+    website: 'https://moremoney.finance/',
+    description: 'Chikn is an ecosystem based around NFTs that lay EGGs.',
+  },
   USTw: {
     name: 'TerraUSD (Wormhole)',
     symbol: 'USTw',
