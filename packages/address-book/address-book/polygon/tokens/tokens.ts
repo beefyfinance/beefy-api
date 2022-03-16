@@ -28,7 +28,7 @@ const MAI = {
 
 const _tokens = {
   ORBS: {
-    name: 'Orbs',
+    name: 'Orbs Token',
     symbol: 'ORBS',
     address: '0x614389EaAE0A6821DC49062D56BDA3d9d45Fa2ff',
     chainId: 137,
