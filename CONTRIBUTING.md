@@ -1,11 +1,11 @@
 Contributing to Beefy's API
 =======
 
-We really appreciate and value contributions to the Beefy.Finance repositories. Please take 5' to review the items listed below to make sure that your contributions are merged as soon as possible.
+We value contributions to the Beefy.Finance repositories. To help contributions get merged as soon as possible, please take 5' to review the items below.
 
 ## Creating Pull Requests (PRs)
 
-As a contributor, you are expected to fork this repository, work on your own fork and then submit pull requests. The pull requests will be reviewed and eventually merged into the main repo. See ["Fork-a-Repo"](https://help.github.com/articles/fork-a-repo/) for how this works.
+Fork this repository, work on your own fork and submit pull requests. The pull requests will be reviewed and eventually merged into the main repo. See ["Fork-a-Repo"](https://help.github.com/articles/fork-a-repo/).
 
 ## A typical workflow
 
