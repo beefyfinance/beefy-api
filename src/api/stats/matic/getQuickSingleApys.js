@@ -18,5 +18,5 @@ export const getQuickSingleApys = async () =>
     decimals: getEDecimals(QUICK.decimals),
     web3: polygonWeb3,
     chainId: 137,
-    log: true,
+    log: false,
   });
