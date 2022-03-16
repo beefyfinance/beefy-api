@@ -27,6 +27,18 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  FUSE: {
+    name: 'Fuse',
+    symbol: 'FUSE',
+    address: '0xF915fDDa4c882731C0456a4214548Cd13A822886',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xd3974AE5A9BCD4AE4c9037a25A67374a11df4154/logo.png',
+    website: 'https://fuse.io/',
+    description:
+      'Fuse was founded in 2019 with a mission to bring the power of mobile payments to communities around the world.',
+  },
   ORBS: {
     name: 'Orbs Token',
     symbol: 'ORBS',
