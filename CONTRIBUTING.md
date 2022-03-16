@@ -35,12 +35,16 @@ git push origin fix/some-bug-#123
 
 4) Go to [github.com/beefyfinance/beefy-api](https://github.com/beefyfinance/beefy-api) in your web browser and issue a new pull request.
 
-5) Verify your local build succeeds.
+5) Verify your local build succeeds. 
+
+First, start up a yarn copy of the API:
 
 ```
 yarn
 yarn start
 ```
+
+If contributing a vault, ensure the /APY/breakdown endpoing contains your newly created vault.   
 
 6) Maintainers will review your code and possibly ask for changes before your code is pulled in to the main repository. We'll check that all tests pass, review the coding style, and check for general code correctness. If everything is OK, we'll merge your pull request and your code will be part of Beefy's API.
 
