@@ -1,7 +1,7 @@
 Contributing to Beefy's API
 =======
 
-We value contributions to the Beefy.Finance repositories. To help contributions get merged as soon as possible, please take 5' to review the items below.
+This API supplies the data to our front end (e.g. APY and TVL metrics) and is an important part of Beefy.Finance. We value your contribution to our repositories. To help contributions get merged as soon as possible, please take 5' to review the items below.
 
 ## Creating Pull Requests (PRs)
 
