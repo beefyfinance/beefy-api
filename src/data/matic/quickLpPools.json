@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-eth-fuse",
+    "address": "0x9Ab6E8197cfD366F920b54cb069cE6273898CB0B",
+    "rewardPool": "0x13cD28356F909bc0b33860b6552201b9FfaF8A37",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF915fDDa4c882731C0456a4214548Cd13A822886",
+      "oracle": "tokens",
+      "oracleId": "FUSE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-usdc-orbs",
     "address": "0xB2b6D423e535b57aaD06E9866803B95fB66152EA",
     "rewardPool": "0x9CA237962823A0a74bbC8354764e1DAC9e4057F0",
