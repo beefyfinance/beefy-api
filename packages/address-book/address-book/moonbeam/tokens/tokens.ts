@@ -149,6 +149,18 @@ const _tokens = {
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
   },
+  AVAX: {
+    name: 'Avalanche',
+    symbol: 'AVAX',
+    address: '0x4792C1EcB969B036eb51330c63bD27899A13D84e',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x4792C1EcB969B036eb51330c63bD27899A13D84e.svg',
+    website: 'https://www.avalabs.org/',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+  },
   FLARE: {
     name: 'Flare Token',
     symbol: 'FLARE',
@@ -160,6 +172,18 @@ const _tokens = {
     website: 'https://app.solarflare.io/exchange/swap',
     description:
       'Solarflare is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
+  },
+  STELLA: {
+    name: 'Setlla Token',
+    symbol: 'STELLA',
+    address: '0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2.svg',
+    website: 'https://app.stellaswap.com/exchange/swap',
+    description:
+      'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network.',
   },
   veFLARE: {
     name: 'Vested Flare Token',
