@@ -114,7 +114,7 @@ const _tokens = {
       'We believe that in the future, L2 solutions will help Ethereum with scaling. Our mission is to empower the Metis Andromeda network with a fast, secure, reliable, and advanced native decentralized exchange app to handle all kinds of trading needs. Tethys was released on the 17th of December 2021 on Metis Andromeda network.',
   },
   BYTE: {
-    name: 'BinaryDAO Token',
+    name: 'BinaryDAO',
     symbol: 'BYTE',
     address: '0x721532bC0dA5ffaeB0a6A45fB24271E8098629A7',
     chainId: 1088,
