@@ -1,5 +1,24 @@
 [
   {
+    "name": "netswap-byte-m.usdc",
+    "address": "0x3Ab6be89ED5A0d4FDD412c246F5e6DdD250Dd45c",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0x721532bC0dA5ffaeB0a6A45fB24271E8098629A7",
+      "oracle": "tokens",
+      "oracleId": "BYTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEA32A96608495e54156Ae48931A7c20f0dcc1a21",
+      "oracle": "tokens",
+      "oracleId": "m.USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "netswap-busd-m.usdc",
     "address": "0x8014c801F6cF32445D503f7BaC30976B3161eE52",
     "decimals": "1e18",

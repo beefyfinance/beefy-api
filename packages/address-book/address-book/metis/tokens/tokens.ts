@@ -38,8 +38,7 @@ const _tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
-    logoURI:
-      'https://ftmscan.com/token/images/wBTC_32.png',
+    logoURI: 'https://ftmscan.com/token/images/wBTC_32.png',
   },
   NETT: {
     name: 'Netswap Token',
@@ -113,6 +112,18 @@ const _tokens = {
       'https://tethys.finance/swap?inputCurrency=METIS&outputCurrency=0x69fdb77064ec5c84FA2F21072973eB28441F43F3',
     description:
       'We believe that in the future, L2 solutions will help Ethereum with scaling. Our mission is to empower the Metis Andromeda network with a fast, secure, reliable, and advanced native decentralized exchange app to handle all kinds of trading needs. Tethys was released on the 17th of December 2021 on Metis Andromeda network.',
+  },
+  BYTE: {
+    name: 'BinaryDAO Token',
+    symbol: 'BYTE',
+    address: '0x721532bC0dA5ffaeB0a6A45fB24271E8098629A7',
+    chainId: 1088,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x721532bC0dA5ffaeB0a6A45fB24271E8098629A7.svg',
+    website: 'https://binarydao.finance/',
+    description:
+      'BinaryDAO is a yield DAO that uses its treasury to bootstrap and invest in early-staged crypto projects, enabling premium DeFi yield to BYTE token holders',
   },
 } as const;
 
