@@ -225,12 +225,12 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 const pools = [
   ...voltagePools,
   ...basedPools,
+  ...stellaswapPools,
   ...solarflare,
   ...solidlyPools,
   ...wigoPools,
   ...darkCryptoPools,
   ...beamswapPools,
-  ...stellaswapPools,
   ...ripaePools,
   ...ripaeAvaxPools,
   ...creditumPools,
