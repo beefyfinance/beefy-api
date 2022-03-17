@@ -367,7 +367,7 @@ const _tokens = {
       'https://assets.coingecko.com/coins/images/21208/small/vXl4xT-P_400x400.png?1638567924',
   },
   UST: {
-    name: 'USD Terra',
+    name: 'USD Terra (anyswap)',
     symbol: 'UST',
     address: '0xe2D27f06F63d98b8e11b38b5b08A75D0c8dD62B9',
     chainId: 250,
@@ -376,6 +376,17 @@ const _tokens = {
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
+  },
+  USTw: {
+    name: 'TerraUSD (Wormhole)',
+    symbol: 'UST',
+    address: '0x846e4D51d7E2043C1a87E0Ab7490B93FB940357b',
+    chainId: 137,
+    decimals: 6,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
+    website: 'https://coinmarketcap.com/currencies/terrausd-wormhole/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
   },
   SOL: {
     name: 'Solana',
