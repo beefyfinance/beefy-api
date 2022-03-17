@@ -5,6 +5,9 @@
     "decimals": "1e18",
     "poolId": 16,
     "chainId": 1088,
+    "oracleB": "tokens",
+    "oracleIdB": "METIS",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0x721532bC0dA5ffaeB0a6A45fB24271E8098629A7",
       "oracle": "tokens",
