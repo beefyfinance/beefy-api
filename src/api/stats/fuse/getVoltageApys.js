@@ -55,8 +55,6 @@ const getVoltageDualApys = async () => {
       yearlyRewardsBInUsd = yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
     }
 
-    const x = yearlyRewardsAInUsd.toNumber();
-    const y = yearlyRewardsBInUsd.toNumber();
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
