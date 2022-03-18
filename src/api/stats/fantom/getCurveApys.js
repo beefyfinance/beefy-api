@@ -30,8 +30,8 @@ const getCurveApys = async () => {
 const getGeistApys = async () => {
   let apys = {};
   try {
-    const response = await axios.get('https://api.geist.finance/api/getApys');
-    const apyData = response.data.data.apyDetails;
+    const response = await axios.get('https://api.geist.finance/api/lendingPoolRewards');
+    const apyData = response.data.data.poolAPRs;
     apyData.forEach(apy => {
       apys = { ...apys, ...{ [apy.tokenAddress]: apy.apy / 2 } }; // 50% penalty fee
     });
