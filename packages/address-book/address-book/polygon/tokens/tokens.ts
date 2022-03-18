@@ -27,6 +27,28 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  XSGD: {
+    name: 'StraitsX Singapore Dollar',
+    symbol: 'XSGD',
+    address: '0x769434dcA303597C8fc4997Bf3DAB233e961Eda2',
+    chainId: 137,
+    decimals: 6,
+    website: 'https://www.straitsx.com/sg',
+    description:
+      'XSGD is the digital Singapore Dollar running on the Ethereum and Zilliqa blockchains.',
+    logoURI: '',
+  },
+  jSGD: {
+    name: 'Jarvis Synthetic Singapore Dollar',
+    symbol: 'jSGD',
+    address: '0xa926db7a4CC0cb1736D5ac60495ca8Eb7214B503',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jSGD is a multi-collateralized synthetic token tracking the price of the Singapore Dollar. It is built on the top of UMA and Chainlink.',
+    logoURI: '',
+  },
   FUSE: {
     name: 'Fuse',
     symbol: 'FUSE',
