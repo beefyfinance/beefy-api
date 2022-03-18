@@ -14,7 +14,7 @@
     "lp1": {
       "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
       "oracle": "tokens",
-      "oracleId": "Metis",
+      "oracleId": "METIS",
       "decimals": "1e18"
     }
   },
@@ -27,7 +27,7 @@
     "lp0": {
       "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
       "oracle": "tokens",
-      "oracleId": "Metis",
+      "oracleId": "METIS",
       "decimals": "1e18"
     },
     "lp1": {
@@ -52,7 +52,7 @@
     "lp1": {
       "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
       "oracle": "tokens",
-      "oracleId": "Metis",
+      "oracleId": "METIS",
       "decimals": "1e18"
     }
   },
