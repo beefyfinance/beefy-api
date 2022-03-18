@@ -32,7 +32,7 @@ http://localhost:3000/
 
 #### **/apy**
 
-The main endpoint used by the frontend. It returns the APY of all the vaults in the following format. This is the legacy format. A new endpoint is being created at **/apy/breakdown** with a staggered migration.
+The main endpoint used by the frontend. It returns the APY of all the vaults in the following format. 
 
 ```
 {
@@ -42,6 +42,8 @@ The main endpoint used by the frontend. It returns the APY of all the vaults in 
 	"cake-swingby-bnb": 21.85102752680053 // 2185%
 }
 ```
+
+NB This is the legacy format. A new endpoint is being created at **/apy/breakdown** with a staggered migration.
 
 #### **/apy/breakdown**
 
@@ -64,7 +66,7 @@ The new version of the APY endpoint, broken down into component parts when they 
 }
 ```
 
-As you can see above, the endpoint attempts to expose some elements from the breakdown of the Total APY calculation. Where this is not possible, we just show the legacy Total APY. Note that the legacy Total APY -> totalApy does not include the trading fees.
+Note the endpoint exposes elements needed for the Total APY calculation. Where this is not possible, we just show the legacy Total APY. Note that the legacy Total APY -> totalApy does not include the trading fees.
 
 Each of these fields within the structure are:
 
