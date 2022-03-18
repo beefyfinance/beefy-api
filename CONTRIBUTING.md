@@ -1,11 +1,11 @@
 Contributing to Beefy's API
 =======
 
-We really appreciate and value contributions to the Beefy.Finance repositories. Please take 5' to review the items listed below to make sure that your contributions are merged as soon as possible.
+This API supplies the data to our front end (e.g. APY and TVL metrics) and is an important part of Beefy.Finance. We value your contribution to our repositories. To help contributions get merged as soon as possible, please take 5' to review the items below.
 
 ## Creating Pull Requests (PRs)
 
-As a contributor, you are expected to fork this repository, work on your own fork and then submit pull requests. The pull requests will be reviewed and eventually merged into the main repo. See ["Fork-a-Repo"](https://help.github.com/articles/fork-a-repo/) for how this works.
+Fork this repository, work on your own fork and submit pull requests. The pull requests will be reviewed and eventually merged into the main repo. See ["Fork-a-Repo"](https://help.github.com/articles/fork-a-repo/).
 
 ## A typical workflow
 
@@ -35,12 +35,16 @@ git push origin fix/some-bug-#123
 
 4) Go to [github.com/beefyfinance/beefy-api](https://github.com/beefyfinance/beefy-api) in your web browser and issue a new pull request.
 
-5) Verify your local build succeeds.
+5) Verify your local build succeeds. 
+
+First, start up a yarn copy of the API:
 
 ```
 yarn
 yarn start
 ```
+
+If contributing a vault, ensure the /APY/breakdown endpoing contains your newly created vault.   
 
 6) Maintainers will review your code and possibly ask for changes before your code is pulled in to the main repository. We'll check that all tests pass, review the coding style, and check for general code correctness. If everything is OK, we'll merge your pull request and your code will be part of Beefy's API.
 
