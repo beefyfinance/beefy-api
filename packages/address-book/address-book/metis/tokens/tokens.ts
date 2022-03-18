@@ -125,6 +125,42 @@ const _tokens = {
     description:
       'BinaryDAO is a yield DAO that uses its treasury to bootstrap and invest in early-staged crypto projects, enabling premium DeFi yield to BYTE token holders',
   },
+  FTM: {
+    name: 'Fantom Token',
+    symbol: 'FTM',
+    address: '0xa9109271abcf0C4106Ab7366B4eDB34405947eED',
+    chainId: 1088,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xa9109271abcf0C4106Ab7366B4eDB34405947eED.svg',
+    website: 'https://fantom.foundation/',
+    description:
+      'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+  },
+  AVAX: {
+    name: 'Avalanche Token',
+    symbol: 'AVAX',
+    address: '0xE253E0CeA0CDD43d9628567d097052B33F98D611',
+    chainId: 1088,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xE253E0CeA0CDD43d9628567d097052B33F98D611.svg',
+    website: 'https://www.avalabs.org/',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+  },
+  DAI: {
+    name: 'Dai Stablecoin',
+    symbol: 'DAI',
+    address: '0x4651B38e7ec14BB3db731369BFE5B08F2466Bd0A',
+    chainId: 1088,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x4651B38e7ec14BB3db731369BFE5B08F2466Bd0A.svg',
+    website: 'https://makerdao.com/en/',
+    description:
+      'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

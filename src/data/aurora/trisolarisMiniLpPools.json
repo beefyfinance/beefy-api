@@ -1,5 +1,24 @@
 [
   {
+    "name": "tri-ausdo-usdt",
+    "address": "0x6277f94a69Df5df0Bc58b25917B9ECEFBf1b846A",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x293074789b247cab05357b08052468B5d7A23c5a",
+      "oracle": "tokens",
+      "oracleId": "aUSDO",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x4988a896b1227218e4A686fdE5EabdcAbd91571f",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "tri-solace-near",
     "address": "0xdDAdf88b007B95fEb42DDbd110034C9a8e9746F2",
     "decimals": "1e18",

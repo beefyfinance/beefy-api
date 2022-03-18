@@ -1,5 +1,62 @@
 [
   {
+    "name": "tethys-dai-metis",
+    "address": "0xCc15d8f93be780aD78fD1A016fB0F15F2543b5Dc",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0x4651B38e7ec14BB3db731369BFE5B08F2466Bd0A",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "Metis",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tethys-metis-ravax",
+    "address": "0x3Ca47677e7D8796e6470307Ad15c1fBFd43f0D6F",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "Metis",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE253E0CeA0CDD43d9628567d097052B33F98D611",
+      "oracle": "tokens",
+      "oracleId": "rAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tethys-rftm-metis",
+    "address": "0x74Ca39F7aB9B685B8eA8c4ab19E7Ab6b474Dd22D",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 1088,
+    "lp0": {
+      "address": "0xa9109271abcf0C4106Ab7366B4eDB34405947eED",
+      "oracle": "tokens",
+      "oracleId": "rFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "Metis",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "tethys-wbtc-metis",
     "address": "0xA0081C6D591c53Ae651bD71B8d90C83C1F1106C2",
     "decimals": "1e18",

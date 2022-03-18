@@ -220,6 +220,18 @@ const _tokens = {
     description:
       'Staked TRI. Trisolaris is #1 Dex on the Aurora engine, an EVM compatible blockchain running in the near ecosystem.',
   },
+  USDO: {
+    name: 'aUSDO',
+    symbol: 'aUSDO',
+    address: '0x293074789b247cab05357b08052468B5d7A23c5a',
+    chainId: 1313161554,
+    decimals: 8,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x293074789b247cab05357b08052468B5d7A23c5a.svg',
+    website: 'https://omnifarms.ocp.finance/',
+    description:
+      'USDO is a decentralised stablecoin backed by a verifiable collateral pool of on-chain assets.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
