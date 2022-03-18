@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  DEG: {
+    name: 'DegisToken',
+    symbol: 'DEG',
+    address: '0x9f285507Ea5B4F33822CA7aBb5EC8953ce37A645',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/18840.png',
+    website: 'https://degis.io/',
+    description:
+      'Blockchain is miserable, where risk and reward are widely extended. DEGIS is the shield to protect you. With innovative protection products, DEGIS is attractive to both on-chain and off-chain buyers.',
+  },
   EGG: {
     name: 'Chikn Egg',
     symbol: 'EGG',

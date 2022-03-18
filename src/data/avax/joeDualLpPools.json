@@ -1,5 +1,27 @@
 [
   {
+    "name": "joe-deg-wavax",
+    "address": "0x465460F46969F2bf969432956491dEE95A6ba493",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "DEG",
+    "decimalsB": "1e18",
+    "poolId": 60,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x9f285507Ea5B4F33822CA7aBb5EC8953ce37A645",
+      "oracle": "tokens",
+      "oracleId": "DEG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-joe-usdc",
     "address": "0x3bc40d4307cD946157447CD55d70ee7495bA6140",
     "decimals": "1e18",
