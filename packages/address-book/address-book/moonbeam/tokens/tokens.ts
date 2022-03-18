@@ -149,6 +149,17 @@ const _tokens = {
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
   },
+  MATIC: {
+    name: 'Matic',
+    symbol: 'MATIC',
+    address: '0x3405A1bd46B85c5C029483FbECf2F3E611026e45',
+    chainId: 1284,
+    decimals: 18,
+    logoURI: 'None',
+    website: 'https://polygon.technology/',
+    description:
+      'Polygon believes in Web3 for all. Polygon is a decentralised Ethereum scaling platform that enables developers to build scalable user-friendly dApps with low transaction fees without ever sacrificing on security.',
+  },
   AVAX: {
     name: 'Avalanche',
     symbol: 'AVAX',
