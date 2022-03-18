@@ -1,5 +1,176 @@
 [
   {
+    "name": "stellaswap-ust-wglmr",
+    "address": "0xb6835036C9A2A96D3BfB8DBE1722971fEb456a83",
+    "decimals": "1e18",
+    "poolId": 18,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x085416975fe14C2A731a97eC38B9bF8135231F62",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-luna-wglmr",
+    "address": "0xE2BFE2F1437f249B15B7111011219995ecc43155",
+    "decimals": "1e18",
+    "poolId": 17,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x31DAB3430f3081dfF3Ccd80F17AD98583437B213",
+      "oracle": "tokens",
+      "oracleId": "LUNA",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-usdc-ftm",
+    "address": "0x077Fc7B4455050249D7F5511ED588a665E03e6C5",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-wglmr-ftm",
+    "address": "0x2Afab635EA2DC4B498EF1C00E63b7a7dBa9c93C6",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-usdc-eth",
+    "address": "0x0Aa48bF937ee8F41f1a52D225EF5A6F6961e39FA",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-stella-matic",
+    "address": "0xF69F219ad163d66e7300731AF3C6b9E5B44954B9",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2",
+      "oracle": "tokens",
+      "oracleId": "STELLA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3405A1bd46B85c5C029483FbECf2F3E611026e45",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-matic-wglmr",
+    "address": "0x6775ff3828a19EB5926C0C4D572183cA15Aa4C08",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x3405A1bd46B85c5C029483FbECf2F3E611026e45",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-wbtc-wglmr",
+    "address": "0x4CDf77828b839506bF6B6e219017B65623042400",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x922D641a426DcFFaeF11680e5358F34d97d112E1",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-avax-wglmr",
+    "address": "0x2F412C140080039eaF9dE01c95e84cFb1c8D98aD",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x4792C1EcB969B036eb51330c63bD27899A13D84e",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "stellaswap-stella-avax",
     "address": "0x2AB268c6025F7Cd76A4B6a8A5bc7fE780Fbbfe98",
     "decimals": "1e18",
@@ -171,5 +342,3 @@
     }
   }
 ]
-
-
