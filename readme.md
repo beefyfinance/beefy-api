@@ -24,6 +24,8 @@ Optional enviroment vars:
 
 ## Endpoints
 
+http://localhost:3000/
+
 ---
 
 ### Consumed by the [app](https://app.beefy.finance)
