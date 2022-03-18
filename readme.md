@@ -6,18 +6,17 @@ API that powers [Beefy Finance](https://app.beefy.finance). You can find the rep
 
 ## To Run.
 
+```
+yarn install-all
+yarn start
+```
+
 Optional enviroment vars:
 
 `BSC_RPC` - A custom RPC endpoint that you want to use.
 `HECO_RPC` - A custom RPC endpoint for HECO. You can just leave the default one otherwise.
 `FORTUBE_API_TOKEN` - A token from Fortube to use their API. If you don't have a token you will get a console warning and the Fortube APYs will be slightly smaller than in production. Everything works fine otherwise.
 
-Afterwards just do
-
-```
-yarn install-all
-yarn start
-```
 
 ---
 
