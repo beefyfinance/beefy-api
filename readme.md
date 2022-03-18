@@ -81,6 +81,10 @@ After you start the API it can take a minute or two before you can fetch the APY
 
 #### **/lps**: All liqudity pair prices under a single endpoint (crosschain).
 
+#### **/vaults**: TBD
+
+
+
 ---
 
 ### Consumed by the [dashboard](https://dashboard.beefy.finance)
