@@ -11,12 +11,13 @@ yarn install-all
 yarn start
 ```
 
+Note: After you start the API it can take a minute or two before you can fetch the APYs. We currently log `getApys()` to the console when all the data is available.
+
 Optional enviroment vars:
 
 `BSC_RPC` - A custom RPC endpoint that you want to use.
 `HECO_RPC` - A custom RPC endpoint for HECO. You can just leave the default one otherwise.
 `FORTUBE_API_TOKEN` - A token from Fortube to use their API. If you don't have a token you will get a console warning and the Fortube APYs will be slightly smaller than in production. Everything works fine otherwise.
-
 
 ---
 
@@ -78,7 +79,7 @@ Each of these fields within the structure are:
 - **tradingApr** - Annual interest from trading fees, not compounded.
 - **totalApy** - The known Total APY. Where fields are available to calculate the Total APY including trading fees, this is calculated. The final calculation is totalApy = (1 + vaultApr) \* (1 + (compounded tradingApr)) - 1.
 
-After you start the API it can take a minute or two before you can fetch the APYs. We currently log `getApys()` to the console when all the data is available.
+
 
 #### **/prices** All token prices under the same endpoint (crosschain).
 
