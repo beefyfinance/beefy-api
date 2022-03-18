@@ -1,5 +1,23 @@
 [
   {
+    "name": "netswap-bifi-metis",
+    "address": "0x89D433e8cCC871B3f12EA17b651ff3633DFb5DC0",
+    "decimals": "1e18",
+    "chainId": 1088,
+    "lp0": {
+      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+      "oracle": "tokens",
+      "oracleId": "METIS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe6801928061CDbE32AC5AD0634427E140EFd05F9",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-solid-ftm",
     "address": "0xc8Cc1B89820791665b6f26b00b3111b00e021f19",
     "decimals": "1e18",

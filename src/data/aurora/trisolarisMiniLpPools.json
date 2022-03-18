@@ -1,43 +1,5 @@
 [
   {
-    "name": "tri-stnear-xtri",
-    "address": "0x5913f644A10d98c79F2e0b609988640187256373",
-    "decimals": "1e18",
-    "poolId": 11,
-    "chainId": 1313161554,
-    "lp0": {
-      "address": "0x07F9F7f963C5cD2BBFFd30CcfB964Be114332E30",
-      "oracle": "tokens",
-      "oracleId": "STNEAR",
-      "decimals": "1e24"
-    },
-    "lp1": {
-      "address": "0x802119e4e253D5C19aA06A5d567C5a41596D6803",
-      "oracle": "tokens",
-      "oracleId": "xTRI",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "tri-stnear-near",
-    "address": "0x47924Ae4968832984F4091EEC537dfF5c38948a4",
-    "decimals": "1e18",
-    "poolId": 12,
-    "chainId": 1313161554,
-    "lp0": {
-      "address": "0x07F9F7f963C5cD2BBFFd30CcfB964Be114332E30",
-      "oracle": "tokens",
-      "oracleId": "STNEAR",
-      "decimals": "1e24"
-    },
-    "lp1": {
-      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
-      "oracle": "tokens",
-      "oracleId": "NEAR",
-      "decimals": "1e24"
-    }
-  },
-  {
     "name": "tri-solace-near",
     "address": "0xdDAdf88b007B95fEb42DDbd110034C9a8e9746F2",
     "decimals": "1e18",
