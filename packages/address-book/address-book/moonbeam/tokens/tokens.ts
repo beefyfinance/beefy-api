@@ -244,6 +244,18 @@ const _tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   },
+  aWBTC: {
+    name: 'Anyswap Wrapped BTC',
+    symbol: 'WBTC',
+    address: '0x922D641a426DcFFaeF11680e5358F34d97d112E1',
+    chainId: 1284,
+    decimals: 8,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x922D641a426DcFFaeF11680e5358F34d97d112E1.svg',
+    website: 'https://wbtc.network/',
+    description:
+      'Anyswap Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+  },
   LUNA: {
     name: 'Axelar Wrapped LUNA',
     symbol: 'LUNA',
