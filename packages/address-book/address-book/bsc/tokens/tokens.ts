@@ -15,6 +15,29 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  GMT: {
+    name: 'Green Metaverse Token',
+    symbol: 'GMT',
+    address: '0x3019BF2a2eF8040C242C9a4c5c4BD4C81678b2A1',
+    chainId: 56,
+    decimals: 8,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x3019BF2a2eF8040C242C9a4c5c4BD4C81678b2A1.svg',
+    website: 'https://www.stepn.com/',
+    description:
+      'Green Metaverse Token is the currency of STEPN, a Web 3 lifestyle app with social-fi and game-fi elements.',
+  },
+  BSW: {
+    name: 'Biswap',
+    symbol: 'BSW',
+    address: '0x965F527D9159dCe6288a2219DB51fc6Eef120dD1',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1.svg',
+    website: 'https://biswap.org/',
+    description: 'The First DEX on BNB Chain with a three-type referral system',
+  },
   ERTHA: {
     name: 'ERTHA',
     symbol: 'ERTHA',
