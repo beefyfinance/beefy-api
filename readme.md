@@ -80,13 +80,11 @@ Each of these fields within the structure are:
 - **totalApy** - The known Total APY. Where fields are available to calculate the Total APY including trading fees, this is calculated. The final calculation is totalApy = (1 + vaultApr) \* (1 + (compounded tradingApr)) - 1.
 
 
-
 #### **/prices** All token prices under the same endpoint (crosschain).
 
 #### **/lps**: All liqudity pair prices under a single endpoint (crosschain).
 
 #### **/vaults**: TBD
-
 
 
 ---
