@@ -6,18 +6,18 @@ API that powers [Beefy Finance](https://app.beefy.finance). You can find the rep
 
 ## To Run.
 
+```
+yarn install-all
+yarn start
+```
+
+Note: After you start the API it can take a minute or two before you can fetch the APYs. We currently log `getApys()` to the console when all the data is available.
+
 Optional enviroment vars:
 
 `BSC_RPC` - A custom RPC endpoint that you want to use.
 `HECO_RPC` - A custom RPC endpoint for HECO. You can just leave the default one otherwise.
 `FORTUBE_API_TOKEN` - A token from Fortube to use their API. If you don't have a token you will get a console warning and the Fortube APYs will be slightly smaller than in production. Everything works fine otherwise.
-
-Afterwards just do
-
-```
-yarn install-all
-yarn start
-```
 
 ---
 
@@ -25,13 +25,15 @@ yarn start
 
 ## Endpoints
 
+http://localhost:3000/
+
 ---
 
 ### Consumed by the [app](https://app.beefy.finance)
 
 #### **/apy**
 
-The main endpoint used by the frontend. It returns the APY of all the vaults in the following format. This is the legacy format. A new endpoint is being created at **/apy/breakdown** with a staggered migration.
+The main endpoint used by the frontend. It returns the APY of all the vaults in the following format. 
 
 ```
 {
@@ -41,6 +43,8 @@ The main endpoint used by the frontend. It returns the APY of all the vaults in 
 	"cake-swingby-bnb": 21.85102752680053 // 2185%
 }
 ```
+
+NB This is the legacy format. A new endpoint is being created at **/apy/breakdown** with a staggered migration.
 
 #### **/apy/breakdown**
 
@@ -63,7 +67,7 @@ The new version of the APY endpoint, broken down into component parts when they 
 }
 ```
 
-As you can see above, the endpoint attempts to expose some elements from the breakdown of the Total APY calculation. Where this is not possible, we just show the legacy Total APY. Note that the legacy Total APY -> totalApy does not include the trading fees.
+Note the endpoint exposes elements needed for the Total APY calculation. Where this is not possible, we just show the legacy Total APY. Note that the legacy Total APY -> totalApy does not include the trading fees.
 
 Each of these fields within the structure are:
 
@@ -75,11 +79,13 @@ Each of these fields within the structure are:
 - **tradingApr** - Annual interest from trading fees, not compounded.
 - **totalApy** - The known Total APY. Where fields are available to calculate the Total APY including trading fees, this is calculated. The final calculation is totalApy = (1 + vaultApr) \* (1 + (compounded tradingApr)) - 1.
 
-After you start the API it can take a minute or two before you can fetch the APYs. We currently log `getApys()` to the console when all the data is available.
 
 #### **/prices** All token prices under the same endpoint (crosschain).
 
 #### **/lps**: All liqudity pair prices under a single endpoint (crosschain).
+
+#### **/vaults**: TBD
+
 
 ---
 
