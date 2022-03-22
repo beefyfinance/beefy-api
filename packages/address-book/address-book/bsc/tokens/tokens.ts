@@ -15,6 +15,28 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  DUET: {
+    name: 'Duet Protocol',
+    symbol: 'DUET',
+    address: '0x95EE03e1e2C5c4877f9A298F1C0D6c98698FAB7B',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x95EE03e1e2C5c4877f9A298F1C0D6c98698FAB7B.svg',
+    website: 'https://www.duet.finance/',
+    description: 'A parallel universe which turns flat assets into sharp assets',
+  },
+  ERA: {
+    name: 'Era7',
+    symbol: 'ERA',
+    address: '0x6f9F0c4ad9Af7EbD61Ac5A1D4e0F2227F7B0E5f9',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x6f9F0c4ad9Af7EbD61Ac5A1D4e0F2227F7B0E5f9.svg',
+    website: 'https://www.era7.io/',
+    description: 'Era7: Game of Truth is a metaverse-style Trading Card Game',
+  },
   GMT: {
     name: 'Green Metaverse Token',
     symbol: 'GMT',
