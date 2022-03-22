@@ -1,5 +1,45 @@
 [
   {
+    "name": "beets-boomer-beets",
+    "address": "0x8DBB92ca6c399792AC07510a0996C59902cD75a1",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x8dbb92ca6c399792ac07510a0996c59902cd75a1000200000000000000000299",
+    "poolId": 62,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "BTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-exploding-shrapnel",
+    "address": "0x2Ba4953C75860e70Cd70f15a2D5Fe07DE832Bcd1",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x2ba4953c75860e70cd70f15a2d5fe07de832bcd1000200000000000000000210",
+    "poolId": 50,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SHRAP",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-beefy-tale",
     "address": "0x3bd4c3d1f6F40d77B2e9d0007D6f76E4F183A46d",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",

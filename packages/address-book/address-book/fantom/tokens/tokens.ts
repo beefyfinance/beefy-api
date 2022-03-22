@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  SHRAP: {
+    name: 'Shrapnel SHRAP',
+    symbol: 'SHRAP',
+    address: '0xbf4906762C38F50bC7Be0A11BB452C944f6C72E1',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://app.fbomb.finance/images/tokens/0xbf4906762C38F50bC7Be0A11BB452C944f6C72E1.png',
+    website: 'https://app.fbomb.finance/',
+    description: 'Shrapnel is an inflationary token launched along with BombSwap.',
+  },
   BSHARE: {
     name: 'BSHARE',
     symbol: 'BSHARE',

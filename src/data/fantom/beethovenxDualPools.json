@@ -1,5 +1,51 @@
 [
   {
+    "name": "beets-god-between-stables",
+    "address": "0x8B858Eaf095A7337dE6f9bC212993338773cA34e",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x8b858eaf095a7337de6f9bc212993338773ca34e00020000000000000000023c",
+    "poolId": 67,
+    "oracleB": "tokens",
+    "oracleIdB": "DEUS",
+    "decimalsB": "1e18",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DEI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-ust-ust",
+    "address": "0x66Bcb58cF9754f421c268990B280e4462E10aac8",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x66bcb58cf9754f421c268990b280e4462e10aac8000200000000000000000339",
+    "poolId": 66,
+    "oracleB": "tokens",
+    "oracleIdB": "UST",
+    "decimalsB": "1e6",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "UST",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "UST",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "beets-cre8r-f-major",
     "address": "0xbb4607beDE4610e80d35C15692eFcB7807A2d0A6",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
