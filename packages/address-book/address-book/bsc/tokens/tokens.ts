@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  APE: {
+    name: 'ApeCoin',
+    symbol: 'APE',
+    address: '0x0b079B33B6e72311c6BE245F9f660CC385029fc3',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/18876.png',
+    website: 'http://apecoin.com/',
+    description:
+      'ApeCoin is an ERC-20 governance and utility token used within the APE Ecosystem to empower and incentivize a decentralized community building at the forefront of web3.',
+  },
   DUET: {
     name: 'Duet Protocol',
     symbol: 'DUET',
