@@ -1,5 +1,27 @@
 [
   {
+    "name": "voltagev2-wfuse-ageur",
+    "address": "0xeeD7A28eEd4E768fCD46dE3642AB73488De77e11",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "FUSE",
+    "decimalsB": "1e18",
+    "poolId": 12,
+    "chainId": 122,
+    "lp0": {
+      "address": "0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73",
+      "oracle": "tokens",
+      "oracleId": "agEUR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
+      "oracle": "tokens",
+      "oracleId": "WFUSE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "voltagev2-wfuse-fusd",
     "address": "0x933a10d094592EB3F2a26bCb366472eba8868A66",
     "decimals": "1e18",

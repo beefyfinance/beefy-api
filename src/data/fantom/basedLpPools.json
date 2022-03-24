@@ -1,5 +1,24 @@
 [
   {
+    "name": "based-based-bshare",
+    "address": "0x5748b5Dd1f59342f85d170c48C427959c2f9f262",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x8D7d3409881b51466B483B11Ea1B8A03cdEd89ae",
+      "oracle": "tokens",
+      "oracleId": "BASED",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x49C290Ff692149A4E16611c694fdED42C954ab7a",
+      "oracle": "tokens",
+      "oracleId": "BSHARE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "based-based-mai",
     "address": "0x7B5B3751550be4FF87aC6bda89533F7A0c9825B3",
     "decimals": "1e18",
