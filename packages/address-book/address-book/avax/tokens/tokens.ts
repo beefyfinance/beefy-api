@@ -15,6 +15,30 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  FLY: {
+    name: 'Hoppers Game FLY',
+    symbol: 'FLY',
+    address: '0x78Ea3fef1c1f07348199Bf44f45b803b9B0Dbe28',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x78Ea3fef1c1f07348199Bf44f45b803b9B0Dbe28/logo.png',
+    website: 'https://hoppersgame.io/',
+    description:
+      'Hoppers Game is an idle game where players stake their Hopper NFTs in different adventures to earn $FLY.',
+  },
+  APE: {
+    name: 'ApeCoin APE',
+    symbol: 'APE',
+    address: '0x0802d66f029c46E042b74d543fC43B6705ccb4ba',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x0802d66f029c46E042b74d543fC43B6705ccb4ba/logo.png',
+    website: 'https://apecoin.com/',
+    description:
+      'ApeCoin is the APE Ecosystems governance token, allowing token holders to participate in ApeCoin DAO and giving its participants a shared and open currency that can be used without centralized intermediaries.',
+  },
   DEG: {
     name: 'DegisToken',
     symbol: 'DEG',
