@@ -1,5 +1,46 @@
 [
   {
+    "name": "joe-ape-wavax",
+    "address": "0x11bBfA2Fa3b995ceA99D20DFA618fd32e252d8F2",
+    "decimals": "1e18",
+    "poolId": 63,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x0802d66f029c46E042b74d543fC43B6705ccb4ba",
+      "oracle": "tokens",
+      "oracleId": "APE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-fly-wavax",
+    "address": "0x1371a6d8CBe2Ca66d0911f270e1cAA7C12A3045A",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "FLY",
+    "decimalsB": "1e18",
+    "poolId": 59,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x78Ea3fef1c1f07348199Bf44f45b803b9B0Dbe28",
+      "oracle": "tokens",
+      "oracleId": "FLY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-deg-wavax",
     "address": "0x465460F46969F2bf969432956491dEE95A6ba493",
     "decimals": "1e18",
