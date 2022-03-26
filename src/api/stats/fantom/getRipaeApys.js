@@ -10,6 +10,16 @@ const getRipaeApys = async () =>
     web3: web3,
     chainId: chainId,
     masterchef: '0xa058316Af6275137B3450C9C9A4022dE6482BaC2',
+    singlePools: [
+      {
+        name: 'ripae-pftm',
+        poolId: 3,
+        address: '0x112df7e3b4b7ab424f07319d4e92f41e6608c48b',
+        oracle: 'tokens',
+        oracleId: 'pFTM',
+        decimals: '1e18',
+      },
+    ],
     tokenPerBlock: 'paePerSecond',
     hasMultiplier: false,
     pools: pools,
