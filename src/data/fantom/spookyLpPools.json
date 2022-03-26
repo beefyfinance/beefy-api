@@ -1,5 +1,43 @@
 [
   {
+    "name": "boo-wftm-ape",
+    "address": "0xC9FB686f14bDA7e2653cF8F605Dc8551B6a53FD3",
+    "decimals": "1e18",
+    "poolId": 70,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2d72A97a31Dc920dB03330780d30074626e39C8A",
+      "oracle": "tokens",
+      "oracleId": "APE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-usdc-boo",
+    "address": "0xf8Cb2980120469d79958151daa45Eb937c6E1eD6",
+    "decimals": "1e18",
+    "poolId": 69,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE",
+      "oracle": "tokens",
+      "oracleId": "BOO",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-kae-wftm",
     "address": "0xE6C2DB69dCDA38A8f56feAfC0229E6f039E5d5E2",
     "decimals": "1e18",
