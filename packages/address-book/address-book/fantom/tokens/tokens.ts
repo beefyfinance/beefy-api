@@ -145,6 +145,17 @@ const _tokens = {
       'WigoSwap is a DeFi hub with lifetime farming earnings powered by Gamified Burning Mechanism (GBM).',
     logoURI: 'https://wigoswap.io/images/tokens/0xE992bEAb6659BFF447893641A378FbbF031C5bD6.svg',
   },
+  EXCALIBUR: {
+    name: 'Excalibur',
+    symbol: 'EXC',
+    address: '0x6e99e0676A90b2a5a722C44109db22220382cc9F',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://excalibur.exchange',
+    description:
+      'Excalibur Exchange is a Decentralized protocol built with a focus on sustainability and capital efficiency.',
+    logoURI: 'https://app.excalibur.exchange/images/tokens/exc.svg',
+  },
   PAE: {
     name: 'Ripae',
     symbol: 'PAE',
