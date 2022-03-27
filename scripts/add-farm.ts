@@ -1,7 +1,7 @@
 import { ChainId, addressBook } from '../packages/address-book/address-book';
 const {
   fantom: {
-    platforms: { spookyswap },
+    platforms: { spookyswap, excalibur },
   },
   moonriver: {
     platforms: { finn, solarbeam },
@@ -64,6 +64,11 @@ const projects = {
     prefix: 'boo',
     file: '../src/data/fantom/spookyLpPools.json',
     masterchef: spookyswap.masterchef,
+  },
+  excalibur: {
+    prefix: 'exc',
+    file: '../src/data/fantom/excaliburLpPools.json',
+    masterchef: excalibur.masterchef,
   },
   solarbeam: {
     prefix: 'solarbeam',
