@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0x846e4d51d7e2043c1a87e0ab7490b93fb940357b",
       "oracle": "tokens",
-      "oracleId": "USTw", // wormhole UST
+      "oracleId": "USTw",
       "decimals": "1e6"
     },
     "lp1": {

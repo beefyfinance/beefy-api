@@ -217,7 +217,7 @@ import solarflare from '../../data/moonbeam/solarFlareLpPools.json';
 import basedPools from '../../data/fantom/basedLpPools.json';
 import voltagePools from '../../data/fuse/voltageLpPools.json';
 import bombSwapPools from '../../data/fantom/bombSwapPools.json';
-import excaliburSwapPools from '../../data/fantom/excaliburSwapPools.json';
+import excaliburSwapPools from '../../data/fantom/excaliburLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
