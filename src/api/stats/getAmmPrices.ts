@@ -211,6 +211,7 @@ import ripaeAvaxPools from '../../data/avax/ripaeLpPools.json';
 import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
+import darkNessPools from '../../data/cronos/darkNessLpPools.json';
 import wigoPools from '../../data/fantom/wigoLpPools.json';
 import solidlyPools from '../../data/fantom/solidlyLpPools.json';
 import solarflare from '../../data/moonbeam/solarFlareLpPools.json';
@@ -231,6 +232,7 @@ const pools = [
   ...solarflare,
   ...solidlyPools,
   ...wigoPools,
+  ...darkNessPools,
   ...darkCryptoPools,
   ...beamswapPools,
   ...ripaePools,

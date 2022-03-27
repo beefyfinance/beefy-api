@@ -16,6 +16,17 @@ const _tokens = {
   CRO: CRO,
   WCRO: CRO,
   WNATIVE: CRO,
+  NESS: {
+    name: 'Darkness Share NESS',
+    symbol: 'NESS',
+    address: '0xE727240728C1a5f95437b8b50AFDd0EA4AE5F0c8',
+    chainId: 25,
+    decimals: 18,
+    logoURI: 'https://www.darkcrypto.finance/static/media/NESS.b906b5c0.svg',
+    website: 'https://www.darkness.finance/',
+    description:
+      'Ness is a Multi-Fractional-Algorithmic stablecoin with Stablecoins Dex on Cronos Chain',
+  },
   SKY: {
     chainId: 25,
     address: '0x9D3BBb0e988D9Fb2d55d07Fe471Be2266AD9c81c',
