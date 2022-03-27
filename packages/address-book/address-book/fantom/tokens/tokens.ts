@@ -145,7 +145,7 @@ const _tokens = {
       'WigoSwap is a DeFi hub with lifetime farming earnings powered by Gamified Burning Mechanism (GBM).',
     logoURI: 'https://wigoswap.io/images/tokens/0xE992bEAb6659BFF447893641A378FbbF031C5bD6.svg',
   },
-  EXCALIBUR: {
+  EXC: {
     name: 'Excalibur',
     symbol: 'EXC',
     address: '0x6e99e0676A90b2a5a722C44109db22220382cc9F',
