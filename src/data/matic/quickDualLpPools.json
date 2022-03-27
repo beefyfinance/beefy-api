@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-tel-eth",
+    "address": "0xFc2fC983a411C4B1E238f7Eb949308CF0218C750",
+    "rewardPool": "0xEda437364DCF8AB00f07b49bCc213CDf356b3962",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdF7837DE1F2Fa4631D716CF2502f8b230F1dcc32",
+      "oracle": "tokens",
+      "oracleId": "TEL",
+      "decimals": "1e2"
+    }
+  },
+  {
     "name": "quick-cxada-cxeth",
     "address": "0xfeC2385b26a4446A7813d16263348FdE7E99FEe4",
     "rewardPool": "0x8CC1178399f02EF0C53346486F0018005124658e",
