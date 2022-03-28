@@ -496,7 +496,7 @@
     }
   },
   {
-    "name": "sushi-eth-dai",
+    "name": "polygon-sushi-eth-dai",
     "address": "0x6FF62bfb8c12109E8000935A6De54daD83a4f39f",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -516,7 +516,7 @@
     }
   },
   {
-    "name": "sushi-btc-eth",
+    "name": "polygon-sushi-btc-eth",
     "address": "0xE62Ec2e799305E0D367b0Cc3ee2CdA135bF89816",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
