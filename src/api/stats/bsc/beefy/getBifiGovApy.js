@@ -6,7 +6,7 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 
 const BIFI = '0xCa3F508B8e4Dd382eE878A314789373D80A5190A';
-const REWARDS = '0x453D4Ba9a2D594314DF88564248497F7D74d6b2C';
+const REWARDS = '0x0d5761D9181C7745855FC985f646a842EB254eB9';
 const ORACLE = 'tokens';
 const ORACLE_ID = 'BIFI';
 const DECIMALS = '1e18';

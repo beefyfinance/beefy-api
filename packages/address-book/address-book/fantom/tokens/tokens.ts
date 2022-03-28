@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  APE: {
+    name: 'ApeCoin APE',
+    symbol: 'APE',
+    address: '0x2d72A97a31Dc920dB03330780d30074626e39C8A',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://assets.spookyswap.finance/tokens/APE.png',
+    website: 'http://apecoin.com/',
+    description:
+      'ApeCoin is for the Web3 Economy. Culture has found new expression in web3 through art, gaming, entertainment, and events.',
+  },
   SHRAP: {
     name: 'Shrapnel SHRAP',
     symbol: 'SHRAP',
