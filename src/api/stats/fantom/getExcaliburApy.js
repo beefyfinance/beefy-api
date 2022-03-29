@@ -4,6 +4,7 @@ import { getMasterChefApys } from '../common/getMasterChefApys';
 import ExcaliburMasterChef from '../../../abis/fantom/ExcaliburChef.json';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { sushiFantomClient } from '../../../apollo/client';
+import { getEDecimals } from '../../../utils/getEDecimals';
 const getBlockTime = require('../../../utils/getBlockTime');
 
 const {
@@ -26,9 +27,9 @@ const getExcaliburApy = async () => {
     secondsPerBlock: await getBlockTime(chainId),
     allocPointIndex: '3',
     pools: pools,
-    oracleId: 'excalibur',
+    oracleId: EXC.symbol,
     oracle: 'tokens',
-    decimals: '1e18',
+    decimals: getEDecimals(EXC.decimals),
     liquidityProviderFee: 0.002,
     tradingFeeInfoClient: sushiFantomClient,
     //log: true,
