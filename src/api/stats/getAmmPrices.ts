@@ -226,7 +226,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...excaliburSwapPools,
-  ...bombSwapPools,
+  /*...bombSwapPools,
   ...voltagePools,
   ...basedPools,
   ...stellaswapPools,
@@ -431,19 +431,20 @@ const pools = [
   ...nyacashPools,
   ...thugsPools,
   ...cakeLpV1Pools,
-  ...cakeLpPools,
+  ...cakeLpPools,*/
 ];
 
 const dmmPools = [...kyberPools, ...oldDmmPools];
 
 const coinGeckoCoins = [
-  'stasis-eurs',
-  'tether-eurt',
-  'par-stablecoin',
-  'jarvis-synthetic-euro',
-  'jpyc',
-  'cad-coin',
-  'xsgd',
+  { id: 'stasis-eurs', symbol: 'EURS' },
+  { id: 'tether-eurt', symbol: 'EURT' },
+  { id: 'par-stablecoin', symbol: 'PAR' },
+  { id: 'jarvis-synthetic-euro', symbol: 'JEUR' },
+  { id: 'jpyc', symbol: 'JPYC' },
+  { id: 'cad-coin', symbol: 'CADC' },
+  { id: 'xsgd', symbol: 'XSGD' },
+  { id: 'excalibur', symbol: 'EXC' },
 ];
 
 const knownPrices = {
@@ -453,6 +454,7 @@ const knownPrices = {
   DAI: 1,
   USDC: 1,
   UST: 1,
+  USTw: 1,
   USDN: 1,
   cUSD: 1,
   asUSDC: 1,
