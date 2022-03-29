@@ -8,7 +8,7 @@ const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { spookyClient, tombswapClient } = require('../../../apollo/client');
 import { SPOOKY_LPF, TOMBSWAP_LPF } from '../../../constants';
-import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
+import getApyBreakdown from '../common/getApyBreakdown';
 
 const rewardPool = '0xcc0a87F7e7c693042a9Cc703661F5060c80ACb43';
 const oracleId = 'TSHARE';
@@ -16,8 +16,8 @@ const oracle = 'tokens';
 const DECIMALS = '1e18';
 
 const getTombApys = async () => {
-  const spookyPools = pools.filter(pool => pool.liquiditySource === 'spooky');
-  const tombPools = pools.filter(pool => pool.liquiditySource !== 'spooky');
+  const spookyPools = pools.filter(pool => pool.liquiditySource !== 'tomb');
+  const tombPools = pools.filter(pool => pool.liquiditySource === 'tomb');
 
   let promises = [];
   spookyPools.forEach(pool => promises.push(getPoolApy(rewardPool, pool)));
