@@ -167,6 +167,17 @@ const _tokens = {
       'Excalibur Exchange is a Decentralized protocol built with a focus on sustainability and capital efficiency.',
     logoURI: 'https://app.excalibur.exchange/images/tokens/exc.svg',
   },
+  GRAIL: {
+    name: 'Grail',
+    symbol: 'GRAIL',
+    address: '0x1a8fd04b7eBEB82605829EEA91324D81b41d6dcf',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://excalibur.exchange',
+    description:
+      'Grail is the dividend token from Excalibur Exchange, a decentralized protocol built with a focus on sustainability and capital efficiency.',
+    logoURI: 'https://app.excalibur.exchange/images/tokens/grail.svg',
+  },
   PAE: {
     name: 'Ripae',
     symbol: 'PAE',
