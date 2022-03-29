@@ -127,7 +127,6 @@ const getTvl = () => {
 };
 
 const updateTvl = async () => {
-  return;
   console.log('> updating tvl');
 
   try {

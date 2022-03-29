@@ -7,7 +7,6 @@ const INTERVAL = 60 * 60 * 1000;
 let earned = {};
 
 const updateEarnings = async () => {
-  return;
   console.log('> updating earnings');
 
   // TODO: this looks like a nice candidate for a subgraph

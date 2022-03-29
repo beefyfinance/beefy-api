@@ -62,7 +62,6 @@ const getBuyback = async (
 let dailyBifiBuybackStats: DailyBifiBuybackStats | undefined = undefined;
 
 const updateBifiBuyback = async () => {
-  return;
   console.log('> updating bifi buyback');
 
   try {

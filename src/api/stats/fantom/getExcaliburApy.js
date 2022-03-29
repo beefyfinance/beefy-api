@@ -31,7 +31,7 @@ const getExcaliburApy = async () => {
     decimals: '1e18',
     liquidityProviderFee: 0.002,
     tradingFeeInfoClient: sushiFantomClient,
-    log: true,
+    //log: true,
   });
 };
 
