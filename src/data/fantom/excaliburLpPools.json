@@ -1,5 +1,81 @@
 [
   {
+    "name": "excalibur-usdc-weth",
+    "address": "0x256301df3b8550C7C631a6Dc958700dfDbe1313D",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "excalibur-usdc-fusdt",
+    "address": "0xc297aAb2F7ab8021d5afC14939f7d7fb798C8D53",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+      "oracle": "tokens",
+      "oracleId": "fUSDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "excalibur-usdc-dai",
+    "address": "0xD4064F75E7B1D400d1c6bF0878148CCAE10C12f8",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "excalibur-usdc-ust",
+    "address": "0xfA54BD05a1Aeaf66031a97a212981e8B35f88cD2",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x846e4D51d7E2043C1a87E0Ab7490B93FB940357b",
+      "oracle": "tokens",
+      "oracleId": "USTw",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "excalibur-usdc-ftm",
     "address": "0xbFA565D3687C47B50661D4D26f9823eCC3547AC0",
     "decimals": "1e18",
