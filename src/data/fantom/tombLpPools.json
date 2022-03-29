@@ -5,6 +5,7 @@
     "decimals": "1e18",
     "poolId": 2,
     "chainId": 250,
+    "liquiditySource": "tomb",
     "lp0": {
       "address": "0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7",
       "oracle": "tokens",
@@ -24,6 +25,7 @@
     "decimals": "1e18",
     "poolId": 1,
     "chainId": 250,
+    "liquiditySource": "spooky",
     "lp0": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
@@ -43,6 +45,7 @@
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 250,
+    "liquiditySource": "spooky",
     "lp0": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
