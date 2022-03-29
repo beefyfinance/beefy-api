@@ -24,7 +24,7 @@ const getExcaliburApy = async () => {
     tokenPerBlock: 'rewardsPerSecond',
     hasMultiplier: false,
     secondsPerBlock: await getBlockTime(chainId),
-    // allocPointIndex: '4',
+    allocPointIndex: '3',
     pools: pools,
     oracleId: 'excalibur',
     oracle: 'tokens',
