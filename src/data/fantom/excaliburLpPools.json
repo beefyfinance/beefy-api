@@ -1,5 +1,24 @@
 [
   {
+    "name": "excalibur-usdc-ftm",
+    "address": "0xbFA565D3687C47B50661D4D26f9823eCC3547AC0",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068da6c83afcfa0e13ba15a6696662335d5b75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "excalibur-ust-ftm",
     "address": "0x66402fdF9CF83Cdd54bfBB231162eEdA1B611925",
     "decimals": "1e18",
@@ -19,21 +38,21 @@
     }
   },
   {
-    "name": "excalibur-usdc-ftm",
-    "address": "0xbFA565D3687C47B50661D4D26f9823eCC3547AC0",
+    "name": "excalibur-ftm-exc",
+    "address": "0x7DeCbd8861b7fD98036Dd105B0265015744Cb2a6",
     "decimals": "1e18",
-    "poolId": 3,
+    "poolId": 1,
     "chainId": 250,
     "lp0": {
-      "address": "0x04068da6c83afcfa0e13ba15a6696662335d5b75",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
       "address": "0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83",
       "oracle": "tokens",
       "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6e99e0676a90b2a5a722c44109db22220382cc9f",
+      "oracle": "tokens",
+      "oracleId": "EXC",
       "decimals": "1e18"
     }
   }
