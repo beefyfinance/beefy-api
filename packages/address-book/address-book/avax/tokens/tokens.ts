@@ -84,7 +84,7 @@ const _tokens = {
   },
   VTX: {
     name: 'Vector',
-    symbol: 'ECD',
+    symbol: 'VTX',
     address: '0x5817D4F0b62A59b17f75207DA1848C2cE75e7AF4',
     chainId: 43114,
     decimals: 18,
