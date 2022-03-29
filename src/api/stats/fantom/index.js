@@ -35,6 +35,7 @@ const getBasedApy = require('./getBasedApys');
 const getExcaliburApy = require('./getExcaliburApy');
 
 const getApys = [
+  /*
   getSushiLpApys,
   getSpookyLpApys,
   getFroyoLpApys,
@@ -68,7 +69,7 @@ const getApys = [
   getWigoApys,
   getbeFTMApy,
   getbeFtmEarnApy,
-  getBasedApy,
+  getBasedApy,*/
   getExcaliburApy,
 ];
 
