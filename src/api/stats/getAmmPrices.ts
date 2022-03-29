@@ -466,16 +466,16 @@ const updateAmmPrices = async () => {
     const ammPrices = fetchAmmPrices(pools, knownPrices);
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
-    const xPrices = ammPrices.then(async pools => {
-      return await fetchXPrices(pools.tokenPrices);
+    const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+      return await fetchXPrices(tokenPrices);
     });
 
     const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
       return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
     });
 
-    const beFtmPrice = ammPrices.then(async pools => {
-      return await fetchbeFTMPrice(pools.tokenPrices);
+    const beFtmPrice = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+      return await fetchbeFTMPrice(tokenPrices);
     });
 
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
