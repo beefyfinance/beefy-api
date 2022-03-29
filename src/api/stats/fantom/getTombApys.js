@@ -6,9 +6,9 @@ const pools = require('../../../data/fantom/tombLpPools.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const { spookyClient } = require('../../../apollo/client');
-import { SPOOKY_LPF } from '../../../constants';
-import getApyBreakdown from '../common/getApyBreakdown';
+const { spookyClient, tombswapClient } = require('../../../apollo/client');
+import { SPOOKY_LPF, TOMBSWAP_LPF } from '../../../constants';
+import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
 
 const rewardPool = '0xcc0a87F7e7c693042a9Cc703661F5060c80ACb43';
 const oracleId = 'TSHARE';
@@ -16,14 +16,41 @@ const oracle = 'tokens';
 const DECIMALS = '1e18';
 
 const getTombApys = async () => {
+  const spookyPools = pools.filter(pool => pool.liquiditySource === 'spooky');
+  const tombPools = pools.filter(pool => pool.liquiditySource !== 'spooky');
+
   let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(rewardPool, pool)));
-  const farmAprs = await Promise.all(promises);
+  spookyPools.forEach(pool => promises.push(getPoolApy(rewardPool, pool)));
+  const spookyFarmAprs = await Promise.all(promises);
 
-  const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(spookyClient, pairAddresses, SPOOKY_LPF);
+  promises = [];
+  tombPools.forEach(pool => promises.push(getPoolApy(rewardPool, pool)));
+  const tombFarmAprs = await Promise.all(promises);
 
-  return getApyBreakdown(pools, tradingAprs, farmAprs, SPOOKY_LPF);
+  const spookyPairAddresses = spookyPools.map(pool => pool.address);
+  const tombPairAddresses = tombPools.map(pool => pool.address);
+
+  const spookyTradingAprs = await getTradingFeeApr(spookyClient, spookyPairAddresses, SPOOKY_LPF);
+  const tombTradingAprs = await getTradingFeeApr(tombswapClient, tombPairAddresses, TOMBSWAP_LPF);
+
+  const spookyBreakdown = getApyBreakdown(
+    spookyPools,
+    spookyTradingAprs,
+    spookyFarmAprs,
+    SPOOKY_LPF
+  );
+  const tombBreakdown = getApyBreakdown(tombPools, tombTradingAprs, tombFarmAprs, TOMBSWAP_LPF);
+
+  const breakdown = { apys: {}, apyBreakdowns: {} };
+  for (let pool in spookyBreakdown.apys) {
+    breakdown.apys[pool] = spookyBreakdown.apys[pool];
+    breakdown.apyBreakdowns[pool] = spookyBreakdown.apyBreakdowns[pool];
+  }
+  for (let pool in tombBreakdown.apys) {
+    breakdown.apys[pool] = tombBreakdown.apys[pool];
+    breakdown.apyBreakdowns[pool] = tombBreakdown.apyBreakdowns[pool];
+  }
+  return breakdown;
 };
 
 const getPoolApy = async (rewardPool, pool) => {

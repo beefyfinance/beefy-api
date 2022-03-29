@@ -82,6 +82,7 @@ const dinoClient = client('https://api.thegraph.com/subgraphs/name/jannervegloba
 const fusefiClient = client('https://api.thegraph.com/subgraphs/name/fuseio/fuseswap');
 const netswapClient = client('https://api.netswap.io/graph/subgraphs/name/netswap/exchange');
 const tethysClient = client('https://node.tethys.finance/subgraphs/name/tethys');
+const tombswapClient = client('https://api.thegraph.com/subgraphs/name/github-qfg/tombswap');
 
 const isSushiClient = client => {
   return (
@@ -145,4 +146,5 @@ module.exports = {
   beamClient,
   solarflareClient,
   stellaClient,
+  tombswapClient,
 };
