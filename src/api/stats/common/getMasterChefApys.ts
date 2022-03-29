@@ -21,7 +21,6 @@ import {
   getTradingFeeAprBalancer,
   getTradingFeeApr,
 } from '../../../utils/getTradingFeeApr';
-import { URLSearchParams } from 'url';
 
 export interface MasterChefApysParams {
   web3: Web3;
