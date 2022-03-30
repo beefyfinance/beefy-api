@@ -1,5 +1,27 @@
 [
   {
+    "name": "png-wavax-ncash",
+    "address": "0xb8F66A8B3A1640492e3d45A26256C8ef4b934fe6",
+    "decimals": "1e18",
+    "poolId": 96,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "NCASH",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xb31f66aa3c1e785363f0875a1b74e27b85fd66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc69eba65e87889f0805db717af06797055a0ba07",
+      "oracle": "tokens",
+      "oracleId": "NCASH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-bribe-wavax",
     "address": "0x7472887De3B0aA65168a1Da22164C81DE5fd4044",
     "decimals": "1e18",
