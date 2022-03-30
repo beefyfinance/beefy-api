@@ -6,7 +6,7 @@ const MasterChef = require('../../../abis/fuse/IVoltageMasterChef.json');
 const SimpleRewarder = require('../../../abis/avax/SimpleRewarderPerSec.json'); // Voltage rewarder is equal to the avax one
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/fuse/voltageLpPools.json');
+const voltageLpPools = require('../../../data/fuse/voltageLpPools.json');
 const { BASE_HPY, FUSE_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
@@ -19,18 +19,20 @@ const oracleIdA = 'VOLT';
 const oracleA = 'tokens';
 const DECIMALSA = '1e18';
 
-const xVOLT = {
-  name: 'voltagev2-xvolt',
-  address: '0x97a6e78c9208c21afaDa67e7E61d7ad27688eFd1',
-  oracle: 'tokens',
-  oracleId: 'xVOLT',
-  decimals: '1e18',
-  oracleB: 'tokens',
-  oracleIdB: 'FUSE',
-  decimalsB: '1e18',
-  poolId: 11,
-  chainId: 122,
-};
+const xVOLT = [
+  {
+    name: 'voltagev2-xvolt',
+    address: '0x97a6e78c9208c21afaDa67e7E61d7ad27688eFd1',
+    oracle: 'tokens',
+    oracleId: 'xVOLT',
+    decimals: '1e18',
+    oracleB: 'tokens',
+    oracleIdB: 'FUSE',
+    decimalsB: '1e18',
+    poolId: 11,
+    chainId: 122,
+  },
+];
 
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
@@ -46,11 +48,10 @@ const getVoltageDualApys = async () => {
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
 
-  const pairAddresses = pools.map(pool => pool.address);
+  const pairAddresses = voltageLpPools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(fusefiClient, pairAddresses, liquidityProviderFee);
 
-  pools.unshift(xVOLT);
-
+  const pools = [...voltageLpPools, ...xVOLT];
   const { balances, allocPoints, tokenPerSecData } = await getPoolsData(pools);
 
   for (let i = 0; i < pools.length; i++) {
