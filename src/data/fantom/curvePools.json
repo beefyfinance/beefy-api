@@ -138,5 +138,10 @@
     "name": "curve-ftm-cusd",
     "pool": "0x96059756980fF6ced0473898d26F0EF828a59820",
     "rewards": []
+  },
+  {
+    "name": "curve-ftm-tor",
+    "pool": "0x24699312CB27C26Cfc669459D670559E5E44EE60",
+    "rewards": []
   }
 ]
