@@ -82,6 +82,18 @@ const _tokens = {
     description:
       'SX Network is the first public blockchain to combine a smart contract platform with an on-chain community treasury and a native prediction market protocol.',
   },
+  STG: {
+    name: 'Stargate',
+    symbol: 'STG',
+    address: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+  },
   GENESIS: {
     name: 'Genesis Worlds GENESIS',
     symbol: 'GENESIS',

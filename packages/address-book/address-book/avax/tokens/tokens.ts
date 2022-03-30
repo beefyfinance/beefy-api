@@ -50,6 +50,18 @@ const _tokens = {
     description:
       'Blockchain is miserable, where risk and reward are widely extended. DEGIS is the shield to protect you. With innovative protection products, DEGIS is attractive to both on-chain and off-chain buyers.',
   },
+  STG: {
+    name: 'Stargate',
+    symbol: 'STG',
+    address: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+  },
   EGG: {
     name: 'Chikn Egg',
     symbol: 'EGG',
