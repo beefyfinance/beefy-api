@@ -32,7 +32,7 @@ const getWigoApys = require('./getWigoApys');
 const getbeFTMApy = require('./getbeFTMApy');
 const getbeFtmEarnApy = require('./getbeFtmEarnApy');
 const getBasedApy = require('./getBasedApys');
-const getStargateApys = require('./getStargateFantomApys.js');
+const getStargateApys = require('./getStargateFantomApys');
 
 const getApys = [
   getSushiLpApys,
