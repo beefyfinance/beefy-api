@@ -11,7 +11,7 @@ import getBlockNumber from '../../../../utils/getBlockNumber';
 import { MultiCall } from 'eth-multicall';
 import getBlockTime from '../../../../utils/getBlockTime';
 
-const getStargateFantomApys = async () => {
+const getStargateBscApys = async () => {
   const masterchefParams: MasterChefApysParams = {
     web3: web3,
     chainId: 56,
@@ -185,4 +185,4 @@ function stargateUI_getFarmAPY(apr: number) {
   return Math.pow(Math.E, apr) - 1;
 }
 
-module.exports = getStargateFantomApys;
+module.exports = getStargateBscApys;
