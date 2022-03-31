@@ -29,6 +29,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  APE: {
+    name: 'ApeCoin APE',
+    symbol: 'APE',
+    address: '0x3D632d9e1a60a0880Dd45E61f279D919b5748377',
+    chainId: 1284,
+    decimals: 18,
+    logoURI: 'https://assets.spookyswap.finance/tokens/APE.png',
+    website: 'http://apecoin.com/',
+    description:
+      'ApeCoin is for the Web3 Economy. Culture has found new expression in web3 through art, gaming, entertainment, and events.',
+  },
   GLINT: {
     name: 'Beamswap Token',
     symbol: 'GLINT',
