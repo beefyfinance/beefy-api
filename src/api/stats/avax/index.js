@@ -21,6 +21,7 @@ const getSpellApys = require('./getSpellApys');
 import { getMaiApys } from './getMaiApys';
 import getMaiCurveApys from './getMaiCurveApys';
 import { getPangolinV2Apys } from './getPangolinV2Apys';
+const getStargateApys = require('./getStargateFantomApys.js');
 
 const getApys = [
   getPangolinV2Apys,
@@ -45,6 +46,7 @@ const getApys = [
   getMaiCurveApys,
   getGrapeApys,
   getRipaeApys,
+  getStargateApys,
 ];
 
 const getAvaxApys = async () => {

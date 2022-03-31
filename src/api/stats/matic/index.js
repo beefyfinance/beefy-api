@@ -24,6 +24,7 @@ import getKyberLpApys from './getKyberLpApys';
 import { getQuickDualLpApys } from './getQuickDualLpApys';
 import { getJarvisApys } from './getJarvisApys';
 const getPopsicleApys = require('./getPopsicleApys');
+const getStargateApys = require('./getStargateFantomApys.js');
 
 const getApys = [
   getComethLpApys,
@@ -52,6 +53,7 @@ const getApys = [
   getKyberLpApys,
   getJarvisApys,
   getPopsicleApys,
+  getStargateApys,
 ];
 
 const BATCH_SIZE = 15;
