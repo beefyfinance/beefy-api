@@ -1,5 +1,62 @@
 [
   {
+    "name": "excalibur-ftm-weth",
+    "address": "0xf4Dd555866C95B1cfA70465905cDFEbCA91B8099",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "BTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "excalibur-ftm-weth",
+    "address": "0xAD802d23E0e8FAF61064E3531B892c32AB7c4452",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "BTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "excalibur-ftm-weth",
+    "address": "0x4B27e549c336269c1fA23cd9fa156F10256A708C",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "excalibur-usdc-weth",
     "address": "0x256301df3b8550C7C631a6Dc958700dfDbe1313D",
     "decimals": "1e18",
