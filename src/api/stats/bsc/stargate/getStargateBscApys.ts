@@ -1,33 +1,42 @@
 import { AbiItem } from 'web3-utils';
-import { fantomWeb3 as web3, multicallAddress } from '../../../utils/web3';
-import StargateChefAbi from '../../../abis/fantom/StargateChef.json';
-import StargateERC20Abi from '../../../abis/fantom/StargateERC20.json';
-import { spookyClient } from '../../../apollo/client';
-import getApyBreakdown from '../common/getApyBreakdown';
+import { bscWeb3 as web3, multicallAddress } from '../../../../utils/web3';
+import StargateChefAbi from '../../../../abis/fantom/StargateChef.json';
+import StargateERC20Abi from '../../../../abis/fantom/StargateERC20.json';
+import { spookyClient } from '../../../../apollo/client';
+import getApyBreakdown from '../../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../../utils/fetchPrice';
-import { MasterChefApysParams } from '../common/getMasterChefApys';
-import getBlockNumber from '../../../utils/getBlockNumber';
+import fetchPrice from '../../../../utils/fetchPrice';
+import { MasterChefApysParams } from '../../common/getMasterChefApys';
+import getBlockNumber from '../../../../utils/getBlockNumber';
 import { MultiCall } from 'eth-multicall';
-import getBlockTime from '../../../utils/getBlockTime';
+import getBlockTime from '../../../../utils/getBlockTime';
 
 const getStargateFantomApys = async () => {
   const masterchefParams: MasterChefApysParams = {
     web3: web3,
-    chainId: 250,
-    masterchef: '0x224D8Fd7aB6AD4c6eb4611Ce56EF35Dec2277F03',
+    chainId: 56,
+    masterchef: '0x3052A0F6ab15b4AE1df39962d5DdEFacA86DaB47',
     tokenPerBlock: 'stargatePerBlock',
     hasMultiplier: false,
     pools: [],
     singlePools: [
       {
-        name: 'stargate-fantom-usdc',
-        poolId: 0,
-        chainId: 250,
-        address: '0x12edeA9cd262006cC3C4E77c90d2CD2DD4b1eb97',
+        name: 'stargate-bsc-busd',
+        poolId: 1,
+        address: '0x98a5737749490856b401DB5Dc27F522fC314A4e1',
+        chainId: 56,
         oracle: 'tokens',
-        oracleId: 'USDC',
-        decimals: '1e6',
+        oracleId: 'BUSD',
+        decimals: '1e18',
+      },
+      {
+        name: 'stargate-bsc-usdt',
+        poolId: 0,
+        address: '0x9aA83081AA06AF7208Dcc7A4cB72C94d057D2cda',
+        chainId: 56,
+        oracle: 'tokens',
+        oracleId: 'USDT',
+        decimals: '1e18',
       },
     ],
     oracleId: 'STG',
@@ -73,7 +82,7 @@ const getFarmApys = async params => {
       blockRewards.shiftedBy(-18),
       allocPoints[i],
       totalAllocPoint,
-      stargateUI_chainConstants.FANTOM,
+      stargateUI_chainConstants.BSC,
       totalLiquidities[i].shiftedBy(-6),
       lpBalances[i].shiftedBy(-6),
       totalSupplies[i].shiftedBy(-6)
