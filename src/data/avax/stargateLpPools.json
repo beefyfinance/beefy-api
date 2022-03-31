@@ -1,0 +1,28 @@
+[
+  {
+    "name": "stargate-usdt",
+    "address": "0x29e38769f23701A2e4A8Ef0492e19dA4604Be62c",
+    "decimals": "1e6",
+    "poolId": 1,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "stargate-usdc",
+    "address": "0x1205f31718499dBf1fCa446663B532Ef87481fe1",
+    "decimals": "1e6",
+    "poolId": 0,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]
