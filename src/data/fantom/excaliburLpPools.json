@@ -1,6 +1,6 @@
 [
   {
-    "name": "excalibur-ftm-weth",
+    "name": "excalibur-btc-weth",
     "address": "0xf4Dd555866C95B1cfA70465905cDFEbCA91B8099",
     "decimals": "1e18",
     "poolId": 10,
@@ -19,7 +19,7 @@
     }
   },
   {
-    "name": "excalibur-ftm-weth",
+    "name": "excalibur-ftm-btc",
     "address": "0xAD802d23E0e8FAF61064E3531B892c32AB7c4452",
     "decimals": "1e18",
     "poolId": 9,
