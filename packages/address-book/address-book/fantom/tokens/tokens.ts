@@ -42,7 +42,7 @@ const _tokens = {
     name: 'Stargate',
     symbol: 'STG',
     address: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
-    chainId: 43114,
+    chainId: 250,
     decimals: 18,
     logoURI:
       'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
