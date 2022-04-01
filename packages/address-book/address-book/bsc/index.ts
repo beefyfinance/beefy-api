@@ -12,6 +12,7 @@ import { kebab } from './platforms/kebab';
 import { jet } from './platforms/jet';
 import { mdex } from './platforms/mdex';
 import { biswap } from './platforms/biswap';
+import { emp } from './platforms/emp';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -33,6 +34,7 @@ const _bsc = {
     jet,
     mdex,
     biswap,
+    emp,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
