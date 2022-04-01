@@ -29,6 +29,28 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  agEUR: {
+    name: 'Angle Protocol agEUR',
+    symbol: 'agEUR',
+    address: '0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73',
+    chainId: 122,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/19479/thumb/agEUR.png?1635283566',
+    website: 'https://app.angle.money/',
+    description:
+      'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+  },
+  xVOLT: {
+    name: 'VoltBar xVOLT',
+    symbol: 'xVOLT',
+    address: '0x97a6e78c9208c21afaDa67e7E61d7ad27688eFd1',
+    chainId: 122,
+    decimals: 18,
+    logoURI: 'https://app.voltage.finance/images/pairs/xVOLT.svg',
+    website: 'https://voltage.finance/',
+    description:
+      'xVOLT is the main staking mechanism on the Voltage Finance platform. When you stake your VOLT, you effectively exchange your VOLT for xVOLT.',
+  },
   VOLT: {
     name: 'Voltage Finance VOLT',
     symbol: 'VOLT',

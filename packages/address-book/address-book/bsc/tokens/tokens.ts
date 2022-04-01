@@ -27,6 +27,28 @@ const _tokens = {
     description:
       'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
   },
+  EMP: {
+    name: 'EMP.Money',
+    symbol: 'EMP',
+    address: '0x3b248CEfA87F836a4e6f6d6c9b42991b88Dc1d58',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://emp.money/static/media/emp-final2.bb119013',
+    website: 'https://emp.money/',
+    description:
+      'EMP Money offers the first decentralised algorithmic stable coin on Binance Smartchain, pegged to the price of Ethereum via seigniorage at a rate of 4000 EMP: 1 ETH.',
+  },
+  ESHARE: {
+    name: 'EMP.Money Shares',
+    symbol: 'ESHARE',
+    address: '0xDB20F6A8665432CE895D724b417f77EcAC956550',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://emp.money/static/media/eshares-final2.bd716d0f.gif',
+    website: 'https://emp.money/',
+    description:
+      'EMP Money offers the first decentralised algorithmic stable coin on Binance Smartchain, pegged to the price of Ethereum via seigniorage at a rate of 4000 EMP: 1 ETH.',
+  },
   APE: {
     name: 'ApeCoin',
     symbol: 'APE',
