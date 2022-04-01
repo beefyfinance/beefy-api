@@ -218,6 +218,7 @@ import basedPools from '../../data/fantom/basedLpPools.json';
 import voltagePools from '../../data/fuse/voltageLpPools.json';
 import bombSwapPools from '../../data/fantom/bombSwapPools.json';
 import excaliburSwapPools from '../../data/fantom/excaliburLpPools.json';
+import empLpPools from '../../data/degens/empLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -226,6 +227,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...excaliburSwapPools,
+  ...empLpPools,
   ...bombSwapPools,
   ...voltagePools,
   ...basedPools,
@@ -470,16 +472,16 @@ const updateAmmPrices = async () => {
     const ammPrices = fetchAmmPrices(pools, knownPrices);
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
-    const xPrices = ammPrices.then(async pools => {
-      return await fetchXPrices(pools.tokenPrices);
+    const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+      return await fetchXPrices(tokenPrices);
     });
 
     const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
       return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
     });
 
-    const beFtmPrice = ammPrices.then(async pools => {
-      return await fetchbeFTMPrice(pools.tokenPrices);
+    const beFtmPrice = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+      return await fetchbeFTMPrice(tokenPrices);
     });
 
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {

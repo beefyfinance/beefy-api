@@ -1134,6 +1134,15 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xDF9A6628235C90da0a475519D85C9CFFa2a11D4C/logo.png',
   },
+  NCASH: {
+    chainId: 43114,
+    address: '0xc69Eba65e87889f0805dB717Af06797055A0BA07',
+    decimals: 18,
+    name: 'NCash is the native cryptocurrency and protocol token of the Nitro Network. Nitro Network is building a world of private communication networks powered by IoT together with LoRaWAN/3G/4G and 5G.',
+    symbol: 'NCASH',
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xc69Eba65e87889f0805dB717Af06797055A0BA07/logo_48.png',
+  },
   COT: {
     chainId: 43114,
     address: '0xa8cE5107A2770959edB27529E56E84e11eF55a58',
