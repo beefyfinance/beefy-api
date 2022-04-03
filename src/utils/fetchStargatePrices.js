@@ -8,7 +8,7 @@ import { addressBook } from '../../packages/address-book/address-book';
 
 const {
   avax: {
-    tokens: { USDT, saUSDT, USDC, saBUSD },
+    tokens: { USDT, saUSDT, USDC, saUSDC },
   },
   bsc: {
     tokens: { USDT, sbUSDT, BUSD, sbBUSD },
