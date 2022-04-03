@@ -7,27 +7,24 @@ import { FANTOM_CHAIN_ID, BSC_CHAIN_ID, AVAX_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 
 const {
-  avax: {
-    tokens: { USDT, saUSDT, USDC, saUSDC },
-  },
   bsc: {
     tokens: { USDT, sbUSDT, BUSD, sbBUSD },
   },
   fantom: {
     tokens: { USDC, sfUSDC },
   },
+  avax: {
+    tokens: { saUSDT, saUSDC },
+  },
 } = addressBook;
 
 const tokens = {
-  avax: [
-    [USDT, saUSDT],
-    [USDC, saUSDC],
-  ],
   bsc: [
     [USDT, sbUSDT],
     [BUSD, sbBUSD],
   ],
   fantom: [[USDC, sfUSDC]],
+  avax: [[saUSDT], [saUSDC]],
 };
 
 const getStargatePrices = async (tokenPrices, tokens, chainId) => {
