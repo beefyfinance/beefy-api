@@ -20,13 +20,13 @@ const _tokens = {
     address: '0x98a5737749490856b401DB5Dc27F522fC314A4e1',
     decimals: 6,
     name: 'Stargate Binance USD LP',
-    symbol: 'BUSD',
+    symbol: 'sbBUSD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaEb044650278731Ef3DC244692AB9F64C78FfaEA/logo.png',
   },
   sbUSDT: {
     name: 'Stargate Tether USD LP',
-    symbol: 'USDT',
+    symbol: 'sbUSDT',
     address: '0x9aA83081AA06AF7208Dcc7A4cB72C94d057D2cda',
     chainId: 56,
     decimals: 6,
