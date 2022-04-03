@@ -1323,7 +1323,7 @@ const _tokens = {
   sfUSDC: {
     name: 'Stargate USD Coin LP',
     address: '0x12edeA9cd262006cC3C4E77c90d2CD2DD4b1eb97',
-    symbol: 'USDC',
+    symbol: 'sfUSDC',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
     description:
