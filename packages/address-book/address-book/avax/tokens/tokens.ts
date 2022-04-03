@@ -18,7 +18,7 @@ const _tokens = {
   saUSDC: {
     name: 'Stargate USD Coin LP',
     address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
-    symbol: 'USDC',
+    symbol: 'saUSDC',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
     description:
@@ -28,7 +28,7 @@ const _tokens = {
   },
   saUSDT: {
     name: 'Stargate Tether USD LP',
-    symbol: 'USDT',
+    symbol: 'saUSDT',
     address: '0x29e38769f23701A2e4A8Ef0492e19dA4604Be62c',
     chainId: 43114,
     decimals: 6,
