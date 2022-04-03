@@ -3,10 +3,13 @@ const { MultiCall } = require('eth-multicall');
 const { web3Factory, multicallAddress } = require('./web3');
 const StargateLP = require('../abis/StargateLP.json');
 
-import { FANTOM_CHAIN_ID, BSC_CHAIN_ID } from '../constants';
+import { FANTOM_CHAIN_ID, BSC_CHAIN_ID, AVAX_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 
 const {
+  avax: {
+    tokens: { USDT, saUSDT, USDC, saBUSD },
+  },
   bsc: {
     tokens: { USDT, sbUSDT, BUSD, sbBUSD },
   },
@@ -16,6 +19,10 @@ const {
 } = addressBook;
 
 const tokens = {
+  avax: [
+    [USDT, saUSDT],
+    [USDC, saUSDC],
+  ],
   bsc: [
     [USDT, sbUSDT],
     [BUSD, sbBUSD],
@@ -59,6 +66,7 @@ const fetchStargatePrices = async tokenPrices =>
   Promise.all([
     getStargatePrices(tokenPrices, tokens.fantom, FANTOM_CHAIN_ID),
     getStargatePrices(tokenPrices, tokens.bsc, BSC_CHAIN_ID),
+    getStargatePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
   ]).then(data =>
     data
       .flat()
