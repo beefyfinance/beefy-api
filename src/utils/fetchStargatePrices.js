@@ -24,7 +24,10 @@ const tokens = {
     [BUSD, sbBUSD],
   ],
   fantom: [[USDC, sfUSDC]],
-  avax: [[saUSDT], [saUSDC]],
+  avax: [
+    [USDT, saUSDT],
+    [USDC, saUSDC],
+  ],
 };
 
 const getStargatePrices = async (tokenPrices, tokens, chainId) => {
@@ -34,9 +37,8 @@ const getStargatePrices = async (tokenPrices, tokens, chainId) => {
   const stakedInsPoolCalls = [];
   const totalsSupplyCalls = [];
 
-  tokens.forEach(token => {
-    console.log('**AB: token', token.name);
-    const tokenContract = new web3.eth.Contract(StargateLP, token[1].address);
+  tokens.forEach(tokenPair => {
+    const tokenContract = new web3.eth.Contract(StargateLP, tokenPair[1].address);
     stakedInsPoolCalls.push({
       stakedInsPool: tokenContract.methods.totalLiquidity(),
     });
