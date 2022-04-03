@@ -37,8 +37,8 @@ const getStargatePrices = async (tokenPrices, tokens, chainId) => {
   const stakedInsPoolCalls = [];
   const totalsSupplyCalls = [];
 
-  tokens.forEach(tokenPair => {
-    const tokenContract = new web3.eth.Contract(StargateLP, tokenPair[1].address);
+  tokens.forEach(token => {
+    const tokenContract = new web3.eth.Contract(StargateLP, token[1].address);
     stakedInsPoolCalls.push({
       stakedInsPool: tokenContract.methods.totalLiquidity(),
     });
