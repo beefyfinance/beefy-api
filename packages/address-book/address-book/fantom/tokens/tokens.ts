@@ -1342,6 +1342,17 @@ const _tokens = {
     description:
       'Beefy Escrowed Fantom is 1 year perpetually lock FTM that is delegated and locked to earn the maximum validator reward',
   },
+  sfUSDC: {
+    name: 'Stargate USD Coin LP',
+    address: '0x12edeA9cd262006cC3C4E77c90d2CD2DD4b1eb97',
+    symbol: 'sfUSDC',
+    decimals: 6,
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    chainId: 250,
+    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
