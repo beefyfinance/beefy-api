@@ -16,7 +16,7 @@ const getPangolinV2DualApys = require('./getPangolinV2DualApys');
 import { getSynapseApys } from './getSynapseApys';
 const getGrapeApys = require('./getGrapeApys');
 const getRipaeApys = require('./getRipaeApys');
-
+const getStargateApys = require('./getStargateAvaxApys');
 const getSpellApys = require('./getSpellApys');
 import { getMaiApys } from './getMaiApys';
 import getMaiCurveApys from './getMaiCurveApys';
@@ -45,6 +45,7 @@ const getApys = [
   getMaiCurveApys,
   getGrapeApys,
   getRipaeApys,
+  getStargateApys,
 ];
 
 const getAvaxApys = async () => {

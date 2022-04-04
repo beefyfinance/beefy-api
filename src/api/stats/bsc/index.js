@@ -24,6 +24,7 @@ const getBifiMaxiV2Apy = require('./beefy/getBifiMaxiV2Apy');
 const getBifiGovApy = require('./beefy/getBifiGovApy');
 const getMoonpotApys = require('./pots/getMoonpotApys');
 const getBiswapApys = require('./biswap/getBiswapApys');
+const getStargateApys = require('./stargate/getStargateBscApys');
 
 const getApys = [
   getAlpacaApys,
@@ -52,6 +53,7 @@ const getApys = [
   getTenfiApys,
   getVenusApys,
   getYelApys,
+  getStargateApys,
 ];
 // ^^ APYs are sorted alphabetically
 

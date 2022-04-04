@@ -27,6 +27,41 @@ const _tokens = {
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
   },
+  saUSDC: {
+    name: 'Stargate USD Coin LP',
+    address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
+    symbol: 'saUSDC',
+    decimals: 6,
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    chainId: 43114,
+    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
+  },
+  saUSDT: {
+    name: 'Stargate Tether USD LP',
+    symbol: 'saUSDT',
+    address: '0x29e38769f23701A2e4A8Ef0492e19dA4604Be62c',
+    chainId: 43114,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  STG: {
+    name: 'Stargate',
+    symbol: 'STG',
+    address: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+  },
   FLY: {
     name: 'Hoppers Game FLY',
     symbol: 'FLY',

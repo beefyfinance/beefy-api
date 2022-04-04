@@ -15,6 +15,39 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  sbBUSD: {
+    chainId: 56,
+    address: '0x98a5737749490856b401DB5Dc27F522fC314A4e1',
+    decimals: 6,
+    name: 'Stargate Binance USD LP',
+    symbol: 'sbBUSD',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaEb044650278731Ef3DC244692AB9F64C78FfaEA/logo.png',
+  },
+  sbUSDT: {
+    name: 'Stargate Tether USD LP',
+    symbol: 'sbUSDT',
+    address: '0x9aA83081AA06AF7208Dcc7A4cB72C94d057D2cda',
+    chainId: 56,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  STG: {
+    name: 'Stargate',
+    symbol: 'STG',
+    address: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+  },
   EMP: {
     name: 'EMP.Money',
     symbol: 'EMP',
