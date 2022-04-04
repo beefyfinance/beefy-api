@@ -23,7 +23,8 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://assets.coingecko.com/coins/images/24237/large/money.png',
     website: 'https://moremoney.finance/',
-    description: 'Chikn is an ecosystem based around NFTs that lay EGGs.',
+    description:
+      'Moremoney is a protocol for borrowing stablecoin while earning interest on liquidity pool tokens and other collateral assets.',
   },
   USTw: {
     name: 'TerraUSD (Wormhole)',
