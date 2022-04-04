@@ -31,7 +31,7 @@ const getStellaswapApys = async () =>
       masterchef: stellaswap.masterchefV1distributorV2,
       tokenPerBlock: 'stellaPerSec',
       hasMultiplier: false,
-      secondsPerBlock: await getBlockTime(1284),
+      secondsPerBlock: 1, // because tokenPerBlock is expressed in seconds
       pools: poolsV2,
       oracleId: 'STELLA',
       oracle: 'tokens',
