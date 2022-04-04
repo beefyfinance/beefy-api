@@ -15,6 +15,18 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  USTw: {
+    name: 'TerraUSD (Wormhole)',
+    symbol: 'USTw',
+    address: '0xb599c3590F42f8F995ECfa0f85D2980B76862fc1',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11/logo.png',
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+  },
   saUSDC: {
     name: 'Stargate USD Coin LP',
     address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
