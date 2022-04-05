@@ -1,0 +1,41 @@
+[
+    {
+      "name": "ghost-ghost-wftm",
+      "address": "0x9cb5F8CF5bfEC7612B4199363Abca9300b5DC586",
+      "decimals": "1e18",
+      "poolId": 0,
+      "chainId": 250,
+      "liquiditySource": "spooky",
+      "lp0": {
+        "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      "lp1": {
+        "address": "0x4F0d07209529C714eA5CaFad90ed1494A3bB800a",
+        "oracle": "tokens",
+        "oracleId": "GHOST",
+        "decimals": "1e18"
+      }
+    },
+    {
+      "name": "ghost-gshare-wftm",
+      "address": "0x1C2a58B94Ab2B08DE4c3C7865600c3070aa38846",
+      "poolId": 1,
+      "decimals": "1e18",
+      "chainId": 250,
+      "lp0": {
+        "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      "lp1": {
+        "address": "0x5badadd7afff73687596793173257cc69a82bd76",
+        "oracle": "tokens",
+        "oracleId": "GSHARE",
+        "decimals": "1e18"
+      }
+    }
+  ]
