@@ -220,7 +220,7 @@ import basedPools from '../../data/fantom/basedLpPools.json';
 import voltagePools from '../../data/fuse/voltageLpPools.json';
 import bombSwapPools from '../../data/fantom/bombSwapPools.json';
 import empLpPools from '../../data/degens/empLpPools.json';
-import ghostLpPools from '../../data/fantom/ghostLpPools';
+import ghostLpPools from '../../data/fantom/ghostLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
