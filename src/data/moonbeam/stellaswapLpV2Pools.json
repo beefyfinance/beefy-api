@@ -1,0 +1,21 @@
+[
+  {
+    "name": "stellaswap-ape-wglmr",
+    "address": "0x55Db71E6bEaB323290f6571C428C171e15CDBAD2",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x3D632d9e1a60a0880Dd45E61f279D919b5748377",
+      "oracle": "tokens",
+      "oracleId": "APE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  }
+]
