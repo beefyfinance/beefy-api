@@ -13,12 +13,13 @@ import BigNumber from 'bignumber.js';
 
 const pools = require('../../../data/fantom/curvePools.json');
 const baseApyUrl = 'https://stats.curve.fi/raw-stats-ftm/apys.json';
+const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-fantom';
 const tradingFees = 0.0002;
 let geistRewardApys = {};
 
 const getCurveApys = async () => {
   const [baseApys, geistApys] = await Promise.all([
-    getCurveBaseApys(pools, baseApyUrl),
+    getCurveBaseApys(pools, baseApyUrl, factoryApyUrl),
     getGeistApys(),
   ]);
   geistRewardApys = geistApys;
