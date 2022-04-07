@@ -16,6 +16,28 @@ const _tokens = {
   CRO: CRO,
   WCRO: CRO,
   WNATIVE: CRO,
+  ALI: {
+    name: 'Alethea Artificial Liquid Intelligence Token ALI',
+    symbol: 'ALI',
+    address: '0x45C135C1CDCE8d25A3B729A28659561385C52671',
+    chainId: 25,
+    decimals: 18,
+    logoURI: 'https://vvs.finance/images/tokens/0x45C135C1CDCE8d25A3B729A28659561385C52671.svg',
+    website: 'https://alethea.ai/',
+    description:
+      'Alethea AI is building a decentralized protocol to create an Intelligent Metaverse inhabited by interactive and intelligent NFTs (iNFTs).',
+  },
+  TUSD: {
+    name: 'True USD',
+    symbol: 'TUSD',
+    address: '0x87EFB3ec1576Dec8ED47e58B832bEdCd86eE186e',
+    decimals: 18,
+    chainId: 25,
+    website: 'https://www.trueusd.com/',
+    description:
+      'TrueUSD is one of a number of cryptocurrency stablecoins administered by TrustToken, a platform for tokenizing real-world assets.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2563.png',
+  },
   SKY: {
     chainId: 25,
     address: '0x9D3BBb0e988D9Fb2d55d07Fe471Be2266AD9c81c',
