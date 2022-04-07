@@ -1,21 +1,230 @@
 [
   {
-    "name": "joe-usdc-wavax",
-    "address": "0xf4003f4efbe8691b60249e6afbd307abe7758adb",
+    "name": "joe-bnb-wavax",
+    "address": "0xeb8eB6300c53C3AddBb7382Ff6c6FbC4165B0742",
     "decimals": "1e18",
-    "poolId": 0,
+    "poolId": 11,
     "chainId": 43114,
     "lp0": {
+      "address": "0x264c1383EA520f73dd837F915ef3a732e204a493",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-link.e-wavax",
+    "address": "0x6F3a0C89f611Ef5dC9d96650324ac633D02265D3",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x5947BB275c521040051D82396192181b413227A3",
+      "oracle": "tokens",
+      "oracleId": "LINK.e",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-usdt-usdt.e",
+    "address": "0x74B651Eff97871eA99fcc14423E611d85Eb0EA93",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+      "oracle": "tokens",
+      "oracleId": "USDt",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
+      "oracle": "tokens",
+      "oracleId": "USDT.e",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "joe-usdc.e-usdc",
+    "address": "0x2A8A315e82F85D1f0658C5D66A452Bbdd9356783",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+      "oracle": "tokens",
+      "oracleId": "USDC.e",
+      "decimals": "1e6"
+    },
+    "lp1": {
       "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
       "oracle": "tokens",
       "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "joe-joe-usdc",
+    "address": "0x3bc40d4307cD946157447CD55d70ee7495bA6140",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd",
+      "oracle": "tokens",
+      "oracleId": "JOE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "joe-joe-wavax",
+    "address": "0x454E67025631C065d3cFAD6d71E6892f74487a15",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd",
+      "oracle": "tokens",
+      "oracleId": "JOE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-wbtc.e-wavax",
+    "address": "0xd5a37dC5C9A396A03dd1136Fc76A1a02B1c88Ffa",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x50b7545627a5162F82A992c33b87aDc75187B218",
+      "oracle": "tokens",
+      "oracleId": "WBTC.e",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-mim-wavax",
+    "address": "0x781655d802670bbA3c89aeBaaEa59D3182fD755D",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x130966628846BFd36ff31a822705796e8cb8C18D",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-usdc.e-wavax",
+    "address": "0xA389f9430876455C36478DeEa9769B7Ca4E3DDB1",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
+      "oracle": "tokens",
+      "oracleId": "USDC.e",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
       "oracle": "tokens",
-      "oracleId": "AVAX",
+      "oracleId": "WAVAX",
       "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-wavax-usdt.e",
+    "address": "0xeD8CBD9F0cE3C6986b22002F03c6475CEb7a6256",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
+      "oracle": "tokens",
+      "oracleId": "USDT.e",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "joe-weth.e-wavax",
+    "address": "0xFE15c2695F1F920da45C30AAE47d11dE51007AF9",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+      "oracle": "tokens",
+      "oracleId": "WETH.e",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-wavax-usdc",
+    "address": "0xf4003F4efBE8691B60249E6afbD307aBE7758adb",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
     }
   }
 ]

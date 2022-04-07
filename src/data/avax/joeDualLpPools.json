@@ -129,25 +129,6 @@
     }
   },
   {
-    "name": "joe-joe-usdc",
-    "address": "0x3bc40d4307cD946157447CD55d70ee7495bA6140",
-    "decimals": "1e18",
-    "poolId": 55,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x6e84a6216ea6dacc71ee8e6b0a5b7322eebc0fdd",
-      "oracle": "tokens",
-      "oracleId": "JOE",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "joe-egg-wavax",
     "address": "0x3052a75dfD7A9D9B0F81E510E01d3Fe80A9e7ec7",
     "decimals": "1e18",
@@ -277,25 +258,6 @@
       "oracle": "tokens",
       "oracleId": "HON",
       "decimals": "1e18"
-    }
-  },
-  {
-    "name": "joe-wavax-usdc",
-    "address": "0xf4003F4efBE8691B60249E6afbD307aBE7758adb",
-    "decimals": "1e18",
-    "poolId": 50,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
     }
   },
   {
@@ -604,47 +566,6 @@
     }
   },
   {
-    "name": "joe-usdt-usdt.e",
-    "address": "0x74B651Eff97871eA99fcc14423E611d85Eb0EA93",
-    "decimals": "1e18",
-    "poolId": 39,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
-      "oracle": "tokens",
-      "oracleId": "USDt",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
-      "oracle": "tokens",
-      "oracleId": "USDT.e",
-      "decimals": "1e6"
-    }
-  },
-  {
-    "name": "joe-usdc.e-usdc",
-    "address": "0x2A8A315e82F85D1f0658C5D66A452Bbdd9356783",
-    "decimals": "1e18",
-    "poolId": 29,
-    "chainId": 43114,
-    "oracleB": "tokens",
-    "oracleIdB": "AVAX",
-    "decimalsB": "1e18",
-    "lp0": {
-      "address": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
-      "oracle": "tokens",
-      "oracleId": "USDC.e",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "joe-ptp-wavax",
     "address": "0xCDFD91eEa657cc2701117fe9711C9a4F61FEED23",
     "decimals": "1e18",
@@ -897,28 +818,6 @@
       "oracle": "tokens",
       "oracleId": "AMPL",
       "decimals": "1e9"
-    },
-    "lp1": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "joe-joe-wavax",
-    "address": "0x454E67025631C065d3cFAD6d71E6892f74487a15",
-    "decimals": "1e18",
-    "oracleB": "tokens",
-    "oracleIdB": "AVAX",
-    "decimalsB": "1e18",
-    "poolId": 0,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd",
-      "oracle": "tokens",
-      "oracleId": "JOE",
-      "decimals": "1e18"
     },
     "lp1": {
       "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
