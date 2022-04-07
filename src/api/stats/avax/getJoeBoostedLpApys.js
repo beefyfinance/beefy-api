@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { avaxWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/avax/MasterChefJoeV3.json');
+const MasterChef = require('../../../abis/avax/BoostedMasterChefJoe.json');
 const SimpleRewarder = require('../../../abis/avax/SimpleRewarderPerSec.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
@@ -14,6 +14,7 @@ const { joeClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import { JOE_LPF } from '../../../constants';
 
+const JOESTAKER = '0x8330C83583829074BA6FF96b4A6377966D80edbf';
 const masterchef = '0x4483f0b6e2F5486D06958C20f8C39A7aBe87bf8F';
 const oracleIdA = 'JOE';
 const oracleA = 'tokens';
@@ -31,8 +32,9 @@ const getJoeBoostedLpApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
-  const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, tokenPerSecData } = await getPoolsData(pools);
+  const { joePerSec, totalAllocPoint } = await getMasterChefData();
+  const { balances, allocPoints, tokenPerSecData, veJoeShareBps, totalFactors, userFactors } =
+    await getPoolsData(pools);
 
   const pairAddresses = pools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeAprSushi(joeClient, pairAddresses, liquidityProviderFee);
@@ -41,10 +43,23 @@ const getJoeBoostedLpApys = async () => {
     const pool = pools[i];
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
-    const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
-    const poolBlockRewards = rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
-    const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
+    const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
+    const veJoeShare = veJoeShareBps[i] / 10000;
+
+    const poolBlockRewardsBase = joePerSec
+      .times(allocPoints[i])
+      .dividedBy(totalAllocPoint)
+      .times(1 - veJoeShare);
+    const poolBlockRewardsBoost = joePerSec
+      .times(userFactors[i])
+      .times(veJoeShare)
+      .dividedBy(totalFactors[i]);
+    const yearlyRewards = poolBlockRewardsBase
+      .plus(poolBlockRewardsBoost)
+      .dividedBy(secondsPerBlock)
+      .times(secondsPerYear);
+
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
     let yearlyRewardsBInUsd = new BigNumber(0);
 
@@ -101,9 +116,9 @@ const getJoeBoostedLpApys = async () => {
 
 const getMasterChefData = async () => {
   const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.joePerSec().call());
+  const joePerSec = new BigNumber(await masterchefContract.methods.joePerSec().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
-  return { rewardPerSecond, totalAllocPoint };
+  return { joePerSec, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
@@ -112,6 +127,7 @@ const getPoolsData = async pools => {
   const balanceCalls = [];
   const poolInfoCalls = [];
   const tokenPerSecCalls = [];
+  const userInfoCalls = [];
   pools.forEach(pool => {
     const tokenContract = new web3.eth.Contract(ERC20, pool.address);
     balanceCalls.push({
@@ -121,13 +137,19 @@ const getPoolsData = async pools => {
     poolInfoCalls.push({
       poolInfo: poolInfo,
     });
+    let userInfo = masterchefContract.methods.userInfo(pool.poolId, JOESTAKER);
+    userInfoCalls.push({
+      userInfo: userInfo,
+    });
   });
 
-  const res = await multicall.all([balanceCalls, poolInfoCalls]);
-
+  const res = await multicall.all([balanceCalls, poolInfoCalls, userInfoCalls]);
   const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.poolInfo['3']);
-  const rewarders = res[1].map(v => v.poolInfo[4]);
+  const allocPoints = res[1].map(v => v.poolInfo[1]);
+  const rewarders = res[1].map(v => v.poolInfo[5]);
+  const veJoeShareBps = res[1].map(v => v.poolInfo[6]);
+  const totalFactors = res[1].map(v => v.poolInfo[7]);
+  const userFactors = res[2].map(v => v.userInfo[2]);
 
   rewarders.forEach(rewarder => {
     let rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarder);
@@ -141,7 +163,14 @@ const getPoolsData = async pools => {
     t => new BigNumber(t.tokenPerSec)
   );
 
-  return { balances, allocPoints, tokenPerSecData };
+  return {
+    balances,
+    allocPoints,
+    tokenPerSecData,
+    veJoeShareBps,
+    totalFactors,
+    userFactors,
+  };
 };
 
 module.exports = getJoeBoostedLpApys;
