@@ -1,7 +1,6 @@
 const { fantomWeb3: web3 } = require('../../../utils/web3');
 import { FANTOM_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
-import ExcaliburMasterChef from '../../../abis/fantom/ExcaliburChef.json';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { sushiFantomClient } from '../../../apollo/client';
 import { getEDecimals } from '../../../utils/getEDecimals';
@@ -20,7 +19,6 @@ const getExcaliburApy = async () => {
   return await getMasterChefApys({
     web3: web3,
     chainId: chainId,
-    masterchefAbi: ExcaliburMasterChef,
     masterchef: excalibur.masterchef,
     tokenPerBlock: 'rewardsPerSecond',
     hasMultiplier: false,
