@@ -38,6 +38,28 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  FTML: {
+    name: 'Top Shelf Fantom L-Token',
+    symbol: 'FTML',
+    address: '0xC0d9784FDba39746919Bbf236eB73bc015fD351D',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://topshelf.finance/',
+    description:
+      'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
+    logoURI: '',
+  },
+  USDL: {
+    name: 'Top Shelf USD L-Token',
+    symbol: 'USDL',
+    address: '0x4A89338A2079A01eDBF5027330EAC10B615024E5',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://topshelf.finance/',
+    description:
+      'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
+    logoURI: '',
+  },
   STG: {
     name: 'Stargate',
     symbol: 'STG',

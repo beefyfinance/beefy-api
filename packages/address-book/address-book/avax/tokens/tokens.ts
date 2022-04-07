@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  AVAXL: {
+    name: 'Top Shelf AVAX L-Token',
+    symbol: 'AVAXL',
+    address: '0xe0237F9E2aaABd7Ffb8630BE5203D573a045Bca7',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://topshelf.finance/',
+    description:
+      'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
+    logoURI: '',
+  },
   MONEY: {
     name: 'Moremoney USD',
     symbol: 'MONEY',
