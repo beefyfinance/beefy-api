@@ -1,29 +1,30 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
+const { bscWeb3: web3 } = require('../../../../utils/web3');
 const BigNumber = require('bignumber.js');
 
-const RewardPool = require('../../../abis/fantom/TombRewardPool.json');
-const pools = require('../../../data/fantom/2ombLpPools.json');
-const fetchPrice = require('../../../utils/fetchPrice');
-const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const { spookyClient } = require('../../../apollo/client');
-import { SPOOKY_LPF } from '../../../constants';
-import getApyBreakdown from '../common/getApyBreakdown';
+const RewardPool = require('../../../../abis/degens/EmpRewardPool.json');
+const pools = require('../../../../data/degens/empLpPools.json');
+const fetchPrice = require('../../../../utils/fetchPrice');
+const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
+const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
+const { cakeClient } = require('../../../../apollo/client');
+import { PCS_LPF } from '../../../../constants';
+import getApyBreakdown from '../../common/getApyBreakdown';
 
-const rewardPool = '0x8D426Eb8C7E19b8F13817b07C0AB55d30d209A96';
-const oracleId = '2SHARES';
+const rewardPool = '0x97a68a7949ee30849d273b0c4450314ae26235b1';
+const oracleId = 'ESHARE';
 const oracle = 'tokens';
 const DECIMALS = '1e18';
 
-const get2ombApys = async () => {
+const getEmpApys = async () => {
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(rewardPool, pool)));
   const farmAprs = await Promise.all(promises);
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(spookyClient, pairAddresses, SPOOKY_LPF);
 
-  return getApyBreakdown(pools, tradingAprs, farmAprs, SPOOKY_LPF);
+  const tradingAprs = await getTradingFeeApr(cakeClient, pairAddresses, PCS_LPF);
+
+  return getApyBreakdown(pools, tradingAprs, farmAprs, PCS_LPF);
 };
 
 const getPoolApy = async (rewardPool, pool) => {
@@ -62,4 +63,4 @@ const getYearlyRewardsInUsd = async (rewardPool, poolId) => {
   return yearlyRewardsInUsd;
 };
 
-module.exports = get2ombApys;
+module.exports = getEmpApys;

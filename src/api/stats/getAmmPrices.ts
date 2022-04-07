@@ -4,6 +4,7 @@ import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
+import { fetchStargatePrices } from '../../utils/fetchStargatePrices';
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 
@@ -210,6 +211,7 @@ import ripaePools from '../../data/fantom/ripaeLpPools.json';
 import ripaeAvaxPools from '../../data/avax/ripaeLpPools.json';
 import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
+import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
 import wigoPools from '../../data/fantom/wigoLpPools.json';
 import solidlyPools from '../../data/fantom/solidlyLpPools.json';
@@ -217,6 +219,7 @@ import solarflare from '../../data/moonbeam/solarFlareLpPools.json';
 import basedPools from '../../data/fantom/basedLpPools.json';
 import voltagePools from '../../data/fuse/voltageLpPools.json';
 import bombSwapPools from '../../data/fantom/bombSwapPools.json';
+import empLpPools from '../../data/degens/empLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -224,10 +227,12 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...empLpPools,
   ...bombSwapPools,
   ...voltagePools,
   ...basedPools,
   ...stellaswapPools,
+  ...stellaswapPoolsV2,
   ...solarflare,
   ...solidlyPools,
   ...wigoPools,
@@ -466,16 +471,20 @@ const updateAmmPrices = async () => {
     const ammPrices = fetchAmmPrices(pools, knownPrices);
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
-    const xPrices = ammPrices.then(async pools => {
-      return await fetchXPrices(pools.tokenPrices);
+    const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+      return await fetchXPrices(tokenPrices);
+    });
+
+    const stargatePrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+      return await fetchStargatePrices(tokenPrices);
     });
 
     const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
       return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
     });
 
-    const beFtmPrice = ammPrices.then(async pools => {
-      return await fetchbeFTMPrice(pools.tokenPrices);
+    const beFtmPrice = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+      return await fetchbeFTMPrice(tokenPrices);
     });
 
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
@@ -483,11 +492,13 @@ const updateAmmPrices = async () => {
       const xTokenPrices = await xPrices;
       const mooTokenPrices = await mooPrices;
       const beFtmTokenPrice = await beFtmPrice;
+      const stargateTokenPrices = await stargatePrices;
       return {
         ...tokenPrices,
         ...dmm.tokenPrices,
         ...mooTokenPrices,
         ...xTokenPrices,
+        ...stargateTokenPrices,
         ...beFtmTokenPrice,
         ...(await coinGeckoPrices),
       };

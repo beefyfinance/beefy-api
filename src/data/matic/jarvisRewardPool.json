@@ -37,11 +37,11 @@
   },
   {
     "name": "kyber-4eur-den",
-    "address": "0xEb6f426963140471a7c1E4337877e6dBf834d2A8",
+    "address": "0x6E56300267A6Dd07DA0908557E02756747E1c90E",
     "decimals": "1e18",
     "chainId": 137,
     "lp0": {
-      "address": "0xa286eeDAa5aBbAE98F65b152B5057b8bE9893fbB",
+      "address": "0x51e7B5A0e8E942A62562f85D91501fbfA43121fE",
       "oracle": "tokens",
       "oracleId": "DEN",
       "decimals": "1e18"

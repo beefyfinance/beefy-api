@@ -38,6 +38,29 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  STG: {
+    name: 'Stargate',
+    symbol: 'STG',
+    address: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+  },
+  APE: {
+    name: 'ApeCoin APE',
+    symbol: 'APE',
+    address: '0x2d72A97a31Dc920dB03330780d30074626e39C8A',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://assets.spookyswap.finance/tokens/APE.png',
+    website: 'http://apecoin.com/',
+    description:
+      'ApeCoin is for the Web3 Economy. Culture has found new expression in web3 through art, gaming, entertainment, and events.',
+  },
   SHRAP: {
     name: 'Shrapnel SHRAP',
     symbol: 'SHRAP',
@@ -1296,6 +1319,17 @@ const _tokens = {
     website: 'https://blog.beefy.finance/articles/introducing-beftm/',
     description:
       'Beefy Escrowed Fantom is 1 year perpetually lock FTM that is delegated and locked to earn the maximum validator reward',
+  },
+  sfUSDC: {
+    name: 'Stargate USD Coin LP',
+    address: '0x12edeA9cd262006cC3C4E77c90d2CD2DD4b1eb97',
+    symbol: 'sfUSDC',
+    decimals: 6,
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    chainId: 250,
+    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
   },
 } as const;
 

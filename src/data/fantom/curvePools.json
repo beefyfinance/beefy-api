@@ -143,5 +143,18 @@
     "name": "curve-ftm-tor",
     "pool": "0x24699312CB27C26Cfc669459D670559E5E44EE60",
     "rewards": []
+  },
+  {
+    "name": "curve-ftm-f-ftml",
+    "pool": "0x8B63F036F5a34226065bC0a7B0aE5bb5eBA1fF3D",
+    "gauge": "0xc1c5B8aAfE653592627B54B9527C7E98326e83Ff",
+    "oracleId": "WFTM",
+    "boosted": true
+  },
+  {
+    "name": "curve-ftm-f-usdl",
+    "pool": "0x6EF78ad4a40E9A6c81B9229de3eCc33ce591bC34",
+    "gauge": "0xA6ff75281eACa4cD5fEEb333e8E15558208295e5",
+    "boosted": true
   }
 ]

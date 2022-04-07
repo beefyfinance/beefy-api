@@ -16,10 +16,11 @@ const aavePools = require('../../../data/avax/aavePools.json');
 const pools = require('../../../data/avax/curvePools.json');
 
 const baseApyUrl = 'https://stats.curve.fi/raw-stats-avalanche/apys.json';
+const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-avalanche';
 const tradingFees = 0.0002;
 
 const getCurveApys = async () => {
-  const baseApys = await getCurveBaseApys(pools, baseApyUrl);
+  const baseApys = await getCurveBaseApys(pools, baseApyUrl, factoryApyUrl);
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);

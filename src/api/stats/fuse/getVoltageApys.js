@@ -6,7 +6,7 @@ const MasterChef = require('../../../abis/fuse/IVoltageMasterChef.json');
 const SimpleRewarder = require('../../../abis/avax/SimpleRewarderPerSec.json'); // Voltage rewarder is equal to the avax one
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/fuse/voltageLpPools.json');
+const voltageLpPools = require('../../../data/fuse/voltageLpPools.json');
 const { BASE_HPY, FUSE_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
@@ -18,6 +18,21 @@ const masterchef = '0xE3e184a7b75D0Ae6E17B58F5283b91B4E0A2604F';
 const oracleIdA = 'VOLT';
 const oracleA = 'tokens';
 const DECIMALSA = '1e18';
+
+const xVOLT = [
+  {
+    name: 'voltagev2-xvolt',
+    address: '0x97a6e78c9208c21afaDa67e7E61d7ad27688eFd1',
+    oracle: 'tokens',
+    oracleId: 'xVOLT',
+    decimals: '1e18',
+    oracleB: 'tokens',
+    oracleIdB: 'FUSE',
+    decimalsB: '1e18',
+    poolId: 11,
+    chainId: 122,
+  },
+];
 
 const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
@@ -32,15 +47,20 @@ const getVoltageDualApys = async () => {
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, tokenPerSecData } = await getPoolsData(pools);
 
-  const pairAddresses = pools.map(pool => pool.address);
+  const pairAddresses = voltageLpPools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(fusefiClient, pairAddresses, liquidityProviderFee);
+
+  const pools = [...voltageLpPools, ...xVOLT];
+  const { balances, allocPoints, tokenPerSecData } = await getPoolsData(pools);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
-    const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
+    const lpPrice = await fetchPrice({
+      oracle: pool.oracle ?? 'lps',
+      id: pool.oracleId ?? pool.name,
+    });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
     const poolBlockRewards = rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);

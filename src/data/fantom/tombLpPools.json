@@ -1,10 +1,71 @@
 [
   {
+    "name": "tomb-tomb-wftm",
+    "address": "0xfca12A13ac324C09e9F43B5e5cfC9262f3Ab3223",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7",
+      "oracle": "tokens",
+      "oracleId": "TOMB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-tshare-wftm",
+    "address": "0x846f03785F665AC77862ED0F8F5061C0f5B3c7Bf",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4cdF39285D7Ca8eB3f090fDA0C069ba5F4145B37",
+      "oracle": "tokens",
+      "oracleId": "TSHARE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-tshare-mai",
+    "address": "0x67B2fAF48C1710fF1d2a9AC429b726B8F63eE83C",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x4cdF39285D7Ca8eB3f090fDA0C069ba5F4145B37",
+      "oracle": "tokens",
+      "oracleId": "TSHARE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "tomb-tomb-mai",
     "address": "0x45f4682B560d4e3B8FF1F1b3A38FDBe775C7177b",
     "decimals": "1e18",
     "poolId": 2,
     "chainId": 250,
+    "liquiditySource": "tomb",
     "lp0": {
       "address": "0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7",
       "oracle": "tokens",
@@ -24,6 +85,7 @@
     "decimals": "1e18",
     "poolId": 1,
     "chainId": 250,
+    "liquiditySource": "spooky",
     "lp0": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
@@ -43,6 +105,7 @@
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 250,
+    "liquiditySource": "spooky",
     "lp0": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",

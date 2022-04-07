@@ -29,6 +29,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  APE: {
+    name: 'ApeCoin APE',
+    symbol: 'APE',
+    address: '0x3D632d9e1a60a0880Dd45E61f279D919b5748377',
+    chainId: 1284,
+    decimals: 18,
+    logoURI: 'https://assets.spookyswap.finance/tokens/APE.png',
+    website: 'http://apecoin.com/',
+    description:
+      'ApeCoin is for the Web3 Economy. Culture has found new expression in web3 through art, gaming, entertainment, and events.',
+  },
   GLINT: {
     name: 'Beamswap Token',
     symbol: 'GLINT',
@@ -77,6 +88,18 @@ const _tokens = {
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
   },
+  BUSDc: {
+    name: 'Binance-Peg BUSD Token (Celer)',
+    symbol: 'BUSD',
+    address: '0xCb4A7569a61300C50Cf80A2be16329AD9F5F8F9e',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F.svg',
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
+  },
   BNB: {
     name: 'Binance',
     symbol: 'BNB',
@@ -88,6 +111,17 @@ const _tokens = {
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+  },
+  BCMC: {
+    name: 'Blockchain Monster Coin',
+    symbol: 'BCMC',
+    address: '0x8ECE0D14d619fE26e2C14C4a92c2F9E8634A039E',
+    chainId: 1284,
+    decimals: 18,
+    logoURI: 'None',
+    website: 'https://bcmhunt.com/',
+    description:
+      'Blockchain Monster Coin (BCMC) is the ultimate treasure facilitating all game activities that all BCMHunter seeks. This multichain token can be moved onto any chain with in-house bridging technology.',
   },
   ETH: {
     name: 'Ethereum',
@@ -125,6 +159,18 @@ const _tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
   },
+  USDTc: {
+    name: 'Tether USD (Celer)',
+    symbol: 'USDTc',
+    address: '0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73.svg',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
   DAI: {
     name: 'Dai Stablecoin',
     symbol: 'DAI',
@@ -148,6 +194,29 @@ const _tokens = {
     website: 'https://fantom.foundation/',
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+  },
+  axlATOM: {
+    name: 'Axelar Wrapped ATOM',
+    symbol: 'axlATOM',
+    address: '0x27292cf0016E5dF1d8b37306B2A98588aCbD6fCA',
+    chainId: 1284,
+    decimals: 6,
+    logoURI: 'None',
+    website: 'https://cosmos.network/',
+    description:
+      "The ATOM is the Cosmos Hub's primary token and secures the Hub's valuable interchain services.",
+  },
+  axlUST: {
+    name: 'Axelar Wrapped UST',
+    symbol: 'axlUST',
+    address: '0x085416975fe14C2A731a97eC38B9bF8135231F62',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x085416975fe14C2A731a97eC38B9bF8135231F62.svg',
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
   },
   MATIC: {
     name: 'Matic',
