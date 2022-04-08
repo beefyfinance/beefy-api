@@ -19,44 +19,6 @@
     }
   },
   {
-    "name": "solarbeam-wbtc-wmovr",
-    "address": "0x32E33B774372c700da12F2D0F7A834045F5651B2",
-    "decimals": "1e18",
-    "poolId": 0,
-    "chainId": 1285,
-    "lp0": {
-      "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
-      "oracle": "tokens",
-      "oracleId": "WBTC",
-      "decimals": "1e8"
-    },
-    "lp1": {
-      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
-      "oracle": "tokens",
-      "oracleId": "WMOVR",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "solarbeam-eth-wmovr",
-    "address": "0x0d171b55fC8d3BDDF17E376FdB2d90485f900888",
-    "decimals": "1e18",
-    "poolId": 1,
-    "chainId": 1285,
-    "lp0": {
-      "address": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
-      "oracle": "tokens",
-      "oracleId": "ETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
-      "oracle": "tokens",
-      "oracleId": "WMOVR",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "solarbeam-bnb-wmovr",
     "address": "0xBe2aBe58eDAae96B4303F194d2fAD5233BaD3d87",
     "decimals": "1e18",

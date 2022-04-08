@@ -14,6 +14,7 @@ import getCurveHarmonyPrices from './one/getCurvePrices';
 import getBeethovenxPrices from './fantom/getBeethovenxPrices';
 import { getSynapsePrices } from './avax/getSynapsePrices';
 import getJarvisPrices from './matic/getJarvisPrices';
+import getSolarbeamPrices from './moonriver/getSolarbeamPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
@@ -35,6 +36,7 @@ const getNonAmmPrices = async tokenPrices => {
     getAlpacaIbPrices(tokenPrices),
     getSynapsePrices(),
     getJarvisPrices(tokenPrices),
+    getSolarbeamPrices(tokenPrices),
   ];
 
   // Setup error logs
