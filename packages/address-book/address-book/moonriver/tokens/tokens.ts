@@ -416,6 +416,18 @@ const _tokens = {
     description:
       'ETERNALLY liquid. FORWARD compatible.Nested, conditional, & Multi-resourced NFTs.',
   },
+  stKSM: {
+    name: 'stKSM',
+    symbol: 'stKSM',
+    address: '0xFfc7780C34B450d917d557E728f033033CB4fA8C',
+    chainId: 1285,
+    decimals: 12,
+    logoURI:
+      'https://github.com/solarbeamio/solarbeam-tokenlist/blob/main/assets/moonriver/0xFfc7780C34B450d917d557E728f033033CB4fA8C/logo.png',
+    website: 'https://kusama.lido.fi/',
+    description:
+      'Lido for Moonriver is a liquid staking solution for KSM backed by industry-leading staking providers.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "solarbeam-3pool",
+    "address": "0xfb29918d393AaAa7dD118B51A8b7fCf862F5f336",
+    "pool": "0x9785478135BaFe3dCafe4BBa4C8311674D4E826E",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 1285
+  },
+  {
+    "name": "solarbeam-frax-3pool",
+    "address": "0x884609A4D86BBA8477112E36e27f7A4ACecB3575",
+    "pool": "0x4BB7177319BD1746c3082DDd41c7663E2dbF0f31",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 1285
+  },
+  {
+    "name": "solarbeam-xcksm-stksm",
+    "address": "0x493147C85Fe43F7B056087a6023dF32980Bcb2D1",
+    "pool": "0x77D4b212770A7cA26ee70b1E0f27fC36da191c53",
+    "virtualOracleId": "xcKSM",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 1285
+  }
+]
