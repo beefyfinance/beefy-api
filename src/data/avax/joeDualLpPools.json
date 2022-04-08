@@ -39,7 +39,7 @@
     "lp1": {
       "address": "0xb599c3590F42f8F995ECfa0f85D2980B76862fc1",
       "oracle": "tokens",
-      "oracleId": "UST",
+      "oracleId": "USTw",
       "decimals": "1e6"
     }
   },
