@@ -65,7 +65,7 @@ const _tokens = {
     symbol: 'USTw',
     address: '0xb599c3590F42f8F995ECfa0f85D2980B76862fc1',
     chainId: 43114,
-    decimals: 18,
+    decimals: 6,
     logoURI:
       'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11/logo.png',
     website: 'https://www.terra.money/',

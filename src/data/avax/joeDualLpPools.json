@@ -26,7 +26,7 @@
     "address": "0xeCD6D33555183Bc82264dbC8bebd77A1f02e421E",
     "decimals": "1e18",
     "oracleB": "tokens",
-    "oracleIdB": "UST",
+    "oracleIdB": "USTw",
     "decimalsB": "1e6",
     "poolId": 66,
     "chainId": 43114,
