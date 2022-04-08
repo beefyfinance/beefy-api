@@ -15,6 +15,40 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  LOST: {
+    name: 'Lost Worlds LOST',
+    symbol: 'LOST',
+    address: '0x449674B82F05d498E126Dd6615a1057A9c088f2C',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x449674B82F05d498E126Dd6615a1057A9c088f2C/logo.png',
+    website: 'https://lostworlds.io/',
+    description:
+      'Lost Worlds is a 1st of its kind NFT platform experience where NFTs are geographically bound to real world locations for collectors to discover and mint.',
+  },
+  AVAXL: {
+    name: 'Top Shelf AVAX L-Token',
+    symbol: 'AVAXL',
+    address: '0xe0237F9E2aaABd7Ffb8630BE5203D573a045Bca7',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://topshelf.finance/',
+    description:
+      'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
+    logoURI: '',
+  },
+  MONEY: {
+    name: 'Moremoney USD',
+    symbol: 'MONEY',
+    address: '0x0f577433Bf59560Ef2a79c124E9Ff99fCa258948',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/24237/large/money.png',
+    website: 'https://moremoney.finance/',
+    description:
+      'Moremoney is a protocol for borrowing stablecoin while earning interest on liquidity pool tokens and other collateral assets.',
+  },
   USTw: {
     name: 'TerraUSD (Wormhole)',
     symbol: 'USTw',

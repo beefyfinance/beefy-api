@@ -211,6 +211,7 @@ import ripaePools from '../../data/fantom/ripaeLpPools.json';
 import ripaeAvaxPools from '../../data/avax/ripaeLpPools.json';
 import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
+import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
 import wigoPools from '../../data/fantom/wigoLpPools.json';
 import solidlyPools from '../../data/fantom/solidlyLpPools.json';
@@ -220,6 +221,8 @@ import voltagePools from '../../data/fuse/voltageLpPools.json';
 import bombSwapPools from '../../data/fantom/bombSwapPools.json';
 import excaliburSwapPools from '../../data/fantom/excaliburLpPools.json';
 import empLpPools from '../../data/degens/empLpPools.json';
+import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
+import joeBoostedLpPools from '../../data/avax/joeBoostedLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -228,11 +231,14 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...excaliburSwapPools,
+  ...vvsDualPools,
+  ...joeBoostedLpPools,
   ...empLpPools,
   ...bombSwapPools,
   ...voltagePools,
   ...basedPools,
   ...stellaswapPools,
+  ...stellaswapPoolsV2,
   ...solarflare,
   ...solidlyPools,
   ...wigoPools,

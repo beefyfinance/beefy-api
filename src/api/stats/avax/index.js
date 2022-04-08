@@ -3,12 +3,12 @@ const getOliveApys = require('./getOliveApys');
 const getAvaxBifiGovApy = require('./getAvaxBifiGovApy');
 const { getAvaxBifiMaxiApy } = require('./getAvaxBifiMaxiApy');
 const getJoeApys = require('./getJoeLpApys');
+const getJoeBoostedApys = require('./getJoeBoostedLpApys');
 const getJoeDualApys = require('./getJoeDualLpApys');
 const getJoeApy = require('./getJoeApy');
 const getPangolinPNGApy = require('./getPangolinPNGApy');
 const getCurveApys = require('./getCurveApys');
 const { getAaveApys } = require('./getAaveApys');
-const getSingularApys = require('./getSingularApys');
 const getBlizzLpApys = require('./getBlizzLpApys');
 const getBlizzLendingApys = require('./getBlizzLendingApys');
 const getBankerJoeApys = require('./getBankerJoeApys');
@@ -31,11 +31,11 @@ const getApys = [
   getAvaxBifiGovApy,
   getAvaxBifiMaxiApy,
   getJoeApys,
+  getJoeBoostedApys,
   getJoeDualApys,
   getJoeApy,
   getCurveApys,
   getAaveApys,
-  getSingularApys,
   getBlizzLpApys,
   getBlizzLendingApys,
   getBankerJoeApys,

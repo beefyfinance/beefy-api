@@ -190,25 +190,6 @@
     }
   },
   {
-    "name": "joe-bnb-wavax",
-    "address": "0xeb8eB6300c53C3AddBb7382Ff6c6FbC4165B0742",
-    "decimals": "1e18",
-    "poolId": 52,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x264c1383EA520f73dd837F915ef3a732e204a493",
-      "oracle": "tokens",
-      "oracleId": "avaxBNB",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "joe-usdc.e-usdt.e",
     "address": "0x2E02539203256c83c7a9F6fA6f8608A32A2b1Ca2",
     "decimals": "1e18",
@@ -304,25 +285,6 @@
     }
   },
   {
-    "name": "joe-mim-wavax",
-    "address": "0x781655d802670bbA3c89aeBaaEa59D3182fD755D",
-    "decimals": "1e18",
-    "poolId": 43,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x130966628846BFd36ff31a822705796e8cb8C18D",
-      "oracle": "tokens",
-      "oracleId": "aMIM",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "joe-qi-wavax",
     "address": "0x2774516897AC629aD3ED9dCac7e375Dda78412b9",
     "decimals": "1e18",
@@ -357,25 +319,6 @@
       "address": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
       "oracle": "tokens",
       "oracleId": "DAI.e",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "joe-usdc.e-wavax",
-    "address": "0xA389f9430876455C36478DeEa9769B7Ca4E3DDB1",
-    "decimals": "1e18",
-    "poolId": 39,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
-      "oracle": "tokens",
-      "oracleId": "USDC.e",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
       "decimals": "1e18"
     }
   },
@@ -529,82 +472,6 @@
       "oracle": "tokens",
       "oracleId": "USDT.e",
       "decimals": "1e6"
-    }
-  },
-  {
-    "name": "joe-link.e-wavax",
-    "address": "0x6F3a0C89f611Ef5dC9d96650324ac633D02265D3",
-    "decimals": "1e18",
-    "poolId": 29,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x5947BB275c521040051D82396192181b413227A3",
-      "oracle": "tokens",
-      "oracleId": "LINK.e",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "joe-wavax-usdt.e",
-    "address": "0xeD8CBD9F0cE3C6986b22002F03c6475CEb7a6256",
-    "decimals": "1e18",
-    "poolId": 28,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
-      "oracle": "tokens",
-      "oracleId": "USDT.e",
-      "decimals": "1e6"
-    }
-  },
-  {
-    "name": "joe-wbtc.e-wavax",
-    "address": "0xd5a37dC5C9A396A03dd1136Fc76A1a02B1c88Ffa",
-    "decimals": "1e18",
-    "poolId": 27,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x50b7545627a5162F82A992c33b87aDc75187B218",
-      "oracle": "tokens",
-      "oracleId": "WBTC.e",
-      "decimals": "1e8"
-    },
-    "lp1": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "joe-weth.e-wavax",
-    "address": "0xFE15c2695F1F920da45C30AAE47d11dE51007AF9",
-    "decimals": "1e18",
-    "poolId": 26,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
-      "oracle": "tokens",
-      "oracleId": "WETH.e",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-      "oracle": "tokens",
-      "oracleId": "AVAX",
-      "decimals": "1e18"
     }
   },
   {
