@@ -24,7 +24,7 @@ const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
 const liquidityProviderFee = JOE_LPF;
-const beefyPerformanceFee = 0.085; // 0.045 beefy fees + 0.04 Joe Boost Tax
+const beefyPerformanceFee = 0.095; // 0.045 beefy fees + 0.04 Joe Boost Tax
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getJoeBoostedLpApys = async () => {
