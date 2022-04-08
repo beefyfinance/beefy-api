@@ -27,6 +27,18 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  IXT: {
+    name: 'IX Token IXT',
+    symbol: 'IXT',
+    address: '0xE06Bd4F5aAc8D0aA337D13eC88dB6defC6eAEefE',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://assets.coingecko.com/coins/images/20927/large/IXT_SYMBOL_SVG_RGB_BLACK.png?1637934555',
+    website: 'https://www.planetix.com/',
+    description:
+      'Planet IX is an online NFT-strategy game where a broken digital rendition of Planet Earth is its game field.',
+  },
   STG: {
     name: 'Stargate',
     symbol: 'STG',

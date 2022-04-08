@@ -15,6 +15,18 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  LOST: {
+    name: 'Lost Worlds LOST',
+    symbol: 'LOST',
+    address: '0x449674B82F05d498E126Dd6615a1057A9c088f2C',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x449674B82F05d498E126Dd6615a1057A9c088f2C/logo.png',
+    website: 'https://lostworlds.io/',
+    description:
+      'Lost Worlds is a 1st of its kind NFT platform experience where NFTs are geographically bound to real world locations for collectors to discover and mint.',
+  },
   AVAXL: {
     name: 'Top Shelf AVAX L-Token',
     symbol: 'AVAXL',

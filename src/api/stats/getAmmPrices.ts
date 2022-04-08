@@ -220,6 +220,7 @@ import basedPools from '../../data/fantom/basedLpPools.json';
 import voltagePools from '../../data/fuse/voltageLpPools.json';
 import bombSwapPools from '../../data/fantom/bombSwapPools.json';
 import empLpPools from '../../data/degens/empLpPools.json';
+import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -227,6 +228,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...vvsDualPools,
   ...empLpPools,
   ...bombSwapPools,
   ...voltagePools,
