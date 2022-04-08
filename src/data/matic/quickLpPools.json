@@ -1,5 +1,24 @@
 [
   {
+    "name": "quick-ixt-usdt",
+    "address": "0x304e57c752E854E9A233Ae82fcC42F7568b81180",
+    "rewardPool": "0x99872da6038D60E4cF6Dc2C16710B63c380f79dB",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xE06Bd4F5aAc8D0aA337D13eC88dB6defC6eAEefE",
+      "oracle": "tokens",
+      "oracleId": "IXT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-eth-fuse",
     "address": "0x9Ab6E8197cfD366F920b54cb069cE6273898CB0B",
     "rewardPool": "0x13cD28356F909bc0b33860b6552201b9FfaF8A37",

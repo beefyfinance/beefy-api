@@ -27,6 +27,17 @@ const _tokens = {
     description:
       'Lost Worlds is a 1st of its kind NFT platform experience where NFTs are geographically bound to real world locations for collectors to discover and mint.',
   },
+  AVAXL: {
+    name: 'Top Shelf AVAX L-Token',
+    symbol: 'AVAXL',
+    address: '0xe0237F9E2aaABd7Ffb8630BE5203D573a045Bca7',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://topshelf.finance/',
+    description:
+      'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
+    logoURI: '',
+  },
   MONEY: {
     name: 'Moremoney USD',
     symbol: 'MONEY',
