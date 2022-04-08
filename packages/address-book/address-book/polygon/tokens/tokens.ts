@@ -27,6 +27,51 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  PAR: {
+    name: 'PAR Stablecoin',
+    symbol: 'PAR',
+    address: '0x7b367a058f370c0057762280547d0b974cf3ac10',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://mimo.capital/',
+    description:
+      'Mimo have a lending platform allowing people to borrow PAR, a stable token algorithmically pegged to the Euro.',
+    logoURI: 'https://assets.coingecko.com/coins/images/14153/small/par_round_200.png?1614670422',
+  },
+  EURS: {
+    name: 'STATIS EURS Token',
+    symbol: 'EURS',
+    address: '0xE111178A87A3BFf0c8d18DECBa5798827539Ae99',
+    chainId: 137,
+    decimals: 2,
+    website: 'https://stasis.net/',
+    description:
+      'EURS token is a virtual financial asset that is designed to digitally mirror the EURO on the condition that its value is tied to the value of its collateral.',
+    logoURI: 'https://assets.coingecko.com/coins/images/5164/small/EURS_300x300.png?1550571779',
+  },
+  EURT: {
+    name: 'Euro Tether',
+    symbol: 'EURT',
+    address: '0x7BDF330f423Ea880FF95fC41A280fD5eCFD3D09f',
+    chainId: 137,
+    decimals: 6,
+    website: 'https://tether.to/en/',
+    description:
+      'Euro Tether token (EURt) is the first euro-pegged stablecoin pegged to the Euro.',
+    logoURI: 'https://assets.coingecko.com/coins/images/17385/small/Tether_full_logo_dm.png?1627537298',
+  },
+  renBTC: {
+    name: 'renBTC',
+    symbol: 'renBTC',
+    address: '0xDBf31dF14B66535aF65AaC99C32e9eA844e14501',
+    chainId: 137,
+    decimals: 8,
+    website: 'https://renproject.io/',
+    description:
+      'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
+  },
   IXT: {
     name: 'IX Token IXT',
     symbol: 'IXT',
