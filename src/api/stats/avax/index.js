@@ -3,6 +3,7 @@ const getOliveApys = require('./getOliveApys');
 const getAvaxBifiGovApy = require('./getAvaxBifiGovApy');
 const { getAvaxBifiMaxiApy } = require('./getAvaxBifiMaxiApy');
 const getJoeApys = require('./getJoeLpApys');
+const getJoeBoostedApys = require('./getJoeBoostedLpApys');
 const getJoeDualApys = require('./getJoeDualLpApys');
 const getJoeApy = require('./getJoeApy');
 const getPangolinPNGApy = require('./getPangolinPNGApy');
@@ -30,6 +31,7 @@ const getApys = [
   getAvaxBifiGovApy,
   getAvaxBifiMaxiApy,
   getJoeApys,
+  getJoeBoostedApys,
   getJoeDualApys,
   getJoeApy,
   getCurveApys,
