@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  beJOE: {
+    name: 'Beefy JOE',
+    symbol: 'beJOE',
+    address: '0x1F2A8034f444dc55F963fb5925A9b6eb744EeE2c',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beefy.com',
+    description:
+      'beJOE is a Beefy-wrapped version of veJOE. Holding beJOE will be a great way to earn a bunch of JOE. Beefy will max out emissions on boosted farms, 5% of emissions will then be distributed to beJOE stakers on Beefy.',
+  },
   LOST: {
     name: 'Lost Worlds LOST',
     symbol: 'LOST',
