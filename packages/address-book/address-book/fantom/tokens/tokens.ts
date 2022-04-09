@@ -422,6 +422,17 @@ const _tokens = {
     logoURI:
       'https://assets.coingecko.com/coins/images/21208/small/vXl4xT-P_400x400.png?1638567924',
   },
+  LUNAw: {
+    name: 'LUNA (Wormhole)',
+    symbol: 'LUNA',
+    address: '0x593AE1d34c8BD7587C11D539E4F42BFf242c82Af',
+    chainId: 250,
+    decimals: 6,
+    website: 'https://www.terra.money/',
+    description:
+      'Terras native token, LUNA, is used to stabilize the price of the protocols stablecoins.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png',
+  },
   UST: {
     name: 'USD Terra (anyswap)',
     symbol: 'UST',
@@ -437,7 +448,18 @@ const _tokens = {
     name: 'TerraUSD (Wormhole)',
     symbol: 'UST',
     address: '0x846e4D51d7E2043C1a87E0Ab7490B93FB940357b',
-    chainId: 137,
+    chainId: 250,
+    decimals: 6,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
+    website: 'https://coinmarketcap.com/currencies/terrausd-wormhole/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+  },
+  USTaxl: {
+    name: 'TerraUSD (Axelar)',
+    symbol: 'UST',
+    address: '0x2B9d3F168905067D88d93F094C938BACEe02b0cB',
+    chainId: 250,
     decimals: 6,
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
     website: 'https://coinmarketcap.com/currencies/terrausd-wormhole/',
