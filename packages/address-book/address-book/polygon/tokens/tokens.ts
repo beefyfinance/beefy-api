@@ -49,9 +49,9 @@ const _tokens = {
       'EURS token is a virtual financial asset that is designed to digitally mirror the EURO on the condition that its value is tied to the value of its collateral.',
     logoURI: 'https://assets.coingecko.com/coins/images/5164/small/EURS_300x300.png?1550571779',
   },
-  EURT: {
+  EURt: {
     name: 'Euro Tether',
-    symbol: 'EURT',
+    symbol: 'EURt',
     address: '0x7BDF330f423Ea880FF95fC41A280fD5eCFD3D09f',
     chainId: 137,
     decimals: 6,
