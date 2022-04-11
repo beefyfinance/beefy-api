@@ -1,5 +1,33 @@
 [
   {
+    "name": "beets-clair-de-lune",
+    "address": "0x2fbb1EF03C02F9Bb2bD6f8C8c24F8dE347979d9e",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x2fbb1ef03c02f9bb2bd6f8c8c24f8de347979d9e00010000000000000000039a",
+    "poolId": 73,
+    "oracleB": "tokens",
+    "oracleIdB": "USTw",
+    "decimalsB": "1e6",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "LUNAw",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USTw",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "beets-god-between-stables",
     "address": "0x8B858Eaf095A7337dE6f9bC212993338773cA34e",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
