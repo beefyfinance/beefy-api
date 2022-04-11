@@ -232,6 +232,17 @@ const _tokens = {
     description:
       'USDO is a decentralised stablecoin backed by a verifiable collateral pool of on-chain assets.',
   },
+  ROSE: {
+    name: 'Rose',
+    symbol: 'ROSE',
+    address: '0xdcD6D4e2B3e1D1E1E6Fa8C21C8A323DcbecfF970',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://rose.fi/',
+    description:
+      'Rose is a liquidity protocol on Aurora composed of a stablecoin & wrapped assets exchange, and a Collateralized Debt Position (CDP) based stablecoin utilizing interest bearing tokens as collateral.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
