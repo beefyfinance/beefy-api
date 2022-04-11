@@ -463,6 +463,7 @@ const knownPrices = {
   USDN: 1,
   cUSD: 1,
   asUSDC: 1,
+  USTaxl: 1,
 };
 
 let tokenPricesCache: Promise<any>;
