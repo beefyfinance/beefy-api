@@ -243,6 +243,28 @@ const _tokens = {
     description:
       'Rose is a liquidity protocol on Aurora composed of a stablecoin & wrapped assets exchange, and a Collateralized Debt Position (CDP) based stablecoin utilizing interest bearing tokens as collateral.',
   },
+  MAI: {
+    name: 'QI DAO Stable Coin Mai',
+    symbol: 'MAI',
+    address: '0xdFA46478F9e5EA86d57387849598dbFB2e964b02',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://mai.finance/',
+    description:
+      'MAI is a stable coin collateralized by your MATIC holdings. Its powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.',
+  },
+  PAD: {
+    name: 'NearPad Token',
+    symbol: 'PAD',
+    address: '0x885f8CF6E45bdd3fdcDc644efdcd0AC93880c781',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.nearpad.io/',
+    description:
+      'Launchpad & DeFi hub of the NEAR ecosystem. The DeFi hub on NEAR ecosystem to bootstrap innovations, monitor and manage digital assets.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
