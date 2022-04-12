@@ -1,25 +1,36 @@
 'use strict';
 
+const redis = require('redis');
+
 const TTL = 5 * 60;
 
-async function cache(ctx, next) {
-  if (ctx.method !== 'GET') {
-    return await next();
-  }
+function cache(options) {
+  const client = redis.createClient(options);
 
-  const cached = ctx.cache[ctx.url];
-  if (cached !== undefined && cached.ts && cached.ts + TTL * 1000 > Date.now()) {
-    ctx.status = 200;
-    ctx.body = cached.body;
-    return;
-  }
+  client.on('error', err => {
+    console.log('Redis error', err);
+  });
 
-  await next();
+  return async (ctx, next) => {
+    if (ctx.method !== 'GET') {
+      return await next();
+    }
 
-  ctx.set('Cache-Control', `public, max-age=${TTL}`);
-  ctx.cache[ctx.url] = {
-    ts: Date.now(),
-    body: ctx.body,
+    if (!client.isOpen) {
+      await client.connect();
+    }
+
+    const cached = await client.get(ctx.url);
+    if (cached !== null) {
+      ctx.status = 200;
+      ctx.body = JSON.parse(cached);
+      return;
+    }
+
+    await next();
+
+    ctx.set('Cache-Control', `public, max-age=${TTL}`);
+    client.set(ctx.url, JSON.stringify(ctx.body), { EX: TTL });
   };
 }
 

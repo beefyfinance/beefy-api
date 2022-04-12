@@ -9,6 +9,7 @@ const etag = require('koa-etag');
 
 const rt = require('./middleware/rt');
 const powered = require('./middleware/powered');
+const cache = require('./middleware/cache');
 const router = require('./router');
 
 const app = new Koa();
@@ -20,8 +21,7 @@ app.use(helmet());
 app.use(cors({ origin: '*' }));
 app.use(powered);
 app.use(body());
-
-app.context.cache = {};
+app.use(cache({ url: process.env.REDIS_URL }));
 
 app.use(router.routes());
 app.use(router.allowedMethods());
