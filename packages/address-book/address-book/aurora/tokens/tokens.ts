@@ -41,7 +41,7 @@ const _tokens = {
       'Through simple, secure, and scalable technology, NEAR empowers millions to invent and explore new experiences. Business, creativity, and community are being reimagined for a more sustainable and inclusive future.',
   },
   USDC: {
-    name: 'USD Coin',
+    name: 'USD Coin ',
     symbol: 'USDC',
     address: '0xB12BFcA5A55806AaF64E99521918A4bf0fC40802',
     chainId: 1313161554,
