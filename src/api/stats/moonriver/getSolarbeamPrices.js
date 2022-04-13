@@ -3,6 +3,7 @@ import { MultiCall } from 'eth-multicall';
 const ISolarStablePool = require('../../../abis/moonriver/ISolarStablePool.json');
 const { moonriverWeb3: web3, multicallAddress } = require('../../../utils/web3');
 import { MOONRIVER_CHAIN_ID as chainId } from '../../../constants';
+import { getContract } from '../../../utils/contractHelper';
 const pools = require('../../../data/moonriver/solarbeamStablePools.json');
 
 const DECIMALS = '1e18';
@@ -26,7 +27,7 @@ const getVirtualPrice = async tokenPrices => {
   let virtualPriceCalls = [];
 
   for (let i = 0; i < pools.length; i++) {
-    const lpContract = new web3.eth.Contract(ISolarStablePool, pools[i].pool);
+    const lpContract = getContract(ISolarStablePool, pools[i].pool);
     virtualPriceCalls.push({
       virtualPrice: lpContract.methods.getVirtualPrice(),
     });

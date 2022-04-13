@@ -3,6 +3,7 @@ const { bscWeb3: web3 } = require('../../../../utils/web3');
 
 const LPAbi = require('../../../../abis/Snob3LP.json');
 const pools = require('../../../../data/dopplePools.json');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const DECIMALS = '1e18';
 
@@ -22,7 +23,7 @@ const getDopplePrices = async () => {
 };
 
 const getPrice = async pool => {
-  const lpContract = new web3.eth.Contract(LPAbi, pool.swap);
+  const lpContract = getContractWithProvider(LPAbi, pool.swap, web3);
   let tokenPrice = new BigNumber(await lpContract.methods.getVirtualPrice().call());
   tokenPrice = Number(tokenPrice.dividedBy(DECIMALS).toFixed(6));
 

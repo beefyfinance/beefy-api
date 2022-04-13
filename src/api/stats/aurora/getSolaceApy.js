@@ -8,6 +8,7 @@ import { getEDecimals } from '../../../utils/getEDecimals';
 const { AURORA_CHAIN_ID: chainId, BASE_HPY } = require('../../../constants');
 
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 const {
   aurora: {
     platforms: {
@@ -48,7 +49,7 @@ const getSolaceApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const web3 = web3Factory(chainId);
 
-  const rewardPool = new web3.eth.Contract(Rewarder, rewards);
+  const rewardPool = getContractWithProvider(Rewarder, rewards, web3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardPerSecond().call());
   const yearlyRewards = rewardRate.times(SECONDS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.dividedBy(getEDecimals(SOLACE.decimals));
@@ -59,7 +60,7 @@ const getYearlyRewardsInUsd = async () => {
 const getTotalStakedInUsd = async () => {
   const web3 = web3Factory(chainId);
 
-  const rewardPool = new web3.eth.Contract(Rewarder, rewards);
+  const rewardPool = getContractWithProvider(Rewarder, rewards, web3);
   const totalStaked = new BigNumber(await rewardPool.methods.valueStaked().call());
 
   return totalStaked.dividedBy(getEDecimals(SOLACE.decimals));

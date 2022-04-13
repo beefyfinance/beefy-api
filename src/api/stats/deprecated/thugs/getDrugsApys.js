@@ -9,6 +9,7 @@ const pools = require('../../../../data/drugsPools.json');
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const getDrugsApys = async () => {
   const apys = {};
@@ -34,7 +35,7 @@ const getDrugsApys = async () => {
 };
 
 const getYearlyRewardsInUsd = async (smartGangsterAddr, oracle, oracleId, decimals) => {
-  const smartGangsterContract = new web3.eth.Contract(SmartGangster, smartGangsterAddr);
+  const smartGangsterContract = getContractWithProvider(SmartGangster, smartGangsterAddr, web3);
 
   const currentBlock = await getBlockNumber(BSC_CHAIN_ID);
   const bonusEndBlock = await smartGangsterContract.methods.bonusEndBlock().call();

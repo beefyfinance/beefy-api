@@ -8,6 +8,7 @@ const { compound } = require('../../../utils/compound');
 const { AVAX_CHAIN_ID, BASE_HPY } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { lydiaClient } = require('../../../apollo/client');
 
@@ -82,7 +83,7 @@ const getPoolApy = async (masterchef, pool) => {
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const blockNum = await getBlockNumber(AVAX_CHAIN_ID);
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
 
   const multiplier = new BigNumber(
     await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
@@ -108,7 +109,7 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
 const getTotalLpStakedInUsd = async (targetAddr, pool) => {
   const web3 = web3Factory(AVAX_CHAIN_ID);
 
-  const tokenPairContract = new web3.eth.Contract(ERC20, pool.address);
+  const tokenPairContract = getContractWithProvider(ERC20, pool.address, web3);
   const totalStaked = new BigNumber(await tokenPairContract.methods.balanceOf(targetAddr).call());
   const tokenPrice = await lpTokenPrice(pool);
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');

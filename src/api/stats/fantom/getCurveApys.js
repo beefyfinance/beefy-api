@@ -10,6 +10,7 @@ import ICurvePool from '../../../abis/ICurvePool.json';
 import fetchPrice from '../../../utils/fetchPrice';
 import axios from 'axios';
 import BigNumber from 'bignumber.js';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const pools = require('../../../data/fantom/curvePools.json');
 const baseApyUrl = 'https://stats.curve.fi/raw-stats-ftm/apys.json';
@@ -88,7 +89,7 @@ const getGeistPoolApy = async pool => {
 };
 
 const getTokenBalance = async (curvePool, token, index) => {
-  const pool = new web3.eth.Contract(ICurvePool, curvePool);
+  const pool = getContractWithProvider(ICurvePool, curvePool, web3);
   const balance = await pool.methods.balances(index).call();
   let price = 1;
   if (token.oracleId) {

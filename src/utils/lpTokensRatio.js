@@ -1,11 +1,12 @@
 const BigNumber = require('bignumber.js');
 const { web3Factory } = require('./web3');
 const LPPair = require('../abis/LPPair.json');
+const { getContract } = require('./contractHelper');
 
 const lpTokenRatio = async (lpTokenAddress, decimals0, decimals1, chainId = 56) => {
   const web3 = web3Factory(chainId);
 
-  const tokenPairContract = new web3.eth.Contract(LPPair, lpTokenAddress);
+  const tokenPairContract = getContract(LPPair, lpTokenAddress, web3);
 
   let { _reserve0, _reserve1 } = await tokenPairContract.methods.getReserves().call();
   const reserve0 = new BigNumber(_reserve0);

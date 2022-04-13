@@ -8,6 +8,7 @@ const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { spookyClient, tombswapClient } = require('../../../apollo/client');
 import { SPOOKY_LPF, TOMBSWAP_LPF } from '../../../constants';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 import getApyBreakdown from '../common/getApyBreakdown';
 
 const rewardPool = '0xcc0a87F7e7c693042a9Cc703661F5060c80ACb43';
@@ -63,7 +64,7 @@ const getPoolApy = async (rewardPool, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (rewardPool, poolId) => {
-  const rewardPoolContract = new web3.eth.Contract(RewardPool, rewardPool);
+  const rewardPoolContract = getContractWithProvider(RewardPool, rewardPool, web3);
 
   let { allocPoint } = await rewardPoolContract.methods.poolInfo(poolId).call();
   allocPoint = new BigNumber(allocPoint);

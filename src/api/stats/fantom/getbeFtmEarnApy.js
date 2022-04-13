@@ -4,6 +4,7 @@ const { fantomWeb3: web3, web3Factory } = require('../../../utils/web3');
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const ERC20 = require('../../../abis/ERC20.json');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const BIFI = '0x7381eD41F6dE418DdE5e84B55590422a57917886';
 const REWARDS = '0xE00D25938671525C2542A689e42D1cfA56De5888';
@@ -35,7 +36,7 @@ const getbeFtmEarnApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const fantomPrice = await fetchPrice({ oracle: ORACLE, id: 'WFTM' });
 
-  const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
+  const rewardPool = getContractWithProvider(IRewardPool, REWARDS, web3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const secondsPerYear = 31536000;
   const yearlyRewards = rewardRate.times(secondsPerYear);
@@ -47,7 +48,7 @@ const getYearlyRewardsInUsd = async () => {
 const getTotalStakedInUsd = async () => {
   const web3 = web3Factory(250);
 
-  const tokenContract = new web3.eth.Contract(ERC20, BIFI);
+  const tokenContract = getContractWithProvider(ERC20, BIFI, web3);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(REWARDS).call());
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: ORACLE_ID });
 

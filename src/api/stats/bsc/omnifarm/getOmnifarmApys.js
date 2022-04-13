@@ -7,6 +7,7 @@ const { compound } = require('../../../../utils/compound');
 const { BSC_CHAIN_ID, BASE_HPY } = require('../../../../constants');
 const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
+import { getContractWithProvider } from '../../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 const { cakeClient } = require('../../../../apollo/client');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
@@ -77,14 +78,14 @@ const getPoolApy = async pool => {
 
 const getYearlyRewardsInUsd = async stakingPoolAddress => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const masterchefContract = new web3.eth.Contract(StakingPoolABI, stakingPoolAddress);
+  const masterchefContract = getContractWithProvider(StakingPoolABI, stakingPoolAddress, web3);
 
   const farmInfo = await masterchefContract.methods.farmInfo().call();
   if (farmInfo.endBlock < blockNum) return new BigNumber(0);
 
   const poolBlockRewards = new BigNumber(farmInfo.blockReward);
 
-  const tokenContract = new web3.eth.Contract(ERC20_ABI, farmInfo.rewardToken);
+  const tokenContract = getContractWithProvider(ERC20_ABI, farmInfo.rewardToken, web3);
   const tokenSymbol = await tokenContract.methods.symbol().call();
   const tokenDecimals = await tokenContract.methods.decimals().call();
 

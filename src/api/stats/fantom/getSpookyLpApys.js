@@ -10,6 +10,7 @@ const { BASE_HPY, FANTOM_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { SPOOKY_LPF } from '../../../constants';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 const { spookyClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -93,19 +94,19 @@ const getSpookyLpApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const rewardPerSecond = new BigNumber(await masterchefContract.methods.booPerSecond().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContract(MasterChef, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(FANTOM_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });

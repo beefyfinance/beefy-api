@@ -11,6 +11,7 @@ const pools = require('../../../data/matic/apePolyLpPools.json');
 const { POLYGON_CHAIN_ID, APEPOLY_LPF } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { apePolyClient } = require('../../../apollo/client');
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import getApyBreakdown from '../common/getApyBreakdown';
 
 const minichef = '0x54aff400858Dcac39797a81894D9920f16972D1D';
@@ -36,7 +37,7 @@ const getApeLpApys = async () => {
 
 const getFarmApys = async pools => {
   const apys = [];
-  const minichefContract = new web3.eth.Contract(MiniChefV2, minichef);
+  const minichefContract = getContractWithProvider(MiniChefV2, minichef, web3);
   const bananaPerSecond = new BigNumber(await minichefContract.methods.bananaPerSecond().call());
   const totalAllocPoint = new BigNumber(await minichefContract.methods.totalAllocPoint().call());
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
@@ -69,8 +70,8 @@ const getFarmApys = async pools => {
 };
 
 const getPoolsData = async pools => {
-  const minichefContract = new web3.eth.Contract(MiniChefV2, minichef);
-  const totalPointContract = new web3.eth.Contract(RewarderAllocPoints, rewarderAllocPoints);
+  const minichefContract = getContract(MiniChefV2, minichef);
+  const totalPointContract = getContract(RewarderAllocPoints, rewarderAllocPoints);
 
   const balanceCalls = [];
   const allocPointCalls = [];
@@ -78,11 +79,11 @@ const getPoolsData = async pools => {
   const rewardPerSecondCalls = [];
   const rewardTotalPointCalls = [];
   pools.forEach(pool => {
-    const rewardContract = new web3.eth.Contract(
+    const rewardContract = getContract(
       SushiComplexRewarderTime,
       pool.rewarder ?? complexRewarderTime
     );
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(minichef),
     });

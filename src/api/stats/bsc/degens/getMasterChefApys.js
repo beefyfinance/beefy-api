@@ -6,6 +6,7 @@ const { compound } = require('../../../../utils/compound');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const getMasterChefApys = async masterchefParams => {
   let apys = {};
@@ -59,7 +60,7 @@ const getPoolApy = async (params, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (params, pool) => {
-  const masterchefContract = new web3.eth.Contract(params.masterchefAbi, params.masterchef);
+  const masterchefContract = getContractWithProvider(params.masterchefAbi, params.masterchef, web3);
 
   let multiplier = new BigNumber(1);
   if (params.hasMultiplier) {

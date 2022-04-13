@@ -36,7 +36,7 @@ const getArbiBifiGovApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const ethPrice = await fetchPrice({ oracle: ORACLE, id: 'ETH' });
 
-  const rewardPool = new getContractWithProvider(IRewardPool, REWARDS, arbitrumWeb3);
+  const rewardPool = getContractWithProvider(IRewardPool, REWARDS, arbitrumWeb3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(ethPrice).dividedBy(DECIMALS);

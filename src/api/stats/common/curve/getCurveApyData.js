@@ -6,6 +6,7 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const ICurveGauge = require('../../../../abis/ICurveGauge.json');
 const IRewardStream = require('../../../../abis/ICurveRewardStream.json');
 const ICurveRewards = require('../../../../abis/ICurveRewards.json');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const secondsPerYear = 31536000;
 
@@ -83,7 +84,7 @@ const getCurveFactoryApy = async (address, url) => {
 
 const getTotalStakedInUsd = async (web3, pool) => {
   if (!pool.gauge) return new BigNumber(1);
-  const gauge = new web3.eth.Contract(ICurveGauge, pool.gauge);
+  const gauge = getContractWithProvider(ICurveGauge, pool.gauge, web3);
   let totalSupply;
   if (pool.boosted) {
     totalSupply = new BigNumber(await gauge.methods.working_supply().call());
@@ -97,7 +98,7 @@ const getTotalStakedInUsd = async (web3, pool) => {
 const getBoostedYearlyRewardsInUsd = async (web3, pool) => {
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });
 
-  const gauge = new web3.eth.Contract(ICurveGauge, pool.gauge);
+  const gauge = getContractWithProvider(ICurveGauge, pool.gauge, web3);
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
   const rewardRate = new BigNumber(await gauge.methods.inflation_rate(weekEpoch).call());
 
@@ -112,12 +113,12 @@ const getYearlyRewardsInUsd = async (web3, pool) => {
   for (const rewards of pool.rewards) {
     let periodFinish, rewardRate;
     if (rewards.token) {
-      const rewardStream = new web3.eth.Contract(ICurveRewards, rewards.stream);
+      const rewardStream = getContractWithProvider(ICurveRewards, rewards.stream, web3);
       let { period_finish, rate } = await rewardStream.methods.reward_data(rewards.token).call();
       periodFinish = Number(period_finish);
       rewardRate = new BigNumber(rate);
     } else {
-      const rewardStream = new web3.eth.Contract(IRewardStream, rewards.stream);
+      const rewardStream = getContractWithProvider(IRewardStream, rewards.stream, web3);
       periodFinish = Number(await rewardStream.methods.period_finish().call());
       rewardRate = new BigNumber(await rewardStream.methods.reward_rate().call());
     }

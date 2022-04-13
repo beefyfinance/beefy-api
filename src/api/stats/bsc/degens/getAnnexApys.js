@@ -5,6 +5,7 @@ const MasterChef = require('../../../../abis/degens/AnnexChef.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const lpPools = require('../../../../data/degens/annexLpPools.json');
 const { compound } = require('../../../../utils/compound');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const getAnnexApys = async () => {
   let apys = {};
@@ -33,7 +34,7 @@ const getAnnexApys = async () => {
 };
 
 const getPoolApy = async (masterchef, pool) => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
 
   const blockRewards = new BigNumber(await masterchefContract.methods.annexPerBlock().call());
   let { lpSupply, allocPoint } = await masterchefContract.methods.getPoolInfo(pool.poolId).call();

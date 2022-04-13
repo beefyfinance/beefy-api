@@ -9,6 +9,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/pangolinV2DualLpPools.json');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { pangolinClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -106,21 +107,21 @@ const getPangolinV2DualApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const rewardPerSecond = new BigNumber(await masterchefContract.methods.rewardPerSecond().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContract(MasterChef, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(AVAX_CHAIN_ID));
   const balanceCalls = [];
   const poolInfoCalls = [];
   const rewarderCalls = [];
   const multipliersCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });
@@ -141,7 +142,7 @@ const getPoolsData = async pools => {
   const rewarders = res[2].map(v => v.rewarder);
 
   rewarders.forEach(rewarder => {
-    let rewarderContract = new web3.eth.Contract(Rewarder, rewarder);
+    let rewarderContract = getContract(Rewarder, rewarder);
     let multiplier = rewarderContract.methods.getRewardMultipliers();
     multipliersCalls.push({
       multiplier: multiplier,

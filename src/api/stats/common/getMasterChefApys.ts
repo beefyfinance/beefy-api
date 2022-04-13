@@ -21,6 +21,7 @@ import {
   getTradingFeeAprBalancer,
   getTradingFeeApr,
 } from '../../../utils/getTradingFeeApr';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 export interface MasterChefApysParams {
   web3: Web3;
@@ -136,7 +137,7 @@ const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> =
 
 const getMasterChefData = async (params: MasterChefApysParams) => {
   const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
-  const masterchefContract = new params.web3.eth.Contract(abi, params.masterchef);
+  const masterchefContract = getContractWithProvider(abi, params.masterchef, params.web3);
   let multiplier = new BigNumber(1);
   if (params.hasMultiplier) {
     const blockNum = await getBlockNumber(params.chainId);
@@ -154,12 +155,12 @@ const getMasterChefData = async (params: MasterChefApysParams) => {
 
 const getPoolsData = async (params: MasterChefApysParams) => {
   const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
-  const masterchefContract = new params.web3.eth.Contract(abi, params.masterchef);
+  const masterchefContract = getContract(abi, params.masterchef);
   const multicall = new MultiCall(params.web3 as any, multicallAddress(params.chainId));
   const balanceCalls = [];
   const allocPointCalls = [];
   params.pools.forEach(pool => {
-    const tokenContract = new params.web3.eth.Contract(ERC20_ABI, pool.address) as unknown as ERC20;
+    const tokenContract = getContract(ERC20_ABI, pool.address) as unknown as ERC20;
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(pool.strat ?? params.masterchef),
     });

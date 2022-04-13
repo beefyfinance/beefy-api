@@ -9,6 +9,7 @@ const pools = require('../../../data/aurora/rosePools.json');
 const { BASE_HPY, AURORA_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 const {
   aurora: {
@@ -74,7 +75,7 @@ const getFarmApys = async pools => {
     let yearlyRewards = SECONDS_PER_YEAR.times(rewardRates[i]);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
     if (pool.oracleIdB != undefined) {
-      const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
+      const rewardPool = getContractWithProvider(IRewardPool, pool.rewardPool, web3);
       const secondData = await rewardPool.methods.rewardData(pool.rewardToken).call();
       const yearlyRewardsB = SECONDS_PER_YEAR.times(new BigNumber(secondData.rewardRate));
       const rewardTokenPrice = await fetchPrice({ oracle, id: pool.oracleIdB });
@@ -94,11 +95,11 @@ const getPoolsData = async pools => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(pool.rewardPool),
     });
-    const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
+    const rewardPool = getContract(IRewardPool, pool.rewardPool);
     rewardRateCalls.push({
       rewardRate: rewardPool.methods.rewardData(ROSE.address),
     });

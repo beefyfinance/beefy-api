@@ -13,6 +13,7 @@ import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFees
 const { joeClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import { JOE_LPF } from '../../../constants';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 const JOESTAKER = '0x8330C83583829074BA6FF96b4A6377966D80edbf';
 const masterchef = '0x4483f0b6e2F5486D06958C20f8C39A7aBe87bf8F';
@@ -115,21 +116,21 @@ const getJoeBoostedLpApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const joePerSec = new BigNumber(await masterchefContract.methods.joePerSec().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { joePerSec, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContract(MasterChef, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(AVAX_CHAIN_ID));
   const balanceCalls = [];
   const poolInfoCalls = [];
   const tokenPerSecCalls = [];
   const userInfoCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });
@@ -152,7 +153,7 @@ const getPoolsData = async pools => {
   const userFactors = res[2].map(v => v.userInfo[2]);
 
   rewarders.forEach(rewarder => {
-    let rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarder);
+    let rewarderContract = getContractWithProvider(SimpleRewarder, rewarder, web3);
     let tokenPerSec = rewarderContract.methods.tokenPerSec();
     tokenPerSecCalls.push({
       tokenPerSec: tokenPerSec,

@@ -14,6 +14,7 @@ const {
   SHARE_AFTER_PERFORMANCE_FEE,
 } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const masterbelt = '0xD4BbC80b9B102b77B21A06cb77E954049605E6c1';
 const oracleId = 'BELT';
@@ -88,10 +89,10 @@ const fetchBeltLpBaseApr = async pool => {
 };
 
 const getTotalLpStakedInUsd = async (masterbelt, pool) => {
-  const masterbeltContract = new web3.eth.Contract(MasterBelt, masterbelt);
+  const masterbeltContract = getContractWithProvider(MasterBelt, masterbelt, web3);
   let { strat } = await masterbeltContract.methods.poolInfo(pool.poolId).call();
 
-  const poolContract = new web3.eth.Contract(VaultPool, strat);
+  const poolContract = getContractWithProvider(VaultPool, strat, web3);
   const wantLockedTotal = new BigNumber(await poolContract.methods.wantLockedTotal().call());
   const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
   return wantLockedTotal.times(tokenPrice).dividedBy(DECIMALS);
@@ -99,7 +100,7 @@ const getTotalLpStakedInUsd = async (masterbelt, pool) => {
 
 const getYearlyRewardsInUsd = async (masterbelt, pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const masterbeltContract = new web3.eth.Contract(MasterBelt, masterbelt);
+  const masterbeltContract = getContractWithProvider(MasterBelt, masterbelt, web3);
 
   const multiplier = new BigNumber(
     await masterbeltContract.methods.getMultiplier(blockNum - 1, blockNum).call()

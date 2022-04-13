@@ -3,6 +3,7 @@ const { ethers } = require('ethers');
 const { MULTICHAIN_RPC } = require('../constants');
 import { multicallAddress, web3Factory } from './web3';
 import { MultiCall } from 'eth-multicall';
+import { getContract } from './contractHelper';
 const DMMPool = require('../abis/DMMPool');
 const ERC20 = require('../abis/common/ERC20/ERC20.json');
 
@@ -53,9 +54,9 @@ const fetchDmmPrices = async (pools, knownPrices) => {
     const lp0Calls = [];
     const lp1Calls = [];
     filtered.forEach(pool => {
-      const tokenContract = new web3.eth.Contract(DMMPool, pool.address);
-      const lp0Contract = new web3.eth.Contract(ERC20, pool.lp0.address);
-      const lp1Contract = new web3.eth.Contract(ERC20, pool.lp1.address);
+      const tokenContract = getContract(DMMPool, pool.address);
+      const lp0Contract = getContract(ERC20, pool.lp0.address);
+      const lp1Contract = getContract(ERC20, pool.lp1.address);
       dmmCalls.push({
         totalSupply: tokenContract.methods.totalSupply(),
         tradeInfo: tokenContract.methods.getTradeInfo(),

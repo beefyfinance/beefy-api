@@ -2,6 +2,7 @@ const BigNumber = require('bignumber.js');
 
 const ICurvePool = require('../../../../abis/ICurvePool.json');
 const ERC20 = require('../../../../abis/ERC20.json');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const DECIMALS = '1e18';
 
@@ -30,7 +31,7 @@ const getPoolPrice = async (web3, pools, pool, tokenPrices) => {
 };
 
 const getStablePoolPrice = async (web3, pool, tokenPrices) => {
-  const lpContract = new web3.eth.Contract(ICurvePool, pool.pool);
+  const lpContract = getContractWithProvider(ICurvePool, pool.pool, web3);
   const virtualPrice = new BigNumber(await lpContract.methods.get_virtual_price().call());
   const tokenPrice = getTokenPrice(tokenPrices, pool.oracleId);
   const price = virtualPrice.multipliedBy(tokenPrice).dividedBy(DECIMALS).toNumber();
@@ -42,7 +43,7 @@ const getVolatilePoolPrice = async (web3, pools, pool, tokenPrices) => {
   pool.tokens.forEach((token, i) => {
     promises.push(getTokenBalanceInUsd(web3, pools, pool.pool, token, i, tokenPrices));
   });
-  promises.push(new web3.eth.Contract(ERC20, pool.token).methods.totalSupply().call());
+  promises.push(getContractWithProvider(ERC20, pool.token, web3).methods.totalSupply().call());
   const results = await Promise.all(promises);
 
   let totalBalInUsd = new BigNumber(0);
@@ -55,7 +56,7 @@ const getVolatilePoolPrice = async (web3, pools, pool, tokenPrices) => {
 };
 
 const getTokenBalanceInUsd = async (web3, pools, curvePool, token, index, tokenPrices) => {
-  const pool = new web3.eth.Contract(ICurvePool, curvePool);
+  const pool = getContractWithProvider(ICurvePool, curvePool, web3);
   const balance = await pool.methods.balances(index).call();
   let price = 1;
   if (token.basePool) {
