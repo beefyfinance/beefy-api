@@ -475,6 +475,7 @@ let lpPricesCache: Promise<any>;
 
 const updateAmmPrices = async () => {
   console.log('> updating amm prices');
+  let start = Date.now();
   try {
     const coinGeckoPrices = fetchCoinGeckoPrices(coinGeckoCoins);
     const ammPrices = fetchAmmPrices(pools, knownPrices);
@@ -539,7 +540,7 @@ const updateAmmPrices = async () => {
     console.error(err);
   } finally {
     setTimeout(updateAmmPrices, REFRESH_INTERVAL);
-    console.log('> updated amm prices');
+    console.log(`> updated amm prices (${(Date.now() - start) / 1000}s)`);
   }
 };
 

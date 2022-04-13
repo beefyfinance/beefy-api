@@ -46,6 +46,7 @@ const {
 
 const INIT_DELAY = 40 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
+// const REFRESH_INTERVAL = 2000;
 
 let tvl = {};
 
@@ -126,8 +127,14 @@ const getTvl = () => {
   return tvl;
 };
 
+var max = 0;
+
 const updateTvl = async () => {
   console.log('> updating tvl');
+  const start = Date.now();
+  const used = process.memoryUsage().heapUsed / 1024 / 1024;
+  if (used > max) max = used;
+  console.log(`Heap used ${used}/${max} =  ${(used / max) * 100}%`);
 
   try {
     let promises = [];
@@ -144,7 +151,7 @@ const updateTvl = async () => {
       tvl = { ...tvl, ...result.value };
     }
 
-    console.log('> updated tvl');
+    console.log(`> updated tvl (${(Date.now() - start) / 1000}s)`);
   } catch (err) {
     console.error('> tvl initialization failed', err);
   }

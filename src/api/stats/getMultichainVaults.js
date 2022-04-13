@@ -17,6 +17,7 @@ const getMultichainVaults = () => {
 
 const updateMultichainVaults = async () => {
   console.log('> updating vaults');
+  let start = Date.now();
 
   // Reset entire list and counters
   multichainVaults = [];
@@ -61,10 +62,11 @@ const updateMultichainVaults = async () => {
       multichainVaultsCounter,
       'vaults (',
       multichainActiveVaultsCounter,
-      'active )'
+      'active )',
+      `(${(Date.now() - start) / 1000}s)`
     );
   } catch (err) {
-    console.error('> vaults update failed', err);
+    console.error(`> vaults update failed `, err);
   }
 
   setTimeout(updateMultichainVaults, REFRESH_INTERVAL);
