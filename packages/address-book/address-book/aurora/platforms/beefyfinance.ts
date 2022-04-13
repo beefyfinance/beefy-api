@@ -8,7 +8,6 @@ export const beefyfinance = {
   strategyOwner: '0x2d04969ED7D1b186797C44dF5F5634Eb9C89aF6b',
   vaultOwner: '0x19642aDA958632f5e574A6d13eAd0679BD435c20',
   keeper: '0x340465d9D2EbDE78F15a3870884757584F97aBB4',
-  rewarder: cowllector,
   treasurer: '0x3Eb7fB70C03eC4AEEC97C6C6C1B59B014600b7F7',
   launchpoolOwner: cowllector,
   rewardPool: '0xE6ab45f5e93FA377D0c4cC097187Ab7256c2AEBf',
