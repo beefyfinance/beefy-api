@@ -69,7 +69,7 @@ const getCurveFactoryApy = async (address, url) => {
   let apys = {};
   try {
     const response = await fetch(url).then(res => res.json());
-    const pools = response.data.data.poolDetails;
+    const pools = response.data.poolDetails;
     pools.forEach(pool => {
       if (pool.poolAddress.toLowerCase() === address.toLowerCase()) {
         const apy = new BigNumber(pool.apy).dividedBy(100);
