@@ -1,14 +1,6 @@
 const { fantomWeb3: web3 } = require('../../../utils/web3');
 const { FANTOM_CHAIN_ID: chainId } = require('../../../constants');
-import { getEDecimals } from '../../../utils/getEDecimals';
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
-
-import { addressBook } from '../../../../packages/address-book/address-book';
-const {
-  fantom: {
-    tokens: { WFTM },
-  },
-} = addressBook;
 
 const singlePool = [
   {
@@ -19,34 +11,15 @@ const singlePool = [
   },
 ];
 
-const getHectorApy = async () => {
-  const TORApy = getRewardPoolApys({
+const getHectorApy = async () =>
+  getRewardPoolApys({
     pools: singlePool,
     oracleId: 'WFTM',
     oracle: 'tokens',
-    decimals: getEDecimals(WFTM.decimals),
+    decimals: 1e18,
     web3: web3,
     chainId,
     // log: true,
   });
-
-  let apys = {};
-  let apyBreakdowns = {};
-
-  const results = await Promise.allSettled([TORApy]);
-  for (const result of results) {
-    if (result.status !== 'fulfilled') {
-      console.warn('getHectorApys error', result.reason);
-    } else {
-      apys = { ...apys, ...result.value.apys };
-      apyBreakdowns = { ...apyBreakdowns, ...result.value.apyBreakdowns };
-    }
-  }
-
-  return {
-    apys,
-    apyBreakdowns,
-  };
-};
 
 module.exports = getHectorApy;
