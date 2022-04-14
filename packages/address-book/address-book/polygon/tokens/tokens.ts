@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  CEL: {
+    name: 'Celsius CEL',
+    symbol: 'CEL',
+    address: '0xD85d1e945766Fea5Eda9103F918Bd915FbCa63E6',
+    chainId: 137,
+    decimals: 4,
+    website: 'https://celsius.network/',
+    description:
+      "An economy where financial freedom doesn't come with a price tag.  Our goal is to disrupt the financial industry, one happy user at a time, and introduce financial freedom through crypto.",
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/2700.png',
+  },
   PAR: {
     name: 'PAR Stablecoin',
     symbol: 'PAR',
@@ -56,9 +67,9 @@ const _tokens = {
     chainId: 137,
     decimals: 6,
     website: 'https://tether.to/en/',
-    description:
-      'Euro Tether token (EURt) is the first euro-pegged stablecoin pegged to the Euro.',
-    logoURI: 'https://assets.coingecko.com/coins/images/17385/small/Tether_full_logo_dm.png?1627537298',
+    description: 'Euro Tether token (EURt) is the first euro-pegged stablecoin pegged to the Euro.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/17385/small/Tether_full_logo_dm.png?1627537298',
   },
   renBTC: {
     name: 'renBTC',
