@@ -1,4 +1,4 @@
-const axios = require('axios');
+const fetch = require('node-fetch');
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../../utils/web3');
 
@@ -41,9 +41,11 @@ const getEllipsisLpApys = async () => {
 const getBaseApys = async () => {
   let apys = {};
   try {
-    const response = await axios.get('https://api.ellipsis.finance/api/getPools');
-    const basePools = response.data.data.basePools ?? [];
-    const metaPools = response.data.data.metaPools ?? [];
+    const response = await fetch('https://api.ellipsis.finance/api/getPools').then(res =>
+      res.json()
+    );
+    const basePools = response.data.basePools ?? [];
+    const metaPools = response.data.metaPools ?? [];
     const pools = [...basePools, ...metaPools];
     pools.forEach(pool => {
       const apy = new BigNumber((pool.apy ?? 0) / 100);

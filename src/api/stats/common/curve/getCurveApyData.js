@@ -1,4 +1,4 @@
-const axios = require('axios');
+const fetch = require('node-fetch');
 const BigNumber = require('bignumber.js');
 
 const fetchPrice = require('../../../../utils/fetchPrice');
@@ -14,8 +14,8 @@ const getCurveBaseApys = async (pools, url, factoryUrl) => {
   let factoryApyData = [];
   if (factoryUrl) {
     try {
-      const response = await axios.get(factoryUrl);
-      factoryApyData = response.data.data.poolDetails;
+      const response = await fetch(factoryUrl).then(res => res.json());
+      factoryApyData = response.data.poolDetails;
     } catch (e) {
       console.error('Curve factory apy error ', factoryUrl, e);
     }
@@ -23,8 +23,8 @@ const getCurveBaseApys = async (pools, url, factoryUrl) => {
 
   let apys = {};
   try {
-    const response = await axios.get(url);
-    const apyData = response.data.apy;
+    const response = await fetch(url).then(res => res.json());
+    const apyData = response.apy;
     pools.forEach(pool => {
       let apy;
       if (pool.baseApyKey) {
@@ -68,7 +68,7 @@ const getFactoryApy = (factoryApyData, poolAddress) => {
 const getCurveFactoryApy = async (address, url) => {
   let apys = {};
   try {
-    const response = await axios.get(url);
+    const response = await fetch(url).then(res => res.json());
     const pools = response.data.data.poolDetails;
     pools.forEach(pool => {
       if (pool.poolAddress.toLowerCase() === address.toLowerCase()) {

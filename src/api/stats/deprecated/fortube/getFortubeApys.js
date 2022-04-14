@@ -1,4 +1,4 @@
-const axios = require('axios');
+const fetch = require('node-fetch');
 const { compound } = require('../../../../utils/compound');
 const {
   WEEKLY_HPY,
@@ -15,15 +15,15 @@ const getFortubeApys = async () => {
   let fortubeApys = {};
 
   try {
-    const resSimple = await axios.get(FORTUBE_REQ_TOKENS);
-    const resExtended = await axios.get(FORTUBE_REQ_MARKETS, {
+    const resSimple = await fetch(FORTUBE_REQ_TOKENS).then(res => res.json());
+    const resExtended = await fetch(FORTUBE_REQ_MARKETS, {
       headers: {
         authorization: FORTUBE_API_TOKEN,
       },
-    });
+    }).then(res => res.json());
 
-    const dataSimple = resSimple.data;
-    const dataExtended = resExtended.data.data;
+    const dataSimple = resSimple;
+    const dataExtended = resExtended.data;
 
     Object.values(dataSimple).map(item => {
       const symbol = item.symbol.toLowerCase();

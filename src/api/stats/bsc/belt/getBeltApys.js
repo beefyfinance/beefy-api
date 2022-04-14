@@ -1,6 +1,6 @@
-const axios = require('axios');
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../../utils/web3');
+const fetch = require('node-fetch');
 
 const MasterBelt = require('../../../../abis/MasterBelt.json');
 const VaultPool = require('../../../../abis/BeltVaultPool.json');
@@ -69,8 +69,9 @@ const getPoolApy = async (masterchef, pool) => {
 const fetchBeltLpBaseApr = async pool => {
   if (pool.poolId === 11) return 0;
   try {
-    const response = await axios.get('https://s.belt.fi/info/all.json');
-    const data = response.data.info.BSC;
+    let response = await fetch('https://s.belt.fi/info/all.json').then(res => res.json());
+    const data = response.info.BSC;
+
     let apr;
     if (pool.vault) {
       const vault = data.vaults.filter(p => p.name === pool.vault)[0];
