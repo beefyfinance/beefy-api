@@ -14,7 +14,7 @@ const { getMetisApys } = require('./metis');
 const { getMoonbeamApys } = require('./moonbeam');
 
 const INIT_DELAY = process.env.INIT_DELAY || 60 * 1000;
-var REFRESH_INTERVAL = 90 * 1000;
+var REFRESH_INTERVAL = 15 * 60 * 1000;
 
 let apys = {};
 let apyBreakdowns = {};
