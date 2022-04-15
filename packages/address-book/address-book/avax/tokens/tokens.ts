@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  beJOE: {
+    name: 'Beefy JOE',
+    symbol: 'beJOE',
+    address: '0x1F2A8034f444dc55F963fb5925A9b6eb744EeE2c',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beefy.com',
+    description:
+      'beJOE is a Beefy-wrapped version of veJOE. Holding beJOE will be a great way to earn a bunch of JOE. Beefy will max out emissions on boosted farms, 5% of emissions will then be distributed to beJOE stakers on Beefy.',
+  },
   LOST: {
     name: 'Lost Worlds LOST',
     symbol: 'LOST',
@@ -54,7 +65,7 @@ const _tokens = {
     symbol: 'USTw',
     address: '0xb599c3590F42f8F995ECfa0f85D2980B76862fc1',
     chainId: 43114,
-    decimals: 18,
+    decimals: 6,
     logoURI:
       'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11/logo.png',
     website: 'https://www.terra.money/',
@@ -3424,6 +3435,17 @@ const _tokens = {
     symbol: 'TVK',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbE53F019a8786227E3D258A47a0D96BCf24A09A6/logo.png',
+  },
+  USDt: {
+    chainId: 43114,
+    address: '0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7',
+    decimals: 6,
+    name: 'Tether USD',
+    symbol: 'USDt',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    logoURI: 'https://snowtrace.io/token/images/tether_32.png',
   },
   USDT: {
     chainId: 43114,

@@ -26,7 +26,7 @@
     "address": "0xeCD6D33555183Bc82264dbC8bebd77A1f02e421E",
     "decimals": "1e18",
     "oracleB": "tokens",
-    "oracleIdB": "UST",
+    "oracleIdB": "USTw",
     "decimalsB": "1e6",
     "poolId": 66,
     "chainId": 43114,
@@ -39,7 +39,7 @@
     "lp1": {
       "address": "0xb599c3590F42f8F995ECfa0f85D2980B76862fc1",
       "oracle": "tokens",
-      "oracleId": "UST",
+      "oracleId": "USTw",
       "decimals": "1e6"
     }
   },
@@ -319,7 +319,7 @@
     "lp1": {
       "address": "0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64",
       "oracle": "tokens",
-      "oracleId": "AVAX",
+      "oracleId": "FRAX",
       "decimals": "1e18"
     }
   },

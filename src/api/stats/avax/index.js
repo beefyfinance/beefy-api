@@ -21,8 +21,12 @@ const getSpellApys = require('./getSpellApys');
 import { getMaiApys } from './getMaiApys';
 import getMaiCurveApys from './getMaiCurveApys';
 import { getPangolinV2Apys } from './getPangolinV2Apys';
+import getbeJOEApy from './getbeJOEApy';
+import getbeJOEEarnApy from './getbeJOEEarnApy';
 
 const getApys = [
+  getbeJOEApy,
+  getbeJOEEarnApy,
   getPangolinV2Apys,
   getPangolinV2DualApys,
   getLydLpApys,
