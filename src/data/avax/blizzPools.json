@@ -44,17 +44,6 @@
     "borrowPercent": 0.01
   },
   {
-    "name": "blizz-usdt-supply",
-    "token": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
-    "aToken": "0x18cb11C9F2B6F45A7ac0A95eFD322ED4cf9EEEBF",
-    "debtToken": "0xE928AC9837e703f5d36066De9ca98e95bA7774d1",
-    "oracle": "tokens",
-    "oracleId": "USDT.e",
-    "decimals": "1e6",
-    "borrowDepth": 1,
-    "borrowPercent": 0.01
-  },
-  {
     "name": "blizz-usdc-supply",
     "token": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
     "aToken": "0xC25Ff1aF397b76252D6975b4D7649b35C0E60F69",
@@ -108,17 +97,6 @@
     "decimals": "1e18",
     "borrowDepth": 4,
     "borrowPercent": 0.72
-  },
-  {
-    "name": "blizz-usdt",
-    "token": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
-    "aToken": "0x18cb11C9F2B6F45A7ac0A95eFD322ED4cf9EEEBF",
-    "debtToken": "0xE928AC9837e703f5d36066De9ca98e95bA7774d1",
-    "oracle": "tokens",
-    "oracleId": "USDT.e",
-    "decimals": "1e6",
-    "borrowDepth": 4,
-    "borrowPercent": 0.77
   },
   {
     "name": "blizz-usdc",
