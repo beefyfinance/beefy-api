@@ -3436,6 +3436,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbE53F019a8786227E3D258A47a0D96BCf24A09A6/logo.png',
   },
+  USDt: {
+    chainId: 43114,
+    address: '0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7',
+    decimals: 6,
+    name: 'Tether USD',
+    symbol: 'USDt',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    logoURI: 'https://snowtrace.io/token/images/tether_32.png',
+  },
   USDT: {
     chainId: 43114,
     address: '0xde3A24028580884448a5397872046a019649b084',
