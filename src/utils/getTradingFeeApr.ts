@@ -35,6 +35,11 @@ export const getTradingFeeApr = async (
   const [start, end] = getUtcSecondsFromDayRange(1, 2);
   const pairAddressToAprMap: Record<string, BigNumber> = {};
 
+  pairAddresses.forEach(addr => {
+    pairAddressToAprMap[addr] = new BigNumber(0);
+  });
+  return pairAddressToAprMap;
+
   try {
     let {
       data: { pairDayDatas },
@@ -64,6 +69,11 @@ export const getTradingFeeAprSushi = async (
   const [start0, end0] = getUtcSecondsFromDayRange(1, 2);
   const [start1, end1] = getUtcSecondsFromDayRange(3, 4);
   const pairAddressToAprMap: Record<string, BigNumber> = {};
+
+  pairAddresses.forEach(addr => {
+    pairAddressToAprMap[addr] = new BigNumber(0);
+  });
+  return pairAddressToAprMap;
 
   try {
     let queryResponse0 = await client.query({
@@ -109,6 +119,11 @@ export const getTradingFeeAprBalancer = async (
   const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
   const pairAddressesToAprMap: Record<string, BigNumber> = {};
 
+  pairAddresses.forEach(addr => {
+    pairAddressesToAprMap[addr] = new BigNumber(0);
+  });
+  return pairAddressesToAprMap;
+
   try {
     const queryCurrent = await client.query({
       query: poolsDataQuery(addressesToLowercase(pairAddresses), currentBlock),
@@ -145,6 +160,11 @@ export const getVariableTradingFeeApr = async (
 ) => {
   const [start, end] = getUtcSecondsFromDayRange(1, 2);
   const pairAddressToAprMap: Record<string, BigNumber> = {};
+
+  pairAddresses.forEach(addr => {
+    pairAddressToAprMap[addr] = new BigNumber(0);
+  });
+  return pairAddressToAprMap;
 
   try {
     let {
@@ -186,6 +206,8 @@ export const getYearlyPlatformTradingFees = async (
   let yearlyTradingFeesUsd = new BigNumber(0);
   const timestamp = Date.now();
 
+  return yearlyTradingFeesUsd;
+
   try {
     let data = await client.query({ query: dayDataQuery(timestamp) });
 
@@ -207,6 +229,8 @@ export const getYearlyJoePlatformTradingFees = async (
   let yearlyTradingFeesUsd = new BigNumber(0);
   const timestamp = Date.now();
 
+  return yearlyTradingFeesUsd;
+
   try {
     let data = await client.query({ query: joeDayDataQuery(timestamp) });
 
@@ -226,6 +250,8 @@ export const getYearlyTradingFeesForSJOE = async (
 ) => {
   let yearlyTradingFeesUsd = new BigNumber(0);
   const [start0, end0] = getUtcSecondsFromDayRange(1, 8);
+
+  return yearlyTradingFeesUsd;
 
   try {
     let data = await client.query({ query: joeDayDataRangeQuery(start0, end0) });
@@ -252,6 +278,7 @@ export const getYearlyBalancerPlatformTradingFees = async (
   const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
 
   let yearlyTradingFeesUsd = new BigNumber(0);
+  return yearlyTradingFeesUsd;
 
   try {
     const currentData = await client.query({ query: balancerDataQuery(currentBlock) });
