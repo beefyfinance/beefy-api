@@ -73,6 +73,17 @@ const _tokens = {
     description:
       'Through simple, secure, and scalable technology, NEAR empowers millions to invent and explore new experiences. Business, creativity, and community are being reimagined for a more sustainable and inclusive future.',
   },
+  CEL: {
+    name: 'Celsius CEL',
+    symbol: 'CEL',
+    address: '0xD85d1e945766Fea5Eda9103F918Bd915FbCa63E6',
+    chainId: 137,
+    decimals: 4,
+    website: 'https://celsius.network/',
+    description:
+      "An economy where financial freedom doesn't come with a price tag.  Our goal is to disrupt the financial industry, one happy user at a time, and introduce financial freedom through crypto.",
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/2700.png',
+  },
   PAR: {
     name: 'PAR Stablecoin',
     symbol: 'PAR',
@@ -95,9 +106,9 @@ const _tokens = {
       'EURS token is a virtual financial asset that is designed to digitally mirror the EURO on the condition that its value is tied to the value of its collateral.',
     logoURI: 'https://assets.coingecko.com/coins/images/5164/small/EURS_300x300.png?1550571779',
   },
-  EURT: {
+  EURt: {
     name: 'Euro Tether',
-    symbol: 'EURT',
+    symbol: 'EURt',
     address: '0x7BDF330f423Ea880FF95fC41A280fD5eCFD3D09f',
     chainId: 137,
     decimals: 6,

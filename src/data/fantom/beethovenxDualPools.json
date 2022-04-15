@@ -1,5 +1,56 @@
 [
   {
+    "name": "beets-two-gods-one-pool",
+    "address": "0x0e8e7307e43301cf28c5d21d5fd3ef0876217d41",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x0e8e7307e43301cf28c5d21d5fd3ef0876217d410002000000000000000003f1",
+    "poolId": 76,
+    "oracleB": "tokens",
+    "oracleIdB": "DEUS",
+    "decimalsB": "1e18",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DEI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DEUS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-clair-de-lune",
+    "address": "0x2fbb1EF03C02F9Bb2bD6f8C8c24F8dE347979d9e",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x2fbb1ef03c02f9bb2bd6f8c8c24f8de347979d9e00010000000000000000039a",
+    "poolId": 73,
+    "oracleB": "tokens",
+    "oracleIdB": "USTw",
+    "decimalsB": "1e6",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "LUNAw",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USTw",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "beets-god-between-stables",
     "address": "0x8B858Eaf095A7337dE6f9bC212993338773cA34e",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
@@ -29,18 +80,18 @@
     "vaultPoolId": "0x66bcb58cf9754f421c268990b280e4462e10aac8000200000000000000000339",
     "poolId": 66,
     "oracleB": "tokens",
-    "oracleIdB": "UST",
+    "oracleIdB": "USTaxl",
     "decimalsB": "1e6",
     "decimals": "1e18",
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "UST",
+        "oracleId": "USTw",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
-        "oracleId": "UST",
+        "oracleId": "USTaxl",
         "decimals": "1e6"
       }
     ]

@@ -57,6 +57,25 @@
     }
   },
   {
+    "name": "quick-wmatic-cel",
+    "address": "0x7D341B151DbFBFe97714f3EdEc98E26f2DD0e532",
+    "rewardPool": "0xB64b8d7dba4E0548F8992c7109F5a9d89A54a6a8",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD85d1e945766Fea5Eda9103F918Bd915FbCa63E6",
+      "oracle": "tokens",
+      "oracleId": "CEL",
+      "decimals": "1e4"
+    }
+  },
+  {
     "name": "quick-ixt-usdt",
     "address": "0x304e57c752E854E9A233Ae82fcC42F7568b81180",
     "rewardPool": "0x99872da6038D60E4cF6Dc2C16710B63c380f79dB",

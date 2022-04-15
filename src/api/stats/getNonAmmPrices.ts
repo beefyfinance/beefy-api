@@ -15,6 +15,7 @@ import getBeethovenxPrices from './fantom/getBeethovenxPrices';
 import { getSynapsePrices } from './avax/getSynapsePrices';
 import getJarvisPrices from './matic/getJarvisPrices';
 import getSolarbeamPrices from './moonriver/getSolarbeamPrices';
+import getRosePrices from './aurora/getRosePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
@@ -31,6 +32,7 @@ const getNonAmmPrices = async tokenPrices => {
     getCurveArbitrumPrices(tokenPrices),
     getCurveAvaxPrices(tokenPrices),
     getCurveHarmonyPrices(tokenPrices),
+    getRosePrices(tokenPrices),
     getDopplePrices(),
     getIronSwapPrices(),
     getAlpacaIbPrices(tokenPrices),
