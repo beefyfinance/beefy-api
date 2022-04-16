@@ -1,5 +1,27 @@
 [
   {
+    "name": "png-png-ustw",
+    "address": "0x2a0f65C76008EcBC469b0850454E57310E770557",
+    "decimals": "1e18",
+    "poolId": 101,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "USTw",
+    "decimalsB": "1e6",
+    "lp0": {
+      "address": "0x60781C2586D68229fde47564546784ab3fACA982",
+      "oracle": "tokens",
+      "oracleId": "PNG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb599c3590F42f8F995ECfa0f85D2980B76862fc1",
+      "oracle": "tokens",
+      "oracleId": "USTw",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "png-ustw-usdc",
     "address": "0xE1f75E2E74BA938abD6C3BE18CCc5C7f71925C4B",
     "decimals": "1e18",
