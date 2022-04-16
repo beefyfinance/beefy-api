@@ -1,0 +1,19 @@
+[
+  {
+    "name": "mmf-wcro-mmf",
+    "address": "0xbA452A1c0875D33a440259B1ea4DcA8f5d86D9Ae",
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x97749c9B61F878a880DfE312d2594AE07AEd7656",
+      "oracle": "tokens",
+      "oracleId": "MMF",
+      "decimals": "1e18"
+    }
+  }
+]

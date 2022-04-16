@@ -15,10 +15,9 @@ const getScrubApys = async () =>
     oracleId: 'TIGER',
     oracle: 'tokens',
     decimals: '1e18',
-    secondsPerBlock: 1,
+    secondsPerBlock: 1, // rewards per second
     tradingFeeInfoClient: vvsClient,
-    liquidityProviderFee: 0.003,
-    // log: true,
+    liquidityProviderFee: 0.002,
   });
 
 module.exports = getScrubApys;
