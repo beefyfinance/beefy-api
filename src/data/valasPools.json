@@ -1,0 +1,178 @@
+[
+  {
+    "name": "valas-bnb-supply",
+    "token": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "aToken": "0xB11A912CD93DcffA8b609b4C021E89723ceb7FE8",
+    "debtToken": "0xE7CDC4e53915D50B74496847EeBa7233caE85CE5",
+    "oracle": "tokens",
+    "oracleId": "WBNB",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "valas-busd-supply",
+    "token": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+    "aToken": "0xaeD19DAB3cd68E4267aec7B2479b1eD2144Ad77f",
+    "debtToken": "0x24758d41e5Aa89f79048076254A3d22927b2E0D4",
+    "oracle": "tokens",
+    "oracleId": "BUSD",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "valas-usdc-supply",
+    "token": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "aToken": "0xA6fDEa1655910C504E974f7F1B520B74be21857B",
+    "debtToken": "0x8Ef780a3e1C266aF586315a9aDA19dBfC3a1E45c",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "valas-usdt-supply",
+    "token": "0x55d398326f99059fF775485246999027B3197955",
+    "aToken": "0x5f7f6cB266737B89f7aF86b30F03Ae94334b83e9",
+    "debtToken": "0x256B441313e10b7210A6239070C085446a507bD8",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "valas-dai-supply",
+    "token": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+    "aToken": "0x2c85EBAE81b7078Cd656b2C6e2d58411cB41D91A",
+    "debtToken": "0x1CF681fc1Df8aEF478A675DF40E62091B93E0Aac",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "valas-eth-supply",
+    "token": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+    "aToken": "0x831F42c8A0892C1a5b7Fa3E972B3CE3AA40D676e",
+    "debtToken": "0x9e06035740ab5eD9F48D8fF8B588056693b83e3a",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "valas-wbtc-supply",
+    "token": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+    "aToken": "0x204992f7fCBC4c0455d7Fec5f712BeDd98E7d6d6",
+    "debtToken": "0x5651565e4F544911F16f9a717d3aCEccD29d1BdA",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "valas-tusd-supply",
+    "token": "0x14016E85a25aeb13065688cAFB43044C2ef86784",
+    "aToken": "0xBB5DDE96BAD874e4FFe000B41Fa5E98F0665a4BC",
+    "debtToken": "0xaEB0AE2B4CF427E6E3ebe14b6B92f8bF2D68dfD4",
+    "oracle": "tokens",
+    "oracleId": "TUSD",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "valas-bnb",
+    "token": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+    "aToken": "0xB11A912CD93DcffA8b609b4C021E89723ceb7FE8",
+    "debtToken": "0x53d01d351Fa001DB3c893388E43e3C630A8764F5",
+    "oracle": "tokens",
+    "oracleId": "WBNB",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "valas-busd",
+    "token": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+    "aToken": "0xaeD19DAB3cd68E4267aec7B2479b1eD2144Ad77f",
+    "debtToken": "0x24758d41e5Aa89f79048076254A3d22927b2E0D4",
+    "oracle": "tokens",
+    "oracleId": "BUSD",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "valas-usdc",
+    "token": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+    "aToken": "0xA6fDEa1655910C504E974f7F1B520B74be21857B",
+    "debtToken": "0x8Ef780a3e1C266aF586315a9aDA19dBfC3a1E45c",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "valas-usdt",
+    "token": "0x55d398326f99059fF775485246999027B3197955",
+    "aToken": "0x5f7f6cB266737B89f7aF86b30F03Ae94334b83e9",
+    "debtToken": "0x256B441313e10b7210A6239070C085446a507bD8",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "valas-dai",
+    "token": "0x1AF3F329e8BE154074D8769D1FFa4eE058B1DBc3",
+    "aToken": "0x2c85EBAE81b7078Cd656b2C6e2d58411cB41D91A",
+    "debtToken": "0x1CF681fc1Df8aEF478A675DF40E62091B93E0Aac",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "valas-eth",
+    "token": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+    "aToken": "0x831F42c8A0892C1a5b7Fa3E972B3CE3AA40D676e",
+    "debtToken": "0x9e06035740ab5eD9F48D8fF8B588056693b83e3a",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.77
+  },
+  {
+    "name": "valas-wbtc",
+    "token": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+    "aToken": "0x204992f7fCBC4c0455d7Fec5f712BeDd98E7d6d6",
+    "debtToken": "0x5651565e4F544911F16f9a717d3aCEccD29d1BdA",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "valas-tusd",
+    "token": "0x14016E85a25aeb13065688cAFB43044C2ef86784",
+    "aToken": "0xBB5DDE96BAD874e4FFe000B41Fa5E98F0665a4BC",
+    "debtToken": "0xaEB0AE2B4CF427E6E3ebe14b6B92f8bF2D68dfD4",
+    "oracle": "tokens",
+    "oracleId": "TUSD",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  }
+]
