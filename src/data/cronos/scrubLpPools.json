@@ -1,0 +1,40 @@
+[
+  {
+    "name": "scrub-lion-svn",
+    "address": "0xD440433dAA33b3e3f2b5421046EAf84bEe6F40D0",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x49fB98F9b4a3183Cd88e7a115144fdf00fa6fB95",
+      "oracle": "tokens",
+      "oracleId": "LION",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x654bAc3eC77d6dB497892478f854cF6e8245DcA9",
+      "oracle": "tokens",
+      "oracleId": "SVN",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "scrub-tiger-svn",
+    "address": "0xaDeC6aaAa0765472EE9eBe524BD3454Fd733BAB9",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x654bAc3eC77d6dB497892478f854cF6e8245DcA9",
+      "oracle": "tokens",
+      "oracleId": "SVN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD6597AA36DD90d7fCcBd7B8A228F2d5CdC88eAd0",
+      "oracle": "tokens",
+      "oracleId": "TIGER",
+      "decimals": "1e18"
+    }
+  }
+]

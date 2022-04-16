@@ -1,0 +1,21 @@
+[
+  {
+    "name": "svn-svn-mmf",
+    "address": "0xB6E1705BfAFcf1efEE83C135C0F0210653bAB8F0",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x654bAc3eC77d6dB497892478f854cF6e8245DcA9",
+      "oracle": "tokens",
+      "oracleId": "SVN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x97749c9B61F878a880DfE312d2594AE07AEd7656",
+      "oracle": "tokens",
+      "oracleId": "MMF",
+      "decimals": "1e18"
+    }
+  }
+]

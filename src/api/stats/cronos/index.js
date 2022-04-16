@@ -6,6 +6,7 @@ const getVvsApys = require('./getVvsApys');
 const getVvsDualApys = require('./getVvsDualApys');
 const getCronaApys = require('./getCronaApys');
 const getDarkApys = require('./getDarkApys');
+const getScrubApys = require('./getScrubApys');
 
 const getApys = [
   getVvsApys,
@@ -15,6 +16,7 @@ const getApys = [
   getCronosBifiMaxiApy,
   getLiquidusApys,
   getDarkApys,
+  getScrubApys,
 ];
 
 const getCronosApys = async () => {
