@@ -1,5 +1,27 @@
 [
   {
+    "name": "png-axlatom-wavax",
+    "address": "0x8a998BCd8D04e36cF5D28984F9979B6404471E51",
+    "decimals": "1e18",
+    "poolId": 104,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "axlATOM",
+    "decimalsB": "1e6",
+    "lp0": {
+      "address": "0x80D18b1c9Ab0c9B5D6A6d5173575417457d00a12",
+      "oracle": "tokens",
+      "oracleId": "axlATOM",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-png-ustw",
     "address": "0x2a0f65C76008EcBC469b0850454E57310E770557",
     "decimals": "1e18",
