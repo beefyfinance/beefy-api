@@ -16,6 +16,38 @@ const _tokens = {
   CRO: CRO,
   WCRO: CRO,
   WNATIVE: CRO,
+  TIGER: {
+    name: 'Tiger Shares TIGER',
+    symbol: 'TIGER',
+    address: '0xD6597AA36DD90d7fCcBd7B8A228F2d5CdC88eAd0',
+    chainId: 25,
+    decimals: 18,
+    logoURI: 'https://scrub.finance/static/media/tiger-logo.4675a6b6.png',
+    website: 'https://srub.finance/',
+    description:
+      'Tiger Shares (TIGER) are one of the ways to measure the value of the Scrub Finance Protocol and shareholder trust in its ability to maintain LION close to peg. ',
+  },
+  LION: {
+    name: 'Lion Scrub Finance LION',
+    symbol: 'LION',
+    address: '0x49fB98F9b4a3183Cd88e7a115144fdf00fa6fB95',
+    chainId: 25,
+    decimals: 18,
+    logoURI: 'https://scrub.finance/static/media/lion-logo.ae2bf8fb.png',
+    website: 'https://srub.finance/',
+    description:
+      'The LION algorithmic token serves as the backbone of Scrub Finance, a rapidly growing ecosystem aimed towards bringing liquidity and new use cases to the cronos network and the Savannah Finance Protocol.',
+  },
+  SVN: {
+    name: 'Savanna SVN',
+    symbol: 'SVN',
+    address: '0x654bAc3eC77d6dB497892478f854cF6e8245DcA9',
+    chainId: 25,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/23692/large/SVN_LOGO.png?1645080153',
+    website: 'https://svn.finance/',
+    description: 'SVN is an algorithmic stablecoin pegged to MMF.',
+  },
   ALI: {
     name: 'Alethea Artificial Liquid Intelligence Token ALI',
     symbol: 'ALI',
