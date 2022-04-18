@@ -15,6 +15,26 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  PEX: {
+    name: 'Pear DAO',
+    symbol: 'PEX',
+    address: '0x6a0b66710567b6beb81A71F7e9466450a91a384b',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://peardao.io/',
+    description: 'Trade, earn and meet people in the new decentralized marketplace.',
+  },
+  FROYO: {
+    name: 'Froyo',
+    symbol: 'FROYO',
+    address: '0xe369fec23380f9F14ffD07a1DC4b7c1a9fdD81c9',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://froyo.games/',
+    description: 'Be part of the future of gaming with play to earn games, NFTs & digital assets.',
+  },
   VALAS: {
     name: 'Valas Finance',
     symbol: 'VALAS',
