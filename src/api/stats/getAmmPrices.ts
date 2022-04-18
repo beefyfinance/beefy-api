@@ -224,6 +224,7 @@ import empLpPools from '../../data/degens/empLpPools.json';
 import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import joeBoostedLpPools from '../../data/avax/joeBoostedLpPools.json';
 import spookyV2LpPools from '../../data/fantom/spookyV2LpPools.json';
+import valasLpPools from '../../data/valasLpPools.json';
 
 const INIT_DELAY = 0 * 60 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -232,6 +233,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...excaliburSwapPools,
+  ...valasLpPools,
   ...spookyV2LpPools,
   ...vvsDualPools,
   ...joeBoostedLpPools,

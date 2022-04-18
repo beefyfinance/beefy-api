@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  VALAS: {
+    name: 'Valas Finance',
+    symbol: 'VALAS',
+    address: '0xB1EbdD56729940089Ecc3aD0BBEEB12b6842ea6F',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://valasfinance.com/markets',
+    description:
+      'Valas is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralised (perpetually) or undercollateralised (one-block liquidity) fashion.',
+  },
   sbBUSD: {
     chainId: 56,
     address: '0x98a5737749490856b401DB5Dc27F522fC314A4e1',

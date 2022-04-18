@@ -16,6 +16,16 @@ const _tokens = {
   CRO: CRO,
   WCRO: CRO,
   WNATIVE: CRO,
+  VERSA: {
+    name: 'VersaGames VERSA',
+    symbol: 'VERSA',
+    address: '0x00D7699b71290094CcB1a5884cD835bD65a78c17',
+    chainId: 25,
+    decimals: 18,
+    logoURI: 'https://vvs.finance/images/tokens/0x00D7699b71290094CcB1a5884cD835bD65a78c17.svg',
+    website: 'https://versagames.io/',
+    description: 'VersaGames is the next-generation games marketplace.',
+  },
   ALI: {
     name: 'Alethea Artificial Liquid Intelligence Token ALI',
     symbol: 'ALI',

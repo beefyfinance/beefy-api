@@ -33,14 +33,11 @@ const getSpookyV2LpApys = async () => {
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, rewardPerSecs, rewardAllocPoints, totalAllocPoints } = await getPoolsData(pools);
+  const { balances, allocPoints, rewardPerSecs, rewardAllocPoints, totalAllocPoints } =
+    await getPoolsData(pools);
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(
-    spookyClient,
-    pairAddresses,
-    liquidityProviderFee
-  );
+  const tradingAprs = await getTradingFeeApr(spookyClient, pairAddresses, liquidityProviderFee);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -48,7 +45,8 @@ const getSpookyV2LpApys = async () => {
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
-    const poolBlockRewards = totalAllocPoint > 0
+    const poolBlockRewards =
+      totalAllocPoint > 0
         ? rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint)
         : new BigNumber(0);
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
@@ -56,7 +54,9 @@ const getSpookyV2LpApys = async () => {
     let yearlyRewardsBInUsd = new BigNumber(0);
 
     if (!rewardPerSecs[i].isNaN()) {
-      let rewardBPerSec = rewardPerSecs[i].times(rewardAllocPoints[i]).dividedBy(totalAllocPoints[i]);
+      let rewardBPerSec = rewardPerSecs[i]
+        .times(rewardAllocPoints[i])
+        .dividedBy(totalAllocPoints[i]);
       const rewardPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
       const yearlyRewardsB = rewardBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
       yearlyRewardsBInUsd = yearlyRewardsB.times(rewardPriceB).dividedBy(pool.decimalsB);
@@ -131,7 +131,7 @@ const getPoolsData = async pools => {
     });
     poolInfoCalls.push({
       poolInfo: masterchefContract.methods.poolInfo(pool.poolId),
-    })
+    });
     rewarderCalls.push({
       rewarder: masterchefContract.methods.rewarder(pool.poolId),
     });
@@ -153,10 +153,10 @@ const getPoolsData = async pools => {
     });
     rewardAllocPointCalls.push({
       rewardAllocPoint: rewardAllocPoint,
-    })
+    });
   }
 
-  const rewarderData = await multicall.all([rewardPerSecCalls, rewardAllocPointCalls])
+  const rewarderData = await multicall.all([rewardPerSecCalls, rewardAllocPointCalls]);
 
   const rewardPerSecs = rewarderData[0].map(v => new BigNumber(v.rewardPerSec));
   const rewardAllocPoints = rewarderData[1].map(v => new BigNumber(v.rewardAllocPoint['2']));
@@ -164,15 +164,15 @@ const getPoolsData = async pools => {
   // totalAllocPoint is not a public variable on the complex rewarder
   // find shared rewarders and sum their allocPoints
   for (let i = 0; i < rewarders.length; i++) {
-    let sharedRewarder = rewarders.reduce(function(a, e, i) {
-      if (e === rewarders[i])
-        a.push(i);
+    let sharedRewarder = rewarders.reduce(function (a, e, i) {
+      if (e === rewarders[i]) a.push(i);
       return a;
     }, []);
     for (let j = 0; j < sharedRewarder.length; j++) {
-      totalAllocPoints[i] = totalAllocPoints[i] > 0
-        ? rewardAllocPoints[sharedRewarder[j]].plus(totalAllocPoints[i])
-        : rewardAllocPoints[sharedRewarder[j]];
+      totalAllocPoints[i] =
+        totalAllocPoints[i] > 0
+          ? rewardAllocPoints[sharedRewarder[j]].plus(totalAllocPoints[i])
+          : rewardAllocPoints[sharedRewarder[j]];
     }
   }
 
