@@ -1,5 +1,27 @@
 [
   {
+    "name": "joe-yeti-wavax",
+    "address": "0xbdc7EF37283BC67D50886c4afb64877E3e83f869",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "YETI",
+    "decimalsB": "1e18",
+    "poolId": 69,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x77777777777d4554c39223C354A05825b2E8Faa3",
+      "oracle": "tokens",
+      "oracleId": "YETI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-lost-wavax",
     "address": "0x9C396cF96319C8EF2b662Af57DEA6EE374b9959F",
     "decimals": "1e18",
