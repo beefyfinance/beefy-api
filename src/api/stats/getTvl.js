@@ -43,6 +43,7 @@ const {
   MOONBEAM_CHAIN_ID,
   MOONBEAM_VAULTS_ENDPOINT,
 } = require('../../constants');
+const { getKey, setKey } = require('../../utils/redisHelper.js');
 
 const INIT_DELAY = 40 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -152,6 +153,7 @@ const updateTvl = async () => {
     }
 
     console.log(`> updated tvl (${(Date.now() - start) / 1000}s)`);
+    saveToRedis();
   } catch (err) {
     console.error('> tvl initialization failed', err);
   }
@@ -159,6 +161,16 @@ const updateTvl = async () => {
   setTimeout(updateTvl, REFRESH_INTERVAL);
 };
 
-setTimeout(updateTvl, INIT_DELAY);
+const initTvlService = async () => {
+  const cachedTvl = await getKey('TVL');
+  tvl = cachedTvl ?? {};
 
-module.exports = getTvl;
+  setTimeout(updateTvl, INIT_DELAY);
+};
+
+const saveToRedis = async () => {
+  await setKey('TVL', tvl);
+  console.log('TVL saved to redis');
+};
+
+module.exports = { getTvl, initTvlService };

@@ -12,6 +12,7 @@ const { getAuroraApys } = require('./aurora');
 const { getFuseApys } = require('./fuse');
 const { getMetisApys } = require('./metis');
 const { getMoonbeamApys } = require('./moonbeam');
+const { getKey, setKey } = require('../../utils/redisHelper');
 
 const INIT_DELAY = process.env.INIT_DELAY || 60 * 1000;
 var REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -80,6 +81,7 @@ const updateApys = async () => {
     }
 
     console.log('> updated apys');
+    await saveToRedis();
   } catch (err) {
     console.error('> apy initialization failed', err);
   }
@@ -91,6 +93,19 @@ const updateApys = async () => {
   setTimeout(updateApys, REFRESH_INTERVAL);
 };
 
-setTimeout(updateApys, INIT_DELAY);
+const initApyService = async () => {
+  let cachedApy = await getKey('APY');
+  let cachedApyBreakdown = await getKey('APY_BREAKDOWN');
+  apys = cachedApy ?? {};
+  apyBreakdowns = cachedApyBreakdown ?? {};
 
-module.exports = { getApys };
+  setTimeout(updateApys, INIT_DELAY);
+};
+
+const saveToRedis = async () => {
+  await setKey('APY', apys);
+  await setKey('APY_BREAKDOWN', apyBreakdowns);
+  console.log('APYs saved to redis');
+};
+
+module.exports = { getApys, initApyService };
