@@ -20,13 +20,6 @@ const getDailyEarnings = async () => {
   const endBlock = await getBlockNumber(BSC_CHAIN_ID);
   const startBlock = endBlock - difference;
   let currentBlock = startBlock;
-  let result = BigNumber.from(0);
-
-  return {
-    daily: 0,
-    startBlock: startBlock,
-    endBlock: endBlock,
-  };
 
   try {
     while (currentBlock < endBlock) {
