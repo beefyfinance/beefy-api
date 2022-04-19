@@ -265,6 +265,17 @@ const _tokens = {
     description:
       'Launchpad & DeFi hub of the NEAR ecosystem. The DeFi hub on NEAR ecosystem to bootstrap innovations, monitor and manage digital assets.',
   },
+  DAI: {
+    name: 'DAI Stablecoin',
+    symbol: 'DAI',
+    address: '0xe3520349F477A5F6EB06107066048508498A291b',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://makerdao.com/en/',
+    description:
+      'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
