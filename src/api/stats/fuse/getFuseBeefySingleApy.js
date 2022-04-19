@@ -9,6 +9,7 @@ import { getEDecimals } from '../../../utils/getEDecimals';
 const { FUSE_CHAIN_ID: chainId, BASE_HPY } = require('../../../constants');
 
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 const {
   fuse: {
     platforms: {
@@ -49,7 +50,7 @@ const getFuseBeefySingleApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const web3 = web3Factory(chainId);
 
-  const rewardPool = new web3.eth.Contract(Rewarder, rewarder);
+  const rewardPool = getContractWithProvider(Rewarder, rewarder, web3);
   const rewardRate = new BigNumber(await rewardPool.methods.getBlockRewardAmount().call());
   const yearlyRewards = rewardRate.times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.dividedBy(getEDecimals(WFUSE.decimals));
@@ -60,7 +61,7 @@ const getYearlyRewardsInUsd = async () => {
 const getTotalStakedInUsd = async () => {
   const web3 = web3Factory(chainId);
 
-  const stakerContract = new web3.eth.Contract(Staker, staker);
+  const stakerContract = getContractWithProvider(Staker, staker, web3);
   const totalStaked = new BigNumber(await stakerContract.methods.totalStakeAmount().call());
 
   return totalStaked.dividedBy(getEDecimals(WFUSE.decimals));

@@ -14,6 +14,7 @@ import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 export interface MaticMasterChefApysParams {
   masterchef: string;
@@ -107,7 +108,7 @@ const getFarmApys = async (params: MaticMasterChefApysParams): Promise<BigNumber
 
 const getMasterChefData = async (params: MaticMasterChefApysParams) => {
   const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
-  const masterchefContract = new web3.eth.Contract(abi, params.masterchef);
+  const masterchefContract = getContractWithProvider(abi, params.masterchef, web3);
   let multiplier = new BigNumber(1);
   if (params.hasMultiplier) {
     const blockNum = await getBlockNumber(POLYGON_CHAIN_ID);
@@ -124,12 +125,12 @@ const getMasterChefData = async (params: MaticMasterChefApysParams) => {
 
 const getPoolsData = async (params: MaticMasterChefApysParams) => {
   const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
-  const masterchefContract = new web3.eth.Contract(abi, params.masterchef);
+  const masterchefContract = getContract(abi, params.masterchef);
   const multicall = new MultiCall(web3 as any, multicallAddress(POLYGON_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
   params.pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address) as unknown as ERC20;
+    const tokenContract = getContract(ERC20_ABI, pool.address) as unknown as ERC20;
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(pool.strat ?? params.masterchef),
     });

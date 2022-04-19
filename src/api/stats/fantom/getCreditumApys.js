@@ -18,6 +18,7 @@ import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { spookyClient } from '../../../apollo/client';
 import { compound } from '../../../utils/compound';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 const masterchef = '0xe0c43105235C1f18EA15fdb60Bb6d54814299938';
 const rewardToken = 'CREDIT';
@@ -112,7 +113,7 @@ const getCreditumApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChefAbi, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChefAbi, masterchef, web3);
   const rewardPerSecond = new BigNumber(
     await masterchefContract.methods.RewardsPerSecond(0).call()
   );
@@ -123,13 +124,13 @@ const getMasterChefData = async () => {
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = new web3.eth.Contract(MasterChefAbi, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChefAbi, masterchef, web3);
   const multicall = new MultiCall(web3, multicallAddress(chainId));
   const balanceCalls = [];
   const poolInfos = [];
 
   for (let i = 0; i < pools.length; i++) {
-    const tokenContract = new web3.eth.Contract(ERC20, pools[i].address);
+    const tokenContract = getContract(ERC20, pools[i].address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });

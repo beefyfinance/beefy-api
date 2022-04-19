@@ -4,6 +4,7 @@ const { bscWeb3: web3 } = require('../../../../utils/web3');
 import getApyBreakdown from '../../common/getApyBreakdown';
 import { getTradingFeeApr } from '../../../../utils/getTradingFeeApr';
 import { PCS_LPF } from '../../../../constants';
+import { getContractWithProvider } from '../../../../utils/contractHelper';
 
 const MasterChef = require('../../../../abis/degens/KingDefiMaster.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
@@ -35,7 +36,7 @@ const getKingdefiApys = async () => {
 };
 
 const getPoolApy = async (masterchef, pool) => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   let { totalSupply, krwPerBlock } = await masterchefContract.methods.poolInfo(pool.poolId).call();
   totalSupply = new BigNumber(totalSupply);
   krwPerBlock = new BigNumber(krwPerBlock);

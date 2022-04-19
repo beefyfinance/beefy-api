@@ -11,7 +11,14 @@ function client(url) {
   const timeoutHttpLink = timeoutLink.concat(httpLink);
   return new ApolloClient({
     link: timeoutHttpLink,
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      addTypename: false,
+    }),
+    defaultOptions: {
+      query: {
+        fetchPolicy: 'no-cache',
+      },
+    },
   });
 }
 

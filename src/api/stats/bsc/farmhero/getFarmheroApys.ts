@@ -20,6 +20,7 @@ import getApyBreakdown from '../../common/getApyBreakdown';
 import { addressBook } from '../../../../../packages/address-book/address-book/';
 import { getEDecimals } from '../../../../utils/getEDecimals';
 import { LpPool } from '../../../../types/LpPool';
+import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
 
 const {
   platforms: { farmhero },
@@ -43,7 +44,11 @@ export const getFarmheroApys = async () => {
 
 const getFarmApys = async (pools: LpPool[]): Promise<BigNumber[]> => {
   const apys: BigNumber[] = [];
-  const chefContract = new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown as FarmHeroChef;
+  const chefContract = getContractWithProvider(
+    FarmHeroChef_ABI,
+    chef,
+    web3
+  ) as unknown as FarmHeroChef;
   const totalEpoch = await chefContract.methods.totalEpoch().call();
   const epochsLeft = await chefContract.methods.epochsLeft().call();
   const currentEpoch = (parseInt(totalEpoch) - parseInt(epochsLeft)).toString();
@@ -77,12 +82,12 @@ const getFarmApys = async (pools: LpPool[]): Promise<BigNumber[]> => {
 const getPoolsData = async (
   pools: LpPool[]
 ): Promise<{ balances: BigNumber[]; allocPoints: BigNumber[] }> => {
-  const chefContract = new web3.eth.Contract(FarmHeroChef_ABI, chef) as unknown as FarmHeroChef;
+  const chefContract = getContract(FarmHeroChef_ABI, chef) as unknown as FarmHeroChef;
   const multicall = new MultiCall(web3 as any, multicallAddress(BSC_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
   pools.forEach(pool => {
-    const stratContract = new web3.eth.Contract(
+    const stratContract = getContract(
       IFarmHeroStrategy_ABI,
       pool.strat
     ) as unknown as IFarmHeroStrategy;

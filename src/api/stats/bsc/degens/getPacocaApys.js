@@ -1,3 +1,4 @@
+import { getContractWithProvider } from '../../../../utils/contractHelper';
 import { getTradingFeeApr } from '../../../../utils/getTradingFeeApr';
 import getApyBreakdown from '../../common/getApyBreakdown';
 
@@ -70,7 +71,7 @@ const getStratYearlyRewardsInUsd = async (masterchef, pool) => {
   if (!pool.uPoolId) return new BigNumber(0);
 
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
 
   const multiplier = new BigNumber(
     await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
@@ -96,7 +97,7 @@ const getStratYearlyRewardsInUsd = async (masterchef, pool) => {
 
 const getYearlyRewardsInUsd = async (farm, pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const farmContract = new web3.eth.Contract(PacocaFarm, farm);
+  const farmContract = getContractWithProvider(PacocaFarm, farm, web3);
 
   const multiplier = new BigNumber(
     await farmContract.methods.getMultiplier(blockNum - 1, blockNum).call()
@@ -122,7 +123,7 @@ const getYearlyRewardsInUsd = async (farm, pool) => {
 
 const getStratTotalLpStakedInUsd = async (masterchef, pool) => {
   if (!pool.uPoolId) return new BigNumber(1);
-  const tokenPairContract = new web3.eth.Contract(ERC20, pool.address);
+  const tokenPairContract = getContractWithProvider(ERC20, pool.address, web3);
   const totalStaked = new BigNumber(await tokenPairContract.methods.balanceOf(masterchef).call());
   const tokenPrice = await fetchPrice({
     oracle: pool.oracle ?? 'lps',
@@ -132,7 +133,7 @@ const getStratTotalLpStakedInUsd = async (masterchef, pool) => {
 };
 
 const getTotalLpStakedInUsd = async pool => {
-  const strategyContract = new web3.eth.Contract(AutoStrat, pool.strat);
+  const strategyContract = getContractWithProvider(AutoStrat, pool.strat, web3);
   const totalStaked = new BigNumber(await strategyContract.methods.wantLockedTotal().call());
   const tokenPrice = await fetchPrice({
     oracle: pool.oracle ?? 'lps',

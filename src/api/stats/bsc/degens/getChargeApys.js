@@ -6,6 +6,7 @@ const { cakeClient } = require('../../../../apollo/client');
 const { PCS_LPF } = require('../../../../constants');
 const pools = require('../../../../data/degens/chargeLpPools.json');
 const { getApyBreakdown } = require('../../common/getApyBreakdown');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const getChargeApys = async () => {
   let promises = [];
@@ -19,7 +20,7 @@ const getChargeApys = async () => {
 };
 
 const getPoolApy = async pool => {
-  const masterchefContract = new web3.eth.Contract(abi, pool.pool);
+  const masterchefContract = getContractWithProvider(abi, pool.pool, web3);
   return new BigNumber(await masterchefContract.methods.APR(0).call()).div('1e18');
 };
 

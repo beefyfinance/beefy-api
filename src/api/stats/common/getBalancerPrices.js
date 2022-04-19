@@ -4,6 +4,7 @@ const { multicallAddress } = require('../../../utils/web3');
 
 const IBalancerVault = require('../../../abis/IBalancerVault.json');
 const ERC20 = require('../../../abis/ERC20.json');
+const { getContract } = require('../../../utils/contractHelper');
 
 const getBalancerPrices = async (web3, chainId, pools, tokenPrices) => {
   let prices = {};
@@ -22,8 +23,8 @@ const getPoolsData = async (web3, chainId, pools) => {
   const totalSupplyCalls = [];
   const balanceCalls = [];
   pools.forEach(pool => {
-    const balancerVault = new web3.eth.Contract(IBalancerVault, pool.vault);
-    const weightedPool = new web3.eth.Contract(ERC20, pool.address);
+    const balancerVault = getContract(IBalancerVault, pool.vault);
+    const weightedPool = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: balancerVault.methods.getPoolTokens(pool.vaultPoolId),
     });

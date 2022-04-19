@@ -13,6 +13,7 @@ import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFees
 const { fusefiClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import { FUSEFI_LPF } from '../../../constants';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 const masterchef = '0xE3e184a7b75D0Ae6E17B58F5283b91B4E0A2604F';
 const oracleIdA = 'VOLT';
@@ -116,20 +117,20 @@ const getVoltageDualApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const rewardPerSecond = new BigNumber(await masterchefContract.methods.voltPerSec().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContract(MasterChef, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(FUSE_CHAIN_ID));
   const balanceCalls = [];
   const poolInfoCalls = [];
   const tokenPerSecCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });
@@ -146,7 +147,7 @@ const getPoolsData = async pools => {
   const rewarders = res[1].map(v => v.poolInfo[4]);
 
   rewarders.forEach(rewarder => {
-    let rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarder);
+    let rewarderContract = getContract(SimpleRewarder, rewarder);
     let tokenPerSec = rewarderContract.methods.tokenPerSec();
     tokenPerSecCalls.push({
       tokenPerSec: tokenPerSec,

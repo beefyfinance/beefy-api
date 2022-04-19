@@ -1,5 +1,5 @@
-const axios = require('axios');
 const https = require('https');
+const fetch = require('node-fetch');
 
 const pools = require('../../../data/heco/hfiPools.json');
 const { compound } = require('../../../utils/compound');
@@ -38,8 +38,10 @@ const fetchHfiStats = async () => {
     rejectUnauthorized: false,
   });
   try {
-    const response = await axios.get('https://api.hfi.one/apy', { httpsAgent: agent });
-    return response.data.data;
+    const response = await fetch('https://api.hfi.one/apy', { agent: agent }).then(res =>
+      res.json()
+    );
+    return response.data;
   } catch (err) {
     console.error(err);
     return {};

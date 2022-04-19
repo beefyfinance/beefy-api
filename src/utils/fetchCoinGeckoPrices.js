@@ -1,4 +1,4 @@
-const axios = require('axios');
+const fetch = require('node-fetch');
 
 const fetchCoinGeckoPrices = async coins => {
   if (!coins) return {};
@@ -6,8 +6,7 @@ const fetchCoinGeckoPrices = async coins => {
   const url = `https://api.coingecko.com/api/v3/simple/price?ids=${ids}&vs_currencies=usd`;
   let prices = {};
   try {
-    const response = await axios.get(url);
-    const data = response.data;
+    const data = await fetch(url).then(res => res.json());
     Object.keys(data).forEach(coin => {
       const price = Number(data[coin].usd);
       prices = { ...prices, ...{ [coin]: price } };

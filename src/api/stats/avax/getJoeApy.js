@@ -7,6 +7,7 @@ const { DAILY_HPY } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 const { getYearlyTradingFeesForSJOE } = require('../../../utils/getTradingFeeApr');
 const { joeClient } = require('../../../apollo/client');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const oracle = 'tokens';
 const JOE = 'JOE';
@@ -19,7 +20,7 @@ const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 const getJoeApy = async () => {
   const joePrice = await fetchPrice({ oracle, id: JOE });
 
-  const rewardPool = new web3.eth.Contract(StableJoeStaking, pool.rewardPool);
+  const rewardPool = getContractWithProvider(StableJoeStaking, pool.rewardPool, web3);
   const totalStaked = new BigNumber(await rewardPool.methods.internalJoeBalance().call());
   const totalStakedInUsd = totalStaked.times(joePrice).dividedBy(joeDecimals);
 

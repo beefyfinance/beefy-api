@@ -8,6 +8,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/heco/lendhubLpPools.json');
 const { BASE_HPY, HECO_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
+const { getContractWithProvider, getContract } = require('../../../utils/contractHelper');
 //const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 //import { getFarmWithTradingFeesApy  } from '../../../utils/getFarmWithTradingFeesApy';
 //const { mdexClient } = require('../../../apollo/client');
@@ -59,19 +60,19 @@ const getLendhubLpApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const rewardPerSecond = new BigNumber(await masterchefContract.methods.lhbPerBlock().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContract(MasterChef, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(HECO_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });

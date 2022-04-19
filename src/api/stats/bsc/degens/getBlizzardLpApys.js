@@ -9,9 +9,10 @@ const { compound } = require('../../../../utils/compound');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { lpTokenPrice } = require('../../../../utils/lpTokens');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const masterchef = '0x367CdDA266ADa588d380C7B970244434e4Dde790';
-const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
 const oracle = 'tokens';
 const oracleId = 'xBLZD';
 const DECIMALS = '1e18';
@@ -70,7 +71,7 @@ const getYearlyRewardsInUsd = async pool => {
 const getTotalLpStakedInUsd = async pool => {
   let { strat } = await masterchefContract.methods.poolInfo(pool.poolId).call();
 
-  const strategyContract = new web3.eth.Contract(BlizzardStratAbi, strat);
+  const strategyContract = getContractWithProvider(BlizzardStratAbi, strat, web3);
   const totalStaked = new BigNumber(await strategyContract.methods.wantLockedTotal().call());
   const tokenPrice = await lpTokenPrice(pool);
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy(DECIMALS);

@@ -1,5 +1,5 @@
 const { BigNumber, utils, ethers } = require('ethers');
-const axios = require('axios');
+const fetch = require('node-fetch');
 
 const fetchPrice = require('../../utils/fetchPrice');
 const { API_BASE_URL, BSC_RPC } = require('../../constants');
@@ -31,8 +31,7 @@ const fetchVaultTvl = async ({ vault }) => {
 
 const vaults = async ctx => {
   try {
-    let response = await axios.get(`${API_BASE_URL}/apy`);
-    const apys = response.data;
+    const apys = await fetch(`${API_BASE_URL}/apy`).then(res.json());
 
     let promises = [];
     vaults_json.pools.forEach(vault => {

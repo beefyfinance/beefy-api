@@ -13,6 +13,7 @@ const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 const { cakeClient } = require('../../../../apollo/client');
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 import { PCS_LPF } from '../../../../constants';
+import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
 
 const masterchef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
 const oracle = 'tokens';
@@ -87,7 +88,7 @@ const getCakeLpApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
   const multiplier = new BigNumber(
     await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
@@ -98,12 +99,12 @@ const getMasterChefData = async () => {
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContract(MasterChef, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(BSC_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });

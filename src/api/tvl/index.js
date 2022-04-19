@@ -1,4 +1,4 @@
-const getTvl = require('../stats/getTvl');
+const { getTvl } = require('../stats/getTvl');
 
 async function vaultTvl(ctx) {
   try {

@@ -7,6 +7,7 @@ const { compound } = require('../../../../utils/compound');
 const IncentivesController = require('../../../../abis/fantom/GeistIncentivesController.json');
 const IAaveProtocolDataProvider = require('../../../../abis/matic/AaveProtocolDataProvider.json');
 const pools = require('../../../../data/valasPools.json');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const AaveProtocolDataProvider = '0xb5f344F568b714c471B23924644B4e393Ca4E9E9';
 const incentivesController = '0xB7c1d99069a4eb582Fc04E7e1124794000e7ecBF';
@@ -39,7 +40,11 @@ const getValasLendingApys = async () => {
 };
 
 const getIncentiveControllerData = async () => {
-  const incentivesContract = new web3.eth.Contract(IncentivesController, incentivesController);
+  const incentivesContract = getContractWithProvider(
+    IncentivesController,
+    incentivesController,
+    web3
+  );
   const [rewardsPerSecond, totalAllocPoint] = await Promise.all([
     incentivesContract.methods.rewardsPerSecond().call(),
     incentivesContract.methods.totalAllocPoint().call(),
@@ -72,7 +77,11 @@ const getPoolApy = async (pool, rewardsPerSecond, totalAllocPoint) => {
 };
 
 const getPoolData = async (pool, rewardsPerSecond, totalAllocPoint) => {
-  const dataProvider = new web3.eth.Contract(IAaveProtocolDataProvider, AaveProtocolDataProvider);
+  const dataProvider = getContractWithProvider(
+    IAaveProtocolDataProvider,
+    AaveProtocolDataProvider,
+    web3
+  );
   const {
     availableLiquidity,
     totalStableDebt,
@@ -106,7 +115,11 @@ const getPoolData = async (pool, rewardsPerSecond, totalAllocPoint) => {
 };
 
 const getRewardPerYear = async (pool, rewardsPerSecond, totalAllocPoint) => {
-  const incentivesContract = new web3.eth.Contract(IncentivesController, incentivesController);
+  const incentivesContract = getContractWithProvider(
+    IncentivesController,
+    incentivesController,
+    web3
+  );
 
   const [{ allocPoint: aTokenAlloc }, { allocPoint: debtTokenAlloc }] = await Promise.all([
     incentivesContract.methods.poolInfo(pool.aToken).call(),

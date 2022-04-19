@@ -7,6 +7,7 @@ const IncentivesController = require('../../../abis/fantom/GeistIncentivesContro
 const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataProvider.json');
 const pools = require('../../../data/fantom/geistPools.json');
 const { BASE_HPY } = require('../../../constants');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const AaveProtocolDataProvider = '0xf3B0611e2E4D2cd6aB4bb3e01aDe211c3f42A8C3';
 const incentivesController = '0x297FddC5c33Ef988dd03bd13e162aE084ea1fE57';
@@ -44,9 +45,10 @@ const getGeistLendingApys = async () => {
 };
 
 const getIncentiveControllerData = async () => {
-  const incentivesControllerContract = new web3.eth.Contract(
+  const incentivesControllerContract = getContractWithProvider(
     IncentivesController,
-    incentivesController
+    incentivesController,
+    web3
   );
   const rewardsPerSecond = await incentivesControllerContract.methods.rewardsPerSecond().call();
   const totalAllocPoint = await incentivesControllerContract.methods.totalAllocPoint().call();
@@ -78,7 +80,11 @@ const getPoolApy = async (pool, rewardsPerSecond, totalAllocPoint) => {
 };
 
 const getGeistPoolData = async (pool, rewardsPerSecond, totalAllocPoint) => {
-  const dataProvider = new web3.eth.Contract(IAaveProtocolDataProvider, AaveProtocolDataProvider);
+  const dataProvider = getContractWithProvider(
+    IAaveProtocolDataProvider,
+    AaveProtocolDataProvider,
+    web3
+  );
   const {
     availableLiquidity,
     totalStableDebt,
@@ -112,9 +118,10 @@ const getGeistPoolData = async (pool, rewardsPerSecond, totalAllocPoint) => {
 };
 
 const getGeistPerYear = async (pool, rewardsPerSecond, totalAllocPoint) => {
-  const incentivesControllerContract = new web3.eth.Contract(
+  const incentivesControllerContract = getContractWithProvider(
     IncentivesController,
-    incentivesController
+    incentivesController,
+    web3
   );
 
   let res = await incentivesControllerContract.methods.poolInfo(pool.aToken).call();

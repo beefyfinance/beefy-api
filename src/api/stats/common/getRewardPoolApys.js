@@ -8,6 +8,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 export const getRewardPoolApys = async params => {
   const tradingAprs = await getTradingAprs(params);
@@ -35,8 +36,8 @@ const getFarmApys = async params => {
   const apys = [];
   const tokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
   const rewardTokenPrice = params.isRewardInXToken
-                             ? await getXPrice(tokenPrice, params)
-                             : tokenPrice;
+    ? await getXPrice(tokenPrice, params)
+    : tokenPrice;
   const { balances, rewardRates } = await getPoolsData(params);
 
   for (let i = 0; i < params.pools.length; i++) {
@@ -72,7 +73,7 @@ const getPoolsData = async params => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   params.pools.forEach(pool => {
-    const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
+    const rewardPool = getContract(IRewardPool, pool.rewardPool);
     balanceCalls.push({
       balance: rewardPool.methods.totalSupply(),
     });
@@ -89,12 +90,14 @@ const getPoolsData = async params => {
 };
 
 const getXPrice = async (tokenPrice, params) => {
-  const tokenContract = new params.web3.eth.Contract(ERC20, params.tokenAddress);
-  const xTokenContract = new params.web3.eth.Contract(ERC20, params.xTokenAddress);
-  const stakedInXPool = new BigNumber(await tokenContract.methods.balanceOf(params.xTokenAddress).call());
+  const tokenContract = getContractWithProvider(ERC20, params.tokenAddress, params.web3);
+  const xTokenContract = getContractWithProvider(ERC20, params.xTokenAddress, params.web3);
+  const stakedInXPool = new BigNumber(
+    await tokenContract.methods.balanceOf(params.xTokenAddress).call()
+  );
   const totalXSupply = new BigNumber(await xTokenContract.methods.totalSupply().call());
 
   return stakedInXPool.times(tokenPrice).dividedBy(totalXSupply);
-}
+};
 
 module.exports = { getRewardPoolApys };

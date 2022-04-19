@@ -3,6 +3,7 @@ const { bscWeb3: web3 } = require('../../../../utils/web3');
 
 const AlpacaIbVault = require('../../../../abis/AlpacaIbVault.json');
 const pools = require('../../../../data/alpacaPools.json');
+const { getContract, getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const getAlpacaIbPrices = async tokenPrices => {
   let prices = {};
@@ -19,7 +20,7 @@ const getAlpacaIbPrices = async tokenPrices => {
 };
 
 const getPoolPrice = async (pool, tokenPrices) => {
-  const ibToken = new web3.eth.Contract(AlpacaIbVault, pool.address);
+  const ibToken = getContractWithProvider(AlpacaIbVault, pool.address, web3);
   const [totalToken, totalSupply] = await Promise.all([
     ibToken.methods.totalToken().call(),
     ibToken.methods.totalSupply().call(),
