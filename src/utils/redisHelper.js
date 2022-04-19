@@ -3,6 +3,7 @@ const redis = require('redis');
 var redisClient;
 
 const initRedis = async () => {
+  if (!process.env.REDISCLOUD_URL) return;
   redisClient = redis.createClient({
     url: process.env.REDISCLOUD_URL || 'redis://localhost:6379',
   });
@@ -20,6 +21,7 @@ const initRedis = async () => {
 };
 
 const setKey = async (key, value) => {
+  if (!redisClient) return;
   try {
     await redisClient.set(key, JSON.stringify(value));
   } catch (err) {
@@ -28,11 +30,12 @@ const setKey = async (key, value) => {
 };
 
 const getKey = async key => {
+  if (!redisClient) return;
   try {
     let value = await redisClient.get(key);
     return JSON.parse(value);
   } catch (err) {
-    console.log(`Failed storing value for key "${key}": `, err);
+    console.log(`Failed getting value for key "${key}": `, err);
   }
 };
 

@@ -27,10 +27,8 @@ const getApys = () => {
   };
 };
 
-var count = 20;
 const updateApys = async () => {
   console.log('> updating apys');
-  if (count == 0) count = 20;
 
   try {
     const results = await Promise.allSettled([
@@ -49,7 +47,7 @@ const updateApys = async () => {
       getMetisApys(),
       getMoonbeamApys(),
     ]);
-    138;
+
     for (const result of results) {
       if (result.status !== 'fulfilled') {
         console.warn('getApys error', result.reason);
@@ -84,10 +82,6 @@ const updateApys = async () => {
     await saveToRedis();
   } catch (err) {
     console.error('> apy initialization failed', err);
-  }
-  console.log(count);
-  if (--count == 0) {
-    REFRESH_INTERVAL = 60 * 1000;
   }
 
   setTimeout(updateApys, REFRESH_INTERVAL);

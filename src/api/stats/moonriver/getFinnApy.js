@@ -34,7 +34,9 @@ const getFinnApy = async () => {
     .times(tokenPrice)
     .dividedBy(pool.decimals);
 
-  const yearlyTradingFees = await getYearlyPlatformTradingFees(finnClient, liquidityProviderFee);
+  // http 502
+  // const yearlyTradingFees = await getYearlyPlatformTradingFees(finnClient, liquidityProviderFee);
+  const yearlyTradingFees = new BigNumber(0);
   const totalStakedInUsd = balance.times(tokenPrice).dividedBy(pool.decimals);
 
   const poolRewards = rewardPerSecond.times(allocPoint).dividedBy(totalAllocPoint);

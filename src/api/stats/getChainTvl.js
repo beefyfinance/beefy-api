@@ -31,7 +31,7 @@ const getChainTvl = async chain => {
     } catch (e) {
       console.error('getTvl fetchPrice', chainId, vault.oracle, vault.oracleId, e);
     }
-    const tvl = vaultBal.times(tokenPrice).shiftedBy(vault.tokenDecimals ?? 18);
+    const tvl = vaultBal.times(tokenPrice).shiftedBy(-(vault.tokenDecimals ?? 18));
 
     let item = { [vault.id]: 0 };
     if (!tvl.isNaN()) {
