@@ -16,6 +16,7 @@ import alpacaLpPools from '../../data/alpacaLpPools.json';
 import cafePools from '../../data/cafeLpPools.json';
 import cakeLpPools from '../../data/cakeLpPools.json';
 import cakeLpV1Pools from '../../data/cakeLpV1Pools.json';
+import cakeLpPoolsV2 from '../../data/cakeLpPoolsV2.json';
 import kebabPools from '../../data/kebabLpPools.json';
 import bdollarSbdoPools from '../../data/bdollarSbdoLpPools.json';
 import boltBtdPools from '../../data/boltBtdLpPools.json';
@@ -442,6 +443,7 @@ const pools = [
   ...narPools,
   ...nyacashPools,
   ...thugsPools,
+  ...cakeLpPoolsV2,
   ...cakeLpV1Pools,
   ...cakeLpPools,
 ];
