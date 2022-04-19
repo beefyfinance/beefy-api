@@ -117,7 +117,7 @@
     "name": "curve-avax-f-3pool",
     "pool": "0xD79138c49c49200a1Afc935171D1bDAd084FDc95",
     "gauge": "0x1AEAA1b998307217D62E9eeFb6407B10598eF3b8",
-    "rewards": []
+    "boosted": true
   },
   {
     "name": "curve-avax-f-avaxl",

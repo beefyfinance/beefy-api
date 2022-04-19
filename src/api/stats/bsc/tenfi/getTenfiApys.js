@@ -12,6 +12,7 @@ const {
   getTotalStakedInUsd,
 } = require('../../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
+import { getContractWithProvider } from '../../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 const { cakeClient } = require('../../../../apollo/client');
 
@@ -95,7 +96,7 @@ const getPoolApy = async (masterchef, pool) => {
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
 
   const multiplier = new BigNumber(
     await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()

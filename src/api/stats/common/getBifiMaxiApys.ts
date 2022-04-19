@@ -1,5 +1,6 @@
 const BigNumber = require('bignumber.js');
 import Web3 from 'web3';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
@@ -32,7 +33,7 @@ export const getBifiMaxiApys = async (params: BifiApyParams) => {
 const getYearlyRewardsInUsd = async (params: BifiApyParams) => {
   const rewardPrice = await fetchPrice({ oracle: 'tokens', id: params.rewardId });
 
-  const rewardPool = new params.web3.eth.Contract(IRewardPool, params.rewardPool);
+  const rewardPool = getContractWithProvider(IRewardPool, params.rewardPool, params.web3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(secondsPerYear);
   const yearlyRewardsInUsd = yearlyRewards.times(rewardPrice).dividedBy(params.rewardDecimals);
@@ -41,8 +42,10 @@ const getYearlyRewardsInUsd = async (params: BifiApyParams) => {
 };
 
 const getTotalStakedInUsd = async (params: BifiApyParams) => {
-  const tokenContract = new params.web3.eth.Contract(ERC20, params.bifi);
-  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(params.rewardPool).call());
+  const tokenContract = getContractWithProvider(ERC20, params.bifi, params.web3);
+  const totalStaked = new BigNumber(
+    await tokenContract.methods.balanceOf(params.rewardPool).call()
+  );
   const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'BIFI' });
 
   return totalStaked.times(tokenPrice).dividedBy('1e18');

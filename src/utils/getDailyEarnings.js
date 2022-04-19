@@ -22,6 +22,12 @@ const getDailyEarnings = async () => {
   let currentBlock = startBlock;
   let result = BigNumber.from(0);
 
+  return {
+    daily: 0,
+    startBlock: startBlock,
+    endBlock: endBlock,
+  };
+
   try {
     while (currentBlock < endBlock) {
       // provider only allows up to 2000 blocks at a time

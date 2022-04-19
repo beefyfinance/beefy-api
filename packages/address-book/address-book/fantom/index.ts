@@ -1,4 +1,5 @@
 import { beefyfinance } from './platforms/beefyfinance';
+import { beethovenx } from './platforms/beethovenx';
 import { spookyswap } from './platforms/spookyswap';
 import { spiritswap } from './platforms/spiritswap';
 import { sushiFtm } from './platforms/sushiFtm';
@@ -11,6 +12,7 @@ import { ConstInterface } from '../../types/const';
 const _fantom = {
   platforms: {
     beefyfinance,
+    beethovenx,
     spookyswap,
     spiritswap,
     sushiFtm,

@@ -2,15 +2,16 @@ const BigNumber = require('bignumber.js');
 const { web3Factory } = require('./web3');
 const fetchPrice = require('./fetchPrice');
 const ERC20 = require('../abis/ERC20.json');
+const { getContractWithProvider } = require('./contractHelper');
 
 const nativeToken = '0x0000000000000000000000000000000000000000';
 
 const lpTokenPrice = async lpToken => {
   const web3 = web3Factory(lpToken.chainId || 56);
 
-  const tokenPairContract = new web3.eth.Contract(ERC20, lpToken.address);
-  const token0Contract = new web3.eth.Contract(ERC20, lpToken.lp0.address);
-  const token1Contract = new web3.eth.Contract(ERC20, lpToken.lp1.address);
+  const tokenPairContract = getContractWithProvider(ERC20, lpToken.address, web3);
+  const token0Contract = getContractWithProvider(ERC20, lpToken.lp0.address, web3);
+  const token1Contract = getContractWithProvider(ERC20, lpToken.lp1.address, web3);
 
   const token0Bal =
     lpToken.lp0.address === nativeToken

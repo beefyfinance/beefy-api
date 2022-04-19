@@ -1,4 +1,5 @@
 const { fantomWeb3: web3 } = require('../../../utils/web3');
+const fetch = require('node-fetch');
 
 import {
   getCurveBaseApys,
@@ -8,8 +9,8 @@ import {
 import getApyBreakdown from '../common/getApyBreakdown';
 import ICurvePool from '../../../abis/ICurvePool.json';
 import fetchPrice from '../../../utils/fetchPrice';
-import axios from 'axios';
 import BigNumber from 'bignumber.js';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const pools = require('../../../data/fantom/curvePools.json');
 const baseApyUrl = 'https://stats.curve.fi/raw-stats-ftm/apys.json';
@@ -31,8 +32,10 @@ const getCurveApys = async () => {
 const getGeistApys = async () => {
   let apys = {};
   try {
-    const response = await axios.get('https://api.geist.finance/api/lendingPoolRewards');
-    const apyData = response.data.data.poolAPRs;
+    const response = await fetch('https://api.geist.finance/api/lendingPoolRewards').then(res =>
+      res.json()
+    );
+    const apyData = response.data.poolAPRs;
     apyData.forEach(apy => {
       apys = { ...apys, ...{ [apy.tokenAddress]: apy.apy / 2 } }; // 50% penalty fee
     });
@@ -88,7 +91,7 @@ const getGeistPoolApy = async pool => {
 };
 
 const getTokenBalance = async (curvePool, token, index) => {
-  const pool = new web3.eth.Contract(ICurvePool, curvePool);
+  const pool = getContractWithProvider(ICurvePool, curvePool, web3);
   const balance = await pool.methods.balances(index).call();
   let price = 1;
   if (token.oracleId) {

@@ -17,6 +17,7 @@ import { quickClient } from '../../../apollo/client';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
+import { getContract } from '../../../utils/contractHelper';
 const {
   polygon: {
     tokens: { TEL },
@@ -59,11 +60,11 @@ const getPoolsData = async (pools: LpPool[]) => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address) as unknown as ERC20;
+    const tokenContract = getContract(ERC20_ABI, pool.address) as unknown as ERC20;
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(pool.rewardPool),
     });
-    const rewardPool = new web3.eth.Contract(
+    const rewardPool = getContract(
       StakingRewards_ABI,
       pool.rewardPool
     ) as unknown as StakingRewards;

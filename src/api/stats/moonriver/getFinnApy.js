@@ -7,6 +7,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pool = require('../../../data/moonriver/finnPool.json');
 const { BASE_HPY } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
+import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { getYearlyPlatformTradingFees } = require('../../../utils/getTradingFeeApr');
 const { finnClient } = require('../../../apollo/client');
@@ -27,13 +28,15 @@ const getFinnApy = async () => {
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
   const { balance, allocPoint } = await getPoolData();
 
-  const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+  const tokenContract = getContractWithProvider(ERC20, pool.address, web3);
   const totalStakedInxToken = await tokenContract.methods.balanceOf(xToken).call();
   const totalStakedInxTokenInUsd = new BigNumber(totalStakedInxToken)
     .times(tokenPrice)
     .dividedBy(pool.decimals);
 
-  const yearlyTradingFees = await getYearlyPlatformTradingFees(finnClient, liquidityProviderFee);
+  // http 502
+  // const yearlyTradingFees = await getYearlyPlatformTradingFees(finnClient, liquidityProviderFee);
+  const yearlyTradingFees = new BigNumber(0);
   const totalStakedInUsd = balance.times(tokenPrice).dividedBy(pool.decimals);
 
   const poolRewards = rewardPerSecond.times(allocPoint).dividedBy(totalAllocPoint);
@@ -72,22 +75,22 @@ const getFinnApy = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const rewardPerSecond = new BigNumber(await masterchefContract.methods.finnPerSecond().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolData = async () => {
-  const xTokenContract = new web3.eth.Contract(ERC20, xToken);
+  const xTokenContract = getContractWithProvider(ERC20, xToken, web3);
   const xBalance = await xTokenContract.methods.balanceOf(masterchef).call();
   const xTotalSupply = await xTokenContract.methods.totalSupply().call();
 
-  const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+  const tokenContract = getContractWithProvider(ERC20, pool.address, web3);
   const tokensStakedInxToken = await tokenContract.methods.balanceOf(xToken).call();
   const balance = new BigNumber(xBalance).times(tokensStakedInxToken).dividedBy(xTotalSupply);
 
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const rewardPool = await masterchefContract.methods.poolInfo(pool.poolId).call();
   const allocPoint = new BigNumber(rewardPool.allocPoint);
 

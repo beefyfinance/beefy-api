@@ -8,6 +8,7 @@ const pools = require('../../../../data/mdexBscLpPools.json');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
+import { getContractWithProvider } from '../../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 const { mdexBscClient } = require('../../../../apollo/client');
 const { compound } = require('../../../../utils/compound');
@@ -92,7 +93,7 @@ const getPoolApy = async (mdxPool, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (mdxPool, pool) => {
-  const masterChefContract = new web3.eth.Contract(MasterChef, mdxPool);
+  const masterChefContract = getContractWithProvider(MasterChef, mdxPool, web3);
 
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
   const blockRewards = new BigNumber(await masterChefContract.methods.reward(blockNum).call());

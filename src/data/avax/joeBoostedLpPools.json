@@ -1,5 +1,24 @@
 [
   {
+    "name": "joe-usdt-wavax",
+    "address": "0xbb4646a764358ee93c2a9c4a147d5aDEd527ab73",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-bnb-wavax",
     "address": "0xeb8eB6300c53C3AddBb7382Ff6c6FbC4165B0742",
     "decimals": "1e18",

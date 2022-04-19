@@ -2,7 +2,7 @@ import { ConstRecord } from '../../../types/const';
 import Token from '../../../types/token';
 
 const ETH = {
-  name: 'Wrapped Ether',
+  name: 'Wrapped Ether ',
   address: '0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB',
   symbol: 'WETH',
   decimals: 18,
@@ -41,7 +41,7 @@ const _tokens = {
       'Through simple, secure, and scalable technology, NEAR empowers millions to invent and explore new experiences. Business, creativity, and community are being reimagined for a more sustainable and inclusive future.',
   },
   USDC: {
-    name: 'USD Coin',
+    name: 'USD Coin ',
     symbol: 'USDC',
     address: '0xB12BFcA5A55806AaF64E99521918A4bf0fC40802',
     chainId: 1313161554,
@@ -231,6 +231,39 @@ const _tokens = {
     website: 'https://omnifarms.ocp.finance/',
     description:
       'USDO is a decentralised stablecoin backed by a verifiable collateral pool of on-chain assets.',
+  },
+  ROSE: {
+    name: 'Rose',
+    symbol: 'ROSE',
+    address: '0xdcD6D4e2B3e1D1E1E6Fa8C21C8A323DcbecfF970',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://rose.fi/',
+    description:
+      'Rose is a liquidity protocol on Aurora composed of a stablecoin & wrapped assets exchange, and a Collateralized Debt Position (CDP) based stablecoin utilizing interest bearing tokens as collateral.',
+  },
+  MAI: {
+    name: 'QI DAO Stable Coin Mai',
+    symbol: 'MAI',
+    address: '0xdFA46478F9e5EA86d57387849598dbFB2e964b02',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://mai.finance/',
+    description:
+      'MAI is a stable coin collateralized by your MATIC holdings. Its powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.',
+  },
+  PAD: {
+    name: 'NearPad Token',
+    symbol: 'PAD',
+    address: '0x885f8CF6E45bdd3fdcDc644efdcd0AC93880c781',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.nearpad.io/',
+    description:
+      'Launchpad & DeFi hub of the NEAR ecosystem. The DeFi hub on NEAR ecosystem to bootstrap innovations, monitor and manage digital assets.',
   },
 } as const;
 

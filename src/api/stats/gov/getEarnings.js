@@ -1,5 +1,6 @@
 const { getDailyEarnings } = require('../../../utils/getDailyEarnings');
 const { getRewardsReceived } = require('../../../utils/getRewardsReceived');
+const { getKey, setKey } = require('../../../utils/redisHelper');
 
 const INIT_DELAY = 2 * 60 * 1000;
 const INTERVAL = 60 * 60 * 1000;
@@ -14,6 +15,7 @@ const updateEarnings = async () => {
     earned = await getDailyEarnings();
     earned.total = await getRewardsReceived();
     console.log('> updated earnings');
+    saveToRedis();
   } catch (err) {
     console.error('> earnings updated failed', err);
   }
@@ -25,6 +27,16 @@ const dailyEarnings = async () => {
   return earned;
 };
 
-// setTimeout(updateEarnings, INIT_DELAY);
+const initEarningsService = async () => {
+  const cachedEarnings = await getKey('EARNINGS');
+  earned = cachedEarnings ?? {};
 
-module.exports = dailyEarnings;
+  setTimeout(updateEarnings, INIT_DELAY);
+};
+
+const saveToRedis = async () => {
+  await setKey('EARNINGS', earned);
+  console.log('Earnings saved to redis');
+};
+
+module.exports = { dailyEarnings, initEarningsService };

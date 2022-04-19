@@ -7,6 +7,7 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const swampchef = '0x33AdBf5f1ec364a4ea3a5CA8f310B597B8aFDee3';
 const swampStrat = '0xc65D6E612C27b7C9B00dE40715015EEa81368252';
@@ -27,7 +28,7 @@ const getSwampySwampApy = async () => {
 
 const getYearlyRewardsInUsd = async () => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const swampchefContract = new web3.eth.Contract(SwampChef, swampchef);
+  const swampchefContract = getContractWithProvider(SwampChef, swampchef, web3);
 
   const multiplier = new BigNumber(
     await swampchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
@@ -54,7 +55,7 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const strategyContract = new web3.eth.Contract(SwampStrat, swampStrat);
+  const strategyContract = getContractWithProvider(SwampStrat, swampStrat, web3);
   const totalStaked = new BigNumber(await strategyContract.methods.wantLockedTotal().call());
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');

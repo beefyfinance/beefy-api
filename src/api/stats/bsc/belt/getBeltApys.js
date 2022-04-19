@@ -1,6 +1,6 @@
-const axios = require('axios');
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../../utils/web3');
+const fetch = require('node-fetch');
 
 const MasterBelt = require('../../../../abis/MasterBelt.json');
 const VaultPool = require('../../../../abis/BeltVaultPool.json');
@@ -14,6 +14,7 @@ const {
   SHARE_AFTER_PERFORMANCE_FEE,
 } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const masterbelt = '0xD4BbC80b9B102b77B21A06cb77E954049605E6c1';
 const oracleId = 'BELT';
@@ -68,8 +69,9 @@ const getPoolApy = async (masterchef, pool) => {
 const fetchBeltLpBaseApr = async pool => {
   if (pool.poolId === 11) return 0;
   try {
-    const response = await axios.get('https://s.belt.fi/info/all.json');
-    const data = response.data.info.BSC;
+    let response = await fetch('https://s.belt.fi/info/all.json').then(res => res.json());
+    const data = response.info.BSC;
+
     let apr;
     if (pool.vault) {
       const vault = data.vaults.filter(p => p.name === pool.vault)[0];
@@ -88,10 +90,10 @@ const fetchBeltLpBaseApr = async pool => {
 };
 
 const getTotalLpStakedInUsd = async (masterbelt, pool) => {
-  const masterbeltContract = new web3.eth.Contract(MasterBelt, masterbelt);
+  const masterbeltContract = getContractWithProvider(MasterBelt, masterbelt, web3);
   let { strat } = await masterbeltContract.methods.poolInfo(pool.poolId).call();
 
-  const poolContract = new web3.eth.Contract(VaultPool, strat);
+  const poolContract = getContractWithProvider(VaultPool, strat, web3);
   const wantLockedTotal = new BigNumber(await poolContract.methods.wantLockedTotal().call());
   const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
   return wantLockedTotal.times(tokenPrice).dividedBy(DECIMALS);
@@ -99,7 +101,7 @@ const getTotalLpStakedInUsd = async (masterbelt, pool) => {
 
 const getYearlyRewardsInUsd = async (masterbelt, pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const masterbeltContract = new web3.eth.Contract(MasterBelt, masterbelt);
+  const masterbeltContract = getContractWithProvider(MasterBelt, masterbelt, web3);
 
   const multiplier = new BigNumber(
     await masterbeltContract.methods.getMultiplier(blockNum - 1, blockNum).call()

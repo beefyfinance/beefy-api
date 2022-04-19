@@ -5,6 +5,7 @@ const IRewardPool = require('../../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const { DAILY_HPY } = require('../../../../constants');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const pools = [
   {
@@ -56,7 +57,7 @@ const getPoolApy = async pool => {
 };
 
 const getTotalStakedInUsd = async pool => {
-  const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
+  const rewardPool = getContractWithProvider(IRewardPool, pool.rewardPool, web3);
   const totalStaked = new BigNumber(await rewardPool.methods.totalSupply().call());
   const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
 
@@ -66,7 +67,7 @@ const getTotalStakedInUsd = async pool => {
 const getYearlyRewardsInUsd = async pool => {
   const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
 
-  const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
+  const rewardPool = getContractWithProvider(IRewardPool, pool.rewardPool, web3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const secondsPerYear = 31536000;
   const yearlyRewards = rewardRate.times(secondsPerYear);

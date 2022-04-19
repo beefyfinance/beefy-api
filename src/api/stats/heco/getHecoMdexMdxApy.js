@@ -5,6 +5,7 @@ const BoardRoom = require('../../../abis/heco/mdexWhtBoardRoom.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const ERC20 = require('../../../abis/ERC20.json');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const boardroom = '0x9197d717a4F45B672aCacaB4CC0C6e09222f8695';
 const mdx = '0x25D2e80cB6B86881Fd7e07dd263Fb79f4AbE033c';
@@ -24,7 +25,7 @@ const getHecoMdexMdxApy = async () => {
 };
 
 const getYearlyRewardsInUsd = async () => {
-  const boardRoomContract = new web3.eth.Contract(BoardRoom, boardroom);
+  const boardRoomContract = getContractWithProvider(BoardRoom, boardroom, web3);
 
   const blockRewards = new BigNumber(await boardRoomContract.methods.whtPerBlock().call());
 
@@ -47,7 +48,7 @@ const getYearlyRewardsInUsd = async () => {
 const getTotalStakedInUsd = async () => {
   const web3 = web3Factory(128);
 
-  const tokenContract = new web3.eth.Contract(ERC20, mdx);
+  const tokenContract = getContractWithProvider(ERC20, mdx, web3);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(boardroom).call());
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 

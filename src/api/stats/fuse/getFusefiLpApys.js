@@ -13,6 +13,7 @@ const { fusefiClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 const getBlockTime = require('../../../utils/getBlockTime');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { getContract } from '../../../utils/contractHelper';
 
 const {
   fuse: {
@@ -92,11 +93,11 @@ const getPoolsData = async pools => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(pool.rewardPool),
     });
-    const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
+    const rewardPool = getContract(IRewardPool, pool.rewardPool);
     rewardRateCalls.push({
       rewardRate: rewardPool.methods.rewardData(WFUSE.address),
     });

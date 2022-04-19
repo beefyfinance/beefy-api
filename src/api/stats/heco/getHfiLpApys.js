@@ -7,6 +7,7 @@ const pools = require('../../../data/heco/hfiLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../constants');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const getHfiLpApys = async () => {
   let apys = {};
@@ -34,7 +35,7 @@ const getPoolApy = async (hecoPool, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (hecoPool, pool) => {
-  const hecoPoolContract = new web3.eth.Contract(HecoPool, hecoPool);
+  const hecoPoolContract = getContractWithProvider(HecoPool, hecoPool, web3);
 
   const blockRewards = new BigNumber(await hecoPoolContract.methods.sushiPerBlock().call());
 

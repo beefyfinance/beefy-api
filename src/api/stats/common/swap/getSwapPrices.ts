@@ -3,6 +3,7 @@ import Web3 from 'web3';
 
 import { Swap, Swap_ABI } from '../../../../abis/common/Swap';
 import { SingleAssetPool } from '../../../../types/LpPool';
+import { getContractWithProvider } from '../../../../utils/contractHelper';
 
 // gets the prices of LPToken contracts deployed from Swap contracts.
 // Example is IronSwap (0x837503e8A8753ae17fB8C8151B8e6f586defCb57) on polygon
@@ -38,7 +39,7 @@ const getSwapPrices = async ({
 };
 
 const _getPrice = async (web3: Web3, pool: SingleAssetPool): Promise<[string, number]> => {
-  const Swap = new web3.eth.Contract(Swap_ABI, pool.swap) as unknown as Swap;
+  const Swap = getContractWithProvider(Swap_ABI, pool.swap, web3) as unknown as Swap;
   const virtualPrice = new BigNumber(await Swap.methods.getVirtualPrice().call());
   const tokenPrice = virtualPrice.dividedBy(pool.decimals).toNumber();
 

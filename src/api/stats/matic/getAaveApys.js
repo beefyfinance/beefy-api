@@ -7,6 +7,7 @@ const IAaveDistributionManager = require('../../../abis/matic/AaveDistributionMa
 const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataProvider.json');
 const pools = require('../../../data/matic/aavePools.json');
 const { BASE_HPY } = require('../../../constants');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const AaveProtocolDataProvider = '0x7551b5D2763519d4e37e8B81929D336De671d46d';
 const AaveDistributionManager = '0x357D51124f59836DeD84c8a1730D72B749d8BC23';
@@ -62,7 +63,11 @@ const getPoolApy = async pool => {
 };
 
 const getAavePoolData = async pool => {
-  const dataProvider = new web3.eth.Contract(IAaveProtocolDataProvider, AaveProtocolDataProvider);
+  const dataProvider = getContractWithProvider(
+    IAaveProtocolDataProvider,
+    AaveProtocolDataProvider,
+    web3
+  );
   const {
     availableLiquidity,
     totalStableDebt,
@@ -92,7 +97,11 @@ const getAavePoolData = async pool => {
 };
 
 const getMaticPerYear = async pool => {
-  const distribution = new web3.eth.Contract(IAaveDistributionManager, AaveDistributionManager);
+  const distribution = getContractWithProvider(
+    IAaveDistributionManager,
+    AaveDistributionManager,
+    web3
+  );
 
   let res = await distribution.methods.assets(pool.aToken).call();
   const supplyMaticRate = new BigNumber(res.emissionPerSecond);

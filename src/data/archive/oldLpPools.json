@@ -1,5 +1,41 @@
 [
   {
+    "name": "pad-rose-pad",
+    "address": "0xC6C3cc84EabD4643C382C988fA2830657fc70a6B",
+    "decimals": "1e18",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x885f8CF6E45bdd3fdcDc644efdcd0AC93880c781",
+      "oracle": "tokens",
+      "oracleId": "PAD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdcD6D4e2B3e1D1E1E6Fa8C21C8A323DcbecfF970",
+      "oracle": "tokens",
+      "oracleId": "ROSE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pad-near-pad",
+    "address": "0xc374776Cf5C497Adeef6b505588b00cB298531FD",
+    "decimals": "1e18",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x885f8CF6E45bdd3fdcDc644efdcd0AC93880c781",
+      "oracle": "tokens",
+      "oracleId": "PAD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
     "name": "netswap-bifi-metis",
     "address": "0x89D433e8cCC871B3f12EA17b651ff3633DFb5DC0",
     "decimals": "1e18",

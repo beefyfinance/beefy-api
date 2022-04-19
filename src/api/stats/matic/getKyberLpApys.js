@@ -8,6 +8,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/kyberLpPools.json');
 const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
 const { getVariableTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { kyberClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -22,7 +23,7 @@ const getKyberLpApys = async () => {
   const { farmAprs, tradingAprs, tradingFees } = await getAprs();
 
   return await getApyBreakdown(farmAprs, tradingAprs, tradingFees);
-}
+};
 
 const getAprs = async () => {
   const farmAprs = [];
@@ -34,7 +35,11 @@ const getAprs = async () => {
   const secondsPerBlock = await getBlockTime(137);
 
   const pairAddresses = pools.map(pool => pool.lp0.address.concat('_', pool.lp1.address));
-  const fetchedTradingAprs = await getVariableTradingFeeApr(kyberClient, pairAddresses, tradingFees);
+  const fetchedTradingAprs = await getVariableTradingFeeApr(
+    kyberClient,
+    pairAddresses,
+    tradingFees
+  );
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -42,9 +47,7 @@ const getAprs = async () => {
     const stakedPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
-    const poolBlockRewards = blockRewards
-      .times(allocPoints[i])
-      .dividedBy(totalAllocPoint);
+    const poolBlockRewards = blockRewards.times(allocPoints[i]).dividedBy(totalAllocPoint);
 
     const secondsPerYear = 31536000;
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
@@ -58,21 +61,21 @@ const getAprs = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const blockRewards = new BigNumber(await masterchefContract.methods.rwdPerBlock().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoints().call());
   return { blockRewards, totalAllocPoint };
 };
 
 const getPoolsData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContract(MasterChef, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID));
 
   const balanceCalls = [];
   const allocPointsCalls = [];
   const tradingFeeCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(DMMPool, pool.address);
+    const tokenContract = getContract(DMMPool, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });
@@ -135,6 +138,6 @@ const getApyBreakdown = async (farmAprs, tradingAprs, tradingFees) => {
     apys,
     apyBreakdowns,
   };
-}
+};
 
 module.exports = getKyberLpApys;

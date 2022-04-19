@@ -5,12 +5,13 @@ const PeraToken = require('../../../../abis/degens/PeraToken.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/degens/peraLpPools.json');
 const { compound } = require('../../../../utils/compound');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const getPeraApys = async () => {
   const pera = '0xb9D8592E16A9c1a3AE6021CDDb324EaC1Cbc70d6';
   const pool = pools[0];
 
-  const peraContract = new web3.eth.Contract(PeraToken, pera);
+  const peraContract = getContractWithProvider(PeraToken, pera, web3);
   const multiplier = new BigNumber(await peraContract.methods.LPRewardMultiplier().call());
   const rate = new BigNumber(await peraContract.methods.blockRewardLP().call());
   const totalStakedLP = new BigNumber(await peraContract.methods.totalStakedLP().call());

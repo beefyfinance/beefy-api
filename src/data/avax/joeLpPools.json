@@ -361,25 +361,6 @@
     }
   },
   {
-    "name": "joe-link.e-usdt.e",
-    "address": "0x59E4e5501764a293B829902D9CF01967FA80eff2",
-    "decimals": "1e18",
-    "poolId": 34,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x5947BB275c521040051D82396192181b413227A3",
-      "oracle": "tokens",
-      "oracleId": "LINK.e",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
-      "oracle": "tokens",
-      "oracleId": "USDT.e",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "joe-link.e-usdc.e",
     "address": "0xb9f425bC9AF072a91c423e31e9eb7e04F226B39D",
     "decimals": "1e18",
@@ -395,25 +376,6 @@
       "address": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
       "oracle": "tokens",
       "oracleId": "USDC.e",
-      "decimals": "1e6"
-    }
-  },
-  {
-    "name": "joe-weth.e-usdt.e",
-    "address": "0xbe1b87f47fDE3F338Aa3AA98b85435e1709dFD06",
-    "decimals": "1e18",
-    "poolId": 33,
-    "chainId": 43114,
-    "lp0": {
-      "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
-      "oracle": "tokens",
-      "oracleId": "WETH.e",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
-      "oracle": "tokens",
-      "oracleId": "USDT.e",
       "decimals": "1e6"
     }
   },
