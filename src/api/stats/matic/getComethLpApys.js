@@ -8,6 +8,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/comethLpPools.json');
 const { BASE_HPY, POLYGON_CHAIN_ID, COMETH_LPF } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+import { getContract } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { comethClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -85,11 +86,11 @@ const getPoolsData = async pools => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(pool.rewardPool),
     });
-    const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
+    const rewardPool = getContract(IRewardPool, pool.rewardPool);
     rewardRateCalls.push({
       rewardRate: rewardPool.methods.rewardRate(),
     });

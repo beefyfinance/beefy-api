@@ -1,7 +1,8 @@
-const axios = require('axios');
+const fetch = require('node-fetch');
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../../utils/web3');
 
+import { getContractWithProvider } from '../../../../utils/contractHelper';
 import getApyBreakdown from '../../common/getApyBreakdown';
 
 const fetchPrice = require('../../../../utils/fetchPrice');
@@ -40,9 +41,11 @@ const getEllipsisLpApys = async () => {
 const getBaseApys = async () => {
   let apys = {};
   try {
-    const response = await axios.get('https://api.ellipsis.finance/api/getPools');
-    const basePools = response.data.data.basePools ?? [];
-    const metaPools = response.data.data.metaPools ?? [];
+    const response = await fetch('https://api.ellipsis.finance/api/getPools').then(res =>
+      res.json()
+    );
+    const basePools = response.data.basePools ?? [];
+    const metaPools = response.data.metaPools ?? [];
     const pools = [...basePools, ...metaPools];
     pools.forEach(pool => {
       const apy = new BigNumber((pool.apy ?? 0) / 100);
@@ -55,7 +58,7 @@ const getBaseApys = async () => {
 };
 
 const getPoolData = async () => {
-  const rewardPool = new web3.eth.Contract(EllipsisLpStaker, stakingPool);
+  const rewardPool = getContractWithProvider(EllipsisLpStaker, stakingPool, web3);
   const poolLength = await rewardPool.methods.poolLength().call();
 
   const poolsData = [poolLength];
@@ -65,7 +68,7 @@ const getPoolData = async () => {
     let price = 1;
     if (oracleIndex !== '0') {
       const oracleAddress = await rewardPool.methods.oracles(oracleIndex).call();
-      const oracle = new web3.eth.Contract(EllipsisOracle, oracleAddress);
+      const oracle = getContractWithProvider(EllipsisOracle, oracleAddress, web3);
       price = new BigNumber(await oracle.methods.latestAnswer().call()).dividedBy('1e8');
     }
     allocPoint = new BigNumber(allocPoint);
@@ -117,7 +120,7 @@ const getRewards = async pool => {
   if (!pool.lp || !pool.rewards) return new BigNumber(0);
 
   let totalRewards = new BigNumber(0);
-  const rewards = new web3.eth.Contract(EllipsisRewardToken, pool.lp);
+  const rewards = getContractWithProvider(EllipsisRewardToken, pool.lp, web3);
   for (const reward of pool.rewards) {
     let { rewardRate, periodFinish } = await rewards.methods.rewardData(reward.token).call();
     if (Number(periodFinish) < Date.now() / 1000) {

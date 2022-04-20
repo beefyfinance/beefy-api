@@ -10,6 +10,7 @@ const pools = require('../../../data/aurora/trisolarisMiniLpPools.json');
 const { BASE_HPY, AURORA_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 const {
   aurora: {
     platforms: {
@@ -53,7 +54,7 @@ const getTriMinichefApys = async () => {
         return 0;
       } else {
         const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-        const rewarderContract = new web3.eth.Contract(SimpleRewarder, rewarders[i]);
+        const rewarderContract = getContractWithProvider(SimpleRewarder, rewarders[i], web3);
         const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerBlock().call());
         const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
         return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
@@ -97,20 +98,20 @@ const getTriMinichefApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const rewardPerSecond = new BigNumber(await masterchefContract.methods.triPerBlock().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContract(MasterChef, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(AURORA_CHAIN_ID));
   const balanceCalls = [];
   const poolInfoCalls = [];
   const rewarderCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });

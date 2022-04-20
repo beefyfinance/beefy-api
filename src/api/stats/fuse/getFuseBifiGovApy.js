@@ -5,6 +5,7 @@ const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const ERC20 = require('../../../abis/ERC20.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 const {
   fuse: {
     platforms: {
@@ -43,7 +44,7 @@ const getFuseBifiGovApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const nativePrice = await fetchPrice({ oracle: ORACLE, id: 'WFUSE' });
 
-  const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
+  const rewardPool = getContractWithProvider(IRewardPool, REWARDS, web3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(nativePrice).dividedBy(DECIMALS);
@@ -54,7 +55,7 @@ const getYearlyRewardsInUsd = async () => {
 const getTotalStakedInUsd = async () => {
   const web3 = web3Factory(122);
 
-  const tokenContract = new web3.eth.Contract(ERC20, BIFI.address);
+  const tokenContract = getContractWithProvider(ERC20, BIFI.address, web3);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(REWARDS).call());
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: ORACLE_ID });
 

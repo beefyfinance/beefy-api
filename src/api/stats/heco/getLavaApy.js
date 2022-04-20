@@ -4,6 +4,7 @@ const { hecoWeb3: web3 } = require('../../../utils/web3');
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const oracle = 'tokens';
 const oracleId = 'LAVA';
@@ -25,7 +26,7 @@ const getLavaApy = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const tokenContract = new web3.eth.Contract(IRewardPool, lavaRewardPool);
+  const tokenContract = getContractWithProvider(IRewardPool, lavaRewardPool, web3);
   const totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
@@ -34,7 +35,7 @@ const getTotalStakedInUsd = async () => {
 const getYearlyRewardsInUsd = async () => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 
-  const rewardPool = new web3.eth.Contract(IRewardPool, lavaRewardPool);
+  const rewardPool = getContractWithProvider(IRewardPool, lavaRewardPool, web3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);

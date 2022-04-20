@@ -4,8 +4,6 @@ import { getMasterChefApys } from '../common/getMasterChefApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
 
-import axios from 'axios';
-import BigNumber from 'bignumber.js';
 import MasterChefAbi from '../../../abis/matic/MaiFarmChef.json';
 const mai = addressBook.avax.platforms.mai;
 

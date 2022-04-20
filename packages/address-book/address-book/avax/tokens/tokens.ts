@@ -26,6 +26,30 @@ const _tokens = {
     description:
       'beJOE is a Beefy-wrapped version of veJOE. Holding beJOE will be a great way to earn a bunch of JOE. Beefy will max out emissions on boosted farms, 5% of emissions will then be distributed to beJOE stakers on Beefy.',
   },
+  YETI: {
+    name: 'Yeti YETI',
+    symbol: 'YETI',
+    address: '0x77777777777d4554c39223C354A05825b2E8Faa3',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://1786218689-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4OftjbgGWmJOiwFRkFKr%2Fuploads%2FQWL5FOA2bShRZVnkrVL9%2Fyetitoken.png?alt=media&token=7e2a9b4a-4682-4438-ba58-9196e6cfcdc4',
+    website: 'https://yeti.finance/',
+    description:
+      'The best borrowing experience on Avalanche. Borrow against your entire Avalanche portfolio interest-free.',
+  },
+  YUSD: {
+    name: 'Yeti YUSD',
+    symbol: 'YUSD',
+    address: '0x111111111111ed1D73f860F57b2798b683f2d325',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://1786218689-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4OftjbgGWmJOiwFRkFKr%2Fuploads%2FxBkrBV3R1T4fxCWIY2qJ%2Fyusdtoken.png?alt=media&token=a5acaa5c-a32b-480e-930b-5bd3def36adc',
+    website: 'https://yeti.finance/',
+    description:
+      'The best borrowing experience on Avalanche. Borrow against your entire Avalanche portfolio interest-free.',
+  },
   LOST: {
     name: 'Lost Worlds LOST',
     symbol: 'LOST',
@@ -3438,13 +3462,24 @@ const _tokens = {
   },
   USDT: {
     chainId: 43114,
-    address: '0xde3A24028580884448a5397872046a019649b084',
+    address: '0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7',
     decimals: 6,
-    name: 'Tether USD',
+    name: 'Tether USD (native)',
     symbol: 'USDT',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    logoURI: 'https://snowtrace.io/token/images/tether_32.png',
+  },
+  USDTo: {
+    chainId: 43114,
+    address: '0xde3A24028580884448a5397872046a019649b084',
+    decimals: 6,
+    name: 'Tether USD (bridged)',
+    symbol: 'USDTo',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem. From Avalanche Bridge.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
   },
@@ -4219,23 +4254,11 @@ const _tokens = {
     chainId: 43114,
     address: '0xc7198437980c041c805A1EDcbA50c1Ce5db95118',
     decimals: 6,
-    name: 'Tether USD',
-    symbol: 'USDT',
+    name: 'Tether USD (eth bridged)',
+    symbol: 'USDTe',
     website: 'https://tether.to/',
     description:
-      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
-    logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
-  },
-  'USDT-Tether USD': {
-    chainId: 43114,
-    address: '0xde3A24028580884448a5397872046a019649b084',
-    decimals: 6,
-    name: 'Tether USD',
-    symbol: 'USDT',
-    website: 'https://tether.to/',
-    description:
-      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.  This version is bridged from Ethereum.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
   },

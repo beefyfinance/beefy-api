@@ -19,7 +19,7 @@
     }
   },
   {
-    "name": "stellaswap-axlatom-usdc",
+    "name": "stellaswap-atom-usdc",
     "address": "0x051FcF8986B30860a1341e0031e5622Bd18d8A85",
     "decimals": "1e18",
     "poolId": 6,

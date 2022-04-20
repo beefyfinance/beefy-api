@@ -7,6 +7,7 @@ import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchStargatePrices } from '../../utils/fetchStargatePrices';
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
+import { getKey, setKey } from '../../utils/redisHelper';
 
 import getNonAmmPrices from './getNonAmmPrices';
 import bakeryPools from '../../data/bakeryLpPools.json';
@@ -15,6 +16,7 @@ import alpacaLpPools from '../../data/alpacaLpPools.json';
 import cafePools from '../../data/cafeLpPools.json';
 import cakeLpPools from '../../data/cakeLpPools.json';
 import cakeLpV1Pools from '../../data/cakeLpV1Pools.json';
+import cakeLpPoolsV2 from '../../data/cakeLpPoolsV2.json';
 import kebabPools from '../../data/kebabLpPools.json';
 import bdollarSbdoPools from '../../data/bdollarSbdoLpPools.json';
 import boltBtdPools from '../../data/boltBtdLpPools.json';
@@ -222,13 +224,17 @@ import bombSwapPools from '../../data/fantom/bombSwapPools.json';
 import empLpPools from '../../data/degens/empLpPools.json';
 import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import joeBoostedLpPools from '../../data/avax/joeBoostedLpPools.json';
+import spookyV2LpPools from '../../data/fantom/spookyV2LpPools.json';
+import valasLpPools from '../../data/valasLpPools.json';
 
-const INIT_DELAY = 0 * 60 * 1000;
+const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...valasLpPools,
+  ...spookyV2LpPools,
   ...vvsDualPools,
   ...joeBoostedLpPools,
   ...empLpPools,
@@ -437,6 +443,7 @@ const pools = [
   ...narPools,
   ...nyacashPools,
   ...thugsPools,
+  ...cakeLpPoolsV2,
   ...cakeLpV1Pools,
   ...cakeLpPools,
 ];
@@ -463,6 +470,7 @@ const knownPrices = {
   USDN: 1,
   cUSD: 1,
   asUSDC: 1,
+  USTaxl: 1,
 };
 
 let tokenPricesCache: Promise<any>;
@@ -470,6 +478,7 @@ let lpPricesCache: Promise<any>;
 
 const updateAmmPrices = async () => {
   console.log('> updating amm prices');
+  let start = Date.now();
   try {
     const coinGeckoPrices = fetchCoinGeckoPrices(coinGeckoCoins);
     const ammPrices = fetchAmmPrices(pools, knownPrices);
@@ -534,7 +543,8 @@ const updateAmmPrices = async () => {
     console.error(err);
   } finally {
     setTimeout(updateAmmPrices, REFRESH_INTERVAL);
-    console.log('> updated amm prices');
+    console.log(`> updated amm prices (${(Date.now() - start) / 1000}s)`);
+    saveToRedis();
   }
 };
 
@@ -562,11 +572,26 @@ export const getAmmLpPrice = async lpName => {
   console.error(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
 };
 
-const init =
-  // Flexible delayed initialization used to work around ratelimits
-  new Promise((resolve, reject) => {
-    setTimeout(resolve, INIT_DELAY);
-  }).then(updateAmmPrices);
+export const initPriceService = async () => {
+  const tokenPrices = await getKey('TOKEN_PRICES');
+  const lpPrices = await getKey('LP_PRICES');
 
-tokenPricesCache = init.then(({ tokenPrices, lpPrices }) => tokenPrices);
-lpPricesCache = init.then(({ tokenPrices, lpPrices }) => lpPrices);
+  const init =
+    // Flexible delayed initialization used to work around ratelimits
+    new Promise((resolve, reject) => {
+      setTimeout(resolve, INIT_DELAY);
+    }).then(updateAmmPrices);
+
+  tokenPricesCache = tokenPrices
+    ? Promise.resolve(tokenPrices)
+    : init.then(({ tokenPrices, lpPrices }) => tokenPrices);
+  lpPricesCache = lpPrices
+    ? Promise.resolve(lpPrices)
+    : init.then(({ tokenPrices, lpPrices }) => lpPrices);
+};
+
+const saveToRedis = async () => {
+  await setKey('TOKEN_PRICES', await tokenPricesCache);
+  await setKey('LP_PRICES', await lpPricesCache);
+  console.log('Prices saved to redis');
+};

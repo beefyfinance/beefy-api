@@ -1,24 +1,24 @@
 [
   {
-    "name": "png-wavax-lost",
-    "address": "0x8461681211B49c15e20B3Cfd4c63BE258878B7D9",
+    "name": "png-png-ustw",
+    "address": "0x2a0f65C76008EcBC469b0850454E57310E770557",
     "decimals": "1e18",
-    "poolId": 105,
+    "poolId": 101,
     "chainId": 43114,
     "oracleB": "tokens",
-    "oracleIdB": "LOST",
-    "decimalsB": "1e18",
+    "oracleIdB": "USTw",
+    "decimalsB": "1e6",
     "lp0": {
-      "address": "0x449674B82F05d498E126Dd6615a1057A9c088f2C",
+      "address": "0x60781C2586D68229fde47564546784ab3fACA982",
       "oracle": "tokens",
-      "oracleId": "LOST",
+      "oracleId": "PNG",
       "decimals": "1e18"
     },
     "lp1": {
-      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "address": "0xb599c3590F42f8F995ECfa0f85D2980B76862fc1",
       "oracle": "tokens",
-      "oracleId": "WAVAX",
-      "decimals": "1e18"
+      "oracleId": "USTw",
+      "decimals": "1e6"
     }
   },
   {

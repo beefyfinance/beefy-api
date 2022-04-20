@@ -3,6 +3,7 @@ const { bscWeb3: web3 } = require('../../../../utils/web3');
 
 const BeltLP = require('../../../../abis/BeltLP.json');
 const BeltMultiStrategyToken = require('../../../../abis/BeltMultiStrategyToken.json');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const DECIMALS = '1e18';
 
@@ -28,9 +29,10 @@ const getBeltPrices = async tokenPrices => {
 };
 
 const getBeltVenusLpPrice = async () => {
-  const beltLPContract = new web3.eth.Contract(
+  const beltLPContract = getContractWithProvider(
     BeltLP,
-    '0xF16D312d119c13dD27fD0dC814b0bCdcaAa62dfD'
+    '0xF16D312d119c13dD27fD0dC814b0bCdcaAa62dfD',
+    web3
   );
   let tokenPrice = new BigNumber(await beltLPContract.methods.get_virtual_price().call());
   tokenPrice = Number(tokenPrice.dividedBy(DECIMALS).toFixed(6));
@@ -39,9 +41,10 @@ const getBeltVenusLpPrice = async () => {
 };
 
 const getBelt4BeltLpPrice = async () => {
-  const beltLPContract = new web3.eth.Contract(
+  const beltLPContract = getContractWithProvider(
     BeltLP,
-    '0xAEA4f7dcd172997947809CE6F12018a6D5c1E8b6'
+    '0xAEA4f7dcd172997947809CE6F12018a6D5c1E8b6',
+    web3
   );
   let tokenPrice = new BigNumber(await beltLPContract.methods.get_virtual_price().call());
   tokenPrice = Number(tokenPrice.dividedBy(DECIMALS).toFixed(6));
@@ -50,7 +53,7 @@ const getBelt4BeltLpPrice = async () => {
 };
 
 const getBeltTokenPrice = async (beltToken, tokenPrices) => {
-  const beltContract = new web3.eth.Contract(BeltMultiStrategyToken, beltToken.address);
+  const beltContract = getContractWithProvider(BeltMultiStrategyToken, beltToken.address, web3);
   let sharePrice = new BigNumber(await beltContract.methods.getPricePerFullShare().call());
 
   let tokenPrice;

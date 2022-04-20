@@ -7,6 +7,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pool = require('../../../data/fantom/spookySinglePool.json');
 const { BASE_HPY } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
+import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { getYearlyPlatformTradingFees } = require('../../../utils/getTradingFeeApr');
 const { spookyClient } = require('../../../apollo/client');
@@ -28,7 +29,7 @@ const getSpookyBooApy = async () => {
   const BOOPrice = await fetchPrice({ oracle, id: oracleId });
   const { balance, rewardRate } = await getPoolData();
 
-  const BOOContract = new web3.eth.Contract(ERC20, BOO);
+  const BOOContract = getContractWithProvider(ERC20, BOO, web3);
   const totalStakedInxBOO = await BOOContract.methods.balanceOf(xBOO).call();
   const totalStakedInxBOOInUsd = new BigNumber(totalStakedInxBOO)
     .times(BOOPrice)
@@ -76,7 +77,7 @@ const getSpookyBooApy = async () => {
 };
 
 const getPoolData = async () => {
-  const xBOOChef = new web3.eth.Contract(xBOOChefAbi, xBOOChefAddress);
+  const xBOOChef = getContractWithProvider(xBOOChefAbi, xBOOChefAddress, web3);
   const rewardPool = await xBOOChef.methods.poolInfo(pool.poolId).call();
   const rewardRate = new BigNumber(rewardPool.RewardPerSecond);
   const balance = new BigNumber(rewardPool.xBooStakedAmount);

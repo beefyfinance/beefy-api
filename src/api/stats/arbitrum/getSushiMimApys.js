@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
-const { arbitrumWeb3: web3, multicallAddress } = require('../../../utils/web3');
+const { arbitrumWeb3: web3, multicallAddress, arbitrumWeb3 } = require('../../../utils/web3');
 
 const SushiMiniChefV2 = require('../../../abis/matic/SushiMiniChefV2.json');
 const SushiComplexRewarderTime = require('../../../abis/matic/SushiComplexRewarderTime.json');
@@ -10,6 +10,7 @@ const pools = require('../../../data/arbitrum/sushiLpMimPools.json');
 const { ARBITRUM_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
 const { getTradingFeeAprSushi: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { sushiArbitrumClient } = require('../../../apollo/client');
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import getApyBreakdown from '../common/getApyBreakdown';
 
 const minichef = '0xF4d73326C13a4Fc5FD7A064217e12780e9Bd62c3';
@@ -29,7 +30,7 @@ const getSushiMimApys = async () => {
 
 const getFarmApys = async pools => {
   const apys = [];
-  const minichefContract = new web3.eth.Contract(SushiMiniChefV2, minichef);
+  const minichefContract = getContractWithProvider(SushiMiniChefV2, minichef, web3);
   const sushiPerSecond = new BigNumber(await minichefContract.methods.sushiPerSecond().call());
   const totalAllocPoint = new BigNumber(await minichefContract.methods.totalAllocPoint().call());
 
@@ -45,7 +46,7 @@ const getFarmApys = async pools => {
     const pool = pools[i];
     const spellPrice = await fetchPrice({ oracle, id: pool.secondOracleId });
 
-    const rewardContract = new web3.eth.Contract(SushiComplexRewarderTime, pool.rewarder);
+    const rewardContract = getContractWithProvider(SushiComplexRewarderTime, pool.rewarder, web3);
     const rewardPerSecond = new BigNumber(await rewardContract.methods.rewardPerSecond().call());
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
@@ -65,12 +66,12 @@ const getFarmApys = async pools => {
 };
 
 const getPoolsData = async pools => {
-  const minichefContract = new web3.eth.Contract(SushiMiniChefV2, minichef);
+  const minichefContract = getContract(SushiMiniChefV2, minichef);
 
   const balanceCalls = [];
   const allocPointCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(minichef),
     });

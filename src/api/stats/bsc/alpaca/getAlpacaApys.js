@@ -8,6 +8,7 @@ import AlpacaIbVaultConfig from '../../../../abis/AlpacaIbVaultConfig.json';
 import getCakeV2PoolApy from '../pancake/getCakeV2PoolApy';
 import fetchPrice from '../../../../utils/fetchPrice';
 import getApyBreakdown from '../../common/getApyBreakdown';
+import { getContractWithProvider } from '../../../../utils/contractHelper';
 
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const getYearlyRewardsInUsd = require('./getYearlyRewardsInUsd');
@@ -47,7 +48,7 @@ const getPoolApy = async pool => {
 };
 
 const getLendingApr = async pool => {
-  const ibToken = new web3.eth.Contract(AlpacaIbVault, pool.address);
+  const ibToken = getContractWithProvider(AlpacaIbVault, pool.address, web3);
   let [totalToken, vaultDebtVal, reservePool, configAddress] = await Promise.all([
     ibToken.methods.totalToken().call(),
     ibToken.methods.vaultDebtVal().call(),
@@ -60,7 +61,7 @@ const getLendingApr = async pool => {
   const utilization = vaultDebtVal.div(totalToken);
   const floating = totalToken.minus(vaultDebtVal).plus(new BigNumber(reservePool));
 
-  const config = new web3.eth.Contract(AlpacaIbVaultConfig, configAddress);
+  const config = getContractWithProvider(AlpacaIbVaultConfig, configAddress, web3);
   const rate = new BigNumber(await config.methods.getInterestRate(vaultDebtVal, floating).call());
   const lendingApr = rate.times(31536000).times(0.81).times(utilization).div('1e18');
   // console.log(pool.name, 'lending apr', lendingApr.toNumber());
@@ -71,7 +72,7 @@ const getLendingApr = async pool => {
     const cakeApr = calcApr(cakeApy) / 0.99;
 
     const syrup = '0x009cf7bc57584b7998236eff51b98a168dcea9b0';
-    const tokenContract = new web3.eth.Contract(ERC20, syrup);
+    const tokenContract = getContractWithProvider(ERC20, syrup, web3);
     let promises = [];
     pool.workers.forEach(worker => promises.push(tokenContract.methods.balanceOf(worker).call()));
     const values = await Promise.all(promises);

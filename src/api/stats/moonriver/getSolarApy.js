@@ -3,6 +3,7 @@ const { MultiCall } = require('eth-multicall');
 const { multicallAddress } = require('../../../utils/web3');
 const { moonriverWeb3: web3 } = require('../../../utils/web3');
 import { MOONRIVER_CHAIN_ID as chainId } from '../../../constants';
+import { getContract } from '../../../utils/contractHelper';
 
 const ISolarVault = require('../../../abis/moonriver/ISolarVault.json');
 const fetchPrice = require('../../../utils/fetchPrice');
@@ -36,13 +37,15 @@ const getFarmApys = async pool => {
 
 const getMasterChefData = async pool => {
   const multicall = new MultiCall(web3, multicallAddress(chainId));
-  const masterchefContract = new web3.eth.Contract(ISolarVault, pool.masterchef);
+  const masterchefContract = getContract(ISolarVault, pool.masterchef);
 
-  let calls = [{
-    totalAllocPoint: masterchefContract.methods.totalAllocPoint(),
-    rewardRate: masterchefContract.methods.solarPerBlock(),
-    poolInfo: masterchefContract.methods.poolInfo(pool.poolId),
-  }];
+  let calls = [
+    {
+      totalAllocPoint: masterchefContract.methods.totalAllocPoint(),
+      rewardRate: masterchefContract.methods.solarPerBlock(),
+      poolInfo: masterchefContract.methods.poolInfo(pool.poolId),
+    },
+  ];
 
   const res = await multicall.all([calls]);
 
@@ -52,6 +55,6 @@ const getMasterChefData = async pool => {
   const balance = res[0].map(v => v.poolInfo['6']);
 
   return { totalAllocPoint, rewardRate, allocPoint, balance };
-}
+};
 
 module.exports = { getSolarApy };

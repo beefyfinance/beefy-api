@@ -3,6 +3,7 @@ const { avaxWeb3: web3 } = require('../../../utils/web3');
 
 const LPAbi = require('../../../abis/Snob3LP.json');
 const pools = require('../../../data/avax/gondolaPools.json');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const DECIMALS = '1e18';
 
@@ -23,7 +24,7 @@ const getGondolaPrices = async tokenPrices => {
 
 const getPrice = async (pool, tokenPrices) => {
   const swap = pool.swap;
-  const lpContract = new web3.eth.Contract(LPAbi, swap.address);
+  const lpContract = getContractWithProvider(LPAbi, swap.address, web3);
   const virtualPrice = new BigNumber(await lpContract.methods.getVirtualPrice().call());
 
   let tokenPrice = 1;

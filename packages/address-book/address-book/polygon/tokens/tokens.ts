@@ -27,6 +27,63 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  stMATIC: {
+    name: 'Lido Staked Matic stMATIC',
+    symbol: 'stMATIC',
+    address: '0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/24185/large/stMATIC.png?1646789287/',
+    website: 'https://polygon.lido.fi/',
+    description:
+      'Lido for Polygon is a liquid staking solution for MATIC backed by industry-leading staking providers.',
+  },
+  ONE: {
+    name: 'Wrapped ONE',
+    address: '0x80c0CBDB8d0B190238795d376f0bD57fd40525F2',
+    symbol: 'WONE',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://www.harmony.one/',
+    description:
+      'Harmony is an open and fast blockchain. Our mainnet runs Ethereum applications with 2-second transaction finality and 100 times lower fees.',
+    logoURI:
+      'https://res.cloudinary.com/dnz2bkszg/image/fetch/f_auto/https://raw.githubusercontent.com/sushiswap/icons/master/token/one.jpg',
+  },
+  METIS: {
+    name: 'METIS',
+    address: '0xA863246658DEA34111C3C1DceDb2cfd5d6067334',
+    symbol: 'WMETIS',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://www.metis.io/',
+    description:
+      'METIS IS SOLVING ETHEREUMS SIX BIGGEST CHALLENGES. SIMPLICITY. SPEED. STORAGE. SCALABILITY. SECURITY. SAVINGS.',
+    logoURI: '',
+  },
+  NEAR: {
+    name: 'NEAR',
+    symbol: 'NEAR',
+    address: '0x72bd80445b0db58ebe3E8dB056529D4C5FAF6F2f',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d.svg',
+    website: 'https://near.org/',
+    description:
+      'Through simple, secure, and scalable technology, NEAR empowers millions to invent and explore new experiences. Business, creativity, and community are being reimagined for a more sustainable and inclusive future.',
+  },
+  CEL: {
+    name: 'Celsius CEL',
+    symbol: 'CEL',
+    address: '0xD85d1e945766Fea5Eda9103F918Bd915FbCa63E6',
+    chainId: 137,
+    decimals: 4,
+    website: 'https://celsius.network/',
+    description:
+      "An economy where financial freedom doesn't come with a price tag.  Our goal is to disrupt the financial industry, one happy user at a time, and introduce financial freedom through crypto.",
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/2700.png',
+  },
   PAR: {
     name: 'PAR Stablecoin',
     symbol: 'PAR',
@@ -49,16 +106,16 @@ const _tokens = {
       'EURS token is a virtual financial asset that is designed to digitally mirror the EURO on the condition that its value is tied to the value of its collateral.',
     logoURI: 'https://assets.coingecko.com/coins/images/5164/small/EURS_300x300.png?1550571779',
   },
-  EURT: {
+  EURt: {
     name: 'Euro Tether',
-    symbol: 'EURT',
+    symbol: 'EURt',
     address: '0x7BDF330f423Ea880FF95fC41A280fD5eCFD3D09f',
     chainId: 137,
     decimals: 6,
     website: 'https://tether.to/en/',
-    description:
-      'Euro Tether token (EURt) is the first euro-pegged stablecoin pegged to the Euro.',
-    logoURI: 'https://assets.coingecko.com/coins/images/17385/small/Tether_full_logo_dm.png?1627537298',
+    description: 'Euro Tether token (EURt) is the first euro-pegged stablecoin pegged to the Euro.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/17385/small/Tether_full_logo_dm.png?1627537298',
   },
   renBTC: {
     name: 'renBTC',

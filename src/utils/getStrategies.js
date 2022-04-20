@@ -2,6 +2,7 @@ const { MultiCall } = require('eth-multicall');
 const { multicallAddress } = require('./web3');
 const { _web3Factory } = require('./web3Helpers');
 import { ChainId } from '../../packages/address-book/address-book';
+import { getContract } from './contractHelper';
 
 const BATCH_SIZE = 128;
 
@@ -18,7 +19,7 @@ const getStrategies = async (vaults, chain) => {
     const strategyCalls = [];
     let batch = query.slice(i, i + BATCH_SIZE);
     for (let j = 0; j < batch.length; j++) {
-      const vaultContract = new web3.eth.Contract(vaultAbi, batch[j]);
+      const vaultContract = getContract(vaultAbi, batch[j]);
       strategyCalls.push({
         strategy: vaultContract.methods.strategy(),
       });

@@ -4,6 +4,7 @@ const { bscWeb3: web3 } = require('../../../../utils/web3');
 const BetuStaking = require('../../../../abis/degens/BetuStaking.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const stakingPool = '0x8a3030e494a9c0FF12F46D0ce3F1a610dCe9B2eD';
 const oracleId = 'BETU';
@@ -13,7 +14,7 @@ const BLOCKS_PER_DAY = 28800;
 
 const getBetuApys = async () => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const rewardPool = new web3.eth.Contract(BetuStaking, stakingPool);
+  const rewardPool = getContractWithProvider(BetuStaking, stakingPool, web3);
 
   const [rewardPerBlock, totalStaked] = await Promise.all([
     rewardPool.methods.rewardPerBlock().call(),

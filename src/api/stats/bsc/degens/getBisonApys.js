@@ -8,6 +8,7 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 const { apeClient } = require('../../../../apollo/client');
 import { APE_LPF } from '../../../../constants';
+import { getContractWithProvider } from '../../../../utils/contractHelper';
 import getApyBreakdown from '../../common/getApyBreakdown';
 
 const oracleId = 'BISON';
@@ -48,14 +49,14 @@ const getPoolApy = async pool => {
 };
 
 const getTotalStakedInUsd = async pool => {
-  const contract = new web3.eth.Contract(ERC20, pool.address);
+  const contract = getContractWithProvider(ERC20, pool.address, web3);
   const staked = new BigNumber(await contract.methods.balanceOf(pool.rewardPool).call());
   const price = await fetchPrice({ oracle: pool.oracle || 'lps', id: pool.oracleId || pool.name });
   return staked.times(price).dividedBy(pool.decimals);
 };
 
 const getYearlyRewardsInUsd = async pool => {
-  const contract = new web3.eth.Contract(BisonRewardPool, pool.rewardPool);
+  const contract = getContractWithProvider(BisonRewardPool, pool.rewardPool, web3);
 
   const rewardPerBlock = new BigNumber(await contract.methods.rewardPerBlock().call());
 

@@ -14,6 +14,7 @@ import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFees
 const { vvsClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import getBlockTime from '../../../utils/getBlockTime';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 const masterchef = '0xDccd6455AE04b03d785F12196B492b18129564bc';
 const masterchefV2 = '0xbc149c62EFe8AFC61728fC58b1b66a0661712e76';
@@ -98,22 +99,22 @@ const getVvsDualApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const rewardPerSecond = new BigNumber(await masterchefContract.methods.vvsPerBlock().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
-  const masterchefV2Contract = new web3.eth.Contract(MasterChefV2, masterchefV2);
+  const masterchefContract = getContract(MasterChef, masterchef);
+  const masterchefV2Contract = getContract(MasterChefV2, masterchefV2);
   const multicall = new MultiCall(web3, multicallAddress(CRONOS_CHAIN_ID));
   const balanceCalls = [];
   const poolInfoCalls = [];
   const tokenPerSecCalls = [];
   const rewarderCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20, pool.address);
+    const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(masterchef),
     });
@@ -134,7 +135,7 @@ const getPoolsData = async pools => {
   const rewarders = res[2].map(v => v.rewarder[0]);
 
   rewarders.forEach(rewarder => {
-    let rewarderContract = new web3.eth.Contract(VVSRewarder, rewarder);
+    let rewarderContract = getContract(VVSRewarder, rewarder);
     let tokenPerSec = rewarderContract.methods.rewardPerSecond();
     tokenPerSecCalls.push({
       tokenPerSec: tokenPerSec,
