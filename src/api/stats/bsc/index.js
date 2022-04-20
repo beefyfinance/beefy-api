@@ -38,9 +38,8 @@ const getApys = [
   getBiswapApys,
   getCakeApys,
   getCakePoolApy,
-  getCakeLpApys,
-  // TODO enable when live
-  // getCakeLpV2Apys,
+  // getCakeLpApys,
+  getCakeLpV2Apys,
   getCakeV2PoolApy,
   getDegensLpApys,
   getEllipsisLpApys,

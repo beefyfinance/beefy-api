@@ -22,7 +22,7 @@ const secondsPerBlock = 3;
 const secondsPerYear = 31536000;
 
 const pancakeLiquidityProviderFee = PCS_LPF;
-const beefyPerformanceFee = 0.045;
+const beefyPerformanceFee = 0.095; // 0.045 beefy fees + 0.05 single Cake fee
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 export const getCakeLpV2Apys = async () => {
@@ -52,7 +52,7 @@ export const getCakeLpV2Apys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-    // console.log("cake v2", pool.name, simpleApy.valueOf(), allocPoints[i].valueOf(), totalAllocPoint.valueOf(), blockRewards.valueOf())
+    // console.log(pool.name, totalStakedInUsd.valueOf(), yearlyRewards.valueOf(), yearlyRewardsInUsd.valueOf(),  simpleApy.valueOf(), allocPoints[i].valueOf(), totalAllocPoint.valueOf(), poolBlockRewards.valueOf())
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
@@ -86,9 +86,7 @@ export const getCakeLpV2Apys = async () => {
 
 const getMasterChefData = async () => {
   const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const blockRewards = new BigNumber(
-    await masterchefContract.methods.cakeRateToRegularFarm().call()
-  );
+  const blockRewards = new BigNumber(await masterchefContract.methods.cakePerBlock(true).call());
   const totalAllocPoint = new BigNumber(
     await masterchefContract.methods.totalRegularAllocPoint().call()
   );
