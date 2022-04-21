@@ -22,6 +22,28 @@
     }
   },
   {
+    "name": "png-wavax-lost",
+    "address": "0x8461681211B49c15e20B3Cfd4c63BE258878B7D9",
+    "decimals": "1e18",
+    "poolId": 105,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "LOST",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0x449674B82F05d498E126Dd6615a1057A9c088f2C",
+      "oracle": "tokens",
+      "oracleId": "LOST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-png-ustw",
     "address": "0x2a0f65C76008EcBC469b0850454E57310E770557",
     "decimals": "1e18",
