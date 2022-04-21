@@ -50,6 +50,17 @@ const _tokens = {
     description:
       'The best borrowing experience on Avalanche. Borrow against your entire Avalanche portfolio interest-free.',
   },
+  axlATOM: {
+    name: 'Axelar Wrapped ATOM',
+    symbol: 'ATOM',
+    address: '0x80D18b1c9Ab0c9B5D6A6d5173575417457d00a12',
+    chainId: 43114,
+    decimals: 6,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3794.png',
+    website: 'https://cosmos.network/',
+    description:
+      'The Internet of Blockchains. Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+  },
   LOST: {
     name: 'Lost Worlds LOST',
     symbol: 'LOST',
