@@ -27,6 +27,16 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  '4EUR': {
+    name: 'Curve Factory 4EUR',
+    symbol: '4EUR',
+    address: '0xAd326c253A84e9805559b73A08724e11E49ca651',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://polygon.curve.fi',
+    description: 'Curves Factory 4EUR Pool',
+  },
   beQI: {
     name: 'Beefy QI',
     symbol: 'beQI',
