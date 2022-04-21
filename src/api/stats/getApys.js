@@ -35,7 +35,7 @@ const updateApys = async () => {
       getMaticApys(),
       getAvaxApys(),
       getFantomApys(),
-      getHecoApys(),
+      // getHecoApys(),
       getBSCApys(),
       getOneApys(),
       getArbitrumApys(),
