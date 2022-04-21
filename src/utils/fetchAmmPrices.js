@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const { ethers } = require('ethers');
+const { ethers } = require('ethersv5');
 const { MULTICHAIN_RPC } = require('../constants');
 
 const MULTICALLS = {
