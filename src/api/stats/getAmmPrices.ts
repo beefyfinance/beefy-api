@@ -500,8 +500,11 @@ const updateAmmPrices = async () => {
       return await fetchbeFTMPrice(tokenPrices);
     });
 
-    const beJoePrice = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
-      return { beJOE: tokenPrices['JOE'] };
+    const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+      return {
+        beJOE: tokenPrices['JOE'],
+        beQI: tokenPrices['QI'],
+      };
     });
 
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
@@ -510,7 +513,7 @@ const updateAmmPrices = async () => {
       const mooTokenPrices = await mooPrices;
       const beFtmTokenPrice = await beFtmPrice;
       const stargateTokenPrices = await stargatePrices;
-      const beJoeTokenPrice = await beJoePrice;
+      const beTokenTokenPrice = await beTokenPrice;
       return {
         ...tokenPrices,
         ...dmm.tokenPrices,
@@ -518,7 +521,7 @@ const updateAmmPrices = async () => {
         ...xTokenPrices,
         ...stargateTokenPrices,
         ...beFtmTokenPrice,
-        ...beJoeTokenPrice,
+        ...beTokenTokenPrice,
         ...(await coinGeckoPrices),
       };
     });

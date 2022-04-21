@@ -19,8 +19,12 @@ import { getQuickDualLpApys } from './getQuickDualLpApys';
 import { getJarvisApys } from './getJarvisApys';
 const getPopsicleApys = require('./getPopsicleApys');
 const getStargateApys = require('./getStargatePolygonApys');
+const getbeQiApy = require('./getbeQiApy');
+const getbeQiEarnApy = require('./getbeQiEarnApy');
 
 const getApys = [
+  getbeQiApy,
+  getbeQiEarnApy,
   getComethLpApys,
   getQuickLpApys,
   getQuickSingleApys,
