@@ -38,25 +38,6 @@
     }
   },
   {
-    "name": "solarbeam-ldo-wmovr",
-    "address": "0x28BB6295B389Dc47371d31E67b2D3B7891B33cc4",
-    "decimals": "1e18",
-    "poolId": 14,
-    "chainId": 1285,
-    "lp0": {
-      "address": "0x6Ccf12B480A99C54b23647c995f4525D544A7E72",
-      "oracle": "tokens",
-      "oracleId": "LDO",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
-      "oracle": "tokens",
-      "oracleId": "WMOVR",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "solarbeam-eth-wmovr",
     "address": "0x0d171b55fC8d3BDDF17E376FdB2d90485f900888",
     "decimals": "1e18",

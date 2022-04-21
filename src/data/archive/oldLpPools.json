@@ -1,5 +1,23 @@
 [
   {
+    "name": "quickswap-ldo-wmatic",
+    "address": "0xa0f330f5fc47ee7a3297dbd6be6fe60cd0346b26",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc3c7d422809852031b44ab29eec9f1eff2a58756",
+      "oracle": "tokens",
+      "oracleId": "LDO",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "pad-rose-pad",
     "address": "0xC6C3cc84EabD4643C382C988fA2830657fc70a6B",
     "decimals": "1e18",
