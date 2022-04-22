@@ -75,16 +75,16 @@
     "oracleIdB": "NEAR",
     "decimalsB": "1e24",
     "lp0": {
-      "address": "0xdcD6D4e2B3e1D1E1E6Fa8C21C8A323DcbecfF970",
-      "oracle": "tokens",
-      "oracleId": "ROSE",
-      "decimals": "1e18"
-    },
-    "lp1": {
       "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
       "oracle": "tokens",
       "oracleId": "NEAR",
       "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0xdcD6D4e2B3e1D1E1E6Fa8C21C8A323DcbecfF970",
+      "oracle": "tokens",
+      "oracleId": "ROSE",
+      "decimals": "1e18"
     }
   },
   {
