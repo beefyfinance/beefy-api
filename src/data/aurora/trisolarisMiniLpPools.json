@@ -110,6 +110,28 @@
     }
   },
   {
+    "name": "tri-stnear-near",
+    "address": "0x47924Ae4968832984F4091EEC537dfF5c38948a4",
+    "decimals": "1e18",
+    "poolId": 12,
+    "oracleB": "tokens",
+    "oracleIdB": "NEAR",
+    "decimalsB": "1e24",
+    "chainId": 1313161554,
+    "lp0": {
+      "address": "0x07F9F7f963C5cD2BBFFd30CcfB964Be114332E30",
+      "oracle": "tokens",
+      "oracleId": "STNEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
     "name": "tri-solace-near",
     "address": "0xdDAdf88b007B95fEb42DDbd110034C9a8e9746F2",
     "decimals": "1e18",
