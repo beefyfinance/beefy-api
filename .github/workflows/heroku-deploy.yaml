@@ -3,7 +3,7 @@ name: Deploy
 on:
   push:
     branches:
-      - herokudeploy
+      - prod
 
 jobs:
   deploy:
@@ -13,5 +13,5 @@ jobs:
       - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
         with:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "memory-leak-api-test" #Must be unique in Heroku
-          heroku_email: "chebin@beefy.com"
+          heroku_app_name: "beefy-api" #Must be unique in Heroku
+          heroku_email: "devops.cows@pm.me"
