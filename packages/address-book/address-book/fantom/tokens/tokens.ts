@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  USDB: {
+    name: 'USD Balance',
+    symbol: 'UDSB',
+    address: '0x6Fc9383486c163fA48becdEC79d6058f984f62cA',
+    chainId: 250,
+    decimals: 18,
+    website: 'http://www.usdbalance.com/',
+    description:
+      'USDB provides a wide range of financial tools and services to individuals and institutions',
+    logoURI: '',
+  },
   GEL: {
     name: 'Gelato',
     symbol: 'GEL',
