@@ -44,7 +44,6 @@ const start = async () => {
   initBifiBuyBackService();
   app.listen(port);
   console.log(`> beefy-api running! (:${port})`);
-  console.log('also running this branch');
 };
 
 start();
