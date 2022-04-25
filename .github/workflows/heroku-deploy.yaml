@@ -1,4 +1,4 @@
-name: Push actions
+name: Deploy
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - herokudeploy
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
