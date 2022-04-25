@@ -34,7 +34,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "GEL",
+        "oracleId": "gelato",
         "decimals": "1e18"
       }
     ]

@@ -1,5 +1,93 @@
 [
   {
+    "name": "tri-bstn-near",
+    "address": "0xBBf3D4281F10E537d5b13CA80bE22362310b2bf9",
+    "decimals": "1e18",
+    "poolId": 23,
+    "chainId": 1313161554,
+    "oracleB": "tokens",
+    "oracleIdB": "NEAR",
+    "decimalsB": "1e24",
+    "lp0": {
+      "address": "0x9f1F933C660a1DC856F0E0Fe058435879c5CCEf0",
+      "oracle": "tokens",
+      "oracleId": "BSTN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
+    "name": "tri-linear-near",
+    "address": "0xbceA13f9125b0E3B66e979FedBCbf7A4AfBa6fd1",
+    "decimals": "1e18",
+    "poolId": 22,
+    "chainId": 1313161554,
+    "oracleB": "tokens",
+    "oracleIdB": "NEAR",
+    "decimalsB": "1e24",
+    "lp0": {
+      "address": "0x918dBe087040A41b786f0Da83190c293DAe24749",
+      "oracle": "tokens",
+      "oracleId": "LINEAR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
+    "name": "tri-rusd-near",
+    "address": "0xbC0e71aE3Ef51ae62103E003A9Be2ffDe8421700",
+    "decimals": "1e18",
+    "poolId": 21,
+    "chainId": 1313161554,
+    "oracleB": "tokens",
+    "oracleIdB": "NEAR",
+    "decimalsB": "1e24",
+    "lp0": {
+      "address": "0x19cc40283B057D6608C22F1D20F17e16C245642E",
+      "oracle": "tokens",
+      "oracleId": "RUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    }
+  },
+  {
+    "name": "tri-rose-near",
+    "address": "0xbe753E99D0dBd12FB39edF9b884eBF3B1B09f26C",
+    "decimals": "1e18",
+    "poolId": 20,
+    "chainId": 1313161554,
+    "oracleB": "tokens",
+    "oracleIdB": "NEAR",
+    "decimalsB": "1e24",
+    "lp0": {
+      "address": "0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0xdcD6D4e2B3e1D1E1E6Fa8C21C8A323DcbecfF970",
+      "oracle": "tokens",
+      "oracleId": "ROSE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "tri-ausdo-usdt",
     "address": "0x6277f94a69Df5df0Bc58b25917B9ECEFBf1b846A",
     "decimals": "1e18",
