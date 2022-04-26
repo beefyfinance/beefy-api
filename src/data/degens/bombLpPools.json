@@ -1,0 +1,21 @@
+[
+  {
+    "name": "bomb-bomb-btcb",
+    "address": "0x84392649eb0bC1c1532F2180E58Bae4E1dAbd8D6",
+    "poolId": 1,
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x522348779DCb2911539e76A1042aA922F9C47Ee3",
+      "oracle": "tokens",
+      "oracleId": "BOMB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  }
+]
