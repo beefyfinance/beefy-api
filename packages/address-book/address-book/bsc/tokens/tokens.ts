@@ -15,6 +15,28 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  BOMB: {
+    name: 'Bomb.Money',
+    symbol: 'BOMB',
+    address: '0x522348779DCb2911539e76A1042aA922F9C47Ee3',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.bomb.money/',
+    description:
+      'BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG',
+  },
+  BSHARE: {
+    name: 'BSHARE',
+    symbol: 'BSHARE',
+    address: '0x531780FAcE85306877D7e1F05d713D1B50a37F7A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.bomb.money/',
+    description:
+      'BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG',
+  },
   aBNBc: {
     name: 'Ankr BNB Reward Bearing Certificate',
     symbol: 'aBNBc',
