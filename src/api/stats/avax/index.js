@@ -9,6 +9,7 @@ const getJoeApy = require('./getJoeApy');
 const getPangolinPNGApy = require('./getPangolinPNGApy');
 const getCurveApys = require('./getCurveApys');
 const { getAaveApys } = require('./getAaveApys');
+const { getAaveV3Apys } = require('./getAaveV3Apys');
 const getBlizzLpApys = require('./getBlizzLpApys');
 const getBlizzLendingApys = require('./getBlizzLendingApys');
 const getBankerJoeApys = require('./getBankerJoeApys');
@@ -40,6 +41,7 @@ const getApys = [
   getJoeApy,
   getCurveApys,
   getAaveApys,
+  getAaveV3Apys,
   getBlizzLpApys,
   getBlizzLendingApys,
   getBankerJoeApys,
