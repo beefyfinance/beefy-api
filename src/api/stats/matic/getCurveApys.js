@@ -8,6 +8,7 @@ import {
   getTotalStakedInUsd,
   getYearlyRewardsInUsd,
 } from '../common/curve/getCurveApyData';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const ICurvePool = require('../../../abis/ICurvePool.json');
 const { getAavePoolData } = require('./getAaveApys');
@@ -84,7 +85,7 @@ const getAaveMaticApy = async token => {
 };
 
 const getTokenBalance = async (curvePool, token, index) => {
-  const pool = new web3.eth.Contract(ICurvePool, curvePool);
+  const pool = getContractWithProvider(ICurvePool, curvePool, web3);
   const balance = await pool.methods.balances(index).call();
   let price = 1;
   if (token.oracleId) {

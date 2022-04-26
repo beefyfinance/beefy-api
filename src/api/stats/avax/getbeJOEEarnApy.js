@@ -6,6 +6,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const ERC20 = require('../../../abis/ERC20.json');
 
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 const {
   avax: {
     tokens: { JOE, beJOE },
@@ -40,7 +41,7 @@ const getbeJOEEarnApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const joePrice = await fetchPrice({ oracle: ORACLE, id: 'JOE' });
 
-  const rewardPool = new web3.eth.Contract(IRewardPool, REWARDS);
+  const rewardPool = getContractWithProvider(IRewardPool, REWARDS, web3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const secondsPerYear = 31536000;
   const yearlyRewards = rewardRate.times(secondsPerYear);
@@ -52,7 +53,7 @@ const getYearlyRewardsInUsd = async () => {
 const getTotalStakedInUsd = async () => {
   const web3 = web3Factory(43114);
 
-  const tokenContract = new web3.eth.Contract(ERC20, beJOE.address);
+  const tokenContract = getContractWithProvider(ERC20, beJOE.address, web3);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(REWARDS).call());
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: ORACLE_ID });
 

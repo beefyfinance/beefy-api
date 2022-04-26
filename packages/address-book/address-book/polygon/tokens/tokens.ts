@@ -27,6 +27,27 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  '4EUR': {
+    name: 'Curve Factory 4EUR',
+    symbol: '4EUR',
+    address: '0xAd326c253A84e9805559b73A08724e11E49ca651',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://polygon.curve.fi',
+    description: 'Curves Factory 4EUR Pool',
+  },
+  beQI: {
+    name: 'Beefy QI',
+    symbol: 'beQI',
+    address: '0x97bfa4b212A153E15dCafb799e733bc7d1b70E72',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beefy.com',
+    description:
+      'beQI is a Beefy-wrapped version of eQI. Holding beQI will be a great way to earn a bunch of QI. Beefy will distribute weekly QI rewards to beQI stakers. beQI holders will recieve the same rewards as max lock eQI holders',
+  },
   stMATIC: {
     name: 'Lido Staked Matic stMATIC',
     symbol: 'stMATIC',

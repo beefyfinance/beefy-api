@@ -7,6 +7,7 @@ const IUnitroller = require('../../../../abis/IUnitroller.json');
 const VToken = require('../../../../abis/VToken.json');
 const pools = require('../../../../data/venusPools.json');
 const { BASE_HPY } = require('../../../../constants');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const UNITROLLER = '0xfD36E2c2a6789Db23113685031d7F16329158384';
 const BLOCKS_PER_YEAR = 10512000;
@@ -43,8 +44,8 @@ const getPoolApy = async pool => {
 };
 
 const getSupplyApys = async pool => {
-  const vtokenContract = new web3.eth.Contract(VToken, pool.vtoken);
-  const unitrollerContract = new web3.eth.Contract(IUnitroller, UNITROLLER);
+  const vtokenContract = getContractWithProvider(VToken, pool.vtoken, web3);
+  const unitrollerContract = getContractWithProvider(IUnitroller, UNITROLLER, web3);
 
   let [venusPrice, tokenPrice, supplyRate, venusRate, totalSupply, exchangeRateStored] =
     await Promise.all([
@@ -76,8 +77,8 @@ const getSupplyApys = async pool => {
 };
 
 const getBorrowApys = async pool => {
-  const unitrollerContract = new web3.eth.Contract(IUnitroller, UNITROLLER);
-  const vtokenContract = new web3.eth.Contract(VToken, pool.vtoken);
+  const unitrollerContract = getContractWithProvider(IUnitroller, UNITROLLER, web3);
+  const vtokenContract = getContractWithProvider(VToken, pool.vtoken, web3);
 
   let [venusPrice, bnbPrice, borrowRate, venusRate, totalBorrows] = await Promise.all([
     fetchPrice({ oracle: 'tokens', id: 'XVS' }),

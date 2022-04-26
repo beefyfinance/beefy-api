@@ -22,6 +22,7 @@ import {
   getTradingFeeAprBalancer,
   getTradingFeeApr,
 } from '../../../utils/getTradingFeeApr';
+import { getContract } from '../../../utils/contractHelper';
 
 export interface MasterChefApysParams {
   web3: Web3;
@@ -123,7 +124,7 @@ const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> =
 };
 
 const getPoolsData = async (params: MasterChefApysParams) => {
-  const masterchefContract = new params.web3.eth.Contract(MasterChefAbi, params.masterchef);
+  const masterchefContract = getContract(MasterChefAbi, params.masterchef);
   const multicall = new MultiCall(params.web3 as any, multicallAddress(params.chainId));
   const chefCalls = [];
   params.pools.forEach(pool => {

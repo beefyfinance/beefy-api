@@ -5,6 +5,7 @@ const BoardRoom = require('../../../../abis/mdexBoardRoom.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const boardroom = '0xDF484250C063C46F2E1F228954F82266CB987D78';
 const mdx = '0x9C65AB58d8d978DB963e63f2bfB7121627e3a739';
@@ -24,7 +25,7 @@ const getMdexMdxApy = async () => {
 };
 
 const getYearlyRewardsInUsd = async () => {
-  const boardRoomContract = new web3.eth.Contract(BoardRoom, boardroom);
+  const boardRoomContract = getContractWithProvider(BoardRoom, boardroom, web3);
 
   const blockRewards = new BigNumber(await boardRoomContract.methods.wbnbPerBlock().call());
 

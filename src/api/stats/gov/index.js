@@ -1,10 +1,10 @@
-const getEarnings = require('./getEarnings');
+const { dailyEarnings } = require('./getEarnings');
 const getHolderCount = require('./getHolderCount');
 
 async function earnings(ctx) {
   try {
     ctx.status = 200;
-    ctx.body = await getEarnings();
+    ctx.body = await dailyEarnings();
   } catch (err) {
     console.error(err);
     ctx.status = 500;

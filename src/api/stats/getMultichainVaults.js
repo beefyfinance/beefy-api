@@ -3,8 +3,9 @@ const { getStrategies } = require('../../utils/getStrategies.js');
 const { getLastHarvests } = require('../../utils/getLastHarvests.js');
 
 const { MULTICHAIN_ENDPOINTS } = require('../../constants');
+const { getKey, setKey } = require('../../utils/redisHelper.js');
 
-const INIT_DELAY = 0 * 1000;
+const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 
 let multichainVaults = [];
@@ -17,6 +18,7 @@ const getMultichainVaults = () => {
 
 const updateMultichainVaults = async () => {
   console.log('> updating vaults');
+  let start = Date.now();
 
   // Reset entire list and counters
   multichainVaults = [];
@@ -61,15 +63,34 @@ const updateMultichainVaults = async () => {
       multichainVaultsCounter,
       'vaults (',
       multichainActiveVaultsCounter,
-      'active )'
+      'active )',
+      `(${(Date.now() - start) / 1000}s)`
     );
+    saveToRedis();
   } catch (err) {
-    console.error('> vaults update failed', err);
+    console.error(`> vaults update failed `, err);
   }
 
   setTimeout(updateMultichainVaults, REFRESH_INTERVAL);
 };
 
-setTimeout(updateMultichainVaults, INIT_DELAY);
+export const initVaultService = async () => {
+  const cachedVaults = await getKey('VAULTS');
+  const cachedActiveVaultCount = await getKey('ACTIVE_VAULT_COUNT');
+  const cachedVaultCount = await getKey('VAULT_COUNT');
 
-module.exports = getMultichainVaults;
+  multichainVaults = cachedVaults ?? [];
+  multichainActiveVaultsCounter = cachedActiveVaultCount ?? 0;
+  multichainVaultsCounter = cachedVaultCount ?? 0;
+
+  setTimeout(updateMultichainVaults, INIT_DELAY);
+};
+
+const saveToRedis = async () => {
+  await setKey('VAULTS', multichainVaults);
+  await setKey('ACTIVE_VAULT_COUNT', multichainActiveVaultsCounter);
+  await setKey('VAULT_COUNT', multichainVaultsCounter);
+  console.log('Vaults saved to redis');
+};
+
+module.exports = { getMultichainVaults, initVaultService };

@@ -1,0 +1,13 @@
+[
+  {
+    "name": "aavev3-avax",
+    "token": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    "aToken": "0x6d80113e533a2C0fe82EaBD35f1875DcEA89Ea97",
+    "debtToken": "0x4a1c3aD6Ed28a636ee1751C69071f6be75DEb8B8",
+    "oracle": "tokens",
+    "oracleId": "AVAX",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  }
+]

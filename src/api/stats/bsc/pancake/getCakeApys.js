@@ -8,6 +8,7 @@ const pools = require('../../../../data/cakePools.json');
 const { compound } = require('../../../../utils/compound');
 const { HOURLY_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const getCakeApys = async () => {
   let apys = {};
@@ -41,7 +42,7 @@ const getPoolApy = async pool => {
 };
 
 const getYearlyRewardsInUsd = async (smartChefAddr, oracle, oracleId, decimals) => {
-  const smartChefContract = new web3.eth.Contract(SmartChef, smartChefAddr);
+  const smartChefContract = getContractWithProvider(SmartChef, smartChefAddr, web3);
 
   const currentBlock = await getBlockNumber(BSC_CHAIN_ID);
   const bonusEndBlock = await smartChefContract.methods.bonusEndBlock().call();

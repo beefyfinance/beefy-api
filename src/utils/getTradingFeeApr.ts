@@ -194,6 +194,7 @@ export const getYearlyPlatformTradingFees = async (
     yearlyTradingFeesUsd = dailyVolumeUSD.times(liquidityProviderFee).times(365);
   } catch (e) {
     console.error('> getYearlyPlatformTradingFees error');
+    console.log(e);
   }
 
   return yearlyTradingFeesUsd;

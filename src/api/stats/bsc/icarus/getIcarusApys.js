@@ -7,6 +7,7 @@ const pools = require('../../../../data/icarusPools.json');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY } = require('../../../../constants');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const BLOCKS_PER_DAY = 28800;
 
@@ -41,7 +42,7 @@ const getYearlyRewardsInUsd = async pool => {
 
   if (pool.stakedReward) {
     const rewardPool = pool.stakedReward;
-    const rewardPoolContract = new web3.eth.Contract(IRewardPool, rewardPool.address);
+    const rewardPoolContract = getContractWithProvider(IRewardPool, rewardPool.address, web3);
     const periodFinish = await rewardPoolContract.methods.periodFinish().call();
     if (Number(periodFinish) > Date.now() / 1000) {
       const rewardRate = new BigNumber(await rewardPoolContract.methods.rewardRate().call());
@@ -53,7 +54,7 @@ const getYearlyRewardsInUsd = async pool => {
   }
   if (pool.powReward) {
     const rewardPool = pool.powReward;
-    const rewardPoolContract = new web3.eth.Contract(IRewardPool, rewardPool.address);
+    const rewardPoolContract = getContractWithProvider(IRewardPool, rewardPool.address, web3);
     const periodFinish = await rewardPoolContract.methods.periodFinish().call();
     if (Number(periodFinish) > Date.now() / 1000) {
       const rewardRate = new BigNumber(await rewardPoolContract.methods.rewardRate().call());

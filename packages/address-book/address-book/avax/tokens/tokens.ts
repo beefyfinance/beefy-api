@@ -26,6 +26,41 @@ const _tokens = {
     description:
       'beJOE is a Beefy-wrapped version of veJOE. Holding beJOE will be a great way to earn a bunch of JOE. Beefy will max out emissions on boosted farms, 5% of emissions will then be distributed to beJOE stakers on Beefy.',
   },
+  YETI: {
+    name: 'Yeti YETI',
+    symbol: 'YETI',
+    address: '0x77777777777d4554c39223C354A05825b2E8Faa3',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://1786218689-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4OftjbgGWmJOiwFRkFKr%2Fuploads%2FQWL5FOA2bShRZVnkrVL9%2Fyetitoken.png?alt=media&token=7e2a9b4a-4682-4438-ba58-9196e6cfcdc4',
+    website: 'https://yeti.finance/',
+    description:
+      'The best borrowing experience on Avalanche. Borrow against your entire Avalanche portfolio interest-free.',
+  },
+  YUSD: {
+    name: 'Yeti YUSD',
+    symbol: 'YUSD',
+    address: '0x111111111111ed1D73f860F57b2798b683f2d325',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://1786218689-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4OftjbgGWmJOiwFRkFKr%2Fuploads%2FxBkrBV3R1T4fxCWIY2qJ%2Fyusdtoken.png?alt=media&token=a5acaa5c-a32b-480e-930b-5bd3def36adc',
+    website: 'https://yeti.finance/',
+    description:
+      'The best borrowing experience on Avalanche. Borrow against your entire Avalanche portfolio interest-free.',
+  },
+  axlATOM: {
+    name: 'Axelar Wrapped ATOM',
+    symbol: 'ATOM',
+    address: '0x80D18b1c9Ab0c9B5D6A6d5173575417457d00a12',
+    chainId: 43114,
+    decimals: 6,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3794.png',
+    website: 'https://cosmos.network/',
+    description:
+      'The Internet of Blockchains. Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+  },
   LOST: {
     name: 'Lost Worlds LOST',
     symbol: 'LOST',

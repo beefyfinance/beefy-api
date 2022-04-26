@@ -6,6 +6,7 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/ooeLpPools.json');
 const { compound } = require('../../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const oracle = 'tokens';
 const oracleId = 'OOE';
@@ -40,7 +41,7 @@ const getPoolApy = async pool => {
 const getYearlyRewardsInUsd = async pool => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 
-  const rewardPool = new web3.eth.Contract(IRewardPool, pool.rewardPool);
+  const rewardPool = getContractWithProvider(IRewardPool, pool.rewardPool, web3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardSpeed().call());
   const yearlyRewards = rewardRate.times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);

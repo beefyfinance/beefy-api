@@ -2,7 +2,7 @@ import { ConstRecord } from '../../../types/const';
 import Token from '../../../types/token';
 
 const ETH = {
-  name: 'Wrapped Ether',
+  name: 'Wrapped Ether ',
   address: '0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB',
   symbol: 'WETH',
   decimals: 18,
@@ -264,6 +264,17 @@ const _tokens = {
     website: 'https://www.nearpad.io/',
     description:
       'Launchpad & DeFi hub of the NEAR ecosystem. The DeFi hub on NEAR ecosystem to bootstrap innovations, monitor and manage digital assets.',
+  },
+  DAI: {
+    name: 'DAI Stablecoin',
+    symbol: 'DAI',
+    address: '0xe3520349F477A5F6EB06107066048508498A291b',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://makerdao.com/en/',
+    description:
+      'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
   },
 } as const;
 

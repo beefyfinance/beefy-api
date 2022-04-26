@@ -8,6 +8,7 @@ const { compound } = require('../../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const getThugsLpApys = async () => {
   let apys = {};
@@ -36,7 +37,7 @@ const getPoolApy = async (gangster, pool) => {
 
 const getYearlyRewardsInUsd = async (gangster, pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const gangsterContract = new web3.eth.Contract(OriginalGangster, gangster);
+  const gangsterContract = getContractWithProvider(OriginalGangster, gangster, web3);
 
   const multiplier = new BigNumber(
     await gangsterContract.methods.getMultiplier(blockNum - 1, blockNum).call()

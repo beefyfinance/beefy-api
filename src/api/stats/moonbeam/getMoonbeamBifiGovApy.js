@@ -6,6 +6,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const ERC20 = require('../../../abis/ERC20.json');
 const { MOONBEAM_CHAIN_ID: chainId, BASE_HPY } = require('../../../constants');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 const {
   moonbeam: {
     platforms: { beefyfinance },
@@ -42,7 +43,7 @@ const getMoonbeamBifiGovApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const nativePrice = await fetchPrice({ oracle: ORACLE, id: REWARD_ORACLE });
 
-  const rewardPool = new web3.eth.Contract(IRewardPool, beefyfinance.rewardPool);
+  const rewardPool = getContractWithProvider(IRewardPool, beefyfinance.rewardPool, web3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(nativePrice).dividedBy(DECIMALS);
@@ -53,7 +54,7 @@ const getYearlyRewardsInUsd = async () => {
 const getTotalStakedInUsd = async () => {
   const web3 = web3Factory(chainId);
 
-  const tokenContract = new web3.eth.Contract(ERC20, BIFI.address);
+  const tokenContract = getContractWithProvider(ERC20, BIFI.address, web3);
   const totalStaked = new BigNumber(
     await tokenContract.methods.balanceOf(beefyfinance.rewardPool).call()
   );

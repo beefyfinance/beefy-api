@@ -2,6 +2,7 @@ const BigNumber = require('bignumber.js');
 const { fantomWeb3: web3 } = require('../../../utils/web3');
 
 const CurveLP = require('../../../abis/BeltLP.json');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const DECIMALS = '1e18';
 
@@ -21,7 +22,11 @@ const getFroyoPrices = async () => {
 };
 
 const getFroyo3PoolPrice = async () => {
-  const lpContract = new web3.eth.Contract(CurveLP, '0x83E5f18Da720119fF363cF63417628eB0e9fd523');
+  const lpContract = getContractWithProvider(
+    CurveLP,
+    '0x83E5f18Da720119fF363cF63417628eB0e9fd523',
+    web3
+  );
   let tokenPrice = new BigNumber(await lpContract.methods.get_virtual_price().call());
   tokenPrice = Number(tokenPrice.dividedBy(DECIMALS).toFixed(6));
 

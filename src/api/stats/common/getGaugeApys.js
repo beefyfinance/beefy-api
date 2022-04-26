@@ -8,6 +8,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
+import { getContract } from '../../../utils/contractHelper';
 
 export const getGaugeApys = async params => {
   const tradingAprs = await getTradingAprs(params);
@@ -45,7 +46,8 @@ const getFarmApys = async params => {
     const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
     const secondsPerYear = 31536000;
-    const boost = stakerBalances[i] == 0 ? BigNumber(0.4) : derivedBalances[i].dividedBy(stakerBalances[i]);
+    const boost =
+      stakerBalances[i] == 0 ? BigNumber(0.4) : derivedBalances[i].dividedBy(stakerBalances[i]);
     const yearlyRewards = rewardRates[i].times(secondsPerYear).times(boost);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(params.decimals);
 
@@ -70,7 +72,7 @@ const getPoolsData = async params => {
   const multicall = new MultiCall(web3, multicallAddress(params.chainId));
   const calls = [];
   params.pools.forEach(pool => {
-    const gauge = new web3.eth.Contract(IGauge, pool.gauge);
+    const gauge = getContract(IGauge, pool.gauge);
     calls.push({
       balance: gauge.methods.totalSupply(),
       rewardRate: gauge.methods.rewardRate(),

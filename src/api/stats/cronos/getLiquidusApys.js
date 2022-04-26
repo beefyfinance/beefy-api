@@ -7,6 +7,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const getBlockTime = require('../../../utils/getBlockTime');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const stakingPool = '0x1c7fDE0a9619bC81b23cAEF6992288BA5547a34F';
 const lpToken = '0x3295007761C290741B6b363b86dF9ba3467F0754';
@@ -17,7 +18,7 @@ const DECIMALS = '1e18';
 
 const getLiquidusApys = async () => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const rewardPool = new web3.eth.Contract(BetuStaking, stakingPool);
+  const rewardPool = getContractWithProvider(BetuStaking, stakingPool, web3);
 
   const [rewardPerBlock, totalStakedInUsd] = await Promise.all([
     rewardPool.methods.rewardPerBlock().call(),

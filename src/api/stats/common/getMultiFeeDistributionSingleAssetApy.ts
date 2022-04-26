@@ -10,6 +10,7 @@ import { BASE_HPY, BEEFY_PERFORMANCE_FEE, SHARE_AFTER_PERFORMANCE_FEE } from '..
 import Web3 from 'web3';
 import { ApyBreakdownResult } from './getApyBreakdown';
 import Token from '../../../../packages/address-book/types/token';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const oracle = 'tokens';
 
@@ -39,9 +40,10 @@ const getTotalStakedInUsd = async ({
   multiFeeDistributionAddress,
   want,
 }: MultiFeeDistributionSingleAssetApyParams) => {
-  const tokenContract = new web3.eth.Contract(
+  const tokenContract = getContractWithProvider(
     MultiFeeDistribution_ABI,
-    multiFeeDistributionAddress
+    multiFeeDistributionAddress,
+    web3
   ) as unknown as MultiFeeDistribution;
   const totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
   const tokenPrice = await fetchPrice({ oracle, id: want.symbol });
@@ -54,9 +56,10 @@ const getYearlyRewardsInUsd = async ({
   output,
 }: MultiFeeDistributionSingleAssetApyParams) => {
   const tokenPrice: number = await fetchPrice({ oracle, id: output.symbol });
-  const rewardPool = new web3.eth.Contract(
+  const rewardPool = getContractWithProvider(
     MultiFeeDistribution_ABI,
-    multiFeeDistributionAddress
+    multiFeeDistributionAddress,
+    web3
   ) as unknown as MultiFeeDistribution;
   const { rewardRate } = await rewardPool.methods.rewardData(output.address).call();
   const yearlyRewards = new BigNumber(rewardRate).times(3).times(BLOCKS_PER_DAY).times(365);

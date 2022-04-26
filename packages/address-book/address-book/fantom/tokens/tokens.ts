@@ -38,6 +38,28 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  USDB: {
+    name: 'USD Balance',
+    symbol: 'UDSB',
+    address: '0x6Fc9383486c163fA48becdEC79d6058f984f62cA',
+    chainId: 250,
+    decimals: 18,
+    website: 'http://www.usdbalance.com/',
+    description:
+      'USDB provides a wide range of financial tools and services to individuals and institutions',
+    logoURI: '',
+  },
+  GEL: {
+    name: 'Gelato',
+    symbol: 'GEL',
+    address: '0x15b7c0c907e4C6b9AdaAaabC300C08991D6CEA05',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.gelato.network/',
+    description:
+      "Automate your smart contracts.  Outsource your web3 DevOps needs and enjoy the perks of Ethereum's most reliable bot network at your fingertips.",
+    logoURI: '',
+  },
   FTML: {
     name: 'Top Shelf Fantom L-Token',
     symbol: 'FTML',

@@ -5,6 +5,7 @@ const StargateLP = require('../abis/StargateLP.json');
 
 import { FANTOM_CHAIN_ID, BSC_CHAIN_ID, AVAX_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
+import { getContract } from './contractHelper';
 
 const {
   bsc: {
@@ -38,7 +39,7 @@ const getStargatePrices = async (tokenPrices, tokens, chainId) => {
   const totalsSupplyCalls = [];
 
   tokens.forEach(token => {
-    const tokenContract = new web3.eth.Contract(StargateLP, token[1].address);
+    const tokenContract = getContract(StargateLP, token[1].address);
     stakedInsPoolCalls.push({
       stakedInsPool: tokenContract.methods.totalLiquidity(),
     });

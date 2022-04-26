@@ -20,6 +20,7 @@ import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTi
 import ERC20 from '../../../abis/ERC20.json';
 import { Contract } from 'web3-eth-contract';
 import { AbiItem } from 'web3-utils';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 const oracle = 'tokens';
 const DECIMALS = '1e18';
@@ -74,9 +75,10 @@ const getFarmApys = async (params: MiniChefApyParams) => {
   const apys = [];
 
   // minichef
-  const minichefContract = new web3.eth.Contract(
+  const minichefContract = getContractWithProvider(
     minichefConfig.minichefAbi as any,
-    minichefConfig.minichef
+    minichefConfig.minichef,
+    web3
   );
   const miniChefTokenPerSecond = new BigNumber(
     await minichefContract.methods[minichefConfig.tokenPerSecondContractMethodName]().call()
@@ -92,9 +94,10 @@ const getFarmApys = async (params: MiniChefApyParams) => {
   let rewarderTokenPrice: number | undefined;
 
   if (rewarderConfig) {
-    rewarderContract = new web3.eth.Contract(
+    rewarderContract = getContractWithProvider(
       SushiComplexRewarderTime as any,
-      rewarderConfig.rewarder
+      rewarderConfig.rewarder,
+      web3
     );
     rewarderTokenPerSecond = new BigNumber(await rewarderContract.methods.rewardPerSecond().call());
     rewarderTokenPrice = await fetchPrice({
@@ -146,25 +149,19 @@ const getFarmApys = async (params: MiniChefApyParams) => {
 const getPoolsData = async (params: MiniChefApyParams) => {
   const { web3, pools, minichefConfig, rewarderConfig, chainId } = params;
 
-  const minichefContract = new web3.eth.Contract(
-    minichefConfig.minichefAbi as any,
-    minichefConfig.minichef
-  );
+  const minichefContract = getContract(minichefConfig.minichefAbi as any, minichefConfig.minichef);
 
   // rewarder, if rewarder is set
   let rewarderContract: Contract | undefined = undefined;
   if (rewarderConfig) {
-    rewarderContract = new web3.eth.Contract(
-      SushiComplexRewarderTime as any,
-      rewarderConfig.rewarder
-    );
+    rewarderContract = getContract(SushiComplexRewarderTime as any, rewarderConfig.rewarder);
   }
 
   const balanceCalls = [];
   const allocPointCalls = [];
   const rewardAllocPointCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20 as any, pool.address);
+    const tokenContract = getContract(ERC20 as any, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(minichefConfig.minichef),
     });

@@ -7,6 +7,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pool = require('../../../data/fantom/fBeetsPool.json');
 const { BASE_HPY } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { getYearlyBalancerPlatformTradingFees } = require('../../../utils/getTradingFeeApr');
 const { beetClient } = require('../../../apollo/client');
@@ -30,7 +31,7 @@ const getfBeetsApy = async () => {
   const { balance, allocPoint } = await getPoolData();
   const secondsPerBlock = await getBlockTime(250);
 
-  const tokenContract = new web3.eth.Contract(ERC20, pool[0].address);
+  const tokenContract = getContractWithProvider(ERC20, pool[0].address, web3);
   const totalStakedInxToken = await tokenContract.methods.balanceOf(xToken).call();
   const totalStakedInxTokenInUsd = new BigNumber(totalStakedInxToken)
     .times(tokenPrice)
@@ -78,22 +79,22 @@ const getfBeetsApy = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const rewardPerBlock = new BigNumber(await masterchefContract.methods.beetsPerBlock().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { rewardPerBlock, totalAllocPoint };
 };
 
 const getPoolData = async () => {
-  const xTokenContract = new web3.eth.Contract(ERC20, xToken);
+  const xTokenContract = getContractWithProvider(ERC20, xToken, web3);
   const xBalance = await xTokenContract.methods.balanceOf(masterchef).call();
   const xTotalSupply = await xTokenContract.methods.totalSupply().call();
 
-  const tokenContract = new web3.eth.Contract(ERC20, pool[0].address);
+  const tokenContract = getContractWithProvider(ERC20, pool[0].address, web3);
   const tokensStakedInxToken = await tokenContract.methods.balanceOf(xToken).call();
   const balance = new BigNumber(xBalance).times(tokensStakedInxToken).dividedBy(xTotalSupply);
 
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
   const rewardPool = await masterchefContract.methods.poolInfo(pool[0].poolId).call();
   const allocPoint = new BigNumber(rewardPool.allocPoint);
 

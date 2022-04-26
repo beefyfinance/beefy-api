@@ -113,8 +113,8 @@
     "oracle": "tokens",
     "oracleId": "LINK",
     "decimals": "1e18",
-    "borrowDepth": 4,
-    "borrowPercent": 0.62
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
   },
   {
     "name": "scream-usdc",
@@ -149,8 +149,8 @@
     "oracle": "tokens",
     "oracleId": "DAI",
     "decimals": "1e18",
-    "borrowDepth": 4,
-    "borrowPercent": 0.45
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
   },
   {
     "name": "scream-eth",
@@ -158,8 +158,8 @@
     "oracle": "tokens",
     "oracleId": "ETH",
     "decimals": "1e18",
-    "borrowDepth": 4,
-    "borrowPercent": 0.6
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
   },
   {
     "name": "scream-fusdt",

@@ -7,6 +7,7 @@ const { EXCLUDED_IDS_FROM_TVL } = require('../../constants');
 
 const BeefyVaultV6ABI = require('../../abis/BeefyVaultV6.json');
 const { getTotalStakedInUsd } = require('../../utils/getTotalStakedInUsd');
+const { getContract } = require('../../utils/contractHelper');
 
 const getChainTvl = async chain => {
   const chainId = chain.chainId;
@@ -25,11 +26,12 @@ const getChainTvl = async chain => {
     const vaultBal = vaultBalances[i];
     let tokenPrice = 0;
     try {
+      // tokenPrice = 15.5;
       tokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
     } catch (e) {
       console.error('getTvl fetchPrice', chainId, vault.oracle, vault.oracleId, e);
     }
-    const tvl = vaultBal.times(tokenPrice).dividedBy(10 ** (vault.tokenDecimals ?? 18));
+    const tvl = vaultBal.times(tokenPrice).shiftedBy(-(vault.tokenDecimals ?? 18));
 
     let item = { [vault.id]: 0 };
     if (!tvl.isNaN()) {
@@ -54,7 +56,8 @@ const getVaultBalances = async (chainId, vaults) => {
   const multicall = new MultiCall(web3, multicallAddress(chainId));
   const balanceCalls = [];
   vaults.forEach(vault => {
-    const vaultContract = new web3.eth.Contract(BeefyVaultV6ABI, vault.earnedTokenAddress);
+    const vaultContract = getContract(BeefyVaultV6ABI, vault.earnedTokenAddress);
+
     balanceCalls.push({
       balance: vaultContract.methods.balance(),
     });
@@ -74,6 +77,7 @@ const getGovernanceTvl = async (chainId, governancePool) => {
 
   try {
     tokenPrice = await fetchPrice({ oracle: governancePool.oracle, id: governancePool.oracleId });
+    // tokenPrice = 25;
   } catch (e) {
     console.error(
       'getGovernanceTvl fetchPrice',
