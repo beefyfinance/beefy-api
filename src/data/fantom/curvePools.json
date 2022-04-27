@@ -151,5 +151,11 @@
     "pool": "0x6EF78ad4a40E9A6c81B9229de3eCc33ce591bC34",
     "gauge": "0xA6ff75281eACa4cD5fEEb333e8E15558208295e5",
     "boosted": true
+  },
+  {
+    "name": "curve-ftm-f-4pool",
+    "pool": "0x9dc516a18775d492c9f061211C8a3FDCd476558d",
+    "gauge": "0xd0698b2E41C42bcE42B51f977F962Fd127cF82eA",
+    "boosted": true
   }
 ]
