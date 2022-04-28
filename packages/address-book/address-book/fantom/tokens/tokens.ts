@@ -39,7 +39,7 @@ const FTM = {
 
 const _tokens = {
   ORKAN: {
-    name: 'Orkan ORKAN',
+    name: 'Orkan',
     symbol: 'ORKAN',
     address: '0xfB66e49e303A186a4c57414Ceeed651a7a78161a',
     chainId: 250,
