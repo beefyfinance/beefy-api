@@ -39,7 +39,7 @@ const FTM = {
 
 const _tokens = {
   sFTMx: {
-    name: 'sFTMx sFTMx',
+    name: 'sFTMx',
     symbol: 'sFTMx',
     address: '0xd7028092c830b5C8FcE061Af2E593413EbbC1fc1',
     chainId: 250,
