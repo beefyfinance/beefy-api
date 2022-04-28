@@ -58,9 +58,20 @@ const _tokens = {
     website: 'https://staderlabs.com/',
     description: 'Stader (SD) token is the native governance and value accrual token for Stader.',
   },
+  ORKAN: {
+    name: 'Orkan',
+    symbol: 'ORKAN',
+    address: '0xfB66e49e303A186a4c57414Ceeed651a7a78161a',
+    chainId: 250,
+    decimals: 9,
+    logoURI: 'https://app.spiritswap.finance/images/tokens/ORKAN.png',
+    website: 'https://orkan.finance/#/dashboard',
+    description:
+      'The Orkan ($ORK) is a meta-governance protocol that aims to bootstrap liquidity flow on the Fantom Opera Blockchain.',
+  },
   USDB: {
     name: 'USD Balance',
-    symbol: 'UDSB',
+    symbol: 'USDB',
     address: '0x6Fc9383486c163fA48becdEC79d6058f984f62cA',
     chainId: 250,
     decimals: 18,

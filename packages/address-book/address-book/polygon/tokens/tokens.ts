@@ -37,6 +37,28 @@ const _tokens = {
     website: 'https://polygon.curve.fi',
     description: 'Curves Factory 4EUR Pool',
   },
+  MaticX: {
+    name: 'Stader Staking Matic',
+    symbol: 'MaticX',
+    address: '0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://polygon.staderlabs.com/liquid-staking/maticx',
+    description:
+      'Stader is a non-custodial smart contract-based staking platform that helps you conveniently discover and access staking solutions. We are building key staking middleware infra for multiple PoS networks for retail crypto users, exchanges and custodians.',
+  },
+  SD: {
+    name: 'Stader ',
+    symbol: 'SD',
+    address: '0x1d734A02eF1e1f5886e66b0673b71Af5B53ffA94',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://staderlabs.com/',
+    description:
+      'Stader is a non-custodial smart contract-based staking platform that helps you conveniently discover and access staking solutions. We are building key staking middleware infra for multiple PoS networks for retail crypto users, exchanges and custodians.',
+  },
   beQI: {
     name: 'Beefy QI',
     symbol: 'beQI',

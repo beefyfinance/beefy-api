@@ -1,5 +1,29 @@
 [
   {
+    "name": "quick-wmatic-maticx",
+    "address": "0xb0e69f24982791dd49e316313fD3A791020B8bF7",
+    "rewardPool": "0x1E16eCc4F912d8dB04b8177b4186bb597267fc25",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6",
+      "oracle": "tokens",
+      "oracleId": "MaticX",
+      "decimals": "1e18"
+    },
+    "rewardB": {
+      "oracle": "tokens",
+      "oracleId": "SD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-stmatic-matic",
     "address": "0x65752C54D9102BDFD69d351E1838A1Be83C924C6",
     "rewardPool": "0x8ECbc9B0741C000fd7aaE9cb559e5eEe1D1883F3",
@@ -15,6 +39,11 @@
       "address": "0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4",
       "oracle": "tokens",
       "oracleId": "stMATIC",
+      "decimals": "1e18"
+    },
+    "rewardB": {
+      "oracle": "tokens",
+      "oracleId": "LDO",
       "decimals": "1e18"
     }
   },

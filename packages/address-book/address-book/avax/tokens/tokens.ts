@@ -15,6 +15,30 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  BPT: {
+    name: 'Bold Point BPT',
+    symbol: 'BPT',
+    address: '0x1111111111182587795eF1098ac7da81a108C97a',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x1111111111182587795eF1098ac7da81a108C97a/logo.png',
+    website: 'https://bp.yay.games/',
+    description:
+      'Bold Point is a NFT-based RPG game where players slash enemies, play against other players and get rewards from their crafting skills in the real world.',
+  },
+  DBY: {
+    name: 'Metaderby DBY',
+    symbol: 'DBY',
+    address: '0x5085434227aB73151fAd2DE546210Cbc8663dF96',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x5085434227aB73151fAd2DE546210Cbc8663dF96/logo.png',
+    website: 'https://metaderby.com/',
+    description:
+      'MetaDerby is the first free-to-play-and-earn horse racing metaverse where anyone can earn tokens through skilled gameplay and contribute to building the MetaDerby universe.',
+  },
   beJOE: {
     name: 'Beefy JOE',
     symbol: 'beJOE',
