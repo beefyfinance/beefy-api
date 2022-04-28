@@ -18,7 +18,7 @@ const _tokens = {
   BPT: {
     name: 'Bold Point BPT',
     symbol: 'BPT',
-    address: '0x1111111111182587795ef1098ac7da81a108c97a',
+    address: '0x1111111111182587795eF1098ac7da81a108C97a',
     chainId: 43114,
     decimals: 18,
     logoURI:
@@ -30,7 +30,7 @@ const _tokens = {
   DBY: {
     name: 'Metaderby DBY',
     symbol: 'DBY',
-    address: '0x5085434227ab73151fad2de546210cbc8663df96',
+    address: '0x5085434227aB73151fAd2DE546210Cbc8663dF96',
     chainId: 43114,
     decimals: 18,
     logoURI:
