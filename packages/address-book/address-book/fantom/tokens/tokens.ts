@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  ORKAN: {
+    name: 'Orkan',
+    symbol: 'ORKAN',
+    address: '0xfB66e49e303A186a4c57414Ceeed651a7a78161a',
+    chainId: 250,
+    decimals: 9,
+    logoURI: 'https://app.spiritswap.finance/images/tokens/ORKAN.png',
+    website: 'https://orkan.finance/#/dashboard',
+    description:
+      'The Orkan ($ORK) is a meta-governance protocol that aims to bootstrap liquidity flow on the Fantom Opera Blockchain.',
+  },
   USDB: {
     name: 'USD Balance',
     symbol: 'USDB',
