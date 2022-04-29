@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  beCAKE: {
+    name: 'Beefy Staked CAKE',
+    symbol: 'beCAKE',
+    address: '0x42b50A901228fb4C739C19fcd38DC2182B515B66',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beefy.com',
+    description:
+      'beCAKE is a Beefy-wrapped version of CAKE. Staking beCAKE will be a great way to earn a bunch of CAKE. Beefy will deposit and timelock into the Cake Pool earning more yield than staking without timelock, in addition a portion of all pancakeswap strategies CAKE earnings get sent to the CAKE earnings pool. beCAKE pays out its yield in CAKE.',
+  },
   BUSM: {
     name: 'BUSM.Money',
     symbol: 'BUSM',

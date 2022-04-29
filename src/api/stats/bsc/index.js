@@ -28,6 +28,8 @@ const getBiswapApys = require('./biswap/getBiswapApys');
 const getStargateApys = require('./stargate/getStargateBscApys');
 const getValasApys = require('./valas/getValasApys');
 const getValasLpApys = require('./valas/getValasLpApys');
+const getbeCakeApy = require('./pancake/getbeCakeApy');
+const getbeCakeEarnApy = require('./pancake/getbeCakeEarnApy');
 
 const getApys = [
   getAlpacaApys,
@@ -60,6 +62,8 @@ const getApys = [
   getStargateApys,
   getValasApys,
   getValasLpApys,
+  getbeCakeApy,
+  getbeCakeEarnApy,
 ];
 // ^^ APYs are sorted alphabetically
 
