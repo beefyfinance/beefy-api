@@ -12,7 +12,7 @@ const getBombLpApys = async () =>
     tokenPerBlock: 'tSharePerSecond',
     hasMultiplier: false,
     pools,
-    oracleId: 'BSHARE',
+    oracleId: 'BOMBSHARE',
     oracle: 'tokens',
     decimals: '1e18',
     secondsPerBlock: 1,

@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0x531780FAcE85306877D7e1F05d713D1B50a37F7A",
       "oracle": "tokens",
-      "oracleId": "BSHARE",
+      "oracleId": "BOMBSHARE",
       "decimals": "1e18"
     },
     "lp1": {
