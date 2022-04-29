@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  BUSM: {
+    name: 'BUSM.Money',
+    symbol: 'BUSM',
+    address: '0x6216B17f696B14701E17BCB24Ec14430261Be94A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://busm.money/',
+    description:
+      'BUSM.Money is explosive! Provide your yield-bearing xBOMB as collateral. Once completed, you will be ableto borrow BOMB US Money (BUSM). From here the sky is the limit! Purchase any token you wish, from more BOMB to another stablecoin!',
+  },
   BOMB: {
     name: 'Bomb.Money',
     symbol: 'BOMB',
