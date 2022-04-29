@@ -114,9 +114,9 @@
     "address": "0x47924Ae4968832984F4091EEC537dfF5c38948a4",
     "decimals": "1e18",
     "poolId": 12,
-    "oracleB": "tokens",
-    "oracleIdB": "NEAR",
-    "decimalsB": "1e24",
+    "oracleB": "hardcode",
+    "oracleIdB": 0,
+    "decimalsB": "1e18",
     "chainId": 1313161554,
     "lp0": {
       "address": "0x07F9F7f963C5cD2BBFFd30CcfB964Be114332E30",
