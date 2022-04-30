@@ -104,8 +104,8 @@
     "oracle": "tokens",
     "oracleId": "CRV",
     "decimals": "1e18",
-    "borrowDepth": 4,
-    "borrowPercent": 0.62
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
   },
   {
     "name": "scream-link",
@@ -176,8 +176,8 @@
     "oracle": "tokens",
     "oracleId": "FRAX",
     "decimals": "1e18",
-    "borrowDepth": 4,
-    "borrowPercent": 0.72
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
   },
   {
     "name": "scream-mim",
