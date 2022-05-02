@@ -1,0 +1,116 @@
+[
+  {
+    "name": "pegasys-usdc-psys",
+    "address": "0xDA3995D0ADDb43935A0c17c187C271Cc6c07Df21",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 57,
+    "lp0": {
+      "address": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xE18c200A70908c89fFA18C628fE1B83aC0065EA4",
+      "oracle": "tokens",
+      "oracleId": "PSYS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pegasys-wsys-psys",
+    "address": "0x1a7400F4DFE299DBac8034bD2Bb0B3B17fCA9342",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 57,
+    "lp0": {
+      "address": "0xd3e822f3ef011Ca5f17D82C956D952D8d7C3A1BB",
+      "oracle": "tokens",
+      "oracleId": "WSYS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE18c200A70908c89fFA18C628fE1B83aC0065EA4",
+      "oracle": "tokens",
+      "oracleId": "PSYS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pegasys-usdc-usdt",
+    "address": "0x8c741Cd1Dc4D027034ce864FFD660BFa44c24674",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 57,
+    "lp0": {
+      "address": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x922D641a426DcFFaeF11680e5358F34d97d112E1",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "pegasys-wbtc-wsys",
+    "address": "0xB881304fCd792062732Da050828f74D285BbF078",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 57,
+    "lp0": {
+      "address": "0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xd3e822f3ef011Ca5f17D82C956D952D8d7C3A1BB",
+      "oracle": "tokens",
+      "oracleId": "WSYS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pegasys-eth-wsys",
+    "address": "0x1cF22F868D15d4Eed8EddFA8c9C0b88C24B3e0b0",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 57,
+    "lp0": {
+      "address": "0x7C598c96D02398d89FbCb9d41Eab3DF0C16F227D",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd3e822f3ef011Ca5f17D82C956D952D8d7C3A1BB",
+      "oracle": "tokens",
+      "oracleId": "WSYS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pegasys-usdc-wsys",
+    "address": "0x2CDF912CbeaF76d67feaDC994D889c2F4442b300",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 57,
+    "lp0": {
+      "address": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xd3e822f3ef011Ca5f17D82C956D952D8d7C3A1BB",
+      "oracle": "tokens",
+      "oracleId": "WSYS",
+      "decimals": "1e18"
+    }
+  }
+]

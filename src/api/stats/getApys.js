@@ -12,6 +12,7 @@ const { getAuroraApys } = require('./aurora');
 const { getFuseApys } = require('./fuse');
 const { getMetisApys } = require('./metis');
 const { getMoonbeamApys } = require('./moonbeam');
+const { getSysApys } = require('./sys');
 const { getKey, setKey } = require('../../utils/redisHelper');
 
 const INIT_DELAY = process.env.INIT_DELAY || 60 * 1000;
@@ -46,6 +47,7 @@ const updateApys = async () => {
       getFuseApys(),
       getMetisApys(),
       getMoonbeamApys(),
+      getSysApys(),
     ]);
 
     for (const result of results) {

@@ -42,6 +42,9 @@ const {
 
   MOONBEAM_CHAIN_ID,
   MOONBEAM_VAULTS_ENDPOINT,
+
+  SYS_CHAIN_ID,
+  //SYS_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/redisHelper.js');
 
@@ -121,6 +124,11 @@ const chains = [
     vaultsEndpoint: MOONBEAM_VAULTS_ENDPOINT,
     governancePool: require('../../data/moonbeam/governancePool.json'),
   },
+  // {
+  // chainId: SYS_CHAIN_ID,
+  // vaultsEndpoint: SYS_VAULTS_ENDPOINT,
+  // governancePool: require('../../data/sys/governancePool.json'),
+  // },
 ];
 
 const getTvl = () => {
