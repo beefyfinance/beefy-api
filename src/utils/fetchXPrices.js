@@ -3,7 +3,7 @@ const { MultiCall } = require('eth-multicall');
 const { web3Factory, multicallAddress } = require('./web3');
 const ERC20 = require('../abis/ERC20.json');
 
-import { FANTOM_CHAIN_ID, FUSE_CHAIN_ID, POLYGON_CHAIN_ID } from '../constants';
+import { FANTOM_CHAIN_ID, FUSE_CHAIN_ID, POLYGON_CHAIN_ID, MOONBEAM_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 import { getContract } from './contractHelper';
 
@@ -17,6 +17,9 @@ const {
   fuse: {
     tokens: { VOLT, xVOLT },
   },
+  moonbeam: {
+    tokens: { STELLA, xSTELLA },
+  },
 } = addressBook;
 
 const tokens = {
@@ -28,6 +31,7 @@ const tokens = {
   ],
   polygon: [[QUICK, dQUICK]],
   fuse: [[VOLT, xVOLT]],
+  moonbeam: [[STELLA, xSTELLA]],
 };
 
 const getXPrices = async (tokenPrices, tokens, chainId) => {
@@ -68,6 +72,7 @@ const fetchXPrices = async tokenPrices =>
     getXPrices(tokenPrices, tokens.fantom, FANTOM_CHAIN_ID),
     getXPrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
     getXPrices(tokenPrices, tokens.fuse, FUSE_CHAIN_ID),
+    getXPrices(tokenPrices, tokens.moonbeam, MOONBEAM_CHAIN_ID),
   ]).then(data =>
     data
       .flat()
