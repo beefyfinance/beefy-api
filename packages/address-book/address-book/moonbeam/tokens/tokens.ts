@@ -254,9 +254,21 @@ const _tokens = {
       'Solarflare is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
   },
   STELLA: {
-    name: 'Setlla Token',
+    name: 'Stella Token',
     symbol: 'STELLA',
     address: '0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2.svg',
+    website: 'https://app.stellaswap.com/exchange/swap',
+    description:
+      'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network.',
+  },
+  xSTELLA: {
+    name: 'xStella',
+    symbol: 'xSTELLA',
+    address: '0x06A3b410b681c82417A906993aCeFb91bAB6A080',
     chainId: 1284,
     decimals: 18,
     logoURI:
