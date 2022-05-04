@@ -15,6 +15,28 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  PAE: {
+    name: 'Ripae',
+    symbol: 'PAE',
+    address: '0x6c7fc3Fd4a9f1Cfa2a69B83F92b9DA7EC26240A2',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://bnb.ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://bnb.ripae.finance/static/media/ripae_pae.b7a952f2.svg',
+  },
+  pBNB: {
+    name: 'pBNB',
+    symbol: 'pBNB',
+    address: '0xA2315cC5A1e4aE3D0a491ED4Fe45EBF8356fEaC7',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://bnb.ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://bnb.ripae.finance/static/media/ripae_pftm.72dccc11.svg',
+  },
   beCAKE: {
     name: 'Beefy Staked CAKE',
     symbol: 'beCAKE',
