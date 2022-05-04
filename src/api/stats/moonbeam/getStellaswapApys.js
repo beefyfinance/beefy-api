@@ -34,16 +34,6 @@ const getStellaswapApys = async () =>
       hasMultiplier: false,
       secondsPerBlock: 1, // because tokenPerBlock is expressed in seconds
       pools: poolsV2,
-      singlePools: [
-        {
-          name: 'stella-xstella',
-          poolId: 3,
-          address: '0x06A3b410b681c82417A906993aCeFb91bAB6A080',
-          oracle: 'tokens',
-          oracleId: 'xSTELLA',
-          decimals: '1e18',
-        },
-      ],
       oracleId: 'STELLA',
       oracle: 'tokens',
       decimals: '1e18',

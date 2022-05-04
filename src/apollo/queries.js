@@ -100,6 +100,17 @@ const joeDayDataRangeQuery = (startTimestamp, endTimestamp) => {
   return gql(queryString);
 };
 
+const protocolDayDataRangeQuery = (startTimestamp, endTimestamp) => {
+  const queryString = `
+  query volume {
+    uniswapDayDatas(where: { date_gt: ${startTimestamp}, date_lt: ${endTimestamp} }) {
+      dailyVolumeUSD
+    }
+  }
+`;
+  return gql(queryString);
+};
+
 const balancerDataQuery = block => {
   const queryString = `
     query balancer {
@@ -119,4 +130,5 @@ module.exports = {
   joeDayDataQuery,
   joeDayDataRangeQuery,
   balancerDataQuery,
+  protocolDayDataRangeQuery,
 };
