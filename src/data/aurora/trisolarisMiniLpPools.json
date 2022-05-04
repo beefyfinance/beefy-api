@@ -6,8 +6,8 @@
     "poolId": 23,
     "chainId": 1313161554,
     "oracleB": "tokens",
-    "oracleIdB": "NEAR",
-    "decimalsB": "1e24",
+    "oracleIdB": "BSTN",
+    "decimalsB": "1e18",
     "lp0": {
       "address": "0x9f1F933C660a1DC856F0E0Fe058435879c5CCEf0",
       "oracle": "tokens",
