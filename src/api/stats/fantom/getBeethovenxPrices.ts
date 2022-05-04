@@ -4,8 +4,9 @@ const { FANTOM_CHAIN_ID } = require('../../../constants');
 const beetsPools = require('../../../data/fantom/beethovenxPools.json');
 const beetsDualPools = require('../../../data/fantom/beethovenxDualPools.json');
 const fBeetsPool = require('../../../data/fantom/fBeetsPool.json');
+const maiBeetsPools = require('../../../data/fantom/maiLpPools.json');
 
-const pools = [...beetsPools, ...fBeetsPool, ...beetsDualPools];
+const pools = [...beetsPools, ...fBeetsPool, ...beetsDualPools, ...maiBeetsPools];
 
 const getBeethovenxPrices = async tokenPrices => {
   return await getBalancerPrices(web3, FANTOM_CHAIN_ID, pools, tokenPrices);

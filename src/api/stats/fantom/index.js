@@ -15,6 +15,7 @@ const getBeethovenxApys = require('./getBeethovenxApys');
 const getBeethovenxDualApys = require('./getBeethovenxDualApys');
 const getGeistLendingApys = require('./getGeistLendingApys');
 const getfBeetsApy = require('./getfBeetsApy');
+const getMaiApys = require('./getMaiApys');
 const getSpartacadabraApys = require('./getSpartacadabraApys');
 const getPopsicleApys = require('./getPopsicleApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
@@ -46,6 +47,7 @@ const getApys = [
   getBeethovenxDualApys,
   getGeistLendingApys,
   getfBeetsApy,
+  getMaiApys,
   getSpartacadabraApys,
   getPopsicleApys,
   getCreditumApys,

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "mai-qi-major",
+    "address": "0x7aE6A223cde3A17E0B95626ef71A2DB5F03F540A",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x7ae6a223cde3a17e0b95626ef71a2db5f03f540a00020000000000000000008a",
+    "poolId": 1,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "QI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "mai-mai-concerto",
+    "address": "0x985976228a4685Ac4eCb0cfdbEeD72154659B6d9",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x985976228a4685ac4ecb0cfdbeed72154659b6d900020000000000000000008d",
+    "poolId": 0,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "miMATIC",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]
