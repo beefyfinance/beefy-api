@@ -1,5 +1,28 @@
 [
   {
+    "name": "beets-daiabolical-balance",
+    "address": "0xD5E946b5619fFf054c40D38c976f1d06C1e2fA82",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xd5e946b5619fff054c40d38c976f1d06c1e2fa820002000000000000000003ac",
+    "poolId": 80,
+    "oracleB": "tokens",
+    "oracleIdB": "FHM",
+    "decimalsB": "1e9",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "usd-balance",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-two-gods-one-pool",
     "address": "0x0e8e7307e43301cf28c5d21d5fd3ef0876217d41",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
