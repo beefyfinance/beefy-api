@@ -38,9 +38,40 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  sFTMx: {
+    name: 'sFTMx',
+    symbol: 'sFTMx',
+    address: '0xd7028092c830b5C8FcE061Af2E593413EbbC1fc1',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://assets.spookyswap.finance/tokens/sFTMX.png',
+    website: 'https://fantom.staderlabs.com/liquid-staking/pools',
+    description: 'sFTMX is a liquid token that users get when they stake FTM with Stader.',
+  },
+  SD: {
+    name: 'Stader SD',
+    symbol: 'SD',
+    address: '0x412a13C109aC30f0dB80AD3Bd1DeFd5D0A6c0Ac6',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/12623.png',
+    website: 'https://staderlabs.com/',
+    description: 'Stader (SD) token is the native governance and value accrual token for Stader.',
+  },
+  ORKAN: {
+    name: 'Orkan',
+    symbol: 'ORKAN',
+    address: '0xfB66e49e303A186a4c57414Ceeed651a7a78161a',
+    chainId: 250,
+    decimals: 9,
+    logoURI: 'https://app.spiritswap.finance/images/tokens/ORKAN.png',
+    website: 'https://orkan.finance/#/dashboard',
+    description:
+      'The Orkan ($ORK) is a meta-governance protocol that aims to bootstrap liquidity flow on the Fantom Opera Blockchain.',
+  },
   USDB: {
     name: 'USD Balance',
-    symbol: 'UDSB',
+    symbol: 'USDB',
     address: '0x6Fc9383486c163fA48becdEC79d6058f984f62cA',
     chainId: 250,
     decimals: 18,

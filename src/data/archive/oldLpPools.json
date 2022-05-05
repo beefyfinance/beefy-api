@@ -1,5 +1,23 @@
 [
   {
+    "name": "quickswap-sd-usdc",
+    "address": "0x7d196c0c447fde421c72f88a1900bf3322f20e0a",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1d734a02ef1e1f5886e66b0673b71af5b53ffa94",
+      "oracle": "tokens",
+      "oracleId": "SD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2791bca1f2de4661ed88a30c99a7a9449aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "quickswap-ldo-wmatic",
     "address": "0xa0f330f5fc47ee7a3297dbd6be6fe60cd0346b26",
     "decimals": "1e18",

@@ -91,6 +91,7 @@ const netswapClient = client('https://api.netswap.io/graph/subgraphs/name/netswa
 const tethysClient = client('https://node.tethys.finance/subgraphs/name/tethys');
 const tombswapClient = client('https://api.thegraph.com/subgraphs/name/github-qfg/tombswap');
 const biswapClient = client('https://api.thegraph.com/subgraphs/name/biswapcom/exchange5');
+const pegasysClient = client('https://graph.pegasys.exchange/subgraphs/name/pollum-io/pegasys');
 
 const isSushiClient = client => {
   return (
@@ -156,4 +157,5 @@ module.exports = {
   stellaClient,
   tombswapClient,
   biswapClient,
+  pegasysClient,
 };

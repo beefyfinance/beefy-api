@@ -45,6 +45,9 @@ module.exports = {
   get moonbeamWeb3() {
     return chainRandomClients.moonbeamRandomClient();
   },
+  get sysWeb3() {
+    return chainRandomClients.sysRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

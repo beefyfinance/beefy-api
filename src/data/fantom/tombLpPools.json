@@ -1,5 +1,25 @@
 [
   {
+    "name": "tomb-btc-tshare",
+    "address": "0xa1f4a9ee0d06115376dFf357D34C3F5eb4107398",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "BTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x4cdF39285D7Ca8eB3f090fDA0C069ba5F4145B37",
+      "oracle": "tokens",
+      "oracleId": "TSHARE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "tomb-tomb-wftm",
     "address": "0xfca12A13ac324C09e9F43B5e5cfC9262f3Ab3223",
     "decimals": "1e18",

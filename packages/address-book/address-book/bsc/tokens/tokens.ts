@@ -15,6 +15,102 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  PAE: {
+    name: 'Ripae',
+    symbol: 'PAE',
+    address: '0x6c7fc3Fd4a9f1Cfa2a69B83F92b9DA7EC26240A2',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://bnb.ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://bnb.ripae.finance/static/media/ripae_pae.b7a952f2.svg',
+  },
+  pBNB: {
+    name: 'pBNB',
+    symbol: 'pBNB',
+    address: '0xA2315cC5A1e4aE3D0a491ED4Fe45EBF8356fEaC7',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://bnb.ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://bnb.ripae.finance/static/media/ripae_pftm.72dccc11.svg',
+  },
+  beCAKE: {
+    name: 'Beefy Staked CAKE',
+    symbol: 'beCAKE',
+    address: '0x42b50A901228fb4C739C19fcd38DC2182B515B66',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beefy.com',
+    description:
+      'beCAKE is a Beefy-wrapped version of CAKE. Staking beCAKE will be a great way to earn a bunch of CAKE. Beefy will deposit and timelock into the Cake Pool earning more yield than staking without timelock, in addition a portion of all pancakeswap strategies CAKE earnings get sent to the CAKE earnings pool. beCAKE pays out its yield in CAKE.',
+  },
+  BUSM: {
+    name: 'BUSM.Money',
+    symbol: 'BUSM',
+    address: '0x6216B17f696B14701E17BCB24Ec14430261Be94A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://busm.money/',
+    description:
+      'BUSM.Money is explosive! Provide your yield-bearing xBOMB as collateral. Once completed, you will be ableto borrow BOMB US Money (BUSM). From here the sky is the limit! Purchase any token you wish, from more BOMB to another stablecoin!',
+  },
+  BOMB: {
+    name: 'Bomb.Money',
+    symbol: 'BOMB',
+    address: '0x522348779DCb2911539e76A1042aA922F9C47Ee3',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.bomb.money/',
+    description:
+      'BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG',
+  },
+  BSHARE: {
+    name: 'BSHARE',
+    symbol: 'BSHARE',
+    address: '0x531780FAcE85306877D7e1F05d713D1B50a37F7A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.bomb.money/',
+    description:
+      'BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG',
+  },
+  aBNBc: {
+    name: 'Ankr BNB Reward Bearing Certificate',
+    symbol: 'aBNBc',
+    address: '0xE85aFCcDaFBE7F2B096f268e31ccE3da8dA2990A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description: 'Decentralized Infrastructure to Build and Earn in Web3',
+  },
+  PEX: {
+    name: 'Pear DAO',
+    symbol: 'PEX',
+    address: '0x6a0b66710567b6beb81A71F7e9466450a91a384b',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://peardao.io/',
+    description: 'Trade, earn and meet people in the new decentralized marketplace.',
+  },
+  FROYO: {
+    name: 'Froyo',
+    symbol: 'FROYO',
+    address: '0xe369fec23380f9F14ffD07a1DC4b7c1a9fdD81c9',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://froyo.games/',
+    description: 'Be part of the future of gaming with play to earn games, NFTs & digital assets.',
+  },
   VALAS: {
     name: 'Valas Finance',
     symbol: 'VALAS',

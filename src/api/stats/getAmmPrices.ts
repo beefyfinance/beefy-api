@@ -227,6 +227,9 @@ import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import joeBoostedLpPools from '../../data/avax/joeBoostedLpPools.json';
 import spookyV2LpPools from '../../data/fantom/spookyV2LpPools.json';
 import valasLpPools from '../../data/valasLpPools.json';
+import bombLpPools from '../../data/degens/bombLpPools.json';
+import pegasysLpPools from '../../data/sys/pegasysLpPools.json';
+import ripaeLpPools from '../../data/degens/ripaeLpPools.json';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -235,6 +238,9 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...excaliburSwapPools,
+  ...ripaeLpPools,
+  ...pegasysLpPools,
+  ...bombLpPools,
   ...valasLpPools,
   ...spookyV2LpPools,
   ...vvsDualPools,
@@ -510,6 +516,7 @@ const updateAmmPrices = async () => {
       return {
         beJOE: tokenPrices['JOE'],
         beQI: tokenPrices['QI'],
+        beCAKE: tokenPrices['Cake'],
       };
     });
 

@@ -117,8 +117,8 @@ const projects = {
   },
   stellaswap: {
     prefix: 'stellaswap',
-    file: '../src/data/moonbeam/stellaswapLpPools.json',
-    masterchef: stellaswap.masterchef,
+    file: '../src/data/moonbeam/stellaswapLpV2Pools.json',
+    masterchef: stellaswap.masterchefV1distributorV2,
   },
 };
 

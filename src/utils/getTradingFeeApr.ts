@@ -7,6 +7,7 @@ import {
   joeDayDataQuery,
   balancerDataQuery,
   joeDayDataRangeQuery,
+  protocolDayDataRangeQuery,
 } from '../apollo/queries';
 import getBlockTime from './getBlockTime';
 import getBlockNumber from './getBlockNumber';
@@ -238,6 +239,29 @@ export const getYearlyTradingFeesForSJOE = async (
     yearlyTradingFeesUsd = dailyTradingApr.times(365);
   } catch (e) {
     console.error('> getYearlyTradingFeesForSJOE error');
+  }
+
+  return yearlyTradingFeesUsd;
+};
+
+export const getYearlyTradingFeesForProtocols = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  liquidityProviderFee: number
+) => {
+  let yearlyTradingFeesUsd = new BigNumber(0);
+  const [start0, end0] = getUtcSecondsFromDayRange(1, 8);
+
+  try {
+    let data = await client.query({ query: protocolDayDataRangeQuery(start0, end0) });
+
+    const dayData = data.data.uniswapDayDatas.map(data => new BigNumber(data.dailyVolumeUSD));
+
+    const totalVolume = BigNumber.sum.apply(null, dayData);
+    const avgVolume = totalVolume.dividedBy(7);
+    const dailyTradingApr = avgVolume.times(liquidityProviderFee);
+    yearlyTradingFeesUsd = dailyTradingApr.times(365);
+  } catch (e) {
+    console.error('> getYearlyTradingFeesForProtocols error');
   }
 
   return yearlyTradingFeesUsd;
