@@ -70,7 +70,7 @@ const _tokens = {
     description:
       'BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG',
   },
-  BSHARE: {
+  BOMBSHARE: {
     name: 'BSHARE',
     symbol: 'BSHARE',
     address: '0x531780FAcE85306877D7e1F05d713D1B50a37F7A',
