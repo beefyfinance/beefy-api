@@ -15,7 +15,7 @@
       "address": "0xfa1FBb8Ef55A4855E5688C0eE13aC3f202486286",
       "oracle": "tokens",
       "oracleId": "FHM",
-      "decimals": "1e09"
+      "decimals": "1e9"
     }
   },
   {
