@@ -28,6 +28,7 @@ const getChargeApys = require('./getChargeApys');
 const getDibsApys = require('./getDibsApys');
 const getEmpApys = require('./getEmpApys');
 const getBombApys = require('./getBombApys');
+const getRipaeApys = require('./getRipaeApys');
 
 const getApys = [
   getRamenLpApys,
@@ -60,6 +61,7 @@ const getApys = [
   getDibsApys,
   getEmpApys,
   getBombApys,
+  getRipaeApys,
 ];
 
 const getDegensLpApys = async () => {
