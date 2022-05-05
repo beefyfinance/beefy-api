@@ -277,6 +277,18 @@ const _tokens = {
     description:
       'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network.',
   },
+  xcDOT: {
+    name: 'xcDOT',
+    symbol: 'xcDOT',
+    address: '0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080',
+    chainId: 1284,
+    decimals: 10,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080.svg',
+    website: 'https://polkadot.network/',
+    description:
+      'Polkadot is an open-source sharding multichain protocol that facilitates the cross-chain transfer of any data or asset types, not just tokens, thereby making a wide range of blockchains interoperable with each other.',
+  },
   veFLARE: {
     name: 'Vested Flare Token',
     symbol: 'veFLARE',
