@@ -1,5 +1,4 @@
 import { getMasterChefApys } from '../common/getMasterChefApys';
-import MasterChefAbi from '../../../abis/matic/MaiFarmChef.json';
 
 const { avaxWeb3: web3 } = require('../../../utils/web3');
 const { AVAX_CHAIN_ID: chainId } = require('../../../constants');
@@ -16,14 +15,14 @@ export const getMaiApys = () => {
     web3: web3,
     chainId: chainId,
     masterchef: mai.chef,
-    masterchefAbi: MasterChefAbi as AbiItem[],
-    tokenPerBlock: 'rewardPerBlock',
+    tokenPerBlock: 'rewardPerSecond',
     hasMultiplier: false,
     pools: pools,
     singlePools: [],
     oracle: 'tokens',
     oracleId: 'avaxQI',
     decimals: '1e18',
+    secondsPerBlock: 1,
     tradingFeeInfoClient: joeClient,
     liquidityProviderFee: JOE_LPF,
     // log: true,

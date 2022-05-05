@@ -1,3 +1,3 @@
 export const mai = {
-  chef: '0xAB598434d0d0B1aDAf8311484A980d12169E035f',
+  chef: '0x7754b08aB3b73021736985e90163aCC68484F54A',
 } as const;
