@@ -9,5 +9,60 @@
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-dai.e",
+    "token": "0xd586E7F844cEa2F87f50152665BCbc2C279D8d70",
+    "aToken": "0x82E64f49Ed5EC1bC6e43DAD4FC8Af9bb3A2312EE",
+    "debtToken": "0x8619d80FB0141ba7F184CbF22fd724116D9f7ffC",
+    "oracle": "tokens",
+    "oracleId": "DAI.e",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-usdc",
+    "token": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+    "aToken": "0x625E7708f30cA75bfd92586e17077590C60eb4cD",
+    "debtToken": "0xFCCf3cAbbe80101232d343252614b6A3eE81C989",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-usdt",
+    "token": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+    "aToken": "0x6ab707Aca953eDAeFBc4fD23bA73294241490620",
+    "debtToken": "0xfb00AC187a8Eb5AFAE4eACE434F493Eb62672df7",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-weth.e",
+    "token": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+    "aToken": "0xe50fA9b3c56FfB159cB0FCA61F5c9D750e8128c8",
+    "debtToken": "0x0c84331e39d6658Cd6e6b9ba04736cC4c4734351",
+    "oracle": "tokens",
+    "oracleId": "WETH.e",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-wbtc.e",
+    "token": "0x50b7545627a5162F82A992c33b87aDc75187B218",
+    "aToken": "0x078f358208685046a11C85e8ad32895DED33A249",
+    "debtToken": "0x92b42c66840C7AD907b4BF74879FF3eF7c529473",
+    "oracle": "tokens",
+    "oracleId": "WBTC.e",
+    "decimals": "1e8",
+    "borrowDepth": 1,
+    "borrowPercent": 0
   }
 ]
