@@ -1,25 +1,5 @@
 [
   {
-    "name": "beets-daiabolical-balance",
-    "address": "0xD5E946b5619fFf054c40D38c976f1d06C1e2fA82",
-    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
-    "vaultPoolId": "0xd5e946b5619fff054c40d38c976f1d06c1e2fa820002000000000000000003ac",
-    "poolId": 80,
-    "decimals": "1e18",
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "DAI",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "usd-balance",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "beets-gelato-genesis",
     "address": "0x76A0631699Aa67a574340639036Fc93f5A1302F4",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",

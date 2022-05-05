@@ -1,5 +1,24 @@
 [
   {
+    "name": "boo-dai-fhm",
+    "address": "0xd77fc9c4074b56Ecf80009744391942FBFDDd88b",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfa1FBb8Ef55A4855E5688C0eE13aC3f202486286",
+      "oracle": "tokens",
+      "oracleId": "FHM",
+      "decimals": "1e9"
+    }
+  },
+  {
     "name": "quickswap-sd-usdc",
     "address": "0x7d196c0c447fde421c72f88a1900bf3322f20e0a",
     "decimals": "1e18",
