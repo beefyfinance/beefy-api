@@ -4,6 +4,7 @@ import { spookyswap } from './platforms/spookyswap';
 import { spiritswap } from './platforms/spiritswap';
 import { sushiFtm } from './platforms/sushiFtm';
 import { solidly } from './platforms/solidly';
+import { tombswap } from './platforms/tombswap';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -17,6 +18,7 @@ const _fantom = {
     spiritswap,
     sushiFtm,
     solidly,
+    tombswap,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
