@@ -140,6 +140,11 @@
     "rewards": []
   },
   {
+    "name": "curve-ftm-tor",
+    "pool": "0x24699312CB27C26Cfc669459D670559E5E44EE60",
+    "rewards": []
+  },
+  {
     "name": "curve-ftm-f-ftml",
     "pool": "0x8B63F036F5a34226065bC0a7B0aE5bb5eBA1fF3D",
     "gauge": "0xc1c5B8aAfE653592627B54B9527C7E98326e83Ff",
