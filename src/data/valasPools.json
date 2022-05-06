@@ -174,5 +174,16 @@
     "decimals": "1e18",
     "borrowDepth": 4,
     "borrowPercent": 0.72
+  },
+  {
+    "name": "valas-cake",
+    "token": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+    "aToken": "0xC37079A50611a742A018c39ba1C5EbDd89896334",
+    "debtToken": "0xC7C7bF1F28d29cEa48F4AAAefb7E8C1FB43DB200",
+    "oracle": "tokens",
+    "oracleId": "Cake",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
   }
 ]
