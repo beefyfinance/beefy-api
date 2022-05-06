@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  TOR: {
+    name: 'TOR',
+    symbol: 'TOR',
+    address: '0x74E23dF9110Aa9eA0b6ff2fAEE01e740CA1c642e',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://tor.cash/',
+    description:
+      'TOR is a truly algorithmic stablecoin built on the Fantom Opera Chain. It has a dynamic supply which is determined by supply and demand which ensures it is always worth $1.',
+  },
   sFTMx: {
     name: 'sFTMx',
     symbol: 'sFTMx',
