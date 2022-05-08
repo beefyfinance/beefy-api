@@ -1,15 +1,14 @@
-const cowllector = '0xd529b1894491a0a26B18939274ae8ede93E81dbA';
+const devMultisig = '0x3A0b8B7a3ea8D1670e000b1Da5bD41373bF8da42';
 const treasuryMultisig = '0x26dE4EBffBE8d3d632A292c972E3594eFc2eCeEd';
 
 export const beefyfinance = {
+  devMultisig,
+  treasuryMultisig,
   strategyOwner: '0x37DC61A76113E7840d4A8F1c1B799cC9ac5Aa854',
   vaultOwner: '0x690216f462615b749bEEB5AA3f1d89a2BEc45Ecf',
   keeper: '0x340465d9D2EbDE78F15a3870884757584F97aBB4',
-  rewarder: cowllector,
-  treasuryMultisig,
   treasurer: treasuryMultisig,
-  launchpoolOwner: cowllector,
-  devMultisig: '0x3A0b8B7a3ea8D1670e000b1Da5bD41373bF8da42',
+  launchpoolOwner: devMultisig,
   rewardPool: '0x86d38c6b6313c5A3021D68D1F57CF5e69197592A',
   treasury: '0xA3e3Af161943CfB3941B631676134bb048739727',
   beefyFeeRecipient: '0x8Ef7C232470f85Af0809ce5E43888F989eFcAF47',

@@ -1,5 +1,100 @@
 [
   {
+    "name": "solarbeam-wbtc-wmovr",
+    "address": "0x32E33B774372c700da12F2D0F7A834045F5651B2",
+    "decimals": "1e18",
+    "poolId": 19,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarbeam-solar-wmovr",
+    "address": "0x7eDA899b3522683636746a2f3a7814e6fFca75e1",
+    "decimals": "1e18",
+    "poolId": 18,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B",
+      "oracle": "tokens",
+      "oracleId": "SOLAR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarbeam-eth-wmovr",
+    "address": "0x0d171b55fC8d3BDDF17E376FdB2d90485f900888",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solarbeam-wmovr-usdc",
+    "address": "0xe537f70a8b62204832B8Ba91940B77d3f79AEb81",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "solarbeam-wmovr-xcksm",
+    "address": "0xea3d1E9e69ADDFA1ee5BBb89778Decd862F1F7C5",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080",
+      "oracle": "tokens",
+      "oracleId": "xcKSM",
+      "decimals": "1e12"
+    }
+  },
+  {
     "name": "solarbeam-wmovr-mai",
     "address": "0xcD450B46dbED11C4F1cf159457B28ed7e2Ed7fBB",
     "decimals": "1e18",

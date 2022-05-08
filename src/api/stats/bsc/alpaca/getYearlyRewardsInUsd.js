@@ -5,10 +5,11 @@ const FairLaunch = require('../../../../abis/FairLaunch.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { BSC_CHAIN_ID } = require('../../../../constants');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const getYearlyRewardsInUsd = async (fairLaunch, pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const fairLaunchContract = new web3.eth.Contract(FairLaunch, fairLaunch);
+  const fairLaunchContract = getContractWithProvider(FairLaunch, fairLaunch, web3);
 
   const multiplier = new BigNumber(
     await fairLaunchContract.methods.getMultiplier(blockNum - 1, blockNum).call()

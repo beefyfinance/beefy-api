@@ -11,6 +11,7 @@ import { beetClient } from '../../../apollo/client';
 import getBlockTime from '../../../utils/getBlockTime';
 import { ERC20_ABI } from '../../../abis/common/ERC20';
 import getApyBreakdown from '../common/getApyBreakdown';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 
 const masterchef = '0x8166994d9ebBe5829EC86Bd81258149B87faCfd3';
 const oracleIdA = 'BEETS';
@@ -72,21 +73,21 @@ const getFarmApys = async pools => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = new web3.eth.Contract(MasterChefAbi, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChefAbi, masterchef, web3);
   const blockRewards = new BigNumber(await masterchefContract.methods.beetsPerBlock().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { blockRewards, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = new web3.eth.Contract(MasterChefAbi, masterchef);
+  const masterchefContract = getContract(MasterChefAbi, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(FANTOM_CHAIN_ID));
   const balanceCalls = [];
   const allocPointCalls = [];
   const rewarderCalls = [];
   const tokenBPerSecCalls = [];
   pools.forEach(pool => {
-    const tokenContract = new web3.eth.Contract(ERC20_ABI, pool.address);
+    const tokenContract = getContract(ERC20_ABI, pool.address);
     balanceCalls.push({
       balance: tokenContract.methods.balanceOf(pool.strat ?? masterchef),
     });
@@ -107,7 +108,7 @@ const getPoolsData = async pools => {
 
   pools.forEach((pool, i) => {
     if (rewarders[i] !== '0x0000000000000000000000000000000000000000') {
-      const rewarderContract = new web3.eth.Contract(BeethovenRewarder, rewarders[i]);
+      const rewarderContract = getContractWithProvider(BeethovenRewarder, rewarders[i], web3);
       const tokenBPerSec = rewarderContract.methods.rewardPerSecond();
       tokenBPerSecCalls.push({
         tokenBPerSec: tokenBPerSec,

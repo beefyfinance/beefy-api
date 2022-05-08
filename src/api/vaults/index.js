@@ -1,4 +1,4 @@
-const getMultichainVaults = require('../stats/getMultichainVaults');
+const { getMultichainVaults } = require('../stats/getMultichainVaults');
 
 async function multichainVaults(ctx) {
   try {

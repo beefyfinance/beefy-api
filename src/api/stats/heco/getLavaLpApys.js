@@ -7,6 +7,7 @@ const pools = require('../../../data/heco/lavaLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../constants');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const getLavaLpApys = async () => {
   let apys = {};
@@ -34,7 +35,7 @@ const getPoolApy = async (lavaPool, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (lavaPool, pool) => {
-  const lavaPoolContract = new web3.eth.Contract(LavaPool, lavaPool);
+  const lavaPoolContract = getContractWithProvider(LavaPool, lavaPool, web3);
 
   const blockRewards = new BigNumber(await lavaPoolContract.methods.sushiPerBlock().call());
 

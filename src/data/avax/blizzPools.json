@@ -44,17 +44,6 @@
     "borrowPercent": 0.01
   },
   {
-    "name": "blizz-usdt-supply",
-    "token": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
-    "aToken": "0x18cb11C9F2B6F45A7ac0A95eFD322ED4cf9EEEBF",
-    "debtToken": "0xE928AC9837e703f5d36066De9ca98e95bA7774d1",
-    "oracle": "tokens",
-    "oracleId": "USDT.e",
-    "decimals": "1e6",
-    "borrowDepth": 1,
-    "borrowPercent": 0.01
-  },
-  {
     "name": "blizz-usdc-supply",
     "token": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
     "aToken": "0xC25Ff1aF397b76252D6975b4D7649b35C0E60F69",
@@ -110,17 +99,6 @@
     "borrowPercent": 0.72
   },
   {
-    "name": "blizz-usdt",
-    "token": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
-    "aToken": "0x18cb11C9F2B6F45A7ac0A95eFD322ED4cf9EEEBF",
-    "debtToken": "0xE928AC9837e703f5d36066De9ca98e95bA7774d1",
-    "oracle": "tokens",
-    "oracleId": "USDT.e",
-    "decimals": "1e6",
-    "borrowDepth": 4,
-    "borrowPercent": 0.77
-  },
-  {
     "name": "blizz-usdc",
     "token": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
     "aToken": "0xC25Ff1aF397b76252D6975b4D7649b35C0E60F69",
@@ -150,7 +128,40 @@
     "oracle": "tokens",
     "oracleId": "WBTC.e",
     "decimals": "1e8",
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
+  },
+  {
+    "name": "blizz-joe",
+    "token": "0x6e84a6216eA6dACC71eE8E6b0a5B7322EEbC0fDd",
+    "aToken": "0x41acEc47d9261db87e9dEe023c1Ae4b0345Ee0D5",
+    "debtToken": "0x8179d9446a37866590032edCF1Ef2A537a42Ec10",
+    "oracle": "tokens",
+    "oracleId": "JOE",
+    "decimals": "1e18",
     "borrowDepth": 4,
-    "borrowPercent": 0.67
+    "borrowPercent": 0.42
+  },
+  {
+    "name": "blizz-ust",
+    "token": "0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11",
+    "aToken": "0xf055011a6Cc0a84c2Ff2aB65326ABfA666b53E5c",
+    "debtToken": "0x0B75054651D1409AFe739E32dc04E4F13D3b8Df9",
+    "oracle": "tokens",
+    "oracleId": "atUST",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.72
+  },
+  {
+    "name": "blizz-luna",
+    "token": "0x120AD3e5A7c796349e591F1570D9f7980F4eA9cb",
+    "aToken": "0xbD1F70fC3BFf70A37441c9D8B51c0D9220483c5A",
+    "debtToken": "0x50Eb2253661E3231074CebC922E664DDEE0c9772",
+    "oracle": "tokens",
+    "oracleId": "LUNA",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.47
   }
 ]

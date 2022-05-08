@@ -17,6 +17,9 @@ const {
   aurora: {
     platforms: { trisolaris: tri },
   },
+  sys: {
+    platforms: { pegasys: pegasys },
+  },
 } = addressBook;
 
 const yargs = require('yargs');
@@ -70,6 +73,11 @@ const projects = {
     prefix: 'tri',
     file: '../src/data/aurora/trisolarisMiniLpPools.json',
     masterchef: tri.minichef,
+  },
+  pegasys: {
+    prefix: 'pegasys',
+    file: '../src/data/sys/pegasysLpPools.json',
+    masterchef: pegasys.minichef,
   },
 };
 

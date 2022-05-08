@@ -11,7 +11,14 @@ function client(url) {
   const timeoutHttpLink = timeoutLink.concat(httpLink);
   return new ApolloClient({
     link: timeoutHttpLink,
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      addTypename: false,
+    }),
+    defaultOptions: {
+      query: {
+        fetchPolicy: 'no-cache',
+      },
+    },
   });
 }
 
@@ -82,6 +89,9 @@ const dinoClient = client('https://api.thegraph.com/subgraphs/name/jannervegloba
 const fusefiClient = client('https://api.thegraph.com/subgraphs/name/fuseio/fuseswap');
 const netswapClient = client('https://api.netswap.io/graph/subgraphs/name/netswap/exchange');
 const tethysClient = client('https://node.tethys.finance/subgraphs/name/tethys');
+const tombswapClient = client('https://api.thegraph.com/subgraphs/name/github-qfg/tombswap');
+const biswapClient = client('https://api.thegraph.com/subgraphs/name/biswapcom/exchange5');
+const pegasysClient = client('https://graph.pegasys.exchange/subgraphs/name/pollum-io/pegasys');
 
 const isSushiClient = client => {
   return (
@@ -145,4 +155,7 @@ module.exports = {
   beamClient,
   solarflareClient,
   stellaClient,
+  tombswapClient,
+  biswapClient,
+  pegasysClient,
 };

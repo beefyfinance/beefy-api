@@ -13,4 +13,5 @@ export enum ChainId {
   fuse = 122,
   metis = 1088,
   moonbeam = 1284,
+  sys = 57,
 }

@@ -4,8 +4,6 @@ import { getMasterChefApys } from '../common/getMasterChefApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
 
-import axios from 'axios';
-import BigNumber from 'bignumber.js';
 import MasterChefAbi from '../../../abis/matic/MaiFarmChef.json';
 const mai = addressBook.avax.platforms.mai;
 
@@ -18,9 +16,8 @@ const getMaiCurveApys = async () => {
   return await getMasterChefApys({
     web3: web3,
     chainId: chainId,
-    masterchefAbi: MasterChefAbi,
     masterchef: mai.chef,
-    tokenPerBlock: 'rewardPerBlock',
+    tokenPerBlock: 'rewardPerSecond',
     hasMultiplier: false,
     pools: [
       {
@@ -35,6 +32,7 @@ const getMaiCurveApys = async () => {
     oracleId: 'avaxQI',
     oracle: 'tokens',
     decimals: '1e18',
+    secondsPerBlock: 1,
     tradingAprs: tradingAprs,
     liquidityProviderFee: 0.0002,
     // log: true,

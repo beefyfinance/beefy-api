@@ -8,6 +8,7 @@ const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const getBlockTime = require('../../../utils/getBlockTime');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const DECIMALS = '1e18';
 
@@ -23,7 +24,7 @@ const getJarvisApys = async () => {
   return getApyBreakdown(pools, tradingAprs, farmAprs, 0.004);
 };
 
-const getPoolApy = async (pool) => {
+const getPoolApy = async pool => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(pool.masterchef, pool.poolId, pool.rewardOracle, pool.rewardToken),
     getTotalLpStakedInUsd(pool.masterchef, pool, pool.chainId),
@@ -33,7 +34,7 @@ const getPoolApy = async (pool) => {
 };
 
 const getYearlyRewardsInUsd = async (masterchef, poolId, oracle, oracleId) => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
 
   let { allocPoint } = await masterchefContract.methods.poolInfo(poolId).call();
   allocPoint = new BigNumber(allocPoint);

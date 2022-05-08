@@ -1,5 +1,25 @@
 [
   {
+    "name": "beets-gelato-genesis",
+    "address": "0x76A0631699Aa67a574340639036Fc93f5A1302F4",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x76a0631699aa67a574340639036fc93f5a1302f400020000000000000000040f",
+    "poolId": 79,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "gelato",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-boomer-beets",
     "address": "0x8DBB92ca6c399792AC07510a0996C59902cD75a1",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",

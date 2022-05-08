@@ -8,6 +8,7 @@ const { compound } = require('../../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const masterchef = '0xc8cf0767fB2258b23B90636A5e21cfaD113e8182';
 const oracleId = 'SPACE';
@@ -41,7 +42,7 @@ const getPoolApy = async (masterchef, pool) => {
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
 
   const multiplier = new BigNumber(
     await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()

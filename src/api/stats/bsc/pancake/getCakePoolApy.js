@@ -7,6 +7,7 @@ const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd')
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const getCakePoolApy = async () => {
   const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
@@ -28,7 +29,7 @@ const getCakePoolApy = async () => {
 const getYearlyRewardsInUsd = async (masterChefAddr, oracle, oracleId) => {
   const fromBlock = await getBlockNumber(BSC_CHAIN_ID);
   const toBlock = fromBlock + 1;
-  const masterChefContract = new web3.eth.Contract(MasterChef, masterChefAddr);
+  const masterChefContract = getContractWithProvider(MasterChef, masterChefAddr, web3);
 
   const multiplier = new BigNumber(
     await masterChefContract.methods.getMultiplier(fromBlock, toBlock).call()

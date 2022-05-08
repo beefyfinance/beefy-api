@@ -35,6 +35,7 @@ const ERC20 = require('../../../../abis/ERC20.json');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 const { compound } = require('../../../../utils/compound');
@@ -133,7 +134,7 @@ const getFarmApys = async params => {
 };
 
 const getMasterChefData = async params => {
-  const masterchefContract = new web3.eth.Contract(abi, params.masterchef);
+  const masterchefContract = getContractWithProvider(abi, params.masterchef, web3);
 
   const rewardsPerSecond = new BigNumber(await masterchefContract.methods.yelPerSecond().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
@@ -141,7 +142,7 @@ const getMasterChefData = async params => {
 };
 
 const getPoolsData = async params => {
-  const masterchefContract = new web3.eth.Contract(abi, params.masterchef);
+  const masterchefContract = getContract(abi, params.masterchef);
   const multicall = new MultiCall(web3, multicallAddress(BSC_CHAIN_ID));
   const poolInfoCalls = [];
   params.pools.forEach(pool => {

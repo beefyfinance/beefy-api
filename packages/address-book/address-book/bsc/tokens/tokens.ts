@@ -15,6 +15,168 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  PAE: {
+    name: 'Ripae',
+    symbol: 'PAE',
+    address: '0x6c7fc3Fd4a9f1Cfa2a69B83F92b9DA7EC26240A2',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://bnb.ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://bnb.ripae.finance/static/media/ripae_pae.b7a952f2.svg',
+  },
+  pBNB: {
+    name: 'pBNB',
+    symbol: 'pBNB',
+    address: '0xA2315cC5A1e4aE3D0a491ED4Fe45EBF8356fEaC7',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://bnb.ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://bnb.ripae.finance/static/media/ripae_pftm.72dccc11.svg',
+  },
+  beCAKE: {
+    name: 'Beefy Staked CAKE',
+    symbol: 'beCAKE',
+    address: '0x42b50A901228fb4C739C19fcd38DC2182B515B66',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beefy.com',
+    description:
+      'beCAKE is a Beefy-wrapped version of CAKE. Staking beCAKE will be a great way to earn a bunch of CAKE. Beefy will deposit and timelock into the Cake Pool earning more yield than staking without timelock, in addition a portion of all pancakeswap strategies CAKE earnings get sent to the CAKE earnings pool. beCAKE pays out its yield in CAKE.',
+  },
+  BUSM: {
+    name: 'BUSM.Money',
+    symbol: 'BUSM',
+    address: '0x6216B17f696B14701E17BCB24Ec14430261Be94A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://busm.money/',
+    description:
+      'BUSM.Money is explosive! Provide your yield-bearing xBOMB as collateral. Once completed, you will be ableto borrow BOMB US Money (BUSM). From here the sky is the limit! Purchase any token you wish, from more BOMB to another stablecoin!',
+  },
+  BOMB: {
+    name: 'Bomb.Money',
+    symbol: 'BOMB',
+    address: '0x522348779DCb2911539e76A1042aA922F9C47Ee3',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.bomb.money/',
+    description:
+      'BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG',
+  },
+  BSHARE: {
+    name: 'BSHARE',
+    symbol: 'BSHARE',
+    address: '0x531780FAcE85306877D7e1F05d713D1B50a37F7A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.bomb.money/',
+    description:
+      'BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG',
+  },
+  aBNBc: {
+    name: 'Ankr BNB Reward Bearing Certificate',
+    symbol: 'aBNBc',
+    address: '0xE85aFCcDaFBE7F2B096f268e31ccE3da8dA2990A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description: 'Decentralized Infrastructure to Build and Earn in Web3',
+  },
+  PEX: {
+    name: 'Pear DAO',
+    symbol: 'PEX',
+    address: '0x6a0b66710567b6beb81A71F7e9466450a91a384b',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://peardao.io/',
+    description: 'Trade, earn and meet people in the new decentralized marketplace.',
+  },
+  FROYO: {
+    name: 'Froyo',
+    symbol: 'FROYO',
+    address: '0xe369fec23380f9F14ffD07a1DC4b7c1a9fdD81c9',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://froyo.games/',
+    description: 'Be part of the future of gaming with play to earn games, NFTs & digital assets.',
+  },
+  VALAS: {
+    name: 'Valas Finance',
+    symbol: 'VALAS',
+    address: '0xB1EbdD56729940089Ecc3aD0BBEEB12b6842ea6F',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://valasfinance.com/markets',
+    description:
+      'Valas is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralised (perpetually) or undercollateralised (one-block liquidity) fashion.',
+  },
+  sbBUSD: {
+    chainId: 56,
+    address: '0x98a5737749490856b401DB5Dc27F522fC314A4e1',
+    decimals: 6,
+    name: 'Stargate Binance USD LP',
+    symbol: 'sbBUSD',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaEb044650278731Ef3DC244692AB9F64C78FfaEA/logo.png',
+  },
+  sbUSDT: {
+    name: 'Stargate Tether USD LP',
+    symbol: 'sbUSDT',
+    address: '0x9aA83081AA06AF7208Dcc7A4cB72C94d057D2cda',
+    chainId: 56,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  STG: {
+    name: 'Stargate',
+    symbol: 'STG',
+    address: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+  },
+  EMP: {
+    name: 'EMP.Money',
+    symbol: 'EMP',
+    address: '0x3b248CEfA87F836a4e6f6d6c9b42991b88Dc1d58',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://emp.money/static/media/emp-final2.bb119013',
+    website: 'https://emp.money/',
+    description:
+      'EMP Money offers the first decentralised algorithmic stable coin on Binance Smartchain, pegged to the price of Ethereum via seigniorage at a rate of 4000 EMP: 1 ETH.',
+  },
+  ESHARE: {
+    name: 'EMP.Money Shares',
+    symbol: 'ESHARE',
+    address: '0xDB20F6A8665432CE895D724b417f77EcAC956550',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://emp.money/static/media/eshares-final2.bd716d0f.gif',
+    website: 'https://emp.money/',
+    description:
+      'EMP Money offers the first decentralised algorithmic stable coin on Binance Smartchain, pegged to the price of Ethereum via seigniorage at a rate of 4000 EMP: 1 ETH.',
+  },
   APE: {
     name: 'ApeCoin',
     symbol: 'APE',

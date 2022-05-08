@@ -3,15 +3,22 @@ const { MultiCall } = require('eth-multicall');
 const { web3Factory, multicallAddress } = require('./web3');
 const ERC20 = require('../abis/ERC20.json');
 
-import { FANTOM_CHAIN_ID, POLYGON_CHAIN_ID } from '../constants';
+import { FANTOM_CHAIN_ID, FUSE_CHAIN_ID, POLYGON_CHAIN_ID, MOONBEAM_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
+import { getContract } from './contractHelper';
 
 const {
   fantom: {
-    tokens: { BOO, xBOO, SCREAM, xSCREAM, CREDIT, xCREDIT },
+    tokens: { BOO, xBOO, SCREAM, xSCREAM, CREDIT, xCREDIT, FTM, sFTMx },
   },
   polygon: {
     tokens: { QUICK, dQUICK },
+  },
+  fuse: {
+    tokens: { VOLT, xVOLT },
+  },
+  moonbeam: {
+    tokens: { STELLA, xSTELLA },
   },
 } = addressBook;
 
@@ -20,8 +27,11 @@ const tokens = {
     [BOO, xBOO],
     [SCREAM, xSCREAM],
     [CREDIT, xCREDIT],
+    [FTM, sFTMx],
   ],
   polygon: [[QUICK, dQUICK]],
+  fuse: [[VOLT, xVOLT]],
+  moonbeam: [[STELLA, xSTELLA]],
 };
 
 const getXPrices = async (tokenPrices, tokens, chainId) => {
@@ -32,8 +42,8 @@ const getXPrices = async (tokenPrices, tokens, chainId) => {
   const totalXSupplyCalls = [];
 
   tokens.forEach(token => {
-    const tokenContract = new web3.eth.Contract(ERC20, token[0].address);
-    const xTokenContract = new web3.eth.Contract(ERC20, token[1].address);
+    const tokenContract = getContract(ERC20, token[0].address);
+    const xTokenContract = getContract(ERC20, token[1].address);
     stakedInXPoolCalls.push({
       stakedInXPool: tokenContract.methods.balanceOf(token[1].address),
     });
@@ -61,6 +71,8 @@ const fetchXPrices = async tokenPrices =>
   Promise.all([
     getXPrices(tokenPrices, tokens.fantom, FANTOM_CHAIN_ID),
     getXPrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
+    getXPrices(tokenPrices, tokens.fuse, FUSE_CHAIN_ID),
+    getXPrices(tokenPrices, tokens.moonbeam, MOONBEAM_CHAIN_ID),
   ]).then(data =>
     data
       .flat()

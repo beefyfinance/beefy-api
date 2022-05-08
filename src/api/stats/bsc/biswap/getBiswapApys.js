@@ -1,7 +1,8 @@
 import { getMasterChefApys } from '../../common/getMasterChefApys';
 import { bscWeb3 as web3 } from '../../../../utils/web3';
-import { BSC_CHAIN_ID as chainId } from '../../../../constants';
+import { BSC_CHAIN_ID as chainId, BISWAP_LPF } from '../../../../constants';
 import pools from '../../../../data/biswapLpPools.json';
+import { biswapClient } from '../../../../apollo/client';
 
 const getBiswapApys = async () =>
   await getMasterChefApys({
@@ -13,7 +14,7 @@ const getBiswapApys = async () =>
     pools: pools,
     singlePools: [
       {
-        name: 'biswap-biswap',
+        name: 'biswap-bsw',
         poolId: 0,
         address: '0x965F527D9159dCe6288a2219DB51fc6Eef120dD1',
         oracle: 'tokens',
@@ -24,6 +25,9 @@ const getBiswapApys = async () =>
     oracleId: 'BSW',
     oracle: 'tokens',
     decimals: '1e18',
+    tradingFeeInfoClient: biswapClient,
+    liquidityProviderFee: BISWAP_LPF,
+    burn: 0.143,
     // log: true,
   });
 

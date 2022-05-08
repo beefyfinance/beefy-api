@@ -5,6 +5,7 @@ import getApyBreakdown from '../common/getApyBreakdown';
 import { getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
 import { joeClient } from '../../../apollo/client';
 import { JOE_LPF } from '../../../constants';
+import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
@@ -41,7 +42,7 @@ const getPoolApy = async (masterchef, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
-  const masterchefContract = new web3.eth.Contract(MasterChef, masterchef);
+  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
 
   const rewardsPerSec = new BigNumber(await masterchefContract.methods.rewardsPerSecond().call());
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.address).call();

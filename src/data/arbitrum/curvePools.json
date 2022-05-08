@@ -90,5 +90,11 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "curve-arb-f-4pool",
+    "pool": "0x1C5ffa4FB4907B681c61B8c82b28C4672ceb1974",
+    "gauge": "0x94A5E05D66834c6C6961E199D34dA576679fC187",
+    "boosted": true
   }
 ]

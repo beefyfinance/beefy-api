@@ -1,0 +1,108 @@
+[
+  {
+    "name": "boo-wftm-tor",
+    "address": "0x41d88635029c4402BF9914782aE55c412f8F2142",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x74E23dF9110Aa9eA0b6ff2fAEE01e740CA1c642e",
+      "oracle": "tokens",
+      "oracleId": "TOR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-usdc-sd",
+    "address": "0xeaa3C87135eE1140E1D60FC8B577fbb41163D840",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x412a13C109aC30f0dB80AD3Bd1DeFd5D0A6c0Ac6",
+      "oracle": "tokens",
+      "oracleId": "SD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-wftm-sftmx",
+    "address": "0xE67980fc955FECfDA8A92BbbFBCc9f0C4bE60A9A",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 250,
+    "oracleB": "tokens",
+    "oracleIdB": "SD",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd7028092c830b5C8FcE061Af2E593413EbbC1fc1",
+      "oracle": "tokens",
+      "oracleId": "sFTMx",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-wftm-deus",
+    "address": "0xaF918eF5b9f33231764A5557881E6D3e5277d456",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 250,
+    "oracleB": "tokens",
+    "oracleIdB": "DEUS",
+    "decimalsB": "1e18",
+    "rewarderTotalAllocPoints": "200",
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44",
+      "oracle": "tokens",
+      "oracleId": "DEUS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "boo-usdc-dei",
+    "address": "0xD343b8361Ce32A9e570C1fC8D4244d32848df88B",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 250,
+    "oracleB": "tokens",
+    "oracleIdB": "DEUS",
+    "decimalsB": "1e18",
+    "rewarderTotalAllocPoints": "200",
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xDE12c7959E1a72bbe8a5f7A1dc8f8EeF9Ab011B3",
+      "oracle": "tokens",
+      "oracleId": "DEI",
+      "decimals": "1e18"
+    }
+  }
+]

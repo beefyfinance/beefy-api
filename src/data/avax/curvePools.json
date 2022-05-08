@@ -112,5 +112,18 @@
     "name": "curve-avax-mai",
     "pool": "0xb0D2EB3C2cA3c6916FAb8DCbf9d9c165649231AE",
     "rewards": []
+  },
+  {
+    "name": "curve-avax-f-3pool",
+    "pool": "0xD79138c49c49200a1Afc935171D1bDAd084FDc95",
+    "gauge": "0x1AEAA1b998307217D62E9eeFb6407B10598eF3b8",
+    "boosted": true
+  },
+  {
+    "name": "curve-avax-f-avaxl",
+    "pool": "0x445109BcF194c538B73EA60C71bb773849bc9b79",
+    "gauge": "0xfbb5b8f2f9b7a4d21ff44dC724C1Fb7b531A6612",
+    "oracleId": "AVAX",
+    "boosted": true
   }
 ]

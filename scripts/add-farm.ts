@@ -60,6 +60,11 @@ const projects = {
     file: '../src/data/avax/joeDualLpPools.json',
     masterchef: joe.masterchefV3,
   },
+  boostedjoe: {
+    prefix: 'joe',
+    file: '../src/data/avax/joeBoostedLpPools.json',
+    masterchef: joe.boostedMasterChef,
+  },
   spooky: {
     prefix: 'boo',
     file: '../src/data/fantom/spookyLpPools.json',
@@ -107,8 +112,8 @@ const projects = {
   },
   stellaswap: {
     prefix: 'stellaswap',
-    file: '../src/data/moonbeam/stellaswapLpPools.json',
-    masterchef: stellaswap.masterchef,
+    file: '../src/data/moonbeam/stellaswapLpV2Pools.json',
+    masterchef: stellaswap.masterchefV1distributorV2,
   },
 };
 

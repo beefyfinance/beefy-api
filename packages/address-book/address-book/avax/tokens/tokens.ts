@@ -15,6 +15,157 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  BPT: {
+    name: 'Bold Point BPT',
+    symbol: 'BPT',
+    address: '0x1111111111182587795eF1098ac7da81a108C97a',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x1111111111182587795eF1098ac7da81a108C97a/logo.png',
+    website: 'https://bp.yay.games/',
+    description:
+      'Bold Point is a NFT-based RPG game where players slash enemies, play against other players and get rewards from their crafting skills in the real world.',
+  },
+  DBY: {
+    name: 'Metaderby DBY',
+    symbol: 'DBY',
+    address: '0x5085434227aB73151fAd2DE546210Cbc8663dF96',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x5085434227aB73151fAd2DE546210Cbc8663dF96/logo.png',
+    website: 'https://metaderby.com/',
+    description:
+      'MetaDerby is the first free-to-play-and-earn horse racing metaverse where anyone can earn tokens through skilled gameplay and contribute to building the MetaDerby universe.',
+  },
+  beJOE: {
+    name: 'Beefy JOE',
+    symbol: 'beJOE',
+    address: '0x1F2A8034f444dc55F963fb5925A9b6eb744EeE2c',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beefy.com',
+    description:
+      'beJOE is a Beefy-wrapped version of veJOE. Holding beJOE will be a great way to earn a bunch of JOE. Beefy will max out emissions on boosted farms, 5% of emissions will then be distributed to beJOE stakers on Beefy.',
+  },
+  YETI: {
+    name: 'Yeti YETI',
+    symbol: 'YETI',
+    address: '0x77777777777d4554c39223C354A05825b2E8Faa3',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://1786218689-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4OftjbgGWmJOiwFRkFKr%2Fuploads%2FQWL5FOA2bShRZVnkrVL9%2Fyetitoken.png?alt=media&token=7e2a9b4a-4682-4438-ba58-9196e6cfcdc4',
+    website: 'https://yeti.finance/',
+    description:
+      'The best borrowing experience on Avalanche. Borrow against your entire Avalanche portfolio interest-free.',
+  },
+  YUSD: {
+    name: 'Yeti YUSD',
+    symbol: 'YUSD',
+    address: '0x111111111111ed1D73f860F57b2798b683f2d325',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://1786218689-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2F4OftjbgGWmJOiwFRkFKr%2Fuploads%2FxBkrBV3R1T4fxCWIY2qJ%2Fyusdtoken.png?alt=media&token=a5acaa5c-a32b-480e-930b-5bd3def36adc',
+    website: 'https://yeti.finance/',
+    description:
+      'The best borrowing experience on Avalanche. Borrow against your entire Avalanche portfolio interest-free.',
+  },
+  axlATOM: {
+    name: 'Axelar Wrapped ATOM',
+    symbol: 'ATOM',
+    address: '0x80D18b1c9Ab0c9B5D6A6d5173575417457d00a12',
+    chainId: 43114,
+    decimals: 6,
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/3794.png',
+    website: 'https://cosmos.network/',
+    description:
+      'The Internet of Blockchains. Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+  },
+  LOST: {
+    name: 'Lost Worlds LOST',
+    symbol: 'LOST',
+    address: '0x449674B82F05d498E126Dd6615a1057A9c088f2C',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x449674B82F05d498E126Dd6615a1057A9c088f2C/logo.png',
+    website: 'https://lostworlds.io/',
+    description:
+      'Lost Worlds is a 1st of its kind NFT platform experience where NFTs are geographically bound to real world locations for collectors to discover and mint.',
+  },
+  AVAXL: {
+    name: 'Top Shelf AVAX L-Token',
+    symbol: 'AVAXL',
+    address: '0xe0237F9E2aaABd7Ffb8630BE5203D573a045Bca7',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://topshelf.finance/',
+    description:
+      'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
+    logoURI: '',
+  },
+  MONEY: {
+    name: 'Moremoney USD',
+    symbol: 'MONEY',
+    address: '0x0f577433Bf59560Ef2a79c124E9Ff99fCa258948',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/24237/large/money.png',
+    website: 'https://moremoney.finance/',
+    description:
+      'Moremoney is a protocol for borrowing stablecoin while earning interest on liquidity pool tokens and other collateral assets.',
+  },
+  USTw: {
+    name: 'TerraUSD (Wormhole)',
+    symbol: 'USTw',
+    address: '0xb599c3590F42f8F995ECfa0f85D2980B76862fc1',
+    chainId: 43114,
+    decimals: 6,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11/logo.png',
+    website: 'https://www.terra.money/',
+    description:
+      'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
+  },
+  saUSDC: {
+    name: 'Stargate USD Coin LP',
+    address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
+    symbol: 'saUSDC',
+    decimals: 6,
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    chainId: 43114,
+    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
+  },
+  saUSDT: {
+    name: 'Stargate Tether USD LP',
+    symbol: 'saUSDT',
+    address: '0x29e38769f23701A2e4A8Ef0492e19dA4604Be62c',
+    chainId: 43114,
+    decimals: 6,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  STG: {
+    name: 'Stargate',
+    symbol: 'STG',
+    address: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+  },
   FLY: {
     name: 'Hoppers Game FLY',
     symbol: 'FLY',
@@ -84,7 +235,7 @@ const _tokens = {
   },
   VTX: {
     name: 'Vector',
-    symbol: 'ECD',
+    symbol: 'VTX',
     address: '0x5817D4F0b62A59b17f75207DA1848C2cE75e7AF4',
     chainId: 43114,
     decimals: 18,
@@ -1133,6 +1284,15 @@ const _tokens = {
     symbol: 'CVP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xDF9A6628235C90da0a475519D85C9CFFa2a11D4C/logo.png',
+  },
+  NCASH: {
+    chainId: 43114,
+    address: '0xc69Eba65e87889f0805dB717Af06797055A0BA07',
+    decimals: 18,
+    name: 'NCash is the native cryptocurrency and protocol token of the Nitro Network. Nitro Network is building a world of private communication networks powered by IoT together with LoRaWAN/3G/4G and 5G.',
+    symbol: 'NCASH',
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xc69Eba65e87889f0805dB717Af06797055A0BA07/logo_48.png',
   },
   COT: {
     chainId: 43114,
@@ -3337,13 +3497,24 @@ const _tokens = {
   },
   USDT: {
     chainId: 43114,
-    address: '0xde3A24028580884448a5397872046a019649b084',
+    address: '0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7',
     decimals: 6,
-    name: 'Tether USD',
+    name: 'Tether USD (native)',
     symbol: 'USDT',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    logoURI: 'https://snowtrace.io/token/images/tether_32.png',
+  },
+  USDTo: {
+    chainId: 43114,
+    address: '0xde3A24028580884448a5397872046a019649b084',
+    decimals: 6,
+    name: 'Tether USD (bridged)',
+    symbol: 'USDTo',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem. From Avalanche Bridge.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
   },
@@ -4118,23 +4289,11 @@ const _tokens = {
     chainId: 43114,
     address: '0xc7198437980c041c805A1EDcbA50c1Ce5db95118',
     decimals: 6,
-    name: 'Tether USD',
-    symbol: 'USDT',
+    name: 'Tether USD (eth bridged)',
+    symbol: 'USDTe',
     website: 'https://tether.to/',
     description:
-      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
-    logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
-  },
-  'USDT-Tether USD': {
-    chainId: 43114,
-    address: '0xde3A24028580884448a5397872046a019649b084',
-    decimals: 6,
-    name: 'Tether USD',
-    symbol: 'USDT',
-    website: 'https://tether.to/',
-    description:
-      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.  This version is bridged from Ethereum.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
   },

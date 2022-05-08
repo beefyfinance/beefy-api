@@ -1,13 +1,13 @@
 {
   "name": "bifi-gov",
-  "address": "0x453D4Ba9a2D594314DF88564248497F7D74d6b2C",
+  "address": "0x0d5761D9181C7745855FC985f646a842EB254eB9",
   "tokenAddress": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
   "tokenDecimals": 1e18,
   "oracle": "tokens",
   "oracleId": "BIFI",
   "exclude": {
     "maxi": {
-      "earnedTokenAddress": "0xf7069e41C57EcC5F122093811d8c75bdB5f7c14e"
+      "earnedTokenAddress": "0x7828ff4ABA7aAb932D8407C78324B069D24284c9"
     }
   }
 }

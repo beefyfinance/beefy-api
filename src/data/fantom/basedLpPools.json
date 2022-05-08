@@ -1,5 +1,24 @@
 [
   {
+    "name": "based-tomb-based",
+    "address": "0x172BFaA8991A54ABD0b3EE3d4F8CBDab7046FF79",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 250,
+    "lp0": {
+      "address": "0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7",
+      "oracle": "tokens",
+      "oracleId": "TOMB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8D7d3409881b51466B483B11Ea1B8A03cdEd89ae",
+      "oracle": "tokens",
+      "oracleId": "BASED",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "based-based-bshare",
     "address": "0x5748b5Dd1f59342f85d170c48C427959c2f9f262",
     "decimals": "1e18",

@@ -8,6 +8,7 @@ const RewardDistributor = require('../../../abis/avax/RewardDistributor.json');
 const IToken = require('../../../abis/avax/BankerJoeIToken.json');
 const pools = require('../../../data/avax/bankerJoePools.json');
 const { BASE_HPY } = require('../../../constants');
+const { getContractWithProvider } = require('../../../utils/contractHelper');
 
 const rewardDistributor = '0x45B2C4139d96F44667577C0D7F7a7D170B420324';
 const BLOCKS_PER_YEAR = 31536000;
@@ -49,8 +50,12 @@ const getPoolApy = async pool => {
 };
 
 const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
-  const itokenContract = new web3.eth.Contract(IToken, pool.itoken);
-  const rewardDistributorContract = new web3.eth.Contract(RewardDistributor, rewardDistributor);
+  const itokenContract = getContractWithProvider(IToken, pool.itoken, web3);
+  const rewardDistributorContract = getContractWithProvider(
+    RewardDistributor,
+    rewardDistributor,
+    web3
+  );
 
   let [
     joePrice,
@@ -97,8 +102,12 @@ const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
 };
 
 const getBorrowApys = async (pool, BLOCKS_PER_YEAR) => {
-  const rewardDistributorContract = new web3.eth.Contract(RewardDistributor, rewardDistributor);
-  const itokenContract = new web3.eth.Contract(IToken, pool.itoken);
+  const rewardDistributorContract = getContractWithProvider(
+    RewardDistributor,
+    rewardDistributor,
+    web3
+  );
+  const itokenContract = getContractWithProvider(IToken, pool.itoken, web3);
 
   let [joePrice, avaxPrice, tokenPrice, borrowRate, joeCompRate, avaxCompRate, totalBorrows] =
     await Promise.all([
