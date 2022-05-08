@@ -4535,6 +4535,19 @@ const _tokens = {
       'Heroes of NFT is an online card game where you can attend tournaments and defeat your opponents to rise to victory.',
     logoURI: 'https://assets.coingecko.com/coins/images/23527/small/tokenlogo200.png?1644368289',
   },
+  FITFI: {
+    chainId: 43114,
+    address: '0x714f020C54cc9D104B6F4f6998C63ce2a31D1888',
+    decimals: 18,
+    name: 'STEP.APP',
+    symbol: 'FITFI',
+    website: 'https://step.app/',
+    description:
+      'Step App is creating a gamified metaverse for the fitness economy. Walk, jog, and run to socialize, play, and earn. - Stake to earn portion of ecosystem fees. - Stake includes a cooldown, breaking which causes a penalty. - Tiered stakers acquire discounts on NFT market.',
+
+    logoURI:
+      'https://assets.coingecko.com/coins/images/25015/small/801485424e1f49bc8d0facff9287eb9b_photo.png?1649827972',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
