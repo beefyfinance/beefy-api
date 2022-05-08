@@ -1,5 +1,24 @@
 [
   {
+    "name": "spirit-sftmx-ftm",
+    "address": "0x72133BBff5072616E165237e69b3F4c87C1a94e8",
+    "gauge": "0x3A3C0449FDd642Dd9Bb714B5B8F90D7f198A0024",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd7028092c830b5C8FcE061Af2E593413EbbC1fc1",
+      "oracle": "tokens",
+      "oracleId": "sFTMx",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spirit-orkan-ftm",
     "address": "0x5A6880d3e9d715BEf5848c9749cea5F23a982A75",
     "gauge": "0xca05DC1Ab089173F8DeDD89f39dC48ddE36479d5",
