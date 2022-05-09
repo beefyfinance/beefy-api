@@ -1,5 +1,23 @@
 [
   {
+    "name": "spooky-hec-dai",
+    "address": "0xbc0eecdA2d8141e3a26D2535C57cadcb1095bca9",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x5C4FDfc5233f935f20D2aDbA572F770c2E377Ab0",
+      "oracle": "tokens",
+      "oracleId": "HECTOR",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-ankr-wbnb",
     "address": "0x3147F98B8f9C53Acdf8F16332eaD12B592a1a4ae",
     "decimals": "1e18",
