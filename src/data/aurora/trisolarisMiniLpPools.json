@@ -1,5 +1,49 @@
 [
   {
+    "name": "tri-tri-usdt",
+    "address": "0x61C9E05d1Cdb1b70856c7a2c53fA9c220830633c",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 1313161554,
+    "oracleB": "tokens",
+    "oracleIdB": "AURORA",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0x4988a896b1227218e4A686fdE5EabdcAbd91571f",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xFa94348467f64D5A457F75F8bc40495D33c65aBB",
+      "oracle": "tokens",
+      "oracleId": "TRI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tri-stnear-xtri",
+    "address": "0x5913f644A10d98c79F2e0b609988640187256373",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 1313161554,
+    "oracleB": "hardcode",
+    "oracleIdB": 0,
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0x07F9F7f963C5cD2BBFFd30CcfB964Be114332E30",
+      "oracle": "tokens",
+      "oracleId": "STNEAR",
+      "decimals": "1e24"
+    },
+    "lp1": {
+      "address": "0x802119e4e253D5C19aA06A5d567C5a41596D6803",
+      "oracle": "tokens",
+      "oracleId": "xTRI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "tri-usdt-near",
     "address": "0x03B666f3488a7992b2385B12dF7f35156d7b29cD",
     "decimals": "1e18",

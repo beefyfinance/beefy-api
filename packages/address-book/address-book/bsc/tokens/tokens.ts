@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  GAL: {
+    name: 'Project Galaxy',
+    symbol: 'GAL',
+    address: '0xe4Cc45Bb5DBDA06dB6183E8bf016569f40497Aa5',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xe4Cc45Bb5DBDA06dB6183E8bf016569f40497Aa5.png',
+    website: 'https://galaxy.eco/',
+    description:
+      'Project Galaxy is  a Web3 credential data networks, built on open and collaborative infrastructure and helps Web3 developers and projects leverage digital credential data and NFTs to build better products and communities',
+  },
   PAE: {
     name: 'Ripae',
     symbol: 'PAE',
