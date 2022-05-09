@@ -23,8 +23,8 @@ const getBsharePoolApys = async () => {
     getYearlyRewardsInUsd(rewardPool, 5),
     getTotalStakedInUsd(rewardPool, bomb, ORACLE, ORACLE_ID2, DECIMALS),
   ]);
-  console.log('totalStakedInUsd pool: ', ORACLE_ID2, Number(totalStakedInUsd));
-  console.log('yearlyRewardsInUsd pool: ', ORACLE_ID2, Number(yearlyRewardsInUsd));
+  // console.log('totalStakedInUsd pool: ', ORACLE_ID2, Number(totalStakedInUsd));
+  // console.log('yearlyRewardsInUsd pool: ', ORACLE_ID2, Number(yearlyRewardsInUsd));
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 

@@ -1,0 +1,44 @@
+[
+  {
+    "name": "bomb-bshare-maxi",
+    "address": "0x2C374eD1575e5C2C02c569f627299E902A1972cb",
+    "vault": "0xa82f327BBbF0667356D2935C6532d164b06cEced",
+    "vaultPoolId": "0x2c374ed1575e5c2c02c569f627299e902a1972cb000200000000000000000027",
+    "decimals": "1e18",
+    "chainId": 56,
+    "poolId": 8,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "BSHARE",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBNB",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "bomb-bomb-maxi",
+    "address": "0xd6F52e8AB206e59A1E13b3D6c5B7f31E90ef46EF",
+    "vault": "0xa82f327BBbF0667356D2935C6532d164b06cEced",
+    "vaultPoolId": "0xd6f52e8ab206e59a1e13b3d6c5b7f31e90ef46ef000200000000000000000028",
+    "decimals": "1e18",
+    "chainId": 56,
+    "poolId": 7,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "BOMB",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BTCB",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

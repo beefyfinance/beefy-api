@@ -74,16 +74,6 @@ const SOLAR_LPF = 0.002;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
-  // [ChainId.heco]: HECO_RPC,
-  // [ChainId.polygon]: POLYGON_RPC,
-  // [ChainId.avax]: AVAX_RPC,
-  // [ChainId.fantom]: FANTOM_RPC,
-  // [ChainId.one]: ONE_RPC,
-  // [ChainId.arbitrum]: ARBITRUM_RPC,
-  // [ChainId.celo]: CELO_RPC,
-  // [ChainId.moonriver]: MOONRIVER_RPC,
-  // [ChainId.cronos]: CRONOS_RPC,
-  // [ChainId.aurora]: AURORA_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =

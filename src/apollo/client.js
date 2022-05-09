@@ -231,6 +231,14 @@ const finnClient = client(
   'https://graph-node.huckleberry.finance/subgraphs/name/huckleberry/huckleberry-subgraph'
 );
 
+const acsiClient = new ApolloClient({
+  link: createHttpLink({
+    uri: 'https://api.thegraph.com/subgraphs/name/acryptosx/balancer-v2',
+    fetch,
+  }),
+  cache: new InMemoryCache(),
+});
+
 const isSushiClient = client => {
   return (
     client === sushiClient ||
@@ -249,6 +257,7 @@ const isBeetClient = client => {
 module.exports = {
   joeClient,
   dfynClient,
+  acsiClient,
   apePolyClient,
   sushiClient,
   sushiOneClient,
