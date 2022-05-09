@@ -1,4 +1,5 @@
 const { bscWeb3: web3, multicallAddress, web3Factory } = require('../../../../utils/web3');
+
 const BigNumber = require('bignumber.js');
 const ERC20 = require('../../../../abis/ERC20.json');
 const RewardPool = require('../../../../abis/BombReward.json');
@@ -35,7 +36,8 @@ const getPoolApy = async (rewardPool, pool) => {
   // console.log('acsi', pool);
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(rewardPool, pool.poolId),
-    getTotalAcsiStakedInUsd(rewardPool, pool),
+    // getTotalAcsiStakedInUsd(rewardPool, pool),
+    getTotalLpStakedInUsd(rewardPool, pool, pool.chainId),
   ]);
 
   // console.log('totalStakedInUsd pool: ', pool.poolId, Number(totalStakedInUsd));
@@ -64,20 +66,23 @@ const getMaxiLPTokenPrice = async maxiPool => {
 };
 
 const getTotalAcsiStakedInUsd = async (rewardPool, pool) => {
-  const rewardPoolContract = new web3.eth.Contract(RewardPool, rewardPool);
   //const web3 = web3Factory(BSC_CHAIN_ID);
   const tokenContract = new web3.eth.Contract(ERC20, pool.address);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(rewardPool).call());
   const bombMaxiLpPrice = await getMaxiLPTokenPrice(pool.vaultPoolId);
+  const tokenPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
+  console.log({ tokenPrice });
   // const totalShares = await bombmaxi.totalShares;
   // const totalLiquidity = await bombmaxi.totalLiquidity;
   // const tokenInLP = Number(totalLiquidity) / Number(totalShares);
-
-  console.log({ bombMaxiLpPrice });
+  const fullprice = bombMaxiLpPrice;
+  console.log({ fullprice });
+  console.log({ totalStaked });
   // console.log({ test2 });
   // console.log({ result });
-
-  return totalStaked.times(bombMaxiLpPrice);
+  const result = totalStaked.times(tokenPrice);
+  console.log({ result });
+  return result;
 };
 
 const getYearlyRewardsInUsd = async (rewardPool, poolId) => {
@@ -103,7 +108,7 @@ const getYearlyRewardsInUsd = async (rewardPool, poolId) => {
 
   const price = await fetchPrice({ oracle: oracle, id: oracleId });
   const yearlyRewardsInUsd = yearlyRewards.times(price).dividedBy(DECIMALS);
-  // console.log('yearlyRewardsInUsd pool: ', poolId, Number(yearlyRewardsInUsd));
+  console.log('yearlyRewardsInUsd pool: ', poolId, Number(yearlyRewardsInUsd));
 
   return yearlyRewardsInUsd;
 };
