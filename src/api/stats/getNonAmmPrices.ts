@@ -1,5 +1,6 @@
 import getBeltPrices from './bsc/belt/getBeltPrices';
-import getEllipsisPrices from './bsc/ellipsis/getEllipsisPrices';
+import getEllipsisPricesOld from './bsc/ellipsis/getEllipsisPrices';
+import { getEllipsisPrices } from './bsc/getEllipsisPrices';
 import getSnob3PoolPrice from './avax/getSnob3PoolPrice';
 import getFroyoPrices from './fantom/getFroyoPrices';
 import getGondolaPrices from './avax/getGondolaPrices';
@@ -23,7 +24,8 @@ const getNonAmmPrices = async tokenPrices => {
   const promises = [
     getBeethovenxPrices(tokenPrices),
     getBeltPrices(tokenPrices),
-    getEllipsisPrices(),
+    getEllipsisPricesOld(),
+    getEllipsisPrices(tokenPrices),
     getSnob3PoolPrice(),
     getFroyoPrices(),
     getGondolaPrices(tokenPrices),

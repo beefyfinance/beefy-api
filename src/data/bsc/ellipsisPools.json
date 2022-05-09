@@ -1,0 +1,77 @@
+[
+  {
+    "name": "ellipsis-depx",
+    "address": "0xb6b218352d082fa5C981B5adF61CBC068046f926",
+    "minter": "0x45859D71D4caFb93694eD43a5ecE05776Fc2465d",
+    "oracleId": "EPX"
+  },
+  {
+    "name": "ellipsis-usdd",
+    "address": "0xB7d9b83c7Dc3C7Fab2d0159f8b3fA7C4fB081741",
+    "minter": "0xC2cF01F785C587645440ccD488B188945C9505e7"
+  },
+  {
+    "name": "ellipsis-ust",
+    "address": "0xD67625ad4104dA86c4D9CB054001E899B1b9061B",
+    "minter": "0xcE0D2DE9D4920B35096D08c3784cB3479e6938F8"
+  },
+  {
+    "name": "ellipsis-mai",
+    "address": "0x80D00D2c8d920a9253c3D65BA901250a55011b37",
+    "minter": "0x68354c6E8Bbd020F9dE81EAf57ea5424ba9ef322",
+    "rewards": [
+      {
+        "token": "0xB1EbdD56729940089Ecc3aD0BBEEB12b6842ea6F",
+        "oracleId": "VALAS"
+      }
+    ]
+  },
+  {
+    "name": "ellipsis-ankrBNB",
+    "address": "0xf71A0bCC3Ef8a8c5a28fc1BC245e394A8ce124ec",
+    "minter": "0xf0d17f404343D7Ba66076C818c9DC726650E2435",
+    "oracleId": "WBNB",
+    "rewards": [
+      {
+        "token": "0xf307910A4c7bbc79691fD374889b36d8531B08e3",
+        "oracleId": "ANKR"
+      }
+    ]
+  },
+  {
+    "name": "ellipsis-ankrETH",
+    "address": "0x3e33ec615eB41148785653c119835Bd224Fd2d1B",
+    "minter": "0xE8Dbd92Fbf648a9840a6920378Fe40B5ad762e37",
+    "oracleId": "ETH",
+    "rewards": [
+      {
+        "token": "0xf307910A4c7bbc79691fD374889b36d8531B08e3",
+        "oracleId": "ANKR"
+      }
+    ]
+  },
+  {
+    "name": "ellipsis-ankrMATIC",
+    "address": "0x6937A9C8Af919ebf756d56E715F4c8b9F1df3184",
+    "minter": "0x96a2e42C94d090Afb9D865ac88Ea16a6C5008d97",
+    "oracleId": "MATIC",
+    "rewards": [
+      {
+        "token": "0xf307910A4c7bbc79691fD374889b36d8531B08e3",
+        "oracleId": "ANKR"
+      }
+    ]
+  },
+  {
+    "name": "ellipsis-valBTC",
+    "address": "0xdC7f3E34C43f8700B0EB58890aDd03AA84F7B0e1",
+    "minter": "0xfA715E7C8fA704Cf425Dd7769f4a77b81420fbF2",
+    "oracleId": "BTCB",
+    "rewards": [
+      {
+        "token": "0xB1EbdD56729940089Ecc3aD0BBEEB12b6842ea6F",
+        "oracleId": "VALAS"
+      }
+    ]
+  }
+]
