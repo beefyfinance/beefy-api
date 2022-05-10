@@ -13,4 +13,5 @@ export const beefyfinance = {
   treasury: treasuryMultisig,
   beefyFeeRecipient: '0xaDB9DDFA24E326dC9d337561f6c7ba2a6Ecec697',
   multicall: '0xd08575F5F4DE7212123731088980D069CB75873D',
+  voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
 } as const;
