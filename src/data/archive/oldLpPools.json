@@ -1,5 +1,23 @@
 [
   {
+    "name": "quick-wmatic-newquick",
+    "address": "0xF3eB2f17eAFBf35e92C965A954c6e7693187057D",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
+      "oracle": "tokens",
+      "oracleId": "newQUICK",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spooky-hec-dai",
     "address": "0xbc0eecdA2d8141e3a26D2535C57cadcb1095bca9",
     "decimals": "1e18",
