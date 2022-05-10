@@ -27,6 +27,26 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  newQUICK: {
+    name: 'Quickswap',
+    address: '0xB5C064F955D8e7F38fE0460C556a72987494eE17',
+    symbol: 'newQUICK',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://quickswap.exchange/#/swap',
+    description: 'Next-gen Layer 2 DEX. Trade at lightning-fast speeds with near-zero gas fees.',
+    logoURI: 'https://assets.coingecko.com/coins/images/15185/small/quickswap.png?1620044811',
+  },
+  QUIDD: {
+    name: 'QUIDD',
+    address: '0x123706cDD8e60324e610E9A2CC7012D0F45A5b8E',
+    symbol: 'QUIDD',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://www.quiddtoken.com/',
+    description: 'A fungible utility token built on Ethereum, QUIDD is the cornerstone of a new, cooperative economic system that aligns the interests of collectors, creators, and developers.',
+    logoURI: 'https://assets.coingecko.com/coins/images/19725/small/quidd.png?1637303435',
+  },
   '4EUR': {
     name: 'Curve Factory 4EUR',
     symbol: '4EUR',
