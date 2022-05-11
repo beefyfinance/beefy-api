@@ -13,6 +13,7 @@ import { fuse } from './fuse';
 import { metis } from './metis';
 import { moonbeam } from './moonbeam';
 import { sys } from './sys';
+import { emerald } from './emerald';
 import Chain from '../types/chain';
 import { ChainId } from '../types/chainid';
 import { ConstRecord } from '../types/const';
@@ -35,6 +36,7 @@ const _addressBook: {
   readonly cronos: Chain;
   readonly heco: Chain;
   readonly arbitrum: Chain;
+  readonly emerald: Chain;
 } = {
   polygon,
   bsc,
@@ -51,6 +53,7 @@ const _addressBook: {
   metis,
   moonbeam,
   sys,
+  emerald,
 } as const;
 
 const _addressBookByChainId: {
@@ -69,6 +72,7 @@ const _addressBookByChainId: {
   readonly '1313161554': Chain;
   readonly '42161': Chain;
   readonly '57': Chain;
+  readonly '42262': Chain;
 } = {
   [ChainId.polygon]: polygon,
   [ChainId.bsc]: bsc,
@@ -85,6 +89,7 @@ const _addressBookByChainId: {
   [ChainId.metis]: metis,
   [ChainId.moonbeam]: moonbeam,
   [ChainId.sys]: sys,
+  [ChainId.emerald]: emerald,
 } as const;
 
 export const addressBook: ConstRecord<typeof _addressBook, Chain> = _addressBook;

@@ -13,6 +13,7 @@ const { getFuseApys } = require('./fuse');
 const { getMetisApys } = require('./metis');
 const { getMoonbeamApys } = require('./moonbeam');
 const { getSysApys } = require('./sys');
+const { getEmeraldApys } = require('./emerald');
 const { getKey, setKey } = require('../../utils/redisHelper');
 
 const INIT_DELAY = process.env.INIT_DELAY || 60 * 1000;
@@ -48,6 +49,7 @@ const updateApys = async () => {
       getMetisApys(),
       getMoonbeamApys(),
       getSysApys(),
+      getEmeraldApys(),
     ]);
 
     for (const result of results) {

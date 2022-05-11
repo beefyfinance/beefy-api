@@ -33,6 +33,8 @@ import {
   MOONBEAM_CHAIN_ID,
   SYS_RPC,
   SYS_CHAIN_ID,
+  EMERALD_RPC,
+  EMERALD_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -52,6 +54,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.metis]: addressBookByChainId[ChainId.metis].platforms.beefyfinance.multicall,
   [ChainId.moonbeam]: addressBookByChainId[ChainId.moonbeam].platforms.beefyfinance.multicall,
   [ChainId.sys]: addressBookByChainId[ChainId.sys].platforms.beefyfinance.multicall,
+  [ChainId.emerald]: addressBookByChainId[ChainId.emerald].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -70,6 +73,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   metis: [],
   moonbeam: [],
   sys: [],
+  emerald: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -88,6 +92,7 @@ clients.fuse.push(new ethers.providers.JsonRpcProvider(FUSE_RPC));
 clients.metis.push(new ethers.providers.JsonRpcProvider(METIS_RPC));
 clients.moonbeam.push(new ethers.providers.JsonRpcProvider(MOONBEAM_RPC));
 clients.sys.push(new ethers.providers.JsonRpcProvider(SYS_RPC));
+clients.emerald.push(new ethers.providers.JsonRpcProvider(EMERALD_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -105,6 +110,7 @@ export const chainRandomClients = {
   metisRandomClient: () => clients.metis[~~(clients.metis.length * Math.random())],
   moonbeamRandomClient: () => clients.moonbeam[~~(clients.moonbeam.length * Math.random())],
   sysRandomClient: () => clients.sys[~~(clients.sys.length * Math.random())],
+  emeraldRandomClient: () => clients.emerald[~~(clients.emerald.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -139,6 +145,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.moonbeamRandomClient();
     case SYS_CHAIN_ID:
       return chainRandomClients.sysRandomClient();
+    case EMERALD_CHAIN_ID:
+      return chainRandomClients.emeraldRandomClient();
   }
 };
 

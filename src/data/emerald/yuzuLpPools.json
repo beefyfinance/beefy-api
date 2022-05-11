@@ -1,0 +1,97 @@
+[
+  {
+    "name": "yuzu-ceusdc-yuzu",
+    "address": "0x63217aC1600Fb337a3B7A70533dc71870E6b68cc",
+    "decimals": "1e18",
+    "poolId": 4,
+    "chainId": 42262,
+    "lp0": {
+      "address": "0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xf02b3e437304892105992512539F769423a515Cb",
+      "oracle": "tokens",
+      "oracleId": "YUZU",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "yuzu-wrose-weth",
+    "address": "0x28c9D3e689B5d3629aFC2D69ef6a2799578574e0",
+    "decimals": "1e18",
+    "poolId": 3,
+    "chainId": 42262,
+    "lp0": {
+      "address": "0x21C718C22D52d0F3a789b752D4c2fD5908a8A733",
+      "oracle": "tokens",
+      "oracleId": "wROSE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3223f17957Ba502cbe71401D55A0DB26E5F7c68F",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "yuzu-usdt-yuzu",
+    "address": "0xD2076c230FE52572344Dd7394fb50d8280c390D1",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 42262,
+    "lp0": {
+      "address": "0xdC19A122e268128B5eE20366299fc7b5b199C8e3",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xf02b3e437304892105992512539F769423a515Cb",
+      "oracle": "tokens",
+      "oracleId": "YUZU",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "yuzu-wrose-yuzu",
+    "address": "0x941494A56164eA04d79f9867ddDB0Dd754A625cC",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 42262,
+    "lp0": {
+      "address": "0x21C718C22D52d0F3a789b752D4c2fD5908a8A733",
+      "oracle": "tokens",
+      "oracleId": "wROSE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf02b3e437304892105992512539F769423a515Cb",
+      "oracle": "tokens",
+      "oracleId": "YUZU",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "yuzu-wrose-usdt",
+    "address": "0xfb9BD52Abe613A5C4A20e9fC09462A2EC5F2d1B2",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 42262,
+    "lp0": {
+      "address": "0x21C718C22D52d0F3a789b752D4c2fD5908a8A733",
+      "oracle": "tokens",
+      "oracleId": "wROSE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdC19A122e268128B5eE20366299fc7b5b199C8e3",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  }
+]

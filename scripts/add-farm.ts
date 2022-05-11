@@ -21,6 +21,9 @@ const {
   moonbeam: {
     platforms: { stellaswap, beamswap, solarflare },
   },
+  emerald: {
+    platforms: { yuzu },
+  },
 } = addressBook;
 
 const yargs = require('yargs');
@@ -114,6 +117,11 @@ const projects = {
     prefix: 'stellaswap',
     file: '../src/data/moonbeam/stellaswapLpV2Pools.json',
     masterchef: stellaswap.masterchefV1distributorV2,
+  },
+  yuzu: {
+    prefix: 'yuzu',
+    file: '../src/data/emerald/yuzuLpPools.json',
+    masterchef: yuzu.masterchef,
   },
 };
 
