@@ -38,6 +38,16 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  MIDAS: {
+    name: 'MIDAS',
+    symbol: 'MIDAS',
+    address: '0xb37528DA6b4D378305d000a66Ad91bd88E626761',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://midas.investments/',
+    description: 'Earn the highest yields on BTC, ETH, USDT, and DeFi assets.',
+  },
   TOR: {
     name: 'TOR',
     symbol: 'TOR',
