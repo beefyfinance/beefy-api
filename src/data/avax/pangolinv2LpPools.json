@@ -19,6 +19,25 @@
     }
   },
   {
+    "name": "png-fitfi-wavax",
+    "address": "0x1bB665942381FB2E67c4dCCb04E6CfE7f130E93C",
+    "decimals": "1e18",
+    "poolId": 109,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x714f020C54cc9D104B6F4f6998C63ce2a31D1888",
+      "oracle": "tokens",
+      "oracleId": "FITFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-wavax-usdc",
     "address": "0x0e0100Ab771E9288e0Aa97e11557E6654C3a9665",
     "decimals": "1e18",
