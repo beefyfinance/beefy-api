@@ -2546,25 +2546,6 @@
     }
   },
   {
-    "name": "cakev2-ust-busd",
-    "address": "0x05faf555522Fa3F93959F86B41A3808666093210",
-    "decimals": "1e18",
-    "poolId": 293,
-    "chainId": 56,
-    "lp0": {
-      "address": "0x23396cF899Ca06c4472205fC903bDB4de249D6fC",
-      "oracle": "tokens",
-      "oracleId": "UST",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-      "oracle": "tokens",
-      "oracleId": "BUSD",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cakev2-for-busd",
     "address": "0xE60B4e87645093A42fa9dcC5d0C8Df6E67f1f9d2",
     "decimals": "1e18",
@@ -3910,6 +3891,25 @@
       "address": "0xF215A127A196e3988C09d052e16BcFD365Cd7AA3",
       "oracle": "tokens",
       "oracleId": "mTSLA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-ust-busd",
+    "address": "0x05faf555522Fa3F93959F86B41A3808666093210",
+    "decimals": "1e18",
+    "poolId": 293,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x23396cF899Ca06c4472205fC903bDB4de249D6fC",
+      "oracle": "tokens",
+      "oracleId": "UST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
       "decimals": "1e18"
     }
   },

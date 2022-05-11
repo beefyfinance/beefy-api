@@ -160,7 +160,31 @@
   {
     "name": "curve-ftm-f-4pool",
     "pool": "0x9dc516a18775d492c9f061211C8a3FDCd476558d",
+    "token": "0x9dc516a18775d492c9f061211C8a3FDCd476558d",
     "gauge": "0xd0698b2E41C42bcE42B51f977F962Fd127cF82eA",
-    "boosted": true
+    "boosted": true,
+    "volatile": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USTw",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "fUSDT",
+        "decimals": "1e6"
+      }
+    ]
   }
 ]

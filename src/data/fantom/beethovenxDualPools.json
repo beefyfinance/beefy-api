@@ -103,7 +103,7 @@
     "vaultPoolId": "0x66bcb58cf9754f421c268990b280e4462e10aac8000200000000000000000339",
     "poolId": 66,
     "oracleB": "tokens",
-    "oracleIdB": "USTaxl",
+    "oracleIdB": "USTw",
     "decimalsB": "1e6",
     "decimals": "1e18",
     "tokens": [
@@ -114,7 +114,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USTaxl",
+        "oracleId": "USTw",
         "decimals": "1e6"
       }
     ]

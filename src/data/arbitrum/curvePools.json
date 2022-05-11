@@ -94,7 +94,31 @@
   {
     "name": "curve-arb-f-4pool",
     "pool": "0x1C5ffa4FB4907B681c61B8c82b28C4672ceb1974",
+    "token": "0x1C5ffa4FB4907B681c61B8c82b28C4672ceb1974",
     "gauge": "0x94A5E05D66834c6C6961E199D34dA576679fC187",
-    "boosted": true
+    "boosted": true,
+    "volatile": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "UST",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
   }
 ]

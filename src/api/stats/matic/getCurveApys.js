@@ -51,6 +51,9 @@ const getPoolApy = async pool => {
 };
 
 const getAaveApy = async pool => {
+  // no Matic APY on aave v2
+  return new BigNumber(0);
+
   let promises = [];
   pool.tokens.forEach(token => promises.push(getAaveMaticApy(token)));
   pool.tokens.forEach((token, i) => promises.push(getTokenBalance(pool.pool, token, i)));

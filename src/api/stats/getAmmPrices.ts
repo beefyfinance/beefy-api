@@ -474,11 +474,9 @@ const knownPrices = {
   HUSD: 1,
   DAI: 1,
   USDC: 1,
-  UST: 1,
   USDN: 1,
   cUSD: 1,
   asUSDC: 1,
-  USTaxl: 1,
 };
 
 let tokenPricesCache: Promise<any>;
