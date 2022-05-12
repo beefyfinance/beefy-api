@@ -1318,7 +1318,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x3dc57B391262e3aAe37a08D91241f9bA9d58b570.svg',
+      'https://tokens.pancakeswap.finance/images/0x3dc57B391262e3aAe37a08D91241f9bA9d58b570.svg',
     website: 'https://yoshi.exchange/',
     description:
       'Yoshi offers users a simple way to buy crypto tokens via credit card. We use native Yoshi token to provide fast and simple buying proccess. Connect your crypto wallet via MetaMask or WalletConnect. To procced for bying you’ll need to surpass a KYC and add a valid credit card. Once everything is done you’ll see the actual exchange rate and get your tokens after the buying proccess is done.',
@@ -1330,7 +1330,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x89346B51A54263cF2e92dA79B1863759eFa68692.svg',
+      'https://tokens.pancakeswap.finance/images/0x89346B51A54263cF2e92dA79B1863759eFa68692.svg',
     website: 'https://app.spartacus.finance/',
     description:
       'Let’s start off by saying Zeus from OlympusDAO has done a marvellous job in creating the "Protocol Owned Liquidity" (POL) concept. A community is formed when everyone bonds the underlying assets into a common reserve currency, creating a strong “bonding” for the whole community. As Spartacus we carry on the legacy and we shall aim higher and something even bigger.',
@@ -1342,7 +1342,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x94CcF60f700146BeA8eF7832820800E2dFa92EdA.svg',
+      'https://tokens.pancakeswap.finance/images/0x94CcF60f700146BeA8eF7832820800E2dFa92EdA.svg',
     website: 'https://app.hectordao.com/#/stake',
     description:
       'Hector DAO aims to become the de-facto reserve currency of the FTM Opera network, one which is truly owned and maintained by a decentralised protocol which serves the majority. Our goal is for $HEC to be a common trading pair which is backed by real assets.',
@@ -1354,7 +1354,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x9d8F97A3C2f9f397B6D46Cbe2d39CC1D8Cf19010.svg',
+      'https://tokens.pancakeswap.finance/images/0x9d8F97A3C2f9f397B6D46Cbe2d39CC1D8Cf19010.svg',
     website: 'https://openocean.finance/',
     description:
       'OpenOcean is the world’s first full aggregation protocol for crypto trading that sources liquidity from DeFi and CeFi markets and enables cross-chain swaps. Our intelligent routing algorithm finds the best prices from DEXes and CEXes and splits the routes to provide traders the best prices with low slippage and fast settlement. The product is free to use; OpenOcean users only need to pay the regular blockchain gas and exchange fees for the trades, which are charged by the exchanges and not OpenOcean.',
@@ -1366,7 +1366,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x511D35c52a3C244E7b8bd92c0C297755FbD89212.svg',
+      'https://tokens.pancakeswap.finance/images/0x511D35c52a3C244E7b8bd92c0C297755FbD89212.svg',
     website: 'https://www.avalabs.org/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
@@ -1412,7 +1412,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x10010078a54396F62c96dF8532dc2B4847d47ED3.svg',
+      'https://tokens.pancakeswap.finance/images/0x10010078a54396F62c96dF8532dc2B4847d47ED3.svg',
     website: 'https://hundred.finance/',
     description:
       'Since the explosion in popularity of the decentralized finance ecosystem in 2020, borrowing and lending platforms have become core infrastructure within the cryptocurrency space. Not only do they provide users the ability to “hodl” or leverage their crypto assets, obtaining liquidity from their investment (a crypto-backed loan) while simultaneously earning interest, they also underpin the workings of other protocols. The movement of assets from the Ethereum mainnet to EVM-compatible blockchains and scaling solutions has done nothing to alter this. Platforms that grant the ability to borrow and lend are one of the key applications users look for in any emerging chain. Hundred Finance aims to play a central role in provisioning these services in the multi-chain environment that has flourished since early 2021, delivering the freedom to earn yield and borrow assets to a growing number of users in a trustless, secure and economically efficient manner.',
@@ -1448,6 +1448,18 @@ const _tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
+  },
+  renBTC: {
+    name: 'renBTC',
+    symbol: 'renBTC',
+    address: '0xDBf31dF14B66535aF65AaC99C32e9eA844e14501',
+    chainId: 250,
+    decimals: 8,
+    website: 'https://renproject.io/',
+    description:
+      'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
   },
 } as const;
 

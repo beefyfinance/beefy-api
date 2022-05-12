@@ -47,7 +47,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xcd3B51D98478D53F4515A306bE565c6EebeF1D58.svg',
+      'https://tokens.pancakeswap.finance/images/0xcd3B51D98478D53F4515A306bE565c6EebeF1D58.svg',
     website: 'https://beamswap.io/',
     description:
       'Beamswap is a decentralized exchange (DEX) with an automated market maker (AMM), providing liquidity and peer-to-peer transactions. But it aims to be so much more than that. Supporting an array of services and features, it will allow you to swap crypto assets, both fungible and non-fungible, earn passive income from staking and yield farming, and even launch your own crypto projects on Moonbeam.',
@@ -59,7 +59,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
+      'https://tokens.pancakeswap.finance/images/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
@@ -71,7 +71,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
+      'https://tokens.pancakeswap.finance/images/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
@@ -83,7 +83,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F.svg',
+      'https://tokens.pancakeswap.finance/images/0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F.svg',
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
@@ -95,7 +95,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F.svg',
+      'https://tokens.pancakeswap.finance/images/0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F.svg',
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
@@ -107,7 +107,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055.svg',
+      'https://tokens.pancakeswap.finance/images/0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055.svg',
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
@@ -130,7 +130,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
+      'https://tokens.pancakeswap.finance/images/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
@@ -142,7 +142,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
+      'https://tokens.pancakeswap.finance/images/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
@@ -154,7 +154,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73.svg',
+      'https://tokens.pancakeswap.finance/images/0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73.svg',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
@@ -166,7 +166,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73.svg',
+      'https://tokens.pancakeswap.finance/images/0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73.svg',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
@@ -178,7 +178,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x765277EebeCA2e31912C9946eAe1021199B39C61.svg',
+      'https://tokens.pancakeswap.finance/images/0x765277EebeCA2e31912C9946eAe1021199B39C61.svg',
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
@@ -190,7 +190,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327.svg',
+      'https://tokens.pancakeswap.finance/images/0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327.svg',
     website: 'https://fantom.foundation/',
     description:
       'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
@@ -213,7 +213,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x085416975fe14C2A731a97eC38B9bF8135231F62.svg',
+      'https://tokens.pancakeswap.finance/images/0x085416975fe14C2A731a97eC38B9bF8135231F62.svg',
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
@@ -236,7 +236,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x4792C1EcB969B036eb51330c63bD27899A13D84e.svg',
+      'https://tokens.pancakeswap.finance/images/0x4792C1EcB969B036eb51330c63bD27899A13D84e.svg',
     website: 'https://www.avalabs.org/',
     description:
       'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
@@ -248,7 +248,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xE3e43888fa7803cDC7BEA478aB327cF1A0dc11a7.svg',
+      'https://tokens.pancakeswap.finance/images/0xE3e43888fa7803cDC7BEA478aB327cF1A0dc11a7.svg',
     website: 'https://app.solarflare.io/exchange/swap',
     description:
       'Solarflare is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
@@ -260,7 +260,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2.svg',
+      'https://tokens.pancakeswap.finance/images/0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2.svg',
     website: 'https://app.stellaswap.com/exchange/swap',
     description:
       'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network.',
@@ -272,7 +272,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2.svg',
+      'https://tokens.pancakeswap.finance/images/0x0E358838ce72d5e61E0018a2ffaC4bEC5F4c88d2.svg',
     website: 'https://app.stellaswap.com/exchange/swap',
     description:
       'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network.',
@@ -284,7 +284,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 10,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080.svg',
+      'https://tokens.pancakeswap.finance/images/0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080.svg',
     website: 'https://polkadot.network/',
     description:
       'Polkadot is an open-source sharding multichain protocol that facilitates the cross-chain transfer of any data or asset types, not just tokens, thereby making a wide range of blockchains interoperable with each other.',
@@ -296,7 +296,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x08c98AD2d4856BEC0a0EaF18C2a06E7201613F90.svg',
+      'https://tokens.pancakeswap.finance/images/0x08c98AD2d4856BEC0a0EaF18C2a06E7201613F90.svg',
     website: 'https://app.solarflare.io/exchange/swap',
     description:
       'Solarflare is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
@@ -308,7 +308,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x0DB6729C03C85B0708166cA92801BcB5CAc781fC.svg',
+      'https://tokens.pancakeswap.finance/images/0x0DB6729C03C85B0708166cA92801BcB5CAc781fC.svg',
     website: 'https://app.solarbeam.io/exchange/swap',
     description:
       'Solarbeam is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonriver Network. We are currently the leading DEX on the network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
@@ -320,7 +320,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x1d4C2a246311bB9f827F4C768e277FF5787B7D7E.svg',
+      'https://tokens.pancakeswap.finance/images/0x1d4C2a246311bB9f827F4C768e277FF5787B7D7E.svg',
     website: 'https://moonbeam.network/networks/moonriver/',
     description:
       'Moonriver is a companion network to Moonbeam and provides a permanently incentivized canary network. New code ships to Moonriver first, where it can be tested and verified under real economic conditions. Once proven, the same code ships to Moonbeam on Polkadot.',
@@ -332,7 +332,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 8,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x1DC78Acda13a8BC4408B207c9E48CDBc096D95e0.svg',
+      'https://tokens.pancakeswap.finance/images/0x1DC78Acda13a8BC4408B207c9E48CDBc096D95e0.svg',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -344,7 +344,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 8,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x922D641a426DcFFaeF11680e5358F34d97d112E1.svg',
+      'https://tokens.pancakeswap.finance/images/0x922D641a426DcFFaeF11680e5358F34d97d112E1.svg',
     website: 'https://wbtc.network/',
     description:
       'Anyswap Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -356,7 +356,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x31DAB3430f3081dfF3Ccd80F17AD98583437B213.svg',
+      'https://tokens.pancakeswap.finance/images/0x31DAB3430f3081dfF3Ccd80F17AD98583437B213.svg',
     website: 'https://www.terra.money/',
     description:
       "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
@@ -368,7 +368,7 @@ const _tokens = {
     chainId: 1284,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x085416975fe14C2A731a97eC38B9bF8135231F62.svg',
+      'https://tokens.pancakeswap.finance/images/0x085416975fe14C2A731a97eC38B9bF8135231F62.svg',
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',

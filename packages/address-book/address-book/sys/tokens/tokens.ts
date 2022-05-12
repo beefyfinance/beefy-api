@@ -36,7 +36,7 @@ const _tokens = {
     chainId: 57,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c.svg',
+      'https://tokens.pancakeswap.finance/images/0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c.svg',
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
@@ -48,7 +48,7 @@ const _tokens = {
     chainId: 57,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x7C598c96D02398d89FbCb9d41Eab3DF0C16F227D.svg',
+      'https://tokens.pancakeswap.finance/images/0x7C598c96D02398d89FbCb9d41Eab3DF0C16F227D.svg',
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   },
@@ -59,7 +59,7 @@ const _tokens = {
     chainId: 57,
     decimals: 8,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055.svg',
+      'https://tokens.pancakeswap.finance/images/0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055.svg',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -71,7 +71,7 @@ const _tokens = {
     chainId: 57,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x922D641a426DcFFaeF11680e5358F34d97d112E1.svg',
+      'https://tokens.pancakeswap.finance/images/0x922D641a426DcFFaeF11680e5358F34d97d112E1.svg',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
@@ -83,7 +83,7 @@ const _tokens = {
     chainId: 57,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xE18c200A70908c89fFA18C628fE1B83aC0065EA4.svg',
+      'https://tokens.pancakeswap.finance/images/0xE18c200A70908c89fFA18C628fE1B83aC0065EA4.svg',
     website: 'https://app.pegasys.finance/#/swap',
     description:
       'Pegasys is an automated liquidity protocol powered by a constant product formula and implemented in a system of non-upgradeable smart contracts on the Syscoin blockchain. It obviates the need for trusted intermediaries, prioritizing decentralization, censorship resistance, and security. Pegasys is open-source software licensed under the GPL.',

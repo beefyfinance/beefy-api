@@ -88,7 +88,7 @@ const _tokens = {
     chainId: 42220,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x122013fd7dF1C6F636a5bb8f03108E876548b455.svg',
+      'https://tokens.pancakeswap.finance/images/0x122013fd7dF1C6F636a5bb8f03108E876548b455.svg',
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
@@ -103,7 +103,7 @@ const _tokens = {
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
+      'https://tokens.pancakeswap.finance/images/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -112,7 +112,7 @@ const _tokens = {
     chainId: 42220,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xE4fE50cdD716522A56204352f00AA110F731932d.svg',
+      'https://tokens.pancakeswap.finance/images/0xE4fE50cdD716522A56204352f00AA110F731932d.svg',
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
@@ -135,7 +135,7 @@ const _tokens = {
     chainId: 42220,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
+      'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
@@ -147,7 +147,7 @@ const _tokens = {
     chainId: 42220,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x88eeC49252c8cbc039DCdB394c0c2BA2f1637EA0.svg',
+      'https://tokens.pancakeswap.finance/images/0x88eeC49252c8cbc039DCdB394c0c2BA2f1637EA0.svg',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
@@ -159,7 +159,7 @@ const _tokens = {
     chainId: 42220,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x73a210637f6F6B7005512677Ba6B3C96bb4AA44B.svg',
+      'https://tokens.pancakeswap.finance/images/0x73a210637f6F6B7005512677Ba6B3C96bb4AA44B.svg',
     website: 'https://www.mobius.money/#/swap',
     description: 'A cross-chain stableswap DEX on Celo',
   },

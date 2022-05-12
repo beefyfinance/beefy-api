@@ -124,7 +124,7 @@ const _tokens = {
     chainId: 42161,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1.svg',
+      'https://tokens.pancakeswap.finance/images/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1.svg',
     website: 'https://www.olympusdao.finance/',
     description:
       'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
@@ -136,7 +136,7 @@ const _tokens = {
     chainId: 42161,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x539bdE0d7Dbd336b79148AA742883198BBF60342.svg',
+      'https://tokens.pancakeswap.finance/images/0x539bdE0d7Dbd336b79148AA742883198BBF60342.svg',
     website: 'https://www.treasure.lol/',
     description:
       'Treasure bridges the growing network of metaverses through an open and composable approach to the convergence of NFTs, DeFi and Gaming. Cross-ecosystem ties are bolstered through our interrelated resource model. $MAGIC (Power), Treasures (NFT | Resources) and Legions (NFT | Players)',
