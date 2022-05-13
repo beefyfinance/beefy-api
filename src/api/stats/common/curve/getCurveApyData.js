@@ -10,7 +10,35 @@ const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const secondsPerYear = 31536000;
 
-const getCurveBaseApys = async (pools, url, factoryUrl) => {
+const getCurveBaseApys = async (pools, url) => {
+  let apys = {};
+  try {
+    const response = await fetch(url).then(res => res.json());
+    const apyData = response.data.poolList;
+    pools.forEach(pool => {
+      let apy = new BigNumber(getSubgraphDataApy(apyData, pool.pool));
+      apys = { ...apys, ...{ [pool.name]: apy } };
+    });
+  } catch (err) {
+    console.error('Curve base apy error ', url, err);
+  }
+  return apys;
+};
+
+const getSubgraphDataApy = (apyData, poolAddress) => {
+  try {
+    let pool = apyData.find(p => p.address.toLowerCase() === poolAddress.toLowerCase());
+    if (!pool) return 0;
+    pool ? Number(pool.apy) / 100 : 0;
+    let apy = Math.max(pool.latestDailyApy, pool.latestWeeklyApy);
+    return Number(apy) / 100;
+  } catch (err) {
+    console.error(err);
+    return 0;
+  }
+};
+
+const getCurveBaseApysOld = async (pools, url, factoryUrl) => {
   let factoryApyData = [];
   if (factoryUrl) {
     try {
@@ -140,6 +168,7 @@ const getYearlyRewardsInUsd = async (web3, pool) => {
 
 module.exports = {
   getCurveBaseApys,
+  getCurveBaseApysOld,
   getCurveFactoryApy,
   getTotalStakedInUsd,
   getYearlyRewardsInUsd,

@@ -16,7 +16,8 @@ const { getAavePoolData } = require('./getAaveApys');
 const aavePools = require('../../../data/matic/aavePools.json');
 const pools = require('../../../data/matic/curvePools.json');
 
-const baseApyUrl = 'https://stats.curve.fi/raw-stats-polygon/apys.json';
+const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/polygon';
+// const baseApyUrl = 'https://stats.curve.fi/raw-stats-polygon/apys.json';
 const tradingFees = 0.00015;
 
 const getCurveApys = async () => {
