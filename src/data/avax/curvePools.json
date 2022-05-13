@@ -2,20 +2,9 @@
   {
     "name": "curve-avax-av3crv",
     "pool": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
-    "gauge": "0x5B5CFE992AdAC0C9D48E05854B2d91C73a003858",
+    "gauge": "0x4620D46b4db7fB04a01A75fFed228Bc027C9A899",
     "baseApyKey": "aave",
-    "rewards": [
-      {
-        "stream": "0xB504b6EB06760019801a91B451d3f7BD9f027fC9",
-        "token": "0x47536F17F4fF30e64A96a7555826b8f9e66ec468",
-        "oracleId": "CRV"
-      },
-      {
-        "stream": "0xB504b6EB06760019801a91B451d3f7BD9f027fC9",
-        "token": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-        "oracleId": "AVAX"
-      }
-    ],
+    "boosted": true,
     "tokens": [
       {
         "aaveId": "aave-dai.e",
@@ -34,21 +23,10 @@
   {
     "name": "curve-avax-ren",
     "pool": "0x16a7DA911A4DD1d83F3fF066fE28F3C792C50d90",
-    "gauge": "0x0f9cb53Ebe405d49A0bbdBD291A65Ff571bC83e1",
+    "gauge": "0x00F7d467ef51E44f11f52a0c0Bef2E56C271b264",
     "baseApyKey": "ren",
     "oracleId": "WBTC.e",
-    "rewards": [
-      {
-        "stream": "0x75D05190f35567e79012c2F0a02330D3Ed8a1F74",
-        "token": "0x47536F17F4fF30e64A96a7555826b8f9e66ec468",
-        "oracleId": "CRV"
-      },
-      {
-        "stream": "0x75D05190f35567e79012c2F0a02330D3Ed8a1F74",
-        "token": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-        "oracleId": "AVAX"
-      }
-    ],
+    "boosted": true,
     "tokens": [
       {
         "aaveId": "aave-wbtc.e",
@@ -67,21 +45,10 @@
     "name": "curve-avax-atricrypto",
     "pool": "0xB755B949C126C04e0348DD881a5cF55d424742B2",
     "token": "0x1daB6560494B04473A0BE3E7D83CF3Fdf3a51828",
-    "gauge": "0x445FE580eF8d70FF569aB36e80c647af338db351",
+    "gauge": "0x1879075f1c055564CB968905aC404A5A01a1699A",
     "baseApyKey": "atricrypto",
+    "boosted": true,
     "volatile": true,
-    "rewards": [
-      {
-        "stream": "0xa05E565cA0a103FcD999c7A7b8de7Bd15D5f6505",
-        "token": "0x47536F17F4fF30e64A96a7555826b8f9e66ec468",
-        "oracleId": "CRV"
-      },
-      {
-        "stream": "0xa05E565cA0a103FcD999c7A7b8de7Bd15D5f6505",
-        "token": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-        "oracleId": "AVAX"
-      }
-    ],
     "tokens": [
       {
         "basePool": "curve-avax-av3crv",

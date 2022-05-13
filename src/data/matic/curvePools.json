@@ -2,20 +2,9 @@
   {
     "name": "curve-am3crv",
     "pool": "0x445FE580eF8d70FF569aB36e80c647af338db351",
-    "gauge": "0x19793B454D3AfC7b454F206Ffe95aDE26cA6912c",
+    "gauge": "0x20759F567BB3EcDB55c817c9a1d13076aB215EdC",
     "baseApyKey": "aave",
-    "rewards": [
-      {
-        "stream": "0xC48f4653dd6a9509De44c92beb0604BEA3AEe714",
-        "token": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
-        "oracleId": "CRV"
-      },
-      {
-        "stream": "0xC48f4653dd6a9509De44c92beb0604BEA3AEe714",
-        "token": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        "oracleId": "WMATIC"
-      }
-    ],
+    "boosted": true,
     "tokens": [
       {
         "aaveId": "aave-dai",
@@ -34,21 +23,10 @@
   {
     "name": "curve-poly-ren",
     "pool": "0xC2d95EEF97Ec6C17551d45e77B590dc1F9117C67",
-    "gauge": "0xffbACcE0CC7C19d46132f1258FC16CF6871D153c",
+    "gauge": "0x8D9649e50A0d1da8E939f800fB926cdE8f18B47D",
     "baseApyKey": "ren",
     "oracleId": "WBTC",
-    "rewards": [
-      {
-        "stream": "0x488E6ef919C2bB9de535C634a80afb0114DA8F62",
-        "token": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
-        "oracleId": "CRV"
-      },
-      {
-        "stream": "0x488E6ef919C2bB9de535C634a80afb0114DA8F62",
-        "token": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        "oracleId": "WMATIC"
-      }
-    ],
+    "boosted": true,
     "tokens": [
       {
         "aaveId": "aave-wbtc",
@@ -127,21 +105,10 @@
     "name": "curve-poly-atricrypto3",
     "pool": "0x92215849c439E1f8612b6646060B4E3E5ef822cC",
     "token": "0xdAD97F7713Ae9437fa9249920eC8507e5FbB23d3",
-    "gauge": "0x3B6B158A76fd8ccc297538F454ce7B4787778c7C",
+    "gauge": "0xBb1B19495B8FE7C402427479B9aC14886cbbaaeE",
     "baseApyKey": "atricrypto3",
     "volatile": true,
-    "rewards": [
-      {
-        "stream": "0x060e386eCfBacf42Aa72171Af9EFe17b3993fC4F",
-        "token": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
-        "oracleId": "CRV"
-      },
-      {
-        "stream": "0x060e386eCfBacf42Aa72171Af9EFe17b3993fC4F",
-        "token": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-        "oracleId": "WMATIC"
-      }
-    ],
+    "boosted": true,
     "tokens": [
       {
         "basePool": "curve-am3crv",
@@ -167,16 +134,10 @@
     "name": "curve-poly-eurt",
     "pool": "0xB446BF7b8D6D4276d0c75eC0e3ee8dD7Fe15783A",
     "token": "0x600743b1d8a96438bd46836fd34977a00293f6aa",
-    "gauge": "0x40c0e9376468b4f257d15F8c47E5D0C646C28880",
+    "gauge": "0x8b397084699Cc64E429F610F81Fac13bf061ef55",
     "baseApyKey": "eurtusd",
     "volatile": true,
-    "rewards": [
-      {
-        "stream": "0xAF78381216a8eCC7Ad5957f3cD12a431500E0B0D",
-        "token": "0x172370d5Cd63279eFa6d502DAB29171933a610AF",
-        "oracleId": "CRV"
-      }
-    ],
+    "boosted": true,
     "tokens": [
       {
         "oracle": "tokens",
