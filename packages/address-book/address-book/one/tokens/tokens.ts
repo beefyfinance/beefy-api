@@ -103,7 +103,7 @@ const _tokens = {
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
+      'https://tokens.pancakeswap.finance/images/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
   },
   bscBUSD: {
     name: 'BUSD Token',
@@ -115,7 +115,7 @@ const _tokens = {
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
+      'https://tokens.pancakeswap.finance/images/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
   },
   YGG: {
     name: 'Yield Guild Games',
@@ -127,7 +127,7 @@ const _tokens = {
     description:
       'YGG IS A PLAY-TO-EARN GAMING GUILD, BRINGING PLAYERS TOGETHER TO EARN VIA BLOCKCHAIN-BASED ECONOMIES. WE ARE THE SETTLERS OF NEW WORLDS IN THE METAVERSE',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
+      'https://tokens.pancakeswap.finance/images/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
   },
   AAVE: {
     name: 'Aave',
@@ -161,7 +161,7 @@ const _tokens = {
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
+      'https://tokens.pancakeswap.finance/images/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
   },
   USDT: {
     name: 'USD Tether',
@@ -173,7 +173,7 @@ const _tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x55d398326f99059ff775485246999027b3197955.png',
+      'https://tokens.pancakeswap.finance/images/0x55d398326f99059ff775485246999027b3197955.png',
   },
   FRAX: {
     name: 'Frax Shares',
@@ -196,7 +196,7 @@ const _tokens = {
     description:
       'TerraUSD (UST) is the decentralized and algorithmic stablecoin of the Terra blockchain. It is a scalable, yield-bearing coin that is value-pegged to the US Dollar.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x23396cF899Ca06c4472205fC903bDB4de249D6fC.png',
+      'https://tokens.pancakeswap.finance/images/0x23396cF899Ca06c4472205fC903bDB4de249D6fC.png',
   },
   BTC: {
     name: 'Harmony Bitcoin',
@@ -205,7 +205,7 @@ const _tokens = {
     chainId: 1666600000,
     decimals: 8,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xdc54046c0451f9269FEe1840aeC808D36015697d.svg',
+      'https://tokens.pancakeswap.finance/images/0xdc54046c0451f9269FEe1840aeC808D36015697d.svg',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',

@@ -149,7 +149,7 @@ const _tokens = {
     chainId: 43114,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
@@ -437,7 +437,7 @@ const _tokens = {
     chainId: 43114,
     decimals: 6,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11.svg',
+      'https://tokens.pancakeswap.finance/images/0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11.svg',
     website: 'https://www.terra.money/',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
@@ -449,7 +449,7 @@ const _tokens = {
     chainId: 43114,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xd9D90f882CDdD6063959A9d837B05Cb748718A05.svg',
+      'https://tokens.pancakeswap.finance/images/0xd9D90f882CDdD6063959A9d837B05Cb748718A05.svg',
     website: 'https://app.moremoney.finance/',
     description:
       'Moremoney is a lending protocol for opening interest-free collateralised debt positions (CDP) using liquidity pool tokens, interest-bearing tokens (ibTKNs) and other major tokens as collateral. Borrowers mint MONEY, a USD softly pegged stablecoin backed by an over-collateralised debt position as well as the yield earned by the collateral.  After minting MONEY, borrowers can use it across the DeFi landscape, for interest free leverage, or simply use it to farm MORE. Moremoney is designed to support the further conversion of base tokens like ETH, AVAX, USDT into ibTKNs. Upon depositing, collateral assets are forwarded to trusted partner protocols where these tokens earn yield, which is either compounded into collateral token or into $MONEY to automatically repay debts owed by a vault.',
@@ -461,7 +461,7 @@ const _tokens = {
     chainId: 43114,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x62edc0692BD897D2295872a9FFCac5425011c661.svg',
+      'https://tokens.pancakeswap.finance/images/0x62edc0692BD897D2295872a9FFCac5425011c661.svg',
     website: 'https://gmx.io/buy',
     description: 'Swaps and leverage trading of up to 30x is now live on Avalanche!',
   },
@@ -472,7 +472,7 @@ const _tokens = {
     chainId: 43114,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xE5CAeF4Af8780E59Df925470b050Fb23C43CA68C.svg',
+      'https://tokens.pancakeswap.finance/images/0xE5CAeF4Af8780E59Df925470b050Fb23C43CA68C.svg',
     website: 'https://ferrum.network/',
     description:
       'Ferrum Network is a cross-chain Blockchain as a Service DeFi company that specializes in adding deflationary token utility and advisory services to projects across the crypto space. With the mission of breaking down barriers to mass adoption in mind, Ferrum builds white-label blockchain solutions that empower startups and established organizations, enabling them to get their core products to market faster.Become Cross-Chain Compatible Today',
@@ -655,7 +655,7 @@ const _tokens = {
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+      'https://tokens.pancakeswap.finance/images/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
   PNG: {
     chainId: 43114,
@@ -4384,7 +4384,7 @@ const _tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
+      'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
   },
   MIM: {
     name: 'Magic Internet Money',
@@ -4415,7 +4415,7 @@ const _tokens = {
     chainId: 43114,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xA32608e873F9DdEF944B24798db69d80Bbb4d1ed.svg',
+      'https://tokens.pancakeswap.finance/images/0xA32608e873F9DdEF944B24798db69d80Bbb4d1ed.svg',
     website: 'https://www.crabada.com/',
     description:
       'Rediscover the prosperous ancient Crabada Kingdom once ruled by Crustaco, King of the Crabada. Mine. Loot. Breed. Expand your forces. Earn CRA tokens by playing and use them to determine the future of the Kingdom!',
@@ -4427,7 +4427,7 @@ const _tokens = {
     chainId: 43114,
     decimals: 9,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x5eDE350E84223fb50775fD91a723F2ca71034cf7.svg',
+      'https://tokens.pancakeswap.finance/images/0x5eDE350E84223fb50775fD91a723F2ca71034cf7.svg',
     website: 'https://www.sheepgamexyz.com/',
     description:
       'Wolf.Game pioneered new types of NFT mechanics BUT SheepGame brings it to Avalanche! Fully decentralized. Low Fees and Sub Second Finality and fully functional! SheepGame shows what’s possible with interactions between the ERC-20 and ERC-721 protocols on Avalanche. For the very first time, your NFT can steal other NFTs (ERC-721) for you. The rarer your NFT, the more tokens youll accumulate probabilistically!',
@@ -4439,7 +4439,7 @@ const _tokens = {
     chainId: 43114,
     decimals: 8,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x245C2591403e182e41d7A851eab53B01854844CE.svg',
+      'https://tokens.pancakeswap.finance/images/0x245C2591403e182e41d7A851eab53B01854844CE.svg',
     website: 'https://asgarddao.fi/',
     description:
       'Asgard also introduces economic and game-theoretic dynamics into the market through forging (Staking) and pledging (Minting). Our goal is to build a policy-controlled currency system, native on the Avalanche Network, that is based on the VOLT token! ',
@@ -4451,7 +4451,7 @@ const _tokens = {
     chainId: 43114,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xb27c8941a7Df8958A1778c0259f76D1F8B711C35.svg',
+      'https://tokens.pancakeswap.finance/images/0xb27c8941a7Df8958A1778c0259f76D1F8B711C35.svg',
     website: 'https://www.kalao.io/',
     description:
       'Kalao is an NFT ecosystem. We offer a cost-effective and easy-to-use Marketplace, powered by a combination of the Avalanche blockchain technology and outstanding Kalao VR capabilities. The Kalao framework will accelerate the adoption of VR technology to develop virtual worlds and sustain the digital transformation of business use cases.',
@@ -4463,7 +4463,7 @@ const _tokens = {
     chainId: 43114,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x8aE8be25C23833e0A01Aa200403e826F611f9CD2.svg',
+      'https://tokens.pancakeswap.finance/images/0x8aE8be25C23833e0A01Aa200403e826F611f9CD2.svg',
     website: 'https://talecraft.io/',
     description:
       'TaleCraft is a PVP, play-to-earn card board game, driven by a unique mint and craft mechanic, where players grow more powerful through gamified NFT alchemy. Elemental base cards are sold weekly, allowing only the most skilled alchemists to thrive and progress in this medieval metaverse. All NFT holders will receive AVAX yield generated by the game ecosystem, rewarding the most loyal and skilled holders. NFT & Token Deflation System TaleCraft leverages a brand new type of NFT minting process that balances game design and scarcity, designed to produce a sustainable, long-term economy. Crafting Technology achieves this, in part, by burning base cards to craft higher-tier cards, combing scarcity with game theory. Additionally, when chests are opened with $CRAFT, they are both burnt and used for vital liquidity--bolstering the entire game economy. The NFT’s total supply will be determined and balanced by community demand driven by free market principles.',
@@ -4511,7 +4511,7 @@ const _tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
+      'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
   },
   ROCO: {
     chainId: 43114,

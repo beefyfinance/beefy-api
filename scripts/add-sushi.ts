@@ -138,7 +138,7 @@ async function fetchToken(tokenAddress) {
     address: checksummedTokenAddress,
     chainId: chainId,
     decimals: await tokenContract.decimals(),
-    logoURI: `https://pancakeswap.finance/images/tokens/${checksummedTokenAddress}.svg`,
+    logoURI: `https://tokens.pancakeswap.finance/images/${checksummedTokenAddress}.svg`,
     website: '',
     description: '',
   };
