@@ -48,8 +48,8 @@ module.exports = {
   get sysWeb3() {
     return chainRandomClients.sysRandomClient();
   },
-  get emeraldWeb3() {
-    return chainRandomClients.emeraldRandomClient();
+  get oasisWeb3() {
+    return chainRandomClients.oasisRandomClient();
   },
 
   web3Factory: _web3Factory,

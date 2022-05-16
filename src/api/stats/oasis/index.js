@@ -3,7 +3,7 @@ const getYuzuDualApys = require('./getYuzuDualApys');
 
 const getApys = [getYuzuApys, getYuzuDualApys];
 
-const getEmeraldApys = async () => {
+const getOasisApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
@@ -13,7 +13,7 @@ const getEmeraldApys = async () => {
 
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getEmeraldApys error', result.reason);
+      console.warn('getOasisApys error', result.reason);
       continue;
     }
 
@@ -47,4 +47,4 @@ const getEmeraldApys = async () => {
   };
 };
 
-module.exports = { getEmeraldApys };
+module.exports = { getOasisApys };

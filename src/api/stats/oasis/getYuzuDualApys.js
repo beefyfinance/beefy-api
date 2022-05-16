@@ -1,20 +1,20 @@
 const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
-const { emeraldWeb3: web3, multicallAddress } = require('../../../utils/web3');
+const { oasisWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/emerald/YuzuChef.json');
-const MasterChefExt = require('../../../abis/emerald/YuzuMasterchefExt.json');
-import SimpleRewarder from '../../../abis/emerald/Rewarder.json';
+const MasterChef = require('../../../abis/oasis/YuzuChef.json');
+const MasterChefExt = require('../../../abis/oasis/YuzuMasterchefExt.json');
+import SimpleRewarder from '../../../abis/oasis/Rewarder.json';
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/emerald/yuzuDualLpPools.json');
-const { BASE_HPY, EMERALD_CHAIN_ID: chainId } = require('../../../constants');
+const pools = require('../../../data/oasis/yuzuDualLpPools.json');
+const { BASE_HPY, OASIS_CHAIN_ID: chainId } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 const getBlockTime = require('../../../utils/getBlockTime');
 const {
-  emerald: {
+  oasis: {
     platforms: {
       yuzu: { masterchef, masterchefExt },
     },

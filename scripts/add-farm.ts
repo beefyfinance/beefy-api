@@ -21,7 +21,7 @@ const {
   moonbeam: {
     platforms: { stellaswap, beamswap, solarflare },
   },
-  emerald: {
+  oasis: {
     platforms: { yuzu },
   },
 } = addressBook;
@@ -120,7 +120,7 @@ const projects = {
   },
   yuzu: {
     prefix: 'yuzu',
-    file: '../src/data/emerald/yuzuLpPools.json',
+    file: '../src/data/oasis/yuzuLpPools.json',
     masterchef: yuzu.masterchef,
   },
 };

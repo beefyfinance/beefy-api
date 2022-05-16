@@ -1,11 +1,11 @@
-const { emeraldWeb3: web3 } = require('../../../utils/web3');
-const { EMERALD_CHAIN_ID: chainId } = require('../../../constants');
+const { oasisWeb3: web3 } = require('../../../utils/web3');
+const { OASIS_CHAIN_ID: chainId } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
-const pools = require('../../../data/emerald/yuzuLpPools.json');
+const pools = require('../../../data/oasis/yuzuLpPools.json');
 const getBlockTime = require('../../../utils/getBlockTime');
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
-  emerald: {
+  oasis: {
     platforms: {
       yuzu: { masterchef },
     },

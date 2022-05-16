@@ -5,7 +5,7 @@ import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbol
 import Chain from '../../types/chain';
 import { ConstInterface } from '../../types/const';
 
-const _emerald = {
+const _oasis = {
   platforms: {
     beefyfinance,
     yuzu,
@@ -14,4 +14,4 @@ const _emerald = {
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
 } as const;
 
-export const emerald: ConstInterface<typeof _emerald, Chain> = _emerald;
+export const oasis: ConstInterface<typeof _oasis, Chain> = _oasis;

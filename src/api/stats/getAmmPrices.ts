@@ -229,8 +229,8 @@ import valasLpPools from '../../data/valasLpPools.json';
 import bombLpPools from '../../data/degens/bombLpPools.json';
 import pegasysLpPools from '../../data/sys/pegasysLpPools.json';
 import ripaeLpPools from '../../data/degens/ripaeLpPools.json';
-import yuzuLpPools from '../../data/emerald/yuzuLpPools.json';
-import yuzuDualPools from '../../data/emerald/yuzuDualLpPools.json';
+import yuzuLpPools from '../../data/oasis/yuzuLpPools.json';
+import yuzuDualPools from '../../data/oasis/yuzuDualLpPools.json';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
