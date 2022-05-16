@@ -5,6 +5,7 @@ import { initPriceService } from './api/stats/getAmmPrices';
 import { initApyService } from './api/stats/getApys';
 import { initVaultService } from './api/stats/getMultichainVaults';
 import { initTvlService } from './api/stats/getTvl';
+import { initRpcsService } from './api/rpcs';
 
 require('./utils/redisHelper').initRedis();
 
@@ -37,6 +38,7 @@ app.use(router.allowedMethods());
 const port = process.env.PORT || 3000;
 
 const start = async () => {
+  initRpcsService();
   initApyService();
   initPriceService();
   initVaultService();

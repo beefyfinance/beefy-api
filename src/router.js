@@ -11,6 +11,7 @@ const gov = require('./api/stats/gov');
 const cmc = require('./api/cmc');
 const tvl = require('./api/tvl');
 const multichainVaults = require('./api/vaults');
+const { rpcs } = require('./api/rpcs');
 const { bifibuyback } = require('./api/stats/bifibuyback/index');
 
 router.get('/apy', stats.apy);
@@ -31,6 +32,8 @@ router.get('/lps', price.lpsPrices);
 router.get('/prices', price.tokenPrices);
 
 router.get('/vaults', multichainVaults.multichainVaults);
+
+router.get('/rpcs', rpcs);
 
 router.get('/', noop);
 
