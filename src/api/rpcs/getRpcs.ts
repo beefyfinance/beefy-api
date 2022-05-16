@@ -20,7 +20,7 @@ type ScoredRpc = {
   score: number;
   blocksBehind?: number;
   latency?: number;
-  eip1559?: true | false;
+  eip1559?: boolean;
   updatedAt?: number;
 };
 
