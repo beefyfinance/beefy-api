@@ -1,4 +1,5 @@
 import { beefyfinance } from './platforms/beefyfinance';
+import { valleyswap } from './platforms/valleyswap';
 import { yuzu } from './platforms/yuzu';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
@@ -8,6 +9,7 @@ import { ConstInterface } from '../../types/const';
 const _emerald = {
   platforms: {
     beefyfinance,
+    valleyswap,
     yuzu,
   },
   tokens,
