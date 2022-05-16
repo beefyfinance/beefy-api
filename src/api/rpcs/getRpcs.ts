@@ -4,7 +4,7 @@ import fetch from 'node-fetch';
 import { mapValues } from '../../utils/typeUtils';
 import BigNumber from 'bignumber.js';
 import { createTimeoutSignal } from '../../utils/fetchUtils';
-import { sortBy, orderBy } from 'lodash';
+import { sortBy } from 'lodash';
 import { MULTICHAIN_RPC } from '../../constants';
 
 const INIT_DELAY = 0;

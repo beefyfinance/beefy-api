@@ -15,15 +15,10 @@
     "https://bsc-dataseed4.binance.org",
     "https://rpc.ankr.com/bsc",
     "https://bscrpc.com",
-    "https://bsc.mytokenpocket.vip",
     "https://binance.nodereal.io",
     "https://rpc-bsc.bnb48.club"
   ],
-  "heco": [
-    "https://http-mainnet-node.huobichain.com",
-    "https://http-mainnet.hecochain.com",
-    "https://pub001.hg.network/rpc"
-  ],
+  "heco": ["https://http-mainnet.hecochain.com"],
   "avax": ["https://api.avax.network/ext/bc/C/rpc", "https://rpc.ankr.com/avalanche"],
   "fantom": [
     "https://rpc.ftm.tools",
@@ -35,15 +30,13 @@
   ],
   "polygon": [
     "https://polygon-rpc.com",
-    "https://rpc-mainnet.matic.network",
     "https://rpc-mainnet.maticvigil.com",
     "https://rpc-mainnet.matic.quiknode.pro",
     "https://matic-mainnet.chainstacklabs.com",
     "https://matic-mainnet-full-rpc.bwarelabs.com",
     "https://matic-mainnet-archive-rpc.bwarelabs.com",
     "https://poly-rpc.gateway.pokt.network",
-    "https://rpc.ankr.com/polygon",
-    "https://rpc-mainnet.maticvigil.com"
+    "https://rpc.ankr.com/polygon"
   ],
   "one": [
     "https://harmony-0-rpc.gateway.pokt.network",
@@ -60,8 +53,7 @@
   "cronos": [
     "https://cronos-rpc.heavenswail.one",
     "https://evm.cronos.org",
-    "https://cronosrpc-1.xstaking.sg",
-    "https://cronos-rpc.elk.finance"
+    "https://cronosrpc-1.xstaking.sg"
   ],
   "aurora": ["https://mainnet.aurora.dev"],
   "fuse": ["https://fuse-rpc.gateway.pokt.network", "https://rpc.fuse.io"],
