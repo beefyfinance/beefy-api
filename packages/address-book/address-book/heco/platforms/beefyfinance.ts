@@ -12,7 +12,7 @@ export const beefyfinance = {
   rewardPool: '0x5f7347fedfD0b374e8CE8ed19Fc839F59FB59a3B',
   treasury: '0xf4859A3f36fBcA24BF8299bf56359fB441b03034',
   beefyFeeRecipient: '0x250EB557D7a767ee711c7C11988470669a5306BB',
-  multicall: '0x2776CF9B6E2Fa7B33A37139C3CB1ee362Ff0356e',
+  multicall: '0xcA11bde05977b3631167028862bE2a173976CA11',
   bifiMaxiStrategy: '0xfdF1088F5B9Bd338D5197aCfB00b468f04bCC374',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
 } as const;
