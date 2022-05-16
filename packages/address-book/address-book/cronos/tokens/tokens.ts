@@ -111,7 +111,7 @@ const _tokens = {
     description:
       'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x0eb3a705fc54725037cc9e008bdede697f62f335.png',
+      'https://tokens.pancakeswap.finance/images/0x0eb3a705fc54725037cc9e008bdede697f62f335.png',
   },
   DOGE: {
     name: 'Doge Token',

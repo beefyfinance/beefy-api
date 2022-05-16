@@ -8,12 +8,13 @@ import {
 import getApyBreakdown from '../common/getApyBreakdown';
 
 const pools = require('../../../data/arbitrum/curvePools.json');
-const baseApyUrl = 'https://stats.curve.fi/raw-stats-arbitrum/apys.json';
-const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-arbitrum';
+const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/arbitrum';
+// const baseApyUrl = 'https://stats.curve.fi/raw-stats-arbitrum/apys.json';
+// const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-arbitrum';
 const tradingFees = 0.0002;
 
 const getCurveApys = async () => {
-  const baseApys = await getCurveBaseApys(pools, baseApyUrl, factoryApyUrl);
+  const baseApys = await getCurveBaseApys(pools, baseApyUrl);
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);

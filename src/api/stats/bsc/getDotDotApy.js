@@ -76,6 +76,7 @@ const getPoolApys = async pools => {
     const yearlyRewards = epxPerYear.times(boost).times(shareAfterDotDotFee);
     const yearlyRewardsInUsd = yearlyRewards.times(epxPrice).div('1e18');
     const epxApy = yearlyRewardsInUsd.div(totalStakedInUsd);
+    // console.log(pool.name, 'EPX', epxApy.valueOf());
 
     let apy = epxApy;
 
@@ -84,6 +85,7 @@ const getPoolApys = async pools => {
     const dddRewardsInUsd = dddRewards.times(dddPrice).div('1e18');
     const dddStaked = info.depositAmount.times(lpPrice).div('1e18');
     const dddApy = dddRewardsInUsd.div(dddStaked);
+    // console.log(pool.name, 'DDD', dddApy.valueOf());
     apy = apy.plus(dddApy);
 
     for (const r of rewards.filter(p => p.pool === pool.name)) {
@@ -91,7 +93,7 @@ const getPoolApys = async pools => {
       const totalSupply = r.totalSupply.times(lpPrice).div('1e18');
       const yearlyRewardsInUsd = r.rewardRate.times(secondsPerYear).times(price).div('1e18');
       const rewardApy = yearlyRewardsInUsd.div(totalSupply);
-      // console.log(pool.name, r.oracleId, rewardApy.valueOf())
+      // console.log(pool.name, r.oracleId, rewardApy.valueOf());
       apy = apy.plus(rewardApy);
     }
 

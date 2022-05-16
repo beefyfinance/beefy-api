@@ -8,7 +8,13 @@
   {
     "name": "ellipsis-usdd",
     "address": "0xB7d9b83c7Dc3C7Fab2d0159f8b3fA7C4fB081741",
-    "minter": "0xC2cF01F785C587645440ccD488B188945C9505e7"
+    "minter": "0xC2cF01F785C587645440ccD488B188945C9505e7",
+    "rewards": [
+      {
+        "token": "0xd17479997F34dd9156Deef8F95A52D81D265be9c",
+        "oracleId": "USDD"
+      }
+    ]
   },
   {
     "name": "ellipsis-ust",

@@ -178,7 +178,7 @@ const _tokens = {
     chainId: 122,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x90708b20ccC1eb95a4FA7C8b18Fd2C22a0Ff9E78.svg',
+      'https://tokens.pancakeswap.finance/images/0x90708b20ccC1eb95a4FA7C8b18Fd2C22a0Ff9E78.svg',
     website: 'https://sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',

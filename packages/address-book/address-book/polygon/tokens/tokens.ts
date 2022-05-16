@@ -44,7 +44,8 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     website: 'https://www.quiddtoken.com/',
-    description: 'A fungible utility token built on Ethereum, QUIDD is the cornerstone of a new, cooperative economic system that aligns the interests of collectors, creators, and developers.',
+    description:
+      'A fungible utility token built on Ethereum, QUIDD is the cornerstone of a new, cooperative economic system that aligns the interests of collectors, creators, and developers.',
     logoURI: 'https://assets.coingecko.com/coins/images/19725/small/quidd.png?1637303435',
   },
   '4EUR': {
@@ -131,7 +132,7 @@ const _tokens = {
     chainId: 137,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d.svg',
+      'https://tokens.pancakeswap.finance/images/0xC42C30aC6Cc15faC9bD938618BcaA1a1FaE8501d.svg',
     website: 'https://near.org/',
     description:
       'Through simple, secure, and scalable technology, NEAR empowers millions to invent and explore new experiences. Business, creativity, and community are being reimagined for a more sustainable and inclusive future.',
@@ -190,7 +191,7 @@ const _tokens = {
     description:
       'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
+      'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
   },
   IXT: {
     name: 'IX Token IXT',
@@ -407,7 +408,7 @@ const _tokens = {
     chainId: 137,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1.svg',
+      'https://tokens.pancakeswap.finance/images/0x8D9bA570D6cb60C7e3e0F31343Efe75AB8E65FB1.svg',
     website: 'https://www.olympusdao.finance/',
     description:
       'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
@@ -1080,7 +1081,7 @@ const _tokens = {
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+      'https://tokens.pancakeswap.finance/images/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
   PUP: {
     name: 'Polypup.Finance',
@@ -1200,7 +1201,7 @@ const _tokens = {
     chainId: 137,
     decimals: 18,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x2F800Db0fdb5223b3C3f354886d907A671414A7F.svg',
+      'https://tokens.pancakeswap.finance/images/0x2F800Db0fdb5223b3C3f354886d907A671414A7F.svg',
     website: 'https://toucan.earth/',
     description:
       'Toucan Protocol brings carbon as a new money-lego to Web3. Kickstarting an open and decentralized climate finance ecosystem.',
@@ -1212,7 +1213,7 @@ const _tokens = {
     chainId: 137,
     decimals: 9,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x4e78011Ce80ee02d2c3e649Fb657E45898257815.svg',
+      'https://tokens.pancakeswap.finance/images/0x4e78011Ce80ee02d2c3e649Fb657E45898257815.svg',
     website: 'https://www.klimadao.finance/',
     description:
       'Klima DAO gives Web3 builders and users the opportunity to participate in the carbon market through the KLIMA token.',

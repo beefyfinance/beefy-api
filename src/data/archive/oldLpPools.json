@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-usdd-busd",
+    "address": "0x004A9CE83614551271BcBd48E5fA3B8648Dbe312",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0xd17479997F34dd9156Deef8F95A52D81D265be9c",
+      "oracle": "tokens",
+      "oracleId": "USDD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-wmatic-newquick",
     "address": "0xF3eB2f17eAFBf35e92C965A954c6e7693187057D",
     "decimals": "1e18",

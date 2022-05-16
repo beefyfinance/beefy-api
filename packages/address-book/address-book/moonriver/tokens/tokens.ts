@@ -214,7 +214,7 @@ const _tokens = {
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+      'https://tokens.pancakeswap.finance/images/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -353,7 +353,7 @@ const _tokens = {
     chainId: 1285,
     decimals: 9,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE.svg',
+      'https://tokens.pancakeswap.finance/images/0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE.svg',
     website: 'https://romedao.finance/',
     description:
       'RomeDAO is a community project with no central team. It’s a community project built by and for the community. This means it’s up to the community contributors to build a prospering Rome.',
@@ -365,7 +365,7 @@ const _tokens = {
     chainId: 1285,
     decimals: 9,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE.svg',
+      'https://tokens.pancakeswap.finance/images/0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE.svg',
     website: 'https://romedao.finance/',
     description:
       'RomeDAO is a community project with no central team. It’s a community project built by and for the community. This means it’s up to the community contributors to build a prospering Rome.',
@@ -379,7 +379,7 @@ const _tokens = {
     website: 'https://www.binance.com/',
     description: 'BNB from BSC wrapped by passport.meter.io',
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+      'https://tokens.pancakeswap.finance/images/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
   },
   WBTCeth: {
     name: 'Wrapped Bitcoin',
@@ -399,7 +399,7 @@ const _tokens = {
     chainId: 1285,
     decimals: 12,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080.svg',
+      'https://tokens.pancakeswap.finance/images/0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080.svg',
     website: 'https://kusama.network/',
     description:
       'Unprecedented interoperability and scalability for blockchain developers who want to quickly push the limits of what’s possible. Built using Substrate with nearly the same codebase and industry-leading multichain infrastructure as Kusama’s cousin, Polkadot.',
@@ -411,7 +411,7 @@ const _tokens = {
     chainId: 1285,
     decimals: 10,
     logoURI:
-      'https://pancakeswap.finance/images/tokens/0xffffffFF893264794d9d57E1E0E21E0042aF5A0A.svg',
+      'https://tokens.pancakeswap.finance/images/0xffffffFF893264794d9d57E1E0E21E0042aF5A0A.svg',
     website: 'https://www.rmrk.app/',
     description:
       'ETERNALLY liquid. FORWARD compatible.Nested, conditional, & Multi-resourced NFTs.',
