@@ -1,5 +1,27 @@
 [
   {
+    "name": "png-klo-wavax",
+    "address": "0x6745d7F9289d7d75B5121876B1b9D8DA775c9a3E",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "KLO",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0xb27c8941a7Df8958A1778c0259f76D1F8B711C35",
+      "oracle": "tokens",
+      "oracleId": "KLO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "png-axlatom-wavax",
     "address": "0x8a998BCd8D04e36cF5D28984F9979B6404471E51",
     "decimals": "1e18",
