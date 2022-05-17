@@ -229,6 +229,7 @@ import valasLpPools from '../../data/valasLpPools.json';
 import bombLpPools from '../../data/degens/bombLpPools.json';
 import pegasysLpPools from '../../data/sys/pegasysLpPools.json';
 import ripaeLpPools from '../../data/degens/ripaeLpPools.json';
+import valleySwapLpPools from '../../data/emerald/valleyswapLpPools.json';
 import yuzuLpPools from '../../data/emerald/yuzuLpPools.json';
 import yuzuDualPools from '../../data/emerald/yuzuDualLpPools.json';
 
@@ -238,6 +239,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...valleySwapLpPools,
   ...yuzuDualPools,
   ...yuzuLpPools,
   ...ripaeLpPools,
