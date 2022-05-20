@@ -1,5 +1,5 @@
 import getBeltPrices from './bsc/belt/getBeltPrices';
-import getEllipsisPricesOld from './bsc/ellipsis/getEllipsisPrices';
+import getEllipsisPricesOld from './bsc/ellipsis/getEllipsisPricesOld';
 import { getEllipsisPrices } from './bsc/getEllipsisPrices';
 import getSnob3PoolPrice from './avax/getSnob3PoolPrice';
 import getFroyoPrices from './fantom/getFroyoPrices';

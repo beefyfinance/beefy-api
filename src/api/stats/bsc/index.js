@@ -1,8 +1,6 @@
 const getAlpacaApys = require('./alpaca/getAlpacaApys');
 const getBeltApys = require('./belt/getBeltApys');
 const { getDegensLpApys } = require('./degens');
-const getEllipsisLpApys = require('./ellipsis/getEllipsisLpApys');
-const getEllipsisSingleAssetApy = require('./ellipsis/getEllipsisSingleAssetApy');
 const getIcarusApys = require('./icarus/getIcarusApys');
 const getJetswapApys = require('./jetfuel/getJetswapApys');
 const getKebabLpApys = require('./kebab/getKebabLpApys');
@@ -43,8 +41,6 @@ const getApys = [
   getCakeLpV2Apys,
   getCakeV2PoolApy,
   getDegensLpApys,
-  getEllipsisLpApys,
-  getEllipsisSingleAssetApy,
   getFarmheroApys,
   getIcarusApys,
   getJetswapApys,

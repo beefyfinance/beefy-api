@@ -8,7 +8,7 @@ const { getContractWithProvider } = require('../../../../utils/contractHelper');
 
 const DECIMALS = '1e18';
 
-const getEllipsisPrices = async () => {
+const getEllipsisPricesOld = async () => {
   let prices = {};
 
   let promises = [];
@@ -36,4 +36,4 @@ const getPoolPrice = async pool => {
   return { [pool.name]: tokenPrice };
 };
 
-module.exports = getEllipsisPrices;
+module.exports = getEllipsisPricesOld;

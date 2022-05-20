@@ -89,6 +89,9 @@ const getPoolApys = async pools => {
     apy = apy.plus(dddApy);
 
     for (const r of rewards.filter(p => p.pool === pool.name)) {
+      if (r.periodFinish < Date.now() / 1000) {
+        continue;
+      }
       const price = await fetchPrice({ oracle: 'tokens', id: r.oracleId });
       const totalSupply = r.totalSupply.times(lpPrice).div('1e18');
       const yearlyRewardsInUsd = r.rewardRate.times(secondsPerYear).times(price).div('1e18');
