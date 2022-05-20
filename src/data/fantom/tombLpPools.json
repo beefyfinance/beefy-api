@@ -80,6 +80,26 @@
     }
   },
   {
+    "name": "tomb-usdc-fusdt",
+    "address": "0x3486011E2E18ccf4558c4C84d5cbBcCFdbF16c03",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+      "oracle": "tokens",
+      "oracleId": "fUSDT",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "tomb-usdc-mai",
     "address": "0xEdf6595E2ae78a4e5C8725D7eD2A28AD974f1B8e",
     "decimals": "1e18",
