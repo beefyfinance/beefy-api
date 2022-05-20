@@ -1,5 +1,145 @@
 [
   {
+    "name": "tomb-usdc-wftm",
+    "address": "0x8C853ce1561A2c2cD2E857670e3cCd04BA4cB27b",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-usdc-tshare",
+    "address": "0xDEc1259188E6c5273AcD1e84d5B4b58897CA013e",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x4cdF39285D7Ca8eB3f090fDA0C069ba5F4145B37",
+      "oracle": "tokens",
+      "oracleId": "TSHARE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-usdc-tomb",
+    "address": "0xAA9BE68D990d5e56870B2E0544f96ffb0B1dA8F7",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7",
+      "oracle": "tokens",
+      "oracleId": "TOMB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-usdc-mim",
+    "address": "0xd840aF68b35469eC3478c9b0CBCDdc6dc80Dd98C",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x82f0B8B456c1A451378467398982d4834b6829c1",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-usdc-fusdt",
+    "address": "0x3486011E2E18ccf4558c4C84d5cbBcCFdbF16c03",
+    "decimals": "1e18",
+    "poolId": 10,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+      "oracle": "tokens",
+      "oracleId": "fUSDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "tomb-usdc-mai",
+    "address": "0xEdf6595E2ae78a4e5C8725D7eD2A28AD974f1B8e",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-tshare-weth",
+    "address": "0xd702D7495b010936EBc53a1efeE42D97996Ca5Ee",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x4cdF39285D7Ca8eB3f090fDA0C069ba5F4145B37",
+      "oracle": "tokens",
+      "oracleId": "TSHARE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "tomb-btc-tshare",
     "address": "0xa1f4a9ee0d06115376dFf357D34C3F5eb4107398",
     "decimals": "1e18",
@@ -29,7 +169,7 @@
     "lp0": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
-      "oracleId": "WFTM",
+      "oracleId": "FTM",
       "decimals": "1e18"
     },
     "lp1": {
@@ -49,7 +189,7 @@
     "lp0": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
-      "oracleId": "WFTM",
+      "oracleId": "FTM",
       "decimals": "1e18"
     },
     "lp1": {
@@ -109,7 +249,7 @@
     "lp0": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
-      "oracleId": "WFTM",
+      "oracleId": "FTM",
       "decimals": "1e18"
     },
     "lp1": {
@@ -129,7 +269,7 @@
     "lp0": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
-      "oracleId": "WFTM",
+      "oracleId": "FTM",
       "decimals": "1e18"
     },
     "lp1": {
