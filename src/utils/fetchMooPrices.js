@@ -4,6 +4,7 @@ const { MULTICHAIN_RPC } = require('../constants');
 import { multicallAddress, web3Factory } from './web3';
 import { MultiCall } from 'eth-multicall';
 import { getContract } from './contractHelper';
+import { ChainId } from '../../packages/address-book/address-book';
 
 const IVault = require('../abis/BeefyVaultV6');
 
@@ -53,10 +54,32 @@ const fetchPpfs = async pools => {
   }
 };
 
+//Fetches ppfs for **vaults** from a single chain
+const fetchChainVaultsPpfs = async (vaults, chain) => {
+  const chainId = ChainId[chain];
+  const web3 = web3Factory(chainId);
+  const multicall = new MultiCall(web3, multicallAddress(chainId));
+  const ppfsCalls = [];
+  vaults.forEach(vault => {
+    const tokenContract = getContract(IVault, vault.earnContractAddress);
+    ppfsCalls.push({
+      ppfs: tokenContract.methods.getPricePerFullShare(),
+    });
+  });
+
+  let res = await multicall.all([ppfsCalls]);
+
+  const ppfss = res[0].map(v => new BigNumber(v.ppfs));
+
+  for (let i = 0; i < ppfss.length; i++) {
+    vaults[i].pricePerFullShare = ppfss[i];
+  }
+};
+
 const calcMooPrice = (pool, tokenPrices, lpPrices) => {
   const price = pool.oracle == 'tokens' ? tokenPrices[pool.oracleId] : lpPrices[pool.oracleId];
   const mooPrice = pool.ppfs.times(price).dividedBy(pool.decimals);
   return { [pool.name]: mooPrice.toNumber() };
 };
 
-module.exports = { fetchMooPrices };
+module.exports = { fetchMooPrices, fetchChainVaultsPpfs };

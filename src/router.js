@@ -29,6 +29,7 @@ router.get('/holders', gov.holderCount);
 
 router.get('/lps', price.lpsPrices);
 router.get('/prices', price.tokenPrices);
+router.get('/mootokenprices', price.mooTokenPrices);
 
 router.get('/vaults', multichainVaults.multichainVaults);
 
