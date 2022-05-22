@@ -1,5 +1,53 @@
 [
   {
+    "name": "quick-usdc-tel",
+    "address": "0xa5cABfC725DFa129f618D527E93702d10412f039",
+    "rewardPool": "0x84B3c86D660D680847258Fd20aAA1274Cc35EAcd",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xdF7837DE1F2Fa4631D716CF2502f8b230F1dcc32",
+      "oracle": "tokens",
+      "oracleId": "TEL",
+      "decimals": "1e2"
+    },
+    "rewardB": {
+      "oracle": "tokens",
+      "oracleId": "TEL",
+      "decimals": "1e2"
+    }
+  },
+  {
+    "name": "quick-weth-tel",
+    "address": "0xfc2fc983a411c4b1e238f7eb949308cf0218c750",
+    "rewardPool": "0xEda437364DCF8AB00f07b49bCc213CDf356b3962",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdF7837DE1F2Fa4631D716CF2502f8b230F1dcc32",
+      "oracle": "tokens",
+      "oracleId": "TEL",
+      "decimals": "1e2"
+    },
+    "rewardB": {
+      "oracle": "tokens",
+      "oracleId": "TEL",
+      "decimals": "1e2"
+    }
+  },
+  {
     "name": "quick-wmatic-maticx",
     "address": "0xb0e69f24982791dd49e316313fD3A791020B8bF7",
     "rewardPool": "0x1E16eCc4F912d8dB04b8177b4186bb597267fc25",
