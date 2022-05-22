@@ -1,5 +1,18 @@
 [
   {
+    "name": "jarvis-2eur",
+    "pool": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
+    "address": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
+    "masterchef": "0x834579150Cc521e0afAB15568930e3BEc67B865A",
+    "poolId": 0,
+    "chainId": 137,
+    "oracleId": "jarvis-synthetic-euro",
+    "rewardToken": "agDEN-JULY22",
+    "rewardOracle": "lps",
+    "token": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
+    "baseApyKey": "agEURjEUR-f"
+  },
+  {
     "name": "jarvis-2sgd",
     "pool": "0xeF75E9C7097842AcC5D0869E1dB4e5fDdf4BFDDA",
     "address": "0xeF75E9C7097842AcC5D0869E1dB4e5fDdf4BFDDA",
@@ -55,10 +68,10 @@
     "name": "jarvis-4eur",
     "pool": "0xAd326c253A84e9805559b73A08724e11E49ca651",
     "address": "0xAd326c253A84e9805559b73A08724e11E49ca651",
-    "masterchef": "0x845b7939D7E01fd29d6452CE9DDF9bd3ECf886b2",
+    "masterchef": "0x1e1506b8cF84f8D1C2dbF474BcB6fEC36467C478",
     "poolId": 0,
     "chainId": 137,
-    "rewardToken": "DEN",
+    "rewardToken": "DEN-JULY22",
     "rewardOracle": "lps",
     "token": "0xAd326c253A84e9805559b73A08724e11E49ca651",
     "baseApyKey": "4eur-f",
