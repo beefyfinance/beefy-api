@@ -83,7 +83,7 @@
     "name": "tomb-usdc-fusdt",
     "address": "0x3486011E2E18ccf4558c4C84d5cbBcCFdbF16c03",
     "decimals": "1e18",
-    "poolId": 10,
+    "poolId": 9,
     "chainId": 250,
     "liquiditySource": "tomb",
     "lp0": {
