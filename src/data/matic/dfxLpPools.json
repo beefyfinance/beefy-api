@@ -1,0 +1,20 @@
+[
+  {
+    "name": "dfx-nzds-usdc",
+    "address": "0x931d6A6cC3F992beee80a1A14a6530d34104B000",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0xeaFE31Cd9e8E01C8f0073A2C974f728Fb80e9DcE",
+      "oracle": "tokens",
+      "oracleId": "NZDS",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]

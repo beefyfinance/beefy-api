@@ -27,6 +27,28 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  NZDS: {
+    name: 'New Zealand Dollar Stablecoin',
+    symbol: 'NZDS',
+    address: '0xeaFE31Cd9e8E01C8f0073A2C974f728Fb80e9DcE',
+    chainId: 137,
+    decimals: 6,
+    website: 'https://www.techemynt.com/',
+    description:
+      "All NZDS tokens are backed 100% by New Zealand dollars held in trust in a bank account (or cash equivalents) confirmed every six months by a leading accounting firm. ",
+    logoURI: 'https://assets.coingecko.com/coins/images/20394/small/nzds.png?1636964381',
+  },
+  jNZD: {
+    name: 'Jarvis Synthetic New Zealand Dollar',
+    symbol: 'jNZD',
+    address: '0x6b526Daf03B4C47AF2bcc5860B12151823Ff70E0',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jNZD is a multi-collateralized synthetic token tracking the price of the New Zealand Dollar. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://app.jarvis.exchange/assets/bd5ec61c3163ddb222eaadb2ce8d8042.svg',
+  },
   newQUICK: {
     name: 'Quickswap',
     address: '0xB5C064F955D8e7F38fE0460C556a72987494eE17',
@@ -1296,7 +1318,7 @@ const _tokens = {
   JPYC: {
     name: 'JPY Coin',
     symbol: 'JPYC',
-    address: '0x6AE7Dfc73E0dDE2aa99ac063DcF7e8A63265108c',
+    address: '0x431D5dfF03120AFA4bDf332c61A6e1766eF37BDB',
     chainId: 137,
     decimals: 18,
     website: 'https://jpyc.jp/',
