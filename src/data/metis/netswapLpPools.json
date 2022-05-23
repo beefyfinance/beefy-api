@@ -1,24 +1,5 @@
 [
   {
-    "name": "netswap-hum-metis",
-    "address": "0x838ba1Eeb49a2D8a362f3F50cAD4A8284045d9C1",
-    "decimals": "1e18",
-    "poolId": 19,
-    "chainId": 1088,
-    "lp0": {
-      "address": "0x4aAC94985cD83be30164DfE7e9AF7C054D7d2121",
-      "oracle": "tokens",
-      "oracleId": "HUM",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
-      "oracle": "tokens",
-      "oracleId": "Metis",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "netswap-byte-m.usdc",
     "address": "0x3Ab6be89ED5A0d4FDD412c246F5e6DdD250Dd45c",
     "decimals": "1e18",

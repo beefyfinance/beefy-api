@@ -1,24 +1,5 @@
 [
   {
-    "name": "yuzu-ceusdc-usdt",
-    "address": "0x49c56e261744BB7e39359D42E139812Cb5A259c3",
-    "decimals": "1e18",
-    "poolId": 5,
-    "chainId": 42262,
-    "lp0": {
-      "address": "0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xdC19A122e268128B5eE20366299fc7b5b199C8e3",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "yuzu-wrose-ftp",
     "address": "0x4389C5a87dbDC1aE1323f4De24d8B1cFCc4E62cA",
     "decimals": "1e18",
@@ -59,6 +40,25 @@
       "address": "0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c",
       "oracle": "tokens",
       "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "yuzu-ceusdc-usdt",
+    "address": "0x49c56e261744BB7e39359D42E139812Cb5A259c3",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 42262,
+    "lp0": {
+      "address": "0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xdC19A122e268128B5eE20366299fc7b5b199C8e3",
+      "oracle": "tokens",
+      "oracleId": "USDT",
       "decimals": "1e6"
     }
   }
