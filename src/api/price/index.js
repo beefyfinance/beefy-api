@@ -1,4 +1,5 @@
 const { getAmmTokensPrices, getAmmLpPrices } = require('../stats/getAmmPrices');
+const { getMooTokenPrices } = require('../stats/getMooTokenPrices');
 
 async function lpsPrices(ctx) {
   try {
@@ -21,7 +22,18 @@ async function tokenPrices(ctx) {
   }
 }
 
+async function mooTokenPrices(ctx) {
+  try {
+    const prices = await getMooTokenPrices();
+    ctx.status = 200;
+    ctx.body = prices;
+  } catch (err) {
+    ctx.throw(500, err);
+  }
+}
+
 module.exports = {
   lpsPrices,
   tokenPrices,
+  mooTokenPrices,
 };

@@ -3,6 +3,7 @@
 import { initBifiBuyBackService } from './api/stats/bifibuyback/getBifiBuyback';
 import { initPriceService } from './api/stats/getAmmPrices';
 import { initApyService } from './api/stats/getApys';
+import { initMooTokenPriceService } from './api/stats/getMooTokenPrices';
 import { initVaultService } from './api/stats/getMultichainVaults';
 import { initTvlService } from './api/stats/getTvl';
 
@@ -42,6 +43,7 @@ const start = async () => {
   initVaultService();
   initTvlService();
   initBifiBuyBackService();
+  initMooTokenPriceService();
   app.listen(port);
   console.log(`> beefy-api running! (:${port})`);
 };
