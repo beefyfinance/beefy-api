@@ -20,7 +20,7 @@ const _tokens = {
   BIFI: {
     name: 'Beefy.Finance',
     symbol: 'BIFI',
-    address: '0x99C409E5f62E4bd2AC142f17caFb6810B8F0BAAE',
+    address: '0x65e66a61D0a8F1e686C2D6083ad611a10D84D97A',
     chainId: 42262,
     decimals: 18,
     website: 'https://www.beefy.finance/',
