@@ -1,5 +1,24 @@
 [
   {
+    "name": "stellaswap-usdt-busd",
+    "address": "0xEc8aC4CCBBAe310f9e83D102b35178d6C10EDFeA",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xCb4A7569a61300C50Cf80A2be16329AD9F5F8F9e",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "stellaswap-usdc-wglmr",
     "address": "0x9bFcf685e641206115dadc0C9ab17181e1d4975c",
     "decimals": "1e18",
