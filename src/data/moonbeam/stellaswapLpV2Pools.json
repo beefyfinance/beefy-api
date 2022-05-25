@@ -19,7 +19,7 @@
     }
   },
   {
-    "name": "stellaswap-usdc-wglmr",
+    "name": "stellaswap-usdcmad-wglmr",
     "address": "0x9bFcf685e641206115dadc0C9ab17181e1d4975c",
     "decimals": "1e18",
     "poolId": 12,
