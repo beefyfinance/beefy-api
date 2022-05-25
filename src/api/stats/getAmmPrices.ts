@@ -229,7 +229,7 @@ import valasLpPools from '../../data/valasLpPools.json';
 import bombLpPools from '../../data/degens/bombLpPools.json';
 import pegasysLpPools from '../../data/sys/pegasysLpPools.json';
 import ripaeLpPools from '../../data/degens/ripaeLpPools.json';
-import valleySwapLpPools from '../../data/emerald/valleyswapLpPools.json';
+import valleySwapLpPools from '../../data/emerald/valleySwapLpPools.json';
 import yuzuLpPools from '../../data/emerald/yuzuLpPools.json';
 import yuzuDualPools from '../../data/emerald/yuzuDualLpPools.json';
 import dfxPools from '../../data/matic/dfxLpPools.json';

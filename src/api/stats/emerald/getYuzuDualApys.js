@@ -57,7 +57,7 @@ const getYuzuDualApys = async () => {
       if (!rewarders[i]) {
         return 0;
       } else {
-        console.log(pool.name, rewarders[i].toString());
+        // console.log(pool.name, rewarders[i].toString());
         const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
         const rewarderContract = getContractWithProvider(SimpleRewarder, rewarders[i], web3);
         const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerBlock().call());
