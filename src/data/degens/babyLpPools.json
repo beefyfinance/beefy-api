@@ -1,5 +1,24 @@
 [
   {
+    "name": "baby-bnb-usdt",
+    "address": "0x04580ce6dEE076354e96fED53cb839DE9eFb5f3f",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "baby-aot-usdt",
     "address": "0x0866Bbea720FBFE4B22e39B8fd318982Bf6DD448",
     "decimals": "1e18",
