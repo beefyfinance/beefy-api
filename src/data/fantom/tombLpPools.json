@@ -1,5 +1,85 @@
 [
   {
+    "name": "tomb-tomb-treeb",
+    "address": "0x801D17c21D0808Bc00D46E2f081214c9d82F4FbF",
+    "decimals": "1e18",
+    "poolId": 17,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7",
+      "oracle": "tokens",
+      "oracleId": "TOMB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc60D7067dfBc6f2caf30523a064f416A5Af52963",
+      "oracle": "tokens",
+      "oracleId": "TREEB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-tomb-scream",
+    "address": "0x99680A9a70EdB9B2C2a7d2B293226d3a033074F8",
+    "decimals": "1e18",
+    "poolId": 18,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7",
+      "oracle": "tokens",
+      "oracleId": "TOMB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe0654C8e6fd4D733349ac7E09f6f23DA256bF475",
+      "oracle": "tokens",
+      "oracleId": "SCREAM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-tomb-zoo",
+    "address": "0x67019E7B4A233cc2E875e5c713042333d879aaCE",
+    "decimals": "1e18",
+    "poolId": 16,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x09e145A1D53c0045F41aEEf25D8ff982ae74dD56",
+      "oracle": "tokens",
+      "oracleId": "ZOO",
+      "decimals": "1e0"
+    },
+    "lp1": {
+      "address": "0x6c021Ae822BEa943b2E66552bDe1D2696a53fbB7",
+      "oracle": "tokens",
+      "oracleId": "TOMB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-fusd-usdc",
+    "address": "0x38fF5377A42D0A45C829de45801481869087d22C",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAd84341756Bf337f5a0164515b1f6F993D194E1f",
+      "oracle": "tokens",
+      "oracleId": "FUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "tomb-usdc-wftm",
     "address": "0x8C853ce1561A2c2cD2E857670e3cCd04BA4cB27b",
     "decimals": "1e18",
