@@ -99,6 +99,18 @@ const _tokens = {
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
   },
+  VS: {
+    name: 'ValleySwap Token',
+    symbol: 'VS',
+    address: '0xBC033203796CC2C8C543a5aAe93a9a643320433D',
+    chainId: 42262,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xBC033203796CC2C8C543a5aAe93a9a643320433D.svg',
+    website: 'https://valleyswap.com/',
+    description:
+      'ValleySwap is a decentralized exchange on the Oasis Emerald paratime that includes features like liquidity farming, swap and IFO.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

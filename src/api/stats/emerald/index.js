@@ -1,7 +1,8 @@
+const getValleySwapApys = require('./getValleySwapApys');
 const getYuzuApys = require('./getYuzuApys');
 const getYuzuDualApys = require('./getYuzuDualApys');
 
-const getApys = [getYuzuApys, getYuzuDualApys];
+const getApys = [getValleySwapApys, getYuzuApys, getYuzuDualApys];
 
 const getEmeraldApys = async () => {
   let apys = {};
