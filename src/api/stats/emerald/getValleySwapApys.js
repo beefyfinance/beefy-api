@@ -25,7 +25,7 @@ const getValleySwapApys = async () =>
     oracleId: VS.symbol,
     oracle: 'tokens',
     decimals: '1e18',
-    log: true,
+    // log: true,
   });
 
 module.exports = getValleySwapApys;
