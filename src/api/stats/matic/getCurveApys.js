@@ -1,3 +1,5 @@
+import { MultiCall } from 'eth-multicall';
+
 const BigNumber = require('bignumber.js');
 const { polygonWeb3: web3 } = require('../../../utils/web3');
 
@@ -9,6 +11,8 @@ import {
   getYearlyRewardsInUsd,
 } from '../common/curve/getCurveApyData';
 import { getContractWithProvider } from '../../../utils/contractHelper';
+import { multicallAddress } from '../../../utils/web3';
+import { POLYGON_CHAIN_ID } from '../../../constants';
 
 const ICurvePool = require('../../../abis/ICurvePool.json');
 const { getAavePoolData } = require('./getAaveApys');
@@ -41,7 +45,7 @@ const getPoolApys = async pools => {
 const getPoolApy = async pool => {
   if (pool.status === 'eol') return new BigNumber(0);
   const [yearlyRewardsInUsd, totalStakedInUsd, aaveMaticApy] = await Promise.all([
-    getYearlyRewardsInUsd(web3, pool),
+    getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID)), pool),
     getTotalStakedInUsd(web3, pool),
     getAaveApy(pool),
   ]);

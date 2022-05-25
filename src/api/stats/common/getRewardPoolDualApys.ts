@@ -132,7 +132,11 @@ const getPoolsData = async (params: DualRewardPoolParams) => {
     balanceCalls.push({
       balance: rewardPool.methods.totalSupply(),
     });
-    if (pool.name == 'quick-quick-tel') {
+    if (
+      pool.name == 'quick-quick-tel' ||
+      pool.name == 'quick-usdc-tel' ||
+      pool.name == 'quick-weth-tel'
+    ) {
       rewardRateACalls.push({
         rewardRateA: rewardPool.methods.rewardRateB(),
       });

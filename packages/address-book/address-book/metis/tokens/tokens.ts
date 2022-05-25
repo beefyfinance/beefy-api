@@ -161,6 +161,17 @@ const _tokens = {
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
   },
+  HUM: {
+    name: 'Hummus',
+    symbol: 'HUM',
+    address: '0x4aAC94985cD83be30164DfE7e9AF7C054D7d2121',
+    chainId: 1088,
+    decimals: 18,
+    logoURI:
+      'https://pancakeswap.finance/images/tokens/0x4aAC94985cD83be30164DfE7e9AF7C054D7d2121.svg',
+    website: 'https://www.hummus.exchange/',
+    description: 'Next Gen Decentralized AMM for Stableswaps',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

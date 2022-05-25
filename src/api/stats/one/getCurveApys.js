@@ -6,6 +6,9 @@ import {
   getYearlyRewardsInUsd,
 } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
+import { multicallAddress } from '../../../utils/web3';
+import { MultiCall } from 'eth-multicall';
+import { ONE_CHAIN_ID } from '../../../constants';
 
 const pools = require('../../../data/one/curvePools.json');
 const baseApyUrl = 'https://stats.curve.fi/raw-stats-harmony/apys.json';
@@ -31,7 +34,7 @@ const getPoolApys = async pools => {
 
 const getPoolApy = async pool => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(web3, pool),
+    getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(ONE_CHAIN_ID)), pool),
     getTotalStakedInUsd(web3, pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);

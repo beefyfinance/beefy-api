@@ -232,6 +232,7 @@ import ripaeLpPools from '../../data/degens/ripaeLpPools.json';
 import valleySwapLpPools from '../../data/emerald/valleyswapLpPools.json';
 import yuzuLpPools from '../../data/emerald/yuzuLpPools.json';
 import yuzuDualPools from '../../data/emerald/yuzuDualLpPools.json';
+import dfxPools from '../../data/matic/dfxLpPools.json';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -240,6 +241,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...valleySwapLpPools,
+  ...dfxPools,
   ...yuzuDualPools,
   ...yuzuLpPools,
   ...ripaeLpPools,

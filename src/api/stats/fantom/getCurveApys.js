@@ -1,3 +1,5 @@
+import { MultiCall } from 'eth-multicall';
+
 const { fantomWeb3: web3 } = require('../../../utils/web3');
 const fetch = require('node-fetch');
 
@@ -11,6 +13,8 @@ import ICurvePool from '../../../abis/ICurvePool.json';
 import fetchPrice from '../../../utils/fetchPrice';
 import BigNumber from 'bignumber.js';
 import { getContractWithProvider } from '../../../utils/contractHelper';
+import { multicallAddress } from '../../../utils/web3';
+import { FANTOM_CHAIN_ID } from '../../../constants';
 
 const pools = require('../../../data/fantom/curvePools.json');
 const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/fantom';
@@ -60,7 +64,7 @@ const getPoolApys = async pools => {
 const getPoolApy = async pool => {
   if (pool.status === 'eol') return new BigNumber(0);
   const [yearlyRewardsInUsd, totalStakedInUsd, geistApy] = await Promise.all([
-    getYearlyRewardsInUsd(web3, pool),
+    getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(FANTOM_CHAIN_ID)), pool),
     getTotalStakedInUsd(web3, pool),
     getGeistPoolApy(pool),
   ]);

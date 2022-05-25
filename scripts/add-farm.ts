@@ -120,8 +120,8 @@ const projects = {
   },
   yuzu: {
     prefix: 'yuzu',
-    file: '../src/data/emerald/yuzuLpPools.json',
-    masterchef: yuzu.masterchef,
+    file: '../src/data/emerald/yuzuDualLpPools.json',
+    masterchef: yuzu.masterchefExt,
   },
 };
 

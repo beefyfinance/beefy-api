@@ -6,14 +6,26 @@
     "oracleId": "EPX"
   },
   {
-    "name": "ellipsis-usdd",
-    "address": "0xB7d9b83c7Dc3C7Fab2d0159f8b3fA7C4fB081741",
-    "minter": "0xC2cF01F785C587645440ccD488B188945C9505e7"
+    "name": "ellipsis-usdd2pool",
+    "address": "0xB343F4cDE5e2049857898E800CD385247e21836D",
+    "minter": "0x408A61e158D7BC0CD339BC76917b8Ea04739d473",
+    "rewards": [
+      {
+        "token": "0xd17479997F34dd9156Deef8F95A52D81D265be9c",
+        "oracleId": "USDD"
+      }
+    ]
   },
   {
-    "name": "ellipsis-ust",
-    "address": "0xD67625ad4104dA86c4D9CB054001E899B1b9061B",
-    "minter": "0xcE0D2DE9D4920B35096D08c3784cB3479e6938F8"
+    "name": "ellipsis-usdd",
+    "address": "0xB7d9b83c7Dc3C7Fab2d0159f8b3fA7C4fB081741",
+    "minter": "0xC2cF01F785C587645440ccD488B188945C9505e7",
+    "rewards": [
+      {
+        "token": "0xd17479997F34dd9156Deef8F95A52D81D265be9c",
+        "oracleId": "USDD"
+      }
+    ]
   },
   {
     "name": "ellipsis-mai",
