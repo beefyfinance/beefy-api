@@ -1,5 +1,62 @@
 [
   {
+    "name": "stellaswap-usdt-busd",
+    "address": "0xEc8aC4CCBBAe310f9e83D102b35178d6C10EDFeA",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xCb4A7569a61300C50Cf80A2be16329AD9F5F8F9e",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-usdcmad-wglmr",
+    "address": "0x9bFcf685e641206115dadc0C9ab17181e1d4975c",
+    "decimals": "1e18",
+    "poolId": 12,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9",
+      "oracle": "tokens",
+      "oracleId": "USDCs",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-weth-wglmr",
+    "address": "0x9d19EDBFd29D2e01537624B25806493dA0d73bBE",
+    "decimals": "1e18",
+    "poolId": 11,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x30D2a9F5FDf90ACe8c17952cbb4eE48a55D916A7",
+      "oracle": "tokens",
+      "oracleId": "ETHs",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "stellaswap-wglmr-xcdot",
     "address": "0xa927E1e1E044CA1D9fe1854585003477331fE2Af",
     "decimals": "1e18",
