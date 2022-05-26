@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  cxBTC: {
+    name: 'CelsiusX Wrapped BTC',
+    symbol: 'cxBTC',
+    address: '0xD30DC92b8ec0fa8de625768d208f51A93C10aFF2',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xD30DC92b8ec0fa8de625768d208f51A93C10aFF2.svg',
+    website: '',
+    description: '',
+  },
   NZDS: {
     name: 'New Zealand Dollar Stablecoin',
     symbol: 'NZDS',
@@ -35,7 +46,7 @@ const _tokens = {
     decimals: 6,
     website: 'https://www.techemynt.com/',
     description:
-      "All NZDS tokens are backed 100% by New Zealand dollars held in trust in a bank account (or cash equivalents) confirmed every six months by a leading accounting firm. ",
+      'All NZDS tokens are backed 100% by New Zealand dollars held in trust in a bank account (or cash equivalents) confirmed every six months by a leading accounting firm. ',
     logoURI: 'https://assets.coingecko.com/coins/images/20394/small/nzds.png?1636964381',
   },
   jNZD: {
