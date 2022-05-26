@@ -38,6 +38,16 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  FUSD: {
+    name: 'Fantom USD',
+    symbol: 'FUSD',
+    address: '0xAd84341756Bf337f5a0164515b1f6F993D194E1f',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/22230/large/fUSD_32.png?1641246519',
+    website: 'https://fantom.foundation/defi/',
+    description: 'Mint fUSD, the stablecoin on Fantom pegged 1:1 to the USD price, using your FTM.',
+  },
   MIDAS: {
     name: 'MIDAS',
     symbol: 'MIDAS',
