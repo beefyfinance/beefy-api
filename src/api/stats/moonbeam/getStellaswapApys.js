@@ -7,6 +7,7 @@ import { stellaClient } from '../../../apollo/client';
 import { stellaswap } from '../../../../packages/address-book/address-book/moonbeam/platforms/stellaswap';
 const poolsV1 = require('../../../data/moonbeam/stellaswapLpPools.json');
 const poolsV2 = require('../../../data/moonbeam/stellaswapLpV2Pools.json');
+const stablePools = require('../../../data/moonbeam/stellaswapStablePools.json');
 const getBlockTime = require('../../../utils/getBlockTime');
 
 const getStellaswapApys = async () =>
@@ -33,7 +34,7 @@ const getStellaswapApys = async () =>
       tokenPerBlock: 'stellaPerSec',
       hasMultiplier: false,
       secondsPerBlock: 1, // because tokenPerBlock is expressed in seconds
-      pools: poolsV2,
+      pools: [...poolsV2, ...stablePools],
       oracleId: 'STELLA',
       oracle: 'tokens',
       decimals: '1e18',

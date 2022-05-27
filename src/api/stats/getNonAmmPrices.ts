@@ -17,6 +17,7 @@ import { getSynapsePrices } from './avax/getSynapsePrices';
 import getJarvisPrices from './matic/getJarvisPrices';
 import getSolarbeamPrices from './moonriver/getSolarbeamPrices';
 import getRosePrices from './aurora/getRosePrices';
+import getStellaswapPrices from './moonbeam/getStellaswapPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
@@ -41,6 +42,7 @@ const getNonAmmPrices = async tokenPrices => {
     getSynapsePrices(),
     getJarvisPrices(tokenPrices),
     getSolarbeamPrices(tokenPrices),
+    getStellaswapPrices(tokenPrices),
   ];
 
   // Setup error logs
