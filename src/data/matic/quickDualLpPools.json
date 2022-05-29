@@ -1,5 +1,29 @@
 [
   {
+    "name": "quick-wbtc-cxbtc",
+    "address": "0x384B41bD57D4Eb3ceC5eD8063C4b15A6071CEE29",
+    "rewardPool": "0x21e5C47E2dbD8b64B95C05986cDcacF909810814",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xD30DC92b8ec0fa8de625768d208f51A93C10aFF2",
+      "oracle": "tokens",
+      "oracleId": "cxBTC",
+      "decimals": "1e18"
+    },
+    "rewardB": {
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-usdc-tel",
     "address": "0xa5cABfC725DFa129f618D527E93702d10412f039",
     "rewardPool": "0x84B3c86D660D680847258Fd20aAA1274Cc35EAcd",
