@@ -14,13 +14,13 @@ export const getQuickSingleApys = async () => {
       {
         name: 'quick-quick',
         address: '0x831753DD7087CaC61aB5644b308642cc1c33Dc13',
-        rewardPool: '0xA518cca4891e274DD85bDCc47ce8191bccA19854',
+        rewardPool: '0xF3ed4Fc825864a16CAb4b8946622222050c63f5E',
         oracle: 'tokens',
         oracleId: 'QUICK',
         decimals: '1e18',
-      }
+      },
     ],
-    oracleId: 'COT',
+    oracleId: 'IXT',
     oracle: 'tokens',
     tokenAddress: QUICK.address,
     decimals: getEDecimals(QUICK.decimals),
@@ -38,7 +38,7 @@ export const getQuickSingleApys = async () => {
         oracle: 'tokens',
         oracleId: 'newQUICK',
         decimals: '1e18',
-      }
+      },
     ],
     oracleId: 'QUIDD',
     oracle: 'tokens',

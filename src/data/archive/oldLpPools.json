@@ -1,5 +1,23 @@
 [
   {
+    "name": "quick-wmatic-ixt",
+    "address": "0x8fcB93C0D9fA361c57c1d31bbF1c4d8C61af7d3d",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE06Bd4F5aAc8D0aA337D13eC88dB6defC6eAEefE",
+      "oracle": "tokens",
+      "oracleId": "IXT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-usdd-busd",
     "address": "0x004A9CE83614551271BcBd48E5fA3B8648Dbe312",
     "decimals": "1e18",
