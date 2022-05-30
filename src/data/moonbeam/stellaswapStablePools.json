@@ -1,0 +1,11 @@
+[
+  {
+    "name": "stellaswap-dualETH",
+    "address": "0xa3eE3a0a36Dc915fDc93062e4B386DF37d00217E",
+    "pool": "0xb86271571c90ad4E0C9776228437340b42623402",
+    "decimals": "1e18",
+    "virtualOracleId": "ETH",
+    "poolId": 8,
+    "chainId": 1284
+  }
+]
