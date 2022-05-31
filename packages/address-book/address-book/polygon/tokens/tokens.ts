@@ -29,7 +29,7 @@ const MAI = {
 const _tokens = {
   LCD: {
     name: 'Lucidao',
-    address: '0xc2a45fe7d40bcac8369371b08419ddafd3131b4a',
+    address: '0xc2A45FE7d40bCAc8369371B08419DDAFd3131b4a',
     symbol: 'LCD',
     decimals: 18,
     chainId: 137,
@@ -41,7 +41,7 @@ const _tokens = {
   },
   LDO: {
     name: 'Lido DAO',
-    address: '0xc3c7d422809852031b44ab29eec9f1eff2a58756',
+    address: '0xC3C7d422809852031b44ab29EEC9F1EfF2A58756',
     symbol: 'LDO',
     decimals: 18,
     chainId: 137,
