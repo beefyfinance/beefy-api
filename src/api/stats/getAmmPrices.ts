@@ -233,6 +233,7 @@ import valleySwapLpPools from '../../data/emerald/valleySwapLpPools.json';
 import yuzuLpPools from '../../data/emerald/yuzuLpPools.json';
 import yuzuDualPools from '../../data/emerald/yuzuDualLpPools.json';
 import dfxPools from '../../data/matic/dfxLpPools.json';
+import ripaeMaticPools from '../../data/matic/ripaeLpPools.json';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -264,6 +265,7 @@ const pools = [
   ...beamswapPools,
   ...ripaePools,
   ...ripaeAvaxPools,
+  ...ripaeMaticPools,
   ...creditumPools,
   ...trisolarisMiniPools,
   ...grapePools,
