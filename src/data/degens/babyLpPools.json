@@ -1,24 +1,5 @@
 [
   {
-    "name": "baby-usdt-ftm",
-    "address": "0xc85471a1bC8ae143b29fcDe6539507FBED075b15",
-    "decimals": "1e18",
-    "poolId": 102,
-    "chainId": 56,
-    "lp0": {
-      "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xAD29AbB318791D579433D831ed122aFeAf29dcfe",
-      "oracle": "tokens",
-      "oracleId": "FTM",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "baby-avax-usdt",
     "address": "0x74c4DA0DAca1A9e52Faec732d96BC7dEA9FB3ac1",
     "decimals": "1e18",
