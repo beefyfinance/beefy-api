@@ -27,6 +27,29 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  LCD: {
+    name: 'Lucidao',
+    address: '0xc2A45FE7d40bCAc8369371B08419DDAFd3131b4a',
+    symbol: 'LCD',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://lucidao.com/',
+    description:
+      'Lucidao aims to gather a community of oracles and users to build the infrastructure and facilitate the bridge between crypto and the real worlds.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/23693/large/lcd-icon-color-200px.png?1645450706',
+  },
+  LDO: {
+    name: 'Lido DAO',
+    address: '0xC3C7d422809852031b44ab29EEC9F1EfF2A58756',
+    symbol: 'LDO',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://stake.lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+    logoURI: 'https://assets.coingecko.com/coins/images/13573/large/Lido_DAO.png?1609873644',
+  },
   cxBTC: {
     name: 'CelsiusX Wrapped BTC',
     symbol: 'cxBTC',
