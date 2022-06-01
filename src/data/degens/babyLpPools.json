@@ -1,5 +1,157 @@
 [
   {
+    "name": "babyswap-usdt-ftm",
+    "address": "0xc85471a1bC8ae143b29fcDe6539507FBED075b15",
+    "decimals": "1e18",
+    "poolId": 102,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAD29AbB318791D579433D831ed122aFeAf29dcfe",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "babyswap-avax-usdt",
+    "address": "0x74c4DA0DAca1A9e52Faec732d96BC7dEA9FB3ac1",
+    "decimals": "1e18",
+    "poolId": 24,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x1CE0c2827e2eF14D5C4f29a091d735A204794041",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "babyswap-near-usdt",
+    "address": "0x1E0F11671362E4163eb5530ffFA2f01d4028cdf9",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x1Fa4a73a3F0133f0025378af00236f3aBDEE5D63",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "babyswap-atom-usdt",
+    "address": "0x42932A3c73DF05586aa5cfD4f3a9a61655c98b45",
+    "decimals": "1e18",
+    "poolId": 104,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0Eb3a705fc54725037CC9e008bDede697f62F335",
+      "oracle": "tokens",
+      "oracleId": "ATOM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "babyswap-avax-wbnb",
+    "address": "0x70Ef2ea7500e81DCB77eb7E33F4343eE494dA89a",
+    "decimals": "1e18",
+    "poolId": 187,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x1CE0c2827e2eF14D5C4f29a091d735A204794041",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "babyswap-near-wbnb",
+    "address": "0x7ef84d60F41fa47a6582Ddcf5724bA61B67f9e75",
+    "decimals": "1e18",
+    "poolId": 188,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x1Fa4a73a3F0133f0025378af00236f3aBDEE5D63",
+      "oracle": "tokens",
+      "oracleId": "NEAR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "babyswap-atom-wbnb",
+    "address": "0x1550567293d3D95a33e1FE9B250617FA06E1BeD9",
+    "decimals": "1e18",
+    "poolId": 189,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0Eb3a705fc54725037CC9e008bDede697f62F335",
+      "oracle": "tokens",
+      "oracleId": "ATOM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "babyswap-ftm-wbnb",
+    "address": "0x9283F1CF65Ea0D1D1D42a80427A66a73e0055a55",
+    "decimals": "1e18",
+    "poolId": 190,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xAD29AbB318791D579433D831ed122aFeAf29dcfe",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "baby-bnb-usdt",
     "address": "0x04580ce6dEE076354e96fED53cb839DE9eFb5f3f",
     "decimals": "1e18",
