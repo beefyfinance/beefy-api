@@ -10,7 +10,7 @@ const {
     platforms: { trisolaris },
   },
   bsc: {
-    platforms: { biswap },
+    platforms: { biswap, babyswap },
   },
   metis: {
     platforms: { netswap, tethys },
@@ -57,6 +57,11 @@ const projects = {
     prefix: 'banana',
     file: '../src/data/degens/apeLpPools.json',
     masterchef: '0x5c8D727b265DBAfaba67E050f2f739cAeEB4A6F9',
+  },
+  babyswap: {
+    prefix: 'babyswap',
+    file: '../src/data/degens/babyLpPools.json',
+    masterchef: babyswap.masterchef,
   },
   joe: {
     prefix: 'joe',
