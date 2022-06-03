@@ -139,8 +139,8 @@ const MOONBEAM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/moonbeam_pools.js';
 //  const SYS_VAULTS_ENDPOINT =
 //  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/sys_pools.js';
-//  const EMERALD_VAULTS_ENDPOINT =
-//  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/emerald_pools.js';
+const EMERALD_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/features/configure/vault/emerald_pools.js';
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
   avax: AVAX_VAULTS_ENDPOINT,
@@ -156,7 +156,7 @@ const MULTICHAIN_ENDPOINTS = {
   metis: METIS_VAULTS_ENDPOINT,
   moonbeam: MOONBEAM_VAULTS_ENDPOINT,
   // sys: SYS_VAULTS_ENDPOINT,
-  // emerald: EMERALD_VAULTS_ENDPOINT,
+  emerald: EMERALD_VAULTS_ENDPOINT,
   heco: HECO_VAULTS_ENDPOINT,
 };
 
@@ -215,7 +215,7 @@ export {
   // SYS_VAULTS_ENDPOINT,
   EMERALD_RPC,
   EMERALD_CHAIN_ID,
-  // EMERALD_VAULTS_ENDPOINT,
+  EMERALD_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
