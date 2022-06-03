@@ -27,6 +27,28 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  PAE: {
+    name: 'Ripae',
+    symbol: 'PAE',
+    address: '0x8063037ea50E4a066bF1430EA1E3e609CD5cEf6B',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://matic.ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://matic.ripae.finance/static/media/ripae_pae.87e37ce1.svg',
+  },
+  pMATIC: {
+    name: 'pMATIC',
+    symbol: 'pMATIC',
+    address: '0xA0dF47432d9d88bcc040E9ee66dDC7E17A882715',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://matic.ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://matic.ripae.finance/static/media/ripae_pftm.1a3fe2b4.svg',
+  },
   LCD: {
     name: 'Lucidao',
     address: '0xc2A45FE7d40bCAc8369371B08419DDAFd3131b4a',
