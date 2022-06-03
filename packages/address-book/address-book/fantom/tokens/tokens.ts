@@ -794,16 +794,6 @@ const _tokens = {
       'Fantom offers the first DeFi stack built on an aBFT consensus. It’s much faster, cheaper, and more reliable and secure than its predecessors.',
     logoURI: 'https://repository.fantom.network/logos/wti.svg',
   },
-  fUSD: {
-    name: 'frappedUSD',
-    address: '0xAd84341756Bf337f5a0164515b1f6F993D194E1f',
-    symbol: 'fUSD',
-    decimals: 18,
-    chainId: 250,
-    website: 'https://frapped.io/',
-    description: 'Frapped an innovative wrapper for USDT tokens.',
-    logoURI: 'https://ftmscan.com/token/images/fUSD_32.png',
-  },
   fSILVER: {
     name: 'fSilver',
     address: '0xf15e88EEf35BF4709A4C3E99c00358F9247D4531',

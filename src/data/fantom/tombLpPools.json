@@ -1,5 +1,125 @@
 [
   {
+    "name": "tomb-ftm-dai",
+    "address": "0xB89486a030075B42d589008Da7877dd783Af968F",
+    "decimals": "1e18",
+    "poolId": 19,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-ftm-eth",
+    "address": "0x8E49C8fBF6128356019D8A7d34E9b92f03bc2803",
+    "decimals": "1e18",
+    "poolId": 20,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-ftm-fusdt",
+    "address": "0x681d32C8b374c2Dd83064775dBB48EA97db2c506",
+    "decimals": "1e18",
+    "poolId": 21,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+      "oracle": "tokens",
+      "oracleId": "fUSDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-ftm-btc",
+    "address": "0x5063C79e377332FB98CB6C8DB414d752DC7C478E",
+    "decimals": "1e18",
+    "poolId": 22,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "BTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "tomb-ftm-mim",
+    "address": "0xa7c86Fc1B87830b8aBFA623571405E03560a8326",
+    "decimals": "1e18",
+    "poolId": 23,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "FTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82f0B8B456c1A451378467398982d4834b6829c1",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "tomb-btc-eth",
+    "address": "0x3f468804d133894a73b54cfc07D5886E5195255f",
+    "decimals": "1e18",
+    "poolId": 26,
+    "chainId": 250,
+    "liquiditySource": "tomb",
+    "lp0": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "BTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "tomb-treeb-usdc",
     "address": "0x37fb87347BCAd93B12Fd4E43BCf07620d6387A92",
     "decimals": "1e18",
