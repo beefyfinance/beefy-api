@@ -1,5 +1,24 @@
 [
   {
+    "name": "stellaswap-wbtc-wglmr",
+    "address": "0xE28459075c806b1bFa72A38E669CCd6Fb4125f6a",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x1DC78Acda13a8BC4408B207c9E48CDBc096D95e0",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "stellaswap-usdt-busd",
     "address": "0xEc8aC4CCBBAe310f9e83D102b35178d6C10EDFeA",
     "decimals": "1e18",
