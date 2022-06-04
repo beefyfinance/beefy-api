@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0x6Cb9750a92643382e020eA9a170AbB83Df05F30B",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "oracleId": "evoUSDT",
       "decimals": "1e6"
     },
     "lp1": {
@@ -27,13 +27,13 @@
     "lp0": {
       "address": "0x6Cb9750a92643382e020eA9a170AbB83Df05F30B",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "oracleId": "evoUSDT",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xE9b38eD157429483EbF87Cf6C002cecA5fd66783",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "evoWETH",
       "decimals": "1e18"
     }
   },
@@ -46,13 +46,13 @@
     "lp0": {
       "address": "0x010CDf0Db2737f9407F8CFcb4dCaECA4dE54c815",
       "oracle": "tokens",
-      "oracleId": "BTC",
+      "oracleId": "evoBTC",
       "decimals": "1e8"
     },
     "lp1": {
       "address": "0x6Cb9750a92643382e020eA9a170AbB83Df05F30B",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "oracleId": "evoUSDT",
       "decimals": "1e6"
     }
   },
@@ -65,13 +65,13 @@
     "lp0": {
       "address": "0x6Cb9750a92643382e020eA9a170AbB83Df05F30B",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "oracleId": "evoUSDT",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0x94fbfFe5698DB6f54d6Ca524DbE673a7729014Be",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "evoUSDC",
       "decimals": "1e6"
     }
   },
@@ -90,7 +90,7 @@
     "lp1": {
       "address": "0x6Cb9750a92643382e020eA9a170AbB83Df05F30B",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "oracleId": "evoUSDT",
       "decimals": "1e6"
     }
   },
@@ -122,7 +122,7 @@
     "lp0": {
       "address": "0x6Cb9750a92643382e020eA9a170AbB83Df05F30B",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "oracleId": "evoUSDT",
       "decimals": "1e6"
     },
     "lp1": {
