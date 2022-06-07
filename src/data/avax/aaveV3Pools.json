@@ -64,5 +64,16 @@
     "decimals": "1e8",
     "borrowDepth": 1,
     "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-link.e",
+    "token": "0x5947BB275c521040051D82396192181b413227A3",
+    "aToken": "0x191c10Aa4AF7C30e871E70C95dB0E4eb77237530",
+    "debtToken": "0x953A573793604aF8d41F306FEb8274190dB4aE0e",
+    "oracle": "tokens",
+    "oracleId": "LINK.e",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
   }
 ]
