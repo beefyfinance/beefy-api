@@ -77,7 +77,6 @@ export const initVaultService = async () => {
     (accumulator, current) => [...accumulator, ...current],
     []
   );
-
   multichainVaultsCounter = multichainVaults.length;
   multichainActiveVaultsCounter = multichainVaults.filter(
     vault => vault.status === 'active'
