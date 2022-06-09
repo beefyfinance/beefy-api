@@ -7,5 +7,14 @@
     "virtualOracleId": "ETH",
     "poolId": 8,
     "chainId": 1284
+  },
+  {
+    "name": "stellaswap-Base4pool",
+    "address": "0xdA782836B65edC4E6811c7702C5E21786203Ba9d",
+    "pool": "0x422b5b7A15FB12c518AA29f9def640b4773427f8",
+    "decimals": "1e18",
+    "virtualOracleId": "USDT",
+    "poolId": 14,
+    "chainId": 1284
   }
 ]

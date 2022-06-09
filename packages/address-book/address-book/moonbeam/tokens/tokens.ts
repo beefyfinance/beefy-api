@@ -76,6 +76,39 @@ const _tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
+  USDTs: {
+    name: 'Tether USD',
+    symbol: 'USDT',
+    address: '0x8e70cD5B4Ff3f62659049e74b6649c6603A0E594',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x8e70cD5B4Ff3f62659049e74b6649c6603A0E594.svg',
+    website: '',
+    description: '',
+  },
+  DAIs: {
+    name: 'Dai Stablecoin',
+    symbol: 'DAI',
+    address: '0xc234A67a4F840E61adE794be47de455361b52413',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xc234A67a4F840E61adE794be47de455361b52413.svg',
+    website: '',
+    description: '',
+  },
+  FRAXs: {
+    name: 'Frax',
+    symbol: 'FRAX',
+    address: '0x322E86852e492a7Ee17f28a78c663da38FB33bfb',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x322E86852e492a7Ee17f28a78c663da38FB33bfb.svg',
+    website: '',
+    description: '',
+  },
   BUSD: {
     name: 'Binance-Peg BUSD Token',
     symbol: 'BUSD',
