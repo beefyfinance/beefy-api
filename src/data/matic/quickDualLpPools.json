@@ -1,5 +1,53 @@
 [
   {
+    "name": "quick-newquick-matic",
+    "address": "0xF3eB2f17eAFBf35e92C965A954c6e7693187057D",
+    "rewardPool": "0xa68845c077f7c0a3CBf9b34DcD1d5770a234D8Af",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
+      "oracle": "tokens",
+      "oracleId": "newQUICK",
+      "decimals": "1e18"
+    },
+    "rewardB": {
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-tusd-usdc",
+    "address": "0x17a7829cc1167ecdA8b9668414a5405050846F8A",
+    "rewardPool": "0x1661C61b66A2A2C54970F271f2B86556cdf18B97",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x2e1AD108fF1D8C782fcBbB89AAd783aC49586756",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    },
+    "rewardB": {
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-lcd-matic",
     "address": "0xAab5254e17380511887aabA7e96a5339A519E26a",
     "rewardPool": "0xaCBD412b649b55d0F3f7565293492637DE7c53Cb",
