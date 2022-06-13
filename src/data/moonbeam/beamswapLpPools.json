@@ -1,5 +1,43 @@
 [
   {
+    "name": "beamswap-wglmr-xcdot",
+    "address": "0xd8FbdeF502770832E90a6352b275f20F38269b74",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080",
+      "oracle": "tokens",
+      "oracleId": "xcDOT",
+      "decimals": "1e10"
+    }
+  },
+  {
+    "name": "beamswap-usdcmad-wglmr",
+    "address": "0x6Ba38f006aFe746B9A0d465e53aB4182147AC3D7",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9",
+      "oracle": "tokens",
+      "oracleId": "USDCs",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "beamswap-bifi-wglmr",
     "address": "0x321e45B7134b5Ed52129027F1743c8E71DA0A339",
     "decimals": "1e18",
