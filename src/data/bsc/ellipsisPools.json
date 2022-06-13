@@ -1,5 +1,11 @@
 [
   {
+    "name": "ellipsis-3eps",
+    "address": "0xaF4dE8E872131AE328Ce21D909C74705d3Aaf452",
+    "minter": "0x160CAed03795365F3A589f10C379FfA7d75d4E76",
+    "oracleId": "USDC"
+  },
+  {
     "name": "ellipsis-depx",
     "address": "0xb6b218352d082fa5C981B5adF61CBC068046f926",
     "minter": "0x45859D71D4caFb93694eD43a5ecE05776Fc2465d",
