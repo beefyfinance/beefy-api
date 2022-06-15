@@ -843,8 +843,8 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x0F5D2fB29fb7d3CFeE444a200298f468908cC942/logo.png',
   },
-  miMATIC: MAI,
   MAI: MAI,
+  miMATIC: MAI,
   MUST: {
     name: 'Must',
     address: '0x9C78EE466D6Cb57A4d01Fd887D2b5dFb2D46288f',
