@@ -1,5 +1,43 @@
 [
   {
+    "name": "biswap-pae-wbnb",
+    "address": "0x8eA4875469e8Fd7ad3790b4c7DEeF768ca1e806f",
+    "decimals": "1e18",
+    "poolId": 122,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x6c7fc3Fd4a9f1Cfa2a69B83F92b9DA7EC26240A2",
+      "oracle": "tokens",
+      "oracleId": "PAE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "biswap-usdc-wbnb",
+    "address": "0x06Cd679121Ec37B0A2FD673D4976B09d81791856",
+    "decimals": "1e18",
+    "poolId": 119,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "biswap-near-wbnb",
     "address": "0xe0E9FDd2F0BcdBcaF55661B6Fa1efc0Ce181504b",
     "decimals": "1e18",
