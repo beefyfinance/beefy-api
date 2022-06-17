@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  SOL: {
+    name: 'Solana',
+    symbol: 'SOL',
+    address: '0x570A5D26f7765Ecb712C0924E4De545B89fD43dF',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://biswap.org/images/tokens/sol.svg',
+    website: 'https://solana.com',
+    description:
+      'Solana is the fastest blockchain in the world and the fastest growing ecosystem in crypto, with thousands of projects spanning DeFi, NFTs, Web3 and more.',
+  },
   GAL: {
     name: 'Project Galaxy',
     symbol: 'GAL',
