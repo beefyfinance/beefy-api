@@ -491,6 +491,7 @@ const knownPrices = {
 
 let tokenPricesCache: Promise<any>;
 let lpPricesCache: Promise<any>;
+let lpBreakdownCache: Promise<any>;
 
 const updateAmmPrices = async () => {
   console.log('> updating amm prices');
@@ -543,21 +544,30 @@ const updateAmmPrices = async () => {
       };
     });
 
-    const lpPrices = ammPrices.then(async ({ poolPrices, _ }) => {
+    const lpData = ammPrices.then(async ({ poolPrices, _ }) => {
       const dmm = await dmmPrices;
       const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
-      return { ...poolPrices, ...dmm.poolPrices, ...nonAmmPrices };
+
+      return {
+        prices: { ...poolPrices, ...dmm.poolPrices, ...nonAmmPrices.prices },
+        breakdown: { ...nonAmmPrices.breakdown },
+      };
     });
 
+    const lpBreakdown = lpData.then(({ prices, breakdown }) => breakdown);
+    const lpPrices = lpData.then(({ prices, breakdown }) => prices);
+
     await tokenPrices;
-    await lpPrices;
+    await lpData;
 
     tokenPricesCache = tokenPrices;
     lpPricesCache = lpPrices;
+    lpBreakdownCache = lpBreakdown;
 
     return {
       tokenPrices,
       lpPrices,
+      lpBreakdown,
     };
   } catch (err) {
     console.error(err);
@@ -574,6 +584,10 @@ export const getAmmTokensPrices = async () => {
 
 export const getAmmLpPrices = async () => {
   return await lpPricesCache;
+};
+
+export const getLpBreakdown = async () => {
+  return await lpBreakdownCache;
 };
 
 export const getAmmTokenPrice = async tokenSymbol => {
@@ -595,6 +609,7 @@ export const getAmmLpPrice = async lpName => {
 export const initPriceService = async () => {
   const tokenPrices = await getKey('TOKEN_PRICES');
   const lpPrices = await getKey('LP_PRICES');
+  const lpBreakdown = await getKey('LP_BREAKDOWN');
 
   const init =
     // Flexible delayed initialization used to work around ratelimits
@@ -602,16 +617,16 @@ export const initPriceService = async () => {
       setTimeout(resolve, INIT_DELAY);
     }).then(updateAmmPrices);
 
-  tokenPricesCache = tokenPrices
-    ? Promise.resolve(tokenPrices)
-    : init.then(({ tokenPrices, lpPrices }) => tokenPrices);
-  lpPricesCache = lpPrices
-    ? Promise.resolve(lpPrices)
-    : init.then(({ tokenPrices, lpPrices }) => lpPrices);
+  tokenPricesCache =
+    tokenPrices ?? init.then(({ tokenPrices, lpPrices, lpBreakdown }) => tokenPrices);
+  lpPricesCache = lpPrices ?? init.then(({ tokenPrices, lpPrices, lpBreakdown }) => lpPrices);
+  lpBreakdownCache =
+    lpBreakdown ?? init.then(({ tokenPrices, lpPrices, lpBreakdown }) => lpBreakdown);
 };
 
 const saveToRedis = async () => {
   await setKey('TOKEN_PRICES', await tokenPricesCache);
   await setKey('LP_PRICES', await lpPricesCache);
+  await setKey('LP_BREAKDOWN', await lpBreakdownCache);
   console.log('Prices saved to redis');
 };

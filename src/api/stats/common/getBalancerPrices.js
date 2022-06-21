@@ -8,10 +8,15 @@ const { getContract } = require('../../../utils/contractHelper');
 
 const getBalancerPrices = async (web3, chainId, pools, tokenPrices) => {
   let prices = {};
-  const { balances, totalSupplys } = await getPoolsData(web3, chainId, pools);
-
+  const { tokenAddresses, balances, totalSupplys } = await getPoolsData(web3, chainId, pools);
   for (let i = 0; i < pools.length; i++) {
-    let price = await getPoolPrice(pools[i], balances[i], totalSupplys[i], tokenPrices);
+    let price = await getPoolPrice(
+      pools[i],
+      tokenAddresses[i],
+      balances[i],
+      totalSupplys[i],
+      tokenPrices
+    );
     prices = { ...prices, ...price };
   }
 
@@ -35,12 +40,13 @@ const getPoolsData = async (web3, chainId, pools) => {
 
   const res = await multicall.all([balanceCalls, totalSupplyCalls]);
 
+  const tokenAddresses = res[0].map(v => v.balance['0']);
   const balances = res[0].map(v => v.balance['1']);
   const totalSupplys = res[1].map(v => new BigNumber(v.totalSupply));
-  return { balances, totalSupplys };
+  return { tokenAddresses, balances, totalSupplys };
 };
 
-const getPoolPrice = async (pool, balance, totalSupply, tokenPrices) => {
+const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPrices) => {
   let tokenPrice;
   let tokenBalInUsd = new BigNumber(0);
   let totalStakedinUsd = new BigNumber(0);
@@ -50,7 +56,15 @@ const getPoolPrice = async (pool, balance, totalSupply, tokenPrices) => {
     totalStakedinUsd = totalStakedinUsd.plus(tokenBalInUsd);
   }
   const price = totalStakedinUsd.times(pool.decimals).dividedBy(totalSupply).toNumber();
-  return { [pool.name]: price };
+
+  return {
+    [pool.name]: {
+      price,
+      tokens: tokenAddresses,
+      balances: balance,
+      totalSupply: totalSupply.shiftedBy(-18).toNumber(),
+    },
+  };
 };
 
 const getTokenPrice = (tokenPrices, oracleId) => {
