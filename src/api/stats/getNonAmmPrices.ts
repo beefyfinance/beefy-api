@@ -63,7 +63,12 @@ const getNonAmmPrices = async tokenPrices => {
           breakdown[lp] = lpData;
         });
       } else {
-        Object.assign(prices, r.value);
+        Object.keys(r.value).forEach(lp => {
+          prices[lp] = r.value[lp];
+          breakdown[lp] = {
+            price: r.value[lp],
+          };
+        });
       }
     });
 
