@@ -21,6 +21,7 @@ import getStellaswapPrices from './moonbeam/getStellaswapPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
+  let breakdown = {};
 
   const promises = [
     getBeethovenxPrices(tokenPrices),
@@ -53,10 +54,20 @@ const getNonAmmPrices = async tokenPrices => {
   results
     .filter((r): r is PromiseFulfilledResult<any> => r.status === 'fulfilled')
     .forEach(r => {
-      Object.assign(prices, r.value);
+      // If value for apy is an object, it contains breakdown
+      if (typeof r.value[Object.keys(r.value)[0]] === 'object') {
+        //Means breakdown data is available
+        Object.keys(r.value).forEach(lp => {
+          let lpData = r.value[lp];
+          prices[lp] = lpData.price;
+          breakdown[lp] = lpData;
+        });
+      } else {
+        Object.assign(prices, r.value);
+      }
     });
 
-  return prices;
+  return { prices, breakdown };
 };
 
 export default getNonAmmPrices;
