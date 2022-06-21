@@ -501,23 +501,23 @@ const updateAmmPrices = async () => {
     const ammPrices = fetchAmmPrices(pools, knownPrices);
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
-    const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+    const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       return await fetchXPrices(tokenPrices);
     });
 
-    const stargatePrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+    const stargatePrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       return await fetchStargatePrices(tokenPrices);
     });
 
-    const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+    const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
     });
 
-    const beFtmPrice = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+    const beFtmPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       return await fetchbeFTMPrice(tokenPrices);
     });
 
-    const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+    const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       return {
         beJOE: tokenPrices['JOE'],
         beQI: tokenPrices['QI'],
@@ -525,7 +525,7 @@ const updateAmmPrices = async () => {
       };
     });
 
-    const tokenPrices = ammPrices.then(async ({ _, tokenPrices }) => {
+    const tokenPrices = ammPrices.then(async ({ _, tokenPrices, __ }) => {
       const dmm = await dmmPrices;
       const xTokenPrices = await xPrices;
       const mooTokenPrices = await mooPrices;
@@ -544,13 +544,13 @@ const updateAmmPrices = async () => {
       };
     });
 
-    const lpData = ammPrices.then(async ({ poolPrices, _ }) => {
+    const lpData = ammPrices.then(async ({ poolPrices, _, lpsBreakdown }) => {
       const dmm = await dmmPrices;
       const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
 
       return {
         prices: { ...poolPrices, ...dmm.poolPrices, ...nonAmmPrices.prices },
-        breakdown: { ...nonAmmPrices.breakdown },
+        breakdown: { ...nonAmmPrices.breakdown, ...lpsBreakdown },
       };
     });
 
