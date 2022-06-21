@@ -31,12 +31,23 @@ const calcLpPrice = (pool, tokenPrices) => {
   const lp1 = pool.lp1.balance
     .multipliedBy(tokenPrices[pool.lp1.oracleId])
     .dividedBy(pool.lp1.decimals);
-  return lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(pool.totalSupply).toNumber();
+  const price = lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(pool.totalSupply).toNumber();
+
+  return {
+    price,
+    tokens: [pool.lp0.address, pool.lp1.address],
+    balances: [
+      pool.lp0.balance.dividedBy(pool.lp0.decimals).toString(10),
+      pool.lp1.balance.dividedBy(pool.lp1.decimals).toString(10),
+    ],
+    totalSupply: pool.totalSupply.dividedBy(pool.decimals).toString(10),
+  };
 };
 
 const fetchDmmPrices = async (pools, knownPrices) => {
   let prices = { ...knownPrices };
   let lps = {};
+  let breakdown = {};
   let weights = {};
   Object.keys(knownPrices).forEach(known => {
     weights[known] = Number.MAX_SAFE_INTEGER;
@@ -120,7 +131,10 @@ const fetchDmmPrices = async (pools, knownPrices) => {
           prices[unknownToken.oracleId] = price;
           weights[unknownToken.oracleId] = weight;
         }
-        lps[pool.name] = calcLpPrice(pool, prices);
+
+        const lpData = calcLpPrice(pool, prices);
+        lps[pool.name] = lpData.price;
+        breakdown[pool.name] = lpData;
 
         unsolved.splice(i, 1);
         solving = true;
@@ -131,6 +145,7 @@ const fetchDmmPrices = async (pools, knownPrices) => {
   return {
     poolPrices: sortByKeys(lps),
     tokenPrices: sortByKeys(prices),
+    lpsBreakdown: sortByKeys(breakdown),
   };
 };
 

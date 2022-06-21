@@ -550,7 +550,7 @@ const updateAmmPrices = async () => {
 
       return {
         prices: { ...poolPrices, ...dmm.poolPrices, ...nonAmmPrices.prices },
-        breakdown: { ...nonAmmPrices.breakdown, ...lpsBreakdown },
+        breakdown: { ...lpsBreakdown, ...dmm.lpsBreakdown, ...nonAmmPrices.breakdown },
       };
     });
 
