@@ -57,7 +57,7 @@ const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPri
     totalStakedinUsd = totalStakedinUsd.plus(tokenBalInUsd);
     shiftedBalances = new BigNumber(shiftedBalances[i])
       .dividedBy(pool.tokens[i].decimals)
-      .toString();
+      .toString(10);
   }
   const price = totalStakedinUsd.times(pool.decimals).dividedBy(totalSupply).toNumber();
 
@@ -66,7 +66,7 @@ const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPri
       price,
       tokens: tokenAddresses,
       balances: shiftedBalances,
-      totalSupply: totalSupply.dividedBy(pool.decimals).toString(),
+      totalSupply: totalSupply.dividedBy(pool.decimals).toString(10),
     },
   };
 };

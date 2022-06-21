@@ -55,10 +55,10 @@ const calcLpPrice = (pool, tokenPrices) => {
     price,
     tokens: [pool.lp0.address, pool.lp1.address],
     balances: [
-      pool.lp0.balance.dividedBy(pool.lp0.decimals).toString(),
-      pool.lp1.balance.dividedBy(pool.lp1.decimals).toString(),
+      pool.lp0.balance.dividedBy(pool.lp0.decimals).toString(10),
+      pool.lp1.balance.dividedBy(pool.lp1.decimals).toString(10),
     ],
-    totalSupply: pool.totalSupply.dividedBy(pool.decimals).toString(),
+    totalSupply: pool.totalSupply.dividedBy(pool.decimals).toString(10),
   };
 };
 
