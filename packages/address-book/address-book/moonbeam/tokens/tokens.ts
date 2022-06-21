@@ -85,7 +85,7 @@ const _tokens = {
     decimals: 6,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
-    website: 'https://www.circle.com/usdc',
+    website: 'https://www.nomad.xyz/',
     description:
       'bridged USDC by Nomad. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
@@ -97,7 +97,7 @@ const _tokens = {
     decimals: 6,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8e70cD5B4Ff3f62659049e74b6649c6603A0E594.svg',
-    website: '',
+    website: 'https://www.nomad.xyz/',
     description:
       'bridged USDT by Nomad. Tether converts cash into digital currency, to anchor or tether the value to the price of national currencies like the US dollar, the Euro, and the offshore Chinese yuan.',
   },
@@ -109,7 +109,7 @@ const _tokens = {
     decimals: 18,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xc234A67a4F840E61adE794be47de455361b52413.svg',
-    website: '',
+    website: 'https://www.nomad.xyz/',
     description:
       'bridged DAI by Nomad. Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
   },
@@ -121,7 +121,7 @@ const _tokens = {
     decimals: 18,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x322E86852e492a7Ee17f28a78c663da38FB33bfb.svg',
-    website: '',
+    website: 'https://frax.finance/',
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
   },
@@ -192,9 +192,9 @@ const _tokens = {
     decimals: 18,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
-    website: 'https://ethereum.org/',
+    website: 'https://www.nomad.xyz/',
     description:
-      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+      'bridged ETH by Nomad. The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
   },
   USDT: {
     name: 'Tether USD',
@@ -382,9 +382,9 @@ const _tokens = {
     decimals: 8,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x1DC78Acda13a8BC4408B207c9E48CDBc096D95e0.svg',
-    website: 'https://wbtc.network/',
+    website: 'https://www.nomad.xyz/',
     description:
-      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+      'WBTC bridged by Nomad. Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   },
   aWBTC: {
     name: 'Anyswap Wrapped BTC',
