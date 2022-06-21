@@ -55,7 +55,7 @@ const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPri
     tokenPrice = await getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
     tokenBalInUsd = new BigNumber(balance[i]).times(tokenPrice).dividedBy(pool.tokens[i].decimals);
     totalStakedinUsd = totalStakedinUsd.plus(tokenBalInUsd);
-    shiftedBalances = new BigNumber(shiftedBalances[i])
+    shiftedBalances[i] = new BigNumber(shiftedBalances[i])
       .dividedBy(pool.tokens[i].decimals)
       .toString(10);
   }
