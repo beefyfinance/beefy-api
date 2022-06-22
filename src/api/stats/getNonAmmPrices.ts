@@ -54,22 +54,18 @@ const getNonAmmPrices = async tokenPrices => {
   results
     .filter((r): r is PromiseFulfilledResult<any> => r.status === 'fulfilled')
     .forEach(r => {
-      // If value for apy is an object, it contains breakdown
-      if (typeof r.value[Object.keys(r.value)[0]] === 'object') {
-        //Means breakdown data is available
-        Object.keys(r.value).forEach(lp => {
+      Object.keys(r.value).forEach(lp => {
+        if (typeof r.value[lp] === 'object') {
           let lpData = r.value[lp];
           prices[lp] = lpData.price;
           breakdown[lp] = lpData;
-        });
-      } else {
-        Object.keys(r.value).forEach(lp => {
+        } else {
           prices[lp] = r.value[lp];
           breakdown[lp] = {
             price: r.value[lp],
           };
-        });
-      }
+        }
+      });
     });
 
   return { prices, breakdown };
