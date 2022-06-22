@@ -4,7 +4,19 @@
     "pool": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
     "gauge": "0xCE5F24B7A95e9cBa7df4B54E911B4A3Dc8CDAf6f",
     "baseApyKey": "2pool",
-    "boosted": true
+    "boosted": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
   },
   {
     "name": "curve-arb-ren",
@@ -12,7 +24,19 @@
     "gauge": "0xDB3fd1bfC67b5D4325cb31C04E0Cae52f1787FD6",
     "baseApyKey": "ren",
     "oracleId": "WBTC",
-    "boosted": true
+    "boosted": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "renBTC",
+        "decimals": "1e8"
+      }
+    ]
   },
   {
     "name": "curve-arb-tricrypto",
@@ -95,6 +119,19 @@
   {
     "name": "curve-arb-mim",
     "pool": "0x30dF229cefa463e991e29D42DB0bae2e122B2AC7",
-    "rewards": []
+    "rewards": [],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-arb-2pool",
+        "oracle": "lps",
+        "oracleId": "curve-arb-2pool",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

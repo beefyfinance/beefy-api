@@ -15,6 +15,23 @@
         "token": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
         "oracleId": "WONE"
       }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "1DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "1USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "1USDT",
+        "decimals": "1e6"
+      }
     ]
   },
   {
