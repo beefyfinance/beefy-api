@@ -72,7 +72,6 @@ const getStablePoolPrice = async (web3, pool, tokenPrices) => {
     };
   } catch (err) {
     console.log('error on pool ' + pool.name);
-    // console.log(pool);
     throw err;
   }
 };
@@ -99,14 +98,6 @@ const getVolatilePoolPrice = async (web3, pools, pool, tokenPrices) => {
 
   const totalSupply = new BigNumber(results[pool.tokens.length]).dividedBy(DECIMALS);
   const price = totalBalInUsd.dividedBy(totalSupply).toNumber();
-
-  if (pool.name === 'curve-poly-atricrypto3') {
-    console.log('logging');
-    console.log(pool);
-    console.log('---');
-    console.log(results);
-    console.log('---');
-  }
 
   return {
     price,
