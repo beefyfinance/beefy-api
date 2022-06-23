@@ -20,12 +20,12 @@ const getMaiCurveApys = async () => {
     hasMultiplier: false,
     pools: [
       {
-        name: 'mai-crv-mai-3pool',
+        name: 'mai-curve-mai-3pool',
         chainId: chainId,
         poolId: 0,
         address: pool,
         oracle: 'lps',
-        oracleId: 'crv-mai-3pool',
+        oracleId: 'curve-mai-3pool',
         decimals: '1e18',
       },
     ],
