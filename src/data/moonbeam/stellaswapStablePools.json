@@ -16,5 +16,14 @@
     "virtualOracleId": "USDT",
     "poolId": 14,
     "chainId": 1284
+  },
+  {
+    "name": "stellaswap-mai4pool",
+    "address": "0xA0AA99F71033378864Ed6E499eb03612264e319a",
+    "pool": "0x7FbE3126C03444D43fC403626ec81E3e809E6b46",
+    "decimals": "1e18",
+    "virtualOracleId": "USDT",
+    "poolId": 16,
+    "chainId": 1284
   }
 ]
