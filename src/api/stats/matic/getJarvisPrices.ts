@@ -5,7 +5,7 @@ const rewardPool = require('../../../data/matic/jarvisRewardPool.json');
 import { fetchDmmPrices } from '../../../utils/fetchDmmPrices';
 
 const getJarvisPrices = async tokenPrices => {
-  const curvePrices = await getCurvePricesCommon(web3, pools, tokenPrices);
+  const curvePrices = await getCurvePricesCommon(web3, pools, tokenPrices, false);
   const dmmPrices = await fetchDmmPrices(rewardPool, curvePrices);
   return dmmPrices.tokenPrices;
 };
