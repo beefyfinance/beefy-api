@@ -155,6 +155,19 @@
   {
     "name": "curve-mai-3pool",
     "pool": "0x447646e84498552e62eCF097Cc305eaBFFF09308",
-    "rewards": []
+    "rewards": [],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "mai",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-am3crv",
+        "oracle": "lps",
+        "oracleId": "curve-am3crv",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
