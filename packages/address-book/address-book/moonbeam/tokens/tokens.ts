@@ -29,7 +29,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
-
+  WELL: {
+    name: 'WELL',
+    symbol: 'WELL',
+    address: '0x511aB53F793683763E5a8829738301368a2411E3',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x511aB53F793683763E5a8829738301368a2411E3.svg',
+    website: 'https://moonwell.fi/',
+    description: 'WELL is the native governance token of the Moonwell Artemis protocol',
+  },
   MAI: {
     name: 'Mai Stablecoin',
     symbol: 'MAI',

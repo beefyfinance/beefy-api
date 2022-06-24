@@ -1,5 +1,24 @@
 [
   {
+    "name": "stellaswap-well-wglmr",
+    "address": "0xb536c1F9A157B263B70A9a35705168ACC0271742",
+    "decimals": "1e18",
+    "poolId": 15,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x511aB53F793683763E5a8829738301368a2411E3",
+      "oracle": "tokens",
+      "oracleId": "WELL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "stellaswap-wbtc-wglmr",
     "address": "0xE28459075c806b1bFa72A38E669CCd6Fb4125f6a",
     "decimals": "1e18",
