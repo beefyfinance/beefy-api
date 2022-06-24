@@ -103,6 +103,46 @@ export const getTradingFeeAprSushi = async (
 export const getTradingFeeAprBalancer = async (
   client: ApolloClient<NormalizedCacheObject>,
   pairAddresses: string[],
+  liquidityProviderFee: number,
+  chainId: number
+) => {
+  const blockTime = await getBlockTime(10);
+  const currentBlock = await getBlockNumber(10);
+  const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
+  const pairAddressesToAprMap: Record<string, BigNumber> = {};
+
+  try {
+    const queryCurrent = await client.query({
+      query: poolsDataQuery(addressesToLowercase(pairAddresses), currentBlock - 60),
+    });
+
+    const queryPast = await client.query({
+      query: poolsDataQuery(addressesToLowercase(pairAddresses), pastBlock - 60),
+    });
+
+    const poolDayDatas0 = queryCurrent.data.pools;
+    const poolDayDatas1 = queryPast.data.pools;
+
+    for (const pool of poolDayDatas0) {
+      const pair = pool.address.toLowerCase();
+      const pastPool = poolDayDatas1.filter(p => {
+        return p.address === pool.address;
+      })[0];
+      pairAddressesToAprMap[pair] = new BigNumber(pool.totalSwapFee)
+        .minus(pastPool.totalSwapFee)
+        .times(365)
+        .dividedBy(pool.totalLiquidity);
+    }
+  } catch (e) {
+    console.error('> getTradingFeeAprBalancer error', pairAddresses[0]);
+  }
+
+  return pairAddressesToAprMap;
+};
+
+export const getTradingFeeAprBalancerFTM = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  pairAddresses: string[],
   liquidityProviderFee: number
 ) => {
   const blockTime = await getBlockTime(250);
@@ -133,7 +173,7 @@ export const getTradingFeeAprBalancer = async (
         .dividedBy(pool.totalLiquidity);
     }
   } catch (e) {
-    console.error('> getTradingFeeAprBalancer error', pairAddresses[0]);
+    console.error('> getTradingFeeAprBalancerFTM error', pairAddresses[0]);
   }
 
   return pairAddressesToAprMap;

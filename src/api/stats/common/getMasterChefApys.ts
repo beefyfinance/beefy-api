@@ -18,7 +18,7 @@ import getBlockNumber from '../../../utils/getBlockNumber';
 import getBlockTime from '../../../utils/getBlockTime';
 import {
   getTradingFeeAprSushi,
-  getTradingFeeAprBalancer,
+  getTradingFeeAprBalancerFTM,
   getTradingFeeApr,
 } from '../../../utils/getTradingFeeApr';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
@@ -72,7 +72,7 @@ const getTradingAprs = async (params: MasterChefApysParams) => {
     const getAprs = isSushiClient(client)
       ? getTradingFeeAprSushi
       : isBeetClient(client)
-      ? getTradingFeeAprBalancer
+      ? getTradingFeeAprBalancerFTM
       : getTradingFeeApr;
     const aprs = await getAprs(client, pairAddresses, fee);
     tradingAprs = { ...tradingAprs, ...aprs };

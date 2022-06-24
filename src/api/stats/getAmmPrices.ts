@@ -476,6 +476,7 @@ const coinGeckoCoins = [
   'xsgd',
   'usd-balance',
   'gelato',
+  'optimism',
 ];
 
 const knownPrices = {

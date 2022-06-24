@@ -35,6 +35,8 @@ import {
   SYS_CHAIN_ID,
   EMERALD_RPC,
   EMERALD_CHAIN_ID,
+  OPTIMISM_RPC,
+  OPTIMISM_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -55,6 +57,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.moonbeam]: addressBookByChainId[ChainId.moonbeam].platforms.beefyfinance.multicall,
   [ChainId.sys]: addressBookByChainId[ChainId.sys].platforms.beefyfinance.multicall,
   [ChainId.emerald]: addressBookByChainId[ChainId.emerald].platforms.beefyfinance.multicall,
+  [ChainId.optimism]: addressBookByChainId[ChainId.optimism].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -74,6 +77,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   moonbeam: [],
   sys: [],
   emerald: [],
+  optimism: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -93,6 +97,7 @@ clients.metis.push(new ethers.providers.JsonRpcProvider(METIS_RPC));
 clients.moonbeam.push(new ethers.providers.JsonRpcProvider(MOONBEAM_RPC));
 clients.sys.push(new ethers.providers.JsonRpcProvider(SYS_RPC));
 clients.emerald.push(new ethers.providers.JsonRpcProvider(EMERALD_RPC));
+clients.optimism.push(new ethers.providers.JsonRpcProvider(OPTIMISM_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -111,6 +116,7 @@ export const chainRandomClients = {
   moonbeamRandomClient: () => clients.moonbeam[~~(clients.moonbeam.length * Math.random())],
   sysRandomClient: () => clients.sys[~~(clients.sys.length * Math.random())],
   emeraldRandomClient: () => clients.emerald[~~(clients.emerald.length * Math.random())],
+  optimismRandomClient: () => clients.optimism[~~(clients.optimism.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -147,6 +153,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.sysRandomClient();
     case EMERALD_CHAIN_ID:
       return chainRandomClients.emeraldRandomClient();
+    case OPTIMISM_CHAIN_ID:
+      return chainRandomClients.optimismRandomClient();
   }
 };
 

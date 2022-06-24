@@ -3,7 +3,7 @@ const { MultiCall } = require('eth-multicall');
 const fetchPrice = require('../../../utils/fetchPrice');
 const BeethovenRewarder = require('../../../abis/fantom/BeethovenRewarder.json');
 const { FANTOM_CHAIN_ID } = require('../../../constants');
-const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
+const { getTradingFeeAprBalancerFTM } = require('../../../utils/getTradingFeeApr');
 const MasterChefAbi = require('../../../abis/fantom/BeethovenxChef.json');
 const { fantomWeb3: web3, multicallAddress } = require('../../../utils/web3');
 const pools = require('../../../data/fantom/beethovenxDualPools.json');
@@ -23,7 +23,7 @@ const burn = 0.128;
 
 const getBeethovenxDualApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeAprBalancer(
+  const tradingAprs = await getTradingFeeAprBalancerFTM(
     beetClient,
     pairAddresses,
     liquidityProviderFee

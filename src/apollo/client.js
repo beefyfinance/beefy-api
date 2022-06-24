@@ -78,6 +78,9 @@ const kyberClient = client(
   'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic'
 );
 const beetClient = client('https://graph-node.beets-ftm-node.com/subgraphs/name/beethovenx');
+const beetOpClient = client(
+  'https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx-optimism'
+);
 const beamClient = client('https://api.thegraph.com/subgraphs/name/beamswap/beamswap-dex');
 const solarflareClient = client('https://analytics.solarflare.io/api/subgraph');
 const stellaClient = client('https://api.thegraph.com/subgraphs/name/stellaswap/stella-swap');
@@ -108,7 +111,7 @@ const isSushiClient = client => {
 };
 
 const isBeetClient = client => {
-  return client === beetClient;
+  return client === beetClient || client === beetOpClient;
 };
 
 module.exports = {
@@ -146,6 +149,7 @@ module.exports = {
   solarbeamClient,
   babyClient,
   beetClient,
+  beetOpClient,
   isBeetClient,
   vvsClient,
   finnClient,

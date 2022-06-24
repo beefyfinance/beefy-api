@@ -15,6 +15,7 @@ const chainIdMap = {
   moonbeam: 1284,
   sys: 57,
   emerald: 42262,
+  optimism: 10,
 };
 
 export default chainIdMap;

@@ -18,6 +18,7 @@ import getJarvisPrices from './matic/getJarvisPrices';
 import getSolarbeamPrices from './moonriver/getSolarbeamPrices';
 import getRosePrices from './aurora/getRosePrices';
 import getStellaswapPrices from './moonbeam/getStellaswapPrices';
+import getBeetsOPPrices from './optimism/getBeetsOPPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
@@ -25,6 +26,7 @@ const getNonAmmPrices = async tokenPrices => {
 
   const promises = [
     getBeethovenxPrices(tokenPrices),
+    getBeetsOPPrices(tokenPrices),
     getBeltPrices(tokenPrices),
     getEllipsisPricesOld(),
     getEllipsisPrices(tokenPrices),
