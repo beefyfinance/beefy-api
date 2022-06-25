@@ -23,7 +23,7 @@ const getBeetsOpApys = async () => {
     10
   );
 
-  console.log(tradingAprs);
+  // console.log(tradingAprs);
 
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
@@ -48,12 +48,7 @@ const getPoolApy = async pool => {
     getTotalStakedInUsd(web3, pool),
   ]);
   const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  console.log(
-    pool.name,
-    rewardsApy.toNumber(),
-    totalStakedInUsd.valueOf(),
-    yearlyRewardsInUsd.valueOf()
-  );
+  // console.log(pool.name,rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
   return rewardsApy;
 };
 

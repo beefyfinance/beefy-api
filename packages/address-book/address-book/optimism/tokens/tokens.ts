@@ -51,6 +51,18 @@ const _tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
+  sUSD: {
+    name: 'Synth sUSD',
+    symbol: 'sUSD',
+    address: '0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9',
+    chainId: 10,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
+    website: 'https://www.synthetix.io/',
+    description:
+      'sUSD is a synthetic USD token enabled by the Synthetix protocol. It tracks the price of the US Dollar through price feeds supplied by Chainlink’s decentralized network of oracles',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
