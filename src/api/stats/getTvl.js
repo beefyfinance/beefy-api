@@ -43,6 +43,12 @@ const {
   MOONBEAM_CHAIN_ID,
   MOONBEAM_VAULTS_ENDPOINT,
 
+  EMERALD_CHAIN_ID,
+  EMERALD_VAULTS_ENDPOINT,
+
+  OPTIMISM_CHAIN_ID,
+  OPTIMISM_VAULTS_ENDPOINT,
+
   SYS_CHAIN_ID,
   //SYS_VAULTS_ENDPOINT,
 } = require('../../constants');
@@ -129,6 +135,16 @@ const chains = [
   // vaultsEndpoint: SYS_VAULTS_ENDPOINT,
   // governancePool: require('../../data/sys/governancePool.json'),
   // },
+  {
+    chainId: EMERALD_CHAIN_ID,
+    vaultsEndpoint: EMERALD_VAULTS_ENDPOINT,
+    // governancePool: require('../../data/moonbeam/governancePool.json'),
+  },
+  {
+    chainId: OPTIMISM_CHAIN_ID,
+    vaultsEndpoint: OPTIMISM_VAULTS_ENDPOINT,
+    // governancePool: require('../../data/moonbeam/governancePool.json'),
+  },
 ];
 
 const getTvl = () => {
@@ -171,7 +187,7 @@ const initTvlService = async () => {
 };
 
 const saveToRedis = async () => {
-  await setKey('TVL', tvl);
+  await setKey('', tvl);
   console.log('TVL saved to redis');
 };
 

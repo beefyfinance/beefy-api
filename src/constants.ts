@@ -144,8 +144,8 @@ const MOONBEAM_VAULTS_ENDPOINT =
 //  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/sys.json';
 const EMERALD_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/emerald.json';
-//const OPTIMISM_VAULTS_ENDPOINT =
-//  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/optimism.json';
+const OPTIMISM_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/optimism.json';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -163,7 +163,7 @@ const MULTICHAIN_ENDPOINTS = {
   moonbeam: MOONBEAM_VAULTS_ENDPOINT,
   // sys: SYS_VAULTS_ENDPOINT,
   emerald: EMERALD_VAULTS_ENDPOINT,
-  //optimism: OPTIMISM_VAULTS_ENDPOINT,
+  optimism: OPTIMISM_VAULTS_ENDPOINT,
   heco: HECO_VAULTS_ENDPOINT,
 };
 
@@ -225,7 +225,7 @@ export {
   EMERALD_VAULTS_ENDPOINT,
   OPTIMISM_RPC,
   OPTIMISM_CHAIN_ID,
-  //OPTIMISM_VAULTS_ENDPOINT,
+  OPTIMISM_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
