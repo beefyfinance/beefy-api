@@ -62,7 +62,6 @@ const getJoeBoostedLpApys = async () => {
       .times(secondsPerYear);
 
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
-    console.log(yearlyRewardsAInUsd);
     let yearlyRewardsBInUsd = new BigNumber(0);
 
     if (!tokenPerSecData[i].isNaN()) {
