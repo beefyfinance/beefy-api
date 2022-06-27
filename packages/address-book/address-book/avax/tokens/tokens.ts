@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  'BTC.b': {
+    name: 'Bitcoin',
+    symbol: 'BTC.b',
+    address: '0x152b9d0FdC40C096757F570A51E494bd4b943E50',
+    chainId: 43114,
+    decimals: 8,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x152b9d0FdC40C096757F570A51E494bd4b943E50.svg',
+    website: 'https://bridge.avax.network/',
+    description: 'official AVAX BRIDGE bridged BTC',
+  },
   BPT: {
     name: 'Bold Point BPT',
     symbol: 'BPT',
