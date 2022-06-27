@@ -51,6 +51,9 @@ module.exports = {
   get emeraldWeb3() {
     return chainRandomClients.emeraldRandomClient();
   },
+  get optimismWeb3() {
+    return chainRandomClients.optimismRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

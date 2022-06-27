@@ -1,0 +1,217 @@
+[
+  {
+    "name": "beets-happy-road",
+    "address": "0x39965c9dAb5448482Cf7e002F583c812Ceb53046",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x00a2bD63529fD28d777155F5eD1726e9b9b781B4",
+    "vaultPoolId": "0x39965C9DAB5448482CF7E002F583C812CEB53046000100000000000000000003",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x9D27eaa04Face448956eaB5b422C542fFfeeB4EF",
+        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x9D27eaa04Face448956eaB5b422C542fFfeeB4EF",
+        "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
+        "oracleId": "BEETS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "optimism",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "beets-lennons-long",
+    "address": "0x5028497af0c9a54ea8C6D42a054c0341B9fc6168",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x2D6743160AB3038aF12C6a6B605C683bc9e4f0B6",
+    "vaultPoolId": "0x5028497AF0C9A54EA8C6D42A054C0341B9FC6168000100000000000000000004",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x66f885344c4acBAfC8D52653694613410689840f",
+        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x66f885344c4acBAfC8D52653694613410689840f",
+        "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
+        "oracleId": "BEETS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "beets-all-you-need-is-love",
+    "address": "0xd6E5824b54f64CE6f1161210bc17eeBfFC77E031",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x47a063Ae87c3c8c9BFbd81D55eEfa6683543148A",
+    "vaultPoolId": "0xD6E5824B54F64CE6F1161210BC17EEBFFC77E031000100000000000000000006",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x005E43C4BB2932605B121941797eBB123325301e",
+        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x005E43C4BB2932605B121941797eBB123325301e",
+        "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
+        "oracleId": "BEETS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "optimism",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BAL",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-come-together",
+    "address": "0x3dC09DB8E571Da76Dd04E9176afc7fEEe0b89106",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x4edA46C9921c8e928E559F3F0B5b9D3eC3DF8Ae9",
+    "vaultPoolId": "0x3DC09DB8E571DA76DD04E9176AFC7FEEE0B89106000000000000000000000019",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x8D8A30416Ae7615A3D9439329A42E1f95DdC4F1B",
+        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x8D8A30416Ae7615A3D9439329A42E1f95DdC4F1B",
+        "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
+        "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x8D8A30416Ae7615A3D9439329A42E1f95DdC4F1B",
+        "token": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+        "oracleId": "QI"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-optimistic-8-track",
+    "address": "0x7Ef99013E446dDCe2486b8E04735b7019a115e6F",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xCf69061C06e57AE8f284e6d2EE0E889BD671Ab10",
+    "vaultPoolId": "0x7EF99013E446DDCE2486B8E04735B7019A115E6F000100000000000000000005",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x6Cf4Cba0Ea4528775d582372bDe556c8aB854688",
+        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x6Cf4Cba0Ea4528775d582372bDe556c8aB854688",
+        "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
+        "oracleId": "BEETS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "optimism",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "lyra-finance",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SNX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "nusd",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "perpetual-protocol",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BAL",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

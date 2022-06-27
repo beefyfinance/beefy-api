@@ -14,6 +14,7 @@ const { getMetisApys } = require('./metis');
 const { getMoonbeamApys } = require('./moonbeam');
 const { getSysApys } = require('./sys');
 const { getEmeraldApys } = require('./emerald');
+const { getOptimismApys } = require('./optimism');
 const { getKey, setKey } = require('../../utils/redisHelper');
 
 const INIT_DELAY = process.env.INIT_DELAY || 60 * 1000;
@@ -50,6 +51,7 @@ const updateApys = async () => {
       getMoonbeamApys(),
       getSysApys(),
       getEmeraldApys(),
+      getOptimismApys(),
     ]);
 
     for (const result of results) {

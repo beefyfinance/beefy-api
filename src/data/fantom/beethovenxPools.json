@@ -1,5 +1,40 @@
 [
   {
+    "name": "beets-battle-bands-remastered",
+    "address": "0x65411827ef78F08f6559acF91DE3A4F5A26D785C",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x65411827ef78f08f6559acf91de3a4f5a26d785c0001000000000000000004c6",
+    "poolId": 91,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "SOL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "AVAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BNB",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-gelato-genesis",
     "address": "0x76A0631699Aa67a574340639036Fc93f5A1302F4",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",

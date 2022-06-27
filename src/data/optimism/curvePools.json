@@ -1,0 +1,44 @@
+[
+  {
+    "name": "curve-op-3crv",
+    "pool": "0x1337BedC9D22ecbe766dF105c9623922A27963EC",
+    "token": "0x1337BedC9D22ecbe766dF105c9623922A27963EC",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-op-f-susd",
+    "pool": "0x061b87122Ed14b9526A813209C8a59a633257bAb",
+    "token": "0x061b87122Ed14b9526A813209C8a59a633257bAb",
+    "gauge": "0xc5aE4B5F86332e70f3205a8151Ee9eD9F71e0797",
+    "boosted": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "sUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-op-3crv",
+        "oracle": "lps",
+        "oracleId": "curve-op-3crv",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

@@ -52,6 +52,7 @@ const METIS_RPC = process.env.METIS_RPC || 'https://andromeda.metis.io/?owner=10
 const MOONBEAM_RPC = process.env.MOONBEAM_RPC || 'https://rpc.api.moonbeam.network';
 const SYS_RPC = process.env.SYS_RPC || 'https://rpc.syscoin.org/';
 const EMERALD_RPC = process.env.EMERALD_RPC || 'https://emerald.oasis.dev';
+const OPTIMISM_RPC = process.env.OPTIMISM_RPC || 'https://mainnet.optimism.io';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -69,6 +70,7 @@ const METIS_CHAIN_ID = ChainId.metis;
 const MOONBEAM_CHAIN_ID = ChainId.moonbeam;
 const SYS_CHAIN_ID = ChainId.sys;
 const EMERALD_CHAIN_ID = ChainId.emerald;
+const OPTIMISM_CHAIN_ID = ChainId.optimism;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.003;
@@ -107,6 +109,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.moonbeam]: MOONBEAM_RPC,
   [ChainId.sys]: SYS_RPC,
   [ChainId.emerald]: EMERALD_RPC,
+  [ChainId.optimism]: OPTIMISM_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -141,6 +144,9 @@ const MOONBEAM_VAULTS_ENDPOINT =
 //  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/sys.json';
 const EMERALD_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/emerald.json';
+//const OPTIMISM_VAULTS_ENDPOINT =
+//  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/optimism.json';
+
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
   avax: AVAX_VAULTS_ENDPOINT,
@@ -157,6 +163,7 @@ const MULTICHAIN_ENDPOINTS = {
   moonbeam: MOONBEAM_VAULTS_ENDPOINT,
   // sys: SYS_VAULTS_ENDPOINT,
   emerald: EMERALD_VAULTS_ENDPOINT,
+  //optimism: OPTIMISM_VAULTS_ENDPOINT,
   heco: HECO_VAULTS_ENDPOINT,
 };
 
@@ -216,6 +223,9 @@ export {
   EMERALD_RPC,
   EMERALD_CHAIN_ID,
   EMERALD_VAULTS_ENDPOINT,
+  OPTIMISM_RPC,
+  OPTIMISM_CHAIN_ID,
+  //OPTIMISM_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,

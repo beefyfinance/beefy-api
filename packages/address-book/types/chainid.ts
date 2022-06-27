@@ -15,4 +15,5 @@ export enum ChainId {
   moonbeam = 1284,
   sys = 57,
   emerald = 42262,
+  optimism = 10,
 }
