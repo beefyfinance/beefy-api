@@ -3,11 +3,9 @@ const { optimismWeb3: web3 } = require('../../../utils/web3');
 import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
-import getBlockNumber from '../../../utils/getBlockNumber';
 import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
 import { beetOpClient } from '../../../apollo/client';
-import getBlockNumber from '../../../utils/getBlockNumber';
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
 
 const pools = require('../../../data/optimism/beethovenxLpPools.json');

@@ -75,6 +75,82 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
+  LYRA: {
+    chainId: 10,
+    address: '0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb',
+    decimals: 18,
+    name: 'Lyra Token',
+    symbol: 'LYRA',
+    website: 'https://www.lyra.finance/',
+    description:
+      'Lyra’s decentralized exchange is the easiest place to buy and sell options on cryptocurrencies.',
+    logoURI: '',
+  },
+  QI: {
+    chainId: 10,
+    address: '0x3F56e0c36d275367b8C502090EDF38289b3dEa0d',
+    decimals: 18,
+    name: 'Qi Dao',
+    symbol: 'QI',
+    website: 'https://www.mai.finance/',
+    description:
+      'Qi (pronounced CHEE) is the governance token of the QiDao Protocol. It allows those who hold it to vote on changes to the QiDao Protocol.',
+    logoURI: '',
+  },
+  SNX: {
+    name: 'Synthetix',
+    symbol: 'SNX',
+    address: '0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://www.synthetix.io/',
+    description:
+      'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.',
+    logoURI: 'https://hecoinfo.com/token/images/snx_32.png',
+  },
+  PERP: {
+    name: 'Perpetual Protocol',
+    symbol: 'PERP',
+    address: '0x9e1028F5F1D5eDE59748FFceE5532509976840E0',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://app.perp.com/',
+    description: 'Cross margin DeFi trading with up to 10×-leverage.',
+    logoURI: '',
+  },
+  BAL: {
+    name: 'Balancer',
+    symbol: 'BAL',
+    address: '0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://balancer.fi/',
+    description:
+      'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities.',
+    logoURI: 'https://hecoinfo.com/token/images/bal_32.png',
+  },
+  MAI: {
+    chainId: 10,
+    address: '0xdFA46478F9e5EA86d57387849598dbFB2e964b02',
+    decimals: 18,
+    name: 'Mai Stablecoin',
+    symbol: 'MAI',
+    website: 'https://www.mai.finance/',
+    description:
+      "MAI is a stable coin collateralized by your MATIC holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+  },
+  FRAX: {
+    name: 'Frax',
+    address: '0x2E3D870790dC77A83DD1d18184Acc7439A53f475',
+    symbol: 'FRAX',
+    decimals: 18,
+    chainId: 10,
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+    logoURI: 'https://avatars.githubusercontent.com/u/56005256?s=200&v=4',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -477,6 +477,9 @@ const coinGeckoCoins = [
   'usd-balance',
   'gelato',
   'optimism',
+  'perpetual-protocol',
+  'nusd',
+  'lyra-finance',
 ];
 
 const knownPrices = {
