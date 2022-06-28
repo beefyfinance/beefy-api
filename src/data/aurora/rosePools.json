@@ -1,5 +1,29 @@
 [
   {
+    "name": "rose-3pool",
+    "pool": "0xc90db0d8713414d78523436dc347419164544a3f",
+    "token": "0xff79d5bff48e1c01b722560d6ffdfce9fc883587",
+    "address": "0xff79d5bff48e1c01b722560d6ffdfce9fc883587",
+    "rewardPool": "0x52caca9a2d52b27b28767d3649565774a3b991f3",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "rose-mai-3pool",
     "pool": "0x65a761136815B45A9d78d9781d22d47247B49D23",
     "token": "0xa7ae42224bf48ecefc5f838c230ee339e5fd8e62",
@@ -12,8 +36,9 @@
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
-        "oracleId": "MAI",
+        "basePool": "rose-3pool",
+        "oracle": "lps",
+        "oracleId": "rose-3pool",
         "decimals": "1e18"
       }
     ]
@@ -34,8 +59,9 @@
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
-        "oracleId": "MAI",
+        "basePool": "rose-3pool",
+        "oracle": "lps",
+        "oracleId": "rose-3pool",
         "decimals": "1e18"
       }
     ]
@@ -53,8 +79,9 @@
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
-        "oracleId": "MAI",
+        "basePool": "rose-3pool",
+        "oracle": "lps",
+        "oracleId": "rose-3pool",
         "decimals": "1e18"
       }
     ]
@@ -72,8 +99,9 @@
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
-        "oracleId": "MAI",
+        "basePool": "rose-3pool",
+        "oracle": "lps",
+        "oracleId": "rose-3pool",
         "decimals": "1e18"
       }
     ]
