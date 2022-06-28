@@ -11,6 +11,7 @@ const getJetswapApys = require('./getJetswapApys');
 const getIronSwapApys = require('./getIronSwapApys');
 const { getApeLpApys } = require('./getApeLpApys');
 const getMaiApys = require('./getMaiApys').default;
+const getMaiCurveApys = require('./getMaiCurveApys');
 const { getTelxchangeApys } = require('./getTelxchangeApys');
 const { getPolygonFarmApys } = require('./getPolygonFarmApys');
 const { getQuickSingleApys } = require('./getQuickSingleApys');
@@ -39,6 +40,7 @@ const getApys = [
   getCurveApys,
   getApeLpApys,
   getMaiApys,
+  getMaiCurveApys,
   getJetswapApys,
   getIronSwapApys,
   getTelxchangeApys,
