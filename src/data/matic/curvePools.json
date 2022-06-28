@@ -2,6 +2,7 @@
   {
     "name": "curve-am3crv",
     "pool": "0x445FE580eF8d70FF569aB36e80c647af338db351",
+    "token": "0xe7a24ef0c5e95ffb0f6684b813a78f2a3ad7d171",
     "gauge": "0x20759F567BB3EcDB55c817c9a1d13076aB215EdC",
     "baseApyKey": "aave",
     "boosted": true,
@@ -23,6 +24,7 @@
   {
     "name": "curve-poly-ren",
     "pool": "0xC2d95EEF97Ec6C17551d45e77B590dc1F9117C67",
+    "token": "0xf8a57c1d3b9629b77b6726a042ca48990a84fb49",
     "gauge": "0x8D9649e50A0d1da8E939f800fB926cdE8f18B47D",
     "baseApyKey": "ren",
     "oracleId": "WBTC",

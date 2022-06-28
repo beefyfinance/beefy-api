@@ -1,29 +1,109 @@
 [
   {
+    "name": "rose-3pool",
+    "pool": "0xc90db0d8713414d78523436dc347419164544a3f",
+    "token": "0xff79d5bff48e1c01b722560d6ffdfce9fc883587",
+    "address": "0xff79d5bff48e1c01b722560d6ffdfce9fc883587",
+    "rewardPool": "0x52caca9a2d52b27b28767d3649565774a3b991f3",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "rose-mai-3pool",
     "pool": "0x65a761136815B45A9d78d9781d22d47247B49D23",
+    "token": "0xa7ae42224bf48ecefc5f838c230ee339e5fd8e62",
     "address": "0xA7ae42224Bf48eCeFc5f838C230EE339E5fd8e62",
-    "rewardPool": "0x226991aADeEfDe03bF557eF067da95fc613aBfFc"
+    "rewardPool": "0x226991aADeEfDe03bF557eF067da95fc613aBfFc",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MAI",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "rose-3pool",
+        "oracle": "lps",
+        "oracleId": "rose-3pool",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "rose-ust-3pool",
     "pool": "0x8fe44f5cce02D5BE44e3446bBc2e8132958d22B8",
+    "token": "0x94a7644e4d9ca0e685226254f88eadc957d3c263",
     "address": "0x94A7644E4D9CA0e685226254f88eAdc957D3c263",
     "rewardPool": "0x56DE5E2c25828040330CEF45258F3FFBc090777C",
     "oracleIdB": "atLUNA",
     "oracleBDecimals": "1e18",
-    "rewardToken": "0xC4bdd27c33ec7daa6fcfd8532ddB524Bf4038096"
+    "rewardToken": "0xC4bdd27c33ec7daa6fcfd8532ddB524Bf4038096",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "atUST",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "rose-3pool",
+        "oracle": "lps",
+        "oracleId": "rose-3pool",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "rose-busd-3pool",
     "pool": "0xD6cb7Bb7D63f636d1cA72A1D3ed6f7F67678068a",
+    "token": "0x158f57cf9a4dbfcd1bc521161d86aeccfc5af3bc",
     "address": "0x158f57CF9A4DBFCD1Bc521161d86AeCcFC5aF3Bc",
-    "rewardPool": "0x18A6115150A060F22Bacf62628169ee9b231368f"
+    "rewardPool": "0x18A6115150A060F22Bacf62628169ee9b231368f",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "BUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "rose-3pool",
+        "oracle": "lps",
+        "oracleId": "rose-3pool",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "rose-frax-3pool",
     "pool": "0xa34315F1ef49392387Dd143f4578083A9Bd33E94",
+    "token": "0x4463a118a2fb34640ff8ef7fe1b3abacd4ac9fb7",
     "address": "0x4463A118A2fB34640ff8eF7Fe1B3abAcd4aC9fB7",
-    "rewardPool": "0xB9D873cDc15e462f5414CCdFe618a679a47831b4"
+    "rewardPool": "0xB9D873cDc15e462f5414CCdFe618a679a47831b4",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "rose-3pool",
+        "oracle": "lps",
+        "oracleId": "rose-3pool",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

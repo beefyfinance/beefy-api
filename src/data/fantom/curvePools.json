@@ -42,6 +42,19 @@
         "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
         "oracleId": "WFTM"
       }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "fUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "basePool": "curve-ftm-2pool",
+        "oracle": "lps",
+        "oracleId": "curve-ftm-2pool",
+        "decimals": "1e18"
+      }
     ]
   },
   {
@@ -60,19 +73,45 @@
         "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
         "oracleId": "WFTM"
       }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
     ]
   },
   {
     "name": "curve-ftm-ren",
     "pool": "0x3eF6A01A0f81D6046290f3e2A8c5b843e738E604",
+    "token": "0x5b5cfe992adac0c9d48e05854b2d91c73a003858",
     "gauge": "0xbC38bD19227F91424eD4132F630f51C9A42Fa338",
     "baseApyKey": "ren",
     "oracleId": "BTC",
-    "boosted": true
+    "boosted": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      }
+    ]
   },
   {
     "name": "curve-ftm-geist",
     "pool": "0x0fa949783947Bf6c1b171DB13AEACBB488845B3f",
+    "token": "0xd02a30d33153877bc20e5721ee53dedee0422b2f",
     "gauge": "0xF7b9c402c4D6c2eDbA04a7a515b53D11B1E9b2cc",
     "baseApyKey": "geist",
     "boosted": true,
@@ -100,35 +139,116 @@
   {
     "name": "curve-ftm-mim",
     "pool": "0x2dd7C9371965472E5A5fD28fbE165007c61439E1",
-    "rewards": []
+    "rewards": [],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "fUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
   },
   {
     "name": "curve-ftm-lambda",
     "pool": "0x075C1D1d7E9E1aF077B0b6117C6eA06CD0a260b5",
-    "rewards": []
+    "rewards": [],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "LAMBDA",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-ftm-2pool",
+        "oracle": "lps",
+        "oracleId": "curve-ftm-2pool",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "curve-ftm-cusd",
     "pool": "0x96059756980fF6ced0473898d26F0EF828a59820",
-    "rewards": []
+    "rewards": [],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "cUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-ftm-2pool",
+        "oracle": "lps",
+        "oracleId": "curve-ftm-2pool",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "hector-tor-crv",
     "pool": "0x24699312CB27C26Cfc669459D670559E5E44EE60",
-    "rewards": []
+    "rewards": [],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "TOR",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-ftm-2pool",
+        "oracle": "lps",
+        "oracleId": "curve-ftm-2pool",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "curve-ftm-f-ftml",
     "pool": "0x8B63F036F5a34226065bC0a7B0aE5bb5eBA1fF3D",
     "gauge": "0xc1c5B8aAfE653592627B54B9527C7E98326e83Ff",
     "oracleId": "WFTM",
-    "boosted": true
+    "boosted": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "FTML",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "curve-ftm-f-usdl",
     "pool": "0x6EF78ad4a40E9A6c81B9229de3eCc33ce591bC34",
     "gauge": "0xA6ff75281eACa4cD5fEEb333e8E15558208295e5",
-    "boosted": true
+    "boosted": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDL",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-ftm-geist",
+        "oracle": "lps",
+        "oracleId": "curve-ftm-geist",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "curve-ftm-f-4pool",

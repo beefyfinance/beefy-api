@@ -2,6 +2,7 @@
   {
     "name": "curve-avax-av3crv",
     "pool": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+    "token": "0x1337bedc9d22ecbe766df105c9623922a27963ec",
     "gauge": "0x4620D46b4db7fB04a01A75fFed228Bc027C9A899",
     "baseApyKey": "aave",
     "boosted": true,
@@ -23,6 +24,7 @@
   {
     "name": "curve-avax-ren",
     "pool": "0x16a7DA911A4DD1d83F3fF066fE28F3C792C50d90",
+    "token": "0xc2b1df84112619d190193e48148000e3990bf627",
     "gauge": "0x00F7d467ef51E44f11f52a0c0Bef2E56C271b264",
     "baseApyKey": "ren",
     "oracleId": "WBTC.e",
@@ -73,12 +75,42 @@
   {
     "name": "curve-avax-mim",
     "pool": "0xAEA2E71b631fA93683BCF256A8689dFa0e094fcD",
-    "rewards": []
+    "rewards": [],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT.e",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC.e",
+        "decimals": "1e6"
+      }
+    ]
   },
   {
     "name": "curve-avax-mai",
     "pool": "0xb0D2EB3C2cA3c6916FAb8DCbf9d9c165649231AE",
-    "rewards": []
+    "rewards": [],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MAI",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-avax-av3crv",
+        "oracle": "lps",
+        "oracleId": "curve-avax-av3crv",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "curve-avax-f-3pool",
@@ -110,6 +142,18 @@
     "pool": "0x445109BcF194c538B73EA60C71bb773849bc9b79",
     "gauge": "0xfbb5b8f2f9b7a4d21ff44dC724C1Fb7b531A6612",
     "oracleId": "AVAX",
-    "boosted": true
+    "boosted": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "AVAX",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WAVAX",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
