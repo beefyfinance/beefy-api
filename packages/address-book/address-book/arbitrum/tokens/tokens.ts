@@ -141,6 +141,17 @@ const _tokens = {
     description:
       'Treasure bridges the growing network of metaverses through an open and composable approach to the convergence of NFTs, DeFi and Gaming. Cross-ecosystem ties are bolstered through our interrelated resource model. $MAGIC (Power), Treasures (NFT | Resources) and Legions (NFT | Players)',
   },
+  BAL: {
+    name: 'Balancer',
+    symbol: 'BAL',
+    address: '0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://balancer.fi/',
+    description:
+      'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities.',
+    logoURI: 'https://hecoinfo.com/token/images/bal_32.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

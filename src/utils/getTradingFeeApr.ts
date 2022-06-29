@@ -14,6 +14,7 @@ import getBlockNumber from './getBlockNumber';
 import BigNumber from 'bignumber.js';
 import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
+import { chain } from 'lodash';
 
 interface PairDayData {
   id: string;
@@ -106,8 +107,8 @@ export const getTradingFeeAprBalancer = async (
   liquidityProviderFee: number,
   chainId: number
 ) => {
-  const blockTime = await getBlockTime(10);
-  const currentBlock = await getBlockNumber(10);
+  const blockTime = await getBlockTime(chainId);
+  const currentBlock = await getBlockNumber(chainId);
   const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
   const pairAddressesToAprMap: Record<string, BigNumber> = {};
 

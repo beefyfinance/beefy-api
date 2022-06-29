@@ -81,6 +81,9 @@ const beetClient = client('https://graph-node.beets-ftm-node.com/subgraphs/name/
 const beetOpClient = client(
   'https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx-optimism'
 );
+const balancerArbClient = client(
+  'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-arbitrum-v2'
+);
 const beamClient = client('https://api.thegraph.com/subgraphs/name/beamswap/beamswap-dex');
 const solarflareClient = client('https://analytics.solarflare.io/api/subgraph');
 const stellaClient = client('https://api.thegraph.com/subgraphs/name/stellaswap/stella-swap');
@@ -150,6 +153,7 @@ module.exports = {
   babyClient,
   beetClient,
   beetOpClient,
+  balancerArbClient,
   isBeetClient,
   vvsClient,
   finnClient,

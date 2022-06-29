@@ -20,12 +20,14 @@ import getSolarbeamPrices from './moonriver/getSolarbeamPrices';
 import getRosePrices from './aurora/getRosePrices';
 import getStellaswapPrices from './moonbeam/getStellaswapPrices';
 import getBeetsOPPrices from './optimism/getBeetsOPPrices';
+import getBalancerArbPrices from './arbitrum/getBalancerArbPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getBalancerArbPrices(tokenPrices),
     getBeethovenxPrices(tokenPrices),
     getBeetsOPPrices(tokenPrices),
     getBeltPrices(tokenPrices),
