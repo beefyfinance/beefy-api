@@ -3,7 +3,7 @@
     "name": "vvs-ape-cro",
     "address": "0x2eA92065D2c2908bB3C7d6BB9318aF4F8d735dD5",
     "decimals": "1e18",
-    "poolId": 17,
+    "poolId": 21,
     "chainId": 25,
     "lp0": {
       "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
