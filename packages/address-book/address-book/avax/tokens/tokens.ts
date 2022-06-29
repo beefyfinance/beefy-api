@@ -17,7 +17,7 @@ const AVAX = {
 const _tokens = {
   BTCb: {
     name: 'Bitcoin',
-    symbol: 'BTC.b',
+    symbol: 'BTCb',
     address: '0x152b9d0FdC40C096757F570A51E494bd4b943E50',
     chainId: 43114,
     decimals: 8,
