@@ -26,6 +26,18 @@ const _tokens = {
     website: 'https://versagames.io/',
     description: 'VersaGames is the next-generation games marketplace.',
   },
+  APE: {
+    name: 'APECoin',
+    symbol: 'APE',
+    address: '0x9C62F89a8C9907582f21205Ce90443730361EA05',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://www.apecoin.com/',
+    description:
+      'ApeCoin is an ERC-20 governance and utility token used within the APE ecosystem to empower a decentralized community building at the forefront of web3.',
+    logoURI:
+      'https://vvs.finance/images/tokens/0x9C62F89a8C9907582f21205Ce90443730361EA05.svg',
+  },
   ALI: {
     name: 'Alethea Artificial Liquid Intelligence Token ALI',
     symbol: 'ALI',
