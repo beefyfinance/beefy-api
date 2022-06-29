@@ -1,5 +1,24 @@
 [
   {
+    "name": "vvs-ape-cro",
+    "address": "0x2eA92065D2c2908bB3C7d6BB9318aF4F8d735dD5",
+    "decimals": "1e18",
+    "poolId": 17,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9C62F89a8C9907582f21205Ce90443730361EA05",
+      "oracle": "tokens",
+      "oracleId": "APE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "vvs-tonic-usdc",
     "address": "0x2f12D47Fe49B907d7a5Df8159C1CE665187F15c4",
     "decimals": "1e18",
