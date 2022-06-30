@@ -49,7 +49,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "gelato",
+        "oracleId": "GEL",
         "decimals": "1e18"
       }
     ]

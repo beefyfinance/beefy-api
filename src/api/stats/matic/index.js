@@ -23,6 +23,7 @@ const getStargateApys = require('./getStargatePolygonApys');
 const getbeQiApy = require('./getbeQiApy');
 const getbeQiEarnApy = require('./getbeQiEarnApy');
 const getRipaeApys = require('./getRipaeApys');
+const getBalancerPolyApys = require('./getBalancerPolyApys');
 
 const getApys = [
   getbeQiApy,
@@ -50,6 +51,7 @@ const getApys = [
   getPopsicleApys,
   getStargateApys,
   getRipaeApys,
+  getBalancerPolyApys,
 ];
 
 const BATCH_SIZE = 15;

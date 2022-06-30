@@ -501,7 +501,25 @@ const updateAmmPrices = async () => {
   console.log('> updating amm prices');
   let start = Date.now();
   try {
-    const coinGeckoPrices = fetchCoinGeckoPrices(coinGeckoCoins);
+    const coinGeckoPrices = async () => {
+      const prices = await fetchCoinGeckoPrices(coinGeckoCoins);
+      return {
+        OP: prices['optimism'],
+        EURS: prices['stasis-eurs'],
+        EURt: prices['tether-eurt'],
+        PAR: prices['par-stablecoin'],
+        jEUR: prices['jarvis-synthetic-euro'],
+        JPYC: prices['jpyc'],
+        CADC: prices['cad-coin'],
+        XSGD: prices['xsgd'],
+        USDB: prices['usd-balance'],
+        GEL: prices['gelato'],
+        PERP: prices['perpetual-protocol'],
+        sUSD: prices['nusd'],
+        LYRA: prices['lyra-finance'],
+      };
+    };
+
     const ammPrices = fetchAmmPrices(pools, knownPrices);
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
@@ -544,7 +562,7 @@ const updateAmmPrices = async () => {
         ...stargateTokenPrices,
         ...beFtmTokenPrice,
         ...beTokenTokenPrice,
-        ...(await coinGeckoPrices),
+        ...(await coinGeckoPrices()),
       };
     });
 

@@ -75,7 +75,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "stasis-eurs",
+        "oracleId": "EURS",
         "decimals": "1e2"
       },
       {

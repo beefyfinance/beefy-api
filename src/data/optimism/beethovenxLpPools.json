@@ -26,7 +26,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "optimism",
+        "oracleId": "OP",
         "decimals": "1e18"
       },
       {
@@ -95,7 +95,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "optimism",
+        "oracleId": "OP",
         "decimals": "1e18"
       },
       {
@@ -174,12 +174,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "optimism",
+        "oracleId": "OP",
         "decimals": "1e18"
       },
       {
         "oracle": "tokens",
-        "oracleId": "lyra-finance",
+        "oracleId": "LYRA",
         "decimals": "1e18"
       },
       {
@@ -194,7 +194,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "nusd",
+        "oracleId": "sUSD",
         "decimals": "1e18"
       },
       {
@@ -204,7 +204,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "perpetual-protocol",
+        "oracleId": "PERP",
         "decimals": "1e18"
       },
       {

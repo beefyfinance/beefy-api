@@ -19,7 +19,7 @@
     "masterchef": "0xaB5053e1f6f7fb242f62091BEE8f15c81265EE05",
     "poolId": 0,
     "chainId": 137,
-    "oracleId": "jpyc",
+    "oracleId": "JPYC",
     "rewardToken": "JRT-JULY22",
     "rewardOracle": "tokens",
     "token": "0xaA91CDD7abb47F821Cf07a2d38Cc8668DEAf1bdc",
@@ -32,7 +32,7 @@
     "masterchef": "0x834579150Cc521e0afAB15568930e3BEc67B865A",
     "poolId": 0,
     "chainId": 137,
-    "oracleId": "jarvis-synthetic-euro",
+    "oracleId": "jEUR",
     "rewardToken": "agDEN-JULY22",
     "rewardOracle": "lps",
     "token": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
@@ -45,7 +45,7 @@
     "masterchef": "0xaB5053e1f6f7fb242f62091BEE8f15c81265EE05",
     "poolId": 2,
     "chainId": 137,
-    "oracleId": "xsgd",
+    "oracleId": "XSGD",
     "rewardToken": "JRT-JULY22",
     "rewardOracle": "tokens",
     "token": "0xeF75E9C7097842AcC5D0869E1dB4e5fDdf4BFDDA",
@@ -58,7 +58,7 @@
     "masterchef": "0xaB5053e1f6f7fb242f62091BEE8f15c81265EE05",
     "poolId": 1,
     "chainId": 137,
-    "oracleId": "cad-coin",
+    "oracleId": "CADC",
     "rewardToken": "JRT-JULY22",
     "rewardOracle": "tokens",
     "token": "0xA69b0D5c0C401BBA2d5162138613B5E38584F63F",
@@ -71,7 +71,7 @@
     "masterchef": "0x0ff93e7CE954A7Ac2ADbBe8F635513cbDB497405",
     "poolId": 0,
     "chainId": 137,
-    "oracleId": "jpyc",
+    "oracleId": "JPYC",
     "rewardToken": "JRT-MAY22",
     "rewardOracle": "tokens",
     "token": "0xE8dCeA7Fb2Baf7a9F4d9af608F06d78a687F8d9A",
@@ -84,7 +84,7 @@
     "masterchef": "0x1Dc366c5aC2f3Ac16af20212B46cDC0c92235A20",
     "poolId": 0,
     "chainId": 137,
-    "oracleId": "jarvis-synthetic-euro",
+    "oracleId": "jEUR",
     "rewardToken": "agDEN",
     "rewardOracle": "tokens",
     "token": "0x81212149b983602474fcD0943E202f38b38d7484",
@@ -105,22 +105,22 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "jarvis-synthetic-euro",
+        "oracleId": "jEUR",
         "decimals": "1e18"
       },
       {
         "oracle": "tokens",
-        "oracleId": "par-stablecoin",
+        "oracleId": "PAR",
         "decimals": "1e18"
       },
       {
         "oracle": "tokens",
-        "oracleId": "stasis-eurs",
+        "oracleId": "EURS",
         "decimals": "1e2"
       },
       {
         "oracle": "tokens",
-        "oracleId": "tether-eurt",
+        "oracleId": "EURt",
         "decimals": "1e6"
       }
     ]

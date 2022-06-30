@@ -1,0 +1,56 @@
+[
+  {
+    "name": "balancer-matic-maticx",
+    "address": "0xC17636e36398602dd37Bb5d1B3a9008c7629005f",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x48534d027f8962692122dB440714fFE88Ab1fA85",
+    "vaultPoolId": "0xC17636E36398602DD37BB5D1B3A9008C7629005F0002000000000000000004C4",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x7fFdEc1fE5FfcD4F80F535b4a992a8Df16c683bd",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WMATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MaticX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancer-matic-stmatic",
+    "address": "0xaF5E0B5425dE1F5a630A8cB5AA9D97B8141C908D",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x9928340f9E1aaAd7dF1D95E27bd9A5c715202a56",
+    "vaultPoolId": "0xAF5E0B5425DE1F5A630A8CB5AA9D97B8141C908D000200000000000000000366",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x0fD7e9171b4dC9D89E157c2cc9A424Cd9C40a034",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WMATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "stMATIC",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

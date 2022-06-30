@@ -143,7 +143,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "tether-eurt",
+        "oracleId": "EURt",
         "decimals": "1e6"
       },
       {

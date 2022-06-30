@@ -21,12 +21,14 @@ import getRosePrices from './aurora/getRosePrices';
 import getStellaswapPrices from './moonbeam/getStellaswapPrices';
 import getBeetsOPPrices from './optimism/getBeetsOPPrices';
 import getBalancerArbPrices from './arbitrum/getBalancerArbPrices';
+import getBalancerPolyPrices from './matic/getBalancerPolyPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getBalancerPolyPrices(tokenPrices),
     getBalancerArbPrices(tokenPrices),
     getBeethovenxPrices(tokenPrices),
     getBeetsOPPrices(tokenPrices),
