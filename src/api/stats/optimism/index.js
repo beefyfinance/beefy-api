@@ -1,7 +1,8 @@
 const getBeetsOpApys = require('./getBeetsOpApys');
 const getCurveApys = require('./getCurveApys');
+const getVelodromeApys = require('./getVelodromeApys');
 
-const getApys = [getBeetsOpApys, getCurveApys];
+const getApys = [getBeetsOpApys, getCurveApys, getVelodromeApys];
 
 const getOptimismApys = async () => {
   let apys = {};

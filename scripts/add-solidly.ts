@@ -8,20 +8,30 @@ const { ethers } = require('ethers');
 const { MULTICHAIN_RPC } = require('../src/constants');
 
 const voterABI = require('../src/abis/Voter.json');
-const LPPairABI = require('../src/abis/LPPair.json');
+const LPPairABI = require('../src/abis/ISolidlyPair.json');
 const ERC20ABI = require('../src/abis/ERC20.json');
 import { addressBook } from '../packages/address-book/address-book';
+import { lpTokenPrice } from '../src/utils/lpTokens';
 const {
   fantom: {
     platforms: { solidly },
+  },
+  optimism: {
+    platforms: { velodrome },
   },
 } = addressBook;
 
 const projects = {
   solidly: {
     prefix: 'solidly',
-    file: '../src/data/fantom/solidlyLpPools.json',
+    volatileFile: '../src/data/fantom/solidlyLpPools.json',
     voter: solidly.voter,
+  },
+  velodrome: {
+    prefix: 'velodrome',
+    stableFile: '../src/data/optimism/velodromeStableLpPools.json',
+    volatileFile: '../src/data/optimism/velodromeLpPools.json',
+    voter: velodrome.voter,
   },
 };
 
@@ -47,15 +57,13 @@ const args = yargs.options({
 
 const poolPrefix = projects[args['project']].prefix;
 const lpAddress = args['lp'];
-const poolsJsonFile = projects[args['project']].file;
-const poolsJson = require(poolsJsonFile);
 
 const chainId = ChainId[args['network']];
 const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
 
 async function fetchGauge(lp) {
   console.log(`fetchGauge(${lp})`);
-  const voterContract = new ethers.Contract(solidly.voter, voterABI, provider);
+  const voterContract = new ethers.Contract(projects[args['project']].voter, voterABI, provider);
   const rewardsContract = await voterContract.gauges(lp);
   return {
     newGauge: rewardsContract,
@@ -71,6 +79,7 @@ async function fetchLiquidityPair(lp) {
     token0: await lpContract.token0(),
     token1: await lpContract.token1(),
     decimals: await lpTokenContract.decimals(),
+    stable: await lpContract.stable(),
   };
 }
 
@@ -96,6 +105,11 @@ async function main() {
   const lp = await fetchLiquidityPair(lpAddress);
   const token0 = await fetchToken(lp.token0);
   const token1 = await fetchToken(lp.token1);
+
+  const poolsJsonFile = lp.stable
+    ? projects[args['project']].stableFile
+    : projects[args['project']].volatileFile;
+  const poolsJson = require(poolsJsonFile);
 
   const newPoolName = `${poolPrefix}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
   const newPool = {

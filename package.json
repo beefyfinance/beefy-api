@@ -15,6 +15,7 @@
     "prepare": "husky install",
     "addFarm": "ts-node scripts/add-farm.ts",
     "addSushi": "ts-node scripts/add-sushi.ts",
+    "addSolidly": "ts-node scripts/add-solidly.ts",
     "bsc:pancake:add": "ts-node scripts/add-farm.ts --network bsc --project pancake",
     "bsc:wault:add": "ts-node scripts/add-farm.ts --network bsc --project wault",
     "bsc:mdex:add": "ts-node scripts/add-farm.ts --network bsc --project mdex",

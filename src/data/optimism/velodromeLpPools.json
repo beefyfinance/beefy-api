@@ -1,0 +1,59 @@
+[
+  {
+    "name": "velodrome-weth-usdc",
+    "address": "0x79c912FEF520be002c2B6e57EC4324e260f38E50",
+    "gauge": "0xE2CEc8aB811B648bA7B1691Ce08d5E800Dd0a60a",
+    "decimals": "1e18",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "velodrome-op-usdc",
+    "address": "0x47029bc8f5CBe3b464004E87eF9c9419a48018cd",
+    "gauge": "0x0299d40E99F2a5a1390261f5A71d13C3932E214C",
+    "decimals": "1e18",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000042",
+      "oracle": "tokens",
+      "oracleId": "OP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "velodrome-velo-usdc",
+    "address": "0xe8537b6FF1039CB9eD0B71713f697DDbaDBb717d",
+    "decimals": "1e18",
+    "gauge": "0x6b8EDC43de878Fd5Cd5113C42747d32500Db3873",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x3c8B650257cFb5f272f799F5e2b4e65093a11a05",
+      "oracle": "tokens",
+      "oracleId": "VELO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]

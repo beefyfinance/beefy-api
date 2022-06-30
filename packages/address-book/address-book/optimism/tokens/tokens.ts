@@ -151,6 +151,17 @@ const _tokens = {
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     logoURI: 'https://avatars.githubusercontent.com/u/56005256?s=200&v=4',
   },
+  VELO: {
+    chainId: 10,
+    address: '0x3c8B650257cFb5f272f799F5e2b4e65093a11a05',
+    decimals: 18,
+    name: 'Velodrome',
+    symbol: 'VELO',
+    website: 'https://app.velodrome.finance/',
+    description:
+      "Velodrome Finance, at its core, is a solution for protocols on Optimism to properly incentivize liquidity for their own use cases. Building on top of the groundwork laid out by Solidly, our team has addressed that first iteration's core issues to realize its full potential.",
+    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
