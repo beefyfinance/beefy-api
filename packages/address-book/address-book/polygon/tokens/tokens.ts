@@ -1404,6 +1404,17 @@ const _tokens = {
       'Kirobos decentralized applications remove the risk of losing funds enabling you to use blockchain technology to its fullest potential from one consolidated platform.',
     logoURI: '',
   },
+  GDDY: {
+    name: 'Giddy',
+    symbol: 'GDDY',
+    address: '0x67eB41A14C0fe5CD701FC9d5A3D6597A72F641a6',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://www.giddy.co/',
+    description:
+      'Giddy is the easiest and most secure way to generate passive income from crypto you already own.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
