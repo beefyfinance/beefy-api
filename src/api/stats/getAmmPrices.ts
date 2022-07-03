@@ -235,6 +235,7 @@ import yuzuDualPools from '../../data/emerald/yuzuDualLpPools.json';
 import dfxPools from '../../data/matic/dfxLpPools.json';
 import ripaeMaticPools from '../../data/matic/ripaeLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
+import giddyLpPools from '../../data/matic/giddyLpPools.json';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -464,6 +465,7 @@ const pools = [
   ...cakeLpPoolsV2,
   ...cakeLpV1Pools,
   ...cakeLpPools,
+  ...giddyLpPools,
 ];
 
 const dmmPools = [...kyberPools, ...oldDmmPools];
