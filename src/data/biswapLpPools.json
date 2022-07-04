@@ -1,5 +1,24 @@
 [
   {
+    "name": "biswap-sand-usdt",
+    "address": "0x69f60c87AEcdb037A44cbaD67eD06464432521b6",
+    "decimals": "1e18",
+    "poolId": 115,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x67b725d7e342d7B611fa85e859Df9697D9378B2e",
+      "oracle": "tokens",
+      "oracleId": "SAND",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "biswap-pae-wbnb",
     "address": "0x8eA4875469e8Fd7ad3790b4c7DEeF768ca1e806f",
     "decimals": "1e18",
