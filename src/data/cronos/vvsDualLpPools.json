@@ -1,5 +1,27 @@
 [
   {
+    "name": "vvs-fer-vvs",
+    "address": "0x72eFd454bBFEca458e909B99FAACBC116880b54D",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "FER",
+    "decimalsB": "1e18",
+    "poolId": 36,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x2D03bECE6747ADC00E1a131BBA1469C15fD11e03",
+      "oracle": "tokens",
+      "oracleId": "VVS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x39bC1e38c842C60775Ce37566D03B41A7A66C782",
+      "oracle": "tokens",
+      "oracleId": "FER",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "vvs-vvs-versa",
     "address": "0xD7F3d8035cd7BD5aD5E43Fa4E1d4DcA12e133FdD",
     "decimals": "1e18",
