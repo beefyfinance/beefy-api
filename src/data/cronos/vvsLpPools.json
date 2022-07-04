@@ -1,27 +1,5 @@
 [
   {
-    "name": "vvs-tusd-usdc",
-    "address": "0x94FD83482016BCC5FcA5972A3635aA6524C3F557",
-    "decimals": "1e18",
-    "oracleB": "tokens",
-    "oracleIdB": "TUSD",
-    "decimalsB": "1e18",
-    "poolId": 20,
-    "chainId": 25,
-    "lp0": {
-      "address": "0x87EFB3ec1576Dec8ED47e58B832bEdCd86eE186e",
-      "oracle": "tokens",
-      "oracleId": "TUSD",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "vvs-ape-cro",
     "address": "0x2eA92065D2c2908bB3C7d6BB9318aF4F8d735dD5",
     "decimals": "1e18",

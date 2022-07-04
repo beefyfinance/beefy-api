@@ -35,10 +35,12 @@ const getVvsDualApys = async () => {
   const secondsPerBlock = await getBlockTime(CRONOS_CHAIN_ID);
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
   const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, tokenPerSecData } = await getPoolsData(pools);
+  const { balances, allocPoints, tokenPerSecData, rewardEndData } = await getPoolsData(pools);
 
   const pairAddresses = pools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(vvsClient, pairAddresses, liquidityProviderFee);
+
+  const currentTimestamp = new BigNumber(Math.floor(Date.now() / 1000));
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -51,7 +53,7 @@ const getVvsDualApys = async () => {
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
     let yearlyRewardsBInUsd = new BigNumber(0);
 
-    if (!tokenPerSecData[i].isNaN()) {
+    if (!tokenPerSecData[i].isNaN() && rewardEndData[i].isGreaterThan(currentTimestamp)) {
       let tokenBPerSec = tokenPerSecData[i];
       const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
       const yearlyRewardsB = tokenBPerSec.times(secondsPerYear);
@@ -113,6 +115,7 @@ const getPoolsData = async pools => {
   const poolInfoCalls = [];
   const tokenPerSecCalls = [];
   const rewarderCalls = [];
+  const rewardEndCalls = [];
   pools.forEach(pool => {
     const tokenContract = getContract(ERC20, pool.address);
     balanceCalls.push({
@@ -136,17 +139,24 @@ const getPoolsData = async pools => {
 
   rewarders.forEach(rewarder => {
     let rewarderContract = getContract(VVSRewarder, rewarder);
+
+    let rewardEndTimestamp = rewarderContract.methods.rewardEndTimestamp();
+    rewardEndCalls.push({
+      rewardEndTimestamp: rewardEndTimestamp,
+    });
+
     let tokenPerSec = rewarderContract.methods.rewardPerSecond();
     tokenPerSecCalls.push({
       tokenPerSec: tokenPerSec,
     });
   });
 
-  const tokenPerSecData = (await multicall.all([tokenPerSecCalls]))[0].map(
-    t => new BigNumber(t.tokenPerSec)
-  );
+  const resRewards = await multicall.all([rewardEndCalls, tokenPerSecCalls]);
 
-  return { balances, allocPoints, tokenPerSecData };
+  const rewardEndData = resRewards[0].map(t => new BigNumber(t.rewardEndTimestamp));
+  const tokenPerSecData = resRewards[1].map(t => new BigNumber(t.tokenPerSec));
+
+  return { balances, allocPoints, tokenPerSecData, rewardEndData };
 };
 
 module.exports = getVvsDualApys;
