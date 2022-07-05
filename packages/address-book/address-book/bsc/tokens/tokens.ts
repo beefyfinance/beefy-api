@@ -3571,5 +3571,16 @@ const _tokens = {
     website: 'https://www.lacucina.io/',
     description: 'LaCucina will offer you new and exciting ways to succeed in DeFi with NFTs',
   },
+  SAND: {
+    name: 'The Sandbox',
+    symbol: 'SAND',
+    address: '0x67b725d7e342d7B611fa85e859Df9697D9378B2e',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://biswap.org/images/tokens/sand.svg',
+    website: 'https://www.sandbox.game/',
+    description: 'SAND is the utility token used throughout The Sandbox ecosystem as the basis for transactions and interactions.',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
