@@ -15,7 +15,7 @@ const { spookyClient } = require('../../../apollo/client');
 const oracle = 'tokens';
 const oracleId = 'BOO';
 const BOO = '0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE';
-const xBOOChefAddress = '0x2352b745561e7e6FCD03c093cE7220e3e126ace0';
+const xBOOChefAddress = '0xCd4d3D744c3AB0BD528dbd330839537f996BE71A';
 const xBOO = '0xa48d959AE2E88f1dAA7D5F611E01908106dE7598';
 const DECIMALS = '1e18';
 

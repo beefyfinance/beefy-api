@@ -42,13 +42,13 @@ const comethClient = client('https://api.thegraph.com/subgraphs/name/cometh-game
 const quickClient = client('https://api.thegraph.com/subgraphs/name/sameepsi/quickswap06');
 const polyzapClient = client('https://api.thegraph.com/subgraphs/name/polyzap/exchange');
 const spookyClient = client(
-  'https://api.thegraph.com/subgraphs/name/eerieeight/spooky-swap-exchange'
+  'https://api.fura.org/subgraphs/name/spookyswap'
 );
 const spiritClient = client(
   'https://api.thegraph.com/subgraphs/name/layer3org/spiritswap-analytics'
 );
 const cakeClient = client('https://bsc.streamingfast.io/subgraphs/name/pancakeswap/exchange-v2');
-const apeClient = client('https://graph.apeswap.finance/subgraphs/name/ape-swap/apeswap-subgraph');
+const apeClient = client('https://bnb.apeswapgraphs.com/subgraphs/name/ape-swap/apeswap-subgraph');
 const wexpolyClient = client(
   'https://polyinfo.wault.finance/subgraphs/name/WaultFinance/waultswap-subgraph'
 );
