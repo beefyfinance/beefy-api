@@ -18,12 +18,14 @@ const { getQuickSingleApys } = require('./getQuickSingleApys');
 import getKyberLpApys from './getKyberLpApys';
 import { getQuickDualLpApys } from './getQuickDualLpApys';
 import { getJarvisApys } from './getJarvisApys';
+import { getSolarApy } from '../moonriver/getSolarApy';
 const getPopsicleApys = require('./getPopsicleApys');
 const getStargateApys = require('./getStargatePolygonApys');
 const getbeQiApy = require('./getbeQiApy');
 const getbeQiEarnApy = require('./getbeQiEarnApy');
 const getRipaeApys = require('./getRipaeApys');
 const getBalancerPolyApys = require('./getBalancerPolyApys');
+const getSolaceApy = require('./getSolaceApy');
 
 const getApys = [
   getbeQiApy,
@@ -52,6 +54,7 @@ const getApys = [
   getStargateApys,
   getRipaeApys,
   getBalancerPolyApys,
+  getSolaceApy,
 ];
 
 const BATCH_SIZE = 15;

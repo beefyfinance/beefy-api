@@ -18,6 +18,7 @@ import { farmhero } from './platforms/farmhero';
 import { polywise } from './platforms/polywise';
 import { polysage } from './platforms/polysage';
 import { balancer } from './platforms/balancer';
+import { solace } from './platforms/solace';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -45,6 +46,7 @@ const _polygon = {
     polywise,
     polysage,
     balancer,
+    solace,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

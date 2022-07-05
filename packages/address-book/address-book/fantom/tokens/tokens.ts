@@ -38,6 +38,18 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  SOLACE: {
+    name: 'solace',
+    symbol: 'SOLACE',
+    address: '0x501ACe802447B1Ed4Aae36EA830BFBde19afbbF9',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40.svg',
+    website: 'https://solace.fi/',
+    description:
+      'Solace is building a community around making this space safe, secure and trusted so that we can onboard and de-risk DeFi and other crypto applications while opening the space to millions of users. We recently launched a coverage policy protocol that enables protection for liquidity providers, Defi protocols or DAOs to mitigate loss from hacks, bugs and exploits. Our purpose is to transform DeFi by delivering intelligent and empowering tools for a safe, secure and trusted industry.',
+  },
   FUSD: {
     name: 'Fantom USD',
     symbol: 'FUSD',
