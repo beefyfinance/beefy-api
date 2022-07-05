@@ -1748,25 +1748,6 @@
     }
   },
   {
-    "name": "cakev2-well-busd",
-    "address": "0x1d94cb25895AbD6ccFeF863c53372bb462AA6b86",
-    "decimals": "1e18",
-    "poolId": 392,
-    "chainId": 56,
-    "lp0": {
-      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
-      "oracle": "tokens",
-      "oracleId": "BUSD",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xf07a32Eb035b786898c00bB1C64d8c6F8E7a46D5",
-      "oracle": "tokens",
-      "oracleId": "WELL",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "cakev2-popen-bnb",
     "address": "0x1090c996Fd1490D15dD7906322eE676A5cC3cF82",
     "decimals": "1e18",
