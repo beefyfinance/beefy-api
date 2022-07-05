@@ -30,7 +30,7 @@ const _tokens = {
   SOLACE: {
     name: 'solace',
     symbol: 'SOLACE',
-    address: '0x501ACe802447B1Ed4Aae36EA830BFBde19afbbF9',
+    address: '0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40',
     chainId: 137,
     decimals: 18,
     logoURI:
