@@ -42,7 +42,7 @@ const comethClient = client('https://api.thegraph.com/subgraphs/name/cometh-game
 const quickClient = client('https://api.thegraph.com/subgraphs/name/sameepsi/quickswap06');
 const polyzapClient = client('https://api.thegraph.com/subgraphs/name/polyzap/exchange');
 const spookyClient = client(
-  'https://api.thegraph.com/subgraphs/name/eerieeight/spooky-swap-exchange'
+  'https://api.fura.org/subgraphs/name/spookyswap'
 );
 const spiritClient = client(
   'https://api.thegraph.com/subgraphs/name/layer3org/spiritswap-analytics'
