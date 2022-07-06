@@ -162,6 +162,28 @@ const _tokens = {
       "Velodrome Finance, at its core, is a solution for protocols on Optimism to properly incentivize liquidity for their own use cases. Building on top of the groundwork laid out by Solidly, our team has addressed that first iteration's core issues to realize its full potential.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
   },
+  sETH: {
+    name: 'Synth sETH',
+    symbol: 'sETH',
+    address: '0xE405de8F52ba7559f9df3C368500B6E6ae6Cee49',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://synthetix.io/',
+    description:
+      'Synths are derivative tokens providing exposure to a range of assets. They can be traded with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between Synths generate a small fee that is distributed to SNX collateral providers.',
+  },
+  DAI: {
+    name: 'DAI Stablecoin',
+    symbol: 'DAI',
+    address: '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://makerdao.com/en/',
+    description:
+      'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
