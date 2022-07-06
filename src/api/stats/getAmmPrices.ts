@@ -482,6 +482,7 @@ const coinGeckoCoins = [
   'perpetual-protocol',
   'nusd',
   'lyra-finance',
+  'liquity-usd',
 ];
 
 const knownPrices = {
@@ -519,6 +520,7 @@ const updateAmmPrices = async () => {
         PERP: prices['perpetual-protocol'],
         sUSD: prices['nusd'],
         LYRA: prices['lyra-finance'],
+        LUSD: prices['liquity-usd'],
       };
     };
 
