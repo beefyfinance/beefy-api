@@ -1,8 +1,14 @@
 const getBeetsOpApys = require('./getBeetsOpApys');
 const getCurveApys = require('./getCurveApys');
 const getVelodromeApys = require('./getVelodromeApys');
+const getStargateOpApys = require('./getStargateOpApys');
 
-const getApys = [getBeetsOpApys, getCurveApys, getVelodromeApys];
+const getApys = [
+    getBeetsOpApys,
+    getCurveApys,
+    getVelodromeApys,
+    getStargateOpApys,
+];
 
 const getOptimismApys = async () => {
   let apys = {};

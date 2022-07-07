@@ -152,6 +152,42 @@ const _tokens = {
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities.',
     logoURI: 'https://hecoinfo.com/token/images/bal_32.png',
   },
+  sarUSDC: {
+    name: 'Stargate USD Coin LP',
+    symbol: 'sarUSDC',
+    address: '0x892785f33CdeE22A30AEF750F285E18c18040c3e',
+    chainId: 42161,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
+    website: 'https://stargate.finance/',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  sarUSDT: {
+    name: 'Stargate Tether USD LP',
+    symbol: 'sarUSDT',
+    address: '0xB6CfcF89a7B22988bfC96632aC2A9D6daB60d641',
+    chainId: 42161,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  sarETH: {
+    name: 'Stargate Ethereum LP',
+    symbol: 'sarETH',
+    address: '0x915A55e36A01285A14f05dE6e81ED9cE89772f8e',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x2170ed0880ac9a755fd29b2688956bd959f933f8.png',
+    website: 'https://stargate.finance/',
+    description:
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -195,6 +195,30 @@ const _tokens = {
     description:
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
   },
+  soUSDC: {
+    name: 'Stargate USD Coin LP',
+    symbol: 'soUSDC',
+    address: '0xDecC0c09c3B5f6e92EF4184125D5648a66E35298',
+    chainId: 10,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
+    website: 'https://stargate.finance/',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  soETH: {
+    name: 'Stargate Ethereum LP',
+    symbol: 'soETH',
+    address: '0xd22363e3762cA7339569F3d33EADe20127D5F98C',
+    chainId: 10,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x2170ed0880ac9a755fd29b2688956bd959f933f8.png',
+    website: 'https://stargate.finance/',
+    description:
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
