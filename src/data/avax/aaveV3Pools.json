@@ -75,5 +75,16 @@
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-savax",
+    "token": "0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE",
+    "aToken": "0x513c7E3a9c69cA3e22550eF58AC1C0088e918FFf",
+    "debtToken": "0x77CA01483f379E58174739308945f044e1a764dc",
+    "oracle": "tokens",
+    "oracleId": "sAVAX",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
   }
 ]
