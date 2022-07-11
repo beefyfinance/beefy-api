@@ -75,6 +75,18 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
+  sBTC: {
+    chainId: 10,
+    address: '0x298B9B95708152ff6968aafd889c6586e9169f1D',
+    decimals: 18,
+    name: 'Synthetix: sBTC',
+    symbol: 'sBTC',
+    website: 'https://www.synthetix.io/',
+    description:
+      'sBTC is a synthetic Bitcoin token enabled by the Synthetix protocol. It tracks the price of Bitcoin through price feeds supplied by Chainlink’s decentralized network of oracles.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+  },
   LYRA: {
     chainId: 10,
     address: '0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb',
