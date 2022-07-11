@@ -95,6 +95,25 @@
     }
   },
   {
+    "name": "velodrome-frax-usdc-volatile",
+    "address": "0x587233ce63d7c1e081ce9d94d9940544758f6d01",
+    "gauge": "0xb62814b9Ec209959DfFd36D6130349C2Fbae9050",
+    "decimals": "1e18",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "velodrome-velo-weth",
     "address": "0x06141423DCF1A5a4C137039063aC873cDC1E363A",
     "gauge": "0x0aAf1de71910D9f2BE10e6C75B3eB6Eca377CBF2",
