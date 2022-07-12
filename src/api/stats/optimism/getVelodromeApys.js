@@ -22,6 +22,7 @@ const getVelodromeApys = async () => {
     oracle: 'tokens',
     decimals: getEDecimals(VELO.decimals),
     reward: VELO.address,
+    boosted: false,
     // log: true,
   });
 
@@ -31,7 +32,7 @@ const getVelodromeApys = async () => {
   const results = await Promise.allSettled([gaugeApys]);
   for (const result of results) {
     if (result.status !== 'fulfilled') {
-      console.warn('getSpiritApys error', result.reason);
+      console.warn('getVelodromeApys error', result.reason);
     } else {
       apys = { ...apys, ...result.value.apys };
       apyBreakdowns = { ...apyBreakdowns, ...result.value.apyBreakdowns };

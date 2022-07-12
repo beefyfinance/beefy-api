@@ -17,4 +17,5 @@ export const beefyfinance = {
   beefyFeeConverterETHtoWMATIC: '0x166Ea67fA3F2257B9bafF28AaF006D33674acA7e',
   vaultRegistry: '0x820cE73c7F15C2b828aBE79670D7e61731AB93Be',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
+  gaugeStaker: '0xe37dD9A535c1D3c9fC33e3295B7e08bD1C42218D',
 } as const;

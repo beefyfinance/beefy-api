@@ -23,12 +23,14 @@ import getBeetsOPPrices from './optimism/getBeetsOPPrices';
 import getBalancerArbPrices from './arbitrum/getBalancerArbPrices';
 import getBalancerPolyPrices from './matic/getBalancerPolyPrices';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
+import getDystopiaStablePrices from './matic/getDystopiaStablePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getDystopiaStablePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
     getBalancerPolyPrices(tokenPrices),
     getBalancerArbPrices(tokenPrices),

@@ -19,6 +19,7 @@ import { polywise } from './platforms/polywise';
 import { polysage } from './platforms/polysage';
 import { balancer } from './platforms/balancer';
 import { solace } from './platforms/solace';
+import { dystopia } from './platforms/dystopia';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -47,6 +48,7 @@ const _polygon = {
     polysage,
     balancer,
     solace,
+    dystopia,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

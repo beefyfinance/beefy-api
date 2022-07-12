@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  DYST: {
+    name: 'Dystopia token',
+    symbol: 'DYST',
+    address: '0x39aB6574c289c3Ae4d88500eEc792AB5B947A5Eb',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.dystopia.exchange/',
+    description:
+      'Dystopia is a decentralized exchange and automated market marker focused on providing efficient token swaps and deep liquidity for stablecoins and other assets. Dystopia has a sophisticated governance structure using the ve(3,3) system that provides the possibility to maximize gains for all users of the ecosystem.',
+  },
   SOLACE: {
     name: 'solace',
     symbol: 'SOLACE',
