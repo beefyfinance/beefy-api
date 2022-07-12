@@ -38,6 +38,30 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  SINGLE: {
+    name: 'SINGLE Token',
+    symbol: 'SINGLE',
+    address: '0x8cc97b50fe87f31770bcdcd6bc8603bc1558380b',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://mm.finance/images/tokens/0x0804702a4E749d39A35FDe73d1DF0B1f1D6b8347.svg',
+    website: 'https://singlefinance.io/',
+    description:
+      'Single-click pseudo market-neutral strategy with a human touch.',
+  },
+  gALCX: {
+    name: 'Governance ALCX',
+    symbol: 'gALCX',
+    address: '0x70F9fd19f857411b089977E7916c05A0fc477Ac9',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://assets.spooky.fi/tokens/gALCX.png',
+    website: 'https://alchemix.fi/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+  },
   ALPACA: {
     name: 'Alpaca Token',
     symbol: 'ALPACA',
