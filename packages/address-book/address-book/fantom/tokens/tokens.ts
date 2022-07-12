@@ -41,7 +41,7 @@ const _tokens = {
   SINGLE: {
     name: 'SINGLE Token',
     symbol: 'SINGLE',
-    address: '0x8cc97b50fe87f31770bcdcd6bc8603bc1558380b',
+    address: '0x8cc97B50Fe87f31770bcdCd6bc8603bC1558380B',
     chainId: 250,
     decimals: 18,
     logoURI:
