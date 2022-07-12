@@ -73,7 +73,6 @@ import sushiOhmPools from '../../data/matic/sushiOhmLpPools.json';
 import satisPools from '../../data/degens/satisLpPools.json';
 import satisXPools from '../../data/degens/satisXLpPools.json';
 import zefiV2Pools from '../../data/degens/zefiLpPoolsV2.json';
-import spookyPools from '../../data/fantom/spookyLpPools.json';
 import froyoPools from '../../data/fantom/froyoLpPools.json';
 import esterPools from '../../data/fantom/esterLpPools.json';
 import comethMultiPools from '../../data/matic/comethMultiLpPools.json';
@@ -404,7 +403,6 @@ const pools = [
   ...comethMultiPools,
   ...esterPools,
   ...froyoPools,
-  ...spookyPools,
   ...zefiV2Pools,
   ...satisXPools,
   ...satisPools,

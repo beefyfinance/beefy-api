@@ -38,6 +38,30 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  ALPACA: {
+    name: 'Alpaca Token',
+    symbol: 'ALPACA',
+    address: '0xaD996A45fd2373ed0B10Efa4A8eCB9de445A4302',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://ftmscan.com/token/images/alpacafinance2_32.png',
+    website: 'https://www.alpacafinance.org/',
+    description:
+      'Alpaca Finance is the largest lending protocol allowing leveraged yield farming on BNB Chain and Fantom.',
+  },
+  PGK: {
+    name: 'Penguin Karts',
+    symbol: 'PGK',
+    address: '0x188a168280589bC3E483d77aae6b4A1d26bD22dC',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://ftmscan.com/token/images/penguinkarts_32.png',
+    website: 'https://penguinkarts.com/',
+    description:
+      'A battle-racing 3D multiplayer game built on the Blockchain. It combines the best elements of arcade style kart racing, mobile gaming and Play-to-Earn NFT dynamics.',
+  },
   SOLACE: {
     name: 'solace',
     symbol: 'SOLACE',
