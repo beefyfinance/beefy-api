@@ -49,7 +49,7 @@ const getFarmApys = async params => {
     const secondsPerYear = 31536000;
     let yearlyRewards = 0;
     if (params.boosted) {
-      yearlyRewards = rewardRates[i].times(secondsPerYear).times(new BigNumber(0.4)).times(boost);
+      yearlyRewards = rewardRates[i].times(secondsPerYear).times(0.4).times(boost).div('1e18');
     } else {
       yearlyRewards = rewardRates[i].times(secondsPerYear);
     }
@@ -84,9 +84,11 @@ const getPoolsData = async params => {
     rewardRateCalls.push({
       rewardRate: rewardPool.methods.rewardRate(params.reward),
     });
-    depositBalanceCalls.push({
-      depositBalance: rewardPool.methods.balanceOf(params.gaugeStaker),
-    });
+    if (params.boosted) {
+      depositBalanceCalls.push({
+        depositBalance: rewardPool.methods.balanceOf(params.gaugeStaker),
+      });
+    }
   });
 
   const res = await multicall.all([balanceCalls, rewardRateCalls, depositBalanceCalls]);

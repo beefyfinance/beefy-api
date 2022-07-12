@@ -28,7 +28,7 @@ const getDystopiaApys = async () => {
     NFTid: 7,
     ve: dystopia.ve,
     gaugeStaker: beefyfinance.gaugeStaker,
-    log: true,
+    //log: true,
   });
 
   let apys = {};
