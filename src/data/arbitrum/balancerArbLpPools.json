@@ -1,5 +1,69 @@
 [
   {
+    "name": "balancer-vst-dai-usdt-usdc",
+    "address": "0x5A5884FC31948D59DF2aEcCCa143dE900d49e1a3",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x3175B907Cbcf044C0b179958fAFB33e253A44929",
+    "vaultPoolId": "0x5a5884fc31948d59df2aeccca143de900d49e1a300000000000000000000006f",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0xB556A02642A0f7be8c79932EFBC915F6e0485147",
+        "token": "0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "VST",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "balancer-bal-eth",
+    "address": "0xcC65A812ce382aB909a11E434dbf75B34f1cc59D",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xFAad21203A7856889Cb6eB644AB6864E7253107A",
+    "vaultPoolId": "0xcc65a812ce382ab909a11e434dbf75b34f1cc59d000200000000000000000001",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0xd5Cd8328D93bf4bEf9824Fd288F32C8f0da1c551",
+        "token": "0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "BAL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-wbtc-eth-usdc",
     "address": "0x64541216bAFFFEec8ea535BB71Fbc927831d0595",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

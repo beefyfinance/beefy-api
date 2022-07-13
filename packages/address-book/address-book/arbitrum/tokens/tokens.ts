@@ -188,6 +188,30 @@ const _tokens = {
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
   },
+  DAI: {
+    name: 'Dai Stablecoin',
+    address: '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1',
+    symbol: 'DAI',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://makerdao.com/',
+    description:
+      'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
+  },
+  VST: {
+    name: 'Vesta Stable',
+    symbol: 'VST',
+    address: '0x64343594Ab9b56e99087BfA6F2335Db24c2d1F17',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://assets.coingecko.com/coins/images/23621/small/vesta.png?1644809642',
+    website: 'https://vestafinance.xyz/',
+    description:
+      'Vesta Finance allows you to borrow collateralized stablecoin VST against supported crypto assets with no interest rate.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
