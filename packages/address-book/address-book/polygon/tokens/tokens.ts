@@ -730,6 +730,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-default-token-list/master/assets/azuki.png',
   },
+  BAL: {
+    name: 'Balancer',
+    symbol: 'BAL',
+    address: '0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://balancer.fi/',
+    description:
+      'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities.',
+    logoURI: 'https://hecoinfo.com/token/images/bal_32.png',
+  },
   BANANA: {
     name: 'ApeSwapFinance Banana',
     address: '0x5d47bAbA0d66083C52009271faF3F50DCc01023C',
