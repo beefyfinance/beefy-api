@@ -557,6 +557,16 @@ const updateAmmPrices = async () => {
       };
     });
 
+    const aaveTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+      return {
+        amUSDC: tokenPrices['USDC'],
+        amUSDT: tokenPrices['USDT'],
+        amDAI: tokenPrices['DAI'],
+        amWETH: tokenPrices['ETH'],
+        amWBTC: tokenPrices['BTC'],
+      };
+    });
+
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices, __ }) => {
       const dmm = await dmmPrices;
       const xTokenPrices = await xPrices;
@@ -572,6 +582,7 @@ const updateAmmPrices = async () => {
         ...stargateTokenPrices,
         ...beFtmTokenPrice,
         ...beTokenTokenPrice,
+        ...(await aaveTokenPrice),
         ...(await coinGeckoPrices()),
       };
     });

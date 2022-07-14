@@ -766,6 +766,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
   },
+  amDAI: {
+    name: 'Aave Matic Market DAI',
+    address: '0x27F8D03b3a2196956ED754baDc28D73be8830A6e',
+    symbol: 'amDAI',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://aave.com/',
+    description: "DAI depsoited in Aave's Polygon Market.",
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
+  },
   DEGEN: {
     name: 'DEGEN Index',
     address: '0x8a2870fb69A90000D6439b7aDfB01d4bA383A415',
@@ -787,6 +798,17 @@ const _tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
+  },
+  amWETH: {
+    name: 'Aave Matic Market WETH',
+    address: '0x28424507fefb6f7f8E9D3860F56504E4e5f5f390',
+    symbol: 'amWETH',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://aave.com',
+    description: "ETH depsoited in Aave's Polygon Market.",
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
@@ -956,6 +978,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
   },
+  amUSDC: {
+    name: 'Aave Matic Market USDC',
+    address: '0x1a13F4Ca1d028320A707D99520AbFefca3998b7F',
+    symbol: 'amUSDC',
+    decimals: 6,
+    website: 'https://aave.com',
+    description: "USDC depsoited in Aave's Polygon Market.",
+    chainId: 137,
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
+  },
   USDT: {
     name: 'Tether USD',
     address: '0xc2132D05D31c914a87C6611C10748AEb04B58e8F',
@@ -965,6 +998,17 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether converts cash into digital currency, to anchor or tether the value to the price of national currencies like the US dollar, the Euro, and the offshore Chinese yuan.',
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
+  },
+  amUSDT: {
+    name: 'Aave Matic Market USDT',
+    address: '0x60D55F02A771d515e077c9C2403a1ef324885CeC',
+    symbol: 'amUSDT',
+    decimals: 6,
+    chainId: 137,
+    website: 'https://aave.com/',
+    description: "USDT depsoited in Aave's Polygon Market.",
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
   },
@@ -986,6 +1030,17 @@ const _tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    chainId: 137,
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
+  },
+  amWBTC: {
+    name: 'Aave Matic Market WBTC',
+    address: '0x5c2ed810328349100A66B82b78a1791B101C9D61',
+    symbol: 'amWBTC',
+    decimals: 8,
+    website: 'https://aave.com/',
+    description: "BTC depsoited in Aave's Polygon Market.",
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
