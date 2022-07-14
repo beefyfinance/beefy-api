@@ -1,5 +1,31 @@
 [
   {
+    "name": "curve-matic-stmatic",
+    "pool": "0xFb6FE7802bA9290ef8b00CA16Af4Bc26eb663a28",
+    "token": "0xe7CEA2F6d7b120174BF3A9Bc98efaF1fF72C997d",
+    "gauge": "0x9633E0749faa6eC6d992265368B88698d6a93Ac0",
+    "boosted": true,
+    "rewards": [
+      {
+        "stream": "0x9633E0749faa6eC6d992265368B88698d6a93Ac0",
+        "token": "0xC3C7d422809852031b44ab29EEC9F1EfF2A58756",
+        "oracleId": "LDO"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "stMATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MATIC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-am3crv",
     "pool": "0x445FE580eF8d70FF569aB36e80c647af338db351",
     "token": "0xe7a24ef0c5e95ffb0f6684b813a78f2a3ad7d171",
