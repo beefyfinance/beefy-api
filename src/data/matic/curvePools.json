@@ -4,6 +4,7 @@
     "pool": "0xFb6FE7802bA9290ef8b00CA16Af4Bc26eb663a28",
     "token": "0xe7CEA2F6d7b120174BF3A9Bc98efaF1fF72C997d",
     "gauge": "0x9633E0749faa6eC6d992265368B88698d6a93Ac0",
+    "volatile": true,
     "boosted": true,
     "rewards": [
       {
