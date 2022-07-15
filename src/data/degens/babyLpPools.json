@@ -1,6 +1,6 @@
 [
   {
-    "name": "baby-busd-usdt",
+    "name": "baby-usdt-busd",
     "address": "0x249cd054697f41d73F1A81fa0F5279fcce3cF70c",
     "decimals": "1e18",
     "poolId": 3,
