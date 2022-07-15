@@ -1,6 +1,6 @@
 [
   {
-    "name": "babyswap-atom-usdt",
+    "name": "baby-atom-usdt",
     "address": "0x42932A3c73DF05586aa5cfD4f3a9a61655c98b45",
     "decimals": "1e18",
     "poolId": 104,
@@ -19,7 +19,7 @@
     }
   },
   {
-    "name": "babyswap-usdt-usdc",
+    "name": "baby-usdt-usdc",
     "address": "0xcc21b0A9A01fcD2103ff75614480Bd6a07869053",
     "decimals": "1e18",
     "poolId": 13,
