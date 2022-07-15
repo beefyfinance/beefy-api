@@ -1,5 +1,24 @@
 [
   {
+    "name": "velodrome-wbtc-renbtc",
+    "address": "0xFDAd8F85C0f3895C85301F549d124cE526479bf8",
+    "gauge": "0xc8110F2544a8E5075a9b3f00dC1c95543342c7a2",
+    "decimals": "1e18",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x68f180fcCe6836688e9084f035309E29Bf0A2095",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x85f6583762Bc76d775eAB9A7456db344f12409F7",
+      "oracle": "tokens",
+      "oracleId": "renBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
     "name": "velodrome-usdc-lusd",
     "address": "0x207AddB05C548F262219f6bFC6e11c02d0f7fDbe",
     "gauge": "0x631dCe3a422e1af1AD9d3952B06f9320e2f2ed72",

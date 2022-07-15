@@ -1,4 +1,3 @@
-const getSpookyLpApys = require('./getSpookyLpApys');
 const getSpookyBooApy = require('./getSpookyBooApy');
 const getSpookyV2LpApys = require('./getSpookyV2LpApys');
 const getFantomBifiGovApy = require('./getFantomBifiGovApy');
@@ -30,7 +29,6 @@ const getSolaceApy = require('./getSolaceApy');
 
 const getApys = [
   getSushiLpApys,
-  getSpookyLpApys,
   getSpookyBooApy,
   getSpookyV2LpApys,
   getFantomBifiGovApy,

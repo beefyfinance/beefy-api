@@ -27,6 +27,17 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  DYST: {
+    name: 'Dystopia token',
+    symbol: 'DYST',
+    address: '0x39aB6574c289c3Ae4d88500eEc792AB5B947A5Eb',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.dystopia.exchange/',
+    description:
+      'Dystopia is a decentralized exchange and automated market marker focused on providing efficient token swaps and deep liquidity for stablecoins and other assets. Dystopia has a sophisticated governance structure using the ve(3,3) system that provides the possibility to maximize gains for all users of the ecosystem.',
+  },
   SOLACE: {
     name: 'solace',
     symbol: 'SOLACE',
@@ -718,6 +729,17 @@ const _tokens = {
     description: 'AZUKI is a secondary token designed for use in Doki Doki NFT products',
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-default-token-list/master/assets/azuki.png',
+  },
+  BAL: {
+    name: 'Balancer',
+    symbol: 'BAL',
+    address: '0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://balancer.fi/',
+    description:
+      'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities.',
+    logoURI: 'https://hecoinfo.com/token/images/bal_32.png',
   },
   BANANA: {
     name: 'ApeSwapFinance Banana',

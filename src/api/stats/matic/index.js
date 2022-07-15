@@ -26,6 +26,7 @@ const getbeQiEarnApy = require('./getbeQiEarnApy');
 const getRipaeApys = require('./getRipaeApys');
 const getBalancerPolyApys = require('./getBalancerPolyApys');
 const getSolaceApy = require('./getSolaceApy');
+const getDystopiaApys = require('./getDystopiaApys');
 
 const getApys = [
   getbeQiApy,
@@ -55,6 +56,7 @@ const getApys = [
   getRipaeApys,
   getBalancerPolyApys,
   getSolaceApy,
+  getDystopiaApys,
 ];
 
 const BATCH_SIZE = 15;

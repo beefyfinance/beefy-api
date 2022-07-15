@@ -1,5 +1,121 @@
 [
   {
+    "name": "balancer-link-eth-bal-aave",
+    "address": "0xce66904B68f1f070332Cbc631DE7ee98B650b499",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xffFc1aFFD8CC1596da88A24b274866D59c7d80B0",
+    "vaultPoolId": "0xce66904b68f1f070332cbc631de7ee98b650b499000100000000000000000009",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x64AFDb69C22971B2ed289020f78a47E070cFadba",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "LINK",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BAL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "AAVE",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancer-usdc-link-eth-bal-aave",
+    "address": "0x36128D5436d2d70cab39C9AF9CcE146C38554ff0",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xe32AF68E3e23dd01441f598B1D967A0bF7c6B407",
+    "vaultPoolId": "0x36128d5436d2d70cab39c9af9cce146c38554ff0000100000000000000000008",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x73CF9C065bFB9ABf76d94787324CfC4F751ac097",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "LINK",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BAL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "AAVE",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancer-matic-usdc-eth-bal",
+    "address": "0x0297e37f1873D2DAb4487Aa67cD56B58E2F27875",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x068Ff98072d3eB848D012e3390703BB507729ed6",
+    "vaultPoolId": "0x0297e37f1873d2dab4487aa67cd56b58e2f27875000100000000000000000002",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x0FC855f77cE75Bb6a5d650D0c4cC92E460c03E25",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WMATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BAL",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-matic-maticx",
     "address": "0xC17636e36398602dd37Bb5d1B3a9008c7629005f",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

@@ -73,7 +73,6 @@ import sushiOhmPools from '../../data/matic/sushiOhmLpPools.json';
 import satisPools from '../../data/degens/satisLpPools.json';
 import satisXPools from '../../data/degens/satisXLpPools.json';
 import zefiV2Pools from '../../data/degens/zefiLpPoolsV2.json';
-import spookyPools from '../../data/fantom/spookyLpPools.json';
 import froyoPools from '../../data/fantom/froyoLpPools.json';
 import esterPools from '../../data/fantom/esterLpPools.json';
 import comethMultiPools from '../../data/matic/comethMultiLpPools.json';
@@ -235,6 +234,8 @@ import yuzuDualPools from '../../data/emerald/yuzuDualLpPools.json';
 import dfxPools from '../../data/matic/dfxLpPools.json';
 import ripaeMaticPools from '../../data/matic/ripaeLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
+import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
+import dystopiaPools from '../../data/matic/dystopiaLpPools.json';
 import swapsiclePools from '../../data/avax/siclePools.json';
 
 const INIT_DELAY = 2 * 1000;
@@ -244,6 +245,8 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
   ...swapsiclePools,
+  ...ripaeCronosPools,
+  ...dystopiaPools,
   ...velodromePools,
   ...valleySwapLpPools,
   ...dfxPools,
@@ -402,7 +405,6 @@ const pools = [
   ...comethMultiPools,
   ...esterPools,
   ...froyoPools,
-  ...spookyPools,
   ...zefiV2Pools,
   ...satisXPools,
   ...satisPools,
@@ -497,6 +499,7 @@ const knownPrices = {
   USDN: 1,
   cUSD: 1,
   asUSDC: 1,
+  VST: 1,
 };
 
 let tokenPricesCache: Promise<any>;

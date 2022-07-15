@@ -11,13 +11,15 @@ const voterABI = require('../src/abis/Voter.json');
 const LPPairABI = require('../src/abis/ISolidlyPair.json');
 const ERC20ABI = require('../src/abis/ERC20.json');
 import { addressBook } from '../packages/address-book/address-book';
-import { lpTokenPrice } from '../src/utils/lpTokens';
 const {
   fantom: {
     platforms: { solidly },
   },
   optimism: {
     platforms: { velodrome },
+  },
+  polygon: {
+    platforms: { dystopia },
   },
 } = addressBook;
 
@@ -32,6 +34,12 @@ const projects = {
     stableFile: '../src/data/optimism/velodromeStableLpPools.json',
     volatileFile: '../src/data/optimism/velodromeLpPools.json',
     voter: velodrome.voter,
+  },
+  dystopia: {
+    prefix: 'dystopia',
+    stableFile: '../src/data/matic/dystopiaStableLpPools.json',
+    volatileFile: '../src/data/matic/dystopiaLpPools.json',
+    voter: dystopia.voter,
   },
 };
 

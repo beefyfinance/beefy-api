@@ -75,6 +75,18 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
+  sBTC: {
+    chainId: 10,
+    address: '0x298B9B95708152ff6968aafd889c6586e9169f1D',
+    decimals: 18,
+    name: 'Synthetix: sBTC',
+    symbol: 'sBTC',
+    website: 'https://www.synthetix.io/',
+    description:
+      'sBTC is a synthetic Bitcoin token enabled by the Synthetix protocol. It tracks the price of Bitcoin through price feeds supplied by Chainlink’s decentralized network of oracles.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+  },
   LYRA: {
     chainId: 10,
     address: '0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb',
@@ -218,6 +230,40 @@ const _tokens = {
     website: 'https://stargate.finance/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+  },
+  renBTC: {
+    name: 'renBTC',
+    symbol: 'renBTC',
+    address: '0x85f6583762Bc76d775eAB9A7456db344f12409F7',
+    chainId: 10,
+    decimals: 8,
+    website: 'https://renproject.io/',
+    description:
+      'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
+  },
+  FXS: {
+    name: 'Frax Share',
+    symbol: 'FXS',
+    address: '0x67CCEA5bb16181E7b4109c9c2143c24a1c2205Be',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+  },
+  THALES: {
+    name: 'Thales DAO Token',
+    symbol: 'THALES',
+    address: '0x217D47011b23BB961eB6D93cA9945B7501a5BB11',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://thalesmarket.io/tale-of-thales',
+    description:
+      'Thales is an Ethereum protocol that allows the creation of peer-to-peer parimutuel markets that anyone can join.',
   },
 } as const;
 
