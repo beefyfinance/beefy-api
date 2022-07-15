@@ -486,6 +486,8 @@ const coinGeckoCoins = [
   'lyra-finance',
   'liquity-usd',
   'seth',
+  'alchemix-usd',
+  'ethereum'
 ];
 
 const knownPrices = {
@@ -526,6 +528,8 @@ const updateAmmPrices = async () => {
         LYRA: prices['lyra-finance'],
         LUSD: prices['liquity-usd'],
         sETH: prices['seth'],
+        alUSD: prices['alchemix-usd'],
+        alETH: prices['ethereum']
       };
     };
 

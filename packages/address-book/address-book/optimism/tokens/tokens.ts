@@ -265,6 +265,50 @@ const _tokens = {
     description:
       'Thales is an Ethereum protocol that allows the creation of peer-to-peer parimutuel markets that anyone can join.',
   },
+  alUSD: {
+    name: 'Alchemix USD',
+    symbol: 'alUSD',
+    address: '0xCB8FA9a76b8e203D8C3797bF438d8FB81Ea3326A',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alchemix.fi/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+  },
+  alETH: {
+    name: 'Alchemix ETH',
+    symbol: 'alUSD',
+    address: '0x3E29D3A9316dAB217754d13b28646B76607c5f04',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alchemix.fi/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+  },
+  DOLA: {
+    name: 'Dola USD Stablecoin',
+    symbol: 'DOLA',
+    address: '0x8aE125E8653821E851F12A49F7765db9a9ce7384',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+  },
+  HND: {
+    name: 'Hundred Finance',
+    symbol: 'HND',
+    address: '0x10010078a54396F62c96dF8532dc2B4847d47ED3',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://hundred.finance/',
+    description:
+      'Hundred Finance is a decentralized application (dApp) that enables the lending and borrowing of cryptocurrencies.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
