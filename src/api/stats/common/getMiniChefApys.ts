@@ -50,6 +50,7 @@ interface MiniChefApyParams {
   liquidityProviderFee?: number;
   web3: Web3;
   chainId: ChainId;
+  log?: boolean;
 }
 
 export const getMiniChefApys = async (params: MiniChefApyParams) => {
@@ -141,6 +142,14 @@ const getFarmApys = async (params: MiniChefApyParams) => {
     }
 
     const apy = totalYearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    if (params.log) {
+      console.log(
+        pool.name,
+        apy.toNumber(),
+        totalStakedInUsd.valueOf(),
+        totalYearlyRewardsInUsd.valueOf()
+      );
+    }
     apys.push(apy);
   }
   return apys;
