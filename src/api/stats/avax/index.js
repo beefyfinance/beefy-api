@@ -24,6 +24,7 @@ import getMaiCurveApys from './getMaiCurveApys';
 import { getPangolinV2Apys } from './getPangolinV2Apys';
 import getbeJOEApy from './getbeJOEApy';
 import getbeJOEEarnApy from './getbeJOEEarnApy';
+const getSwapsicleApys = require('./getSwapsicleApys');
 
 const getApys = [
   getbeJOEApy,
@@ -52,6 +53,7 @@ const getApys = [
   getGrapeApys,
   getRipaeApys,
   getStargateApys,
+  getSwapsicleApys,
 ];
 
 const getAvaxApys = async () => {
