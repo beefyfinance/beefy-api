@@ -19,7 +19,7 @@
     }
   },
   {
-    "name": "sushi-sushi-weth",
+    "name": "sushi-fuse-sushi-weth",
     "address": "0xF9C63E6e21d65ba3Cb6B95790F559E8Da1B38764",
     "decimals": "1e18",
     "poolId": 4,
@@ -38,7 +38,7 @@
     }
   },
   {
-    "name": "sushi-wfuse-usdc",
+    "name": "sushi-fuse-wfuse-usdc",
     "address": "0xba9CA720e314F42E17E80991c1d0AFfE47387108",
     "decimals": "1e18",
     "poolId": 2,
@@ -57,7 +57,7 @@
     }
   },
   {
-    "name": "sushi-wfuse-weth",
+    "name": "sushi-fuse-wfuse-weth",
     "address": "0x90c3bA00d2F7F15Cd9FDE087538be3A2865E7E2F",
     "decimals": "1e18",
     "poolId": 0,
