@@ -1,5 +1,24 @@
 [
   {
+    "name": "baby-usdt-sol",
+    "address": "0xAe08C9D357731FD8d25681dE753551BE14C00405",
+    "decimals": "1e18",
+    "poolId": 99,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x570A5D26f7765Ecb712C0924E4De545B89fD43dF",
+      "oracle": "tokens",
+      "oracleId": "SOL",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "baby-atom-usdt",
     "address": "0x42932A3c73DF05586aa5cfD4f3a9a61655c98b45",
     "decimals": "1e18",
