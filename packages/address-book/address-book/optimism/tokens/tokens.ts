@@ -278,7 +278,7 @@ const _tokens = {
   },
   alETH: {
     name: 'Alchemix ETH',
-    symbol: 'alUSD',
+    symbol: 'alETH',
     address: '0x3E29D3A9316dAB217754d13b28646B76607c5f04',
     chainId: 10,
     decimals: 18,
