@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  COMB: {
+    name: 'Comb Finance',
+    symbol: 'COMB',
+    address: '0xaE45a827625116d6C0C40B5D7359EcF68F8e9AFD',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://app.spiritswap.finance/images/tokens/COMB.png',
+    website: 'https://comb.financial/',
+    description:
+      'COMB is a protocol aimed towards establishing a suite of financial products built on top of the Fantom blockchain. Diversify your portfolio with one token.',
+  },
   SINGLE: {
     name: 'SINGLE Token',
     symbol: 'SINGLE',
