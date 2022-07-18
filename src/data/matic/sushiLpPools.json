@@ -1,6 +1,6 @@
 [
   {
-    "name": "sushi-weth-sx",
+    "name": "sushi-poly-weth-sx",
     "address": "0x1bF9805B40a5f69c7d0f9E5d1Ab718642203c652",
     "decimals": "1e18",
     "poolId": 52,
@@ -19,7 +19,7 @@
     }
   },
   {
-    "name": "sushi-bct-klima",
+    "name": "sushi-poly-bct-klima",
     "address": "0x9803c7aE526049210a1725F7487AF26fE2c24614",
     "decimals": "1e18",
     "poolId": 49,
@@ -38,7 +38,7 @@
     }
   },
   {
-    "name": "sushi-eth-mana",
+    "name": "sushi-poly-eth-mana",
     "address": "0xc48ae82ca34c63887b975f20aba91a38f2a900b8",
     "decimals": "1e18",
     "poolId": 34,
@@ -57,7 +57,7 @@
     }
   },
   {
-    "name": "sushi-usdc-bct",
+    "name": "sushi-poly-usdc-bct",
     "address": "0x1E67124681b402064CD0ABE8ed1B5c79D2e02f64",
     "decimals": "1e18",
     "poolId": 50,
@@ -76,7 +76,7 @@
     }
   },
   {
-    "name": "sushi-eth2x-eth",
+    "name": "sushi-poly-eth2x-eth",
     "address": "0xadd053A09F95E565B25d8b9B84D0fcFaa962465E",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -96,7 +96,7 @@
     }
   },
   {
-    "name": "sushi-fxs-frax",
+    "name": "sushi-poly-fxs-frax",
     "address": "0xDf45B5B68d9dC84173DD963c763AeA8CAD3E24A6",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -116,7 +116,7 @@
     }
   },
   {
-    "name": "sushi-usdc-tusd",
+    "name": "sushi-poly-usdc-tusd",
     "address": "0x4AB66a7138F50Db9B7aDaF8CE8aFB3F638B22f7f",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -136,7 +136,7 @@
     }
   },
   {
-    "name": "sushi-axs-eth",
+    "name": "sushi-poly-axs-eth",
     "address": "0x7BA331A8b360F4c31E6014aBdd6852F92Fb21557",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -156,7 +156,7 @@
     }
   },
   {
-    "name": "sushi-avax-weth",
+    "name": "sushi-poly-avax-weth",
     "address": "0x1274De0DE2e9D9b1d0E06313c0E5EdD01CC335eF",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -176,7 +176,7 @@
     }
   },
   {
-    "name": "sushi-wbtc-ibbtc",
+    "name": "sushi-poly-wbtc-ibbtc",
     "address": "0x8F8e95Ff4B4c5E354ccB005c6B0278492D7B5907",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -196,7 +196,7 @@
     }
   },
   {
-    "name": "sushi-dtop-weth",
+    "name": "sushi-poly-dtop-weth",
     "address": "0x25e8bbc103842f0dad2465f4e04cb8d44fb787bc",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -216,7 +216,7 @@
     }
   },
   {
-    "name": "sushi-usdc-bifi",
+    "name": "sushi-poly-usdc-bifi",
     "address": "0x180237bd326d5245D0898336F54b3c8012c5c62f",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -236,7 +236,7 @@
     }
   },
   {
-    "name": "sushi-eth-wfil",
+    "name": "sushi-poly-eth-wfil",
     "address": "0x21Ef14B5580a852477ef31E7Ea9373485bF50377",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -256,7 +256,7 @@
     }
   },
   {
-    "name": "sushi-eth-iron",
+    "name": "sushi-poly-eth-iron",
     "address": "0x01cDCC99a4f9A68be18504750B219Caa881841Eb",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -276,7 +276,7 @@
     }
   },
   {
-    "name": "sushi-grt-eth",
+    "name": "sushi-poly-grt-eth",
     "address": "0x1cedA73C034218255F50eF8a2c282E6B4c301d60",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -296,7 +296,7 @@
     }
   },
   {
-    "name": "sushi-frax-fxs",
+    "name": "sushi-poly-frax-fxs",
     "address": "0xd53a56AE0f48c9a03660cd36c2E4ae20493a1Eca",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -316,7 +316,7 @@
     }
   },
   {
-    "name": "sushi-frax-usdc",
+    "name": "sushi-poly-frax-usdc",
     "address": "0x9e20a8d3501BF96EDA8e69b96DD84840058a1cB0",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -336,7 +336,7 @@
     }
   },
   {
-    "name": "sushi-wmatic-woofy",
+    "name": "sushi-poly-wmatic-woofy",
     "address": "0x211F8e61113eDAf00cf37A804B0bA721875Ef560",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -356,7 +356,7 @@
     }
   },
   {
-    "name": "sushi-renDOGE-eth",
+    "name": "sushi-poly-renDOGE-eth",
     "address": "0x3398787dCa0F1bD830713eC5294aDE196a198984",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -376,7 +376,7 @@
     }
   },
   {
-    "name": "sushi-usdc-dai",
+    "name": "sushi-poly-usdc-dai",
     "address": "0xCD578F016888B57F1b1e3f887f392F0159E26747",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -396,7 +396,7 @@
     }
   },
   {
-    "name": "sushi-snx-eth",
+    "name": "sushi-poly-snx-eth",
     "address": "0x116Ff0d1Caa91a6b94276b3471f33dbeB52073E7",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -416,7 +416,7 @@
     }
   },
   {
-    "name": "sushi-crv-eth",
+    "name": "sushi-poly-crv-eth",
     "address": "0x396E655C309676cAF0acf4607a868e0CDed876dB",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -436,7 +436,7 @@
     }
   },
   {
-    "name": "sushi-usdc-usdt",
+    "name": "sushi-poly-usdc-usdt",
     "address": "0x4B1F1e2435A9C96f7330FAea190Ef6A7C8D70001",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -456,7 +456,7 @@
     }
   },
   {
-    "name": "sushi-link-eth",
+    "name": "sushi-poly-link-eth",
     "address": "0x74D23F21F780CA26B47Db16B0504F2e3832b9321",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -476,7 +476,7 @@
     }
   },
   {
-    "name": "sushi-aave-eth",
+    "name": "sushi-poly-aave-eth",
     "address": "0x2813D43463C374a680f235c428FB1D7f08dE0B69",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -496,7 +496,7 @@
     }
   },
   {
-    "name": "polygon-sushi-eth-dai",
+    "name": "sushi-poly-eth-dai",
     "address": "0x6FF62bfb8c12109E8000935A6De54daD83a4f39f",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -516,7 +516,7 @@
     }
   },
   {
-    "name": "polygon-sushi-btc-eth",
+    "name": "sushi-poly-btc-eth",
     "address": "0xE62Ec2e799305E0D367b0Cc3ee2CdA135bF89816",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -536,7 +536,7 @@
     }
   },
   {
-    "name": "sushi-eth-usdt",
+    "name": "sushi-poly-eth-usdt",
     "address": "0xc2755915a85C6f6c1C0F3a86ac8C058F11Caa9C9",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -556,7 +556,7 @@
     }
   },
   {
-    "name": "sushi-usdc-eth",
+    "name": "sushi-poly-usdc-eth",
     "address": "0x34965ba0ac2451A34a0471F04CCa3F990b8dea27",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -576,7 +576,7 @@
     }
   },
   {
-    "name": "sushi-matic-eth",
+    "name": "sushi-poly-matic-eth",
     "address": "0xc4e595acDD7d12feC385E5dA5D43160e8A0bAC0E",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -596,7 +596,7 @@
     }
   },
   {
-    "name": "sushi-wmatic-ghst",
+    "name": "sushi-poly-wmatic-ghst",
     "address": "0xf69e93771f11aecd8e554aa165c3fe7fd811530c",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -616,7 +616,7 @@
     }
   },
   {
-    "name": "sushi-jrt-eth",
+    "name": "sushi-poly-jrt-eth",
     "address": "0xa769c6786c3717945438d4c4feb8494a1a6ca443",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",
@@ -636,7 +636,7 @@
     }
   },
   {
-    "name": "sushi-fox-eth",
+    "name": "sushi-poly-fox-eth",
     "address": "0x93eF615F1DdD27d0E141Ad7192623A5c45e8f200",
     "rewardPool": "0x0769fd68dFb93167989C6f7254cd0D766Fb2841F",
     "decimals": "1e18",

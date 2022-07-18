@@ -1,5 +1,100 @@
 [
   {
+    "name": "velodrome-weth-snx",
+    "address": "0xffB6c35960b23989037C8c391faCebC8a17De970",
+    "gauge": "0x1C5472efDF8CE67259D6f44ef548c68703797fA2",
+    "decimals": "1e18",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4",
+      "oracle": "tokens",
+      "oracleId": "SNX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-hnd-usdc",
+    "address": "0x588443c932b45F47e936b969eB5AA6b5Fd4F3369",
+    "gauge": "0x883C6d437D45b7CE61c07606Fb390e6c28bE27B8",
+    "decimals": "1e18",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x10010078a54396F62c96dF8532dc2B4847d47ED3",
+      "oracle": "tokens",
+      "oracleId": "HND",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "velodrome-op-dai",
+    "address": "0x43C3f2d0aA0EbC433d654BB6ebf67F0C03f8D8d9",
+    "gauge": "0x05eF41Da0B0c76b6E17Be79BdaacF66306CbeBB5",
+    "decimals": "1e18",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000042",
+      "oracle": "tokens",
+      "oracleId": "OP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-weth-dola",
+    "address": "0x43Ce87A1ad20277b78CAE52C7bCD5FC82A297551",
+    "gauge": "0x49aB32Dc8C870ab033cA87dF2b954C4c24405e64",
+    "decimals": "1e18",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8aE125E8653821E851F12A49F7765db9a9ce7384",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-velo-op",
+    "address": "0xFFD74EF185989BFF8752c818A53a47FC45388F08",
+    "gauge": "0x1F36f95a02C744f2B3cD196b5e44E749c153D3B9",
+    "decimals": "1e18",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x3c8B650257cFb5f272f799F5e2b4e65093a11a05",
+      "oracle": "tokens",
+      "oracleId": "VELO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000042",
+      "oracle": "tokens",
+      "oracleId": "OP",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-wbtc-usdc",
     "address": "0x4C8B195d33c6F95A8262D56Ede793611ee7b5AAD",
     "gauge": "0xc8f650131f160Da1f362777E3D5D7162ae3ac077",
