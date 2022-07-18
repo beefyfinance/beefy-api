@@ -206,8 +206,7 @@ const _tokens = {
     address: '0x64343594Ab9b56e99087BfA6F2335Db24c2d1F17',
     chainId: 42161,
     decimals: 18,
-    logoURI:
-      'https://assets.coingecko.com/coins/images/23621/small/vesta.png?1644809642',
+    logoURI: 'https://assets.coingecko.com/coins/images/23621/small/vesta.png?1644809642',
     website: 'https://vestafinance.xyz/',
     description:
       'Vesta Finance allows you to borrow collateralized stablecoin VST against supported crypto assets with no interest rate.',

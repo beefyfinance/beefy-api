@@ -236,6 +236,7 @@ import ripaeMaticPools from '../../data/matic/ripaeLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
 import dystopiaPools from '../../data/matic/dystopiaLpPools.json';
+import swapsiclePools from '../../data/avax/siclePools.json';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -243,6 +244,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...swapsiclePools,
   ...ripaeCronosPools,
   ...dystopiaPools,
   ...velodromePools,

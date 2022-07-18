@@ -44,11 +44,9 @@ const _tokens = {
     address: '0x8cc97B50Fe87f31770bcdCd6bc8603bC1558380B',
     chainId: 250,
     decimals: 18,
-    logoURI:
-      'https://mm.finance/images/tokens/0x0804702a4E749d39A35FDe73d1DF0B1f1D6b8347.svg',
+    logoURI: 'https://mm.finance/images/tokens/0x0804702a4E749d39A35FDe73d1DF0B1f1D6b8347.svg',
     website: 'https://singlefinance.io/',
-    description:
-      'Single-click pseudo market-neutral strategy with a human touch.',
+    description: 'Single-click pseudo market-neutral strategy with a human touch.',
   },
   gALCX: {
     name: 'Governance ALCX',
@@ -56,8 +54,7 @@ const _tokens = {
     address: '0x70F9fd19f857411b089977E7916c05A0fc477Ac9',
     chainId: 250,
     decimals: 18,
-    logoURI:
-      'https://assets.spooky.fi/tokens/gALCX.png',
+    logoURI: 'https://assets.spooky.fi/tokens/gALCX.png',
     website: 'https://alchemix.fi/',
     description:
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
@@ -68,8 +65,7 @@ const _tokens = {
     address: '0xaD996A45fd2373ed0B10Efa4A8eCB9de445A4302',
     chainId: 250,
     decimals: 18,
-    logoURI:
-      'https://ftmscan.com/token/images/alpacafinance2_32.png',
+    logoURI: 'https://ftmscan.com/token/images/alpacafinance2_32.png',
     website: 'https://www.alpacafinance.org/',
     description:
       'Alpaca Finance is the largest lending protocol allowing leveraged yield farming on BNB Chain and Fantom.',
@@ -80,8 +76,7 @@ const _tokens = {
     address: '0x188a168280589bC3E483d77aae6b4A1d26bD22dC',
     chainId: 250,
     decimals: 18,
-    logoURI:
-      'https://ftmscan.com/token/images/penguinkarts_32.png',
+    logoURI: 'https://ftmscan.com/token/images/penguinkarts_32.png',
     website: 'https://penguinkarts.com/',
     description:
       'A battle-racing 3D multiplayer game built on the Blockchain. It combines the best elements of arcade style kart racing, mobile gaming and Play-to-Earn NFT dynamics.',
