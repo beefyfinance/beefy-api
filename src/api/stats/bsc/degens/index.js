@@ -72,10 +72,10 @@ const getDegensLpApys = async () => {
   getApys.forEach(getApy => promises.push(getApy()));
   const results = await Promise.allSettled(promises);
 
-  for (const result of results) {
+  results.forEach((result, i) => {
     if (result.status !== 'fulfilled') {
-      console.warn('getDegensApys error', result.reason);
-      continue;
+      console.warn('getDegensApys error', i, getApys[i].name, result.reason);
+      return;
     }
 
     // Set default APY values
@@ -100,7 +100,7 @@ const getDegensLpApys = async () => {
     apys = { ...apys, ...mappedApyValues };
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
-  }
+  });
 
   return {
     apys,
