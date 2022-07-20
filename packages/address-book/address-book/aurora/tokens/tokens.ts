@@ -276,6 +276,17 @@ const _tokens = {
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
   },
+  USN: {
+    name: 'USN Token',
+    symbol: 'USN',
+    address: '0x5183e1B1091804BC2602586919E6880ac1cf2896',
+    chainId: 1313161554,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://decentral-bank.finance/',
+    description:
+      'USN is a NEAR-native stablecoin collateralized 1:1 by USDT.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
