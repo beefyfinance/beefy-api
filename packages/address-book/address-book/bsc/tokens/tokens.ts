@@ -15,6 +15,28 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  jBRL: {
+    name: 'Jarvis Synthetic Brazilian Real',
+    symbol: 'jBRL',
+    address: '0x316622977073BBC3dF32E7d2A9B3c77596a0a603',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jBRL is a multi-collateralized synthetic token tracking the price of Brazilian Real. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://jarvis.network/images/jBRL.svg',
+  },
+  BRZ: {
+    name: 'BRZ Token',
+    symbol: 'BRZ',
+    address: '0x71be881e9C5d4465B3FfF61e89c6f3651E69B5bb',
+    chainId: 56,
+    decimals: 4,
+    website: 'https://brztoken.io/',
+    description:
+      'BRZ is the first Brazilian stablecoin in circulation. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
+    logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
+  },
   SOL: {
     name: 'Solana',
     symbol: 'SOL',

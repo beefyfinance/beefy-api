@@ -6,7 +6,8 @@ const MasterChef = require('../../../abis/aurora/TriChef.json');
 import SimpleRewarder from '../../../abis/aurora/TriRewarder.json';
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/aurora/trisolarisMiniLpPools.json');
+const lpPools = require('../../../data/aurora/trisolarisMiniLpPools.json');
+const stablePools = require('../../../data/aurora/trisolarisStableLpPools.json');
 const { BASE_HPY, AURORA_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { addressBook } from '../../../../packages/address-book/address-book';
@@ -21,6 +22,7 @@ const {
 } = addressBook;
 
 const masterchef = minichef;
+const pools = [...lpPools, ...stablePools];
 
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;

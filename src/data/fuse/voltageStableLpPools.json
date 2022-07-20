@@ -1,0 +1,13 @@
+[
+  {
+    "name": "voltagev2-3pool",
+    "address": "0xa3c1046290B490e629E11AcE35863CB0CAe382aB",
+    "pool": "0x2a68D7C6Ea986fA06B2665d08b4D08F5e7aF960c",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "FUSE",
+    "decimalsB": "1e18",
+    "poolId": 13,
+    "chainId": 122
+  }
+]

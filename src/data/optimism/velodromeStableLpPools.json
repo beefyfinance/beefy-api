@@ -1,5 +1,24 @@
 [
   {
+    "name": "velodrome-frax-susd",
+    "address": "0xaC49498B97312A6716EF312F389B7e4D183A2A7C",
+    "gauge": "0xBF6C935A2B6Ec453704Ea72c8E14592f2FB27130",
+    "decimals": "1e18",
+    "chainId": 10,
+    "lp0": {
+      "address": "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9",
+      "oracle": "tokens",
+      "oracleId": "sUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-usdc-alusd",
     "address": "0xe75a3f4Bf99882aD9f8aeBAB2115873315425D00",
     "gauge": "0x1d87cee5C2F88B60588dD97E24D4B7c3d4f74935",

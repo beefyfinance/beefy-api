@@ -1,5 +1,33 @@
 [
   {
+    "name": "ellipsis-2brl",
+    "address": "0x1B6E11c5DB9B15DE87714eA9934a6c52371CfEA9",
+    "minter": "0xad51e40D8f255dba1Ad08501D6B1a6ACb7C188f3",
+    "oracleId": "BRZ"
+  },
+  {
+    "name": "ellipsis-val3eps",
+    "address": "0x5b5bD8913D766D005859CE002533D4838B0Ebbb5",
+    "minter": "0x19EC9e3F7B21dd27598E7ad5aAe7dC0Db00A806d",
+    "rewards": [
+      {
+        "token": "0xB1EbdD56729940089Ecc3aD0BBEEB12b6842ea6F",
+        "oracleId": "VALAS"
+      }
+    ]
+  },
+  {
+    "name": "ellipsis-valdai3eps",
+    "address": "0x8087a94FFE6bcF08DC4b4EBB3d28B4Ed75a792aC",
+    "minter": "0x245e8bb5427822FB8fd6cE062d8dd853FbcfABF5",
+    "rewards": [
+      {
+        "token": "0xB1EbdD56729940089Ecc3aD0BBEEB12b6842ea6F",
+        "oracleId": "VALAS"
+      }
+    ]
+  },
+  {
     "name": "ellipsis-3eps",
     "address": "0xaF4dE8E872131AE328Ce21D909C74705d3Aaf452",
     "minter": "0x160CAed03795365F3A589f10C379FfA7d75d4E76",
