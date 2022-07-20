@@ -24,12 +24,18 @@ import getBalancerArbPrices from './arbitrum/getBalancerArbPrices';
 import getBalancerPolyPrices from './matic/getBalancerPolyPrices';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
 import getDystopiaStablePrices from './matic/getDystopiaStablePrices';
+import getVoltagePrices from './fuse/getVoltagePrices';
+import getBeamswapPrices from './moonbeam/getBeamswapPrices';
+import getTrisolarisPrices from './aurora/getTrisolarisPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getTrisolarisPrices(tokenPrices),
+    getBeamswapPrices(tokenPrices),
+    getVoltagePrices(tokenPrices),
     getDystopiaStablePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
     getBalancerPolyPrices(tokenPrices),
