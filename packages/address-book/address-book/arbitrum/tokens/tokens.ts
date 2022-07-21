@@ -211,6 +211,28 @@ const _tokens = {
     description:
       'Vesta Finance allows you to borrow collateralized stablecoin VST against supported crypto assets with no interest rate.',
   },
+  sETH: {
+    name: 'sETH',
+    symbol: 'sETH',
+    address: '0x83EA9d8748A7AD9f2F12B2A2F7a45CE47A862ac9',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: '',
+  },
+  pCRO: {
+    name: 'pETH',
+    symbol: 'pETH',
+    address: '0xA0dF47432d9d88bcc040E9ee66dDC7E17A882715',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
