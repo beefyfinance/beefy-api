@@ -489,7 +489,7 @@ const coinGeckoCoins = [
   'liquity-usd',
   'seth',
   'alchemix-usd',
-  'ethereum'
+  'ethereum',
 ];
 
 const knownPrices = {
@@ -531,7 +531,7 @@ const updateAmmPrices = async () => {
         LUSD: prices['liquity-usd'],
         sETH: prices['seth'],
         alUSD: prices['alchemix-usd'],
-        alETH: prices['ethereum']
+        alETH: prices['ethereum'],
       };
     };
 
@@ -559,6 +559,7 @@ const updateAmmPrices = async () => {
         beJOE: tokenPrices['JOE'],
         beQI: tokenPrices['QI'],
         beCAKE: tokenPrices['Cake'],
+        beVELO: tokenPrices['VELO'],
       };
     });
 

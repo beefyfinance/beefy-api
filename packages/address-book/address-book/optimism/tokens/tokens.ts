@@ -309,6 +309,17 @@ const _tokens = {
     description:
       'Hundred Finance is a decentralized application (dApp) that enables the lending and borrowing of cryptocurrencies.',
   },
+  beVELO: {
+    name: 'Beefy Velo',
+    symbol: 'beVELO',
+    address: '0xB0af86f18c6155CeFaE1A6D6dA35b05F176F6278',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beefy.com',
+    description:
+      'beVELO is a Beefy-wrapped version of veNFT Velo. Holding beVELO will be a great way to earn a bunch of VELO. Beefy will distribute weekly trading fees and bribe rewards swapped to VELO to beVELO stakers. beVELO holders will recieve the same rewards as max lock veNFT holders',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
