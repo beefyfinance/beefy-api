@@ -7,8 +7,10 @@ const getBalancerArbApys = require('./getBalancerArbApys');
 const { getArbiBifiGovApy } = require('./getArbiBifiGovApy');
 const { getArbiBifiMaxiApy } = require('./getArbiBifiMaxiApy');
 const getStargateArbApys = require('./getStargateArbApys');
+const getRipaeApys = require('./getRipaeApys');
 
 const getApys = [
+  getRipaeApys,
   getSushiLpApys,
   getArbiNyanApys,
   getCurveApys,
