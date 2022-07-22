@@ -3,7 +3,14 @@ const { MultiCall } = require('eth-multicall');
 const { web3Factory, multicallAddress } = require('./web3');
 const StargateLP = require('../abis/StargateLP.json');
 
-import { FANTOM_CHAIN_ID, BSC_CHAIN_ID, AVAX_CHAIN_ID, OPTIMISM_CHAIN_ID, ARBITRUM_CHAIN_ID } from '../constants';
+import {
+    FANTOM_CHAIN_ID,
+    BSC_CHAIN_ID,
+    AVAX_CHAIN_ID,
+    OPTIMISM_CHAIN_ID,
+    ARBITRUM_CHAIN_ID,
+    POLYGON_CHAIN_ID
+} from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 import { getContract } from './contractHelper';
 
@@ -22,6 +29,9 @@ const {
   },
   arbitrum: {
     tokens: { sarUSDC, sarUSDT, sarETH },
+  },
+  polygon: {
+    tokens: { spUSDC, spUSDT },
   }
 } = addressBook;
 
@@ -43,7 +53,11 @@ const tokens = {
     [USDC, sarUSDC],
     [USDT, sarUSDT],
     [ETH, sarETH],
-  ]
+  ],
+  polygon: [
+    [USDT, spUSDT],
+    [USDC, spUSDC],
+  ],
 };
 
 const getStargatePrices = async (tokenPrices, tokens, chainId) => {
@@ -84,7 +98,8 @@ const fetchStargatePrices = async tokenPrices =>
     getStargatePrices(tokenPrices, tokens.bsc, BSC_CHAIN_ID),
     getStargatePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
     getStargatePrices(tokenPrices, tokens.optimism, OPTIMISM_CHAIN_ID),
-    getStargatePrices(tokenPrices, tokens.arbitrum, ARBITRUM_CHAIN_ID)
+    getStargatePrices(tokenPrices, tokens.arbitrum, ARBITRUM_CHAIN_ID),
+    getStargatePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID)
   ]).then(data =>
     data
       .flat()
