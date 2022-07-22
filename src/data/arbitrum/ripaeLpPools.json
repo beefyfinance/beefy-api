@@ -33,7 +33,7 @@
     "lp1": {
       "address": "0x83EA9d8748A7AD9f2F12B2A2F7a45CE47A862ac9",
       "oracle": "tokens",
-      "oracleId": "sETH",
+      "oracleId": "psETH",
       "decimals": "1e18"
     }
   }
