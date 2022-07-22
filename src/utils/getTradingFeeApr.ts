@@ -153,11 +153,11 @@ export const getTradingFeeAprBalancerFTM = async (
 
   try {
     const queryCurrent = await client.query({
-      query: poolsDataQuery(addressesToLowercase(pairAddresses), currentBlock),
+      query: poolsDataQuery(addressesToLowercase(pairAddresses), currentBlock - 600),
     });
 
     const queryPast = await client.query({
-      query: poolsDataQuery(addressesToLowercase(pairAddresses), pastBlock),
+      query: poolsDataQuery(addressesToLowercase(pairAddresses), pastBlock - 600),
     });
 
     const poolDayDatas0 = queryCurrent.data.pools;

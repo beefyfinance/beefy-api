@@ -9,7 +9,7 @@ const { BASE_HPY } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
-const { getYearlyPlatformTradingFees } = require('../../../utils/getTradingFeeApr');
+const { getYearlyTradingFeesForProtocols } = require('../../../utils/getTradingFeeApr');
 const { spookyClient } = require('../../../apollo/client');
 
 const oracle = 'tokens';
@@ -36,7 +36,10 @@ const getSpookyBooApy = async () => {
     .dividedBy(DECIMALS);
   const xBOOPrice = await fetchPrice({ oracle: 'tokens', id: 'xBOO' });
 
-  const yearlyTradingFees = await getYearlyPlatformTradingFees(spookyClient, liquidityProviderFee);
+  const yearlyTradingFees = await getYearlyTradingFeesForProtocols(
+    spookyClient,
+    liquidityProviderFee
+  );
 
   const totalStakedInUsd = balance.times(xBOOPrice).dividedBy(DECIMALS);
 

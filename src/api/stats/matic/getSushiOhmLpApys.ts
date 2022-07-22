@@ -9,7 +9,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/sushiOhmLpPools.json');
 const { POLYGON_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
 const { getTradingFeeAprSushi: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-const { sushiClient } = require('../../../apollo/client');
+const { sushiPolyClient } = require('../../../apollo/client');
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import getApyBreakdown from '../common/getApyBreakdown';
 
@@ -22,7 +22,7 @@ const secondsPerYear = 31536000;
 
 const getSushiOhmLpApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(sushiClient, pairAddresses, SUSHI_LPF);
+  const tradingAprs = await getTradingFeeApr(sushiPolyClient, pairAddresses, SUSHI_LPF);
   const farmApys = await getFarmApys(pools);
 
   return getApyBreakdown(pools, tradingAprs, farmApys, SUSHI_LPF);

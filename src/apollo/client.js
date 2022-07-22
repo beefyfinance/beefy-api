@@ -24,9 +24,7 @@ function client(url) {
 
 const apePolyClient = client('https://api.thegraph.com/subgraphs/name/apeswapfinance/dex-polygon');
 const sushiPolyClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/matic-exchange');
-const sushiOneClient = client(
-  'https://sushi.graph.t.hmny.io/subgraphs/name/sushiswap/harmony-exchange'
-);
+const sushiOneClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/exchange-harmony');
 const sushiArbitrumClient = client(
   'https://api.thegraph.com/subgraphs/name/sushiswap/arbitrum-exchange'
 );
@@ -41,9 +39,7 @@ const sushiFuseClient = client('https://api.thegraph.com/subgraphs/name/sushiswa
 const comethClient = client('https://api.thegraph.com/subgraphs/name/cometh-game/comethswap');
 const quickClient = client('https://api.thegraph.com/subgraphs/name/sameepsi/quickswap06');
 const polyzapClient = client('https://api.thegraph.com/subgraphs/name/polyzap/exchange');
-const spookyClient = client(
-  'https://api.fura.org/subgraphs/name/spookyswap'
-);
+const spookyClient = client('https://api.fura.org/subgraphs/name/spookyswap');
 const spiritClient = client(
   'https://api.thegraph.com/subgraphs/name/layer3org/spiritswap-analytics'
 );
@@ -77,7 +73,7 @@ const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph
 const kyberClient = client(
   'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic'
 );
-const beetClient = client('https://graph-node.beets-ftm-node.com/subgraphs/name/beethovenx');
+const beetClient = client('https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx');
 const beetOpClient = client(
   'https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx-optimism'
 );
@@ -90,9 +86,9 @@ const balancerPolyClient = client(
 const beamClient = client('https://api.thegraph.com/subgraphs/name/beamswap/beamswap-dex');
 const solarflareClient = client('https://analytics.solarflare.io/api/subgraph');
 const stellaClient = client('https://api.thegraph.com/subgraphs/name/stellaswap/stella-swap');
-const vvsClient = client('https://graph.vvs.finance/exchange');
+const vvsClient = client('https://graph.cronoslabs.com/subgraphs/name/vvs/exchange');
 const finnClient = client(
-  'https://graph-node.huckleberry.finance/subgraphs/name/huckleberry/huckleberry-subgraph'
+  'https://api.thegraph.com/subgraphs/name/huckleberrydex/huckleberry-subgraph'
 );
 const dinoClient = client('https://api.thegraph.com/subgraphs/name/jannerveglobal/dino-swap-dex');
 const fusefiClient = client('https://api.thegraph.com/subgraphs/name/fuseio/fuseswap');
