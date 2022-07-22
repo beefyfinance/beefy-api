@@ -43,8 +43,7 @@ const _tokens = {
     address: '0x570A5D26f7765Ecb712C0924E4De545B89fD43dF',
     chainId: 56,
     decimals: 18,
-    logoURI:
-      'https://biswap.org/images/tokens/sol.svg',
+    logoURI: 'https://biswap.org/images/tokens/sol.svg',
     website: 'https://solana.com',
     description:
       'Solana is the fastest blockchain in the world and the fastest growing ecosystem in crypto, with thousands of projects spanning DeFi, NFTs, Web3 and more.',
@@ -3599,10 +3598,22 @@ const _tokens = {
     address: '0x67b725d7e342d7B611fa85e859Df9697D9378B2e',
     chainId: 56,
     decimals: 18,
-    logoURI:
-      'https://biswap.org/images/tokens/sand.svg',
+    logoURI: 'https://biswap.org/images/tokens/sand.svg',
     website: 'https://www.sandbox.game/',
-    description: 'SAND is the utility token used throughout The Sandbox ecosystem as the basis for transactions and interactions.',
+    description:
+      'SAND is the utility token used throughout The Sandbox ecosystem as the basis for transactions and interactions.',
+  },
+  OLE: {
+    name: 'OpenLeverage',
+    symbol: 'OLE',
+    address: '0xa865197A84E780957422237B5D152772654341F3',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xa865197A84E780957422237B5D152772654341F3.png',
+    website: 'https://openleverage.finance/',
+    description:
+      'OpenLeverage is a permissionless margin trading protocol that enables traders or other applications to long or short any trading pair on DEXs efficiently and securely.',
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
