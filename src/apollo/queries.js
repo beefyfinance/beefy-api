@@ -131,5 +131,4 @@ module.exports = {
   joeDayDataRangeQuery,
   balancerDataQuery,
   protocolDayDataRangeQuery,
-  booDayDataQuery,
 };
