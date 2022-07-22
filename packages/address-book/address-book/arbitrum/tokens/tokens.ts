@@ -222,7 +222,7 @@ const _tokens = {
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: '',
   },
-  pCRO: {
+  pETH: {
     name: 'pETH',
     symbol: 'pETH',
     address: '0xA0dF47432d9d88bcc040E9ee66dDC7E17A882715',
