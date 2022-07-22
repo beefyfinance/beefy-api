@@ -38,25 +38,6 @@
     }
   },
   {
-    "name": "baby-atom-usdt",
-    "address": "0x42932A3c73DF05586aa5cfD4f3a9a61655c98b45",
-    "decimals": "1e18",
-    "poolId": 104,
-    "chainId": 56,
-    "lp0": {
-      "address": "0x0Eb3a705fc54725037CC9e008bDede697f62F335",
-      "oracle": "tokens",
-      "oracleId": "ATOM",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "baby-usdt-usdc",
     "address": "0xcc21b0A9A01fcD2103ff75614480Bd6a07869053",
     "decimals": "1e18",

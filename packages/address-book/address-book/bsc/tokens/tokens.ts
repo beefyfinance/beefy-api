@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  MIX: {
+    name: 'MixMarvel Token',
+    symbol: 'MIX',
+    address: '0x398f7827DcCbeFe6990478876bBF3612D93baF05',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x398f7827DcCbeFe6990478876bBF3612D93baF05.png',
+    website: 'https://www.mixmarvel.com/',
+    description:
+      'MixMarvel is a blockchain content-incubation platform and creators community. MixMarvel provides content-incubation services, including asset distribution, content publication, infrastructure construction, community co-creation, and other diversified scenarios, to link investors and mass users, and create a new decentralized application ecosystem.',
+  },
   jBRL: {
     name: 'Jarvis Synthetic Brazilian Real',
     symbol: 'jBRL',
