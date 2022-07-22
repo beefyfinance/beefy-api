@@ -131,9 +131,9 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     logoURI: '',
-    website: 'https://tor.cash/',
+    website: 'https://tor.hector.network/',
     description:
-      'TOR is a truly algorithmic stablecoin built on the Fantom Opera Chain. It has a dynamic supply which is determined by supply and demand which ensures it is always worth $1.',
+      'TOR is a fully collateralized stablecoin which acts as a foundational pillar within the Hector Network Ecosystem. Its unique smart contracts made it the first of its kind, creating positive price action for the HEC token each time a TOR coin is minted and empowering Hector Network to become deflationary.',
   },
   sFTMx: {
     name: 'sFTMx',
@@ -1409,9 +1409,9 @@ const _tokens = {
     decimals: 18,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x94CcF60f700146BeA8eF7832820800E2dFa92EdA.svg',
-    website: 'https://app.hectordao.com/#/stake',
+    website: 'https://hector.network/',
     description:
-      'Hector DAO aims to become the de-facto reserve currency of the FTM Opera network, one which is truly owned and maintained by a decentralised protocol which serves the majority. Our goal is for $HEC to be a common trading pair which is backed by real assets.',
+      'Hector Network is developing an expansive web 3 ecosystem for a visionary future. The foundations of the ecosystem, supported by the HEC utility token and TOR stablecoin, are functionality, accessibility and community. In conjunction with their growing list of partners, Hector Network is expanding crosschain and is dedicated to mass adoption.',
   },
   OOE: {
     name: 'OpenOcean',
