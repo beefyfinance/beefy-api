@@ -9,6 +9,25 @@
       "address": "0x398f7827DcCbeFe6990478876bBF3612D93baF05",
       "oracle": "tokens",
       "oracleId": "MIX",
+       "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-ole-busd",
+    "address": "0xe9F369298565B60a0DC19A6fA93cEE934Fd1A58c",
+    "decimals": "1e18",
+    "poolId": 108,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xa865197A84E780957422237B5D152772654341F3",
+      "oracle": "tokens",
+      "oracleId": "OLE",
       "decimals": "1e18"
     },
     "lp1": {

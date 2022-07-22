@@ -3615,5 +3615,17 @@ const _tokens = {
     description:
       'SAND is the utility token used throughout The Sandbox ecosystem as the basis for transactions and interactions.',
   },
+  OLE: {
+    name: 'OpenLeverage',
+    symbol: 'OLE',
+    address: '0xa865197A84E780957422237B5D152772654341F3',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xa865197A84E780957422237B5D152772654341F3.png',
+    website: 'https://openleverage.finance/',
+    description:
+      'OpenLeverage is a permissionless margin trading protocol that enables traders or other applications to long or short any trading pair on DEXs efficiently and securely.',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
