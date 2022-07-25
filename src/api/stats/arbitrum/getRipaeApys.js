@@ -13,7 +13,7 @@ const getRipaeApys = async () =>
     tokenPerBlock: 'paePerSecond',
     hasMultiplier: false,
     pools: pools,
-    oracleId: 'sETH',
+    oracleId: 'psETH',
     oracle: 'tokens',
     decimals: '1e18',
     secondsPerBlock: 1,
