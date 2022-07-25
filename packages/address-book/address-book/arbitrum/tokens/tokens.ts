@@ -212,8 +212,8 @@ const _tokens = {
       'Vesta Finance allows you to borrow collateralized stablecoin VST against supported crypto assets with no interest rate.',
   },
   psETH: {
-    name: 'sETH',
-    symbol: 'sETH',
+    name: 'Ripae sETH',
+    symbol: 'psETH',
     address: '0x83EA9d8748A7AD9f2F12B2A2F7a45CE47A862ac9',
     chainId: 42161,
     decimals: 18,
