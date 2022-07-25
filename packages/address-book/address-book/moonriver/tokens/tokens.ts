@@ -402,7 +402,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080.svg',
     website: 'https://kusama.network/',
     description:
-      'Unprecedented interoperability and scalability for blockchain developers who want to quickly push the limits of what’s possible. Built using Substrate with nearly the same codebase and industry-leading multichain infrastructure as Kusama’s cousin, Polkadot.',
+      'xcKSM is the Moonriver bridged verison of KSM from Kusama. Kusama is an experimental and development environment for features that will eventually be deployed to Polkadot.',
   },
   xcRMRK: {
     name: 'xcRMRK',
@@ -438,7 +438,7 @@ const _tokens = {
       'https://moonriver.moonscan.io/token/images/kintsugibtc_32.png',
     website: 'https://kusama.network/',
     description:
-      'Unprecedented interoperability and scalability for blockchain developers who want to quickly push the limits of what’s possible. Built using Substrate with nearly the same codebase and industry-leading multichain infrastructure as Kusama’s cousin, Polkadot.',
+      'xckBTC is the Moonriver bridged verison of kBTC. kBTC is an overcollaterized Bitcoin stablecoin asset on Kusama.',
   },
 } as const;
 
