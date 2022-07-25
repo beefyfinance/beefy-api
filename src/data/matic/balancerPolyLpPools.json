@@ -1,5 +1,37 @@
 [
   {
+    "name": "balancer-wbtc-usdc-eth",
+    "address": "0x03cD191F589d12b0582a99808cf19851E468E6B5",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x0F09F70Ed59202c77aC667f574A5f79bC65CeA48",
+    "vaultPoolId": "0x03cd191f589d12b0582a99808cf19851e468e6b500010000000000000000000a",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x4b878e9727B9E91fDaE37CdD85949f4367220187",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-link-eth-bal-aave",
     "address": "0xce66904B68f1f070332Cbc631DE7ee98B650b499",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
