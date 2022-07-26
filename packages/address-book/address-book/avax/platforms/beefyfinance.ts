@@ -6,7 +6,7 @@ export const beefyfinance = {
   treasuryMultisig,
   strategyOwner: '0x37DC61A76113E7840d4A8F1c1B799cC9ac5Aa854',
   vaultOwner: '0x690216f462615b749bEEB5AA3f1d89a2BEc45Ecf',
-  keeper: '0x340465d9D2EbDE78F15a3870884757584F97aBB4',
+  keeper: '0x4fED5491693007f0CD49f4614FFC38Ab6A04B619',
   treasurer: treasuryMultisig,
   launchpoolOwner: devMultisig,
   rewardPool: '0x86d38c6b6313c5A3021D68D1F57CF5e69197592A',
