@@ -16,6 +16,18 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  BIFI: {
+    name: 'Beefy.Finance',
+    symbol: 'BIFI',
+    address: '0x4E720DD3Ac5CFe1e1fbDE4935f386Bb1C66F4642',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://beefy.com',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+  },
   BEETS: {
     name: 'Beethoven X Token',
     symbol: 'BEETS',
