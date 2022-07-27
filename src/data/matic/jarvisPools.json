@@ -1,5 +1,18 @@
 [
   {
+    "name": "jarvis-2eurp",
+    "pool": "0x0f110c55EfE62c16D553A3d3464B77e1853d0e97",
+    "address": "0x0f110c55EfE62c16D553A3d3464B77e1853d0e97",
+    "masterchef": "0x2BC39d179FAfC32B7796DDA3b936e491C87D245b",
+    "poolId": 0,
+    "chainId": 137,
+    "oracleId": "jEUR",
+    "rewardToken": "JRT-MIMO-SEP22",
+    "rewardOracle": "lps",
+    "token": "0x0f110c55EfE62c16D553A3d3464B77e1853d0e97",
+    "baseApyKey": "PARjEUR-f"
+  },
+  {
     "name": "jarvis-2eurt",
     "pool": "0x2C3cc8e698890271c8141be9F6fD6243d56B39f1",
     "address": "0x2C3cc8e698890271c8141be9F6fD6243d56B39f1",
@@ -42,11 +55,11 @@
     "name": "jarvis-2eur",
     "pool": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
     "address": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
-    "masterchef": "0x834579150Cc521e0afAB15568930e3BEc67B865A",
+    "masterchef": "0x9D5d2509C78f7dfEE7FD1b82a49c00Bc9dA70D28",
     "poolId": 0,
     "chainId": 137,
     "oracleId": "jEUR",
-    "rewardToken": "agDEN-JULY22",
+    "rewardToken": "JRT-ANGLE-SEP22",
     "rewardOracle": "lps",
     "token": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
     "baseApyKey": "agEURjEUR-f"

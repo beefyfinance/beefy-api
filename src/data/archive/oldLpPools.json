@@ -36,24 +36,6 @@
     }
   },
   {
-    "name": "kyber-usdc-jrt-sep22",
-    "address": "0xD5555d642b9728147a0B777B0859654665346714",
-    "decimals": "1e18",
-    "chainId": 137,
-    "lp0": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xcE0248f30d565555B793f42e46E58879F2cDCCa4",
-      "oracle": "tokens",
-      "oracleId": "JRT-SEP22",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "boo-stg-usdc",
     "address": "0x0a80C53AfC6DE9dfB2017781436BfE5090F4aCB4",
     "decimals": "1e18",

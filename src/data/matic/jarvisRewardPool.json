@@ -1,5 +1,41 @@
 [
   {
+    "name": "kyber-2eur-jrt-angle-sep22",
+    "address": "0x8c2fe36E51657385d3091E92FbACb79263867F16",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
+      "oracle": "tokens",
+      "oracleId": "jarvis-2eur",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6966D20E33A15baFde7E856147E4E5EaF418E145",
+      "oracle": "tokens",
+      "oracleId": "JRT-ANGLE-SEP22",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "kyber-2eurp-jrt-mimo-sep22",
+    "address": "0x181650dde0A3a457F9e82B00052184AC3FEAAdF3",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0f110c55EfE62c16D553A3d3464B77e1853d0e97",
+      "oracle": "tokens",
+      "oracleId": "jarvis-2eurp",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAFC780bb79E308990c7387AB8338160bA8071B67",
+      "oracle": "tokens",
+      "oracleId": "JRT-MIMO-SEP22",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "kyber-2eur-agden-july22",
     "address": "0x7d85cCf1B7cbAAB68c580E14fA8C92E32704404f",
     "decimals": "1e18",
