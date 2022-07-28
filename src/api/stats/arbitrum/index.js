@@ -1,5 +1,4 @@
 const { getSushiLpApys } = require('./getSushiApys');
-const { getArbiNyanApys } = require('./getArbiNyanApys');
 const { getCurveApys } = require('./getCurveApys');
 const { getSushiMimApys } = require('./getSushiMimApys');
 const { getSpellApys } = require('./getSpellApys');
@@ -8,11 +7,12 @@ const { getArbiBifiGovApy } = require('./getArbiBifiGovApy');
 const { getArbiBifiMaxiApy } = require('./getArbiBifiMaxiApy');
 const getStargateArbApys = require('./getStargateArbApys');
 const getRipaeApys = require('./getRipaeApys');
+const getRadiantLpApys = require('./getRadiantLpApys');
 
 const getApys = [
+  getRadiantLpApys,
   getRipaeApys,
   getSushiLpApys,
-  getArbiNyanApys,
   getCurveApys,
   getSushiMimApys,
   getSpellApys,

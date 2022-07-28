@@ -147,7 +147,6 @@ import elkPools from '../../data/degens/elkLpPools.json';
 import longPools from '../../data/degens/longLpPools.json';
 import CZFPools from '../../data/degens/CZFLpPools.json';
 import sushiArbPools from '../../data/arbitrum/sushiLpPools.json';
-import arbiNyanPools from '../../data/arbitrum/arbiNyanLpPools.json';
 import pearzapBscPools from '../../data/degens/pearzapLpPools.json';
 import sandmanPools from '../../data/matic/sandmanLpPools.json';
 import sushiMimPools from '../../data/arbitrum/sushiLpMimPools.json';
@@ -238,6 +237,7 @@ import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
 import dystopiaPools from '../../data/matic/dystopiaLpPools.json';
 import swapsiclePools from '../../data/avax/siclePools.json';
 import ripaeArbitrumPools from '../../data/arbitrum/ripaeLpPools.json';
+import radiantPools from '../../data/arbitrum/radiantLpPools.json';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -245,6 +245,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...radiantPools,
   ...ripaeArbitrumPools,
   ...swapsiclePools,
   ...ripaeCronosPools,
@@ -333,7 +334,6 @@ const pools = [
   ...sandmanPools,
   ...pearzapBscPools,
   ...CZFPools,
-  ...arbiNyanPools,
   ...sushiArbPools,
   ...longPools,
   ...elkPools,

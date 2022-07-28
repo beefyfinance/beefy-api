@@ -233,6 +233,17 @@ const _tokens = {
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: '',
   },
+  RDNT: {
+    name: 'RDNT',
+    symbol: 'RDNT',
+    address: '0x0C4681e6C0235179ec3D4F4fc4DF3d14FDD96017',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://radiant.capital/',
+    description:
+      'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
