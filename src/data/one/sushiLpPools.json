@@ -369,7 +369,7 @@
     "lp0": {
       "address": "0x985458e523db3d53125813ed68c274899e9dfab4",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "1USDC",
       "decimals": "1e6"
     },
     "lp1": {
