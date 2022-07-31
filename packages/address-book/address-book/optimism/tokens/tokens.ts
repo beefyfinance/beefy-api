@@ -332,6 +332,39 @@ const _tokens = {
     description:
       'beVELO is a Beefy-wrapped version of veNFT Velo. Holding beVELO will be a great way to earn a bunch of VELO. Beefy will distribute weekly trading fees and bribe rewards swapped to VELO to beVELO stakers. beVELO holders will recieve the same rewards as max lock veNFT holders',
   },
+  agEUR: {
+    name: 'agEUR',
+    symbol: 'agEUR',
+    address: '0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.angle.money/',
+    description:
+      'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+  },
+  L2DAO: {
+    name: 'Layer2DAO',
+    symbol: 'L2DAO',
+    address: '0xd52f94DF742a6F4B4C8b033369fE13A41782Bf44',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.layer2dao.org/#/',
+    description:
+      'Layer2DAO is expanding the Ethereum L2 ecosystem and investing in L2 ecosystem projects. The DAO uses its treasury to invest into high-impact L2 protocols and ecosystem plays, serving as a diversified venture fund for investors looking to gain exposure to the L2 ecosystem growth. It also provides liquidity, depositing, and staking, perpetually reinvesting proceeds back into the DAO.',
+  },
+  AELIN: {
+    name: 'Aelin Token',
+    symbol: 'AELIN',
+    address: '0x61BAADcF22d2565B0F471b291C475db5555e0b76',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://aelin.xyz/',
+    description:
+      'A permissionless multi-chain protocol for capital raises and OTC deals. No need for VCs, Aelin decentralizes fundraising',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

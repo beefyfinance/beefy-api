@@ -61,6 +61,11 @@ const args = yargs.options({
     demandOption: true,
     describe: 'provide the solidly LP for gauge',
   },
+  newFee: {
+    type: 'bool',
+    demandOption: true,
+    describe: 'If the beefy fee is 9.5% use true else use false',
+  },
 }).argv;
 
 const poolPrefix = projects[args['project']].prefix;
@@ -126,6 +131,7 @@ async function main() {
     gauge: farm.newGauge,
     decimals: `1e${lp.decimals}`,
     chainId: chainId,
+    beefyFee: args['newFee'] ? 0.095 : 0.045,
     lp0: {
       address: token0.address,
       oracle: 'tokens',

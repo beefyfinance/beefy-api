@@ -6,17 +6,18 @@ import { getContractWithProvider } from '../../../utils/contractHelper';
 const IGauge = require('../../../abis/ISolidlyGauge.json');
 const IVe = require('../../../abis/IVe.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-import getApyBreakdown from '../common/getApyBreakdown';
+import { getApyBreakdownWithFee } from '../common/getApyBreakdown';
 import { getContract } from '../../../utils/contractHelper';
 
 export const getSolidlyGaugeApys = async params => {
-  const farmApys = await getFarmApys(params);
+  const apysAndFees = await getFarmApys(params);
 
-  return getApyBreakdown(params.pools, 0, farmApys, 0);
+  return getApyBreakdownWithFee(params.pools, 0, apysAndFees.farmApys, 0, apysAndFees.beefyFees);
 };
 
 const getFarmApys = async params => {
   const apys = [];
+  const fees = [];
   const rewardTokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
   const { balances, rewardRates, depositBalances } = await getPoolsData(params);
   let supply = 0;
@@ -57,6 +58,7 @@ const getFarmApys = async params => {
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
+    pool.beefyFee ? fees.push(pool.beefyFee) : fees.push(0.045);
 
     if (params.log) {
       console.log(
@@ -67,7 +69,10 @@ const getFarmApys = async params => {
       );
     }
   }
-  return apys;
+  return {
+    farmApys: apys,
+    beefyFees: fees,
+  };
 };
 
 const getPoolsData = async params => {
