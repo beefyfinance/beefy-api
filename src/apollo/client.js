@@ -37,7 +37,7 @@ const sushiFantomClient = client(
 );
 const sushiFuseClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/fuse-exchange');
 const comethClient = client('https://api.thegraph.com/subgraphs/name/cometh-game/comethswap');
-const quickClient = client('https://api.thegraph.com/subgraphs/name/sameepsi/quickswap06');
+const quickClient = client('https://api.fura.org/subgraphs/name/quickswap');
 const polyzapClient = client('https://api.thegraph.com/subgraphs/name/polyzap/exchange');
 const spookyClient = client('https://api.fura.org/subgraphs/name/spookyswap');
 const spiritClient = client(
