@@ -2139,11 +2139,11 @@ const _tokens = {
     address: '0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63',
     chainId: 56,
     decimals: 18,
-    website: 'https://trustwallet.com/',
+    website: 'https://venus.io/',
     description:
-      'Trust Wallet Token, or TWT, is a simple BEP-20 utility token that provides a range of benefits and incentives to Trust Wallet users.',
+      'Venus is an algorithmic money market and synthetic stablecoin protocol launched exclusively on BNB Chain.',
     logoURI:
-      'https://tokens.pancakeswap.finance/images/0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63.png',
+      'https://tokens.pancakeswap.finance/images/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63.png',
   },
   Beer: {
     name: 'Beer Garden',
