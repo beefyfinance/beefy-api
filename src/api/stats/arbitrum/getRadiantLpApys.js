@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { arbitrumWeb3: web3 } = require('../../../utils/web3');
 
 import getApyBreakdown from '../common/getApyBreakdown';
-import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
+import { getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
 import { sushiArbitrumClient } from '../../../apollo/client';
 import { SUSHI_LPF } from '../../../constants';
 import { getContractWithProvider } from '../../../utils/contractHelper';
@@ -19,7 +19,7 @@ const DECIMALS = '1e18';
 
 const getRadiantLpApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(sushiArbitrumClient, pairAddresses, SUSHI_LPF);
+  const tradingAprs = await getTradingFeeAprSushi(sushiArbitrumClient, pairAddresses, SUSHI_LPF);
 
   const farmApys = [];
   let promises = [];
