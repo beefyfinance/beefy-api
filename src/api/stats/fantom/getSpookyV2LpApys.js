@@ -25,8 +25,6 @@ const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
 const liquidityProviderFee = SPOOKY_LPF;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getSpookyV2LpApys = async () => {
   let apys = {};
@@ -42,6 +40,9 @@ const getSpookyV2LpApys = async () => {
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
+
+    const beefyPerformanceFee = pool.beefyFee ? pool.beefyFee : 0.045;
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');

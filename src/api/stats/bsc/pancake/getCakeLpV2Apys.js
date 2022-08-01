@@ -22,8 +22,6 @@ const secondsPerBlock = 3;
 const secondsPerYear = 31536000;
 
 const pancakeLiquidityProviderFee = PCS_LPF;
-const beefyPerformanceFee = 0.095; // 0.045 beefy fees + 0.05 single Cake fee
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 export const getCakeLpV2Apys = async () => {
   let apys = {};
@@ -43,6 +41,9 @@ export const getCakeLpV2Apys = async () => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
+    const beefyPerformanceFee = pool.beefyFee ? pool.beefyFee : 0.045;
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
@@ -56,7 +57,13 @@ export const getCakeLpV2Apys = async () => {
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const totalApy = getFarmWithTradingFeesApy(
+      simpleApy,
+      tradingApr,
+      BASE_HPY,
+      1,
+      shareAfterBeefyPerformanceFee
+    );
     const legacyApyValue = { [pool.name]: totalApy };
     // Add token to APYs object
     apys = { ...apys, ...legacyApyValue };

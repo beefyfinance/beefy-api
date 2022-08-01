@@ -24,23 +24,7 @@ export const getApyBreakdown = (
   pools: { name: string; address: string; beefyFee?: number }[],
   tradingAprs: Record<string, BigNumber>,
   farmAprs: BigNumber[],
-  providerFee: number,
-  performanceFee: number = BEEFY_PERFORMANCE_FEE
-): ApyBreakdownResult => {
-  let result: ApyBreakdownResult = {
-    apys: {},
-    apyBreakdowns: {},
-  };
-  result = getApyBreakdownWithFee(pools, tradingAprs, farmAprs, providerFee, performanceFee);
-  return result;
-};
-
-export const getApyBreakdownWithFee = (
-  pools: { name: string; address: string; beefyFee?: number }[],
-  tradingAprs: Record<string, BigNumber>,
-  farmAprs: BigNumber[],
-  providerFee: number,
-  performanceFee: number
+  providerFee: number
 ): ApyBreakdownResult => {
   const result: ApyBreakdownResult = {
     apys: {},
