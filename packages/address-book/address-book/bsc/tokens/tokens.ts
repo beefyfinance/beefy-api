@@ -3627,5 +3627,16 @@ const _tokens = {
     description:
       'OpenLeverage is a permissionless margin trading protocol that enables traders or other applications to long or short any trading pair on DEXs efficiently and securely.',
   },
+  BLID: {
+    name: 'Bolide',
+    symbol: 'BLID',
+    address: '0x766AFcf83Fd5eaf884B3d529b432CA27A6d84617',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://invest.bolide.fi/img/token_logo_255x255.png',
+    website: 'https://bolide.fi/',
+    description:
+      'Bolide is a next-generation decentralized yield aggregator that optimizes the deployment of digital assets across multiple DeFi investment platforms to save investors time, money and earn them the highest possible yields.',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
