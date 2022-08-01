@@ -161,8 +161,8 @@
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e18",
-    "borrowDepth": 4,
-    "borrowPercent": 0.67
+    "borrowDepth": 1,
+    "borrowPercent": 0.01
   },
   {
     "name": "valas-tusd",
