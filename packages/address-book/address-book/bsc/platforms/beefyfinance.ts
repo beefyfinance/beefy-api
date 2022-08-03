@@ -20,4 +20,5 @@ export const beefyfinance = {
   oldRewardPool: '0x453D4Ba9a2D594314DF88564248497F7D74d6b2C',
   oldTimelock: '0x8f0fFc8C7FC3157697Bdbf94B328F7141d6B41de',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
+  beefyFeeConfig: '0x97F86f2dC863D98e423E288938dF257D1b6e1553',
 } as const;
