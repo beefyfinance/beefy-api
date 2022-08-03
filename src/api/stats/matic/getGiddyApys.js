@@ -18,7 +18,7 @@ const getGiddyApys = async () => {
     secondsPerBlock: 1,
     pools: pools.concat(lpPools),
     oracle: 'tokens',
-    oracleId: 'GDDY',
+    oracleId: 'GIDDY',
     decimals: '1e18',
     liquidityProviderFee: 0.003,
     tradingFeeInfoClient: sushiClient,
