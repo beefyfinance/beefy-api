@@ -1,15 +1,15 @@
-const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { web3Factory, multicallAddress } = require('./web3');
-const StargateLP = require('../abis/StargateLP.json');
+import BigNumber from 'bignumber.js';
+import { MultiCall } from 'eth-multicall';
+import { web3Factory, multicallAddress } from './web3';
+import StargateLP from '../abis/StargateLP.json';
 
 import {
-    FANTOM_CHAIN_ID,
-    BSC_CHAIN_ID,
-    AVAX_CHAIN_ID,
-    OPTIMISM_CHAIN_ID,
-    ARBITRUM_CHAIN_ID,
-    POLYGON_CHAIN_ID
+  FANTOM_CHAIN_ID,
+  BSC_CHAIN_ID,
+  AVAX_CHAIN_ID,
+  OPTIMISM_CHAIN_ID,
+  ARBITRUM_CHAIN_ID,
+  POLYGON_CHAIN_ID,
 } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 import { getContract } from './contractHelper';
@@ -32,7 +32,7 @@ const {
   },
   polygon: {
     tokens: { spUSDC, spUSDT },
-  }
+  },
 } = addressBook;
 
 const tokens = {
@@ -99,11 +99,11 @@ const fetchStargatePrices = async tokenPrices =>
     getStargatePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
     getStargatePrices(tokenPrices, tokens.optimism, OPTIMISM_CHAIN_ID),
     getStargatePrices(tokenPrices, tokens.arbitrum, ARBITRUM_CHAIN_ID),
-    getStargatePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID)
+    getStargatePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
   ]).then(data =>
     data
       .flat()
       .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})
   );
 
-module.exports = { fetchStargatePrices };
+export { fetchStargatePrices };

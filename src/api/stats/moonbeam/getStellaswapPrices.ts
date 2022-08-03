@@ -1,14 +1,14 @@
-const BigNumber = require('bignumber.js');
+import BigNumber from 'bignumber.js';
 import { MultiCall } from 'eth-multicall';
-const ISolarStablePool = require('../../../abis/moonriver/ISolarStablePool.json');
-const { moonriverWeb3: web3, multicallAddress } = require('../../../utils/web3');
-import { MOONRIVER_CHAIN_ID as chainId } from '../../../constants';
+import ISolarStablePool from '../../../abis/moonriver/ISolarStablePool.json';
+import { moonbeamWeb3 as web3, multicallAddress } from '../../../utils/web3';
+import { MOONBEAM_CHAIN_ID as chainId } from '../../../constants';
 import { getContract } from '../../../utils/contractHelper';
-const pools = require('../../../data/moonriver/solarbeamStablePools.json');
+import pools from '../../../data/moonbeam/stellaswapStablePools.json';
 
 const DECIMALS = '1e18';
 
-const getSolarbeamPrices = async tokenPrices => {
+const getStellaswapPrices = async tokenPrices => {
   let prices = {};
 
   const virtualPrices = await getVirtualPrice(tokenPrices);
@@ -51,4 +51,4 @@ const getTokenPrice = (tokenPrices, oracleId) => {
   return tokenPrice;
 };
 
-module.exports = getSolarbeamPrices;
+export default getStellaswapPrices;

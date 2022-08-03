@@ -1,7 +1,7 @@
-const getBalancerPrices = require('../common/getBalancerPrices');
-const { arbitrumWeb3: web3 } = require('../../../utils/web3');
-const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
-const balancerPools = require('../../../data/arbitrum/balancerArbLpPools.json');
+import getBalancerPrices from '../common/getBalancerPrices';
+import { arbitrumWeb3 as web3 } from '../../../utils/web3';
+import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
+import balancerPools from '../../../data/arbitrum/balancerArbLpPools.json';
 
 const pools = [...balancerPools];
 
@@ -9,4 +9,4 @@ const getBalancerArbPrices = async tokenPrices => {
   return await getBalancerPrices(web3, chainId, pools, tokenPrices);
 };
 
-module.exports = getBalancerArbPrices;
+export default getBalancerArbPrices;

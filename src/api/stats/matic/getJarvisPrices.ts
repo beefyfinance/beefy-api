@@ -1,7 +1,7 @@
-const getCurvePricesCommon = require('../common/curve/getCurvePricesCommon');
-const { polygonWeb3: web3 } = require('../../../utils/web3');
-const pools = require('../../../data/matic/jarvisPools.json');
-const rewardPool = require('../../../data/matic/jarvisRewardPool.json');
+import getCurvePricesCommon from '../common/curve/getCurvePricesCommon';
+import { polygonWeb3 as web3 } from '../../../utils/web3';
+import pools from '../../../data/matic/jarvisPools.json';
+import rewardPool from '../../../data/matic/jarvisRewardPool.json';
 import { fetchDmmPrices } from '../../../utils/fetchDmmPrices';
 
 const getJarvisPrices = async tokenPrices => {
@@ -10,4 +10,4 @@ const getJarvisPrices = async tokenPrices => {
   return dmmPrices.tokenPrices;
 };
 
-module.exports = getJarvisPrices;
+export default getJarvisPrices;

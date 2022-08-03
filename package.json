@@ -10,6 +10,7 @@
     "heaptvl": "node -r ts-node/register --heap-prof src/api/stats/getTvl.js",
     "dev": "nodemon -e js,ts,json src/app.ts",
     "test": "nyc ava",
+    "test:ts": "tsc --noEmit",
     "prettier:check": "prettier --check src/**/*",
     "prettier:fix": "prettier --write src/**/*",
     "prepare": "husky install",

@@ -1,15 +1,15 @@
 import { ChainId } from '../packages/address-book/address-book';
 
-const yargs = require('yargs');
-const fs = require('fs');
-const path = require('path');
+import yargs from 'yargs';
+import fs from 'fs';
+import path from 'path';
 
-const { ethers } = require('ethers');
-const { MULTICHAIN_RPC } = require('../src/constants');
+import { ethers } from 'ethers';
+import { MULTICHAIN_RPC } from '../src/constants';
 
-const FarmABI = require('../src/abis/IOmnifarmFarm.json');
-const LPPairABI = require('../src/abis/LPPair.json');
-const ERC20ABI = require('../src/abis/ERC20.json');
+import FarmABI from '../src/abis/IOmnifarmFarm.json';
+import LPPairABI from '../src/abis/LPPair.json';
+import ERC20ABI from '../src/abis/ERC20.json';
 
 const projects = {
   omni: {

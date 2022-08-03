@@ -1,11 +1,11 @@
 import { ChainId } from '../packages/address-book/address-book';
 
-const yargs = require('yargs');
+import yargs from 'yargs';
 
-const { ethers } = require('ethers');
-const { MULTICHAIN_RPC } = require('../src/constants');
+import { ethers } from 'ethers';
+import { MULTICHAIN_RPC } from '../src/constants';
 
-const ERC20ABI = require('../src/abis/ERC20.json');
+import ERC20ABI from '../src/abis/ERC20.json';
 
 const args = yargs.options({
   network: {
