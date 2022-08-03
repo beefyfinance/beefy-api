@@ -5,6 +5,7 @@
     "decimals": "1e18",
     "poolId": 8,
     "chainId": 137,
+    "beefyFee": 0.095,
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",

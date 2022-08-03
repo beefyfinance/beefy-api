@@ -3,6 +3,7 @@
     "name": "giddy-gddy",
     "address": "0x67eB41A14C0fe5CD701FC9d5A3D6597A72F641a6",
     "decimals": "1e18",
+    "beefyFee": 0.095,
     "poolId": 0,
     "chainId": 137,
     "oracle": "tokens",
