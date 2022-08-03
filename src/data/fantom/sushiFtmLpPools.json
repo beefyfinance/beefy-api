@@ -1,6 +1,6 @@
 [
   {
-    "name": "sushi-yfi-eth",
+    "name": "sushi-ftm-yfi-eth",
     "address": "0xe3eD4237532E6095749a6C984bFCb449C2b86122",
     "decimals": "1e18",
     "poolId": 9,
@@ -19,7 +19,7 @@
     }
   },
   {
-    "name": "sushi-crv-eth",
+    "name": "sushi-ftm-crv-eth",
     "address": "0x97A039255ecC352e5782Fc49beA26B03F60FA49b",
     "decimals": "1e18",
     "poolId": 8,
@@ -38,7 +38,7 @@
     }
   },
   {
-    "name": "sushi-wftm-link",
+    "name": "sushi-ftm-wftm-link",
     "address": "0x1Ca86e57103564F47fFCea7259a6ce8Cc1301549",
     "decimals": "1e18",
     "poolId": 7,
@@ -57,7 +57,7 @@
     }
   },
   {
-    "name": "sushi-wftm-sushi",
+    "name": "sushi-ftm-wftm-sushi",
     "address": "0x49D2e0DC99C7358D7A9A8633Bf6df111D0EE7F65",
     "decimals": "1e18",
     "poolId": 6,
@@ -76,7 +76,7 @@
     }
   },
   {
-    "name": "sushi-btc-eth",
+    "name": "sushi-ftm-btc-eth",
     "address": "0x33e29a9eBdD370a8D50656e822aBFD3A910dA1b6",
     "decimals": "1e18",
     "poolId": 5,
@@ -95,7 +95,7 @@
     }
   },
   {
-    "name": "sushi-usdc-mim",
+    "name": "sushi-ftm-usdc-mim",
     "address": "0xFFdc0531288dc91C1F49Db03A90Ed84725E9eDa7",
     "decimals": "1e18",
     "poolId": 4,
@@ -114,7 +114,7 @@
     }
   },
   {
-    "name": "sushi-eth-dai",
+    "name": "sushi-ftm-eth-dai",
     "address": "0x71C8BceEcE3dAf9E27741D2Cc1F03170f862555f",
     "decimals": "1e18",
     "poolId": 3,
@@ -133,7 +133,7 @@
     }
   },
   {
-    "name": "sushi-fusdt-wftm",
+    "name": "sushi-ftm-fusdt-wftm",
     "address": "0xd019dd7C760c6431797d6ed170bFFb8FAee11F99",
     "decimals": "1e18",
     "poolId": 2,
@@ -152,7 +152,7 @@
     }
   },
   {
-    "name": "sushi-wftm-eth",
+    "name": "sushi-ftm-wftm-eth",
     "address": "0x3d0BD54c48C2C433ea6fed609Cc3d5Fb7A77622B",
     "decimals": "1e18",
     "poolId": 1,
@@ -171,7 +171,7 @@
     }
   },
   {
-    "name": "sushi-usdc-wftm",
+    "name": "sushi-ftm-usdc-wftm",
     "address": "0xA48869049e36f8Bfe0Cc5cf655632626988c0140",
     "decimals": "1e18",
     "poolId": 0,

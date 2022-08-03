@@ -1,5 +1,24 @@
 [
   {
+    "name": "sicle-grape-mim",
+    "address": "0x9076C15D7b2297723ecEAC17419D506AE320CbF1",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x130966628846BFd36ff31a822705796e8cb8C18D",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5541D83EFaD1f281571B343977648B75d95cdAC2",
+      "oracle": "tokens",
+      "oracleId": "GRAPE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "grape-wine-mim",
     "address": "0x00cB5b42684DA62909665d8151fF80D1567722c3",
     "decimals": "1e18",

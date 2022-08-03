@@ -16,6 +16,18 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  BIFI: {
+    name: 'Beefy.Finance',
+    symbol: 'BIFI',
+    address: '0x4E720DD3Ac5CFe1e1fbDE4935f386Bb1C66F4642',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://beefy.com',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+  },
   BEETS: {
     name: 'Beethoven X Token',
     symbol: 'BEETS',
@@ -72,6 +84,18 @@ const _tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+  },
+  sBTC: {
+    chainId: 10,
+    address: '0x298B9B95708152ff6968aafd889c6586e9169f1D',
+    decimals: 18,
+    name: 'Synthetix: sBTC',
+    symbol: 'sBTC',
+    website: 'https://www.synthetix.io/',
+    description:
+      'sBTC is a synthetic Bitcoin token enabled by the Synthetix protocol. It tracks the price of Bitcoin through price feeds supplied by Chainlink’s decentralized network of oracles.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
@@ -161,6 +185,185 @@ const _tokens = {
     description:
       "Velodrome Finance, at its core, is a solution for protocols on Optimism to properly incentivize liquidity for their own use cases. Building on top of the groundwork laid out by Solidly, our team has addressed that first iteration's core issues to realize its full potential.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+  },
+  sETH: {
+    name: 'Synth sETH',
+    symbol: 'sETH',
+    address: '0xE405de8F52ba7559f9df3C368500B6E6ae6Cee49',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://synthetix.io/',
+    description:
+      'Synths are derivative tokens providing exposure to a range of assets. They can be traded with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between Synths generate a small fee that is distributed to SNX collateral providers.',
+  },
+  DAI: {
+    name: 'DAI Stablecoin',
+    symbol: 'DAI',
+    address: '0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://makerdao.com/en/',
+    description:
+      'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
+  },
+  LUSD: {
+    name: 'LUSD Stablecoin',
+    symbol: 'LUSD',
+    address: '0xc40F949F8a4e094D1b49a23ea9241D289B7b2819',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.liquity.org/',
+    description:
+      'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
+  },
+  soUSDC: {
+    name: 'Stargate USD Coin LP',
+    symbol: 'soUSDC',
+    address: '0xDecC0c09c3B5f6e92EF4184125D5648a66E35298',
+    chainId: 10,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
+    website: 'https://stargate.finance/',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  soETH: {
+    name: 'Stargate Ethereum LP',
+    symbol: 'soETH',
+    address: '0xd22363e3762cA7339569F3d33EADe20127D5F98C',
+    chainId: 10,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x2170ed0880ac9a755fd29b2688956bd959f933f8.png',
+    website: 'https://stargate.finance/',
+    description:
+      'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+  },
+  renBTC: {
+    name: 'renBTC',
+    symbol: 'renBTC',
+    address: '0x85f6583762Bc76d775eAB9A7456db344f12409F7',
+    chainId: 10,
+    decimals: 8,
+    website: 'https://renproject.io/',
+    description:
+      'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
+  },
+  FXS: {
+    name: 'Frax Share',
+    symbol: 'FXS',
+    address: '0x67CCEA5bb16181E7b4109c9c2143c24a1c2205Be',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+  },
+  THALES: {
+    name: 'Thales DAO Token',
+    symbol: 'THALES',
+    address: '0x217D47011b23BB961eB6D93cA9945B7501a5BB11',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://thalesmarket.io/tale-of-thales',
+    description:
+      'Thales is an Ethereum protocol that allows the creation of peer-to-peer parimutuel markets that anyone can join.',
+  },
+  alUSD: {
+    name: 'Alchemix USD',
+    symbol: 'alUSD',
+    address: '0xCB8FA9a76b8e203D8C3797bF438d8FB81Ea3326A',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alchemix.fi/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+  },
+  alETH: {
+    name: 'Alchemix ETH',
+    symbol: 'alETH',
+    address: '0x3E29D3A9316dAB217754d13b28646B76607c5f04',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alchemix.fi/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+  },
+  DOLA: {
+    name: 'Dola USD Stablecoin',
+    symbol: 'DOLA',
+    address: '0x8aE125E8653821E851F12A49F7765db9a9ce7384',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+  },
+  HND: {
+    name: 'Hundred Finance',
+    symbol: 'HND',
+    address: '0x10010078a54396F62c96dF8532dc2B4847d47ED3',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://hundred.finance/',
+    description:
+      'Hundred Finance is a decentralized application (dApp) that enables the lending and borrowing of cryptocurrencies.',
+  },
+  beVELO: {
+    name: 'Beefy Velo',
+    symbol: 'beVELO',
+    address: '0xB0af86f18c6155CeFaE1A6D6dA35b05F176F6278',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beefy.com',
+    description:
+      'beVELO is a Beefy-wrapped version of veNFT Velo. Holding beVELO will be a great way to earn a bunch of VELO. Beefy will distribute weekly trading fees and bribe rewards swapped to VELO to beVELO stakers. beVELO holders will recieve the same rewards as max lock veNFT holders',
+  },
+  agEUR: {
+    name: 'agEUR',
+    symbol: 'agEUR',
+    address: '0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.angle.money/',
+    description:
+      'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+  },
+  L2DAO: {
+    name: 'Layer2DAO',
+    symbol: 'L2DAO',
+    address: '0xd52f94DF742a6F4B4C8b033369fE13A41782Bf44',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.layer2dao.org/#/',
+    description:
+      'Layer2DAO is expanding the Ethereum L2 ecosystem and investing in L2 ecosystem projects. The DAO uses its treasury to invest into high-impact L2 protocols and ecosystem plays, serving as a diversified venture fund for investors looking to gain exposure to the L2 ecosystem growth. It also provides liquidity, depositing, and staking, perpetually reinvesting proceeds back into the DAO.',
+  },
+  AELIN: {
+    name: 'Aelin Token',
+    symbol: 'AELIN',
+    address: '0x61BAADcF22d2565B0F471b291C475db5555e0b76',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://aelin.xyz/',
+    description:
+      'A permissionless multi-chain protocol for capital raises and OTC deals. No need for VCs, Aelin decentralizes fundraising',
   },
 } as const;
 

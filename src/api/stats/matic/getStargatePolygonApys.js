@@ -15,7 +15,7 @@ const getStargatePolygonApys = async () =>
         poolId: 0,
         address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
         oracle: 'tokens',
-        oracleId: 'USDC',
+        oracleId: 'spUSDC',
         decimals: '1e6',
       },
       {
@@ -23,7 +23,7 @@ const getStargatePolygonApys = async () =>
         poolId: 1,
         address: '0x29e38769f23701A2e4A8Ef0492e19dA4604Be62c',
         oracle: 'tokens',
-        oracleId: 'USDT',
+        oracleId: 'spUSDT',
         decimals: '1e6',
       },
     ],

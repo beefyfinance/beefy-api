@@ -3,7 +3,7 @@ import BigNumber from 'bignumber.js';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { compound } from '../../../utils/compound';
 
-import { BASE_HPY, BEEFY_PERFORMANCE_FEE, SHARE_AFTER_PERFORMANCE_FEE } from '../../../constants';
+import { BASE_HPY, BEEFY_PERFORMANCE_FEE } from '../../../constants';
 
 export interface ApyBreakdown {
   vaultApr?: number;
@@ -21,11 +21,10 @@ export interface ApyBreakdownResult {
 }
 
 export const getApyBreakdown = (
-  pools: { name: string; address: string }[],
+  pools: { name: string; address: string; beefyFee?: number }[],
   tradingAprs: Record<string, BigNumber>,
   farmAprs: BigNumber[],
-  providerFee: number,
-  performanceFee: number = BEEFY_PERFORMANCE_FEE
+  providerFee: number
 ): ApyBreakdownResult => {
   const result: ApyBreakdownResult = {
     apys: {},
@@ -34,6 +33,8 @@ export const getApyBreakdown = (
 
   pools.forEach((pool, i) => {
     const simpleApr = farmAprs[i]?.toNumber();
+    const fee = pool.beefyFee ? pool.beefyFee : BEEFY_PERFORMANCE_FEE;
+    const SHARE_AFTER_PERFORMANCE_FEE = 1 - fee;
     const vaultApr = simpleApr * SHARE_AFTER_PERFORMANCE_FEE;
     const vaultApy = compound(simpleApr, BASE_HPY, 1, SHARE_AFTER_PERFORMANCE_FEE);
     const tradingApr: number | undefined = (
@@ -54,7 +55,7 @@ export const getApyBreakdown = (
     result.apyBreakdowns[pool.name] = {
       vaultApr: vaultApr,
       compoundingsPerYear: BASE_HPY,
-      beefyPerformanceFee: performanceFee,
+      beefyPerformanceFee: fee,
       vaultApy: vaultApy,
       lpFee: providerFee,
       tradingApr: tradingApr,

@@ -36,7 +36,7 @@ const BSC_RPC_ENDPOINTS = CUSTOM_BSC_RPC_ENDPOINTS.length
 
 const BSC_RPC = process.env.BSC_RPC || BSC_RPC_ENDPOINTS[0];
 const HECO_RPC = process.env.HECO_RPC || 'https://http-mainnet.hecochain.com';
-const AVAX_RPC = process.env.AVAX_RPC || 'https://api.avax.network/ext/bc/C/rpc';
+const AVAX_RPC = process.env.AVAX_RPC || 'https://rpc.ankr.com/avalanche';
 const POLYGON_RPC = process.env.POLYGON_RPC || 'https://polygon-rpc.com/';
 const FANTOM_RPC = process.env.FANTOM_RPC || 'https://rpc.ftm.tools';
 const ONE_RPC = process.env.ONE_RPC || 'https://api.harmony.one/';

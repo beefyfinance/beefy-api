@@ -27,6 +27,52 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  spUSDC: {
+    name: 'Stargate USD Coin LP',
+    address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
+    symbol: 'spUSDC',
+    decimals: 6,
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    chainId: 137,
+    logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
+  },
+  spUSDT: {
+    name: 'Stargate Tether USD LP',
+    symbol: 'spUSDT',
+    address: '0x29e38769f23701A2e4A8Ef0492e19dA4604Be62c',
+    chainId: 137,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  DYST: {
+    name: 'Dystopia token',
+    symbol: 'DYST',
+    address: '0x39aB6574c289c3Ae4d88500eEc792AB5B947A5Eb',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.dystopia.exchange/',
+    description:
+      'Dystopia is a decentralized exchange and automated market marker focused on providing efficient token swaps and deep liquidity for stablecoins and other assets. Dystopia has a sophisticated governance structure using the ve(3,3) system that provides the possibility to maximize gains for all users of the ecosystem.',
+  },
+  SOLACE: {
+    name: 'solace',
+    symbol: 'SOLACE',
+    address: '0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40.svg',
+    website: 'https://solace.fi/',
+    description:
+      'Solace is building a community around making this space safe, secure and trusted so that we can onboard and de-risk DeFi and other crypto applications while opening the space to millions of users. We recently launched a coverage policy protocol that enables protection for liquidity providers, Defi protocols or DAOs to mitigate loss from hacks, bugs and exploits. Our purpose is to transform DeFi by delivering intelligent and empowering tools for a safe, secure and trusted industry.',
+  },
   PAE: {
     name: 'Ripae',
     symbol: 'PAE',
@@ -706,6 +752,17 @@ const _tokens = {
     description: 'AZUKI is a secondary token designed for use in Doki Doki NFT products',
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-default-token-list/master/assets/azuki.png',
+  },
+  BAL: {
+    name: 'Balancer',
+    symbol: 'BAL',
+    address: '0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://balancer.fi/',
+    description:
+      'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities. ',
+    logoURI: 'https://hecoinfo.com/token/images/bal_32.png',
   },
   BANANA: {
     name: 'ApeSwapFinance Banana',

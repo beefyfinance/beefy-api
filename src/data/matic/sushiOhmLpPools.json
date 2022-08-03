@@ -1,6 +1,6 @@
 [
   {
-    "name": "sushi-eth-gohm",
+    "name": "sushi-poly-eth-gohm",
     "address": "0x1549E0E8127D380080aab448b82d280433CE4030",
     "decimals": "1e18",
     "rewarder": "0x71581bF0ce397f50F87Cc2490146D30A1E686461",

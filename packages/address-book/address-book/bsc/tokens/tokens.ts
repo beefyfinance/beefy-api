@@ -15,14 +15,47 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  MIX: {
+    name: 'MixMarvel Token',
+    symbol: 'MIX',
+    address: '0x398f7827DcCbeFe6990478876bBF3612D93baF05',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x398f7827DcCbeFe6990478876bBF3612D93baF05.png',
+    website: 'https://www.mixmarvel.com/',
+    description:
+      'MixMarvel is a blockchain content-incubation platform and creators community. MixMarvel provides content-incubation services, including asset distribution, content publication, infrastructure construction, community co-creation, and other diversified scenarios, to link investors and mass users, and create a new decentralized application ecosystem.',
+  },
+  jBRL: {
+    name: 'Jarvis Synthetic Brazilian Real',
+    symbol: 'jBRL',
+    address: '0x316622977073BBC3dF32E7d2A9B3c77596a0a603',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jBRL is a multi-collateralized synthetic token tracking the price of Brazilian Real. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://jarvis.network/images/jBRL.svg',
+  },
+  BRZ: {
+    name: 'BRZ Token',
+    symbol: 'BRZ',
+    address: '0x71be881e9C5d4465B3FfF61e89c6f3651E69B5bb',
+    chainId: 56,
+    decimals: 4,
+    website: 'https://brztoken.io/',
+    description:
+      'BRZ is the first Brazilian stablecoin in circulation. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
+    logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
+  },
   SOL: {
     name: 'Solana',
     symbol: 'SOL',
     address: '0x570A5D26f7765Ecb712C0924E4De545B89fD43dF',
     chainId: 56,
     decimals: 18,
-    logoURI:
-      'https://biswap.org/images/tokens/sol.svg',
+    logoURI: 'https://biswap.org/images/tokens/sol.svg',
     website: 'https://solana.com',
     description:
       'Solana is the fastest blockchain in the world and the fastest growing ecosystem in crypto, with thousands of projects spanning DeFi, NFTs, Web3 and more.',
@@ -2106,11 +2139,11 @@ const _tokens = {
     address: '0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63',
     chainId: 56,
     decimals: 18,
-    website: 'https://trustwallet.com/',
+    website: 'https://venus.io/',
     description:
-      'Trust Wallet Token, or TWT, is a simple BEP-20 utility token that provides a range of benefits and incentives to Trust Wallet users.',
+      'Venus is an algorithmic money market and synthetic stablecoin protocol launched exclusively on BNB Chain.',
     logoURI:
-      'https://tokens.pancakeswap.finance/images/0xcf6bb5389c92bdda8a3747ddb454cb7a64626c63.png',
+      'https://tokens.pancakeswap.finance/images/0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63.png',
   },
   Beer: {
     name: 'Beer Garden',
@@ -3570,6 +3603,40 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0xe6f079E74000a0AFc517c1EFf9624d866d163B75.svg',
     website: 'https://www.lacucina.io/',
     description: 'LaCucina will offer you new and exciting ways to succeed in DeFi with NFTs',
+  },
+  SAND: {
+    name: 'The Sandbox',
+    symbol: 'SAND',
+    address: '0x67b725d7e342d7B611fa85e859Df9697D9378B2e',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://biswap.org/images/tokens/sand.svg',
+    website: 'https://www.sandbox.game/',
+    description:
+      'SAND is the utility token used throughout The Sandbox ecosystem as the basis for transactions and interactions.',
+  },
+  OLE: {
+    name: 'OpenLeverage',
+    symbol: 'OLE',
+    address: '0xa865197A84E780957422237B5D152772654341F3',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xa865197A84E780957422237B5D152772654341F3.png',
+    website: 'https://openleverage.finance/',
+    description:
+      'OpenLeverage is a permissionless margin trading protocol that enables traders or other applications to long or short any trading pair on DEXs efficiently and securely.',
+  },
+  BLID: {
+    name: 'Bolide',
+    symbol: 'BLID',
+    address: '0x766AFcf83Fd5eaf884B3d529b432CA27A6d84617',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://invest.bolide.fi/img/token_logo_255x255.png',
+    website: 'https://bolide.fi/',
+    description:
+      'Bolide is a next-generation decentralized yield aggregator that optimizes the deployment of digital assets across multiple DeFi investment platforms to save investors time, money and earn them the highest possible yields.',
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

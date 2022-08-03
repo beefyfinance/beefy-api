@@ -12,4 +12,5 @@ export interface BeefyFinance {
   multicall: string;
   bifiMaxiStrategy?: string;
   voter: string;
+  beefyFeeConfig?: string;
 }

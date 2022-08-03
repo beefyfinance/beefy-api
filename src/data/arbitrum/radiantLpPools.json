@@ -1,0 +1,21 @@
+[
+  {
+    "name": "radiant-rdnt-weth",
+    "address": "0x24704aFF49645D32655A76Df6d407E02d146dAfC",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x0C4681e6C0235179ec3D4F4fc4DF3d14FDD96017",
+      "oracle": "tokens",
+      "oracleId": "RDNT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  }
+]

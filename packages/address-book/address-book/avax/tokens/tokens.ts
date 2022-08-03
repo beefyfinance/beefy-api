@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  POPS: {
+    name: 'Swapsicle',
+    symbol: 'POPS',
+    address: '0x240248628B7B6850352764C5dFa50D1592A033A8',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x152b9d0FdC40C096757F570A51E494bd4b943E50.svg',
+    website: 'https://swapsicle.io/',
+    description: 'Swapsicle is a decentralised exchange and its own utility token POPS. ',
+  },
   BTCb: {
     name: 'Bitcoin',
     symbol: 'BTCb',

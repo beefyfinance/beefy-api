@@ -73,7 +73,6 @@ import sushiOhmPools from '../../data/matic/sushiOhmLpPools.json';
 import satisPools from '../../data/degens/satisLpPools.json';
 import satisXPools from '../../data/degens/satisXLpPools.json';
 import zefiV2Pools from '../../data/degens/zefiLpPoolsV2.json';
-import spookyPools from '../../data/fantom/spookyLpPools.json';
 import froyoPools from '../../data/fantom/froyoLpPools.json';
 import esterPools from '../../data/fantom/esterLpPools.json';
 import comethMultiPools from '../../data/matic/comethMultiLpPools.json';
@@ -148,7 +147,6 @@ import elkPools from '../../data/degens/elkLpPools.json';
 import longPools from '../../data/degens/longLpPools.json';
 import CZFPools from '../../data/degens/CZFLpPools.json';
 import sushiArbPools from '../../data/arbitrum/sushiLpPools.json';
-import arbiNyanPools from '../../data/arbitrum/arbiNyanLpPools.json';
 import pearzapBscPools from '../../data/degens/pearzapLpPools.json';
 import sandmanPools from '../../data/matic/sandmanLpPools.json';
 import sushiMimPools from '../../data/arbitrum/sushiLpMimPools.json';
@@ -236,6 +234,11 @@ import dfxPools from '../../data/matic/dfxLpPools.json';
 import ripaeMaticPools from '../../data/matic/ripaeLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import giddyLpPools from '../../data/matic/giddyLpPools.json';
+import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
+import dystopiaPools from '../../data/matic/dystopiaLpPools.json';
+import swapsiclePools from '../../data/avax/siclePools.json';
+import ripaeArbitrumPools from '../../data/arbitrum/ripaeLpPools.json';
+import radiantPools from '../../data/arbitrum/radiantLpPools.json';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -243,6 +246,11 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = [
+  ...radiantPools,
+  ...ripaeArbitrumPools,
+  ...swapsiclePools,
+  ...ripaeCronosPools,
+  ...dystopiaPools,
   ...velodromePools,
   ...valleySwapLpPools,
   ...dfxPools,
@@ -327,7 +335,6 @@ const pools = [
   ...sandmanPools,
   ...pearzapBscPools,
   ...CZFPools,
-  ...arbiNyanPools,
   ...sushiArbPools,
   ...longPools,
   ...elkPools,
@@ -401,7 +408,6 @@ const pools = [
   ...comethMultiPools,
   ...esterPools,
   ...froyoPools,
-  ...spookyPools,
   ...zefiV2Pools,
   ...satisXPools,
   ...satisPools,
@@ -484,6 +490,10 @@ const coinGeckoCoins = [
   'perpetual-protocol',
   'nusd',
   'lyra-finance',
+  'liquity-usd',
+  'seth',
+  'alchemix-usd',
+  'ethereum',
 ];
 
 const knownPrices = {
@@ -495,6 +505,7 @@ const knownPrices = {
   USDN: 1,
   cUSD: 1,
   asUSDC: 1,
+  VST: 1,
 };
 
 let tokenPricesCache: Promise<any>;
@@ -521,6 +532,10 @@ const updateAmmPrices = async () => {
         PERP: prices['perpetual-protocol'],
         sUSD: prices['nusd'],
         LYRA: prices['lyra-finance'],
+        LUSD: prices['liquity-usd'],
+        sETH: prices['seth'],
+        alUSD: prices['alchemix-usd'],
+        alETH: prices['ethereum'],
       };
     };
 
@@ -548,6 +563,7 @@ const updateAmmPrices = async () => {
         beJOE: tokenPrices['JOE'],
         beQI: tokenPrices['QI'],
         beCAKE: tokenPrices['Cake'],
+        beVELO: tokenPrices['VELO'],
       };
     });
 

@@ -3,6 +3,7 @@ const { MOONBEAM_CHAIN_ID: chainId, BEAMSWAP_LPF } = require('../../../constants
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const pools = require('../../../data/moonbeam/beamswapLpPools.json');
+const stablePools = require('../../../data/moonbeam/beamswapStableLpPools.json');
 import { beamClient } from '../../../apollo/client';
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
@@ -22,7 +23,7 @@ const getBeamswapApys = async () =>
     tokenPerBlock: 'beamPerSec',
     secondsPerBlock: 1,
     hasMultiplier: false,
-    pools: pools,
+    pools: [...pools, ...stablePools],
     oracleId: 'GLINT',
     oracle: 'tokens',
     decimals: getEDecimals(GLINT.decimals),

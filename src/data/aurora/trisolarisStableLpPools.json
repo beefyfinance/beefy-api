@@ -1,0 +1,13 @@
+[
+  {
+    "name": "tri-3pool",
+    "address": "0x87BCC091d0A7F9352728100268Ac8D25729113bB",
+    "pool": "0x458459E48dbAC0C8Ca83F8D0b7b29FEfE60c3970",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "AURORA",
+    "decimalsB": "1e18",
+    "poolId": 28,
+    "chainId": 1313161554
+  }
+]

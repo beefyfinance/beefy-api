@@ -1,5 +1,14 @@
 [
   {
+    "name": "solarbeam-xckbtc-wbtc",
+    "address": "0x4F707d051b4b49B63e72Cc671e78E152ec66f2fA",
+    "pool": "0xC5d0c8e241b59F989e37B5C35925C58F8c7F66A8",
+    "virtualOracleId": "WBTC",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 1285
+  },
+  {
     "name": "solarbeam-3pool",
     "address": "0xfb29918d393AaAa7dD118B51A8b7fCf862F5f336",
     "pool": "0x9785478135BaFe3dCafe4BBa4C8311674D4E826E",

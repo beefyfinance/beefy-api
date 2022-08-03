@@ -7,6 +7,7 @@ const SimpleRewarder = require('../../../abis/avax/SimpleRewarderPerSec.json'); 
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const voltageLpPools = require('../../../data/fuse/voltageLpPools.json');
+const voltageStableLpPools = require('../../../data/fuse/voltageStableLpPools.json');
 const { BASE_HPY, FUSE_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
@@ -42,7 +43,7 @@ const liquidityProviderFee = FUSEFI_LPF;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
-const getVoltageDualApys = async () => {
+const getVoltageApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
@@ -52,7 +53,7 @@ const getVoltageDualApys = async () => {
   const pairAddresses = voltageLpPools.map(pool => pool.address);
   const tradingAprs = await getTradingFeeApr(fusefiClient, pairAddresses, liquidityProviderFee);
 
-  const pools = [...voltageLpPools, ...xVOLT];
+  const pools = [...voltageLpPools, ...voltageStableLpPools, ...xVOLT];
   const { balances, allocPoints, tokenPerSecData } = await getPoolsData(pools);
 
   for (let i = 0; i < pools.length; i++) {
@@ -161,4 +162,4 @@ const getPoolsData = async pools => {
   return { balances, allocPoints, tokenPerSecData };
 };
 
-module.exports = getVoltageDualApys;
+module.exports = getVoltageApys;

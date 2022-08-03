@@ -26,6 +26,39 @@ const _tokens = {
     website: 'https://versagames.io/',
     description: 'VersaGames is the next-generation games marketplace.',
   },
+  FER: {
+    name: 'Ferro',
+    symbol: 'FER',
+    address: '0x39bC1e38c842C60775Ce37566D03B41A7A66C782',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://www.ferroprotocol.com/',
+    description:
+      'Ferro Protocol is a StableSwap AMM protocol that allows users to exchange with low slippage and minimum fee and farm tokens by creating more efficient pools consisting of highly correlated assets, as well as allowing better composability between protocols in the Cronos ecosystem.',
+    logoURI: 'https://vvs.finance/images/tokens/0x39bC1e38c842C60775Ce37566D03B41A7A66C782.svg',
+  },
+  sCRO: {
+    name: 'sCRO',
+    symbol: 'sCRO',
+    address: '0xA01fAe0612a4786ec296Be7f87b292F05c68186B',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://cro.ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://cro.ripae.finance/static/media/sCRO.f6637a43.svg',
+  },
+  pCRO: {
+    name: 'pCRO',
+    symbol: 'pCRO',
+    address: '0xA5e6a847f79BA19AAF41b8e1B2e6C4741234C6b7',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://cro.ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: 'https://cro.ripae.finance/static/media/pCRO.0d99b3b6.svg',
+  },
   APE: {
     name: 'APECoin',
     symbol: 'APE',
@@ -35,8 +68,7 @@ const _tokens = {
     website: 'https://www.apecoin.com/',
     description:
       'ApeCoin is an ERC-20 governance and utility token used within the APE ecosystem to empower a decentralized community building at the forefront of web3.',
-    logoURI:
-      'https://vvs.finance/images/tokens/0x9C62F89a8C9907582f21205Ce90443730361EA05.svg',
+    logoURI: 'https://vvs.finance/images/tokens/0x9C62F89a8C9907582f21205Ce90443730361EA05.svg',
   },
   ALI: {
     name: 'Alethea Artificial Liquid Intelligence Token ALI',

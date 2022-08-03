@@ -1,0 +1,21 @@
+[
+  {
+    "name": "dystopia-frax-mimatic",
+    "address": "0x3f54C58092e9735AD23cf296ee3aF81F5a44a5bc",
+    "gauge": "0xc22F4bD5789e72D5267af3D952dE44823b5aC722",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x45c32fA6DF82ead1e2EF74d17b76547EDdFaFF89",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  }
+]

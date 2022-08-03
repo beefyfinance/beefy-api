@@ -6,7 +6,7 @@ export const beefyfinance = {
   treasuryMultisig,
   strategyOwner: '0x65CF7E8C0d431f59787D07Fa1A9f8725bbC33F7E',
   vaultOwner: '0xA2E6391486670D2f1519461bcc915E4818aD1c9a',
-  keeper: '0x340465d9D2EbDE78F15a3870884757584F97aBB4',
+  keeper: '0x4fED5491693007f0CD49f4614FFC38Ab6A04B619',
   treasurer: treasuryMultisig,
   launchpoolOwner: devMultisig,
   rewardPool: '0x0d5761D9181C7745855FC985f646a842EB254eB9',
@@ -20,4 +20,5 @@ export const beefyfinance = {
   oldRewardPool: '0x453D4Ba9a2D594314DF88564248497F7D74d6b2C',
   oldTimelock: '0x8f0fFc8C7FC3157697Bdbf94B328F7141d6B41de',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
+  beefyFeeConfig: '0x97F86f2dC863D98e423E288938dF257D1b6e1553',
 } as const;

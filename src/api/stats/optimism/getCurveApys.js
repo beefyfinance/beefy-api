@@ -4,6 +4,7 @@ const { optimismWeb3: web3 } = require('../../../utils/web3');
 
 import {
   getCurveBaseApys,
+  getCurveBaseApysOld,
   getTotalStakedInUsd,
   getYearlyRewardsInUsd,
 } from '../common/curve/getCurveApyData';
@@ -12,13 +13,14 @@ import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
 
 const pools = require('../../../data/optimism/curvePools.json');
-const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/optimism';
-// const baseApyUrl = 'https://stats.curve.fi/raw-stats-arbitrum/apys.json';
-// const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-arbitrum';
+const subgraphUrl = 'https://api.curve.fi/api/getSubgraphData/optimism';
+// const baseApyUrl = 'https://stats.curve.fi/raw-stats-optimism/apys.json';
+// const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-optimism';
 const tradingFees = 0.0002;
 
 const getCurveApys = async () => {
-  const baseApys = await getCurveBaseApys(pools, baseApyUrl);
+  const baseApys = await getCurveBaseApys(pools, subgraphUrl);
+  // const baseApys = await getCurveBaseApysOld(pools, baseApyUrl, factoryApyUrl);
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);

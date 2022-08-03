@@ -38,6 +38,72 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  COMB: {
+    name: 'Comb Finance',
+    symbol: 'COMB',
+    address: '0xaE45a827625116d6C0C40B5D7359EcF68F8e9AFD',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://app.spiritswap.finance/images/tokens/COMB.png',
+    website: 'https://comb.financial/',
+    description:
+      'COMB is a protocol aimed towards establishing a suite of financial products built on top of the Fantom blockchain. Diversify your portfolio with one token.',
+  },
+  SINGLE: {
+    name: 'SINGLE Token',
+    symbol: 'SINGLE',
+    address: '0x8cc97B50Fe87f31770bcdCd6bc8603bC1558380B',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://mm.finance/images/tokens/0x0804702a4E749d39A35FDe73d1DF0B1f1D6b8347.svg',
+    website: 'https://singlefinance.io/',
+    description: 'Single-click pseudo market-neutral strategy with a human touch.',
+  },
+  gALCX: {
+    name: 'Governance ALCX',
+    symbol: 'gALCX',
+    address: '0x70F9fd19f857411b089977E7916c05A0fc477Ac9',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://assets.spooky.fi/tokens/gALCX.png',
+    website: 'https://alchemix.fi/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+  },
+  ALPACA: {
+    name: 'Alpaca Token',
+    symbol: 'ALPACA',
+    address: '0xaD996A45fd2373ed0B10Efa4A8eCB9de445A4302',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://ftmscan.com/token/images/alpacafinance2_32.png',
+    website: 'https://www.alpacafinance.org/',
+    description:
+      'Alpaca Finance is the largest lending protocol allowing leveraged yield farming on BNB Chain and Fantom.',
+  },
+  PGK: {
+    name: 'Penguin Karts',
+    symbol: 'PGK',
+    address: '0x188a168280589bC3E483d77aae6b4A1d26bD22dC',
+    chainId: 250,
+    decimals: 18,
+    logoURI: 'https://ftmscan.com/token/images/penguinkarts_32.png',
+    website: 'https://penguinkarts.com/',
+    description:
+      'A battle-racing 3D multiplayer game built on the Blockchain. It combines the best elements of arcade style kart racing, mobile gaming and Play-to-Earn NFT dynamics.',
+  },
+  SOLACE: {
+    name: 'solace',
+    symbol: 'SOLACE',
+    address: '0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x501acE9c35E60f03A2af4d484f49F9B1EFde9f40.svg',
+    website: 'https://solace.fi/',
+    description:
+      'Solace is building a community around making this space safe, secure and trusted so that we can onboard and de-risk DeFi and other crypto applications while opening the space to millions of users. We recently launched a coverage policy protocol that enables protection for liquidity providers, Defi protocols or DAOs to mitigate loss from hacks, bugs and exploits. Our purpose is to transform DeFi by delivering intelligent and empowering tools for a safe, secure and trusted industry.',
+  },
   FUSD: {
     name: 'Fantom USD',
     symbol: 'FUSD',
@@ -65,9 +131,9 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     logoURI: '',
-    website: 'https://tor.cash/',
+    website: 'https://tor.hector.network/',
     description:
-      'TOR is a truly algorithmic stablecoin built on the Fantom Opera Chain. It has a dynamic supply which is determined by supply and demand which ensures it is always worth $1.',
+      'TOR is a fully collateralized stablecoin which acts as a foundational pillar within the Hector Network Ecosystem. Its unique smart contracts made it the first of its kind, creating positive price action for the HEC token each time a TOR coin is minted and empowering Hector Network to become deflationary.',
   },
   sFTMx: {
     name: 'sFTMx',
@@ -1343,9 +1409,9 @@ const _tokens = {
     decimals: 18,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x94CcF60f700146BeA8eF7832820800E2dFa92EdA.svg',
-    website: 'https://app.hectordao.com/#/stake',
+    website: 'https://hector.network/',
     description:
-      'Hector DAO aims to become the de-facto reserve currency of the FTM Opera network, one which is truly owned and maintained by a decentralised protocol which serves the majority. Our goal is for $HEC to be a common trading pair which is backed by real assets.',
+      'Hector Network is developing an expansive web 3 ecosystem for a visionary future. The foundations of the ecosystem, supported by the HEC utility token and TOR stablecoin, are functionality, accessibility and community. In conjunction with their growing list of partners, Hector Network is expanding crosschain and is dedicated to mass adoption.',
   },
   OOE: {
     name: 'OpenOcean',
