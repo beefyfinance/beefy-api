@@ -15,4 +15,5 @@ export const beefyfinance = {
   multicall: '0xC9F6b1B53E056fd04bE5a197ce4B2423d456B982',
   bifiMaxiStrategy: '0xd1bAb603eee03fA99A378d90d5d83186fEB81aA9',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
+  beefyFeeConfig: '0xeEaFF5116C09ECc20Ab72b53860A7ceAd97F0Ab4',
 } as const;

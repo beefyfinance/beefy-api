@@ -18,4 +18,5 @@ export const beefyfinance = {
   vaultRegistry: '0x820cE73c7F15C2b828aBE79670D7e61731AB93Be',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   gaugeStaker: '0xe37dD9A535c1D3c9fC33e3295B7e08bD1C42218D',
+  beefyFeeConfig: '0x8E98004FE65A2eAdA63AD1DE0F5ff76d845f14E7',
 } as const;
