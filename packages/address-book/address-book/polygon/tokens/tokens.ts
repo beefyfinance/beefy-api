@@ -1461,9 +1461,9 @@ const _tokens = {
       'Kirobos decentralized applications remove the risk of losing funds enabling you to use blockchain technology to its fullest potential from one consolidated platform.',
     logoURI: '',
   },
-  GDDY: {
+  GIDDY: {
     name: 'Giddy',
-    symbol: 'GDDY',
+    symbol: 'GIDDY',
     address: '0x67eB41A14C0fe5CD701FC9d5A3D6597A72F641a6',
     chainId: 137,
     decimals: 18,

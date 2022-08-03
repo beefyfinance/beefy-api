@@ -1,6 +1,6 @@
 [
   {
-    "name": "giddy-gddy-usdc",
+    "name": "giddy-giddy-usdc",
     "address": "0xDE990994309BC08E57aca82B1A19170AD84323E8",
     "decimals": "1e18",
     "poolId": 8,
@@ -15,7 +15,7 @@
     "lp1": {
       "address": "0x67eB41A14C0fe5CD701FC9d5A3D6597A72F641a6",
       "oracle": "tokens",
-      "oracleId": "GDDY",
+      "oracleId": "GIDDY",
       "decimals": "1e18"
     }
   }
