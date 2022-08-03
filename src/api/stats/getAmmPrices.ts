@@ -233,6 +233,7 @@ import yuzuDualPools from '../../data/emerald/yuzuDualLpPools.json';
 import dfxPools from '../../data/matic/dfxLpPools.json';
 import ripaeMaticPools from '../../data/matic/ripaeLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
+import giddyLpPools from '../../data/matic/giddyLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
 import dystopiaPools from '../../data/matic/dystopiaLpPools.json';
 import swapsiclePools from '../../data/avax/siclePools.json';
@@ -470,6 +471,7 @@ const pools = [
   ...cakeLpPoolsV2,
   ...cakeLpV1Pools,
   ...cakeLpPools,
+  ...giddyLpPools,
 ];
 
 const dmmPools = [...kyberPools, ...oldDmmPools];

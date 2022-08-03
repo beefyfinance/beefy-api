@@ -25,6 +25,7 @@ const getbeQiApy = require('./getbeQiApy');
 const getbeQiEarnApy = require('./getbeQiEarnApy');
 const getRipaeApys = require('./getRipaeApys');
 const getBalancerPolyApys = require('./getBalancerPolyApys');
+const getGiddyApys = require('./getGiddyApys');
 const getSolaceApy = require('./getSolaceApy');
 const getDystopiaApys = require('./getDystopiaApys');
 
@@ -55,6 +56,7 @@ const getApys = [
   getStargateApys,
   getRipaeApys,
   getBalancerPolyApys,
+  getGiddyApys,
   getSolaceApy,
   getDystopiaApys,
 ];
