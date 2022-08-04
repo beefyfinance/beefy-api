@@ -56,7 +56,8 @@ const getPoolApy = async (config, pool, web3) => {
     );
 
   let totalNative = leveragedSupplyNative.plus(leveragedBorrowNative);
-  let compoundedNative = compound(totalNative, BASE_HPY, 1, 0.955);
+  let fee = pool.beefyFee ? pool.beefyFee : 0.045;
+  let compoundedNative = compound(totalNative, BASE_HPY, 1, 1 - fee);
   let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedNative).toNumber();
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyNative.valueOf(), borrowNative.valueOf());
   return { [pool.name]: apy };

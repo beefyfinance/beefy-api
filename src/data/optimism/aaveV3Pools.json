@@ -7,6 +7,7 @@
     "oracle": "tokens",
     "oracleId": "WETH",
     "decimals": "1e18",
+    "beefyFee": 0.095,
     "borrowDepth": 1,
     "borrowPercent": 0
   },
@@ -18,6 +19,7 @@
     "oracle": "tokens",
     "oracleId": "DAI.e",
     "decimals": "1e18",
+    "beefyFee": 0.095,
     "borrowDepth": 1,
     "borrowPercent": 0
   },
@@ -29,6 +31,7 @@
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
+    "beefyFee": 0.095,
     "borrowDepth": 1,
     "borrowPercent": 0
   },
@@ -40,6 +43,7 @@
     "oracle": "tokens",
     "oracleId": "USDT",
     "decimals": "1e6",
+    "beefyFee": 0.095,
     "borrowDepth": 1,
     "borrowPercent": 0
   },
@@ -51,6 +55,7 @@
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",
+    "beefyFee": 0.095,
     "borrowDepth": 1,
     "borrowPercent": 0
   }
