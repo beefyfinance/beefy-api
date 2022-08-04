@@ -1469,7 +1469,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://www.giddy.co/',
     description:
-      'Giddy is an app used to turn sophisticated DeFi into one-tap investing. The fully doxxed Giddy team focuses on security, compliance, and ease of use, with a mission to grow and adapt with the ever-changing regulatory landscape to keep investors and their funds within the bounds of current financial regulation. The Giddy token standard allows smart contracts to communicate with compliant tokens in a way that encodes contract approval data into a meta-transaction, which removes the need for standalone and infinite contract approvals. GIDDY has a max capped supply of 1 billion tokens, and began trading on April 6th, 2022.',
+      'Giddy is an in-development app that simplifies sophisticated DeFi processes into a one-tap investing experience. The app will allow users to earn passive income with crypto assets using a multi-identity, self-custody, private key solution. The fully doxxed Giddy team focuses on security, compliance, and ease of use. Its mission is simple: to grow and adapt to the ever-changing regulatory landscape. This goal will keep investors and their funds within the bounds of current financial regulation. The Giddy token standard allows smart contracts to communicate effectively with compliant tokens. Its method involves encoding contract approval data into a meta-transaction, which removes the need for standalone and infinite contract approvals. GIDDY has a max capped supply of 1 billion tokens and began trading on April 6, 2022',
     logoURI: '',
   },
 } as const;
