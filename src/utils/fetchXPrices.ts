@@ -1,7 +1,7 @@
-const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { web3Factory, multicallAddress } = require('./web3');
-const ERC20 = require('../abis/ERC20.json');
+import BigNumber from 'bignumber.js';
+import { MultiCall } from 'eth-multicall';
+import { web3Factory, multicallAddress } from './web3';
+import ERC20 from '../abis/ERC20.json';
 
 import {
   FANTOM_CHAIN_ID,
@@ -90,4 +90,4 @@ const fetchXPrices = async tokenPrices =>
       .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})
   );
 
-module.exports = { fetchXPrices };
+export { fetchXPrices };

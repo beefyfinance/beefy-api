@@ -1,12 +1,12 @@
-const BigNumber = require('bignumber.js');
-const { ethers } = require('ethers');
-const { MULTICHAIN_RPC } = require('../constants');
+import BigNumber from 'bignumber.js';
+import { ethers } from 'ethers';
+import { MULTICHAIN_RPC } from '../constants';
 import { multicallAddress, web3Factory } from './web3';
 import { MultiCall } from 'eth-multicall';
 import { getContract } from './contractHelper';
 import { ChainId } from '../../packages/address-book/address-book';
 
-const IVault = require('../abis/BeefyVaultV6');
+import IVault from '../abis/BeefyVaultV6.json';
 
 const fetchMooPrices = async (pools, tokenPrices, lpPrices) => {
   let moo = {};
@@ -21,7 +21,7 @@ const fetchMooPrices = async (pools, tokenPrices, lpPrices) => {
 };
 
 const fetchPpfs = async pools => {
-  const chainIds = pools.map(p => p.chainId);
+  const chainIds: ChainId[] = pools.map(p => p.chainId);
   const uniqueChainIds = [...new Set(chainIds)];
 
   for (let i = 0; i < uniqueChainIds.length; i++) {
@@ -56,7 +56,7 @@ const fetchPpfs = async pools => {
 
 //Fetches ppfs for **vaults** from a single chain
 const fetchChainVaultsPpfs = async (vaults, chain) => {
-  const chainId = ChainId[chain];
+  const chainId = ChainId[chain] as any as ChainId;
   const web3 = web3Factory(chainId);
   const multicall = new MultiCall(web3, multicallAddress(chainId));
   const ppfsCalls = [];
@@ -82,4 +82,4 @@ const calcMooPrice = (pool, tokenPrices, lpPrices) => {
   return { [pool.name]: mooPrice.toNumber() };
 };
 
-module.exports = { fetchMooPrices, fetchChainVaultsPpfs };
+export { fetchMooPrices, fetchChainVaultsPpfs };

@@ -1,11 +1,12 @@
-const BigNumber = require('bignumber.js');
-const { ethers } = require('ethers');
-const { MULTICHAIN_RPC } = require('../constants');
+import BigNumber from 'bignumber.js';
+import { ethers } from 'ethers';
+import { MULTICHAIN_RPC } from '../constants';
 import { multicallAddress, web3Factory } from './web3';
 import { MultiCall } from 'eth-multicall';
 import { getContract } from './contractHelper';
-const DMMPool = require('../abis/DMMPool');
-const ERC20 = require('../abis/common/ERC20/ERC20.json');
+import DMMPool from '../abis/DMMPool.json';
+import ERC20 from '../abis/common/ERC20/ERC20.json';
+import { ChainId } from '../../packages/address-book/address-book';
 
 const sortByKeys = o => {
   return Object.keys(o)
@@ -44,7 +45,7 @@ const calcLpPrice = (pool, tokenPrices) => {
   };
 };
 
-const fetchDmmPrices = async (pools, knownPrices) => {
+export const fetchDmmPrices = async (pools, knownPrices) => {
   let prices = { ...knownPrices };
   let lps = {};
   let breakdown = {};
@@ -53,7 +54,7 @@ const fetchDmmPrices = async (pools, knownPrices) => {
     weights[known] = Number.MAX_SAFE_INTEGER;
   });
 
-  const chainIds = pools.map(p => p.chainId);
+  const chainIds: ChainId[] = pools.map(p => p.chainId);
   const uniqueChainIds = [...new Set(chainIds)];
 
   for (let i = 0; i < uniqueChainIds.length; i++) {
@@ -148,5 +149,3 @@ const fetchDmmPrices = async (pools, knownPrices) => {
     lpsBreakdown: sortByKeys(breakdown),
   };
 };
-
-module.exports = { fetchDmmPrices };

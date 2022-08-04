@@ -1,4 +1,15 @@
 import { ChainId, addressBook } from '../packages/address-book/address-book';
+import yargs from 'yargs';
+import fs from 'fs';
+import path from 'path';
+
+import { ethers } from 'ethers';
+import { MULTICHAIN_RPC } from '../src/constants';
+
+import masterchefABI from '../src/abis/MasterChef.json';
+import LPPairABI from '../src/abis/LPPair.json';
+import ERC20ABI from '../src/abis/ERC20.json';
+
 const {
   fantom: {
     platforms: { spookyswap },
@@ -25,17 +36,6 @@ const {
     platforms: { yuzu },
   },
 } = addressBook;
-
-const yargs = require('yargs');
-const fs = require('fs');
-const path = require('path');
-
-const { ethers } = require('ethers');
-const { MULTICHAIN_RPC } = require('../src/constants');
-
-const masterchefABI = require('../src/abis/MasterChef.json');
-const LPPairABI = require('../src/abis/LPPair.json');
-const ERC20ABI = require('../src/abis/ERC20.json');
 
 const projects = {
   pancake: {

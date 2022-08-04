@@ -1,6 +1,6 @@
-const BigNumber = require('bignumber.js');
-const { web3Factory } = require('./web3');
-const SOLID = require('../abis/SolidPair.json');
+import BigNumber from 'bignumber.js';
+import { web3Factory } from './web3';
+import SOLID from '../abis/SolidPair.json';
 
 import { FANTOM_CHAIN_ID } from '../constants';
 import { getContractWithProvider } from './contractHelper';
@@ -24,4 +24,4 @@ const getbeFTMPrice = async (tokenPrices, chainId) => {
   return price.toNumber();
 };
 
-module.exports = { fetchbeFTMPrice };
+export { fetchbeFTMPrice };

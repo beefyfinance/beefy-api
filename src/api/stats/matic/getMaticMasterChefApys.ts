@@ -8,7 +8,7 @@ import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
 import fetchPrice from '../../../utils/fetchPrice';
 import getBlockNumber from '../../../utils/getBlockNumber';
 import { getTradingFeeAprSushi, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
-import { sushiClient } from '../../../apollo/client';
+import { sushiPolyClient as sushiClient } from '../../../apollo/client';
 import { AbiItem } from 'web3-utils';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import { NormalizedCacheObject } from '@apollo/client/core';

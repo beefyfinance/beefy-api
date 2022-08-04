@@ -1,7 +1,7 @@
-const getBalancerPrices = require('../common/getBalancerPrices');
-const { polygonWeb3: web3 } = require('../../../utils/web3');
-const { POLYGON_CHAIN_ID: chainId } = require('../../../constants');
-const balancerPools = require('../../../data/matic/balancerPolyLpPools.json');
+import getBalancerPrices from '../common/getBalancerPrices';
+import { polygonWeb3 as web3 } from '../../../utils/web3';
+import { POLYGON_CHAIN_ID as chainId } from '../../../constants';
+import balancerPools from '../../../data/matic/balancerPolyLpPools.json';
 
 const pools = [...balancerPools];
 
@@ -9,4 +9,4 @@ const getBalancerPolyPrices = async tokenPrices => {
   return await getBalancerPrices(web3, chainId, pools, tokenPrices);
 };
 
-module.exports = getBalancerPolyPrices;
+export default getBalancerPolyPrices;

@@ -1,14 +1,20 @@
-const fetch = require('node-fetch');
-const createHttpLink = require('apollo-link-http').createHttpLink;
-import { ApolloClient, InMemoryCache } from '@apollo/client/core';
+import fetch from 'node-fetch';
+import { createHttpLink } from 'apollo-link-http';
+import {
+  ApolloClient,
+  ApolloLink,
+  InMemoryCache,
+  NormalizedCacheObject,
+  RequestHandler,
+} from '@apollo/client/core';
 import ApolloLinkTimeout from 'apollo-link-timeout';
 
-const APOLLO_TIMEOUT = process.env.APOLLO_TIMEOUT || 30_000;
-const timeoutLink = new ApolloLinkTimeout(APOLLO_TIMEOUT);
+const APOLLO_TIMEOUT = process.env.APOLLO_TIMEOUT ? parseInt(process.env.APOLLO_TIMEOUT) : 30_000;
+const timeoutLink: ApolloLink = new ApolloLinkTimeout(APOLLO_TIMEOUT);
 
-function client(url) {
+function client(url: string) {
   const httpLink = createHttpLink({ uri: url, fetch });
-  const timeoutHttpLink = timeoutLink.concat(httpLink);
+  const timeoutHttpLink = timeoutLink.concat(httpLink as any as ApolloLink | RequestHandler);
   return new ApolloClient({
     link: timeoutHttpLink,
     cache: new InMemoryCache({
@@ -98,7 +104,7 @@ const tombswapClient = client('https://api.thegraph.com/subgraphs/name/github-qf
 const biswapClient = client('https://api.thegraph.com/subgraphs/name/biswapcom/exchange5');
 const pegasysClient = client('https://graph.pegasys.exchange/subgraphs/name/pollum-io/pegasys');
 
-const isSushiClient = client => {
+const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return (
     client === sushiPolyClient ||
     client === sushiOneClient ||
@@ -112,11 +118,11 @@ const isSushiClient = client => {
   );
 };
 
-const isBeetClient = client => {
+const isBeetClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return client === beetClient || client === beetOpClient;
 };
 
-module.exports = {
+export {
   dinoClient,
   joeClient,
   dfynClient,
