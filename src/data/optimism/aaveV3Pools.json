@@ -1,0 +1,57 @@
+[
+  {
+    "name": "aavev3-op-eth",
+    "token": "0x4200000000000000000000000000000000000006",
+    "aToken": "0xe50fA9b3c56FfB159cB0FCA61F5c9D750e8128c8",
+    "debtToken": "0x0c84331e39d6658Cd6e6b9ba04736cC4c4734351",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-op-dai",
+    "token": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+    "aToken": "0x82E64f49Ed5EC1bC6e43DAD4FC8Af9bb3A2312EE",
+    "debtToken": "0x8619d80FB0141ba7F184CbF22fd724116D9f7ffC",
+    "oracle": "tokens",
+    "oracleId": "DAI.e",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-op-usdc",
+    "token": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+    "aToken": "0x625E7708f30cA75bfd92586e17077590C60eb4cD",
+    "debtToken": "0xFCCf3cAbbe80101232d343252614b6A3eE81C989",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-op-usdt",
+    "token": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+    "aToken": "0x6ab707Aca953eDAeFBc4fD23bA73294241490620",
+    "debtToken": "0xfb00AC187a8Eb5AFAE4eACE434F493Eb62672df7",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-op-wbtc",
+    "token": "0x68f180fcCe6836688e9084f035309E29Bf0A2095",
+    "aToken": "0x078f358208685046a11C85e8ad32895DED33A249",
+    "debtToken": "0x92b42c66840C7AD907b4BF74879FF3eF7c529473",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  }
+]
