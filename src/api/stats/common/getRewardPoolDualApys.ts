@@ -13,6 +13,7 @@ import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
 import Web3 from 'web3';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { TokenPrices } from '../../../types/TokenPrice';
 
 export interface DualRewardPoolParams {
   pools: LpPool[];
@@ -161,17 +162,13 @@ const getPoolsData = async (params: DualRewardPoolParams) => {
   return { balances, rewardRatesA, rewardRatesB };
 };
 
-const getXPrice = async (tokenPrice, params: DualRewardPoolParams) => {
-  const tokenContract = getContractWithProvider(
-    ERC20_ABI,
-    params.tokenAddress,
-    params.web3
-  ) as unknown as ERC20;
-  const xTokenContract = getContractWithProvider(
+const getXPrice = async (tokenPrice: number, params: DualRewardPoolParams) => {
+  const tokenContract = getContractWithProvider<ERC20>(ERC20_ABI, params.tokenAddress, params.web3);
+  const xTokenContract = getContractWithProvider<ERC20>(
     ERC20_ABI,
     params.xTokenConfig.xTokenAddress,
     params.web3
-  ) as unknown as ERC20;
+  );
   const stakedInXPool = new BigNumber(
     await tokenContract.methods.balanceOf(params.xTokenConfig.xTokenAddress).call()
   );

@@ -1,3 +1,4 @@
+import BigNumber from 'bignumber.js';
 import { ChainId } from '../../packages/address-book/address-book';
 
 export interface LpPool {
@@ -9,7 +10,7 @@ export interface LpPool {
   strat?: string;
   decimals: string;
   poolId?: number;
-  chainId: ChainId;
+  chainId: ChainId | string;
   lp0: LpToken;
   lp1: LpToken;
   oracle?: string;
@@ -38,4 +39,48 @@ export interface LpToken {
   oracle: string;
   oracleId: string;
   decimals: string;
+}
+
+/**
+ * Current balance implementation modifies the lp pool object
+ * This type reflect the current implementation but is not the desired implementation
+ * A desired implementation would be to have an immutable LpPool object and an additional parameter for the balance
+ */
+export type LpTokenWithBalance = LpToken & { balance: BigNumber };
+export type LpPoolWithBalance = Omit<LpPool, 'lp0' | 'lp1'> & {
+  lp0: LpTokenWithBalance;
+  lp1: LpTokenWithBalance;
+  totalSupply: BigNumber;
+};
+
+export interface MultiAssetPool {
+  name: string;
+  address: string;
+  vault: string;
+  gauge?: string;
+  vaultPoolId: string;
+  decimals: string;
+  rewards?: {
+    stream: string;
+    token: string;
+    oracleId: string;
+  }[];
+  tokens: {
+    oracle: string;
+    oracleId: string;
+    decimals: string;
+  }[];
+}
+
+export type AnyPool = LpPool | SingleAssetPool | MultiAssetPool;
+
+export interface LpBreakdownData {
+  price: number;
+  tokens: string[];
+  balances: string[];
+  totalSupply: string;
+}
+
+export interface LpBreakdowns {
+  [key: string]: LpBreakdownData;
 }

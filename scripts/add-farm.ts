@@ -159,7 +159,7 @@ const poolsJson = require(poolsJsonFile);
 const chainId = ChainId[args['network']];
 const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
 
-async function fetchFarm(masterchefAddress, poolId) {
+async function fetchFarm(masterchefAddress: string, poolId: number) {
   console.log(`fetchFarm(${masterchefAddress}, ${poolId})`);
   const masterchefContract = new ethers.Contract(masterchefAddress, masterchefABI, provider);
   const poolInfo = await masterchefContract.poolInfo(poolId);
@@ -171,7 +171,7 @@ async function fetchFarm(masterchefAddress, poolId) {
   };
 }
 
-async function fetchLiquidityPair(lpAddress) {
+async function fetchLiquidityPair(lpAddress: string) {
   console.log(`fetchLiquidityPair(${lpAddress})`);
   const lpContract = new ethers.Contract(lpAddress, LPPairABI, provider);
   const lpTokenContract = new ethers.Contract(lpAddress, ERC20ABI, provider);
@@ -183,7 +183,7 @@ async function fetchLiquidityPair(lpAddress) {
   };
 }
 
-async function fetchToken(tokenAddress) {
+async function fetchToken(tokenAddress: string) {
   const tokenContract = new ethers.Contract(tokenAddress, ERC20ABI, provider);
   const checksummedTokenAddress = ethers.utils.getAddress(tokenAddress);
   const token = {

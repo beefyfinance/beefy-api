@@ -1,4 +1,5 @@
 import { ChainId } from '../packages/address-book/address-book';
+import { ChainName } from './types/Chain';
 
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
@@ -147,7 +148,7 @@ const EMERALD_VAULTS_ENDPOINT =
 const OPTIMISM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/optimism.json';
 
-const MULTICHAIN_ENDPOINTS = {
+const MULTICHAIN_ENDPOINTS: Record<ChainName, string> = {
   bsc: BSC_VAULTS_ENDPOINT,
   avax: AVAX_VAULTS_ENDPOINT,
   polygon: POLYGON_VAULTS_ENDPOINT,

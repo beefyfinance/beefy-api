@@ -1,4 +1,5 @@
 `use strict`;
+import { TokenPrices } from '../../types/TokenPrice';
 
 import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
@@ -239,13 +240,14 @@ import dystopiaPools from '../../data/matic/dystopiaLpPools.json';
 import swapsiclePools from '../../data/avax/siclePools.json';
 import ripaeArbitrumPools from '../../data/arbitrum/ripaeLpPools.json';
 import radiantPools from '../../data/arbitrum/radiantLpPools.json';
+import { AnyPool, LpPool, LpPoolWithBalance } from '../../types/LpPool';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
-const pools = [
+const pools: LpPoolWithBalance[] = [
   ...radiantPools,
   ...ripaeArbitrumPools,
   ...swapsiclePools,
@@ -474,7 +476,7 @@ const pools = [
   ...giddyLpPools,
 ];
 
-const dmmPools = [...kyberPools, ...oldDmmPools];
+const dmmPools: LpPool[] = [...kyberPools, ...oldDmmPools];
 
 const coinGeckoCoins = [
   'stasis-eurs',
@@ -496,7 +498,7 @@ const coinGeckoCoins = [
   'ethereum',
 ];
 
-const knownPrices = {
+const knownPrices: TokenPrices = {
   BUSD: 1,
   USDT: 1,
   HUSD: 1,
@@ -508,15 +510,15 @@ const knownPrices = {
   VST: 1,
 };
 
-let tokenPricesCache: Promise<any>;
-let lpPricesCache: Promise<any>;
+let tokenPricesCache: Promise<TokenPrices>;
+let lpPricesCache: Promise<TokenPrices>;
 let lpBreakdownCache: Promise<any>;
 
 const updateAmmPrices = async () => {
   console.log('> updating amm prices');
   let start = Date.now();
   try {
-    const coinGeckoPrices = async () => {
+    const coinGeckoPrices = async (): Promise<TokenPrices> => {
       const prices = await fetchCoinGeckoPrices(coinGeckoCoins);
       return {
         OP: prices['optimism'],
@@ -542,23 +544,23 @@ const updateAmmPrices = async () => {
     const ammPrices = fetchAmmPrices(pools, knownPrices);
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
-    const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+    const xPrices = ammPrices.then(async ({ tokenPrices }) => {
       return await fetchXPrices(tokenPrices);
     });
 
-    const stargatePrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+    const stargatePrices = ammPrices.then(async ({ tokenPrices }) => {
       return await fetchStargatePrices(tokenPrices);
     });
 
-    const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+    const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
       return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
     });
 
-    const beFtmPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+    const beFtmPrice = ammPrices.then(async ({ tokenPrices }) => {
       return await fetchbeFTMPrice(tokenPrices);
     });
 
-    const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+    const beTokenPrice = ammPrices.then(async ({ tokenPrices }) => {
       return {
         beJOE: tokenPrices['JOE'],
         beQI: tokenPrices['QI'],
@@ -567,7 +569,7 @@ const updateAmmPrices = async () => {
       };
     });
 
-    const tokenPrices = ammPrices.then(async ({ _, tokenPrices, __ }) => {
+    const tokenPrices = ammPrices.then(async ({ tokenPrices }) => {
       const dmm = await dmmPrices;
       const xTokenPrices = await xPrices;
       const mooTokenPrices = await mooPrices;
@@ -586,7 +588,7 @@ const updateAmmPrices = async () => {
       };
     });
 
-    const lpData = ammPrices.then(async ({ poolPrices, _, lpsBreakdown }) => {
+    const lpData = ammPrices.then(async ({ poolPrices, lpsBreakdown }) => {
       const dmm = await dmmPrices;
       const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
 
@@ -632,7 +634,7 @@ export const getLpBreakdown = async () => {
   return await lpBreakdownCache;
 };
 
-export const getAmmTokenPrice = async tokenSymbol => {
+export const getAmmTokenPrice = async (tokenSymbol: string) => {
   const tokenPrices = await getAmmTokensPrices();
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     return tokenPrices[tokenSymbol];
@@ -640,7 +642,7 @@ export const getAmmTokenPrice = async tokenSymbol => {
   console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
 };
 
-export const getAmmLpPrice = async lpName => {
+export const getAmmLpPrice = async (lpName: string) => {
   const lpPrices = await getAmmLpPrices();
   if (lpPrices.hasOwnProperty(lpName)) {
     return lpPrices[lpName];

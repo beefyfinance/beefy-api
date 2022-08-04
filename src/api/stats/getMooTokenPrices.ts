@@ -1,9 +1,9 @@
+import { ChainName } from '../../types/Chain';
 import fetchPrice from '../../utils/fetchPrice';
 import { getKey, setKey } from '../../utils/redisHelper';
+import { getMultichainVaults } from '../stats/getMultichainVaults';
 
-const { getMultichainVaults } = require('../stats/getMultichainVaults');
-
-let mooTokenPrices = {};
+let mooTokenPrices: { [chain in ChainName]?: { [earnedToken: string]: number } } = {};
 
 const INIT_DELAY = 60 * 1000;
 const REFRESH_INTERVAL = 60 * 1000;

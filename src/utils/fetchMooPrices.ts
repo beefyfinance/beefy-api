@@ -7,6 +7,11 @@ import { getContract } from './contractHelper';
 import { ChainId } from '../../packages/address-book/address-book';
 
 import IVault from '../abis/BeefyVaultV6.json';
+import {
+  VaultConfigExtended,
+  VaultWithChainAndStrategyAndLastHarvest,
+} from '../types/config-types';
+import { ChainName } from '../types/Chain';
 
 const fetchMooPrices = async (pools, tokenPrices, lpPrices) => {
   let moo = {};
@@ -55,8 +60,13 @@ const fetchPpfs = async pools => {
 };
 
 //Fetches ppfs for **vaults** from a single chain
-const fetchChainVaultsPpfs = async (vaults, chain) => {
-  const chainId = ChainId[chain] as any as ChainId;
+const fetchChainVaultsPpfs = async (
+  vaults: VaultWithChainAndStrategyAndLastHarvest[],
+  chain: ChainName
+): Promise<VaultConfigExtended[]> => {
+  const vaultExtended: VaultConfigExtended[] = [...Array(vaults.length)];
+
+  const chainId = ChainId[chain];
   const web3 = web3Factory(chainId);
   const multicall = new MultiCall(web3, multicallAddress(chainId));
   const ppfsCalls = [];
@@ -72,8 +82,9 @@ const fetchChainVaultsPpfs = async (vaults, chain) => {
   const ppfss = res[0].map(v => new BigNumber(v.ppfs));
 
   for (let i = 0; i < ppfss.length; i++) {
-    vaults[i].pricePerFullShare = ppfss[i];
+    vaultExtended[i] = { ...vaults[i], pricePerFullShare: ppfss[i] };
   }
+  return vaultExtended;
 };
 
 const calcMooPrice = (pool, tokenPrices, lpPrices) => {
