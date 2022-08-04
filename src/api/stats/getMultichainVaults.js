@@ -1,7 +1,7 @@
 const getVaults = require('../../utils/getVaults.js');
 const { getStrategies } = require('../../utils/getStrategies.js');
 const { getLastHarvests } = require('../../utils/getLastHarvests.js');
-const { fetchChainVaultsPpfs } = require('../../utils/fetchMooPrices.js');
+const { fetchChainVaultsPpfs } = require('../../utils/fetchMooPrices');
 
 const { MULTICHAIN_ENDPOINTS } = require('../../constants');
 const { getKey, setKey } = require('../../utils/redisHelper.js');
