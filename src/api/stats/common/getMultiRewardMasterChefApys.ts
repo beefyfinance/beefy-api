@@ -67,10 +67,10 @@ const getTradingAprs = async (params: MasterChefApysParams) => {
   if (client && fee) {
     const pairAddresses = params.pools.map(pool => pool.address.toLowerCase());
     const aprs = isSushiClient(client)
-      ? getTradingFeeAprSushi(client, pairAddresses, fee)
+      ? await getTradingFeeAprSushi(client, pairAddresses, fee)
       : isBeetClient(client)
-      ? getTradingFeeAprBalancer(client, pairAddresses, fee, params.chainId)
-      : getTradingFeeApr(client, pairAddresses, fee);
+      ? await getTradingFeeAprBalancer(client, pairAddresses, fee, params.chainId)
+      : await getTradingFeeApr(client, pairAddresses, fee);
     tradingAprs = { ...tradingAprs, ...aprs };
   }
   return tradingAprs;
