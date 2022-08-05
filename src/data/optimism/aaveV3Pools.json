@@ -58,5 +58,29 @@
     "beefyFee": 0.095,
     "borrowDepth": 1,
     "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-op-susd",
+    "token": "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9",
+    "aToken": "0x6d80113e533a2C0fe82EaBD35f1875DcEA89Ea97",
+    "debtToken": "0x4a1c3aD6Ed28a636ee1751C69071f6be75DEb8B8",
+    "oracle": "tokens",
+    "oracleId": "sUSD",
+    "decimals": "1e18",
+    "beefyFee": 0.045,
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-op-aave",
+    "token": "0x76FB31fb4af56892A25e32cFC43De717950c9278",
+    "aToken": "0xf329e36C7bF6E5E86ce2150875a84Ce77f477375",
+    "debtToken": "0xE80761Ea617F66F96274eA5e8c37f03960ecC679",
+    "oracle": "tokens",
+    "oracleId": "AAVE",
+    "decimals": "1e18",
+    "beefyFee": 0.045,
+    "borrowDepth": 1,
+    "borrowPercent": 0
   }
 ]
