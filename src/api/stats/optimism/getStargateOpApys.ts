@@ -6,8 +6,8 @@ const getStargateOpApys = async () =>
   await getMasterChefApys({
     web3: web3,
     chainId: chainId,
-    masterchef: '0x4a364f8c717cAAD9A442737Eb7b8A55cc6cf18D8',
-    tokenPerBlock: 'stargatePerBlock',
+    masterchef: '0x4DeA9e918c6289a52cd469cAC652727B7b412Cd2',
+    tokenPerBlock: 'eTokenPerSecond',
     hasMultiplier: false,
     singlePools: [
       {
@@ -27,7 +27,7 @@ const getStargateOpApys = async () =>
         decimals: '1e18',
       },
     ],
-    oracleId: 'STG',
+    oracleId: 'OP',
     oracle: 'tokens',
     decimals: '1e18',
   });
