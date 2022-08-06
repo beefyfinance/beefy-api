@@ -440,6 +440,18 @@ const _tokens = {
     description:
       'xckBTC is the Moonriver bridged verison of kBTC. kBTC is an overcollaterized Bitcoin stablecoin asset on Kusama.',
   },
+  wstKSM: {
+    name: 'Wrapped Staked KSM',
+    symbol: 'wstKSM',
+    address: '0xFfc7780C34B450d917d557E728f033033CB4fA8C',
+    chainId: 1285,
+    decimals: 12,
+    logoURI:
+      'https://github.com/solarbeamio/solarbeam-tokenlist/blob/main/assets/moonriver/0xFfc7780C34B450d917d557E728f033033CB4fA8C/logo.png',
+    website: 'https://kusama.lido.fi/',
+    description:
+      'Staked KSM (stKSM) is a liquid staking solution for KSM backed by industry-leading staking providers. stKSM rebases daily to receive rewards, wrapping stKSM for wstKSM will stop the rebasing mechanism, and will allow users to continue accruing staking rewards.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
