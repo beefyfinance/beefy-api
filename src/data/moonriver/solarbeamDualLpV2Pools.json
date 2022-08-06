@@ -1,5 +1,25 @@
 [
   {
+    "name": "solarbeam-wstksm-xcksm",
+    "address": "0x5568872bc43Bae3757F697c0e1b241b62Eddcc17",
+    "decimals": "1e18",
+    "poolId": 41,
+    "chainId": 1285,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3bfd113ad0329a7994a681236323fb16E16790e3",
+      "oracle": "tokens",
+      "oracleId": "wstKSM",
+      "decimals": "1e12"
+    },
+    "lp1": {
+      "address": "0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080",
+      "oracle": "tokens",
+      "oracleId": "xcKSM",
+      "decimals": "1e12"
+    }
+  },
+  {
     "name": "solarbeam-wbtc-wmovr",
     "address": "0x32E33B774372c700da12F2D0F7A834045F5651B2",
     "decimals": "1e18",
