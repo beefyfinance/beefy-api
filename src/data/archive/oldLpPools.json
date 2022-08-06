@@ -1,5 +1,23 @@
 [
   {
+    "name": "quick-weth-astrafer",
+    "address": "0xde4feA426E045374a2F629A28561978DC86677c5",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDfCe1e99A31C4597a3f8A8945cBfa9037655e335",
+      "oracle": "tokens",
+      "oracleId": "ASTRAFER",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-brz-busd",
     "address": "0x1955B7bF1ef1ECc5385BbcB2C13D529b035c6987",
     "decimals": "1e18",
