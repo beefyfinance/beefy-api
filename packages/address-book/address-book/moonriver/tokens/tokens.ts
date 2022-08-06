@@ -434,8 +434,7 @@ const _tokens = {
     address: '0xFFFfFfFfF6E528AD57184579beeE00c5d5e646F0',
     chainId: 1285,
     decimals: 8,
-    logoURI:
-      'https://moonriver.moonscan.io/token/images/kintsugibtc_32.png',
+    logoURI: 'https://moonriver.moonscan.io/token/images/kintsugibtc_32.png',
     website: 'https://kusama.network/',
     description:
       'xckBTC is the Moonriver bridged verison of kBTC. kBTC is an overcollaterized Bitcoin stablecoin asset on Kusama.',
@@ -443,7 +442,7 @@ const _tokens = {
   wstKSM: {
     name: 'Wrapped Staked KSM',
     symbol: 'wstKSM',
-    address: '0xFfc7780C34B450d917d557E728f033033CB4fA8C',
+    address: '0x3bfd113ad0329a7994a681236323fb16E16790e3',
     chainId: 1285,
     decimals: 12,
     logoURI:
