@@ -23,9 +23,16 @@ export const getEllipsisPrices = async tokePrices => {
 
 const getPoolPrice = async (pool, tokenPrices) => {
   const lpContract = getContractWithProvider(ICurvePool, pool.minter, web3);
-  const virtualPrice = new BigNumber(await lpContract.methods.get_virtual_price().call());
   const tokenPrice = getTokenPrice(tokenPrices, pool.oracleId);
-  const price = virtualPrice.multipliedBy(tokenPrice).dividedBy(DECIMALS).toNumber();
+
+  let lpPrice;
+  if (pool.volatile) {
+    lpPrice = new BigNumber(await lpContract.methods.lp_price().call());
+  } else {
+    lpPrice = new BigNumber(await lpContract.methods.get_virtual_price().call());
+  }
+  const price = lpPrice.multipliedBy(tokenPrice).dividedBy(DECIMALS).toNumber();
+
   return { [pool.name]: price };
 };
 

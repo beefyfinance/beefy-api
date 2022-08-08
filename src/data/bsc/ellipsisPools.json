@@ -1,5 +1,29 @@
 [
   {
+    "name": "ellipsis-epx-bnb",
+    "address": "0xd30E73F326D07bA3198D1A811519720f45b2D36D",
+    "minter": "0xE014A89c9788dAfdE603a13F2f01390610382471",
+    "oracleId": "EPX",
+    "volatile": true,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "ellipsis-busd-depx",
+    "address": "0x930891020402469d7bd32dF3401fdeD3B893ceF0",
+    "minter": "0xE53A43eCFC7Eb56C021ECebDEE482BDB303A93e9",
+    "oracleId": "BUSD",
+    "volatile": true,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "ellipsis-busd-bnb",
+    "address": "0x597F4583f45e2cBd571C6D18D7c4428885184738",
+    "minter": "0x9f494C121A932F9Ed575c6c96F885E51Ec6B367b",
+    "oracleId": "BUSD",
+    "volatile": true,
+    "beefyFee": 0.095
+  },
+  {
     "name": "ellipsis-2brl",
     "address": "0x1B6E11c5DB9B15DE87714eA9934a6c52371CfEA9",
     "minter": "0xad51e40D8f255dba1Ad08501D6B1a6ACb7C188f3",
