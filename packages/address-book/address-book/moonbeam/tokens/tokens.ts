@@ -432,6 +432,17 @@ const _tokens = {
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
   },
+  xcaUSD: {
+    name: 'xcaUSD',
+    symbol: 'xcaUSD',
+    address: '0xfFfFFFFF52C56A9257bB97f4B2b6F7B2D624ecda',
+    chainId: 1284,
+    decimals: 12,
+    logoURI:
+      'https://raw.githubusercontent.com/BeamSwap/beamswap-tokenlist/main/assets/chains/moonbeam/0xfFfFFFFF52C56A9257bB97f4B2b6F7B2D624ecda/logo.png',
+    website: 'https://acala.network/ausd',
+    description: 'Acala USD (aUSD). The native decentralized stablecoin of Polkadot.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
