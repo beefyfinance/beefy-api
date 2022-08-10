@@ -20,7 +20,7 @@ const getCurveBaseApys = async (pools, url) => {
       apys = { ...apys, ...{ [pool.name]: apy } };
     });
   } catch (err) {
-    console.error('Curve base apy error ', url, err);
+    console.error('Curve base apy error ', url);
   }
   return apys;
 };
@@ -29,7 +29,6 @@ const getSubgraphDataApy = (apyData, poolAddress) => {
   try {
     let pool = apyData.find(p => p.address.toLowerCase() === poolAddress.toLowerCase());
     if (!pool) return 0;
-    pool ? Number(pool.apy) / 100 : 0;
     let apy = Math.max(pool.latestDailyApy, pool.latestWeeklyApy);
     return Number(apy) / 100;
   } catch (err) {
@@ -45,26 +44,30 @@ const getCurveBaseApysOld = async (pools, url, factoryUrl) => {
       const response = await fetch(factoryUrl).then(res => res.json());
       factoryApyData = response.data.poolDetails;
     } catch (e) {
-      console.error('Curve factory apy error ', factoryUrl, e);
+      console.error('Curve factory apy error ', factoryUrl);
+    }
+  }
+
+  let baseApyData;
+  if (url) {
+    try {
+      const response = await fetch(url).then(res => res.json());
+      baseApyData = response.apy;
+    } catch (e) {
+      console.error('Curve base apy error ', url);
     }
   }
 
   let apys = {};
-  try {
-    const response = await fetch(url).then(res => res.json());
-    const apyData = response.apy;
-    pools.forEach(pool => {
-      let apy;
-      if (pool.baseApyKey) {
-        apy = new BigNumber(getBaseApy(apyData, pool));
-      } else {
-        apy = new BigNumber(getFactoryApy(factoryApyData, pool.pool));
-      }
-      apys = { ...apys, ...{ [pool.name]: apy } };
-    });
-  } catch (err) {
-    console.error('Curve base apy error ', url, err);
-  }
+  pools.forEach(pool => {
+    let apy;
+    if (pool.baseApyKey && baseApyData) {
+      apy = new BigNumber(getBaseApy(baseApyData, pool));
+    } else if (factoryApyData) {
+      apy = new BigNumber(getFactoryApy(factoryApyData, pool.pool));
+    }
+    apys = { ...apys, ...{ [pool.name]: apy } };
+  });
   return apys;
 };
 

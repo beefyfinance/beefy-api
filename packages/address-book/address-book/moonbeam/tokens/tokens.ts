@@ -348,6 +348,18 @@ const _tokens = {
     description:
       'Polkadot is an open-source sharding multichain protocol that facilitates the cross-chain transfer of any data or asset types, not just tokens, thereby making a wide range of blockchains interoperable with each other.',
   },
+  stDOT: {
+    name: 'Liquid staked DOT',
+    symbol: 'stDOT',
+    address: '0xFA36Fe1dA08C89eC72Ea1F0143a35bFd5DAea108',
+    chainId: 1284,
+    decimals: 10,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080.svg',
+    website: 'https://polkadot.lido.fi/',
+    description:
+      'Lido for Polkadot is a liquid staking solution for DOT backed by industry-leading staking providers.',
+  },
   veFLARE: {
     name: 'Vested Flare Token',
     symbol: 'veFLARE',

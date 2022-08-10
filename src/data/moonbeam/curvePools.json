@@ -1,0 +1,29 @@
+[
+  {
+    "name": "curve-moonbeam-f-stdot",
+    "pool": "0xc6e37086D09ec2048F151D11CdB9F9BbbdB7d685",
+    "token": "0xc6e37086D09ec2048F151D11CdB9F9BbbdB7d685",
+    "gauge": "0xC106C836771B0B4f4a0612Bd68163Ca93be1D340",
+    "oracleId": "xcDOT",
+    "boosted": true,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x9Fda7cEeC4c18008096C2fE2B85F05dc300F94d0",
+        "oracleId": "LDO"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "xcDOT",
+        "decimals": "1e10"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "stDOT",
+        "decimals": "1e10"
+      }
+    ]
+  }
+]
