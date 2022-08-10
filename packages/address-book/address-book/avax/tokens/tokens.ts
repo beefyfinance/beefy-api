@@ -3913,8 +3913,8 @@ const _tokens = {
     chainId: 43114,
     address: '0x50b7545627a5162F82A992c33b87aDc75187B218',
     decimals: 8,
-    name: 'Wrapped BTC (eth bridged)',
-    symbol: 'WBTC.e',
+    name: 'Wrapped BTC',
+    symbol: 'WBTCe',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -4322,7 +4322,7 @@ const _tokens = {
     chainId: 43114,
     address: '0xc7198437980c041c805A1EDcbA50c1Ce5db95118',
     decimals: 6,
-    name: 'Tether USD (eth bridged)',
+    name: 'Tether USD',
     symbol: 'USDTe',
     website: 'https://tether.to/',
     description:
