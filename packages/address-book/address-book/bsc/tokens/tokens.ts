@@ -15,6 +15,30 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  stkBNB: {
+    name: 'Staked BNB',
+    symbol: 'stkBNB',
+    address: '0xc2E9d07F66A89c44062459A47a0D2Dc038E4fb16',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xc2E9d07F66A89c44062459A47a0D2Dc038E4fb16.svg',
+    website: 'https://pstake.finance/',
+    description:
+      'pSTAKE’s BNB liquid staking product allows holders of BNB to stake their assets using the BNB staking interface. Users are issued stkBNB which follows an exchange rate model, (inspired by the Compound’s cToken model). stkBNB value keeps increasing against BNB as it accrues staking rewards in the background.',
+  },
+  PSTAKE: {
+    name: 'pStake Finance',
+    symbol: 'PSTAKE',
+    address: '0x4C882ec256823eE773B25b414d36F92ef58a7c0C',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4C882ec256823eE773B25b414d36F92ef58a7c0C.svg',
+    website: 'https://pstake.finance/',
+    description:
+      'pSTAKE is a liquid staking protocol unlocking the liquidity of staked assets. Stakers of PoS tokens can now stake their assets while maintaining the liquidity of these assets. On staking with pSTAKE, users earn staking rewards and also receive staked representative tokens (stkASSETs) which can be used in DeFi to generate additional yield (yield on top of staking rewards).',
+  },
   MIX: {
     name: 'MixMarvel Token',
     symbol: 'MIX',

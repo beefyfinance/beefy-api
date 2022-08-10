@@ -79,6 +79,11 @@ const projects = {
     file: '../src/data/sys/pegasysLpPools.json',
     masterchef: pegasys.minichef,
   },
+  pancake: {
+    prefix: 'cakev2',
+    file: '../src/data/cakeLpPoolsV2.json',
+    masterchef: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
+  },
 };
 
 const args = yargs.options({
@@ -98,6 +103,11 @@ const args = yargs.options({
     type: 'interger',
     demandOption: true,
     describe: 'poolId from respective masterchef contract',
+  },
+  newFee: {
+    type: 'bool',
+    demandOption: true,
+    describe: 'If the beefy fee is 9.5% use true else use false',
   },
 }).argv;
 
@@ -157,6 +167,7 @@ async function main() {
     name: newPoolName,
     address: lp.address,
     decimals: `1e${lp.decimals}`,
+    beefyFee: args['newFee'] ? 0.095 : 0.045,
     poolId: poolId,
     chainId: chainId,
     lp0: {

@@ -40,8 +40,8 @@ const {
 const projects = {
   pancake: {
     prefix: 'cakev2',
-    file: '../src/data/cakeLpPools.json',
-    masterchef: '0x73feaa1eE314F8c655E354234017bE2193C9E24E',
+    file: '../src/data/cakeLpPoolsV2.json',
+    masterchef: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
   },
   wault: {
     prefix: 'wex',
@@ -148,6 +148,11 @@ const args = yargs.options({
     demandOption: true,
     describe: 'poolId from respective masterchef contract',
   },
+  newFee: {
+    type: 'bool',
+    demandOption: true,
+    describe: 'If the beefy fee is 9.5% use true else use false',
+  },
 }).argv;
 
 const poolPrefix = projects[args['project']].prefix;
@@ -211,6 +216,7 @@ async function main() {
     name: newPoolName,
     address: lp.address,
     decimals: `1e${lp.decimals}`,
+    beefyFee: args['newFee'] ? 0.095 : 0.045,
     poolId: poolId,
     chainId: chainId,
     lp0: {
