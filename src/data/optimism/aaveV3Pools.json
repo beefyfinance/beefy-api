@@ -58,5 +58,17 @@
     "beefyFee": 0.095,
     "borrowDepth": 1,
     "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-op-aave",
+    "token": "0x76FB31fb4af56892A25e32cFC43De717950c9278",
+    "aToken": "0xf329e36C7bF6E5E86ce2150875a84Ce77f477375",
+    "debtToken": "0xE80761Ea617F66F96274eA5e8c37f03960ecC679",
+    "oracle": "tokens",
+    "oracleId": "AAVE",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "borrowDepth": 1,
+    "borrowPercent": 0
   }
 ]
