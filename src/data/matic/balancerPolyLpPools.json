@@ -154,11 +154,17 @@
     "gauge": "0x48534d027f8962692122dB440714fFE88Ab1fA85",
     "vaultPoolId": "0xC17636E36398602DD37BB5D1B3A9008C7629005F0002000000000000000004C4",
     "decimals": "1e18",
+    "beefyFee": 0.095,
     "rewards": [
       {
         "stream": "0x7fFdEc1fE5FfcD4F80F535b4a992a8Df16c683bd",
         "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
         "oracleId": "BAL"
+      },
+      {
+        "stream": "0x7fFdEc1fE5FfcD4F80F535b4a992a8Df16c683bd",
+        "token": "0x1d734A02eF1e1f5886e66b0673b71Af5B53ffA94",
+        "oracleId": "SD"
       }
     ],
     "tokens": [
