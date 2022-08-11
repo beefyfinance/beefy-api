@@ -3914,14 +3914,25 @@ const _tokens = {
     address: '0x50b7545627a5162F82A992c33b87aDc75187B218',
     decimals: 8,
     name: 'Wrapped BTC',
-    symbol: 'WBTC',
+    symbol: 'WBTCe',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
-
+  renBTC: {
+    chainId: 43114,
+    address: '0xDBf31dF14B66535aF65AaC99C32e9eA844e14501',
+    decimals: 8,
+    name: 'renBTC',
+    symbol: 'RENBTC',
+    website: 'https://renproject.io/',
+    description:
+      'renBTC is a synthetic asset that represents the value of bitcoin and it is created by the Ren protocol. renBTC allows for bitcoin transfers to be conducted quicker on the Ethereum blockchain and opens up the possibility for bitcoin to be used in the Ethereum ecosystem. Bitcoin is held in custody by a network of decentralized nodes; it can be converted to renBTC and vice versa easily.',
+    logoURI:
+      'https://raw.githubusercontent.com/renproject/bridge-v2/master/src/assets/icons/tokens/bitcoin-dashed-icon.svg',
+  },
   wNXM: {
     chainId: 43114,
     address: '0x3585E1f43Af5A0E5a9429A8058BDf999ED67f81d',
@@ -4311,7 +4322,7 @@ const _tokens = {
     chainId: 43114,
     address: '0xc7198437980c041c805A1EDcbA50c1Ce5db95118',
     decimals: 6,
-    name: 'Tether USD (eth bridged)',
+    name: 'Tether USD',
     symbol: 'USDTe',
     website: 'https://tether.to/',
     description:
