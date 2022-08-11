@@ -26,6 +26,7 @@ const getBasedApy = require('./getBasedApys');
 const getHectorApy = require('./getHectorApy');
 const getStargateApys = require('./getStargateFantomApys');
 const getSolaceApy = require('./getSolaceApy');
+const getSolidlyApys = require('./getSolidlyApys');
 
 const getApys = [
   getSushiLpApys,
@@ -56,6 +57,7 @@ const getApys = [
   getHectorApy,
   getStargateApys,
   getSolaceApy,
+  getSolidlyApys,
 ];
 
 const getFantomApys = async () => {
