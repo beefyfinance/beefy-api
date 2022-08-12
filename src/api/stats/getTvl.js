@@ -143,7 +143,7 @@ const chains = [
   {
     chainId: OPTIMISM_CHAIN_ID,
     vaultsEndpoint: OPTIMISM_VAULTS_ENDPOINT,
-    // governancePool: require('../../data/moonbeam/governancePool.json'),
+    governancePool: require('../../data/optimism/governancePool.json'),
   },
 ];
 
