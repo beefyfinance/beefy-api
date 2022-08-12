@@ -95,5 +95,25 @@
       "oracleId": "POTS",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "solidly-usdc-wftm",
+    "address": "0xBad7D3DF8E1614d985C3D9ba9f6ecd32ae7Dc20a",
+    "gauge": "0x4F54422aF23FC94847fA2107E6D774414f311c35",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
   }
 ]
