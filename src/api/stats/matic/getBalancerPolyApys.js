@@ -24,8 +24,7 @@ const getBalancerPolyApys = async () => {
   // console.log(tradingAprs);
 
   const farmApys = await getPoolApys(pools);
-  const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
-  return getApyBreakdown(poolsMap, tradingAprs, farmApys, liquidityProviderFee);
+  return getApyBreakdown(pools, tradingAprs, farmApys, liquidityProviderFee);
 };
 
 const getPoolApys = async pools => {
