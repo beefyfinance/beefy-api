@@ -72,7 +72,9 @@ const getVaultBalances = async (chainId, vaults) => {
 const getGovernanceTvl = async (chainId, governancePool) => {
   const excludedVaults = Object.values(governancePool.exclude);
 
-  const excludedBalances = await getVaultBalances(chainId, excludedVaults);
+  const excludedBalances = excludedVaults.length
+    ? await getVaultBalances(chainId, excludedVaults)
+    : [];
   let tokenPrice = 0;
 
   try {
