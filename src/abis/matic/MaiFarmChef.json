@@ -8,12 +8,12 @@
       },
       {
         "internalType": "uint256",
-        "name": "_rewardPerBlock",
+        "name": "_rewardPerSecond",
         "type": "uint256"
       },
       {
         "internalType": "uint256",
-        "name": "_startBlock",
+        "name": "_startTimestamp",
         "type": "uint256"
       },
       {
@@ -22,6 +22,7 @@
         "type": "address"
       }
     ],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "constructor"
   },
@@ -120,6 +121,7 @@
     "type": "event"
   },
   {
+    "constant": false,
     "inputs": [
       {
         "internalType": "uint256",
@@ -144,10 +146,12 @@
     ],
     "name": "add",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "constant": false,
     "inputs": [
       {
         "internalType": "uint256",
@@ -162,10 +166,12 @@
     ],
     "name": "deposit",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [
       {
         "internalType": "uint256",
@@ -186,10 +192,12 @@
         "type": "uint256"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": false,
     "inputs": [
       {
         "internalType": "uint256",
@@ -199,12 +207,14 @@
     ],
     "name": "emergencyWithdraw",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [],
-    "name": "endBlock",
+    "name": "endTimestamp",
     "outputs": [
       {
         "internalType": "uint256",
@@ -212,10 +222,12 @@
         "type": "uint256"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [],
     "name": "erc20",
     "outputs": [
@@ -225,10 +237,12 @@
         "type": "address"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [],
     "name": "feeAddress",
     "outputs": [
@@ -238,10 +252,12 @@
         "type": "address"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": false,
     "inputs": [
       {
         "internalType": "uint256",
@@ -251,17 +267,21 @@
     ],
     "name": "fund",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "constant": false,
     "inputs": [],
     "name": "massUpdatePools",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [],
     "name": "owner",
     "outputs": [
@@ -271,10 +291,12 @@
         "type": "address"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [],
     "name": "paidOut",
     "outputs": [
@@ -284,10 +306,12 @@
         "type": "uint256"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [
       {
         "internalType": "uint256",
@@ -308,10 +332,12 @@
         "type": "uint256"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [
       {
         "internalType": "uint256",
@@ -333,7 +359,7 @@
       },
       {
         "internalType": "uint256",
-        "name": "lastRewardBlock",
+        "name": "lastRewardTimestamp",
         "type": "uint256"
       },
       {
@@ -347,10 +373,12 @@
         "type": "uint16"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [],
     "name": "poolLength",
     "outputs": [
@@ -360,19 +388,23 @@
         "type": "uint256"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": false,
     "inputs": [],
     "name": "renounceOwnership",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [],
-    "name": "rewardPerBlock",
+    "name": "rewardPerSecond",
     "outputs": [
       {
         "internalType": "uint256",
@@ -380,10 +412,12 @@
         "type": "uint256"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": false,
     "inputs": [
       {
         "internalType": "uint256",
@@ -403,10 +437,12 @@
     ],
     "name": "set",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "constant": false,
     "inputs": [
       {
         "internalType": "address",
@@ -416,12 +452,14 @@
     ],
     "name": "setFeeAddress",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [],
-    "name": "startBlock",
+    "name": "startTimestamp",
     "outputs": [
       {
         "internalType": "uint256",
@@ -429,10 +467,12 @@
         "type": "uint256"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [],
     "name": "totalAllocPoint",
     "outputs": [
@@ -442,10 +482,12 @@
         "type": "uint256"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": true,
     "inputs": [],
     "name": "totalPending",
     "outputs": [
@@ -455,10 +497,12 @@
         "type": "uint256"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": false,
     "inputs": [
       {
         "internalType": "address",
@@ -468,10 +512,12 @@
     ],
     "name": "transferOwnership",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "constant": false,
     "inputs": [
       {
         "internalType": "uint256",
@@ -481,10 +527,32 @@
     ],
     "name": "updatePool",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   },
   {
+    "constant": false,
+    "inputs": [
+      {
+        "internalType": "uint256",
+        "name": "_pid",
+        "type": "uint256"
+      },
+      {
+        "internalType": "uint16",
+        "name": "_depositFeeBP",
+        "type": "uint16"
+      }
+    ],
+    "name": "updatePoolDepositFee",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
     "inputs": [
       {
         "internalType": "uint256",
@@ -510,10 +578,12 @@
         "type": "uint256"
       }
     ],
+    "payable": false,
     "stateMutability": "view",
     "type": "function"
   },
   {
+    "constant": false,
     "inputs": [
       {
         "internalType": "uint256",
@@ -528,6 +598,7 @@
     ],
     "name": "withdraw",
     "outputs": [],
+    "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"
   }
