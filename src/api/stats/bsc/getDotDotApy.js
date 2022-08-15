@@ -76,7 +76,7 @@ const getPoolApys = async pools => {
     const yearlyRewards = epxPerYear.times(boost).times(shareAfterDotDotFee);
     const yearlyRewardsInUsd = yearlyRewards.times(epxPrice).div('1e18');
     const epxApy = yearlyRewardsInUsd.div(totalStakedInUsd);
-    // console.log(pool.name, 'EPX', epxApy.valueOf());
+    // console.log(pool.name, 'EPX', totalStakedInUsd.valueOf(), epxApy.valueOf());
 
     let apy = epxApy;
 
