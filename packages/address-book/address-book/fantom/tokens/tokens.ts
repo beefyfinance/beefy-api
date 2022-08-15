@@ -38,6 +38,18 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  POTS: {
+    name: 'Moonpot',
+    symbol: 'POTS',
+    address: '0xF7554D17d1c3F09899dCc8B404beCAE6dFA584Fa',
+    chainId: 250,
+    decimals: 18,
+    logoURI:
+      'https://assets.trustwalletapp.com/blockchains/smartchain/assets/0x3Fcca8648651E5b974DD6d3e50F61567779772A8/logo.png',
+    website: 'https://moonpot.com/',
+    description:
+      'Stake Crypto, Earn Interest and Win Prizes. The greatest win-win savings game this side of the galaxy, where even the smallest of stakes wins the biggest prizes.',
+  },
   COMB: {
     name: 'Comb Finance',
     symbol: 'COMB',

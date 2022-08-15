@@ -5,6 +5,7 @@
     "gauge": "0x5990734584bf21C76cBC721858843e9574c8446f",
     "decimals": "1e18",
     "chainId": 250,
+    "beefyFee": 0.095,
     "lp0": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
@@ -72,6 +73,46 @@
       "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
       "oracle": "tokens",
       "oracleId": "miMATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solidly-wftm-pots",
+    "address": "0x474f0cbFeC301b68Cdb0D298C045D64465fB20BB",
+    "gauge": "0x672e6e3c7965f0eE2D3d54A19a2fD0D6c5BF1a07",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF7554D17d1c3F09899dCc8B404beCAE6dFA584Fa",
+      "oracle": "tokens",
+      "oracleId": "POTS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solidly-usdc-wftm",
+    "address": "0xBad7D3DF8E1614d985C3D9ba9f6ecd32ae7Dc20a",
+    "gauge": "0x4F54422aF23FC94847fA2107E6D774414f311c35",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
       "decimals": "1e18"
     }
   }
