@@ -1,5 +1,24 @@
 [
   {
+    "name": "curve-op-f-fraxbp",
+    "pool": "0x29A3d66B30Bc4AD674A4FDAF27578B64f6afbFe7",
+    "token": "0x29A3d66B30Bc4AD674A4FDAF27578B64f6afbFe7",
+    "gauge": "0x4B960396011A914B4ccCC3b33DFEE83A97A9D766",
+    "boosted": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-op-f-sbtc",
     "pool": "0x9F2fE3500B1a7E285FDc337acacE94c480e00130",
     "token": "0x9F2fE3500B1a7E285FDc337acacE94c480e00130",
