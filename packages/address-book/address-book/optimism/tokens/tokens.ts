@@ -365,6 +365,28 @@ const _tokens = {
     description:
       'A permissionless multi-chain protocol for capital raises and OTC deals. No need for VCs, Aelin decentralizes fundraising',
   },
+  pETHo: {
+    name: 'pETHo',
+    symbol: 'pETHo',
+    address: '0x6ca558bd3eaB53DA1B25aB97916dd14bf6CFEe4E',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: '',
+  },
+  sETHo: {
+    name: 'sETHo',
+    symbol: 'sETHo',
+    address: '0x09448876068907827ec15F49A8F1a58C70b04d45',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://ripae.finance/',
+    description:
+      'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
