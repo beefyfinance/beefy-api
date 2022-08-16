@@ -13,7 +13,7 @@ const getSolidlyApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     reward: '0x888EF71766ca594DED1F0FA3AE64eD2941740A20',
-    boosted: false,
+    boosted: true,
     // log: true,
   });
 
