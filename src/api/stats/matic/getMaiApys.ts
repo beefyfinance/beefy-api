@@ -9,9 +9,9 @@ const mai = addressBook.polygon.platforms.mai;
 
 const getMaiApys = async () =>
   getMasterChefApys({
-    masterchef: mai.chef,
+    masterchef: mai.chef3,
     masterchefAbi: MasterChefAbi as AbiItem[],
-    tokenPerBlock: 'rewardPerBlock',
+    tokenPerBlock: 'rewardPerSecond',
     hasMultiplier: false,
     pools: pools,
     singlePools: [],
@@ -20,6 +20,7 @@ const getMaiApys = async () =>
     decimals: '1e18',
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: 0.0025,
+    secondsPerBlock: 2,
     // log: true,
   });
 
