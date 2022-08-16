@@ -20,7 +20,7 @@ const getMaiApys = async () =>
     decimals: '1e18',
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: 0.0025,
-    secondsPerBlock: 2,
+    secondsPerBlock: 1,
     // log: true,
   });
 
