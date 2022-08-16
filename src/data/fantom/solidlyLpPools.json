@@ -115,5 +115,45 @@
       "oracleId": "WFTM",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "solidly-wftm-eth",
+    "address": "0xb0ffAE1c213EAA031AA20a1DAC86f543438e8202",
+    "gauge": "0x4467C288bB3f0a600F1dc9683Eb6cD91Aca45139",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solidly-wftm-deus",
+    "address": "0x5F3273A3D4379e47044c07Ea2f1918d5c1570624",
+    "gauge": "0xF744B34b272dDDF325E168A4afc3F587D38BE234",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44",
+      "oracle": "tokens",
+      "oracleId": "DEUS",
+      "decimals": "1e18"
+    }
   }
 ]
