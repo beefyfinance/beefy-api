@@ -36,7 +36,7 @@ const getFarmApys = async params => {
     const stakedPrice = await fetchPrice({ oracle, id });
 
     let boost = 1;
-    if (params.boosted) {
+    if (params.boosted && params.NFTid) {
       const derived = depositBalances[i].times(40).dividedBy(100);
       const adjusted = balances[i].times(veBalance).dividedBy(supply).times(60).dividedBy(100);
       boost =
