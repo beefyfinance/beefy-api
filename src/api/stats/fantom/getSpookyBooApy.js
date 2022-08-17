@@ -15,7 +15,7 @@ const { spookyClient } = require('../../../apollo/client');
 const oracle = 'tokens';
 const oracleId = 'BOO';
 const BOO = '0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE';
-const xBOOChefAddress = '0xCd4d3D744c3AB0BD528dbd330839537f996BE71A';
+const xBOOChefAddress = '0x399D73bB7c83a011cD85DF2a3CdF997ED3B3439f';
 const xBOO = '0xa48d959AE2E88f1dAA7D5F611E01908106dE7598';
 const DECIMALS = '1e18';
 
@@ -24,6 +24,7 @@ const SECONDS_PER_YEAR = 31536000;
 const liquidityProviderFee = 0.0003;
 const beefyPerformanceFee = 0.045;
 const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+const afterBurn = 0.91;
 
 const getSpookyBooApy = async () => {
   const BOOPrice = await fetchPrice({ oracle, id: oracleId });
@@ -44,7 +45,7 @@ const getSpookyBooApy = async () => {
   const totalStakedInUsd = balance.times(xBOOPrice).dividedBy(DECIMALS);
 
   const rewardPrice = await fetchPrice({ oracle, id: pool.rewardTokenName });
-  const yearlyRewards = rewardRate.times(SECONDS_PER_YEAR);
+  const yearlyRewards = rewardRate.times(SECONDS_PER_YEAR).times(afterBurn);
   const yearlyRewardsInUsd = yearlyRewards.times(rewardPrice).dividedBy(pool.rewardDecimals);
 
   const simpleApr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
