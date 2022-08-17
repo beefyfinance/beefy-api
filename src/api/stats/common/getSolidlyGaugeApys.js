@@ -22,7 +22,7 @@ const getFarmApys = async params => {
   const { balances, rewardRates, depositBalances } = await getPoolsData(params);
   let supply = 0;
   let veBalance = 0;
-  if (params.boosted) {
+  if (params.boosted && params.NFTid) {
     const ve = getContractWithProvider(IVe, params.ve, params.web3);
     supply = new BigNumber(await ve.methods.totalSupply().call());
     veBalance = new BigNumber(await ve.methods.balanceOfNFT(params.NFTid).call());
@@ -50,7 +50,7 @@ const getFarmApys = async params => {
     const secondsPerYear = 31536000;
     let yearlyRewards = 0;
     if (params.boosted) {
-      yearlyRewards = rewardRates[i].times(secondsPerYear).times(0.4).times(boost).div('1e18');
+      yearlyRewards = rewardRates[i].times(secondsPerYear).times(0.4).times(boost);
     } else {
       yearlyRewards = rewardRates[i].times(secondsPerYear);
     }
@@ -85,7 +85,7 @@ const getPoolsData = async params => {
     rewardRateCalls.push({
       rewardRate: rewardPool.methods.rewardRate(params.reward),
     });
-    if (params.boosted) {
+    if (params.boosted && params.NFTid) {
       depositBalanceCalls.push({
         depositBalance: rewardPool.methods.balanceOf(params.gaugeStaker),
       });
