@@ -25,6 +25,7 @@ import getBalancerArbPrices from './arbitrum/getBalancerArbPrices';
 import getBalancerPolyPrices from './matic/getBalancerPolyPrices';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
 import getDystopiaStablePrices from './matic/getDystopiaStablePrices';
+import getSolidlyV1StablePrices from './fantom/getSolidlyV1StablePrices';
 import getVoltagePrices from './fuse/getVoltagePrices';
 import getBeamswapPrices from './moonbeam/getBeamswapPrices';
 import getTrisolarisPrices from './aurora/getTrisolarisPrices';
@@ -37,6 +38,7 @@ const getNonAmmPrices = async tokenPrices => {
     getTrisolarisPrices(tokenPrices),
     getBeamswapPrices(tokenPrices),
     getVoltagePrices(tokenPrices),
+    getSolidlyV1StablePrices(tokenPrices),
     getDystopiaStablePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
     getBalancerPolyPrices(tokenPrices),
