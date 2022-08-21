@@ -4,6 +4,7 @@
     "address": "0x3f54C58092e9735AD23cf296ee3aF81F5a44a5bc",
     "gauge": "0xc22F4bD5789e72D5267af3D952dE44823b5aC722",
     "decimals": "1e18",
+    "beefyFee": 0.095,
     "chainId": 137,
     "lp0": {
       "address": "0x45c32fA6DF82ead1e2EF74d17b76547EDdFaFF89",

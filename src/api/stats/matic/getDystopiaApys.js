@@ -25,7 +25,7 @@ const getDystopiaApys = async () => {
     boosted: true,
     NFTid: 7,
     ve: dystopia.ve,
-    gaugeStaker: beefyfinance.gaugeStaker,
+    gaugeStaker: dystopia.gaugeStaker,
     // log: true,
   });
 };
