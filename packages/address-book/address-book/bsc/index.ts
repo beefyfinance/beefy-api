@@ -14,6 +14,7 @@ import { jet } from './platforms/jet';
 import { mdex } from './platforms/mdex';
 import { biswap } from './platforms/biswap';
 import { emp } from './platforms/emp';
+import { cone } from './platforms/cone';
 import { bolide } from './platforms/bolide';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
@@ -39,6 +40,7 @@ const _bsc = {
     biswap,
     emp,
     bolide,
+    cone,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

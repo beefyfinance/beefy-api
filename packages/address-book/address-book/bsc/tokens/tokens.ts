@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  CONE: {
+    name: 'Cone token',
+    symbol: 'CONE',
+    address: '0xA60205802E1B5C6EC1CAFA3cAcd49dFeECe05AC9',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.cone.exchange/home',
+    description:
+      'Cone is a decentralized exchange on the BSC network with low fees, near 0 slippage on correlated assets and a strong focus on secondary markets for tokenized locks as NFTs.',
+  },
   stkBNB: {
     name: 'Staked BNB',
     symbol: 'stkBNB',

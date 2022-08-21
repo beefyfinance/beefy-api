@@ -28,6 +28,7 @@ const getValasLpApys = require('./valas/getValasLpApys');
 const getbeCakeApy = require('./pancake/getbeCakeApy');
 const getbeCakeEarnApy = require('./pancake/getbeCakeEarnApy');
 const { getDotDotApy } = require('./getDotDotApy');
+const getConeApys = require('./getConeApys');
 
 const getApys = [
   getAlpacaApys,
@@ -40,6 +41,7 @@ const getApys = [
   getCakePoolApy,
   getCakeLpV2Apys,
   getCakeV2PoolApy,
+  getConeApys,
   getDegensLpApys,
   getFarmheroApys,
   getIcarusApys,

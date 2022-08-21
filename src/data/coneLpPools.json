@@ -1,0 +1,22 @@
+[
+  {
+    "name": "cone-cone-wbnb",
+    "address": "0x672cD8201CEB518F9E42526ef7bCFe5263F41951",
+    "gauge": "0x09635bd2F4aA47afc7eB9d2F03c4fE4e747D4B42",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xA60205802E1B5C6EC1CAFA3cAcd49dFeECe05AC9",
+      "oracle": "tokens",
+      "oracleId": "CONE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]

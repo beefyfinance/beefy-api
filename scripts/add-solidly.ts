@@ -21,6 +21,9 @@ const {
   polygon: {
     platforms: { dystopia },
   },
+  bsc: {
+    platforms: { cone },
+  },
 } = addressBook;
 
 const projects = {
@@ -40,6 +43,12 @@ const projects = {
     stableFile: '../src/data/matic/dystopiaStableLpPools.json',
     volatileFile: '../src/data/matic/dystopiaLpPools.json',
     voter: dystopia.voter,
+  },
+  cone: {
+    prefix: 'cone',
+    stableFile: '../src/data/coneStableLpPools.json',
+    volatileFile: '../src/data/coneLpPools.json',
+    voter: cone.voter,
   },
 };
 

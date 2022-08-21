@@ -28,12 +28,14 @@ import getDystopiaStablePrices from './matic/getDystopiaStablePrices';
 import getVoltagePrices from './fuse/getVoltagePrices';
 import getBeamswapPrices from './moonbeam/getBeamswapPrices';
 import getTrisolarisPrices from './aurora/getTrisolarisPrices';
+import getConeStablePrices from './bsc/getConeStablePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getConeStablePrices(tokenPrices),
     getTrisolarisPrices(tokenPrices),
     getBeamswapPrices(tokenPrices),
     getVoltagePrices(tokenPrices),
