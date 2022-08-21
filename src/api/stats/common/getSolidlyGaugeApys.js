@@ -35,14 +35,18 @@ const getFarmApys = async params => {
     const id = pool.oracleId ?? pool.name;
     const stakedPrice = await fetchPrice({ oracle, id });
 
-    let boost = 1;
+    let boost = false;
+    let derived;
+    let adjusted;
     if (params.boosted && params.NFTid) {
-      const derived = depositBalances[i].times(40).dividedBy(100);
-      const adjusted = balances[i].times(veBalance).dividedBy(supply).times(60).dividedBy(100);
-      boost =
-        depositBalances[i] >= adjusted.plus(derived)
-          ? 1
-          : adjusted.plus(derived).dividedBy(derived);
+      boost = true;
+      derived = depositBalances[i].times(40).dividedBy(100);
+      adjusted = balances[i]
+        .times(veBalance)
+        .dividedBy(supply)
+        .dividedBy('1e18')
+        .times(60)
+        .dividedBy(100);
     }
 
     const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
@@ -50,10 +54,21 @@ const getFarmApys = async params => {
     const secondsPerYear = 31536000;
     let yearlyRewards = 0;
     if (params.boosted) {
-      yearlyRewards = rewardRates[i].times(secondsPerYear).times(0.4).times(boost);
+      if (boost) {
+        if (depositBalances[i] > adjusted.plus(derived)) {
+          yearlyRewards = rewardRates[i]
+            .times(secondsPerYear)
+            .times(adjusted.plus(derived).dividedBy(depositBalances[i]));
+        } else {
+          yearlyRewards = rewardRates[i].times(secondsPerYear);
+        }
+      } else {
+        yearlyRewards = rewardRates[i].times(secondsPerYear).times(0.4);
+      }
     } else {
       yearlyRewards = rewardRates[i].times(secondsPerYear);
     }
+
     const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
@@ -96,7 +111,7 @@ const getPoolsData = async params => {
 
   const balances = res[0].map(v => new BigNumber(v.balance));
   const rewardRates = res[1].map(v => new BigNumber(v.rewardRate));
-  const depositBalances = res[0].map(v => new BigNumber(v.depositBalance));
+  const depositBalances = res[2].map(v => new BigNumber(v.depositBalance));
   return { balances, rewardRates, depositBalances };
 };
 
