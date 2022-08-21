@@ -38,9 +38,11 @@ const getFarmApys = async params => {
     let boost = false;
     let derived;
     let adjusted;
+    let gaugeDeposit;
     if (params.boosted && params.NFTid) {
       boost = true;
-      derived = depositBalances[i].times(40).dividedBy(100);
+      gaugeDeposit = depositBalances[i].dividedBy('1e18');
+      derived = gaugeDeposit.times(40).dividedBy(100);
       adjusted = balances[i]
         .times(veBalance)
         .dividedBy(supply)
@@ -55,10 +57,10 @@ const getFarmApys = async params => {
     let yearlyRewards = 0;
     if (params.boosted) {
       if (boost) {
-        if (depositBalances[i] > adjusted.plus(derived)) {
+        if (gaugeDeposit.gt(derived.plus(adjusted))) {
           yearlyRewards = rewardRates[i]
             .times(secondsPerYear)
-            .times(adjusted.plus(derived).dividedBy(depositBalances[i]));
+            .times(derived.plus(adjusted).dividedBy(gaugeDeposit));
         } else {
           yearlyRewards = rewardRates[i].times(secondsPerYear);
         }
