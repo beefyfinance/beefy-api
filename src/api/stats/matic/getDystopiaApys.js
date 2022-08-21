@@ -23,7 +23,7 @@ const getDystopiaApys = async () => {
     decimals: '1e36', // token is 1e18 but gauge.rewardRate returns 1e36
     reward: DYST.address,
     boosted: true,
-    NFTid: 7,
+    NFTid: 32337,
     ve: dystopia.ve,
     gaugeStaker: dystopia.gaugeStaker,
     // log: true,
