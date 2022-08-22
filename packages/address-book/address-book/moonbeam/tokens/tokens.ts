@@ -455,6 +455,17 @@ const _tokens = {
     website: 'https://acala.network/ausd',
     description: 'Acala USD (aUSD). The native decentralized stablecoin of Polkadot.',
   },
+  LDO: {
+    name: 'Lido DAO',
+    symbol: 'LDO',
+    address: '0x9Fda7cEeC4c18008096C2fE2B85F05dc300F94d0',
+    chainId: 1284,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/13573/large/Lido_DAO.png?1609873644',
+    website: 'https://stake.lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
