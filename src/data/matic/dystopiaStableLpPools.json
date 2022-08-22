@@ -1,5 +1,45 @@
 [
   {
+    "name": "dystopia-wmatic-maticx",
+    "address": "0xADB2395FEC4D096b5086d3Daf8B33f9F7568BA25",
+    "gauge": "0xfE63fE0b8E21FF1Ab82C1CE1167004ff65a5Eb56",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6",
+      "oracle": "tokens",
+      "oracleId": "MaticX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dystopia-wmatic-stmatic",
+    "address": "0x1237feA0b26F68191d50900BfFD85E142697C423",
+    "gauge": "0x927cBD8e773844112A1a7d6C371195a11DADD812",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4",
+      "oracle": "tokens",
+      "oracleId": "stMATIC",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "dystopia-frax-mimatic",
     "address": "0x3f54C58092e9735AD23cf296ee3aF81F5a44a5bc",
     "gauge": "0xc22F4bD5789e72D5267af3D952dE44823b5aC722",
