@@ -3,6 +3,7 @@ const getBlizzardApy = require('./getBlizzardApy');
 const getBlizzardLpApys = require('./getBlizzardLpApys');
 const getSaltLpApys = require('./getSaltLpApys');
 const getApeApys = require('./getApeApys');
+const getApeJungleApys = require('./getApeJungleApys');
 const getSpaceLpApys = require('./getSpaceLpApys');
 const getZefiLpApys = require('./getZefiLpApys');
 const getSwampApys = require('./getSwampApys');
@@ -36,6 +37,7 @@ const getApys = [
   getBlizzardLpApys,
   getSaltLpApys,
   getApeApys,
+  getApeJungleApys,
   getSpaceLpApys,
   getZefiLpApys,
   getSwampApys,

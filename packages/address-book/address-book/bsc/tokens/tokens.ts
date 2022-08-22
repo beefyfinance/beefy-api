@@ -15,6 +15,29 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  BAPE: {
+    name: 'Bored APEmove',
+    symbol: 'BAPE',
+    address: '0x70e48Eb0881a8c56BAAD37EB4491eA85Eb47b4b2',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x70e48Eb0881a8c56BAAD37EB4491eA85Eb47b4b2.svg',
+    website: 'https://apemove.io/',
+    description:
+      'APEmove is built around an essential daily activity for most people – moving around. We are the next project to effectively bring to life a functioning move&earn concept and totally FREE to JOIN. Users equip themselves with NFTs in the form of Sneakers. By walking, jogging, or running outdoors, users will earn in-game currency, which can either be used in-game or cashed out for profit. With Game-Fi, APEmove aims to nudge millions toward a healthier lifestyle, combat climate change and connect the public to Web 3.0, all while simultaneously hinging on its Social-Fi aspect to build a long-lasting platform fostering user-generated Web 3.0 content.',
+  },
+  SD: {
+    name: 'Stader (Wormhole)',
+    symbol: 'SD',
+    address: '0x3BC5AC0dFdC871B365d159f728dd1B9A0B5481E8',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x3BC5AC0dFdC871B365d159f728dd1B9A0B5481E8.svg',
+    website: 'https://staderlabs.com/',
+    description: 'Stader (SD) token is the native governance and value accrual token for Stader.',
+  },
   CONE: {
     name: 'Cone token',
     symbol: 'CONE',

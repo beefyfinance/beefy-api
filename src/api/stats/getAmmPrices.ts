@@ -32,6 +32,7 @@ import crowPools from '../../data/crowLpPools.json';
 import inchPools from '../../data/1inchLpPools.json';
 import saltPools from '../../data/degens/saltLpPools.json';
 import apePools from '../../data/degens/apeLpPools.json';
+import apeJunglePools from '../../data/degens/apeJungleLpPools.json';
 import soupPools from '../../data/degens/soupLpPools.json';
 import autoPools from '../../data/autoLpPools.json';
 import julPools from '../../data/julLpPools.json';
@@ -453,6 +454,7 @@ const pools = [
   ...autoPools,
   ...alpacaLpPools,
   ...soupPools,
+  ...apeJunglePools,
   ...apePools,
   ...saltPools,
   ...inchPools,

@@ -1,6 +1,7 @@
-const getMasterChefApys = require('./getBscMasterChefApys');
+const { getMasterChefApys } = require('../../common/getMasterChefApys');
 
 const pools = require('../../../../data/degens/apeLpPools.json');
+const { bscWeb3 } = require('../../../../utils/web3');
 const { apeClient } = require('../../../../apollo/client');
 const { HOURLY_HPY, APE_LPF } = require('../../../../constants');
 
@@ -35,6 +36,8 @@ const getApeApys = () =>
     decimals: '1e18',
     tradingFeeInfoClient: apeClient,
     liquidityProviderFee: APE_LPF,
+    chainId: 56,
+    web3: bscWeb3,
     // log: true,
   });
 
