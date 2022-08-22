@@ -1,25 +1,5 @@
 [
   {
-    "name": "solidly-usdc-dei",
-    "address": "0x5821573d8F04947952e76d94f3ABC6d7b43bF8d0",
-    "gauge": "0x08e43d1Cc71Dfd038584e36496d890Ec2874b340",
-    "decimals": "1e18",
-    "chainId": 250,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xDE12c7959E1a72bbe8a5f7A1dc8f8EeF9Ab011B3",
-      "oracle": "tokens",
-      "oracleId": "DEI",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "solidly-usdc-mim",
     "address": "0xbcab7d083Cf6a01e0DdA9ed7F8a02b47d125e682",
     "gauge": "0xC009BC33201A85800b3593A40a178521a8e60a02",
