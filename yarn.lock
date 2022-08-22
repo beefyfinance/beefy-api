@@ -2314,7 +2314,7 @@ eth-lib@^0.1.26:
     ws "^3.0.0"
     xhr-request-promise "^0.1.2"
 
-eth-multicall@^1.3.13:
+eth-multicall@^1.4:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/eth-multicall/-/eth-multicall-1.4.0.tgz#cfd913157260fbaca6522c0cdac5c7ba82afd13e"
   integrity sha512-qQEheqDy2cmVgCNIb/GWB+2vK4MB1DkyJYNEVtzR1mDWDcUZIdXdUAqr/QRequu0y2YTrre+ZPsFnS8tibGPDQ==

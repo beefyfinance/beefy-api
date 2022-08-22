@@ -6,6 +6,7 @@ import { initApyService } from './api/stats/getApys';
 import { initMooTokenPriceService } from './api/stats/getMooTokenPrices';
 import { initVaultService } from './api/stats/getMultichainVaults';
 import { initTvlService } from './api/stats/getTvl';
+import { initVaultFeeService } from './api/vaults/getVaultFees';
 
 require('./utils/redisHelper').initRedis();
 
@@ -41,6 +42,7 @@ const start = async () => {
   initApyService();
   initPriceService();
   initVaultService();
+  initVaultFeeService();
   initTvlService();
   initBifiBuyBackService();
   initMooTokenPriceService();

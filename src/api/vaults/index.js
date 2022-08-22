@@ -11,6 +11,17 @@ async function multichainVaults(ctx) {
   }
 }
 
+// async function vaultFees(ctx) {
+//   try {
+//     const multichainVaults = await getMultichainVaults();
+//     ctx.status = 200;
+//     ctx.body = [...multichainVaults];
+//   } catch (err) {
+//     console.error(err);
+//     ctx.status = 500;
+//   }
+// }
+
 module.exports = {
   multichainVaults,
 };
