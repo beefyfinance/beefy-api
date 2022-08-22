@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  BNBx: {
+    name: 'Liquid Staking BNB',
+    symbol: 'BNBx',
+    address: '0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x70e48Eb0881a8c56BAAD37EB4491eA85Eb47b4b2.svg',
+    website: 'https://staderlabs.com/',
+    description:
+      'Stader is a non-custodial smart contract-based staking platform that helps you conveniently discover and access staking solutions. We are building key staking middleware infra for multiple PoS networks for retail crypto users, exchanges and custodians.',
+  },
   BAPE: {
     name: 'Bored APEmove',
     symbol: 'BAPE',
