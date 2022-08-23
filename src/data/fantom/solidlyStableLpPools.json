@@ -1,0 +1,22 @@
+[
+  {
+    "name": "solidly-usdc-mim",
+    "address": "0xbcab7d083Cf6a01e0DdA9ed7F8a02b47d125e682",
+    "gauge": "0xC009BC33201A85800b3593A40a178521a8e60a02",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x82f0B8B456c1A451378467398982d4834b6829c1",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    }
+  }
+]
