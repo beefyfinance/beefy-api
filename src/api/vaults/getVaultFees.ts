@@ -211,7 +211,8 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
 const withdrawalFeeFromCalls = methodCalls => {
   if (
     (methodCalls.withdraw === undefined && methodCalls.withdraw2 === undefined) ||
-    (methodCalls.withdrawMax === undefined && methodCalls.withdrawMax2 === undefined)
+    (methodCalls.withdrawMax === undefined && methodCalls.withdrawMax2 === undefined) ||
+    methodCalls.paused
   ) {
     return 0;
   } else {
