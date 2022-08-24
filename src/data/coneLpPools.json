@@ -1,5 +1,45 @@
 [
   {
+    "name": "cone-wbnb-busd",
+    "address": "0x881B608eC7e15CD5bB4Da9dB6ae9C477B4F67731",
+    "gauge": "0x97F4ce527122789b3544dc3eA85341b5F3cE1cF8",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cone-wbnb-bifi",
+    "address": "0xa848415E241957aeD0ed80864AAfEA5bc742c20E",
+    "gauge": "0x9ad3910bA0B904F30d22EC25322585B52d881DD2",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cone-cone-wbnb",
     "address": "0x672cD8201CEB518F9E42526ef7bCFe5263F41951",
     "gauge": "0x09635bd2F4aA47afc7eB9d2F03c4fE4e747D4B42",
