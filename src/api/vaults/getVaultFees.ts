@@ -1,11 +1,12 @@
-const { MultiCall } = require('eth-multicall');
-import { performance } from 'perf_hooks';
+// const { MultiCall } = require('eth-multicall');
+import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall';
 import Web3 from 'web3';
 import { addressBookByChainId, ChainId } from '../../../packages/address-book/address-book';
 import { getContract, getContractWithProvider } from '../../utils/contractHelper';
 import { getKey, setKey } from '../../utils/redisHelper';
 import { sleep } from '../../utils/time';
 import { multicallAddress, web3Factory } from '../../utils/web3';
+// import { Multicall, ContractCallResults, ContractCallContext } from 'ethereum-multicall';
 const FeeABI = require('../../abis/FeeABI.json');
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
 const BigNumber = require('bignumber.js');
@@ -20,8 +21,10 @@ const feeBatchTreasurySplitMethodABI = [
   },
 ];
 
-const INIT_DELAY = 20000;
+const INIT_DELAY = 16000;
 const REFRESH_INTERVAL = 20 * 60 * 1000;
+const MULTICALL_BATCH_SIZE = 128;
+
 const VAULT_FEES_KEY = 'VAULT_FEES';
 const FEE_BATCH_KEY = 'FEE_BATCHES';
 
@@ -96,11 +99,10 @@ const updateVaultFees = async () => {
   let promises = [];
 
   for (const chain of Object.keys(addressBookByChainId).map(c => Number(c))) {
-    const chainVaults = vaults
-      .filter(vault => vault.chain === ChainId[chain])
-      .filter(
-        v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > 1000 * 60 * 60 * 12
-      );
+    const chainVaults = vaults.filter(vault => vault.chain === ChainId[chain]);
+    // .filter(
+    //   v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > 1000 * 60 * 60 * 12
+    // );
     promises.push(getChainFees(chainVaults, chain, feeBatches[chain]));
   }
 
@@ -108,7 +110,6 @@ const updateVaultFees = async () => {
   await saveToRedis();
 
   console.log(`> updated vault fees (${(Date.now() - start) / 1000}s)`);
-
   setTimeout(updateVaultFees, REFRESH_INTERVAL);
 };
 
@@ -116,54 +117,102 @@ const saveToRedis = async () => {
   await setKey(VAULT_FEES_KEY, vaultFees);
 };
 
+const mapMulticallResults = (results: ContractCallResults) => {
+  return Object.entries(results.results).map(([vaultId, result]) => {
+    let mappedObject = {
+      id: vaultId,
+      strategy: result.originalContractCallContext.contractAddress,
+    };
+
+    result.callsReturnContext.forEach(callReturn => {
+      if (callReturn.decoded) {
+        if (callReturn.reference === 'breakdown') {
+          mappedObject[callReturn.reference] = {
+            total: new BigNumber(callReturn.returnValues[0].hex),
+            beefy: new BigNumber(callReturn.returnValues[1].hex),
+            call: new BigNumber(callReturn.returnValues[2].hex),
+            strategist: new BigNumber(callReturn.returnValues[3].hex),
+          };
+        } else if (callReturn.returnValues[0].type === 'BigNumber') {
+          mappedObject[callReturn.reference] = new BigNumber(
+            callReturn.returnValues[0].hex
+          ).toNumber();
+        } else {
+          mappedObject[callReturn.reference] = callReturn.returnValues[0];
+        }
+      } else {
+        mappedObject[callReturn.reference] = undefined;
+      }
+    });
+
+    return mappedObject;
+  });
+};
+
 const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
   try {
     const web3 = web3Factory(chainId);
-    const multicall = new MultiCall(web3, multicallAddress(chainId));
-    const feeCalls = [];
+    const multicall = new Multicall({
+      web3Instance: web3,
+      tryAggregate: true,
+      multicallCustomContractAddress: '0xcA11bde05977b3631167028862bE2a173976CA11',
+    });
+    const contractCallContext: ContractCallContext[] = [];
 
     vaults.forEach(vault => {
-      const strategyContract = getContract(FeeABI, vault.strategy);
-
-      // All past iterations of fee data naming in strategies
-      feeCalls.push({
-        id: vault.id,
-        strategy: vault.strategy,
-        strategist: strategyContract.methods.strategistFee(),
-        strategist2: strategyContract.methods.STRATEGIST_FEE(),
-        call: strategyContract.methods.callFee(),
-        CALL: strategyContract.methods.CALL_FEE(),
-        call3: strategyContract.methods.callfee(),
-        call4: strategyContract.methods.callFeeAmount(),
-        maxCallFee: strategyContract.methods.MAX_CALL_FEE(),
-        beefy: strategyContract.methods.beefyFee(),
-        fee: strategyContract.methods.fee(),
-        treasury: strategyContract.methods.TREASURY_FEE(),
-        rewards: strategyContract.methods.REWARDS_FEE(),
-        rewards2: strategyContract.methods.rewardsFee(),
-        breakdown: strategyContract.methods.getFees(),
-        maxFee: strategyContract.methods.MAX_FEE(),
-        maxFee2: strategyContract.methods.max(),
-        maxFee3: strategyContract.methods.maxfee(),
-        withdraw: strategyContract.methods.withdrawalFee(),
-        withdraw2: strategyContract.methods.WITHDRAWAL_FEE(),
-        withdrawMax: strategyContract.methods.WITHDRAWAL_MAX(),
-        withdrawMax2: strategyContract.methods.withdrawalMax(),
-        paused: strategyContract.methods.paused(),
+      contractCallContext.push({
+        reference: vault.id,
+        contractAddress: vault.strategy,
+        abi: FeeABI,
+        calls: [
+          { reference: 'strategist', methodName: 'strategistFee', methodParameters: [] },
+          { reference: 'strategist2', methodName: 'STRATEGIST_FEE', methodParameters: [] },
+          { reference: 'call', methodName: 'callFee', methodParameters: [] },
+          { reference: 'call2', methodName: 'CALL_FEE', methodParameters: [] },
+          { reference: 'call3', methodName: 'callfee', methodParameters: [] },
+          { reference: 'call4', methodName: 'callFeeAmount', methodParameters: [] },
+          { reference: 'maxCallFee', methodName: 'MAX_CALL_FEE', methodParameters: [] },
+          { reference: 'beefy', methodName: 'beefyFee', methodParameters: [] },
+          { reference: 'fee', methodName: 'fee', methodParameters: [] },
+          { reference: 'treasury', methodName: 'TREASURY_FEE', methodParameters: [] },
+          { reference: 'rewards', methodName: 'REWARDS_FEE', methodParameters: [] },
+          { reference: 'rewards2', methodName: 'rewardsFee', methodParameters: [] },
+          { reference: 'breakdown', methodName: 'getFees', methodParameters: [] },
+          { reference: 'maxFee', methodName: 'MAX_FEE', methodParameters: [] },
+          { reference: 'maxFee2', methodName: 'max', methodParameters: [] },
+          { reference: 'maxFee3', methodName: 'maxfee', methodParameters: [] },
+          { reference: 'withdraw', methodName: 'withdrawalFee', methodParameters: [] },
+          { reference: 'withdraw2', methodName: 'WITHDRAWAL_FEE', methodParameters: [] },
+          { reference: 'withdrawMax', methodName: 'WITHDRAWAL_MAX', methodParameters: [] },
+          { reference: 'withdrawMax2', methodName: 'withdrawalMax', methodParameters: [] },
+          { reference: 'paused', methodName: 'paused', methodParameters: [] },
+        ],
       });
     });
 
-    const res = await multicall.all([feeCalls]);
-    const feeResults = res[0];
-    for (const contractCalls of res[0]) {
-      let fees = await mapStrategyCallsToFeeBreakdown(contractCalls, web3, feeBatch);
-      if (fees) {
-        vaultFees[contractCalls.id] = fees;
-      } else {
-        console.log(' > Failed to get fees for ' + contractCalls.id);
+    for (let i = 0; i < contractCallContext.length; i += MULTICALL_BATCH_SIZE) {
+      console.log(
+        `${chainId} : ${((100 * (i + MULTICALL_BATCH_SIZE)) / contractCallContext.length).toFixed(
+          2
+        )}%`
+      );
+      let batch = contractCallContext.slice(i, i + MULTICALL_BATCH_SIZE);
+      const results: ContractCallResults = await multicall.call(batch);
+
+      const mappedResults = mapMulticallResults(results);
+
+      for (const contractCalls of mappedResults) {
+        let fees = mapStrategyCallsToFeeBreakdown(contractCalls, feeBatch);
+        if (fees) {
+          vaultFees[contractCalls.id] = fees;
+        } else {
+          console.log(' > Failed to get fees for ' + contractCalls.id);
+        }
       }
+      // await sleep(200);
     }
   } catch (err) {
+    console.log('error on chain ' + chainId);
     console.log(err.message);
   }
 };
@@ -182,19 +231,16 @@ const withdrawalFeeFromCalls = methodCalls => {
 };
 
 const legacyFeeMappings = (methodCalls, feeBatch: FeeBatchDetail): PerformanceFee => {
-  let total = 4.5;
+  let total = 0.045;
   let performanceFee: PerformanceFee;
 
-  let callFee = parseFloat(
-    methodCalls.call ?? methodCalls.CALL ?? methodCalls.call3 ?? methodCalls.call4
-  );
-  let maxCallFee = parseFloat(methodCalls.maxCallFee ?? 1000);
-  let strategistFee = parseFloat(methodCalls.strategist ?? methodCalls.strategist2);
-  let maxFee = parseFloat(methodCalls.maxFee ?? methodCalls.maxFee2 ?? methodCalls.maxFee3);
-  let beefyFee = parseFloat(methodCalls.beefy);
-  let fee = parseFloat(methodCalls.fee);
-  let treasury = parseFloat(methodCalls.treasury);
-  let rewards = parseFloat(methodCalls.rewards ?? methodCalls.rewards2);
+  let callFee = methodCalls.call ?? methodCalls.call2 ?? methodCalls.call3 ?? methodCalls.call4;
+  let strategistFee = methodCalls.strategist ?? methodCalls.strategist2;
+  let maxFee = methodCalls.maxFee ?? methodCalls.maxFee2 ?? methodCalls.maxFee3;
+  let beefyFee = methodCalls.beefy;
+  let fee = methodCalls.fee;
+  let treasury = methodCalls.treasury;
+  let rewards = methodCalls.rewards ?? methodCalls.rewards2;
 
   if (callFee + strategistFee + beefyFee === maxFee) {
     performanceFee = {
@@ -213,13 +259,13 @@ const legacyFeeMappings = (methodCalls, feeBatch: FeeBatchDetail): PerformanceFe
       stakers: (total * rewards) / maxFee,
     };
   } else if (fee + callFee === maxFee) {
-    total = 5;
+    total = 0.05;
     performanceFee = {
       total: total,
       call: (total * callFee) / maxFee,
       strategist: 0,
       treasury: 0,
-      stakers: (total * rewards) / maxFee,
+      stakers: (total * fee) / maxFee,
     };
   } else if (!isNaN(strategistFee + callFee + beefyFee)) {
     performanceFee = {
@@ -246,7 +292,7 @@ const legacyFeeMappings = (methodCalls, feeBatch: FeeBatchDetail): PerformanceFe
       stakers: (total * rewards) / maxFee,
     };
   } else if (callFee + beefyFee === maxFee) {
-    if (methodCalls.id === 'cake-cakev2-eol') total = 1;
+    if (methodCalls.id === 'cake-cakev2-eol') total = 0.01;
     performanceFee = {
       total,
       call: (total * callFee) / maxFee,
@@ -269,38 +315,32 @@ const legacyFeeMappings = (methodCalls, feeBatch: FeeBatchDetail): PerformanceFe
   return performanceFee;
 };
 
-const performanceFromGetFees = async (
-  contractCalls,
-  web3: Web3,
-  feeBatch: FeeBatchDetail
-): Promise<PerformanceFee> => {
-  await sleep(1000);
-  const strategyContract = getContractWithProvider(FeeABI, contractCalls.strategy, web3);
-  const fees = await strategyContract.methods.getFees().call();
+const performanceFromGetFees = (contractCalls, feeBatch: FeeBatchDetail): PerformanceFee => {
+  const fees = contractCalls.breakdown;
 
-  let total = new BigNumber(fees.total).div(1e9).toNumber() / 1e9;
-  let beefy = new BigNumber(fees.beefy).div(1e9).toNumber() / 1e9;
-  let call = new BigNumber(fees.call).div(1e9).toNumber() / 1e9;
-  let strategist = new BigNumber(fees.strategist).div(1e9).toNumber() / 1e9;
+  let total = fees.total.div(1e9).toNumber() / 1e9;
+  let beefy = fees.beefy.div(1e9).toNumber() / 1e9;
+  let call = fees.call.div(1e9).toNumber() / 1e9;
+  let strategist = fees.strategist.div(1e9).toNumber() / 1e9;
 
   const feeSum = beefy + call + strategist;
-  const beefySplit = ((total * beefy) / feeSum) * 100;
+  const beefySplit = (total * beefy) / feeSum;
 
   let feeBreakdown = {
-    total: total * 100,
-    call: ((total * call) / feeSum) * 100,
-    strategist: ((total * strategist) / feeSum) * 100,
+    total: total,
+    call: (total * call) / feeSum,
+    strategist: (total * strategist) / feeSum,
     treasury: feeBatch.treasurySplit * beefySplit,
     stakers: feeBatch.stakerSplit * beefySplit,
   };
   return feeBreakdown;
 };
 
-const performanceForMaxi = async (contractCalls): Promise<PerformanceFee> => {
+const performanceForMaxi = (contractCalls): PerformanceFee => {
   let performanceFee: PerformanceFee;
 
   let callFee = parseFloat(
-    contractCalls.call ?? contractCalls.CALL ?? contractCalls.call3 ?? contractCalls.call4
+    contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4
   );
   let maxCallFee = parseFloat(contractCalls.maxCallFee ?? 1000);
   let maxFee = parseFloat(contractCalls.maxFee ?? contractCalls.maxFee2 ?? contractCalls.maxFee3);
@@ -316,9 +356,9 @@ const performanceForMaxi = async (contractCalls): Promise<PerformanceFee> => {
     ].includes(strategyAddress)
   ) {
     performanceFee = {
-      total: (callFee / 1000) * 100,
+      total: callFee / 1000,
       strategist: 0,
-      call: (callFee / 1000) * 100,
+      call: callFee / 1000,
       treasury: 0,
       stakers: 0,
     };
@@ -335,33 +375,35 @@ const performanceForMaxi = async (contractCalls): Promise<PerformanceFee> => {
       .includes(strategyAddress)
   ) {
     performanceFee = {
-      total: (4.5 * callFee) / maxFee,
+      total: 4.5 * callFee,
       strategist: 0,
-      call: (4.5 * callFee) / maxFee,
+      call: 4.5 * callFee,
       treasury: 0,
       stakers: 0,
     };
   } else if ('0xca077eEC87e2621F5B09AFE47C42BAF88c6Af18c'.toLowerCase() === strategyAddress) {
+    //avax maxi
     performanceFee = {
-      total: (5 / 1000) * 100,
+      total: 5 / 1000,
       strategist: 0,
-      call: (5 / 1000) * 100,
+      call: 5 / 1000,
       treasury: 0,
       stakers: 0,
     };
   } else if ('0x87056F5E8Dce0fD71605E6E291C6a3B53cbc3818'.toLowerCase() === strategyAddress) {
+    //old bifi maxi
     performanceFee = {
-      total: ((callFee + rewards) / maxFee) * 100,
+      total: (callFee + rewards) / maxFee,
       strategist: 0,
-      call: (callFee / maxFee) * 100,
+      call: callFee / maxFee,
       treasury: 0,
-      stakers: (rewards / maxFee) * 100,
+      stakers: rewards / maxFee,
     };
   } else {
     performanceFee = {
-      total: (callFee / maxCallFee) * 100,
+      total: callFee / maxCallFee,
       strategist: 0,
-      call: (callFee / maxCallFee) * 100,
+      call: callFee / maxCallFee,
       treasury: 0,
       stakers: 0,
     };
@@ -369,29 +411,24 @@ const performanceForMaxi = async (contractCalls): Promise<PerformanceFee> => {
   return performanceFee;
 };
 
-const performanceFeesFromCalls = async (
-  methodCalls,
-  web3: Web3,
-  feeBatch: FeeBatchDetail
-): Promise<PerformanceFee> => {
+const performanceFeesFromCalls = (methodCalls, feeBatch: FeeBatchDetail): PerformanceFee => {
   if (methodCalls.id.includes('-maxi')) {
     return performanceForMaxi(methodCalls);
   } else if (methodCalls.breakdown !== undefined) {
     //newest method
-    return await performanceFromGetFees(methodCalls, web3, feeBatch);
+    return performanceFromGetFees(methodCalls, feeBatch);
   } else {
     return legacyFeeMappings(methodCalls, feeBatch);
   }
 };
 
-const mapStrategyCallsToFeeBreakdown = async (
+const mapStrategyCallsToFeeBreakdown = (
   methodCalls,
-  web3: Web3,
   feeBatch: FeeBatchDetail
-) => {
+): VaultFeeBreakdown => {
   let withdrawFee = withdrawalFeeFromCalls(methodCalls);
 
-  let performanceFee = await performanceFeesFromCalls(methodCalls, web3, feeBatch);
+  let performanceFee = performanceFeesFromCalls(methodCalls, feeBatch);
 
   if (withdrawFee === undefined) {
     console.log(`Failed to find withdrawFee for ${methodCalls.id}`);
