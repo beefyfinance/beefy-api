@@ -18,7 +18,8 @@ const feeBatchTreasurySplitMethodABI = [
 ];
 
 const INIT_DELAY = 16000;
-const REFRESH_INTERVAL = 20 * 60 * 1000;
+const REFRESH_INTERVAL = 10 * 60 * 1000;
+const CACHE_EXPIRY = 1000 * 60 * 60 * 12;
 const MULTICALL_BATCH_SIZE = 128;
 
 const VAULT_FEES_KEY = 'VAULT_FEES';
@@ -128,9 +129,7 @@ const updateVaultFees = async () => {
   for (const chain of Object.keys(addressBookByChainId).map(c => Number(c))) {
     const chainVaults = vaults
       .filter(vault => vault.chain === ChainId[chain])
-      .filter(
-        v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > 1000 * 60 * 60 * 12
-      );
+      .filter(v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > CACHE_EXPIRY);
     promises.push(getChainFees(chainVaults, chain, feeBatches[chain]));
   }
 
