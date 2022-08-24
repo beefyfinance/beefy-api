@@ -1,3 +1,4 @@
+import BigNumber from 'bignumber.js';
 import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall';
 import { addressBookByChainId, ChainId } from '../../../packages/address-book/address-book';
 import { getContractWithProvider } from '../../utils/contractHelper';
@@ -5,7 +6,6 @@ import { getKey, setKey } from '../../utils/redisHelper';
 import { web3Factory } from '../../utils/web3';
 const FeeABI = require('../../abis/FeeABI.json');
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
-const BigNumber = require('bignumber.js');
 
 const feeBatchTreasurySplitMethodABI = [
   {
@@ -42,6 +42,37 @@ interface FeeBatchDetail {
   address: string;
   treasurySplit: number;
   stakerSplit: number;
+}
+
+interface StrategyCallResponse {
+  id: string;
+  strategy: string;
+  strategist?: number;
+  strategist2?: number;
+  call?: number;
+  call2?: number;
+  call3?: number;
+  call4?: number;
+  maxCallFee?: number;
+  beefy?: number;
+  fee?: number;
+  treasury?: number;
+  rewards?: number;
+  rewards2?: number;
+  breakdown?: {
+    total: BigNumber;
+    beefy: BigNumber;
+    strategist: BigNumber;
+    call: BigNumber;
+  };
+  maxFee?: number;
+  maxFee2?: number;
+  maxFee3?: number;
+  withdraw?: number;
+  withdraw2?: number;
+  withdrawMax?: number;
+  withdrawMax2?: number;
+  paused?: boolean;
 }
 
 let feeBatches: Record<ChainId, FeeBatchDetail>;
@@ -95,11 +126,10 @@ const updateVaultFees = async () => {
   let promises = [];
 
   for (const chain of Object.keys(addressBookByChainId).map(c => Number(c))) {
-    const chainVaults = vaults
-      .filter(vault => vault.chain === ChainId[chain])
-      .filter(
-        v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > 1000 * 60 * 60 * 12
-      );
+    const chainVaults = vaults.filter(vault => vault.chain === ChainId[chain]);
+    // .filter(
+    //   v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > 1000 * 60 * 60 * 12
+    // );
     promises.push(getChainFees(chainVaults, chain, feeBatches[chain]));
   }
 
@@ -112,38 +142,6 @@ const updateVaultFees = async () => {
 
 const saveToRedis = async () => {
   await setKey(VAULT_FEES_KEY, vaultFees);
-};
-
-const mapMulticallResults = (results: ContractCallResults) => {
-  return Object.entries(results.results).map(([vaultId, result]) => {
-    let mappedObject = {
-      id: vaultId,
-      strategy: result.originalContractCallContext.contractAddress,
-    };
-
-    result.callsReturnContext.forEach(callReturn => {
-      if (callReturn.decoded) {
-        if (callReturn.reference === 'breakdown') {
-          mappedObject[callReturn.reference] = {
-            total: new BigNumber(callReturn.returnValues[0].hex),
-            beefy: new BigNumber(callReturn.returnValues[1].hex),
-            call: new BigNumber(callReturn.returnValues[2].hex),
-            strategist: new BigNumber(callReturn.returnValues[3].hex),
-          };
-        } else if (callReturn.returnValues[0].type === 'BigNumber') {
-          mappedObject[callReturn.reference] = new BigNumber(
-            callReturn.returnValues[0].hex
-          ).toNumber();
-        } else {
-          mappedObject[callReturn.reference] = callReturn.returnValues[0];
-        }
-      } else {
-        mappedObject[callReturn.reference] = undefined;
-      }
-    });
-
-    return mappedObject;
-  });
 };
 
 const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
@@ -191,9 +189,9 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
       let batch = contractCallContext.slice(i, i + MULTICALL_BATCH_SIZE);
       const results: ContractCallResults = await multicall.call(batch);
 
-      const mappedResults = mapMulticallResults(results);
+      const callResponses: StrategyCallResponse[] = mapMulticallResults(results);
 
-      for (const contractCalls of mappedResults) {
+      for (const contractCalls of callResponses) {
         let fees = mapStrategyCallsToFeeBreakdown(contractCalls, feeBatch);
         if (fees) {
           vaultFees[contractCalls.id] = fees;
@@ -208,7 +206,60 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
   }
 };
 
-const withdrawalFeeFromCalls = methodCalls => {
+const mapMulticallResults = (results: ContractCallResults): StrategyCallResponse[] => {
+  return Object.entries(results.results).map(([vaultId, result]) => {
+    let mappedObject = {
+      id: vaultId,
+      strategy: result.originalContractCallContext.contractAddress,
+    } as StrategyCallResponse;
+
+    result.callsReturnContext.forEach(callReturn => {
+      if (callReturn.decoded) {
+        if (callReturn.reference === 'breakdown') {
+          mappedObject[callReturn.reference] = {
+            total: new BigNumber(callReturn.returnValues[0].hex),
+            beefy: new BigNumber(callReturn.returnValues[1].hex),
+            call: new BigNumber(callReturn.returnValues[2].hex),
+            strategist: new BigNumber(callReturn.returnValues[3].hex),
+          };
+        } else if (callReturn.returnValues[0].type === 'BigNumber') {
+          mappedObject[callReturn.reference] = new BigNumber(
+            callReturn.returnValues[0].hex
+          ).toNumber();
+        } else {
+          mappedObject[callReturn.reference] = callReturn.returnValues[0];
+        }
+      }
+    });
+
+    return mappedObject;
+  });
+};
+
+const mapStrategyCallsToFeeBreakdown = (
+  methodCalls: StrategyCallResponse,
+  feeBatch: FeeBatchDetail
+): VaultFeeBreakdown => {
+  let withdrawFee = withdrawalFeeFromCalls(methodCalls);
+
+  let performanceFee = performanceFeesFromCalls(methodCalls, feeBatch);
+
+  if (withdrawFee === undefined) {
+    console.log(`Failed to find withdrawFee for ${methodCalls.id}`);
+    return undefined;
+  } else if (performanceFee === undefined) {
+    console.log(`Failed to find performanceFee for ${methodCalls.id}`);
+    return undefined;
+  }
+
+  return {
+    performance: performanceFee,
+    withdraw: withdrawFee,
+    lastUpdated: Date.now(),
+  };
+};
+
+const withdrawalFeeFromCalls = (methodCalls: StrategyCallResponse): number => {
   if (
     (methodCalls.withdraw === undefined && methodCalls.withdraw2 === undefined) ||
     (methodCalls.withdrawMax === undefined && methodCalls.withdrawMax2 === undefined) ||
@@ -216,13 +267,27 @@ const withdrawalFeeFromCalls = methodCalls => {
   ) {
     return 0;
   } else {
-    let withdrawFee = parseFloat(methodCalls.withdraw ?? methodCalls.withdraw2);
-    let maxWithdrawFee = parseFloat(methodCalls.withdrawMax ?? methodCalls.withdrawMax2);
+    let withdrawFee = methodCalls.withdraw ?? methodCalls.withdraw2;
+    let maxWithdrawFee = methodCalls.withdrawMax ?? methodCalls.withdrawMax2;
     return withdrawFee / maxWithdrawFee;
   }
 };
 
-const legacyFeeMappings = (methodCalls, feeBatch: FeeBatchDetail): PerformanceFee => {
+const performanceFeesFromCalls = (methodCalls, feeBatch: FeeBatchDetail): PerformanceFee => {
+  if (methodCalls.id.includes('-maxi')) {
+    return performanceForMaxi(methodCalls);
+  } else if (methodCalls.breakdown !== undefined) {
+    //newest method
+    return performanceFromGetFees(methodCalls, feeBatch);
+  } else {
+    return legacyFeeMappings(methodCalls, feeBatch);
+  }
+};
+
+const legacyFeeMappings = (
+  methodCalls: StrategyCallResponse,
+  feeBatch: FeeBatchDetail
+): PerformanceFee => {
   let total = 0.045;
   let performanceFee: PerformanceFee;
 
@@ -307,7 +372,10 @@ const legacyFeeMappings = (methodCalls, feeBatch: FeeBatchDetail): PerformanceFe
   return performanceFee;
 };
 
-const performanceFromGetFees = (contractCalls, feeBatch: FeeBatchDetail): PerformanceFee => {
+const performanceFromGetFees = (
+  contractCalls: StrategyCallResponse,
+  feeBatch: FeeBatchDetail
+): PerformanceFee => {
   const fees = contractCalls.breakdown;
 
   let total = fees.total.div(1e9).toNumber() / 1e9;
@@ -328,15 +396,14 @@ const performanceFromGetFees = (contractCalls, feeBatch: FeeBatchDetail): Perfor
   return feeBreakdown;
 };
 
-const performanceForMaxi = (contractCalls): PerformanceFee => {
+const performanceForMaxi = (contractCalls: StrategyCallResponse): PerformanceFee => {
   let performanceFee: PerformanceFee;
 
-  let callFee = parseFloat(
-    contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4
-  );
-  let maxCallFee = parseFloat(contractCalls.maxCallFee ?? 1000);
-  let maxFee = parseFloat(contractCalls.maxFee ?? contractCalls.maxFee2 ?? contractCalls.maxFee3);
-  let rewards = parseFloat(contractCalls.rewards ?? contractCalls.rewards2);
+  let callFee =
+    contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4;
+  let maxCallFee = contractCalls.maxCallFee ?? 1000;
+  let maxFee = contractCalls.maxFee ?? contractCalls.maxFee2 ?? contractCalls.maxFee3;
+  let rewards = contractCalls.rewards ?? contractCalls.rewards2;
 
   let strategyAddress = contractCalls.strategy.toLowerCase();
 
@@ -401,40 +468,6 @@ const performanceForMaxi = (contractCalls): PerformanceFee => {
     };
   }
   return performanceFee;
-};
-
-const performanceFeesFromCalls = (methodCalls, feeBatch: FeeBatchDetail): PerformanceFee => {
-  if (methodCalls.id.includes('-maxi')) {
-    return performanceForMaxi(methodCalls);
-  } else if (methodCalls.breakdown !== undefined) {
-    //newest method
-    return performanceFromGetFees(methodCalls, feeBatch);
-  } else {
-    return legacyFeeMappings(methodCalls, feeBatch);
-  }
-};
-
-const mapStrategyCallsToFeeBreakdown = (
-  methodCalls,
-  feeBatch: FeeBatchDetail
-): VaultFeeBreakdown => {
-  let withdrawFee = withdrawalFeeFromCalls(methodCalls);
-
-  let performanceFee = performanceFeesFromCalls(methodCalls, feeBatch);
-
-  if (withdrawFee === undefined) {
-    console.log(`Failed to find withdrawFee for ${methodCalls.id}`);
-    return undefined;
-  } else if (performanceFee === undefined) {
-    console.log(`Failed to find performanceFee for ${methodCalls.id}`);
-    return undefined;
-  }
-
-  return {
-    performance: performanceFee,
-    withdraw: withdrawFee,
-    lastUpdated: Date.now(),
-  };
 };
 
 export const initVaultFeeService = async () => {
