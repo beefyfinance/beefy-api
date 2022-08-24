@@ -186,23 +186,29 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
       });
     });
 
+    let promises: Promise<ContractCallResults>[] = [];
+
     for (let i = 0; i < contractCallContext.length; i += MULTICALL_BATCH_SIZE) {
       let batch = contractCallContext.slice(i, i + MULTICALL_BATCH_SIZE);
-      const results: ContractCallResults = await multicall.call(batch);
+      promises.push(multicall.call(batch));
+    }
 
-      const callResponses: StrategyCallResponse[] = mapMulticallResults(results);
-
-      for (const contractCalls of callResponses) {
-        let fees = mapStrategyCallsToFeeBreakdown(contractCalls, feeBatch);
-        if (fees) {
-          vaultFees[contractCalls.id] = fees;
-        } else {
-          console.log(' > Failed to get fees for ' + contractCalls.id);
+    let results = await Promise.allSettled(promises);
+    results.forEach(res => {
+      if (res.status === 'fulfilled') {
+        const callResponses: StrategyCallResponse[] = mapMulticallResults(res.value);
+        for (const contractCalls of callResponses) {
+          let fees = mapStrategyCallsToFeeBreakdown(contractCalls, feeBatch);
+          if (fees) {
+            vaultFees[contractCalls.id] = fees;
+          } else {
+            console.log(' > Failed to get fees for ' + contractCalls.id);
+          }
         }
       }
-    }
+    });
   } catch (err) {
-    console.log('error on chain ' + chainId);
+    console.log('> feeUpdate error on chain ' + chainId);
     console.log(err.message);
   }
 };
