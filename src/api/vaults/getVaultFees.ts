@@ -1,12 +1,8 @@
-// const { MultiCall } = require('eth-multicall');
 import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall';
-import Web3 from 'web3';
 import { addressBookByChainId, ChainId } from '../../../packages/address-book/address-book';
-import { getContract, getContractWithProvider } from '../../utils/contractHelper';
+import { getContractWithProvider } from '../../utils/contractHelper';
 import { getKey, setKey } from '../../utils/redisHelper';
-import { sleep } from '../../utils/time';
-import { multicallAddress, web3Factory } from '../../utils/web3';
-// import { Multicall, ContractCallResults, ContractCallContext } from 'ethereum-multicall';
+import { web3Factory } from '../../utils/web3';
 const FeeABI = require('../../abis/FeeABI.json');
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
 const BigNumber = require('bignumber.js');
@@ -99,10 +95,11 @@ const updateVaultFees = async () => {
   let promises = [];
 
   for (const chain of Object.keys(addressBookByChainId).map(c => Number(c))) {
-    const chainVaults = vaults.filter(vault => vault.chain === ChainId[chain]);
-    // .filter(
-    //   v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > 1000 * 60 * 60 * 12
-    // );
+    const chainVaults = vaults
+      .filter(vault => vault.chain === ChainId[chain])
+      .filter(
+        v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > 1000 * 60 * 60 * 12
+      );
     promises.push(getChainFees(chainVaults, chain, feeBatches[chain]));
   }
 
@@ -204,7 +201,6 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
           console.log(' > Failed to get fees for ' + contractCalls.id);
         }
       }
-      // await sleep(200);
     }
   } catch (err) {
     console.log('error on chain ' + chainId);
