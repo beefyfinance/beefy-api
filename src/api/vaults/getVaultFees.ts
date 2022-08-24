@@ -44,8 +44,8 @@ interface FeeBatchDetail {
   stakerSplit: number;
 }
 
-var feeBatches: Record<ChainId, FeeBatchDetail>;
-var vaultFees: Record<string, VaultFeeBreakdown>;
+let feeBatches: Record<ChainId, FeeBatchDetail>;
+let vaultFees: Record<string, VaultFeeBreakdown>;
 
 const updateFeeBatches = async () => {
   for (const chainId of Object.keys(addressBookByChainId)) {
@@ -83,7 +83,7 @@ const updateFeeBatches = async () => {
     }
   }
 
-  setKey(FEE_BATCH_KEY, feeBatches);
+  await setKey(FEE_BATCH_KEY, feeBatches);
   console.log(`> feeBatches updated`);
 };
 
