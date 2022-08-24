@@ -191,11 +191,6 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
     });
 
     for (let i = 0; i < contractCallContext.length; i += MULTICALL_BATCH_SIZE) {
-      console.log(
-        `${chainId} : ${((100 * (i + MULTICALL_BATCH_SIZE)) / contractCallContext.length).toFixed(
-          2
-        )}%`
-      );
       let batch = contractCallContext.slice(i, i + MULTICALL_BATCH_SIZE);
       const results: ContractCallResults = await multicall.call(batch);
 
