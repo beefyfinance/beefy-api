@@ -126,10 +126,11 @@ const updateVaultFees = async () => {
   let promises = [];
 
   for (const chain of Object.keys(addressBookByChainId).map(c => Number(c))) {
-    const chainVaults = vaults.filter(vault => vault.chain === ChainId[chain]);
-    // .filter(
-    //   v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > 1000 * 60 * 60 * 12
-    // );
+    const chainVaults = vaults
+      .filter(vault => vault.chain === ChainId[chain])
+      .filter(
+        v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > 1000 * 60 * 60 * 12
+      );
     promises.push(getChainFees(chainVaults, chain, feeBatches[chain]));
   }
 
