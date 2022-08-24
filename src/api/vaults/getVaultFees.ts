@@ -211,12 +211,12 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
 const withdrawalFeeFromCalls = methodCalls => {
   if (
     (methodCalls.withdraw === undefined && methodCalls.withdraw2 === undefined) ||
-    (methodCalls.withdraMax === undefined && methodCalls.withdrawMax2 === undefined)
+    (methodCalls.withdrawMax === undefined && methodCalls.withdrawMax2 === undefined)
   ) {
     return 0;
   } else {
     let withdrawFee = parseFloat(methodCalls.withdraw ?? methodCalls.withdraw2);
-    let maxWithdrawFee = parseFloat(methodCalls.withdraMax ?? methodCalls.withdrawMax2);
+    let maxWithdrawFee = parseFloat(methodCalls.withdrawMax ?? methodCalls.withdrawMax2);
     return withdrawFee / maxWithdrawFee;
   }
 };
