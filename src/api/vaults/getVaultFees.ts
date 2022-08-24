@@ -366,9 +366,9 @@ const performanceForMaxi = (contractCalls): PerformanceFee => {
       .includes(strategyAddress)
   ) {
     performanceFee = {
-      total: 4.5 * callFee,
+      total: ((45 / 1000) * callFee) / maxFee,
       strategist: 0,
-      call: 4.5 * callFee,
+      call: ((45 / 1000) * callFee) / maxFee,
       treasury: 0,
       stakers: 0,
     };
