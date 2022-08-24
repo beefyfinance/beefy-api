@@ -110,8 +110,6 @@ const updateFeeBatches = async () => {
         treasurySplit: treasurySplit / 1000,
         stakerSplit: 1 - treasurySplit / 1000,
       };
-    } else {
-      console.log('Failed to update feeBatch on chain ' + chainId);
     }
   }
 
@@ -214,10 +212,10 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
 
 const mapMulticallResults = (results: ContractCallResults): StrategyCallResponse[] => {
   return Object.entries(results.results).map(([vaultId, result]) => {
-    let mappedObject = {
+    let mappedObject: StrategyCallResponse = {
       id: vaultId,
       strategy: result.originalContractCallContext.contractAddress,
-    } as StrategyCallResponse;
+    };
 
     result.callsReturnContext.forEach(callReturn => {
       if (callReturn.decoded) {
@@ -243,18 +241,18 @@ const mapMulticallResults = (results: ContractCallResults): StrategyCallResponse
 };
 
 const mapStrategyCallsToFeeBreakdown = (
-  methodCalls: StrategyCallResponse,
+  contractCalls: StrategyCallResponse,
   feeBatch: FeeBatchDetail
 ): VaultFeeBreakdown => {
-  let withdrawFee = withdrawalFeeFromCalls(methodCalls);
+  let withdrawFee = withdrawalFeeFromCalls(contractCalls);
 
-  let performanceFee = performanceFeesFromCalls(methodCalls, feeBatch);
+  let performanceFee = performanceFeesFromCalls(contractCalls, feeBatch);
 
   if (withdrawFee === undefined) {
-    console.log(`Failed to find withdrawFee for ${methodCalls.id}`);
+    console.log(`Failed to find withdrawFee for ${contractCalls.id}`);
     return undefined;
   } else if (performanceFee === undefined) {
-    console.log(`Failed to find performanceFee for ${methodCalls.id}`);
+    console.log(`Failed to find performanceFee for ${contractCalls.id}`);
     return undefined;
   }
 
@@ -265,45 +263,49 @@ const mapStrategyCallsToFeeBreakdown = (
   };
 };
 
-const withdrawalFeeFromCalls = (methodCalls: StrategyCallResponse): number => {
+const withdrawalFeeFromCalls = (contractCalls: StrategyCallResponse): number => {
   if (
-    (methodCalls.withdraw === undefined && methodCalls.withdraw2 === undefined) ||
-    (methodCalls.withdrawMax === undefined && methodCalls.withdrawMax2 === undefined) ||
-    methodCalls.paused
+    (contractCalls.withdraw === undefined && contractCalls.withdraw2 === undefined) ||
+    (contractCalls.withdrawMax === undefined && contractCalls.withdrawMax2 === undefined) ||
+    contractCalls.paused
   ) {
     return 0;
   } else {
-    let withdrawFee = methodCalls.withdraw ?? methodCalls.withdraw2;
-    let maxWithdrawFee = methodCalls.withdrawMax ?? methodCalls.withdrawMax2;
+    let withdrawFee = contractCalls.withdraw ?? contractCalls.withdraw2;
+    let maxWithdrawFee = contractCalls.withdrawMax ?? contractCalls.withdrawMax2;
     return withdrawFee / maxWithdrawFee;
   }
 };
 
-const performanceFeesFromCalls = (methodCalls, feeBatch: FeeBatchDetail): PerformanceFee => {
-  if (methodCalls.id.includes('-maxi')) {
-    return performanceForMaxi(methodCalls);
-  } else if (methodCalls.breakdown !== undefined) {
+const performanceFeesFromCalls = (
+  contractCalls: StrategyCallResponse,
+  feeBatch: FeeBatchDetail
+): PerformanceFee => {
+  if (contractCalls.id.includes('-maxi')) {
+    return performanceForMaxi(contractCalls);
+  } else if (contractCalls.breakdown !== undefined) {
     //newest method
-    return performanceFromGetFees(methodCalls, feeBatch);
+    return performanceFromGetFees(contractCalls, feeBatch);
   } else {
-    return legacyFeeMappings(methodCalls, feeBatch);
+    return legacyFeeMappings(contractCalls, feeBatch);
   }
 };
 
 const legacyFeeMappings = (
-  methodCalls: StrategyCallResponse,
+  contractCalls: StrategyCallResponse,
   feeBatch: FeeBatchDetail
 ): PerformanceFee => {
   let total = 0.045;
   let performanceFee: PerformanceFee;
 
-  let callFee = methodCalls.call ?? methodCalls.call2 ?? methodCalls.call3 ?? methodCalls.call4;
-  let strategistFee = methodCalls.strategist ?? methodCalls.strategist2;
-  let maxFee = methodCalls.maxFee ?? methodCalls.maxFee2 ?? methodCalls.maxFee3;
-  let beefyFee = methodCalls.beefy;
-  let fee = methodCalls.fee;
-  let treasury = methodCalls.treasury;
-  let rewards = methodCalls.rewards ?? methodCalls.rewards2;
+  let callFee =
+    contractCalls.call ?? contractCalls.call2 ?? contractCalls.call3 ?? contractCalls.call4;
+  let strategistFee = contractCalls.strategist ?? contractCalls.strategist2;
+  let maxFee = contractCalls.maxFee ?? contractCalls.maxFee2 ?? contractCalls.maxFee3;
+  let beefyFee = contractCalls.beefy;
+  let fee = contractCalls.fee;
+  let treasury = contractCalls.treasury;
+  let rewards = contractCalls.rewards ?? contractCalls.rewards2;
 
   if (callFee + strategistFee + beefyFee === maxFee) {
     performanceFee = {
@@ -355,7 +357,7 @@ const legacyFeeMappings = (
       stakers: (total * rewards) / maxFee,
     };
   } else if (callFee + beefyFee === maxFee) {
-    if (methodCalls.id === 'cake-cakev2-eol') total = 0.01;
+    if (contractCalls.id === 'cake-cakev2-eol') total = 0.01;
     performanceFee = {
       total,
       call: (total * callFee) / maxFee,
@@ -372,7 +374,9 @@ const legacyFeeMappings = (
       stakers: (total * fee) / maxFee,
     };
   } else {
-    console.log(`> Performance fee fetch failed for: ${methodCalls.id} - ${methodCalls.strategy}`);
+    console.log(
+      `> Performance fee fetch failed for: ${contractCalls.id} - ${contractCalls.strategy}`
+    );
   }
 
   return performanceFee;
