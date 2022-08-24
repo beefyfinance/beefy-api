@@ -53,6 +53,7 @@
     "date-fns": "^2.21.3",
     "eth-multicall": "^1.4",
     "ethereum-abi-types-generator": "^1.1.7",
+    "ethereum-multicall": "^2.14.1",
     "ethers": "^5.0.26",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.12.4",
