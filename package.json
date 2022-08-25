@@ -23,6 +23,7 @@
     "bsc:ape:add": "ts-node scripts/add-farm.ts --network bsc --project ape",
     "bsc:biswap:add": "ts-node scripts/add-farm.ts --network bsc --project biswap",
     "bsc:omni:add": "ts-node scripts/add-omni.ts --network bsc --project omni",
+    "bsc:cone:add": "ts-node scripts/add-solidly.ts --network bsc --project cone --newFee true",
     "fantom:spooky:add": "ts-node scripts/add-farm.ts --network fantom --project spooky",
     "fantom:sushi:add": "ts-node scripts/add-sushi.ts --network fantom --project sushiFtm",
     "polygon:quick:add": "ts-node scripts/add-quick.ts --network polygon --project quick",
