@@ -15,6 +15,28 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  MAI: {
+    name: 'Mai Stablecoin',
+    symbol: 'MAI',
+    address: '0x3F56e0c36d275367b8C502090EDF38289b3dEa0d',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.mai.finance/',
+    description:
+      "MAI is a stable coin collateralized by assets. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+  },
+  QI: {
+    name: 'QiDao',
+    symbol: 'QI',
+    address: '0xdDC3D26BAA9D2d979F5E2e42515478bf18F354D5',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.mai.finance/',
+    description:
+      'Qi (pronounced CHEE) is the governance token of the QiDao Protocol. It allows those who hold it to vote on changes to the QiDao Protocol.',
+  },
   BNBx: {
     name: 'Liquid Staking BNB',
     symbol: 'BNBx',
