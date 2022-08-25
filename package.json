@@ -35,6 +35,7 @@
     "avax:joe:add": "ts-node scripts/add-farm.ts --network avax --project joe",
     "aurora:tri:add": "ts-node scripts/add-sushi.ts --network aurora --project tri",
     "moonriver:solarbeam:add": "ts-node scripts/add-farm.ts --network moonriver --project solarbeam",
+    "moonbeam:stella:add": "ts-node scripts/add-farm.ts --network moonbeam --project stellaswap --newFee true",
     "fuse:fusefi:add": "ts-node scripts/add-quick.ts --network fuse --project fusefi",
     "fuse:sushi:add": "ts-node scripts/add-sushi.ts --network fuse --project sushiFuse",
     "metis:netswap:add": "ts-node scripts/add-farm.ts --network metis --project netswap",

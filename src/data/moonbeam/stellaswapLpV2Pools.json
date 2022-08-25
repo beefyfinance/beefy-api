@@ -1,5 +1,45 @@
 [
   {
+    "name": "stellaswap-frax-wglmr",
+    "address": "0x015c6B2d98969e3bF066110769E53D734e48Ebf6",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 18,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x322E86852e492a7Ee17f28a78c663da38FB33bfb",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-wglmr-mai",
+    "address": "0x91b11E7649614EaBe97D96d75bE11d1068059FF1",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 17,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "stellaswap-ldo-wglmr",
     "address": "0x00870B0e6994fFb142a91173a882d2F6a9a8Ac4a",
     "decimals": "1e18",

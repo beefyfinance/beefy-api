@@ -49,7 +49,8 @@ const _tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xdFA46478F9e5EA86d57387849598dbFB2e964b02.svg',
     website: 'https://app.mai.finance/',
-    description: 'MAI is a stablecoin collateralized by your crypto assets',
+    description:
+      "MAI is a stablecoin collateralized by your crypto assets. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
   },
 
   APE: {
@@ -123,7 +124,7 @@ const _tokens = {
     description:
       'bridged DAI by Nomad. Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
   },
-  FRAXs: {
+  FRAX: {
     name: 'Frax',
     symbol: 'FRAX',
     address: '0x322E86852e492a7Ee17f28a78c663da38FB33bfb',
