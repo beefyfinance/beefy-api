@@ -33,6 +33,7 @@ router.get('/prices', price.tokenPrices);
 router.get('/mootokenprices', price.mooTokenPrices);
 
 router.get('/vaults', multichainVaults.multichainVaults);
+router.get('/fees', multichainVaults.vaultFees);
 
 router.get('/', noop);
 
