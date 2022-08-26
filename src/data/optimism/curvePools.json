@@ -45,6 +45,12 @@
     "oracleId": "WETH",
     "gauge": "0xCB8883D1D8c560003489Df43B30612AAbB8013bb",
     "boosted": true,
+    "rewards": [
+      {
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      }
+    ],
     "tokens": [
       {
         "oracle": "tokens",
@@ -86,6 +92,12 @@
     "token": "0x061b87122Ed14b9526A813209C8a59a633257bAb",
     "gauge": "0xc5aE4B5F86332e70f3205a8151Ee9eD9F71e0797",
     "boosted": true,
+    "rewards": [
+      {
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      }
+    ],
     "tokens": [
       {
         "oracle": "tokens",
