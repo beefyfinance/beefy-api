@@ -15,7 +15,7 @@ const { bifibuyback } = require('./api/stats/bifibuyback/index');
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
-//router.get('/bifibuyback', bifibuyback);
+router.get('/bifibuyback', bifibuyback);
 
 router.get('/tvl', tvl.vaultTvl);
 router.get('/cmc', cmc.vaults);
