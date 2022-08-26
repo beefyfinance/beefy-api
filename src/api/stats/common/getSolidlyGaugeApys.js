@@ -109,7 +109,9 @@ const getPoolsData = async params => {
       ? getContract(ISpiritGauge, pool.gauge)
       : getContract(IGauge, pool.gauge);
     balanceCalls.push({
-      balance: rewardPool.methods.totalSupply(),
+      balance: params.boosted
+        ? rewardPool.methods.derivedSupply()
+        : rewardPool.methods.totalSupply(),
     });
     rewardRateCalls.push({
       rewardRate: params.spirit
