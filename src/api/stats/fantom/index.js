@@ -27,8 +27,10 @@ const getHectorApy = require('./getHectorApy');
 const getStargateApys = require('./getStargateFantomApys');
 const getSolaceApy = require('./getSolaceApy');
 const getSolidlyApys = require('./getSolidlyApys');
+const getSpiritV2Apys = require('./getSpiritV2Apys');
 
 const getApys = [
+  getSpiritV2Apys,
   getSushiLpApys,
   getSpookyBooApy,
   getSpookyV2LpApys,

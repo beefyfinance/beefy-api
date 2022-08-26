@@ -4,7 +4,9 @@ const { multicallAddress } = require('../../../utils/web3');
 import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const IGauge = require('../../../abis/ISolidlyGauge.json');
+const ISpiritGauge = require('../../../abis/fantom/ISpiritGauge.json');
 const IVe = require('../../../abis/IVe.json');
+const IinSpirit = require('../../../abis/fantom/IinSpirit.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import { getApyBreakdown } from '../common/getApyBreakdown';
 import { getContract } from '../../../utils/contractHelper';
@@ -23,9 +25,13 @@ const getFarmApys = async params => {
   let supply = 0;
   let veBalance = 0;
   if (params.boosted && params.NFTid) {
-    const ve = getContractWithProvider(IVe, params.ve, params.web3);
+    const ve = params.spirit
+      ? getContractWithProvider(IinSpirit, params.ve, params.web3)
+      : getContractWithProvider(IVe, params.ve, params.web3);
     supply = new BigNumber(await ve.methods.totalSupply().call());
-    veBalance = new BigNumber(await ve.methods.balanceOfNFT(params.NFTid).call());
+    veBalance = params.spirit
+      ? new BigNumber(await ve.methods.balanceOf(params.gaugeStaker).call())
+      : new BigNumber(await ve.methods.balanceOfNFT(params.NFTid).call());
   }
 
   for (let i = 0; i < params.pools.length; i++) {
@@ -95,12 +101,16 @@ const getPoolsData = async params => {
   const rewardRateCalls = [];
   const depositBalanceCalls = [];
   params.pools.forEach(pool => {
-    const rewardPool = getContract(IGauge, pool.gauge);
+    const rewardPool = params.spirit
+      ? getContract(ISpiritGauge, pool.gauge)
+      : getContract(IGauge, pool.gauge);
     balanceCalls.push({
       balance: rewardPool.methods.totalSupply(),
     });
     rewardRateCalls.push({
-      rewardRate: rewardPool.methods.rewardRate(params.reward),
+      rewardRate: params.spirit
+        ? rewardPool.methods.rewardRate()
+        : rewardPool.methods.rewardRate(params.reward),
     });
     if (params.boosted && params.NFTid) {
       depositBalanceCalls.push({

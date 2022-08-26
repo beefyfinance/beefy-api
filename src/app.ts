@@ -44,7 +44,7 @@ const start = async () => {
   initVaultService();
   initVaultFeeService();
   initTvlService();
-  initBifiBuyBackService();
+  // initBifiBuyBackService();
   initMooTokenPriceService();
   app.listen(port);
   console.log(`> beefy-api running! (:${port})`);

@@ -30,12 +30,14 @@ import getVoltagePrices from './fuse/getVoltagePrices';
 import getBeamswapPrices from './moonbeam/getBeamswapPrices';
 import getTrisolarisPrices from './aurora/getTrisolarisPrices';
 import getConeStablePrices from './bsc/getConeStablePrices';
+import getSpiritStablePrices from './fantom/getSpiritStablePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getSpiritStablePrices(tokenPrices),
     getConeStablePrices(tokenPrices),
     getTrisolarisPrices(tokenPrices),
     getBeamswapPrices(tokenPrices),
