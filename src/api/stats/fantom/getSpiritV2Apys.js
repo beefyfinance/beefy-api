@@ -23,7 +23,6 @@ const getSpiritV2Apys = async () => {
     decimals: '1e18', // token is 1e18 but gauge.rewardRate returns 1e36
     reward: SPIRIT.address,
     boosted: true,
-    NFTid: 32337,
     ve: spiritswap.ve,
     gaugeStaker: spiritswap.gaugeStaker,
     spirit: true,

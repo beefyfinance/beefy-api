@@ -21,7 +21,7 @@ const getFarmApys = async params => {
   const apys = [];
 
   const rewardTokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
-  const { balances, rewardRates, depositBalances } = await getPoolsData(params);
+  const { balances, rewardRates, depositBalances, derivedBalances } = await getPoolsData(params);
   let supply = 0;
   let veBalance = 0;
   if (params.boosted && params.NFTid) {
@@ -29,9 +29,7 @@ const getFarmApys = async params => {
       ? getContractWithProvider(IinSpirit, params.ve, params.web3)
       : getContractWithProvider(IVe, params.ve, params.web3);
     supply = new BigNumber(await ve.methods.totalSupply().call());
-    veBalance = params.spirit
-      ? new BigNumber(await ve.methods.balanceOf(params.gaugeStaker).call())
-      : new BigNumber(await ve.methods.balanceOfNFT(params.NFTid).call());
+    veBalance = new BigNumber(await ve.methods.balanceOfNFT(params.NFTid).call());
   }
 
   for (let i = 0; i < params.pools.length; i++) {
@@ -70,6 +68,11 @@ const getFarmApys = async params => {
         } else {
           yearlyRewards = rewardRates[i].times(secondsPerYear);
         }
+      } else if (params.spirit) {
+        yearlyRewards = rewardRates[i]
+          .times(secondsPerYear)
+          .times(derivedBalances[i])
+          .dividedBy(depositBalances[i]);
       } else {
         yearlyRewards = rewardRates[i].times(secondsPerYear).times(0.4);
       }
@@ -100,6 +103,7 @@ const getPoolsData = async params => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   const depositBalanceCalls = [];
+  const derivedBalanceCalls = [];
   params.pools.forEach(pool => {
     const rewardPool = params.spirit
       ? getContract(ISpiritGauge, pool.gauge)
@@ -117,14 +121,28 @@ const getPoolsData = async params => {
         depositBalance: rewardPool.methods.balanceOf(params.gaugeStaker),
       });
     }
+    if (params.spirit) {
+      depositBalanceCalls.push({
+        depositBalance: rewardPool.methods.balanceOf(params.gaugeStaker),
+      });
+      derivedBalanceCalls.push({
+        derivedBalance: rewardPool.methods.derivedBalance(params.gaugeStaker),
+      });
+    }
   });
 
-  const res = await multicall.all([balanceCalls, rewardRateCalls, depositBalanceCalls]);
+  const res = await multicall.all([
+    balanceCalls,
+    rewardRateCalls,
+    depositBalanceCalls,
+    derivedBalanceCalls,
+  ]);
 
   const balances = res[0].map(v => new BigNumber(v.balance));
   const rewardRates = res[1].map(v => new BigNumber(v.rewardRate));
   const depositBalances = res[2].map(v => new BigNumber(v.depositBalance));
-  return { balances, rewardRates, depositBalances };
+  const derivedBalances = res[3].map(v => new BigNumber(v.derivedBalance));
+  return { balances, rewardRates, depositBalances, derivedBalances };
 };
 
 module.exports = { getSolidlyGaugeApys };
