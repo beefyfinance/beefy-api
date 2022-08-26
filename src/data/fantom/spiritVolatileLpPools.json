@@ -2,7 +2,7 @@
   {
     "name": "spiritV2-wftm-spirit",
     "address": "0x912B333dDaFC925f63C9746E5115A2CD5290b59e",
-    "gauge": "0x0000000000000000000000000000000000000000",
+    "gauge": "0x87Cae38ECb34FF4D3239A789F7709f285484F7e1",
     "decimals": "1e18",
     "chainId": 250,
     "beefyFee": 0.095,
@@ -22,7 +22,7 @@
   {
     "name": "spiritV2-binspirit-spirit",
     "address": "0x73240EC27CB4F40E25658395335896059A1961d0",
-    "gauge": "0x0000000000000000000000000000000000000000",
+    "gauge": "0x1601306F13CDbaDa607FD7dCDe79ad2cDab60289",
     "decimals": "1e18",
     "chainId": 250,
     "beefyFee": 0.095,
