@@ -13,7 +13,7 @@ import ERC20ABI from '../src/abis/ERC20.json';
 import { addressBook } from '../packages/address-book/address-book';
 const {
   fantom: {
-    platforms: { solidly },
+    platforms: { solidly, spiritswap },
   },
   optimism: {
     platforms: { velodrome },
@@ -49,6 +49,16 @@ const projects = {
     stableFile: '../src/data/coneStableLpPools.json',
     volatileFile: '../src/data/coneLpPools.json',
     voter: cone.voter,
+  },
+  spiritVolatile: {
+    prefix: 'spiritV2',
+    volatileFile: '../src/data/fantom/spiritVolatileLpPools.json',
+    voter: spiritswap.volatileVoter,
+  },
+  spiritStable: {
+    prefix: 'spiritV2',
+    stableFile: '../src/data/fantom/spiritStableLpPools.json',
+    voter: spiritswap.stableVoter,
   },
 };
 
