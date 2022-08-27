@@ -3730,5 +3730,29 @@ const _tokens = {
     description:
       'Bolide is a next-generation decentralized yield aggregator that optimizes the deployment of digital assets across multiple DeFi investment platforms to save investors time, money and earn them the highest possible yields.',
   },
+  HEC: {
+    name: 'Hector Network',
+    symbol: 'HEC',
+    address: '0x638EEBe886B0e9e7C6929E69490064a6C94d204d',
+    chainId: 56,
+    decimals: 9,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/HEC.svg',
+    website: 'https://hector.network/',
+    description:
+      'Hector Network is an expansive decentralized ecosystem run by a utility token, HEC, and complemented by the TOR stablecoin. The company is committed to developing the future of web3 by pioneering decentralized offerings ranging from Tokenomics to Defi Gaming. Hector Network believes that crosschain expansion, lowering the barrier to entry and providing trusted sources for information are key in mass adoption of this technology.',
+  },
+  TOR: {
+    name: 'TOR Stablecoin',
+    symbol: 'TOR',
+    address: '0x1d6Cbdc6b29C6afBae65444a1f65bA9252b8CA83',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/TOR.svg',
+    website: 'https://tor.hector.network/',
+    description:
+      'TOR is a fully collateralized stablecoin which acts as a foundational pillar within the Hector Network Ecosystem. Its unique smart contracts made it the first of its kind, creating positive price action for the HEC token each time a TOR coin is minted and empowering Hector Network to become deflationary.',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
