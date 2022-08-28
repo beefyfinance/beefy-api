@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  alUSD: {
+    name: 'Alchemix USD',
+    symbol: 'alUSD',
+    address: '0xB67FA6deFCe4042070Eb1ae1511Dcd6dcc6a532E',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alchemix.fi/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+  },
   POTS: {
     name: 'Moonpot',
     symbol: 'POTS',
