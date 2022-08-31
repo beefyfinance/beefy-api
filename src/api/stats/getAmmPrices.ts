@@ -242,6 +242,7 @@ import ripaeArbitrumPools from '../../data/arbitrum/ripaeLpPools.json';
 import radiantPools from '../../data/arbitrum/radiantLpPools.json';
 import conePools from '../../data/coneLpPools.json';
 import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
+import bolideLpPools from '../../data/bolideLpPools.json';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -478,6 +479,7 @@ const pools = [
   ...cakeLpV1Pools,
   ...cakeLpPools,
   ...giddyLpPools,
+  ...bolideLpPools,
 ];
 
 const dmmPools = [...kyberPools, ...oldDmmPools];

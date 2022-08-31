@@ -1,0 +1,22 @@
+[
+  {
+    "name": "bolide-cakev2-blid-usdt",
+    "address": "0x12c35ed2405bc70721584594723351bf5db6235c",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x766afcf83fd5eaf884b3d529b432ca27a6d84617",
+      "oracle": "tokens",
+      "oracleId": "BLID",
+      "decimals": "1e18"
+    }
+  }
+]
