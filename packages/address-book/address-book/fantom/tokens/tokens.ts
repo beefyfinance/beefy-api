@@ -38,6 +38,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  SYN: {
+    name: 'Synapse Protocol',
+    symbol: 'SYN',
+    address: '0xE55e19Fb4F2D85af758950957714292DAC1e25B2',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://synapseprotocol.com/',
+    description:
+      'Synapse is a cross-chain layer ∞ protocol powering frictionless interoperability between blockchains. By providing decentralized, permissionless transactions between any L1, sidechain, or L2 ecosystem, Synapse powers integral blockchain activities such as asset transfers, swaps, and generalized messaging with cross-chain functionality - and in so doing enables new primitives based off of its cross-chain architecture.',
+  },
   alUSD: {
     name: 'Alchemix USD',
     symbol: 'alUSD',

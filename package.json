@@ -43,7 +43,7 @@
     "fuse:sushi:add": "ts-node scripts/add-sushi.ts --network fuse --project sushiFuse",
     "metis:netswap:add": "ts-node scripts/add-farm.ts --network metis --project netswap",
     "metis:tethys:add": "ts-node scripts/add-farm.ts --network metis --project tethys",
-    "fantom:solidly:add": "ts-node scripts/add-solidly.ts --network fantom --project solidly",
+    "fantom:solidly:add": "ts-node scripts/add-solidly.ts --network fantom --project solidly --newFee true",
     "polygon:dystopia:add": "ts-node scripts/add-solidly.ts --network polygon --project dystopia --newFee true",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },
