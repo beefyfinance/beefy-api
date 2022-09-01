@@ -500,6 +500,7 @@ const coinGeckoCoins = [
   'seth',
   'alchemix-usd',
   'ethereum',
+  'rocket-pool-eth',
 ];
 
 const knownPrices = {
@@ -542,6 +543,7 @@ const updateAmmPrices = async () => {
         sETH: prices['seth'],
         alUSD: prices['alchemix-usd'],
         alETH: prices['ethereum'],
+        rETH: prices['rocket-pool-eth'],
       };
     };
 

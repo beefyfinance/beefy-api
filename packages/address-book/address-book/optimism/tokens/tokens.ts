@@ -387,6 +387,17 @@ const _tokens = {
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: '',
   },
+  rETH: {
+    name: 'Rocket Pool ETH',
+    symbol: 'rETH',
+    address: '0x9Bcef72be871e61ED4fBbc7630889beE758eb81D',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://rocketpool.net/',
+    description:
+      'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

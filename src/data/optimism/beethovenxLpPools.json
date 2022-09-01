@@ -1,5 +1,32 @@
 [
   {
+    "name": "beets-rocket-fuel",
+    "address": "0x4Fd63966879300caFafBB35D157dC5229278Ed23",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x38f79beFfC211c6c439b0A3d10A0A673EE63AFb4",
+    "vaultPoolId": "0x4fd63966879300cafafbb35d157dc5229278ed2300020000000000000000002b",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x3Ee85Ac7c0E1799af6f4e582dE485FcdFb12855A",
+        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-happy-road",
     "address": "0x39965c9dAb5448482Cf7e002F583c812Ceb53046",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
