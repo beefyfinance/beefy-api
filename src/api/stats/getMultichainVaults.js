@@ -18,6 +18,10 @@ const getMultichainVaults = () => {
   return multichainVaults;
 };
 
+const getSingleChainVaults = chain => {
+  return vaultsByChain[chain];
+};
+
 const updateMultichainVaults = async () => {
   console.log('> updating vaults');
   let start = Date.now();
@@ -90,4 +94,4 @@ const saveToRedis = async () => {
   console.log('Vaults saved to redis');
 };
 
-module.exports = { getMultichainVaults, initVaultService };
+module.exports = { getMultichainVaults, getSingleChainVaults, initVaultService };

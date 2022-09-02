@@ -1,5 +1,6 @@
 'use strict';
 
+import { initBoostService } from './api/boosts/getBoosts';
 import { initBifiBuyBackService } from './api/stats/bifibuyback/getBifiBuyback';
 import { initPriceService } from './api/stats/getAmmPrices';
 import { initApyService } from './api/stats/getApys';
@@ -42,6 +43,7 @@ const start = async () => {
   initApyService();
   initPriceService();
   initVaultService();
+  initBoostService();
   initVaultFeeService();
   initTvlService();
   initBifiBuyBackService();
