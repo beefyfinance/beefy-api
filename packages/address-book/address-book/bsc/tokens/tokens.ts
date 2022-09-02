@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  WOM: {
+    name: 'Wombat Token',
+    symbol: 'WOM',
+    address: '0xAD6742A35fB341A9Cc6ad674738Dd8da98b94Fb1',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xAD6742A35fB341A9Cc6ad674738Dd8da98b94Fb1.svg',
+    website: 'https://www.wombat.exchange/',
+    description:
+      'Swap stablecoins at minimal slippage and stake at maximum yield. Just one stablecoin currency to earn it all.',
+  },
   MAI: {
     name: 'Mai Stablecoin',
     symbol: 'MAI',
