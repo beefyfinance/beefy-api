@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-snx-usdc",
+    "address": "0x9056EB7Ca982a5Dd65A584189994e6a27318067D",
+    "gauge": "0x099b3368eb5BBE6f67f14a791ECAeF8bC1628A7F",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4",
+      "oracle": "tokens",
+      "oracleId": "SNX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "velodrome-weth-setho",
     "address": "0x9629a694C041f3b10cE974DC37eF4dD4596c4F54",
     "gauge": "0xAF307D86B08C54Bb840Ab17ef66AbBBA87C6aaBe",
