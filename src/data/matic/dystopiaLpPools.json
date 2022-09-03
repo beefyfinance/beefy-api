@@ -1,5 +1,65 @@
 [
   {
+    "name": "dystopia-wmatic-frax",
+    "address": "0x04f9EE08C2C9c0E6DAD5e07F4Ae0201D8dbEebdE",
+    "gauge": "0x53388e8603B1FEeBC87EaF9be5dFdfC5c2E9ae37",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x45c32fA6DF82ead1e2EF74d17b76547EDdFaFF89",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dystopia-wmatic-usdt",
+    "address": "0x407ad7715894EF949F38ffF31e442Bef18112c45",
+    "gauge": "0xb3a94B570c1BA6D51F13E8B25BD83EddA39943f3",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "dystopia-fxs-frax",
+    "address": "0x81E91d374B5Ad9998b8C78B804E786c7cB45B60F",
+    "gauge": "0xFc5Bd51fE01F291241a76B77394e7347704943C6",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3e121107F6F22DA4911079845a470757aF4e1A1b",
+      "oracle": "tokens",
+      "oracleId": "FXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x45c32fA6DF82ead1e2EF74d17b76547EDdFaFF89",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "dystopia-usdc-weth",
     "address": "0xCE1923D2242BBA540f1d56c8E23b1FBEAe2596dc",
     "gauge": "0x56D1f8989b3106824B0ACdb39390A96CfacCfa5f",

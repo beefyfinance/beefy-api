@@ -1,5 +1,25 @@
 [
   {
+    "name": "dystopia-usdc-tusd",
+    "address": "0xA498a892AD0D3F70AA449798023AA1F4A0888268",
+    "gauge": "0x6A8c0e81648b5Accf51B7E1c6A01dF6F13E7a66D",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x2e1AD108fF1D8C782fcBbB89AAd783aC49586756",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "dystopia-usdc-frax",
     "address": "0x53227c83a98Ba1035FEd912Da6cE26a0c11C7C66",
     "gauge": "0x768E8639c1bE413832AF4BfF0C42284B2D799689",
