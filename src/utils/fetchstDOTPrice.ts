@@ -16,7 +16,7 @@ const getstDOTPrice = async (tokenPrices, chainId) => {
   const web3 = web3Factory(chainId);
   const tokenContract = getContractWithProvider(ICurvePool, pool, web3);
   const amountOut = new BigNumber(
-    await tokenContract.methods.get_dy(0, 1, new BigNumber('1e10')).call()
+    await tokenContract.methods.get_dy(1, 0, new BigNumber('1e10')).call()
   );
   const price = amountOut.times(tokenPrices['xcDOT']).dividedBy('1e10');
 
