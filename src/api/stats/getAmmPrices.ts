@@ -6,6 +6,7 @@ import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchStargatePrices } from '../../utils/fetchStargatePrices';
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
+import { fetchstDOTPrice } from '../../utils/fetchstDOTPrice';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 import { getKey, setKey } from '../../utils/redisHelper';
 
@@ -566,6 +567,10 @@ const updateAmmPrices = async () => {
       return await fetchbeFTMPrice(tokenPrices);
     });
 
+    const stDOTPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+      return await fetchstDOTPrice(tokenPrices);
+    });
+
     const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       return {
         beJOE: tokenPrices['JOE'],
@@ -580,6 +585,7 @@ const updateAmmPrices = async () => {
       const xTokenPrices = await xPrices;
       const mooTokenPrices = await mooPrices;
       const beFtmTokenPrice = await beFtmPrice;
+      const stDOTTokenPrice = await stDOTPrice;
       const stargateTokenPrices = await stargatePrices;
       const beTokenTokenPrice = await beTokenPrice;
       return {
@@ -590,6 +596,7 @@ const updateAmmPrices = async () => {
         ...stargateTokenPrices,
         ...beFtmTokenPrice,
         ...beTokenTokenPrice,
+        ...stDOTTokenPrice,
         ...(await coinGeckoPrices()),
       };
     });
