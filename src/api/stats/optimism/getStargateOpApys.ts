@@ -8,6 +8,7 @@ const getStargateOpApys = async () =>
     chainId: chainId,
     masterchef: '0x4DeA9e918c6289a52cd469cAC652727B7b412Cd2',
     tokenPerBlock: 'eTokenPerSecond',
+    secondsPerBlock: 1,
     hasMultiplier: false,
     singlePools: [
       {
