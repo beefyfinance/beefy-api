@@ -1,5 +1,65 @@
 [
   {
+    "name": "stellaswap-wglmr-xcibtc",
+    "address": "0x4C5f99045AF91D2b6d4fa0Ea89FC47cF42711555",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 21,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFFFFFfFf5AC1f9A51A93F5C527385edF7Fe98A52",
+      "oracle": "tokens",
+      "oracleId": "xciBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "stellaswap-wglmr-xcausd",
+    "address": "0xd95cab0Ed89269390f2aD121798e6092Ea395139",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 20,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfFfFFFFF52C56A9257bB97f4B2b6F7B2D624ecda",
+      "oracle": "tokens",
+      "oracleId": "xcaUSD",
+      "decimals": "1e12"
+    }
+  },
+  {
+    "name": "stellaswap-wglmr-xcintr",
+    "address": "0xD3DFb90f7996a97f9f394E130342485e37DD28F7",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 19,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFffFFFFF4C1cbCd97597339702436d4F18a375Ab",
+      "oracle": "tokens",
+      "oracleId": "xcINTR",
+      "decimals": "1e10"
+    }
+  },
+  {
     "name": "stellaswap-frax-wglmr",
     "address": "0x015c6B2d98969e3bF066110769E53D734e48Ebf6",
     "decimals": "1e18",
