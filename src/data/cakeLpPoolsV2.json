@@ -1,5 +1,45 @@
 [
   {
+    "name": "cakev2-trivia-bnb",
+    "address": "0xEF642c40EebBc964881dD7Bd1A0b50e90441E73A",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 107,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xb465f3cb6Aba6eE375E12918387DE1eaC2301B05",
+      "oracle": "tokens",
+      "oracleId": "TRIVIA",
+      "decimals": "1e3"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cakev2-peel-busd",
+    "address": "0x25bfD3162360BbD8FF97b86169288b311c2A68D7",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 112,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x734548a9e43d2D564600b1B2ed5bE9C2b911c6aB",
+      "oracle": "tokens",
+      "oracleId": "PEEL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-wom-busd",
     "address": "0xe68D05418A8d7969D9CA6761ad46F449629d928c",
     "decimals": "1e18",
