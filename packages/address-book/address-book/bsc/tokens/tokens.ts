@@ -15,6 +15,30 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  TRIVIA: {
+    name: 'TRIVIA',
+    symbol: 'TRIVIA',
+    address: '0xb465f3cb6Aba6eE375E12918387DE1eaC2301B05',
+    chainId: 56,
+    decimals: 3,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xb465f3cb6Aba6eE375E12918387DE1eaC2301B05.png',
+    website: 'https://trivians.io/',
+    description:
+      'Trivians is the new generation crypto-powered Trivia gaming platform. It is a metaverse, where players play as Trivian characters and earn Trivian Token for their achievements.',
+  },
+  PEEL: {
+    name: 'Meta Apes Peel',
+    symbol: 'PEEL',
+    address: '0x734548a9e43d2D564600b1B2ed5bE9C2b911c6aB',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x734548a9e43d2D564600b1B2ed5bE9C2b911c6aB.png',
+    website: 'https://metaapesgame.com/',
+    description:
+      'Meta Apes is a free-to-play, play-and-earn MMO strategy game designed for mobile.',
+  },
   WOM: {
     name: 'Wombat Token',
     symbol: 'WOM',
