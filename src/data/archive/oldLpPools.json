@@ -1,5 +1,24 @@
 [
   {
+    "name": "stellaswap-xcaca-wglmr",
+    "address": "0xb83c50eA82c10AC598BA1ffc0c0296978c29c1e2",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xffffFFffa922Fef94566104a6e5A35a4fCDDAA9f",
+      "oracle": "tokens",
+      "oracleId": "xcACA",
+      "decimals": "1e12"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "mai-qi-mimatic",
     "address": "0x7AfcF11F3e2f01e71B7Cc6b8B5e707E42e6Ea397",
     "decimals": "1e18",
