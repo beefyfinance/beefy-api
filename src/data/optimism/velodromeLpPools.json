@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-ageur-mai",
+    "address": "0x389d9aeA762fd5F9FBD4434D8E11295F15097B67",
+    "gauge": "0x2EE6587E32BED1CEddaC42618320c4839D4a3F9c",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED",
+      "oracle": "tokens",
+      "oracleId": "agEUR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-snx-usdc",
     "address": "0x9056EB7Ca982a5Dd65A584189994e6a27318067D",
     "gauge": "0x099b3368eb5BBE6f67f14a791ECAeF8bC1628A7F",
