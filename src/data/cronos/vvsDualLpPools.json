@@ -1,5 +1,27 @@
 [
   {
+    "name": "vvs-cro-fira",
+    "address": "0x689E7BA5170001aC887965a5Db1C9Ce932c93462",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "FIRA",
+    "decimalsB": "1e18",
+    "poolId": 38,
+    "chainId": 25,
+    "lp0": {
+      "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
+      "oracle": "tokens",
+      "oracleId": "WCRO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ABa852082b6F763E13010CA33B5D9Ea4EeE2983",
+      "oracle": "tokens",
+      "oracleId": "FIRA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "vvs-fer-vvs",
     "address": "0x72eFd454bBFEca458e909B99FAACBC116880b54D",
     "decimals": "1e18",

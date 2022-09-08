@@ -16,6 +16,17 @@ const _tokens = {
   CRO: CRO,
   WCRO: CRO,
   WNATIVE: CRO,
+  FIRA: {
+    name: 'Fira',
+    symbol: 'FIRA',
+    address: '0x7ABa852082b6F763E13010CA33B5D9Ea4EeE2983',
+    chainId: 25,
+    decimals: 18,
+    logoURI: 'https://vvs.finance/images/tokens/0x7ABa852082b6F763E13010CA33B5D9Ea4EeE2983.svg',
+    website: 'https://defira.com/',
+    description:
+      'The FIRA token is the main governance token and currency for the Defiraverse. In the game world, it is known as the Fira Orb.',
+  },
   VERSA: {
     name: 'VersaGames VERSA',
     symbol: 'VERSA',
