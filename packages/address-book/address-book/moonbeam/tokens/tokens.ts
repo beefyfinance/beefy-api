@@ -29,6 +29,38 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  xcACA: {
+    name: 'Acala xcACA',
+    symbol: 'xcACA',
+    address: '0xffffFFffa922Fef94566104a6e5A35a4fCDDAA9f',
+    chainId: 1284,
+    decimals: 12,
+    logoURI: '',
+    website: 'https://acala.network/',
+    description: 'The decentralized Stablecoin of Polkadot',
+  },
+  xciBTC: {
+    name: 'Interlay BTC',
+    symbol: 'xciBTC',
+    address: '0xFFFFFfFf5AC1f9A51A93F5C527385edF7Fe98A52',
+    chainId: 1284,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://interlay.io/',
+    description:
+      'Use your Bitcoin. Anywhere. Anytime. Interlay is a decentralized bridge that allows you to use your Bitcoin on Ethereum and Polkadot.',
+  },
+  xcINTR: {
+    name: 'Interlay INTR',
+    symbol: 'xcINTR',
+    address: '0xFffFFFFF4C1cbCd97597339702436d4F18a375Ab',
+    chainId: 1284,
+    decimals: 10,
+    logoURI: '',
+    website: 'https://interlay.io/',
+    description:
+      'Use your Bitcoin. Anywhere. Anytime. Interlay is a decentralized bridge that allows you to use your Bitcoin on Ethereum and Polkadot.',
+  },
   WELL: {
     name: 'WELL',
     symbol: 'WELL',
