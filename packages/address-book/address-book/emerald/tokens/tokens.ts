@@ -17,6 +17,17 @@ const _tokens = {
   ROSE,
   WROSE: ROSE,
   WNATIVE: ROSE,
+  WBTC: {
+    name: 'Multichain Wrapped BTC',
+    symbol: 'WBTC',
+    address: '0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
+    chainId: 42262,
+    decimals: 8,
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+  },
   BIFI: {
     name: 'Beefy.Finance',
     symbol: 'BIFI',
