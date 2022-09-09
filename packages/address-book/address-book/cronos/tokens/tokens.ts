@@ -37,6 +37,17 @@ const _tokens = {
     website: 'https://versagames.io/',
     description: 'VersaGames is the next-generation games marketplace.',
   },
+  MTS: {
+    name: 'Minted',
+    symbol: 'MTD',
+    address: '0x0224010BA2d567ffa014222eD960D1fa43B8C8E1',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://minted.network/',
+    description:
+      'Minted network is a decentralised NFT platform that aspires to be the digital bazaar of wonders for everyone to discover, trade, and find NFT gems, native to Ethereum and Cronos.',
+    logoURI: 'https://vvs.finance/images/tokens/0x0224010BA2d567ffa014222eD960D1fa43B8C8E1.svg',
+  },
   FER: {
     name: 'Ferro',
     symbol: 'FER',
