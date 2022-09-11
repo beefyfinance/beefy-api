@@ -29,6 +29,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  POOP: {
+    name: 'Raresama',
+    symbol: 'POOP',
+    address: '0xFFfffFFecB45aFD30a637967995394Cc88C0c194',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://app.stellaswap.com/_next/image?url=https%3A%2F%2Fraw.githubusercontent.com%2Fstellaswap%2Fassets%2Fmain%2Fbridge%2FPOOP.png&w=64&q=50',
+    website: 'https://raresama.com/',
+    description: 'POOP is the Raresama.com governance token.',
+  },
   xcACA: {
     name: 'Acala xcACA',
     symbol: 'xcACA',
