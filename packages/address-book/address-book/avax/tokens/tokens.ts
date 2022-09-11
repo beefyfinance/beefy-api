@@ -15,6 +15,16 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  CAI: {
+    name: 'Colony Avalanche Index CAI',
+    symbol: 'CAI',
+    address: '0x48f88A3fE843ccb0b5003e70B4192c1d7448bEf0',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.colonylab.io/cai.html',
+    description: 'Colony Avalanche Index - The easist way to invest in Avalanche',
+  },
   POPS: {
     name: 'Swapsicle',
     symbol: 'POPS',
