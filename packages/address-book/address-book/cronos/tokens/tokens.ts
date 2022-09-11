@@ -37,7 +37,7 @@ const _tokens = {
     website: 'https://versagames.io/',
     description: 'VersaGames is the next-generation games marketplace.',
   },
-  MTS: {
+  MTD: {
     name: 'Minted',
     symbol: 'MTD',
     address: '0x0224010BA2d567ffa014222eD960D1fa43B8C8E1',
