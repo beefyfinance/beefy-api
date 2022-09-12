@@ -1,11 +1,29 @@
 import { addressBook } from '../../../packages/address-book/address-book';
-import Token from '../../../packages/address-book/types/token';
 
 const tokensByChain: Record<string, Record<string, Token>> = {};
 
+interface Token {
+  name: string;
+  symbol: string;
+  address: string;
+  decimals: number;
+}
+
 export const initTokenService = () => {
   Object.keys(addressBook).forEach(chain => {
-    tokensByChain[chain] = addressBook[chain].tokens;
+    tokensByChain[chain] = {};
+
+    Object.keys(addressBook[chain].tokens).forEach(tokenId => {
+      const token = addressBook[chain].tokens[tokenId];
+      //Map
+      tokensByChain[chain][tokenId] = {
+        name: token.name,
+        symbol: token.symbol,
+        address: token.address,
+        decimals: token.decimals,
+      };
+    });
+    addressBook[chain].tokens;
   });
 
   console.log('> Tokens initialized');
