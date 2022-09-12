@@ -8,6 +8,7 @@ const { compound } = require('../../../../utils/compound');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const swampchef = '0x33AdBf5f1ec364a4ea3a5CA8f310B597B8aFDee3';
 const swampStrat = '0xc65D6E612C27b7C9B00dE40715015EEa81368252';
@@ -21,7 +22,8 @@ const getSwampySwampApy = async () => {
     getTotalStakedInUsd(),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('swamp-swamp');
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   //console.log('swamp-swamp', simpleApy.valueOf(), simpleApy, apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { 'swamp-swamp': apy };
 };

@@ -12,6 +12,7 @@ const { BASE_HPY, EMERALD_CHAIN_ID: chainId } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const getBlockTime = require('../../../utils/getBlockTime');
 const {
   emerald: {
@@ -21,9 +22,6 @@ const {
     tokens: { YUZU },
   },
 } = addressBook;
-
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const oracleA = 'tokens';
 const DECIMALSA = '1e18';
@@ -69,6 +67,10 @@ const getYuzuDualApys = async () => {
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 

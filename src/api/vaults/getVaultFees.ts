@@ -494,6 +494,14 @@ export const initVaultFeeService = async () => {
   }, INIT_DELAY);
 };
 
-export const getVaultFees = async () => {
+export const getVaultFees = () => {
   return vaultFees;
+};
+
+export const getTotalPerformanceFeeForVault = (vaultId: string) => {
+  if (!vaultFees[vaultId]) {
+    console.log(`[FEES]> Missing fees for vault ${vaultId}`);
+    return 0.095;
+  }
+  return vaultFees[vaultId].performance.total;
 };

@@ -3,7 +3,8 @@ import BigNumber from 'bignumber.js';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { compound } from '../../../utils/compound';
 
-import { BASE_HPY, BEEFY_PERFORMANCE_FEE } from '../../../constants';
+import { BASE_HPY } from '../../../constants';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 export interface ApyBreakdown {
   vaultApr?: number;
@@ -33,10 +34,10 @@ export const getApyBreakdown = (
 
   pools.forEach((pool, i) => {
     const simpleApr = farmAprs[i]?.toNumber();
-    const fee = pool.beefyFee ? pool.beefyFee : BEEFY_PERFORMANCE_FEE;
-    const SHARE_AFTER_PERFORMANCE_FEE = 1 - fee;
-    const vaultApr = simpleApr * SHARE_AFTER_PERFORMANCE_FEE;
-    const vaultApy = compound(simpleApr, BASE_HPY, 1, SHARE_AFTER_PERFORMANCE_FEE);
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+    const vaultApr = simpleApr * shareAfterBeefyPerformanceFee;
+    const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr: number | undefined = (
       (tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0)).isFinite()
         ? tradingAprs[pool.address.toLowerCase()]
@@ -47,7 +48,7 @@ export const getApyBreakdown = (
       tradingApr,
       BASE_HPY,
       1,
-      SHARE_AFTER_PERFORMANCE_FEE
+      shareAfterBeefyPerformanceFee
     );
 
     // Add token to APYs object
@@ -55,7 +56,7 @@ export const getApyBreakdown = (
     result.apyBreakdowns[pool.name] = {
       vaultApr: vaultApr,
       compoundingsPerYear: BASE_HPY,
-      beefyPerformanceFee: fee,
+      beefyPerformanceFee: beefyPerformanceFee,
       vaultApy: vaultApy,
       lpFee: providerFee,
       tradingApr: tradingApr,

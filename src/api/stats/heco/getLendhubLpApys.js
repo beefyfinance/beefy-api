@@ -9,6 +9,7 @@ const pools = require('../../../data/heco/lendhubLpPools.json');
 const { BASE_HPY, HECO_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 const { getContractWithProvider, getContract } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 //const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 //import { getFarmWithTradingFeesApy  } from '../../../utils/getFarmWithTradingFeesApy';
 //const { mdexClient } = require('../../../apollo/client');
@@ -48,8 +49,9 @@ const getLendhubLpApys = async () => {
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     // const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    // const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
-    const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
+    // const apy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+    const apy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     // console.log(pool.name, simpleApy.valueOf(), tradingApr.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
     const item = { [pool.name]: apy };
 

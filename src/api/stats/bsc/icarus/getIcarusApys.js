@@ -8,6 +8,7 @@ const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd')
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY } = require('../../../../constants');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const BLOCKS_PER_DAY = 28800;
 
@@ -32,7 +33,8 @@ const getPoolApy = async pool => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  const apy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { [pool.name]: apy };
 };

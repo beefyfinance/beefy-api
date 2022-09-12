@@ -6,6 +6,7 @@ const {
   FORTUBE_REQ_MARKETS,
   FORTUBE_API_TOKEN,
 } = require('../../../../constants');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const getFortubeApys = async () => {
   if (FORTUBE_API_TOKEN == undefined) {
@@ -27,7 +28,13 @@ const getFortubeApys = async () => {
 
     Object.values(dataSimple).map(item => {
       const symbol = item.symbol.toLowerCase();
-      const apy = compound(parseFloat(item.estimated_ar), WEEKLY_HPY, 1, 0.95);
+      const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(`fortube-${symbol}`);
+      const apy = compound(
+        parseFloat(item.estimated_ar),
+        WEEKLY_HPY,
+        1,
+        shareAfterBeefyPerformanceFee
+      );
       fortubeApys[`fortube-${symbol}`] = apy;
     });
 

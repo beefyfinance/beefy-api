@@ -15,6 +15,7 @@ const { vvsClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import getBlockTime from '../../../utils/getBlockTime';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const masterchef = '0xDccd6455AE04b03d785F12196B492b18129564bc';
 const masterchefV2 = '0xbc149c62EFe8AFC61728fC58b1b66a0661712e76';
@@ -25,8 +26,6 @@ const DECIMALSA = '1e18';
 const secondsPerYear = 31536000;
 
 const liquidityProviderFee = 0.003;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getVvsDualApys = async () => {
   let apys = {};
@@ -63,6 +62,8 @@ const getVvsDualApys = async () => {
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 

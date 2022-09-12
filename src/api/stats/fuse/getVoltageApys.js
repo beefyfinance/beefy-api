@@ -15,6 +15,7 @@ const { fusefiClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import { FUSEFI_LPF } from '../../../constants';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const masterchef = '0xE3e184a7b75D0Ae6E17B58F5283b91B4E0A2604F';
 const oracleIdA = 'VOLT';
@@ -40,8 +41,6 @@ const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
 const liquidityProviderFee = FUSEFI_LPF;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getVoltageApys = async () => {
   let apys = {};
@@ -80,6 +79,9 @@ const getVoltageApys = async () => {
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 

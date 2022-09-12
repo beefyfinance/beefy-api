@@ -6,6 +6,7 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const lpPools = require('../../../../data/degens/annexLpPools.json');
 const { compound } = require('../../../../utils/compound');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const getAnnexApys = async () => {
   let apys = {};
@@ -57,8 +58,10 @@ const getPoolApy = async (masterchef, pool) => {
   const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'ANN' });
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy('1e18');
 
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
   // console.log(pool.name, simpleApy.valueOf(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
 

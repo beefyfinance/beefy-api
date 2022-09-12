@@ -14,6 +14,7 @@ const { joeClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import { JOE_LPF } from '../../../constants';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const masterchef = '0x188bED1968b795d5c9022F6a0bb5931Ac4c18F00';
 const oracleIdA = 'JOE';
@@ -24,8 +25,6 @@ const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
 const liquidityProviderFee = JOE_LPF;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getJoeDualLpApys = async () => {
   let apys = {};
@@ -57,6 +56,9 @@ const getJoeDualLpApys = async () => {
     }
 
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
+
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);

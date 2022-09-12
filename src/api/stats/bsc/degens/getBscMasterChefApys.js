@@ -9,10 +9,9 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
+import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 const { compound } = require('../../../../utils/compound');
-
-const performanceFee = 0.045;
 
 const getMasterChefApys = async masterchefParams => {
   let apys = {};
@@ -29,7 +28,8 @@ const getMasterChefApys = async masterchefParams => {
   masterchefParams.pools.forEach((pool, i, params) => {
     const hpy = pool.hpy ?? BASE_HPY;
     const perfFee = pool.perfFee ?? performanceFee;
-    const shareAfterPerfFee = 1 - perfFee;
+    const performanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterPerfFee = 1 - performanceFee;
 
     const simpleApr = farmApys[i];
     const vaultApr = simpleApr.times(shareAfterPerfFee);

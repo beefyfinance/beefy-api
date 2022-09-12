@@ -11,6 +11,7 @@ const { getTradingFeeAprSushi } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { JOE_LPF } from '../../../constants';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const { joeClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -23,8 +24,6 @@ const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
 const liquidityProviderFee = JOE_LPF;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getJoeApys = async () => {
   let apys = {};
@@ -46,6 +45,9 @@ const getJoeApys = async () => {
     const poolBlockRewards = rewardPerSecond.times(allocPoints[i]).dividedBy(totalAllocPoint);
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS).dividedBy(2);
+
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);

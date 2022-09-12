@@ -10,6 +10,7 @@ const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { lpTokenPrice } = require('../../../../utils/lpTokens');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const masterchef = '0x367CdDA266ADa588d380C7B970244434e4Dde790';
 const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
@@ -37,7 +38,8 @@ const getPoolApy = async pool => {
     getTotalLpStakedInUsd(pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   return { [pool.name]: apy };
 };
 

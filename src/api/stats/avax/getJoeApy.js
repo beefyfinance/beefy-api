@@ -8,14 +8,13 @@ const { compound } = require('../../../utils/compound');
 const { getYearlyTradingFeesForSJOE } = require('../../../utils/getTradingFeeApr');
 const { joeClient } = require('../../../apollo/client');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const oracle = 'tokens';
 const JOE = 'JOE';
 const joeDecimals = '1e18';
 
 const liquidityProviderFee = 0.0005;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getJoeApy = async () => {
   const joePrice = await fetchPrice({ oracle, id: JOE });
@@ -25,6 +24,9 @@ const getJoeApy = async () => {
   const totalStakedInUsd = totalStaked.times(joePrice).dividedBy(joeDecimals);
 
   const tradingAprs = await getYearlyTradingFeesForSJOE(joeClient, liquidityProviderFee);
+
+  const beefyPerformanceFee = getTotalPerformanceFeeForVault(poo.name);
+  const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
   const simpleApr = tradingAprs.dividedBy(totalStakedInUsd);
   const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);

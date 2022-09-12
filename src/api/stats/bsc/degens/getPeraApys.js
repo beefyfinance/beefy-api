@@ -6,6 +6,7 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/degens/peraLpPools.json');
 const { compound } = require('../../../../utils/compound');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const getPeraApys = async () => {
   const pera = '0xb9D8592E16A9c1a3AE6021CDDb324EaC1Cbc70d6';
@@ -28,7 +29,8 @@ const getPeraApys = async () => {
     .div('1e18');
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   // console.log(pool.name, simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { [pool.name]: apy };
 };

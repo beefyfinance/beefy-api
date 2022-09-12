@@ -8,6 +8,7 @@ const { compound } = require('../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { BASE_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const getLavaLpApys = async () => {
   let apys = {};
@@ -30,7 +31,8 @@ const getPoolApy = async (lavaPool, pool) => {
     getTotalLpStakedInUsd(lavaPool, pool, pool.chainId),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  const apy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   return { [pool.name]: apy };
 };
 

@@ -8,6 +8,7 @@ const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataP
 const pools = require('../../../data/avax/aavePools.json');
 const { BASE_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const AaveProtocolDataProvider = '0x65285E9dfab318f57051ab2b139ccCf232945451';
 const AaveDistributionManager = '0x01D83Fe6A10D2f2B7AF17034343746188272cAc9';
@@ -56,7 +57,8 @@ const getPoolApy = async pool => {
     );
 
   let totalNative = leveragedSupplyNative.plus(leveragedBorrowNative);
-  let compoundedNative = compound(totalNative, BASE_HPY, 1, 0.955);
+  let shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  let compoundedNative = compound(totalNative, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedNative).toNumber();
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyNative.valueOf(), borrowNative.valueOf());
   return { [pool.name]: apy };

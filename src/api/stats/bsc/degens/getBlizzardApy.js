@@ -8,6 +8,7 @@ const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const masterChef = '0x367CdDA266ADa588d380C7B970244434e4Dde790';
 const masterChefContract = getContractWithProvider(MasterChef, masterChef, web3);
@@ -22,7 +23,8 @@ const getBlizzardApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('blizzard-xblzd');
+  const apy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
   return { 'blizzard-xblzd': apy };
 };

@@ -14,6 +14,7 @@ const { cakeClient } = require('../../../../apollo/client');
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 import { PCS_LPF } from '../../../../constants';
 import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
 
 const masterchef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
 const oracle = 'tokens';
@@ -23,8 +24,6 @@ const secondsPerBlock = 3;
 const secondsPerYear = 31536000;
 
 const pancakeLiquidityProviderFee = PCS_LPF;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getCakeLpApys = async () => {
   let apys = {};
@@ -56,10 +55,18 @@ const getCakeLpApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const totalApy = getFarmWithTradingFeesApy(
+      simpleApy,
+      tradingApr,
+      BASE_HPY,
+      1,
+      shareAfterBeefyPerformanceFee
+    );
     const legacyApyValue = { [pool.name]: totalApy };
     // Add token to APYs object
     apys = { ...apys, ...legacyApyValue };

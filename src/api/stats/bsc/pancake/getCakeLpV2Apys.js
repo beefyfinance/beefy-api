@@ -13,6 +13,7 @@ const { cakeClient } = require('../../../../apollo/client');
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 import { PCS_LPF } from '../../../../constants';
 import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
 
 const masterchef = '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652';
 const oracle = 'tokens';
@@ -41,7 +42,7 @@ export const getCakeLpV2Apys = async () => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
-    const beefyPerformanceFee = pool.beefyFee ? pool.beefyFee : 0.045;
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });

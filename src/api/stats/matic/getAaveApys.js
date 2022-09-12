@@ -8,6 +8,7 @@ const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataP
 const pools = require('../../../data/matic/aavePools.json');
 const { BASE_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const AaveProtocolDataProvider = '0x7551b5D2763519d4e37e8B81929D336De671d46d';
 const AaveDistributionManager = '0x357D51124f59836DeD84c8a1730D72B749d8BC23';
@@ -56,7 +57,8 @@ const getPoolApy = async pool => {
     );
 
   let totalMatic = leveragedSupplyMatic.plus(leveragedBorrowMatic);
-  let compoundedMatic = compound(totalMatic, BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  let compoundedMatic = compound(totalMatic, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedMatic).toNumber();
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyMatic.valueOf(), borrowMatic.valueOf());
   return { [pool.name]: apy };

@@ -8,6 +8,7 @@ const { compound } = require('../../../../utils/compound');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const getKebabPoolApy = async () => {
   const masterChef = '0x76fcefffcf5325c6156ca89639b17464ea833ecd';
@@ -21,7 +22,9 @@ const getKebabPoolApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.94);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('kebab-kebab');
+
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
   return { 'kebab-kebab': apy };
 };

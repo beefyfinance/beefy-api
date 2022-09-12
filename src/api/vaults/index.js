@@ -25,7 +25,7 @@ async function singleChainVaults(ctx) {
 
 async function vaultFees(ctx) {
   try {
-    const vaultFees = await getVaultFees();
+    const vaultFees = getVaultFees();
     ctx.status = 200;
     ctx.body = vaultFees;
   } catch (err) {
