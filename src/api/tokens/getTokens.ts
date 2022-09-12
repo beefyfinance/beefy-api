@@ -15,7 +15,7 @@ export const initTokenService = () => {
 
     Object.keys(addressBook[chain].tokens).forEach(tokenId => {
       const token = addressBook[chain].tokens[tokenId];
-      //Map
+      // Prune ab fields
       tokensByChain[chain][tokenId] = {
         name: token.name,
         symbol: token.symbol,
