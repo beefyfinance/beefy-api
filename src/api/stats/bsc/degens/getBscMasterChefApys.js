@@ -27,7 +27,6 @@ const getMasterChefApys = async masterchefParams => {
 
   masterchefParams.pools.forEach((pool, i, params) => {
     const hpy = pool.hpy ?? BASE_HPY;
-    const perfFee = pool.perfFee ?? performanceFee;
     const performanceFee = getTotalPerformanceFeeForVault(pool.name);
     const shareAfterPerfFee = 1 - performanceFee;
 
@@ -46,7 +45,7 @@ const getMasterChefApys = async masterchefParams => {
       [pool.name]: {
         vaultApr: vaultApr.toNumber(),
         compoundingsPerYear: hpy,
-        beefyPerformanceFee: perfFee,
+        beefyPerformanceFee: performanceFee,
         vaultApy: vaultApy,
         lpFee: params.liquidityProviderFee,
         tradingApr: tradingApr.toNumber(),

@@ -40,7 +40,7 @@ const getApeJungleApys = async () => {
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 
-    const beefyPerformanceFee = getTotalPerformanceFeeForVault(vault.name);
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);

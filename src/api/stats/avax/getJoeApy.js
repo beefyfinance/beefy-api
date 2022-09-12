@@ -25,7 +25,7 @@ const getJoeApy = async () => {
 
   const tradingAprs = await getYearlyTradingFeesForSJOE(joeClient, liquidityProviderFee);
 
-  const beefyPerformanceFee = getTotalPerformanceFeeForVault(poo.name);
+  const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
   const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
   const simpleApr = tradingAprs.dividedBy(totalStakedInUsd);
