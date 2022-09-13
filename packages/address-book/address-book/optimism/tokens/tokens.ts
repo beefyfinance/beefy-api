@@ -405,7 +405,7 @@ const _tokens = {
     chainId: 10,
     decimals: 6,
     website: 'https://overnight.fi/',
-    description: 'USD+ is USDC that pays you yield daily via rebase.',
+    description: 'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
   },
 } as const;
