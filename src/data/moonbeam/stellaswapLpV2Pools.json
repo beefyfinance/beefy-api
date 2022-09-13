@@ -1,5 +1,25 @@
 [
   {
+    "name": "stellaswap-poop-wglmr",
+    "address": "0x4EfB208eeEb5A8C85af70e8FBC43D6806b422bec",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 26,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFFfffFFecB45aFD30a637967995394Cc88C0c194",
+      "oracle": "tokens",
+      "oracleId": "POOP",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "stellaswap-wglmr-xcibtc",
     "address": "0x4C5f99045AF91D2b6d4fa0Ea89FC47cF42711555",
     "decimals": "1e18",
