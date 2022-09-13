@@ -23,7 +23,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.colonylab.io/cai.html',
-    description: 'Colony Avalanche Index - The easist way to invest in Avalanche. CAI is an index token investing in Avalanche's AVAX token and other ecosystem projects including BENQI and Trader Joe. The index excludes any rebasing or deflationary tokens.',
+    description: 'Colony Avalanche Index - The easist way to invest in Avalanche. CAI is an index token investing in Avalanche\'s AVAX token and other ecosystem projects including BENQI and Trader Joe. The index excludes any rebasing or deflationary tokens.',
   },
   POPS: {
     name: 'Swapsicle',
