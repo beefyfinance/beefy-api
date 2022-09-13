@@ -1311,8 +1311,11 @@ const _tokens = {
     chainId: 43114,
     address: '0xc69Eba65e87889f0805dB717Af06797055A0BA07',
     decimals: 18,
-    name: 'NCash is the native cryptocurrency and protocol token of the Nitro Network. Nitro Network is building a world of private communication networks powered by IoT together with LoRaWAN/3G/4G and 5G.',
+    name: 'Nitro Network',
     symbol: 'NCASH',
+    website: 'https://nitro.network/',
+    description:
+      'NCash is the native cryptocurrency and protocol token of the Nitro Network. Nitro Network is building a world of private communication networks powered by IoT together with LoRaWAN/3G/4G and 5G.',
     logoURI:
       'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xc69Eba65e87889f0805dB717Af06797055A0BA07/logo_48.png',
   },
