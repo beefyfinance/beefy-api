@@ -324,7 +324,7 @@ const _tokens = {
   beVELO: {
     name: 'Beefy Velo',
     symbol: 'beVELO',
-    address: '0xB0af86f18c6155CeFaE1A6D6dA35b05F176F6278',
+    address: '0xfDeFFc7Ad816BF7867C642dF7eBC2CC5554ec265',
     chainId: 10,
     decimals: 18,
     logoURI: '',
