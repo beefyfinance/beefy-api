@@ -177,6 +177,17 @@ const _tokens = {
       'BRZ is the first Brazilian stablecoin in circulation. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
     logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
   },
+  BRZw: {
+    name: 'BRZ (Wormhole) Token',
+    symbol: 'BRZw',
+    address: '0x5b1a9850f55d9282a7C4Bf23A2a21B050e3Beb2f',
+    chainId: 56,
+    decimals: 4,
+    website: 'https://brztoken.io/',
+    description:
+      'BRZw is the Wormhole bridged verison of BRZ. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
+    logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
+  },
   SOL: {
     name: 'Solana',
     symbol: 'SOL',
