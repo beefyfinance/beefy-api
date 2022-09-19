@@ -322,9 +322,9 @@ const _tokens = {
       'Hundred Finance is a decentralized application (dApp) that enables the lending and borrowing of cryptocurrencies.',
   },
   beVELO: {
-    name: 'Beefy Velo',
+    name: 'Beefy Velo ',
     symbol: 'beVELO',
-    address: '0xB0af86f18c6155CeFaE1A6D6dA35b05F176F6278',
+    address: '0xfDeFFc7Ad816BF7867C642dF7eBC2CC5554ec265',
     chainId: 10,
     decimals: 18,
     logoURI: '',
@@ -396,6 +396,17 @@ const _tokens = {
     website: 'https://rocketpool.net/',
     description:
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
+    logoURI: '',
+  },
+  USDP: {
+    name: 'USD+ Stablecoin',
+    symbol: 'USD+',
+    address: '0x73cb180bf0521828d8849bc8CF2B920918e23032',
+    chainId: 10,
+    decimals: 6,
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
   },
 } as const;
