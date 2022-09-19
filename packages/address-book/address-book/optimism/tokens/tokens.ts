@@ -322,7 +322,7 @@ const _tokens = {
       'Hundred Finance is a decentralized application (dApp) that enables the lending and borrowing of cryptocurrencies.',
   },
   beVELO: {
-    name: 'Beefy Velo',
+    name: 'Beefy Velo ',
     symbol: 'beVELO',
     address: '0xfDeFFc7Ad816BF7867C642dF7eBC2CC5554ec265',
     chainId: 10,
