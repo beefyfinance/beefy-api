@@ -8,6 +8,7 @@ import { fetchStargatePrices } from '../../utils/fetchStargatePrices';
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchstDOTPrice } from '../../utils/fetchstDOTPrice';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
+import { fetchCurrencyPrices } from '../../utils/fetchCurrencyPrices';
 import { getKey, setKey } from '../../utils/redisHelper';
 
 import getNonAmmPrices from './getNonAmmPrices';
@@ -504,6 +505,10 @@ const coinGeckoCoins = [
   'rocket-pool-eth',
 ];
 
+const currencies = [
+  'cad',
+]
+
 const knownPrices = {
   BUSD: 1,
   USDT: 1,
@@ -545,6 +550,13 @@ const updateAmmPrices = async () => {
         alUSD: prices['alchemix-usd'],
         alETH: prices['ethereum'],
         rETH: prices['rocket-pool-eth'],
+      };
+    };
+
+    const currencyPrices = async () => {
+      const prices = await fetchCurrencyPrices(currencies);
+      return {
+        CAD: prices['cad'],
       };
     };
 
@@ -598,6 +610,7 @@ const updateAmmPrices = async () => {
         ...beTokenTokenPrice,
         ...stDOTTokenPrice,
         ...(await coinGeckoPrices()),
+        ...(await currencyPrices()),
       };
     });
 
