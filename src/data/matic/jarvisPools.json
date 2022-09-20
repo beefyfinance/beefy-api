@@ -1,29 +1,45 @@
 [
   {
+    "name": "jarvis-2eure",
+    "pool": "0x2F3E9CA3bFf85B91D9fe6a9f3e8F9B1A6a4c3cF4",
+    "address": "0x2F3E9CA3bFf85B91D9fe6a9f3e8F9B1A6a4c3cF4",
+    "masterchef": "0xa0044b58b1de085845aeA7BD3256a00EAb4145a2",
+    "poolId": 3,
+    "chainId": 137,
+    "oracleId": "jEUR",
+    "rewardToken": "JRT-NOV22",
+    "rewardOracle": "tokens",
+    "token": "0x2F3E9CA3bFf85B91D9fe6a9f3e8F9B1A6a4c3cF4",
+    "baseApyKey": "2eur (EURe-f",
+    "beefyFee": 0.095
+  },
+  {
     "name": "jarvis-2eurp",
     "pool": "0x0f110c55EfE62c16D553A3d3464B77e1853d0e97",
     "address": "0x0f110c55EfE62c16D553A3d3464B77e1853d0e97",
-    "masterchef": "0x2BC39d179FAfC32B7796DDA3b936e491C87D245b",
+    "masterchef": "0xeA9871A9451c281cc1180100FC074D7F28402288",
     "poolId": 0,
     "chainId": 137,
     "oracleId": "jEUR",
-    "rewardToken": "JRT-MIMO-SEP22",
+    "rewardToken": "JRT-MIMO-NOV22",
     "rewardOracle": "lps",
     "token": "0x0f110c55EfE62c16D553A3d3464B77e1853d0e97",
-    "baseApyKey": "PARjEUR-f"
+    "baseApyKey": "PARjEUR-f",
+    "beefyFee": 0.095
   },
   {
     "name": "jarvis-2eurt",
     "pool": "0x2C3cc8e698890271c8141be9F6fD6243d56B39f1",
     "address": "0x2C3cc8e698890271c8141be9F6fD6243d56B39f1",
-    "masterchef": "0x2FAe83B3916e1467C970C113399ee91B31412bCD",
+    "masterchef": "0xa0044b58b1de085845aeA7BD3256a00EAb4145a2",
     "poolId": 4,
     "chainId": 137,
     "oracleId": "jEUR",
-    "rewardToken": "JRT-SEP22",
+    "rewardToken": "JRT-NOV22",
     "rewardOracle": "tokens",
     "token": "0x2C3cc8e698890271c8141be9F6fD6243d56B39f1",
-    "baseApyKey": "2eur EURT-f"
+    "baseApyKey": "2eur EURT-f",
+    "beefyFee": 0.095
   },
   {
     "name": "jarvis-2nzd",
@@ -42,53 +58,57 @@
     "name": "jarvis-2jpy2",
     "pool": "0xaA91CDD7abb47F821Cf07a2d38Cc8668DEAf1bdc",
     "address": "0xaA91CDD7abb47F821Cf07a2d38Cc8668DEAf1bdc",
-    "masterchef": "0x2FAe83B3916e1467C970C113399ee91B31412bCD",
+    "masterchef": "0xa0044b58b1de085845aeA7BD3256a00EAb4145a2",
     "poolId": 0,
     "chainId": 137,
     "oracleId": "JPYC",
-    "rewardToken": "JRT-SEP22",
+    "rewardToken": "JRT-NOV22",
     "rewardOracle": "tokens",
     "token": "0xaA91CDD7abb47F821Cf07a2d38Cc8668DEAf1bdc",
-    "baseApyKey": "2jpy-2-f"
+    "baseApyKey": "2jpy-2-f",
+    "beefyFee": 0.095
   },
   {
     "name": "jarvis-2eur",
     "pool": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
     "address": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
-    "masterchef": "0x9D5d2509C78f7dfEE7FD1b82a49c00Bc9dA70D28",
+    "masterchef": "0x7349Cc23B3A3E104ec2FA5A0BB29c8b022508779",
     "poolId": 0,
     "chainId": 137,
     "oracleId": "jEUR",
-    "rewardToken": "JRT-ANGLE-SEP22",
+    "rewardToken": "JRT-ANGLE-NOV22",
     "rewardOracle": "lps",
     "token": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
-    "baseApyKey": "agEURjEUR-f"
+    "baseApyKey": "agEURjEUR-f",
+    "beefyFee": 0.095
   },
   {
     "name": "jarvis-2sgd",
     "pool": "0xeF75E9C7097842AcC5D0869E1dB4e5fDdf4BFDDA",
     "address": "0xeF75E9C7097842AcC5D0869E1dB4e5fDdf4BFDDA",
-    "masterchef": "0x2FAe83B3916e1467C970C113399ee91B31412bCD",
+    "masterchef": "0xa0044b58b1de085845aeA7BD3256a00EAb4145a2",
     "poolId": 2,
     "chainId": 137,
     "oracleId": "XSGD",
-    "rewardToken": "JRT-SEP22",
+    "rewardToken": "JRT-NOV22",
     "rewardOracle": "tokens",
     "token": "0xeF75E9C7097842AcC5D0869E1dB4e5fDdf4BFDDA",
-    "baseApyKey": "jSGD+XSGD-f"
+    "baseApyKey": "jSGD+XSGD-f",
+    "beefyFee": 0.095
   },
   {
     "name": "jarvis-2cad",
     "pool": "0xA69b0D5c0C401BBA2d5162138613B5E38584F63F",
     "address": "0xA69b0D5c0C401BBA2d5162138613B5E38584F63F",
-    "masterchef": "0x2FAe83B3916e1467C970C113399ee91B31412bCD",
+    "masterchef": "0xa0044b58b1de085845aeA7BD3256a00EAb4145a2",
     "poolId": 1,
     "chainId": 137,
-    "oracleId": "CADC",
-    "rewardToken": "JRT-SEP22",
+    "oracleId": "CAD",
+    "rewardToken": "JRT-NOV22",
     "rewardOracle": "tokens",
     "token": "0xA69b0D5c0C401BBA2d5162138613B5E38584F63F",
-    "baseApyKey": "jCAD+CADC-f"
+    "baseApyKey": "jCAD+CADC-f",
+    "beefyFee": 0.095
   },
   {
     "name": "jarvis-2jpy",

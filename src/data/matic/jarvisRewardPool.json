@@ -1,5 +1,41 @@
 [
   {
+    "name": "kyber-2eurp-jrt-mimo-nov22",
+    "address": "0x946bE3eCAebaA3fe2eBb73864ab555A8cfdF49Fd",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0f110c55EfE62c16D553A3d3464B77e1853d0e97",
+      "oracle": "tokens",
+      "oracleId": "jarvis-2eurp",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4Fd52587194a0bfd3AC5b8096D15e1a7230bA2eb",
+      "oracle": "tokens",
+      "oracleId": "JRT-MIMO-NOV22",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "kyber-2eur-jrt-angle-nov22",
+    "address": "0x4D44f653B885fbddF486a71508Afd63071ca1A6E",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2fFbCE9099cBed86984286A54e5932414aF4B717",
+      "oracle": "tokens",
+      "oracleId": "jarvis-2eur",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x63B87304fc9889Ce7356396ea959aA64850a52E7",
+      "oracle": "tokens",
+      "oracleId": "JRT-ANGLE-NOV22",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "kyber-2eur-jrt-angle-sep22",
     "address": "0x8c2fe36E51657385d3091E92FbACb79263867F16",
     "decimals": "1e18",

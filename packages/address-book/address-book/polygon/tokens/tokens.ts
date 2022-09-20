@@ -1484,6 +1484,17 @@ const _tokens = {
       'Giddy is an in-development app that simplifies sophisticated DeFi processes into a one-tap investing experience. The app will allow users to earn passive income with crypto assets using a multi-identity, self-custody, private key solution. The fully doxxed Giddy team focuses on security, compliance, and ease of use. Its mission is simple: to grow and adapt to the ever-changing regulatory landscape. This goal will keep investors and their funds within the bounds of current financial regulation. The Giddy token standard allows smart contracts to communicate effectively with compliant tokens. Its method involves encoding contract approval data into a meta-transaction, which removes the need for standalone and infinite contract approvals. GIDDY has a max capped supply of 1 billion tokens and began trading on April 6, 2022',
     logoURI: '',
   },
+  EURe: {
+    name: 'Monerium EURe emoney',
+    symbol: 'EURe',
+    address: '0x18ec0A6E18E5bc3784fDd3a3634b31245ab704F6',
+    chainId: 137,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/23354/small/eur.png?1643926562',
+    website: 'https://monerium.com/',
+    description:
+      'EURe is a Euro stable-coin from Monerium. Monerium is the first company authorized to issue money on blockchains under European financial regulation. They have issued EUR, USD, GBP, and ISK as e-money tokens on Ethereum and EUR on Algorand. Monerium also operates a gateway for instant transfers of EUR between bank accounts and blockchain wallets/smart contracts.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
