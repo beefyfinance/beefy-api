@@ -280,7 +280,6 @@ const pools = [
   ...solidlyPools,
   ...wigoPools,
   ...darkCryptoPools,
-  ...beamswapPools,
   ...ripaePools,
   ...ripaeAvaxPools,
   ...ripaeMaticPools,
@@ -307,6 +306,7 @@ const pools = [
   ...chargePools,
   ...blockMinePools,
   ...oldPools,
+  ...beamswapPools,
   ...finnLpPools,
   ...bisonPools,
   ...maiAvaxLpPools,
@@ -505,9 +505,7 @@ const coinGeckoCoins = [
   'rocket-pool-eth',
 ];
 
-const currencies = [
-  'cad',
-]
+const currencies = ['cad'];
 
 const knownPrices = {
   BUSD: 1,
