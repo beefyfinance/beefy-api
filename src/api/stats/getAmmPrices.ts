@@ -503,6 +503,7 @@ const coinGeckoCoins = [
   'alchemix-usd',
   'ethereum',
   'rocket-pool-eth',
+  'wrapped-steth',
 ];
 
 const currencies = ['cad'];
@@ -548,6 +549,7 @@ const updateAmmPrices = async () => {
         alUSD: prices['alchemix-usd'],
         alETH: prices['ethereum'],
         rETH: prices['rocket-pool-eth'],
+        wstETH: prices['wrapped-steth'],
       };
     };
 
