@@ -8,6 +8,7 @@ const getStargateArbApys = async () =>
     chainId: chainId,
     masterchef: '0xeA8DfEE1898a7e0a59f7527F076106d7e44c2176',
     tokenPerBlock: 'stargatePerBlock',
+    secondsPerBlock: 12.1,
     hasMultiplier: false,
     singlePools: [
       {
