@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  jCHF: {
+    name: 'Jarvis Synthetic Swiss Franc',
+    symbol: 'jCHF',
+    address: '0x7c869b5A294b1314E985283d01C702B62224a05f',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jCHF is a multi-collateralized synthetic stable-coin from Jarvis tracking the price of the Swiss Franc. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://i.imgur.com/EknGhAl.png',
+  },
   TRIVIA: {
     name: 'TRIVIA',
     symbol: 'TRIVIA',

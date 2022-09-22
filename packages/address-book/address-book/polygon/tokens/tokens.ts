@@ -512,7 +512,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://jarvis.network/',
     description:
-      'jCHF is a multi-collateralized synthetic token tracking the price of the Canadian Dollar. It is built on the top of UMA and Chainlink.',
+      'jCAD is a multi-collateralized synthetic token tracking the price of the Canadian Dollar. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://yield.jarvis.network/static/media/jCAD.832ff304.png',
   },
   USTw: {
