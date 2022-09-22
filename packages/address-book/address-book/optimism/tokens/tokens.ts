@@ -409,6 +409,17 @@ const _tokens = {
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
   },
+  TUSD: {
+    name: 'TrueUSD',
+    symbol: 'TUSD',
+    address: '0xcB59a0A753fDB7491d5F3D794316F1adE197B21E',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.trueusd.com/',
+    description:
+      'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

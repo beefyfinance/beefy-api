@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-usdc-tusd",
+    "address": "0xA4549B89A39f76d9D28415474aeD7d06Ec9935fe",
+    "gauge": "0xc4eAB0D1d7616eA99c15698bb075C2Adb8D2fDc5",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xcB59a0A753fDB7491d5F3D794316F1adE197B21E",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-susd-lusd",
     "address": "0x0D693eFd716021878D5979FaB4Cf8f6c1b7ce450",
     "gauge": "0x1d37704877e38b48F4600c20Ac8E5EfEC768094A",
