@@ -15,6 +15,26 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  HOOP: {
+    name: 'Primal Hoop',
+    symbol: 'HOOP',
+    address: '0xF19cfb40B3774dF6Eed83169Ad5aB0Aaf6865F25',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/27405/small/HOOP_TOKEN.png?1663837803',
+    website: 'https://www.chibidinos.io/',
+    description: 'HOOP is the reward and in-game currency for the Chibi Dinos Gaming Universe. It can be used to pay for merchandise and events; future uses include staking and governance for in-game decisions. Chibi Dinos is a basketball and dinosaur themed metaverse with games such as Primal Hoop, an arcade basketball game with an adventure role-playing game (RPG) mode and Primal Pickem, a predictive play-to earn game (P2E).'
+  },
+  HAY: {
+    name: 'Hay Stablecoin',
+    symbol: 'HAY',
+    address: '0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://tokens.pancakeswap.finance/images/0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5.svg',
+    website: 'https://helio.money/',
+    description: 'HAY is an over-collateralized destablecoin, where 1 HAY is always redeemable at $1 of cryptocurrency, and over-collateralized by BNB. Users can mint and borrow HAY by providing BNB as collateral, which can then be used to stake for yield, liquidity mining and as a means to transfer value.',
+  },
   TRIVIA: {
     name: 'TRIVIA',
     symbol: 'TRIVIA',
