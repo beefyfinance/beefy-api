@@ -31,12 +31,14 @@ import getBeamswapPrices from './moonbeam/getBeamswapPrices';
 import getTrisolarisPrices from './aurora/getTrisolarisPrices';
 import getConeStablePrices from './bsc/getConeStablePrices';
 import getSpiritStablePrices from './fantom/getSpiritStablePrices';
+import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getCakeStablePrices(tokenPrices),
     getSpiritStablePrices(tokenPrices),
     getConeStablePrices(tokenPrices),
     getTrisolarisPrices(tokenPrices),
