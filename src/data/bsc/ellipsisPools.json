@@ -1,5 +1,13 @@
 [
   {
+    "name": "ellipsis-busd-jchf",
+    "address": "0x5887cEa5e2bb7dD36F0C06Da47A8Df918c289A29",
+    "minter": "0xBcA6E25937B0F7E0FD8130076b6B218F595E32e2",
+    "oracleId": "BUSD",
+    "volatile": true,
+    "beefyFee": 0.095
+  },
+  {
     "name": "ellipsis-3brl",
     "address": "0x27b5Fc5333246F63280dA8e3e533512EfA747c13",
     "minter": "0x43719DfFf12B04C71F7A589cdc7F54a01da07D7a",
