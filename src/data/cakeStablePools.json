@@ -1,0 +1,20 @@
+[
+  {
+    "name": "cakev2-hay-busd",
+    "pool": "0x49079D07ef47449aF808A4f36c2a8dEC975594eC",
+    "token": "0xB6040A9F294477dDAdf5543a24E5463B8F2423Ae",
+    "oracleId": "BUSD",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "HAY",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BUSD",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]
