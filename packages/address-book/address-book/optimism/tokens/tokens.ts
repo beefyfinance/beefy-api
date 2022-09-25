@@ -28,6 +28,17 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  jEUR: {
+    name: 'Jarvis Synthetic Euro',
+    symbol: 'jEUR',
+    address: '0x79AF5dd14e855823FA3E9ECAcdF001D99647d043',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://i.imgur.com/ZvP634G.png',
+  },
   BEETS: {
     name: 'Beethoven X Token',
     symbol: 'BEETS',
