@@ -76,6 +76,18 @@ const _tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
+  mDAI: {
+    name: 'Dai Stablecoin',
+    symbol: 'm.DAI',
+    address: '0x4c078361FC9BbB78DF910800A991C7c3DD2F6ce0',
+    chainId: 1088,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4651B38e7ec14BB3db731369BFE5B08F2466Bd0A.svg',
+    website: 'https://makerdao.com/en/',
+    description:
+      'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
+  },
   WETH: {
     name: 'Ether',
     symbol: 'WETH',
@@ -171,6 +183,17 @@ const _tokens = {
       'https://pancakeswap.finance/images/tokens/0x4aAC94985cD83be30164DfE7e9AF7C054D7d2121.svg',
     website: 'https://www.hummus.exchange/',
     description: 'Next Gen Decentralized AMM for Stableswaps',
+  },
+  MAIA: {
+    name: 'Maia',
+    symbol: 'MAIA',
+    address: '0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD',
+    chainId: 1088,
+    decimals: 9,
+    logoURI:
+      'https://s2.coinmarketcap.com/static/img/coins/64x64/17181.png',
+    website: 'https://app.maiadao.io/',
+    description: 'MAIA is the governance token of Maia DAO, the yield powerhouse of Metis which launched the Solidly-fork Hermes. With a 100% fair launch Maia DAO is a truly community owned.',
   },
 } as const;
 
