@@ -32,6 +32,7 @@ import getTrisolarisPrices from './aurora/getTrisolarisPrices';
 import getConeStablePrices from './bsc/getConeStablePrices';
 import getSpiritStablePrices from './fantom/getSpiritStablePrices';
 import getHermesStablePrices from './metis/getHermesStablePrices';
+import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
@@ -39,6 +40,7 @@ const getNonAmmPrices = async tokenPrices => {
 
   const promises = [
     getHermesStablePrices(tokenPrices),
+    getCakeStablePrices(tokenPrices),
     getSpiritStablePrices(tokenPrices),
     getConeStablePrices(tokenPrices),
     getTrisolarisPrices(tokenPrices),
