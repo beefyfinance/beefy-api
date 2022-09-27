@@ -1,6 +1,6 @@
 [
   {
-    "name": "deus-deus-ftm",
+    "name": "boo-deus-ftm",
     "address": "0xaF918eF5b9f33231764A5557881E6D3e5277d456",
     "decimals": "1e18",
     "poolId": 0,
@@ -19,7 +19,7 @@
     }
   },
   {
-    "name": "deus-dei-usdc",
+    "name": "boo-dei-usdc",
     "address": "0x91f7120898b4be26cC1e84F421e76725c07d1361",
     "decimals": "1e18",
     "poolId": 2,
