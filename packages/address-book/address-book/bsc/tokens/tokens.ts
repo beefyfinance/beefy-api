@@ -1582,7 +1582,7 @@ const _tokens = {
     website: 'https://ethereumclassic.org/',
     description:
       'Ethereum Classic is a decentralized computing platform that executes smart contracts. Applications are ran exactly as programmed without the possibility of censorship, downtime, or third-party interference.',
-    logoURI: 'https://dex.apeswap.finance/images/coins/ETC.svg',
+    logoURI: 'https://assets.coingecko.com/coins/images/453/small/ethereum-classic-logo.png',
   },
   COTI: {
     name: 'Coti',
