@@ -1,5 +1,24 @@
 [
   {
+    "name": "biswap-etc-bnb",
+    "address": "0x1Cba970a6E06d4BcC0c4717BE677d1A8AA0211DA",
+    "decimals": "1e18",
+    "poolId": 110,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x3d6545b08693daE087E957cb1180ee38B9e3c25E",
+      "oracle": "tokens",
+      "oracleId": "ETC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "biswap-bat-bnb",
     "address": "0xa099F0D90Eb17283Ae7d302d0a6ebb0CaCab39DF",
     "decimals": "1e18",
