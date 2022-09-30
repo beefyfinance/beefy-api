@@ -51,6 +51,7 @@ const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPri
   let tokenBalInUsd = new BigNumber(0);
   let totalStakedinUsd = new BigNumber(0);
   let shiftedBalances = [];
+  let tokens = [];
   for (let i = 0; i < pool.tokens.length; i++) {
     if (pool.composable) {
       if (i != pool.bptIndex) {
@@ -62,6 +63,7 @@ const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPri
         shiftedBalances.push(
           new BigNumber(balance[i]).dividedBy(pool.tokens[i].decimals).toString(10)
         );
+        tokens.push(tokenAddresses[i]);
       }
     } else {
       tokenPrice = await getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
@@ -72,6 +74,7 @@ const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPri
       shiftedBalances.push(
         new BigNumber(balance[i]).dividedBy(pool.tokens[i].decimals).toString(10)
       );
+      tokens.push(tokenAddresses[i]);
     }
   }
   if (pool.composable) {
@@ -82,7 +85,7 @@ const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPri
   return {
     [pool.name]: {
       price,
-      tokens: tokenAddresses,
+      tokens: tokens,
       balances: shiftedBalances,
       totalSupply: totalSupply.dividedBy(pool.decimals).toString(10),
     },
