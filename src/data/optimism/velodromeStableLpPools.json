@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-usd+-lusd",
+    "address": "0x8a9Cd3dce710e90177B4332C108E159a15736A0F",
+    "gauge": "0x1032950B49fc23316655E5d0Cc066BCd85B28EC7",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x73cb180bf0521828d8849bc8CF2B920918e23032",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc40F949F8a4e094D1b49a23ea9241D289B7b2819",
+      "oracle": "tokens",
+      "oracleId": "LUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-jeur-ageur",
     "address": "0x050D6Dbc73F6993A29e1327846117C4F5Fc7D68E",
     "gauge": "0x1d7334f6c718EB1956B31F0E292AaE69D0E65a05",
