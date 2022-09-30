@@ -70,5 +70,17 @@
     "beefyFee": 0.095,
     "borrowDepth": 1,
     "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-op-susd",
+    "token": "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9",
+    "aToken": "0x6d80113e533a2C0fe82EaBD35f1875DcEA89Ea97",
+    "debtToken": "0x4a1c3aD6Ed28a636ee1751C69071f6be75DEb8B8",
+    "oracle": "tokens",
+    "oracleId": "sUSD",
+    "decimals": "1e18",
+    "beefyFee": 0.045,
+    "borrowDepth": 1,
+    "borrowPercent": 0
   }
 ]

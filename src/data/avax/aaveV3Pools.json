@@ -86,5 +86,16 @@
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-btc.b",
+    "token": "0x152b9d0FdC40C096757F570A51E494bd4b943E50",
+    "aToken": "0x8ffDf2DE812095b1D19CB146E4c004587C0A0692",
+    "debtToken": "0xA8669021776Bc142DfcA87c21b4A52595bCbB40a",
+    "oracle": "tokens",
+    "oracleId": "BTCb",
+    "decimals": "1e8",
+    "borrowDepth": 1,
+    "borrowPercent": 0
   }
 ]
