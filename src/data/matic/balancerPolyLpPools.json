@@ -1,5 +1,32 @@
 [
   {
+    "name": "balancer-matic-stmatic-v2",
+    "address": "0x8159462d255C1D24915CB51ec361F700174cD994",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x2Aa6fB79EfE19A3fcE71c46AE48EFc16372ED6dD",
+    "vaultPoolId": "0x8159462d255c1d24915cb51ec361f700174cd99400000000000000000000075d",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x0fD7e9171b4dC9D89E157c2cc9A424Cd9C40a034",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WMATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "stMATIC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-wbtc-usdc-eth",
     "address": "0x03cD191F589d12b0582a99808cf19851E468E6B5",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
