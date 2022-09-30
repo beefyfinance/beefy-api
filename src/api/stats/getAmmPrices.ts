@@ -226,6 +226,7 @@ import empLpPools from '../../data/degens/empLpPools.json';
 import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
 import joeBoostedLpPools from '../../data/avax/joeBoostedLpPools.json';
 import spookyV2LpPools from '../../data/fantom/spookyV2LpPools.json';
+import spookyV3LpPools from '../../data/fantom/spookyV3LpPools.json';
 import valasLpPools from '../../data/valasLpPools.json';
 import bombLpPools from '../../data/degens/bombLpPools.json';
 import pegasysLpPools from '../../data/sys/pegasysLpPools.json';
@@ -270,6 +271,7 @@ const pools = [
   ...bombLpPools,
   ...valasLpPools,
   ...spookyV2LpPools,
+  ...spookyV3LpPools,
   ...vvsDualPools,
   ...joeBoostedLpPools,
   ...empLpPools,
