@@ -8,7 +8,7 @@
     "decimals": "1e18",
     "rewards": [
       {
-        "stream": "0x0fD7e9171b4dC9D89E157c2cc9A424Cd9C40a034",
+        "stream": "0xF428556c5f2a2890269c8Eb5Ce8fc91d9744A6aA",
         "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
         "oracleId": "BAL"
       }
