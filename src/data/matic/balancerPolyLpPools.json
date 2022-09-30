@@ -1,11 +1,51 @@
 [
   {
+    "name": "balancer-matic-maticx-v2",
+    "address": "0xb20fC01D21A50d2C734C4a1262B4404d41fA7BF0",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xdFFe97094394680362Ec9706a759eB9366d804C2",
+    "vaultPoolId": "0xb20fc01d21a50d2c734c4a1262b4404d41fa7bf000000000000000000000075c",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "composable": true,
+    "bptIndex": 1,
+    "rewards": [
+      {
+        "stream": "0x0AF97133f1d922EFD383416be5f34Cb584476D40",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x0AF97133f1d922EFD383416be5f34Cb584476D40",
+        "token": "0x1d734A02eF1e1f5886e66b0673b71Af5B53ffA94",
+        "oracleId": "SD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WMATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MaticX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-matic-stmatic-v2",
     "address": "0x8159462d255C1D24915CB51ec361F700174cD994",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x2Aa6fB79EfE19A3fcE71c46AE48EFc16372ED6dD",
     "vaultPoolId": "0x8159462d255c1d24915cb51ec361f700174cd99400000000000000000000075d",
     "decimals": "1e18",
+    "composable": true,
+    "bptIndex": 2,
     "rewards": [
       {
         "stream": "0xF428556c5f2a2890269c8Eb5Ce8fc91d9744A6aA",
@@ -23,6 +63,9 @@
         "oracle": "tokens",
         "oracleId": "stMATIC",
         "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
       }
     ]
   },
