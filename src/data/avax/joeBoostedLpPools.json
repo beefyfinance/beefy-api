@@ -1,5 +1,27 @@
 [
   {
+    "name": "joe-busd-wavax",
+    "address": "0xf57971383560715CcCF94E0C639125Ae0e955e60",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 43114,
+    "oracleB": "tokens",
+    "oracleIdB": "AVAX",
+    "decimalsB": "1e18",
+    "lp0": {
+      "address": "0x9C9e5fD8bbc25984B178FdCE6117Defa39d2db39",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-btc.b-wavax",
     "address": "0x2fD81391E30805Cc7F2Ec827013ce86dc591B806",
     "decimals": "1e18",
