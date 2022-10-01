@@ -176,4 +176,4 @@ const getPoolsData = async pools => {
   return { balances, allocPoints, rewardPerSecs, rewardAllocPoints, rewarderTotalAllocPoints };
 };
 
-module.exports = getSpookyV2LpApys;
+module.exports = getSpookyV3LpApys;
