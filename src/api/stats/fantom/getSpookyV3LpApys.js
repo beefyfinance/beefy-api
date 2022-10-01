@@ -41,7 +41,7 @@ const getSpookyV3LpApys = async () => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
-    const beefyPerformanceFee = pool.beefyFee ? pool.beefyFee : 0.045;
+    const beefyPerformanceFee = pool.beefyFee ? pool.beefyFee : 0.095;
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
