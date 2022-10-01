@@ -16,7 +16,7 @@ import { getContract, getContractWithProvider } from '../../../utils/contractHel
 const { spookyClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 
-const masterchef = '0x18b4f774fdC7BF685daeeF66c2990b1dDd9ea6aD';
+const masterchef = '0x9C9C920E51778c4ABF727b8Bb223e78132F00aA4';
 const oracleIdA = 'BOO';
 const oracleA = 'tokens';
 const DECIMALSA = '1e18';
