@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { fantomWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/fantom/SpookyChefV3.json');
+const MasterChef = require('../../../abis/fantom/SpookyChefV2.json');
 const ComplexRewarder = require('../../../abis/fantom/SpookyComplexRewarder.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
