@@ -35,6 +35,7 @@ const getApys = [
   getSushiLpApys,
   getSpookyBooApy,
   getSpookyV2LpApys,
+  getSpookyV3LpApys,
   getFantomBifiGovApy,
   getFantomBifiMaxiApy,
   getTombApys,
