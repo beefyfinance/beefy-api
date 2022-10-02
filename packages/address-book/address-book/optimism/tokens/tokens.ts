@@ -431,6 +431,42 @@ const _tokens = {
     description:
       'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
   },
+  BOND: {
+    name: 'BarnBridge Governance Token (Optimism)',
+    symbol: 'BOND',
+    address: '0x3e7eF8f50246f725885102E8238CBba33F276747',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://barnbridge.com/',
+    description:
+      'BarnBridge v2 is an open source, fixed-income, decentralized protocol that allows users to earn a fixed return on their deposits by swapping variable APYs from money markets for a fixed APY.',
+    documentation: 'https://docs.barnbridge.com/',
+  },
+  SONNE: {
+    name: 'Sonne',
+    symbol: 'SONNE',
+    address: '0x1DB2466d9F5e10D7090E7152B68d62703a2245F0',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://sonne.finance/',
+    description:
+      'Sonne Finance is an EVM compatible lending/borrowing protocol that launched on Optimism. Sonne Finance provides peer-to-peer lending solutions that are fully decentralized, transparent and non-custodial. ',
+    documentation: 'https://docs.sonne.finance/',
+  },
+  USX: {
+    name: 'dForce USD',
+    symbol: 'USX',
+    address: '0xbfD291DA8A403DAAF7e5E9DC1ec0aCEaCd4848B9',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://dforce.network/',
+    description:
+      'USX is the most important DeFi primitive within dForce’s protocol matrix, starting off with an over-collateralization design, where supported assets can be used as collaterals to mint USX within the respective approved LTV ratio (similar to DAI).',
+    documentation: 'https://docs.dforce.network/protocols/usx',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
