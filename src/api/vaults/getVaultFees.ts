@@ -503,7 +503,7 @@ export const getVaultFees = () => {
 
 export const getTotalPerformanceFeeForVault = (vaultId: string) => {
   if (!vaultFees[vaultId]) {
-    console.log(`[FEES]> Missing fees for vault ${vaultId}`);
+    // console.log(`[FEES]> Missing fees for vault ${vaultId}`);
     return 0.095;
   }
   return vaultFees[vaultId].performance.total;
