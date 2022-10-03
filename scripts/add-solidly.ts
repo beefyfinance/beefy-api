@@ -127,6 +127,7 @@ async function fetchToken(tokenAddress) {
     logoURI: ``,
     website: '',
     description: '',
+    documentation: '',
   };
   console.log({ [token.symbol]: token }); // Prepare token data for address-book
   return token;

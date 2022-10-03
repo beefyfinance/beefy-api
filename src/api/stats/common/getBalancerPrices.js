@@ -51,18 +51,41 @@ const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPri
   let tokenBalInUsd = new BigNumber(0);
   let totalStakedinUsd = new BigNumber(0);
   let shiftedBalances = [];
+  let tokens = [];
   for (let i = 0; i < pool.tokens.length; i++) {
-    tokenPrice = await getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
-    tokenBalInUsd = new BigNumber(balance[i]).times(tokenPrice).dividedBy(pool.tokens[i].decimals);
-    totalStakedinUsd = totalStakedinUsd.plus(tokenBalInUsd);
-    shiftedBalances.push(new BigNumber(balance[i]).dividedBy(pool.tokens[i].decimals).toString(10));
+    if (pool.composable) {
+      if (i != pool.bptIndex) {
+        tokenPrice = await getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
+        tokenBalInUsd = new BigNumber(balance[i])
+          .times(tokenPrice)
+          .dividedBy(pool.tokens[i].decimals);
+        totalStakedinUsd = totalStakedinUsd.plus(tokenBalInUsd);
+        shiftedBalances.push(
+          new BigNumber(balance[i]).dividedBy(pool.tokens[i].decimals).toString(10)
+        );
+        tokens.push(tokenAddresses[i]);
+      }
+    } else {
+      tokenPrice = await getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
+      tokenBalInUsd = new BigNumber(balance[i])
+        .times(tokenPrice)
+        .dividedBy(pool.tokens[i].decimals);
+      totalStakedinUsd = totalStakedinUsd.plus(tokenBalInUsd);
+      shiftedBalances.push(
+        new BigNumber(balance[i]).dividedBy(pool.tokens[i].decimals).toString(10)
+      );
+      tokens.push(tokenAddresses[i]);
+    }
+  }
+  if (pool.composable) {
+    totalSupply = totalSupply.minus(balance[pool.bptIndex]);
   }
   const price = totalStakedinUsd.times(pool.decimals).dividedBy(totalSupply).toNumber();
 
   return {
     [pool.name]: {
       price,
-      tokens: tokenAddresses,
+      tokens: tokens,
       balances: shiftedBalances,
       totalSupply: totalSupply.dividedBy(pool.decimals).toString(10),
     },
