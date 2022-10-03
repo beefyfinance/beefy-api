@@ -7,21 +7,22 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const getBlockTime = require('../../../utils/getBlockTime');
 import getApyBreakdown from '../common/getApyBreakdown';
-import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
+import { getCurveBaseApys } from '../common/curve/getCurveApyData';
 import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const DECIMALS = '1e18';
+const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/polygon';
+const tradingFee = 0.0004;
 
 const getJarvisApys = async () => {
   let promises = [];
+  const filteredPools = pools.filter(p => p.name != 'jarvis-2eure'); // temp fix while trading APY is broken
+  const baseApys = await getCurveBaseApys(filteredPools, baseApyUrl);
   pools.forEach(pool => promises.push(getPoolApy(pool)));
   const farmAprs = await Promise.all(promises);
-  const tradingAprs = await getCurveFactoryApy(
-    pools[0].address,
-    'https://api.curve.fi/api/getFactoryAPYs-polygon'
-  );
+  const poolsMap = pools.map(p => ({ name: p.name, address: p.name, beefyFee: p.beefyFee }));
 
-  return getApyBreakdown(pools, tradingAprs, farmAprs, 0.004);
+  return getApyBreakdown(poolsMap, baseApys, farmAprs, tradingFee);
 };
 
 const getPoolApy = async pool => {
@@ -29,6 +30,8 @@ const getPoolApy = async pool => {
     getYearlyRewardsInUsd(pool.masterchef, pool.poolId, pool.rewardOracle, pool.rewardToken),
     getTotalLpStakedInUsd(pool.masterchef, pool, pool.chainId),
   ]);
+
+  //console.log(pool.name, yearlyRewardsInUsd.dividedBy(totalStakedInUsd).valueOf(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
 
   return yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 };

@@ -5,5 +5,6 @@ interface Token {
   chainId: number;
   decimals: number;
   logoURI?: string;
+  documentation?: string;
 }
 export default Token;

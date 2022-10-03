@@ -244,6 +244,17 @@ const _tokens = {
       'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
     logoURI: '',
   },
+  wstETH: {
+    name: 'Lido Wrapped Staked ETH',
+    symbol: 'wstETH',
+    address: '0x0C4681e6C0235179ec3D4F4fc4DF3d14FDD96017',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

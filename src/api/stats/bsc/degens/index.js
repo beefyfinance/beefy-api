@@ -1,65 +1,23 @@
-const getRamenLpApys = require('./getRamenLpApys');
-const getBlizzardApy = require('./getBlizzardApy');
-const getBlizzardLpApys = require('./getBlizzardLpApys');
-const getSaltLpApys = require('./getSaltLpApys');
 const getApeApys = require('./getApeApys');
 const getApeJungleApys = require('./getApeJungleApys');
-const getSpaceLpApys = require('./getSpaceLpApys');
-const getZefiLpApys = require('./getZefiLpApys');
-const getSwampApys = require('./getSwampApys');
-const getSwampySwampApy = require('./getSwampySwampApy');
-const getGoalLpApys = require('./getGoalLpApys');
-const getPantherApys = require('./getPantherApys');
-const getKingdefiApys = require('./getKingdefiApys');
-const getPeraApys = require('./getPeraApys');
-const getViralataApys = require('./getViralataApys');
-const getLongApys = require('./getLongApys');
-const getCZFApys = require('./getCZFApys');
-const getAnnexApys = require('./getAnnexApys');
 const getPacocaApys = require('./getPacocaApys');
-const getSingularApys = require('./getSingularApys');
-const getCafeLpApys = require('./getCafeLpApys');
 const getBabyApys = require('./getBabyApys');
 const { getWSGApys } = require('./getWSGApys');
 const getNftyApys = require('./getNftyApys');
 const getBetuApys = require('./getBetuApys');
-const getBisonApys = require('./getBisonApys');
-const getBlockMineApys = require('./getBlockMineApys');
-const getChargeApys = require('./getChargeApys');
 const getDibsApys = require('./getDibsApys');
 const getEmpApys = require('./getEmpApys');
 const getBombApys = require('./getBombApys');
 const getRipaeApys = require('./getRipaeApys');
 
 const getApys = [
-  getRamenLpApys,
-  getBlizzardApy,
-  getBlizzardLpApys,
-  getSaltLpApys,
   getApeApys,
   getApeJungleApys,
-  getSpaceLpApys,
-  getZefiLpApys,
-  getSwampApys,
-  getSwampySwampApy,
-  getGoalLpApys,
-  getPantherApys,
-  getKingdefiApys,
-  getPeraApys,
-  getViralataApys,
-  getLongApys,
-  getCZFApys,
-  getAnnexApys,
   getPacocaApys,
-  getSingularApys,
-  getCafeLpApys,
   getBabyApys,
   getWSGApys,
   getNftyApys,
   getBetuApys,
-  getBisonApys,
-  getBlockMineApys,
-  getChargeApys,
   getDibsApys,
   getEmpApys,
   getBombApys,

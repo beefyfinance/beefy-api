@@ -15,7 +15,7 @@ import { getContract } from './contractHelper';
 
 const {
   fantom: {
-    tokens: { BOO, xBOO, SCREAM, xSCREAM, CREDIT, xCREDIT, FTM, sFTMx },
+    tokens: { BOO, xBOO, SCREAM, xSCREAM, CREDIT, xCREDIT },
   },
   polygon: {
     tokens: { QUICK, dQUICK },
@@ -36,7 +36,6 @@ const tokens = {
     [BOO, xBOO],
     [SCREAM, xSCREAM],
     [CREDIT, xCREDIT],
-    [FTM, sFTMx],
   ],
   polygon: [[QUICK, dQUICK]],
   fuse: [[VOLT, xVOLT]],

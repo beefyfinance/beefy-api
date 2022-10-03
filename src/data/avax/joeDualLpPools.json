@@ -1,5 +1,27 @@
 [
   {
+    "name": "joe-cai-wavax",
+    "address": "0xE5e9d67e93aD363a50cABCB9E931279251bBEFd0",
+    "decimals": "1e18",
+    "oracleB": "tokens",
+    "oracleIdB": "CLY",
+    "decimalsB": "1e18",
+    "poolId": 78,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x48f88A3fE843ccb0b5003e70B4192c1d7448bEf0",
+      "oracle": "tokens",
+      "oracleId": "CAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-tus-wavax",
     "address": "0x565d20BD591b00EAD0C927e4b6D7DD8A33b0B319",
     "decimals": "1e18",

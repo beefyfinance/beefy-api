@@ -13,6 +13,7 @@ const tvl = require('./api/tvl');
 const multichainVaults = require('./api/vaults');
 const { boosts, chainBoosts } = require('./api/boosts');
 const { bifibuyback } = require('./api/stats/bifibuyback/index');
+const { getTokens, getChainTokens } = require('./api/tokens');
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
@@ -40,6 +41,9 @@ router.get('/fees', multichainVaults.vaultFees);
 
 router.get('/boosts', boosts);
 router.get('/boosts/:chainId', chainBoosts);
+
+router.get('/tokens', getTokens);
+router.get('/tokens/:chainId', getChainTokens);
 
 router.get('/', noop);
 

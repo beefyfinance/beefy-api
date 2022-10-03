@@ -15,6 +15,40 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  HOOP: {
+    name: 'Primal Hoop',
+    symbol: 'HOOP',
+    address: '0xF19cfb40B3774dF6Eed83169Ad5aB0Aaf6865F25',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/27405/small/HOOP_TOKEN.png?1663837803',
+    website: 'https://www.chibidinos.io/',
+    description:
+      'HOOP is the reward and in-game currency for the Chibi Dinos Gaming Universe. It can be used to pay for merchandise and events; future uses include staking and governance for in-game decisions. Chibi Dinos is a basketball and dinosaur themed metaverse with games such as Primal Hoop, an arcade basketball game with an adventure role-playing game (RPG) mode and Primal Pickem, a predictive play-to earn game (P2E).',
+  },
+  HAY: {
+    name: 'Hay Stablecoin',
+    symbol: 'HAY',
+    address: '0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5.svg',
+    website: 'https://helio.money/',
+    description:
+      'HAY is an over-collateralized destablecoin, where 1 HAY is always redeemable at $1 of cryptocurrency, and over-collateralized by BNB. Users can mint and borrow HAY by providing BNB as collateral, which can then be used to stake for yield, liquidity mining and as a means to transfer value.',
+  },
+  jCHF: {
+    name: 'Jarvis Synthetic Swiss Franc',
+    symbol: 'jCHF',
+    address: '0x7c869b5A294b1314E985283d01C702B62224a05f',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jCHF is a multi-collateralized synthetic stable-coin from Jarvis tracking the price of the Swiss Franc. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://i.imgur.com/EknGhAl.png',
+  },
   TRIVIA: {
     name: 'TRIVIA',
     symbol: 'TRIVIA',
@@ -175,6 +209,17 @@ const _tokens = {
     website: 'https://brztoken.io/',
     description:
       'BRZ is the first Brazilian stablecoin in circulation. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
+    logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
+  },
+  BRZw: {
+    name: 'BRZ (Wormhole) Token',
+    symbol: 'BRZw',
+    address: '0x5b1a9850f55d9282a7C4Bf23A2a21B050e3Beb2f',
+    chainId: 56,
+    decimals: 4,
+    website: 'https://brztoken.io/',
+    description:
+      'BRZw is the Wormhole bridged verison of BRZ. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
     logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
   },
   SOL: {
@@ -1540,7 +1585,7 @@ const _tokens = {
     website: 'https://ethereumclassic.org/',
     description:
       'Ethereum Classic is a decentralized computing platform that executes smart contracts. Applications are ran exactly as programmed without the possibility of censorship, downtime, or third-party interference.',
-    logoURI: 'https://dex.apeswap.finance/images/coins/ETC.svg',
+    logoURI: 'https://assets.coingecko.com/coins/images/453/small/ethereum-classic-logo.png',
   },
   COTI: {
     name: 'Coti',
@@ -3789,6 +3834,17 @@ const _tokens = {
     website: 'https://tor.hector.network/',
     description:
       'TOR is a fully collateralized stablecoin which acts as a foundational pillar within the Hector Network Ecosystem. Its unique smart contracts made it the first of its kind, creating positive price action for the HEC token each time a TOR coin is minted and empowering Hector Network to become deflationary.',
+  },
+  'USD+': {
+    name: 'USD+ Stablecoin',
+    symbol: 'USD+',
+    address: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
+    chainId: 56,
+    decimals: 6,
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -52,7 +52,7 @@ const METIS_RPC = process.env.METIS_RPC || 'https://andromeda.metis.io/?owner=10
 const MOONBEAM_RPC = process.env.MOONBEAM_RPC || 'https://rpc.api.moonbeam.network';
 const SYS_RPC = process.env.SYS_RPC || 'https://rpc.syscoin.org/';
 const EMERALD_RPC = process.env.EMERALD_RPC || 'https://emerald.oasis.dev';
-const OPTIMISM_RPC = process.env.OPTIMISM_RPC || 'https://mainnet.optimism.io';
+const OPTIMISM_RPC = process.env.OPTIMISM_RPC || 'https://rpc.ankr.com/optimism';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;

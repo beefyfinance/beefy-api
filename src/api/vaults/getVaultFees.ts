@@ -17,8 +17,8 @@ const feeBatchTreasurySplitMethodABI = [
   },
 ];
 
-const INIT_DELAY = 16000;
-const REFRESH_INTERVAL = 10 * 60 * 1000;
+const INIT_DELAY = 15000;
+const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_EXPIRY = 1000 * 60 * 60 * 12;
 const MULTICALL_BATCH_SIZE = 128;
 
@@ -202,6 +202,9 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
             console.log(' > Failed to get fees for ' + contractCalls.id);
           }
         }
+      } else {
+        console.log('> multicall batch failed fetching fees on chain ' + chainId);
+        console.log(res.reason);
       }
     });
   } catch (err) {
@@ -281,11 +284,11 @@ const performanceFeesFromCalls = (
   contractCalls: StrategyCallResponse,
   feeBatch: FeeBatchDetail
 ): PerformanceFee => {
-  if (contractCalls.id.includes('-maxi')) {
-    return performanceForMaxi(contractCalls);
-  } else if (contractCalls.breakdown !== undefined) {
+  if (contractCalls.breakdown !== undefined) {
     //newest method
     return performanceFromGetFees(contractCalls, feeBatch);
+  } else if (contractCalls.id.includes('-maxi')) {
+    return performanceForMaxi(contractCalls);
   } else {
     return legacyFeeMappings(contractCalls, feeBatch);
   }

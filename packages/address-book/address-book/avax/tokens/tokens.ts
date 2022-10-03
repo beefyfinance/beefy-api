@@ -15,6 +15,17 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  CAI: {
+    name: 'Colony Avalanche Index CAI',
+    symbol: 'CAI',
+    address: '0x48f88A3fE843ccb0b5003e70B4192c1d7448bEf0',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.colonylab.io/cai.html',
+    description:
+      "Colony Avalanche Index - The easist way to invest in Avalanche. CAI is an index token investing in Avalanche's AVAX token and other ecosystem projects including BENQI and Trader Joe. The index excludes any rebasing or deflationary tokens.",
+  },
   POPS: {
     name: 'Swapsicle',
     symbol: 'POPS',
@@ -1113,10 +1124,12 @@ const _tokens = {
   },
   BUSD: {
     chainId: 43114,
-    address: '0xaEb044650278731Ef3DC244692AB9F64C78FfaEA',
+    address: '0x9C9e5fD8bbc25984B178FdCE6117Defa39d2db39',
     decimals: 18,
     name: 'Binance USD',
     symbol: 'BUSD',
+    description:
+      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaEb044650278731Ef3DC244692AB9F64C78FfaEA/logo.png',
   },
@@ -1311,8 +1324,11 @@ const _tokens = {
     chainId: 43114,
     address: '0xc69Eba65e87889f0805dB717Af06797055A0BA07',
     decimals: 18,
-    name: 'NCash is the native cryptocurrency and protocol token of the Nitro Network. Nitro Network is building a world of private communication networks powered by IoT together with LoRaWAN/3G/4G and 5G.',
+    name: 'Nitro Network',
     symbol: 'NCASH',
+    website: 'https://nitro.network/',
+    description:
+      'NCash is the native cryptocurrency and protocol token of the Nitro Network. Nitro Network is building a world of private communication networks powered by IoT together with LoRaWAN/3G/4G and 5G.',
     logoURI:
       'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xc69Eba65e87889f0805dB717Af06797055A0BA07/logo_48.png',
   },
