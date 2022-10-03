@@ -341,6 +341,17 @@ const _tokens = {
       'The worlds first & only decentralized Web3 content marketing agency DAO. Massively scalable. Fueled by DeFi.',
     logoURI: 'https://app.spiritswap.finance/images/tokens/CRE8R.png',
   },
+  DEI_OLD: {
+    name: 'DEI_OLD',
+    symbol: 'DEI_OLD',
+    address: '0xDE12c7959E1a72bbe8a5f7A1dc8f8EeF9Ab011B3',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
+    logoURI: 'https://app.deus.finance/tokens/dei.svg',
+  },
   DEI: {
     name: 'DEI',
     symbol: 'DEI',

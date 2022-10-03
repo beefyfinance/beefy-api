@@ -58,7 +58,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "DEI",
+        "oracleId": "DEI_OLD",
         "decimals": "1e18"
       },
       {
@@ -114,7 +114,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "DEI",
+        "oracleId": "DEI_OLD",
         "decimals": "1e18"
       }
     ]

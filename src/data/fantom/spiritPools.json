@@ -242,7 +242,7 @@
     "lp1": {
       "address": "0xDE12c7959E1a72bbe8a5f7A1dc8f8EeF9Ab011B3",
       "oracle": "tokens",
-      "oracleId": "DEI",
+      "oracleId": "DEI_OLD",
       "decimals": "1e18"
     }
   },
