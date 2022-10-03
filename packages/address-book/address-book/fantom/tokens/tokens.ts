@@ -344,12 +344,12 @@ const _tokens = {
   DEI: {
     name: 'DEI',
     symbol: 'DEI',
-    address: '0xDE12c7959E1a72bbe8a5f7A1dc8f8EeF9Ab011B3',
+    address: '0xDE1E704dae0B4051e80DAbB26ab6ad6c12262DA0',
     chainId: 250,
     decimals: 18,
     website: 'https://deus.finance/',
     description:
-      'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
+      'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
     logoURI: 'https://app.deus.finance/tokens/dei.svg',
   },
   DEUS: {
