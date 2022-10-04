@@ -10,6 +10,7 @@ const { BASE_HPY, POLYGON_CHAIN_ID, COMETH_LPF } = require('../../../constants')
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getContract } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { comethClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 
@@ -18,9 +19,6 @@ const oracleId = 'MUST';
 
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
-
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getComethLpApys = async () => {
   let apys = {};
@@ -32,10 +30,18 @@ const getComethLpApys = async () => {
 
   pools.forEach((pool, i) => {
     const simpleApy = farmApys[i];
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const totalApy = getFarmWithTradingFeesApy(
+      simpleApy,
+      tradingApr,
+      BASE_HPY,
+      1,
+      shareAfterBeefyPerformanceFee
+    );
     const legacyApyValue = { [pool.name]: totalApy };
     // Add token to APYs object
     apys = { ...apys, ...legacyApyValue };

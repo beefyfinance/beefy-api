@@ -10,6 +10,7 @@ const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
 const { getVariableTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { kyberClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 const getBlockTime = require('../../../utils/getBlockTime');
@@ -99,10 +100,11 @@ const getPoolsData = async () => {
 const getApyBreakdown = async (farmAprs, tradingAprs, tradingFees) => {
   let apys = {};
   let apyBreakdowns = {};
-  const shareAfterBeefyPerformanceFee = 0.955;
-  const beefyPerformanceFee = 0.045;
 
   pools.forEach((pool, i) => {
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+
     const vaultApr = farmAprs[i].times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(farmAprs[i], BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 

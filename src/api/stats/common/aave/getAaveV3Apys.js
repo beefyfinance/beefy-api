@@ -6,6 +6,7 @@ const IAaveV3Incentives = require('../../../../abis/AaveV3Incentives.json');
 const IAaveV3PoolDataProvider = require('../../../../abis/AaveV3PoolDataProvider.json');
 const { BASE_HPY } = require('../../../../constants');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const secondsPerYear = 31536000;
 const RAY_DECIMALS = '1e27';
@@ -56,8 +57,8 @@ const getPoolApy = async (config, pool, web3) => {
     );
 
   let totalNative = leveragedSupplyNative.plus(leveragedBorrowNative);
-  let fee = pool.beefyFee ? pool.beefyFee : 0.045;
-  let compoundedNative = compound(totalNative, BASE_HPY, 1, 1 - fee);
+  let shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  let compoundedNative = compound(totalNative, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedNative).toNumber();
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyNative.valueOf(), borrowNative.valueOf());
   return { [pool.name]: apy };

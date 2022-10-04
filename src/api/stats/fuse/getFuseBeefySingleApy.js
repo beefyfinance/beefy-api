@@ -10,6 +10,7 @@ const { FUSE_CHAIN_ID: chainId, BASE_HPY } = require('../../../constants');
 
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const {
   fuse: {
     platforms: {
@@ -20,7 +21,6 @@ const {
 } = addressBook;
 
 const BLOCKS_PER_DAY = 17280; // 5 Second Block Times
-const beefyPerformanceFee = 0.045;
 
 const getFuseBeefySingleApy = async () => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
@@ -29,7 +29,8 @@ const getFuseBeefySingleApy = async () => {
   ]);
 
   const apr = yearlyRewardsInUsd.times(0.85).dividedBy(totalStakedInUsd);
-  const apy = compound(apr, BASE_HPY, 1, 0.955);
+  const beefyPerformanceFee = getTotalPerformanceFeeForVault('fuse-fuse');
+  const apy = compound(apr, BASE_HPY, 1, 1 - beefyPerformanceFee);
 
   return {
     apys: {

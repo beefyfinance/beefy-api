@@ -11,6 +11,7 @@ const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { pangolinClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 
@@ -22,8 +23,6 @@ const DECIMALSA = '1e18';
 const secondsPerYear = 31536000;
 
 const liquidityProviderFee = 0.0025;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getPangolinV2DualApys = async () => {
   let apys = {};
@@ -64,6 +63,9 @@ const getPangolinV2DualApys = async () => {
     const yearlyRewardsInUsd = yearlyRewardsAInUsd
       .plus(yearlyRewardsBInUsd)
       .plus(yearlyRewardsCInUsd);
+
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);

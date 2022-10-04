@@ -12,6 +12,7 @@ import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFees
 const { vvsClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const masterchef = '0x83EA9d8748A7AD9f2F12B2A2F7a45CE47A862ac9';
 const oracleId = 'sCRO';
@@ -21,8 +22,6 @@ const DECIMALS = '1e18';
 const secondsPerYear = 31536000;
 
 const liquidityProviderFee = 0.003;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getRipaeApys = async () => {
   let apys = {};
@@ -47,6 +46,8 @@ const getRipaeApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 

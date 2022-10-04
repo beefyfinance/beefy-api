@@ -10,6 +10,7 @@ const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const getDrugsApys = async () => {
   const apys = {};
@@ -28,7 +29,8 @@ const getDrugsApys = async () => {
     const totalStakedInUsd = await getTotalStakedInUsd(pool.smartGangster, hoes, 'tokens', 'DRUGS');
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).plus(baseDrugsApy);
-    apys[pool.name] = compound(simpleApy, BASE_HPY, 1, 0.94);
+    const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+    apys[pool.name] = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   }
 
   return apys;

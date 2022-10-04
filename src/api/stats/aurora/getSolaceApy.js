@@ -9,6 +9,7 @@ const { AURORA_CHAIN_ID: chainId, BASE_HPY } = require('../../../constants');
 
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const {
   aurora: {
     platforms: {
@@ -19,7 +20,6 @@ const {
 } = addressBook;
 
 const SECONDS_PER_DAY = 86400; // Per Second Rewards
-const beefyPerformanceFee = 0.045;
 
 const getSolaceApy = async () => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
@@ -27,8 +27,11 @@ const getSolaceApy = async () => {
     getTotalStakedInUsd(),
   ]);
 
+  const beefyPerformanceFee = getTotalPerformanceFeeForVault('solace-solace');
+  const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+
   const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(apr, BASE_HPY, 1, 0.955);
+  const apy = compound(apr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
   return {
     apys: {

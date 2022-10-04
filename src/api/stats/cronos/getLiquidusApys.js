@@ -8,6 +8,7 @@ const { compound } = require('../../../utils/compound');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const getBlockTime = require('../../../utils/getBlockTime');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const stakingPool = '0x1c7fDE0a9619bC81b23cAEF6992288BA5547a34F';
 const lpToken = '0x3295007761C290741B6b363b86dF9ba3467F0754';
@@ -33,7 +34,8 @@ const getLiquidusApys = async () => {
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).div(DECIMALS);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(id);
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   // console.log(id,apy,totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf(),simpleApy.valueOf());
   return { [id]: apy };
 };

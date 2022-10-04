@@ -6,11 +6,12 @@ import {
 } from '../../../abis/common/MultiFeeDistribution';
 import fetchPrice from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
-import { BASE_HPY, BEEFY_PERFORMANCE_FEE, SHARE_AFTER_PERFORMANCE_FEE } from '../../../constants';
+import { BASE_HPY } from '../../../constants';
 import Web3 from 'web3';
 import { ApyBreakdownResult } from './getApyBreakdown';
 import Token from '../../../../packages/address-book/types/token';
 import { getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const oracle = 'tokens';
 
@@ -75,7 +76,9 @@ const getBreakdown = (poolName: string, apr: BigNumber): ApyBreakdownResult => {
   };
 
   const vaultApr = apr.toNumber();
-  const vaultApy = compound(vaultApr, BASE_HPY, 1, SHARE_AFTER_PERFORMANCE_FEE);
+  const beefyPerformanceFee = getTotalPerformanceFeeForVault(poolName);
+  const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+  const vaultApy = compound(vaultApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   const totalApy = vaultApy;
 
   result.apys[poolName] = totalApy;
@@ -84,7 +87,7 @@ const getBreakdown = (poolName: string, apr: BigNumber): ApyBreakdownResult => {
     vaultApy: vaultApy,
     totalApy: totalApy,
     compoundingsPerYear: BASE_HPY,
-    beefyPerformanceFee: BEEFY_PERFORMANCE_FEE,
+    beefyPerformanceFee: beefyPerformanceFee,
   };
   return result;
 };

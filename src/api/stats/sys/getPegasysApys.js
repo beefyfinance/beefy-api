@@ -12,6 +12,7 @@ const { compound } = require('../../../utils/compound');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { pegasysClient } = require('../../../apollo/client');
 const {
@@ -24,9 +25,6 @@ const {
 } = addressBook;
 
 const masterchef = minichef;
-
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const oracleA = 'tokens';
 const DECIMALSA = '1e18';
@@ -70,6 +68,8 @@ const getPegasysApys = async () => {
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);

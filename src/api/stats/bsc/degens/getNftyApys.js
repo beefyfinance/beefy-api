@@ -5,6 +5,7 @@ const NftyStaking = require('../../../../abis/degens/NftyStaking.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const stakingPool = '0x490147C65365c58F3404415b1194fbB4697A4B44';
 const oracleId = 'NFTY';
@@ -26,7 +27,8 @@ const getNftyApys = async () => {
   const totalStakedInUsd = new BigNumber(totalStaked).times(tokenPrice).div(DECIMALS);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('nfty-nfty');
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   // console.log("nfty", apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf(), simpleApy.valueOf());
   return { 'nfty-nfty': apy };
 };

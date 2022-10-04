@@ -13,6 +13,7 @@ const { compound } = require('../../../utils/compound');
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getEDecimals } from '../../../utils/getEDecimals';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const {
   moonbeam: {
     tokens: { STELLA, xSTELLA },
@@ -31,16 +32,15 @@ const pool = [
 const fee = 0.0005;
 const chef = '0xF3a5454496E26ac57da879bf3285Fa85DEBF0388';
 
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
-
 const getxStellaApy = async () => {
   const vaultApr = await getFarmApys(pool);
 
   const oracle = 'tokens';
   const id = 'STELLA';
   const stakedPrice = await fetchPrice({ oracle, id });
-  const vaultApy = compound(vaultApr, BASE_HPY, 1, 0.955);
+  const beefyPerformanceFee = getTotalPerformanceFeeForVault('stella-xstella');
+  const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+  const vaultApy = compound(vaultApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   const tokenContract = getContractWithProvider(ERC20, STELLA.address, web3);
   const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(xSTELLA.address).call());
   const totalStakedInUsd = totalStaked.times(stakedPrice).dividedBy('1e18');
@@ -57,7 +57,7 @@ const getxStellaApy = async () => {
 
   return {
     apys: {
-      'stella=xstella': apy,
+      'stella-xstella': apy,
     },
     apyBreakdowns: {
       'stella-xstella': {

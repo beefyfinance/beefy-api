@@ -5,6 +5,7 @@ const BetuStaking = require('../../../../abis/degens/BetuStaking.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const stakingPool = '0x8a3030e494a9c0FF12F46D0ce3F1a610dCe9B2eD';
 const oracleId = 'BETU';
@@ -26,7 +27,9 @@ const getBetuApys = async () => {
   const totalStakedInUsd = new BigNumber(totalStaked).times(tokenPrice).div(DECIMALS);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('betu-betu');
+
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   // console.log("betu", apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf(), simpleApy.valueOf());
   return { 'betu-betu': apy };
 };

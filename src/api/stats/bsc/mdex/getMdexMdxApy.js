@@ -6,6 +6,7 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const boardroom = '0xDF484250C063C46F2E1F228954F82266CB987D78';
 const mdx = '0x9C65AB58d8d978DB963e63f2bfB7121627e3a739';
@@ -19,7 +20,8 @@ const getMdexMdxApy = async () => {
     getTotalStakedInUsd(boardroom, mdx, oracle, oracleId),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('mdex-bsc-mdx');
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   //console.log('mdex-bsc-mdx', simpleApy.valueOf(), simpleApy, apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { 'mdex-bsc-mdx': apy };
 };

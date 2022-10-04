@@ -44,8 +44,7 @@ const _tokens = {
     address: '0x236eeC6359fb44CCe8f97E99387aa7F8cd5cdE1f',
     chainId: 137,
     decimals: 6,
-    logoURI:
-      'https://s2.coinmarketcap.com/static/img/coins/64x64/20317.png',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/20317.png',
     website: 'https://overnight.fi/',
     description:
       'A risk-minimised USDC-pegged crypto asset backed by an underlying basket of USD stablecoins.',

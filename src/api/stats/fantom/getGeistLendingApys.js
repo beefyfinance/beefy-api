@@ -8,6 +8,7 @@ const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataP
 const pools = require('../../../data/fantom/geistPools.json');
 const { BASE_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const AaveProtocolDataProvider = '0xf3B0611e2E4D2cd6aB4bb3e01aDe211c3f42A8C3';
 const incentivesController = '0x297FddC5c33Ef988dd03bd13e162aE084ea1fE57';
@@ -73,7 +74,8 @@ const getPoolApy = async (pool, rewardsPerSecond, totalAllocPoint) => {
     );
 
   let totalGeist = leveragedSupplyGeist.plus(leveragedBorrowGeist);
-  let compoundedGeist = compound(totalGeist, BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  let compoundedGeist = compound(totalGeist, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedGeist).toNumber();
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyGeist.valueOf(), borrowGeist.valueOf());
   return { [pool.name]: apy };

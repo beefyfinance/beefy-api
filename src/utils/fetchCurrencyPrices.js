@@ -7,9 +7,9 @@ const fetchCurrencyPrices = async currencies => {
   let prices = {};
   try {
     const data = await fetch(url).then(res => res.json());
-    Object.keys(data["usd-coin"]).forEach(currencies => {
-      const price = Number(data["usd-coin"][currencies]);
-      const inversePrice = price > 0 ? 1/price : 0;
+    Object.keys(data['usd-coin']).forEach(currencies => {
+      const price = Number(data['usd-coin'][currencies]);
+      const inversePrice = price > 0 ? 1 / price : 0;
       prices = { ...prices, ...{ [currencies]: inversePrice } };
     });
   } catch (e) {

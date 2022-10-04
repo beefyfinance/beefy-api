@@ -8,6 +8,7 @@ const IncentivesController = require('../../../../abis/fantom/GeistIncentivesCon
 const IAaveProtocolDataProvider = require('../../../../abis/matic/AaveProtocolDataProvider.json');
 const pools = require('../../../../data/valasPools.json');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const AaveProtocolDataProvider = '0xb5f344F568b714c471B23924644B4e393Ca4E9E9';
 const incentivesController = '0xB7c1d99069a4eb582Fc04E7e1124794000e7ecBF';
@@ -70,7 +71,8 @@ const getPoolApy = async (pool, rewardsPerSecond, totalAllocPoint) => {
     );
 
   let totalReward = leveragedSupplyReward.plus(leveragedBorrowReward);
-  let compoundedReward = compound(totalReward, BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  let compoundedReward = compound(totalReward, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedReward).toNumber();
   // console.log(pool.name,apy,supplyBase.valueOf(),borrowBase.valueOf(),supplyReward.valueOf(),borrowReward.valueOf());
   return { [pool.name]: apy };

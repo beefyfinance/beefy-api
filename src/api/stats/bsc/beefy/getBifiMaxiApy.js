@@ -7,6 +7,7 @@ const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd')
 const { compound } = require('../../../../utils/compound');
 const { DAILY_HPY } = require('../../../../constants');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const BIFI = '0xCa3F508B8e4Dd382eE878A314789373D80A5190A';
 const REWARDS = '0x0d5761D9181C7745855FC985f646a842EB254eB9';
@@ -22,7 +23,8 @@ const getBifiMaxiApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, DAILY_HPY, 1, 0.99);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('bifi-maxi');
+  const apy = compound(simpleApy, DAILY_HPY, 1, shareAfterBeefyPerformanceFee);
 
   return { 'bifi-maxi': apy };
 };

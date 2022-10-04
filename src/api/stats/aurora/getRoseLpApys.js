@@ -10,6 +10,7 @@ const { BASE_HPY, AURORA_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const {
   aurora: {
@@ -21,9 +22,6 @@ const oracle = 'tokens';
 const oracleId = 'ROSE';
 const DECIMALS = '1e18';
 
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
-
 const getRoseLpApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
@@ -31,6 +29,9 @@ const getRoseLpApys = async () => {
   const farmApys = await getFarmApys(pools);
 
   pools.forEach((pool, i) => {
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+
     const simpleApy = farmApys[i];
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);

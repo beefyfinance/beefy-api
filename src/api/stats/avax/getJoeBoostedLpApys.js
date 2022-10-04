@@ -14,6 +14,7 @@ const { joeClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import { JOE_LPF } from '../../../constants';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const JOESTAKER = '0x8330C83583829074BA6FF96b4A6377966D80edbf';
 const masterchef = '0x4483f0b6e2F5486D06958C20f8C39A7aBe87bf8F';
@@ -25,8 +26,6 @@ const secondsPerBlock = 1;
 const secondsPerYear = 31536000;
 
 const liquidityProviderFee = JOE_LPF;
-const beefyPerformanceFee = 0.095; // 0.045 beefy fees + 0.04 Joe Boost Tax
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getJoeBoostedLpApys = async () => {
   let apys = {};
@@ -74,6 +73,10 @@ const getJoeBoostedLpApys = async () => {
     const yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name) + 0.05; //  beefy fees + 0.05 Joe Boost Tax
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 

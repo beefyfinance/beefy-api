@@ -8,6 +8,7 @@ const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const getCakePoolApy = async () => {
   const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';
@@ -21,7 +22,8 @@ const getCakePoolApy = async () => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, BASE_HPY, 1, 0.94);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('cake-cake');
+  const apy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
   return { 'cake-cake': apy, 'cake-smart': apy };
 };
