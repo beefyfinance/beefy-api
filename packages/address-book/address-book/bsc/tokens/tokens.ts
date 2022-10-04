@@ -2350,6 +2350,7 @@ const _tokens = {
       'Beefy.Finance (BIFI), is a yield optimization tool on the Binance Smart Chain that helps maximize the return from yield farming.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xCa3F508B8e4Dd382eE878A314789373D80A5190A.png',
+    documentation: 'https://docs.beefy.finance/',
   },
   YFI: {
     name: 'yearn.finance',
@@ -3845,6 +3846,7 @@ const _tokens = {
     description:
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

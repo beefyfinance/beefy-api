@@ -10,6 +10,7 @@ const ETH = {
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   logoURI: '',
+  documentation: 'https://ethereum.org/en/developers/docs/',
 } as const;
 
 const _tokens = {
@@ -27,6 +28,7 @@ const _tokens = {
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+    documentation: 'https://docs.beefy.finance/',
   },
   jEUR: {
     name: 'Jarvis Synthetic Euro',
@@ -229,6 +231,7 @@ const _tokens = {
     website: 'https://www.liquity.org/',
     description:
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
+    documentation: 'https://docs.liquity.org/',
   },
   soUSDC: {
     name: 'Stargate USD Coin LP',
@@ -419,6 +422,7 @@ const _tokens = {
     description:
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
   },
   TUSD: {
     name: 'TrueUSD',

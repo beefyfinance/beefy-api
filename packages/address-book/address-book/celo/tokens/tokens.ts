@@ -92,6 +92,7 @@ const _tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    documentation: 'https://ethereum.org/en/developers/docs/',
   },
   DAIV1: {
     name: 'Dai Stablecoin',

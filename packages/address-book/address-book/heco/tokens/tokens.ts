@@ -8,8 +8,8 @@ const HT = {
   chainId: 128,
   decimals: 18,
   website: 'https://www.huobi.com/en-us/',
-    description:
-      'HT (Huobi Token) is a blockchain-powered loyalty point system. It is the only token that Huobi officially launched. HT supports Huobi Global business and all products, such as VIP discount, HT exclusive events, trading against popular coins and "let your voice be heard".',
+  description:
+    'HT (Huobi Token) is a blockchain-powered loyalty point system. It is the only token that Huobi officially launched. HT supports Huobi Global business and all products, such as VIP discount, HT exclusive events, trading against popular coins and "let your voice be heard".',
   logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/8524.png',
 } as const;
 
@@ -61,6 +61,7 @@ const _tokens = {
       'Beefy.Finance (BIFI), is a multi-chain yield optimization tool that helps maximize the return from yield farming.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+    documentation: 'https://docs.beefy.finance/',
   },
   SNX: {
     name: 'Synthetix',
@@ -71,8 +72,7 @@ const _tokens = {
     website: 'https://www.synthetix.io/',
     description:
       'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.',
-    logoURI:
-      'https://hecoinfo.com/token/images/snx_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/snx_32.png',
   },
   MDX: {
     name: 'Mdex',
@@ -83,8 +83,7 @@ const _tokens = {
     website: 'https://mdex.com/',
     description:
       'MDEX.COM is a decentralized platform for cross-chain transactions and deployed on BSC, HECO and Ethereum.',
-    logoURI:
-      'https://hecoinfo.com/token/images/mdex_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/mdex_32.png',
   },
   HBTC: {
     name: 'Huobi Bitcoin',
@@ -95,8 +94,7 @@ const _tokens = {
     website: 'https://www.htokens.finance/en-us/',
     description:
       'HBTC is a ERC20 token backed 1:1 with BTC. H-tokens are a suite of assets issued on Ethereum and backed by cryptocurrencies from other blockchains.',
-    logoURI:
-      'https://hecoinfo.com/token/images/HBTC_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/HBTC_32.png',
   },
   AAVE: {
     name: 'Aave',
@@ -107,8 +105,7 @@ const _tokens = {
     website: 'https://aave.com/',
     description:
       'Aave is an open source and non-custodial liquidity protocol for earning interest on deposits and borrowing assets.',
-    logoURI:
-      'https://hecoinfo.com/token/images/aave_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/aave_32.png',
   },
   BAL: {
     name: 'Balancer',
@@ -119,8 +116,7 @@ const _tokens = {
     website: 'https://balancer.fi/',
     description:
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities.',
-    logoURI:
-      'https://hecoinfo.com/token/images/bal_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/bal_32.png',
   },
   HUSD: {
     name: 'Huobi USD',
@@ -131,8 +127,7 @@ const _tokens = {
     website: 'https://www.htokens.finance/en-us/',
     description:
       'HUSD is a ERC20 token backed 1:1 with USD. H-tokens are a suite of assets issued on Ethereum and backed by cryptocurrencies from other blockchains.',
-    logoURI:
-      'https://hecoinfo.com/token/images/HUSD_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/HUSD_32.png',
   },
   YFI: {
     name: 'Yearn.finance',
@@ -143,8 +138,7 @@ const _tokens = {
     website: 'https://yearn.finance/',
     description:
       'Yearn.finance is an aggregator service for decentralized finance (DeFi) investors, using automation to allow them to maximize profits from yield farming.',
-    logoURI:
-      'https://hecoinfo.com/token/images/yfi_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/yfi_32.png',
   },
   HDOT: {
     name: 'Huobi Polkadot',
@@ -155,8 +149,7 @@ const _tokens = {
     website: 'https://www.htokens.finance/en-us/',
     description:
       'HDOT is a ERC20 token backed 1:1 with DOT. H-tokens are a suite of assets issued on Ethereum and backed by cryptocurrencies from other blockchains.',
-    logoURI:
-      'https://hecoinfo.com/token/images/HDOT_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/HDOT_32.png',
   },
   SHIB: {
     name: 'Shiba Inu',
@@ -167,8 +160,7 @@ const _tokens = {
     website: 'https://shibatoken.com/',
     description:
       'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
-    logoURI:
-      'https://bscscan.com/token/images/shibatoken_32.png',
+    logoURI: 'https://bscscan.com/token/images/shibatoken_32.png',
   },
   HFI: {
     name: 'Heco FI',
@@ -179,8 +171,7 @@ const _tokens = {
     website: 'https://hfi.one/',
     description:
       'HFI.one is a decentralized aggregate mining platform based on the Huobi ecological chain HECO.',
-    logoURI:
-      'https://hecoinfo.com/token/images/hecofi_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/hecofi_32.png',
   },
   LINK: {
     name: 'Chainlink',
@@ -191,8 +182,7 @@ const _tokens = {
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
-    logoURI:
-      'https://hecoinfo.com/token/images/chainlink_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/chainlink_32.png',
   },
   HLTC: {
     name: 'Huobi Litecoin',
@@ -203,8 +193,7 @@ const _tokens = {
     website: 'https://www.htokens.finance/en-us/',
     description:
       'HLTC is a ERC20 token backed 1:1 with LTC. H-tokens are a suite of assets issued on Ethereum and backed by cryptocurrencies from other blockchains.',
-    logoURI:
-      'https://hecoinfo.com/token/images/HLTC_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/HLTC_32.png',
   },
   HBCH: {
     name: 'Huobi Bitcoin Cash',
@@ -215,8 +204,7 @@ const _tokens = {
     website: 'https://www.htokens.finance/en-us/',
     description:
       'HBCH is a ERC20 token backed 1:1 with BCH. H-tokens are a suite of assets issued on Ethereum and backed by cryptocurrencies from other blockchains.',
-    logoURI:
-      'https://hecoinfo.com/token/images/HBCH_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/HBCH_32.png',
   },
   UNI: {
     name: 'Uniswap',
@@ -227,8 +215,7 @@ const _tokens = {
     website: 'https://uniswap.org/',
     description:
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
-    logoURI:
-      'https://hecoinfo.com/token/images/uni_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/uni_32.png',
   },
   HPT: {
     name: 'Huobi Pool Token',
@@ -239,8 +226,7 @@ const _tokens = {
     website: 'https://www.huobipool.com/',
     description:
       'HPT is the global ecological token of Huobi Pool. HPT holders can participate in-depth in the future development of Huobi Pool, and they also to share the growth value of the mining pool with daily airdrops of digital assets obtained from the mining pool.',
-    logoURI:
-      'https://hecoinfo.com/token/images/HPT_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/HPT_32.png',
   },
   HFIL: {
     name: 'Huobi Filecoin',
@@ -251,8 +237,7 @@ const _tokens = {
     website: 'https://www.htokens.finance/en-us/',
     description:
       'HFIL is a ERC20 token backed 1:1 with FIL. H-tokens are a suite of assets issued on Ethereum and backed by cryptocurrencies from other blockchains.',
-    logoURI:
-      'https://hecoinfo.com/token/images/HFIL_32.png',
+    logoURI: 'https://hecoinfo.com/token/images/HFIL_32.png',
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

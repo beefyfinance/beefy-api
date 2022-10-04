@@ -10,6 +10,7 @@ const ETH = {
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   logoURI: 'https://arbiscan.io/token/images/weth_28.png',
+  documentation: 'https://ethereum.org/en/developers/docs/',
 } as const;
 
 const _tokens = {
@@ -27,6 +28,7 @@ const _tokens = {
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+    documentation: 'https://docs.beefy.finance/',
   },
   NEAR: {
     name: 'NEAR',
@@ -284,8 +286,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://decentral-bank.finance/',
-    description:
-      'USN is a NEAR-native stablecoin collateralized 1:1 by USDT.',
+    description: 'USN is a NEAR-native stablecoin collateralized 1:1 by USDT.',
   },
 } as const;
 

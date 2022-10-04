@@ -56,6 +56,7 @@ const _tokens = {
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+    documentation: 'https://docs.beefy.finance/',
   },
   MAI: {
     name: 'MAI',
@@ -203,6 +204,7 @@ const _tokens = {
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     logoURI: 'https://arbiscan.io/token/images/weth_28.png',
+    documentation: 'https://ethereum.org/en/developers/docs/',
   },
   BNB: {
     name: 'Binance',

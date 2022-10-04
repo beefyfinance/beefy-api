@@ -28,6 +28,7 @@ const _tokens = {
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+    documentation: 'https://docs.beefy.finance/',
   },
   USDC: {
     name: 'USD Coin',
@@ -51,6 +52,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x7C598c96D02398d89FbCb9d41Eab3DF0C16F227D.svg',
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+    documentation: 'https://ethereum.org/en/developers/docs/',
   },
   WBTC: {
     name: 'Wrapped BTC',

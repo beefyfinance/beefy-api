@@ -48,6 +48,7 @@ const _tokens = {
     website: 'https://overnight.fi/',
     description:
       'A risk-minimised USDC-pegged crypto asset backed by an underlying basket of USD stablecoins.',
+    documentation: 'https://docs.overnight.fi/',
   },
   spUSDT: {
     name: 'Stargate Tether USD LP',
@@ -798,6 +799,7 @@ const _tokens = {
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+    documentation: 'https://docs.beefy.finance/',
   },
   DAI: {
     name: 'Dai Stablecoin',
