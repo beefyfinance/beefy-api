@@ -9,6 +9,7 @@ const IToken = require('../../../abis/avax/BankerJoeIToken.json');
 const pools = require('../../../data/avax/bankerJoePools.json');
 const { BASE_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const rewardDistributor = '0x45B2C4139d96F44667577C0D7F7a7D170B420324';
 const BLOCKS_PER_YEAR = 31536000;
@@ -44,7 +45,8 @@ const getPoolApy = async pool => {
     );
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
-  const compoundedVxs = compound(totalVxs, BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  const compoundedVxs = compound(totalVxs, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedVxs).toNumber();
   return { [pool.name]: apy };
 };

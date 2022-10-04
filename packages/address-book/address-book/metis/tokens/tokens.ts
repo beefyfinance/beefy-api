@@ -190,10 +190,10 @@ const _tokens = {
     address: '0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD',
     chainId: 1088,
     decimals: 9,
-    logoURI:
-      'https://s2.coinmarketcap.com/static/img/coins/64x64/17181.png',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/17181.png',
     website: 'https://app.maiadao.io/',
-    description: 'MAIA is the governance token of Maia DAO, the yield powerhouse of Metis which launched the Solidly-fork Hermes. With a 100% fair launch Maia DAO is a truly community owned.',
+    description:
+      'MAIA is the governance token of Maia DAO, the yield powerhouse of Metis which launched the Solidly-fork Hermes. With a 100% fair launch Maia DAO is a truly community owned.',
   },
   HERMES: {
     name: 'Hermes',
@@ -201,10 +201,10 @@ const _tokens = {
     address: '0xb27BbeaACA2C00d6258C3118BAB6b5B6975161c8',
     chainId: 1088,
     decimals: 18,
-    logoURI:
-      'https://s2.coinmarketcap.com/static/img/coins/64x64/21272.png',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/21272.png',
     website: 'https://hermes.maiadao.io/',
-    description: 'HERMES is the governance token of the Solidly-fork Hermes Protocol on Metis. The token is emitted as a farming reward to liquidity providers and can be locked for a period to gain voting rights.',
+    description:
+      'HERMES is the governance token of the Solidly-fork Hermes Protocol on Metis. The token is emitted as a farming reward to liquidity providers and can be locked for a period to gain voting rights.',
   },
 } as const;
 

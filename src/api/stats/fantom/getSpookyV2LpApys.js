@@ -12,6 +12,7 @@ const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { SPOOKY_LPF } from '../../../constants';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const { spookyClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -41,7 +42,7 @@ const getSpookyV2LpApys = async () => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
-    const beefyPerformanceFee = pool.beefyFee ? pool.beefyFee : 0.045;
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });

@@ -6,6 +6,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const boardroom = '0x9197d717a4F45B672aCacaB4CC0C6e09222f8695';
 const mdx = '0x25D2e80cB6B86881Fd7e07dd263Fb79f4AbE033c';
@@ -19,7 +20,8 @@ const getHecoMdexMdxApy = async () => {
     getTotalStakedInUsd(),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('mdex-mdex');
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   //console.log('mdex-mdx', simpleApy.valueOf(), simpleApy, apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { 'mdex-mdx': apy };
 };

@@ -4,6 +4,7 @@ const fetch = require('node-fetch');
 const pools = require('../../../data/heco/hfiPools.json');
 const { compound } = require('../../../utils/compound');
 const { BASE_HPY } = require('../../../constants');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const getHfiApys = async () => {
   let apys = {};
@@ -17,7 +18,8 @@ const getHfiApys = async () => {
     const vaultDec = vaultApy / 100;
     const aprHfi = Number(poolStat['hfi_annual']);
     const aprDec = aprHfi / 100;
-    const hfiApy = compound(aprDec * 0.955, BASE_HPY, 1, 1);
+    const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+    const hfiApy = compound(aprDec * shareAfterBeefyPerformanceFee, BASE_HPY, 1, 1);
     const apy = vaultDec + hfiApy;
 
     // console.log(pool.name, apy);

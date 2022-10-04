@@ -10,6 +10,7 @@ const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd')
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 import { getContractWithProvider } from '../../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
+import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
 const { mdexBscClient } = require('../../../../apollo/client');
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY } = require('../../../../constants');
@@ -19,8 +20,6 @@ const ORACLE_ID = 'bscMDX';
 const DECIMALS = '1e18';
 
 const liquidityProviderFee = 0.002;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getMdexBscLpApys = async () => {
   let apys = {};
@@ -38,10 +37,18 @@ const getMdexBscLpApys = async () => {
 
   for (let item of values) {
     const simpleApr = item.simpleApr;
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(item.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[item.address.toLowerCase()] ?? new BigNumber(0);
-    const totalApy = getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, 0.955);
+    const totalApy = getFarmWithTradingFeesApy(
+      simpleApr,
+      tradingApr,
+      BASE_HPY,
+      1,
+      shareAfterBeefyPerformanceFee
+    );
     const legacyApyValue = { [item.name]: totalApy };
     // Add token to APYs object
     apys = { ...apys, ...legacyApyValue };

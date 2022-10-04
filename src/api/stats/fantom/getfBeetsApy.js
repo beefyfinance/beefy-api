@@ -9,6 +9,7 @@ const { BASE_HPY } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { getYearlyBalancerPlatformTradingFees } = require('../../../utils/getTradingFeeApr');
 const { beetClient } = require('../../../apollo/client');
 const getBlockTime = require('../../../utils/getBlockTime');
@@ -22,8 +23,6 @@ const SECONDS_PER_YEAR = 31536000;
 
 const liquidityProviderFee = 0.000375;
 const liquidityProviderFeeShare = 0.15;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getfBeetsApy = async () => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
@@ -48,6 +47,10 @@ const getfBeetsApy = async () => {
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(pool[0].decimals);
 
   const simpleApr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+
+  const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool[0].name);
+  const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+
   const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
   const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   const tradingApr = yearlyTradingFees.div(totalStakedInxTokenInUsd);

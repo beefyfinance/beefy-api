@@ -9,7 +9,7 @@ const getApys = [
   getNetswapApys,
   getMetisBifiGovApy,
   getMetisBifiMaxiApy,
-  getTethysApys
+  getTethysApys,
 ];
 
 const getMetisApys = async () => {

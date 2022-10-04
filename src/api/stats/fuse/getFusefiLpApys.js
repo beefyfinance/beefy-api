@@ -14,6 +14,7 @@ const { compound } = require('../../../utils/compound');
 const getBlockTime = require('../../../utils/getBlockTime');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getContract } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const {
   fuse: {
@@ -25,9 +26,6 @@ const oracle = 'tokens';
 const oracleId = 'WFUSE';
 const DECIMALS = '1e18';
 
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
-
 const getFusefiLpApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
@@ -38,10 +36,18 @@ const getFusefiLpApys = async () => {
 
   pools.forEach((pool, i) => {
     const simpleApy = farmApys[i];
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0);
-    const totalApy = getFarmWithTradingFeesApy(simpleApy, tradingApr, BASE_HPY, 1, 0.955);
+    const totalApy = getFarmWithTradingFeesApy(
+      simpleApy,
+      tradingApr,
+      BASE_HPY,
+      1,
+      shareAfterBeefyPerformanceFee
+    );
     const legacyApyValue = { [pool.name]: totalApy };
     // Add token to APYs object
     apys = { ...apys, ...legacyApyValue };

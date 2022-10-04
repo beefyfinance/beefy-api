@@ -1,6 +1,7 @@
 const BigNumber = require('bignumber.js');
 import Web3 from 'web3';
 import { getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
@@ -25,7 +26,9 @@ export const getBifiMaxiApys = async (params: BifiApyParams) => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, DAILY_HPY, 1, 0.9995);
+  const shareAfterBeefyPerformanceFee =
+    1 - getTotalPerformanceFeeForVault(params.chain + '-bifi-maxi');
+  const apy = compound(simpleApy, DAILY_HPY, 1, shareAfterBeefyPerformanceFee);
 
   return { [params.chain + '-bifi-maxi']: apy };
 };

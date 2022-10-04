@@ -12,7 +12,6 @@ const getYelApys = require('./yel/getYelApys');
 const getCakeV2PoolApy = require('./pancake/getCakeV2PoolApy');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getOOELpApys = require('./ooe/getOOELpApys');
-const getBifiMaxiV2Apy = require('./beefy/getBifiMaxiV2Apy');
 const getBifiGovApy = require('./beefy/getBifiGovApy');
 const getMoonpotApys = require('./pots/getMoonpotApys');
 const getBiswapApys = require('./biswap/getBiswapApys');
@@ -29,7 +28,6 @@ const getApys = [
   getBeltApys,
   getBifiGovApy,
   getBifiMaxiApy,
-  getBifiMaxiV2Apy,
   getBiswapApys,
   getCakeApys,
   getCakePoolApy,

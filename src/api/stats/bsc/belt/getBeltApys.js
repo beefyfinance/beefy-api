@@ -7,14 +7,10 @@ const VaultPool = require('../../../../abis/BeltVaultPool.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/beltPools.json');
 const { compound } = require('../../../../utils/compound');
-const {
-  BSC_CHAIN_ID,
-  BASE_HPY,
-  BEEFY_PERFORMANCE_FEE,
-  SHARE_AFTER_PERFORMANCE_FEE,
-} = require('../../../../constants');
+const { BSC_CHAIN_ID, BASE_HPY } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const masterbelt = '0xD4BbC80b9B102b77B21A06cb77E954049605E6c1';
 const oracleId = 'BELT';
@@ -47,17 +43,19 @@ const getPoolApy = async (masterchef, pool) => {
   ]);
   let simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   const baseApy = await fetchBeltLpBaseApr(pool);
-  const apy = compound(baseApy + simpleApy * 0.955, BASE_HPY, 1, 1);
+  const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+  const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+  const apy = compound(baseApy + simpleApy * shareAfterBeefyPerformanceFee, BASE_HPY, 1, 1);
   // console.log(pool.name, baseApy.valueOf(), simpleApy.valueOf(), apy, totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
 
   const apyBreakdown = {
     vaultApr: simpleApy.toNumber(),
     compoundingsPerYear: BASE_HPY,
-    beefyPerformanceFee: BEEFY_PERFORMANCE_FEE,
-    vaultApy: compound(simpleApy, BASE_HPY, 1, SHARE_AFTER_PERFORMANCE_FEE),
+    beefyPerformanceFee: beefyPerformanceFee,
+    vaultApy: compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee),
     lpFee: 0.001,
     tradingApr: baseApy,
-    totalApy: compound(baseApy + simpleApy * 0.955, BASE_HPY, 1, 1),
+    totalApy: compound(baseApy + simpleApy * shareAfterBeefyPerformanceFee, BASE_HPY, 1, 1),
   };
 
   return {

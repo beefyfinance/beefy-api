@@ -16,7 +16,7 @@ const tradingFee = 0.0004;
 
 const getJarvisApys = async () => {
   let promises = [];
-  const filteredPools = pools.filter(p => p.name != "jarvis-2eure"); // temp fix while trading APY is broken
+  const filteredPools = pools.filter(p => p.name != 'jarvis-2eure'); // temp fix while trading APY is broken
   const baseApys = await getCurveBaseApys(filteredPools, baseApyUrl);
   pools.forEach(pool => promises.push(getPoolApy(pool)));
   const farmAprs = await Promise.all(promises);

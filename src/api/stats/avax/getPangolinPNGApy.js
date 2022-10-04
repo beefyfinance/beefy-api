@@ -7,6 +7,7 @@ const { compound } = require('../../../utils/compound');
 const { DAILY_HPY } = require('../../../constants');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const PNG = '0x60781C2586D68229fde47564546784ab3fACA982';
 const REWARDS = '0x88afdaE1a9F58Da3E68584421937E5F564A0135b';
@@ -21,8 +22,9 @@ const getPangolinPNGApy = async () => {
     getTotalStakedInUsd(),
   ]);
 
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('png-png');
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, DAILY_HPY, 1, 0.955);
+  const apy = compound(simpleApy, DAILY_HPY, 1, shareAfterBeefyPerformanceFee);
 
   return { 'png-png': apy };
 };

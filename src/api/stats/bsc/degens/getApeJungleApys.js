@@ -10,6 +10,7 @@ const { BASE_HPY, BSC_CHAIN_ID, APE_LPF } = require('../../../../constants');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 import { getContract } from '../../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
 
 const { apeClient } = require('../../../../apollo/client');
 const { compound } = require('../../../../utils/compound');
@@ -38,7 +39,9 @@ const getApeJungleApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(pool.reward.decimals);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-    const shareAfterBeefyPerformanceFee = 1 - (pool.beefyFee ? pool.beefyFee : 0.045);
+
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
@@ -61,7 +64,7 @@ const getApeJungleApys = async () => {
       [pool.name]: {
         vaultApr: vaultApr.toNumber(),
         compoundingsPerYear: BASE_HPY,
-        beefyPerformanceFee: pool.beefyFee ? pool.beefyFee : 0.045,
+        beefyPerformanceFee,
         vaultApy: vaultApy,
         lpFee: APE_LPF,
         tradingApr: tradingApr.toNumber(),

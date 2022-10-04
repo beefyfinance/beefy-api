@@ -5,6 +5,7 @@ const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const oracle = 'tokens';
 const oracleId = 'LAVA';
@@ -20,7 +21,8 @@ const getLavaApy = async () => {
     getTotalStakedInUsd(),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, process.env.BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault('lava-lava');
+  const apy = compound(simpleApy, process.env.BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   //console.log('lava-lava', simpleApy.valueOf(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return { 'lava-lava': apy };
 };

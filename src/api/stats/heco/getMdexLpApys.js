@@ -10,14 +10,13 @@ const { BASE_HPY, HECO_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { mdexHecoClient } = require('../../../apollo/client');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 
 const hecoPool = '0xFB03e11D93632D97a8981158A632Dd5986F5E909';
 
 const liquidityProviderFee = 0.0014;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
 const getMdexLpApys = async () => {
   let apys = {};
@@ -34,10 +33,18 @@ const getMdexLpApys = async () => {
 
   for (let item of values) {
     const simpleApr = item.simpleApr;
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(item.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
     const tradingApr = tradingAprs[item.address.toLowerCase()] ?? new BigNumber(0);
-    const totalApy = getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, 0.955);
+    const totalApy = getFarmWithTradingFeesApy(
+      simpleApr,
+      tradingApr,
+      BASE_HPY,
+      1,
+      shareAfterBeefyPerformanceFee
+    );
     const legacyApyValue = { [item.name]: totalApy };
     // Add token to APYs object
     apys = { ...apys, ...legacyApyValue };

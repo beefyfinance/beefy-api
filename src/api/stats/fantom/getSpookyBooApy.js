@@ -9,6 +9,7 @@ const { BASE_HPY } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { getYearlyTradingFeesForProtocols } = require('../../../utils/getTradingFeeApr');
 const { spookyClient } = require('../../../apollo/client');
 
@@ -22,8 +23,6 @@ const DECIMALS = '1e18';
 const SECONDS_PER_YEAR = 31536000;
 
 const liquidityProviderFee = 0.0003;
-const beefyPerformanceFee = 0.045;
-const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 const afterBurn = 0.91;
 
 const getSpookyBooApy = async () => {
@@ -49,6 +48,8 @@ const getSpookyBooApy = async () => {
   const yearlyRewardsInUsd = yearlyRewards.times(rewardPrice).dividedBy(pool.rewardDecimals);
 
   const simpleApr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const beefyPerformanceFee = getTotalPerformanceFeeForVault('boo-boo');
+  const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
   const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
   const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   const tradingApr = yearlyTradingFees.div(totalStakedInxBOOInUsd);

@@ -9,6 +9,7 @@ const pools = require('../../../data/fantom/screamPools.json');
 const getBlockTime = require('../../../utils/getBlockTime');
 const { BASE_HPY, FANTOM_CHAIN_ID: chainId } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const COMPTROLLER = '0x260E596DAbE3AFc463e75B6CC05d8c46aCAcFB09';
 
@@ -46,7 +47,8 @@ const getPoolApy = async pool => {
     );
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
-  const compoundedVxs = compound(totalVxs, BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  const compoundedVxs = compound(totalVxs, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedVxs).toNumber();
   return { [pool.name]: apy };
 };

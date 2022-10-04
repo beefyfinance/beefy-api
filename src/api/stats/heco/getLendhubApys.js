@@ -8,6 +8,7 @@ const IToken = require('../../../abis/VToken.json');
 const pools = require('../../../data/heco/lendhubPools.json');
 const { BASE_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const COMPTROLLER = '0x6537d6307ca40231939985bcf7d83096dd1b4c09';
 const BLOCKS_PER_YEAR = 10512000;
@@ -45,7 +46,8 @@ const getPoolApy = async pool => {
     );
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
-  const compoundedVxs = compound(totalVxs, BASE_HPY, 1, 0.955);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  const compoundedVxs = compound(totalVxs, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedVxs).toNumber();
   return { [pool.name]: apy };
 };

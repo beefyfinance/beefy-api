@@ -9,6 +9,7 @@ const { compound } = require('../../../../utils/compound');
 const { HOURLY_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 
 const getCakeApys = async () => {
   let apys = {};
@@ -36,7 +37,8 @@ const getPoolApy = async pool => {
   ]);
 
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const apy = compound(simpleApy, HOURLY_HPY, 1, 0.94);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  const apy = compound(simpleApy, HOURLY_HPY, 1, shareAfterBeefyPerformanceFee);
 
   return { [pool.name]: apy };
 };

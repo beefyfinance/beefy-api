@@ -10,8 +10,6 @@ import {
   BASE_HPY,
   FANTOM_CHAIN_ID as chainId,
   SPOOKY_LPF as liquidityProviderFee,
-  BEEFY_PERFORMANCE_FEE as beefyPerformanceFee,
-  SHARE_AFTER_PERFORMANCE_FEE as shareAfterBeefyPerformanceFee,
 } from '../../../constants';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
@@ -19,6 +17,7 @@ import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { spookyClient } from '../../../apollo/client';
 import { compound } from '../../../utils/compound';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const masterchef = '0xe0c43105235C1f18EA15fdb60Bb6d54814299938';
 const rewardToken = 'CREDIT';
@@ -72,6 +71,8 @@ const getCreditumApys = async () => {
     const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(rewardDecimals);
 
     const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
+    const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApy.times(shareAfterBeefyPerformanceFee);
     const vaultApy = compound(simpleApy, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
