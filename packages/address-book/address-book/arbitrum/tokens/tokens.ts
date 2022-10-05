@@ -63,7 +63,7 @@ const _tokens = {
     logoURI: 'https://icons.llama.fi/arbinyan.jpg',
   },
   MIM: {
-    name: 'albracabra',
+    name: 'Magic Internet Money',
     address: '0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A',
     symbol: 'MIM',
     decimals: 18,
@@ -72,9 +72,10 @@ const _tokens = {
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
+    documentation: 'https://docs.abracadabra.money/',
   },
   SPELL: {
-    name: 'albracabra',
+    name: 'Spell Token',
     address: '0x3E6648C5a70A150A88bCE65F4aD4d506Fe15d2AF',
     symbol: 'SPELL',
     decimals: 18,
@@ -83,6 +84,7 @@ const _tokens = {
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
+    documentation: 'https://docs.abracadabra.money/',
   },
   WBTC: {
     chainId: 42161,

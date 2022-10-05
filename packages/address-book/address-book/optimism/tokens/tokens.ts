@@ -471,6 +471,18 @@ const _tokens = {
       'USX is the most important DeFi primitive within dForce’s protocol matrix, starting off with an over-collateralization design, where supported assets can be used as collaterals to mint USX within the respective approved LTV ratio (similar to DAI).',
     documentation: 'https://docs.dforce.network/protocols/usx',
   },
+  MIM: {
+    name: 'Magic Internet Money',
+    symbol: 'MIM',
+    address: '0xB153FB3d196A8eB25522705560ac152eeEc57901',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://abracadabra.money/',
+    description:
+      'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
+    documentation: 'https://docs.abracadabra.money/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
