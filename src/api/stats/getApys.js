@@ -105,7 +105,7 @@ const initApyService = async () => {
 const saveToRedis = async () => {
   await setKey('APY', apys);
   await setKey('APY_BREAKDOWN', apyBreakdowns);
-  console.log('APYs saved to redis');
+  console.log('> APYs saved to redis');
 };
 
 module.exports = { getApys, initApyService };

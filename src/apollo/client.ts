@@ -103,6 +103,9 @@ const tethysClient = client('https://graph-node.tethys.finance/subgraphs/name/te
 const tombswapClient = client('https://api.thegraph.com/subgraphs/name/github-qfg/tombswap');
 const biswapClient = client('https://api.thegraph.com/subgraphs/name/biswapcom/exchange5');
 const pegasysClient = client('https://graph.pegasys.exchange/subgraphs/name/pollum-io/pegasys');
+const uniswapPolygonClient = client(
+  'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon'
+);
 
 const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return (
@@ -172,4 +175,5 @@ export {
   tombswapClient,
   biswapClient,
   pegasysClient,
+  uniswapPolygonClient,
 };

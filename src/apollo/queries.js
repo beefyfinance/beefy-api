@@ -122,6 +122,19 @@ const balancerDataQuery = block => {
   return gql(queryString);
 };
 
+const uniswapPositionQuery = (strategy, block) => {
+  const queryString = `
+    query positionData {
+      positions(where: {owner: "${strategy}", _change_block: {number_gte: ${block}}}) {
+        id
+        collectedFeesToken0
+        collectedFeesToken1
+      }
+    }
+`;
+  return gql(queryString);
+};
+
 module.exports = {
   pairDayDataQuery,
   pairDayDataSushiQuery,
@@ -131,4 +144,5 @@ module.exports = {
   joeDayDataRangeQuery,
   balancerDataQuery,
   protocolDayDataRangeQuery,
+  uniswapPositionQuery,
 };

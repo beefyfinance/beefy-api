@@ -41,5 +41,5 @@ export const initMooTokenPriceService = async () => {
 
 const saveToRedis = async () => {
   await setKey('MOO_TOKEN_PRICES', mooTokenPrices);
-  console.log('mooToken prices saved to redis');
+  console.log('> mooToken prices saved to redis');
 };

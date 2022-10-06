@@ -60,7 +60,7 @@ const updateChainBoosts = async (chain: string, appUrlName: string) => {
 
 const saveToRedis = async () => {
   await setKey(REDIS_KEY, boostsByChain);
-  console.log('Boosts saved to redis');
+  console.log('> Boosts saved to redis');
 };
 
 export const initBoostService = async () => {
