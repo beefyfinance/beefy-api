@@ -1,5 +1,25 @@
 [
   {
+    "name": "uniswap-polygon-usdc-weth-0.05",
+    "address": "0x45dDa9cb7c25131DF268515131f647d726f50608",
+    "strategy": "0x5Cbf6FE22e97D7A909C2E6EED6FC4927CAFdD008",
+    "beefyFee": 0.095,
+    "poolFee": 0.05,
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "uniswap-polygon-wmatic-weth-0.05",
     "address": "0x86f1d8390222A3691C28938eC7404A1661E618e0",
     "strategy": "0xA1d5e40b0Aad11224580267009c6D00Da0ED4072",
