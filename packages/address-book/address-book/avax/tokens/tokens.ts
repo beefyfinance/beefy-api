@@ -4447,9 +4447,10 @@ const _tokens = {
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
+    documentation: 'https://docs.abracadabra.money/',
   },
   SPELL: {
-    name: 'albracabra',
+    name: 'Spell Token',
     address: '0xCE1bFFBD5374Dac86a2893119683F4911a2F7814',
     symbol: 'SPELL',
     decimals: 18,
@@ -4458,6 +4459,7 @@ const _tokens = {
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
+    documentation: 'https://docs.abracadabra.money/',
   },
   CRA: {
     name: 'CRA',

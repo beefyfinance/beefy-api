@@ -803,7 +803,7 @@ const _tokens = {
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/9007.png',
   },
   MIM: {
-    name: 'albracabra',
+    name: 'Magic Internet Money',
     address: '0x82f0B8B456c1A451378467398982d4834b6829c1',
     symbol: 'MIM',
     decimals: 18,
@@ -812,6 +812,7 @@ const _tokens = {
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
+    documentation: 'https://docs.abracadabra.money/',
   },
   DIS: {
     name: 'TosDis',
@@ -1368,6 +1369,7 @@ const _tokens = {
     website: 'https://abracadabra.money/',
     description: 'SPELL is the incentivation token of Abracadabra.money',
     logoURI: 'https://app.spiritswap.finance/images/tokens/SPELL.png',
+    documentation: 'https://docs.abracadabra.money/',
   },
   sSPELL: {
     name: 'Staked Spell Token',

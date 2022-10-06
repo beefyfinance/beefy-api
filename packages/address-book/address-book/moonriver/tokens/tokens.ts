@@ -309,6 +309,7 @@ const _tokens = {
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
+    documentation: 'https://docs.abracadabra.money/',
   },
   PETS: {
     name: 'PETS Token',
