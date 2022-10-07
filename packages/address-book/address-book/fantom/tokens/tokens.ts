@@ -351,6 +351,7 @@ const _tokens = {
     description:
       'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
     logoURI: 'https://app.deus.finance/tokens/dei.svg',
+    documentation: 'https://docs.deus.finance/',
   },
   DEI: {
     name: 'DEI',
@@ -362,6 +363,7 @@ const _tokens = {
     description:
       'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
     logoURI: 'https://app.deus.finance/tokens/dei.svg',
+    documentation: 'https://docs.deus.finance/',
   },
   DEUS: {
     name: 'DEUS',
@@ -373,6 +375,7 @@ const _tokens = {
     description:
       'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
     logoURI: 'https://app.deus.finance/tokens/deus.svg',
+    documentation: 'https://docs.deus.finance/',
   },
   WIGO: {
     name: 'WigoSwap',
