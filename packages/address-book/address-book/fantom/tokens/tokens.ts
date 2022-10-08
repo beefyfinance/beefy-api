@@ -723,8 +723,9 @@ const _tokens = {
     decimals: 18,
     website: 'https://www.mai.finance/',
     description:
-      "MAI is a stable coin collateralized by assets. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+      "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+    documentation: 'https://docs.mai.finance/',
   },
   BEETS: {
     name: 'Beethoven X Token',

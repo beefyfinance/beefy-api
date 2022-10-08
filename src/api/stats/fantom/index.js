@@ -28,6 +28,7 @@ const getStargateApys = require('./getStargateFantomApys');
 const getSolaceApy = require('./getSolaceApy');
 const getSolidlyApys = require('./getSolidlyApys');
 const getSpiritV2Apys = require('./getSpiritV2Apys');
+const getMaiCurveApys = require('./getMaiCurveApys');
 
 const getApys = [
   getSpiritV2Apys,
@@ -60,6 +61,7 @@ const getApys = [
   getStargateApys,
   getSolaceApy,
   getSolidlyApys,
+  getMaiCurveApys,
 ];
 
 const getFantomApys = async () => {
