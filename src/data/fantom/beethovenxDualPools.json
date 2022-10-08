@@ -4,6 +4,7 @@
     "address": "0x4E415957AA4Fd703ad701e43Ee5335D1D7891D83",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
     "vaultPoolId": "0x4e415957aa4fd703ad701e43ee5335d1d7891d8300020000000000000000053b",
+    "beefyFee": 0.095,
     "poolId": 96,
     "oracleB": "tokens",
     "oracleIdB": "DEUS",
