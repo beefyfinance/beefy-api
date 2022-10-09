@@ -1,0 +1,31 @@
+[
+  {
+    "name": "bbrfaUSD",
+    "address": "0x6222ae1d2a9f6894dA50aA25Cb7b303497f9BEbd",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x6222ae1d2a9f6894da50aa25cb7b303497f9bebd000000000000000000000046",
+    "decimals": "1e18",
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbrfaDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbrfaUSDT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbrfaUSDC",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

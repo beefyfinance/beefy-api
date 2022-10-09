@@ -10,6 +10,8 @@ import { fetchstDOTPrice } from '../../utils/fetchstDOTPrice';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 import { fetchCurrencyPrices } from '../../utils/fetchCurrencyPrices';
 import { getKey, setKey } from '../../utils/redisHelper';
+import getBeetsOPLinearPrices from './optimism/getBeetsOPLinearPrices';
+import getSteadyBeetsPrice from './optimism/getSteadyBeetsPrice';
 
 import getNonAmmPrices from './getNonAmmPrices';
 import bakeryPools from '../../data/bakeryLpPools.json';
@@ -245,6 +247,7 @@ import radiantPools from '../../data/arbitrum/radiantLpPools.json';
 import conePools from '../../data/coneLpPools.json';
 import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
+import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -585,6 +588,14 @@ const updateAmmPrices = async () => {
       return await fetchstDOTPrice(tokenPrices);
     });
 
+    const linearPoolPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+      const vaultPrices = await fetchVaultPrices(tokenPrices);
+      const prices = { ...tokenPrices, ...vaultPrices };
+      const linearPrices = await getBeetsOPLinearPrices(prices);
+      const steadyBeetsPrice = await getSteadyBeetsPrice(linearPrices);
+      return { ...linearPrices, ...steadyBeetsPrice };
+    });
+
     const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       return {
         beJOE: tokenPrices['JOE'],
@@ -602,6 +613,7 @@ const updateAmmPrices = async () => {
       const stDOTTokenPrice = await stDOTPrice;
       const stargateTokenPrices = await stargatePrices;
       const beTokenTokenPrice = await beTokenPrice;
+      const linearPoolTokenPrice = await linearPoolPrice;
       return {
         ...tokenPrices,
         ...dmm.tokenPrices,
@@ -611,6 +623,7 @@ const updateAmmPrices = async () => {
         ...beFtmTokenPrice,
         ...beTokenTokenPrice,
         ...stDOTTokenPrice,
+        ...linearPoolTokenPrice,
         ...(await coinGeckoPrices()),
         ...(await currencyPrices()),
       };
