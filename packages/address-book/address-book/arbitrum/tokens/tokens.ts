@@ -250,7 +250,7 @@ const _tokens = {
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
     symbol: 'wstETH',
-    address: '0x0C4681e6C0235179ec3D4F4fc4DF3d14FDD96017',
+    address: '0x5979D7b546E38E414F7E9822514be443A4800529',
     chainId: 42161,
     decimals: 18,
     website: 'https://lido.fi/',
