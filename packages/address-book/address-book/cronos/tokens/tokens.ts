@@ -286,12 +286,24 @@ const _tokens = {
   BUSD: {
     name: 'BUSD Token',
     symbol: 'BUSD',
-    address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
+    address: '0xC74D59A548ecf7fc1754bb7810D716E9Ac3e3AE5',
     chainId: 25,
     decimals: 18,
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
+    logoURI:
+      'https://app.cronaswap.org/images/tokens/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8.svg',
+  },
+  BUSDb: {
+    name: 'BUSD Token (Multichain)',
+    symbol: 'BUSD',
+    address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
+    chainId: 25,
+    decimals: 18,
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'Multichain bridged Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
       'https://app.cronaswap.org/images/tokens/0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8.svg',
   },
