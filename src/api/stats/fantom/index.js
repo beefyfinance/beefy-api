@@ -1,5 +1,6 @@
 const getSpookyBooApy = require('./getSpookyBooApy');
 const getSpookyV2LpApys = require('./getSpookyV2LpApys');
+const getSpookyV3LpApys = require('./getSpookyV3LpApys');
 const getFantomBifiGovApy = require('./getFantomBifiGovApy');
 const { getFantomBifiMaxiApy } = require('./getFantomBifiMaxiApy');
 const getTombApys = require('./getTombApys');
@@ -34,6 +35,7 @@ const getApys = [
   getSushiLpApys,
   getSpookyBooApy,
   getSpookyV2LpApys,
+  getSpookyV3LpApys,
   getFantomBifiGovApy,
   getFantomBifiMaxiApy,
   getTombApys,
