@@ -279,5 +279,28 @@
         "decimals": "1e6"
       }
     ]
+  },
+  {
+    "name": "curve-ftm-mai",
+    "pool": "0xA58F16498c288c357e28EE899873fF2b55D7C437",
+    "beefyFee": 0.095,
+    "rewards": [],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "fUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
   }
 ]

@@ -94,7 +94,8 @@ const _tokens = {
     logoURI: '',
     website: 'https://www.mai.finance/',
     description:
-      "MAI is a stable coin collateralized by assets. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+      "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    documentation: 'https://docs.mai.finance/',
   },
   QI: {
     name: 'QiDao',
@@ -105,7 +106,8 @@ const _tokens = {
     logoURI: '',
     website: 'https://www.mai.finance/',
     description:
-      'Qi (pronounced CHEE) is the governance token of the QiDao Protocol. It allows those who hold it to vote on changes to the QiDao Protocol.',
+      'QiDao is a self-sustaining, community-governed protocol that allows you to borrow stablecoins interest-free against your crypto assets used as collateral. Loans are paid out and repaid in miTokens (stablecoin soft pegged to the USD).',
+    documentation: 'https://docs.mai.finance/',
   },
   BNBx: {
     name: 'Liquid Staking BNB',
