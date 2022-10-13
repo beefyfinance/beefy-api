@@ -43,12 +43,7 @@ const getPoolApy = async pool => {
     getTotalStakedInUsd(web3, pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  console.log(
-    pool.name,
-    simpleApy.toNumber(),
-    totalStakedInUsd.valueOf(),
-    yearlyRewardsInUsd.valueOf()
-  );
+  // console.log( pool.name, simpleApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return simpleApy;
 };
 

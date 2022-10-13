@@ -101,6 +101,7 @@ clients.metis.push(new ethers.providers.JsonRpcProvider(METIS_RPC));
 clients.moonbeam.push(new ethers.providers.JsonRpcProvider(MOONBEAM_RPC));
 clients.sys.push(new ethers.providers.JsonRpcProvider(SYS_RPC));
 clients.emerald.push(new ethers.providers.JsonRpcProvider(EMERALD_RPC));
+clients.optimism.push(new ethers.providers.JsonRpcProvider(OPTIMISM_RPC));
 clients.kava.push(new ethers.providers.JsonRpcProvider(KAVA_RPC));
 
 export const chainRandomClients = {
