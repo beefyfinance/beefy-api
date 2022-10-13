@@ -174,6 +174,7 @@ const _tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 43114,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
+    documentation: 'https://developers.circle.com/docs',
   },
   saUSDT: {
     name: 'Stargate Tether USD LP',
@@ -4439,6 +4440,7 @@ const _tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
+    documentation: 'https://developers.circle.com/docs',
   },
   MIM: {
     name: 'Magic Internet Money',
@@ -4564,6 +4566,7 @@ const _tokens = {
     name: 'USD Coin',
     symbol: 'USDC',
     website: 'https://www.circle.com/usdc',
+    documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     logoURI:

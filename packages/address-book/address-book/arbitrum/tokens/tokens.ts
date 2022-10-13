@@ -39,6 +39,7 @@ const _tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 42161,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
+    documentation: 'https://developers.circle.com/docs',
   },
   SUSHI: {
     name: 'Sushi',

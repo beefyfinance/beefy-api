@@ -74,6 +74,7 @@ const _tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xEA32A96608495e54156Ae48931A7c20f0dcc1a21.svg',
     website: 'https://www.circle.com/usdc',
+    documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
