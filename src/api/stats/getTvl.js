@@ -50,7 +50,7 @@ const {
   OPTIMISM_VAULTS_ENDPOINT,
 
   KAVA_CHAIN_ID,
-  //KAVA_VAULTS_ENDPOINT,
+  KAVA_VAULTS_ENDPOINT,
 
   SYS_CHAIN_ID,
   //SYS_VAULTS_ENDPOINT,
@@ -148,11 +148,11 @@ const chains = [
     vaultsEndpoint: OPTIMISM_VAULTS_ENDPOINT,
     governancePool: require('../../data/optimism/governancePool.json'),
   },
-  // {
-  // chainId: KAVA_CHAIN_ID,
-  // vaultsEndpoint: KAVA_VAULTS_ENDPOINT,
-  // governancePool: require('../../data/kava/governancePool.json'),
-  // },
+  {
+    chainId: KAVA_CHAIN_ID,
+    vaultsEndpoint: KAVA_VAULTS_ENDPOINT,
+    // governancePool: require('../../data/kava/governancePool.json'),
+  },
 ];
 
 const getTvl = () => {
