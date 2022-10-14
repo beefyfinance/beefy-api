@@ -34,4 +34,12 @@ export const etherscanApiUrlMap = {
     url: 'https://api.cronoscan.com',
     apiToken: 'YPA7TM6IBEYHVVG9S5WQZT7URDNFVNTRDJ',
   },
+  moonbeam: {
+    url: 'https://api-moonbeam.moonscan.io/',
+    apiToken: '8THZGIQCVDJ86DTNDBZ8WB5G4F4DH9NZCQ',
+  },
+  optimism: {
+    url: 'https://api-optimistic.etherscan.io',
+    apiToken: 'PZ2NFPV2XVNMAP5A6ZMZ92U7SXYJNCIGQX',
+  },
 } as const;
