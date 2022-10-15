@@ -148,7 +148,10 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
     const multicall = new Multicall({
       web3Instance: web3,
       tryAggregate: true,
-      multicallCustomContractAddress: '0xcA11bde05977b3631167028862bE2a173976CA11',
+      multicallCustomContractAddress:
+        chainId === 2222
+          ? '0xdAaD0085e5D301Cb5721466e600606AB5158862b'
+          : '0xcA11bde05977b3631167028862bE2a173976CA11',
     });
     const contractCallContext: ContractCallContext[] = [];
 
