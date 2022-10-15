@@ -1,0 +1,32 @@
+[
+  {
+    "name": "curve-kava-3pool",
+    "pool": "0x7A0e3b70b1dB0D6CA63Cac240895b2D21444A7b9",
+    "token": "0x7A0e3b70b1dB0D6CA63Cac240895b2D21444A7b9",
+    "gauge": "0x8004216BED6B6A8E6653ACD0d45c570ed712A632",
+    "boosted": true,
+    "rewards": [
+      {
+        "token": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+        "oracleId": "KAVA"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]

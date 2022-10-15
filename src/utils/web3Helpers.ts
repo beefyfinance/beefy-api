@@ -37,6 +37,8 @@ import {
   EMERALD_CHAIN_ID,
   OPTIMISM_RPC,
   OPTIMISM_CHAIN_ID,
+  KAVA_RPC,
+  KAVA_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -57,6 +59,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.sys]: addressBookByChainId[ChainId.sys].platforms.beefyfinance.multicall,
   [ChainId.emerald]: addressBookByChainId[ChainId.emerald].platforms.beefyfinance.multicall,
   [ChainId.optimism]: addressBookByChainId[ChainId.optimism].platforms.beefyfinance.multicall,
+  [ChainId.kava]: addressBookByChainId[ChainId.kava].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -77,6 +80,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   sys: [],
   emerald: [],
   optimism: [],
+  kava: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -97,6 +101,7 @@ clients.moonbeam.push(new Web3(MOONBEAM_RPC));
 clients.sys.push(new Web3(SYS_RPC));
 clients.emerald.push(new Web3(EMERALD_RPC));
 clients.optimism.push(new Web3(OPTIMISM_RPC));
+clients.kava.push(new Web3(KAVA_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -116,6 +121,7 @@ export const chainRandomClients = {
   sysRandomClient: () => clients.sys[~~(clients.sys.length * Math.random())],
   emeraldRandomClient: () => clients.emerald[~~(clients.emerald.length * Math.random())],
   optimismRandomClient: () => clients.optimism[~~(clients.optimism.length * Math.random())],
+  kavaRandomClient: () => clients.kava[~~(clients.kava.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -154,6 +160,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.emeraldRandomClient();
     case OPTIMISM_CHAIN_ID:
       return chainRandomClients.optimismRandomClient();
+    case KAVA_CHAIN_ID:
+      return chainRandomClients.kavaRandomClient();
   }
 };
 

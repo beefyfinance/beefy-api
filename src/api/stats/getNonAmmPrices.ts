@@ -34,6 +34,7 @@ import getSpiritStablePrices from './fantom/getSpiritStablePrices';
 import getHermesStablePrices from './metis/getHermesStablePrices';
 import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 import getUniV3PolygonPrices from './matic/getUniV3PolygonPrices';
+import getCurveKavaPrices from './kava/getCurvePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
@@ -68,6 +69,7 @@ const getNonAmmPrices = async tokenPrices => {
     getCurveHarmonyPrices(tokenPrices),
     getCurveOptimismPrices(tokenPrices),
     getCurveMoonbeamPrices(tokenPrices),
+    getCurveKavaPrices(tokenPrices),
     getRosePrices(tokenPrices),
     getDopplePrices(),
     getIronSwapPrices(),

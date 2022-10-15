@@ -49,6 +49,9 @@ const {
   OPTIMISM_CHAIN_ID,
   OPTIMISM_VAULTS_ENDPOINT,
 
+  KAVA_CHAIN_ID,
+  KAVA_VAULTS_ENDPOINT,
+
   SYS_CHAIN_ID,
   //SYS_VAULTS_ENDPOINT,
 } = require('../../constants');
@@ -144,6 +147,11 @@ const chains = [
     chainId: OPTIMISM_CHAIN_ID,
     vaultsEndpoint: OPTIMISM_VAULTS_ENDPOINT,
     governancePool: require('../../data/optimism/governancePool.json'),
+  },
+  {
+    chainId: KAVA_CHAIN_ID,
+    vaultsEndpoint: KAVA_VAULTS_ENDPOINT,
+    // governancePool: require('../../data/kava/governancePool.json'),
   },
 ];
 

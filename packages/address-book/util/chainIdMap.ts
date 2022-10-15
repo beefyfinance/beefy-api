@@ -16,6 +16,7 @@ const chainIdMap = {
   sys: 57,
   emerald: 42262,
   optimism: 10,
+  kava: 2222,
 };
 
 export default chainIdMap;

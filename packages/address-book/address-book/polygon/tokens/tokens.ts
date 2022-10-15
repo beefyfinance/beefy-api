@@ -34,6 +34,7 @@ const _tokens = {
     symbol: 'spUSDC',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
+    documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 137,

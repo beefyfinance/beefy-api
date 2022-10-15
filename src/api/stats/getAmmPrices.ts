@@ -511,6 +511,7 @@ const coinGeckoCoins = [
   'ethereum',
   'rocket-pool-eth',
   'wrapped-steth',
+  'kava',
 ];
 
 const currencies = ['cad'];
@@ -557,6 +558,7 @@ const updateAmmPrices = async () => {
         alETH: prices['ethereum'],
         rETH: prices['rocket-pool-eth'],
         wstETH: prices['wrapped-steth'],
+        KAVA: prices['kava'],
       };
     };
 
