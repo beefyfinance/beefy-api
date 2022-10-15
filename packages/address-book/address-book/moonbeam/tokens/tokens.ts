@@ -30,6 +30,18 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  ETHwh: {
+    name: 'Wrapped Ether',
+    symbol: 'WETH',
+    address: '0xab3f0245B83feB11d15AAffeFD7AD465a59817eD',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
+    website: 'https://www.portalbridge.com/#/transfer',
+    description:
+      'ETHwh is a bridged version of native ETH from the Wormhole(Portal) portal. ETH is the native currency that flows within the Ethereum ecosystem.',
+  },
   USDCwh: {
     name: 'USD Coin',
     symbol: 'USDC',
