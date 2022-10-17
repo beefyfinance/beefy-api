@@ -35,12 +35,14 @@ import getHermesStablePrices from './metis/getHermesStablePrices';
 import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 import getUniV3PolygonPrices from './matic/getUniV3PolygonPrices';
 import getCurveKavaPrices from './kava/getCurvePrices';
+import getSushiKavaPrices from './kava/getSushiPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getSushiKavaPrices(tokenPrices),
     getUniV3PolygonPrices(tokenPrices),
     getHermesStablePrices(tokenPrices),
     getCakeStablePrices(tokenPrices),

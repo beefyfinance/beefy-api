@@ -42,6 +42,7 @@ const sushiFantomClient = client(
   'https://api.thegraph.com/subgraphs/name/sushiswap/fantom-exchange'
 );
 const sushiFuseClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/fuse-exchange');
+const sushiKavaClient = client('https://pvt.graph.kava.io/subgraphs/name/sushi-0m/trident-kava/graphql');
 const comethClient = client('https://api.thegraph.com/subgraphs/name/cometh-game/comethswap');
 const quickClient = client('https://api.fura.org/subgraphs/name/quickswap');
 const polyzapClient = client('https://api.thegraph.com/subgraphs/name/polyzap/exchange');
@@ -117,7 +118,8 @@ const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
     client === sushiMoonriverClient ||
     client === sushiFantomClient ||
     client === sushiFuseClient ||
-    client === dinoClient
+    client === dinoClient ||
+    client === sushiKavaClient
   );
 };
 
@@ -137,6 +139,7 @@ export {
   sushiMoonriverClient,
   sushiFantomClient,
   sushiFuseClient,
+  sushiKavaClient,
   isSushiClient,
   comethClient,
   quickClient,

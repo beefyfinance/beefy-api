@@ -1,6 +1,7 @@
 const getCurveApys = require('./getCurveApys');
+const { getSushiLpApys } = require('./getSushiLpApys');
 
-const getApys = [getCurveApys];
+const getApys = [getCurveApys, getSushiLpApys];
 
 const getKavaApys = async () => {
   let apys = {};
