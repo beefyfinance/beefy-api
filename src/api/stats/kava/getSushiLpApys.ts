@@ -35,6 +35,6 @@ export const getSushiLpApys = () => {
     tradingClient: sushiKavaClient,
     web3: kavaWeb3,
     chainId: KAVA_CHAIN_ID,
-    log: true,
+    // log: true,
   });
 };
