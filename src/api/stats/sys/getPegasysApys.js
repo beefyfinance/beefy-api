@@ -41,7 +41,7 @@ const getPegasysApys = async () => {
   const { balances, allocPoints, rewarders } = await getPoolsData(pools);
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(pegasysClient, pairAddresses, PEGASYS_LPF);
+  const tradingAprs = 0;
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
