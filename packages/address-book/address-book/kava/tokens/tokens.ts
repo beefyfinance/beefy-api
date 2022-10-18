@@ -4,7 +4,7 @@ import Token from '../../../types/token';
 const KAVA = {
   name: 'Wrapped KAVA',
   address: '0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b',
-  symbol: 'KAVA',
+  symbol: 'WKAVA',
   decimals: 18,
   chainId: 2222,
   website: 'https://www.kava.io/',

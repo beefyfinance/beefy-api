@@ -559,6 +559,7 @@ const updateAmmPrices = async () => {
         rETH: prices['rocket-pool-eth'],
         wstETH: prices['wrapped-steth'],
         KAVA: prices['kava'],
+        WKAVA: prices['kava'],
       };
     };
 
