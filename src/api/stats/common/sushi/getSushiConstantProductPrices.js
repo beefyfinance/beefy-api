@@ -21,9 +21,9 @@ const getSushiConstantProductPrices = async (web3, pools, tokenPrices) => {
 
 const getPoolPrice = async (web3, pool, tokenPrices) => {
   try {
-    let price;
+    let price = {};
     price = await getPoolData(web3, pool, tokenPrices);
-    return { [pool.name]: price };
+    return price;
   } catch (err) {
     console.log('error on pool ' + pool.name);
     throw err;
