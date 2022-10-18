@@ -242,8 +242,8 @@ const mapMulticallResults = (results: ContractCallResults): StrategyCallResponse
               call: new BigNumber(callReturn.returnValues[0][2].hex),
               strategist: new BigNumber(callReturn.returnValues[0][3].hex),
             },
-            withdraw: new BigNumber(callReturn.returnValues[1].hex),
-            deposit: new BigNumber(callReturn.returnValues[2].hex),
+            deposit: new BigNumber(callReturn.returnValues[1].hex),
+            withdraw: new BigNumber(callReturn.returnValues[2].hex),
           };
         } else if (callReturn.reference === 'breakdown') {
           mappedObject[callReturn.reference] = {
