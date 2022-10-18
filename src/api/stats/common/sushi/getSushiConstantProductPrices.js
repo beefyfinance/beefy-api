@@ -32,7 +32,11 @@ const getPoolPrice = async (web3, pool, tokenPrices) => {
 
 const getPoolData = async (web3, pool, tokenPrices) => {
   const promises = [];
-  promises.push(getContractWithProvider(ISushiConstantProductLP, pool.address, web3).methods.getNativeReserves().call());
+  promises.push(
+    getContractWithProvider(ISushiConstantProductLP, pool.address, web3)
+      .methods.getNativeReserves()
+      .call()
+  );
   promises.push(getContractWithProvider(ERC20, pool.address, web3).methods.totalSupply().call());
 
   const results = await Promise.all(promises);
@@ -50,7 +54,14 @@ const getPoolData = async (web3, pool, tokenPrices) => {
 
   // console.log(pool.name, lp0BalInUsd.valueOf(), lp1BalInUsd.valueOf(), totalBalInUsd.valueOf(), totalSupply.valueOf());
 
-  return price;
+  return {
+    [pool.name]: {
+      price,
+      tokens: [pool.lp0.address, pool.lp1.address],
+      balances: [lp0Bal.toString(10), lp1Bal.toString(10)],
+      totalSupply: totalSupply.toString(10),
+    },
+  };
 };
 
 const getTokenPrice = (tokenPrices, oracleId) => {
