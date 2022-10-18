@@ -196,6 +196,68 @@
   },
   {
     "inputs": [],
+    "name": "getAllFees",
+    "outputs": [
+      {
+        "components": [
+          {
+            "components": [
+              {
+                "internalType": "uint256",
+                "name": "total",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "beefy",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "call",
+                "type": "uint256"
+              },
+              {
+                "internalType": "uint256",
+                "name": "strategist",
+                "type": "uint256"
+              },
+              {
+                "internalType": "string",
+                "name": "label",
+                "type": "string"
+              },
+              {
+                "internalType": "bool",
+                "name": "active",
+                "type": "bool"
+              }
+            ],
+            "internalType": "struct IFeeConfig.FeeCategory",
+            "name": "beefy",
+            "type": "tuple"
+          },
+          {
+            "internalType": "uint256",
+            "name": "deposit",
+            "type": "uint256"
+          },
+          {
+            "internalType": "uint256",
+            "name": "withdraw",
+            "type": "uint256"
+          }
+        ],
+        "internalType": "struct IFeeConfig.AllFees",
+        "name": "",
+        "type": "tuple"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
     "name": "getFees",
     "outputs": [
       {

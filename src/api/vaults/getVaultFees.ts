@@ -36,6 +36,7 @@ interface PerformanceFee {
 interface VaultFeeBreakdown {
   performance: PerformanceFee;
   withdraw: number;
+  deposit?: number;
   lastUpdated: number;
 }
 
@@ -43,6 +44,13 @@ interface FeeBatchDetail {
   address: string;
   treasurySplit: number;
   stakerSplit: number;
+}
+
+interface PerformanceFeeCallResponse {
+  total: BigNumber;
+  beefy: BigNumber;
+  strategist: BigNumber;
+  call: BigNumber;
 }
 
 interface StrategyCallResponse {
@@ -60,11 +68,11 @@ interface StrategyCallResponse {
   treasury?: number;
   rewards?: number;
   rewards2?: number;
-  breakdown?: {
-    total: BigNumber;
-    beefy: BigNumber;
-    strategist: BigNumber;
-    call: BigNumber;
+  breakdown?: PerformanceFeeCallResponse;
+  allFees?: {
+    performance: PerformanceFeeCallResponse;
+    withdraw: BigNumber;
+    deposit: BigNumber;
   };
   maxFee?: number;
   maxFee2?: number;
@@ -174,6 +182,7 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
           { reference: 'rewards', methodName: 'REWARDS_FEE', methodParameters: [] },
           { reference: 'rewards2', methodName: 'rewardsFee', methodParameters: [] },
           { reference: 'breakdown', methodName: 'getFees', methodParameters: [] },
+          { reference: 'allFees', methodName: 'getAllFees', methodParameters: [] },
           { reference: 'maxFee', methodName: 'MAX_FEE', methodParameters: [] },
           { reference: 'maxFee2', methodName: 'max', methodParameters: [] },
           { reference: 'maxFee3', methodName: 'maxfee', methodParameters: [] },
@@ -225,7 +234,18 @@ const mapMulticallResults = (results: ContractCallResults): StrategyCallResponse
 
     result.callsReturnContext.forEach(callReturn => {
       if (callReturn.decoded) {
-        if (callReturn.reference === 'breakdown') {
+        if (callReturn.reference === 'allFees') {
+          mappedObject[callReturn.reference] = {
+            performance: {
+              total: new BigNumber(callReturn.returnValues[0][0].hex),
+              beefy: new BigNumber(callReturn.returnValues[0][1].hex),
+              call: new BigNumber(callReturn.returnValues[0][2].hex),
+              strategist: new BigNumber(callReturn.returnValues[0][3].hex),
+            },
+            withdraw: new BigNumber(callReturn.returnValues[1].hex),
+            deposit: new BigNumber(callReturn.returnValues[2].hex),
+          };
+        } else if (callReturn.reference === 'breakdown') {
           mappedObject[callReturn.reference] = {
             total: new BigNumber(callReturn.returnValues[0].hex),
             beefy: new BigNumber(callReturn.returnValues[1].hex),
@@ -254,6 +274,8 @@ const mapStrategyCallsToFeeBreakdown = (
 
   let performanceFee = performanceFeesFromCalls(contractCalls, feeBatch);
 
+  let depositFee = depositFeeFromCalls(contractCalls);
+
   if (withdrawFee === undefined) {
     console.log(`Failed to find withdrawFee for ${contractCalls.id}`);
     return undefined;
@@ -265,12 +287,22 @@ const mapStrategyCallsToFeeBreakdown = (
   return {
     performance: performanceFee,
     withdraw: withdrawFee,
+    ...(depositFee != null ? { deposit: depositFee } : {}),
     lastUpdated: Date.now(),
   };
 };
 
+const depositFeeFromCalls = (contractCalls: StrategyCallResponse): number => {
+  if (contractCalls.allFees) {
+    return contractCalls.allFees.deposit.toNumber() / 10000;
+  }
+  return null; // null and not 0 so that we can avoid adding this into the response for old strategies (fees hardcoded in vault files)
+};
+
 const withdrawalFeeFromCalls = (contractCalls: StrategyCallResponse): number => {
-  if (
+  if (contractCalls.allFees) {
+    return contractCalls.allFees.withdraw.toNumber() / 10000;
+  } else if (
     (contractCalls.withdraw === undefined && contractCalls.withdraw2 === undefined) ||
     (contractCalls.withdrawMax === undefined && contractCalls.withdrawMax2 === undefined) ||
     contractCalls.paused
@@ -287,9 +319,11 @@ const performanceFeesFromCalls = (
   contractCalls: StrategyCallResponse,
   feeBatch: FeeBatchDetail
 ): PerformanceFee => {
-  if (contractCalls.breakdown !== undefined) {
+  if (contractCalls.allFees !== undefined) {
+    return performanceFromGetFees(contractCalls.allFees.performance, feeBatch);
+  } else if (contractCalls.breakdown !== undefined) {
     //newest method
-    return performanceFromGetFees(contractCalls, feeBatch);
+    return performanceFromGetFees(contractCalls.breakdown, feeBatch);
   } else if (contractCalls.id.includes('-maxi')) {
     return performanceForMaxi(contractCalls);
   } else {
@@ -389,11 +423,9 @@ const legacyFeeMappings = (
 };
 
 const performanceFromGetFees = (
-  contractCalls: StrategyCallResponse,
+  fees: PerformanceFeeCallResponse,
   feeBatch: FeeBatchDetail
 ): PerformanceFee => {
-  const fees = contractCalls.breakdown;
-
   let total = fees.total.div(1e9).toNumber() / 1e9;
   let beefy = fees.beefy.div(1e9).toNumber() / 1e9;
   let call = fees.call.div(1e9).toNumber() / 1e9;
