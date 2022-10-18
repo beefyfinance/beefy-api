@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
       "oracle": "tokens",
-      "oracleId": "KAVA",
+      "oracleId": "WKAVA",
       "decimals": "1e18"
     },
     "lp1": {
@@ -33,7 +33,7 @@
     "lp1": {
       "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
       "oracle": "tokens",
-      "oracleId": "KAVA",
+      "oracleId": "WKAVA",
       "decimals": "1e18"
     }
   },
@@ -65,7 +65,7 @@
     "lp0": {
       "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
       "oracle": "tokens",
-      "oracleId": "KAVA",
+      "oracleId": "WKAVA",
       "decimals": "1e18"
     },
     "lp1": {
@@ -90,7 +90,7 @@
     "lp1": {
       "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
       "oracle": "tokens",
-      "oracleId": "KAVA",
+      "oracleId": "WKAVA",
       "decimals": "1e18"
     }
   }
