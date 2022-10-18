@@ -30,6 +30,18 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  WBTCwh: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    address: '0xE57eBd2d67B462E9926e04a8e33f01cD0D64346D',
+    chainId: 1284,
+    decimals: 8,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x1DC78Acda13a8BC4408B207c9E48CDBc096D95e0.svg',
+    website: 'https://www.portalbridge.com/#/transfer',
+    description:
+      'WBTCwh is a bridged version of WBTC from the Wormhole(Portal) portal. Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+  },
   ETHwh: {
     name: 'Wrapped Ether',
     symbol: 'WETH',
