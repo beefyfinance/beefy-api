@@ -1,0 +1,97 @@
+[
+  {
+    "name": "sushi-kava-wkava-usdc",
+    "address": "0x88395b86cF9787E131D2fB5462a22b44056BF574",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 2222,
+    "lp0": {
+      "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+      "oracle": "tokens",
+      "oracleId": "KAVA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "sushi-kava-sushi-wkava",
+    "address": "0x52089cd962A5665498aEA8D57576e2d3f68eb47D",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 2222,
+    "lp0": {
+      "address": "0x7C598c96D02398d89FbCb9d41Eab3DF0C16F227D",
+      "oracle": "tokens",
+      "oracleId": "SUSHI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+      "oracle": "tokens",
+      "oracleId": "KAVA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-kava-wbtc-eth",
+    "address": "0x8070cfc234C4b7f3Ec2AE873885390973f5b15C0",
+    "decimals": "1e18",
+    "poolId": 8,
+    "chainId": 2222,
+    "lp0": {
+      "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-kava-wkava-eth",
+    "address": "0xe9c40Af74FCfb85B38Db2a74a7d5d22D731660f5",
+    "decimals": "1e18",
+    "poolId": 7,
+    "chainId": 2222,
+    "lp0": {
+      "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+      "oracle": "tokens",
+      "oracleId": "KAVA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-kava-usdt-wkava",
+    "address": "0x5B3b7e769ebb5F35262B1cE532f230ed4EBB9C51",
+    "decimals": "1e18",
+    "poolId": 1,
+    "chainId": 2222,
+    "lp0": {
+      "address": "0xB44a9B6905aF7c801311e8F4E76932ee959c663C",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+      "oracle": "tokens",
+      "oracleId": "KAVA",
+      "decimals": "1e18"
+    }
+  }
+]
