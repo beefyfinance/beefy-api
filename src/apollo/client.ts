@@ -28,7 +28,7 @@ function client(url: string) {
   });
 }
 
-const apePolyClient = client('https://api.thegraph.com/subgraphs/name/apeswapfinance/dex-polygon');
+const apePolyClient = client('https://api.thegraph.com/subgraphs/name/prof-sd/as-matic-graft');
 const sushiPolyClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/matic-exchange');
 const sushiOneClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/exchange-harmony');
 const sushiArbitrumClient = client(
@@ -42,6 +42,7 @@ const sushiFantomClient = client(
   'https://api.thegraph.com/subgraphs/name/sushiswap/fantom-exchange'
 );
 const sushiFuseClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/fuse-exchange');
+const sushiKavaClient = client('https://pvt.graph.kava.io/subgraphs/name/sushi-0m/trident-kava');
 const comethClient = client('https://api.thegraph.com/subgraphs/name/cometh-game/comethswap');
 const quickClient = client('https://api.fura.org/subgraphs/name/quickswap');
 const polyzapClient = client('https://api.thegraph.com/subgraphs/name/polyzap/exchange');
@@ -107,6 +108,10 @@ const uniswapPolygonClient = client(
   'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon'
 );
 
+const isSushiTridentClient = (client: ApolloClient<NormalizedCacheObject>) => {
+  return client == sushiKavaClient;
+};
+
 const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return (
     client === sushiPolyClient ||
@@ -137,7 +142,9 @@ export {
   sushiMoonriverClient,
   sushiFantomClient,
   sushiFuseClient,
+  sushiKavaClient,
   isSushiClient,
+  isSushiTridentClient,
   comethClient,
   quickClient,
   polyzapClient,

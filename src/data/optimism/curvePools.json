@@ -1,5 +1,31 @@
 [
   {
+    "name": "curve-op-f-wsteth",
+    "pool": "0xB90B9B1F91a01Ea22A182CD84C1E22222e39B415",
+    "token": "0xEfDE221f306152971D8e9f181bFe998447975810",
+    "gauge": "0xD53cCBfED6577d8dc82987e766e75E3cb73a8563",
+    "oracleId": "WETH",
+    "boosted": true,
+    "rewards": [
+      {
+        "token": "0xFdb794692724153d1488CcdBE0C56c252596735F",
+        "oracleId": "LDO"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-op-f-fraxbp",
     "pool": "0x29A3d66B30Bc4AD674A4FDAF27578B64f6afbFe7",
     "token": "0x29A3d66B30Bc4AD674A4FDAF27578B64f6afbFe7",

@@ -73,6 +73,7 @@ const _tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
     website: 'https://www.circle.com/usdc',
+    documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
@@ -131,8 +132,9 @@ const _tokens = {
     symbol: 'QI',
     website: 'https://www.mai.finance/',
     description:
-      'Qi (pronounced CHEE) is the governance token of the QiDao Protocol. It allows those who hold it to vote on changes to the QiDao Protocol.',
+      'QiDao is a self-sustaining, community-governed protocol that allows you to borrow stablecoins interest-free against your crypto assets used as collateral. Loans are paid out and repaid in miTokens (stablecoin soft pegged to the USD).',
     logoURI: '',
+    documentation: 'https://docs.mai.finance/',
   },
   SNX: {
     name: 'Synthetix',
@@ -174,8 +176,9 @@ const _tokens = {
     symbol: 'MAI',
     website: 'https://www.mai.finance/',
     description:
-      "MAI is a stable coin collateralized by your MATIC holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+      "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+    documentation: 'https://docs.mai.finance/',
   },
   FRAX: {
     name: 'Frax',

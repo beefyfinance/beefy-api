@@ -34,6 +34,8 @@ import getSpiritStablePrices from './fantom/getSpiritStablePrices';
 import getHermesStablePrices from './metis/getHermesStablePrices';
 import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 import getUniV3PolygonPrices from './matic/getUniV3PolygonPrices';
+import getCurveKavaPrices from './kava/getCurvePrices';
+import getSushiKavaPrices from './kava/getSushiPrices';
 import getGmxArbitrumPrices from './arbitrum/getGmxPrices';
 import getGmxAvalanchePrices from './avax/getGmxPrices';
 
@@ -44,6 +46,7 @@ const getNonAmmPrices = async tokenPrices => {
   const promises = [
     getGmxAvalanchePrices(tokenPrices),
     getGmxArbitrumPrices(tokenPrices),
+    getSushiKavaPrices(tokenPrices),
     getUniV3PolygonPrices(tokenPrices),
     getHermesStablePrices(tokenPrices),
     getCakeStablePrices(tokenPrices),
@@ -72,6 +75,7 @@ const getNonAmmPrices = async tokenPrices => {
     getCurveHarmonyPrices(tokenPrices),
     getCurveOptimismPrices(tokenPrices),
     getCurveMoonbeamPrices(tokenPrices),
+    getCurveKavaPrices(tokenPrices),
     getRosePrices(tokenPrices),
     getDopplePrices(),
     getIronSwapPrices(),

@@ -10,8 +10,12 @@ import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 
 // trading apr
 import { SUSHI_LPF } from '../../../constants';
-import { getTradingFeeAprSushi, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
-import { isSushiClient } from '../../../apollo/client';
+import {
+  getTradingFeeAprSushi,
+  getTradingFeeApr,
+  getTradingFeeAprSushiTrident,
+} from '../../../utils/getTradingFeeApr';
+import { isSushiClient, isSushiTridentClient } from '../../../apollo/client';
 import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
 
@@ -62,6 +66,8 @@ export const getMiniChefApys = async (params: MiniChefApyParams) => {
     fee = liquidityProviderFee !== undefined ? liquidityProviderFee : SUSHI_LPF;
     tradingAprs = (await isSushiClient(tradingClient))
       ? await getTradingFeeAprSushi(tradingClient, pairAddresses, fee)
+      : (await isSushiTridentClient(tradingClient))
+      ? await getTradingFeeAprSushiTrident(tradingClient, pairAddresses, fee)
       : await getTradingFeeApr(tradingClient, pairAddresses, fee);
   } else {
     tradingAprs = {};

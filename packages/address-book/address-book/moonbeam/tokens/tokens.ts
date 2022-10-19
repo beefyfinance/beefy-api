@@ -30,6 +30,30 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  ETHwh: {
+    name: 'Wrapped Ether',
+    symbol: 'WETH',
+    address: '0xab3f0245B83feB11d15AAffeFD7AD465a59817eD',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
+    website: 'https://www.portalbridge.com/#/transfer',
+    description:
+      'ETHwh is a bridged version of native ETH from the Wormhole(Portal) portal. ETH is the native currency that flows within the Ethereum ecosystem.',
+  },
+  USDCwh: {
+    name: 'USD Coin',
+    symbol: 'USDC',
+    address: '0x931715FEE2d06333043d11F658C8CE934aC61D0c',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
+    website: 'https://www.portalbridge.com/#/transfer',
+    description:
+      'USDC bridged by Wormhole(Portal). USDC is a fully collateralized US dollar stablecoin. Native USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
   POOP: {
     name: 'Raresama',
     symbol: 'POOP',
@@ -130,6 +154,7 @@ const _tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
     website: 'https://www.circle.com/usdc',
+    documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },

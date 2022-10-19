@@ -1,5 +1,45 @@
 [
   {
+    "name": "stellaswap-ethwh-wglmr",
+    "address": "0x8577273FB3B72306F3A59E26ab77116f5D428DAa",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 29,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0xab3f0245B83feB11d15AAffeFD7AD465a59817eD",
+      "oracle": "tokens",
+      "oracleId": "ETHwh",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "stellaswap-usdcwh-wglmr",
+    "address": "0x8CCBbcAF58f5422F6efD4034d8E8a3c9120ADf79",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 28,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x931715FEE2d06333043d11F658C8CE934aC61D0c",
+      "oracle": "tokens",
+      "oracleId": "USDCwh",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "stellaswap-poop-wglmr",
     "address": "0x4EfB208eeEb5A8C85af70e8FBC43D6806b422bec",
     "decimals": "1e18",

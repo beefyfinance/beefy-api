@@ -47,6 +47,26 @@ const pairDayDataSushiQuery = (pairs, startTimestamp, endTimestamp) => {
   return gql(queryString);
 };
 
+const pairDayDataSushiTridentQuery = (pairs, startTimestamp, endTimestamp) => {
+  let pairsString = `[`;
+  pairs.map(pair => {
+    return (pairsString += `"${pair}"`);
+  });
+  pairsString += ']';
+  const queryString = `
+    query days {
+      pairDaySnapshots( first: 1000, orderBy: date, orderDirection: asc, where: { pair_in: ${pairsString} date_gt: ${startTimestamp}, date_lt: ${endTimestamp}}) {
+          id
+          volumeToken0
+          volumeToken1
+          volumeUSD
+          liquidityUSD
+        }
+      }
+`;
+  return gql(queryString);
+};
+
 const poolsDataQuery = (pairs, block) => {
   let pairsString = `[`;
   pairs.map(pair => {
@@ -138,6 +158,7 @@ const uniswapPositionQuery = (strategy, block) => {
 module.exports = {
   pairDayDataQuery,
   pairDayDataSushiQuery,
+  pairDayDataSushiTridentQuery,
   poolsDataQuery,
   dayDataQuery,
   joeDayDataQuery,

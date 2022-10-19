@@ -1,5 +1,6 @@
 const getSpookyBooApy = require('./getSpookyBooApy');
 const getSpookyV2LpApys = require('./getSpookyV2LpApys');
+const getSpookyV3LpApys = require('./getSpookyV3LpApys');
 const getFantomBifiGovApy = require('./getFantomBifiGovApy');
 const { getFantomBifiMaxiApy } = require('./getFantomBifiMaxiApy');
 const getTombApys = require('./getTombApys');
@@ -28,12 +29,14 @@ const getStargateApys = require('./getStargateFantomApys');
 const getSolaceApy = require('./getSolaceApy');
 const getSolidlyApys = require('./getSolidlyApys');
 const getSpiritV2Apys = require('./getSpiritV2Apys');
+const getMaiCurveApys = require('./getMaiCurveApys');
 
 const getApys = [
   getSpiritV2Apys,
   getSushiLpApys,
   getSpookyBooApy,
   getSpookyV2LpApys,
+  getSpookyV3LpApys,
   getFantomBifiGovApy,
   getFantomBifiMaxiApy,
   getTombApys,
@@ -60,6 +63,7 @@ const getApys = [
   getStargateApys,
   getSolaceApy,
   getSolidlyApys,
+  getMaiCurveApys,
 ];
 
 const getFantomApys = async () => {
