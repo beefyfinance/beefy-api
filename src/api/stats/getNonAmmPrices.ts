@@ -34,12 +34,16 @@ import getSpiritStablePrices from './fantom/getSpiritStablePrices';
 import getHermesStablePrices from './metis/getHermesStablePrices';
 import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 import getUniV3PolygonPrices from './matic/getUniV3PolygonPrices';
+import getGmxArbitrumPrices from './arbitrum/getGmxPrices';
+import getGmxAvalanchePrices from './avax/getGmxPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getGmxAvalanchePrices(tokenPrices),
+    getGmxArbitrumPrices(tokenPrices),
     getUniV3PolygonPrices(tokenPrices),
     getHermesStablePrices(tokenPrices),
     getCakeStablePrices(tokenPrices),

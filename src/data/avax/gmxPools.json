@@ -1,0 +1,38 @@
+[
+  {
+    "name": "gmx-avax-gmx",
+    "address": "0x62edc0692BD897D2295872a9FFCac5425011c661",
+    "tokenId": "GMX",
+    "strategy": "0x21257dE2F87A0b449f2604925C9efd0D5894cC4C",
+    "stakedTracker": "0x2bD10f8E93B3669b6d42E74eEedC65dd1B0a1342",
+    "rewardToken": "AVAX",
+    "rewardTrackers": [
+      {
+        "address": "0x4d268a7d4C16ceB5a606c173Bd974984343fea13",
+        "distributor": "0x03F349b3CC4f200D7FAE4d8DdaF1507f5A40D356"
+      }
+    ],
+    "decimals": "1e18",
+    "chainId": 43114
+  },
+  {
+    "name": "gmx-avax-glp",
+    "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+    "tokenId": "AVAX",
+    "strategy": "0xb97A3042D5372dEc32e1f975E1Af9Ad0b12f477d",
+    "stakedTracker": "0x9e295B5B976a184B14aD8cd72413aD846C299660",
+    "rewardToken": "AVAX",
+    "rewardTrackers": [
+      {
+        "address": "0xd2D1162512F927a7e282Ef43a362659E4F2a728F",
+        "distributor": "0x1DE098faF30bD74F22753c28DB17A2560D4F5554"
+      },
+      {
+        "address": "0x4d268a7d4C16ceB5a606c173Bd974984343fea13",
+        "distributor": "0x03F349b3CC4f200D7FAE4d8DdaF1507f5A40D356"
+      }
+    ],
+    "decimals": "1e18",
+    "chainId": 43114
+  }
+]
