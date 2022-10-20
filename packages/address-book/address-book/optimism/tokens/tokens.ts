@@ -347,7 +347,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://beefy.com',
     description:
-      'beVELO is a Beefy-wrapped version of veNFT Velo. Holding beVELO will be a great way to earn a bunch of VELO. Beefy will distribute weekly trading fees and bribe rewards swapped to VELO to beVELO stakers. beVELO holders will recieve the same rewards as max lock veNFT holders',
+      'beVELO is Beefy-wrapped VELO that earns more VELO over time. Beefy distributes trading fees and bribe rewards weekly to beVELO holders, swapping VELO to beVELO. beVELO holders receive the same rewards as max-locked veNFT VELO holders.',
   },
   agEUR: {
     name: 'agEUR',
