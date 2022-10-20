@@ -25,8 +25,10 @@ import { getPangolinV2Apys } from './getPangolinV2Apys';
 import getbeJOEApy from './getbeJOEApy';
 import getbeJOEEarnApy from './getbeJOEEarnApy';
 const getSwapsicleApys = require('./getSwapsicleApys');
+const { getGmxApys } = require('./getGmxApys');
 
 const getApys = [
+  getGmxApys,
   getbeJOEApy,
   getbeJOEEarnApy,
   getPangolinV2Apys,

@@ -8,8 +8,10 @@ const { getArbiBifiMaxiApy } = require('./getArbiBifiMaxiApy');
 const getStargateArbApys = require('./getStargateArbApys');
 const getRipaeApys = require('./getRipaeApys');
 const getRadiantLpApys = require('./getRadiantLpApys');
+const { getGmxApys } = require('./getGmxApys');
 
 const getApys = [
+  getGmxApys,
   getRadiantLpApys,
   getRipaeApys,
   getSushiLpApys,

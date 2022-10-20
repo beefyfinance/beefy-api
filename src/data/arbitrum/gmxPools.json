@@ -1,0 +1,38 @@
+[
+  {
+    "name": "gmx-arb-gmx",
+    "address": "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a",
+    "tokenId": "GMX",
+    "strategy": "0x2Ca3D8569Fff9D394063853712AAC5aC5A5a1780",
+    "stakedTracker": "0x908C4D94D34924765f1eDc22A1DD098397c59dD4",
+    "rewardToken": "ETH",
+    "rewardTrackers": [
+      {
+        "address": "0xd2D1162512F927a7e282Ef43a362659E4F2a728F",
+        "distributor": "0x1DE098faF30bD74F22753c28DB17A2560D4F5554"
+      }
+    ],
+    "decimals": "1e18",
+    "chainId": 42161
+  },
+  {
+    "name": "gmx-arb-glp",
+    "address": "0x4277f8F2c384827B5273592FF7CeBd9f2C1ac258",
+    "tokenId": "ETH",
+    "strategy": "0xa2FBf3CF32c1D229e3F018d886fEe3629A4d348C",
+    "stakedTracker": "0x1aDDD80E6039594eE970E5872D247bf0414C8903",
+    "rewardToken": "ETH",
+    "rewardTrackers": [
+      {
+        "address": "0x4e971a87900b931fF39d1Aad67697F49835400b6",
+        "distributor": "0x5C04a12EB54A093c396f61355c6dA0B15890150d"
+      },
+      {
+        "address": "0xd2D1162512F927a7e282Ef43a362659E4F2a728F",
+        "distributor": "0x1DE098faF30bD74F22753c28DB17A2560D4F5554"
+      }
+    ],
+    "decimals": "1e18",
+    "chainId": 42161
+  }
+]
