@@ -41,6 +41,7 @@ const _tokens = {
     website: 'https://www.portalbridge.com/#/transfer',
     description:
       'WBTCwh is a bridged version of WBTC from the Wormhole(Portal) portal. Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    documentation: 'https://docs.wormhole.com/wormhole/',
   },
   ETHwh: {
     name: 'Wrapped Ether',
@@ -53,6 +54,7 @@ const _tokens = {
     website: 'https://www.portalbridge.com/#/transfer',
     description:
       'ETHwh is a bridged version of native ETH from the Wormhole(Portal) portal. ETH is the native currency that flows within the Ethereum ecosystem.',
+    documentation: 'https://docs.wormhole.com/wormhole/',
   },
   USDCwh: {
     name: 'USD Coin',
@@ -65,6 +67,7 @@ const _tokens = {
     website: 'https://www.portalbridge.com/#/transfer',
     description:
       'USDC bridged by Wormhole(Portal). USDC is a fully collateralized US dollar stablecoin. Native USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    documentation: 'https://docs.wormhole.com/wormhole/',
   },
   POOP: {
     name: 'Raresama',
