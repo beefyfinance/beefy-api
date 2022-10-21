@@ -67,8 +67,8 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "EURT",
-        "decimals": "1e18"
+        "oracleId": "EURt",
+        "decimals": "1e6"
       },
       {
         "oracle": "tokens",
