@@ -1,5 +1,14 @@
 [
   {
+    "name": "stellaswap-4pool",
+    "address": "0xB326b5189AA42Acaa3C649B120f084Ed8F4dCaA6",
+    "pool": "0xB1BC9f56103175193519Ae1540A0A4572b1566F6",
+    "decimals": "1e18",
+    "virtualOracleId": "USDT",
+    "poolId": 31,
+    "chainId": 1284
+  },
+  {
     "name": "stellaswap-dualETH",
     "address": "0xa3eE3a0a36Dc915fDc93062e4B386DF37d00217E",
     "pool": "0xb86271571c90ad4E0C9776228437340b42623402",
