@@ -2,8 +2,9 @@
   {
     "name": "gmx-avax-gmx",
     "address": "0x62edc0692BD897D2295872a9FFCac5425011c661",
+    "oracle": "tokens",
     "tokenId": "GMX",
-    "strategy": "0x21257dE2F87A0b449f2604925C9efd0D5894cC4C",
+    "strategy": "0xb13A7ec2F26f6F908D0736Ee4D1171bAc88c8cBD",
     "stakedTracker": "0x2bD10f8E93B3669b6d42E74eEedC65dd1B0a1342",
     "rewardToken": "AVAX",
     "rewardTrackers": [
@@ -17,10 +18,12 @@
   },
   {
     "name": "gmx-avax-glp",
-    "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
-    "tokenId": "AVAX",
-    "strategy": "0xb97A3042D5372dEc32e1f975E1Af9Ad0b12f477d",
+    "address": "0xaE64d55a6f09E4263421737397D1fdFA71896a69",
+    "oracle": "lps",
+    "tokenId": "gmx-avax-glp",
+    "strategy": "0x8391DC935975e89705353162E13831A7a6a95964",
     "stakedTracker": "0x9e295B5B976a184B14aD8cd72413aD846C299660",
+    "glpManager": "0xe1ae4d4b06A5Fe1fc288f6B4CD72f9F8323B107F",
     "rewardToken": "AVAX",
     "rewardTrackers": [
       {

@@ -260,6 +260,30 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
+  GLP: {
+    name: 'GLP',
+    symbol: 'GLP',
+    address: '0x5402B5F40310bDED796c7D0F3FF6683f5C0cFfdf',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.gmx.io/#/trade/?ref=beefy',
+    description:
+      'GLP consists of an index of assets used for swaps and leverage trading on GMX. GLP holders will make a profit when leverage traders make a loss and vice versa. Staked GLP also earns escrowed GMX rewards and 70% of platform fees distributed in ETH.',
+    logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GLP_LOGO%20ONLY.svg',
+    documentation: 'https://gmxio.gitbook.io/gmx/glp',
+  },
+  GMX: {
+    name: 'GMX',
+    symbol: 'GMX',
+    address: '0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.gmx.io/#/trade/?ref=beefy',
+    description:
+      'GMX is the utility and governance token of the GMX decentralized spot and perpetual exchange that supports low swap fees, zero price impact trades and up to 30x leverage. Staked GMX earns escrowed GMX and 30% of platform fees in the form of ETH.',
+    logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GMX_LOGO%20ONLY.svg',
+    documentation: 'https://gmxio.gitbook.io/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

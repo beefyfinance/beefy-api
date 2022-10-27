@@ -2,8 +2,9 @@
   {
     "name": "gmx-arb-gmx",
     "address": "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a",
+    "oracle": "tokens",
     "tokenId": "GMX",
-    "strategy": "0x2Ca3D8569Fff9D394063853712AAC5aC5A5a1780",
+    "strategy": "0x7bAC6C0A051CE105F7bEeA87a0dAF24c67f471c9",
     "stakedTracker": "0x908C4D94D34924765f1eDc22A1DD098397c59dD4",
     "rewardToken": "ETH",
     "rewardTrackers": [
@@ -17,10 +18,12 @@
   },
   {
     "name": "gmx-arb-glp",
-    "address": "0x4277f8F2c384827B5273592FF7CeBd9f2C1ac258",
-    "tokenId": "ETH",
-    "strategy": "0xa2FBf3CF32c1D229e3F018d886fEe3629A4d348C",
+    "address": "0x5402B5F40310bDED796c7D0F3FF6683f5C0cFfdf",
+    "oracle": "lps",
+    "tokenId": "gmx-arb-glp",
+    "strategy": "0x3C2131A02659343d68c211aAa686750bE37d88c4",
     "stakedTracker": "0x1aDDD80E6039594eE970E5872D247bf0414C8903",
+    "glpManager": "0x321F653eED006AD1C29D174e17d96351BDe22649",
     "rewardToken": "ETH",
     "rewardTrackers": [
       {
