@@ -41,6 +41,18 @@ const _tokens = {
       'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://i.imgur.com/ZvP634G.png',
   },
+  HOP: {
+    name: 'HOP Protocol',
+    symbol: 'HOP',
+    address: '0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period',
+    logoURI: 'https://docs.velodrome.finance/tokens/HOP.svg',
+    documentation: 'https://docs.hop.exchange/',
+  },
   BEETS: {
     name: 'Beethoven X Token',
     symbol: 'BEETS',
