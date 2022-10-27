@@ -21,7 +21,7 @@
     "name": "bankerjoe-wbtc.e-supply",
     "itoken": "0x3fE38b7b610C0ACD10296fEf69d9b18eB7a9eB1F",
     "oracle": "tokens",
-    "oracleId": "WBTC.e",
+    "oracleId": "WBTCe",
     "decimals": "1e8",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -30,7 +30,7 @@
     "name": "bankerjoe-usdc.e-supply",
     "itoken": "0xEd6AaF91a2B084bd594DBd1245be3691F9f637aC",
     "oracle": "tokens",
-    "oracleId": "USDC.e",
+    "oracleId": "USDCe",
     "decimals": "1e6",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -93,7 +93,7 @@
     "name": "bankerjoe-wbtc.e",
     "itoken": "0x3fE38b7b610C0ACD10296fEf69d9b18eB7a9eB1F",
     "oracle": "tokens",
-    "oracleId": "WBTC.e",
+    "oracleId": "WBTCe",
     "decimals": "1e8",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -102,7 +102,7 @@
     "name": "bankerjoe-usdc.e",
     "itoken": "0xEd6AaF91a2B084bd594DBd1245be3691F9f637aC",
     "oracle": "tokens",
-    "oracleId": "USDC.e",
+    "oracleId": "USDCe",
     "decimals": "1e6",
     "borrowDepth": 1,
     "borrowPercent": 0.01

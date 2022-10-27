@@ -60,7 +60,7 @@
     "aToken": "0x078f358208685046a11C85e8ad32895DED33A249",
     "debtToken": "0x92b42c66840C7AD907b4BF74879FF3eF7c529473",
     "oracle": "tokens",
-    "oracleId": "WBTC.e",
+    "oracleId": "WBTCe",
     "decimals": "1e8",
     "borrowDepth": 1,
     "borrowPercent": 0

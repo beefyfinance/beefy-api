@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0xA7D7079b0FEaD91F3e65f86E8915Cb59c1a4C664",
       "oracle": "tokens",
-      "oracleId": "USDC.e",
+      "oracleId": "USDCe",
       "decimals": "1e6"
     },
     "lp1": {
@@ -179,7 +179,7 @@
     "lp0": {
       "address": "0x50b7545627a5162F82A992c33b87aDc75187B218",
       "oracle": "tokens",
-      "oracleId": "WBTC.e",
+      "oracleId": "WBTCe",
       "decimals": "1e8"
     },
     "lp1": {
@@ -293,7 +293,7 @@
     "lp0": {
       "address": "0x50b7545627a5162F82A992c33b87aDc75187B218",
       "oracle": "tokens",
-      "oracleId": "WBTC.e",
+      "oracleId": "WBTCe",
       "decimals": "1e8"
     },
     "lp1": {
