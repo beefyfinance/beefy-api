@@ -49,7 +49,7 @@
     "aToken": "0xe50fA9b3c56FfB159cB0FCA61F5c9D750e8128c8",
     "debtToken": "0x0c84331e39d6658Cd6e6b9ba04736cC4c4734351",
     "oracle": "tokens",
-    "oracleId": "WETH.e",
+    "oracleId": "WETHe",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0

@@ -12,7 +12,7 @@
     "name": "bankerjoe-weth.e-supply",
     "itoken": "0x929f5caB61DFEc79a5431a7734a68D714C4633fa",
     "oracle": "tokens",
-    "oracleId": "WETH.e",
+    "oracleId": "WETHe",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -84,7 +84,7 @@
     "name": "bankerjoe-weth.e",
     "itoken": "0x929f5caB61DFEc79a5431a7734a68D714C4633fa",
     "oracle": "tokens",
-    "oracleId": "WETH.e",
+    "oracleId": "WETHe",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01

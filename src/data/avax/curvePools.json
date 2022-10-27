@@ -67,7 +67,7 @@
       {
         "aaveId": "aave-weth.e",
         "oracle": "tokens",
-        "oracleId": "WETH.e",
+        "oracleId": "WETHe",
         "decimals": "1e18"
       }
     ]

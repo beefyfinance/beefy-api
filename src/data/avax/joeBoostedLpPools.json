@@ -261,7 +261,7 @@
     "lp0": {
       "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
       "oracle": "tokens",
-      "oracleId": "WETH.e",
+      "oracleId": "WETHe",
       "decimals": "1e18"
     },
     "lp1": {
