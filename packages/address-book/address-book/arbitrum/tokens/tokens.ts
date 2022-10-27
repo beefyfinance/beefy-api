@@ -284,6 +284,31 @@ const _tokens = {
     logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GMX_LOGO%20ONLY.svg',
     documentation: 'https://gmxio.gitbook.io/',
   },
+  FRAX: {
+    chainId: 42161,
+    address: '0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F',
+    decimals: 18,
+    name: 'Frax',
+    symbol: 'FRAX',
+    website: 'https://frax.finance/',
+    description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
+    documentation: 'https://docs.frax.finance/',
+  },
+  UNI: {
+    name: 'Uniswap',
+    symbol: 'UNI',
+    address: '0xFa7F8980b0f1E64A2062791cc3b0871572f1F7f0',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://uniswap.org/',
+    description:
+      'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
+    documentation: 'https://uniswap.org/developers',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
