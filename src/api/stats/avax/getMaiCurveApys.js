@@ -16,7 +16,7 @@ const getMaiCurveApys = async () => {
   return await getMasterChefApys({
     web3: web3,
     chainId: chainId,
-    masterchef: mai.chef,
+    masterchef: "0x0f680790d022BcDf317BF3E97190AcA33A0621b2",
     tokenPerBlock: 'rewardPerSecond',
     hasMultiplier: false,
     pools: [
