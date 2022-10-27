@@ -8,6 +8,7 @@ import { initMooTokenPriceService } from './api/stats/getMooTokenPrices';
 import { initVaultService } from './api/stats/getMultichainVaults';
 import { initTvlService } from './api/stats/getTvl';
 import { initTokenService } from './api/tokens/getTokens';
+import { initConfigService } from './api/config/getConfig';
 import { initVaultFeeService } from './api/vaults/getVaultFees';
 
 require('./utils/redisHelper').initRedis();
@@ -50,6 +51,7 @@ const start = async () => {
   initBifiBuyBackService();
   initMooTokenPriceService();
   initTokenService();
+  initConfigService();
   app.listen(port);
   console.log(`> beefy-api running! (:${port})`);
 };
