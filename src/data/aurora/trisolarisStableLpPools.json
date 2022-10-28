@@ -8,6 +8,23 @@
     "oracleIdB": "AURORA",
     "decimalsB": "1e18",
     "poolId": 28,
-    "chainId": 1313161554
+    "chainId": 1313161554,
+    "tokens": [
+      {
+        "address": "0xB12BFcA5A55806AaF64E99521918A4bf0fC40802",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x4988a896b1227218e4A686fdE5EabdcAbd91571f",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x5183e1B1091804BC2602586919E6880ac1cf2896",
+        "oracleId": "USN",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

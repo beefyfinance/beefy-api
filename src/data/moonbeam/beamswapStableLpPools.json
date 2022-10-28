@@ -5,7 +5,24 @@
     "pool": "0x09A793cCa9D98b14350F2a767Eb5736AA6B6F921",
     "decimals": "1e18",
     "poolId": 17,
-    "chainId": 1284
+    "chainId": 1284,
+    "tokens": [
+      {
+        "address": "0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9",
+        "oracleId": "USDCs",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x8e70cD5B4Ff3f62659049e74b6649c6603A0E594",
+        "oracleId": "USDTs",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xc234A67a4F840E61adE794be47de455361b52413",
+        "oracleId": "DAIs",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "beamswap-4pool",
@@ -13,6 +30,28 @@
     "pool": "0x8273De7090C7067f3aE1b6602EeDbd2dbC02C48f",
     "decimals": "1e18",
     "poolId": 16,
-    "chainId": 1284
+    "chainId": 1284,
+    "tokens": [
+      {
+        "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x765277EebeCA2e31912C9946eAe1021199B39C61",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F",
+        "oracleId": "BUSD",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

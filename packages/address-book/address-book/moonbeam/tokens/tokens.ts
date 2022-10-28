@@ -136,7 +136,6 @@ const _tokens = {
     description:
       "MAI is a stablecoin collateralized by your crypto assets. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
   },
-
   APE: {
     name: 'ApeCoin APE',
     symbol: 'APE',
@@ -245,6 +244,18 @@ const _tokens = {
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
   },
+  BUSDwh: {
+    name: 'Binance-Peg BUSD Token (Wormhole)',
+    symbol: 'BUSD',
+    address: '0x692C57641fc054c2Ad6551Ccc6566EbA599de1BA',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F.svg',
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
+  },
   BNB: {
     name: 'Binance',
     symbol: 'BNB',
@@ -315,6 +326,18 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  USDTxc: {
+    name: 'Tether USD (XCM)',
+    symbol: 'USDTxc',
+    address: '0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73.svg',
+    website: 'https://tether.to/',
+    description:
+      'Bridged by XCM from Kusama. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -551,6 +574,17 @@ const _tokens = {
     website: 'https://stake.lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+  },
+  stellaBase4pool: {
+    name: 'stellaBase4pool',
+    symbol: 'stellaswap-base4pool',
+    address: '0xdA782836B65edC4E6811c7702C5E21786203Ba9d',
+    chainId: 1284,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://stellaswap.com/',
+    description:
+      'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The 4pool is a stable-swap LP consisting of USDC, USDT, DAI & FRAX.',
   },
 } as const;
 
