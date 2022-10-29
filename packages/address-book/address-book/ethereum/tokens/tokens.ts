@@ -137,6 +137,42 @@ const _tokens = {
       'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve.fi LPs.',
     logoURI: '',
   },
+  sethUSDC: {
+    name: 'Stargate USD Coin LP',
+    symbol: 'sethUSDC',
+    address: '0xdf0770dF86a8034b3EFEf0A1Bb3c889B8332FF56',
+    chainId: 1,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. USDC is deposited in a LP pool to enable high liquidity for bridging.',
+  },
+  sethUSDT: {
+    name: 'Stargate Tether USD LP',
+    symbol: 'sethUSDT',
+    address: '0x38EA452219524Bb87e18dE1C24D3bB59510BD783',
+    chainId: 1,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    description:
+      'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. USDT is deposited in a LP pool to enable high liquidity for bridging.',
+  },
+  sethETH: {
+    name: 'Stargate Ethereum LP',
+    symbol: 'sethETH',
+    address: '0x101816545F6bd2b1076434B54383a1E633390A2E',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x2170ed0880ac9a755fd29b2688956bd959f933f8.png',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. ETH is deposited in a LP pool to enable high liquidity for bridging.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
