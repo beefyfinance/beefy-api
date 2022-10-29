@@ -86,7 +86,8 @@ const getFarmApys = async params => {
     let apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     if (pool.lidoUrl) {
       const response = await fetch(pool.lidoUrl).then(res => res.json());
-      const apr = response.apr;
+      let apr = 0;
+      pool.polygon ? (apr = response.apr) : response.data.steth;
       let aprFixed = apr / 100 / 2;
       apy = apy.plus(aprFixed);
     }

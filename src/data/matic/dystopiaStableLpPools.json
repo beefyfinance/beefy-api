@@ -6,6 +6,7 @@
     "decimals": "1e18",
     "chainId": 137,
     "lidoUrl": "https://polygon.lido.fi/api/stats",
+    "polygon": true,
     "beefyFee": 0.095,
     "lp0": {
       "address": "0x236eeC6359fb44CCe8f97E99387aa7F8cd5cdE1f",

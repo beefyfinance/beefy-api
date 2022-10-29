@@ -49,7 +49,7 @@ const getPoolApy = async pool => {
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   if (pool.lidoUrl) {
     const response = await fetch(pool.lidoUrl).then(res => res.json());
-    const apr = response.apr;
+    const apr = response.data.steth;
     let aprFixed = 0;
     pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : aprFixed / 100 / 2;
     rewardsApy = rewardsApy.plus(aprFixed);

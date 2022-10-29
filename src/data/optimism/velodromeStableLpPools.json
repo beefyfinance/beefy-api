@@ -4,6 +4,7 @@
     "address": "0xBf205335De602ac38244F112d712ab04CB59A498",
     "gauge": "0x131Ae347E654248671Afc885F0767cB605C065d7",
     "decimals": "1e18",
+    "lidoUrl": "https://stake.lido.fi/api/apr",
     "chainId": 10,
     "beefyFee": 0.095,
     "lp0": {
