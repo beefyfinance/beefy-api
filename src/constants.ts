@@ -54,6 +54,7 @@ const SYS_RPC = process.env.SYS_RPC || 'https://rpc.syscoin.org/';
 const EMERALD_RPC = process.env.EMERALD_RPC || 'https://emerald.oasis.dev';
 const OPTIMISM_RPC = process.env.OPTIMISM_RPC || 'https://rpc.ankr.com/optimism';
 const KAVA_RPC = process.env.KAVA_RPC || 'https://evm.kava.io';
+const ETH_RPC = process.env.ETH_RPC || 'https://rpc.ankr.com/eth';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -73,6 +74,7 @@ const SYS_CHAIN_ID = ChainId.sys;
 const EMERALD_CHAIN_ID = ChainId.emerald;
 const OPTIMISM_CHAIN_ID = ChainId.optimism;
 const KAVA_CHAIN_ID = ChainId.kava;
+const ETH_CHAIN_ID = ChainId.ethereum;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.003;
@@ -113,6 +115,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.emerald]: EMERALD_RPC,
   [ChainId.optimism]: OPTIMISM_RPC,
   [ChainId.kava]: KAVA_RPC,
+  [ChainId.ethereum]: ETH_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -151,6 +154,8 @@ const OPTIMISM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/optimism.json';
 const KAVA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/kava.json';
+const ETHEREUM_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/ethereum.json';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -171,6 +176,7 @@ const MULTICHAIN_ENDPOINTS = {
   optimism: OPTIMISM_VAULTS_ENDPOINT,
   heco: HECO_VAULTS_ENDPOINT,
   kava: KAVA_VAULTS_ENDPOINT,
+  // ethereum: ETHEREUM_VAULTS_ENDPOINT,
 };
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -232,6 +238,9 @@ export {
   KAVA_RPC,
   KAVA_CHAIN_ID,
   KAVA_VAULTS_ENDPOINT,
+  ETH_RPC,
+  ETH_CHAIN_ID,
+  // ETHEREUM_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,

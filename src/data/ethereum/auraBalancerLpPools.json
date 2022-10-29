@@ -1,0 +1,22 @@
+[
+  {
+    "name": "aura-wsteth-eth",
+    "address": "0x32296969Ef14EB0c6d29669C550D4a0449130230",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xDCee1C640cC270121faF145f231fd8fF1d8d5CD4",
+    "vaultPoolId": "0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]
