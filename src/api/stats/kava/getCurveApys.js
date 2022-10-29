@@ -13,7 +13,7 @@ import { multicallAddress } from '../../../utils/web3';
 import { KAVA_CHAIN_ID } from '../../../constants';
 
 const pools = require('../../../data/kava/curvePools.json');
-const subgraphUrl = 'https://api.curve.fi/api/getSubgraphData/kava';
+const subgraphUrl = 'https://api.curve.fi/api/getFactoGauges/kava';
 // const baseApyUrl = 'https://stats.curve.fi/raw-stats-optimism/apys.json';
 // const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-optimism';
 const tradingFees = 0.0002;

@@ -1,4 +1,5 @@
 import { MultiCall } from 'eth-multicall';
+const fetch = require('node-fetch');
 const { ethereumWeb3: web3 } = require('../../../utils/web3');
 import getApyBreakdown from '../common/getApyBreakdown';
 const BigNumber = require('bignumber.js');
@@ -62,7 +63,14 @@ const getPoolApy = async (pool, auraData) => {
     getTotalStakedInUsd(pool),
   ]);
 
-  const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  if (pool.lidoUrl) {
+    const response = await fetch(pool.lidoUrl).then(res => res.json());
+    const apr = response.data.steth;
+    let aprFixed = 0;
+    pool.metaStable ? (aprFixed = apr / 100 / 4) : aprFixed / 100 / 2;
+    rewardsApy = rewardsApy.plus(aprFixed);
+  }
   // console.log(pool.name,rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
   return rewardsApy;
 };

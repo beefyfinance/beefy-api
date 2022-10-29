@@ -2,6 +2,7 @@ import { MultiCall } from 'eth-multicall';
 const { arbitrumWeb3: web3 } = require('../../../utils/web3');
 import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
+const fetch = require('node-fetch');
 import BigNumber from 'bignumber.js';
 import { multicallAddress } from '../../../utils/web3';
 import { ARBITRUM_CHAIN_ID } from '../../../constants';
@@ -46,7 +47,14 @@ const getPoolApy = async pool => {
     getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(chainId)), pool),
     getTotalStakedInUsd(web3, pool),
   ]);
-  const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  if (pool.lidoUrl) {
+    const response = await fetch(pool.lidoUrl).then(res => res.json());
+    const apr = response.data.steth;
+    let aprFixed = 0;
+    pool.metaStable ? (aprFixed = apr / 100 / 4) : aprFixed / 100 / 2;
+    rewardsApy = rewardsApy.plus(aprFixed);
+  }
   // console.log(pool.name,rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
   return rewardsApy;
 };

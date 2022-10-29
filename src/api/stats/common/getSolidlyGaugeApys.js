@@ -4,6 +4,7 @@ const { multicallAddress } = require('../../../utils/web3');
 import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const IGauge = require('../../../abis/ISolidlyGauge.json');
+const fetch = require('node-fetch');
 const ISpiritGauge = require('../../../abis/fantom/ISpiritGauge.json');
 const IVe = require('../../../abis/IVe.json');
 const IinSpirit = require('../../../abis/fantom/IinSpirit.json');
@@ -82,7 +83,13 @@ const getFarmApys = async params => {
 
     const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
 
-    const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    let apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    if (pool.lidoUrl) {
+      const response = await fetch(pool.lidoUrl).then(res => res.json());
+      const apr = response.apr;
+      let aprFixed = apr / 100 / 2;
+      apy = apy.plus(aprFixed);
+    }
     apys.push(apy);
 
     if (params.log) {

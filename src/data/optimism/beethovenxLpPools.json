@@ -53,6 +53,8 @@
     "gauge": "0xbd54c9dbd7B4D82c80759790f8c566C3DeAaD6a5",
     "vaultPoolId": "0x981fb05b738e981ac532a99e77170ecb4bc27aef00010000000000000000004b",
     "decimals": "1e18",
+    "lidoUrl": "https://stake.lido.fi/api/apr",
+    "balancerChargesFee": true,
     "rewards": [
       {
         "stream": "0x23D6352Ff0EeC97E37726461EF63C7A8116C12b0",
@@ -99,6 +101,8 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x950FdBEE03900487Ebc3aC54daf4C988E7C02678",
     "vaultPoolId": "0xde45f101250f2ca1c0f8adfc172576d10c12072d00000000000000000000003f",
+    "lidoUrl": "https://stake.lido.fi/api/apr",
+    "balancerChargesFee": true,
     "decimals": "1e18",
     "composable": true,
     "bptIndex": 2,

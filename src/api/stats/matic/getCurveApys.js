@@ -1,6 +1,7 @@
 import { MultiCall } from 'eth-multicall';
 
 const BigNumber = require('bignumber.js');
+const fetch = require('node-fetch');
 const { polygonWeb3: web3 } = require('../../../utils/web3');
 
 import fetchPrice from '../../../utils/fetchPrice';
@@ -50,7 +51,13 @@ const getPoolApy = async pool => {
     getAaveApy(pool),
   ]);
   const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const simpleApy = rewardsApy.plus(aaveMaticApy);
+  let simpleApy = rewardsApy.plus(aaveMaticApy);
+  if (pool.lidoUrl) {
+    const response = await fetch(pool.lidoUrl).then(res => res.json());
+    const apr = response.apr;
+    let aprFixed = apr / 100 / 2;
+    simpleApy = simpleApy.plus(aprFixed);
+  }
   // console.log(pool.name, aaveMaticApy.toNumber(), rewardsApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return simpleApy;
 };

@@ -65,6 +65,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.aura.finance/',
   },
+  MAI: {
+    name: 'Mai Stablecoin',
+    symbol: 'MAI',
+    address: '0x8D6CeBD76f18E1558D4DB88138e2DeFB3909fAD6',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://mai.finance/',
+    documentation: 'https://docs.mai.finance/',
+    description:
+      'MAI is a stable coin collateralized by your MATIC holdings. Its powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
