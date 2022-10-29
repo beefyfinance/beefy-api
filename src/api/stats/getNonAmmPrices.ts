@@ -14,6 +14,7 @@ import getCurveAvaxPrices from './avax/getCurvePrices';
 import getCurveHarmonyPrices from './one/getCurvePrices';
 import getCurveOptimismPrices from './optimism/getCurvePrices';
 import getCurveMoonbeamPrices from './moonbeam/getCurvePrices';
+import { getCurveEthereumPrices } from './ethereum/getCurvePrices';
 import getBeethovenxPrices from './fantom/getBeethovenxPrices';
 import { getSynapsePrices } from './avax/getSynapsePrices';
 import getJarvisPrices from './matic/getJarvisPrices';
@@ -45,6 +46,7 @@ const getNonAmmPrices = async tokenPrices => {
   let breakdown = {};
 
   const promises = [
+    getCurveEthereumPrices(tokenPrices),
     getAuraBalancerPrices(tokenPrices),
     getGmxAvalanchePrices(tokenPrices),
     getGmxArbitrumPrices(tokenPrices),

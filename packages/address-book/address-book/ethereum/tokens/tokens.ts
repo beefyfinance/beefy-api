@@ -41,6 +41,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
+  stETH: {
+    name: 'Lido Wrapped Staked ETH',
+    symbol: 'stETH',
+    address: '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    logoURI: '',
+    documentation: 'https://docs.lido.fi/',
+  },
   BAL: {
     name: 'Balancer',
     symbol: 'BAL',
@@ -76,6 +88,54 @@ const _tokens = {
     documentation: 'https://docs.mai.finance/',
     description:
       'MAI is a stable coin collateralized by your MATIC holdings. Its powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.',
+  },
+  CRV: {
+    name: 'CRV',
+    address: '0xD533a949740bb3306d119CC777fa900bA034cd52',
+    symbol: 'CRV',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://curve.fi/',
+    description:
+      'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    logoURI: '',
+    documentation: 'https://curve.readthedocs.io/',
+  },
+  CVX: {
+    name: 'CVX',
+    address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B',
+    symbol: 'CVX',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://www.convexfinance.com/',
+    documentation: 'https://docs.convexfinance.com/',
+    description:
+      'Convex allows Curve.fi liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
+    logoURI: '',
+  },
+  cvxCRV: {
+    name: 'cvxCRV',
+    address: '0x62B9c7356A2Dc64a1969e19C23e4f579F9810Aa7',
+    symbol: 'cvxCRV',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://www.convexfinance.com/',
+    documentation: 'https://docs.convexfinance.com/',
+    description:
+      'Convex allows Curve.fi liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
+    logoURI: '',
+  },
+  cvxFXS: {
+    name: 'cvxFXS',
+    address: '0xFEEf77d3f69374f66429C91d732A244f074bdf74',
+    symbol: 'cvxFXS',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://frax.convexfinance.com/',
+    documentation: 'https://docs.convexfinance.com/',
+    description:
+      'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve.fi LPs.',
+    logoURI: '',
   },
 } as const;
 

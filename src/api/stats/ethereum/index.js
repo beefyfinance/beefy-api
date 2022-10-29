@@ -1,6 +1,7 @@
 const getAuraApys = require('./getAuraApys');
+const { getConvexApys } = require('./getConvexApys');
 
-const getApys = [getAuraApys];
+const getApys = [getAuraApys, getConvexApys];
 
 const getEthereumApys = async () => {
   let apys = {};

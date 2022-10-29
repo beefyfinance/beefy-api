@@ -513,6 +513,7 @@ const coinGeckoCoins = [
   'wrapped-steth',
   'kava',
   'aura-finance',
+  'convex-crv',
 ];
 
 const currencies = ['cad'];
@@ -562,6 +563,7 @@ const updateAmmPrices = async () => {
         KAVA: prices['kava'],
         WKAVA: prices['kava'],
         AURA: prices['aura-finance'],
+        cvxCRV: prices['convex-crv'],
       };
     };
 

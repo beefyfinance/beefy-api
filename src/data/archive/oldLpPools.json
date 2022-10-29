@@ -1,5 +1,43 @@
 [
   {
+    "name": "sushi-cvx-eth",
+    "address": "0x05767d9EF41dC40689678fFca0608878fb3dE906",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1,
+    "lp0": {
+      "address": "0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B",
+      "oracle": "tokens",
+      "oracleId": "CVX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-eth-usdc",
+    "address": "0x397FF1542f962076d0BFE58eA045FfA2d347ACa0",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1,
+    "lp0": {
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "stellaswap-xcaca-wglmr",
     "address": "0xb83c50eA82c10AC598BA1ffc0c0296978c29c1e2",
     "decimals": "1e18",
