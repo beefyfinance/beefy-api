@@ -87,7 +87,7 @@ const getFarmApys = async params => {
     if (pool.lidoUrl) {
       const response = await fetch(pool.lidoUrl).then(res => res.json());
       let apr = 0;
-      pool.polygon ? (apr = response.apr) : response.data.steth;
+      pool.polygon ? (apr = response.apr) : (apr = response.data.steth);
       let aprFixed = apr / 100 / 2;
       apy = apy.plus(aprFixed);
     }
