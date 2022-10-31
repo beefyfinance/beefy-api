@@ -5,7 +5,6 @@
     "gauge": "0xDF650dF3B87727E192D676A9012Fc7A0E5277b0D",
     "decimals": "1e18",
     "chainId": 137,
-    "lidoUrl": "https://polygon.lido.fi/api/stats",
     "polygon": true,
     "beefyFee": 0.095,
     "lp0": {

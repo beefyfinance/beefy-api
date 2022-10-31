@@ -68,7 +68,7 @@ const getPoolApy = async (pool, auraData) => {
     const response = await fetch(pool.lidoUrl).then(res => res.json());
     const apr = response.data.steth;
     let aprFixed = 0;
-    pool.metaStable ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
+    pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
     rewardsApy = rewardsApy.plus(aprFixed);
   }
   // console.log(pool.name,rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());

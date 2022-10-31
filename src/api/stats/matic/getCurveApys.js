@@ -51,13 +51,8 @@ const getPoolApy = async pool => {
     getAaveApy(pool),
   ]);
   const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  let simpleApy = rewardsApy.plus(aaveMaticApy);
-  if (pool.lidoUrl) {
-    const response = await fetch(pool.lidoUrl).then(res => res.json());
-    const apr = response.apr;
-    let aprFixed = apr / 100 / 2;
-    simpleApy = simpleApy.plus(aprFixed);
-  }
+  const simpleApy = rewardsApy.plus(aaveMaticApy);
+
   // console.log(pool.name, aaveMaticApy.toNumber(), rewardsApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return simpleApy;
 };
