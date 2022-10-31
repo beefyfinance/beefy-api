@@ -148,6 +148,7 @@ const _tokens = {
     website: 'https://stargate.finance/',
     description:
       'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. USDC is deposited in a LP pool to enable high liquidity for bridging.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   sethUSDT: {
     name: 'Stargate Tether USD LP',
@@ -160,6 +161,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. USDT is deposited in a LP pool to enable high liquidity for bridging.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   sethETH: {
     name: 'Stargate Ethereum LP',
@@ -172,6 +174,7 @@ const _tokens = {
     website: 'https://stargate.finance/',
     description:
       'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. ETH is deposited in a LP pool to enable high liquidity for bridging.',
+      documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
 } as const;
 

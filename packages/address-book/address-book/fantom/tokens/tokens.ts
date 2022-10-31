@@ -256,6 +256,7 @@ const _tokens = {
     website: 'https://stargate.finance/',
     description:
       'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   APE: {
     name: 'ApeCoin APE',
@@ -1565,7 +1566,7 @@ const _tokens = {
     symbol: 'sfUSDC',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
-    documentation: 'https://developers.circle.com/docs',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 250,

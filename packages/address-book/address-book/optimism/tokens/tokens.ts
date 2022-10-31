@@ -259,6 +259,7 @@ const _tokens = {
     website: 'https://stargate.finance/',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   soETH: {
     name: 'Stargate Ethereum LP',
@@ -271,6 +272,7 @@ const _tokens = {
     website: 'https://stargate.finance/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   renBTC: {
     name: 'renBTC',
