@@ -255,6 +255,7 @@ const _tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
+    documentation: 'https://docs.wormhole.com/wormhole/',
   },
   BNB: {
     name: 'Binance',
@@ -301,7 +302,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
     website: 'https://www.nomad.xyz/',
     description:
-      'bridged ETH by Nomad. The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+      'Bridged ETH by Nomad. The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
   },
   USDT: {
     name: 'Tether USD',
@@ -338,6 +339,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Bridged by XCM from Kusama. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    documentation: 'https://moonbeam.network/announcements/usdt-on-moonbeam/',
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -585,6 +587,7 @@ const _tokens = {
     website: 'https://stellaswap.com/',
     description:
       'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The 4pool is a stable-swap LP consisting of USDC, USDT, DAI & FRAX.',
+    documentation: 'https://docs.stellaswap.com/how-to-guides/swap-pool-and-farm/how-to-add-liquidity-in-stable-amm',
   },
 } as const;
 
