@@ -1,5 +1,45 @@
 [
   {
+    "name": "sicle-wavax-usd+",
+    "address": "0x7B4BFbEed1DEBb17c612a343CE392A9aFa1B3F6A",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 17,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "sicle-usdc-usd+",
+    "address": "0x3e938F737696a0370bF01E8Cc30ed0e845cF78F2",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 18,
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "sicle-btc.b-wavax",
     "address": "0xf7505d0f042ae55770B3595CA9472D03E558693E",
     "decimals": "1e18",
