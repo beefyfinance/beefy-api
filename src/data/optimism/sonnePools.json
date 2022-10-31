@@ -1,0 +1,56 @@
+[
+  {
+    "name": "sonne-weth",
+    "cToken": "0xf7B5965f5C117Eb1B5450187c9DcFccc3C317e8E",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "borrowDepth": 10,
+    "borrowRate": 0.73
+  },
+  {
+    "name": "sonne-usdc",
+    "cToken": "0xEC8FEa79026FfEd168cCf5C627c7f486D77b765F",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 10,
+    "borrowRate": 0.78
+  },
+  {
+    "name": "sonne-usdt",
+    "cToken": "0x5Ff29E4470799b982408130EFAaBdeeAE7f66a10",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "borrowDepth": 10,
+    "borrowRate": 0.78
+  },
+  {
+    "name": "sonne-dai",
+    "cToken": "0x5569b83de187375d43FBd747598bfe64fC8f6436",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 10,
+    "borrowRate": 0.78
+  },
+  {
+    "name": "sonne-op",
+    "cToken": "0x8cD6b19A07d754bF36AdEEE79EDF4F2134a8F571",
+    "oracle": "tokens",
+    "oracleId": "OP",
+    "decimals": "1e18",
+    "borrowDepth": 10,
+    "borrowRate": 0.63
+  },
+  {
+    "name": "sonne-susd",
+    "cToken": "0xd14451E0Fa44B18f08aeB1E4a4d092B823CaCa68",
+    "oracle": "tokens",
+    "oracleId": "sUSD",
+    "decimals": "1e18",
+    "borrowDepth": 10,
+    "borrowRate": 0.58
+  }
+]
