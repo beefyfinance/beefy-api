@@ -27,18 +27,18 @@
     "token": "0xc2b1df84112619d190193e48148000e3990bf627",
     "gauge": "0x00F7d467ef51E44f11f52a0c0Bef2E56C271b264",
     "baseApyKey": "ren",
-    "oracleId": "WBTC.e",
+    "oracleId": "WBTCe",
     "boosted": true,
     "tokens": [
       {
         "aaveId": "aave-wbtc.e",
         "oracle": "tokens",
-        "oracleId": "WBTC.e",
+        "oracleId": "WBTCe",
         "decimals": "1e8"
       },
       {
         "oracle": "tokens",
-        "oracleId": "WBTC.e",
+        "oracleId": "WBTCe",
         "decimals": "1e8"
       }
     ]
@@ -61,13 +61,13 @@
       {
         "aaveId": "aave-wbtc.e",
         "oracle": "tokens",
-        "oracleId": "WBTC.e",
+        "oracleId": "WBTCe",
         "decimals": "1e8"
       },
       {
         "aaveId": "aave-weth.e",
         "oracle": "tokens",
-        "oracleId": "WETH.e",
+        "oracleId": "WETHe",
         "decimals": "1e18"
       }
     ]
@@ -89,7 +89,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC.e",
+        "oracleId": "USDCe",
         "decimals": "1e6"
       }
     ]

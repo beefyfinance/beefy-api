@@ -30,6 +30,19 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  wstDOT: {
+    name: 'Wrapped liquid staked DOT',
+    symbol: 'wstDOT',
+    address: '0x191cf2602Ca2e534c5Ccae7BCBF4C46a704bb949',
+    chainId: 1284,
+    decimals: 10,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080.svg',
+    website: 'https://polkadot.lido.fi/',
+    description:
+      'Lido for Polkadot is a liquid staking solution for DOT backed by industry-leading staking providers. wstDOT is wrapped version of stDOT',
+    documentation: 'https://docs.polkadot.lido.fi/',
+  },
   WBTCwh: {
     name: 'Wrapped BTC',
     symbol: 'WBTC',

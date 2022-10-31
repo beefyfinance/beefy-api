@@ -260,6 +260,55 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
+  GLP: {
+    name: 'GLP',
+    symbol: 'GLP',
+    address: '0x5402B5F40310bDED796c7D0F3FF6683f5C0cFfdf',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.gmx.io/#/trade/?ref=beefy',
+    description:
+      'GLP consists of an index of assets used for swaps and leverage trading on GMX. GLP holders will make a profit when leverage traders make a loss and vice versa. Staked GLP also earns escrowed GMX rewards and 70% of platform fees distributed in ETH.',
+    logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GLP_LOGO%20ONLY.svg',
+    documentation: 'https://gmxio.gitbook.io/gmx/glp',
+  },
+  GMX: {
+    name: 'GMX',
+    symbol: 'GMX',
+    address: '0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.gmx.io/#/trade/?ref=beefy',
+    description:
+      'GMX is the utility and governance token of the GMX decentralized spot and perpetual exchange that supports low swap fees, zero price impact trades and up to 30x leverage. Staked GMX earns escrowed GMX and 30% of platform fees in the form of ETH.',
+    logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GMX_LOGO%20ONLY.svg',
+    documentation: 'https://gmxio.gitbook.io/',
+  },
+  FRAX: {
+    chainId: 42161,
+    address: '0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F',
+    decimals: 18,
+    name: 'Frax',
+    symbol: 'FRAX',
+    website: 'https://frax.finance/',
+    description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
+    documentation: 'https://docs.frax.finance/',
+  },
+  UNI: {
+    name: 'Uniswap',
+    symbol: 'UNI',
+    address: '0xFa7F8980b0f1E64A2062791cc3b0871572f1F7f0',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://uniswap.org/',
+    description:
+      'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
+    documentation: 'https://uniswap.org/developers',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

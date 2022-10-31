@@ -512,6 +512,8 @@ const coinGeckoCoins = [
   'rocket-pool-eth',
   'wrapped-steth',
   'kava',
+  'aura-finance',
+  'convex-crv',
 ];
 
 const currencies = ['cad'];
@@ -560,6 +562,8 @@ const updateAmmPrices = async () => {
         wstETH: prices['wrapped-steth'],
         KAVA: prices['kava'],
         WKAVA: prices['kava'],
+        AURA: prices['aura-finance'],
+        cvxCRV: prices['convex-crv'],
       };
     };
 

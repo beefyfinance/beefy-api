@@ -1,5 +1,8 @@
 const { avaxWeb3: web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
+import { MultiCall } from 'eth-multicall';
+import { multicallAddress } from '../../../utils/web3';
+import { AVAX_CHAIN_ID } from '../../../constants';
 
 const Strategy = require('../../../abis/StrategyABI.json');
 const RewardTracker = require('../../../abis/arbitrum/RewardTracker.json');
@@ -46,19 +49,24 @@ const getYearlyRewardsInUsd = async pool => {
 };
 
 const getTrackerRewards = async (pool, rewardTracker) => {
+  const multicall = new MultiCall(web3, multicallAddress(AVAX_CHAIN_ID));
   const rewardTrackerContract = getContractWithProvider(RewardTracker, rewardTracker.address, web3);
   const distibutorContract = getContractWithProvider(Distributor, rewardTracker.distributor, web3);
 
-  let [rewardPerSecond, stakedAmounts, totalSupply] = await Promise.all([
-    distibutorContract.methods.tokensPerInterval().call(),
-    rewardTrackerContract.methods.stakedAmounts(pool.strategy).call(),
-    rewardTrackerContract.methods.totalSupply().call(),
-  ]);
+  const distibutorCalls = [];
+  const trackerCalls = [];
 
-  rewardPerSecond = new BigNumber(rewardPerSecond);
-  stakedAmounts = new BigNumber(stakedAmounts);
-  totalSupply = new BigNumber(totalSupply);
+  distibutorCalls.push({rewardPerSecond: distibutorContract.methods.tokensPerInterval()});
+  trackerCalls.push({
+    stakedAmounts: rewardTrackerContract.methods.stakedAmounts(pool.strategy),
+    totalSupply: rewardTrackerContract.methods.totalSupply(),
+  });
 
+  const res = await multicall.all([distibutorCalls, trackerCalls]);
+
+  const rewardPerSecond = new BigNumber(res[0].map(v => v.rewardPerSecond));
+  const stakedAmounts = new BigNumber(res[1].map(v => v.stakedAmounts));
+  const totalSupply = new BigNumber(res[1].map(v => v.totalSupply));
   const rewardPrice = await fetchPrice({oracle: 'tokens', id: pool.rewardToken});
 
   const yearlyRewardsInUsd = rewardPerSecond.times(SECONDS_PER_YEAR).times(rewardPrice).dividedBy(DECIMALS);
@@ -76,7 +84,7 @@ const getTotalStakedInUsd = async pool => {
     const stakedTrackerContract = getContractWithProvider(RewardTracker, pool.stakedTracker, web3);
     staked = new BigNumber(await stakedTrackerContract.methods.depositBalances(pool.strategy, pool.address).call());
   }
-  const stakedPrice = await fetchPrice({oracle: 'tokens', id: pool.tokenId});
+  const stakedPrice = await fetchPrice({oracle: pool.oracle, id: pool.tokenId});
   return staked.times(stakedPrice).dividedBy(DECIMALS);
 };
 

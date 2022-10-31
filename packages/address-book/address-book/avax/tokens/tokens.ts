@@ -15,6 +15,18 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  'USD+': {
+    name: 'USD+ Stablecoin',
+    symbol: 'USD+',
+    address: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
+    chainId: 43114,
+    decimals: 6,
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
   CAI: {
     name: 'Colony Avalanche Index CAI',
     symbol: 'CAI',
@@ -487,17 +499,6 @@ const _tokens = {
     website: 'https://app.moremoney.finance/',
     description:
       'Moremoney is a lending protocol for opening interest-free collateralised debt positions (CDP) using liquidity pool tokens, interest-bearing tokens (ibTKNs) and other major tokens as collateral. Borrowers mint MONEY, a USD softly pegged stablecoin backed by an over-collateralised debt position as well as the yield earned by the collateral.  After minting MONEY, borrowers can use it across the DeFi landscape, for interest free leverage, or simply use it to farm MORE. Moremoney is designed to support the further conversion of base tokens like ETH, AVAX, USDT into ibTKNs. Upon depositing, collateral assets are forwarded to trusted partner protocols where these tokens earn yield, which is either compounded into collateral token or into $MONEY to automatically repay debts owed by a vault.',
-  },
-  GMX: {
-    name: 'GMX',
-    symbol: 'GMX',
-    address: '0x62edc0692BD897D2295872a9FFCac5425011c661',
-    chainId: 43114,
-    decimals: 18,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0x62edc0692BD897D2295872a9FFCac5425011c661.svg',
-    website: 'https://gmx.io/buy',
-    description: 'Swaps and leverage trading of up to 30x is now live on Avalanche!',
   },
   FRM: {
     name: 'Ferrum Network Token',
@@ -4606,6 +4607,30 @@ const _tokens = {
 
     logoURI:
       'https://assets.coingecko.com/coins/images/25015/small/801485424e1f49bc8d0facff9287eb9b_photo.png?1649827972',
+  },
+  GLP: {
+    name: 'GLP',
+    symbol: 'GLP',
+    address: '0xaE64d55a6f09E4263421737397D1fdFA71896a69',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://app.gmx.io/#/trade/?ref=beefy',
+    description:
+      'GLP consists of an index of assets used for swaps and leverage trading on GMX. GLP holders will make a profit when leverage traders make a loss and vice versa. Staked GLP also earns escrowed GMX rewards and 70% of platform fees distributed in ETH.',
+    logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GLP_LOGO%20ONLY.svg',
+    documentation: 'https://gmxio.gitbook.io/gmx/glp',
+  },
+  GMX: {
+    name: 'GMX',
+    symbol: 'GMX',
+    address: '0x62edc0692BD897D2295872a9FFCac5425011c661',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://app.gmx.io/#/trade/?ref=beefy',
+    description:
+      'GMX is the utility and governance token of the GMX decentralized spot and perpetual exchange that supports low swap fees, zero price impact trades and up to 30x leverage. Staked GMX earns escrowed GMX and 30% of platform fees in the form of ETH.',
+    logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GMX_LOGO%20ONLY.svg',
+    documentation: 'https://gmxio.gitbook.io/',
   },
 } as const;
 

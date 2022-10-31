@@ -44,6 +44,8 @@
     "gauge": "0x2Aa6fB79EfE19A3fcE71c46AE48EFc16372ED6dD",
     "vaultPoolId": "0x8159462d255c1d24915cb51ec361f700174cd99400000000000000000000075d",
     "decimals": "1e18",
+    "lidoUrl": "https://polygon.lido.fi/api/stats",
+    "balancerChargesFee": true,
     "composable": true,
     "bptIndex": 2,
     "rewards": [

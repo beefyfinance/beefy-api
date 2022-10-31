@@ -2,8 +2,9 @@
   {
     "name": "gmx-arb-gmx",
     "address": "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a",
+    "oracle": "tokens",
     "tokenId": "GMX",
-    "strategy": "0x2Ca3D8569Fff9D394063853712AAC5aC5A5a1780",
+    "strategy": "0x7bAC6C0A051CE105F7bEeA87a0dAF24c67f471c9",
     "stakedTracker": "0x908C4D94D34924765f1eDc22A1DD098397c59dD4",
     "rewardToken": "ETH",
     "rewardTrackers": [
@@ -17,10 +18,13 @@
   },
   {
     "name": "gmx-arb-glp",
-    "address": "0x4277f8F2c384827B5273592FF7CeBd9f2C1ac258",
-    "tokenId": "ETH",
-    "strategy": "0xa2FBf3CF32c1D229e3F018d886fEe3629A4d348C",
+    "address": "0x5402B5F40310bDED796c7D0F3FF6683f5C0cFfdf",
+    "oracle": "lps",
+    "tokenId": "gmx-arb-glp",
+    "strategy": "0x3C2131A02659343d68c211aAa686750bE37d88c4",
     "stakedTracker": "0x1aDDD80E6039594eE970E5872D247bf0414C8903",
+    "glpManager": "0x321F653eED006AD1C29D174e17d96351BDe22649",
+    "vault": "0x489ee077994B6658eAfA855C308275EAd8097C4A",
     "rewardToken": "ETH",
     "rewardTrackers": [
       {
@@ -30,6 +34,48 @@
       {
         "address": "0xd2D1162512F927a7e282Ef43a362659E4F2a728F",
         "distributor": "0x1DE098faF30bD74F22753c28DB17A2560D4F5554"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4",
+        "oracleId": "LINK",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xFa7F8980b0f1E64A2062791cc3b0871572f1F7f0",
+        "oracleId": "UNI",
+        "decimals": "1e18"
       }
     ],
     "decimals": "1e18",

@@ -5,6 +5,7 @@
     "gauge": "0xDF650dF3B87727E192D676A9012Fc7A0E5277b0D",
     "decimals": "1e18",
     "chainId": 137,
+    "polygon": true,
     "beefyFee": 0.095,
     "lp0": {
       "address": "0x236eeC6359fb44CCe8f97E99387aa7F8cd5cdE1f",

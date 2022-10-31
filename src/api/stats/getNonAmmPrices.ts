@@ -14,6 +14,7 @@ import getCurveAvaxPrices from './avax/getCurvePrices';
 import getCurveHarmonyPrices from './one/getCurvePrices';
 import getCurveOptimismPrices from './optimism/getCurvePrices';
 import getCurveMoonbeamPrices from './moonbeam/getCurvePrices';
+import { getCurveEthereumPrices } from './ethereum/getCurvePrices';
 import getBeethovenxPrices from './fantom/getBeethovenxPrices';
 import { getSynapsePrices } from './avax/getSynapsePrices';
 import getJarvisPrices from './matic/getJarvisPrices';
@@ -38,6 +39,7 @@ import getCurveKavaPrices from './kava/getCurvePrices';
 import getSushiKavaPrices from './kava/getSushiPrices';
 import getGmxArbitrumPrices from './arbitrum/getGmxPrices';
 import getGmxAvalanchePrices from './avax/getGmxPrices';
+import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices';
 import getFerroPrices from './cronos/getFerroPrices';
 
 const getNonAmmPrices = async tokenPrices => {
@@ -46,6 +48,8 @@ const getNonAmmPrices = async tokenPrices => {
 
   const promises = [
     getFerroPrices(tokenPrices),
+    getCurveEthereumPrices(tokenPrices),
+    getAuraBalancerPrices(tokenPrices),
     getGmxAvalanchePrices(tokenPrices),
     getGmxArbitrumPrices(tokenPrices),
     getSushiKavaPrices(tokenPrices),

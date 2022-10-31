@@ -14,6 +14,7 @@ const multichainVaults = require('./api/vaults');
 const { boosts, chainBoosts } = require('./api/boosts');
 const { bifibuyback } = require('./api/stats/bifibuyback/index');
 const { getTokens, getChainTokens } = require('./api/tokens');
+const { getConfigs, getChainConfig } = require('./api/config');
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
@@ -44,6 +45,9 @@ router.get('/boosts/:chainId', chainBoosts);
 
 router.get('/tokens', getTokens);
 router.get('/tokens/:chainId', getChainTokens);
+
+router.get('/config', getConfigs);
+router.get('/config/:chainId', getChainConfig);
 
 router.get('/', noop);
 

@@ -5,6 +5,7 @@ import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
 import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
+const fetch = require('node-fetch');
 import { beetOpClient } from '../../../apollo/client';
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
 
@@ -45,7 +46,14 @@ const getPoolApy = async pool => {
     getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(OPTIMISM_CHAIN_ID)), pool),
     getTotalStakedInUsd(web3, pool),
   ]);
-  const rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  if (pool.lidoUrl) {
+    const response = await fetch(pool.lidoUrl).then(res => res.json());
+    const apr = response.data.steth;
+    let aprFixed = 0;
+    pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
+    rewardsApy = rewardsApy.plus(aprFixed);
+  }
   // console.log(pool.name,rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
   return rewardsApy;
 };

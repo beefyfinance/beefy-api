@@ -38,7 +38,7 @@ const getPoolPrice = async (web3, pools, pool, tokenPrices, withBreakdown) => {
     return { [pool.name]: price };
   } catch (err) {
     console.log('error on pool ' + pool.name);
-    throw err;
+    return { [pool.name]: 0 };
   }
 };
 

@@ -57,6 +57,9 @@ module.exports = {
   get kavaWeb3() {
     return chainRandomClients.kavaRandomClient();
   },
+  get ethereumWeb3() {
+    return chainRandomClients.ethereumRandomClient();
+  },
 
   web3Factory: _web3Factory,
 
