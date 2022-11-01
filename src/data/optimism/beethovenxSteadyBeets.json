@@ -5,6 +5,7 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "vaultPoolId": "0x6222ae1d2a9f6894da50aa25cb7b303497f9bebd000000000000000000000046",
     "decimals": "1e18",
+    "chainId": 10,
     "composable": true,
     "bptIndex": 0,
     "tokens": [

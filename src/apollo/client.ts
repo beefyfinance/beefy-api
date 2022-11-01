@@ -28,8 +28,6 @@ function client(url: string) {
   });
 }
 
-const GRAPH_API_KEY = process.env.GRAPH_API_KEY;
-
 const apePolyClient = client('https://api.thegraph.com/subgraphs/name/prof-sd/as-matic-graft');
 const sushiPolyClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/matic-exchange');
 const sushiOneClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/exchange-harmony');
@@ -110,7 +108,7 @@ const uniswapPolygonClient = client(
   'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon'
 );
 const balancerClient = client(
-  'https://gateway.thegraph.com/api/GRAPH_API_KEY/subgraphs/id/GAWNgiGrA9eRce5gha9tWc7q5DPvN3fs5rSJ6tEULFNM'
+  'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2-beta'
 );
 
 const isSushiTridentClient = (client: ApolloClient<NormalizedCacheObject>) => {

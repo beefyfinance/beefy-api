@@ -175,7 +175,7 @@ export const getTradingFeeAprBalancer = async (
       pairAddressesToAprMap[pair] = new BigNumber(pool.totalSwapFee)
         .minus(pastPool.totalSwapFee)
         .times(365)
-        .dividedBy(pool.liquidity);
+        .dividedBy(pool.totalLiquidity);
     }
   } catch (e) {
     console.error('> getTradingFeeAprBalancer error', pairAddresses[0]);

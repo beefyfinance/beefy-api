@@ -14,6 +14,8 @@ export interface ApyBreakdown {
   lpFee?: number;
   tradingApr?: number;
   totalApy?: number;
+  liquidStakingApr?: number;
+  composablePoolApr?: number;
 }
 
 export interface ApyBreakdownResult {
@@ -25,7 +27,9 @@ export const getApyBreakdown = (
   pools: { name: string; address: string; beefyFee?: number }[],
   tradingAprs: Record<string, BigNumber>,
   farmAprs: BigNumber[],
-  providerFee: number
+  providerFee: number,
+  liquidStakingAprs?: number,
+  composablePoolAprs?: number
 ): ApyBreakdownResult => {
   const result: ApyBreakdownResult = {
     apys: {},
@@ -33,23 +37,38 @@ export const getApyBreakdown = (
   };
 
   pools.forEach((pool, i) => {
+    const liquidStakingApr: number | undefined = liquidStakingAprs
+      ? liquidStakingAprs[i]
+      : undefined;
+
+    const composablePoolApr: number | undefined = composablePoolAprs
+      ? composablePoolAprs[i].toNumber()
+      : undefined;
+
+    const extraApr =
+      liquidStakingAprs && composablePoolAprs
+        ? liquidStakingApr + composablePoolApr
+        : liquidStakingAprs
+        ? liquidStakingApr
+        : composablePoolAprs
+        ? composablePoolApr
+        : 0;
+
     const simpleApr = farmAprs[i]?.toNumber();
     const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApr * shareAfterBeefyPerformanceFee;
-    const vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    let vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+
     const tradingApr: number | undefined = (
       (tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0)).isFinite()
         ? tradingAprs[pool.address.toLowerCase()]
         : new BigNumber(0)
     )?.toNumber();
-    const totalApy = getFarmWithTradingFeesApy(
-      simpleApr,
-      tradingApr,
-      BASE_HPY,
-      1,
-      shareAfterBeefyPerformanceFee
-    );
+
+    const totalApy =
+      getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee) +
+      extraApr;
 
     // Add token to APYs object
     result.apys[pool.name] = totalApy;
@@ -60,6 +79,8 @@ export const getApyBreakdown = (
       vaultApy: vaultApy,
       lpFee: providerFee,
       tradingApr: tradingApr,
+      liquidStakingApr: liquidStakingApr,
+      composablePoolApr: composablePoolApr,
       totalApy: totalApy,
     };
   });
