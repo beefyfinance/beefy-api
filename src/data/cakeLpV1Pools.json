@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -33,7 +33,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -46,7 +46,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -65,7 +65,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -109,7 +109,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -128,7 +128,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -147,7 +147,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -166,7 +166,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -185,7 +185,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -204,7 +204,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -217,7 +217,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -242,7 +242,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -261,7 +261,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -280,7 +280,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -299,7 +299,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -312,7 +312,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -337,7 +337,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -356,7 +356,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -394,7 +394,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -413,7 +413,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -445,7 +445,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -470,7 +470,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -483,7 +483,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -546,7 +546,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -603,7 +603,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -622,7 +622,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -660,7 +660,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -673,7 +673,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -755,7 +755,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -774,7 +774,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -793,7 +793,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -806,7 +806,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -831,7 +831,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -844,7 +844,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -869,7 +869,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -882,7 +882,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -907,7 +907,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -920,7 +920,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -945,7 +945,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -958,7 +958,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -1059,7 +1059,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1078,7 +1078,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1097,7 +1097,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1116,7 +1116,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1135,7 +1135,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1154,7 +1154,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1173,7 +1173,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1186,7 +1186,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -1211,7 +1211,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1230,7 +1230,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1249,7 +1249,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1262,7 +1262,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -1344,7 +1344,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1363,7 +1363,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1382,7 +1382,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1401,7 +1401,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1420,7 +1420,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1471,7 +1471,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -1490,7 +1490,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -1515,7 +1515,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1534,7 +1534,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1553,7 +1553,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1566,7 +1566,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -1610,7 +1610,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1623,7 +1623,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -1648,7 +1648,7 @@
     "lp1": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },
@@ -1661,7 +1661,7 @@
     "lp0": {
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "WBNB",
       "decimals": "1e18"
     },
     "lp1": {

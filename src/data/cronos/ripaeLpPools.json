@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
       "oracle": "tokens",
-      "oracleId": "CRO",
+      "oracleId": "WCRO",
       "decimals": "1e18"
     },
     "lp1": {
@@ -27,7 +27,7 @@
     "lp0": {
       "address": "0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23",
       "oracle": "tokens",
-      "oracleId": "CRO",
+      "oracleId": "WCRO",
       "decimals": "1e18"
     },
     "lp1": {

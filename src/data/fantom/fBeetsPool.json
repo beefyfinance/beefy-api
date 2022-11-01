@@ -9,7 +9,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "FTM",
+        "oracleId": "WFTM",
         "decimals": "1e18"
       },
       {

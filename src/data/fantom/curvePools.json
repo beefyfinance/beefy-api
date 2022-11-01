@@ -40,7 +40,7 @@
       {
         "stream": "0xfE1A3dD8b169fB5BF0D5dbFe813d956F39fF6310",
         "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
-        "oracleId": "FTM"
+        "oracleId": "WFTM"
       }
     ],
     "tokens": [
@@ -71,7 +71,7 @@
       {
         "stream": "0xb9C05B8EE41FDCbd9956114B3aF15834FDEDCb54",
         "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
-        "oracleId": "FTM"
+        "oracleId": "WFTM"
       }
     ],
     "tokens": [
@@ -216,7 +216,7 @@
     "name": "curve-ftm-f-ftml",
     "pool": "0x8B63F036F5a34226065bC0a7B0aE5bb5eBA1fF3D",
     "gauge": "0xc1c5B8aAfE653592627B54B9527C7E98326e83Ff",
-    "oracleId": "FTM",
+    "oracleId": "WFTM",
     "boosted": true,
     "tokens": [
       {

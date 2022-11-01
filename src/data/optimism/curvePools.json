@@ -4,7 +4,7 @@
     "pool": "0xB90B9B1F91a01Ea22A182CD84C1E22222e39B415",
     "token": "0xEfDE221f306152971D8e9f181bFe998447975810",
     "gauge": "0xD53cCBfED6577d8dc82987e766e75E3cb73a8563",
-    "oracleId": "ETH",
+    "oracleId": "WETH",
     "boosted": true,
     "rewards": [
       {
@@ -15,7 +15,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "ETH",
+        "oracleId": "WETH",
         "decimals": "1e18"
       },
       {
@@ -68,7 +68,7 @@
     "name": "curve-op-f-seth",
     "pool": "0x7Bc5728BC2b59B45a58d9A576E2Ffc5f0505B35E",
     "token": "0x7Bc5728BC2b59B45a58d9A576E2Ffc5f0505B35E",
-    "oracleId": "ETH",
+    "oracleId": "WETH",
     "gauge": "0xCB8883D1D8c560003489Df43B30612AAbB8013bb",
     "boosted": true,
     "rewards": [
@@ -80,7 +80,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "ETH",
+        "oracleId": "WETH",
         "decimals": "1e18"
       },
       {

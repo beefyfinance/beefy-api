@@ -13,7 +13,7 @@
       {
         "stream": "0xf2Cde8c47C20aCbffC598217Ad5FE6DB9E00b163",
         "token": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
-        "oracleId": "ONE"
+        "oracleId": "WONE"
       }
     ],
     "tokens": [
@@ -50,7 +50,7 @@
       {
         "stream": "0x0b2C8fD6110F31F340D3C78A0AEf6c568B60695B",
         "token": "0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a",
-        "oracleId": "ONE"
+        "oracleId": "WONE"
       }
     ],
     "tokens": [

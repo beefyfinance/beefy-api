@@ -19,7 +19,7 @@
     "name": "alpaca-ibbnb",
     "address": "0xd7D069493685A581d27824Fc46EdA46B7EfC0063",
     "oracle": "tokens",
-    "oracleId": "BNB",
+    "oracleId": "WBNB",
     "decimals": "1e18",
     "poolId": 1
   },

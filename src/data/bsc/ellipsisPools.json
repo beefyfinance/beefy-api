@@ -26,7 +26,7 @@
     "name": "ellipsis-bnb-bnbx",
     "address": "0x2E9a994C9a2F661AE685e8d08662dF00f862f4da",
     "minter": "0xA844B2fFEB34AB5878E3B520e87b50F125DA7919",
-    "oracleId": "BNB",
+    "oracleId": "WBNB",
     "beefyFee": 0.095
   },
   {
@@ -130,7 +130,7 @@
     "name": "ellipsis-ankrBNB",
     "address": "0xf71A0bCC3Ef8a8c5a28fc1BC245e394A8ce124ec",
     "minter": "0xf0d17f404343D7Ba66076C818c9DC726650E2435",
-    "oracleId": "BNB",
+    "oracleId": "WBNB",
     "rewards": [
       {
         "token": "0xf307910A4c7bbc79691fD374889b36d8531B08e3",

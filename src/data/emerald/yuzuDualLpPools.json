@@ -9,7 +9,7 @@
     "lp0": {
       "address": "0x21C718C22D52d0F3a789b752D4c2fD5908a8A733",
       "oracle": "tokens",
-      "oracleId": "ROSE",
+      "oracleId": "wROSE",
       "decimals": "1e18"
     },
     "lp1": {
@@ -31,7 +31,7 @@
     "lp0": {
       "address": "0x21C718C22D52d0F3a789b752D4c2fD5908a8A733",
       "oracle": "tokens",
-      "oracleId": "ROSE",
+      "oracleId": "wROSE",
       "decimals": "1e18"
     },
     "lp1": {
@@ -53,7 +53,7 @@
     "lp0": {
       "address": "0x21C718C22D52d0F3a789b752D4c2fD5908a8A733",
       "oracle": "tokens",
-      "oracleId": "ROSE",
+      "oracleId": "wROSE",
       "decimals": "1e18"
     },
     "lp1": {

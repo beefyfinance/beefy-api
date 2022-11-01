@@ -14,7 +14,7 @@
     "lp1": {
       "address": "0xf50225a84382c74CbdeA10b0c176f71fc3DE0C4d",
       "oracle": "tokens",
-      "oracleId": "MOVR",
+      "oracleId": "WMOVR",
       "decimals": "1e18"
     }
   },
@@ -33,7 +33,7 @@
     "lp1": {
       "address": "0xf50225a84382c74CbdeA10b0c176f71fc3DE0C4d",
       "oracle": "tokens",
-      "oracleId": "MOVR",
+      "oracleId": "WMOVR",
       "decimals": "1e18"
     }
   }

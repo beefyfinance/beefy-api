@@ -49,7 +49,7 @@
     "lp0": {
       "address": "0x420000000000000000000000000000000000000A",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -69,7 +69,7 @@
     "lp0": {
       "address": "0x420000000000000000000000000000000000000A",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     },
     "lp1": {

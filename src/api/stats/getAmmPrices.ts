@@ -499,7 +499,6 @@ const coinGeckoCoins = [
   'tether-eurt',
   'par-stablecoin',
   'jarvis-synthetic-euro',
-  'monerium-eur-money',
   'jpyc',
   'cad-coin',
   'xsgd',
@@ -553,13 +552,9 @@ const updateAmmPrices = async () => {
         EURt: prices['tether-eurt'],
         PAR: prices['par-stablecoin'],
         jEUR: prices['jarvis-synthetic-euro'],
-        EURe: prices['monerium-eur-money'],
         JPYC: prices['jpyc'],
-        jJPY: prices['jpyc'],
         CADC: prices['cad-coin'],
-        jCAD: prices['cad-coin'],
         XSGD: prices['xsgd'],
-        jSGD: prices['xsgd'],
         USDB: prices['usd-balance'],
         GEL: prices['gelato'],
         PERP: prices['perpetual-protocol'],
@@ -585,35 +580,7 @@ const updateAmmPrices = async () => {
       };
     };
 
-    // All LP oracleIds should be set to the native assets, the wrapped version of each of those is then set based on those to avoid different values
-    const ammPrices = fetchAmmPrices(pools, knownPrices).then(prices => {
-      const gasTokens = [
-        'BNB',
-        'HT',
-        'AVAX',
-        'MATIC',
-        'FTM',
-        'ONE',
-        'ETH',
-        'CELO',
-        'MOVR',
-        'CRO',
-        'FUSE',
-        'METIS',
-        'GLMR',
-        'ROSE',
-        'KAVA',
-      ];
-      gasTokens.forEach(token => {
-        if (!prices.tokenPrices[token]) {
-          console.log(`> [PRICES] Missing native ${token}, wrapped value must be set later on`);
-        } else {
-          prices.tokenPrices[`W${token}`] = prices.tokenPrices[token];
-        }
-      });
-      return prices;
-    });
-
+    const ammPrices = fetchAmmPrices(pools, knownPrices);
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
     const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {

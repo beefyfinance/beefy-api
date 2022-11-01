@@ -9,7 +9,7 @@
     "lp0": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -29,7 +29,7 @@
     "lp0": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -75,7 +75,7 @@
     "lp1": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     }
   },
@@ -175,7 +175,7 @@
     "lp1": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     }
   },
@@ -189,7 +189,7 @@
     "lp0": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -209,7 +209,7 @@
     "lp0": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -288,7 +288,7 @@
     "lp0": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -345,7 +345,7 @@
     "lp0": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -503,7 +503,7 @@
     "lp1": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     }
   },
@@ -516,7 +516,7 @@
     "lp0": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -535,7 +535,7 @@
     "lp0": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "WETH",
       "decimals": "1e18"
     },
     "lp1": {

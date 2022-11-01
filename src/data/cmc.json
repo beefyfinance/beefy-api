@@ -121,7 +121,7 @@
       "apyId": "venus-bnb",
       "contract": "0x6BE4741AB0aD233e4315a10bc783a7B923386b71",
       "oracle": "tokens",
-      "oracleId": "BNB"
+      "oracleId": "WBNB"
     },
     {
       "name": "Venus: BETH",

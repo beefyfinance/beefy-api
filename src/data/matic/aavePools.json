@@ -5,7 +5,7 @@
     "aToken": "0x8dF3aad3a84da6b69A4DA8aeC3eA40d9091B2Ac4",
     "debtToken": "0x59e8E9100cbfCBCBAdf86b9279fa61526bBB8765",
     "oracle": "tokens",
-    "oracleId": "MATIC",
+    "oracleId": "WMATIC",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01
