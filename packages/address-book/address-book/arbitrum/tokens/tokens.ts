@@ -309,6 +309,66 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
     documentation: 'https://uniswap.org/developers',
   },
+  HOP: {
+    name: 'HOP Protocol',
+    symbol: 'HOP',
+    address: '0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: 'https://docs.velodrome.finance/tokens/HOP.svg',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hETH: {
+    name: 'ETH Hop Token',
+    symbol: 'hETH',
+    address: '0xDa7c0de432a9346bB6e96aC74e3B61A36d8a77eB',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hETH is the bridge token for transferring ETH via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hUSDC: {
+    name: 'USDC Hop Token',
+    symbol: 'hUSDC',
+    address: '0x0ce6c85cF43553DE10FC56cecA0aef6Ff0DD444d',
+    chainId: 42161,
+    decimals: 6,
+    website: 'https://app.hop.exchange',
+    description:
+      'hUSDC is the bridge token for transferring USDC via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hUSDT: {
+    name: 'USDT Hop Token',
+    symbol: 'hUSDT',
+    address: '0x12e59C59D282D2C00f3166915BED6DC2F5e2B5C7',
+    chainId: 42161,
+    decimals: 6,
+    website: 'https://app.hop.exchange',
+    description:
+      'hUSDT is the bridge token for transferring USDT via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hDAI: {
+    name: 'DAI Hop Token',
+    symbol: 'hDAI',
+    address: '0x46ae9BaB8CEA96610807a275EBD36f8e916b5C61',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hDAI is the bridge token for transferring DAI via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

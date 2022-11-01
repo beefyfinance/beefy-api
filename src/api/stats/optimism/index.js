@@ -7,6 +7,8 @@ const getOptimismBifiGovApy = require('./getOptimismBifiEarningsApy');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getRipaeApys } = require('./getRipaeApys');
 const { getOptimismBifiMaxiApy } = require('./getOptimismBifiMaxiApy');
+const { getHopApys } = require('./getHopApys');
+const { getHopOpApys } = require('./getHopOpApys');
 
 const getApys = [
   getBeetsOpApys,
@@ -18,6 +20,8 @@ const getApys = [
   getOptimismBifiMaxiApy,
   getAaveV3Apys,
   getRipaeApys,
+  getHopApys,
+  getHopOpApys,
 ];
 
 const getOptimismApys = async () => {

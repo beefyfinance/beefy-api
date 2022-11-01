@@ -650,6 +650,66 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
+  hETH: {
+    name: 'ETH Hop Token',
+    symbol: 'hETH',
+    address: '0xE38faf9040c7F09958c638bBDB977083722c5156',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hETH is the bridge token for transferring ETH via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hUSDC: {
+    name: 'USDC Hop Token',
+    symbol: 'hUSDC',
+    address: '0x25D8039bB044dC227f741a9e381CA4cEAE2E6aE8',
+    chainId: 10,
+    decimals: 6,
+    website: 'https://app.hop.exchange',
+    description:
+      'hUSDC is the bridge token for transferring USDC via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hUSDT: {
+    name: 'USDT Hop Token',
+    symbol: 'hUSDT',
+    address: '0x2057C8ECB70Afd7Bee667d76B4CD373A325b1a20',
+    chainId: 10,
+    decimals: 6,
+    website: 'https://app.hop.exchange',
+    description:
+      'hUSDT is the bridge token for transferring USDT via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hDAI: {
+    name: 'DAI Hop Token',
+    symbol: 'hDAI',
+    address: '0x56900d66D74Cb14E3c86895789901C9135c95b16',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hDAI is the bridge token for transferring DAI via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hSNX: {
+    name: 'SNX Hop Token',
+    symbol: 'hSNX',
+    address: '0x13B7F51BD865410c3AcC4d56083C5B56aB38D203',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hSNX is the bridge token for transferring SNX via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

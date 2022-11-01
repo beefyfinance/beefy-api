@@ -9,6 +9,7 @@ import {
   balancerDataQuery,
   joeDayDataRangeQuery,
   protocolDayDataRangeQuery,
+  hopQuery,
 } from '../apollo/queries';
 import getBlockTime from './getBlockTime';
 import getBlockNumber from './getBlockNumber';
@@ -248,6 +249,39 @@ export const getVariableTradingFeeApr = async (
     }
   } catch (e) {
     console.error('> getVariableTradingFeeApr error', pairAddresses[0]);
+  }
+
+  return pairAddressToAprMap;
+};
+
+export const getTradingFeeAprHop = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  pairAddresses: string[],
+  tokens: string[],
+  tvl: number[],
+  liquidityProviderFee: number
+) => {
+  const [start, end] = getUtcSecondsFromDayRange(1, 2);
+  const pairAddressToAprMap: Record<string, BigNumber> = {};
+
+  try {
+    let i = 0;
+    for (const token of tokens) {
+      let {
+        data: { tokenSwaps },
+      }: { data: { tokenSwaps } } = await client.query({
+        query: hopQuery(token, start, end),
+      });
+      const values = tokenSwaps.map(({ tokensSold }) => tokensSold);
+      const sum = BigNumber.sum.apply(null, values);
+      pairAddressToAprMap[pairAddresses[i]] = sum
+        .times(liquidityProviderFee)
+        .times(365)
+        .dividedBy(tvl[i]);
+      ++i;
+    }
+  } catch (e) {
+    console.error('> getTradingFeeAprHop error', pairAddresses[0]);
   }
 
   return pairAddressToAprMap;

@@ -155,6 +155,17 @@ const uniswapPositionQuery = (strategy, block) => {
   return gql(queryString);
 };
 
+const hopQuery = (address, startTimestamp, endTimestamp) => {
+  const queryString = `
+  query hop {
+    tokenSwaps(first: 1000, orderBy: tokensSold, orderDirection: desc, where: { tokenEntity_: { address:"${address}" } , timestamp_gt: ${startTimestamp}, timestamp_lt: ${endTimestamp} }) {
+      tokensSold
+    }
+  }
+`;
+  return gql(queryString);
+};
+
 module.exports = {
   pairDayDataQuery,
   pairDayDataSushiQuery,
@@ -166,4 +177,5 @@ module.exports = {
   balancerDataQuery,
   protocolDayDataRangeQuery,
   uniswapPositionQuery,
+  hopQuery,
 };

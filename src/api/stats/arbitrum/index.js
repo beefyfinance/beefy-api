@@ -9,8 +9,10 @@ const getStargateArbApys = require('./getStargateArbApys');
 const getRipaeApys = require('./getRipaeApys');
 const getRadiantLpApys = require('./getRadiantLpApys');
 const { getGmxApys } = require('./getGmxApys');
+const { getHopApys } = require('./getHopApys');
 
 const getApys = [
+  getHopApys,
   getGmxApys,
   getRadiantLpApys,
   getRipaeApys,

@@ -1,0 +1,91 @@
+[
+  {
+    "name": "hop-op-eth",
+    "address": "0x5C2048094bAaDe483D0b1DA85c3Da6200A88a849",
+    "pool": "0xaa30D6bba6285d0585722e2440Ff89E23EF68864",
+    "rewardPool": "0x95d6A95BECfd98a7032Ed0c7d950ff6e0Fa8d697",
+    "virtualOracleId": "ETH",
+    "virtualDecimals": "1e18",
+    "decimals": "1e18",
+    "chainId": 10,
+    "tokens": [
+      {
+        "address": "0x4200000000000000000000000000000000000006",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xE38faf9040c7F09958c638bBDB977083722c5156",
+        "oracleId": "hETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "hop-op-usdc",
+    "address": "0x2e17b8193566345a2Dd467183526dEdc42d2d5A8",
+    "pool": "0x3c0FFAca566fCcfD9Cc95139FEF6CBA143795963",
+    "rewardPool": "0xf587B9309c603feEdf0445aF4D3B21300989e93a",
+    "virtualOracleId": "USDC",
+    "virtualDecimals": "1e6",
+    "graphKey": "USDC",
+    "decimals": "1e18",
+    "chainId": 10,
+    "tokens": [
+      {
+        "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x25D8039bB044dC227f741a9e381CA4cEAE2E6aE8",
+        "oracleId": "hUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "hop-op-usdt",
+    "address": "0xF753A50fc755c6622BBCAa0f59F0522f264F006e",
+    "pool": "0xeC4B41Af04cF917b54AEb6Df58c0f8D78895b5Ef",
+    "rewardPool": "0xAeB1b49921E0D2D96FcDBe0D486190B2907B3e0B",
+    "virtualOracleId": "USDT",
+    "virtualDecimals": "1e6",
+    "decimals": "1e18",
+    "chainId": 10,
+    "tokens": [
+      {
+        "address": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x2057C8ECB70Afd7Bee667d76B4CD373A325b1a20",
+        "oracleId": "hUSDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "hop-op-dai",
+    "address": "0x22D63A26c730d49e5Eab461E4f5De1D8BdF89C92",
+    "pool": "0xF181eD90D6CfaC84B8073FdEA6D34Aa744B41810",
+    "rewardPool": "0x392B9780cFD362bD6951edFA9eBc31e68748b190",
+    "virtualOracleId": "DAI",
+    "virtualDecimals": "1e18",
+    "decimals": "1e18",
+    "chainId": 10,
+    "tokens": [
+      {
+        "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x56900d66D74Cb14E3c86895789901C9135c95b16",
+        "oracleId": "hDAI",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]
