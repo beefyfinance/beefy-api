@@ -5,6 +5,7 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "vaultPoolId": "0xdd89c7cd0613c1557b2daac6ae663282900204f100000000000000000000003e",
     "decimals": "1e18",
+    "chainId": 10,
     "composable": true,
     "bptIndex": 1,
     "tokens": [
@@ -29,6 +30,7 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "vaultPoolId": "0xba7834bb3cd2db888e6a06fb45e82b4225cd0c71000000000000000000000043",
     "decimals": "1e18",
+    "chainId": 10,
     "composable": true,
     "bptIndex": 2,
     "tokens": [
@@ -53,6 +55,7 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "vaultPoolId": "0x9253d7e1b42fa01ede2c53f3a21b3b4d13239cd4000000000000000000000042",
     "decimals": "1e18",
+    "chainId": 10,
     "composable": true,
     "bptIndex": 1,
     "tokens": [
@@ -77,6 +80,7 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "vaultPoolId": "0x888a6195d42a95e80d81e1c506172772a80b80bc000000000000000000000044",
     "decimals": "1e18",
+    "chainId": 10,
     "composable": true,
     "bptIndex": 1,
     "tokens": [
@@ -101,6 +105,7 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "vaultPoolId": "0xa1a77e5d7d769bfbb790a08ec976dc738bf795b9000000000000000000000047",
     "decimals": "1e18",
+    "chainId": 10,
     "composable": true,
     "bptIndex": 2,
     "tokens": [

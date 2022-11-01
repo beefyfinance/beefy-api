@@ -6,6 +6,8 @@ const BigNumber = require('bignumber.js');
 
 const IAuraToken = require('../../../abis/ethereum/AuraToken.json');
 const IAuraGauge = require('../../../abis/ethereum/AuraGauge.json');
+const IBalancerVault = require('../../../abis/IBalancerVault.json');
+const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataProvider.json');
 import { multicallAddress } from '../../../utils/web3';
 const { ETH_CHAIN_ID: chainId } = require('../../../constants');
 import { balancerClient } from '../../../apollo/client';
@@ -18,14 +20,30 @@ import { getEDecimals } from '../../../utils/getEDecimals';
 const { getContractWithProvider } = require('../../../utils/contractHelper');
 const {
   ethereum: {
-    tokens: { AURA, BAL },
+    tokens: { AURA, BAL, DAI, USDC, USDT },
+    platforms: { balancer },
   },
 } = addressBook;
 
+const bbaUSDTokens = [
+  {
+    address: USDT.address,
+  },
+  {
+    address: USDC.address,
+  },
+  {
+    address: DAI.address,
+  },
+];
+
 const pools = require('../../../data/ethereum/auraBalancerLpPools.json');
+const aaveDataProvider = '0x057835Ad21a177dbdd3090bB1CAE03EaCF78Fc6d';
+const bbaUSDPoolId = '0xa13a9247ea42d743238089903570127dda72fe4400000000000000000000035d';
 
 const liquidityProviderFee = 0.0025;
 const secondsInAYear = 31536000;
+const RAY_DECIMALS = '1e27';
 
 const getAuraApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
@@ -39,20 +57,33 @@ const getAuraApys = async () => {
 
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
-  return getApyBreakdown(poolsMap, tradingAprs, farmApys, liquidityProviderFee);
+  return getApyBreakdown(
+    poolsMap,
+    tradingAprs,
+    farmApys[0],
+    liquidityProviderFee,
+    farmApys[1],
+    farmApys[2]
+  );
 };
 
 const getPoolApys = async pools => {
   const apys = [];
+  const lsAprs = [];
+  const cmpAprs = [];
 
   const auraData = await getAuraData();
 
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(pool, auraData)));
   const values = await Promise.all(promises);
-  values.forEach(item => apys.push(item));
+  values.forEach(item => {
+    apys.push(item[0]);
+    lsAprs.push(item[1]);
+    cmpAprs.push(item[2]);
+  });
 
-  return apys;
+  return [apys, lsAprs, cmpAprs];
 };
 
 const getPoolApy = async (pool, auraData) => {
@@ -63,16 +94,26 @@ const getPoolApy = async (pool, auraData) => {
     getTotalStakedInUsd(pool),
   ]);
 
+  let aprFixed = 0;
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   if (pool.lidoUrl) {
     const response = await fetch(pool.lidoUrl).then(res => res.json());
     const apr = response.data.steth;
-    let aprFixed = 0;
+
     pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
-    rewardsApy = rewardsApy.plus(aprFixed);
   }
-  // console.log(pool.name,rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
-  return rewardsApy;
+
+  let bbaUSDApy = await getComposableAaveYield();
+  let composableApr = new BigNumber(0);
+  if (pool.includesComposableStable) {
+    pool.composableSplit
+      ? (bbaUSDApy = bbaUSDApy.dividedBy(pool.composableSplit))
+      : (bbaUSDApy = bbaUSDApy);
+    composableApr = bbaUSDApy;
+  }
+
+  // console.log(pool.name, bbaUSDApy.toNumber(), rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
+  return [rewardsApy, aprFixed, composableApr];
 };
 
 const getYearlyRewardsInUsd = async (auraData, pool) => {
@@ -86,7 +127,7 @@ const getYearlyRewardsInUsd = async (auraData, pool) => {
   let amount = yearlyRewards.times(auraData[0]).dividedBy(auraData[1]);
   // e.g. amtTillMax = 5e25 - 1e25 = 4e25
 
-  if (amount > auraData[2]) {
+  if (amount.gte(auraData[2])) {
     amount = auraData[2];
   }
 
@@ -94,7 +135,6 @@ const getYearlyRewardsInUsd = async (auraData, pool) => {
   const auraYearlyRewardsInUsd = amount
     .times(auraPrice)
     .dividedBy(await getEDecimals(AURA.decimals));
-  // console.log(auraYearlyRewardsInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
   return yearlyRewardsInUsd.plus(auraYearlyRewardsInUsd);
 };
 
@@ -103,6 +143,41 @@ const getTotalStakedInUsd = async pool => {
   const totalSupply = new BigNumber(await gauge.methods.totalSupply().call());
   const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
   return totalSupply.multipliedBy(lpPrice).dividedBy('1e18');
+};
+
+const getComposableAaveYield = async () => {
+  let supplyRateCalls = [];
+  const multicall = new MultiCall(web3, multicallAddress(chainId));
+
+  bbaUSDTokens.forEach(t => {
+    const dataProvider = getContractWithProvider(IAaveProtocolDataProvider, aaveDataProvider, web3);
+    supplyRateCalls.push({ supplyRate: dataProvider.methods.getReserveData(t.address) });
+  });
+
+  const res = await multicall.all([supplyRateCalls]);
+
+  const rates = res[0].map(v => new BigNumber(v.supplyRate[3]));
+
+  const balVault = getContractWithProvider(IBalancerVault, balancer.router, web3);
+  const tokenQtys = await balVault.methods.getPoolTokens(bbaUSDPoolId).call();
+
+  let qty = [];
+  let totalQty = new BigNumber(0);
+  for (let j = 0; j < tokenQtys.balances.length; j++) {
+    if (j != 2) {
+      totalQty = totalQty.plus(new BigNumber(tokenQtys.balances[j]));
+      qty.push(new BigNumber(tokenQtys.balances[j]));
+    }
+  }
+
+  let apy = new BigNumber(0);
+  for (let i = 0; i < bbaUSDTokens.length; i++) {
+    const tokenApy = new BigNumber(rates[i]).div(RAY_DECIMALS);
+    const portionedApy = tokenApy.dividedBy(2).times(qty[i]).dividedBy(totalQty);
+    apy = apy.plus(portionedApy);
+    // console.log(bbaUSDTokens[i].address, portionedApy.toNumber());
+  }
+  return apy;
 };
 
 const getAuraData = async () => {
