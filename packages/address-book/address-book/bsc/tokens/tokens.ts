@@ -362,6 +362,7 @@ const _tokens = {
     symbol: 'sbBUSD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaEb044650278731Ef3DC244692AB9F64C78FfaEA/logo.png',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   sbUSDT: {
     name: 'Stargate Tether USD LP',
@@ -374,6 +375,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   STG: {
     name: 'Stargate',
@@ -386,6 +388,7 @@ const _tokens = {
     website: 'https://stargate.finance/',
     description:
       'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   EMP: {
     name: 'EMP.Money',
