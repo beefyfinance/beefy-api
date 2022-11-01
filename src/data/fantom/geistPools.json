@@ -5,7 +5,7 @@
     "aToken": "0x39B3bd37208CBaDE74D0fcBDBb12D606295b430a",
     "debtToken": "0x53d01d351Fa001DB3c893388E43e3C630A8764F5",
     "oracle": "tokens",
-    "oracleId": "WFTM",
+    "oracleId": "FTM",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -93,7 +93,7 @@
     "aToken": "0x39B3bd37208CBaDE74D0fcBDBb12D606295b430a",
     "debtToken": "0x53d01d351Fa001DB3c893388E43e3C630A8764F5",
     "oracle": "tokens",
-    "oracleId": "WFTM",
+    "oracleId": "FTM",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0

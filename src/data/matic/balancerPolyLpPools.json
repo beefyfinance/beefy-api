@@ -24,7 +24,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WMATIC",
+        "oracleId": "MATIC",
         "decimals": "1e18"
       },
       {
@@ -58,7 +58,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WMATIC",
+        "oracleId": "MATIC",
         "decimals": "1e18"
       },
       {
@@ -199,7 +199,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WMATIC",
+        "oracleId": "MATIC",
         "decimals": "1e18"
       },
       {
@@ -242,7 +242,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WMATIC",
+        "oracleId": "MATIC",
         "decimals": "1e18"
       },
       {
@@ -269,7 +269,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WMATIC",
+        "oracleId": "MATIC",
         "decimals": "1e18"
       },
       {

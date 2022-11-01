@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
-      "oracleId": "WFTM",
+      "oracleId": "FTM",
       "decimals": "1e18"
     },
     "lp1": {
@@ -33,7 +33,7 @@
     "lp1": {
       "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
       "oracle": "tokens",
-      "oracleId": "WFTM",
+      "oracleId": "FTM",
       "decimals": "1e18"
     }
   }

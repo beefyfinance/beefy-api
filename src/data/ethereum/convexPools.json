@@ -68,7 +68,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "ETH",
         "decimals": "1e18"
       },
       {
@@ -87,7 +87,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "ETH",
         "decimals": "1e18"
       },
       {
@@ -101,12 +101,12 @@
     "name": "convex-aleth",
     "pool": "0xC4C319E2D4d66CcA4464C0c2B32c9Bd23ebe784e",
     "token": "0xC4C319E2D4d66CcA4464C0c2B32c9Bd23ebe784e",
-    "oracleId": "WETH",
+    "oracleId": "ETH",
     "rewardPool": "0x48Bc302d8295FeA1f8c3e7F57D4dDC9981FEE410",
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "ETH",
         "decimals": "1e18"
       },
       {
@@ -286,7 +286,7 @@
     "name": "convex-steth",
     "pool": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
     "token": "0x06325440D014e39736583c165C2963BA99fAf14E",
-    "oracleId": "WETH",
+    "oracleId": "ETH",
     "rewardPool": "0x0A760466E1B4621579a82a39CB56Dda2F4E70f03",
     "extras": [
       {
@@ -297,7 +297,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "ETH",
         "decimals": "1e18"
       },
       {

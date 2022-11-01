@@ -467,7 +467,7 @@
     "lp1": {
       "address": "0xC9BdeEd33CD01541e1eeD10f90519d2C06Fe3feB",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   }

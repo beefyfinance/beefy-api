@@ -27,13 +27,13 @@
     "lp0": {
       "address": "0x21C718C22D52d0F3a789b752D4c2fD5908a8A733",
       "oracle": "tokens",
-      "oracleId": "wROSE",
+      "oracleId": "ROSE",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x3223f17957Ba502cbe71401D55A0DB26E5F7c68F",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   },
@@ -65,7 +65,7 @@
     "lp0": {
       "address": "0x21C718C22D52d0F3a789b752D4c2fD5908a8A733",
       "oracle": "tokens",
-      "oracleId": "wROSE",
+      "oracleId": "ROSE",
       "decimals": "1e18"
     },
     "lp1": {
@@ -84,7 +84,7 @@
     "lp0": {
       "address": "0x21C718C22D52d0F3a789b752D4c2fD5908a8A733",
       "oracle": "tokens",
-      "oracleId": "wROSE",
+      "oracleId": "ROSE",
       "decimals": "1e18"
     },
     "lp1": {

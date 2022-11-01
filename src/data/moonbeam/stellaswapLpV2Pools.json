@@ -29,7 +29,7 @@
     "lp0": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     },
     "lp1": {
@@ -55,7 +55,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -75,7 +75,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -89,7 +89,7 @@
     "lp0": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     },
     "lp1": {
@@ -109,7 +109,7 @@
     "lp0": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     },
     "lp1": {
@@ -129,7 +129,7 @@
     "lp0": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     },
     "lp1": {
@@ -149,7 +149,7 @@
     "lp0": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     },
     "lp1": {
@@ -175,7 +175,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -189,7 +189,7 @@
     "lp0": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     },
     "lp1": {
@@ -215,7 +215,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -234,7 +234,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -253,7 +253,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -291,7 +291,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -310,7 +310,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -323,7 +323,7 @@
     "lp0": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     },
     "lp1": {
@@ -348,7 +348,7 @@
     "lp1": {
       "address": "0xacc15dc74880c9944775448304b263d191c6077f",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -386,7 +386,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -405,7 +405,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },
@@ -424,7 +424,7 @@
     "lp1": {
       "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
       "oracle": "tokens",
-      "oracleId": "WGLMR",
+      "oracleId": "GLMR",
       "decimals": "1e18"
     }
   },

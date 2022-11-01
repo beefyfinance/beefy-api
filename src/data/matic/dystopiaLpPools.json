@@ -49,7 +49,7 @@
     "lp0": {
       "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
       "oracle": "tokens",
-      "oracleId": "WMATIC",
+      "oracleId": "MATIC",
       "decimals": "1e18"
     },
     "lp1": {
@@ -75,7 +75,7 @@
     "lp1": {
       "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   },
@@ -89,7 +89,7 @@
     "lp0": {
       "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
       "oracle": "tokens",
-      "oracleId": "WMATIC",
+      "oracleId": "MATIC",
       "decimals": "1e18"
     },
     "lp1": {
@@ -129,7 +129,7 @@
     "lp0": {
       "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
       "oracle": "tokens",
-      "oracleId": "WMATIC",
+      "oracleId": "MATIC",
       "decimals": "1e18"
     },
     "lp1": {
@@ -149,7 +149,7 @@
     "lp0": {
       "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
       "oracle": "tokens",
-      "oracleId": "WMATIC",
+      "oracleId": "MATIC",
       "decimals": "1e18"
     },
     "lp1": {
@@ -195,7 +195,7 @@
     "lp1": {
       "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   },
@@ -209,13 +209,13 @@
     "lp0": {
       "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
       "oracle": "tokens",
-      "oracleId": "WMATIC",
+      "oracleId": "MATIC",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   },
@@ -229,7 +229,7 @@
     "lp0": {
       "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
       "oracle": "tokens",
-      "oracleId": "WMATIC",
+      "oracleId": "MATIC",
       "decimals": "1e18"
     },
     "lp1": {
@@ -249,7 +249,7 @@
     "lp0": {
       "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
       "oracle": "tokens",
-      "oracleId": "WMATIC",
+      "oracleId": "MATIC",
       "decimals": "1e18"
     },
     "lp1": {

@@ -4,7 +4,7 @@
     "pool": "0x6eB2dc694eB516B16Dc9FBc678C60052BbdD7d80",
     "token": "0xDbcD16e622c95AcB2650b38eC799f76BFC557a0b",
     "gauge": "0x098EF55011B6B8c99845128114A9D9159777d697",
-    "oracleId": "WETH",
+    "oracleId": "ETH",
     "boosted": true,
     "rewards": [
       {
@@ -15,7 +15,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "ETH",
         "decimals": "1e18"
       },
       {

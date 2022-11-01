@@ -21,7 +21,7 @@
     "name": "scream-ftm-supply",
     "itoken": "0x5AA53f03197E08C4851CAD8C92c7922DA5857E5d",
     "oracle": "tokens",
-    "oracleId": "WFTM",
+    "oracleId": "FTM",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -138,7 +138,7 @@
     "name": "scream-ftm",
     "itoken": "0x5AA53f03197E08C4851CAD8C92c7922DA5857E5d",
     "oracle": "tokens",
-    "oracleId": "WFTM",
+    "oracleId": "FTM",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01

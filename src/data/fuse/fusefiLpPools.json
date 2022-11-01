@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
       "oracle": "tokens",
-      "oracleId": "WFUSE",
+      "oracleId": "FUSE",
       "decimals": "1e18"
     },
     "lp1": {
@@ -46,7 +46,7 @@
     "lp0": {
       "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
       "oracle": "tokens",
-      "oracleId": "WFUSE",
+      "oracleId": "FUSE",
       "decimals": "1e18"
     },
     "lp1": {
@@ -65,7 +65,7 @@
     "lp0": {
       "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
       "oracle": "tokens",
-      "oracleId": "WFUSE",
+      "oracleId": "FUSE",
       "decimals": "1e18"
     },
     "lp1": {
@@ -84,7 +84,7 @@
     "lp0": {
       "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
       "oracle": "tokens",
-      "oracleId": "WFUSE",
+      "oracleId": "FUSE",
       "decimals": "1e18"
     },
     "lp1": {
@@ -122,7 +122,7 @@
     "lp0": {
       "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
       "oracle": "tokens",
-      "oracleId": "WFUSE",
+      "oracleId": "FUSE",
       "decimals": "1e18"
     },
     "lp1": {
@@ -147,7 +147,7 @@
     "lp1": {
       "address": "0xa722c13135930332Eb3d749B2F0906559D2C5b99",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   },
@@ -160,13 +160,13 @@
     "lp0": {
       "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
       "oracle": "tokens",
-      "oracleId": "WFUSE",
+      "oracleId": "FUSE",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xa722c13135930332Eb3d749B2F0906559D2C5b99",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   },
@@ -179,7 +179,7 @@
     "lp0": {
       "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
       "oracle": "tokens",
-      "oracleId": "WFUSE",
+      "oracleId": "FUSE",
       "decimals": "1e18"
     },
     "lp1": {

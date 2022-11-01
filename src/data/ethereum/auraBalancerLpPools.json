@@ -16,7 +16,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "ETH",
         "decimals": "1e18"
       }
     ]

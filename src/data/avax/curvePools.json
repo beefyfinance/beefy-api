@@ -151,7 +151,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "WAVAX",
+        "oracleId": "AVAX",
         "decimals": "1e18"
       }
     ]

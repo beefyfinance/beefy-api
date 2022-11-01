@@ -7,7 +7,7 @@
     "lp0": {
       "address": "0x0000000000000000000000000000000000000000",
       "oracle": "tokens",
-      "oracleId": "WBNB",
+      "oracleId": "BNB",
       "decimals": "1e18"
     },
     "lp1": {

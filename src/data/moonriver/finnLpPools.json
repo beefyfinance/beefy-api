@@ -90,7 +90,7 @@
     "lp1": {
       "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
       "oracle": "tokens",
-      "oracleId": "WMOVR",
+      "oracleId": "MOVR",
       "decimals": "1e18"
     }
   },
@@ -299,7 +299,7 @@
     "lp1": {
       "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
       "oracle": "tokens",
-      "oracleId": "WMOVR",
+      "oracleId": "MOVR",
       "decimals": "1e18"
     }
   },
@@ -318,7 +318,7 @@
     "lp1": {
       "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
       "oracle": "tokens",
-      "oracleId": "WMOVR",
+      "oracleId": "MOVR",
       "decimals": "1e18"
     }
   },
@@ -337,7 +337,7 @@
     "lp1": {
       "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
       "oracle": "tokens",
-      "oracleId": "WMOVR",
+      "oracleId": "MOVR",
       "decimals": "1e18"
     }
   },
@@ -350,7 +350,7 @@
     "lp0": {
       "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
       "oracle": "tokens",
-      "oracleId": "WMOVR",
+      "oracleId": "MOVR",
       "decimals": "1e18"
     },
     "lp1": {
@@ -407,7 +407,7 @@
     "lp0": {
       "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
       "oracle": "tokens",
-      "oracleId": "WMOVR",
+      "oracleId": "MOVR",
       "decimals": "1e18"
     },
     "lp1": {

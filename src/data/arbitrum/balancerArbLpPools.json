@@ -86,7 +86,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "ETH",
         "decimals": "1e18"
       },
       {
@@ -158,7 +158,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "ETH",
         "decimals": "1e18"
       }
     ]
@@ -185,7 +185,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "ETH",
         "decimals": "1e18"
       },
       {
