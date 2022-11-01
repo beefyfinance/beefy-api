@@ -1,0 +1,51 @@
+[
+  {
+    "name": "ferro-2fer",
+    "address": "0xD05a67bB1e9684E8DDD19D0Bb6A713b4BEFC2C03",
+    "pool": "0xa34C0fE36541fB085677c36B4ff0CCF5fa2B32d6",
+    "strategy": "0x63b6B5D76e374D2255b6CC153ecB5fB4aC27c9ED",
+    "decimals": "1e18",
+    "key": "2FER",
+    "poolId": 2,
+    "chainId": 25,
+    "tokens": [
+      {
+        "address": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "ferro-3fer",
+    "address": "0x71923713685770D04d69d103008aafFeeBC31BDe",
+    "pool": "0xe8d13664a42B338F009812Fa5A75199A865dA5cD",
+    "strategy": "0x30BDC4Faa41b53E401C03FB3A7f0A4Ae50e5Cae9",
+    "decimals": "1e18",
+    "key": "3FER",
+    "poolId": 1,
+    "chainId": 25,
+    "tokens": [
+      {
+        "address": "0xF2001B145b43032AAF5Ee2884e456CCd805F677D",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xc21223249CA28397B4B6541dfFaEcC539BfF0c59",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x66e428c3f67a68878562e79A0234c1F83c208770",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]

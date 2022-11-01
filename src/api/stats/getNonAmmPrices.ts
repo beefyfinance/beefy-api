@@ -40,12 +40,14 @@ import getSushiKavaPrices from './kava/getSushiPrices';
 import getGmxArbitrumPrices from './arbitrum/getGmxPrices';
 import getGmxAvalanchePrices from './avax/getGmxPrices';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices';
+import getFerroPrices from './cronos/getFerroPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getFerroPrices(tokenPrices),
     getCurveEthereumPrices(tokenPrices),
     getAuraBalancerPrices(tokenPrices),
     getGmxAvalanchePrices(tokenPrices),
