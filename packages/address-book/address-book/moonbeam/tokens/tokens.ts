@@ -232,6 +232,7 @@ const _tokens = {
     website: 'https://frax.finance/',
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+    documentation: 'https://docs.frax.finance/',
   },
   BUSD: {
     name: 'Binance-Peg BUSD Token',
@@ -267,7 +268,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F.svg',
     website: 'https://www.binance.com/en/busd',
     description:
-      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
+      'BUSD bridged by Wormhole(Portal). Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
     documentation: 'https://docs.wormhole.com/wormhole/',
   },
   BNB: {
@@ -600,7 +601,8 @@ const _tokens = {
     website: 'https://stellaswap.com/',
     description:
       'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The 4pool is a stable-swap LP consisting of USDC, USDT, DAI & FRAX.',
-    documentation: 'https://docs.stellaswap.com/how-to-guides/swap-pool-and-farm/how-to-add-liquidity-in-stable-amm',
+    documentation:
+      'https://docs.stellaswap.com/how-to-guides/swap-pool-and-farm/how-to-add-liquidity-in-stable-amm',
   },
 } as const;
 
