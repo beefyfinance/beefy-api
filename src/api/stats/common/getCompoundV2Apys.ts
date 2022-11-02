@@ -8,7 +8,7 @@ import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import getBlockTime from '../../../utils/getBlockTime';
 import fetchPrice from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getContract } from '../../../utils/contractHelper';
 import { BASE_HPY } from '../../../constants';
 
 const IToken = require('../../../abis/VToken.json');
@@ -71,9 +71,10 @@ const getPoolsApys = async (params: CompoundV2ApyParams, data: PoolsData) => {
   const totalSuppliesInUsd = data.totalSupplies.map((v, i) =>
     v
       .times(data.exchangeRatesStored[i])
-      .div('1e18')
-      .times(data.tokenPrices[i])
+      .div('1e10')
       .div(params.pools[i].decimals)
+      .div(data.cTokenDecimals[i])
+      .times(data.tokenPrices[i])
   );
   const totalBorrowsInUsd = data.totalBorrows.map((v, i) =>
     v.times(data.tokenPrices[i]).div(params.pools[i].decimals)
@@ -128,6 +129,7 @@ const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => 
   const totalSupplyCalls = [];
   const totalBorrowsCalls = [];
   const exchangeRateStoredCalls = [];
+  const cTokenDecimalsCalls = [];
 
   let promises = [];
   params.pools.forEach(pool =>
@@ -150,6 +152,7 @@ const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => 
     exchangeRateStoredCalls.push({
       exchangeRateStored: cTokenContract.methods.exchangeRateStored(),
     });
+    cTokenDecimalsCalls.push({ decimals: cTokenContract.methods.decimals() });
   });
 
   const res = await multicall.all([
@@ -160,6 +163,7 @@ const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => 
     totalSupplyCalls,
     totalBorrowsCalls,
     exchangeRateStoredCalls,
+    cTokenDecimalsCalls,
   ]);
 
   const supplyRates: BigNumber[] = res[0].map(v => new BigNumber(v.supplyRate));
@@ -169,6 +173,9 @@ const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => 
   const totalSupplies: BigNumber[] = res[4].map(v => new BigNumber(v.totalSupply));
   const totalBorrows: BigNumber[] = res[5].map(v => new BigNumber(v.totalBorrows));
   const exchangeRatesStored: BigNumber[] = res[6].map(v => new BigNumber(v.exchangeRateStored));
+  const cTokenDecimals: BigNumber[] = res[7].map(v =>
+    new BigNumber(10).exponentiatedBy(v.decimals)
+  );
 
   return {
     tokenPrices,
@@ -179,6 +186,7 @@ const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => 
     totalSupplies,
     totalBorrows,
     exchangeRatesStored,
+    cTokenDecimals,
   };
 };
 
@@ -229,6 +237,7 @@ export interface PoolsData {
   totalSupplies: BigNumber[];
   totalBorrows: BigNumber[];
   exchangeRatesStored: BigNumber[];
+  cTokenDecimals: BigNumber[];
 }
 
 export interface CompoundV2Pool {
