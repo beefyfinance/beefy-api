@@ -1,5 +1,49 @@
 [
   {
+    "name": "convex-peth",
+    "pool": "0x9848482da3Ee3076165ce6497eDA906E66bB85C5",
+    "token": "0x9848482da3Ee3076165ce6497eDA906E66bB85C5",
+    "oracleId": "WETH",
+    "rewardPool": "0xb235205E1096E0Ad221Fb7621a2E2cbaB875bE75",
+    "extras": [
+      {
+        "rewardPool": "0xB9e0eEdeaC5A2b92698f2dCA2f6dD154472A966c",
+        "oracleId": "JPEG"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "pETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-frxeth",
+    "pool": "0xa1F8A6807c402E4A15ef4EBa36528A3FED24E577",
+    "token": "0xf43211935C781D5ca1a41d2041F397B8A7366C7A",
+    "oracleId": "WETH",
+    "rewardPool": "0xbD5445402B0a287cbC77cb67B2a52e2FC635dce4",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "frxETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-cvxcrv",
     "pool": "0x9D0464996170c6B9e75eED71c68B99dDEDf279e8",
     "token": "0x9D0464996170c6B9e75eED71c68B99dDEDf279e8",
