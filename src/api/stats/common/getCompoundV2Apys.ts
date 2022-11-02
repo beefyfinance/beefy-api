@@ -1,12 +1,14 @@
 import BigNumber, { BigNumber as BigNumberStatic } from 'bignumber.js';
 import Web3 from 'web3';
 import { AbiItem } from 'web3-utils';
+import { MultiCall } from 'eth-multicall';
+import { multicallAddress } from '../../../utils/web3';
 import { ChainId } from '../../../../packages/address-book/address-book';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import getBlockTime from '../../../utils/getBlockTime';
 import fetchPrice from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { BASE_HPY } from '../../../constants';
 
 const IToken = require('../../../abis/VToken.json');
@@ -14,134 +16,169 @@ const IComptroller: AbiItem[] = require('../../../abis/IComptroller.json');
 
 const SECONDS_PER_YEAR = 31536000;
 
-const getCompoundV2ApyData = async (params: CompoundV2ApysParams) => {
-  params.compOracle = params.compOracle || 'tokens';
-  params.compDecimals = params.compDecimals || '1e18';
-  params.comptrollerAbi = params.comptrollerAbi || IComptroller;
-  params.cTokenAbi = params.cTokenAbi || IToken;
+const getCompoundV2ApyData = async (params: CompoundV2ApyParams) => {
+  const poolsData = await getPoolsData(params);
 
-  const [calculatedBlockTime] = await Promise.all([getBlockTime(params.chainId)]);
-  params.secondsPerBlock = params.secondsPerBlock || calculatedBlockTime;
+  const { supplyApys, borrowApys, supplyCompApys, borrowCompApys } = await getPoolsApys(
+    params,
+    poolsData
+  );
 
-  let apys = {};
+  const apys = params.pools.map((pool, i) => {
+    const apy = getPoolLeveragedApy(
+      pool,
+      supplyApys[i],
+      borrowApys[i],
+      supplyCompApys[i],
+      borrowCompApys[i]
+    );
 
-  let promises = [];
-  params.pools.forEach(pool => promises.push(getPoolApy(params, pool)));
-  const values = await Promise.all(promises);
+    if (params.log) {
+      console.log(
+        pool.name,
+        apy,
+        supplyApys[i].valueOf(),
+        borrowApys[i].valueOf(),
+        supplyCompApys[i].valueOf(),
+        borrowCompApys[i].valueOf()
+      );
+    }
 
-  for (let item of values) {
-    apys = { ...apys, ...item };
-  }
+    return { [pool.name]: apy };
+  });
 
   return apys;
 };
 
-const getPoolApy = async (params: CompoundV2ApysParams, pool: CompoundV2Pool) => {
-  const [{ supplyBase, supplyComp }, { borrowBase, borrowComp }] = await Promise.all([
-    getSupplyApys(params, pool),
-    getBorrowApys(params, pool),
-  ]);
+const getPoolsApys = async (params: CompoundV2ApyParams, data: PoolsData) => {
+  const compDecimals = params.compDecimals ?? '1e18';
+  const compOracle = params.compOracle ?? 'tokens';
+  const compPrice = await fetchPrice({ oracle: compOracle, id: params.compOracleId });
+  const [calculatedBlockTime] = await Promise.all([getBlockTime(params.chainId)]);
+  const secondsPerBlock = params.secondsPerBlock ?? calculatedBlockTime;
+  const BLOCKS_PER_YEAR = SECONDS_PER_YEAR / secondsPerBlock;
 
+  const supplyApys = data.supplyRates.map(v => v.times(BLOCKS_PER_YEAR).div('1e18'));
+  const borrowApys = data.borrowRates.map(v => v.times(BLOCKS_PER_YEAR).div('1e18'));
+
+  const annualCompSupplyInUsd = data.compSupplySpeeds.map(v =>
+    v.times(BLOCKS_PER_YEAR).div(compDecimals).times(compPrice)
+  );
+  const annualCompBorrowInUsd = data.compBorrowSpeeds.map(v =>
+    v.times(BLOCKS_PER_YEAR).div(compDecimals).times(compPrice)
+  );
+
+  const totalSuppliesInUsd = data.totalSupplies.map((v, i) =>
+    v
+      .times(data.exchangeRatesStored[i])
+      .div('1e18')
+      .times(data.tokenPrices[i])
+      .div(params.pools[i].decimals)
+  );
+  const totalBorrowsInUsd = data.totalBorrows.map((v, i) =>
+    v.times(data.tokenPrices[i]).div(params.pools[i].decimals)
+  );
+
+  const supplyCompApys = annualCompSupplyInUsd.map((v, i) => v.div(totalSuppliesInUsd[i]));
+  const borrowCompApys = annualCompBorrowInUsd.map((v, i) => v.div(totalBorrowsInUsd[i]));
+
+  return {
+    supplyApys,
+    borrowApys,
+    supplyCompApys,
+    borrowCompApys,
+  };
+};
+
+const getPoolLeveragedApy = (
+  pool: CompoundV2Pool,
+  supplyApy: BigNumberStatic,
+  borrowApy: BigNumberStatic,
+  supplyCompApy: BigNumberStatic,
+  borrowCompApy: BigNumberStatic
+) => {
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyComp, leveragedBorrowComp } =
     getLeveragedApys(
-      supplyBase,
-      borrowBase,
-      supplyComp,
-      borrowComp,
+      supplyApy,
+      borrowApy,
+      supplyCompApy,
+      borrowCompApy,
       pool.borrowDepth,
       pool.borrowRate
     );
-
-  let totalComp = leveragedSupplyComp.plus(leveragedBorrowComp);
-  let shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
-  let compoundedComp = compound(totalComp, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
-  let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedComp).toNumber();
-
-  if (params.log) {
-    console.log(
-      pool.name,
-      apy,
-      supplyBase.valueOf(),
-      borrowBase.valueOf(),
-      supplyComp.valueOf(),
-      borrowComp.valueOf()
-    );
-  }
+  const totalComp = leveragedSupplyComp.plus(leveragedBorrowComp);
+  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
+  const compoundedComp = compound(totalComp, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+  const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedComp).toNumber();
 
   return { [pool.name]: apy };
 };
 
-const getSupplyApys = async (params: CompoundV2ApysParams, pool: CompoundV2Pool) => {
-  const BLOCKS_PER_YEAR = SECONDS_PER_YEAR / params.secondsPerBlock;
+const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => {
+  const comptrollerAbi = params.comptrollerAbi ?? IComptroller;
+  const cTokenAbi = params.cTokenAbi ?? IToken;
 
-  const cTokenContract = getContractWithProvider(params.cTokenAbi, pool.cToken, params.web3);
-  const comptrollerContract = getContractWithProvider(
-    params.comptrollerAbi,
-    params.comptroller,
-    params.web3
+  const comptrollerContract = getContract(comptrollerAbi, params.comptroller);
+  const multicall = new MultiCall(params.web3 as any, multicallAddress(params.chainId));
+
+  const supplyRateCalls = [];
+  const borrowRateCalls = [];
+  const compSupplySpeedCalls = [];
+  const compBorrowSpeedCalls = [];
+  const totalSupplyCalls = [];
+  const totalBorrowsCalls = [];
+  const exchangeRateStoredCalls = [];
+
+  let promises = [];
+  params.pools.forEach(pool =>
+    promises.push(fetchPrice({ oracle: pool.oracle, id: pool.oracleId }))
   );
+  const tokenPrices: BigNumber[] = await Promise.all(promises);
 
-  let [compPrice, tokenPrice, supplyRate, compRate, totalSupply, exchangeRateStored] =
-    await Promise.all([
-      fetchPrice({ oracle: params.compOracle, id: params.compOracleId }),
-      fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-      cTokenContract.methods.supplyRatePerBlock().call(),
-      comptrollerContract.methods.compSupplySpeeds(pool.cToken).call(),
-      cTokenContract.methods.totalSupply().call(),
-      cTokenContract.methods.exchangeRateStored().call(),
-    ]);
+  params.pools.forEach(pool => {
+    const cTokenContract = getContract(cTokenAbi, pool.cToken);
+    supplyRateCalls.push({ supplyRate: cTokenContract.methods.supplyRatePerBlock() });
+    borrowRateCalls.push({ borrowRate: cTokenContract.methods.borrowRatePerBlock() });
+    compSupplySpeedCalls.push({
+      compSupplySpeed: comptrollerContract.methods.compSupplySpeeds(pool.cToken),
+    });
+    compBorrowSpeedCalls.push({
+      compBorrowSpeed: comptrollerContract.methods.compBorrowSpeeds(pool.cToken),
+    });
+    totalSupplyCalls.push({ totalSupply: cTokenContract.methods.totalSupply() });
+    totalBorrowsCalls.push({ totalBorrows: cTokenContract.methods.totalBorrows() });
+    exchangeRateStoredCalls.push({
+      exchangeRateStored: cTokenContract.methods.exchangeRateStored(),
+    });
+  });
 
-  supplyRate = new BigNumber(supplyRate);
-  compRate = new BigNumber(compRate);
-  totalSupply = new BigNumber(totalSupply);
-  exchangeRateStored = new BigNumber(exchangeRateStored);
-
-  const supplyApy = supplyRate.times(BLOCKS_PER_YEAR).div('1e18');
-
-  const compPerYear = compRate.times(BLOCKS_PER_YEAR);
-  const compPerYearInUsd = compPerYear.div(params.compDecimals).times(compPrice);
-
-  const totalSupplied = totalSupply.times(exchangeRateStored).div('1e18');
-  const totalSuppliedInUsd = totalSupplied.div(pool.decimals).times(tokenPrice);
-
-  return {
-    supplyBase: supplyApy,
-    supplyComp: compPerYearInUsd.div(totalSuppliedInUsd),
-  };
-};
-
-const getBorrowApys = async (params: CompoundV2ApysParams, pool: CompoundV2Pool) => {
-  const BLOCKS_PER_YEAR = SECONDS_PER_YEAR / params.secondsPerBlock;
-
-  const cTokenContract = getContractWithProvider(params.cTokenAbi, pool.cToken, params.web3);
-  const comptrollerContract = getContractWithProvider(
-    params.comptrollerAbi,
-    params.comptroller,
-    params.web3
-  );
-
-  let [compPrice, tokenPrice, borrowRate, compRate, totalBorrows] = await Promise.all([
-    fetchPrice({ oracle: params.compOracle, id: params.compOracleId }),
-    fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-    cTokenContract.methods.borrowRatePerBlock().call(),
-    comptrollerContract.methods.compBorrowSpeeds(pool.cToken).call(),
-    cTokenContract.methods.totalBorrows().call(),
+  const res = await multicall.all([
+    supplyRateCalls,
+    borrowRateCalls,
+    compSupplySpeedCalls,
+    compBorrowSpeedCalls,
+    totalSupplyCalls,
+    totalBorrowsCalls,
+    exchangeRateStoredCalls,
   ]);
 
-  borrowRate = new BigNumber(borrowRate);
-  compRate = new BigNumber(compRate);
-  totalBorrows = new BigNumber(totalBorrows);
-
-  const borrowApyPerYear = borrowRate.times(BLOCKS_PER_YEAR).div('1e18');
-
-  const compPerYear = compRate.times(BLOCKS_PER_YEAR);
-  const compPerYearInUsd = compPerYear.div(params.compDecimals).times(compPrice);
-
-  const totalBorrowsInUsd = totalBorrows.div(pool.decimals).times(tokenPrice);
+  const supplyRates: BigNumber[] = res[0].map(v => new BigNumber(v.supplyRate));
+  const borrowRates: BigNumber[] = res[1].map(v => new BigNumber(v.borrowRate));
+  const compSupplySpeeds: BigNumber[] = res[2].map(v => new BigNumber(v.compSupplySpeed));
+  const compBorrowSpeeds: BigNumber[] = res[3].map(v => new BigNumber(v.compBorrowSpeed));
+  const totalSupplies: BigNumber[] = res[4].map(v => new BigNumber(v.totalSupply));
+  const totalBorrows: BigNumber[] = res[5].map(v => new BigNumber(v.totalBorrows));
+  const exchangeRatesStored: BigNumber[] = res[6].map(v => new BigNumber(v.exchangeRateStored));
 
   return {
-    borrowBase: borrowApyPerYear,
-    borrowComp: compPerYearInUsd.div(totalBorrowsInUsd),
+    tokenPrices,
+    supplyRates,
+    borrowRates,
+    compSupplySpeeds,
+    compBorrowSpeeds,
+    totalSupplies,
+    totalBorrows,
+    exchangeRatesStored,
   };
 };
 
@@ -183,6 +220,17 @@ const getLeveragedApys = (
   };
 };
 
+export interface PoolsData {
+  tokenPrices: BigNumber[];
+  supplyRates: BigNumber[];
+  borrowRates: BigNumber[];
+  compSupplySpeeds: BigNumber[];
+  compBorrowSpeeds: BigNumber[];
+  totalSupplies: BigNumber[];
+  totalBorrows: BigNumber[];
+  exchangeRatesStored: BigNumber[];
+}
+
 export interface CompoundV2Pool {
   name: string;
   cToken: string;
@@ -196,7 +244,7 @@ export interface CompoundV2Pool {
   beefyFee?: number;
 }
 
-export interface CompoundV2ApysParams {
+export interface CompoundV2ApyParams {
   web3: Web3;
   chainId: ChainId;
   comptroller: string;
