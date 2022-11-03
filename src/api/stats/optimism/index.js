@@ -6,6 +6,7 @@ const getbeVeloApy = require('./getbeVeloApy');
 const getOptimismBifiGovApy = require('./getOptimismBifiEarningsApy');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getRipaeApys } = require('./getRipaeApys');
+const { getSonneApys } = require('./getSonneApys');
 const { getOptimismBifiMaxiApy } = require('./getOptimismBifiMaxiApy');
 
 const getApys = [
@@ -18,6 +19,7 @@ const getApys = [
   getOptimismBifiMaxiApy,
   getAaveV3Apys,
   getRipaeApys,
+  getSonneApys,
 ];
 
 const getOptimismApys = async () => {
