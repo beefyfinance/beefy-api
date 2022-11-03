@@ -13,4 +13,5 @@ export interface BeefyFinance {
   bifiMaxiStrategy?: string;
   voter: string;
   beefyFeeConfig?: string;
+  vaultFactory?: string;
 }
