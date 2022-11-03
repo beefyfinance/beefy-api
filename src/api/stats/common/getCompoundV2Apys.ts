@@ -112,7 +112,7 @@ const getPoolLeveragedApy = (
   const compoundedComp = compound(totalComp, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedComp).toNumber();
 
-  return { [pool.name]: apy };
+  return apy;
 };
 
 const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => {
