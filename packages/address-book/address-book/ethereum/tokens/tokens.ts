@@ -17,6 +17,19 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  BIFI: {
+    name: 'Beefy.Finance',
+    symbol: 'BIFI',
+    address: '0x5870700f1272a1AdbB87C3140bD770880a95e55D',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.beefy.finance/',
+    documentation: 'https://docs.beefy.finance/',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+  },
   USDC: {
     name: 'USD Coin',
     address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
