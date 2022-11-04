@@ -1,5 +1,27 @@
 [
   {
+    "name": "stellaswap-mai4pool",
+    "address": "0xEceab9F0FcF15Fddbffbd7baE2cEB78CD57b879a",
+    "pool": "0xF0A2ae65342f143fc09c83E5f19b706aBB37414D",
+    "decimals": "1e18",
+    "virtualOracleId": "USDC",
+    "poolId": 33,
+    "chainId": 1284,
+    "tokens": [
+      {
+        "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
+        "oracleId": "MAI",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xB326b5189AA42Acaa3C649B120f084Ed8F4dCaA6",
+        "oracle": "lps",
+        "oracleId": "stellaswap-4pool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "stellaswap-4pool",
     "address": "0xB326b5189AA42Acaa3C649B120f084Ed8F4dCaA6",
     "pool": "0xB1BC9f56103175193519Ae1540A0A4572b1566F6",
@@ -83,7 +105,7 @@
     ]
   },
   {
-    "name": "stellaswap-mai4pool",
+    "name": "stellaswap-mai4pool-eol",
     "address": "0xA0AA99F71033378864Ed6E499eb03612264e319a",
     "pool": "0x7FbE3126C03444D43fC403626ec81E3e809E6b46",
     "decimals": "1e18",
