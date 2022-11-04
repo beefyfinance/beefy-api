@@ -154,8 +154,8 @@ const OPTIMISM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/optimism.json';
 const KAVA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/kava.json';
-const ETHEREUM_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/ethereum.json';
+//const ETHEREUM_VAULTS_ENDPOINT =
+//  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/ethereum.json';
 
 const MULTICHAIN_ENDPOINTS = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -176,7 +176,7 @@ const MULTICHAIN_ENDPOINTS = {
   optimism: OPTIMISM_VAULTS_ENDPOINT,
   heco: HECO_VAULTS_ENDPOINT,
   kava: KAVA_VAULTS_ENDPOINT,
-  // ethereum: ETHEREUM_VAULTS_ENDPOINT,
+  //ethereum: ETHEREUM_VAULTS_ENDPOINT,
 };
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];

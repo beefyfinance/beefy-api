@@ -48,7 +48,7 @@ const start = async () => {
   initBoostService();
   initVaultFeeService();
   initTvlService();
-  // initBifiBuyBackService();
+  initBifiBuyBackService();
   initMooTokenPriceService();
   initTokenService();
   initConfigService();

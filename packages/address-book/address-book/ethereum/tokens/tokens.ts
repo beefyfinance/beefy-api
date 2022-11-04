@@ -332,8 +332,8 @@ const _tokens = {
       'Wrapped Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
   },
   bbaDAI: {
-    name: 'Balancer Aave USDC Linear Pool',
-    symbol: 'bbaUSDC',
+    name: 'Balancer Aave DAI Linear Pool',
+    symbol: 'bbaDAI',
     address: '0xae37D54Ae477268B9997d4161B96b8200755935c',
     chainId: 1,
     decimals: 18,
