@@ -19,7 +19,7 @@ const getApys = [
   getOptimismBifiMaxiApy,
   getAaveV3Apys,
   getRipaeApys,
-  getSonneApys,
+  // getSonneApys,
 ];
 
 const getOptimismApys = async () => {
