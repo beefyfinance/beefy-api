@@ -30,6 +30,17 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  STELLA4POOL: {
+    name: 'Stellaswap 4Pool',
+    symbol: 'stella4pool',
+    address: '0xB326b5189AA42Acaa3C649B120f084Ed8F4dCaA6',
+    chainId: 1284,
+    decimals: 18,
+    website: 'https://app.stellaswap.com/exchange/pool/stable',
+    description:
+      'Stellaswap Base4Pool is a Stable Pool consisting of USDC.wh, USDt.xc, BUSD.wh, and FRAX tokens.',
+    logoURI: '',
+  },
   wstDOT: {
     name: 'Wrapped liquid staked DOT',
     symbol: 'wstDOT',
