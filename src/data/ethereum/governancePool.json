@@ -1,0 +1,9 @@
+{
+  "name": "ethereum-bifi-gov",
+  "address": "0xF49c523F08B4e7c8E51a44088ea2a5e6b5f397D9",
+  "tokenAddress": "0x5870700f1272a1AdbB87C3140bD770880a95e55D",
+  "tokenDecimals": 1e18,
+  "oracle": "tokens",
+  "oracleId": "BIFI",
+  "exclude": {}
+}
