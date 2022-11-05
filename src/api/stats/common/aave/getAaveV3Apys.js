@@ -7,6 +7,7 @@ const IAaveV3PoolDataProvider = require('../../../../abis/AaveV3PoolDataProvider
 const { BASE_HPY } = require('../../../../constants');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
+const { timeStamp } = require('console');
 
 const secondsPerYear = 31536000;
 const RAY_DECIMALS = '1e27';
@@ -95,16 +96,22 @@ const getRewardsPerYear = async (config, pool, web3) => {
     const supplyNativeRate = new BigNumber(res[1]);
     res = await distribution.methods.getRewardsData(pool.debtToken, reward.token).call();
     const borrowNativeRate = new BigNumber(res[1]);
+    const distributionEnd = new BigNumber(res[3]);
 
     const tokenPrice = await fetchPrice({ oracle: reward.oracle, id: reward.oracleId });
-    supplyNativeInUsd = supplyNativeRate
-      .times(secondsPerYear)
-      .div(reward.decimals)
-      .times(tokenPrice);
-    borrowNativeInUsd = borrowNativeRate
-      .times(secondsPerYear)
-      .div(reward.decimals)
-      .times(tokenPrice);
+    if (distributionEnd.gte(new BigNumber(Date.now() / 1000))) {
+      supplyNativeInUsd = supplyNativeRate
+        .times(secondsPerYear)
+        .div(reward.decimals)
+        .times(tokenPrice);
+      borrowNativeInUsd = borrowNativeRate
+        .times(secondsPerYear)
+        .div(reward.decimals)
+        .times(tokenPrice);
+    } else {
+      supplyNativeInUsd = new BigNumber(0);
+      borrowNativeInUsd = new BigNumber(0);
+    }
   }
 
   return { supplyNativeInUsd, borrowNativeInUsd };
