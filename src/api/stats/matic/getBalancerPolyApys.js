@@ -4,6 +4,7 @@ import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getC
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
 import { multicallAddress } from '../../../utils/web3';
+import { lastDayOfQuarterWithOptions } from 'date-fns/fp';
 const { POLYGON_CHAIN_ID: chainId } = require('../../../constants');
 const { balancerPolyClient: client } = require('../../../apollo/client');
 const fetch = require('node-fetch');
@@ -25,18 +26,22 @@ const getBalancerPolyApys = async () => {
   // console.log(tradingAprs);
 
   const farmApys = await getPoolApys(pools);
-  return getApyBreakdown(pools, tradingAprs, farmApys, liquidityProviderFee);
+  return getApyBreakdown(pools, tradingAprs, farmApys[0], liquidityProviderFee, farmApys[1]);
 };
 
 const getPoolApys = async pools => {
   const apys = [];
+  const lsAprs = [];
 
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(pool)));
   const values = await Promise.all(promises);
-  values.forEach(item => apys.push(item));
+  values.forEach(item => {
+    apys.push(item[0]);
+    lsAprs.push(item[1]);
+  });
 
-  return apys;
+  return [apys, lsAprs];
 };
 
 const getPoolApy = async pool => {
@@ -46,15 +51,14 @@ const getPoolApy = async pool => {
     getTotalStakedInUsd(web3, pool),
   ]);
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  let aprFixed = 0;
   if (pool.lidoUrl) {
     const response = await fetch(pool.lidoUrl).then(res => res.json());
     const apr = response.apr;
-    let aprFixed = 0;
     pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
-    rewardsApy = rewardsApy.plus(aprFixed);
   }
   // console.log(pool.name,rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
-  return rewardsApy;
+  return [rewardsApy, aprFixed];
 };
 
 module.exports = getBalancerPolyApys;

@@ -14,13 +14,13 @@ import { multicallAddress } from '../../../utils/web3';
 import { KAVA_CHAIN_ID } from '../../../constants';
 
 const pools = require('../../../data/kava/curvePools.json');
-const factoryApyUrl = 'https://api.curve.fi/api/getFactoGauges/kava';
+const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-kava';
 // const baseApyUrl = 'https://stats.curve.fi/raw-stats-optimism/apys.json';
 // const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-optimism';
 const tradingFees = 0.0002;
 
 const getCurveApys = async () => {
-  const baseApys = await getCurveBaseApys(pools, factoryApyUrl);
+  const baseApys = await getCurveBaseApysOld(pools, false, factoryApyUrl);
   // const baseApys = await getCurveBaseApysOld(pools, baseApyUrl, factoryApyUrl);
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));

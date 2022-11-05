@@ -8,7 +8,7 @@ const ETH = {
   decimals: 18,
   chainId: 1,
   website: 'https://weth.io/',
-  description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+  description: 'Ether or ETH is the native currency built on the Ethereum blockchain. ',
   logoURI: 'https://arbiscan.io/token/images/weth_28.png',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const;
@@ -17,6 +17,19 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  BIFI: {
+    name: 'Beefy.Finance',
+    symbol: 'BIFI',
+    address: '0x5870700f1272a1AdbB87C3140bD770880a95e55D',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.beefy.finance/',
+    documentation: 'https://docs.beefy.finance/',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+  },
   USDC: {
     name: 'USD Coin',
     address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
@@ -136,6 +149,213 @@ const _tokens = {
     description:
       'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve.fi LPs.',
     logoURI: '',
+  },
+  sethUSDC: {
+    name: 'Stargate USD Coin LP',
+    symbol: 'sethUSDC',
+    address: '0xdf0770dF86a8034b3EFEf0A1Bb3c889B8332FF56',
+    chainId: 1,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. USDC is deposited in a LP pool to enable high liquidity for bridging.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+  },
+  sethUSDT: {
+    name: 'Stargate Tether USD LP',
+    symbol: 'sethUSDT',
+    address: '0x38EA452219524Bb87e18dE1C24D3bB59510BD783',
+    chainId: 1,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    description:
+      'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. USDT is deposited in a LP pool to enable high liquidity for bridging.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+  },
+  rETH: {
+    name: 'Rocket Pool ETH',
+    symbol: 'rETH',
+    address: '0xae78736Cd615f374D3085123A210448E74Fc6393',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://rocketpool.net/',
+    description:
+      'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
+    logoURI: '',
+    documentation: 'https://docs.rocketpool.net/guides/',
+  },
+  USDT: {
+    name: 'Tether USD',
+    symbol: 'USDT',
+    address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
+    chainId: 1,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    documentation: 'https://tether.to/en/how-it-works',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  aUSDT: {
+    name: 'Aave Tether USD',
+    symbol: 'aUSDT',
+    address: '0x3Ed3B47Dd13EC9a98b44e6204A523E766B225811',
+    chainId: 1,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    description:
+      'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+  },
+  sethETH: {
+    name: 'Stargate Ethereum LP',
+    symbol: 'sethETH',
+    address: '0x101816545F6bd2b1076434B54383a1E633390A2E',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x2170ed0880ac9a755fd29b2688956bd959f933f8.png',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate allows users and dApps to bridge native tokens with instant guaranteed finality. ETH is deposited in a LP pool to enable high liquidity for bridging.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+  },
+  waUSDT: {
+    name: 'Wrapped Aave Tether USD',
+    symbol: 'waUSDT',
+    address: '0xf8Fd466F12e236f4c96F7Cce6c79EAdB819abF58',
+    chainId: 1,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Wrapped Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  bbaUSDT: {
+    name: 'Balancer Aave USDT Linear Pool',
+    symbol: 'bbaUSDT',
+    address: '0x2F4eb100552ef93840d5aDC30560E5513DFfFACb',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
+  },
+  aUSDC: {
+    name: 'Aave USDC',
+    symbol: 'aUSDC',
+    address: '0xBcca60bB61934080951369a648Fb03DF4F96263C',
+    chainId: 1,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  waUSDC: {
+    name: 'Wrapped Aave Tether USD',
+    symbol: 'waUSDC',
+    address: '0xd093fA4Fb80D09bB30817FDcd442d4d02eD3E5de',
+    chainId: 1,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Wrapped Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  bbaUSDC: {
+    name: 'Balancer Aave USDC Linear Pool',
+    symbol: 'bbaUSDC',
+    address: '0x82698aeCc9E28e9Bb27608Bd52cF57f704BD1B83',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 USDC and wrapped Aave Interest Bearing USDC.',
+  },
+  DAI: {
+    name: 'DAI Stablecoin',
+    symbol: 'DAI',
+    address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://makerdao.com/en/',
+    documentation:
+      'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
+    description:
+      'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
+  },
+  aDAI: {
+    name: 'Aave DAI',
+    symbol: 'aDAI',
+    address: '0x028171bCA77440897B824Ca71D1c56caC55b68A3',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://makerdao.com/en/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
+  },
+  waDAI: {
+    name: 'Wrapped Aave Tether DAI',
+    symbol: 'waDAI',
+    address: '0x02d60b84491589974263d922D9cC7a3152618Ef6',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://makerdao.com/en/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Wrapped Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
+  },
+  bbaDAI: {
+    name: 'Balancer Aave DAI Linear Pool',
+    symbol: 'bbaDAI',
+    address: '0xae37D54Ae477268B9997d4161B96b8200755935c',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
+  },
+  bbaUSD: {
+    name: 'Balancer Aave Stable Composable Pool',
+    symbol: 'bbaUSD',
+    address: '0xA13a9247ea42D743238089903570127DdA72fE44',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
   },
 } as const;
 

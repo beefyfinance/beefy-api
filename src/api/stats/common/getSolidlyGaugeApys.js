@@ -83,14 +83,7 @@ const getFarmApys = async params => {
 
     const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
 
-    let apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-    if (pool.lidoUrl) {
-      const response = await fetch(pool.lidoUrl).then(res => res.json());
-      let apr = 0;
-      pool.polygon ? (apr = response.apr) : (apr = response.data.steth);
-      let aprFixed = apr / 100 / 2;
-      apy = apy.plus(aprFixed);
-    }
+    const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
 
     if (params.log) {

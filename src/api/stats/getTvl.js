@@ -56,7 +56,7 @@ const {
   //SYS_VAULTS_ENDPOINT,
 
   ETH_CHAIN_ID,
-  //ETH_VAULTS_ENDPOINT,
+  ETHEREUM_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/redisHelper.js');
 
@@ -156,11 +156,11 @@ const chains = [
     vaultsEndpoint: KAVA_VAULTS_ENDPOINT,
     // governancePool: require('../../data/kava/governancePool.json'),
   },
-  // {
-  // chainId: ETH_CHAIN_ID,
-  // vaultsEndpoint: ETH_VAULTS_ENDPOINT,
-  // governancePool: require('../../data/kava/governancePool.json'),
-  //},
+  {
+    chainId: ETH_CHAIN_ID,
+    vaultsEndpoint: ETHEREUM_VAULTS_ENDPOINT,
+    governancePool: require('../../data/ethereum/governancePool.json'),
+  },
 ];
 
 const getTvl = () => {

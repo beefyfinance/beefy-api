@@ -30,6 +30,17 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  STELLA4POOL: {
+    name: 'Stellaswap 4Pool',
+    symbol: 'stella4pool',
+    address: '0xB326b5189AA42Acaa3C649B120f084Ed8F4dCaA6',
+    chainId: 1284,
+    decimals: 18,
+    website: 'https://app.stellaswap.com/exchange/pool/stable',
+    description:
+      'Stellaswap Base4Pool is a Stable Pool consisting of USDC.wh, USDt.xc, BUSD.wh, and FRAX tokens.',
+    logoURI: '',
+  },
   wstDOT: {
     name: 'Wrapped liquid staked DOT',
     symbol: 'wstDOT',
@@ -149,7 +160,6 @@ const _tokens = {
     description:
       "MAI is a stablecoin collateralized by your crypto assets. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
   },
-
   APE: {
     name: 'ApeCoin APE',
     symbol: 'APE',
@@ -233,6 +243,7 @@ const _tokens = {
     website: 'https://frax.finance/',
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+    documentation: 'https://docs.frax.finance/',
   },
   BUSD: {
     name: 'Binance-Peg BUSD Token',
@@ -257,6 +268,19 @@ const _tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
+  },
+  BUSDwh: {
+    name: 'Binance-Peg BUSD Token (Wormhole)',
+    symbol: 'BUSD',
+    address: '0x692C57641fc054c2Ad6551Ccc6566EbA599de1BA',
+    chainId: 1284,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F.svg',
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'BUSD bridged by Wormhole(Portal). Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
+    documentation: 'https://docs.wormhole.com/wormhole/',
   },
   BNB: {
     name: 'Binance',
@@ -303,7 +327,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
     website: 'https://www.nomad.xyz/',
     description:
-      'bridged ETH by Nomad. The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+      'Bridged ETH by Nomad. The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
   },
   USDT: {
     name: 'Tether USD',
@@ -328,6 +352,19 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  USDTxc: {
+    name: 'Tether USD (XCM)',
+    symbol: 'USDTxc',
+    address: '0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73.svg',
+    website: 'https://tether.to/',
+    description:
+      'Bridged by XCM from Kusama. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    documentation: 'https://moonbeam.network/announcements/usdt-on-moonbeam/',
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -564,6 +601,19 @@ const _tokens = {
     website: 'https://stake.lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+  },
+  stellaBase4pool: {
+    name: 'stellaBase4pool',
+    symbol: 'stellaswap-base4pool',
+    address: '0xdA782836B65edC4E6811c7702C5E21786203Ba9d',
+    chainId: 1284,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://stellaswap.com/',
+    description:
+      'Stellaswap is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The 4pool is a stable-swap LP consisting of USDC, USDT, DAI & FRAX.',
+    documentation:
+      'https://docs.stellaswap.com/how-to-guides/swap-pool-and-farm/how-to-add-liquidity-in-stable-amm',
   },
 } as const;
 

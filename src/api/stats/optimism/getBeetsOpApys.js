@@ -26,18 +26,22 @@ const getBeetsOpApys = async () => {
 
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
-  return getApyBreakdown(poolsMap, tradingAprs, farmApys, liquidityProviderFee);
+  return getApyBreakdown(poolsMap, tradingAprs, farmApys[0], liquidityProviderFee, farmApys[1]);
 };
 
 const getPoolApys = async pools => {
   const apys = [];
+  const lsAprs = [];
 
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(pool)));
   const values = await Promise.all(promises);
-  values.forEach(item => apys.push(item));
+  values.forEach(item => {
+    apys.push(item[0]);
+    lsAprs.push(item[1]);
+  });
 
-  return apys;
+  return [apys, lsAprs];
 };
 
 const getPoolApy = async pool => {
@@ -47,15 +51,15 @@ const getPoolApy = async pool => {
     getTotalStakedInUsd(web3, pool),
   ]);
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  let aprFixed = 0;
   if (pool.lidoUrl) {
     const response = await fetch(pool.lidoUrl).then(res => res.json());
     const apr = response.data.steth;
-    let aprFixed = 0;
+
     pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
-    rewardsApy = rewardsApy.plus(aprFixed);
   }
   // console.log(pool.name,rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
-  return rewardsApy;
+  return [rewardsApy, aprFixed];
 };
 
 module.exports = getBeetsOpApys;

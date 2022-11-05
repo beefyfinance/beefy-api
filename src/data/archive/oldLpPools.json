@@ -1,5 +1,24 @@
 [
   {
+    "name": "sushi-jpeg-eth",
+    "address": "0xdB06a76733528761Eda47d356647297bC35a98BD",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 1,
+    "lp0": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE80C0cd204D654CEbe8dd64A4857cAb6Be8345a3",
+      "oracle": "tokens",
+      "oracleId": "JPEG",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-cvx-eth",
     "address": "0x05767d9EF41dC40689678fFca0608878fb3dE906",
     "decimals": "1e18",

@@ -1,5 +1,6 @@
 import { beefyfinance } from './platforms/beefyfinance';
 import { beethovenX } from './platforms/beethovenX';
+import { sonne } from './platforms/sonne';
 import { velodrome } from './platforms/velodrome';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
@@ -10,6 +11,7 @@ const _optimism = {
   platforms: {
     beefyfinance,
     beethovenX,
+    sonne,
     velodrome,
   },
   tokens,

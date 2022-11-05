@@ -259,6 +259,7 @@ const _tokens = {
     website: 'https://stargate.finance/',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   soETH: {
     name: 'Stargate Ethereum LP',
@@ -271,6 +272,7 @@ const _tokens = {
     website: 'https://stargate.finance/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   renBTC: {
     name: 'renBTC',
@@ -426,6 +428,7 @@ const _tokens = {
     description:
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
     logoURI: '',
+    documentation: 'https://docs.rocketpool.net/guides/',
   },
   'USD+': {
     name: 'USD+ Stablecoin',

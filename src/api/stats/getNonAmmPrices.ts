@@ -40,6 +40,7 @@ import getSushiKavaPrices from './kava/getSushiPrices';
 import getGmxArbitrumPrices from './arbitrum/getGmxPrices';
 import getGmxAvalanchePrices from './avax/getGmxPrices';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices';
+import getFerroPrices from './cronos/getFerroPrices';
 import getHopArbPrices from './arbitrum/getHopArbPrices';
 import getHopOpPrices from './optimism/getHopOpPrices';
 import getHopPolyPrices from './matic/getHopPolyPrices';
@@ -52,6 +53,7 @@ const getNonAmmPrices = async tokenPrices => {
     getHopPolyPrices(tokenPrices),
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),
+    getFerroPrices(tokenPrices),
     getCurveEthereumPrices(tokenPrices),
     getAuraBalancerPrices(tokenPrices),
     getGmxAvalanchePrices(tokenPrices),

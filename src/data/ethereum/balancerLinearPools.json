@@ -1,0 +1,77 @@
+[
+  {
+    "name": "bbaUSDT",
+    "address": "0x2F4eb100552ef93840d5aDC30560E5513DFfFACb",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x2f4eb100552ef93840d5adc30560e5513dfffacb000000000000000000000334",
+    "decimals": "1e18",
+    "chainId": 1,
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "waUSDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "bbaUSDC",
+    "address": "0x82698aeCc9E28e9Bb27608Bd52cF57f704BD1B83",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x82698aecc9e28e9bb27608bd52cf57f704bd1b83000000000000000000000336",
+    "decimals": "1e18",
+    "chainId": 1,
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "waUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "bbaDAI",
+    "address": "0xae37D54Ae477268B9997d4161B96b8200755935c",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0xae37d54ae477268b9997d4161b96b8200755935c000000000000000000000337",
+    "decimals": "1e18",
+    "chainId": 1,
+    "composable": true,
+    "bptIndex": 2,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "waDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  }
+]

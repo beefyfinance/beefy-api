@@ -4,14 +4,17 @@ import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
+import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
 import { fetchStargatePrices } from '../../utils/fetchStargatePrices';
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchstDOTPrice } from '../../utils/fetchstDOTPrice';
+import {
+  fetchBalancerStablePoolPrice,
+  fetchBalancerLinearPoolPrice,
+} from '../../utils/fetchBalancerStablePoolPrices';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 import { fetchCurrencyPrices } from '../../utils/fetchCurrencyPrices';
 import { getKey, setKey } from '../../utils/redisHelper';
-import getBeetsOPLinearPrices from './optimism/getBeetsOPLinearPrices';
-import getSteadyBeetsPrice from './optimism/getSteadyBeetsPrice';
 
 import getNonAmmPrices from './getNonAmmPrices';
 import bakeryPools from '../../data/bakeryLpPools.json';
@@ -532,6 +535,9 @@ const knownPrices = {
   cUSD: 1,
   asUSDC: 1,
   VST: 1,
+  aUSDT: 1,
+  aDAI: 1,
+  aUSDC: 1,
 };
 
 let tokenPricesCache: Promise<any>;
@@ -608,10 +614,13 @@ const updateAmmPrices = async () => {
 
     const linearPoolPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       const vaultPrices = await fetchVaultPrices(tokenPrices);
-      const prices = { ...tokenPrices, ...vaultPrices };
-      const linearPrices = await getBeetsOPLinearPrices(prices);
-      const steadyBeetsPrice = await getSteadyBeetsPrice(linearPrices);
-      return { ...linearPrices, ...steadyBeetsPrice };
+      const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
+      const prices = { ...tokenPrices, ...vaultPrices, ...wrappedAavePrices };
+
+      const linearPrices = await fetchBalancerLinearPoolPrice(prices);
+      const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
+
+      return { ...linearPrices, ...balancerStablePoolPrice };
     });
 
     const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {

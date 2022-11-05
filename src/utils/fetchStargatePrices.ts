@@ -10,6 +10,7 @@ import {
   OPTIMISM_CHAIN_ID,
   ARBITRUM_CHAIN_ID,
   POLYGON_CHAIN_ID,
+  ETH_CHAIN_ID,
 } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 import { getContract } from './contractHelper';
@@ -33,6 +34,9 @@ const {
   polygon: {
     tokens: { spUSDC, spUSDT },
   },
+  ethereum: {
+    tokens: { sethUSDC, sethUSDT, sethETH },
+  }
 } = addressBook;
 
 const tokens = {
@@ -58,6 +62,11 @@ const tokens = {
     [USDT, spUSDT],
     [USDC, spUSDC],
   ],
+  ethereum: [
+    [USDC, sethUSDC],
+    [USDT, sethUSDT],
+    [ETH, sethETH],
+  ]
 };
 
 const getStargatePrices = async (tokenPrices, tokens, chainId) => {
@@ -100,6 +109,7 @@ const fetchStargatePrices = async tokenPrices =>
     getStargatePrices(tokenPrices, tokens.optimism, OPTIMISM_CHAIN_ID),
     getStargatePrices(tokenPrices, tokens.arbitrum, ARBITRUM_CHAIN_ID),
     getStargatePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
+    getStargatePrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID),
   ]).then(data =>
     data
       .flat()

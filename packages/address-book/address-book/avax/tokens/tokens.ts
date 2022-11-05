@@ -15,6 +15,18 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  'USD+': {
+    name: 'USD+ Stablecoin',
+    symbol: 'USD+',
+    address: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
+    chainId: 43114,
+    decimals: 6,
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
   CAI: {
     name: 'Colony Avalanche Index CAI',
     symbol: 'CAI',
