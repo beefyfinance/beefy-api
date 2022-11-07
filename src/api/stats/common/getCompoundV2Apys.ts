@@ -24,7 +24,8 @@ const getCompoundV2ApyData = async (params: CompoundV2ApyParams) => {
     poolsData
   );
 
-  const apys = params.pools.map((pool, i) => {
+  const apys = {};
+  params.pools.forEach((pool, i) => {
     const apy = getPoolLeveragedApy(
       pool,
       supplyApys[i],
@@ -44,7 +45,7 @@ const getCompoundV2ApyData = async (params: CompoundV2ApyParams) => {
       );
     }
 
-    return { [pool.name]: apy };
+    apys[pool.name] = apy;
   });
 
   return apys;
@@ -112,7 +113,7 @@ const getPoolLeveragedApy = (
   const compoundedComp = compound(totalComp, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedComp).toNumber();
 
-  return { [pool.name]: apy };
+  return apy;
 };
 
 const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => {
