@@ -8,6 +8,8 @@ const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getRipaeApys } = require('./getRipaeApys');
 const { getSonneApys } = require('./getSonneApys');
 const { getOptimismBifiMaxiApy } = require('./getOptimismBifiMaxiApy');
+const { getHopApys } = require('./getHopApys');
+const { getHopOpApys } = require('./getHopOpApys');
 
 const getApys = [
   getBeetsOpApys,
@@ -20,6 +22,8 @@ const getApys = [
   getAaveV3Apys,
   getRipaeApys,
   // getSonneApys,
+  getHopApys,
+  getHopOpApys,
 ];
 
 const getOptimismApys = async () => {

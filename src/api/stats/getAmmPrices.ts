@@ -517,6 +517,10 @@ const coinGeckoCoins = [
   'kava',
   'aura-finance',
   'convex-crv',
+  'usd-coin',
+  'dai',
+  'tether',
+  'havven',
 ];
 
 const currencies = ['cad'];
@@ -570,6 +574,11 @@ const updateAmmPrices = async () => {
         WKAVA: prices['kava'],
         AURA: prices['aura-finance'],
         cvxCRV: prices['convex-crv'],
+        hETH: prices['ethereum'],
+        hUSDC: prices['usd-coin'],
+        hUSDT: prices['tether'],
+        hDAI: prices['dai'],
+        hSNX: prices['havven'],
       };
     };
 

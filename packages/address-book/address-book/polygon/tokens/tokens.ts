@@ -1501,6 +1501,66 @@ const _tokens = {
     description:
       'EURe is a Euro stable-coin from Monerium. Monerium is the first company authorized to issue money on blockchains under European financial regulation. They have issued EUR, USD, GBP, and ISK as e-money tokens on Ethereum and EUR on Algorand. Monerium also operates a gateway for instant transfers of EUR between bank accounts and blockchain wallets/smart contracts.',
   },
+  HOP: {
+    name: 'HOP Protocol',
+    symbol: 'HOP',
+    address: '0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: 'https://docs.velodrome.finance/tokens/HOP.svg',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hETH: {
+    name: 'ETH Hop Token',
+    symbol: 'hETH',
+    address: '0x1fDeAF938267ca43388eD1FdB879eaF91e920c7A',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hETH is the bridge token for transferring ETH via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hUSDC: {
+    name: 'USDC Hop Token',
+    symbol: 'hUSDC',
+    address: '0x9ec9551d4A1a1593b0ee8124D98590CC71b3B09D',
+    chainId: 137,
+    decimals: 6,
+    website: 'https://app.hop.exchange',
+    description:
+      'hUSDC is the bridge token for transferring USDC via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hUSDT: {
+    name: 'USDT Hop Token',
+    symbol: 'hUSDT',
+    address: '0x9F93ACA246F457916E49Ec923B8ed099e313f763',
+    chainId: 137,
+    decimals: 6,
+    website: 'https://app.hop.exchange',
+    description:
+      'hUSDT is the bridge token for transferring USDT via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hDAI: {
+    name: 'DAI Hop Token',
+    symbol: 'hDAI',
+    address: '0xb8901acB165ed027E32754E0FFe830802919727f',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hDAI is the bridge token for transferring DAI via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

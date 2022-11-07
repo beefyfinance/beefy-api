@@ -1,0 +1,25 @@
+[
+  {
+    "name": "hop-op-snx",
+    "address": "0xe63337211DdE2569C348D9B3A0acb5637CFa8aB3",
+    "pool": "0x1990BC6dfe2ef605Bfc08f5A23564dB75642Ad73",
+    "rewardPool": "0x09992Dd7B32f7b35D347DE9Bdaf1919a57d38E82",
+    "virtualOracleId": "SNX",
+    "virtualDecimals": "1e18",
+    "graphKey": "SNX",
+    "decimals": "1e18",
+    "chainId": 10,
+    "tokens": [
+      {
+        "address": "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4",
+        "oracleId": "SNX",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x13B7F51BD865410c3AcC4d56083C5B56aB38D203",
+        "oracleId": "hSNX",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

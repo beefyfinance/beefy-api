@@ -95,6 +95,7 @@ const TETHYS_LPF = 0.002;
 const BEAMSWAP_LPF = 0.0017;
 const TOMBSWAP_LPF = 0.005;
 const BISWAP_LPF = 0.0005;
+const HOP_LPF = 0.0004;
 
 const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.bsc]: BSC_RPC,
@@ -270,5 +271,6 @@ export {
   BISWAP_LPF,
   TOMBSWAP_LPF,
   PEGASYS_LPF,
+  HOP_LPF,
   EXCLUDED_IDS_FROM_TVL,
 };

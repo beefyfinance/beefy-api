@@ -114,6 +114,9 @@ const balancerClient = client(
 const isSushiTridentClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return client == sushiKavaClient;
 };
+const hopArbClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-arbitrum');
+const hopOpClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-optimism');
+const hopPolyClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-polygon');
 
 const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return (
@@ -187,4 +190,7 @@ export {
   pegasysClient,
   uniswapPolygonClient,
   balancerClient,
+  hopArbClient,
+  hopOpClient,
+  hopPolyClient,
 };
