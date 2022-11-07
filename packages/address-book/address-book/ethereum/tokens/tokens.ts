@@ -66,6 +66,17 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
+  pETH: {
+    name: "JPEG'd ETH",
+    symbol: 'pETH',
+    address: '0x836A808d4828586A69364065A1e064609F5078c7',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://jpegd.io/',
+    description:
+      "pETH is an Ethereum derivative supported by the JPEG'd protocol. It is minted when a user borrows against their NFT and burned when they decide to repay their loan. Unlike the 2% interest rate for borrowing PUSd, minting $pETH against an NFT has a 5% interest rate.",
+    documentation: 'https://docs.jpegd.io/tokenomics/usdpeth',
+  },
   BAL: {
     name: 'Balancer',
     symbol: 'BAL',
