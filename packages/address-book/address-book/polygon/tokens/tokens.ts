@@ -40,16 +40,16 @@ const _tokens = {
     chainId: 137,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
   },
-  'USD+': {
-    name: 'USD+',
-    symbol: 'USD+',
+  'pUSD+': {
+    name: 'USD+ Stablecoin',
+    symbol: 'pUSD+',
     address: '0x236eeC6359fb44CCe8f97E99387aa7F8cd5cdE1f',
     chainId: 137,
     decimals: 6,
-    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/20317.png',
     website: 'https://overnight.fi/',
     description:
-      'A risk-minimised USDC-pegged crypto asset backed by an underlying basket of USD stablecoins.',
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
   spUSDT: {
