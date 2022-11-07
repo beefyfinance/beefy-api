@@ -15,9 +15,9 @@ const AVAX = {
 } as const;
 
 const _tokens = {
-  'aUSD+': {
+  'USD+': {
     name: 'USD+ Stablecoin',
-    symbol: 'aUSD+',
+    symbol: 'USD+',
     address: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
     chainId: 43114,
     decimals: 6,

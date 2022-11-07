@@ -3842,9 +3842,9 @@ const _tokens = {
     description:
       'TOR is a fully collateralized stablecoin which acts as a foundational pillar within the Hector Network Ecosystem. Its unique smart contracts made it the first of its kind, creating positive price action for the HEC token each time a TOR coin is minted and empowering Hector Network to become deflationary.',
   },
-  'bUSD+': {
+  'USD+': {
     name: 'USD+ Stablecoin',
-    symbol: 'bUSD+',
+    symbol: 'USD+',
     address: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
     chainId: 56,
     decimals: 6,

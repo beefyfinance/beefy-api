@@ -430,9 +430,9 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
   },
-  'oUSD+': {
+  'USD+': {
     name: 'USD+ Stablecoin',
-    symbol: 'oUSD+',
+    symbol: 'USD+',
     address: '0x73cb180bf0521828d8849bc8CF2B920918e23032',
     chainId: 10,
     decimals: 6,
