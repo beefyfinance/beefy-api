@@ -21,7 +21,7 @@ const getApys = [
   getOptimismBifiMaxiApy,
   getAaveV3Apys,
   getRipaeApys,
-  // getSonneApys,
+  getSonneApys,
   getHopApys,
   getHopOpApys,
 ];

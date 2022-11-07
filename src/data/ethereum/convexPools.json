@@ -72,7 +72,7 @@
     "name": "convex-cvxfxs",
     "pool": "0xd658A338613198204DCa1143Ac3F01A722b5d94A",
     "token": "0xF3A43307DcAFa93275993862Aae628fCB50dC768",
-    "oracleId": "FXS",
+    "volatile": true,
     "rewardPool": "0xf27AFAD0142393e4b3E5510aBc5fe3743Ad669Cb",
     "extras": [
       {
@@ -92,7 +92,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "cvxFXS",
+        "oracleId": "FXS",
         "decimals": "1e18"
       }
     ]
