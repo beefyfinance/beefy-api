@@ -77,7 +77,7 @@ Each of these fields within the structure are:
 - **vaultApy** - The vaultApr compounded, using compoundingsPerYear and beefyPerformanceFee in the calculation.
 - **lpFee** - The Liquidity Provider (LP) fee per trade. This is an internal field for reference.
 - **tradingApr** - Annual interest from trading fees, not compounded.
-- **totalApy** - The known Total APY. Where fields are available to calculate the Total APY including trading fees, this is calculated. The final calculation is totalApy = (1 + vaultApr) \* (1 + (compounded tradingApr)) - 1.
+- **totalApy** - The known Total APY. Where fields are available to calculate the Total APY including trading fees, this is calculated. The final calculation is totalApy = (1 + vaultApy) * (1 + tradingApr) - 1.
 
 
 #### **/prices** All token prices under the same endpoint (crosschain).
@@ -102,6 +102,14 @@ Each of these fields within the structure are:
 #### **/cmc**: Custom endpoint required by [CoinMarketCap](https://coinmarketcap.com/) to display our vaults in their yield farming section
 
 #### **/supply**: Used by [Coingecko](https://coingecko.com) to display BIFI's total supply and circulating supply
+
+---
+
+---
+
+## Further Information
+
+For further information on the range of endpoints currently supported by the Beefy API, check out the latest version of our [API documentation](https://docs.beefy.finance/developer-documentation/beefy-api).
 
 ---
 
