@@ -49,7 +49,7 @@
     "lp0": {
       "address": "0x73cb180bf0521828d8849bc8CF2B920918e23032",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "oUSD+",
       "decimals": "1e6"
     },
     "lp1": {
@@ -417,7 +417,7 @@
     "lp0": {
       "address": "0x73cb180bf0521828d8849bc8CF2B920918e23032",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "oUSD+",
       "decimals": "1e6"
     },
     "lp1": {

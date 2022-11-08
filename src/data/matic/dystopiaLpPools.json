@@ -1,25 +1,5 @@
 [
   {
-    "name": "dystopia-usd+-usdc",
-    "address": "0x421a018cC5839c4C0300AfB21C725776dc389B1a",
-    "gauge": "0xDF650dF3B87727E192D676A9012Fc7A0E5277b0D",
-    "decimals": "1e18",
-    "chainId": 137,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x236eeC6359fb44CCe8f97E99387aa7F8cd5cdE1f",
-      "oracle": "tokens",
-      "oracleId": "USD+",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "dystopia-usd+-clam",
     "address": "0x291E289C39cBAf5Ee158028d086d76Ffa141CFdA",
     "gauge": "0xBE72608F9d161A77Ece96dA403c24ce176FBA9e3",
@@ -29,7 +9,7 @@
     "lp0": {
       "address": "0x236eeC6359fb44CCe8f97E99387aa7F8cd5cdE1f",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "pUSD+",
       "decimals": "1e6"
     },
     "lp1": {
@@ -69,7 +49,7 @@
     "lp0": {
       "address": "0x236eeC6359fb44CCe8f97E99387aa7F8cd5cdE1f",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "pUSD+",
       "decimals": "1e6"
     },
     "lp1": {
@@ -95,7 +75,7 @@
     "lp1": {
       "address": "0x236eeC6359fb44CCe8f97E99387aa7F8cd5cdE1f",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "pUSD+",
       "decimals": "1e6"
     }
   },
@@ -109,7 +89,7 @@
     "lp0": {
       "address": "0x236eeC6359fb44CCe8f97E99387aa7F8cd5cdE1f",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "pUSD+",
       "decimals": "1e6"
     },
     "lp1": {
