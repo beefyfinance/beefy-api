@@ -77,6 +77,66 @@ const _tokens = {
       "pETH is an Ethereum derivative supported by the JPEG'd protocol. It is minted when a user borrows against their NFT and burned when they decide to repay their loan. Unlike the 2% interest rate for borrowing PUSd, minting $pETH against an NFT has a 5% interest rate.",
     documentation: 'https://docs.jpegd.io/tokenomics/usdpeth',
   },
+  FRAX: {
+    chainId: 1,
+    address: '0x853d955aCEf822Db058eb8505911ED77F175b99e',
+    decimals: 18,
+    name: 'Frax',
+    symbol: 'FRAX',
+    website: 'https://frax.finance/',
+    description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
+    logoURI:
+      'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
+    documentation: 'https://docs.frax.finance/',
+  },
+  WBTC: {
+    chainId: 1,
+    address: '0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599',
+    decimals: 8,
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+  },
+  alETH: {
+    name: 'Alchemix ETH',
+    symbol: 'alETH',
+    address: '0x0100546F2cD4C9D97f798fFC9755E47865FF7Ee6',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alchemix.fi/',
+    documentation: 'https://alchemix-finance.gitbook.io/v2/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+  },
+  MIM: {
+    name: 'Magic Internet Money',
+    address: '0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3',
+    symbol: 'MIM',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://abracadabra.money/',
+    description:
+      'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
+    logoURI: '',
+    documentation: 'https://docs.abracadabra.money/',
+  },
+  ApeUSD: {
+    name: 'ApeUSD',
+    address: '0xfF709449528B6fB6b88f557F7d93dEce33bca78D',
+    symbol: 'ApeUSD',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://ape.fi/',
+    documentation: 'https://github.com/ape-fi/ape-finance',
+    description:
+      'Ape Finance is building DeFi tools for metaverse dwellers, proud PFP owners, and digital collectible enthusiasts in all of us. We appreciate culture, art, and games. Ape Finance begins with the creation of the ApeUSD.',
+    logoURI: '',
+  },
   BAL: {
     name: 'Balancer',
     symbol: 'BAL',
