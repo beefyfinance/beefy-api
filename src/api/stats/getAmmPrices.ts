@@ -252,13 +252,14 @@ import conePools from '../../data/coneLpPools.json';
 import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
+import { addressBookByChainId } from '../../../packages/address-book/address-book';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
-const pools = [
+const pools = normalizePoolOracleIds([
   ...hermesPools,
   ...spiritV2Pools,
   ...conePools,
@@ -490,7 +491,7 @@ const pools = [
   ...cakeLpV1Pools,
   ...cakeLpPools,
   ...giddyLpPools,
-];
+]);
 
 const dmmPools = [...kyberPools, ...oldDmmPools];
 
@@ -556,9 +557,13 @@ const updateAmmPrices = async () => {
         EURt: prices['tether-eurt'],
         PAR: prices['par-stablecoin'],
         jEUR: prices['jarvis-synthetic-euro'],
+        EURe: prices['monerium-eur-money'],
         JPYC: prices['jpyc'],
+        jJPY: prices['jpyc'],
         CADC: prices['cad-coin'],
+        jCAD: prices['cad-coin'],
         XSGD: prices['xsgd'],
+        jSGD: prices['xsgd'],
         USDB: prices['usd-balance'],
         GEL: prices['gelato'],
         PERP: prices['perpetual-protocol'],
@@ -589,7 +594,19 @@ const updateAmmPrices = async () => {
       };
     };
 
-    const ammPrices = fetchAmmPrices(pools, knownPrices);
+    const ammPrices = fetchAmmPrices(pools, knownPrices).then(prices => {
+      //Set prices for the wrapped version of native tokens (if native was set)
+      const nativeTokens = new Set(
+        Object.values(addressBookByChainId).map(addressbook =>
+          addressbook.tokens.WNATIVE.symbol.slice(1)
+        )
+      );
+      nativeTokens.forEach(nativeToken => {
+        if (prices.tokenPrices.hasOwnProperty(nativeToken))
+          prices.tokenPrices[`W${nativeToken}`] = prices.tokenPrices[nativeToken];
+      });
+      return prices;
+    });
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
     const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
@@ -717,6 +734,22 @@ export const getAmmLpPrice = async lpName => {
   }
   console.error(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
 };
+
+// We want to treat wrapped tokens the same way we'd treat normal ones => We then swap all wrapped token oracleIds to their underlying
+function normalizePoolOracleIds(pools) {
+  const wrappedNativeTokens = new Set(
+    Object.values(addressBookByChainId).map(addressbook => addressbook.tokens.WNATIVE.symbol)
+  );
+  pools.forEach(pool => {
+    const fields = ['lp0', 'lp1'];
+    fields.forEach(token => {
+      if (wrappedNativeTokens.has(pool[token].oracleId)) {
+        pool[token].oracleId = pool[token].oracleId.slice(1);
+      }
+    });
+  });
+  return pools;
+}
 
 export const initPriceService = async () => {
   const tokenPrices = await getKey('TOKEN_PRICES');

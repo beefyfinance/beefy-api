@@ -290,7 +290,7 @@ const _tokens = {
   PAR: {
     name: 'PAR Stablecoin',
     symbol: 'PAR',
-    address: '0x7b367a058f370c0057762280547d0b974cf3ac10',
+    address: '0xE2Aa7db6dA1dAE97C5f5C6914d285fBfCC32A128',
     chainId: 137,
     decimals: 18,
     website: 'https://mimo.capital/',
