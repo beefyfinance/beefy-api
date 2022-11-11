@@ -1,9 +1,16 @@
-const getAuraApys = require('./getAuraApys');
+const { getAuraApys } = require('./getAuraApys');
 const { getConvexApys } = require('./getConvexApys');
 const getStargateEthApys = require('./getStargateEthApys');
 const getEthereumBifiGovApy = require('./getEthereumBifiEarningsApy');
+const getAuraBalApy = require('./getAuraBalApy');
 
-const getApys = [getAuraApys, getConvexApys, getStargateEthApys, getEthereumBifiGovApy];
+const getApys = [
+  getAuraApys,
+  getConvexApys,
+  getStargateEthApys,
+  getEthereumBifiGovApy,
+  getAuraBalApy,
+];
 
 const getEthereumApys = async () => {
   let apys = {};

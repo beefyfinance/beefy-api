@@ -77,6 +77,17 @@ const _tokens = {
       "pETH is an Ethereum derivative supported by the JPEG'd protocol. It is minted when a user borrows against their NFT and burned when they decide to repay their loan. Unlike the 2% interest rate for borrowing PUSd, minting $pETH against an NFT has a 5% interest rate.",
     documentation: 'https://docs.jpegd.io/tokenomics/usdpeth',
   },
+  auraBAL: {
+    name: 'Aura Staked BAL BPT',
+    symbol: 'auraBAL',
+    address: '0x616e8BfA43F920657B3497DBf40D6b1A02D4608d',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://aura.finance/',
+    description: 'auraBAL is Auras liquid staking locked BAL (80 BAL / 20 ETH) BPT',
+    logoURI: '',
+    documentation: 'https://docs.aura.finance/aura/what-is-aura/for-usdbal-stakers',
+  },
   BAL: {
     name: 'Balancer',
     symbol: 'BAL',

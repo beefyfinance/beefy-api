@@ -222,4 +222,4 @@ const getAuraData = async () => {
   return [reduction, totalCliff, amtTillMax];
 };
 
-module.exports = getAuraApys;
+module.exports = { getAuraApys, getAuraData };
