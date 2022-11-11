@@ -156,6 +156,11 @@
         "stream": "0x3Ee85Ac7c0E1799af6f4e582dE485FcdFb12855A",
         "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
         "oracleId": "BAL"
+      },
+      {
+        "stream": "0x3Ee85Ac7c0E1799af6f4e582dE485FcdFb12855A",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
       }
     ],
     "tokens": [
