@@ -522,6 +522,7 @@ const coinGeckoCoins = [
   'dai',
   'tether',
   'havven',
+  'aura-bal',
 ];
 
 const currencies = ['cad'];
@@ -584,6 +585,7 @@ const updateAmmPrices = async () => {
         hUSDT: prices['tether'],
         hDAI: prices['dai'],
         hSNX: prices['havven'],
+        auraBAL: prices['aura-bal'],
       };
     };
 

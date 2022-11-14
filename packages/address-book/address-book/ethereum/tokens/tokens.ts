@@ -137,6 +137,17 @@ const _tokens = {
       'Ape Finance is building DeFi tools for metaverse dwellers, proud PFP owners, and digital collectible enthusiasts in all of us. We appreciate culture, art, and games. Ape Finance begins with the creation of the ApeUSD.',
     logoURI: '',
   },
+  auraBAL: {
+    name: 'Aura Staked BAL BPT',
+    symbol: 'auraBAL',
+    address: '0x616e8BfA43F920657B3497DBf40D6b1A02D4608d',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://aura.finance/',
+    description: 'auraBAL is Auras liquid staking locked BAL (80 BAL / 20 ETH) BPT',
+    logoURI: '',
+    documentation: 'https://docs.aura.finance/aura/what-is-aura/for-usdbal-stakers',
+  },
   BAL: {
     name: 'Balancer',
     symbol: 'BAL',
