@@ -4,11 +4,13 @@ const { ethereumWeb3: web3, web3Factory } = require('../../../utils/web3');
 const IAuraGauge = require('../../../abis/ethereum/AuraGauge.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const ERC20 = require('../../../abis/ERC20.json');
-const { ETH_CHAIN_ID: chainId } = require('../../../constants');
+const { ETH_CHAIN_ID: chainId, DAILY_HPY } = require('../../../constants');
+const { compound } = require('../../../utils/compound');
+import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getAuraData } from './getAuraApys';
-const getEDecimals = require('../../../utils/getEDecimals');
+
 const {
   ethereum: {
     tokens: { BAL, AURA, bbaUSD, auraBAL },
@@ -27,14 +29,18 @@ const getAuraBalApy = async () => {
   ]);
 
   const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const beefyPerformanceFee = getTotalPerformanceFeeForVault('aura-auraBal');
+  const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
+  const apy = compound(apr, DAILY_HPY, 1, shareAfterBeefyPerformanceFee);
 
   return {
     apys: {
-      'aura-aurabal': apr,
+      'aura-aurabal': apy,
     },
     apyBreakdowns: {
       'aura-aurabal': {
         vaultApr: apr,
+        totalApy: apy,
       },
     },
   };
