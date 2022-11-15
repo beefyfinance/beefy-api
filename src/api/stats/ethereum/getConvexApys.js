@@ -79,7 +79,7 @@ const getPoolApys = async pools => {
     periodFinish: v.periodFinish,
   }));
 
-  const cvx = await getContractWithProvider(AuraToken, cvxAddress, web3);
+  const cvx = getContractWithProvider(AuraToken, cvxAddress, web3);
   const cvxSupply = new BigNumber(await cvx.methods.totalSupply().call());
   const cvxPrice = await fetchPrice({ oracle: 'tokens', id: 'CVX' });
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });
@@ -125,7 +125,7 @@ const getPoolApys = async pools => {
 function getMintedCvxAmount(crvAmount, cvxSupply) {
   const totalCliffs = new BigNumber(1000);
   const reductionPerCliff = new BigNumber(100000000000000000000000);
-  const cliff = cvxSupply.div(reductionPerCliff);
+  const cliff = cvxSupply.div(reductionPerCliff).integerValue(BigNumber.ROUND_DOWN);
   let amount = new BigNumber(0);
   if (cliff.lt(totalCliffs)) {
     //for reduction% take inverse of current cliff
