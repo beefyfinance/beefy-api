@@ -36,7 +36,14 @@ const getPoolApy = async pool => {
   ]);
 
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyVxs, leveragedBorrowVxs } =
-    getLeveragedApys(supplyBase, borrowBase, supplyVxs, borrowVxs, 4, 0.58);
+    getLeveragedApys(
+      supplyBase,
+      borrowBase,
+      supplyVxs,
+      borrowVxs,
+      pool.borrowDepth,
+      pool.borrowPercent
+    );
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
   const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
