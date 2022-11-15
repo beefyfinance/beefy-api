@@ -283,6 +283,28 @@ const _tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
   },
+  DOLA: {
+    name: 'Dola USD Stablecoin',
+    symbol: 'DOLA',
+    address: '0x865377367054516e17014CcdED1e7d814EDC9ce4',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+  },
+  USDD: {
+    name: 'Decentralized USD',
+    symbol: 'USDD',
+    address: '0x0C10bF8FcB7Bf5412187A595ab97a3609160b5c6',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://usdd.io/',
+    description:
+      'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
+  },
   aUSDT: {
     name: 'Aave Tether USD',
     symbol: 'aUSDT',

@@ -1,5 +1,43 @@
 [
   {
+    "name": "convex-dolafraxbp",
+    "pool": "0xE57180685E3348589E9521aa53Af0BCD497E884d",
+    "token": "0xE57180685E3348589E9521aa53Af0BCD497E884d",
+    "rewardPool": "0x0404d05F3992347d2f0dC3a97bdd147D77C85c1c",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DOLA",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-fraxusdc",
+        "oracle": "lps",
+        "oracleId": "convex-fraxusdc",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-usddfraxbp",
+    "pool": "0x4606326b4Db89373F5377C316d3b0F6e55Bc6A20",
+    "token": "0x4606326b4Db89373F5377C316d3b0F6e55Bc6A20",
+    "rewardPool": "0x546cd3B917c1d8A6525b4A312bB0014BE031Eb28",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-fraxusdc",
+        "oracle": "lps",
+        "oracleId": "convex-fraxusdc",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-peth",
     "pool": "0x9848482da3Ee3076165ce6497eDA906E66bB85C5",
     "token": "0x9848482da3Ee3076165ce6497eDA906E66bB85C5",
@@ -172,9 +210,9 @@
         "decimals": "1e18"
       },
       {
-        "basePool": "convex-3pool",
+        "basePool": "convex-fraxusdc",
         "oracle": "lps",
-        "oracleId": "convex-3pool",
+        "oracleId": "convex-fraxusdc",
         "decimals": "1e18"
       }
     ]
