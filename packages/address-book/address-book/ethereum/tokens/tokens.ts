@@ -144,7 +144,7 @@ const _tokens = {
     chainId: 1,
     decimals: 18,
     website: 'https://aura.finance/',
-    description: 'auraBAL is Auras liquid staking locked BAL (80 BAL / 20 ETH) BPT',
+    description: 'auraBAL is Aura\'s liquid staking locked BAL (80 BAL / 20 ETH) BPT',
     logoURI: '',
     documentation: 'https://docs.aura.finance/aura/what-is-aura/for-usdbal-stakers',
   },
