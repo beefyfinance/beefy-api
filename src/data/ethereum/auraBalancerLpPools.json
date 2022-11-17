@@ -1,5 +1,36 @@
 [
   {
+    "name": "aura-wsteth-reth-sfrxeth",
+    "address": "0x8e85e97ed19C0fa13B2549309965291fbbc0048b",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x8389A965303b92604912f9adf30b7aF15B2d1DFb",
+    "composable": true,
+    "bptIndex": 1,
+    "lidoUrl": "https://stake.lido.fi/api/apr",
+    "vaultPoolId": "0x8E85E97ED19C0FA13B2549309965291FBBC0048B0000000000000000000003BA",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-wsteth-eth",
     "address": "0x32296969Ef14EB0c6d29669C550D4a0449130230",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

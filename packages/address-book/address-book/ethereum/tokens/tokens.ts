@@ -144,7 +144,7 @@ const _tokens = {
     chainId: 1,
     decimals: 18,
     website: 'https://aura.finance/',
-    description: 'auraBAL is Aura\'s liquid staking locked BAL (80 BAL / 20 ETH) BPT',
+    description: "auraBAL is Aura's liquid staking locked BAL (80 BAL / 20 ETH) BPT",
     logoURI: '',
     documentation: 'https://docs.aura.finance/aura/what-is-aura/for-usdbal-stakers',
   },
@@ -460,6 +460,18 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
+  },
+  sfrxETH: {
+    name: 'Staked Frax Ether',
+    symbol: 'sfrxETH',
+    address: '0xac3E018457B222d93114458476f3E3416Abbe38F',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited. ',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
 } as const;
 
