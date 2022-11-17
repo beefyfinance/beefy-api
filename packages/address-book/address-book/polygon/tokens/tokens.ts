@@ -129,6 +129,7 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     website: 'https://stake.lido.fi/',
+    documentation: 'https://docs.lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
     logoURI: 'https://assets.coingecko.com/coins/images/13573/large/Lido_DAO.png?1609873644',

@@ -713,6 +713,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
+  LDO: {
+    name: 'Lido DAO Token',
+    symbol: 'LDO',
+    address: '0xFdb794692724153d1488CcdBE0C56c252596735F',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://stake.lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+    documentation: 'https://docs.lido.fi/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
