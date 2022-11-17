@@ -1,0 +1,30 @@
+[
+  {
+    "name": "stargate-arb-usdc",
+    "poolId": 0,
+    "address": "0x892785f33CdeE22A30AEF750F285E18c18040c3e",
+    "decimals": "1e6",
+    "underlying": "USDC"
+  },
+  {
+    "name": "stargate-arb-usdt",
+    "poolId": 1,
+    "address": "0xB6CfcF89a7B22988bfC96632aC2A9D6daB60d641",
+    "decimals": "1e6",
+    "underlying": "USDT"
+  },
+  {
+    "name": "stargate-arb-eth",
+    "poolId": 2,
+    "address": "0x915A55e36A01285A14f05dE6e81ED9cE89772f8e",
+    "decimals": "1e18",
+    "underlying": "ETH"
+  },
+  {
+    "name": "stargate-arb-frax",
+    "poolId": 3,
+    "address": "0xaa4BF442F024820B2C28Cd0FD72b82c63e66F56C",
+    "decimals": "1e6",
+    "underlying": "FRAX"
+  }
+]
