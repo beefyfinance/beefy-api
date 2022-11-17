@@ -1,0 +1,16 @@
+[
+  {
+    "name": "stargate-bsc-usdt",
+    "poolId": 0,
+    "address": "0x9aA83081AA06AF7208Dcc7A4cB72C94d057D2cda",
+    "decimals": "1e6",
+    "underlying": "USDT"
+  },
+  {
+    "name": "stargate-bsc-busd",
+    "poolId": 1,
+    "address": "0x98a5737749490856b401DB5Dc27F522fC314A4e1",
+    "decimals": "1e6",
+    "underlying": "BUSD"
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "name": "stargate-eth-usdc",
+    "poolId": 0,
+    "address": "0xdf0770dF86a8034b3EFEf0A1Bb3c889B8332FF56",
+    "decimals": "1e6",
+    "underlying": "USDC"
+  },
+  {
+    "name": "stargate-eth-usdt",
+    "poolId": 1,
+    "address": "0x38EA452219524Bb87e18dE1C24D3bB59510BD783",
+    "decimals": "1e6",
+    "underlying": "USDT"
+  },
+  {
+    "name": "stargate-eth-eth",
+    "poolId": 2,
+    "address": "0x101816545F6bd2b1076434B54383a1E633390A2E",
+    "decimals": "1e18",
+    "underlying": "ETH"
+  },
+  {
+    "name": "stargate-eth-dai",
+    "poolId": 3,
+    "address": "0x0Faf1d2d3CED330824de3B8200fc8dc6E397850d",
+    "decimals": "1e6",
+    "underlying": "DAI"
+  },
+  {
+    "name": "stargate-eth-frax",
+    "poolId": 4,
+    "address": "0xfA0F307783AC21C39E939ACFF795e27b650F6e68",
+    "decimals": "1e6",
+    "underlying": "FRAX"
+  },
+  {
+    "name": "stargate-eth-susd",
+    "poolId": 5,
+    "address": "0x590d4f8A68583639f215f675F3a259Ed84790580",
+    "decimals": "1e6",
+    "underlying": "sUSD"
+  },
+  {
+    "name": "stargate-eth-lusd",
+    "poolId": 6,
+    "address": "0xE8F55368C82D38bbbbDb5533e7F56AfC2E978CC2",
+    "decimals": "1e6",
+    "underlying": "LUSD"
+  }
+]

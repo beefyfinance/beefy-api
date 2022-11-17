@@ -1,0 +1,9 @@
+[
+  {
+    "name": "stargate-fantom-usdc",
+    "poolId": 0,
+    "address": "0x12edeA9cd262006cC3C4E77c90d2CD2DD4b1eb97",
+    "decimals": "1e6",
+    "underlying": "USDC"
+  }
+]
