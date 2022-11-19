@@ -1,7 +1,7 @@
 import commandLineArgs from 'command-line-args';
 import fg from 'fast-glob';
 import { promises as fsPromises } from 'fs';
-import { groupBy } from 'lodash';
+import { groupBy, uniq } from 'lodash';
 import { addressBookByChainId } from '../packages/address-book/address-book';
 
 type PoolToken = {
@@ -27,6 +27,7 @@ type Token = {
   address: string;
   decimals: string;
   oracleId: string;
+  pool: string;
   location: string;
 };
 
@@ -98,6 +99,7 @@ async function processFile(path: string, ignorePools: boolean): Promise<Token[]>
       skippedBasePool = true;
     } else {
       tokens.push({
+        pool: pool.name,
         address: pool.address.toLowerCase(),
         location: path,
         chainId: pool.chainId || 56,
@@ -112,6 +114,7 @@ async function processFile(path: string, ignorePools: boolean): Promise<Token[]>
 
     for (const key of ['lp0', 'lp1']) {
       tokens.push({
+        pool: pool.name,
         address: pool[key].address.toLowerCase(),
         location: path,
         chainId: pool.chainId || 56,
@@ -181,15 +184,18 @@ async function checkTokensByOracle(tokensForChain: Token[], ignoreNative: boolea
   }
 }
 
-type LocationToken = Omit<Token, 'location'> & {
+type LocationToken = Omit<Token, 'location' | 'pool'> & {
   locations: string[];
+  pools: string[];
 };
+
 function summariseLocations(tokensByKey: Record<string, Token[]>): LocationToken[] {
   return Object.values(tokensByKey).map(tokens => ({
     address: tokens[0].address,
     chainId: tokens[0].chainId,
     decimals: tokens[0].decimals,
     oracleId: tokens[0].oracleId,
+    pools: uniq(tokens.map(token => token.pool)),
     locations: tokens.map(token => token.location),
   }));
 }
@@ -236,11 +242,12 @@ if (options.help) {
   console.log(
     'Checks for tokens with the same address, that have different oracleId or decimals defined.'
   );
+  console.log('Also for tokens with same oracleId but different address defined.');
   console.log('Options:');
   console.log(
     '--ignore-native, -n\tIgnores NATIVE and WNATIVE oracleIds being defined for the same address'
   );
-  console.log('--ignore-pools, -p\t\tOnly check lp0 and lp1 not the pool itself');
+  console.log('--ignore-pools, -p\tOnly check lp0 and lp1 not the pool itself');
   console.log('--only-amm, -a\t\tOnly check json files directly imported in to getAmmPrices.ts');
   console.log('--help, -h\t\tShow this message');
 } else {
