@@ -129,6 +129,13 @@ async function processFile(path: string, ignorePools: boolean): Promise<Token[]>
 }
 
 async function checkTokens(tokensForChain: Token[], ignoreNative: boolean) {
+  await Promise.all([
+    checkTokensByAddress(tokensForChain, ignoreNative),
+    checkTokensByOracle(tokensForChain, ignoreNative),
+  ]);
+}
+
+async function checkTokensByAddress(tokensForChain: Token[], ignoreNative: boolean) {
   const tokensByAddress = groupBy(tokensForChain, 'address');
 
   for (const tokensForAddress of Object.values(tokensByAddress)) {
@@ -149,10 +156,42 @@ async function checkTokens(tokensForChain: Token[], ignoreNative: boolean) {
     if (oracleIds.length > 1 && (!ignoreNative || !areAllNative(oracleIds))) {
       console.error(
         `Multiple oracles for ${tokensForAddress[0].address} on ${tokensForAddress[0].chainId}`,
-        tokensByOracles
+        summariseLocations(tokensByOracles)
       );
     }
   }
+}
+
+async function checkTokensByOracle(tokensForChain: Token[], ignoreNative: boolean) {
+  const tokensByOracles = groupBy(tokensForChain, 'oracleId');
+
+  for (const tokensForOracle of Object.values(tokensByOracles)) {
+    if (tokensForOracle.length < 2) {
+      continue;
+    }
+
+    const tokensByAddress = groupBy(tokensForOracle, 'address');
+    const addresses = Object.keys(tokensByAddress);
+    if (addresses.length > 1) {
+      console.error(
+        `Multiple addresses for ${tokensForOracle[0].oracleId} on ${tokensForOracle[0].chainId}`,
+        summariseLocations(tokensByAddress)
+      );
+    }
+  }
+}
+
+type LocationToken = Omit<Token, 'location'> & {
+  locations: string[];
+};
+function summariseLocations(tokensByKey: Record<string, Token[]>): LocationToken[] {
+  return Object.values(tokensByKey).map(tokens => ({
+    address: tokens[0].address,
+    chainId: tokens[0].chainId,
+    decimals: tokens[0].decimals,
+    oracleId: tokens[0].oracleId,
+    locations: tokens.map(token => token.location),
+  }));
 }
 
 async function getPaths(onlyAmm: boolean) {
