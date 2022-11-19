@@ -37,7 +37,6 @@ const sortByKeys = o => {
 const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
   const valuation = knownToken.balance.dividedBy(knownToken.decimals).multipliedBy(knownPrice);
   const price = valuation.multipliedBy(unknownToken.decimals).dividedBy(unknownToken.balance);
-  const weight = knownToken.balance.plus(unknownToken.balance).toNumber();
 
   return {
     price: price.toNumber(),
@@ -134,14 +133,17 @@ const fetchAmmPrices = async (pools, knownPrices) => {
           prices[unknownToken.oracleId] = price;
           weights[unknownToken.oracleId] = weight;
         }
-        const lpData = calcLpPrice(pool, prices);
-        lps[pool.name] = lpData.price;
-        breakdown[pool.name] = lpData;
 
         unsolved.splice(i, 1);
         solving = true;
       }
     }
+  }
+
+  for (const pool of pools) {
+    const lpData = calcLpPrice(pool, prices);
+    lps[pool.name] = lpData.price;
+    breakdown[pool.name] = lpData;
   }
 
   return {
