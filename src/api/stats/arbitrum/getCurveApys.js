@@ -11,7 +11,7 @@ import getApyBreakdown from '../common/getApyBreakdown';
 import { multicallAddress } from '../../../utils/web3';
 import { ARBITRUM_CHAIN_ID } from '../../../constants';
 
-const pools = require('../../../data/arbitrum/curvePools.json');
+const pools = require('../../../data/arbitrum/curvePools.json').filter(p => !p.convex);
 const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/arbitrum';
 // const baseApyUrl = 'https://stats.curve.fi/raw-stats-arbitrum/apys.json';
 // const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-arbitrum';

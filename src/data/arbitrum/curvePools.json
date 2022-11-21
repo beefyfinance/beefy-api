@@ -31,6 +31,7 @@
     "token": "0xC9B8a3FDECB9D5b218d02555a8Baf332E5B740d5",
     "gauge": "0x95285Ea6fF14F80A2fD3989a6bAb993Bd6b5fA13",
     "boosted": true,
+    "convex": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -91,6 +92,12 @@
     "baseApyKey": "tricrypto",
     "volatile": true,
     "boosted": true,
+    "extras": [
+      {
+        "rewardPool": "0x665D4Bea98e3a1849526553453E8369B448C6AD4",
+        "oracleId": "CVX"
+      }
+    ],
     "tokens": [
       {
         "oracle": "tokens",
