@@ -501,6 +501,7 @@ const coinGeckoCoins = [
   'tether-eurt',
   'par-stablecoin',
   'jarvis-synthetic-euro',
+  'monerium-eur-money',
   'jpyc',
   'cad-coin',
   'xsgd',
