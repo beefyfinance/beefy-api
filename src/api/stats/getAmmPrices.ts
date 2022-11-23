@@ -526,6 +526,7 @@ const coinGeckoCoins = [
   'havven',
   'aura-bal',
   'balancer',
+  'coinbase-wrapped-staked-eth',
 ];
 
 const currencies = ['cad'];
@@ -590,6 +591,7 @@ const updateAmmPrices = async () => {
         hSNX: prices['havven'],
         auraBAL: prices['aura-bal'],
         BAL: prices['balancer'],
+        cbETH: prices['coinbase-wrapped-staked-eth'],
       };
     };
 

@@ -1,5 +1,43 @@
 [
   {
+    "name": "convex-seth",
+    "pool": "0xc5424B857f758E906013F3555Dad202e4bdB4567",
+    "token": "0xA3D87FffcE63B53E0d54fAa1cc983B7eB0b74A9c",
+    "oracleId": "WETH",
+    "rewardPool": "0x192469CadE297D6B21F418cFA8c366b63FFC9f9b",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-cbeth",
+    "pool": "0x5FAE7E604FC3e24fd43A72867ceBaC94c65b404A",
+    "token": "0x5b6C539b224014A09B3388e51CaAA8e354c959C8",
+    "volatile": true,
+    "rewardPool": "0x5d02EcD9B83f1187e92aD5be3d1bd2915CA03699",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "cbETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-dolafraxbp",
     "pool": "0xE57180685E3348589E9521aa53Af0BCD497E884d",
     "token": "0xE57180685E3348589E9521aa53Af0BCD497E884d",

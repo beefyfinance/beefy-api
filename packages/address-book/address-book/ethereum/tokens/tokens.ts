@@ -294,6 +294,28 @@ const _tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
   },
+  sETH: {
+    name: 'Synth sETH',
+    symbol: 'sETH',
+    address: '0x5e74C9036fb86BD7eCdcb084a0673EFc32eA31cb',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://synthetix.io/',
+    description:
+      'Synths are derivative tokens providing exposure to a range of assets. They can be traded with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between Synths generate a small fee that is distributed to SNX collateral providers.',
+  },
+  cbETH: {
+    name: 'Coinbase Wrapped Staked ETH',
+    symbol: 'cbETH',
+    address: '0xBe9895146f7AF43049ca1c1AE358B0541Ea49704',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
+    description:
+      "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
+  },
   USDD: {
     name: 'Decentralized USD',
     symbol: 'USDD',
