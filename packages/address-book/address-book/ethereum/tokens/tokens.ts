@@ -483,6 +483,18 @@ const _tokens = {
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
   },
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    address: '0x5E8422345238F34275888049021821E8E08CAa1f',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
   sfrxETH: {
     name: 'Staked Frax Ether',
     symbol: 'sfrxETH',
