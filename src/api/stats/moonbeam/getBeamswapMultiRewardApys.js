@@ -1,9 +1,8 @@
 const { moonbeamWeb3: web3 } = require('../../../utils/web3');
 const { MOONBEAM_CHAIN_ID: chainId, BEAMSWAP_LPF } = require('../../../constants');
-const { getMasterChefApys } = require('../common/getMasterChefApys');
+import { getMultiRewardMasterChefApys } from '../common/getMultiRewardMasterChefApys';
 import { getEDecimals } from '../../../utils/getEDecimals';
-const pools = require('../../../data/moonbeam/beamswapLpPools.json');
-const stablePools = require('../../../data/moonbeam/beamswapStableLpPools.json');
+const multiRewardPools = require('../../../data/moonbeam/beamswapMultiRewardLpPools.json');
 import { beamClient } from '../../../apollo/client';
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
@@ -15,15 +14,15 @@ const {
   },
 } = addressBook;
 
-const getBeamswapApys = async () =>
-  await getMasterChefApys({
+const getBeamswapMultiRewardApys = async () =>
+  await getMultiRewardMasterChefApys({
     web3: web3,
     chainId: chainId,
     masterchef: masterchef,
     tokenPerBlock: 'beamPerSec',
     secondsPerBlock: 1,
     hasMultiplier: false,
-    pools: [...pools, ...stablePools],
+    pools: multiRewardPools,
     oracleId: 'GLINT',
     oracle: 'tokens',
     decimals: getEDecimals(GLINT.decimals),
@@ -32,4 +31,4 @@ const getBeamswapApys = async () =>
     //log: true,
   });
 
-module.exports = { getBeamswapApys };
+module.exports = { getBeamswapMultiRewardApys };
