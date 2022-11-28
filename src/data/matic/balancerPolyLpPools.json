@@ -53,6 +53,11 @@
         "stream": "0xF428556c5f2a2890269c8Eb5Ce8fc91d9744A6aA",
         "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
         "oracleId": "BAL"
+      },
+      {
+        "stream": "0xF428556c5f2a2890269c8Eb5Ce8fc91d9744A6aA",
+        "token": "0xC3C7d422809852031b44ab29EEC9F1EfF2A58756",
+        "oracleId": "LDO"
       }
     ],
     "tokens": [
