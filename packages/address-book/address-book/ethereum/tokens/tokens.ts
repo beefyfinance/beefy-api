@@ -291,6 +291,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.inverse.finance/',
+    documentation: 'https://docs.inverse.finance/inverse-finance/using-dola/how-to-acquire-dola',
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
   },
@@ -506,6 +507,18 @@ const _tokens = {
       'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited. ',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
+  INV: {
+    name: 'Inverse Finance',
+    symbol: 'INV',
+    address: '0x41D5D79431A913C4aE7d69a668ecdfE5fF9DFB68',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    documentation: 'https://docs.inverse.finance/inverse-finance/about-inverse',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
   },
 } as const;
 
