@@ -1,5 +1,25 @@
 [
   {
+    "name": "beamswap-wstdot-xcdot",
+    "address": "0x79f05B32e29139C35Cd219aEDB5D99cedb1915aC",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 23,
+    "chainId": 1284,
+    "lp0": {
+      "address": "0x191cf2602Ca2e534c5Ccae7BCBF4C46a704bb949",
+      "oracle": "tokens",
+      "oracleId": "wstDOT",
+      "decimals": "1e10"
+    },
+    "lp1": {
+      "address": "0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080",
+      "oracle": "tokens",
+      "oracleId": "xcDOT",
+      "decimals": "1e10"
+    }
+  },
+  {
     "name": "beamswap-xcdot-xcausd",
     "address": "0xDFb7e426fbBBc83CCac49012f49E2A355D9353E8",
     "decimals": "1e18",
