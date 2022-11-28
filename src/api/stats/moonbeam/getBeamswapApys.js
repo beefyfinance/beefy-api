@@ -48,8 +48,8 @@ const getBeamswapApys = async () =>
       decimals: getEDecimals(GLINT.decimals),
       tradingFeeInfoClient: beamClient,
       liquidityProviderFee: BEAMSWAP_LPF,
-      //log: true,s
+      //log: true,
     })
   );
 
-module.exports = getBeamswapApys;
+module.exports = { getBeamswapApys };
