@@ -1,6 +1,5 @@
 const getMoonbeamBifiGovApy = require('./getMoonbeamBifiGovApy');
 const { getBeamswapApys } = require('./getBeamswapApys');
-const { getBeamswapMultiRewardApys } = require('./getBeamswapMultiRewardApys');
 const { getStellaswapApys } = require('./getStellaswapApys');
 const { getMoonbeamBifiMaxiApy } = require('./getMoonbeamBifiMaxiApy');
 const { getSolarFlareApys } = require('./getSolarFlareApys');
@@ -9,7 +8,6 @@ const { getCurveApys } = require('./getCurveApys');
 
 const getApys = [
   getBeamswapApys,
-  getBeamswapMultiRewardApys,
   getStellaswapApys,
   getMoonbeamBifiGovApy,
   getMoonbeamBifiMaxiApy,
