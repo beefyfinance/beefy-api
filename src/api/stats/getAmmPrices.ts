@@ -219,6 +219,7 @@ import creditumPools from '../../data/fantom/creditumPools.json';
 import ripaePools from '../../data/fantom/ripaeLpPools.json';
 import ripaeAvaxPools from '../../data/avax/ripaeLpPools.json';
 import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
+import beamswapMultiRewardLpPools from '../../data/moonbeam/beamswapMultiRewardLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
 import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
@@ -319,6 +320,7 @@ const pools = normalizePoolOracleIds([
   ...blockMinePools,
   ...oldPools,
   ...beamswapPools,
+  ...beamswapMultiRewardLpPools,
   ...finnLpPools,
   ...bisonPools,
   ...maiAvaxLpPools,

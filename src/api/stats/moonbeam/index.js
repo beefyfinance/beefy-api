@@ -1,5 +1,5 @@
 const getMoonbeamBifiGovApy = require('./getMoonbeamBifiGovApy');
-const getBeamswapApys = require('./getBeamswapApys');
+const { getBeamswapApys } = require('./getBeamswapApys');
 const { getStellaswapApys } = require('./getStellaswapApys');
 const { getMoonbeamBifiMaxiApy } = require('./getMoonbeamBifiMaxiApy');
 const { getSolarFlareApys } = require('./getSolarFlareApys');
