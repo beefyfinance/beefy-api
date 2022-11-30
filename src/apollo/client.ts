@@ -12,7 +12,7 @@ import ApolloLinkTimeout from 'apollo-link-timeout';
 const APOLLO_TIMEOUT = process.env.APOLLO_TIMEOUT ? parseInt(process.env.APOLLO_TIMEOUT) : 30_000;
 const timeoutLink: ApolloLink = new ApolloLinkTimeout(APOLLO_TIMEOUT);
 
-function client(url: string) {
+export function client(url: string) {
   const httpLink = createHttpLink({ uri: url, fetch });
   const timeoutHttpLink = timeoutLink.concat(httpLink as any as ApolloLink | RequestHandler);
   return new ApolloClient({
