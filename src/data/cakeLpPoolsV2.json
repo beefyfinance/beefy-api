@@ -1,5 +1,25 @@
 [
   {
+    "name": "cakev2-mgp-busd",
+    "address": "0x76B0d10A4540B6743aa086EA31DC48E8AB691c4d",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 129,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xD06716E1Ff2E492Cc5034c2E81805562dd3b45fa",
+      "oracle": "tokens",
+      "oracleId": "MGP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-wmx-busd",
     "address": "0xe86eaAD81C32ffbb88B7ec9B325C8f75C8c9f1Ab",
     "decimals": "1e18",
