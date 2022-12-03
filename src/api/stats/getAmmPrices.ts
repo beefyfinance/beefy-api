@@ -253,6 +253,7 @@ import radiantPools from '../../data/arbitrum/radiantLpPools.json';
 import conePools from '../../data/coneLpPools.json';
 import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
+import swapFishPools from '../../data/arbitrum/swapFishLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 
@@ -262,6 +263,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...swapFishPools,
   ...hermesPools,
   ...spiritV2Pools,
   ...conePools,

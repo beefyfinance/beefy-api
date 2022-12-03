@@ -275,6 +275,15 @@ const _tokens = {
     logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GLP_LOGO%20ONLY.svg',
     documentation: 'https://gmxio.gitbook.io/gmx/glp',
   },
+  FISH: {
+    name: 'SwapFish',
+    symbol: 'FISH',
+    address: '0xb348B87b23D5977E2948E6f36ca07E1EC94d7328',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://swapfish.fi/',
+    description: 'Brand new decentralized platform bringing you fresh fishing farms and more.',
+  },
   GMX: {
     name: 'GMX',
     symbol: 'GMX',
