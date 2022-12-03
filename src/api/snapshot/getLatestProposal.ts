@@ -57,7 +57,7 @@ async function updateSpace() {
   const api = await getSnapshotApi();
   const space = await api.getSpace(SPACE_ID);
 
-  console.debug('[snapshot]', 'updated space:', space);
+  // console.debug('[snapshot]', 'updated space:', space);
 
   cachedSpace = timestamp(space);
 
@@ -83,7 +83,7 @@ function getValidAuthors() {
 }
 
 async function setProposal(proposal: Proposal) {
-  console.debug('[snapshot]', 'updated proposal:', proposal);
+  // console.debug('[snapshot]', 'updated proposal:', proposal);
 
   cachedProposal = timestamp(proposal);
 
@@ -109,7 +109,7 @@ async function updateProposal() {
   const api = await getSnapshotApi();
   const proposals = await api.getProposals(SPACE_ID, 'open', ALLOW_FROM_ANYONE ? 1 : 10, 0);
 
-  console.debug('[snapshot]', proposals);
+  // console.debug('[snapshot]', proposals);
 
   if (proposals.length) {
     if (ALLOW_FROM_ANYONE) {
