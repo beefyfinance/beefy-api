@@ -55,5 +55,24 @@
       "oracleId": "USDC",
       "decimals": "1e6"
     }
+  },
+  {
+    "name": "swapfish-dai-usdc",
+    "address": "0x978DE910e7645fA7861aF89a156D3c86ad09Db79",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
   }
 ]
