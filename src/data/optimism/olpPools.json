@@ -1,0 +1,49 @@
+[
+  {
+    "name": "opx-olp",
+    "address": "0x2a1DA94AFd3BE55e9Ca4697d1013D1c557Eefff1",
+    "glpManager": "0x102F3871561921517bdaaec3cF5eF9C8c530AA21",
+    "vault": "0xb94C36A74c8504Dea839C119aeaF2e615364253F",
+    "fRewardToken": "ETH",
+    "fsRewardToken": "OPX",
+    "OLP": "0xF844BB34ec0690093972936bA7084A6dE51F11bB",
+    "fOLP": "0x48Ea422cb9b3Aac769E30Ce1FB9E7bF1De480656",
+    "fsOLP": "0x89eda69c80Bb861b44E19Ad01F8cf9f24cb4A5Fc",
+    "fDistributor": "0xBe9E47eBC56b1BA62706d0f4E52277ebe8B52298",
+    "fsDistributor": "0xb44cA66aa8C78b9d0c73bf8501209E94d2AD28f0",
+    "tokens": [
+      {
+        "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x4200000000000000000000000000000000000006",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x68f180fcCe6836688e9084f035309E29Bf0A2095",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "decimals": "1e18",
+    "chainId": 10
+  }
+]
