@@ -531,6 +531,7 @@ const coinGeckoCoins = [
   'aura-bal',
   'balancer',
   'coinbase-wrapped-staked-eth',
+  'opx-finance',
 ];
 
 const currencies = ['cad'];
@@ -596,6 +597,7 @@ const updateAmmPrices = async () => {
         auraBAL: prices['aura-bal'],
         BAL: prices['balancer'],
         cbETH: prices['coinbase-wrapped-staked-eth'],
+        OPX: prices['opx-finance'],
       };
     };
 
