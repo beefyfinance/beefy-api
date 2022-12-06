@@ -1,15 +1,12 @@
-const getAlpacaApys = require('./alpaca/getAlpacaApys');
 const getBeltApys = require('./belt/getBeltApys');
 const { getDegensLpApys } = require('./degens');
 const getJetswapApys = require('./jetfuel/getJetswapApys');
-const getCakeApys = require('./pancake/getCakeApys');
-const getCakePoolApy = require('./pancake/getCakePoolApy');
 const { getCakeLpV2Apys } = require('./pancake/getCakeLpV2Apys');
+const getCakeV2PoolApy = require('./pancake/getCakeV2PoolApy');
 const getVenusApys = require('./venus/getVenusApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
 const getMdexMdxApy = require('./mdex/getMdexMdxApy');
 const getYelApys = require('./yel/getYelApys');
-const getCakeV2PoolApy = require('./pancake/getCakeV2PoolApy');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getOOELpApys = require('./ooe/getOOELpApys');
 const getBifiGovApy = require('./beefy/getBifiGovApy');
@@ -18,20 +15,15 @@ const getBiswapApys = require('./biswap/getBiswapApys');
 const getStargateApys = require('./stargate/getStargateBscApys');
 const getValasApys = require('./valas/getValasApys');
 const getValasLpApys = require('./valas/getValasLpApys');
-const getbeCakeApy = require('./pancake/getbeCakeApy');
-const getbeCakeEarnApy = require('./pancake/getbeCakeEarnApy');
 const { getDotDotApy } = require('./getDotDotApy');
 const getConeApys = require('./getConeApys');
 const { getWombexApy } = require('./getWombexApy');
 
 const getApys = [
-  getAlpacaApys,
   getBeltApys,
   getBifiGovApy,
   getBifiMaxiApy,
   getBiswapApys,
-  getCakeApys,
-  getCakePoolApy,
   getCakeLpV2Apys,
   getCakeV2PoolApy,
   getConeApys,
@@ -46,8 +38,6 @@ const getApys = [
   getStargateApys,
   getValasApys,
   getValasLpApys,
-  getbeCakeApy,
-  getbeCakeEarnApy,
   getDotDotApy,
   getWombexApy,
 ];

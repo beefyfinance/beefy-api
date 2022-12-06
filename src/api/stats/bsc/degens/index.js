@@ -2,12 +2,10 @@ const getApeApys = require('./getApeApys');
 const getApeJungleApys = require('./getApeJungleApys');
 const getPacocaApys = require('./getPacocaApys');
 const getBabyApys = require('./getBabyApys');
-const { getWSGApys } = require('./getWSGApys');
 const getNftyApys = require('./getNftyApys');
 const getBetuApys = require('./getBetuApys');
 const getDibsApys = require('./getDibsApys');
 const getEmpApys = require('./getEmpApys');
-const getBombApys = require('./getBombApys');
 const getRipaeApys = require('./getRipaeApys');
 
 const getApys = [
@@ -15,12 +13,10 @@ const getApys = [
   getApeJungleApys,
   getPacocaApys,
   getBabyApys,
-  getWSGApys,
   getNftyApys,
   getBetuApys,
   getDibsApys,
   getEmpApys,
-  getBombApys,
   getRipaeApys,
 ];
 
