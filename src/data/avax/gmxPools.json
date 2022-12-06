@@ -21,9 +21,9 @@
     "address": "0xaE64d55a6f09E4263421737397D1fdFA71896a69",
     "oracle": "lps",
     "tokenId": "gmx-avax-glp",
-    "strategy": "0x8391DC935975e89705353162E13831A7a6a95964",
+    "strategy": "0x1908a30811a942F07861B83Cd6d832fAa3d0248F",
     "stakedTracker": "0x9e295B5B976a184B14aD8cd72413aD846C299660",
-    "glpManager": "0xe1ae4d4b06A5Fe1fc288f6B4CD72f9F8323B107F",
+    "glpManager": "0xD152c7F25db7F4B95b7658323c5F33d176818EE4",
     "vault": "0x9ab2De34A33fB459b538c43f251eB825645e8595",
     "rewardToken": "AVAX",
     "rewardTrackers": [
