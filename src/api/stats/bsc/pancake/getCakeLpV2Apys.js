@@ -1,19 +1,20 @@
-const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { bscWeb3: web3, multicallAddress } = require('../../../../utils/web3');
-
-const MasterChef = require('../../../../abis/PcsMasterChefV2.json');
-const ERC20 = require('../../../../abis/ERC20.json');
-const fetchPrice = require('../../../../utils/fetchPrice');
-const pools = require('../../../../data/cakeLpPoolsV2.json');
-const { compound } = require('../../../../utils/compound');
-const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
-const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
-const { cakeClient } = require('../../../../apollo/client');
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 import { PCS_LPF } from '../../../../constants';
 import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
+
+const BigNumber = require('bignumber.js');
+const { MultiCall } = require('eth-multicall');
+const { bscWeb3: web3, multicallAddress } = require('../../../../utils/web3');
+const MasterChef = require('../../../../abis/PcsMasterChefV2.json');
+const ERC20 = require('../../../../abis/ERC20.json');
+const fetchPrice = require('../../../../utils/fetchPrice');
+const { compound } = require('../../../../utils/compound');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
+const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
+const { cakeClient } = require('../../../../apollo/client');
+const lpPools = require('../../../../data/cakeLpPoolsV2.json');
+const stablePools = require('../../../../data/cakeStablePools.json').filter(p => p.poolId);
 
 const masterchef = '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652';
 const oracle = 'tokens';
@@ -28,6 +29,7 @@ export const getCakeLpV2Apys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
+  const pools = [...lpPools, ...stablePools.map(p => ({ ...p, address: p.token }))];
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const { blockRewards, totalAllocPoint } = await getMasterChefData();
   const { balances, allocPoints } = await getPoolsData(pools);
