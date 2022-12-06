@@ -283,6 +283,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://swapfish.fi/',
     description: 'Brand new decentralized platform bringing you fresh fishing farms and more.',
+    oracleId: 'SWAPFISH',
   },
   GMX: {
     name: 'GMX',

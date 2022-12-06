@@ -6,5 +6,6 @@ interface Token {
   decimals: number;
   logoURI?: string;
   documentation?: string;
+  oracleId?: string;
 }
 export default Token;
