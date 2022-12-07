@@ -73,6 +73,26 @@
     ]
   },
   {
+    "name": "aura-inv-dola",
+    "address": "0x441b8a1980f2F2E43A9397099d15CC2Fe6D36250",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xA615a41C019AE402c1B7cA9D3d600763e0909A92",
+    "vaultPoolId": "0x441b8a1980f2f2e43a9397099d15cc2fe6d3625000020000000000000000035f",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "INV",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DOLA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-reth-weth",
     "address": "0x1E19CF2D73a72Ef1332C882F20534B6519Be0276",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -142,6 +162,33 @@
       {
         "oracle": "tokens",
         "oracleId": "bbaDAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-dola-bbausd",
+    "address": "0x5b3240B6BE3E7487d61cd1AFdFC7Fe4Fa1D81e64",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x99653d46D52eE41c7b35cbAd1aC408A00bad6A76",
+    "vaultPoolId": "0x5b3240b6be3e7487d61cd1afdfc7fe4fa1d81e6400000000000000000000037b",
+    "includesComposableStable": true,
+    "composable": true,
+    "bptIndex": 0,
+    "composableSplit": 2,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DOLA",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaUSD",
         "decimals": "1e18"
       }
     ]

@@ -1,5 +1,23 @@
 [
   {
+    "name": "boo-usdc-oath",
+    "address": "0x9ba499753Ea5407D5578718A8D37453ecbf609f9",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21Ada0D2aC28C3A5Fa3cD2eE30882dA8812279B6",
+      "oracle": "tokens",
+      "oracleId": "OATH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-jpeg-eth",
     "address": "0xdB06a76733528761Eda47d356647297bC35a98BD",
     "decimals": "1e18",

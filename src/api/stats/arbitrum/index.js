@@ -11,6 +11,7 @@ const getRadiantLpApys = require('./getRadiantLpApys');
 const { getGmxApys } = require('./getGmxApys');
 const { getHopApys } = require('./getHopApys');
 const { getConvexApys } = require('./getConvexApys');
+const { getSwapFishApys } = require('./getSwapFishApys');
 
 const getApys = [
   getHopApys,
@@ -26,6 +27,7 @@ const getApys = [
   getArbiBifiGovApy,
   getArbiBifiMaxiApy,
   getStargateArbApys,
+  getSwapFishApys,
 ];
 
 const getArbitrumApys = async () => {

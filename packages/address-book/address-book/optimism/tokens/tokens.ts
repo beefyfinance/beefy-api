@@ -30,6 +30,17 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  OPX: {
+    name: 'OPX',
+    symbol: 'OPX',
+    address: '0xcdB4bB51801A1F399d4402c61bC098a72c382E65',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://www.opx.finance/',
+    description:
+      'OPX is the utility and governance token of the OPX decentralized spot and perpetual exchange that supports low swap fees, zero price impact trades and up to 30x leverage. Locked OPX earns trading fees and upto 35% of platform fees in the form of ETH.',
+    logoURI: 'https://app.opx.finance/static/media/logo.0424664f.svg',
+  },
   jEUR: {
     name: 'Jarvis Synthetic Euro',
     symbol: 'jEUR',

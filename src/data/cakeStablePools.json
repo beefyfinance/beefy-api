@@ -1,5 +1,59 @@
 [
   {
+    "name": "cake-stable-usdt-busd",
+    "pool": "0x169F653A54ACD441aB34B73dA9946e2C451787EF",
+    "token": "0x36842F8fb99D55477C0Da638aF5ceb6bBf86aA98",
+    "poolId": 133,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "cake-stable-usdc-busd",
+    "pool": "0xc2F5B9a3d9138ab2B74d581fC11346219eBf43Fe",
+    "token": "0x1A77C359D0019cD8F4d36b7CDf5a88043D801072",
+    "poolId": 134,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "cake-stable-usdt-usdc",
+    "pool": "0x3EFebC418efB585248A0D2140cfb87aFcc2C63DD",
+    "token": "0xee1bcc9F1692E81A281b3a302a4b67890BA4be76",
+    "poolId": 135,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "cakev2-hay-busd",
     "pool": "0x49079D07ef47449aF808A4f36c2a8dEC975594eC",
     "token": "0xB6040A9F294477dDAdf5543a24E5463B8F2423Ae",

@@ -219,6 +219,7 @@ import creditumPools from '../../data/fantom/creditumPools.json';
 import ripaePools from '../../data/fantom/ripaeLpPools.json';
 import ripaeAvaxPools from '../../data/avax/ripaeLpPools.json';
 import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
+import beamswapMultiRewardLpPools from '../../data/moonbeam/beamswapMultiRewardLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
 import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
@@ -252,6 +253,7 @@ import radiantPools from '../../data/arbitrum/radiantLpPools.json';
 import conePools from '../../data/coneLpPools.json';
 import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
+import swapFishPools from '../../data/arbitrum/swapFishLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 
@@ -261,6 +263,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...swapFishPools,
   ...hermesPools,
   ...spiritV2Pools,
   ...conePools,
@@ -318,6 +321,7 @@ const pools = normalizePoolOracleIds([
   ...chargePools,
   ...blockMinePools,
   ...oldPools,
+  ...beamswapMultiRewardLpPools,
   ...beamswapPools,
   ...finnLpPools,
   ...bisonPools,
@@ -501,6 +505,7 @@ const coinGeckoCoins = [
   'tether-eurt',
   'par-stablecoin',
   'jarvis-synthetic-euro',
+  'monerium-eur-money',
   'jpyc',
   'cad-coin',
   'xsgd',
@@ -525,6 +530,8 @@ const coinGeckoCoins = [
   'havven',
   'aura-bal',
   'balancer',
+  'coinbase-wrapped-staked-eth',
+  'opx-finance',
 ];
 
 const currencies = ['cad'];
@@ -589,6 +596,8 @@ const updateAmmPrices = async () => {
         hSNX: prices['havven'],
         auraBAL: prices['aura-bal'],
         BAL: prices['balancer'],
+        cbETH: prices['coinbase-wrapped-staked-eth'],
+        OPX: prices['opx-finance'],
       };
     };
 

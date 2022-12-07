@@ -15,6 +15,19 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  MGP: {
+    name: 'Magpie Token',
+    symbol: 'MGP',
+    address: '0xD06716E1Ff2E492Cc5034c2E81805562dd3b45fa',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xD06716E1Ff2E492Cc5034c2E81805562dd3b45fa.svg',
+    website: 'https://www.magpiexyz.io/',
+    documentation: 'https://docs.magpiexyz.io/',
+    description:
+      'Magpie XYZ is a BNB Chain native yield-boosting platform built on top of Wombat Exchange that maximizes benefits for governance token holders.',
+  },
   HOOP: {
     name: 'Primal Hoop',
     symbol: 'HOOP',

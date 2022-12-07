@@ -291,8 +291,31 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.inverse.finance/',
+    documentation: 'https://docs.inverse.finance/inverse-finance/using-dola/how-to-acquire-dola',
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+  },
+  sETH: {
+    name: 'Synth sETH',
+    symbol: 'sETH',
+    address: '0x5e74C9036fb86BD7eCdcb084a0673EFc32eA31cb',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://synthetix.io/',
+    description:
+      'Synths are derivative tokens providing exposure to a range of assets. They can be traded with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between Synths generate a small fee that is distributed to SNX collateral providers.',
+  },
+  cbETH: {
+    name: 'Coinbase Wrapped Staked ETH',
+    symbol: 'cbETH',
+    address: '0xBe9895146f7AF43049ca1c1AE358B0541Ea49704',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
+    description:
+      "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
   },
   USDD: {
     name: 'Decentralized USD',
@@ -461,6 +484,18 @@ const _tokens = {
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
   },
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    address: '0x5E8422345238F34275888049021821E8E08CAa1f',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
   sfrxETH: {
     name: 'Staked Frax Ether',
     symbol: 'sfrxETH',
@@ -472,6 +507,18 @@ const _tokens = {
       'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited. ',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
+  INV: {
+    name: 'Inverse Finance',
+    symbol: 'INV',
+    address: '0x41D5D79431A913C4aE7d69a668ecdfE5fF9DFB68',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    documentation: 'https://docs.inverse.finance/inverse-finance/about-inverse',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
   },
 } as const;
 
