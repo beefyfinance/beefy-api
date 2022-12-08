@@ -193,5 +193,24 @@
       "oracleId": "BIFI",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "swapfish-fish-eth",
+    "address": "0xE0a0ede95abe2072Cc2091d5C193FD86F740E057",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb348B87b23D5977E2948E6f36ca07E1EC94d7328",
+      "oracle": "tokens",
+      "oracleId": "SWAPFISH",
+      "decimals": "1e18"
+    }
   }
 ]
