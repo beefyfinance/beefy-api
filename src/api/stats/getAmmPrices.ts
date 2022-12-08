@@ -532,6 +532,7 @@ const coinGeckoCoins = [
   'balancer',
   'coinbase-wrapped-staked-eth',
   'opx-finance',
+  'token-dforce-usd',
 ];
 
 const currencies = ['cad'];
@@ -598,6 +599,7 @@ const updateAmmPrices = async () => {
         BAL: prices['balancer'],
         cbETH: prices['coinbase-wrapped-staked-eth'],
         OPX: prices['opx-finance'],
+        USX: prices['token-dforce-usd'],
       };
     };
 
