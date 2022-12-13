@@ -1,0 +1,102 @@
+[
+  {
+    "name": "equalizer-wftm-dai",
+    "address": "0x0f03efdce7A8cE08c238b1a0B5425Fb63Bd44b38",
+    "gauge": "0xD2a3830F6e456aDa65F5816378992E84C86aAa0a",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-usdc-eth",
+    "address": "0x515d84c494454835443B303a914a341e80f67278",
+    "gauge": "0x7D8f38845C74ee380fA20A950cBED4ed9194C0be",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-eth",
+    "address": "0xE3bD349BDb8203C15426b2d273f57568E658F843",
+    "gauge": "0x47e901fD66aD41173AEc8896201260B45DcEe682",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-equal",
+    "address": "0x3d6c56f6855b7Cc746fb80848755B0a9c3770122",
+    "gauge": "0xd1eE0dC8aE761A0900ECd3B629dFA6C3cEE99eEd",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3Fd3A0c85B70754eFc07aC9Ac0cbBDCe664865A6",
+      "oracle": "tokens",
+      "oracleId": "EQUAL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-usdc-wftm",
+    "address": "0x7547d05dFf1DA6B4A2eBB3f0833aFE3C62ABD9a1",
+    "gauge": "0x5E689D7fB26FfC4BD615c98C8517A18ef1f5e68d",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  }
+]
