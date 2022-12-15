@@ -1,5 +1,6 @@
 import BigNumber from 'bignumber.js';
 import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall';
+import { pick } from 'lodash';
 import { addressBook } from '../../../packages/address-book/address-book';
 import chainIdMap from '../../../packages/address-book/util/chainIdMap';
 import { ERC20_ABI } from '../../abis/common/ERC20';
@@ -8,22 +9,24 @@ import { web3Factory } from '../../utils/web3';
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
 
 import { getAllTokens } from '../tokens/getTokens';
+import { Asset, TreasuryAssetRegistry, TreasuryWalletRegistry } from './types';
 
 const INIT_DELAY = 90000;
 
 const MULTICALL_BATCH_SIZE = 1024;
+
 //treasury addresses that should be queried for balances
-let treasuryAddressesByChain;
+let treasuryAddressesByChain: TreasuryWalletRegistry;
 
 //addressbook + vault tokens where balances should be queried
-let tokenAddressesByChain;
+let assetsByChain: TreasuryAssetRegistry;
 
 let tokenBalancesByChain = {};
 
 let treasurySummary;
 
-const getTreasuryAddressesByChain = () => {
-  const addressesByChain = {};
+const getTreasuryAddressesByChain = (): TreasuryWalletRegistry => {
+  const addressesByChain: TreasuryWalletRegistry = {};
 
   Object.entries(addressBook).map(([chain, chainAddressbook]) => {
     addressesByChain[chain] = {};
@@ -50,20 +53,21 @@ const getTreasuryAddressesByChain = () => {
   return addressesByChain;
 };
 
-const getTokenAddressesByChain = () => {
+const getTokenAddressesByChain = (): TreasuryAssetRegistry => {
   const addressbookTokens = getAllTokens();
-  const tokensByChain = {};
+  const tokensByChain: TreasuryAssetRegistry = {};
   Object.keys(addressbookTokens).forEach(chain => {
     const chainAddressbook = addressbookTokens[chain];
     tokensByChain[chain] = {};
 
     for (const [key, token] of Object.entries(chainAddressbook)) {
-      tokensByChain[chain][token.address.toLowerCase()] = {
-        ...token,
+      const asset: Asset = {
+        ...pick(token, ['name', 'address', 'decimals']),
         oracleId: key === 'WNATIVE' ? token.symbol : key,
         oracleType: 'tokens',
         assetType: 'token',
       };
+      tokensByChain[chain][token.address.toLowerCase()] = asset;
     }
   });
   return tokensByChain;
@@ -71,12 +75,12 @@ const getTokenAddressesByChain = () => {
 
 const updateVaultTokenAddresses = () => {
   const vaults = getMultichainVaults();
-  Object.keys(tokenAddressesByChain).forEach(chain => {
+  Object.keys(assetsByChain).forEach(chain => {
     //App and API name harmony differently
     const normalizedChainName = chain === 'one' ? 'harmony' : chain;
 
     const chainVaults = vaults.filter(vault => vault.chain === normalizedChainName);
-    const chainTokens = tokenAddressesByChain[chain];
+    const chainTokens = assetsByChain[chain];
 
     chainVaults.forEach(vault => {
       // if vault receives native input, field will be missing in vault object
@@ -109,7 +113,7 @@ const updateVaultTokenAddresses = () => {
 };
 
 const updateSingleChainTreasuryBalance = async chain => {
-  const tokensToCheck = Object.values(tokenAddressesByChain[chain]);
+  const tokensToCheck = Object.values(assetsByChain[chain]);
   const web3 = web3Factory(chainIdMap[chain]);
   const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain]);
   const multicall = new Multicall({
@@ -213,7 +217,7 @@ const buildTreasuryReport = async () => {
         balances: {},
       };
       for (const [tokenAddress, balance] of Object.entries(balances)) {
-        const tokenInfo = tokenAddressesByChain[chain][tokenAddress];
+        const tokenInfo = assetsByChain[chain][tokenAddress];
         const tokenPrice = await fetchPrice({
           oracle: tokenInfo.oracleType,
           id: tokenInfo.oracleId,
@@ -223,7 +227,7 @@ const buildTreasuryReport = async () => {
         balanceReport[chain][treasuryAddress].balances[tokenAddress] = {
           ...tokenInfo,
           price: tokenPrice,
-          usdValue: balanceUsdValue,
+          usdValue: (balanceUsdValue as BigNumber).toString(10),
           balance: (balance as BigNumber).toString(10),
         };
       }
@@ -247,11 +251,14 @@ const findUsdValueForBalance = (tokenInfo, tokenPrice, balance) => {
 };
 
 export const initTreasuryService = async () => {
+  //Fetch treasury addresses, this are infered from the addressbook so no need to update till api restarts
   treasuryAddressesByChain = getTreasuryAddressesByChain();
-  tokenAddressesByChain = getTokenAddressesByChain();
+  //Again, initialize from addressbook, only done once
+  assetsByChain = getTokenAddressesByChain();
 
   setTimeout(() => {
     console.log('updating treasury vault addresses');
+
     updateVaultTokenAddresses();
     updateTreasuryBalances();
   }, INIT_DELAY);
