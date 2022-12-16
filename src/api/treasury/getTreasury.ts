@@ -104,7 +104,7 @@ const updateVaultTokenAddresses = () => {
         oracleId: vault.oracleId,
         oracleType: vault.oracle,
         assetType: 'vault',
-        decimals: 18,
+        decimals: vault.tokenDecimals,
         pricePerFullShare: vault.pricePerFullShare,
         address: vault.earnContractAddress,
       };
