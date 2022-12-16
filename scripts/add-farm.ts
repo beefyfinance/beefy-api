@@ -35,6 +35,9 @@ const {
   emerald: {
     platforms: { yuzu },
   },
+  arbitrum: {
+    platforms: { swapfish },
+  },
 } = addressBook;
 
 const projects = {
@@ -127,6 +130,11 @@ const projects = {
     prefix: 'yuzu',
     file: '../src/data/emerald/yuzuDualLpPools.json',
     masterchef: yuzu.masterchefExt,
+  },
+  swapfish: {
+    prefix: 'swapfish',
+    file: '../src/data/arbitrum/swapFishLpPools.json',
+    masterchef: swapfish.minichef,
   },
 };
 

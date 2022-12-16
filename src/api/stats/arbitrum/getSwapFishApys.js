@@ -13,6 +13,16 @@ export const getSwapFishApys = async () =>
     tokenPerBlock: 'cakePerSecond',
     hasMultiplier: false,
     pools: pools,
+    singlePools: [
+      {
+        name: 'swapfish-fish',
+        poolId: 0,
+        address: '0xb348B87b23D5977E2948E6f36ca07E1EC94d7328',
+        oracle: 'tokens',
+        oracleId: 'SWAPFISH',
+        decimals: '1e18',
+      },
+    ],
     oracleId: 'SWAPFISH',
     oracle: 'tokens',
     decimals: '1e18',

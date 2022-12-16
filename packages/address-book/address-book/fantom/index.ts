@@ -6,6 +6,7 @@ import { sushiFtm } from './platforms/sushiFtm';
 import { solidly } from './platforms/solidly';
 import { tombswap } from './platforms/tombswap';
 import { solace } from './platforms/solace';
+import { equalizer } from './platforms/equalizer';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -21,6 +22,7 @@ const _fantom = {
     solidly,
     tombswap,
     solace,
+    equalizer,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

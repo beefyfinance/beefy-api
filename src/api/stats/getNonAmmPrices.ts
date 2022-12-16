@@ -45,12 +45,14 @@ import getHopArbPrices from './arbitrum/getHopArbPrices';
 import getHopOpPrices from './optimism/getHopOpPrices';
 import getHopPolyPrices from './matic/getHopPolyPrices';
 import getOlpPrices from './optimism/getOlpPrices';
+import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getEqualizerStablePrices(tokenPrices),
     getOlpPrices(),
     getHopPolyPrices(tokenPrices),
     getHopOpPrices(tokenPrices),

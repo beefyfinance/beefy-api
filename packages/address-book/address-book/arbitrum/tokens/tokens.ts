@@ -217,6 +217,7 @@ const _tokens = {
     website: 'https://vestafinance.xyz/',
     description:
       'Vesta Finance allows you to borrow collateralized stablecoin VST against supported crypto assets with no interest rate.',
+    documentation: 'https://docs.vestafinance.xyz/',
   },
   psETH: {
     name: 'Ripae sETH',
@@ -283,6 +284,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://swapfish.fi/',
     description: 'Brand new decentralized platform bringing you fresh fishing farms and more.',
+    oracleId: 'SWAPFISH',
   },
   GMX: {
     name: 'GMX',
@@ -380,6 +382,30 @@ const _tokens = {
       'hDAI is the bridge token for transferring DAI via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
+  },
+  USX: {
+    name: 'dForce USD',
+    symbol: 'USX',
+    address: '0x641441c631e2F909700d2f41FD87F0aA6A6b4EDb',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://dforce.network/',
+    description:
+      'USX is the most important DeFi primitive within dForce’s protocol matrix, starting off with an over-collateralization design, where supported assets can be used as collaterals to mint USX within the respective approved LTV ratio (similar to DAI).',
+    documentation: 'https://docs.dforce.network/protocols/usx',
+  },
+  MAI: {
+    name: 'Mai Stablecoin',
+    symbol: 'MAI',
+    address: '0x3F56e0c36d275367b8C502090EDF38289b3dEa0d',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.mai.finance/',
+    description:
+      "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    documentation: 'https://docs.mai.finance/',
   },
 } as const;
 

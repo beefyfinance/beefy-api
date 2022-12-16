@@ -1584,6 +1584,19 @@ const _tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
   },
+  EQUAL: {
+    name: 'Equalizer',
+    symbol: 'EQUAL',
+    address: '0x3Fd3A0c85B70754eFc07aC9Ac0cbBDCe664865A6',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://equalizer.exchange/home',
+    description:
+      'Equalizer was derived from the initial concept of Andre Cronje. The mechanism that was used to create a perpetual decentralized exchange was unique and ingenious. The launch of this platform is to take the concept and apply it to a more natural style DEX. Equalizer will become the trading mechanism for the Fantom network, utilizing the Solidly perpetual model with some tweaks to fee structures and emissions.',
+    documentation:
+      'https://equalizer0x.gitbook.io/equalizer-exchange-docs/guides/equalizer-exchange',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
