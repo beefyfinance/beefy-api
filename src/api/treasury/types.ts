@@ -86,6 +86,15 @@ export type TreasuryBalances = {
 
 export type TreasuryReport = {
   [chain: string]: {
-    [treasuryAddress: string]: {};
+    [treasuryAddress: string]: {
+      name: string;
+      balances: {
+        [assetAddress: string]: TreasuryAsset & {
+          usdValue: string;
+          balance: string;
+          price: number;
+        };
+      };
+    };
   };
 };

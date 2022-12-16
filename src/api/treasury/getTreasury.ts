@@ -3,7 +3,6 @@ import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-mu
 import { pick } from 'lodash';
 import { addressBook } from '../../../packages/address-book/address-book';
 import chainIdMap from '../../../packages/address-book/util/chainIdMap';
-import { ERC20_ABI } from '../../abis/common/ERC20';
 import fetchPrice from '../../utils/fetchPrice';
 import { web3Factory } from '../../utils/web3';
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
@@ -15,6 +14,7 @@ import {
   TreasuryAsset,
   TreasuryAssetRegistry,
   TreasuryBalances,
+  TreasuryReport,
   TreasuryWalletRegistry,
   VaultAsset,
 } from './types';
@@ -31,7 +31,7 @@ let assetsByChain: TreasuryAssetRegistry;
 
 let tokenBalancesByChain: TreasuryBalances = {};
 
-let treasurySummary;
+let treasurySummary: TreasuryReport;
 
 // Load treasury wallets from addressbook
 const getTreasuryAddressesByChain = (): TreasuryWalletRegistry => {
@@ -202,7 +202,7 @@ const updateTreasuryBalances = async () => {
 };
 
 const buildTreasuryReport = async () => {
-  const balanceReport = {};
+  const balanceReport: TreasuryReport = {};
 
   for (const [chain, chainBalancesByAddress] of Object.entries(tokenBalancesByChain)) {
     balanceReport[chain] = {};
@@ -268,6 +268,6 @@ export const initTreasuryService = async () => {
   }, INIT_DELAY);
 };
 
-export const getBeefyTreasury = () => {
+export const getBeefyTreasury = (): TreasuryReport => {
   return treasurySummary;
 };
