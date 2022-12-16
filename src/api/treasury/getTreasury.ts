@@ -9,7 +9,15 @@ import { web3Factory } from '../../utils/web3';
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
 
 import { getAllTokens } from '../tokens/getTokens';
-import { Asset, TreasuryAssetRegistry, TreasuryWalletRegistry } from './types';
+import { extractBalancesFromTreasuryMulticallResults, mapAssetToCall } from './multicallUtils';
+import {
+  Asset,
+  TreasuryAsset,
+  TreasuryAssetRegistry,
+  TreasuryBalances,
+  TreasuryWalletRegistry,
+  VaultAsset,
+} from './types';
 
 const INIT_DELAY = 90000;
 
@@ -21,10 +29,11 @@ let treasuryAddressesByChain: TreasuryWalletRegistry;
 //addressbook + vault tokens where balances should be queried
 let assetsByChain: TreasuryAssetRegistry;
 
-let tokenBalancesByChain = {};
+let tokenBalancesByChain: TreasuryBalances = {};
 
 let treasurySummary;
 
+// Load treasury wallets from addressbook
 const getTreasuryAddressesByChain = (): TreasuryWalletRegistry => {
   const addressesByChain: TreasuryWalletRegistry = {};
 
@@ -53,6 +62,7 @@ const getTreasuryAddressesByChain = (): TreasuryWalletRegistry => {
   return addressesByChain;
 };
 
+// Load token addres
 const getTokenAddressesByChain = (): TreasuryAssetRegistry => {
   const addressbookTokens = getAllTokens();
   const tokensByChain: TreasuryAssetRegistry = {};
@@ -61,18 +71,30 @@ const getTokenAddressesByChain = (): TreasuryAssetRegistry => {
     tokensByChain[chain] = {};
 
     for (const [key, token] of Object.entries(chainAddressbook)) {
-      const asset: Asset = {
-        ...pick(token, ['name', 'address', 'decimals']),
-        oracleId: key === 'WNATIVE' ? token.symbol : key,
-        oracleType: 'tokens',
-        assetType: 'token',
-      };
-      tokensByChain[chain][token.address.toLowerCase()] = asset;
+      if (key === 'WNATIVE') {
+        // Add gas token
+        tokensByChain[chain]['native'] = {
+          name: token.symbol.slice(1),
+          address: 'native',
+          decimals: 18,
+          assetType: 'native',
+          oracleType: 'tokens',
+          oracleId: token.symbol.slice(1),
+        };
+      } else {
+        tokensByChain[chain][token.address.toLowerCase()] = {
+          ...pick(token, ['name', 'address', 'decimals']),
+          oracleId: key,
+          oracleType: 'tokens',
+          assetType: 'token',
+        };
+      }
     }
   });
   return tokensByChain;
 };
 
+// Periodically update vault deposit tokens and mooTokens
 const updateVaultTokenAddresses = () => {
   const vaults = getMultichainVaults();
   Object.keys(assetsByChain).forEach(chain => {
@@ -104,6 +126,7 @@ const updateVaultTokenAddresses = () => {
         oracleId: vault.oracleId,
         oracleType: vault.oracle,
         assetType: 'vault',
+        vaultId: vault.id,
         decimals: vault.tokenDecimals,
         pricePerFullShare: vault.pricePerFullShare,
         address: vault.earnContractAddress,
@@ -112,40 +135,31 @@ const updateVaultTokenAddresses = () => {
   });
 };
 
-const updateSingleChainTreasuryBalance = async chain => {
-  const tokensToCheck = Object.values(assetsByChain[chain]);
+const updateSingleChainTreasuryBalance = async (chain: string) => {
+  const assetsToCheck = Object.values(assetsByChain[chain]);
   const web3 = web3Factory(chainIdMap[chain]);
   const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain]);
+  const multicallAddress =
+    chainIdMap[chain] === 2222
+      ? '0xdAaD0085e5D301Cb5721466e600606AB5158862b'
+      : '0xcA11bde05977b3631167028862bE2a173976CA11';
+
   const multicall = new Multicall({
     web3Instance: web3,
     tryAggregate: true,
-    multicallCustomContractAddress:
-      chainIdMap[chain] === 2222
-        ? '0xdAaD0085e5D301Cb5721466e600606AB5158862b'
-        : '0xcA11bde05977b3631167028862bE2a173976CA11',
+    multicallCustomContractAddress: multicallAddress,
   });
 
-  const contractCallContext: ContractCallContext[] = [];
-
-  tokensToCheck.forEach((token: any) => {
-    contractCallContext.push({
-      reference: token.address.toLowerCase(),
-      contractAddress: token.address,
-      abi: ERC20_ABI,
-      calls: treasuryAddressesForChain.map((treasuryData: any) => ({
-        reference: treasuryData.address.toLowerCase(),
-        methodName: 'balanceOf',
-        methodParameters: [treasuryData.address],
-      })),
-    });
-  });
-
+  const contractCallContext: ContractCallContext[] = assetsToCheck.flatMap((asset: TreasuryAsset) =>
+    mapAssetToCall(asset, treasuryAddressesForChain, multicallAddress)
+  );
   const promises: Promise<ContractCallResults>[] = [];
 
   for (let i = 0; i < contractCallContext.length; i += MULTICALL_BATCH_SIZE) {
     const batch = contractCallContext.slice(i, i + MULTICALL_BATCH_SIZE);
     promises.push(multicall.call(batch));
   }
+
   try {
     const results = await Promise.allSettled(promises);
 
@@ -154,40 +168,22 @@ const updateSingleChainTreasuryBalance = async chain => {
       balancesForChain[treasuryData.address.toLowerCase()] = {};
     });
 
-    results.forEach(res => {
-      if (res.status === 'fulfilled') {
-        let mappedResults = mapMulticallResults(res.value);
-        mappedResults.forEach(res => {
-          const tokenAddress = res.address;
-          Object.entries(res.balances).forEach(([treasuryAddress, balance]: any[]) => {
-            if (balance.gt(0)) {
-              balancesForChain[treasuryAddress][tokenAddress] = balance;
-            }
-          });
-        });
-      } else {
-      }
-    });
+    const fulfilledResults = Object.fromEntries(
+      results
+        .filter(res => res.status === 'fulfilled')
+        .flatMap((res: PromiseFulfilledResult<ContractCallResults>) =>
+          Object.entries(res.value.results)
+        )
+    );
 
-    tokenBalancesByChain[chain] = balancesForChain;
+    if (Object.keys(fulfilledResults).length !== contractCallContext.length) {
+      console.log('> Multicall batch failed fetching balances for treasury on ' + chain);
+    }
+
+    tokenBalancesByChain[chain] = extractBalancesFromTreasuryMulticallResults(fulfilledResults);
   } catch (err) {
     console.log('error updating treasury balances on chain ' + chain);
   }
-};
-
-const mapMulticallResults = (results: ContractCallResults) => {
-  return Object.entries(results.results).map(([address, result]) => {
-    const mappedObject = {
-      address,
-      balances: {},
-    };
-    result.callsReturnContext.forEach(callReturn => {
-      if (callReturn.decoded) {
-        mappedObject.balances[callReturn.reference] = new BigNumber(callReturn.returnValues[0].hex);
-      }
-    });
-    return mappedObject;
-  });
 };
 
 const updateTreasuryBalances = async () => {
@@ -210,43 +206,51 @@ const buildTreasuryReport = async () => {
 
   for (const [chain, chainBalancesByAddress] of Object.entries(tokenBalancesByChain)) {
     balanceReport[chain] = {};
-    for (const [treasuryAddress, balances] of Object.entries(chainBalancesByAddress)) {
-      const treasuryDetails = treasuryAddressesByChain[chain][treasuryAddress];
-      balanceReport[chain][treasuryAddress] = {
-        name: treasuryDetails.label,
+    const chainTreasuryWallets = treasuryAddressesByChain[chain];
+    //Initialize wallet balances as 0;
+    Object.entries(chainTreasuryWallets).forEach(([address, wallet]) => {
+      balanceReport[chain][address] = {
+        name: wallet.label,
         balances: {},
       };
-      for (const [tokenAddress, balance] of Object.entries(balances)) {
-        const tokenInfo = assetsByChain[chain][tokenAddress];
-        const tokenPrice = await fetchPrice({
-          oracle: tokenInfo.oracleType,
-          id: tokenInfo.oracleId,
-        });
+    });
 
-        const balanceUsdValue = findUsdValueForBalance(tokenInfo, tokenPrice, balance);
-        balanceReport[chain][treasuryAddress].balances[tokenAddress] = {
-          ...tokenInfo,
-          price: tokenPrice,
-          usdValue: (balanceUsdValue as BigNumber).toString(10),
-          balance: (balance as BigNumber).toString(10),
-        };
+    for (const assetBalance of chainBalancesByAddress) {
+      const treasuryAsset = assetsByChain[chain][assetBalance.address];
+      const price = await fetchPrice({
+        oracle: treasuryAsset.oracleType,
+        id: treasuryAsset.oracleId,
+      });
+
+      for (const [treasuryWallet, balance] of Object.entries(assetBalance.balances)) {
+        if (balance.gt(0)) {
+          const usdValue = findUsdValueForBalance(treasuryAsset, price, balance);
+          balanceReport[chain][treasuryWallet].balances[treasuryAsset.address] = {
+            ...treasuryAsset,
+            price,
+            usdValue: usdValue.toString(10),
+            balance: balance.toString(10),
+          };
+        }
       }
     }
   }
   treasurySummary = balanceReport;
 };
 
-const findUsdValueForBalance = (tokenInfo, tokenPrice, balance) => {
-  if (tokenInfo.assetType === 'token') {
-    return balance.multipliedBy(tokenPrice).shiftedBy(-tokenInfo.decimals);
-  } else if (tokenInfo.assetType === 'vault') {
+const findUsdValueForBalance = (
+  tokenInfo: TreasuryAsset,
+  tokenPrice: number,
+  balance: BigNumber
+): BigNumber => {
+  if (tokenInfo.assetType === 'vault') {
     return balance
       .multipliedBy(tokenPrice)
-      .multipliedBy(tokenInfo.pricePerFullShare)
+      .multipliedBy((tokenInfo as VaultAsset).pricePerFullShare)
       .shiftedBy(-18)
       .shiftedBy(-tokenInfo.decimals);
   } else {
-    console.log('UNKNOWN BALANCE INTENT');
+    return balance.multipliedBy(tokenPrice).shiftedBy(-tokenInfo.decimals);
   }
 };
 

@@ -1,3 +1,6 @@
+import BigNumber from 'bignumber.js';
+import { isObject } from 'lodash';
+
 //Treasury wallets
 export type TreasuryWallet = {
   address: string;
@@ -17,21 +20,72 @@ export type Asset = {
   address: string;
   name: string;
   decimals: number;
-  assetType: 'token' | 'native' | 'vault';
+  assetType: 'token' | 'native' | 'vault' | 'validator';
   oracleType: 'lps' | 'tokens';
   oracleId: string;
 };
 
-export type VaultAsset = Asset & { pricePerFullShare: string };
+export type TokenAsset = Asset & { assetType: 'token' };
 
-export type NativeAsset = Asset & { address: 'native' };
+export type VaultAsset = Asset & {
+  pricePerFullShare: string;
+  vaultId: string;
+  assetType: 'vault';
+};
 
-export type ValidatorAsset = Asset & { xxx: string };
+export type NativeAsset = Asset & {
+  address: 'native';
+  assetType: 'native';
+};
+
+export type ValidatorAsset = Asset & {
+  assetType: 'validator';
+};
 
 export type TreasuryAsset = Asset | VaultAsset | NativeAsset | ValidatorAsset;
 
 export type TreasuryAssetRegistry = {
   [chain: string]: {
     [address: string]: TreasuryAsset;
+  };
+};
+
+export function isNativeAsset(asset: TreasuryAsset): asset is NativeAsset {
+  return isObject(asset) && asset.assetType === 'native';
+}
+
+export function isValidatorAsset(asset: TreasuryAsset): asset is ValidatorAsset {
+  return isObject(asset) && asset.assetType === 'validator';
+}
+
+export function isVaultAsset(asset: TreasuryAsset): asset is VaultAsset {
+  return isObject(asset) && asset.assetType === 'vault';
+}
+
+export function isTokenAsset(asset: TreasuryAsset): asset is TokenAsset {
+  return isObject(asset) && asset.assetType === 'token';
+}
+
+export type AssetBalance = {
+  address: string;
+  balances: {
+    [walletAddress: string]: BigNumber;
+  };
+};
+
+export type ChainTreasuryBalance = {
+  address: string;
+  balances: {
+    [walletAddress: string]: BigNumber;
+  };
+};
+
+export type TreasuryBalances = {
+  [chain: string]: AssetBalance[];
+};
+
+export type TreasuryReport = {
+  [chain: string]: {
+    [treasuryAddress: string]: {};
   };
 };
