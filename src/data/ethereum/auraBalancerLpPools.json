@@ -96,7 +96,7 @@
     "name": "aura-reth-weth",
     "address": "0x1E19CF2D73a72Ef1332C882F20534B6519Be0276",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x6eBDC53B2C07378662940A7593Ad39Fb67778457",
+    "gauge": "0x001b78cec62dcfdc660e06a91eb1bc966541d758",
     "vaultPoolId": "0x1e19cf2d73a72ef1332c882f20534b6519be0276000200000000000000000112",
     "decimals": "1e18",
     "tokens": [
