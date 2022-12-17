@@ -40,6 +40,8 @@ export type NativeAsset = Asset & {
 
 export type ValidatorAsset = Asset & {
   assetType: 'validator';
+  method: 'api' | 'contract';
+  methodPath: string;
 };
 
 export type TreasuryAsset = Asset | VaultAsset | NativeAsset | ValidatorAsset;
@@ -74,14 +76,16 @@ export type AssetBalance = {
 };
 
 export type ChainTreasuryBalance = {
-  address: string;
-  balances: {
-    [walletAddress: string]: BigNumber;
+  [address: string]: {
+    address: string;
+    balances: {
+      [walletAddress: string]: BigNumber;
+    };
   };
 };
 
 export type TreasuryBalances = {
-  [chain: string]: AssetBalance[];
+  [chain: string]: ChainTreasuryBalance;
 };
 
 export type TreasuryReport = {

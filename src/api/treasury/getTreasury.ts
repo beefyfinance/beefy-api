@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall';
-import { pick } from 'lodash';
+import { chunk, partition, pick } from 'lodash';
 import { addressBook } from '../../../packages/address-book/address-book';
 import chainIdMap from '../../../packages/address-book/util/chainIdMap';
 import fetchPrice from '../../utils/fetchPrice';
@@ -10,7 +10,7 @@ const { getMultichainVaults } = require('../stats/getMultichainVaults');
 import { getAllTokens } from '../tokens/getTokens';
 import { extractBalancesFromTreasuryMulticallResults, mapAssetToCall } from './multicallUtils';
 import {
-  Asset,
+  isValidatorAsset,
   TreasuryAsset,
   TreasuryAssetRegistry,
   TreasuryBalances,
@@ -18,6 +18,7 @@ import {
   TreasuryWalletRegistry,
   VaultAsset,
 } from './types';
+import { getChainValidator, hasChainValidator } from './validatorHelpers';
 
 const INIT_DELAY = 90000;
 
@@ -90,6 +91,10 @@ const getTokenAddressesByChain = (): TreasuryAssetRegistry => {
         };
       }
     }
+
+    if (hasChainValidator(chain)) {
+      tokensByChain[chain]['validator'] = getChainValidator(chain);
+    }
   });
   return tokensByChain;
 };
@@ -149,16 +154,20 @@ const updateSingleChainTreasuryBalance = async (chain: string) => {
     tryAggregate: true,
     multicallCustomContractAddress: multicallAddress,
   });
-
-  const contractCallContext: ContractCallContext[] = assetsToCheck.flatMap((asset: TreasuryAsset) =>
-    mapAssetToCall(asset, treasuryAddressesForChain, multicallAddress)
+  // ETH validator requires an api call, should be treated differently
+  const [validatorAPI, contractAssets] = partition(
+    assetsToCheck,
+    asset => isValidatorAsset(asset) && asset.method === 'api'
   );
-  const promises: Promise<ContractCallResults>[] = [];
 
-  for (let i = 0; i < contractCallContext.length; i += MULTICALL_BATCH_SIZE) {
-    const batch = contractCallContext.slice(i, i + MULTICALL_BATCH_SIZE);
-    promises.push(multicall.call(batch));
-  }
+  const contractCallContext: ContractCallContext[] = contractAssets.flatMap(
+    (asset: TreasuryAsset) => mapAssetToCall(asset, treasuryAddressesForChain, multicallAddress)
+  );
+
+  const promises: Promise<ContractCallResults>[] = chunk(
+    contractCallContext,
+    MULTICALL_BATCH_SIZE
+  ).map(batch => multicall.call(batch));
 
   try {
     const results = await Promise.allSettled(promises);
@@ -180,7 +189,10 @@ const updateSingleChainTreasuryBalance = async (chain: string) => {
       console.log('> Multicall batch failed fetching balances for treasury on ' + chain);
     }
 
-    tokenBalancesByChain[chain] = extractBalancesFromTreasuryMulticallResults(fulfilledResults);
+    tokenBalancesByChain[chain] = {
+      ...(tokenBalancesByChain[chain] ?? {}),
+      ...extractBalancesFromTreasuryMulticallResults(fulfilledResults),
+    };
   } catch (err) {
     console.log('error updating treasury balances on chain ' + chain);
   }
@@ -215,7 +227,7 @@ const buildTreasuryReport = async () => {
       };
     });
 
-    for (const assetBalance of chainBalancesByAddress) {
+    for (const assetBalance of Object.values(chainBalancesByAddress)) {
       const treasuryAsset = assetsByChain[chain][assetBalance.address];
       const price = await fetchPrice({
         oracle: treasuryAsset.oracleType,
@@ -224,6 +236,10 @@ const buildTreasuryReport = async () => {
 
       for (const [treasuryWallet, balance] of Object.entries(assetBalance.balances)) {
         if (balance.gt(0)) {
+          //Add validator wallet if missing
+          if (!balanceReport[chain][treasuryWallet]) {
+            balanceReport[chain][treasuryWallet] = { name: treasuryWallet, balances: {} };
+          }
           const usdValue = findUsdValueForBalance(treasuryAsset, price, balance);
           balanceReport[chain][treasuryWallet].balances[treasuryAsset.address] = {
             ...treasuryAsset,

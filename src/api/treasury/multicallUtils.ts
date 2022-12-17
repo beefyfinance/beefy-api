@@ -4,6 +4,7 @@ import {
   ContractCallResults,
   ContractCallReturnContext,
 } from 'ethereum-multicall';
+import { partition } from 'lodash';
 import { ERC20_ABI } from '../../abis/common/ERC20';
 import {
   isNativeAsset,
@@ -15,6 +16,7 @@ import {
   ChainTreasuryBalance,
   TreasuryWallet,
   AssetBalance,
+  ValidatorAsset,
 } from './types';
 
 export const mapAssetToCall = (
@@ -75,17 +77,34 @@ export const mapAssetToCall = (
       },
     ];
   } else {
-    console.log('VALIDATOR');
+    const validatorAsset = asset as ValidatorAsset;
     return [
       {
-        reference: asset.address.toLowerCase(),
-        contractAddress: asset.address,
-        abi: ERC20_ABI,
-        calls: treasuryAddressesForChain.map((treasuryData: any) => ({
-          reference: treasuryData.address.toLowerCase(),
-          methodName: 'balanceOf',
-          methodParameters: [treasuryData.address],
-        })),
+        reference: 'validator',
+        contractAddress: validatorAsset.methodPath,
+        abi: [
+          {
+            constant: true,
+            inputs: [],
+            name: 'balance',
+            outputs: [
+              {
+                name: '',
+                type: 'uint256',
+              },
+            ],
+            payable: false,
+            stateMutability: 'view',
+            type: 'function',
+          },
+        ],
+        calls: [
+          {
+            reference: 'validator',
+            methodName: 'balance',
+            methodParameters: [],
+          },
+        ],
         context: {
           type: 'validator',
         },
@@ -100,14 +119,19 @@ type FullfilledResult = {
 
 export const extractBalancesFromTreasuryMulticallResults = (
   multicallResults: FullfilledResult
-): AssetBalance[] => {
-  const standardResults = Object.entries(multicallResults).filter(
+): ChainTreasuryBalance => {
+  const [standardResults, validatorResult] = partition(
+    Object.entries(multicallResults),
     ([key, context]) => context.originalContractCallContext.context?.type === 'standard'
   );
 
-  const balances: ChainTreasuryBalance[] = extractFromStandardResult(standardResults);
+  const balances: AssetBalance[] = extractFromStandardResult(Object.entries(multicallResults));
 
-  return balances;
+  // if (validatorResult.length > 0) {
+  //   const validatorBalance: AssetBalance = extractFromValidatorResult(validatorResult[0]);
+  // }
+
+  return balances.reduce((all, cur) => ((all[cur.address] = cur), all), {});
 };
 
 const extractFromStandardResult = (
@@ -128,3 +152,5 @@ const extractFromStandardResult = (
     return treasuryBalance;
   });
 };
+
+const extractFromValidatorResult = asd => null;
