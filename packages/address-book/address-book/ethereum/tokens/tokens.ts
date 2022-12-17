@@ -520,6 +520,18 @@ const _tokens = {
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
   },
+  ACX: {
+    name: 'Across Protocol Token',
+    symbol: 'ACX',
+    address: '0x44108f0223A3C3028F5Fe7AEC7f9bb2E66beF82F',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://across.to/',
+    documentation: 'https://docs.across.to/',
+    description:
+      'Across is a cross-chain bridge for L2s and rollups secured by UMAs optimistic oracle. It is optimized for capital efficiency with a single liquidity pool, a competitive relayer landscape, and a no-slippage fee model.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
