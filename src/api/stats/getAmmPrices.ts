@@ -535,6 +535,7 @@ const coinGeckoCoins = [
   'coinbase-wrapped-staked-eth',
   'opx-finance',
   'dola-usd',
+  'across-protocol',
 ];
 
 const currencies = ['cad'];
@@ -602,6 +603,7 @@ const updateAmmPrices = async () => {
         cbETH: prices['coinbase-wrapped-staked-eth'],
         OPX: prices['opx-finance'],
         DOLA: prices['dola-usd'],
+        ACX: prices['across-protocol'],
       };
     };
 
