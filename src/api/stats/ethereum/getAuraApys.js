@@ -104,6 +104,11 @@ const getPoolApy = async (pool, auraData) => {
     const apr = response.data.steth;
 
     pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
+  } else if (pool.rocketUrl) {
+    const response = await fetch(pool.rocketUrl).then(res => res.json());
+    const apr = response.yearlyAPR;
+
+    pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
   }
 
   let bbaUSDApy = await getComposableAaveYield();
