@@ -99,16 +99,8 @@ const getPoolApy = async (pool, auraData) => {
 
   if (pool.name == 'aura-wsteth-reth-sfrxeth') {
     aprFixed = await getThreeEthPoolYield(pool);
-  } else if (pool.lidoUrl) {
-    const response = await fetch(pool.lidoUrl).then(res => res.json());
-    const apr = response.data.steth;
-
-    pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
-  } else if (pool.rocketUrl) {
-    const response = await fetch(pool.rocketUrl).then(res => res.json());
-    const apr = response.yearlyAPR;
-
-    pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
+  } else if (pool.lidoUrl || pool.rocketUrl) {
+    aprFixed = await getLiquidStakingPoolYield(pool);
   }
 
   let bbaUSDApy = await getComposableAaveYield();
@@ -153,6 +145,46 @@ const getTotalStakedInUsd = async pool => {
   return totalSupply.multipliedBy(lpPrice).dividedBy('1e18');
 };
 
+const getLiquidStakingPoolYield = async pool => {
+  const balVault = getContractWithProvider(IBalancerVault, balancer.router, web3);
+  const tokenQtys = await balVault.methods.getPoolTokens(pool.vaultPoolId).call();
+
+  let qty = [];
+  let totalQty = new BigNumber(0);
+  for (let j = 0; j < tokenQtys.balances.length; j++) {
+    if (pool.composable) {
+      if (j != pool.bptIndex) {
+        const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
+        const amt = new BigNumber(tokenQtys.balances[j])
+          .times(price)
+          .dividedBy([pool.tokens[j].decimals]);
+        totalQty = totalQty.plus(amt);
+        qty.push(amt);
+      }
+    } else {
+      const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
+      const amt = new BigNumber(tokenQtys.balances[j])
+        .times(price)
+        .dividedBy([pool.tokens[j].decimals]);
+      totalQty = totalQty.plus(amt);
+      qty.push(amt);
+    }
+  }
+
+  const response = pool.lidoUrl
+    ? await fetch(pool.lidoUrl).then(res => res.json())
+    : await fetch(pool.rocketUrl).then(res => res.json());
+
+  const lsApr = pool.lidoUrl ? response.data.steth : response.yearlyAPR;
+
+  let apr = 0;
+  apr = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100;
+  apr = pool.balancerChargesFee ? apr / 2 : apr;
+
+  // console.log(pool.name, lsApr, apr);
+  return apr;
+};
+
 const getThreeEthPoolYield = async pool => {
   const balVault = getContractWithProvider(IBalancerVault, balancer.router, web3);
   const tokenQtys = await balVault.methods.getPoolTokens(pool.vaultPoolId).call();
@@ -161,8 +193,12 @@ const getThreeEthPoolYield = async pool => {
   let totalQty = new BigNumber(0);
   for (let j = 0; j < tokenQtys.balances.length; j++) {
     if (j != 1) {
-      totalQty = totalQty.plus(new BigNumber(tokenQtys.balances[j]));
-      qty.push(new BigNumber(tokenQtys.balances[j]));
+      const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
+      const amt = new BigNumber(tokenQtys.balances[j])
+        .times(price)
+        .dividedBy([pool.tokens[j].decimals]);
+      totalQty = totalQty.plus(amt);
+      qty.push(amt);
     }
   }
 
@@ -183,6 +219,8 @@ const getThreeEthPoolYield = async pool => {
   apr = apr + (rEthapr / 2) * qty[2].dividedBy(totalQty).toNumber();
 
   apr = apr / 100;
+
+  // console.log(pool.name, apr);
   return apr;
 };
 
