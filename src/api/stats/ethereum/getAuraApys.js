@@ -96,7 +96,10 @@ const getPoolApy = async (pool, auraData) => {
 
   let aprFixed = 0;
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  if (pool.lidoUrl) {
+
+  if (pool.name == 'aura-wsteth-reth-sfrxeth') {
+    aprFixed = await getThreeEthPoolYield(pool);
+  } else if (pool.lidoUrl) {
     const response = await fetch(pool.lidoUrl).then(res => res.json());
     const apr = response.data.steth;
 
@@ -143,6 +146,39 @@ const getTotalStakedInUsd = async pool => {
   const totalSupply = new BigNumber(await gauge.methods.totalSupply().call());
   const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
   return totalSupply.multipliedBy(lpPrice).dividedBy('1e18');
+};
+
+const getThreeEthPoolYield = async pool => {
+  const balVault = getContractWithProvider(IBalancerVault, balancer.router, web3);
+  const tokenQtys = await balVault.methods.getPoolTokens(pool.vaultPoolId).call();
+
+  let qty = [];
+  let totalQty = new BigNumber(0);
+  for (let j = 0; j < tokenQtys.balances.length; j++) {
+    if (j != 1) {
+      totalQty = totalQty.plus(new BigNumber(tokenQtys.balances[j]));
+      qty.push(new BigNumber(tokenQtys.balances[j]));
+    }
+  }
+
+  const wstEthResponse = await fetch(pool.lidoUrl).then(res => res.json());
+  const wstEthapr = wstEthResponse.data.steth;
+
+  const sfrxEthResponse = await fetch('https://api.frax.finance/v2/frxeth/summary/latest').then(
+    res => res.json()
+  );
+  const sfrxEthapr = sfrxEthResponse.sfrxethApr;
+
+  const rEthResponse = await fetch('https://api.rocketpool.net/api/apr').then(res => res.json());
+  const rEthapr = rEthResponse.yearlyAPR;
+
+  let apr = 0;
+  apr = apr + (wstEthapr / 2) * qty[0].dividedBy(totalQty).toNumber();
+  apr = apr + (sfrxEthapr / 2) * qty[1].dividedBy(totalQty).toNumber();
+  apr = apr + (rEthapr / 2) * qty[2].dividedBy(totalQty).toNumber();
+
+  apr = apr / 100;
+  return apr;
 };
 
 const getComposableAaveYield = async () => {
