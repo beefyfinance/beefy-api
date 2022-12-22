@@ -11,6 +11,8 @@ const { getOptimismBifiMaxiApy } = require('./getOptimismBifiMaxiApy');
 const { getHopApys } = require('./getHopApys');
 const { getHopOpApys } = require('./getHopOpApys');
 const { getOlpApys } = require('./getOlpApys');
+const getBeOpxApy = require('./getBeOpxApy');
+const getBeOpxEarnApy = require('./getBeOpxEarnApy');
 
 const getApys = [
   getBeetsOpApys,
@@ -26,6 +28,8 @@ const getApys = [
   getHopApys,
   getHopOpApys,
   getOlpApys,
+  getBeOpxApy,
+  getBeOpxEarnApy,
 ];
 
 const getOptimismApys = async () => {
