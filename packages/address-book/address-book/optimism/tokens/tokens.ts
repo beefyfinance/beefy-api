@@ -736,6 +736,18 @@ const _tokens = {
       'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
     documentation: 'https://docs.lido.fi/',
   },
+  KWENTA: {
+    name: 'Kwenta',
+    symbol: 'KWENTA',
+    address: '0x920Cf626a271321C151D027030D5d08aF699456b',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://kwenta.eth.limo/dashboard',
+    description:
+      'Kwenta is a decentralized derivatives trading platform, live on Optimism, offering real-world and on-chain synthetic assets using the power of the Synthetix protocol.',
+    documentation: 'https://docs.kwenta.io/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

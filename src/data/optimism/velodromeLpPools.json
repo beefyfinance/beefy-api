@@ -1,5 +1,45 @@
 [
   {
+    "name": "velodrome-thales-weth",
+    "address": "0x6Fe429de4284B7625CAC1FCaACFa1D705ac9ec28",
+    "gauge": "0xe9111e0D7BBb5a06F908AaCd7398266e39F49c5f",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x217D47011b23BB961eB6D93cA9945B7501a5BB11",
+      "oracle": "tokens",
+      "oracleId": "THALES",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-weth-kwenta",
+    "address": "0xd65c1120DDF79F827b925C505949E02c5A0D6236",
+    "gauge": "0xDFc1eCf1Dcb82B1daeA91fdDA2023973447c4309",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x920Cf626a271321C151D027030D5d08aF699456b",
+      "oracle": "tokens",
+      "oracleId": "KWENTA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-op-mai",
     "address": "0x8fbC13969B03B58E0ac50B19E4aEdd4DFf8554a1",
     "gauge": "0xFa3F4061622BF8Ed257366373765f87Ca3c1947A",
