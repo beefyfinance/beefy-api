@@ -602,6 +602,7 @@ const updateAmmPrices = async () => {
         BAL: prices['balancer'],
         cbETH: prices['coinbase-wrapped-staked-eth'],
         OPX: prices['opx-finance'],
+        beOPX: prices['opx-finance'],
         DOLA: prices['dola-usd'],
         ACX: prices['across-protocol'],
       };

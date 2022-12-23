@@ -30,6 +30,17 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  beOPX: {
+    name: 'Beefy Escrowed OPX',
+    symbol: 'beOPX',
+    address: '0xEDFBeC807304951785b581dB401fDf76b4bAd1b0',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://www.opx.finance/',
+    description:
+      'Beefy Escrowed OPX is a liquid staking solution to earn maximum governance rewards from the OPX platform using the highest tier NFT and maximum lock.',
+    logoURI: '',
+  },
   OPX: {
     name: 'OPX',
     symbol: 'OPX',
