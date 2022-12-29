@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  FISH: {
+    name: 'SwapFish',
+    symbol: 'FISH',
+    address: '0xb348B87b23D5977E2948E6f36ca07E1EC94d7328',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xb348B87b23D5977E2948E6f36ca07E1EC94d7328.svg',
+    website: 'https://swapfish.fi/',
+    description: 'Brand new decentralized platform bringing you fresh fishing farms and more.',
+    oracleId: 'SWAPFISH',
+  },
   MGP: {
     name: 'Magpie Token',
     symbol: 'MGP',

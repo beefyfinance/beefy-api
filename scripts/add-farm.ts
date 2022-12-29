@@ -21,7 +21,7 @@ const {
     platforms: { trisolaris },
   },
   bsc: {
-    platforms: { biswap, babyswap },
+    platforms: { biswap, babyswap, swapfish: swapfishBsc },
   },
   metis: {
     platforms: { netswap, tethys },
@@ -36,7 +36,7 @@ const {
     platforms: { yuzu },
   },
   arbitrum: {
-    platforms: { swapfish },
+    platforms: { swapfish: swapfishArb },
   },
 } = addressBook;
 
@@ -131,10 +131,15 @@ const projects = {
     file: '../src/data/emerald/yuzuDualLpPools.json',
     masterchef: yuzu.masterchefExt,
   },
-  swapfish: {
+  swapfishArb: {
     prefix: 'swapfish',
     file: '../src/data/arbitrum/swapFishLpPools.json',
-    masterchef: swapfish.minichef,
+    masterchef: swapfishArb.minichef,
+  },
+  swapfishBsc: {
+    prefix: 'swapfish',
+    file: '../src/data/swapFishLpPools.json',
+    masterchef: swapfishBsc.minichef,
   },
 };
 
