@@ -134,7 +134,7 @@ const getComposableAaveYield = async () => {
     const tokenApy = new BigNumber(rates[i]).div(RAY_DECIMALS);
     const portionedApy = tokenApy.dividedBy(2).times(qty[i]).dividedBy(totalQty);
     apy = apy.plus(portionedApy);
-    console.log(bbaUSDTokens[i].address, portionedApy.toNumber());
+    //console.log(bbaUSDTokens[i].address, portionedApy.toNumber());
   }
   return apy;
 };

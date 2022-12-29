@@ -1,6 +1,6 @@
 [
   {
-    "name": "swapfish-wbnb-bifi",
+    "name": "swapfish-bsc-wbnb-bifi",
     "address": "0x30Fc36ba48456c043d094dd7127f1cECe16A4016",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -20,7 +20,7 @@
     }
   },
   {
-    "name": "swapfish-usx-busd",
+    "name": "swapfish-bsc-usx-busd",
     "address": "0x24896e397D648D38ec4a5dB90FD06CaD77e1B7Ee",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -40,7 +40,7 @@
     }
   },
   {
-    "name": "swapfish-bifi-busd",
+    "name": "swapfish-bsc-bifi-busd",
     "address": "0x1F26FC9A01AF80C8067539Bb5883A0b42d0199fd",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -60,7 +60,7 @@
     }
   },
   {
-    "name": "swapfish-usdc-snow",
+    "name": "swapfish-bsc-usdc-snow",
     "address": "0x1E12840fD9E675D81ab5e8B4A524ebfe111F36aF",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -80,7 +80,7 @@
     }
   },
   {
-    "name": "swapfish-usdt-busd",
+    "name": "swapfish-bsc-usdt-busd",
     "address": "0x6531799df50Afadc9997767FF0235ae71E0Ee875",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -100,7 +100,7 @@
     }
   },
   {
-    "name": "swapfish-bnbx-wbnb",
+    "name": "swapfish-bsc-bnbx-wbnb",
     "address": "0xc5c929b9cbda49523634A80c7bFd67c0bce6C3ea",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -120,7 +120,7 @@
     }
   },
   {
-    "name": "swapfish-eth-wbnb",
+    "name": "swapfish-bsc-eth-wbnb",
     "address": "0x5724868E5438A2C96C9B7E5b61e767750B3E7507",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -140,7 +140,7 @@
     }
   },
   {
-    "name": "swapfish-btcb-wbnb",
+    "name": "swapfish-bsc-btcb-wbnb",
     "address": "0x5e8F4c86C3BB2f4070ad570776574034Ac19e0e7",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -160,7 +160,7 @@
     }
   },
   {
-    "name": "swapfish-wbnb-busd",
+    "name": "swapfish-bsc-wbnb-busd",
     "address": "0xdC8a61ED63671fD7FeFB392bA4b35935fB27cd77",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -180,7 +180,7 @@
     }
   },
   {
-    "name": "swapfish-usdc-busd",
+    "name": "swapfish-bsc-usdc-busd",
     "address": "0xf1AF484f96A98BD529E28cc28A4a4EfC1581D77A",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -200,7 +200,7 @@
     }
   },
   {
-    "name": "swapfish-fish-busd",
+    "name": "swapfish-bsc-fish-busd",
     "address": "0xA4d762B97A79d2093e5DDA4a94049449B4e484b5",
     "decimals": "1e18",
     "beefyFee": 0.095,
@@ -209,7 +209,7 @@
     "lp0": {
       "address": "0xb348B87b23D5977E2948E6f36ca07E1EC94d7328",
       "oracle": "tokens",
-      "oracleId": "FISH",
+      "oracleId": "SWAPFISH",
       "decimals": "1e18"
     },
     "lp1": {

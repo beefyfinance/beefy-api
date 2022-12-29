@@ -137,7 +137,7 @@ const projects = {
     masterchef: swapfishArb.minichef,
   },
   swapfishBsc: {
-    prefix: 'swapfish',
+    prefix: 'swapfish-bsc',
     file: '../src/data/swapFishLpPools.json',
     masterchef: swapfishBsc.minichef,
   },
