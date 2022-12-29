@@ -1,5 +1,45 @@
 [
   {
+    "name": "balancer-bbamUSD",
+    "address": "0x48e6B98ef6329f8f0A30eBB8c7C960330d648085",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x1c514fEc643AdD86aeF0ef14F4add28cC3425306",
+    "vaultPoolId": "0x48e6b98ef6329f8f0a30ebb8c7c960330d64808500000000000000000000075b",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "composable": true,
+    "includesComposableStable": true,
+    "bptIndex": 1,
+    "rewards": [
+      {
+        "stream": "0xea3150db47FA1BD4F94E2A47900C09D51C39BAE8",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bbamDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbamUSDC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbamUSDT",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-matic-maticx-v2",
     "address": "0xb20fC01D21A50d2C734C4a1262B4404d41fA7BF0",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
