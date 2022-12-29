@@ -759,6 +759,18 @@ const _tokens = {
       'Kwenta is a decentralized derivatives trading platform, live on Optimism, offering real-world and on-chain synthetic assets using the power of the Synthetix protocol.',
     documentation: 'https://docs.kwenta.io/',
   },
+  UNIDX: {
+    name: 'UniDex',
+    symbol: 'UNIDX',
+    address: '0x5d47bAbA0d66083C52009271faF3F50DCc01023C',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.unidex.exchange/trading',
+    description:
+      'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
+    documentation: 'https://unidexexchange.gitbook.io/unidex/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
