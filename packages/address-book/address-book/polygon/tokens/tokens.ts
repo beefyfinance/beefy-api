@@ -28,6 +28,30 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  MVX: {
+    name: 'MVX',
+    address: '0x2760E46d9BB43dafCbEcaad1F64b93207f9f0eD7',
+    symbol: 'MVX',
+    decimals: 18,
+    website: 'https://metavault.trade/',
+    documentation: 'https://docs.metavault.trade/',
+    description:
+      "MVX is the Metavault.Trade's governance and utility token. 30% of swap and leverage trading fees are converted to $MATIC and distributed to the accounts staking MVX.",
+    chainId: 137,
+    logoURI: '',
+  },
+  BUSD: {
+    name: 'Binance USD',
+    address: '0x9C9e5fD8bbc25984B178FdCE6117Defa39d2db39',
+    symbol: 'BUSD',
+    decimals: 18,
+    website: 'https://www.binance.com/en/busd/',
+    documentation: 'https://www.binance.com/en/busd',
+    description:
+      'These are digitised US Dollars and are always purchased and redeemed at 1 BUSD for 1 US dollar.',
+    chainId: 137,
+    logoURI: '',
+  },
   spUSDC: {
     name: 'Stargate USD Coin LP',
     address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
