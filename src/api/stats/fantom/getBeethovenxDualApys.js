@@ -57,9 +57,7 @@ const getFarmApys = async pools => {
         return 0;
       } else {
         const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-        const yearlyRewardsB = tokenBRewardRates[i]
-          .dividedBy(secondsPerBlock)
-          .times(secondsPerYear);
+        const yearlyRewardsB = tokenBRewardRates[i].times(secondsPerYear);
         return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
       }
     })();

@@ -53,7 +53,7 @@ const getYearlyRewardsInUsd = async () => {
 
   const rewardPool = getContractWithProvider(IAuraGauge, auraBalGauge, web3);
   const balRewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
-  const bbaUSDVirtualGaugeAddress = await rewardPool.methods.extraRewards(1).call();
+  const bbaUSDVirtualGaugeAddress = await rewardPool.methods.extraRewards(0).call();
   const bbaUSDVirtualGauge = getContractWithProvider(IAuraGauge, bbaUSDVirtualGaugeAddress, web3);
   const bbaUSDRewardRate = new BigNumber(await bbaUSDVirtualGauge.methods.rewardRate().call());
   const auraData = await getAuraData();
