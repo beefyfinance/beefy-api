@@ -101,6 +101,27 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
+  sBTC: {
+    chainId: 1,
+    address: '0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6',
+    decimals: 18,
+    name: 'Synthetix: sBTC',
+    symbol: 'sBTC',
+    website: 'https://www.synthetix.io/',
+    description:
+      'sBTC is a synthetic Bitcoin token enabled by the Synthetix protocol. It tracks the price of Bitcoin through price feeds supplied by Chainlink’s decentralized network of oracles.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+  },
+  multiBTC: {
+    chainId: 1,
+    address: '0x66eFF5221ca926636224650Fd3B9c497FF828F7D',
+    decimals: 8,
+    name: 'Multichain BTC',
+    symbol: 'multiBTC',
+    website: 'https://app.multichain.org/',
+    description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
+  },
   alETH: {
     name: 'Alchemix ETH',
     symbol: 'alETH',
