@@ -538,6 +538,7 @@ const coinGeckoCoins = [
   'opx-finance',
   'dola-usd',
   'across-protocol',
+  'metavault-trade',
 ];
 
 const currencies = ['cad'];
@@ -610,6 +611,7 @@ const updateAmmPrices = async () => {
         beOPX: prices['opx-finance'],
         DOLA: prices['dola-usd'],
         ACX: prices['across-protocol'],
+        MVX: prices['metavault-trade'],
       };
     };
 

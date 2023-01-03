@@ -1,0 +1,94 @@
+[
+  {
+    "name": "mvx-mvx",
+    "address": "0x2760E46d9BB43dafCbEcaad1F64b93207f9f0eD7",
+    "oracle": "tokens",
+    "tokenId": "MVX",
+    "strategy": "0x05a14F9d202f71bDf00c73DFfB67943a2A138889",
+    "stakedTracker": "0xE8e2E78D8cA52f238CAf69f020fA961f8A7632e9",
+    "rewardToken": "MATIC",
+    "rewardTrackers": [
+      {
+        "address": "0xaCEC858f6397Dd227dD4ed5bE91A5BB180b8c430",
+        "distributor": "0xfb662d23407Ad2482B65864647875E1614d05Aa8"
+      }
+    ],
+    "decimals": "1e18",
+    "chainId": 137
+  },
+  {
+    "name": "mvx-mvlp",
+    "address": "0x9F4f8bc00F48663B7C204c96b932C29ccc43A2E8",
+    "oracle": "lps",
+    "tokenId": "mvx-mvlp",
+    "strategy": "0x8D248AB49701D6Bbd15e42c398Cbd456591Dd095",
+    "stakedTracker": "0xA6ca41Bbf555074ed4d041c1F4551eF48116D59A",
+    "glpManager": "0x13E733dDD6725a8133bec31b2Fc5994FA5c26Ea9",
+    "vault": "0x32848E2d3aeCFA7364595609FB050A301050A6B4",
+    "rewardToken": "MATIC",
+    "rewardTrackers": [
+      {
+        "address": "0xaBD6c70C41FdF9261dfF15F4eB589b44a37072eB",
+        "distributor": "0xcA05c0f5626e5dAe51B211783b0cCAB1d041A3FA"
+      },
+      {
+        "address": "0xaCEC858f6397Dd227dD4ed5bE91A5BB180b8c430",
+        "distributor": "0xfb662d23407Ad2482B65864647875E1614d05Aa8"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "oracleId": "MATIC",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "address": "0xb0897686c545045aFc77CF20eC7A532E3120E0F1",
+        "oracleId": "LINK",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xb33EaAd8d922B1083446DC23f610c2567fB5180f",
+        "oracleId": "UNI",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xD6DF932A45C0f255f85145f286eA0b292B21C90B",
+        "oracleId": "AAVE",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x9C9e5fD8bbc25984B178FdCE6117Defa39d2db39",
+        "oracleId": "BUSD",
+        "decimals": "1e18"
+      }
+    ],
+    "decimals": "1e18",
+    "chainId": 137
+  }
+]
