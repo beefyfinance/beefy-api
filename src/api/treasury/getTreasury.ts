@@ -72,7 +72,8 @@ const getTokenAddressesByChain = (): TreasuryAssetRegistry => {
     tokensByChain[chain] = {};
 
     for (const [key, token] of Object.entries(chainAddressbook)) {
-      if (key === 'WNATIVE') {
+      if (key === 'WNATIVE' && token.symbol !== 'WCELO') {
+        // CELO and WCELO are the same token, avoid adding native celo as well
         // Add gas token
         tokensByChain[chain]['native'] = {
           name: token.symbol.slice(1),
