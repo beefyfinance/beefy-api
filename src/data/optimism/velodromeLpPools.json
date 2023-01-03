@@ -1,5 +1,85 @@
 [
   {
+    "name": "velodrome-unidx-dai",
+    "address": "0x83E33607e808A0693DF2F803b41291caC5a51e58",
+    "gauge": "0xF776675BDFB3f402b267E44B589BFF178C0B9cC4",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+      "oracle": "tokens",
+      "oracleId": "UNIDX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-weth-lusd",
+    "address": "0x91e0fC1E4D32cC62C4f9Bc11aCa5f3a159483d31",
+    "gauge": "0x7A0515af042090Dd634Af5d6b43303EA90703b69",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc40F949F8a4e094D1b49a23ea9241D289B7b2819",
+      "oracle": "tokens",
+      "oracleId": "LUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-thales-weth",
+    "address": "0x6Fe429de4284B7625CAC1FCaACFa1D705ac9ec28",
+    "gauge": "0xe9111e0D7BBb5a06F908AaCd7398266e39F49c5f",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x217D47011b23BB961eB6D93cA9945B7501a5BB11",
+      "oracle": "tokens",
+      "oracleId": "THALES",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-weth-kwenta",
+    "address": "0xd65c1120DDF79F827b925C505949E02c5A0D6236",
+    "gauge": "0xDFc1eCf1Dcb82B1daeA91fdDA2023973447c4309",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x920Cf626a271321C151D027030D5d08aF699456b",
+      "oracle": "tokens",
+      "oracleId": "KWENTA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-op-mai",
     "address": "0x8fbC13969B03B58E0ac50B19E4aEdd4DFf8554a1",
     "gauge": "0xFa3F4061622BF8Ed257366373765f87Ca3c1947A",

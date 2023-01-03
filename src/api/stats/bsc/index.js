@@ -18,8 +18,10 @@ const getValasLpApys = require('./valas/getValasLpApys');
 const { getDotDotApy } = require('./getDotDotApy');
 const getConeApys = require('./getConeApys');
 const { getWombexApy } = require('./getWombexApy');
+const { getSwapFishApys } = require('./getSwapFishApys');
 
 const getApys = [
+  getSwapFishApys,
   getBeltApys,
   getBifiGovApy,
   getBifiMaxiApy,

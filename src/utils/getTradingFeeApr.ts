@@ -139,7 +139,7 @@ export const getTradingFeeAprSushiTrident = async (
       }
     }
   } catch (e) {
-    console.error('> getTradingFeeAprSushiTrident error', pairAddresses[0], e);
+    console.error('> getTradingFeeAprSushiTrident error', pairAddresses[0]);
   }
 
   return pairAddressToAprMap;

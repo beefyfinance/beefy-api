@@ -46,12 +46,14 @@ import getHopOpPrices from './optimism/getHopOpPrices';
 import getHopPolyPrices from './matic/getHopPolyPrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
+import getMvxPrices from './matic/getMvxPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getMvxPrices(tokenPrices),
     getEqualizerStablePrices(tokenPrices),
     getOlpPrices(),
     getHopPolyPrices(tokenPrices),

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "bbamUSD",
+    "address": "0x48e6B98ef6329f8f0A30eBB8c7C960330d648085",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x48e6b98ef6329f8f0a30ebb8c7c960330d64808500000000000000000000075b",
+    "decimals": "1e18",
+    "chainId": 137,
+    "composable": true,
+    "bptIndex": 1,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bbamDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbamUSDC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbamUSDT",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

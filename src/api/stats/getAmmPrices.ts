@@ -255,6 +255,7 @@ import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
 import swapFishPools from '../../data/arbitrum/swapFishLpPools.json';
 import equalizerPools from '../../data/fantom/equalizerLpPools.json';
+import swapFishBscPools from '../../data/swapFishLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 
@@ -264,6 +265,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...swapFishBscPools,
   ...equalizerPools,
   ...swapFishPools,
   ...hermesPools,
@@ -535,6 +537,8 @@ const coinGeckoCoins = [
   'coinbase-wrapped-staked-eth',
   'opx-finance',
   'dola-usd',
+  'across-protocol',
+  'metavault-trade',
 ];
 
 const currencies = ['cad'];
@@ -552,6 +556,9 @@ const knownPrices = {
   aUSDT: 1,
   aDAI: 1,
   aUSDC: 1,
+  amUSDT: 1,
+  amUSDC: 1,
+  amDAI: 1,
 };
 
 let tokenPricesCache: Promise<any>;
@@ -601,7 +608,10 @@ const updateAmmPrices = async () => {
         BAL: prices['balancer'],
         cbETH: prices['coinbase-wrapped-staked-eth'],
         OPX: prices['opx-finance'],
+        beOPX: prices['opx-finance'],
         DOLA: prices['dola-usd'],
+        ACX: prices['across-protocol'],
+        MVX: prices['metavault-trade'],
       };
     };
 

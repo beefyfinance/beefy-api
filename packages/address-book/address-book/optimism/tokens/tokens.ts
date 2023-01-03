@@ -30,6 +30,17 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  beOPX: {
+    name: 'Beefy Escrowed OPX',
+    symbol: 'beOPX',
+    address: '0xEDFBeC807304951785b581dB401fDf76b4bAd1b0',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://www.opx.finance/',
+    description:
+      'Beefy Escrowed OPX is a liquid staking solution to earn maximum governance rewards from the OPX platform using the highest tier NFT and maximum lock.',
+    logoURI: '',
+  },
   OPX: {
     name: 'OPX',
     symbol: 'OPX',
@@ -735,6 +746,30 @@ const _tokens = {
     description:
       'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
     documentation: 'https://docs.lido.fi/',
+  },
+  KWENTA: {
+    name: 'Kwenta',
+    symbol: 'KWENTA',
+    address: '0x920Cf626a271321C151D027030D5d08aF699456b',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://kwenta.eth.limo/dashboard',
+    description:
+      'Kwenta is a decentralized derivatives trading platform, live on Optimism, offering real-world and on-chain synthetic assets using the power of the Synthetix protocol.',
+    documentation: 'https://docs.kwenta.io/',
+  },
+  UNIDX: {
+    name: 'UniDex',
+    symbol: 'UNIDX',
+    address: '0x5d47bAbA0d66083C52009271faF3F50DCc01023C',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.unidex.exchange/trading',
+    description:
+      'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
+    documentation: 'https://unidexexchange.gitbook.io/unidex/',
   },
 } as const;
 

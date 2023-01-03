@@ -116,7 +116,11 @@ const getTokenBalanceInUsd = async (web3, pools, curvePool, token, index, tokenP
   let price = 1;
   if (token.basePool) {
     const pool = pools.find(p => p.name === token.basePool);
-    price = await getStablePoolPrice(web3, pool, tokenPrices);
+    if (pool.volatile) {
+      price = await getVolatilePoolPrice(web3, pools, pool, tokenPrices);
+    } else {
+      price = await getStablePoolPrice(web3, pool, tokenPrices);
+    }
   } else if (token.oracleId) {
     price = getTokenPrice(tokenPrices, token.oracleId);
   }

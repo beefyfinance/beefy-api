@@ -101,6 +101,27 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
+  sBTC: {
+    chainId: 1,
+    address: '0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6',
+    decimals: 18,
+    name: 'Synthetix: sBTC',
+    symbol: 'sBTC',
+    website: 'https://www.synthetix.io/',
+    description:
+      'sBTC is a synthetic Bitcoin token enabled by the Synthetix protocol. It tracks the price of Bitcoin through price feeds supplied by Chainlink’s decentralized network of oracles.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+  },
+  multiBTC: {
+    chainId: 1,
+    address: '0x66eFF5221ca926636224650Fd3B9c497FF828F7D',
+    decimals: 8,
+    name: 'Multichain BTC',
+    symbol: 'multiBTC',
+    website: 'https://app.multichain.org/',
+    description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
+  },
   alETH: {
     name: 'Alchemix ETH',
     symbol: 'alETH',
@@ -519,6 +540,18 @@ const _tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
+  },
+  ACX: {
+    name: 'Across Protocol Token',
+    symbol: 'ACX',
+    address: '0x44108f0223A3C3028F5Fe7AEC7f9bb2E66beF82F',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://across.to/',
+    documentation: 'https://docs.across.to/',
+    description:
+      'Across is a cross-chain bridge for L2s and rollups secured by UMAs optimistic oracle. It is optimized for capital efficiency with a single liquidity pool, a competitive relayer landscape, and a no-slippage fee model.',
+    logoURI: '',
   },
 } as const;
 
