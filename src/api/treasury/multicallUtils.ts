@@ -1,18 +1,12 @@
 import BigNumber from 'bignumber.js';
-import {
-  ContractCallContext,
-  ContractCallResults,
-  ContractCallReturnContext,
-} from 'ethereum-multicall';
+import { ContractCallContext, ContractCallReturnContext } from 'ethereum-multicall';
 import { partition } from 'lodash';
 import { ERC20_ABI } from '../../abis/common/ERC20';
 import multicallAbi from '../../abis/common/Multicall/MulticallAbi.json';
 import {
   isNativeAsset,
   isTokenAsset,
-  isValidatorAsset,
   isVaultAsset,
-  NativeAsset,
   TreasuryAsset,
   ChainTreasuryBalance,
   TreasuryWallet,
