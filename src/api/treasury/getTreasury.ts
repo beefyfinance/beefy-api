@@ -204,20 +204,24 @@ const updateSingleChainTreasuryBalance = async (chain: string) => {
 };
 
 const updateTreasuryBalances = async () => {
-  console.log('> updating treasury balances');
-  const start = Date.now();
-  let promises = [];
+  try {
+    console.log('> updating treasury balances');
+    const start = Date.now();
+    let promises = [];
 
-  for (const chain of Object.keys(treasuryAddressesByChain)) {
-    promises.push(updateSingleChainTreasuryBalance(chain));
+    for (const chain of Object.keys(treasuryAddressesByChain)) {
+      promises.push(updateSingleChainTreasuryBalance(chain));
+    }
+
+    await Promise.allSettled(promises);
+    console.log(`> treasury balances updated (${((Date.now() - start) / 1000).toFixed(2)}s)`);
+
+    buildTreasuryReport();
+
+    await saveToRedis();
+  } catch (err) {
+    console.log(`> error updating treasury`);
   }
-
-  await Promise.allSettled(promises);
-  console.log(`> treasury balances updated (${((Date.now() - start) / 1000).toFixed(2)}s)`);
-
-  buildTreasuryReport();
-
-  await saveToRedis();
 
   setTimeout(() => {
     updateTreasuryBalances();
