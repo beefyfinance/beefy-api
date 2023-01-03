@@ -74,7 +74,8 @@ const getTokenAddressesByChain = (): TreasuryAssetRegistry => {
     tokensByChain[chain] = {};
 
     for (const [key, token] of Object.entries(chainAddressbook)) {
-      if (key === 'WNATIVE' && token.symbol !== 'WCELO') {
+      if (key === 'WNATIVE') {
+        if (token.symbol === 'WCELO') continue;
         // CELO and WCELO are the same token, avoid adding native celo as well
         // Add gas token
         tokensByChain[chain]['native'] = {
@@ -289,11 +290,9 @@ const restoreFromRedis = async () => {
   const cachedSummary = await getKey('TREASURY_REPORT');
   const cachedBalances = await getKey('TREASURY_BALANCES');
   if (cachedSummary) {
-    console.log('restoring summary from cache');
     treasurySummary = cachedSummary;
   }
   if (cachedBalances) {
-    console.log('restoring balances from cache');
     tokenBalancesByChain = cachedBalances;
   }
 };
