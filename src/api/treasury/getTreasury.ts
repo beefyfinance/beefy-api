@@ -246,18 +246,24 @@ const buildTreasuryReport = async () => {
       });
 
       for (const [treasuryWallet, balance] of Object.entries(assetBalance.balances)) {
-        if (balance.gt(0)) {
-          //Add validator wallet if missing
-          if (!balanceReport[chain][treasuryWallet]) {
-            balanceReport[chain][treasuryWallet] = { name: treasuryWallet, balances: {} };
+        try {
+          if (balance.gt(0)) {
+            //Add validator wallet if missing
+            if (!balanceReport[chain][treasuryWallet]) {
+              balanceReport[chain][treasuryWallet] = { name: treasuryWallet, balances: {} };
+            }
+            const usdValue = findUsdValueForBalance(treasuryAsset, price, balance);
+            balanceReport[chain][treasuryWallet].balances[treasuryAsset.address] = {
+              ...treasuryAsset,
+              price,
+              usdValue: usdValue.toString(10),
+              balance: balance.toString(10),
+            };
           }
-          const usdValue = findUsdValueForBalance(treasuryAsset, price, balance);
-          balanceReport[chain][treasuryWallet].balances[treasuryAsset.address] = {
-            ...treasuryAsset,
-            price,
-            usdValue: usdValue.toString(10),
-            balance: balance.toString(10),
-          };
+        } catch (err) {
+          console.log(
+            `> error setting treasury balance on ${chain} for asset ${treasuryAsset.name}`
+          );
         }
       }
     }
