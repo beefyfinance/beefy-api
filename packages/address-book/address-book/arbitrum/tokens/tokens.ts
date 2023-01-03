@@ -407,6 +407,17 @@ const _tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
   },
+  'BIFI-ETH LP': {
+    name: 'BIFI-ETH LP',
+    symbol: 'BIFI-ETH LP',
+    address: '0xcDA9B8e5867b5746755fE6E505B6300a76b2fAc3',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.beefy.com/',
+    oracleId: 'sushi-arb-weth-bifi',
+    oracle: 'lps',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

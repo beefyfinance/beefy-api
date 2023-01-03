@@ -85,8 +85,8 @@ const getTokenAddressesByChain = (): TreasuryAssetRegistry => {
       } else {
         tokensByChain[chain][token.address.toLowerCase()] = {
           ...pick(token, ['name', 'address', 'decimals']),
-          oracleId: key,
-          oracleType: 'tokens',
+          oracleId: token.oracleId ?? key,
+          oracleType: token.oracle ?? 'tokens',
           assetType: 'token',
         };
       }

@@ -7,6 +7,8 @@ interface Token {
   symbol: string;
   address: string;
   decimals: number;
+  oracle?: 'tokens' | 'lps';
+  oracleId?: string;
 }
 
 export const initTokenService = () => {
@@ -21,6 +23,8 @@ export const initTokenService = () => {
         symbol: token.symbol,
         address: token.address,
         decimals: token.decimals,
+        ...(token.oracle && { oracle: token.oracle ?? 'tokens' }),
+        ...(token.oracleId && { oracleId: token.oracleId }),
       };
     });
     addressBook[chain].tokens;

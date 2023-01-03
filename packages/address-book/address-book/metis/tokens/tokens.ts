@@ -208,6 +208,17 @@ const _tokens = {
     description:
       'HERMES is the governance token of the Solidly-fork Hermes Protocol on Metis. The token is emitted as a farming reward to liquidity providers and can be locked for a period to gain voting rights.',
   },
+  'BIFI-METIS LP': {
+    name: 'BIFI-METIS LP',
+    symbol: 'BIFI-METIS LP',
+    address: '0x0f9602B7E7146a9BaE16dB948281BebDb7C2D095',
+    chainId: 1088,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.beefy.com/',
+    oracleId: 'netswap-bifi-metis',
+    oracle: 'lps',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
