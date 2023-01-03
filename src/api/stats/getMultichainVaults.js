@@ -91,7 +91,6 @@ export const initVaultService = async () => {
 
 const saveToRedis = async () => {
   await setKey('VAULTS_BY_CHAIN', vaultsByChain);
-  console.log('> Vaults saved to redis');
 };
 
 module.exports = { getMultichainVaults, getSingleChainVaults, initVaultService };

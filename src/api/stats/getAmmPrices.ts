@@ -797,5 +797,4 @@ const saveToRedis = async () => {
   await setKey('TOKEN_PRICES', await tokenPricesCache);
   await setKey('LP_PRICES', await lpPricesCache);
   await setKey('LP_BREAKDOWN', await lpBreakdownCache);
-  console.log('Prices saved to redis');
 };

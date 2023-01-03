@@ -4,6 +4,7 @@ import { chunk, partition, pick } from 'lodash';
 import { addressBook } from '../../../packages/address-book/address-book';
 import chainIdMap from '../../../packages/address-book/util/chainIdMap';
 import fetchPrice from '../../utils/fetchPrice';
+import { getKey, setKey } from '../../utils/redisHelper';
 import { web3Factory } from '../../utils/web3';
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
 
@@ -21,6 +22,7 @@ import {
 import { getChainValidator, hasChainValidator } from './validatorHelpers';
 
 const INIT_DELAY = 90000;
+const REFRESH_INTERVAL = 60000 * 10;
 
 const MULTICALL_BATCH_SIZE = 1024;
 
@@ -102,6 +104,7 @@ const getTokenAddressesByChain = (): TreasuryAssetRegistry => {
 
 // Periodically update vault deposit tokens and mooTokens
 const updateVaultTokenAddresses = () => {
+  console.log('updating treasury vault addresses');
   const vaults = getMultichainVaults();
   Object.keys(assetsByChain).forEach(chain => {
     //App and API name harmony differently
@@ -212,6 +215,12 @@ const updateTreasuryBalances = async () => {
   console.log(`> treasury balances updated (${((Date.now() - start) / 1000).toFixed(2)}s)`);
 
   buildTreasuryReport();
+
+  await saveToRedis();
+
+  setTimeout(() => {
+    updateTreasuryBalances();
+  }, REFRESH_INTERVAL);
 };
 
 const buildTreasuryReport = async () => {
@@ -271,15 +280,33 @@ const findUsdValueForBalance = (
   }
 };
 
+const saveToRedis = async () => {
+  await setKey('TREASURY_BALANCES', tokenBalancesByChain);
+  await setKey('TREASURY_REPORT', treasurySummary);
+};
+
+const restoreFromRedis = async () => {
+  const cachedSummary = await getKey('TREASURY_REPORT');
+  const cachedBalances = await getKey('TREASURY_BALANCES');
+  if (cachedSummary) {
+    console.log('restoring summary from cache');
+    treasurySummary = cachedSummary;
+  }
+  if (cachedBalances) {
+    console.log('restoring balances from cache');
+    tokenBalancesByChain = cachedBalances;
+  }
+};
+
 export const initTreasuryService = async () => {
   //Fetch treasury addresses, this are infered from the addressbook so no need to update till api restarts
   treasuryAddressesByChain = getTreasuryAddressesByChain();
   //Again, initialize from addressbook, only done once
   assetsByChain = getTokenAddressesByChain();
 
-  setTimeout(() => {
-    console.log('updating treasury vault addresses');
+  restoreFromRedis();
 
+  setTimeout(() => {
     updateVaultTokenAddresses();
     updateTreasuryBalances();
   }, INIT_DELAY);
