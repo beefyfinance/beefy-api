@@ -6,6 +6,7 @@ import {
 } from 'ethereum-multicall';
 import { partition } from 'lodash';
 import { ERC20_ABI } from '../../abis/common/ERC20';
+import multicallAbi from '../../abis/common/Multicall/MulticallAbi.json';
 import {
   isNativeAsset,
   isTokenAsset,
@@ -45,27 +46,7 @@ export const mapAssetToCall = (
       {
         reference: asset.address.toLowerCase(),
         contractAddress: multicallContractAddress,
-        abi: [
-          {
-            inputs: [
-              {
-                internalType: 'address',
-                name: 'addr',
-                type: 'address',
-              },
-            ],
-            name: 'getEthBalance',
-            outputs: [
-              {
-                internalType: 'uint256',
-                name: 'balance',
-                type: 'uint256',
-              },
-            ],
-            stateMutability: 'view',
-            type: 'function',
-          },
-        ],
+        abi: multicallAbi,
         calls: treasuryAddressesForChain.map((treasuryData: any) => ({
           reference: treasuryData.address.toLowerCase(),
           methodName: 'getEthBalance',
