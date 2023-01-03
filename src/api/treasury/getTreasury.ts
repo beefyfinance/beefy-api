@@ -300,6 +300,14 @@ const restoreFromRedis = async () => {
   }
   if (cachedBalances) {
     tokenBalancesByChain = cachedBalances;
+    //Need balance values as bignumbers, not strings
+    Object.values(tokenBalancesByChain).forEach(chainBalances => {
+      Object.values(chainBalances).forEach(walletBalance => {
+        Object.keys(walletBalance.balances).forEach(key => {
+          walletBalance.balances[key] = new BigNumber(walletBalance.balances[key]);
+        });
+      });
+    });
   }
 };
 
