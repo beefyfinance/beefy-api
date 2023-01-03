@@ -1,4 +1,5 @@
 'use strict';
+require('dotenv').config();
 
 import { initBoostService } from './api/boosts/getBoosts';
 import { initBifiBuyBackService } from './api/stats/bifibuyback/getBifiBuyback';
