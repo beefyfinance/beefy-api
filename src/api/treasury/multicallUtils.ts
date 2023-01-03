@@ -133,5 +133,3 @@ const extractFromStandardResult = (
     return treasuryBalance;
   });
 };
-
-const extractFromValidatorResult = asd => null;
