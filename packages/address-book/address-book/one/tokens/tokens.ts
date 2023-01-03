@@ -212,6 +212,17 @@ const _tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   },
+  'BIFI-WONE LP': {
+    name: 'BIFI-WONE LP',
+    symbol: 'BIFI-WONE LP',
+    address: '0x0f9602B7E7146a9BaE16dB948281BebDb7C2D095',
+    chainId: 1666600000,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.beefy.com/',
+    oracleId: 'sushi-one-bifi-wone',
+    oracle: 'lps',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

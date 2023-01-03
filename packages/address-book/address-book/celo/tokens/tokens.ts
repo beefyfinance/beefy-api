@@ -170,6 +170,28 @@ const _tokens = {
     ...SUSHIV1,
     symbol: 'cSUSHI',
   },
+  'BIFI-CELO LP': {
+    name: 'BIFI-CELO LP',
+    symbol: 'BIFI-CELO LP',
+    address: '0xa9FcF373b6bc717223d9464e8c481c9AfAe3f861',
+    chainId: 42220,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.beefy.com/',
+    oracleId: 'sushi-celo-bifi-weth',
+    oracle: 'lps',
+  },
+  'CSUSHI-CELO LP': {
+    name: 'CSUSHI-CELO LP',
+    symbol: 'CSUSHI-CELO LP',
+    address: '0x7072a1c2c9A0cb20ae0B3C0C9023a42a49542e8B',
+    chainId: 42220,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.beefy.com/',
+    oracleId: 'sushi-celo-csushi-celo',
+    oracle: 'lps',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

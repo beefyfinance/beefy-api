@@ -74,5 +74,24 @@
       "oracleId": "WETH",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "sushi-fuse-bifi-wfuse",
+    "address": "0xbD8923A4028c5D6b6B8698ad4342104302611914",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 122,
+    "lp0": {
+      "address": "0x2bf9b864cdc97b08b6d79ad4663e71b8ab65c45c",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x0BE9e53fd7EDaC9F859882AfdDa116645287C629",
+      "oracle": "tokens",
+      "oracleId": "WFUSE",
+      "decimals": "1e18"
+    }
   }
 ]

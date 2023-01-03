@@ -36,7 +36,6 @@ const initEarningsService = async () => {
 
 const saveToRedis = async () => {
   await setKey('EARNINGS', earned);
-  console.log('Earnings saved to redis');
 };
 
 module.exports = { dailyEarnings, initEarningsService };

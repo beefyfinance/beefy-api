@@ -1,6 +1,6 @@
 import { addressBook } from '../../../packages/address-book/address-book';
 
-const configsByChain: Record<string, Record<string, Config>> = {};
+const configsByChain: Record<string, Config> = {};
 
 interface Config {
   devMultisig: string;
@@ -20,8 +20,6 @@ interface Config {
 
 export const initConfigService = () => {
   Object.keys(addressBook).forEach(chain => {
-    configsByChain[chain] = {};
-
     const config = addressBook[chain].platforms.beefyfinance;
     // Prune ab fields
     configsByChain[chain] = {
@@ -49,5 +47,5 @@ export const getAllConfigs = () => {
 };
 
 export const getSingleChainConfig = (chain: string) => {
-  return configsByChain[chain] ?? [];
+  return configsByChain[chain] ?? {};
 };

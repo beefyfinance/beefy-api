@@ -458,6 +458,17 @@ const _tokens = {
     description:
       'Staked KSM (stKSM) is a liquid staking solution for KSM backed by industry-leading staking providers. stKSM rebases daily to receive rewards, wrapping stKSM for wstKSM will stop the rebasing mechanism, and will allow users to continue accruing staking rewards.',
   },
+  'BIFI-WMOVR LP': {
+    name: 'BIFI-WMOVR LP',
+    symbol: 'BIFI-WMOVR LP',
+    address: '0xaC726ee53edFAe5f8f4C2c0d611Fd71D58E743bA',
+    chainId: 1285,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.beefy.com/',
+    oracleId: 'sushi-mr-bifi-wmovr',
+    oracle: 'lps',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

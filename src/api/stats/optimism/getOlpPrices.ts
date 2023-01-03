@@ -32,7 +32,6 @@ const getPrice = async pool => {
       totalSupply: price[1].dividedBy(pool.decimals).toString(10),
     },
   };
-
 };
 
 const getLpTokenBalances = async pool => {

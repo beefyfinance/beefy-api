@@ -1,3 +1,5 @@
+import BigNumber from 'bignumber.js';
+
 const getVaults = require('../../utils/getVaults.js');
 const { getStrategies } = require('../../utils/getStrategies.js');
 const { getLastHarvests } = require('../../utils/getLastHarvests.js');
@@ -76,6 +78,15 @@ const updateChainVaults = async chain => {
 export const initVaultService = async () => {
   const cachedVaults = await getKey('VAULTS_BY_CHAIN');
 
+  if (cachedVaults) {
+    Object.values(cachedVaults).forEach(vaults => {
+      vaults.forEach(vault => {
+        if (vault.pricePerFullShare) {
+          vault.pricePerFullShare = new BigNumber(vault.pricePerFullShare);
+        }
+      });
+    });
+  }
   vaultsByChain = cachedVaults ?? {};
   multichainVaults = Object.values(vaultsByChain).reduce(
     (accumulator, current) => [...accumulator, ...current],
@@ -91,7 +102,6 @@ export const initVaultService = async () => {
 
 const saveToRedis = async () => {
   await setKey('VAULTS_BY_CHAIN', vaultsByChain);
-  console.log('> Vaults saved to redis');
 };
 
 module.exports = { getMultichainVaults, getSingleChainVaults, initVaultService };

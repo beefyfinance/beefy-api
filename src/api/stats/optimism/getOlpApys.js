@@ -38,10 +38,10 @@ const getPoolApy = async pool => {
   const fDistibutorCalls = [];
   const fsDistibutorCalls = [];
 
-  OLPCalls.push({stakedAmounts: OLPContract.methods.balanceOf(pool.fOLP)});
-  fOLPCalls.push({stakedAmounts: fOLPContract.methods.balanceOf(pool.fsOLP)});
-  fDistibutorCalls.push({rewardPerSecond: fDistibutorContract.methods.tokensPerInterval()});
-  fsDistibutorCalls.push({rewardPerSecond: fsDistibutorContract.methods.tokensPerInterval()});
+  OLPCalls.push({ stakedAmounts: OLPContract.methods.balanceOf(pool.fOLP) });
+  fOLPCalls.push({ stakedAmounts: fOLPContract.methods.balanceOf(pool.fsOLP) });
+  fDistibutorCalls.push({ rewardPerSecond: fDistibutorContract.methods.tokensPerInterval() });
+  fsDistibutorCalls.push({ rewardPerSecond: fsDistibutorContract.methods.tokensPerInterval() });
 
   const res = await multicall.all([OLPCalls, fOLPCalls, fDistibutorCalls, fsDistibutorCalls]);
 
@@ -49,14 +49,20 @@ const getPoolApy = async pool => {
   const fsStakedAmounts = new BigNumber(res[1].map(v => v.stakedAmounts));
   const fRewardPerSecond = new BigNumber(res[2].map(v => v.rewardPerSecond));
   const fsRewardPerSecond = new BigNumber(res[3].map(v => v.rewardPerSecond));
-  const fRewardPrice = await fetchPrice({oracle: 'tokens', id: pool.fRewardToken});
-  const fsRewardPrice = await fetchPrice({oracle: 'tokens', id: pool.fsRewardToken});
-  const OLPPrice = await fetchPrice({oracle: 'lps', id: 'opx-olp'});
+  const fRewardPrice = await fetchPrice({ oracle: 'tokens', id: pool.fRewardToken });
+  const fsRewardPrice = await fetchPrice({ oracle: 'tokens', id: pool.fsRewardToken });
+  const OLPPrice = await fetchPrice({ oracle: 'lps', id: 'opx-olp' });
 
-  const fYearlyRewardsInUsd = fRewardPerSecond.times(SECONDS_PER_YEAR).times(fRewardPrice).dividedBy(DECIMALS);
+  const fYearlyRewardsInUsd = fRewardPerSecond
+    .times(SECONDS_PER_YEAR)
+    .times(fRewardPrice)
+    .dividedBy(DECIMALS);
   const fApy = fYearlyRewardsInUsd.dividedBy(fStakedAmounts).times(DECIMALS).dividedBy(OLPPrice);
 
-  const fsYearlyRewardsInUsd = fsRewardPerSecond.times(SECONDS_PER_YEAR).times(fsRewardPrice).dividedBy(DECIMALS);
+  const fsYearlyRewardsInUsd = fsRewardPerSecond
+    .times(SECONDS_PER_YEAR)
+    .times(fsRewardPrice)
+    .dividedBy(DECIMALS);
   const fsApy = fsYearlyRewardsInUsd.dividedBy(fsStakedAmounts).times(DECIMALS).dividedBy(OLPPrice);
 
   return fApy.plus(fsApy);

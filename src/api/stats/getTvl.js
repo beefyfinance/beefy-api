@@ -204,7 +204,6 @@ const initTvlService = async () => {
 
 const saveToRedis = async () => {
   await setKey('', tvl);
-  console.log('> TVL saved to redis');
 };
 
 module.exports = { getTvl, initTvlService };

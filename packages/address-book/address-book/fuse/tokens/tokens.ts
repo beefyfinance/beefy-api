@@ -196,6 +196,17 @@ const _tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
   },
+  'BIFI-WFUSE LP': {
+    name: 'BIFI-WFUSE LP',
+    symbol: 'BIFI-WFUSE LP',
+    address: '0xbD8923A4028c5D6b6B8698ad4342104302611914',
+    chainId: 1666600000,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.beefy.com/',
+    oracleId: 'sushi-fuse-bifi-wfuse',
+    oracle: 'lps',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

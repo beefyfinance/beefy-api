@@ -123,7 +123,6 @@ export const initBifiBuyBackService = async () => {
 
 const saveToRedis = async () => {
   await setKey('DAILY_BUYBACK', dailyBifiBuybackStats);
-  console.log('Buybacks saved to redis');
 };
 
 export const getBifiBuyback = (): DailyBifiBuybackStats | undefined => {
