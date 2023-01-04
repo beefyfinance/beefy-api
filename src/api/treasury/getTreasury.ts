@@ -244,6 +244,9 @@ const buildTreasuryReport = async () => {
 
     for (const assetBalance of Object.values(chainBalancesByAddress)) {
       const treasuryAsset = assetsByChain[chain][assetBalance.address];
+
+      if (treasuryAsset === undefined) continue; //cached asset hasn't been deleted yet
+
       const price = await fetchPrice({
         oracle: treasuryAsset.oracleType,
         id: treasuryAsset.oracleId,
