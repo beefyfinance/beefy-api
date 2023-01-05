@@ -553,6 +553,18 @@ const _tokens = {
       'Across is a cross-chain bridge for L2s and rollups secured by UMAs optimistic oracle. It is optimized for capital efficiency with a single liquidity pool, a competitive relayer landscape, and a no-slippage fee model.',
     logoURI: '',
   },
+  'BAL-WETH-80-20': {
+    name: 'Balancer Pool Token BAL-WETH 80/20',
+    symbol: 'BAL-WETH-80-20',
+    address: '0x5c6Ee304399DBdB9C8Ef030aB642B10820DB8F56',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.balancer.fi/',
+    description:
+      'Instead of locking pure BAL, users obtain veBAL by locking 80/20 BAL/WETH Balancer Pool Tokens (BPTs). This ensures that even if a large portion of BAL tokens are locked, there is deep trading liquidity.',
+    logoURI: '',
+    documentation: 'https://docs.balancer.fi/ecosystem/vebal-and-gauges/vebal',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

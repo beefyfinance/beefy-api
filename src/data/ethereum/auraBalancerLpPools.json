@@ -1,5 +1,52 @@
 [
   {
+    "name": "aura-aurabal-balbpt",
+    "address": "0x3dd0843A028C86e0b760b1A76929d1C5Ef93a2dd",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xACAdA51C320947E7ed1a0D0F6b939b0FF465E4c2",
+    "vaultPoolId": "0x3dd0843a028c86e0b760b1a76929d1c5ef93a2dd000200000000000000000249",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardId": 0,
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "BAL-WETH-80-20",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "auraBAL",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-aura-weth",
+    "address": "0xCfCA23cA9CA720B6E98E3Eb9B6aa0fFC4a5C08B9",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x712CC5BeD99aA06fC4D5FB50Aea3750fA5161D0f",
+    "vaultPoolId": "0xcfca23ca9ca720b6e98e3eb9b6aa0ffc4a5c08b9000200000000000000000274",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-acx-wsteth",
     "address": "0x798b112420AD6391A4129Ac25eF59663a44C88bB",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

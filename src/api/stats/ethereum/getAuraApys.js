@@ -135,7 +135,24 @@ const getYearlyRewardsInUsd = async (auraData, pool) => {
   const auraYearlyRewardsInUsd = amount
     .times(auraPrice)
     .dividedBy(await getEDecimals(AURA.decimals));
-  return yearlyRewardsInUsd.plus(auraYearlyRewardsInUsd);
+
+  console.log(pool.name, yearlyRewardsInUsd.toString(), auraYearlyRewardsInUsd.toString());
+
+  let extraRewards = new BigNumber(0);
+  if (pool.rewards) {
+    for (let i = 0; i < pool.rewards.length; i++) {
+      const extraReward = await auraGauge.methods.extraRewards(pool.rewards[i].rewardId).call();
+      const virtualGauge = getContractWithProvider(IAuraGauge, extraReward, web3);
+      const rate = new BigNumber(await virtualGauge.methods.rewardRate().call());
+      const rewardPrice = await fetchPrice({ oracle: 'tokens', id: pool.rewards[i].oracleId });
+      extraRewards = extraRewards.plus(
+        rate.times(secondsInAYear).times(rewardPrice).dividedBy(pool.rewards[i].decimals)
+      );
+      console.log(pool.name, extraRewards.toString(), rate.toString());
+    }
+  }
+
+  return yearlyRewardsInUsd.plus(auraYearlyRewardsInUsd).plus(extraRewards);
 };
 
 const getTotalStakedInUsd = async pool => {
