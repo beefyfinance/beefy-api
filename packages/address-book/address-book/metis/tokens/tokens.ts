@@ -77,6 +77,7 @@ const _tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    oracleId: 'USDC',
   },
   mDAI: {
     name: 'Dai Stablecoin',
