@@ -75,7 +75,7 @@ const getTokenAddressesByChain = (): TreasuryAssetRegistry => {
 
     for (const [key, token] of Object.entries(chainAddressbook)) {
       if (key === 'WNATIVE') {
-        if (token.symbol === 'WCELO') continue;
+        if (token.symbol === 'WCELO' || token.symbol === 'WMETIS') continue;
         // CELO and WCELO are the same token, avoid adding native celo as well
         // Add gas token
         tokensByChain[chain]['native'] = {
@@ -182,6 +182,7 @@ const updateSingleChainTreasuryBalance = async (chain: string) => {
       balancesForChain[treasuryData.address.toLowerCase()] = {};
     });
 
+    const hasOneFailedCall = results.some(res => res.status === 'rejected');
     const fulfilledResults = Object.fromEntries(
       results
         .filter(res => res.status === 'fulfilled')
@@ -195,7 +196,7 @@ const updateSingleChainTreasuryBalance = async (chain: string) => {
     }
 
     tokenBalancesByChain[chain] = {
-      ...(tokenBalancesByChain[chain] ?? {}),
+      ...(tokenBalancesByChain[chain] && hasOneFailedCall ? tokenBalancesByChain[chain] : {}),
       ...extractBalancesFromTreasuryMulticallResults(fulfilledResults),
     };
   } catch (err) {
@@ -245,7 +246,9 @@ const buildTreasuryReport = async () => {
     for (const assetBalance of Object.values(chainBalancesByAddress)) {
       const treasuryAsset = assetsByChain[chain][assetBalance.address];
 
-      if (treasuryAsset === undefined) continue; //cached asset hasn't been deleted yet
+      if (treasuryAsset === undefined) {
+        continue; //cached asset hasn't been deleted yet
+      }
 
       const price = await fetchPrice({
         oracle: treasuryAsset.oracleType,
