@@ -5,6 +5,12 @@
     "token": "0x2863a328a0b7fc6040f11614fa0728587db8e353",
     "oracleId": "WBTC",
     "rewardPool": "0x41EAB7eB43b7b055B2Bf508cAcE932b11003029f",
+    "extras": [
+      {
+        "rewardPool": "0x1037750005323093dDD5Cd385d07969C239aE028",
+        "oracleId": "CVX"
+      }
+    ],
     "tokens": [
       {
         "oracle": "tokens",
