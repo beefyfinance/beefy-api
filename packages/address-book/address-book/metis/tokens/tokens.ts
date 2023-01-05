@@ -212,7 +212,7 @@ const _tokens = {
   'BIFI-METIS LP': {
     name: 'BIFI-METIS LP',
     symbol: 'BIFI-METIS LP',
-    address: '0x0f9602B7E7146a9BaE16dB948281BebDb7C2D095',
+    address: '0x89D433e8cCC871B3f12EA17b651ff3633DFb5DC0',
     chainId: 1088,
     decimals: 18,
     logoURI: '',
