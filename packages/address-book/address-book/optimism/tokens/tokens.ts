@@ -464,6 +464,42 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
+  'wUSD+': {
+    name: 'Wrapped USD+ Stablecoin',
+    symbol: 'wUSD+',
+    address: '0xA348700745D249c3b49D2c2AcAC9A5AE8155F826',
+    chainId: 10,
+    decimals: 6,
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'DAI+': {
+    name: 'DAI+ Stablecoin',
+    symbol: 'DAI+',
+    address: '0x970D50d09F3a656b43E11B0D45241a84e3a6e011',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'wDAI+': {
+    name: 'Wrapped DAI+ Stablecoin',
+    symbol: 'wDAI+',
+    address: '0x0b8f31480249cC717081928B8aF733F45f6915BB',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
   TUSD: {
     name: 'TrueUSD',
     symbol: 'TUSD',

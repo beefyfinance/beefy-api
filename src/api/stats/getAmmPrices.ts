@@ -559,6 +559,7 @@ const knownPrices = {
   amUSDT: 1,
   amUSDC: 1,
   amDAI: 1,
+  'DAI+': 1,
 };
 
 let tokenPricesCache: Promise<any>;

@@ -136,7 +136,7 @@ const getYearlyRewardsInUsd = async (auraData, pool) => {
     .times(auraPrice)
     .dividedBy(await getEDecimals(AURA.decimals));
 
-  console.log(pool.name, yearlyRewardsInUsd.toString(), auraYearlyRewardsInUsd.toString());
+  // console.log(pool.name, yearlyRewardsInUsd.toString(), auraYearlyRewardsInUsd.toString());
 
   let extraRewards = new BigNumber(0);
   if (pool.rewards) {
@@ -148,7 +148,7 @@ const getYearlyRewardsInUsd = async (auraData, pool) => {
       extraRewards = extraRewards.plus(
         rate.times(secondsInAYear).times(rewardPrice).dividedBy(pool.rewards[i].decimals)
       );
-      console.log(pool.name, extraRewards.toString(), rate.toString());
+      // console.log(pool.name, extraRewards.toString(), rate.toString());
     }
   }
 
