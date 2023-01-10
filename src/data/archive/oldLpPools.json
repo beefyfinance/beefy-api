@@ -1,5 +1,23 @@
 [
   {
+    "name": "cakev2-bnb-ankrbnb",
+    "address": "0x02E3870766ccB0768a52d257110761D890E8E51D",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x52F24a5e03aee338Da5fd9Df68D2b6FAe1178827",
+      "oracle": "tokens",
+      "oracleId": "ankrBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-usdc-oath",
     "address": "0x9ba499753Ea5407D5578718A8D37453ecbf609f9",
     "decimals": "1e18",
