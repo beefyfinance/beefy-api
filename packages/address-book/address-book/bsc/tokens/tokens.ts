@@ -338,6 +338,16 @@ const _tokens = {
     description:
       'BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG',
   },
+  ankrBNB: {
+    name: 'Ankr Staked BNB',
+    symbol: 'ankrBNB',
+    address: '0x52F24a5e03aee338Da5fd9Df68D2b6FAe1178827',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description: 'Decentralized Infrastructure to Build and Earn in Web3',
+  },
   aBNBc: {
     name: 'Ankr BNB Reward Bearing Certificate',
     symbol: 'aBNBc',
