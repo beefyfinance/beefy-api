@@ -58,7 +58,30 @@ const getPoolApy = async pool => {
 
     pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
   }
-  // console.log(pool.name,rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
+
+  if (pool.overnight) {
+    const usdPlusResponse = await fetch(
+      'https://api.overnight.fi/optimism/usd+/fin-data/avg-apr/week'
+    ).then(res => res.json());
+    const usdPlusApr = usdPlusResponse.value;
+
+    const usdPlusFixed = usdPlusApr / 100 / 4;
+
+    const daiPlusResponse = await fetch(
+      'https://api.overnight.fi/optimism/dai+/fin-data/avg-apr/week'
+    ).then(res => res.json());
+    const daiPlusApr = daiPlusResponse.value;
+
+    const daiPlusFixed = daiPlusApr / 100 / 4;
+
+    aprFixed = usdPlusFixed + daiPlusFixed;
+  }
+  console.log(
+    pool.name,
+    rewardsApy.toNumber(),
+    totalStakedInUsd.valueOf(),
+    yearlyRewardsInUsd.valueOf()
+  );
   return [rewardsApy, aprFixed];
 };
 

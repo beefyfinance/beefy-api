@@ -4,6 +4,7 @@
     "address": "0xb1c9ac57594e9b1ec0f3787d9f6744ef4cb0a024",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xa066243Ba7DAd6C779caA1f9417910a4AE83cf4D",
+    "overnight": true,
     "composable": true,
     "bptIndex": 1,
     "vaultPoolId": "0xb1c9ac57594e9b1ec0f3787d9f6744ef4cb0a02400000000000000000000006e",
