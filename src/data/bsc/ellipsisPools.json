@@ -1,5 +1,13 @@
 [
   {
+    "name": "ellipsis-ankrBNB",
+    "address": "0x53B07f1075cAbF87dC1329e44872F8fd8d7d84C9",
+    "minter": "0x440bA409d402e25b95aC852E386445aF12E802a0",
+    "oracleId": "ankrBNB",
+    "volatile": true,
+    "beefyFee": 0.095
+  },
+  {
     "name": "ellipsis-busd-jchf",
     "address": "0x5887cEa5e2bb7dD36F0C06Da47A8Df918c289A29",
     "minter": "0xBcA6E25937B0F7E0FD8130076b6B218F595E32e2",
@@ -123,18 +131,6 @@
       {
         "token": "0xB1EbdD56729940089Ecc3aD0BBEEB12b6842ea6F",
         "oracleId": "VALAS"
-      }
-    ]
-  },
-  {
-    "name": "ellipsis-ankrBNB",
-    "address": "0xf71A0bCC3Ef8a8c5a28fc1BC245e394A8ce124ec",
-    "minter": "0xf0d17f404343D7Ba66076C818c9DC726650E2435",
-    "oracleId": "WBNB",
-    "rewards": [
-      {
-        "token": "0xf307910A4c7bbc79691fD374889b36d8531B08e3",
-        "oracleId": "ANKR"
       }
     ]
   },
