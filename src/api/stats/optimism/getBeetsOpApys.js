@@ -66,12 +66,16 @@ const getPoolApy = async pool => {
       ).then(res => res.json());
       const usdPlusApr = usdPlusResponse.value;
 
+      //  console.log(usdPlusResponse);
+
       const usdPlusFixed = usdPlusApr / 100 / 4;
 
       const daiPlusResponse = await fetch(
         'https://api.overnight.fi/optimism/dai+/fin-data/avg-apr/week'
-      ).then(res => res.json());
+      ).then(res2 => res2.json());
       const daiPlusApr = daiPlusResponse.value;
+
+      //  console.log(daiPlusResponse);
 
       const daiPlusFixed = daiPlusApr / 100 / 4;
 

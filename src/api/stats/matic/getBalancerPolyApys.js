@@ -90,6 +90,10 @@ const getPoolApy = async pool => {
     const response = await fetch(pool.lidoUrl).then(res => res.json());
     const apr = response.apr;
     pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
+  } else if (pool.staderUrl) {
+    const response = await fetch(pool.staderUrl).then(res => res.json());
+    const apr = response.apr;
+    pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
   }
 
   let bbaUSDApy = await getComposableAaveYield();
