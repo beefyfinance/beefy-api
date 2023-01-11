@@ -670,7 +670,7 @@ const updateAmmPrices = async () => {
       const linearPrices = await fetchBalancerLinearPoolPrice(prices);
       const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
 
-      return { ...linearPrices, ...balancerStablePoolPrice };
+      return { ...linearPrices, ...balancerStablePoolPrice, ...wrappedAavePrices };
     });
 
     const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {

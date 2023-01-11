@@ -2,12 +2,29 @@ import { MultiCall } from 'eth-multicall';
 const { optimismWeb3: web3 } = require('../../../utils/web3');
 import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
+const IBalancerVault = require('../../../abis/IBalancerVault.json');
 import BigNumber from 'bignumber.js';
 import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
 const fetch = require('node-fetch');
 import { beetOpClient } from '../../../apollo/client';
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
+import { addressBook } from '../../../../packages/address-book/address-book';
+import { getEDecimals } from '../../../utils/getEDecimals';
+const fetchPrice = require('../../../utils/fetchPrice');
+
+const { getContractWithProvider } = require('../../../utils/contractHelper');
+const {
+  optimism: {
+    tokens: { USDC, 'wUSD+': wUSDplus, DAI, 'wDAI+': wDAIplus },
+    platforms: { beethovenX },
+  },
+} = addressBook;
+
+const bbUsdPlusPoolId = '0x88d07558470484c03d3bb44c3ecc36cafcf43253000000000000000000000051';
+const bbDaiPlusPoolId = '0xb5ad7d6d6f92a77f47f98c28c84893fbccc9480900000000000000000000006c';
+const bbUsdPlusTokens = [USDC, USDC, wUSDplus];
+const bbDaiPlusTokens = [DAI, DAI, wDAIplus];
 
 const pools = require('../../../data/optimism/beethovenxLpPools.json');
 
@@ -60,15 +77,44 @@ const getPoolApy = async pool => {
   }
 
   if (pool.overnight) {
+    const balVault = getContractWithProvider(IBalancerVault, beethovenX.router, web3);
+    const usdPlusTokenQtys = await balVault.methods.getPoolTokens(bbUsdPlusPoolId).call();
+    const daiPlusTokenQtys = await balVault.methods.getPoolTokens(bbDaiPlusPoolId).call();
+
+    let usdQty = [];
+    let usdTotalQty = new BigNumber(0);
+    for (let i = 0; i < usdPlusTokenQtys.balances.length; i++) {
+      if (i != 1) {
+        const price = await fetchPrice({ oracle: 'tokens', id: bbUsdPlusTokens[i].symbol });
+        const amt = new BigNumber(usdPlusTokenQtys.balances[i])
+          .times(price)
+          .dividedBy(await getEDecimals(bbUsdPlusTokens[i].decimals));
+        usdTotalQty = usdTotalQty.plus(amt);
+        usdQty.push(amt);
+        console.log(price, amt.toString(), await getEDecimals(bbUsdPlusTokens[i].decimals));
+      }
+    }
+
+    let daiQty = [];
+    let daiTotalQty = new BigNumber(0);
+    for (let j = 0; j < daiPlusTokenQtys.balances.length; j++) {
+      if (j != 1) {
+        const price = await fetchPrice({ oracle: 'tokens', id: bbDaiPlusTokens[j].symbol });
+        const amt = new BigNumber(daiPlusTokenQtys.balances[j])
+          .times(price)
+          .dividedBy(await getEDecimals(bbDaiPlusTokens[j].decimals));
+        daiTotalQty = daiTotalQty.plus(amt);
+        daiQty.push(amt);
+      }
+    }
+
     try {
       const usdPlusResponse = await fetch(
         'https://api.overnight.fi/optimism/usd+/fin-data/avg-apr/week'
       ).then(res => res.json());
       const usdPlusApr = usdPlusResponse.value;
 
-      //  console.log(usdPlusResponse);
-
-      const usdPlusFixed = usdPlusApr / 100 / 4;
+      const usdPlusFixed = (usdPlusApr * usdQty[1].dividedBy(usdTotalQty).toNumber()) / 100 / 2;
 
       const daiPlusResponse = await fetch(
         'https://api.overnight.fi/optimism/dai+/fin-data/avg-apr/week'
@@ -77,8 +123,9 @@ const getPoolApy = async pool => {
 
       //  console.log(daiPlusResponse);
 
-      const daiPlusFixed = daiPlusApr / 100 / 4;
+      const daiPlusFixed = (daiPlusApr * daiQty[0].dividedBy(daiTotalQty).toNumber()) / 100 / 2;
 
+      // console.log(pool.name, usdPlusFixed, daiPlusFixed);
       aprFixed = usdPlusFixed + daiPlusFixed;
     } catch (e) {
       console.error(`Overnight APR error`, e);
