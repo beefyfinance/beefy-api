@@ -81,7 +81,7 @@ const getPoolApy = async pool => {
 
       aprFixed = usdPlusFixed + daiPlusFixed;
     } catch (e) {
-      console.error(`Overnight APR error`);
+      console.error(`Overnight APR error`, e);
     }
   }
   // console.log(pool.name, rewardsApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
