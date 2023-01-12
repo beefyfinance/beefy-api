@@ -72,7 +72,7 @@ const getPoolApys = async pools => {
   values.forEach(item => {
     apys.push(item[0]);
     lsAprs.push(item[1]);
-    cmpAprs.push(item[2]);
+    cmpAprs.push(item[2].toNumber());
   });
 
   return [apys, lsAprs, cmpAprs];
@@ -92,7 +92,7 @@ const getPoolApy = async pool => {
     pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
   } else if (pool.staderUrl) {
     const response = await fetch(pool.staderUrl).then(res => res.json());
-    const apr = response.apr;
+    const apr = response.value;
     pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
   }
 

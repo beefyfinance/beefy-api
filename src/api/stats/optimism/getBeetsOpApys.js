@@ -40,15 +40,22 @@ const getBeetsOpApys = async () => {
   );
 
   // console.log(tradingAprs);
-
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
-  return getApyBreakdown(poolsMap, tradingAprs, farmApys[0], liquidityProviderFee, farmApys[1]);
+  return getApyBreakdown(
+    poolsMap,
+    tradingAprs,
+    farmApys[0],
+    liquidityProviderFee,
+    farmApys[1],
+    farmApys[2]
+  );
 };
 
 const getPoolApys = async pools => {
   const apys = [];
   const lsAprs = [];
+  const csAprs = [];
 
   let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(pool)));
@@ -56,9 +63,10 @@ const getPoolApys = async pools => {
   values.forEach(item => {
     apys.push(item[0]);
     lsAprs.push(item[1]);
+    csAprs.push(item[2]);
   });
 
-  return [apys, lsAprs];
+  return [apys, lsAprs, csAprs];
 };
 
 const getPoolApy = async pool => {
@@ -69,6 +77,7 @@ const getPoolApy = async pool => {
   ]);
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   let aprFixed = 0;
+  let compAprFixed = new BigNumber(0);
   if (pool.lidoUrl) {
     const response = await fetch(pool.lidoUrl).then(res => res.json());
     const apr = response.data.steth;
@@ -91,7 +100,7 @@ const getPoolApy = async pool => {
           .dividedBy(await getEDecimals(bbUsdPlusTokens[i].decimals));
         usdTotalQty = usdTotalQty.plus(amt);
         usdQty.push(amt);
-        console.log(price, amt.toString(), await getEDecimals(bbUsdPlusTokens[i].decimals));
+        //console.log(price, amt.toString(), await getEDecimals(bbUsdPlusTokens[i].decimals));
       }
     }
 
@@ -126,13 +135,13 @@ const getPoolApy = async pool => {
       const daiPlusFixed = (daiPlusApr * daiQty[0].dividedBy(daiTotalQty).toNumber()) / 100 / 2;
 
       // console.log(pool.name, usdPlusFixed, daiPlusFixed);
-      aprFixed = usdPlusFixed + daiPlusFixed;
+      compAprFixed = usdPlusFixed + daiPlusFixed;
     } catch (e) {
       console.error(`Overnight APR error`, e);
     }
   }
   // console.log(pool.name, rewardsApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
-  return [rewardsApy, aprFixed];
+  return [rewardsApy, aprFixed, compAprFixed];
 };
 
 module.exports = getBeetsOpApys;

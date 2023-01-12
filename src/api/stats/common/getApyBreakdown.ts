@@ -42,7 +42,7 @@ export const getApyBreakdown = (
       : undefined;
 
     const composablePoolApr: number | undefined = composablePoolAprs
-      ? composablePoolAprs[i].toNumber()
+      ? composablePoolAprs[i]
       : undefined;
 
     const extraApr =
