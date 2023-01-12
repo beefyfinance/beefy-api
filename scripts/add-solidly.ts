@@ -22,7 +22,7 @@ const {
     platforms: { dystopia },
   },
   bsc: {
-    platforms: { cone },
+    platforms: { cone, thena },
   },
 } = addressBook;
 
@@ -49,6 +49,12 @@ const projects = {
     stableFile: '../src/data/coneStableLpPools.json',
     volatileFile: '../src/data/coneLpPools.json',
     voter: cone.voter,
+  },
+  thena: {
+    prefix: 'thena',
+    stableFile: '../src/data/degens/thenaStableLpPools.json',
+    volatileFile: '../src/data/degens/thenaLpPools.json',
+    voter: thena.voter,
   },
   spiritVolatile: {
     prefix: 'spiritV2',

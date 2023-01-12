@@ -17,6 +17,7 @@ const getValasApys = require('./valas/getValasApys');
 const getValasLpApys = require('./valas/getValasLpApys');
 const { getDotDotApy } = require('./getDotDotApy');
 const getConeApys = require('./getConeApys');
+const getThenaApys = require('./getThenaApys');
 const { getWombexApy } = require('./getWombexApy');
 const { getSwapFishApys } = require('./getSwapFishApys');
 
@@ -42,6 +43,7 @@ const getApys = [
   getValasLpApys,
   getDotDotApy,
   getWombexApy,
+  getThenaApys,
 ];
 // ^^ APYs are sorted alphabetically
 

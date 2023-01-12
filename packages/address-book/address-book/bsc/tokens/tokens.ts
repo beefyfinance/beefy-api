@@ -15,6 +15,18 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  THE: {
+    name: 'THENA',
+    symbol: 'THE',
+    address: '0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://thena.fi/',
+    description:
+      'We envision THENA as being the native liquidity layer of BNB Chain, enabling value creation by opening the gates for new protocols that wish to solve the cold start liquidity problem, as well as for established protocols looking for a long-term solution to reduce costs to incentivize their liquidity. THENA is a public good owned by protocols and users, with both parties contributing to THENAs status as the leading AMM. We believe that in a decentralized and open-source economy, a collaborative strategy is essential to outrun the competition and establish your product as a market leader.',
+    documentation: 'https://thena.gitbook.io/thena/',
+  },
   FISH: {
     name: 'SwapFish',
     symbol: 'FISH',

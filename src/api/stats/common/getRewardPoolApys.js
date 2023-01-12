@@ -73,7 +73,7 @@ const getPoolsData = async params => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   params.pools.forEach(pool => {
-    const rewardPool = getContract(IRewardPool, pool.rewardPool);
+    const rewardPool = getContract(IRewardPool, pool.rewardPool ? pool.rewardPool : pool.gauge);
     balanceCalls.push({
       balance: rewardPool.methods.totalSupply(),
     });

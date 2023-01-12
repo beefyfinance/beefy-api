@@ -1,0 +1,102 @@
+[
+  {
+    "name": "thena-frax-busd",
+    "address": "0x7fCfE6b06C1F6AAd14884bA24A7f315C1c0C2cEf",
+    "gauge": "0x19549316a62f1D333cA7656bA634ba3cAB843348",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x90C97F71E18723b0Cf0dfa30ee176Ab653E89F40",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-hay-busd",
+    "address": "0x93B32a8dfE10e9196403dd111974E325219aec24",
+    "gauge": "0xE43317c1f037CBbaF33F33C386f2cAF2B6b25C9C",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
+      "oracle": "tokens",
+      "oracleId": "HAY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-usdt-busd",
+    "address": "0x6321B57b6fdc14924be480c54e93294617E672aB",
+    "gauge": "0x41adA56DD5702906549a71666541a39B0DbcEb12",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-usdc-busd",
+    "address": "0x7e61c053527A7Af0c700aD9D2C8207E386273222",
+    "gauge": "0x11E79bC17cb1fF3D4f6A025412ac84960B20Ba81",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-mai-busd",
+    "address": "0xe459556595A224D7F12b45E93138F4A1265AC618",
+    "gauge": "0x6FC3E598c8cC6D1E49b6233205b69aE07aB41C72",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  }
+]
