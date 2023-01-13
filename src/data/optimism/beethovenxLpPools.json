@@ -316,6 +316,11 @@
         "stream": "0x9D27eaa04Face448956eaB5b422C542fFfeeB4EF",
         "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
         "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x9D27eaa04Face448956eaB5b422C542fFfeeB4EF",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
       }
     ],
     "tokens": [
@@ -353,6 +358,11 @@
         "stream": "0x66f885344c4acBAfC8D52653694613410689840f",
         "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
         "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x66f885344c4acBAfC8D52653694613410689840f",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
       }
     ],
     "tokens": [
@@ -390,6 +400,11 @@
         "stream": "0x005E43C4BB2932605B121941797eBB123325301e",
         "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
         "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x005E43C4BB2932605B121941797eBB123325301e",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
       }
     ],
     "tokens": [
@@ -469,6 +484,11 @@
         "stream": "0x6Cf4Cba0Ea4528775d582372bDe556c8aB854688",
         "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
         "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x6Cf4Cba0Ea4528775d582372bDe556c8aB854688",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
       }
     ],
     "tokens": [
