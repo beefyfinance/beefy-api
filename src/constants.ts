@@ -120,7 +120,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
 };
 
 const BSC_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/main/src/config/vault/bsc.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/bsc.json';
 const HECO_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/heco.json';
 const AVAX_VAULTS_ENDPOINT =
