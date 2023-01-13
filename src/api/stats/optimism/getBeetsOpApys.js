@@ -77,12 +77,33 @@ const getPoolApy = async pool => {
   ]);
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   let aprFixed = 0;
-  let compAprFixed = new BigNumber(0);
+  let compAprFixed = 0;
   if (pool.lidoUrl) {
+    const balVault = getContractWithProvider(IBalancerVault, beethovenX.router, web3);
+    const tokenQtys = await balVault.methods.getPoolTokens(pool.vaultPoolId).call();
+
+    let qty = [];
+    let totalQty = new BigNumber(0);
+    for (let j = 0; j < tokenQtys.balances.length; j++) {
+      if (pool.composable) {
+        if (pool.bptIndex == j) {
+          continue;
+        }
+      }
+
+      const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
+      const amt = new BigNumber(tokenQtys.balances[j])
+        .times(price)
+        .dividedBy([pool.tokens[j].decimals]);
+      totalQty = totalQty.plus(amt);
+      qty.push(amt);
+    }
     const response = await fetch(pool.lidoUrl).then(res => res.json());
     const apr = response.data.steth;
 
-    pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
+    pool.balancerChargesFee
+      ? (aprFixed = (apr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100 / 2)
+      : (aprFixed = (apr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100);
   }
 
   if (pool.overnight) {
@@ -140,7 +161,7 @@ const getPoolApy = async pool => {
       console.error(`Overnight APR error`, e);
     }
   }
-  // console.log(pool.name, rewardsApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
+  // console.log(pool.name, aprFixed, compAprFixed);
   return [rewardsApy, aprFixed, compAprFixed];
 };
 
