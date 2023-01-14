@@ -1,6 +1,7 @@
 import { beefyfinance } from './platforms/beefyfinance';
 import { sushi } from './platforms/sushi';
 import { swapfish } from './platforms/swapfish';
+import { balancer } from './platforms/balancer';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -11,6 +12,7 @@ const _arbitrum = {
     beefyfinance,
     sushi,
     swapfish,
+    balancer,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

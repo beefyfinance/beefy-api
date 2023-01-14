@@ -1,5 +1,42 @@
 [
   {
+    "name": "beets-optimism-steady-beets",
+    "address": "0x373643B17Cd80e37675c8C98eF774efe6ca0b4De",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xEf47a07945D53Ee3a511751375A1ed0B79d6232D",
+    "vaultPoolId": "0x373643b17cd80e37675c8c98ef774efe6ca0b4de00000000000000000000001c",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x8AF6B2567d4aE7eA657B929f996E0128c7e448aB",
+        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x8AF6B2567d4aE7eA657B929f996E0128c7e448aB",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-shanghai-shakedown",
     "address": "0x7B50775383d3D6f0215A8F290f2C9e2eEBBEceb2",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
