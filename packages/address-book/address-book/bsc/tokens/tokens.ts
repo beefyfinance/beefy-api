@@ -2298,6 +2298,7 @@ const _tokens = {
       'Ankr originates as a solution that utilizes shared resources in order to provide easy and affordable blockchain node hosting solutions.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xf307910a4c7bbc79691fd374889b36d8531b08e3.png',
+    documentation: 'https://www.ankr.com/about-network/token/',
   },
   LINK: {
     name: 'ChainLink Token',

@@ -1,5 +1,25 @@
 [
   {
+    "name": "thena-wbnb-ankr",
+    "address": "0xE934278276c0274aac95DADB9783F02A27c351Ff",
+    "gauge": "0x9f3d718Cd994627A78dcBE7E6C878462337Ebd19",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf307910A4c7bbc79691fD374889b36d8531B08e3",
+      "oracle": "tokens",
+      "oracleId": "ANKR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "thena-bnbx-wbnb",
     "address": "0x6c83E45fE3Be4A9c12BB28cB5BA4cD210455fb55",
     "gauge": "0x0Df5Dfe92A0568373DA2d705Cdb5F68017c4B19A",
