@@ -18,7 +18,7 @@ function addToCache({ oracle, id, price }) {
   cache[`${oracle}-${id}`] = { price: price, t: Date.now() };
 }
 
-const fetchPrice = async ({ oracle, id }) => {
+const fetchPrice = async ({ oracle, id }, withUnkownLogging = true) => {
   if (oracle === undefined) {
     console.trace('Undefined oracle');
     return 0;
@@ -35,11 +35,11 @@ const fetchPrice = async ({ oracle, id }) => {
   let price = 0;
   switch (oracle) {
     case 'lps':
-      price = await getAmmLpPrice(id);
+      price = await getAmmLpPrice(id, withUnkownLogging);
       break;
 
     case 'tokens':
-      price = await getAmmTokenPrice(id);
+      price = await getAmmTokenPrice(id, withUnkownLogging);
       break;
 
     case 'hardcode':
