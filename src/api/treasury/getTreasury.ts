@@ -28,7 +28,7 @@ import {
 } from './types';
 import { getChainValidator, hasChainValidator } from './validatorHelpers';
 
-const INIT_DELAY = 20000;
+const INIT_DELAY = 90000;
 const REFRESH_INTERVAL = 60000 * 10;
 
 const MULTICALL_BATCH_SIZE = 1024;
