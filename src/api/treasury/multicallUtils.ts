@@ -1,6 +1,6 @@
+const fetch = require('node-fetch');
 import BigNumber from 'bignumber.js';
 import { ContractCallContext, ContractCallReturnContext } from 'ethereum-multicall';
-import { partition } from 'lodash';
 import { ERC20_ABI } from '../../abis/common/ERC20';
 import multicallAbi from '../../abis/common/Multicall/MulticallAbi.json';
 import {
@@ -12,6 +12,7 @@ import {
   TreasuryWallet,
   AssetBalance,
   ValidatorAsset,
+  TreasuryApiResult,
 } from './types';
 
 export const mapAssetToCall = (
@@ -95,17 +96,7 @@ type FullfilledResult = {
 export const extractBalancesFromTreasuryMulticallResults = (
   multicallResults: FullfilledResult
 ): ChainTreasuryBalance => {
-  const [standardResults, validatorResult] = partition(
-    Object.entries(multicallResults),
-    ([key, context]) => context.originalContractCallContext.context?.type === 'standard'
-  );
-
   const balances: AssetBalance[] = extractFromStandardResult(Object.entries(multicallResults));
-
-  // if (validatorResult.length > 0) {
-  //   const validatorBalance: AssetBalance = extractFromValidatorResult(validatorResult[0]);
-  // }
-
   return balances.reduce((all, cur) => ((all[cur.address] = cur), all), {});
 };
 
@@ -126,4 +117,26 @@ const extractFromStandardResult = (
     });
     return treasuryBalance;
   });
+};
+
+export const extractBalancesFromTreasuryApiCallResults = (
+  apiCallResults: TreasuryApiResult[]
+): ChainTreasuryBalance => {
+  const balances: AssetBalance[] = apiCallResults.map(result => ({
+    address: result.apiAsset.address,
+    balances: {
+      [result.apiAsset.address]: result.balance,
+    },
+  }));
+  return balances.reduce((all, cur) => ((all[cur.address] = cur), all), {});
+};
+
+export const fetchAPIBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
+  let balance: number = await fetch(apiAsset.methodPath)
+    .then(res => res.json())
+    .then(res => res.data.balance);
+  return {
+    apiAsset,
+    balance: new BigNumber(balance).shiftedBy(9),
+  };
 };

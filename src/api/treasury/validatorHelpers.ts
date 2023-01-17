@@ -11,16 +11,16 @@ const validatorsByChain: Record<string, ValidatorAsset> = {
     methodPath: '0xDf87E4dBb0336d3571b2f8000b1f5353Dfb638c1',
     assetType: 'validator',
   },
-  // ethereum: {
-  //   name: 'Ethereum Validator',
-  //   address: 'validator',
-  //   oracleId: 'ETH',
-  //   oracleType: 'tokens',
-  //   decimals: 18,
-  //   method: 'api',
-  //   methodPath: 'https://beaconcha.in/api/v1/validator/0x898e68fac00283d535520763ba9646b15ffb26d25df6c53f51854aa6d620ca8dd0a7b000b25b3141c1d4c1eb6d07710c/balancehistory',
-  //   assetType: 'validator'
-  // },
+  ethereum: {
+    name: 'Ethereum Validator',
+    address: 'validator',
+    oracleId: 'ETH',
+    oracleType: 'tokens',
+    decimals: 18,
+    method: 'api',
+    methodPath: 'https://beaconcha.in/api/v1/validator/402418',
+    assetType: 'validator',
+  },
   fuse: {
     name: 'Fuse Validator',
     address: 'validator',
