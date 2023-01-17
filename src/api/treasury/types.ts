@@ -102,3 +102,8 @@ export type TreasuryReport = {
     };
   };
 };
+
+export type TreasuryApiResult = {
+  apiAsset: TreasuryAsset;
+  balance: BigNumber;
+};
