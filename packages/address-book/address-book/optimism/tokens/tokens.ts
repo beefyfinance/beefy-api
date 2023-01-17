@@ -452,6 +452,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
   },
+  'bbUSD+': {
+    name: 'Beets Composable Pool USD+ Stablecoin',
+    symbol: 'bbUSD+',
+    address: '0x88D07558470484c03d3bb44c3ECc36CAfCF43253',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
   'USD+': {
     name: 'USD+ Stablecoin',
     symbol: 'USD+',
@@ -480,6 +492,18 @@ const _tokens = {
     name: 'DAI+ Stablecoin',
     symbol: 'DAI+',
     address: '0x970D50d09F3a656b43E11B0D45241a84e3a6e011',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'bbDAI+': {
+    name: 'Beets Composable Pool DAI+ Stablecoin',
+    symbol: 'bbDAI+',
+    address: '0xb5ad7d6d6F92a77F47f98C28C84893FBccc94809',
     chainId: 10,
     decimals: 18,
     website: 'https://overnight.fi/',

@@ -80,7 +80,7 @@ const getPoolApys = async pools => {
   values.forEach(item => {
     apys.push(item[0]);
     lsAprs.push(item[1]);
-    cmpAprs.push(item[2]);
+    cmpAprs.push(item[2].toNumber());
   });
 
   return [apys, lsAprs, cmpAprs];

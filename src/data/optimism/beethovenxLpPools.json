@@ -1,5 +1,81 @@
 [
   {
+    "name": "beets-optimism-steady-beets",
+    "address": "0x373643B17Cd80e37675c8C98eF774efe6ca0b4De",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xEf47a07945D53Ee3a511751375A1ed0B79d6232D",
+    "vaultPoolId": "0x373643b17cd80e37675c8c98ef774efe6ca0b4de00000000000000000000001c",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x8AF6B2567d4aE7eA657B929f996E0128c7e448aB",
+        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x8AF6B2567d4aE7eA657B929f996E0128c7e448aB",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-shanghai-shakedown",
+    "address": "0x7B50775383d3D6f0215A8F290f2C9e2eEBBEceb2",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x6341B7472152D7b7F9af3158C6A42349a2cA6c72",
+    "lidoUrl": "https://stake.lido.fi/api/apr",
+    "lsIndex": 0,
+    "vaultPoolId": "0x7b50775383d3d6f0215a8f290f2c9e2eebbeceb200020000000000000000008b",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x40E9AabcAd349Bba3967fECf77919a3C99E01F8b",
+        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x40E9AabcAd349Bba3967fECf77919a3C99E01F8b",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      },
+      {
+        "stream": "0x40E9AabcAd349Bba3967fECf77919a3C99E01F8b",
+        "token": "0xFdb794692724153d1488CcdBE0C56c252596735F",
+        "oracleId": "LDO"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-overnight-pulse",
     "address": "0xb1c9ac57594e9b1ec0f3787d9f6744ef4cb0a024",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -48,6 +124,8 @@
     "address": "0x899f737750db562b88c1e412ee1902980d3a4844",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x072e290B2EDa352b5aB630b0d43d4435C297A41A",
+    "lidoUrl": "https://stake.lido.fi/api/apr",
+    "lsIndex": 0,
     "vaultPoolId": "0x899f737750db562b88c1e412ee1902980d3a4844000200000000000000000081",
     "decimals": "1e18",
     "rewards": [
@@ -135,7 +213,7 @@
     "vaultPoolId": "0x981fb05b738e981ac532a99e77170ecb4bc27aef00010000000000000000004b",
     "decimals": "1e18",
     "lidoUrl": "https://stake.lido.fi/api/apr",
-    "balancerChargesFee": true,
+    "lsIndex": 0,
     "rewards": [
       {
         "stream": "0x23D6352Ff0EeC97E37726461EF63C7A8116C12b0",
@@ -183,6 +261,7 @@
     "gauge": "0x950FdBEE03900487Ebc3aC54daf4C988E7C02678",
     "vaultPoolId": "0xde45f101250f2ca1c0f8adfc172576d10c12072d00000000000000000000003f",
     "lidoUrl": "https://stake.lido.fi/api/apr",
+    "lsIndex": 0,
     "balancerChargesFee": true,
     "decimals": "1e18",
     "composable": true,
@@ -274,6 +353,11 @@
         "stream": "0x9D27eaa04Face448956eaB5b422C542fFfeeB4EF",
         "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
         "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x9D27eaa04Face448956eaB5b422C542fFfeeB4EF",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
       }
     ],
     "tokens": [
@@ -311,6 +395,11 @@
         "stream": "0x66f885344c4acBAfC8D52653694613410689840f",
         "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
         "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x66f885344c4acBAfC8D52653694613410689840f",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
       }
     ],
     "tokens": [
@@ -348,6 +437,11 @@
         "stream": "0x005E43C4BB2932605B121941797eBB123325301e",
         "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
         "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x005E43C4BB2932605B121941797eBB123325301e",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
       }
     ],
     "tokens": [
@@ -427,6 +521,11 @@
         "stream": "0x6Cf4Cba0Ea4528775d582372bDe556c8aB854688",
         "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
         "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x6Cf4Cba0Ea4528775d582372bDe556c8aB854688",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
       }
     ],
     "tokens": [

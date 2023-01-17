@@ -256,6 +256,7 @@ import hermesPools from '../../data/metis/hermesLpPools.json';
 import swapFishPools from '../../data/arbitrum/swapFishLpPools.json';
 import equalizerPools from '../../data/fantom/equalizerLpPools.json';
 import swapFishBscPools from '../../data/swapFishLpPools.json';
+import thenaPools from '../../data/degens/thenaLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 
@@ -265,6 +266,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...thenaPools,
   ...swapFishBscPools,
   ...equalizerPools,
   ...swapFishPools,
@@ -670,7 +672,7 @@ const updateAmmPrices = async () => {
       const linearPrices = await fetchBalancerLinearPoolPrice(prices);
       const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
 
-      return { ...linearPrices, ...balancerStablePoolPrice };
+      return { ...linearPrices, ...balancerStablePoolPrice, ...wrappedAavePrices };
     });
 
     const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {

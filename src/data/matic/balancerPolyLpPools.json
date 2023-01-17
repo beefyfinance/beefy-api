@@ -44,6 +44,8 @@
     "address": "0xb20fC01D21A50d2C734C4a1262B4404d41fA7BF0",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xdFFe97094394680362Ec9706a759eB9366d804C2",
+    "staderUrl": "https://universe.staderlabs.com/polygon/apy",
+    "balancerChargesFee": true,
     "vaultPoolId": "0xb20fc01d21a50d2c734c4a1262b4404d41fa7bf000000000000000000000075c",
     "decimals": "1e18",
     "beefyFee": 0.095,
