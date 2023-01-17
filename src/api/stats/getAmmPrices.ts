@@ -754,20 +754,22 @@ export const getLpBreakdown = async () => {
   return await lpBreakdownCache;
 };
 
-export const getAmmTokenPrice = async tokenSymbol => {
+export const getAmmTokenPrice = async (tokenSymbol, withUnkownLogging) => {
   const tokenPrices = await getAmmTokensPrices();
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     return tokenPrices[tokenSymbol];
   }
-  console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+  if (withUnkownLogging)
+    console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
 };
 
-export const getAmmLpPrice = async lpName => {
+export const getAmmLpPrice = async (lpName, withUnknownLogging) => {
   const lpPrices = await getAmmLpPrices();
   if (lpPrices.hasOwnProperty(lpName)) {
     return lpPrices[lpName];
   }
-  console.error(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
+  if (withUnknownLogging)
+    console.error(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
 };
 
 // We want to treat wrapped tokens the same way we'd treat normal ones => We then swap all wrapped token oracleIds to their underlying
