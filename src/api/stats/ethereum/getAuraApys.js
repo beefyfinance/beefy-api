@@ -188,15 +188,19 @@ const getLiquidStakingPoolYield = async pool => {
     }
   }
 
-  const response = pool.lidoUrl
-    ? await fetch(pool.lidoUrl).then(res => res.json())
-    : await fetch(pool.rocketUrl).then(res => res.json());
-
-  const lsApr = pool.lidoUrl ? response.data.steth : response.yearlyAPR;
-
   let apr = 0;
-  apr = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100;
-  apr = pool.balancerChargesFee ? apr / 2 : apr;
+  try {
+    const response = pool.lidoUrl
+      ? await fetch(pool.lidoUrl).then(res => res.json())
+      : await fetch(pool.rocketUrl).then(res => res.json());
+
+    const lsApr = pool.lidoUrl ? response.data.steth : response.yearlyAPR;
+
+    apr = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100;
+    apr = pool.balancerChargesFee ? apr / 2 : apr;
+  } catch (err) {
+    console.error(`Error fetching ls yield for ${pool.name}`);
+  }
 
   // console.log(pool.name, lsApr, apr);
   return apr;
@@ -219,24 +223,27 @@ const getThreeEthPoolYield = async pool => {
     }
   }
 
-  const wstEthResponse = await fetch(pool.lidoUrl).then(res => res.json());
-  const wstEthapr = wstEthResponse.data.steth;
-
-  const sfrxEthResponse = await fetch('https://api.frax.finance/v2/frxeth/summary/latest').then(
-    res => res.json()
-  );
-  const sfrxEthapr = sfrxEthResponse.sfrxethApr;
-
-  const rEthResponse = await fetch('https://api.rocketpool.net/api/apr').then(res => res.json());
-  const rEthapr = rEthResponse.yearlyAPR;
-
   let apr = 0;
-  apr = apr + (wstEthapr / 2) * qty[0].dividedBy(totalQty).toNumber();
-  apr = apr + (sfrxEthapr / 2) * qty[1].dividedBy(totalQty).toNumber();
-  apr = apr + (rEthapr / 2) * qty[2].dividedBy(totalQty).toNumber();
+  try {
+    const wstEthResponse = await fetch(pool.lidoUrl).then(res => res.json());
+    const wstEthapr = wstEthResponse.data.steth;
 
-  apr = apr / 100;
+    const sfrxEthResponse = await fetch('https://api.frax.finance/v2/frxeth/summary/latest').then(
+      res => res.json()
+    );
+    const sfrxEthapr = sfrxEthResponse.sfrxethApr;
 
+    const rEthResponse = await fetch('https://api.rocketpool.net/api/apr').then(res => res.json());
+    const rEthapr = rEthResponse.yearlyAPR;
+
+    apr = apr + (wstEthapr / 2) * qty[0].dividedBy(totalQty).toNumber();
+    apr = apr + (sfrxEthapr / 2) * qty[1].dividedBy(totalQty).toNumber();
+    apr = apr + (rEthapr / 2) * qty[2].dividedBy(totalQty).toNumber();
+
+    apr = apr / 100;
+  } catch (err) {
+    console.error(`Error fetching 3 ETH LS APR`);
+  }
   // console.log(pool.name, apr);
   return apr;
 };

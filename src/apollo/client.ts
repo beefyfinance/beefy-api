@@ -29,6 +29,7 @@ export function client(url: string) {
 }
 
 const apePolyClient = client('https://api.thegraph.com/subgraphs/name/prof-sd/as-matic-graft');
+const sushiMainnetClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/exchange');
 const sushiPolyClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/matic-exchange');
 const sushiOneClient = client('https://api.thegraph.com/subgraphs/name/sushiswap/exchange-harmony');
 const sushiArbitrumClient = client(
@@ -120,6 +121,7 @@ const hopPolyClient = client('https://api.thegraph.com/subgraphs/name/hop-protoc
 
 const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return (
+    client === sushiMainnetClient ||
     client === sushiPolyClient ||
     client === sushiOneClient ||
     client === sushiArbitrumClient ||
@@ -137,6 +139,7 @@ const isBeetClient = (client: ApolloClient<NormalizedCacheObject>) => {
 };
 
 export {
+  sushiMainnetClient,
   dinoClient,
   joeClient,
   dfynClient,

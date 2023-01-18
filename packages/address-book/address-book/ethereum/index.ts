@@ -1,6 +1,8 @@
 import { beefyfinance } from './platforms/beefyfinance';
 import { balancer } from './platforms/balancer';
 import { aura } from './platforms/aura';
+import { sushi } from './platforms/sushi';
+import { synapse } from './platforms/synapse';
 
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
@@ -12,6 +14,8 @@ const _ethereum = {
     beefyfinance,
     balancer,
     aura,
+    sushi,
+    synapse,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

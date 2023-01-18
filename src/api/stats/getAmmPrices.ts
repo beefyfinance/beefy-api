@@ -257,6 +257,8 @@ import swapFishPools from '../../data/arbitrum/swapFishLpPools.json';
 import equalizerPools from '../../data/fantom/equalizerLpPools.json';
 import swapFishBscPools from '../../data/swapFishLpPools.json';
 import thenaPools from '../../data/degens/thenaLpPools.json';
+import sushiMainnetPools from '../../data/ethereum/sushiLpPools.json';
+import synapseLpPools from '../../data/ethereum/synapseLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 
@@ -266,6 +268,8 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...synapseLpPools,
+  ...sushiMainnetPools,
   ...thenaPools,
   ...swapFishBscPools,
   ...equalizerPools,

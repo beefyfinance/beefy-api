@@ -565,6 +565,58 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.balancer.fi/ecosystem/vebal-and-gauges/vebal',
   },
+  SUSHI: {
+    name: 'SushiToken',
+    symbol: 'SUSHI',
+    address: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x6B3595068778DD592e39A122f4f5a5cF09C90fE2.svg',
+    website: 'https://sushi.com/',
+    description:
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+    documentation: 'https://dev.sushi.com/',
+  },
+  ILV: {
+    name: 'Illuvium',
+    symbol: 'ILV',
+    address: '0x767FE9EDC9E0dF98E07454847909b5E959D7ca0E',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x767FE9EDC9E0dF98E07454847909b5E959D7ca0E.svg',
+    website: 'https://illuvium.io/',
+    description:
+      'A fully decentralized protocol, Illuvium represents a new age in gaming. It has been engineered from the ground-up to support the long-term sustainability of the Illuvium game and governance and provide players with a AAA-rated blockchain gaming experience. What makes Illuvium unique is that stakers receive regular distributions and can vote on everything from tokenomics related issues to the features in the game itself. With Illuvium, the power to define the project into the future is purposefully left to those who stake in the protocol.',
+    documentation: 'https://docs.illuvium.io/',
+  },
+  LDO: {
+    name: 'Lido DAO Token',
+    symbol: 'LDO',
+    address: '0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32.svg',
+    website: 'https://stake.lido.fi/',
+    documentation: 'https://docs.lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+  },
+  SYN: {
+    name: 'Synapse',
+    symbol: 'SYN',
+    address: '0x0f2D719407FdBeFF09D87557AbB7232601FD9F29',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x0f2D719407FdBeFF09D87557AbB7232601FD9F29.svg',
+    website: 'https://synapseprotocol.com/landing',
+    description:
+      'Synapse is a universal interoperability protocol that enables secure cross-chain communication. Synapse connects blockchains by offering an extensible cross-chain messaging protocol that supports assets, smart contract calls, and more. By leveraging Synapse, blockchains can easily and securely interoperate with each other and developers can build truly cross-chain applications including cross-chain DEX, lending platforms, margining systems, derivatives markets, yield aggregators, and much more.',
+    documentation: 'https://docs.synapseprotocol.com/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
