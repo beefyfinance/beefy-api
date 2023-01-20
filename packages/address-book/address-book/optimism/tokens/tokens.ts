@@ -831,6 +831,18 @@ const _tokens = {
       'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
     documentation: 'https://unidexexchange.gitbook.io/unidex/',
   },
+  sEUR: {
+    name: 'Synth sEUR',
+    symbol: 'sEUR',
+    address: '0xFBc4198702E81aE77c06D58f81b629BDf36f0a71',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://synthetix.io/',
+    description:
+      'Forex Synths track the price of forex currencies via price feeds supplied by Chainlinks oracle network of distributed node operators.',
+    documentation: 'https://docs.synthetix.io/tokens/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
