@@ -9,6 +9,11 @@
     "rewards": [
       {
         "stream": "0x8AF6B2567d4aE7eA657B929f996E0128c7e448aB",
+        "token": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
+        "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x8AF6B2567d4aE7eA657B929f996E0128c7e448aB",
         "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
         "oracleId": "BAL"
       },
