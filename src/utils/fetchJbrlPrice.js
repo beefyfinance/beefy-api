@@ -30,9 +30,11 @@ const getJbrlPrice = async (tokenPrices, chainId) => {
       reserveB = new BigNumber(data.balances[i]);
     }
   }
-  const price = one.times(reserveB).dividedBy(reserveA.plus(one));
+  const price = one.times(reserveB).dividedBy(reserveA.plus(one)).dividedBy('1e6');
 
-  return price.dividedBy('1e18').toNumber();
+  console.log('jBRL:', price.toString());
+
+  return price.toNumber().toFixed(2);
 };
 
 export { fetchJbrlPrice };
