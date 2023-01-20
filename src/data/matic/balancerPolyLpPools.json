@@ -1,5 +1,67 @@
 [
   {
+    "name": "balancer-2brl-bbamusd",
+    "address": "0x4A0b73f0D13fF6d43e304a174697e3d5CFd310a4",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x75108A554A34BB2846ABfb00D889BFD0Bb34E1d6",
+    "vaultPoolId": "0x4a0b73f0d13ff6d43e304a174697e3d5cfd310a400020000000000000000091c",
+    "includesComposableStable": true,
+    "lsIndex": 0,
+    "composableSplit": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x4d2d57B5CF4656F163552A757A8041Efb83210Ab",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bbamUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "2BRL",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancer-brz-jbrl",
+    "address": "0xE22483774bd8611bE2Ad2F4194078DaC9159F4bA",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xbDb8DA6156722a3D583ee679988B35cacCd86BC3",
+    "vaultPoolId": "0xe22483774bd8611be2ad2f4194078dac9159f4ba0000000000000000000008f0",
+    "composable": true,
+    "bptIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0xd394362862359b8177407E6f8Ad3136F9B3C1289",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "BRZ",
+        "decimals": "1e4"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "jBRL",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-bbamUSD",
     "address": "0x48e6B98ef6329f8f0A30eBB8c7C960330d648085",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

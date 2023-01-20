@@ -21,7 +21,7 @@ const getSolidlyApys = async () =>
     decimals: '1e18',
     reward: SOLID.address,
     boosted: true,
-    log: true,
+    //log: true,
   });
 
 module.exports = getSolidlyApys;
