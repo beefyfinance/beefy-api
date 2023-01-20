@@ -1716,6 +1716,18 @@ const _tokens = {
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
   },
+  '2BRZ': {
+    name: 'Balancer 2BRZ Pool',
+    symbol: '2BRZ',
+    address: '0xE22483774bd8611bE2Ad2F4194078DaC9159F4bA',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/',
+    description: 'Balancer composable pool that consist of BRZ and jBRL',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
