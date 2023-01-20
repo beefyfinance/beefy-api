@@ -1,5 +1,65 @@
 [
   {
+    "name": "swapfish-usdd-usdc",
+    "address": "0xc6c8F9E95d7BB6492e5E1957a1CC1367f2f0B282",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 37,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x680447595e8b7b3Aa1B43beB9f6098C79ac2Ab3f",
+      "oracle": "tokens",
+      "oracleId": "USDD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-tusd-usdc",
+    "address": "0xFc0F4F60F6BcF32a6c5847C2dc1E590e39A45993",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 35,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x4D15a3A2286D883AF0AA1B3f21367843FAc63E07",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-ageur-usdc",
+    "address": "0x78d9B037Fb873AfCf4e3E466aDfAfa8A5258CdaD",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 23,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xFA5Ed56A203466CbBC2430a43c66b9D8723528E7",
+      "oracle": "tokens",
+      "oracleId": "agEUR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "swapfish-usx-usdc",
     "address": "0x53001d6FaA0B6be4f1F27e0272EAb3A35090E6d0",
     "decimals": "1e18",

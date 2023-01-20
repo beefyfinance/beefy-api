@@ -395,6 +395,7 @@ const _tokens = {
     website: 'https://app.angle.money/',
     description:
       'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+    documentation: 'https://docs.angle.money/',
   },
   L2DAO: {
     name: 'Layer2DAO',

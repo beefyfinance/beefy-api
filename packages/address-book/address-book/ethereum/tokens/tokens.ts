@@ -348,6 +348,7 @@ const _tokens = {
     website: 'https://usdd.io/',
     description:
       'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
+    documentation: 'https://usdd.io/docs/',
   },
   aUSDT: {
     name: 'Aave Tether USD',

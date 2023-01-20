@@ -22,6 +22,7 @@
     "bsc:pancake:add": "ts-node scripts/add-sushi.ts --network bsc --project pancake --newFee true",
     "bsc:ape:add": "ts-node scripts/add-farm.ts --network bsc --project ape",
     "bsc:biswap:add": "ts-node scripts/add-farm.ts --network bsc --project biswap",
+    "bsc:swapfish:add": "ts-node scripts/add-farm.ts --network bsc --project swapfishBsc --newFee true",
     "bsc:thena:add": "ts-node scripts/add-solidly.ts --network bsc --project thena --newFee true",
     "fantom:spooky:add": "ts-node scripts/add-farm.ts --network fantom --project spooky",
     "fantom:spiritv:add": "ts-node scripts/add-solidly.ts --network fantom --project spiritVolatile --newFee true",
@@ -32,6 +33,7 @@
     "polygon:sushi:add": "ts-node scripts/add-sushi.ts --network polygon --project sushiPoly",
     "one:sushi:add": "ts-node scripts/add-sushi.ts --network one --project sushiOne",
     "arb:sushi:add": "ts-node scripts/add-sushi.ts --network arbitrum --project sushiArb",
+    "arb:swapfish:add": "ts-node scripts/add-farm.ts --network arbitrum --project swapfishArb --newFee true",
     "celo:sushi:add": "ts-node scripts/add-sushi.ts --network celo --project sushiCelo",
     "avax:pangolin:add": "ts-node scripts/add-sushi.ts --network avax --project pangolin",
     "avax:boostedjoe:add": "ts-node scripts/add-farm.ts --network avax --project boostedjoe",
@@ -47,7 +49,6 @@
     "polygon:dystopia:add": "ts-node scripts/add-solidly.ts --network polygon --project dystopia --newFee true",
     "polygon:uniswap:add": "ts-node scripts/add-univ3.ts --network polygon --project uniswap_polygon --strategy",
     "op:velodrome:add": "ts-node scripts/add-solidly.ts --network optimism --project velodrome --newFee true --lp",
-    "arb:swapfish:add": "ts-node scripts/add-farm.ts --network arbitrum --project swapfish --newFee true",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },
   "dependencies": {
