@@ -617,6 +617,52 @@ const _tokens = {
       'Synapse is a universal interoperability protocol that enables secure cross-chain communication. Synapse connects blockchains by offering an extensible cross-chain messaging protocol that supports assets, smart contract calls, and more. By leveraging Synapse, blockchains can easily and securely interoperate with each other and developers can build truly cross-chain applications including cross-chain DEX, lending platforms, margining systems, derivatives markets, yield aggregators, and much more.',
     documentation: 'https://docs.synapseprotocol.com/',
   },
+  SOLID: {
+    name: 'Solidly',
+    symbol: 'SOLID',
+    address: '0x777172D858dC1599914a1C4c6c9fC48c99a60990',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://solidly.com/',
+    description:
+      'Solidly is an AMM allowing fully decentralized token swapping with support for low slippage trades between pegged assets like stablecoins.',
+    documentation: '',
+  },
+  SNX: {
+    name: 'Synthetix Network Token',
+    symbol: 'SNX',
+    address: '0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.synthetix.io/',
+    description:
+      'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets',
+    documentation: 'https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix',
+  },
+  HEX: {
+    name: 'HEX',
+    symbol: 'HEX',
+    address: '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39',
+    chainId: 1,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://hex.com/',
+    description: 'HEX is the first high-yield blockchain certificate of deposit',
+    documentation: 'https://hex.com/faq/',
+  },
+  moSOLID: {
+    name: 'moSOLID: Tokenized veSOLID',
+    symbol: 'moSOLID',
+    address: '0x848578e351D25B6Ec0d486E42677891521c3d743',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alpha.mono.farm/home',
+    description: 'A tokenized version of veSOLID, moSOLID, is returned to the user at a 1:1 rate.',
+    documentation: 'https://docs.mono.farm/monolith-documentation/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
