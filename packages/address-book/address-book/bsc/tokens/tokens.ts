@@ -3902,5 +3902,17 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
+  USDD: {
+    name: 'Decentralized USD',
+    symbol: 'USDD',
+    address: '0xd17479997F34dd9156Deef8F95A52D81D265be9c',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://usdd.io/',
+    description:
+      'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
+    documentation: 'https://usdd.io/docs/',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
