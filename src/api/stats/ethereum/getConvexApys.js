@@ -8,7 +8,7 @@ import {
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import IRewardPool from '../../../abis/IRewardPool.json';
-import AuraToken from '../../../abis/ethereum/AuraToken.json';
+import IERC20 from '../../../abis/ERC20.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../utils/fetchPrice';
 
@@ -79,7 +79,7 @@ const getPoolApys = async pools => {
     periodFinish: v.periodFinish,
   }));
 
-  const cvx = getContractWithProvider(AuraToken, cvxAddress, web3);
+  const cvx = getContractWithProvider(IERC20, cvxAddress, web3);
   const cvxSupply = new BigNumber(await cvx.methods.totalSupply().call());
   const cvxPrice = await fetchPrice({ oracle: 'tokens', id: 'CVX' });
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });
@@ -122,7 +122,7 @@ const getPoolApys = async pools => {
   return apys;
 };
 
-function getMintedCvxAmount(crvAmount, cvxSupply) {
+export function getMintedCvxAmount(crvAmount, cvxSupply) {
   const totalCliffs = new BigNumber(1000);
   const reductionPerCliff = new BigNumber(100000000000000000000000);
   const cliff = cvxSupply.div(reductionPerCliff).integerValue(BigNumber.ROUND_DOWN);
