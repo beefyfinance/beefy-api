@@ -421,7 +421,7 @@ const _tokens = {
   USDD: {
     name: 'Decentralized USD',
     symbol: 'USDD',
-    address: '0xc6c8F9E95d7BB6492e5E1957a1CC1367f2f0B282',
+    address: '0x680447595e8b7b3Aa1B43beB9f6098C79ac2Ab3f',
     chainId: 42161,
     decimals: 18,
     logoURI: '',
