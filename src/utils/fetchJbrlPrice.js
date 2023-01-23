@@ -32,7 +32,7 @@ const getJbrlPrice = async (tokenPrices, chainId) => {
   }
   const price = one.times(reserveB).dividedBy(reserveA.plus(one)).dividedBy('1e6');
 
-  console.log('jBRL:', price.toString());
+  // console.log('jBRL:', price.toString());
 
   return price.toNumber().toFixed(2);
 };

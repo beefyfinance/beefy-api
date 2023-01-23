@@ -1,6 +1,6 @@
 [
   {
-    "name": "solidly-eth-mosolid-weth",
+    "name": "monolith-mosolid-weth",
     "address": "0xf5E4b5f58703582Ad142B15E6c303dbB3CF7dE8a",
     "gauge": "0x6b022Be53606A3dd3c5947ca436cFa6169E9ecEE",
     "decimals": "1e18",
@@ -20,7 +20,7 @@
     }
   },
   {
-    "name": "solidly-eth-hex-weth",
+    "name": "monolith-hex-weth",
     "address": "0x9453AAC812B0cd8FD069940002712dbF7d48431c",
     "gauge": "0xEAFFe4d54E4B67Cff1844467B5c8b2FB1d86dff8",
     "decimals": "1e18",
@@ -40,7 +40,7 @@
     }
   },
   {
-    "name": "solidly-eth-snx-weth",
+    "name": "monolith-snx-weth",
     "address": "0xaD4be4857190E9537e29E87c209c3c6f67F64025",
     "gauge": "0x24c81242193C355D64A506646b224B60595bD34D",
     "decimals": "1e18",
@@ -60,7 +60,7 @@
     }
   },
   {
-    "name": "solidly-eth-usdc-weth",
+    "name": "monolith-usdc-weth",
     "address": "0xcD452c162dA7761f08F656B8e5eDe3A385981378",
     "gauge": "0xAB6777A4df5F4434CABdB42ebD6E116c757f7F0C",
     "decimals": "1e18",
@@ -80,7 +80,7 @@
     }
   },
   {
-    "name": "solidly-eth-solid-weth",
+    "name": "monolith-solid-weth",
     "address": "0x642431623AE5d73C19fC931aAeA0d4677303880c",
     "gauge": "0x84674cFFB6146D19b986fC88EC70a441b570A45B",
     "decimals": "1e18",

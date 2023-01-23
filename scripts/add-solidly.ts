@@ -71,7 +71,7 @@ const projects = {
     voter: equalizer.voter,
   },
   solidly: {
-    prefix: 'solidly-eth',
+    prefix: 'monolith',
     stableFile: '../src/data/ethereum/solidlyStableLpPools.json',
     volatileFile: '../src/data/ethereum/solidlyLpPools.json',
     voter: solidly.voter,

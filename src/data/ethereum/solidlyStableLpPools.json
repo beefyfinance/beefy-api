@@ -1,6 +1,6 @@
 [
   {
-    "name": "solidly-eth-mim-usdc",
+    "name": "monolith-mim-usdc",
     "address": "0xEb9dC7087607be7D7C3Ccbb4544347dE1354720c",
     "gauge": "0x09668Bb274Ebe0B06698E4211DD360EC88399751",
     "decimals": "1e18",
@@ -20,7 +20,7 @@
     }
   },
   {
-    "name": "solidly-eth-frax-usdt",
+    "name": "monolith-frax-usdt",
     "address": "0x97F088b0175A7319059d8e705286aA035077d624",
     "gauge": "0x9972F7c292Deae7759a3831b1aDFF54dD43Dc264",
     "decimals": "1e18",
@@ -40,7 +40,7 @@
     }
   },
   {
-    "name": "solidly-eth-frxeth-weth",
+    "name": "monolith-frxeth-weth",
     "address": "0x4E30fc7ccD2dF3ddCA39a69d2085334Ee63b9c96",
     "gauge": "0x36f10d9A68fb22b666554D818BBaEF428ce55241",
     "decimals": "1e18",
@@ -60,7 +60,7 @@
     }
   },
   {
-    "name": "solidly-eth-usdc-usdt",
+    "name": "monolith-usdc-usdt",
     "address": "0x63A65a174Cc725824188940255aD41c371F28F28",
     "gauge": "0x71e0E5F31a71062a08Aa629aFB8587c7A178Dfd9",
     "decimals": "1e18",

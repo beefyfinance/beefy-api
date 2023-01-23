@@ -87,7 +87,7 @@ const getFarmApys = async params => {
       const gauge = getContractWithProvider(IGauge, pool.gauge, params.web3);
       const rate = new BigNumber(await gauge.methods.rewardRate(rewards.address).call());
 
-      console.log(rate.toString());
+      //console.log(rate.toString());
       const additionalRewards = params.boosted
         ? rate
             .times(secondsPerYear)
