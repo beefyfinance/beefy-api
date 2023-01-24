@@ -66,6 +66,13 @@
     "decimals": "1e18",
     "chainId": 1,
     "beefyFee": 0.095,
+    "rewards": [
+      {
+        "address": "0x848578e351D25B6Ec0d486E42677891521c3d743",
+        "oracleId": "moSOLID",
+        "decimals": "1e18"
+      }
+    ],
     "lp0": {
       "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "oracle": "tokens",
