@@ -1,8 +1,8 @@
-import { getAllBosts, getChainBoosts } from './getBoosts';
+import { getAllBoosts, getChainBoosts } from './getBoosts';
 
 export const boosts = async (ctx: any) => {
   try {
-    const allBoosts = getAllBosts();
+    const allBoosts = getAllBoosts();
     ctx.status = 200;
     ctx.body = [...allBoosts];
   } catch (err) {
