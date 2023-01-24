@@ -47,6 +47,7 @@ import getHopPolyPrices from './matic/getHopPolyPrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
+import getSolidlyEthStablePrices from './ethereum/getSolidlyStablePrices';
 import getMvxPrices from './matic/getMvxPrices';
 
 const getNonAmmPrices = async tokenPrices => {
@@ -54,6 +55,7 @@ const getNonAmmPrices = async tokenPrices => {
   let breakdown = {};
 
   const promises = [
+    getSolidlyEthStablePrices(tokenPrices),
     getThenaStablePrices(tokenPrices),
     getMvxPrices(tokenPrices),
     getEqualizerStablePrices(tokenPrices),

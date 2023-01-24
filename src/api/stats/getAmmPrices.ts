@@ -7,6 +7,7 @@ import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
 import { fetchStargatePrices } from '../../utils/fetchStargatePrices';
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
+import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchstDOTPrice } from '../../utils/fetchstDOTPrice';
 import { fetchsfrxEthPrice } from '../../utils/fetchsfrxEthPrice';
 import {
@@ -259,6 +260,7 @@ import swapFishBscPools from '../../data/swapFishLpPools.json';
 import thenaPools from '../../data/degens/thenaLpPools.json';
 import sushiMainnetPools from '../../data/ethereum/sushiLpPools.json';
 import synapseLpPools from '../../data/ethereum/synapseLpPools.json';
+import solidlyLpPools from '../../data/ethereum/solidlyLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 
@@ -268,6 +270,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...solidlyLpPools,
   ...synapseLpPools,
   ...sushiMainnetPools,
   ...thenaPools,
@@ -545,6 +548,7 @@ const coinGeckoCoins = [
   'dola-usd',
   'across-protocol',
   'metavault-trade',
+  'seur',
 ];
 
 const currencies = ['cad'];
@@ -619,6 +623,7 @@ const updateAmmPrices = async () => {
         DOLA: prices['dola-usd'],
         ACX: prices['across-protocol'],
         MVX: prices['metavault-trade'],
+        sEUR: prices['seur'],
       };
     };
 
@@ -669,14 +674,20 @@ const updateAmmPrices = async () => {
     });
 
     const linearPoolPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+      const jbrlTokenPrice = await fetchJbrlPrice(tokenPrices);
       const vaultPrices = await fetchVaultPrices(tokenPrices);
       const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
-      const prices = { ...tokenPrices, ...vaultPrices, ...wrappedAavePrices };
+      const prices = { ...tokenPrices, ...vaultPrices, ...wrappedAavePrices, ...jbrlTokenPrice };
 
       const linearPrices = await fetchBalancerLinearPoolPrice(prices);
       const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
 
-      return { ...linearPrices, ...balancerStablePoolPrice, ...wrappedAavePrices };
+      return {
+        ...linearPrices,
+        ...balancerStablePoolPrice,
+        ...wrappedAavePrices,
+        ...jbrlTokenPrice,
+      };
     });
 
     const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {

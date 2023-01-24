@@ -1,5 +1,25 @@
 [
   {
+    "name": "swapfish-bsc-usdc-usdd",
+    "address": "0x41217d72ca2A80Bb5C48cDbFAbBB7B74733c010F",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 14,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd17479997F34dd9156Deef8F95A52D81D265be9c",
+      "oracle": "tokens",
+      "oracleId": "USDD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "swapfish-bsc-wbnb-bifi",
     "address": "0x30Fc36ba48456c043d094dd7127f1cECe16A4016",
     "decimals": "1e18",

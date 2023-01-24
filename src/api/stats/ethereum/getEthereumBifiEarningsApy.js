@@ -26,7 +26,7 @@ const getEthereumBifiGovApy = async () => {
     getTotalStakedInUsd(),
   ]);
 
-  const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).dividedBy(3);
 
   return {
     apys: {

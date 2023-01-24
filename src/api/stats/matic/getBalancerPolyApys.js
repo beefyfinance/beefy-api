@@ -12,6 +12,7 @@ const { POLYGON_CHAIN_ID: chainId } = require('../../../constants');
 const { balancerPolyClient: client } = require('../../../apollo/client');
 const fetch = require('node-fetch');
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
+const fetchPrice = require('../../../utils/fetchPrice');
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
   polygon: {
@@ -99,12 +100,33 @@ const getPoolApy = async pool => {
   let bbaUSDApy = await getComposableAaveYield();
   let composableApr = new BigNumber(0);
   if (pool.includesComposableStable) {
-    pool.composableSplit
-      ? (bbaUSDApy = bbaUSDApy.dividedBy(pool.composableSplit))
-      : (bbaUSDApy = bbaUSDApy);
-    composableApr = bbaUSDApy;
+    if (pool.composableSplit) {
+      const balVault = getContractWithProvider(IBalancerVault, balancer.router, web3);
+      const tokenQtys = await balVault.methods.getPoolTokens(pool.vaultPoolId).call();
+
+      let qty = [];
+      let totalQty = new BigNumber(0);
+      for (let j = 0; j < tokenQtys.balances.length; j++) {
+        if (pool.composable) {
+          if (pool.bptIndex == j) {
+            continue;
+          }
+        }
+
+        const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
+        const amt = new BigNumber(tokenQtys.balances[j])
+          .times(price)
+          .dividedBy([pool.tokens[j].decimals]);
+        totalQty = totalQty.plus(amt);
+        qty.push(amt);
+      }
+
+      composableApr = bbaUSDApy.times(qty[pool.lsIndex].dividedBy(totalQty));
+    } else {
+      composableApr = bbaUSDApy;
+    }
   }
-  // console.log(pool.name,rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
+  // console.log(pool.name, rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
   return [rewardsApy, aprFixed, composableApr];
 };
 

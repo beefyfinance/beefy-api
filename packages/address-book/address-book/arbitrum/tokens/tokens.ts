@@ -418,6 +418,41 @@ const _tokens = {
     oracleId: 'sushi-arb-weth-bifi',
     oracle: 'lps',
   },
+  USDD: {
+    name: 'Decentralized USD',
+    symbol: 'USDD',
+    address: '0x680447595e8b7b3Aa1B43beB9f6098C79ac2Ab3f',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://usdd.io/',
+    description:
+      'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
+    documentation: 'https://usdd.io/docs/',
+  },
+  agEUR: {
+    name: 'agEUR',
+    symbol: 'agEUR',
+    address: '0xFA5Ed56A203466CbBC2430a43c66b9D8723528E7',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.angle.money/',
+    description:
+      'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+    documentation: 'https://docs.angle.money/',
+  },
+  TUSD: {
+    name: 'TrueUSD',
+    symbol: 'TUSD',
+    address: '0x4D15a3A2286D883AF0AA1B3f21367843FAc63E07',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.trueusd.com/',
+    description:
+      'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

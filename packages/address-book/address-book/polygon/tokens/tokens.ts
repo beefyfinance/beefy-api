@@ -1716,6 +1716,42 @@ const _tokens = {
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
   },
+  '2BRZ': {
+    name: 'Balancer 2BRZ Pool',
+    symbol: '2BRZ',
+    address: '0xE22483774bd8611bE2Ad2F4194078DaC9159F4bA',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/',
+    description: 'Balancer composable pool that consist of BRZ and jBRL',
+  },
+  jBRL: {
+    name: 'Jarvis Synthetic Brazilian Real',
+    symbol: 'jBRL',
+    address: '0xf2f77FE7b8e66571E0fca7104c4d670BF1C8d722',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jBRL is a multi-collateralized synthetic token tracking the price of Brazilian Real. It is built on the top of UMA and Chainlink.',
+    logoURI: 'https://jarvis.network/images/jBRL.svg',
+    documentation: 'https://learn.jarvis.network/',
+  },
+  BRZ: {
+    name: 'BRZ Token',
+    symbol: 'BRZ',
+    address: '0x491a4eB4f1FC3BfF8E1d2FC856a6A46663aD556f',
+    chainId: 137,
+    decimals: 4,
+    website: 'https://brztoken.io/',
+    description:
+      'BRZ is the first Brazilian stablecoin in circulation. It will allow Brazilians to directly ramp up investments in foreign exchanges and to trade a Brazilian Real (BRL) pegged stablecoin in global scale.',
+    logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
+    documentation: 'https://brztoken.io/files/white_paper_BRZ_2023.pdf',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
