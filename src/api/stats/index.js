@@ -1,6 +1,6 @@
 'use strict';
 
-const { getApys } = require('./getApys');
+const { getApys, getBoostAprs } = require('./getApys');
 
 const TIMEOUT = 5 * 60 * 1000;
 
@@ -38,4 +38,16 @@ async function apyBreakdowns(ctx) {
   }
 }
 
-module.exports = { apy, apyBreakdowns };
+async function boostApr(ctx) {
+  try {
+    ctx.request.socket.setTimeout(TIMEOUT);
+    let boostAprs = getBoostAprs();
+
+    ctx.status = 200;
+    ctx.body = boostAprs;
+  } catch (err) {
+    ctx.throw(500, err);
+  }
+}
+
+module.exports = { apy, apyBreakdowns, boostApr };

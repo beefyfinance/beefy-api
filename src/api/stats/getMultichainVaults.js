@@ -15,6 +15,7 @@ let vaultsByChain = {};
 let multichainVaults = [];
 var multichainVaultsCounter = 0;
 var multichainActiveVaultsCounter = 0;
+var vaultsByID = {};
 
 const getMultichainVaults = () => {
   return multichainVaults;
@@ -22,6 +23,10 @@ const getMultichainVaults = () => {
 
 const getSingleChainVaults = chain => {
   return vaultsByChain[chain];
+};
+
+const getVaultByID = vaultId => {
+  return vaultsByID[vaultId];
 };
 
 const updateMultichainVaults = async () => {
@@ -43,6 +48,11 @@ const updateMultichainVaults = async () => {
     multichainActiveVaultsCounter = multichainVaults.filter(
       vault => vault.status === 'active'
     ).length;
+
+    vaultsByID = multichainVaults.reduce((allVaults, currentVault) => {
+      allVaults[currentVault.id] = currentVault;
+      return allVaults;
+    }, {});
 
     console.log(
       '> updated',
@@ -96,6 +106,10 @@ export const initVaultService = async () => {
   multichainActiveVaultsCounter = multichainVaults.filter(
     vault => vault.status === 'active'
   ).length;
+  vaultsByID = multichainVaults.reduce((allVaults, currentVault) => {
+    allVaults[currentVault.id] = currentVault;
+    return allVaults;
+  }, {});
 
   setTimeout(updateMultichainVaults, INIT_DELAY);
 };
@@ -104,4 +118,4 @@ const saveToRedis = async () => {
   await setKey('VAULTS_BY_CHAIN', vaultsByChain);
 };
 
-module.exports = { getMultichainVaults, getSingleChainVaults, initVaultService };
+module.exports = { getMultichainVaults, getSingleChainVaults, getVaultByID, initVaultService };

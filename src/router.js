@@ -20,6 +20,8 @@ const { getTreasury } = require('./api/treasury');
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
+router.get('/apy/boosts', stats.boostApr);
+
 router.get('/bifibuyback', bifibuyback);
 
 router.get('/tvl', tvl.vaultTvl);
