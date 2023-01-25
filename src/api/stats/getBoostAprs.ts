@@ -47,7 +47,9 @@ const updateBoostAprsForChain = async (chain: string, boosts: Boost[]) => {
     const boostAprs: { [boostId: string]: number } = {};
     for (const [id, callReturnContext] of fulfilledResults) {
       const apr = await mapResponseToBoostApr(callReturnContext);
-      if (apr != null) boostAprs[id] = apr;
+      if (!isNaN(parseFloat(apr.toString()))) {
+        boostAprs[id] = apr;
+      }
     }
     return boostAprs;
   } catch (err) {
@@ -104,7 +106,12 @@ const mapResponseToBoostApr = async (
     });
 
     //Price is missing, we can't consider this as a succesful calculation
-    if (depositTokenPrice === 0) {
+    if (
+      isNaN(parseFloat(depositTokenPrice)) ||
+      depositTokenPrice === 0 ||
+      isNaN(parseFloat(earnedTokenPrice)) ||
+      earnedTokenPrice === 0
+    ) {
       return null;
     }
 
