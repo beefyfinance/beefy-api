@@ -21,6 +21,7 @@ const { getKey, setKey } = require('../../utils/redisHelper');
 const { fetchBoostAprs } = require('./getBoostAprs');
 
 const INIT_DELAY = process.env.INIT_DELAY || 60 * 1000;
+const BOOST_APR_INIT_DELAY = 30 * 1000;
 var REFRESH_INTERVAL = 15 * 60 * 1000;
 const BOOST_REFRESH_INTERVAL = 2 * 60 * 1000;
 
@@ -135,7 +136,7 @@ const initApyService = async () => {
   boostAprs = cachedBoostAprs ?? {};
 
   setTimeout(updateApys, INIT_DELAY);
-  setTimeout(updateBoostAprs, 10 * 1000);
+  setTimeout(updateBoostAprs, BOOST_APR_INIT_DELAY);
 };
 
 const saveToRedis = async () => {
