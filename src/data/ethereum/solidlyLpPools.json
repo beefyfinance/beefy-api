@@ -1,5 +1,25 @@
 [
   {
+    "name": "monolith-bifi-weth",
+    "address": "0x0346638feF4694629425336c3297Bd0537fa7b43",
+    "gauge": "0xa84b9923458E1caf595DeB96A6c12785Bc65Bb12",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5870700f1272a1AdbB87C3140bD770880a95e55D",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "monolith-mosolid-weth",
     "address": "0xf5E4b5f58703582Ad142B15E6c303dbB3CF7dE8a",
     "gauge": "0x6b022Be53606A3dd3c5947ca436cFa6169E9ecEE",
