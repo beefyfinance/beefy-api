@@ -100,7 +100,7 @@ const args = yargs.options({
     choices: Object.keys(projects),
   },
   pool: {
-    type: 'interger',
+    type: 'integer',
     demandOption: true,
     describe: 'poolId from respective masterchef contract',
   },
