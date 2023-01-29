@@ -45,12 +45,17 @@ const getFarmApys = async pools => {
       const rewarder = getContractWithProvider(IMultiRewarder, Rewarder, web3);
       const data = await rewarder.methods.rewardData(pool.address, rewards.address).call();
 
-      const rate = new BigNumber(data.rewardRate);
-      const additionalRewards = rate
-        .times(SECONDS_PER_YEAR)
-        .times(await fetchPrice({ oracle: 'tokens', id: rewards.oracleId }))
-        .dividedBy(rewards.decimals);
+      let additionalRewards = new BigNumber(0);
 
+      if (new BigNumber(data.periodFinish).gte(Date.now() / 1000)) {
+        const rate = new BigNumber(data.rewardRate);
+        additionalRewards = rate
+          .times(SECONDS_PER_YEAR)
+          .times(await fetchPrice({ oracle: 'tokens', id: rewards.oracleId }))
+          .dividedBy(rewards.decimals);
+      }
+
+      //console.log(pool.name, additionalRewards.toNumber());
       yearlyRewardsInUsd = yearlyRewardsInUsd.plus(additionalRewards);
     }
 

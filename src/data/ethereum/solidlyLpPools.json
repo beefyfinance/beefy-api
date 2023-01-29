@@ -26,6 +26,18 @@
     "decimals": "1e18",
     "chainId": 1,
     "beefyFee": 0.095,
+    "rewards": [
+      {
+        "address": "0x848578e351D25B6Ec0d486E42677891521c3d743",
+        "oracleId": "moSOLID",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ],
     "lp0": {
       "address": "0x848578e351D25B6Ec0d486E42677891521c3d743",
       "oracle": "tokens",
@@ -88,8 +100,8 @@
     "beefyFee": 0.095,
     "rewards": [
       {
-        "address": "0x848578e351D25B6Ec0d486E42677891521c3d743",
-        "oracleId": "moSOLID",
+        "address": "0x00a35FD824c717879BF370E70AC6868b95870Dfb",
+        "oracleId": "IB",
         "decimals": "1e18"
       }
     ],
@@ -113,6 +125,18 @@
     "decimals": "1e18",
     "chainId": 1,
     "beefyFee": 0.095,
+    "rewards": [
+      {
+        "address": "0x848578e351D25B6Ec0d486E42677891521c3d743",
+        "oracleId": "moSOLID",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ],
     "lp0": {
       "address": "0x777172D858dC1599914a1C4c6c9fC48c99a60990",
       "oracle": "tokens",

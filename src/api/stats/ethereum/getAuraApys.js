@@ -119,40 +119,47 @@ const getPoolApy = async (pool, auraData) => {
 const getYearlyRewardsInUsd = async (auraData, pool) => {
   const auraGauge = getContractWithProvider(IAuraGauge, pool.gauge, web3);
   const rewardRate = new BigNumber(await auraGauge.methods.rewardRate().call());
-  const balPrice = await fetchPrice({ oracle: 'tokens', id: BAL.symbol });
-  const yearlyRewards = rewardRate.times(secondsInAYear);
-  const yearlyRewardsInUsd = yearlyRewards
-    .times(balPrice)
-    .dividedBy(await getEDecimals(BAL.decimals));
-  let amount = yearlyRewards.times(auraData[0]).dividedBy(auraData[1]);
-  // e.g. amtTillMax = 5e25 - 1e25 = 4e25
+  const periodFinish = new BigNumber(await auraGauge.methods.periodFinish().call());
+  let yearlyRewardsInUsd = new BigNumber(0);
+  if (periodFinish.gte(Date.now() / 1000)) {
+    const balPrice = await fetchPrice({ oracle: 'tokens', id: BAL.symbol });
+    const yearlyRewards = rewardRate.times(secondsInAYear);
+    yearlyRewardsInUsd = yearlyRewards.times(balPrice).dividedBy(await getEDecimals(BAL.decimals));
+    let amount = yearlyRewards.times(auraData[0]).dividedBy(auraData[1]);
+    // e.g. amtTillMax = 5e25 - 1e25 = 4e25
 
-  if (amount.gte(auraData[2])) {
-    amount = auraData[2];
-  }
-
-  const auraPrice = await fetchPrice({ oracle: 'tokens', id: AURA.symbol });
-  const auraYearlyRewardsInUsd = amount
-    .times(auraPrice)
-    .dividedBy(await getEDecimals(AURA.decimals));
-
-  // console.log(pool.name, yearlyRewardsInUsd.toString(), auraYearlyRewardsInUsd.toString());
-
-  let extraRewards = new BigNumber(0);
-  if (pool.rewards) {
-    for (let i = 0; i < pool.rewards.length; i++) {
-      const extraReward = await auraGauge.methods.extraRewards(pool.rewards[i].rewardId).call();
-      const virtualGauge = getContractWithProvider(IAuraGauge, extraReward, web3);
-      const rate = new BigNumber(await virtualGauge.methods.rewardRate().call());
-      const rewardPrice = await fetchPrice({ oracle: 'tokens', id: pool.rewards[i].oracleId });
-      extraRewards = extraRewards.plus(
-        rate.times(secondsInAYear).times(rewardPrice).dividedBy(pool.rewards[i].decimals)
-      );
-      // console.log(pool.name, extraRewards.toString(), rate.toString());
+    if (amount.gte(auraData[2])) {
+      amount = auraData[2];
     }
+
+    const auraPrice = await fetchPrice({ oracle: 'tokens', id: AURA.symbol });
+    const auraYearlyRewardsInUsd = amount
+      .times(auraPrice)
+      .dividedBy(await getEDecimals(AURA.decimals));
+
+    // console.log(pool.name, yearlyRewardsInUsd.toString(), auraYearlyRewardsInUsd.toString());
+
+    let extraRewards = new BigNumber(0);
+    if (pool.rewards) {
+      for (let i = 0; i < pool.rewards.length; i++) {
+        const extraReward = await auraGauge.methods.extraRewards(pool.rewards[i].rewardId).call();
+        const virtualGauge = getContractWithProvider(IAuraGauge, extraReward, web3);
+        const rate = new BigNumber(await virtualGauge.methods.rewardRate().call());
+        const periodEnd = new BigNumber(await virtualGauge.methods.periodFinish.call());
+        if (periodEnd.gte(Date.now() / 1000)) {
+          const rewardPrice = await fetchPrice({ oracle: 'tokens', id: pool.rewards[i].oracleId });
+          extraRewards = extraRewards.plus(
+            rate.times(secondsInAYear).times(rewardPrice).dividedBy(pool.rewards[i].decimals)
+          );
+        }
+        // console.log(pool.name, extraRewards.toString(), rate.toString());
+      }
+    }
+
+    yearlyRewardsInUsd = yearlyRewardsInUsd.plus(auraYearlyRewardsInUsd).plus(extraRewards);
   }
 
-  return yearlyRewardsInUsd.plus(auraYearlyRewardsInUsd).plus(extraRewards);
+  return yearlyRewardsInUsd;
 };
 
 const getTotalStakedInUsd = async pool => {
