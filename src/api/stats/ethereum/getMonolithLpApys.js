@@ -31,15 +31,18 @@ const getMonolithLpApys = async () => {
 const getFarmApys = async pools => {
   const apys = [];
   const tokenPrice = await fetchPrice({ oracle: 'tokens', id: SOLID.symbol });
-  const { balances, rewardRates } = await getPoolsData(pools);
+  const { balances, rewardRates, finishes } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {
+    let yearlyRewardsInUsd = new BigNumber(0);
     const pool = pools[i];
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
-    const yearlyRewards = rewardRates[i].times(SECONDS_PER_YEAR);
-    let yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy('1e18');
+    if (new BigNumber(finishes[i]).gte(Date.now() / 1000)) {
+      const yearlyRewards = rewardRates[i].times(SECONDS_PER_YEAR);
+      yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy('1e18');
+    }
 
     for (const rewards of pool.rewards ?? []) {
       const rewarder = getContractWithProvider(IMultiRewarder, Rewarder, web3);
@@ -61,7 +64,7 @@ const getFarmApys = async pools => {
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
-    // console.log(pool.name, apy.toNumber(), yearlyRewardsInUsd.toNumber(), totalStakedInUsd.toNumber());
+    //console.log(pool.name, apy.toNumber(), yearlyRewardsInUsd.toNumber(), totalStakedInUsd.toNumber());
   }
   return apys;
 };
@@ -84,7 +87,8 @@ const getPoolsData = async pools => {
 
   const balances = res[0].map(v => new BigNumber(v.balance));
   const rewardRates = res[1].map(v => new BigNumber(v.rewardRate[2]));
-  return { balances, rewardRates };
+  const finishes = res[1].map(v => new BigNumber(v.rewardRate[1]));
+  return { balances, rewardRates, finishes };
 };
 
 module.exports = getMonolithLpApys;
