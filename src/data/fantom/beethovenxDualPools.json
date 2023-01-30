@@ -14,8 +14,11 @@
     "decimals": "1e18",
     "tokens": [
       {
+        "oracleId": "BPTToken"
+      },
+      {
         "oracle": "tokens",
-        "oracleId": "WFTM",
+        "oracleId": "bb-yv-FTM",
         "decimals": "1e18"
       },
       {

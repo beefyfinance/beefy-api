@@ -1,0 +1,27 @@
+[
+  {
+    "name": "bb-yv-FTM",
+    "address": "0xC3BF643799237588b7a6B407B3fc028Dd4e037d2",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xc3bf643799237588b7a6b407b3fc028dd4e037d200000000000000000000022d",
+    "decimals": "1e18",
+    "chainId": 250,
+    "composable": true,
+    "bptIndex": 2,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "yvWFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  }
+]
