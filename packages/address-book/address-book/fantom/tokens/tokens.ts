@@ -39,6 +39,17 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  'bb-yv-FTM': {
+    name: 'Beets Yearn Boosted FTM Linear Pool',
+    symbol: 'bb-yv-FTM',
+    address: '0xC3BF643799237588b7a6B407B3fc028Dd4e037d2',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beets.fi/#/',
+    documentation: 'https://docs.beets.fi/balancer-v2-1/pools#boosted-pools',
+    description: 'Balancer linear pool that consist of yvWFTM and wFTM.',
+  },
   SYN: {
     name: 'Synapse Protocol',
     symbol: 'SYN',
