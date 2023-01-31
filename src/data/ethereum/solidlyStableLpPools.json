@@ -1,5 +1,32 @@
 [
   {
+    "name": "monolith-usdc-dei",
+    "address": "0xc7ed724499946C8d12F57330c0d2D25Af219AdF8",
+    "gauge": "0xe310120022eE90e3594f14b2540bF133aeED3c41",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "address": "0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44",
+        "oracleId": "DEUS",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xDE1E704dae0B4051e80DAbB26ab6ad6c12262DA0",
+      "oracle": "tokens",
+      "oracleId": "DEI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "monolith-mim-usdc",
     "address": "0xEb9dC7087607be7D7C3Ccbb4544347dE1354720c",
     "gauge": "0x09668Bb274Ebe0B06698E4211DD360EC88399751",

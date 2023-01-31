@@ -664,6 +664,30 @@ const _tokens = {
     description: 'A tokenized version of veSOLID, moSOLID, is returned to the user at a 1:1 rate.',
     documentation: 'https://docs.mono.farm/monolith-documentation/',
   },
+  FTM: {
+    name: 'Fantom Token',
+    symbol: 'FTM',
+    address: '0x4E15361FD6b4BB609Fa63C81A2be19d873717870',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://fantom.foundation/',
+    description:
+      'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+    documentation: '',
+  },
+  DEUS: {
+    name: 'DEUS',
+    symbol: 'DEUS',
+    address: '0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
+    logoURI: 'https://app.deus.finance/tokens/deus.svg',
+    documentation: 'https://docs.deus.finance/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
