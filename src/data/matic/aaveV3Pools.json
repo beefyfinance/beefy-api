@@ -1,0 +1,68 @@
+[
+  {
+    "name": "aavev3-polygon-matic",
+    "token": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "aToken": "0x6d80113e533a2C0fe82EaBD35f1875DcEA89Ea97",
+    "debtToken": "0x4a1c3aD6Ed28a636ee1751C69071f6be75DEb8B8",
+    "oracle": "tokens",
+    "oracleId": "WMATIC",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-polygon-usdc",
+    "token": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    "aToken": "0x625E7708f30cA75bfd92586e17077590C60eb4cD",
+    "debtToken": "0xFCCf3cAbbe80101232d343252614b6A3eE81C989",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-polygon-usdt",
+    "token": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+    "aToken": "0x6ab707Aca953eDAeFBc4fD23bA73294241490620",
+    "debtToken": "0xfb00AC187a8Eb5AFAE4eACE434F493Eb62672df7",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-polygon-dai",
+    "token": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+    "aToken": "0x82E64f49Ed5EC1bC6e43DAD4FC8Af9bb3A2312EE",
+    "debtToken": "0x8619d80FB0141ba7F184CbF22fd724116D9f7ffC",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-polygon-stmatic",
+    "token": "0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4",
+    "aToken": "0xEA1132120ddcDDA2F119e99Fa7A27a0d036F7Ac9",
+    "debtToken": "0x6b030Ff3FB9956B1B69f475B77aE0d3Cf2CC5aFa",
+    "oracle": "tokens",
+    "oracleId": "stMATIC",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-polygon-maticx",
+    "token": "0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6",
+    "aToken": "0x80cA0d8C38d2e2BcbaB66aA1648Bd1C7160500FE",
+    "debtToken": "0xB5b46F918C2923fC7f26DB76e8a6A6e9C4347Cf9",
+    "oracle": "tokens",
+    "oracleId": "MaticX",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  }
+]

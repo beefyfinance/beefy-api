@@ -31,6 +31,7 @@ const getDystopiaApys = require('./getDystopiaApys');
 const getUniV3PolygonApys = require('./getUniV3PolygonApys');
 const { getHopApys } = require('./getHopApys');
 const { getMvxApys } = require('./getMvxApys');
+const { getAaveV3Apys } = require('./getAaveV3Apys');
 
 const getApys = [
   getbeQiApy,
@@ -65,6 +66,7 @@ const getApys = [
   getUniV3PolygonApys,
   getHopApys,
   getMvxApys,
+  getAaveV3Apys,
 ];
 
 const BATCH_SIZE = 15;
