@@ -8,7 +8,7 @@ import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices'
 import { fetchStargatePrices } from '../../utils/fetchStargatePrices';
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
-import { fetchyvWFTMPrice } from '../../utils/fetchyVaultPrice.js';
+import { fetchYVaultPrices } from '../../utils/fetchYVaultPrices';
 import { fetchstDOTPrice } from '../../utils/fetchstDOTPrice';
 import { fetchsfrxEthPrice } from '../../utils/fetchsfrxEthPrice';
 import {
@@ -676,7 +676,7 @@ const updateAmmPrices = async () => {
 
     const linearPoolPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       const jbrlTokenPrice = await fetchJbrlPrice(tokenPrices);
-      const yvWFTMPrice = await fetchyvWFTMPrice(tokenPrices);
+      const YVaultPrices = await fetchYVaultPrices(tokenPrices);
       const vaultPrices = await fetchVaultPrices(tokenPrices);
       const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
       const prices = {
@@ -684,7 +684,7 @@ const updateAmmPrices = async () => {
         ...vaultPrices,
         ...wrappedAavePrices,
         ...jbrlTokenPrice,
-        ...yvWFTMPrice,
+        ...YVaultPrices,
       };
 
       const linearPrices = await fetchBalancerLinearPoolPrice(prices);
@@ -695,7 +695,7 @@ const updateAmmPrices = async () => {
         ...balancerStablePoolPrice,
         ...wrappedAavePrices,
         ...jbrlTokenPrice,
-        ...yvWFTMPrice,
+        ...YVaultPrices,
       };
     });
 
