@@ -11,6 +11,9 @@
     "oracleB": "tokens",
     "oracleIdB": "SD",
     "decimalsB": "1e18",
+    "staderls": true,
+    "lsIndex": 1,
+    "balancerChargesFee": false,
     "decimals": "1e18",
     "tokens": [
       {
