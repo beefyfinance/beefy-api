@@ -201,7 +201,8 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://assets.spookyswap.finance/tokens/sFTMX.png',
     website: 'https://fantom.staderlabs.com/liquid-staking/pools',
-    description: 'sFTMX is a liquid token that users get when they stake FTM with Stader.',
+    description:
+      'sFTMX is a liquid staking derivative token that gains value relative to FTM as staking rewards accrue. sFTMX offers 4.7% APY and maximum DeFi interoperability. Staking with Stader results in a decentralized distribution of assets across a curated pool of validators, while liquidity options are maintained through DEX liquidity pools.',
   },
   SD: {
     name: 'Stader SD',
