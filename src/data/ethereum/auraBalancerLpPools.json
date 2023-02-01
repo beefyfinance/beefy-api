@@ -8,7 +8,7 @@
     "decimals": "1e18",
     "rewards": [
       {
-        "rewardId": 0,
+        "rewardGauge": "0xb1BCdf4bce3d5786eb10533D07E4595D1f1BC9c8",
         "oracleId": "AURA",
         "decimals": "1e18"
       }
