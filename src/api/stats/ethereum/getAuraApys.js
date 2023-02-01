@@ -16,7 +16,6 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
-import { createSolutionBuilderWithWatch } from 'typescript';
 
 const { getContractWithProvider, getContract } = require('../../../utils/contractHelper');
 const {
@@ -89,7 +88,7 @@ const getPoolApys = async pools => {
     );
     apys.push(data[0]);
     lsAprs.push(data[1]);
-    cmpAprs.push(data[2]);
+    cmpAprs.push(data[2].toNumber());
   }
 
   return [apys, lsAprs, cmpAprs];
