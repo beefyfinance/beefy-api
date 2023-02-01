@@ -5,7 +5,6 @@
     "token": "0xc6e37086D09ec2048F151D11CdB9F9BbbdB7d685",
     "gauge": "0xC106C836771B0B4f4a0612Bd68163Ca93be1D340",
     "oracleId": "xcDOT",
-    "boosted": true,
     "beefyFee": 0.095,
     "rewards": [
       {

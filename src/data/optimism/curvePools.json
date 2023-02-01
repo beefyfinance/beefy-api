@@ -5,7 +5,6 @@
     "token": "0xEfDE221f306152971D8e9f181bFe998447975810",
     "gauge": "0xD53cCBfED6577d8dc82987e766e75E3cb73a8563",
     "oracleId": "WETH",
-    "boosted": true,
     "rewards": [
       {
         "token": "0xFdb794692724153d1488CcdBE0C56c252596735F",
@@ -30,7 +29,6 @@
     "pool": "0x29A3d66B30Bc4AD674A4FDAF27578B64f6afbFe7",
     "token": "0x29A3d66B30Bc4AD674A4FDAF27578B64f6afbFe7",
     "gauge": "0x4B960396011A914B4ccCC3b33DFEE83A97A9D766",
-    "boosted": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -50,7 +48,6 @@
     "token": "0x9F2fE3500B1a7E285FDc337acacE94c480e00130",
     "oracleId": "WBTC",
     "gauge": "0x172a5AF37f69C69CC59E748D090a70615830A5Dd",
-    "boosted": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -70,7 +67,6 @@
     "token": "0x7Bc5728BC2b59B45a58d9A576E2Ffc5f0505B35E",
     "oracleId": "WETH",
     "gauge": "0xCB8883D1D8c560003489Df43B30612AAbB8013bb",
-    "boosted": true,
     "rewards": [
       {
         "token": "0x4200000000000000000000000000000000000042",
@@ -117,7 +113,6 @@
     "pool": "0x061b87122Ed14b9526A813209C8a59a633257bAb",
     "token": "0x061b87122Ed14b9526A813209C8a59a633257bAb",
     "gauge": "0xc5aE4B5F86332e70f3205a8151Ee9eD9F71e0797",
-    "boosted": true,
     "rewards": [
       {
         "token": "0x4200000000000000000000000000000000000042",

@@ -5,7 +5,6 @@
     "token": "0xDbcD16e622c95AcB2650b38eC799f76BFC557a0b",
     "gauge": "0x098EF55011B6B8c99845128114A9D9159777d697",
     "oracleId": "WETH",
-    "boosted": true,
     "rewards": [
       {
         "token": "0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60",
@@ -30,7 +29,6 @@
     "pool": "0xC9B8a3FDECB9D5b218d02555a8Baf332E5B740d5",
     "token": "0xC9B8a3FDECB9D5b218d02555a8Baf332E5B740d5",
     "gauge": "0x95285Ea6fF14F80A2fD3989a6bAb993Bd6b5fA13",
-    "boosted": true,
     "convex": true,
     "tokens": [
       {
@@ -50,7 +48,6 @@
     "pool": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
     "gauge": "0xCE5F24B7A95e9cBa7df4B54E911B4A3Dc8CDAf6f",
     "baseApyKey": "2pool",
-    "boosted": true,
     "convex": true,
     "tokens": [
       {
@@ -71,7 +68,6 @@
     "gauge": "0xDB3fd1bfC67b5D4325cb31C04E0Cae52f1787FD6",
     "baseApyKey": "ren",
     "oracleId": "WBTC",
-    "boosted": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -92,7 +88,6 @@
     "gauge": "0x555766f3da968ecBefa690Ffd49A2Ac02f47aa5f",
     "baseApyKey": "tricrypto",
     "volatile": true,
-    "boosted": true,
     "convex": true,
     "extras": [
       {
@@ -125,7 +120,6 @@
     "gauge": "0x6339eF8Df0C2d3d3E7eE697E241666a916B81587",
     "baseApyKey": "eursusd",
     "volatile": true,
-    "boosted": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -145,7 +139,6 @@
     "pool": "0x1C5ffa4FB4907B681c61B8c82b28C4672ceb1974",
     "token": "0x1C5ffa4FB4907B681c61B8c82b28C4672ceb1974",
     "gauge": "0x94A5E05D66834c6C6961E199D34dA576679fC187",
-    "boosted": true,
     "volatile": true,
     "tokens": [
       {
