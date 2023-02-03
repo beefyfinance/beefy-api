@@ -1,0 +1,23 @@
+[
+  {
+    "name": "stargate-polygon-usdc",
+    "poolId": 0,
+    "address": "0x1205f31718499dBf1fCa446663B532Ef87481fe1",
+    "decimals": "1e6",
+    "underlying": "USDC"
+  },
+  {
+    "name": "stargate-polygon-usdt",
+    "poolId": 1,
+    "address": "0x29e38769f23701A2e4A8Ef0492e19dA4604Be62c",
+    "decimals": "1e6",
+    "underlying": "USDT"
+  },
+  {
+    "name": "stargate-polygon-dai",
+    "poolId": 2,
+    "address": "0x1c272232Df0bb6225dA87f4dEcD9d37c32f63Eea",
+    "decimals": "1e6",
+    "underlying": "DAI"
+  }
+]

@@ -44,22 +44,50 @@ import getFerroPrices from './cronos/getFerroPrices';
 import getHopArbPrices from './arbitrum/getHopArbPrices';
 import getHopOpPrices from './optimism/getHopOpPrices';
 import getHopPolyPrices from './matic/getHopPolyPrices';
+import getStargateEthPrices from './ethereum/getStargateEthPrices';
+import getStargateArbPrices from './arbitrum/getStargateArbPrices';
+import getStargateAvaxPrices from './avax/getStargateAvaxPrices';
+import getStargateBscPrices from './bsc/stargate/getStargateBscPrices';
+import getStargateFantomPrices from './fantom/getStargateFantomPrices';
+import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
+import getStargateOpPrices from './optimism/getStargateOpPrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
 import getSolidlyEthStablePrices from './ethereum/getSolidlyStablePrices';
 import getMvxPrices from './matic/getMvxPrices';
+import getStargateEthPrices from './ethereum/getStargateEthPrices';
+import getStargateArbPrices from './arbitrum/getStargateArbPrices';
+import getStargateAvaxPrices from './avax/getStargateAvaxPrices';
+import getStargateBscPrices from './bsc/stargate/getStargateBscPrices';
+import getStargateFantomPrices from './fantom/getStargateFantomPrices';
+import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
+import getStargateOpPrices from './optimism/getStargateOpPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getStargateOpPrices(tokenPrices),
+    getStargatePolygonPrices(tokenPrices),
+    getStargateFantomPrices(tokenPrices),
+    getStargateBscPrices(tokenPrices),
+    getStargateAvaxPrices(tokenPrices),
+    getStargateArbPrices(tokenPrices),
+    getStargateEthPrices(tokenPrices),
     getSolidlyEthStablePrices(tokenPrices),
     getThenaStablePrices(tokenPrices),
     getMvxPrices(tokenPrices),
     getEqualizerStablePrices(tokenPrices),
     getOlpPrices(),
+    getStargateOpPrices(tokenPrices),
+    getStargatePolygonPrices(tokenPrices),
+    getStargateFantomPrices(tokenPrices),
+    getStargateBscPrices(tokenPrices),
+    getStargateAvaxPrices(tokenPrices),
+    getStargateArbPrices(tokenPrices),
+    getStargateEthPrices(tokenPrices),
     getHopPolyPrices(tokenPrices),
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),

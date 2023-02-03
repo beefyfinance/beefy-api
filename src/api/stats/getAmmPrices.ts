@@ -5,7 +5,6 @@ import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
-import { fetchStargatePrices } from '../../utils/fetchStargatePrices';
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
@@ -654,10 +653,6 @@ const updateAmmPrices = async () => {
       return await fetchXPrices(tokenPrices);
     });
 
-    const stargatePrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
-      return await fetchStargatePrices(tokenPrices);
-    });
-
     const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
     });
@@ -715,7 +710,6 @@ const updateAmmPrices = async () => {
       const beFtmTokenPrice = await beFtmPrice;
       const stDOTTokenPrice = await stDOTPrice;
       const sfrxEthTokenPrice = await sfrxEthPrice;
-      const stargateTokenPrices = await stargatePrices;
       const beTokenTokenPrice = await beTokenPrice;
       const linearPoolTokenPrice = await linearPoolPrice;
       return {
@@ -723,7 +717,6 @@ const updateAmmPrices = async () => {
         ...dmm.tokenPrices,
         ...mooTokenPrices,
         ...xTokenPrices,
-        ...stargateTokenPrices,
         ...beFtmTokenPrice,
         ...beTokenTokenPrice,
         ...stDOTTokenPrice,
