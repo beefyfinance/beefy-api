@@ -51,6 +51,7 @@ import getStargateBscPrices from './bsc/stargate/getStargateBscPrices';
 import getStargateFantomPrices from './fantom/getStargateFantomPrices';
 import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
 import getStargateOpPrices from './optimism/getStargateOpPrices';
+import getStargateMetisPrices from './metis/getStargateMetisPrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
@@ -67,6 +68,7 @@ const getNonAmmPrices = async tokenPrices => {
     getMvxPrices(tokenPrices),
     getEqualizerStablePrices(tokenPrices),
     getOlpPrices(),
+    getStargateMetisPrices(tokenPrices),
     getStargateOpPrices(tokenPrices),
     getStargatePolygonPrices(tokenPrices),
     getStargateFantomPrices(tokenPrices),
