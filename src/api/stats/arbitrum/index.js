@@ -12,8 +12,10 @@ const { getGmxApys } = require('./getGmxApys');
 const { getHopApys } = require('./getHopApys');
 const { getConvexApys } = require('./getConvexApys');
 const { getSwapFishApys } = require('./getSwapFishApys');
+const { getGnsApys } = require('./getGnsApys');
 
 const getApys = [
+  getGnsApys,
   getHopApys,
   getGmxApys,
   getRadiantLpApys,

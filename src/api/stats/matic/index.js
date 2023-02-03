@@ -32,6 +32,7 @@ const getUniV3PolygonApys = require('./getUniV3PolygonApys');
 const { getHopApys } = require('./getHopApys');
 const { getMvxApys } = require('./getMvxApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
+const { getGnsApys } = require('./getGnsApys');
 
 const getApys = [
   getbeQiApy,
@@ -67,6 +68,7 @@ const getApys = [
   getHopApys,
   getMvxApys,
   getAaveV3Apys,
+  getGnsApys,
 ];
 
 const BATCH_SIZE = 15;

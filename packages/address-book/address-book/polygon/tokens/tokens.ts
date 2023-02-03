@@ -917,9 +917,10 @@ const _tokens = {
     decimals: 18,
     chainId: 137,
     website: 'https://gainsnetwork.io/',
-    description: 'Decentralized leverage trading platform on Polygon.',
+    description: 'Decentralized leverage trading platform on Polygon and Arbitrum.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
+    documentation: 'https://gains-network.gitbook.io/docs-home/',
   },
   LINK: {
     name: 'ChainLink Token',
