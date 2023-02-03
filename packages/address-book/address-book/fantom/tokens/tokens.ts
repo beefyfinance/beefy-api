@@ -39,6 +39,29 @@ const FTM = {
 } as const;
 
 const _tokens = {
+  'bb-yv-FTM': {
+    name: 'Beets Yearn Boosted FTM Linear Pool',
+    symbol: 'bb-yv-FTM',
+    address: '0xC3BF643799237588b7a6B407B3fc028Dd4e037d2',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://beets.fi/#/',
+    description: 'Balancer linear pool that consist of yvWFTM and WFTM.',
+    documentation: 'https://docs.beets.fi/balancer-v2-1/pools#boosted-pools',
+  },
+  yvWFTM: {
+    name: 'WFTM yVault',
+    symbol: 'yvWFTM',
+    address: '0x0DEC85e74A92c52b7F708c4B10207D9560CEFaf0',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://yearn.finance/',
+    description:
+      "yVault tokens represent a user's share in a yVault. These vaults contain a pool of underlying assets, such as WFTM, that generate profits for the users. The more profit the yVault generates, the higher the value of the user's yVault Token. When a user withdraws their liquidity from the yVault, their yVault Token is burned, and they receive the equivalent value in the underlying asset.",
+    documentation: 'https://docs.yearn.finance/',
+  },
   SYN: {
     name: 'Synapse Protocol',
     symbol: 'SYN',
@@ -178,7 +201,8 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://assets.spookyswap.finance/tokens/sFTMX.png',
     website: 'https://fantom.staderlabs.com/liquid-staking/pools',
-    description: 'sFTMX is a liquid token that users get when they stake FTM with Stader.',
+    description:
+      'sFTMX is a liquid staking derivative token that gains value relative to FTM as staking rewards accrue. sFTMX offers 4.7% APY and maximum DeFi interoperability. Staking with Stader results in a decentralized distribution of assets across a curated pool of validators, while liquidity options are maintained through DEX liquidity pools.',
   },
   SD: {
     name: 'Stader SD',
