@@ -453,6 +453,18 @@ const _tokens = {
     description:
       'TrueUSD (TUSD) is the first independently-verified digital asset redeemable 1-for-1 for US Dollars.',
   },
+  GNS: {
+    name: 'Gains Network Token',
+    symbol: 'GNS',
+    address: '0x18c11FD286C5EC11c3b683Caa813B77f5163A122',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://gainsnetwork.io/',
+    description: 'Decentralized leverage trading platform on Polygon and Arbitrum.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
+    documentation: 'https://gains-network.gitbook.io/docs-home/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
