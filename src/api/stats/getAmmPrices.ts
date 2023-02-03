@@ -710,7 +710,6 @@ const updateAmmPrices = async () => {
       const beFtmTokenPrice = await beFtmPrice;
       const stDOTTokenPrice = await stDOTPrice;
       const sfrxEthTokenPrice = await sfrxEthPrice;
-      const stargateTokenPrices = await stargatePrices;
       const beTokenTokenPrice = await beTokenPrice;
       const linearPoolTokenPrice = await linearPoolPrice;
       return {
