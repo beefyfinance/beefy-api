@@ -51,6 +51,11 @@ import getStargateBscPrices from './bsc/stargate/getStargateBscPrices';
 import getStargateFantomPrices from './fantom/getStargateFantomPrices';
 import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
 import getStargateOpPrices from './optimism/getStargateOpPrices';
+import getOlpPrices from './optimism/getOlpPrices';
+import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
+import getThenaStablePrices from './bsc/getThenaStablePrices';
+import getSolidlyEthStablePrices from './ethereum/getSolidlyStablePrices';
+import getMvxPrices from './matic/getMvxPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
@@ -64,6 +69,11 @@ const getNonAmmPrices = async tokenPrices => {
     getStargateAvaxPrices(tokenPrices),
     getStargateArbPrices(tokenPrices),
     getStargateEthPrices(tokenPrices),
+    getSolidlyEthStablePrices(tokenPrices),
+    getThenaStablePrices(tokenPrices),
+    getMvxPrices(tokenPrices),
+    getEqualizerStablePrices(tokenPrices),
+    getOlpPrices(),
     getHopPolyPrices(tokenPrices),
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),

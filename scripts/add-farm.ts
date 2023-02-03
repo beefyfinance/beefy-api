@@ -21,7 +21,7 @@ const {
     platforms: { trisolaris },
   },
   bsc: {
-    platforms: { biswap, babyswap },
+    platforms: { biswap, babyswap, swapfish: swapfishBsc },
   },
   metis: {
     platforms: { netswap, tethys },
@@ -34,6 +34,12 @@ const {
   },
   emerald: {
     platforms: { yuzu },
+  },
+  arbitrum: {
+    platforms: { swapfish: swapfishArb },
+  },
+  ethereum: {
+    platforms: { sushi },
   },
 } = addressBook;
 
@@ -128,6 +134,21 @@ const projects = {
     file: '../src/data/emerald/yuzuDualLpPools.json',
     masterchef: yuzu.masterchefExt,
   },
+  swapfishArb: {
+    prefix: 'swapfish',
+    file: '../src/data/arbitrum/swapFishLpPools.json',
+    masterchef: swapfishArb.minichef,
+  },
+  swapfishBsc: {
+    prefix: 'swapfish-bsc',
+    file: '../src/data/swapFishLpPools.json',
+    masterchef: swapfishBsc.minichef,
+  },
+  sushi: {
+    prefix: 'sushi-mainnet',
+    file: '../src/data/ethereum/sushiLpPools.json',
+    masterchef: sushi.masterchef,
+  },
 };
 
 const args = yargs.options({
@@ -200,6 +221,7 @@ async function fetchToken(tokenAddress) {
     logoURI: `https://tokens.pancakeswap.finance/images/${checksummedTokenAddress}.svg`,
     website: '',
     description: '',
+    documentation: '',
   };
   console.log({ [token.symbol]: token }); // Prepare token data for address-book
   return token;

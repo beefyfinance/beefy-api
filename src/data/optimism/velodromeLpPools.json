@@ -1,5 +1,185 @@
 [
   {
+    "name": "velodrome-wsteth-op",
+    "address": "0x3905870E647c97Cb9C8D99Db24384f480531B5b9",
+    "gauge": "0x212ceDC5c942304D0F8E139B5BFA4e78196B37Ca",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000042",
+      "oracle": "tokens",
+      "oracleId": "OP",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-wsteth-usdc",
+    "address": "0x794299137282e5D3Af56616624Ab918D1b2BeCF3",
+    "gauge": "0x7dd032B7f6Cc924110cB3ceB0aE4338376E7d31d",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "velodrome-unidx-dai",
+    "address": "0x83E33607e808A0693DF2F803b41291caC5a51e58",
+    "gauge": "0xF776675BDFB3f402b267E44B589BFF178C0B9cC4",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
+      "oracle": "tokens",
+      "oracleId": "UNIDX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-weth-lusd",
+    "address": "0x91e0fC1E4D32cC62C4f9Bc11aCa5f3a159483d31",
+    "gauge": "0x7A0515af042090Dd634Af5d6b43303EA90703b69",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc40F949F8a4e094D1b49a23ea9241D289B7b2819",
+      "oracle": "tokens",
+      "oracleId": "LUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-thales-weth",
+    "address": "0x6Fe429de4284B7625CAC1FCaACFa1D705ac9ec28",
+    "gauge": "0xe9111e0D7BBb5a06F908AaCd7398266e39F49c5f",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x217D47011b23BB961eB6D93cA9945B7501a5BB11",
+      "oracle": "tokens",
+      "oracleId": "THALES",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-weth-kwenta",
+    "address": "0xd65c1120DDF79F827b925C505949E02c5A0D6236",
+    "gauge": "0xDFc1eCf1Dcb82B1daeA91fdDA2023973447c4309",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x920Cf626a271321C151D027030D5d08aF699456b",
+      "oracle": "tokens",
+      "oracleId": "KWENTA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-op-mai",
+    "address": "0x8fbC13969B03B58E0ac50B19E4aEdd4DFf8554a1",
+    "gauge": "0xFa3F4061622BF8Ed257366373765f87Ca3c1947A",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000042",
+      "oracle": "tokens",
+      "oracleId": "OP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-wsteth-ldo",
+    "address": "0xfEdd5A17D009DCB28DEaC39094A2aA5b601DC4a3",
+    "gauge": "0x9237cBd5ba18c567bcE30671fF1D3252A35770bE",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFdb794692724153d1488CcdBE0C56c252596735F",
+      "oracle": "tokens",
+      "oracleId": "LDO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-wsteth-usd+",
+    "address": "0x98dc12979A34EE2F7099B1cBD65f9080c5a3284F",
+    "gauge": "0xDB8dD0d6f1E22A5608483778206577683a408bD0",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x73cb180bf0521828d8849bc8CF2B920918e23032",
+      "oracle": "tokens",
+      "oracleId": "oUSD+",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "velodrome-usd+-usdc",
     "address": "0xf2438EDF9d5dB2DBC6866EF01c9Eb7ca1ca8ad13",
     "gauge": "0xA55c5bc4E7174BbA5630242796d52476088B7dBa",

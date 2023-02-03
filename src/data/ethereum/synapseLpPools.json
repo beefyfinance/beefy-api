@@ -1,0 +1,22 @@
+[
+  {
+    "name": "synapse-syn-weth",
+    "address": "0x4A86C01d67965f8cB3d0AAA2c655705E64097C31",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 0,
+    "chainId": 1,
+    "lp0": {
+      "address": "0x0f2D719407FdBeFF09D87557AbB7232601FD9F29",
+      "oracle": "tokens",
+      "oracleId": "SYN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

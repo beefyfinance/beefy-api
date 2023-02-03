@@ -5,9 +5,9 @@ const { getOneBifiMaxiApy } = require('./getOneBifiMaxiApy');
 
 const getApys = [
   getSushiLpApys,
-  getCurveApys,
+  // getCurveApys,
   getOneBifiGovApy,
-  getOneBifiMaxiApy
+  getOneBifiMaxiApy,
 ];
 
 const getOneApys = async () => {

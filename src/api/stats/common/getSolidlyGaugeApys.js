@@ -81,7 +81,27 @@ const getFarmApys = async params => {
       yearlyRewards = rewardRates[i].times(secondsPerYear);
     }
 
-    const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
+    let yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
+
+    for (const rewards of pool.rewards ?? []) {
+      const gauge = getContractWithProvider(IGauge, pool.gauge, params.web3);
+      const rate = new BigNumber(await gauge.methods.rewardRate(rewards.address).call());
+
+      //console.log(rate.toString());
+      const additionalRewards = params.boosted
+        ? rate
+            .times(secondsPerYear)
+            .times(await fetchPrice({ oracle: 'tokens', id: rewards.oracleId }))
+            .dividedBy(rewards.decimals)
+            .times(0.4)
+        : rate
+            .times(secondsPerYear)
+            .times(await fetchPrice({ oracle: 'tokens', id: rewards.oracleId }))
+            .dividedBy(rewards.decimals)
+            .times(0.4);
+
+      yearlyRewardsInUsd = yearlyRewardsInUsd.plus(additionalRewards);
+    }
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
@@ -110,9 +130,10 @@ const getPoolsData = async params => {
       ? getContract(ISpiritGauge, pool.gauge)
       : getContract(IGauge, pool.gauge);
     balanceCalls.push({
-      balance: params.boosted
-        ? rewardPool.methods.derivedSupply()
-        : rewardPool.methods.totalSupply(),
+      balance:
+        params.boosted && params.NFTid
+          ? rewardPool.methods.derivedSupply()
+          : rewardPool.methods.totalSupply(),
     });
     rewardRateCalls.push({
       rewardRate: params.spirit

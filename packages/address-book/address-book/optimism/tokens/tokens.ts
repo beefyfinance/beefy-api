@@ -30,6 +30,28 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  beOPX: {
+    name: 'Beefy Escrowed OPX',
+    symbol: 'beOPX',
+    address: '0xEDFBeC807304951785b581dB401fDf76b4bAd1b0',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://www.opx.finance/',
+    description:
+      'Beefy Escrowed OPX is a liquid staking solution to earn maximum governance rewards from the OPX platform using the highest tier NFT and maximum lock.',
+    logoURI: '',
+  },
+  OPX: {
+    name: 'OPX',
+    symbol: 'OPX',
+    address: '0xcdB4bB51801A1F399d4402c61bC098a72c382E65',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://www.opx.finance/',
+    description:
+      'OPX is the utility and governance token of the OPX decentralized spot and perpetual exchange that supports low swap fees, zero price impact trades and up to 30x leverage. Locked OPX earns trading fees and upto 35% of platform fees in the form of ETH.',
+    logoURI: 'https://app.opx.finance/static/media/logo.0424664f.svg',
+  },
   jEUR: {
     name: 'Jarvis Synthetic Euro',
     symbol: 'jEUR',
@@ -373,6 +395,7 @@ const _tokens = {
     website: 'https://app.angle.money/',
     description:
       'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+    documentation: 'https://docs.angle.money/',
   },
   L2DAO: {
     name: 'Layer2DAO',
@@ -430,6 +453,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
   },
+  'bbUSD+': {
+    name: 'Beets Composable Pool USD+ Stablecoin',
+    symbol: 'bbUSD+',
+    address: '0x88D07558470484c03d3bb44c3ECc36CAfCF43253',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
   'USD+': {
     name: 'USD+ Stablecoin',
     symbol: 'USD+',
@@ -439,6 +474,54 @@ const _tokens = {
     website: 'https://overnight.fi/',
     description:
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'wUSD+': {
+    name: 'Wrapped USD+ Stablecoin',
+    symbol: 'wUSD+',
+    address: '0xA348700745D249c3b49D2c2AcAC9A5AE8155F826',
+    chainId: 10,
+    decimals: 6,
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'DAI+': {
+    name: 'DAI+ Stablecoin',
+    symbol: 'DAI+',
+    address: '0x970D50d09F3a656b43E11B0D45241a84e3a6e011',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'bbDAI+': {
+    name: 'Beets Composable Pool DAI+ Stablecoin',
+    symbol: 'bbDAI+',
+    address: '0xb5ad7d6d6F92a77F47f98C28C84893FBccc94809',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'wDAI+': {
+    name: 'Wrapped DAI+ Stablecoin',
+    symbol: 'wDAI+',
+    address: '0x0b8f31480249cC717081928B8aF733F45f6915BB',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
@@ -712,6 +795,54 @@ const _tokens = {
       'hSNX is the bridge token for transferring SNX via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
+  },
+  LDO: {
+    name: 'Lido DAO Token',
+    symbol: 'LDO',
+    address: '0xFdb794692724153d1488CcdBE0C56c252596735F',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://stake.lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+    documentation: 'https://docs.lido.fi/',
+  },
+  KWENTA: {
+    name: 'Kwenta',
+    symbol: 'KWENTA',
+    address: '0x920Cf626a271321C151D027030D5d08aF699456b',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://kwenta.eth.limo/dashboard',
+    description:
+      'Kwenta is a decentralized derivatives trading platform, live on Optimism, offering real-world and on-chain synthetic assets using the power of the Synthetix protocol.',
+    documentation: 'https://docs.kwenta.io/',
+  },
+  UNIDX: {
+    name: 'UniDex',
+    symbol: 'UNIDX',
+    address: '0x5d47bAbA0d66083C52009271faF3F50DCc01023C',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.unidex.exchange/trading',
+    description:
+      'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
+    documentation: 'https://unidexexchange.gitbook.io/unidex/',
+  },
+  sEUR: {
+    name: 'Synth sEUR',
+    symbol: 'sEUR',
+    address: '0xFBc4198702E81aE77c06D58f81b629BDf36f0a71',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://synthetix.io/',
+    description:
+      'Forex Synths track the price of forex currencies via price feeds supplied by Chainlinks oracle network of distributed node operators.',
+    documentation: 'https://docs.synthetix.io/tokens/',
   },
 } as const;
 

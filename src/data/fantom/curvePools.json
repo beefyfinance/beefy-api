@@ -6,7 +6,6 @@
     "gauge": "0x319E268f0A4C85D404734ee7958857F5891506d7",
     "baseApyKey": "tricrypto",
     "volatile": true,
-    "boosted": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -27,9 +26,7 @@
   },
   {
     "name": "curve-ftm-fusdt",
-    "status": "eol",
     "pool": "0x92D5ebF3593a92888C25C0AbEF126583d4b5312E",
-    "gauge": "0x06e3C4da96fd076b97b7ca3Ae23527314b6140dF",
     "baseApyKey": "fusdt",
     "rewards": [
       {
@@ -60,7 +57,6 @@
   {
     "name": "curve-ftm-2pool",
     "pool": "0x27E611FD27b276ACbd5Ffd632E5eAEBEC9761E40",
-    "gauge": "0x8866414733F22295b7563f9C5299715D2D76CAf4",
     "baseApyKey": "2pool",
     "rewards": [
       {
@@ -94,7 +90,6 @@
     "gauge": "0xbC38bD19227F91424eD4132F630f51C9A42Fa338",
     "baseApyKey": "ren",
     "oracleId": "BTC",
-    "boosted": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -114,7 +109,6 @@
     "token": "0xd02a30d33153877bc20e5721ee53dedee0422b2f",
     "gauge": "0xF7b9c402c4D6c2eDbA04a7a515b53D11B1E9b2cc",
     "baseApyKey": "geist",
-    "boosted": true,
     "rewards": [
       {
         "token": "0xd8321AA83Fb0a4ECd6348D4577431310A6E0814d",
@@ -217,7 +211,6 @@
     "pool": "0x8B63F036F5a34226065bC0a7B0aE5bb5eBA1fF3D",
     "gauge": "0xc1c5B8aAfE653592627B54B9527C7E98326e83Ff",
     "oracleId": "WFTM",
-    "boosted": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -235,7 +228,6 @@
     "name": "curve-ftm-f-usdl",
     "pool": "0x6EF78ad4a40E9A6c81B9229de3eCc33ce591bC34",
     "gauge": "0xA6ff75281eACa4cD5fEEb333e8E15558208295e5",
-    "boosted": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -255,7 +247,6 @@
     "pool": "0x9dc516a18775d492c9f061211C8a3FDCd476558d",
     "token": "0x9dc516a18775d492c9f061211C8a3FDCd476558d",
     "gauge": "0xd0698b2E41C42bcE42B51f977F962Fd127cF82eA",
-    "boosted": true,
     "volatile": true,
     "tokens": [
       {

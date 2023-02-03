@@ -1,5 +1,5 @@
 const getBeetsOpApys = require('./getBeetsOpApys');
-const getCurveApys = require('./getCurveApys');
+const { getCurveApys } = require('./getCurveApys');
 const getVelodromeApys = require('./getVelodromeApys');
 const getStargateOpApys = require('./getStargateOpApys');
 const getbeVeloApy = require('./getbeVeloApy');
@@ -10,6 +10,9 @@ const { getSonneApys } = require('./getSonneApys');
 const { getOptimismBifiMaxiApy } = require('./getOptimismBifiMaxiApy');
 const { getHopApys } = require('./getHopApys');
 const { getHopOpApys } = require('./getHopOpApys');
+const { getOlpApys } = require('./getOlpApys');
+const getBeOpxApy = require('./getBeOpxApy');
+const getBeOpxEarnApy = require('./getBeOpxEarnApy');
 
 const getApys = [
   getBeetsOpApys,
@@ -24,6 +27,9 @@ const getApys = [
   getSonneApys,
   getHopApys,
   getHopOpApys,
+  getOlpApys,
+  getBeOpxApy,
+  getBeOpxEarnApy,
 ];
 
 const getOptimismApys = async () => {

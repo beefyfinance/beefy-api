@@ -12,6 +12,8 @@ import getBlockTime from '../../../utils/getBlockTime';
 import { ERC20_ABI } from '../../../abis/common/ERC20';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { beethovenx } from '../../../../packages/address-book/address-book/fantom/platforms/beethovenx';
+const IBalancerVault = require('../../../abis/IBalancerVault.json');
 
 const masterchef = '0x8166994d9ebBe5829EC86Bd81258149B87faCfd3';
 const oracleIdA = 'BEETS';
@@ -30,11 +32,12 @@ const getBeethovenxDualApys = async () => {
   );
 
   const farmApys = await getFarmApys(pools);
-  return getApyBreakdown(pools, tradingAprs, farmApys, liquidityProviderFee);
+  return getApyBreakdown(pools, tradingAprs, farmApys[0], liquidityProviderFee, farmApys[1]);
 };
 
 const getFarmApys = async pools => {
   const apys = [];
+  const lsAprs = [];
 
   const secondsPerBlock = await getBlockTime(FANTOM_CHAIN_ID);
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
@@ -57,9 +60,7 @@ const getFarmApys = async pools => {
         return 0;
       } else {
         const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-        const yearlyRewardsB = tokenBRewardRates[i]
-          .dividedBy(secondsPerBlock)
-          .times(secondsPerYear);
+        const yearlyRewardsB = tokenBRewardRates[i].times(secondsPerYear);
         return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
       }
     })();
@@ -67,9 +68,54 @@ const getFarmApys = async pools => {
     let yearlyRewardsInUsd = yearlyRewardsAInUsd.plus(yearlyRewardsBInUsd);
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
+
+    let aprFixed = 0;
+    if (pool.staderls) {
+      aprFixed = await getLiquidStakingPoolYield(pool);
+    }
+    lsAprs.push(aprFixed);
   }
 
-  return apys;
+  return [apys, lsAprs];
+};
+
+const getLiquidStakingPoolYield = async pool => {
+  const balVault = getContractWithProvider(IBalancerVault, beethovenx.router, web3);
+  const tokenQtys = await balVault.methods.getPoolTokens(pool.vaultPoolId).call();
+
+  let qty = [];
+  let totalQty = new BigNumber(0);
+  for (let j = 0; j < tokenQtys.balances.length; j++) {
+    if (pool.composable) {
+      if (j != pool.bptIndex) {
+        const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
+        const amt = new BigNumber(tokenQtys.balances[j])
+          .times(price)
+          .dividedBy([pool.tokens[j].decimals]);
+        totalQty = totalQty.plus(amt);
+        qty.push(amt);
+      }
+    } else {
+      const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
+      const amt = new BigNumber(tokenQtys.balances[j])
+        .times(price)
+        .dividedBy([pool.tokens[j].decimals]);
+      totalQty = totalQty.plus(amt);
+      qty.push(amt);
+    }
+  }
+
+  let apr = 0;
+  const lsApr = 4.7;
+  try {
+    apr = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100;
+    apr = pool.balancerChargesFee ? apr / 2 : apr;
+  } catch (err) {
+    console.error(`Error fetching ls yield for ${pool.name}`);
+  }
+
+  // console.log(pool.name, lsApr, apr);
+  return apr;
 };
 
 const getMasterChefData = async () => {

@@ -24,6 +24,7 @@ const setKey = async (key, value) => {
   if (!redisClient) return;
   try {
     await redisClient.set(key, JSON.stringify(value));
+    console.log(`> [${key}] saved to redis`);
   } catch (err) {
     console.log(`Failed storing value for key "${key}": `, err);
   }

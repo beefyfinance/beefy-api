@@ -16,6 +16,8 @@ import { biswap } from './platforms/biswap';
 import { emp } from './platforms/emp';
 import { cone } from './platforms/cone';
 import { bolide } from './platforms/bolide';
+import { swapfish } from './platforms/swapfish';
+import { thena } from './platforms/thena';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -41,6 +43,8 @@ const _bsc = {
     emp,
     bolide,
     cone,
+    swapfish,
+    thena,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

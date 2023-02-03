@@ -77,6 +77,7 @@ const _tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    oracleId: 'USDC',
   },
   mDAI: {
     name: 'Dai Stablecoin',
@@ -207,6 +208,17 @@ const _tokens = {
     website: 'https://hermes.maiadao.io/',
     description:
       'HERMES is the governance token of the Solidly-fork Hermes Protocol on Metis. The token is emitted as a farming reward to liquidity providers and can be locked for a period to gain voting rights.',
+  },
+  'BIFI-METIS LP': {
+    name: 'BIFI-METIS LP',
+    symbol: 'BIFI-METIS LP',
+    address: '0x89D433e8cCC871B3f12EA17b651ff3633DFb5DC0',
+    chainId: 1088,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.beefy.com/',
+    oracleId: 'netswap-bifi-metis',
+    oracle: 'lps',
   },
 } as const;
 

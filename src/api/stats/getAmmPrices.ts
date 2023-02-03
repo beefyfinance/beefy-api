@@ -6,7 +6,10 @@ import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
+import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
+import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchstDOTPrice } from '../../utils/fetchstDOTPrice';
+import { fetchsfrxEthPrice } from '../../utils/fetchsfrxEthPrice';
 import {
   fetchBalancerStablePoolPrice,
   fetchBalancerLinearPoolPrice,
@@ -217,6 +220,7 @@ import creditumPools from '../../data/fantom/creditumPools.json';
 import ripaePools from '../../data/fantom/ripaeLpPools.json';
 import ripaeAvaxPools from '../../data/avax/ripaeLpPools.json';
 import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
+import beamswapMultiRewardLpPools from '../../data/moonbeam/beamswapMultiRewardLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
 import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
@@ -250,6 +254,13 @@ import radiantPools from '../../data/arbitrum/radiantLpPools.json';
 import conePools from '../../data/coneLpPools.json';
 import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
+import swapFishPools from '../../data/arbitrum/swapFishLpPools.json';
+import equalizerPools from '../../data/fantom/equalizerLpPools.json';
+import swapFishBscPools from '../../data/swapFishLpPools.json';
+import thenaPools from '../../data/degens/thenaLpPools.json';
+import sushiMainnetPools from '../../data/ethereum/sushiLpPools.json';
+import synapseLpPools from '../../data/ethereum/synapseLpPools.json';
+import solidlyLpPools from '../../data/ethereum/solidlyLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 
@@ -259,6 +270,13 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...solidlyLpPools,
+  ...synapseLpPools,
+  ...sushiMainnetPools,
+  ...thenaPools,
+  ...swapFishBscPools,
+  ...equalizerPools,
+  ...swapFishPools,
   ...hermesPools,
   ...spiritV2Pools,
   ...conePools,
@@ -316,6 +334,7 @@ const pools = normalizePoolOracleIds([
   ...chargePools,
   ...blockMinePools,
   ...oldPools,
+  ...beamswapMultiRewardLpPools,
   ...beamswapPools,
   ...finnLpPools,
   ...bisonPools,
@@ -499,6 +518,7 @@ const coinGeckoCoins = [
   'tether-eurt',
   'par-stablecoin',
   'jarvis-synthetic-euro',
+  'monerium-eur-money',
   'jpyc',
   'cad-coin',
   'xsgd',
@@ -523,6 +543,12 @@ const coinGeckoCoins = [
   'havven',
   'aura-bal',
   'balancer',
+  'coinbase-wrapped-staked-eth',
+  'opx-finance',
+  'dola-usd',
+  'across-protocol',
+  'metavault-trade',
+  'seur',
 ];
 
 const currencies = ['cad'];
@@ -540,6 +566,10 @@ const knownPrices = {
   aUSDT: 1,
   aDAI: 1,
   aUSDC: 1,
+  amUSDT: 1,
+  amUSDC: 1,
+  amDAI: 1,
+  'DAI+': 1,
 };
 
 let tokenPricesCache: Promise<any>;
@@ -587,6 +617,13 @@ const updateAmmPrices = async () => {
         hSNX: prices['havven'],
         auraBAL: prices['aura-bal'],
         BAL: prices['balancer'],
+        cbETH: prices['coinbase-wrapped-staked-eth'],
+        OPX: prices['opx-finance'],
+        beOPX: prices['opx-finance'],
+        DOLA: prices['dola-usd'],
+        ACX: prices['across-protocol'],
+        MVX: prices['metavault-trade'],
+        sEUR: prices['seur'],
       };
     };
 
@@ -628,15 +665,33 @@ const updateAmmPrices = async () => {
       return await fetchstDOTPrice(tokenPrices);
     });
 
+    const sfrxEthPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+      return await fetchsfrxEthPrice(tokenPrices);
+    });
+
     const linearPoolPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+      const jbrlTokenPrice = await fetchJbrlPrice(tokenPrices);
+      const yVaultPrices = await fetchyVaultPrices(tokenPrices);
       const vaultPrices = await fetchVaultPrices(tokenPrices);
       const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
-      const prices = { ...tokenPrices, ...vaultPrices, ...wrappedAavePrices };
+      const prices = {
+        ...tokenPrices,
+        ...vaultPrices,
+        ...wrappedAavePrices,
+        ...jbrlTokenPrice,
+        ...yVaultPrices,
+      };
 
       const linearPrices = await fetchBalancerLinearPoolPrice(prices);
       const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
 
-      return { ...linearPrices, ...balancerStablePoolPrice };
+      return {
+        ...linearPrices,
+        ...balancerStablePoolPrice,
+        ...wrappedAavePrices,
+        ...jbrlTokenPrice,
+        ...yVaultPrices,
+      };
     });
 
     const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
@@ -654,6 +709,8 @@ const updateAmmPrices = async () => {
       const mooTokenPrices = await mooPrices;
       const beFtmTokenPrice = await beFtmPrice;
       const stDOTTokenPrice = await stDOTPrice;
+      const sfrxEthTokenPrice = await sfrxEthPrice;
+      const stargateTokenPrices = await stargatePrices;
       const beTokenTokenPrice = await beTokenPrice;
       const linearPoolTokenPrice = await linearPoolPrice;
       return {
@@ -664,6 +721,7 @@ const updateAmmPrices = async () => {
         ...beFtmTokenPrice,
         ...beTokenTokenPrice,
         ...stDOTTokenPrice,
+        ...sfrxEthTokenPrice,
         ...linearPoolTokenPrice,
         ...(await coinGeckoPrices()),
         ...(await currencyPrices()),
@@ -716,20 +774,22 @@ export const getLpBreakdown = async () => {
   return await lpBreakdownCache;
 };
 
-export const getAmmTokenPrice = async tokenSymbol => {
+export const getAmmTokenPrice = async (tokenSymbol, withUnkownLogging) => {
   const tokenPrices = await getAmmTokensPrices();
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     return tokenPrices[tokenSymbol];
   }
-  console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+  if (withUnkownLogging)
+    console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
 };
 
-export const getAmmLpPrice = async lpName => {
+export const getAmmLpPrice = async (lpName, withUnknownLogging) => {
   const lpPrices = await getAmmLpPrices();
   if (lpPrices.hasOwnProperty(lpName)) {
     return lpPrices[lpName];
   }
-  console.error(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
+  if (withUnknownLogging)
+    console.error(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
 };
 
 // We want to treat wrapped tokens the same way we'd treat normal ones => We then swap all wrapped token oracleIds to their underlying
@@ -770,5 +830,4 @@ const saveToRedis = async () => {
   await setKey('TOKEN_PRICES', await tokenPricesCache);
   await setKey('LP_PRICES', await lpPricesCache);
   await setKey('LP_BREAKDOWN', await lpBreakdownCache);
-  console.log('Prices saved to redis');
 };

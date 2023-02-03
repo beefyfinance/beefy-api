@@ -1,9 +1,139 @@
 [
   {
+    "name": "aura-aurabal-balbpt",
+    "address": "0x3dd0843A028C86e0b760b1A76929d1C5Ef93a2dd",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xACAdA51C320947E7ed1a0D0F6b939b0FF465E4c2",
+    "vaultPoolId": "0x3dd0843a028c86e0b760b1a76929d1c5ef93a2dd000200000000000000000249",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xb1BCdf4bce3d5786eb10533D07E4595D1f1BC9c8",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "BAL-WETH-80-20",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "auraBAL",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-aura-weth",
+    "address": "0xCfCA23cA9CA720B6E98E3Eb9B6aa0fFC4a5C08B9",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x712CC5BeD99aA06fC4D5FB50Aea3750fA5161D0f",
+    "vaultPoolId": "0xcfca23ca9ca720b6e98e3eb9b6aa0ffc4a5c08b9000200000000000000000274",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-acx-wsteth",
+    "address": "0x798b112420AD6391A4129Ac25eF59663a44C88bB",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x9AccD370C03a3cc4Bf717a81aD5A46e6c88FA109",
+    "lidoUrl": "https://stake.lido.fi/api/apr",
+    "lsIndex": 1,
+    "balancerChargesFee": true,
+    "vaultPoolId": "0x798b112420ad6391a4129ac25ef59663a44c88bb0002000000000000000003f4",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ACX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-cbeth-wsteth",
+    "address": "0x4EdcB2B46377530Bc18BB4D2c7Fe46a992c73e10",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x7D67BeB5cF289B015FCA7B3fc408860731d826E1",
+    "composable": true,
+    "bptIndex": 0,
+    "lsIndex": 0,
+    "lidoUrl": "https://stake.lido.fi/api/apr",
+    "balancerChargesFee": true,
+    "vaultPoolId": "0x4edcb2b46377530bc18bb4d2c7fe46a992c73e100000000000000000000003ec",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "cbETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-wsteth-reth-sfrxeth",
+    "address": "0x8e85e97ed19C0fa13B2549309965291fbbc0048b",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x60cf485394e83d3879998281faac6a1c3cf218c7",
+    "composable": true,
+    "bptIndex": 1,
+    "lidoUrl": "https://stake.lido.fi/api/apr",
+    "vaultPoolId": "0x8E85E97ED19C0FA13B2549309965291FBBC0048B0000000000000000000003BA",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-wsteth-eth",
     "address": "0x32296969Ef14EB0c6d29669C550D4a0449130230",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xDCee1C640cC270121faF145f231fd8fF1d8d5CD4",
+    "gauge": "0xe4683fe8f53da14ca5dac4251eadfb3aa614d528",
+    "lsIndex": 0,
     "lidoUrl": "https://stake.lido.fi/api/apr",
     "balancerChargesFee": true,
     "vaultPoolId": "0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080",
@@ -25,7 +155,7 @@
     "name": "aura-mai-usdc",
     "address": "0xf3AeB3aBbA741f0EEcE8a1B1D2F11b85899951CB",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xdf0575aca437f6dac5289d59ddaaf495159dbcbd",
+    "gauge": "0x0c57a7cb838c215fad7ade13062db956e91f1941",
     "vaultPoolId": "0xF3AEB3ABBA741F0EECE8A1B1D2F11B85899951CB000200000000000000000351",
     "decimals": "1e18",
     "tokens": [
@@ -42,11 +172,34 @@
     ]
   },
   {
+    "name": "aura-inv-dola",
+    "address": "0x441b8a1980f2F2E43A9397099d15CC2Fe6D36250",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xA615a41C019AE402c1B7cA9D3d600763e0909A92",
+    "vaultPoolId": "0x441b8a1980f2f2e43a9397099d15cc2fe6d3625000020000000000000000035f",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "INV",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DOLA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-reth-weth",
     "address": "0x1E19CF2D73a72Ef1332C882F20534B6519Be0276",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x6eBDC53B2C07378662940A7593Ad39Fb67778457",
+    "gauge": "0x001b78cec62dcfdc660e06a91eb1bc966541d758",
     "vaultPoolId": "0x1e19cf2d73a72ef1332c882f20534b6519be0276000200000000000000000112",
+    "rocketUrl": "https://api.rocketpool.net/api/apr",
+    "lsIndex": 0,
+    "balancerChargesFee": true,
     "decimals": "1e18",
     "tokens": [
       {
@@ -68,6 +221,7 @@
     "gauge": "0xe5d920029556a49a9cA4DD808CD62a1876C10eBA",
     "vaultPoolId": "0x25accb7943fd73dda5e23ba6329085a3c24bfb6a000200000000000000000387",
     "lidoUrl": "https://stake.lido.fi/api/apr",
+    "lsIndex": 0,
     "includesComposableStable": true,
     "composableSplit": 2,
     "decimals": "1e18",
@@ -116,12 +270,40 @@
     ]
   },
   {
+    "name": "aura-dola-bbausd",
+    "address": "0x5b3240B6BE3E7487d61cd1AFdFC7Fe4Fa1D81e64",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xa0e1d9619979f06ff375251afe90de2801b009d8",
+    "vaultPoolId": "0x5b3240b6be3e7487d61cd1afdfc7fe4fa1d81e6400000000000000000000037b",
+    "includesComposableStable": true,
+    "composable": true,
+    "bptIndex": 0,
+    "composableSplit": 2,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DOLA",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-reth-bbausd",
     "address": "0x334C96d792e4b26B841d28f53235281cec1be1F2",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x19d94045f1ade0ed253d30a34e0845be99aab194",
     "vaultPoolId": "0x334c96d792e4b26b841d28f53235281cec1be1f200020000000000000000038a",
     "includesComposableStable": true,
+    "lsIndex": 1,
     "composableSplit": 2,
     "decimals": "1e18",
     "tokens": [

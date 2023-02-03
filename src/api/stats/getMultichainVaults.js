@@ -1,3 +1,5 @@
+import BigNumber from 'bignumber.js';
+
 const getVaults = require('../../utils/getVaults.js');
 const { getStrategies } = require('../../utils/getStrategies.js');
 const { getLastHarvests } = require('../../utils/getLastHarvests.js');
@@ -13,6 +15,7 @@ let vaultsByChain = {};
 let multichainVaults = [];
 var multichainVaultsCounter = 0;
 var multichainActiveVaultsCounter = 0;
+var vaultsByID = {};
 
 const getMultichainVaults = () => {
   return multichainVaults;
@@ -20,6 +23,10 @@ const getMultichainVaults = () => {
 
 const getSingleChainVaults = chain => {
   return vaultsByChain[chain];
+};
+
+const getVaultByID = vaultId => {
+  return vaultsByID[vaultId];
 };
 
 const updateMultichainVaults = async () => {
@@ -41,6 +48,11 @@ const updateMultichainVaults = async () => {
     multichainActiveVaultsCounter = multichainVaults.filter(
       vault => vault.status === 'active'
     ).length;
+
+    vaultsByID = multichainVaults.reduce((allVaults, currentVault) => {
+      allVaults[currentVault.id] = currentVault;
+      return allVaults;
+    }, {});
 
     console.log(
       '> updated',
@@ -76,6 +88,15 @@ const updateChainVaults = async chain => {
 export const initVaultService = async () => {
   const cachedVaults = await getKey('VAULTS_BY_CHAIN');
 
+  if (cachedVaults) {
+    Object.values(cachedVaults).forEach(vaults => {
+      vaults.forEach(vault => {
+        if (vault.pricePerFullShare) {
+          vault.pricePerFullShare = new BigNumber(vault.pricePerFullShare);
+        }
+      });
+    });
+  }
   vaultsByChain = cachedVaults ?? {};
   multichainVaults = Object.values(vaultsByChain).reduce(
     (accumulator, current) => [...accumulator, ...current],
@@ -85,13 +106,16 @@ export const initVaultService = async () => {
   multichainActiveVaultsCounter = multichainVaults.filter(
     vault => vault.status === 'active'
   ).length;
+  vaultsByID = multichainVaults.reduce((allVaults, currentVault) => {
+    allVaults[currentVault.id] = currentVault;
+    return allVaults;
+  }, {});
 
   setTimeout(updateMultichainVaults, INIT_DELAY);
 };
 
 const saveToRedis = async () => {
   await setKey('VAULTS_BY_CHAIN', vaultsByChain);
-  console.log('> Vaults saved to redis');
 };
 
-module.exports = { getMultichainVaults, getSingleChainVaults, initVaultService };
+module.exports = { getMultichainVaults, getSingleChainVaults, getVaultByID, initVaultService };

@@ -15,6 +15,43 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  THE: {
+    name: 'THENA',
+    symbol: 'THE',
+    address: '0xF4C8E32EaDEC4BFe97E0F595AdD0f4450a863a11',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://thena.fi/',
+    description:
+      'We envision THENA as being the native liquidity layer of BNB Chain, enabling value creation by opening the gates for new protocols that wish to solve the cold start liquidity problem, as well as for established protocols looking for a long-term solution to reduce costs to incentivize their liquidity. THENA is a public good owned by protocols and users, with both parties contributing to THENAs status as the leading AMM. We believe that in a decentralized and open-source economy, a collaborative strategy is essential to outrun the competition and establish your product as a market leader.',
+    documentation: 'https://thena.gitbook.io/thena/',
+  },
+  FISH: {
+    name: 'SwapFish',
+    symbol: 'FISH',
+    address: '0xb348B87b23D5977E2948E6f36ca07E1EC94d7328',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xb348B87b23D5977E2948E6f36ca07E1EC94d7328.svg',
+    website: 'https://swapfish.fi/',
+    description: 'Brand new decentralized platform bringing you fresh fishing farms and more.',
+    oracleId: 'SWAPFISH',
+  },
+  MGP: {
+    name: 'Magpie Token',
+    symbol: 'MGP',
+    address: '0xD06716E1Ff2E492Cc5034c2E81805562dd3b45fa',
+    chainId: 56,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xD06716E1Ff2E492Cc5034c2E81805562dd3b45fa.svg',
+    website: 'https://www.magpiexyz.io/',
+    documentation: 'https://docs.magpiexyz.io/',
+    description:
+      'Magpie XYZ is a BNB Chain native yield-boosting platform built on top of Wombat Exchange that maximizes benefits for governance token holders.',
+  },
   HOOP: {
     name: 'Primal Hoop',
     symbol: 'HOOP',
@@ -312,6 +349,16 @@ const _tokens = {
     website: 'https://app.bomb.money/',
     description:
       'BOMB is pegged via algorithm to a 10,000:1 ratio to BTC. $100k BTC = $10 BOMB PEG',
+  },
+  ankrBNB: {
+    name: 'Ankr Staked BNB',
+    symbol: 'ankrBNB',
+    address: '0x52F24a5e03aee338Da5fd9Df68D2b6FAe1178827',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description: 'Decentralized Infrastructure to Build and Earn in Web3',
   },
   aBNBc: {
     name: 'Ankr BNB Reward Bearing Certificate',
@@ -2251,6 +2298,7 @@ const _tokens = {
       'Ankr originates as a solution that utilizes shared resources in order to provide easy and affordable blockchain node hosting solutions.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xf307910a4c7bbc79691fd374889b36d8531b08e3.png',
+    documentation: 'https://www.ankr.com/about-network/token/',
   },
   LINK: {
     name: 'ChainLink Token',
@@ -3853,6 +3901,18 @@ const _tokens = {
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+  },
+  USDD: {
+    name: 'Decentralized USD',
+    symbol: 'USDD',
+    address: '0xd17479997F34dd9156Deef8F95A52D81D265be9c',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://usdd.io/',
+    description:
+      'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
+    documentation: 'https://usdd.io/docs/',
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

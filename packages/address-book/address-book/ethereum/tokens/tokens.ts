@@ -101,6 +101,27 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
+  sBTC: {
+    chainId: 1,
+    address: '0xfE18be6b3Bd88A2D2A7f928d00292E7a9963CfC6',
+    decimals: 18,
+    name: 'Synthetix: sBTC',
+    symbol: 'sBTC',
+    website: 'https://www.synthetix.io/',
+    description:
+      'sBTC is a synthetic Bitcoin token enabled by the Synthetix protocol. It tracks the price of Bitcoin through price feeds supplied by Chainlink’s decentralized network of oracles.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+  },
+  multiBTC: {
+    chainId: 1,
+    address: '0x66eFF5221ca926636224650Fd3B9c497FF828F7D',
+    decimals: 8,
+    name: 'Multichain BTC',
+    symbol: 'multiBTC',
+    website: 'https://app.multichain.org/',
+    description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
+  },
   alETH: {
     name: 'Alchemix ETH',
     symbol: 'alETH',
@@ -144,7 +165,7 @@ const _tokens = {
     chainId: 1,
     decimals: 18,
     website: 'https://aura.finance/',
-    description: 'auraBAL is Aura\'s liquid staking locked BAL (80 BAL / 20 ETH) BPT',
+    description: "auraBAL is Aura's liquid staking locked BAL (80 BAL / 20 ETH) BPT",
     logoURI: '',
     documentation: 'https://docs.aura.finance/aura/what-is-aura/for-usdbal-stakers',
   },
@@ -291,8 +312,31 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.inverse.finance/',
+    documentation: 'https://docs.inverse.finance/inverse-finance/using-dola/how-to-acquire-dola',
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+  },
+  sETH: {
+    name: 'Synth sETH',
+    symbol: 'sETH',
+    address: '0x5e74C9036fb86BD7eCdcb084a0673EFc32eA31cb',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://synthetix.io/',
+    description:
+      'Synths are derivative tokens providing exposure to a range of assets. They can be traded with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between Synths generate a small fee that is distributed to SNX collateral providers.',
+  },
+  cbETH: {
+    name: 'Coinbase Wrapped Staked ETH',
+    symbol: 'cbETH',
+    address: '0xBe9895146f7AF43049ca1c1AE358B0541Ea49704',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
+    description:
+      "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
   },
   USDD: {
     name: 'Decentralized USD',
@@ -304,6 +348,7 @@ const _tokens = {
     website: 'https://usdd.io/',
     description:
       'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
+    documentation: 'https://usdd.io/docs/',
   },
   aUSDT: {
     name: 'Aave Tether USD',
@@ -460,6 +505,188 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
+  },
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    address: '0x5E8422345238F34275888049021821E8E08CAa1f',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
+  sfrxETH: {
+    name: 'Staked Frax Ether',
+    symbol: 'sfrxETH',
+    address: '0xac3E018457B222d93114458476f3E3416Abbe38F',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited. ',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
+  INV: {
+    name: 'Inverse Finance',
+    symbol: 'INV',
+    address: '0x41D5D79431A913C4aE7d69a668ecdfE5fF9DFB68',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    documentation: 'https://docs.inverse.finance/inverse-finance/about-inverse',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
+  },
+  ACX: {
+    name: 'Across Protocol Token',
+    symbol: 'ACX',
+    address: '0x44108f0223A3C3028F5Fe7AEC7f9bb2E66beF82F',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://across.to/',
+    documentation: 'https://docs.across.to/',
+    description:
+      'Across is a cross-chain bridge for L2s and rollups secured by UMAs optimistic oracle. It is optimized for capital efficiency with a single liquidity pool, a competitive relayer landscape, and a no-slippage fee model.',
+    logoURI: '',
+  },
+  'BAL-WETH-80-20': {
+    name: 'Balancer Pool Token BAL-WETH 80/20',
+    symbol: 'BAL-WETH-80-20',
+    address: '0x5c6Ee304399DBdB9C8Ef030aB642B10820DB8F56',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://app.balancer.fi/',
+    description:
+      'Instead of locking pure BAL, users obtain veBAL by locking 80/20 BAL/WETH Balancer Pool Tokens (BPTs). This ensures that even if a large portion of BAL tokens are locked, there is deep trading liquidity.',
+    logoURI: '',
+    documentation: 'https://docs.balancer.fi/ecosystem/vebal-and-gauges/vebal',
+  },
+  SUSHI: {
+    name: 'SushiToken',
+    symbol: 'SUSHI',
+    address: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x6B3595068778DD592e39A122f4f5a5cF09C90fE2.svg',
+    website: 'https://sushi.com/',
+    description:
+      'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+    documentation: 'https://dev.sushi.com/',
+  },
+  ILV: {
+    name: 'Illuvium',
+    symbol: 'ILV',
+    address: '0x767FE9EDC9E0dF98E07454847909b5E959D7ca0E',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x767FE9EDC9E0dF98E07454847909b5E959D7ca0E.svg',
+    website: 'https://illuvium.io/',
+    description:
+      'A fully decentralized protocol, Illuvium represents a new age in gaming. It has been engineered from the ground-up to support the long-term sustainability of the Illuvium game and governance and provide players with a AAA-rated blockchain gaming experience. What makes Illuvium unique is that stakers receive regular distributions and can vote on everything from tokenomics related issues to the features in the game itself. With Illuvium, the power to define the project into the future is purposefully left to those who stake in the protocol.',
+    documentation: 'https://docs.illuvium.io/',
+  },
+  LDO: {
+    name: 'Lido DAO Token',
+    symbol: 'LDO',
+    address: '0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32.svg',
+    website: 'https://stake.lido.fi/',
+    documentation: 'https://docs.lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+  },
+  SYN: {
+    name: 'Synapse',
+    symbol: 'SYN',
+    address: '0x0f2D719407FdBeFF09D87557AbB7232601FD9F29',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x0f2D719407FdBeFF09D87557AbB7232601FD9F29.svg',
+    website: 'https://synapseprotocol.com/landing',
+    description:
+      'Synapse is a universal interoperability protocol that enables secure cross-chain communication. Synapse connects blockchains by offering an extensible cross-chain messaging protocol that supports assets, smart contract calls, and more. By leveraging Synapse, blockchains can easily and securely interoperate with each other and developers can build truly cross-chain applications including cross-chain DEX, lending platforms, margining systems, derivatives markets, yield aggregators, and much more.',
+    documentation: 'https://docs.synapseprotocol.com/',
+  },
+  SOLID: {
+    name: 'Solidly',
+    symbol: 'SOLID',
+    address: '0x777172D858dC1599914a1C4c6c9fC48c99a60990',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://solidly.com/',
+    description:
+      'Solidly is an AMM allowing fully decentralized token swapping with support for low slippage trades between pegged assets like stablecoins.',
+    documentation: '',
+  },
+  SNX: {
+    name: 'Synthetix Network Token',
+    symbol: 'SNX',
+    address: '0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.synthetix.io/',
+    description:
+      'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets',
+    documentation: 'https://docs.synthetix.io/synthetix-protocol/welcome-to-synthetix',
+  },
+  HEX: {
+    name: 'HEX',
+    symbol: 'HEX',
+    address: '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39',
+    chainId: 1,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://hex.com/',
+    description: 'HEX is the first high-yield blockchain certificate of deposit',
+    documentation: 'https://hex.com/faq/',
+  },
+  moSOLID: {
+    name: 'moSOLID: Tokenized veSOLID',
+    symbol: 'moSOLID',
+    address: '0x848578e351D25B6Ec0d486E42677891521c3d743',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alpha.mono.farm/home',
+    description: 'A tokenized version of veSOLID, moSOLID, is returned to the user at a 1:1 rate.',
+    documentation: 'https://docs.mono.farm/monolith-documentation/',
+  },
+  FTM: {
+    name: 'Fantom Token',
+    symbol: 'FTM',
+    address: '0x4E15361FD6b4BB609Fa63C81A2be19d873717870',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://fantom.foundation/',
+    description:
+      'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
+    documentation: '',
+  },
+  DEUS: {
+    name: 'DEUS',
+    symbol: 'DEUS',
+    address: '0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
+    logoURI: 'https://app.deus.finance/tokens/deus.svg',
+    documentation: 'https://docs.deus.finance/',
   },
 } as const;
 

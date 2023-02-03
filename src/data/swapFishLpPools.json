@@ -1,0 +1,242 @@
+[
+  {
+    "name": "swapfish-bsc-usdc-usdd",
+    "address": "0x41217d72ca2A80Bb5C48cDbFAbBB7B74733c010F",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 14,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd17479997F34dd9156Deef8F95A52D81D265be9c",
+      "oracle": "tokens",
+      "oracleId": "USDD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-wbnb-bifi",
+    "address": "0x30Fc36ba48456c043d094dd7127f1cECe16A4016",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 11,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-usx-busd",
+    "address": "0x24896e397D648D38ec4a5dB90FD06CaD77e1B7Ee",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 10,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xB5102CeE1528Ce2C760893034A4603663495fD72",
+      "oracle": "tokens",
+      "oracleId": "USX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-bifi-busd",
+    "address": "0x1F26FC9A01AF80C8067539Bb5883A0b42d0199fd",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 9,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-usdc-snow",
+    "address": "0x1E12840fD9E675D81ab5e8B4A524ebfe111F36aF",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 8,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE0f463832295ADf63eB6CA053413a3f9cd8bf685",
+      "oracle": "tokens",
+      "oracleId": "SNOW",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-usdt-busd",
+    "address": "0x6531799df50Afadc9997767FF0235ae71E0Ee875",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 7,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-bnbx-wbnb",
+    "address": "0xc5c929b9cbda49523634A80c7bFd67c0bce6C3ea",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 6,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
+      "oracle": "tokens",
+      "oracleId": "BNBx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-eth-wbnb",
+    "address": "0x5724868E5438A2C96C9B7E5b61e767750B3E7507",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 5,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-btcb-wbnb",
+    "address": "0x5e8F4c86C3BB2f4070ad570776574034Ac19e0e7",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 4,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-wbnb-busd",
+    "address": "0xdC8a61ED63671fD7FeFB392bA4b35935fB27cd77",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 3,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-usdc-busd",
+    "address": "0xf1AF484f96A98BD529E28cc28A4a4EfC1581D77A",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 2,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-bsc-fish-busd",
+    "address": "0xA4d762B97A79d2093e5DDA4a94049449B4e484b5",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 1,
+    "chainId": 56,
+    "lp0": {
+      "address": "0xb348B87b23D5977E2948E6f36ca07E1EC94d7328",
+      "oracle": "tokens",
+      "oracleId": "SWAPFISH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  }
+]

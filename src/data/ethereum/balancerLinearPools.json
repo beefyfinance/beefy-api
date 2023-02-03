@@ -73,5 +73,25 @@
         "oracleId": "BPTToken"
       }
     ]
+  },
+  {
+    "name": "BAL-WETH-80-20",
+    "address": "0x5c6Ee304399DBdB9C8Ef030aB642B10820DB8F56",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x5c6ee304399dbdb9c8ef030ab642b10820db8f56000200000000000000000014",
+    "decimals": "1e18",
+    "chainId": 1,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "BAL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

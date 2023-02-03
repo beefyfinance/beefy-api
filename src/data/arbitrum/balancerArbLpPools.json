@@ -1,5 +1,39 @@
 [
   {
+    "name": "balancer-wsteth-eth-v2",
+    "address": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x251e51b25AFa40F2B6b9F05aaf1bC7eAa0551771",
+    "vaultPoolId": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f000200000000000000000316",
+    "decimals": "1e18",
+    "lidoUrl": "https://stake.lido.fi/api/apr",
+    "lsIndex": 0,
+    "rewards": [
+      {
+        "stream": "0xBAF1eE3D36347Fab45AcB987B9606dDbE99Ba5D0",
+        "token": "0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0xBAF1eE3D36347Fab45AcB987B9606dDbE99Ba5D0",
+        "token": "0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60",
+        "oracleId": "LDO"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-magic-usdc",
     "address": "0xb3028Ca124B80CFE6E9CA57B70eF2F0CCC41eBd4",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -34,6 +68,7 @@
     "lidoUrl": "https://stake.lido.fi/api/apr",
     "balancerChargesFee": true,
     "vaultPoolId": "0x178e029173417b1f9c8bc16dcec6f697bc323746000200000000000000000158",
+    "lsIndex": 0,
     "decimals": "1e18",
     "rewards": [
       {
@@ -71,6 +106,7 @@
     "balancerChargesFee": true,
     "composable": true,
     "bptIndex": 2,
+    "lsIndex": 1,
     "rewards": [
       {
         "stream": "0xce8923C7ce7175ac659D9F8205D42BEFD861DE27",

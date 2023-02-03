@@ -1,16 +1,17 @@
 import { MULTICHAIN_ENDPOINTS } from '../../constants';
 import { getKey, setKey } from '../../utils/redisHelper';
 import { getBoostPeriodFinish, getBoosts } from './fetchBoostData';
+import { Boost } from './types';
 
 const REDIS_KEY = 'BOOSTS_BY_CHAIN';
 
 const INIT_DELAY = 4 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 
-let boostsByChain: Record<string, any[]> = {};
-let allBoosts = [];
+let boostsByChain: Record<string, Boost[]> = {};
+let allBoosts: Boost[] = [];
 
-export const getAllBosts = () => {
+export const getAllBoosts = () => {
   return allBoosts;
 };
 
@@ -48,7 +49,7 @@ const updateBoosts = async () => {
 
 const updateChainBoosts = async (chain: string, appUrlName: string) => {
   try {
-    let chainBoosts = await getBoosts(appUrlName);
+    let chainBoosts: Boost[] = await getBoosts(appUrlName);
     chainBoosts.forEach(boost => (boost.chain = chain));
     chainBoosts = await getBoostPeriodFinish(chain, chainBoosts);
     boostsByChain[chain] = chainBoosts;
@@ -60,7 +61,6 @@ const updateChainBoosts = async (chain: string, appUrlName: string) => {
 
 const saveToRedis = async () => {
   await setKey(REDIS_KEY, boostsByChain);
-  console.log('> Boosts saved to redis');
 };
 
 export const initBoostService = async () => {

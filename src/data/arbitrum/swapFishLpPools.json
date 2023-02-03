@@ -1,0 +1,376 @@
+[
+  {
+    "name": "swapfish-usdd-usdc",
+    "address": "0xc6c8F9E95d7BB6492e5E1957a1CC1367f2f0B282",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 37,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x680447595e8b7b3Aa1B43beB9f6098C79ac2Ab3f",
+      "oracle": "tokens",
+      "oracleId": "USDD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-tusd-usdc",
+    "address": "0xFc0F4F60F6BcF32a6c5847C2dc1E590e39A45993",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 35,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x4D15a3A2286D883AF0AA1B3f21367843FAc63E07",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-ageur-usdc",
+    "address": "0x78d9B037Fb873AfCf4e3E466aDfAfa8A5258CdaD",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 23,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xFA5Ed56A203466CbBC2430a43c66b9D8723528E7",
+      "oracle": "tokens",
+      "oracleId": "agEUR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-usx-usdc",
+    "address": "0x53001d6FaA0B6be4f1F27e0272EAb3A35090E6d0",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 22,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x641441c631e2F909700d2f41FD87F0aA6A6b4EDb",
+      "oracle": "tokens",
+      "oracleId": "USX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-vst-usdc",
+    "address": "0x6832EF9928a7AD3F887e34D4F9f70A3CEed0C1b4",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 21,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x64343594Ab9b56e99087BfA6F2335Db24c2d1F17",
+      "oracle": "tokens",
+      "oracleId": "VST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-vst-weth",
+    "address": "0xE1e8C58FfD8C22392aA9e67AcCD1911628C27B80",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 20,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x64343594Ab9b56e99087BfA6F2335Db24c2d1F17",
+      "oracle": "tokens",
+      "oracleId": "VST",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-mai-weth",
+    "address": "0x28A13285e9F647a07e9BbE10A5549aeB559e09cB",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 18,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-mai-usdc",
+    "address": "0xbF90e103FFAdcaBcE03d42Ed921FF7a5c0b764eB",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 17,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-weth-usdc",
+    "address": "0x8Bc2Cd9DAB840231A0Dab5B747b8A6085c4eA459",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 1,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-wbtc-weth",
+    "address": "0xf7C6FFA90E8f240481234fb3fe9E8F60df74ED87",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 3,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-mim-usdc",
+    "address": "0x23d7CB985B5b23d83E5c2eb04074649aF1d488bf",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 4,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-gmx-usdc",
+    "address": "0xB2A72A9FA965adE9bD21b1a60d29ccCE5E2C5A62",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 7,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a",
+      "oracle": "tokens",
+      "oracleId": "GMX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-frax-usdc",
+    "address": "0x85710698eB1fB588aF3996a268e73938795Bf558",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 12,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-usdt-usdc",
+    "address": "0x106AE154e4c24b6e11E70cfee7E075B14a182244",
+    "decimals": "1e18",
+    "poolId": 6,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-wsteth-eth",
+    "address": "0xe263353986a4638144c41E44cEBAc9d0A76ECab3",
+    "decimals": "1e18",
+    "poolId": 2,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-fish-usdc",
+    "address": "0x570Eab8422160840ce3b7b2BE4c71D657659868f",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xb348B87b23D5977E2948E6f36ca07E1EC94d7328",
+      "oracle": "tokens",
+      "oracleId": "SWAPFISH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-dai-usdc",
+    "address": "0x978DE910e7645fA7861aF89a156D3c86ad09Db79",
+    "decimals": "1e18",
+    "poolId": 5,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "swapfish-bifi-eth",
+    "address": "0x6716Ed27F13161cE3374f0D2cC8cEF181681e5Eb",
+    "decimals": "1e18",
+    "poolId": 14,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x99C409E5f62E4bd2AC142f17caFb6810B8F0BAAE",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapfish-fish-eth",
+    "address": "0xE0a0ede95abe2072Cc2091d5C193FD86F740E057",
+    "decimals": "1e18",
+    "poolId": 13,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb348B87b23D5977E2948E6f36ca07E1EC94d7328",
+      "oracle": "tokens",
+      "oracleId": "SWAPFISH",
+      "decimals": "1e18"
+    }
+  }
+]

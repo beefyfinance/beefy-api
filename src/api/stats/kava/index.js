@@ -1,4 +1,4 @@
-const getCurveApys = require('./getCurveApys');
+const { getCurveApys } = require('./getCurveApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
 
 const getApys = [getCurveApys, getSushiLpApys];

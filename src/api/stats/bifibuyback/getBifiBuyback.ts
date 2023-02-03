@@ -29,9 +29,14 @@ const getOneDayBlocksFromEtherscan = async (scanUrl: string, apiToken: string) =
 const getBlockFromEtherscan = async (scanUrl: string, timestamp: number, apiToken?: string) => {
   const token = apiToken ? apiToken : 'YourApiKeyToken';
   const url = `${scanUrl}/api?module=block&action=getblocknobytime&timestamp=${timestamp}&closest=after&apikey=${token}`;
-  const resp = await fetch(url);
-  const json: BlockApiResponse = await resp.json();
-  return json.result;
+  try {
+    const resp = await fetch(url);
+    const json: BlockApiResponse = await resp.json();
+    return json.result;
+  } catch (e) {
+    console.error(`> bifi buyback block fetch error on ${scanUrl}`, e);
+    return 0;
+  }
 };
 
 const getBuyback = async (
@@ -43,18 +48,22 @@ const getBuyback = async (
   bifiLpAddress: string
 ): Promise<{ [key: string]: BigNumber }> => {
   let bifiBuybackTokenAmount = new BigNumber(0);
-  const [startBlock, endBlock] = await getOneDayBlocksFromEtherscan(scanUrl, apiToken);
-  const url = `${scanUrl}/api?module=account&action=tokentx&address=${bifiMaxiAddress}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=${apiToken}`;
-  const resp = await fetch(url);
-  const json: ERC20TxApiResponse = await resp.json();
-  let txCount = 0;
-  for (const entry of json.result) {
-    // actually should use the lp pool data here instead of address-book. Will change after converging address-book and api
-    if (entry.from === bifiLpAddress.toLowerCase()) {
-      const tokenAmount = new BigNumber(entry.value).dividedBy(getEDecimals(BIFI.decimals));
-      bifiBuybackTokenAmount = bifiBuybackTokenAmount.plus(tokenAmount);
-      txCount += 1;
+  try {
+    const [startBlock, endBlock] = await getOneDayBlocksFromEtherscan(scanUrl, apiToken);
+    const url = `${scanUrl}/api?module=account&action=tokentx&address=${bifiMaxiAddress}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=${apiToken}`;
+    const resp = await fetch(url);
+    const json: ERC20TxApiResponse = await resp.json();
+    let txCount = 0;
+    for (const entry of json.result) {
+      // actually should use the lp pool data here instead of address-book. Will change after converging address-book and api
+      if (entry.from === bifiLpAddress.toLowerCase()) {
+        const tokenAmount = new BigNumber(entry.value).dividedBy(getEDecimals(BIFI.decimals));
+        bifiBuybackTokenAmount = bifiBuybackTokenAmount.plus(tokenAmount);
+        txCount += 1;
+      }
     }
+  } catch (e) {
+    console.error(`> bifi buyback fetch error on ${chainName}`, e);
   }
   // console.log(`Harvest count: ${txCount}`);
   return { [chainName]: bifiBuybackTokenAmount };
@@ -123,7 +132,6 @@ export const initBifiBuyBackService = async () => {
 
 const saveToRedis = async () => {
   await setKey('DAILY_BUYBACK', dailyBifiBuybackStats);
-  console.log('Buybacks saved to redis');
 };
 
 export const getBifiBuyback = (): DailyBifiBuybackStats | undefined => {

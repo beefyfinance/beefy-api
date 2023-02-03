@@ -3,7 +3,7 @@ import { MultiCall } from 'eth-multicall';
 import { web3Factory, multicallAddress } from './web3';
 import IWrappedAaveToken from '../abis/WrappedAaveToken.json';
 
-import { ETH_CHAIN_ID } from '../constants';
+import { ETH_CHAIN_ID, OPTIMISM_CHAIN_ID, POLYGON_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 import { getContract } from './contractHelper';
 
@@ -13,6 +13,12 @@ const {
   ethereum: {
     tokens: { aUSDT, waUSDT, aUSDC, waUSDC, aDAI, waDAI },
   },
+  polygon: {
+    tokens: { amUSDT, wamUSDT, amUSDC, wamUSDC, amDAI, wamDAI },
+  },
+  optimism: {
+    tokens: { 'USD+': USDplus, 'wUSD+': wUSDplus, 'DAI+': DAIplus, 'wDAI+': wDAIplus },
+  },
 } = addressBook;
 
 const tokens = {
@@ -20,6 +26,20 @@ const tokens = {
     [aUSDT, waUSDT],
     [aUSDC, waUSDC],
     [aDAI, waDAI],
+  ],
+  polygon: [
+    [amUSDT, wamUSDT],
+    [amUSDC, wamUSDC],
+    [amDAI, wamDAI],
+  ],
+  optimism: [
+    [
+      {
+        symbol: 'oUSD+',
+      },
+      wUSDplus,
+    ],
+    [DAIplus, wDAIplus],
   ],
 };
 
@@ -51,7 +71,11 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
 };
 
 const fetchWrappedAavePrices = async tokenPrices =>
-  Promise.all([getWrappedAavePrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID)]).then(data =>
+  Promise.all([
+    getWrappedAavePrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID),
+    getWrappedAavePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
+    getWrappedAavePrices(tokenPrices, tokens.optimism, OPTIMISM_CHAIN_ID),
+  ]).then(data =>
     data
       .flat()
       .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})

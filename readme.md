@@ -13,7 +13,7 @@ yarn start
 
 Note: After you start the API it can take a minute or two before you can fetch the APYs. We currently log `getApys()` to the console when all the data is available.
 
-Optional enviroment vars:
+Optional environment vars:
 
 `BSC_RPC` - A custom RPC endpoint that you want to use.
 `HECO_RPC` - A custom RPC endpoint for HECO. You can just leave the default one otherwise.
@@ -82,7 +82,7 @@ Each of these fields within the structure are:
 
 #### **/prices** All token prices under the same endpoint (crosschain).
 
-#### **/lps**: All liqudity pair prices under a single endpoint (crosschain).
+#### **/lps**: All liquidity pair prices under a single endpoint (crosschain).
 
 #### **/vaults**: TBD
 

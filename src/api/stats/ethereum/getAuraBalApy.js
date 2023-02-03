@@ -18,7 +18,7 @@ const {
 } = addressBook;
 
 const ORACLE = 'tokens';
-const auraBalGauge = '0x5e5ea2048475854a5702F5B8468A51Ba1296EFcC';
+const auraBalGauge = '0x00A7BA8Ae7bca0B10A32Ea1f8e2a1Da980c6CAd2';
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
@@ -53,7 +53,7 @@ const getYearlyRewardsInUsd = async () => {
 
   const rewardPool = getContractWithProvider(IAuraGauge, auraBalGauge, web3);
   const balRewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
-  const bbaUSDVirtualGaugeAddress = await rewardPool.methods.extraRewards(1).call();
+  const bbaUSDVirtualGaugeAddress = await rewardPool.methods.extraRewards(0).call();
   const bbaUSDVirtualGauge = getContractWithProvider(IAuraGauge, bbaUSDVirtualGaugeAddress, web3);
   const bbaUSDRewardRate = new BigNumber(await bbaUSDVirtualGauge.methods.rewardRate().call());
   const auraData = await getAuraData();
