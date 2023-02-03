@@ -51,7 +51,9 @@ const spookyClient = client('https://api.fura.org/subgraphs/name/spookyswap');
 const spiritClient = client(
   'https://api.thegraph.com/subgraphs/name/layer3org/spiritswap-analytics'
 );
-const cakeClient = client('https://bsc.streamingfast.io/subgraphs/name/pancakeswap/exchange-v2');
+const cakeClient = client(
+  `https://data-platform.nodereal.io/graph/v1/${process.env.PCS_API_KEY}/projects/pancakeswap`
+);
 const apeClient = client('https://bnb.apeswapgraphs.com/subgraphs/name/ape-swap/apeswap-subgraph');
 const wexpolyClient = client(
   'https://polyinfo.wault.finance/subgraphs/name/WaultFinance/waultswap-subgraph'
