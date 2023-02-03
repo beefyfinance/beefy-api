@@ -1,5 +1,30 @@
 [
   {
+    "name": "convex-geareth",
+    "pool": "0x0E9B5B092caD6F1c5E6bc7f89Ffe1abb5c95F1C2",
+    "token": "0x5Be6C45e2d074fAa20700C49aDA3E88a1cc0025d",
+    "volatile": true,
+    "rewardPool": "0x502Cc0d946e79CeA4DaafCf21F374C6bce763067",
+    "extras": [
+      {
+        "rewardPool": "0x3605AF97DFD67A6C73CfC517B9481a2fe4Bf050b",
+        "oracleId": "GEAR"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "GEAR",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-multibtc",
     "pool": "0x2863a328a0b7fc6040f11614fa0728587db8e353",
     "token": "0x2863a328a0b7fc6040f11614fa0728587db8e353",

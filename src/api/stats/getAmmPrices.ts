@@ -8,7 +8,7 @@ import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices'
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
-import { fetchstDOTPrice } from '../../utils/fetchstDOTPrice';
+import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
 import { fetchsfrxEthPrice } from '../../utils/fetchsfrxEthPrice';
 import {
   fetchBalancerStablePoolPrice,
@@ -647,6 +647,11 @@ const updateAmmPrices = async () => {
       });
       return prices;
     });
+
+    const curveTokenPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+      return await fetchCurveTokenPrices(tokenPrices);
+    });
+
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
     const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
@@ -659,10 +664,6 @@ const updateAmmPrices = async () => {
 
     const beFtmPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
       return await fetchbeFTMPrice(tokenPrices);
-    });
-
-    const stDOTPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
-      return await fetchstDOTPrice(tokenPrices);
     });
 
     const sfrxEthPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
@@ -705,10 +706,10 @@ const updateAmmPrices = async () => {
 
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices, __ }) => {
       const dmm = await dmmPrices;
+      const curvePrices = await curveTokenPrices;
       const xTokenPrices = await xPrices;
       const mooTokenPrices = await mooPrices;
       const beFtmTokenPrice = await beFtmPrice;
-      const stDOTTokenPrice = await stDOTPrice;
       const sfrxEthTokenPrice = await sfrxEthPrice;
       const beTokenTokenPrice = await beTokenPrice;
       const linearPoolTokenPrice = await linearPoolPrice;
@@ -719,8 +720,8 @@ const updateAmmPrices = async () => {
         ...xTokenPrices,
         ...beFtmTokenPrice,
         ...beTokenTokenPrice,
-        ...stDOTTokenPrice,
         ...sfrxEthTokenPrice,
+        ...curvePrices,
         ...linearPoolTokenPrice,
         ...(await coinGeckoPrices()),
         ...(await currencyPrices()),

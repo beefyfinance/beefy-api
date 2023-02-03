@@ -688,6 +688,18 @@ const _tokens = {
     logoURI: 'https://app.deus.finance/tokens/deus.svg',
     documentation: 'https://docs.deus.finance/',
   },
+  GEAR: {
+    name: 'Gearbox',
+    symbol: 'GEAR',
+    address: '0xBa3335588D9403515223F109EdC4eB7269a9Ab5D',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://gearbox.fi/',
+    description:
+      'Gearbox Protocol allows anyone to take DeFi-native leverage and then use it across various (DeFi & more) protocols. This enables you to compose your position as you want. You take leverage with Gearbox and then use it on other protocols you already love: Uniswap, Curve, Convex, Lido, etc. For example, you can leverage trade on Uniswap, leverage farm on Yearn, make delta-neutral strategies, hedge your exposure, get Leverage-as-a-Service for your structured product, and more... ',
+    logoURI: '',
+    documentation: 'https://docs.gearbox.finance/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
