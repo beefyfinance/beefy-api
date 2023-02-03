@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-alusd-mai",
+    "address": "0xa8FeDB4A8194E21Cf775ce868a865242e4e45151",
+    "gauge": "0xF51080B888d393F9E6E42D0D65B0071884f2C21F",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xCB8FA9a76b8e203D8C3797bF438d8FB81Ea3326A",
+      "oracle": "tokens",
+      "oracleId": "alUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-wsteth-op",
     "address": "0x3905870E647c97Cb9C8D99Db24384f480531B5b9",
     "gauge": "0x212ceDC5c942304D0F8E139B5BFA4e78196B37Ca",
