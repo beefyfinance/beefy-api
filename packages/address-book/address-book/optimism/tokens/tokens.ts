@@ -844,6 +844,18 @@ const _tokens = {
       'Forex Synths track the price of forex currencies via price feeds supplied by Chainlinks oracle network of distributed node operators.',
     documentation: 'https://docs.synthetix.io/tokens/',
   },
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    address: '0x6806411765Af15Bddd26f8f544A34cC40cb9838B',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
