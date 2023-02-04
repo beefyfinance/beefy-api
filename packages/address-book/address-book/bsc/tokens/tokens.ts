@@ -3914,5 +3914,17 @@ const _tokens = {
       'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
     documentation: 'https://usdd.io/docs/',
   },
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    address: '0x64048A7eEcF3a2F1BA9e144aAc3D7dB6e58F555e',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
