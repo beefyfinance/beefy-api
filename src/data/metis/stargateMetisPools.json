@@ -1,0 +1,9 @@
+[
+  {
+    "name": "stargate-metis-usdt",
+    "poolId": 0,
+    "address": "0x2b60473a7C41Deb80EDdaafD5560e963440eb632",
+    "decimals": "1e6",
+    "underlying": "USDT"
+  }
+]

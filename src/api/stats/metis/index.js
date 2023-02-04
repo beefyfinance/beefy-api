@@ -3,8 +3,10 @@ const { getMetisBifiMaxiApy } = require('./getMetisBifiMaxiApy');
 const getNetswapApys = require('./getNetswapApys');
 const getTethysApys = require('./getTethysApys');
 const getHermesApys = require('./getHermesApys');
+const getStargateApys = require('./getStargateApys');
 
 const getApys = [
+  getStargateApys,
   getHermesApys,
   getNetswapApys,
   getMetisBifiGovApy,
