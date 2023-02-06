@@ -700,6 +700,52 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.gearbox.finance/',
   },
+  TUSD: {
+    name: 'TrueUSD',
+    symbol: 'TUSD',
+    address: '0x0000000000085d4780B73119b644AE5ecd22b376',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://trueusd.com/',
+    description: 'The first regulated stablecoin fully backed by the US Dollar.',
+    logoURI: '',
+  },
+  CLEV: {
+    name: 'CLever Token',
+    symbol: 'CLEV',
+    address: '0x72953a5C32413614d24C29c84a66AE4B59581Bbf',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://clever.aladdin.club/',
+    description:
+      'Deposit top quality tokens to CLever in high-yielding collateral strategies, then claim your future yields today. Your future yields can be farmed, re-deposited to create leverage, or used wherever you need them.',
+    logoURI: '',
+    documentation: 'https://docs.aladdin.club/clever',
+  },
+  clevCVX: {
+    name: 'CLever CVX',
+    symbol: 'clevCVX',
+    address: '0xf05e58fCeA29ab4dA01A495140B349F8410Ba904',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://clever.aladdin.club/',
+    description:
+      'Deposit top quality tokens to CLever in high-yielding collateral strategies, then claim your future yields today. Your future yields can be farmed, re-deposited to create leverage, or used wherever you need them.',
+    logoURI: '',
+    documentation: 'https://docs.aladdin.club/clever',
+  },
+  yCRV: {
+    name: 'Yearn: yCRV Token',
+    symbol: 'yCRV',
+    address: '0xFCc5c47bE19d06BF83eB04298b026F81069ff65b',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://yearn.finance/ycrv',
+    description:
+      "yCRV is Yearn's new and improved veCRV wrapper system designed to tokenize the different benefits of Yearn's veCRV position.",
+    logoURI: '',
+    documentation: 'https://docs.yearn.finance/getting-started/products/ycrv/overview',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

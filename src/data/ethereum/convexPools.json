@@ -1,5 +1,81 @@
 [
   {
+    "name": "convex-clev",
+    "pool": "0x342D1C4Aa76EA6F5E5871b7f11A019a0eB713A4f",
+    "token": "0x6C280dB098dB673d30d5B34eC04B6387185D3620",
+    "volatile": true,
+    "rewardPool": "0x6be96D00B50375AF852D63DB7d55656B306f398e",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "CLEV",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-clevcvx",
+    "pool": "0xF9078Fb962A7D13F55d40d49C8AA6472aBD1A5a6",
+    "token": "0xF9078Fb962A7D13F55d40d49C8AA6472aBD1A5a6",
+    "oracleId": "CVX",
+    "rewardPool": "0x706f34D0aB8f4f9838F15b0D155C8Ef42229294B",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "CVX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "clevCVX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-ycrv",
+    "pool": "0x453D92C7d4263201C69aACfaf589Ed14202d83a4",
+    "token": "0x453D92C7d4263201C69aACfaf589Ed14202d83a4",
+    "oracleId": "CRV",
+    "rewardPool": "0xe94b4cC50aC9ebeC491c3665C3E5a017a87dCF19",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "yCRV",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-tusd",
+    "pool": "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+    "token": "0xEcd5e75AFb02eFa118AF914515D6521aaBd189F1",
+    "rewardPool": "0x308b48F037AAa75406426dACFACA864ebd88eDbA",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "TUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-3pool",
+        "oracle": "lps",
+        "oracleId": "convex-3pool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-geareth",
     "pool": "0x0E9B5B092caD6F1c5E6bc7f89Ffe1abb5c95F1C2",
     "token": "0x5Be6C45e2d074fAa20700C49aDA3E88a1cc0025d",

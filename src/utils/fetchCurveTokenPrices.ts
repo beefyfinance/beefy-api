@@ -19,6 +19,16 @@ const tokens = {
       secondTokenDecimals: '1e18',
       abi: ICurvePoolV2,
     },
+    {
+      oracleId: 'CLEV',
+      decimals: '1e18',
+      index0: 1,
+      index1: 0,
+      minter: '0x342D1C4Aa76EA6F5E5871b7f11A019a0eB713A4f',
+      secondToken: 'ETH',
+      secondTokenDecimals: '1e18',
+      abi: ICurvePoolV2,
+    },
   ],
   moonbeam: [
     {
