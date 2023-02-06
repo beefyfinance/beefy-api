@@ -1,5 +1,59 @@
 [
   {
+    "name": "balancer-jeur-ageur",
+    "address": "0xa48D164F6eB0EDC68bd03B56fa59E12F24499aD1",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x8c73C7A998F54e3A936885C752c9955c78A5Febb",
+    "vaultPoolId": "0xa48d164f6eb0edc68bd03b56fa59e12f24499ad10000000000000000000007c4",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x86dE15c3035F479bD13CF8Ed94E57703304dc9c1",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "jEUR",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "agEUR",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancer-jeur-par",
+    "address": "0x7d60a4Cb5cA92E2Da965637025122296ea6854f9",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xD14875e2C65A46d15501C9296A9bCC0E17510978",
+    "vaultPoolId": "0x7d60a4cb5ca92e2da965637025122296ea6854f900000000000000000000085e",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0xb72B394b24616b3ce9b0803ea691b9C32f979D6D",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "jEUR",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "PAR",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-2brl-bbamusd",
     "address": "0x4A0b73f0D13fF6d43e304a174697e3d5CFd310a4",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
