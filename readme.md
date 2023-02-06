@@ -7,7 +7,7 @@ API that powers [Beefy Finance](https://app.beefy.finance). You can find the rep
 ## To Run.
 
 ```
-yarn install-all
+yarn install-all 
 yarn start
 ```
 
