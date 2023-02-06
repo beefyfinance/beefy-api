@@ -81,7 +81,7 @@ const solarbeamClient = client('https://analytics.solarbeam.io/api/subgraph');
 const joeClient = client('https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange');
 const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph/exchange3');
 const kyberClient = client(
-  'https://api.thegraph.com/subgraphs/name/dynamic-amm/dmm-exchange-matic'
+  'https://api.thegraph.com/subgraphs/name/kybernetwork/kyberswap-exchange-polygon'
 );
 const beetClient = client('https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx');
 const beetOpClient = client(

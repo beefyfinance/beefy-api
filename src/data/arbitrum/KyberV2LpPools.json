@@ -1,0 +1,21 @@
+[
+  {
+    "name": "kyber-arbitrum-usdc-mai",
+    "address": "0x6A4D5F8385Ff6E7fC4EBf6F726e12A958dAA1cba",
+    "decimals": "1e18",
+    "poolId": 0,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]
