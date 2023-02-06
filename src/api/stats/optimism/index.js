@@ -13,8 +13,10 @@ const { getHopOpApys } = require('./getHopOpApys');
 const { getOlpApys } = require('./getOlpApys');
 const getBeOpxApy = require('./getBeOpxApy');
 const getBeOpxEarnApy = require('./getBeOpxEarnApy');
+const getKyberOptimismApys = require('./getKyberOptimismApys');
 
 const getApys = [
+  getKyberOptimismApys,
   getBeetsOpApys,
   getCurveApys,
   getVelodromeApys,
