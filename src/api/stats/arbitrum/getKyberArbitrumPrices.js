@@ -1,5 +1,5 @@
 import { fetchDmmPrices } from '../../../utils/fetchDmmPrices';
-const pools = require('../../../data/arbitrum/kyberV2LpPools.json');
+const pools = require('../../../data/arbitrum/kyberLpPools.json');
 
 const getKyberArbitrumPrices = async tokenPrices => {
   const priceData = await await fetchDmmPrices(pools, tokenPrices);
