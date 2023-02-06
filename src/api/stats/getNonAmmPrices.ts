@@ -57,20 +57,12 @@ import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
 import getSolidlyEthStablePrices from './ethereum/getSolidlyStablePrices';
 import getMvxPrices from './matic/getMvxPrices';
-import { getKyberPolygonPrices } from './matic/getKyberPolygonPrices';
-import { getKyberArbitrumPrices } from './arbitrum/getKyberArbitrumPrices';
-import { getKyberAvaxPrices } from './avax/getKyberAvaxPrices';
-import { getKyberOptimismPrices } from './optimism/getKyberOptimismPrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
-    getKyberArbitrumPrices(tokenPrices),
-    getKyberAvaxPrices(tokenPrices),
-    getKyberOptimismPrices(tokenPrices),
-    getKyberPolygonPrices(tokenPrices),
     getSolidlyEthStablePrices(tokenPrices),
     getThenaStablePrices(tokenPrices),
     getMvxPrices(tokenPrices),

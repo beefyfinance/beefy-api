@@ -9,7 +9,6 @@ import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
-import { fetchKyberTokenPrices } from '../../utils/fetchKyberTokenPrices';
 import { fetchsfrxEthPrice } from '../../utils/fetchsfrxEthPrice';
 import {
   fetchBalancerStablePoolPrice,
@@ -653,10 +652,6 @@ const updateAmmPrices = async () => {
       return await fetchCurveTokenPrices(tokenPrices);
     });
 
-    const kyberTokenPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
-      return await fetchKyberTokenPrices(tokenPrices);
-    });
-
     const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
     const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
@@ -712,7 +707,6 @@ const updateAmmPrices = async () => {
     const tokenPrices = ammPrices.then(async ({ _, tokenPrices, __ }) => {
       const dmm = await dmmPrices;
       const curvePrices = await curveTokenPrices;
-      const kyberPrices = await kyberTokenPrices;
       const xTokenPrices = await xPrices;
       const mooTokenPrices = await mooPrices;
       const beFtmTokenPrice = await beFtmPrice;
@@ -728,7 +722,6 @@ const updateAmmPrices = async () => {
         ...beTokenTokenPrice,
         ...sfrxEthTokenPrice,
         ...curvePrices,
-        ...kyberPrices,
         ...linearPoolTokenPrice,
         ...(await coinGeckoPrices()),
         ...(await currencyPrices()),

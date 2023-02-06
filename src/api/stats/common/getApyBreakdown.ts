@@ -27,7 +27,7 @@ export const getApyBreakdown = (
   pools: { name: string; address: string; beefyFee?: number }[],
   tradingAprs: Record<string, BigNumber>,
   farmAprs: BigNumber[],
-  providerFee: number | BigNumber[],
+  providerFee: number,
   liquidStakingAprs?: number,
   composablePoolAprs?: number
 ): ApyBreakdownResult => {
@@ -54,7 +54,6 @@ export const getApyBreakdown = (
         ? composablePoolApr
         : 0;
 
-    const provFee = providerFee[i] == undefined ? providerFee : providerFee[i];
     const simpleApr = farmAprs[i]?.toNumber();
     const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
@@ -78,7 +77,7 @@ export const getApyBreakdown = (
       compoundingsPerYear: BASE_HPY,
       beefyPerformanceFee: beefyPerformanceFee,
       vaultApy: vaultApy,
-      lpFee: provFee,
+      lpFee: providerFee,
       tradingApr: tradingApr,
       liquidStakingApr: liquidStakingApr,
       composablePoolApr: composablePoolApr,
