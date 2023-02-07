@@ -17,4 +17,5 @@ export const beefyfinance = {
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   beefyFeeConfig: '0x3b282a104794c5d256D285B4ba9ed27375c0b359',
   vaultFactory: '0x740CE0674aF6eEC113A435fAa53B297536A3e89B',
+  wrapperFactory: '0x985CA8C1B4Ff5a15E1162BaE1669A928e5a6bD49',
 } as const;

@@ -21,4 +21,6 @@ export const beefyfinance = {
   oldTimelock: '0x8f0fFc8C7FC3157697Bdbf94B328F7141d6B41de',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   beefyFeeConfig: '0x97F86f2dC863D98e423E288938dF257D1b6e1553',
+  vaultFactory: '0xe596eC590DE52C09c8D1C7A1294B32F957A7c94e',
+  wrapperFactory: '0x85B792C67cEe281064eb7A3AF0Fe2A76E9a7849e',
 } as const;
