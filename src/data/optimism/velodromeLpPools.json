@@ -1,5 +1,45 @@
 [
   {
+    "name": "velodrome-weth-wsteth",
+    "address": "0xc6C1E8399C1c33a3f1959f2f77349D74a373345c",
+    "gauge": "0x150dc0e12d473347BECd0f7352e9dAE6CD30d8aB",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-reth-weth",
+    "address": "0x985612ff2C9409174FedcFf23d4F4761AF124F88",
+    "gauge": "0x89C1a33011Fab92e497963a6FA069aEE5c1f5D44",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9Bcef72be871e61ED4fBbc7630889beE758eb81D",
+      "oracle": "tokens",
+      "oracleId": "rETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-alusd-mai",
     "address": "0xa8FeDB4A8194E21Cf775ce868a865242e4e45151",
     "gauge": "0xF51080B888d393F9E6E42D0D65B0071884f2C21F",
