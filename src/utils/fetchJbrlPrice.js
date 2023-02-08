@@ -5,9 +5,9 @@ import IBalancerVault from '../abis/IBalancerVault.json';
 import { POLYGON_CHAIN_ID } from '../constants';
 import { getContractWithProvider } from './contractHelper';
 
-const usdc = '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174';
+const brz = '0x491a4eB4f1FC3BfF8E1d2FC856a6A46663aD556f';
 const jbrl = '0xf2f77FE7b8e66571E0fca7104c4d670BF1C8d722';
-const poolId = '0x5a5e4fa45be4c9cb214cd4ec2f2eb7053f9b4f6d000100000000000000000a30';
+const poolId = '0xe22483774bd8611be2ad2f4194078dac9159f4ba0000000000000000000008f0';
 const vault = '0xBA12222222228d8Ba445958a75a0704d566BF2C8';
 const one = new BigNumber('1e18');
 
@@ -26,15 +26,18 @@ const getJbrlPrice = async (tokenPrices, chainId) => {
   for (let i = 0; i < data.tokens.length; i++) {
     if (data.tokens[i] == jbrl) {
       reserveA = new BigNumber(data.balances[i]);
-    } else if (data.tokens[i] == usdc) {
+    } else if (data.tokens[i] == brz) {
       reserveB = new BigNumber(data.balances[i]);
     }
   }
-  const price = one.times(reserveB).dividedBy(reserveA.plus(one)).dividedBy('1e6');
 
-  // console.log('jBRL:', price.toString());
+  let price = one
+    .times(reserveB)
+    .dividedBy(reserveA.plus(one))
+    .times(tokenPrices['BRZ'])
+    .dividedBy('1e4');
 
-  return price.toNumber().toFixed(2);
+  return price.toNumber();
 };
 
 export { fetchJbrlPrice };
