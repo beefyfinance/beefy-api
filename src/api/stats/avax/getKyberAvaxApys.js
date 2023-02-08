@@ -13,6 +13,9 @@ const getKyberAvaxApys = async () => {
     abi: ABI,
     v2: true,
     kncIndex: 0,
+    reward: 'AVAX',
+    rewardIndex: '1',
+    kncIndex: '0',
     // log: true,
   });
 };
