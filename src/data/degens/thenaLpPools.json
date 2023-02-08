@@ -1,5 +1,45 @@
 [
   {
+    "name": "thena-wbnb-bifi",
+    "address": "0xbaD27C20d0A2428251585f1FD509685e48f307bD",
+    "gauge": "0x003d5f35250c9AbbCD9E1908312d9D59f47Ae532",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCa3F508B8e4Dd382eE878A314789373D80A5190A",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-bnbx-sd",
+    "address": "0x9698e0c7af13B6cEF8017A5c34eb2B3d053C491C",
+    "gauge": "0xB0b04da5163A407d8E0Dda6085Cb3A298394353A",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
+      "oracle": "tokens",
+      "oracleId": "BNBx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3BC5AC0dFdC871B365d159f728dd1B9A0B5481E8",
+      "oracle": "tokens",
+      "oracleId": "SD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "thena-usdc-ftm",
     "address": "0x535AEEab656c0fBb07DA64fe4AA3A15Dfc6834C8",
     "gauge": "0x937BA7A421c4b916F77C7CD2068D37d6F4CD3790",
