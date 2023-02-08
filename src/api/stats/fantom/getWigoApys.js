@@ -2,6 +2,7 @@ const { fantomWeb3: web3 } = require('../../../utils/web3');
 const { FANTOM_CHAIN_ID: chainId } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const pools = require('../../../data/fantom/wigoLpPools.json');
+import { wigoClient } from '../../../apollo/client';
 
 const getWigoApys = async () =>
   await getMasterChefApys({
@@ -26,6 +27,7 @@ const getWigoApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     secondsPerBlock: 1,
+    tradingFeeInfoClient: wigoClient,
     liquidityProviderFee: 0.0018,
     // log: true,
   });
