@@ -1,5 +1,47 @@
 [
   {
+    "name": "aura-cbeth-wsteth-v2",
+    "address": "0x9c6d47Ff73e0F5E51BE5FD53236e3F595C5793F2",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xe35ae62Ff773D518172d4B0b1af293704790B670",
+    "vaultPoolId": "0x9c6d47ff73e0f5e51be5fd53236e3f595c5793f200020000000000000000042c",
+    "lsIndex": 0,
+    "lidoUrl": "https://stake.lido.fi/api/apr",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "cbETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-dola-usdc",
+    "address": "0xFf4ce5AAAb5a627bf82f4A571AB1cE94Aa365eA6",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x22915f309EC0182c85cD8331C23bD187fd761360",
+    "vaultPoolId": "0xff4ce5aaab5a627bf82f4a571ab1ce94aa365ea6000200000000000000000426",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DOLA",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "aura-aurabal-balbpt",
     "address": "0x3dd0843A028C86e0b760b1A76929d1C5Ef93a2dd",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
