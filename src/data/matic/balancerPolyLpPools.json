@@ -5,6 +5,8 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x8c73C7A998F54e3A936885C752c9955c78A5Febb",
     "vaultPoolId": "0xa48d164f6eb0edc68bd03b56fa59e12f24499ad10000000000000000000007c4",
+    "composable": true,
+    "bptIndex": 1,
     "decimals": "1e18",
     "rewards": [
       {
@@ -20,6 +22,9 @@
         "decimals": "1e18"
       },
       {
+        "oracleId": "BPTToken"
+      },
+      {
         "oracle": "tokens",
         "oracleId": "agEUR",
         "decimals": "1e18"
@@ -32,6 +37,8 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xD14875e2C65A46d15501C9296A9bCC0E17510978",
     "vaultPoolId": "0x7d60a4cb5ca92e2da965637025122296ea6854f900000000000000000000085e",
+    "composable": true,
+    "bptIndex": 1,
     "decimals": "1e18",
     "rewards": [
       {
@@ -45,6 +52,9 @@
         "oracle": "tokens",
         "oracleId": "jEUR",
         "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
       },
       {
         "oracle": "tokens",
