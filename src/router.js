@@ -56,6 +56,7 @@ router.get('/config/:chainId', getChainConfig);
 router.get('/treasury', getTreasury);
 
 router.get('/snapshot/latest', snapshot.latest);
+router.get('/snapshot/active', snapshot.active);
 
 router.get('/', noop);
 

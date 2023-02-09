@@ -1,6 +1,6 @@
 import { ApolloClient, gql, NormalizedCacheObject } from '@apollo/client/core';
 import { client } from '../../apollo/client';
-import { Proposal, Space } from './types';
+import { Proposal, ProposalApiResponse, Space } from './types';
 
 // https://docs.snapshot.org/graphql-api#space
 const QUERY_SPACE = gql`
@@ -25,6 +25,7 @@ const QUERY_PROPOSALS = gql`
     ) {
       id
       title
+      start
       end
       author
     }
@@ -54,8 +55,8 @@ class SnapshotApi {
     state: 'open' | 'closed' = 'open',
     first: number = 10,
     skip: number = 0
-  ): Promise<Proposal[]> {
-    const result = await this.client.query<{ proposals: Proposal[] }>({
+  ): Promise<ProposalApiResponse[]> {
+    const result = await this.client.query<{ proposals: ProposalApiResponse[] }>({
       query: QUERY_PROPOSALS,
       variables: {
         spaceId,
