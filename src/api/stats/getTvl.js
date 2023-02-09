@@ -55,6 +55,9 @@ const {
   SYS_CHAIN_ID,
   //SYS_VAULTS_ENDPOINT,
 
+  CANTO_CHAIN_ID,
+  //CANTO_VAULTS_ENDPOINT,
+
   ETH_CHAIN_ID,
   ETHEREUM_VAULTS_ENDPOINT,
 } = require('../../constants');
@@ -161,6 +164,11 @@ const chains = [
     vaultsEndpoint: ETHEREUM_VAULTS_ENDPOINT,
     governancePool: require('../../data/ethereum/governancePool.json'),
   },
+  // {
+  //   chainId: CANTO_CHAIN_ID,
+  //  vaultsEndpoint: CANTO_VAULTS_ENDPOINT,
+  //  governancePool: require('../../data/canto/governancePool.json'),
+  // },
 ];
 
 const getTvl = () => {

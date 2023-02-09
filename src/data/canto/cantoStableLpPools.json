@@ -1,0 +1,42 @@
+[
+  {
+    "name": "canto-note-usdt",
+    "address": "0x35DB1f3a6A6F07f82C76fCC415dB6cFB1a7df833",
+    "cToken": "0xf0cd6b5cE8A01D1B81F1d8B76643866c5816b49F",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 7700,
+    "lp0": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd567B3d7B8FE3C79a1AD8dA978812cfC4Fa05e75",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "canto-note-usdc",
+    "address": "0x9571997a66D63958e1B3De9647C22bD6b9e7228c",
+    "cToken": "0xD6a97e43FC885A83E97d599796458A331E580800",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 7700,
+    "lp0": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]
