@@ -23,7 +23,7 @@ const _tokens = {
     symbol: 'ATOM',
     address: '0xecEEEfCEE421D8062EF8d6b4D814efe4dc898265',
     chainId: 7700,
-    decimals: 18,
+    decimals: 6,
     website: 'https://cosmos.network/',
     description:
       'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',

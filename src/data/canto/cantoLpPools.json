@@ -16,7 +16,7 @@
       "address": "0xecEEEfCEE421D8062EF8d6b4D814efe4dc898265",
       "oracle": "tokens",
       "oracleId": "ATOM",
-      "decimals": "1e18"
+      "decimals": "1e6"
     }
   },
   {

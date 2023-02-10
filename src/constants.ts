@@ -55,7 +55,7 @@ const EMERALD_RPC = process.env.EMERALD_RPC || 'https://emerald.oasis.dev';
 const OPTIMISM_RPC = process.env.OPTIMISM_RPC || 'https://rpc.ankr.com/optimism';
 const KAVA_RPC = process.env.KAVA_RPC || 'https://evm.kava.io';
 const ETH_RPC = process.env.ETH_RPC || 'https://rpc.ankr.com/eth';
-const CANTO_RPC = process.env.CANTO_RPC || 'https://canto.neobase.one/';
+const CANTO_RPC = process.env.CANTO_RPC || 'https://canto.slingshot.finance';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
