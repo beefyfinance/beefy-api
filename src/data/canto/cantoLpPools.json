@@ -1,0 +1,62 @@
+[
+  {
+    "name": "canto-wcanto-atom",
+    "address": "0x30838619C55B787BafC3A4cD9aEa851C1cfB7b19",
+    "cToken": "0xC0D6574b2fe71eED8Cd305df0DA2323237322557",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 7700,
+    "lp0": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xecEEEfCEE421D8062EF8d6b4D814efe4dc898265",
+      "oracle": "tokens",
+      "oracleId": "ATOM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "canto-note-wcanto",
+    "address": "0x1D20635535307208919f0b67c3B2065965A85aA9",
+    "cToken": "0x3C96dCfd875253A37acB3D2B102b6f328349b16B",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 7700,
+    "lp0": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "canto-eth-wcanto",
+    "address": "0x216400ba362d8FCE640085755e47075109718C8B",
+    "cToken": "0xb49A395B39A0b410675406bEE7bD06330CB503E3",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 7700,
+    "lp0": {
+      "address": "0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    }
+  }
+]

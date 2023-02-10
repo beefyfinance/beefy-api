@@ -51,6 +51,7 @@ const spookyClient = client('https://api.fura.org/subgraphs/name/spookyswap');
 const spiritClient = client(
   'https://api.thegraph.com/subgraphs/name/layer3org/spiritswap-analytics'
 );
+const wigoClient = client('https://api.thegraph.com/subgraphs/name/wigoswap/exchange2');
 const cakeClient = client(
   `https://data-platform.nodereal.io/graph/v1/${process.env.PCS_API_KEY}/projects/pancakeswap`
 );
@@ -161,6 +162,7 @@ export {
   polyzapClient,
   spookyClient,
   spiritClient,
+  wigoClient,
   cakeClient,
   apeClient,
   wexpolyClient,

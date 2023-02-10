@@ -16,6 +16,7 @@ const { getSysApys } = require('./sys');
 const { getEmeraldApys } = require('./emerald');
 const { getOptimismApys } = require('./optimism');
 const { getKavaApys } = require('./kava');
+const { getCantoApys } = require('./canto');
 const { getEthereumApys } = require('./ethereum');
 const { getKey, setKey } = require('../../utils/redisHelper');
 const { fetchBoostAprs } = require('./getBoostAprs');
@@ -62,6 +63,7 @@ const updateApys = async () => {
       getOptimismApys(),
       getKavaApys(),
       getEthereumApys(),
+      getCantoApys(),
     ]);
 
     for (const result of results) {

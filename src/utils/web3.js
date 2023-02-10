@@ -60,6 +60,9 @@ module.exports = {
   get ethereumWeb3() {
     return chainRandomClients.ethereumRandomClient();
   },
+  get cantoWeb3() {
+    return chainRandomClients.cantoRandomClient();
+  },
 
   web3Factory: _web3Factory,
 
