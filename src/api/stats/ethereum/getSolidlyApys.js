@@ -21,7 +21,7 @@ const getSolidlyApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     reward: SOLID.address,
-    log: true,
+    // log: true,
     abi: ISolidlyGaugeV2,
   });
 
