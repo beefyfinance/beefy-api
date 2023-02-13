@@ -15,6 +15,30 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  DEI: {
+    name: 'DEI',
+    symbol: 'DEI',
+    address: '0xDE1E704dae0B4051e80DAbB26ab6ad6c12262DA0',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
+    logoURI: 'https://app.deus.finance/tokens/dei.svg',
+    documentation: 'https://docs.deus.finance/',
+  },
+  ETSAlpha: {
+    name: 'ETS Alpha',
+    symbol: 'ETS Alpha',
+    address: '0x5B852898CD47d2Be1d77D30377b3642290f5Ec75',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'The exchange-traded strategies(ETS) of overnight.fi are ERC-20 structured products that lets users leverage a collateralized debt position (e.g. DAI lent on Aave) to borrow a volatile asset (e.g. WETH), pair it with a stablecoin, and provide stable-to-crypto liquidity, (e.g. WETH/DAI) in an AMM, like Uni V3. This allows earning high APY and hedging against crypto volatility. ',
+    logoURI: 'https://app.deus.finance/tokens/dei.svg',
+    documentation: 'https://docs.overnight.fi/',
+  },
   THE: {
     name: 'THENA',
     symbol: 'THE',
