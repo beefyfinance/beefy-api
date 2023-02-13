@@ -5,7 +5,7 @@ const getEthereumBifiGovApy = require('./getEthereumBifiEarningsApy');
 const getAuraBalApy = require('./getAuraBalApy');
 const { getSushiApys } = require('./getSushiLpApys');
 const { getSynapseLpApys } = require('./getSynapseLpApys');
-const getMonolithApys = require('./getMonolithLpApys');
+const getSolidlyApys = require('./getSolidlyApys');
 const { getConvexCrvApy } = require('./getConvexCrvApy');
 
 const getApys = [
@@ -17,7 +17,7 @@ const getApys = [
   getAuraBalApy,
   getSushiApys,
   getSynapseLpApys,
-  getMonolithApys,
+  getSolidlyApys,
 ];
 
 const getEthereumApys = async () => {

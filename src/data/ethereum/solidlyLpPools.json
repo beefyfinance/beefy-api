@@ -46,13 +46,6 @@
     "decimals": "1e18",
     "chainId": 1,
     "beefyFee": 0.095,
-    "rewards": [
-      {
-        "address": "0x6DEA81C8171D0bA574754EF6F8b412F2Ed88c54D",
-        "oracleId": "LQTY",
-        "decimals": "1e18"
-      }
-    ],
     "lp0": {
       "address": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
       "oracle": "tokens",
@@ -165,13 +158,6 @@
     "decimals": "1e18",
     "chainId": 1,
     "beefyFee": 0.095,
-    "rewards": [
-      {
-        "address": "0x00a35FD824c717879BF370E70AC6868b95870Dfb",
-        "oracleId": "IB",
-        "decimals": "1e18"
-      }
-    ],
     "lp0": {
       "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "oracle": "tokens",
