@@ -1,4 +1,4 @@
-import { getLatestProposal } from './getLatestProposal';
+import { getLatestProposal, getActiveProposals } from './getProposals';
 import Koa from 'koa';
 
 // latest proposal to display on app
@@ -13,4 +13,15 @@ function latest(ctx: Koa.Context) {
   }
 }
 
-export { latest };
+function active(ctx: Koa.Context) {
+  try {
+    const activeProposals = getActiveProposals();
+    ctx.status = 200;
+    ctx.body = activeProposals;
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
+export { latest, active };
