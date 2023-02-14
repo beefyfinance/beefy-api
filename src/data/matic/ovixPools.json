@@ -1,0 +1,15 @@
+[
+  {
+    "name": "ovix-stmatic",
+    "mtoken": "0xDc3C5E5c01817872599e5915999c0dE70722D07f",
+    "oracle": "tokens",
+    "oracleId": "stMATIC",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.45,
+    "reward": {
+      "rewarder": "0xd1a21676Cb1a781f321f31DB3573757D2cbCc0B2",
+      "oracleId": "LDO"
+    }
+  }
+]
