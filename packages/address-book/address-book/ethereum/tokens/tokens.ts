@@ -746,6 +746,17 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.yearn.finance/getting-started/products/ycrv/overview',
   },
+  BLUR: {
+    name: 'Blur',
+    symbol: 'BLUR',
+    address: '0x5283D291DBCF85356A21bA090E6db59121208b44',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://blur.io/',
+    description:
+      'Sweep NFTs across multiple marketplaces, snipe reveals faster than others, and manage your portfolio with advanced analytics. Zero fees.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
