@@ -1,5 +1,24 @@
 [
   {
+    "name": "convex-ldo",
+    "pool": "0x9409280DC1e6D33AB7A8C6EC03e5763FB61772B5",
+    "token": "0xb79565c01b7Ae53618d9B847b9443aAf4f9011e7",
+    "volatile": true,
+    "rewardPool": "0x8CA990E954611E5E3d2cc51C013fCC372c8c1D38",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "LDO",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-clev",
     "pool": "0x342D1C4Aa76EA6F5E5871b7f11A019a0eB713A4f",
     "token": "0x6C280dB098dB673d30d5B34eC04B6387185D3620",
