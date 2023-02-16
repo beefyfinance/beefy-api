@@ -67,7 +67,7 @@ const _tokens = {
       'WBTCwh is a bridged version of WBTC from the Wormhole(Portal) portal. Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     documentation: 'https://docs.wormhole.com/wormhole/',
   },
-  ETHwh: {
+  WETHwh: {
     name: 'Wrapped Ether',
     symbol: 'WETH',
     address: '0xab3f0245B83feB11d15AAffeFD7AD465a59817eD',
@@ -77,7 +77,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0xfA9343C3897324496A05fC75abeD6bAC29f8A40f.svg',
     website: 'https://www.portalbridge.com/#/transfer',
     description:
-      'ETHwh is a bridged version of native ETH from the Wormhole(Portal) portal. ETH is the native currency that flows within the Ethereum ecosystem.',
+      'WETHwh is a bridged version of native ETH from the Wormhole(Portal) portal. ETH is the native currency that flows within the Ethereum ecosystem.',
     documentation: 'https://docs.wormhole.com/wormhole/',
   },
   USDCwh: {
