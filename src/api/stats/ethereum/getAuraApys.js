@@ -59,14 +59,7 @@ const getAuraApys = async () => {
 
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
-  return getApyBreakdown(
-    poolsMap,
-    tradingAprs,
-    farmApys[0],
-    liquidityProviderFee,
-    farmApys[1],
-    farmApys[2]
-  );
+  return getApyBreakdown(poolsMap, 0, farmApys[0], liquidityProviderFee, farmApys[1], farmApys[2]);
 };
 
 const getPoolApys = async pools => {
