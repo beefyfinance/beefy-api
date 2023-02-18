@@ -1,5 +1,25 @@
 [
   {
+    "name": "thena-multi-busd",
+    "address": "0xdE4Cc4446205d1138EcAa48B2CB22b8e06E69BD4",
+    "gauge": "0xCDF4E03E33813E4374957De6A9F1E926c33D98f1",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9Fb9a33956351cf4fa040f65A13b835A3C8764E3",
+      "oracle": "tokens",
+      "oracleId": "MULTI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "thena-etsalpha-usd+",
     "address": "0x92573046BD4abA37d875eb45a0A1182ac63d5580",
     "gauge": "0x8871105347CA6b8e35fB689EEA11AA0AAA3651E4",
