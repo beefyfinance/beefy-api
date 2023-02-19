@@ -5,6 +5,7 @@ import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
+import { fetchEulerTokenPrices } from '../../utils/fetchEulerTokenPrices';
 import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
@@ -682,10 +683,12 @@ const updateAmmPrices = async () => {
       const yVaultPrices = await fetchyVaultPrices(tokenPrices);
       const vaultPrices = await fetchVaultPrices(tokenPrices);
       const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
+      const eulerTokenPrices = await fetchEulerTokenPrices(tokenPrices);
       const prices = {
         ...tokenPrices,
         ...vaultPrices,
         ...wrappedAavePrices,
+        ...eulerTokenPrices,
         ...jbrlTokenPrice,
         ...yVaultPrices,
       };
@@ -697,6 +700,7 @@ const updateAmmPrices = async () => {
         ...linearPrices,
         ...balancerStablePoolPrice,
         ...wrappedAavePrices,
+        ...eulerTokenPrices,
         ...jbrlTokenPrice,
         ...yVaultPrices,
       };

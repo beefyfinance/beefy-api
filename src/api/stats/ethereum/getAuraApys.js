@@ -8,6 +8,7 @@ const IAuraToken = require('../../../abis/ethereum/AuraToken.json');
 const IAuraGauge = require('../../../abis/ethereum/AuraGauge.json');
 const IBalancerVault = require('../../../abis/IBalancerVault.json');
 const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataProvider.json');
+const IMarkets = require('../../../abis/ethereum/IMarkets.json');
 import { multicallAddress } from '../../../utils/web3';
 const { ETH_CHAIN_ID: chainId } = require('../../../constants');
 import { balancerClient } from '../../../apollo/client';
@@ -39,7 +40,9 @@ const bbaUSDTokens = [
 
 const pools = require('../../../data/ethereum/auraBalancerLpPools.json');
 const aaveDataProvider = '0x057835Ad21a177dbdd3090bB1CAE03EaCF78Fc6d';
+const eulerMarkets = '0x3520d5a913427E6F0D6A83E07ccD4A4da316e4d3';
 const bbaUSDPoolId = '0xa13a9247ea42d743238089903570127dda72fe4400000000000000000000035d';
+const bbeUSDPoolId = '0x50cf90b954958480b8df7958a9e965752f62712400000000000000000000046f';
 
 const liquidityProviderFee = 0.0025;
 const secondsInAYear = 31536000;
@@ -59,7 +62,14 @@ const getAuraApys = async () => {
 
   const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
-  return getApyBreakdown(poolsMap, 0, farmApys[0], liquidityProviderFee, farmApys[1], farmApys[2]);
+  return getApyBreakdown(
+    poolsMap,
+    tradingAprs,
+    farmApys[0],
+    liquidityProviderFee,
+    farmApys[1],
+    farmApys[2]
+  );
 };
 
 const getPoolApys = async pools => {
@@ -98,19 +108,27 @@ const getPoolApy = async (pool, auraData, balance, rewardRate, finish, extras) =
   let aprFixed = 0;
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 
-  if (pool.name == 'aura-wsteth-reth-sfrxeth') {
+  if (pool.name == 'aura-wsteth-reth-sfrxeth-v2') {
     aprFixed = await getThreeEthPoolYield(pool);
   } else if (pool.lidoUrl || pool.rocketUrl) {
     aprFixed = await getLiquidStakingPoolYield(pool);
   }
 
   let bbaUSDApy = await getComposableAaveYield();
+  let bbeUSDApy = await getComposableEulerYield();
   let composableApr = new BigNumber(0);
   if (pool.includesComposableStable) {
-    pool.composableSplit
-      ? (bbaUSDApy = bbaUSDApy.dividedBy(pool.composableSplit))
-      : (bbaUSDApy = bbaUSDApy);
-    composableApr = bbaUSDApy;
+    if (pool.composableStableOracle == 'bbeUSD') {
+      pool.composableSplit
+        ? (bbeUSDApy = bbeUSDApy.dividedBy(pool.composableSplit))
+        : (bbeUSDApy = bbeUSDApy);
+      composableApr = bbeUSDApy;
+    } else {
+      pool.composableSplit
+        ? (bbaUSDApy = bbaUSDApy.dividedBy(pool.composableSplit))
+        : (bbaUSDApy = bbaUSDApy);
+      composableApr = bbaUSDApy;
+    }
   }
 
   // console.log(pool.name, bbaUSDApy.toNumber(), rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
@@ -208,7 +226,7 @@ const getThreeEthPoolYield = async pool => {
   let qty = [];
   let totalQty = new BigNumber(0);
   for (let j = 0; j < tokenQtys.balances.length; j++) {
-    if (j != 1) {
+    if (j != 0) {
       const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
       const amt = new BigNumber(tokenQtys.balances[j])
         .times(price)
@@ -268,6 +286,38 @@ const getComposableAaveYield = async () => {
   let apy = new BigNumber(0);
   for (let i = 0; i < bbaUSDTokens.length; i++) {
     const tokenApy = new BigNumber(rates[i]).div(RAY_DECIMALS);
+    const portionedApy = tokenApy.dividedBy(2).times(qty[i]).dividedBy(totalQty);
+    apy = apy.plus(portionedApy);
+    // console.log(bbaUSDTokens[i].address, portionedApy.toNumber());
+  }
+  return apy;
+};
+
+const getComposableEulerYield = async () => {
+  let supplyRateCalls = [];
+
+  bbaUSDTokens.forEach(t => {
+    const marketsContract = getContractWithProvider(IMarkets, eulerMarkets, web3);
+    supplyRateCalls.push({ supplyRate: marketsContract.methods.interestRate(t.address) });
+  });
+
+  const res = await multicall.all([supplyRateCalls]);
+
+  const rates = res[0].map(v => new BigNumber(v.supplyRate));
+  const tokenQtys = await balVault.methods.getPoolTokens(bbeUSDPoolId).call();
+
+  let qty = [];
+  let totalQty = new BigNumber(0);
+  for (let j = 0; j < tokenQtys.balances.length; j++) {
+    if (j != 1) {
+      totalQty = totalQty.plus(new BigNumber(tokenQtys.balances[j]));
+      qty.push(new BigNumber(tokenQtys.balances[j]));
+    }
+  }
+
+  let apy = new BigNumber(0);
+  for (let i = 0; i < bbaUSDTokens.length; i++) {
+    const tokenApy = new BigNumber(rates[i]).div(RAY_DECIMALS).times(secondsInAYear);
     const portionedApy = tokenApy.dividedBy(2).times(qty[i]).dividedBy(totalQty);
     apy = apy.plus(portionedApy);
     // console.log(bbaUSDTokens[i].address, portionedApy.toNumber());

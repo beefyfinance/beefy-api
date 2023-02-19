@@ -757,6 +757,89 @@ const _tokens = {
     description:
       'Sweep NFTs across multiple marketplaces, snipe reveals faster than others, and manage your portfolio with advanced analytics. Zero fees.',
   },
+  eUSDT: {
+    name: 'Euler Tether USD',
+    symbol: 'eUSDT',
+    address: '0x4d19F33948b99800B6113Ff3e83beC9b537C85d2',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://tether.to/',
+    description:
+      'Euler interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    documentation: 'https://docs.euler.finance/',
+  },
+  bbeUSDT: {
+    name: 'Balancer Euler USDT Linear Pool',
+    symbol: 'bbeUSDT',
+    address: '0x3C640f0d3036Ad85Afa2D5A9E32bE651657B874F',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description: 'Balancer linear pool that consist of 50/50 USDT and Euler Interest Bearing USDT.',
+  },
+  eUSDC: {
+    name: 'Euler USDC',
+    symbol: 'eUSDC',
+    address: '0xEb91861f8A4e1C12333F42DCE8fB0Ecdc28dA716',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://docs.euler.finance/',
+    description:
+      'Euler interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  bbeUSDC: {
+    name: 'Balancer Euler USDC Linear Pool',
+    symbol: 'bbeUSDC',
+    address: '0xD4e7C1F3DA1144c9E2CfD1b015eDA7652b4a4399',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 USDC and wrapped Euler Interest Bearing USDC.',
+  },
+  eDAI: {
+    name: 'Euler DAI',
+    symbol: 'eDAI',
+    address: '0xe025E3ca2bE02316033184551D4d3Aa22024D9DC',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://makerdao.com/en/',
+    documentation: 'https://docs.euler.finance/',
+    description:
+      'Euler interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
+  },
+  bbeDAI: {
+    name: 'Balancer Euler DAI Linear Pool',
+    symbol: 'bbeDAI',
+    address: '0xeB486AF868AeB3b6e53066abc9623b1041b42bc0',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 DAI and wrapped Euler Interest Bearing DAI.',
+  },
+  bbeUSD: {
+    name: 'Balancer Euler Stable Composable Pool',
+    symbol: 'bbeUSD',
+    address: '0x50Cf90B954958480b8DF7958A9E965752F627124',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer composable pool that consist of bbeUSDT, bbeUSDC, and bbeDAI. bbTokens are Euler boosted linear pools.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
