@@ -1,0 +1,32 @@
+[
+  {
+    "name": "euler-weth",
+    "etoken": "0x1b808F49ADD4b8C6b5117d9681cF7312Fcf0dC1D",
+    "rewardPool": "0x229443bf7F1297192394B7127427DB172a5bDe9E",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "underlying": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "underlyingDecimals": "1e18"
+  },
+  {
+    "name": "euler-usdc",
+    "etoken": "0xEb91861f8A4e1C12333F42DCE8fB0Ecdc28dA716",
+    "rewardPool": "0xE5aFE81e63f0A52a3a03B922b30f73B8ce74D570",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e18",
+    "underlying": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+    "underlyingDecimals": "1e6"
+  },
+  {
+    "name": "euler-usdt",
+    "etoken": "0x4d19F33948b99800B6113Ff3e83beC9b537C85d2",
+    "rewardPool": "0x7882F919e3acCa984babd70529100F937d90F860",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e18",
+    "underlying": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+    "underlyingDecimals": "1e6"
+  }
+]

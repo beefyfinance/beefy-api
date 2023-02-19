@@ -553,6 +553,7 @@ const coinGeckoCoins = [
   'across-protocol',
   'metavault-trade',
   'seur',
+  'euler',
 ];
 
 const currencies = ['cad'];
@@ -628,6 +629,7 @@ const updateAmmPrices = async () => {
         ACX: prices['across-protocol'],
         MVX: prices['metavault-trade'],
         sEUR: prices['seur'],
+        EUL: prices['euler'],
       };
     };
 

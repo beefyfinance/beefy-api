@@ -6,6 +6,7 @@ const BASE_HPY = 2190;
 const MINUTELY_HPY = 525600;
 const HOURLY_HPY = 8760;
 const DAILY_HPY = 365;
+const ETH_HPY = DAILY_HPY / 3;
 const WEEKLY_HPY = 52;
 
 const FORTUBE_REQ_TOKENS = 'https://bsc.for.tube/api/v2/bank_tokens';
