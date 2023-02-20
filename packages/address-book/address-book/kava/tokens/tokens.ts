@@ -107,7 +107,7 @@ const _tokens = {
   axlUSDT: {
     name: 'USDT',
     symbol: 'axlUSDT',
-    address: '0x7f5373ae26c3e8ffc4c77b7255df7ec1a9af52a6',
+    address: '0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6',
     chainId: 2222,
     decimals: 6,
     website: 'https://tether.to/',
