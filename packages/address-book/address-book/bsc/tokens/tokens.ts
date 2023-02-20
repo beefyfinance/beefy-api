@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  MULTI: {
+    name: 'Multichain',
+    symbol: 'MULTI',
+    address: '0x9Fb9a33956351cf4fa040f65A13b835A3C8764E3',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://multichain.org/',
+    description:
+      'Multichain is the ultimate Router for web3. It is an infrastructure developed for arbitrary cross-chain interactions.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/17050.png',
+  },
   DEI: {
     name: 'DEI',
     symbol: 'DEI',
