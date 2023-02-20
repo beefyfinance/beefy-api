@@ -1,5 +1,25 @@
 [
   {
+    "name": "thena-sfrxeth-frxeth",
+    "address": "0xc2D245919dB52eA4D5d269b0C710056639176eaD",
+    "gauge": "0x82d30c5dCd9C980714E3F9F8E8CEe7c9bdD13d06",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3Cd55356433C89E50DC51aB07EE0fa0A95623D53",
+      "oracle": "tokens",
+      "oracleId": "sfrxETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x64048A7eEcF3a2F1BA9e144aAc3D7dB6e58F555e",
+      "oracle": "tokens",
+      "oracleId": "frxETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "thena-usdt-usdc",
     "address": "0x618f9Eb0E1a698409621f4F487B563529f003643",
     "gauge": "0x19Beb32Dc0fB085Ef372E96E946BE21eCeE3fC51",

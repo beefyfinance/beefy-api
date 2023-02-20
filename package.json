@@ -23,7 +23,7 @@
     "bsc:ape:add": "ts-node scripts/add-farm.ts --network bsc --project ape",
     "bsc:biswap:add": "ts-node scripts/add-farm.ts --network bsc --project biswap",
     "bsc:swapfish:add": "ts-node scripts/add-farm.ts --network bsc --project swapfishBsc --newFee true",
-    "bsc:thena:add": "ts-node scripts/add-solidly.ts --network bsc --project thena --newFee true",
+    "bsc:thena:add": "ts-node scripts/add-solidly.ts --network bsc --project thena --newFee true --lp",
     "fantom:spooky:add": "ts-node scripts/add-farm.ts --network fantom --project spooky",
     "fantom:spiritv:add": "ts-node scripts/add-solidly.ts --network fantom --project spiritVolatile --newFee true",
     "fantom:spirits:add": "ts-node scripts/add-solidly.ts --network fantom --project spiritStable --newFee true",
