@@ -1,5 +1,25 @@
 [
   {
+    "name": "equalizer-btc-wftm",
+    "address": "0xDA3E21477F872F30794551D908DE244b8839F723",
+    "gauge": "0xcDd56e66d7bd326b55cC23bA49f53262D7382555",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "BTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "equalizer-ankr-wftm",
     "address": "0x60db1fBA7321897fcc85f7a5960952a9944D870b",
     "gauge": "0xE984abAf18bA6A74C8c4218e23FDA7207345BcAC",
