@@ -554,6 +554,7 @@ const coinGeckoCoins = [
   'metavault-trade',
   'seur',
   'euler',
+  'axlusdc',
 ];
 
 const currencies = ['cad'];
@@ -630,6 +631,7 @@ const updateAmmPrices = async () => {
         MVX: prices['metavault-trade'],
         sEUR: prices['seur'],
         EUL: prices['euler'],
+        axlUSDC: prices['axlusdc'],
       };
     };
 
