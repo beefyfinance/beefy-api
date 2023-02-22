@@ -1,5 +1,14 @@
 [
   {
+    "name": "moonwell-xcusdt",
+    "mtoken": "0x42A96C0681B74838eC525AdbD13c37f66388f289",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
     "name": "moonwell-wbtc.wh",
     "mtoken": "0xaaa20c5a584a9fECdFEDD71E46DA7858B774A9ce",
     "oracle": "tokens",
