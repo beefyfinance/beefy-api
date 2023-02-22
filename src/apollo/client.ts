@@ -52,9 +52,7 @@ const spiritClient = client(
   'https://api.thegraph.com/subgraphs/name/layer3org/spiritswap-analytics'
 );
 const wigoClient = client('https://api.thegraph.com/subgraphs/name/wigoswap/exchange2');
-const cakeClient = client(
-  `https://data-platform.nodereal.io/graph/v1/${process.env.PCS_API_KEY}/projects/pancakeswap`
-);
+const cakeClient = client(process.env.PCS_GRAPHQL_KEY);
 const apeClient = client('https://bnb.apeswapgraphs.com/subgraphs/name/ape-swap/apeswap-subgraph');
 const wexpolyClient = client(
   'https://polyinfo.wault.finance/subgraphs/name/WaultFinance/waultswap-subgraph'
