@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-bevelo-velo",
+    "address": "0xC6c7B143295b2920DA41369e9627245FaB8c1CcE",
+    "gauge": "0xC803DA13A489E60aA3cbF9a2Ed584da9088e57b4",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3c8B650257cFb5f272f799F5e2b4e65093a11a05",
+      "oracle": "tokens",
+      "oracleId": "VELO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfDeFFc7Ad816BF7867C642dF7eBC2CC5554ec265",
+      "oracle": "tokens",
+      "oracleId": "BeVELO",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-sfrxeth-frxeth",
     "address": "0xeB676aE691df237aC09a0f7410123A714D84afb3",
     "gauge": "0xBdEecB56b65DBaD1fAba6656898863C946Cfad8f",

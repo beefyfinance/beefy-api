@@ -715,7 +715,6 @@ const updateAmmPrices = async () => {
         beJOE: tokenPrices['JOE'],
         beQI: tokenPrices['QI'],
         beCAKE: tokenPrices['Cake'],
-        beVELO: tokenPrices['VELO'],
       };
     });
 
