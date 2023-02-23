@@ -1646,6 +1646,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://www.ankr.com/about-network/token/',
   },
+  ankrFTM: {
+    name: 'Ankr Staked FTM',
+    symbol: 'ankrFTM',
+    address: '0xCfC785741Dc0e98ad4c9F6394Bb9d43Cd1eF5179',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description:
+      'ankrFTM allows users to stake their funds on the Fantom network, earn rewards, and receive their stake and rewards upon unstaking.',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/ftm/overview/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
