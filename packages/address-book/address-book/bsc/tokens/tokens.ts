@@ -15,6 +15,62 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  wUSDR: {
+    name: 'Ratio Stablecoin',
+    symbol: 'wUSDR',
+    address: '0x2952beb1326acCbB5243725bd4Da2fC937BCa087',
+    chainId: 56,
+    decimals: 9,
+    website: 'https://app.ratio.finance/',
+    description:
+      'Ratio Stablecoin (wUSDR) is an algorithmic stablecoin issued by Ratio Finance. It is yield-bearing and represents an algorithmically-adjusted collateralized debt position. The token on BNB Chain is bridged via Wormhole from Solana.',
+    logoURI: 'https://img.raydium.io/icon/USDrbBQwQbQ2oWHUPfA8QBHcyVxKUq1xHyXsSLKdUq2.png',
+  },
+  PRIMAL: {
+    name: 'Primal',
+    symbol: 'PRIMAL',
+    address: '0xCb5327Ed4649548e0d73E70b633cdfd99aF6Da87',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.getprimal.com/',
+    description:
+      'Primal is the utility token of a Move2Earn ecosystem featuring fan tokens for chosen athletes and team.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/28435/small/PRIMAL_ICON_200px.jpg?1670567426',
+  },
+  FS: {
+    name: 'FantomStarter',
+    symbol: 'FS',
+    address: '0x1935C03bB7DbC3623bD992CE599bC26bD30A43EB',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://fantomstarter.io/',
+    description:
+      'With FantomStarter, you can raise and invest capital on any blockchain while the decentralized investment app manages all the regulatory, compliance, and multi network responsibilities.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/FS.png',
+  },
+  ankrETH: {
+    name: 'Ankr Staked ETH',
+    symbol: 'ankrETH',
+    address: '0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description: 'Decentralized Infrastructure to Build and Earn in Web3',
+  },
+  DOLA: {
+    name: 'Dola USD Stablecoin',
+    symbol: 'DOLA',
+    address: '0x2F29Bc0FFAF9bff337b31CBe6CB5Fb3bf12e5840',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.inverse.finance/',
+    documentation: 'https://docs.inverse.finance/inverse-finance/using-dola/how-to-acquire-dola',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+  },
   MULTI: {
     name: 'Multichain',
     symbol: 'MULTI',
