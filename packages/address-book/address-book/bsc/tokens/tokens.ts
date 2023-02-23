@@ -16,15 +16,16 @@ const BNB = {
 
 const _tokens = {
   wUSDR: {
-    name: 'Ratio Stablecoin',
+    name: 'Real USD',
     symbol: 'wUSDR',
     address: '0x2952beb1326acCbB5243725bd4Da2fC937BCa087',
     chainId: 56,
     decimals: 9,
-    website: 'https://app.ratio.finance/',
+    website: 'https://www.tangible.store/realusd',
+    documentation: 'https://docs.tangible.store/',
     description:
-      'Ratio Stablecoin (wUSDR) is an algorithmic stablecoin issued by Ratio Finance. It is yield-bearing and represents an algorithmically-adjusted collateralized debt position. The token on BNB Chain is bridged via Wormhole from Solana.',
-    logoURI: 'https://img.raydium.io/icon/USDrbBQwQbQ2oWHUPfA8QBHcyVxKUq1xHyXsSLKdUq2.png',
+      'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders. The token on BNB Chain is bridged via Multichain from Polygon.',
+    logoURI: '',
   },
   PRIMAL: {
     name: 'Primal',
