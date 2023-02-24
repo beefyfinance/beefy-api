@@ -1,0 +1,22 @@
+[
+  {
+    "name": "solidlizard-sliz-weth",
+    "address": "0x751F3B8ca139bC1F3482b193297485f14208826a",
+    "gauge": "0x549855586afc1283E90295088ba5Eb51E7236ae8",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x463913D3a3D3D291667D53B8325c598Eb88D3B0e",
+      "oracle": "tokens",
+      "oracleId": "SLIZ",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

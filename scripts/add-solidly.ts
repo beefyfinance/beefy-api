@@ -27,6 +27,9 @@ const {
   ethereum: {
     platforms: { solidly },
   },
+  arbitrum: {
+    platforms: { solidlizard },
+  },
 } = addressBook;
 
 const projects = {
@@ -75,6 +78,12 @@ const projects = {
     stableFile: '../src/data/ethereum/solidlyStableLpPools.json',
     volatileFile: '../src/data/ethereum/solidlyLpPools.json',
     voter: solidly.voter,
+  },
+  solidlizard: {
+    prefix: 'solidlizard',
+    stableFile: '../src/data/arbitrum/solidlizardStableLpPools.json',
+    volatileFile: '../src/data/arbitrum/solidlizardLpPools.json',
+    voter: solidlizard.voter,
   },
 };
 

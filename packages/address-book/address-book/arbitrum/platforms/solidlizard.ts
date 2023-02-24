@@ -1,0 +1,6 @@
+export const solidlizard = {
+  router: '0xF26515D5482e2C2FD237149bF6A653dA4794b3D0', // Solidly Router
+  ve: '0x29d3622c78615A1E7459e4bE434d816b7de293e4',
+  voter: '0x98A1De08715800801E9764349F5A71cBe63F99cc',
+  gaugeStaker: '0x408BAF59E27a83740FF426d0BC8c1319f30720c7',
+} as const;

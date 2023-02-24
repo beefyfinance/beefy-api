@@ -465,6 +465,18 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
     documentation: 'https://gains-network.gitbook.io/docs-home/',
   },
+  SLIZ: {
+    name: 'SolidLizard dex token',
+    symbol: 'SLIZ',
+    address: '0x463913D3a3D3D291667D53B8325c598Eb88D3B0e',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://solidlizard.finance/home',
+    description:
+      'SolidLizard is a decentralized exchange built on Arbitrum that offers low-cost token exchanges and reduced swap fees, using a governance model called the ve(3,3) system, which was developed by Andre Cronje and introduced in Solidly. ',
+    documentation: 'https://solidlizard.gitbook.io/solidlizard/solidlizard-protocol/welcome',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
