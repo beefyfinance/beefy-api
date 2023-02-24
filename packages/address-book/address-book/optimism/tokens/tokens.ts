@@ -30,6 +30,18 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  wUSDR: {
+    name: 'Real USD',
+    symbol: 'wUSDR',
+    address: '0x340fE1D898ECCAad394e2ba0fC1F93d27c7b717A',
+    chainId: 10,
+    decimals: 9,
+    website: 'https://www.tangible.store/realusd',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders. The token on Optimism is bridged via Multichain from Polygon.',
+    logoURI: '',
+  },
   beOPX: {
     name: 'Beefy Escrowed OPX',
     symbol: 'beOPX',
