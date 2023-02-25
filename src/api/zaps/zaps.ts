@@ -30,12 +30,9 @@ import { keyBy, sortBy, uniq } from 'lodash';
 import { isResultFulfilled, isResultRejected } from '../../utils/promise';
 import { getKey, setKey } from '../../utils/cache';
 
-// const GH_ORG = 'beefyfinance';
-// const GH_REPO = 'beefy-v2';
-// const GH_BRANCH = 'prod';
-const GH_ORG = 'reflectivechimp';
+const GH_ORG = 'beefyfinance';
 const GH_REPO = 'beefy-v2';
-const GH_BRANCH = 'json-zap-config';
+const GH_BRANCH = 'prod';
 const DEBUG = false;
 const REDIS_KEY = 'ZAP_SUPPORT';
 

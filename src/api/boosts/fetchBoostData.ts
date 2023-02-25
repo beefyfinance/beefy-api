@@ -8,7 +8,7 @@ import BigNumber from 'bignumber.js';
 import { ApiChain } from '../../utils/chain';
 
 export const getBoosts = async chain => {
-  const boostsEndpoint = `https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/boost/${chain}.json`;
+  const boostsEndpoint = `https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/boost/${chain}.json`;
   try {
     let boosts = await fetch(boostsEndpoint).then(res => res.json());
     return boosts;

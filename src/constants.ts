@@ -126,45 +126,45 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
 };
 
 const BSC_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/bsc.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/bsc.json';
 const HECO_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/heco.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/heco.json';
 const AVAX_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/avax.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/avax.json';
 const POLYGON_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/polygon.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/polygon.json';
 const FANTOM_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/fantom.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/fantom.json';
 const ONE_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/harmony.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/harmony.json';
 const ARBITRUM_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/arbitrum.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/arbitrum.json';
 const CELO_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/celo.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/celo.json';
 const MOONRIVER_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/moonriver.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/moonriver.json';
 const CRONOS_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/cronos.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/cronos.json';
 const AURORA_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/aurora.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/aurora.json';
 const FUSE_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/fuse.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/fuse.json';
 const METIS_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/metis.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/metis.json';
 const MOONBEAM_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/moonbeam.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/moonbeam.json';
 //  const SYS_VAULTS_ENDPOINT =
-//  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/sys.json';
+//  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/sys.json';
 const EMERALD_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/emerald.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/emerald.json';
 const OPTIMISM_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/optimism.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/optimism.json';
 const KAVA_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/kava.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/kava.json';
 const ETHEREUM_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/ethereum.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/ethereum.json';
 const CANTO_VAULTS_ENDPOINT =
-  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/canto.json';
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/canto.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
