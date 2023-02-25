@@ -1,5 +1,105 @@
 [
   {
+    "name": "equalizer-ankr-ankrftm",
+    "address": "0xDBEeEBb365eb4Bdc791870E200cc9B4E16cBf3aF",
+    "gauge": "0xa60A984a121f2516e161F38c3111842d1dbd97BF",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0615Dbba33Fe61a31c7eD131BDA6655Ed76748B1",
+      "oracle": "tokens",
+      "oracleId": "ANKR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCfC785741Dc0e98ad4c9F6394Bb9d43Cd1eF5179",
+      "oracle": "tokens",
+      "oracleId": "ankrFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-btc-wftm",
+    "address": "0xDA3E21477F872F30794551D908DE244b8839F723",
+    "gauge": "0xcDd56e66d7bd326b55cC23bA49f53262D7382555",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "BTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-ankr-wftm",
+    "address": "0x60db1fBA7321897fcc85f7a5960952a9944D870b",
+    "gauge": "0xE984abAf18bA6A74C8c4218e23FDA7207345BcAC",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0615Dbba33Fe61a31c7eD131BDA6655Ed76748B1",
+      "oracle": "tokens",
+      "oracleId": "ANKR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-bnb",
+    "address": "0x7552BFa10037356A2De0379a2EF8d4CC480B8E00",
+    "gauge": "0xcadfC5b5408B7863DbA5d3d81f1e35fFf07F264B",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-fxs-frax",
+    "address": "0x312ea55de23E3aBa3296f1B3F97C182C63b1916d",
+    "gauge": "0x6B49e49047A1Ae2bc37Ce8c35dd29d148e21dDB5",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x7d016eec9c25232b01F23EF992D98ca97fc2AF5a",
+      "oracle": "tokens",
+      "oracleId": "FXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "equalizer-wftm-deus",
     "address": "0xFfE9C27F0a12dABe5c5Bd46D144a5c0140725566",
     "gauge": "0x813f36c3847f3798d57ec1fC72b5F67E9fDCF4bE",

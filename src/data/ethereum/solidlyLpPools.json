@@ -1,5 +1,25 @@
 [
   {
+    "name": "monolith-blur-weth",
+    "address": "0x48187E512F5338F06222AC574576744129736eFD",
+    "gauge": "0x40Bb562383B0Be610cCAe90Ee6e18804186F117A",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5283D291DBCF85356A21bA090E6db59121208b44",
+      "oracle": "tokens",
+      "oracleId": "BLUR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "monolith-weth-deus",
     "address": "0x0dF99E55FD9F829A2a57097dA4469925e90aB8c3",
     "gauge": "0x52b03Ffd844217506AF3FbA9020c58621e8d8010",
@@ -46,13 +66,6 @@
     "decimals": "1e18",
     "chainId": 1,
     "beefyFee": 0.095,
-    "rewards": [
-      {
-        "address": "0x6DEA81C8171D0bA574754EF6F8b412F2Ed88c54D",
-        "oracleId": "LQTY",
-        "decimals": "1e18"
-      }
-    ],
     "lp0": {
       "address": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
       "oracle": "tokens",
@@ -165,13 +178,6 @@
     "decimals": "1e18",
     "chainId": 1,
     "beefyFee": 0.095,
-    "rewards": [
-      {
-        "address": "0x00a35FD824c717879BF370E70AC6868b95870Dfb",
-        "oracleId": "IB",
-        "decimals": "1e18"
-      }
-    ],
     "lp0": {
       "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
       "oracle": "tokens",

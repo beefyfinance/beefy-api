@@ -7,6 +7,7 @@ const { getMovrBifiGovApy } = require('./getMovrBifiGovApy');
 const { getMovrBifiMaxiApy } = require('./getMovrBifiMaxiApy');
 const { getFinnLpApys } = require('./getFinnLpApys');
 const getFinnApy = require('./getFinnApy');
+const getMoonwellApys = require('./getMoonwellApys');
 
 const getApys = [
   getSolarbeamLpApys,
@@ -18,7 +19,8 @@ const getApys = [
   getMovrBifiMaxiApy,
   getFinnLpApys,
   getFinnApy,
-  ];
+  getMoonwellApys,
+];
 
 const getMoonriverApys = async () => {
   let apys = {};

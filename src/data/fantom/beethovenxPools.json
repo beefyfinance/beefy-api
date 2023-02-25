@@ -1,5 +1,26 @@
 [
   {
+    "name": "beets-fantom-of-the-opera-act-2",
+    "address": "0x56aD84b777ff732de69E85813DAEE1393a9FFE10",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x56ad84b777ff732de69e85813daee1393a9ffe1000020000000000000000060e",
+    "beefyFee": 0.095,
+    "poolId": 99,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-battle-bands-remastered",
     "address": "0x65411827ef78F08f6559acF91DE3A4F5A26D785C",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",

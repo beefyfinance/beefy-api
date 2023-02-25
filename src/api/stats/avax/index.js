@@ -50,7 +50,7 @@ const getApys = [
   getBlizzLpApys,
   getBlizzLendingApys,
   getBankerJoeApys,
-  getSynapseApys,
+  // getSynapseApys,
   getSpellApys,
   getMaiApys,
   getMaiCurveApys,

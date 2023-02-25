@@ -28,5 +28,35 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "bbeUSD",
+    "address": "0x50Cf90B954958480b8DF7958A9E965752F627124",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x50cf90b954958480b8df7958a9e965752f62712400000000000000000000046f",
+    "decimals": "1e18",
+    "chainId": 1,
+    "composable": true,
+    "bptIndex": 1,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaUSDT",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaUSDC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaDAI",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

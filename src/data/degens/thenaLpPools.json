@@ -1,5 +1,285 @@
 [
   {
+    "name": "thena-usdt-primal",
+    "address": "0xde72DD50Dd0ca9C8c48b04F74c5246B5545969D0",
+    "gauge": "0x168585B1D86AECA90A1134b8706f04300e2b2c61",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xCb5327Ed4649548e0d73E70b633cdfd99aF6Da87",
+      "oracle": "tokens",
+      "oracleId": "PRIMAL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-fs-usdt",
+    "address": "0x1F02F41906b4E1909166e542EDA61AB2924c5a37",
+    "gauge": "0x08AbF16ADCDeDA96A83290345Ea9928D23489c16",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1935C03bB7DbC3623bD992CE599bC26bD30A43EB",
+      "oracle": "tokens",
+      "oracleId": "FS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-eth-ankreth",
+    "address": "0xa3b8e8391d7fd34Ffef885D5F4db3F15a127786E",
+    "gauge": "0xec39d28094CE1E1F7438a117836Bd2157196935E",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3",
+      "oracle": "tokens",
+      "oracleId": "ankrETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-ankrbnb-ankreth",
+    "address": "0x44d1F00E75fd074F6016bb1DC326DcCD5d04451B",
+    "gauge": "0xCC7226622FDC0dc70d641419759B5E42f1dbdf84",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x52F24a5e03aee338Da5fd9Df68D2b6FAe1178827",
+      "oracle": "tokens",
+      "oracleId": "ankrBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3",
+      "oracle": "tokens",
+      "oracleId": "ankrETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-wusdr-usdc",
+    "address": "0xA99c4051069B774102d6D215c6A9ba69BD616E6a",
+    "gauge": "0x2e537237143ABf74A176d0067bEEbeEbe845300a",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2952beb1326acCbB5243725bd4Da2fC937BCa087",
+      "oracle": "tokens",
+      "oracleId": "wUSDR",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-hay-ankrbnb",
+    "address": "0xC6dB38F34DA75393E9aac841c08104348997D509",
+    "gauge": "0xe5f9F06d6eCE3DfE30dca7AcbB20bc7fbA9c6272",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
+      "oracle": "tokens",
+      "oracleId": "HAY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x52F24a5e03aee338Da5fd9Df68D2b6FAe1178827",
+      "oracle": "tokens",
+      "oracleId": "ankrBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-fil-wbnb",
+    "address": "0x1f06C7E323Bc3A5C94Bb6B760C128830cDF6ADfB",
+    "gauge": "0xB67505085E556765cD5a0C3cDE2d15794C3119b5",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0D8Ce2A99Bb6e3B7Db580eD848240e4a0F9aE153",
+      "oracle": "tokens",
+      "oracleId": "FIL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-dola-wbnb",
+    "address": "0xc5856601712E8a74d57cdc7a47fB1B41C1a6Fae2",
+    "gauge": "0xA71bF9252106aB196F0494F5eCe149e71807c1eC",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2F29Bc0FFAF9bff337b31CBe6CB5Fb3bf12e5840",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-avax-wbnb",
+    "address": "0x7B2F91d226aD214Ac42ba21a597d99896311eCD1",
+    "gauge": "0x896256c48341B8E2B16AcFc9189D844624bD609B",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1CE0c2827e2eF14D5C4f29a091d735A204794041",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-ankrbnb-ankr",
+    "address": "0x7ef540f672Cd643B79D2488344944499F7518b1f",
+    "gauge": "0xfeb1D7E820Caad858c9eeBB12c0B693875Cf4487",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x52F24a5e03aee338Da5fd9Df68D2b6FAe1178827",
+      "oracle": "tokens",
+      "oracleId": "ankrBNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf307910A4c7bbc79691fD374889b36d8531B08e3",
+      "oracle": "tokens",
+      "oracleId": "ANKR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-idia-busd",
+    "address": "0x3c552e8aC4473222e3d794ADecFA432Eace85929",
+    "gauge": "0xf9b5cb99a576eB9c00446b7FdDB69bbb2E002143",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0b15Ddf19D47E6a86A56148fb4aFFFc6929BcB89",
+      "oracle": "tokens",
+      "oracleId": "IDIA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-matic-busd",
+    "address": "0xEB58A4D07990fF50b9F8289701cBdDf9052570B5",
+    "gauge": "0x8Da503434F19af7e2eaE955f60634b67651049A8",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xCC42724C6683B7E57334c4E856f4c9965ED682bD",
+      "oracle": "tokens",
+      "oracleId": "MATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-multi-busd",
+    "address": "0xdE4Cc4446205d1138EcAa48B2CB22b8e06E69BD4",
+    "gauge": "0xCDF4E03E33813E4374957De6A9F1E926c33D98f1",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9Fb9a33956351cf4fa040f65A13b835A3C8764E3",
+      "oracle": "tokens",
+      "oracleId": "MULTI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-etsalpha-usd+",
+    "address": "0x92573046BD4abA37d875eb45a0A1182ac63d5580",
+    "gauge": "0x8871105347CA6b8e35fB689EEA11AA0AAA3651E4",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5B852898CD47d2Be1d77D30377b3642290f5Ec75",
+      "oracle": "tokens",
+      "oracleId": "ETSAlpha",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
+      "oracle": "tokens",
+      "oracleId": "bUSD+",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "thena-wbnb-bifi",
     "address": "0xbaD27C20d0A2428251585f1FD509685e48f307bD",
     "gauge": "0x003d5f35250c9AbbCD9E1908312d9D59f47Ae532",

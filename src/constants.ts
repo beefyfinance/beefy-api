@@ -8,6 +8,7 @@ const BASE_HPY = 2190;
 const MINUTELY_HPY = 525600;
 const HOURLY_HPY = 8760;
 const DAILY_HPY = 365;
+const ETH_HPY = DAILY_HPY / 3;
 const WEEKLY_HPY = 52;
 
 const FORTUBE_REQ_TOKENS = 'https://bsc.for.tube/api/v2/bank_tokens';
@@ -57,7 +58,7 @@ const EMERALD_RPC = process.env.EMERALD_RPC || 'https://emerald.oasis.dev';
 const OPTIMISM_RPC = process.env.OPTIMISM_RPC || 'https://rpc.ankr.com/optimism';
 const KAVA_RPC = process.env.KAVA_RPC || 'https://evm.kava.io';
 const ETH_RPC = process.env.ETH_RPC || 'https://rpc.ankr.com/eth';
-const CANTO_RPC = process.env.CANTO_RPC || 'https://canto.neobase.one/';
+const CANTO_RPC = process.env.CANTO_RPC || 'https://canto.slingshot.finance';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -162,8 +163,8 @@ const KAVA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/kava.json';
 const ETHEREUM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/ethereum.json';
-//const CANTO_VAULTS_ENDPOINT =
-//  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/canto.json';
+const CANTO_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/reflectivechimp/beefy-v2/json-zap-config/src/config/vault/canto.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -185,7 +186,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   heco: HECO_VAULTS_ENDPOINT,
   kava: KAVA_VAULTS_ENDPOINT,
   ethereum: ETHEREUM_VAULTS_ENDPOINT,
-  //canto: CANTO_VAULTS_ENDPOINT,
+  canto: CANTO_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -252,7 +253,7 @@ export {
   ETHEREUM_VAULTS_ENDPOINT,
   CANTO_RPC,
   CANTO_CHAIN_ID,
-  //CANTO_VAULTS_ENDPOINT,
+  CANTO_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,

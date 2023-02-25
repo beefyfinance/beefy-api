@@ -13,7 +13,7 @@ import { initTokenService } from './api/tokens/getTokens';
 import { initConfigService } from './api/config/getConfig';
 import { initVaultFeeService } from './api/vaults/getVaultFees';
 import { initTreasuryService } from './api/treasury/getTreasury';
-import { initProposalsService } from './api/snapshot/getLatestProposal';
+import { initProposalsService } from './api/snapshot/getProposals';
 import { initZapService } from './api/zaps/zaps';
 
 const Koa = require('koa');

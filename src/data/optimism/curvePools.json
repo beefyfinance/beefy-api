@@ -132,5 +132,24 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "curve-op-f-mim",
+    "pool": "0x810D1AaA4Cd8F21c23bB648F2dfb9DC232A01F09",
+    "token": "0x810D1AaA4Cd8F21c23bB648F2dfb9DC232A01F09",
+    "gauge": "0x2EB49A3eff789d7B2286Bf17667acbF12d882c17",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-op-3crv",
+        "oracle": "lps",
+        "oracleId": "curve-op-3crv",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

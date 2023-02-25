@@ -91,6 +91,44 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
+  axlUSDC: {
+    name: 'Axelar USD Coin ',
+    symbol: 'axlUSDC',
+    address: '0xEB466342C4d449BC9f53A865D5Cb90586f405215',
+    chainId: 2222,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xB12BFcA5A55806AaF64E99521918A4bf0fC40802.svg',
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    documentation: 'https://docs.axelar.dev/',
+  },
+  axlUSDT: {
+    name: 'USDT',
+    symbol: 'axlUSDT',
+    address: '0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6',
+    chainId: 2222,
+    decimals: 6,
+    website: 'https://tether.to/',
+    documentation: 'https://docs.axelar.dev/',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
+  },
+  axlDAI: {
+    name: 'Axelar Dai Stablecoin',
+    address: '0x5C7e299CF531eb66f2A1dF637d37AbB78e6200C7',
+    symbol: 'axlDAI',
+    decimals: 18,
+    chainId: 2222,
+    website: 'https://makerdao.com/',
+    documentation: 'https://docs.axelar.dev/',
+    description:
+      'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

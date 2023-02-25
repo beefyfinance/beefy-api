@@ -1,0 +1,47 @@
+[
+  {
+    "name": "moonwell-apollo-movr",
+    "mtoken": "0x6a1A771C7826596652daDC9145fEAaE62b1cd07f",
+    "oracle": "tokens",
+    "oracleId": "WMOVR",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.57
+  },
+  {
+    "name": "moonwell-apollo-xcksm",
+    "mtoken": "0xa0D116513Bd0B8f3F14e6Ea41556c6Ec34688e0f",
+    "oracle": "tokens",
+    "oracleId": "xcKSM",
+    "decimals": "1e12",
+    "borrowDepth": 4,
+    "borrowPercent": 0.57
+  },
+  {
+    "name": "moonwell-apollo-weth",
+    "mtoken": "0x6503D905338e2ebB550c9eC39Ced525b612E77aE",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "borrowDepth": 4,
+    "borrowPercent": 0.57
+  },
+  {
+    "name": "moonwell-apollo-usdc",
+    "mtoken": "0xd0670AEe3698F66e2D4dAf071EB9c690d978BFA8",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.63
+  },
+  {
+    "name": "moonwell-apollo-usdt",
+    "mtoken": "0x36918B66F9A3eC7a59d0007D8458DB17bDffBF21",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "borrowDepth": 4,
+    "borrowPercent": 0.4
+  }
+]

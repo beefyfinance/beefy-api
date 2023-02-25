@@ -1,14 +1,5 @@
 import { getKey, setKey } from '../../utils/cache';
-import {
-  Cached,
-  CachedNoOpenProposal,
-  CachedProposal,
-  CachedSpace,
-  isCachedNoOpenProposal,
-  isCachedProposal,
-  isCachedSpace,
-  Proposal,
-} from './types';
+import { Cached, CachedProposals, CachedSpace, isCachedSpace, Proposal, Proposals } from './types';
 import { getSnapshotApi } from './getSnapshotApi';
 import { isBefore, sub } from 'date-fns';
 
@@ -20,21 +11,21 @@ const MAX_PROPOSAL_AGE_MINS = 15; // minutes
 const ALLOW_FROM_ADMINS: boolean = true;
 const ALLOW_FROM_MEMBERS: boolean = true;
 const ALLOW_FROM_LIST: boolean = true;
-const ALLOW_FROM_ANYONE: boolean = false;
+const ALLOW_FROM_ANYONE: boolean = true;
 
 const ALLOW_LIST: string[] = ['0x280A53cBf252F1B5F6Bde7471299c94Ec566a7C8'];
 
 let cachedSpace: CachedSpace | null = null;
-let cachedProposal: CachedProposal | CachedNoOpenProposal | null = null;
+let cachedProposals: CachedProposals | null = null;
 
 async function getCachedSpace(): Promise<CachedSpace | null> {
   const value = await getKey(CACHE_KEY_SPACE);
   return isCachedSpace(value) ? value : null;
 }
 
-async function getCachedProposal(): Promise<CachedProposal | CachedNoOpenProposal | null> {
-  const value = await getKey(CACHE_KEY_PROPOSAL);
-  return isCachedProposal(value) || isCachedNoOpenProposal(value) ? value : null;
+async function getCachedProposals(): Promise<CachedProposals | null> {
+  const value = await getKey<CachedProposals>(CACHE_KEY_PROPOSAL);
+  return value && value.proposals ? value : null;
 }
 
 function timestamp<T extends {}>(obj: T): Cached<T> {
@@ -49,15 +40,13 @@ function isStale<T extends Cached<{}>>(obj: T, maxMinutes: number): boolean {
   return isBefore(obj.updatedAt, maxAge);
 }
 
-function hasProposalEnded(proposal: CachedProposal): boolean {
+function hasProposalEnded(proposal: Proposal): boolean {
   return isBefore(proposal.end * 1000, new Date());
 }
 
 async function updateSpace() {
   const api = await getSnapshotApi();
   const space = await api.getSpace(SPACE_ID);
-
-  // console.debug('[snapshot]', 'updated space:', space);
 
   cachedSpace = timestamp(space);
 
@@ -82,50 +71,32 @@ function getValidAuthors() {
   return authors.map(address => address.toLowerCase());
 }
 
-async function setProposal(proposal: Proposal) {
-  // console.debug('[snapshot]', 'updated proposal:', proposal);
+async function setProposals(proposals: Proposals) {
+  cachedProposals = timestamp(proposals);
 
-  cachedProposal = timestamp(proposal);
-
-  await setKey(CACHE_KEY_PROPOSAL, cachedProposal);
+  await setKey(CACHE_KEY_PROPOSAL, cachedProposals);
 }
 
-async function setNoProposal() {
-  console.debug('updated proposal: no valid proposals active');
-
-  cachedProposal = timestamp({
-    id: 'no-open-proposal',
-  });
-
-  await setKey(CACHE_KEY_PROPOSAL, cachedProposal);
-}
-
-async function updateProposal() {
+async function updateProposals() {
   if (!cachedSpace) {
     console.error('Can not update proposal without updating space first.');
     return;
   }
 
   const api = await getSnapshotApi();
-  const proposals = await api.getProposals(SPACE_ID, 'open', ALLOW_FROM_ANYONE ? 1 : 10, 0);
+  const proposalResponse = await api.getProposals(SPACE_ID, 'open', 10, 0);
 
-  // console.debug('[snapshot]', proposals);
+  const authors = getValidAuthors();
+  const proposals: Proposal[] = proposalResponse
+    .map(p => {
+      return {
+        ...p,
+        coreProposal: authors.includes(p.author.toLowerCase()),
+      };
+    })
+    .filter(p => (ALLOW_FROM_ANYONE ? true : p.coreProposal));
 
-  if (proposals.length) {
-    if (ALLOW_FROM_ANYONE) {
-      await setProposal(proposals[0]);
-    } else {
-      const authors = getValidAuthors();
-      const proposal = proposals.find(p => authors.includes(p.author.toLowerCase()));
-      if (proposal) {
-        await setProposal(proposal);
-      } else {
-        await setNoProposal();
-      }
-    }
-  } else {
-    await setNoProposal();
-  }
+  await setProposals({ proposals });
 }
 
 async function updateSpaceIfNeeded() {
@@ -134,19 +105,19 @@ async function updateSpaceIfNeeded() {
   }
 }
 
-async function updateProposalIfNeeded() {
-  if (!cachedProposal || isStale(cachedProposal, MAX_PROPOSAL_AGE_MINS)) {
-    await updateProposal();
+async function updateProposalsIfNeeded() {
+  if (!cachedProposals || isStale(cachedProposals, MAX_PROPOSAL_AGE_MINS)) {
+    await updateProposals();
   }
 }
 
 async function updateIfNeeded() {
   await updateSpaceIfNeeded();
-  await updateProposalIfNeeded();
+  await updateProposalsIfNeeded();
 }
 
 export async function initProposalsService() {
-  [cachedSpace, cachedProposal] = await Promise.all([getCachedSpace(), getCachedProposal()]);
+  [cachedSpace, cachedProposals] = await Promise.all([getCachedSpace(), getCachedProposals()]);
 
   await updateIfNeeded();
 
@@ -155,9 +126,17 @@ export async function initProposalsService() {
   }, MAX_PROPOSAL_AGE_MINS * 60 * 1000 + 1000);
 }
 
-export function getLatestProposal(): CachedProposal | null {
-  if (isCachedProposal(cachedProposal) && !hasProposalEnded(cachedProposal)) {
-    return cachedProposal;
+export function getLatestProposal(): Proposal | null {
+  if (cachedProposals && cachedProposals.proposals.length > 0) {
+    return cachedProposals.proposals[0];
+  }
+
+  return null;
+}
+
+export function getActiveProposals(): Proposal[] | null {
+  if (cachedProposals) {
+    return cachedProposals.proposals.filter(p => !hasProposalEnded(p));
   }
 
   return null;

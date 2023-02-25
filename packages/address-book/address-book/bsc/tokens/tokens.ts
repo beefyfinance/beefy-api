@@ -15,6 +15,98 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  wUSDR: {
+    name: 'Real USD',
+    symbol: 'wUSDR',
+    address: '0x2952beb1326acCbB5243725bd4Da2fC937BCa087',
+    chainId: 56,
+    decimals: 9,
+    website: 'https://www.tangible.store/realusd',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders. The token on BNB Chain is bridged via Multichain from Polygon.',
+    logoURI: '',
+  },
+  PRIMAL: {
+    name: 'Primal',
+    symbol: 'PRIMAL',
+    address: '0xCb5327Ed4649548e0d73E70b633cdfd99aF6Da87',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.getprimal.com/',
+    description:
+      'Primal is the utility token of a Move2Earn ecosystem featuring fan tokens for chosen athletes and team.',
+    logoURI:
+      'https://assets.coingecko.com/coins/images/28435/small/PRIMAL_ICON_200px.jpg?1670567426',
+  },
+  FS: {
+    name: 'FantomStarter',
+    symbol: 'FS',
+    address: '0x1935C03bB7DbC3623bD992CE599bC26bD30A43EB',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://fantomstarter.io/',
+    description:
+      'With FantomStarter, you can raise and invest capital on any blockchain while the decentralized investment app manages all the regulatory, compliance, and multi network responsibilities.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/FS.png',
+  },
+  ankrETH: {
+    name: 'Ankr Staked ETH',
+    symbol: 'ankrETH',
+    address: '0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description: 'Decentralized Infrastructure to Build and Earn in Web3',
+  },
+  DOLA: {
+    name: 'Dola USD Stablecoin',
+    symbol: 'DOLA',
+    address: '0x2F29Bc0FFAF9bff337b31CBe6CB5Fb3bf12e5840',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.inverse.finance/',
+    documentation: 'https://docs.inverse.finance/inverse-finance/using-dola/how-to-acquire-dola',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+  },
+  MULTI: {
+    name: 'Multichain',
+    symbol: 'MULTI',
+    address: '0x9Fb9a33956351cf4fa040f65A13b835A3C8764E3',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://multichain.org/',
+    description:
+      'Multichain is the ultimate Router for web3. It is an infrastructure developed for arbitrary cross-chain interactions.',
+    logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/17050.png',
+  },
+  DEI: {
+    name: 'DEI',
+    symbol: 'DEI',
+    address: '0xDE1E704dae0B4051e80DAbB26ab6ad6c12262DA0',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
+    logoURI: 'https://app.deus.finance/tokens/dei.svg',
+    documentation: 'https://docs.deus.finance/',
+  },
+  ETSAlpha: {
+    name: 'ETS Alpha',
+    symbol: 'ETS Alpha',
+    address: '0x5B852898CD47d2Be1d77D30377b3642290f5Ec75',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'The exchange-traded strategies(ETS) of overnight.fi are ERC-20 structured products that lets users leverage a collateralized debt position (e.g. DAI lent on Aave) to borrow a volatile asset (e.g. WETH), pair it with a stablecoin, and provide stable-to-crypto liquidity, (e.g. WETH/DAI) in an AMM, like Uni V3. This allows earning high APY and hedging against crypto volatility. ',
+    logoURI: 'https://app.deus.finance/tokens/dei.svg',
+    documentation: 'https://docs.overnight.fi/',
+  },
   THE: {
     name: 'THENA',
     symbol: 'THE',
@@ -3923,6 +4015,18 @@ const _tokens = {
     website: 'https://app.frax.finance/frxeth/mint',
     description:
       'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
+  sfrxETH: {
+    name: 'Staked Frax Ether',
+    symbol: 'sfrxETH',
+    address: '0x3Cd55356433C89E50DC51aB07EE0fa0A95623D53',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited. ',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },

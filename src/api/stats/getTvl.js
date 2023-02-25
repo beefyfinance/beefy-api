@@ -56,7 +56,7 @@ const {
   //SYS_VAULTS_ENDPOINT,
 
   CANTO_CHAIN_ID,
-  //CANTO_VAULTS_ENDPOINT,
+  CANTO_VAULTS_ENDPOINT,
 
   ETH_CHAIN_ID,
   ETHEREUM_VAULTS_ENDPOINT,
@@ -164,11 +164,11 @@ const chains = [
     vaultsEndpoint: ETHEREUM_VAULTS_ENDPOINT,
     governancePool: require('../../data/ethereum/governancePool.json'),
   },
-  // {
-  //   chainId: CANTO_CHAIN_ID,
-  //  vaultsEndpoint: CANTO_VAULTS_ENDPOINT,
-  //  governancePool: require('../../data/canto/governancePool.json'),
-  // },
+  {
+    chainId: CANTO_CHAIN_ID,
+    vaultsEndpoint: CANTO_VAULTS_ENDPOINT,
+    //  governancePool: require('../../data/canto/governancePool.json'),
+  },
 ];
 
 const getTvl = () => {

@@ -1,5 +1,23 @@
 [
   {
+    "name": "solar-wmovr-mfam",
+    "address": "0xE6Bfc609A2e58530310D6964ccdd236fc93b4ADB",
+    "decimals": "1e18",
+    "chainId": 1285,
+    "lp0": {
+      "address": "0x98878B06940aE243284CA214f92Bb71a2b032B8A",
+      "oracle": "tokens",
+      "oracleId": "WMOVR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xBb8d88bcD9749636BC4D2bE22aaC4Bb3B01A58F1",
+      "oracle": "tokens",
+      "oracleId": "MFAM",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-hay-busd",
     "address": "0x70c26e9805ec5Df3d4aB0b2a3dF86BBA2231B6c1",
     "decimals": "1e18",

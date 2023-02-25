@@ -1,5 +1,24 @@
 [
   {
+    "name": "sushi-kava-wkava-usdcaxl",
+    "address": "0xb379Eb428A28a927a16ee7f95100Ac6A5117AaA1",
+    "decimals": "1e18",
+    "poolId": 9,
+    "chainId": 2222,
+    "lp0": {
+      "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+      "oracle": "tokens",
+      "oracleId": "WKAVA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEB466342C4d449BC9f53A865D5Cb90586f405215",
+      "oracle": "tokens",
+      "oracleId": "axlUSDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "sushi-kava-wkava-usdc",
     "address": "0x88395b86cF9787E131D2fB5462a22b44056BF574",
     "decimals": "1e18",

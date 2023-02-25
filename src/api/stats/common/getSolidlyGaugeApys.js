@@ -4,7 +4,6 @@ const { multicallAddress } = require('../../../utils/web3');
 import { getContractWithProvider } from '../../../utils/contractHelper';
 
 const IGauge = require('../../../abis/ISolidlyGauge.json');
-const fetch = require('node-fetch');
 const ISpiritGauge = require('../../../abis/fantom/ISpiritGauge.json');
 const IVe = require('../../../abis/IVe.json');
 const IinSpirit = require('../../../abis/fantom/IinSpirit.json');
@@ -84,23 +83,29 @@ const getFarmApys = async params => {
     let yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
 
     for (const rewards of pool.rewards ?? []) {
-      const gauge = getContractWithProvider(IGauge, pool.gauge, params.web3);
+      const gauge = getContractWithProvider(
+        params.abi ? params.abi : IGauge,
+        pool.gauge,
+        params.web3
+      );
       const rate = new BigNumber(await gauge.methods.rewardRate(rewards.address).call());
+      const data = new BigNumber(await gauge.methods.rewardData(rewards.address).call());
 
       //console.log(rate.toString());
-      const additionalRewards = params.boosted
-        ? rate
-            .times(secondsPerYear)
-            .times(await fetchPrice({ oracle: 'tokens', id: rewards.oracleId }))
-            .dividedBy(rewards.decimals)
-            .times(0.4)
-        : rate
-            .times(secondsPerYear)
-            .times(await fetchPrice({ oracle: 'tokens', id: rewards.oracleId }))
-            .dividedBy(rewards.decimals)
-            .times(0.4);
+      if (data.periodFinish > Date.now() / 1000) {
+        const additionalRewards = params.boosted
+          ? rate
+              .times(secondsPerYear)
+              .times(await fetchPrice({ oracle: 'tokens', id: rewards.oracleId }))
+              .dividedBy(rewards.decimals)
+              .times(0.4)
+          : rate
+              .times(secondsPerYear)
+              .times(await fetchPrice({ oracle: 'tokens', id: rewards.oracleId }))
+              .dividedBy(rewards.decimals);
 
-      yearlyRewardsInUsd = yearlyRewardsInUsd.plus(additionalRewards);
+        yearlyRewardsInUsd = yearlyRewardsInUsd.plus(additionalRewards);
+      }
     }
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);

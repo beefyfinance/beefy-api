@@ -1184,6 +1184,19 @@ const _tokens = {
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     logoURI: 'https://ftmscan.com/token/images/fraxfinance_32.png',
+    documentation: 'https://docs.frax.finance/',
+  },
+  FXS: {
+    name: 'Frax Share',
+    symbol: 'FXS',
+    address: '0x7d016eec9c25232b01F23EF992D98ca97fc2AF5a',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+    documentation: 'https://docs.frax.finance/',
   },
   COVER: {
     name: 'Cover',
@@ -1620,6 +1633,30 @@ const _tokens = {
       'Equalizer was derived from the initial concept of Andre Cronje. The mechanism that was used to create a perpetual decentralized exchange was unique and ingenious. The launch of this platform is to take the concept and apply it to a more natural style DEX. Equalizer will become the trading mechanism for the Fantom network, utilizing the Solidly perpetual model with some tweaks to fee structures and emissions.',
     documentation:
       'https://equalizer0x.gitbook.io/equalizer-exchange-docs/guides/equalizer-exchange',
+  },
+  ANKR: {
+    name: 'Ankr',
+    symbol: 'ANKR',
+    address: '0x0615Dbba33Fe61a31c7eD131BDA6655Ed76748B1',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://www.ankr.com/',
+    description:
+      'Ankr originates as a solution that utilizes shared resources in order to provide easy and affordable blockchain node hosting solutions.',
+    logoURI: '',
+    documentation: 'https://www.ankr.com/about-network/token/',
+  },
+  ankrFTM: {
+    name: 'Ankr Staked FTM',
+    symbol: 'ankrFTM',
+    address: '0xCfC785741Dc0e98ad4c9F6394Bb9d43Cd1eF5179',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description:
+      'ankrFTM allows users to stake their funds on the Fantom network, earn rewards, and receive their stake and rewards upon unstaking.',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/ftm/overview/',
   },
 } as const;
 

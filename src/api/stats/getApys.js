@@ -58,7 +58,7 @@ const updateApys = async () => {
       getFuseApys(),
       getMetisApys(),
       getMoonbeamApys(),
-      getSysApys(),
+      //getSysApys(),
       getEmeraldApys(),
       getOptimismApys(),
       getKavaApys(),

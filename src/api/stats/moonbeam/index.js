@@ -5,6 +5,7 @@ const { getMoonbeamBifiMaxiApy } = require('./getMoonbeamBifiMaxiApy');
 const { getSolarFlareApys } = require('./getSolarFlareApys');
 const getxStellaApy = require('./getxStellaApy');
 const { getCurveApys } = require('./getCurveApys');
+const getMoonwellApys = require('./getMoonwellApys');
 
 const getApys = [
   getBeamswapApys,
@@ -14,6 +15,7 @@ const getApys = [
   getSolarFlareApys,
   getxStellaApy,
   getCurveApys,
+  getMoonwellApys,
 ];
 
 const getMoonbeamApys = async () => {
