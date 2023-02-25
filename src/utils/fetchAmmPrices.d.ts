@@ -1,4 +1,4 @@
-declare function fetchAmmPrices(
+export declare function fetchAmmPrices(
   pools: any,
   knownPrices: Record<string, number>
 ): Promise<{

@@ -171,6 +171,8 @@ const chains = [
   },
 ];
 
+const CACHE_KEY = 'TVL';
+
 const getTvl = () => {
   return tvl;
 };
@@ -204,14 +206,14 @@ const updateTvl = async () => {
 };
 
 const initTvlService = async () => {
-  const cachedTvl = await getKey('TVL');
+  const cachedTvl = await getKey(CACHE_KEY);
   tvl = cachedTvl ?? {};
 
   setTimeout(updateTvl, INIT_DELAY);
 };
 
 const saveToRedis = async () => {
-  await setKey('', tvl);
+  await setKey(CACHE_KEY, tvl);
 };
 
 module.exports = { getTvl, initTvlService };

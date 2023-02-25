@@ -1,1 +1,1 @@
-declare function fetchCoinGeckoPrices(coins: string[]): Promise<Record<string, number>>;
+export declare function fetchCoinGeckoPrices(coins: string[]): Promise<Record<string, number>>;

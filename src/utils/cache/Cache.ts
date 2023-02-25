@@ -18,6 +18,10 @@ export class Cache {
   }
 
   async set<T extends any>(key: string, value: T): Promise<void> {
+    if (!key) {
+      throw new Error('Cache key cannot be empty');
+    }
+
     try {
       await this.backend.set(key, JSON.stringify(value));
       if (this.options.logWrites) {
