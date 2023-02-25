@@ -18,7 +18,7 @@ const { getOptimismApys } = require('./optimism');
 const { getKavaApys } = require('./kava');
 const { getCantoApys } = require('./canto');
 const { getEthereumApys } = require('./ethereum');
-const { getKey, setKey } = require('../../utils/redisHelper');
+const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs } = require('./getBoostAprs');
 
 const INIT_DELAY = process.env.INIT_DELAY || 60 * 1000;

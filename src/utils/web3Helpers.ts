@@ -69,6 +69,28 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.canto]: addressBookByChainId[ChainId.canto].platforms.beefyfinance.multicall,
 };
 
+export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
+  [ChainId.bsc]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.heco]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.polygon]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.fantom]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.avax]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.one]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.arbitrum]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.celo]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.moonriver]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.cronos]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.aurora]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.fuse]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.metis]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.moonbeam]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.emerald]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.optimism]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.kava]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.ethereum]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.canto]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+};
+
 const clients: Record<keyof typeof ChainId, Web3[]> = {
   bsc: [],
   heco: [],

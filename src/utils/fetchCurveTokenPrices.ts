@@ -1,13 +1,23 @@
 import BigNumber from 'bignumber.js';
 import { MultiCall } from 'eth-multicall';
-import { web3Factory, multicallAddress } from './web3';
+import { multicallAddress, web3Factory } from './web3';
 import ICurvePool from '../abis/ICurvePool.json';
 import ICurvePoolV2 from '../abis/ICurvePoolV2.json';
-
-import { ETH_CHAIN_ID, MOONBEAM_CHAIN_ID } from '../constants';
 import { getContract } from './contractHelper';
+import { ChainId } from '../../packages/address-book/address-book';
 
-const tokens = {
+type CurveToken = {
+  oracleId: string;
+  decimals: string;
+  index0: number;
+  index1: number;
+  minter: string;
+  secondToken: string;
+  secondTokenDecimals: string;
+  abi: any;
+};
+
+const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
   ethereum: [
     {
       oracleId: 'GEAR',
@@ -44,21 +54,23 @@ const tokens = {
   ],
 };
 
-const getCurveTokenPrices = async (tokenPrices, tokens, chainId) => {
+async function getCurveTokenPrices(
+  tokenPrices: Record<string, number>,
+  chainTokens: CurveToken[],
+  chainId: ChainId
+): Promise<number[]> {
   const web3 = web3Factory(chainId);
   const multicall = new MultiCall(web3, multicallAddress(chainId));
 
-  const curvePriceCalls = [];
-
-  tokens.forEach(async token => {
+  const curvePriceCalls = chainTokens.map(token => {
     const tokenContract = getContract(token.abi, token.minter);
-    curvePriceCalls.push({
+    return {
       price: tokenContract.methods.get_dy(
         token.index0,
         token.index1,
-        new BigNumber(token.decimals)
+        new BigNumber(token.decimals).toString(10)
       ),
-    });
+    };
   });
 
   let res;
@@ -66,23 +78,25 @@ const getCurveTokenPrices = async (tokenPrices, tokens, chainId) => {
     res = await multicall.all([curvePriceCalls]);
   } catch (e) {
     console.error('getCurveTokenPrices', e);
-    return tokens.map(() => 0);
+    return chainTokens.map(() => 0);
   }
 
   const tokenPrice = res[0].map(v => new BigNumber(v.price));
   return tokenPrice.map((v, i) =>
-    v.times(tokenPrices[tokens[i].secondToken]).dividedBy(tokens[i].secondTokenDecimals).toNumber()
+    v
+      .times(tokenPrices[chainTokens[i].secondToken])
+      .dividedBy(chainTokens[i].secondTokenDecimals)
+      .toNumber()
   );
-};
+}
 
-const fetchCurveTokenPrices = async tokenPrices =>
-  Promise.all([
-    getCurveTokenPrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID),
-    getCurveTokenPrices(tokenPrices, tokens.moonbeam, MOONBEAM_CHAIN_ID),
-  ]).then(data =>
-    data
-      .flat()
-      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i].oracleId] = cur), acc), {})
+export async function fetchCurveTokenPrices(tokenPrices): Promise<Record<string, number>> {
+  const pricesByChain: Record<string, number>[] = await Promise.all(
+    Object.entries(tokens).map(async ([chainId, chainTokens]) => {
+      const prices = await getCurveTokenPrices(tokenPrices, chainTokens, ChainId[chainId]);
+      return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
+    })
   );
 
-export { fetchCurveTokenPrices };
+  return Object.assign({}, ...pricesByChain);
+}

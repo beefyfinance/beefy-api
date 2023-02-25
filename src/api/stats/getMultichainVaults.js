@@ -1,121 +1,131 @@
 import BigNumber from 'bignumber.js';
+import { isResultFulfilled, isResultRejected, withTimeout } from '../../utils/promise';
+import { serviceEventBus } from '../../utils/ServiceEventBus';
+import { keyBy, sumBy } from 'lodash';
 
 const getVaults = require('../../utils/getVaults.js');
 const { getStrategies } = require('../../utils/getStrategies.js');
 const { getLastHarvests } = require('../../utils/getLastHarvests.js');
 const { fetchChainVaultsPpfs } = require('../../utils/fetchMooPrices');
-
 const { MULTICHAIN_ENDPOINTS } = require('../../constants');
-const { getKey, setKey } = require('../../utils/redisHelper.js');
+const { getKey, setKey } = require('../../utils/cache');
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
+const LOG_PER_CHAIN = false;
 
 let vaultsByChain = {};
 let multichainVaults = [];
-var multichainVaultsCounter = 0;
-var multichainActiveVaultsCounter = 0;
-var vaultsByID = {};
+let multichainVaultsCounter = 0;
+let multichainActiveVaultsCounter = 0;
+let vaultsByID = {};
 
-const getMultichainVaults = () => {
+export function getMultichainVaults() {
   return multichainVaults;
-};
+}
 
-const getSingleChainVaults = chain => {
+export function getSingleChainVaults(chain) {
   return vaultsByChain[chain];
-};
+}
 
-const getVaultByID = vaultId => {
+export function getVaultByID(vaultId) {
   return vaultsByID[vaultId];
-};
+}
 
-const updateMultichainVaults = async () => {
+async function updateMultichainVaults() {
   console.log('> updating vaults');
-  let start = Date.now();
 
   try {
-    let promises = [];
-    for (let chain in MULTICHAIN_ENDPOINTS) {
-      promises.push(updateChainVaults(chain));
-    }
-    await Promise.all(promises);
-
-    multichainVaults = Object.values(vaultsByChain).reduce(
-      (accumulator, current) => [...accumulator, ...current],
-      []
+    const start = Date.now();
+    const timeout = Math.floor(REFRESH_INTERVAL / 2);
+    const results = await Promise.allSettled(
+      Object.keys(MULTICHAIN_ENDPOINTS).map(chain => withTimeout(updateChainVaults(chain), timeout))
     );
-    multichainVaultsCounter = multichainVaults.length;
-    multichainActiveVaultsCounter = multichainVaults.filter(
-      vault => vault.status === 'active'
-    ).length;
+    const fulfilled = results.filter(isResultFulfilled);
 
-    vaultsByID = multichainVaults.reduce((allVaults, currentVault) => {
-      allVaults[currentVault.id] = currentVault;
-      return allVaults;
-    }, {});
+    if (fulfilled.length) {
+      // TODO: add TTL so entries are removed if not updated (e.g. chain rpc is down)
+      buildFromChains();
+      await saveToRedis();
+    }
 
     console.log(
-      '> updated',
-      multichainVaultsCounter,
-      'vaults (',
-      multichainActiveVaultsCounter,
-      'active )',
-      `(${(Date.now() - start) / 1000}s)`
+      `> Vaults for ${fulfilled.length}/${
+        results.length
+      } chains updated: ${multichainVaultsCounter} vaults (${multichainActiveVaultsCounter} active) (${
+        (Date.now() - start) / 1000
+      }s)`
     );
-    saveToRedis();
-  } catch (error) {
+
+    if (fulfilled.length < results.length) {
+      const rejected = results.filter(isResultRejected);
+      console.error(` - ${rejected.length} chains failed to update:`);
+      rejected.forEach(result => console.error(`  - ${result.reason}`));
+    }
+  } catch (err) {
     console.error(`> vaults update failed `, err);
   }
 
   setTimeout(updateMultichainVaults, REFRESH_INTERVAL);
-};
+}
 
-const updateChainVaults = async chain => {
-  try {
-    let endpoint = MULTICHAIN_ENDPOINTS[chain];
-    let chainVaults = await getVaults(endpoint);
-    chainVaults.forEach(vault => (vault.chain = chain));
-    chainVaults = await getStrategies(chainVaults, chain);
-    chainVaults = await getLastHarvests(chainVaults, chain);
-    await fetchChainVaultsPpfs(chainVaults, chain);
-    vaultsByChain[chain] = chainVaults;
-  } catch (error) {
-    console.log(`> failed to update vaults on ${chain}`);
-    console.log(error.message);
+function buildFromChains() {
+  multichainVaults = Object.values(vaultsByChain).flat();
+  multichainVaultsCounter = multichainVaults.length;
+  multichainActiveVaultsCounter = sumBy(multichainVaults, vault =>
+    vault.status === 'active' ? 1 : 0
+  );
+  vaultsByID = keyBy(multichainVaults, 'id');
+
+  Object.keys(vaultsByChain).forEach(chain => serviceEventBus.emit(`vaults/${chain}/ready`));
+  serviceEventBus.emit('vaults/updated');
+}
+
+async function updateChainVaults(chain) {
+  if (LOG_PER_CHAIN) {
+    console.log(`> updating vaults on ${chain}`);
   }
-};
 
-export const initVaultService = async () => {
+  const endpoint = MULTICHAIN_ENDPOINTS[chain];
+  let chainVaults = await getVaults(endpoint);
+  chainVaults.forEach(vault => (vault.chain = chain));
+  chainVaults = await getStrategies(chainVaults, chain);
+  chainVaults = await getLastHarvests(chainVaults, chain);
+  await fetchChainVaultsPpfs(chainVaults, chain);
+  vaultsByChain[chain] = chainVaults;
+
+  if (LOG_PER_CHAIN) {
+    console.log(`> updated vaults on ${chain} - ${chainVaults.length}`);
+  }
+}
+
+async function loadFromRedis() {
   const cachedVaults = await getKey('VAULTS_BY_CHAIN');
 
-  if (cachedVaults) {
+  if (cachedVaults && typeof cachedVaults === 'object') {
+    let cachedCount = 0;
+
     Object.values(cachedVaults).forEach(vaults => {
       vaults.forEach(vault => {
+        ++cachedCount;
         if (vault.pricePerFullShare) {
           vault.pricePerFullShare = new BigNumber(vault.pricePerFullShare);
         }
       });
     });
+
+    if (cachedCount > 0) {
+      vaultsByChain = cachedVaults;
+      buildFromChains();
+    }
   }
-  vaultsByChain = cachedVaults ?? {};
-  multichainVaults = Object.values(vaultsByChain).reduce(
-    (accumulator, current) => [...accumulator, ...current],
-    []
-  );
-  multichainVaultsCounter = multichainVaults.length;
-  multichainActiveVaultsCounter = multichainVaults.filter(
-    vault => vault.status === 'active'
-  ).length;
-  vaultsByID = multichainVaults.reduce((allVaults, currentVault) => {
-    allVaults[currentVault.id] = currentVault;
-    return allVaults;
-  }, {});
+}
 
-  setTimeout(updateMultichainVaults, INIT_DELAY);
-};
-
-const saveToRedis = async () => {
+async function saveToRedis() {
   await setKey('VAULTS_BY_CHAIN', vaultsByChain);
-};
+}
 
-module.exports = { getMultichainVaults, getSingleChainVaults, getVaultByID, initVaultService };
+export async function initVaultService() {
+  await loadFromRedis();
+  setTimeout(updateMultichainVaults, INIT_DELAY);
+}

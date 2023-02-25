@@ -4,7 +4,7 @@ import { chunk, partition, pick, result } from 'lodash';
 import { addressBook } from '../../../packages/address-book/address-book';
 import chainIdMap from '../../../packages/address-book/util/chainIdMap';
 import fetchPrice from '../../utils/fetchPrice';
-import { getKey, setKey } from '../../utils/redisHelper';
+import { getKey, setKey } from '../../utils/cache';
 import { web3Factory } from '../../utils/web3';
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
 
@@ -328,8 +328,8 @@ const saveToRedis = async () => {
 };
 
 const restoreFromRedis = async () => {
-  const cachedSummary = await getKey('TREASURY_REPORT');
-  const cachedBalances = await getKey('TREASURY_BALANCES');
+  const cachedSummary = await getKey<TreasuryReport>('TREASURY_REPORT');
+  const cachedBalances = await getKey<TreasuryBalances>('TREASURY_BALANCES');
   if (cachedSummary) {
     treasurySummary = cachedSummary;
   }

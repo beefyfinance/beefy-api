@@ -76,8 +76,10 @@ const getXPrices = async (tokenPrices, tokens, chainId) => {
   );
 };
 
-const fetchXPrices = async tokenPrices =>
-  Promise.all([
+export async function fetchXPrices(
+  tokenPrices: Record<string, number>
+): Promise<Record<string, number>> {
+  return Promise.all([
     getXPrices(tokenPrices, tokens.fantom, FANTOM_CHAIN_ID),
     getXPrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
     getXPrices(tokenPrices, tokens.fuse, FUSE_CHAIN_ID),
@@ -88,5 +90,4 @@ const fetchXPrices = async tokenPrices =>
       .flat()
       .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})
   );
-
-export { fetchXPrices };
+}

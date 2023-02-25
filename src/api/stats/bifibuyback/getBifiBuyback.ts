@@ -9,7 +9,7 @@ import { getUtcSecondsFromDayRange } from '../../../utils/getUtcSecondsFromDayRa
 import { getEDecimals } from '../../../utils/getEDecimals';
 import { etherscanApiUrlMap } from './etherscanApiUrlMap';
 import { bifiLpMap } from './bifiLpMap';
-import { getKey, setKey } from '../../../utils/redisHelper';
+import { getKey, setKey } from '../../../utils/cache';
 
 const INIT_DELAY = 40 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -124,7 +124,7 @@ const updateBifiBuyback = async () => {
 };
 
 export const initBifiBuyBackService = async () => {
-  const cachedDailyBifiBuyBack = await getKey('DAILY_BUYBACK');
+  const cachedDailyBifiBuyBack = await getKey<DailyBifiBuybackStats>('DAILY_BUYBACK');
   dailyBifiBuybackStats = cachedDailyBifiBuyBack ?? undefined;
 
   setTimeout(updateBifiBuyback, INIT_DELAY);

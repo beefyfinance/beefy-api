@@ -8,8 +8,12 @@ import { ChainId } from '../../packages/address-book/address-book';
 
 import IVault from '../abis/BeefyVaultV6.json';
 
-const fetchMooPrices = async (pools, tokenPrices, lpPrices) => {
-  let moo = {};
+export async function fetchMooPrices(
+  pools: any[],
+  tokenPrices: Record<string, number>,
+  lpPrices: Record<string, number>
+): Promise<Record<string, number>> {
+  let moo: Record<string, number> = {};
 
   await fetchPpfs(pools);
 
@@ -17,8 +21,9 @@ const fetchMooPrices = async (pools, tokenPrices, lpPrices) => {
     const mooPrice = calcMooPrice(pools[i], tokenPrices, lpPrices);
     moo = { ...moo, ...mooPrice };
   }
+
   return moo;
-};
+}
 
 const fetchPpfs = async pools => {
   const chainIds: ChainId[] = pools.map(p => p.chainId);
@@ -55,7 +60,7 @@ const fetchPpfs = async pools => {
 };
 
 //Fetches ppfs for **vaults** from a single chain
-const fetchChainVaultsPpfs = async (vaults, chain) => {
+export const fetchChainVaultsPpfs = async (vaults, chain) => {
   const chainId = ChainId[chain] as any as ChainId;
   const web3 = web3Factory(chainId);
   const multicall = new MultiCall(web3, multicallAddress(chainId));
@@ -76,10 +81,12 @@ const fetchChainVaultsPpfs = async (vaults, chain) => {
   }
 };
 
-const calcMooPrice = (pool, tokenPrices, lpPrices) => {
+function calcMooPrice(
+  pool: any,
+  tokenPrices: Record<string, number>,
+  lpPrices: Record<string, number>
+): Record<string, number> {
   const price = pool.oracle == 'tokens' ? tokenPrices[pool.oracleId] : lpPrices[pool.oracleId];
   const mooPrice = pool.ppfs.times(price).dividedBy(pool.decimals);
   return { [pool.name]: mooPrice.toNumber() };
-};
-
-export { fetchMooPrices, fetchChainVaultsPpfs };
+}

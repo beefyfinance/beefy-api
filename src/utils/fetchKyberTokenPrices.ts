@@ -1,12 +1,18 @@
-import BigNumber from 'bignumber.js';
 import { MultiCall } from 'eth-multicall';
-import { web3Factory, multicallAddress } from './web3';
+import { multicallAddress, web3Factory } from './web3';
 import IKyberElasticPool from '../abis/IKyberElasticPool.json';
-
-import { ETH_CHAIN_ID } from '../constants';
 import { getContract } from './contractHelper';
+import { ChainId } from '../../packages/address-book/types/chainid';
 
-const tokens = {
+type KyberToken = {
+  oracleId: string;
+  decimals: string;
+  pool: string;
+  secondToken: string;
+  secondTokenDecimals: string;
+};
+
+const tokens: Partial<Record<keyof typeof ChainId, KyberToken[]>> = {
   ethereum: [
     {
       oracleId: 'KNC',
@@ -18,36 +24,40 @@ const tokens = {
   ],
 };
 
-const getKyberPrices = async (tokenPrices, tokens, chainId) => {
+async function getKyberPrices(
+  tokenPrices: Record<string, number>,
+  chainTokens: KyberToken[],
+  chainId: ChainId
+): Promise<number[]> {
   const web3 = web3Factory(chainId);
   const multicall = new MultiCall(web3, multicallAddress(chainId));
 
-  const kyberPriceCalls = [];
-
-  tokens.forEach(async token => {
+  const kyberPriceCalls = chainTokens.map(token => {
     const tokenContract = getContract(IKyberElasticPool, token.pool);
-    kyberPriceCalls.push({
+    return {
       price: tokenContract.methods.getPoolState(),
-    });
+    };
   });
 
   let res;
   try {
     res = await multicall.all([kyberPriceCalls]);
   } catch (e) {
-    console.error('getCurveTokenPrices', e);
-    return tokens.map(() => 0);
+    console.error('getKyberPrices', e);
+    return chainTokens.map(() => 0);
   }
 
-  const tokenPrice = res[0].map(v => v.price[1]);
-  return tokenPrice.map((v, i) => tokenPrices[tokens[i].secondToken] / Math.pow(1.0001, v));
-};
+  const tokenPrice = res[0].map(v => Number(v.price[1]));
+  return tokenPrice.map((v, i) => tokenPrices[chainTokens[i].secondToken] / Math.pow(1.0001, v));
+}
 
-const fetchKyberTokenPrices = async tokenPrices =>
-  Promise.all([getKyberPrices(tokenPrices, tokens.ethereum, ETH_CHAIN_ID)]).then(data =>
-    data
-      .flat()
-      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i].oracleId] = cur), acc), {})
+export async function fetchKyberTokenPrices(tokenPrices): Promise<Record<string, number>> {
+  const pricesByChain: Record<string, number>[] = await Promise.all(
+    Object.entries(tokens).map(async ([chainId, chainTokens]) => {
+      const prices = await getKyberPrices(tokenPrices, chainTokens, ChainId[chainId]);
+      return Object.fromEntries(chainTokens.map((token, i) => [token.oracleId, prices[i] || 0]));
+    })
   );
 
-export { fetchKyberTokenPrices };
+  return Object.assign({}, ...pricesByChain);
+}

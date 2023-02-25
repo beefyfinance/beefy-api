@@ -61,7 +61,7 @@ const {
   ETH_CHAIN_ID,
   ETHEREUM_VAULTS_ENDPOINT,
 } = require('../../constants');
-const { getKey, setKey } = require('../../utils/redisHelper.js');
+const { getKey, setKey } = require('../../utils/cache');
 
 const INIT_DELAY = 40 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;

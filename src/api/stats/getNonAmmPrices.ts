@@ -63,7 +63,20 @@ import { getKyberArbitrumPrices } from './arbitrum/getKyberArbitrumPrices';
 import { getKyberAvaxPrices } from './avax/getKyberAvaxPrices';
 import { getKyberOptimismPrices } from './optimism/getKyberOptimismPrices';
 
-const getNonAmmPrices = async tokenPrices => {
+export type NonAmmPrices = {
+  prices: Record<string, number>;
+  breakdown: Record<
+    string,
+    {
+      price: number;
+      tokens: string[];
+      balances: string[];
+      totalSupply: string;
+    }
+  >;
+};
+
+export async function getNonAmmPrices(tokenPrices: Record<string, number>): Promise<NonAmmPrices> {
   let prices = {};
   let breakdown = {};
 
@@ -157,6 +170,6 @@ const getNonAmmPrices = async tokenPrices => {
     });
 
   return { prices, breakdown };
-};
+}
 
 export default getNonAmmPrices;

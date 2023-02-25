@@ -44,7 +44,24 @@ const calcLpPrice = (pool, tokenPrices) => {
   };
 };
 
-export const fetchDmmPrices = async (pools, knownPrices) => {
+export type DmmPrices = {
+  poolPrices: Record<string, number>;
+  tokenPrices: Record<string, number>;
+  lpsBreakdown: Record<
+    string,
+    {
+      price: number;
+      tokens: string[];
+      balances: string[];
+      totalSupply: string;
+    }
+  >;
+};
+
+export async function fetchDmmPrices(
+  pools: any[],
+  knownPrices: Record<string, number>
+): Promise<DmmPrices> {
   let prices = { ...knownPrices };
   let lps = {};
   let breakdown = {};
@@ -149,4 +166,4 @@ export const fetchDmmPrices = async (pools, knownPrices) => {
     tokenPrices: sortByKeys(prices),
     lpsBreakdown: sortByKeys(breakdown),
   };
-};
+}

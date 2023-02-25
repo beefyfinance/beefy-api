@@ -1,4 +1,4 @@
-import { getKey, setKey } from '../../utils/redisHelper';
+import { getKey, setKey } from '../../utils/cache';
 import {
   Cached,
   CachedNoOpenProposal,

@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js';
 import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall';
 import { addressBookByChainId, ChainId } from '../../../packages/address-book/address-book';
 import { getContractWithProvider } from '../../utils/contractHelper';
-import { getKey, setKey } from '../../utils/redisHelper';
+import { getKey, setKey } from '../../utils/cache';
 import { web3Factory } from '../../utils/web3';
 const FeeABI = require('../../abis/FeeABI.json');
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
@@ -20,7 +20,7 @@ const feeBatchTreasurySplitMethodABI = [
 const INIT_DELAY = 15000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_EXPIRY = 1000 * 60 * 60 * 12;
-const MULTICALL_BATCH_SIZE = 128;
+const MULTICALL_BATCH_SIZE = 100;
 
 const VAULT_FEES_KEY = 'VAULT_FEES';
 const FEE_BATCH_KEY = 'FEE_BATCHES';
@@ -84,7 +84,7 @@ interface StrategyCallResponse {
   paused?: boolean;
 }
 
-let feeBatches: Record<ChainId, FeeBatchDetail>;
+let feeBatches: Partial<Record<ChainId, FeeBatchDetail>>;
 let vaultFees: Record<string, VaultFeeBreakdown>;
 
 const updateFeeBatches = async () => {
@@ -519,8 +519,8 @@ const performanceForMaxi = (contractCalls: StrategyCallResponse): PerformanceFee
 };
 
 export const initVaultFeeService = async () => {
-  const cachedVaultFees = await getKey(VAULT_FEES_KEY);
-  const cachedFeeBatches = await getKey(FEE_BATCH_KEY);
+  const cachedVaultFees = await getKey<Record<string, VaultFeeBreakdown>>(VAULT_FEES_KEY);
+  const cachedFeeBatches = await getKey<Record<ChainId, FeeBatchDetail>>(FEE_BATCH_KEY);
 
   feeBatches = cachedFeeBatches ?? {};
   vaultFees = cachedVaultFees ?? {};
