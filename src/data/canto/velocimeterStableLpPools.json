@@ -1,0 +1,22 @@
+[
+  {
+    "name": "velocimeter-note-usdc",
+    "address": "0x94C1dFfefa4eaC0801e3af0EE7108d8a08CF5f9e",
+    "gauge": "0x7a475831e2F4911287dDF3BACe5146388974aba5",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]

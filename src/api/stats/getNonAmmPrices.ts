@@ -63,12 +63,14 @@ import { getKyberArbitrumPrices } from './arbitrum/getKyberArbitrumPrices';
 import { getKyberAvaxPrices } from './avax/getKyberAvaxPrices';
 import { getKyberOptimismPrices } from './optimism/getKyberOptimismPrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
+import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
 
 const getNonAmmPrices = async tokenPrices => {
   let prices = {};
   let breakdown = {};
 
   const promises = [
+    getVelocimeterStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
     getCantoStablePrices(tokenPrices),
     getKyberArbitrumPrices(tokenPrices),
