@@ -75,6 +75,30 @@ const _tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: '',
   },
+  FLOW: {
+    name: 'Velocimeter',
+    symbol: 'FLOW',
+    address: '0x2Baec546a92cA3469f71b7A091f7dF61e5569889',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://canto.velocimeter.xyz/home',
+    description:
+      'Velocimeter addresses these issues and presents an attractive alternative by addressing the core issues in Solidly and adding its own improvements. To recall, the key innovation of Solidly was to align protocol emissions with fees generated, not simply liquidity. To do this, it would allow protocols and other large stakeholders to become veNFT "voters", using their locked voting power to direct future emissions and collecting fees (termed bribes in Solidly) from the pools they voted for.',
+    documentation: 'https://docs.velocimeter.xyz/',
+  },
+  GRAV: {
+    name: 'Graviton',
+    symbol: 'GRAV',
+    address: '0xc03345448969Dd8C00e9E4A85d2d9722d093aF8E',
+    chainId: 7700,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.gravitybridge.net/',
+    description:
+      'Cosmos® Gravity Bridge™ is a purpose-built, fully decentralized, trustless blockchain which bridges assets between the Ethereum and Cosmos ecosystems. Ethereum and EVM compatible tokens can be transferred across the Gravity Bridge to a Cosmos wallet and then onto other Cosmos wallets or DEXs (such as Osmosis or Gravity DEX). Cosmos SDK based blockchains can similarly send tokens across Gravity Bridge to the Ethereum ecosystem, making them available for transfer or potentially trading on Uniswap or other ETH DEXs.',
+    documentation: 'https://www.gravitybridge.net/post/how-gravity-works',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

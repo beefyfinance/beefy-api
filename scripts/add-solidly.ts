@@ -30,6 +30,9 @@ const {
   arbitrum: {
     platforms: { solidlizard },
   },
+  canto: {
+    platforms: { velocimeter },
+  },
 } = addressBook;
 
 const projects = {
@@ -84,6 +87,12 @@ const projects = {
     stableFile: '../src/data/arbitrum/solidlizardStableLpPools.json',
     volatileFile: '../src/data/arbitrum/solidlizardLpPools.json',
     voter: solidlizard.voter,
+  },
+  velocimeter: {
+    prefix: 'velocimeter',
+    stableFile: '../src/data/canto/velocimeterStableLpPools.json',
+    volatileFile: '../src/data/canto/velocimeterLpPools.json',
+    voter: velocimeter.voter,
   },
 };
 

@@ -1,6 +1,7 @@
 const getCantoLpApys = require('./getCantoLpApys');
+const getVelocimeterApys = require('./getVelocimeterApys');
 
-const getApys = [getCantoLpApys];
+const getApys = [getCantoLpApys, getVelocimeterApys];
 
 const getCantoApys = async () => {
   let apys = {};
