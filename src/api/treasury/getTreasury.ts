@@ -30,10 +30,9 @@ import { getTokensForChain, isTokenNative } from '../tokens/tokens';
 import { MULTICALL_V3 } from '../../utils/web3Helpers';
 import { getAmmPrice } from '../stats/getAmmPrices';
 import { keysToObject } from '../../utils/array';
-import { writeFileSync } from 'fs';
 
 const REFRESH_INTERVAL = 60000 * 10;
-const MULTICALL_BATCH_SIZE = 256; //1024;
+const MULTICALL_BATCH_SIZE = 1024;
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 // treasury addresses that should be queried for balances
@@ -82,9 +81,6 @@ function updateAssetsByChain() {
       ...(vaultAssets[chain] || {}),
     };
   });
-
-  writeFileSync('tokenAssets.json', JSON.stringify(tokenAssets, null, 2), 'utf8');
-  writeFileSync('vaultAssets.json', JSON.stringify(vaultAssets, null, 2), 'utf8');
 }
 
 // Load token address
