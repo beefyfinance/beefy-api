@@ -1,14 +1,11 @@
 import BigNumber from 'bignumber.js';
 import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall';
-import { chunk, partition, pick, result } from 'lodash';
+import { chunk, keyBy, partition } from 'lodash';
 import { addressBook } from '../../../packages/address-book/address-book';
 import chainIdMap from '../../../packages/address-book/util/chainIdMap';
-import fetchPrice from '../../utils/fetchPrice';
 import { getKey, setKey } from '../../utils/cache';
 import { web3Factory } from '../../utils/web3';
-const { getMultichainVaults } = require('../stats/getMultichainVaults');
-
-import { getAllTokens } from '../tokens/getTokens';
+import { getSingleChainVaults } from '../stats/getMultichainVaults';
 import {
   extractBalancesFromTreasuryApiCallResults,
   extractBalancesFromTreasuryMulticallResults,
@@ -17,6 +14,7 @@ import {
 } from './multicallUtils';
 import {
   isValidatorAsset,
+  isVaultAsset,
   TreasuryApiResult,
   TreasuryAsset,
   TreasuryAssetRegistry,
@@ -24,121 +22,111 @@ import {
   TreasuryReport,
   TreasuryWalletRegistry,
   ValidatorAsset,
-  VaultAsset,
 } from './types';
 import { getChainValidator, hasChainValidator } from './validatorHelpers';
+import { serviceEventBus } from '../../utils/ServiceEventBus';
+import { ApiChain, ApiChains, toChainId } from '../../utils/chain';
+import { getTokensForChain, isTokenNative } from '../tokens/tokens';
+import { MULTICALL_V3 } from '../../utils/web3Helpers';
+import { getAmmPrice } from '../stats/getAmmPrices';
+import { keysToObject } from '../../utils/array';
+import { writeFileSync } from 'fs';
 
-const INIT_DELAY = 90000;
 const REFRESH_INTERVAL = 60000 * 10;
+const MULTICALL_BATCH_SIZE = 256; //1024;
+const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
-const MULTICALL_BATCH_SIZE = 1024;
-
-//treasury addresses that should be queried for balances
+// treasury addresses that should be queried for balances
 let treasuryAddressesByChain: TreasuryWalletRegistry;
 
-//addressbook + vault tokens where balances should be queried
-let assetsByChain: TreasuryAssetRegistry;
+// addressbook + vault tokens where balances should be queried
+let assetsByChain: TreasuryAssetRegistry = keysToObject(ApiChains, () => ({}));
 
-let tokenBalancesByChain: TreasuryBalances = {};
+let tokenBalancesByChain: TreasuryBalances = keysToObject(ApiChains, () => ({}));
 
-let treasurySummary: TreasuryReport;
+let treasurySummary: TreasuryReport = keysToObject(ApiChains, () => ({}));
 
-// Load treasury wallets from addressbook
-const getTreasuryAddressesByChain = (): TreasuryWalletRegistry => {
-  const addressesByChain: TreasuryWalletRegistry = {};
-
-  Object.entries(addressBook).map(([chain, chainAddressbook]) => {
-    addressesByChain[chain] = {};
-
+function updateTreasuryAddressesByChain() {
+  treasuryAddressesByChain = keysToObject(ApiChains, chain => {
+    const chainAddressbook = addressBook[chain];
+    const addresses = {};
     const treasuryMultisig = chainAddressbook.platforms.beefyfinance.treasuryMultisig;
     const treasury = chainAddressbook.platforms.beefyfinance.treasury;
 
-    if (treasuryMultisig !== '0x0000000000000000000000000000000000000000') {
-      addressesByChain[chain][treasuryMultisig.toLowerCase()] = {
+    if (treasuryMultisig && treasuryMultisig !== ZERO_ADDRESS) {
+      addresses[treasuryMultisig.toLowerCase()] = {
         address: treasuryMultisig,
         label: 'treasuryMultisig',
       };
     }
 
     // Add treasury only if different from multisig
-    if (!addressesByChain[chain][treasury.toLowerCase()]) {
-      addressesByChain[chain][treasury.toLowerCase()] = {
+    if (treasury && treasury !== ZERO_ADDRESS && !addresses[treasury.toLowerCase()]) {
+      addresses[treasury.toLowerCase()] = {
         address: treasury,
         label: 'treasury',
       };
     }
+
+    return addresses;
+  });
+}
+
+function updateAssetsByChain() {
+  const tokenAssets = getTokenAddressesByChain();
+  const vaultAssets = getVaultAddressesByChain();
+
+  assetsByChain = keysToObject(ApiChains, chain => {
+    return {
+      ...(tokenAssets[chain] || {}),
+      ...(vaultAssets[chain] || {}),
+    };
   });
 
-  return addressesByChain;
-};
+  writeFileSync('tokenAssets.json', JSON.stringify(tokenAssets, null, 2), 'utf8');
+  writeFileSync('vaultAssets.json', JSON.stringify(vaultAssets, null, 2), 'utf8');
+}
 
-// Load token addres
-const getTokenAddressesByChain = (): TreasuryAssetRegistry => {
-  const addressbookTokens = getAllTokens();
-  const tokensByChain: TreasuryAssetRegistry = {};
-  Object.keys(addressbookTokens).forEach(chain => {
-    const chainAddressbook = addressbookTokens[chain];
-    tokensByChain[chain] = {};
+// Load token address
+function getTokenAddressesByChain(): TreasuryAssetRegistry {
+  return keysToObject(ApiChains, chain => {
+    const tokens: Record<string, TreasuryAsset> = {};
 
-    for (const [key, token] of Object.entries(chainAddressbook)) {
-      if (key === 'WNATIVE') {
-        if (token.symbol === 'WCELO' || token.symbol === 'WMETIS') continue;
-        // CELO and WCELO are the same token, avoid adding native celo as well
-        // Add gas token
-        tokensByChain[chain]['native'] = {
-          name: token.symbol.slice(1),
-          address: 'native',
-          decimals: 18,
-          assetType: 'native',
-          oracleType: 'tokens',
-          oracleId: token.symbol.slice(1),
-        };
-      } else {
-        tokensByChain[chain][token.address.toLowerCase()] = {
-          ...pick(token, ['name', 'address', 'decimals']),
-          oracleId: token.oracleId ?? key,
-          oracleType: token.oracle ?? 'tokens',
-          assetType: 'token',
-        };
-      }
+    for (const [tokenAddress, token] of Object.entries(getTokensForChain(chain))) {
+      // WNATIVE/NATIVE: duplicated as WBNB/BNB, WETH/ETH etc
+      if (['WNATIVE', 'NATIVE'].includes(token.id)) continue;
+      // WCELO/WMETIS: duplicate as same as native
+      if (
+        [
+          '0x471EcE3750Da237f93B8E339c536989b8978a438',
+          '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
+        ].includes(token.address)
+      )
+        continue;
+
+      tokens[tokenAddress] = {
+        name: token.name,
+        address: token.address,
+        decimals: token.decimals,
+        assetType: isTokenNative(token) ? 'native' : 'token',
+        oracleId: token.oracleId,
+        oracleType: token.oracle,
+      };
     }
 
     if (hasChainValidator(chain)) {
-      tokensByChain[chain]['validator'] = getChainValidator(chain);
+      tokens['validator'] = getChainValidator(chain);
     }
+
+    return tokens;
   });
-  return tokensByChain;
-};
+}
 
-// Periodically update vault deposit tokens and mooTokens
-const updateVaultTokenAddresses = () => {
-  console.log('updating treasury vault addresses');
-  const vaults = getMultichainVaults();
-  Object.keys(assetsByChain).forEach(chain => {
-    //App and API name harmony differently
-    const normalizedChainName = chain === 'one' ? 'harmony' : chain;
-
-    const chainVaults = vaults.filter(vault => vault.chain === normalizedChainName);
-    const chainTokens = assetsByChain[chain];
-
-    chainVaults.forEach(vault => {
-      // if vault receives native input, field will be missing in vault object
-      if (vault.tokenAddress) {
-        const depositTokenAddress = vault.tokenAddress.toLowerCase();
-        if (!chainTokens[depositTokenAddress]) {
-          chainTokens[depositTokenAddress] = {
-            oracleId: vault.oracleId,
-            oracleType: vault.oracle,
-            assetType: 'token',
-            decimals: vault.tokenDecimals,
-            name: vault.token,
-            address: vault.tokenAddress,
-          };
-        }
-      }
-
-      const vaultAddress = vault.earnContractAddress.toLowerCase();
-      chainTokens[vaultAddress] = {
+function getVaultAddressesByChain(): TreasuryAssetRegistry {
+  return keysToObject(ApiChains, chain => {
+    const chainVaults = getSingleChainVaults(chain) || [];
+    return keyBy(
+      chainVaults.map(vault => ({
         name: vault.earnedToken,
         oracleId: vault.oracleId,
         oracleType: vault.oracle,
@@ -147,19 +135,20 @@ const updateVaultTokenAddresses = () => {
         decimals: vault.tokenDecimals,
         pricePerFullShare: vault.pricePerFullShare,
         address: vault.earnContractAddress,
-      };
-    });
+      })),
+      asset => asset.address.toLowerCase()
+    );
   });
-};
+}
 
-const updateSingleChainTreasuryBalance = async (chain: string) => {
+async function updateSingleChainTreasuryBalance(chain: ApiChain) {
   const assetsToCheck = Object.values(assetsByChain[chain]);
   const web3 = web3Factory(chainIdMap[chain]);
   const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain]);
-  const multicallAddress =
-    chainIdMap[chain] === 2222
-      ? '0xdAaD0085e5D301Cb5721466e600606AB5158862b'
-      : '0xcA11bde05977b3631167028862bE2a173976CA11';
+  const multicallAddress = MULTICALL_V3[toChainId(chain)];
+  if (!multicallAddress) {
+    throw new Error(`Multicallv3 address not found for chain ${chain}`);
+  }
 
   const multicall = new Multicall({
     web3Instance: web3,
@@ -224,110 +213,103 @@ const updateSingleChainTreasuryBalance = async (chain: string) => {
   } catch (err) {
     console.log('error updating treasury balances on chain ' + chain);
   }
-};
+}
 
-const updateTreasuryBalances = async () => {
+async function updateTreasuryBalances() {
   try {
     console.log('> updating treasury balances');
     const start = Date.now();
-    let promises = [];
 
-    for (const chain of Object.keys(treasuryAddressesByChain)) {
-      promises.push(updateSingleChainTreasuryBalance(chain));
-    }
-
-    await Promise.allSettled(promises);
-    console.log(`> treasury balances updated (${((Date.now() - start) / 1000).toFixed(2)}s)`);
-
-    buildTreasuryReport();
-
+    await Promise.allSettled(ApiChains.map(updateSingleChainTreasuryBalance));
+    await buildTreasuryReport();
     await saveToRedis();
+    console.log(`> treasury balances updated (${((Date.now() - start) / 1000).toFixed(2)}s)`);
   } catch (err) {
     console.log(`> error updating treasury`);
+  } finally {
+    setTimeout(() => {
+      updateTreasuryBalances();
+    }, REFRESH_INTERVAL);
+  }
+}
+
+async function buildTreasuryReport() {
+  const chainReports = await Promise.all(ApiChains.map(buildTreasuryReportForChain));
+  for (const i in ApiChains) {
+    treasurySummary[ApiChains[i]] = chainReports[i];
+  }
+}
+
+async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryReport[ApiChain]> {
+  const chainBalancesByAddress = tokenBalancesByChain[chain];
+  const balanceReport: TreasuryReport[ApiChain] = {};
+
+  const chainTreasuryWallets = treasuryAddressesByChain[chain];
+  for (const [address, wallet] of Object.entries(chainTreasuryWallets)) {
+    balanceReport[address] = {
+      name: wallet.label,
+      balances: {},
+    };
   }
 
-  setTimeout(() => {
-    updateTreasuryBalances();
-  }, REFRESH_INTERVAL);
-};
+  for (const assetBalance of Object.values(chainBalancesByAddress)) {
+    const treasuryAsset = assetsByChain[chain][assetBalance.address];
 
-const buildTreasuryReport = async () => {
-  const balanceReport: TreasuryReport = {};
+    if (treasuryAsset === undefined) {
+      continue; // cached asset hasn't been deleted yet
+    }
 
-  for (const [chain, chainBalancesByAddress] of Object.entries(tokenBalancesByChain)) {
-    balanceReport[chain] = {};
-    const chainTreasuryWallets = treasuryAddressesByChain[chain];
-    //Initialize wallet balances as 0;
-    Object.entries(chainTreasuryWallets).forEach(([address, wallet]) => {
-      balanceReport[chain][address] = {
-        name: wallet.label,
-        balances: {},
-      };
-    });
-
-    for (const assetBalance of Object.values(chainBalancesByAddress)) {
-      const treasuryAsset = assetsByChain[chain][assetBalance.address];
-
-      if (treasuryAsset === undefined) {
-        continue; //cached asset hasn't been deleted yet
-      }
-
-      const price = await fetchPrice(
-        {
-          oracle: treasuryAsset.oracleType,
-          id: treasuryAsset.oracleId,
-        },
-        false
-      );
-
-      for (const [treasuryWallet, balance] of Object.entries(assetBalance.balances)) {
-        try {
-          if (balance.gt(0)) {
-            //Add validator wallet if missing
-            if (!balanceReport[chain][treasuryWallet]) {
-              balanceReport[chain][treasuryWallet] = { name: treasuryWallet, balances: {} };
-            }
-            const usdValue = findUsdValueForBalance(treasuryAsset, price, balance);
-            balanceReport[chain][treasuryWallet].balances[treasuryAsset.address] = {
-              ...treasuryAsset,
-              price,
-              usdValue: usdValue.toString(10),
-              balance: balance.toString(10),
-            };
+    let price: number | undefined;
+    for (const [treasuryWallet, balance] of Object.entries(assetBalance.balances)) {
+      try {
+        if (balance.gt(0)) {
+          if (price === undefined) {
+            price = (await getAmmPrice(treasuryAsset.oracleId, true)) || 0;
           }
-        } catch (err) {
-          console.log(
-            `> error setting treasury balance on ${chain} for asset ${treasuryAsset.name}`
-          );
+
+          // Add validator wallet if missing
+          if (!balanceReport[treasuryWallet]) {
+            balanceReport[treasuryWallet] = { name: treasuryWallet, balances: {} };
+          }
+          const usdValue = findUsdValueForBalance(treasuryAsset, price, balance);
+          balanceReport[treasuryWallet].balances[treasuryAsset.address] = {
+            ...treasuryAsset,
+            price,
+            usdValue: usdValue.toString(10),
+            balance: balance.toString(10),
+          };
         }
+      } catch (err) {
+        console.log(`> error setting treasury balance on ${chain} for asset ${treasuryAsset.name}`);
       }
     }
   }
-  treasurySummary = balanceReport;
-};
 
-const findUsdValueForBalance = (
+  return balanceReport;
+}
+
+function findUsdValueForBalance(
   tokenInfo: TreasuryAsset,
   tokenPrice: number,
   balance: BigNumber
-): BigNumber => {
-  if (tokenInfo.assetType === 'vault') {
+): BigNumber {
+  if (isVaultAsset(tokenInfo)) {
     return balance
       .multipliedBy(tokenPrice)
-      .multipliedBy((tokenInfo as VaultAsset).pricePerFullShare)
+      .multipliedBy(tokenInfo.pricePerFullShare)
       .shiftedBy(-18)
       .shiftedBy(-tokenInfo.decimals);
   } else {
     return balance.multipliedBy(tokenPrice).shiftedBy(-tokenInfo.decimals);
   }
-};
+}
 
-const saveToRedis = async () => {
+async function saveToRedis() {
   await setKey('TREASURY_BALANCES', tokenBalancesByChain);
   await setKey('TREASURY_REPORT', treasurySummary);
-};
+}
 
-const restoreFromRedis = async () => {
+async function restoreFromRedis() {
   const cachedSummary = await getKey<TreasuryReport>('TREASURY_REPORT');
   const cachedBalances = await getKey<TreasuryBalances>('TREASURY_BALANCES');
   if (cachedSummary) {
@@ -344,22 +326,31 @@ const restoreFromRedis = async () => {
       });
     });
   }
-};
+}
 
-export const initTreasuryService = async () => {
-  //Fetch treasury addresses, this are infered from the addressbook so no need to update till api restarts
-  treasuryAddressesByChain = getTreasuryAddressesByChain();
-  //Again, initialize from addressbook, only done once
-  assetsByChain = getTokenAddressesByChain();
+export async function initTreasuryService() {
+  // Load from redis if available
+  await restoreFromRedis();
 
-  restoreFromRedis();
+  // Wait until we have tokens and vaults
+  await Promise.all([
+    serviceEventBus.waitForFirstEvent('tokens/updated'),
+    serviceEventBus.waitForFirstEvent('vaults/updated'),
+  ]);
 
-  setTimeout(() => {
-    updateVaultTokenAddresses();
-    updateTreasuryBalances();
-  }, INIT_DELAY);
-};
+  // Fetch treasury addresses, these are inferred from the addressbook so no need to update till api restarts
+  updateTreasuryAddressesByChain();
 
-export const getBeefyTreasury = (): TreasuryReport => {
+  // Initialize tokens/vault assets
+  updateAssetsByChain();
+
+  // Update balances
+  await updateTreasuryBalances();
+
+  // Update tokens/vault assets whenever tokens (or vaults) are updated
+  serviceEventBus.on('tokens/updated', updateAssetsByChain);
+}
+
+export function getBeefyTreasury(): TreasuryReport {
   return treasurySummary;
-};
+}

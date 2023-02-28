@@ -1,4 +1,4 @@
-import { ChainId } from '../../packages/address-book/address-book';
+import { addressBook, ChainId } from '../../packages/address-book/address-book';
 import { invert } from 'lodash';
 
 export type ApiChain = keyof typeof ChainId;
@@ -9,6 +9,9 @@ const appChainToApiChain: Partial<Record<AppChain, ApiChain>> = {
   harmony: 'one',
 } as const;
 const apiChainToAppChain: Partial<Record<ApiChain, AppChain>> = invert(appChainToApiChain);
+
+export const ApiChains: ApiChain[] = Object.keys(addressBook) as ApiChain[];
+export const AppChains: AppChain[] = ApiChains.map(toAppChain);
 
 export function toAppChain(chain: AnyChain): AppChain {
   if (isAppChain(chain)) {

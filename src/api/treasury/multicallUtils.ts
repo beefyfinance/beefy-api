@@ -26,7 +26,7 @@ export const mapAssetToCall = (
         reference: asset.address.toLowerCase(),
         contractAddress: asset.address,
         abi: ERC20_ABI,
-        calls: treasuryAddressesForChain.map((treasuryData: any) => ({
+        calls: treasuryAddressesForChain.map(treasuryData => ({
           reference: treasuryData.address.toLowerCase(),
           methodName: 'balanceOf',
           methodParameters: [treasuryData.address],
@@ -42,7 +42,7 @@ export const mapAssetToCall = (
         reference: asset.address.toLowerCase(),
         contractAddress: multicallContractAddress,
         abi: multicallAbi,
-        calls: treasuryAddressesForChain.map((treasuryData: any) => ({
+        calls: treasuryAddressesForChain.map(treasuryData => ({
           reference: treasuryData.address.toLowerCase(),
           methodName: 'getEthBalance',
           methodParameters: [treasuryData.address],

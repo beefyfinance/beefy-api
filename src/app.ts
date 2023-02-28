@@ -9,7 +9,7 @@ import { initApyService } from './api/stats/getApys';
 import { initMooTokenPriceService } from './api/stats/getMooTokenPrices';
 import { initVaultService } from './api/stats/getMultichainVaults';
 import { initTvlService } from './api/stats/getTvl';
-import { initTokenService } from './api/tokens/getTokens';
+import { initTokenService } from './api/tokens/tokens';
 import { initConfigService } from './api/config/getConfig';
 import { initVaultFeeService } from './api/vaults/getVaultFees';
 import { initTreasuryService } from './api/treasury/getTreasury';

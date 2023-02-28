@@ -1,20 +1,13 @@
 import { CachedGitJson } from './CachedGitJson';
 import { MULTICHAIN_ENDPOINTS } from '../../constants';
-import {
-  AmmConfig,
-  BeefyZapConfig,
-  OneInchZapConfig,
-  TokenEntity,
-  TokenErc20,
-  ZapConfigsByType,
-} from './types';
+import { AmmConfig, BeefyZapConfig, OneInchZapConfig, ZapConfigsByType } from './types';
 import {
   areTokensEqual,
   getTokenById,
   getTokenWrappedNative,
   initTokenService,
   nativeToWrapped,
-} from './tokens';
+} from '../tokens/tokens';
 import { getAmmAllPrices } from '../stats/getAmmPrices';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { ApiChain, AppChain, toAppChain } from '../../utils/chain';
@@ -29,6 +22,7 @@ import { errorToString } from '../../utils/error';
 import { keyBy, sortBy, uniq } from 'lodash';
 import { isResultFulfilled, isResultRejected } from '../../utils/promise';
 import { getKey, setKey } from '../../utils/cache';
+import { TokenEntity, TokenErc20 } from '../tokens/types';
 
 const GH_ORG = 'beefyfinance';
 const GH_REPO = 'beefy-v2';
@@ -93,8 +87,7 @@ export async function initZapService() {
   await loadFromRedis();
 
   // Setup
-  // TODO: see if we can only have 1 token service
-  await Promise.all([initZapConfigs(), initAmmConfigs(), initTokenService()]);
+  await Promise.all([initZapConfigs(), initAmmConfigs()]);
 
   // Update
   await performUpdate();

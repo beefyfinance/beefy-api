@@ -1,13 +1,32 @@
-import { getAllTokens, getSingleChainTokens } from './getTokens';
+import { getAllTokensByChain, getTokensForChain } from './tokens';
+import { isApiChain } from '../../utils/chain';
+import { mapValues } from 'lodash';
 
 export const getTokens = ctx => {
-  const allTokens = getAllTokens();
-  ctx.status = 200;
-  ctx.body = allTokens;
+  const allTokens = getAllTokensByChain();
+  if (allTokens) {
+    ctx.status = 200;
+    ctx.body = mapValues(allTokens, chainTokens =>
+      mapValues(chainTokens.byId, address => chainTokens.byAddress[address])
+    );
+  } else {
+    ctx.status = 500;
+    ctx.body = 'Not available yet';
+  }
 };
 
 export const getChainTokens = ctx => {
-  const chainTokens = getSingleChainTokens(ctx.params.chainId);
-  ctx.status = 200;
-  ctx.body = chainTokens;
+  const chainId = ctx.params.chainId;
+  if (isApiChain(chainId)) {
+    const chainTokens = getTokensForChain(ctx.params.chainId);
+    if (chainTokens) {
+      ctx.status = 200;
+      ctx.body = chainTokens;
+    } else {
+      ctx.status = 500;
+      ctx.body = 'Not available yet';
+    }
+  } else {
+    ctx.status = 404;
+  }
 };

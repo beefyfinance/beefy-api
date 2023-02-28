@@ -1,5 +1,6 @@
 import { CachedGitJson } from './CachedGitJson';
-import { ApiChain, AppChain } from '../../utils/chain';
+import { AppChain } from '../../utils/chain';
+import { TokenEntity } from '../tokens/types';
 
 export type ZapFeeSingle = number;
 export type ZapFeeDiscounted = { original: number; discounted: number };
@@ -51,27 +52,6 @@ export type ZapConfigsByType = {
   beefy: CachedGitJson<BeefyZapConfig[]>;
   oneInch: CachedGitJson<OneInchZapConfig[]>;
 };
-
-type TokenBase = {
-  id: string;
-  symbol: string;
-  ammId?: string;
-  chainId: ApiChain;
-  oracleId: string;
-  decimals: number;
-};
-
-export type TokenErc20 = TokenBase & {
-  address: string;
-  type: 'erc20';
-};
-
-export type TokenNative = TokenBase & {
-  address: 'native';
-  type: 'native';
-};
-
-export type TokenEntity = TokenErc20 | TokenNative;
 
 export type ChainTokens = {
   byId: Record<TokenEntity['id'], TokenEntity['address']>;

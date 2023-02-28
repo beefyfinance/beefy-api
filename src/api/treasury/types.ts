@@ -1,5 +1,6 @@
 import BigNumber from 'bignumber.js';
 import { isObject } from 'lodash';
+import { ApiChain } from '../../utils/chain';
 
 //Treasury wallets
 export type TreasuryWallet = {
@@ -12,7 +13,7 @@ export type ChainTreasuryWallets = {
 };
 
 export type TreasuryWalletRegistry = {
-  [chain: string]: ChainTreasuryWallets;
+  [chain in ApiChain]: ChainTreasuryWallets;
 };
 
 //Assets
@@ -28,7 +29,7 @@ export type Asset = {
 export type TokenAsset = Asset & { assetType: 'token' };
 
 export type VaultAsset = Asset & {
-  pricePerFullShare: string;
+  pricePerFullShare: BigNumber;
   vaultId: string;
   assetType: 'vault';
 };
@@ -47,7 +48,7 @@ export type ValidatorAsset = Asset & {
 export type TreasuryAsset = Asset | VaultAsset | NativeAsset | ValidatorAsset;
 
 export type TreasuryAssetRegistry = {
-  [chain: string]: {
+  [chain in ApiChain]?: {
     [address: string]: TreasuryAsset;
   };
 };
@@ -85,11 +86,11 @@ export type ChainTreasuryBalance = {
 };
 
 export type TreasuryBalances = {
-  [chain: string]: ChainTreasuryBalance;
+  [chain in ApiChain]?: ChainTreasuryBalance;
 };
 
 export type TreasuryReport = {
-  [chain: string]: {
+  [chain in ApiChain]?: {
     [treasuryAddress: string]: {
       name: string;
       balances: {

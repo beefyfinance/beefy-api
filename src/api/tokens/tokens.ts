@@ -1,12 +1,12 @@
-import { ChainTokens, TokenEntity, TokenErc20, TokenNative } from './types';
+import { ChainTokens } from '../zaps/types';
 import { getSingleChainVaults } from '../stats/getMultichainVaults';
 import { getChainBoosts } from '../boosts/getBoosts';
 import { addressBook } from '../../../packages/address-book/address-book';
 import Token from '../../../packages/address-book/types/token';
 import { MULTICHAIN_ENDPOINTS } from '../../constants';
-import { awaitAllDebug } from '../../utils/awaitAllDebug';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { ApiChain, isApiChain } from '../../utils/chain';
+import { TokenEntity, TokenErc20, TokenNative } from './types';
 
 const tokensByChain: Partial<Record<ApiChain, ChainTokens>> = {};
 
@@ -19,6 +19,14 @@ export function getTokenById(id: string, chainId: ApiChain): TokenEntity | undef
 
 export function getTokenByAddress(address: string, chainId: ApiChain): TokenEntity | undefined {
   return tokensByChain[chainId]?.byAddress[address.toLowerCase()];
+}
+
+export function getTokensForChain(chainId: ApiChain): Record<string, TokenEntity> {
+  return tokensByChain[chainId]?.byAddress || {};
+}
+
+export function getAllTokensByChain(): Partial<Record<ApiChain, ChainTokens>> {
+  return tokensByChain;
 }
 
 export function getTokenNative(chainId: ApiChain): TokenNative {
@@ -73,28 +81,38 @@ export function areTokensEqual(tokenA: TokenEntity, tokenB: TokenEntity): boolea
   );
 }
 
-async function getVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
+async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
   const vaults = getSingleChainVaults(chainId) || [];
 
   return vaults.reduce((tokens: TokenEntity[], vault) => {
-    if (vault.tokenAddress) {
+    // Native comes from address book
+    if (vault.tokenAddress && vault.tokenAddress !== 'native') {
       tokens.push({
         type: 'erc20',
         id: vault.token,
         symbol: vault.token,
+        name: vault.token,
         chainId,
+        oracle: vault.oracle,
         oracleId: vault.oracleId,
         address: vault.tokenAddress,
         decimals: vault.tokenDecimals,
       });
     }
 
-    if (vault.earnedTokenAddress && vault.earnedTokenAddress !== 'native') {
+    // Skip natives and mooTokens
+    if (
+      vault.earnedTokenAddress &&
+      vault.earnedTokenAddress !== 'native' &&
+      vault.earnedTokenAddress !== vault.earnContractAddress
+    ) {
       tokens.push({
         type: 'erc20',
         id: vault.earnedToken,
         symbol: vault.earnedToken,
+        name: vault.earnedToken,
         chainId,
+        oracle: 'tokens', // ???
         oracleId: vault.earnedOracleId || vault.earnedToken,
         address: vault.earnedTokenAddress,
         decimals: vault.earnedTokenDecimals || 18,
@@ -105,17 +123,26 @@ async function getVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[]>
   }, []);
 }
 
-async function getBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
+async function fetchBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
   const boosts = getChainBoosts(chainId) || [];
+  const vaultAddresses = new Set(
+    (getSingleChainVaults(chainId) || []).map(vault => vault.earnContractAddress)
+  );
 
   return boosts.reduce((tokens: TokenEntity[], boost) => {
-    if (boost.earnedTokenAddress && boost.earnedTokenAddress !== 'native') {
+    if (
+      boost.earnedTokenAddress &&
+      boost.earnedTokenAddress !== 'native' &&
+      !vaultAddresses.has(boost.earnedTokenAddress)
+    ) {
       tokens.push({
         type: 'erc20',
         id: boost.earnedToken,
         symbol: boost.earnedToken,
+        name: boost.earnedToken,
         chainId,
         oracleId: boost.earnedOracleId || boost.earnedToken,
+        oracle: boost.earnedOracle,
         address: boost.earnedTokenAddress,
         decimals: boost.earnedTokenDecimals || 18,
       });
@@ -125,7 +152,7 @@ async function getBoostTokensForChain(chainId: ApiChain): Promise<TokenEntity[]>
   }, []);
 }
 
-async function getAddressTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
+async function fetchAddressBookTokensForChain(chainId: ApiChain): Promise<TokenEntity[]> {
   const abTokens: Record<string, Token> = addressBook[chainId]?.tokens;
   if (!abTokens || !Object.keys(abTokens).length || !abTokens.WNATIVE) {
     console.warn(`No address book tokens found for chain ${chainId}`);
@@ -142,7 +169,9 @@ async function getAddressTokensForChain(chainId: ApiChain): Promise<TokenEntity[
         type: 'native',
         id,
         symbol: nativeSymbol,
+        name: token.name,
         chainId,
+        oracle: token.oracle || 'tokens',
         oracleId: token.oracleId || id,
         address: 'native',
         decimals: token.decimals,
@@ -152,7 +181,9 @@ async function getAddressTokensForChain(chainId: ApiChain): Promise<TokenEntity[
         type: 'native',
         id: 'NATIVE',
         symbol: nativeSymbol,
+        name: token.name,
         chainId,
+        oracle: token.oracle || 'tokens',
         oracleId: token.oracleId || id,
         address: 'native',
         decimals: token.decimals,
@@ -162,7 +193,9 @@ async function getAddressTokensForChain(chainId: ApiChain): Promise<TokenEntity[
         type: 'erc20',
         id,
         symbol: token.symbol,
+        name: token.name,
         chainId,
+        oracle: token.oracle || 'tokens',
         oracleId: token.oracleId || id,
         address: token.address,
         decimals: token.decimals,
@@ -191,15 +224,15 @@ function addToken(
   }
 }
 
-async function getTokensForChain(chainId: string): Promise<ChainTokens> {
+async function fetchTokensForChain(chainId: ApiChain): Promise<ChainTokens> {
   if (!isApiChain(chainId)) {
     throw new Error(`Invalid chain ${chainId}`);
   }
 
   const [vaultTokens, boostTokens, abTokens] = await Promise.all([
-    getVaultTokensForChain(chainId),
-    getBoostTokensForChain(chainId),
-    getAddressTokensForChain(chainId as keyof typeof addressBook),
+    fetchVaultTokensForChain(chainId),
+    fetchBoostTokensForChain(chainId),
+    fetchAddressBookTokensForChain(chainId),
   ]);
 
   const byId: Record<TokenEntity['id'], TokenEntity['address']> = {};
@@ -224,8 +257,8 @@ export async function initTokenService() {
 async function updateTokens() {
   try {
     console.log('> Updating token service');
-    const chains = Object.keys(MULTICHAIN_ENDPOINTS);
-    const byChain = await Promise.all(chains.map(chainId => getTokensForChain(chainId)));
+    const chains = Object.keys(MULTICHAIN_ENDPOINTS) as ApiChain[];
+    const byChain = await Promise.all(chains.map(chainId => fetchTokensForChain(chainId)));
 
     chains.forEach((chainId, i) => {
       tokensByChain[chainId] = byChain[i];
@@ -237,11 +270,11 @@ async function updateTokens() {
     console.log('> Token service updated');
   } catch (err) {
     console.error('> Token service update failed', err);
+  } finally {
+    // Update tokens whenever boosts or vaults update
+    Promise.race([
+      serviceEventBus.waitForNextEvent('vaults/updated'),
+      serviceEventBus.waitForNextEvent('boosts/updated'),
+    ]).then(updateTokens);
   }
-
-  // Update tokens whenever boosts or vaults update
-  Promise.race([
-    serviceEventBus.waitForNextEvent('vaults/updated'),
-    serviceEventBus.waitForNextEvent('boosts/updated'),
-  ]).then(updateTokens);
 }
