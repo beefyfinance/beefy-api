@@ -1,5 +1,23 @@
 [
   {
+    "name": "quick-usdc-cp",
+    "address": "0x5bDDa306c37179B34E8b8F6d75aC8192f8A42996",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xf9D3d8B25b95BCDA979025B74fDFa7ac3F380f9f",
+      "oracle": "tokens",
+      "oracleId": "CP",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "solar-wmovr-mfam",
     "address": "0xE6Bfc609A2e58530310D6964ccdd236fc93b4ADB",
     "decimals": "1e18",
