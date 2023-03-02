@@ -3982,6 +3982,17 @@ const _tokens = {
     description:
       'TOR is a fully collateralized stablecoin which acts as a foundational pillar within the Hector Network Ecosystem. Its unique smart contracts made it the first of its kind, creating positive price action for the HEC token each time a TOR coin is minted and empowering Hector Network to become deflationary.',
   },
+  CSIX: {
+    name: 'Carbon',
+    symbol: 'CSIX',
+    address: '0x04756126F044634C9a0f0E985e60c88a51ACC206',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://carbon.website/',
+    description:
+      'Carbon is a Decentralized browser with AdBlock, VPN, Crypto Wallet, 100% Privacy and many other features.',
+  },
   'USD+': {
     name: 'USD+ Stablecoin',
     symbol: 'USD+',
