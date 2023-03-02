@@ -129,6 +129,19 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
   },
+  VARA: {
+    name: 'VARA',
+    address: '0xE1da44C0dA55B075aE8E2e4b6986AdC76Ac77d73',
+    symbol: 'VARA',
+    decimals: 18,
+    chainId: 2222,
+    website: 'https://equilibrefinance.com//',
+    documentation: 'https://equilibre-finance.gitbook.io/equilibre-finance/about-us/welcome',
+    description:
+      'Équilibre is an ve(3.3) AMM (Automatic Market Maker) based on Velodrome, and designed to provide large liquidity & low swapping fees.',
+    logoURI:
+      'https://raw.githubusercontent.com/equilibre-finance/token-images/blob/main/assets/VARA.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
