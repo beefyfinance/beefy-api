@@ -142,6 +142,19 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/equilibre-finance/token-images/blob/main/assets/VARA.png',
   },
+  BIFI: {
+    name: 'Beefy.Finance',
+    symbol: 'BIFI',
+    address: '0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327',
+    chainId: 2222,
+    decimals: 18,
+    website: 'https://beefy.com',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+    documentation: 'https://docs.beefy.finance/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
