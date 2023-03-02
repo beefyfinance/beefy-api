@@ -559,6 +559,7 @@ const coinGeckoCoins = [
   'seur',
   'euler',
   'axlusdc',
+  'mimo-parallel-governance-token',
 ];
 
 const currencies = ['cad'];
@@ -636,6 +637,7 @@ const updateAmmPrices = async () => {
         sEUR: prices['seur'],
         EUL: prices['euler'],
         axlUSDC: prices['axlusdc'],
+        MIMO: prices['mimo-parallel-governance-token'],
       };
     };
 
