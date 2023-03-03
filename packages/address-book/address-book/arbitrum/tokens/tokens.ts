@@ -477,6 +477,30 @@ const _tokens = {
       'SolidLizard is a decentralized exchange built on Arbitrum that offers low-cost token exchanges and reduced swap fees, using a governance model called the ve(3,3) system, which was developed by Andre Cronje and introduced in Solidly. ',
     documentation: 'https://solidlizard.gitbook.io/solidlizard/solidlizard-protocol/welcome',
   },
+  LUSD: {
+    name: 'LUSD Stablecoin',
+    symbol: 'LUSD',
+    address: '0x93b346b6BC2548dA6A1E7d98E9a421B42541425b',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.liquity.org/',
+    description:
+      'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
+    documentation: 'https://docs.liquity.org/',
+  },
+  JRT: {
+    name: 'Jarvis Reward Token',
+    symbol: 'JRT',
+    address: '0x6Aa395F06986ea4eFe0a4630C7865C1eB08D5e7e',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'The Jarvis Reward Token  is a utility token for securing and governing the Jarvis network, and rewarding agents who would bring value to it.',
+    logoURI: '',
+    documentation: 'https://learn.jarvis.network/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

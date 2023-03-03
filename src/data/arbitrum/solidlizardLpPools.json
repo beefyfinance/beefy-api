@@ -1,5 +1,25 @@
 [
   {
+    "name": "solidlizard-jrt-weth",
+    "address": "0x769fDe1b25a48Ea6D25F3e34F7de0f3C593cc841",
+    "gauge": "0x5aDfc21C8CAaFF22AbF8DdC32f1947e2D782847A",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x6Aa395F06986ea4eFe0a4630C7865C1eB08D5e7e",
+      "oracle": "tokens",
+      "oracleId": "JRT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "solidlizard-weth-usdc",
     "address": "0xe20F93279fF3538b1ad70D11bA160755625e3400",
     "gauge": "0x0322CEbACF1f235913bE3FCE407F9F81632ede8B",

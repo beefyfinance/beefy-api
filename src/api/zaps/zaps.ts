@@ -212,7 +212,7 @@ function markTokenUnsupported(
 ) {
   const vaultsToMark = tokenAddressToVaults[tokenAddress];
   if (!vaultsToMark || !vaultsToMark.length) {
-    console.warn(`markTokenUnsupported: No vaults found for token ${tokenAddress}: ${reason}`);
+    // console.warn(`markTokenUnsupported: No vaults found for token ${tokenAddress}: ${reason}`);
     return;
   }
 
