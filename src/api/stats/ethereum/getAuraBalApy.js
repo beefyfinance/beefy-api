@@ -57,7 +57,7 @@ const getYearlyRewardsInUsd = async () => {
   const bbaUSDVirtualGauge = getContractWithProvider(IAuraGauge, bbaUSDVirtualGaugeAddress, web3);
   const bbaUSDRewardRate = new BigNumber(await bbaUSDVirtualGauge.methods.rewardRate().call());
   const auraData = await getAuraData();
-  const yearlyRewards = balRewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
+  const yearlyRewards = balRewardRate.times(86_400 * 365);
 
   let auraYearlyRewards = yearlyRewards.times(auraData[0]).dividedBy(auraData[1]);
   // e.g. amtTillMax = 5e25 - 1e25 = 4e25
@@ -66,7 +66,7 @@ const getYearlyRewardsInUsd = async () => {
     auraYearlyRewards = auraData[2];
   }
 
-  let bbausdYearlyRewards = bbaUSDRewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
+  let bbausdYearlyRewards = bbaUSDRewardRate.times(86_400 * 365);
 
   const balYearlyRewardsInUsd = yearlyRewards.times(balPrice).dividedBy(DECIMALS);
   const auraYearlyRewardsInUsd = auraYearlyRewards.times(auraPrice).dividedBy(DECIMALS);
