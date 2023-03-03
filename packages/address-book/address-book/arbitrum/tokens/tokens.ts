@@ -501,6 +501,30 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://learn.jarvis.network/',
   },
+  jEUR: {
+    name: 'Jarvis Synthetic Euro',
+    symbol: 'jEUR',
+    address: '0xAD435674417520aeeED6b504bBe654d4f556182F',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
+    logoURI: '',
+    documentation: 'https://learn.jarvis.network/',
+  },
+  'USD+': {
+    name: 'USD+ Stablecoin',
+    symbol: 'USD+',
+    address: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
+    chainId: 42161,
+    decimals: 6,
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

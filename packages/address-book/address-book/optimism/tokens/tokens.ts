@@ -74,6 +74,7 @@ const _tokens = {
     description:
       'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
     logoURI: 'https://i.imgur.com/ZvP634G.png',
+    documentation: 'https://learn.jarvis.network/',
   },
   HOP: {
     name: 'HOP Protocol',
