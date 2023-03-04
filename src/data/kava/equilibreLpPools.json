@@ -1,0 +1,62 @@
+[
+  {
+    "name": "equilibre-vara-usdc",
+    "address": "0x9bf1E3ee61cBe5C61E520c8BEFf45Ed4D8212a9A",
+    "gauge": "0xA250a3b6a5e5E8b398092537951F8Bd80639ed5c",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xE1da44C0dA55B075aE8E2e4b6986AdC76Ac77d73",
+      "oracle": "tokens",
+      "oracleId": "VARA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equilibre-wkava-usdc",
+    "address": "0x5C27a0D0e6d045b5113D728081268642060f7499",
+    "gauge": "0x50CD5B513999b81dC3f4b70595629F7Cb92FCd32",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+      "oracle": "tokens",
+      "oracleId": "WKAVA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equilibre-bifi-wkava",
+    "address": "0xf96b58442cCb7D1f0889efb5120B428e3DD56C6f",
+    "gauge": "0x1869f0d5AE7874344C34A343B0131802677Dc72C",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+      "oracle": "tokens",
+      "oracleId": "WKAVA",
+      "decimals": "1e18"
+    }
+  }
+]

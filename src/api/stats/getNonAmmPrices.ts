@@ -25,6 +25,7 @@ import getBeetsOPPrices from './optimism/getBeetsOPPrices';
 import getBalancerArbPrices from './arbitrum/getBalancerArbPrices';
 import getBalancerPolyPrices from './matic/getBalancerPolyPrices';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
+import getEquilibreStablePrices from './kava/getEquilibreStablePrices';
 import getDystopiaStablePrices from './matic/getDystopiaStablePrices';
 import getSolidlyV1StablePrices from './fantom/getSolidlyV1StablePrices';
 import getVoltagePrices from './fuse/getVoltagePrices';
@@ -70,6 +71,7 @@ const getNonAmmPrices = async tokenPrices => {
   let breakdown = {};
 
   const promises = [
+    getEquilibreStablePrices(tokenPrices),
     getVelocimeterStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
     getCantoStablePrices(tokenPrices),

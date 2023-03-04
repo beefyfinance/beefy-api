@@ -33,9 +33,19 @@ const {
   canto: {
     platforms: { velocimeter },
   },
+  kava: {
+    platforms: { equilibre },
+  },
 } = addressBook;
 
 const projects = {
+  equilibre: {
+    prefix: 'equilibre',
+    stableFile: '../src/data/kava/equilibreStableLpPools.json',
+    volatileFile: '../src/data/kava/equilibreLpPools.json',
+    // voter: equilibre.voter, // still not in ab
+    voter: '0x4eB2B9768da9Ea26E3aBe605c9040bC12F236a59',
+  },
   velodrome: {
     prefix: 'velodrome',
     stableFile: '../src/data/optimism/velodromeStableLpPools.json',
