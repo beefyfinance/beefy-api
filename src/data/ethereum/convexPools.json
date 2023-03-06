@@ -1,5 +1,49 @@
 [
   {
+    "name": "convex-cnc",
+    "pool": "0x838af967537350D2C44ABB8c010E49E32673ab94",
+    "token": "0xF9835375f6b268743Ea0a54d742Aa156947f8C06",
+    "volatile": true,
+    "rewardPool": "0x1A3c8B2F89B1C2593fa46C30ADA0b4E3D0133fF8",
+    "extras": [
+      {
+        "rewardPool": "0xB83607472704FE3bCf6165EB6ff1941722b3C8B6",
+        "oracleId": "CNC"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "CNC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-stg",
+    "pool": "0x3211C6cBeF1429da3D0d58494938299C92Ad5860",
+    "token": "0xdf55670e27bE5cDE7228dD0A6849181891c9ebA1",
+    "volatile": true,
+    "rewardPool": "0x17E3Bc273cFcB972167059E55104DBCC8f8431bE",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "convex-ldo",
     "pool": "0x9409280DC1e6D33AB7A8C6EC03e5763FB61772B5",
     "token": "0xb79565c01b7Ae53618d9B847b9443aAf4f9011e7",
@@ -160,6 +204,25 @@
       {
         "oracle": "tokens",
         "oracleId": "sBTC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-reth",
+    "pool": "0x0f3159811670c117c372428D4E69AC32325e4D0F",
+    "token": "0x6c38cE8984a890F5e46e6dF6117C26b3F1EcfC9C",
+    "volatile": true,
+    "rewardPool": "0x65C8aa24db76e870DEDfC35701eff84de405D1ba",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
         "decimals": "1e18"
       }
     ]

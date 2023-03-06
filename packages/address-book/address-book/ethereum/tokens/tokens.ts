@@ -42,6 +42,30 @@ const _tokens = {
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
   },
+  STG: {
+    name: 'Stargate',
+    symbol: 'STG',
+    address: '0xAf5191B0De278C7286d6C7CC6ab6BB8A73bA2Cd6',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+  },
+  CNC: {
+    name: 'Conin Finance Token',
+    symbol: 'CNC',
+    address: '0x9aE380F0272E2162340a5bB646c354271c0F5cFC',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://conic.finance/',
+    description:
+      'Conic Finance is an easy-to-use platform built for liquidity providers to easily diversify their exposure to multiple Curve pools. Any user can provide liquidity into a Conic Omnipool which allocates funds across Curve in proportion to protocol controlled pool weights.',
+    documentation: 'https://docs.conic.finance/conic-finance/',
+  },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
     symbol: 'wstETH',

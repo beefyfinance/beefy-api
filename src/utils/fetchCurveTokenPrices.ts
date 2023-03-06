@@ -10,6 +10,16 @@ import { getContract } from './contractHelper';
 const tokens = {
   ethereum: [
     {
+      oracleId: 'CNC',
+      decimals: '1e18',
+      index0: 1,
+      index1: 0,
+      minter: '0x838af967537350D2C44ABB8c010E49E32673ab94',
+      secondToken: 'ETH',
+      secondTokenDecimals: '1e18',
+      abi: ICurvePoolV2,
+    },
+    {
       oracleId: 'GEAR',
       decimals: '1e18',
       index0: 0,
