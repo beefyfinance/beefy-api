@@ -1,5 +1,32 @@
 [
   {
+    "name": "balancer-usdc-wusdr",
+    "address": "0x34A81e8956BF20b7448b31990A2c06F96830a6e4",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x11F6b6fC8f652aF0a0cE411c01AEAe8536Fb836D",
+    "vaultPoolId": "0x34a81e8956bf20b7448b31990a2c06f96830a6e4000200000000000000000a14",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x894ed67ee37469Ac5c8B911408f07C310D75f122",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wUSDR",
+        "decimals": "1e9"
+      }
+    ]
+  },
+  {
     "name": "balancer-jeur-ageur",
     "address": "0xa48D164F6eB0EDC68bd03B56fa59E12F24499aD1",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

@@ -1754,6 +1754,18 @@ const _tokens = {
     logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
     documentation: 'https://brztoken.io/files/white_paper_BRZ_2023.pdf',
   },
+  wUSDR: {
+    name: 'Real USD',
+    symbol: 'wUSDR',
+    address: '0xAF0D9D65fC54de245cdA37af3d18cbEc860A4D4b',
+    chainId: 137,
+    decimals: 9,
+    website: 'https://www.tangible.store/realusd',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders. The token on BNB Chain is bridged via Multichain from Polygon.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
