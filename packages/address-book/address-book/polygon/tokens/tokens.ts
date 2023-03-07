@@ -28,6 +28,18 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  wstETH: {
+    name: 'Lido Wrapped Staked ETH',
+    symbol: 'wstETH',
+    address: '0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    logoURI: '',
+    documentation: 'https://docs.lido.fi/',
+  },
   MVX: {
     name: 'MVX',
     address: '0x2760E46d9BB43dafCbEcaad1F64b93207f9f0eD7',

@@ -85,16 +85,44 @@ const getPoolApy = async pool => {
     getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(chainId)), pool),
     getTotalStakedInUsd(web3, pool),
   ]);
+
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   let aprFixed = 0;
-  if (pool.lidoUrl) {
-    const response = await fetch(pool.lidoUrl).then(res => res.json());
-    const apr = response.apr;
-    pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
-  } else if (pool.staderUrl) {
-    const response = await fetch(pool.staderUrl).then(res => res.json());
-    const apr = response.value;
-    pool.balancerChargesFee ? (aprFixed = apr / 100 / 4) : (aprFixed = apr / 100 / 2);
+  if (pool.lidoUrl || pool.staderUrl) {
+    const balVault = getContractWithProvider(IBalancerVault, balancer.router, web3);
+    const tokenQtys = await balVault.methods.getPoolTokens(pool.vaultPoolId).call();
+
+    let qty = [];
+    let totalQty = new BigNumber(0);
+    for (let j = 0; j < tokenQtys.balances.length; j++) {
+      if (pool.composable) {
+        if (pool.bptIndex == j) {
+          continue;
+        }
+      }
+
+      const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
+      const amt = new BigNumber(tokenQtys.balances[j])
+        .times(price)
+        .dividedBy([pool.tokens[j].decimals]);
+      totalQty = totalQty.plus(amt);
+      qty.push(amt);
+    }
+
+    if (pool.lidoUrl) {
+      const response = await fetch(pool.lidoUrl).then(res => res.json());
+      const apr = pool.wsteth ? response.data.steth : response.apr;
+      pool.balancerChargesFee
+        ? (aprFixed = (apr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100 / 2)
+        : (aprFixed = (apr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100);
+    } else if (pool.staderUrl) {
+      const response = await fetch(pool.staderUrl).then(res => res.json());
+      const apr = response.value;
+
+      pool.balancerChargesFee
+        ? (aprFixed = (apr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100 / 2)
+        : (aprFixed = (apr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100);
+    }
   }
 
   let bbaUSDApy = await getComposableAaveYield();
