@@ -167,7 +167,7 @@ const chains = [
   {
     chainId: CANTO_CHAIN_ID,
     vaultsEndpoint: CANTO_VAULTS_ENDPOINT,
-    //  governancePool: require('../../data/canto/governancePool.json'),
+    governancePool: require('../../data/canto/governancePool.json'),
   },
 ];
 

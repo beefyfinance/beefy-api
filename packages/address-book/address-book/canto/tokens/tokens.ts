@@ -18,6 +18,19 @@ const _tokens = {
   CANTO,
   WCANTO: CANTO,
   WNATIVE: CANTO,
+  BIFI: {
+    name: 'Beefy.Finance',
+    symbol: 'BIFI',
+    address: '0x765277EebeCA2e31912C9946eAe1021199B39C61',
+    chainId: 7700,
+    decimals: 18,
+    website: 'https://www.beefy.finance/',
+    documentation: 'https://docs.beefy.finance/',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
+  },
   ATOM: {
     name: 'Cosmos Token',
     symbol: 'ATOM',

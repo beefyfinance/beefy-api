@@ -1,0 +1,9 @@
+{
+  "name": "canto-bifi-gov",
+  "address": "0x448423356726dd7dC168e714C80adDb077f83738",
+  "tokenAddress": "0x765277EebeCA2e31912C9946eAe1021199B39C61",
+  "tokenDecimals": 1e18,
+  "oracle": "tokens",
+  "oracleId": "BIFI",
+  "exclude": {}
+}
