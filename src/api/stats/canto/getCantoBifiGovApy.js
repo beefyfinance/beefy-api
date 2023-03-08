@@ -26,7 +26,7 @@ const getCantoBifiGovApy = async () => {
     getTotalStakedInUsd(),
   ]);
 
-  const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).dividedBy(3);
+  const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 
   return {
     apys: {
