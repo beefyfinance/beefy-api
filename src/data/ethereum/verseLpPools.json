@@ -1,5 +1,43 @@
 [
   {
+    "name": "verse-wbtc-usdc",
+    "address": "0xF3f82bC165a83425e81b8f2858D786E41ab21671",
+    "rewardPool": "0x4BA48Df24008429aE9140A01e0D002F5FA6A125D",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp0": {
+      "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "verse-wbtc-weth",
+    "address": "0xeaCADc656c9394fb09af25AeBc0897fDfFe484A1",
+    "rewardPool": "0x4efff28192029bdb1Ac027c53674721875DA6B10",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp0": {
+      "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "verse-dai-weth",
     "address": "0x682831244b0E97946ABC52Cb1893Cce398De3A35",
     "rewardPool": "0xdd5a9EEc299b74B2db2D3430608c1c5A8d9598eb",
