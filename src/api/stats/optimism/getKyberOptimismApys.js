@@ -6,15 +6,10 @@ const pools = require('../../../data/optimism/kyberLpPools.json');
 
 const getKyberOptimismApys = async () => {
   return getKyberLpV2Apys({
-    masterchef: '0x715Cc6C0d591CA3FA8EA6e4Cb445adA0DC79069A',
     web3: web3,
     chainId: chainId,
     pools: pools,
     abi: ABI,
-    v2: true,
-    reward: 'OP',
-    rewardIndex: '0',
-    kncIndex: '1',
     // log: true,
   });
 };

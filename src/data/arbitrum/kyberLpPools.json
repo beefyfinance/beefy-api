@@ -2,6 +2,7 @@
   {
     "name": "kyber-arbitrum-usdc-mai",
     "address": "0x6A4D5F8385Ff6E7fC4EBf6F726e12A958dAA1cba",
+    "fairLaunch": "0xE8144386BF00f168ed7a0E0D821AC18e02a461BA",
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 42161,

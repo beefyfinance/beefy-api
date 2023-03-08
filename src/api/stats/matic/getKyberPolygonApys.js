@@ -6,7 +6,6 @@ const pools = require('../../../data/matic/kyberV2LpPools.json');
 
 const getKyberPolygonApys = async () => {
   return getKyberLpV2Apys({
-    masterchef: '0xFFD22921947D75342BFE1f8efAcEE4B8B3b5183F',
     web3: web3,
     chainId: chainId,
     pools: pools,

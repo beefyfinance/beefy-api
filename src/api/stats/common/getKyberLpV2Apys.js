@@ -45,14 +45,14 @@ const getAprs = async params => {
     const secondsPerYear = 31536000;
     let yearlyRewardsInUsd = new BigNumber(0);
     if (endTimes[i] > Date.now() / 1000) {
-      const yearlyRewards = params.v2
-        ? new BigNumber(rewardRates[i][params.kncIndex]).times(secondsPerYear)
+      const yearlyRewards = pool.v2
+        ? new BigNumber(rewardRates[i][pool.kncIndex]).times(secondsPerYear)
         : new BigNumber(rewardRates[i]).times(secondsPerYear);
       yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 
-      if (params.reward) {
-        const rewardPrice = await fetchPrice({ oracle: 'tokens', id: params.reward });
-        const yearlyRewardsExtra = new BigNumber(rewardRates[i][params.rewardIndex]).times(
+      if (pool.rewards) {
+        const rewardPrice = await fetchPrice({ oracle: 'tokens', id: pool.rewards[0].oracleId });
+        const yearlyRewardsExtra = new BigNumber(rewardRates[i][pool.rewardIndex]).times(
           secondsPerYear
         );
         yearlyRewardsInUsd = yearlyRewardsInUsd.plus(
@@ -79,16 +79,15 @@ const getAprs = async params => {
 };
 
 const getPoolsData = async params => {
-  const masterchefContract = getContract(params.abi, params.masterchef);
   const multicall = new MultiCall(params.web3, multicallAddress(params.chainId));
-
   const balanceCalls = [];
   const poolInfoCalls = [];
   const tradingFeeCalls = [];
   params.pools.forEach(pool => {
+    const masterchefContract = getContract(params.abi, pool.fairLaunch);
     const tokenContract = getContract(DMMPool, pool.address);
     balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(params.masterchef),
+      balance: tokenContract.methods.balanceOf(pool.fairLaunch),
     });
     poolInfoCalls.push({
       poolInfo: masterchefContract.methods.getPoolInfo(pool.poolId),

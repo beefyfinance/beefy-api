@@ -2,9 +2,19 @@
   {
     "name": "kyber-optimism-usdc-mai",
     "address": "0xC2995a065106b5c5c738B2320387460eBd12c12D",
+    "fairLaunch": "0x715Cc6C0d591CA3FA8EA6e4Cb445adA0DC79069A",
     "decimals": "1e18",
     "poolId": 0,
+    "v2": true,
+    "rewardIndex": 0,
+    "kncIndex": 1,
     "chainId": 10,
+    "rewards": [
+      {
+        "oracleId": "OP",
+        "decimals": 1e18
+      }
+    ],
     "lp0": {
       "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
       "oracle": "tokens",

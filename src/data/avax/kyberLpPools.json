@@ -2,9 +2,19 @@
   {
     "name": "kyber-avax-usdc-mai",
     "address": "0xC2995a065106b5c5c738B2320387460eBd12c12D",
+    "fairLaunch": "0xF2D574807624bdAd750436AfA940563c5fa34726",
     "decimals": "1e18",
     "poolId": 0,
+    "v2": true,
+    "rewardIndex": 1,
+    "kncIndex": 0,
     "chainId": 43114,
+    "rewards": [
+      {
+        "oracleId": "AVAX",
+        "decimals": 1e18
+      }
+    ],
     "lp0": {
       "address": "0x5c49b268c9841AFF1Cc3B0a418ff5c3442eE3F3b",
       "oracle": "tokens",

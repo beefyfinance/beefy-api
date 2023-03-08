@@ -2,6 +2,7 @@
   {
     "name": "kyber-usdc-mai",
     "address": "0x8Eed28c5353987B9e679899c2A047434e600DCeD",
+    "fairLaunch": "0xFFD22921947D75342BFE1f8efAcEE4B8B3b5183F",
     "decimals": "1e18",
     "poolId": 0,
     "chainId": 137,
@@ -15,6 +16,35 @@
       "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
       "oracle": "tokens",
       "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "kyber-wsteth-eth",
+    "address": "0xAb08b0C9DADC343d3795dAE5973925c3b6e39977",
+    "fairLaunch": "0x0bAF410dcfCf168f659f46bF1e28D29f68a25E77",
+    "decimals": "1e18",
+    "poolId": 0,
+    "v2": true,
+    "kncIndex": 0,
+    "rewardIndex": 1,
+    "chainId": 137,
+    "rewards": [
+      {
+        "oracleId": "LDO",
+        "decimals": 1e18
+      }
+    ],
+    "lp0": {
+      "address": "0x03b54A6e9a984069379fae1a4fC4dBAE93B3bCCD",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "ETH",
       "decimals": "1e18"
     }
   }
