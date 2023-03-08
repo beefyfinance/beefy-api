@@ -7,6 +7,7 @@ import { MULTICHAIN_ENDPOINTS } from '../../constants';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { ApiChain, isApiChain } from '../../utils/chain';
 import { TokenEntity, TokenErc20, TokenNative } from './types';
+import { mapValues } from 'lodash';
 
 const tokensByChain: Partial<Record<ApiChain, ChainTokens>> = {};
 
@@ -23,6 +24,13 @@ export function getTokenByAddress(address: string, chainId: ApiChain): TokenEnti
 
 export function getTokensForChain(chainId: ApiChain): Record<string, TokenEntity> {
   return tokensByChain[chainId]?.byAddress || {};
+}
+
+export function getTokensForChainById(chainId: ApiChain): Record<string, TokenEntity> | undefined {
+  const idMap = tokensByChain[chainId]?.byId;
+  if (idMap) {
+    return mapValues(idMap, address => getTokenByAddress(address, chainId));
+  }
 }
 
 export function getAllTokensByChain(): Partial<Record<ApiChain, ChainTokens>> {

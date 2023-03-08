@@ -1,4 +1,4 @@
-import { getAllTokensByChain, getTokensForChain } from './tokens';
+import { getAllTokensByChain, getTokensForChainById } from './tokens';
 import { isApiChain } from '../../utils/chain';
 import { mapValues } from 'lodash';
 
@@ -18,7 +18,7 @@ export const getTokens = ctx => {
 export const getChainTokens = ctx => {
   const chainId = ctx.params.chainId;
   if (isApiChain(chainId)) {
-    const chainTokens = getTokensForChain(ctx.params.chainId);
+    const chainTokens = getTokensForChainById(ctx.params.chainId);
     if (chainTokens) {
       ctx.status = 200;
       ctx.body = chainTokens;
