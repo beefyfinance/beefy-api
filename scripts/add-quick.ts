@@ -8,6 +8,7 @@ import { ethers } from 'ethers';
 import { MULTICHAIN_RPC } from '../src/constants';
 
 import rewardPoolABI from '../src/abis/IStakingRewards.json';
+import simpleFarmABI from '../src/abis/ISimpleFarm.json';
 import LPPairABI from '../src/abis/LPPair.json';
 import ERC20ABI from '../src/abis/ERC20.json';
 
@@ -23,6 +24,10 @@ const projects = {
   fusefi: {
     prefix: 'fusefi',
     file: '../src/data/fuse/fusefiLpPools.json',
+  },
+  verse: {
+    prefix: 'verse',
+    file: '../src/data/ethereum/verseLpPools.json',
   },
 };
 
@@ -56,8 +61,14 @@ const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
 
 async function fetchRewardPool(rewardPool) {
   console.log(`fetchRewardPool(${rewardPool})`);
-  const rewardPoolContract = new ethers.Contract(rewardPool, rewardPoolABI, provider);
-  const stakingToken = await rewardPoolContract.stakingToken();
+  const rewardPoolContract =
+    poolPrefix == 'verse'
+      ? new ethers.Contract(rewardPool, simpleFarmABI, provider)
+      : new ethers.Contract(rewardPool, rewardPoolABI, provider);
+  const stakingToken =
+    poolPrefix == 'verse'
+      ? await rewardPoolContract.stakeToken()
+      : await rewardPoolContract.stakingToken();
   return {
     lpToken: stakingToken,
   };
@@ -87,6 +98,7 @@ async function fetchToken(tokenAddress) {
     logoURI: ``,
     website: '',
     description: '',
+    documentation: '',
   };
   console.log({ [token.symbol]: token }); // Prepare token data for address-book
   return token;

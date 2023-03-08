@@ -8,6 +8,7 @@ const { getSynapseLpApys } = require('./getSynapseLpApys');
 const getSolidlyApys = require('./getSolidlyApys');
 const { getConvexCrvApy } = require('./getConvexCrvApy');
 const getEulerApys = require('./getEulerApys');
+const { getVerseLpApys } = require('./getVerseApys');
 
 const getApys = [
   getAuraApys,
@@ -20,6 +21,7 @@ const getApys = [
   getSynapseLpApys,
   getSolidlyApys,
   getEulerApys,
+  getVerseLpApys,
 ];
 
 const getEthereumApys = async () => {

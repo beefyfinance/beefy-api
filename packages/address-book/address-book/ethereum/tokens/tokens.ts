@@ -864,6 +864,18 @@ const _tokens = {
     description:
       'Balancer composable pool that consist of bbeUSDT, bbeUSDC, and bbeDAI. bbTokens are Euler boosted linear pools.',
   },
+  VERSE: {
+    name: 'Verse',
+    symbol: 'VERSE',
+    address: '0x249cA82617eC3DfB2589c4c17ab7EC9765350a18',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://verse.bitcoin.com/',
+    description:
+      'At Bitcoin.com our mission is to create more economic freedom in the world. We define economic freedom as the ability to make choices with respect to one’s personal resources, unencumbered by trusted third parties or borders or lack of access. We believe economic freedom is the foundation of peace and prosperity, and by creating more of it for people, we are reducing suffering in the world. We strive to help everyone, everywhere be more economically free.',
+    documentation: 'https://www.getverse.com/verse-whitepaper.pdf',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

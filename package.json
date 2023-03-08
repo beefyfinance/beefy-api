@@ -19,6 +19,7 @@
     "addSolidly": "ts-node scripts/add-solidly.ts",
     "check-oracles": "ts-node scripts/check-oracles.ts",
     "mainnet:sushi:add": "ts-node scripts/add-farm.ts --network ethereum --project sushi --newFee true --pool",
+    "mainnet:verse:add": "ts-node scripts/add-quick.ts --network ethereum --project verse --pool",
     "arbitrum:solidlizard:add": "ts-node scripts/add-solidly.ts --network arbitrum --project solidlizard --newFee true --lp",
     "bsc:pancake:add": "ts-node scripts/add-sushi.ts --network bsc --project pancake --newFee true",
     "bsc:ape:add": "ts-node scripts/add-farm.ts --network bsc --project ape",

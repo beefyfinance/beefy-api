@@ -267,6 +267,7 @@ import cantoLpPools from '../../data/canto/cantoLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
 import velocimeterPools from '../../data/canto/velocimeterLpPools.json';
 import equilibrePools from '../../data/kava/equilibreLpPools.json';
+import versePools from '../../data/ethereum/verseLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 
@@ -276,6 +277,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...versePools,
   ...equilibrePools,
   ...velocimeterPools,
   ...solidLizardPools,
