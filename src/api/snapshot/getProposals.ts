@@ -1,4 +1,4 @@
-import { getKey, setKey } from '../../utils/redisHelper';
+import { getKey, setKey } from '../../utils/cache';
 import { Cached, CachedProposals, CachedSpace, isCachedSpace, Proposal, Proposals } from './types';
 import { getSnapshotApi } from './getSnapshotApi';
 import { isBefore, sub } from 'date-fns';
@@ -24,7 +24,7 @@ async function getCachedSpace(): Promise<CachedSpace | null> {
 }
 
 async function getCachedProposals(): Promise<CachedProposals | null> {
-  const value = await getKey(CACHE_KEY_PROPOSAL);
+  const value = await getKey<CachedProposals>(CACHE_KEY_PROPOSAL);
   return value && value.proposals ? value : null;
 }
 

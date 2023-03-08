@@ -26,6 +26,7 @@
     "checkJs": false,
     "resolveJsonModule": true,
 
-    "strict": false
+    "strict": false,
+    "noErrorTruncation": true
   }
 }

@@ -61,7 +61,7 @@ const {
   ETH_CHAIN_ID,
   ETHEREUM_VAULTS_ENDPOINT,
 } = require('../../constants');
-const { getKey, setKey } = require('../../utils/redisHelper.js');
+const { getKey, setKey } = require('../../utils/cache');
 
 const INIT_DELAY = 40 * 1000;
 const REFRESH_INTERVAL = 15 * 60 * 1000;
@@ -171,6 +171,8 @@ const chains = [
   },
 ];
 
+const CACHE_KEY = 'TVL';
+
 const getTvl = () => {
   return tvl;
 };
@@ -204,14 +206,14 @@ const updateTvl = async () => {
 };
 
 const initTvlService = async () => {
-  const cachedTvl = await getKey('TVL');
+  const cachedTvl = await getKey(CACHE_KEY);
   tvl = cachedTvl ?? {};
 
   setTimeout(updateTvl, INIT_DELAY);
 };
 
 const saveToRedis = async () => {
-  await setKey('', tvl);
+  await setKey(CACHE_KEY, tvl);
 };
 
 module.exports = { getTvl, initTvlService };

@@ -2,7 +2,7 @@ const { BigNumber, ethers } = require('ethers');
 const { BSC_RPC, BSC_CHAIN_ID } = require('../constants');
 const ERC20 = require('../abis/ERC20.json');
 const getBlockNumber = require('../utils/getBlockNumber');
-const { sleep } = require('../utils/time');
+const { sleep } = require('./time');
 
 const QUERY_RANGE = 100;
 

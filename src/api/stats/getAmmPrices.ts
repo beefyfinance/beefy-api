@@ -13,12 +13,12 @@ import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
 import { fetchKyberTokenPrices } from '../../utils/fetchKyberTokenPrices';
 import { fetchsfrxEthPrice } from '../../utils/fetchsfrxEthPrice';
 import {
-  fetchBalancerStablePoolPrice,
   fetchBalancerLinearPoolPrice,
+  fetchBalancerStablePoolPrice,
 } from '../../utils/fetchBalancerStablePoolPrices';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
 import { fetchCurrencyPrices } from '../../utils/fetchCurrencyPrices';
-import { getKey, setKey } from '../../utils/redisHelper';
+import { getKey, setKey } from '../../utils/cache';
 
 import getNonAmmPrices from './getNonAmmPrices';
 import bakeryPools from '../../data/bakeryLpPools.json';
@@ -270,6 +270,9 @@ import equilibrePools from '../../data/kava/equilibreLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
+import { sleep } from '../../utils/time';
+import { isFiniteNumber } from '../../utils/number';
+import { serviceEventBus } from '../../utils/ServiceEventBus';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -587,112 +590,120 @@ const knownPrices = {
   'DAI+': 1,
 };
 
-let tokenPricesCache: Promise<any>;
-let lpPricesCache: Promise<any>;
-let lpBreakdownCache: Promise<any>;
+type LpBreakdown = {
+  price: number;
+  tokens: string[];
+  balances: string[];
+  totalSupply: string;
+};
+type PricesById = Record<string, number>;
+type BreakdownsById = Record<string, LpBreakdown>;
 
-const updateAmmPrices = async () => {
-  console.log('> updating amm prices');
-  let start = Date.now();
-  try {
-    const coinGeckoPrices = async () => {
-      const prices = await fetchCoinGeckoPrices(coinGeckoCoins);
-      return {
-        OP: prices['optimism'],
-        EURS: prices['stasis-eurs'],
-        EURt: prices['tether-eurt'],
-        PAR: prices['par-stablecoin'],
-        jEUR: prices['jarvis-synthetic-euro'],
-        EURe: prices['monerium-eur-money'],
-        JPYC: prices['jpyc'],
-        jJPY: prices['jpyc'],
-        CADC: prices['cad-coin'],
-        jCAD: prices['cad-coin'],
-        XSGD: prices['xsgd'],
-        jSGD: prices['xsgd'],
-        USDB: prices['usd-balance'],
-        GEL: prices['gelato'],
-        PERP: prices['perpetual-protocol'],
-        sUSD: prices['nusd'],
-        LYRA: prices['lyra-finance'],
-        LUSD: prices['liquity-usd'],
-        sETH: prices['seth'],
-        alUSD: prices['alchemix-usd'],
-        alETH: prices['ethereum'],
-        rETH: prices['rocket-pool-eth'],
-        wstETH: prices['wrapped-steth'],
-        KAVA: prices['kava'],
-        WKAVA: prices['kava'],
-        AURA: prices['aura-finance'],
-        cvxCRV: prices['convex-crv'],
-        hETH: prices['ethereum'],
-        hUSDC: prices['usd-coin'],
-        hUSDT: prices['tether'],
-        hDAI: prices['dai'],
-        hSNX: prices['havven'],
-        auraBAL: prices['aura-bal'],
-        BAL: prices['balancer'],
-        cbETH: prices['coinbase-wrapped-staked-eth'],
-        OPX: prices['opx-finance'],
-        beOPX: prices['opx-finance'],
-        DOLA: prices['dola-usd'],
-        ACX: prices['across-protocol'],
-        MVX: prices['metavault-trade'],
-        sEUR: prices['seur'],
-        EUL: prices['euler'],
-        axlUSDC: prices['axlusdc'],
-        MIMO: prices['mimo-parallel-governance-token'],
-      };
+const cachedTokenPrices: PricesById = {};
+const cachedLpPrices: PricesById = {};
+const cachedAllPrices: PricesById = {};
+const cachedLpBreakdowns: BreakdownsById = {};
+
+const performUpdateAmmPrices = async () => {
+  const coinGeckoPrices = async () => {
+    const prices = await fetchCoinGeckoPrices(coinGeckoCoins);
+    return {
+      OP: prices['optimism'],
+      EURS: prices['stasis-eurs'],
+      EURt: prices['tether-eurt'],
+      PAR: prices['par-stablecoin'],
+      jEUR: prices['jarvis-synthetic-euro'],
+      EURe: prices['monerium-eur-money'],
+      JPYC: prices['jpyc'],
+      jJPY: prices['jpyc'],
+      CADC: prices['cad-coin'],
+      jCAD: prices['cad-coin'],
+      XSGD: prices['xsgd'],
+      jSGD: prices['xsgd'],
+      USDB: prices['usd-balance'],
+      GEL: prices['gelato'],
+      PERP: prices['perpetual-protocol'],
+      sUSD: prices['nusd'],
+      LYRA: prices['lyra-finance'],
+      LUSD: prices['liquity-usd'],
+      sETH: prices['seth'],
+      alUSD: prices['alchemix-usd'],
+      alETH: prices['ethereum'],
+      rETH: prices['rocket-pool-eth'],
+      wstETH: prices['wrapped-steth'],
+      KAVA: prices['kava'],
+      WKAVA: prices['kava'],
+      AURA: prices['aura-finance'],
+      cvxCRV: prices['convex-crv'],
+      hETH: prices['ethereum'],
+      hUSDC: prices['usd-coin'],
+      hUSDT: prices['tether'],
+      hDAI: prices['dai'],
+      hSNX: prices['havven'],
+      auraBAL: prices['aura-bal'],
+      BAL: prices['balancer'],
+      cbETH: prices['coinbase-wrapped-staked-eth'],
+      OPX: prices['opx-finance'],
+      beOPX: prices['opx-finance'],
+      DOLA: prices['dola-usd'],
+      ACX: prices['across-protocol'],
+      MVX: prices['metavault-trade'],
+      sEUR: prices['seur'],
+      EUL: prices['euler'],
+      axlUSDC: prices['axlusdc'],
+      MIMO: prices['mimo-parallel-governance-token'],
     };
+  };
 
-    const currencyPrices = async () => {
-      const prices = await fetchCurrencyPrices(currencies);
-      return {
-        CAD: prices['cad'],
-      };
+  const currencyPrices = async () => {
+    const prices = await fetchCurrencyPrices(currencies);
+    return {
+      CAD: prices['cad'],
     };
+  };
 
-    const ammPrices = fetchAmmPrices(pools, knownPrices).then(prices => {
-      //Set prices for the wrapped version of native tokens (if native was set)
-      const nativeTokens = new Set(
-        Object.values(addressBookByChainId).map(addressbook =>
-          addressbook.tokens.WNATIVE.symbol.slice(1)
-        )
-      );
-      nativeTokens.forEach(nativeToken => {
-        if (prices.tokenPrices.hasOwnProperty(nativeToken))
-          prices.tokenPrices[`W${nativeToken}`] = prices.tokenPrices[nativeToken];
-      });
-      return prices;
+  const ammPrices = fetchAmmPrices(pools, knownPrices).then(prices => {
+    //Set prices for the wrapped version of native tokens (if native was set)
+    const nativeTokens = new Set(
+      Object.values(addressBookByChainId).map(addressbook =>
+        addressbook.tokens.WNATIVE.symbol.slice(1)
+      )
+    );
+    nativeTokens.forEach(nativeToken => {
+      if (prices.tokenPrices.hasOwnProperty(nativeToken))
+        prices.tokenPrices[`W${nativeToken}`] = prices.tokenPrices[nativeToken];
     });
+    return prices;
+  });
 
-    const curveTokenPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
-      return await fetchCurveTokenPrices(tokenPrices);
-    });
+  const curveTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchCurveTokenPrices(tokenPrices);
+  });
 
-    const kyberTokenPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
-      return await fetchKyberTokenPrices(tokenPrices);
-    });
+  const kyberTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchKyberTokenPrices(tokenPrices);
+  });
 
-    const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
+  const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
-    const xPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
-      return await fetchXPrices(tokenPrices);
-    });
+  const xPrices = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchXPrices(tokenPrices);
+  });
 
-    const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
-      return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
-    });
+  const mooPrices = ammPrices.then(async ({ poolPrices, tokenPrices }) => {
+    return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
+  });
 
-    const beFtmPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
-      return await fetchbeFTMPrice(tokenPrices);
-    });
+  const beFtmPrice = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchbeFTMPrice(tokenPrices);
+  });
 
-    const sfrxEthPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
-      return await fetchsfrxEthPrice(tokenPrices);
-    });
+  const sfrxEthPrice = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchsfrxEthPrice(tokenPrices);
+  });
 
-    const linearPoolPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
+  const linearPoolPrice = ammPrices.then(
+    async ({ tokenPrices }): Promise<Record<string, number>> => {
       const jbrlTokenPrice = await fetchJbrlPrice(tokenPrices);
       const yVaultPrices = await fetchyVaultPrices(tokenPrices);
       const vaultPrices = await fetchVaultPrices(tokenPrices);
@@ -718,112 +729,166 @@ const updateAmmPrices = async () => {
         ...jbrlTokenPrice,
         ...yVaultPrices,
       };
-    });
+    }
+  );
 
-    const beTokenPrice = ammPrices.then(async ({ poolPrices, tokenPrices, _ }) => {
-      return {
-        beJOE: tokenPrices['JOE'],
-        beQI: tokenPrices['QI'],
-        beCAKE: tokenPrices['Cake'],
-        beVelo: tokenPrices['BeVELO'],
-      };
-    });
+  const beTokenPrice = ammPrices.then(async ({ tokenPrices }) => {
+    return {
+      beJOE: tokenPrices['JOE'],
+      beQI: tokenPrices['QI'],
+      beCAKE: tokenPrices['Cake'],
+      beVelo: tokenPrices['BeVELO'],
+    };
+  });
 
-    const tokenPrices = ammPrices.then(async ({ _, tokenPrices, __ }) => {
-      const dmm = await dmmPrices;
-      const curvePrices = await curveTokenPrices;
-      const kyberPrices = await kyberTokenPrices;
-      const xTokenPrices = await xPrices;
-      const mooTokenPrices = await mooPrices;
-      const beFtmTokenPrice = await beFtmPrice;
-      const sfrxEthTokenPrice = await sfrxEthPrice;
-      const beTokenTokenPrice = await beTokenPrice;
-      const linearPoolTokenPrice = await linearPoolPrice;
-      return {
-        ...tokenPrices,
-        ...dmm.tokenPrices,
-        ...mooTokenPrices,
-        ...xTokenPrices,
-        ...beFtmTokenPrice,
-        ...beTokenTokenPrice,
-        ...sfrxEthTokenPrice,
-        ...curvePrices,
-        ...kyberPrices,
-        ...linearPoolTokenPrice,
-        ...(await coinGeckoPrices()),
-        ...(await currencyPrices()),
-      };
-    });
+  const tokenPrices = ammPrices.then(async ({ tokenPrices }) => {
+    const dmm = await dmmPrices;
+    const curvePrices = await curveTokenPrices;
+    const kyberPrices = await kyberTokenPrices;
+    const xTokenPrices = await xPrices;
+    const mooTokenPrices = await mooPrices;
+    const beFtmTokenPrice = await beFtmPrice;
+    const sfrxEthTokenPrice = await sfrxEthPrice;
+    const beTokenTokenPrice = await beTokenPrice;
+    const linearPoolTokenPrice = await linearPoolPrice;
+    return {
+      ...tokenPrices,
+      ...dmm.tokenPrices,
+      ...mooTokenPrices,
+      ...xTokenPrices,
+      ...beFtmTokenPrice,
+      ...beTokenTokenPrice,
+      ...sfrxEthTokenPrice,
+      ...curvePrices,
+      ...kyberPrices,
+      ...linearPoolTokenPrice,
+      ...(await coinGeckoPrices()),
+      ...(await currencyPrices()),
+    };
+  });
 
-    const lpData = ammPrices.then(async ({ poolPrices, _, lpsBreakdown }) => {
-      const dmm = await dmmPrices;
-      const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
-
-      return {
-        prices: { ...poolPrices, ...dmm.poolPrices, ...nonAmmPrices.prices },
-        breakdown: { ...lpsBreakdown, ...dmm.lpsBreakdown, ...nonAmmPrices.breakdown },
-      };
-    });
-
-    const lpBreakdown = lpData.then(({ prices, breakdown }) => breakdown);
-    const lpPrices = lpData.then(({ prices, breakdown }) => prices);
-
-    await tokenPrices;
-    await lpData;
-
-    tokenPricesCache = tokenPrices;
-    lpPricesCache = lpPrices;
-    lpBreakdownCache = lpBreakdown;
+  const lpData = ammPrices.then(async ({ poolPrices, lpsBreakdown }) => {
+    const dmm = await dmmPrices;
+    const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
 
     return {
-      tokenPrices,
-      lpPrices,
-      lpBreakdown,
+      prices: { ...poolPrices, ...dmm.poolPrices, ...nonAmmPrices.prices },
+      breakdown: { ...lpsBreakdown, ...dmm.lpsBreakdown, ...nonAmmPrices.breakdown },
     };
+  });
+
+  const lpBreakdown = lpData.then(({ breakdown }) => breakdown);
+  const lpPrices = lpData.then(({ prices }) => prices);
+
+  await tokenPrices;
+  await lpData;
+
+  return {
+    tokenPrices,
+    lpPrices,
+    lpBreakdown,
+  };
+};
+
+async function updateAmmPrices() {
+  console.log('> updating amm prices');
+  let start = Date.now();
+
+  try {
+    const {
+      tokenPrices: tokenPricesPromise,
+      lpPrices: lpPricesPromise,
+      lpBreakdown: lpBreakdownPromise,
+    } = await performUpdateAmmPrices();
+
+    const [tokenPrices, lpPrices, lpBreakdowns] = await Promise.all([
+      tokenPricesPromise,
+      lpPricesPromise,
+      lpBreakdownPromise,
+    ]);
+
+    if (addToCache(tokenPrices, lpPrices, lpBreakdowns)) {
+      await saveToRedis();
+    }
+
+    console.log(`> updated amm prices  (${(Date.now() - start) / 1000}s)`);
   } catch (err) {
-    console.error(err);
+    console.error(`> error updating amm prices (${(Date.now() - start) / 1000}s)`, err);
   } finally {
     setTimeout(updateAmmPrices, REFRESH_INTERVAL);
-    console.log(`> updated amm prices (${(Date.now() - start) / 1000}s)`);
-    saveToRedis();
   }
-};
+}
 
-export const getAmmTokensPrices = async () => {
-  return await tokenPricesCache;
-};
+export async function getAmmTokensPrices() {
+  await serviceEventBus.waitForFirstEvent('prices/tokens/updated');
+  return cachedTokenPrices;
+}
 
-export const getAmmLpPrices = async () => {
-  return await lpPricesCache;
-};
+export async function getAmmLpPrices() {
+  await serviceEventBus.waitForFirstEvent('prices/lps/updated');
+  return cachedLpPrices;
+}
 
-export const getLpBreakdown = async () => {
-  return await lpBreakdownCache;
-};
+export async function getAmmAllPrices() {
+  await serviceEventBus.waitForFirstEvent('prices/updated');
+  return cachedAllPrices;
+}
 
-export const getAmmTokenPrice = async (tokenSymbol, withUnkownLogging) => {
+export async function getLpBreakdown() {
+  await serviceEventBus.waitForFirstEvent('prices/lp-breakdowns/updated');
+  return cachedLpBreakdowns;
+}
+
+export async function getAmmTokenPrice(
+  tokenSymbol: string,
+  withUnknownLogging: boolean = false
+): Promise<number | undefined> {
   const tokenPrices = await getAmmTokensPrices();
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     return tokenPrices[tokenSymbol];
   }
-  if (withUnkownLogging)
-    console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
-};
 
-export const getAmmLpPrice = async (lpName, withUnknownLogging) => {
+  if (withUnknownLogging) {
+    console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+  }
+}
+
+export async function getAmmLpPrice(
+  lpName: string,
+  withUnknownLogging: boolean = false
+): Promise<number | undefined> {
   const lpPrices = await getAmmLpPrices();
   if (lpPrices.hasOwnProperty(lpName)) {
     return lpPrices[lpName];
   }
-  if (withUnknownLogging)
+
+  if (withUnknownLogging) {
     console.error(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
-};
+  }
+}
+
+export async function getAmmPrice(
+  tokenOrLpName: string,
+  withUnknownLogging: boolean = false
+): Promise<number | undefined> {
+  const allPrices = await getAmmAllPrices();
+  if (allPrices.hasOwnProperty(tokenOrLpName)) {
+    return allPrices[tokenOrLpName];
+  }
+
+  if (withUnknownLogging) {
+    console.error(
+      `Unknown token/liquidity pair '${tokenOrLpName}'. Consider adding it to .json file`
+    );
+  }
+}
 
 // We want to treat wrapped tokens the same way we'd treat normal ones => We then swap all wrapped token oracleIds to their underlying
 function normalizePoolOracleIds(pools) {
   const wrappedNativeTokens = new Set(
     Object.values(addressBookByChainId).map(addressbook => addressbook.tokens.WNATIVE.symbol)
   );
+
   pools.forEach(pool => {
     const fields = ['lp0', 'lp1'];
     fields.forEach(token => {
@@ -832,29 +897,111 @@ function normalizePoolOracleIds(pools) {
       }
     });
   });
+
   return pools;
 }
 
-export const initPriceService = async () => {
-  const tokenPrices = await getKey('TOKEN_PRICES');
-  const lpPrices = await getKey('LP_PRICES');
-  const lpBreakdown = await getKey('LP_BREAKDOWN');
+function addTokenPricesToCache(tokenPrices: PricesById): boolean {
+  let updated = false;
 
-  const init =
-    // Flexible delayed initialization used to work around ratelimits
-    new Promise((resolve, reject) => {
-      setTimeout(resolve, INIT_DELAY);
-    }).then(updateAmmPrices);
+  for (const [token, price] of Object.entries(tokenPrices)) {
+    if (isFiniteNumber(price)) {
+      // TODO: add TTL so entries are removed eventually if not updated
+      cachedTokenPrices[token] = price;
+      cachedAllPrices[token] = price;
+      updated = true;
+    }
+  }
 
-  tokenPricesCache =
-    tokenPrices ?? init.then(({ tokenPrices, lpPrices, lpBreakdown }) => tokenPrices);
-  lpPricesCache = lpPrices ?? init.then(({ tokenPrices, lpPrices, lpBreakdown }) => lpPrices);
-  lpBreakdownCache =
-    lpBreakdown ?? init.then(({ tokenPrices, lpPrices, lpBreakdown }) => lpBreakdown);
-};
+  return updated;
+}
 
-const saveToRedis = async () => {
-  await setKey('TOKEN_PRICES', await tokenPricesCache);
-  await setKey('LP_PRICES', await lpPricesCache);
-  await setKey('LP_BREAKDOWN', await lpBreakdownCache);
-};
+function addLpPricesToCache(tokenPrices: PricesById): boolean {
+  let updated = false;
+
+  for (const [token, price] of Object.entries(tokenPrices)) {
+    if (isFiniteNumber(price)) {
+      // TODO: add TTL so entries are removed eventually if not updated
+      cachedLpPrices[token] = price;
+      cachedAllPrices[token] = price;
+      updated = true;
+    }
+  }
+
+  return updated;
+}
+
+function addLpBreakdownsToCache(lpBreakdowns: BreakdownsById): boolean {
+  let updated = false;
+
+  for (const [token, breakdown] of Object.entries(lpBreakdowns)) {
+    if (
+      breakdown !== undefined &&
+      breakdown !== null &&
+      typeof breakdown === 'object' &&
+      'price' in breakdown
+    ) {
+      const price = breakdown.price;
+      if (isFiniteNumber(price)) {
+        // TODO: add TTL so entries are removed eventually if not updated
+        cachedLpBreakdowns[token] = breakdown;
+        updated = true;
+      }
+    }
+  }
+
+  return updated;
+}
+
+function addToCache(
+  tokenPrices: PricesById,
+  lpPrices: PricesById,
+  lpBreakdowns: BreakdownsById
+): boolean {
+  const tokenPriceUpdated = addTokenPricesToCache(tokenPrices);
+  const lpPriceUpdated = addLpPricesToCache(lpPrices);
+  const lpBreakdownUpdated = addLpBreakdownsToCache(lpBreakdowns);
+
+  if (tokenPriceUpdated) {
+    serviceEventBus.emit('prices/tokens/updated');
+  }
+
+  if (lpPriceUpdated) {
+    serviceEventBus.emit('prices/lps/updated');
+  }
+
+  if (lpBreakdownUpdated) {
+    serviceEventBus.emit('prices/lp-breakdowns/updated');
+  }
+
+  if (tokenPriceUpdated || lpPriceUpdated) {
+    serviceEventBus.emit('prices/updated');
+  }
+
+  return tokenPriceUpdated || lpPriceUpdated || lpBreakdownUpdated;
+}
+
+export async function initPriceService() {
+  // Load cache and update
+  await loadFromRedis();
+  await sleep(INIT_DELAY);
+  await updateAmmPrices();
+}
+
+async function loadFromRedis() {
+  const tokenPrices = await getKey<PricesById>('TOKEN_PRICES');
+  const lpPrices = await getKey<PricesById>('LP_PRICES');
+  const lpBreakdowns = await getKey<BreakdownsById>('LP_BREAKDOWN');
+
+  addToCache(
+    tokenPrices && typeof tokenPrices === 'object' ? tokenPrices : {},
+    lpPrices && typeof lpPrices === 'object' ? lpPrices : {},
+    lpBreakdowns && typeof lpBreakdowns === 'object' ? lpBreakdowns : {}
+  );
+}
+
+async function saveToRedis() {
+  await setKey('TOKEN_PRICES', cachedTokenPrices);
+  await setKey('LP_PRICES', cachedLpPrices);
+  await setKey('LP_BREAKDOWN', cachedLpBreakdowns);
+}

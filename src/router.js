@@ -17,6 +17,7 @@ const { bifibuyback } = require('./api/stats/bifibuyback/index');
 const { getTokens, getChainTokens } = require('./api/tokens');
 const { getConfigs, getChainConfig } = require('./api/config');
 const { getTreasury } = require('./api/treasury');
+const { vaultZapSupport, vaultZapSupportDebug } = require('./api/zaps');
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
@@ -40,6 +41,8 @@ router.get('/prices', price.tokenPrices);
 router.get('/mootokenprices', price.mooTokenPrices);
 
 router.get('/vaults', multichainVaults.multichainVaults);
+router.get('/vaults/zap-support', vaultZapSupport);
+router.get('/vaults/zap-support/debug', vaultZapSupportDebug);
 router.get('/vaults/:chainId', multichainVaults.singleChainVaults);
 
 router.get('/fees', multichainVaults.vaultFees);

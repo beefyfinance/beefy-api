@@ -1,5 +1,5 @@
 import fetchPrice from '../../utils/fetchPrice';
-import { getKey, setKey } from '../../utils/redisHelper';
+import { getKey, setKey } from '../../utils/cache';
 
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
 
@@ -13,7 +13,7 @@ export const getMooTokenPrices = () => {
 };
 
 const updateMooTokenPrices = async () => {
-  let vaults = await getMultichainVaults();
+  let vaults = getMultichainVaults();
   for (const vault of vaults) {
     try {
       let price = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });

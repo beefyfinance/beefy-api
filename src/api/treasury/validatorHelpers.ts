@@ -1,6 +1,7 @@
 import { ValidatorAsset } from './types';
+import { ApiChain } from '../../utils/chain';
 
-const validatorsByChain: Record<string, ValidatorAsset> = {
+const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset>> = {
   fantom: {
     name: 'Fantom Validator',
     address: 'validator',
@@ -33,6 +34,6 @@ const validatorsByChain: Record<string, ValidatorAsset> = {
   },
 };
 
-export const hasChainValidator = (chain: string): boolean => !!validatorsByChain[chain];
+export const hasChainValidator = (chain: ApiChain): boolean => !!validatorsByChain[chain];
 
-export const getChainValidator = (chain: string): ValidatorAsset => validatorsByChain[chain];
+export const getChainValidator = (chain: ApiChain): ValidatorAsset => validatorsByChain[chain];

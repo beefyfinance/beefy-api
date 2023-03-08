@@ -1,6 +1,6 @@
 const { getDailyEarnings } = require('../../../utils/getDailyEarnings');
 const { getRewardsReceived } = require('../../../utils/getRewardsReceived');
-const { getKey, setKey } = require('../../../utils/redisHelper');
+const { getKey, setKey } = require('../../../utils/cache');
 
 const INIT_DELAY = 2 * 60 * 1000;
 const INTERVAL = 60 * 60 * 1000;

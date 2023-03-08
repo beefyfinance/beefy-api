@@ -1,4 +1,6 @@
 import { ChainId } from '../packages/address-book/address-book';
+import { ApiChain } from './utils/chain';
+import ReadOnlyDict = NodeJS.ReadOnlyDict;
 
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
@@ -164,7 +166,7 @@ const ETHEREUM_VAULTS_ENDPOINT =
 const CANTO_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/canto.json';
 
-const MULTICHAIN_ENDPOINTS = {
+const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
   avax: AVAX_VAULTS_ENDPOINT,
   polygon: POLYGON_VAULTS_ENDPOINT,
@@ -185,7 +187,7 @@ const MULTICHAIN_ENDPOINTS = {
   kava: KAVA_VAULTS_ENDPOINT,
   ethereum: ETHEREUM_VAULTS_ENDPOINT,
   canto: CANTO_VAULTS_ENDPOINT,
-};
+} as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
 

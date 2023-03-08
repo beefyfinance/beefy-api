@@ -27,7 +27,7 @@ export const getApyBreakdown = (
   pools: { name: string; address: string; beefyFee?: number }[],
   tradingAprs: Record<string, BigNumber>,
   farmAprs: BigNumber[],
-  providerFee: number | BigNumber[],
+  providerFee: number | BigNumber[] | undefined,
   liquidStakingAprs?: number,
   composablePoolAprs?: number
 ): ApyBreakdownResult => {
@@ -35,6 +35,11 @@ export const getApyBreakdown = (
     apys: {},
     apyBreakdowns: {},
   };
+
+  if (providerFee === undefined) {
+    console.warn(`No provider fee provided for getApyBreakdown, defaulting to 0`);
+    providerFee = 0;
+  }
 
   pools.forEach((pool, i) => {
     const liquidStakingApr: number | undefined = liquidStakingAprs
