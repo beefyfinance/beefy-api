@@ -32,7 +32,13 @@ import { getAmmPrice } from '../stats/getAmmPrices';
 import { keysToObject } from '../../utils/array';
 
 const REFRESH_INTERVAL = 60000 * 10;
-const MULTICALL_BATCH_SIZE = 1024;
+const MULTICALL_BATCH_SIZES: Partial<Record<ApiChain, number>> = {
+  fantom: 512,
+};
+
+const batchSizeForChain = (chain: ApiChain) => {
+  return MULTICALL_BATCH_SIZES[chain] ?? 1024;
+};
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 // treasury addresses that should be queried for balances
@@ -163,7 +169,7 @@ async function updateSingleChainTreasuryBalance(chain: ApiChain) {
 
   const contractPromises: Promise<ContractCallResults>[] = chunk(
     contractCallContext,
-    MULTICALL_BATCH_SIZE
+    batchSizeForChain(chain)
   ).map(batch => multicall.call(batch));
 
   const apiPromises = validatorAsset.map(asset => fetchAPIBalance(asset as ValidatorAsset));
@@ -190,6 +196,11 @@ async function updateSingleChainTreasuryBalance(chain: ApiChain) {
 
     if (Object.keys(fulfilledContractResults).length !== contractCallContext.length) {
       console.log('> Multicall batch failed fetching balances for treasury on ' + chain);
+      console.log(
+        contractResults
+          .filter(res => res.status === 'rejected')
+          .map((p: PromiseRejectedResult) => p.reason)
+      );
     }
 
     const fulfilledApiResults = apiResults
