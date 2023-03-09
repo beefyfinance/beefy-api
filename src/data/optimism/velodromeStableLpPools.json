@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-dola-mai",
+    "address": "0x21950a0cA249A0ef3d182338c86c8C066B24D801",
+    "gauge": "0x58E3532062f83c8962B388426c0fE0EF56f75B2A",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x8aE125E8653821E851F12A49F7765db9a9ce7384",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-bevelo-velo",
     "address": "0xC6c7B143295b2920DA41369e9627245FaB8c1CcE",
     "gauge": "0xC803DA13A489E60aA3cbF9a2Ed584da9088e57b4",
