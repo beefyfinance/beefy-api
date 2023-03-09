@@ -1,5 +1,25 @@
 [
   {
+    "name": "equilibre-dai-usdc",
+    "address": "0x9aCAd463537d5b4fb1d7637bB558E79D0441B96f",
+    "gauge": "0xe45086F996e4473E0973392c1FE97B52575466CF",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x765277EebeCA2e31912C9946eAe1021199B39C61",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "equilibre-mai-usdc",
     "address": "0xB65D7381686A7829dC238AbF785BB2dEE313fB20",
     "gauge": "0x89ede1B513502aA876f9EB660eDE9802F4462cFA",

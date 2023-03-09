@@ -155,6 +155,18 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
+  MAI: {
+    name: 'Mai Stablecoin',
+    symbol: 'MAI',
+    address: '0xb84Df10966a5D7e1ab46D9276F55d57bD336AFC7',
+    chainId: 2222,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.mai.finance/',
+    description:
+      "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    documentation: 'https://docs.mai.finance/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
