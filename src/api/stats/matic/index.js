@@ -7,6 +7,7 @@ const getComethMultiApys = require('./getComethMultiLpApys');
 const getPolygonBifiGovApy = require('./getPolygonBifiGovApy');
 const { getPolygonBifiMaxiApy } = require('./getPolygonBifiMaxiApy');
 const { getCurveApys } = require('./getCurveApys');
+const { getConvexApys } = require('./getConvexApys');
 const getJetswapApys = require('./getJetswapApys');
 const getIronSwapApys = require('./getIronSwapApys');
 const { getApeLpApys } = require('./getApeLpApys');
@@ -50,6 +51,7 @@ const getApys = [
   getPolygonBifiGovApy,
   getPolygonBifiMaxiApy,
   getCurveApys,
+  getConvexApys,
   getApeLpApys,
   getMaiApys,
   getMaiCurveApys,
