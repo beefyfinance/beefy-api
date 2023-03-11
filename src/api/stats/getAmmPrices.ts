@@ -273,6 +273,7 @@ import { addressBookByChainId } from '../../../packages/address-book/address-boo
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
+import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -571,23 +572,34 @@ const coinGeckoCoins = [
 
 const currencies = ['cad'];
 
-const knownPrices = {
-  BUSD: 1,
-  USDT: 1,
-  HUSD: 1,
-  DAI: 1,
-  USDC: 1,
-  USDN: 1,
-  cUSD: 1,
-  asUSDC: 1,
-  VST: 1,
-  aUSDT: 1,
-  aDAI: 1,
-  aUSDC: 1,
-  amUSDT: 1,
-  amUSDC: 1,
-  amDAI: 1,
-  'DAI+': 1,
+// const oldHardcodedPrices = {
+//   BUSD: 1,
+//   USDT: 1,
+//   HUSD: 1,
+//   DAI: 1,
+//   USDC: 1,
+//   USDN: 1,
+//   cUSD: 1,
+//   asUSDC: 1,
+//   VST: 1,
+//   aUSDT: 1,
+//   aDAI: 1,
+//   aUSDC: 1,
+//   amUSDT: 1,
+//   amUSDC: 1,
+//   amDAI: 1,
+//   'DAI+': 1,
+// };
+
+const hardPeggedPrices = {
+  asUSDC: 'USDC',
+  aUSDT: 'USDT',
+  aDAI: 'DAI',
+  aUSDC: 'USDC',
+  amUSDT: 'USDT',
+  amUSDC: 'USDC',
+  amDAI: 'DAI',
+  'DAI+': 'DAI',
 };
 
 type LpBreakdown = {
@@ -605,6 +617,16 @@ const cachedAllPrices: PricesById = {};
 const cachedLpBreakdowns: BreakdownsById = {};
 
 const performUpdateAmmPrices = async () => {
+  // Seed with chain link prices
+  const knownPrices = await fetchChainLinkPrices();
+
+  // Add hardcoded prices mapping for pegged tokens we can't get price for via pools
+  for (const [oracle, peggedOracle] of Object.entries(hardPeggedPrices)) {
+    if (peggedOracle in knownPrices) {
+      knownPrices[oracle] = knownPrices[peggedOracle];
+    }
+  }
+
   const coinGeckoPrices = async () => {
     const prices = await fetchCoinGeckoPrices(coinGeckoCoins);
     return {

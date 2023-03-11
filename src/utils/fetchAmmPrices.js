@@ -121,7 +121,8 @@ const fetchAmmPrices = async (pools, knownPrices) => {
           knownToken = pool.lp1;
           unknownToken = pool.lp0;
         } else {
-          console.log('unsolved: ', pool.lp0.oracleId, pool.lp1.oracleId, pool.name);
+          // not solved yet but could be solved later
+          // console.log('unsolved: ', pool.lp0.oracleId, pool.lp1.oracleId, pool.name);
           continue;
         }
 
@@ -138,6 +139,12 @@ const fetchAmmPrices = async (pools, knownPrices) => {
         unsolved.splice(i, 1);
         solving = true;
       }
+    }
+
+    if (unsolved.length > 0) {
+      // actually not solved
+      console.log('Unsolved pools: ');
+      unsolved.forEach(pool => console.log(pool.lp0.oracleId, pool.lp1.oracleId, pool.name));
     }
   }
 
