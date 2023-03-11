@@ -529,6 +529,7 @@ const pools = normalizePoolOracleIds([
 const dmmPools = [...kyberPools, ...oldDmmPools];
 
 const coinGeckoCoins = [
+  'usd-coin',
   'stasis-eurs',
   'tether-eurt',
   'par-stablecoin',
@@ -571,23 +572,23 @@ const coinGeckoCoins = [
 
 const currencies = ['cad'];
 
-const knownPrices = {
+const hardcodedPrices = {
   BUSD: 1,
   USDT: 1,
   HUSD: 1,
-  DAI: 1,
-  USDC: 1,
+  // DAI: 1,
+  // USDC: 1,
   USDN: 1,
   cUSD: 1,
-  asUSDC: 1,
+  // asUSDC: 1,
   VST: 1,
   aUSDT: 1,
-  aDAI: 1,
-  aUSDC: 1,
+  // aDAI: 1,
+  // aUSDC: 1,
   amUSDT: 1,
-  amUSDC: 1,
-  amDAI: 1,
-  'DAI+': 1,
+  // amUSDC: 1,
+  // amDAI: 1,
+  // 'DAI+': 1,
 };
 
 type LpBreakdown = {
@@ -608,6 +609,7 @@ const performUpdateAmmPrices = async () => {
   const coinGeckoPrices = async () => {
     const prices = await fetchCoinGeckoPrices(coinGeckoCoins);
     return {
+      USDC: prices['usd-coin'],
       OP: prices['optimism'],
       EURS: prices['stasis-eurs'],
       EURt: prices['tether-eurt'],
@@ -654,6 +656,9 @@ const performUpdateAmmPrices = async () => {
       MIMO: prices['mimo-parallel-governance-token'],
     };
   };
+
+  const knownPrices = { ...hardcodedPrices, ...(await coinGeckoPrices()) };
+  console.log('knownPrices', knownPrices);
 
   const currencyPrices = async () => {
     const prices = await fetchCurrencyPrices(currencies);
@@ -762,7 +767,7 @@ const performUpdateAmmPrices = async () => {
       ...curvePrices,
       ...kyberPrices,
       ...linearPoolTokenPrice,
-      ...(await coinGeckoPrices()),
+      // ...(await coinGeckoPrices()),
       ...(await currencyPrices()),
     };
   });
