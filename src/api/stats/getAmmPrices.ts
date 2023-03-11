@@ -658,7 +658,7 @@ const performUpdateAmmPrices = async () => {
   };
 
   const knownPrices = { ...hardcodedPrices, ...(await coinGeckoPrices()) };
-  console.log('knownPrices', knownPrices);
+  //console.log('knownPrices', knownPrices);
 
   const currencyPrices = async () => {
     const prices = await fetchCurrencyPrices(currencies);
