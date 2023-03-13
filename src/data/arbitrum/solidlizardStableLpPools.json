@@ -1,5 +1,25 @@
 [
   {
+    "name": "solidlizard-lusd-usdc",
+    "address": "0xB1E9b823295B3C69ac651C05D987B67189ff20AD",
+    "gauge": "0xa4f536393E277DC63ECfa869d901b4f81cc5462C",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x93b346b6BC2548dA6A1E7d98E9a421B42541425b",
+      "oracle": "tokens",
+      "oracleId": "LUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "solidlizard-usd+-usdc",
     "address": "0x219fbc3ed20152a9501dDAA47F2a8C193E32D0C6",
     "gauge": "0x30537d33B8e65d99c9f15DA6A9036fe346488fDA",
