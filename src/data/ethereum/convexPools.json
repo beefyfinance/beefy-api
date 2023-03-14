@@ -1,5 +1,43 @@
 [
   {
+    "name": "convex-ctr",
+    "pool": "0xf2f12B364F614925aB8E2C8BFc606edB9282Ba09",
+    "token": "0x3f0e7916681452D23Cd36B1281457DA721F2E5dF",
+    "volatile": true,
+    "rewardPool": "0xE1d8E3625c5C54b9dcbb52c2c8E4264c3A01450c",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "CTR",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-matic",
+    "pool": "0x6bfE880Ed1d639bF80167b93cc9c56a39C1Ba2dC",
+    "token": "0xD8eb58D76aF99547333cfEeb6a0f9bd1A63b6492",
+    "volatile": true,
+    "rewardPool": "0x77C43369E50D68B7B3288EEFa7D7ab1F0F6D66b3",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MATIC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-cnc",
     "pool": "0x838af967537350D2C44ABB8c010E49E32673ab94",
     "token": "0xF9835375f6b268743Ea0a54d742Aa156947f8C06",

@@ -56,7 +56,7 @@ const _tokens = {
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   CNC: {
-    name: 'Conin Finance Token',
+    name: 'Conic Finance Token',
     symbol: 'CNC',
     address: '0x9aE380F0272E2162340a5bB646c354271c0F5cFC',
     chainId: 1,
@@ -65,6 +65,27 @@ const _tokens = {
     description:
       'Conic Finance is an easy-to-use platform built for liquidity providers to easily diversify their exposure to multiple Curve pools. Any user can provide liquidity into a Conic Omnipool which allocates funds across Curve in proportion to protocol controlled pool weights.',
     documentation: 'https://docs.conic.finance/conic-finance/',
+  },
+  CTR: {
+    name: 'Concentrator Token',
+    symbol: 'CTR',
+    address: '0xb3Ad645dB386D7F6D753B2b9C3F4B853DA6890B8',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://concentrator.aladdin.club/',
+    description:
+      'Concentrator by Aladdin DAO maximizes Convex APYs and earns yield in the best DeFi tokens. Concentrator is a yield enhancer that boosts yields on Convex vaults by concentrating all rewards into auto-compounding top-tier tokens like aCRV (cvxCRV) and aFXS (cvxFXS/FXS).',
+    documentation: 'https://docs.aladdin.club/concentrator',
+  },
+  MATIC: {
+    name: 'Matic Token',
+    symbol: 'MATIC',
+    address: '0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://polygon.technology/',
+    description:
+      'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
   },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
