@@ -7,6 +7,7 @@ const { getSushiApys } = require('./getSushiLpApys');
 const { getSynapseLpApys } = require('./getSynapseLpApys');
 const getSolidlyApys = require('./getSolidlyApys');
 const { getConvexCrvApy } = require('./getConvexCrvApy');
+const { getConvexFxsApy } = require('./getConvexFxsApy');
 const getEulerApys = require('./getEulerApys');
 const { getVerseLpApys } = require('./getVerseApys');
 
@@ -14,6 +15,7 @@ const getApys = [
   getAuraApys,
   getConvexApys,
   getConvexCrvApy,
+  getConvexFxsApy,
   getStargateEthApys,
   getEthereumBifiGovApy,
   getAuraBalApy,
