@@ -1,5 +1,25 @@
 [
   {
+    "name": "equilibre-wbtc-eth",
+    "address": "0xD9eEF9881068141000B4257CCEB72faaba7186f6",
+    "gauge": "0x3f8185ccE4cB25f17f6BE2B4Ff653C45F0dD4FeD",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "equilibre-wkava-eth",
     "address": "0xB593E0A2e93864fF5F75689dADE29f5F6DEc64EF",
     "gauge": "0x371D33963fb89ec9542A11cCF955B3A90391f99f",
