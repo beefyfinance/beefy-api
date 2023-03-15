@@ -99,9 +99,9 @@ const projects = {
     voter: solidlizard.voter,
   },
   velocimeter: {
-    prefix: 'velocimeter',
-    stableFile: '../src/data/canto/velocimeterStableLpPools.json',
-    volatileFile: '../src/data/canto/velocimeterLpPools.json',
+    prefix: 'velocimeterv2',
+    stableFile: '../src/data/canto/velocimeterV2StableLpPools.json',
+    volatileFile: '../src/data/canto/velocimeterV2LpPools.json',
     voter: velocimeter.voter,
   },
 };

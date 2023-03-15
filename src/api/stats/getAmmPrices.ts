@@ -266,6 +266,7 @@ import solidlyLpPools from '../../data/ethereum/solidlyLpPools.json';
 import cantoLpPools from '../../data/canto/cantoLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
 import velocimeterPools from '../../data/canto/velocimeterLpPools.json';
+import velocimeterV2Pools from '../../data/canto/velocimeterV2LpPools.json';
 import equilibrePools from '../../data/kava/equilibreLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
@@ -282,6 +283,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 const pools = normalizePoolOracleIds([
   ...versePools,
   ...equilibrePools,
+  ...velocimeterV2Pools,
   ...velocimeterPools,
   ...solidLizardPools,
   ...cantoLpPools,

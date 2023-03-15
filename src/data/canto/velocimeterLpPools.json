@@ -9,7 +9,7 @@
     "lp0": {
       "address": "0x2Baec546a92cA3469f71b7A091f7dF61e5569889",
       "oracle": "tokens",
-      "oracleId": "FLOW",
+      "oracleId": "FLOWV1",
       "decimals": "1e18"
     },
     "lp1": {
@@ -49,7 +49,7 @@
     "lp0": {
       "address": "0x2Baec546a92cA3469f71b7A091f7dF61e5569889",
       "oracle": "tokens",
-      "oracleId": "FLOW",
+      "oracleId": "FLOWV1",
       "decimals": "1e18"
     },
     "lp1": {

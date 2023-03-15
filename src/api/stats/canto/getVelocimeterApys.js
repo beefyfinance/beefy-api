@@ -5,19 +5,35 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
 const stablePools = require('../../../data/canto/velocimeterStableLpPools.json');
 const volatilePools = require('../../../data/canto/velocimeterLpPools.json');
+const stableV2Pools = require('../../../data/canto/velocimeterV2StableLpPools.json');
+const volatileV2Pools = require('../../../data/canto/velocimeterV2LpPools.json');
+
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
   canto: {
-    tokens: { FLOW },
+    tokens: { FLOWV1, FLOW },
   },
 } = addressBook;
 
 const pools = [...stablePools, ...volatilePools];
+const poolsV2 = [...stableV2Pools, ...volatileV2Pools];
 const getVelocimeterApys = async () => {
   const gaugeApys = getSolidlyGaugeApys({
     web3: web3,
     chainId: chainId,
     pools: pools,
+    oracleId: 'FLOWV1',
+    oracle: 'tokens',
+    decimals: getEDecimals(FLOWV1.decimals),
+    reward: FLOWV1.address,
+    boosted: false,
+    // log: true,
+  });
+
+  const gaugeV2Apys = getSolidlyGaugeApys({
+    web3: web3,
+    chainId: chainId,
+    pools: poolsV2,
     oracleId: 'FLOW',
     oracle: 'tokens',
     decimals: getEDecimals(FLOW.decimals),
@@ -29,7 +45,7 @@ const getVelocimeterApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  const results = await Promise.allSettled([gaugeApys]);
+  const results = await Promise.allSettled([gaugeApys, gaugeV2Apys]);
   for (const result of results) {
     if (result.status !== 'fulfilled') {
       console.warn('getVelocimeterApys error', result.reason);

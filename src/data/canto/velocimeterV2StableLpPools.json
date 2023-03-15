@@ -1,0 +1,42 @@
+[
+  {
+    "name": "velocimeterv2-note-usdc",
+    "address": "0x5CbB5ed3C767d7BcC7f8796aCF37a9D181233A2f",
+    "gauge": "0xfCB044Da3705746f20Cb6d93dc47c38ACD8B08CB",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "velocimeterv2-usdc-usdt",
+    "address": "0x1086B26CF340801b26CA2DF58d20CE688Fd3E779",
+    "gauge": "0x191C0150417B897A0c570C68aA7185c203CD73eA",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xd567B3d7B8FE3C79a1AD8dA978812cfC4Fa05e75",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  }
+]
