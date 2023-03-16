@@ -1,5 +1,32 @@
 [
   {
+    "name": "balancer-poly-eth-frxeth",
+    "address": "0x5DEe84FfA2DC27419Ba7b3419d7146E53e4F7dEd",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xF75Bf196b64f2FCf942C29b5bE7f4742e4fD16Bd",
+    "vaultPoolId": "0x5dee84ffa2dc27419ba7b3419d7146e53e4f7ded000200000000000000000a4e",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x7f4D96B679EdaFcFb4C1e4729732B2A12C47F0f8",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "frxETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-poly-wsteth-eth",
     "address": "0x65Fe9314bE50890Fb01457be076fAFD05Ff32B9A",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
