@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-frax-dola",
+    "address": "0xD29DE64c1a9Dd3e829A7345BE1E9c32a9414541f",
+    "gauge": "0xa4a9EC4ceEEF2317c016645E1E00f50b12821296",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8aE125E8653821E851F12A49F7765db9a9ce7384",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-dola-mai",
     "address": "0x21950a0cA249A0ef3d182338c86c8C066B24D801",
     "gauge": "0x58E3532062f83c8962B388426c0fE0EF56f75B2A",
