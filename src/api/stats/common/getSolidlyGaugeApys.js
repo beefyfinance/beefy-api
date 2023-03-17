@@ -36,9 +36,8 @@ const getFarmApys = async params => {
   for (let i = 0; i < params.pools.length; i++) {
     let yearlyRewardsInUsd = new BigNumber(0);
     let totalStakedInUsd = new BigNumber(0);
+    const pool = params.pools[i];
     if (periodFinishes[i] > Date.now() / 1000) {
-      const pool = params.pools[i];
-
       const oracle = pool.oracle ?? 'lps';
       const id = pool.oracleId ?? pool.name;
       const stakedPrice = await fetchPrice({ oracle, id });
