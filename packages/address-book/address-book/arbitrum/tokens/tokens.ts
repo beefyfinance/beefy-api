@@ -525,6 +525,78 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
+  RAM: {
+    name: 'Ramses',
+    symbol: 'RAM',
+    address: '0xAAA6C1E32C55A7Bfa8066A6FAE9b42650F262418',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ramses.exchange/home',
+    description:
+      'Ramses is a decentralized exchange built on Arbitrum that offers low-cost token exchanges and reduced swap fees, using a governance model called the ve(3,3) system, which was developed by Andre Cronje and introduced in Solidly. ',
+    documentation: 'https://docs.ramses.exchange/',
+  },
+  L2DAO: {
+    name: 'Layer2DAO',
+    symbol: 'L2DAO',
+    address: '0x2CaB3abfC1670D1a452dF502e216a66883cDf079',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.layer2dao.org/#/',
+    description:
+      'Layer2DAO is expanding the Ethereum L2 ecosystem and investing in L2 ecosystem projects. The DAO uses its treasury to invest into high-impact L2 protocols and ecosystem plays, serving as a diversified venture fund for investors looking to gain exposure to the L2 ecosystem growth. It also provides liquidity, depositing, and staking, perpetually reinvesting proceeds back into the DAO.',
+      documentation: 'https://docs.layer2dao.org/',
+  },
+  DOLA: {
+    name: 'DOLA USD',
+    symbol: 'DOLA',
+    address: '0x6A7661795C374c0bFC635934efAddFf3A7Ee23b6',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
+    documentation: 'https://docs.inverse.finance/',
+  },
+  DEI: {
+    name: 'DEI',
+    symbol: 'DEI',
+    address: '0xDE1E704dae0B4051e80DAbB26ab6ad6c12262DA0',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
+    logoURI: 'https://app.deus.finance/tokens/dei.svg',
+    documentation: 'https://docs.deus.finance/',
+  },
+  DEUS: {
+    name: 'DEUS',
+    symbol: 'DEUS',
+    address: '0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
+    logoURI: 'https://app.deus.finance/tokens/deus.svg',
+    documentation: 'https://docs.deus.finance/',
+  },
+  LQTY: {
+    name: 'Liquity',
+    symbol: 'LQTY',
+    address: '0xfb9E5D956D889D91a82737B9bFCDaC1DCE3e1449',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://www.liquity.org/',
+    description:
+      'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%. In addition to the collateral, the loans are secured by a Stability Pool containing LUSD and by fellow borrowers collectively acting as guarantors of last resort. Learn more about these mechanisms in our documentation. Liquity as a protocol is non-custodial, immutable, and governance-free.',
+    logoURI: 'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x6DEA81C8171D0bA574754EF6F8b412F2Ed88c54D/logo.png',
+    documentation: 'https://docs.liquity.org/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
