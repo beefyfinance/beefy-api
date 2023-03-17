@@ -78,7 +78,7 @@
   {
     "name": "ramses-mim-usdc",
     "address": "0x7E9e5F35EC3e95AEb58B7E7b218cC334a1f8Bf28",
-    "gauge": "0x046074d8Bb942B160a598937BD9BB84FB74330B7",
+    "gauge": "0x4be8305b53362E220f671d77d19DCD8834D3ef12",
     "decimals": "1e18",
     "chainId": 42161,
     "lp0": {
