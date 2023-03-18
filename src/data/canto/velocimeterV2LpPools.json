@@ -100,26 +100,6 @@
     }
   },
   {
-    "name": "velocimeterv2-note-usdc",
-    "address": "0x0c3B568B8D76273E4b8c7aE43Ea2CEd197B53bC8",
-    "gauge": "0x771665Ec0b9C4F0F4660C5d222800853cD3dD856",
-    "decimals": "1e18",
-    "chainId": 7700,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
-      "oracle": "tokens",
-      "oracleId": "NOTE",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "velocimeterv2-note-flow",
     "address": "0x7e79E7B91526414F49eA4D3654110250b7D9444f",
     "gauge": "0x4BaDbfa80c704264566ac254C270E750BE1bd1E3",

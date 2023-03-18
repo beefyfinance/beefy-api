@@ -124,6 +124,19 @@ const _tokens = {
       'Velocimeter addresses these issues and presents an attractive alternative by addressing the core issues in Solidly and adding its own improvements. To recall, the key innovation of Solidly was to align protocol emissions with fees generated, not simply liquidity. To do this, it would allow protocols and other large stakeholders to become veNFT "voters", using their locked voting power to direct future emissions and collecting fees (termed bribes in Solidly) from the pools they voted for.',
     documentation: 'https://docs.velocimeter.xyz/',
   },
+  SOMM: {
+    name: 'Somm',
+    symbol: 'SOMM',
+    address: '0xFA3C22C069B9556A4B2f7EcE1Ee3B467909f4864',
+    chainId: 7700,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://app.sommelier.finance/',
+    description:
+      'Sommelier is a DeFi blockchain protocol, built on the Cosmos SDK, and a bi-directional Ethereum bridge. Taken together, this collection serves as a co-processor to Ethereum - that is we are using a Cosmos chain to process as many of the calculations as possible off Ethereum. The protocol is powered by validators and LPs who can benefit from a wide array of transaction features, such as portfolio rebalancing and limit orders based on dynamically changing market conditions.',
+    documentation:
+      'https://tricky-sand-5e6.notion.site/Sommelier-Documentation-006e748753e34a1299f9b1d6ae3a4544',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
