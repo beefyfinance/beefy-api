@@ -38,7 +38,10 @@ const getYearlyRewardsInUsd = async (params: BifiApyParams) => {
 
   const rewardPool = getContractWithProvider(IRewardPool, params.rewardPool, params.web3);
   const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
-  const yearlyRewards = rewardRate.times(secondsPerYear);
+  const yearlyRewards =
+    params.chain == 'ethereum'
+      ? rewardRate.times(secondsPerYear).dividedBy(3)
+      : rewardRate.times(secondsPerYear);
   const yearlyRewardsInUsd = yearlyRewards.times(rewardPrice).dividedBy(params.rewardDecimals);
 
   return yearlyRewardsInUsd;
