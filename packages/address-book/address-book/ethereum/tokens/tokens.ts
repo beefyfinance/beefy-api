@@ -166,6 +166,7 @@ const _tokens = {
     symbol: 'multiBTC',
     website: 'https://app.multichain.org/',
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
+    documentation: 'https://docs.multichain.org/getting-started/introduction',
   },
   alETH: {
     name: 'Alchemix ETH',

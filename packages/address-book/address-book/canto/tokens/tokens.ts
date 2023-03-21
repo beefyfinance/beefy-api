@@ -137,6 +137,17 @@ const _tokens = {
     documentation:
       'https://tricky-sand-5e6.notion.site/Sommelier-Documentation-006e748753e34a1299f9b1d6ae3a4544',
   },
+  multiBTC: {
+    name: 'Multichain BTC',
+    symbol: 'multiBTC',
+    address: '0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844',
+    chainId: 7700,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://app.multichain.org/',
+    description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
+    documentation: 'https://docs.multichain.org/getting-started/introduction',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
