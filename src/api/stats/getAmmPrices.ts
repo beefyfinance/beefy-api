@@ -572,6 +572,7 @@ const coinGeckoCoins = [
   'euler',
   'axlusdc',
   'mimo-parallel-governance-token',
+  'frax',
 ];
 
 const currencies = ['cad'];
@@ -658,6 +659,7 @@ const performUpdateAmmPrices = async () => {
       EUL: prices['euler'],
       axlUSDC: prices['axlusdc'],
       MIMO: prices['mimo-parallel-governance-token'],
+      FRAX: prices['frax'],
     };
   };
 

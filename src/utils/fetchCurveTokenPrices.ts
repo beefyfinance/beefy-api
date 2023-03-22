@@ -20,6 +20,16 @@ type CurveToken = {
 const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
   ethereum: [
     {
+      oracleId: 'cvxFPIS',
+      decimals: '1e18',
+      index0: 1,
+      index1: 0,
+      minter: '0xfBB481A443382416357fA81F16dB5A725DC6ceC8',
+      secondToken: 'FPIS',
+      secondTokenDecimals: '1e18',
+      abi: ICurvePool,
+    },
+    {
       oracleId: 'cvxFXS',
       decimals: '1e18',
       index0: 1,

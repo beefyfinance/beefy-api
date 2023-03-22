@@ -288,7 +288,7 @@ const _tokens = {
     logoURI: '',
   },
   cvxFXS: {
-    name: 'cvxFXS',
+    name: 'Convex FXS',
     address: '0xFEEf77d3f69374f66429C91d732A244f074bdf74',
     symbol: 'cvxFXS',
     decimals: 18,
@@ -297,6 +297,18 @@ const _tokens = {
     documentation: 'https://docs.convexfinance.com/',
     description:
       'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve.fi LPs.',
+    logoURI: '',
+  },
+  cvxFPIS: {
+    name: 'Convex FPIS',
+    address: '0xa2847348b58CEd0cA58d23c7e9106A49f1427Df6',
+    symbol: 'cvxFPIS',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://frax.convexfinance.com/',
+    documentation: 'https://docs.convexfinance.com/',
+    description:
+      "Convex also now supports Frax Finance's FPIS token, the governance token for the FPI stablecoin launched by Frax. Frax documentation explains the mechanisms behind the FPI stablecoin and the FPIS governance token in detail.",
     logoURI: '',
   },
   sethUSDC: {

@@ -10,15 +10,15 @@ import getApyBreakdown from '../common/getApyBreakdown';
 const secondsPerYear = 31536000;
 
 const pool = {
-  name: 'convex-staked-cvxFXS',
-  rewardPool: '0x49b4d1dF40442f0C31b1BbAEA3EDE7c38e37E31a',
+  name: 'convex-staked-cvxFPIS',
+  rewardPool: '0xfA87DB3EAa93B7293021e38416650D2E666bC483',
   rewards: [
-    { address: '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0', oracleId: 'FXS' },
+    { address: '0xc2544A32872A91F4A553b404C6950e89De901fdb', oracleId: 'FPIS' },
     { address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B', oracleId: 'CVX' },
   ],
 };
 
-export const getConvexFxsApy = async () => {
+export const getConvexFpisApy = async () => {
   const multicall = new MultiCall(web3, multicallAddress(chainId));
 
   const rewardPoolCalls = [];
@@ -44,7 +44,7 @@ export const getConvexFxsApy = async () => {
     rewardRate: new BigNumber(v.rewardData['1']),
   }));
 
-  const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'cvxFXS' });
+  const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'cvxFPIS' });
   const totalStakedInUsd = info.totalSupply.times(tokenPrice).div('1e18');
 
   let apr = new BigNumber(0);
@@ -58,8 +58,7 @@ export const getConvexFxsApy = async () => {
     });
     const rewardsInUsd = r.rewardRate.times(secondsPerYear).times(price).div('1e18');
     apr = apr.plus(rewardsInUsd.div(totalStakedInUsd));
-    // console.log(pool.name, poolReward.oracleId, rewardsInUsd.div(totalStakedInUsd).toNumber());
+    // console.log(pool.name, poolReward.oracleId, rewardsInUsd.div(totalStakedInUsd).toNumber(), totalStakedInUsd.toNumber());
   }
-
   return getApyBreakdown([{ name: pool.name, address: pool.name }], {}, [apr], 0);
 };
