@@ -1,5 +1,37 @@
 [
   {
+    "name": "balancer-jeur-par-v2",
+    "address": "0x513CdEE00251F39DE280d9E5f771A6eaFebCc88E",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xb8f0394F3fD743552296c990eaDCfF4d081474B1",
+    "vaultPoolId": "0x513cdee00251f39de280d9e5f771a6eafebcc88e000000000000000000000a6b",
+    "composable": true,
+    "bptIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0xb83fD7EfEAb6ACF6E5AE4Bc4836Ba878D2396b05",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "jEUR",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "PAR",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-poly-eth-frxeth",
     "address": "0x5DEe84FfA2DC27419Ba7b3419d7146E53e4F7dEd",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
