@@ -1,5 +1,65 @@
 [
   {
+    "name": "velocimeterv2-multibtc-flow",
+    "address": "0x4eDBd1606Ab49e22846dd1EE2529E5FdA48FE062",
+    "gauge": "0xf1c0284337405DaCb92b7F2E754fc9D3a155cB8c",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "multiBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-note-multibtc",
+    "address": "0xe86F5A4634966e434f54Af4B598417dB0BA524E7",
+    "gauge": "0xE9FF67bA730667f7372057471c560508a7495eD7",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "multiBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "velocimeterv2-eth-multibtc",
+    "address": "0x1D4E33e07ddf9cc8EDB204102c3238b6A2c0e3fb",
+    "gauge": "0x5643Df447808F5FE6E2719e245d445aba2938d6f",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "multiBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
     "name": "velocimeterv2-multibtc-wcanto",
     "address": "0x582A99ED86a3d9b9AA8Aff5AdcceEE6f38e1c22A",
     "gauge": "0x62445cad1589b4329aE2536bd9fd9a03225999E2",
