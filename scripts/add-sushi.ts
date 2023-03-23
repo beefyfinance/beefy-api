@@ -22,6 +22,9 @@ const {
   fantom: {
     platforms: { sushiFtm: sushiFtm },
   },
+  arbitrum: {
+    platforms: { sushi: sushiArb },
+  },
   fuse: {
     platforms: { sushiFuse: sushiFuse },
   },

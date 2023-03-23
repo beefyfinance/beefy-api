@@ -35,7 +35,7 @@
     "polygon:quick:add": "ts-node scripts/add-quick.ts --network polygon --project quick",
     "polygon:sushi:add": "ts-node scripts/add-sushi.ts --network polygon --project sushiPoly",
     "one:sushi:add": "ts-node scripts/add-sushi.ts --network one --project sushiOne",
-    "arb:sushi:add": "ts-node scripts/add-sushi.ts --network arbitrum --project sushiArb",
+    "arb:sushi:add": "ts-node scripts/add-sushi.ts --network arbitrum --project sushiArb --newFee true",
     "arb:swapfish:add": "ts-node scripts/add-farm.ts --network arbitrum --project swapfishArb --newFee true",
     "celo:sushi:add": "ts-node scripts/add-sushi.ts --network celo --project sushiCelo",
     "avax:pangolin:add": "ts-node scripts/add-sushi.ts --network avax --project pangolin",

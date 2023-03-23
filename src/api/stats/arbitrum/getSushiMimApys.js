@@ -6,12 +6,15 @@ const SushiMiniChefV2 = require('../../../abis/matic/SushiMiniChefV2.json');
 const SushiComplexRewarderTime = require('../../../abis/matic/SushiComplexRewarderTime.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const pools = require('../../../data/arbitrum/sushiLpMimPools.json');
+const sushiDualPools = require('../../../data/arbitrum/sushiLpMimPools.json');
+const sushiConstantProductPools = require('../../../data/arbitrum/sushiConstantProductLpPools.json');
 const { ARBITRUM_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
 const { getTradingFeeAprSushi: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { sushiArbitrumClient } = require('../../../apollo/client');
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import getApyBreakdown from '../common/getApyBreakdown';
+
+const pools = [...sushiDualPools, ...sushiConstantProductPools];
 
 const minichef = '0xF4d73326C13a4Fc5FD7A064217e12780e9Bd62c3';
 const oracleId = 'SUSHI';

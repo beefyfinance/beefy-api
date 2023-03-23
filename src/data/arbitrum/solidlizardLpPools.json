@@ -1,5 +1,45 @@
 [
   {
+    "name": "solidlizard-arb-usdc",
+    "address": "0x9cB911Cbb270cAE0d132689cE11c2c52aB2DedBC",
+    "gauge": "0xc43e8F9AE4c1Ef6b8b63CBFEfE8Fe90d375fe11C",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "solidlizard-weth-arb",
+    "address": "0xCeD06c9330B02C378C31c7b12570B1C38AbfcEA6",
+    "gauge": "0xeCEe212b65a54cA7725aA19DCEed45effB3cf385",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "solidlizard-sliz-usdc",
     "address": "0x9E7fB82fdF08a6aAba760A81F0A64602Af045d2a",
     "gauge": "0x07C26dEcaA281779ed50fC3481CF1d52D5aa088a",

@@ -547,7 +547,7 @@ const _tokens = {
     website: 'https://www.layer2dao.org/#/',
     description:
       'Layer2DAO is expanding the Ethereum L2 ecosystem and investing in L2 ecosystem projects. The DAO uses its treasury to invest into high-impact L2 protocols and ecosystem plays, serving as a diversified venture fund for investors looking to gain exposure to the L2 ecosystem growth. It also provides liquidity, depositing, and staking, perpetually reinvesting proceeds back into the DAO.',
-      documentation: 'https://docs.layer2dao.org/',
+    documentation: 'https://docs.layer2dao.org/',
   },
   DOLA: {
     name: 'DOLA USD',
@@ -594,8 +594,22 @@ const _tokens = {
     website: 'https://www.liquity.org/',
     description:
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%. In addition to the collateral, the loans are secured by a Stability Pool containing LUSD and by fellow borrowers collectively acting as guarantors of last resort. Learn more about these mechanisms in our documentation. Liquity as a protocol is non-custodial, immutable, and governance-free.',
-    logoURI: 'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x6DEA81C8171D0bA574754EF6F8b412F2Ed88c54D/logo.png',
+    logoURI:
+      'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x6DEA81C8171D0bA574754EF6F8b412F2Ed88c54D/logo.png',
     documentation: 'https://docs.liquity.org/',
+  },
+  ARB: {
+    name: 'Arbitrum',
+    symbol: 'ARB',
+    address: '0x912CE59144191C1204E64559FE8253a0e49E6548',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x912CE59144191C1204E64559FE8253a0e49E6548.svg',
+    website: 'https://arbitrum.foundation/',
+    description:
+      'Arbitrum is a protocol that makes Ethereum transactions faster and cheaper. Developers use Arbitrum to build user-friendly decentralized apps (dApps) that can take advantage of the scalability benefits of the Arbitrum Rollup and AnyTrust protocols.',
+    documentation: 'https://docs.arbitrum.foundation/gentle-intro-dao-governance',
   },
 } as const;
 
