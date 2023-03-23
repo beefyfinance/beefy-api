@@ -1,5 +1,30 @@
 [
   {
+    "name": "convex-cvxcrv",
+    "pool": "0x971add32Ea87f10bD192671630be3BE8A11b8623",
+    "token": "0x971add32Ea87f10bD192671630be3BE8A11b8623",
+    "volatile": true,
+    "rewardPool": "0x39D78f11b246ea4A1f68573c3A5B64E83Cff2cAe",
+    "extras": [
+      {
+        "rewardPool": "0x49C97EdC48b81625e60C1C960a17B28f53407487",
+        "oracleId": "CVX"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "cvxCRV",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-ctr",
     "pool": "0xf2f12B364F614925aB8E2C8BFc606edB9282Ba09",
     "token": "0x3f0e7916681452D23Cd36B1281457DA721F2E5dF",
@@ -381,31 +406,6 @@
       {
         "oracle": "tokens",
         "oracleId": "frxETH",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "convex-cvxcrv",
-    "pool": "0x9D0464996170c6B9e75eED71c68B99dDEDf279e8",
-    "token": "0x9D0464996170c6B9e75eED71c68B99dDEDf279e8",
-    "oracleId": "CRV",
-    "rewardPool": "0x0392321e86F42C2F94FBb0c6853052487db521F0",
-    "extras": [
-      {
-        "rewardPool": "0xbE4DEa8E5d1E53FAd661610E47501f858F25852D",
-        "oracleId": "CVX"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "CRV",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "cvxCRV",
         "decimals": "1e18"
       }
     ]
