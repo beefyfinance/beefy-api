@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-frax-mai",
+    "address": "0x94b731AC9C363fd797529F0C4f303C34D9A4829D",
+    "gauge": "0xE06d3a3030A800f0E46987Ab450E48402Af3c6Dd",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-lusd-dai",
     "address": "0xF12BA676F9045BD76f8280BF249CBe8D209276e2",
     "gauge": "0x8b1ad293f4C1D4f66643D779637C72EAEfbb37DA",
