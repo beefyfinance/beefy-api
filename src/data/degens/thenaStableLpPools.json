@@ -1,25 +1,5 @@
 [
   {
-    "name": "thena-dola-frax",
-    "address": "0xFD66A4a4c921CD7194ABAb38655476a06fbAEa05",
-    "gauge": "0x7342C0441440781E538631C47a1207a0D4621cB3",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x2F29Bc0FFAF9bff337b31CBe6CB5Fb3bf12e5840",
-      "oracle": "tokens",
-      "oracleId": "DOLA",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x90C97F71E18723b0Cf0dfa30ee176Ab653E89F40",
-      "oracle": "tokens",
-      "oracleId": "FRAX",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "thena-usdt-usd+",
     "address": "0xea9abc7AD420bDA7dD42FEa3C4ACd058902A5845",
     "gauge": "0x31740dfF2D806690eDF3Ec72A2c301032a6265Bc",
