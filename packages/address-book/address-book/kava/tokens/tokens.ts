@@ -167,6 +167,17 @@ const _tokens = {
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
   },
+  BNB: {
+    name: 'Binance Chain',
+    symbol: 'BNB',
+    address: '0xABd380327Fe66724FFDa91A87c772FB8D00bE488',
+    chainId: 2222,
+    decimals: 18,
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
