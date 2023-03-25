@@ -8,13 +8,15 @@ const { BASE_HPY } = require('../../../../constants');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 const fetch = require('node-fetch');
+const { getApyBreakdown } = require('../getApyBreakdown');
 
 const secondsPerYear = 31536000;
 const RAY_DECIMALS = '1e27';
 
 // config = { dataProvider: address, incentives: address, rewards: []}
 const getAaveV3ApyData = async (config, pools, web3) => {
-  let apys = {};
+  const apys = [];
+  const lsApys = [];
 
   const allPools = [];
   pools.forEach(pool => {
@@ -33,11 +35,12 @@ const getAaveV3ApyData = async (config, pools, web3) => {
   allPools.forEach(pool => promises.push(getPoolApy(config, pool, web3)));
   const values = await Promise.all(promises);
 
-  for (let item of values) {
-    apys = { ...apys, ...item };
-  }
+  values.forEach(item => {
+    apys.push(item[0]);
+    lsApys.push(item[1]);
+  });
 
-  return apys;
+  return getApyBreakdown(pools, null, apys, 0, lsApys);
 };
 
 const getPoolApy = async (config, pool, web3) => {
@@ -60,14 +63,15 @@ const getPoolApy = async (config, pool, web3) => {
   let shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
   let compoundedNative = compound(totalNative, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
-  let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedNative).toNumber();
+  let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedNative);
+  let lsApy = 0;
   if (pool.liquidStakingUrl) {
     const response = await fetch(pool.liquidStakingUrl).then(res => res.json());
-    const lsApy = pool.lido ? response.apr : response.value;
-    apy += lsApy / 100;
+    lsApy = pool.lido ? response.apr : response.value;
+    lsApy = lsApy / 100;
   }
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyNative.valueOf(), borrowNative.valueOf());
-  return { [pool.name]: apy };
+  return [apy, lsApy];
 };
 
 const getAaveV3PoolData = async (config, pool, web3) => {

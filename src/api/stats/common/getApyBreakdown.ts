@@ -66,11 +66,14 @@ export const getApyBreakdown = (
     const vaultApr = simpleApr * shareAfterBeefyPerformanceFee;
     let vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
-    const tradingApr: number | undefined = (
-      (tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0)).isFinite()
-        ? tradingAprs[pool.address.toLowerCase()]
-        : new BigNumber(0)
-    )?.toNumber();
+    let tradingApr: number | undefined = 0;
+    if (tradingAprs != null) {
+      tradingApr = (
+        (tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0)).isFinite()
+          ? tradingAprs[pool.address.toLowerCase()]
+          : new BigNumber(0)
+      )?.toNumber();
+    }
 
     const totalApy =
       getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee) +
