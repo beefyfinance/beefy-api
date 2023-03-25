@@ -1,5 +1,29 @@
 [
   {
+    "name": "beets-ankr-fantom-liquid-ocean",
+    "address": "0x8FDa1835D346CF3d22C01742D2EdBB0831402a3A",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x8fda1835d346cf3d22c01742d2edbb0831402a3a000200000000000000000700",
+    "beefyFee": 0.095,
+    "poolId": 110,
+    "oracleB": "tokens",
+    "oracleIdB": "ANKR",
+    "decimalsB": "1e18",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ankrFTM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-two-smoking-fantoms",
     "address": "0xc0064b291bd3D4ba0E44ccFc81bF8E7f7a579cD2",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
