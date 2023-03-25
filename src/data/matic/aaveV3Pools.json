@@ -51,6 +51,8 @@
     "oracle": "tokens",
     "oracleId": "stMATIC",
     "decimals": "1e18",
+    "liquidStakingUrl": "https://polygon.lido.fi/api/stats",
+    "lido": true,
     "borrowDepth": 1,
     "borrowPercent": 0
   },
@@ -62,6 +64,7 @@
     "oracle": "tokens",
     "oracleId": "MaticX",
     "decimals": "1e18",
+    "liquidStakingUrl": "https://universe.staderlabs.com/polygon/apy",
     "borrowDepth": 1,
     "borrowPercent": 0
   }

@@ -12,6 +12,18 @@ const config = {
       oracleId: 'WMATIC',
       decimals: '1e18',
     },
+    {
+      token: '0xC3C7d422809852031b44ab29EEC9F1EfF2A58756',
+      oracle: 'tokens',
+      oracleId: 'LDO',
+      decimals: '1e18',
+    },
+    {
+      token: '0x1d734A02eF1e1f5886e66b0673b71Af5B53ffA94',
+      oracle: 'tokens',
+      oracleId: 'SD',
+      decimals: '1e18',
+    },
   ],
 };
 

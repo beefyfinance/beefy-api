@@ -7,7 +7,7 @@ const IAaveV3PoolDataProvider = require('../../../../abis/AaveV3PoolDataProvider
 const { BASE_HPY } = require('../../../../constants');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
-const { timeStamp } = require('console');
+const fetch = require('node-fetch');
 
 const secondsPerYear = 31536000;
 const RAY_DECIMALS = '1e27';
@@ -46,7 +46,6 @@ const getPoolApy = async (config, pool, web3) => {
     pool,
     web3
   );
-
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyNative, leveragedBorrowNative } =
     getLeveragedApys(
       supplyBase,
@@ -60,7 +59,13 @@ const getPoolApy = async (config, pool, web3) => {
   let totalNative = leveragedSupplyNative.plus(leveragedBorrowNative);
   let shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
   let compoundedNative = compound(totalNative, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+
   let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedNative).toNumber();
+  if (pool.liquidStakingUrl) {
+    const response = await fetch(pool.liquidStakingUrl).then(res => res.json());
+    const lsApy = pool.lido ? response.apr : response.value;
+    apy += lsApy / 100;
+  }
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyNative.valueOf(), borrowNative.valueOf());
   return { [pool.name]: apy };
 };
@@ -94,23 +99,21 @@ const getRewardsPerYear = async (config, pool, web3) => {
   for (let reward of config.rewards) {
     let res = await distribution.methods.getRewardsData(pool.aToken, reward.token).call();
     const supplyNativeRate = new BigNumber(res[1]);
+    const distributionEnd = new BigNumber(res[3]);
     res = await distribution.methods.getRewardsData(pool.debtToken, reward.token).call();
     const borrowNativeRate = new BigNumber(res[1]);
-    const distributionEnd = new BigNumber(res[3]);
 
     const tokenPrice = await fetchPrice({ oracle: reward.oracle, id: reward.oracleId });
     if (distributionEnd.gte(new BigNumber(Date.now() / 1000))) {
-      supplyNativeInUsd = supplyNativeRate
-        .times(secondsPerYear)
-        .div(reward.decimals)
-        .times(tokenPrice);
-      borrowNativeInUsd = borrowNativeRate
-        .times(secondsPerYear)
-        .div(reward.decimals)
-        .times(tokenPrice);
+      supplyNativeInUsd = supplyNativeInUsd.plus(
+        supplyNativeRate.times(secondsPerYear).div(reward.decimals).times(tokenPrice)
+      );
+      borrowNativeInUsd = borrowNativeInUsd.plus(
+        borrowNativeRate.times(secondsPerYear).div(reward.decimals).times(tokenPrice)
+      );
     } else {
-      supplyNativeInUsd = new BigNumber(0);
-      borrowNativeInUsd = new BigNumber(0);
+      supplyNativeInUsd = supplyNativeInUsd.plus(new BigNumber(0));
+      borrowNativeInUsd = borrowNativeInUsd.plus(new BigNumber(0));
     }
   }
 
