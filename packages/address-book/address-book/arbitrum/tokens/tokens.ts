@@ -611,6 +611,32 @@ const _tokens = {
       'Arbitrum is a protocol that makes Ethereum transactions faster and cheaper. Developers use Arbitrum to build user-friendly decentralized apps (dApps) that can take advantage of the scalability benefits of the Arbitrum Rollup and AnyTrust protocols.',
     documentation: 'https://docs.arbitrum.foundation/gentle-intro-dao-governance',
   },
+  DPX: {
+    name: 'Dopex Governance Token',
+    symbol: 'DPX',
+    address: '0x6C2C06790b3E3E3c38e12Ee22F8183b37a13EE55',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x6C2C06790b3E3E3c38e12Ee22F8183b37a13EE55.svg',
+    website: 'https://www.dopex.io/',
+    description:
+      'Dopex -- A decentralized options protocol aiming to expand option liquidity throughout DeFi by minimizing option losses via rebates and maximizing reward through delegated controlled incentives',
+    documentation: 'https://docs.dopex.io/getting-started/introduction-to-dopex',
+  },
+  RDPX: {
+    name: 'Dopex Rebate Token',
+    symbol: 'RDPX',
+    address: '0x32Eb7902D4134bf98A28b963D26de779AF92A212',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x32Eb7902D4134bf98A28b963D26de779AF92A212.svg',
+    website: 'https://www.dopex.io/',
+    description:
+      'rDPX is the rebate token of the Dopex platform and is used to compensate option writers a portion of their losses. These rebates make losses less costly than our competitors, allowing us to drive deeper liquidity throughout the platform.',
+    documentation: 'https://docs.dopex.io/tokenomics/tokenomics/rdpx',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
