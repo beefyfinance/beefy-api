@@ -134,7 +134,7 @@ export const extractBalancesFromTreasuryApiCallResults = (
 export const fetchAPIBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
   let balance: number = await fetch(apiAsset.methodPath)
     .then(res => res.json())
-    .then(res => res.data.balance);
+    .then(res => ((res.data.length ?? 0) > 0 ? res.data[0].balance : res.data.balance));
   return {
     apiAsset,
     balance: new BigNumber(balance).shiftedBy(9),
