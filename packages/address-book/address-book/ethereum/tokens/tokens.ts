@@ -804,6 +804,30 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.yearn.finance/getting-started/products/ycrv/overview',
   },
+  eUSD: {
+    name: 'Electronic USD',
+    symbol: 'eUSD',
+    address: '0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://register.app/',
+    description:
+      'The Reserve Protocol is the first platform that allows for the permissionless creation of asset-backed, yield-bearing & overcollateralized stablecoins on Ethereum. The end goal of the Reserve Protocol is to provide highly scalable, decentralized, stable money in contrast to volatile cryptocurrencies such as Bitcoin and Ether.',
+    logoURI: '',
+    documentation: 'https://reserve.org/protocol/',
+  },
+  msETH: {
+    name: 'Metronome Synth ETH',
+    symbol: 'msETH',
+    address: '0x64351fC9810aDAd17A690E4e1717Df5e7e085160',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.metronome.io/',
+    description:
+      'A complete synthetic protocol that enables users to generate a variety of synthetics using crypto assets as collateral',
+    documentation: 'https://docs.metronome.io/metronome-2.0/master',
+  },
   BLUR: {
     name: 'Blur',
     symbol: 'BLUR',
@@ -814,6 +838,18 @@ const _tokens = {
     website: 'https://blur.io/',
     description:
       'Sweep NFTs across multiple marketplaces, snipe reveals faster than others, and manage your portfolio with advanced analytics. Zero fees.',
+  },
+  msUSD: {
+    name: 'Metronome Synth USD',
+    symbol: 'msUSD',
+    address: '0xab5eB14c09D416F0aC63661E57EDB7AEcDb9BEfA',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.metronome.io/',
+    description:
+      'A complete synthetic protocol that enables users to generate a variety of synthetics using crypto assets as collateral',
+    documentation: 'https://docs.metronome.io/metronome-2.0/master',
   },
   eUSDT: {
     name: 'Euler Tether USD',
