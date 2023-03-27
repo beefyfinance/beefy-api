@@ -949,7 +949,7 @@ const _tokens = {
   },
   LINK: {
     name: 'ChainLink Token',
-    address: '0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39',
+    address: '0xb0897686c545045aFc77CF20eC7A532E3120E0F1',
     symbol: 'LINK',
     decimals: 18,
     website: 'https://chain.link/',
