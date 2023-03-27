@@ -12,6 +12,7 @@ const getEulerApys = require('./getEulerApys');
 const { getVerseLpApys } = require('./getVerseApys');
 const { getEthereumBifiMaxiApy } = require('./getEthereumBifiMaxiApy');
 const { getConvexFpisApy } = require('./getConvexFpisApy');
+const { getConicApys } = require('./getConicApys');
 
 const getApys = [
   getAuraApys,
@@ -19,6 +20,7 @@ const getApys = [
   getConvexCrvApy,
   getConvexFxsApy,
   getConvexFpisApy,
+  getConicApys,
   getStargateEthApys,
   getEthereumBifiGovApy,
   getEthereumBifiMaxiApy,

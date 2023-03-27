@@ -6,7 +6,7 @@ import {
   // getCurveBaseApysOld,
 } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import { getContract } from '../../../utils/contractHelper';
 import IRewardPool from '../../../abis/IRewardPool.json';
 import IERC20 from '../../../abis/ERC20.json';
 import BigNumber from 'bignumber.js';
@@ -66,8 +66,10 @@ const getPoolApys = async pools => {
       });
     });
   });
+  const cvx = getContract(IERC20, cvxAddress);
+  const cvxSupplyCall = [{ totalSupply: cvx.methods.totalSupply() }];
 
-  const res = await multicall.all([rewardPoolCalls, extraRewardCalls]);
+  const res = await multicall.all([rewardPoolCalls, extraRewardCalls, cvxSupplyCall]);
   const poolInfo = res[0].map(v => ({
     totalSupply: new BigNumber(v.totalSupply),
     rewardRate: new BigNumber(v.rewardRate),
@@ -79,8 +81,7 @@ const getPoolApys = async pools => {
     periodFinish: v.periodFinish,
   }));
 
-  const cvx = getContractWithProvider(IERC20, cvxAddress, web3);
-  const cvxSupply = new BigNumber(await cvx.methods.totalSupply().call());
+  const cvxSupply = new BigNumber(res[2][0].totalSupply);
   const cvxPrice = await fetchPrice({ oracle: 'tokens', id: 'CVX' });
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });
 

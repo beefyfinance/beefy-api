@@ -11,7 +11,8 @@ type CurveToken = {
   decimals: string;
   index0: number;
   index1: number;
-  minter: string;
+  pool: string;
+  useUnderlying?: boolean;
   secondToken: string;
   secondTokenDecimals: string;
   abi: any;
@@ -20,11 +21,32 @@ type CurveToken = {
 const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
   ethereum: [
     {
+      oracleId: 'eUSD',
+      decimals: '1e18',
+      index0: 0,
+      index1: 2,
+      pool: '0xAEda92e6A3B1028edc139A4ae56Ec881f3064D4F',
+      useUnderlying: true,
+      secondToken: 'USDC',
+      secondTokenDecimals: '1e6',
+      abi: ICurvePool,
+    },
+    {
+      oracleId: 'msETH',
+      decimals: '1e18',
+      index0: 1,
+      index1: 0,
+      pool: '0xc897b98272AA23714464Ea2A0Bd5180f1B8C0025',
+      secondToken: 'ETH',
+      secondTokenDecimals: '1e18',
+      abi: ICurvePool,
+    },
+    {
       oracleId: 'cvxCRV',
       decimals: '1e18',
       index0: 1,
       index1: 0,
-      minter: '0x971add32Ea87f10bD192671630be3BE8A11b8623',
+      pool: '0x971add32Ea87f10bD192671630be3BE8A11b8623',
       secondToken: 'CRV',
       secondTokenDecimals: '1e18',
       abi: ICurvePool,
@@ -34,7 +56,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       decimals: '1e18',
       index0: 1,
       index1: 0,
-      minter: '0xfBB481A443382416357fA81F16dB5A725DC6ceC8',
+      pool: '0xfBB481A443382416357fA81F16dB5A725DC6ceC8',
       secondToken: 'FPIS',
       secondTokenDecimals: '1e18',
       abi: ICurvePool,
@@ -44,7 +66,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       decimals: '1e18',
       index0: 1,
       index1: 0,
-      minter: '0xd658A338613198204DCa1143Ac3F01A722b5d94A',
+      pool: '0xd658A338613198204DCa1143Ac3F01A722b5d94A',
       secondToken: 'FXS',
       secondTokenDecimals: '1e18',
       abi: ICurvePoolV2,
@@ -54,7 +76,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       decimals: '1e18',
       index0: 1,
       index1: 0,
-      minter: '0xf2f12B364F614925aB8E2C8BFc606edB9282Ba09',
+      pool: '0xf2f12B364F614925aB8E2C8BFc606edB9282Ba09',
       secondToken: 'ETH',
       secondTokenDecimals: '1e18',
       abi: ICurvePoolV2,
@@ -64,7 +86,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       decimals: '1e18',
       index0: 1,
       index1: 0,
-      minter: '0x838af967537350D2C44ABB8c010E49E32673ab94',
+      pool: '0x838af967537350D2C44ABB8c010E49E32673ab94',
       secondToken: 'ETH',
       secondTokenDecimals: '1e18',
       abi: ICurvePoolV2,
@@ -74,7 +96,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       decimals: '1e18',
       index0: 0,
       index1: 1,
-      minter: '0x0E9B5B092caD6F1c5E6bc7f89Ffe1abb5c95F1C2',
+      pool: '0x0E9B5B092caD6F1c5E6bc7f89Ffe1abb5c95F1C2',
       secondToken: 'ETH',
       secondTokenDecimals: '1e18',
       abi: ICurvePoolV2,
@@ -84,7 +106,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       decimals: '1e18',
       index0: 1,
       index1: 0,
-      minter: '0x342D1C4Aa76EA6F5E5871b7f11A019a0eB713A4f',
+      pool: '0x342D1C4Aa76EA6F5E5871b7f11A019a0eB713A4f',
       secondToken: 'ETH',
       secondTokenDecimals: '1e18',
       abi: ICurvePoolV2,
@@ -96,7 +118,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       decimals: '1e10',
       index0: 1,
       index1: 0,
-      minter: '0xc6e37086D09ec2048F151D11CdB9F9BbbdB7d685',
+      pool: '0xc6e37086D09ec2048F151D11CdB9F9BbbdB7d685',
       secondToken: 'xcDOT',
       secondTokenDecimals: '1e10',
       abi: ICurvePool,
@@ -113,13 +135,10 @@ async function getCurveTokenPrices(
   const multicall = new MultiCall(web3, multicallAddress(chainId));
 
   const curvePriceCalls = chainTokens.map(token => {
-    const tokenContract = getContract(token.abi, token.minter);
+    const pool = getContract(token.abi, token.pool);
+    const getDy = token.useUnderlying ? pool.methods.get_dy_underlying : pool.methods.get_dy;
     return {
-      price: tokenContract.methods.get_dy(
-        token.index0,
-        token.index1,
-        new BigNumber(token.decimals).toString(10)
-      ),
+      price: getDy(token.index0, token.index1, new BigNumber(token.decimals).toString(10)),
     };
   });
 

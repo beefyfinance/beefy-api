@@ -272,6 +272,25 @@
     ]
   },
   {
+    "name": "convex-mseth",
+    "pool": "0xc897b98272AA23714464Ea2A0Bd5180f1B8C0025",
+    "token": "0xc897b98272AA23714464Ea2A0Bd5180f1B8C0025",
+    "volatile": true,
+    "rewardPool": "0x14DC104D74372527fEC45b86E87Fe263C7215369",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "msETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-reth",
     "pool": "0x0f3159811670c117c372428D4E69AC32325e4D0F",
     "token": "0x6c38cE8984a890F5e46e6dF6117C26b3F1EcfC9C",
@@ -324,6 +343,25 @@
       {
         "oracle": "tokens",
         "oracleId": "cbETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-eusdfraxbp",
+    "pool": "0xAEda92e6A3B1028edc139A4ae56Ec881f3064D4F",
+    "token": "0xAEda92e6A3B1028edc139A4ae56Ec881f3064D4F",
+    "rewardPool": "0xB468dB2E478885B87D7ce0C8DA1D4373A756C138",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-fraxusdc",
+        "oracle": "lps",
+        "oracleId": "convex-fraxusdc",
         "decimals": "1e18"
       }
     ]
@@ -618,6 +656,34 @@
         "oracle": "tokens",
         "oracleId": "USDC",
         "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "convex-susd",
+    "pool": "0xA5407eAE9Ba41422680e2e00537571bcC53efBfD",
+    "token": "0xC25a3A3b969415c80451098fa907EC722572917F",
+    "rewardPool": "0x22eE18aca7F3Ee920D01F25dA85840D12d98E8Ca",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sUSD",
+        "decimals": "1e18"
       }
     ]
   },
