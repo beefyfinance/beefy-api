@@ -18,6 +18,42 @@
     }
   },
   {
+    "name": "fraxswap-fxs-frax",
+    "address": "0x03B59Bd1c8B9F6C265bA0c3421923B93f15036Fa",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp0": {
+      "address": "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0",
+      "oracle": "tokens",
+      "oracleId": "FXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x853d955aCEf822Db058eb8505911ED77F175b99e",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-fxs-eth",
+    "address": "0x61eB53ee427aB4E007d78A9134AaCb3101A2DC23",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp0": {
+      "address": "0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0",
+      "oracle": "tokens",
+      "oracleId": "FXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-usdc-cp",
     "address": "0x5bDDa306c37179B34E8b8F6d75aC8192f8A42996",
     "decimals": "1e18",

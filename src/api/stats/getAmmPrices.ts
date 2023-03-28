@@ -581,7 +581,7 @@ const hardcodedPrices = {
   USDT: 1,
   HUSD: 1,
   // DAI: 1,
-  // USDC: 1,
+  USDC: 1,
   USDN: 1,
   cUSD: 1,
   // asUSDC: 1,
@@ -613,7 +613,7 @@ const performUpdateAmmPrices = async () => {
   const coinGeckoPrices = async () => {
     const prices = await fetchCoinGeckoPrices(coinGeckoCoins);
     return {
-      USDC: prices['usd-coin'],
+      // USDC: prices['usd-coin'],
       OP: prices['optimism'],
       EURS: prices['stasis-eurs'],
       EURt: prices['tether-eurt'],
@@ -657,7 +657,7 @@ const performUpdateAmmPrices = async () => {
       EUL: prices['euler'],
       axlUSDC: prices['axlusdc'],
       MIMO: prices['mimo-parallel-governance-token'],
-      FRAX: prices['frax'],
+      // FRAX: prices['frax'],
     };
   };
 
