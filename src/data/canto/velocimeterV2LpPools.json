@@ -1,5 +1,25 @@
 [
   {
+    "name": "velocimeterv2-flow-somm",
+    "address": "0xaC2C49a475C8d3b79FBA2eBaFCB11eC45B271680",
+    "gauge": "0x6eb598225Bc24B5304f0094fE1a6e93F7C42FfcC",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFA3C22C069B9556A4B2f7EcE1Ee3B467909f4864",
+      "oracle": "tokens",
+      "oracleId": "SOMM",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "velocimeterv2-multibtc-flow",
     "address": "0x4eDBd1606Ab49e22846dd1EE2529E5FdA48FE062",
     "gauge": "0xf1c0284337405DaCb92b7F2E754fc9D3a155cB8c",
