@@ -649,6 +649,18 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
     documentation: 'https://gains-network.gitbook.io/docs-home/',
   },
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    address: '0x178412e79c25968a32e89b11f63B33F733770c2A',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
