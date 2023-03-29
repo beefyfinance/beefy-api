@@ -8,7 +8,7 @@
     "lp0": {
       "address": "0x0C4681e6C0235179ec3D4F4fc4DF3d14FDD96017",
       "oracle": "tokens",
-      "oracleId": "RDNT",
+      "oracleId": "oldRDNT",
       "decimals": "1e18"
     },
     "lp1": {
