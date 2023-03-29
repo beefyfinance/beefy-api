@@ -244,7 +244,7 @@ const _tokens = {
   RDNT: {
     name: 'RDNT',
     symbol: 'RDNT',
-    address: '0x0C4681e6C0235179ec3D4F4fc4DF3d14FDD96017',
+    address: '0x3082CC23568eA640225c2467653dB90e9250AaA0',
     chainId: 42161,
     decimals: 18,
     website: 'https://radiant.capital/',
