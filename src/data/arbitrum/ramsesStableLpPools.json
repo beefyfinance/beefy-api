@@ -1,5 +1,43 @@
 [
   {
+    "name": "ramses-usd+-dai+",
+    "address": "0xeb9153afBAa3A6cFbd4fcE39988Cea786d3F62bb",
+    "gauge": "0x88d8D2bDC4f12862FbaBEA43cEc08B8FCD2234Da",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
+      "oracle": "tokens",
+      "oracleId": "oUSD+",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xeb8E93A0c7504Bffd8A8fFa56CD754c63aAeBFe8",
+      "oracle": "tokens",
+      "oracleId": "oUSD+",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "ramses-usd+-usdc",
+    "address": "0x5DcE83503B114e89F180e59c444dFe814525Ae10",
+    "gauge": "0x2FeCb78950385fDd62CC8C5E23Ce4F5f71c0944F",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
+      "oracle": "tokens",
+      "oracleId": "oUSD+",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "ramses-lusd-dei",
     "address": "0x6b18AE9225011eaf4A7e52f1069fB66462406bF0",
     "gauge": "0xfc315F415ADc2Ca29167d8648728A0d177dcf49E",

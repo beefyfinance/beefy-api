@@ -661,6 +661,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
+  'DAI+': {
+    name: 'DAI+ Stablecoin',
+    symbol: 'DAI+',
+    address: '0xeb8E93A0c7504Bffd8A8fFa56CD754c63aAeBFe8',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'DAI+ is DAI that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
