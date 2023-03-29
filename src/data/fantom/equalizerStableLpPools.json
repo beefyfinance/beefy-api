@@ -1,5 +1,65 @@
 [
   {
+    "name": "equalizer-usdc-tusd",
+    "address": "0xCDd8bA3F1316d09ad190e29e64DA48798C453871",
+    "gauge": "0x4A36dCC2763F8C85265b0384ef9c8a1d7B9d1B56",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x9879aBDea01a879644185341F7aF7d8343556B7a",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-tusd-frax",
+    "address": "0x8a94555370ffa2e795A598BAd21d679Da2fBa4A3",
+    "gauge": "0xAa7739afEd03f091faA105bDED10128013BFe9E1",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9879aBDea01a879644185341F7aF7d8343556B7a",
+      "oracle": "tokens",
+      "oracleId": "TUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-usdc-frax",
+    "address": "0xb3D5b1d35d662d8E84fdECb70BcE9FA1B6210187",
+    "gauge": "0x239bfb3E8b83453b9f83fc5CEBf1984e543Fb46C",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xdc301622e621166BD8E82f2cA0A26c13Ad0BE355",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "equalizer-fusdt-dai",
     "address": "0xe00D5e6535fb48E83C8cabe602242Cc1Bd253cEA",
     "gauge": "0xf7c36B446050498807F5631dFbf3661882aA3810",
