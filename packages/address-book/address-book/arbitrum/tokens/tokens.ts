@@ -637,6 +637,18 @@ const _tokens = {
       'rDPX is the rebate token of the Dopex platform and is used to compensate option writers a portion of their losses. These rebates make losses less costly than our competitors, allowing us to drive deeper liquidity throughout the platform.',
     documentation: 'https://docs.dopex.io/tokenomics/tokenomics/rdpx',
   },
+  gDAI: {
+    name: 'Gains Network DAI',
+    symbol: 'gDAI',
+    address: '0xd85E038593d7A098614721EaE955EC2022B9B91B',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://gainsnetwork.io/',
+    description: 'gDAI vault serves as a counterparty to all trading on GNS, a decentralized leverage trading platform on Polygon and Arbitrum.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
+    documentation: 'https://gains-network.gitbook.io/docs-home/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
