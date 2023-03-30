@@ -10,7 +10,7 @@ import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
-import { fetchKyberTokenPrices } from '../../utils/fetchKyberTokenPrices';
+import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices';
 import { fetchsfrxEthPrice } from '../../utils/fetchsfrxEthPrice';
 import {
   fetchBalancerLinearPoolPrice,
@@ -580,19 +580,19 @@ const hardcodedPrices = {
   BUSD: 1,
   USDT: 1,
   HUSD: 1,
-  // DAI: 1,
+  DAI: 1,
   USDC: 1,
   USDN: 1,
   cUSD: 1,
-  // asUSDC: 1,
+  asUSDC: 1,
   VST: 1,
   aUSDT: 1,
-  // aDAI: 1,
-  // aUSDC: 1,
+  aDAI: 1,
+  aUSDC: 1,
   amUSDT: 1,
-  // amUSDC: 1,
-  // amDAI: 1,
-  // 'DAI+': 1,
+  amUSDC: 1,
+  amDAI: 1,
+  'DAI+': 1,
 };
 
 type LpBreakdown = {
@@ -614,7 +614,7 @@ const performUpdateAmmPrices = async () => {
     const prices = await fetchCoinGeckoPrices(coinGeckoCoins);
     return {
       // USDC: prices['usd-coin'],
-      OP: prices['optimism'],
+      // OP: prices['optimism'],
       EURS: prices['stasis-eurs'],
       EURt: prices['tether-eurt'],
       PAR: prices['par-stablecoin'],
@@ -635,8 +635,8 @@ const performUpdateAmmPrices = async () => {
       sETH: prices['seth'],
       alUSD: prices['alchemix-usd'],
       alETH: prices['ethereum'],
-      rETH: prices['rocket-pool-eth'],
-      wstETH: prices['wrapped-steth'],
+      // rETH: prices['rocket-pool-eth'],
+      // wstETH: prices['wrapped-steth'],
       KAVA: prices['kava'],
       WKAVA: prices['kava'],
       AURA: prices['aura-finance'],
@@ -646,7 +646,7 @@ const performUpdateAmmPrices = async () => {
       hDAI: prices['dai'],
       hSNX: prices['havven'],
       auraBAL: prices['aura-bal'],
-      BAL: prices['balancer'],
+      // BAL: prices['balancer'],
       cbETH: prices['coinbase-wrapped-staked-eth'],
       OPX: prices['opx-finance'],
       beOPX: prices['opx-finance'],
@@ -689,8 +689,8 @@ const performUpdateAmmPrices = async () => {
     return await fetchCurveTokenPrices(tokenPrices);
   });
 
-  const kyberTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchKyberTokenPrices(tokenPrices);
+  const concentratedLiquidityTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchConcentratedLiquidityTokenPrices(tokenPrices);
   });
 
   const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
@@ -753,7 +753,7 @@ const performUpdateAmmPrices = async () => {
   const tokenPrices = ammPrices.then(async ({ tokenPrices }) => {
     const dmm = await dmmPrices;
     const curvePrices = await curveTokenPrices;
-    const kyberPrices = await kyberTokenPrices;
+    const concentratedLiquidityPrices = await concentratedLiquidityTokenPrices;
     const xTokenPrices = await xPrices;
     const mooTokenPrices = await mooPrices;
     const beFtmTokenPrice = await beFtmPrice;
@@ -769,7 +769,7 @@ const performUpdateAmmPrices = async () => {
       ...beTokenTokenPrice,
       ...sfrxEthTokenPrice,
       ...curvePrices,
-      ...kyberPrices,
+      ...concentratedLiquidityPrices,
       ...linearPoolTokenPrice,
       // ...(await coinGeckoPrices()),
       ...(await currencyPrices()),

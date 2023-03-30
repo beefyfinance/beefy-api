@@ -1,5 +1,44 @@
 [
   {
+    "name": "beets-overnight-pulse-v2",
+    "address": "0x43da214fab3315aA6c02e0B8f2BfB7Ef2E3C60A5",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xD253638E82Ac3832aA1b8247FE366A797C954E98",
+    "overnight": true,
+    "composable": true,
+    "balancerChargesFee": true,
+    "bptIndex": 0,
+    "vaultPoolId": "0x43da214fab3315aa6c02e0b8f2bfb7ef2e3c60a50000000000000000000000ae",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x7a5b61d13cE46210a16158324AdaF74Be7a2389e",
+        "token": "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x7a5b61d13cE46210a16158324AdaF74Be7a2389e",
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbUSD+",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbDAI+",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-optimism-steady-beets",
     "address": "0x373643B17Cd80e37675c8C98eF774efe6ca0b4De",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

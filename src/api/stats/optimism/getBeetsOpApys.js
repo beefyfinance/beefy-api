@@ -75,6 +75,8 @@ const getPoolApy = async pool => {
     getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(OPTIMISM_CHAIN_ID)), pool),
     getTotalStakedInUsd(web3, pool),
   ]);
+
+  //console.log(pool.name, yearlyRewardsInUsd.toNumber(), totalStakedInUsd.toNumber())
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   let aprFixed = 0;
   let compAprFixed = 0;
@@ -144,7 +146,7 @@ const getPoolApy = async pool => {
       ).then(res => res.json());
       const usdPlusApr = usdPlusResponse.value;
 
-      const usdPlusFixed = (usdPlusApr * usdQty[1].dividedBy(usdTotalQty).toNumber()) / 100 / 2;
+      const usdPlusFixed = (usdPlusApr * usdQty[1].dividedBy(usdTotalQty).toNumber()) / 100 / 2 / 2;
 
       const daiPlusResponse = await fetch(
         'https://api.overnight.fi/optimism/dai+/fin-data/avg-apr/week'
@@ -153,7 +155,7 @@ const getPoolApy = async pool => {
 
       //  console.log(daiPlusResponse);
 
-      const daiPlusFixed = (daiPlusApr * daiQty[0].dividedBy(daiTotalQty).toNumber()) / 100 / 2;
+      const daiPlusFixed = (daiPlusApr * daiQty[0].dividedBy(daiTotalQty).toNumber()) / 100 / 2 / 2;
 
       // console.log(pool.name, usdPlusFixed, daiPlusFixed);
       compAprFixed = usdPlusFixed + daiPlusFixed;
@@ -161,7 +163,7 @@ const getPoolApy = async pool => {
       console.error(`Overnight APR error`, e);
     }
   }
-  // console.log(pool.name, aprFixed, compAprFixed);
+  //console.log(pool.name, aprFixed, compAprFixed);
   return [rewardsApy, aprFixed, compAprFixed];
 };
 
