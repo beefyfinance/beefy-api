@@ -1,5 +1,25 @@
 [
   {
+    "name": "cakev2-id-usdt",
+    "address": "0x9Ed9E9aA51670A3210fD6078024c21ec6c1d61d9",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 158,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x2dfF88A56767223A5529eA5960Da7A3F5f766406",
+      "oracle": "tokens",
+      "oracleId": "ID",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cakev2-csix-cake",
     "address": "0x43C2aBe5e3bceC619072D8668Ac83Ad825da707f",
     "decimals": "1e18",
