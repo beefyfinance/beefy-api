@@ -1,5 +1,119 @@
 [
   {
+    "name": "ramses-arb-usdt",
+    "address": "0x159d1E96a39B3bd85a08D0E852c9e0560B268Ecd",
+    "gauge": "0xEBf119C0e5Fc1D226DefC4bb873aC1a9a232eF3E",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "ramses-gns-gdai",
+    "address": "0x893684af15C97bCCEF17B10b1f32dc18BC066654",
+    "gauge": "0x8ae620e720fbec4278a3aE305f63496Fb333aC6f",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x18c11FD286C5EC11c3b683Caa813B77f5163A122",
+      "oracle": "tokens",
+      "oracleId": "GNS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd85E038593d7A098614721EaE955EC2022B9B91B",
+      "oracle": "tokens",
+      "oracleId": "gDAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "ramses-rdnt-eth",
+    "address": "0xB1406B8344Cd65dBe9f304938C0ECF2209F54D18",
+    "gauge": "0x2a73a90c144967cD620bC714CdBA0914936daf8c",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x3082CC23568eA640225c2467653dB90e9250AaA0",
+      "oracle": "tokens",
+      "oracleId": "RDNT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "ramses-eth-usdt",
+    "address": "0x7E0A6013B8f15209491e021e394271b9D3Ee5B68",
+    "gauge": "0x545cC7B1cAfEe38276c8cCf5B48e9A91050ac4c5",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "ramses-arb-usdc",
+    "address": "0xba9f17ca67d1C8416Bb9b132D50232191e27B45e",
+    "gauge": "0x2951ffB9e7D54C9cA547901d482F2896E7D9a0eD",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "ramses-eth-arb",
+    "address": "0x275F7112e3900FdF3c9532d749Dd4985790e7933",
+    "gauge": "0x69a3dE5F13677fd8d7aAF350A6c65DE50e970262",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "ramses-jeur-usdc",
     "address": "0x54De7A8BA975d455f3C69c4d48e0e41a349c9088",
     "gauge": "0x2F2Bd4f4ea740BC986E267A61aFb16069dFeafAA",

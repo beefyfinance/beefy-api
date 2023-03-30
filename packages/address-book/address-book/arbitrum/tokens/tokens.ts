@@ -241,10 +241,21 @@ const _tokens = {
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: '',
   },
-  RDNT: {
+  oldRDNT: {
     name: 'RDNT',
     symbol: 'RDNT',
     address: '0x0C4681e6C0235179ec3D4F4fc4DF3d14FDD96017',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://radiant.capital/',
+    description:
+      'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
+    logoURI: '',
+  },
+  RDNT: {
+    name: 'RDNT',
+    symbol: 'RDNT',
+    address: '0x3082CC23568eA640225c2467653dB90e9250AaA0',
     chainId: 42161,
     decimals: 18,
     website: 'https://radiant.capital/',
@@ -636,6 +647,42 @@ const _tokens = {
     description:
       'rDPX is the rebate token of the Dopex platform and is used to compensate option writers a portion of their losses. These rebates make losses less costly than our competitors, allowing us to drive deeper liquidity throughout the platform.',
     documentation: 'https://docs.dopex.io/tokenomics/tokenomics/rdpx',
+  },
+  gDAI: {
+    name: 'Gains Network DAI',
+    symbol: 'gDAI',
+    address: '0xd85E038593d7A098614721EaE955EC2022B9B91B',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://gainsnetwork.io/',
+    description: 'gDAI vault serves as a counterparty to all trading on GNS, a decentralized leverage trading platform on Polygon and Arbitrum.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
+    documentation: 'https://gains-network.gitbook.io/docs-home/',
+  },
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    address: '0x178412e79c25968a32e89b11f63B33F733770c2A',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
+  'DAI+': {
+    name: 'DAI+ Stablecoin',
+    symbol: 'DAI+',
+    address: '0xeb8E93A0c7504Bffd8A8fFa56CD754c63aAeBFe8',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'DAI+ is DAI that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
   },
 } as const;
 
