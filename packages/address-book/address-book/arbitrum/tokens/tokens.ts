@@ -41,6 +41,19 @@ const _tokens = {
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
   },
+  ARX: {
+    name: 'Arbitrum Exchange',
+    address: '0xD5954c3084a1cCd70B4dA011E67760B8e78aeE84',
+    symbol: 'ARX',
+    decimals: 18,
+    website: 'https://arbidex.fi/',
+    description:
+      'ARX is the rewards token introduced by Arbitrum Exchange. Arbitrum Exchange is a Pancake Swap fork on the Arbitrum chain, and uses ARX to reward liquidity providers.',
+    chainId: 42161,
+    logoURI: 'https://arbidex.fi/images/tokens/0xd5954c3084a1ccd70b4da011e67760b8e78aee84.png',
+    documentation:
+      'https://arbitrum-exchange.gitbook.io/arbitrumdex/usdarx-tokenomics/usdarx-token',
+  },
   SUSHI: {
     name: 'Sushi',
     address: '0xd4d42F0b6DEF4CE0383636770eF773390d85c61A',
@@ -655,7 +668,8 @@ const _tokens = {
     decimals: 18,
     chainId: 42161,
     website: 'https://gainsnetwork.io/',
-    description: 'gDAI vault serves as a counterparty to all trading on GNS, a decentralized leverage trading platform on Polygon and Arbitrum.',
+    description:
+      'gDAI vault serves as a counterparty to all trading on GNS, a decentralized leverage trading platform on Polygon and Arbitrum.',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
     documentation: 'https://gains-network.gitbook.io/docs-home/',
