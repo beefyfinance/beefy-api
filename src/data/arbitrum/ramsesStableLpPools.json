@@ -1,5 +1,81 @@
 [
   {
+    "name": "ramses-frax-dei",
+    "address": "0x43fFC1291c2CC69cc5E4b12f8017AAAa696932e6",
+    "gauge": "0x89ff096282FCDCF83758FB3d6fA5F76B2D9232f3",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDE1E704dae0B4051e80DAbB26ab6ad6c12262DA0",
+      "oracle": "tokens",
+      "oracleId": "DEI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "ramses-mai-gdai",
+    "address": "0xeeFD88a21Cf767737a956Bb98c3E0368E12594Cd",
+    "gauge": "0x48c3658A1F4b7577B38A0C054f52793A0Cf42F37",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd85E038593d7A098614721EaE955EC2022B9B91B",
+      "oracle": "tokens",
+      "oracleId": "gDAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "ramses-mai-dola",
+    "address": "0x052f7890E50fb5b921BCAb3B10B79a58A3B9d40f",
+    "gauge": "0xEcb9F7f5993881e55FB3b3592a1E171f54ea1E3e",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6A7661795C374c0bFC635934efAddFf3A7Ee23b6",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "ramses-frax-dola",
+    "address": "0x1850e96550d6716d43bA4d7DF815FfC32bD0d03e",
+    "gauge": "0xF8719BC4a1A81969F00233a8D9409755d4366d28",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6A7661795C374c0bFC635934efAddFf3A7Ee23b6",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "ramses-usd+-dai+",
     "address": "0xeb9153afBAa3A6cFbd4fcE39988Cea786d3F62bb",
     "gauge": "0x88d8D2bDC4f12862FbaBEA43cEc08B8FCD2234Da",
