@@ -31,8 +31,10 @@ const getSolidlyApys = require('./getSolidlyApys');
 const getSpiritV2Apys = require('./getSpiritV2Apys');
 const getMaiCurveApys = require('./getMaiCurveApys');
 const getEqualizerApys = require('./getEqualizerApys');
+const getMmyApys = require('./getMmyApys');
 
 const getApys = [
+  getMmyApys,
   getEqualizerApys,
   getSpiritV2Apys,
   getSushiLpApys,

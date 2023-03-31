@@ -1658,6 +1658,18 @@ const _tokens = {
       'ankrFTM allows users to stake their funds on the Fantom network, earn rewards, and receive their stake and rewards upon unstaking.',
     documentation: 'https://www.ankr.com/docs/liquid-staking/ftm/overview/',
   },
+  MLP: {
+    name: 'MLP',
+    symbol: 'MLP',
+    address: '0xfDC9B5be032216315bBe8c06b1c4F563D1689b85',
+    chainId: 250,
+    decimals: 18,
+    website: 'https://app.mummy.finance/#/trade?ref=beefy',
+    description:
+      'MLP consists of an index of assets used for swaps and leverage trading on Mummy Finance. MLP holders will make a profit when leverage traders make a loss and vice versa. Staked MLP also earns escrowed MMY rewards and 60% of platform fees distributed in FTM.',
+    logoURI: 'https://app.mummy.finance/static/media/ic_mlp_40.92637cb6.svg',
+    documentation: 'https://docs.mummy.finance/mlp',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

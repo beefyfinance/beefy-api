@@ -67,6 +67,8 @@ import { getKyberOptimismPrices } from './optimism/getKyberOptimismPrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
+import getMmyFantomPrices from './fantom/getMmyFantomPrices';
+import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -86,6 +88,8 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   let breakdown = {};
 
   const promises = [
+    getMmyOptimismPrices(tokenPrices),
+    getMmyFantomPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
     getEquilibreStablePrices(tokenPrices),
     getVelocimeterStablePrices(tokenPrices),
