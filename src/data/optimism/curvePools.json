@@ -48,6 +48,7 @@
     "token": "0x9F2fE3500B1a7E285FDc337acacE94c480e00130",
     "oracleId": "WBTC",
     "gauge": "0x172a5AF37f69C69CC59E748D090a70615830A5Dd",
+    "getDy": ["v1", 0, 1],
     "tokens": [
       {
         "oracle": "tokens",
@@ -83,28 +84,6 @@
         "oracle": "tokens",
         "oracleId": "sETH",
         "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "curve-op-3crv",
-    "pool": "0x1337BedC9D22ecbe766dF105c9623922A27963EC",
-    "token": "0x1337BedC9D22ecbe766dF105c9623922A27963EC",
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "DAI",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "USDC",
-        "decimals": "1e6"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "USDT",
-        "decimals": "1e6"
       }
     ]
   },
@@ -149,6 +128,28 @@
         "oracle": "lps",
         "oracleId": "curve-op-3crv",
         "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-op-3crv",
+    "pool": "0x1337BedC9D22ecbe766dF105c9623922A27963EC",
+    "token": "0x1337BedC9D22ecbe766dF105c9623922A27963EC",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
       }
     ]
   }

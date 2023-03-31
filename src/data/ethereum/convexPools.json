@@ -5,6 +5,7 @@
     "token": "0x971add32Ea87f10bD192671630be3BE8A11b8623",
     "volatile": true,
     "rewardPool": "0x39D78f11b246ea4A1f68573c3A5B64E83Cff2cAe",
+    "getDy": ["v1", 1, 0],
     "extras": [
       {
         "rewardPool": "0x49C97EdC48b81625e60C1C960a17B28f53407487",
@@ -30,6 +31,7 @@
     "token": "0x3f0e7916681452D23Cd36B1281457DA721F2E5dF",
     "volatile": true,
     "rewardPool": "0xE1d8E3625c5C54b9dcbb52c2c8E4264c3A01450c",
+    "getDy": ["v2", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
@@ -68,6 +70,7 @@
     "token": "0xF9835375f6b268743Ea0a54d742Aa156947f8C06",
     "volatile": true,
     "rewardPool": "0x1A3c8B2F89B1C2593fa46C30ADA0b4E3D0133fF8",
+    "getDy": ["v2", 1, 0],
     "extras": [
       {
         "rewardPool": "0xB83607472704FE3bCf6165EB6ff1941722b3C8B6",
@@ -131,6 +134,7 @@
     "token": "0x6C280dB098dB673d30d5B34eC04B6387185D3620",
     "volatile": true,
     "rewardPool": "0x6be96D00B50375AF852D63DB7d55656B306f398e",
+    "getDy": ["v2", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
@@ -150,6 +154,7 @@
     "token": "0xF9078Fb962A7D13F55d40d49C8AA6472aBD1A5a6",
     "oracleId": "CVX",
     "rewardPool": "0x706f34D0aB8f4f9838F15b0D155C8Ef42229294B",
+    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
@@ -169,6 +174,7 @@
     "token": "0x453D92C7d4263201C69aACfaf589Ed14202d83a4",
     "oracleId": "CRV",
     "rewardPool": "0xe94b4cC50aC9ebeC491c3665C3E5a017a87dCF19",
+    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
@@ -207,6 +213,7 @@
     "token": "0x5Be6C45e2d074fAa20700C49aDA3E88a1cc0025d",
     "volatile": true,
     "rewardPool": "0x502Cc0d946e79CeA4DaafCf21F374C6bce763067",
+    "getDy": ["v2", 0, 1],
     "extras": [
       {
         "rewardPool": "0x3605AF97DFD67A6C73CfC517B9481a2fe4Bf050b",
@@ -232,6 +239,7 @@
     "token": "0x2863a328a0b7fc6040f11614fa0728587db8e353",
     "oracleId": "WBTC",
     "rewardPool": "0x41EAB7eB43b7b055B2Bf508cAcE932b11003029f",
+    "getDy": ["v1", 0, 1, "WBTC"],
     "extras": [
       {
         "rewardPool": "0x1037750005323093dDD5Cd385d07969C239aE028",
@@ -277,6 +285,7 @@
     "token": "0xc897b98272AA23714464Ea2A0Bd5180f1B8C0025",
     "volatile": true,
     "rewardPool": "0x14DC104D74372527fEC45b86E87Fe263C7215369",
+    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
@@ -352,6 +361,7 @@
     "pool": "0xAEda92e6A3B1028edc139A4ae56Ec881f3064D4F",
     "token": "0xAEda92e6A3B1028edc139A4ae56Ec881f3064D4F",
     "rewardPool": "0xB468dB2E478885B87D7ce0C8DA1D4373A756C138",
+    "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
         "oracle": "tokens",
@@ -410,6 +420,7 @@
     "token": "0x9848482da3Ee3076165ce6497eDA906E66bB85C5",
     "oracleId": "WETH",
     "rewardPool": "0xb235205E1096E0Ad221Fb7621a2E2cbaB875bE75",
+    "getDy": ["v1", 1, 0],
     "extras": [
       {
         "rewardPool": "0xB9e0eEdeaC5A2b92698f2dCA2f6dD154472A966c",
@@ -454,6 +465,7 @@
     "token": "0xF3A43307DcAFa93275993862Aae628fCB50dC768",
     "volatile": true,
     "rewardPool": "0xf27AFAD0142393e4b3E5510aBc5fe3743Ad669Cb",
+    "getDy": ["v2", 1, 0],
     "extras": [
       {
         "rewardPool": "0xE2585F27bf5aaB7756f626D6444eD5Fc9154e606",
@@ -472,7 +484,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "FXS",
+        "oracleId": "cvxFXS",
         "decimals": "1e18"
       }
     ]
@@ -545,6 +557,7 @@
     "pool": "0x04b727C7e246CA70d496ecF52E6b6280f3c8077D",
     "token": "0x04b727C7e246CA70d496ecF52E6b6280f3c8077D",
     "rewardPool": "0x51e6B84968D56a1E5BC93Ee264e95b1Ea577339c",
+    "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
         "oracle": "tokens",
@@ -664,6 +677,7 @@
     "pool": "0xA5407eAE9Ba41422680e2e00537571bcC53efBfD",
     "token": "0xC25a3A3b969415c80451098fa907EC722572917F",
     "rewardPool": "0x22eE18aca7F3Ee920D01F25dA85840D12d98E8Ca",
+    "oldAbi": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -740,6 +754,7 @@
     "token": "0x06325440D014e39736583c165C2963BA99fAf14E",
     "oracleId": "WETH",
     "rewardPool": "0x0A760466E1B4621579a82a39CB56Dda2F4E70f03",
+    "getDy": ["v1", 1, 0],
     "extras": [
       {
         "rewardPool": "0x008aEa5036b819B4FEAEd10b2190FBb3954981E8",

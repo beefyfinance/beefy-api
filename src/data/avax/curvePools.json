@@ -1,27 +1,5 @@
 [
   {
-    "name": "curve-avax-av3crv",
-    "pool": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
-    "token": "0x1337bedc9d22ecbe766df105c9623922a27963ec",
-    "gauge": "0x4620D46b4db7fB04a01A75fFed228Bc027C9A899",
-    "baseApyKey": "aave",
-    "boosted": true,
-    "tokens": [
-      {
-        "aaveId": "aave-dai.e",
-        "decimals": "1e18"
-      },
-      {
-        "aaveId": "aave-usdc.e",
-        "decimals": "1e6"
-      },
-      {
-        "aaveId": "aave-usdt.e",
-        "decimals": "1e6"
-      }
-    ]
-  },
-  {
     "name": "curve-avax-ren",
     "pool": "0x16a7DA911A4DD1d83F3fF066fE28F3C792C50d90",
     "token": "0xc2b1df84112619d190193e48148000e3990bf627",
@@ -143,16 +121,45 @@
     "gauge": "0xfbb5b8f2f9b7a4d21ff44dC724C1Fb7b531A6612",
     "oracleId": "AVAX",
     "boosted": true,
+    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
         "oracleId": "AVAX",
-        "decimals": "1e6"
+        "decimals": "1e18"
       },
       {
         "oracle": "tokens",
-        "oracleId": "WAVAX",
+        "oracleId": "AVAXL",
         "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-avax-av3crv",
+    "pool": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+    "token": "0x1337bedc9d22ecbe766df105c9623922a27963ec",
+    "gauge": "0x4620D46b4db7fB04a01A75fFed228Bc027C9A899",
+    "baseApyKey": "aave",
+    "boosted": true,
+    "tokens": [
+      {
+        "aaveId": "aave-dai.e",
+        "oracle": "tokens",
+        "oracleId": "DAI.e",
+        "decimals": "1e18"
+      },
+      {
+        "aaveId": "aave-usdc.e",
+        "oracle": "tokens",
+        "oracleId": "USDCe",
+        "decimals": "1e6"
+      },
+      {
+        "aaveId": "aave-usdt.e",
+        "oracle": "tokens",
+        "oracleId": "USDT.e",
+        "decimals": "1e6"
       }
     ]
   }

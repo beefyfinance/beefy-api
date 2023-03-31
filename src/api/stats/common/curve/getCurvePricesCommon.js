@@ -1,142 +1,85 @@
 const BigNumber = require('bignumber.js');
-
+const { MultiCall } = require('eth-multicall');
 const ICurvePool = require('../../../../abis/ICurvePool.json');
+const ICurvePoolOld = require('../../../../abis/ICurvePoolOld.json');
 const ERC20 = require('../../../../abis/ERC20.json');
-const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { getContract } = require('../../../../utils/contractHelper');
+const { multicallAddress } = require('../../../../utils/web3');
 
 const DECIMALS = '1e18';
 
-const getCurvePricesCommon = async (web3, pools, tokenPrices, withBreakdown = true) => {
+const getCurvePricesCommon = async (web3, pools, tokenPrices) => {
   let prices = {};
 
-  let promises = [];
-  pools.forEach(pool => promises.push(getPoolPrice(web3, pools, pool, tokenPrices, withBreakdown)));
-  const values = await Promise.all(promises);
+  const chainId = await web3.eth.getChainId();
+  const multicall = new MultiCall(web3, multicallAddress(chainId));
 
-  for (const item of values) {
-    prices = { ...prices, ...item };
+  const supplyCalls = pools.map(pool => {
+    const lp = getContract(ERC20, pool.token ?? pool.pool);
+    return {
+      pool: pool.pool,
+      totalSupply: lp.methods.totalSupply(),
+    };
+  });
+  const tokensCalls = [];
+  pools.forEach(pool => {
+    const curvePool = getContract(pool.oldAbi ? ICurvePoolOld : ICurvePool, pool.pool);
+    return pool.tokens.forEach((token, index) => {
+      tokensCalls.push({
+        pool: pool.pool,
+        oracleId: token.oracleId,
+        balance: curvePool.methods.balances(index),
+        address: curvePool.methods.coins(index),
+      });
+    });
+  });
+  const res = await multicall.all([supplyCalls, tokensCalls]);
+  const tokensInfo = res[1].map(v => ({
+    ...v,
+    balance: new BigNumber(v.balance),
+    token: pools.find(p => p.pool === v.pool).tokens.find(t => t.oracleId === v.oracleId),
+  }));
+
+  // reverse to calc base pools (3pool, fraxbp) first and use their prices in metapools
+  for (const pool of pools.slice().reverse()) {
+    const supplyInfo = res[0].find(r => r.pool === pool.pool);
+    const totalSupply = new BigNumber(supplyInfo.totalSupply).div(DECIMALS);
+    const tokens = tokensInfo.filter(r => r.pool === pool.pool);
+
+    let totalBalInUsd = new BigNumber(0);
+    for (const t of tokens) {
+      const price = getTokenPrice(prices, tokenPrices, t.token);
+      const usdBalance = t.balance.times(price).div(t.token.decimals);
+      totalBalInUsd = totalBalInUsd.plus(usdBalance);
+    }
+    const price = totalBalInUsd.div(totalSupply).toNumber();
+
+    prices[pool.name] = {
+      price,
+      tokens: tokens.map(t => t.address),
+      balances: tokens.map(t => t.balance.div(t.token.decimals).toString(10)),
+      totalSupply: totalSupply.toString(10),
+    };
   }
-
   return prices;
 };
 
-const getPoolPrice = async (web3, pools, pool, tokenPrices, withBreakdown) => {
-  try {
-    let price;
-    if (pool.volatile) {
-      price = await getVolatilePoolPrice(web3, pools, pool, tokenPrices, withBreakdown);
-    } else {
-      price = await getStablePoolPrice(web3, pool, tokenPrices, withBreakdown);
-    }
-
-    if (withBreakdown) {
-      let { tokens, balances, totalSupply } = await getLpBreakdownData(web3, pool);
-
-      return { [pool.name]: { price, tokens, balances, totalSupply } };
-    }
-
-    return { [pool.name]: price };
-  } catch (err) {
-    console.log('error on pool ' + pool.name);
-    return { [pool.name]: 0 };
-  }
-};
-
-const getLpBreakdownData = async (web3, pool) => {
-  //if in some cases totalsupply is fetched from separate contract, not pool
-  let supplyContract = getContractWithProvider(ERC20, pool.token ?? pool.pool, web3);
-
-  let promises = [];
-  pool.tokens.forEach((_, index) =>
-    promises.push(getTokenBalanceAndAddress(web3, pool.pool, index))
-  );
-  promises.push(supplyContract.methods.totalSupply().call());
-
-  let results = await Promise.all(promises);
-
-  let tokens = [];
-  let balances = [];
-
-  for (let i = 0; i < pool.tokens.length; i++) {
-    tokens.push(results[i].tokenAddress);
-    balances.push(
-      new BigNumber(results[i].balance).dividedBy(pool.tokens[i].decimals).toString(10)
-    );
-  }
-
-  const totalSupply = new BigNumber(results[pool.tokens.length]).dividedBy(DECIMALS).toString(10);
-
-  return { tokens, balances, totalSupply };
-};
-
-const getStablePoolPrice = async (web3, pool, tokenPrices, withBreakdown) => {
-  const lpContract = getContractWithProvider(ICurvePool, pool.pool, web3);
-
-  const virtualPrice = new BigNumber(await lpContract.methods.get_virtual_price().call());
-  const tokenPrice = getTokenPrice(tokenPrices, pool.oracleId);
-  const price = virtualPrice.multipliedBy(tokenPrice).dividedBy(DECIMALS).toNumber();
-
-  return price;
-};
-
-const getVolatilePoolPrice = async (web3, pools, pool, tokenPrices) => {
-  const promises = [];
-  pool.tokens.forEach((token, i) => {
-    promises.push(getTokenBalanceInUsd(web3, pools, pool.pool, token, i, tokenPrices));
-  });
-  promises.push(getContractWithProvider(ERC20, pool.token, web3).methods.totalSupply().call());
-
-  const results = await Promise.all(promises);
-
-  let totalBalInUsd = new BigNumber(0);
-
-  for (let i = 0; i < pool.tokens.length; i++) {
-    totalBalInUsd = totalBalInUsd.plus(results[i]);
-  }
-
-  const totalSupply = new BigNumber(results[pool.tokens.length]).dividedBy(DECIMALS);
-  const price = totalBalInUsd.dividedBy(totalSupply).toNumber();
-
-  return price;
-};
-
-const getTokenBalanceAndAddress = async (web3, curvePool, index) => {
-  const pool = getContractWithProvider(ICurvePool, curvePool, web3);
-
-  let promises = [pool.methods.balances(index).call(), pool.methods.coins(index).call()];
-  let [balance, tokenAddress] = await Promise.all(promises);
-
-  return { balance, tokenAddress };
-};
-
-const getTokenBalanceInUsd = async (web3, pools, curvePool, token, index, tokenPrices) => {
-  const pool = getContractWithProvider(ICurvePool, curvePool, web3);
-  const balance = await pool.methods.balances(index).call();
-
-  let price = 1;
+const getTokenPrice = (lpPrices, tokenPrices, token) => {
   if (token.basePool) {
-    const pool = pools.find(p => p.name === token.basePool);
-    if (pool.volatile) {
-      price = await getVolatilePoolPrice(web3, pools, pool, tokenPrices);
-    } else {
-      price = await getStablePoolPrice(web3, pool, tokenPrices);
-    }
-  } else if (token.oracleId) {
-    price = getTokenPrice(tokenPrices, token.oracleId);
+    const basePool = lpPrices[token.basePool];
+    if (basePool) return basePool.price;
+    else console.error('Curve prices no basePool price', token.basePool, 'move it to the bottom');
   }
-
-  let usdBalance = new BigNumber(balance).times(price).dividedBy(token.decimals);
-  return usdBalance;
-};
-
-const getTokenPrice = (tokenPrices, oracleId) => {
-  if (!oracleId) return 1;
+  if (!token.oracleId) {
+    console.error('Curve prices oracleId is not defined', token);
+    return 1;
+  }
   let tokenPrice = 1;
-  const tokenSymbol = oracleId;
+  const tokenSymbol = token.oracleId;
   if (tokenPrices.hasOwnProperty(tokenSymbol)) {
     tokenPrice = tokenPrices[tokenSymbol];
   } else {
-    console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    console.error(`Curve prices unknown token '${tokenSymbol}'. Consider adding it to .json file`);
   }
   return tokenPrice;
 };

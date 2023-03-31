@@ -6,7 +6,8 @@ import { MOONBEAM_CHAIN_ID as chainId } from '../../../constants';
 import { moonbeamWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
 const pools = require('../../../data/moonbeam/curvePools.json').filter(p => p.gauge && !p.convex);
-const baseApyUrl = 'https://stats.curve.fi/raw-stats-moonbeam/apys.json';
+// const baseApyUrl = 'https://stats.curve.fi/raw-stats-moonbeam/apys.json';
+const baseApyUrl = '';
 const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-moonbeam';
 const tradingFees = 0.0002;
 
