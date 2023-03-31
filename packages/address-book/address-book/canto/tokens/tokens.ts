@@ -148,6 +148,28 @@ const _tokens = {
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
     documentation: 'https://docs.multichain.org/getting-started/introduction',
   },
+  BUSD: {
+    name: 'Binance USD',
+    symbol: 'BUSD',
+    address: '0x381Ea7A7EE6a1e2982e01E7b6837f775a1a4B07F',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
+  },
+  WBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    address: '0x08638a74A8134c747Dce29B57472cc2B57F35653',
+    chainId: 7700,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

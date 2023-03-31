@@ -1,5 +1,45 @@
 [
   {
+    "name": "velocimeterv2-busd-note",
+    "address": "0x006B764F1a38dd173Bbb9b73beF095De68E81571",
+    "gauge": "0x31EeA0C109A10E2330F714C968cdC989108C5107",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x381Ea7A7EE6a1e2982e01E7b6837f775a1a4B07F",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-wbtc-multibtc",
+    "address": "0x1F20056B539366909c702bb93e1c65ED2878C9e2",
+    "gauge": "0x1110F6582749C4659cdc167bF5D413302cAb76c1",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x08638a74A8134c747Dce29B57472cc2B57F35653",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "multiBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
     "name": "velocimeterv2-note-usdc",
     "address": "0x5CbB5ed3C767d7BcC7f8796aCF37a9D181233A2f",
     "gauge": "0xfCB044Da3705746f20Cb6d93dc47c38ACD8B08CB",
