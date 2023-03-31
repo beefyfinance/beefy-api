@@ -8,10 +8,10 @@ import { ChainId } from '../../packages/address-book/types/chainid';
 type ConcentratedLiquidityToken = {
   type: string;
   oracleId: string;
-  decimals: string;
+  decimalDelta: number;
   pool: string;
+  firstToken: string;
   secondToken: string;
-  secondTokenDecimals: string;
 };
 
 const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>> = {
@@ -19,20 +19,20 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     {
       type: 'Kyber',
       oracleId: 'KNC',
-      decimals: '1e18',
+      decimalDelta: 1,
       pool: '0xB5e643250FF59311071C5008f722488543DD7b3C',
+      firstToken: 'KNC',
       secondToken: 'ETH',
-      secondTokenDecimals: '1e18',
     },
   ],
   polygon: [
     {
       type: 'UniV3',
       oracleId: 'BAL',
-      decimals: '1e18',
+      decimalDelta: 1,
       pool: '0x4fe1269a585B141F11C3E144158f9f8823c7C0e7',
+      firstToken: 'BAL',
       secondToken: 'ETH',
-      secondTokenDecimals: '1e18',
     },
   ],
 };
@@ -67,7 +67,12 @@ async function getConcentratedLiquidityPrices(
   }
 
   const tokenPrice = res[0].map(v => Number(v.price[1]));
-  return tokenPrice.map((v, i) => tokenPrices[chainTokens[i].secondToken] / Math.pow(1.0001, v));
+  return tokenPrice.map((v, i) =>
+    chainTokens[i].firstToken == chainTokens[i].oracleId
+      ? tokenPrices[chainTokens[i].secondToken] /
+        (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
+      : tokenPrices[chainTokens[i].firstToken] * (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
+  );
 }
 
 export async function fetchConcentratedLiquidityTokenPrices(
