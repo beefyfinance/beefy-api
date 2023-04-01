@@ -149,7 +149,7 @@ const _tokens = {
     documentation: 'https://docs.multichain.org/getting-started/introduction',
   },
   BNB: {
-    name: 'BNB',
+    name: 'Binance Chain',
     symbol: 'BNB',
     address: '0xFb7F77faaA3b69ef4C15d6305C79AD92B387C89F',
     chainId: 7700,
