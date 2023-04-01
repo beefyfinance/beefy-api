@@ -148,6 +148,17 @@ const _tokens = {
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
     documentation: 'https://docs.multichain.org/getting-started/introduction',
   },
+  BNB: {
+    name: 'BNB',
+    symbol: 'BNB',
+    address: '0xFb7F77faaA3b69ef4C15d6305C79AD92B387C89F',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+  },
   BUSD: {
     name: 'Binance USD',
     symbol: 'BUSD',
