@@ -684,6 +684,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
+  FXS: {
+    name: 'Frax Share',
+    symbol: 'FXS',
+    address: '0x9d2F299715D94d8A7E6F5eaa8E654E8c74a988A7',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Share token (FXS) is the non-stable, utility token in the protocol. It is meant to be volatile and hold rights to governance and all utility of the system. It is important to note that we take a highly governance-minimized approach to designing trustless money in the same ethos as Bitcoin. We eschew DAO-like active management such as MakerDAO. The less parameters for a community to be able to actively manage, the less there is to disagree on. Parameters that are up for governance through FXS include adding/adjusting collateral pools, adjusting various fees (like minting or redeeming), and refreshing the rate of the collateral ratio. No other actions such as active management of collateral or addition of human-modifiable parameters are possible other than a hardfork that would require voluntarily moving to a new implementation entirely. ',
+    logoURI: 'https://app.sushi.com/images/tokens/fxs-square.jpg',
+    documentation: 'https://docs.frax.finance/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
