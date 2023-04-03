@@ -1,5 +1,31 @@
 [
   {
+    "name": "convex-uzdfraxbp",
+    "pool": "0x68934F60758243eafAf4D2cFeD27BF8010bede3a",
+    "token": "0x68934F60758243eafAf4D2cFeD27BF8010bede3a",
+    "rewardPool": "0x820Fad75512c8C3E57Ad021d016846CEEB5F7105",
+    "getDy": ["v1", 0, 2, "USDC"],
+    "extras": [
+      {
+        "rewardPool": "0x7E4341AEE5916bF8B5A59CA0568A0816Cd1A89A9",
+        "oracleId": "UZD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "UZD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-fraxusdc",
+        "oracle": "lps",
+        "oracleId": "convex-fraxusdc",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-cvxcrv",
     "pool": "0x971add32Ea87f10bD192671630be3BE8A11b8623",
     "token": "0x971add32Ea87f10bD192671630be3BE8A11b8623",

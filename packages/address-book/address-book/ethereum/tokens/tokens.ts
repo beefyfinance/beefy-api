@@ -851,6 +851,18 @@ const _tokens = {
       'A complete synthetic protocol that enables users to generate a variety of synthetics using crypto assets as collateral',
     documentation: 'https://docs.metronome.io/metronome-2.0/master',
   },
+  UZD: {
+    name: 'UZD Zunami Stable',
+    symbol: 'UZD',
+    address: '0xb40b6608B2743E691C9B54DdBDEe7bf03cd79f1c',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.zunami.io/',
+    description:
+      'UZD is a rebase token that increases in value in proportion to the APY of the Zunami Protocol. It is over-collateralized by stablecoins allocated in Curve Finance pools and minted using ZLP. UZD is secure from depeg as it can be redeemed with USDT, USDC, or DAI at any time. Users can receive UZD by minting it through the Zunami interface or by swapping it in the Curve.',
+    documentation: 'https://zunamilab.gitbook.io/product-docs/',
+  },
   eUSDT: {
     name: 'Euler Tether USD',
     symbol: 'eUSDT',
