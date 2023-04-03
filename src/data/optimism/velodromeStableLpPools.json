@@ -9,13 +9,13 @@
     "lp0": {
       "address": "0x73cb180bf0521828d8849bc8CF2B920918e23032",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "oUSD+",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0x970D50d09F3a656b43E11B0D45241a84e3a6e011",
       "oracle": "tokens",
-      "oracleId": "DAI+",
+      "oracleId": "oUSD+",
       "decimals": "1e18"
     }
   },
