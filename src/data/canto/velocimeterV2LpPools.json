@@ -1,5 +1,25 @@
 [
   {
+    "name": "velocimeterv2-flow-atom",
+    "address": "0xddA6259A93649346535db8744502493ee023208D",
+    "gauge": "0xBB9b6E7B9e0C52768C76ca3A08d89f81a398aA6F",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xecEEEfCEE421D8062EF8d6b4D814efe4dc898265",
+      "oracle": "tokens",
+      "oracleId": "ATOM",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "velocimeterv2-wcanto-bnb",
     "address": "0x1f9AdfE106aA6220BCC898AE4B85d6F68d0aDbF5",
     "gauge": "0x3f1Df4F05e189Bb58A3874C424c8b36bB18082b3",
