@@ -28,6 +28,7 @@ const MULTICALLS = {
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
 const ERC20 = require('../abis/common/ERC20/ERC20.json');
 const BATCH_SIZE = 128;
+const DEBUG_ORACLES = ['FUSD'];
 
 const sortByKeys = o => {
   return Object.keys(o)
@@ -70,6 +71,7 @@ const fetchAmmPrices = async (pools, knownPrices) => {
   let lps = {};
   let breakdown = {};
   let weights = {};
+
   Object.keys(knownPrices).forEach(known => {
     weights[known] = Number.MAX_SAFE_INTEGER;
   });
@@ -112,44 +114,44 @@ const fetchAmmPrices = async (pools, knownPrices) => {
 
       for (let i = unsolved.length - 1; i >= 0; i--) {
         const pool = unsolved[i];
+        const trySolve = [];
 
-        let knownToken, unknownToken;
         if (pool.lp0.oracleId in weights && pool.lp1.oracleId in weights) {
-          // both known, so treat unknown as the one with the lowest weighting
-          knownToken =
-            weights[pool.lp0.oracleId] > weights[pool.lp1.oracleId] ? pool.lp0 : pool.lp1;
-          unknownToken =
-            weights[pool.lp0.oracleId] > weights[pool.lp1.oracleId] ? pool.lp1 : pool.lp0;
+          trySolve.push({ knownToken: pool.lp0, unknownToken: pool.lp1 });
+          trySolve.push({ knownToken: pool.lp1, unknownToken: pool.lp0 });
         } else if (pool.lp0.oracleId in prices) {
-          knownToken = pool.lp0;
-          unknownToken = pool.lp1;
+          trySolve.push({ knownToken: pool.lp0, unknownToken: pool.lp1 });
         } else if (pool.lp1.oracleId in prices) {
-          knownToken = pool.lp1;
-          unknownToken = pool.lp0;
+          trySolve.push({ knownToken: pool.lp1, unknownToken: pool.lp0 });
         } else {
-          // not solved yet but could be solved later
-          // console.log('unsolved: ', pool.lp0.oracleId, pool.lp1.oracleId, pool.name);
+          // both unknown: not solved yet but could be solved later
           continue;
         }
 
-        const { price, weight } = calcTokenPrice(
-          prices[knownToken.oracleId],
-          knownToken,
-          unknownToken
-        );
-        if (weight > (weights[unknownToken.oracleId] || 0)) {
-          // if(['FUSD', 'fUSD'].includes(unknownToken.oracleId)) {
-          //   console.log(`Setting ${unknownToken.oracleId} to $${price} via ${knownToken.oracleId} ($${prices[knownToken.oracleId]}) in ${pool.name} (${pool.address}) - weight ${weight} vs ${weights[unknownToken.oracleId] || 0}`);
-          // }
+        for (const { knownToken, unknownToken } of trySolve) {
+          const { price, weight } = calcTokenPrice(
+            prices[knownToken.oracleId],
+            knownToken,
+            unknownToken
+          );
+          const existingWeight = weights[unknownToken.oracleId] || 0;
+          const betterPrice = weight > existingWeight;
 
-          prices[unknownToken.oracleId] = price;
-          weights[unknownToken.oracleId] = weight;
+          if (DEBUG_ORACLES.includes(unknownToken.oracleId)) {
+            console.log(
+              `${betterPrice ? 'Setting' : 'Skipping'} ${unknownToken.oracleId} to $${price} via ${
+                knownToken.oracleId
+              } ($${prices[knownToken.oracleId]}) in ${pool.name} (${
+                pool.address
+              }) - new weight ${weight} vs existing ${existingWeight}`
+            );
+          }
+
+          if (betterPrice) {
+            prices[unknownToken.oracleId] = price;
+            weights[unknownToken.oracleId] = weight;
+          }
         }
-        // else {
-        //   if(['FUSD', 'fUSD'].includes(unknownToken.oracleId)) {
-        //     console.log(`NOT Setting ${unknownToken.oracleId} to $${price} via ${knownToken.oracleId} ($${prices[knownToken.oracleId]}) in ${pool.name} (${pool.address}) - weight ${weight} vs ${weights[unknownToken.oracleId]}`);
-        //   }
-        // }
 
         unsolved.splice(i, 1);
         solving = true;
