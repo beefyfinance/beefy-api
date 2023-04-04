@@ -1,0 +1,8 @@
+[
+  {
+    "name": "conic-usdc",
+    "address": "0x07b577f10d4e00f3018542d08a87F255a49175A5",
+    "underlying": "USDC",
+    "decimals": "1e6"
+  }
+]

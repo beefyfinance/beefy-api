@@ -56,7 +56,7 @@ const _tokens = {
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   CNC: {
-    name: 'Conin Finance Token',
+    name: 'Conic Finance Token',
     symbol: 'CNC',
     address: '0x9aE380F0272E2162340a5bB646c354271c0F5cFC',
     chainId: 1,
@@ -65,6 +65,27 @@ const _tokens = {
     description:
       'Conic Finance is an easy-to-use platform built for liquidity providers to easily diversify their exposure to multiple Curve pools. Any user can provide liquidity into a Conic Omnipool which allocates funds across Curve in proportion to protocol controlled pool weights.',
     documentation: 'https://docs.conic.finance/conic-finance/',
+  },
+  CTR: {
+    name: 'Concentrator Token',
+    symbol: 'CTR',
+    address: '0xb3Ad645dB386D7F6D753B2b9C3F4B853DA6890B8',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://concentrator.aladdin.club/',
+    description:
+      'Concentrator by Aladdin DAO maximizes Convex APYs and earns yield in the best DeFi tokens. Concentrator is a yield enhancer that boosts yields on Convex vaults by concentrating all rewards into auto-compounding top-tier tokens like aCRV (cvxCRV) and aFXS (cvxFXS/FXS).',
+    documentation: 'https://docs.aladdin.club/concentrator',
+  },
+  MATIC: {
+    name: 'Matic Token',
+    symbol: 'MATIC',
+    address: '0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://polygon.technology/',
+    description:
+      'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
   },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
@@ -145,6 +166,7 @@ const _tokens = {
     symbol: 'multiBTC',
     website: 'https://app.multichain.org/',
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
+    documentation: 'https://docs.multichain.org/getting-started/introduction',
   },
   alETH: {
     name: 'Alchemix ETH',
@@ -266,7 +288,7 @@ const _tokens = {
     logoURI: '',
   },
   cvxFXS: {
-    name: 'cvxFXS',
+    name: 'Convex FXS',
     address: '0xFEEf77d3f69374f66429C91d732A244f074bdf74',
     symbol: 'cvxFXS',
     decimals: 18,
@@ -275,6 +297,18 @@ const _tokens = {
     documentation: 'https://docs.convexfinance.com/',
     description:
       'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve.fi LPs.',
+    logoURI: '',
+  },
+  cvxFPIS: {
+    name: 'Convex FPIS',
+    address: '0xa2847348b58CEd0cA58d23c7e9106A49f1427Df6',
+    symbol: 'cvxFPIS',
+    decimals: 18,
+    chainId: 1,
+    website: 'https://frax.convexfinance.com/',
+    documentation: 'https://docs.convexfinance.com/',
+    description:
+      "Convex also now supports Frax Finance's FPIS token, the governance token for the FPI stablecoin launched by Frax. Frax documentation explains the mechanisms behind the FPI stablecoin and the FPIS governance token in detail.",
     logoURI: '',
   },
   sethUSDC: {
@@ -770,6 +804,30 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.yearn.finance/getting-started/products/ycrv/overview',
   },
+  eUSD: {
+    name: 'Electronic USD',
+    symbol: 'eUSD',
+    address: '0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://register.app/',
+    description:
+      'The Reserve Protocol is the first platform that allows for the permissionless creation of asset-backed, yield-bearing & overcollateralized stablecoins on Ethereum. The end goal of the Reserve Protocol is to provide highly scalable, decentralized, stable money in contrast to volatile cryptocurrencies such as Bitcoin and Ether.',
+    logoURI: '',
+    documentation: 'https://reserve.org/protocol/',
+  },
+  msETH: {
+    name: 'Metronome Synth ETH',
+    symbol: 'msETH',
+    address: '0x64351fC9810aDAd17A690E4e1717Df5e7e085160',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.metronome.io/',
+    description:
+      'A complete synthetic protocol that enables users to generate a variety of synthetics using crypto assets as collateral',
+    documentation: 'https://docs.metronome.io/metronome-2.0/master',
+  },
   BLUR: {
     name: 'Blur',
     symbol: 'BLUR',
@@ -780,6 +838,18 @@ const _tokens = {
     website: 'https://blur.io/',
     description:
       'Sweep NFTs across multiple marketplaces, snipe reveals faster than others, and manage your portfolio with advanced analytics. Zero fees.',
+  },
+  msUSD: {
+    name: 'Metronome Synth USD',
+    symbol: 'msUSD',
+    address: '0xab5eB14c09D416F0aC63661E57EDB7AEcDb9BEfA',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.metronome.io/',
+    description:
+      'A complete synthetic protocol that enables users to generate a variety of synthetics using crypto assets as collateral',
+    documentation: 'https://docs.metronome.io/metronome-2.0/master',
   },
   eUSDT: {
     name: 'Euler Tether USD',

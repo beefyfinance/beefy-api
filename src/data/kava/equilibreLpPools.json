@@ -1,5 +1,85 @@
 [
   {
+    "name": "equilibre-mai-vara",
+    "address": "0x8346199CD0Cc0cFED3Fe986B1Eb4656a9e30e61b",
+    "gauge": "0x95B86E1D246667d1C35EE40E6e289166f21785be",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xb84Df10966a5D7e1ab46D9276F55d57bD336AFC7",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE1da44C0dA55B075aE8E2e4b6986AdC76Ac77d73",
+      "oracle": "tokens",
+      "oracleId": "VARA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equilibre-bnb-vara",
+    "address": "0x530B9201E1Dbc11b596367428e5D344EbB636630",
+    "gauge": "0x358475CEaC9Ad8fAb2a812D20Dd56990c481858E",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xABd380327Fe66724FFDa91A87c772FB8D00bE488",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE1da44C0dA55B075aE8E2e4b6986AdC76Ac77d73",
+      "oracle": "tokens",
+      "oracleId": "VARA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equilibre-wbtc-wkava",
+    "address": "0x304B111E0c9ccC8137D98807D15d56AAd84bce77",
+    "gauge": "0xa27a1f03479cfe4B0b97Fd8c772a84aD815C1946",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+      "oracle": "tokens",
+      "oracleId": "WKAVA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equilibre-wbtc-eth",
+    "address": "0xD9eEF9881068141000B4257CCEB72faaba7186f6",
+    "gauge": "0x3f8185ccE4cB25f17f6BE2B4Ff653C45F0dD4FeD",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "equilibre-wkava-eth",
     "address": "0xB593E0A2e93864fF5F75689dADE29f5F6DEc64EF",
     "gauge": "0x371D33963fb89ec9542A11cCF955B3A90391f99f",

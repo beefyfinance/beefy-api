@@ -19,7 +19,7 @@ const _tokens = {
   WKAVA: KAVA,
   WNATIVE: KAVA,
   USDC: {
-    name: 'USD Coin ',
+    name: 'USD Coin',
     symbol: 'USDC',
     address: '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f',
     chainId: 2222,
@@ -166,6 +166,29 @@ const _tokens = {
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
+  },
+  BNB: {
+    name: 'Binance Chain',
+    symbol: 'BNB',
+    address: '0xABd380327Fe66724FFDa91A87c772FB8D00bE488',
+    chainId: 2222,
+    decimals: 18,
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    logoURI: '',
+  },
+  USX: {
+    name: 'dForce USD',
+    symbol: 'USX',
+    address: '0xDb0E1e86B01c4ad25241b1843E407Efc4D615248',
+    chainId: 2222,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://dforce.network/',
+    description:
+      'USX is the most important DeFi primitive within dForce’s protocol matrix, starting off with an over-collateralization design, where supported assets can be used as collaterals to mint USX within the respective approved LTV ratio (similar to DAI).',
+    documentation: 'https://docs.dforce.network/protocols/usx',
   },
 } as const;
 

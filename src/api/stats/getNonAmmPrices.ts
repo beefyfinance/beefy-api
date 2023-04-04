@@ -38,6 +38,7 @@ import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 import getUniV3PolygonPrices from './matic/getUniV3PolygonPrices';
 import getCurveKavaPrices from './kava/getCurvePrices';
 import getSushiKavaPrices from './kava/getSushiPrices';
+import getSushiArbPrices from './arbitrum/getSushiPrice';
 import getGmxArbitrumPrices from './arbitrum/getGmxPrices';
 import getGmxAvalanchePrices from './avax/getGmxPrices';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices';
@@ -65,6 +66,10 @@ import { getKyberAvaxPrices } from './avax/getKyberAvaxPrices';
 import { getKyberOptimismPrices } from './optimism/getKyberOptimismPrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
+import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
+import getMmyFantomPrices from './fantom/getMmyFantomPrices';
+import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
+import { getStakeSteakPrices } from './fantom/getStakeSteakPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -84,6 +89,9 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   let breakdown = {};
 
   const promises = [
+    getMmyOptimismPrices(tokenPrices),
+    getMmyFantomPrices(tokenPrices),
+    getRamsesStablePrices(tokenPrices),
     getEquilibreStablePrices(tokenPrices),
     getVelocimeterStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
@@ -109,11 +117,11 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),
     getFerroPrices(tokenPrices),
-    getCurveEthereumPrices(tokenPrices),
     getAuraBalancerPrices(tokenPrices),
     getGmxAvalanchePrices(tokenPrices),
     getGmxArbitrumPrices(tokenPrices),
     getSushiKavaPrices(tokenPrices),
+    getSushiArbPrices(tokenPrices),
     getUniV3PolygonPrices(tokenPrices),
     getHermesStablePrices(tokenPrices),
     getCakeStablePrices(tokenPrices),
@@ -135,6 +143,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getSnob3PoolPrice(),
     getFroyoPrices(),
     getGondolaPrices(tokenPrices),
+    getCurveEthereumPrices(tokenPrices),
     getCurvePolygonPrices(tokenPrices),
     getCurveFantomPrices(tokenPrices),
     getCurveArbitrumPrices(tokenPrices),
@@ -151,6 +160,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getJarvisPrices(tokenPrices),
     getSolarbeamPrices(tokenPrices),
     getStellaswapPrices(tokenPrices),
+    getStakeSteakPrices(tokenPrices),
   ];
 
   // Setup error logs

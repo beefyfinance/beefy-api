@@ -1,5 +1,45 @@
 [
   {
+    "name": "sushi-arb-weth-arb-2",
+    "address": "0xBF6CBb1F40a542aF50839CaD01b0dc1747F11e18",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 28,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-arb-dpx-weth",
+    "address": "0x0C1Cf6883efA1B496B01f654E247B9b419873054",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 17,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x6C2C06790b3E3E3c38e12Ee22F8183b37a13EE55",
+      "oracle": "tokens",
+      "oracleId": "DPX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-arb-weth-bifi",
     "address": "0xcda9b8e5867b5746755fe6e505b6300a76b2fac3",
     "decimals": "1e18",

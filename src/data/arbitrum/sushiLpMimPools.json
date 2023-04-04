@@ -1,5 +1,49 @@
 [
   {
+    "name": "sushi-arb-rdpx-weth",
+    "address": "0x7418F5A2621E13c05d1EFBd71ec922070794b90a",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "rewarder": "0x294eadcc534084C1333Dc99E1aFCf3e92c5c1297",
+    "secondOracleId": "DPX",
+    "poolId": 23,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x32Eb7902D4134bf98A28b963D26de779AF92A212",
+      "oracle": "tokens",
+      "oracleId": "RDPX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-arb-dpx-weth",
+    "address": "0x0C1Cf6883efA1B496B01f654E247B9b419873054",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "rewarder": "0xb873813F710093CBC17836297A6feFCfc6989faF",
+    "secondOracleId": "DPX",
+    "poolId": 17,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x6C2C06790b3E3E3c38e12Ee22F8183b37a13EE55",
+      "oracle": "tokens",
+      "oracleId": "DPX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-arb-magic-weth",
     "address": "0xB7E50106A5bd3Cf21AF210A755F9C8740890A8c9",
     "decimals": "1e18",

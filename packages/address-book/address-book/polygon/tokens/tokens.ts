@@ -28,6 +28,18 @@ const MAI = {
 } as const;
 
 const _tokens = {
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    address: '0xEe327F889d5947c1dc1934Bb208a1E792F953E96',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
     symbol: 'wstETH',
@@ -937,7 +949,7 @@ const _tokens = {
   },
   LINK: {
     name: 'ChainLink Token',
-    address: '0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39',
+    address: '0xb0897686c545045aFc77CF20eC7A532E3120E0F1',
     symbol: 'LINK',
     decimals: 18,
     website: 'https://chain.link/',

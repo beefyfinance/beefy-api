@@ -3,6 +3,7 @@ import { sushi } from './platforms/sushi';
 import { swapfish } from './platforms/swapfish';
 import { balancer } from './platforms/balancer';
 import { solidlizard } from './platforms/solidlizard';
+import { ramses } from './platforms/ramses';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -15,6 +16,7 @@ const _arbitrum = {
     swapfish,
     balancer,
     solidlizard,
+    ramses,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

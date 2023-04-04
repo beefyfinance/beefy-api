@@ -26,6 +26,9 @@ type RoundData = {
   answeredInRound: string;
 };
 
+/**
+ * @see https://data.chain.link/categories/crypto-usd
+ */
 const oracles: Oracle[] = [
   {
     oracleId: 'ETH',

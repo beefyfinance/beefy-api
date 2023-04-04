@@ -1,5 +1,91 @@
 [
   {
+    "name": "balancer-sd-maticx",
+    "address": "0x4973f591784D9c94052a6c3EBd553FCD37Bb0E55",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x407afb5De13d257eB7db4F81E93CB532aa6D8975",
+    "vaultPoolId": "0x4973f591784d9c94052a6c3ebd553fcd37bb0e5500020000000000000000087f",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0xF49DFfb990caaBc0Ba151e337dA91c3a9dc42b87",
+        "token": "0x1d734A02eF1e1f5886e66b0673b71Af5B53ffA94",
+        "oracleId": "SD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "SD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MaticX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancer-jeur-par-v2",
+    "address": "0x513CdEE00251F39DE280d9E5f771A6eaFebCc88E",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xb8f0394F3fD743552296c990eaDCfF4d081474B1",
+    "vaultPoolId": "0x513cdee00251f39de280d9e5f771a6eafebcc88e000000000000000000000a6b",
+    "composable": true,
+    "bptIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0xb83fD7EfEAb6ACF6E5AE4Bc4836Ba878D2396b05",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "jEUR",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "PAR",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancer-poly-eth-frxeth",
+    "address": "0x5DEe84FfA2DC27419Ba7b3419d7146E53e4F7dEd",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xF75Bf196b64f2FCf942C29b5bE7f4742e4fD16Bd",
+    "vaultPoolId": "0x5dee84ffa2dc27419ba7b3419d7146e53e4f7ded000200000000000000000a4e",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0x7f4D96B679EdaFcFb4C1e4729732B2A12C47F0f8",
+        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "frxETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-poly-wsteth-eth",
     "address": "0x65Fe9314bE50890Fb01457be076fAFD05Ff32B9A",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

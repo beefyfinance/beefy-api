@@ -1,0 +1,57 @@
+[
+  {
+    "name": "mmy-ftm-mlp",
+    "address": "0x0ce61aAF89500e4f007884fBbf62642618dEf5dd",
+    "oracle": "lps",
+    "tokenId": "mmy-ftm-mlp",
+    "strategy": "0xa71e8F6420f131c6A4D42d5084E63A8AeF625A0e",
+    "stakedTracker": "0xFfB69477FeE0DAEB64E7dE89B57846aFa990e99C",
+    "glpManager": "0x304951d7172bCAdA54ccAC1E4674862b3d5b3d5b",
+    "vault": "0xA6D7D0e650aa40FFa42d845A354c12c2bc0aB15f",
+    "rewardToken": "WFTM",
+    "rewardTrackers": [
+      {
+        "address": "0x7B26207457A9F8fF4fd21A7A0434066935f1D8E7",
+        "distributor": "0xA30b1C3c8EDE3841dE05F9CdD4D0e097aC4C6D92"
+      },
+      {
+        "address": "0xe149164D8eca659E8912DbDEC35E3f7E71Fb5789",
+        "distributor": "0xCEBC8A8b66De9B3f4393966EaB86Fc9DE26B2529"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+        "oracleId": "BTC",
+        "decimals": "1e8"
+      },
+      {
+        "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+        "oracleId": "fUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ],
+    "decimals": "1e18",
+    "chainId": 137
+  }
+]

@@ -8,6 +8,7 @@ import IERC20 from '../../../abis/ERC20.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../utils/fetchPrice';
 import { getMintedCvxAmount } from './getConvexApys';
+import getApyBreakdown from '../common/getApyBreakdown';
 
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
@@ -144,6 +145,6 @@ export const getConvexCrvApy = async () => {
       .toNumber();
     // console.log(pool.name, 'group1 apy', poolExtra.oracleId, group1Apy);
   }
-  const apy = Math.max(group0Apy, group1Apy);
-  return { [pool.name]: apy };
+  const apr = Math.max(group0Apy, group1Apy);
+  return getApyBreakdown([{ name: pool.name, address: pool.name }], {}, [new BigNumber(apr)], 0);
 };

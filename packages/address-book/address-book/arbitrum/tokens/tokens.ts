@@ -241,10 +241,21 @@ const _tokens = {
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: '',
   },
-  RDNT: {
+  oldRDNT: {
     name: 'RDNT',
     symbol: 'RDNT',
     address: '0x0C4681e6C0235179ec3D4F4fc4DF3d14FDD96017',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://radiant.capital/',
+    description:
+      'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
+    logoURI: '',
+  },
+  RDNT: {
+    name: 'RDNT',
+    symbol: 'RDNT',
+    address: '0x3082CC23568eA640225c2467653dB90e9250AaA0',
     chainId: 42161,
     decimals: 18,
     website: 'https://radiant.capital/',
@@ -524,6 +535,167 @@ const _tokens = {
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
+  },
+  RAM: {
+    name: 'Ramses',
+    symbol: 'RAM',
+    address: '0xAAA6C1E32C55A7Bfa8066A6FAE9b42650F262418',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ramses.exchange/home',
+    description:
+      'Ramses is a decentralized exchange built on Arbitrum that offers low-cost token exchanges and reduced swap fees, using a governance model called the ve(3,3) system, which was developed by Andre Cronje and introduced in Solidly. ',
+    documentation: 'https://docs.ramses.exchange/',
+  },
+  L2DAO: {
+    name: 'Layer2DAO',
+    symbol: 'L2DAO',
+    address: '0x2CaB3abfC1670D1a452dF502e216a66883cDf079',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.layer2dao.org/#/',
+    description:
+      'Layer2DAO is expanding the Ethereum L2 ecosystem and investing in L2 ecosystem projects. The DAO uses its treasury to invest into high-impact L2 protocols and ecosystem plays, serving as a diversified venture fund for investors looking to gain exposure to the L2 ecosystem growth. It also provides liquidity, depositing, and staking, perpetually reinvesting proceeds back into the DAO.',
+    documentation: 'https://docs.layer2dao.org/',
+  },
+  DOLA: {
+    name: 'DOLA USD',
+    symbol: 'DOLA',
+    address: '0x6A7661795C374c0bFC635934efAddFf3A7Ee23b6',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
+    documentation: 'https://docs.inverse.finance/',
+  },
+  DEI: {
+    name: 'DEI',
+    symbol: 'DEI',
+    address: '0xDE1E704dae0B4051e80DAbB26ab6ad6c12262DA0',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
+    logoURI: 'https://app.deus.finance/tokens/dei.svg',
+    documentation: 'https://docs.deus.finance/',
+  },
+  DEUS: {
+    name: 'DEUS',
+    symbol: 'DEUS',
+    address: '0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
+    logoURI: 'https://app.deus.finance/tokens/deus.svg',
+    documentation: 'https://docs.deus.finance/',
+  },
+  LQTY: {
+    name: 'Liquity',
+    symbol: 'LQTY',
+    address: '0xfb9E5D956D889D91a82737B9bFCDaC1DCE3e1449',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://www.liquity.org/',
+    description:
+      'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%. In addition to the collateral, the loans are secured by a Stability Pool containing LUSD and by fellow borrowers collectively acting as guarantors of last resort. Learn more about these mechanisms in our documentation. Liquity as a protocol is non-custodial, immutable, and governance-free.',
+    logoURI:
+      'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x6DEA81C8171D0bA574754EF6F8b412F2Ed88c54D/logo.png',
+    documentation: 'https://docs.liquity.org/',
+  },
+  ARB: {
+    name: 'Arbitrum',
+    symbol: 'ARB',
+    address: '0x912CE59144191C1204E64559FE8253a0e49E6548',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x912CE59144191C1204E64559FE8253a0e49E6548.svg',
+    website: 'https://arbitrum.foundation/',
+    description:
+      'Arbitrum is a protocol that makes Ethereum transactions faster and cheaper. Developers use Arbitrum to build user-friendly decentralized apps (dApps) that can take advantage of the scalability benefits of the Arbitrum Rollup and AnyTrust protocols.',
+    documentation: 'https://docs.arbitrum.foundation/gentle-intro-dao-governance',
+  },
+  DPX: {
+    name: 'Dopex Governance Token',
+    symbol: 'DPX',
+    address: '0x6C2C06790b3E3E3c38e12Ee22F8183b37a13EE55',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x6C2C06790b3E3E3c38e12Ee22F8183b37a13EE55.svg',
+    website: 'https://www.dopex.io/',
+    description:
+      'Dopex -- A decentralized options protocol aiming to expand option liquidity throughout DeFi by minimizing option losses via rebates and maximizing reward through delegated controlled incentives',
+    documentation: 'https://docs.dopex.io/getting-started/introduction-to-dopex',
+  },
+  RDPX: {
+    name: 'Dopex Rebate Token',
+    symbol: 'RDPX',
+    address: '0x32Eb7902D4134bf98A28b963D26de779AF92A212',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x32Eb7902D4134bf98A28b963D26de779AF92A212.svg',
+    website: 'https://www.dopex.io/',
+    description:
+      'rDPX is the rebate token of the Dopex platform and is used to compensate option writers a portion of their losses. These rebates make losses less costly than our competitors, allowing us to drive deeper liquidity throughout the platform.',
+    documentation: 'https://docs.dopex.io/tokenomics/tokenomics/rdpx',
+  },
+  gDAI: {
+    name: 'Gains Network DAI',
+    symbol: 'gDAI',
+    address: '0xd85E038593d7A098614721EaE955EC2022B9B91B',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://gainsnetwork.io/',
+    description:
+      'gDAI vault serves as a counterparty to all trading on GNS, a decentralized leverage trading platform on Polygon and Arbitrum.',
+    logoURI:
+      'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
+    documentation: 'https://gains-network.gitbook.io/docs-home/',
+  },
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    address: '0x178412e79c25968a32e89b11f63B33F733770c2A',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
+  'DAI+': {
+    name: 'DAI+ Stablecoin',
+    symbol: 'DAI+',
+    address: '0xeb8E93A0c7504Bffd8A8fFa56CD754c63aAeBFe8',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'DAI+ is DAI that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  FXS: {
+    name: 'Frax Share',
+    symbol: 'FXS',
+    address: '0x9d2F299715D94d8A7E6F5eaa8E654E8c74a988A7',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Share token (FXS) is the non-stable, utility token in the protocol. It is meant to be volatile and hold rights to governance and all utility of the system. It is important to note that we take a highly governance-minimized approach to designing trustless money in the same ethos as Bitcoin. We eschew DAO-like active management such as MakerDAO. The less parameters for a community to be able to actively manage, the less there is to disagree on. Parameters that are up for governance through FXS include adding/adjusting collateral pools, adjusting various fees (like minting or redeeming), and refreshing the rate of the collateral ratio. No other actions such as active management of collateral or addition of human-modifiable parameters are possible other than a hardfork that would require voluntarily moving to a new implementation entirely. ',
+    logoURI: 'https://app.sushi.com/images/tokens/fxs-square.jpg',
+    documentation: 'https://docs.frax.finance/',
   },
 } as const;
 

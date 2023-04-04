@@ -6,6 +6,7 @@
     "gauge": "0xC106C836771B0B4f4a0612Bd68163Ca93be1D340",
     "oracleId": "xcDOT",
     "beefyFee": 0.095,
+    "getDy": ["v1", 1, 0],
     "rewards": [
       {
         "token": "0x9Fda7cEeC4c18008096C2fE2B85F05dc300F94d0",

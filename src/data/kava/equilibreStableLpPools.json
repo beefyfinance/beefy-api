@@ -1,5 +1,45 @@
 [
   {
+    "name": "equilibre-usx-usdc",
+    "address": "0xcc35FD8B11e66aB413dc520c920F396c2c1096Eb",
+    "gauge": "0x19f7D523f77E08B94828674eFEe8c6B4F62dd176",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xDb0E1e86B01c4ad25241b1843E407Efc4D615248",
+      "oracle": "tokens",
+      "oracleId": "USX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equilibre-axlusdc-usdc",
+    "address": "0x7a08708E06A118F2B22C9000A990155bdEdC31d1",
+    "gauge": "0xc28Fcef5970fD23E5BFCDC31cE1Ba72ef98Cc70a",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xEB466342C4d449BC9f53A865D5Cb90586f405215",
+      "oracle": "tokens",
+      "oracleId": "axlUSDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "equilibre-dai-usdc",
     "address": "0x9aCAd463537d5b4fb1d7637bB558E79D0441B96f",
     "gauge": "0xe45086F996e4473E0973392c1FE97B52575466CF",

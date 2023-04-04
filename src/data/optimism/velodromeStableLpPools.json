@@ -1,5 +1,85 @@
 [
   {
+    "name": "velodrome-frax-mai",
+    "address": "0x94b731AC9C363fd797529F0C4f303C34D9A4829D",
+    "gauge": "0xE06d3a3030A800f0E46987Ab450E48402Af3c6Dd",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-lusd-dai",
+    "address": "0xF12BA676F9045BD76f8280BF249CBe8D209276e2",
+    "gauge": "0x8b1ad293f4C1D4f66643D779637C72EAEfbb37DA",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xc40F949F8a4e094D1b49a23ea9241D289B7b2819",
+      "oracle": "tokens",
+      "oracleId": "LUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-usdt-lusd",
+    "address": "0x91F3FCE37992d608673140034A134F4612B82118",
+    "gauge": "0x0b3B51F9D26198e418053e97D9a79AE9Bd05e33C",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc40F949F8a4e094D1b49a23ea9241D289B7b2819",
+      "oracle": "tokens",
+      "oracleId": "LUSD",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-frax-dola",
+    "address": "0xD29DE64c1a9Dd3e829A7345BE1E9c32a9414541f",
+    "gauge": "0xa4a9EC4ceEEF2317c016645E1E00f50b12821296",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8aE125E8653821E851F12A49F7765db9a9ce7384",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-dola-mai",
     "address": "0x21950a0cA249A0ef3d182338c86c8C066B24D801",
     "gauge": "0x58E3532062f83c8962B388426c0fE0EF56f75B2A",

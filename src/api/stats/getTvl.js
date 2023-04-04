@@ -157,7 +157,7 @@ const chains = [
   {
     chainId: KAVA_CHAIN_ID,
     vaultsEndpoint: KAVA_VAULTS_ENDPOINT,
-    // governancePool: require('../../data/kava/governancePool.json'),
+    governancePool: require('../../data/kava/governancePool.json'),
   },
   {
     chainId: ETH_CHAIN_ID,

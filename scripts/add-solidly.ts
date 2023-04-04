@@ -43,8 +43,7 @@ const projects = {
     prefix: 'equilibre',
     stableFile: '../src/data/kava/equilibreStableLpPools.json',
     volatileFile: '../src/data/kava/equilibreLpPools.json',
-    // voter: equilibre.voter, // still not in ab
-    voter: '0x4eB2B9768da9Ea26E3aBe605c9040bC12F236a59',
+    voter: equilibre.voter,
   },
   velodrome: {
     prefix: 'velodrome',
@@ -99,9 +98,9 @@ const projects = {
     voter: solidlizard.voter,
   },
   velocimeter: {
-    prefix: 'velocimeter',
-    stableFile: '../src/data/canto/velocimeterStableLpPools.json',
-    volatileFile: '../src/data/canto/velocimeterLpPools.json',
+    prefix: 'velocimeterv2',
+    stableFile: '../src/data/canto/velocimeterV2StableLpPools.json',
+    volatileFile: '../src/data/canto/velocimeterV2LpPools.json',
     voter: velocimeter.voter,
   },
 };

@@ -4,65 +4,73 @@ import { multicallAddress, web3Factory } from './web3';
 import ICurvePool from '../abis/ICurvePool.json';
 import ICurvePoolV2 from '../abis/ICurvePoolV2.json';
 import { getContract } from './contractHelper';
-import { ChainId } from '../../packages/address-book/address-book';
+import { addressBookByChainId, ChainId } from '../../packages/address-book/address-book';
+
+const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
+  fantom: toCurveTokens(ChainId.fantom, require('../data/fantom/curvePools.json')),
+  avax: toCurveTokens(ChainId.avax, require('../data/avax/curvePools.json')),
+  optimism: toCurveTokens(ChainId.optimism, require('../data/optimism/curvePools.json')),
+  arbitrum: toCurveTokens(ChainId.arbitrum, require('../data/arbitrum/curvePools.json')),
+  moonbeam: toCurveTokens(ChainId.moonbeam, require('../data/moonbeam/curvePools.json')),
+  kava: toCurveTokens(ChainId.kava, require('../data/kava/curvePools.json')),
+  polygon: toCurveTokens(ChainId.polygon, [
+    ...require('../data/matic/curvePools.json'),
+    ...require('../data/matic/jarvisPools.json'),
+  ]),
+  ethereum: [
+    ...toCurveTokens(ChainId.ethereum, require('../data/ethereum/convexPools.json')),
+    {
+      oracleId: 'cvxFPIS',
+      decimals: '1e18',
+      index0: 1,
+      index1: 0,
+      pool: '0xfBB481A443382416357fA81F16dB5A725DC6ceC8',
+      secondToken: 'FPIS',
+      secondTokenDecimals: '1e18',
+      abi: ICurvePool,
+    },
+  ],
+};
 
 type CurveToken = {
   oracleId: string;
   decimals: string;
   index0: number;
   index1: number;
-  minter: string;
+  pool: string;
+  useUnderlying?: boolean;
   secondToken: string;
   secondTokenDecimals: string;
   abi: any;
 };
 
-const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
-  ethereum: [
-    {
-      oracleId: 'CNC',
-      decimals: '1e18',
-      index0: 1,
-      index1: 0,
-      minter: '0x838af967537350D2C44ABB8c010E49E32673ab94',
-      secondToken: 'ETH',
-      secondTokenDecimals: '1e18',
-      abi: ICurvePoolV2,
-    },
-    {
-      oracleId: 'GEAR',
-      decimals: '1e18',
-      index0: 0,
-      index1: 1,
-      minter: '0x0E9B5B092caD6F1c5E6bc7f89Ffe1abb5c95F1C2',
-      secondToken: 'ETH',
-      secondTokenDecimals: '1e18',
-      abi: ICurvePoolV2,
-    },
-    {
-      oracleId: 'CLEV',
-      decimals: '1e18',
-      index0: 1,
-      index1: 0,
-      minter: '0x342D1C4Aa76EA6F5E5871b7f11A019a0eB713A4f',
-      secondToken: 'ETH',
-      secondTokenDecimals: '1e18',
-      abi: ICurvePoolV2,
-    },
-  ],
-  moonbeam: [
-    {
-      oracleId: 'stDOT',
-      decimals: '1e10',
-      index0: 1,
-      index1: 0,
-      minter: '0xc6e37086D09ec2048F151D11CdB9F9BbbdB7d685',
-      secondToken: 'xcDOT',
-      secondTokenDecimals: '1e10',
-      abi: ICurvePool,
-    },
-  ],
-};
+function toCurveTokens(chainId, pools) {
+  return pools
+    .filter(p => p.getDy !== undefined)
+    .map(p => {
+      const abi = p.getDy[0] === 'v2' ? ICurvePoolV2 : ICurvePool;
+      const index0 = p.getDy[1];
+      const index1 = p.getDy[2];
+      const oracleId = p.tokens[index0].oracleId;
+      const decimals = p.tokens[index0].decimals;
+      const useUnderlying = p.getDy[3] !== undefined;
+      const secondToken = useUnderlying ? p.getDy[3] : p.tokens[index1].oracleId;
+      const secondTokenDecimals = useUnderlying
+        ? `1e${addressBookByChainId[chainId].tokens[p.getDy[3]].decimals}`
+        : p.tokens[index1].decimals;
+      return {
+        pool: p.pool,
+        abi,
+        oracleId,
+        decimals,
+        index0,
+        index1,
+        useUnderlying,
+        secondToken,
+        secondTokenDecimals,
+      };
+    });
+}
 
 async function getCurveTokenPrices(
   tokenPrices: Record<string, number>,
@@ -73,13 +81,10 @@ async function getCurveTokenPrices(
   const multicall = new MultiCall(web3, multicallAddress(chainId));
 
   const curvePriceCalls = chainTokens.map(token => {
-    const tokenContract = getContract(token.abi, token.minter);
+    const pool = getContract(token.abi, token.pool);
+    const getDy = token.useUnderlying ? pool.methods.get_dy_underlying : pool.methods.get_dy;
     return {
-      price: tokenContract.methods.get_dy(
-        token.index0,
-        token.index1,
-        new BigNumber(token.decimals).toString(10)
-      ),
+      price: getDy(token.index0, token.index1, new BigNumber(token.decimals).toString(10)),
     };
   });
 

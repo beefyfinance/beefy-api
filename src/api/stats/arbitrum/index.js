@@ -15,6 +15,7 @@ const { getSwapFishApys } = require('./getSwapFishApys');
 const { getGnsApys } = require('./getGnsApys');
 const getKyberArbitrumApys = require('./getKyberArbitrumApys');
 const getSolidLizardApys = require('./getSolidLizardApys');
+const getRamsesApys = require('./getRamsesApys');
 
 const getApys = [
   getKyberArbitrumApys,
@@ -34,6 +35,7 @@ const getApys = [
   getStargateArbApys,
   getSwapFishApys,
   getSolidLizardApys,
+  getRamsesApys,
 ];
 
 const getArbitrumApys = async () => {

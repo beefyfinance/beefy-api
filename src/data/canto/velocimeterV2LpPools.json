@@ -1,0 +1,382 @@
+[
+  {
+    "name": "velocimeterv2-flow-atom",
+    "address": "0xddA6259A93649346535db8744502493ee023208D",
+    "gauge": "0xBB9b6E7B9e0C52768C76ca3A08d89f81a398aA6F",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xecEEEfCEE421D8062EF8d6b4D814efe4dc898265",
+      "oracle": "tokens",
+      "oracleId": "ATOM",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "velocimeterv2-wcanto-bnb",
+    "address": "0x1f9AdfE106aA6220BCC898AE4B85d6F68d0aDbF5",
+    "gauge": "0x3f1Df4F05e189Bb58A3874C424c8b36bB18082b3",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFb7F77faaA3b69ef4C15d6305C79AD92B387C89F",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-flow-somm",
+    "address": "0xaC2C49a475C8d3b79FBA2eBaFCB11eC45B271680",
+    "gauge": "0x6eb598225Bc24B5304f0094fE1a6e93F7C42FfcC",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFA3C22C069B9556A4B2f7EcE1Ee3B467909f4864",
+      "oracle": "tokens",
+      "oracleId": "SOMM",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "velocimeterv2-multibtc-flow",
+    "address": "0x4eDBd1606Ab49e22846dd1EE2529E5FdA48FE062",
+    "gauge": "0xf1c0284337405DaCb92b7F2E754fc9D3a155cB8c",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "multiBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-note-multibtc",
+    "address": "0xe86F5A4634966e434f54Af4B598417dB0BA524E7",
+    "gauge": "0xE9FF67bA730667f7372057471c560508a7495eD7",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "multiBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "velocimeterv2-eth-multibtc",
+    "address": "0x1D4E33e07ddf9cc8EDB204102c3238b6A2c0e3fb",
+    "gauge": "0x5643Df447808F5FE6E2719e245d445aba2938d6f",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "multiBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
+    "name": "velocimeterv2-multibtc-wcanto",
+    "address": "0x582A99ED86a3d9b9AA8Aff5AdcceEE6f38e1c22A",
+    "gauge": "0x62445cad1589b4329aE2536bd9fd9a03225999E2",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "multiBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-multibtc-usdt",
+    "address": "0x69aE6BE12B5A3E62D1713F6ddd6ce990964beBb9",
+    "gauge": "0x6e36daD65EA7ad50e516eFECA45dDD29439621a0",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844",
+      "oracle": "tokens",
+      "oracleId": "multiBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xd567B3d7B8FE3C79a1AD8dA978812cfC4Fa05e75",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "velocimeterv2-wcanto-somm",
+    "address": "0x9A2310444766FdE6316D183e2Bb1c39379E3a042",
+    "gauge": "0x567B5f3d4fF9eA093949de4FB5426e4228f0689A",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFA3C22C069B9556A4B2f7EcE1Ee3B467909f4864",
+      "oracle": "tokens",
+      "oracleId": "SOMM",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "velocimeterv2-bifi-wcanto",
+    "address": "0x2dBFeB48dEaccBFf9b0a54dEd1BC172e135a809C",
+    "gauge": "0xeA15a347F05a1bf2ECB0EEB584049Ad41ca13461",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x765277EebeCA2e31912C9946eAe1021199B39C61",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-usdc-wcanto",
+    "address": "0x9D047638826096ec3AbCa3cda9973dB19C89a786",
+    "gauge": "0x31096b98216CF1c730B41112EF2d9f9e19E38aDF",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-wcanto-atom",
+    "address": "0x04A68FD82344377d7c2Dc3CdfA8235c907805577",
+    "gauge": "0x610A58Cd9FFb9bFEdBdb39506d5a19d57fFa57C4",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xecEEEfCEE421D8062EF8d6b4D814efe4dc898265",
+      "oracle": "tokens",
+      "oracleId": "ATOM",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "velocimeterv2-eth-wcanto",
+    "address": "0x96D976892c6f01Ab5c13E843B38BEe90C2238F03",
+    "gauge": "0x462742397f17274f8735Ea60855ff0a8d713AE16",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-note-flow",
+    "address": "0x7e79E7B91526414F49eA4D3654110250b7D9444f",
+    "gauge": "0x4BaDbfa80c704264566ac254C270E750BE1bd1E3",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-eth-flow",
+    "address": "0x57E8eFA2639A4cA7069cD90f7e27092758271e6b",
+    "gauge": "0xAe1E35547ca778127F7C596dF5Ca50363706737E",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-note-wcanto",
+    "address": "0xB06eD5FE7C94467450a163D63F352F4A8F7eAa71",
+    "gauge": "0xC2FCcEe6d3b736258a39Ea8D08D5203a57fa6aA4",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-wcanto-flow",
+    "address": "0x2Cc24302fa019C5A8F252afC9A69fCfBB8Dd8D2F",
+    "gauge": "0x09b303fe939bec703a7c81087de0ECA0042b0339",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-usdc-flow",
+    "address": "0x2267DAa9B7458F5cFE03d3485cc871800977c2c6",
+    "gauge": "0x9Bfd7c6de91D71A38904ee5C55b0510e77884E64",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-flow-usdt",
+    "address": "0x6f00840f81C41DC2f7C6f81Eb2E3EaeA973DBF5f",
+    "gauge": "0x0E20E21F8993D2B930c6881758526de080a0D234",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd567B3d7B8FE3C79a1AD8dA978812cfC4Fa05e75",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  }
+]

@@ -1,4 +1,5 @@
 import { beefyfinance } from './platforms/beefyfinance';
+import { equilibre } from './platforms/equilibre';
 import { sushiKava } from './platforms/sushiKava';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
@@ -8,7 +9,8 @@ import { ConstInterface } from '../../types/const';
 const _kava = {
   platforms: {
     beefyfinance,
-    sushiKava
+    equilibre,
+    sushiKava,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

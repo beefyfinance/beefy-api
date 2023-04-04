@@ -88,9 +88,9 @@ const _tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: '',
   },
-  FLOW: {
+  FLOWV1: {
     name: 'Velocimeter',
-    symbol: 'FLOW',
+    symbol: 'FLOWv1',
     address: '0x2Baec546a92cA3469f71b7A091f7dF61e5569889',
     chainId: 7700,
     decimals: 18,
@@ -109,8 +109,77 @@ const _tokens = {
     logoURI: '',
     website: 'https://www.gravitybridge.net/',
     description:
-      'Cosmos® Gravity Bridge™ is a purpose-built, fully decentralized, trustless blockchain which bridges assets between the Ethereum and Cosmos ecosystems. Ethereum and EVM compatible tokens can be transferred across the Gravity Bridge to a Cosmos wallet and then onto other Cosmos wallets or DEXs (such as Osmosis or Gravity DEX). Cosmos SDK based blockchains can similarly send tokens across Gravity Bridge to the Ethereum ecosystem, making them available for transfer or potentially trading on Uniswap or other ETH DEXs.',
+      'Cosmos Gravity Bridge™ is a purpose-built, fully decentralized, trustless blockchain which bridges assets between the Ethereum and Cosmos ecosystems. Ethereum and EVM compatible tokens can be transferred across the Gravity Bridge to a Cosmos wallet and then onto other Cosmos wallets or DEXs (such as Osmosis or Gravity DEX). Cosmos SDK based blockchains can similarly send tokens across Gravity Bridge to the Ethereum ecosystem, making them available for transfer or potentially trading on Uniswap or other ETH DEXs.',
     documentation: 'https://www.gravitybridge.net/post/how-gravity-works',
+  },
+  FLOW: {
+    name: 'Velocimeter',
+    symbol: 'FLOW',
+    address: '0xB5b060055F0d1eF5174329913ef861bC3aDdF029',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://canto.velocimeter.xyz/home',
+    description:
+      'Velocimeter addresses these issues and presents an attractive alternative by addressing the core issues in Solidly and adding its own improvements. To recall, the key innovation of Solidly was to align protocol emissions with fees generated, not simply liquidity. To do this, it would allow protocols and other large stakeholders to become veNFT "voters", using their locked voting power to direct future emissions and collecting fees (termed bribes in Solidly) from the pools they voted for.',
+    documentation: 'https://docs.velocimeter.xyz/',
+  },
+  SOMM: {
+    name: 'Somm',
+    symbol: 'SOMM',
+    address: '0xFA3C22C069B9556A4B2f7EcE1Ee3B467909f4864',
+    chainId: 7700,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://app.sommelier.finance/',
+    description:
+      'Sommelier is a DeFi blockchain protocol, built on the Cosmos SDK, and a bi-directional Ethereum bridge. Taken together, this collection serves as a co-processor to Ethereum - that is we are using a Cosmos chain to process as many of the calculations as possible off Ethereum. The protocol is powered by validators and LPs who can benefit from a wide array of transaction features, such as portfolio rebalancing and limit orders based on dynamically changing market conditions.',
+    documentation:
+      'https://tricky-sand-5e6.notion.site/Sommelier-Documentation-006e748753e34a1299f9b1d6ae3a4544',
+  },
+  multiBTC: {
+    name: 'Multichain BTC',
+    symbol: 'multiBTC',
+    address: '0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844',
+    chainId: 7700,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://app.multichain.org/',
+    description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
+    documentation: 'https://docs.multichain.org/getting-started/introduction',
+  },
+  BNB: {
+    name: 'Binance Chain',
+    symbol: 'BNB',
+    address: '0xFb7F77faaA3b69ef4C15d6305C79AD92B387C89F',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+  },
+  BUSD: {
+    name: 'Binance USD',
+    symbol: 'BUSD',
+    address: '0x381Ea7A7EE6a1e2982e01E7b6837f775a1a4B07F',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.binance.com/en/busd',
+    description:
+      'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
+  },
+  WBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    address: '0x08638a74A8134c747Dce29B57472cc2B57F35653',
+    chainId: 7700,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   },
 } as const;
 

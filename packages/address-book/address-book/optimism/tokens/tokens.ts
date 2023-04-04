@@ -881,6 +881,31 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
+  MLP: {
+    name: 'MLP',
+    symbol: 'MLP',
+    address: '0xB280D03909Cc18640621955Cb3bC30948DF2Fa9a',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://app.mummy.finance/#/trade?ref=beefy',
+    description:
+      'MLP consists of an index of assets used for swaps and leverage trading on Mummy Finance. MLP holders will make a profit when leverage traders make a loss and vice versa. Staked MLP also earns escrowed MMY rewards and 60% of platform fees distributed in ETH.',
+    logoURI: 'https://app.mummy.finance/static/media/ic_mlp_40.92637cb6.svg',
+    documentation: 'https://docs.mummy.finance/mlp',
+  },
+  LINK: {
+    name: 'ChainLink Token',
+    symbol: 'LINK',
+    address: '0x350a791Bfc2C21F9Ed5d10980Dad2e2638ffa7f6',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x514910771AF9Ca656af840dff83E8264EcF986CA/logo.png',
+    documentation: 'https://docs.chain.link/resources/link-token-contracts',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

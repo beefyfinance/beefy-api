@@ -1,0 +1,24 @@
+[
+  {
+    "name": "sushi-arb-weth-arb",
+    "address": "0xf3f54a80Cf28d44a0d097c4a67c4c04Eb30da0b5",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "rewarder": "0xa15a0789112d9aA7E40E76bFAA39Ae36CC0aaD3C",
+    "secondOracleId": "ARB",
+    "poolId": 27,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    }
+  }
+]

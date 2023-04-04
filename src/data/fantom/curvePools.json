@@ -55,35 +55,6 @@
     ]
   },
   {
-    "name": "curve-ftm-2pool",
-    "pool": "0x27E611FD27b276ACbd5Ffd632E5eAEBEC9761E40",
-    "baseApyKey": "2pool",
-    "rewards": [
-      {
-        "stream": "0xb9C05B8EE41FDCbd9956114B3aF15834FDEDCb54",
-        "token": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
-        "oracleId": "CRV"
-      },
-      {
-        "stream": "0xb9C05B8EE41FDCbd9956114B3aF15834FDEDCb54",
-        "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
-        "oracleId": "WFTM"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "DAI",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "USDC",
-        "decimals": "1e6"
-      }
-    ]
-  },
-  {
     "name": "curve-ftm-ren",
     "pool": "0x3eF6A01A0f81D6046290f3e2A8c5b843e738E604",
     "token": "0x5b5cfe992adac0c9d48e05854b2d91c73a003858",
@@ -100,33 +71,6 @@
         "oracle": "tokens",
         "oracleId": "WBTC",
         "decimals": "1e8"
-      }
-    ]
-  },
-  {
-    "name": "curve-ftm-geist",
-    "pool": "0x0fa949783947Bf6c1b171DB13AEACBB488845B3f",
-    "token": "0xd02a30d33153877bc20e5721ee53dedee0422b2f",
-    "gauge": "0xF7b9c402c4D6c2eDbA04a7a515b53D11B1E9b2cc",
-    "baseApyKey": "geist",
-    "rewards": [
-      {
-        "token": "0xd8321AA83Fb0a4ECd6348D4577431310A6E0814d",
-        "oracleId": "GEIST"
-      }
-    ],
-    "tokens": [
-      {
-        "geistToken": "0x07E6332dD090D287d3489245038daF987955DCFB",
-        "decimals": "1e18"
-      },
-      {
-        "geistToken": "0xe578C856933D8e1082740bf7661e379Aa2A30b26",
-        "decimals": "1e6"
-      },
-      {
-        "geistToken": "0x940F41F0ec9ba1A34CF001cc03347ac092F5F6B5",
-        "decimals": "1e6"
       }
     ]
   },
@@ -156,6 +100,7 @@
     "name": "curve-ftm-lambda",
     "pool": "0x075C1D1d7E9E1aF077B0b6117C6eA06CD0a260b5",
     "rewards": [],
+    "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
         "oracle": "tokens",
@@ -211,6 +156,7 @@
     "pool": "0x8B63F036F5a34226065bC0a7B0aE5bb5eBA1fF3D",
     "gauge": "0xc1c5B8aAfE653592627B54B9527C7E98326e83Ff",
     "oracleId": "WFTM",
+    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
@@ -228,6 +174,7 @@
     "name": "curve-ftm-f-usdl",
     "pool": "0x6EF78ad4a40E9A6c81B9229de3eCc33ce591bC34",
     "gauge": "0xA6ff75281eACa4cD5fEEb333e8E15558208295e5",
+    "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
         "oracle": "tokens",
@@ -286,6 +233,68 @@
         "oracle": "tokens",
         "oracleId": "fUSDT",
         "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-ftm-geist",
+    "pool": "0x0fa949783947Bf6c1b171DB13AEACBB488845B3f",
+    "token": "0xd02a30d33153877bc20e5721ee53dedee0422b2f",
+    "gauge": "0xF7b9c402c4D6c2eDbA04a7a515b53D11B1E9b2cc",
+    "baseApyKey": "geist",
+    "rewards": [
+      {
+        "token": "0xd8321AA83Fb0a4ECd6348D4577431310A6E0814d",
+        "oracleId": "GEIST"
+      }
+    ],
+    "tokens": [
+      {
+        "geistToken": "0x07E6332dD090D287d3489245038daF987955DCFB",
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "geistToken": "0xe578C856933D8e1082740bf7661e379Aa2A30b26",
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "geistToken": "0x940F41F0ec9ba1A34CF001cc03347ac092F5F6B5",
+        "oracle": "tokens",
+        "oracleId": "fUSDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-ftm-2pool",
+    "pool": "0x27E611FD27b276ACbd5Ffd632E5eAEBEC9761E40",
+    "baseApyKey": "2pool",
+    "rewards": [
+      {
+        "stream": "0xb9C05B8EE41FDCbd9956114B3aF15834FDEDCb54",
+        "token": "0x1E4F97b9f9F913c46F1632781732927B9019C68b",
+        "oracleId": "CRV"
+      },
+      {
+        "stream": "0xb9C05B8EE41FDCbd9956114B3aF15834FDEDCb54",
+        "token": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+        "oracleId": "WFTM"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
       },
       {
         "oracle": "tokens",

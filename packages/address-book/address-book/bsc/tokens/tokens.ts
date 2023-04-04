@@ -4041,5 +4041,27 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
+  ID: {
+    name: 'SPACE ID',
+    symbol: 'ID',
+    address: '0x2dfF88A56767223A5529eA5960Da7A3F5f766406',
+    chainId: 56,
+    decimals: 18,
+    logoURI: 'https://thena.fi/images/tokens/ID.png',
+    website: 'https://space.id/',
+    description:
+      'SPACE ID is building a universal name service network with a one-stop identity platform to discover, register, trade, manage web3 domains.',
+    documentation: 'https://docs.space.id/',
+  },
+  APECOIN: {
+    name: 'ApeCoin',
+    symbol: 'APE',
+    address: '0xa9eA4b786ee5b7A733c035564Bfd9341A4c9FC1e',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://apecoin.dev/',
+    description: 'APE is a BEP-20 token celebrating the "ape" crypto meme.',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -5,7 +5,7 @@ import rewardPool from '../../../data/matic/jarvisRewardPool.json';
 import { fetchDmmPrices } from '../../../utils/fetchDmmPrices';
 
 const getJarvisPrices = async tokenPrices => {
-  const curvePrices = await getCurvePricesCommon(web3, pools, tokenPrices, true);
+  const curvePrices = await getCurvePricesCommon(web3, pools, tokenPrices);
   let onlyPrices = Object.keys(curvePrices).reduce((prices, current) => {
     prices[current] = curvePrices[current].price;
     return prices;

@@ -1,8 +1,16 @@
 const { getCurveApys } = require('./getCurveApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
 const getEquilibreApys = require('./getEquilibreApys');
+const getKavaBifiGovApy = require('./getKaveBifiGovApy');
+const { getKavaBifiMaxiApy } = require('./getKavaBifiMaxiApy');
 
-const getApys = [getCurveApys, getSushiLpApys, getEquilibreApys];
+const getApys = [
+  getCurveApys,
+  getSushiLpApys,
+  getEquilibreApys,
+  getKavaBifiGovApy,
+  getKavaBifiMaxiApy,
+];
 
 const getKavaApys = async () => {
   let apys = {};

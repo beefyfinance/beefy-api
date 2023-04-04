@@ -16,7 +16,7 @@ const getBeltPrices = async tokenPrices => {
 
   const results = await Promise.allSettled([
     getBeltVenusLpPrice(),
-    getBelt4BeltLpPrice(), // Note currently failing in: isPoolSafe() somewhere deep in the contract
+    getBelt4BeltLpPrice(),
     ...beltTokens.map(beltToken => getBeltTokenPrice(beltToken, tokenPrices)),
   ]);
 
@@ -30,7 +30,7 @@ const getBeltPrices = async tokenPrices => {
     }
   }
 
-  return prices;
+  return Object.assign({}, ...prices);
 };
 
 const getBeltVenusLpPrice = async () => {

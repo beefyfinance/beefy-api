@@ -89,6 +89,7 @@
     "rewardOracle": "tokens",
     "token": "0x976A750168801F58E8AEdbCfF9328138D544cc09",
     "baseApyKey": "2nzd-f",
+    "getDy": ["v1", 0, 1],
     "tokens": [
       {
         "oracle": "tokens",
@@ -232,6 +233,32 @@
     ]
   },
   {
+    "name": "jarvis-5eur",
+    "pool": "0x81212149b983602474fcD0943E202f38b38d7484",
+    "address": "0x81212149b983602474fcD0943E202f38b38d7484",
+    "masterchef": "0x1Dc366c5aC2f3Ac16af20212B46cDC0c92235A20",
+    "poolId": 0,
+    "chainId": 137,
+    "oracleId": "jEUR",
+    "rewardToken": "agDEN",
+    "rewardOracle": "tokens",
+    "token": "0x81212149b983602474fcD0943E202f38b38d7484",
+    "baseApyKey": "agEUR+4eur-f",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "agEUR",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "jarvis-4eur",
+        "oracle": "lps",
+        "oracleId": "jarvis-4eur",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "jarvis-4eur",
     "pool": "0xAd326c253A84e9805559b73A08724e11E49ca651",
     "address": "0xAd326c253A84e9805559b73A08724e11E49ca651",
@@ -263,32 +290,6 @@
         "oracle": "tokens",
         "oracleId": "EURt",
         "decimals": "1e6"
-      }
-    ]
-  },
-  {
-    "name": "jarvis-5eur",
-    "pool": "0x81212149b983602474fcD0943E202f38b38d7484",
-    "address": "0x81212149b983602474fcD0943E202f38b38d7484",
-    "masterchef": "0x1Dc366c5aC2f3Ac16af20212B46cDC0c92235A20",
-    "poolId": 0,
-    "chainId": 137,
-    "oracleId": "jEUR",
-    "rewardToken": "agDEN",
-    "rewardOracle": "tokens",
-    "token": "0x81212149b983602474fcD0943E202f38b38d7484",
-    "baseApyKey": "agEUR+4eur-f",
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "agEUR",
-        "decimals": "1e18"
-      },
-      {
-        "basePool": "jarvis-4eur",
-        "oracle": "lps",
-        "oracleId": "jarvis-4eur",
-        "decimals": "1e18"
       }
     ]
   }

@@ -10,7 +10,7 @@ import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
-import { fetchKyberTokenPrices } from '../../utils/fetchKyberTokenPrices';
+import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices';
 import { fetchsfrxEthPrice } from '../../utils/fetchsfrxEthPrice';
 import {
   fetchBalancerLinearPoolPrice,
@@ -266,8 +266,10 @@ import solidlyLpPools from '../../data/ethereum/solidlyLpPools.json';
 import cantoLpPools from '../../data/canto/cantoLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
 import velocimeterPools from '../../data/canto/velocimeterLpPools.json';
+import velocimeterV2Pools from '../../data/canto/velocimeterV2LpPools.json';
 import equilibrePools from '../../data/kava/equilibreLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
+import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 import { sleep } from '../../utils/time';
@@ -281,8 +283,10 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...ramsesPools,
   ...versePools,
   ...equilibrePools,
+  ...velocimeterV2Pools,
   ...velocimeterPools,
   ...solidLizardPools,
   ...cantoLpPools,
@@ -399,7 +403,6 @@ const pools = normalizePoolOracleIds([
   ...pearzapPools,
   ...polygonFarmPools,
   ...steakhouseLpPools,
-  ...stakesteakLpPools,
   ...honeyPools,
   ...stablequantPools,
   ...sushiOnePools,
@@ -529,77 +532,71 @@ const pools = normalizePoolOracleIds([
 
 const dmmPools = [...kyberPools, ...oldDmmPools];
 
-const coinGeckoCoins = [
-  'stasis-eurs',
-  'tether-eurt',
-  'par-stablecoin',
-  'jarvis-synthetic-euro',
-  'monerium-eur-money',
-  'jpyc',
-  'cad-coin',
-  'xsgd',
-  'usd-balance',
-  'gelato',
-  'optimism',
-  'perpetual-protocol',
-  'nusd',
-  'lyra-finance',
-  'liquity-usd',
-  'seth',
-  'alchemix-usd',
-  'ethereum',
-  'rocket-pool-eth',
-  'wrapped-steth',
-  'kava',
-  'aura-finance',
-  'convex-crv',
-  'usd-coin',
-  'dai',
-  'tether',
-  'havven',
-  'aura-bal',
-  'balancer',
-  'coinbase-wrapped-staked-eth',
-  'opx-finance',
-  'dola-usd',
-  'across-protocol',
-  'metavault-trade',
-  'seur',
-  'euler',
-  'axlusdc',
-  'mimo-parallel-governance-token',
-];
-
 const currencies = ['cad'];
 
-// const oldHardcodedPrices = {
-//   BUSD: 1,
-//   USDT: 1,
-//   HUSD: 1,
-//   DAI: 1,
-//   USDC: 1,
-//   USDN: 1,
-//   cUSD: 1,
-//   asUSDC: 1,
-//   VST: 1,
-//   aUSDT: 1,
-//   aDAI: 1,
-//   aUSDC: 1,
-//   amUSDT: 1,
-//   amUSDC: 1,
-//   amDAI: 1,
-//   'DAI+': 1,
-// };
+/**
+ * Map of coingecko ids to oracleIds
+ * Each of these prices will be set as seed prices
+ * Add here only as last resort if no other AMM price source is available
+ * @see fetchSeedPrices
+ */
+const coinGeckoCoins: Record<string, string[]> = {
+  'stasis-eurs': ['EURS'],
+  'tether-eurt': ['EURt'],
+  'par-stablecoin': ['PAR'],
+  'jarvis-synthetic-euro': ['jEUR'],
+  'monerium-eur-money': ['EURe'],
+  jpyc: ['JPYC', 'jJPY'],
+  'cad-coin': ['CADC', 'jCAD'],
+  xsgd: ['XSGD', 'jSGD'],
+  'usd-balance': ['USDB'],
+  gelato: ['GEL'],
+  'perpetual-protocol': ['PERP'],
+  nusd: ['sUSD'],
+  'lyra-finance': ['LYRA'],
+  'liquity-usd': ['LUSD'],
+  seth: ['sETH'],
+  'alchemix-usd': ['alUSD'],
+  kava: ['KAVA', 'WKAVA'],
+  'aura-finance': ['AURA'],
+  havven: ['hSNX'],
+  'aura-bal': ['auraBAL'],
+  'coinbase-wrapped-staked-eth': ['cbETH'],
+  'opx-finance': ['OPX', 'beOPX'],
+  'dola-usd': ['DOLA'],
+  'across-protocol': ['ACX'],
+  'metavault-trade': ['MVX'],
+  seur: ['sEUR'],
+  euler: ['EUL'],
+  axlusdc: ['axlUSDC'],
+  'mimo-parallel-governance-token': ['MIMO'],
+};
 
-const hardPeggedPrices = {
-  asUSDC: 'USDC',
-  aUSDT: 'USDT',
-  aDAI: 'DAI',
-  aUSDC: 'USDC',
-  amUSDT: 'USDT',
-  amUSDC: 'USDC',
-  amDAI: 'DAI',
-  'DAI+': 'DAI',
+/**
+ * Can use any oracleId set from chainlink or coingecko here
+ * Runs after chainlink/coingecko prices are fetched but before any other price sources
+ * Add here only as last resort if no other AMM price source is available
+ * @see fetchSeedPrices
+ */
+const seedPeggedPrices = {
+  WETH: 'ETH', // Wrapped native
+  WBTC: 'BTC', // Wrapped native
+  WMATIC: 'MATIC', // Wrapped native
+  WAVAX: 'AVAX', // Wrapped native
+  WBNB: 'BNB', // Wrapped native
+  asUSDC: 'USDC', // Solana
+  aUSDT: 'USDT', // Aave
+  aDAI: 'DAI', // Aave
+  aUSDC: 'USDC', // Aave
+  amUSDT: 'USDT', // Wrapped Aave?
+  amUSDC: 'USDC', // Wrapped Aave?
+  amDAI: 'DAI', // Wrapped Aave?
+  'DAI+': 'DAI', // Overnight
+  alETH: 'ETH', // Alchemix
+  hETH: 'ETH', // HOP
+  hDAI: 'DAI', // HOP
+  hUSDC: 'USDC', // HOP
+  hUSDT: 'USDT', // HOP
 };
 
 type LpBreakdown = {
@@ -616,66 +613,31 @@ const cachedLpPrices: PricesById = {};
 const cachedAllPrices: PricesById = {};
 const cachedLpBreakdowns: BreakdownsById = {};
 
-const performUpdateAmmPrices = async () => {
-  // Seed with chain link prices
-  const knownPrices = await fetchChainLinkPrices();
+async function fetchSeedPrices() {
+  // ChainLink gives: ETH, BTC, MATIC, AVAX, BNB, LINK, USDT, DAI, USDC
+  const seedPrices: Record<string, number> = await fetchChainLinkPrices();
 
-  // Add hardcoded prices mapping for pegged tokens we can't get price for via pools
-  for (const [oracle, peggedOracle] of Object.entries(hardPeggedPrices)) {
-    if (peggedOracle in knownPrices) {
-      knownPrices[oracle] = knownPrices[peggedOracle];
+  const coinGeckoPrices = await fetchCoinGeckoPrices(Object.keys(coinGeckoCoins));
+  for (const [geckoId, oracleIds] of Object.entries(coinGeckoCoins)) {
+    for (const oracleId of oracleIds) {
+      seedPrices[oracleId] = coinGeckoPrices[geckoId];
     }
   }
 
-  const coinGeckoPrices = async () => {
-    const prices = await fetchCoinGeckoPrices(coinGeckoCoins);
-    return {
-      OP: prices['optimism'],
-      EURS: prices['stasis-eurs'],
-      EURt: prices['tether-eurt'],
-      PAR: prices['par-stablecoin'],
-      jEUR: prices['jarvis-synthetic-euro'],
-      EURe: prices['monerium-eur-money'],
-      JPYC: prices['jpyc'],
-      jJPY: prices['jpyc'],
-      CADC: prices['cad-coin'],
-      jCAD: prices['cad-coin'],
-      XSGD: prices['xsgd'],
-      jSGD: prices['xsgd'],
-      USDB: prices['usd-balance'],
-      GEL: prices['gelato'],
-      PERP: prices['perpetual-protocol'],
-      sUSD: prices['nusd'],
-      LYRA: prices['lyra-finance'],
-      LUSD: prices['liquity-usd'],
-      sETH: prices['seth'],
-      alUSD: prices['alchemix-usd'],
-      alETH: prices['ethereum'],
-      rETH: prices['rocket-pool-eth'],
-      wstETH: prices['wrapped-steth'],
-      KAVA: prices['kava'],
-      WKAVA: prices['kava'],
-      AURA: prices['aura-finance'],
-      cvxCRV: prices['convex-crv'],
-      hETH: prices['ethereum'],
-      hUSDC: prices['usd-coin'],
-      hUSDT: prices['tether'],
-      hDAI: prices['dai'],
-      hSNX: prices['havven'],
-      auraBAL: prices['aura-bal'],
-      BAL: prices['balancer'],
-      cbETH: prices['coinbase-wrapped-staked-eth'],
-      OPX: prices['opx-finance'],
-      beOPX: prices['opx-finance'],
-      DOLA: prices['dola-usd'],
-      ACX: prices['across-protocol'],
-      MVX: prices['metavault-trade'],
-      sEUR: prices['seur'],
-      EUL: prices['euler'],
-      axlUSDC: prices['axlusdc'],
-      MIMO: prices['mimo-parallel-governance-token'],
-    };
-  };
+  for (const [oracle, peggedOracle] of Object.entries(seedPeggedPrices)) {
+    if (peggedOracle in seedPrices) {
+      seedPrices[oracle] = seedPrices[peggedOracle];
+    } else {
+      console.error(`Pegged oracle ${peggedOracle} not found for ${oracle}`);
+    }
+  }
+
+  return seedPrices;
+}
+
+async function performUpdateAmmPrices() {
+  // Seed with chain link + coin gecko prices
+  const knownPrices = await fetchSeedPrices();
 
   const currencyPrices = async () => {
     const prices = await fetchCurrencyPrices(currencies);
@@ -702,8 +664,8 @@ const performUpdateAmmPrices = async () => {
     return await fetchCurveTokenPrices(tokenPrices);
   });
 
-  const kyberTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchKyberTokenPrices(tokenPrices);
+  const concentratedLiquidityTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchConcentratedLiquidityTokenPrices(tokenPrices);
   });
 
   const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
@@ -766,7 +728,7 @@ const performUpdateAmmPrices = async () => {
   const tokenPrices = ammPrices.then(async ({ tokenPrices }) => {
     const dmm = await dmmPrices;
     const curvePrices = await curveTokenPrices;
-    const kyberPrices = await kyberTokenPrices;
+    const concentratedLiquidityPrices = await concentratedLiquidityTokenPrices;
     const xTokenPrices = await xPrices;
     const mooTokenPrices = await mooPrices;
     const beFtmTokenPrice = await beFtmPrice;
@@ -782,9 +744,8 @@ const performUpdateAmmPrices = async () => {
       ...beTokenTokenPrice,
       ...sfrxEthTokenPrice,
       ...curvePrices,
-      ...kyberPrices,
+      ...concentratedLiquidityPrices,
       ...linearPoolTokenPrice,
-      ...(await coinGeckoPrices()),
       ...(await currencyPrices()),
     };
   });
@@ -810,7 +771,7 @@ const performUpdateAmmPrices = async () => {
     lpPrices,
     lpBreakdown,
   };
-};
+}
 
 async function updateAmmPrices() {
   console.log('> updating amm prices');
@@ -871,7 +832,7 @@ export async function getAmmTokenPrice(
   }
 
   if (withUnknownLogging) {
-    console.error(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    console.log(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
   }
 }
 
@@ -885,7 +846,7 @@ export async function getAmmLpPrice(
   }
 
   if (withUnknownLogging) {
-    console.error(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
+    console.log(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
   }
 }
 

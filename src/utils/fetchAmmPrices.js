@@ -114,7 +114,13 @@ const fetchAmmPrices = async (pools, knownPrices) => {
         const pool = unsolved[i];
 
         let knownToken, unknownToken;
-        if (pool.lp0.oracleId in prices) {
+        if (pool.lp0.oracleId in weights && pool.lp1.oracleId in weights) {
+          // both known, so treat unknown as the one with the lowest weighting
+          knownToken =
+            weights[pool.lp0.oracleId] > weights[pool.lp1.oracleId] ? pool.lp0 : pool.lp1;
+          unknownToken =
+            weights[pool.lp0.oracleId] > weights[pool.lp1.oracleId] ? pool.lp1 : pool.lp0;
+        } else if (pool.lp0.oracleId in prices) {
           knownToken = pool.lp0;
           unknownToken = pool.lp1;
         } else if (pool.lp1.oracleId in prices) {
@@ -132,9 +138,18 @@ const fetchAmmPrices = async (pools, knownPrices) => {
           unknownToken
         );
         if (weight > (weights[unknownToken.oracleId] || 0)) {
+          // if(['FUSD', 'fUSD'].includes(unknownToken.oracleId)) {
+          //   console.log(`Setting ${unknownToken.oracleId} to $${price} via ${knownToken.oracleId} ($${prices[knownToken.oracleId]}) in ${pool.name} (${pool.address}) - weight ${weight} vs ${weights[unknownToken.oracleId] || 0}`);
+          // }
+
           prices[unknownToken.oracleId] = price;
           weights[unknownToken.oracleId] = weight;
         }
+        // else {
+        //   if(['FUSD', 'fUSD'].includes(unknownToken.oracleId)) {
+        //     console.log(`NOT Setting ${unknownToken.oracleId} to $${price} via ${knownToken.oracleId} ($${prices[knownToken.oracleId]}) in ${pool.name} (${pool.address}) - weight ${weight} vs ${weights[unknownToken.oracleId]}`);
+        //   }
+        // }
 
         unsolved.splice(i, 1);
         solving = true;
