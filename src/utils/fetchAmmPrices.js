@@ -26,9 +26,8 @@ const MULTICALLS = {
 };
 
 const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
-const ERC20 = require('../abis/common/ERC20/ERC20.json');
 const BATCH_SIZE = 128;
-const DEBUG_ORACLES = ['FUSD'];
+const DEBUG_ORACLES = [];
 
 const sortByKeys = o => {
   return Object.keys(o)
