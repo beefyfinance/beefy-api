@@ -1,5 +1,25 @@
 [
   {
+    "name": "thena-btcb-multibtc",
+    "address": "0x2475FF2A7C81da27eA2e08e0d3B0Ad01e16225eC",
+    "gauge": "0x10Ad3ae295516E4F14943AfEC0DAAc6cD42CB414",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD9907fcDa91aC644F70477B8fC1607ad15b2D7A8",
+      "oracle": "tokens",
+      "oracleId": "multiBTC",
+      "decimals": "1e8"
+    }
+  },
+  {
     "name": "thena-dola-frax",
     "address": "0xFD66A4a4c921CD7194ABAb38655476a06fbAEa05",
     "gauge": "0x7342C0441440781E538631C47a1207a0D4621cB3",
