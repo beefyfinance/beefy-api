@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  multiBTC: {
+    name: 'Multichain BTC',
+    symbol: 'multiBTC',
+    address: '0xD9907fcDa91aC644F70477B8fC1607ad15b2D7A8',
+    chainId: 56,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://app.multichain.org/',
+    description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
+    documentation: 'https://docs.multichain.org/getting-started/introduction',
+  },
   wUSDR: {
     name: 'Real USD',
     symbol: 'wUSDR',
