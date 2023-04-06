@@ -2,7 +2,7 @@
   {
     "name": "equalizer-usdc-tusd",
     "address": "0xCDd8bA3F1316d09ad190e29e64DA48798C453871",
-    "gauge": "0x4A36dCC2763F8C85265b0384ef9c8a1d7B9d1B56",
+    "gauge": "0x0000000000000000000000000000000000000000",
     "decimals": "1e18",
     "chainId": 250,
     "beefyFee": 0.095,
@@ -22,7 +22,7 @@
   {
     "name": "equalizer-tusd-frax",
     "address": "0x8a94555370ffa2e795A598BAd21d679Da2fBa4A3",
-    "gauge": "0xAa7739afEd03f091faA105bDED10128013BFe9E1",
+    "gauge": "0x0000000000000000000000000000000000000000",
     "decimals": "1e18",
     "chainId": 250,
     "beefyFee": 0.095,
@@ -42,7 +42,7 @@
   {
     "name": "equalizer-usdc-frax",
     "address": "0xb3D5b1d35d662d8E84fdECb70BcE9FA1B6210187",
-    "gauge": "0x239bfb3E8b83453b9f83fc5CEBf1984e543Fb46C",
+    "gauge": "0x0000000000000000000000000000000000000000",
     "decimals": "1e18",
     "chainId": 250,
     "beefyFee": 0.095,
@@ -62,7 +62,7 @@
   {
     "name": "equalizer-fusdt-dai",
     "address": "0xe00D5e6535fb48E83C8cabe602242Cc1Bd253cEA",
-    "gauge": "0xf7c36B446050498807F5631dFbf3661882aA3810",
+    "gauge": "0x85Ae43966E15e1c50285fE92d5009e3D72a4ad80",
     "decimals": "1e18",
     "chainId": 250,
     "beefyFee": 0.095,
@@ -82,7 +82,7 @@
   {
     "name": "equalizer-usdc-fusdt",
     "address": "0x0995F3932B4Aca1ED18eE08D4B0DCf5f74B3c5D3",
-    "gauge": "0x13b082dcc13642e2f326645A0d61e7f5094fACe2",
+    "gauge": "0xc9323883A82AE0087087d39A4b7B82dF4EBeC07b",
     "decimals": "1e18",
     "chainId": 250,
     "beefyFee": 0.095,
@@ -102,7 +102,7 @@
   {
     "name": "equalizer-usdc-dai",
     "address": "0x6eB4Eb157C3e6f0576b8ba3C88e8C5D2e6E81D17",
-    "gauge": "0xA9938183EF16C7524ec26fCd6860b27BF8eB3Ab5",
+    "gauge": "0x91A7a83061DddaBB1B0Ad61FD7839373725001a3",
     "decimals": "1e18",
     "chainId": 250,
     "beefyFee": 0.095,
@@ -122,7 +122,7 @@
   {
     "name": "equalizer-usdc-mim",
     "address": "0x4d26D7A17b9c10613eAA049632aaDc8889EAb2E7",
-    "gauge": "0x243E368cCDb230D38E58229077a1F0E9cd9643d0",
+    "gauge": "0x23e982816ADB5934f782Ddab98dfAC6472048F98",
     "decimals": "1e18",
     "chainId": 250,
     "beefyFee": 0.095,
