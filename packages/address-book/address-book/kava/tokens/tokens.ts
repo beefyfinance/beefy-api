@@ -190,6 +190,17 @@ const _tokens = {
       'USX is the most important DeFi primitive within dForce’s protocol matrix, starting off with an over-collateralization design, where supported assets can be used as collaterals to mint USX within the respective approved LTV ratio (similar to DAI).',
     documentation: 'https://docs.dforce.network/protocols/usx',
   },
+  axlATOM: {
+    name: 'Axelar Wrapped ATOM',
+    symbol: 'axlATOM',
+    address: '0x06beE9E7238a331B68D83Df3B5B9B16d5DBa83ff',
+    chainId: 2222,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://cosmos.network/',
+    description:
+      'The Internet of Blockchains. Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
