@@ -1,5 +1,25 @@
 [
   {
+    "name": "velocimeterv2-wbtc-eth",
+    "address": "0xa2f7ecE2f2A0ffd24889223dE9a8D8F4F8E3943F",
+    "gauge": "0xaadeb686b3E86875B8c295DfD72a0a35C9eb7d0e",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x08638a74A8134c747Dce29B57472cc2B57F35653",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velocimeterv2-flow-atom",
     "address": "0xddA6259A93649346535db8744502493ee023208D",
     "gauge": "0xBB9b6E7B9e0C52768C76ca3A08d89f81a398aA6F",
