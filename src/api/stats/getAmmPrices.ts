@@ -6,7 +6,7 @@ import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
 import { fetchEulerTokenPrices } from '../../utils/fetchEulerTokenPrices';
-import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
+import { fetchDolaPrice } from '../../utils/fetchDolaPrice';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
@@ -650,7 +650,7 @@ const performUpdateAmmPrices = async () => {
       cbETH: prices['coinbase-wrapped-staked-eth'],
       OPX: prices['opx-finance'],
       beOPX: prices['opx-finance'],
-      DOLA: prices['dola-usd'],
+      // DOLA: prices['dola-usd'],
       ACX: prices['across-protocol'],
       MVX: prices['metavault-trade'],
       sEUR: prices['seur'],
@@ -703,8 +703,8 @@ const performUpdateAmmPrices = async () => {
     return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
   });
 
-  const beFtmPrice = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchbeFTMPrice(tokenPrices);
+  const dolaPrice = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchDolaPrice(tokenPrices);
   });
 
   const sfrxEthPrice = ammPrices.then(async ({ tokenPrices }) => {
@@ -756,7 +756,7 @@ const performUpdateAmmPrices = async () => {
     const concentratedLiquidityPrices = await concentratedLiquidityTokenPrices;
     const xTokenPrices = await xPrices;
     const mooTokenPrices = await mooPrices;
-    const beFtmTokenPrice = await beFtmPrice;
+    const dolaTokenPrice = await dolaPrice;
     const sfrxEthTokenPrice = await sfrxEthPrice;
     const beTokenTokenPrice = await beTokenPrice;
     const linearPoolTokenPrice = await linearPoolPrice;
@@ -765,7 +765,7 @@ const performUpdateAmmPrices = async () => {
       ...dmm.tokenPrices,
       ...mooTokenPrices,
       ...xTokenPrices,
-      ...beFtmTokenPrice,
+      ...dolaTokenPrice,
       ...beTokenTokenPrice,
       ...sfrxEthTokenPrice,
       ...curvePrices,
