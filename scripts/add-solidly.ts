@@ -81,8 +81,8 @@ const projects = {
   },
   equalizer: {
     prefix: 'equalizer',
-    stableFile: '../src/data/fantom/equalizerStableLpPools.json',
-    volatileFile: '../src/data/fantom/equalizerLpPools.json',
+    stableFile: '../src/data/fantom/equalizerV2StableLpPools.json',
+    volatileFile: '../src/data/fantom/equalizerV2LpPools.json',
     voter: equalizer.voter,
   },
   solidly: {

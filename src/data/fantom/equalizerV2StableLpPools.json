@@ -1,0 +1,82 @@
+[
+  {
+    "name": "equalizer-usdc-mim",
+    "address": "0x4d26D7A17b9c10613eAA049632aaDc8889EAb2E7",
+    "gauge": "0x23e982816ADB5934f782Ddab98dfAC6472048F98",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x82f0B8B456c1A451378467398982d4834b6829c1",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-usdc-dai",
+    "address": "0x6eB4Eb157C3e6f0576b8ba3C88e8C5D2e6E81D17",
+    "gauge": "0x91A7a83061DddaBB1B0Ad61FD7839373725001a3",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-usdc-fusdt",
+    "address": "0x0995F3932B4Aca1ED18eE08D4B0DCf5f74B3c5D3",
+    "gauge": "0xc9323883A82AE0087087d39A4b7B82dF4EBeC07b",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+      "oracle": "tokens",
+      "oracleId": "fUSDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equalizer-fusdt-dai",
+    "address": "0xe00D5e6535fb48E83C8cabe602242Cc1Bd253cEA",
+    "gauge": "0x85Ae43966E15e1c50285fE92d5009e3D72a4ad80",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+      "oracle": "tokens",
+      "oracleId": "fUSDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  }
+]

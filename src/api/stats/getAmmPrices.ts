@@ -258,6 +258,7 @@ import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
 import swapFishPools from '../../data/arbitrum/swapFishLpPools.json';
 import equalizerPools from '../../data/fantom/equalizerLpPools.json';
+import equalizerV2Pools from '../../data/fantom/equalizerV2LpPools.json';
 import swapFishBscPools from '../../data/swapFishLpPools.json';
 import thenaPools from '../../data/degens/thenaLpPools.json';
 import sushiMainnetPools from '../../data/ethereum/sushiLpPools.json';
@@ -294,6 +295,7 @@ const pools = normalizePoolOracleIds([
   ...sushiMainnetPools,
   ...thenaPools,
   ...swapFishBscPools,
+  ...equalizerV2Pools,
   ...equalizerPools,
   ...swapFishPools,
   ...hermesPools,
