@@ -1,0 +1,222 @@
+[
+  {
+    "name": "equalizer-wftm-bnb",
+    "address": "0x7552BFa10037356A2De0379a2EF8d4CC480B8E00",
+    "gauge": "0x2c013a21c01B54A4AC2e4a870d61F57773816b96",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-usdc-wftm",
+    "address": "0x7547d05dFf1DA6B4A2eBB3f0833aFE3C62ABD9a1",
+    "gauge": "0x48afe4b50AADbC09D0bCEb796D9E956eA90F15b4",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-equal",
+    "address": "0x3d6c56f6855b7Cc746fb80848755B0a9c3770122",
+    "gauge": "0x863730009c8e1A460E244cE8CF71f56783F517c3",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3Fd3A0c85B70754eFc07aC9Ac0cbBDCe664865A6",
+      "oracle": "tokens",
+      "oracleId": "EQUAL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-eth",
+    "address": "0xE3bD349BDb8203C15426b2d273f57568E658F843",
+    "gauge": "0xF1Ed146Da5a7B21EAf3eA0F1DB54c8ac25f1C585",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-usdc-eth",
+    "address": "0x515d84c494454835443B303a914a341e80f67278",
+    "gauge": "0x2947670FE6925feD002D754f8E7EEcD445C05324",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-dai",
+    "address": "0x0f03efdce7A8cE08c238b1a0B5425Fb63Bd44b38",
+    "gauge": "0x468F1CF2c4bCb971206364254435f41DA3B74203",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-bifi",
+    "address": "0x0b4b1e0325a7150468f724BCa3de2Deb92519846",
+    "gauge": "0x00818208b7D0D70AD2872FAa4C7cC29B5e547f6f",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd6070ae98b8069de6B494332d1A1a81B6179D960",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-fusdt-wftm",
+    "address": "0x783A3Fb9F88dF5A89fB3a5e595254Fa8f7b97b48",
+    "gauge": "0xedB8B44b955df135F15e9d0696F4d19614C99C22",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x049d68029688eAbF473097a2fC38ef61633A3C7A",
+      "oracle": "tokens",
+      "oracleId": "fUSDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-deus",
+    "address": "0xFfE9C27F0a12dABe5c5Bd46D144a5c0140725566",
+    "gauge": "0xb42d237B033DCa3b5F02A170E239Ab5205ACd26F",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44",
+      "oracle": "tokens",
+      "oracleId": "DEUS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-ankr-wftm",
+    "address": "0x60db1fBA7321897fcc85f7a5960952a9944D870b",
+    "gauge": "0x4153cfe90dff8566548437A5719bCaE6cAeD0428",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0615Dbba33Fe61a31c7eD131BDA6655Ed76748B1",
+      "oracle": "tokens",
+      "oracleId": "ANKR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-btc",
+    "address": "0xDA3E21477F872F30794551D908DE244b8839F723",
+    "gauge": "0xd6A09102Df97C5Dbf7fA8a05CC26890ab8564470",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    }
+  }
+]
