@@ -181,6 +181,17 @@ const _tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   },
+  cINU: {
+    name: 'Canto Inu',
+    symbol: 'cINU',
+    address: '0x7264610A66EcA758A8ce95CF11Ff5741E1fd0455',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.cantoinu.com/',
+    description:
+      'CantoInu is the dog-centric token native to the Canto Blockchain, following in the footsteps of Dogecoin and Shiba Inu. It is provided solely for entertainment purposes only.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
