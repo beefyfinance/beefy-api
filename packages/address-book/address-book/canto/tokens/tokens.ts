@@ -190,7 +190,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://www.cantoinu.com/',
     description:
-      'CantoInu is the dog-centric token native to the Canto Blockchain, following in the footsteps of Dogecoin and Shiba Inu. It is provided solely for entertainment purposes only.',
+      'Following in the pawprints of Dogecoin and Shiba Inu, Canto Inu is the native breed token to the Canto Blockchain. It is provided solely for entertainment purposes.',
   },
 } as const;
 
