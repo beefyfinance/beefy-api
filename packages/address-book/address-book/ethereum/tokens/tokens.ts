@@ -969,7 +969,7 @@ const _tokens = {
       'Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.',
     logoURI: '',
     documentation: 'https://docs.olympusdao.finance/' 
- }
+  }
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
