@@ -1790,6 +1790,18 @@ const _tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
   },
+  USDR: {
+    name: 'Real USD',
+    symbol: 'wUSDR',
+    address: '0xb5DFABd7fF7F83BAB83995E72A52B97ABb7bcf63',
+    chainId: 137,
+    decimals: 9,
+    website: 'https://www.tangible.store/realusd',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
