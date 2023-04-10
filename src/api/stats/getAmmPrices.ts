@@ -574,6 +574,7 @@ const coinGeckoCoins = [
   'axlusdc',
   'mimo-parallel-governance-token',
   'frax',
+  'olympus',
 ];
 
 const currencies = ['cad'];
@@ -660,6 +661,7 @@ const performUpdateAmmPrices = async () => {
       axlUSDC: prices['axlusdc'],
       MIMO: prices['mimo-parallel-governance-token'],
       // FRAX: prices['frax'],
+      OHM: prices['olympus'],
     };
   };
 
