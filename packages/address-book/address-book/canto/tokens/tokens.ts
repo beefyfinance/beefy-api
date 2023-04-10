@@ -192,6 +192,17 @@ const _tokens = {
     description:
       'Following in the pawprints of Dogecoin and Shiba Inu, Canto Inu is the native breed token to the Canto Blockchain. It is provided solely for entertainment purposes.',
   },
+  CRE8R: {
+    name: 'CRE8R DAO',
+    symbol: 'CRE8R',
+    address: '0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://cre8r.vip/',
+    description:
+      'The world’s first & only decentralized Web3 content marketing agency DAO. Massively scalable. Fueled by DeFi.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
