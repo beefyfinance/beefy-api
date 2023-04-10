@@ -4,6 +4,7 @@ import { swapfish } from './platforms/swapfish';
 import { balancer } from './platforms/balancer';
 import { solidlizard } from './platforms/solidlizard';
 import { ramses } from './platforms/ramses';
+import { arbidex } from './platforms/arbidex';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -17,6 +18,7 @@ const _arbitrum = {
     balancer,
     solidlizard,
     ramses,
+    arbidex,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
