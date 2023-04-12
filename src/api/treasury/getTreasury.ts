@@ -34,7 +34,7 @@ import { keysToObject } from '../../utils/array';
 const REFRESH_INTERVAL = 60000 * 10;
 const MULTICALL_BATCH_SIZES: Partial<Record<ApiChain, number>> = {
   fantom: 512,
-  polygon: 512,
+  polygon: 256,
 };
 
 const batchSizeForChain = (chain: ApiChain) => {

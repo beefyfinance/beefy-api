@@ -49,3 +49,7 @@ export function toChainId(chain: AnyChain): number {
   const apiChain = toApiChain(chain);
   return ChainId[apiChain];
 }
+
+export function fromChainId(chainId: number): ApiChain {
+  return Object.keys(ChainId).find(key => ChainId[key] === chainId) as ApiChain;
+}
