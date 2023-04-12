@@ -3,7 +3,7 @@ import { ApiChain, toChainId } from './chain';
 import { web3Factory } from './web3';
 import { MULTICALL_V3 } from './web3Helpers';
 import { Multicall } from 'ethereum-multicall';
-import chainLinkOracleAbi from '../abis/chainLinkOracle.json';
+import chainLinkOracleAbi from '../abis/ChainLinkOracle.json';
 import BigNumber from 'bignumber.js';
 import { fromWei } from './big-number';
 import { subSeconds } from 'date-fns';
