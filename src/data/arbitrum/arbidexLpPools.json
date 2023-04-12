@@ -1,0 +1,42 @@
+[
+  {
+    "name": "arbidex-arx-usdc",
+    "address": "0xA6efAE0C9293B4eE340De31022900bA747eaA92D",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 1,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xD5954c3084a1cCd70B4dA011E67760B8e78aeE84",
+      "oracle": "tokens",
+      "oracleId": "ARX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "arbidex-weth-arb",
+    "address": "0x39511b74722afE77d532Eb70632B4B59C559019b",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 11,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    }
+  }
+]

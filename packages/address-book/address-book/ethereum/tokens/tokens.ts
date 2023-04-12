@@ -851,6 +851,31 @@ const _tokens = {
       'A complete synthetic protocol that enables users to generate a variety of synthetics using crypto assets as collateral',
     documentation: 'https://docs.metronome.io/metronome-2.0/master',
   },
+  UZD: {
+    name: 'UZD Zunami Stable',
+    symbol: 'UZD',
+    address: '0xb40b6608B2743E691C9B54DdBDEe7bf03cd79f1c',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.zunami.io/',
+    description:
+      'UZD is a rebase token that increases in value in proportion to the APY of the Zunami Protocol. It is over-collateralized by stablecoins allocated in Curve Finance pools and minted using ZLP. UZD is secure from depeg as it can be redeemed with USDT, USDC, or DAI at any time. Users can receive UZD by minting it through the Zunami interface or by swapping it in the Curve.',
+    documentation: 'https://zunamilab.gitbook.io/product-docs/',
+  },
+  lvUSD: {
+    name: 'lvUSD',
+    symbol: 'lvUSD',
+    address: '0x94A18d9FE00bab617fAD8B49b11e9F1f64Db6b36',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://archimedesfi.com/',
+    description:
+      'The stablecoin lvUSD is pegged to the USD and is used for lending and repaying loans.\n' +
+      'When liquidity providers (LPs) deposit 3CRV, Archimedes borrows lvUSD on behalf of leverage takers (LTs) and uses it to enter a strategy. Investing in the 3CRV/lvUSD pool gives LPs exposure to both 3CRV and the collateral provided by LTs. This allows the market to decide on the best investment strategy.',
+    documentation: 'https://docs.archimedesfi.com/',
+  },
   eUSDT: {
     name: 'Euler Tether USD',
     symbol: 'eUSDT',

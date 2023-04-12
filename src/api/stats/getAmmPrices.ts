@@ -6,7 +6,7 @@ import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
 import { fetchEulerTokenPrices } from '../../utils/fetchEulerTokenPrices';
-import { fetchbeFTMPrice } from '../../utils/fetchbeFTMPrice';
+import { fetchDolaPrice } from '../../utils/fetchDolaPrice';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
@@ -258,6 +258,7 @@ import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
 import swapFishPools from '../../data/arbitrum/swapFishLpPools.json';
 import equalizerPools from '../../data/fantom/equalizerLpPools.json';
+import equalizerV2Pools from '../../data/fantom/equalizerV2LpPools.json';
 import swapFishBscPools from '../../data/swapFishLpPools.json';
 import thenaPools from '../../data/degens/thenaLpPools.json';
 import sushiMainnetPools from '../../data/ethereum/sushiLpPools.json';
@@ -270,6 +271,7 @@ import velocimeterV2Pools from '../../data/canto/velocimeterV2LpPools.json';
 import equilibrePools from '../../data/kava/equilibreLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
+import arbidexPools from '../../data/arbitrum/arbidexLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 import { sleep } from '../../utils/time';
@@ -283,6 +285,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...arbidexPools,
   ...ramsesPools,
   ...versePools,
   ...equilibrePools,
@@ -295,6 +298,7 @@ const pools = normalizePoolOracleIds([
   ...sushiMainnetPools,
   ...thenaPools,
   ...swapFishBscPools,
+  ...equalizerV2Pools,
   ...equalizerPools,
   ...swapFishPools,
   ...hermesPools,
@@ -678,8 +682,8 @@ async function performUpdateAmmPrices() {
     return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
   });
 
-  const beFtmPrice = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchbeFTMPrice(tokenPrices);
+  const dolaPrice = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchDolaPrice(tokenPrices);
   });
 
   const sfrxEthPrice = ammPrices.then(async ({ tokenPrices }) => {
@@ -731,7 +735,7 @@ async function performUpdateAmmPrices() {
     const concentratedLiquidityPrices = await concentratedLiquidityTokenPrices;
     const xTokenPrices = await xPrices;
     const mooTokenPrices = await mooPrices;
-    const beFtmTokenPrice = await beFtmPrice;
+    const dolaTokenPrice = await dolaPrice;
     const sfrxEthTokenPrice = await sfrxEthPrice;
     const beTokenTokenPrice = await beTokenPrice;
     const linearPoolTokenPrice = await linearPoolPrice;
@@ -740,7 +744,7 @@ async function performUpdateAmmPrices() {
       ...dmm.tokenPrices,
       ...mooTokenPrices,
       ...xTokenPrices,
-      ...beFtmTokenPrice,
+      ...dolaTokenPrice,
       ...beTokenTokenPrice,
       ...sfrxEthTokenPrice,
       ...curvePrices,

@@ -1,10 +1,30 @@
 [
   {
+    "name": "curve-poly-usdr",
+    "pool": "0xa138341185a9D0429B0021A11FB717B225e13e1F",
+    "token": "0xa138341185a9D0429B0021A11FB717B225e13e1F",
+    "gauge": "0x875CE7e0565b4C8852CA2a9608F27B7213A90786",
+    "getDy": ["v1", 0, 2, "USDC"],
+    "convex": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDR",
+        "decimals": "1e9"
+      },
+      {
+        "basePool": "curve-am3crv",
+        "oracle": "lps",
+        "oracleId": "curve-am3crv",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-poly-matic3crypto",
     "pool": "0x7BBc0e92505B485aeb3e82E828cb505DAf1E50c6",
     "token": "0xb0658482b405496C4EE9453cD0a463b134aEf9d0",
     "gauge": "0x0e2f214b8f5D0ccA011A8298bb907fb62f535160",
-    "volatile": true,
     "convex": true,
     "tokens": [
       {
@@ -25,7 +45,6 @@
     "pool": "0xc7c939A474CB10EB837894D1ed1a77C61B268Fa7",
     "token": "0xA73EdCf18421B56D9AF1cE08A34E102E23b2C4B6",
     "gauge": "0x40371aad2a24ed841316EF30938881440FD4426c",
-    "volatile": true,
     "convex": true,
     "tokens": [
       {
@@ -47,7 +66,6 @@
     "token": "0xdAD97F7713Ae9437fa9249920eC8507e5FbB23d3",
     "gauge": "0xBb1B19495B8FE7C402427479B9aC14886cbbaaeE",
     "baseApyKey": "atricrypto3",
-    "volatile": true,
     "convex": true,
     "tokens": [
       {
@@ -75,7 +93,6 @@
     "pool": "0x751B1e21756bDbc307CBcC5085c042a0e9AaEf36",
     "token": "0x8096ac61db23291252574D49f036f0f9ed8ab390",
     "baseApyKey": "atricrypto",
-    "volatile": true,
     "rewards": [],
     "tokens": [
       {
@@ -104,7 +121,6 @@
     "token": "0x600743b1d8a96438bd46836fd34977a00293f6aa",
     "gauge": "0x8b397084699Cc64E429F610F81Fac13bf061ef55",
     "baseApyKey": "eurtusd",
-    "volatile": true,
     "convex": true,
     "tokens": [
       {
@@ -125,7 +141,6 @@
     "pool": "0xFb6FE7802bA9290ef8b00CA16Af4Bc26eb663a28",
     "token": "0xe7CEA2F6d7b120174BF3A9Bc98efaF1fF72C997d",
     "gauge": "0x9633E0749faa6eC6d992265368B88698d6a93Ac0",
-    "volatile": true,
     "rewards": [
       {
         "token": "0xC3C7d422809852031b44ab29EEC9F1EfF2A58756",
