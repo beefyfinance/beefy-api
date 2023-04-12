@@ -1,12 +1,12 @@
 import BigNumber from 'bignumber.js';
-import { ethers } from 'ethers';
-import { MULTICHAIN_RPC } from '../constants';
 import { multicallAddress, web3Factory } from './web3';
 import { MultiCall } from 'eth-multicall';
 import { getContract } from './contractHelper';
 import DMMPool from '../abis/DMMPool.json';
 import ERC20 from '../abis/common/ERC20/ERC20.json';
 import { ChainId } from '../../packages/address-book/address-book';
+
+const DEBUG_ORACLES = [];
 
 const sortByKeys = o => {
   return Object.keys(o)
@@ -126,32 +126,54 @@ export async function fetchDmmPrices(
 
       for (let i = unsolved.length - 1; i >= 0; i--) {
         const pool = unsolved[i];
+        const trySolve = [];
 
-        let knownToken, unknownToken;
-        if (pool.lp0.oracleId in prices) {
-          knownToken = pool.lp0;
-          unknownToken = pool.lp1;
+        if (pool.lp0.oracleId in weights && pool.lp1.oracleId in weights) {
+          trySolve.push({ knownToken: pool.lp0, unknownToken: pool.lp1 });
+          trySolve.push({ knownToken: pool.lp1, unknownToken: pool.lp0 });
+        } else if (pool.lp0.oracleId in prices) {
+          trySolve.push({ knownToken: pool.lp0, unknownToken: pool.lp1 });
         } else if (pool.lp1.oracleId in prices) {
-          knownToken = pool.lp1;
-          unknownToken = pool.lp0;
+          trySolve.push({ knownToken: pool.lp1, unknownToken: pool.lp0 });
         } else {
-          console.log('unsolved: ', pool.lp0.oracleId, pool.lp1.oracleId, pool.name);
+          // both unknown: not solved yet but could be solved later
           continue;
         }
 
-        const { price, weight } = calcTokenPrice(
-          prices[knownToken.oracleId],
-          knownToken,
-          unknownToken
-        );
-        if (weight > (weights[unknownToken.oracleId] || 0)) {
-          prices[unknownToken.oracleId] = price;
-          weights[unknownToken.oracleId] = weight;
+        for (const { knownToken, unknownToken } of trySolve) {
+          const { price, weight } = calcTokenPrice(
+            prices[knownToken.oracleId],
+            knownToken,
+            unknownToken
+          );
+          const existingWeight = weights[unknownToken.oracleId] || 0;
+          const betterPrice = weight > existingWeight;
+
+          if (DEBUG_ORACLES.includes(unknownToken.oracleId)) {
+            console.log(
+              `${betterPrice ? 'Setting' : 'Skipping'} ${unknownToken.oracleId} to $${price} via ${
+                knownToken.oracleId
+              } ($${prices[knownToken.oracleId]}) in ${pool.name} (${
+                pool.address
+              }) - new weight ${weight} vs existing ${existingWeight}`
+            );
+          }
+
+          if (betterPrice) {
+            prices[unknownToken.oracleId] = price;
+            weights[unknownToken.oracleId] = weight;
+          }
         }
 
         unsolved.splice(i, 1);
         solving = true;
       }
+    }
+
+    if (unsolved.length > 0) {
+      // actually not solved
+      console.log('Unsolved pools: ');
+      unsolved.forEach(pool => console.log(pool.lp0.oracleId, pool.lp1.oracleId, pool.name));
     }
   }
 

@@ -8,24 +8,29 @@ const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const DECIMALS = '1e18';
 
 const getBeltPrices = async tokenPrices => {
-  const getPrices = [getBeltVenusLpPrice, getBelt4BeltLpPrice];
   const beltTokens = [
     { name: 'belt-beltbnb', address: '0xa8Bb71facdd46445644C277F9499Dd22f6F0A30C', token: 'WBNB' },
     { name: 'belt-beltbtc', address: '0x51bd63F240fB13870550423D208452cA87c44444', token: 'BTCB' },
     { name: 'belt-belteth', address: '0xAA20E8Cb61299df2357561C2AC2e1172bC68bc25', token: 'ETH' },
   ];
 
-  let prices = {};
-  let promises = [];
-  getPrices.forEach(getPrice => promises.push(getPrice()));
-  beltTokens.forEach(beltToken => promises.push(getBeltTokenPrice(beltToken, tokenPrices)));
-  const values = await Promise.all(promises);
+  const results = await Promise.allSettled([
+    getBeltVenusLpPrice(),
+    getBelt4BeltLpPrice(),
+    ...beltTokens.map(beltToken => getBeltTokenPrice(beltToken, tokenPrices)),
+  ]);
 
-  for (let item of values) {
-    prices = { ...prices, ...item };
+  const prices = [];
+  for (const i in results) {
+    const result = results[i];
+    if (result.status === 'rejected') {
+      console.error('getBeltPrices rejected', i, result.reason);
+    } else {
+      prices.push(result.value);
+    }
   }
 
-  return prices;
+  return Object.assign({}, ...prices);
 };
 
 const getBeltVenusLpPrice = async () => {
@@ -46,6 +51,7 @@ const getBelt4BeltLpPrice = async () => {
     '0xAEA4f7dcd172997947809CE6F12018a6D5c1E8b6',
     web3
   );
+
   let tokenPrice = new BigNumber(await beltLPContract.methods.get_virtual_price().call());
   tokenPrice = Number(tokenPrice.dividedBy(DECIMALS).toFixed(6));
 
