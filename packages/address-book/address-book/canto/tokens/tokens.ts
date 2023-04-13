@@ -181,6 +181,52 @@ const _tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   },
+  cINU: {
+    name: 'Canto Inu',
+    symbol: 'cINU',
+    address: '0x7264610A66EcA758A8ce95CF11Ff5741E1fd0455',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.cantoinu.com/',
+    description:
+      'Following in the pawprints of Dogecoin and Shiba Inu, Canto Inu is the native breed token to the Canto Blockchain. It is provided solely for entertainment purposes.',
+  },
+  CRE8R: {
+    name: 'CRE8R DAO',
+    symbol: 'CRE8R',
+    address: '0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://cre8r.vip/',
+    description:
+      'The world’s first & only decentralized Web3 content marketing agency DAO. Massively scalable. Fueled by DeFi.',
+  },
+  wstETH: {
+    name: 'Lido Wrapped Staked ETH',
+    symbol: 'wstETH',
+    address: '0xc71aAf8e486e3F33841BB56Ca3FD2aC3fa8D29a8',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    documentation: 'https://docs.lido.fi/',
+  },
+  stATOM: {
+    name: 'Stride Staked ATOM',
+    symbol: 'stATOM',
+    address: '0x4A2a90D444DbB7163B5861b772f882BbA394Ca67',
+    chainId: 7700,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://stride.zone/',
+    description:
+      'Using Stride’s liquid staked ATOM, you can earn both staking and DeFi yields across the Cosmos IBC ecosystem.',
+    documentation: 'https://docs.stride.zone/docs',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

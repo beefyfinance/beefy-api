@@ -69,6 +69,7 @@ import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import getMmyFantomPrices from './fantom/getMmyFantomPrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
+import { getStakeSteakPrices } from './fantom/getStakeSteakPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -159,6 +160,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getJarvisPrices(tokenPrices),
     getSolarbeamPrices(tokenPrices),
     getStellaswapPrices(tokenPrices),
+    getStakeSteakPrices(tokenPrices),
   ];
 
   // Setup error logs

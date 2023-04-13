@@ -1,5 +1,31 @@
 [
   {
+    "name": "curve-lvusd",
+    "pool": "0xe9123CBC5d1EA65301D417193c40A72Ac8D53501",
+    "token": "0xe9123CBC5d1EA65301D417193c40A72Ac8D53501",
+    "getDy": ["v1", 0, 2, "USDC"],
+    "gauge": "0xf2cBa59952cc09EB23d6F7baa2C47aB79B9F2945",
+    "rewards": [
+      {
+        "token": "0x73C69d24ad28e2d43D03CBf35F79fE26EBDE1011",
+        "oracleId": "ARCH"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "lvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-3pool",
+        "oracle": "lps",
+        "oracleId": "convex-3pool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-uzdfraxbp",
     "pool": "0x68934F60758243eafAf4D2cFeD27BF8010bede3a",
     "token": "0x68934F60758243eafAf4D2cFeD27BF8010bede3a",

@@ -4,6 +4,7 @@ import { addressBookByChainId, ChainId } from '../../../packages/address-book/ad
 import { getContractWithProvider } from '../../utils/contractHelper';
 import { getKey, setKey } from '../../utils/cache';
 import { web3Factory } from '../../utils/web3';
+import { ApiChain, fromChainId } from '../../utils/chain';
 const FeeABI = require('../../abis/FeeABI.json');
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
 
@@ -20,10 +21,18 @@ const feeBatchTreasurySplitMethodABI = [
 const INIT_DELAY = 15000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_EXPIRY = 1000 * 60 * 60 * 12;
-const MULTICALL_BATCH_SIZE = 100;
+const MULTICALL_BATCH_SIZES: Partial<Record<ApiChain, number>> = {
+  polygon: 25,
+};
+
+const DEFAULT_MULTICALL_BATCH_SIZE = 100;
 
 const VAULT_FEES_KEY = 'VAULT_FEES';
 const FEE_BATCH_KEY = 'FEE_BATCHES';
+
+const batchSizeForChain = (chain: ApiChain) => {
+  return MULTICALL_BATCH_SIZES[chain] ?? DEFAULT_MULTICALL_BATCH_SIZE;
+};
 
 interface PerformanceFee {
   total: number;
@@ -196,9 +205,10 @@ const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
     });
 
     let promises: Promise<ContractCallResults>[] = [];
+    const batchSize = batchSizeForChain(fromChainId(chainId));
 
-    for (let i = 0; i < contractCallContext.length; i += MULTICALL_BATCH_SIZE) {
-      let batch = contractCallContext.slice(i, i + MULTICALL_BATCH_SIZE);
+    for (let i = 0; i < contractCallContext.length; i += batchSize) {
+      let batch = contractCallContext.slice(i, i + batchSize);
       promises.push(multicall.call(batch));
     }
 

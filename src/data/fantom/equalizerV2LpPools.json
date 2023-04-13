@@ -200,7 +200,7 @@
     }
   },
   {
-    "name": "equalizer-wftm-btc",
+    "name": "equalizer-btc-wftm",
     "address": "0xDA3E21477F872F30794551D908DE244b8839F723",
     "gauge": "0xd6A09102Df97C5Dbf7fA8a05CC26890ab8564470",
     "decimals": "1e18",

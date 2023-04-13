@@ -1,5 +1,23 @@
 [
   {
+    "name": "uniswap-arch-usdc",
+    "address": "0x128DD66e4c9f1477ba29523b379AEC6Ace76D584",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp0": {
+      "address": "0x73C69d24ad28e2d43D03CBf35F79fE26EBDE1011",
+      "oracle": "tokens",
+      "oracleId": "ARCH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "fraxswap-frax-fpis",
     "address": "0x56695c26b3Cdb528815cd22fF7B47510ab821EFd",
     "decimals": "1e18",

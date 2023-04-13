@@ -12,7 +12,7 @@ import IERC20 from '../../../abis/ERC20.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../utils/fetchPrice';
 
-const lpPools = require('../../../data/ethereum/convexPools.json');
+const lpPools = require('../../../data/ethereum/convexPools.json').filter(p => p.rewardPool);
 const subgraphUrl = 'https://api.curve.fi/api/getSubgraphData/ethereum';
 // const baseApyUrl = 'https://stats.curve.fi/raw-stats/apys.json';
 // const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs';
