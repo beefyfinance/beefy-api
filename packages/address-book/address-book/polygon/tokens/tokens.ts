@@ -1792,7 +1792,7 @@ const _tokens = {
   },
   USDR: {
     name: 'Real USD',
-    symbol: 'wUSDR',
+    symbol: 'USDR',
     address: '0xb5DFABd7fF7F83BAB83995E72A52B97ABb7bcf63',
     chainId: 137,
     decimals: 9,
