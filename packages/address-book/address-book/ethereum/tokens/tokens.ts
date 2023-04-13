@@ -971,6 +971,18 @@ const _tokens = {
       'At Bitcoin.com our mission is to create more economic freedom in the world. We define economic freedom as the ability to make choices with respect to one’s personal resources, unencumbered by trusted third parties or borders or lack of access. We believe economic freedom is the foundation of peace and prosperity, and by creating more of it for people, we are reducing suffering in the world. We strive to help everyone, everywhere be more economically free.',
     documentation: 'https://www.getverse.com/verse-whitepaper.pdf',
   },
+  OHM: {
+    name: 'Olympus',
+    address: '0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5',
+    symbol: 'OHM',
+    decimals: 9,
+    chainId: 1,
+    website: 'https://www.olympusdao.finance/',
+    description:
+      'Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.',
+    logoURI: '',
+    documentation: 'https://docs.olympusdao.finance/' 
+  }
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

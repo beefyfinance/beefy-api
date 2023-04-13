@@ -556,5 +556,25 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "aura-ohm-dai",
+    "address": "0x76FCf0e8C7Ff37A47a799FA2cd4c13cDe0D981C9",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xB9D6ED734Ccbdd0b9CadFED712Cf8AC6D0917EcD",
+    "vaultPoolId": "0x76fcf0e8c7ff37a47a799fa2cd4c13cde0d981c90002000000000000000003d2",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "OHM",
+        "decimals": "1e9"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

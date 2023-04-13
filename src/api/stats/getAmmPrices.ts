@@ -536,6 +536,50 @@ const pools = normalizePoolOracleIds([
 
 const dmmPools = [...kyberPools, ...oldDmmPools];
 
+
+const coinGeckoCoins = [
+  'usd-coin',
+  'stasis-eurs',
+  'tether-eurt',
+  'par-stablecoin',
+  'jarvis-synthetic-euro',
+  'monerium-eur-money',
+  'jpyc',
+  'cad-coin',
+  'xsgd',
+  'usd-balance',
+  'gelato',
+  'optimism',
+  'perpetual-protocol',
+  'nusd',
+  'lyra-finance',
+  'liquity-usd',
+  'seth',
+  'alchemix-usd',
+  'ethereum',
+  'rocket-pool-eth',
+  'wrapped-steth',
+  'kava',
+  'aura-finance',
+  'usd-coin',
+  'dai',
+  'tether',
+  'havven',
+  'aura-bal',
+  'balancer',
+  'coinbase-wrapped-staked-eth',
+  'opx-finance',
+  'dola-usd',
+  'across-protocol',
+  'metavault-trade',
+  'seur',
+  'euler',
+  'axlusdc',
+  'mimo-parallel-governance-token',
+  'frax',
+  'olympus',
+];
+
 const currencies = ['cad'];
 
 /**
@@ -616,6 +660,59 @@ const cachedTokenPrices: PricesById = {};
 const cachedLpPrices: PricesById = {};
 const cachedAllPrices: PricesById = {};
 const cachedLpBreakdowns: BreakdownsById = {};
+
+const performUpdateAmmPrices = async () => {
+  const coinGeckoPrices = async () => {
+    const prices = await fetchCoinGeckoPrices(coinGeckoCoins);
+    return {
+      // USDC: prices['usd-coin'],
+      // OP: prices['optimism'],
+      EURS: prices['stasis-eurs'],
+      EURt: prices['tether-eurt'],
+      PAR: prices['par-stablecoin'],
+      jEUR: prices['jarvis-synthetic-euro'],
+      EURe: prices['monerium-eur-money'],
+      JPYC: prices['jpyc'],
+      jJPY: prices['jpyc'],
+      CADC: prices['cad-coin'],
+      jCAD: prices['cad-coin'],
+      XSGD: prices['xsgd'],
+      jSGD: prices['xsgd'],
+      USDB: prices['usd-balance'],
+      GEL: prices['gelato'],
+      PERP: prices['perpetual-protocol'],
+      sUSD: prices['nusd'],
+      LYRA: prices['lyra-finance'],
+      LUSD: prices['liquity-usd'],
+      sETH: prices['seth'],
+      alUSD: prices['alchemix-usd'],
+      alETH: prices['ethereum'],
+      // rETH: prices['rocket-pool-eth'],
+      // wstETH: prices['wrapped-steth'],
+      KAVA: prices['kava'],
+      WKAVA: prices['kava'],
+      AURA: prices['aura-finance'],
+      hETH: prices['ethereum'],
+      hUSDC: prices['usd-coin'],
+      hUSDT: prices['tether'],
+      hDAI: prices['dai'],
+      hSNX: prices['havven'],
+      auraBAL: prices['aura-bal'],
+      // BAL: prices['balancer'],
+      cbETH: prices['coinbase-wrapped-staked-eth'],
+      OPX: prices['opx-finance'],
+      beOPX: prices['opx-finance'],
+      // DOLA: prices['dola-usd'],
+      ACX: prices['across-protocol'],
+      MVX: prices['metavault-trade'],
+      sEUR: prices['seur'],
+      EUL: prices['euler'],
+      axlUSDC: prices['axlusdc'],
+      MIMO: prices['mimo-parallel-governance-token'],
+      // FRAX: prices['frax'],
+      OHM: prices['olympus'],
+    };
+  };
 
 async function fetchSeedPrices() {
   // ChainLink gives: ETH, BTC, MATIC, AVAX, BNB, LINK, USDT, DAI, USDC
