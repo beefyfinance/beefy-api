@@ -15,7 +15,7 @@ export const beefyfinance = {
   treasury: treasuryMultisig,
   beefyFeeRecipient: '0xF0d26842c3935A618e6980C53fDa3A2D10A02eb7',
   multicall: '0x13C6bCC2411861A31dcDC2f990ddbe2325482222',
-  // bifiMaxiStrategy: '0xd1bAb603eee03fA99A378d90d5d83186fEB81aA9',
+  bifiMaxiStrategy: '0xaC3778DC45B5e415DaA78CCC31f25169bD98C43A',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   beefyFeeConfig: '0xa9E6E271b27b20F65394914f8784B3B860dBd259',
   vaultFactory: '0xCD9b038F012Ecd6b2739934426dDe3D4577e1d3C',
