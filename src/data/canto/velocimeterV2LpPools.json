@@ -1,5 +1,65 @@
 [
   {
+    "name": "velocimeterv2-statom-flow",
+    "address": "0xeA9047625A190fadC51F03975345949D7dbF2F3E",
+    "gauge": "0x6439Af175dca226c68fB62b718B07C1A199244a1",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4A2a90D444DbB7163B5861b772f882BbA394Ca67",
+      "oracle": "tokens",
+      "oracleId": "stATOM",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-cinu-flow",
+    "address": "0x931fDDa6450278672CebeF4b7100a64dE439623f",
+    "gauge": "0x8fb6685345500388F4c9EB02f61482a9624E9B43",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x7264610A66EcA758A8ce95CF11Ff5741E1fd0455",
+      "oracle": "tokens",
+      "oracleId": "cINU",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-eth-wsteth",
+    "address": "0x7E282E6538163e7afb76027490486F59B3218310",
+    "gauge": "0x85ff8B9AD71B667EF44E3A7D1aBeC3fE55d30831",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc71aAf8e486e3F33841BB56Ca3FD2aC3fa8D29a8",
+      "oracle": "tokens",
+      "oracleId": "WSTETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velocimeterv2-wcanto-cre8r",
     "address": "0x7392c47d48b3794344500Ca4c61A824e13FA8693",
     "gauge": "0x23a042B9DD1B3582d9DAC4b894BcbF53a9f88B23",
