@@ -166,6 +166,20 @@ const hopQuery = (address, startTimestamp, endTimestamp) => {
   return gql(queryString);
 };
 
+const exactlyQuery = (market, timestamp) => {
+  const queryString = `
+  query exactly {
+    marketUpdates(first: 1, orderBy: timestamp, orderDirection: desc, where: { market: "${market}", timestamp_lte: ${timestamp}}) {
+  	  timestamp
+  	  floatingDepositShares
+  	  floatingAssets
+  	  floatingDebt
+    }
+  }
+`;
+  return gql(queryString);
+};
+
 module.exports = {
   pairDayDataQuery,
   pairDayDataSushiQuery,
@@ -178,4 +192,5 @@ module.exports = {
   protocolDayDataRangeQuery,
   uniswapPositionQuery,
   hopQuery,
+  exactlyQuery,
 };

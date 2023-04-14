@@ -1,0 +1,46 @@
+[
+  {
+    "name": "exactly-supply-eth",
+    "token": "0x4200000000000000000000000000000000000006",
+    "market": "0xc4d4500326981eacD020e20A81b1c479c161c7EF",
+    "interestRateModel": "0x3179265d20d13cE507157b8087dE48759eb21006",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "ltv": 0
+  },
+  {
+    "name": "exactly-supply-usdc",
+    "token": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+    "market": "0x81C9A7B55A4df39A9B7B5F781ec0e53539694873",
+    "interestRateModel": "0x8C2F35c8076bCb5D4b696bAE11AcA0ac0Dd873e4",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "beefyFee": 0.095,
+    "ltv": 0
+  },
+  {
+    "name": "exactly-leverage-eth",
+    "token": "0x4200000000000000000000000000000000000006",
+    "market": "0xc4d4500326981eacD020e20A81b1c479c161c7EF",
+    "interestRateModel": "0x3179265d20d13cE507157b8087dE48759eb21006",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "ltv": 0.65
+  },
+  {
+    "name": "exactly-leverage-usdc",
+    "token": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+    "market": "0x81C9A7B55A4df39A9B7B5F781ec0e53539694873",
+    "interestRateModel": "0x8C2F35c8076bCb5D4b696bAE11AcA0ac0Dd873e4",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "beefyFee": 0.095,
+    "ltv": 0.76
+  }
+]

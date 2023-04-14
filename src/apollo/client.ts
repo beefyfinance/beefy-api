@@ -119,6 +119,7 @@ const isSushiTridentClient = (client: ApolloClient<NormalizedCacheObject>) => {
 const hopArbClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-arbitrum');
 const hopOpClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-optimism');
 const hopPolyClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-polygon');
+const exactlyClient = client('https://api.thegraph.com/subgraphs/name/exactly/exactly-optimism');
 
 const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return (
@@ -198,4 +199,5 @@ export {
   hopArbClient,
   hopOpClient,
   hopPolyClient,
+  exactlyClient,
 };
