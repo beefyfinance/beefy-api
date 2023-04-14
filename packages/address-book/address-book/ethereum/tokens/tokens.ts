@@ -981,8 +981,20 @@ const _tokens = {
     description:
       'Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.',
     logoURI: '',
-    documentation: 'https://docs.olympusdao.finance/' 
-  }
+    documentation: 'https://docs.olympusdao.finance/',
+  },
+  SD: {
+    name: 'Stader',
+    symbol: 'SD',
+    address: '0x30D20208d987713f46DFD34EF128Bb16C404D10f',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x3BC5AC0dFdC871B365d159f728dd1B9A0B5481E8.svg',
+    website: 'https://staderlabs.com/',
+    description: 'Stader (SD) token is the native governance and value accrual token for Stader.',
+    documentation: 'https://docs-new.staderlabs.com/intro',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
