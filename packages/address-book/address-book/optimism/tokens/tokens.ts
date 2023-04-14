@@ -906,6 +906,30 @@ const _tokens = {
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x514910771AF9Ca656af840dff83E8264EcF986CA/logo.png',
     documentation: 'https://docs.chain.link/resources/link-token-contracts',
   },
+  BOB: {
+    name: 'BOB',
+    symbol: 'BOB',
+    address: '0xB0B195aEFA3650A6908f15CdaC7D92F8a5791B0B',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.zkbob.com/',
+    description:
+      'BOB is a multi-chain & multi-collateral stable token (stablecoin) enhanced with optional privacy features.',
+    documentation: 'https://docs.zkbob.com/bob-stablecoin/bob-highlights',
+  },
+  KNC: {
+    name: 'Kyber Network Crystal v2',
+    symbol: 'KNC',
+    address: '0xa00E3A3511aAC35cA78530c85007AFCd31753819',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://kyberswap.com/swap/optimism',
+    description:
+      'KNC is a utility and governance token and an integral part of Kyber Network and its product KyberSwap - the multi-chain decentralized exchange (DEX) protocol that provides the best rates for traders and maximizes earnings for liquidity providers',
+    documentation: 'https://docs.kyberswap.com/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

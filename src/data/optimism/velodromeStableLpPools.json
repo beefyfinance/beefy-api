@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-usdc-bob",
+    "address": "0x0A8f50D8a22e2a36f46F3931a3086E6662B48Bf5",
+    "gauge": "0xb702e9E5B407D8A8741Cb3b2d579cd683114fA94",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB0B195aEFA3650A6908f15CdaC7D92F8a5791B0B",
+      "oracle": "tokens",
+      "oracleId": "BOB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-aleth-frxeth",
     "address": "0x87383ec35aF6F0d58DB242960898AC4D8C9F83A6",
     "gauge": "0x13bb7cFadcf6AF25dbD7059D3a52E18557258986",

@@ -1,5 +1,45 @@
 [
   {
+    "name": "velodrome-weth-bob",
+    "address": "0x088081455d7672D1B05241263F3eDABc62E3471e",
+    "gauge": "0x8C32A8dC03533cAC119a4Bd900208a956Bfc7831",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB0B195aEFA3650A6908f15CdaC7D92F8a5791B0B",
+      "oracle": "tokens",
+      "oracleId": "BOB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-usdc-knc",
+    "address": "0xc9A10217c3762d43c8123B92Af350508aEafccb7",
+    "gauge": "0x1FfcD11b44ECC414a55DA77c142be52bFf94a28A",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xa00E3A3511aAC35cA78530c85007AFCd31753819",
+      "oracle": "tokens",
+      "oracleId": "KNC",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-weth-unidx",
     "address": "0x9f611290d537840BDAb9f32C408ACBebe83b07B5",
     "gauge": "0x829D9D158779e93EeDB17da33551960F93D28e7F",
