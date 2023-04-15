@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-velo-unlock",
+    "address": "0x7386ac24AE27991e6b04C0c712CDc969A86b9e03",
+    "gauge": "0xa2eA21320698765F45E6820850e5D8b433bBAedd",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3c8B650257cFb5f272f799F5e2b4e65093a11a05",
+      "oracle": "tokens",
+      "oracleId": "VELO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7aE97042a4A0eB4D1eB370C34BfEC71042a056B7",
+      "oracle": "tokens",
+      "oracleId": "UNLOCK",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-weth-bob",
     "address": "0x088081455d7672D1B05241263F3eDABc62E3471e",
     "gauge": "0x8C32A8dC03533cAC119a4Bd900208a956Bfc7831",
