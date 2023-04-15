@@ -1,7 +1,6 @@
-// make sure to sure https://api.* url. The endpoint for api data is different than for the UI data
-// i.e, for https://bscscan.com, use https://api.bscscan.com
+// Etherscan uses api subdomains + Blockscout does not have apiToken
 
-export const etherscanApiUrlMap = {
+export const explorerApiUrlMap = {
   bsc: {
     url: 'https://api.bscscan.com',
     apiToken: '1R1VIWFIS3B3SZRVD5W9EV68SRCNB8ZH77',
@@ -14,6 +13,7 @@ export const etherscanApiUrlMap = {
     url: 'https://api.ftmscan.com',
     apiToken: 'HT3241A1K3ZVN4368JGHAFJXRR36VD8NCC',
   },
+  // Etherscan API getblocknobytime broken
   // heco: {
   //   url: 'https://api.hecoinfo.com',
   //   apiToken: '6XRRGTTB5ZQWXV55IDQJWYNF2F4GK7I1KK',
@@ -35,11 +35,34 @@ export const etherscanApiUrlMap = {
     apiToken: 'YPA7TM6IBEYHVVG9S5WQZT7URDNFVNTRDJ',
   },
   moonbeam: {
-    url: 'https://api-moonbeam.moonscan.io/',
+    url: 'https://api-moonbeam.moonscan.io',
     apiToken: '8THZGIQCVDJ86DTNDBZ8WB5G4F4DH9NZCQ',
   },
   optimism: {
     url: 'https://api-optimistic.etherscan.io',
     apiToken: 'PZ2NFPV2XVNMAP5A6ZMZ92U7SXYJNCIGQX',
   },
+  ethereum: {
+    url: 'https://api.etherscan.io',
+    apiToken: '', // TODO add key to prevent rate limit
+  },
+  canto: {
+    url: 'https://tuber.build',
+  },
+  kava: {
+    url: 'https://explorer.kava.io',
+  },
+  metis: {
+    url: 'https://andromeda-explorer.metis.io',
+  },
+  celo: {
+    url: 'https://explorer.celo.org',
+  },
+  aurora: {
+    url: 'https://explorer.mainnet.aurora.dev',
+  },
+  // Blockscout API start_block/tokentx broken
+  // fuse: {
+  //   url: 'https://explorer.fuse.io',
+  // },
 } as const;

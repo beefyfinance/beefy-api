@@ -7,7 +7,7 @@ import { addressBook } from '../../../../packages/address-book/address-book';
 import fetchPrice from '../../../utils/fetchPrice';
 import { getUtcSecondsFromDayRange } from '../../../utils/getUtcSecondsFromDayRange';
 import { getEDecimals } from '../../../utils/getEDecimals';
-import { etherscanApiUrlMap } from './etherscanApiUrlMap';
+import { explorerApiUrlMap } from './etherscanApiUrlMap';
 import { bifiLpMap } from './bifiLpMap';
 import { getKey, setKey } from '../../../utils/cache';
 
@@ -19,20 +19,19 @@ export interface DailyBifiBuybackStats {
   buybackUsdAmount: BigNumber;
 }
 
-const getOneDayBlocksFromEtherscan = async (scanUrl: string, apiToken: string) => {
+const getStartBlockFromExplorer = async (scanUrl: string, apiToken: string) => {
   const [start, end] = getUtcSecondsFromDayRange(0, 1);
-  const startBlock = await getBlockFromEtherscan(scanUrl, start, apiToken);
-  const endBlock = await getBlockFromEtherscan(scanUrl, end, apiToken);
-  return [startBlock, endBlock];
+  return await getBlockFromExplorer(scanUrl, start, apiToken);
 };
 
-const getBlockFromEtherscan = async (scanUrl: string, timestamp: number, apiToken?: string) => {
-  const token = apiToken ? apiToken : 'YourApiKeyToken';
-  const url = `${scanUrl}/api?module=block&action=getblocknobytime&timestamp=${timestamp}&closest=after&apikey=${token}`;
+const getBlockFromExplorer = async (scanUrl: string, timestamp: number, apiToken?: string) => {
+  const url =
+    `${scanUrl}/api?module=block&action=getblocknobytime&timestamp=${timestamp}&closest=after` +
+    (apiToken ? `&apikey=${apiToken}` : '');
   try {
     const resp = await fetch(url);
     const json: BlockApiResponse = await resp.json();
-    return json.result;
+    return typeof json.result === 'object' ? json.result.blockNumber : json.result;
   } catch (e) {
     console.error(`> bifi buyback block fetch error on ${scanUrl}`, e);
     return 0;
@@ -49,8 +48,12 @@ const getBuyback = async (
 ): Promise<{ [key: string]: BigNumber }> => {
   let bifiBuybackTokenAmount = new BigNumber(0);
   try {
-    const [startBlock, endBlock] = await getOneDayBlocksFromEtherscan(scanUrl, apiToken);
-    const url = `${scanUrl}/api?module=account&action=tokentx&address=${bifiMaxiAddress}&startblock=${startBlock}&endblock=${endBlock}&sort=asc&apikey=${apiToken}`;
+    const startBlock = await getStartBlockFromExplorer(scanUrl, apiToken);
+    const url =
+      `${scanUrl}/api?module=account&action=tokentx&address=${bifiMaxiAddress}&sort=asc&start` +
+      (apiToken === undefined && chainName !== 'kava' ? '_' : '') +
+      `block=${startBlock}` +
+      (apiToken ? `&apikey=${apiToken}` : '');
     const resp = await fetch(url);
     const json: ERC20TxApiResponse = await resp.json();
     let txCount = 0;
@@ -77,10 +80,10 @@ const updateBifiBuyback = async () => {
   try {
     let promises = [];
 
-    const chainNames = Object.keys(etherscanApiUrlMap);
+    const chainNames = Object.keys(explorerApiUrlMap);
 
     chainNames.forEach(chainName => {
-      const { url, apiToken } = etherscanApiUrlMap[chainName];
+      const { url, apiToken } = explorerApiUrlMap[chainName];
       const lp = bifiLpMap[chainName];
       const chainAddressBook = addressBook[chainName];
       const chainBIFI = chainAddressBook.tokens.BIFI;
