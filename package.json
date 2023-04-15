@@ -53,6 +53,7 @@
     "polygon:uniswap:add": "ts-node scripts/add-univ3.ts --network polygon --project uniswap_polygon --strategy",
     "op:velodrome:add": "ts-node scripts/add-solidly.ts --network optimism --project velodrome --newFee true --lp",
     "kava:equilibre:add": "ts-node scripts/add-solidly.ts --network kava --project equilibre --newFee true --lp",
+    "arb:arbidex:add": "ts-node scripts/add-farm.ts --network arbitrum --project arbidex --newFee true",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },
   "dependencies": {
