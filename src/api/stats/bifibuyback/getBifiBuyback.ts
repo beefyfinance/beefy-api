@@ -1,4 +1,4 @@
-import { BlockApiResponse, ERC20TxApiResponse } from './etherscanApiResponseTypes';
+import { BlockApiResponse, ERC20TxApiResponse } from './explorerApiResponseTypes';
 
 import BigNumber from 'bignumber.js';
 import fetch from 'node-fetch';
@@ -7,7 +7,7 @@ import { addressBook } from '../../../../packages/address-book/address-book';
 import fetchPrice from '../../../utils/fetchPrice';
 import { getUtcSecondsFromDayRange } from '../../../utils/getUtcSecondsFromDayRange';
 import { getEDecimals } from '../../../utils/getEDecimals';
-import { explorerApiUrlMap } from './etherscanApiUrlMap';
+import { explorerApiUrlMap } from './explorerApiUrlMap';
 import { bifiLpMap } from './bifiLpMap';
 import { getKey, setKey } from '../../../utils/cache';
 
