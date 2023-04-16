@@ -17,7 +17,7 @@ Optional environment vars:
 
 `BSC_RPC` - A custom RPC endpoint that you want to use.
 `HECO_RPC` - A custom RPC endpoint for HECO. You can just leave the default one otherwise.
-`FORTUBE_API_TOKEN` - A token from Fortube to use their API. If you don't have a token you will get a console warning and the Fortube APYs will be slightly smaller than in production. Everything works fine otherwise.
+`FORTUBE_API_TOKEN` - A token from Fortube to use their API. If you don't have a token you will get a console warning and the Fortube APYs will be slightly smaller than in production. Everything works fine otherwise. 
 
 ---
 
