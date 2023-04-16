@@ -227,6 +227,18 @@ const _tokens = {
       'Using Stride’s liquid staked ATOM, you can earn both staking and DeFi yields across the Cosmos IBC ecosystem.',
     documentation: 'https://docs.stride.zone/docs',
   },
+  INJ: {
+    name: 'Injective',
+    symbol: 'INJ',
+    address: '0x1D54EcB8583Ca25895c512A8308389fFD581F9c9',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://injective.com/',
+    description:
+      'Injective is an open, interoperable layer-one blockchain for building powerful DeFi applications.',
+    documentation: 'https://docs.injective.network/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
