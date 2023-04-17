@@ -431,5 +431,25 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "aura-ohm-wsteth",
+    "address": "0xd4f79CA0Ac83192693bce4699d0c10C66Aa6Cf0F",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x636024F9Ddef77e625161b2cCF3A2adfbfAd3615",
+    "vaultPoolId": "0xd4f79ca0ac83192693bce4699d0c10c66aa6cf0f00020000000000000000047e",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "OHM",
+        "decimals": "1e9"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
