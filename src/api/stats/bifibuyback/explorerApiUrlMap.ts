@@ -44,7 +44,7 @@ export const explorerApiUrlMap = {
   },
   ethereum: {
     url: 'https://api.etherscan.io',
-    apiToken: '', // TODO add key to prevent rate limit
+    apiToken: '8VFUTPCXKW4G7QF8F5VRDHANUAKRTCGY65',
   },
   canto: {
     url: 'https://tuber.build',
