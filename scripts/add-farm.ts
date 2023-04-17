@@ -36,7 +36,7 @@ const {
     platforms: { yuzu },
   },
   arbitrum: {
-    platforms: { swapfish: swapfishArb },
+    platforms: { swapfish: swapfishArb, arbidex },
   },
   ethereum: {
     platforms: { sushi },
@@ -148,6 +148,11 @@ const projects = {
     prefix: 'sushi-mainnet',
     file: '../src/data/ethereum/sushiLpPools.json',
     masterchef: sushi.masterchef,
+  },
+  arbidex: {
+    prefix: 'arbidex',
+    file: '../src/data/arbitrum/arbidexLpPools.json',
+    masterchef: arbidex.chef,
   },
 };
 
