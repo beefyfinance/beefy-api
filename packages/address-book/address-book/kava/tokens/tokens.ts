@@ -201,6 +201,18 @@ const _tokens = {
     description:
       'The Internet of Blockchains. Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
   },
+  MARE: {
+    name: 'Mare Finance',
+    symbol: 'MARE',
+    address: '0xd86C8d4279CCaFbec840c782BcC50D201f277419',
+    chainId: 2222,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://mare.finance/',
+    description:
+      'Mare Finance is an EVM compatible lending/borrowing protocol that launched on Kava EVM. Mare Finance provides peer-to-peer lending solutions that are fully decentralized, transparent and non-custodial.',
+    documentation: 'https://docs.mare.finance/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

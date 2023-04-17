@@ -930,6 +930,18 @@ const _tokens = {
       'KNC is a utility and governance token and an integral part of Kyber Network and its product KyberSwap - the multi-chain decentralized exchange (DEX) protocol that provides the best rates for traders and maximizes earnings for liquidity providers',
     documentation: 'https://docs.kyberswap.com/',
   },
+  UNLOCK: {
+    name: 'Unlock Token',
+    symbol: 'UNLOCK',
+    address: '0x7aE97042a4A0eB4D1eB370C34BfEC71042a056B7',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://200keys.com/',
+    description:
+      'The UNLOCK token is part of the 200 Keys NFT project ecosystem where it can be staked for rewards or used for minting and upgrading NFTs from The Forge',
+    documentation: 'https://200keys.com/tokenomics.pdf',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
