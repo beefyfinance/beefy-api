@@ -693,7 +693,7 @@ async function performUpdateAmmPrices() {
 
   const linearPoolPrice = ammPrices.then(
     async ({ tokenPrices }): Promise<Record<string, number>> => {
-      const jbrlTokenPrice = await fetchJbrlPrice(tokenPrices);
+      const jbrlTokenPrice = await fetchJbrlPrice();
       const yVaultPrices = await fetchyVaultPrices(tokenPrices);
       const vaultPrices = await fetchVaultPrices(tokenPrices);
       const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
