@@ -1,17 +1,41 @@
 import { addressBook } from '../../../../packages/address-book/address-book';
-const { bsc, heco, polygon, fantom, avax, moonriver, arbitrum, cronos, moonbeam, optimism } =
-  addressBook;
+const {
+  bsc,
+  heco,
+  polygon,
+  fantom,
+  avax,
+  moonriver,
+  arbitrum,
+  cronos,
+  moonbeam,
+  optimism,
+  ethereum,
+  canto,
+  kava,
+  metis,
+  celo,
+  aurora,
+  fuse,
+} = addressBook;
 
 // BIFI lp pair bifi maxi uses per chain
 export const bifiLpMap = {
   bsc: bsc.platforms.pancake.bifiBnbLp,
   heco: heco.platforms.mdex.usdtBifiLp,
-  polygon: polygon.platforms.quickswap.wethBifiLp,
+  polygon: polygon.platforms.sushi.bifiUsdcLp,
   fantom: fantom.platforms.spookyswap.wftmBifiLp,
   avax: avax.platforms.joe.avaxBifiLp,
   moonriver: moonriver.platforms.sushi.bifiMovrLp,
-  arbitrum: arbitrum.platforms.sushi.bifiEthLp,
+  arbitrum: arbitrum.platforms.ramses.bifiEthLp,
   cronos: cronos.platforms.vvs.bifiCroLp,
   moonbeam: moonbeam.platforms.beamswap.bifiGlmrLp,
   optimism: optimism.platforms.velodrome.bifiOpLp,
+  ethereum: ethereum.platforms.solidly.bifiEthLp,
+  canto: canto.platforms.velocimeter.bifiCantoLp,
+  kava: kava.platforms.equilibre.bifiKavaLp,
+  metis: metis.platforms.netswap.bifiMetisLp,
+  celo: celo.platforms.sushiCelo.bifiCeloLp,
+  aurora: aurora.platforms.trisolaris.bifiEthLp,
+  fuse: fuse.platforms.voltage.bifiFuseLp,
 } as const;

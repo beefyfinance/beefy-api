@@ -4,4 +4,5 @@ export const sushiCelo = {
   router: '0x1421bDe4B10e8dd459b3BCb598810B1337D56842', // UniswapV2Router02
   complexRewarderTime: '0x1be211D8DA40BC0ae8719c6663307Bfc987b1d6c',
   complexRewarderTimerv2: '0xFa3de59eDd2500BA725Dad355B98E6a4346Ada7d',
+  bifiCeloLp: '0xa9FcF373b6bc717223d9464e8c481c9AfAe3f861',
 } as const;

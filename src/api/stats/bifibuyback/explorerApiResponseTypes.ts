@@ -32,5 +32,5 @@ export interface ERC20TxApiResponse {
 export interface BlockApiResponse {
   status: string;
   message: string;
-  result: string;
+  result: string | { blockNumber: string };
 }

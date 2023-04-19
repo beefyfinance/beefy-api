@@ -3,4 +3,5 @@ export const velocimeter = {
   router: '0x8e2e2f70B4bD86F82539187A634FB832398cc771',
   voterv1: '0xC5B58aE761a77fF16d548dE9b42933c8FBfe4c33',
   voter: '0x8e3525Dbc8356c08d2d55F3ACb6416b5979D3389',
+  bifiCantoLp: '0x2dBFeB48dEaccBFf9b0a54dEd1BC172e135a809C',
 } as const;
