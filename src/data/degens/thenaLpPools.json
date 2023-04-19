@@ -40,26 +40,6 @@
     }
   },
   {
-    "name": "thena-bnbx-frax",
-    "address": "0x314d95096e49fDe9ebb68aD7E162b6eDd8D4352A",
-    "gauge": "0x5a7c73fc254593C9fD0467Bc3068D610Acc847d0",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
-      "oracle": "tokens",
-      "oracleId": "BNBx",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x90C97F71E18723b0Cf0dfa30ee176Ab653E89F40",
-      "oracle": "tokens",
-      "oracleId": "FRAX",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "thena-bnbx-usdt",
     "address": "0x19420fa1D0E350b5d46a8D3B24Ff2421744eB54E",
     "gauge": "0x74619E802aAC2A8A6D17Bc913E0585a026AFD152",
@@ -180,46 +160,6 @@
     }
   },
   {
-    "name": "thena-ankrbnb-ankreth",
-    "address": "0x44d1F00E75fd074F6016bb1DC326DcCD5d04451B",
-    "gauge": "0xCC7226622FDC0dc70d641419759B5E42f1dbdf84",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x52F24a5e03aee338Da5fd9Df68D2b6FAe1178827",
-      "oracle": "tokens",
-      "oracleId": "ankrBNB",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3",
-      "oracle": "tokens",
-      "oracleId": "ankrETH",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "thena-wusdr-usdc",
-    "address": "0xA99c4051069B774102d6D215c6A9ba69BD616E6a",
-    "gauge": "0x2e537237143ABf74A176d0067bEEbeEbe845300a",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x2952beb1326acCbB5243725bd4Da2fC937BCa087",
-      "oracle": "tokens",
-      "oracleId": "wUSDR",
-      "decimals": "1e9"
-    },
-    "lp1": {
-      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "thena-hay-ankrbnb",
     "address": "0xC6dB38F34DA75393E9aac841c08104348997D509",
     "gauge": "0xe5f9F06d6eCE3DfE30dca7AcbB20bc7fbA9c6272",
@@ -296,26 +236,6 @@
       "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
       "oracle": "tokens",
       "oracleId": "WBNB",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "thena-ankrbnb-ankr",
-    "address": "0x7ef540f672Cd643B79D2488344944499F7518b1f",
-    "gauge": "0xfeb1D7E820Caad858c9eeBB12c0B693875Cf4487",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x52F24a5e03aee338Da5fd9Df68D2b6FAe1178827",
-      "oracle": "tokens",
-      "oracleId": "ankrBNB",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xf307910A4c7bbc79691fD374889b36d8531B08e3",
-      "oracle": "tokens",
-      "oracleId": "ANKR",
       "decimals": "1e18"
     }
   },
@@ -420,26 +340,6 @@
     }
   },
   {
-    "name": "thena-bnbx-sd",
-    "address": "0x9698e0c7af13B6cEF8017A5c34eb2B3d053C491C",
-    "gauge": "0xB0b04da5163A407d8E0Dda6085Cb3A298394353A",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
-      "oracle": "tokens",
-      "oracleId": "BNBx",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x3BC5AC0dFdC871B365d159f728dd1B9A0B5481E8",
-      "oracle": "tokens",
-      "oracleId": "SD",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "thena-usdc-ftm",
     "address": "0x535AEEab656c0fBb07DA64fe4AA3A15Dfc6834C8",
     "gauge": "0x937BA7A421c4b916F77C7CD2068D37d6F4CD3790",
@@ -496,26 +396,6 @@
       "address": "0xf307910A4c7bbc79691fD374889b36d8531B08e3",
       "oracle": "tokens",
       "oracleId": "ANKR",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "thena-bnbx-wbnb",
-    "address": "0x6c83E45fE3Be4A9c12BB28cB5BA4cD210455fb55",
-    "gauge": "0x0Df5Dfe92A0568373DA2d705Cdb5F68017c4B19A",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
-      "oracle": "tokens",
-      "oracleId": "BNBx",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "oracle": "tokens",
-      "oracleId": "WBNB",
       "decimals": "1e18"
     }
   },

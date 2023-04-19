@@ -4,6 +4,8 @@ import { addressBook } from '../../../../packages/address-book/address-book';
 const { getRewardPoolApys } = require('../common/getRewardPoolApys');
 const stablePools = require('../../../data/degens/thenaStableLpPools.json');
 const volatilePools = require('../../../data/degens/thenaLpPools.json');
+const stableV2Pools = require('../../../data/degens/thenaV2StableLpPools.json');
+const volatileV2Pools = require('../../../data/degens/thenaV2LpPools.json');
 
 const {
   bsc: {
@@ -11,7 +13,7 @@ const {
   },
 } = addressBook;
 
-const pools = [...stablePools, ...volatilePools];
+const pools = [...stablePools, ...volatilePools, ...stableV2Pools, ...volatileV2Pools];
 const getThenaApys = async () => {
   return getRewardPoolApys({
     web3: web3,

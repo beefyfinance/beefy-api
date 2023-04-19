@@ -65,8 +65,8 @@ const projects = {
   },
   thena: {
     prefix: 'thena',
-    stableFile: '../src/data/degens/thenaStableLpPools.json',
-    volatileFile: '../src/data/degens/thenaLpPools.json',
+    stableFile: '../src/data/degens/thenaV2StableLpPools.json',
+    volatileFile: '../src/data/degens/thenaV2LpPools.json',
     voter: thena.voter,
   },
   spiritVolatile: {
