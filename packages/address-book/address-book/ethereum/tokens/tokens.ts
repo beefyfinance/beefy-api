@@ -251,6 +251,39 @@ const _tokens = {
     description:
       'MAI is a stable coin collateralized by your MATIC holdings. Its powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.',
   },
+  tBTC: {
+    name: 'tBTC v2',
+    symbol: 'tBTC',
+    address: '0x18084fbA666a33d37592fA2633fD49a74DD93a88',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://threshold.network/',
+    description:
+      'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
+  },
+  T: {
+    name: 'Threshold Network Token',
+    symbol: 'T',
+    address: '0xCdF7028ceAB81fA0C6971208e83fa7872994beE5',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://threshold.network/',
+    description:
+      'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
+  },
+  eCFX: {
+    name: 'ethereum Conflux',
+    symbol: 'eCFX',
+    address: '0xA1f82E14bc09A1b42710dF1A8a999B62f294e592',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://confluxnetwork.org/',
+    description:
+      'Conflux’s token economy is built around the $CFX token, a unit of value on the platform that enables token holders to pay transaction fees, earn rewards through staking, rent storage, and participate in network governance. CFX also incentivizes and rewards miners, who ensure the secure operation of the Network.',
+  },
   CRV: {
     name: 'CRV',
     address: '0xD533a949740bb3306d119CC777fa900bA034cd52',

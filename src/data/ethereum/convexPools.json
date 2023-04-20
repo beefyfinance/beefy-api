@@ -26,6 +26,101 @@
     ]
   },
   {
+    "name": "convex-steth-freth",
+    "pool": "0x4d9f9D15101EEC665F77210cB999639f760F831E",
+    "token": "0x4d9f9D15101EEC665F77210cB999639f760F831E",
+    "rewardPool": "0xC3D0B8170E105d6476fE407934492930CAc3BDAC",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "stETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "frxETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-ecfx",
+    "pool": "0x5ac4fceE123dcaDfAe22bc814c4Cc72b96c93F38",
+    "token": "0x8C88538688aca3b733aD08b12BEe4574c0C00907",
+    "rewardPool": "0x4F9a0f637B33B0D35135cda5782797617afef00e",
+    "getDy": ["v2", 0, 1],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "eCFX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-t",
+    "pool": "0x752eBeb79963cf0732E9c0fec72a49FD1DEfAEAC",
+    "token": "0xCb08717451aaE9EF950a2524E33B6DCaBA60147B",
+    "rewardPool": "0x3E91E7c822AC8b4b7905d108c3faCF22A3ee5d2c",
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "T",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-tbtc",
+    "pool": "0xF95AAa7EBB1620e46221B73588502960Ef63dBa0",
+    "token": "0xF95AAa7EBB1620e46221B73588502960Ef63dBa0",
+    "rewardPool": "0xcD491E40849a0E3c2fF84093bbbaAa25C1eF8dE6",
+    "getDy": ["v1", 0, 1, "WBTC"],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-sbtc2",
+        "oracle": "lps",
+        "oracleId": "convex-sbtc2",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-maifraxbp",
+    "pool": "0x66E335622ad7a6C9c72c98dbfCCE684996a20Ef9",
+    "token": "0x66E335622ad7a6C9c72c98dbfCCE684996a20Ef9",
+    "rewardPool": "0xD3C412C3cEdbEC604425B23DCd79Aa1ac810622f",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MAI",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-fraxusdc",
+        "oracle": "lps",
+        "oracleId": "convex-fraxusdc",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-uzdfraxbp",
     "pool": "0x68934F60758243eafAf4D2cFeD27BF8010bede3a",
     "token": "0x68934F60758243eafAf4D2cFeD27BF8010bede3a",
@@ -55,7 +150,6 @@
     "name": "convex-cvxcrv",
     "pool": "0x971add32Ea87f10bD192671630be3BE8A11b8623",
     "token": "0x971add32Ea87f10bD192671630be3BE8A11b8623",
-    "volatile": true,
     "rewardPool": "0x39D78f11b246ea4A1f68573c3A5B64E83Cff2cAe",
     "getDy": ["v1", 1, 0],
     "extras": [
@@ -81,7 +175,6 @@
     "name": "convex-ctr",
     "pool": "0xf2f12B364F614925aB8E2C8BFc606edB9282Ba09",
     "token": "0x3f0e7916681452D23Cd36B1281457DA721F2E5dF",
-    "volatile": true,
     "rewardPool": "0xE1d8E3625c5C54b9dcbb52c2c8E4264c3A01450c",
     "getDy": ["v2", 1, 0],
     "tokens": [
@@ -101,7 +194,6 @@
     "name": "convex-matic",
     "pool": "0x6bfE880Ed1d639bF80167b93cc9c56a39C1Ba2dC",
     "token": "0xD8eb58D76aF99547333cfEeb6a0f9bd1A63b6492",
-    "volatile": true,
     "rewardPool": "0x77C43369E50D68B7B3288EEFa7D7ab1F0F6D66b3",
     "tokens": [
       {
@@ -120,7 +212,6 @@
     "name": "convex-cnc",
     "pool": "0x838af967537350D2C44ABB8c010E49E32673ab94",
     "token": "0xF9835375f6b268743Ea0a54d742Aa156947f8C06",
-    "volatile": true,
     "rewardPool": "0x1A3c8B2F89B1C2593fa46C30ADA0b4E3D0133fF8",
     "getDy": ["v2", 1, 0],
     "extras": [
@@ -146,7 +237,6 @@
     "name": "convex-stg",
     "pool": "0x3211C6cBeF1429da3D0d58494938299C92Ad5860",
     "token": "0xdf55670e27bE5cDE7228dD0A6849181891c9ebA1",
-    "volatile": true,
     "rewardPool": "0x17E3Bc273cFcB972167059E55104DBCC8f8431bE",
     "tokens": [
       {
@@ -165,7 +255,6 @@
     "name": "convex-ldo",
     "pool": "0x9409280DC1e6D33AB7A8C6EC03e5763FB61772B5",
     "token": "0xb79565c01b7Ae53618d9B847b9443aAf4f9011e7",
-    "volatile": true,
     "rewardPool": "0x8CA990E954611E5E3d2cc51C013fCC372c8c1D38",
     "tokens": [
       {
@@ -184,7 +273,6 @@
     "name": "convex-clev",
     "pool": "0x342D1C4Aa76EA6F5E5871b7f11A019a0eB713A4f",
     "token": "0x6C280dB098dB673d30d5B34eC04B6387185D3620",
-    "volatile": true,
     "rewardPool": "0x6be96D00B50375AF852D63DB7d55656B306f398e",
     "getDy": ["v2", 1, 0],
     "tokens": [
@@ -204,7 +292,6 @@
     "name": "convex-clevcvx",
     "pool": "0xF9078Fb962A7D13F55d40d49C8AA6472aBD1A5a6",
     "token": "0xF9078Fb962A7D13F55d40d49C8AA6472aBD1A5a6",
-    "oracleId": "CVX",
     "rewardPool": "0x706f34D0aB8f4f9838F15b0D155C8Ef42229294B",
     "getDy": ["v1", 1, 0],
     "tokens": [
@@ -224,7 +311,6 @@
     "name": "convex-ycrv",
     "pool": "0x453D92C7d4263201C69aACfaf589Ed14202d83a4",
     "token": "0x453D92C7d4263201C69aACfaf589Ed14202d83a4",
-    "oracleId": "CRV",
     "rewardPool": "0xe94b4cC50aC9ebeC491c3665C3E5a017a87dCF19",
     "getDy": ["v1", 1, 0],
     "tokens": [
@@ -263,7 +349,6 @@
     "name": "convex-geareth",
     "pool": "0x0E9B5B092caD6F1c5E6bc7f89Ffe1abb5c95F1C2",
     "token": "0x5Be6C45e2d074fAa20700C49aDA3E88a1cc0025d",
-    "volatile": true,
     "rewardPool": "0x502Cc0d946e79CeA4DaafCf21F374C6bce763067",
     "getDy": ["v2", 0, 1],
     "extras": [
@@ -289,7 +374,6 @@
     "name": "convex-multibtc",
     "pool": "0x2863a328a0b7fc6040f11614fa0728587db8e353",
     "token": "0x2863a328a0b7fc6040f11614fa0728587db8e353",
-    "oracleId": "WBTC",
     "rewardPool": "0x41EAB7eB43b7b055B2Bf508cAcE932b11003029f",
     "getDy": ["v1", 0, 1, "WBTC"],
     "extras": [
@@ -316,7 +400,6 @@
     "name": "convex-sbtc2",
     "pool": "0xf253f83AcA21aAbD2A20553AE0BF7F65C755A07F",
     "token": "0x051d7e5609917Bd9b73f04BAc0DED8Dd46a74301",
-    "oracleId": "WBTC",
     "rewardPool": "0x2a7b6a16Cf7Be51968b69768c3feCaA7E27524A5",
     "tokens": [
       {
@@ -335,7 +418,6 @@
     "name": "convex-mseth",
     "pool": "0xc897b98272AA23714464Ea2A0Bd5180f1B8C0025",
     "token": "0xc897b98272AA23714464Ea2A0Bd5180f1B8C0025",
-    "volatile": true,
     "rewardPool": "0x14DC104D74372527fEC45b86E87Fe263C7215369",
     "getDy": ["v1", 1, 0],
     "tokens": [
@@ -355,7 +437,6 @@
     "name": "convex-reth",
     "pool": "0x0f3159811670c117c372428D4E69AC32325e4D0F",
     "token": "0x6c38cE8984a890F5e46e6dF6117C26b3F1EcfC9C",
-    "volatile": true,
     "rewardPool": "0x65C8aa24db76e870DEDfC35701eff84de405D1ba",
     "tokens": [
       {
@@ -374,7 +455,6 @@
     "name": "convex-seth",
     "pool": "0xc5424B857f758E906013F3555Dad202e4bdB4567",
     "token": "0xA3D87FffcE63B53E0d54fAa1cc983B7eB0b74A9c",
-    "oracleId": "WETH",
     "rewardPool": "0x192469CadE297D6B21F418cFA8c366b63FFC9f9b",
     "tokens": [
       {
@@ -393,7 +473,6 @@
     "name": "convex-cbeth",
     "pool": "0x5FAE7E604FC3e24fd43A72867ceBaC94c65b404A",
     "token": "0x5b6C539b224014A09B3388e51CaAA8e354c959C8",
-    "volatile": true,
     "rewardPool": "0x5d02EcD9B83f1187e92aD5be3d1bd2915CA03699",
     "tokens": [
       {
@@ -470,7 +549,6 @@
     "name": "convex-peth",
     "pool": "0x9848482da3Ee3076165ce6497eDA906E66bB85C5",
     "token": "0x9848482da3Ee3076165ce6497eDA906E66bB85C5",
-    "oracleId": "WETH",
     "rewardPool": "0xb235205E1096E0Ad221Fb7621a2E2cbaB875bE75",
     "getDy": ["v1", 1, 0],
     "extras": [
@@ -496,7 +574,6 @@
     "name": "convex-frxeth",
     "pool": "0xa1F8A6807c402E4A15ef4EBa36528A3FED24E577",
     "token": "0xf43211935C781D5ca1a41d2041F397B8A7366C7A",
-    "oracleId": "WETH",
     "rewardPool": "0xbD5445402B0a287cbC77cb67B2a52e2FC635dce4",
     "tokens": [
       {
@@ -515,7 +592,6 @@
     "name": "convex-cvxfxs",
     "pool": "0xd658A338613198204DCa1143Ac3F01A722b5d94A",
     "token": "0xF3A43307DcAFa93275993862Aae628fCB50dC768",
-    "volatile": true,
     "rewardPool": "0xf27AFAD0142393e4b3E5510aBc5fe3743Ad669Cb",
     "getDy": ["v2", 1, 0],
     "extras": [
@@ -545,7 +621,6 @@
     "name": "convex-cvxeth",
     "pool": "0xB576491F1E6e5E62f1d8F26062Ee822B40B0E0d4",
     "token": "0x3A283D9c08E8b55966afb64C515f5143cf907611",
-    "volatile": true,
     "rewardPool": "0xb1Fb0BA0676A1fFA83882c7F4805408bA232C1fA",
     "extras": [
       {
@@ -571,7 +646,6 @@
     "pool": "0x8301AE4fc9c624d1D396cbDAa1ed877821D7C511",
     "token": "0xEd4064f376cB8d68F770FB1Ff088a3d0F3FF5c4d",
     "rewardPool": "0x085A2054c51eA5c91dbF7f90d65e728c0f2A270f",
-    "volatile": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -589,7 +663,6 @@
     "name": "convex-aleth",
     "pool": "0xC4C319E2D4d66CcA4464C0c2B32c9Bd23ebe784e",
     "token": "0xC4C319E2D4d66CcA4464C0c2B32c9Bd23ebe784e",
-    "oracleId": "WETH",
     "rewardPool": "0x48Bc302d8295FeA1f8c3e7F57D4dDC9981FEE410",
     "tokens": [
       {
@@ -781,7 +854,6 @@
     "pool": "0xD51a44d3FaE010294C616388b506AcdA1bfAAE46",
     "token": "0xc4AD29ba4B3c580e6D59105FFf484999997675Ff",
     "rewardPool": "0x9D5C5E364D81DaB193b72db9E9BE9D8ee669B652",
-    "volatile": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -804,7 +876,6 @@
     "name": "convex-steth",
     "pool": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
     "token": "0x06325440D014e39736583c165C2963BA99fAf14E",
-    "oracleId": "WETH",
     "rewardPool": "0x0A760466E1B4621579a82a39CB56Dda2F4E70f03",
     "getDy": ["v1", 1, 0],
     "extras": [

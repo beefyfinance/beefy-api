@@ -70,6 +70,7 @@ import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import getMmyFantomPrices from './fantom/getMmyFantomPrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import { getStakeSteakPrices } from './fantom/getStakeSteakPrices';
+import { getMuxArbitrumPrices } from './arbitrum/getMuxPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -105,6 +106,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getMvxPrices(tokenPrices),
     getEqualizerStablePrices(tokenPrices),
     getOlpPrices(),
+    getMuxArbitrumPrices(tokenPrices),
     getStargateMetisPrices(tokenPrices),
     getStargateOpPrices(tokenPrices),
     getStargatePolygonPrices(tokenPrices),

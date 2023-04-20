@@ -17,12 +17,14 @@ const getKyberArbitrumApys = require('./getKyberArbitrumApys');
 const getSolidLizardApys = require('./getSolidLizardApys');
 const getRamsesApys = require('./getRamsesApys');
 const getArbidexApys = require('./getArbidexApys');
+const { getMuxArbitrumApys } = require('./getMuxApys');
 
 const getApys = [
   getKyberArbitrumApys,
   getGnsApys,
   getHopApys,
   getGmxApys,
+  getMuxArbitrumApys,
   getRadiantLpApys,
   getRipaeApys,
   getSushiLpApys,
