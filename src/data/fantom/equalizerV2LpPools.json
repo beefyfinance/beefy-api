@@ -1,5 +1,65 @@
 [
   {
+    "name": "equalizer-wftm-avax",
+    "address": "0xF77235B283fC72514f2bb260717F981B8E7474Ed",
+    "gauge": "0xFE29cca427E45850F59E0efEA2D4128b272F360d",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x511D35c52a3C244E7b8bd92c0C297755FbD89212",
+      "oracle": "tokens",
+      "oracleId": "AVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-stg",
+    "address": "0x9c2957a5b0eDA30b9C3a24f2F1638702549dce1B",
+    "gauge": "0xfF8d8b7cb6baA99Fbd30c93B3567433e020AE265",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590",
+      "oracle": "tokens",
+      "oracleId": "STG",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-wftm-link",
+    "address": "0x9B696b6B0F1DEE0B1af1d6bc927c15e27597f556",
+    "gauge": "0x5b4A260Cb069940bDdD51558BDE00d55586fC8a1",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb3654dc3D10Ea7645f8319668E8F54d2574FBdC8",
+      "oracle": "tokens",
+      "oracleId": "LINK",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "equalizer-wftm-bnb",
     "address": "0x7552BFa10037356A2De0379a2EF8d4CC480B8E00",
     "gauge": "0x2c013a21c01B54A4AC2e4a870d61F57773816b96",
