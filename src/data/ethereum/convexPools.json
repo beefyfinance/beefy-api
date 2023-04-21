@@ -26,6 +26,44 @@
     ]
   },
   {
+    "name": "convex-fraxusdp",
+    "pool": "0xaE34574AC03A15cd58A92DC79De7B1A0800F1CE3",
+    "token": "0xFC2838a17D8e8B1D5456E0a351B0708a09211147",
+    "rewardPool": "0x6991C1CD588c4e6f6f1de3A0bac5B8BbAb7aAF6d",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDP",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-usdp",
+    "pool": "0xc270b3B858c335B6BA5D5b10e2Da8a09976005ad",
+    "token": "0xc270b3B858c335B6BA5D5b10e2Da8a09976005ad",
+    "rewardPool": "0x500E169c15961DE8798Edb52e0f88a8662d30EC5",
+    "getDy": ["v1", 0, 2, "USDC"],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDP",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-3pool",
+        "oracle": "lps",
+        "oracleId": "convex-3pool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-steth-freth",
     "pool": "0x4d9f9D15101EEC665F77210cB999639f760F831E",
     "token": "0x4d9f9D15101EEC665F77210cB999639f760F831E",

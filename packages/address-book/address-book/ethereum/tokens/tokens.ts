@@ -284,6 +284,17 @@ const _tokens = {
     description:
       'Conflux’s token economy is built around the $CFX token, a unit of value on the platform that enables token holders to pay transaction fees, earn rewards through staking, rent storage, and participate in network governance. CFX also incentivizes and rewards miners, who ensure the secure operation of the Network.',
   },
+  USDP: {
+    name: 'Pax Dollar',
+    symbol: 'USDP',
+    address: '0x8E870D67F660D95d5be530380D0eC0bd388289E1',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://paxos.com/usdp/',
+    description:
+      'Pax Dollar (USDP) is a stablecoin created by Paxos, a licenced trust firm and financial institution that ensures the backing of the tokens with US dollar deposits. With the USDP, Paxos created a token that combines the confidence and stability of fiat money with the usefulness and immediacy of digital assets.',
+  },
   CRV: {
     name: 'CRV',
     address: '0xD533a949740bb3306d119CC777fa900bA034cd52',
