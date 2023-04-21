@@ -2,7 +2,7 @@
   {
     "name": "thena-id-wbnb",
     "address": "0x1663786974fecF742BdEA32222C96BaE58d0Fc65",
-    "gauge": "0xDc8f6bcf3bD4E4305df32A3aC00A134107D3bF49",
+    "gauge": "0x4A79cc9DB438F8DfF9290ABBc2439BCF82Fd9292",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -22,7 +22,7 @@
   {
     "name": "thena-usdt-wbnb",
     "address": "0x6BE6A437A1172e6C220246eCB3A92a45AF9f0Cbc",
-    "gauge": "0xA7cd5447A2759fC8F63A7a4FaCe894DA301d6af4",
+    "gauge": "0x11D54604F7BAe940D6CA106539B2986c36DaBe5E",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -42,7 +42,7 @@
   {
     "name": "thena-bnbx-frax",
     "address": "0x314d95096e49fDe9ebb68aD7E162b6eDd8D4352A",
-    "gauge": "0x5a7c73fc254593C9fD0467Bc3068D610Acc847d0",
+    "gauge": "0xD910fA9f7E9a9A553F93737F53A0874e22B2c493",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -62,7 +62,7 @@
   {
     "name": "thena-bnbx-usdt",
     "address": "0x19420fa1D0E350b5d46a8D3B24Ff2421744eB54E",
-    "gauge": "0x74619E802aAC2A8A6D17Bc913E0585a026AFD152",
+    "gauge": "0x2B66EEBfce76486bc023AA5D8526cC6C89b52e23",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -82,7 +82,7 @@
   {
     "name": "thena-primal-busd",
     "address": "0x721f0607e3B3ad025c3f996EF412A62AE461b15F",
-    "gauge": "0xf645D1Cd7ee4E88d5B9A1896D628393858a7f29e",
+    "gauge": "0x36E56f65B9F5c756289811A4c55923AFbFf31BBe",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -102,7 +102,7 @@
   {
     "name": "thena-multi-wbnb",
     "address": "0x075E794F631eE81df1aadB510aC6Ec8803B0FA35",
-    "gauge": "0x8e89554687Aa59763362a32Da0117D70a72f568B",
+    "gauge": "0x7Ab3e3cF64657FD89fcb399796f0888206766601",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -122,7 +122,7 @@
   {
     "name": "thena-usdt-primal",
     "address": "0xde72DD50Dd0ca9C8c48b04F74c5246B5545969D0",
-    "gauge": "0x168585B1D86AECA90A1134b8706f04300e2b2c61",
+    "gauge": "0x3dEF3D9d34280F1F5C4809ea3b7713eF33102443",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -142,7 +142,7 @@
   {
     "name": "thena-fs-usdt",
     "address": "0x1F02F41906b4E1909166e542EDA61AB2924c5a37",
-    "gauge": "0x08AbF16ADCDeDA96A83290345Ea9928D23489c16",
+    "gauge": "0xC2D55F8209D3D8298B6D7d4345480dAc9A125bE0",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -162,7 +162,7 @@
   {
     "name": "thena-eth-ankreth",
     "address": "0xa3b8e8391d7fd34Ffef885D5F4db3F15a127786E",
-    "gauge": "0xec39d28094CE1E1F7438a117836Bd2157196935E",
+    "gauge": "0x06798b21cD575a75f384673178C1F7d490949Ed0",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -182,7 +182,7 @@
   {
     "name": "thena-ankrbnb-ankreth",
     "address": "0x44d1F00E75fd074F6016bb1DC326DcCD5d04451B",
-    "gauge": "0xCC7226622FDC0dc70d641419759B5E42f1dbdf84",
+    "gauge": "0xD12C7026fA2d738D931A72b2d647a3cb2e7B1280",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -202,7 +202,7 @@
   {
     "name": "thena-wusdr-usdc",
     "address": "0xA99c4051069B774102d6D215c6A9ba69BD616E6a",
-    "gauge": "0x2e537237143ABf74A176d0067bEEbeEbe845300a",
+    "gauge": "0x867A89CB8EB42007cE2aF9D7089CDAbc7840F11b",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -222,7 +222,7 @@
   {
     "name": "thena-hay-ankrbnb",
     "address": "0xC6dB38F34DA75393E9aac841c08104348997D509",
-    "gauge": "0xe5f9F06d6eCE3DfE30dca7AcbB20bc7fbA9c6272",
+    "gauge": "0x967bF7CAE5766872D3d7a229202638cA01b35Fa9",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -242,7 +242,7 @@
   {
     "name": "thena-fil-wbnb",
     "address": "0x1f06C7E323Bc3A5C94Bb6B760C128830cDF6ADfB",
-    "gauge": "0xB67505085E556765cD5a0C3cDE2d15794C3119b5",
+    "gauge": "0x37E874371024E98267878796170873B440ce5f74",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -262,7 +262,7 @@
   {
     "name": "thena-dola-wbnb",
     "address": "0xc5856601712E8a74d57cdc7a47fB1B41C1a6Fae2",
-    "gauge": "0xA71bF9252106aB196F0494F5eCe149e71807c1eC",
+    "gauge": "0x4dE020E928C7A505Af973511B8FD4C4A57d745b0",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -282,7 +282,7 @@
   {
     "name": "thena-avax-wbnb",
     "address": "0x7B2F91d226aD214Ac42ba21a597d99896311eCD1",
-    "gauge": "0x896256c48341B8E2B16AcFc9189D844624bD609B",
+    "gauge": "0xe1fcF3a5924192D461e741178d786D249Eb018F6",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -302,7 +302,7 @@
   {
     "name": "thena-ankrbnb-ankr",
     "address": "0x7ef540f672Cd643B79D2488344944499F7518b1f",
-    "gauge": "0xfeb1D7E820Caad858c9eeBB12c0B693875Cf4487",
+    "gauge": "0x5FFEAe4E352Bf3789C9152Ef7eAfD9c1B3bfcE26",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -322,7 +322,7 @@
   {
     "name": "thena-idia-busd",
     "address": "0x3c552e8aC4473222e3d794ADecFA432Eace85929",
-    "gauge": "0xf9b5cb99a576eB9c00446b7FdDB69bbb2E002143",
+    "gauge": "0x19aBE34435054AB0d92A281bbb54d15dA3e1c7B7",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -342,7 +342,7 @@
   {
     "name": "thena-matic-busd",
     "address": "0xEB58A4D07990fF50b9F8289701cBdDf9052570B5",
-    "gauge": "0x8Da503434F19af7e2eaE955f60634b67651049A8",
+    "gauge": "0x56EA1BA750Ed06e5aBcAc9e014ac42A1B1e69e65",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -362,7 +362,7 @@
   {
     "name": "thena-multi-busd",
     "address": "0xdE4Cc4446205d1138EcAa48B2CB22b8e06E69BD4",
-    "gauge": "0xCDF4E03E33813E4374957De6A9F1E926c33D98f1",
+    "gauge": "0x16555FCec68a2160CfC7cd200F5B2aE7Fa960d46",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -380,29 +380,9 @@
     }
   },
   {
-    "name": "thena-etsalpha-usd+",
-    "address": "0x92573046BD4abA37d875eb45a0A1182ac63d5580",
-    "gauge": "0x8871105347CA6b8e35fB689EEA11AA0AAA3651E4",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x5B852898CD47d2Be1d77D30377b3642290f5Ec75",
-      "oracle": "tokens",
-      "oracleId": "ETSAlpha",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
-      "oracle": "tokens",
-      "oracleId": "bUSD+",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "thena-wbnb-bifi",
     "address": "0xbaD27C20d0A2428251585f1FD509685e48f307bD",
-    "gauge": "0x003d5f35250c9AbbCD9E1908312d9D59f47Ae532",
+    "gauge": "0x739Eba3d4Af5205A42Ca25D990b0918E3d8fF8BC",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -422,7 +402,7 @@
   {
     "name": "thena-bnbx-sd",
     "address": "0x9698e0c7af13B6cEF8017A5c34eb2B3d053C491C",
-    "gauge": "0xB0b04da5163A407d8E0Dda6085Cb3A298394353A",
+    "gauge": "0xcC51Cf273D7Bf3A9318C2Db35beCAc9EB2ef7D0a",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -442,7 +422,7 @@
   {
     "name": "thena-usdc-ftm",
     "address": "0x535AEEab656c0fBb07DA64fe4AA3A15Dfc6834C8",
-    "gauge": "0x937BA7A421c4b916F77C7CD2068D37d6F4CD3790",
+    "gauge": "0x5912f22C57A4758086235b6DD290537cfB8E07BB",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -462,7 +442,7 @@
   {
     "name": "thena-frxeth-frax",
     "address": "0x0D8401cBc650e82D1F21A7461efC6409Ef55C4Db",
-    "gauge": "0xB9EE49D6aCCECa8E97Fb4E8c08378ceDC8070B00",
+    "gauge": "0x4bba4d4FdDE2C887981A0b55b6f385bAaba58060",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -482,7 +462,7 @@
   {
     "name": "thena-wbnb-ankr",
     "address": "0xE934278276c0274aac95DADB9783F02A27c351Ff",
-    "gauge": "0x9f3d718Cd994627A78dcBE7E6C878462337Ebd19",
+    "gauge": "0x460dfe291bA48E5A498DA29025fFdE46F776aaFb",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -502,7 +482,7 @@
   {
     "name": "thena-bnbx-wbnb",
     "address": "0x6c83E45fE3Be4A9c12BB28cB5BA4cD210455fb55",
-    "gauge": "0x0Df5Dfe92A0568373DA2d705Cdb5F68017c4B19A",
+    "gauge": "0x59e0Dcb1F5EbaC448C8f30d026DDDfd8C3f65380",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -522,7 +502,7 @@
   {
     "name": "thena-wbnb-stkbnb",
     "address": "0x2B3510f57365aA17bFF8E6360EA67C136175dC6D",
-    "gauge": "0xf26C84237F6C4a2268ac1D699475d2E07689ffb4",
+    "gauge": "0xd836D06De65fECbA04d9a9c06544D1FF948b0EDB",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -542,7 +522,7 @@
   {
     "name": "thena-eth-wbnb",
     "address": "0x1d168C5b5DEa1c6dA0E9FD9bf4B7607e4e9D8EeC",
-    "gauge": "0x9A0C07d7b9d0e0A82ccb12049876e2FB6bf96D0f",
+    "gauge": "0xF210937f7D4bDD700CbfEd977451C5602EcE2342",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -562,7 +542,7 @@
   {
     "name": "thena-btcb-wbnb",
     "address": "0xD328D129E46f9B978416599913102e8CD64593F3",
-    "gauge": "0xDD35503b77277a6D810fEa6479C92bbCE5bbb412",
+    "gauge": "0x9709c91aFEe40EA3D0983d00b780cCA07F9de2D0",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -582,7 +562,7 @@
   {
     "name": "thena-frax-fxs",
     "address": "0x3c9BD1f914D6F0e0CD27a1F77e120c061D1FDbEd",
-    "gauge": "0x4328A8A77461A9aB925CDf1CCBD2300d6fbA27E2",
+    "gauge": "0xD206F777aD9d9BDfb16d8a75813D205E00b032D7",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -602,7 +582,7 @@
   {
     "name": "thena-usdc-wbnb",
     "address": "0x4Cd8a94975e275BD327431e2225f3afBA73B56d7",
-    "gauge": "0x764DC4F75253fcC0744F2ad433609Bb3B358BAee",
+    "gauge": "0xd04967Fa3F0cD0Ff746d83b14f91EC9ecfF77Edb",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -622,7 +602,7 @@
   {
     "name": "thena-wbnb-the",
     "address": "0x63Db6ba9E512186C2FAaDaCEF342FB4A40dc577c",
-    "gauge": "0x638b0cc37ffe5a040079F75Ae6C50C9A386dDCaF",
+    "gauge": "0x9206fF0db7a937976f08527bb8110a249fE80a2E",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
@@ -642,7 +622,7 @@
   {
     "name": "thena-wbnb-busd",
     "address": "0x483653bcF3a10d9a1c334CE16a19471a614F4385",
-    "gauge": "0x7144851e51523a88EA6BeC9710cC07f3a9B3baa7",
+    "gauge": "0x857A9531d8C1b47495336baC40FF86C0c7467b4A",
     "decimals": "1e18",
     "chainId": 56,
     "beefyFee": 0.095,
