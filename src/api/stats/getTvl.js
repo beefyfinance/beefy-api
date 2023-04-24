@@ -58,6 +58,9 @@ const {
   CANTO_CHAIN_ID,
   CANTO_VAULTS_ENDPOINT,
 
+  ZKSYNC_CHAIN_ID,
+  ZKSYNC_VAULTS_ENDPOINT,
+
   ETH_CHAIN_ID,
   ETHEREUM_VAULTS_ENDPOINT,
 } = require('../../constants');
@@ -169,6 +172,11 @@ const chains = [
     vaultsEndpoint: CANTO_VAULTS_ENDPOINT,
     governancePool: require('../../data/canto/governancePool.json'),
   },
+  // {
+  //  chainId: ZKSYNC_CHAIN_ID,
+  // vaultsEndpoint: ZKSYNC_VAULTS_ENDPOINT,
+  //governancePool: require('../../data/zksync/governancePool.json'),
+  //},
 ];
 
 const CACHE_KEY = 'TVL';

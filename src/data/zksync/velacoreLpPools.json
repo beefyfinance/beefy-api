@@ -1,0 +1,42 @@
+[
+  {
+    "name": "velacore-usdc-weth",
+    "address": "0xcD52cbc975fbB802F82A1F92112b1250b5a997Df",
+    "gauge": "0xb3120Ad6C3285fc4E422581d9ad003277802CC47",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velacore-weth-vc",
+    "address": "0x80aB452b8Ba46722029a69308aC52c0897d3a855",
+    "gauge": "0xCB6ad4A0c25bDdAd2E99EE51Fe468b6CDB4B2576",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x85D84c774CF8e9fF85342684b0E795Df72A24908",
+      "oracle": "tokens",
+      "oracleId": "VC",
+      "decimals": "1e18"
+    }
+  }
+]

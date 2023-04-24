@@ -43,6 +43,8 @@ import {
   ETH_CHAIN_ID,
   CANTO_RPC,
   CANTO_CHAIN_ID,
+  ZKSYNC_RPC,
+  ZKSYNC_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -67,6 +69,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.kava]: addressBookByChainId[ChainId.kava].platforms.beefyfinance.multicall,
   [ChainId.ethereum]: addressBookByChainId[ChainId.ethereum].platforms.beefyfinance.multicall,
   [ChainId.canto]: addressBookByChainId[ChainId.canto].platforms.beefyfinance.multicall,
+  [ChainId.zksync]: addressBookByChainId[ChainId.zksync].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -90,6 +93,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   kava: [],
   ethereum: [],
   canto: [],
+  zksync: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -113,6 +117,7 @@ clients.optimism.push(new ethers.providers.JsonRpcProvider(OPTIMISM_RPC));
 clients.kava.push(new ethers.providers.JsonRpcProvider(KAVA_RPC));
 clients.ethereum.push(new ethers.providers.JsonRpcProvider(ETH_RPC));
 clients.canto.push(new ethers.providers.JsonRpcProvider(CANTO_RPC));
+clients.zksync.push(new ethers.providers.JsonRpcProvider(ZKSYNC_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -135,6 +140,7 @@ export const chainRandomClients = {
   kavaRandomClient: () => clients.kava[~~(clients.kava.length * Math.random())],
   ethereumRandomClient: () => clients.ethereum[~~(clients.ethereum.length * Math.random())],
   cantoRandomClient: () => clients.canto[~~(clients.canto.length * Math.random())],
+  zksyncRandomClient: () => clients.zksync[~~(clients.zksync.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -179,6 +185,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.ethereumRandomClient();
     case CANTO_CHAIN_ID:
       return chainRandomClients.cantoRandomClient();
+    case ZKSYNC_CHAIN_ID:
+      return chainRandomClients.zksyncRandomClient();
   }
 };
 

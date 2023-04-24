@@ -36,6 +36,9 @@ const {
   kava: {
     platforms: { equilibre },
   },
+  zksync: {
+    platforms: { velacore },
+  },
 } = addressBook;
 
 const projects = {
@@ -102,6 +105,12 @@ const projects = {
     stableFile: '../src/data/canto/velocimeterV2StableLpPools.json',
     volatileFile: '../src/data/canto/velocimeterV2LpPools.json',
     voter: velocimeter.voter,
+  },
+  velacore: {
+    prefix: 'velacore',
+    stableFile: '../src/data/zksync/velacoreStableLpPools.json',
+    volatileFile: '../src/data/zksync/velacoreLpPools.json',
+    voter: velacore.voter,
   },
 };
 

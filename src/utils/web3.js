@@ -63,6 +63,9 @@ module.exports = {
   get cantoWeb3() {
     return chainRandomClients.cantoRandomClient();
   },
+  get zksyncWeb3() {
+    return chainRandomClients.zksyncRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

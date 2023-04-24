@@ -54,6 +54,7 @@
     "op:velodrome:add": "ts-node scripts/add-solidly.ts --network optimism --project velodrome --newFee true --lp",
     "kava:equilibre:add": "ts-node scripts/add-solidly.ts --network kava --project equilibre --newFee true --lp",
     "arb:arbidex:add": "ts-node scripts/add-farm.ts --network arbitrum --project arbidex --newFee true",
+    "zksync:velacore:add": "ts-node scripts/add-solidly.ts --network zksync --project velacore --newFee true --lp",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },
   "dependencies": {

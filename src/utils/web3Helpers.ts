@@ -44,6 +44,8 @@ import {
   ETH_CHAIN_ID,
   CANTO_RPC,
   CANTO_CHAIN_ID,
+  ZKSYNC_RPC,
+  ZKSYNC_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -67,6 +69,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.kava]: addressBookByChainId[ChainId.kava].platforms.beefyfinance.multicall,
   [ChainId.ethereum]: addressBookByChainId[ChainId.ethereum].platforms.beefyfinance.multicall,
   [ChainId.canto]: addressBookByChainId[ChainId.canto].platforms.beefyfinance.multicall,
+  [ChainId.zksync]: addressBookByChainId[ChainId.zksync].platforms.beefyfinance.multicall,
 };
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
@@ -89,6 +92,7 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.kava]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.ethereum]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.canto]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.zksync]: '0x9A04a9e1d67151AB1E742E6D8965e0602410f91d',
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -112,6 +116,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   kava: [],
   ethereum: [],
   canto: [],
+  zksync: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -135,6 +140,7 @@ clients.optimism.push(new Web3(OPTIMISM_RPC));
 clients.kava.push(new Web3(KAVA_RPC));
 clients.ethereum.push(new Web3(ETH_RPC));
 clients.canto.push(new Web3(CANTO_RPC));
+clients.zksync.push(new Web3(ZKSYNC_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -156,7 +162,8 @@ export const chainRandomClients = {
   optimismRandomClient: () => clients.optimism[~~(clients.optimism.length * Math.random())],
   kavaRandomClient: () => clients.kava[~~(clients.kava.length * Math.random())],
   ethereumRandomClient: () => clients.ethereum[~~(clients.ethereum.length * Math.random())],
-  cantoRandomClient: () => clients.canto[~~(clients.ethereum.length * Math.random())],
+  cantoRandomClient: () => clients.canto[~~(clients.canto.length * Math.random())],
+  zksyncRandomClient: () => clients.zksync[~~(clients.zksync.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -201,6 +208,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.ethereumRandomClient();
     case CANTO_CHAIN_ID:
       return chainRandomClients.cantoRandomClient();
+    case ZKSYNC_CHAIN_ID:
+      return chainRandomClients.zksyncRandomClient();
   }
 };
 

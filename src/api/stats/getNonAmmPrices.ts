@@ -71,6 +71,7 @@ import getMmyFantomPrices from './fantom/getMmyFantomPrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import { getStakeSteakPrices } from './fantom/getStakeSteakPrices';
 import { getMuxArbitrumPrices } from './arbitrum/getMuxPrices';
+import getVelacoreStablePrices from './zksync/getVelacoreStablePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -90,6 +91,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   let breakdown = {};
 
   const promises = [
+    getVelacoreStablePrices(tokenPrices),
     getMmyOptimismPrices(tokenPrices),
     getMmyFantomPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),

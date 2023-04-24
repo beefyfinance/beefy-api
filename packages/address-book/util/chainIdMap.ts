@@ -19,6 +19,7 @@ const chainIdMap = {
   kava: 2222,
   ethereum: 1,
   canto: 7700,
+  zksync: 324,
 };
 
 export default chainIdMap;
