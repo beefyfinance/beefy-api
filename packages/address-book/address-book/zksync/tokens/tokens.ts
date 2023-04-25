@@ -53,6 +53,18 @@ const _tokens = {
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     documentation: '',
   },
+  'USD+': {
+    name: 'USD+',
+    symbol: 'USD+',
+    address: '0x8E86e46278518EFc1C5CEd245cBA2C7e3ef11557',
+    chainId: 324,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    documentation: 'https://docs.overnight.fi/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
