@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "repository": "beefyfinance/beefy-api",
   "license": "MIT",
+  "engines": {
+    "node": "16.x"
+  },
   "scripts": {
     "install-all": "yarn && cd packages/address-book && yarn",
     "start": "ts-node --transpile-only src/app.ts",
