@@ -1,6 +1,6 @@
-const getVelacoreApys = require('./getVelacoreApys');
+const getVelocoreApys = require('./getVelocoreApys');
 
-const getApys = [getVelacoreApys];
+const getApys = [getVelocoreApys];
 
 const getZksyncApys = async () => {
   let apys = {};

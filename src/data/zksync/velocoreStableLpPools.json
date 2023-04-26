@@ -1,6 +1,6 @@
 [
   {
-    "name": "velacore-usdc-usd+",
+    "name": "velocore-usdc-usd+",
     "address": "0x4B9F00860D7F42870aDDEb687fA4E47062DF71D9",
     "gauge": "0x4926b61510F086eBa77b374B5689A4DB370c2933",
     "decimals": "1e18",
@@ -20,7 +20,7 @@
     }
   },
   {
-    "name": "velacore-busd-usdc",
+    "name": "velocore-busd-usdc",
     "address": "0xF6CC0F880150a08695B7913638F12C08e785b032",
     "gauge": "0x91E0FAF6bDAB6BaE0F8eD9c53ee2F07Df0bb93F8",
     "decimals": "1e18",

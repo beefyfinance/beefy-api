@@ -3,8 +3,8 @@ const { ZKSYNC_CHAIN_ID: chainId } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
-const stablePools = require('../../../data/zksync/velacoreStableLpPools.json');
-const volatilePools = require('../../../data/zksync/velacoreLpPools.json');
+const stablePools = require('../../../data/zksync/velocoreStableLpPools.json');
+const volatilePools = require('../../../data/zksync/velocoreLpPools.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
   zksync: {

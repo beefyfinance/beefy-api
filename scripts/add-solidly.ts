@@ -37,7 +37,7 @@ const {
     platforms: { equilibre },
   },
   zksync: {
-    platforms: { velacore },
+    platforms: { velocore },
   },
 } = addressBook;
 
@@ -106,11 +106,11 @@ const projects = {
     volatileFile: '../src/data/canto/velocimeterV2LpPools.json',
     voter: velocimeter.voter,
   },
-  velacore: {
-    prefix: 'velacore',
-    stableFile: '../src/data/zksync/velacoreStableLpPools.json',
-    volatileFile: '../src/data/zksync/velacoreLpPools.json',
-    voter: velacore.voter,
+  velocore: {
+    prefix: 'velocore',
+    stableFile: '../src/data/zksync/velocoreStableLpPools.json',
+    volatileFile: '../src/data/zksync/velocoreLpPools.json',
+    voter: velocore.voter,
   },
 };
 

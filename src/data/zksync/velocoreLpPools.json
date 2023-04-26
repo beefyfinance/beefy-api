@@ -1,6 +1,6 @@
 [
   {
-    "name": "velacore-usdc-weth",
+    "name": "velocore-usdc-weth",
     "address": "0xcD52cbc975fbB802F82A1F92112b1250b5a997Df",
     "gauge": "0xb3120Ad6C3285fc4E422581d9ad003277802CC47",
     "decimals": "1e18",
@@ -20,7 +20,7 @@
     }
   },
   {
-    "name": "velacore-weth-vc",
+    "name": "velocore-weth-vc",
     "address": "0x80aB452b8Ba46722029a69308aC52c0897d3a855",
     "gauge": "0xCB6ad4A0c25bDdAd2E99EE51Fe468b6CDB4B2576",
     "decimals": "1e18",
