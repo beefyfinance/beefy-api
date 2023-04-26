@@ -1043,12 +1043,24 @@ const _tokens = {
     name: 'Frax Share',
     symbol: 'FXS',
     address: '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0',
-    chainId: 10,
+    chainId: 1,
     decimals: 18,
     logoURI: '',
     website: 'https://frax.finance/',
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+  },
+  'Curve.fi DAI/USDC/USDT': {
+    name: 'Curve.fi DAI/USDC/USDT',
+    symbol: '3Crv',
+    address: '0x6c3F90f043a72FA612cbac8115EE7e52BDe6E490',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://curve.fi/',
+    oracle: 'lps',
+    oracleId: 'convex-3pool',
+    description: 'Curve base 3pool consisting of DAI, USDC and USDT',
   },
 } as const;
 
