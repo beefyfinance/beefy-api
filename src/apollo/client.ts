@@ -47,7 +47,7 @@ const sushiKavaClient = client('https://pvt.graph.kava.io/subgraphs/name/sushi-0
 const comethClient = client('https://api.thegraph.com/subgraphs/name/cometh-game/comethswap');
 const quickClient = client('https://api.fura.org/subgraphs/name/quickswap');
 const polyzapClient = client('https://api.thegraph.com/subgraphs/name/polyzap/exchange');
-const spookyClient = client('https://api.fura.org/subgraphs/name/spookyswap');
+const spookyClient = client('https://api.thegraph.com/subgraphs/name/eerieeight/spookyswap');
 const spiritClient = client(
   'https://api.thegraph.com/subgraphs/name/layer3org/spiritswap-analytics'
 );
