@@ -1039,6 +1039,17 @@ const _tokens = {
     description: 'Stader (SD) token is the native governance and value accrual token for Stader.',
     documentation: 'https://docs-new.staderlabs.com/intro',
   },
+  FXS: {
+    name: 'Frax Share',
+    symbol: 'FXS',
+    address: '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://frax.finance/',
+    description:
+      'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
