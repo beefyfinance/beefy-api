@@ -5,7 +5,6 @@ import {
   Multicall,
 } from 'ethereum-multicall';
 import { chunk } from 'lodash';
-import chainIdMap from '../../../packages/address-book/util/chainIdMap';
 import { web3Factory } from '../../utils/web3';
 import { getAllBoosts } from '../boosts/getBoosts';
 import { Boost } from '../boosts/types';
@@ -13,16 +12,21 @@ import BoostAbi from '../../abis/BeefyBoost.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../utils/fetchPrice';
 import { Vault } from '../vaults/types';
+import { MULTICALL_V3 } from '../../utils/web3Helpers';
+import { ApiChain, toChainId } from '../../utils/chain';
+
 const { getVaultByID } = require('../stats/getMultichainVaults');
 
 const MULTICALL_BATCH_SIZE = 768;
 
-const updateBoostAprsForChain = async (chain: string, boosts: Boost[]) => {
-  const web3 = web3Factory(chainIdMap[chain]);
-  const multicallAddress =
-    chainIdMap[chain] === 2222
-      ? '0xdAaD0085e5D301Cb5721466e600606AB5158862b'
-      : '0xcA11bde05977b3631167028862bE2a173976CA11';
+const updateBoostAprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
+  const chainId = toChainId(chain);
+  const web3 = web3Factory(chainId);
+  const multicallAddress = MULTICALL_V3[chainId];
+  if (!multicallAddress) {
+    console.warn(`> Boost Aprs: Skipping chain ${chainId} as no multicall address found`);
+    return {};
+  }
 
   const multicall = new Multicall({
     web3Instance: web3,
@@ -142,7 +146,7 @@ export const fetchBoostAprs = async () => {
   );
 
   const chainPromises = Object.keys(boostByChain).map(chain =>
-    updateBoostAprsForChain(chain, boostByChain[chain])
+    updateBoostAprsForChain(chain as ApiChain, boostByChain[chain])
   );
 
   try {
