@@ -5,6 +5,8 @@ import { getContractWithProvider } from '../../utils/contractHelper';
 import { getKey, setKey } from '../../utils/cache';
 import { web3Factory } from '../../utils/web3';
 import { ApiChain, fromChainId } from '../../utils/chain';
+import { MULTICALL_V3 } from '../../utils/web3Helpers';
+
 const FeeABI = require('../../abis/FeeABI.json');
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
 
@@ -115,8 +117,17 @@ const updateFeeBatches = async () => {
       //If reverted, method isn't available on contract so must be older split
       if (err.message.includes('revert') || err.message.includes('correct ABI')) {
         treasurySplit = 140;
+      } else if (
+        Number(chainId) === ChainId.zksync &&
+        err.message.includes('cannot estimate gas')
+      ) {
+        // TODO: remove once we have feebatch
+        treasurySplit = 640;
+        console.warn(
+          `> feeBatch.treasuryFee() failed on chain ${chainId} - using new default treasury split of 640/1000`
+        );
       } else {
-        console.log(' > Error updating feeBatch on chain ' + chainId);
+        console.log(` > Error updating feeBatch on chain ${chainId}`);
         console.log(err.message);
       }
     }
@@ -145,7 +156,7 @@ const updateVaultFees = async () => {
     const chainVaults = vaults
       .filter(vault => vault.chain === ChainId[chain])
       .filter(v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > CACHE_EXPIRY);
-    promises.push(getChainFees(chainVaults, chain, feeBatches[chain]));
+    promises.push(getChainFees(chainVaults, chain, feeBatches[chain])); // can throw if no feeBatch (e.g. due to rpc error)
   }
 
   await Promise.allSettled(promises);
@@ -159,16 +170,19 @@ const saveToRedis = async () => {
   await setKey(VAULT_FEES_KEY, vaultFees);
 };
 
-const getChainFees = async (vaults, chainId, feeBatch: FeeBatchDetail) => {
+const getChainFees = async (vaults, chainId: number, feeBatch: FeeBatchDetail) => {
   try {
     const web3 = web3Factory(chainId);
+    const multicallAddress = MULTICALL_V3[chainId];
+    if (!multicallAddress) {
+      console.warn(`> Fees: Skipping chain ${chainId} as no multicall address found`);
+      return;
+    }
+
     const multicall = new Multicall({
       web3Instance: web3,
       tryAggregate: true,
-      multicallCustomContractAddress:
-        chainId === 2222
-          ? '0xdAaD0085e5D301Cb5721466e600606AB5158862b'
-          : '0xcA11bde05977b3631167028862bE2a173976CA11',
+      multicallCustomContractAddress: multicallAddress,
     });
     const contractCallContext: ContractCallContext[] = [];
 
