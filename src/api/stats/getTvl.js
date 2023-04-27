@@ -172,11 +172,11 @@ const chains = [
     vaultsEndpoint: CANTO_VAULTS_ENDPOINT,
     governancePool: require('../../data/canto/governancePool.json'),
   },
-  // {
-  //  chainId: ZKSYNC_CHAIN_ID,
-  // vaultsEndpoint: ZKSYNC_VAULTS_ENDPOINT,
-  //governancePool: require('../../data/zksync/governancePool.json'),
-  //},
+  {
+    chainId: ZKSYNC_CHAIN_ID,
+    vaultsEndpoint: ZKSYNC_VAULTS_ENDPOINT,
+    // governancePool: require('../../data/zksync/governancePool.json'),
+  },
 ];
 
 const CACHE_KEY = 'TVL';

@@ -168,8 +168,8 @@ const ETHEREUM_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/ethereum.json';
 const CANTO_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/canto.json';
-//const ZKSYNC_VAULTS_ENDPOINT =
-//  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/zksync.json';
+const ZKSYNC_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/zksync.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -192,7 +192,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   kava: KAVA_VAULTS_ENDPOINT,
   ethereum: ETHEREUM_VAULTS_ENDPOINT,
   canto: CANTO_VAULTS_ENDPOINT,
-  // zksync: ZKSYNC_VAULTS_ENDPOINT,
+  zksync: ZKSYNC_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -262,7 +262,7 @@ export {
   CANTO_VAULTS_ENDPOINT,
   ZKSYNC_RPC,
   ZKSYNC_CHAIN_ID,
-  //ZKSYNC_VAULTS_ENDPOINT,
+  ZKSYNC_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
