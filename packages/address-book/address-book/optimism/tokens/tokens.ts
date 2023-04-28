@@ -942,6 +942,18 @@ const _tokens = {
       'The UNLOCK token is part of the 200 Keys NFT project ecosystem where it can be staked for rewards or used for minting and upgrading NFTs from The Forge',
     documentation: 'https://200keys.com/tokenomics.pdf',
   },
+  '3CRV': {
+    name: 'Curve.fi DAI/USDC/USDT',
+    symbol: '3CRV',
+    address: '0x1337BedC9D22ecbe766dF105c9623922A27963EC',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://curve.fi/',
+    oracle: 'lps',
+    oracleId: 'curve-op-3crv',
+    description: 'Curve Optimism base 3pool consisting of DAI, USDC and USDT',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
