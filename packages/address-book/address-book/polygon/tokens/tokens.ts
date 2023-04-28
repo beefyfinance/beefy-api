@@ -1802,6 +1802,18 @@ const _tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
   },
+  amWBTC: {
+    name: 'Aave WBTC',
+    symbol: 'amWBTC',
+    address: '0x5c2ed810328349100A66B82b78a1791B101C9D61',
+    chainId: 137,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://wbtc.network/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
