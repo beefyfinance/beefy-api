@@ -7,6 +7,7 @@ import beetsLinearPools from '../data/optimism/beethovenxLinearPools.json';
 import beetsFantomLinearPools from '../data/fantom/beethovenxLinearPools.json';
 import balancerLinearPools from '../data/ethereum/balancerLinearPools.json';
 import balancerPolyLinearPools from '../data/matic/balancerLinearPools.json';
+import balancerArbLinearPools from '../data/arbitrum/balancerLinearPools.json';
 
 const stablePoolPools = [...beetsPools, ...bbaUSD, ...bbamUSD];
 const linearPoolPools = [
@@ -14,6 +15,7 @@ const linearPoolPools = [
   ...beetsFantomLinearPools,
   ...balancerLinearPools,
   ...balancerPolyLinearPools,
+  ...balancerArbLinearPools,
 ];
 
 const fetchBalancerStablePoolPrice = async tokenPrices => {

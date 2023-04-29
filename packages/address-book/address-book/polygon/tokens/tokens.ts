@@ -1814,6 +1814,78 @@ const _tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   },
+  aWMATIC: {
+    name: 'Aave WMATIC',
+    symbol: 'aWMATIC',
+    address: '0x6d80113e533a2C0fe82EaBD35f1875DcEA89Ea97',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://polygon.technology/',
+    description:
+      'Aave interest bearing MATIC. Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
+  },
+  waWMATIC: {
+    name: 'Wrapped Aave WMATIC',
+    symbol: 'waWMATIC',
+    address: '0x0D6135b2cFBAE3b1c58368a93b855fa54FA5aae1',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://polygon.technology/',
+    description:
+      'Wrapped Aave interest bearing MATIC. Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
+  },
+  bbaWMATIC: {
+    name: 'Balancer Aave WMATIC Linear Pool',
+    symbol: 'bbaWMATIC',
+    address: '0xE4885Ed2818Cc9E840A25f94F9b2A28169D1AEA7',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://polygon.technology/',
+    description:
+      'Balancer Boosted Aave interest bearing MATIC. Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
+  },
+  aWETH: {
+    name: 'Aave WETH',
+    symbol: 'aWETH',
+    address: '0xe50fA9b3c56FfB159cB0FCA61F5c9D750e8128c8',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description:
+      'Aave interest bearing WETH. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    logoURI: '',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
+  waWETH: {
+    name: 'Wrapped Aave WETH',
+    symbol: 'waWETH',
+    address: '0xa5bBf0f46B9dc8a43147862ba35c8134eB45f1F5',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description:
+      'Wrapped Aave Interest Bearing ETH. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    logoURI: '',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
+  bbaWETH: {
+    name: 'Balancer Aave WETH Linear Pool',
+    symbol: 'bbaWETH',
+    address: '0x43894DE14462B421372bCFe445fA51b1b4A0Ff3D',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description:
+      'Balancer Boosted Aave ETH. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    logoURI: '',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

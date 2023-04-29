@@ -710,6 +710,54 @@ const _tokens = {
     logoURI: 'https://app.sushi.com/images/tokens/fxs-square.jpg',
     documentation: 'https://docs.frax.finance/',
   },
+  aWETH: {
+    name: 'Aave WETH',
+    symbol: 'aWETH',
+    address: '0xe50fA9b3c56FfB159cB0FCA61F5c9D750e8128c8',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description:
+      'Aave interest bearing WETH. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    logoURI: '',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
+  waaWETH: {
+    name: 'Wrapped Aave WETH',
+    symbol: 'waaWETH',
+    address: '0x18C100415988bEF4354EfFAd1188d1c22041B046',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description:
+      'Wrapped Aave Interest Bearing ETH. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    logoURI: '',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
+  bbaaWETH: {
+    name: 'Balancer Aave WETH Linear Pool',
+    symbol: 'bbaaWETH',
+    address: '0xDa1CD1711743e57Dd57102E9e61b75f3587703da',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description:
+      'Balancer Boosted Aave ETH. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    logoURI: '',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
+  rETH: {
+    name: 'Rocket Pool ETH',
+    symbol: 'rETH',
+    address: '0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://rocketpool.net/',
+    description:
+      'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
+    logoURI: '',
+    documentation: 'https://docs.rocketpool.net/guides/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

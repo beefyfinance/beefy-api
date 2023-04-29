@@ -16,28 +16,14 @@ const fetchPrice = require('../../../utils/fetchPrice');
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
   polygon: {
-    tokens: { DAI, USDC, USDT },
     platforms: { balancer },
   },
 } = addressBook;
-
-const bbaUSDTokens = [
-  {
-    address: USDT.address,
-  },
-  {
-    address: USDC.address,
-  },
-  {
-    address: DAI.address,
-  },
-];
 
 const pools = require('../../../data/matic/balancerPolyLpPools.json');
 
 const liquidityProviderFee = 0.0025;
 const aaveDataProvider = '0x7551b5D2763519d4e37e8B81929D336De671d46d';
-const bbaUSDPoolId = '0x48e6b98ef6329f8f0a30ebb8c7c960330d64808500000000000000000000075b';
 const RAY_DECIMALS = '1e27';
 
 const getBalancerPolyApys = async () => {
@@ -125,9 +111,9 @@ const getPoolApy = async pool => {
     }
   }
 
-  let bbaUSDApy = await getComposableAaveYield();
   let composableApr = new BigNumber(0);
-  if (pool.includesComposableStable) {
+  if (pool.includesComposableAaveTokens) {
+    let bbAaveApy = await getComposableAaveYield(pool.aaveUnderlying, pool.bbPoolId, pool.bbIndex);
     if (pool.composableSplit) {
       const balVault = getContractWithProvider(IBalancerVault, balancer.router, web3);
       const tokenQtys = await balVault.methods.getPoolTokens(pool.vaultPoolId).call();
@@ -149,20 +135,20 @@ const getPoolApy = async pool => {
         qty.push(amt);
       }
 
-      composableApr = bbaUSDApy.times(qty[pool.lsIndex].dividedBy(totalQty));
+      composableApr = bbAaveApy.times(qty[pool.lsIndex].dividedBy(totalQty));
     } else {
-      composableApr = bbaUSDApy;
+      composableApr = bbAaveApy;
     }
   }
   // console.log(pool.name, rewardsApy.toNumber(),totalStakedInUsd.valueOf(),yearlyRewardsInUsd.valueOf());
   return [rewardsApy, aprFixed, composableApr];
 };
 
-const getComposableAaveYield = async () => {
+const getComposableAaveYield = async (tokens, poolId, index) => {
   let supplyRateCalls = [];
   const multicall = new MultiCall(web3, multicallAddress(chainId));
 
-  bbaUSDTokens.forEach(t => {
+  tokens.forEach(t => {
     const dataProvider = getContractWithProvider(IAaveProtocolDataProvider, aaveDataProvider, web3);
     supplyRateCalls.push({ supplyRate: dataProvider.methods.getReserveData(t.address) });
   });
@@ -172,19 +158,19 @@ const getComposableAaveYield = async () => {
   const rates = res[0].map(v => new BigNumber(v.supplyRate[3]));
 
   const balVault = getContractWithProvider(IBalancerVault, balancer.router, web3);
-  const tokenQtys = await balVault.methods.getPoolTokens(bbaUSDPoolId).call();
+  const tokenQtys = await balVault.methods.getPoolTokens(poolId).call();
 
   let qty = [];
   let totalQty = new BigNumber(0);
   for (let j = 0; j < tokenQtys.balances.length; j++) {
-    if (j != 2) {
+    if (j != index) {
       totalQty = totalQty.plus(new BigNumber(tokenQtys.balances[j]));
       qty.push(new BigNumber(tokenQtys.balances[j]));
     }
   }
 
   let apy = new BigNumber(0);
-  for (let i = 0; i < bbaUSDTokens.length; i++) {
+  for (let i = 0; i < tokens.length; i++) {
     const tokenApy = new BigNumber(rates[i]).div(RAY_DECIMALS);
     const portionedApy = tokenApy.dividedBy(2).times(qty[i]).dividedBy(totalQty);
     apy = apy.plus(portionedApy);

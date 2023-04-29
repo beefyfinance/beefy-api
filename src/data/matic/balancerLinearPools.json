@@ -98,5 +98,55 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "bbaWMATIC",
+    "address": "0xE4885Ed2818Cc9E840A25f94F9b2A28169D1AEA7",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7000000000000000000000b29",
+    "decimals": "1e18",
+    "chainId": 137,
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WMATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "waWMATIC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "bbaWETH",
+    "address": "0x43894DE14462B421372bCFe445fA51b1b4A0Ff3D",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x43894de14462b421372bcfe445fa51b1b4a0ff3d000000000000000000000b36",
+    "decimals": "1e18",
+    "chainId": 137,
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "waWETH",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

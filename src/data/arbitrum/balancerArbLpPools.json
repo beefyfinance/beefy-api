@@ -1,5 +1,49 @@
 [
   {
+    "name": "balancer-reth-bbaweth",
+    "address": "0xCba9Ff45cfB9cE238AfDE32b0148Eb82CbE63562",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xd0039f467E80CbA1FAAF87999efCaE1dd6f30c1d",
+    "vaultPoolId": "0xcba9ff45cfb9ce238afde32b0148eb82cbe635620000000000000000000003fd",
+    "includesComposableAaveTokens": true,
+    "rocketUrl": "https://api.rocketpool.net/api/apr",
+    "balancerChargesFee": true,
+    "composable": true,
+    "bptIndex": 0,
+    "bbIndex": 1,
+    "bbPoolId": "0xda1cd1711743e57dd57102e9e61b75f3587703da0000000000000000000003fc",
+    "lsIndex": 1,
+    "composableSplit": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "stream": "0xC47448418696a1163E14c0d92aE462540993154e",
+        "token": "0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaaWETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ],
+    "aaveUnderlying": [
+      {
+        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+      }
+    ]
+  },
+  {
     "name": "balancer-wsteth-eth-v2",
     "address": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
