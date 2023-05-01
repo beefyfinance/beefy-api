@@ -72,6 +72,7 @@ import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import { getStakeSteakPrices } from './fantom/getStakeSteakPrices';
 import { getMuxArbitrumPrices } from './arbitrum/getMuxPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
+import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -91,6 +92,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   let breakdown = {};
 
   const promises = [
+    getSoliSnekStablePrices(tokenPrices),
     getVelocoreStablePrices(tokenPrices),
     getMmyOptimismPrices(tokenPrices),
     getMmyFantomPrices(tokenPrices),
