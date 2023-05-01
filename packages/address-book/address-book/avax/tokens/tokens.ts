@@ -4632,6 +4632,54 @@ const _tokens = {
     logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GMX_LOGO%20ONLY.svg',
     documentation: 'https://gmxio.gitbook.io/',
   },
+  SNEK: {
+    name: 'SNEK',
+    symbol: 'SNEK',
+    address: '0xeeee99b35Eb6aF5E7d76dd846DbE4bcc0c60cA1d',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://www.solisnek.finance',
+    description:
+      'SoliSnek is a revolutionary decentralized exchange and automatic market maker that has been built upon the original Solidly vision, and has now been brought to the Avalanche blockchain.',
+    logoURI: '',
+    documentation: 'https://docs.solisnek.finance/',
+  },
+  DEI: {
+    name: 'DEI',
+    symbol: 'DEI',
+    address: '0xDE1E704dae0B4051e80DAbB26ab6ad6c12262DA0',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
+    logoURI: 'https://app.deus.finance/tokens/dei.svg',
+    documentation: 'https://docs.deus.finance/',
+  },
+  DEUS: {
+    name: 'DEUS',
+    symbol: 'DEUS',
+    address: '0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://deus.finance/',
+    description:
+      'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
+    logoURI: 'https://app.deus.finance/tokens/deus.svg',
+    documentation: 'https://docs.deus.finance/',
+  },
+  DOLA: {
+    name: 'DOLA USD',
+    symbol: 'DOLA',
+    address: '0x221743dc9E954bE4f86844649Bf19B43D6F8366d',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    description:
+      'DOLA is a synthetic stablecoin pegged to the US Dollar. It is designed to be valued as close to $1 as possible with minimal volatility. DOLA is debt-backed rather than algorithmic, meaning that DOLA is backed by retractable debt.',
+    logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
+    documentation: 'https://docs.inverse.finance/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
