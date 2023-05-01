@@ -14,8 +14,10 @@ const { getEthereumBifiMaxiApy } = require('./getEthereumBifiMaxiApy');
 const { getConvexFpisApy } = require('./getConvexFpisApy');
 const { getCurveApys } = require('./getCurveApys');
 const { getConicApys } = require('./getConicApys');
+const { getApeStakingApy } = require('./getApeStakingApy');
 
 const getApys = [
+  getApeStakingApy,
   getAuraApys,
   getCurveApys,
   getConvexApys,
