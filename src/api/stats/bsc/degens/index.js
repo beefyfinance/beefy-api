@@ -4,9 +4,6 @@ const getPacocaApys = require('./getPacocaApys');
 const getBabyApys = require('./getBabyApys');
 const getNftyApys = require('./getNftyApys');
 const getBetuApys = require('./getBetuApys');
-const getDibsApys = require('./getDibsApys');
-const getEmpApys = require('./getEmpApys');
-const getRipaeApys = require('./getRipaeApys');
 
 const getApys = [
   getApeApys,
@@ -15,9 +12,6 @@ const getApys = [
   getBabyApys,
   getNftyApys,
   getBetuApys,
-  getDibsApys,
-  getEmpApys,
-  getRipaeApys,
 ];
 
 const getDegensLpApys = async () => {

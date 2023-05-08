@@ -10,19 +10,15 @@ const getYelApys = require('./yel/getYelApys');
 const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const getOOELpApys = require('./ooe/getOOELpApys');
 const getBifiGovApy = require('./beefy/getBifiGovApy');
-const getMoonpotApys = require('./pots/getMoonpotApys');
 const getBiswapApys = require('./biswap/getBiswapApys');
 const getStargateApys = require('./stargate/getStargateBscApys');
 const getValasApys = require('./valas/getValasApys');
-const getValasLpApys = require('./valas/getValasLpApys');
 const { getDotDotApy } = require('./getDotDotApy');
 const getConeApys = require('./getConeApys');
 const getThenaApys = require('./getThenaApys');
 const { getWombexApy } = require('./getWombexApy');
-const { getSwapFishApys } = require('./getSwapFishApys');
 
 const getApys = [
-  getSwapFishApys,
   getBeltApys,
   getBifiGovApy,
   getBifiMaxiApy,
@@ -35,14 +31,12 @@ const getApys = [
   getMdexBscLpApys,
   getMdexMdxApy,
   getOOELpApys,
-  getMoonpotApys,
   getVenusApys,
   getYelApys,
   getStargateApys,
   getValasApys,
-  getValasLpApys,
   getDotDotApy,
-  getWombexApy,
+  // getWombexApy,
   getThenaApys,
 ];
 // ^^ APYs are sorted alphabetically
