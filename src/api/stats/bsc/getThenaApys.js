@@ -1,17 +1,11 @@
 const { bscWeb3: web3 } = require('../../../utils/web3');
 const { BSC_CHAIN_ID: chainId } = require('../../../constants');
-import { addressBook } from '../../../../packages/address-book/address-book';
 const { getRewardPoolApys } = require('../common/getRewardPoolApys');
 const stablePools = require('../../../data/degens/thenaStableLpPools.json');
 const volatilePools = require('../../../data/degens/thenaLpPools.json');
+const gammaPools = require('../../../data/degens/thenaGammaPools.json');
 
-const {
-  bsc: {
-    tokens: { THE },
-  },
-} = addressBook;
-
-const pools = [...stablePools, ...volatilePools];
+const pools = [...stablePools, ...volatilePools, ...gammaPools];
 const getThenaApys = async () => {
   return getRewardPoolApys({
     web3: web3,

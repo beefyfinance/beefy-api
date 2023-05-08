@@ -73,6 +73,7 @@ import { getStakeSteakPrices } from './fantom/getStakeSteakPrices';
 import { getMuxArbitrumPrices } from './arbitrum/getMuxPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
+import { getThenaGammaPrices } from './bsc/getThenaGammaPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -167,6 +168,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getSolarbeamPrices(tokenPrices),
     getStellaswapPrices(tokenPrices),
     getStakeSteakPrices(tokenPrices),
+    getThenaGammaPrices(tokenPrices),
   ];
 
   // Setup error logs
