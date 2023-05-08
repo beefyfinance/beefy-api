@@ -28,8 +28,8 @@ export const getApyBreakdown = (
   tradingAprs: Record<string, BigNumber>,
   farmAprs: BigNumber[],
   providerFee: number | BigNumber[] | undefined,
-  liquidStakingAprs?: number,
-  composablePoolAprs?: number
+  liquidStakingAprs?: number[],
+  composablePoolAprs?: number[]
 ): ApyBreakdownResult => {
   const result: ApyBreakdownResult = {
     apys: {},
