@@ -74,6 +74,7 @@ import { getMuxArbitrumPrices } from './arbitrum/getMuxPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
 import { getThenaGammaPrices } from './bsc/getThenaGammaPrices';
+import getCurveCeloPrices from './celo/getCurvePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -159,6 +160,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurveOptimismPrices(tokenPrices),
     getCurveMoonbeamPrices(tokenPrices),
     getCurveKavaPrices(tokenPrices),
+    getCurveCeloPrices(tokenPrices),
     getRosePrices(tokenPrices),
     getDopplePrices(),
     getIronSwapPrices(),

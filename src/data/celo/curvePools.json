@@ -1,0 +1,31 @@
+[
+  {
+    "name": "curve-celo-3pool",
+    "pool": "0x32fD7e563c6521Ab4D59CE3277bcfBe3317CFd63",
+    "token": "0x32fD7e563c6521Ab4D59CE3277bcfBe3317CFd63",
+    "gauge": "0x18C45C10A0f41Bc3ed8d6324C687335179A40b28",
+    "rewards": [
+      {
+        "token": "0x173fd7434B8B50dF08e3298f173487ebDB35FD14",
+        "oracleId": "CRV"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "cUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]
