@@ -1,5 +1,25 @@
 [
   {
+    "name": "velocore-bifi-weth",
+    "address": "0x487b6645068E49Ad8cA8c082327DaB1F4Dc2ECbf",
+    "gauge": "0x7355D3FC69a9824EBDF6C29Dd9298899e495d941",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x44AA3eEDD3214Ddd02E8b3FE1E8AE4cAC452a2E0",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velocore-usdc-weth",
     "address": "0xcD52cbc975fbB802F82A1F92112b1250b5a997Df",
     "gauge": "0xb3120Ad6C3285fc4E422581d9ad003277802CC47",
