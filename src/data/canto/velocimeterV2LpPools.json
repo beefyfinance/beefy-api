@@ -1,5 +1,25 @@
 [
   {
+    "name": "velocimeterv2-wcanto-pepe",
+    "address": "0x228183e6C336CA5F7142b4F6a2538E3a5db97582",
+    "gauge": "0xF03663A4Fe478d34EDeCaef456174cF27D25D653",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf390830DF829cf22c53c8840554B98eafC5dCBc2",
+      "oracle": "tokens",
+      "oracleId": "PEPE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velocimeterv2-statom-wcanto",
     "address": "0xA656BD82B3Ad80DACaC683aD2Cb508F5432dd429",
     "gauge": "0xc400E943de9aF37eA6C9ce2f28F1BafBE0265120",

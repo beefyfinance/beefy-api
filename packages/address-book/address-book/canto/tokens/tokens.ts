@@ -239,6 +239,17 @@ const _tokens = {
       'Injective is an open, interoperable layer-one blockchain for building powerful DeFi applications.',
     documentation: 'https://docs.injective.network/',
   },
+  PEPE: {
+    name: 'Pepe',
+    symbol: 'PEPE',
+    address: '0xf390830DF829cf22c53c8840554B98eafC5dCBc2',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.pepe.vip/',
+    description:
+      'Pepe is here to make memecoins great again. Launched stealth with no presale, zero taxes, LP burnt and contract renounced, $PEPE is a coin for the people, forever. Fueled by pure memetic power, let $PEPE show you the way.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
