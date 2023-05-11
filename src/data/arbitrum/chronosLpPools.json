@@ -1,0 +1,40 @@
+[
+  {
+    "name": "chronos-wusdr-usdc",
+    "address": "0x278f76df86EfdcbE0f2573AE54e917505621E312",
+    "gauge": "0x7863bcC83fA7008CB421118AC05bFe7D5Ad5bBf1",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xDDc0385169797937066bBd8EF409b5B3c0dFEB52",
+      "oracle": "tokens",
+      "oracleId": "wUSDR",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "chronos-chr-usdc",
+    "address": "0x20585BFBC272A9D58ad17582BCdA9A5A57271d6A",
+    "gauge": "0x3d34022f552362a25A529EC6AF7B9cb226b9C22D",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x15b2fb8f08E4Ac1Ce019EADAe02eE92AeDF06851",
+      "oracle": "tokens",
+      "oracleId": "CHR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]

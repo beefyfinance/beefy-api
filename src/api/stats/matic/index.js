@@ -1,33 +1,25 @@
-const getComethLpApys = require('./getComethLpApys');
-const { getQuickLpApys } = require('./getQuickLpApys');
 const { getAaveApys } = require('./getAaveApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
 const { getSushiOhmLpApys } = require('./getSushiOhmLpApys');
-const getComethMultiApys = require('./getComethMultiLpApys');
 const getPolygonBifiGovApy = require('./getPolygonBifiGovApy');
 const { getPolygonBifiMaxiApy } = require('./getPolygonBifiMaxiApy');
 const { getCurveApys } = require('./getCurveApys');
 const { getConvexApys } = require('./getConvexApys');
 const getJetswapApys = require('./getJetswapApys');
-const getIronSwapApys = require('./getIronSwapApys');
 const { getApeLpApys } = require('./getApeLpApys');
 const getMaiApys = require('./getMaiApys').default;
 const getMaiCurveApys = require('./getMaiCurveApys');
 const { getTelxchangeApys } = require('./getTelxchangeApys');
-const { getPolygonFarmApys } = require('./getPolygonFarmApys');
 const { getQuickSingleApys } = require('./getQuickSingleApys');
 import getKyberLpApys from './getKyberLpApys';
 import { getQuickDualLpApys } from './getQuickDualLpApys';
 import { getJarvisApys } from './getJarvisApys';
-import { getSolarApy } from '../moonriver/getSolarApy';
-const getPopsicleApys = require('./getPopsicleApys');
 const getStargateApys = require('./getStargatePolygonApys');
 const getbeQiApy = require('./getbeQiApy');
 const getbeQiEarnApy = require('./getbeQiEarnApy');
 const getRipaeApys = require('./getRipaeApys');
 const getBalancerPolyApys = require('./getBalancerPolyApys');
 const getGiddyApys = require('./getGiddyApys');
-const getSolaceApy = require('./getSolaceApy');
 const getDystopiaApys = require('./getDystopiaApys');
 const getUniV3PolygonApys = require('./getUniV3PolygonApys');
 const { getHopApys } = require('./getHopApys');
@@ -40,14 +32,11 @@ const getOvixApys = require('./getOvixApys');
 const getApys = [
   getbeQiApy,
   getbeQiEarnApy,
-  getComethLpApys,
-  getQuickLpApys,
   getQuickSingleApys,
   getQuickDualLpApys,
   getAaveApys,
   getSushiLpApys,
   getSushiOhmLpApys,
-  getComethMultiApys,
   getPolygonBifiGovApy,
   getPolygonBifiMaxiApy,
   getCurveApys,
@@ -56,17 +45,13 @@ const getApys = [
   getMaiApys,
   getMaiCurveApys,
   getJetswapApys,
-  getIronSwapApys,
   getTelxchangeApys,
-  getPolygonFarmApys,
   getKyberLpApys,
   getJarvisApys,
-  getPopsicleApys,
   getStargateApys,
   getRipaeApys,
   getBalancerPolyApys,
   getGiddyApys,
-  getSolaceApy,
   getDystopiaApys,
   getUniV3PolygonApys,
   getHopApys,

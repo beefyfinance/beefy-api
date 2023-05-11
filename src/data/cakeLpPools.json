@@ -1800,7 +1800,7 @@
     "lp1": {
       "address": "0xf9CeC8d50f6c8ad3Fb6dcCEC577e05aA32B224FE",
       "oracle": "tokens",
-      "oracleId": "CHR",
+      "oracleId": "CHROMA",
       "decimals": "1e6"
     }
   },
