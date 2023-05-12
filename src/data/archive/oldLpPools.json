@@ -1,5 +1,23 @@
 [
   {
+    "name": "sushi-weth-fbx",
+    "address": "0xcfFbFA978Ac3fB10e829cA6b763c307daAFe8a77",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD125443F38A69d776177c2B9c041f462936F8218",
+      "oracle": "tokens",
+      "oracleId": "FBX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "uniswap-arch-usdc",
     "address": "0x128DD66e4c9f1477ba29523b379AEC6Ace76D584",
     "decimals": "1e18",
