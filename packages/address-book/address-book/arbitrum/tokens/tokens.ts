@@ -758,6 +758,30 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
   },
+  CHR: {
+    name: 'Chronos',
+    symbol: 'CHR',
+    address: '0x15b2fb8f08E4Ac1Ce019EADAe02eE92AeDF06851',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://chronos.exchange/',
+    documentation: 'https://docs.chronos.exchange/',
+    description:
+      'Chronos is a community-owned decentralized exchange (DEX) and liquidity provider constructed on the Arbitrum Layer 2 (L2) network, aimed at fostering DeFi growth through sustainable liquidity incentives.',
+    logoURI: '',
+  },
+  wUSDR: {
+    name: 'Real USD',
+    symbol: 'wUSDR',
+    address: '0xDDc0385169797937066bBd8EF409b5B3c0dFEB52',
+    chainId: 42161,
+    decimals: 9,
+    website: 'https://www.tangible.store/realusd',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
+    logoURI: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
