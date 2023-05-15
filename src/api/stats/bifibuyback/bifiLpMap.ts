@@ -19,9 +19,9 @@ const {
   fuse,
 } = addressBook;
 
-// BIFI lp pair bifi maxi uses per chain
+// LP used by BIFI Maxi per chain
 export const bifiLpMap = {
-  bsc: bsc.platforms.pancake.bifiBnbLp,
+  bsc: bsc.platforms.thena.bifiBnbLp,
   heco: heco.platforms.mdex.usdtBifiLp,
   polygon: polygon.platforms.sushi.bifiUsdcLp,
   fantom: fantom.platforms.spookyswap.wftmBifiLp,
