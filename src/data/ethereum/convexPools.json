@@ -26,6 +26,25 @@
     ]
   },
   {
+    "name": "convex-wbeth",
+    "pool": "0xBfAb6FA95E0091ed66058ad493189D2cB29385E6",
+    "token": "0xBfAb6FA95E0091ed66058ad493189D2cB29385E6",
+    "rewardPool": "0x6cD1a734F3d49Cc5b381c2b53CF17f12bfFA2bdD",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wBETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+
+  {
     "name": "convex-fraxusdp",
     "pool": "0xaE34574AC03A15cd58A92DC79De7B1A0800F1CE3",
     "token": "0xFC2838a17D8e8B1D5456E0a351B0708a09211147",

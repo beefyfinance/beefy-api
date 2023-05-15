@@ -1061,6 +1061,18 @@ const _tokens = {
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
   },
+  wBETH: {
+    name: 'Wrapped Binance Beacon ETH',
+    symbol: 'wBETH',
+    address: '0xa2E3356610840701BDf5611a53974510Ae27E2e1',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.binance.com/en',
+    documentation: 'https://www.binance.com/en/wbeth',
+    description:
+      'Wrapped Beacon ETH ("WBETH") is a wrapped version of BETH. Wrapped, WBETH is reward-bearing in nature. It accumulates ETH2.0 staking rewards not by growing in number, but by growing in value in relation to BETH. Unlike BETH, the value of WBETH will increase despite not being held in Binance Spot Wallet. That means WBETH provides you with double yield potential by (i) holding it to earn staking rewards, and (ii) moving it on-chain and exploring exciting DeFi and other dapps opportunities.',
+  },
   '3CRV': {
     name: 'Curve.fi DAI/USDC/USDT',
     symbol: '3CRV',
