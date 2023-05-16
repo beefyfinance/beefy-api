@@ -250,6 +250,18 @@ const _tokens = {
     description:
       'Pepe is here to make memecoins great again. Launched stealth with no presale, zero taxes, LP burnt and contract renounced, $PEPE is a coin for the people, forever. Fueled by pure memetic power, let $PEPE show you the way.',
   },
+  sCANTO: {
+    name: 'Liquid Staked Canto',
+    symbol: 'sCANTO',
+    address: '0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.scanto.io/',
+    description:
+      'By holding $sCANTO you are earning a prorata share of the validator rewards. When you stake $CANTO at scanto.io you get $sCANTO, a liquid staking derivative that can be used across a range of DeFi applications. Unlike staked $CANTO, the $sCANTO are freely transferable instead of locked as in the case of native staking.',
+    documentation: 'https://docs.scanto.io/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
