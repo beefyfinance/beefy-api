@@ -1,5 +1,43 @@
 [
   {
+    "name": "chronos-weth-arb",
+    "address": "0xafE909b1A5ed90d36f9eE1490fCB855645C00EB3",
+    "gauge": "0x2497Ec308CA75201B6f59F6970f33F9aEb63BA6c",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "chronos-weth-usdc",
+    "address": "0xA2F1C1B52E1b7223825552343297Dc68a29ABecC",
+    "gauge": "0xdb74aE9C3d1b96326BDAb8E1da9c5e98281d576e",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "chronos-wusdr-usdc",
     "address": "0x278f76df86EfdcbE0f2573AE54e917505621E312",
     "gauge": "0x7863bcC83fA7008CB421118AC05bFe7D5Ad5bBf1",
