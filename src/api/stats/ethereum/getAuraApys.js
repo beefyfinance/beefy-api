@@ -208,7 +208,7 @@ const getLiquidStakingPoolYield = async pool => {
       ? await fetch(pool.lidoUrl).then(res => res.json())
       : await fetch(pool.rocketUrl).then(res => res.json());
 
-    const lsApr = pool.lidoUrl ? response.data.steth : response.yearlyAPR;
+    const lsApr = pool.lidoUrl ? response.data.aprs.smaApr : response.yearlyAPR;
 
     apr = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100;
     apr = pool.balancerChargesFee ? apr / 2 : apr;
@@ -239,7 +239,7 @@ const getThreeEthPoolYield = async pool => {
   let apr = 0;
   try {
     const wstEthResponse = await fetch(pool.lidoUrl).then(res => res.json());
-    const wstEthapr = wstEthResponse.data.steth;
+    const wstEthapr = wstEthResponse.data.aprs.smaApr;
 
     const sfrxEthResponse = await fetch('https://api.frax.finance/v2/frxeth/summary/latest').then(
       res => res.json()

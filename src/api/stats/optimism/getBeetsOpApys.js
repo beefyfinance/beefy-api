@@ -101,7 +101,7 @@ const getPoolApy = async pool => {
       qty.push(amt);
     }
     const response = await fetch(pool.lidoUrl).then(res => res.json());
-    const apr = response.data.steth;
+    const apr = response.data.aprs.smaApr;
 
     pool.balancerChargesFee
       ? (aprFixed = (apr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100 / 2)
