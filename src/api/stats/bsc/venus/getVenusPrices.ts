@@ -14,8 +14,6 @@ const vUSDT = {
   },
 };
 
-bscWeb3;
-
 const abi = [
   {
     constant: true,
