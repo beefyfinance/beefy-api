@@ -281,6 +281,7 @@ import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices';
+import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -673,6 +674,10 @@ async function performUpdateAmmPrices() {
     return prices;
   });
 
+  const venusPrices = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchVenusPrices(tokenPrices);
+  });
+
   const curveTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
     return await fetchCurveTokenPrices(tokenPrices);
   });
@@ -748,6 +753,7 @@ async function performUpdateAmmPrices() {
     const sfrxEthTokenPrice = await sfrxEthPrice;
     const beTokenTokenPrice = await beTokenPrice;
     const linearPoolTokenPrice = await linearPoolPrice;
+    const venusTokenPrice = await venusPrices;
     return {
       ...tokenPrices,
       ...dmm.tokenPrices,
@@ -760,6 +766,7 @@ async function performUpdateAmmPrices() {
       ...concentratedLiquidityPrices,
       ...linearPoolTokenPrice,
       ...(await currencyPrices()),
+      ...venusTokenPrice,
     };
   });
 

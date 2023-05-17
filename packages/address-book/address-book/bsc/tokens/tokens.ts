@@ -4074,5 +4074,16 @@ const _tokens = {
     website: 'https://apecoin.dev/',
     description: 'APE is a BEP-20 token celebrating the "ape" crypto meme.',
   },
+  vUSDT: {
+    name: 'Venus USDT',
+    symbol: 'vUSDT',
+    address: '0xfD5840Cd36d94D7229439859C0112a4185BC0255',
+    chainId: 56,
+    decimals: 8,
+    website: 'https://venus.io/',
+    description:
+      'Venus wrapped USDT. Venus is an algorithmic money market and synthetic stablecoin protocol launched exclusively on BNB Chain.',
+    logoURI: '',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
