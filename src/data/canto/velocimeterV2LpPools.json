@@ -1,5 +1,45 @@
 [
   {
+    "name": "velocimeterv2-scanto-blotr",
+    "address": "0x44724F2A542D9b7653923D87F17712b113FEB448",
+    "gauge": "0x5E959E53f5AbC0240201315fEc569E87B065e11d",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
+      "oracle": "tokens",
+      "oracleId": "sCANTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFf0BAF077e8035A3dA0dD2abeCECFbd98d8E63bE",
+      "oracle": "tokens",
+      "oracleId": "BLOTR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-scanto-flow",
+    "address": "0x754AeD0D7A61dD3B03084d5bB8285D674D663703",
+    "gauge": "0xD9Da1d86213894bDFd8f381702232fACfc9ab7C1",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
+      "oracle": "tokens",
+      "oracleId": "sCANTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velocimeterv2-wcanto-scanto",
     "address": "0xe506707dF5fE9b2F6c0Bd6C5039fc542Af1eeB50",
     "gauge": "0x368A98078eC7bD360d0715e92aE8B57c20154937",
