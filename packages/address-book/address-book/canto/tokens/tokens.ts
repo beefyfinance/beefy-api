@@ -262,6 +262,18 @@ const _tokens = {
       'By holding $sCANTO you are earning a prorata share of the validator rewards. When you stake $CANTO at scanto.io you get $sCANTO, a liquid staking derivative that can be used across a range of DeFi applications. Unlike staked $CANTO, the $sCANTO are freely transferable instead of locked as in the case of native staking.',
     documentation: 'https://docs.scanto.io/',
   },
+  BLOTR: {
+    name: 'sCANTO BLOTR',
+    symbol: 'BLOTR',
+    address: '0xFf0BAF077e8035A3dA0dD2abeCECFbd98d8E63bE',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.scanto.io/',
+    description:
+      '$BLOTR is the governance token for $sCANTO (Liquid Staked Canto) used to vote on protocol upgrades, incentivize $sCANTO liquidity pools, and for other future protocol mechanisms.',
+    documentation: 'https://docs.scanto.io/governance-token',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
