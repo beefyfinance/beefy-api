@@ -954,6 +954,43 @@ const _tokens = {
     oracleId: 'curve-op-3crv',
     description: 'Curve Optimism base 3pool consisting of DAI, USDC and USDT',
   },
+  STG: {
+    name: 'StargateToken',
+    symbol: 'STG',
+    address: '0x296F55F8Fb28E498B858d0BcDA06D955B2Cb3f97',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://stargate.finance/',
+    description:
+      'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
+    documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
+  },
+  wTBT: {
+    name: 'wTBT(Bridge Token)',
+    symbol: 'wTBT',
+    address: '0xdb4eA87fF83eB1c80b8976FC47731Da6a31D35e5',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.tprotocol.io/',
+    description:
+      'The launch of TProtocol will drastically alter the current DeFi picture and add an important missing piece, making DeFi users able to benefit from the mid-term interest rate gap between the stables and rising treasury. TProtocol will provide permissionless interest bearing tokens backed by the treasury with short duration. The redemption price of this treasury token will increase over time as interest from treasury accrues into the tokens.',
+    documentation:
+      'https://tprotocol.gitbook.io/tprotocol-documentation/white-paper/tprotocol-documentation',
+  },
+  MTA: {
+    name: 'Meta',
+    symbol: 'MTA',
+    address: '0x929B939f8524c3Be977af57A4A0aD3fb1E374b50',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://mstable.org/',
+    description:
+      'Meta Vault is a composable architecture for yield-bearing tokens. It combines, optimises and allocates yield in a diversified manner.',
+    documentation: 'https://docs.mstable.org/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
