@@ -30,6 +30,7 @@
     "pool": "0xBfAb6FA95E0091ed66058ad493189D2cB29385E6",
     "token": "0xBfAb6FA95E0091ed66058ad493189D2cB29385E6",
     "rewardPool": "0x6cD1a734F3d49Cc5b381c2b53CF17f12bfFA2bdD",
+    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
