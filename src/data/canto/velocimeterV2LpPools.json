@@ -1,5 +1,45 @@
 [
   {
+    "name": "velocimeterv2-eth-scanto",
+    "address": "0x563C5377215E06e501C0F093012eE4b91D5F55D4",
+    "gauge": "0x00c3d31DF6Fbb95c818cB5d56941ef75418D093D",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
+      "oracle": "tokens",
+      "oracleId": "sCANTO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-flow-blotr",
+    "address": "0x257B3C794E8b0b1ef2260E2747fFf354b70bb4C5",
+    "gauge": "0xD442f31964F3aE148859339852dbC8a6377c140c",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xB5b060055F0d1eF5174329913ef861bC3aDdF029",
+      "oracle": "tokens",
+      "oracleId": "FLOW",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFf0BAF077e8035A3dA0dD2abeCECFbd98d8E63bE",
+      "oracle": "tokens",
+      "oracleId": "BLOTR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velocimeterv2-scanto-blotr",
     "address": "0x44724F2A542D9b7653923D87F17712b113FEB448",
     "gauge": "0x5E959E53f5AbC0240201315fEc569E87B065e11d",
