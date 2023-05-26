@@ -158,9 +158,10 @@ const getYearlyRewardsInUsd = async (web3, multicall, pool) => {
 
   for (const rewards of pool.rewards ?? []) {
     let periodFinish, rewardRate;
-    if (pool.boosted) {
+    if (pool.boosted || rewards.rewardToken) {
+      let token = rewards.rewardToken ? rewards.rewardToken : rewards.token;
       const rewardStream = getContractWithProvider(ICurveGauge, pool.gauge, web3);
-      let { period_finish, rate } = await rewardStream.methods.reward_data(rewards.token).call();
+      let { period_finish, rate } = await rewardStream.methods.reward_data(token).call();
       periodFinish = Number(period_finish);
       rewardRate = new BigNumber(rate);
     } else if (rewards.newGauge) {

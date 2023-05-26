@@ -3,7 +3,7 @@
     "name": "balancer-wsteth-bbaweth",
     "address": "0x4a77eF015ddcd972fd9BA2C7D5D658689D090f1A",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xAFd027a8Dc3d35AAe5713e7B34863d0BC2482Ce3",
+    "gauge": "0xB95397A17ACbb5824535ebE69Cd9DCF8fA7aFC50",
     "vaultPoolId": "0x4a77ef015ddcd972fd9ba2c7d5d658689d090f1a000000000000000000000b38",
     "includesComposableAaveTokens": true,
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
@@ -18,14 +18,15 @@
     "decimals": "1e18",
     "rewards": [
       {
-        "stream": "0x851e6B44BB167b53E623dFD756c0B3e1724c7Cdc",
-        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "newGauge": true,
+        "stream": "0xB95397A17ACbb5824535ebE69Cd9DCF8fA7aFC50",
         "oracleId": "BAL"
       },
       {
-        "stream": "0x851e6B44BB167b53E623dFD756c0B3e1724c7Cdc",
-        "token": "0xC3C7d422809852031b44ab29EEC9F1EfF2A58756",
-        "oracleId": "LDO"
+        "stream": "0xB95397A17ACbb5824535ebE69Cd9DCF8fA7aFC50",
+        "rewardToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "oracleId": "USDC",
+        "decimals": "1e6"
       }
     ],
     "tokens": [
@@ -53,7 +54,7 @@
     "name": "balancer-maticx-bbawmatic",
     "address": "0xE78b25c06dB117fdF8F98583CDaaa6c92B79E917",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xB0B28d7A74e62DF5F6F9E0d9Ae0f4e7982De9585",
+    "gauge": "0x956074628A64a316086f7125074a8A52d3306321",
     "vaultPoolId": "0xe78b25c06db117fdf8f98583cdaaa6c92b79e917000000000000000000000b2b",
     "includesComposableAaveTokens": true,
     "lsUrl": "https://universe.staderlabs.com/polygon/apy",
@@ -68,13 +69,13 @@
     "decimals": "1e18",
     "rewards": [
       {
-        "stream": "0xFD76Bb810a4fBecC7bB9995a128baC92571b155c",
-        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "newGauge": true,
+        "stream": "0x956074628A64a316086f7125074a8A52d3306321",
         "oracleId": "BAL"
       },
       {
-        "stream": "0xFD76Bb810a4fBecC7bB9995a128baC92571b155c",
-        "token": "0x1d734A02eF1e1f5886e66b0673b71Af5B53ffA94",
+        "stream": "0x956074628A64a316086f7125074a8A52d3306321",
+        "rewardToken": "0x1d734A02eF1e1f5886e66b0673b71Af5B53ffA94",
         "oracleId": "SD"
       }
     ],
@@ -103,7 +104,7 @@
     "name": "balancer-stmatic-bbawmatic",
     "address": "0x216690738aac4aa0c4770253ca26a28f0115c595",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x51BE9bC648714CC07503Ad46F354BC8D1A3B727B",
+    "gauge": "0x1e916950A659Da9813EE34479BFf04C732E03deb",
     "vaultPoolId": "0x216690738aac4aa0c4770253ca26a28f0115c595000000000000000000000b2c",
     "includesComposableAaveTokens": true,
     "lsUrl": "https://polygon.lido.fi/api/stats",
@@ -118,14 +119,15 @@
     "decimals": "1e18",
     "rewards": [
       {
-        "stream": "0xB8434cd9051d6e037C8DAb4263eCbB8e434b231F",
-        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "newGauge": true,
+        "stream": "0x1e916950A659Da9813EE34479BFf04C732E03deb",
         "oracleId": "BAL"
       },
       {
-        "stream": "0xB8434cd9051d6e037C8DAb4263eCbB8e434b231F",
-        "token": "0xC3C7d422809852031b44ab29EEC9F1EfF2A58756",
-        "oracleId": "LDO"
+        "stream": "0x1e916950A659Da9813EE34479BFf04C732E03deb",
+        "rewardToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+        "oracleId": "USDC",
+        "decimals": "1e6"
       }
     ],
     "tokens": [
