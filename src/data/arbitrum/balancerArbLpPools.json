@@ -3,7 +3,7 @@
     "name": "balancer-reth-bbaweth",
     "address": "0xCba9Ff45cfB9cE238AfDE32b0148Eb82CbE63562",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xd0039f467E80CbA1FAAF87999efCaE1dd6f30c1d",
+    "gauge": "0x6c34d77a57226f9Df6eC476B20913350832eBfEC",
     "vaultPoolId": "0xcba9ff45cfb9ce238afde32b0148eb82cbe635620000000000000000000003fd",
     "includesComposableAaveTokens": true,
     "lsUrl": "https://api.rocketpool.net/api/apr",
@@ -18,8 +18,8 @@
     "decimals": "1e18",
     "rewards": [
       {
-        "stream": "0xC47448418696a1163E14c0d92aE462540993154e",
-        "token": "0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8",
+        "newGauge": true,
+        "stream": "0x6c34d77a57226f9Df6eC476B20913350832eBfEC",
         "oracleId": "BAL"
       }
     ],

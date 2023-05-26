@@ -15,6 +15,7 @@ import { getTradingFeeAprBalancer } from '../../../utils/getTradingFeeApr';
 import fetchPrice from '../../../utils/fetchPrice';
 
 interface Token {
+  newGauge?: boolean;
   oracle: string;
   oracleId?: string;
   decimals?: string;
