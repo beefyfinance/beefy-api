@@ -1,5 +1,50 @@
 [
   {
+    "name": "balancer-frxeth-bbaweth",
+    "address": "0xD00f9Ca46ce0E4A63067c4657986f0167b0De1E5",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x83Ed440E7122FE3EFA28d3BC9d9eFca1952Ccb4b",
+    "vaultPoolId": "0xd00f9ca46ce0e4a63067c4657986f0167b0de1e5000000000000000000000b42",
+    "includesComposableAaveTokens": true,
+    "lsUrl": "https://api.frax.finance/v2/frxeth/summary/latest",
+    "dataPath": "$.sfrxethApr",
+    "balancerChargesFee": true,
+    "composable": true,
+    "bptIndex": 1,
+    "bbIndex": 0,
+    "bbPoolId": "0x43894de14462b421372bcfe445fa51b1b4a0ff3d000000000000000000000b36",
+    "lsIndex": 1,
+    "composableSplit": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x83Ed440E7122FE3EFA28d3BC9d9eFca1952Ccb4b",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaWETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "frxETH",
+        "decimals": "1e18"
+      }
+    ],
+    "aaveUnderlying": [
+      {
+        "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"
+      }
+    ]
+  },
+  {
     "name": "balancer-wsteth-bbaweth",
     "address": "0x4a77eF015ddcd972fd9BA2C7D5D658689D090f1A",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
