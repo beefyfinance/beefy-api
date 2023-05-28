@@ -98,7 +98,7 @@
     "name": "balancer-wsteth-eth-v2",
     "address": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x251e51b25AFa40F2B6b9F05aaf1bC7eAa0551771",
+    "gauge": "0x8F0B53F3BA19Ee31C0A73a6F6D84106340fadf5f",
     "vaultPoolId": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f000200000000000000000316",
     "decimals": "1e18",
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
@@ -106,14 +106,9 @@
     "lsIndex": 0,
     "rewards": [
       {
-        "stream": "0xBAF1eE3D36347Fab45AcB987B9606dDbE99Ba5D0",
-        "token": "0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8",
+        "newGauge": true,
+        "stream": "0x8F0B53F3BA19Ee31C0A73a6F6D84106340fadf5f",
         "oracleId": "BAL"
-      },
-      {
-        "stream": "0xBAF1eE3D36347Fab45AcB987B9606dDbE99Ba5D0",
-        "token": "0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60",
-        "oracleId": "LDO"
       }
     ],
     "tokens": [
@@ -133,13 +128,13 @@
     "name": "balancer-magic-usdc",
     "address": "0xb3028Ca124B80CFE6E9CA57B70eF2F0CCC41eBd4",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x7D50cC67ca4fD6c047003Ad763c6cF4aAb7A200b",
+    "gauge": "0xeF767E740D83d410794519c2F93Db32e44359a5C",
     "vaultPoolId": "0xb3028ca124b80cfe6e9ca57b70ef2f0ccc41ebd40002000000000000000000ba",
     "decimals": "1e18",
     "rewards": [
       {
-        "stream": "0x8eA94258c47Efe0c56Af6B0F529E05298f5ACA64",
-        "token": "0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8",
+        "newGauge": true,
+        "stream": "0xeF767E740D83d410794519c2F93Db32e44359a5C",
         "oracleId": "BAL"
       }
     ],
