@@ -1,0 +1,37 @@
+[
+  {
+    "name": "beets-rocket-fuel",
+    "address": "0x4Fd63966879300caFafBB35D157dC5229278Ed23",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xF27D53f21d024643d50de50183932F17638229F6",
+    "vaultPoolId": "0x4fd63966879300cafafbb35d157dc5229278ed2300020000000000000000002b",
+    "decimals": "1e18",
+    "lsUrl": "https://api.rocketpool.net/api/apr",
+    "dataPath": "$.yearlyAPR",
+    "lsIndex": 1,
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xF27D53f21d024643d50de50183932F17638229F6",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0xF27D53f21d024643d50de50183932F17638229F6",
+        "rewardToken": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]
