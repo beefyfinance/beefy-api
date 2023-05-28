@@ -327,13 +327,13 @@
     "name": "balancer-usdc-wusdr",
     "address": "0x34A81e8956BF20b7448b31990A2c06F96830a6e4",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x11F6b6fC8f652aF0a0cE411c01AEAe8536Fb836D",
+    "gauge": "0x80f392Bf3FA6973C3e14bb276e04931Ec12DE05E",
     "vaultPoolId": "0x34a81e8956bf20b7448b31990a2c06f96830a6e4000200000000000000000a14",
     "decimals": "1e18",
     "rewards": [
       {
-        "stream": "0x894ed67ee37469Ac5c8B911408f07C310D75f122",
-        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "newGauge": true,
+        "stream": "0x80f392Bf3FA6973C3e14bb276e04931Ec12DE05E",
         "oracleId": "BAL"
       }
     ],
@@ -629,13 +629,13 @@
     "name": "balancer-wbtc-usdc-eth",
     "address": "0x03cD191F589d12b0582a99808cf19851E468E6B5",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x0F09F70Ed59202c77aC667f574A5f79bC65CeA48",
+    "gauge": "0x219b3a4a2D2351582277A87048995034ca7e9aEF",
     "vaultPoolId": "0x03cd191f589d12b0582a99808cf19851e468e6b500010000000000000000000a",
     "decimals": "1e18",
     "rewards": [
       {
-        "stream": "0x4b878e9727B9E91fDaE37CdD85949f4367220187",
-        "token": "0x9a71012B13CA4d3D0Cdc72A177DF3ef03b0E76A3",
+        "newGauge": true,
+        "stream": "0x219b3a4a2D2351582277A87048995034ca7e9aEF",
         "oracleId": "BAL"
       }
     ],
