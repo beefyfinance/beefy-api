@@ -1,5 +1,32 @@
 [
   {
+    "name": "aura-wbeth-wsteth",
+    "address": "0x2E848426AEc6dbF2260535a5bEa048ed94d9FF3D",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xeE66a8958EBFEEfA209769530b5E05A38762509a",
+    "composable": true,
+    "bptIndex": 0,
+    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "lsIndex": 0,
+    "vaultPoolId": "0x2e848426aec6dbf2260535a5bea048ed94d9ff3d000000000000000000000536",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wBETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-sd-weth",
     "address": "0xE4010EF5E37dc23154680f23c4A0d48BFca91687",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
