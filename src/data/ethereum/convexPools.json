@@ -26,6 +26,24 @@
     ]
   },
   {
+    "name": "convex-steth-ng",
+    "pool": "0x21e27a5e5513d6e65c4f830167390997aa84843a",
+    "token": "0x21e27a5e5513d6e65c4f830167390997aa84843a",
+    "rewardPool": "0x6B27D7BC63F1999D14fF9bA900069ee516669ee8",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "stETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-wbeth",
     "pool": "0xBfAb6FA95E0091ed66058ad493189D2cB29385E6",
     "token": "0xBfAb6FA95E0091ed66058ad493189D2cB29385E6",
@@ -84,7 +102,7 @@
     ]
   },
   {
-    "name": "convex-steth-freth",
+    "name": "convex-steth-frxeth",
     "pool": "0x4d9f9D15101EEC665F77210cB999639f760F831E",
     "token": "0x4d9f9D15101EEC665F77210cB999639f760F831E",
     "rewardPool": "0xC3D0B8170E105d6476fE407934492930CAc3BDAC",
