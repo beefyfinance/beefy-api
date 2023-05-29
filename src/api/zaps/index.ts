@@ -29,28 +29,18 @@ export async function proxyOneInchSwap(ctx: Koa.Context) {
   const chain = ctx.params.chainId;
   const requestObject: SwapRequest = ctx.query as any;
   const proxiedSwap = await getProxiedSwap(requestObject, chain);
-  if (proxiedSwap.response) {
-    setNoCacheHeaders(ctx);
-    ctx.status = 200;
-    ctx.body = proxiedSwap.response;
-  } else {
-    ctx.status = proxiedSwap.status;
-    ctx.body = proxiedSwap.statusText;
-  }
+  setNoCacheHeaders(ctx);
+  ctx.status = proxiedSwap.status;
+  ctx.body = proxiedSwap.response ?? proxiedSwap.statusText;
 }
 
 export async function proxyOneInchQuote(ctx: Koa.Context) {
   const chain = ctx.params.chainId;
   const requestObject: QuoteRequest = ctx.query as any;
   const proxiedQuote = await getProxiedQuote(requestObject, chain);
-  if (proxiedQuote.response) {
-    setNoCacheHeaders(ctx);
-    ctx.status = 200;
-    ctx.body = proxiedQuote.response;
-  } else {
-    ctx.status = proxiedQuote.status;
-    ctx.body = proxiedQuote.statusText;
-  }
+  setNoCacheHeaders(ctx);
+  ctx.status = proxiedQuote.status;
+  ctx.body = proxiedQuote.response ?? proxiedQuote.statusText;
 }
 
 function setNoCacheHeaders(ctx: Koa.Context) {

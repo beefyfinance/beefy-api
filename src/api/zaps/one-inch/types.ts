@@ -69,7 +69,6 @@ export type SwapResponse = {
 export type ProxiedResponse = {
   status: number;
   statusText: string;
-  description?: string;
   response?: SwapResponse | QuoteResponse;
 };
 

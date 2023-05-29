@@ -52,12 +52,9 @@ export class OneInchSwapApi implements IOneInchSwapApi {
       statusText: response.statusText,
     };
 
-    if (response.description) {
-      proxyResponse.description = response.description;
-    }
-
     if (response.headers.get('content-type')?.includes('application/json')) {
       proxyResponse.response = await response.json();
+      // if (proxyResponse.response.description) proxyResponse.description = response.description;
     }
 
     return proxyResponse;
