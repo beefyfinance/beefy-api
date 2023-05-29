@@ -66,9 +66,18 @@ export type SwapResponse = {
   tx: SwapTx;
 };
 
+export type ProxiedResponse = {
+  status: number;
+  statusText: string;
+  description?: string;
+  response?: SwapResponse | QuoteResponse;
+};
+
 export interface IOneInchSwapApi {
   getQuote(request: QuoteRequest): Promise<QuoteResponse>;
   getSwap(request: SwapRequest): Promise<SwapResponse>;
+  getProxiedQuote(request: QuoteRequest): Promise<ProxiedResponse>;
+  getProxiedSwap(request: SwapRequest): Promise<ProxiedResponse>;
   isHealthy(): Promise<boolean>;
 }
 

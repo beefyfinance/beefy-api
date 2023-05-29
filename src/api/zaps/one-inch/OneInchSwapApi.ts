@@ -3,6 +3,7 @@ import { URLSearchParams } from 'url';
 import {
   HealthCheckResponse,
   IOneInchSwapApi,
+  ProxiedResponse,
   QuoteRequest,
   QuoteResponse,
   SwapRequest,
@@ -33,6 +34,41 @@ export class OneInchSwapApi implements IOneInchSwapApi {
     }
 
     throw new Error(`Unexpected response from ${url}: ${response.status} ${response.statusText}`);
+  }
+
+  protected async transparentGet<RequestType extends {}>(
+    path: string,
+    request: RequestType
+  ): Promise<ProxiedResponse> {
+    const url = this.buildUrl(path, request);
+    const response = await fetch(url, {
+      headers: {
+        Accept: 'application/json',
+      },
+    });
+
+    const proxyResponse: ProxiedResponse = {
+      status: response.status,
+      statusText: response.statusText,
+    };
+
+    if (response.description) {
+      proxyResponse.description = response.description;
+    }
+
+    if (response.headers.get('content-type')?.includes('application/json')) {
+      proxyResponse.response = await response.json();
+    }
+
+    return proxyResponse;
+  }
+
+  async getProxiedQuote(request: QuoteRequest): Promise<ProxiedResponse> {
+    return await this.transparentGet('/quote', request);
+  }
+
+  async getProxiedSwap(request: SwapRequest): Promise<ProxiedResponse> {
+    return await this.transparentGet('/swap', request);
   }
 
   async getQuote(request: QuoteRequest): Promise<QuoteResponse> {
