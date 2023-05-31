@@ -53,7 +53,7 @@ const getApys = [
   getBalancerPolyApys,
   getGiddyApys,
   getDystopiaApys,
-  getUniV3PolygonApys,
+  // getUniV3PolygonApys,
   getHopApys,
   getMvxApys,
   getAaveV3Apys,

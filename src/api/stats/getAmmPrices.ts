@@ -54,7 +54,6 @@ import pangolinPools from '../../data/avax/pangolinLpPools.json';
 import swipePools from '../../data/swipeLpPools.json';
 import comAvaxPools from '../../data/avax/comAvaxLpPools.json';
 import comBscPools from '../../data/comBscLpPools.json';
-import snowballPools from '../../data/avax/snobLpPools.json';
 import pumpyPools from '../../data/pumpyLpPools.json';
 import spacePools from '../../data/degens/spaceLpPools.json';
 import nautPools from '../../data/degens/nautLpPools.json';
@@ -90,7 +89,6 @@ import esterPools from '../../data/fantom/esterLpPools.json';
 import comethMultiPools from '../../data/matic/comethMultiLpPools.json';
 import goalPools from '../../data/degens/goalLpPools.json';
 import tofyPools from '../../data/degens/tofyLpPools.json';
-import gondolaPools from '../../data/avax/gondolaLpPools.json';
 import dopplePools from '../../data/doppleLpPools.json';
 import garudaPools from '../../data/degens/garudaLpPools.json';
 import ironPools from '../../data/degens/ironLpPools.json';
@@ -468,7 +466,6 @@ const pools = normalizePoolOracleIds([
   ...ironPools,
   ...garudaPools,
   ...dopplePools,
-  ...gondolaPools,
   ...tofyPools,
   ...goalPools,
   ...comethMultiPools,
@@ -504,7 +501,6 @@ const pools = normalizePoolOracleIds([
   ...nautPools,
   ...spacePools,
   ...pumpyPools,
-  ...snowballPools,
   ...comBscPools,
   ...comAvaxPools,
   ...pangolinPools,

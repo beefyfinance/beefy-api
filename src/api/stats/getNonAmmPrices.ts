@@ -1,14 +1,8 @@
 import getBeltPrices from './bsc/belt/getBeltPrices';
 import getEllipsisPricesOld from './bsc/ellipsis/getEllipsisPricesOld';
 import { getEllipsisPrices } from './bsc/getEllipsisPrices';
-import getSnob3PoolPrice from './avax/getSnob3PoolPrice';
-import getFroyoPrices from './fantom/getFroyoPrices';
-import getGondolaPrices from './avax/getGondolaPrices';
 import getCurvePolygonPrices from './matic/getCurvePrices';
 import getCurveFantomPrices from './fantom/getCurvePrices';
-import getDopplePrices from './bsc/dopple/getDopplePrices';
-import { getIronSwapPrices } from './matic/getIronSwapPrices';
-import getAlpacaIbPrices from './bsc/alpaca/getAlpacaIbPrices';
 import getCurveArbitrumPrices from './arbitrum/getCurvePrices';
 import getCurveAvaxPrices from './avax/getCurvePrices';
 import getCurveHarmonyPrices from './one/getCurvePrices';
@@ -69,7 +63,6 @@ import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import getMmyFantomPrices from './fantom/getMmyFantomPrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
-import { getStakeSteakPrices } from './fantom/getStakeSteakPrices';
 import { getMuxArbitrumPrices } from './arbitrum/getMuxPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
@@ -112,7 +105,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getMvxPrices(tokenPrices),
     getEqualizerStablePrices(tokenPrices),
     getOlpPrices(),
-    getMuxArbitrumPrices(tokenPrices),
+    // getMuxArbitrumPrices(tokenPrices),
     getStargateMetisPrices(tokenPrices),
     getStargateOpPrices(tokenPrices),
     getStargatePolygonPrices(tokenPrices),
@@ -130,7 +123,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getGmxArbitrumPrices(tokenPrices),
     getSushiKavaPrices(tokenPrices),
     getSushiArbPrices(tokenPrices),
-    getUniV3PolygonPrices(tokenPrices),
+    // getUniV3PolygonPrices(tokenPrices),
     getHermesStablePrices(tokenPrices),
     getCakeStablePrices(tokenPrices),
     getSpiritStablePrices(tokenPrices),
@@ -148,9 +141,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBeltPrices(tokenPrices),
     getEllipsisPricesOld(),
     getEllipsisPrices(tokenPrices),
-    getSnob3PoolPrice(),
-    getFroyoPrices(),
-    getGondolaPrices(tokenPrices),
     getCurveEthereumPrices(tokenPrices),
     getCurvePolygonPrices(tokenPrices),
     getCurveFantomPrices(tokenPrices),
@@ -162,14 +152,10 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurveKavaPrices(tokenPrices),
     getCurveCeloPrices(tokenPrices),
     getRosePrices(tokenPrices),
-    getDopplePrices(),
-    getIronSwapPrices(),
-    getAlpacaIbPrices(tokenPrices),
     getSynapsePrices(),
     getJarvisPrices(tokenPrices),
     getSolarbeamPrices(tokenPrices),
     getStellaswapPrices(tokenPrices),
-    getStakeSteakPrices(tokenPrices),
     getThenaGammaPrices(tokenPrices),
   ];
 
