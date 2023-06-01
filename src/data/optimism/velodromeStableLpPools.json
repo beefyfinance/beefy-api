@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-frax-usd+",
+    "address": "0x947A96B025C70497DbC0D095D966f3B59a675a70",
+    "gauge": "0xAe95F97c4b189144D0323b424121e2c94b823906",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x73cb180bf0521828d8849bc8CF2B920918e23032",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "velodrome-usdc-bob",
     "address": "0x0A8f50D8a22e2a36f46F3931a3086E6662B48Bf5",
     "gauge": "0xb702e9E5B407D8A8741Cb3b2d579cd683114fA94",
