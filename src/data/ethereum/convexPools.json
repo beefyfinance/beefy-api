@@ -26,6 +26,31 @@
     ]
   },
   {
+    "name": "convex-crvusd-usdc",
+    "pool": "0x4DEcE678ceceb27446b35C672dC7d61F30bAD69E",
+    "token": "0x4DEcE678ceceb27446b35C672dC7d61F30bAD69E",
+    "rewardPool": "0x44D8FaB7CD8b7877D5F79974c2F501aF6E65AbBA",
+    "getDy": ["v1", 1, 0],
+    "extras": [
+      {
+        "rewardPool": "0xac183F7cd62d5b04Fa40362EB67249A80339541A",
+        "oracleId": "CVX"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-steth-ng",
     "pool": "0x21e27a5e5513d6e65c4f830167390997aa84843a",
     "token": "0x21e27a5e5513d6e65c4f830167390997aa84843a",
@@ -62,7 +87,6 @@
       }
     ]
   },
-
   {
     "name": "convex-fraxusdp",
     "pool": "0xaE34574AC03A15cd58A92DC79De7B1A0800F1CE3",
