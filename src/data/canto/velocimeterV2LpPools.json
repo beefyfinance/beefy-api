@@ -1,5 +1,65 @@
 [
   {
+    "name": "velocimeterv2-bifi-scanto",
+    "address": "0xb3E0794b901000E472E4D76DfcDec5fE6285B141",
+    "gauge": "0x01b1E3eD21d9B7A08Dd726d24F4d766b4b142faf",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x765277EebeCA2e31912C9946eAe1021199B39C61",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
+      "oracle": "tokens",
+      "oracleId": "sCANTO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-note-scanto",
+    "address": "0x8929202a5D04126E0dF6ccc3C5C2796B610b8F10",
+    "gauge": "0xec05FE681b2D93688775b8D4F5051CB51A5045E6",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503",
+      "oracle": "tokens",
+      "oracleId": "NOTE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
+      "oracle": "tokens",
+      "oracleId": "sCANTO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velocimeterv2-usdc-scanto",
+    "address": "0x46d1FEEfeeBC1F30DF78f7de60fbae917Cd615b0",
+    "gauge": "0x136467263bC384A5eD15722660A7BfB0ef225C22",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
+      "oracle": "tokens",
+      "oracleId": "sCANTO",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velocimeterv2-eth-scanto",
     "address": "0x563C5377215E06e501C0F093012eE4b91D5F55D4",
     "gauge": "0x00c3d31DF6Fbb95c818cB5d56941ef75418D093D",
