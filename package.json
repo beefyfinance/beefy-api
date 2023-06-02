@@ -44,6 +44,7 @@
     "avax:pangolin:add": "ts-node scripts/add-sushi.ts --network avax --project pangolin",
     "avax:boostedjoe:add": "ts-node scripts/add-farm.ts --network avax --project boostedjoe",
     "avax:joe:add": "ts-node scripts/add-farm.ts --network avax --project joe",
+    "avax:solisnek:add": "ts-node scripts/add-solidly.ts --network avax --project solisnek --newFee true --lp",
     "aurora:tri:add": "ts-node scripts/add-sushi.ts --network aurora --project tri",
     "moonriver:solarbeam:add": "ts-node scripts/add-farm.ts --network moonriver --project solarbeam",
     "moonbeam:stella:add": "ts-node scripts/add-farm.ts --network moonbeam --project stellaswap --newFee true",
