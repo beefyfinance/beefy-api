@@ -39,6 +39,9 @@ const {
   zksync: {
     platforms: { velocore },
   },
+  avax: {
+    platforms: { solisnek },
+  },
 } = addressBook;
 
 const projects = {
@@ -111,6 +114,12 @@ const projects = {
     stableFile: '../src/data/zksync/velocoreStableLpPools.json',
     volatileFile: '../src/data/zksync/velocoreLpPools.json',
     voter: velocore.voter,
+  },
+  solisnek: {
+    prefix: 'solisnek',
+    stableFile: '../src/data/avax/soliSnekStableLpPools.json',
+    volatileFile: '../src/data/avax/soliSnekLpPools.json',
+    voter: solisnek.voter,
   },
 };
 
