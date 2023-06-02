@@ -463,6 +463,16 @@ const _tokens = {
     website: 'https://www.ankr.com/',
     description: 'Decentralized Infrastructure to Build and Earn in Web3',
   },
+  ankrMATIC: {
+    name: 'Ankr Staked MATIC',
+    symbol: 'ankrMATIC',
+    address: '0x738d96Caf7096659DB4C1aFbf1E1BDFD281f388C',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description: 'Decentralized Infrastructure to Build and Earn in Web3',
+  },
   aBNBc: {
     name: 'Ankr BNB Reward Bearing Certificate',
     symbol: 'aBNBc',
@@ -4013,6 +4023,18 @@ const _tokens = {
     website: 'https://overnight.fi/',
     description:
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'USDT+': {
+    name: 'USDT+ Stablecoin',
+    symbol: 'USDT+',
+    address: '0x5335E87930b410b8C5BB4D43c3360ACa15ec0C8C',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'USDT+ is USDT that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDT. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
