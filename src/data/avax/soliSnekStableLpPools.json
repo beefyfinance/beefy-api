@@ -1,5 +1,25 @@
 [
   {
+    "name": "solisnek-usdt-usdt.e",
+    "address": "0xE107aB1f58B12807E980d1c814D1dc8F0A2905Ad",
+    "gauge": "0x2b483bb976bC6aB9027bEb8424D68fA7aC6EeC54",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc7198437980c041c805A1EDcbA50c1Ce5db95118",
+      "oracle": "tokens",
+      "oracleId": "USDTe",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "solisnek-usdt-usdc",
     "address": "0x1CF7F397af73F6206055C69205fC9cb7D69187A0",
     "gauge": "0xba93D4D011440779474cED79846ad34567242429",
