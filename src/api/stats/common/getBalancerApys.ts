@@ -242,7 +242,7 @@ const getComposableAaveYield = async (
 
   const res = await multicall.all([supplyRateCalls]);
 
-  const rates = res[0].map(v => new BigNumber(v.supplyRate[3]));
+  const rates = res[0].map(v => new BigNumber(v.supplyRate[5]));
 
   const balVault = getContractWithProvider(IBalancerVault, params.balancerVault, params.web3);
   const tokenQtys: GetPoolTokensResponse = await balVault.methods.getPoolTokens(poolId).call();
