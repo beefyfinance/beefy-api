@@ -24,6 +24,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'KNC',
       secondToken: 'ETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'R',
+      decimalDelta: 1e12,
+      pool: '0x190ed02adaf1ef8039fcd3f006b42553467d5045',
+      firstToken: 'USDC',
+      secondToken: 'R',
+    },
   ],
   polygon: [
     {

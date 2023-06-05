@@ -1,5 +1,67 @@
 [
   {
+    "name": "aura-r-wsteth",
+    "address": "0x380aAbE019ed2a9C2d632b51eDDD30fd804d0fAD",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xb83aA654fDAF392F0b19f0ca1537786546febaD0",
+    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "lsIndex": 1,
+    "balancerChargesFee": true,
+    "vaultPoolId": "0x380aabe019ed2a9c2d632b51eddd30fd804d0fad000200000000000000000554",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x7279E6bF1d77cE6545b3aBac5CCAD15ba4b3c249",
+        "oracleId": "LDO",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "R",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-r-dai",
+    "address": "0x20a61B948E33879ce7F23e535CC7BAA3BC66c5a9",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xdC38CCAc2008547275878F5D89B642DA27910739",
+    "composable": true,
+    "bptIndex": 1,
+    "vaultPoolId": "0x20a61b948e33879ce7f23e535cc7baa3bc66c5a9000000000000000000000555",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x4A2f954DC68619362F47322516AdE6129539A805",
+        "oracleId": "LDO",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "R",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-wbeth-wsteth",
     "address": "0x2E848426AEc6dbF2260535a5bEa048ed94d9FF3D",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

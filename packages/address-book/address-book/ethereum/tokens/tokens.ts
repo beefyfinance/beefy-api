@@ -1108,6 +1108,18 @@ const _tokens = {
     oracleId: 'convex-3pool',
     description: 'Curve base 3pool consisting of DAI, USDC and USDT',
   },
+  R: {
+    name: 'R Stablecoin',
+    symbol: 'R',
+    address: '0x183015a9bA6fF60230fdEaDc3F43b3D788b13e21',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://raft.fi',
+    documentation: 'https://docs.raft.fi/',
+    description:
+      'Raft is a governance-minimized, decentralized protocol that allows people to generate R (a USD stablecoin) by depositing  capital-efficient collateral.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
