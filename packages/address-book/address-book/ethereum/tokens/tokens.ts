@@ -1073,6 +1073,18 @@ const _tokens = {
     description:
       'Wrapped Beacon ETH ("WBETH") is a wrapped version of BETH. Wrapped, WBETH is reward-bearing in nature. It accumulates ETH2.0 staking rewards not by growing in number, but by growing in value in relation to BETH. Unlike BETH, the value of WBETH will increase despite not being held in Binance Spot Wallet. That means WBETH provides you with double yield potential by (i) holding it to earn staking rewards, and (ii) moving it on-chain and exploring exciting DeFi and other dapps opportunities.',
   },
+  OETH: {
+    name: 'Origin Ether',
+    symbol: 'OETH',
+    address: '0x856c4Efb76C1D1AE02e20CEB03A2A6a08b0b8dC3',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.oeth.com/',
+    documentation: 'https://docs.oeth.com/',
+    description:
+      'OETH is a yield-bearing, ether-pegged token, offering an easy way to maximize yield from ETH staking using protocols, such as Curve Finance.',
+  },
   crvUSD: {
     name: 'Curve.Fi USD Stablecoin',
     symbol: 'crvUSD',

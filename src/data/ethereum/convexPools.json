@@ -26,6 +26,25 @@
     ]
   },
   {
+    "name": "convex-oeth",
+    "pool": "0x94B17476A93b3262d87B9a326965D1E91f9c13E7",
+    "token": "0x94B17476A93b3262d87B9a326965D1E91f9c13E7",
+    "rewardPool": "0x24b65DC1cf053A8D96872c323d29e86ec43eB33A",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "OETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-crvusd-usdc",
     "pool": "0x4DEcE678ceceb27446b35C672dC7d61F30bAD69E",
     "token": "0x4DEcE678ceceb27446b35C672dC7d61F30bAD69E",
