@@ -1,35 +1,42 @@
 const BigNumber = require('bignumber.js');
 
 const LPAbi = require('../../../abis/ISolidlyPair.json');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { getContract } = require('../../../utils/contractHelper');
+const { MultiCall } = require('eth-multicall');
+const { multicallAddress } = require('../../../utils/web3');
 
 const getSolidlyStablePrices = async (web3, pools, tokenPrices) => {
   let prices = {};
-  let promises = [];
-  pools.forEach(pool => promises.push(getPrice(web3, pool, tokenPrices)));
-  const values = await Promise.all(promises);
 
-  for (const item of values) {
-    prices = { ...prices, ...item };
-  }
+  const chainId = await web3.eth.getChainId();
+  const multicall = new MultiCall(web3, multicallAddress(chainId));
 
-  return prices;
-};
+  const calls = pools.map(pool => {
+    const lp = getContract(LPAbi, pool.address);
+    return {
+      reserves: lp.methods.getReserves(),
+      totalSupply: lp.methods.totalSupply(),
+    };
+  });
+  const res = await multicall.all([calls]);
+  const poolsData = res[0].map(v => ({
+    ...v,
+    lp0Bal: new BigNumber(v.reserves[0]),
+    lp1Bal: new BigNumber(v.reserves[1]),
+    totalSupply: new BigNumber(v.totalSupply),
+  }));
 
-const getPrice = async (web3, pool, tokenPrices) => {
-  const lpContract = getContractWithProvider(LPAbi, pool.address, web3);
-  const reserves = await lpContract.methods.getReserves().call();
-  const totalSupply = new BigNumber(await lpContract.methods.totalSupply().call());
+  for (let i = 0; i < pools.length; i++) {
+    const pool = pools[i];
+    const lp0Bal = poolsData[i].lp0Bal;
+    const lp1Bal = poolsData[i].lp1Bal;
+    const totalSupply = poolsData[i].totalSupply;
 
-  const lp0Bal = new BigNumber(reserves[0]);
-  const lp1Bal = new BigNumber(reserves[1]);
+    const lp0 = lp0Bal.multipliedBy(tokenPrices[pool.lp0.oracleId]).dividedBy(pool.lp0.decimals);
+    const lp1 = lp1Bal.multipliedBy(tokenPrices[pool.lp1.oracleId]).dividedBy(pool.lp1.decimals);
+    const price = lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(totalSupply).toNumber();
 
-  const lp0 = lp0Bal.multipliedBy(tokenPrices[pool.lp0.oracleId]).dividedBy(pool.lp0.decimals);
-  const lp1 = lp1Bal.multipliedBy(tokenPrices[pool.lp1.oracleId]).dividedBy(pool.lp1.decimals);
-  const price = lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(totalSupply).toNumber();
-
-  return {
-    [pool.name]: {
+    prices[pool.name] = {
       price,
       tokens: [pool.lp0.address, pool.lp1.address],
       balances: [
@@ -37,8 +44,9 @@ const getPrice = async (web3, pool, tokenPrices) => {
         lp1Bal.dividedBy(pool.lp1.decimals).toString(10),
       ],
       totalSupply: totalSupply.dividedBy(pool.decimals).toString(10),
-    },
-  };
+    };
+  }
+  return prices;
 };
 
 module.exports = getSolidlyStablePrices;
