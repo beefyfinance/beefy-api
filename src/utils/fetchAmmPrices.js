@@ -75,38 +75,18 @@ const fetchAmmPrices = async (pools, knownPrices) => {
   Object.keys(knownPrices).forEach(known => {
     weights[known] = Number.MAX_SAFE_INTEGER;
   });
-
-  for (let chain in MULTICALLS) {
-    let filtered = pools.filter(p => p.chainId == chain);
-
+  const promises = Object.keys(MULTICALLS).map(async chain => {
+    let chainPools = pools.filter(p => p.chainId == chain);
     // Old BSC pools don't have the chainId attr
     if (chain == '56') {
-      filtered = pools.filter(p => p.chainId === undefined).concat(filtered);
+      chainPools = pools.filter(p => p.chainId === undefined).concat(chainPools);
     }
+    await fetchChainPools(chain, chainPools);
+    return chainPools;
+  });
 
-    // Setup multichain
-    const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chain]);
-    const multicall = new ethers.Contract(MULTICALLS[chain], MulticallAbi, provider);
-
-    // Split query in batches
-    const query = filtered.map(p => [p.address, p.lp0.address, p.lp1.address]);
-    for (let i = 0; i < filtered.length; i += BATCH_SIZE) {
-      const batch = query.slice(i, i + BATCH_SIZE);
-      let buf = [];
-      try {
-        buf = await multicall.getLpInfo(batch);
-      } catch (e) {
-        console.error('fetchAmmPrices', e);
-      }
-
-      // Merge fetched data
-      for (let j = 0; j < batch.length; j++) {
-        filtered[j + i].totalSupply = new BigNumber(buf[j * 3 + 0]?.toString());
-        filtered[j + i].lp0.balance = new BigNumber(buf[j * 3 + 1]?.toString());
-        filtered[j + i].lp1.balance = new BigNumber(buf[j * 3 + 2]?.toString());
-      }
-    }
-
+  const allPools = await Promise.all(promises);
+  for (let filtered of allPools) {
     const unsolved = filtered.slice();
     let solving = true;
     while (solving) {
@@ -176,6 +156,30 @@ const fetchAmmPrices = async (pools, knownPrices) => {
     tokenPrices: sortByKeys(prices),
     lpsBreakdown: sortByKeys(breakdown),
   };
+};
+
+const fetchChainPools = async (chain, pools) => {
+  const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chain]);
+  const multicall = new ethers.Contract(MULTICALLS[chain], MulticallAbi, provider);
+
+  // Split query in batches
+  const query = pools.map(p => [p.address, p.lp0.address, p.lp1.address]);
+  for (let i = 0; i < pools.length; i += BATCH_SIZE) {
+    const batch = query.slice(i, i + BATCH_SIZE);
+    let buf = [];
+    try {
+      buf = await multicall.getLpInfo(batch);
+    } catch (e) {
+      console.error('fetchAmmPrices', chain, e);
+    }
+
+    // Merge fetched data
+    for (let j = 0; j < batch.length; j++) {
+      pools[j + i].totalSupply = new BigNumber(buf[j * 3 + 0]?.toString());
+      pools[j + i].lp0.balance = new BigNumber(buf[j * 3 + 1]?.toString());
+      pools[j + i].lp1.balance = new BigNumber(buf[j * 3 + 2]?.toString());
+    }
+  }
 };
 
 module.exports = { fetchAmmPrices };
