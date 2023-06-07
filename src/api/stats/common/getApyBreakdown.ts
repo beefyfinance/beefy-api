@@ -25,9 +25,9 @@ export interface ApyBreakdownResult {
 
 export const getApyBreakdown = (
   pools: { name: string; address: string; beefyFee?: number }[],
-  tradingAprs: Record<string, BigNumber>,
+  tradingAprs: Record<string, BigNumber> | undefined,
   farmAprs: BigNumber[],
-  providerFee: number | BigNumber[] | undefined,
+  providerFee?: number | BigNumber[],
   liquidStakingAprs?: number[],
   composablePoolAprs?: number[]
 ): ApyBreakdownResult => {
