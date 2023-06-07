@@ -631,6 +631,7 @@
     "pool": "0xE57180685E3348589E9521aa53Af0BCD497E884d",
     "token": "0xE57180685E3348589E9521aa53Af0BCD497E884d",
     "rewardPool": "0x0404d05F3992347d2f0dC3a97bdd147D77C85c1c",
+    "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
         "oracle": "tokens",

@@ -6,12 +6,10 @@ import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
 import { fetchEulerTokenPrices } from '../../utils/fetchEulerTokenPrices';
-import { fetchDolaPrice } from '../../utils/fetchDolaPrice';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
 import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices';
-import { fetchsfrxEthPrice } from '../../utils/fetchsfrxEthPrice';
 import {
   fetchBalancerLinearPoolPrice,
   fetchBalancerStablePoolPrice,
@@ -692,14 +690,6 @@ async function performUpdateAmmPrices() {
     return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
   });
 
-  const dolaPrice = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchDolaPrice(tokenPrices);
-  });
-
-  const sfrxEthPrice = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchsfrxEthPrice(tokenPrices);
-  });
-
   const linearPoolPrice = ammPrices.then(
     async ({ tokenPrices }): Promise<Record<string, number>> => {
       const jbrlTokenPrice = await fetchJbrlPrice();
@@ -745,8 +735,6 @@ async function performUpdateAmmPrices() {
     const concentratedLiquidityPrices = await concentratedLiquidityTokenPrices;
     const xTokenPrices = await xPrices;
     const mooTokenPrices = await mooPrices;
-    const dolaTokenPrice = await dolaPrice;
-    const sfrxEthTokenPrice = await sfrxEthPrice;
     const beTokenTokenPrice = await beTokenPrice;
     const linearPoolTokenPrice = await linearPoolPrice;
     const venusTokenPrice = await venusPrices;
@@ -755,9 +743,7 @@ async function performUpdateAmmPrices() {
       ...dmm.tokenPrices,
       ...mooTokenPrices,
       ...xTokenPrices,
-      ...dolaTokenPrice,
       ...beTokenTokenPrice,
-      ...sfrxEthTokenPrice,
       ...curvePrices,
       ...concentratedLiquidityPrices,
       ...linearPoolTokenPrice,
