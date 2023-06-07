@@ -1,5 +1,25 @@
 [
   {
+    "name": "ramses-frxeth-sfrxeth",
+    "address": "0xf166fF5CD771923D4d4fb870403Afc6F13DD2D02",
+    "gauge": "0x11C1060e12F3Ec480D47AD867583353496a1B0b8",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x178412e79c25968a32e89b11f63B33F733770c2A",
+      "oracle": "tokens",
+      "oracleId": "frxETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x95aB45875cFFdba1E5f451B950bC2E42c0053f39",
+      "oracle": "tokens",
+      "oracleId": "sfrxETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "ramses-frax-dei",
     "address": "0x43fFC1291c2CC69cc5E4b12f8017AAAa696932e6",
     "gauge": "0x89ff096282FCDCF83758FB3d6fA5F76B2D9232f3",
