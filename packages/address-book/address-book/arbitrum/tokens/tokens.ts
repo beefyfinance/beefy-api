@@ -47,7 +47,7 @@ const _tokens = {
     symbol: 'USDCe',
     decimals: 6,
     website: 'https://www.centre.io/',
-    description: 'USDC.e is an Ethereum-based USDC bridge via the official Arbitrum Bridge.',
+    description: 'USDC.e is an Ethereum-based USDC bridged via the official Arbitrum Bridge.',
     chainId: 42161,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
