@@ -42,6 +42,9 @@ const {
   avax: {
     platforms: { solisnek },
   },
+  arbitrum: {
+    platforms: { ramses },
+  },
 } = addressBook;
 
 const projects = {
@@ -120,6 +123,12 @@ const projects = {
     stableFile: '../src/data/avax/soliSnekStableLpPools.json',
     volatileFile: '../src/data/avax/soliSnekLpPools.json',
     voter: solisnek.voter,
+  },
+  ramses: {
+    prefix: 'ramses',
+    stableFile: '../src/data/arbitrum/ramsesStableLpPools.json',
+    volatileFile: '../src/data/arbitrum/ramsesLpPools.json',
+    voter: ramses.voter,
   },
 };
 

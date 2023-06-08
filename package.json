@@ -40,6 +40,8 @@
     "one:sushi:add": "ts-node scripts/add-sushi.ts --network one --project sushiOne",
     "arb:sushi:add": "ts-node scripts/add-sushi.ts --network arbitrum --project sushiArb --newFee true",
     "arb:swapfish:add": "ts-node scripts/add-farm.ts --network arbitrum --project swapfishArb --newFee true",
+    "arb:arbidex:add": "ts-node scripts/add-farm.ts --network arbitrum --project arbidex --newFee true",
+    "arb:ramses:add": "ts-node scripts/add-solidly.ts --network arbitrum --project ramses --newFee true --lp",
     "celo:sushi:add": "ts-node scripts/add-sushi.ts --network celo --project sushiCelo",
     "avax:pangolin:add": "ts-node scripts/add-sushi.ts --network avax --project pangolin",
     "avax:boostedjoe:add": "ts-node scripts/add-farm.ts --network avax --project boostedjoe",
@@ -57,7 +59,6 @@
     "polygon:uniswap:add": "ts-node scripts/add-univ3.ts --network polygon --project uniswap_polygon --strategy",
     "op:velodrome:add": "ts-node scripts/add-solidly.ts --network optimism --project velodrome --newFee true --lp",
     "kava:equilibre:add": "ts-node scripts/add-solidly.ts --network kava --project equilibre --newFee true --lp",
-    "arb:arbidex:add": "ts-node scripts/add-farm.ts --network arbitrum --project arbidex --newFee true",
     "zksync:velocore:add": "ts-node scripts/add-solidly.ts --network zksync --project velocore --newFee true --lp",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },

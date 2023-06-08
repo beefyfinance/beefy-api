@@ -686,6 +686,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
+  sfrxETH: {
+    name: 'Staked Frax Ether',
+    symbol: 'sfrxETH',
+    address: '0x95aB45875cFFdba1E5f451B950bC2E42c0053f39',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.frax.finance/frxeth/mint',
+    description:
+      'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited.',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
   'DAI+': {
     name: 'DAI+ Stablecoin',
     symbol: 'DAI+',
