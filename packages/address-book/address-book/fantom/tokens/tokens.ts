@@ -1060,7 +1060,7 @@ const _tokens = {
     address: '0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
     symbol: 'USDC',
     decimals: 6,
-    website: 'https://www.circle.com/en/multichain-usdc',
+    website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC (Multichain) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
