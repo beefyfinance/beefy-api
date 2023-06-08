@@ -1063,7 +1063,7 @@ const _tokens = {
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
-      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+      'USDC (Multichain) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
   },
@@ -1669,6 +1669,18 @@ const _tokens = {
       'MLP consists of an index of assets used for swaps and leverage trading on Mummy Finance. MLP holders will make a profit when leverage traders make a loss and vice versa. Staked MLP also earns escrowed MMY rewards and 60% of platform fees distributed in FTM.',
     logoURI: 'https://app.mummy.finance/static/media/ic_mlp_40.92637cb6.svg',
     documentation: 'https://docs.mummy.finance/mlp',
+  },
+  axlUSDC: {
+    name: 'Axelar USD Coin ',
+    symbol: 'axlUSDC',
+    address: '0x1B6382DBDEa11d97f24495C9A90b7c88469134a4',
+    chainId: 250,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC (Axelar) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    documentation: 'https://docs.axelar.dev/',
   },
 } as const;
 
