@@ -1,5 +1,45 @@
 [
   {
+    "name": "solisnek-frxeth-sfrxeth",
+    "address": "0xe0112eEA27533a6Ad1bEb8bd8239f5C1A7AF191a",
+    "gauge": "0x3d50c457d76755B1E6BF725a9e29625dc2C7a223",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2018B0CA0eDcE80800851958bD094dD4a8DA1fc4",
+      "oracle": "tokens",
+      "oracleId": "frxETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6D3B126ae28f3E39894070148B377624F6Ab4a45",
+      "oracle": "tokens",
+      "oracleId": "sfrxETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "solisnek-frxeth-weth.e",
+    "address": "0xcfDDbd48d178d0dBd84cEa448e5Cc784eD18A44D",
+    "gauge": "0x08DDceF541D5042ec4B14c87e44c7cd83E6AFE50",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2018B0CA0eDcE80800851958bD094dD4a8DA1fc4",
+      "oracle": "tokens",
+      "oracleId": "frxETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+      "oracle": "tokens",
+      "oracleId": "WETHe",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "solisnek-usdt-usdt.e",
     "address": "0xE107aB1f58B12807E980d1c814D1dc8F0A2905Ad",
     "gauge": "0x2b483bb976bC6aB9027bEb8424D68fA7aC6EeC54",
