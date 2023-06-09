@@ -7,6 +7,8 @@ import { getContract } from './contractHelper';
 import { ChainId } from '../../packages/address-book/address-book';
 
 import IVault from '../abis/BeefyVaultV6.json';
+import { fetchContract } from '../api/rpc/client';
+import BeefyVaultV6Abi from '../abis/BeefyVault';
 
 export async function fetchMooPrices(
   pools: any[],
@@ -60,25 +62,16 @@ const fetchPpfs = async pools => {
 };
 
 //Fetches ppfs for **vaults** from a single chain
-export const fetchChainVaultsPpfs = async (vaults, chain) => {
-  const chainId = ChainId[chain] as any as ChainId;
-  const web3 = web3Factory(chainId);
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-  const ppfsCalls = [];
-  vaults.forEach(vault => {
-    const tokenContract = getContract(IVault, vault.earnContractAddress);
-    ppfsCalls.push({
-      ppfs: tokenContract.methods.getPricePerFullShare(),
-    });
-  });
-
-  let res = await multicall.all([ppfsCalls]);
-
-  const ppfss = res[0].map(v => new BigNumber(v.ppfs));
-
-  for (let i = 0; i < ppfss.length; i++) {
-    vaults[i].pricePerFullShare = ppfss[i];
-  }
+export const fetchChainVaultsPpfs = async (vaults: any[], chain) => {
+  const chainId = ChainId[chain];
+  const contracts = vaults
+    .map(v => v.earnContractAddress)
+    .map((address: `0x${string}`) =>
+      fetchContract<typeof BeefyVaultV6Abi>(address, BeefyVaultV6Abi, parseInt(chainId))
+    );
+  const ppfs = await Promise.all(contracts.map(c => c.read.getPricePerFullShare()));
+  vaults.forEach((vault, i) => (vault.pricePerFullShare = new BigNumber(ppfs[i].toString())));
+  return vaults;
 };
 
 function calcMooPrice(

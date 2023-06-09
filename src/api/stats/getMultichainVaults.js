@@ -91,7 +91,7 @@ async function updateChainVaults(chain) {
   chainVaults.forEach(vault => (vault.chain = chain));
   chainVaults = await getStrategies(chainVaults, chain);
   chainVaults = await getLastHarvests(chainVaults, chain);
-  await fetchChainVaultsPpfs(chainVaults, chain);
+  chainVaults = await fetchChainVaultsPpfs(chainVaults, chain);
   vaultsByChain[chain] = chainVaults;
 
   if (LOG_PER_CHAIN) {
