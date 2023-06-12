@@ -1,5 +1,64 @@
 [
   {
+    "name": "balancer-tbtc-weth",
+    "address": "0xc9f52540976385a84bf416903e1ca3983c539e34",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x011417BBED6FC9cefF36C032D431b0eFcBA7f8B3",
+    "vaultPoolId": "0xc9f52540976385a84bf416903e1ca3983c539e34000200000000000000000434",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x011417BBED6FC9cefF36C032D431b0eFcBA7f8B3",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancer-tbtc-wbtc",
+    "address": "0x542F16DA0efB162D20bF4358EfA095B70A100f9E",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xb438c6cc53315FfA3fcD1bc8b27d6c3155b0B56A",
+    "vaultPoolId": "0x542f16da0efb162d20bf4358efa095b70a100f9e000000000000000000000436",
+    "composable": true,
+    "bptIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xb438c6cc53315FfA3fcD1bc8b27d6c3155b0B56A",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-wsteth-bbaaweth",
     "address": "0x5A7f39435fD9c381e4932fa2047C9a5136A5E3E7",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

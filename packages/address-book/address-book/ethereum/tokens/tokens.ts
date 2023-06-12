@@ -259,6 +259,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://threshold.network/',
+    documentation: 'https://docs.threshold.network/',
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
   },
