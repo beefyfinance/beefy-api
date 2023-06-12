@@ -1,0 +1,42 @@
+[
+  {
+    "name": "uniswap-arbitrum-usdc-usdce-0.01",
+    "address": "0x8e295789c9465487074a65b1ae9Ce0351172393f",
+    "nftId": 663650,
+    "beefyFee": 0,
+    "poolFee": 0.01,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "uniswap-arbitrum-cvx-eth-0.3",
+    "address": "0xb36c6868Ba826eD6f9487F6b0DA3abA37c2f51b9",
+    "nftId": 208990,
+    "beefyFee": 0,
+    "poolFee": 0.3,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb952A807345991BD529FDded05009F5e80Fe8F45",
+      "oracle": "tokens",
+      "oracleId": "CVX",
+      "decimals": "1e18"
+    }
+  }
+]

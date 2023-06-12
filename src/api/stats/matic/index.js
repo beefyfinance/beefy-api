@@ -21,7 +21,6 @@ const getRipaeApys = require('./getRipaeApys');
 const getBalancerPolyApys = require('./getBalancerPolyApys');
 const getGiddyApys = require('./getGiddyApys');
 const getDystopiaApys = require('./getDystopiaApys');
-const getUniV3PolygonApys = require('./getUniV3PolygonApys');
 const { getHopApys } = require('./getHopApys');
 const { getMvxApys } = require('./getMvxApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
@@ -54,7 +53,6 @@ const getApys = [
   getBalancerPolyApys,
   getGiddyApys,
   getDystopiaApys,
-  // getUniV3PolygonApys,
   getHopApys,
   getMvxApys,
   getAaveV3Apys,

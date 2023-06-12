@@ -1,28 +1,27 @@
 const BigNumber = require('bignumber.js');
+import { MultiCall } from 'eth-multicall';
+import { multicallAddress } from '../../../utils/web3';
 
-const StratAbi = require('../../../abis/StratUniV3.json');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
+const Helper = require('../../../abis/BeefyUniswapPositionHelper.json');
+const { getContract } = require('../../../utils/contractHelper');
 
-const getUniV3PositionPrices = async (web3, pools, tokenPrices) => {
+const getUniV3PositionPrices = async params => {
   let prices = {};
-  let promises = [];
-  pools.forEach(pool => promises.push(getPrice(web3, pool, tokenPrices)));
-  const values = await Promise.all(promises);
 
-  for (const item of values) {
-    prices = { ...prices, ...item };
+  const positionTokens = await getPoolData(params);
+
+  for (let i = 0; i < params.pools.length; i++) {
+    let price = await getPrice(params.pools[i], positionTokens[i], params.tokenPrices);
+    prices = { ...prices, ...price };
   }
 
   return prices;
 };
 
-const getPrice = async (web3, pool, tokenPrices) => {
-  const stratContract = getContractWithProvider(StratAbi, pool.strategy, web3);
-  const tokenBal = await stratContract.methods.balanceOfTokens().call();
-  const liquidity = new BigNumber(await stratContract.methods.balanceOfPool().call());
-
-  const lp0Bal = new BigNumber(tokenBal[2]);
-  const lp1Bal = new BigNumber(tokenBal[3]);
+const getPrice = async (pool, positionTokens, tokenPrices) => {
+  const lp0Bal = new BigNumber(positionTokens[0]);
+  const lp1Bal = new BigNumber(positionTokens[1]);
+  const liquidity = new BigNumber(positionTokens[2]);
 
   const lp0 = lp0Bal.multipliedBy(tokenPrices[pool.lp0.oracleId]).dividedBy(pool.lp0.decimals);
   const lp1 = lp1Bal.multipliedBy(tokenPrices[pool.lp1.oracleId]).dividedBy(pool.lp1.decimals);
@@ -39,6 +38,23 @@ const getPrice = async (web3, pool, tokenPrices) => {
       totalSupply: liquidity.dividedBy(1e18).toString(10),
     },
   };
+};
+
+const getPoolData = async params => {
+  const multicall = new MultiCall(params.web3, multicallAddress(params.chainId));
+  let calls = [];
+  const beefyHelperContract = getContract(Helper, params.beefyHelper);
+  params.pools.forEach(pool => {
+    calls.push({
+      tokens: beefyHelperContract.methods.getPositionTokens(pool.nftId, pool.address),
+    });
+  });
+
+  const res = await multicall.all([calls]);
+
+  const positionTokens = res[0].map(v => v.tokens);
+
+  return positionTokens;
 };
 
 module.exports = getUniV3PositionPrices;

@@ -28,7 +28,6 @@ import getConeStablePrices from './bsc/getConeStablePrices';
 import getSpiritStablePrices from './fantom/getSpiritStablePrices';
 import getHermesStablePrices from './metis/getHermesStablePrices';
 import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
-import getUniV3PolygonPrices from './matic/getUniV3PolygonPrices';
 import getCurveKavaPrices from './kava/getCurvePrices';
 import getSushiKavaPrices from './kava/getSushiPrices';
 import getSushiArbPrices from './arbitrum/getSushiPrice';
@@ -68,6 +67,7 @@ import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
 import { getThenaGammaPrices } from './bsc/getThenaGammaPrices';
 import getCurveCeloPrices from './celo/getCurvePrices';
 import { getPolygonSolidlyStablePrices } from './matic/getPolygonSolidlyStablePrices';
+import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -87,6 +87,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   let breakdown = {};
 
   const promises = [
+    getUniswapArbitrumPrices(tokenPrices),
     getSoliSnekStablePrices(tokenPrices),
     getVelocoreStablePrices(tokenPrices),
     getMmyOptimismPrices(tokenPrices),
@@ -123,7 +124,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getGmxArbitrumPrices(tokenPrices),
     getSushiKavaPrices(tokenPrices),
     getSushiArbPrices(tokenPrices),
-    // getUniV3PolygonPrices(tokenPrices),
     getHermesStablePrices(tokenPrices),
     getCakeStablePrices(tokenPrices),
     getSpiritStablePrices(tokenPrices),
