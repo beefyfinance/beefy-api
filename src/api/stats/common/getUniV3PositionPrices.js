@@ -1,9 +1,6 @@
 const BigNumber = require('bignumber.js');
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
-
-const Helper = require('../../../abis/BeefyUniswapPositionHelper.json');
-const { getContract } = require('../../../utils/contractHelper');
+import { fetchContract } from '../../rpc/client';
+import BeefyUniswapPositionHelperAbi from '../../../abis/BeefyUniswapPositionHelper';
 
 const getUniV3PositionPrices = async params => {
   let prices = {};
@@ -41,20 +38,15 @@ const getPrice = async (pool, positionTokens, tokenPrices) => {
 };
 
 const getPoolData = async params => {
-  const multicall = new MultiCall(params.web3, multicallAddress(params.chainId));
-  let calls = [];
-  const beefyHelperContract = getContract(Helper, params.beefyHelper);
-  params.pools.forEach(pool => {
-    calls.push({
-      tokens: beefyHelperContract.methods.getPositionTokens(pool.nftId, pool.address),
-    });
-  });
-
-  const res = await multicall.all([calls]);
-
-  const positionTokens = res[0].map(v => v.tokens);
-
-  return positionTokens;
+  const beefyHelperContract = fetchContract(
+    params.beefyHelper,
+    BeefyUniswapPositionHelperAbi,
+    params.chainId
+  );
+  const calls = params.pools.map(pool =>
+    beefyHelperContract.read.getPositionTokens([pool.nftId, pool.address])
+  );
+  return await Promise.all(calls);
 };
 
 module.exports = getUniV3PositionPrices;
