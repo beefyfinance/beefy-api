@@ -1,4 +1,4 @@
-const { polygonWeb3: web3 } = require('../../../utils/web3');
+import { POLYGON_CHAIN_ID } from '../../../constants';
 const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
 
 const pools = [
@@ -7,5 +7,5 @@ const pools = [
 ];
 
 export const getPolygonSolidlyStablePrices = async tokenPrices => {
-  return await getSolidlyStablePrices(web3, pools, tokenPrices);
+  return await getSolidlyStablePrices(POLYGON_CHAIN_ID, pools, tokenPrices);
 };
