@@ -13,7 +13,7 @@ import { ERC20_ABI } from '../../../abis/common/ERC20';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { beethovenx } from '../../../../packages/address-book/address-book/fantom/platforms/beethovenx';
-const IBalancerVault = require('../../../abis/IBalancerVault.json');
+import IBalancerVault from '../../../abis/IBalancerVault';
 
 const masterchef = '0x8166994d9ebBe5829EC86Bd81258149B87faCfd3';
 const oracleIdA = 'BEETS';

@@ -114,7 +114,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getStargateAvaxPrices(tokenPrices),
     getStargateArbPrices(tokenPrices),
     getStargateEthPrices(tokenPrices),
-    getHopPolyPrices(tokenPrices),
+    getHopPolyPrices(tokenPrices), // <----
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),
     getFerroPrices(tokenPrices),
@@ -155,6 +155,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getSynapsePrices(),
     getJarvisPrices(tokenPrices),
     getSolarbeamPrices(tokenPrices),
+    // >> - <<
     getStellaswapPrices(tokenPrices),
     getThenaGammaPrices(tokenPrices),
   ];

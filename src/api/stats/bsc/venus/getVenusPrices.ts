@@ -1,11 +1,11 @@
-import { getContractWithProvider } from '../../../../utils/contractHelper';
 import { isFiniteNumber } from '../../../../utils/number';
 import BigNumber from 'bignumber.js';
-import { bscWeb3 } from '../../../../utils/web3';
+import { fetchContract } from '../../../rpc/client';
+import { ChainId } from '../../../../../packages/address-book/address-book';
 
 const vUSDT = {
   oracle: 'vUSDT',
-  address: '0xfD5840Cd36d94D7229439859C0112a4185BC0255',
+  address: '0xfD5840Cd36d94D7229439859C0112a4185BC0255' as `0x${string}`,
   decimals: 8,
   underlying: {
     oracle: 'tokens',
@@ -24,15 +24,17 @@ const abi = [
     stateMutability: 'view',
     type: 'function',
   },
-];
+] as const;
 
 export const fetchVenusPrices = async (
   tokenPrices: Record<string, number>
 ): Promise<Record<string, number>> => {
-  const contract = getContractWithProvider(abi, vUSDT.address, bscWeb3);
-
   try {
-    const currentExchangeRate = new BigNumber(await contract.methods.exchangeRateCurrent().call());
+    const contract = fetchContract(vUSDT.address, abi, ChainId.bsc);
+    const currentExchangeRate = new BigNumber(
+      (await contract.read.exchangeRateCurrent()).toString()
+    );
+
     const divisor = new BigNumber(10).pow(18 + vUSDT.underlying.decimals - vUSDT.decimals);
 
     const exchangeRate = currentExchangeRate.div(divisor);

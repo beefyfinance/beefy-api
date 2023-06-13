@@ -6,9 +6,9 @@ const { MultiCall } = require('eth-multicall');
 import { getContract } from '../../../utils/contractHelper';
 const { ethereumWeb3: web3, multicallAddress } = require('../../../utils/web3');
 import { ETH_HPY, ETH_CHAIN_ID as chainId } from '../../../constants';
+import IETokenAbi from '../../../abis/ethereum/IEToken';
 const IMarkets = require('../../../abis/ethereum/IMarkets.json');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
-const IEToken = require('../../../abis/ethereum/IEToken.json');
 const IRewardPool = require('../../../abis/IRewardPool.json');
 
 const pools = require('../../../data/ethereum/eulerPools.json');
@@ -67,7 +67,7 @@ const getData = async pools => {
   const marketsContract = getContract(IMarkets, markets);
   pools.forEach(pool => {
     const rewardContract = getContract(IRewardPool, pool.rewardPool);
-    const etokenContract = getContract(IEToken, pool.etoken);
+    const etokenContract = getContract(IETokenAbi, pool.etoken);
     supplyRateCalls.push({
       supplyRate: marketsContract.methods.interestRate(pool.underlying),
     });

@@ -1,10 +1,8 @@
 import BigNumber from 'bignumber.js';
-import { multicallAddress, web3Factory } from './web3';
-import { MultiCall } from 'eth-multicall';
-import { getContract } from './contractHelper';
-import DMMPool from '../abis/DMMPool.json';
-import ERC20 from '../abis/common/ERC20/ERC20.json';
 import { ChainId } from '../../packages/address-book/address-book';
+import DMMPoolAbi from '../abis/DMMPool';
+import ERC20Abi from '../abis/ERC20Abi';
+import { fetchContract } from '../api/rpc/client';
 
 const DEBUG_ORACLES = [];
 
@@ -74,42 +72,47 @@ export async function fetchDmmPrices(
   const uniqueChainIds = [...new Set(chainIds)];
 
   for (let i = 0; i < uniqueChainIds.length; i++) {
-    const web3 = web3Factory(uniqueChainIds[i]);
     let filtered = pools.filter(p => p.chainId == uniqueChainIds[i]);
-    const multicall = new MultiCall(web3, multicallAddress(uniqueChainIds[i]));
 
-    const dmmCalls = [];
-    const lp0Calls = [];
-    const lp1Calls = [];
-    filtered.forEach(pool => {
-      const tokenContract = getContract(DMMPool, pool.address);
-      const lp0Contract = getContract(ERC20, pool.lp0.address);
-      const lp1Contract = getContract(ERC20, pool.lp1.address);
-      dmmCalls.push({
-        totalSupply: tokenContract.methods.totalSupply(),
-        tradeInfo: tokenContract.methods.getTradeInfo(),
-      });
-      lp0Calls.push({
-        balance: lp0Contract.methods.balanceOf(pool.address),
-      });
-      lp1Calls.push({
-        balance: lp1Contract.methods.balanceOf(pool.address),
-      });
+    const dmmCalls = filtered.map(pool => {
+      const tokenContract = fetchContract(pool.address, DMMPoolAbi, pool.chainId);
+      return tokenContract.read.totalSupply();
+    });
+    const dmmTradeCalls = filtered.map(pool => {
+      const tokenContract = fetchContract(pool.address, DMMPoolAbi, pool.chainId);
+      return tokenContract.read.getTradeInfo();
+    });
+    const lp0Calls = filtered.map(pool => {
+      const tokenContract = fetchContract(pool.lp0.address, ERC20Abi, pool.chainId);
+      return tokenContract.read.balanceOf([pool.address]);
+    });
+    const lp1Calls = filtered.map(pool => {
+      const tokenContract = fetchContract(pool.lp1.address, ERC20Abi, pool.chainId);
+      return tokenContract.read.balanceOf([pool.address]);
     });
 
-    let res;
+    let dmmResults: bigint[],
+      dmmTradeResults: (readonly [bigint, bigint, bigint, bigint, bigint])[],
+      lp0Results: bigint[],
+      lp1Results: bigint[];
+
     try {
-      res = await multicall.all([dmmCalls, lp0Calls, lp1Calls]);
+      [dmmResults, dmmTradeResults, lp0Results, lp1Results] = await Promise.all([
+        Promise.all(dmmCalls),
+        Promise.all(dmmTradeCalls),
+        Promise.all(lp0Calls),
+        Promise.all(lp1Calls),
+      ]);
     } catch (e) {
       console.error('fetchDmmPrices', e);
       continue;
     }
 
-    const totalSupply = res[0].map(v => new BigNumber(v.totalSupply));
-    const virtualBal0 = res[0].map(v => new BigNumber(v.tradeInfo['2']));
-    const virtualBal1 = res[0].map(v => new BigNumber(v.tradeInfo['3']));
-    const lp0Bal = res[1].map(v => new BigNumber(v.balance));
-    const lp1Bal = res[2].map(v => new BigNumber(v.balance));
+    const totalSupply = dmmResults.map(v => new BigNumber(v.toString()));
+    const virtualBal0 = dmmTradeResults.map(v => new BigNumber(v[2].toString()));
+    const virtualBal1 = dmmTradeResults.map(v => new BigNumber(v[3].toString()));
+    const lp0Bal = lp0Results.map(v => new BigNumber(v.toString()));
+    const lp1Bal = lp1Results.map(v => new BigNumber(v.toString()));
 
     for (let i = 0; i < filtered.length; i++) {
       filtered[i].totalSupply = totalSupply[i];

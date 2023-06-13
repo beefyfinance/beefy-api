@@ -12,7 +12,6 @@ const { getAuroraApys } = require('./aurora');
 const { getFuseApys } = require('./fuse');
 const { getMetisApys } = require('./metis');
 const { getMoonbeamApys } = require('./moonbeam');
-const { getSysApys } = require('./sys');
 const { getEmeraldApys } = require('./emerald');
 const { getOptimismApys } = require('./optimism');
 const { getKavaApys } = require('./kava');
@@ -59,7 +58,6 @@ const updateApys = async () => {
       getFuseApys(),
       getMetisApys(),
       getMoonbeamApys(),
-      //getSysApys(),
       getEmeraldApys(),
       getOptimismApys(),
       getKavaApys(),

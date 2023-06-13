@@ -2,7 +2,6 @@ import { MultiCall } from 'eth-multicall';
 const { optimismWeb3: web3 } = require('../../../utils/web3');
 import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
-const IBalancerVault = require('../../../abis/IBalancerVault.json');
 import BigNumber from 'bignumber.js';
 import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
@@ -11,6 +10,7 @@ import { beetOpClient } from '../../../apollo/client';
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
+import IBalancerVault from '../../../abis/IBalancerVault';
 const fetchPrice = require('../../../utils/fetchPrice');
 
 const { getContractWithProvider } = require('../../../utils/contractHelper');

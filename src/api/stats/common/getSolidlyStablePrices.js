@@ -1,30 +1,32 @@
 const BigNumber = require('bignumber.js');
+const { fetchContract } = require('../../rpc/client');
+const { default: ISolidlyPair } = require('../../../abis/ISolidlyPair');
 
-const LPAbi = require('../../../abis/ISolidlyPair.json');
-const { getContract } = require('../../../utils/contractHelper');
-const { MultiCall } = require('eth-multicall');
-const { multicallAddress } = require('../../../utils/web3');
-
-const getSolidlyStablePrices = async (web3, pools, tokenPrices) => {
+const getSolidlyStablePrices = async (chainId, pools, tokenPrices) => {
   let prices = {};
 
-  const chainId = await web3.eth.getChainId();
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
+  const [reserveCalls, supplyCalls] = pools.reduce(
+    (acc, pool) => {
+      const contract = fetchContract(pool.address, ISolidlyPair, chainId);
+      acc[0].push(contract.read.getReserves());
+      acc[1].push(contract.read.totalSupply());
+      return acc;
+    },
+    [[], []]
+  );
 
-  const calls = pools.map(pool => {
-    const lp = getContract(LPAbi, pool.address);
+  const [reserveResults, supplyResults] = await Promise.all([
+    Promise.all(reserveCalls),
+    Promise.all(supplyCalls),
+  ]);
+
+  const poolsData = reserveResults.map((_, i) => {
     return {
-      reserves: lp.methods.getReserves(),
-      totalSupply: lp.methods.totalSupply(),
+      lp0Bal: new BigNumber(reserveResults[i][0]),
+      lp1Bal: new BigNumber(reserveResults[i][1]),
+      totalSupply: new BigNumber(supplyResults[i]),
     };
   });
-  const res = await multicall.all([calls]);
-  const poolsData = res[0].map(v => ({
-    ...v,
-    lp0Bal: new BigNumber(v.reserves[0]),
-    lp1Bal: new BigNumber(v.reserves[1]),
-    totalSupply: new BigNumber(v.totalSupply),
-  }));
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];

@@ -1,12 +1,10 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../../utils/web3');
-
-const BeltLP = require('../../../../abis/BeltLP.json');
-const BeltMultiStrategyToken = require('../../../../abis/BeltMultiStrategyToken.json');
-const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { default: BeltLPAbi } = require('../../../../abis/BeltLP');
+const { BSC_CHAIN_ID } = require('../../../../constants');
+const { default: BeltMultiStrategyTokenAbi } = require('../../../../abis/BeltMultiStrategyToken');
+const { fetchContract } = require('../../../rpc/client');
 
 const DECIMALS = '1e18';
-
 const getBeltPrices = async tokenPrices => {
   const beltTokens = [
     { name: 'belt-beltbnb', address: '0xa8Bb71facdd46445644C277F9499Dd22f6F0A30C', token: 'WBNB' },
@@ -34,33 +32,32 @@ const getBeltPrices = async tokenPrices => {
 };
 
 const getBeltVenusLpPrice = async () => {
-  const beltLPContract = getContractWithProvider(
-    BeltLP,
+  const beltLPContract = fetchContract(
     '0xF16D312d119c13dD27fD0dC814b0bCdcaAa62dfD',
-    web3
+    BeltLPAbi,
+    BSC_CHAIN_ID
   );
-  let tokenPrice = new BigNumber(await beltLPContract.methods.get_virtual_price().call());
+  let tokenPrice = new BigNumber(await beltLPContract.read.get_virtual_price());
   tokenPrice = Number(tokenPrice.dividedBy(DECIMALS).toFixed(6));
 
   return { 'belt-venus-blp': tokenPrice };
 };
 
 const getBelt4BeltLpPrice = async () => {
-  const beltLPContract = getContractWithProvider(
-    BeltLP,
+  const beltLPContract = fetchContract(
     '0xAEA4f7dcd172997947809CE6F12018a6D5c1E8b6',
-    web3
+    BeltLPAbi,
+    BSC_CHAIN_ID
   );
-
-  let tokenPrice = new BigNumber(await beltLPContract.methods.get_virtual_price().call());
+  let tokenPrice = new BigNumber(await beltLPContract.read.get_virtual_price());
   tokenPrice = Number(tokenPrice.dividedBy(DECIMALS).toFixed(6));
 
   return { 'belt-4belt': tokenPrice };
 };
 
 const getBeltTokenPrice = async (beltToken, tokenPrices) => {
-  const beltContract = getContractWithProvider(BeltMultiStrategyToken, beltToken.address, web3);
-  let sharePrice = new BigNumber(await beltContract.methods.getPricePerFullShare().call());
+  const beltContract = fetchContract(beltToken.address, BeltMultiStrategyTokenAbi, BSC_CHAIN_ID);
+  let sharePrice = new BigNumber(await beltContract.read.getPricePerFullShare());
 
   let tokenPrice;
   const tokenSymbol = beltToken.token;

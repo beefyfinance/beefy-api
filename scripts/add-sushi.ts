@@ -80,11 +80,6 @@ const projects = {
     file: '../src/data/aurora/trisolarisMiniLpPools.json',
     masterchef: tri.minichef,
   },
-  pegasys: {
-    prefix: 'pegasys',
-    file: '../src/data/sys/pegasysLpPools.json',
-    masterchef: pegasys.minichef,
-  },
   pancake: {
     prefix: 'cakev2',
     file: '../src/data/cakeLpPoolsV2.json',

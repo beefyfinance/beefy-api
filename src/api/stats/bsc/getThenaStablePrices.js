@@ -1,9 +1,9 @@
 const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
-const { bscWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/degens/thenaStableLpPools.json');
+const { BSC_CHAIN_ID } = require('../../../constants');
 
 const getThenaStablePrices = async tokenPrices => {
-  return await getSolidlyStablePrices(web3, pools, tokenPrices);
+  return await getSolidlyStablePrices(BSC_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getThenaStablePrices;

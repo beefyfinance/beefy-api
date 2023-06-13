@@ -6,7 +6,7 @@ import BigNumber from 'bignumber.js';
 import { getTradingFeeAprHop } from '../../../../utils/getTradingFeeApr';
 
 const ERC20 = require('../../../../abis/common/ERC20/ERC20.json');
-const IStableSwap = require('../../../../abis/IStableSwap.json');
+const IStableSwap = require('../../../../abis/IStableSwap');
 
 export const getHopCommonApys = async params => {
   params.tradingAprs = await getTradingAprs(params);

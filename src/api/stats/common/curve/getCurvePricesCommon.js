@@ -1,49 +1,64 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const ICurvePool = require('../../../../abis/ICurvePool.json');
-const ICurvePoolOld = require('../../../../abis/ICurvePoolOld.json');
-const ERC20 = require('../../../../abis/ERC20.json');
-const { getContract } = require('../../../../utils/contractHelper');
-const { multicallAddress } = require('../../../../utils/web3');
+const { fetchContract } = require('../../../rpc/client');
+const { default: ERC20Abi } = require('../../../../abis/ERC20Abi');
+const { default: ICurvePool } = require('../../../../abis/ICurvePool');
 
 const DECIMALS = '1e18';
 
-const getCurvePricesCommon = async (web3, pools, tokenPrices) => {
+const getCurvePricesCommon = async (chainId, pools, tokenPrices) => {
   let prices = {};
 
-  const chainId = await web3.eth.getChainId();
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-
+  //Split needed pool data and calls
+  const poolData = pools.map(pool => pool.pool);
   const supplyCalls = pools.map(pool => {
-    const lp = getContract(ERC20, pool.token ?? pool.pool);
-    return {
-      pool: pool.pool,
-      totalSupply: lp.methods.totalSupply(),
-    };
+    const contract = fetchContract(pool.token ?? pool.pool, ERC20Abi, chainId);
+    return contract.read.totalSupply();
   });
-  const tokensCalls = [];
+
+  //Split needed token data and calls
+  const tokenData = [],
+    tokenBalanceCalls = [],
+    tokenAddressCalls = [];
   pools.forEach(pool => {
-    const curvePool = getContract(pool.oldAbi ? ICurvePoolOld : ICurvePool, pool.pool);
-    return pool.tokens.forEach((token, index) => {
-      tokensCalls.push({
+    const contract = fetchContract(pool.pool, ICurvePool, chainId);
+    pool.tokens.forEach((token, index) => {
+      tokenData.push({
         pool: pool.pool,
         oracleId: token.oracleId,
-        balance: curvePool.methods.balances(index),
-        address: curvePool.methods.coins(index),
+        token,
       });
+      tokenBalanceCalls.push(contract.read.balances([index]));
+      tokenAddressCalls.push(contract.read.coins([index]));
     });
   });
-  const res = await multicall.all([supplyCalls, tokensCalls]);
-  const tokensInfo = res[1].map(v => ({
-    ...v,
-    balance: new BigNumber(v.balance),
-    token: pools.find(p => p.pool === v.pool).tokens.find(t => t.oracleId === v.oracleId),
-  }));
+
+  //Single await for all calls
+  const [balanceResults, addressResults, supplyResults] = await Promise.all([
+    Promise.all(tokenBalanceCalls),
+    Promise.all(tokenAddressCalls),
+    Promise.all(supplyCalls),
+  ]);
+
+  //Build token result object
+  const tokensInfo = balanceResults.map((_, index) => {
+    return {
+      ...tokenData[index],
+      balance: new BigNumber(balanceResults[index]),
+      address: addressResults[index],
+    };
+  });
+  //Build supply result object
+  const poolsInfo = supplyResults.map((totalSupply, index) => {
+    return {
+      pool: poolData[index],
+      totalSupply: new BigNumber(totalSupply),
+    };
+  });
 
   // reverse to calc base pools (3pool, fraxbp) first and use their prices in metapools
   for (const pool of pools.slice().reverse()) {
-    const supplyInfo = res[0].find(r => r.pool === pool.pool);
-    const totalSupply = new BigNumber(supplyInfo.totalSupply).div(DECIMALS);
+    const supplyInfo = poolsInfo.find(r => r.pool === pool.pool);
+    const totalSupply = supplyInfo.totalSupply.div(DECIMALS);
     const tokens = tokensInfo.filter(r => r.pool === pool.pool);
 
     let totalBalInUsd = new BigNumber(0);

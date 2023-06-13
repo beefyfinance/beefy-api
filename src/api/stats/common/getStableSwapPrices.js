@@ -1,15 +1,14 @@
 const BigNumber = require('bignumber.js');
-
-const LPAbi = require('../../../abis/IStableSwap.json');
-const ERC20 = require('../../../abis/ERC20.json');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { default: IStableSwapAbi } = require('../../../abis/IStableSwap');
+const { fetchContract } = require('../../rpc/client');
+const { default: ERC20Abi } = require('../../../abis/ERC20Abi');
 
 const DECIMALS = '1e18';
 
-const getStableSwapPrices = async (web3, pools, tokenPrices) => {
+const getStableSwapPrices = async (chainId, pools, tokenPrices) => {
   let prices = {};
   let promises = [];
-  pools.forEach(pool => promises.push(getPrice(web3, pool, tokenPrices)));
+  pools.forEach(pool => promises.push(getPrice(chainId, pool, tokenPrices)));
   const values = await Promise.all(promises);
 
   for (const item of values) {
@@ -19,24 +18,25 @@ const getStableSwapPrices = async (web3, pools, tokenPrices) => {
   return prices;
 };
 
-const getPrice = async (web3, pool, tokenPrices) => {
-  const lpContract = getContractWithProvider(LPAbi, pool.pool, web3);
-  const virtualPrice = new BigNumber(await lpContract.methods.getVirtualPrice().call());
+const getPrice = async (chainId, pool, tokenPrices) => {
+  const lpContract = fetchContract(pool.pool, IStableSwapAbi, chainId);
+
+  const virtualPrice = new BigNumber((await lpContract.read.getVirtualPrice()).toString());
   const tokenPrice = getTokenPrice(tokenPrices, pool.virtualOracleId);
   const price = virtualPrice.multipliedBy(tokenPrice).dividedBy(pool.decimals).toNumber();
 
-  let { tokens, balances, totalSupply } = await getLpBreakdownData(web3, pool);
+  let { tokens, balances, totalSupply } = await getLpBreakdownData(chainId, pool);
   return { [pool.name]: { price, tokens, balances, totalSupply } };
 };
 
-const getLpBreakdownData = async (web3, pool) => {
-  let supplyContract = getContractWithProvider(ERC20, pool.address, web3);
+const getLpBreakdownData = async (chainId, pool) => {
+  const supplyContract = fetchContract(pool.address, ERC20Abi, chainId);
 
-  let promises = [];
+  const promises = [];
   pool.tokens.forEach((_, index) =>
-    promises.push(getTokenBalanceAndAddress(web3, pool.pool, index))
+    promises.push(getTokenBalanceAndAddress(chainId, pool.pool, index))
   );
-  promises.push(supplyContract.methods.totalSupply().call());
+  promises.push(supplyContract.read.totalSupply());
 
   let results = await Promise.all(promises);
 
@@ -55,10 +55,10 @@ const getLpBreakdownData = async (web3, pool) => {
   return { tokens, balances, totalSupply };
 };
 
-const getTokenBalanceAndAddress = async (web3, stablePool, index) => {
-  const pool = getContractWithProvider(LPAbi, stablePool, web3);
+const getTokenBalanceAndAddress = async (chainId, stablePool, index) => {
+  const pool = fetchContract(stablePool, IStableSwapAbi, chainId);
 
-  let promises = [pool.methods.getTokenBalance(index).call(), pool.methods.getToken(index).call()];
+  let promises = [pool.read.getTokenBalance([index]), pool.read.getToken([index])];
   let [balance, tokenAddress] = await Promise.all(promises);
 
   return { balance, tokenAddress };

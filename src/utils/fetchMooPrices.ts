@@ -1,12 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { ethers } from 'ethers';
-import { MULTICHAIN_RPC } from '../constants';
-import { multicallAddress, web3Factory } from './web3';
-import { MultiCall } from 'eth-multicall';
-import { getContract } from './contractHelper';
 import { ChainId } from '../../packages/address-book/address-book';
-
-import IVault from '../abis/BeefyVaultV6.json';
 import { fetchContract } from '../api/rpc/client';
 import BeefyVaultV6Abi from '../abis/BeefyVault';
 
@@ -27,36 +20,28 @@ export async function fetchMooPrices(
   return moo;
 }
 
-const fetchPpfs = async pools => {
+const fetchPpfs = async (pools: any[]) => {
   const chainIds: ChainId[] = pools.map(p => p.chainId);
   const uniqueChainIds = [...new Set(chainIds)];
 
   for (let i = 0; i < uniqueChainIds.length; i++) {
-    const web3 = web3Factory(uniqueChainIds[i]);
     let filtered = pools.filter(p => p.chainId == uniqueChainIds[i]);
-    const multicall = new MultiCall(web3, multicallAddress(uniqueChainIds[i]));
 
-    const ppfsCalls = [];
-    filtered.forEach(pool => {
-      pool.ppfs = new BigNumber(1);
-      const tokenContract = getContract(IVault, pool.address);
-      ppfsCalls.push({
-        ppfs: tokenContract.methods.getPricePerFullShare(),
-      });
+    const ppfsCalls = filtered.map(pool => {
+      const contract = fetchContract(pool.address, BeefyVaultV6Abi, uniqueChainIds[i]);
+      return contract.read.getPricePerFullShare();
     });
 
-    let res;
     try {
-      res = await multicall.all([ppfsCalls]);
+      const res = await Promise.all(ppfsCalls);
+      const ppfss = res.map(v => new BigNumber(v.toString()));
+
+      for (let i = 0; i < ppfss.length; i++) {
+        filtered[i].ppfs = ppfss[i];
+      }
     } catch (e) {
       console.error('fetchMooPrices', e);
       continue;
-    }
-
-    const ppfss = res[0].map(v => new BigNumber(v.ppfs));
-
-    for (let i = 0; i < ppfss.length; i++) {
-      filtered[i].ppfs = ppfss[i];
     }
   }
 };

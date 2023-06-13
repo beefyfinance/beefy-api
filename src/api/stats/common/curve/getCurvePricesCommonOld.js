@@ -1,8 +1,8 @@
 const BigNumber = require('bignumber.js');
 
-const ICurvePool = require('../../../../abis/ICurvePool.json');
 const ERC20 = require('../../../../abis/ERC20.json');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { default: ICurvePool } = require('../../../../abis/ICurvePool');
 
 const DECIMALS = '1e18';
 

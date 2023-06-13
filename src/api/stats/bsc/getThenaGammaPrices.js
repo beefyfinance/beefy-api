@@ -1,31 +1,34 @@
-import { getContract } from '../../../utils/contractHelper';
-import { MultiCall } from 'eth-multicall';
-import { bscWeb3 as web3, multicallAddress } from '../../../utils/web3';
 import { BSC_CHAIN_ID } from '../../../constants';
-import ThenaLP from '../../../abis/bsc/ThenaLP.json';
 import BigNumber from 'bignumber.js';
+import ThenaLPAbi from '../../../abis/bsc/ThenaLP';
+import { fetchContract } from '../../rpc/client';
 
 const pools = require('../../../data/degens/thenaGammaPools.json');
 
 export const getThenaGammaPrices = async tokenPrices => {
-  const calls = pools.map(pool => {
-    const lp = getContract(ThenaLP, pool.address);
-    return {
-      amounts: lp.methods.getTotalAmounts(),
-      totalSupply: lp.methods.totalSupply(),
-    };
-  });
-  const multicall = new MultiCall(web3, multicallAddress(BSC_CHAIN_ID));
-  const res = await multicall.all([calls]);
+  const [amountCalls, totalSupplyCalls] = pools.reduce(
+    (acc, pool) => {
+      const contract = fetchContract(pool.address, ThenaLPAbi, BSC_CHAIN_ID);
+      acc[0].push(contract.read.getTotalAmounts());
+      acc[1].push(contract.read.totalSupply());
+      return acc;
+    },
+    [[], []]
+  );
+
+  const [amountResults, totalSupplyResults] = await Promise.all([
+    Promise.all(amountCalls),
+    Promise.all(totalSupplyCalls),
+  ]);
 
   let prices = {};
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const lp0 = pool.lp0;
     const lp1 = pool.lp1;
-    const bal0 = new BigNumber(res[0][i].amounts['0']).div(lp0.decimals);
-    const bal1 = new BigNumber(res[0][i].amounts['1']).div(lp1.decimals);
-    const totalSupply = new BigNumber(res[0][i].totalSupply).div('1e18');
+    const bal0 = new BigNumber(amountResults[i][0]).div(lp0.decimals);
+    const bal1 = new BigNumber(amountResults[i][1]).div(lp1.decimals);
+    const totalSupply = new BigNumber(totalSupplyResults[i]).div('1e18');
 
     const price0 = getTokenPrice(tokenPrices, lp0.oracleId);
     const price1 = getTokenPrice(tokenPrices, lp1.oracleId);

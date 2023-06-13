@@ -1,12 +1,10 @@
 const { avaxWeb3: web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
 import pools from '../../../data/avax/gmxPools.json';
-import { getContractWithProvider } from '../../../utils/contractHelper';
-const GlpManager = require('../../../abis/arbitrum/GlpManager.json');
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
 import { AVAX_CHAIN_ID } from '../../../constants';
-import { ERC20_ABI } from '../../../abis/common/ERC20';
+import GlpManagerAbi from '../../../abis/arbitrum/GlpManager';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import { fetchContract } from '../../rpc/client';
 
 const getGmxAvalanchePrices = async tokenPrices => {
   let prices = {};
@@ -23,8 +21,10 @@ const getGmxAvalanchePrices = async tokenPrices => {
 
 const getPrice = async (pool, tokenPrices) => {
   if (pool.oracle == 'lps') {
-    let price = await getLpPrice(pool);
-    let results = await getLpTokenBalances(pool);
+    const [price, results] = await Promise.all([
+      await getLpPrice(pool),
+      await getLpTokenBalances(pool),
+    ]);
     return {
       [pool.name]: {
         price: price[0],
@@ -52,15 +52,12 @@ const getTokenPrice = (tokenPrices, oracleId) => {
 };
 
 const getLpTokenBalances = async pool => {
-  const multicall = new MultiCall(web3, multicallAddress(AVAX_CHAIN_ID));
-  const balanceCalls = [];
-  pool.tokens.forEach(token => {
-    const tokenContract = getContractWithProvider(ERC20_ABI, token.address, web3);
-    balanceCalls.push({ balances: tokenContract.methods.balanceOf(pool.vault) });
+  const balanceCalls = pool.tokens.map(token => {
+    const contract = fetchContract(token.address, ERC20Abi, AVAX_CHAIN_ID);
+    return contract.read.balanceOf([pool.vault]);
   });
-
-  const res = await multicall.all([balanceCalls]);
-  const bal = res[0].map(v => new BigNumber(v.balances));
+  const balanceResults = await Promise.all(balanceCalls);
+  const bal = balanceResults.map(v => new BigNumber(v.toString()));
 
   let tokens = [];
   let shiftedBalances = [];
@@ -73,18 +70,15 @@ const getLpTokenBalances = async pool => {
 };
 
 const getLpPrice = async pool => {
-  const multicall = new MultiCall(web3, multicallAddress(AVAX_CHAIN_ID));
-  const managerCalls = [];
-  const glpCalls = [];
-  const glpManager = getContractWithProvider(GlpManager, pool.glpManager, web3);
-  const glp = getContractWithProvider(ERC20_ABI, pool.address, web3);
-  managerCalls.push({ aum: glpManager.methods.getAumInUsdg(true) });
-  glpCalls.push({ totalSupply: glp.methods.totalSupply() });
+  const glpManagerContract = fetchContract(pool.glpManager, GlpManagerAbi, AVAX_CHAIN_ID);
+  const glpContract = fetchContract(pool.address, ERC20Abi, AVAX_CHAIN_ID);
 
-  const res = await multicall.all([managerCalls, glpCalls]);
-
-  const aum = new BigNumber(res[0].map(v => v.aum));
-  const totalSupply = new BigNumber(res[1].map(v => v.totalSupply));
+  const results = await Promise.all([
+    glpManagerContract.read.getAumInUsdg([true]),
+    glpContract.read.totalSupply(),
+  ]);
+  const aum = new BigNumber(results[0].toString());
+  const totalSupply = new BigNumber(results[1].toString());
   const price = aum.dividedBy(totalSupply).toNumber();
 
   return [price, totalSupply];

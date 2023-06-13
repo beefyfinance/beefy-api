@@ -1,9 +1,9 @@
 const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
-const { cantoWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/canto/cantoStableLpPools.json');
+const { CANTO_CHAIN_ID } = require('../../../constants');
 
 const getCantoStablePrices = async tokenPrices => {
-  return await getSolidlyStablePrices(web3, pools, tokenPrices);
+  return await getSolidlyStablePrices(CANTO_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getCantoStablePrices;

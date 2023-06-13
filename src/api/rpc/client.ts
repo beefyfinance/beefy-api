@@ -4,13 +4,14 @@ import { Abi } from 'abitype';
 import { getChain } from './chains';
 import { ChainId } from '../../../packages/address-book/address-book';
 
-const clientsByChain: Record<number, PublicClient> = {};
+const multicallClientsByChain: Record<number, PublicClient> = {};
+const singleCallClientsByChain: Record<number, PublicClient> = {};
 
-const getClientForChain = (chainId: ChainId): PublicClient => {
+const getMulticallClientForChain = (chainId: ChainId): PublicClient => {
   const chain = getChain[chainId];
-  if (!clientsByChain[chain.id]) {
-    console.log('Creating client for chain ' + chain.name);
-    clientsByChain[chain.id] = createPublicClient({
+  if (!chain) throw new Error('Unknown chainId ' + chainId);
+  if (!multicallClientsByChain[chain.id]) {
+    multicallClientsByChain[chain.id] = createPublicClient({
       batch: {
         multicall: {
           batchSize: 128,
@@ -30,14 +31,39 @@ const getClientForChain = (chainId: ChainId): PublicClient => {
       }),
     });
   }
-  return clientsByChain[chain.id];
+  return multicallClientsByChain[chain.id];
+};
+
+const getSingleCallClientForChain = (chainId: ChainId): PublicClient => {
+  const chain = getChain[chainId];
+  if (!chain) throw new Error('Unknown chainId ' + chainId);
+  if (!singleCallClientsByChain[chain.id]) {
+    singleCallClientsByChain[chain.id] = createPublicClient({
+      chain: chain,
+      transport: http(chain.rpcUrls.public.http[0], {
+        timeout: 15000,
+        retryCount: 3,
+        retryDelay: 350,
+      }),
+    });
+  }
+  return singleCallClientsByChain[chain.id];
 };
 
 export const fetchContract = <ContractAbi extends Abi>(
-  address: `0x${string}`,
+  address: string,
   abi: ContractAbi,
   chainId: ChainId
 ) => {
-  const publicClient = getClientForChain(chainId);
-  return getContract({ address, abi, publicClient });
+  const publicClient = getMulticallClientForChain(chainId);
+  return getContract({ address: address as `0x${string}`, abi, publicClient });
+};
+
+export const fetchNoMulticallContract = <ContractAbi extends Abi>(
+  address: string,
+  abi: ContractAbi,
+  chainId: ChainId
+) => {
+  const publicClient = getSingleCallClientForChain(chainId);
+  return getContract({ address: address as `0x${string}`, abi, publicClient });
 };

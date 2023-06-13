@@ -6,7 +6,6 @@ const BigNumber = require('bignumber.js');
 
 const IAuraToken = require('../../../abis/ethereum/AuraToken.json');
 const IAuraGauge = require('../../../abis/ethereum/AuraGauge.json');
-const IBalancerVault = require('../../../abis/IBalancerVault.json');
 const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataProvider.json');
 const IMarkets = require('../../../abis/ethereum/IMarkets.json');
 import { multicallAddress } from '../../../utils/web3';
@@ -17,6 +16,7 @@ const fetchPrice = require('../../../utils/fetchPrice');
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
+import IBalancerVault from '../../../abis/IBalancerVault';
 
 const { getContractWithProvider, getContract } = require('../../../utils/contractHelper');
 const {

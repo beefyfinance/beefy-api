@@ -48,18 +48,18 @@ const start = async () => {
   await initCache();
 
   // initApyService();
-  // initPriceService();
-  initVaultService();
+  initPriceService();
+  // initVaultService();
   // initBoostService();
   // initVaultFeeService();
   // initTvlService();
   // initBifiBuyBackService();
   // initMooTokenPriceService();
-  // initTokenService();
-  // initConfigService();
-  // initProposalsService();
+  initTokenService();
+  initConfigService();
+  initProposalsService();
   // initTreasuryService();
-  // initZapService();
+  initZapService();
 
   app.listen(port);
   console.log(`> beefy-api running! (:${port})`);

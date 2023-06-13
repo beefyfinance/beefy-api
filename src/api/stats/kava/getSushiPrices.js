@@ -1,9 +1,9 @@
 const getSushiConstantProductPrices = require('../common/sushi/getSushiConstantProductPrices');
-const { kavaWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/kava/sushiKavaLpPools.json');
+const { KAVA_CHAIN_ID } = require('../../../constants');
 
 const getSushiKavaPrices = async tokenPrices => {
-  return await getSushiConstantProductPrices(web3, pools, tokenPrices);
+  return await getSushiConstantProductPrices(KAVA_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getSushiKavaPrices;

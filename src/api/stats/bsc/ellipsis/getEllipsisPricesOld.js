@@ -1,13 +1,11 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../../utils/web3');
-
-const ICurvePool = require('../../../../abis/ICurvePool.json');
-const EllipsisOracle = require('../../../../abis/EllipsisOracle.json');
 const pools = require('../../../../data/ellipsisPools.json');
-const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { default: ICurvePool } = require('../../../../abis/ICurvePool');
+const { fetchContract } = require('../../../rpc/client');
+const { BSC_CHAIN_ID } = require('../../../../constants');
+const { default: EllipsisOracleAbi } = require('../../../../abis/EllipsisOracle');
 
 const DECIMALS = '1e18';
-
 const getEllipsisPricesOld = async () => {
   let prices = {};
 
@@ -23,15 +21,21 @@ const getEllipsisPricesOld = async () => {
 };
 
 const getPoolPrice = async pool => {
-  const lpContract = getContractWithProvider(ICurvePool, pool.address, web3);
-  const virtualPrice = new BigNumber(await lpContract.methods.get_virtual_price().call());
+  const lpContract = fetchContract(pool.address, ICurvePool, BSC_CHAIN_ID);
 
+  const calls = [lpContract.read.get_virtual_price()];
   let price = new BigNumber(1);
   if (pool.poolOracle) {
-    const oracle = getContractWithProvider(EllipsisOracle, pool.poolOracle, web3);
-    const answer = await oracle.methods.latestAnswer().call();
-    price = new BigNumber(answer).dividedBy(pool.poolOracleDecimals);
+    const oracleContract = fetchContract(pool.poolOracle, EllipsisOracleAbi, BSC_CHAIN_ID);
+    calls.push(oracleContract.read.latestAnswer());
   }
+  const res = await Promise.all(calls);
+
+  if (pool.poolOracle) {
+    price = new BigNumber(res[1]).dividedBy(pool.poolOracleDecimals);
+  }
+
+  const virtualPrice = new BigNumber(res[0]);
   const tokenPrice = Number(virtualPrice.multipliedBy(price).dividedBy(DECIMALS).toFixed(6));
   return { [pool.name]: tokenPrice };
 };

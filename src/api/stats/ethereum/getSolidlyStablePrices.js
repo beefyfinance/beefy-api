@@ -1,9 +1,9 @@
 const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
-const { ethereumWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/ethereum/solidlyStableLpPools.json');
+const { ETH_CHAIN_ID } = require('../../../constants');
 
 const getSolidlyEthStablePrices = async tokenPrices => {
-  return await getSolidlyStablePrices(web3, pools, tokenPrices);
+  return await getSolidlyStablePrices(ETH_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getSolidlyEthStablePrices;

@@ -1,9 +1,9 @@
 const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
-const { polygonWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/matic/dystopiaStableLpPools.json');
+const { POLYGON_CHAIN_ID } = require('../../../constants');
 
 const getDystopiaStablePrices = async tokenPrices => {
-  return await getSolidlyStablePrices(web3, pools, tokenPrices);
+  return await getSolidlyStablePrices(POLYGON_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getDystopiaStablePrices;

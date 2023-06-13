@@ -7,11 +7,11 @@ import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
 import jp from 'jsonpath';
 import { getContract } from '../../../utils/contractHelper';
 import IAaveProtocolDataProvider from '../../../abis/matic/AaveProtocolDataProvider.json';
-import IBalancerVault from '../../../abis/IBalancerVault.json';
 import BigNumber from 'bignumber.js';
 import fetch from 'node-fetch';
 import { getTradingFeeAprBalancer } from '../../../utils/getTradingFeeApr';
 import fetchPrice from '../../../utils/fetchPrice';
+import IBalancerVault from '../../../abis/IBalancerVault';
 
 interface Token {
   newGauge?: boolean;

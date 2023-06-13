@@ -1,15 +1,15 @@
 import { MultiCall } from 'eth-multicall';
 import { multicallAddress, web3Factory } from './web3';
-import IKyberElasticPool from '../abis/IKyberElasticPool.json';
-import IUniV3Pool from '../abis/IUniV3Pool.json';
-import { getContract } from './contractHelper';
+import IUniV3PoolAbi from '../abis/IUniV3Pool';
+import IKyberElasticPoolAbi from '../abis/IKyberElasticPool';
 import { ChainId } from '../../packages/address-book/types/chainid';
+import { fetchContract } from '../api/rpc/client';
 
 type ConcentratedLiquidityToken = {
   type: string;
   oracleId: string;
   decimalDelta: number;
-  pool: string;
+  pool: `0x${string}`;
   firstToken: string;
   secondToken: string;
 };
@@ -54,33 +54,29 @@ async function getConcentratedLiquidityPrices(
   const multicall = new MultiCall(web3, multicallAddress(chainId));
 
   const concentratedLiquidityPriceCalls = chainTokens.map(token => {
-    const tokenContract =
-      token.type == 'Kyber'
-        ? getContract(IKyberElasticPool, token.pool)
-        : getContract(IUniV3Pool, token.pool);
-    return {
-      price:
-        token.type == 'Kyber'
-          ? tokenContract.methods.getPoolState()
-          : tokenContract.methods.slot0(),
-    };
+    if (token.type == 'Kyber') {
+      const tokenContract = fetchContract(token.pool, IKyberElasticPoolAbi, chainId);
+      return tokenContract.read.getPoolState();
+    } else {
+      const tokenContract = fetchContract(token.pool, IUniV3PoolAbi, chainId);
+      return tokenContract.read.slot0();
+    }
   });
 
-  let res;
   try {
-    res = await multicall.all([concentratedLiquidityPriceCalls]);
+    const res = await Promise.all(concentratedLiquidityPriceCalls);
+    const tokenPrice = res.map(v => Number(v[1]));
+    return tokenPrice.map((v, i) =>
+      chainTokens[i].firstToken == chainTokens[i].oracleId
+        ? tokenPrices[chainTokens[i].secondToken] /
+          (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
+        : tokenPrices[chainTokens[i].firstToken] *
+          (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
+    );
   } catch (e) {
     console.error('getConcentratedLiquidityPrices', e);
     return chainTokens.map(() => 0);
   }
-
-  const tokenPrice = res[0].map(v => Number(v.price[1]));
-  return tokenPrice.map((v, i) =>
-    chainTokens[i].firstToken == chainTokens[i].oracleId
-      ? tokenPrices[chainTokens[i].secondToken] /
-        (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
-      : tokenPrices[chainTokens[i].firstToken] * (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
-  );
 }
 
 export async function fetchConcentratedLiquidityTokenPrices(

@@ -1,9 +1,9 @@
 const getStableSwapPrices = require('../common/getStableSwapPrices');
-const { moonbeamWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/moonbeam/stellaswapStablePools.json');
+const { MOONBEAM_CHAIN_ID } = require('../../../constants');
 
 const getStellaswapPrices = async tokenPrices => {
-  return await getStableSwapPrices(web3, pools, tokenPrices);
+  return await getStableSwapPrices(MOONBEAM_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getStellaswapPrices;
