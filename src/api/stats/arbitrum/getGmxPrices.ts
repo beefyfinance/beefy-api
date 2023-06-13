@@ -20,8 +20,10 @@ const getGmxArbitrumPrices = async tokenPrices => {
 
 const getPrice = async (pool, tokenPrices) => {
   if (pool.oracle == 'lps') {
-    let price = await getLpPrice(pool);
-    let results = await getLpTokenBalances(pool, tokenPrices);
+    const [price, results] = await Promise.all([
+      getLpPrice(pool),
+      getLpTokenBalances(pool, tokenPrices),
+    ]);
     return {
       [pool.name]: {
         price: price[0],

@@ -19,10 +19,7 @@ const getOlpPrices = async () => {
 };
 
 const getPrice = async pool => {
-  const [price, results] = await Promise.all([
-    await getLpPrice(pool),
-    await getLpTokenBalances(pool),
-  ]);
+  const [price, results] = await Promise.all([getLpPrice(pool), getLpTokenBalances(pool)]);
   return {
     [pool.name]: {
       price: price[0],
