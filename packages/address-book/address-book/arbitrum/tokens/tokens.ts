@@ -805,6 +805,18 @@ const _tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders. The token on Arbitrum is bridged via Multichain from Polygon',
     logoURI: '',
   },
+  tBTC: {
+    name: 'tBTC v2',
+    symbol: 'tBTC',
+    address: '0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://threshold.network/',
+    documentation: 'https://docs.threshold.network/',
+    description:
+      'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

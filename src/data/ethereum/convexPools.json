@@ -26,6 +26,35 @@
     ]
   },
   {
+    "name": "convex-tricrypto-usdc",
+    "pool": "0x7f86bf177dd4f3494b841a37e810a34dd56c829b",
+    "token": "0x7f86bf177dd4f3494b841a37e810a34dd56c829b",
+    "rewardPool": "0x57f4cf13b325Ad101CfE9AD3a84d3B2302AA96c8",
+    "extras": [
+      {
+        "rewardPool": "0x67592553A35b656DCD49EF16290D67eBa4ED8392",
+        "oracleId": "CVX"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-oeth",
     "pool": "0x94B17476A93b3262d87B9a326965D1E91f9c13E7",
     "token": "0x94B17476A93b3262d87B9a326965D1E91f9c13E7",

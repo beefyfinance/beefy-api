@@ -21,13 +21,13 @@ const getRipaeApys = require('./getRipaeApys');
 const getBalancerPolyApys = require('./getBalancerPolyApys');
 const getGiddyApys = require('./getGiddyApys');
 const getDystopiaApys = require('./getDystopiaApys');
-const getUniV3PolygonApys = require('./getUniV3PolygonApys');
 const { getHopApys } = require('./getHopApys');
 const { getMvxApys } = require('./getMvxApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getGnsApys } = require('./getGnsApys');
 const getKyberPolygonApys = require('./getKyberPolygonApys');
 const getOvixApys = require('./getOvixApys');
+const { getPearlApys } = require('./getPearlApys');
 
 const getApys = [
   getbeQiApy,
@@ -53,13 +53,13 @@ const getApys = [
   getBalancerPolyApys,
   getGiddyApys,
   getDystopiaApys,
-  // getUniV3PolygonApys,
   getHopApys,
   getMvxApys,
   getAaveV3Apys,
   getGnsApys,
   getKyberPolygonApys,
   getOvixApys,
+  getPearlApys,
 ];
 
 const BATCH_SIZE = 15;

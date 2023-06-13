@@ -13,7 +13,7 @@ export const getQuickSingleApys = async () => {
         decimals: '1e18',
       },
     ],
-    oracleId: 'FBX',
+    oracleId: 'LCD',
     oracle: 'tokens',
     decimals: '1e18',
     web3: polygonWeb3,

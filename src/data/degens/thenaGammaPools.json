@@ -1,5 +1,45 @@
 [
   {
+    "name": "thena-gamma-wusdr-dola",
+    "address": "0x92104a7bec32297ddd022a8f242bf498d0470876",
+    "gauge": "0x2174e40F56806D32f56Ad95202a4137B9F513E0b",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2952beb1326acCbB5243725bd4Da2fC937BCa087",
+      "oracle": "tokens",
+      "oracleId": "wUSDR",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0x2F29Bc0FFAF9bff337b31CBe6CB5Fb3bf12e5840",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-gamma-frxeth-wbeth",
+    "address": "0x99f5fd4588401e482d577A775b645C86678e308D",
+    "gauge": "0xB9b491909B5e77534A5751f88f48f1bB750B527D",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x64048A7eEcF3a2F1BA9e144aAc3D7dB6e58F555e",
+      "oracle": "tokens",
+      "oracleId": "frxETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa2E3356610840701BDf5611a53974510Ae27E2e1",
+      "oracle": "tokens",
+      "oracleId": "wBETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "thena-gamma-bnb-bifi",
     "address": "0x6896655ebad0c3730776111040d7731975a42abc",
     "gauge": "0xF352D2709BcB4A50a87c8780D6006a8115a599ef",

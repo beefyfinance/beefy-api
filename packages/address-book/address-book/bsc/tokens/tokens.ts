@@ -4096,6 +4096,18 @@ const _tokens = {
     website: 'https://apecoin.dev/',
     description: 'APE is a BEP-20 token celebrating the "ape" crypto meme.',
   },
+  wBETH: {
+    name: 'Wrapped Binance Beacon ETH',
+    symbol: 'wBETH',
+    address: '0xa2E3356610840701BDf5611a53974510Ae27E2e1',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.binance.com/en',
+    documentation: 'https://www.binance.com/en/wbeth',
+    description:
+      'Wrapped Beacon ETH ("WBETH") is a wrapped version of BETH. Wrapped, WBETH is reward-bearing in nature. It accumulates ETH2.0 staking rewards not by growing in number, but by growing in value in relation to BETH. Unlike BETH, the value of WBETH will increase despite not being held in Binance Spot Wallet. That means WBETH provides you with double yield potential by (i) holding it to earn staking rewards, and (ii) moving it on-chain and exploring exciting DeFi and other dapps opportunities.',
+  },
   vUSDT: {
     name: 'Venus USDT',
     symbol: 'vUSDT',
