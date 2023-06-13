@@ -47,18 +47,18 @@ const port = process.env.PORT || 3000;
 const start = async () => {
   await initCache();
 
-  // initApyService();
+  initApyService();
   initPriceService();
-  // initVaultService();
-  // initBoostService();
-  // initVaultFeeService();
-  // initTvlService();
-  // initBifiBuyBackService();
-  // initMooTokenPriceService();
+  initVaultService();
+  initBoostService();
+  initVaultFeeService();
+  initTvlService();
+  initBifiBuyBackService();
+  initMooTokenPriceService();
   initTokenService();
   initConfigService();
   initProposalsService();
-  // initTreasuryService();
+  initTreasuryService();
   initZapService();
 
   app.listen(port);

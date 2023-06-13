@@ -1,4 +1,3 @@
-const { avaxWeb3: web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
 import pools from '../../../data/avax/gmxPools.json';
 import { AVAX_CHAIN_ID } from '../../../constants';
