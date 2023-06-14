@@ -113,7 +113,7 @@ const _tokens = {
     website: 'https://tether.to/',
     documentation: 'https://docs.axelar.dev/',
     description:
-      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+      'Tether (Axelar) is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
   },
   axlDAI: {
@@ -125,7 +125,7 @@ const _tokens = {
     website: 'https://makerdao.com/',
     documentation: 'https://docs.axelar.dev/',
     description:
-      'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
+      'Multi-Collateral Dai (Axelar), brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
   },
@@ -200,6 +200,7 @@ const _tokens = {
     website: 'https://cosmos.network/',
     description:
       'The Internet of Blockchains. Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+    documentation: 'https://docs.axelar.dev/resources/wrapped-tokens',
   },
   MARE: {
     name: 'Mare Finance',
@@ -212,6 +213,30 @@ const _tokens = {
     description:
       'Mare Finance is an EVM compatible lending/borrowing protocol that launched on Kava EVM. Mare Finance provides peer-to-peer lending solutions that are fully decentralized, transparent and non-custodial.',
     documentation: 'https://docs.mare.finance/',
+  },
+  axlETH: {
+    name: 'Axelar Wrapped ETH',
+    symbol: 'axlETH',
+    address: '0xb829b68f57CC546dA7E5806A929e53bE32a4625D',
+    chainId: 2222,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://axelar.network/',
+    description:
+      'Axelar Wrapped ETH (axlETH) is an ERC-20 token that represents a wrapped version of native Ethereum (ETH) cryptocurrency, allowing for cross-chain transfers and compatibility with the Ethereum ecosystem.',
+    documentation: 'https://docs.axelar.dev/resources/wrapped-tokens',
+  },
+  axlWBTC: {
+    name: 'Axelar Wrapped WBTC',
+    symbol: 'axlWBTC',
+    address: '0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad',
+    chainId: 2222,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://axelar.network/',
+    description:
+      "Axelar Wrapped WBTC (axlWBTC) is an ERC-20 token that represents a 1:1 pegged version of Bitcoin, allowing users to access Bitcoin's value and liquidity within the Kava ecosystem.",
+    documentation: 'https://docs.axelar.dev/resources/wrapped-tokens',
   },
 } as const;
 
