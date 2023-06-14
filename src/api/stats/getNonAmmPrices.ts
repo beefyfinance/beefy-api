@@ -160,7 +160,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   ];
 
   // Setup error logs
-  promises.forEach((p, i) => p.catch(e => console.warn('getNonAmmPrices error', i, e)));
+  promises.forEach((p, i) => p.catch(e => console.warn('getNonAmmPrices error', i, e.message)));
 
   const results = await Promise.allSettled(promises);
 
