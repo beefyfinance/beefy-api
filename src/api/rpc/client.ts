@@ -14,7 +14,7 @@ const getMulticallClientForChain = (chainId: ChainId): PublicClient => {
     multicallClientsByChain[chain.id] = createPublicClient({
       batch: {
         multicall: {
-          batchSize: 128,
+          batchSize: 1024,
           wait: parseInt(process.env.BATCH_WAIT) ?? 1500,
         },
       },

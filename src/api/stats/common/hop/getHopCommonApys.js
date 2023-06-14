@@ -4,9 +4,8 @@ import { multicallAddress } from '../../../../utils/web3';
 import { getContractWithProvider } from '../../../../utils/contractHelper';
 import BigNumber from 'bignumber.js';
 import { getTradingFeeAprHop } from '../../../../utils/getTradingFeeApr';
-
+import IStableSwapAbi from '../../../../abis/IStableSwap';
 const ERC20 = require('../../../../abis/common/ERC20/ERC20.json');
-const IStableSwap = require('../../../../abis/IStableSwap');
 
 export const getHopCommonApys = async params => {
   params.tradingAprs = await getTradingAprs(params);
@@ -33,7 +32,7 @@ const getTvl = async params => {
   const poolCalls = [];
   params.pools.forEach(pool => {
     const lpContract = getContractWithProvider(ERC20, pool.address, params.web3);
-    const poolContract = getContractWithProvider(IStableSwap, pool.pool, params.web3);
+    const poolContract = getContractWithProvider(IStableSwapAbi, pool.pool, params.web3);
     lpCalls.push({
       totalSupply: lpContract.methods.totalSupply(),
     });
