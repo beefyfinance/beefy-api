@@ -269,6 +269,7 @@ import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import chronosPools from '../../data/arbitrum/chronosLpPools.json';
 import arbidexPools from '../../data/arbitrum/arbidexLpPools.json';
+import pearlPools from '../../data/matic/pearlLpPools.json';
 import velocorePools from '../../data/zksync/velocoreLpPools.json';
 import soliSnekPools from '../../data/avax/soliSnekLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
@@ -287,6 +288,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 const pools = normalizePoolOracleIds([
   ...soliSnekPools,
   ...velocorePools,
+  ...pearlPools,
   ...arbidexPools,
   ...chronosPools,
   ...ramsesPools,
