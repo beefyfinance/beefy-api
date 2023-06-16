@@ -3,7 +3,6 @@ import { ChainId } from '../../packages/address-book/address-book';
 import DMMPoolAbi from '../abis/DMMPool';
 import ERC20Abi from '../abis/ERC20Abi';
 import { fetchContract } from '../api/rpc/client';
-import { retryPromiseWithBackOff } from './promise';
 
 const DEBUG_ORACLES = [];
 
@@ -156,35 +155,19 @@ export async function fetchDmmPrices(
 const fetchChainPoolInfo = async (pools: any[]) => {
   const dmmCalls = pools.map(pool => {
     const tokenContract = fetchContract(pool.address, DMMPoolAbi, pool.chainId);
-    return retryPromiseWithBackOff(
-      tokenContract.read.totalSupply,
-      [],
-      'fetchDmmPrices dmmCalls' + pool.chainId
-    );
+    return tokenContract.read.totalSupply();
   });
   const dmmTradeCalls = pools.map(pool => {
     const tokenContract = fetchContract(pool.address, DMMPoolAbi, pool.chainId);
-    return retryPromiseWithBackOff(
-      tokenContract.read.getTradeInfo,
-      null,
-      'fetchDmmPrices dmmTrade' + pool.chainId
-    );
+    return tokenContract.read.getTradeInfo();
   });
   const lp0Calls = pools.map(pool => {
     const tokenContract = fetchContract(pool.lp0.address, ERC20Abi, pool.chainId);
-    return retryPromiseWithBackOff(
-      tokenContract.read.balanceOf,
-      [pool.address],
-      'fetchDmmPrices lp0Calls' + pool.chainId
-    );
+    return tokenContract.read.balanceOf([pool.address]);
   });
   const lp1Calls = pools.map(pool => {
     const tokenContract = fetchContract(pool.lp1.address, ERC20Abi, pool.chainId);
-    return retryPromiseWithBackOff(
-      tokenContract.read.balanceOf,
-      [pool.address],
-      'fetchDmmPrices lp1Calls' + pool.chainId
-    );
+    return tokenContract.read.balanceOf([pool.address]);
   });
 
   let dmmResults: bigint[],
