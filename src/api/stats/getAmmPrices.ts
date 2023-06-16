@@ -605,7 +605,7 @@ const seedPeggedPrices = {
   hUSDT: 'USDT', // HOP
   aWMATIC: 'MATIC', // Aave
   aWETH: 'ETH', // Aave
-  axlUSDT: 'axlUSDC', // Axelar
+  axlUSDT: 'USDT', // Axelar
 };
 
 type LpBreakdown = {
