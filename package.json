@@ -37,6 +37,7 @@
     "fantom:equalizer:add": "ts-node scripts/add-solidly.ts --network fantom --project equalizer --newFee true --lp",
     "fantom:sushi:add": "ts-node scripts/add-sushi.ts --network fantom --project sushiFtm",
     "polygon:quick:add": "ts-node scripts/add-quick.ts --network polygon --project quick",
+    "polygon:quick:gamma:add": "ts-node scripts/add-sushi.ts --network polygon --project quick --newFee true --pool",
     "polygon:sushi:add": "ts-node scripts/add-sushi.ts --network polygon --project sushiPoly",
     "one:sushi:add": "ts-node scripts/add-sushi.ts --network one --project sushiOne",
     "arb:sushi:add": "ts-node scripts/add-sushi.ts --network arbitrum --project sushiArb --newFee true",

@@ -1013,6 +1013,16 @@ const _tokens = {
     description: 'Deposit your dQUICK tokens to earn more through the QuickSwap platform.',
     logoURI: 'https://assets.coingecko.com/coins/images/15185/small/quickswap.png?1620044811',
   },
+  newdQUICK: {
+    name: "Dragon's Quick",
+    address: '0x958d208Cdf087843e9AD98d23823d32E17d723A1',
+    symbol: 'dQUICK',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://quickswap.exchange/#/syrup',
+    description: 'Deposit your dQUICK tokens to earn more through the QuickSwap platform.',
+    logoURI: 'https://assets.coingecko.com/coins/images/15185/small/quickswap.png?1620044811',
+  },
   SOL: {
     name: 'Solana',
     address: '0x7DfF46370e9eA5f0Bad3C4E29711aD50062EA7A4',

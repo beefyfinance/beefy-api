@@ -64,10 +64,11 @@ import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import { getMuxArbitrumPrices } from './arbitrum/getMuxPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
-import { getThenaGammaPrices } from './bsc/getThenaGammaPrices';
+import getThenaGammaPrices from './bsc/getThenaGammaPrices';
 import getCurveCeloPrices from './celo/getCurvePrices';
 import { getPolygonSolidlyStablePrices } from './matic/getPolygonSolidlyStablePrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
+import getQuickGammaPrices from './matic/getQuickGammaPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -157,6 +158,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getSolarbeamPrices(tokenPrices),
     getStellaswapPrices(tokenPrices),
     getThenaGammaPrices(tokenPrices),
+    getQuickGammaPrices(tokenPrices),
   ];
 
   // Setup error logs

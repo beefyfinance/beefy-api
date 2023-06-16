@@ -16,6 +16,7 @@ export interface LpPool {
   oracleId?: string;
   depositFee?: number;
   beefyFee?: number;
+  extraRewards?: Reward[];
 }
 
 export interface SingleAssetPool {
@@ -31,11 +32,18 @@ export interface SingleAssetPool {
   depositFee?: number;
   swap?: string; // used in swap contracts, like IronSwap (0x837503e8A8753ae17fB8C8151B8e6f586defCb57) on polygon
   beefyFee?: number;
+  extraRewards?: Reward[];
 }
 
 export interface LpToken {
   address: string;
   oracle: string;
+  oracleId: string;
+  decimals: string;
+}
+
+export interface Reward {
+  rewarder: string;
   oracleId: string;
   decimals: string;
 }

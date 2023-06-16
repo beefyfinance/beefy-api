@@ -28,12 +28,14 @@ const { getGnsApys } = require('./getGnsApys');
 const getKyberPolygonApys = require('./getKyberPolygonApys');
 const getOvixApys = require('./getOvixApys');
 const { getPearlApys } = require('./getPearlApys');
+const { getQuickGammaApys } = require('./getQuickGammaApys');
 
 const getApys = [
   getbeQiApy,
   getbeQiEarnApy,
   getQuickSingleApys,
   getQuickDualLpApys,
+  getQuickGammaApys,
   getAaveApys,
   getSushiLpApys,
   getSushiOhmLpApys,
