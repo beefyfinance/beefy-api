@@ -182,20 +182,21 @@ const getFarmApys = async (params: MiniChefApyParams) => {
         );
 
         const totalAllocPoint = new BigNumber(
-          await rewarderContract.methods.totalAllocPoint().call()
+          await rewardContract.methods.totalAllocPoint().call()
         );
         const poolInfo = await rewardContract.methods.poolInfo(pool.poolId).call();
+        const allocPoint = new BigNumber(poolInfo['2']);
+
         const rewardPerSecond = new BigNumber(
           await rewardContract.methods.rewardPerSecond().call()
         );
 
         const price = await fetchPrice({ oracle: 'tokens', id: rewards.oracleId });
-        let reward = rewardPerSecond.times(new BigNumber(poolInfo['2'])).dividedBy(totalAllocPoint);
-        reward = reward.times(secondsPerBlock).times(secondsPerYear);
-        extraRewards = extraRewards.plus(reward.times(price).dividedBy(rewards.decimals));
+        const reward = rewardPerSecond.times(allocPoint).dividedBy(totalAllocPoint);
+        const rewardsPerYear = reward.dividedBy(secondsPerBlock).times(secondsPerYear);
+        extraRewards = extraRewards.plus(rewardsPerYear.times(price).dividedBy(rewards.decimals));
       }
-
-      totalYearlyRewardsInUsd.plus(extraRewards);
+      totalYearlyRewardsInUsd = totalYearlyRewardsInUsd.plus(extraRewards);
     }
 
     const apy = totalYearlyRewardsInUsd.dividedBy(totalStakedInUsd);
