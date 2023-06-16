@@ -1,5 +1,91 @@
 [
   {
+    "name": "quick-gamma-usdc-axlusdc-narrow",
+    "address": "0x374C44443553d7EB86b5f77597cC67A507b19179",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 61,
+    "chainId": 137,
+    "extraRewards": [
+      {
+        "rewarder": "0x88F54579fbB2a33c33342709A4B2a9A07dA94EE2",
+        "oracleId": "AXL",
+        "decimals": "1e6"
+      },
+      {
+        "rewarder": "0xc35f556C8Ac05FB484A703eE96A2f997F8CAC957",
+        "oracleId": "dQUICK",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x750e4C4984a9e0f12978eA6742Bc1c5D248f40ed",
+      "oracle": "tokens",
+      "oracleId": "axlUSDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "quick-gamma-dai-mimatic-narrow",
+    "address": "0x3273c153Ecc6891A68aF60ee0b67c16DD7B2C7E5",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 50,
+    "chainId": 137,
+    "extraRewards": [
+      {
+        "rewarder": "0xc35f556C8Ac05FB484A703eE96A2f997F8CAC957",
+        "oracleId": "dQUICK",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "quick-gamma-mimatic-usdt-narrow",
+    "address": "0x1825c76cED3c1625250B8af6204Bf4fc4e5b9FCF",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 49,
+    "chainId": 137,
+    "extraRewards": [
+      {
+        "rewarder": "0xc35f556C8Ac05FB484A703eE96A2f997F8CAC957",
+        "oracleId": "dQUICK",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "quick-gamma-wmatic-usdt-wide",
     "address": "0x9134f456D33d1288de26271730047AE0c5CB6F71",
     "decimals": "1e18",

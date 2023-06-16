@@ -140,11 +140,7 @@ async function fetchFarm(masterchefAddress, poolId) {
   console.log(`fetchFarm(${masterchefAddress}, ${poolId})`);
   const masterchefContract = new ethers.Contract(masterchefAddress, masterchefABI, provider);
   const lpToken = await masterchefContract.lpToken(poolId);
-  const poolInfo = await masterchefContract.poolInfo(poolId);
-  if (poolInfo.allocPoint.eq(0)) {
-    console.error('No Allocation');
-    return;
-  }
+
   return lpToken;
 }
 

@@ -1896,6 +1896,30 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
+  AXL: {
+    name: 'Axelar',
+    symbol: 'AXL',
+    address: '0x6e4E624106Cb12E168E6533F8ec7c82263358940',
+    chainId: 137,
+    decimals: 6,
+    website: 'https://axelar.network/',
+    description:
+      'Axelar delivers secure cross-chain communication for Web3, enabling you to build Interchain dApps that grow beyond a single chain. Secure means Axelar is built on proof-of-stake, the battle-tested approach used by Ethereum, Polygon, Cosmos, and more. Cross-chain communication means you can build a complete experience for your users that lets them interact with any asset, any application, on any chain with one click.',
+    logoURI: '',
+    documentation: 'https://docs.axelar.dev/',
+  },
+  axlUSDC: {
+    name: 'Axelar Wrapped USDC',
+    symbol: 'axlUSDC',
+    address: '0x750e4C4984a9e0f12978eA6742Bc1c5D248f40ed',
+    chainId: 137,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x750e4C4984a9e0f12978eA6742Bc1c5D248f40ed.svg',
+    website: 'https://axelar.network/',
+    description: 'Axelar Bridged USDC',
+    documentation: 'https://docs.axelar.dev/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
