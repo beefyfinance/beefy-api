@@ -25,8 +25,8 @@ const getMulticallClientForChain = (chainId: ChainId): PublicClient => {
         //   batchSize: 1024
         // },
         timeout: 15000,
-        retryCount: 3,
-        retryDelay: 350,
+        retryCount: 5,
+        retryDelay: 100,
       }),
     });
   }

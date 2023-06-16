@@ -16,7 +16,7 @@ const {
     tokens: { BOO, xBOO, SCREAM, xSCREAM, CREDIT, xCREDIT },
   },
   polygon: {
-    tokens: { QUICK, dQUICK },
+    tokens: { newQUICK, newdQUICK },
   },
   fuse: {
     tokens: { VOLT, xVOLT },
@@ -35,7 +35,7 @@ const tokens = {
     [SCREAM, xSCREAM],
     [CREDIT, xCREDIT],
   ],
-  polygon: [[QUICK, dQUICK]],
+  polygon: [[newQUICK, newdQUICK]],
   fuse: [[VOLT, xVOLT]],
   moonbeam: [[STELLA, xSTELLA]],
   aurora: [[TRI, xTRI]],

@@ -11,7 +11,7 @@ export const getPearlApys = async () => {
     web3: web3,
     chainId: chainId,
     pools: pools,
-    oracleId: 'CHR',
+    oracleId: 'PEARL',
     oracle: 'tokens',
     decimals: '1e18',
     // log: true,

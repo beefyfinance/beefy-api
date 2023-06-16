@@ -1,5 +1,145 @@
 [
   {
+    "name": "thena-gamma-bnbx-usdt-wide",
+    "address": "0xAcB6a2c03c8012C2817EFC4d81e33cc0978e3aBD",
+    "gauge": "0x2a2d5Fc3793019C71ce94a07B85659943b832E41",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
+      "oracle": "tokens",
+      "oracleId": "BNBx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-gamma-bnbx-usdt-narrow",
+    "address": "0x88e1cE1E3E0171c83150844bB2f0bD2266802dA2",
+    "gauge": "0xcF37Bddd36fbf113F60f7aB7fc15997819007b94",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
+      "oracle": "tokens",
+      "oracleId": "BNBx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-gamma-bnbx-frax-narrow",
+    "address": "0x3F18D9A1126E55042dA5e4e7c5a9a2F51FCdb48b",
+    "gauge": "0x4F902c6fA1cf156fCE39D03Aff725927143a0AAd",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
+      "oracle": "tokens",
+      "oracleId": "BNBx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x90C97F71E18723b0Cf0dfa30ee176Ab653E89F40",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-gamma-bnbx-frax-wide",
+    "address": "0x1C2Ac2Ea1063395c34D2B5066ebC7F6745196e92",
+    "gauge": "0xE68d52C9Da1CDE8d1c65a8c95436B84aD5298318",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
+      "oracle": "tokens",
+      "oracleId": "BNBx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x90C97F71E18723b0Cf0dfa30ee176Ab653E89F40",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-gamma-bnbx-btcb-narrow",
+    "address": "0x0827841963Cc8a0515b5baa59782b0a0870b5f88",
+    "gauge": "0xF40d8323c3a9d108467a23a4018b637Ed0817aD1",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
+      "oracle": "tokens",
+      "oracleId": "BNBx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-gamma-bnbx-btcb-wide",
+    "address": "0x630eA7C98D797C8B9920B26ab3F335B26FC421B7",
+    "gauge": "0x4D351d25A14c4aE54dA1CF60F5c9BD5f1De0cC8c",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
+      "oracle": "tokens",
+      "oracleId": "BNBx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "thena-gamma-bnbx-eth-narrow",
+    "address": "0xcB6a1dE651F3A89BD9Bbc5F0d15C01fA24b0D728",
+    "gauge": "0xdd1dEFA6f68b035c436F688Dc7F8FA1CD9631844",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1bdd3Cf7F79cfB8EdbB955f20ad99211551BA275",
+      "oracle": "tokens",
+      "oracleId": "BNBx",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "thena-gamma-wusdr-dola",
     "address": "0x92104a7bec32297ddd022a8f242bf498d0470876",
     "gauge": "0x2174e40F56806D32f56Ad95202a4137B9F513E0b",

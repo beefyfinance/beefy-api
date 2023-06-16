@@ -7,6 +7,7 @@ import { ChainId } from '../../../../packages/address-book/types/chainid';
 import fetchPrice from '../../../utils/fetchPrice';
 import { getApyBreakdown } from './getApyBreakdown';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
+import fetch from 'node-fetch';
 
 // trading apr
 import { SUSHI_LPF } from '../../../constants';
@@ -46,10 +47,11 @@ interface MiniChefApyParams {
     // https://github.com/sushiswap/sushiswap/blob/37026f3749f9dcdae89891f168d63667845576a7/contracts/mocks/ComplexRewarderTime.sol#L44
     // need to pass in same hardcoded value found here:
     // https://github.com/sushiswap/sushiswap-interface/blob/6300093e17756038a5b5089282d7bbe6dce87759/src/hooks/minichefv2/useFarms.ts#L77
-    rewarderTotalAllocPoint: number;
+    rewarderTotalAllocPoint?: number;
   };
   pools: (LpPool | SingleAssetPool)[];
   tradingClient?: ApolloClient<NormalizedCacheObject>;
+  quickGamma?: string;
   sushiClient?: boolean;
   liquidityProviderFee?: number;
   web3: Web3;
@@ -69,6 +71,19 @@ export const getMiniChefApys = async (params: MiniChefApyParams) => {
       : (await isSushiTridentClient(tradingClient))
       ? await getTradingFeeAprSushiTrident(tradingClient, pairAddresses, fee)
       : await getTradingFeeApr(tradingClient, pairAddresses, fee);
+  } else if (params.quickGamma) {
+    try {
+      tradingAprs = {};
+      const response = await fetch(params.quickGamma).then(res => res.json());
+      pools.forEach(p => {
+        tradingAprs[p.address.toLowerCase()] = new BigNumber(
+          response[p.address.toLowerCase()].returns.daily.feeApr
+        );
+      });
+    } catch (e) {
+      console.error(`Error getting gamma trading aprs`, e);
+      tradingAprs = {};
+    }
   } else {
     tradingAprs = {};
   }
@@ -99,6 +114,7 @@ const getFarmApys = async (params: MiniChefApyParams) => {
   let rewarderContract: Contract | undefined = undefined;
   let rewarderTokenPerSecond: BigNumber | undefined;
   let rewarderTokenPrice: number | undefined;
+  let rewarderTotalAllocPoint: number | undefined;
 
   if (rewarderConfig) {
     rewarderContract = getContractWithProvider(
@@ -107,6 +123,15 @@ const getFarmApys = async (params: MiniChefApyParams) => {
       web3
     );
     rewarderTokenPerSecond = new BigNumber(await rewarderContract.methods.rewardPerSecond().call());
+
+    if (rewarderConfig.rewarderTotalAllocPoint == undefined) {
+      rewarderTotalAllocPoint = new BigNumber(
+        await rewarderContract.methods.totalAllocPoint().call()
+      ).toNumber();
+    } else {
+      rewarderTotalAllocPoint = rewarderConfig.rewarderTotalAllocPoint;
+    }
+
     rewarderTokenPrice = await fetchPrice({
       oracle,
       id: rewarderConfig.rewarderTokenOracleId,
@@ -141,10 +166,37 @@ const getFarmApys = async (params: MiniChefApyParams) => {
       const allocPoint = rewardAllocPoints[i];
       const nativeRewards = rewarderTokenPerSecond
         .times(allocPoint)
-        .dividedBy(rewarderConfig.rewarderTotalAllocPoint);
+        .dividedBy(rewarderTotalAllocPoint);
       const yearlyNativeRewards = nativeRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
       const nativeRewardsInUsd = yearlyNativeRewards.times(rewarderTokenPrice).dividedBy(DECIMALS);
       totalYearlyRewardsInUsd = totalYearlyRewardsInUsd.plus(nativeRewardsInUsd);
+    }
+
+    if (pool.extraRewards) {
+      let extraRewards: BigNumber = new BigNumber(0);
+      for (const rewards of pool.extraRewards ?? []) {
+        let rewardContract = getContractWithProvider(
+          SushiComplexRewarderTime as any,
+          rewards.rewarder,
+          web3
+        );
+
+        const totalAllocPoint = new BigNumber(
+          await rewardContract.methods.totalAllocPoint().call()
+        );
+        const poolInfo = await rewardContract.methods.poolInfo(pool.poolId).call();
+        const allocPoint = new BigNumber(poolInfo['2']);
+
+        const rewardPerSecond = new BigNumber(
+          await rewardContract.methods.rewardPerSecond().call()
+        );
+
+        const price = await fetchPrice({ oracle: 'tokens', id: rewards.oracleId });
+        const reward = rewardPerSecond.times(allocPoint).dividedBy(totalAllocPoint);
+        const rewardsPerYear = reward.dividedBy(secondsPerBlock).times(secondsPerYear);
+        extraRewards = extraRewards.plus(rewardsPerYear.times(price).dividedBy(rewards.decimals));
+      }
+      totalYearlyRewardsInUsd = totalYearlyRewardsInUsd.plus(extraRewards);
     }
 
     const apy = totalYearlyRewardsInUsd.dividedBy(totalStakedInUsd);
@@ -175,6 +227,7 @@ const getPoolsData = async (params: MiniChefApyParams) => {
   const balanceCalls = [];
   const allocPointCalls = [];
   const rewardAllocPointCalls = [];
+
   pools.forEach(pool => {
     const tokenContract = getContract(ERC20 as any, pool.address);
     balanceCalls.push({

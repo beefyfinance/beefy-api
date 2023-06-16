@@ -14,7 +14,7 @@ import ERC20ABI from '../src/abis/ERC20.json';
 
 const {
   polygon: {
-    platforms: { sushi: sushiPolygon },
+    platforms: { sushi: sushiPolygon, quickswap: quick },
   },
   avax: {
     platforms: { pangolin: pangolin },
@@ -85,6 +85,11 @@ const projects = {
     file: '../src/data/cakeLpPoolsV2.json',
     masterchef: '0xa5f8C5Dbd5F286960b9d90548680aE5ebFf07652',
   },
+  quick: {
+    prefix: 'quick-gamma',
+    file: '../src/data/matic/quickGammaLpPools.json',
+    masterchef: quick.minichef,
+  },
 };
 
 const args = yargs.options({
@@ -110,6 +115,11 @@ const args = yargs.options({
     demandOption: true,
     describe: 'If the beefy fee is 9.5% use true else use false',
   },
+  wide: {
+    type: 'bool',
+    demandOption: false,
+    describe: 'Is this a wide conc liquidity strat? True, else false. Undefind for not conc liq.',
+  },
 }).argv;
 
 const poolPrefix = projects[args['project']].prefix;
@@ -125,6 +135,7 @@ async function fetchFarm(masterchefAddress, poolId) {
   console.log(`fetchFarm(${masterchefAddress}, ${poolId})`);
   const masterchefContract = new ethers.Contract(masterchefAddress, masterchefABI, provider);
   const lpToken = await masterchefContract.lpToken(poolId);
+
   return lpToken;
 }
 
@@ -163,7 +174,13 @@ async function main() {
   const token0 = await fetchToken(lp.token0);
   const token1 = await fetchToken(lp.token1);
 
-  const newPoolName = `${poolPrefix}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
+  let width = '';
+  if (args['wide'] != undefined) width = args['wide'] === true ? 'wide' : 'narrow';
+
+  const newPoolName =
+    args['wide'] != undefined
+      ? `${poolPrefix}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}-${width}`
+      : `${poolPrefix}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
   const newPool = {
     name: newPoolName,
     address: lp.address,
