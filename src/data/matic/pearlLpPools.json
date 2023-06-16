@@ -1,5 +1,85 @@
 [
   {
+    "name": "pearl-wusdr-usdr",
+    "address": "0x10E1b58B3C93890D04D539b5f39Aa4Df27A362b2",
+    "gauge": "0xa9d0fb2581DdD3783853fB3Fda9B296a2c7a0734",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xAF0D9D65fC54de245cdA37af3d18cbEc860A4D4b",
+      "oracle": "tokens",
+      "oracleId": "WUSDR",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0xb5DFABd7fF7F83BAB83995E72A52B97ABb7bcf63",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    }
+  },
+  {
+    "name": "pearl-stmatic-usdr",
+    "address": "0x733eEEf37De013283da29cE9EB4758dC59CaFc87",
+    "gauge": "0xFeCBCA8f3488f948da313D33AD0be25978dD00fd",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4",
+      "oracle": "tokens",
+      "oracleId": "stMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb5DFABd7fF7F83BAB83995E72A52B97ABb7bcf63",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    }
+  },
+  {
+    "name": "pearl-wbtc-usdr",
+    "address": "0x413dEd0698B0947105bEb3c81786Dcf718AA24D1",
+    "gauge": "0x067f023D56E2c39D529E0f6586135dCD39EF8B5a",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xb5DFABd7fF7F83BAB83995E72A52B97ABb7bcf63",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    }
+  },
+  {
+    "name": "pearl-weth-usdr",
+    "address": "0x6B3aA71C74042e113Bd0b055224d70a131334761",
+    "gauge": "0xF242F176200f18AB0A36397F10498993C8313984",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb5DFABd7fF7F83BAB83995E72A52B97ABb7bcf63",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    }
+  },
+  {
     "name": "pearl-pearl-usdr",
     "address": "0x74ee7376Ac31628a66b2Bb0eb2D14b549AB37275",
     "gauge": "0x150d5d880F37654A78C77eF25573b6e2790B2E55",
