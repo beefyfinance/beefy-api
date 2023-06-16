@@ -1,60 +1,50 @@
-import {
-  ContractCallContext,
-  ContractCallResults,
-  ContractCallReturnContext,
-  Multicall,
-} from 'ethereum-multicall';
-import { chunk } from 'lodash';
-import { web3Factory } from '../../utils/web3';
 import { getAllBoosts } from '../boosts/getBoosts';
 import { Boost } from '../boosts/types';
-import BoostAbi from '../../abis/BeefyBoost.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../utils/fetchPrice';
 import { Vault } from '../vaults/types';
-import { MULTICALL_V3 } from '../../utils/web3Helpers';
 import { ApiChain, toChainId } from '../../utils/chain';
+import BeefyBoostAbi from '../../abis/BeefyBoost';
+import { fetchContract } from '../rpc/client';
 
 const { getVaultByID } = require('../stats/getMultichainVaults');
 
-const MULTICALL_BATCH_SIZE = 768;
-
 const updateBoostAprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
   const chainId = toChainId(chain);
-  const web3 = web3Factory(chainId);
-  const multicallAddress = MULTICALL_V3[chainId];
-  if (!multicallAddress) {
-    console.warn(`> Boost Aprs: Skipping chain ${chainId} as no multicall address found`);
-    return {};
-  }
 
-  const multicall = new Multicall({
-    web3Instance: web3,
-    tryAggregate: true,
-    multicallCustomContractAddress: multicallAddress,
+  const totalSupplyCalls = boosts.map(boost => {
+    const contract = fetchContract(boost.earnContractAddress, BeefyBoostAbi, chainId);
+    return totalSupplyCalls.push(contract.read.totalSupply());
+  });
+  const rewardRateCalls = boosts.map(boost => {
+    const contract = fetchContract(boost.earnContractAddress, BeefyBoostAbi, chainId);
+    return rewardRateCalls.push(contract.read.rewardRate());
+  });
+  const periodFinishCalls = boosts.map(boost => {
+    const contract = fetchContract(boost.earnContractAddress, BeefyBoostAbi, chainId);
+    return periodFinishCalls.push(contract.read.periodFinish());
   });
 
-  const callContext: ContractCallContext[] = mapBoostsToCalls(boosts);
-  const promises: Promise<ContractCallResults>[] = chunk(callContext, MULTICALL_BATCH_SIZE).map(
-    batch => multicall.call(batch)
-  );
-
   try {
-    const results = await Promise.allSettled(promises);
-
-    const fulfilledResults = results
-      .filter(promise => promise.status === 'fulfilled')
-      .flatMap((res: PromiseFulfilledResult<ContractCallResults>) =>
-        Object.entries(res.value.results)
-      );
+    const [totalSupply, rewardRate, periodFinish] = await Promise.all([
+      Promise.all(totalSupplyCalls),
+      Promise.all(rewardRateCalls),
+      Promise.all(periodFinishCalls),
+    ]);
 
     const boostAprs: { [boostId: string]: number } = {};
-    for (const [id, callReturnContext] of fulfilledResults) {
-      const apr = await mapResponseToBoostApr(callReturnContext);
+    for (let i = 0; i < boosts.length; i++) {
+      const apr = await mapResponseToBoostApr(
+        boosts[i],
+        totalSupply[i],
+        rewardRate[i],
+        periodFinish[i]
+      );
       if (!isNaN(parseFloat(apr.toString()))) {
-        boostAprs[id] = apr;
+        boostAprs[boosts[i].id] = apr;
       }
     }
+
     return boostAprs;
   } catch (err) {
     console.log(err.message);
@@ -62,42 +52,19 @@ const updateBoostAprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
   }
 };
 
-const mapBoostsToCalls = (boosts: Boost[]): ContractCallContext[] => {
-  return boosts.map(boost => ({
-    reference: boost.id,
-    contractAddress: boost.earnContractAddress,
-    abi: BoostAbi,
-    calls: [
-      {
-        reference: 'totalSupply',
-        methodName: 'totalSupply',
-        methodParameters: [],
-      },
-      {
-        reference: 'rewardRate',
-        methodName: 'rewardRate',
-        methodParameters: [],
-      },
-      {
-        reference: 'periodFinish',
-        methodName: 'periodFinish',
-        methodParameters: [],
-      },
-    ],
-    context: boost,
-  }));
-};
 /**
  * @param callReturnContext
  * @returns -1 if boost has expired, null if error ocurred, apr number value if successful
  */
 const mapResponseToBoostApr = async (
-  callReturnContext: ContractCallReturnContext
+  boost: Boost,
+  supply: bigint,
+  rate: bigint,
+  finish: bigint
 ): Promise<number> => {
-  const boost: Boost = callReturnContext.originalContractCallContext.context;
-  const totalSupply = new BigNumber(callReturnContext.callsReturnContext[0].returnValues[0].hex);
-  const rewardRate = new BigNumber(callReturnContext.callsReturnContext[1].returnValues[0].hex);
-  const periodFinish = new BigNumber(callReturnContext.callsReturnContext[2].returnValues[0].hex);
+  const totalSupply = new BigNumber(supply.toString());
+  const rewardRate = new BigNumber(rate.toString());
+  const periodFinish = new BigNumber(finish.toString());
 
   if (periodFinish.times(1000).lte(new BigNumber(Date.now()))) return -1;
 
