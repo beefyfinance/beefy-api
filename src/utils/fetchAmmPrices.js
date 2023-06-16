@@ -2,6 +2,7 @@ const BigNumber = require('bignumber.js');
 const { fetchContract } = require('../api/rpc/client');
 const { chunk } = require('lodash');
 const { default: BeefyPriceMulticall } = require('../abis/BeefyPriceMulticall');
+const { retryPromiseWithBackOff } = require('./promise');
 
 const MULTICALLS = {
   56: '0xbcf79F67c2d93AD5fd1b919ac4F5613c493ca34F',
@@ -162,12 +163,23 @@ const fetchAmmPrices = async (pools, knownPrices) => {
 
 const fetchChainPools = async (chain, pools) => {
   const multicallContract = fetchContract(MULTICALLS[chain], BeefyPriceMulticall, chain);
-  const lpInfos = await Promise.all(
-    chunk(
-      pools.map(p => [p.address, p.lp0.address, p.lp1.address]),
-      BATCH_SIZE
-    ).map(batch => multicallContract.read.getLpInfo([batch]))
-  );
+  let lpInfos;
+  try {
+    lpInfos = await Promise.all(
+      chunk(
+        pools.map(p => [p.address, p.lp0.address, p.lp1.address]),
+        BATCH_SIZE
+      ).map(batch =>
+        retryPromiseWithBackOff(
+          multicallContract.read.getLpInfo,
+          [batch],
+          'fetchAmmChainPools ' + chain
+        )
+      )
+    );
+  } catch (err) {
+    console.log(err.shortMessage + ' - ' + chain);
+  }
 
   for (let i = 0; i < pools.length; i += BATCH_SIZE) {
     const batch = lpInfos[Math.floor(i / BATCH_SIZE)];

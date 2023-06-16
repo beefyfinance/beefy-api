@@ -1,5 +1,4 @@
 import { PublicClient, createPublicClient, http, getContract } from 'viem';
-import { Chain } from 'viem/chains';
 import { Abi } from 'abitype';
 import { getChain } from './chains';
 import { ChainId } from '../../../packages/address-book/address-book';

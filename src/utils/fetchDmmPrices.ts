@@ -3,6 +3,7 @@ import { ChainId } from '../../packages/address-book/address-book';
 import DMMPoolAbi from '../abis/DMMPool';
 import ERC20Abi from '../abis/ERC20Abi';
 import { fetchContract } from '../api/rpc/client';
+import { retryPromiseWithBackOff } from './promise';
 
 const DEBUG_ORACLES = [];
 
@@ -71,56 +72,15 @@ export async function fetchDmmPrices(
   const chainIds: ChainId[] = pools.map(p => p.chainId);
   const uniqueChainIds = [...new Set(chainIds)];
 
+  const poolPromises = chainIds.map(async chainId => {
+    const chainPools = pools.filter(p => p.chainId == chainId);
+    return await fetchChainPoolInfo(chainPools);
+  });
+
+  const allPools = await Promise.all(poolPromises);
+
   for (let i = 0; i < uniqueChainIds.length; i++) {
-    let filtered = pools.filter(p => p.chainId == uniqueChainIds[i]);
-
-    const dmmCalls = filtered.map(pool => {
-      const tokenContract = fetchContract(pool.address, DMMPoolAbi, pool.chainId);
-      return tokenContract.read.totalSupply();
-    });
-    const dmmTradeCalls = filtered.map(pool => {
-      const tokenContract = fetchContract(pool.address, DMMPoolAbi, pool.chainId);
-      return tokenContract.read.getTradeInfo();
-    });
-    const lp0Calls = filtered.map(pool => {
-      const tokenContract = fetchContract(pool.lp0.address, ERC20Abi, pool.chainId);
-      return tokenContract.read.balanceOf([pool.address]);
-    });
-    const lp1Calls = filtered.map(pool => {
-      const tokenContract = fetchContract(pool.lp1.address, ERC20Abi, pool.chainId);
-      return tokenContract.read.balanceOf([pool.address]);
-    });
-
-    let dmmResults: bigint[],
-      dmmTradeResults: (readonly [bigint, bigint, bigint, bigint, bigint])[],
-      lp0Results: bigint[],
-      lp1Results: bigint[];
-
-    try {
-      [dmmResults, dmmTradeResults, lp0Results, lp1Results] = await Promise.all([
-        Promise.all(dmmCalls),
-        Promise.all(dmmTradeCalls),
-        Promise.all(lp0Calls),
-        Promise.all(lp1Calls),
-      ]);
-    } catch (e) {
-      console.error('fetchDmmPrices', e);
-      continue;
-    }
-
-    const totalSupply = dmmResults.map(v => new BigNumber(v.toString()));
-    const virtualBal0 = dmmTradeResults.map(v => new BigNumber(v[2].toString()));
-    const virtualBal1 = dmmTradeResults.map(v => new BigNumber(v[3].toString()));
-    const lp0Bal = lp0Results.map(v => new BigNumber(v.toString()));
-    const lp1Bal = lp1Results.map(v => new BigNumber(v.toString()));
-
-    for (let i = 0; i < filtered.length; i++) {
-      filtered[i].totalSupply = totalSupply[i];
-      filtered[i].lp0.virtualBal = virtualBal0[i];
-      filtered[i].lp1.virtualBal = virtualBal1[i];
-      filtered[i].lp0.balance = lp0Bal[i];
-      filtered[i].lp1.balance = lp1Bal[i];
-    }
+    let filtered = allPools.find(chainPools => chainPools[0].chainId == uniqueChainIds[i]);
 
     const unsolved = filtered.slice();
     let solving = true;
@@ -192,3 +152,70 @@ export async function fetchDmmPrices(
     lpsBreakdown: sortByKeys(breakdown),
   };
 }
+
+const fetchChainPoolInfo = async (pools: any[]) => {
+  const dmmCalls = pools.map(pool => {
+    const tokenContract = fetchContract(pool.address, DMMPoolAbi, pool.chainId);
+    return retryPromiseWithBackOff(
+      tokenContract.read.totalSupply,
+      [],
+      'fetchDmmPrices dmmCalls' + pool.chainId
+    );
+  });
+  const dmmTradeCalls = pools.map(pool => {
+    const tokenContract = fetchContract(pool.address, DMMPoolAbi, pool.chainId);
+    return retryPromiseWithBackOff(
+      tokenContract.read.getTradeInfo,
+      null,
+      'fetchDmmPrices dmmTrade' + pool.chainId
+    );
+  });
+  const lp0Calls = pools.map(pool => {
+    const tokenContract = fetchContract(pool.lp0.address, ERC20Abi, pool.chainId);
+    return retryPromiseWithBackOff(
+      tokenContract.read.balanceOf,
+      [pool.address],
+      'fetchDmmPrices lp0Calls' + pool.chainId
+    );
+  });
+  const lp1Calls = pools.map(pool => {
+    const tokenContract = fetchContract(pool.lp1.address, ERC20Abi, pool.chainId);
+    return retryPromiseWithBackOff(
+      tokenContract.read.balanceOf,
+      [pool.address],
+      'fetchDmmPrices lp1Calls' + pool.chainId
+    );
+  });
+
+  let dmmResults: bigint[],
+    dmmTradeResults: (readonly [bigint, bigint, bigint, bigint, bigint])[],
+    lp0Results: bigint[],
+    lp1Results: bigint[];
+
+  try {
+    [dmmResults, dmmTradeResults, lp0Results, lp1Results] = await Promise.all([
+      Promise.all(dmmCalls),
+      Promise.all(dmmTradeCalls),
+      Promise.all(lp0Calls),
+      Promise.all(lp1Calls),
+    ]);
+  } catch (e) {
+    console.error('fetchDmmPrices', e.shortMessage);
+  }
+
+  const totalSupply = dmmResults.map(v => new BigNumber(v.toString()));
+  const virtualBal0 = dmmTradeResults.map(v => new BigNumber(v[2].toString()));
+  const virtualBal1 = dmmTradeResults.map(v => new BigNumber(v[3].toString()));
+  const lp0Bal = lp0Results.map(v => new BigNumber(v.toString()));
+  const lp1Bal = lp1Results.map(v => new BigNumber(v.toString()));
+
+  for (let i = 0; i < pools.length; i++) {
+    pools[i].totalSupply = totalSupply[i];
+    pools[i].lp0.virtualBal = virtualBal0[i];
+    pools[i].lp1.virtualBal = virtualBal1[i];
+    pools[i].lp0.balance = lp0Bal[i];
+    pools[i].lp1.balance = lp1Bal[i];
+  }
+
+  return pools;
+};
