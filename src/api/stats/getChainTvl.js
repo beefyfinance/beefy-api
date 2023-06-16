@@ -54,7 +54,7 @@ const getVaultBalances = async (chainId, vaults) => {
     return contract.read.balance();
   });
   const res = await Promise.all(calls);
-  return res[0].map(v => new BigNumber(v.toString()));
+  return res.map(v => new BigNumber(v.toString()));
 };
 
 //Fetches chain's governance pool tvl excluding vaults already depositing in it
