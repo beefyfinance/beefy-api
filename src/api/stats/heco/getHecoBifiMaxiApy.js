@@ -1,14 +1,13 @@
-const { hecoWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
-
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { HECO_CHAIN_ID } from '../../../constants';
 const {
   heco: {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI, WHT }
+    tokens: { BIFI, WHT },
   },
 } = addressBook;
 
@@ -19,6 +18,6 @@ export const getHecoBifiMaxiApy = () => {
     rewardId: WHT.symbol,
     rewardDecimals: getEDecimals(WHT.decimals),
     chain: 'heco',
-    web3: web3,
+    chainId: HECO_CHAIN_ID,
   });
 };

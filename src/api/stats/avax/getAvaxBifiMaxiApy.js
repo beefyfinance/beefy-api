@@ -1,8 +1,7 @@
-const { avaxWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
-
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { AVAX_CHAIN_ID } from '../../../constants';
 const {
   avax: {
     platforms: {
@@ -19,6 +18,6 @@ export const getAvaxBifiMaxiApy = () => {
     rewardId: 'AVAX',
     rewardDecimals: getEDecimals(AVAX.decimals),
     chain: 'avax',
-    web3: web3,
+    chainId: AVAX_CHAIN_ID,
   });
 };

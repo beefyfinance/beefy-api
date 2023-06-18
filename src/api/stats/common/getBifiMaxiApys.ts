@@ -1,12 +1,12 @@
 const BigNumber = require('bignumber.js');
-import Web3 from 'web3';
-import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import IRewardPool from '../../../abis/IRewardPool';
+import { ChainId } from '../../../../packages/address-book/address-book';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { DAILY_HPY } = require('../../../constants');
-const ERC20 = require('../../../abis/ERC20.json');
 const secondsPerYear = 31536000;
 
 interface BifiApyParams {
@@ -15,7 +15,7 @@ interface BifiApyParams {
   rewardId: string; // address
   rewardDecimals: string; // 1e18
   chain: string; // i.e. celo
-  web3: Web3;
+  chainId: ChainId;
 }
 
 export const getBifiMaxiApys = async (params: BifiApyParams) => {
@@ -35,8 +35,8 @@ export const getBifiMaxiApys = async (params: BifiApyParams) => {
 const getYearlyRewardsInUsd = async (params: BifiApyParams) => {
   const rewardPrice = await fetchPrice({ oracle: 'tokens', id: params.rewardId });
 
-  const rewardPool = getContractWithProvider(IRewardPool, params.rewardPool, params.web3);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
+  const rewardPool = fetchContract(params.rewardPool, IRewardPool, params.chainId);
+  const rewardRate = new BigNumber((await rewardPool.read.rewardRate()).toString());
   const yearlyRewards =
     params.chain == 'ethereum'
       ? rewardRate.times(secondsPerYear).dividedBy(3)
@@ -47,9 +47,9 @@ const getYearlyRewardsInUsd = async (params: BifiApyParams) => {
 };
 
 const getTotalStakedInUsd = async (params: BifiApyParams) => {
-  const tokenContract = getContractWithProvider(ERC20, params.bifi, params.web3);
+  const tokenContract = fetchContract(params.bifi, ERC20Abi, params.chainId);
   const totalStaked = new BigNumber(
-    await tokenContract.methods.balanceOf(params.rewardPool).call()
+    (await tokenContract.read.balanceOf([params.rewardPool as `0x${string}`])).toString()
   );
   const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'BIFI' });
 

@@ -1,8 +1,7 @@
-const { metisWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
-
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { METIS_CHAIN_ID } from '../../../constants';
 const {
   metis: {
     platforms: {
@@ -19,6 +18,6 @@ export const getMetisBifiMaxiApy = () => {
     rewardId: 'METIS',
     rewardDecimals: getEDecimals(METIS.decimals),
     chain: 'metis',
-    web3: web3,
+    chainId: METIS_CHAIN_ID,
   });
 };

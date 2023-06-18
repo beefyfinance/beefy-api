@@ -1,8 +1,7 @@
-const { cantoWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
-
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { CANTO_CHAIN_ID } from '../../../constants';
 const {
   canto: {
     platforms: {
@@ -19,6 +18,6 @@ export const getCantoBifiMaxiApy = () => {
     rewardId: native.symbol,
     rewardDecimals: getEDecimals(native.decimals),
     chain: 'canto',
-    web3: web3,
+    chainId: CANTO_CHAIN_ID,
   });
 };

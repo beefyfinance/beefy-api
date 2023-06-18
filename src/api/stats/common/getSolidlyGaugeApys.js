@@ -9,8 +9,6 @@ import { fetchContract } from '../../rpc/client';
 
 export const getSolidlyGaugeApys = async params => {
   const apys = await getFarmApys(params);
-
-  console.log(getApyBreakdown(params.pools, 0, apys, 0));
   return getApyBreakdown(params.pools, 0, apys, 0);
 };
 

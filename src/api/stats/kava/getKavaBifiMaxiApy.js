@@ -1,8 +1,7 @@
-const { kavaWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
-
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { KAVA_CHAIN_ID } from '../../../constants';
 const {
   kava: {
     platforms: {
@@ -19,6 +18,6 @@ export const getKavaBifiMaxiApy = () => {
     rewardId: native.symbol,
     rewardDecimals: getEDecimals(native.decimals),
     chain: 'kava',
-    web3: web3,
+    chainId: KAVA_CHAIN_ID,
   });
 };

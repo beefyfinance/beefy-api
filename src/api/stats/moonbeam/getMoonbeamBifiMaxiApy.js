@@ -3,12 +3,13 @@ import { getEDecimals } from '../../../utils/getEDecimals';
 
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { MOONBEAM_CHAIN_ID } from '../../../constants';
 const {
   moonbeam: {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI, WGLMR }
+    tokens: { BIFI, WGLMR },
   },
 } = addressBook;
 
@@ -19,6 +20,6 @@ export const getMoonbeamBifiMaxiApy = () => {
     rewardId: WGLMR.symbol,
     rewardDecimals: getEDecimals(WGLMR.decimals),
     chain: 'moonbeam',
-    web3: web3,
+    chainId: MOONBEAM_CHAIN_ID,
   });
 };
