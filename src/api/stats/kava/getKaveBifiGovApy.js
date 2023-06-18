@@ -1,11 +1,9 @@
 const BigNumber = require('bignumber.js');
-const { kavaWeb3: web3, web3Factory } = require('../../../utils/web3');
 const fetchPrice = require('../../../utils/fetchPrice');
 const ERC20 = require('../../../abis/ERC20.json');
 const { KAVA_CHAIN_ID: chainId } = require('../../../constants');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import IRewardPool from '../../../abis/IRewardPool';
-import { getContractWithProvider } from '../../../utils/contractHelper';
 import { fetchContract } from '../../rpc/client';
 const {
   kava: {
@@ -43,9 +41,8 @@ const getKavaBifiGovApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const nativePrice = await fetchPrice({ oracle: ORACLE, id: REWARD_ORACLE });
 
-  const rewardPool = fetchContract(beefyfinance.rewardPool);
-  const rewardPool = getContractWithProvider(IRewardPool, beefyfinance.rewardPool, web3);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
+  const rewardPool = fetchContract(beefyfinance.rewardPool, IRewardPool, chainId);
+  const rewardRate = new BigNumber((await rewardPool.read.rewardRate()).toString());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(nativePrice).dividedBy(DECIMALS);
 
@@ -53,11 +50,9 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const web3 = web3Factory(chainId);
-
-  const tokenContract = getContractWithProvider(ERC20, BIFI.address, web3);
+  const tokenContract = fetchContract(BIFI.address, ERC20, chainId);
   const totalStaked = new BigNumber(
-    await tokenContract.methods.balanceOf(beefyfinance.rewardPool).call()
+    (await tokenContract.read.balanceOf([beefyfinance.rewardPool])).toString()
   );
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: ORACLE_ID });
 
