@@ -1,4 +1,3 @@
-const { zksyncWeb3: web3 } = require('../../../utils/web3');
 const { ZKSYNC_CHAIN_ID: chainId } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
@@ -15,7 +14,6 @@ const {
 const pools = [...stablePools, ...volatilePools];
 const getVelacoreApys = async () => {
   const gaugeApys = getSolidlyGaugeApys({
-    web3: web3,
     chainId: chainId,
     pools: pools,
     oracleId: 'VC',

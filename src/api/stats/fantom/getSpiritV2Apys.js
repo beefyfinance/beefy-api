@@ -1,4 +1,3 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
 const { FANTOM_CHAIN_ID: chainId } = require('../../../constants');
 import { addressBook } from '../../../../packages/address-book/address-book';
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
@@ -15,7 +14,6 @@ const {
 const pools = [...stablePools, ...volatilePools];
 const getSpiritV2Apys = async () => {
   return getSolidlyGaugeApys({
-    web3: web3,
     chainId: chainId,
     pools: pools,
     oracleId: 'SPIRIT',

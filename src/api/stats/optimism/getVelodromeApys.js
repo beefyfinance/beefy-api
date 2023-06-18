@@ -1,4 +1,3 @@
-const { optimismWeb3: web3 } = require('../../../utils/web3');
 const { OPTIMISM_CHAIN_ID: chainId } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
@@ -15,7 +14,6 @@ const {
 const pools = [...stablePools, ...volatilePools];
 const getVelodromeApys = async () => {
   const gaugeApys = getSolidlyGaugeApys({
-    web3: web3,
     chainId: chainId,
     pools: pools,
     oracleId: 'VELO',

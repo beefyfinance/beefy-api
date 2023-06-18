@@ -1,8 +1,6 @@
-const { cantoWeb3: web3 } = require('../../../utils/web3');
 const { CANTO_CHAIN_ID: chainId } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
-
 const stablePools = require('../../../data/canto/velocimeterStableLpPools.json');
 const volatilePools = require('../../../data/canto/velocimeterLpPools.json');
 const stableV2Pools = require('../../../data/canto/velocimeterV2StableLpPools.json');
@@ -19,7 +17,6 @@ const pools = [...stablePools, ...volatilePools];
 const poolsV2 = [...stableV2Pools, ...volatileV2Pools];
 const getVelocimeterApys = async () => {
   const gaugeApys = getSolidlyGaugeApys({
-    web3: web3,
     chainId: chainId,
     pools: pools,
     oracleId: 'FLOWV1',
@@ -31,7 +28,6 @@ const getVelocimeterApys = async () => {
   });
 
   const gaugeV2Apys = getSolidlyGaugeApys({
-    web3: web3,
     chainId: chainId,
     pools: poolsV2,
     oracleId: 'FLOW',
