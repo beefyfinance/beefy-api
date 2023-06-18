@@ -2,8 +2,7 @@ const BigNumber = require('bignumber.js');
 import Web3 from 'web3';
 import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
-
-const IRewardPool = require('../../../abis/IRewardPool.json');
+import IRewardPool from '../../../abis/IRewardPool';
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { DAILY_HPY } = require('../../../constants');

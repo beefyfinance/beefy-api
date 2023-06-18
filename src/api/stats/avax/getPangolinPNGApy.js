@@ -1,13 +1,13 @@
 const BigNumber = require('bignumber.js');
 const { avaxWeb3: web3, web3Factory } = require('../../../utils/web3');
 
-const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { DAILY_HPY } = require('../../../constants');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
+const { default: IRewardPool } = require('../../../abis/IRewardPool');
 
 const PNG = '0x60781C2586D68229fde47564546784ab3fACA982';
 const REWARDS = '0x88afdaE1a9F58Da3E68584421937E5F564A0135b';

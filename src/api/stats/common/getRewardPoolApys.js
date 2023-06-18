@@ -1,14 +1,13 @@
 const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { multicallAddress } = require('../../../utils/web3');
-
-const IRewardPool = require('../../../abis/IRewardPool.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import IRewardPool from '../../../abis/IRewardPool';
 
 export const getRewardPoolApys = async params => {
   const tradingAprs = await getTradingAprs(params);

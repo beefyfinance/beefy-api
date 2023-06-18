@@ -7,9 +7,9 @@ import { getContract } from '../../../utils/contractHelper';
 const { ethereumWeb3: web3, multicallAddress } = require('../../../utils/web3');
 import { ETH_HPY, ETH_CHAIN_ID as chainId } from '../../../constants';
 import IETokenAbi from '../../../abis/ethereum/IEToken';
+import IRewardPool from '../../../abis/IRewardPool';
 const IMarkets = require('../../../abis/ethereum/IMarkets.json');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
-const IRewardPool = require('../../../abis/IRewardPool.json');
 
 const pools = require('../../../data/ethereum/eulerPools.json');
 const markets = '0x3520d5a913427E6F0D6A83E07ccD4A4da316e4d3';

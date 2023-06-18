@@ -3,9 +3,9 @@ import { bscWeb3 as web3, multicallAddress } from '../../../utils/web3';
 import { BSC_CHAIN_ID as chainId } from '../../../constants';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
-import IRewardPool from '../../../abis/IRewardPool.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../utils/fetchPrice';
+import IRewardPool from '../../../abis/IRewardPool';
 
 const tradingFees = 0.0002;
 const secondsPerYear = 31536000;

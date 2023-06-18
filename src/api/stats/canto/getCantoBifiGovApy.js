@@ -1,11 +1,10 @@
 const BigNumber = require('bignumber.js');
 const { cantoWeb3: web3, web3Factory } = require('../../../utils/web3');
-
-const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const ERC20 = require('../../../abis/ERC20.json');
 const { CANTO_CHAIN_ID: chainId } = require('../../../constants');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import IRewardPool from '../../../abis/IRewardPool';
 import { getContractWithProvider } from '../../../utils/contractHelper';
 const {
   canto: {

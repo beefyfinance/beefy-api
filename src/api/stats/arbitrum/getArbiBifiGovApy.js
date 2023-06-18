@@ -1,10 +1,9 @@
 const BigNumber = require('bignumber.js');
 const { arbitrumWeb3: web3, web3Factory, arbitrumWeb3 } = require('../../../utils/web3');
-
-const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const ERC20 = require('../../../abis/ERC20.json');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { default: IRewardPool } = require('../../../abis/IRewardPool');
 
 const BIFI = '0x99C409E5f62E4bd2AC142f17caFb6810B8F0BAAE';
 const REWARDS = '0x48F4634c8383aF01BF71AefBC125eb582eb3C74D';

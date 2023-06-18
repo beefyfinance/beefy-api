@@ -2,13 +2,13 @@ import { MultiCall } from 'eth-multicall';
 import { ethereumWeb3 as web3, multicallAddress } from '../../../utils/web3';
 import { ETH_CHAIN_ID as chainId } from '../../../constants';
 import { getContract } from '../../../utils/contractHelper';
-import IRewardPool from '../../../abis/IRewardPool.json';
 import ICvxCrvStaking from '../../../abis/ethereum/ICvxCrvStaking.json';
 import IERC20 from '../../../abis/ERC20.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../utils/fetchPrice';
 import { getMintedCvxAmount } from './getConvexApys';
 import getApyBreakdown from '../common/getApyBreakdown';
+import IRewardPool from '../../../abis/IRewardPool';
 
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';

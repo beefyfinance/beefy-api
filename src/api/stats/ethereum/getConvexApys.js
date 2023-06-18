@@ -7,10 +7,10 @@ import {
 } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getContract } from '../../../utils/contractHelper';
-import IRewardPool from '../../../abis/IRewardPool.json';
 import IERC20 from '../../../abis/ERC20.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../utils/fetchPrice';
+import IRewardPool from '../../../abis/IRewardPool';
 
 const lpPools = require('../../../data/ethereum/convexPools.json').filter(p => p.rewardPool);
 const subgraphUrl = 'https://api.curve.fi/api/getSubgraphData/ethereum';

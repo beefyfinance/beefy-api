@@ -1,11 +1,10 @@
 const BigNumber = require('bignumber.js');
 const { optimismWeb3: web3, web3Factory } = require('../../../utils/web3');
-
-const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const ERC20 = require('../../../abis/ERC20.json');
 const { OPTIMISM_CHAIN_ID: chainId, BASE_HPY } = require('../../../constants');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import IRewardPool from '../../../abis/IRewardPool';
 import { getContractWithProvider } from '../../../utils/contractHelper';
 const {
   optimism: {

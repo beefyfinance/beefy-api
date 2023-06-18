@@ -1,10 +1,10 @@
 const BigNumber = require('bignumber.js');
 const { optimismWeb3: web3 } = require('../../../utils/web3');
-const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { DAILY_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { default: IRewardPool } = require('../../../abis/IRewardPool');
 
 const REWARDS = '0x2275527112c94733081F2893de25c85F252DeFab';
 

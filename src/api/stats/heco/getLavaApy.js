@@ -1,11 +1,10 @@
 const BigNumber = require('bignumber.js');
 const { hecoWeb3: web3 } = require('../../../utils/web3');
-
-const IRewardPool = require('../../../abis/IRewardPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
+const { default: IRewardPool } = require('../../../abis/IRewardPool');
 
 const oracle = 'tokens';
 const oracleId = 'LAVA';
