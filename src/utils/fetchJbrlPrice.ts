@@ -1,7 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { web3Factory } from './web3';
 import { POLYGON_CHAIN_ID } from '../constants';
-import { getContractWithProvider } from './contractHelper';
 import IJarvisPriceFeed from '../abis/IJarvisPriceFeed';
 import { fetchNoMulticallContract } from '../api/rpc/client';
 
