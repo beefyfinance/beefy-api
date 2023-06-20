@@ -19,7 +19,7 @@ const {
     platforms: { velodrome },
   },
   polygon: {
-    platforms: { dystopia },
+    platforms: { dystopia, pearl },
   },
   bsc: {
     platforms: { cone, thena },
@@ -65,6 +65,12 @@ const projects = {
     stableFile: '../src/data/matic/dystopiaStableLpPools.json',
     volatileFile: '../src/data/matic/dystopiaLpPools.json',
     voter: dystopia.voter,
+  },
+  pearl: {
+    prefix: 'pearl',
+    stableFile: '../src/data/matic/pearlStableLpPools.json',
+    volatileFile: '../src/data/matic/pearlLpPools.json',
+    voter: pearl.voter,
   },
   cone: {
     prefix: 'cone',
