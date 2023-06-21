@@ -8,8 +8,8 @@ const DEFAULT_API_URL = 'https://api.1inch.io';
 const API_URL = process.env.ONE_INCH_API || DEFAULT_API_URL;
 // With custom api endpoint we can do more requests per second
 const API_QUEUE_CONFIG_CUSTOM = {
-  concurrency: 30,
-  intervalCap: 60,
+  concurrency: 10,
+  intervalCap: 10, // 10 to 20 RPS as per 1inch for our private API
   interval: 1000,
 };
 // Default config is really slow at 1 per 2 seconds
