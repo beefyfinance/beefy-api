@@ -1,15 +1,12 @@
 const BigNumber = require('bignumber.js');
-const { web3Factory } = require('../../../utils/web3');
-
-const Rewarder = require('../../../abis/aurora/SolaceRewards.json');
 const { compound } = require('../../../utils/compound');
-
 import { getEDecimals } from '../../../utils/getEDecimals';
 const { AURORA_CHAIN_ID: chainId, BASE_HPY } = require('../../../constants');
-
 import { addressBook } from '../../../../packages/address-book/address-book';
-import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import SolaceRewards from '../../../abis/aurora/SolaceRewards';
+import { fetchContract } from '../../rpc/client';
+
 const {
   aurora: {
     platforms: {
@@ -50,10 +47,8 @@ const getSolaceApy = async () => {
 };
 
 const getYearlyRewardsInUsd = async () => {
-  const web3 = web3Factory(chainId);
-
-  const rewardPool = getContractWithProvider(Rewarder, rewards, web3);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardPerSecond().call());
+  const rewardPool = fetchContract(rewards, SolaceRewards, chainId);
+  const rewardRate = new BigNumber((await rewardPool.read.rewardPerSecond()).toString());
   const yearlyRewards = rewardRate.times(SECONDS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.dividedBy(getEDecimals(SOLACE.decimals));
 
@@ -61,10 +56,8 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const web3 = web3Factory(chainId);
-
-  const rewardPool = getContractWithProvider(Rewarder, rewards, web3);
-  const totalStaked = new BigNumber(await rewardPool.methods.valueStaked().call());
+  const rewardPool = fetchContract(rewards, SolaceRewards, chainId);
+  const totalStaked = new BigNumber((await rewardPool.read.valueStaked()).toString());
 
   return totalStaked.dividedBy(getEDecimals(SOLACE.decimals));
 };
