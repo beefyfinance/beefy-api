@@ -1,4 +1,3 @@
-import { oneWeb3 } from '../../../utils/web3';
 import { ONE_CHAIN_ID } from '../../../constants';
 
 import { getMiniChefApys } from '../common/getMiniChefApys';
@@ -22,7 +21,7 @@ export const getSushiLpApys = () => {
   return getMiniChefApys({
     minichefConfig: {
       minichef,
-      minichefAbi: SushiMiniChefV2 as any,
+      minichefAbi: SushiMiniChefV2,
       outputOracleId: oneSUSHI.symbol,
       tokenPerSecondContractMethodName: 'sushiPerSecond',
     },
@@ -33,7 +32,6 @@ export const getSushiLpApys = () => {
     },
     pools,
     tradingClient: sushiOneClient,
-    web3: oneWeb3,
     chainId: ONE_CHAIN_ID,
   });
 };

@@ -1,11 +1,9 @@
-import { kavaWeb3 } from '../../../utils/web3';
 import { KAVA_CHAIN_ID } from '../../../constants';
 
 import { getMiniChefApys } from '../common/getMiniChefApys';
 import { sushiKavaClient } from '../../../apollo/client';
 
 import pools from '../../../data/kava/sushiKavaLpPools.json';
-import { AbiItem } from 'web3-utils';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 
@@ -33,7 +31,6 @@ export const getSushiLpApys = () => {
     },
     pools,
     tradingClient: sushiKavaClient,
-    web3: kavaWeb3,
     chainId: KAVA_CHAIN_ID,
     // log: true,
   });

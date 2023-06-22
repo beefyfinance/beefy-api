@@ -2,13 +2,13 @@ const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { avaxWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/avax/PangolinChef.json');
 const Rewarder = require('../../../abis/avax/PangolinRewarderViaMultiplier.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/pangolinV2DualLpPools.json');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+import PangolinChef from '../../../abis/avax/PangolinChef';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
@@ -109,14 +109,14 @@ const getPangolinV2DualApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
+  const masterchefContract = getContractWithProvider(PangolinChef, masterchef, web3);
   const rewardPerSecond = new BigNumber(await masterchefContract.methods.rewardPerSecond().call());
   const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = getContract(MasterChef, masterchef);
+  const masterchefContract = getContract(PangolinChef, masterchef);
   const multicall = new MultiCall(web3, multicallAddress(AVAX_CHAIN_ID));
   const balanceCalls = [];
   const poolInfoCalls = [];
