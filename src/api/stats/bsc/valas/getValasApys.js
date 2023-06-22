@@ -5,10 +5,12 @@ const { BASE_HPY } = require('../../../../constants');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const IncentivesController = require('../../../../abis/fantom/GeistIncentivesController.json');
-const IAaveProtocolDataProvider = require('../../../../abis/matic/AaveProtocolDataProvider.json');
 const pools = require('../../../../data/valasPools.json');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
+const {
+  default: IAaveProtocolDataProvider,
+} = require('../../../../abis/matic/AaveProtocolDataProvider');
 
 const AaveProtocolDataProvider = '0xb5f344F568b714c471B23924644B4e393Ca4E9E9';
 const incentivesController = '0xB7c1d99069a4eb582Fc04E7e1124794000e7ecBF';

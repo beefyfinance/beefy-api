@@ -1,17 +1,14 @@
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
-import Web3 from 'web3';
 import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getCurveApyData';
 import { getApyBreakdown, ApyBreakdownResult } from '../common/getApyBreakdown';
 import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
 import jp from 'jsonpath';
-import { getContract } from '../../../utils/contractHelper';
-import IAaveProtocolDataProvider from '../../../abis/matic/AaveProtocolDataProvider.json';
 import BigNumber from 'bignumber.js';
 import fetch from 'node-fetch';
 import { getTradingFeeAprBalancer } from '../../../utils/getTradingFeeApr';
 import fetchPrice from '../../../utils/fetchPrice';
 import IBalancerVault from '../../../abis/IBalancerVault';
+import { fetchContract } from '../../rpc/client';
+import IAaveProtocolDataProvider from '../../../abis/matic/AaveProtocolDataProvider';
 
 interface Token {
   newGauge?: boolean;
@@ -33,7 +30,7 @@ interface Pool {
   lsIndex?: number;
   composable?: boolean;
   bptIndex?: number;
-  vaultPoolId?: number;
+  vaultPoolId?: string;
   lsUrl?: string;
   dataPath?: string;
   balancerChargesFee?: boolean;
@@ -45,7 +42,6 @@ interface Pool {
 }
 
 interface BalancerParams {
-  web3: Web3;
   chainId: number;
   client: ApolloClient<NormalizedCacheObject>;
   pools: Pool[];
@@ -97,19 +93,18 @@ const getPoolApys = async (params: BalancerParams): Promise<FarmApyResult> => {
   const lsAprs = [];
   const cmpAprs = [];
 
-  const tokenQtys = await getPoolsData(params);
+  const { tokenQtys, aaveYields } = await getPoolsData(params);
 
-  for (let i = 0; i < params.pools.length; i++) {
-    const { rewardsApy, aprFixed, composableApr } = await getPoolApy(
-      params.pools[i],
-      params,
-      tokenQtys[i]
-    );
+  const poolApyCalls = params.pools.map((pool, i) =>
+    getPoolApy(pool, params, tokenQtys[i], aaveYields[i])
+  );
+  const poolApyResults = await Promise.all(poolApyCalls);
 
-    apys.push(rewardsApy);
-    lsAprs.push(aprFixed);
-    cmpAprs.push(composableApr);
-  }
+  poolApyResults.forEach(result => {
+    apys.push(result.rewardsApy);
+    lsAprs.push(result.aprFixed);
+    cmpAprs.push(result.composableApr);
+  });
 
   return {
     poolAprs: apys,
@@ -121,11 +116,10 @@ const getPoolApys = async (params: BalancerParams): Promise<FarmApyResult> => {
 const getPoolApy = async (
   pool: Pool,
   params: BalancerParams,
-  tokenQtys: BigNumber[]
+  tokenQtys: BigNumber[],
+  aaveYield?: BigNumber
 ): Promise<FarmApy> => {
   if (pool.status === 'eol') return { rewardsApy: new BigNumber(0), aprFixed: 0, composableApr: 0 };
-  let web3: Web3 = params.web3;
-
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(params.chainId, pool),
     getTotalStakedInUsd(params.chainId, pool),
@@ -168,12 +162,7 @@ const getPoolApy = async (
 
   let compApr = new BigNumber(0);
   if (pool.includesComposableAaveTokens) {
-    let bbAaveApy: BigNumber = await getComposableAaveYield(
-      pool.aaveUnderlying,
-      pool.bbPoolId,
-      pool.bbIndex,
-      params
-    );
+    let bbAaveApy: BigNumber = aaveYield;
     if (pool.composableSplit) {
       let qty: BigNumber[] = [];
       let totalQty: BigNumber = new BigNumber(0);
@@ -219,30 +208,32 @@ const getComposableAaveYield = async (
   index: number,
   params: BalancerParams
 ): Promise<BigNumber> => {
-  let supplyRateCalls = [];
-  let tokenQtyCalls = [];
+  const balVault = fetchContract(params.balancerVault, IBalancerVault, params.chainId);
 
-  const multicall = new MultiCall(params.web3, multicallAddress(params.chainId));
-  const balVault = getContract(IBalancerVault, params.balancerVault);
-
-  tokens.forEach(t => {
-    const dataProvider = getContract(IAaveProtocolDataProvider, params.aaveDataProvider);
-    supplyRateCalls.push({ supplyRate: dataProvider.methods.getReserveData(t.address) });
+  const supplyRateCalls = tokens.map(t => {
+    const dataProvider = fetchContract(
+      params.aaveDataProvider,
+      IAaveProtocolDataProvider,
+      params.chainId
+    );
+    return dataProvider.read.getReserveData([t.address as `0x${string}`]);
   });
+  const tokenQtyCall = balVault.read.getPoolTokens([poolId as `0x${string}`]);
 
-  tokenQtyCalls.push({ tokenQty: balVault.methods.getPoolTokens(poolId) });
+  const [supplyRateResults, tokenQtyResult] = await Promise.all([
+    Promise.all(supplyRateCalls),
+    tokenQtyCall,
+  ]);
 
-  const res = await multicall.all([supplyRateCalls, tokenQtyCalls]);
-
-  const rates = res[0].map(v => new BigNumber(v.supplyRate[5]));
-  const tokenQtys = res[1].map(v => v.tokenQty['1']);
+  const rates = supplyRateResults.map(v => new BigNumber(v[5].toString()));
+  const tokenQtys = tokenQtyResult[1];
 
   let qty: BigNumber[] = [];
   let totalQty: BigNumber = new BigNumber(0);
-  for (let j = 0; j < tokenQtys[0].length; j++) {
+  for (let j = 0; j < tokenQtys.length; j++) {
     if (j != index) {
-      totalQty = totalQty.plus(new BigNumber(tokenQtys[0][j]));
-      qty.push(new BigNumber(tokenQtys[0][j]));
+      totalQty = totalQty.plus(new BigNumber(tokenQtys[j].toString()));
+      qty.push(new BigNumber(tokenQtys[j].toString()));
     }
   }
 
@@ -257,21 +248,21 @@ const getComposableAaveYield = async (
   return apy;
 };
 
-const getPoolsData = async params => {
-  const web3 = params.web3;
-  const multicall = new MultiCall(web3, multicallAddress(params.chainId));
-  let calls = [];
-  const balVault = getContract(IBalancerVault, params.balancerVault);
-
-  params.pools.forEach(pool => {
-    calls.push({
-      tokenQty: balVault.methods.getPoolTokens(pool.vaultPoolId),
-    });
+const getPoolsData = async (params: BalancerParams) => {
+  const balVault = fetchContract(params.balancerVault, IBalancerVault, params.chainId);
+  const calls = params.pools.map(pool =>
+    balVault.read.getPoolTokens([pool.vaultPoolId as `0x${string}`])
+  );
+  const aaveCalls: Promise<BigNumber>[] = params.pools.map(pool => {
+    if (pool.includesComposableAaveTokens) {
+      return getComposableAaveYield(pool.aaveUnderlying, pool.bbPoolId, pool.bbIndex, params);
+    }
+    return new Promise(resolve => resolve(new BigNumber(0)));
   });
 
-  const res = await multicall.all([calls]);
+  const res = await Promise.all([Promise.all(calls), Promise.all(aaveCalls)]);
 
-  const tokenQtys = res[0].map(v => v.tokenQty['1']);
-
-  return tokenQtys;
+  const tokenQtys = res[0].map(v => v['1'].map(v => new BigNumber(v.toString())));
+  const aaveYields = res[1];
+  return { tokenQtys, aaveYields };
 };

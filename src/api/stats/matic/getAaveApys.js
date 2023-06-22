@@ -4,11 +4,13 @@ const { polygonWeb3: web3 } = require('../../../utils/web3');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const IAaveDistributionManager = require('../../../abis/matic/AaveDistributionManager.json');
-const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataProvider.json');
 const pools = require('../../../data/matic/aavePools.json');
 const { BASE_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
+const {
+  default: IAaveProtocolDataProvider,
+} = require('../../../abis/matic/AaveProtocolDataProvider');
 
 const AaveProtocolDataProvider = '0x7551b5D2763519d4e37e8B81929D336De671d46d';
 const AaveDistributionManager = '0x357D51124f59836DeD84c8a1730D72B749d8BC23';
