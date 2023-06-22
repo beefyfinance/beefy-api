@@ -3,11 +3,11 @@ const { MultiCall } = require('eth-multicall');
 const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/matic/ElysianFields.json');
-const DMMPool = require('../../../abis/matic/DMMPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/kyberLpPools.json');
 const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
 const { getVariableTradingFeeApr } = require('../../../utils/getTradingFeeApr');
+import DMMPool from '../../../abis/matic/DMMPool';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';

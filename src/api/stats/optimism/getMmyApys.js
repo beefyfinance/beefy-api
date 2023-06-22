@@ -50,12 +50,12 @@ const getTrackerRewards = async (pool, rewardTracker) => {
   const rewardTrackerContract = fetchContract(
     rewardTracker.address,
     RewardTrackerAbi,
-    ARBITRUM_CHAIN_ID
+    OPTIMISM_CHAIN_ID
   );
   const distributorContract = fetchContract(
     rewardTracker.distributor,
     DistributorAbi,
-    ARBITRUM_CHAIN_ID
+    OPTIMISM_CHAIN_ID
   );
 
   const res = await Promise.all([
