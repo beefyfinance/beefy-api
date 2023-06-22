@@ -16,7 +16,6 @@ const getKyberArbitrumApys = require('./getKyberArbitrumApys');
 const getSolidLizardApys = require('./getSolidLizardApys');
 const getRamsesApys = require('./getRamsesApys');
 const getArbidexApys = require('./getArbidexApys');
-const { getMuxArbitrumApys } = require('./getMuxApys');
 const { getChronosApys } = require('./getChronosApys');
 
 const getApys = [
@@ -24,7 +23,6 @@ const getApys = [
   getGnsApys,
   getHopApys,
   getGmxApys,
-  // getMuxArbitrumApys,
   getRipaeApys,
   getSushiLpApys,
   getCurveApys,

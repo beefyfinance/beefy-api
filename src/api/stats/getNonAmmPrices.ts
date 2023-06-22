@@ -61,7 +61,6 @@ import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import getMmyFantomPrices from './fantom/getMmyFantomPrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
-import { getMuxArbitrumPrices } from './arbitrum/getMuxPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
 import getThenaGammaPrices from './bsc/getThenaGammaPrices';
@@ -107,7 +106,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getMvxPrices(tokenPrices),
     getEqualizerStablePrices(tokenPrices),
     getOlpPrices(),
-    // getMuxArbitrumPrices(tokenPrices),
     getStargateMetisPrices(tokenPrices),
     getStargateOpPrices(tokenPrices),
     getStargatePolygonPrices(tokenPrices),
