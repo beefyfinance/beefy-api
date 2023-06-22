@@ -2,14 +2,14 @@ const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const SushiMiniChefV2 = require('../../../abis/matic/SushiMiniChefV2.json');
-const SushiComplexRewarderTime = require('../../../abis/matic/SushiComplexRewarderTime.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/sushiOhmLpPools.json');
 const { POLYGON_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
 const { getTradingFeeAprSushi: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { sushiPolyClient } = require('../../../apollo/client');
+import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime';
+import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import getApyBreakdown from '../common/getApyBreakdown';
 

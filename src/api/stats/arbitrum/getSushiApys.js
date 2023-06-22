@@ -4,8 +4,8 @@ import { getMasterChefApys } from '../common/getMasterChefApys';
 
 const pools = require('../../../data/arbitrum/sushiLpPools.json');
 const { SUSHI_LPF } = require('../../../constants');
-const SushiMiniChefV2 = require('../../../abis/matic/SushiMiniChefV2.json');
 import { sushiArbitrumClient } from '../../../apollo/client';
+import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 
 const getSushiLpApys = async () =>
   await getMasterChefApys({

@@ -21,11 +21,11 @@ import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
 
 // abis
-import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime.json';
 import ERC20 from '../../../abis/ERC20.json';
 import { Contract } from 'web3-eth-contract';
 import { AbiItem } from 'web3-utils';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime';
 
 const oracle = 'tokens';
 const DECIMALS = '1e18';

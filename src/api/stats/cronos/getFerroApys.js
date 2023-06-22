@@ -9,26 +9,26 @@ import fetchPrice from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
 import fetch from 'node-fetch';
+import StrategyABI from '../../../abis/StrategyABI';
 
 const chefAbi = require('../../../abis/cronos/FerroFarm.json');
 const ERC20 = require('../../../abis/ERC20.json');
-const strategyAbi = require('../../../abis/StrategyABI.json');
 
 const lpFee = 0.0004;
 const burn = 0.4;
 
-const fer = "0x39bC1e38c842C60775Ce37566D03B41A7A66C782";
-const xFer = "0x6b82eAce10F782487B61C616B623A78c965Fdd88";
-const xFerBoost = "0xCf3e157E2491F7D739f8923f6CeaA4656E64C92e";
-const chef = "0xAB50FB1117778f293cc33aC044b5579fb03029D0";
-const factoryUrl = "https://api.ferroprotocol.com/info/api/getApys";
+const fer = '0x39bC1e38c842C60775Ce37566D03B41A7A66C782';
+const xFer = '0x6b82eAce10F782487B61C616B623A78c965Fdd88';
+const xFerBoost = '0xCf3e157E2491F7D739f8923f6CeaA4656E64C92e';
+const chef = '0xAB50FB1117778f293cc33aC044b5579fb03029D0';
+const factoryUrl = 'https://api.ferroprotocol.com/info/api/getApys';
 
 const getFerroApys = async () => {
   const farmApys = await getFarmApys();
   const tradingApys = await getTradingApys();
 
   return getApyBreakdown(pools, tradingApys, farmApys, lpFee);
-}
+};
 
 const getTradingApys = async () => {
   let apys = {};
@@ -37,13 +37,13 @@ const getTradingApys = async () => {
     const apyData = response.data;
     pools.forEach(pool => {
       let apy = new BigNumber(getApiData(apyData, pool.key));
-        apys = { ...apys, ...{ [pool.address.toLowerCase()]: apy } };
-      });
-    } catch (err) {
-      console.error('Ferro base apy error', err);
-    }
-    return apys;
-}
+      apys = { ...apys, ...{ [pool.address.toLowerCase()]: apy } };
+    });
+  } catch (err) {
+    console.error('Ferro base apy error', err);
+  }
+  return apys;
+};
 
 const getApiData = (apyData, poolKey) => {
   try {
@@ -61,7 +61,8 @@ const getFarmApys = async () => {
   let apys = [];
 
   const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'FER' });
-  const { blockRewards, totalAllocPoint, xFerAllocPoint, xFerToFer, xFerBoostTotalSupply } = await getMasterChefData();
+  const { blockRewards, totalAllocPoint, xFerAllocPoint, xFerToFer, xFerBoostTotalSupply } =
+    await getMasterChefData();
   const { balances, allocPoints, strategyBalances, xFerBoostBalances } = await getPoolsData();
 
   const secondsPerBlock = await getBlockTime(chainId);
@@ -95,9 +96,9 @@ const getFarmApys = async () => {
 
     // how many rewards will be vested over the year
     const vestedRewards = xFerBoostBalances[i]
-      .times(12)  // strategy only holds upto 30 days of vested rewards
+      .times(12) // strategy only holds upto 30 days of vested rewards
       .times(xFerToFer)
-      .dividedBy(100);  // 100 xFerBoost to 1 xFer
+      .dividedBy(100); // 100 xFerBoost to 1 xFer
 
     const xFerYearlyRewards = xPoolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const xFerYearlyRewardsInUsd = xFerYearlyRewards.times(tokenPrice).dividedBy('1e18');
@@ -161,11 +162,11 @@ const getPoolsData = async () => {
 
   pools.forEach(pool => {
     const tokenContract = getContractWithProvider(ERC20, pool.address, web3);
-    const strategyContract = getContractWithProvider(strategyAbi, pool.strategy, web3);
+    const strategyContract = getContractWithProvider(StrategyABI, pool.strategy, web3);
 
     balanceCalls.push({ balance: tokenContract.methods.balanceOf(chef) });
     allocPointCalls.push({ allocPoint: masterchefContract.methods.poolInfo(pool.poolId) });
-    strategyCalls.push({ balance: strategyContract.methods.balanceOfPool() })
+    strategyCalls.push({ balance: strategyContract.methods.balanceOfPool() });
     xFerBoostCalls.push({ balance: xFerBoostContract.methods.balanceOf(pool.strategy) });
   });
 

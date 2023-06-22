@@ -3,7 +3,6 @@ const { MultiCall } = require('eth-multicall');
 const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
 const MiniChefV2 = require('../../../abis/matic/ApeMiniApe.json');
-const SushiComplexRewarderTime = require('../../../abis/matic/SushiComplexRewarderTime.json');
 const RewarderAllocPoints = require('../../../abis/matic/RewarderAllocPoints.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
@@ -11,6 +10,7 @@ const pools = require('../../../data/matic/apePolyLpPools.json');
 const { POLYGON_CHAIN_ID, APEPOLY_LPF } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { apePolyClient } = require('../../../apollo/client');
+import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import getApyBreakdown from '../common/getApyBreakdown';
 

@@ -5,10 +5,10 @@ import { getMiniChefApys } from '../common/getMiniChefApys';
 import { sushiMoonriverClient } from '../../../apollo/client';
 
 import pools from '../../../data/moonriver/sushiLpPools.json';
-import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2.json';
 import { AbiItem } from 'web3-utils';
 
 import { addressBook } from '../../../../packages/address-book/address-book';
+import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 const {
   moonriver: {
     platforms: {
@@ -22,7 +22,7 @@ export const getSushiLpApys = () => {
   return getMiniChefApys({
     minichefConfig: {
       minichef,
-      minichefAbi: SushiMiniChefV2 as AbiItem[],
+      minichefAbi: SushiMiniChefV2 as any,
       outputOracleId: mSUSHI.symbol,
       tokenPerSecondContractMethodName: 'sushiPerSecond',
     },
