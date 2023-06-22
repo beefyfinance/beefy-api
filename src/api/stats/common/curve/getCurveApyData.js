@@ -149,12 +149,14 @@ const getBoostedYearlyRewardsInUsd = async (chainId, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (chainId, pool) => {
-  const [yearlyRewardsInUsd, { periodsFinish, rewardRates }] = Promise.all([
+  let [yearRewardsInUsd, ratesAndPeriods] = await Promise.all([
     pool.boosted
       ? getBoostedYearlyRewardsInUsd(chainId, pool)
       : new Promise(resolve => resolve(new BigNumber(0))),
     getPoolsRatesAndPeriodFinish(chainId, pool),
   ]);
+
+  const { rewardRates, periodsFinish } = ratesAndPeriods;
 
   for (const [index, rewards] of Object.entries(pool.rewards ?? [])) {
     const rewardRate = rewardRates[index];
@@ -169,17 +171,17 @@ const getYearlyRewardsInUsd = async (chainId, pool) => {
       .times(secondsPerYear)
       .times(price)
       .dividedBy(rewards.decimals ?? '1e18');
-    yearlyRewardsInUsd = yearlyRewardsInUsd.plus(rewardsInUsd);
+    yearRewardsInUsd = yearRewardsInUsd.plus(rewardsInUsd);
   }
 
-  return yearlyRewardsInUsd;
+  return yearRewardsInUsd;
 };
 
 const getPoolsRatesAndPeriodFinish = async (chainId, pool) => {
   const periodFinishCalls = [];
   const rewardRateCalls = [];
   (pool.rewards ?? []).forEach(rewards => {
-    if (pool.boosted || reward.rewardToken) {
+    if (pool.boosted || rewards.rewardToken) {
       const token = rewards.rewardToken ? rewards.rewardToken : rewards.token;
       const rewardStream = fetchContract(pool.gauge, ICurveGauge, chainId);
       const call = rewardStream.read.reward_data([token]);
