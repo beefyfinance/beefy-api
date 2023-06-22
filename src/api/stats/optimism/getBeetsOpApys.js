@@ -1,9 +1,7 @@
-import { MultiCall } from 'eth-multicall';
 const { optimismWeb3: web3 } = require('../../../utils/web3');
 import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
-import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
 const fetch = require('node-fetch');
 import { beetOpClient } from '../../../apollo/client';
@@ -72,8 +70,8 @@ const getPoolApys = async pools => {
 const getPoolApy = async pool => {
   if (pool.status === 'eol') return new BigNumber(0);
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(OPTIMISM_CHAIN_ID)), pool),
-    getTotalStakedInUsd(web3, pool),
+    getYearlyRewardsInUsd(OPTIMISM_CHAIN_ID, pool),
+    getTotalStakedInUsd(OPTIMISM_CHAIN_ID, pool),
   ]);
 
   //console.log(pool.name, yearlyRewardsInUsd.toNumber(), totalStakedInUsd.toNumber())

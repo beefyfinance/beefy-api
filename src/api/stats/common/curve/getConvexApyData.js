@@ -1,8 +1,8 @@
 import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
-import ICurveGauge from '../../../../abis/ICurveGauge.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../../utils/fetchPrice';
 import IRewardPool from '../../../../abis/IRewardPool';
+import ICurveGauge from '../../../../abis/ICurveGauge';
 const IBooster = [
   {
     name: 'fees',

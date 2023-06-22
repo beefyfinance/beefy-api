@@ -1,41 +1,48 @@
-const BigNumber = require('bignumber.js');
-const ICurveGauge = require('../../../../abis/ICurveGauge.json');
-const fetchPrice = require('../../../../utils/fetchPrice');
-const { getContract } = require('../../../../utils/contractHelper');
+import ICurveGauge from '../../../../abis/ICurveGauge';
+import { fetchContract } from '../../../rpc/client';
 
+const BigNumber = require('bignumber.js');
+const fetchPrice = require('../../../../utils/fetchPrice');
 const secondsPerYear = 31536000;
 
-export async function getCurveApysCommon(web3, multicall, pools) {
+export async function getCurveApysCommon(chainId, pools) {
   const apys = [];
 
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
-  const calls = [];
-  const extraCalls = [];
+  const rewardCalls = [],
+    totalSupplyCalls = [],
+    workingSupplyCalls = [],
+    extraCalls = [],
+    extraData = [];
   pools.forEach(pool => {
-    const gauge = getContract(ICurveGauge, pool.gauge);
-    calls.push({
-      rewardRate: gauge.methods.inflation_rate(weekEpoch),
-      totalSupply: gauge.methods.totalSupply(),
-      workingSupply: gauge.methods.working_supply(),
-    });
+    const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
+    rewardCalls.push(gauge.read.inflation_rate([weekEpoch]));
+    totalSupplyCalls.push(gauge.read.totalSupply());
+    workingSupplyCalls.push(gauge.read.working_supply());
     pool.rewards?.forEach(reward => {
-      extraCalls.push({
-        pool: pool.name,
-        token: reward.token,
-        rewardData: gauge.methods.reward_data(reward.token),
-      });
+      extraCalls.push(gauge.read.reward_data([reward.token]));
+      extraData.push({ pool: pool.name, token: reward.token });
     });
   });
-  const res = await multicall.all([calls, extraCalls]);
-  const poolInfo = res[0].map(v => ({
-    rewardRate: new BigNumber(v.rewardRate),
-    totalSupply: new BigNumber(v.totalSupply),
-    workingSupply: new BigNumber(v.workingSupply),
+  const [rewardResults, totalSupplyResults, workingSupplyResults, extraResults] = await Promise.all(
+    [
+      Promise.all(rewardCalls),
+      Promise.all(totalSupplyCalls),
+      Promise.all(workingSupplyCalls),
+      Promise.all(extraCalls),
+    ]
+  );
+
+  const poolInfo = rewardResults.map((_, i) => ({
+    rewardRate: new BigNumber(rewardResults[i].toString()),
+    totalSupply: new BigNumber(totalSupplyResults[i].toString()),
+    workingSupply: new BigNumber(workingSupplyResults[i].toString()),
   }));
-  const extras = res[1].map(v => ({
-    ...v,
-    periodFinish: v.rewardData[1],
-    rewardRate: new BigNumber(v.rewardData[2]),
+
+  const extras = extraResults.map((_, i) => ({
+    ...extraData[i],
+    periodFinish: Number(extraResults[i][1]),
+    rewardRate: new BigNumber(extraResults[i][2].toString()),
   }));
 
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });

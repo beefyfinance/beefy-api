@@ -4,11 +4,11 @@ import { ETH_CHAIN_ID as chainId } from '../../../constants';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getCurveBaseApys } from '../common/curve/getCurveApyData';
 import { getContract } from '../../../utils/contractHelper';
-import ICurveGauge from '../../../abis/ICurveGauge.json';
 import IGaugeController from '../../../abis/ethereum/ICurveGaugeController.json';
 import ICrv from '../../../abis/ethereum/ICrv.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../utils/fetchPrice';
+import ICurveGauge from '../../../abis/ICurveGauge';
 
 const crv = '0xD533a949740bb3306d119CC777fa900bA034cd52';
 const gaugeController = '0x2F50D538606Fa9EDD2B11E2446BEb18C9D5846bB';

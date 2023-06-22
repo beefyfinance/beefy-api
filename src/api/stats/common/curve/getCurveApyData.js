@@ -2,11 +2,10 @@ const fetch = require('node-fetch');
 const BigNumber = require('bignumber.js');
 
 const fetchPrice = require('../../../../utils/fetchPrice');
-
-const ICurveGauge = require('../../../../abis/ICurveGauge.json');
-const IRewardStream = require('../../../../abis/ICurveRewardStream.json');
-const ICurveRewards = require('../../../../abis/ICurveRewards.json');
-const { getContractWithProvider, getContract } = require('../../../../utils/contractHelper');
+const { fetchContract } = require('../../../rpc/client');
+const { default: ICurveGauge } = require('../../../../abis/ICurveGauge');
+const { default: ICurveRewards } = require('../../../../abis/ICurveRewards');
+const { default: ICurveRewardStream } = require('../../../../abis/ICurveRewardStream');
 
 const secondsPerYear = 31536000;
 
@@ -113,15 +112,15 @@ const getCurveFactoryApy = async (address, url) => {
   return apys;
 };
 
-const getTotalStakedInUsd = async (web3, pool) => {
+const getTotalStakedInUsd = async (chainId, pool) => {
   if (!pool.gauge) return new BigNumber(1);
-  const gauge = getContractWithProvider(ICurveGauge, pool.gauge, web3);
-  const totalSupply = new BigNumber(await gauge.methods.totalSupply().call());
+  const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
+  const totalSupply = new BigNumber((await gauge.read.totalSupply()).toString());
   const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
   return totalSupply.multipliedBy(lpPrice).dividedBy('1e18');
 };
 
-const getBoostedYearlyRewardsInUsd = async (web3, multicall, pool) => {
+const getBoostedYearlyRewardsInUsd = async (chainId, pool) => {
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });
 
   // boosted CRV rewards calculated based on working_supply, not totalSupply
@@ -129,18 +128,16 @@ const getBoostedYearlyRewardsInUsd = async (web3, multicall, pool) => {
   // we return totalSupply in getTotalStaked and increase rewards here by (* totalSupply / workingSupply)
   // so total APY can be calculated as yearlyRewards / totalStaked
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
-  const gauge = getContract(ICurveGauge, pool.gauge);
+  const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
   const calls = [
-    {
-      rewardRate: gauge.methods.inflation_rate(weekEpoch),
-      totalSupply: gauge.methods.totalSupply(),
-      workingSupply: gauge.methods.working_supply(),
-    },
+    gauge.read.inflation_rate([weekEpoch]),
+    gauge.read.totalSupply(),
+    gauge.read.working_supply(),
   ];
-  const res = await multicall.all([calls]);
-  const rewardRate = new BigNumber(res[0][0].rewardRate);
-  const totalSupply = new BigNumber(res[0][0].totalSupply);
-  const workingSupply = new BigNumber(res[0][0].workingSupply);
+  const res = await Promise.all([calls]);
+  const rewardRate = new BigNumber(res[0].toString());
+  const totalSupply = new BigNumber(res[1].toString());
+  const workingSupply = new BigNumber(res[2].toString());
 
   return rewardRate
     .times(secondsPerYear)
@@ -151,34 +148,17 @@ const getBoostedYearlyRewardsInUsd = async (web3, multicall, pool) => {
     .dividedBy('1e18');
 };
 
-const getYearlyRewardsInUsd = async (web3, multicall, pool) => {
-  let yearlyRewardsInUsd = pool.boosted
-    ? await getBoostedYearlyRewardsInUsd(web3, multicall, pool)
-    : new BigNumber(0);
+const getYearlyRewardsInUsd = async (chainId, pool) => {
+  const [yearlyRewardsInUsd, { periodsFinish, rewardRates }] = Promise.all([
+    pool.boosted
+      ? getBoostedYearlyRewardsInUsd(chainId, pool)
+      : new Promise(resolve => resolve(new BigNumber(0))),
+    getPoolsRatesAndPeriodFinish(chainId, pool),
+  ]);
 
-  for (const rewards of pool.rewards ?? []) {
-    let periodFinish, rewardRate;
-    if (pool.boosted || rewards.rewardToken) {
-      let token = rewards.rewardToken ? rewards.rewardToken : rewards.token;
-      const rewardStream = getContractWithProvider(ICurveGauge, pool.gauge, web3);
-      let { period_finish, rate } = await rewardStream.methods.reward_data(token).call();
-      periodFinish = Number(period_finish);
-      rewardRate = new BigNumber(rate);
-    } else if (rewards.newGauge) {
-      const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
-      const rewardStream = getContractWithProvider(ICurveGauge, rewards.stream, web3);
-      periodFinish = (weekEpoch + 1) * (86400 * 7) + 86400;
-      rewardRate = new BigNumber(await rewardStream.methods.inflation_rate(weekEpoch).call());
-    } else if (rewards.token) {
-      const rewardStream = getContractWithProvider(ICurveRewards, rewards.stream, web3);
-      let { period_finish, rate } = await rewardStream.methods.reward_data(rewards.token).call();
-      periodFinish = Number(period_finish);
-      rewardRate = new BigNumber(rate);
-    } else {
-      const rewardStream = getContractWithProvider(IRewardStream, rewards.stream, web3);
-      periodFinish = Number(await rewardStream.methods.period_finish().call());
-      rewardRate = new BigNumber(await rewardStream.methods.reward_rate().call());
-    }
+  for (const [index, rewards] of Object.entries(pool.rewards ?? [])) {
+    const rewardRate = rewardRates[index];
+    const periodFinish = periodsFinish[index];
 
     if (periodFinish < Date.now() / 1000) {
       continue;
@@ -193,6 +173,45 @@ const getYearlyRewardsInUsd = async (web3, multicall, pool) => {
   }
 
   return yearlyRewardsInUsd;
+};
+
+const getPoolsRatesAndPeriodFinish = async (chainId, pool) => {
+  const periodFinishCalls = [];
+  const rewardRateCalls = [];
+  (pool.rewards ?? []).forEach(rewards => {
+    if (pool.boosted || reward.rewardToken) {
+      const token = rewards.rewardToken ? rewards.rewardToken : rewards.token;
+      const rewardStream = fetchContract(pool.gauge, ICurveGauge, chainId);
+      const call = rewardStream.read.reward_data([token]);
+
+      periodFinishCalls.push(call.then(res => res[1]));
+      rewardRateCalls.push(call.then(res => res[2]));
+    } else if (rewards.newGauge) {
+      const rewardStream = fetchContract(rewards.stream, ICurveGauge, chainId);
+      const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));
+      const periodFinish = (weekEpoch + 1) * (86400 * 7) + 86400;
+
+      periodFinishCalls.push(new Promise(resolve => resolve(periodFinish)));
+      rewardRateCalls.push(rewardStream.read.inflation_rate([weekEpoch]));
+    } else if (rewards.token) {
+      const rewardStream = fetchContract(rewards.stream, ICurveRewards, chainId);
+      const call = rewardStream.read.reward_data([rewards.token]);
+
+      periodFinishCalls.push(call.then(res => res[1]));
+      rewardRateCalls.push(call.then(res => res[2]));
+    } else {
+      const rewardStream = fetchContract(rewards.stream, ICurveRewardStream, chainId);
+
+      periodFinishCalls.push(rewardStream.read.period_finish());
+      rewardRateCalls.push(rewardStream.read.reward_rate());
+    }
+  });
+
+  const res = await Promise.all([Promise.all(periodFinishCalls), Promise.all(rewardRateCalls)]);
+  return {
+    periodsFinish: res[0].map(v => Number(v)),
+    rewardRates: res[1].map(v => new BigNumber(v.toString())),
+  };
 };
 
 module.exports = {

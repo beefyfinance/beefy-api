@@ -127,8 +127,8 @@ const getPoolApy = async (
   let web3: Web3 = params.web3;
 
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(params.chainId)), pool),
-    getTotalStakedInUsd(web3, pool),
+    getYearlyRewardsInUsd(params.chainId, pool),
+    getTotalStakedInUsd(params.chainId, pool),
   ]);
 
   let rewardsApy: BigNumber = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);

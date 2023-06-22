@@ -1,13 +1,9 @@
-const { oneWeb3: web3 } = require('../../../utils/web3');
-
 import {
   getCurveBaseApysOld,
   getTotalStakedInUsd,
   getYearlyRewardsInUsd,
 } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
-import { multicallAddress } from '../../../utils/web3';
-import { MultiCall } from 'eth-multicall';
 import { ONE_CHAIN_ID } from '../../../constants';
 
 const pools = require('../../../data/one/curvePools.json');
@@ -34,8 +30,8 @@ const getPoolApys = async pools => {
 
 const getPoolApy = async pool => {
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(ONE_CHAIN_ID)), pool),
-    getTotalStakedInUsd(web3, pool),
+    getYearlyRewardsInUsd(ONE_CHAIN_ID, pool),
+    getTotalStakedInUsd(ONE_CHAIN_ID, pool),
   ]);
   const simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   // console.log(pool.name, simpleApy.toNumber(), totalStakedInUsd.valueOf(), yearlyRewardsInUsd.valueOf());
