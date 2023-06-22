@@ -1,16 +1,12 @@
 import BigNumber from 'bignumber.js';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import fetchPrice from '../../../utils/fetchPrice';
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
-import { arbitrumWeb3 as web3 } from '../../../utils/web3';
-import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
+import { ARBITRUM_CHAIN_ID } from '../../../constants';
 // import { arbidexClient } from '../../../apollo/client';
-
-import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
-const abi = require('../../../abis/arbitrum/ArbidexMasterChef.json');
+import { fetchContract } from '../../rpc/client';
+import ArbidexMasterChefAbi from '../../../abis/arbitrum/ArbidexMasterChef';
+import ERC20Abi from '../../../abis/ERC20Abi';
 const pools = require('../../../data/arbitrum/arbidexLpPools.json');
 
 const log = false; // Debug Logging
@@ -27,9 +23,7 @@ const liquidityProviderFee = 0.0025;
 const tradingFeeClient = null;
 
 const getArbidexApys = async (): Promise<ApyBreakdownResult> => {
-  const tradingAprs = await getTradingAprs();
-  const farmApys = await getFarmApys();
-
+  const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(), getFarmApys()]);
   return getApyBreakdown(pools, tradingAprs, farmApys, liquidityProviderFee);
 };
 
@@ -75,11 +69,11 @@ const getFarmApys = async (): Promise<BigNumber[]> => {
     const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
     const poolArxRewards = arxPerSec
-      .times(arxAllocPoints[i])
+      .times(new BigNumber(arxAllocPoints[i].toString()))
       .dividedBy(arxTotalAllocPoint)
       .times(1 - (pool.depositFee ?? 0));
 
-    const poolWethRewards = WETHPerSec.times(WETHAllocPoints[i])
+    const poolWethRewards = WETHPerSec.times(new BigNumber(WETHAllocPoints[i].toString()))
       .dividedBy(WETHTotalAllocPoint)
       .times(1 - (pool.depositFee ?? 0));
 
@@ -107,44 +101,40 @@ const getFarmApys = async (): Promise<BigNumber[]> => {
 };
 
 const getMulticallData = async () => {
-  const masterchefContract = getContractWithProvider(abi, masterchef, web3);
-  const multicall = new MultiCall(web3 as any, multicallAddress(chainId));
-  const balanceCalls = [];
-  const allocPointCalls = [];
+  const masterchefContract = fetchContract(masterchef, ArbidexMasterChefAbi, ARBITRUM_CHAIN_ID);
 
   const chefCalls = [
-    {
-      arxPerSec: masterchefContract.methods.arxPerSec(),
-      WETHPerSec: masterchefContract.methods.WETHPerSec(),
-      arxTotalAllocPoint: masterchefContract.methods.arxTotalAllocPoint(),
-      WETHTotalAllocPoint: masterchefContract.methods.WETHTotalAllocPoint(),
-    },
+    masterchefContract.read.arxPerSec(),
+    masterchefContract.read.WETHPerSec(),
+    masterchefContract.read.arxTotalAllocPoint(),
+    masterchefContract.read.WETHTotalAllocPoint(),
   ];
-
-  pools.forEach(pool => {
-    const tokenContract = getContract(ERC20_ABI, pool.address) as unknown as ERC20;
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(pool.strat ?? masterchef),
-    });
-    allocPointCalls.push({
-      allocPoint: masterchefContract.methods.poolInfo(pool.poolId),
-    });
+  const balanceCalls = (pools as any[]).map(pool => {
+    const tokenContract = fetchContract(pool.address, ERC20Abi, ARBITRUM_CHAIN_ID);
+    return tokenContract.read.balanceOf([pool.strat ?? masterchef]);
+  });
+  const allocPointCalls = (pools as any[]).map(pool => {
+    return masterchefContract.read.poolInfo([pool.poolId]);
   });
 
-  const res = await multicall.all([balanceCalls, allocPointCalls, chefCalls]);
+  const [chefResults, balanceResults, allocResults] = await Promise.all([
+    Promise.all(chefCalls),
+    Promise.all(balanceCalls),
+    Promise.all(allocPointCalls),
+  ]);
 
   return {
     poolsData: {
-      balances: res[0].map(v => new BigNumber(v.balance)),
-      arxAllocPoints: res[1].map(v => v.allocPoint['1']),
-      WETHAllocPoints: res[1].map(v => v.allocPoint['2']),
+      balances: balanceResults.map(v => new BigNumber(v.toString())),
+      arxAllocPoints: allocResults.map(v => v['1']),
+      WETHAllocPoints: allocResults.map(v => v['2']),
     },
-    chefData: res[2].map(v => ({
-      arxPerSec: new BigNumber(v.arxPerSec),
-      WETHPerSec: new BigNumber(v.WETHPerSec),
-      arxTotalAllocPoint: new BigNumber(v.arxTotalAllocPoint),
-      WETHTotalAllocPoint: new BigNumber(v.WETHTotalAllocPoint),
-    }))[0],
+    chefData: {
+      arxPerSec: new BigNumber(chefResults[0].toString()),
+      WETHPerSec: new BigNumber(chefResults[1].toString()),
+      arxTotalAllocPoint: new BigNumber(chefResults[2].toString()),
+      WETHTotalAllocPoint: new BigNumber(chefResults[3].toString()),
+    },
   };
 };
 
