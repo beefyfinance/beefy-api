@@ -39,7 +39,7 @@ const getTriMinichefApys = async () => {
 
   const rewarderTokensPerBlock = await Promise.all(
     rewarders.map(rewarder => {
-      if (rewarders[i] === '0x0000000000000000000000000000000000000000') {
+      if (rewarder === '0x0000000000000000000000000000000000000000') {
         return new Promise(resolve => resolve(0));
       }
       const rewarderContract = fetchContract(rewarder, TriRewarder, AURORA_CHAIN_ID);
@@ -62,7 +62,7 @@ const getTriMinichefApys = async () => {
         return 0;
       } else {
         const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-        const tokenBPerSec = new BigNumber(rewarderTokensPerBlock[i].toString);
+        const tokenBPerSec = new BigNumber(rewarderTokensPerBlock[i].toString());
         const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
         return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
       }
@@ -127,7 +127,7 @@ const getPoolsData = async pools => {
 
   pools.forEach(pool => {
     const tokenContract = fetchContract(pool.address, ERC20Abi, AURORA_CHAIN_ID);
-    balance.push(tokenContract.read.balanceOf([masterchef]));
+    balanceCalls.push(tokenContract.read.balanceOf([masterchef]));
     poolInfoCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
     rewarderCalls.push(masterchefContract.read.rewarder([pool.poolId]));
   });

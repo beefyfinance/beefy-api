@@ -104,15 +104,17 @@ const getPoolsData = async pools => {
     }
   });
 
-  const [balanceResults, rewardRateResults, extraRewardResults] = await multicall.all([
-    balanceCalls,
-    rewardRateCalls,
-    extraRewardCalls,
+  const [balanceResults, rewardRateResults, extraRewardResults] = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(rewardRateCalls),
+    Promise.all(extraRewardCalls),
   ]);
 
   const balances = balanceResults.map(v => new BigNumber(v.toString()));
   const rewardRates = rewardRateResults.map(v => new BigNumber(v['3'].toString()));
-  const extraRewardRates = extraRewardResults.map(v => new BigNumber(v['3'].toString()));
+  const extraRewardRates = extraRewardResults.map(
+    v => new BigNumber((v.length ? v['3'] : 0).toString())
+  );
   return { balances, rewardRates, extraRewardRates };
 };
 
