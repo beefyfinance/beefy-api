@@ -4,11 +4,11 @@ const { bscWeb3: web3 } = require('../../../../utils/web3');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const IUnitroller = require('../../../../abis/IUnitroller.json');
-const VToken = require('../../../../abis/VToken.json');
 const pools = require('../../../../data/venusPools.json');
 const { BASE_HPY } = require('../../../../constants');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
+const { default: VToken } = require('../../../../abis/VToken');
 
 const UNITROLLER = '0xfD36E2c2a6789Db23113685031d7F16329158384';
 const BLOCKS_PER_YEAR = 10512000;

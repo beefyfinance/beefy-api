@@ -4,11 +4,11 @@ const { hecoWeb3: web3 } = require('../../../utils/web3');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const Comptroller = require('../../../abis/heco/Comptroller.json');
-const IToken = require('../../../abis/VToken.json');
 const pools = require('../../../data/heco/lendhubPools.json');
 const { BASE_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
+const { default: VToken } = require('../../../abis/VToken');
 
 const COMPTROLLER = '0x6537d6307ca40231939985bcf7d83096dd1b4c09';
 const BLOCKS_PER_YEAR = 10512000;
@@ -53,7 +53,7 @@ const getPoolApy = async pool => {
 };
 
 const getSupplyApys = async pool => {
-  const itokenContract = getContractWithProvider(IToken, pool.itoken, web3);
+  const itokenContract = getContractWithProvider(VToken, pool.itoken, web3);
   const comptrollerContract = getContractWithProvider(Comptroller, COMPTROLLER, web3);
 
   let [lhbPrice, tokenPrice, supplyRate, compRate, totalSupply, exchangeRateStored] =
@@ -87,7 +87,7 @@ const getSupplyApys = async pool => {
 
 const getBorrowApys = async pool => {
   const comptrollerContract = getContractWithProvider(Comptroller, COMPTROLLER, web3);
-  const itokenContract = getContractWithProvider(IToken, pool.itoken, web3);
+  const itokenContract = getContractWithProvider(VToken, pool.itoken, web3);
 
   let [lhbPrice, tokenPrice, borrowRate, compRate, totalBorrows] = await Promise.all([
     fetchPrice({ oracle: 'tokens', id: 'LHB' }),

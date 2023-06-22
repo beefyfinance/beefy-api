@@ -29,8 +29,7 @@ export const getBifiGovApr = async (
     getTotalStakedInUsd(chainId, bifiAddress, rewardPoolAddress),
   ]);
 
-  const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-
+  const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).toNumber();
   const name = `${chain}-bifi-gov`;
   return {
     apys: {

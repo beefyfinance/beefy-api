@@ -10,8 +10,8 @@ import fetchPrice from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
 import { getContract } from '../../../utils/contractHelper';
 import { BASE_HPY } from '../../../constants';
+import VToken from '../../../abis/VToken';
 
-const IToken = require('../../../abis/VToken.json');
 const IComptroller: AbiItem[] = require('../../../abis/IComptroller.json');
 
 const SECONDS_PER_YEAR = 31536000;
@@ -118,7 +118,7 @@ const getPoolLeveragedApy = (
 
 const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => {
   const comptrollerAbi = params.comptrollerAbi ?? IComptroller;
-  const cTokenAbi = params.cTokenAbi ?? IToken;
+  const cTokenAbi = params.cTokenAbi ?? VToken;
 
   const comptrollerContract = getContract(comptrollerAbi, params.comptroller);
   const multicall = new MultiCall(params.web3 as any, multicallAddress(params.chainId));

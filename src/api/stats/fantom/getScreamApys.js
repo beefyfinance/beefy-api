@@ -4,12 +4,12 @@ const { fantomWeb3: web3 } = require('../../../utils/web3');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
 const Comptroller = require('../../../abis/heco/Comptroller.json');
-const IToken = require('../../../abis/VToken.json');
 const pools = require('../../../data/fantom/screamPools.json');
 const getBlockTime = require('../../../utils/getBlockTime');
 const { BASE_HPY, FANTOM_CHAIN_ID: chainId } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
+const { default: VToken } = require('../../../abis/VToken');
 
 const COMPTROLLER = '0x260E596DAbE3AFc463e75B6CC05d8c46aCAcFB09';
 
@@ -54,7 +54,7 @@ const getPoolApy = async pool => {
 };
 
 const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
-  const itokenContract = getContractWithProvider(IToken, pool.itoken, web3);
+  const itokenContract = getContractWithProvider(VToken, pool.itoken, web3);
   const comptrollerContract = getContractWithProvider(Comptroller, COMPTROLLER, web3);
 
   let [screamPrice, tokenPrice, supplyRate, compRate, totalSupply, exchangeRateStored] =
@@ -88,7 +88,7 @@ const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
 
 const getBorrowApys = async (pool, BLOCKS_PER_YEAR) => {
   const comptrollerContract = getContractWithProvider(Comptroller, COMPTROLLER, web3);
-  const itokenContract = getContractWithProvider(IToken, pool.itoken, web3);
+  const itokenContract = getContractWithProvider(VToken, pool.itoken, web3);
 
   let [screamPrice, tokenPrice, borrowRate, compRate, totalBorrows] = await Promise.all([
     fetchPrice({ oracle: 'tokens', id: 'SCREAM' }),
