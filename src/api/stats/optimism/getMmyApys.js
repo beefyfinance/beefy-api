@@ -1,15 +1,11 @@
-const { optimismWeb3: web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
-
-const Strategy = require('../../../abis/StrategyABI.json');
-const RewardTracker = require('../../../abis/arbitrum/RewardTracker.json');
-const Distributor = require('../../../abis/arbitrum/Distributor.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from '../common/getApyBreakdown';
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import StrategyABI from '../../../abis/StrategyABI';
+import RewardTrackerAbi from '../../../abis/arbitrum/RewardTracker';
+import DistributorAbi from '../../../abis/arbitrum/Distributor';
+import { fetchContract } from '../../rpc/client';
 const pools = require('../../../data/optimism/mmyPools.json');
 
 const DECIMALS = '1e18';
@@ -51,24 +47,26 @@ const getYearlyRewardsInUsd = async pool => {
 };
 
 const getTrackerRewards = async (pool, rewardTracker) => {
-  const multicall = new MultiCall(web3, multicallAddress(OPTIMISM_CHAIN_ID));
-  const rewardTrackerContract = getContractWithProvider(RewardTracker, rewardTracker.address, web3);
-  const distibutorContract = getContractWithProvider(Distributor, rewardTracker.distributor, web3);
+  const rewardTrackerContract = fetchContract(
+    rewardTracker.address,
+    RewardTrackerAbi,
+    ARBITRUM_CHAIN_ID
+  );
+  const distributorContract = fetchContract(
+    rewardTracker.distributor,
+    DistributorAbi,
+    ARBITRUM_CHAIN_ID
+  );
 
-  const distibutorCalls = [];
-  const trackerCalls = [];
+  const res = await Promise.all([
+    distributorContract.read.tokensPerInterval(),
+    rewardTrackerContract.read.stakedAmounts([pool.strategy]),
+    rewardTrackerContract.read.totalSupply(),
+  ]);
 
-  distibutorCalls.push({ rewardPerSecond: distibutorContract.methods.tokensPerInterval() });
-  trackerCalls.push({
-    stakedAmounts: rewardTrackerContract.methods.stakedAmounts(pool.strategy),
-    totalSupply: rewardTrackerContract.methods.totalSupply(),
-  });
-
-  const res = await multicall.all([distibutorCalls, trackerCalls]);
-
-  const rewardPerSecond = new BigNumber(res[0].map(v => v.rewardPerSecond));
-  const stakedAmounts = new BigNumber(res[1].map(v => v.stakedAmounts));
-  const totalSupply = new BigNumber(res[1].map(v => v.totalSupply));
+  const rewardPerSecond = new BigNumber(res[0].toString());
+  const stakedAmounts = new BigNumber(res[1].toString());
+  const totalSupply = new BigNumber(res[2].toString());
   const rewardPrice = await fetchPrice({ oracle: 'tokens', id: pool.rewardToken });
 
   const yearlyRewardsInUsd = rewardPerSecond
@@ -83,12 +81,16 @@ const getTrackerRewards = async (pool, rewardTracker) => {
 const getTotalStakedInUsd = async pool => {
   let staked = 0;
   if (pool.name == 'mmy-op-mlp') {
-    const strategy = getContractWithProvider(Strategy, pool.strategy, web3);
-    staked = new BigNumber(await strategy.methods.balanceOf().call());
+    const strategy = fetchContract(pool.strategy, StrategyABI, OPTIMISM_CHAIN_ID);
+    staked = new BigNumber((await strategy.read.balanceOf()).toString());
   } else {
-    const stakedTrackerContract = getContractWithProvider(RewardTracker, pool.stakedTracker, web3);
+    const stakedTrackerContract = fetchContract(
+      pool.stakedTracker,
+      RewardTrackerAbi,
+      OPTIMISM_CHAIN_ID
+    );
     staked = new BigNumber(
-      await stakedTrackerContract.methods.depositBalances(pool.strategy, pool.address).call()
+      (await stakedTrackerContract.read.depositBalances([pool.strategy, pool.address])).toString()
     );
   }
   const stakedPrice = await fetchPrice({ oracle: pool.oracle, id: pool.tokenId });

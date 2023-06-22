@@ -1,14 +1,11 @@
 const { optimismWeb3: web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
-
-const Distributor = require('../../../abis/arbitrum/Distributor.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from '../common/getApyBreakdown';
-import { getContractWithProvider } from '../../../utils/contractHelper';
-import { ERC20_ABI } from '../../../abis/common/ERC20';
+import DistributorAbi from '../../../abis/arbitrum/Distributor';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import { fetchContract } from '../../rpc/client';
 const pools = require('../../../data/optimism/olpPools.json');
 
 const DECIMALS = '1e18';
@@ -27,28 +24,22 @@ const getOlpApys = async () => {
 };
 
 const getPoolApy = async pool => {
-  const multicall = new MultiCall(web3, multicallAddress(OPTIMISM_CHAIN_ID));
-  const OLPContract = getContractWithProvider(ERC20_ABI, pool.OLP, web3);
-  const fOLPContract = getContractWithProvider(ERC20_ABI, pool.fOLP, web3);
-  const fDistibutorContract = getContractWithProvider(Distributor, pool.fDistributor, web3);
-  const fsDistibutorContract = getContractWithProvider(Distributor, pool.fsDistributor, web3);
+  const OLPContract = fetchContract(pool.OLP, ERC20Abi, OPTIMISM_CHAIN_ID);
+  const fOLPContract = fetchContract(pool.fOLP, ERC20Abi, OPTIMISM_CHAIN_ID);
+  const fDistibutorContract = fetchContract(pool.fDistributor, DistributorAbi, web3);
+  const fsDistibutorContract = fetchContract(pool.fsDistributor, DistributorAbi, web3);
 
-  const OLPCalls = [];
-  const fOLPCalls = [];
-  const fDistibutorCalls = [];
-  const fsDistibutorCalls = [];
+  const res = await Promise.all([
+    OLPContract.read.balanceOf([pool.fOLP]),
+    fOLPContract.read.balanceOf([pool.fsOLP]),
+    fDistibutorContract.read.tokensPerInterval(),
+    fsDistibutorContract.read.tokensPerInterval(),
+  ]);
 
-  OLPCalls.push({ stakedAmounts: OLPContract.methods.balanceOf(pool.fOLP) });
-  fOLPCalls.push({ stakedAmounts: fOLPContract.methods.balanceOf(pool.fsOLP) });
-  fDistibutorCalls.push({ rewardPerSecond: fDistibutorContract.methods.tokensPerInterval() });
-  fsDistibutorCalls.push({ rewardPerSecond: fsDistibutorContract.methods.tokensPerInterval() });
-
-  const res = await multicall.all([OLPCalls, fOLPCalls, fDistibutorCalls, fsDistibutorCalls]);
-
-  const fStakedAmounts = new BigNumber(res[0].map(v => v.stakedAmounts));
-  const fsStakedAmounts = new BigNumber(res[1].map(v => v.stakedAmounts));
-  const fRewardPerSecond = new BigNumber(res[2].map(v => v.rewardPerSecond));
-  const fsRewardPerSecond = new BigNumber(res[3].map(v => v.rewardPerSecond));
+  const fStakedAmounts = new BigNumber(res[0].toString());
+  const fsStakedAmounts = new BigNumber(res[1].toString());
+  const fRewardPerSecond = new BigNumber(res[2].toString());
+  const fsRewardPerSecond = new BigNumber(res[3].toString());
   const fRewardPrice = await fetchPrice({ oracle: 'tokens', id: pool.fRewardToken });
   const fsRewardPrice = await fetchPrice({ oracle: 'tokens', id: pool.fsRewardToken });
   const OLPPrice = await fetchPrice({ oracle: 'lps', id: 'opx-olp' });
