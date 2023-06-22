@@ -1,4 +1,3 @@
-const { ethereumWeb3: web3 } = require('../../../utils/web3');
 const { ETH_CHAIN_ID: chainId } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const pools = require('../../../data/ethereum/sushiLpPools.json');
@@ -14,7 +13,6 @@ const {
 
 export const getSushiApys = async () =>
   await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: sushi.masterchef,
     tokenPerBlock: 'sushiPerBlock',

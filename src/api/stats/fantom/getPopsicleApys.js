@@ -1,4 +1,3 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
 import { FANTOM_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import SpellMasterChef from '../../../abis/arbitrum/SpellMasterChef.json';
@@ -8,7 +7,6 @@ const pools = require('../../../data/fantom/popsicleLpPools.json');
 
 const getPopsicleApys = async () => {
   return await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchefAbi: SpellMasterChef,
     masterchef: '0xbf513aCe2AbDc69D38eE847EFFDaa1901808c31c',

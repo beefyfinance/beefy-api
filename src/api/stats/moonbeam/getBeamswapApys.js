@@ -21,7 +21,6 @@ const {
 const getBeamswapApys = async () =>
   merge(
     await getMasterChefApys({
-      web3: web3,
       chainId: chainId,
       masterchef: masterchef,
       tokenPerBlock: 'beamPerSec',

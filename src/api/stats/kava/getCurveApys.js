@@ -10,9 +10,11 @@ const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs-kava';
 const tradingFees = 0.0002;
 
 export const getCurveApys = async () => {
-  const baseApys = await getCurveBaseApysOld(pools, false, factoryApyUrl);
   const multicall = new MultiCall(web3, multicallAddress(chainId));
-  const farmApys = await getCurveApysCommon(web3, multicall, pools);
+  const [baseApys, farmApys] = await Promise.all([
+    getCurveBaseApysOld(pools, false, factoryApyUrl),
+    getCurveApysCommon(web3, multicall, pools),
+  ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
 };

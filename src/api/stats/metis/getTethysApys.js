@@ -1,4 +1,3 @@
-const { metisWeb3: web3 } = require('../../../utils/web3');
 const { METIS_CHAIN_ID: chainId, TETHYS_LPF } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 import { getEDecimals } from '../../../utils/getEDecimals';
@@ -16,7 +15,6 @@ const {
 
 const getTethysApys = async () =>
   await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: masterchef,
     tokenPerBlock: 'tethysPerSecond',

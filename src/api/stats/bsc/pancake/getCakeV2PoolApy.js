@@ -1,7 +1,5 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../../utils/web3');
-
-const MasterChef = require('../../../../abis/MasterChef.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../../utils/compound');
@@ -9,6 +7,7 @@ const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
+const { default: MasterChef } = require('../../../../abis/MasterChef');
 
 const getCakeV2PoolApy = async () => {
   const masterChef = '0x73feaa1eE314F8c655E354234017bE2193C9E24E';

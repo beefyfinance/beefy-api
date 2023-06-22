@@ -1,4 +1,3 @@
-const { avaxWeb3: web3 } = require('../../../utils/web3');
 import { AVAX_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
@@ -12,7 +11,6 @@ const getSpellApys = async () => {
     'https://api.curve.fi/api/getFactoryAPYs-avalanche'
   );
   return await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchefAbi: SpellMasterChef,
     masterchef: '0x06408571E0aD5e8F52eAd01450Bde74E5074dC74',

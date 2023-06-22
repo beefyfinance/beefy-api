@@ -1,4 +1,3 @@
-const { bscWeb3: web3 } = require('../../../../utils/web3');
 const { BSC_CHAIN_ID: chainId } = require('../../../../constants');
 const { getMasterChefApys } = require('../../common/getMasterChefApys');
 
@@ -7,7 +6,6 @@ const { babyClient } = require('../../../../apollo/client');
 
 const getBabyApys = () =>
   getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: '0xdfAa0e08e357dB0153927C7EaBB492d1F60aC730',
     tokenPerBlock: 'cakePerBlock',

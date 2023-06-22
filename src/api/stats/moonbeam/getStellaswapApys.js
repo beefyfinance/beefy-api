@@ -13,7 +13,6 @@ const getBlockTime = require('../../../utils/getBlockTime');
 const getStellaswapApys = async () =>
   merge(
     await getMasterChefApys({
-      web3: web3,
       chainId: chainId,
       masterchef: stellaswap.masterchef,
       tokenPerBlock: 'stellaPerBlock',

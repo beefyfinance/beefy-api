@@ -1,4 +1,3 @@
-const { polygonWeb3: web3 } = require('../../../utils/web3');
 import { POLYGON_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
@@ -13,7 +12,6 @@ const getMaiCurveApys = async () => {
     'https://api.curve.fi/api/getFactoryAPYs-polygon'
   );
   return await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: mai.chef2,
     tokenPerBlock: 'rewardPerBlock',

@@ -1,4 +1,3 @@
-const { arbitrumWeb3: web3 } = require('../../../utils/web3');
 const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const pools = require('../../../data/arbitrum/swapFishLpPools.json');
@@ -7,7 +6,6 @@ const pools = require('../../../data/arbitrum/swapFishLpPools.json');
 
 export const getSwapFishApys = async () =>
   await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: '0x33141e87ad2DFae5FBd12Ed6e61Fa2374aAeD029',
     tokenPerBlock: 'cakePerSecond',

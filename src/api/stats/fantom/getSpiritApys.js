@@ -29,7 +29,6 @@ const singlePool = [
 
 const getSpiritApys = async () => {
   const chefApys = getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: spiritswap.masterchef,
     tokenPerBlock: 'spiritPerBlock',

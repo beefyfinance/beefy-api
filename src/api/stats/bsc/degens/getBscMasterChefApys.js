@@ -2,11 +2,11 @@ const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { bscWeb3: web3, multicallAddress } = require('../../../../utils/web3');
 
-const MasterChefAbi = require('../../../../abis/MasterChef.json');
 const ERC20 = require('../../../../abis/ERC20.json');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
+import MasterChef from '../../../../abis/MasterChef';
 import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
@@ -149,14 +149,17 @@ const getPoolsData = async params => {
 };
 
 const chefAbi = tokenPerBlock => {
-  const cakeAbi = MasterChefAbi;
-  cakeAbi.push({
-    inputs: [],
-    name: tokenPerBlock,
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
-    stateMutability: 'view',
-    type: 'function',
-  });
+  const cakeAbi = [
+    ...MasterChef,
+    {
+      inputs: [],
+      name: tokenPerBlock,
+      outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+      stateMutability: 'view',
+      type: 'function',
+    },
+  ];
+
   return cakeAbi;
 };
 

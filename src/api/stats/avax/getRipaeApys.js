@@ -1,4 +1,3 @@
-const { avaxWeb3: web3 } = require('../../../utils/web3');
 const { AVAX_CHAIN_ID: chainId } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const pools = require('../../../data/avax/ripaeLpPools.json');
@@ -7,7 +6,6 @@ import { JOE_LPF } from '../../../constants';
 
 const getRipaeApys = async () =>
   await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: '0xb5cc0Ed74dde9F26fBfFCe08FF78227F4Fa86029',
     tokenPerBlock: 'paePerSecond',

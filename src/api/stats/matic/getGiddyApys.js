@@ -1,4 +1,3 @@
-const { polygonWeb3: web3 } = require('../../../utils/web3');
 const { POLYGON_CHAIN_ID } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const GiddyChef = require('../../../abis/matic/GiddyChef.json');
@@ -9,7 +8,6 @@ const lpPools = require('../../../data/matic/giddyLpPools.json');
 
 const getGiddyApys = async () => {
   return await getMasterChefApys({
-    web3: web3,
     chainId: POLYGON_CHAIN_ID,
     masterchef: '0xd814b26554204245A30F8A42C289Af582421Bf04',
     masterchefAbi: GiddyChef,

@@ -1,4 +1,3 @@
-const { optimismWeb3: web3 } = require('../../../utils/web3');
 const { OPTIMISM_CHAIN_ID: chainId } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 
@@ -21,7 +20,6 @@ const pools = [
 
 export const getRipaeApys = async () =>
   await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: '0xf5e49b0a960459799F1E9b3f313dFA81D2CE553c',
     tokenPerBlock: 'paePerSecond',
