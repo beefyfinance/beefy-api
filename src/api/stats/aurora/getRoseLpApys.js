@@ -1,15 +1,12 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { auroraWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const IRewardPool = require('../../../abis/fuse/MultiReward.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/aurora/rosePools.json');
 const { BASE_HPY, AURORA_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { addressBook } from '../../../../packages/address-book/address-book';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import MultiReward from '../../../abis/fuse/MultiReward';
+import { fetchContract } from '../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 
 const {
@@ -66,7 +63,7 @@ const getFarmApys = async pools => {
   const apys = [];
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   const SECONDS_PER_YEAR = new BigNumber(31536000);
-  const { balances, rewardRates } = await getPoolsData(pools);
+  const { balances, rewardRates, extraRewardRates } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
@@ -76,9 +73,7 @@ const getFarmApys = async pools => {
     let yearlyRewards = SECONDS_PER_YEAR.times(rewardRates[i]);
     const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
     if (pool.oracleIdB != undefined) {
-      const rewardPool = getContractWithProvider(IRewardPool, pool.rewardPool, web3);
-      const secondData = await rewardPool.methods.rewardData(pool.rewardToken).call();
-      const yearlyRewardsB = SECONDS_PER_YEAR.times(new BigNumber(secondData.rewardRate));
+      const yearlyRewardsB = SECONDS_PER_YEAR.times(extraRewardRates[i]);
       const rewardTokenPrice = await fetchPrice({ oracle, id: pool.oracleIdB });
       const yearlyRewardsInUsdB = yearlyRewardsB
         .times(rewardTokenPrice)
@@ -92,25 +87,33 @@ const getFarmApys = async pools => {
 };
 
 const getPoolsData = async pools => {
-  const multicall = new MultiCall(web3, multicallAddress(AURORA_CHAIN_ID));
-  const balanceCalls = [];
-  const rewardRateCalls = [];
-  pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(pool.rewardPool),
-    });
-    const rewardPool = getContract(IRewardPool, pool.rewardPool);
-    rewardRateCalls.push({
-      rewardRate: rewardPool.methods.rewardData(ROSE.address),
-    });
+  const balanceCalls = pools.map(pool => {
+    const tokenContract = fetchContract(pool.address, ERC20Abi, AURORA_CHAIN_ID);
+    return tokenContract.read.balanceOf([pool.rewardPool]);
+  });
+  const rewardRateCalls = pools.map(pool => {
+    const rewardPool = fetchContract(pool.rewardPool, MultiReward, AURORA_CHAIN_ID);
+    return rewardPool.read.rewardData([ROSE.address]);
+  });
+  const extraRewardCalls = pools.map(pool => {
+    if (pool.oracleIdB != undefined) {
+      const rewardPool = fetchContract(pool.rewardPool, MultiReward, AURORA_CHAIN_ID);
+      return rewardPool.read.rewardData([pool.rewardToken]);
+    } else {
+      return new Promise(resolve => resolve(BigInt(0)));
+    }
   });
 
-  const res = await multicall.all([balanceCalls, rewardRateCalls]);
+  const [balanceResults, rewardRateResults, extraRewardResults] = await multicall.all([
+    balanceCalls,
+    rewardRateCalls,
+    extraRewardCalls,
+  ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const rewardRates = res[1].map(v => new BigNumber(v.rewardRate['3']));
-  return { balances, rewardRates };
+  const balances = balanceResults.map(v => new BigNumber(v.toString()));
+  const rewardRates = rewardRateResults.map(v => new BigNumber(v['3'].toString()));
+  const extraRewardRates = extraRewardResults.map(v => new BigNumber(v['3'].toString()));
+  return { balances, rewardRates, extraRewardRates };
 };
 
 module.exports = getRoseLpApys;
