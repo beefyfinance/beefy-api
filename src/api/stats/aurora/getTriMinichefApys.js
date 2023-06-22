@@ -1,18 +1,15 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { auroraWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const MasterChef = require('../../../abis/aurora/TriChef.json');
-import SimpleRewarder from '../../../abis/aurora/TriRewarder.json';
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const lpPools = require('../../../data/aurora/trisolarisMiniLpPools.json');
 const stablePools = require('../../../data/aurora/trisolarisStableLpPools.json');
 const { BASE_HPY, AURORA_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { addressBook } from '../../../../packages/address-book/address-book';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import TriChef from '../../../abis/aurora/TriChef';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import TriRewarder from '../../../abis/aurora/TriRewarder';
 const {
   aurora: {
     platforms: {
@@ -36,8 +33,19 @@ const getTriMinichefApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: TRI.symbol });
-  const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, rewarders } = await getPoolsData(pools);
+
+  const [{ rewardPerSecond, totalAllocPoint }, { balances, allocPoints, rewarders }] =
+    await Promise.all([getMasterChefData(), getPoolsData(pools)]);
+
+  const rewarderTokensPerBlock = await Promise.all(
+    rewarders.map(rewarder => {
+      if (rewarders[i] === '0x0000000000000000000000000000000000000000') {
+        return new Promise(resolve => resolve(0));
+      }
+      const rewarderContract = fetchContract(rewarder, TriRewarder, AURORA_CHAIN_ID);
+      return rewarderContract.read.tokenPerBlock();
+    })
+  );
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -54,8 +62,7 @@ const getTriMinichefApys = async () => {
         return 0;
       } else {
         const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-        const rewarderContract = getContractWithProvider(SimpleRewarder, rewarders[i], web3);
-        const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerBlock().call());
+        const tokenBPerSec = new BigNumber(rewarderTokensPerBlock[i].toString);
         const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
         return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
       }
@@ -101,37 +108,39 @@ const getTriMinichefApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.triPerBlock().call());
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const masterchefContract = fetchContract(masterchef, TriChef, AURORA_CHAIN_ID);
+  const res = await Promise.all([
+    masterchefContract.read.triPerBlock(),
+    masterchefContract.read.totalAllocPoint(),
+  ]);
+  const rewardPerSecond = new BigNumber(res[0].toString());
+  const totalAllocPoint = new BigNumber(res[1].toString());
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = getContract(MasterChef, masterchef);
-  const multicall = new MultiCall(web3, multicallAddress(AURORA_CHAIN_ID));
+  const masterchefContract = fetchContract(masterchef, TriChef, AURORA_CHAIN_ID);
+
   const balanceCalls = [];
   const poolInfoCalls = [];
   const rewarderCalls = [];
+
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(masterchef),
-    });
-    let poolInfo = masterchefContract.methods.poolInfo(pool.poolId);
-    poolInfoCalls.push({
-      poolInfo: poolInfo,
-    });
-    rewarderCalls.push({
-      rewarder: masterchefContract.methods.rewarder(pool.poolId),
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, AURORA_CHAIN_ID);
+    balance.push(tokenContract.read.balanceOf([masterchef]));
+    poolInfoCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
+    rewarderCalls.push(masterchefContract.read.rewarder([pool.poolId]));
   });
 
-  const res = await multicall.all([balanceCalls, poolInfoCalls, rewarderCalls]);
+  const [balanceResults, poolInfoResults, rewarderResults] = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(poolInfoCalls),
+    Promise.all(rewarderCalls),
+  ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.poolInfo['2']);
-  const rewarders = res[2].map(v => v.rewarder);
+  const balances = balanceResults.map(v => new BigNumber(v.toString()));
+  const allocPoints = poolInfoResults.map(v => new BigNumber(v['2'].toString()));
+  const rewarders = rewarderResults.map(v => v.toString());
   return { balances, allocPoints, rewarders };
 };
 
