@@ -1,24 +1,21 @@
 const BigNumber = require('bignumber.js');
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
+import { fetchContract } from '../../rpc/client';
+import ExactlyRewardsController from '../../../abis/ExactlyRewardsController';
+import ExactlyInterestRateModel from '../../../abis/ExactlyInterestRateModel';
 
-const ExactlyRewardsController = require('../../../abis/ExactlyRewardsController.json');
-const ExactlyInterestRateModel = require('../../../abis/ExactlyInterestRateModel.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getApyBreakdown } = require('../common/getApyBreakdown');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 const { BASE_HPY } = require('../../../constants');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
-const { optimismWeb3: web3 } = require('../../../utils/web3');
-const { getExactlyData } = require('../../../utils/getExactlyData')
+const { getExactlyData } = require('../../../utils/getExactlyData');
 const { exactlyClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 const pools = require('../../../data/optimism/exactlyPools.json');
 
-const RewardsController = "0xBd1ba78A3976cAB420A9203E6ef14D18C2B2E031";
-const reward = "0x4200000000000000000000000000000000000042";
-const rewardOracleId = "OP";
+const RewardsController = '0xBd1ba78A3976cAB420A9203E6ef14D18C2B2E031';
+const reward = '0x4200000000000000000000000000000000000042';
+const rewardOracleId = 'OP';
 
 const getExactlyApys = async () => {
   let promises = [];
@@ -28,16 +25,10 @@ const getExactlyApys = async () => {
   return getApyBreakdown(pools, null, apys, 0);
 };
 
-const getPoolApy = async (pool) => {
+const getPoolApy = async pool => {
   const { supplyBase, supplyReward, borrowBase, borrowReward } = await getExactlyPoolData(pool);
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyReward, leveragedBorrowReward } =
-    getLeveragedApys(
-      supplyBase,
-      borrowBase,
-      supplyReward,
-      borrowReward,
-      pool.ltv
-    );
+    getLeveragedApys(supplyBase, borrowBase, supplyReward, borrowReward, pool.ltv);
 
   const totalReward = leveragedSupplyReward.plus(leveragedBorrowReward);
   const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
@@ -48,31 +39,31 @@ const getPoolApy = async (pool) => {
   return apy;
 };
 
-const getExactlyPoolData = async (pool) => {
+const getExactlyPoolData = async pool => {
   const { supplyBase, utilization } = await getExactlyData(exactlyClient, pool.market);
 
-  const multicall = new MultiCall(web3, multicallAddress(OPTIMISM_CHAIN_ID));
-  const rewardsController = getContractWithProvider(ExactlyRewardsController, RewardsController, web3);
-  const interestRateModel = getContractWithProvider(ExactlyInterestRateModel, pool.interestRateModel, web3);
-  const rewardControllerCalls = [];
-  const interestRateModelCalls = [];
+  const rewardsController = fetchContract(
+    RewardsController,
+    ExactlyRewardsController,
+    OPTIMISM_CHAIN_ID
+  );
+  const interestRateModel = fetchContract(
+    pool.interestRateModel,
+    ExactlyInterestRateModel,
+    OPTIMISM_CHAIN_ID
+  );
 
-  rewardControllerCalls.push({ 
-    indexStart: rewardsController.methods.previewAllocation(pool.market, reward, 0),
-    indexEnd: rewardsController.methods.previewAllocation(pool.market, reward, 86400)
-  });
+  const indexStartCall = rewardsController.read.previewAllocation([pool.market, reward, 0]);
+  const indexEndCall = rewardsController.read.previewAllocation([pool.market, reward, 86400]);
+  const borrowBaseCall = interestRateModel.read.floatingRate([utilization.toString()]);
 
-  interestRateModelCalls.push({
-    borrowBase: interestRateModel.methods.floatingRate(utilization.toString())
-  });
+  const res = await Promise.all([indexStartCall, indexEndCall, borrowBaseCall]);
 
-  const res = await multicall.all([rewardControllerCalls, interestRateModelCalls]);
-
-  const borrowIndexStart = new BigNumber(res[0].map(v => v.indexStart[0]));
-  const supplyIndexStart = new BigNumber(res[0].map(v => v.indexStart[1]));
-  const borrowIndexEnd = new BigNumber(res[0].map(v => v.indexEnd[0]));
-  const supplyIndexEnd = new BigNumber(res[0].map(v => v.indexEnd[1]));
-  const borrowBase = new BigNumber(res[1].map(v => v.borrowBase)).dividedBy('1e18');
+  const borrowIndexStart = new BigNumber(res[0][0].toString());
+  const supplyIndexStart = new BigNumber(res[0][1].toString());
+  const borrowIndexEnd = new BigNumber(res[1][0].toString());
+  const supplyIndexEnd = new BigNumber(res[1][1].toString());
+  const borrowBase = new BigNumber(res[2].toString()).dividedBy('1e18');
 
   const borrowIndex = borrowIndexEnd.minus(borrowIndexStart);
   const supplyIndex = supplyIndexEnd.minus(supplyIndexStart);
@@ -85,13 +76,7 @@ const getExactlyPoolData = async (pool) => {
   return { supplyBase, supplyReward, borrowBase, borrowReward };
 };
 
-const getLeveragedApys = (
-  supplyBase,
-  borrowBase,
-  supplyReward,
-  borrowReward,
-  ltv
-) => {
+const getLeveragedApys = (supplyBase, borrowBase, supplyReward, borrowReward, ltv) => {
   const leveragedSupplyBase = supplyBase.plus(supplyBase.times(ltv).dividedBy(1 - ltv));
   const leveragedBorrowBase = borrowBase.times(ltv).dividedBy(1 - ltv);
   const leveragedSupplyReward = supplyReward.plus(supplyReward.times(ltv).dividedBy(1 - ltv));
