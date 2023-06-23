@@ -12,17 +12,19 @@ const { getVaultByID } = require('../stats/getMultichainVaults');
 const updateBoostAprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
   const chainId = toChainId(chain);
 
+  //TODO: check boost update data frequency (/boosts already has periodFinish property) to see if periodFinish is still valid and rpc call can be avoided
+
   const totalSupplyCalls = boosts.map(boost => {
     const contract = fetchContract(boost.earnContractAddress, BeefyBoostAbi, chainId);
-    return totalSupplyCalls.push(contract.read.totalSupply());
+    return contract.read.totalSupply();
   });
   const rewardRateCalls = boosts.map(boost => {
     const contract = fetchContract(boost.earnContractAddress, BeefyBoostAbi, chainId);
-    return rewardRateCalls.push(contract.read.rewardRate());
+    return contract.read.rewardRate();
   });
   const periodFinishCalls = boosts.map(boost => {
     const contract = fetchContract(boost.earnContractAddress, BeefyBoostAbi, chainId);
-    return periodFinishCalls.push(contract.read.periodFinish());
+    return contract.read.periodFinish();
   });
 
   try {
@@ -126,6 +128,7 @@ export const fetchBoostAprs = async () => {
       {}
     );
   } catch (error) {
+    console.log('Failed to update boost aprs: ' + error.message);
     return {};
   }
 };
