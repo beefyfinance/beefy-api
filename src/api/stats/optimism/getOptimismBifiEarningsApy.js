@@ -1,5 +1,6 @@
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
+import { getBifiGovApr } from '../common/getBifiGovApr';
 const {
   optimism: {
     platforms: { beefyfinance },
@@ -20,7 +21,7 @@ const getOptimismBifiGovApy = async () => {
     beefyfinance.rewardPool,
     BIFI.address,
     3 * 365,
-    3,
+    1,
     BLOCKS_PER_DAY
   );
 };
