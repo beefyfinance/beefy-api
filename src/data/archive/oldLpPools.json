@@ -72,8 +72,8 @@
     }
   },
   {
-    "name": "fraxswap-fxs-frax",
-    "address": "0x03B59Bd1c8B9F6C265bA0c3421923B93f15036Fa",
+    "name": "uniswap-fxs-frax",
+    "address": "0xE1573B9D29e2183B1AF0e743Dc2754979A40D237",
     "decimals": "1e18",
     "chainId": 1,
     "lp0": {
