@@ -4119,5 +4119,16 @@ const _tokens = {
       'Venus wrapped USDT. Venus is an algorithmic money market and synthetic stablecoin protocol launched exclusively on BNB Chain.',
     logoURI: '',
   },
+  RDNT: {
+    name: 'RDNT',
+    symbol: 'RDNT',
+    address: '0xf7DE7E8A6bd59ED41a4b5fe50278b3B7f31384dF',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://radiant.capital/',
+    description:
+      'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
+    logoURI: '',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
