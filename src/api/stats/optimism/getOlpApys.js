@@ -1,4 +1,3 @@
-const { optimismWeb3: web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
 const fetchPrice = require('../../../utils/fetchPrice');
@@ -26,8 +25,8 @@ const getOlpApys = async () => {
 const getPoolApy = async pool => {
   const OLPContract = fetchContract(pool.OLP, ERC20Abi, OPTIMISM_CHAIN_ID);
   const fOLPContract = fetchContract(pool.fOLP, ERC20Abi, OPTIMISM_CHAIN_ID);
-  const fDistibutorContract = fetchContract(pool.fDistributor, DistributorAbi, web3);
-  const fsDistibutorContract = fetchContract(pool.fsDistributor, DistributorAbi, web3);
+  const fDistibutorContract = fetchContract(pool.fDistributor, DistributorAbi, OPTIMISM_CHAIN_ID);
+  const fsDistibutorContract = fetchContract(pool.fsDistributor, DistributorAbi, OPTIMISM_CHAIN_ID);
 
   const res = await Promise.all([
     OLPContract.read.balanceOf([pool.fOLP]),
