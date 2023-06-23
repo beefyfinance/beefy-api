@@ -1,17 +1,14 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { multicallAddress } = require('../../../utils/web3');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import IRewardPool from '../../../abis/IRewardPool';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
 
 export const getRewardPoolApys = async params => {
-  const tradingAprs = await getTradingAprs(params);
-  const farmApys = await getFarmApys(params);
+  const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(params), getFarmApys(params)]);
 
   const liquidityProviderFee = params.liquidityProviderFee ?? 0.003;
 
@@ -34,10 +31,14 @@ const getTradingAprs = async params => {
 const getFarmApys = async params => {
   const apys = [];
   const tokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
-  const rewardTokenPrice = params.isRewardInXToken
-    ? await getXPrice(tokenPrice, params)
-    : tokenPrice;
-  const { balances, rewardRates } = await getPoolsData(params);
+  const rewardTokenPriceCall = params.isRewardInXToken
+    ? getXPrice(tokenPrice, params)
+    : new Promise(resolve => resolve(tokenPrice));
+
+  const [rewardTokenPrice, { balances, rewardRates }] = await Promise.all([
+    rewardTokenPriceCall,
+    getPoolsData(params),
+  ]);
 
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
@@ -67,36 +68,36 @@ const getFarmApys = async params => {
 };
 
 const getPoolsData = async params => {
-  const web3 = params.web3;
-  const multicall = new MultiCall(web3, multicallAddress(params.chainId));
   const balanceCalls = [];
   const rewardRateCalls = [];
   params.pools.forEach(pool => {
-    const rewardPool = getContract(IRewardPool, pool.rewardPool ? pool.rewardPool : pool.gauge);
-    balanceCalls.push({
-      balance: rewardPool.methods.totalSupply(),
-    });
-    rewardRateCalls.push({
-      rewardRate: rewardPool.methods.rewardRate(),
-    });
+    const rewardPool = fetchContract(
+      pool.rewardPool ? pool.rewardPool : pool.gauge,
+      IRewardPool,
+      params.chainId
+    );
+    balanceCalls.push(rewardPool.read.totalSupply());
+    rewardRateCalls.push(rewardPool.read.rewardRate());
   });
 
-  const res = await multicall.all([balanceCalls, rewardRateCalls]);
+  const res = await Promise.all([Promise.all(balanceCalls), Promise.all(rewardRateCalls)]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const rewardRates = res[1].map(v => new BigNumber(v.rewardRate));
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const rewardRates = res[1].map(v => new BigNumber(v.toString()));
   return { balances, rewardRates };
 };
 
 const getXPrice = async (tokenPrice, params) => {
-  const tokenContract = getContractWithProvider(ERC20, params.tokenAddress, params.web3);
-  const xTokenContract = getContractWithProvider(ERC20, params.xTokenAddress, params.web3);
-  const stakedInXPool = new BigNumber(
-    await tokenContract.methods.balanceOf(params.xTokenAddress).call()
-  );
-  const totalXSupply = new BigNumber(await xTokenContract.methods.totalSupply().call());
+  const tokenContract = fetchContract(params.tokenAddress, ERC20Abi, params.chainId);
+  const xTokenContract = fetchContract(params.xTokenAddress, ERC20Abi, params.chainId);
+  const [stakedInXPool, totalXSupply] = await Promise.all([
+    tokenContract.read.balanceOf([params.xTokenAddress]),
+    xTokenContract.read.totalSupply(),
+  ]);
 
-  return stakedInXPool.times(tokenPrice).dividedBy(totalXSupply);
+  return new BigNumber(stakedInXPool.toString())
+    .times(tokenPrice)
+    .dividedBy(new BigNumber(totalXSupply.toString));
 };
 
 module.exports = { getRewardPoolApys };

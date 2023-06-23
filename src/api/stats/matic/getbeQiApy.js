@@ -1,4 +1,3 @@
-const { polygonWeb3: web3 } = require('../../../utils/web3');
 const { POLYGON_CHAIN_ID: chainId } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
@@ -28,7 +27,6 @@ const getbeQiApy = async () => {
     oracleId: 'QI',
     oracle: 'tokens',
     decimals: getEDecimals(QI.decimals),
-    web3: web3,
     chainId: chainId,
     // log: true,
   });

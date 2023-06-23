@@ -5,7 +5,6 @@ import { getEDecimals } from '../../../utils/getEDecimals';
 import pools from '../../../data/optimism/hopOpPools.json';
 import { hopOpClient } from '../../../apollo/client';
 import { HOP_LPF } from '../../../constants';
-const { optimismWeb3: web3 } = require('../../../utils/web3');
 import { OPTIMISM_CHAIN_ID as chainId } from '../../../constants';
 const {
   optimism: {
@@ -20,13 +19,12 @@ export const getHopOpApys = async () => {
     oracle: 'tokens',
     tokenAddress: OP.address,
     decimals: getEDecimals(OP.decimals),
-    web3,
     chainId,
     isRewardInXToken: false,
     client: hopOpClient,
     liquidityProviderFee: HOP_LPF,
     // log: true,
   });
-}
+};
 
 module.exports = { getHopOpApys };

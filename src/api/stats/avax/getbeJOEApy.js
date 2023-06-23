@@ -28,7 +28,6 @@ const getbeJOEApy = async () => {
     oracleId: 'JOE',
     oracle: 'tokens',
     decimals: getEDecimals(JOE.decimals),
-    web3: web3,
     chainId: chainId,
     // log: true,
   });

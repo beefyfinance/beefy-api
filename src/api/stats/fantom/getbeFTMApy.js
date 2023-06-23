@@ -1,5 +1,4 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
-const { FANTOM_CHAIN_ID: chainId } = require('../../../constants');
+const { FANTOM_CHAIN_ID } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
 
@@ -28,8 +27,7 @@ const getbeFTMApy = async () => {
     oracleId: 'WFTM',
     oracle: 'tokens',
     decimals: getEDecimals(WFTM.decimals),
-    web3: web3,
-    chainId: 250,
+    chainId: FANTOM_CHAIN_ID,
     // log: true,
   });
 

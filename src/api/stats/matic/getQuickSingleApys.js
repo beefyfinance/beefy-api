@@ -1,5 +1,5 @@
+import { POLYGON_CHAIN_ID } from '../../../constants';
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
-const { polygonWeb3 } = require('../../../utils/web3');
 
 export const getQuickSingleApys = async () => {
   const newQuickApy = getRewardPoolApys({
@@ -16,8 +16,7 @@ export const getQuickSingleApys = async () => {
     oracleId: 'LCD',
     oracle: 'tokens',
     decimals: '1e18',
-    web3: polygonWeb3,
-    chainId: 137,
+    chainId: POLYGON_CHAIN_ID,
     // log: true,
   });
 

@@ -59,7 +59,6 @@ const getSpiritApys = async () => {
     oracleId: binSPIRIT.symbol,
     oracle: 'tokens',
     decimals: getEDecimals(binSPIRIT.decimals),
-    web3: web3,
     chainId: 250,
     // log: true,
   });

@@ -1,4 +1,3 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
 const { FANTOM_CHAIN_ID: chainId } = require('../../../constants');
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
 
@@ -18,7 +17,6 @@ const getHectorApy = async () =>
     oracleId: 'WFTM',
     oracle: 'tokens',
     decimals: 1e18,
-    web3: web3,
     chainId,
     // log: true,
   });

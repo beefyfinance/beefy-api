@@ -151,8 +151,10 @@ export const getTradingFeeAprBalancer = async (
   liquidityProviderFee: number,
   chainId: number
 ) => {
-  const blockTime = await getBlockTime(chainId);
-  const currentBlock = await getBlockNumber(chainId);
+  const [blockTime, currentBlock] = await Promise.all([
+    getBlockTime(chainId),
+    getBlockNumber(chainId),
+  ]);
   const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
   const pairAddressesToAprMap: Record<string, BigNumber> = {};
 
@@ -266,6 +268,7 @@ export const getTradingFeeAprHop = async (
 
   try {
     let i = 0;
+    // TODO: client requests could be done concurrently
     for (const token of tokens) {
       let {
         data: { tokenSwaps },
