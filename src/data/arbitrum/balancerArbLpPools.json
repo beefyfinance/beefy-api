@@ -85,6 +85,11 @@
         "stream": "0xae9F2cE52FE89DD78e6F13d5d7b33125aE3dFF8C",
         "rewardToken": "0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60",
         "oracleId": "LDO"
+      },
+      {
+        "stream": "0xae9F2cE52FE89DD78e6F13d5d7b33125aE3dFF8C",
+        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
@@ -173,6 +178,11 @@
         "newGauge": true,
         "stream": "0x8F0B53F3BA19Ee31C0A73a6F6D84106340fadf5f",
         "oracleId": "BAL"
+      },
+      {
+        "stream": "0x8F0B53F3BA19Ee31C0A73a6F6D84106340fadf5f",
+        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
