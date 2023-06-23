@@ -2,19 +2,19 @@ const BigNumber = require('bignumber.js');
 
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
-const IAaveV3Incentives = require('../../../../abis/AaveV3Incentives.json');
-const IAaveV3PoolDataProvider = require('../../../../abis/AaveV3PoolDataProvider.json');
 const { BASE_HPY } = require('../../../../constants');
-const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 const fetch = require('node-fetch');
 const { getApyBreakdown } = require('../getApyBreakdown');
+const { default: IAaveV3Incentives } = require('../../../../abis/AaveV3Incentives');
+const { default: IAaveV3PoolDataProvider } = require('../../../../abis/AaveV3PoolDataProvider');
+const { fetchContract } = require('../../../rpc/client');
 
 const secondsPerYear = 31536000;
 const RAY_DECIMALS = '1e27';
 
 // config = { dataProvider: address, incentives: address, rewards: []}
-const getAaveV3ApyData = async (config, pools, web3) => {
+const getAaveV3ApyData = async (config, pools, chainId) => {
   const apys = [];
   const lsApys = [];
 
@@ -32,7 +32,7 @@ const getAaveV3ApyData = async (config, pools, web3) => {
   });
 
   let promises = [];
-  allPools.forEach(pool => promises.push(getPoolApy(config, pool, web3)));
+  allPools.forEach(pool => promises.push(getPoolApy(config, pool, chainId)));
   const values = await Promise.all(promises);
 
   values.forEach(item => {
@@ -43,11 +43,11 @@ const getAaveV3ApyData = async (config, pools, web3) => {
   return getApyBreakdown(pools, null, apys, 0, lsApys);
 };
 
-const getPoolApy = async (config, pool, web3) => {
+const getPoolApy = async (config, pool, chainId) => {
   const { supplyBase, supplyNative, borrowBase, borrowNative } = await getAaveV3PoolData(
     config,
     pool,
-    web3
+    chainId
   );
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyNative, leveragedBorrowNative } =
     getLeveragedApys(
@@ -74,10 +74,18 @@ const getPoolApy = async (config, pool, web3) => {
   return [apy, lsApy];
 };
 
-const getAaveV3PoolData = async (config, pool, web3) => {
-  const dataProvider = getContractWithProvider(IAaveV3PoolDataProvider, config.dataProvider, web3);
-  const { totalAToken, totalVariableDebt, liquidityRate, variableBorrowRate } =
-    await dataProvider.methods.getReserveData(pool.token).call();
+const getAaveV3PoolData = async (config, pool, chainId) => {
+  const dataProvider = fetchContract(config.dataProvider, IAaveV3PoolDataProvider, chainId);
+
+  const [reserveData, { supplyNativeInUsd, borrowNativeInUsd }] = await Promise.all([
+    dataProvider.read.getReserveData([pool.token]),
+    getRewardsPerYear(config, pool, chainId),
+  ]);
+
+  const totalAToken = new BigNumber(reserveData[2].toString());
+  const totalVariableDebt = new BigNumber(reserveData[4].toString());
+  const liquidityRate = new BigNumber(reserveData[5].toString());
+  const variableBorrowRate = new BigNumber(reserveData[6].toString());
 
   const supplyBase = new BigNumber(liquidityRate).div(RAY_DECIMALS);
   const borrowBase = new BigNumber(variableBorrowRate).div(RAY_DECIMALS);
@@ -86,7 +94,6 @@ const getAaveV3PoolData = async (config, pool, web3) => {
   const totalSupplyInUsd = new BigNumber(totalAToken).div(pool.decimals).times(tokenPrice);
   const totalBorrowInUsd = new BigNumber(totalVariableDebt).div(pool.decimals).times(tokenPrice);
 
-  const { supplyNativeInUsd, borrowNativeInUsd } = await getRewardsPerYear(config, pool, web3);
   const supplyNative = supplyNativeInUsd.div(totalSupplyInUsd);
   const borrowNative = totalBorrowInUsd.isZero()
     ? new BigNumber(0)
@@ -95,17 +102,27 @@ const getAaveV3PoolData = async (config, pool, web3) => {
   return { supplyBase, supplyNative, borrowBase, borrowNative };
 };
 
-const getRewardsPerYear = async (config, pool, web3) => {
-  const distribution = getContractWithProvider(IAaveV3Incentives, config.incentives, web3);
+const getRewardsPerYear = async (config, pool, chainId) => {
+  const distribution = fetchContract(config.incentives, IAaveV3Incentives, chainId);
+
+  const aTokenRewardsDataCalls = config.rewards.map(reward =>
+    distribution.read.getRewardsData([pool.aToken, reward.token])
+  );
+  const debtTokenRewardsDataCalls = config.rewards.map(reward =>
+    distribution.read.getRewardsData([pool.debtToken, reward.token])
+  );
+
+  const [aTokenRewardsDataResults, debtTokenRewardsDataResults] = await Promise.all([
+    Promise.all(aTokenRewardsDataCalls),
+    Promise.all(debtTokenRewardsDataCalls),
+  ]);
 
   let supplyNativeInUsd = new BigNumber(0);
   let borrowNativeInUsd = new BigNumber(0);
-  for (let reward of config.rewards) {
-    let res = await distribution.methods.getRewardsData(pool.aToken, reward.token).call();
-    const supplyNativeRate = new BigNumber(res[1]);
-    const distributionEnd = new BigNumber(res[3]);
-    res = await distribution.methods.getRewardsData(pool.debtToken, reward.token).call();
-    const borrowNativeRate = new BigNumber(res[1]);
+  for (const [index, reward] of Object.entries(config.rewards)) {
+    const supplyNativeRate = new BigNumber(aTokenRewardsDataResults[index][1]);
+    const distributionEnd = new BigNumber(aTokenRewardsDataResults[index][3]);
+    const borrowNativeRate = new BigNumber(debtTokenRewardsDataResults[1]);
 
     const tokenPrice = await fetchPrice({ oracle: reward.oracle, id: reward.oracleId });
     if (distributionEnd.gte(new BigNumber(Date.now() / 1000))) {
