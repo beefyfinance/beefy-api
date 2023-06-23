@@ -1,5 +1,35 @@
 [
   {
+    "name": "beets-ankr-ethereum-liquid-ocean",
+    "address": "0x98c3C3A426DC2c2a7017809f134cA9daB151877a",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x98c3c3a426dc2c2a7017809f134ca9dab151877a00000000000000000000073d",
+    "beefyFee": 0.095,
+    "poolId": 122,
+    "oracleB": "tokens",
+    "oracleIdB": "ANKR",
+    "decimalsB": "1e18",
+    "composable": true,
+    "bptIndex": 2,
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ankrETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
     "name": "beets-ankr-fantom-liquid-ocean",
     "address": "0x8FDa1835D346CF3d22C01742D2EdBB0831402a3A",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
