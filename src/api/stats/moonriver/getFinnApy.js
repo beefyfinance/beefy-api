@@ -1,14 +1,12 @@
 const BigNumber = require('bignumber.js');
-const { moonriverWeb3: web3 } = require('../../../utils/web3');
-
-const MasterChef = require('../../../abis/moonriver/FinnMasterChef.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pool = require('../../../data/moonriver/finnPool.json');
-const { BASE_HPY } = require('../../../constants');
+const { BASE_HPY, MOONRIVER_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import FinnMasterChef from '../../../abis/moonriver/FinnMasterChef';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { fetchContract } from '../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { getYearlyPlatformTradingFees } = require('../../../utils/getTradingFeeApr');
 const { finnClient } = require('../../../apollo/client');
@@ -24,12 +22,12 @@ const liquidityProviderFee = 0.0005;
 
 const getFinnApy = async () => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balance, allocPoint } = await getPoolData();
+  const tokenContract = fetchContract(pool.address, ERC20Abi, MOONRIVER_CHAIN_ID);
 
-  const tokenContract = getContractWithProvider(ERC20, pool.address, web3);
-  const totalStakedInxToken = await tokenContract.methods.balanceOf(xToken).call();
-  const totalStakedInxTokenInUsd = new BigNumber(totalStakedInxToken)
+  const [totalStakedInxToken, { rewardPerSecond, totalAllocPoint }, { balance, allocPoint }] =
+    await Promise.all([tokenContract.read.balanceOf([xToken]), getMasterChefData(), getPoolData()]);
+
+  const totalStakedInxTokenInUsd = new BigNumber(totalStakedInxToken.toString())
     .times(tokenPrice)
     .dividedBy(pool.decimals);
 
@@ -76,24 +74,34 @@ const getFinnApy = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.finnPerSecond().call());
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const masterchefContract = fetchContract(masterchef, FinnMasterChef, MOONRIVER_CHAIN_ID);
+  const res = await Promise.all([
+    masterchefContract.read.finnPerSecond(),
+    masterchefContract.read.totalAllocPoint(),
+  ]);
+  const rewardPerSecond = new BigNumber(res[0].toString());
+  const totalAllocPoint = new BigNumber(res[1].toString());
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolData = async () => {
-  const xTokenContract = getContractWithProvider(ERC20, xToken, web3);
-  const xBalance = await xTokenContract.methods.balanceOf(masterchef).call();
-  const xTotalSupply = await xTokenContract.methods.totalSupply().call();
+  const xTokenContract = fetchContract(xToken, ERC20Abi, MOONRIVER_CHAIN_ID);
+  const tokenContract = fetchContract(pool.address, ERC20Abi, MOONRIVER_CHAIN_ID);
+  const masterchefContract = fetchContract(masterchef, FinnMasterChef, MOONRIVER_CHAIN_ID);
 
-  const tokenContract = getContractWithProvider(ERC20, pool.address, web3);
-  const tokensStakedInxToken = await tokenContract.methods.balanceOf(xToken).call();
+  const res = await Promise.all([
+    xTokenContract.read.balanceOf([masterchef]),
+    xTokenContract.read.totalSupply(),
+    tokenContract.read.balanceOf([xToken]),
+    masterchefContract.read.poolInfo([pool.poolId]),
+  ]);
+
+  const xBalance = new BigNumber(res[0].toString());
+  const xTotalSupply = new BigNumber(res[1].toString());
+  const tokensStakedInxToken = new BigNumber(res[2].toString());
+  const allocPoint = new BigNumber(res[3][1].toString());
+
   const balance = new BigNumber(xBalance).times(tokensStakedInxToken).dividedBy(xTotalSupply);
-
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const rewardPool = await masterchefContract.methods.poolInfo(pool.poolId).call();
-  const allocPoint = new BigNumber(rewardPool.allocPoint);
 
   return { balance, allocPoint };
 };

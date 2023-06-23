@@ -2,7 +2,6 @@ const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
 const { moonbeamWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const IMultiRewardMasterChef = require('../../../abis/IMultiRewardMasterChef.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { BASE_HPY, MOONBEAM_CHAIN_ID, MOONBEAM_LPF } = require('../../../constants');
@@ -14,6 +13,7 @@ import { getContract, getContractWithProvider } from '../../../utils/contractHel
 import { getEDecimals } from '../../../utils/getEDecimals';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef';
 const {
   moonbeam: {
     tokens: { STELLA, xSTELLA },

@@ -19,3 +19,5 @@ const getMovrBifiGovApy = async () => {
     BLOCKS_PER_DAY
   );
 };
+
+module.exports = { getMovrBifiGovApy };

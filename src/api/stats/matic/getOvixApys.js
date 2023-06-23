@@ -6,9 +6,8 @@ const { MultiCall } = require('eth-multicall');
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
 import { BASE_HPY, POLYGON_CHAIN_ID as chainId } from '../../../constants';
-//const Comptroller = require('../../../abis/moonbeam/MoonwellComptroller.json');
+import ImToken from '../../../abis/moonbeam/mToken';
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
-const ImToken = require('../../../abis/moonbeam/mToken.json');
 const IOvixRewarder = require('../../../abis/matic/IOvixRewarder.json');
 
 const pools = require('../../../data/matic/ovixPools.json');

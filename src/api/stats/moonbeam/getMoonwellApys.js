@@ -6,9 +6,9 @@ const { MultiCall } = require('eth-multicall');
 import { getContract } from '../../../utils/contractHelper';
 const { moonbeamWeb3: web3, multicallAddress } = require('../../../utils/web3');
 import { BASE_HPY, MOONBEAM_CHAIN_ID as chainId } from '../../../constants';
-const Comptroller = require('../../../abis/moonbeam/MoonwellComptroller.json');
+import MoonwellComptroller from '../../../abis/moonbeam/MoonwellComptroller';
+import ImToken from '../../../abis/moonbeam/mToken';
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
-const ImToken = require('../../../abis/moonbeam/mToken.json');
 
 const pools = require('../../../data/moonbeam/moonwellPools.json');
 const COMPTROLLER = '0x8E00D5e02E65A19337Cdba98bbA9F84d4186a180';
@@ -161,7 +161,7 @@ const getSupplyData = async pools => {
   const totalSupplyCalls = [];
   const exchangeRateCalls = [];
   pools.forEach(pool => {
-    const comptrollerContract = getContract(Comptroller, COMPTROLLER);
+    const comptrollerContract = getContract(MoonwellComptroller, COMPTROLLER);
     const mtokenContract = getContract(ImToken, pool.mtoken);
     supplyRateCalls.push({
       supplyRate: mtokenContract.methods.supplyRatePerTimestamp(),
@@ -203,7 +203,7 @@ const getBorrowData = async pools => {
   const glmrBorrowRateCalls = [];
   const totalBorrowCalls = [];
   pools.forEach(pool => {
-    const comptrollerContract = getContract(Comptroller, COMPTROLLER);
+    const comptrollerContract = getContract(MoonwellComptroller, COMPTROLLER);
     const mtokenContract = getContract(ImToken, pool.mtoken);
     borrowRateCalls.push({
       borrowRate: mtokenContract.methods.borrowRatePerTimestamp(),
