@@ -1,5 +1,4 @@
 import { merge } from 'lodash';
-const { moonbeamWeb3: web3 } = require('../../../utils/web3');
 const { MOONBEAM_CHAIN_ID: chainId, BEAMSWAP_LPF } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 import { getMultiRewardMasterChefApys } from '../common/getMultiRewardMasterChefApys';
@@ -35,7 +34,6 @@ const getBeamswapApys = async () =>
       //log: true,
     }),
     await getMultiRewardMasterChefApys({
-      web3: web3,
       chainId: chainId,
       masterchef: masterchef,
       tokenPerBlock: 'beamPerSec',

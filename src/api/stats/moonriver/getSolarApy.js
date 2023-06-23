@@ -1,11 +1,8 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { multicallAddress } = require('../../../utils/web3');
-const { moonriverWeb3: web3 } = require('../../../utils/web3');
-import { MOONRIVER_CHAIN_ID as chainId } from '../../../constants';
-import { getContract } from '../../../utils/contractHelper';
+import ISolarVault from '../../../abis/moonriver/ISolarVault';
+import { MOONRIVER_CHAIN_ID } from '../../../constants';
+import { fetchContract } from '../../rpc/client';
 
-const ISolarVault = require('../../../abis/moonriver/ISolarVault.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from '../common/getApyBreakdown';
 const getBlockTime = require('../../../utils/getBlockTime');
@@ -36,23 +33,18 @@ const getFarmApys = async pool => {
 };
 
 const getMasterChefData = async pool => {
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-  const masterchefContract = getContract(ISolarVault, pool.masterchef);
+  const masterchefContract = fetchContract(pool.masterchef, ISolarVault, MOONRIVER_CHAIN_ID);
 
-  let calls = [
-    {
-      totalAllocPoint: masterchefContract.methods.totalAllocPoint(),
-      rewardRate: masterchefContract.methods.solarPerBlock(),
-      poolInfo: masterchefContract.methods.poolInfo(pool.poolId),
-    },
-  ];
+  const res = await Promise.all([
+    masterchefContract.read.totalAllocPoint(),
+    masterchefContract.read.solarPerBlock(),
+    masterchefContract.read.poolInfo([pool.poolId]),
+  ]);
 
-  const res = await multicall.all([calls]);
-
-  const totalAllocPoint = res[0].map(v => v.totalAllocPoint);
-  const rewardRate = res[0].map(v => v.rewardRate);
-  const allocPoint = res[0].map(v => v.poolInfo['1']);
-  const balance = res[0].map(v => v.poolInfo['6']);
+  const totalAllocPoint = new BigNumber(res[0].toString());
+  const rewardRate = new BigNumber(res[1].toString());
+  const allocPoint = new BigNumber(res[2][1].toString());
+  const balance = new BigNumber(res[2][6].toString());
 
   return { totalAllocPoint, rewardRate, allocPoint, balance };
 };

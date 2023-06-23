@@ -1,5 +1,4 @@
 import { merge } from 'lodash';
-const { moonbeamWeb3: web3 } = require('../../../utils/web3');
 import { MOONBEAM_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import { getMultiRewardMasterChefApys } from '../common/getMultiRewardMasterChefApys';
@@ -27,7 +26,6 @@ const getStellaswapApys = async () =>
       // log: true,
     }),
     await getMultiRewardMasterChefApys({
-      web3: web3,
       chainId: chainId,
       masterchef: stellaswap.masterchefV1distributorV2,
       tokenPerBlock: 'stellaPerSec',

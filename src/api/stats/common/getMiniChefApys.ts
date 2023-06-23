@@ -5,6 +5,7 @@ import fetchPrice from '../../../utils/fetchPrice';
 import { getApyBreakdown } from './getApyBreakdown';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import fetch from 'node-fetch';
+import { fetchContract } from '../../rpc/client';
 
 // trading apr
 import { SUSHI_LPF } from '../../../constants';
@@ -20,7 +21,6 @@ import { ApolloClient } from '@apollo/client/core';
 // abis
 import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime';
 import { Abi } from 'viem';
-import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
 
 const oracle = 'tokens';

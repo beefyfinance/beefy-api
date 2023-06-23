@@ -1,20 +1,14 @@
 import BigNumber from 'bignumber.js';
 import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
-import { MultiCall } from 'eth-multicall';
 import Web3 from 'web3';
-import { AbiItem } from 'web3-utils';
 
-import { multicallAddress } from '../../../utils/web3';
 import { ChainId } from '../../../../packages/address-book/address-book';
 
-import MasterChefAbi from '../../../abis/IMultiRewardMasterChef.json';
-import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
 import { isSushiClient, isBeetClient } from '../../../apollo/client';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import fetchPrice from '../../../utils/fetchPrice';
-import getBlockNumber from '../../../utils/getBlockNumber';
 import getBlockTime from '../../../utils/getBlockTime';
 import { getEDecimals } from '../../../utils/getEDecimals';
 import {
@@ -22,7 +16,8 @@ import {
   getTradingFeeAprBalancer,
   getTradingFeeApr,
 } from '../../../utils/getTradingFeeApr';
-import { getContract } from '../../../utils/contractHelper';
+import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef';
+import { fetchContract } from '../../rpc/client';
 
 export interface MasterChefApysParams {
   web3: Web3;
@@ -52,8 +47,10 @@ export const getMultiRewardMasterChefApys = async (
     ...(masterchefParams.singlePools ?? []),
   ];
 
-  const tradingAprs = await getTradingAprs(masterchefParams);
-  const farmApys = await getFarmApys(masterchefParams);
+  const [tradingAprs, farmApys] = await Promise.all([
+    getTradingAprs(masterchefParams),
+    getFarmApys(masterchefParams),
+  ]);
 
   const liquidityProviderFee = masterchefParams.liquidityProviderFee ?? 0.003;
 
@@ -79,8 +76,11 @@ const getTradingAprs = async (params: MasterChefApysParams) => {
 const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> => {
   const apys: BigNumber[] = [];
 
-  const { balances, rewardTokens, rewardDecimals, rewardsPerSec } = await getPoolsData(params);
-  const secondsPerBlock = params.secondsPerBlock ?? (await getBlockTime(params.chainId));
+  const [{ balances, rewardTokens, rewardDecimals, rewardsPerSec }, secondsPerBlock] =
+    await Promise.all([
+      getPoolsData(params),
+      params.secondsPerBlock ?? getBlockTime(params.chainId),
+    ]);
 
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
@@ -123,21 +123,22 @@ const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> =
 };
 
 const getPoolsData = async (params: MasterChefApysParams) => {
-  const masterchefContract = getContract(MasterChefAbi, params.masterchef);
-  const multicall = new MultiCall(params.web3 as any, multicallAddress(params.chainId));
-  const chefCalls = [];
-  params.pools.forEach(pool => {
-    chefCalls.push({
-      balance: masterchefContract.methods.poolTotalLp(pool.poolId),
-      rewards: masterchefContract.methods.poolRewardsPerSec(pool.poolId),
-    });
-  });
+  const masterchefContract = fetchContract(
+    params.masterchef,
+    IMultiRewardMasterChef,
+    params.chainId
+  );
+  const balanceCalls = params.pools.map(p => masterchefContract.read.poolTotalLp([p.poolId]));
+  const rewardsCalls = params.pools.map(p => masterchefContract.read.poolRewardsPerSec([p.poolId]));
 
-  const res = await multicall.all([chefCalls]);
+  const [balanceResults, rewardResults] = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(rewardsCalls),
+  ]);
 
-  const balances: BigNumber[] = res[0].map(v => new BigNumber(v.balance));
-  const rewardTokens: string[] = res[0].map(v => v.rewards['1']);
-  const rewardDecimals: number[] = res[0].map(v => v.rewards['2']);
-  const rewardsPerSec: BigNumber[] = res[0].map(v => v.rewards['3']);
+  const balances: BigNumber[] = balanceResults.map(v => new BigNumber(v.toString()));
+  const rewardTokens = rewardResults[1];
+  const rewardDecimals = rewardResults[2];
+  const rewardsPerSec = rewardResults[3].map(v => new BigNumber(v.toString()));
   return { balances, rewardTokens, rewardDecimals, rewardsPerSec };
 };

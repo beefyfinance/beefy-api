@@ -1,4 +1,3 @@
-const { moonriverWeb3: web3 } = require('../../../utils/web3');
 import { MOONRIVER_CHAIN_ID as chainId } from '../../../constants';
 import { getMultiRewardMasterChefApys } from '../common/getMultiRewardMasterChefApys';
 
@@ -10,7 +9,6 @@ import { solarbeamClient } from '../../../apollo/client';
 
 const getSolarbeamDualLpV2Apys = async () =>
   await getMultiRewardMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: '0x0329867a8c457e9F75e25b0685011291CD30904F',
     secondsPerBlock: 1,
