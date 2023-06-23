@@ -1,18 +1,14 @@
 import BigNumber, { BigNumber as BigNumberStatic } from 'bignumber.js';
-import Web3 from 'web3';
-import { AbiItem } from 'web3-utils';
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
 import { ChainId } from '../../../../packages/address-book/address-book';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import getBlockTime from '../../../utils/getBlockTime';
 import fetchPrice from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
-import { getContract } from '../../../utils/contractHelper';
 import { BASE_HPY } from '../../../constants';
 import VToken from '../../../abis/VToken';
-
-const IComptroller: AbiItem[] = require('../../../abis/IComptroller.json');
+import IComptroller from '../../../abis/IComptroller';
+import { Abi } from 'viem';
+import { fetchContract } from '../../rpc/client';
 
 const SECONDS_PER_YEAR = 31536000;
 
@@ -55,7 +51,7 @@ const getPoolsApys = async (params: CompoundV2ApyParams, data: PoolsData) => {
   const compDecimals = params.compDecimals ?? '1e18';
   const compOracle = params.compOracle ?? 'tokens';
   const compPrice = await fetchPrice({ oracle: compOracle, id: params.compOracleId });
-  const [calculatedBlockTime] = await Promise.all([getBlockTime(params.chainId)]);
+  const calculatedBlockTime = await getBlockTime(params.chainId);
   const secondsPerBlock = params.secondsPerBlock ?? calculatedBlockTime;
   const BLOCKS_PER_YEAR = SECONDS_PER_YEAR / secondsPerBlock;
 
@@ -120,8 +116,7 @@ const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => 
   const comptrollerAbi = params.comptrollerAbi ?? IComptroller;
   const cTokenAbi = params.cTokenAbi ?? VToken;
 
-  const comptrollerContract = getContract(comptrollerAbi, params.comptroller);
-  const multicall = new MultiCall(params.web3 as any, multicallAddress(params.chainId));
+  const comptrollerContract = fetchContract(params.comptroller, comptrollerAbi, params.chainId);
 
   const supplyRateCalls = [];
   const borrowRateCalls = [];
@@ -132,51 +127,44 @@ const getPoolsData = async (params: CompoundV2ApyParams): Promise<PoolsData> => 
   const exchangeRateStoredCalls = [];
   const cTokenDecimalsCalls = [];
 
-  let promises = [];
-  params.pools.forEach(pool =>
-    promises.push(fetchPrice({ oracle: pool.oracle, id: pool.oracleId }))
+  let pricePromises = params.pools.map(pool =>
+    fetchPrice({ oracle: pool.oracle, id: pool.oracleId })
   );
-  const tokenPrices: BigNumber[] = await Promise.all(promises);
 
   params.pools.forEach(pool => {
-    const cTokenContract = getContract(cTokenAbi, pool.cToken);
-    supplyRateCalls.push({ supplyRate: cTokenContract.methods.supplyRatePerBlock() });
-    borrowRateCalls.push({ borrowRate: cTokenContract.methods.borrowRatePerBlock() });
-    compSupplySpeedCalls.push({
-      compSupplySpeed: comptrollerContract.methods.compSupplySpeeds(pool.cToken),
-    });
-    compBorrowSpeedCalls.push({
-      compBorrowSpeed: comptrollerContract.methods.compBorrowSpeeds(pool.cToken),
-    });
-    totalSupplyCalls.push({ totalSupply: cTokenContract.methods.totalSupply() });
-    totalBorrowsCalls.push({ totalBorrows: cTokenContract.methods.totalBorrows() });
-    exchangeRateStoredCalls.push({
-      exchangeRateStored: cTokenContract.methods.exchangeRateStored(),
-    });
-    cTokenDecimalsCalls.push({ decimals: cTokenContract.methods.decimals() });
+    const cTokenContract = fetchContract(pool.cToken, cTokenAbi, params.chainId);
+    supplyRateCalls.push(cTokenContract.read.supplyRatePerBlock());
+    borrowRateCalls.push(cTokenContract.read.borrowRatePerBlock());
+    compSupplySpeedCalls.push(comptrollerContract.read.compSupplySpeeds([pool.cToken]));
+    compBorrowSpeedCalls.push(comptrollerContract.read.compBorrowSpeeds([pool.cToken]));
+    totalSupplyCalls.push(cTokenContract.read.totalSupply());
+    totalBorrowsCalls.push(cTokenContract.read.totalBorrows());
+    exchangeRateStoredCalls.push(cTokenContract.read.exchangeRateStored());
+    cTokenDecimalsCalls.push(cTokenContract.read.decimals());
   });
-
-  const res = await multicall.all([
-    supplyRateCalls,
-    borrowRateCalls,
-    compSupplySpeedCalls,
-    compBorrowSpeedCalls,
-    totalSupplyCalls,
-    totalBorrowsCalls,
-    exchangeRateStoredCalls,
-    cTokenDecimalsCalls,
+  const res = await Promise.all([
+    Promise.all(supplyRateCalls),
+    Promise.all(borrowRateCalls),
+    Promise.all(compSupplySpeedCalls),
+    Promise.all(compBorrowSpeedCalls),
+    Promise.all(totalSupplyCalls),
+    Promise.all(totalBorrowsCalls),
+    Promise.all(exchangeRateStoredCalls),
+    Promise.all(cTokenDecimalsCalls),
+    Promise.all(pricePromises),
   ]);
 
-  const supplyRates: BigNumber[] = res[0].map(v => new BigNumber(v.supplyRate));
-  const borrowRates: BigNumber[] = res[1].map(v => new BigNumber(v.borrowRate));
-  const compSupplySpeeds: BigNumber[] = res[2].map(v => new BigNumber(v.compSupplySpeed));
-  const compBorrowSpeeds: BigNumber[] = res[3].map(v => new BigNumber(v.compBorrowSpeed));
-  const totalSupplies: BigNumber[] = res[4].map(v => new BigNumber(v.totalSupply));
-  const totalBorrows: BigNumber[] = res[5].map(v => new BigNumber(v.totalBorrows));
-  const exchangeRatesStored: BigNumber[] = res[6].map(v => new BigNumber(v.exchangeRateStored));
+  const supplyRates: BigNumber[] = res[0].map(v => new BigNumber(v.toString()));
+  const borrowRates: BigNumber[] = res[1].map(v => new BigNumber(v.toString()));
+  const compSupplySpeeds: BigNumber[] = res[2].map(v => new BigNumber(v.toString()));
+  const compBorrowSpeeds: BigNumber[] = res[3].map(v => new BigNumber(v.toString()));
+  const totalSupplies: BigNumber[] = res[4].map(v => new BigNumber(v.toString()));
+  const totalBorrows: BigNumber[] = res[5].map(v => new BigNumber(v.toString()));
+  const exchangeRatesStored: BigNumber[] = res[6].map(v => new BigNumber(v.toString()));
   const cTokenDecimals: BigNumber[] = res[7].map(v =>
-    new BigNumber(10).exponentiatedBy(v.decimals)
+    new BigNumber(10).exponentiatedBy(v.toString())
   );
+  const tokenPrices = res[8];
 
   return {
     tokenPrices,
@@ -255,14 +243,13 @@ export interface CompoundV2Pool {
 }
 
 export interface CompoundV2ApyParams {
-  web3: Web3;
   chainId: ChainId;
   comptroller: string;
-  comptrollerAbi?: AbiItem[];
+  comptrollerAbi?: Abi;
   compOracle?: string;
   compOracleId: string;
   compDecimals?: string;
-  cTokenAbi?: AbiItem[];
+  cTokenAbi?: Abi;
   pools: CompoundV2Pool[];
   secondsPerBlock?: number;
   liquidityProviderFee?: number;
