@@ -93,7 +93,7 @@ const getFarmApys = async (params: MasterChefApysParams): Promise<BigNumber[]> =
     let poolRewardsInUsd = new BigNumber(0);
     for (let j = 0; j < rewardTokens[i].length; j++) {
       const rewardPrice = await fetchPrice({ oracle: 'tokens', id: rewardTokens[i][j] });
-      const rewardInUsd = new BigNumber(rewardsPerSec[i][j])
+      const rewardInUsd = new BigNumber(rewardsPerSec[i][j].toString())
         .dividedBy(getEDecimals(rewardDecimals[i][j]))
         .times(rewardPrice)
         .times(1 - (pool.depositFee ?? 0));
@@ -137,8 +137,8 @@ const getPoolsData = async (params: MasterChefApysParams) => {
   ]);
 
   const balances: BigNumber[] = balanceResults.map(v => new BigNumber(v.toString()));
-  const rewardTokens = rewardResults[1];
-  const rewardDecimals = rewardResults[2];
-  const rewardsPerSec = rewardResults[3].map(v => new BigNumber(v.toString()));
+  const rewardTokens = rewardResults.map(v => v[1]);
+  const rewardDecimals = rewardResults.map(v => v[2]);
+  const rewardsPerSec = rewardResults.map(v => v[3]);
   return { balances, rewardTokens, rewardDecimals, rewardsPerSec };
 };
