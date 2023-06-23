@@ -1,10 +1,9 @@
 const BigNumber = require('bignumber.js');
-const { optimismWeb3: web3 } = require('../../../utils/web3');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const { DAILY_HPY } = require('../../../constants');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { DAILY_HPY, OPTIMISM_CHAIN_ID } = require('../../../constants');
 const { default: IRewardPool } = require('../../../abis/IRewardPool');
+const { fetchContract } = require('../../rpc/client');
 
 const REWARDS = '0x2275527112c94733081F2893de25c85F252DeFab';
 
@@ -23,8 +22,8 @@ const getbeVeloApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'VELO' });
 
-  const rewardPool = getContractWithProvider(IRewardPool, REWARDS, web3);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
+  const rewardPool = fetchContract(REWARDS, IRewardPool, OPTIMISM_CHAIN_ID);
+  const rewardRate = new BigNumber((await rewardPool.read.rewardRate()).toString());
   const yearlyRewards = rewardRate.times(31536000);
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy('1e18');
 
@@ -32,8 +31,8 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const tokenContract = getContractWithProvider(IRewardPool, REWARDS, web3);
-  const totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
+  const tokenContract = fetchContract(REWARDS, IRewardPool, OPTIMISM_CHAIN_ID);
+  const totalStaked = new BigNumber((await tokenContract.read.totalSupply()).toString());
   const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'VELO' });
 
   return totalStaked.times(tokenPrice).dividedBy('1e18');
