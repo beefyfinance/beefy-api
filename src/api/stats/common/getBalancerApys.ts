@@ -67,16 +67,11 @@ const RAY_DECIMALS = '1e27';
 
 export const getBalancerApys = async (params: BalancerParams): Promise<ApyBreakdownResult> => {
   const pairAddresses = params.pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeAprBalancer(
-    params.client,
-    pairAddresses,
-    liquidityProviderFee,
-    params.chainId
-  );
 
-  // console.log(tradingAprs);
-
-  const farmApys: FarmApyResult = await getPoolApys(params);
+  const [tradingAprs, farmApys] = await Promise.all([
+    getTradingFeeAprBalancer(params.client, pairAddresses, liquidityProviderFee, params.chainId),
+    getPoolApys(params),
+  ]);
 
   return getApyBreakdown(
     params.pools,

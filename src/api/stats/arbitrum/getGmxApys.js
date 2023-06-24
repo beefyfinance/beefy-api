@@ -90,9 +90,7 @@ const getTotalStakedInUsd = async pool => {
       ARBITRUM_CHAIN_ID
     );
     staked = new BigNumber(
-      (
-        await stakedTrackerContract.methods.depositBalances([pool.strategy, pool.address])
-      ).toString()
+      (await stakedTrackerContract.read.depositBalances([pool.strategy, pool.address])).toString()
     );
   }
   const stakedPrice = await fetchPrice({ oracle: pool.oracle, id: pool.tokenId });

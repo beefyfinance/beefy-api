@@ -10,7 +10,7 @@ const getArbiBifiGovApy = async () => {
   return getBifiGovApr(
     ARBITRUM_CHAIN_ID,
     'arbitrum',
-    'ETH',
+    'WETH',
     DECIMALS,
     REWARDS,
     BIFI,
