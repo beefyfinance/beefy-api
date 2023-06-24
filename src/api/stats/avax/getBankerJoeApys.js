@@ -1,15 +1,12 @@
 const BigNumber = require('bignumber.js');
-const { avaxWeb3: web3 } = require('../../../utils/web3');
-
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const RewardDistributor = require('../../../abis/avax/RewardDistributor.json');
-const IToken = require('../../../abis/avax/BankerJoeIToken.json');
 const pools = require('../../../data/avax/bankerJoePools.json');
-const { BASE_HPY } = require('../../../constants');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
-const { default: Comptroller } = require('../../../abis/heco/Comptroller');
+const { default: BankerJoeIToken } = require('../../../abis/avax/BankerJoeIToken');
+const { fetchContract } = require('../../rpc/client');
+const { default: RewardDistributor } = require('../../../abis/avax/RewardDistributor');
 
 const rewardDistributor = '0x45B2C4139d96F44667577C0D7F7a7D170B420324';
 const BLOCKS_PER_YEAR = 31536000;
@@ -52,14 +49,14 @@ const getPoolApy = async pool => {
 };
 
 const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
-  const itokenContract = getContractWithProvider(IToken, pool.itoken, web3);
-  const rewardDistributorContract = getContractWithProvider(
-    RewardDistributor,
+  const itokenContract = fetchContract(pool.itoken, BankerJoeIToken, AVAX_CHAIN_ID);
+  const rewardDistributorContract = fetchContract(
     rewardDistributor,
-    web3
+    RewardDistributor,
+    AVAX_CHAIN_ID
   );
 
-  let [
+  const [
     joePrice,
     avaxPrice,
     tokenPrice,
@@ -72,18 +69,16 @@ const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
     fetchPrice({ oracle: 'tokens', id: 'JOE' }),
     fetchPrice({ oracle: 'tokens', id: 'AVAX' }),
     fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-    itokenContract.methods.supplyRatePerSecond().call(),
-    rewardDistributorContract.methods.rewardSupplySpeeds(0, pool.itoken).call(),
-    rewardDistributorContract.methods.rewardSupplySpeeds(1, pool.itoken).call(),
-    itokenContract.methods.totalSupply().call(),
-    itokenContract.methods.exchangeRateStored().call(),
+    itokenContract.read.supplyRatePerSecond().then(rate => new BigNumber(rate.toString())),
+    rewardDistributorContract.read
+      .rewardSupplySpeeds([0, pool.itoken])
+      .then(speed => new BigNumber(speed.toString())),
+    rewardDistributorContract.read
+      .rewardSupplySpeeds([1, pool.itoken])
+      .then(speed => new BigNumber(speed.toString())),
+    itokenContract.read.totalSupply().then(supply => new BigNumber(supply.toString())),
+    itokenContract.read.exchangeRateStored().then(rate => new BigNumber(rate.toString())),
   ]);
-
-  supplyRate = new BigNumber(supplyRate);
-  joeCompRate = new BigNumber(joeCompRate);
-  avaxCompRate = new BigNumber(avaxCompRate);
-  totalSupply = new BigNumber(totalSupply);
-  exchangeRateStored = new BigNumber(exchangeRateStored);
 
   const supplyApyPerYear = supplyRate.times(BLOCKS_PER_YEAR).div('1e18');
 
@@ -104,28 +99,27 @@ const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
 };
 
 const getBorrowApys = async (pool, BLOCKS_PER_YEAR) => {
-  const rewardDistributorContract = getContractWithProvider(
-    RewardDistributor,
+  const rewardDistributorContract = fetchContract(
     rewardDistributor,
-    web3
+    RewardDistributor,
+    AVAX_CHAIN_ID
   );
-  const itokenContract = getContractWithProvider(IToken, pool.itoken, web3);
+  const itokenContract = fetchContract(pool.itoken, BankerJoeIToken, AVAX_CHAIN_ID);
 
-  let [joePrice, avaxPrice, tokenPrice, borrowRate, joeCompRate, avaxCompRate, totalBorrows] =
+  const [joePrice, avaxPrice, tokenPrice, borrowRate, joeCompRate, avaxCompRate, totalBorrows] =
     await Promise.all([
       fetchPrice({ oracle: 'tokens', id: 'JOE' }),
       fetchPrice({ oracle: 'tokens', id: 'AVAX' }),
       fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-      itokenContract.methods.borrowRatePerSecond().call(),
-      rewardDistributorContract.methods.rewardBorrowSpeeds(0, pool.itoken).call(),
-      rewardDistributorContract.methods.rewardBorrowSpeeds(1, pool.itoken).call(),
-      itokenContract.methods.totalBorrows().call(),
+      itokenContract.read.borrowRatePerSecond().then(rate => new BigNumber(rate.toString())),
+      rewardDistributorContract.read
+        .rewardBorrowSpeeds([0, pool.itoken])
+        .then(speed => new BigNumber(speed.toString())),
+      rewardDistributorContract.read
+        .rewardBorrowSpeeds([1, pool.itoken])
+        .then(speed => new BigNumber(speed.toString())),
+      itokenContract.read.totalBorrows().then(borrows => new BigNumber(borrows.toString())),
     ]);
-
-  borrowRate = new BigNumber(borrowRate);
-  joeCompRate = new BigNumber(joeCompRate);
-  avaxCompRate = new BigNumber(avaxCompRate);
-  totalBorrows = new BigNumber(totalBorrows);
 
   const borrowApyPerYear = borrowRate.times(BLOCKS_PER_YEAR).div('1e18');
 

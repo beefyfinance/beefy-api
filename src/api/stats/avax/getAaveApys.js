@@ -1,16 +1,16 @@
 const BigNumber = require('bignumber.js');
-const { avaxWeb3: web3 } = require('../../../utils/web3');
-
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const IAaveDistributionManager = require('../../../abis/matic/AaveDistributionManager.json');
 const pools = require('../../../data/avax/aavePools.json');
-const { BASE_HPY } = require('../../../constants');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 const {
   default: IAaveProtocolDataProvider,
 } = require('../../../abis/matic/AaveProtocolDataProvider');
+const { fetchContract } = require('../../rpc/client');
+const {
+  default: IAaveDistributionManager,
+} = require('../../../abis/matic/AaveDistributionManager');
 
 const AaveProtocolDataProvider = '0x65285E9dfab318f57051ab2b139ccCf232945451';
 const AaveDistributionManager = '0x01D83Fe6A10D2f2B7AF17034343746188272cAc9';
@@ -67,18 +67,27 @@ const getPoolApy = async pool => {
 };
 
 const getAavePoolData = async pool => {
-  const dataProvider = getContractWithProvider(
-    IAaveProtocolDataProvider,
+  const dataProvider = fetchContract(
     AaveProtocolDataProvider,
-    web3
+    IAaveProtocolDataProvider,
+    AVAX_CHAIN_ID
   );
-  const {
-    availableLiquidity,
-    totalStableDebt,
-    totalVariableDebt,
-    liquidityRate,
-    variableBorrowRate,
-  } = await dataProvider.methods.getReserveData(pool.token).call();
+  const [
+    [
+      availableLiquidity,
+      totalStableDebt,
+      totalVariableDebt,
+      liquidityRate,
+      variableBorrowRate,
+      ...otherData
+    ],
+    { supplyNativeInUsd, borrowNativeInUsd },
+  ] = await Promise.all([
+    dataProvider.read
+      .getReserveData([pool.token])
+      .then(v => v.map(m => new BigNumber(m.toString()))),
+    getNativePerYear(pool),
+  ]);
 
   const supplyBase = new BigNumber(liquidityRate).div(RAY_DECIMALS);
   const borrowBase = new BigNumber(variableBorrowRate).div(RAY_DECIMALS);
@@ -91,7 +100,6 @@ const getAavePoolData = async pool => {
     .div(pool.decimals)
     .times(tokenPrice);
 
-  const { supplyNativeInUsd, borrowNativeInUsd } = await getNativePerYear(pool);
   const supplyNative = supplyNativeInUsd.div(totalSupplyInUsd);
   const borrowNative = totalBorrowInUsd.isZero()
     ? new BigNumber(0)
@@ -101,16 +109,16 @@ const getAavePoolData = async pool => {
 };
 
 const getNativePerYear = async pool => {
-  const distribution = getContractWithProvider(
-    IAaveDistributionManager,
+  const distribution = fetchContract(
     AaveDistributionManager,
-    web3
+    IAaveDistributionManager,
+    AVAX_CHAIN_ID
   );
 
-  let res = await distribution.methods.assets(pool.aToken).call();
-  const supplyNativeRate = new BigNumber(res.emissionPerSecond);
-  res = await distribution.methods.assets(pool.debtToken).call();
-  const borrowNativeRate = new BigNumber(res.emissionPerSecond);
+  const [supplyNativeRate, borrowNativeRate] = await Promise.all([
+    distribution.read.assets([pool.aToken]).then(v => new BigNumber(v[0].toString())),
+    distribution.read.assets([pool.debtToken]).then(v => new BigNumber(v[0].toString())),
+  ]);
 
   const nativePrice = await fetchPrice({ oracle: 'tokens', id: 'AVAX' });
   const supplyNativeInUsd = supplyNativeRate.times(secondsPerYear).div('1e18').times(nativePrice);

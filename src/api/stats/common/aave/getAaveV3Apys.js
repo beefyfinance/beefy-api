@@ -122,7 +122,7 @@ const getRewardsPerYear = async (config, pool, chainId) => {
   for (const [index, reward] of Object.entries(config.rewards)) {
     const supplyNativeRate = new BigNumber(aTokenRewardsDataResults[index][1]);
     const distributionEnd = new BigNumber(aTokenRewardsDataResults[index][3]);
-    const borrowNativeRate = new BigNumber(debtTokenRewardsDataResults[1]);
+    const borrowNativeRate = new BigNumber(debtTokenRewardsDataResults[index][1]);
 
     const tokenPrice = await fetchPrice({ oracle: reward.oracle, id: reward.oracleId });
     if (distributionEnd.gte(new BigNumber(Date.now() / 1000))) {

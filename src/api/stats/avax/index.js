@@ -30,39 +30,40 @@ const getKyberAvaxApys = require('./getKyberAvaxApys');
 const getSoliSnekApys = require('./getSoliSnekApys');
 
 const getApys = [
-  // getSoliSnekApys,
-  // getKyberAvaxApys,
-  // getGmxApys,
-  // getbeJOEApy,
-  // getbeJOEEarnApy,
-  // getPangolinV2Apys,
-  // getPangolinV2DualApys,
-  // getLydLpApys,
-  // getPangolinPNGApy,
-  // getOliveApys,
-  // getAvaxBifiGovApy,
-  // getAvaxBifiMaxiApy,
-  // getJoeApys,
-  // getJoeBoostedApys,
-  // getJoeDualApys,
-  // getJoeApy,
-  // getCurveApys,
-  // getAaveApys,
-  // getAaveV3Apys,
-  // getBlizzLpApys,
-  // getBlizzLendingApys,
-  // getBankerJoeApys,
-  // // getSynapseApys,
-  // getSpellApys,
-  // getMaiApys,
-  // getMaiCurveApys,
-  // getGrapeApys,
-  // getRipaeApys,
-  // getStargateApys,
-  // getSwapsicleApys,
+  getSoliSnekApys,
+  getKyberAvaxApys,
+  getGmxApys,
+  getbeJOEApy,
+  getbeJOEEarnApy,
+  getPangolinV2Apys,
+  getPangolinV2DualApys,
+  getLydLpApys,
+  getPangolinPNGApy,
+  getOliveApys,
+  getAvaxBifiGovApy,
+  getAvaxBifiMaxiApy,
+  getJoeApys,
+  getJoeBoostedApys,
+  getJoeDualApys,
+  getJoeApy,
+  getCurveApys,
+  getAaveApys,
+  getAaveV3Apys,
+  getBlizzLpApys,
+  getBlizzLendingApys,
+  getBankerJoeApys,
+  // // getSynapseApys, //disabled by weso long time ago, won't re-enable
+  getSpellApys,
+  getMaiApys,
+  getMaiCurveApys,
+  getGrapeApys,
+  getRipaeApys,
+  getStargateApys,
+  getSwapsicleApys,
 ];
 
 const getAvaxApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -99,6 +100,9 @@ const getAvaxApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Avalanche finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

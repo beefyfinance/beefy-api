@@ -1,10 +1,11 @@
 const BigNumber = require('bignumber.js');
 const { avaxWeb3: web3, web3Factory } = require('../../../utils/web3');
 const fetchPrice = require('../../../utils/fetchPrice');
-const ERC20 = require('../../../abis/ERC20.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import ERC20Abi from '../../../abis/ERC20Abi';
 import IRewardPool from '../../../abis/IRewardPool';
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import { AVAX_CHAIN_ID } from '../../../constants';
+import { fetchContract } from '../../rpc/client';
 const {
   avax: {
     tokens: { JOE, beJOE },
@@ -39,8 +40,8 @@ const getbeJOEEarnApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const joePrice = await fetchPrice({ oracle: ORACLE, id: 'JOE' });
 
-  const rewardPool = getContractWithProvider(IRewardPool, REWARDS, web3);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
+  const rewardPool = fetchContract(REWARDS, IRewardPool, AVAX_CHAIN_ID);
+  const rewardRate = new BigNumber((await rewardPool.read.rewardRate()).toString());
   const secondsPerYear = 31536000;
   const yearlyRewards = rewardRate.times(secondsPerYear);
   const yearlyRewardsInUsd = yearlyRewards.times(joePrice).dividedBy(DECIMALS);
@@ -49,10 +50,8 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const web3 = web3Factory(43114);
-
-  const tokenContract = getContractWithProvider(ERC20, beJOE.address, web3);
-  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(REWARDS).call());
+  const tokenContract = fetchContract(beJOE.address, ERC20Abi, AVAX_CHAIN_ID);
+  const totalStaked = new BigNumber((await tokenContract.read.balanceOf([REWARDS])).toString());
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: ORACLE_ID });
 
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);

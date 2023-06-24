@@ -6,10 +6,10 @@ import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { spookyClient } from '../../../apollo/client';
 import { SPOOKY_LPF } from '../../../constants';
 import { getContractWithProvider } from '../../../utils/contractHelper';
+import GeistChef from '../../../abis/fantom/GeistChef';
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const MasterChef = require('../../../abis/fantom/GeistChef.json');
 const pools = require('../../../data/fantom/geistLpPools.json');
 
 const chef = '0xE40b7FA6F5F7FB0Dc7d56f433814227AAaE020B5';
@@ -41,7 +41,7 @@ const getPoolApy = async (masterchef, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
+  const masterchefContract = getContractWithProvider(GeistChef, masterchef, web3);
 
   const rewardsPerSec = new BigNumber(await masterchefContract.methods.rewardsPerSecond().call());
   let { allocPoint } = await masterchefContract.methods.poolInfo(pool.address).call();

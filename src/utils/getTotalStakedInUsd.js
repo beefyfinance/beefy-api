@@ -12,7 +12,7 @@ const getTotalStakedInUsd = async (
   chainId = 56
 ) => {
   const tokenContract = fetchContract(tokenAddr, ERC20Abi, chainId);
-  const totalStaked = new BigNumber(await tokenContract.read.balanceOf([targetAddr]).toString());
+  const totalStaked = new BigNumber((await tokenContract.read.balanceOf([targetAddr])).toString());
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 
   return totalStaked.times(tokenPrice).dividedBy(decimals);

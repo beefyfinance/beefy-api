@@ -3,7 +3,6 @@ const { fantomWeb3: web3 } = require('../../../utils/web3');
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const IncentivesController = require('../../../abis/fantom/GeistIncentivesController.json');
 const pools = require('../../../data/fantom/geistPools.json');
 const { BASE_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
@@ -11,6 +10,9 @@ const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 const {
   default: IAaveProtocolDataProvider,
 } = require('../../../abis/matic/AaveProtocolDataProvider');
+const {
+  default: GeistIncentivesController,
+} = require('../../../abis/fantom/GeistIncentivesController');
 
 const AaveProtocolDataProvider = '0xf3B0611e2E4D2cd6aB4bb3e01aDe211c3f42A8C3';
 const incentivesController = '0x297FddC5c33Ef988dd03bd13e162aE084ea1fE57';
@@ -49,7 +51,7 @@ const getGeistLendingApys = async () => {
 
 const getIncentiveControllerData = async () => {
   const incentivesControllerContract = getContractWithProvider(
-    IncentivesController,
+    GeistIncentivesController,
     incentivesController,
     web3
   );
@@ -123,7 +125,7 @@ const getGeistPoolData = async (pool, rewardsPerSecond, totalAllocPoint) => {
 
 const getGeistPerYear = async (pool, rewardsPerSecond, totalAllocPoint) => {
   const incentivesControllerContract = getContractWithProvider(
-    IncentivesController,
+    GeistIncentivesController,
     incentivesController,
     web3
   );
