@@ -1,18 +1,15 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { emeraldWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const MasterChef = require('../../../abis/emerald/YuzuChef.json');
-const MasterChefExt = require('../../../abis/emerald/YuzuMasterchefExt.json');
-import SimpleRewarder from '../../../abis/emerald/Rewarder.json';
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/emerald/yuzuDualLpPools.json');
-const { BASE_HPY, EMERALD_CHAIN_ID: chainId } = require('../../../constants');
+const { BASE_HPY, EMERALD_CHAIN_ID: chainId, EMERALD_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { addressBook } from '../../../../packages/address-book/address-book';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import { fetchContract } from '../../rpc/client';
+import Rewarder from '../../../abis/emerald/Rewarder';
+import YuzuMasterchefExt from '../../../abis/emerald/YuzuMasterchefExt';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import YuzuChef from '../../../abis/emerald/YuzuChef';
 const getBlockTime = require('../../../utils/getBlockTime');
 const {
   emerald: {
@@ -33,12 +30,23 @@ const getYuzuDualApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: 'YUZU' });
-  const { rewardPerSecond, totalAllocPoint, totalAllocPointMC, masterChefExtAlloc } =
-    await getMasterChefData();
-  const { balances, allocPoints, rewarders } = await getPoolsData(pools);
-  const secondsPerBlock = await getBlockTime(chainId);
+
+  const [
+    { rewardPerSecond, totalAllocPoint, totalAllocPointMC, masterChefExtAlloc },
+    { balances, allocPoints, rewarders },
+    secondsPerBlock,
+  ] = await Promise.all([getMasterChefData(), getPoolsData(pools), getBlockTime(chainId)]);
+
+  //These request need the response from getPoolsData, so they need to be done after
+  const rewarderRates = await Promise.all(
+    rewarders.map(rewarder => {
+      if (!rewarder) return new BigNumber(0);
+      return fetchContract(rewarder, Rewarder, EMERALD_CHAIN_ID).read.tokenPerBlock();
+    })
+  );
+
   const rewardPerBlock = rewardPerSecond
-    .times(new BigNumber(masterChefExtAlloc[1]))
+    .times(new BigNumber(masterChefExtAlloc[1].toString()))
     .dividedBy(totalAllocPointMC);
 
   for (let i = 0; i < pools.length; i++) {
@@ -47,7 +55,9 @@ const getYuzuDualApys = async () => {
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
 
-    const poolBlockRewards = rewardPerBlock.times(allocPoints[i]).dividedBy(totalAllocPoint);
+    const poolBlockRewards = rewardPerBlock
+      .times(new BigNumber(allocPoints[i].toString()))
+      .dividedBy(totalAllocPoint);
     const yearlyRewards = poolBlockRewards.dividedBy(secondsPerBlock).times(secondsPerYear);
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
 
@@ -57,8 +67,7 @@ const getYuzuDualApys = async () => {
       } else {
         // console.log(pool.name, rewarders[i].toString());
         const tokenPriceB = await fetchPrice({ oracle: pool.oracleB, id: pool.oracleIdB });
-        const rewarderContract = getContractWithProvider(SimpleRewarder, rewarders[i], web3);
-        const tokenBPerSec = new BigNumber(await rewarderContract.methods.tokenPerBlock().call());
+        const tokenBPerSec = new BigNumber(rewarderRates[i].toString());
         const yearlyRewardsB = tokenBPerSec.dividedBy(secondsPerBlock).times(secondsPerYear);
         return yearlyRewardsB.times(tokenPriceB).dividedBy(pool.decimalsB);
       }
@@ -105,44 +114,41 @@ const getYuzuDualApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const masterchefContractExt = getContractWithProvider(MasterChefExt, masterchefExt, web3);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.yuzuPerBlock().call());
-  const totalAllocPointMC = new BigNumber(
-    await masterchefContract.methods.totalAllocPoint().call()
-  );
-  const totalAllocPoint = new BigNumber(
-    await masterchefContractExt.methods.totalAllocPoint().call()
-  );
-  const masterChefExtAlloc = await masterchefContract.methods.poolInfo(5).call();
+  const masterchefContract = fetchContract(masterchef, YuzuChef, EMERALD_CHAIN_ID);
+  const masterchefContractExt = fetchContract(masterchefExt, YuzuMasterchefExt, EMERALD_CHAIN_ID);
+
+  const [rewardPerSecond, totalAllocPointMC, totalAllocPoint, masterChefExtAlloc] =
+    await Promise.all([
+      masterchefContract.read.yuzuPerBlock().then(v => new BigNumber(v.toString())),
+      masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+      masterchefContractExt.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+      masterchefContract.read.poolInfo([5]),
+    ]);
   return { rewardPerSecond, totalAllocPoint, totalAllocPointMC, masterChefExtAlloc };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = getContract(MasterChefExt, masterchefExt);
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
   const balanceCalls = [];
   const poolInfoCalls = [];
   const rewarderCalls = [];
+
+  const masterchefContract = fetchContract(masterchefExt, YuzuMasterchefExt, EMERALD_CHAIN_ID);
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(masterchefExt),
-    });
-    let poolInfo = masterchefContract.methods.poolInfo(pool.poolId);
-    poolInfoCalls.push({
-      poolInfo: poolInfo,
-    });
-    rewarderCalls.push({
-      rewarder: masterchefContract.methods.poolRewarders(pool.poolId),
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, EMERALD_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([masterchefExt]));
+    poolInfoCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
+    rewarderCalls.push(masterchefContract.read.poolRewarders([pool.poolId]));
   });
 
-  const res = await multicall.all([balanceCalls, poolInfoCalls, rewarderCalls]);
+  const res = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(poolInfoCalls),
+    Promise.all(rewarderCalls),
+  ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.poolInfo['1']);
-  const rewarders = res[2].map(v => v.rewarder['0']);
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => v['1']);
+  const rewarders = res[2].map(v => v['0']);
   return { balances, allocPoints, rewarders };
 };
 
