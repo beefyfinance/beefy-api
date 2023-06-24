@@ -3,7 +3,6 @@ const { MultiCall } = require('eth-multicall');
 const { fuseWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/fuse/IVoltageMasterChef.json');
-const SimpleRewarder = require('../../../abis/avax/SimpleRewarderPerSec.json'); // Voltage rewarder is equal to the avax one
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const voltageLpPools = require('../../../data/fuse/voltageLpPools.json');
@@ -16,6 +15,7 @@ const { compound } = require('../../../utils/compound');
 import { FUSEFI_LPF } from '../../../constants';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import SimpleRewarderPerSec from '../../../abis/avax/SimpleRewarderPerSec';
 
 const masterchef = '0xE3e184a7b75D0Ae6E17B58F5283b91B4E0A2604F';
 const oracleIdA = 'VOLT';
@@ -150,7 +150,7 @@ const getPoolsData = async pools => {
   const rewarders = res[1].map(v => v.poolInfo[4]);
 
   rewarders.forEach(rewarder => {
-    let rewarderContract = getContract(SimpleRewarder, rewarder);
+    let rewarderContract = getContract(SimpleRewarderPerSec, rewarder);
     let tokenPerSec = rewarderContract.methods.tokenPerSec();
     tokenPerSecCalls.push({
       tokenPerSec: tokenPerSec,

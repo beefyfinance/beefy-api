@@ -3,7 +3,6 @@ const { MultiCall } = require('eth-multicall');
 const { avaxWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
 const MasterChef = require('../../../abis/avax/MasterChefJoeV3.json');
-const SimpleRewarder = require('../../../abis/avax/SimpleRewarderPerSec.json');
 const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/joeDualLpPools.json');
@@ -15,6 +14,7 @@ const { compound } = require('../../../utils/compound');
 import { JOE_LPF } from '../../../constants';
 import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import SimpleRewarderPerSec from '../../../abis/avax/SimpleRewarderPerSec';
 
 const masterchef = '0x188bED1968b795d5c9022F6a0bb5931Ac4c18F00';
 const oracleIdA = 'JOE';
@@ -133,7 +133,7 @@ const getPoolsData = async pools => {
   const rewarders = res[1].map(v => v.poolInfo[4]);
 
   rewarders.forEach(rewarder => {
-    let rewarderContract = getContract(SimpleRewarder, rewarder);
+    let rewarderContract = getContract(SimpleRewarderPerSec, rewarder);
     let tokenPerSec = rewarderContract.methods.tokenPerSec();
     tokenPerSecCalls.push({
       tokenPerSec: tokenPerSec,
