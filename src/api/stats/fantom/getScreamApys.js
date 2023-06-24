@@ -3,13 +3,13 @@ const { fantomWeb3: web3 } = require('../../../utils/web3');
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const Comptroller = require('../../../abis/heco/Comptroller.json');
 const pools = require('../../../data/fantom/screamPools.json');
 const getBlockTime = require('../../../utils/getBlockTime');
 const { BASE_HPY, FANTOM_CHAIN_ID: chainId } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 const { default: VToken } = require('../../../abis/VToken');
+const { default: Comptroller } = require('../../../abis/heco/Comptroller');
 
 const COMPTROLLER = '0x260E596DAbE3AFc463e75B6CC05d8c46aCAcFB09';
 

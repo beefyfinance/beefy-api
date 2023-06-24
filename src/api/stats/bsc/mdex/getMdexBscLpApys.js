@@ -2,12 +2,12 @@ const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../../utils/web3');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 
-const MasterChef = require('../../../../abis/HecoPool.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/mdexBscLpPools.json');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
+import { HecoPool as MasterChef } from '../../../../abis/HecoPool';
 import { getContractWithProvider } from '../../../../utils/contractHelper';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';

@@ -98,7 +98,6 @@ const getTradingAprs = async (params: MiniChefApyParams) => {
 };
 
 const getFarmApys = async (params: MiniChefApyParams) => {
-  const start = Date.now();
   const { pools, minichefConfig, rewarderConfig, chainId } = params;
   const apys = [];
 
@@ -206,9 +205,6 @@ const getFarmApys = async (params: MiniChefApyParams) => {
     apys.push(apy);
   }
 
-  if (params.chainId === ONE_CHAIN_ID) {
-    console.log(`getMiniChefApys took ${(Date.now() - start) / 1000}s`);
-  }
   return apys;
 };
 

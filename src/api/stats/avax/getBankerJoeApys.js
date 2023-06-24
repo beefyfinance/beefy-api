@@ -3,13 +3,13 @@ const { avaxWeb3: web3 } = require('../../../utils/web3');
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const Comptroller = require('../../../abis/heco/Comptroller.json');
 const RewardDistributor = require('../../../abis/avax/RewardDistributor.json');
 const IToken = require('../../../abis/avax/BankerJoeIToken.json');
 const pools = require('../../../data/avax/bankerJoePools.json');
 const { BASE_HPY } = require('../../../constants');
 const { getContractWithProvider } = require('../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
+const { default: Comptroller } = require('../../../abis/heco/Comptroller');
 
 const rewardDistributor = '0x45B2C4139d96F44667577C0D7F7a7D170B420324';
 const BLOCKS_PER_YEAR = 31536000;
