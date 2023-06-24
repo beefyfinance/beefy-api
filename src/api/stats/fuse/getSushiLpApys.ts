@@ -1,11 +1,10 @@
 import { FUSE_CHAIN_ID } from '../../../constants';
-
 import { getMiniChefApys } from '../common/getMiniChefApys';
 import { sushiFuseClient } from '../../../apollo/client';
-
 import pools from '../../../data/fuse/sushiFuseLpPools.json';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
+
 const {
   fuse: {
     platforms: {

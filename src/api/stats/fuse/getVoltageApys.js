@@ -1,9 +1,4 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { fuseWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const MasterChef = require('../../../abis/fuse/IVoltageMasterChef.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const voltageLpPools = require('../../../data/fuse/voltageLpPools.json');
 const voltageStableLpPools = require('../../../data/fuse/voltageStableLpPools.json');
@@ -13,9 +8,11 @@ import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFees
 const { fusefiClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import { FUSEFI_LPF } from '../../../constants';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import SimpleRewarderPerSec from '../../../abis/avax/SimpleRewarderPerSec';
+import IVoltageMasterChef from '../../../abis/fuse/IVoltageMasterChef';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
 
 const masterchef = '0xE3e184a7b75D0Ae6E17B58F5283b91B4E0A2604F';
 const oracleIdA = 'VOLT';
@@ -47,13 +44,22 @@ const getVoltageApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
-  const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-
-  const pairAddresses = voltageLpPools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(fusefiClient, pairAddresses, liquidityProviderFee);
 
   const pools = [...voltageLpPools, ...voltageStableLpPools, ...xVOLT];
-  const { balances, allocPoints, tokenPerSecData } = await getPoolsData(pools);
+
+  const [
+    { rewardPerSecond, totalAllocPoint },
+    tradingAprs,
+    { balances, allocPoints, tokenPerSecData },
+  ] = await Promise.all([
+    getMasterChefData(),
+    getTradingFeeApr(
+      fusefiClient,
+      voltageLpPools.map(pool => pool.address),
+      liquidityProviderFee
+    ),
+    getPoolsData(pools),
+  ]);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -120,46 +126,38 @@ const getVoltageApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.voltPerSec().call());
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const masterchefContract = fetchContract(masterchef, IVoltageMasterChef, FUSE_CHAIN_ID);
+  const [rewardPerSecond, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.voltPerSec().then(v => new BigNumber(v.toString())),
+    masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+  ]);
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = getContract(MasterChef, masterchef);
-  const multicall = new MultiCall(web3, multicallAddress(FUSE_CHAIN_ID));
+  const masterchefContract = fetchContract(masterchef, IVoltageMasterChef, FUSE_CHAIN_ID);
   const balanceCalls = [];
   const poolInfoCalls = [];
-  const tokenPerSecCalls = [];
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(masterchef),
-    });
-    let poolInfo = masterchefContract.methods.poolInfo(pool.poolId);
-    poolInfoCalls.push({
-      poolInfo: poolInfo,
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, FUSE_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([masterchef]));
+    poolInfoCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
   });
 
-  const res = await multicall.all([balanceCalls, poolInfoCalls]);
+  const res = await Promise.all([Promise.all(balanceCalls), Promise.all(poolInfoCalls)]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.poolInfo[3]);
-  const rewarders = res[1].map(v => v.poolInfo[4]);
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => new BigNumber(v[3].toString()));
+  const rewarders = res[1].map(v => v[4]);
 
-  rewarders.forEach(rewarder => {
-    let rewarderContract = getContract(SimpleRewarderPerSec, rewarder);
-    let tokenPerSec = rewarderContract.methods.tokenPerSec();
-    tokenPerSecCalls.push({
-      tokenPerSec: tokenPerSec,
-    });
+  const tokenPerSecCalls = rewarders.map(rewarder => {
+    if (rewarder === '0x0000000000000000000000000000000000000000') return new BigNumber('NaN');
+    const rewarderContract = fetchContract(rewarder, SimpleRewarderPerSec, FUSE_CHAIN_ID);
+    return rewarderContract.read.tokenPerSec();
   });
 
-  const tokenPerSecData = (await multicall.all([tokenPerSecCalls]))[0].map(
-    t => new BigNumber(t.tokenPerSec)
-  );
+  const tokenPerSecDataResuls = await Promise.all(tokenPerSecCalls);
+  const tokenPerSecData = tokenPerSecDataResuls.map(v => new BigNumber(v.toString()));
 
   return { balances, allocPoints, tokenPerSecData };
 };

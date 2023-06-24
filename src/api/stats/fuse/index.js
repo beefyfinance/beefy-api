@@ -9,8 +9,8 @@ const getApys = [
   getFusefiLpApys,
   getFuseBeefySingleApy,
   getFuseBifiGovApy,
-  getSushiLpApys,
   getFuseBifiMaxiApy,
+  getSushiLpApys,
   getVoltageApys,
 ];
 

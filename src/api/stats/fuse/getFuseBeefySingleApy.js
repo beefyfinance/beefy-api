@@ -1,16 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { web3Factory } = require('../../../utils/web3');
-
-const Rewarder = require('../../../abis/fuse/IRewarder.json');
-const Staker = require('../../../abis/fuse/IStaker.json');
 const { compound } = require('../../../utils/compound');
-
 import { getEDecimals } from '../../../utils/getEDecimals';
-const { FUSE_CHAIN_ID: chainId, BASE_HPY } = require('../../../constants');
-
+const { BASE_HPY, FUSE_CHAIN_ID } = require('../../../constants');
 import { addressBook } from '../../../../packages/address-book/address-book';
-import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import IRewarder from '../../../abis/fuse/IRewarder';
+import IStaker from '../../../abis/fuse/IStaker';
+import { fetchContract } from '../../rpc/client';
+
 const {
   fuse: {
     platforms: {
@@ -49,10 +46,8 @@ const getFuseBeefySingleApy = async () => {
 };
 
 const getYearlyRewardsInUsd = async () => {
-  const web3 = web3Factory(chainId);
-
-  const rewardPool = getContractWithProvider(Rewarder, rewarder, web3);
-  const rewardRate = new BigNumber(await rewardPool.methods.getBlockRewardAmount().call());
+  const rewardPool = fetchContract(rewarder, IRewarder, FUSE_CHAIN_ID);
+  const rewardRate = new BigNumber((await rewardPool.read.getBlockRewardAmount()).toString());
   const yearlyRewards = rewardRate.times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.dividedBy(getEDecimals(WFUSE.decimals));
 
@@ -60,10 +55,8 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const web3 = web3Factory(chainId);
-
-  const stakerContract = getContractWithProvider(Staker, staker, web3);
-  const totalStaked = new BigNumber(await stakerContract.methods.totalStakeAmount().call());
+  const stakerContract = fetchContract(staker, IStaker, FUSE_CHAIN_ID);
+  const totalStaked = new BigNumber((await stakerContract.read.totalStakeAmount()).toString());
 
   return totalStaked.dividedBy(getEDecimals(WFUSE.decimals));
 };
