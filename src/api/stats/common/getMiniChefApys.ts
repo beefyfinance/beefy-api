@@ -8,7 +8,7 @@ import fetch from 'node-fetch';
 import { fetchContract } from '../../rpc/client';
 
 // trading apr
-import { SUSHI_LPF } from '../../../constants';
+import { ONE_CHAIN_ID, SUSHI_LPF } from '../../../constants';
 import {
   getTradingFeeAprSushi,
   getTradingFeeApr,
@@ -55,10 +55,22 @@ interface MiniChefApyParams {
 }
 
 export const getMiniChefApys = async (params: MiniChefApyParams) => {
-  const { pools, tradingClient, sushiClient, liquidityProviderFee } = params;
+  const { pools } = params;
+
+  const [{ tradingAprs, fee }, farmApys] = await Promise.all([
+    getTradingAprs(params),
+    getFarmApys(params),
+  ]);
+
+  return getApyBreakdown(pools, tradingAprs, farmApys, fee);
+};
+
+const getTradingAprs = async (params: MiniChefApyParams) => {
+  const { pools, tradingClient, liquidityProviderFee } = params;
   const pairAddresses = pools.map(pool => pool.address);
   let tradingAprs: Record<string, BigNumber> | undefined;
   let fee: number | undefined;
+
   if (tradingClient !== undefined) {
     fee = liquidityProviderFee !== undefined ? liquidityProviderFee : SUSHI_LPF;
     tradingAprs = (await isSushiClient(tradingClient))
@@ -82,12 +94,11 @@ export const getMiniChefApys = async (params: MiniChefApyParams) => {
   } else {
     tradingAprs = {};
   }
-  const farmApys = await getFarmApys(params);
-
-  return getApyBreakdown(pools, tradingAprs, farmApys, fee);
+  return { tradingAprs, fee };
 };
 
 const getFarmApys = async (params: MiniChefApyParams) => {
+  const start = Date.now();
   const { pools, minichefConfig, rewarderConfig, chainId } = params;
   const apys = [];
 
@@ -193,6 +204,10 @@ const getFarmApys = async (params: MiniChefApyParams) => {
       );
     }
     apys.push(apy);
+  }
+
+  if (params.chainId === ONE_CHAIN_ID) {
+    console.log(`getMiniChefApys took ${(Date.now() - start) / 1000}s`);
   }
   return apys;
 };

@@ -69,13 +69,14 @@ export const getTradingFeeAprSushi = async (
   const pairAddressToAprMap: Record<string, BigNumber> = {};
 
   try {
-    let queryResponse0 = await client.query({
-      query: pairDayDataSushiQuery(addressesToLowercase(pairAddresses), start0, end0),
-    });
-
-    let queryResponse1 = await client.query({
-      query: pairDayDataSushiQuery(addressesToLowercase(pairAddresses), start1, end1),
-    });
+    const [queryResponse0, queryResponse1] = await Promise.all([
+      client.query({
+        query: pairDayDataSushiQuery(addressesToLowercase(pairAddresses), start0, end0),
+      }),
+      client.query({
+        query: pairDayDataSushiQuery(addressesToLowercase(pairAddresses), start1, end1),
+      }),
+    ]);
 
     const pairDayDatas0 = queryResponse0.data.pairs.map(pair => pair.dayData[0]);
     const pairDayDatas1 = queryResponse1.data.pairs.map(pair => pair.dayData[0]);
