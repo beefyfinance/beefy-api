@@ -6,6 +6,7 @@ const { getSushiCeloApys } = require('./getSushiCeloApys');
 const getApys = [getCurveApys, getSushiCeloApys, getCeloBifiGovApy, getCeloBifiMaxiApy];
 
 const getCeloApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -42,6 +43,9 @@ const getCeloApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Celo finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

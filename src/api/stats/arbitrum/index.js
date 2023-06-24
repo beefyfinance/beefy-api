@@ -41,6 +41,7 @@ const getApys = [
 ];
 
 const getArbitrumApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -77,6 +78,9 @@ const getArbitrumApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Arbitrum finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

@@ -15,6 +15,7 @@ const getApys = [
 ];
 
 const getAuroraApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -51,6 +52,9 @@ const getAuroraApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Aurora finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

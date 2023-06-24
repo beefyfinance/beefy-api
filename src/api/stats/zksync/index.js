@@ -3,6 +3,7 @@ const getVelocoreApys = require('./getVelocoreApys');
 const getApys = [getVelocoreApys];
 
 const getZksyncApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -39,6 +40,9 @@ const getZksyncApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Zksync finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

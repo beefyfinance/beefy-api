@@ -15,6 +15,7 @@ const getApys = [
 ];
 
 const getFuseApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -51,6 +52,9 @@ const getFuseApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Fuse finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,
