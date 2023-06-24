@@ -10,7 +10,7 @@ const getOneBifiGovApy = async () => {
   return await getBifiGovApr(
     ONE_CHAIN_ID,
     'one',
-    ONE,
+    'WONE',
     DECIMALS,
     REWARDS,
     BIFI,
