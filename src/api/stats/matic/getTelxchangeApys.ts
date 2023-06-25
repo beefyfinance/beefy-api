@@ -1,10 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { MultiCall } from 'eth-multicall';
-import { polygonWeb3 as web3, multicallAddress } from '../../../utils/web3';
 
-// abis
-import { StakingRewards, StakingRewards_ABI } from '../../../abis/matic/Telxchange/StakingRewards';
-import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
 // json data
 import { LpPool } from '../../../types/LpPool';
 import _pools from '../../../data/matic/telxchangePools.json';
@@ -17,7 +12,9 @@ import { quickClient } from '../../../apollo/client';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
-import { getContract } from '../../../utils/contractHelper';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import IRewardPool from '../../../abis/IRewardPool';
 const {
   polygon: {
     tokens: { TEL },
@@ -30,8 +27,10 @@ const BLOCKS_PER_DAY = 28800;
 export const getTelxchangeApys = async () => {
   const singleFarms = pools.filter(pool => pool.farmType === 'single');
   const pairAddresses = singleFarms.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(quickClient, pairAddresses, QUICK_LPF);
-  const farmApys = await getFarmApys(singleFarms);
+  const [tradingAprs, farmApys] = await Promise.all([
+    getTradingFeeApr(quickClient, pairAddresses, QUICK_LPF),
+    getFarmApys(singleFarms),
+  ]);
 
   return getApyBreakdown(singleFarms, tradingAprs, farmApys, QUICK_LPF);
 };
@@ -56,26 +55,18 @@ const getFarmApys = async (pools: LpPool[]) => {
 };
 
 const getPoolsData = async (pools: LpPool[]) => {
-  const multicall = new MultiCall(web3 as any, multicallAddress(POLYGON_CHAIN_ID));
   const balanceCalls = [];
   const rewardRateCalls = [];
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20_ABI, pool.address) as unknown as ERC20;
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(pool.rewardPool),
-    });
-    const rewardPool = getContract(
-      StakingRewards_ABI,
-      pool.rewardPool
-    ) as unknown as StakingRewards;
-    rewardRateCalls.push({
-      rewardRate: rewardPool.methods.rewardRate(),
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, POLYGON_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([pool.rewardPool as `0x${string}`]));
+    const rewardPool = fetchContract(pool.rewardPool, IRewardPool, POLYGON_CHAIN_ID);
+    rewardRateCalls.push(rewardPool.read.rewardRate());
   });
 
-  const res = await multicall.all([balanceCalls, rewardRateCalls]);
+  const res = await Promise.all([Promise.all(balanceCalls), Promise.all(rewardRateCalls)]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const rewardRates = res[1].map(v => new BigNumber(v.rewardRate));
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const rewardRates = res[1].map(v => new BigNumber(v.toString()));
   return { balances, rewardRates };
 };

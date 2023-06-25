@@ -37,7 +37,9 @@ export const getApyBreakdown = (
   };
 
   if (providerFee === undefined) {
-    console.warn(`No provider fee provided for getApyBreakdown, defaulting to 0`);
+    console.warn(
+      `No provider fee provided for getApyBreakdown, defaulting to 0 [${pools[0].name}, ...]`
+    );
     providerFee = 0;
   }
 

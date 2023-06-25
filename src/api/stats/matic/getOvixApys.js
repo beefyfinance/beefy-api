@@ -2,13 +2,11 @@ const BigNumber = require('bignumber.js');
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const { MultiCall } = require('eth-multicall');
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
-const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
-import { BASE_HPY, POLYGON_CHAIN_ID as chainId } from '../../../constants';
+import { BASE_HPY, POLYGON_CHAIN_ID } from '../../../constants';
 import ImToken from '../../../abis/moonbeam/mToken';
+import IOvixRewarder from '../../../abis/matic/IOvixRewarder';
+import { fetchContract } from '../../rpc/client';
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
-const IOvixRewarder = require('../../../abis/matic/IOvixRewarder.json');
 
 const pools = require('../../../data/matic/ovixPools.json');
 //const COMPTROLLER = '0x8849f1a0cB6b5D6076aB150546EddEe193754F1C';
@@ -35,7 +33,7 @@ const getOvixApys = async () => {
       totalBorrows[i],
       pools[i]
     );
-    const apy = await getPoolApy(supplyBase, borrowBase, supplyVxs, borrowVxs, pools[i]);
+    const apy = getPoolApy(supplyBase, borrowBase, supplyVxs, borrowVxs, pools[i]);
 
     apys = { ...apys, ...apy };
   }
@@ -43,7 +41,7 @@ const getOvixApys = async () => {
   return apys;
 };
 
-const getPoolApy = async (supplyBase, borrowBase, supplyVxs, borrowVxs, pool) => {
+const getPoolApy = (supplyBase, borrowBase, supplyVxs, borrowVxs, pool) => {
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyVxs, leveragedBorrowVxs } =
     getLeveragedApys(
       supplyBase,
@@ -133,53 +131,40 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
 };
 
 const getData = async pools => {
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
   const supplyRateCalls = [];
   const epochDataCalls = [];
   const totalSupplyCalls = [];
   const exchangeRateCalls = [];
   const borrowRateCalls = [];
   const totalBorrowCalls = [];
-  const rewardContract = getContractWithProvider(IOvixRewarder, rewarder, web3);
-  const epoch = await rewardContract.methods.epochNumber().call();
+  const rewardContract = fetchContract(rewarder, IOvixRewarder, POLYGON_CHAIN_ID);
+  const epoch = await rewardContract.read.epochNumber();
   pools.forEach(pool => {
-    const mtokenContract = getContract(ImToken, pool.mtoken);
-    const rewarderContract = getContract(IOvixRewarder, pool.reward.rewarder);
-    supplyRateCalls.push({
-      supplyRate: mtokenContract.methods.supplyRatePerTimestamp(),
-    });
-    epochDataCalls.push({
-      epochData: rewarderContract.methods.epochParams(epoch),
-    });
-    totalSupplyCalls.push({
-      totalSupply: mtokenContract.methods.totalSupply(),
-    });
-    exchangeRateCalls.push({
-      exchangeRate: mtokenContract.methods.exchangeRateStored(),
-    });
-    borrowRateCalls.push({
-      borrowRate: mtokenContract.methods.borrowRatePerTimestamp(),
-    });
-    totalBorrowCalls.push({
-      totalBorrow: mtokenContract.methods.totalBorrows(),
-    });
+    const mtokenContract = fetchContract(pool.mtoken, ImToken, POLYGON_CHAIN_ID);
+    const rewarderContract = fetchContract(pool.reward.rewarder, IOvixRewarder, POLYGON_CHAIN_ID);
+    supplyRateCalls.push(mtokenContract.read.supplyRatePerTimestamp());
+    epochDataCalls.push(rewarderContract.read.epochParams([epoch]));
+    totalSupplyCalls.push(mtokenContract.read.totalSupply());
+    exchangeRateCalls.push(mtokenContract.read.exchangeRateStored());
+    borrowRateCalls.push(mtokenContract.read.borrowRatePerTimestamp());
+    totalBorrowCalls.push(mtokenContract.read.totalBorrows());
   });
 
-  const res = await multicall.all([
-    supplyRateCalls,
-    epochDataCalls,
-    totalSupplyCalls,
-    exchangeRateCalls,
-    borrowRateCalls,
-    totalBorrowCalls,
+  const res = await Promise.all([
+    Promise.all(supplyRateCalls),
+    Promise.all(epochDataCalls),
+    Promise.all(totalSupplyCalls),
+    Promise.all(exchangeRateCalls),
+    Promise.all(borrowRateCalls),
+    Promise.all(totalBorrowCalls),
   ]);
 
-  const supplyRates = res[0].map(v => new BigNumber(v.supplyRate));
-  const epochDatas = res[1].map(v => v.epochData);
-  const totalSupplys = res[2].map(v => new BigNumber(v.totalSupply));
-  const exchangeRates = res[3].map(v => new BigNumber(v.exchangeRate));
-  const borrowRates = res[4].map(v => new BigNumber(v.borrowRate));
-  const totalBorrows = res[5].map(v => new BigNumber(v.totalBorrow));
+  const supplyRates = res[0].map(v => new BigNumber(v.toString()));
+  const epochDatas = res[1].map(v => v.map(m => new BigNumber(m.toString())));
+  const totalSupplys = res[2].map(v => new BigNumber(v.toString()));
+  const exchangeRates = res[3].map(v => new BigNumber(v.toString()));
+  const borrowRates = res[4].map(v => new BigNumber(v.toString()));
+  const totalBorrows = res[5].map(v => new BigNumber(v.toString()));
 
   return { supplyRates, epochDatas, totalSupplys, exchangeRates, borrowRates, totalBorrows };
 };
