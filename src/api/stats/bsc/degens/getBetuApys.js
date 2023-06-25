@@ -1,11 +1,11 @@
 const BigNumber = require('bignumber.js');
 const { bscWeb3: web3 } = require('../../../../utils/web3');
 
-const BetuStaking = require('../../../../abis/degens/BetuStaking.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
+const { default: BetuStaking } = require('../../../../abis/degens/BetuStaking');
 
 const stakingPool = '0x8a3030e494a9c0FF12F46D0ce3F1a610dCe9B2eD';
 const oracleId = 'BETU';
