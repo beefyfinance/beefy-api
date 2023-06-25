@@ -1,9 +1,3 @@
-import BigNumber from 'bignumber.js';
-import { cronosWeb3 as web3 } from '../../../utils/web3';
-import { ERC20, ERC20_ABI } from '../../../abis/common/ERC20';
-import fetchPrice from '../../../utils/fetchPrice';
-import { getContractWithProvider } from '../../../utils/contractHelper';
-import IRewardPool from '../../../abis/IRewardPool';
 import { getBifiGovApr } from '../common/getBifiGovApr';
 import { CRONOS_CHAIN_ID } from '../../../constants';
 
