@@ -1,10 +1,10 @@
 const BigNumber = require('bignumber.js');
-const { polygonWeb3: web3, web3Factory } = require('../../../utils/web3');
 const fetchPrice = require('../../../utils/fetchPrice');
-const ERC20 = require('../../../abis/ERC20.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import ERC20Abi from '../../../abis/ERC20Abi';
 import IRewardPool from '../../../abis/IRewardPool';
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import { POLYGON_CHAIN_ID } from '../../../constants';
+import { fetchContract } from '../../rpc/client';
 const {
   polygon: {
     tokens: { QI, beQI },
@@ -39,8 +39,8 @@ const getbeQiEarnApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: 'QI' });
 
-  const rewardPool = getContractWithProvider(IRewardPool, REWARDS, web3);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
+  const rewardPool = fetchContract(REWARDS, IRewardPool, POLYGON_CHAIN_ID);
+  const rewardRate = new BigNumber((await rewardPool.read.rewardRate()).toString());
   const secondsPerYear = 31536000;
   const yearlyRewards = rewardRate.times(secondsPerYear);
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
@@ -49,10 +49,8 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const web3 = web3Factory(137);
-
-  const tokenContract = getContractWithProvider(ERC20, beQI.address, web3);
-  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(REWARDS).call());
+  const tokenContract = fetchContract(beQI.address, ERC20Abi, POLYGON_CHAIN_ID);
+  const totalStaked = new BigNumber((await tokenContract.read.balanceOf([REWARDS])).toString());
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: ORACLE_ID });
 
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
