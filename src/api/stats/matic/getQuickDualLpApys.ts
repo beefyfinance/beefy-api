@@ -5,7 +5,6 @@ import pools from '../../../data/matic/quickDualLpPools.json';
 import { quickClient } from '../../../apollo/client';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
-const { polygonWeb3 } = require('../../../utils/web3');
 const {
   polygon: {
     tokens: { QUICK, MATIC },
@@ -23,7 +22,6 @@ export const getQuickDualLpApys = async () =>
     decimalsB: getEDecimals(MATIC.decimals),
     tokenAddress: QUICK.address,
     decimals: getEDecimals(QUICK.decimals),
-    web3: polygonWeb3,
     chainId: 137,
     tradingFeeInfoClient: quickClient,
     liquidityProviderFee: QUICK_LPF,
