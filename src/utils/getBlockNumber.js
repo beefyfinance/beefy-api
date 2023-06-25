@@ -1,4 +1,4 @@
-const { web3Factory } = require('./web3');
+const { getRPCClient } = require('../api/rpc/client');
 
 const fastestChainBlockTimeInMilliseconds = 3000;
 
@@ -10,8 +10,10 @@ const getBlockNumber = async chainId => {
     return cache[chainId][cacheKey];
   }
 
-  const web3 = web3Factory(chainId);
-  const blockNumberPromise = web3.eth.getBlockNumber();
+  const client = getRPCClient(chainId);
+  const blockNumberPromise = await client
+    .getBlockNumber()
+    .then(res => new BigNumber(res.toString()));
   cache[chainId] = {
     [cacheKey]: blockNumberPromise,
   };
