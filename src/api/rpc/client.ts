@@ -21,8 +21,8 @@ const getMulticallClientForChain = (chainId: ChainId): PublicClient => {
       transport: http(chain.rpcUrls.public.http[0], {
         // Test impact before enabling
         // batch: {
-        //   wait: 1500,
-        //   batchSize: 1024
+        //   wait: 500,
+        //   batchSize: 1000
         // },
         timeout: 15000,
         retryCount: 5,
@@ -66,3 +66,5 @@ export const fetchNoMulticallContract = <ContractAbi extends Abi>(
   const publicClient = getSingleCallClientForChain(chainId);
   return getContract({ address: address as `0x${string}`, abi, publicClient });
 };
+
+export const getRPCClient = (chainId: ChainId): PublicClient => getMulticallClientForChain(chainId);
