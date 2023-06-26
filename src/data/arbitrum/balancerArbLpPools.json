@@ -67,12 +67,13 @@
     "includesComposableAaveTokens": true,
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
     "dataPath": "$.data.smaApr",
-    "balancerChargesFee": true,
+    "balancerChargesFee": false,
     "composable": true,
     "bptIndex": 1,
     "bbIndex": 2,
     "bbPoolId": "0xda1cd1711743e57dd57102e9e61b75f3587703da0000000000000000000003fc",
     "lsIndex": 0,
+    "cmpIndex": 1,
     "composableSplit": true,
     "decimals": "1e18",
     "rewards": [
@@ -109,7 +110,8 @@
     ],
     "aaveUnderlying": [
       {
-        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "index": 0
       }
     ]
   },
@@ -122,12 +124,13 @@
     "includesComposableAaveTokens": true,
     "lsUrl": "https://api.rocketpool.net/api/apr",
     "dataPath": "$.yearlyAPR",
-    "balancerChargesFee": true,
+    "balancerChargesFee": false,
     "composable": true,
     "bptIndex": 0,
     "bbIndex": 1,
     "bbPoolId": "0xda1cd1711743e57dd57102e9e61b75f3587703da0000000000000000000003fc",
     "lsIndex": 1,
+    "cmpIndex": 0,
     "composableSplit": true,
     "decimals": "1e18",
     "rewards": [
@@ -159,7 +162,8 @@
     ],
     "aaveUnderlying": [
       {
-        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "index": 0
       }
     ]
   },

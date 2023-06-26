@@ -22,6 +22,7 @@ interface Token {
 
 interface Underlying {
   address: string;
+  index: number;
 }
 
 interface Pool {
@@ -31,6 +32,7 @@ interface Pool {
   beefyFee?: number;
   status?: string;
   lsIndex?: number;
+  cmpIndex?: number;
   composable?: boolean;
   bptIndex?: number;
   vaultPoolId?: number;
@@ -192,8 +194,8 @@ const getPoolApy = async (
         qty.push(amt);
       }
 
-      compApr = bbAaveApy.times(qty[pool.lsIndex]).dividedBy(totalQty);
-      // console.log(pool.name, bbAaveApy, qty[pool.lsIndex], totalQty, bbAaveApy.times(qty[pool.lsIndex]).dividedBy(totalQty))
+      compApr = bbAaveApy.times(qty[pool.cmpIndex]).dividedBy(totalQty);
+      // console.log(pool.name, bbAaveApy.toNumber(), qty[pool.cmpIndex].toNumber(), totalQty.toNumber(), bbAaveApy.times(qty[pool.lsIndex]).dividedBy(totalQty))
     } else {
       compApr = bbAaveApy;
     }
@@ -247,9 +249,10 @@ const getComposableAaveYield = async (
   }
 
   let apy: BigNumber = new BigNumber(0);
+
   for (let i = 0; i < tokens.length; i++) {
     const tokenApy: BigNumber = new BigNumber(rates[i]).div(RAY_DECIMALS);
-    const portionedApy: BigNumber = tokenApy.dividedBy(2).times(qty[i]).dividedBy(totalQty);
+    const portionedApy: BigNumber = tokenApy.times(qty[tokens[i].index]).dividedBy(totalQty);
     apy = apy.plus(portionedApy);
     // console.log(bbaUSDTokens[i].address, portionedApy.toNumber());
   }
