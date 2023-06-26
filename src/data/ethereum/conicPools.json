@@ -1,5 +1,11 @@
 [
   {
+    "name": "conic-crvusd",
+    "address": "0x369cBC5C6f139B1132D3B91B87241B37Fc5B971f",
+    "underlying": "crvUSD",
+    "decimals": "1e18"
+  },
+  {
     "name": "conic-usdc",
     "address": "0x07b577f10d4e00f3018542d08a87F255a49175A5",
     "underlying": "USDC",
