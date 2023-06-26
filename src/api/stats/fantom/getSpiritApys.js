@@ -1,4 +1,3 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
 const { FANTOM_CHAIN_ID: chainId, SPIRIT_LPF } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const { getMasterChefApys } = require('../common/getMasterChefApys');
@@ -42,7 +41,6 @@ const getSpiritApys = async () => {
   });
 
   const gaugeApys = getGaugeApys({
-    web3: web3,
     chainId: chainId,
     gaugeStaker: spiritswap.gaugeStaker,
     pools: pools.filter(pool => !!pool.gauge),

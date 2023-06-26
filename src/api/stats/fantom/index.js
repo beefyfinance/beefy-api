@@ -71,6 +71,7 @@ const getApys = [
 ];
 
 const getFantomApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -107,6 +108,9 @@ const getFantomApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Fantom finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

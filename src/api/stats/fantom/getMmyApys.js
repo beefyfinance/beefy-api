@@ -50,12 +50,12 @@ const getTrackerRewards = async (pool, rewardTracker) => {
   const rewardTrackerContract = fetchContract(
     rewardTracker.address,
     RewardTrackerAbi,
-    ARBITRUM_CHAIN_ID
+    FANTOM_CHAIN_ID
   );
   const distributorContract = fetchContract(
     rewardTracker.distributor,
     DistributorAbi,
-    ARBITRUM_CHAIN_ID
+    FANTOM_CHAIN_ID
   );
 
   const res = await Promise.all([
@@ -90,9 +90,7 @@ const getTotalStakedInUsd = async pool => {
       FANTOM_CHAIN_ID
     );
     staked = new BigNumber(
-      (
-        await stakedTrackerContract.methods.depositBalances([pool.strategy, pool.address])
-      ).toString()
+      (await stakedTrackerContract.read.depositBalances([pool.strategy, pool.address])).toString()
     );
   }
   const stakedPrice = await fetchPrice({ oracle: pool.oracle, id: pool.tokenId });

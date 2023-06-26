@@ -6,8 +6,10 @@ const { compound } = require('../../../utils/compound');
 import ERC20Abi from '../../../abis/ERC20Abi';
 import xBOOChefAbi from '../../../abis/fantom/xBOOChef';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { getYearlyTradingFeesForProtocols } from '../../../utils/getTradingFeeApr';
 import { fetchContract } from '../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+const { spookyClient } = require('../../../apollo/client');
 
 const oracle = 'tokens';
 const oracleId = 'BOO';
@@ -28,7 +30,7 @@ const getSpookyBooApy = async () => {
   const [{ balance, rewardRate }, totalStakedInxBOO, yearlyTradingFees] = await Promise.all([
     getPoolData(),
     BOOContract.read.balanceOf([xBOO]).then(res => new BigNumber(res.toString())),
-    getYearlyTradingFees(),
+    getYearlyTradingFeesForProtocols(spookyClient, liquidityProviderFee),
   ]);
 
   const totalStakedInxBOOInUsd = new BigNumber(totalStakedInxBOO)
@@ -78,9 +80,9 @@ const getSpookyBooApy = async () => {
 
 const getPoolData = async () => {
   const xBOOChef = fetchContract(xBOOChefAddress, xBOOChefAbi, FANTOM_CHAIN_ID);
-  const rewardPool = await xBOOChef.read.poolInfo([pool.poolId]).call();
+  const rewardPool = await xBOOChef.read.poolInfo([pool.poolId]);
   const rewardRate = new BigNumber(rewardPool[5].toString());
-  const balance = new BigNumber(rewardPool[5].toString());
+  const balance = new BigNumber(rewardPool[3].toString());
 
   return { balance, rewardRate };
 };

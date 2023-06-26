@@ -1,15 +1,12 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { fantomWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const MasterChef = require('../../../abis/fantom/SteakHouse.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/fantom/steakhouseLpPools.json');
 const { BASE_HPY, FANTOM_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import SteakHouse from '../../../abis/fantom/SteakHouse';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { fetchContract } from '../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { spookyClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -28,15 +25,13 @@ const getSteakHouseLpApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances } = await getPoolsData(pools);
-
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(
-    spookyClient,
-    pairAddresses,
-    spookyLiquidityProviderFee
-  );
+
+  const [{ rewardPerSecond, totalAllocPoint }, { balances }, tradingAprs] = await Promise.all([
+    getMasterChefData(),
+    getPoolsData(pools),
+    getTradingFeeApr(spookyClient, pairAddresses, spookyLiquidityProviderFee),
+  ]);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -96,30 +91,24 @@ const getSteakHouseLpApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const rewardPerSecond = new BigNumber(
-    await masterchefContract.methods.RewardsPerSecond(3).call()
-  );
-  const totalAllocPoint = new BigNumber(
-    await masterchefContract.methods.totalAllocPoints(3).call()
-  );
+  const masterchefContract = fetchContract(masterchef, SteakHouse, FANTOM_CHAIN_ID);
+  const [rewardPerSecond, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.RewardsPerSecond([3]).then(res => new BigNumber(res.toString())),
+    masterchefContract.read.totalAllocPoints([3]).then(res => new BigNumber(res.toString())),
+  ]);
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = getContract(MasterChef, masterchef);
-  const multicall = new MultiCall(web3, multicallAddress(FANTOM_CHAIN_ID));
   const balanceCalls = [];
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(masterchef),
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, FANTOM_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([masterchef]));
   });
 
-  const res = await multicall.all([balanceCalls]);
+  const res = await Promise.all(balanceCalls);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
+  const balances = res.map(v => new BigNumber(v.toString()));
   return { balances };
 };
 
