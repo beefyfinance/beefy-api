@@ -1,7 +1,8 @@
+const { default: BigNumber } = require('bignumber.js');
 const { getRPCClient } = require('../api/rpc/client');
 
 const updateDelay = 3000000;
-const blockPeriod = 1000;
+const blockPeriod = 1000n;
 
 let cache = {};
 const getBlockTime = async chainId => {
@@ -17,7 +18,7 @@ const getBlockTime = async chainId => {
   const fromBlock = await client.getBlock({ blockNumber: latestBlock.number - blockPeriod });
 
   const blockTimePromise = new BigNumber(
-    (latestBlock.timestamp - fromBlock.timestamp) / blockPeriod
+    Number(latestBlock.timestamp - fromBlock.timestamp) / Number(blockPeriod)
   );
 
   cache[chainId] = {

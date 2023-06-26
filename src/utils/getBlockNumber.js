@@ -1,3 +1,4 @@
+const { default: BigNumber } = require('bignumber.js');
 const { getRPCClient } = require('../api/rpc/client');
 
 const fastestChainBlockTimeInMilliseconds = 3000;
