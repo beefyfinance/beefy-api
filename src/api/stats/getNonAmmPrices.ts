@@ -65,6 +65,7 @@ import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
 import getThenaGammaPrices from './bsc/getThenaGammaPrices';
 import getCurveCeloPrices from './celo/getCurvePrices';
+import { getConicPrices } from './ethereum/getConicPrices';
 import { getPolygonSolidlyStablePrices } from './matic/getPolygonSolidlyStablePrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getQuickGammaPrices from './matic/getQuickGammaPrices';
@@ -150,6 +151,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurveMoonbeamPrices(tokenPrices),
     getCurveKavaPrices(tokenPrices),
     getCurveCeloPrices(tokenPrices),
+    getConicPrices(),
     getRosePrices(tokenPrices),
     getSynapsePrices(),
     getJarvisPrices(tokenPrices),

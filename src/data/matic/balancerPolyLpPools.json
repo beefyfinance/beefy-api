@@ -8,12 +8,13 @@
     "includesComposableAaveTokens": true,
     "lsUrl": "https://api.frax.finance/v2/frxeth/summary/latest",
     "dataPath": "$.sfrxethApr",
-    "balancerChargesFee": true,
+    "balancerChargesFee": false,
     "composable": true,
     "bptIndex": 1,
     "bbIndex": 0,
     "bbPoolId": "0x43894de14462b421372bcfe445fa51b1b4a0ff3d000000000000000000000b36",
     "lsIndex": 1,
+    "cmpIndex": 0,
     "composableSplit": true,
     "decimals": "1e18",
     "rewards": [
@@ -40,7 +41,8 @@
     ],
     "aaveUnderlying": [
       {
-        "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"
+        "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "index": 1
       }
     ]
   },
@@ -53,12 +55,13 @@
     "includesComposableAaveTokens": true,
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
     "dataPath": "$.data.smaApr",
-    "balancerChargesFee": true,
+    "balancerChargesFee": false,
     "composable": true,
     "bptIndex": 2,
     "bbIndex": 0,
     "bbPoolId": "0x43894de14462b421372bcfe445fa51b1b4a0ff3d000000000000000000000b36",
     "lsIndex": 0,
+    "cmpIndex": 1,
     "composableSplit": true,
     "decimals": "1e18",
     "rewards": [
@@ -72,6 +75,12 @@
         "rewardToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
         "oracleId": "USDC",
         "decimals": "1e6"
+      },
+      {
+        "stream": "0xB95397A17ACbb5824535ebE69Cd9DCF8fA7aFC50",
+        "rewardToken": "0xC3C7d422809852031b44ab29EEC9F1EfF2A58756",
+        "oracleId": "LDO",
+        "decimals": "1e18"
       }
     ],
     "tokens": [
@@ -91,7 +100,8 @@
     ],
     "aaveUnderlying": [
       {
-        "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"
+        "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        "index": 1
       }
     ]
   },
@@ -104,12 +114,13 @@
     "includesComposableAaveTokens": true,
     "lsUrl": "https://universe.staderlabs.com/polygon/apy",
     "dataPath": "$.value",
-    "balancerChargesFee": true,
+    "balancerChargesFee": false,
     "composable": true,
     "bptIndex": 1,
     "bbIndex": 0,
     "bbPoolId": "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7000000000000000000000b29",
     "lsIndex": 1,
+    "cmpIndex": 0,
     "composableSplit": true,
     "decimals": "1e18",
     "rewards": [
@@ -141,7 +152,8 @@
     ],
     "aaveUnderlying": [
       {
-        "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"
+        "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "index": 1
       }
     ]
   },
@@ -154,12 +166,13 @@
     "includesComposableAaveTokens": true,
     "lsUrl": "https://polygon.lido.fi/api/stats",
     "dataPath": "$.apr",
-    "balancerChargesFee": true,
+    "balancerChargesFee": false,
     "composable": true,
     "bptIndex": 0,
     "bbIndex": 0,
     "bbPoolId": "0xe4885ed2818cc9e840a25f94f9b2a28169d1aea7000000000000000000000b29",
     "lsIndex": 0,
+    "cmpIndex": 1,
     "composableSplit": true,
     "decimals": "1e18",
     "rewards": [
@@ -173,6 +186,12 @@
         "rewardToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
         "oracleId": "USDC",
         "decimals": "1e6"
+      },
+      {
+        "stream": "0x1e916950A659Da9813EE34479BFf04C732E03deb",
+        "rewardToken": "0xC3C7d422809852031b44ab29EEC9F1EfF2A58756",
+        "oracleId": "LDO",
+        "decimals": "1e18"
       }
     ],
     "tokens": [
@@ -192,7 +211,8 @@
     ],
     "aaveUnderlying": [
       {
-        "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"
+        "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "index": 1
       }
     ]
   },

@@ -74,6 +74,60 @@
     ]
   },
   {
+    "name": "convex-crvusd-usdp",
+    "pool": "0xCa978A0528116DDA3cbA9ACD3e68bc6191CA53D0",
+    "token": "0xCa978A0528116DDA3cbA9ACD3e68bc6191CA53D0",
+    "rewardPool": "0x80c64E468b774F7F96D4DFCe39caE2dd4C2B7f93",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDP",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-crvusd-tusd",
+    "pool": "0x34D655069F4cAc1547E4C8cA284FfFF5ad4A8db0",
+    "token": "0x34D655069F4cAc1547E4C8cA284FfFF5ad4A8db0",
+    "rewardPool": "0x4e2637D6697ed953241D44E29Fba55748F651861",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "TUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-crvusd-usdt",
+    "pool": "0x390f3595bCa2Df7d23783dFd126427CCeb997BF4",
+    "token": "0x390f3595bCa2Df7d23783dFd126427CCeb997BF4",
+    "rewardPool": "0xD1DdB0a0815fD28932fBb194C84003683AF8a824",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-crvusd-usdc",
     "pool": "0x4DEcE678ceceb27446b35C672dC7d61F30bAD69E",
     "token": "0x4DEcE678ceceb27446b35C672dC7d61F30bAD69E",
