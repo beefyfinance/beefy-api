@@ -1,12 +1,11 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../../utils/web3');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 const { compound } = require('../../../../utils/compound');
-const { DAILY_HPY } = require('../../../../constants');
-const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { DAILY_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 const { default: IRewardPool } = require('../../../../abis/IRewardPool');
+const { fetchContract } = require('../../../rpc/client');
 
 const BIFI = '0xCa3F508B8e4Dd382eE878A314789373D80A5190A';
 const REWARDS = '0x0d5761D9181C7745855FC985f646a842EB254eB9';
@@ -31,8 +30,8 @@ const getBifiMaxiApy = async () => {
 const getYearlyRewardsInUsd = async () => {
   const bnbPrice = await fetchPrice({ oracle: 'tokens', id: 'WBNB' });
 
-  const rewardPool = getContractWithProvider(IRewardPool, REWARDS, web3);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
+  const rewardPool = fetchContract(REWARDS, IRewardPool, BSC_CHAIN_ID);
+  const rewardRate = new BigNumber(a(await rewardPool.read.rewardRate()).toString());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(bnbPrice).dividedBy(DECIMALS);
 
