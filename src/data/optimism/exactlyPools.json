@@ -22,6 +22,18 @@
     "ltv": 0
   },
   {
+    "name": "exactly-supply-wsteth",
+    "token": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+    "market": "0x22ab31Cd55130435b5efBf9224b6a9d5EC36533F",
+    "interestRateModel": "0xAdEfc7F878E533b479e36Af349Bd3D8cbFa08311",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "oracle": "tokens",
+    "oracleId": "wstETH",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "ltv": 0
+  },
+  {
     "name": "exactly-leverage-eth",
     "token": "0x4200000000000000000000000000000000000006",
     "market": "0xc4d4500326981eacD020e20A81b1c479c161c7EF",
