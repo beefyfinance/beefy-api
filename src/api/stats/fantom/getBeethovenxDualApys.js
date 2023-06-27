@@ -70,7 +70,7 @@ const getFarmApys = async pools => {
     apys.push(apy);
 
     let aprFixed = 0;
-    if (pool.staderls) {
+    if (pool.liquidstaking) {
       aprFixed = await getLiquidStakingPoolYield(pool);
     }
     lsAprs.push(aprFixed);
@@ -106,8 +106,13 @@ const getLiquidStakingPoolYield = async pool => {
   }
 
   let apr = 0;
-  const lsApr = 4.7;
   try {
+    const response = pool.ankrUrl
+      ? await fetch(pool.ankrUrl).then(res => res.json())
+      : await fetch(pool.staderUrl).then(res => res.json());
+
+    const lsApr = pool.ankrUrl ? response.apy * 1 : response.value;
+
     apr = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100;
     apr = pool.balancerChargesFee ? apr / 2 : apr;
   } catch (err) {
