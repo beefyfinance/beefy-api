@@ -1655,7 +1655,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://www.ankr.com/',
     description:
-      'ankrFTM allows users to stake their funds on the Fantom network, earn rewards, and receive their stake and rewards upon unstaking.',
+      'ankrFTM is a liquid staking solution for Fantom blockchain, enabling users to earn staking rewards while maintaining liquidity. By staking their FTM, users receive ankrFTM tokens that appreciate in value relative to FTM due to reward accumulation, leading to a growing redemption price over time.',
     documentation: 'https://www.ankr.com/docs/liquid-staking/ftm/overview/',
   },
   MLP: {
@@ -1671,7 +1671,7 @@ const _tokens = {
     documentation: 'https://docs.mummy.finance/mlp',
   },
   axlUSDC: {
-    name: 'Axelar USD Coin ',
+    name: 'Axelar USD Coin',
     symbol: 'axlUSDC',
     address: '0x1B6382DBDEa11d97f24495C9A90b7c88469134a4',
     chainId: 250,
@@ -1681,6 +1681,18 @@ const _tokens = {
     description:
       'USDC (Axelar) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://docs.axelar.dev/',
+  },
+  ankrETH: {
+    name: 'Ankr Staked ETH',
+    symbol: 'ankrETH',
+    address: '0x12D8CE035c5DE3Ce39B1fDD4C1d5a745EAbA3b8C',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description:
+      'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
   },
 } as const;
 
