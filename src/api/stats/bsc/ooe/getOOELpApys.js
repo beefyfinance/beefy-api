@@ -1,13 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../../utils/web3');
 
-const IRewardPool = require('../../../../abis/SimpleStaking.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/ooeLpPools.json');
 const { compound } = require('../../../../utils/compound');
 const { getTotalLpStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
-const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
+const { default: SimpleStaking } = require('../../../../abis/SimpleStaking');
+const { BSC_CHAIN_ID } = require('../../../../constants');
+const { fetchContract } = require('../../../rpc/client');
 
 const oracle = 'tokens';
 const oracleId = 'OOE';
@@ -43,8 +43,8 @@ const getPoolApy = async pool => {
 const getYearlyRewardsInUsd = async pool => {
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 
-  const rewardPool = getContractWithProvider(IRewardPool, pool.rewardPool, web3);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardSpeed().call());
+  const rewardPool = fetchContract(pool.rewardPool, SimpleStaking, BSC_CHAIN_ID);
+  const rewardRate = new BigNumber((await rewardPool.read.rewardSpeed()).toString());
   const yearlyRewards = rewardRate.times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(DECIMALS);
 

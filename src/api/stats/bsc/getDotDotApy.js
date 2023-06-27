@@ -1,14 +1,12 @@
 import fetch from 'node-fetch';
 import BigNumber from 'bignumber.js';
-import { MultiCall } from 'eth-multicall';
 import { BSC_CHAIN_ID } from '../../../constants';
-import { bscWeb3 as web3, multicallAddress } from '../../../utils/web3';
-import { getContract } from '../../../utils/contractHelper';
 import getApyBreakdown from '../common/getApyBreakdown';
 import fetchPrice from '../../../utils/fetchPrice';
-import IEllipsisLpStaking from '../../../abis/bsc/EllipsisLpStaking.json';
-import IEllipsisRewardToken from '../../../abis/EllipsisRewardToken.json';
 import pools from '../../../data/bsc/ellipsisPools.json';
+import EllipsisLpStaking from '../../../abis/bsc/EllipsisLpStaking';
+import EllipsisRewardToken from '../../../abis/EllipsisRewardToken';
+import { fetchContract } from '../../rpc/client';
 
 const baseApyUrl = 'https://api.ellipsis.finance/api/getAPRs';
 const tradingFees = 0.0002;
@@ -18,8 +16,10 @@ const dotProxy = '0xD4d01C4367ed2D4AB5c2F734d640F7ffe558E8A8';
 const ellipsisLpStaking = '0x5B74C99AA2356B4eAa7B85dC486843eDff8Dfdbe';
 
 export const getDotDotApy = async () => {
-  const baseApys = await getEllipsisBaseApys(pools, baseApyUrl);
-  const farmApys = await getPoolApys(pools);
+  const [baseApys, farmApys] = await Promise.all([
+    getEllipsisBaseApys(pools, baseApyUrl),
+    getPoolApys(pools),
+  ]);
   const apy = getApyBreakdown(pools, baseApys, farmApys, tradingFees);
   // console.log(apy);
   return apy;
@@ -27,38 +27,43 @@ export const getDotDotApy = async () => {
 
 const getPoolApys = async pools => {
   const apys = [];
-  const multicall = new MultiCall(web3, multicallAddress(BSC_CHAIN_ID));
-  const ellipsis = getContract(IEllipsisLpStaking, ellipsisLpStaking);
+  const ellipsis = fetchContract(ellipsisLpStaking, EllipsisLpStaking, BSC_CHAIN_ID);
 
   const poolInfoCalls = [];
+  const userInfoCalls = [];
+  const rewardInfo = [];
   const rewardDataCalls = [];
+  const totalSupplyCalls = [];
+
   pools.forEach(pool => {
-    poolInfoCalls.push({
-      poolInfo: ellipsis.methods.poolInfo(pool.address),
-      userInfo: ellipsis.methods.userInfo(pool.address, dotProxy),
-    });
+    poolInfoCalls.push(ellipsis.read.poolInfo([pool.address]));
+    userInfoCalls.push(ellipsis.read.userInfo([pool.address, dotProxy]));
+
     pool.rewards?.forEach(reward => {
-      const token = getContract(IEllipsisRewardToken, pool.address);
-      rewardDataCalls.push({
-        pool: pool.name,
-        oracleId: reward.oracleId,
-        rewardData: token.methods.rewardData(reward.token),
-        totalSupply: token.methods.totalSupply(),
-      });
+      const token = fetchContract(pool.address, EllipsisRewardToken, BSC_CHAIN_ID);
+      rewardInfo.push({ pool: pool.name, oracleId: reward.oracleId });
+      rewardDataCalls.push(token.read.rewardData([reward.token]));
+      totalSupplyCalls.push(token.read.totalSupply());
     });
   });
-  const res = await multicall.all([poolInfoCalls, rewardDataCalls]);
-  const poolInfo = res[0].map(v => ({
-    adjustedSupply: new BigNumber(v.poolInfo['0']),
-    rewardsPerSecond: new BigNumber(v.poolInfo['1']),
-    depositAmount: new BigNumber(v.userInfo['0']),
-    adjustedAmount: new BigNumber(v.userInfo['1']),
+  const res = await Promise.all([
+    Promise.all(poolInfoCalls),
+    Promise.all(userInfoCalls),
+    Promise.all(rewardDataCalls),
+    Promise.all(totalSupplyCalls),
+  ]);
+
+  const poolInfo = poolInfoCalls.map((_, i) => ({
+    adjustedSupply: new BigNumber(res[0][i]['0'].toString()),
+    rewardsPerSecond: new BigNumber(res[0][i]['1'].toString()),
+    depositAmount: new BigNumber(res[1][i]['0'].toString()),
+    adjustedAmount: new BigNumber(res[1][i]['1'].toString()),
   }));
-  const rewards = res[1].map(v => ({
-    ...v,
-    periodFinish: v.rewardData['2'],
-    rewardRate: new BigNumber(v.rewardData['3']),
-    totalSupply: new BigNumber(v.totalSupply),
+  const rewards = res[2].map((_, i) => ({
+    ...rewardInfo[i],
+    periodFinish: res[2][i]['2'],
+    rewardRate: new BigNumber(res[2][i]['3'].toString()),
+    totalSupply: new BigNumber(res[3][i].toString()),
   }));
 
   const epxPrice = await fetchPrice({ oracle: 'tokens', id: 'EPX' });

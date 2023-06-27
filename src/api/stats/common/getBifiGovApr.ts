@@ -30,7 +30,8 @@ export const getBifiGovApr = async (
   ]);
 
   const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).toNumber();
-  const name = `${chain}-bifi-gov`;
+  //bsc bifi gov is named bifi-gov
+  const name = `${chain ? `${chain}-` : ''}bifi-gov`;
   return {
     apys: {
       [name]: apr,

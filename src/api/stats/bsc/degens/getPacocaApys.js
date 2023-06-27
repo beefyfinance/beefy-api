@@ -36,7 +36,6 @@ const getPacocaApys = async () => {
   pools.forEach(pool => promises.push(getPoolApy(apeswapChef, farm, pool)));
 
   const [farmApys, tradingAprs] = await Promise.all([Promise.all(promises), getTradingAprs(pools)]);
-  const tradingAprs = await getTradingAprs(pools);
   return getApyBreakdown(pools, tradingAprs, farmApys, APE_LPF);
 };
 

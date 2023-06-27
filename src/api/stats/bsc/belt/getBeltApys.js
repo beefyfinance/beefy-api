@@ -1,16 +1,14 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../../utils/web3');
 const fetch = require('node-fetch');
-
-const MasterBelt = require('../../../../abis/MasterBelt.json');
-const VaultPool = require('../../../../abis/BeltVaultPool.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/beltPools.json');
 const { compound } = require('../../../../utils/compound');
 const { BSC_CHAIN_ID, BASE_HPY } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
-const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
+const { default: MasterBelt } = require('../../../../abis/MasterBelt');
+const { fetchContract } = require('../../../rpc/client');
+const { default: BeltVaultPool } = require('../../../../abis/BeltVaultPool');
 
 const masterbelt = '0xD4BbC80b9B102b77B21A06cb77E954049605E6c1';
 const oracleId = 'BELT';
@@ -37,12 +35,12 @@ const getBeltApys = async () => {
 };
 
 const getPoolApy = async (masterchef, pool) => {
-  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
+  const [yearlyRewardsInUsd, totalStakedInUsd, baseApy] = await Promise.all([
     getYearlyRewardsInUsd(masterchef, pool),
     getTotalLpStakedInUsd(masterchef, pool),
+    fetchBeltLpBaseApr(pool),
   ]);
   let simpleApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
-  const baseApy = await fetchBeltLpBaseApr(pool);
   const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
   const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
   const apy = compound(baseApy + simpleApy * shareAfterBeefyPerformanceFee, BASE_HPY, 1, 1);
@@ -88,28 +86,29 @@ const fetchBeltLpBaseApr = async pool => {
 };
 
 const getTotalLpStakedInUsd = async (masterbelt, pool) => {
-  const masterbeltContract = getContractWithProvider(MasterBelt, masterbelt, web3);
-  let { strat } = await masterbeltContract.methods.poolInfo(pool.poolId).call();
+  const masterbeltContract = fetchContract(masterbelt, MasterBelt, BSC_CHAIN_ID);
+  const poolInfo = await masterbeltContract.read.poolInfo([pool.poolId]);
+  const strat = poolInfo[4];
 
-  const poolContract = getContractWithProvider(VaultPool, strat, web3);
-  const wantLockedTotal = new BigNumber(await poolContract.methods.wantLockedTotal().call());
+  const poolContract = fetchContract(strat, BeltVaultPool, BSC_CHAIN_ID);
+  const wantLockedTotal = new BigNumber((await poolContract.read.wantLockedTotal()).toString());
   const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
   return wantLockedTotal.times(tokenPrice).dividedBy(DECIMALS);
 };
 
 const getYearlyRewardsInUsd = async (masterbelt, pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const masterbeltContract = getContractWithProvider(MasterBelt, masterbelt, web3);
+  const masterbeltContract = fetchContract(masterbelt, MasterBelt, BSC_CHAIN_ID);
 
-  const multiplier = new BigNumber(
-    await masterbeltContract.methods.getMultiplier(blockNum - 1, blockNum).call()
-  );
-  const blockRewards = new BigNumber(await masterbeltContract.methods.BELTPerBlock().call());
+  const [multiplier, blockRewards, allocPoint, totalAllocPoint] = await Promise.all([
+    masterbeltContract.read
+      .getMultiplier([blockNum - 1, blockNum])
+      .then(res => new BigNumber(res.toString())),
+    masterbeltContract.read.BELTPerBlock().then(res => new BigNumber(res.toString())),
+    masterbeltContract.read.poolInfo([pool.poolId]).then(res => new BigNumber(res[1].toString())),
+    masterbeltContract.read.totalAllocPoint().then(res => new BigNumber(res.toString())),
+  ]);
 
-  let { allocPoint } = await masterbeltContract.methods.poolInfo(pool.poolId).call();
-  allocPoint = new BigNumber(allocPoint);
-
-  const totalAllocPoint = new BigNumber(await masterbeltContract.methods.totalAllocPoint().call());
   const poolBlockRewards = blockRewards
     .times(multiplier)
     .times(allocPoint)

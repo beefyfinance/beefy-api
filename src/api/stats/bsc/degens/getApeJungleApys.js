@@ -91,7 +91,7 @@ const getPoolsData = async pools => {
     rewardPerBlockCalls.push(masterchefContract.read.rewardPerBlock());
   });
 
-  const res = await multicall.all([balanceCalls, rewardPerBlockCalls]);
+  const res = await Promise.all([Promise.all(balanceCalls), Promise.all(rewardPerBlockCalls)]);
 
   const balances = res[0].map(v => new BigNumber(v.toString()));
   const rewards = res[1].map(v => new BigNumber(v.toString()));

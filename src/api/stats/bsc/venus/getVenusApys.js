@@ -1,14 +1,12 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../../utils/web3');
-
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
-const IUnitroller = require('../../../../abis/IUnitroller.json');
 const pools = require('../../../../data/venusPools.json');
-const { BASE_HPY } = require('../../../../constants');
-const { getContractWithProvider } = require('../../../../utils/contractHelper');
+const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 const { default: VToken } = require('../../../../abis/VToken');
+const { fetchContract } = require('../../../rpc/client');
+const { default: IUnitroller } = require('../../../../abis/IUnitroller');
 
 const UNITROLLER = '0xfD36E2c2a6789Db23113685031d7F16329158384';
 const BLOCKS_PER_YEAR = 10512000;
@@ -53,17 +51,17 @@ const getPoolApy = async pool => {
 };
 
 const getSupplyApys = async pool => {
-  const vtokenContract = getContractWithProvider(VToken, pool.vtoken, web3);
-  const unitrollerContract = getContractWithProvider(IUnitroller, UNITROLLER, web3);
+  const vtokenContract = fetchContract(pool.vtoken, VToken, BSC_CHAIN_ID);
+  const unitrollerContract = fetchContract(UNITROLLER, IUnitroller, BSC_CHAIN_ID);
 
   let [venusPrice, tokenPrice, supplyRate, venusRate, totalSupply, exchangeRateStored] =
     await Promise.all([
       fetchPrice({ oracle: 'tokens', id: 'XVS' }),
       fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-      vtokenContract.methods.supplyRatePerBlock().call(),
-      unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
-      vtokenContract.methods.totalSupply().call(),
-      vtokenContract.methods.exchangeRateStored().call(),
+      vtokenContract.read.supplyRatePerBlock().then(res => new BigNumber(res.toString())),
+      unitrollerContract.read.venusSpeeds([pool.vtoken]).then(res => new BigNumber(res.toString())),
+      vtokenContract.read.totalSupply().then(res => new BigNumber(res.toString())),
+      vtokenContract.read.exchangeRateStored().then(res => new BigNumber(res.toString())),
     ]);
 
   supplyRate = new BigNumber(supplyRate);
@@ -86,20 +84,16 @@ const getSupplyApys = async pool => {
 };
 
 const getBorrowApys = async pool => {
-  const unitrollerContract = getContractWithProvider(IUnitroller, UNITROLLER, web3);
-  const vtokenContract = getContractWithProvider(VToken, pool.vtoken, web3);
+  const unitrollerContract = fetchContract(UNITROLLER, IUnitroller, BSC_CHAIN_ID);
+  const vtokenContract = fetchContract(pool.vtoken, VToken, BSC_CHAIN_ID);
 
   let [venusPrice, bnbPrice, borrowRate, venusRate, totalBorrows] = await Promise.all([
     fetchPrice({ oracle: 'tokens', id: 'XVS' }),
     fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-    vtokenContract.methods.borrowRatePerBlock().call(),
-    unitrollerContract.methods.venusSpeeds(pool.vtoken).call(),
-    vtokenContract.methods.totalBorrows().call(),
+    vtokenContract.read.borrowRatePerBlock().then(res => new BigNumber(res.toString())),
+    unitrollerContract.read.venusSpeeds([pool.vtoken]).then(res => new BigNumber(res.toString())),
+    vtokenContract.read.totalBorrows().then(res => new BigNumber(res.toString())),
   ]);
-
-  borrowRate = new BigNumber(borrowRate);
-  venusRate = new BigNumber(venusRate);
-  totalBorrows = new BigNumber(totalBorrows);
 
   const borrowApyPerYear = borrowRate.times(BLOCKS_PER_YEAR).div('1e18');
 

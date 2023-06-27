@@ -31,7 +31,7 @@ const getYearlyRewardsInUsd = async () => {
   const bnbPrice = await fetchPrice({ oracle: 'tokens', id: 'WBNB' });
 
   const rewardPool = fetchContract(REWARDS, IRewardPool, BSC_CHAIN_ID);
-  const rewardRate = new BigNumber(a(await rewardPool.read.rewardRate()).toString());
+  const rewardRate = new BigNumber((await rewardPool.read.rewardRate()).toString());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(bnbPrice).dividedBy(DECIMALS);
 
