@@ -1,4 +1,4 @@
-import getBalancerPrices from '../api/stats/common/getBalancerPrices';
+import getBalancerPrices from '../api/stats/common/balancer/getBalancerPrices';
 import { web3Factory } from './web3';
 import beetsPools from '../data/optimism/beethovenxSteadyBeets.json';
 import bbaUSD from '../data/ethereum/bbaUSD.json';

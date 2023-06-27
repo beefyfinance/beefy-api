@@ -1,7 +1,7 @@
 import { optimismWeb3 as web3 } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID as chainId } from '../../../constants';
 import { beetOpClient as client } from '../../../apollo/client';
-const { getBalancerApys } = require('../common/getBalancerApys');
+import { getBalancerApys } from '../common/balancer/getBalancerApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
 
 const {
