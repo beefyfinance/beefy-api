@@ -2,6 +2,7 @@ const BigNumber = require('bignumber.js');
 import { MultiCall } from 'eth-multicall';
 import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
+const fetch = require('node-fetch');
 
 const ExactlyRewardsController = require('../../../abis/ExactlyRewardsController.json');
 const ExactlyInterestRateModel = require('../../../abis/ExactlyInterestRateModel.json');
@@ -21,15 +22,22 @@ const reward = "0x4200000000000000000000000000000000000042";
 const rewardOracleId = "OP";
 
 const getExactlyApys = async () => {
+  const apys = [];
+  const lsAprs = [];
   let promises = [];
-  pools.forEach(pool => promises.push(getPoolApy(pool)));
-  const apys = await Promise.all(promises);
 
-  return getApyBreakdown(pools, null, apys, 0);
+  pools.forEach(pool => promises.push(getPoolApy(pool)));
+  const values = await Promise.all(promises);
+  values.forEach(item => {
+    apys.push(item[0]);
+    lsAprs.push(item[1]);
+  });
+
+  return getApyBreakdown(pools, null, apys, 0, lsAprs);
 };
 
 const getPoolApy = async (pool) => {
-  const { supplyBase, supplyReward, borrowBase, borrowReward } = await getExactlyPoolData(pool);
+  const { supplyBase, supplyReward, borrowBase, borrowReward, lsApr } = await getExactlyPoolData(pool);
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyReward, leveragedBorrowReward } =
     getLeveragedApys(
       supplyBase,
@@ -45,7 +53,7 @@ const getPoolApy = async (pool) => {
 
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedReward);
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyReward.valueOf(), borrowReward.valueOf());
-  return apy;
+  return [apy, lsApr];
 };
 
 const getExactlyPoolData = async (pool) => {
@@ -82,7 +90,17 @@ const getExactlyPoolData = async (pool) => {
   const supplyReward = supplyIndex.times(rewardPrice).times(365).dividedBy(tokenPrice).div('1e18');
   const borrowReward = borrowIndex.times(rewardPrice).times(365).dividedBy(tokenPrice).div('1e18');
 
-  return { supplyBase, supplyReward, borrowBase, borrowReward };
+  let lsApr = 0;
+  if (pool.lsUrl) {
+    try {
+      const response = await fetch(pool.lsUrl).then(res => res.json());
+      lsApr = response.data.smaApr / 100;
+    } catch (e) {
+      console.error(`Exactly: Liquid Staking URL Fetch Error ${pool.name}`);
+    }
+  }
+
+  return { supplyBase, supplyReward, borrowBase, borrowReward, lsApr };
 };
 
 const getLeveragedApys = (
