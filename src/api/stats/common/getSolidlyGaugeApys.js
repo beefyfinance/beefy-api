@@ -136,9 +136,10 @@ const getPoolsData = async params => {
   const derivedBalanceCalls = [];
   const periodFinishCalls = [];
   params.pools.forEach(pool => {
-    const rewardPool = params.spirit
-      ? getContract(ISpiritGauge, pool.gauge)
-      : getContract(IGauge, pool.gauge);
+    const rewardPool =
+      params.spirit || params.singleReward
+        ? getContract(ISpiritGauge, pool.gauge)
+        : getContract(IGauge, pool.gauge);
     balanceCalls.push({
       balance:
         params.boosted && params.NFTid
@@ -146,14 +147,16 @@ const getPoolsData = async params => {
           : rewardPool.methods.totalSupply(),
     });
     rewardRateCalls.push({
-      rewardRate: params.spirit
-        ? rewardPool.methods.rewardRate()
-        : rewardPool.methods.rewardRate(params.reward),
+      rewardRate:
+        params.singleReward || params.spirit
+          ? rewardPool.methods.rewardRate()
+          : rewardPool.methods.rewardRate(params.reward),
     });
     periodFinishCalls.push({
-      periodFinish: params.spirit
-        ? rewardPool.methods.periodFinish()
-        : rewardPool.methods.periodFinish(params.reward),
+      periodFinish:
+        params.singleReward || params.spirit
+          ? rewardPool.methods.periodFinish()
+          : rewardPool.methods.periodFinish(params.reward),
     });
     if (params.boosted && params.NFTid) {
       depositBalanceCalls.push({

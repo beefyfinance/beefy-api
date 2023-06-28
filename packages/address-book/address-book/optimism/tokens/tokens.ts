@@ -991,6 +991,18 @@ const _tokens = {
       'Meta Vault is a composable architecture for yield-bearing tokens. It combines, optimises and allocates yield in a diversified manner.',
     documentation: 'https://docs.mstable.org/',
   },
+  VELOV2: {
+    name: 'VelodromeV2',
+    symbol: 'VELOV2',
+    address: '0x9560e827aF36c94D2Ac33a39bCE1Fe78631088Db',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.velodrome.finance/',
+    description:
+      "Velodrome Finance, at its core, is a solution for protocols on Optimism to properly incentivize liquidity for their own use cases. Building on top of the groundwork laid out by Solidly, our team has addressed that first iteration's core issues to realize its full potential.",
+    documentation: 'https://velodrome.finance/docs',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
