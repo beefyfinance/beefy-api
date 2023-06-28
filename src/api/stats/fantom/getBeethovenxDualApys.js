@@ -1,5 +1,6 @@
 const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
+const fetch = require('node-fetch');
 const fetchPrice = require('../../../utils/fetchPrice');
 const BeethovenRewarder = require('../../../abis/fantom/BeethovenRewarder.json');
 const { FANTOM_CHAIN_ID } = require('../../../constants');
