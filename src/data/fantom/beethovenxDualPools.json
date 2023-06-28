@@ -73,7 +73,7 @@
     "composable": true,
     "bptIndex": 0,
     "liquidstaking": true,
-    "lsIndex": 2,
+    "lsIndex": 1,
     "staderUrl": "https://universe.staderlabs.com/fantom/apy",
     "balancerChargesFee": false,
     "decimals": "1e18",
