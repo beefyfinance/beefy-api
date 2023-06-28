@@ -55,7 +55,7 @@ const projects = {
     voter: equilibre.voter,
   },
   velodrome: {
-    prefix: 'velodrome',
+    prefix: 'velodrome-v2',
     stableFile: '../src/data/optimism/velodromeStableLpPools.json',
     volatileFile: '../src/data/optimism/velodromeLpPools.json',
     voter: velodrome.voter,
