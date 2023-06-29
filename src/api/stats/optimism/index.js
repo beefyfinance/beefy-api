@@ -17,6 +17,7 @@ const getKyberOptimismApys = require('./getKyberOptimismApys');
 const getMmyApys = require('./getMmyApys');
 const getExactlyApys = require('./getExactlyApys');
 const getBalancerOpApys = require('./getBalancerOpApys');
+const getBeVeloV2Apr = require('./getBeVeloV2Apr');
 
 const getApys = [
   getBalancerOpApys,
@@ -38,6 +39,7 @@ const getApys = [
   getOlpApys,
   getBeOpxApy,
   getBeOpxEarnApy,
+  getBeVeloV2Apr,
 ];
 
 const getOptimismApys = async () => {
