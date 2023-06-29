@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-v2-op-ageur",
+    "address": "0xeFe139aa71b674168f5823360A824B3714f2718D",
+    "gauge": "0xa904cDc7C135DCB03e8f96eaa11Ea2bcb9E065a5",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000042",
+      "oracle": "tokens",
+      "oracleId": "OP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED",
+      "oracle": "tokens",
+      "oracleId": "agEUR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-v2-op-velo",
     "address": "0xe9581d0F1A628B038fC8B2a7F5A7d904f0e2f937",
     "gauge": "0x0F30716960F0618983Ac42bE2982FfEC181AF265",
