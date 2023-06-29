@@ -1,5 +1,157 @@
 [
   {
+    "name": "beets-all-you-need-is-love",
+    "address": "0xd6E5824b54f64CE6f1161210bc17eeBfFC77E031",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x7b561BacfC637319685fa9a2EffA562625815e2f",
+    "vaultPoolId": "0xD6E5824B54F64CE6F1161210BC17EEBFFC77E031000100000000000000000006",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x7b561BacfC637319685fa9a2EffA562625815e2f",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x7b561BacfC637319685fa9a2EffA562625815e2f",
+        "rewardToken": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
+        "oracleId": "BEETS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BEETS",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "BAL",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-happy-road",
+    "address": "0x39965c9dAb5448482Cf7e002F583c812Ceb53046",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x00a2bD63529fD28d777155F5eD1726e9b9b781B4",
+    "vaultPoolId": "0x39965C9DAB5448482CF7E002F583C812CEB53046000100000000000000000003",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x92F714Ae8C2150b7a7a75c6C97656BD4B348ca9E",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x92F714Ae8C2150b7a7a75c6C97656BD4B348ca9E",
+        "rewardToken": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
+        "oracleId": "BEETS"
+      },
+      {
+        "stream": "0x92F714Ae8C2150b7a7a75c6C97656BD4B348ca9E",
+        "rewardToken": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "beets-shanghai-shakedown",
+    "address": "0x7B50775383d3D6f0215A8F290f2C9e2eEBBEceb2",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xA30992B40a0cb4B2Da081ddBd843f9CcE25c2fe3",
+    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "lsIndex": 0,
+    "vaultPoolId": "0x7b50775383d3d6f0215a8f290f2c9e2eebbeceb200020000000000000000008b",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xA30992B40a0cb4B2Da081ddBd843f9CcE25c2fe3",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0xA30992B40a0cb4B2Da081ddBd843f9CcE25c2fe3",
+        "rewardToken": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "beets-overnight-pulse-v2",
+    "address": "0x43da214fab3315aA6c02e0B8f2BfB7Ef2E3C60A5",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x3bbFB3BD4CE5764373e2F9bbbecC3113b0a42828",
+    "overnight": true,
+    "composable": true,
+    "balancerChargesFee": true,
+    "bptIndex": 0,
+    "vaultPoolId": "0x43da214fab3315aa6c02e0b8f2bfb7ef2e3c60a50000000000000000000000ae",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x3bbFB3BD4CE5764373e2F9bbbecC3113b0a42828",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x3bbFB3BD4CE5764373e2F9bbbecC3113b0a42828",
+        "rewardToken": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbUSD+",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbDAI+",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-rocket-fuel",
     "address": "0x4Fd63966879300caFafBB35D157dC5229278Ed23",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
