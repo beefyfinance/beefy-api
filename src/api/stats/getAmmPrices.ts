@@ -580,6 +580,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   axlusdc: ['axlUSDC'],
   'mimo-parallel-governance-token': ['MIMO'],
   olympus: ['OHM'],
+  betswirl: ['BETS'],
 };
 
 /**
