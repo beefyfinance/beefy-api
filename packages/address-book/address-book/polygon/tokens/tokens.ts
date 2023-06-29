@@ -1920,6 +1920,18 @@ const _tokens = {
     description: 'Axelar Bridged USDC',
     documentation: 'https://docs.axelar.dev/',
   },
+  BETS: {
+    name: 'BetSwirl Token',
+    symbol: 'BETS',
+    address: '0x9246a5F10A79a5a939b0C2a75A3AD196aAfDB43b',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.betswirl.com/',
+    description:
+      'BetSwirl is a fully decentralized online cryptocurrency gaming platform, where everyone will be able to enjoy a fair play, a fun time and an innovative gamer experience.',
+    documentation: 'https://documentation.betswirl.com/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
