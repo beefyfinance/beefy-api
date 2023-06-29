@@ -1,5 +1,38 @@
 [
   {
+    "name": "beets-ankr-fantom-liquid-mosaic",
+    "address": "0x723d43bd1A1ff40DeaaB77a164B5c3eA4F654DB2",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x723d43bd1a1ff40deaab77a164b5c3ea4f654db2000000000000000000000750",
+    "beefyFee": 0.095,
+    "poolId": 124,
+    "oracleB": "tokens",
+    "oracleIdB": "ANKR",
+    "decimalsB": "1e18",
+    "composable": true,
+    "bptIndex": 1,
+    "liquidstaking": true,
+    "lsIndex": 1,
+    "ankrUrl": "https://api.staking.ankr.com/v1alpha/metrics/ftm/",
+    "balancerChargesFee": false,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ankrFTM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-ankr-ethereum-liquid-ocean",
     "address": "0x98c3C3A426DC2c2a7017809f134cA9daB151877a",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
@@ -11,7 +44,10 @@
     "decimalsB": "1e18",
     "composable": true,
     "bptIndex": 2,
-    "balancerChargesFee": true,
+    "liquidstaking": true,
+    "lsIndex": 0,
+    "ankrUrl": "https://api.staking.ankr.com/v1alpha/metrics/eth/",
+    "balancerChargesFee": false,
     "decimals": "1e18",
     "tokens": [
       {
@@ -39,6 +75,10 @@
     "oracleB": "tokens",
     "oracleIdB": "ANKR",
     "decimalsB": "1e18",
+    "liquidstaking": true,
+    "lsIndex": 1,
+    "ankrUrl": "https://api.staking.ankr.com/v1alpha/metrics/ftm/",
+    "balancerChargesFee": false,
     "decimals": "1e18",
     "tokens": [
       {
@@ -57,16 +97,17 @@
     "name": "beets-two-smoking-fantoms",
     "address": "0xc0064b291bd3D4ba0E44ccFc81bF8E7f7a579cD2",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
-    "composable": true,
-    "bptIndex": 0,
     "vaultPoolId": "0xc0064b291bd3d4ba0e44ccfc81bf8e7f7a579cd200000000000000000000042c",
     "beefyFee": 0.095,
     "poolId": 82,
     "oracleB": "tokens",
     "oracleIdB": "SD",
     "decimalsB": "1e18",
-    "staderls": true,
+    "composable": true,
+    "bptIndex": 0,
+    "liquidstaking": true,
     "lsIndex": 1,
+    "staderUrl": "https://universe.staderlabs.com/fantom/apy",
     "balancerChargesFee": false,
     "decimals": "1e18",
     "tokens": [
