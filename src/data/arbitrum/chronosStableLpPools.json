@@ -1,0 +1,22 @@
+[
+  {
+    "name": "chronos-mai-lusd",
+    "address": "0x97cdc9e5DF1afa297Ac24Ce8c0b7b6a9A2cf7448",
+    "gauge": "0xc7F5AAE3A39217172875Ba3F72dB12101bd89519",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3F56e0c36d275367b8C502090EDF38289b3dEa0d",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x93b346b6BC2548dA6A1E7d98E9a421B42541425b",
+      "oracle": "tokens",
+      "oracleId": "LUSD",
+      "decimals": "1e18"
+    }
+  }
+]

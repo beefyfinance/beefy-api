@@ -44,6 +44,7 @@
     "arb:swapfish:add": "ts-node scripts/add-farm.ts --network arbitrum --project swapfishArb --newFee true",
     "arb:arbidex:add": "ts-node scripts/add-farm.ts --network arbitrum --project arbidex --newFee true",
     "arb:ramses:add": "ts-node scripts/add-solidly.ts --network arbitrum --project ramses --newFee true --lp",
+    "arb:chronos:add": "ts-node scripts/add-solidly.ts --network arbitrum --project chronos --newFee true --lp",
     "celo:sushi:add": "ts-node scripts/add-sushi.ts --network celo --project sushiCelo",
     "avax:pangolin:add": "ts-node scripts/add-sushi.ts --network avax --project pangolin",
     "avax:boostedjoe:add": "ts-node scripts/add-farm.ts --network avax --project boostedjoe",
