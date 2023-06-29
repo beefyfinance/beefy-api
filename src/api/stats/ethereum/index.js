@@ -32,11 +32,12 @@ const getApys = [
   getSushiApys,
   getSynapseLpApys,
   getSolidlyApys,
-  getEulerApys,
+  // getEulerApys, // => delete this? code already doesn't work...
   getVerseLpApys,
 ];
 
 const getEthereumApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -73,6 +74,9 @@ const getEthereumApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Ethereum finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

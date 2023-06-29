@@ -2,13 +2,11 @@ const BigNumber = require('bignumber.js');
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const { MultiCall } = require('eth-multicall');
-import { getContract } from '../../../utils/contractHelper';
-const { ethereumWeb3: web3, multicallAddress } = require('../../../utils/web3');
-import { ETH_HPY, ETH_CHAIN_ID as chainId } from '../../../constants';
+import { ETH_CHAIN_ID, ETH_HPY } from '../../../constants';
 import IETokenAbi from '../../../abis/ethereum/IEToken';
 import IRewardPool from '../../../abis/IRewardPool';
-const IMarkets = require('../../../abis/ethereum/IMarkets.json');
+import IMarkets from '../../../abis/ethereum/IMarkets';
+import { fetchContract } from '../../rpc/client';
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 
 const pools = require('../../../data/ethereum/eulerPools.json');
@@ -59,40 +57,35 @@ const getPoolApy = async (supplyRate, rewardRate, totalSupply, exchangeRateStore
 };
 
 const getData = async pools => {
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
   const supplyRateCalls = [];
   const rewardRateCalls = [];
   const totalSupplyCalls = [];
   const exchangeRateCalls = [];
-  const marketsContract = getContract(IMarkets, markets);
+  const marketsContract = fetchContract(markets, IMarkets, ETH_CHAIN_ID);
   pools.forEach(pool => {
-    const rewardContract = getContract(IRewardPool, pool.rewardPool);
-    const etokenContract = getContract(IETokenAbi, pool.etoken);
-    supplyRateCalls.push({
-      supplyRate: marketsContract.methods.interestRate(pool.underlying),
-    });
-    rewardRateCalls.push({
-      rewardRate: rewardContract.methods.rewardRate(),
-    });
-    totalSupplyCalls.push({
-      totalSupply: rewardContract.methods.totalSupply(),
-    });
-    exchangeRateCalls.push({
-      exchangeRate: etokenContract.methods.convertBalanceToUnderlying(new BigNumber('1e18')),
-    });
+    const rewardContract = fetchContract(pool.rewardPool, IRewardPool, ETH_CHAIN_ID);
+    const etokenContract = fetchContract(pool.etoken, IETokenAbi, ETH_CHAIN_ID);
+    supplyRateCalls.push(
+      marketsContract.read.interestRate([pool.underlying]).catch(_ => new BigNumber(0))
+    );
+    rewardRateCalls.push(rewardContract.read.rewardRate());
+    totalSupplyCalls.push(rewardContract.read.totalSupply());
+    exchangeRateCalls.push(
+      etokenContract.read.convertBalanceToUnderlying([new BigNumber('1e18').toString()])
+    );
   });
 
-  const res = await multicall.all([
-    supplyRateCalls,
-    rewardRateCalls,
-    totalSupplyCalls,
-    exchangeRateCalls,
+  const res = await Promise.all([
+    Promise.all(supplyRateCalls),
+    Promise.all(rewardRateCalls),
+    Promise.all(totalSupplyCalls),
+    Promise.all(exchangeRateCalls),
   ]);
 
-  const supplyRates = res[0].map(v => new BigNumber(v.supplyRate));
-  const rewardRates = res[1].map(v => new BigNumber(v.rewardRate));
-  const totalSupplys = res[2].map(v => new BigNumber(v.totalSupply));
-  const exchangeRates = res[3].map(v => new BigNumber(v.exchangeRate));
+  const supplyRates = res[0].map(v => new BigNumber(v.toString()));
+  const rewardRates = res[1].map(v => new BigNumber(v.toString()));
+  const totalSupplys = res[2].map(v => new BigNumber(v.toString()));
+  const exchangeRates = res[3].map(v => new BigNumber(v.toString()));
 
   return { supplyRates, rewardRates, totalSupplys, exchangeRates };
 };

@@ -1,5 +1,6 @@
 const { ETH_CHAIN_ID: chainId } = require('../../../constants');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { getBifiGovApr } from '../common/getBifiGovApr';
 const {
   ethereum: {
     platforms: { beefyfinance },

@@ -178,7 +178,7 @@ const getPoolsData = async params => {
         params.abi ? params.abi : ISolidlyGauge,
         params.chainId
       );
-      rewardRateCalls.push(gauge.read.rewardRate([rewards.address]));
+      rewardRateCalls.push(gaugeContract.read.rewardRate([rewards.address]));
       rewardDataCalls.push(gaugeContract.read.rewardData([rewards.address]));
     }
   });

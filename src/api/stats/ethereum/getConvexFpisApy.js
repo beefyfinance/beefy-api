@@ -1,11 +1,9 @@
-import { MultiCall } from 'eth-multicall';
-import { ethereumWeb3 as web3, multicallAddress } from '../../../utils/web3';
-import { ETH_CHAIN_ID as chainId } from '../../../constants';
-import { getContract } from '../../../utils/contractHelper';
-import ICvxFxs from '../../../abis/ethereum/ICvxFxsStaking.json';
+import { ETH_CHAIN_ID } from '../../../constants';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';
+import ICvxFxsStaking from '../../../abis/ethereum/ICvxFxsStaking';
+import { fetchContract } from '../../rpc/client';
 
 const secondsPerYear = 31536000;
 
@@ -19,33 +17,26 @@ const pool = {
 };
 
 export const getConvexFpisApy = async () => {
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
+  const rewardInfo = [];
+  const rewardData = [];
 
-  const rewardPoolCalls = [];
-  const rewardCalls = [];
-
-  const rewardPool = getContract(ICvxFxs, pool.rewardPool);
-  rewardPoolCalls.push({
-    totalSupply: rewardPool.methods.totalSupply(),
-  });
+  const rewardPool = fetchContract(pool.rewardPool, ICvxFxsStaking, ETH_CHAIN_ID);
+  const totalSupplyCall = rewardPool.read.totalSupply();
   pool.rewards?.forEach(r => {
-    rewardCalls.push({
-      address: r.address,
-      rewardData: rewardPool.methods.rewardData(r.address),
-    });
+    rewardInfo.push({ address: r.address });
+    rewardData.push(rewardPool.read.rewardData([r.address]));
   });
-  const res = await multicall.all([rewardPoolCalls, rewardCalls]);
-  const info = res[0].map(v => ({
-    totalSupply: new BigNumber(v.totalSupply),
-  }))[0];
-  const rewards = res[1].map(v => ({
-    ...v,
-    periodFinish: v.rewardData['0'],
-    rewardRate: new BigNumber(v.rewardData['1']),
+
+  const res = await Promise.all([totalSupplyCall, Promise.all(rewardData)]);
+  const totalSupply = new BigNumber(res[0].toString());
+  const rewards = rewardInfo.map((_, index) => ({
+    ...rewardInfo[index],
+    periodFinish: new BigNumber(res[1][index]['0'].toString()),
+    rewardRate: new BigNumber(res[1][index]['1'].toString()),
   }));
 
   const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'cvxFPIS' });
-  const totalStakedInUsd = info.totalSupply.times(tokenPrice).div('1e18');
+  const totalStakedInUsd = totalSupply.times(tokenPrice).div('1e18');
 
   let apr = new BigNumber(0);
 

@@ -1,7 +1,6 @@
 import BigNumber from 'bignumber.js';
 import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
-import Web3 from 'web3';
 
 import { ChainId } from '../../../../packages/address-book/address-book';
 
@@ -20,7 +19,6 @@ import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef';
 import { fetchContract } from '../../rpc/client';
 
 export interface MasterChefApysParams {
-  web3: Web3;
   chainId: ChainId;
   masterchef: string;
   singlePools?: SingleAssetPool[];

@@ -1,14 +1,12 @@
-import { MultiCall } from 'eth-multicall';
-import { ethereumWeb3 as web3, multicallAddress } from '../../../utils/web3';
-import { ETH_CHAIN_ID as chainId } from '../../../constants';
+import { ETH_CHAIN_ID } from '../../../constants';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getCurveBaseApys } from '../common/curve/getCurveApyData';
-import { getContract } from '../../../utils/contractHelper';
-import IGaugeController from '../../../abis/ethereum/ICurveGaugeController.json';
-import ICrv from '../../../abis/ethereum/ICrv.json';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../utils/fetchPrice';
 import ICurveGauge from '../../../abis/ICurveGauge';
+import { fetchContract } from '../../rpc/client';
+import ICurveGaugeController from '../../../abis/ethereum/ICurveGaugeController';
+import ICrv from '../../../abis/ethereum/ICrv';
 
 const crv = '0xD533a949740bb3306d119CC777fa900bA034cd52';
 const gaugeController = '0x2F50D538606Fa9EDD2B11E2446BEb18C9D5846bB';
@@ -20,8 +18,10 @@ const pools = require('../../../data/ethereum/convexPools.json').filter(
 );
 
 export const getCurveApys = async () => {
-  const baseApys = await getCurveBaseApys(pools, subgraphUrl);
-  const farmApys = await getPoolApys(pools);
+  const [baseApys, farmApys] = await Promise.all([
+    getCurveBaseApys(pools, subgraphUrl),
+    getPoolApys(pools),
+  ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
   return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
 };
@@ -29,39 +29,43 @@ export const getCurveApys = async () => {
 const getPoolApys = async pools => {
   const apys = [];
 
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-  const calls = [];
-  const extraCalls = [];
+  const totalSupplyCalls = [];
+  const workingCalls = [];
+  const extraInfo = [];
+  const extraRewardDataCalls = [];
   const weightCalls = [];
   pools.forEach(pool => {
-    const gauge = getContract(ICurveGauge, pool.gauge);
-    calls.push({
-      totalSupply: gauge.methods.totalSupply(),
-      workingSupply: gauge.methods.working_supply(),
-    });
+    const gauge = fetchContract(pool.gauge, ICurveGauge, ETH_CHAIN_ID);
+    totalSupplyCalls.push(gauge.read.totalSupply());
+    workingCalls.push(gauge.read.working_supply());
     pool.rewards?.forEach(reward => {
-      extraCalls.push({
-        pool: pool.name,
-        token: reward.token,
-        rewardData: gauge.methods.reward_data(reward.token),
-      });
+      extraInfo.push({ pool: pool.name, token: reward.token });
+      extraRewardDataCalls.push(gauge.read.reward_data([reward.token]));
     });
-    const controller = getContract(IGaugeController, gaugeController);
-    weightCalls.push({
-      weight: controller.methods.gauge_relative_weight(pool.gauge),
-    });
+    const controller = fetchContract(gaugeController, ICurveGaugeController, ETH_CHAIN_ID);
+    weightCalls.push(controller.read.gauge_relative_weight([pool.gauge]));
   });
-  const inflationRateCall = [{ rate: getContract(ICrv, crv).methods.rate() }];
-  const res = await multicall.all([calls, extraCalls, weightCalls, inflationRateCall]);
-  const poolInfo = res[0].map((v, i) => ({
-    rewardRate: new BigNumber(res[3][0].rate).times(new BigNumber(res[2][i].weight)).div('1e18'),
-    totalSupply: new BigNumber(v.totalSupply),
-    workingSupply: new BigNumber(v.workingSupply),
+  const inflationRateCall = fetchContract(crv, ICrv, ETH_CHAIN_ID)
+    .read.rate()
+    .then(v => new BigNumber(v.toString()));
+  const res = await Promise.all([
+    Promise.all(totalSupplyCalls),
+    Promise.all(workingCalls),
+    Promise.all(extraRewardDataCalls),
+    Promise.all(weightCalls),
+    inflationRateCall,
+  ]);
+  const poolInfo = res[0].map((_, i) => ({
+    rewardRate: new BigNumber(res[4].toString())
+      .times(new BigNumber(res[3][i].toString()))
+      .div('1e18'),
+    totalSupply: new BigNumber(res[0][i].toString()),
+    workingSupply: new BigNumber(res[1][i].toString()),
   }));
-  const extras = res[1].map(v => ({
-    ...v,
-    periodFinish: v.rewardData[2],
-    rewardRate: new BigNumber(v.rewardData[3]),
+  const extras = extraInfo.map((_, i) => ({
+    ...extraInfo[i],
+    periodFinish: new BigNumber(res[2][i][2].toString()),
+    rewardRate: new BigNumber(res[2][3]),
   }));
 
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });
