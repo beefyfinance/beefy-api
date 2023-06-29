@@ -46,7 +46,7 @@ const updateApys = async () => {
       getMaticApys(),
       getAvaxApys(),
       getFantomApys(),
-      // getBSCApys(),
+      getBSCApys(),
       getOneApys(),
       getArbitrumApys(),
       getCeloApys(),
@@ -59,7 +59,7 @@ const updateApys = async () => {
       getEmeraldApys(), // Additional revision on YUZU before release
       getOptimismApys(),
       getKavaApys(),
-      // getEthereumApys(),
+      getEthereumApys(),
       getCantoApys(),
       getZksyncApys(),
     ]);
