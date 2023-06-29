@@ -5,7 +5,7 @@
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
     "vaultPoolId": "0x723d43bd1a1ff40deaab77a164b5c3ea4f654db2000000000000000000000750",
     "beefyFee": 0.095,
-    "poolId": 1,
+    "poolId": 124,
     "oracleB": "tokens",
     "oracleIdB": "ANKR",
     "decimalsB": "1e18",
