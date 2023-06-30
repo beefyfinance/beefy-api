@@ -1,12 +1,10 @@
 const BigNumber = require('bignumber.js');
-const { optimismWeb3: web3, web3Factory } = require('../../../utils/web3');
-
 const fetchPrice = require('../../../utils/fetchPrice');
-const ERC20 = require('../../../abis/ERC20.json');
-const { OPTIMISM_CHAIN_ID: chainId } = require('../../../constants');
+const { OPTIMISM_CHAIN_ID } = require('../../../constants');
 import { addressBook } from '../../../../packages/address-book/address-book';
+import ERC20Abi from '../../../abis/ERC20Abi';
 import IRewardPool from '../../../abis/IRewardPool';
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import { fetchContract } from '../../rpc/client';
 const {
   optimism: {
     tokens: { beVELO },
@@ -43,8 +41,8 @@ const getBeVeloV2Apr = async () => {
 const getYearlyRewardsInUsd = async () => {
   const nativePrice = await fetchPrice({ oracle: ORACLE, id: REWARD_ORACLE });
 
-  const rewardPool = getContractWithProvider(IRewardPool, rewards, web3);
-  const rewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
+  const rewardPool = fetchContract(rewards, IRewardPool, OPTIMISM_CHAIN_ID);
+  const rewardRate = new BigNumber((await rewardPool.read.rewardRate()).toString());
   const yearlyRewards = rewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(nativePrice).dividedBy(DECIMALS);
 
@@ -52,10 +50,8 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const web3 = web3Factory(chainId);
-
-  const tokenContract = getContractWithProvider(ERC20, beVELO.address, web3);
-  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(rewards).call());
+  const tokenContract = fetchContract(beVELO.address, ERC20Abi, OPTIMISM_CHAIN_ID);
+  const totalStaked = new BigNumber((await tokenContract.read.balanceOf([rewards])).toString());
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: ORACLE_ID });
 
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
