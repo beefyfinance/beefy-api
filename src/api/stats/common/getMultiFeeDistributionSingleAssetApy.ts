@@ -1,24 +1,21 @@
 import BigNumber from 'bignumber.js';
 
-import {
-  MultiFeeDistribution,
-  MultiFeeDistribution_ABI,
-} from '../../../abis/common/MultiFeeDistribution';
 import fetchPrice from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
 import { BASE_HPY } from '../../../constants';
-import Web3 from 'web3';
 import { ApyBreakdownResult } from './getApyBreakdown';
 import Token from '../../../../packages/address-book/types/token';
-import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import MultiFeeDistribution from '../../../abis/common/MultiFeeDistribution/MultiFeeDistribution';
+import { fetchContract } from '../../rpc/client';
+import { ChainId } from '../../../../packages/address-book/address-book';
 
 const oracle = 'tokens';
 
 const BLOCKS_PER_DAY = 28800;
 
 export interface MultiFeeDistributionSingleAssetApyParams {
-  web3: Web3;
+  chainId: ChainId;
   multiFeeDistributionAddress: string;
   want: Token;
   output: Token;
@@ -37,33 +34,30 @@ const getMultiFeeDistributionSingleAssetApy = async (
 };
 
 const getTotalStakedInUsd = async ({
-  web3,
+  chainId,
   multiFeeDistributionAddress,
   want,
 }: MultiFeeDistributionSingleAssetApyParams) => {
-  const tokenContract = getContractWithProvider(
-    MultiFeeDistribution_ABI,
-    multiFeeDistributionAddress,
-    web3
-  ) as unknown as MultiFeeDistribution;
-  const totalStaked = new BigNumber(await tokenContract.methods.totalSupply().call());
+  const tokenContract = fetchContract(multiFeeDistributionAddress, MultiFeeDistribution, chainId);
+  const totalStaked = new BigNumber((await tokenContract.read.totalSupply()).toString());
   const tokenPrice = await fetchPrice({ oracle, id: want.symbol });
   return totalStaked.times(tokenPrice).dividedBy(want.decimals);
 };
 
 const getYearlyRewardsInUsd = async ({
-  web3,
+  chainId,
   multiFeeDistributionAddress,
   output,
 }: MultiFeeDistributionSingleAssetApyParams) => {
   const tokenPrice: number = await fetchPrice({ oracle, id: output.symbol });
-  const rewardPool = getContractWithProvider(
-    MultiFeeDistribution_ABI,
-    multiFeeDistributionAddress,
-    web3
-  ) as unknown as MultiFeeDistribution;
-  const { rewardRate } = await rewardPool.methods.rewardData(output.address).call();
-  const yearlyRewards = new BigNumber(rewardRate).times(3).times(BLOCKS_PER_DAY).times(365);
+  const rewardPool = fetchContract(multiFeeDistributionAddress, MultiFeeDistribution, chainId);
+  const [periodFinish, rewardRate, ...rest] = await rewardPool.read.rewardData([
+    output.address as `0x${string}`,
+  ]);
+  const yearlyRewards = new BigNumber(rewardRate.toString())
+    .times(3)
+    .times(BLOCKS_PER_DAY)
+    .times(365);
   const yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(output.decimals);
 
   return yearlyRewardsInUsd;
