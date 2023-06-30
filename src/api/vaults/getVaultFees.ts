@@ -1,11 +1,11 @@
 import BigNumber from 'bignumber.js';
 import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall';
 import { addressBookByChainId, ChainId } from '../../../packages/address-book/address-book';
-import { getContractWithProvider } from '../../utils/contractHelper';
 import { getKey, setKey } from '../../utils/cache';
 import { web3Factory } from '../../utils/web3';
 import { ApiChain, fromChainId } from '../../utils/chain';
 import { MULTICALL_V3 } from '../../utils/web3Helpers';
+import { fetchContract } from '../rpc/client';
 
 const FeeABI = require('../../abis/FeeABI.json');
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
@@ -18,7 +18,7 @@ const feeBatchTreasurySplitMethodABI = [
     stateMutability: 'view',
     type: 'function',
   },
-];
+] as const;
 
 const INIT_DELAY = 15000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -101,18 +101,16 @@ let vaultFees: Record<string, VaultFeeBreakdown>;
 const updateFeeBatches = async () => {
   for (const chainId of Object.keys(addressBookByChainId)) {
     const feeBatchAddress = addressBookByChainId[chainId].platforms.beefyfinance.beefyFeeRecipient;
-    const web3 = web3Factory(Number(chainId));
-
-    const feeBatchContract = getContractWithProvider(
-      feeBatchTreasurySplitMethodABI,
+    const feeBatchContract = fetchContract(
       feeBatchAddress,
-      web3
+      feeBatchTreasurySplitMethodABI,
+      Number(chainId)
     );
 
     let treasurySplit;
 
     try {
-      treasurySplit = await feeBatchContract.methods.treasuryFee().call();
+      treasurySplit = new BigNumber((await feeBatchContract.read.treasuryFee()).toString());
     } catch (err) {
       //If reverted, method isn't available on contract so must be older split
       if (err.message.includes('revert') || err.message.includes('correct ABI')) {
