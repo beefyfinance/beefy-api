@@ -146,7 +146,7 @@ const getPoolsData = async params => {
   params.pools.forEach(pool => {
     const poolContract = fetchContract(
       pool.gauge,
-      params.spirit ? ISpiritGauge : ISolidlyGauge,
+      params.spirit || params.singleReward ? ISpiritGauge : ISolidlyGauge,
       params.chainId
     );
 
@@ -156,10 +156,12 @@ const getPoolsData = async params => {
         : poolContract.read.totalSupply()
     );
     rateCalls.push(
-      params.spirit ? poolContract.read.rewardRate() : poolContract.read.rewardRate([params.reward])
+      params.spirit || params.singleReward
+        ? poolContract.read.rewardRate()
+        : poolContract.read.rewardRate([params.reward])
     );
     periodFinishCalls.push(
-      params.spirit
+      params.spirit || params.singleReward
         ? poolContract.read.periodFinish()
         : poolContract.read.periodFinish([params.reward])
     );

@@ -69,7 +69,9 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.ankr.com/',
-    description: 'Decentralized Infrastructure to Build and Earn in Web3',
+    description:
+      'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
   },
   DOLA: {
     name: 'Dola USD Stablecoin',

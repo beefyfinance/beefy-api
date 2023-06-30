@@ -43,7 +43,7 @@ const {
     platforms: { solisnek },
   },
   arbitrum: {
-    platforms: { ramses },
+    platforms: { ramses, chronos },
   },
 } = addressBook;
 
@@ -55,7 +55,7 @@ const projects = {
     voter: equilibre.voter,
   },
   velodrome: {
-    prefix: 'velodrome',
+    prefix: 'velodrome-v2',
     stableFile: '../src/data/optimism/velodromeStableLpPools.json',
     volatileFile: '../src/data/optimism/velodromeLpPools.json',
     voter: velodrome.voter,
@@ -130,6 +130,12 @@ const projects = {
     volatileFile: '../src/data/arbitrum/ramsesLpPools.json',
     voter: ramses.voter,
   },
+  chronos: {
+    prefix: 'chronos',
+    stableFile: '../src/data/arbitrum/chronosStableLpPools.json',
+    volatileFile: '../src/data/arbitrum/chronosLpPools.json',
+    voter: chronos.voter,
+  },
 };
 
 const args = yargs.options({
@@ -151,7 +157,7 @@ const args = yargs.options({
     describe: 'provide the solidly LP for gauge',
   },
   newFee: {
-    type: 'bool',
+    type: 'boolean',
     demandOption: true,
     describe: 'If the beefy fee is 9.5% use true else use false',
   },

@@ -241,6 +241,7 @@ import yuzuDualPools from '../../data/emerald/yuzuDualLpPools.json';
 import dfxPools from '../../data/matic/dfxLpPools.json';
 import ripaeMaticPools from '../../data/matic/ripaeLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
+import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
 import giddyLpPools from '../../data/matic/giddyLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
 import dystopiaPools from '../../data/matic/dystopiaLpPools.json';
@@ -313,6 +314,7 @@ const pools = normalizePoolOracleIds([
   ...ripaeCronosPools,
   ...dystopiaPools,
   ...velodromePools,
+  ...oldVelodromePools,
   ...valleySwapLpPools,
   ...dfxPools,
   ...yuzuDualPools,
@@ -575,6 +577,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   axlusdc: ['axlUSDC'],
   'mimo-parallel-governance-token': ['MIMO'],
   olympus: ['OHM'],
+  betswirl: ['BETS'],
 };
 
 /**

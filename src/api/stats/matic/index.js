@@ -29,6 +29,7 @@ const getKyberPolygonApys = require('./getKyberPolygonApys');
 const getOvixApys = require('./getOvixApys');
 const { getPearlApys } = require('./getPearlApys');
 const { getQuickGammaApys } = require('./getQuickGammaApys');
+const getBetSwirlSingleApy = require('./getBetSwirlSingleApy');
 
 const getApys = [
   getbeQiApy,
@@ -62,6 +63,7 @@ const getApys = [
   getKyberPolygonApys,
   getOvixApys,
   getPearlApys,
+  getBetSwirlSingleApy,
 ];
 
 const BATCH_SIZE = 15;
