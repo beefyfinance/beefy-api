@@ -4,7 +4,7 @@
   "repository": "beefyfinance/beefy-api",
   "license": "MIT",
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "scripts": {
     "install-all": "yarn && cd packages/address-book && yarn",
