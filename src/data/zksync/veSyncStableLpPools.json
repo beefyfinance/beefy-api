@@ -1,0 +1,42 @@
+[
+  {
+    "name": "vesync-usdc-usd+",
+    "address": "0x16D0fC836FED0f645d832Eacc65106dDB67108Ef",
+    "gauge": "0xc7Be7175eB119BE6482a0923f48C165ec6C8Fa79",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8E86e46278518EFc1C5CEd245cBA2C7e3ef11557",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "vesync-busd-usdc",
+    "address": "0xd9Fcf3a73F66FCcd0De4175287f88C393686582D",
+    "gauge": "0x01add885f878465261c0a792546519D431633b6e",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2039bb4116B4EFc145Ec4f0e2eA75012D6C0f181",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]

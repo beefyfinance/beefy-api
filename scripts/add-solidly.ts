@@ -37,7 +37,7 @@ const {
     platforms: { equilibre },
   },
   zksync: {
-    platforms: { velocore },
+    platforms: { velocore, vesync },
   },
   avax: {
     platforms: { solisnek },
@@ -117,6 +117,12 @@ const projects = {
     stableFile: '../src/data/zksync/velocoreStableLpPools.json',
     volatileFile: '../src/data/zksync/velocoreLpPools.json',
     voter: velocore.voter,
+  },
+  vesync: {
+    prefix: 'vesync',
+    stableFile: '../src/data/zksync/veSyncStableLpPools.json',
+    volatileFile: '../src/data/zksync/veSyncLpPools.json',
+    voter: vesync.voter,
   },
   solisnek: {
     prefix: 'solisnek',
