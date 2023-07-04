@@ -71,7 +71,6 @@ import { getPolygonSolidlyStablePrices } from './matic/getPolygonSolidlyStablePr
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getQuickGammaPrices from './matic/getQuickGammaPrices';
 import getChronosStablePrices from './arbitrum/getChronosStablePrices';
-import getveSyncStablePrices from './zksync/getveSyncStablePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -91,7 +90,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   let breakdown = {};
 
   const promises = [
-    getveSyncStablePrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
     getSoliSnekStablePrices(tokenPrices),
     getVelocoreStablePrices(tokenPrices),
