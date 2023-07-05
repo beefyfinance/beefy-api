@@ -105,7 +105,6 @@ const netswapClient = client('https://api.netswap.io/graph/subgraphs/name/netswa
 const tethysClient = client('https://graph-node.tethys.finance/subgraphs/name/tethys2');
 const tombswapClient = client('https://api.thegraph.com/subgraphs/name/github-qfg/tombswap');
 const biswapClient = client('https://api.thegraph.com/subgraphs/name/biswapcom/exchange5');
-const pegasysClient = client('https://graph.pegasys.exchange/subgraphs/name/pollum-io/pegasys');
 const uniswapPolygonClient = client(
   'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon'
 );
@@ -193,7 +192,6 @@ export {
   stellaClient,
   tombswapClient,
   biswapClient,
-  pegasysClient,
   uniswapPolygonClient,
   balancerClient,
   hopArbClient,

@@ -12,7 +12,6 @@ import { aurora } from './aurora';
 import { fuse } from './fuse';
 import { metis } from './metis';
 import { moonbeam } from './moonbeam';
-import { sys } from './sys';
 import { emerald } from './emerald';
 import { optimism } from './optimism';
 import { kava } from './kava';
@@ -31,7 +30,6 @@ const _addressBook: {
   readonly one: Chain;
   readonly metis: Chain;
   readonly moonbeam: Chain;
-  readonly sys: Chain;
   readonly celo: Chain;
   readonly aurora: Chain;
   readonly moonriver: Chain;
@@ -62,7 +60,6 @@ const _addressBook: {
   fuse,
   metis,
   moonbeam,
-  sys,
   emerald,
   optimism,
   kava,
@@ -86,7 +83,6 @@ const _addressBookByChainId: {
   readonly '128': Chain;
   readonly '1313161554': Chain;
   readonly '42161': Chain;
-  readonly '57': Chain;
   readonly '42262': Chain;
   readonly '10': Chain;
   readonly '2222': Chain;
@@ -108,7 +104,6 @@ const _addressBookByChainId: {
   [ChainId.fuse]: fuse,
   [ChainId.metis]: metis,
   [ChainId.moonbeam]: moonbeam,
-  [ChainId.sys]: sys,
   [ChainId.emerald]: emerald,
   [ChainId.optimism]: optimism,
   [ChainId.kava]: kava,
