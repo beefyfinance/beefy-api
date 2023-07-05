@@ -30,6 +30,31 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
   },
+  VS: {
+    name: 'veSync',
+    symbol: 'VS',
+    address: '0x5756A28E2aAe01F600FC2C01358395F5C1f8ad3A',
+    chainId: 324,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.vesync.finance/swap',
+    description:
+      'veSync is a community-driven, ve(3,3) Decentralized Exchange (DEX) built on the zkSync network, providing a powerful and efficient platform for DeFi liquidity.',
+    documentation: 'https://docs.vesync.finance/',
+  },
+  wTBT: {
+    name: 'wTBT Pool',
+    symbol: 'wTBT',
+    address: '0xd90764041DA2720396863836E9f78dDaee140533',
+    chainId: 324,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.tprotocol.io/',
+    description:
+      'The launch of TProtocol will drastically alter the current DeFi picture and add an important missing piece, making DeFi users able to benefit from the mid-term interest rate gap between the stables and rising treasury. TProtocol will provide permissionless interest bearing tokens backed by the treasury with short duration. The redemption price of this treasury token will increase over time as interest from treasury accrues into the tokens.',
+    documentation:
+      'https://tprotocol.gitbook.io/tprotocol-documentation/white-paper/tprotocol-documentation',
+  },
   VC: {
     name: 'Velocore',
     symbol: 'VC',
@@ -75,7 +100,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://overnight.fi/',
     description:
-      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+      'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     documentation: 'https://docs.overnight.fi/',
   },
 } as const;
