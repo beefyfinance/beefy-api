@@ -31,8 +31,6 @@ import {
   METIS_CHAIN_ID,
   MOONBEAM_RPC,
   MOONBEAM_CHAIN_ID,
-  SYS_RPC,
-  SYS_CHAIN_ID,
   EMERALD_RPC,
   EMERALD_CHAIN_ID,
   OPTIMISM_RPC,
@@ -63,7 +61,6 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.fuse]: addressBookByChainId[ChainId.fuse].platforms.beefyfinance.multicall,
   [ChainId.metis]: addressBookByChainId[ChainId.metis].platforms.beefyfinance.multicall,
   [ChainId.moonbeam]: addressBookByChainId[ChainId.moonbeam].platforms.beefyfinance.multicall,
-  [ChainId.sys]: addressBookByChainId[ChainId.sys].platforms.beefyfinance.multicall,
   [ChainId.emerald]: addressBookByChainId[ChainId.emerald].platforms.beefyfinance.multicall,
   [ChainId.optimism]: addressBookByChainId[ChainId.optimism].platforms.beefyfinance.multicall,
   [ChainId.kava]: addressBookByChainId[ChainId.kava].platforms.beefyfinance.multicall,
@@ -87,7 +84,6 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   fuse: [],
   metis: [],
   moonbeam: [],
-  sys: [],
   emerald: [],
   optimism: [],
   kava: [],
@@ -111,7 +107,6 @@ clients.aurora.push(new ethers.providers.JsonRpcProvider(AURORA_RPC));
 clients.fuse.push(new ethers.providers.JsonRpcProvider(FUSE_RPC));
 clients.metis.push(new ethers.providers.JsonRpcProvider(METIS_RPC));
 clients.moonbeam.push(new ethers.providers.JsonRpcProvider(MOONBEAM_RPC));
-clients.sys.push(new ethers.providers.JsonRpcProvider(SYS_RPC));
 clients.emerald.push(new ethers.providers.JsonRpcProvider(EMERALD_RPC));
 clients.optimism.push(new ethers.providers.JsonRpcProvider(OPTIMISM_RPC));
 clients.kava.push(new ethers.providers.JsonRpcProvider(KAVA_RPC));
@@ -134,7 +129,6 @@ export const chainRandomClients = {
   fuseRandomClient: () => clients.fuse[~~(clients.fuse.length * Math.random())],
   metisRandomClient: () => clients.metis[~~(clients.metis.length * Math.random())],
   moonbeamRandomClient: () => clients.moonbeam[~~(clients.moonbeam.length * Math.random())],
-  sysRandomClient: () => clients.sys[~~(clients.sys.length * Math.random())],
   emeraldRandomClient: () => clients.emerald[~~(clients.emerald.length * Math.random())],
   optimismRandomClient: () => clients.optimism[~~(clients.optimism.length * Math.random())],
   kavaRandomClient: () => clients.kava[~~(clients.kava.length * Math.random())],
@@ -173,8 +167,6 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.metisRandomClient();
     case MOONBEAM_CHAIN_ID:
       return chainRandomClients.moonbeamRandomClient();
-    case SYS_CHAIN_ID:
-      return chainRandomClients.sysRandomClient();
     case EMERALD_CHAIN_ID:
       return chainRandomClients.emeraldRandomClient();
     case OPTIMISM_CHAIN_ID:

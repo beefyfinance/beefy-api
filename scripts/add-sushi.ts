@@ -34,9 +34,6 @@ const {
   celo: {
     platforms: { sushiCelo: sushiCelo },
   },
-  sys: {
-    platforms: { pegasys: pegasys },
-  },
 } = addressBook;
 
 const projects = {

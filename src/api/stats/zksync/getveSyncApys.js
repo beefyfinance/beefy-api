@@ -1,26 +1,27 @@
+const { zksyncWeb3: web3 } = require('../../../utils/web3');
 const { ZKSYNC_CHAIN_ID: chainId } = require('../../../constants');
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
-const stablePools = require('../../../data/zksync/velocoreStableLpPools.json');
-const volatilePools = require('../../../data/zksync/velocoreLpPools.json');
+const volatilePools = require('../../../data/zksync/veSyncLpPools.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
   zksync: {
-    tokens: { VC },
+    tokens: { VS },
   },
 } = addressBook;
 
-const pools = [...stablePools, ...volatilePools];
-const getVelocoreApys = async () =>
+const pools = [...volatilePools];
+const getveSyncApys = async () =>
   getSolidlyGaugeApys({
+    web3: web3,
     chainId: chainId,
     pools: pools,
-    oracleId: 'VC',
+    oracleId: 'VSzk',
     oracle: 'tokens',
     decimals: '1e18',
-    reward: VC.address,
+    reward: VS.address,
     boosted: false,
     // log: true,
   });
 
-module.exports = getVelocoreApys;
+module.exports = getveSyncApys;

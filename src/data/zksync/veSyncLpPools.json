@@ -1,0 +1,82 @@
+[
+  {
+    "name": "vesync-vs-weth",
+    "address": "0x490fE10D33a058AEb33d55DAFE9C4F9694c4138b",
+    "gauge": "0x3af4678f3dcE1051EF182f222979D25920C6e342",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5756A28E2aAe01F600FC2C01358395F5C1f8ad3A",
+      "oracle": "tokens",
+      "oracleId": "VSzk",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "vesync-usdc-wtbt",
+    "address": "0xBC678eEa3D152b4C7B332C6bDA3956a4021A45B3",
+    "gauge": "0x0a35447c43D766BDa5C41d32AF2376ECA8BDaDa5",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xd90764041DA2720396863836E9f78dDaee140533",
+      "oracle": "tokens",
+      "oracleId": "wTBT",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "vesync-usdc-weth",
+    "address": "0x19dB1D963e2Ac810C48C8565bB2Fd2866745AA8A",
+    "gauge": "0xd6753a142C9fd1ac6281D738BaD0e2cFf9C91c4B",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "vesync-bifi-weth",
+    "address": "0xF25ffca3742c66d4729f804e1B1385cE9ed55921",
+    "gauge": "0xAd4A7F4a7CFf7500B59b9917cec6d1faEba374AA",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x44AA3eEDD3214Ddd02E8b3FE1E8AE4cAC452a2E0",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

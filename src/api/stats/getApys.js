@@ -56,7 +56,7 @@ const updateApys = async () => {
       getFuseApys(),
       getMetisApys(),
       getMoonbeamApys(),
-      getEmeraldApys(), // Additional revision on YUZU before release
+      getEmeraldApys(),
       getOptimismApys(),
       getKavaApys(),
       getEthereumApys(),

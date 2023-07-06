@@ -1,6 +1,7 @@
 const getVelocoreApys = require('./getVelocoreApys');
+const getveSyncApys = require('./getveSyncApys');
 
-const getApys = [getVelocoreApys];
+const getApys = [getVelocoreApys, getveSyncApys];
 
 const getZksyncApys = async () => {
   const start = Date.now();

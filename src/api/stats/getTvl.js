@@ -52,9 +52,6 @@ const {
   KAVA_CHAIN_ID,
   KAVA_VAULTS_ENDPOINT,
 
-  SYS_CHAIN_ID,
-  //SYS_VAULTS_ENDPOINT,
-
   CANTO_CHAIN_ID,
   CANTO_VAULTS_ENDPOINT,
 
@@ -142,11 +139,6 @@ const chains = [
     vaultsEndpoint: MOONBEAM_VAULTS_ENDPOINT,
     governancePool: require('../../data/moonbeam/governancePool.json'),
   },
-  // {
-  // chainId: SYS_CHAIN_ID,
-  // vaultsEndpoint: SYS_VAULTS_ENDPOINT,
-  // governancePool: require('../../data/sys/governancePool.json'),
-  // },
   {
     chainId: EMERALD_CHAIN_ID,
     vaultsEndpoint: EMERALD_VAULTS_ENDPOINT,

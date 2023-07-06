@@ -19,7 +19,6 @@ import {
   ONE_RPC,
   OPTIMISM_RPC,
   POLYGON_RPC,
-  SYS_RPC,
   ZKSYNC_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/address-book';

@@ -1,5 +1,6 @@
 import { beefyfinance } from './platforms/beefyfinance';
 import { velocore } from './platforms/velocore';
+import { vesync } from './platforms/vesync';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -9,6 +10,7 @@ const _zksync = {
   platforms: {
     beefyfinance,
     velocore,
+    vesync,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
