@@ -34,9 +34,6 @@ const {
   celo: {
     platforms: { sushiCelo: sushiCelo },
   },
-  sys: {
-    platforms: { pegasys: pegasys },
-  },
 } = addressBook;
 
 const projects = {
@@ -79,11 +76,6 @@ const projects = {
     prefix: 'tri',
     file: '../src/data/aurora/trisolarisMiniLpPools.json',
     masterchef: tri.minichef,
-  },
-  pegasys: {
-    prefix: 'pegasys',
-    file: '../src/data/sys/pegasysLpPools.json',
-    masterchef: pegasys.minichef,
   },
   pancake: {
     prefix: 'cakev2',

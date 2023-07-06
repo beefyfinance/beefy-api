@@ -235,7 +235,6 @@ import spookyV2LpPools from '../../data/fantom/spookyV2LpPools.json';
 import spookyV3LpPools from '../../data/fantom/spookyV3LpPools.json';
 import valasLpPools from '../../data/valasLpPools.json';
 import bombLpPools from '../../data/degens/bombLpPools.json';
-import pegasysLpPools from '../../data/sys/pegasysLpPools.json';
 import ripaeLpPools from '../../data/degens/ripaeLpPools.json';
 import valleySwapLpPools from '../../data/emerald/valleySwapLpPools.json';
 import yuzuLpPools from '../../data/emerald/yuzuLpPools.json';
@@ -324,7 +323,6 @@ const pools = normalizePoolOracleIds([
   ...yuzuDualPools,
   ...yuzuLpPools,
   ...ripaeLpPools,
-  ...pegasysLpPools,
   ...bombLpPools,
   ...valasLpPools,
   ...spookyV2LpPools,
