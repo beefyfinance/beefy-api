@@ -24,6 +24,8 @@ interface Token {
 interface Underlying {
   address: string;
   index: number;
+  poolId?: string;
+  bbIndex?: number;
 }
 
 interface Pool {
@@ -276,34 +278,54 @@ const getComposableAaveYield = async (
   const multicall = new MultiCall(params.web3, multicallAddress(params.chainId));
   const balVault = getContract(IBalancerVault, params.balancerVault);
 
+  tokenQtyCalls.push({ tokenQty: balVault.methods.getPoolTokens(poolId) });
+
   tokens.forEach(t => {
     const dataProvider = getContract(IAaveProtocolDataProvider, params.aaveDataProvider);
     supplyRateCalls.push({ supplyRate: dataProvider.methods.getReserveData(t.address) });
-  });
 
-  tokenQtyCalls.push({ tokenQty: balVault.methods.getPoolTokens(poolId) });
+    if (tokens.length > 1) {
+      tokenQtyCalls.push({ tokenQty: balVault.methods.getPoolTokens(t.poolId) });
+    }
+  });
 
   const res = await multicall.all([supplyRateCalls, tokenQtyCalls]);
 
   const rates = res[0].map(v => new BigNumber(v.supplyRate[5]));
   const tokenQtys = res[1].map(v => v.tokenQty['1']);
 
-  let qty: BigNumber[] = [];
-  let totalQty: BigNumber = new BigNumber(0);
-  for (let j = 0; j < tokenQtys[0].length; j++) {
-    if (j != index) {
-      totalQty = totalQty.plus(new BigNumber(tokenQtys[0][j]));
-      qty.push(new BigNumber(tokenQtys[0][j]));
-    }
-  }
-
   let apy: BigNumber = new BigNumber(0);
-
+  let apys: BigNumber[] = [];
   for (let i = 0; i < tokens.length; i++) {
+    let qty: BigNumber[] = [];
+    let totalQty: BigNumber = new BigNumber(0);
+    for (let j = 0; j < tokenQtys[i + 1].length; j++) {
+      if (j != tokens[i].bbIndex) {
+        totalQty = totalQty.plus(new BigNumber(tokenQtys[i + 1][j]));
+        qty.push(new BigNumber(tokenQtys[i + 1][j]));
+      }
+    }
+
     const tokenApy: BigNumber = new BigNumber(rates[i]).div(RAY_DECIMALS);
     const portionedApy: BigNumber = tokenApy.times(qty[tokens[i].index]).dividedBy(totalQty);
+    apys.push(portionedApy);
+    //  console.log(tokens[i].address, portionedApy.toNumber(), qty[tokens[i].index].toNumber(), totalQty.toNumber());
+  }
+
+  for (let i = 0; i < tokens.length; i++) {
+    let qty: BigNumber[] = [];
+    let totalQty: BigNumber = new BigNumber(0);
+    for (let j = 0; j < tokenQtys[0].length; j++) {
+      if (j != index) {
+        totalQty = totalQty.plus(new BigNumber(tokenQtys[0][j]));
+        qty.push(new BigNumber(tokenQtys[0][j]));
+      }
+    }
+
+    const tokenApy: BigNumber = new BigNumber(apys[i]);
+    const portionedApy: BigNumber = tokenApy.times(qty[i]).dividedBy(totalQty);
     apy = apy.plus(portionedApy);
-    // console.log(bbaUSDTokens[i].address, portionedApy.toNumber());
+    //   console.log(tokens[i].address, portionedApy.toNumber(), qty[i].toNumber(), totalQty.toNumber());
   }
 
   return apy;

@@ -817,6 +817,136 @@ const _tokens = {
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
   },
+  aaUSDT: {
+    name: 'Aave Tether USD',
+    symbol: 'aaUSDT',
+    address: '0x6ab707Aca953eDAeFBc4fD23bA73294241490620',
+    chainId: 42161,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    description:
+      'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+  },
+  waaUSDT: {
+    name: 'Wrapped Aave Tether USD',
+    symbol: 'waaUSDT',
+    address: '0x3c7680DFE7f732ca0279c39FF30fE2eafdaE49db',
+    chainId: 42161,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://tether.to/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Wrapped Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+  },
+  bbaaUSDT: {
+    name: 'Balancer Aave USDT Linear Pool',
+    symbol: 'bbaaUSDT',
+    address: '0x4739E50B59B552D490d3FDc60D200977A38510c0',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
+  },
+  aaUSDC: {
+    name: 'Aave USDC',
+    symbol: 'aaUSDC',
+    address: '0x625E7708f30cA75bfd92586e17077590C60eb4cD',
+    chainId: 42161,
+    decimals: 42161,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  waaUSDC: {
+    name: 'Wrapped Aave Tether USD',
+    symbol: 'waaUSDC',
+    address: '0xE719Aef17468c7e10c0c205be62C990754DFF7E5',
+    chainId: 42161,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Wrapped Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  bbaaUSDC: {
+    name: 'Balancer Aave USDC Linear Pool',
+    symbol: 'bbaaUSDC',
+    address: '0x7c82A23B4C48D796dee36A9cA215b641C6a8709d',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 USDC and wrapped Aave Interest Bearing USDC.',
+  },
+  aaDAI: {
+    name: 'Aave DAI',
+    symbol: 'aaDAI',
+    address: '0x82E64f49Ed5EC1bC6e43DAD4FC8Af9bb3A2312EE',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://makerdao.com/en/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
+  },
+  waaDAI: {
+    name: 'Wrapped Aave Tether DAI',
+    symbol: 'waaDAI',
+    address: '0x345A864Ac644c82c2D649491c905C71f240700b2',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://makerdao.com/en/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Wrapped Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
+  },
+  bbaaDAI: {
+    name: 'Balancer Aave DAI Linear Pool',
+    symbol: 'bbaaDAI',
+    address: '0x9E34631547aDcF2F8cefa0f5f223955C7B137571',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
+  },
+  bbaaUSD: {
+    name: 'Balancer Aave Stable Composable Pool',
+    symbol: 'bbaaUSD',
+    address: '0xEE02583596AEE94ccCB7e8ccd3921d955f17982A',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
