@@ -1,15 +1,16 @@
-import getBalancerPrices from '../api/stats/common/getBalancerPrices';
+import getBalancerPrices from '../api/stats/common/balancer/getBalancerPrices';
 import { web3Factory } from './web3';
 import beetsPools from '../data/optimism/beethovenxSteadyBeets.json';
 import bbaUSD from '../data/ethereum/bbaUSD.json';
 import bbamUSD from '../data/matic/bbamUSD.json';
+import bbaaUSD from '../data/arbitrum/bbaaUSD.json';
 import beetsLinearPools from '../data/optimism/beethovenxLinearPools.json';
 import beetsFantomLinearPools from '../data/fantom/beethovenxLinearPools.json';
 import balancerLinearPools from '../data/ethereum/balancerLinearPools.json';
 import balancerPolyLinearPools from '../data/matic/balancerLinearPools.json';
 import balancerArbLinearPools from '../data/arbitrum/balancerLinearPools.json';
 
-const stablePoolPools = [...beetsPools, ...bbaUSD, ...bbamUSD];
+const stablePoolPools = [...beetsPools, ...bbaUSD, ...bbamUSD, ...bbaaUSD];
 const linearPoolPools = [
   ...beetsLinearPools,
   ...beetsFantomLinearPools,

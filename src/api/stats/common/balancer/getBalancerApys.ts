@@ -1,17 +1,17 @@
 import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
+import { multicallAddress } from '../../../../utils/web3';
 import Web3 from 'web3';
-import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getCurveApyData';
-import { getApyBreakdown, ApyBreakdownResult } from '../common/getApyBreakdown';
+import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../curve/getCurveApyData';
+import { getApyBreakdown, ApyBreakdownResult } from '../getApyBreakdown';
 import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
 import jp from 'jsonpath';
-import { getContract } from '../../../utils/contractHelper';
-import IAaveProtocolDataProvider from '../../../abis/matic/AaveProtocolDataProvider.json';
-import IBalancerVault from '../../../abis/IBalancerVault.json';
+import { getContract } from '../../../../utils/contractHelper';
+import IAaveProtocolDataProvider from '../../../../abis/matic/AaveProtocolDataProvider.json';
+import IBalancerVault from '../../../../abis/IBalancerVault.json';
 import BigNumber from 'bignumber.js';
 import fetch from 'node-fetch';
-import { getTradingFeeAprBalancer } from '../../../utils/getTradingFeeApr';
-import fetchPrice from '../../../utils/fetchPrice';
+import { getTradingFeeAprBalancer } from '../../../../utils/getTradingFeeApr';
+import fetchPrice from '../../../../utils/fetchPrice';
 
 interface Token {
   newGauge?: boolean;

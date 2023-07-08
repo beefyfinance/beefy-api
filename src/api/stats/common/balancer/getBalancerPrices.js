@@ -1,10 +1,10 @@
 const BigNumber = require('bignumber.js');
 const { MultiCall } = require('eth-multicall');
-const { multicallAddress } = require('../../../utils/web3');
+const { multicallAddress } = require('../../../../utils/web3');
 
-const IBalancerVault = require('../../../abis/IBalancerVault.json');
-const ERC20 = require('../../../abis/ERC20.json');
-const { getContract } = require('../../../utils/contractHelper');
+const IBalancerVault = require('../../../../abis/IBalancerVault.json');
+const ERC20 = require('../../../../abis/ERC20.json');
+const { getContract } = require('../../../../utils/contractHelper');
 
 const getBalancerPrices = async (web3, chainId, pools, tokenPrices) => {
   let prices = {};

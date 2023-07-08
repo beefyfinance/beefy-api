@@ -1,4 +1,4 @@
-import getBalancerPrices from '../common/getBalancerPrices';
+import getBalancerPrices from '../common/balancer/getBalancerPrices';
 import { fantomWeb3 as web3 } from '../../../utils/web3';
 import { FANTOM_CHAIN_ID } from '../../../constants';
 import beetsPools from '../../../data/fantom/beethovenxPools.json';

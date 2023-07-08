@@ -1,7 +1,7 @@
 import { polygonWeb3 as web3 } from '../../../utils/web3';
 import { POLYGON_CHAIN_ID as chainId } from '../../../constants';
 import { balancerPolyClient as client } from '../../../apollo/client';
-const { getBalancerApys } = require('../common/getBalancerApys');
+const { getBalancerApys } = require('../common/balancer/getBalancerApys');
 import { addressBook } from '../../../../packages/address-book/address-book';
 
 const {

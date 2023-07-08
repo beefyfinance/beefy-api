@@ -1,0 +1,57 @@
+[
+  {
+    "name": "aura-bbaaUSD",
+    "address": "0xEE02583596AEE94ccCB7e8ccd3921d955f17982A",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x4fa10a40407ba386e3a863381200b4e6049950fa",
+    "vaultPoolId": "0xee02583596aee94cccb7e8ccd3921d955f17982a00000000000000000000040a",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "composable": true,
+    "includesComposableAaveTokens": true,
+    "bbIndex": 3,
+    "bbPoolId": "0xee02583596aee94cccb7e8ccd3921d955f17982a00000000000000000000040a",
+    "bptIndex": 3,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaaUSDT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaaUSDC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaaDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ],
+    "aaveUnderlying": [
+      {
+        "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+        "index": 0,
+        "bbIndex": 0,
+        "poolId": "0x4739e50b59b552d490d3fdc60d200977a38510c0000000000000000000000409"
+      },
+      {
+        "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+        "index": 0,
+        "bbIndex": 0,
+        "poolId": "0x7c82a23b4c48d796dee36a9ca215b641c6a8709d000000000000000000000406"
+      },
+      {
+        "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+        "index": 0,
+        "bbIndex": 0,
+        "poolId": "0x9e34631547adcf2f8cefa0f5f223955c7b137571000000000000000000000407"
+      }
+    ]
+  }
+]
