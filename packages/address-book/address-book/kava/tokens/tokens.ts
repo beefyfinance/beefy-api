@@ -43,9 +43,9 @@ const _tokens = {
       'Multichain Bridged Token. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
   },
-  USDt: {
-    name: 'USDt',
-    symbol: 'USDt',
+  USDT: {
+    name: 'USDT',
+    symbol: 'USDT',
     address: '0x919C1c267BC06a7039e03fcc2eF738525769109c',
     chainId: 2222,
     decimals: 6,
@@ -119,6 +119,7 @@ const _tokens = {
   axlUSDT: {
     name: 'USDT',
     symbol: 'axlUSDT',
+    oracleId: 'kaxlUSDT',
     address: '0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6',
     chainId: 2222,
     decimals: 6,
