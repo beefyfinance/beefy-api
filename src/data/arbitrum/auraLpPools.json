@@ -1,5 +1,50 @@
 [
   {
+    "name": "balancer-tbtc-weth",
+    "address": "0xc9f52540976385a84bf416903e1ca3983c539e34",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x9626e4d2b444f386fd63181f65dfeb8d141e1824",
+    "vaultPoolId": "0xc9f52540976385a84bf416903e1ca3983c539e34000200000000000000000434",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancer-tbtc-wbtc",
+    "address": "0x542F16DA0efB162D20bF4358EfA095B70A100f9E",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xfcc94454061b7fdf0b03b0d2107ecd9c6c74ddfd",
+    "vaultPoolId": "0x542f16da0efb162d20bf4358efa095b70a100f9e000000000000000000000436",
+    "composable": true,
+    "bptIndex": 1,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-bbaaUSD",
     "address": "0xEE02583596AEE94ccCB7e8ccd3921d955f17982A",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
