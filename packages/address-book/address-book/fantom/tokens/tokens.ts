@@ -1694,6 +1694,18 @@ const _tokens = {
       'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
     documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
   },
+  lzUSDC: {
+    name: 'USD Coin',
+    symbol: 'lzUSDC',
+    address: '0x28a92dde19D9989F39A49905d7C9C2FAc7799bDf',
+    chainId: 250,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.circle.com/usdc',
+    description:
+      'USDC (LayerZero) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    documentation: 'https://layerzero.gitbook.io/docs/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
