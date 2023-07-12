@@ -1153,7 +1153,7 @@ const _tokens = {
     logoURI: 'https://ftmscan.com/token/images/chainlink_32.png',
     bridge: 'Multichain',
   },
-  USDC: {
+  fmcUSDC: {
     name: 'USD Coin',
     address: '0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
     symbol: 'fmcUSDC',
