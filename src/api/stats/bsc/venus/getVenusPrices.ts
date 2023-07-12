@@ -2,17 +2,39 @@ import { getContractWithProvider } from '../../../../utils/contractHelper';
 import { isFiniteNumber } from '../../../../utils/number';
 import BigNumber from 'bignumber.js';
 import { bscWeb3 } from '../../../../utils/web3';
+import { isFiniteBigNumber } from '../../../../utils/big-number';
+
+type vToken = {
+  oracleId: string;
+  address: string;
+  decimals: number;
+  underlying: {
+    oracleId: string;
+    decimals: number;
+  };
+};
 
 const vUSDT = {
-  oracle: 'vUSDT',
+  oracleId: 'vUSDT',
   address: '0xfD5840Cd36d94D7229439859C0112a4185BC0255',
   decimals: 8,
   underlying: {
-    oracle: 'tokens',
     oracleId: 'USDT',
     decimals: 18,
   },
-};
+} as const satisfies vToken;
+
+const vBIFI = {
+  oracleId: 'vBIFI',
+  address: '0xC718c51958d3fd44f5F9580c9fFAC2F89815C909',
+  decimals: 8,
+  underlying: {
+    oracleId: 'BIFI',
+    decimals: 18,
+  },
+} as const satisfies vToken;
+
+const vTokens = [vUSDT, vBIFI];
 
 const abi = [
   {
@@ -29,24 +51,48 @@ const abi = [
 export const fetchVenusPrices = async (
   tokenPrices: Record<string, number>
 ): Promise<Record<string, number>> => {
-  const contract = getContractWithProvider(abi, vUSDT.address, bscWeb3);
+  const exchangeRates = await Promise.all(
+    vTokens.map(async vToken => {
+      try {
+        const contract = getContractWithProvider(abi, vToken.address, bscWeb3); // TODO viem
+        const currentExchangeRate = new BigNumber(
+          await contract.methods.exchangeRateCurrent().call()
+        );
+        if (isFiniteBigNumber(currentExchangeRate)) {
+          return currentExchangeRate;
+        } else {
+          console.log(
+            `Error fetching venus price for ${vToken.oracleId}: invalid exchangeRateCurrent`
+          );
+        }
+      } catch (err) {
+        console.log(`Error fetching venus price for ${vToken.oracleId}: ${err.message}`);
+      }
 
-  try {
-    const currentExchangeRate = new BigNumber(await contract.methods.exchangeRateCurrent().call());
-    const divisor = new BigNumber(10).pow(18 + vUSDT.underlying.decimals - vUSDT.decimals);
+      return undefined;
+    })
+  );
 
-    const exchangeRate = currentExchangeRate.div(divisor);
-    const underlyingPrice = tokenPrices[vUSDT.underlying.oracleId];
-
-    if (isFiniteNumber(underlyingPrice)) {
-      return {
-        vUSDT: exchangeRate.times(underlyingPrice).toNumber(),
-      };
-    } else {
-      throw new Error('missing underlying price for ' + vUSDT.underlying.oracleId);
+  return vTokens.reduce((prices, vToken, i) => {
+    const exchangeRateWei = exchangeRates[i];
+    if (!exchangeRateWei) {
+      return prices;
     }
-  } catch (err) {
-    console.log('Error fetching venus prices: ' + err.message);
-  }
-  return {};
+
+    const underlyingPrice = tokenPrices[vToken.underlying.oracleId];
+    if (!isFiniteNumber(underlyingPrice)) {
+      console.log(
+        `Error fetching venus price for ${vToken.oracleId}: invalid underlying price for ${vToken.underlying.oracleId}}`
+      );
+      return prices;
+    }
+
+    const exchangeRate = exchangeRateWei.shiftedBy(
+      -(18 + vToken.underlying.decimals - vToken.decimals)
+    );
+
+    prices[vToken.oracleId] = exchangeRate.times(underlyingPrice).toNumber();
+
+    return prices;
+  }, {} as Record<string, number>);
 };

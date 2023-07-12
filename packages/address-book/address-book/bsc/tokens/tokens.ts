@@ -4132,5 +4132,16 @@ const _tokens = {
       'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
     logoURI: '',
   },
+  vBIFI: {
+    name: 'Venus BIFI',
+    symbol: 'BIFI',
+    address: '0xC718c51958d3fd44f5F9580c9fFAC2F89815C909',
+    chainId: 56,
+    decimals: 8,
+    website: 'https://venus.io/',
+    description:
+      'Venus wrapped BIFI. Venus is an algorithmic money market and synthetic stablecoin protocol launched exclusively on BNB Chain.',
+    logoURI: '',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
