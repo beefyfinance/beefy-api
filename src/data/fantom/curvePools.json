@@ -14,12 +14,12 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "WBTC",
+        "oracleId": "fmcWBTC",
         "decimals": "1e8"
       },
       {
         "oracle": "tokens",
-        "oracleId": "ETH",
+        "oracleId": "fmcETH",
         "decimals": "1e18"
       }
     ]
@@ -64,12 +64,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WBTC",
+        "oracleId": "BTC",
         "decimals": "1e8"
       },
       {
         "oracle": "tokens",
-        "oracleId": "WBTC",
+        "oracleId": "fmcWBTC",
         "decimals": "1e8"
       }
     ]
@@ -91,7 +91,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       }
     ]
@@ -198,12 +198,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "FRAX",
+        "oracleId": "fmcFRAX",
         "decimals": "1e18"
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -226,7 +226,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "MAI",
+        "oracleId": "fMAI",
         "decimals": "1e18"
       },
       {
@@ -236,7 +236,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       }
     ]
@@ -257,13 +257,13 @@
       {
         "geistToken": "0x07E6332dD090D287d3489245038daF987955DCFB",
         "oracle": "tokens",
-        "oracleId": "DAI",
+        "oracleId": "fmcDAI",
         "decimals": "1e18"
       },
       {
         "geistToken": "0xe578C856933D8e1082740bf7661e379Aa2A30b26",
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -293,12 +293,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "DAI",
+        "oracleId": "fmcDAI",
         "decimals": "1e18"
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       }
     ]

@@ -4,7 +4,7 @@ import Token from '../../../types/token';
 const ETH = {
   name: 'Wrapped Ether',
   address: '0x74b23882a30290451A17c44f4F05243b6b58C76d',
-  symbol: 'ETH',
+  symbol: 'fmcETH',
   decimals: 18,
   chainId: 250,
   website: 'https://ethereum.org/',
@@ -18,7 +18,7 @@ const ETH = {
 const BTC = {
   name: 'Wrapped Bitcoin',
   address: '0x321162Cd933E2Be498Cd2267a90534A804051b11',
-  symbol: 'BTC',
+  symbol: 'fmcBTC',
   decimals: 8,
   chainId: 250,
   website: 'https://wbtc.network/',
@@ -81,7 +81,7 @@ const _tokens = {
   },
   alUSD: {
     name: 'Alchemix USD',
-    symbol: 'alUSD',
+    symbol: 'fmcalUSD',
     address: '0xB67FA6deFCe4042070Eb1ae1511Dcd6dcc6a532E',
     chainId: 250,
     decimals: 18,
@@ -129,7 +129,7 @@ const _tokens = {
   },
   gALCX: {
     name: 'Governance ALCX',
-    symbol: 'gALCX',
+    symbol: 'fmcgALCX',
     address: '0x70F9fd19f857411b089977E7916c05A0fc477Ac9',
     chainId: 250,
     decimals: 18,
@@ -141,7 +141,7 @@ const _tokens = {
   },
   ALPACA: {
     name: 'Alpaca Token',
-    symbol: 'ALPACA',
+    symbol: 'fmcALPACA',
     address: '0xaD996A45fd2373ed0B10Efa4A8eCB9de445A4302',
     chainId: 250,
     decimals: 18,
@@ -560,7 +560,7 @@ const _tokens = {
   },
   gOHM: {
     name: 'Governance OHM',
-    symbol: 'gOHM',
+    symbol: 'fmcgOHM',
     address: '0x91fa20244Fb509e8289CA630E5db3E9166233FDc',
     chainId: 250,
     decimals: 18,
@@ -766,7 +766,7 @@ const _tokens = {
   },
   TUSD: {
     name: 'True USD',
-    symbol: 'TUSD',
+    symbol: 'fmcTUSD',
     address: '0x9879aBDea01a879644185341F7aF7d8343556B7a',
     decimals: 18,
     chainId: 250,
@@ -824,7 +824,7 @@ const _tokens = {
   },
   MAI: {
     name: 'Mai',
-    symbol: 'miMATIC',
+    symbol: 'fMAI',
     address: '0xfB98B335551a418cD0737375a2ea0ded62Ea213b',
     chainId: 250,
     decimals: 18,
@@ -946,7 +946,7 @@ const _tokens = {
   BUSD: {
     name: 'Binance USD',
     address: '0xC931f61B1534EB21D8c11B24f3f5Ab2471d4aB50',
-    symbol: 'BUSD',
+    symbol: 'fmcBUSD',
     decimals: 18,
     chainId: 250,
     website: 'https://www.binance.com/en/busd/',
@@ -1144,7 +1144,7 @@ const _tokens = {
   LINK: {
     name: 'ChainLink',
     address: '0xb3654dc3D10Ea7645f8319668E8F54d2574FBdC8',
-    symbol: 'LINK',
+    symbol: 'fmcLINK',
     decimals: 18,
     website: 'https://chain.link/',
     description:
@@ -1156,7 +1156,7 @@ const _tokens = {
   USDC: {
     name: 'USD Coin',
     address: '0x04068DA6C83AFCFA0e13ba15A6696662335D5B75',
-    symbol: 'USDC',
+    symbol: 'fmcUSDC',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
@@ -1168,7 +1168,7 @@ const _tokens = {
   },
   WBTC: {
     ...BTC,
-    symbol: 'WBTC',
+    symbol: 'fmcWBTC',
     website: 'https://wbtc.network/',
     bridge: 'Multichain',
     description:
@@ -1178,7 +1178,7 @@ const _tokens = {
   AAVE: {
     name: 'Aave',
     address: '0x6a07A792ab2965C72a5B8088d3a069A7aC3a993B',
-    symbol: 'AAVE',
+    symbol: 'fmcAAVE',
     decimals: 18,
     chainId: 250,
     website: 'https://aave.com/',
@@ -1190,7 +1190,7 @@ const _tokens = {
   DAI: {
     name: 'Dai Stablecoin',
     address: '0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E',
-    symbol: 'DAI',
+    symbol: 'fmcDAI',
     decimals: 18,
     chainId: 250,
     website: 'https://makerdao.com/en/',
@@ -1202,7 +1202,7 @@ const _tokens = {
   SUSHI: {
     name: 'Sushi',
     address: '0xae75A438b2E0cB8Bb01Ec1E1e376De11D44477CC',
-    symbol: 'SUSHI',
+    symbol: 'fmcSUSHI',
     decimals: 18,
     chainId: 250,
     website: 'https://sushi.com/',
@@ -1214,7 +1214,7 @@ const _tokens = {
   YFI: {
     name: 'yearn.finance',
     address: '0x29b0Da86e484E1C0029B56e817912d778aC0EC69',
-    symbol: 'YFI',
+    symbol: 'fmcYFI',
     decimals: 18,
     chainId: 250,
     website: 'https://yearn.finance/',
@@ -1226,7 +1226,7 @@ const _tokens = {
   CRV: {
     name: 'Curve DAO',
     address: '0x1E4F97b9f9F913c46F1632781732927B9019C68b',
-    symbol: 'CRV',
+    symbol: 'fmcCRV',
     decimals: 18,
     chainId: 250,
     website: 'https://curve.fi/',
@@ -1238,7 +1238,7 @@ const _tokens = {
   BAND: {
     name: 'Band',
     address: '0x46E7628E8b4350b2716ab470eE0bA1fa9e76c6C5',
-    symbol: 'BAND',
+    symbol: 'fmcBAND',
     decimals: 18,
     chainId: 250,
     website: 'https://bandprotocol.com/',
@@ -1274,7 +1274,7 @@ const _tokens = {
   anyFRAX: {
     name: 'Frax',
     address: '0xaf319E5789945197e365E7f7fbFc56B130523B33',
-    symbol: 'FRAX',
+    symbol: 'fmcFRAX',
     decimals: 18,
     chainId: 250,
     website: 'https://frax.finance/',
@@ -1413,7 +1413,7 @@ const _tokens = {
   },
   BIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'fmcBIFI',
     address: '0xd6070ae98b8069de6B494332d1A1a81B6179D960',
     chainId: 250,
     decimals: 18,
@@ -1452,7 +1452,7 @@ const _tokens = {
   },
   BNB: {
     name: 'Binance Chain',
-    symbol: 'BNB',
+    symbol: 'fmcBNB',
     address: '0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454',
     chainId: 250,
     decimals: 18,
@@ -1658,7 +1658,7 @@ const _tokens = {
   },
   AVAX: {
     name: 'Avalanche',
-    symbol: 'AVAX',
+    symbol: 'fmcAVAX',
     address: '0x511D35c52a3C244E7b8bd92c0C297755FbD89212',
     chainId: 250,
     decimals: 18,
@@ -1697,7 +1697,7 @@ const _tokens = {
   MATIC: {
     name: 'MATIC',
     address: '0x40DF1Ae6074C35047BFF66675488Aa2f9f6384F3',
-    symbol: 'MATIC',
+    symbol: 'fmcMATIC',
     decimals: 18,
     website: 'https://polygon.technology/',
     bridge: 'Multichain',

@@ -35,7 +35,7 @@
     "lp1": {
       "address": "0x511D35c52a3C244E7b8bd92c0C297755FbD89212",
       "oracle": "tokens",
-      "oracleId": "AVAX",
+      "oracleId": "fmcAVAX",
       "decimals": "1e18"
     }
   },
@@ -75,7 +75,7 @@
     "lp1": {
       "address": "0xb3654dc3D10Ea7645f8319668E8F54d2574FBdC8",
       "oracle": "tokens",
-      "oracleId": "LINK",
+      "oracleId": "fmcLINK",
       "decimals": "1e18"
     }
   },
@@ -95,7 +95,7 @@
     "lp1": {
       "address": "0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "fmcBNB",
       "decimals": "1e18"
     }
   },
@@ -109,7 +109,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
@@ -155,7 +155,7 @@
     "lp1": {
       "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "fmcETH",
       "decimals": "1e18"
     }
   },
@@ -169,13 +169,13 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "fmcETH",
       "decimals": "1e18"
     }
   },
@@ -195,7 +195,7 @@
     "lp1": {
       "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
       "oracle": "tokens",
-      "oracleId": "DAI",
+      "oracleId": "fmcDAI",
       "decimals": "1e18"
     }
   },
@@ -215,7 +215,7 @@
     "lp1": {
       "address": "0xd6070ae98b8069de6B494332d1A1a81B6179D960",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "oracleId": "fmcBIFI",
       "decimals": "1e18"
     }
   },
@@ -295,7 +295,7 @@
     "lp1": {
       "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
       "oracle": "tokens",
-      "oracleId": "WBTC",
+      "oracleId": "fmcWBTC",
       "decimals": "1e8"
     }
   }

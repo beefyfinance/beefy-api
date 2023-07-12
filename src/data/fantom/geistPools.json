@@ -27,7 +27,7 @@
     "aToken": "0x07E6332dD090D287d3489245038daF987955DCFB",
     "debtToken": "0xd25aa085EF6a304C6861750f16A3Fa0D03d25DDB",
     "oracle": "tokens",
-    "oracleId": "DAI",
+    "oracleId": "fmcDAI",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -38,7 +38,7 @@
     "aToken": "0xe578C856933D8e1082740bf7661e379Aa2A30b26",
     "debtToken": "0x3EeF981640064d63BB7eaD4c6E3C0457E5c2934D",
     "oracle": "tokens",
-    "oracleId": "USDC",
+    "oracleId": "fmcUSDC",
     "decimals": "1e6",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -49,7 +49,7 @@
     "aToken": "0x25c130B2624CF12A4Ea30143eF50c5D68cEFA22f",
     "debtToken": "0xbDCE00a99a4b7E99f7A6Af7D44724F77D471F923",
     "oracle": "tokens",
-    "oracleId": "ETH",
+    "oracleId": "fmcETH",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -60,7 +60,7 @@
     "aToken": "0x38aCa5484B8603373Acc6961Ecd57a6a594510A3",
     "debtToken": "0x4318d7aD332A0feE9Db6D2B9b4B021fDA865aBdB",
     "oracle": "tokens",
-    "oracleId": "WBTC",
+    "oracleId": "fmcWBTC",
     "decimals": "1e8",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -71,7 +71,7 @@
     "aToken": "0x690754A168B022331cAA2467207c61919b3F8A98",
     "debtToken": "0x811A951D15f4DD33e9Aa8D6F7AfF6d1433fe644A",
     "oracle": "tokens",
-    "oracleId": "CRV",
+    "oracleId": "fmcCRV",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -115,7 +115,7 @@
     "aToken": "0x07E6332dD090D287d3489245038daF987955DCFB",
     "debtToken": "0xd25aa085EF6a304C6861750f16A3Fa0D03d25DDB",
     "oracle": "tokens",
-    "oracleId": "DAI",
+    "oracleId": "fmcDAI",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0
@@ -126,7 +126,7 @@
     "aToken": "0xe578C856933D8e1082740bf7661e379Aa2A30b26",
     "debtToken": "0x3EeF981640064d63BB7eaD4c6E3C0457E5c2934D",
     "oracle": "tokens",
-    "oracleId": "USDC",
+    "oracleId": "fmcUSDC",
     "decimals": "1e6",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -137,7 +137,7 @@
     "aToken": "0x25c130B2624CF12A4Ea30143eF50c5D68cEFA22f",
     "debtToken": "0xbDCE00a99a4b7E99f7A6Af7D44724F77D471F923",
     "oracle": "tokens",
-    "oracleId": "ETH",
+    "oracleId": "fmcETH",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -148,7 +148,7 @@
     "aToken": "0x38aCa5484B8603373Acc6961Ecd57a6a594510A3",
     "debtToken": "0x4318d7aD332A0feE9Db6D2B9b4B021fDA865aBdB",
     "oracle": "tokens",
-    "oracleId": "WBTC",
+    "oracleId": "fmcWBTC",
     "decimals": "1e8",
     "borrowDepth": 1,
     "borrowPercent": 0
@@ -159,7 +159,7 @@
     "aToken": "0x690754A168B022331cAA2467207c61919b3F8A98",
     "debtToken": "0x811A951D15f4DD33e9Aa8D6F7AfF6d1433fe644A",
     "oracle": "tokens",
-    "oracleId": "CRV",
+    "oracleId": "fmcCRV",
     "decimals": "1e18",
     "borrowDepth": 1,
     "borrowPercent": 0.01
@@ -181,7 +181,7 @@
     "aToken": "0xBeCF29265B0cc8D33fA24446599955C7bcF7F73B",
     "debtToken": "0xFc8F690B285A013A86B7A71c0aF70bC57302e7e4",
     "oracle": "tokens",
-    "oracleId": "LINK",
+    "oracleId": "fmcLINK",
     "decimals": "1e18",
     "borrowDepth": 4,
     "borrowPercent": 0.47
