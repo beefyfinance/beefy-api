@@ -1,5 +1,25 @@
 [
   {
+    "name": "pearl-tngbl-usdr",
+    "address": "0x16e9D19221DF563CfB15628953B5c51E4a2Be30c",
+    "gauge": "0x99f21d87eD8A2d04cD18E44571e60e414384B678",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x49e6A20f1BBdfEeC2a8222E052000BbB14EE6007",
+      "oracle": "tokens",
+      "oracleId": "TNGBL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xb5DFABd7fF7F83BAB83995E72A52B97ABb7bcf63",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    }
+  },
+  {
     "name": "pearl-wusdr-usdr",
     "address": "0x10E1b58B3C93890D04D539b5f39Aa4Df27A362b2",
     "gauge": "0xa9d0fb2581DdD3783853fB3Fda9B296a2c7a0734",

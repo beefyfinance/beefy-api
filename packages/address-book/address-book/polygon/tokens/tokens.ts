@@ -1920,6 +1920,17 @@ const _tokens = {
     description: 'Axelar Bridged USDC',
     documentation: 'https://docs.axelar.dev/',
   },
+  TNGBL: {
+    name: 'Tangible',
+    symbol: 'TNGBL',
+    address: '0x49e6A20f1BBdfEeC2a8222E052000BbB14EE6007',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.tangible.store/',
+    description:
+      'Tangible converts real world assets into tangible NFTs (TNFTs) that can be redeemed for the physical product at any time.',
+  },
   BETS: {
     name: 'BetSwirl Token',
     symbol: 'BETS',
