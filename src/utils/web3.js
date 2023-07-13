@@ -63,6 +63,9 @@ module.exports = {
   get zksyncWeb3() {
     return chainRandomClients.zksyncRandomClient();
   },
+  get zkevmWeb3() {
+    return chainRandomClients.zkevmRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

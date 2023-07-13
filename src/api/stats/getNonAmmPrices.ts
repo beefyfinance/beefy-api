@@ -71,6 +71,7 @@ import { getPolygonSolidlyStablePrices } from './matic/getPolygonSolidlyStablePr
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getQuickGammaPrices from './matic/getQuickGammaPrices';
 import getChronosStablePrices from './arbitrum/getChronosStablePrices';
+import getQuickGammaZkPrices from './zkevm/getQuickGammaPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -162,6 +163,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getStellaswapPrices(tokenPrices),
     getThenaGammaPrices(tokenPrices),
     getQuickGammaPrices(tokenPrices),
+    getQuickGammaZkPrices(tokenPrices),
     getChronosStablePrices(tokenPrices),
   ];
 

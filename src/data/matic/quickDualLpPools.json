@@ -14,7 +14,7 @@
     "lp1": {
       "address": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
       "oracle": "tokens",
-      "oracleId": "newQUICK",
+      "oracleId": "QUICK",
       "decimals": "1e18"
     },
     "rewardB": {
@@ -263,7 +263,7 @@
     "lp1": {
       "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
       "oracle": "tokens",
-      "oracleId": "QUICK",
+      "oracleId": "oldQUICK",
       "decimals": "1e18"
     },
     "rewardB": {
@@ -305,7 +305,7 @@
     "lp0": {
       "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
       "oracle": "tokens",
-      "oracleId": "QUICK",
+      "oracleId": "oldQUICK",
       "decimals": "1e18"
     },
     "lp1": {
@@ -451,7 +451,7 @@
     "lp1": {
       "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
       "oracle": "tokens",
-      "oracleId": "QUICK",
+      "oracleId": "oldQUICK",
       "decimals": "1e18"
     }
   },

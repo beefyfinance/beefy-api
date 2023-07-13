@@ -59,6 +59,7 @@ const KAVA_RPC = process.env.KAVA_RPC || 'https://evm.kava.io';
 const ETH_RPC = process.env.ETH_RPC || 'https://rpc.ankr.com/eth';
 const CANTO_RPC = process.env.CANTO_RPC || 'https://canto.slingshot.finance';
 const ZKSYNC_RPC = process.env.ZKSYNC_RPC || 'https://mainnet.era.zksync.io';
+const ZKEVM_RPC = process.env.ZKEVM_RPC || 'https://zkevm-rpc.com';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -80,6 +81,7 @@ const KAVA_CHAIN_ID = ChainId.kava;
 const ETH_CHAIN_ID = ChainId.ethereum;
 const CANTO_CHAIN_ID = ChainId.canto;
 const ZKSYNC_CHAIN_ID = ChainId.zksync;
+const ZKEVM_CHAIN_ID = ChainId.zkevm;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.003;
@@ -122,6 +124,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.ethereum]: ETH_RPC,
   [ChainId.canto]: CANTO_RPC,
   [ChainId.zksync]: ZKSYNC_RPC,
+  [ChainId.zkevm]: ZKEVM_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -164,6 +167,8 @@ const CANTO_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/canto.json';
 const ZKSYNC_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/zksync.json';
+const ZKEVM_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/zkevm.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -186,6 +191,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   ethereum: ETHEREUM_VAULTS_ENDPOINT,
   canto: CANTO_VAULTS_ENDPOINT,
   zksync: ZKSYNC_VAULTS_ENDPOINT,
+  //zkevm: ZKEVM_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -253,6 +259,9 @@ export {
   ZKSYNC_RPC,
   ZKSYNC_CHAIN_ID,
   ZKSYNC_VAULTS_ENDPOINT,
+  ZKEVM_RPC,
+  ZKEVM_CHAIN_ID,
+  //ZKEVM_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,

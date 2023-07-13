@@ -218,7 +218,7 @@ const _tokens = {
   newQUICK: {
     name: 'Quickswap',
     address: '0xB5C064F955D8e7F38fE0460C556a72987494eE17',
-    symbol: 'newQUICK',
+    symbol: 'QUICK',
     decimals: 18,
     chainId: 137,
     website: 'https://quickswap.exchange/#/swap',
