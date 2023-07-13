@@ -1,6 +1,7 @@
 const { getQuickGammaApys } = require('./getQuickGammaApys');
+const getBalancerZkevmApys = require('./getBalancerApys');
 
-const getApys = [getQuickGammaApys];
+const getApys = [getQuickGammaApys, getBalancerZkevmApys];
 
 const getZkevmApys = async () => {
   let apys = {};

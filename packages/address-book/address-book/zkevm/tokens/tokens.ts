@@ -142,6 +142,46 @@ const _tokens = {
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
     bridge: 'frax',
   },
+  BAL: {
+    name: 'Balancer',
+    symbol: 'BAL',
+    address: '0x120eF59b80774F02211563834d8E3b72cb1649d6',
+    chainId: 1101,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xCf7eceE185f19e2E970a301eE37F93536ed66179.svg',
+    website: 'https://balancer.fi/',
+    description:
+      'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities. ',
+    documentation: 'https://docs.balancer.fi/',
+    bridge: 'polygon-zkevm',
+  },
+  wstETH: {
+    name: 'Lido Wrapped Staked ETH',
+    symbol: 'wstETH',
+    address: '0x5D8cfF95D7A57c0BF50B30b43c7CC0D52825D4a9',
+    chainId: 1101,
+    decimals: 18,
+    website: 'https://lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    logoURI: '',
+    documentation: 'https://docs.lido.fi/',
+    bridge: 'polygon-zkevm',
+  },
+  rETH: {
+    name: 'Rocket Pool ETH',
+    symbol: 'rETH',
+    address: '0xb23C20EFcE6e24Acca0Cef9B7B7aA196b84EC942',
+    chainId: 1101,
+    decimals: 18,
+    website: 'https://rocketpool.net/',
+    description:
+      'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
+    logoURI: '',
+    documentation: 'https://docs.rocketpool.net/guides/',
+    bridge: 'polygon-zkevm',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
