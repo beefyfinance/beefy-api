@@ -1861,6 +1861,18 @@ const _tokens = {
       'USDC (LayerZero) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://layerzero.gitbook.io/docs/',
   },
+  lzUSDT: {
+    name: 'Tether USD',
+    symbol: 'lzUSDT',
+    address: '0xcc1b99dDAc1a33c201a742A1851662E87BC7f22C',
+    chainId: 250,
+    decimals: 6,
+    website: 'https://tether.to/en/transparency/#usdt',
+    bridge: 'layer-zero',
+    description:
+      'USDT (LayerZero) is a cryptocurrency that is designed to maintain a stable value equivalent to the US dollar by being backed by a one-to-one reserve ratio of fiat currency held in deposit by Tether Limited.',
+    documentation: 'https://layerzero.gitbook.io/docs/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
