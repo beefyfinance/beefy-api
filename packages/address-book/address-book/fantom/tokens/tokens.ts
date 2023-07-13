@@ -12,7 +12,7 @@ const ETH = {
     'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
   logoURI: 'https://ftmscan.com/token/images/wETH_32.png',
   documentation: 'https://ethereum.org/en/developers/docs/',
-  bridge: 'Multichain',
+  bridge: 'multichain',
 } as const;
 
 const BTC = {
@@ -25,7 +25,7 @@ const BTC = {
   description:
     'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   logoURI: 'https://ftmscan.com/token/images/wBTC_32.png',
-  bridge: 'Multichain',
+  bridge: 'multichain',
 } as const;
 
 const FTM = {
@@ -38,7 +38,7 @@ const FTM = {
   description:
     'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
   logoURI: 'https://ftmscan.com/token/images/wFtm_32.png',
-  bridge: 'Native',
+  bridge: 'native',
 } as const;
 
 const _tokens = {
@@ -52,7 +52,7 @@ const _tokens = {
     website: 'https://beets.fi/#/',
     description: 'Balancer linear pool that consist of yvWFTM and WFTM.',
     documentation: 'https://docs.beets.fi/balancer-v2-1/pools#boosted-pools',
-    bridge: 'Native',
+    bridge: 'native',
   },
   yvWFTM: {
     name: 'WFTM yVault',
@@ -65,7 +65,7 @@ const _tokens = {
     description:
       "yVault tokens represent a user's share in a yVault. These vaults contain a pool of underlying assets, such as WFTM, that generate profits for the users. The more profit the yVault generates, the higher the value of the user's yVault Token. When a user withdraws their liquidity from the yVault, their yVault Token is burned, and they receive the equivalent value in the underlying asset.",
     documentation: 'https://docs.yearn.finance/',
-    bridge: 'Native',
+    bridge: 'native',
   },
   SYN: {
     name: 'Synapse Protocol',
@@ -89,7 +89,7 @@ const _tokens = {
     website: 'https://alchemix.fi/',
     description:
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   POTS: {
     name: 'Moonpot',
@@ -102,7 +102,7 @@ const _tokens = {
     website: 'https://moonpot.com/',
     description:
       'Stake Crypto, Earn Interest and Win Prizes. The greatest win-win savings game this side of the galaxy, where even the smallest of stakes wins the biggest prizes.',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   COMB: {
     name: 'Comb Finance',
@@ -114,7 +114,7 @@ const _tokens = {
     website: 'https://comb.financial/',
     description:
       'COMB is a protocol aimed towards establishing a suite of financial products built on top of the Fantom blockchain. Diversify your portfolio with one token.',
-    bridge: 'Native',
+    bridge: 'native',
   },
   SINGLE: {
     name: 'SINGLE Token',
@@ -125,7 +125,7 @@ const _tokens = {
     logoURI: 'https://mm.finance/images/tokens/0x0804702a4E749d39A35FDe73d1DF0B1f1D6b8347.svg',
     website: 'https://singlefinance.io/',
     description: 'Single-click pseudo market-neutral strategy with a human touch.',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   gALCX: {
     name: 'Governance ALCX',
@@ -137,7 +137,7 @@ const _tokens = {
     website: 'https://alchemix.fi/',
     description:
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   ALPACA: {
     name: 'Alpaca Token',
@@ -149,7 +149,7 @@ const _tokens = {
     website: 'https://www.alpacafinance.org/',
     description:
       'Alpaca Finance is the largest lending protocol allowing leveraged yield farming on BNB Chain and Fantom.',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   PGK: {
     name: 'Penguin Karts',
@@ -161,7 +161,7 @@ const _tokens = {
     website: 'https://penguinkarts.com/',
     description:
       'A battle-racing 3D multiplayer game built on the Blockchain. It combines the best elements of arcade style kart racing, mobile gaming and Play-to-Earn NFT dynamics.',
-    bridge: 'Native',
+    bridge: 'native',
   },
   SOLACE: {
     name: 'solace',
@@ -174,7 +174,7 @@ const _tokens = {
     website: 'https://solace.fi/',
     description:
       'Solace is building a community around making this space safe, secure and trusted so that we can onboard and de-risk DeFi and other crypto applications while opening the space to millions of users. We recently launched a coverage policy protocol that enables protection for liquidity providers, Defi protocols or DAOs to mitigate loss from hacks, bugs and exploits. Our purpose is to transform DeFi by delivering intelligent and empowering tools for a safe, secure and trusted industry.',
-    bridge: 'Native',
+    bridge: 'native',
   },
   FUSD: {
     name: 'Fantom USD',
@@ -185,7 +185,7 @@ const _tokens = {
     logoURI: 'https://assets.coingecko.com/coins/images/22230/large/fUSD_32.png?1641246519',
     website: 'https://fantom.foundation/defi/',
     description: 'Mint fUSD, the stablecoin on Fantom pegged 1:1 to the USD price, using your FTM.',
-    bridge: 'Native',
+    bridge: 'native',
   },
   MIDAS: {
     name: 'MIDAS',
@@ -196,7 +196,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://midas.investments/',
     description: 'Earn the highest yields on BTC, ETH, USDT, and DeFi assets.',
-    bridge: 'Native',
+    bridge: 'native',
   },
   TOR: {
     name: 'TOR',
@@ -206,7 +206,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://tor.hector.network/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'TOR is a fully collateralized stablecoin which acts as a foundational pillar within the Hector Network Ecosystem. Its unique smart contracts made it the first of its kind, creating positive price action for the HEC token each time a TOR coin is minted and empowering Hector Network to become deflationary.',
   },
@@ -218,7 +218,7 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://assets.spookyswap.finance/tokens/sFTMX.png',
     website: 'https://fantom.staderlabs.com/liquid-staking/pools',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'sFTMX is a liquid staking derivative token that gains value relative to FTM as staking rewards accrue. sFTMX offers 4.7% APY and maximum DeFi interoperability. Staking with Stader results in a decentralized distribution of assets across a curated pool of validators, while liquidity options are maintained through DEX liquidity pools.',
   },
@@ -230,7 +230,7 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/12623.png',
     website: 'https://staderlabs.com/',
-    bridge: 'Wormhole',
+    bridge: 'wormhole',
     description: 'Stader (SD) token is the native governance and value accrual token for Stader.',
   },
   ORKAN: {
@@ -241,7 +241,7 @@ const _tokens = {
     decimals: 9,
     logoURI: 'https://app.spiritswap.finance/images/tokens/ORKAN.png',
     website: 'https://orkan.finance/#/dashboard',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'The Orkan ($ORK) is a meta-governance protocol that aims to bootstrap liquidity flow on the Fantom Opera Blockchain.',
   },
@@ -252,7 +252,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'http://www.usdbalance.com/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'USDB provides a wide range of financial tools and services to individuals and institutions',
     logoURI: '',
@@ -264,7 +264,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.gelato.network/',
-    bridge: 'Celer',
+    bridge: 'celer',
     description:
       "Automate your smart contracts.  Outsource your web3 DevOps needs and enjoy the perks of Ethereum's most reliable bot network at your fingertips.",
     logoURI: '',
@@ -276,7 +276,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://topshelf.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
     logoURI: '',
@@ -288,7 +288,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://topshelf.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Mint fully decentralized sythentic assets on Binance Smart Chain, Fantom & Avalanche.',
     logoURI: '',
@@ -302,7 +302,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590/logo.png',
     website: 'https://stargate.finance/',
-    bridge: 'Stargate',
+    bridge: 'stargate',
     description:
       'Stargate is a community-driven organization building the first fully composable native asset bridge, and the first dApp built on LayerZero.',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
@@ -315,7 +315,7 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://assets.spookyswap.finance/tokens/APE.png',
     website: 'http://apecoin.com/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'ApeCoin is for the Web3 Economy. Culture has found new expression in web3 through art, gaming, entertainment, and events.',
   },
@@ -328,7 +328,7 @@ const _tokens = {
     logoURI:
       'https://app.fbomb.finance/images/tokens/0xbf4906762C38F50bC7Be0A11BB452C944f6C72E1.png',
     website: 'https://app.fbomb.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description: 'Shrapnel is an inflationary token launched along with BombSwap.',
   },
   BSHARE: {
@@ -339,7 +339,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://basedfinance.io/',
     description: 'Based Finance the first algorithmic token pegged to TOMB on the FTM Network.',
-    bridge: 'Native',
+    bridge: 'native',
     logoURI: 'https://assets.coingecko.com/coins/images/23507/small/based.PNG',
   },
   BASED: {
@@ -350,7 +350,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://basedfinance.io/',
     description: 'Based Finance the first algorithmic token pegged to TOMB on the FTM Network.',
-    bridge: 'Native',
+    bridge: 'native',
     logoURI: 'https://assets.coingecko.com/coins/images/23535/small/BASED_TOKEN.109291b9.png',
   },
   ATLAS: {
@@ -361,7 +361,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://atlascloud.network/',
     description: 'Atlas Cloud is a Nodes-as-a-service protocol on a Fantom chain.',
-    bridge: 'Native',
+    bridge: 'native',
     logoURI: 'https://assets.spookyswap.finance/tokens/Atlas.png',
   },
   SOLID: {
@@ -371,7 +371,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://solidly.exchange/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Solidly is an AMM allowing fully decentralized token swapping with support for low slippage trades between pegged assets like stablecoins.',
     logoURI: 'https://assets.spookyswap.finance/tokens/SOLID.png',
@@ -384,7 +384,7 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://assets.spookyswap.finance/tokens/KAE.png',
     website: 'https://kanpeki.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Kanpeki is an incentivized, non-custodial, individualized, fixed-rate borrowing, and lending platform.',
   },
@@ -395,7 +395,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://cre8r.vip/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'The worlds first & only decentralized Web3 content marketing agency DAO. Massively scalable. Fueled by DeFi.',
     logoURI: 'https://app.spiritswap.finance/images/tokens/CRE8R.png',
@@ -407,7 +407,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://deus.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
     logoURI: 'https://app.deus.finance/tokens/dei.svg',
@@ -420,7 +420,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://deus.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'DEI is an advanced algorithmic cross-chain fractional-reserve stablecoin, with one native bridge that will connect to all chains within the DEUS ecosystem. The collateral ratio of DEI is constantly monitored and adjusted via arbitrage bots.',
     logoURI: 'https://app.deus.finance/tokens/dei.svg',
@@ -433,7 +433,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://deus.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'DEUS Finance Evolution is a marketplace of decentralized financial services. We provide the infrastructure for others to build financial instruments, such as synthetic stock trading platforms, options and futures trading, and more.',
     logoURI: 'https://app.deus.finance/tokens/deus.svg',
@@ -446,7 +446,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://wigoswap.io/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'WigoSwap is a DeFi hub with lifetime farming earnings powered by Gamified Burning Mechanism (GBM).',
     logoURI: 'https://wigoswap.io/images/tokens/0xE992bEAb6659BFF447893641A378FbbF031C5bD6.svg',
@@ -458,7 +458,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://ripae.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: 'https://ripae.finance/logo_pae.svg',
@@ -470,7 +470,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://ripae.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
     logoURI: 'https://ripae.finance/logo_pftm.svg',
@@ -482,7 +482,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.metaland.game/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       "MetaLand is an RPG in monsters' perspective based on the D20 rules. It balances casual and strategy, with a complete social system and an extremely strong meta-universe immersion.",
     logoURI: 'https://assets.spookyswap.finance/tokens/MST.png',
@@ -494,7 +494,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://fantomstarter.io/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'With FantomStarter, you can raise and invest capital on any blockchain while the decentralized investment app manages all the regulatory, compliance, and multi network responsibilities.',
     logoURI: 'https://assets.spookyswap.finance/tokens/FS.png',
@@ -506,7 +506,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.morpheusswap.app/',
-    bridge: 'Native',
+    bridge: 'native',
     description: 'A community DEX powered by Fantom.',
     logoURI: 'https://assets.coingecko.com/coins/images/18306/small/pills.png?1639992136',
   },
@@ -517,7 +517,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.beefy.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'binSPIRIT is the Beefy wrapped version of inSPIRIT which boosts Spirit vaults on Beefy. binSPIRIT can be traded or minted 1:1 with SPIRIT.',
     logoURI: 'https://app.spiritswap.finance/images/tokens/BINSPIRIT.png',
@@ -529,7 +529,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://revenant.finance/creditum',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Creditum is a lending and borrowing protocol within the Fantom Ecosystem that allows users to borrow (or mint) cUSD, a stablecoin pegged at $1 USD, by posting different tokens as collateral.',
     logoURI: 'https://revenant.finance/img/tokens/creditum.png',
@@ -541,7 +541,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://revenant.finance/creditum/farm',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'As users farm the Creditum LP rewards, 10% of the rewards are added to the xCREDIT contract to increase the staked CREDIT pool size for all xCREDIT holders.',
     logoURI: 'https://revenant.finance/img/tokens/creditum.png',
@@ -553,7 +553,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://revenant.finance/creditum/cusd',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Users can deposit collateral into the Creditum platform and then borrow (mint) cUSD based on the USD value of the collateral deposited.',
     logoURI: 'https://revenant.finance/img/tokens/cUSD.png',
@@ -578,7 +578,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.oxdao.fi/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'The aim of 0xDAO is to provide a fully decentralized infrastructure, one that maximizes profits, capital efficiency and voting power for 0xDAO, creating a free market for established protocols on Fantom looking to increase liquidity.',
     logoURI: 'https://assets.spookyswap.finance/tokens/OXD.png',
@@ -590,7 +590,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://beets.fi/#/stake',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       '30% of Beethoven X protocol revenue is used to reward fBEETS holders. When you stake your Fidelio Duetto BPTs, you receive fBEETS in return.',
     logoURI: 'https://beets.fi/img/fBEETS.a3146dd6.png',
@@ -602,7 +602,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://scream.sh/stake',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'When SCREAM is deposited for xSCREAM, your share of xSCREAM increases your holding of SCREAM as fees are accumulated to do buybacks of SCREAM tokens.',
     logoURI: 'https://scream.sh/img/scream-multi.png',
@@ -614,19 +614,19 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://spookyswap.finance/pools',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'When you stake your BOOs into xBOO (in the Buyback BOO Pool) and then into a pool listed, you are earning a sum of the APRs!',
     logoURI: 'https://assets.coingecko.com/coins/images/22609/large/xboo.png?1642220445',
   },
   MULTI: {
-    name: 'Multichain',
+    name: 'multichain',
     symbol: 'MULTI',
     address: '0x9Fb9a33956351cf4fa040f65A13b835A3C8764E3',
     chainId: 250,
     decimals: 18,
     website: 'https://multichain.org/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Multichain is the ultimate Router for web3. It is an infrastructure developed for arbitrary cross-chain interactions.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/17050.png',
@@ -638,7 +638,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://defikingdoms.com/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'The JEWEL token can be used to purchase the most useful items and unique NFTs such as Heroes and Kingdoms in the game DefiKingdoms. JEWEL is also a governance token, so holders will have a say in the growth and evolution of the project.',
     logoURI: 'https://assets.coingecko.com/coins/images/18570/small/fAisLIV.png?1632449282',
@@ -651,7 +651,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://2omb.finance/',
     description: 'A fork of tomb.finance, pegged to the price of 1 FTM via seigniorage.',
-    bridge: 'Native',
+    bridge: 'native',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/2SHARES.png',
   },
@@ -663,7 +663,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://2omb.finance/',
     description: 'A fork of tomb.finance, pegged to the price of 1 FTM via seigniorage.',
-    bridge: 'Native',
+    bridge: 'native',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/2OMB.png',
   },
@@ -674,7 +674,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://paintswap.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'PaintSwap combines an open NFT marketplace with a decentralized exchange (AMM) on the Fantom Opera Network.',
     logoURI: 'https://assets.spookyswap.finance/tokens/BRUSH.png',
@@ -686,7 +686,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.stateratoken.com/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Statera (consisting of the STA and wSTA tokens) is a smart contract powered Indexed Deflationary Ecosystem, which synergizes with a trustless and community-driven portfolio of class-leading cryptocurrencies.',
     logoURI: 'https://ftmscan.com/token/images/stateratoken_32.png',
@@ -698,7 +698,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://spartacadabra.money/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Spartacadabra unlocks yield bearing assets and conjures magic stable coin Lambda (λ).',
     logoURI:
@@ -711,7 +711,7 @@ const _tokens = {
     chainId: 250,
     decimals: 6,
     website: 'https://www.terra.money/',
-    bridge: 'Wormhole',
+    bridge: 'wormhole',
     description:
       'Terras native token, LUNA, is used to stabilize the price of the protocols stablecoins.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png',
@@ -723,7 +723,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.terra.money/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
@@ -736,7 +736,7 @@ const _tokens = {
     decimals: 6,
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
     website: 'https://coinmarketcap.com/currencies/terrausd-wormhole/',
-    bridge: 'Wormhole',
+    bridge: 'wormhole',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
   },
@@ -748,7 +748,7 @@ const _tokens = {
     decimals: 6,
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/7129.png',
     website: 'https://coinmarketcap.com/currencies/terrausd-wormhole/',
-    bridge: 'Axelar',
+    bridge: 'axelar',
     description:
       'Terra stablecoins offer instant settlements, low fees and seamless cross-border exchange - loved by millions of users and merchants.',
   },
@@ -759,7 +759,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     website: 'https://solana.com/',
-    bridge: 'Wormhole',
+    bridge: 'wormhole',
     description:
       'Solana is the fastest blockchain in the world and the fastest growing ecosystem in crypto, with over 400 projects spanning DeFi, NFTs, Web3 and more.',
     logoURI: 'https://assets.coingecko.com/coins/images/4128/large/Solana.jpg?1635329178',
@@ -771,7 +771,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     website: 'https://www.trueusd.com/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'TrueUSD is one of a number of cryptocurrency stablecoins administered by TrustToken, a platform for tokenizing real-world assets.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/2563.png',
@@ -783,7 +783,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     website: 'https://www.traderjoexyz.com/#/home',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Trader Joe is your one-stop decentralized trading platform on the Avalanche network, of which JOE is the governance token that rewards its holders with a share of exchange revenues.',
     logoURI: 'https://www.traderjoexyz.com/static/media/logo.bc60f78d.png',
@@ -795,7 +795,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://assets.coingecko.com/coins/images/19389/small/CE2Sdy2.png',
-    bridge: 'Native',
+    bridge: 'native',
     description: 'Introducing "Yield Multiplying" to the world of DeFi.',
     website: 'https://summitdefi.com/',
   },
@@ -807,7 +807,7 @@ const _tokens = {
     chainId: 250,
     logoURI: 'https://assets.coingecko.com/coins/images/17173/small/pear200.png',
     description: 'High yields farms & pools on the Polygon chain & Binance Smart Chain',
-    bridge: 'Native',
+    bridge: 'native',
     website: 'https://fantom.pearzap.com/',
   },
   TAROT: {
@@ -817,7 +817,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.tarot.to/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Tarot is a decentralized lending protocol on Fantom Opera where users can participate as lenders or borrowers in isolated lending pools.',
     logoURI: 'https://assets.coingecko.com/coins/images/17881/large/tarot-200px.png?1629704943',
@@ -829,7 +829,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.mai.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
@@ -842,7 +842,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://beethovenx.io/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'BEETS is the governance token for the Beethoven X protocol. Built on Balancer V2, Beethoven X is the first next-generation AMM protocol on Fantom.',
     logoURI:
@@ -855,7 +855,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://singular.farm/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
     logoURI: 'https://github.com/singularfarm/assets/blob/main/400.png?raw=true',
@@ -868,7 +868,7 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://assets.coingecko.com/coins/images/18832/small/GEIST-token.png?1633560935',
     website: 'https://geist.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Geist is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
   },
@@ -881,7 +881,7 @@ const _tokens = {
     logoURI: 'https://fantom-exchange.jetswap.finance/images/coins/wings.png',
     website: 'https://fantom.jetswap.finance/',
     description: 'JetSwap AMM',
-    bridge: 'Native',
+    bridge: 'native',
   },
   STEAK: {
     name: 'SteakToken',
@@ -891,7 +891,7 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://assets.spookyswap.finance/tokens/STEAK.png',
     website: 'https://stakesteak.com/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       "StakeSteak's mission is to build lasting infrastructure to stabilize fUSD at $1.00",
   },
@@ -903,7 +903,7 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://assets.spookyswap.finance/tokens/FOO.png',
     website: 'https://fantums.com/',
-    bridge: 'Native',
+    bridge: 'native',
     description: 'Fantums are Opera themed digital collectibles (NFTs) on the Fantom blockchain.',
   },
   ZOO: {
@@ -913,7 +913,7 @@ const _tokens = {
     decimals: 0,
     chainId: 250,
     website: 'https://zoocoin.cash/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Zoo is an ecosystem of decentralized applications powered by Fantom network. Primary projects token (ZOO) is utilized within the ecosystem among various of developed and planned projects - portfolio monitoring solution ZooWallet, ZooPet (first ever NFT marketplace released on Fantom), charting provider ZooCharts, decentralized exchange ZooDex, trading insights aggregator ZooTrade and other.',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/200x200/9007.png',
@@ -925,7 +925,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     website: 'https://abracadabra.money/',
-    bridge: 'LayerZero',
+    bridge: 'layer-zero',
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
@@ -940,7 +940,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf981547a1D9A0c59C9aba1e2b826BF01a2e5E263/logo.png',
     website: 'https://tosdis.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description: 'The One Stop Defi Interoperable Solution powered with Liquid Staking',
   },
   BUSD: {
@@ -950,7 +950,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     website: 'https://www.binance.com/en/busd/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'These are digitised US Dollars and are always purchased and redeemed at 1 BUSD for 1 US dollar.',
     logoURI: '',
@@ -962,7 +962,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     website: 'https://app.spiritswap.finance/#/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       "SpiritSwap is a decentralized exchange (DEX) on the Fantom Opera Chain. SpiritSwap's design is based on the Uniswap constant-product automated market maker (AMM).",
     logoURI:
@@ -975,7 +975,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     website: 'https://tomb.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'TOMB Shares (TSHARE) are one of the ways to measure the value of the TOMB Protocol and shareholder trust in its ability to maintain TOMB close to peg. During epoch expansions the protocol mints TOMB and distributes it proportionally to all TSHARE holders who have staked their tokens in the Masonry (boardroom).',
     logoURI: 'https://assets.spookyswap.finance/tokens/TSHARE.png',
@@ -987,7 +987,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     website: 'https://tomb.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'The first algorithmic stablecoin on Fantom Opera, pegged to the price of 1 FTM via seigniorage',
     logoURI: 'https://assets.spookyswap.finance/tokens/TOMB.png',
@@ -1001,7 +1001,7 @@ const _tokens = {
     symbol: 'sFTM',
     decimals: 18,
     chainId: 250,
-    bridge: 'Native',
+    bridge: 'native',
     website:
       'https://fantom.foundation/defi/?__cf_chl_jschl_tk__=pmd_vfkYw1Z8PZor5oxGKrd9bxYd66paY0bLiQmy1dKOLpY-1633331752-0-gqNtZGzNAdCjcnBszQlR',
     description:
@@ -1015,7 +1015,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     website: 'https://fantom.foundation/defi/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Fantom offers the first DeFi stack built on an aBFT consensus. It’s much faster, cheaper, and more reliable and secure than its predecessors.',
     logoURI: 'https://repository.fantom.network/logos/wti.svg',
@@ -1029,7 +1029,7 @@ const _tokens = {
     website: 'https://fantom.foundation/defi/',
     description: 'Frapped an innovative wrapper for silver tokens.',
     logoURI: 'https://repository.fantom.network/logos/silver.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fLINK: {
     name: 'fLINK',
@@ -1040,7 +1040,7 @@ const _tokens = {
     website: 'https://fantom.foundation/defi/',
     description: 'Frapped an innovative wrapper for LINK tokens.',
     logoURI: 'https://repository.fantom.network/logos/link.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fKRW: {
     name: 'fKRW',
@@ -1049,7 +1049,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/krw.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fJPY: {
     name: 'fJPY',
@@ -1058,7 +1058,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/jpy.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fGOLD: {
     name: 'fGold',
@@ -1067,7 +1067,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/gold.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fGBP: {
     name: 'fGBP',
@@ -1076,7 +1076,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/gbp.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fEUR: {
     name: 'fEUR',
@@ -1085,7 +1085,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/euro.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fETH: {
     name: 'fETH',
@@ -1094,7 +1094,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/eth.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fCNY: {
     name: 'fCNY',
@@ -1103,7 +1103,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/cny.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fCHF: {
     name: 'fCHF',
@@ -1112,7 +1112,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/chf.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fBTC: {
     name: 'fBTC',
@@ -1121,7 +1121,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/bitcoin.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fBNB: {
     name: 'fBNB',
@@ -1130,7 +1130,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/bnb.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   fBAND: {
     name: 'fBAND',
@@ -1139,7 +1139,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     logoURI: 'https://repository.fantom.network/logos/band.svg',
-    bridge: 'Native',
+    bridge: 'native',
   },
   LINK: {
     name: 'ChainLink',
@@ -1151,7 +1151,7 @@ const _tokens = {
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/chainlink_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   USDC: {
     name: 'USD Coin',
@@ -1164,13 +1164,13 @@ const _tokens = {
       'USDC (Multichain) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   WBTC: {
     ...BTC,
     symbol: 'fmcWBTC',
     website: 'https://wbtc.network/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   },
@@ -1185,7 +1185,7 @@ const _tokens = {
     description:
       'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
     logoURI: 'https://ftmscan.com/token/images/aave_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -1197,7 +1197,7 @@ const _tokens = {
     description:
       'Dai is a stable, decentralized currency that does not discriminate. Any individual or business can realize the advantages of digital money.',
     logoURI: 'https://ftmscan.com/token/images/MCDDai_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   SUSHI: {
     name: 'Sushi',
@@ -1209,7 +1209,7 @@ const _tokens = {
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   YFI: {
     name: 'yearn.finance',
@@ -1221,7 +1221,7 @@ const _tokens = {
     description:
       'Yearn Finance is a suite of products in Decentralized Finance (DeFi) that provides lending aggregation, yield generation, and insurance on the Ethereum blockchain. The protocol is maintained by various independent developers and is governed by YFI holders.',
     logoURI: 'https://ftmscan.com/token/images/YFI_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   CRV: {
     name: 'Curve DAO',
@@ -1233,7 +1233,7 @@ const _tokens = {
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     logoURI: 'https://ftmscan.com/token/images/CurveFi_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   BAND: {
     name: 'Band',
@@ -1245,7 +1245,7 @@ const _tokens = {
     description:
       'Band Protocol is a cross-chain data oracle platform that aggregates and connects real-world data and APIs to smart contracts.',
     logoURI: 'https://ftmscan.com/token/images/bandprotocol_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   SFI: {
     name: 'Spice',
@@ -1257,7 +1257,7 @@ const _tokens = {
     description:
       'The SPICE DAO is a decentralised community that launches and governs tokenised investment funds.',
     logoURI: 'https://ftmscan.com/token/images/saffron_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   HEGIC: {
     name: 'Hegic',
@@ -1269,7 +1269,7 @@ const _tokens = {
     description:
       'Trade non-custodial options for profits or to hedge your positions. Enjoy fixed price and unlimited upside of the options contracts.',
     logoURI: 'https://ftmscan.com/token/images/hegic_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   anyFRAX: {
     name: 'Frax',
@@ -1281,7 +1281,7 @@ const _tokens = {
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     logoURI: 'https://ftmscan.com/token/images/fraxfinance_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   FRAX: {
     name: 'Frax',
@@ -1294,7 +1294,7 @@ const _tokens = {
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     logoURI: 'https://ftmscan.com/token/images/fraxfinance_32.png',
     documentation: 'https://docs.frax.finance/',
-    bridge: 'Frax',
+    bridge: 'frax',
   },
   FXS: {
     name: 'Frax Share',
@@ -1307,7 +1307,7 @@ const _tokens = {
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     documentation: 'https://docs.frax.finance/',
-    bridge: 'Frax',
+    bridge: 'frax',
   },
   COVER: {
     name: 'Cover',
@@ -1319,7 +1319,7 @@ const _tokens = {
     description:
       'Cover Protocol provides peer to peer coverage with fungible tokens. It lets the market set coverage prices as opposed to a bonding curve.',
     logoURI: 'https://ftmscan.com/token/images/cover_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   KP3R: {
     name: 'Keep3r',
@@ -1331,7 +1331,7 @@ const _tokens = {
     description:
       'Keep3r Network is a decentralized keeper network for projects that need external devops and for external teams to find keeper jobs.',
     logoURI: 'https://ftmscan.com/token/images/kp3r_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   WETH: {
     ...ETH,
@@ -1348,7 +1348,7 @@ const _tokens = {
     description:
       'C.R.E.A.M. Finance is a decentralized lending protocol for individuals, institutions and protocols to access financial services.',
     logoURI: 'https://ftmscan.com/token/images/CreamFinance_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   sUSD: {
     name: 'Synth sUSD',
@@ -1360,7 +1360,7 @@ const _tokens = {
     description:
       'Tracks the price of a single US dollar (USD). The synth always remains at a constant of 1.',
     logoURI: 'https://ftmscan.com/token/images/sUSD_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   SNX: {
     name: 'Synthetix Network',
@@ -1372,7 +1372,7 @@ const _tokens = {
     description:
       'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.',
     logoURI: 'https://ftmscan.com/token/images/Synthetix_SNX_32.png',
-    bridge: 'Multichain',
+    bridge: 'multichain',
   },
   ICE: {
     name: 'IceToken',
@@ -1381,7 +1381,7 @@ const _tokens = {
     decimals: 18,
     chainId: 250,
     website: 'https://popsicle.finance/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Popsicle is a next-gen cross-chain yield enhancement platform focusing on Automated Market-Making (AMM) Liquidity Providers (LP).',
     logoURI:
@@ -1395,7 +1395,7 @@ const _tokens = {
     chainId: 250,
     website: 'https://frapped.io/',
     description: 'Frapped an innovative wrapper for USDT tokens.',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     logoURI:
       'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
   },
@@ -1407,7 +1407,7 @@ const _tokens = {
     chainId: 250,
     website: 'https://badger.finance/',
     description: 'DAO dedicated to building products and infrastructure to bring Bitcoin to DeFi.',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     logoURI:
       'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0x3472A5A71965499acd81997a54BBA8D852C6E53d/logo.png',
   },
@@ -1418,7 +1418,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.beefy.finance/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
     logoURI:
@@ -1432,7 +1432,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://anyswap.exchange/dashboard',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Anyswap is a fully decentralized cross chain swap protocol, based on Fusion DCRM technology, with automated pricing and liquidity system.',
     logoURI: 'https://ftmscan.com/token/images/anyswap_32.png',
@@ -1444,7 +1444,7 @@ const _tokens = {
     chainId: 250,
     decimals: 12,
     website: 'https://woofy.finance/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'The WOOFY token is the blue dog companion token of YFI. Utilizing special Woof technology, it allows two-way conversion between the two tokens, allowing holders to be exposed to YFI in a fluffier package.',
     logoURI:
@@ -1457,7 +1457,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.binance.com/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
     logoURI: 'https://assets.coingecko.com/coins/images/825/large/binance-coin-logo.png',
@@ -1469,7 +1469,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://spookyswap.finance/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       "SpookySwap is an automated market-making (AMM) decentralized exchange (DEX) for the Fantom Opera network. Different from other DEXs, we're invested in building a strong foundation with our BOO token as a governance token, diverse farms, grants to encourage a healthy ecology of other Fantom projects, and user-centered service.",
     logoURI: 'https://assets.spookyswap.finance/tokens/BOO.png',
@@ -1481,7 +1481,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://scream.sh',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'SCREAM is a highly-scalable decentralised lending protocol built and powered by the Fantom Blockchain.',
     logoURI: 'https://scream.sh/img/scream-multi.png',
@@ -1493,7 +1493,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://kek.tools/',
-    bridge: 'Native',
+    bridge: 'native',
     description: 'A token tracker on the Fantom network',
     logoURI: 'https://assets.spookyswap.finance/tokens/KEK.png',
   },
@@ -1504,7 +1504,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://retreeb.io/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Discover retreeb, a new decentralized way to pay, simple, practical, economical, which allows you to act in accordance with the universal values of ethics, sharing and solidarity.',
     logoURI: 'https://assets.spookyswap.finance/tokens/TREEB.png',
@@ -1516,7 +1516,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://woo.org/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Featuring deep liquidity for superior order execution, zero-fee trading, and fully customizable trading workspaces.',
     logoURI: 'https://assets.spookyswap.finance/tokens/WOO.png',
@@ -1528,7 +1528,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://shade.cash/',
-    bridge: 'Native',
+    bridge: 'native',
     description: 'A decentralized protocol for private transactions on Fantom Opera',
     logoURI: 'https://assets.spookyswap.finance/tokens/SHADE.png',
   },
@@ -1539,7 +1539,7 @@ const _tokens = {
     chainId: 250,
     decimals: 10,
     website: 'https://justyours.me/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'JustYours is building a multi-functional platform that can seamlessly integrate both users and creators of Adult Content',
     logoURI: 'https://app.spiritswap.finance/images/tokens/JUST.png',
@@ -1552,7 +1552,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://abracadabra.money/',
     description: 'SPELL is the incentivation token of Abracadabra.money',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     logoURI: 'https://app.spiritswap.finance/images/tokens/SPELL.png',
     documentation: 'https://docs.abracadabra.money/',
   },
@@ -1563,7 +1563,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://abracadabra.money/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'SPELL is the incentivation token of Abracadabra.money. sSPELL is the staked version of it',
     logoURI: 'https://app.spiritswap.finance/images/tokens/SSPELL.png',
@@ -1575,7 +1575,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://abracadabra.money/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'wMEMO is a wrapped version of MEMO. MEMO (Memories) is the reciept of staked TIME.',
     logoURI: 'https://app.spiritswap.finance/images/tokens/WMEMO.png',
@@ -1587,7 +1587,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.inverse.finance/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
@@ -1599,7 +1599,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.inverse.finance/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     logoURI: 'https://assets.spookyswap.finance/tokens/INV.png',
@@ -1610,7 +1610,7 @@ const _tokens = {
     address: '0x3dc57B391262e3aAe37a08D91241f9bA9d58b570',
     chainId: 250,
     decimals: 18,
-    bridge: 'Native',
+    bridge: 'native',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x3dc57B391262e3aAe37a08D91241f9bA9d58b570.svg',
     website: 'https://yoshi.exchange/',
@@ -1623,7 +1623,7 @@ const _tokens = {
     address: '0x89346B51A54263cF2e92dA79B1863759eFa68692',
     chainId: 250,
     decimals: 18,
-    bridge: 'Native',
+    bridge: 'native',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x89346B51A54263cF2e92dA79B1863759eFa68692.svg',
     website: 'https://app.spartacus.finance/',
@@ -1636,7 +1636,7 @@ const _tokens = {
     address: '0x94CcF60f700146BeA8eF7832820800E2dFa92EdA',
     chainId: 250,
     decimals: 18,
-    bridge: 'Native',
+    bridge: 'native',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x94CcF60f700146BeA8eF7832820800E2dFa92EdA.svg',
     website: 'https://hector.network/',
@@ -1649,7 +1649,7 @@ const _tokens = {
     address: '0x9d8F97A3C2f9f397B6D46Cbe2d39CC1D8Cf19010',
     chainId: 250,
     decimals: 18,
-    bridge: 'Multichain',
+    bridge: 'multichain',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x9d8F97A3C2f9f397B6D46Cbe2d39CC1D8Cf19010.svg',
     website: 'https://openocean.finance/',
@@ -1662,7 +1662,7 @@ const _tokens = {
     address: '0x511D35c52a3C244E7b8bd92c0C297755FbD89212',
     chainId: 250,
     decimals: 18,
-    bridge: 'Multichain',
+    bridge: 'multichain',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x511D35c52a3C244E7b8bd92c0C297755FbD89212.svg',
     website: 'https://www.avalabs.org/',
@@ -1677,7 +1677,7 @@ const _tokens = {
     decimals: 6,
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/4172.png',
     website: 'https://www.terra.money/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       "Terra's native token, LUNA, is used to stabilize the price of the protocol's stablecoins. LUNA holders are also able to submit and vote on governance proposals, giving it the functionality of a governance token.",
   },
@@ -1688,7 +1688,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
-    bridge: 'Wormhole',
+    bridge: 'wormhole',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 250,
@@ -1700,7 +1700,7 @@ const _tokens = {
     symbol: 'fmcMATIC',
     decimals: 18,
     website: 'https://polygon.technology/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
     chainId: 250,
@@ -1713,7 +1713,7 @@ const _tokens = {
     address: '0x10010078a54396F62c96dF8532dc2B4847d47ED3',
     chainId: 250,
     decimals: 18,
-    bridge: 'Native',
+    bridge: 'native',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x10010078a54396F62c96dF8532dc2B4847d47ED3.svg',
     website: 'https://hundred.finance/',
@@ -1729,7 +1729,7 @@ const _tokens = {
     logoURI: 'https://ftmscan.com/token/images/liquiddriver_32.png',
     website: 'https://www.liquiddriver.finance/',
     description: 'Incentivizing deep liquidity for SushiSwap on Fantom Opera.',
-    bridge: 'Native',
+    bridge: 'native',
   },
   beFTM: {
     name: 'Beefy Escrowed Fantom',
@@ -1739,7 +1739,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://blog.beefy.finance/articles/introducing-beftm/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Beefy Escrowed Fantom is 1 year perpetually lock FTM that is delegated and locked to earn the maximum validator reward',
   },
@@ -1754,7 +1754,7 @@ const _tokens = {
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     chainId: 250,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
-    bridge: 'Stargate',
+    bridge: 'stargate',
   },
   renBTC: {
     name: 'renBTC',
@@ -1763,7 +1763,7 @@ const _tokens = {
     chainId: 250,
     decimals: 8,
     website: 'https://renproject.io/',
-    bridge: 'Ren',
+    bridge: 'ren',
     description:
       'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
     logoURI:
@@ -1777,7 +1777,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://equalizer.exchange/home',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'Equalizer was derived from the initial concept of Andre Cronje. The mechanism that was used to create a perpetual decentralized exchange was unique and ingenious. The launch of this platform is to take the concept and apply it to a more natural style DEX. Equalizer will become the trading mechanism for the Fantom network, utilizing the Solidly perpetual model with some tweaks to fee structures and emissions.',
     documentation:
@@ -1790,7 +1790,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://www.ankr.com/',
-    bridge: 'Multichain',
+    bridge: 'multichain',
     description:
       'Ankr originates as a solution that utilizes shared resources in order to provide easy and affordable blockchain node hosting solutions.',
     logoURI: '',
@@ -1804,7 +1804,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.ankr.com/',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'ankrFTM is a liquid staking solution for Fantom blockchain, enabling users to earn staking rewards while maintaining liquidity. By staking their FTM, users receive ankrFTM tokens that appreciate in value relative to FTM due to reward accumulation, leading to a growing redemption price over time.',
     documentation: 'https://www.ankr.com/docs/liquid-staking/ftm/overview/',
@@ -1816,7 +1816,7 @@ const _tokens = {
     chainId: 250,
     decimals: 18,
     website: 'https://app.mummy.finance/#/trade?ref=beefy',
-    bridge: 'Native',
+    bridge: 'native',
     description:
       'MLP consists of an index of assets used for swaps and leverage trading on Mummy Finance. MLP holders will make a profit when leverage traders make a loss and vice versa. Staked MLP also earns escrowed MMY rewards and 60% of platform fees distributed in FTM.',
     logoURI: 'https://app.mummy.finance/static/media/ic_mlp_40.92637cb6.svg',
@@ -1830,7 +1830,7 @@ const _tokens = {
     decimals: 6,
     logoURI: '',
     website: 'https://www.circle.com/usdc',
-    bridge: 'Axelar',
+    bridge: 'axelar',
     description:
       'USDC (Axelar) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://docs.axelar.dev/',
@@ -1843,7 +1843,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.ankr.com/',
-    bridge: 'Ankr',
+    bridge: 'ankr',
     description:
       'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
     documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
@@ -1856,7 +1856,7 @@ const _tokens = {
     decimals: 6,
     logoURI: '',
     website: 'https://www.circle.com/usdc',
-    bridge: 'LayerZero',
+    bridge: 'layer-zero',
     description:
       'USDC (LayerZero) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://layerzero.gitbook.io/docs/',
