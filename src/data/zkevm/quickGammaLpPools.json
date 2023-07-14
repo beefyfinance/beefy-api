@@ -1,6 +1,6 @@
 [
   {
-    "name": "quick-gamma-weth-wbtc-narrow",
+    "name": "quick-gamma-zk-weth-wbtc-narrow",
     "address": "0x1cc4eE0cB063e9db36E51F5d67218ff1f8dbfA0f",
     "decimals": "1e18",
     "beefyFee": 0.095,

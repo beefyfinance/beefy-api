@@ -91,7 +91,7 @@ const projects = {
     masterchef: quick.minichef,
   },
   quickZkevm: {
-    prefix: 'quick-gamma',
+    prefix: 'quick-gamma-zk',
     file: '../src/data/zkevm/quickGammaLpPools.json',
     masterchef: quickZkevm.minichef,
   },
