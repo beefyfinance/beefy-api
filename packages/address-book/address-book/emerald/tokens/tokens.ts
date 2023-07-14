@@ -98,7 +98,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0xdC19A122e268128B5eE20366299fc7b5b199C8e3.svg',
     website: 'https://tether.to/',
     description:
-      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
   },
   WETH: {
     name: 'Wrapped Ether (Wormhole)',
@@ -135,7 +135,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0xdC19A122e268128B5eE20366299fc7b5b199C8e3.svg',
     website: 'https://bridge.evodefi.com/',
     description:
-      'USDT bridged via EvoDeFi: Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+      'USDT bridged via EvoDeFi: Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
   },
   evoUSDC: {
     name: 'USD Coin (EvoDeFi)',
