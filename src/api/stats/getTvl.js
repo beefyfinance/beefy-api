@@ -172,11 +172,11 @@ const chains = [
     vaultsEndpoint: ZKSYNC_VAULTS_ENDPOINT,
     // governancePool: require('../../data/zksync/governancePool.json'),
   },
-  //  {
-  //  chainId: ZKEVM_CHAIN_ID,
-  //vaultsEndpoint: ZKEVM_VAULTS_ENDPOINT,
-  // governancePool: require('../../data/zksync/governancePool.json'),
-  // },
+  {
+    chainId: ZKEVM_CHAIN_ID,
+    vaultsEndpoint: ZKEVM_VAULTS_ENDPOINT,
+    // governancePool: require('../../data/zksync/governancePool.json'),
+  },
 ];
 
 const CACHE_KEY = 'TVL';
