@@ -14,7 +14,7 @@
   {
     "name": "conic-eth",
     "address": "0xBb787d6243a8D450659E09ea6fD82F1C859691e9",
-    "underlying": "WETH",
+    "underlying": "ETH",
     "decimals": "1e18"
   }
 ]
