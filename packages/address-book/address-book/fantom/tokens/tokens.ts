@@ -1873,6 +1873,19 @@ const _tokens = {
       'USDT (LayerZero) is a cryptocurrency that is designed to maintain a stable value equivalent to the US dollar by being backed by a one-to-one reserve ratio of fiat currency held in deposit by Tether Limited.',
     documentation: 'https://layerzero.gitbook.io/docs/',
   },
+  lzWETH: {
+    name: 'Wrapped Ether',
+    symbol: 'lzWETH',
+    address: '0x695921034f0387eAc4e11620EE91b1b15A6A09fE',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ethereum.org/',
+    bridge: 'layer-zero',
+    description:
+      'Wrapped Ethereum (wETH) is a tokenized version of Ether that is compatible with the ERC-20 standard, which allows it to be used in decentralized applications and traded on decentralized exchanges, providing greater liquidity and interoperability for the Ethereum ecosystem.',
+    documentation: 'https://layerzero.gitbook.io/docs/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
