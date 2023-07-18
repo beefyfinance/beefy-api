@@ -191,7 +191,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   ethereum: ETHEREUM_VAULTS_ENDPOINT,
   canto: CANTO_VAULTS_ENDPOINT,
   zksync: ZKSYNC_VAULTS_ENDPOINT,
-  //zkevm: ZKEVM_VAULTS_ENDPOINT,
+  zkevm: ZKEVM_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
