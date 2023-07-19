@@ -18,7 +18,7 @@ const {
     tokens: { 'USD+': USDplus, 'wUSD+': wUSDplus, 'DAI+': DAIplus, 'wDAI+': wDAIplus },
   },
   arbitrum: {
-    tokens: { aWETH: aaWETH, waaWETH },
+    tokens: { aWETH: aaWETH, waaWETH, aaUSDT, waaUSDT, aaUSDC, waaUSDC, aaDAI, waaDAI },
   },
 } = addressBook;
 
@@ -44,7 +44,12 @@ const tokens = {
     ],
     [DAIplus, wDAIplus],
   ],
-  arbitrum: [[aaWETH, waaWETH, true]],
+  arbitrum: [
+    [aaWETH, waaWETH, true],
+    [aaUSDT, waaUSDT, true],
+    [aaUSDC, waaUSDC, true],
+    [aaDAI, waaDAI, true],
+  ],
 };
 
 const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {

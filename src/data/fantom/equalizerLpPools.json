@@ -1,25 +1,5 @@
 [
   {
-    "name": "equalizer-ankr-ankrftm",
-    "address": "0xDBEeEBb365eb4Bdc791870E200cc9B4E16cBf3aF",
-    "gauge": "0xa60A984a121f2516e161F38c3111842d1dbd97BF",
-    "decimals": "1e18",
-    "chainId": 250,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x0615Dbba33Fe61a31c7eD131BDA6655Ed76748B1",
-      "oracle": "tokens",
-      "oracleId": "ANKR",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xCfC785741Dc0e98ad4c9F6394Bb9d43Cd1eF5179",
-      "oracle": "tokens",
-      "oracleId": "ankrFTM",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "equalizer-fxs-frax",
     "address": "0x312ea55de23E3aBa3296f1B3F97C182C63b1916d",
     "gauge": "0x6B49e49047A1Ae2bc37Ce8c35dd29d148e21dDB5",

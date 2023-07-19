@@ -1,4 +1,4 @@
-import getBalancerPrices from '../common/getBalancerPrices';
+import getBalancerPrices from '../common/balancer/getBalancerPrices';
 import { FANTOM_CHAIN_ID } from '../../../constants';
 import beetsPools from '../../../data/fantom/beethovenxPools.json';
 import beetsDualPools from '../../../data/fantom/beethovenxDualPools.json';

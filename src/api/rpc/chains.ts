@@ -19,6 +19,7 @@ import {
   ONE_RPC,
   OPTIMISM_RPC,
   POLYGON_RPC,
+  ZKEVM_RPC,
   ZKSYNC_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/address-book';
@@ -524,6 +525,29 @@ const hecoChain = {
   },
 } as const satisfies Chain;
 
+const zkEvmChain = {
+  id: 1101,
+  name: 'zkEvm',
+  network: 'zkevm',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'ETH',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    public: { http: [ZKEVM_RPC] },
+    default: { http: [ZKEVM_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'zkEvm Explorer', url: 'https://zkevm.polygonscan.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -546,4 +570,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.canto]: cantoChain,
   [ChainId.zksync]: zkSyncChain,
   [ChainId.heco]: hecoChain,
+  [ChainId.zkevm]: zkEvmChain,
 } as const;

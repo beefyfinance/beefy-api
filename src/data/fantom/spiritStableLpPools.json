@@ -9,13 +9,13 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xC931f61B1534EB21D8c11B24f3f5Ab2471d4aB50",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "oracleId": "fmcBUSD",
       "decimals": "1e18"
     }
   },
@@ -49,13 +49,13 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "fMAI",
       "decimals": "1e18"
     }
   },
@@ -69,13 +69,13 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xB67FA6deFCe4042070Eb1ae1511Dcd6dcc6a532E",
       "oracle": "tokens",
-      "oracleId": "alUSD",
+      "oracleId": "fmcalUSD",
       "decimals": "1e18"
     }
   },
@@ -89,7 +89,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
@@ -109,7 +109,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
@@ -129,13 +129,13 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
       "oracle": "tokens",
-      "oracleId": "DAI",
+      "oracleId": "fmcDAI",
       "decimals": "1e18"
     }
   },
@@ -149,7 +149,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {

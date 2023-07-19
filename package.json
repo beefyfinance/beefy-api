@@ -64,6 +64,7 @@
     "kava:equilibre:add": "ts-node scripts/add-solidly.ts --network kava --project equilibre --newFee true --lp",
     "zksync:velocore:add": "ts-node scripts/add-solidly.ts --network zksync --project velocore --newFee true --lp",
     "zksync:vesync:add": "ts-node scripts/add-solidly.ts --network zksync --project vesync --newFee true --lp",
+    "zkevm:quick:add": "ts-node scripts/add-sushi.ts --network zkevm --project quickZkevm --newFee true --pool",
     "gen-abi-types": "abi-types-generator ./src/abis/matic/Telxchange/StakingRewards/StakingRewards.json --output='./src/abis/matic/Telxchange/StakingRewards/types'"
   },
   "dependencies": {
@@ -93,8 +94,8 @@
     "p-queue": "^6.6.2",
     "redis": "^4.0.6",
     "ts-node": "^10.0.0",
-    "typescript": "^5.1.3",
     "viem": "^1.2.9",
+    "typescript": "^5.1.6",
     "web3": "^1.3.0",
     "web3-eth-contract": "^1.7.3"
   },

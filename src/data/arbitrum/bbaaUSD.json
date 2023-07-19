@@ -1,0 +1,32 @@
+[
+  {
+    "name": "bbaaUSD",
+    "address": "0xEE02583596AEE94ccCB7e8ccd3921d955f17982A",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0xee02583596aee94cccb7e8ccd3921d955f17982a00000000000000000000040a",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "composable": true,
+    "bptIndex": 3,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaaUSDT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaaUSDC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaaDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  }
+]

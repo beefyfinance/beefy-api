@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
-const { default: IBalancerVault } = require('../../../abis/IBalancerVault');
-const { fetchContract } = require('../../rpc/client');
-const { default: ERC20Abi } = require('../../../abis/ERC20Abi');
+const { default: ERC20Abi } = require('../../../../abis/ERC20Abi');
+const { default: IBalancerVault } = require('../../../../abis/IBalancerVault');
+const { fetchContract } = require('../../../rpc/client');
 
 const getBalancerPrices = async (chainId, pools, tokenPrices) => {
   let prices = {};

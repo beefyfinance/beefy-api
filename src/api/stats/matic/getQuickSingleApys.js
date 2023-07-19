@@ -9,7 +9,7 @@ export const getQuickSingleApys = async () => {
         address: '0xB5C064F955D8e7F38fE0460C556a72987494eE17',
         rewardPool: '0x87BD13De5F0e53501a46497175cdd2F1ff4a05C9',
         oracle: 'tokens',
-        oracleId: 'newQUICK',
+        oracleId: 'QUICK',
         decimals: '1e18',
       },
     ],

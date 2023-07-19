@@ -27,17 +27,17 @@
       },
       {
         "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
-        "oracleId": "ETH",
+        "oracleId": "fmcETH",
         "decimals": "1e18"
       },
       {
         "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
-        "oracleId": "BTC",
+        "oracleId": "fmcBTC",
         "decimals": "1e8"
       },
       {
         "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -47,7 +47,7 @@
       },
       {
         "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
-        "oracleId": "DAI",
+        "oracleId": "fmcDAI",
         "decimals": "1e18"
       }
     ],

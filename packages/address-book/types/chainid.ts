@@ -19,4 +19,5 @@ export enum ChainId {
   ethereum = 1,
   canto = 7700,
   zksync = 324,
+  zkevm = 1101,
 }

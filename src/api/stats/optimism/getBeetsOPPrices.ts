@@ -1,4 +1,4 @@
-import getBalancerPrices from '../common/getBalancerPrices';
+import getBalancerPrices from '../common/balancer/getBalancerPrices';
 import { OPTIMISM_CHAIN_ID as chainId } from '../../../constants';
 import beetsPools from '../../../data/optimism/beethovenxLpPools.json';
 import balancerPools from '../../../data/optimism/balancerOpLpPools.json';

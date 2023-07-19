@@ -18,6 +18,7 @@ import { kava } from './kava';
 import { ethereum } from './ethereum';
 import { canto } from './canto';
 import { zksync } from './zksync';
+import { zkevm } from './zkevm';
 import Chain from '../types/chain';
 import { ChainId } from '../types/chainid';
 import { ConstRecord } from '../types/const';
@@ -45,6 +46,7 @@ const _addressBook: {
   readonly ethereum: Chain;
   readonly canto: Chain;
   readonly zksync: Chain;
+  readonly zkevm: Chain;
 } = {
   polygon,
   bsc,
@@ -66,6 +68,7 @@ const _addressBook: {
   ethereum,
   canto,
   zksync,
+  zkevm,
 } as const;
 
 const _addressBookByChainId: {
@@ -89,6 +92,7 @@ const _addressBookByChainId: {
   readonly '1': Chain;
   readonly '7700': Chain;
   readonly '324': Chain;
+  readonly '1101': Chain;
 } = {
   [ChainId.polygon]: polygon,
   [ChainId.bsc]: bsc,
@@ -110,6 +114,7 @@ const _addressBookByChainId: {
   [ChainId.ethereum]: ethereum,
   [ChainId.canto]: canto,
   [ChainId.zksync]: zksync,
+  [ChainId.zkevm]: zkevm,
 } as const;
 
 export const addressBook: ConstRecord<typeof _addressBook, Chain> = _addressBook;

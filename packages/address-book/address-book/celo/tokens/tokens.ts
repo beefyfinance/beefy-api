@@ -152,7 +152,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x88eeC49252c8cbc039DCdB394c0c2BA2f1637EA0.svg',
     website: 'https://tether.to/',
     description:
-      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
   },
   MOBI: {
     name: 'Mobius DAO Token',

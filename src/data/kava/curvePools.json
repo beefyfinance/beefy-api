@@ -1,5 +1,30 @@
 [
   {
+    "name": "curve-kava-axlusdt-f",
+    "pool": "0xAA3b055186f96dD29d0c2A17710d280Bc54290c7",
+    "token": "0xAA3b055186f96dD29d0c2A17710d280Bc54290c7",
+    "gauge": "0xF5249368B63aD3F332081D29f0AE76A0422C1bbC",
+    "getDy": ["v1", 0, 1],
+    "rewards": [
+      {
+        "token": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+        "oracleId": "KAVA"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "kaxlUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-kava-3pool",
     "pool": "0x7A0e3b70b1dB0D6CA63Cac240895b2D21444A7b9",
     "token": "0x7A0e3b70b1dB0D6CA63Cac240895b2D21444A7b9",

@@ -580,6 +580,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'mimo-parallel-governance-token': ['MIMO'],
   olympus: ['OHM'],
   betswirl: ['BETS'],
+  'ankr-reward-bearing-ftm': ['ankrFTM'],
 };
 
 /**
@@ -594,13 +595,17 @@ const seedPeggedPrices = {
   WMATIC: 'MATIC', // Wrapped native
   WAVAX: 'AVAX', // Wrapped native
   WBNB: 'BNB', // Wrapped native
+  WFTM: 'FTM', // Wrapped native
   asUSDC: 'USDC', // Solana
   aUSDT: 'USDT', // Aave
   aDAI: 'DAI', // Aave
   aUSDC: 'USDC', // Aave
-  amUSDT: 'USDT', // Wrapped Aave?
-  amUSDC: 'USDC', // Wrapped Aave?
-  amDAI: 'DAI', // Wrapped Aave?
+  amUSDT: 'USDT', // Aave
+  amUSDC: 'USDC', // Aave
+  amDAI: 'DAI', // Aave
+  aaUSDT: 'USDT', // Aave
+  aaUSDC: 'USDC', // Aave
+  aaDAI: 'DAI', // Aave
   'DAI+': 'DAI', // Overnight
   alETH: 'ETH', // Alchemix
   hETH: 'ETH', // HOP

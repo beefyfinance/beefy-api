@@ -34,6 +34,9 @@ const {
   celo: {
     platforms: { sushiCelo: sushiCelo },
   },
+  zkevm: {
+    platforms: { quickswap: quickZkevm },
+  },
 } = addressBook;
 
 const projects = {
@@ -86,6 +89,11 @@ const projects = {
     prefix: 'quick-gamma',
     file: '../src/data/matic/quickGammaLpPools.json',
     masterchef: quick.minichef,
+  },
+  quickZkevm: {
+    prefix: 'quick-gamma-zk',
+    file: '../src/data/zkevm/quickGammaLpPools.json',
+    masterchef: quickZkevm.minichef,
   },
 };
 
@@ -159,7 +167,9 @@ async function fetchToken(tokenAddress) {
     decimals: await tokenContract.decimals(),
     logoURI: `https://tokens.pancakeswap.finance/images/${checksummedTokenAddress}.svg`,
     website: '',
+    documentation: '',
     description: '',
+    bridge: '',
   };
   console.log({ [token.symbol]: token }); // Prepare token data for address-book
   return token;

@@ -1,18 +1,40 @@
 import { isFiniteNumber } from '../../../../utils/number';
 import BigNumber from 'bignumber.js';
 import { fetchContract } from '../../../rpc/client';
-import { ChainId } from '../../../../../packages/address-book/address-book';
+import { isFiniteBigNumber } from '../../../../utils/big-number';
+import { BSC_CHAIN_ID } from '../../../../constants';
+
+type vToken = {
+  oracleId: string;
+  address: string;
+  decimals: number;
+  underlying: {
+    oracleId: string;
+    decimals: number;
+  };
+};
 
 const vUSDT = {
-  oracle: 'vUSDT',
-  address: '0xfD5840Cd36d94D7229439859C0112a4185BC0255' as `0x${string}`,
+  oracleId: 'vUSDT',
+  address: '0xfD5840Cd36d94D7229439859C0112a4185BC0255',
   decimals: 8,
   underlying: {
-    oracle: 'tokens',
     oracleId: 'USDT',
     decimals: 18,
   },
-};
+} as const satisfies vToken;
+
+const vBIFI = {
+  oracleId: 'vBIFI',
+  address: '0xC718c51958d3fd44f5F9580c9fFAC2F89815C909',
+  decimals: 8,
+  underlying: {
+    oracleId: 'BIFI',
+    decimals: 18,
+  },
+} as const satisfies vToken;
+
+const vTokens = [vUSDT, vBIFI];
 
 const abi = [
   {
@@ -29,26 +51,48 @@ const abi = [
 export const fetchVenusPrices = async (
   tokenPrices: Record<string, number>
 ): Promise<Record<string, number>> => {
-  try {
-    const contract = fetchContract(vUSDT.address, abi, ChainId.bsc);
-    const currentExchangeRate = new BigNumber(
-      (await contract.read.exchangeRateCurrent()).toString()
+  const exchangeRates = await Promise.all(
+    vTokens.map(async vToken => {
+      try {
+        const contract = fetchContract(vToken.address, abi, BSC_CHAIN_ID); // TODO viem
+        const currentExchangeRate = new BigNumber(
+          (await contract.read.exchangeRateCurrent()).toString()
+        );
+        if (isFiniteBigNumber(currentExchangeRate)) {
+          return currentExchangeRate;
+        } else {
+          console.log(
+            `Error fetching venus price for ${vToken.oracleId}: invalid exchangeRateCurrent`
+          );
+        }
+      } catch (err) {
+        console.log(`Error fetching venus price for ${vToken.oracleId}: ${err.message}`);
+      }
+
+      return undefined;
+    })
+  );
+
+  return vTokens.reduce((prices, vToken, i) => {
+    const exchangeRateWei = exchangeRates[i];
+    if (!exchangeRateWei) {
+      return prices;
+    }
+
+    const underlyingPrice = tokenPrices[vToken.underlying.oracleId];
+    if (!isFiniteNumber(underlyingPrice)) {
+      console.log(
+        `Error fetching venus price for ${vToken.oracleId}: invalid underlying price for ${vToken.underlying.oracleId}}`
+      );
+      return prices;
+    }
+
+    const exchangeRate = exchangeRateWei.shiftedBy(
+      -(18 + vToken.underlying.decimals - vToken.decimals)
     );
 
-    const divisor = new BigNumber(10).pow(18 + vUSDT.underlying.decimals - vUSDT.decimals);
+    prices[vToken.oracleId] = exchangeRate.times(underlyingPrice).toNumber();
 
-    const exchangeRate = currentExchangeRate.div(divisor);
-    const underlyingPrice = tokenPrices[vUSDT.underlying.oracleId];
-
-    if (isFiniteNumber(underlyingPrice)) {
-      return {
-        vUSDT: exchangeRate.times(underlyingPrice).toNumber(),
-      };
-    } else {
-      throw new Error('missing underlying price for ' + vUSDT.underlying.oracleId);
-    }
-  } catch (err) {
-    console.log('Error fetching venus prices: ' + err.message);
-  }
-  return {};
+    return prices;
+  }, {} as Record<string, number>);
 };

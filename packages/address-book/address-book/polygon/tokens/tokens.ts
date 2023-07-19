@@ -110,7 +110,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://tether.to/',
     description:
-      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
   },
   DYST: {
@@ -218,7 +218,7 @@ const _tokens = {
   newQUICK: {
     name: 'Quickswap',
     address: '0xB5C064F955D8e7F38fE0460C556a72987494eE17',
-    symbol: 'newQUICK',
+    symbol: 'QUICK',
     decimals: 18,
     chainId: 137,
     website: 'https://quickswap.exchange/#/swap',
@@ -1632,7 +1632,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://tether.to/',
     description:
-      'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+      'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
   },
   wamUSDT: {
@@ -1646,7 +1646,7 @@ const _tokens = {
     website: 'https://tether.to/',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
-      'Wrapped Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+      'Wrapped Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
   },
   bbamUSDT: {
     name: 'Balancer Aave USDT Linear Pool',
@@ -1919,6 +1919,17 @@ const _tokens = {
     website: 'https://axelar.network/',
     description: 'Axelar Bridged USDC',
     documentation: 'https://docs.axelar.dev/',
+  },
+  TNGBL: {
+    name: 'Tangible',
+    symbol: 'TNGBL',
+    address: '0x49e6A20f1BBdfEeC2a8222E052000BbB14EE6007',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.tangible.store/',
+    description:
+      'Tangible converts real world assets into tangible NFTs (TNFTs) that can be redeemed for the physical product at any time.',
   },
   BETS: {
     name: 'BetSwirl Token',

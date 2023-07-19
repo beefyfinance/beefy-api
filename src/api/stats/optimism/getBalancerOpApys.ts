@@ -1,6 +1,6 @@
 import { OPTIMISM_CHAIN_ID as chainId } from '../../../constants';
 import { beetOpClient as client } from '../../../apollo/client';
-const { getBalancerApys } = require('../common/getBalancerApys');
+const { getBalancerApys } = require('../common/balancer/getBalancerApys');
 import { addressBook } from '../../../../packages/address-book/address-book';
 
 const {

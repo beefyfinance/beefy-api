@@ -10,7 +10,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -35,7 +35,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "MATIC",
+        "oracleId": "fmcMATIC",
         "decimals": "1e18"
       },
       {
@@ -45,12 +45,12 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "AVAX",
+        "oracleId": "fmcAVAX",
         "decimals": "1e18"
       },
       {
         "oracle": "tokens",
-        "oracleId": "BNB",
+        "oracleId": "fmcBNB",
         "decimals": "1e18"
       }
     ]
@@ -65,7 +65,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -85,7 +85,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "BTC",
+        "oracleId": "fmcBTC",
         "decimals": "1e8"
       },
       {
@@ -145,7 +145,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -210,7 +210,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -230,7 +230,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -255,7 +255,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -305,12 +305,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
-        "oracleId": "DAI",
+        "oracleId": "fmcDAI",
         "decimals": "1e18"
       }
     ]
@@ -330,12 +330,12 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "WBTC",
+        "oracleId": "fmcWBTC",
         "decimals": "1e8"
       },
       {
         "oracle": "tokens",
-        "oracleId": "ETH",
+        "oracleId": "fmcETH",
         "decimals": "1e18"
       },
       {
@@ -360,12 +360,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "WBTC",
+        "oracleId": "fmcWBTC",
         "decimals": "1e8"
       },
       {
         "oracle": "tokens",
-        "oracleId": "ETH",
+        "oracleId": "fmcETH",
         "decimals": "1e18"
       }
     ]
@@ -385,7 +385,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "SPELL",
+        "oracleId": "fmcSPELL",
         "decimals": "1e18"
       },
       {
@@ -395,7 +395,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "SUSHI",
+        "oracleId": "fmcSUSHI",
         "decimals": "1e18"
       },
       {
@@ -420,7 +420,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -445,7 +445,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "MATIC",
+        "oracleId": "fmcMATIC",
         "decimals": "1e18"
       },
       {
@@ -455,7 +455,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "AVAX",
+        "oracleId": "fmcAVAX",
         "decimals": "1e18"
       },
       {
@@ -465,7 +465,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "BNB",
+        "oracleId": "fmcBNB",
         "decimals": "1e18"
       }
     ]
@@ -480,7 +480,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -505,7 +505,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -535,7 +535,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "DAI",
+        "oracleId": "fmcDAI",
         "decimals": "1e18"
       }
     ]
@@ -550,7 +550,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -560,7 +560,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "WBNB",
+        "oracleId": "fmcBNB",
         "decimals": "1e18"
       }
     ]
@@ -575,7 +575,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -600,12 +600,12 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "WBTC",
+        "oracleId": "fmcBTC",
         "decimals": "1e8"
       },
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "fmcETH",
         "decimals": "1e18"
       }
     ]
@@ -620,12 +620,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
-        "oracleId": "DAI",
+        "oracleId": "fmcDAI",
         "decimals": "1e18"
       }
     ]
@@ -640,12 +640,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
-        "oracleId": "CRV",
+        "oracleId": "fmcCRV",
         "decimals": "1e18"
       },
       {
@@ -665,7 +665,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "LINK",
+        "oracleId": "fmcLINK",
         "decimals": "1e18"
       },
       {
@@ -685,12 +685,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "fmcETH",
         "decimals": "1e18"
       }
     ]
@@ -705,12 +705,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
-        "oracleId": "WBTC",
+        "oracleId": "fmcWBTC",
         "decimals": "1e8"
       }
     ]
@@ -725,17 +725,17 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
-        "oracleId": "WBTC",
+        "oracleId": "fmcWBTC",
         "decimals": "1e8"
       },
       {
         "oracle": "tokens",
-        "oracleId": "WETH",
+        "oracleId": "fmcETH",
         "decimals": "1e18"
       }
     ]
@@ -755,7 +755,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "SPELL",
+        "oracleId": "fmcSPELL",
         "decimals": "1e18"
       },
       {
@@ -800,7 +800,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -820,7 +820,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -845,12 +845,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
-        "oracleId": "MAI",
+        "oracleId": "fMAI",
         "decimals": "1e18"
       }
     ]
@@ -910,7 +910,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "BIFI",
+        "oracleId": "fmcBIFI",
         "decimals": "1e18"
       },
       {
@@ -975,17 +975,17 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
-        "oracleId": "DAI",
+        "oracleId": "fmcDAI",
         "decimals": "1e18"
       },
       {
         "oracle": "tokens",
-        "oracleId": "MAI",
+        "oracleId": "fMAI",
         "decimals": "1e18"
       }
     ]
@@ -1000,7 +1000,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
@@ -1010,12 +1010,12 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "WBTC",
+        "oracleId": "fmcWBTC",
         "decimals": "1e8"
       },
       {
         "oracle": "tokens",
-        "oracleId": "ETH",
+        "oracleId": "fmcETH",
         "decimals": "1e18"
       }
     ]
@@ -1060,12 +1060,12 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "fmcUSDC",
         "decimals": "1e6"
       },
       {
         "oracle": "tokens",
-        "oracleId": "CRV",
+        "oracleId": "fmcCRV",
         "decimals": "1e18"
       },
       {
@@ -1075,7 +1075,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "LINK",
+        "oracleId": "fmcLINK",
         "decimals": "1e18"
       }
     ]

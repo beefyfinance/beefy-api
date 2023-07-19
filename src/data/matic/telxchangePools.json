@@ -10,7 +10,7 @@
     "lp0": {
       "address": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
       "oracle": "tokens",
-      "oracleId": "QUICK",
+      "oracleId": "oldQUICK",
       "decimals": "1e18"
     },
     "lp1": {

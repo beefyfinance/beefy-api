@@ -1,4 +1,4 @@
-import getBalancerPrices from '../common/getBalancerPrices';
+import getBalancerPrices from '../common/balancer/getBalancerPrices';
 import { ETH_CHAIN_ID as chainId } from '../../../constants';
 import balancerPools from '../../../data/ethereum/auraBalancerLpPools.json';
 

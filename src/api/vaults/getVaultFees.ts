@@ -116,8 +116,8 @@ const updateFeeBatches = async () => {
       if (err.message.includes('revert') || err.message.includes('correct ABI')) {
         treasurySplit = 140;
       } else if (
-        Number(chainId) === ChainId.zksync &&
-        err.message.includes('cannot estimate gas')
+        Number(chainId) === ChainId.zksync ||
+        (Number(chainId) === ChainId.zkevm && err.message.includes('cannot estimate gas'))
       ) {
         // TODO: remove once we have feebatch
         treasurySplit = 640;

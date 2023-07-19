@@ -15,7 +15,7 @@
     "lp1": {
       "address": "0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E",
       "oracle": "tokens",
-      "oracleId": "DAI",
+      "oracleId": "fmcDAI",
       "decimals": "1e18"
     }
   },
@@ -35,7 +35,7 @@
     "lp1": {
       "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "fmcETH",
       "decimals": "1e18"
     }
   },
@@ -75,7 +75,7 @@
     "lp1": {
       "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
       "oracle": "tokens",
-      "oracleId": "BTC",
+      "oracleId": "fmcBTC",
       "decimals": "1e8"
     }
   },
@@ -109,13 +109,13 @@
     "lp0": {
       "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
       "oracle": "tokens",
-      "oracleId": "BTC",
+      "oracleId": "fmcBTC",
       "decimals": "1e8"
     },
     "lp1": {
       "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "fmcETH",
       "decimals": "1e18"
     }
   },
@@ -129,7 +129,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
@@ -209,7 +209,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
@@ -229,7 +229,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
@@ -249,7 +249,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
@@ -269,7 +269,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
@@ -289,7 +289,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
@@ -309,7 +309,7 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
@@ -329,13 +329,13 @@
     "lp0": {
       "address": "0x04068DA6C83AFCFA0e13ba15A6696662335D5B75",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "fmcUSDC",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "fMAI",
       "decimals": "1e18"
     }
   },
@@ -355,7 +355,7 @@
     "lp1": {
       "address": "0x74b23882a30290451A17c44f4F05243b6b58C76d",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "fmcETH",
       "decimals": "1e18"
     }
   },
@@ -369,7 +369,7 @@
     "lp0": {
       "address": "0x321162Cd933E2Be498Cd2267a90534A804051b11",
       "oracle": "tokens",
-      "oracleId": "BTC",
+      "oracleId": "fmcBTC",
       "decimals": "1e8"
     },
     "lp1": {
@@ -435,7 +435,7 @@
     "lp1": {
       "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "fMAI",
       "decimals": "1e18"
     }
   },
@@ -455,7 +455,7 @@
     "lp1": {
       "address": "0xfB98B335551a418cD0737375a2ea0ded62Ea213b",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "fMAI",
       "decimals": "1e18"
     }
   },
