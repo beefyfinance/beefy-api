@@ -103,6 +103,17 @@ const _tokens = {
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     documentation: 'https://docs.overnight.fi/',
   },
+  WBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    address: '0xBBeB516fb02a01611cBBE0453Fe3c580D7281011',
+    chainId: 324,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
