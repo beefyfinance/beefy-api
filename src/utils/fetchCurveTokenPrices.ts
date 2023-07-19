@@ -95,14 +95,15 @@ async function getCurveTokenPrices(
     console.error('getCurveTokenPrices', e);
     return chainTokens.map(() => 0);
   }
-
-  const tokenPrice = res[0].map(v => new BigNumber(v.price));
-  return tokenPrice.map((v, i) =>
-    v
-      .times(tokenPrices[chainTokens[i].secondToken])
+  const prices = res[0].map(v => new BigNumber(v.price));
+  const curvePrices = {};
+  for (let i = 0; i < prices.length; i++) {
+    curvePrices[chainTokens[i].oracleId] = prices[i]
+      .times(tokenPrices[chainTokens[i].secondToken] || curvePrices[chainTokens[i].secondToken])
       .dividedBy(chainTokens[i].secondTokenDecimals)
-      .toNumber()
-  );
+      .toNumber();
+  }
+  return Object.values(curvePrices);
 }
 
 export async function fetchCurveTokenPrices(tokenPrices): Promise<Record<string, number>> {

@@ -1097,6 +1097,28 @@ const _tokens = {
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
   },
+  hyUSD: {
+    name: 'High Yield USD',
+    symbol: 'hyUSD',
+    address: '0xaCdf0DBA4B9839b96221a8487e9ca660a48212be',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://register.app/#/overview?token=0xaCdf0DBA4B9839b96221a8487e9ca660a48212be',
+    description:
+      'High yield USD (hyUSD), is a decentralized flatcoin initially pegged to $1 USD that provides convenient access to DeFi yields, enabling holders to grow and preserve their wealth. hyUSD is 1:1 asset backed by a basket of other yield bearing tokens including eUSD as well as tokenized lending with exposure to US Treasuries. Given the unique design and current market conditions it is estimated to yield 8% or better to anyone holding hyUSD in any wallet, outpacing the rate of inflation in over 100 countries around the world and providing safe refuge for purchasing power everywhere.',
+  },
+  'ETH+': {
+    name: 'ETHPlus',
+    symbol: 'ETH+',
+    address: '0xE72B141DF173b999AE7c1aDcbF60Cc9833Ce56a8',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://register.app/#/overview?token=0xE72B141DF173b999AE7c1aDcbF60Cc9833Ce56a8',
+    description:
+      'Safety-first diversified ETH staking index with up to 4.5% APY backed by Lido Staked ETH and Rocket Pool ETH.',
+  },
   '3CRV': {
     name: 'Curve.fi DAI/USDC/USDT',
     symbol: '3CRV',
