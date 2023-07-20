@@ -21,7 +21,7 @@ const { getZkevmApys } = require('./zkevm');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs } = require('./getBoostAprs');
 
-const INIT_DELAY = process.env.INIT_DELAY || 15 * 1000;
+const INIT_DELAY = process.env.INIT_DELAY || 30 * 1000;
 const BOOST_APR_INIT_DELAY = 30 * 1000;
 var REFRESH_INTERVAL = 15 * 60 * 1000;
 const BOOST_REFRESH_INTERVAL = 2 * 60 * 1000;
