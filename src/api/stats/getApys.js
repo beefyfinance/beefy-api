@@ -133,12 +133,9 @@ const initApyService = async () => {
   let cachedApy = await getKey('APY');
   let cachedApyBreakdown = await getKey('APY_BREAKDOWN');
   let cachedBoostAprs = await getKey('BOOST_APRS');
-  // apys = cachedApy ?? {};
-  // apyBreakdowns = cachedApyBreakdown ?? {};
-  // boostAprs = cachedBoostAprs ?? {};
-  apys = {};
-  apyBreakdowns = {};
-  boostAprs = {};
+  apys = cachedApy ?? {};
+  apyBreakdowns = cachedApyBreakdown ?? {};
+  boostAprs = cachedBoostAprs ?? {};
 
   setTimeout(updateApys, INIT_DELAY);
   setTimeout(updateBoostAprs, BOOST_APR_INIT_DELAY);
