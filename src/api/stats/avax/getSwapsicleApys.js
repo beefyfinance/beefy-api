@@ -1,4 +1,3 @@
-const { avaxWeb3: web3 } = require('../../../utils/web3');
 const { AVAX_CHAIN_ID: chainId } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const pools = require('../../../data/avax/siclePools.json');
@@ -7,7 +6,6 @@ const getBlockTime = require('../../../utils/getBlockTime');
 
 const getSwapsicleApys = async () =>
   await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: '0xd3344E9a4Bc67de0dF101CEe5B047fe2dc5AF354',
     tokenPerBlock: 'popsPerBlock',

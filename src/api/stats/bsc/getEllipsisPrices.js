@@ -1,8 +1,7 @@
+import ICurvePoolAbi from '../../../abis/CurvePool';
+import { BSC_CHAIN_ID } from '../../../constants';
+import { fetchContract } from '../../rpc/client';
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../utils/web3');
-
-const ICurvePool = require('../../../abis/ICurvePool.json');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
 const pools = require('../../../data/bsc/ellipsisPools.json');
 
 const DECIMALS = '1e18';
@@ -22,15 +21,15 @@ export const getEllipsisPrices = async tokePrices => {
 };
 
 const getPoolPrice = async (pool, tokenPrices) => {
-  const lpContract = getContractWithProvider(ICurvePool, pool.minter, web3);
+  const lpContract = fetchContract(pool.minter, ICurvePoolAbi, BSC_CHAIN_ID);
   const tokenPrice = getTokenPrice(tokenPrices, pool.oracleId);
 
   let lpPrice = new BigNumber(1);
   try {
     if (pool.volatile) {
-      lpPrice = new BigNumber(await lpContract.methods.lp_price().call());
+      lpPrice = new BigNumber(await lpContract.read.lp_price());
     } else {
-      lpPrice = new BigNumber(await lpContract.methods.get_virtual_price().call());
+      lpPrice = new BigNumber(await lpContract.read.get_virtual_price());
     }
   } catch (e) {
     console.warn('getEllipsisPrice error', pool.name);

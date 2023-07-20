@@ -1,8 +1,8 @@
-import { getContractWithProvider } from '../../../../utils/contractHelper';
 import { isFiniteNumber } from '../../../../utils/number';
 import BigNumber from 'bignumber.js';
-import { bscWeb3 } from '../../../../utils/web3';
+import { fetchContract } from '../../../rpc/client';
 import { isFiniteBigNumber } from '../../../../utils/big-number';
+import { BSC_CHAIN_ID } from '../../../../constants';
 
 type vToken = {
   oracleId: string;
@@ -46,7 +46,7 @@ const abi = [
     stateMutability: 'view',
     type: 'function',
   },
-];
+] as const;
 
 export const fetchVenusPrices = async (
   tokenPrices: Record<string, number>
@@ -54,9 +54,9 @@ export const fetchVenusPrices = async (
   const exchangeRates = await Promise.all(
     vTokens.map(async vToken => {
       try {
-        const contract = getContractWithProvider(abi, vToken.address, bscWeb3); // TODO viem
+        const contract = fetchContract(vToken.address, abi, BSC_CHAIN_ID); // TODO viem
         const currentExchangeRate = new BigNumber(
-          await contract.methods.exchangeRateCurrent().call()
+          (await contract.read.exchangeRateCurrent()).toString()
         );
         if (isFiniteBigNumber(currentExchangeRate)) {
           return currentExchangeRate;

@@ -1,12 +1,12 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../../utils/web3');
 
-const BoardRoom = require('../../../../abis/mdexBoardRoom.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
-const { getContractWithProvider } = require('../../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
+const { default: mdexBoardRoom } = require('../../../../abis/mdexBoardRoom');
+const { BSC_CHAIN_ID } = require('../../../../constants');
+const { fetchContract } = require('../../../rpc/client');
 
 const boardroom = '0xDF484250C063C46F2E1F228954F82266CB987D78';
 const mdx = '0x9C65AB58d8d978DB963e63f2bfB7121627e3a739';
@@ -27,14 +27,14 @@ const getMdexMdxApy = async () => {
 };
 
 const getYearlyRewardsInUsd = async () => {
-  const boardRoomContract = getContractWithProvider(BoardRoom, boardroom, web3);
+  const boardRoomContract = fetchContract(boardroom, mdexBoardRoom, BSC_CHAIN_ID);
 
-  const blockRewards = new BigNumber(await boardRoomContract.methods.wbnbPerBlock().call());
+  const [blockRewards, , allocPoint, totalAllocPoint] = await Promise.all([
+    boardRoomContract.read.wbnbPerBlock().then(res => new BigNumber(res.toString())),
+    boardRoomContract.read.poolInfo([0]).then(res => new BigNumber(res[1].toString())),
+    boardRoomContract.read.totalAllocPoint().then(res => new BigNumber(res.toString())),
+  ]);
 
-  let { allocPoint } = await boardRoomContract.methods.poolInfo(0).call();
-  allocPoint = new BigNumber(allocPoint);
-
-  const totalAllocPoint = new BigNumber(await boardRoomContract.methods.totalAllocPoint().call());
   const poolBlockRewards = blockRewards.times(allocPoint).dividedBy(totalAllocPoint);
 
   const secondsPerBlock = 3;

@@ -1,9 +1,4 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { fuseWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const IRewardPool = require('../../../abis/fuse/MultiReward.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/fuse/fusefiLpPools.json');
 const { BASE_HPY, FUSE_CHAIN_ID, FUSEFI_LPF } = require('../../../constants');
@@ -11,10 +6,11 @@ const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { fusefiClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
-const getBlockTime = require('../../../utils/getBlockTime');
 import { addressBook } from '../../../../packages/address-book/address-book';
-import { getContract } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import MultiReward from '../../../abis/fuse/MultiReward';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
 
 const {
   fuse: {
@@ -31,8 +27,11 @@ const getFusefiLpApys = async () => {
   let apyBreakdowns = {};
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(fusefiClient, pairAddresses, FUSEFI_LPF);
-  const farmApys = await getFarmApys(pools);
+
+  const [tradingAprs, farmApys] = await Promise.all([
+    getTradingFeeApr(fusefiClient, pairAddresses, FUSEFI_LPF),
+    getFarmApys(pools),
+  ]);
 
   pools.forEach((pool, i) => {
     const simpleApy = farmApys[i];
@@ -95,24 +94,22 @@ const getFarmApys = async pools => {
 };
 
 const getPoolsData = async pools => {
-  const multicall = new MultiCall(web3, multicallAddress(FUSE_CHAIN_ID));
-  const balanceCalls = [];
-  const rewardRateCalls = [];
-  pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(pool.rewardPool),
-    });
-    const rewardPool = getContract(IRewardPool, pool.rewardPool);
-    rewardRateCalls.push({
-      rewardRate: rewardPool.methods.rewardData(WFUSE.address),
-    });
+  const balanceCalls = pools.map(pool => {
+    const tokenContract = fetchContract(pool.address, ERC20Abi, FUSE_CHAIN_ID);
+    return tokenContract.read.balanceOf([pool.rewardPool]);
+  });
+  const rewardRateCalls = pools.map(pool => {
+    const rewardPool = fetchContract(pool.rewardPool, MultiReward, FUSE_CHAIN_ID);
+    return rewardPool.read.rewardData([WFUSE.address]);
   });
 
-  const res = await multicall.all([balanceCalls, rewardRateCalls]);
+  const [balanceResults, rewardRateResults] = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(rewardRateCalls),
+  ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const rewardRates = res[1].map(v => new BigNumber(v.rewardRate['3']));
+  const balances = balanceResults.map(v => new BigNumber(v.toString()));
+  const rewardRates = rewardRateResults.map(v => new BigNumber(v['3'].toString()));
   return { balances, rewardRates };
 };
 

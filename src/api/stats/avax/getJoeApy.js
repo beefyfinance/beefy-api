@@ -1,14 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { avaxWeb3: web3 } = require('../../../utils/web3');
-const StableJoeStaking = require('../../../abis/avax/StableJoeStaking.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pool = require('../../../data/avax/joePool.json');
-const { DAILY_HPY } = require('../../../constants');
+const { DAILY_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 const { getYearlyTradingFeesForSJOE } = require('../../../utils/getTradingFeeApr');
 const { joeClient } = require('../../../apollo/client');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
+const { default: StableJoeStaking } = require('../../../abis/avax/StableJoeStaking');
+const { fetchContract } = require('../../rpc/client');
 
 const oracle = 'tokens';
 const JOE = 'JOE';
@@ -19,11 +18,13 @@ const liquidityProviderFee = 0.0005;
 const getJoeApy = async () => {
   const joePrice = await fetchPrice({ oracle, id: JOE });
 
-  const rewardPool = getContractWithProvider(StableJoeStaking, pool.rewardPool, web3);
-  const totalStaked = new BigNumber(await rewardPool.methods.internalJoeBalance().call());
-  const totalStakedInUsd = totalStaked.times(joePrice).dividedBy(joeDecimals);
+  const rewardPool = fetchContract(pool.rewardPool, StableJoeStaking, AVAX_CHAIN_ID);
+  const [totalStaked, tradingAprs] = await Promise.all([
+    rewardPool.read.internalJoeBalance().then(v => new BigNumber(v.toString())),
+    getYearlyTradingFeesForSJOE(joeClient, liquidityProviderFee),
+  ]);
 
-  const tradingAprs = await getYearlyTradingFeesForSJOE(joeClient, liquidityProviderFee);
+  const totalStakedInUsd = totalStaked.times(joePrice).dividedBy(joeDecimals);
 
   const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
   const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;

@@ -1,17 +1,16 @@
-import { getContractWithProvider } from '../../../../utils/contractHelper';
+import AutoStratX from '../../../../abis/AutoStratX';
+import ERC20Abi from '../../../../abis/ERC20Abi';
+import MasterChef from '../../../../abis/MasterChef';
+import PacocaFarm from '../../../../abis/PacocaFarm';
 import { getTradingFeeApr } from '../../../../utils/getTradingFeeApr';
+import { fetchContract } from '../../../rpc/client';
 import getApyBreakdown from '../../common/getApyBreakdown';
 
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../../utils/web3');
-const PacocaFarm = require('../../../../abis/PacocaFarm.json');
-const AutoStrat = require('../../../../abis/AutoStratX.json');
-const MasterChef = require('../../../../abis/MasterChef.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const lpPools = require('../../../../data/degens/pacocaLpPools.json');
 const { BSC_CHAIN_ID, APE_LPF } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
-const ERC20 = require('../../../../abis/ERC20.json');
 const { apeClient } = require('../../../../apollo/client');
 
 const farm = '0x55410D946DFab292196462ca9BE9f3E4E4F337Dd';
@@ -36,8 +35,7 @@ const getPacocaApys = async () => {
   ];
   pools.forEach(pool => promises.push(getPoolApy(apeswapChef, farm, pool)));
 
-  const farmApys = await Promise.all(promises);
-  const tradingAprs = await getTradingAprs(pools);
+  const [farmApys, tradingAprs] = await Promise.all([Promise.all(promises), getTradingAprs(pools)]);
   return getApyBreakdown(pools, tradingAprs, farmApys, APE_LPF);
 };
 
@@ -71,17 +69,17 @@ const getStratYearlyRewardsInUsd = async (masterchef, pool) => {
   if (!pool.uPoolId) return new BigNumber(0);
 
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
+  const masterchefContract = fetchContract(masterchef, MasterChef, BSC_CHAIN_ID);
 
-  const multiplier = new BigNumber(
-    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
-  );
-  const blockRewards = new BigNumber(await masterchefContract.methods.cakePerBlock().call());
+  const [multiplier, blockRewards, allocPoint, totalAllocPoint] = await Promise.all([
+    masterchefContract.read
+      .getMultiplier([blockNum - 1, blockNum])
+      .then(v => new BigNumber(v.toString())),
+    masterchefContract.read.cakePerBlock().then(v => new BigNumber(v.toString())),
+    masterchefContract.read.poolInfo([pool.uPoolId]).then(v => new BigNumber(v[1].toString())),
+    masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+  ]);
 
-  let { allocPoint } = await masterchefContract.methods.poolInfo(pool.uPoolId).call();
-  allocPoint = new BigNumber(allocPoint);
-
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   const poolBlockRewards = blockRewards
     .times(multiplier)
     .times(allocPoint)
@@ -97,17 +95,17 @@ const getStratYearlyRewardsInUsd = async (masterchef, pool) => {
 
 const getYearlyRewardsInUsd = async (farm, pool) => {
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const farmContract = getContractWithProvider(PacocaFarm, farm, web3);
+  const farmContract = fetchContract(farm, PacocaFarm, BSC_CHAIN_ID);
 
-  const multiplier = new BigNumber(
-    await farmContract.methods.getMultiplier(blockNum - 1, blockNum).call()
-  );
-  const blockRewards = new BigNumber(await farmContract.methods.PACOCAPerBlock().call());
+  const [multiplier, blockRewards, allocPoint, totalAllocPoint] = await Promise.all([
+    farmContract.read
+      .getMultiplier([blockNum - 1, blockNum])
+      .then(v => new BigNumber(v.toString())),
+    farmContract.read.PACOCAPerBlock().then(v => new BigNumber(v.toString())),
+    farmContract.read.poolInfo([pool.poolId]).then(v => new BigNumber(v[1].toString())),
+    farmContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+  ]);
 
-  let { allocPoint } = await farmContract.methods.poolInfo(pool.poolId).call();
-  allocPoint = new BigNumber(allocPoint);
-
-  const totalAllocPoint = new BigNumber(await farmContract.methods.totalAllocPoint().call());
   const poolBlockRewards = blockRewards
     .times(multiplier)
     .times(allocPoint)
@@ -123,8 +121,10 @@ const getYearlyRewardsInUsd = async (farm, pool) => {
 
 const getStratTotalLpStakedInUsd = async (masterchef, pool) => {
   if (!pool.uPoolId) return new BigNumber(1);
-  const tokenPairContract = getContractWithProvider(ERC20, pool.address, web3);
-  const totalStaked = new BigNumber(await tokenPairContract.methods.balanceOf(masterchef).call());
+  const tokenPairContract = fetchContract(pool.address, ERC20Abi, BSC_CHAIN_ID);
+  const totalStaked = new BigNumber(
+    (await tokenPairContract.read.balanceOf([masterchef])).toString()
+  );
   const tokenPrice = await fetchPrice({
     oracle: pool.oracle ?? 'lps',
     id: pool.oracleId ?? pool.name,
@@ -133,8 +133,8 @@ const getStratTotalLpStakedInUsd = async (masterchef, pool) => {
 };
 
 const getTotalLpStakedInUsd = async pool => {
-  const strategyContract = getContractWithProvider(AutoStrat, pool.strat, web3);
-  const totalStaked = new BigNumber(await strategyContract.methods.wantLockedTotal().call());
+  const strategyContract = fetchContract(pool.strat, AutoStratX, BSC_CHAIN_ID);
+  const totalStaked = new BigNumber((await strategyContract.read.wantLockedTotal()).toString());
   const tokenPrice = await fetchPrice({
     oracle: pool.oracle ?? 'lps',
     id: pool.oracleId ?? pool.name,

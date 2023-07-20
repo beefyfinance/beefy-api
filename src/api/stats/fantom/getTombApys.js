@@ -1,14 +1,13 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
 
-const RewardPool = require('../../../abis/fantom/TombRewardPool.json');
 const pools = require('../../../data/fantom/tombLpPools.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { spookyClient, tombswapClient } = require('../../../apollo/client');
-import { SPOOKY_LPF, TOMBSWAP_LPF } from '../../../constants';
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import TombRewardPool from '../../../abis/fantom/TombRewardPool';
+import { FANTOM_CHAIN_ID, SPOOKY_LPF, TOMBSWAP_LPF } from '../../../constants';
+import { fetchContract } from '../../rpc/client';
 import getApyBreakdown from '../common/getApyBreakdown';
 
 const rewardPool = '0xcc0a87F7e7c693042a9Cc703661F5060c80ACb43';
@@ -20,19 +19,15 @@ const getTombApys = async () => {
   const spookyPools = pools.filter(pool => pool.liquiditySource !== 'tomb');
   const tombPools = pools.filter(pool => pool.liquiditySource === 'tomb');
 
-  let promises = [];
-  spookyPools.forEach(pool => promises.push(getPoolApy(rewardPool, pool)));
-  const spookyFarmAprs = await Promise.all(promises);
-
-  promises = [];
-  tombPools.forEach(pool => promises.push(getPoolApy(rewardPool, pool)));
-  const tombFarmAprs = await Promise.all(promises);
-
   const spookyPairAddresses = spookyPools.map(pool => pool.address);
   const tombPairAddresses = tombPools.map(pool => pool.address);
 
-  const spookyTradingAprs = await getTradingFeeApr(spookyClient, spookyPairAddresses, SPOOKY_LPF);
-  const tombTradingAprs = await getTradingFeeApr(tombswapClient, tombPairAddresses, TOMBSWAP_LPF);
+  const [spookyFarmAprs, tombFarmAprs, spookyTradingAprs, tombTradingAprs] = await Promise.all([
+    Promise.all(spookyPools.map(pool => getPoolApy(rewardPool, pool))),
+    Promise.all(tombPools.map(pool => getPoolApy(rewardPool, pool))),
+    getTradingFeeApr(spookyClient, spookyPairAddresses, SPOOKY_LPF),
+    getTradingFeeApr(tombswapClient, tombPairAddresses, TOMBSWAP_LPF),
+  ]);
 
   const spookyBreakdown = getApyBreakdown(
     spookyPools,
@@ -64,19 +59,16 @@ const getPoolApy = async (rewardPool, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (rewardPool, poolId) => {
-  const rewardPoolContract = getContractWithProvider(RewardPool, rewardPool, web3);
-
-  let { allocPoint } = await rewardPoolContract.methods.poolInfo(poolId).call();
-  allocPoint = new BigNumber(allocPoint);
+  const rewardPoolContract = fetchContract(rewardPool, TombRewardPool, FANTOM_CHAIN_ID);
 
   const fromTime = Math.floor(Date.now() / 1000);
-  let [secondRewards, totalAllocPoint] = await Promise.all([
-    rewardPoolContract.methods.getGeneratedReward(fromTime, fromTime + 1).call(),
-    rewardPoolContract.methods.totalAllocPoint().call(),
+  let [secondRewards, totalAllocPoint, allocPoint] = await Promise.all([
+    rewardPoolContract.read
+      .getGeneratedReward([fromTime, fromTime + 1])
+      .then(res => new BigNumber(res.toString())),
+    rewardPoolContract.read.totalAllocPoint().then(res => new BigNumber(res.toString())),
+    rewardPoolContract.read.poolInfo([poolId]).then(res => new BigNumber(res.toString())),
   ]);
-
-  secondRewards = new BigNumber(secondRewards);
-  totalAllocPoint = new BigNumber(totalAllocPoint);
 
   const secondsPerYear = 31536000;
   const yearlyRewards = secondRewards

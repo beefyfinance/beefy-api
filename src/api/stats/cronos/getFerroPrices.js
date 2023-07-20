@@ -1,9 +1,9 @@
 const getStableSwapPrices = require('../common/getStableSwapPrices');
-const { cronosWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/cronos/ferroPools.json');
+const { CRONOS_CHAIN_ID } = require('../../../constants');
 
 const getFerroPrices = async tokenPrices => {
-  return await getStableSwapPrices(web3, pools, tokenPrices);
+  return await getStableSwapPrices(CRONOS_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getFerroPrices;

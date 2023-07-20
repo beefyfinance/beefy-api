@@ -1,9 +1,9 @@
 const getCurvePricesCommon = require('../common/curve/getCurvePricesCommon');
-const { kavaWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/kava/curvePools.json');
+const { KAVA_CHAIN_ID } = require('../../../constants');
 
 const getCurveKavaPrices = async tokenPrices => {
-  return await getCurvePricesCommon(web3, pools, tokenPrices);
+  return await getCurvePricesCommon(KAVA_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getCurveKavaPrices;

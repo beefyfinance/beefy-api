@@ -1,14 +1,11 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { bscWeb3: web3, multicallAddress } = require('../../../../utils/web3');
-
-const MasterChefAbi = require('../../../../abis/MasterChef.json');
-const ERC20 = require('../../../../abis/ERC20.json');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
-import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
+import ERC20Abi from '../../../../abis/ERC20Abi';
+import MasterChef from '../../../../abis/MasterChef';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
+import { fetchContract } from '../../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 const { compound } = require('../../../../utils/compound');
@@ -22,8 +19,10 @@ const getMasterChefApys = async masterchefParams => {
     ...(masterchefParams.singlePools ?? []),
   ];
 
-  const tradingAprs = await getTradingAprs(masterchefParams);
-  const farmApys = await getFarmApys(masterchefParams);
+  const [tradingAprs, farmApys] = await Promise.all([
+    getTradingAprs(masterchefParams),
+    getFarmApys(masterchefParams),
+  ]);
 
   masterchefParams.pools.forEach((pool, i, params) => {
     const hpy = pool.hpy ?? BASE_HPY;
@@ -77,8 +76,8 @@ const getFarmApys = async params => {
   const apys = [];
 
   const tokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
-  const { multiplier, blockRewards, totalAllocPoint } = await getMasterChefData(params);
-  const { balances, allocPoints } = await getPoolsData(params);
+  const [{ multiplier, blockRewards, totalAllocPoint }, { balances, allocPoints }] =
+    await Promise.all([getMasterChefData(params), getPoolsData(params)]);
 
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
@@ -110,53 +109,51 @@ const getFarmApys = async params => {
 
 const getMasterChefData = async params => {
   const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
-  const masterchefContract = getContractWithProvider(abi, params.masterchef, web3);
+  const masterchefContract = fetchContract(params.masterchef, abi, BSC_CHAIN_ID);
   let multiplier = new BigNumber(1);
   if (params.hasMultiplier) {
     const blockNum = await getBlockNumber(BSC_CHAIN_ID);
     multiplier = new BigNumber(
-      await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
+      (await masterchefContract.read.getMultiplier([blockNum - 1, blockNum])).toString()
     );
   }
-  const blockRewards = new BigNumber(
-    await masterchefContract.methods[params.tokenPerBlock]().call()
-  );
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const [blockRewards, totalAllocPoint] = await Promise.all([
+    masterchefContract.read[params.tokenPerBlock]().then(v => new BigNumber(v.toString())),
+    masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+  ]);
   return { multiplier, blockRewards, totalAllocPoint };
 };
 
 const getPoolsData = async params => {
   const abi = params.masterchefAbi ?? chefAbi(params.tokenPerBlock);
-  const masterchefContract = getContract(abi, params.masterchef);
-  const multicall = new MultiCall(web3, multicallAddress(BSC_CHAIN_ID));
+  const masterchefContract = fetchContract(params.masterchef, abi, BSC_CHAIN_ID);
   const balanceCalls = [];
   const allocPointCalls = [];
   params.pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(pool.strat ?? params.masterchef),
-    });
-    allocPointCalls.push({
-      allocPoint: masterchefContract.methods.poolInfo(pool.poolId),
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, BSC_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([pool.strat ?? params.masterchef]));
+    allocPointCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
   });
 
-  const res = await multicall.all([balanceCalls, allocPointCalls]);
+  const res = await Promise.all([Promise.all(balanceCalls), Promise.all(allocPointCalls)]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.allocPoint['1']);
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => v['1'].toString());
   return { balances, allocPoints };
 };
 
 const chefAbi = tokenPerBlock => {
-  const cakeAbi = MasterChefAbi;
-  cakeAbi.push({
-    inputs: [],
-    name: tokenPerBlock,
-    outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
-    stateMutability: 'view',
-    type: 'function',
-  });
+  const cakeAbi = [
+    ...MasterChef,
+    {
+      inputs: [],
+      name: tokenPerBlock,
+      outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+      stateMutability: 'view',
+      type: 'function',
+    },
+  ];
+
   return cakeAbi;
 };
 

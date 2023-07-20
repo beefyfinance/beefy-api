@@ -1,12 +1,9 @@
 import { getRewardPoolApys } from '../getRewardPoolApys';
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../../utils/web3';
-import { getContractWithProvider } from '../../../../utils/contractHelper';
 import BigNumber from 'bignumber.js';
 import { getTradingFeeAprHop } from '../../../../utils/getTradingFeeApr';
-
-const ERC20 = require('../../../../abis/common/ERC20/ERC20.json');
-const IStableSwap = require('../../../../abis/IStableSwap.json');
+import IStableSwapAbi from '../../../../abis/IStableSwap';
+import { fetchContract } from '../../../rpc/client';
+import ERC20Abi from '../../../../abis/ERC20Abi';
 
 export const getHopCommonApys = async params => {
   params.tradingAprs = await getTradingAprs(params);
@@ -28,24 +25,22 @@ const getTradingAprs = async params => {
 };
 
 const getTvl = async params => {
-  const multicall = new MultiCall(params.web3, multicallAddress(params.chainId));
   const lpCalls = [];
   const poolCalls = [];
   params.pools.forEach(pool => {
-    const lpContract = getContractWithProvider(ERC20, pool.address, params.web3);
-    const poolContract = getContractWithProvider(IStableSwap, pool.pool, params.web3);
-    lpCalls.push({
-      totalSupply: lpContract.methods.totalSupply(),
-    });
-    poolCalls.push({
-      virtualPrice: poolContract.methods.getVirtualPrice(),
-    });
+    const lpContract = fetchContract(pool.address, ERC20Abi, params.chainId);
+    const poolContract = fetchContract(pool.pool, IStableSwapAbi, params.chainId);
+    lpCalls.push(lpContract.read.totalSupply());
+    poolCalls.push(poolContract.read.getVirtualPrice());
   });
 
-  const res = await multicall.all([lpCalls, poolCalls]);
+  const [lpResults, poolResults] = await Promise.all([
+    Promise.all(lpCalls),
+    Promise.all(poolCalls),
+  ]);
 
-  const totalSupplys = res[0].map(v => new BigNumber(v.totalSupply));
-  const virtualPrices = res[1].map(v => new BigNumber(v.virtualPrice));
+  const totalSupplys = lpResults.map(v => new BigNumber(v.toString()));
+  const virtualPrices = poolResults.map(v => new BigNumber(v.toString()));
 
   const tvls = [];
   let i = 0;

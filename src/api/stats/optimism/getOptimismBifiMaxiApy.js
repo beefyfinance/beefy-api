@@ -1,8 +1,7 @@
-const { optimismWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
-
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { OPTIMISM_CHAIN_ID } from '../../../constants';
 const {
   optimism: {
     platforms: {
@@ -19,6 +18,6 @@ export const getOptimismBifiMaxiApy = () => {
     rewardId: ETH.symbol,
     rewardDecimals: getEDecimals(ETH.decimals),
     chain: 'optimism',
-    web3: web3,
+    chainId: OPTIMISM_CHAIN_ID,
   });
 };

@@ -1,4 +1,3 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
 const { FANTOM_CHAIN_ID: chainId, SPIRIT_LPF } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const { getMasterChefApys } = require('../common/getMasterChefApys');
@@ -29,7 +28,6 @@ const singlePool = [
 
 const getSpiritApys = async () => {
   const chefApys = getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: spiritswap.masterchef,
     tokenPerBlock: 'spiritPerBlock',
@@ -43,7 +41,6 @@ const getSpiritApys = async () => {
   });
 
   const gaugeApys = getGaugeApys({
-    web3: web3,
     chainId: chainId,
     gaugeStaker: spiritswap.gaugeStaker,
     pools: pools.filter(pool => !!pool.gauge),
@@ -60,7 +57,6 @@ const getSpiritApys = async () => {
     oracleId: binSPIRIT.symbol,
     oracle: 'tokens',
     decimals: getEDecimals(binSPIRIT.decimals),
-    web3: web3,
     chainId: 250,
     // log: true,
   });

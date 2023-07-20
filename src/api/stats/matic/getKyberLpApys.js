@@ -1,15 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/matic/ElysianFields.json');
-const DMMPool = require('../../../abis/matic/DMMPool.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/kyberLpPools.json');
 const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
 const { getVariableTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import DMMPool from '../../../abis/matic/DMMPool';
+import ElysianFields from '../../../abis/matic/ElysianFields';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { fetchContract } from '../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { kyberClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -31,16 +29,16 @@ const getAprs = async () => {
   const tradingAprs = [];
 
   const tokenPrice = await fetchPrice({ oracle: oracle, id: oracleId });
-  const { blockRewards, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, tradingFees } = await getPoolsData();
-  const secondsPerBlock = await getBlockTime(137);
 
-  const pairAddresses = pools.map(pool => pool.lp0.address.concat('_', pool.lp1.address));
-  const fetchedTradingAprs = await getVariableTradingFeeApr(
-    kyberClient,
-    pairAddresses,
-    tradingFees
-  );
+  const [
+    { blockRewards, totalAllocPoint },
+    { balances, allocPoints, tradingFees },
+    secondsPerBlock,
+  ] = await Promise.all([getMasterChefData(), getPoolsData(), getBlockTime(137)]);
+
+  //Commenting out since it isn't used
+  // const pairAddresses = pools.map(pool => pool.lp0.address.concat('_', pool.lp1.address));
+  // const fetchedTradingAprs = await getVariableTradingFeeApr(kyberClient, pairAddresses, tradingFees)
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -62,37 +60,36 @@ const getAprs = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const blockRewards = new BigNumber(await masterchefContract.methods.rwdPerBlock().call());
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoints().call());
+  const masterchefContract = fetchContract(masterchef, ElysianFields, POLYGON_CHAIN_ID);
+  const [blockRewards, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.rwdPerBlock().then(v => new BigNumber(v.toString())),
+    masterchefContract.read.totalAllocPoints().then(v => new BigNumber(v.toString())),
+  ]);
   return { blockRewards, totalAllocPoint };
 };
 
 const getPoolsData = async () => {
-  const masterchefContract = getContract(MasterChef, masterchef);
-  const multicall = new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID));
+  const masterchefContract = fetchContract(masterchef, ElysianFields, POLYGON_CHAIN_ID);
 
   const balanceCalls = [];
   const allocPointsCalls = [];
   const tradingFeeCalls = [];
   pools.forEach(pool => {
-    const tokenContract = getContract(DMMPool, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(masterchef),
-    });
-    allocPointsCalls.push({
-      allocPoint: masterchefContract.methods.poolInfo(pool.poolId),
-    });
-    tradingFeeCalls.push({
-      tradingFee: tokenContract.methods.getTradeInfo(),
-    });
+    const tokenContract = fetchContract(pool.address, DMMPool, POLYGON_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([masterchef]));
+    allocPointsCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
+    tradingFeeCalls.push(tokenContract.read.getTradeInfo());
   });
 
-  const res = await multicall.all([balanceCalls, allocPointsCalls, tradingFeeCalls]);
+  const res = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(allocPointsCalls),
+    Promise.all(tradingFeeCalls),
+  ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => new BigNumber(v.allocPoint['1']));
-  const tradingFees = res[2].map(v => new BigNumber(v.tradingFee['4']).dividedBy(DECIMALS));
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => new BigNumber(v['1'].toString()));
+  const tradingFees = res[2].map(v => new BigNumber(v['4'].toString()).dividedBy(DECIMALS));
 
   return { balances, allocPoints, tradingFees };
 };

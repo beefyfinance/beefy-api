@@ -1,4 +1,3 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
 const { FANTOM_CHAIN_ID: chainId } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
@@ -17,7 +16,6 @@ const {
 const pools = [...stablePools, ...volatilePools, ...stableV2Pools, ...volatileV2Pools];
 const getEqualizerApys = async () => {
   const gaugeApys = getSolidlyGaugeApys({
-    web3: web3,
     chainId: chainId,
     pools: pools,
     oracleId: 'EQUAL',

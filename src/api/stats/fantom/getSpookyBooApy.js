@@ -1,16 +1,14 @@
 const BigNumber = require('bignumber.js');
-const { fantomWeb3: web3 } = require('../../../utils/web3');
-
-const xBOOChefAbi = require('../../../abis/fantom/xBOOChef.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pool = require('../../../data/fantom/spookySinglePool.json');
-const { BASE_HPY } = require('../../../constants');
+const { BASE_HPY, FANTOM_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import xBOOChefAbi from '../../../abis/fantom/xBOOChef';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { getYearlyTradingFeesForProtocols } from '../../../utils/getTradingFeeApr';
+import { fetchContract } from '../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
-const { getYearlyTradingFeesForProtocols } = require('../../../utils/getTradingFeeApr');
 const { spookyClient } = require('../../../apollo/client');
 
 const oracle = 'tokens';
@@ -27,19 +25,18 @@ const afterBurn = 0.91;
 
 const getSpookyBooApy = async () => {
   const BOOPrice = await fetchPrice({ oracle, id: oracleId });
-  const { balance, rewardRate } = await getPoolData();
+  const BOOContract = fetchContract(BOO, ERC20Abi, FANTOM_CHAIN_ID);
 
-  const BOOContract = getContractWithProvider(ERC20, BOO, web3);
-  const totalStakedInxBOO = await BOOContract.methods.balanceOf(xBOO).call();
+  const [{ balance, rewardRate }, totalStakedInxBOO, yearlyTradingFees] = await Promise.all([
+    getPoolData(),
+    BOOContract.read.balanceOf([xBOO]).then(res => new BigNumber(res.toString())),
+    getYearlyTradingFeesForProtocols(spookyClient, liquidityProviderFee),
+  ]);
+
   const totalStakedInxBOOInUsd = new BigNumber(totalStakedInxBOO)
     .times(BOOPrice)
     .dividedBy(DECIMALS);
   const xBOOPrice = await fetchPrice({ oracle: 'tokens', id: 'xBOO' });
-
-  const yearlyTradingFees = await getYearlyTradingFeesForProtocols(
-    spookyClient,
-    liquidityProviderFee
-  );
 
   const totalStakedInUsd = balance.times(xBOOPrice).dividedBy(DECIMALS);
 
@@ -82,10 +79,10 @@ const getSpookyBooApy = async () => {
 };
 
 const getPoolData = async () => {
-  const xBOOChef = getContractWithProvider(xBOOChefAbi, xBOOChefAddress, web3);
-  const rewardPool = await xBOOChef.methods.poolInfo(pool.poolId).call();
-  const rewardRate = new BigNumber(rewardPool.RewardPerSecond);
-  const balance = new BigNumber(rewardPool.xBooStakedAmount);
+  const xBOOChef = fetchContract(xBOOChefAddress, xBOOChefAbi, FANTOM_CHAIN_ID);
+  const rewardPool = await xBOOChef.read.poolInfo([pool.poolId]);
+  const rewardRate = new BigNumber(rewardPool[5].toString());
+  const balance = new BigNumber(rewardPool[3].toString());
 
   return { balance, rewardRate };
 };

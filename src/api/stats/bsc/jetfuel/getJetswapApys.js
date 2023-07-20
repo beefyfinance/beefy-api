@@ -1,13 +1,13 @@
 const getMasterChefApys = require('../degens/getBscMasterChefApys');
 
-const MasterChefAbi = require('../../../../abis/MasterChef.json');
 const pools = require('../../../../data/jetswapLpPools.json');
 const { jetswapClient } = require('../../../../apollo/client');
+const { default: MasterChef } = require('../../../../abis/MasterChef');
 
 const getJetswapApys = async () => {
   const lp = getMasterChefApys({
     masterchef: '0x63d6EC1cDef04464287e2af710FFef9780B6f9F5',
-    masterchefAbi: MasterChefAbi,
+    masterchefAbi: MasterChef,
     tokenPerBlock: 'cakePerBlock',
     hasMultiplier: true,
     pools: pools,
@@ -21,7 +21,7 @@ const getJetswapApys = async () => {
 
   const single = getMasterChefApys({
     masterchef: '0x63d6EC1cDef04464287e2af710FFef9780B6f9F5',
-    masterchefAbi: MasterChefAbi,
+    masterchefAbi: MasterChef,
     tokenPerBlock: 'cakePerBlock',
     hasMultiplier: true,
     singlePools: [

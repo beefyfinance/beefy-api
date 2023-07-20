@@ -1,4 +1,3 @@
-const { ethereumWeb3: web3 } = require('../../../utils/web3');
 import { ETH_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 
@@ -16,7 +15,6 @@ const {
 
 const getSynapseLpApys = async () =>
   await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: synapse.minichef,
     masterchefAbi: SynapseChef,

@@ -8,9 +8,10 @@ import { ethers } from 'ethers';
 import { MULTICHAIN_RPC } from '../src/constants';
 
 import voterABI from '../src/abis/Voter.json';
-import LPPairABI from '../src/abis/ISolidlyPair.json';
 import ERC20ABI from '../src/abis/ERC20.json';
 import { addressBook } from '../packages/address-book/address-book';
+import ISolidlyPair from '../src/abis/ISolidlyPair';
+
 const {
   bsc: {
     platforms: { thena },
@@ -67,7 +68,7 @@ async function fetchGauge(lp) {
 
 async function fetchLiquidityPair(lp) {
   console.log(`fetchLiquidityPair(${lp})`);
-  const lpContract = new ethers.Contract(lp, LPPairABI, provider);
+  const lpContract = new ethers.Contract(lp, ISolidlyPair as any, provider);
   const lpTokenContract = new ethers.Contract(lp, ERC20ABI, provider);
   return {
     address: ethers.utils.getAddress(lpAddress),

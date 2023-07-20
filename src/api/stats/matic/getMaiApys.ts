@@ -1,16 +1,15 @@
 import { getMasterChefApys } from './getMaticMasterChefApys';
-import MasterChefAbi from '../../../abis/matic/MaiFarmChef.json';
 import pools from '../../../data/matic/maiLpPools.json';
 import { quickClient } from '../../../apollo/client';
 import { addressBook } from '../../../../packages/address-book/address-book';
-import { AbiItem } from 'web3-utils';
+import MaiFarmChefAbi from '../../../abis/matic/MaiFarmChef';
 
 const mai = addressBook.polygon.platforms.mai;
 
 const getMaiApys = async () =>
   getMasterChefApys({
     masterchef: mai.chef3,
-    masterchefAbi: MasterChefAbi as AbiItem[],
+    masterchefAbi: MaiFarmChefAbi,
     tokenPerBlock: 'rewardPerSecond',
     hasMultiplier: false,
     pools: pools,

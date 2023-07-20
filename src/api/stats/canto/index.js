@@ -6,6 +6,7 @@ const { getCantoBifiMaxiApy } = require('./getCantoBifiMaxiApy');
 const getApys = [getCantoLpApys, getVelocimeterApys, getCantoBifiGovApy, getCantoBifiMaxiApy];
 
 const getCantoApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -42,6 +43,9 @@ const getCantoApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Canto finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

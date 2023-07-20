@@ -1,4 +1,3 @@
-const { optimismWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
 
@@ -27,7 +26,6 @@ const getBeOpxApy = async () => {
     oracleId: 'WETH',
     oracle: 'tokens',
     decimals: getEDecimals(WETH.decimals),
-    web3: web3,
     chainId: 10,
     // log: true,
   });

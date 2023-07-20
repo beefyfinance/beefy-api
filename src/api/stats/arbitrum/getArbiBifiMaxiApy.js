@@ -1,14 +1,13 @@
-const { arbitrumWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
-
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { ARBITRUM_CHAIN_ID } from '../../../constants';
 const {
   arbitrum: {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI, ETH }
+    tokens: { BIFI, ETH },
   },
 } = addressBook;
 
@@ -19,6 +18,6 @@ export const getArbiBifiMaxiApy = () => {
     rewardId: ETH.symbol,
     rewardDecimals: getEDecimals(ETH.decimals),
     chain: 'arbi',
-    web3: web3,
+    chainId: ARBITRUM_CHAIN_ID,
   });
 };

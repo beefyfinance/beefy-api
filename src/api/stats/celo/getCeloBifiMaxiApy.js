@@ -1,14 +1,13 @@
-const { celoWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
-
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { CELO_CHAIN_ID } from '../../../constants';
 const {
   celo: {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI, CELO }
+    tokens: { BIFI, CELO },
   },
 } = addressBook;
 
@@ -19,6 +18,6 @@ export const getCeloBifiMaxiApy = () => {
     rewardId: CELO.symbol,
     rewardDecimals: getEDecimals(CELO.decimals),
     chain: 'celo',
-    web3: web3,
+    chainId: CELO_CHAIN_ID,
   });
 };

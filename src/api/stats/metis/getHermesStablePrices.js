@@ -1,9 +1,9 @@
 const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
-const { metisWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/metis/hermesStableLpPools.json');
+const { METIS_CHAIN_ID } = require('../../../constants');
 
 const getHermesStablePrices = async tokenPrices => {
-  return await getSolidlyStablePrices(web3, pools, tokenPrices);
+  return await getSolidlyStablePrices(METIS_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getHermesStablePrices;

@@ -1,35 +1,35 @@
 import BigNumber from 'bignumber.js';
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
-import StargateLP from '../../../abis/StargateLP.json';
-const { getContractWithProvider } = require('../../../utils/contractHelper');
+import StargateLPAbi from '../../../abis/StargateLP';
+import { fetchContract } from '../../rpc/client';
 
-const getStargatePrices = async (web3, chainId, pools, tokenPrices) => {
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-  const tokenCalls = [];
+const getStargatePrices = async (chainId, pools, tokenPrices) => {
+  const [totalLiquidityCalls, totalSupplyCals] = pools.reduce(
+    (acc, pool) => {
+      const tokenContract = fetchContract(pool.address, StargateLPAbi, chainId);
+      acc[0].push(tokenContract.read.totalLiquidity());
+      acc[1].push(tokenContract.read.totalSupply());
+      return acc;
+    },
+    [[], []]
+  );
 
-  pools.forEach(pool => {
-    const tokenContract = getContractWithProvider(StargateLP, pool.address, web3);
-    tokenCalls.push({
-      stakedInsPool: tokenContract.methods.totalLiquidity(),
-      totalsSupply: tokenContract.methods.totalSupply(),
-    });
-  });
+  const [liquidityRes, supplyRes] = await Promise.all([
+    Promise.all(totalLiquidityCalls),
+    Promise.all(totalSupplyCals),
+  ]);
 
-  const res = await multicall.all([tokenCalls]);
-
-  const stakedInsPool = res[0].map(v => new BigNumber(v.stakedInsPool));
-  const totalsSupply = res[0].map(v => new BigNumber(v.totalsSupply));
-
+  const stakedInsPool = liquidityRes.map(v => new BigNumber(v.toString()));
+  const totalsSupply = supplyRes.map(v => new BigNumber(v.toString()));
   let prices = {};
 
   for (let i = 0; i < pools.length; i++) {
     const price = stakedInsPool[i]
       .times(tokenPrices[pools[i].underlying])
-      .dividedBy(totalsSupply[i]).toNumber();
+      .dividedBy(totalsSupply[i])
+      .toNumber();
 
-    prices = {...prices, [pools[i].name]: price };
-  };
+    prices = { ...prices, [pools[i].name]: price };
+  }
 
   return prices;
 };

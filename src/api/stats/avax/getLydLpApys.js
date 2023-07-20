@@ -1,19 +1,17 @@
 const BigNumber = require('bignumber.js');
-const { avaxWeb3: web3, web3Factory } = require('../../../utils/web3');
-
-const MasterChef = require('../../../abis/avax/LydChef.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/lydLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { AVAX_CHAIN_ID, BASE_HPY } = require('../../../constants');
 const getBlockNumber = require('../../../utils/getBlockNumber');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import LydChef from '../../../abis/avax/LydChef';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { fetchContract } from '../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { lydiaClient } = require('../../../apollo/client');
 
-const ERC20 = require('../../../abis/ERC20.json');
 const { lpTokenPrice } = require('../../../utils/lpTokens');
 
 const masterchef = '0xFb26525B14048B7BB1F3794F6129176195Db7766';
@@ -28,13 +26,16 @@ const getLydLpApys = async () => {
   let apyBreakdowns = {};
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(lydiaClient, pairAddresses, liquidityProviderFee);
 
   const allPools = [...pools];
 
   let promises = [];
   allPools.forEach(pool => promises.push(getPoolApy(masterchef, pool)));
-  const values = await Promise.all(promises);
+
+  const [tradingAprs, values] = await Promise.all([
+    getTradingFeeApr(lydiaClient, pairAddresses, liquidityProviderFee),
+    Promise.all(promises),
+  ]);
 
   for (let item of values) {
     const simpleApr = item.simpleApr;
@@ -91,17 +92,17 @@ const getPoolApy = async (masterchef, pool) => {
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
   const blockNum = await getBlockNumber(AVAX_CHAIN_ID);
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
+  const masterchefContract = fetchContract(masterchef, LydChef, AVAX_CHAIN_ID);
 
-  const multiplier = new BigNumber(
-    await masterchefContract.methods.getMultiplier(blockNum - 1, blockNum).call()
-  );
-  const rewards = new BigNumber(await masterchefContract.methods.lydPerSec().call());
+  const [multiplier, rewards, allocPoint, totalAllocPoint] = await Promise.all([
+    masterchefContract.read
+      .getMultiplier([blockNum - 1, blockNum])
+      .then(v => new BigNumber(v.toString())),
+    masterchefContract.read.lydPerSec().then(v => new BigNumber(v.toString())),
+    masterchefContract.read.poolInfo([pool.poolId]).then(v => new BigNumber(v[1].toString())),
+    masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+  ]);
 
-  let { allocPoint } = await masterchefContract.methods.poolInfo(pool.poolId).call();
-  allocPoint = new BigNumber(allocPoint);
-
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
   const poolBlockRewards = rewards.times(multiplier).times(allocPoint).dividedBy(totalAllocPoint);
 
   const secondsPerBlock = 1;
@@ -115,11 +116,11 @@ const getYearlyRewardsInUsd = async (masterchef, pool) => {
 };
 
 const getTotalLpStakedInUsd = async (targetAddr, pool) => {
-  const web3 = web3Factory(AVAX_CHAIN_ID);
-
-  const tokenPairContract = getContractWithProvider(ERC20, pool.address, web3);
-  const totalStaked = new BigNumber(await tokenPairContract.methods.balanceOf(targetAddr).call());
-  const tokenPrice = await lpTokenPrice(pool);
+  const tokenPairContract = fetchContract(pool.address, ERC20Abi, AVAX_CHAIN_ID);
+  const [totalStaked, tokenPrice] = await Promise.all([
+    tokenPairContract.read.balanceOf([targetAddr]).then(v => new BigNumber(v.toString())),
+    lpTokenPrice(pool),
+  ]);
   const totalStakedInUsd = totalStaked.times(tokenPrice).dividedBy('1e18');
   return totalStakedInUsd;
 };

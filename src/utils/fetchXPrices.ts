@@ -1,8 +1,4 @@
 import BigNumber from 'bignumber.js';
-import { MultiCall } from 'eth-multicall';
-import { web3Factory, multicallAddress } from './web3';
-import ERC20 from '../abis/ERC20.json';
-
 import {
   FANTOM_CHAIN_ID,
   FUSE_CHAIN_ID,
@@ -11,7 +7,9 @@ import {
   AURORA_CHAIN_ID,
 } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
-import { getContract } from './contractHelper';
+import ERC20Abi from '../abis/ERC20Abi';
+import { fetchContract } from '../api/rpc/client';
+import Token from '../../packages/address-book/types/token';
 
 const {
   fantom: {
@@ -43,37 +41,32 @@ const tokens = {
   aurora: [[TRI, xTRI]],
 };
 
-const getXPrices = async (tokenPrices, tokens, chainId) => {
-  const web3 = web3Factory(chainId);
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-
-  const stakedInXPoolCalls = [];
-  const totalXSupplyCalls = [];
-
-  tokens.forEach(token => {
-    const tokenContract = getContract(ERC20, token[0].address);
-    const xTokenContract = getContract(ERC20, token[1].address);
-    stakedInXPoolCalls.push({
-      stakedInXPool: tokenContract.methods.balanceOf(token[1].address),
-    });
-    totalXSupplyCalls.push({
-      totalXSupply: xTokenContract.methods.totalSupply(),
-    });
+const getXPrices = async (tokenPrices, tokens: Token[][], chainId) => {
+  const stakedInXPoolCalls = tokens.map(token => {
+    const contract = fetchContract(token[0].address, ERC20Abi, chainId);
+    return contract.read.balanceOf([token[1].address as `0x${string}`]);
+  });
+  const totalXSupplyCalls = tokens.map(token => {
+    const contract = fetchContract(token[1].address, ERC20Abi, chainId);
+    return contract.read.totalSupply();
   });
 
-  let res;
   try {
-    res = await multicall.all([stakedInXPoolCalls, totalXSupplyCalls]);
+    const [xPoolResults, totalXSupplyResults] = await Promise.all([
+      Promise.all(stakedInXPoolCalls),
+      Promise.all(totalXSupplyCalls),
+    ]);
+
+    const stakedInXPool = xPoolResults.map(v => new BigNumber(v.toString()));
+    const totalXSupply = totalXSupplyResults.map(v => new BigNumber(v.toString()));
+
+    return stakedInXPool.map((v, i) =>
+      v.times(tokenPrices[tokens[i][0].symbol]).dividedBy(totalXSupply[i]).toNumber()
+    );
   } catch (e) {
     console.error('getXPrices', e);
     return tokens.map(() => 0);
   }
-  const stakedInXPool = res[0].map(v => new BigNumber(v.stakedInXPool));
-  const totalXSupply = res[1].map(v => new BigNumber(v.totalXSupply));
-
-  return stakedInXPool.map((v, i) =>
-    v.times(tokenPrices[tokens[i][0].symbol]).dividedBy(totalXSupply[i]).toNumber()
-  );
 };
 
 export async function fetchXPrices(

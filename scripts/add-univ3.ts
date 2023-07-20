@@ -7,8 +7,8 @@ import { ethers } from 'ethers';
 import { MULTICHAIN_RPC } from '../src/constants';
 
 import UniV3LPPairABI from '../src/abis/UniV3LPPair.json';
-import StratUniV3ABI from '../src/abis/StratUniV3.json';
 import ERC20ABI from '../src/abis/ERC20.json';
+import StratUniV3 from '../src/abis/StratUniV3';
 
 const {} = addressBook;
 
@@ -49,7 +49,7 @@ const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
 
 async function fetchLiquidityPair(strategyAddress) {
   console.log(`fetchLiquidityPair for (${strategyAddress})`);
-  const strategyContract = new ethers.Contract(strategyAddress, StratUniV3ABI, provider);
+  const strategyContract = new ethers.Contract(strategyAddress, StratUniV3 as any, provider);
   const lpAddress = await strategyContract.pool();
   const lpContract = new ethers.Contract(lpAddress, UniV3LPPairABI, provider);
   interface Results {

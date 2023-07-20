@@ -2,13 +2,11 @@ const BigNumber = require('bignumber.js');
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const { MultiCall } = require('eth-multicall');
-import { getContract } from '../../../utils/contractHelper';
-const { moonriverWeb3: web3, multicallAddress } = require('../../../utils/web3');
-import { BASE_HPY, MOONRIVER_CHAIN_ID as chainId } from '../../../constants';
-const Comptroller = require('../../../abis/moonbeam/MoonwellComptroller.json');
+import { BASE_HPY, MOONRIVER_CHAIN_ID, MOONRIVER_CHAIN_ID as chainId } from '../../../constants';
+import MoonwellComptroller from '../../../abis/moonbeam/MoonwellComptroller';
+import ImToken from '../../../abis/moonbeam/mToken';
+import { fetchContract } from '../../rpc/client';
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
-const ImToken = require('../../../abis/moonbeam/mToken.json');
 
 const pools = require('../../../data/moonriver/moonwellPools.json');
 const COMPTROLLER = '0x0b7a0EAA884849c6Af7a129e899536dDDcA4905E';
@@ -17,11 +15,10 @@ const SECONDS_PER_YEAR = 31536000;
 const getMoonwellApys = async () => {
   let apys = {};
 
-  const { supplyRates, wellSupplyRates, glmrSupplyRates, totalSupplys, exchangeRates } =
-    await getSupplyData(pools);
-  const { borrowRates, wellBorrowRates, glmrBorrowRates, totalBorrows } = await getBorrowData(
-    pools
-  );
+  const [
+    { supplyRates, wellSupplyRates, glmrSupplyRates, totalSupplys, exchangeRates },
+    { borrowRates, wellBorrowRates, glmrBorrowRates, totalBorrows },
+  ] = await Promise.all([getSupplyData(pools), getBorrowData(pools)]);
 
   for (let i = 0; i < pools.length; i++) {
     const { supplyBase, supplyVxs } = await getSupplyApys(
@@ -154,82 +151,62 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
 };
 
 const getSupplyData = async pools => {
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
   const supplyRateCalls = [];
   const wellSupplyRateCalls = [];
   const glmrSupplyRateCalls = [];
   const totalSupplyCalls = [];
   const exchangeRateCalls = [];
+  const comptrollerContract = fetchContract(COMPTROLLER, MoonwellComptroller, MOONRIVER_CHAIN_ID);
   pools.forEach(pool => {
-    const comptrollerContract = getContract(Comptroller, COMPTROLLER);
-    const mtokenContract = getContract(ImToken, pool.mtoken);
-    supplyRateCalls.push({
-      supplyRate: mtokenContract.methods.supplyRatePerTimestamp(),
-    });
-    wellSupplyRateCalls.push({
-      wellSupplyRate: comptrollerContract.methods.supplyRewardSpeeds(0, pool.mtoken),
-    });
-    glmrSupplyRateCalls.push({
-      glmrSupplyRate: comptrollerContract.methods.supplyRewardSpeeds(1, pool.mtoken),
-    });
-    totalSupplyCalls.push({
-      totalSupply: mtokenContract.methods.totalSupply(),
-    });
-    exchangeRateCalls.push({
-      exchangeRate: mtokenContract.methods.exchangeRateStored(),
-    });
+    const mtokenContract = fetchContract(pool.mtoken, ImToken, MOONRIVER_CHAIN_ID);
+    supplyRateCalls.push(mtokenContract.read.supplyRatePerTimestamp());
+    wellSupplyRateCalls.push(comptrollerContract.read.supplyRewardSpeeds([0, pool.mtoken]));
+    glmrSupplyRateCalls.push(comptrollerContract.read.supplyRewardSpeeds([1, pool.mtoken]));
+    totalSupplyCalls.push(mtokenContract.read.totalSupply());
+    exchangeRateCalls.push(mtokenContract.read.exchangeRateStored());
   });
 
-  const res = await multicall.all([
-    supplyRateCalls,
-    wellSupplyRateCalls,
-    glmrSupplyRateCalls,
-    totalSupplyCalls,
-    exchangeRateCalls,
+  const res = await Promise.all([
+    Promise.all(supplyRateCalls),
+    Promise.all(wellSupplyRateCalls),
+    Promise.all(glmrSupplyRateCalls),
+    Promise.all(totalSupplyCalls),
+    Promise.all(exchangeRateCalls),
   ]);
 
-  const supplyRates = res[0].map(v => new BigNumber(v.supplyRate));
-  const wellSupplyRates = res[1].map(v => new BigNumber(v.wellSupplyRate));
-  const glmrSupplyRates = res[2].map(v => new BigNumber(v.glmrSupplyRate));
-  const totalSupplys = res[3].map(v => new BigNumber(v.totalSupply));
-  const exchangeRates = res[4].map(v => new BigNumber(v.exchangeRate));
+  const supplyRates = res[0].map(v => new BigNumber(v.toString()));
+  const wellSupplyRates = res[1].map(v => new BigNumber(v.toString()));
+  const glmrSupplyRates = res[2].map(v => new BigNumber(v.toString()));
+  const totalSupplys = res[3].map(v => new BigNumber(v.toString()));
+  const exchangeRates = res[4].map(v => new BigNumber(v.toString()));
   return { supplyRates, wellSupplyRates, glmrSupplyRates, totalSupplys, exchangeRates };
 };
 
 const getBorrowData = async pools => {
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
   const borrowRateCalls = [];
   const wellBorrowRateCalls = [];
   const glmrBorrowRateCalls = [];
   const totalBorrowCalls = [];
+  const comptrollerContract = fetchContract(COMPTROLLER, MoonwellComptroller, chainId);
   pools.forEach(pool => {
-    const comptrollerContract = getContract(Comptroller, COMPTROLLER);
-    const mtokenContract = getContract(ImToken, pool.mtoken);
-    borrowRateCalls.push({
-      borrowRate: mtokenContract.methods.borrowRatePerTimestamp(),
-    });
-    wellBorrowRateCalls.push({
-      wellBorrowRate: comptrollerContract.methods.borrowRewardSpeeds(0, pool.mtoken),
-    });
-    glmrBorrowRateCalls.push({
-      glmrBorrowRate: comptrollerContract.methods.borrowRewardSpeeds(1, pool.mtoken),
-    });
-    totalBorrowCalls.push({
-      totalBorrow: mtokenContract.methods.totalBorrows(),
-    });
+    const mtokenContract = fetchContract(pool.mtoken, ImToken, chainId);
+    borrowRateCalls.push(mtokenContract.read.borrowRatePerTimestamp());
+    wellBorrowRateCalls.push(comptrollerContract.read.borrowRewardSpeeds([0, pool.mtoken]));
+    glmrBorrowRateCalls.push(comptrollerContract.read.borrowRewardSpeeds([1, pool.mtoken]));
+    totalBorrowCalls.push(mtokenContract.read.totalBorrows());
   });
 
-  const res = await multicall.all([
-    borrowRateCalls,
-    wellBorrowRateCalls,
-    glmrBorrowRateCalls,
-    totalBorrowCalls,
+  const res = await Promise.all([
+    Promise.all(borrowRateCalls),
+    Promise.all(wellBorrowRateCalls),
+    Promise.all(glmrBorrowRateCalls),
+    Promise.all(totalBorrowCalls),
   ]);
 
-  const borrowRates = res[0].map(v => new BigNumber(v.borrowRate));
-  const wellBorrowRates = res[1].map(v => new BigNumber(v.wellBorrowRate));
-  const glmrBorrowRates = res[2].map(v => new BigNumber(v.glmrBorrowRate));
-  const totalBorrows = res[3].map(v => new BigNumber(v.totalBorrow));
+  const borrowRates = res[0].map(v => new BigNumber(v.toString()));
+  const wellBorrowRates = res[1].map(v => new BigNumber(v.toString()));
+  const glmrBorrowRates = res[2].map(v => new BigNumber(v.toString()));
+  const totalBorrows = res[3].map(v => new BigNumber(v.toString()));
   return { borrowRates, wellBorrowRates, glmrBorrowRates, totalBorrows };
 };
 

@@ -1,13 +1,10 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const ISingleStaking = require('../../../abis/BetSwirlSingleStaking.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const { POLYGON_CHAIN_ID: chainId } = require('../../../constants');
-import { getContract } from '../../../utils/contractHelper';
+const { POLYGON_CHAIN_ID } = require('../../../constants');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import BetSwirlSingleStaking from '../../../abis/BetSwirlSingleStaking';
+import { fetchContract } from '../../rpc/client';
 const {
   polygon: {
     tokens: { BETS, MATIC },
@@ -58,24 +55,19 @@ const getFarmApys = async pools => {
 };
 
 const getPoolsData = async pools => {
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
   const balanceCalls = [];
   const rewardRateCalls = [];
   pools.forEach(pool => {
-    const rewarder = getContract(ISingleStaking, pool.rewardPool);
-    balanceCalls.push({
-      balance: rewarder.methods.totalSupply(),
-    });
-    rewardRateCalls.push({
-      rewardRate: rewarder.methods.rewardData(MATIC.address),
-    });
+    const rewarder = fetchContract(pool.rewardPool, BetSwirlSingleStaking, POLYGON_CHAIN_ID);
+    balanceCalls.push(rewarder.read.totalSupply());
+    rewardRateCalls.push(rewarder.read.rewardData([MATIC.address]));
   });
 
-  const res = await multicall.all([balanceCalls, rewardRateCalls]);
+  const res = await Promise.all([Promise.all(balanceCalls), Promise.all(rewardRateCalls)]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const rewardRates = res[1].map(v => new BigNumber(v.rewardRate[3]));
-  const finishes = res[1].map(v => new BigNumber(v.rewardRate[2]));
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const rewardRates = res[1].map(v => new BigNumber(v[3].toString()));
+  const finishes = res[1].map(v => new BigNumber(v[2].toString()));
   return { balances, rewardRates, finishes };
 };
 

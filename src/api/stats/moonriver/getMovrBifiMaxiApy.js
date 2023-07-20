@@ -1,14 +1,13 @@
-const { moonriverWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
-
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { MOONRIVER_CHAIN_ID } from '../../../constants';
 const {
   moonriver: {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI, WMOVR }
+    tokens: { BIFI, WMOVR },
   },
 } = addressBook;
 
@@ -19,6 +18,6 @@ export const getMovrBifiMaxiApy = () => {
     rewardId: WMOVR.symbol,
     rewardDecimals: getEDecimals(WMOVR.decimals),
     chain: 'movr',
-    web3: web3,
+    chainId: MOONRIVER_CHAIN_ID,
   });
 };

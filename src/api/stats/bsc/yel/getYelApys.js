@@ -27,16 +27,11 @@ const getYelApys = () =>
 module.exports = getYelApys;
 
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { bscWeb3: web3, multicallAddress } = require('../../../../utils/web3');
-
-const abi = require('../../../../abis/MasterYel.json');
-const ERC20 = require('../../../../abis/ERC20.json');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const fetchPrice = require('../../../../utils/fetchPrice');
-const getBlockNumber = require('../../../../utils/getBlockNumber');
-import { getContract, getContractWithProvider } from '../../../../utils/contractHelper';
+import MasterYel from '../../../../abis/MasterYel';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
+import { fetchContract } from '../../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 const { compound } = require('../../../../utils/compound');
@@ -50,8 +45,10 @@ const getMasterChefApys = async masterchefParams => {
     ...(masterchefParams.singlePools ?? []),
   ];
 
-  const tradingAprs = await getTradingAprs(masterchefParams);
-  const farmApys = await getFarmApys(masterchefParams);
+  const [tradingAprs, farmApys] = await Promise.all([
+    getTradingAprs(masterchefParams),
+    getFarmApys(masterchefParams),
+  ]);
 
   masterchefParams.pools.forEach((pool, i, params) => {
     const hpy = pool.hpy ?? BASE_HPY;
@@ -105,8 +102,10 @@ const getFarmApys = async params => {
   const apys = [];
 
   const tokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
-  const { rewardsPerSecond, totalAllocPoint } = await getMasterChefData(params);
-  const { balances, allocPoints } = await getPoolsData(params);
+  const [{ rewardsPerSecond, totalAllocPoint }, { balances, allocPoints }] = await Promise.all([
+    getMasterChefData(params),
+    getPoolsData(params),
+  ]);
 
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
@@ -133,26 +132,21 @@ const getFarmApys = async params => {
 };
 
 const getMasterChefData = async params => {
-  const masterchefContract = getContractWithProvider(abi, params.masterchef, web3);
-
-  const rewardsPerSecond = new BigNumber(await masterchefContract.methods.yelPerSecond().call());
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const masterchefContract = fetchContract(params.masterchef, MasterYel, BSC_CHAIN_ID);
+  const [rewardsPerSecond, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.yelPerSecond().then(res => new BigNumber(res.toString())),
+    masterchefContract.read.totalAllocPoint().then(res => new BigNumber(res.toString())),
+  ]);
   return { rewardsPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async params => {
-  const masterchefContract = getContract(abi, params.masterchef);
-  const multicall = new MultiCall(web3, multicallAddress(BSC_CHAIN_ID));
-  const poolInfoCalls = [];
-  params.pools.forEach(pool => {
-    poolInfoCalls.push({
-      poolInfo: masterchefContract.methods.poolInfo(pool.poolId),
-    });
-  });
+  const masterchefContract = fetchContract(params.masterchef, MasterYel, BSC_CHAIN_ID);
+  const poolInfoCalls = params.pools.map(pool => masterchefContract.read.poolInfo([pool.poolId]));
 
-  const res = await multicall.all([poolInfoCalls]);
+  const res = await Promise.all(poolInfoCalls);
 
-  const balances = res[0].map(v => new BigNumber(v.poolInfo['1']));
-  const allocPoints = res[0].map(v => v.poolInfo['4']);
+  const balances = res.map(v => new BigNumber(v[1].toString()));
+  const allocPoints = res.map(v => new BigNumber(v[4].toString()));
   return { balances, allocPoints };
 };

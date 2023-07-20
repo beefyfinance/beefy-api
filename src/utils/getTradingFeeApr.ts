@@ -69,13 +69,14 @@ export const getTradingFeeAprSushi = async (
   const pairAddressToAprMap: Record<string, BigNumber> = {};
 
   try {
-    let queryResponse0 = await client.query({
-      query: pairDayDataSushiQuery(addressesToLowercase(pairAddresses), start0, end0),
-    });
-
-    let queryResponse1 = await client.query({
-      query: pairDayDataSushiQuery(addressesToLowercase(pairAddresses), start1, end1),
-    });
+    const [queryResponse0, queryResponse1] = await Promise.all([
+      client.query({
+        query: pairDayDataSushiQuery(addressesToLowercase(pairAddresses), start0, end0),
+      }),
+      client.query({
+        query: pairDayDataSushiQuery(addressesToLowercase(pairAddresses), start1, end1),
+      }),
+    ]);
 
     const pairDayDatas0 = queryResponse0.data.pairs.map(pair => pair.dayData[0]);
     const pairDayDatas1 = queryResponse1.data.pairs.map(pair => pair.dayData[0]);
@@ -151,8 +152,10 @@ export const getTradingFeeAprBalancer = async (
   liquidityProviderFee: number,
   chainId: number
 ) => {
-  const blockTime = await getBlockTime(chainId);
-  const currentBlock = await getBlockNumber(chainId);
+  const [blockTime, currentBlock] = await Promise.all([
+    getBlockTime(chainId),
+    getBlockNumber(chainId),
+  ]);
   const pastBlock = Math.floor(currentBlock - 86400 / blockTime);
   const pairAddressesToAprMap: Record<string, BigNumber> = {};
 
@@ -266,6 +269,7 @@ export const getTradingFeeAprHop = async (
 
   try {
     let i = 0;
+    // TODO: client requests could be done concurrently
     for (const token of tokens) {
       let {
         data: { tokenSwaps },

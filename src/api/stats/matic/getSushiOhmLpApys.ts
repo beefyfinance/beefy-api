@@ -1,16 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const SushiMiniChefV2 = require('../../../abis/matic/SushiMiniChefV2.json');
-const SushiComplexRewarderTime = require('../../../abis/matic/SushiComplexRewarderTime.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/sushiOhmLpPools.json');
 const { POLYGON_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
 const { getTradingFeeAprSushi: getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { sushiPolyClient } = require('../../../apollo/client');
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime';
+import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
+import { fetchContract } from '../../rpc/client';
 import getApyBreakdown from '../common/getApyBreakdown';
 
 const minichef = '0x0769fd68dFb93167989C6f7254cd0D766Fb2841F';
@@ -22,17 +19,23 @@ const secondsPerYear = 31536000;
 
 const getSushiOhmLpApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(sushiPolyClient, pairAddresses, SUSHI_LPF);
-  const farmApys = await getFarmApys(pools);
+  const [tradingAprs, farmApys] = await Promise.all([
+    getTradingFeeApr(sushiPolyClient, pairAddresses, SUSHI_LPF),
+    getFarmApys(pools),
+  ]);
 
   return getApyBreakdown(pools, tradingAprs, farmApys, SUSHI_LPF);
 };
 
 const getFarmApys = async pools => {
   const apys = [];
-  const minichefContract = getContractWithProvider(SushiMiniChefV2, minichef, web3);
-  const sushiPerSecond = new BigNumber(await minichefContract.methods.sushiPerSecond().call());
-  const totalAllocPoint = new BigNumber(await minichefContract.methods.totalAllocPoint().call());
+  const minichefContract = fetchContract(minichef, SushiMiniChefV2, POLYGON_CHAIN_ID);
+  const [sushiPerSecond, totalAllocPoint, { balances, allocPoints, rewardsPerSecond }] =
+    await Promise.all([
+      minichefContract.read.sushiPerSecond().then(v => new BigNumber(v.toString())),
+      minichefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+      getPoolsData(pools),
+    ]);
 
   // totalAllocPoint is non public
   // https://github.com/sushiswap/sushiswap/blob/37026f3749f9dcdae89891f168d63667845576a7/contracts/mocks/ComplexRewarderTime.sol#L44
@@ -41,13 +44,11 @@ const getFarmApys = async pools => {
   const hardcodedTotalAllocPoint = 1000;
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const { balances, allocPoints } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const ohmPrice = await fetchPrice({ oracle, id: pool.secondOracleId });
 
-    const rewardContract = getContractWithProvider(SushiComplexRewarderTime, pool.rewarder, web3);
-    const rewardPerSecond = new BigNumber(await rewardContract.methods.rewardPerSecond().call());
+    const rewardPerSecond = rewardsPerSecond[i];
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = balances[i].times(lpPrice).dividedBy('1e18');
@@ -66,26 +67,29 @@ const getFarmApys = async pools => {
 };
 
 const getPoolsData = async pools => {
-  const minichefContract = getContract(SushiMiniChefV2, minichef);
+  const minichefContract = fetchContract(minichef, SushiMiniChefV2, POLYGON_CHAIN_ID);
 
   const balanceCalls = [];
   const allocPointCalls = [];
+  const rewardPerSecondCalls = [];
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(minichef),
-    });
-    allocPointCalls.push({
-      allocPoint: minichefContract.methods.poolInfo(pool.poolId),
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, POLYGON_CHAIN_ID);
+    const rewardContract = fetchContract(pool.rewarder, SushiComplexRewarderTime, POLYGON_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([minichef]));
+    allocPointCalls.push(minichefContract.read.poolInfo([pool.poolId]));
+    rewardPerSecondCalls.push(rewardContract.read.rewardPerSecond());
   });
 
-  const multicall = new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID));
-  const res = await multicall.all([balanceCalls, allocPointCalls]);
+  const res = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(allocPointCalls),
+    Promise.all(rewardPerSecondCalls),
+  ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.allocPoint['2']);
-  return { balances, allocPoints };
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => v['2'].toString());
+  const rewardsPerSecond = res[2].map(v => new BigNumber(v.toString()));
+  return { balances, allocPoints, rewardsPerSecond };
 };
 
 module.exports = { getSushiOhmLpApys };

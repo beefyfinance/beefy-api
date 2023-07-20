@@ -1,14 +1,11 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { multicallAddress } = require('../../../utils/web3');
-
-const Strat = require('../../../abis/StratUniV3.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from './getApyBreakdown';
-import { getContract } from '../../../utils/contractHelper';
 import { uniswapPositionQuery } from '../../../apollo/queries';
 import getBlockNumber from '../../../utils/getBlockNumber';
 import getBlockTime from '../../../utils/getBlockTime';
+import StratUniV3 from '../../../abis/StratUniV3';
+import { fetchContract } from '../../rpc/client';
 
 export const getUniV3Apys = async params => {
   const tradingApys = await getTradingApys(params);
@@ -17,9 +14,11 @@ export const getUniV3Apys = async params => {
 };
 
 const getTradingApys = async params => {
-  const { liquiditys } = await getPoolsData(params);
-  const blockNumber = await getBlockNumber(params.chainId);
-  const blockTime = await getBlockTime(params.chainId);
+  const [{ liquiditys }, blockNumber, blockTime] = await Promise.all([
+    getPoolsData(params),
+    getBlockNumber(params.chainId),
+    getBlockTime(params.chainId),
+  ]);
   const oneDay = 86400;
   const blocksPerDay = Math.round(oneDay / blockTime);
   const block = blockNumber - blocksPerDay;
@@ -81,19 +80,14 @@ const getPoolFeeData = async (client, strategy, block) => {
 };
 
 const getPoolsData = async params => {
-  const web3 = params.web3;
-  const multicall = new MultiCall(web3, multicallAddress(params.chainId));
-  const calls = [];
-  params.pools.forEach(pool => {
-    const strat = getContract(Strat, pool.strategy);
-    calls.push({
-      liquidity: strat.methods.balanceOfPool(),
-    });
+  const calls = params.pools.map(pool => {
+    const strat = fetchContract(pool.strategy, StratUniV3, params.chainId);
+    return strat.read.balanceOfPool();
   });
 
-  const res = await multicall.all([calls]);
+  const res = await Promise.all(calls);
 
-  const liquiditys = res[0].map(v => new BigNumber(v.liquidity));
+  const liquiditys = res.map(v => new BigNumber(v.toString()));
 
   return { liquiditys };
 };

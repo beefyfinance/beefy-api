@@ -1,14 +1,11 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { multicallAddress } = require('../../../../utils/web3');
+const { default: ERC20Abi } = require('../../../../abis/ERC20Abi');
+const { default: IBalancerVault } = require('../../../../abis/IBalancerVault');
+const { fetchContract } = require('../../../rpc/client');
 
-const IBalancerVault = require('../../../../abis/IBalancerVault.json');
-const ERC20 = require('../../../../abis/ERC20.json');
-const { getContract } = require('../../../../utils/contractHelper');
-
-const getBalancerPrices = async (web3, chainId, pools, tokenPrices) => {
+const getBalancerPrices = async (chainId, pools, tokenPrices) => {
   let prices = {};
-  const { tokenAddresses, balances, totalSupplys } = await getPoolsData(web3, chainId, pools);
+  const { tokenAddresses, balances, totalSupplys } = await getPoolsData(chainId, pools);
   for (let i = 0; i < pools.length; i++) {
     let price = await getPoolPrice(
       pools[i],
@@ -23,26 +20,25 @@ const getBalancerPrices = async (web3, chainId, pools, tokenPrices) => {
   return prices;
 };
 
-const getPoolsData = async (web3, chainId, pools) => {
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-  const totalSupplyCalls = [];
-  const balanceCalls = [];
-  pools.forEach(pool => {
-    const balancerVault = getContract(IBalancerVault, pool.vault);
-    const weightedPool = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: balancerVault.methods.getPoolTokens(pool.vaultPoolId),
-    });
-    totalSupplyCalls.push({
-      totalSupply: weightedPool.methods.totalSupply(),
-    });
+const getPoolsData = async (chainId, pools) => {
+  const totalSupplyCalls = pools.map(pool => {
+    const contract = fetchContract(pool.address, ERC20Abi, chainId);
+    return contract.read.totalSupply();
   });
+  const balanceCalls = pools.map(pool => {
+    const contract = fetchContract(pool.vault, IBalancerVault, chainId);
+    return contract.read.getPoolTokens([pool.vaultPoolId]);
+  });
+  const [balanceResults, supplyResults] = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(totalSupplyCalls),
+  ]);
+  const tokenAddresses = balanceResults.map(v => v[0]);
+  const balances = balanceResults.map(v => {
+    return v[1].map(v2 => new BigNumber(v2.toString()));
+  });
+  const totalSupplys = supplyResults.map(v => new BigNumber(v.toString()));
 
-  const res = await multicall.all([balanceCalls, totalSupplyCalls]);
-
-  const tokenAddresses = res[0].map(v => v.balance['0']);
-  const balances = res[0].map(v => v.balance['1']);
-  const totalSupplys = res[1].map(v => new BigNumber(v.totalSupply));
   return { tokenAddresses, balances, totalSupplys };
 };
 
@@ -56,24 +52,16 @@ const getPoolPrice = async (pool, tokenAddresses, balance, totalSupply, tokenPri
     if (pool.composable) {
       if (i != pool.bptIndex) {
         tokenPrice = await getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
-        tokenBalInUsd = new BigNumber(balance[i])
-          .times(tokenPrice)
-          .dividedBy(pool.tokens[i].decimals);
+        tokenBalInUsd = balance[i].times(tokenPrice).dividedBy(pool.tokens[i].decimals);
         totalStakedinUsd = totalStakedinUsd.plus(tokenBalInUsd);
-        shiftedBalances.push(
-          new BigNumber(balance[i]).dividedBy(pool.tokens[i].decimals).toString(10)
-        );
+        shiftedBalances.push(balance[i].dividedBy(pool.tokens[i].decimals).toString(10));
         tokens.push(tokenAddresses[i]);
       }
     } else {
       tokenPrice = await getTokenPrice(tokenPrices, pool.tokens[i].oracleId);
-      tokenBalInUsd = new BigNumber(balance[i])
-        .times(tokenPrice)
-        .dividedBy(pool.tokens[i].decimals);
+      tokenBalInUsd = balance[i].times(tokenPrice).dividedBy(pool.tokens[i].decimals);
       totalStakedinUsd = totalStakedinUsd.plus(tokenBalInUsd);
-      shiftedBalances.push(
-        new BigNumber(balance[i]).dividedBy(pool.tokens[i].decimals).toString(10)
-      );
+      shiftedBalances.push(balance[i].dividedBy(pool.tokens[i].decimals).toString(10));
       tokens.push(tokenAddresses[i]);
     }
   }

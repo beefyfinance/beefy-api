@@ -1,10 +1,8 @@
-const { avaxWeb3: web3 } = require('../../../utils/web3');
 import { AVAX_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
 
-import MasterChefAbi from '../../../abis/matic/MaiFarmChef.json';
 const mai = addressBook.avax.platforms.mai;
 
 const getMaiCurveApys = async () => {
@@ -14,9 +12,8 @@ const getMaiCurveApys = async () => {
     'https://api.curve.fi/api/getFactoryAPYs-avalanche'
   );
   return await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
-    masterchef: "0x0f680790d022BcDf317BF3E97190AcA33A0621b2",
+    masterchef: '0x0f680790d022BcDf317BF3E97190AcA33A0621b2',
     tokenPerBlock: 'rewardPerSecond',
     hasMultiplier: false,
     pools: [

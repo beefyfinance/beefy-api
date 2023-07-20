@@ -1,16 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { bscWeb3: web3, multicallAddress } = require('../../../../utils/web3');
-
 const MasterChef = require('../../../../abis/degens/ApeJungleChef.json');
-const ERC20 = require('../../../../abis/ERC20.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/degens/apeJungleLpPools.json');
 const { BASE_HPY, BSC_CHAIN_ID, APE_LPF } = require('../../../../constants');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
-import { getContract } from '../../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
+import { fetchContract } from '../../../rpc/client';
+import ERC20Abi from '../../../../abis/ERC20Abi';
 
 const { apeClient } = require('../../../../apollo/client');
 const { compound } = require('../../../../utils/compound');
@@ -22,10 +19,12 @@ const getApeJungleApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  const { balances, rewards } = await getPoolsData(pools);
-
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(apeClient, pairAddresses, APE_LPF);
+
+  const [{ balances, rewards }, tradingAprs] = await Promise.all([
+    getPoolsData(pools),
+    getTradingFeeApr(apeClient, pairAddresses, APE_LPF),
+  ]);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -83,24 +82,19 @@ const getApeJungleApys = async () => {
 };
 
 const getPoolsData = async pools => {
-  const multicall = new MultiCall(web3, multicallAddress(BSC_CHAIN_ID));
   const balanceCalls = [];
   const rewardPerBlockCalls = [];
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    const masterchefContract = getContract(MasterChef, pool.rewardPool);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(pool.rewardPool),
-    });
-    rewardPerBlockCalls.push({
-      rewardPerBlock: masterchefContract.methods.rewardPerBlock(),
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, BSC_CHAIN_ID);
+    const masterchefContract = fetchContract(pool.rewardPool, MasterChef, BSC_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([pool.rewardPool]));
+    rewardPerBlockCalls.push(masterchefContract.read.rewardPerBlock());
   });
 
-  const res = await multicall.all([balanceCalls, rewardPerBlockCalls]);
+  const res = await Promise.all([Promise.all(balanceCalls), Promise.all(rewardPerBlockCalls)]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const rewards = res[1].map(v => new BigNumber(v.rewardPerBlock));
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const rewards = res[1].map(v => new BigNumber(v.toString()));
   return { balances, rewards };
 };
 

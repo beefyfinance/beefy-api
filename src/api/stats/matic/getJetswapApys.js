@@ -1,13 +1,12 @@
 const { getMasterChefApys } = require('./getMaticMasterChefApys');
-
-const MasterChefAbi = require('../../../abis/MasterChef.json');
 const pools = require('../../../data/matic/jetswapLpPools.json');
+import MasterChef from '../../../abis/MasterChef';
 import { jetswapPolyClient } from '../../../apollo/client';
 
 const getJetswapApys = async () =>
   await getMasterChefApys({
     masterchef: '0x4e22399070aD5aD7f7BEb7d3A7b543e8EcBf1d85',
-    masterchefAbi: MasterChefAbi,
+    masterchefAbi: MasterChef,
     tokenPerBlock: 'cakePerBlock',
     hasMultiplier: false,
     pools: pools,

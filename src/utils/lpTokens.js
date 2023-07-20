@@ -1,32 +1,46 @@
 const BigNumber = require('bignumber.js');
-const { web3Factory } = require('./web3');
 const fetchPrice = require('./fetchPrice');
-const ERC20 = require('../abis/ERC20.json');
-const { getContractWithProvider } = require('./contractHelper');
+const { fetchContract, getRPCClient } = require('../api/rpc/client');
+const { default: ERC20Abi } = require('../abis/ERC20Abi');
+const { BSC_CHAIN_ID } = require('../constants');
 
 const nativeToken = '0x0000000000000000000000000000000000000000';
 
 const lpTokenPrice = async lpToken => {
-  const web3 = web3Factory(lpToken.chainId || 56);
+  const client = getRPCClient(lpToken.chainId || BSC_CHAIN_ID);
 
-  const tokenPairContract = getContractWithProvider(ERC20, lpToken.address, web3);
-  const token0Contract = getContractWithProvider(ERC20, lpToken.lp0.address, web3);
-  const token1Contract = getContractWithProvider(ERC20, lpToken.lp1.address, web3);
+  const tokenPairContract = fetchContract(
+    lpToken.address,
+    ERC20Abi,
+    lpToken.chainId || BSC_CHAIN_ID
+  );
+  const token0Contract = fetchContract(
+    lpToken.lp0.address,
+    ERC20Abi,
+    lpToken.chainId || BSC_CHAIN_ID
+  );
+  const token1Contract = fetchContract(
+    lpToken.lp1.address,
+    ERC20Abi,
+    lpToken.chainId || BSC_CHAIN_ID
+  );
 
   const token0Bal =
     lpToken.lp0.address === nativeToken
-      ? web3.eth.getBalance(lpToken.address)
-      : token0Contract.methods.balanceOf(lpToken.address).call();
+      ? client.getBalance({ address: lpToken.address })
+      : token0Contract.read.balanceOf([lpToken.address]);
 
   const token1Bal =
     lpToken.lp1.address === nativeToken
-      ? web3.eth.getBalance(lpToken.address)
-      : token1Contract.methods.balanceOf(lpToken.address).call();
+      ? client.getBalance({ address: lpToken.address })
+      : token1Contract.read.balanceOf([lpToken.address]);
 
   let [totalSupply, reserve0, reserve1, token0Price, token1Price] = await Promise.all([
-    tokenPairContract.methods.totalSupply().call(),
-    token0Bal,
-    token1Bal,
+    tokenPairContract.read.totalSupply().then(res => new BigNumber(res.toString())),
+    token0Bal.then(res => new BigNumber(res.toString())),
+    ,
+    token1Bal.then(res => new BigNumber(res.toString())),
+    ,
     fetchPrice({ oracle: lpToken.lp0.oracle, id: lpToken.lp0.oracleId }),
     fetchPrice({ oracle: lpToken.lp1.oracle, id: lpToken.lp1.oracleId }),
   ]);

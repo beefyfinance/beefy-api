@@ -1,8 +1,7 @@
-const { cronosWeb3: web3 } = require('../../../utils/web3');
 import { getEDecimals } from '../../../utils/getEDecimals';
-
 import { getBifiMaxiApys } from '../common/getBifiMaxiApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
+import { CRONOS_CHAIN_ID } from '../../../constants';
 const {
   cronos: {
     platforms: {
@@ -19,6 +18,6 @@ export const getCronosBifiMaxiApy = () => {
     rewardId: WCRO.symbol,
     rewardDecimals: getEDecimals(WCRO.decimals),
     chain: 'cronos',
-    web3: web3,
+    chainId: CRONOS_CHAIN_ID,
   });
 };

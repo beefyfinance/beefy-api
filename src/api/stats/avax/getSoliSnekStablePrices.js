@@ -1,9 +1,9 @@
 const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
-const { avaxWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/avax/soliSnekStableLpPools.json');
+const { AVAX_CHAIN_ID } = require('../../../constants');
 
 const getSoliSnekStablePrices = async tokenPrices => {
-  return await getSolidlyStablePrices(web3, pools, tokenPrices);
+  return await getSolidlyStablePrices(AVAX_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getSoliSnekStablePrices;

@@ -9,8 +9,8 @@ import { MULTICHAIN_RPC } from '../src/constants';
 
 import rewardPoolABI from '../src/abis/IStakingRewards.json';
 import simpleFarmABI from '../src/abis/ISimpleFarm.json';
-import LPPairABI from '../src/abis/LPPair.json';
 import ERC20ABI from '../src/abis/ERC20.json';
+import LPPairABI from '../src/abis/LPPair';
 
 const projects = {
   quick: {
@@ -76,7 +76,7 @@ async function fetchRewardPool(rewardPool) {
 
 async function fetchLiquidityPair(lpAddress) {
   console.log(`fetchLiquidityPair(${lpAddress})`);
-  const lpContract = new ethers.Contract(lpAddress, LPPairABI, provider);
+  const lpContract = new ethers.Contract(lpAddress, LPPairABI as any, provider);
   const lpTokenContract = new ethers.Contract(lpAddress, ERC20ABI, provider);
   return {
     address: ethers.utils.getAddress(lpAddress),

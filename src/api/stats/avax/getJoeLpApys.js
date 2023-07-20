@@ -1,17 +1,14 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { avaxWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const MasterChef = require('../../../abis/avax/JoeChef.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/joeLpPools.json');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeAprSushi } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { JOE_LPF } from '../../../constants';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import { fetchContract } from '../../rpc/client';
+import JoeChef from '../../../abis/avax/JoeChef';
+import ERC20Abi from '../../../abis/ERC20Abi';
 
 const { joeClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -30,11 +27,14 @@ const getJoeApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
-  const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints } = await getPoolsData(pools);
 
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeAprSushi(joeClient, pairAddresses, liquidityProviderFee);
+  const [{ rewardPerSecond, totalAllocPoint }, { balances, allocPoints }, tradingAprs] =
+    await Promise.all([
+      getMasterChefData(),
+      getPoolsData(pools),
+      getTradingFeeAprSushi(joeClient, pairAddresses, liquidityProviderFee),
+    ]);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -92,31 +92,28 @@ const getJoeApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.joePerSec().call());
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const masterchefContract = fetchContract(masterchef, JoeChef, AVAX_CHAIN_ID);
+  const [rewardPerSecond, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.joePerSec().then(v => new BigNumber(v)),
+    masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v)),
+  ]);
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = getContract(MasterChef, masterchef);
-  const multicall = new MultiCall(web3, multicallAddress(AVAX_CHAIN_ID));
+  const masterchefContract = fetchContract(masterchef, JoeChef, AVAX_CHAIN_ID);
   const balanceCalls = [];
   const allocPointCalls = [];
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(masterchef),
-    });
-    allocPointCalls.push({
-      allocPoint: masterchefContract.methods.poolInfo(pool.poolId),
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, AVAX_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([masterchef]));
+    allocPointCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
   });
 
-  const res = await multicall.all([balanceCalls, allocPointCalls]);
+  const res = await Promise.all([Promise.all(balanceCalls), Promise.all(allocPointCalls)]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.allocPoint['1']);
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => new BigNumber(v[1].toString()));
   return { balances, allocPoints };
 };
 

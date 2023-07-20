@@ -13,6 +13,7 @@ const getApys = [
 ];
 
 const getKavaApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -49,6 +50,9 @@ const getKavaApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Kava finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

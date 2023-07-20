@@ -5,6 +5,7 @@ const getYuzuDualApys = require('./getYuzuDualApys');
 const getApys = [getValleySwapApys, getYuzuApys, getYuzuDualApys];
 
 const getEmeraldApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -41,6 +42,9 @@ const getEmeraldApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Emerald finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

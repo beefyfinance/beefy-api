@@ -1,10 +1,10 @@
 import BigNumber from 'bignumber.js';
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress, web3Factory } from './web3';
-import ICurvePool from '../abis/ICurvePool.json';
 import ICurvePoolV2 from '../abis/ICurvePoolV2.json';
-import { getContract } from './contractHelper';
 import { addressBookByChainId, ChainId } from '../../packages/address-book/address-book';
+import { fetchContract } from '../api/rpc/client';
+import ICurvePoolV2Abi from '../abis/CurvePoolV2';
+import ICurvePoolAbi from '../abis/CurvePool';
+import ICurvePool from '../abis/ICurvePool';
 
 const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
   fantom: toCurveTokens(ChainId.fantom, require('../data/fantom/curvePools.json')),
@@ -37,11 +37,11 @@ type CurveToken = {
   decimals: string;
   index0: number;
   index1: number;
-  pool: string;
+  pool: `0x${string}`;
   useUnderlying?: boolean;
   secondToken: string;
   secondTokenDecimals: string;
-  abi: any;
+  abi: typeof ICurvePoolV2Abi | typeof ICurvePoolAbi;
 };
 
 function toCurveTokens(chainId, pools) {
@@ -77,33 +77,36 @@ async function getCurveTokenPrices(
   chainTokens: CurveToken[],
   chainId: ChainId
 ): Promise<number[]> {
-  const web3 = web3Factory(chainId);
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-
   const curvePriceCalls = chainTokens.map(token => {
-    const pool = getContract(token.abi, token.pool);
-    const getDy = token.useUnderlying ? pool.methods.get_dy_underlying : pool.methods.get_dy;
-    return {
-      price: getDy(token.index0, token.index1, new BigNumber(token.decimals).toString(10)),
-    };
+    const poolContract = fetchContract(token.pool, token.abi, chainId);
+    return token.useUnderlying
+      ? poolContract.read.get_dy_underlying([
+          BigInt(token.index0),
+          BigInt(token.index1),
+          BigInt(new BigNumber(token.decimals).toString(10)),
+        ])
+      : poolContract.read.get_dy([
+          BigInt(token.index0),
+          BigInt(token.index1),
+          BigInt(new BigNumber(token.decimals).toString(10)),
+        ]);
   });
 
-  let res;
   try {
-    res = await multicall.all([curvePriceCalls]);
+    const results = await Promise.all(curvePriceCalls);
+    const prices = results.map(v => new BigNumber(v.toString()));
+    const curvePrices = {};
+    for (let i = 0; i < prices.length; i++) {
+      curvePrices[chainTokens[i].oracleId] = prices[i]
+        .times(tokenPrices[chainTokens[i].secondToken] || curvePrices[chainTokens[i].secondToken])
+        .dividedBy(chainTokens[i].secondTokenDecimals)
+        .toNumber();
+    }
+    return Object.values(curvePrices);
   } catch (e) {
     console.error('getCurveTokenPrices', e);
     return chainTokens.map(() => 0);
   }
-  const prices = res[0].map(v => new BigNumber(v.price));
-  const curvePrices = {};
-  for (let i = 0; i < prices.length; i++) {
-    curvePrices[chainTokens[i].oracleId] = prices[i]
-      .times(tokenPrices[chainTokens[i].secondToken] || curvePrices[chainTokens[i].secondToken])
-      .dividedBy(chainTokens[i].secondTokenDecimals)
-      .toNumber();
-  }
-  return Object.values(curvePrices);
 }
 
 export async function fetchCurveTokenPrices(tokenPrices): Promise<Record<string, number>> {

@@ -1,13 +1,10 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { web3Factory, multicallAddress } = require('../../utils/web3');
 const getVaults = require('../../utils/getVaults.js');
 const fetchPrice = require('../../utils/fetchPrice');
 const { EXCLUDED_IDS_FROM_TVL } = require('../../constants');
-
-const BeefyVaultV6ABI = require('../../abis/BeefyVaultV6.json');
 const { getTotalStakedInUsd } = require('../../utils/getTotalStakedInUsd');
-const { getContract } = require('../../utils/contractHelper');
+const { fetchContract } = require('../rpc/client');
+const { default: BeefyVaultV6Abi } = require('../../abis/BeefyVault');
 
 const getChainTvl = async chain => {
   const chainId = chain.chainId;
@@ -52,18 +49,12 @@ const getChainTvl = async chain => {
 };
 
 const getVaultBalances = async (chainId, vaults) => {
-  const web3 = web3Factory(chainId);
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-  const balanceCalls = [];
-  vaults.forEach(vault => {
-    const vaultContract = getContract(BeefyVaultV6ABI, vault.earnedTokenAddress);
-
-    balanceCalls.push({
-      balance: vaultContract.methods.balance(),
-    });
+  const calls = vaults.map(vault => {
+    const contract = fetchContract(vault.earnedTokenAddress, BeefyVaultV6Abi, chainId);
+    return contract.read.balance();
   });
-  const res = await multicall.all([balanceCalls]);
-  return res[0].map(v => new BigNumber(v.balance));
+  const res = await Promise.all(calls);
+  return res.map(v => new BigNumber(v.toString()));
 };
 
 //Fetches chain's governance pool tvl excluding vaults already depositing in it

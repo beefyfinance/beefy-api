@@ -22,6 +22,7 @@ const getApys = [
 ];
 
 const getCronosApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
   let promises = [];
@@ -57,6 +58,9 @@ const getCronosApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Cronos finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

@@ -1,6 +1,8 @@
 const BigNumber = require('bignumber.js');
-const { ethers } = require('ethersv5');
-const { MULTICHAIN_RPC } = require('../constants');
+const { fetchContract } = require('../api/rpc/client');
+const { chunk } = require('lodash');
+const { default: BeefyPriceMulticall } = require('../abis/BeefyPriceMulticall');
+const { retryPromiseWithBackOff } = require('./promise');
 
 const MULTICALLS = {
   56: '0xbcf79F67c2d93AD5fd1b919ac4F5613c493ca34F',
@@ -17,7 +19,6 @@ const MULTICALLS = {
   122: '0xE99c8A590c98c7Ae9FB3B7ecbC115D2eBD533B50',
   1088: '0xfcDD5a02C611ba6Fe2802f885281500EC95805d7',
   1284: '0xd1d13EaAb9A92c47E8D11628AE6cb6C824E85E4B',
-  57: '0x820ae7BF39792D7ce7befC70B0172F4D267F1938',
   42262: '0xE99c8A590c98c7Ae9FB3B7ecbC115D2eBD533B50',
   10: '0x13C6bCC2411861A31dcDC2f990ddbe2325482222',
   2222: '0xA338D34c5de06B88197609956a2dEAAfF7Af46c8',
@@ -27,7 +28,6 @@ const MULTICALLS = {
   1101: '0x448a3539a591dE3Fb9D5AAE407471D21d40cD315',
 };
 
-const MulticallAbi = require('../abis/BeefyPriceMulticall.json');
 const BATCH_SIZE = 128;
 const DEBUG_ORACLES = [];
 
@@ -38,6 +38,9 @@ const sortByKeys = o => {
 };
 
 const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
+  // console.log(knownPrice)
+  // console.log(knownToken)
+  // console.log(unknownToken)
   const valuation = knownToken.balance.dividedBy(knownToken.decimals).multipliedBy(knownPrice);
   const price = valuation.multipliedBy(unknownToken.decimals).dividedBy(unknownToken.balance);
 
@@ -160,25 +163,39 @@ const fetchAmmPrices = async (pools, knownPrices) => {
 };
 
 const fetchChainPools = async (chain, pools) => {
-  const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chain]);
-  const multicall = new ethers.Contract(MULTICALLS[chain], MulticallAbi, provider);
+  const multicallContract = fetchContract(MULTICALLS[chain], BeefyPriceMulticall, chain);
+  let lpInfos;
+  try {
+    lpInfos = await Promise.all(
+      chunk(
+        pools.map(p => [p.address, p.lp0.address, p.lp1.address]),
+        BATCH_SIZE
+      ).map(batch =>
+        retryPromiseWithBackOff(
+          multicallContract.read.getLpInfo,
+          [batch],
+          'fetchAmmChainPools ' + chain
+        )
+      )
+    );
+  } catch (err) {
+    console.log(err.shortMessage + ' - ' + chain);
+  }
 
-  // Split query in batches
-  const query = pools.map(p => [p.address, p.lp0.address, p.lp1.address]);
   for (let i = 0; i < pools.length; i += BATCH_SIZE) {
-    const batch = query.slice(i, i + BATCH_SIZE);
-    let buf = [];
-    try {
-      buf = await multicall.getLpInfo(batch);
-    } catch (e) {
-      console.error('fetchAmmPrices', chain, e);
-    }
+    const batch = lpInfos[Math.floor(i / BATCH_SIZE)];
+    // if (batch.status === 'rejected') {
+    //   console.error('fetchChainPools', chain, batch.reason);
+    //   continue;
+    // }
+    // const batchValues = batch.value;
 
+    // TODO: we need better logic for error handling
     // Merge fetched data
-    for (let j = 0; j < batch.length; j++) {
-      pools[j + i].totalSupply = new BigNumber(buf[j * 3 + 0]?.toString());
-      pools[j + i].lp0.balance = new BigNumber(buf[j * 3 + 1]?.toString());
-      pools[j + i].lp1.balance = new BigNumber(buf[j * 3 + 2]?.toString());
+    for (let j = 0; j < batch.length / 3; j++) {
+      pools[j + i].totalSupply = new BigNumber(batch[j * 3 + 0]?.toString());
+      pools[j + i].lp0.balance = new BigNumber(batch[j * 3 + 1]?.toString());
+      pools[j + i].lp1.balance = new BigNumber(batch[j * 3 + 2]?.toString());
     }
   }
 };

@@ -1,14 +1,12 @@
-import { MultiCall } from 'eth-multicall';
-import { ethereumWeb3 as web3, multicallAddress } from '../../../utils/web3';
-import { ETH_CHAIN_ID as chainId } from '../../../constants';
-import { getContract } from '../../../utils/contractHelper';
-import IRewardPool from '../../../abis/IRewardPool.json';
-import ICvxCrvStaking from '../../../abis/ethereum/ICvxCrvStaking.json';
-import IERC20 from '../../../abis/ERC20.json';
+import { ETH_CHAIN_ID } from '../../../constants';
 import BigNumber from 'bignumber.js';
 import fetchPrice from '../../../utils/fetchPrice';
 import { getMintedCvxAmount } from './getConvexApys';
 import getApyBreakdown from '../common/getApyBreakdown';
+import IRewardPool from '../../../abis/IRewardPool';
+import ICvxCrvStaking from '../../../abis/ethereum/ICvxCrvStaking';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
 
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
@@ -28,74 +26,76 @@ const pool = {
 };
 
 export const getConvexCrvApy = async () => {
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
+  // RewardPool calls
+  const rewardPool = fetchContract(pool.rewardPool, IRewardPool, ETH_CHAIN_ID);
+  const totalSupplyCall = rewardPool.read.totalSupply();
+  const rewardRateCall = rewardPool.read.rewardRate();
+  const periodFinishCall = rewardPool.read.periodFinish();
 
-  const rewardPoolCalls = [];
-  const extraRewardCalls = [];
-  const cvxCalls = [];
-  const stakingCalls = [];
-  const cvxDistrCalls = [];
-
-  const rewardPool = getContract(IRewardPool, pool.rewardPool);
-  rewardPoolCalls.push({
-    totalSupply: rewardPool.methods.totalSupply(),
-    rewardRate: rewardPool.methods.rewardRate(),
-    periodFinish: rewardPool.methods.periodFinish(),
-  });
+  //extra reward calls
+  const extraRewardInfo = [],
+    extraRewardRateCalls = [],
+    extraRewardRatePeriodFinishCalls = [];
   pool.extras?.forEach(extra => {
-    const extraRewards = getContract(IRewardPool, extra.rewardPool);
-    extraRewardCalls.push({
-      rewardPool: extra.rewardPool,
-      rewardRate: extraRewards.methods.rewardRate(),
-      periodFinish: extraRewards.methods.periodFinish(),
-    });
-  });
-  const stakingContract = getContract(ICvxCrvStaking, pool.staking);
-  stakingCalls.push({
-    supplyWeight: stakingContract.methods.supplyWeight(),
-    totalSupply: stakingContract.methods.totalSupply(),
-  });
-  const cvx = getContract(IERC20, cvxAddress);
-  cvxCalls.push({
-    cvxSupply: cvx.methods.totalSupply(),
-  });
-  const cvxDistributor = getContract(IRewardPool, pool.cvxDistributor);
-  cvxDistrCalls.push({
-    rewardRate: cvxDistributor.methods.rewardRate(),
-    periodFinish: cvxDistributor.methods.periodFinish(),
-    totalSupply: cvxDistributor.methods.totalSupply(),
-    balanceOf: cvxDistributor.methods.balanceOf(pool.staking),
+    const extraRewards = fetchContract(extra.rewardPool, IRewardPool, ETH_CHAIN_ID);
+    extraRewardInfo.push({ rewardPool: extra.rewardPool });
+    extraRewardRateCalls.push(extraRewards.read.rewardRate());
+    extraRewardRatePeriodFinishCalls.push(extraRewards.read.periodFinish());
   });
 
-  const res = await multicall.all([
-    rewardPoolCalls,
-    extraRewardCalls,
-    stakingCalls,
-    cvxCalls,
-    cvxDistrCalls,
+  //staking contract calls
+  const stakingContract = fetchContract(pool.staking, ICvxCrvStaking, ETH_CHAIN_ID);
+  const supplyWeightCall = stakingContract.read.supplyWeight();
+  const stakingTotalSupplyCall = stakingContract.read.totalSupply();
+
+  //CVX calls
+  const cvx = fetchContract(cvxAddress, ERC20Abi, ETH_CHAIN_ID);
+  const cvxTotalSupply = cvx.read.totalSupply();
+
+  //Distributor calls
+  const cvxDistributor = fetchContract(pool.cvxDistributor, IRewardPool, ETH_CHAIN_ID);
+  const cvxDistributorRewardRateCall = cvxDistributor.read.rewardRate();
+  const cvxDistributorPeriodFinishCall = cvxDistributor.read.periodFinish();
+  const cvxDistributorTotalSupplyCall = cvxDistributor.read.totalSupply();
+  const cvxDistributorBalanceOfCall = cvxDistributor.read.balanceOf([pool.staking]);
+
+  const res = await Promise.all([
+    totalSupplyCall,
+    rewardRateCall,
+    periodFinishCall,
+    Promise.all(extraRewardRateCalls),
+    Promise.all(extraRewardRatePeriodFinishCalls),
+    supplyWeightCall,
+    stakingTotalSupplyCall,
+    cvxTotalSupply,
+    cvxDistributorRewardRateCall,
+    cvxDistributorPeriodFinishCall,
+    cvxDistributorTotalSupplyCall,
+    cvxDistributorBalanceOfCall,
   ]);
-  const poolInfo = res[0].map(v => ({
-    totalSupply: new BigNumber(v.totalSupply),
-    rewardRate: new BigNumber(v.rewardRate),
-    periodFinish: v.periodFinish,
-  }))[0];
-  const extras = res[1].map(v => ({
-    ...v,
-    rewardRate: new BigNumber(v.rewardRate),
-    periodFinish: v.periodFinish,
+
+  const poolInfo = {
+    totalSupply: new BigNumber(res[0].toString()),
+    rewardRate: new BigNumber(res[1].toString()),
+    periodFinish: new BigNumber(res[2].toString()),
+  };
+  const extras = extraRewardInfo.map((_, index) => ({
+    ...extraRewardInfo[index],
+    rewardRate: new BigNumber(res[3][index].toString()),
+    periodFinish: new BigNumber(res[4][index].toString()),
   }));
   const info = {
     ...poolInfo,
-    supplyWeight: new BigNumber(res[2][0].supplyWeight),
-    stakingTotalSupply: new BigNumber(res[2][0].totalSupply),
-    cvxSupply: new BigNumber(res[3][0].cvxSupply),
+    supplyWeight: new BigNumber(res[5].toString()),
+    stakingTotalSupply: new BigNumber(res[6].toString()),
+    cvxSupply: new BigNumber(res[7].toString()),
   };
-  const cvxDistRewards = res[4].map(v => ({
-    rewardRate: new BigNumber(v.rewardRate),
-    periodFinish: v.periodFinish,
-    totalSupply: new BigNumber(v.totalSupply),
-    balanceOf: new BigNumber(v.balanceOf),
-  }))[0];
+  const cvxDistRewards = {
+    rewardRate: new BigNumber(res[8].toString()),
+    periodFinish: new BigNumber(res[9].toString()),
+    totalSupply: new BigNumber(res[10].toString()),
+    balanceOf: new BigNumber(res[11].toString()),
+  };
 
   const cvxPrice = await fetchPrice({ oracle: 'tokens', id: 'CVX' });
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });

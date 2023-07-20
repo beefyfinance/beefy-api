@@ -1,7 +1,8 @@
-const { web3Factory } = require('./web3');
+const { default: BigNumber } = require('bignumber.js');
+const { getRPCClient } = require('../api/rpc/client');
 
 const updateDelay = 3000000;
-const blockPeriod = 1000;
+const blockPeriod = 1000n;
 
 let cache = {};
 const getBlockTime = async chainId => {
@@ -11,12 +12,14 @@ const getBlockTime = async chainId => {
     return cache[chainId][cacheKey];
   }
 
-  const web3 = web3Factory(chainId);
+  const client = getRPCClient(chainId);
 
-  const currentBlock = await web3.eth.getBlock('latest');
-  const fromBlock = await web3.eth.getBlock(currentBlock.number - blockPeriod);
+  const latestBlock = await client.getBlock({ blockTag: 'latest' });
+  const fromBlock = await client.getBlock({ blockNumber: latestBlock.number - blockPeriod });
 
-  const blockTimePromise = (currentBlock.timestamp - fromBlock.timestamp) / blockPeriod;
+  const blockTimePromise = new BigNumber(
+    Number(latestBlock.timestamp - fromBlock.timestamp) / Number(blockPeriod)
+  );
 
   cache[chainId] = {
     [cacheKey]: blockTimePromise,

@@ -69,6 +69,7 @@ const getApys = [
 const BATCH_SIZE = 15;
 
 const getMaticApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -110,6 +111,9 @@ const getMaticApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Polygon finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

@@ -1,9 +1,9 @@
 const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
-const { arbitrumWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/arbitrum/chronosStableLpPools.json');
+const { ARBITRUM_CHAIN_ID } = require('../../../constants');
 
 const getChronosStablePrices = async tokenPrices => {
-  return await getSolidlyStablePrices(web3, pools, tokenPrices);
+  return await getSolidlyStablePrices(ARBITRUM_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getChronosStablePrices;

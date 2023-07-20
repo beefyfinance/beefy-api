@@ -1,4 +1,3 @@
-const { avaxWeb3: web3 } = require('../../../utils/web3');
 const { AVAX_CHAIN_ID: chainId } = require('../../../constants');
 import { addressBook } from '../../../../packages/address-book/address-book';
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
@@ -15,7 +14,6 @@ const {
 const pools = [...stablePools, ...volatilePools];
 const getSoliSnekApys = async () => {
   return getSolidlyGaugeApys({
-    web3: web3,
     chainId: chainId,
     pools: pools,
     oracleId: 'SNEK',
@@ -27,7 +25,7 @@ const getSoliSnekApys = async () => {
     NFTid: 1594,
     ve: solisnek.ve,
     gaugeStaker: solisnek.gaugeStaker,
-     //log: true,
+    //log: true,
   });
 };
 

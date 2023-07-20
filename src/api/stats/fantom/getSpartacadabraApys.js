@@ -1,4 +1,3 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
 import { FANTOM_CHAIN_ID as chainId, SPOOKY_LPF } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
@@ -20,7 +19,6 @@ const getSpartacadabraApys = async () => {
   const tradingAprs = { ...curveTradingAprs, ...lpTradingAprs };
 
   return await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchefAbi: SpellMasterChef,
     masterchef: '0x37dcB419bE789d94b3216b922C216f5FA3266cfe',

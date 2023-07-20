@@ -2,7 +2,6 @@ const getBeltApys = require('./belt/getBeltApys');
 const { getDegensLpApys } = require('./degens');
 const getJetswapApys = require('./jetfuel/getJetswapApys');
 const { getCakeLpV2Apys } = require('./pancake/getCakeLpV2Apys');
-const getCakeV2PoolApy = require('./pancake/getCakeV2PoolApy');
 const getVenusApys = require('./venus/getVenusApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
 const getMdexMdxApy = require('./mdex/getMdexMdxApy');
@@ -16,7 +15,6 @@ const getValasApys = require('./valas/getValasApys');
 const { getDotDotApy } = require('./getDotDotApy');
 const getConeApys = require('./getConeApys');
 const getThenaApys = require('./getThenaApys');
-const { getWombexApy } = require('./getWombexApy');
 
 const getApys = [
   getBeltApys,
@@ -24,7 +22,6 @@ const getApys = [
   getBifiMaxiApy,
   getBiswapApys,
   getCakeLpV2Apys,
-  getCakeV2PoolApy,
   getConeApys,
   getDegensLpApys,
   getJetswapApys,
@@ -36,12 +33,12 @@ const getApys = [
   getStargateApys,
   getValasApys,
   getDotDotApy,
-  // getWombexApy,
   getThenaApys,
 ];
 // ^^ APYs are sorted alphabetically
 
 const getBSCApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -78,6 +75,9 @@ const getBSCApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] BSC finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

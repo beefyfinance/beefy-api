@@ -1,14 +1,14 @@
-const { polygonWeb3: web3 } = require('../../../utils/web3');
 const BigNumber = require('bignumber.js');
 
-const MasterChef = require('../../../abis/matic/ElysianFields.json');
 const pools = require('../../../data/matic/jarvisPools.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const getBlockTime = require('../../../utils/getBlockTime');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getCurveBaseApys } from '../common/curve/getCurveApyData';
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import ElysianFields from '../../../abis/matic/ElysianFields';
+import { fetchContract } from '../../rpc/client';
+import { POLYGON_CHAIN_ID } from '../../../constants';
 
 const DECIMALS = '1e18';
 const baseApyUrl = 'https://api.curve.fi/api/getSubgraphData/polygon';
@@ -37,18 +37,13 @@ const getPoolApy = async pool => {
 };
 
 const getYearlyRewardsInUsd = async (masterchef, poolId, oracle, oracleId) => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
+  const masterchefContract = fetchContract(masterchef, ElysianFields, POLYGON_CHAIN_ID);
 
-  let { allocPoint } = await masterchefContract.methods.poolInfo(poolId).call();
-  allocPoint = new BigNumber(allocPoint);
-
-  let [blockRewards, totalAllocPoint] = await Promise.all([
-    masterchefContract.methods.rwdPerBlock().call(),
-    masterchefContract.methods.totalAllocPoints().call(),
+  const [allocPoint, blockRewards, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.poolInfo([poolId]).then(v => new BigNumber(v[1].toString())),
+    masterchefContract.read.rwdPerBlock().then(v => new BigNumber(v.toString())),
+    masterchefContract.read.totalAllocPoints().then(v => new BigNumber(v.toString())),
   ]);
-
-  blockRewards = new BigNumber(blockRewards);
-  totalAllocPoint = new BigNumber(totalAllocPoint);
 
   const secondsPerYear = 31536000;
   const secondsPerBlock = await getBlockTime(137);

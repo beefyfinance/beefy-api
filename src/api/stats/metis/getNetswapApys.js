@@ -1,10 +1,5 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { metisWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/metis/NettChef.json');
-const SimpleRewarder = require('../../../abis/avax/SimpleRewarderPerSec.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/metis/netswapLpPools.json');
 const { BASE_HPY, METIS_CHAIN_ID } = require('../../../constants');
@@ -13,8 +8,11 @@ import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFees
 const { netswapClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import { NET_LPF } from '../../../constants';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import NettChef from '../../../abis/metis/NettChef';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import SimpleRewarderPerSec from '../../../abis/avax/SimpleRewarderPerSec';
 
 const masterchef = '0x9d1dbB49b2744A1555EDbF1708D64dC71B0CB052';
 const oracleIdA = 'NETT';
@@ -104,46 +102,38 @@ const getNetswapApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.nettPerSec().call());
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const masterchefContract = fetchContract(masterchef, NettChef, METIS_CHAIN_ID);
+  const [rewardPerSecond, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.nettPerSec().then(v => new BigNumber(v.toString())),
+    masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+  ]);
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = getContract(MasterChef, masterchef);
-  const multicall = new MultiCall(web3, multicallAddress(METIS_CHAIN_ID));
+  const masterchefContract = fetchContract(masterchef, NettChef, METIS_CHAIN_ID);
   const balanceCalls = [];
   const poolInfoCalls = [];
-  const tokenPerSecCalls = [];
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(masterchef),
-    });
-    let poolInfo = masterchefContract.methods.poolInfo(pool.poolId);
-    poolInfoCalls.push({
-      poolInfo: poolInfo,
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, METIS_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([masterchef]));
+    poolInfoCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
   });
 
-  const res = await multicall.all([balanceCalls, poolInfoCalls]);
+  const res = await Promise.all([Promise.all(balanceCalls), Promise.all(poolInfoCalls)]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.poolInfo['1']);
-  const rewarders = res[1].map(v => v.poolInfo[5]);
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => new BigNumber(v[1].toString()));
+  const rewarders = res[1].map(v => v[5]);
 
-  rewarders.forEach(rewarder => {
-    let rewarderContract = getContractWithProvider(SimpleRewarder, rewarder, web3);
-    let tokenPerSec = rewarderContract.methods.tokenPerSec();
-    tokenPerSecCalls.push({
-      tokenPerSec: tokenPerSec,
-    });
+  const tokenPerSecCalls = rewarders.map(rewarder => {
+    if (rewarder === '0x0000000000000000000000000000000000000000') return new BigNumber('NaN');
+    let rewarderContract = fetchContract(rewarder, SimpleRewarderPerSec, METIS_CHAIN_ID);
+    return rewarderContract.read.tokenPerSec();
   });
 
-  const tokenPerSecData = (await multicall.all([tokenPerSecCalls]))[0].map(
-    t => new BigNumber(t.tokenPerSec)
-  );
+  const tokenPerSecDataResuls = await Promise.all(tokenPerSecCalls);
+  const tokenPerSecData = tokenPerSecDataResuls.map(v => new BigNumber(v.toString()));
 
   return { balances, allocPoints, tokenPerSecData };
 };

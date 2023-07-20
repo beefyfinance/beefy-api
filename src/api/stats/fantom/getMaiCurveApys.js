@@ -1,4 +1,3 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
 
@@ -9,7 +8,6 @@ const getMaiCurveApys = async () => {
     'https://api.curve.fi/api/getFactoryAPYs-fantom'
   );
   return await getMasterChefApys({
-    web3: web3,
     chainId: 250,
     masterchef: '0xDbfeE091d6bEF662BF3c79C3f08Eff3a0cC94BDE',
     tokenPerBlock: 'rewardPerSecond',

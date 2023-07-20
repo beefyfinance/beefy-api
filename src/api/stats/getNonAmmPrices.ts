@@ -62,7 +62,6 @@ import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import getMmyFantomPrices from './fantom/getMmyFantomPrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
-import { getMuxArbitrumPrices } from './arbitrum/getMuxPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
 import getThenaGammaPrices from './bsc/getThenaGammaPrices';
@@ -111,7 +110,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getMvxPrices(tokenPrices),
     getEqualizerStablePrices(tokenPrices),
     getOlpPrices(),
-    // getMuxArbitrumPrices(tokenPrices),
     getStargateMetisPrices(tokenPrices),
     getStargateOpPrices(tokenPrices),
     getStargatePolygonPrices(tokenPrices),
@@ -120,7 +118,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getStargateAvaxPrices(tokenPrices),
     getStargateArbPrices(tokenPrices),
     getStargateEthPrices(tokenPrices),
-    getHopPolyPrices(tokenPrices),
+    getHopPolyPrices(tokenPrices), // <----
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),
     getFerroPrices(tokenPrices),
@@ -170,7 +168,9 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   ];
 
   // Setup error logs
-  promises.forEach((p, i) => p.catch(e => console.warn('getNonAmmPrices error', i, e)));
+  promises.forEach((p, i) =>
+    p.catch(e => console.warn('getNonAmmPrices error', i, e.shortMessage ?? e.message))
+  );
 
   const results = await Promise.allSettled(promises);
 

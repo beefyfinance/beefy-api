@@ -1,16 +1,14 @@
 import BigNumber from 'bignumber.js';
-import Web3 from 'web3';
-import { MultiCall, ShapeWithLabel } from 'eth-multicall';
-import { multicallAddress } from '../../../utils/web3';
 import { ChainId } from '../../../../packages/address-book/types/chainid';
 
 import fetchPrice from '../../../utils/fetchPrice';
 import { getApyBreakdown } from './getApyBreakdown';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import fetch from 'node-fetch';
+import { fetchContract } from '../../rpc/client';
 
 // trading apr
-import { SUSHI_LPF } from '../../../constants';
+import { ONE_CHAIN_ID, SUSHI_LPF } from '../../../constants';
 import {
   getTradingFeeAprSushi,
   getTradingFeeApr,
@@ -21,11 +19,9 @@ import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
 
 // abis
-import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime.json';
-import ERC20 from '../../../abis/ERC20.json';
-import { Contract } from 'web3-eth-contract';
-import { AbiItem } from 'web3-utils';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime';
+import { Abi } from 'viem';
+import ERC20Abi from '../../../abis/ERC20Abi';
 
 const oracle = 'tokens';
 const DECIMALS = '1e18';
@@ -35,7 +31,7 @@ const secondsPerYear = 31536000;
 interface MiniChefApyParams {
   minichefConfig: {
     minichef: string; // address
-    minichefAbi: AbiItem[];
+    minichefAbi: Abi;
     outputOracleId: string; // i.e. SUSHI
     tokenPerSecondContractMethodName: `${string}PerSecond`;
   };
@@ -54,16 +50,27 @@ interface MiniChefApyParams {
   quickGamma?: string;
   sushiClient?: boolean;
   liquidityProviderFee?: number;
-  web3: Web3;
   chainId: ChainId;
   log?: boolean;
 }
 
 export const getMiniChefApys = async (params: MiniChefApyParams) => {
-  const { pools, tradingClient, sushiClient, liquidityProviderFee } = params;
+  const { pools } = params;
+
+  const [{ tradingAprs, fee }, farmApys] = await Promise.all([
+    getTradingAprs(params),
+    getFarmApys(params),
+  ]);
+
+  return getApyBreakdown(pools, tradingAprs, farmApys, fee);
+};
+
+const getTradingAprs = async (params: MiniChefApyParams) => {
+  const { pools, tradingClient, liquidityProviderFee } = params;
   const pairAddresses = pools.map(pool => pool.address);
   let tradingAprs: Record<string, BigNumber> | undefined;
   let fee: number | undefined;
+
   if (tradingClient !== undefined) {
     fee = liquidityProviderFee !== undefined ? liquidityProviderFee : SUSHI_LPF;
     tradingAprs = (await isSushiClient(tradingClient))
@@ -87,59 +94,57 @@ export const getMiniChefApys = async (params: MiniChefApyParams) => {
   } else {
     tradingAprs = {};
   }
-  const farmApys = await getFarmApys(params);
-
-  return getApyBreakdown(pools, tradingAprs, farmApys, fee);
+  return { tradingAprs, fee };
 };
 
 const getFarmApys = async (params: MiniChefApyParams) => {
-  const { web3, pools, minichefConfig, rewarderConfig } = params;
+  const { pools, minichefConfig, rewarderConfig, chainId } = params;
   const apys = [];
 
   // minichef
-  const minichefContract = getContractWithProvider(
-    minichefConfig.minichefAbi as any,
+  const minichefContract = fetchContract(
     minichefConfig.minichef,
-    web3
+    minichefConfig.minichefAbi,
+    chainId
   );
-  const miniChefTokenPerSecond = new BigNumber(
-    await minichefContract.methods[minichefConfig.tokenPerSecondContractMethodName]().call()
-  );
-  const miniChefTotalAllocPoint = new BigNumber(
-    await minichefContract.methods.totalAllocPoint().call()
-  );
-  const miniChefTokenPrice = await fetchPrice({ oracle, id: minichefConfig.outputOracleId });
+  const miniChefTokenPerSecondCall = minichefContract.read[
+    minichefConfig.tokenPerSecondContractMethodName
+  ]() as Promise<BigInt>;
+  const miniChefTotalAllocPointCall = minichefContract.read.totalAllocPoint() as Promise<BigInt>;
+  const miniChefTokenPriceCall = fetchPrice({
+    oracle,
+    id: minichefConfig.outputOracleId,
+  }) as Promise<BigInt>;
+  const poolsDataCall = getPoolsData(params);
 
-  // rewarder, if rewarder is set
-  let rewarderContract: Contract | undefined = undefined;
-  let rewarderTokenPerSecond: BigNumber | undefined;
-  let rewarderTokenPrice: number | undefined;
-  let rewarderTotalAllocPoint: number | undefined;
+  const rewarderCall = getRewarderData(params);
 
-  if (rewarderConfig) {
-    rewarderContract = getContractWithProvider(
-      SushiComplexRewarderTime as any,
-      rewarderConfig.rewarder,
-      web3
-    );
-    rewarderTokenPerSecond = new BigNumber(await rewarderContract.methods.rewardPerSecond().call());
+  const [
+    miniChefTokenPerSecondResult,
+    miniChefTotalAllocPointResult,
+    miniChefTokenPriceResult,
+    {
+      balances,
+      allocPoints,
+      rewardAllocPoints,
+      extraRewardsTotalAllocPoints,
+      extraRewardsAllocPoints,
+      extraRewardsRewardsPerSecond,
+    },
+    { rewarderTokenPerSecond, rewarderTotalAllocPoint, rewarderTokenPrice },
+  ] = await Promise.all([
+    miniChefTokenPerSecondCall,
+    miniChefTotalAllocPointCall,
+    miniChefTokenPriceCall,
+    poolsDataCall,
+    rewarderCall,
+  ]);
 
-    if (rewarderConfig.rewarderTotalAllocPoint == undefined) {
-      rewarderTotalAllocPoint = new BigNumber(
-        await rewarderContract.methods.totalAllocPoint().call()
-      ).toNumber();
-    } else {
-      rewarderTotalAllocPoint = rewarderConfig.rewarderTotalAllocPoint;
-    }
+  const miniChefTokenPerSecond = new BigNumber(miniChefTokenPerSecondResult.toString());
+  const miniChefTotalAllocPoint = new BigNumber(miniChefTotalAllocPointResult.toString());
+  const miniChefTokenPrice = new BigNumber(miniChefTokenPriceResult.toString());
 
-    rewarderTokenPrice = await fetchPrice({
-      oracle,
-      id: rewarderConfig.rewarderTokenOracleId,
-    });
-  }
-
-  const { balances, allocPoints, rewardAllocPoints } = await getPoolsData(params);
-
+  let globalExtraRewardIndex = 0;
   // get apy for each pool
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -175,21 +180,10 @@ const getFarmApys = async (params: MiniChefApyParams) => {
     if (pool.extraRewards) {
       let extraRewards: BigNumber = new BigNumber(0);
       for (const rewards of pool.extraRewards ?? []) {
-        let rewardContract = getContractWithProvider(
-          SushiComplexRewarderTime as any,
-          rewards.rewarder,
-          web3
-        );
-
-        const totalAllocPoint = new BigNumber(
-          await rewardContract.methods.totalAllocPoint().call()
-        );
-        const poolInfo = await rewardContract.methods.poolInfo(pool.poolId).call();
-        const allocPoint = new BigNumber(poolInfo['2']);
-
-        const rewardPerSecond = new BigNumber(
-          await rewardContract.methods.rewardPerSecond().call()
-        );
+        const totalAllocPoint = extraRewardsTotalAllocPoints[globalExtraRewardIndex];
+        const allocPoint = extraRewardsAllocPoints[globalExtraRewardIndex];
+        const rewardPerSecond = extraRewardsRewardsPerSecond[globalExtraRewardIndex];
+        globalExtraRewardIndex++;
 
         const price = await fetchPrice({ oracle: 'tokens', id: rewards.oracleId });
         const reward = rewardPerSecond.times(allocPoint).dividedBy(totalAllocPoint);
@@ -210,53 +204,114 @@ const getFarmApys = async (params: MiniChefApyParams) => {
     }
     apys.push(apy);
   }
+
   return apys;
 };
 
-const getPoolsData = async (params: MiniChefApyParams) => {
-  const { web3, pools, minichefConfig, rewarderConfig, chainId } = params;
+const getRewarderData = async (params: MiniChefApyParams) => {
+  const { rewarderConfig, chainId } = params;
 
-  const minichefContract = getContract(minichefConfig.minichefAbi as any, minichefConfig.minichef);
+  if (rewarderConfig) {
+    const rewarderContract = fetchContract(
+      rewarderConfig.rewarder,
+      SushiComplexRewarderTime,
+      chainId
+    );
+    const calls = [rewarderContract.read.rewardPerSecond()];
+    if (rewarderConfig.rewarderTotalAllocPoint == undefined) {
+      calls.push(rewarderContract.read.totalAllocPoint());
+    } else {
+      calls.push(new Promise(resolve => resolve(BigInt(rewarderConfig.rewarderTotalAllocPoint))));
+    }
+    calls.push(fetchPrice({ oracle, id: rewarderConfig.rewarderTokenOracleId }));
+    const res = await Promise.all(calls);
+    return {
+      rewarderTokenPerSecond: new BigNumber(res[0].toString()),
+      rewarderTotalAllocPoint: Number(res[1]),
+      rewarderTokenPrice: Number(res[2]),
+    };
+  }
+  return {
+    rewarderTokenPerSecond: undefined,
+    rewarderTokenPrice: undefined,
+    rewarderTotalAllocPoint: undefined,
+  };
+};
+
+const getPoolsData = async (params: MiniChefApyParams) => {
+  const { pools, minichefConfig, rewarderConfig, chainId } = params;
+
+  const minichefContract = fetchContract(
+    minichefConfig.minichef,
+    minichefConfig.minichefAbi,
+    chainId
+  );
 
   // rewarder, if rewarder is set
-  let rewarderContract: Contract | undefined = undefined;
-  if (rewarderConfig) {
-    rewarderContract = getContract(SushiComplexRewarderTime as any, rewarderConfig.rewarder);
-  }
+  let rewarderContract = rewarderConfig
+    ? fetchContract(rewarderConfig.rewarder, SushiComplexRewarderTime, chainId)
+    : undefined;
 
   const balanceCalls = [];
   const allocPointCalls = [];
   const rewardAllocPointCalls = [];
+  const extraRewardsAllocCalls = [];
+  const extraRewardPoolInfoCalls = [];
+  const extraRewardRewardsPerSecondCalls = [];
 
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20 as any, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(minichefConfig.minichef),
-    });
-    allocPointCalls.push({
-      allocPoint: minichefContract.methods.poolInfo(pool.poolId),
-    });
-
-    // rewarder, if rewarder is set
+    const tokenContract = fetchContract(pool.address, ERC20Abi, chainId);
+    balanceCalls.push(tokenContract.read.balanceOf([minichefConfig.minichef as `0x${string}`]));
+    allocPointCalls.push(minichefContract.read.poolInfo([pool.poolId]));
     if (rewarderConfig && rewarderContract) {
-      rewardAllocPointCalls.push({
-        allocPoint: rewarderContract.methods.poolInfo(pool.poolId),
-      });
+      rewardAllocPointCalls.push(rewarderContract.read.poolInfo([BigInt(pool.poolId)]));
+    }
+    if (pool.extraRewards) {
+      for (const rewards of pool.extraRewards ?? []) {
+        const rewardContract = fetchContract(rewards.rewarder, SushiComplexRewarderTime, chainId);
+        extraRewardsAllocCalls.push(rewardContract.read.totalAllocPoint());
+        extraRewardPoolInfoCalls.push(rewardContract.read.poolInfo([BigInt(pool.poolId)]));
+        extraRewardRewardsPerSecondCalls.push(rewardContract.read.rewardPerSecond());
+      }
     }
   });
 
-  const multicall = new MultiCall(web3 as any, multicallAddress(chainId));
-  const multicallParams: ShapeWithLabel[][] = [balanceCalls, allocPointCalls];
+  const [
+    balanceResults,
+    allocPointResults,
+    rewardAllocPointResults,
+    extraRewardsAllocResults,
+    extraRewardPoolInfoResults,
+    extraRewardRewardsPerSecondResults,
+  ] = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(allocPointCalls),
+    Promise.all(rewardAllocPointCalls),
+    Promise.all(extraRewardsAllocCalls),
+    Promise.all(extraRewardPoolInfoCalls),
+    Promise.all(extraRewardRewardsPerSecondCalls),
+  ]);
 
-  // rewarder, if rewarder is set
-  if (rewarderConfig) {
-    multicallParams.push(rewardAllocPointCalls);
-  }
-
-  const res = await multicall.all(multicallParams);
-
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.allocPoint['2']);
-  const rewardAllocPoints = rewarderConfig ? res[2].map(v => v.allocPoint['2']) : {};
-  return { balances, allocPoints, rewardAllocPoints };
+  const balances = balanceResults.map(v => new BigNumber(v.toString()));
+  const allocPoints = allocPointResults.map(v => new BigNumber(v['2'].toString()));
+  const rewardAllocPoints = rewarderConfig
+    ? rewardAllocPointResults.map(v => new BigNumber(v['2'].toString()))
+    : {};
+  const extraRewardsTotalAllocPoints = extraRewardsAllocResults.map(
+    v => new BigNumber(v.toString())
+  );
+  const extraRewardsAllocPoints = extraRewardPoolInfoResults.map(
+    v => new BigNumber(v['2'].toString())
+  );
+  const extraRewardsRewardsPerSecond = extraRewardRewardsPerSecondResults.map(
+    v => new BigNumber(v.toString())
+  );
+  return {
+    balances,
+    allocPoints,
+    rewardAllocPoints,
+    extraRewardsTotalAllocPoints,
+    extraRewardsAllocPoints,
+    extraRewardsRewardsPerSecond,
+  };
 };

@@ -16,7 +16,6 @@ const getKyberArbitrumApys = require('./getKyberArbitrumApys');
 const getSolidLizardApys = require('./getSolidLizardApys');
 const getRamsesApys = require('./getRamsesApys');
 const getArbidexApys = require('./getArbidexApys');
-const { getMuxArbitrumApys } = require('./getMuxApys');
 const { getChronosApys } = require('./getChronosApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 
@@ -26,7 +25,6 @@ const getApys = [
   getGnsApys,
   getHopApys,
   getGmxApys,
-  // getMuxArbitrumApys,
   getRipaeApys,
   getSushiLpApys,
   getCurveApys,
@@ -45,6 +43,7 @@ const getApys = [
 ];
 
 const getArbitrumApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -81,6 +80,9 @@ const getArbitrumApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Arbitrum finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

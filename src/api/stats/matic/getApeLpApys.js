@@ -1,17 +1,14 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { polygonWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const MiniChefV2 = require('../../../abis/matic/ApeMiniApe.json');
-const SushiComplexRewarderTime = require('../../../abis/matic/SushiComplexRewarderTime.json');
-const RewarderAllocPoints = require('../../../abis/matic/RewarderAllocPoints.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/matic/apePolyLpPools.json');
 const { POLYGON_CHAIN_ID, APEPOLY_LPF } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { apePolyClient } = require('../../../apollo/client');
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import ApeMiniApe from '../../../abis/matic/ApeMiniApe';
+import RewarderAllocPoints from '../../../abis/matic/RewarderAllocPoints';
+import SushiComplexRewarderTime from '../../../abis/matic/SushiComplexRewarderTime';
+import { fetchContract } from '../../rpc/client';
 import getApyBreakdown from '../common/getApyBreakdown';
 
 const minichef = '0x54aff400858Dcac39797a81894D9920f16972D1D';
@@ -29,21 +26,29 @@ const rewarderAllocPoints = '0x11Bd04123d0B8404685101791Dc01596EEd48570';
 
 const getApeLpApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(apePolyClient, pairAddresses, APEPOLY_LPF);
-  const farmApys = await getFarmApys(pools);
+  const [tradingAprs, farmApys] = await Promise.all([
+    getTradingFeeApr(apePolyClient, pairAddresses, APEPOLY_LPF),
+    getFarmApys(pools),
+  ]);
 
   return getApyBreakdown(pools, tradingAprs, farmApys, APEPOLY_LPF);
 };
 
 const getFarmApys = async pools => {
   const apys = [];
-  const minichefContract = getContractWithProvider(MiniChefV2, minichef, web3);
-  const bananaPerSecond = new BigNumber(await minichefContract.methods.bananaPerSecond().call());
-  const totalAllocPoint = new BigNumber(await minichefContract.methods.totalAllocPoint().call());
-  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
+  const minichefContract = fetchContract(minichef, ApeMiniApe, POLYGON_CHAIN_ID);
 
-  const { balances, allocPoints, rewardAllocPoints, rewardPerSeconds, rewardTotalAllocPoints } =
-    await getPoolsData(pools);
+  const [
+    bananaPerSecond,
+    totalAllocPoint,
+    { balances, allocPoints, rewardAllocPoints, rewardPerSeconds, rewardTotalAllocPoints },
+  ] = await Promise.all([
+    minichefContract.read.bananaPerSecond().then(v => new BigNumber(v.toString())),
+    minichefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+    getPoolsData(pools),
+  ]);
+
+  const tokenPrice = await fetchPrice({ oracle, id: oracleId });
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
 
@@ -70,8 +75,12 @@ const getFarmApys = async pools => {
 };
 
 const getPoolsData = async pools => {
-  const minichefContract = getContract(MiniChefV2, minichef);
-  const totalPointContract = getContract(RewarderAllocPoints, rewarderAllocPoints);
+  const minichefContract = fetchContract(minichef, ApeMiniApe, POLYGON_CHAIN_ID);
+  const totalPointContract = fetchContract(
+    rewarderAllocPoints,
+    RewarderAllocPoints,
+    POLYGON_CHAIN_ID
+  );
 
   const balanceCalls = [];
   const allocPointCalls = [];
@@ -79,44 +88,34 @@ const getPoolsData = async pools => {
   const rewardPerSecondCalls = [];
   const rewardTotalPointCalls = [];
   pools.forEach(pool => {
-    const rewardContract = getContract(
+    const rewardContract = fetchContract(
+      pool.rewarder ?? complexRewarderTime,
       SushiComplexRewarderTime,
-      pool.rewarder ?? complexRewarderTime
+      POLYGON_CHAIN_ID
     );
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(minichef),
-    });
-    allocPointCalls.push({
-      allocPoint: minichefContract.methods.poolInfo(pool.poolId),
-    });
-    rewardAllocPointCalls.push({
-      allocPoint: rewardContract.methods.poolInfo(pool.poolId),
-    });
-    rewardPerSecondCalls.push({
-      rewardPerSecond: rewardContract.methods.rewardPerSecond(),
-    });
-    rewardTotalPointCalls.push({
-      totalAllocPoint: totalPointContract.methods.totalAllocPoint(
-        pool.rewarder ?? complexRewarderTime
-      ),
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, POLYGON_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([minichef]));
+    allocPointCalls.push(minichefContract.read.poolInfo([pool.poolId]));
+    rewardAllocPointCalls.push(rewardContract.read.poolInfo([pool.poolId]));
+    rewardPerSecondCalls.push(rewardContract.read.rewardPerSecond());
+    rewardTotalPointCalls.push(
+      totalPointContract.read.totalAllocPoint([pool.rewarder ?? complexRewarderTime])
+    );
   });
 
-  const multicall = new MultiCall(web3, multicallAddress(POLYGON_CHAIN_ID));
-  const res = await multicall.all([
-    balanceCalls,
-    allocPointCalls,
-    rewardAllocPointCalls,
-    rewardPerSecondCalls,
-    rewardTotalPointCalls,
+  const res = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(allocPointCalls),
+    Promise.all(rewardAllocPointCalls),
+    Promise.all(rewardPerSecondCalls),
+    Promise.all(rewardTotalPointCalls),
   ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.allocPoint['2']);
-  const rewardAllocPoints = res[2].map(v => v.allocPoint['2']);
-  const rewardPerSeconds = res[3].map(v => new BigNumber(v.rewardPerSecond));
-  const rewardTotalAllocPoints = res[4].map(v => new BigNumber(v.totalAllocPoint));
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => new BigNumber(v['2'].toString()));
+  const rewardAllocPoints = res[2].map(v => new BigNumber(v['2'].toString()));
+  const rewardPerSeconds = res[3].map(v => new BigNumber(v.toString()));
+  const rewardTotalAllocPoints = res[4].map(v => new BigNumber(v.toString()));
   return { balances, allocPoints, rewardAllocPoints, rewardPerSeconds, rewardTotalAllocPoints };
 };
 

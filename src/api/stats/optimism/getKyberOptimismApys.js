@@ -6,7 +6,6 @@ const pools = require('../../../data/optimism/kyberLpPools.json');
 
 const getKyberOptimismApys = async () => {
   return getKyberLpV2Apys({
-    web3: web3,
     chainId: chainId,
     pools: pools,
     abi: ABI,

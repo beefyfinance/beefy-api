@@ -1,9 +1,7 @@
 const BigNumber = require('bignumber.js');
-const { web3Factory } = require('./web3');
-
-const ERC20 = require('../abis/ERC20.json');
 const fetchPrice = require('./fetchPrice');
-const { getContractWithProvider } = require('./contractHelper');
+const { fetchContract } = require('../api/rpc/client');
+const { default: ERC20Abi } = require('../abis/ERC20Abi');
 
 const getTotalStakedInUsd = async (
   targetAddr,
@@ -13,10 +11,8 @@ const getTotalStakedInUsd = async (
   decimals = '1e18',
   chainId = 56
 ) => {
-  const web3 = web3Factory(chainId);
-
-  const tokenContract = getContractWithProvider(ERC20, tokenAddr, web3);
-  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(targetAddr).call());
+  const tokenContract = fetchContract(tokenAddr, ERC20Abi, chainId);
+  const totalStaked = new BigNumber((await tokenContract.read.balanceOf([targetAddr])).toString());
   const tokenPrice = await fetchPrice({ oracle, id: oracleId });
 
   return totalStaked.times(tokenPrice).dividedBy(decimals);

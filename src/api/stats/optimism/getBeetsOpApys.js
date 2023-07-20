@@ -1,19 +1,16 @@
-import { MultiCall } from 'eth-multicall';
-const { optimismWeb3: web3 } = require('../../../utils/web3');
 import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
-const IBalancerVault = require('../../../abis/IBalancerVault.json');
 import BigNumber from 'bignumber.js';
-import { multicallAddress } from '../../../utils/web3';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
 const fetch = require('node-fetch');
 import { beetOpClient } from '../../../apollo/client';
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
+import IBalancerVault from '../../../abis/IBalancerVault';
+import { fetchContract } from '../../rpc/client';
 const fetchPrice = require('../../../utils/fetchPrice');
 
-const { getContractWithProvider } = require('../../../utils/contractHelper');
 const {
   optimism: {
     tokens: { USDC, 'wUSD+': wUSDplus, DAI, 'wDAI+': wDAIplus },
@@ -32,15 +29,12 @@ const liquidityProviderFee = 0.0075;
 
 const getBeetsOpApys = async () => {
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeAprBalancer(
-    beetOpClient,
-    pairAddresses,
-    liquidityProviderFee,
-    10
-  );
+  const [tradingAprs, farmApys] = await Promise.all([
+    getTradingFeeAprBalancer(beetOpClient, pairAddresses, liquidityProviderFee, 10),
+    getPoolApys(pools),
+  ]);
 
   // console.log(tradingAprs);
-  const farmApys = await getPoolApys(pools);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
   return getApyBreakdown(
     poolsMap,
@@ -71,22 +65,23 @@ const getPoolApys = async pools => {
 
 const getPoolApy = async pool => {
   if (pool.status === 'eol') return new BigNumber(0);
-  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
-    getYearlyRewardsInUsd(web3, new MultiCall(web3, multicallAddress(OPTIMISM_CHAIN_ID)), pool),
-    getTotalStakedInUsd(web3, pool),
+  const [yearlyRewardsInUsd, totalStakedInUsd, extraData] = await Promise.all([
+    getYearlyRewardsInUsd(OPTIMISM_CHAIN_ID, pool),
+    getTotalStakedInUsd(OPTIMISM_CHAIN_ID, pool),
+    getPoolExtraData(pool),
   ]);
 
   //console.log(pool.name, yearlyRewardsInUsd.toNumber(), totalStakedInUsd.toNumber())
   let rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   let aprFixed = 0;
   let compAprFixed = 0;
+
   if (pool.lidoUrl) {
-    const balVault = getContractWithProvider(IBalancerVault, beethovenX.router, web3);
-    const tokenQtys = await balVault.methods.getPoolTokens(pool.vaultPoolId).call();
+    const tokenQtys = extraData.lido[0];
 
     let qty = [];
     let totalQty = new BigNumber(0);
-    for (let j = 0; j < tokenQtys.balances.length; j++) {
+    for (let j = 0; j < tokenQtys[1].length; j++) {
       if (pool.composable) {
         if (pool.bptIndex == j) {
           continue;
@@ -94,13 +89,11 @@ const getPoolApy = async pool => {
       }
 
       const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
-      const amt = new BigNumber(tokenQtys.balances[j])
-        .times(price)
-        .dividedBy([pool.tokens[j].decimals]);
+      const amt = new BigNumber(tokenQtys[1][j]).times(price).dividedBy([pool.tokens[j].decimals]);
       totalQty = totalQty.plus(amt);
       qty.push(amt);
     }
-    const response = await fetch(pool.lidoUrl).then(res => res.json());
+    const response = extraData.lido[1];
     const apr = response.data.smaApr;
 
     pool.balancerChargesFee
@@ -109,18 +102,17 @@ const getPoolApy = async pool => {
   }
 
   if (pool.overnight) {
-    const balVault = getContractWithProvider(IBalancerVault, beethovenX.router, web3);
-    const usdPlusTokenQtys = await balVault.methods.getPoolTokens(bbUsdPlusPoolId).call();
-    const daiPlusTokenQtys = await balVault.methods.getPoolTokens(bbDaiPlusPoolId).call();
+    const usdPlusTokenQtys = extraData.overnight[0];
+    const daiPlusTokenQtys = extraData.overnight[1];
 
     let usdQty = [];
     let usdTotalQty = new BigNumber(0);
-    for (let i = 0; i < usdPlusTokenQtys.balances.length; i++) {
+    for (let i = 0; i < usdPlusTokenQtys[1].length; i++) {
       if (i != 1) {
         const price = await fetchPrice({ oracle: 'tokens', id: bbUsdPlusTokens[i].symbol });
-        const amt = new BigNumber(usdPlusTokenQtys.balances[i])
+        const amt = new BigNumber(usdPlusTokenQtys[1][i])
           .times(price)
-          .dividedBy(await getEDecimals(bbUsdPlusTokens[i].decimals));
+          .dividedBy(getEDecimals(bbUsdPlusTokens[i].decimals));
         usdTotalQty = usdTotalQty.plus(amt);
         usdQty.push(amt);
         //console.log(price, amt.toString(), await getEDecimals(bbUsdPlusTokens[i].decimals));
@@ -129,28 +121,24 @@ const getPoolApy = async pool => {
 
     let daiQty = [];
     let daiTotalQty = new BigNumber(0);
-    for (let j = 0; j < daiPlusTokenQtys.balances.length; j++) {
+    for (let j = 0; j < daiPlusTokenQtys[1].length; j++) {
       if (j != 1) {
         const price = await fetchPrice({ oracle: 'tokens', id: bbDaiPlusTokens[j].symbol });
-        const amt = new BigNumber(daiPlusTokenQtys.balances[j])
+        const amt = new BigNumber(daiPlusTokenQtys[1][j])
           .times(price)
-          .dividedBy(await getEDecimals(bbDaiPlusTokens[j].decimals));
+          .dividedBy(getEDecimals(bbDaiPlusTokens[j].decimals));
         daiTotalQty = daiTotalQty.plus(amt);
         daiQty.push(amt);
       }
     }
 
     try {
-      const usdPlusResponse = await fetch(
-        'https://api.overnight.fi/optimism/usd+/fin-data/avg-apr/week'
-      ).then(res => res.json());
+      const usdPlusResponse = extraData.overnight[2];
       const usdPlusApr = usdPlusResponse.value;
 
       const usdPlusFixed = (usdPlusApr * usdQty[1].dividedBy(usdTotalQty).toNumber()) / 100 / 2 / 2;
 
-      const daiPlusResponse = await fetch(
-        'https://api.overnight.fi/optimism/dai+/fin-data/avg-apr/week'
-      ).then(res2 => res2.json());
+      const daiPlusResponse = extraData.overnight[3];
       const daiPlusApr = daiPlusResponse.value;
 
       //  console.log(daiPlusResponse);
@@ -165,6 +153,34 @@ const getPoolApy = async pool => {
   }
   //console.log(pool.name, aprFixed, compAprFixed);
   return [rewardsApy, aprFixed, compAprFixed];
+};
+
+const getPoolExtraData = async pool => {
+  const overnightCalls = [];
+  const lidoCalls = [];
+  const balVault = fetchContract(beethovenX.router, IBalancerVault, OPTIMISM_CHAIN_ID);
+  if (pool.overnight) {
+    overnightCalls.push(balVault.read.getPoolTokens([bbUsdPlusPoolId]));
+    overnightCalls.push(balVault.read.getPoolTokens([bbDaiPlusPoolId]));
+    overnightCalls.push(
+      fetch('https://api.overnight.fi/optimism/usd+/fin-data/avg-apr/week').then(res => res.json())
+    );
+    overnightCalls.push(
+      fetch('https://api.overnight.fi/optimism/dai+/fin-data/avg-apr/week').then(res => res.json())
+    );
+  }
+  if (pool.lidoUrl) {
+    lidoCalls.push(balVault.read.getPoolTokens([pool.vaultPoolId]));
+    lidoCalls.push(fetch(pool.lidoUrl).then(res => res.json()));
+  }
+  const [lidoResults, overnightResults] = await Promise.all([
+    Promise.all(lidoCalls),
+    Promise.all(overnightCalls),
+  ]);
+  let response = {};
+  if (pool.overnight) response.overnight = overnightResults;
+  if (pool.lidoUrl) response.lido = lidoResults;
+  return response;
 };
 
 module.exports = getBeetsOpApys;

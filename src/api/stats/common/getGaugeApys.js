@@ -1,19 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { multicallAddress } = require('../../../utils/web3');
-
-const IGauge = require('../../../abis/IGauge.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import getApyBreakdown from '../common/getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
-import { getContract } from '../../../utils/contractHelper';
+import { fetchContract } from '../../rpc/client';
+import IGauge from '../../../abis/IGauge';
 
 export const getGaugeApys = async params => {
-  const tradingAprs = await getTradingAprs(params);
-  const farmApys = await getFarmApys(params);
-
+  const [tradingAprs, farmApys] = await Promise.all([getTradingAprs(params), getFarmApys(params)]);
   const liquidityProviderFee = params.liquidityProviderFee ?? 0.003;
 
   return getApyBreakdown(params.pools, tradingAprs, farmApys, liquidityProviderFee);
@@ -68,25 +62,29 @@ const getFarmApys = async params => {
 };
 
 const getPoolsData = async params => {
-  const web3 = params.web3;
-  const multicall = new MultiCall(web3, multicallAddress(params.chainId));
-  const calls = [];
+  const balanceCalls = [],
+    rewardRateCalls = [],
+    stakerBalanceCalls = [],
+    derivedBalanceCalls = [];
   params.pools.forEach(pool => {
-    const gauge = getContract(IGauge, pool.gauge);
-    calls.push({
-      balance: gauge.methods.totalSupply(),
-      rewardRate: gauge.methods.rewardRate(),
-      stakerBalance: gauge.methods.balanceOf(params.gaugeStaker),
-      derivedBalance: gauge.methods.derivedBalance(params.gaugeStaker),
-    });
+    const gauge = fetchContract(pool.gauge, IGauge, params.chainId);
+    balanceCalls.push(gauge.read.totalSupply());
+    rewardRateCalls.push(gauge.read.rewardRate());
+    stakerBalanceCalls.push(gauge.read.balanceOf([params.gaugeStaker]));
+    derivedBalanceCalls.push(gauge.read.derivedBalance([params.gaugeStaker]));
   });
 
-  const res = await multicall.all([calls]);
+  const res = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(rewardRateCalls),
+    Promise.all(stakerBalanceCalls),
+    Promise.all(derivedBalanceCalls),
+  ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const rewardRates = res[0].map(v => new BigNumber(v.rewardRate));
-  const stakerBalances = res[0].map(v => new BigNumber(v.stakerBalance));
-  const derivedBalances = res[0].map(v => new BigNumber(v.derivedBalance));
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const rewardRates = res[1].map(v => new BigNumber(v.toString()));
+  const stakerBalances = res[2].map(v => new BigNumber(v.toString()));
+  const derivedBalances = res[3].map(v => new BigNumber(v.toString()));
 
   return { balances, rewardRates, stakerBalances, derivedBalances };
 };

@@ -1,4 +1,3 @@
-import { arbitrumWeb3 as web3 } from '../../../utils/web3';
 import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
 import { balancerArbClient as client } from '../../../apollo/client';
 import { getAuraApys } from '../common/balancer/getAuraApys';
@@ -17,7 +16,6 @@ const auraMinter = '0xeC1c780A275438916E7CEb174D80878f29580606';
 
 const getAuraArbitrumApys = async () => {
   return getAuraApys({
-    web3: web3,
     chainId: chainId,
     client: client,
     pools: pools,

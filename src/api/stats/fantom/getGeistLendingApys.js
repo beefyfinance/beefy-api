@@ -1,14 +1,16 @@
 const BigNumber = require('bignumber.js');
-const { fantomWeb3: web3 } = require('../../../utils/web3');
-
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const IncentivesController = require('../../../abis/fantom/GeistIncentivesController.json');
-const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataProvider.json');
 const pools = require('../../../data/fantom/geistPools.json');
-const { BASE_HPY } = require('../../../constants');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { BASE_HPY, FANTOM_CHAIN_ID } = require('../../../constants');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
+const {
+  default: IAaveProtocolDataProvider,
+} = require('../../../abis/matic/AaveProtocolDataProvider');
+const {
+  default: GeistIncentivesController,
+} = require('../../../abis/fantom/GeistIncentivesController');
+const { fetchContract } = require('../../rpc/client');
 
 const AaveProtocolDataProvider = '0xf3B0611e2E4D2cd6aB4bb3e01aDe211c3f42A8C3';
 const incentivesController = '0x297FddC5c33Ef988dd03bd13e162aE084ea1fE57';
@@ -46,13 +48,15 @@ const getGeistLendingApys = async () => {
 };
 
 const getIncentiveControllerData = async () => {
-  const incentivesControllerContract = getContractWithProvider(
-    IncentivesController,
+  const incentivesControllerContract = fetchContract(
     incentivesController,
-    web3
+    GeistIncentivesController,
+    FANTOM_CHAIN_ID
   );
-  const rewardsPerSecond = await incentivesControllerContract.methods.rewardsPerSecond().call();
-  const totalAllocPoint = await incentivesControllerContract.methods.totalAllocPoint().call();
+  const [rewardsPerSecond, totalAllocPoint] = await Promise.all([
+    incentivesControllerContract.read.rewardsPerSecond().then(res => new BigNumber(res.toString())),
+    incentivesControllerContract.read.totalAllocPoint().then(res => new BigNumber(res.toString())),
+  ]);
   return { rewardsPerSecond, totalAllocPoint };
 };
 
@@ -82,18 +86,25 @@ const getPoolApy = async (pool, rewardsPerSecond, totalAllocPoint) => {
 };
 
 const getGeistPoolData = async (pool, rewardsPerSecond, totalAllocPoint) => {
-  const dataProvider = getContractWithProvider(
-    IAaveProtocolDataProvider,
+  const dataProvider = fetchContract(
     AaveProtocolDataProvider,
-    web3
+    IAaveProtocolDataProvider,
+    FANTOM_CHAIN_ID
   );
-  const {
-    availableLiquidity,
-    totalStableDebt,
-    totalVariableDebt,
-    liquidityRate,
-    variableBorrowRate,
-  } = await dataProvider.methods.getReserveData(pool.token).call();
+  const [
+    [
+      availableLiquidity,
+      totalStableDebt,
+      totalVariableDebt,
+      liquidityRate,
+      variableBorrowRate,
+      ...rest
+    ],
+    { supplyGeistInUsd, borrowGeistInUsd },
+  ] = await Promise.all([
+    dataProvider.read.getReserveData([pool.token]),
+    getGeistPerYear(pool, rewardsPerSecond, totalAllocPoint),
+  ]);
 
   const supplyBase = new BigNumber(liquidityRate).div(RAY_DECIMALS);
   const borrowBase = new BigNumber(variableBorrowRate).div(RAY_DECIMALS);
@@ -106,11 +117,6 @@ const getGeistPoolData = async (pool, rewardsPerSecond, totalAllocPoint) => {
     .div(pool.decimals)
     .times(tokenPrice);
 
-  const { supplyGeistInUsd, borrowGeistInUsd } = await getGeistPerYear(
-    pool,
-    rewardsPerSecond,
-    totalAllocPoint
-  );
   const supplyGeist = supplyGeistInUsd.div(totalSupplyInUsd);
   const borrowGeist = totalBorrowInUsd.isZero()
     ? new BigNumber(0)
@@ -120,18 +126,25 @@ const getGeistPoolData = async (pool, rewardsPerSecond, totalAllocPoint) => {
 };
 
 const getGeistPerYear = async (pool, rewardsPerSecond, totalAllocPoint) => {
-  const incentivesControllerContract = getContractWithProvider(
-    IncentivesController,
+  const incentivesControllerContract = fetchContract(
     incentivesController,
-    web3
+    GeistIncentivesController,
+    FANTOM_CHAIN_ID
   );
 
-  let res = await incentivesControllerContract.methods.poolInfo(pool.aToken).call();
-  const supplyGeistRate = new BigNumber(res.allocPoint)
+  const [aAllocPoint, debtAllocPoint] = await Promise.all([
+    incentivesControllerContract.read
+      .poolInfo([pool.aToken])
+      .then(res => new BigNumber(res[1].toString())),
+    incentivesControllerContract.read
+      .poolInfo([pool.debtToken])
+      .then(res => new BigNumber(res[1].toString())),
+  ]);
+
+  const supplyGeistRate = new BigNumber(aAllocPoint)
     .times(rewardsPerSecond)
     .dividedBy(totalAllocPoint);
-  res = await incentivesControllerContract.methods.poolInfo(pool.debtToken).call();
-  const borrowGeistRate = new BigNumber(res.allocPoint)
+  const borrowGeistRate = new BigNumber(debtAllocPoint)
     .times(rewardsPerSecond)
     .dividedBy(totalAllocPoint);
 

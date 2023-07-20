@@ -1,15 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { fantomWeb3: web3 } = require('../../../utils/web3');
-
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { spookyClient } from '../../../apollo/client';
-import { SPOOKY_LPF } from '../../../constants';
-import { getContractWithProvider } from '../../../utils/contractHelper';
+import { FANTOM_CHAIN_ID, SPOOKY_LPF } from '../../../constants';
+import GeistChef from '../../../abis/fantom/GeistChef';
+import { fetchContract } from '../../rpc/client';
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
-const MasterChef = require('../../../abis/fantom/GeistChef.json');
 const pools = require('../../../data/fantom/geistLpPools.json');
 
 const chef = '0xE40b7FA6F5F7FB0Dc7d56f433814227AAaE020B5';
@@ -41,12 +39,13 @@ const getPoolApy = async (masterchef, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (masterchef, pool) => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
+  const masterchefContract = fetchContract(masterchef, GeistChef, FANTOM_CHAIN_ID);
 
-  const rewardsPerSec = new BigNumber(await masterchefContract.methods.rewardsPerSecond().call());
-  let { allocPoint } = await masterchefContract.methods.poolInfo(pool.address).call();
-  allocPoint = new BigNumber(allocPoint);
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const [rewardsPerSec, allocPoint, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.rewardsPerSecond().then(res => new BigNumber(res.toString())),
+    masterchefContract.read.poolInfo([pool.address]).then(res => new BigNumber(res[0].toString())),
+    masterchefContract.read.totalAllocPoint().then(res => new BigNumber(res.toString())),
+  ]);
 
   const secondsPerYear = 31536000;
   const yearlyRewards = rewardsPerSec

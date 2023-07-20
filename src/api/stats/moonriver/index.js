@@ -23,6 +23,7 @@ const getApys = [
 ];
 
 const getMoonriverApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
   let promises = [];
@@ -58,6 +59,9 @@ const getMoonriverApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Moonriver finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

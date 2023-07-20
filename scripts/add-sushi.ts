@@ -8,9 +8,9 @@ import path from 'path';
 import { ethers } from 'ethers';
 import { MULTICHAIN_RPC } from '../src/constants';
 
-import masterchefABI from '../src/abis/matic/SushiMiniChefV2.json';
-import LPPairABI from '../src/abis/LPPair.json';
 import ERC20ABI from '../src/abis/ERC20.json';
+import { default as masterchefABI } from '../src/abis/matic/SushiMiniChefV2';
+import LPPairABI from '../src/abis/LPPair';
 
 const {
   polygon: {
@@ -138,7 +138,7 @@ const provider = new ethers.providers.JsonRpcProvider(MULTICHAIN_RPC[chainId]);
 
 async function fetchFarm(masterchefAddress, poolId) {
   console.log(`fetchFarm(${masterchefAddress}, ${poolId})`);
-  const masterchefContract = new ethers.Contract(masterchefAddress, masterchefABI, provider);
+  const masterchefContract = new ethers.Contract(masterchefAddress, masterchefABI as any, provider);
   const lpToken = await masterchefContract.lpToken(poolId);
 
   return lpToken;
@@ -146,7 +146,7 @@ async function fetchFarm(masterchefAddress, poolId) {
 
 async function fetchLiquidityPair(lpAddress) {
   console.log(`fetchLiquidityPair(${lpAddress})`);
-  const lpContract = new ethers.Contract(lpAddress, LPPairABI, provider);
+  const lpContract = new ethers.Contract(lpAddress, LPPairABI as any, provider);
   const lpTokenContract = new ethers.Contract(lpAddress, ERC20ABI, provider);
   return {
     address: ethers.utils.getAddress(lpAddress),

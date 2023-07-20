@@ -1,15 +1,14 @@
 const BigNumber = require('bignumber.js');
-const { ethereumWeb3: web3, web3Factory } = require('../../../utils/web3');
 
-const IAuraGauge = require('../../../abis/ethereum/AuraGauge.json');
 const fetchPrice = require('../../../utils/fetchPrice');
-const ERC20 = require('../../../abis/ERC20.json');
-const { ETH_CHAIN_ID: chainId, DAILY_HPY } = require('../../../constants');
+const { DAILY_HPY, ETH_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import { addressBook } from '../../../../packages/address-book/address-book';
-import { getContractWithProvider } from '../../../utils/contractHelper';
 import { getAuraData } from './getAuraApys';
+import AuraGauge from '../../../abis/ethereum/AuraGauge';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
 
 const {
   ethereum: {
@@ -51,12 +50,16 @@ const getYearlyRewardsInUsd = async () => {
   const auraPrice = await fetchPrice({ oracle: ORACLE, id: AURA.symbol });
   const bbaUSDPrice = await fetchPrice({ oracle: ORACLE, id: bbaUSD.symbol });
 
-  const rewardPool = getContractWithProvider(IAuraGauge, auraBalGauge, web3);
-  const balRewardRate = new BigNumber(await rewardPool.methods.rewardRate().call());
-  const bbaUSDVirtualGaugeAddress = await rewardPool.methods.extraRewards(0).call();
-  const bbaUSDVirtualGauge = getContractWithProvider(IAuraGauge, bbaUSDVirtualGaugeAddress, web3);
-  const bbaUSDRewardRate = new BigNumber(await bbaUSDVirtualGauge.methods.rewardRate().call());
-  const auraData = await getAuraData();
+  const rewardPool = fetchContract(auraBalGauge, AuraGauge, ETH_CHAIN_ID);
+  const bbaUSDVirtualGaugeAddress = await rewardPool.read.extraRewards([0]);
+
+  const bbaUSDVirtualGauge = fetchContract(bbaUSDVirtualGaugeAddress, AuraGauge, ETH_CHAIN_ID);
+  const [balRewardRate, bbaUSDRewardRate, auraData] = await Promise.all([
+    rewardPool.read.rewardRate().then(res => new BigNumber(res.toString())),
+    bbaUSDVirtualGauge.read.rewardRate().then(res => new BigNumber(res.toString())),
+    getAuraData(),
+  ]);
+
   const yearlyRewards = balRewardRate.times(3).times(BLOCKS_PER_DAY).times(365);
 
   let auraYearlyRewards = yearlyRewards.times(auraData[0]).dividedBy(auraData[1]);
@@ -80,10 +83,10 @@ const getYearlyRewardsInUsd = async () => {
 };
 
 const getTotalStakedInUsd = async () => {
-  const web3 = web3Factory(chainId);
-
-  const tokenContract = getContractWithProvider(ERC20, auraBAL.address, web3);
-  const totalStaked = new BigNumber(await tokenContract.methods.balanceOf(auraBalGauge).call());
+  const tokenContract = fetchContract(auraBAL.address, ERC20Abi, ETH_CHAIN_ID);
+  const totalStaked = new BigNumber(
+    (await tokenContract.read.balanceOf([auraBalGauge])).toString()
+  );
   const tokenPrice = await fetchPrice({ oracle: ORACLE, id: auraBAL.symbol });
 
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);

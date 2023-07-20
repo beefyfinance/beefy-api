@@ -19,6 +19,7 @@ const getApys = [
 ];
 
 const getMoonbeamApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -55,6 +56,9 @@ const getMoonbeamApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Moonbeam finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

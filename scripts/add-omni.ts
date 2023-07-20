@@ -8,8 +8,8 @@ import { ethers } from 'ethers';
 import { MULTICHAIN_RPC } from '../src/constants';
 
 import FarmABI from '../src/abis/IOmnifarmFarm.json';
-import LPPairABI from '../src/abis/LPPair.json';
 import ERC20ABI from '../src/abis/ERC20.json';
+import LPPairABI from '../src/abis/LPPair';
 
 const projects = {
   omni: {
@@ -57,7 +57,7 @@ async function fetchFarm(poolAddress) {
 
 async function fetchLiquidityPair(lpAddress) {
   console.log(`fetchLiquidityPair(${lpAddress})`);
-  const lpContract = new ethers.Contract(lpAddress, LPPairABI, provider);
+  const lpContract = new ethers.Contract(lpAddress, LPPairABI as any, provider);
   const lpTokenContract = new ethers.Contract(lpAddress, ERC20ABI, provider);
   return {
     address: ethers.utils.getAddress(lpAddress),

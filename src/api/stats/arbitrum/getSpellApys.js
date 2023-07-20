@@ -1,4 +1,3 @@
-const { arbitrumWeb3: web3 } = require('../../../utils/web3');
 import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
@@ -12,7 +11,6 @@ const getSpellApys = async () => {
     'https://api.curve.fi/api/getFactoryAPYs-arbitrum'
   );
   return await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchefAbi: SpellMasterChef,
     masterchef: '0x839De324a1ab773F76a53900D70Ac1B913d2B387',

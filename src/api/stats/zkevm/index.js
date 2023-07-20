@@ -4,6 +4,7 @@ const getBalancerZkevmApys = require('./getBalancerApys');
 const getApys = [getQuickGammaApys, getBalancerZkevmApys];
 
 const getZkevmApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -40,6 +41,9 @@ const getZkevmApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] ZKEvm finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

@@ -5,7 +5,6 @@ import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
-import { fetchEulerTokenPrices } from '../../utils/fetchEulerTokenPrices';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
@@ -706,12 +705,10 @@ async function performUpdateAmmPrices() {
       const yVaultPrices = await fetchyVaultPrices(tokenPrices);
       const vaultPrices = await fetchVaultPrices(tokenPrices);
       const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
-      const eulerTokenPrices = await fetchEulerTokenPrices(tokenPrices);
       const prices = {
         ...tokenPrices,
         ...vaultPrices,
         ...wrappedAavePrices,
-        ...eulerTokenPrices,
         ...jbrlTokenPrice,
         ...yVaultPrices,
       };
@@ -723,7 +720,6 @@ async function performUpdateAmmPrices() {
         ...linearPrices,
         ...balancerStablePoolPrice,
         ...wrappedAavePrices,
-        ...eulerTokenPrices,
         ...jbrlTokenPrice,
         ...yVaultPrices,
       };
@@ -808,7 +804,7 @@ async function updateAmmPrices() {
 
     console.log(`> updated amm prices  (${(Date.now() - start) / 1000}s)`);
   } catch (err) {
-    console.error(`> error updating amm prices (${(Date.now() - start) / 1000}s)`, err);
+    console.error(`> error updating amm prices (${(Date.now() - start) / 1000}s)`, err.message);
   } finally {
     setTimeout(updateAmmPrices, REFRESH_INTERVAL);
   }

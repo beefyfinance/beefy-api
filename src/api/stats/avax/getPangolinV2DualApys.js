@@ -1,16 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { avaxWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const MasterChef = require('../../../abis/avax/PangolinChef.json');
-const Rewarder = require('../../../abis/avax/PangolinRewarderViaMultiplier.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/avax/pangolinV2DualLpPools.json');
 const { BASE_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import PangolinChef from '../../../abis/avax/PangolinChef';
+import PangolinRewarderViaMultiplier from '../../../abis/avax/PangolinRewarderViaMultiplier';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
+import { fetchContract } from '../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 const { pangolinClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -29,11 +26,16 @@ const getPangolinV2DualApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
-  const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, multipliers } = await getPoolsData(pools);
-
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(pangolinClient, pairAddresses, liquidityProviderFee);
+  const [
+    { rewardPerSecond, totalAllocPoint },
+    { balances, allocPoints, multipliers },
+    tradingAprs,
+  ] = await Promise.all([
+    getMasterChefData(),
+    getPoolsData(pools),
+    getTradingFeeApr(pangolinClient, pairAddresses, liquidityProviderFee),
+  ]);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -109,51 +111,47 @@ const getPangolinV2DualApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.rewardPerSecond().call());
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const masterchefContract = fetchContract(masterchef, PangolinChef, AVAX_CHAIN_ID);
+  const [rewardPerSecond, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.rewardPerSecond().then(v => new BigNumber(v.toString())),
+    masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+  ]);
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = getContract(MasterChef, masterchef);
-  const multicall = new MultiCall(web3, multicallAddress(AVAX_CHAIN_ID));
+  const masterchefContract = fetchContract(masterchef, PangolinChef, AVAX_CHAIN_ID);
   const balanceCalls = [];
   const poolInfoCalls = [];
   const rewarderCalls = [];
-  const multipliersCalls = [];
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(masterchef),
-    });
-    let poolInfo = masterchefContract.methods.poolInfo(pool.poolId);
-    poolInfoCalls.push({
-      poolInfo: poolInfo,
-    });
-    let rewarder = masterchefContract.methods.rewarder(pool.poolId);
-    rewarderCalls.push({
-      rewarder: rewarder,
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, AVAX_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([masterchef]));
+    poolInfoCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
+    rewarderCalls.push(masterchefContract.read.rewarder([pool.poolId]));
   });
 
-  const res = await multicall.all([balanceCalls, poolInfoCalls, rewarderCalls]);
+  const res = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(poolInfoCalls),
+    Promise.all(rewarderCalls),
+  ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.poolInfo[2]);
-  const rewarders = res[2].map(v => v.rewarder);
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => new BigNumber(v[2].toString()));
+  const rewarders = res[2];
 
+  const multipliersCalls = [];
   rewarders.forEach(rewarder => {
-    let rewarderContract = getContract(Rewarder, rewarder);
-    let multiplier = rewarderContract.methods.getRewardMultipliers();
-    multipliersCalls.push({
-      multiplier: multiplier,
-    });
+    let rewarderContract = fetchContract(rewarder, PangolinRewarderViaMultiplier, AVAX_CHAIN_ID);
+    multipliersCalls.push(
+      rewarderContract.read
+        .getRewardMultipliers()
+        .then(v => v.map(m => new BigNumber(m.toString())))
+    );
   });
 
-  const multipliers = (await multicall.all([multipliersCalls]))[0].map(m =>
-    m.multiplier.map(v => new BigNumber(v))
-  );
+  const multipliers = await multipliersCalls;
 
   return { balances, allocPoints, multipliers };
 };

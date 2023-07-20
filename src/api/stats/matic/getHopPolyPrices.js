@@ -1,9 +1,9 @@
 const getStableSwapPrices = require('../common/getStableSwapPrices');
-const { polygonWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/matic/hopPools.json');
+const { POLYGON_CHAIN_ID } = require('../../../constants');
 
 const getHopPolyPrices = async tokenPrices => {
-  return await getStableSwapPrices(web3, pools, tokenPrices);
+  return await getStableSwapPrices(POLYGON_CHAIN_ID, pools, tokenPrices);
 };
 
 module.exports = getHopPolyPrices;

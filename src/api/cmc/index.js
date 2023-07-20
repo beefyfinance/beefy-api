@@ -5,7 +5,7 @@ const fetchPrice = require('../../utils/fetchPrice');
 const { API_BASE_URL, BSC_RPC } = require('../../constants');
 
 const vaults_json = require('../../data/cmc.json');
-const BeefyVault = require('../../abis/BeefyVault.json');
+const BeefyVault = require('../../abis/BeefyVault.ts');
 
 const fetchVaultTvl = async ({ vault }) => {
   const provider = new ethers.providers.JsonRpcProvider(BSC_RPC);

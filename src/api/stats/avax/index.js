@@ -52,7 +52,7 @@ const getApys = [
   getBlizzLpApys,
   getBlizzLendingApys,
   getBankerJoeApys,
-  // getSynapseApys,
+  // // getSynapseApys, //disabled by weso long time ago, won't re-enable
   getSpellApys,
   getMaiApys,
   getMaiCurveApys,
@@ -63,6 +63,7 @@ const getApys = [
 ];
 
 const getAvaxApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -99,6 +100,9 @@ const getAvaxApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Avalanche finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

@@ -1,17 +1,14 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { fantomWeb3: web3, multicallAddress } = require('../../../utils/web3');
-
-const MasterChef = require('../../../abis/fantom/SpookyChefV2.json');
-const ComplexRewarder = require('../../../abis/fantom/SpookyComplexRewarder.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/fantom/spookyV3LpPools.json');
 const { BASE_HPY, FANTOM_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { SPOOKY_LPF } from '../../../constants';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
+import SpookyChefV2 from '../../../abis/fantom/SpookyChefV2';
+import SpookyComplexRewarder from '../../../abis/fantom/SpookyComplexRewarder';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
 
 const { spookyClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
@@ -31,12 +28,17 @@ const getSpookyV3LpApys = async () => {
   let apyBreakdowns = {};
 
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
-  const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, rewardPerSecs, rewardAllocPoints, rewarderTotalAllocPoints } =
-    await getPoolsData(pools);
-
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(spookyClient, pairAddresses, liquidityProviderFee);
+
+  const [
+    { rewardPerSecond, totalAllocPoint },
+    { balances, allocPoints, rewardPerSecs, rewardAllocPoints, rewarderTotalAllocPoints },
+    tradingAprs,
+  ] = await Promise.all([
+    getMasterChefData(),
+    getPoolsData(pools),
+    getTradingFeeApr(spookyClient, pairAddresses, liquidityProviderFee),
+  ]);
 
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
@@ -109,15 +111,16 @@ const getSpookyV3LpApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.booPerSecond().call());
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const masterchefContract = fetchContract(masterchef, SpookyChefV2, FANTOM_CHAIN_ID);
+  const [rewardPerSecond, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.booPerSecond().then(v => new BigNumber(v.toString())),
+    masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+  ]);
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = getContract(MasterChef, masterchef);
-  const multicall = new MultiCall(web3, multicallAddress(FANTOM_CHAIN_ID));
+  const masterchefContract = fetchContract(masterchef, SpookyChefV2, FANTOM_CHAIN_ID);
   const balanceCalls = [];
   const poolInfoCalls = [];
   const rewarderCalls = [];
@@ -126,52 +129,44 @@ const getPoolsData = async pools => {
   const rewardAllocPointCalls = [];
 
   pools.forEach(pool => {
-    let tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(masterchef),
-    });
-    poolInfoCalls.push({
-      poolInfo: masterchefContract.methods.poolInfo(pool.poolId),
-    });
-    rewarderCalls.push({
-      rewarder: masterchefContract.methods.rewarder(pool.poolId),
-    });
+    let tokenContract = fetchContract(pool.address, ERC20Abi, FANTOM_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([masterchef]));
+    poolInfoCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
+    rewarderCalls.push(masterchefContract.read.rewarder([pool.poolId]));
   });
 
-  const res = await multicall.all([balanceCalls, poolInfoCalls, rewarderCalls]);
-
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.poolInfo['2']);
-  const rewarders = res[2].map(v => v.rewarder);
-
-  for (let i = 0; i < pools.length; i++) {
-    let rewarderContract = getContract(ComplexRewarder, rewarders[i]);
-    let rewardPerSec = rewarderContract.methods.rewardPerSecond();
-    let rewardAllocPoint = rewarderContract.methods.poolInfo(pools[i].poolId);
-    let rewarderTotalAllocPoint = rewarderContract.methods.totalAllocPoint();
-
-    rewardPerSecCalls.push({
-      rewardPerSec: rewardPerSec,
-    });
-    rewardAllocPointCalls.push({
-      rewardAllocPoint: rewardAllocPoint,
-    });
-    rewarderTotalAllocPointCalls.push({
-      totalAllocPoint: rewarderTotalAllocPoint,
-    });
-  }
-
-  const rewarderData = await multicall.all([
-    rewardPerSecCalls,
-    rewardAllocPointCalls,
-    rewarderTotalAllocPointCalls,
+  const res = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(poolInfoCalls),
+    Promise.all(rewarderCalls),
   ]);
 
-  const rewardPerSecs = rewarderData[0].map(v => new BigNumber(v.rewardPerSec));
-  const rewardAllocPoints = rewarderData[1].map(v =>
-    v.rewardAllocPoint != undefined ? new BigNumber(v.rewardAllocPoint['2']) : NaN
-  );
-  const rewarderTotalAllocPoints = rewarderData[2].map(v => new BigNumber(v.totalAllocPoint));
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => new BigNumber(v['2'].toString()));
+  const rewarders = res[2].map(v => v);
+
+  for (let i = 0; i < pools.length; i++) {
+    let rewarderContract = fetchContract(rewarders[i], SpookyComplexRewarder, FANTOM_CHAIN_ID);
+    rewardPerSecCalls.push(rewarderContract.read.rewardPerSecond().catch(_ => NaN));
+    rewardAllocPointCalls.push(
+      rewarderContract.read
+        .poolInfo([pools[i].poolId])
+        .catch(_ => undefined)
+        .then(v => new BigNumber(v[2].toString()))
+        .catch(_ => NaN)
+    );
+    rewarderTotalAllocPointCalls.push(rewarderContract.read.totalAllocPoint().catch(_ => NaN));
+  }
+
+  const rewarderData = await Promise.all([
+    Promise.all(rewardPerSecCalls),
+    Promise.all(rewardAllocPointCalls),
+    Promise.all(rewarderTotalAllocPointCalls),
+  ]);
+
+  const rewardPerSecs = rewarderData[0].map(v => new BigNumber(v.toString()));
+  const rewardAllocPoints = rewarderData[1];
+  const rewarderTotalAllocPoints = rewarderData[2].map(v => new BigNumber(v.toString()));
 
   return { balances, allocPoints, rewardPerSecs, rewardAllocPoints, rewarderTotalAllocPoints };
 };

@@ -1,4 +1,3 @@
-import { zkevmWeb3 as web3 } from '../../../utils/web3';
 import { ZKEVM_CHAIN_ID as chainId } from '../../../constants';
 import { balancerZkevmClient as client } from '../../../apollo/client';
 const { getBalancerApys } = require('../common/balancer/getBalancerApys');
@@ -16,7 +15,6 @@ const pools = require('../../../data/zkevm/balancerPools.json');
 
 const getBalancerZkevmApys = async () => {
   return getBalancerApys({
-    web3: web3,
     chainId: chainId,
     client: client,
     pools: pools,

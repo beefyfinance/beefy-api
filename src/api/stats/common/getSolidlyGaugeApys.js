@@ -1,36 +1,49 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { multicallAddress } = require('../../../utils/web3');
-import { getContractWithProvider } from '../../../utils/contractHelper';
-
-const IGauge = require('../../../abis/ISolidlyGauge.json');
-const ISpiritGauge = require('../../../abis/fantom/ISpiritGauge.json');
-const IVe = require('../../../abis/IVe.json');
-const IinSpirit = require('../../../abis/fantom/IinSpirit.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 import { getApyBreakdown } from '../common/getApyBreakdown';
-import { getContract } from '../../../utils/contractHelper';
+import ISpiritGauge from '../../../abis/fantom/ISpiritGauge';
+import ISolidlyGauge from '../../../abis/ISolidlyGauge';
+import IinSpirit from '../../../abis/fantom/IinSpirit';
+import IVe from '../../../abis/IVe';
+import { fetchContract } from '../../rpc/client';
 
 export const getSolidlyGaugeApys = async params => {
   const apys = await getFarmApys(params);
-
   return getApyBreakdown(params.pools, 0, apys, 0);
 };
 
 const getFarmApys = async params => {
   const apys = [];
 
+  let supply = new BigNumber(0);
+  let veBalance = new BigNumber(0);
+
+  const poolDataCalls = getPoolsData(params);
+  const nftCalls = [];
   const rewardTokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
-  const { balances, rewardRates, depositBalances, derivedBalances, periodFinishes } =
-    await getPoolsData(params);
-  let supply = 0;
-  let veBalance = 0;
+
   if (params.boosted && params.NFTid) {
-    const ve = params.spirit
-      ? getContractWithProvider(IinSpirit, params.ve, params.web3)
-      : getContractWithProvider(IVe, params.ve, params.web3);
-    supply = new BigNumber(await ve.methods.totalSupply().call());
-    veBalance = new BigNumber(await ve.methods.balanceOfNFT(params.NFTid).call());
+    const veContract = params.spirit
+      ? fetchContract(params.ve, IinSpirit, params.chainId)
+      : fetchContract(params.ve, IVe, params.chainId);
+
+    nftCalls.push(veContract.read.totalSupply());
+    nftCalls.push(veContract.read.balanceOfNFT([params.NFTid]));
+  }
+
+  const [nftResults, poolDataResults] = await Promise.all([Promise.all(nftCalls), poolDataCalls]);
+  const {
+    balances,
+    rewardRates,
+    depositBalances,
+    derivedBalances,
+    periodFinishes,
+    rewardsRates,
+    rewardData,
+  } = poolDataResults;
+  if (params.boosted && params.NFTid) {
+    supply = new BigNumber(nftResults[0].toString());
+    veBalance = new BigNumber(nftResults[1].toString());
   }
 
   for (let i = 0; i < params.pools.length; i++) {
@@ -85,27 +98,21 @@ const getFarmApys = async params => {
 
       yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
 
-      for (const rewards of pool.rewards ?? []) {
-        const gauge = getContractWithProvider(
-          params.abi ? params.abi : IGauge,
-          pool.gauge,
-          params.web3
-        );
-        const rate = new BigNumber(await gauge.methods.rewardRate(rewards.address).call());
-        const data = new BigNumber(await gauge.methods.rewardData(rewards.address).call());
+      for (const [index, reward] of Object.entries(pool.rewards ?? [])) {
+        const rate = rewardsRates[i][index];
+        const data = rewardData[i][index];
 
-        //console.log(rate.toString());
         if (data.periodFinish > Date.now() / 1000) {
           const additionalRewards = params.boosted
             ? rate
                 .times(secondsPerYear)
-                .times(await fetchPrice({ oracle: 'tokens', id: rewards.oracleId }))
-                .dividedBy(rewards.decimals)
+                .times(await fetchPrice({ oracle: 'tokens', id: reward.oracleId }))
+                .dividedBy(reward.decimals)
                 .times(0.4)
             : rate
                 .times(secondsPerYear)
-                .times(await fetchPrice({ oracle: 'tokens', id: rewards.oracleId }))
-                .dividedBy(rewards.decimals);
+                .times(await fetchPrice({ oracle: 'tokens', id: reward.oracleId }))
+                .dividedBy(reward.decimals);
 
           yearlyRewardsInUsd = yearlyRewardsInUsd.plus(additionalRewards);
         }
@@ -128,65 +135,108 @@ const getFarmApys = async params => {
 };
 
 const getPoolsData = async params => {
-  const web3 = params.web3;
-  const multicall = new MultiCall(web3, multicallAddress(params.chainId));
   const balanceCalls = [];
-  const rewardRateCalls = [];
+  const rateCalls = [];
   const depositBalanceCalls = [];
   const derivedBalanceCalls = [];
   const periodFinishCalls = [];
+  const rewardRateCalls = [];
+  const rewardDataCalls = [];
+
   params.pools.forEach(pool => {
-    const rewardPool =
+    const poolContract = fetchContract(
+      pool.gauge,
+      params.spirit || params.singleReward ? ISpiritGauge : ISolidlyGauge,
+      params.chainId
+    );
+
+    balanceCalls.push(
+      params.boosted && params.NFTid
+        ? poolContract.read.derivedSupply()
+        : poolContract.read.totalSupply()
+    );
+    rateCalls.push(
       params.spirit || params.singleReward
-        ? getContract(ISpiritGauge, pool.gauge)
-        : getContract(IGauge, pool.gauge);
-    balanceCalls.push({
-      balance:
-        params.boosted && params.NFTid
-          ? rewardPool.methods.derivedSupply()
-          : rewardPool.methods.totalSupply(),
-    });
-    rewardRateCalls.push({
-      rewardRate:
-        params.singleReward || params.spirit
-          ? rewardPool.methods.rewardRate()
-          : rewardPool.methods.rewardRate(params.reward),
-    });
-    periodFinishCalls.push({
-      periodFinish:
-        params.singleReward || params.spirit
-          ? rewardPool.methods.periodFinish()
-          : rewardPool.methods.periodFinish(params.reward),
-    });
+        ? poolContract.read.rewardRate()
+        : poolContract.read.rewardRate([params.reward])
+    );
+    periodFinishCalls.push(
+      params.spirit || params.singleReward
+        ? poolContract.read.periodFinish()
+        : poolContract.read.periodFinish([params.reward])
+    );
+
     if (params.boosted && params.NFTid) {
-      depositBalanceCalls.push({
-        depositBalance: rewardPool.methods.balanceOf(params.gaugeStaker),
-      });
+      depositBalanceCalls.push(poolContract.read.balanceOf([params.gaugeStaker]));
     }
     if (params.spirit) {
-      depositBalanceCalls.push({
-        depositBalance: rewardPool.methods.balanceOf(params.gaugeStaker),
-      });
-      derivedBalanceCalls.push({
-        derivedBalance: rewardPool.methods.derivedBalance(params.gaugeStaker),
-      });
+      depositBalanceCalls.push(poolContract.read.balanceOf([params.gaugeStaker]));
+      derivedBalanceCalls.push(poolContract.read.derivedBalance([params.gaugeStaker]));
+    }
+
+    for (const rewards of pool.rewards ?? []) {
+      const gaugeContract = fetchContract(
+        pool.gauge,
+        params.abi ? params.abi : ISolidlyGauge,
+        params.chainId
+      );
+      rewardRateCalls.push(gaugeContract.read.rewardRate([rewards.address]));
+      rewardDataCalls.push(gaugeContract.read.rewardData([rewards.address]));
     }
   });
 
-  const res = await multicall.all([
-    balanceCalls,
-    rewardRateCalls,
-    depositBalanceCalls,
-    derivedBalanceCalls,
-    periodFinishCalls,
+  const [
+    balanceResults,
+    rateResults,
+    depositBalanceResults,
+    derivedBalanceResults,
+    periodFinishResults,
+    rewardRateResults,
+    rewardDataResults,
+  ] = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(rateCalls),
+    Promise.all(depositBalanceCalls),
+    Promise.all(derivedBalanceCalls),
+    Promise.all(periodFinishCalls),
+    Promise.all(rewardRateCalls),
+    Promise.all(rewardDataCalls),
   ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const rewardRates = res[1].map(v => new BigNumber(v.rewardRate));
-  const depositBalances = res[2].map(v => new BigNumber(v.depositBalance));
-  const derivedBalances = res[3].map(v => new BigNumber(v.derivedBalance));
-  const periodFinishes = res[4].map(v => v.periodFinish);
-  return { balances, rewardRates, depositBalances, derivedBalances, periodFinishes };
+  const balances = balanceResults.map(v => new BigNumber(v.toString()));
+  const rates = rateResults.map(v => new BigNumber(v.toString()));
+  const depositBalances = depositBalanceResults.map(v => new BigNumber(v.toString()));
+  const derivedBalances = derivedBalanceResults.map(v => new BigNumber(v.toString()));
+  const periodFinishes = periodFinishResults.map(v => v.toString());
+  const rewardRateFlat = rewardRateResults.map(v => new BigNumber(v.toString()));
+  const rewardDataFlat = rewardDataResults.map(v => new BigNumber(v.toString()));
+
+  const rewardsRates = [];
+  const rewardData = [];
+  let globalIndex = 0;
+  params.pools.forEach(pool => {
+    const rates = [];
+    const data = [];
+
+    for (const _ of pool.rewards ?? []) {
+      rates.push(rewardRateFlat[globalIndex]);
+      data.push(rewardDataFlat[globalIndex]);
+      globalIndex++;
+    }
+
+    rewardsRates.push(rates);
+    rewardData.push(data);
+  });
+
+  return {
+    balances,
+    rewardRates: rates,
+    depositBalances,
+    derivedBalances,
+    periodFinishes,
+    rewardsRates,
+    rewardData,
+  };
 };
 
 module.exports = { getSolidlyGaugeApys };

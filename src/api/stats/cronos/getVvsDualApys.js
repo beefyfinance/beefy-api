@@ -1,11 +1,5 @@
 const BigNumber = require('bignumber.js');
-const { MultiCall } = require('eth-multicall');
-const { cronosWeb3: web3, multicallAddress } = require('../../../utils/web3');
 
-const MasterChef = require('../../../abis/cronos/Craftsman.json');
-const MasterChefV2 = require('../../../abis/cronos/CraftsmanV2.json');
-const VVSRewarder = require('../../../abis/cronos/VVSRewarder.json');
-const ERC20 = require('../../../abis/ERC20.json');
 const fetchPrice = require('../../../utils/fetchPrice');
 const pools = require('../../../data/cronos/vvsDualLpPools.json');
 const { BASE_HPY, CRONOS_CHAIN_ID } = require('../../../constants');
@@ -14,8 +8,12 @@ import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFees
 const { vvsClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import getBlockTime from '../../../utils/getBlockTime';
-import { getContract, getContractWithProvider } from '../../../utils/contractHelper';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import Craftsman from '../../../abis/cronos/Craftsman';
+import CraftsmanV2 from '../../../abis/cronos/CraftsmanV2';
+import { fetchContract } from '../../rpc/client';
+import ERC20Abi from '../../../abis/ERC20Abi';
+import VVSRewarder from '../../../abis/cronos/VVSRewarder';
 
 const masterchef = '0xDccd6455AE04b03d785F12196B492b18129564bc';
 const masterchefV2 = '0xbc149c62EFe8AFC61728fC58b1b66a0661712e76';
@@ -31,14 +29,20 @@ const getVvsDualApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  const secondsPerBlock = await getBlockTime(CRONOS_CHAIN_ID);
   const tokenPriceA = await fetchPrice({ oracle: oracleA, id: oracleIdA });
-  const { rewardPerSecond, totalAllocPoint } = await getMasterChefData();
-  const { balances, allocPoints, tokenPerSecData, rewardEndData } = await getPoolsData(pools);
-
   const pairAddresses = pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeApr(vvsClient, pairAddresses, liquidityProviderFee);
 
+  const [
+    secondsPerBlock,
+    { rewardPerSecond, totalAllocPoint },
+    { balances, allocPoints, tokenPerSecData, rewardEndData },
+    tradingAprs,
+  ] = await Promise.all([
+    getBlockTime(CRONOS_CHAIN_ID),
+    getMasterChefData(),
+    getPoolsData(pools),
+    getTradingFeeApr(vvsClient, pairAddresses, liquidityProviderFee),
+  ]);
   const currentTimestamp = new BigNumber(Math.floor(Date.now() / 1000));
 
   for (let i = 0; i < pools.length; i++) {
@@ -102,60 +106,53 @@ const getVvsDualApys = async () => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = getContractWithProvider(MasterChef, masterchef, web3);
-  const rewardPerSecond = new BigNumber(await masterchefContract.methods.vvsPerBlock().call());
-  const totalAllocPoint = new BigNumber(await masterchefContract.methods.totalAllocPoint().call());
+  const masterchefContract = fetchContract(masterchef, Craftsman, CRONOS_CHAIN_ID);
+  const [rewardPerSecond, totalAllocPoint] = await Promise.all([
+    masterchefContract.read.vvsPerBlock().then(v => new BigNumber(v.toString())),
+    masterchefContract.read.totalAllocPoint().then(v => new BigNumber(v.toString())),
+  ]);
   return { rewardPerSecond, totalAllocPoint };
 };
 
 const getPoolsData = async pools => {
-  const masterchefContract = getContract(MasterChef, masterchef);
-  const masterchefV2Contract = getContract(MasterChefV2, masterchefV2);
-  const multicall = new MultiCall(web3, multicallAddress(CRONOS_CHAIN_ID));
+  const masterchefContract = fetchContract(masterchef, Craftsman, CRONOS_CHAIN_ID);
+  const masterchefV2Contract = fetchContract(masterchefV2, CraftsmanV2, CRONOS_CHAIN_ID);
   const balanceCalls = [];
   const poolInfoCalls = [];
-  const tokenPerSecCalls = [];
   const rewarderCalls = [];
-  const rewardEndCalls = [];
   pools.forEach(pool => {
-    const tokenContract = getContract(ERC20, pool.address);
-    balanceCalls.push({
-      balance: tokenContract.methods.balanceOf(masterchef),
-    });
-    let poolInfo = masterchefContract.methods.poolInfo(pool.poolId);
-    poolInfoCalls.push({
-      poolInfo: poolInfo,
-    });
-    let rewarder = masterchefV2Contract.methods.poolRewarders(pool.poolId);
-    rewarderCalls.push({
-      rewarder: rewarder,
-    });
+    const tokenContract = fetchContract(pool.address, ERC20Abi, CRONOS_CHAIN_ID);
+    balanceCalls.push(tokenContract.read.balanceOf([masterchef]));
+    poolInfoCalls.push(masterchefContract.read.poolInfo([pool.poolId]));
+    rewarderCalls.push(masterchefV2Contract.read.poolRewarders([pool.poolId]));
   });
 
-  const res = await multicall.all([balanceCalls, poolInfoCalls, rewarderCalls]);
+  const res = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(poolInfoCalls),
+    Promise.all(rewarderCalls),
+  ]);
 
-  const balances = res[0].map(v => new BigNumber(v.balance));
-  const allocPoints = res[1].map(v => v.poolInfo[1]);
-  const rewarders = res[2].map(v => v.rewarder[0]);
+  const balances = res[0].map(v => new BigNumber(v.toString()));
+  const allocPoints = res[1].map(v => new BigNumber(v[1].toString()));
+  const rewarders = res[2].map(v => v[0]);
 
+  const tokenPerSecCalls = [];
+  const rewardEndCalls = [];
   rewarders.forEach(rewarder => {
-    let rewarderContract = getContract(VVSRewarder, rewarder);
+    let rewarderContract = fetchContract(rewarder, VVSRewarder, CRONOS_CHAIN_ID);
 
-    let rewardEndTimestamp = rewarderContract.methods.rewardEndTimestamp();
-    rewardEndCalls.push({
-      rewardEndTimestamp: rewardEndTimestamp,
-    });
-
-    let tokenPerSec = rewarderContract.methods.rewardPerSecond();
-    tokenPerSecCalls.push({
-      tokenPerSec: tokenPerSec,
-    });
+    rewardEndCalls.push(rewarderContract.read.rewardEndTimestamp());
+    tokenPerSecCalls.push(rewarderContract.read.rewardPerSecond());
   });
 
-  const resRewards = await multicall.all([rewardEndCalls, tokenPerSecCalls]);
+  const resRewards = await Promise.all([
+    Promise.all(rewardEndCalls),
+    Promise.all(tokenPerSecCalls),
+  ]);
 
-  const rewardEndData = resRewards[0].map(t => new BigNumber(t.rewardEndTimestamp));
-  const tokenPerSecData = resRewards[1].map(t => new BigNumber(t.tokenPerSec));
+  const rewardEndData = resRewards[0].map(t => new BigNumber(t.toString()));
+  const tokenPerSecData = resRewards[1].map(t => new BigNumber(t.toString()));
 
   return { balances, allocPoints, tokenPerSecData, rewardEndData };
 };

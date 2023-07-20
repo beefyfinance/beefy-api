@@ -1,8 +1,7 @@
-import { zkevmWeb3 as web3 } from '../../../utils/web3';
 import { ZKEVM_CHAIN_ID as chainId } from '../../../constants';
 import { getMiniChefApys } from '../common/getMiniChefApys';
 import pools from '../../../data/zkevm/quickGammaLpPools.json';
-import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2.json';
+import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
@@ -27,7 +26,6 @@ export const getQuickGammaApys = () => {
     },
     pools,
     quickGamma: 'https://wire2.gamma.xyz/quickswap/polygon-zkevm/hypervisors/allData',
-    web3: web3,
     chainId: chainId,
   });
 };

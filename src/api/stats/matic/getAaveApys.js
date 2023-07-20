@@ -1,14 +1,16 @@
 const BigNumber = require('bignumber.js');
-const { polygonWeb3: web3 } = require('../../../utils/web3');
-
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const IAaveDistributionManager = require('../../../abis/matic/AaveDistributionManager.json');
-const IAaveProtocolDataProvider = require('../../../abis/matic/AaveProtocolDataProvider.json');
 const pools = require('../../../data/matic/aavePools.json');
-const { BASE_HPY } = require('../../../constants');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
+const {
+  default: IAaveProtocolDataProvider,
+} = require('../../../abis/matic/AaveProtocolDataProvider');
+const {
+  default: IAaveDistributionManager,
+} = require('../../../abis/matic/AaveDistributionManager');
+const { fetchContract } = require('../../rpc/client');
 
 const AaveProtocolDataProvider = '0x7551b5D2763519d4e37e8B81929D336De671d46d';
 const AaveDistributionManager = '0x357D51124f59836DeD84c8a1730D72B749d8BC23';
@@ -65,18 +67,22 @@ const getPoolApy = async pool => {
 };
 
 const getAavePoolData = async pool => {
-  const dataProvider = getContractWithProvider(
-    IAaveProtocolDataProvider,
+  const dataProvider = fetchContract(
     AaveProtocolDataProvider,
-    web3
+    IAaveProtocolDataProvider,
+    POLYGON_CHAIN_ID
   );
-  const {
-    availableLiquidity,
-    totalStableDebt,
-    totalVariableDebt,
-    liquidityRate,
-    variableBorrowRate,
-  } = await dataProvider.methods.getReserveData(pool.token).call();
+  const [
+    [
+      availableLiquidity,
+      totalStableDebt,
+      totalVariableDebt,
+      liquidityRate,
+      variableBorrowRate,
+      ...rest
+    ],
+    { supplyMaticInUsd, borrowMaticInUsd },
+  ] = await Promise.all([dataProvider.read.getReserveData([pool.token]), getMaticPerYear(pool)]);
 
   const supplyBase = new BigNumber(liquidityRate).div(RAY_DECIMALS);
   const borrowBase = new BigNumber(variableBorrowRate).div(RAY_DECIMALS);
@@ -89,7 +95,6 @@ const getAavePoolData = async pool => {
     .div(pool.decimals)
     .times(tokenPrice);
 
-  const { supplyMaticInUsd, borrowMaticInUsd } = await getMaticPerYear(pool);
   const supplyMatic = supplyMaticInUsd.div(totalSupplyInUsd);
   const borrowMatic = totalBorrowInUsd.isZero()
     ? new BigNumber(0)
@@ -99,16 +104,16 @@ const getAavePoolData = async pool => {
 };
 
 const getMaticPerYear = async pool => {
-  const distribution = getContractWithProvider(
-    IAaveDistributionManager,
+  const distribution = fetchContract(
     AaveDistributionManager,
-    web3
+    IAaveDistributionManager,
+    POLYGON_CHAIN_ID
   );
 
-  let res = await distribution.methods.assets(pool.aToken).call();
-  const supplyMaticRate = new BigNumber(res.emissionPerSecond);
-  res = await distribution.methods.assets(pool.debtToken).call();
-  const borrowMaticRate = new BigNumber(res.emissionPerSecond);
+  const [supplyMaticRate, borrowMaticRate] = await Promise.all([
+    distribution.read.assets([pool.aToken]).then(res => new BigNumber(res[0].toString())),
+    distribution.read.assets([pool.debtToken]).then(res => new BigNumber(res[0].toString())),
+  ]);
 
   const maticPrice = await fetchPrice({ oracle: 'tokens', id: 'WMATIC' });
   const supplyMaticInUsd = supplyMaticRate.times(secondsPerYear).div('1e18').times(maticPrice);

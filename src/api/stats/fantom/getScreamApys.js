@@ -1,15 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { fantomWeb3: web3 } = require('../../../utils/web3');
-
 const fetchPrice = require('../../../utils/fetchPrice');
 const { compound } = require('../../../utils/compound');
-const Comptroller = require('../../../abis/heco/Comptroller.json');
-const IToken = require('../../../abis/VToken.json');
 const pools = require('../../../data/fantom/screamPools.json');
 const getBlockTime = require('../../../utils/getBlockTime');
-const { BASE_HPY, FANTOM_CHAIN_ID: chainId } = require('../../../constants');
-const { getContractWithProvider } = require('../../../utils/contractHelper');
+const { BASE_HPY, FANTOM_CHAIN_ID: chainId, FANTOM_CHAIN_ID } = require('../../../constants');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
+const { default: VToken } = require('../../../abis/VToken');
+const { default: Comptroller } = require('../../../abis/heco/Comptroller');
+const { fetchContract } = require('../../rpc/client');
 
 const COMPTROLLER = '0x260E596DAbE3AFc463e75B6CC05d8c46aCAcFB09';
 
@@ -54,17 +52,17 @@ const getPoolApy = async pool => {
 };
 
 const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
-  const itokenContract = getContractWithProvider(IToken, pool.itoken, web3);
-  const comptrollerContract = getContractWithProvider(Comptroller, COMPTROLLER, web3);
+  const itokenContract = fetchContract(pool.itoken, VToken, FANTOM_CHAIN_ID);
+  const comptrollerContract = fetchContract(COMPTROLLER, Comptroller, FANTOM_CHAIN_ID);
 
   let [screamPrice, tokenPrice, supplyRate, compRate, totalSupply, exchangeRateStored] =
     await Promise.all([
       fetchPrice({ oracle: 'tokens', id: 'SCREAM' }),
       fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-      itokenContract.methods.supplyRatePerBlock().call(),
-      comptrollerContract.methods.compSpeeds(pool.itoken).call(),
-      itokenContract.methods.totalSupply().call(),
-      itokenContract.methods.exchangeRateStored().call(),
+      itokenContract.read.supplyRatePerBlock().then(res => new BigNumber(res.toString())),
+      comptrollerContract.read.compSpeeds([pool.itoken]).then(res => new BigNumber(res.toString())),
+      itokenContract.read.totalSupply().then(res => new BigNumber(res.toString())),
+      itokenContract.read.exchangeRateStored().then(res => new BigNumber(res.toString())),
     ]);
 
   supplyRate = new BigNumber(supplyRate);
@@ -87,20 +85,16 @@ const getSupplyApys = async (pool, BLOCKS_PER_YEAR) => {
 };
 
 const getBorrowApys = async (pool, BLOCKS_PER_YEAR) => {
-  const comptrollerContract = getContractWithProvider(Comptroller, COMPTROLLER, web3);
-  const itokenContract = getContractWithProvider(IToken, pool.itoken, web3);
+  const comptrollerContract = fetchContract(COMPTROLLER, Comptroller, FANTOM_CHAIN_ID);
+  const itokenContract = fetchContract(pool.itoken, VToken, FANTOM_CHAIN_ID);
 
-  let [screamPrice, tokenPrice, borrowRate, compRate, totalBorrows] = await Promise.all([
+  const [screamPrice, tokenPrice, borrowRate, compRate, totalBorrows] = await Promise.all([
     fetchPrice({ oracle: 'tokens', id: 'SCREAM' }),
     fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-    itokenContract.methods.borrowRatePerBlock().call(),
-    comptrollerContract.methods.compSpeeds(pool.itoken).call(),
-    itokenContract.methods.totalBorrows().call(),
+    itokenContract.read.borrowRatePerBlock().then(res => new BigNumber(res.toString())),
+    comptrollerContract.read.compSpeeds([pool.itoken]).then(res => new BigNumber(res.toString())),
+    itokenContract.read.totalBorrows().then(res => new BigNumber(res.toString())),
   ]);
-
-  borrowRate = new BigNumber(borrowRate);
-  compRate = new BigNumber(compRate);
-  totalBorrows = new BigNumber(totalBorrows);
 
   const borrowApyPerYear = borrowRate.times(BLOCKS_PER_YEAR).div('1e18');
 

@@ -1,18 +1,15 @@
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress } from '../../../../utils/web3';
-import Web3 from 'web3';
 import { getApyBreakdown, ApyBreakdownResult } from '../getApyBreakdown';
 import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
 import jp from 'jsonpath';
-import { getContract } from '../../../../utils/contractHelper';
-import IAaveProtocolDataProvider from '../../../../abis/matic/AaveProtocolDataProvider.json';
-import IAuraGauge from '../../../../abis/ethereum/AuraGauge.json';
-import IBalancerVault from '../../../../abis/IBalancerVault.json';
-import IAuraMinter from '../../../../abis/IAuraMinter.json';
 import BigNumber from 'bignumber.js';
 import fetch from 'node-fetch';
 import { getTradingFeeAprBalancer } from '../../../../utils/getTradingFeeApr';
 import fetchPrice from '../../../../utils/fetchPrice';
+import IAaveProtocolDataProvider from '../../../../abis/matic/AaveProtocolDataProvider';
+import IAuraMinter from '../../../../abis/IAuraMinter';
+import { default as IAuraGauge } from '../../../../abis/ethereum/AuraGauge';
+import IBalancerVault from '../../../../abis/IBalancerVault';
+import { fetchContract } from '../../../rpc/client';
 
 interface Token {
   newGauge?: boolean;
@@ -51,7 +48,6 @@ interface Pool {
 }
 
 interface BalancerParams {
-  web3: Web3;
   chainId: number;
   client: ApolloClient<NormalizedCacheObject>;
   pools: Pool[];
@@ -79,16 +75,11 @@ const secondsInAYear = 31536000;
 
 export const getAuraApys = async (params: BalancerParams): Promise<ApyBreakdownResult> => {
   const pairAddresses = params.pools.map(pool => pool.address);
-  const tradingAprs = await getTradingFeeAprBalancer(
-    params.client,
-    pairAddresses,
-    liquidityProviderFee,
-    params.chainId
-  );
 
-  // console.log(tradingAprs);
-
-  const farmApys: FarmApyResult = await getPoolApys(params);
+  const [tradingAprs, farmApys] = await Promise.all([
+    getTradingFeeAprBalancer(params.client, pairAddresses, liquidityProviderFee, params.chainId),
+    getPoolApys(params),
+  ]);
 
   return getApyBreakdown(
     params.pools,
@@ -164,9 +155,7 @@ const getPoolApy = async (
       }
 
       const price: number = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
-      const amt: BigNumber = new BigNumber(tokenQtys[j])
-        .times(price)
-        .dividedBy(pool.tokens[j].decimals);
+      const amt: BigNumber = tokenQtys[j].times(price).dividedBy(pool.tokens[j].decimals);
       totalQty = totalQty.plus(amt);
       qty.push(amt);
     }
@@ -204,9 +193,7 @@ const getPoolApy = async (
         }
 
         const price: number = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
-        const amt: BigNumber = new BigNumber(tokenQtys[j])
-          .times(price)
-          .dividedBy(pool.tokens[j].decimals);
+        const amt: BigNumber = tokenQtys[j].times(price).dividedBy(pool.tokens[j].decimals);
         totalQty = totalQty.plus(amt);
         qty.push(amt);
       }
@@ -272,27 +259,32 @@ const getComposableAaveYield = async (
   index: number,
   params: BalancerParams
 ): Promise<BigNumber> => {
-  let supplyRateCalls = [];
-  let tokenQtyCalls = [];
+  const supplyRateCalls = [];
+  const tokenQtyCalls = [];
 
-  const multicall = new MultiCall(params.web3, multicallAddress(params.chainId));
-  const balVault = getContract(IBalancerVault, params.balancerVault);
-
-  tokenQtyCalls.push({ tokenQty: balVault.methods.getPoolTokens(poolId) });
+  const balVault = fetchContract(params.balancerVault, IBalancerVault, params.chainId);
+  tokenQtyCalls.push(balVault.read.getPoolTokens([poolId as `0x${string}`]));
 
   tokens.forEach(t => {
-    const dataProvider = getContract(IAaveProtocolDataProvider, params.aaveDataProvider);
-    supplyRateCalls.push({ supplyRate: dataProvider.methods.getReserveData(t.address) });
+    const dataProvider = fetchContract(
+      params.aaveDataProvider,
+      IAaveProtocolDataProvider,
+      params.chainId
+    );
+    supplyRateCalls.push(dataProvider.read.getReserveData([t.address as `0x${string}`]));
 
     if (tokens.length > 1) {
-      tokenQtyCalls.push({ tokenQty: balVault.methods.getPoolTokens(t.poolId) });
+      tokenQtyCalls.push(balVault.read.getPoolTokens([t.poolId as `0x${string}`]));
     }
   });
 
-  const res = await multicall.all([supplyRateCalls, tokenQtyCalls]);
+  const [supplyRateResults, tokenQtyResults] = await Promise.all([
+    Promise.all(supplyRateCalls),
+    Promise.all(tokenQtyCalls),
+  ]);
 
-  const rates = res[0].map(v => new BigNumber(v.supplyRate[5]));
-  const tokenQtys = res[1].map(v => v.tokenQty['1']);
+  const rates = supplyRateResults.map(v => new BigNumber(v[5].toString()));
+  const tokenQtys = tokenQtyResults.map(v => v[1]);
 
   let apy: BigNumber = new BigNumber(0);
   let apys: BigNumber[] = [];
@@ -301,12 +293,12 @@ const getComposableAaveYield = async (
     let totalQty: BigNumber = new BigNumber(0);
     for (let j = 0; j < tokenQtys[i + 1].length; j++) {
       if (j != tokens[i].bbIndex) {
-        totalQty = totalQty.plus(new BigNumber(tokenQtys[i + 1][j]));
-        qty.push(new BigNumber(tokenQtys[i + 1][j]));
+        totalQty = totalQty.plus(new BigNumber(tokenQtys[i + 1][j].toString()));
+        qty.push(new BigNumber(tokenQtys[i + 1][j].toString()));
       }
     }
 
-    const tokenApy: BigNumber = new BigNumber(rates[i]).div(RAY_DECIMALS);
+    const tokenApy: BigNumber = rates[i].div(RAY_DECIMALS);
     const portionedApy: BigNumber = tokenApy.times(qty[tokens[i].index]).dividedBy(totalQty);
     apys.push(portionedApy);
     //  console.log(tokens[i].address, portionedApy.toNumber(), qty[tokens[i].index].toNumber(), totalQty.toNumber());
@@ -317,8 +309,8 @@ const getComposableAaveYield = async (
     let totalQty: BigNumber = new BigNumber(0);
     for (let j = 0; j < tokenQtys[0].length; j++) {
       if (j != index) {
-        totalQty = totalQty.plus(new BigNumber(tokenQtys[0][j]));
-        qty.push(new BigNumber(tokenQtys[0][j]));
+        totalQty = totalQty.plus(new BigNumber(tokenQtys[0][j].toString()));
+        qty.push(new BigNumber(tokenQtys[0][j].toString()));
       }
     }
 
@@ -332,56 +324,55 @@ const getComposableAaveYield = async (
 };
 
 const getPoolsData = async params => {
-  const web3 = params.web3;
-  const multicall = new MultiCall(web3, multicallAddress(params.chainId));
-  let calls = [];
-  let gaugeCalls = [];
-  let extraRewardCalls = [];
-  let mintRateCall = [];
-  const balVault = getContract(IBalancerVault, params.balancerVault);
-  const auraMinter = getContract(IAuraMinter, params.auraMinter);
+  const calls = [];
+  const gaugeSupplyCalls = [];
+  const gaugeRateCalls = [];
+  const gaugePeriodFinishCalls = [];
+  const extraData = [];
+  const extraRewardRateCalls = [];
+  const extraRewardPeriodFinishCalls = [];
+  const balVault = fetchContract(params.balancerVault, IBalancerVault, params.chainId);
+  const auraMinter = fetchContract(params.auraMinter, IAuraMinter, params.chainId);
 
   params.pools.forEach(pool => {
-    const gauge = getContract(IAuraGauge, pool.gauge);
-    calls.push({
-      tokenQty: balVault.methods.getPoolTokens(pool.vaultPoolId),
-    });
+    const gauge = fetchContract(pool.gauge, IAuraGauge, params.chainId);
+    calls.push(balVault.read.getPoolTokens([pool.vaultPoolId]));
 
-    gaugeCalls.push({
-      balance: gauge.methods.totalSupply(),
-      rewardRate: gauge.methods.rewardRate(),
-      periodFinish: gauge.methods.periodFinish(),
-    });
+    gaugeSupplyCalls.push(gauge.read.totalSupply());
+    gaugeRateCalls.push(gauge.read.rewardRate());
+    gaugePeriodFinishCalls.push(gauge.read.periodFinish());
 
     pool.rewards?.forEach(reward => {
-      const virtualGauge = getContract(IAuraGauge, reward.rewardGauge);
-      extraRewardCalls.push({
-        pool: pool.name,
-        oracleId: reward.oracleId,
-        decimals: reward.decimals,
-        rewardRate: virtualGauge.methods.rewardRate(),
-        periodFinish: virtualGauge.methods.periodFinish(),
-      });
+      const virtualGauge = fetchContract(reward.rewardGauge, IAuraGauge, params.chainId);
+      extraData.push({ pool: pool.name, oracleId: reward.oracleId, decimals: reward.decimals });
+      extraRewardRateCalls.push(virtualGauge.read.rewardRate());
+      extraRewardPeriodFinishCalls.push(virtualGauge.read.periodFinish());
     });
   });
 
-  mintRateCall.push({
-    mintRate: auraMinter.methods.mintRate(),
-  });
+  const mintRateCall = auraMinter.read.mintRate();
 
-  const res = await multicall.all([calls, gaugeCalls, extraRewardCalls, mintRateCall]);
+  const res = await Promise.all([
+    Promise.all(calls),
+    Promise.all(gaugeSupplyCalls),
+    Promise.all(gaugeRateCalls),
+    Promise.all(gaugePeriodFinishCalls),
+    Promise.all(extraRewardRateCalls),
+    Promise.all(extraRewardPeriodFinishCalls),
+    mintRateCall,
+  ]);
 
-  const tokenQtys = res[0].map(v => v.tokenQty['1']);
-  const balances = res[1].map(v => new BigNumber(v.balance));
-  const rewardRates = res[1].map(v => new BigNumber(v.rewardRate));
-  const periodFinishes = res[1].map(v => v.periodFinish);
-  const extras = res[2].map(v => ({
-    ...v,
-    rewardRate: new BigNumber(v.rewardRate),
-    periodFinish: v.periodFinish,
+  const tokenQtys: BigNumber[][] = res[0].map(v => v[1].map(z => new BigNumber(z.toString())));
+  const balances = res[1].map(v => new BigNumber(v.toString()));
+  const rewardRates = res[2].map(v => new BigNumber(v.toString()));
+  const periodFinishes = res[3].map(v => Number(v));
+  const extras = extraData.map((data, index) => ({
+    ...data,
+    rewardRate: new BigNumber(res[4][index].toString()),
+    periodFinish: new BigNumber(res[5][index].toString()),
   }));
 
-  const auraRate = res[3].map(v => new BigNumber(v.mintRate));
+  const auraRate = new BigNumber(res[6].toString());
 
   return { tokenQtys, balances, rewardRates, periodFinishes, extras, auraRate };
 };

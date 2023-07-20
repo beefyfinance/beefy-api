@@ -1,12 +1,9 @@
 import BigNumber from 'bignumber.js';
-import { MultiCall } from 'eth-multicall';
-import { web3Factory, multicallAddress } from './web3';
-import IWrappedAaveToken from '../abis/WrappedAaveToken.json';
-import IWrappedAave4626Token from '../abis/WrappedAave4626Token.json';
-
 import { ARBITRUM_CHAIN_ID, ETH_CHAIN_ID, OPTIMISM_CHAIN_ID, POLYGON_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
-import { getContract } from './contractHelper';
+import { fetchContract } from '../api/rpc/client';
+import WrappedAaveTokenAbi from '../abis/WrappedAaveToken';
+import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token';
 
 const RAY_DECIMALS = '1e27';
 
@@ -56,31 +53,24 @@ const tokens = {
 };
 
 const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
-  const web3 = web3Factory(chainId);
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-
-  const rateCalls = [];
-
-  tokens.forEach(token => {
-    let tokenContract;
+  const rateCalls = tokens.map(token => {
     if (!token[2]) {
-      tokenContract = getContract(IWrappedAaveToken, token[1].address);
-    } else tokenContract = getContract(IWrappedAave4626Token, token[1].address);
-    rateCalls.push({
-      rate: !token[2]
-        ? tokenContract.methods.rate()
-        : tokenContract.methods.convertToAssets(new BigNumber(1e18)),
-    });
+      const contract = fetchContract(token[1].address, WrappedAaveTokenAbi, chainId);
+      return contract.read.rate();
+    } else {
+      const contract = fetchContract(token[1].address, WrappedAave4626TokenAbi, chainId);
+      return contract.read.convertToAssets([1e18]);
+    }
   });
 
   let res;
   try {
-    res = await multicall.all([rateCalls]);
+    res = await Promise.all(rateCalls);
   } catch (e) {
     console.error('getWrappedAavePrices', e);
     return tokens.map(() => 0);
   }
-  const wrappedRates = res[0].map(v => new BigNumber(v.rate));
+  const wrappedRates = res.map(v => new BigNumber(v.toString()));
 
   return wrappedRates.map((v, i) =>
     v

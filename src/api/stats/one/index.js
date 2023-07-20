@@ -11,6 +11,7 @@ const getApys = [
 ];
 
 const getOneApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -47,6 +48,9 @@ const getOneApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Harmony finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

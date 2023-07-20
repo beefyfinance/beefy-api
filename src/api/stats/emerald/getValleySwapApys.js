@@ -1,4 +1,3 @@
-const { emeraldWeb3: web3 } = require('../../../utils/web3');
 const { EMERALD_CHAIN_ID: chainId } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const pools = require('../../../data/emerald/valleySwapLpPools.json');
@@ -14,7 +13,6 @@ const {
 
 const getValleySwapApys = async () =>
   await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchef: masterchef,
     tokenPerBlock: 'vsPerSecond',

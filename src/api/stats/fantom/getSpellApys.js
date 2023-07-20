@@ -1,4 +1,3 @@
-const { fantomWeb3: web3 } = require('../../../utils/web3');
 import { FANTOM_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
@@ -12,7 +11,6 @@ const getSpellApys = async () => {
     'https://api.curve.fi/api/getFactoryAPYs-fantom'
   );
   return await getMasterChefApys({
-    web3: web3,
     chainId: chainId,
     masterchefAbi: SpellMasterChef,
     masterchef: '0x37Cf490255082ee50845EA4Ff783Eb9b6D1622ce',

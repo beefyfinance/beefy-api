@@ -1,5 +1,4 @@
 import getBalancerPrices from '../api/stats/common/balancer/getBalancerPrices';
-import { web3Factory } from './web3';
 import beetsPools from '../data/optimism/beethovenxSteadyBeets.json';
 import bbaUSD from '../data/ethereum/bbaUSD.json';
 import bbamUSD from '../data/matic/bbamUSD.json';
@@ -39,18 +38,17 @@ const fetchPoolPrice = async (tokenPrices, pools) => {
   let prices = {};
 
   for (let i = 0; i < uniqueChainIds.length; i++) {
-    const web3 = web3Factory(uniqueChainIds[i]);
     let filtered = pools.filter(p => p.chainId == uniqueChainIds[i]);
-    const results = await getPrice(web3, uniqueChainIds[i], filtered, tokenPrices);
+    const results = await getPrice(uniqueChainIds[i], filtered, tokenPrices);
     prices = { ...prices, ...results };
   }
 
   return prices;
 };
 
-const getPrice = async (web3, chainId, pools, tokenPrices) => {
+const getPrice = async (chainId, pools, tokenPrices) => {
   let prices = {};
-  let results = await getBalancerPrices(web3, chainId, pools, tokenPrices);
+  let results = await getBalancerPrices(chainId, pools, tokenPrices);
   for (const [key, value] of Object.entries(results)) {
     let price = { [key]: value.price };
     prices = { ...prices, ...price };

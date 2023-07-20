@@ -1,6 +1,5 @@
 const { getAvaxApys } = require('./avax');
 const { getMaticApys } = require('./matic');
-const { getHecoApys } = require('./heco');
 const { getFantomApys } = require('./fantom');
 const { getBSCApys } = require('./bsc');
 const { getOneApys } = require('./one');
@@ -22,7 +21,7 @@ const { getZkevmApys } = require('./zkevm');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs } = require('./getBoostAprs');
 
-const INIT_DELAY = process.env.INIT_DELAY || 60 * 1000;
+const INIT_DELAY = process.env.INIT_DELAY || 30 * 1000;
 const BOOST_APR_INIT_DELAY = 30 * 1000;
 var REFRESH_INTERVAL = 15 * 60 * 1000;
 const BOOST_REFRESH_INTERVAL = 2 * 60 * 1000;
@@ -48,7 +47,6 @@ const updateApys = async () => {
       getMaticApys(),
       getAvaxApys(),
       getFantomApys(),
-      getHecoApys(),
       getBSCApys(),
       getOneApys(),
       getArbitrumApys(),
@@ -135,9 +133,12 @@ const initApyService = async () => {
   let cachedApy = await getKey('APY');
   let cachedApyBreakdown = await getKey('APY_BREAKDOWN');
   let cachedBoostAprs = await getKey('BOOST_APRS');
-  apys = cachedApy ?? {};
-  apyBreakdowns = cachedApyBreakdown ?? {};
-  boostAprs = cachedBoostAprs ?? {};
+  // apys = cachedApy ?? {};
+  // apyBreakdowns = cachedApyBreakdown ?? {};
+  // boostAprs = cachedBoostAprs ?? {};
+  apys = {};
+  apyBreakdowns = {};
+  boostAprs = {};
 
   setTimeout(updateApys, INIT_DELAY);
   setTimeout(updateBoostAprs, BOOST_APR_INIT_DELAY);

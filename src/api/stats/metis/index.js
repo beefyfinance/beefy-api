@@ -15,6 +15,7 @@ const getApys = [
 ];
 
 const getMetisApys = async () => {
+  const start = Date.now();
   let apys = {};
   let apyBreakdowns = {};
 
@@ -51,6 +52,9 @@ const getMetisApys = async () => {
 
     apyBreakdowns = { ...apyBreakdowns, ...mappedApyBreakdownValues };
   }
+
+  const end = Date.now();
+  console.log(`> [APY] Metis finished updating in ${(end - start) / 1000}s`);
 
   return {
     apys,

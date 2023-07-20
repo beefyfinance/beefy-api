@@ -1,17 +1,13 @@
 const BigNumber = require('bignumber.js');
-const { bscWeb3: web3 } = require('../../../../utils/web3');
 const { BSC_CHAIN_ID } = require('../../../../constants');
-
-const MasterChef = require('../../../../abis/HecoPool.json');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/mdexBscLpPools.json');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
-const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');
-import { getContractWithProvider } from '../../../../utils/contractHelper';
+import HecoPool from '../../../../abis/HecoPool';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
+import { fetchContract } from '../../../rpc/client';
 import { getTotalPerformanceFeeForVault } from '../../../vaults/getVaultFees';
-const { mdexBscClient } = require('../../../../apollo/client');
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY } = require('../../../../constants');
 
@@ -100,15 +96,16 @@ const getPoolApy = async (mdxPool, pool) => {
 };
 
 const getYearlyRewardsInUsd = async (mdxPool, pool) => {
-  const masterChefContract = getContractWithProvider(MasterChef, mdxPool, web3);
+  const masterChefContract = fetchContract(mdxPool, HecoPool, BSC_CHAIN_ID);
 
   const blockNum = await getBlockNumber(BSC_CHAIN_ID);
-  const blockRewards = new BigNumber(await masterChefContract.methods.reward(blockNum).call());
 
-  let { allocPoint } = await masterChefContract.methods.poolInfo(pool.poolId).call();
-  allocPoint = new BigNumber(allocPoint);
+  const [blockRewards, allocPoint, totalAllocPoint] = await Promise.all([
+    masterChefContract.read.reward([blockNum]).then(res => new BigNumber(res.toString())),
+    masterChefContract.read.poolInfo([pool.poolId]).then(res => new BigNumber(res[1].toString())),
+    masterChefContract.read.totalAllocPoint().then(res => new BigNumber(res.toString())),
+  ]);
 
-  const totalAllocPoint = new BigNumber(await masterChefContract.methods.totalAllocPoint().call());
   const poolBlockRewards = blockRewards.times(allocPoint).dividedBy(totalAllocPoint);
 
   const secondsPerBlock = 3;

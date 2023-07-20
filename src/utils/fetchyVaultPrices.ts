@@ -1,11 +1,9 @@
 import BigNumber from 'bignumber.js';
-import { MultiCall } from 'eth-multicall';
-import { web3Factory, multicallAddress } from './web3';
-import IYearnTokenVault from '../abis/YearnTokenVault.json';
-
 import { FANTOM_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
-import { getContract } from './contractHelper';
+import Token from '../../packages/address-book/types/token';
+import YearnTokenVaultAbi from '../abis/YearnTokenVault';
+import { fetchContract } from '../api/rpc/client';
 
 const {
   fantom: {
@@ -17,31 +15,22 @@ const tokens = {
   fantom: [[WFTM, yvWFTM]],
 };
 
-const getyVaultPrices = async (tokenPrices, tokens, chainId) => {
-  const web3 = web3Factory(chainId);
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-
-  const pricePerShareCalls = [];
-
-  tokens.forEach(token => {
-    const yVaultContract = getContract(IYearnTokenVault, token[1].address);
-    pricePerShareCalls.push({
-      pricePerShare: yVaultContract.methods.pricePerShare(),
-    });
+const getyVaultPrices = async (tokenPrices, tokens: Token[][], chainId) => {
+  const pricePerShareCalls = tokens.map(token => {
+    const contract = fetchContract(token[1].address, YearnTokenVaultAbi, chainId);
+    return contract.read.pricePerShare;
   });
 
-  let res;
   try {
-    res = await multicall.all([pricePerShareCalls]);
+    const res = await Promise.all(pricePerShareCalls);
+    const pricePerShare = res.map(v => new BigNumber(v.toString()));
+    return pricePerShare.map((v, i) =>
+      v.times(tokenPrices[tokens[i][0].symbol]).dividedBy('1e18').toNumber()
+    );
   } catch (e) {
     console.error('getyVaultPrices', e);
     return tokens.map(() => 0);
   }
-
-  const pricePerShare = res[0].map(v => new BigNumber(v.pricePerShare));
-  return pricePerShare.map((v, i) =>
-    v.times(tokenPrices[tokens[i][0].symbol]).dividedBy('1e18').toNumber()
-  );
 };
 
 const fetchyVaultPrices = async tokenPrices =>
