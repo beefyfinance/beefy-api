@@ -77,31 +77,32 @@ async function getCurveTokenPrices(
   chainTokens: CurveToken[],
   chainId: ChainId
 ): Promise<number[]> {
-  try {
-    const results = await Promise.all(
-      chainTokens.map(token => {
-        const poolContract = fetchContract(token.pool, token.abi, chainId);
-        return token.useUnderlying
-          ? poolContract.read.get_dy_underlying([
-              BigInt(token.index0),
-              BigInt(token.index1),
-              BigInt(new BigNumber(token.decimals).toString(10)),
-            ])
-          : poolContract.read.get_dy([
-              BigInt(token.index0),
-              BigInt(token.index1),
-              BigInt(new BigNumber(token.decimals).toString(10)),
-            ]);
-      })
-    );
+  const curvePriceCalls = chainTokens.map(token => {
+    const poolContract = fetchContract(token.pool, token.abi, chainId);
+    return token.useUnderlying
+      ? poolContract.read.get_dy_underlying([
+          BigInt(token.index0),
+          BigInt(token.index1),
+          BigInt(new BigNumber(token.decimals).toString(10)),
+        ])
+      : poolContract.read.get_dy([
+          BigInt(token.index0),
+          BigInt(token.index1),
+          BigInt(new BigNumber(token.decimals).toString(10)),
+        ]);
+  });
 
-    const tokenPrice = results.map(v => new BigNumber(v.toString()));
-    return tokenPrice.map((v, i) =>
-      v
-        .times(tokenPrices[chainTokens[i].secondToken])
+  try {
+    const results = await Promise.all(curvePriceCalls);
+    const prices = results.map(v => new BigNumber(v.toString()));
+    const curvePrices = {};
+    for (let i = 0; i < prices.length; i++) {
+      curvePrices[chainTokens[i].oracleId] = prices[i]
+        .times(tokenPrices[chainTokens[i].secondToken] || curvePrices[chainTokens[i].secondToken])
         .dividedBy(chainTokens[i].secondTokenDecimals)
-        .toNumber()
-    );
+        .toNumber();
+    }
+    return Object.values(curvePrices);
   } catch (e) {
     console.error('getCurveTokenPrices', e);
     return chainTokens.map(() => 0);

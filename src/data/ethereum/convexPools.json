@@ -26,6 +26,25 @@
     ]
   },
   {
+    "name": "convex-eth+",
+    "pool": "0x7fb53345f1B21aB5d9510ADB38F7d3590BE6364b",
+    "token": "0xe8a5677171c87fcb65b76957f2852515b404c7b1",
+    "rewardPool": "0x15b7011bDE1C5836C67f16E6e03033c272156193",
+    "getDy": ["v2", 0, 1],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH+",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-tricrypto-usdc",
     "pool": "0x7f86bf177dd4f3494b841a37e810a34dd56c829b",
     "token": "0x7f86bf177dd4f3494b841a37e810a34dd56c829b",
@@ -705,6 +724,25 @@
         "basePool": "convex-fraxusdc",
         "oracle": "lps",
         "oracleId": "convex-fraxusdc",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-hyusdeusd",
+    "pool": "0x8a8434A5952aC2CF4927bbEa3ace255c6dd165CD",
+    "token": "0xc794c6a95f30d0ebf7b3bbe85e8a0a95c9e411c1",
+    "rewardPool": "0x245Ec0d447e7f206B43120Ac292dED5E8bB9fe61",
+    "getDy": ["v2", 0, 1],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "hyUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "eUSD",
         "decimals": "1e18"
       }
     ]
