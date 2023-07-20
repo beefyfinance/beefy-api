@@ -1,5 +1,39 @@
 [
   {
+    "name": "beets-a-layered-quartet",
+    "address": "0xCE752063c544F604Ddb99a4335EB79B38c439D72",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xce752063c544f604ddb99a4335eb79b38c439d7200010000000000000000075c",
+    "beefyFee": 0.095,
+    "poolId": 126,
+    "oracleB": "tokens",
+    "oracleIdB": "lzUSDC",
+    "decimalsB": "1e6",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "lzUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "lzWETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "lzWBTC",
+        "decimals": "1e8"
+      }
+    ]
+  },
+  {
     "name": "beets-ankr-fantom-liquid-mosaic",
     "address": "0x723d43bd1A1ff40DeaaB77a164B5c3eA4F654DB2",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
