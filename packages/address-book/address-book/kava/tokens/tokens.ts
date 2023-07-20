@@ -227,6 +227,18 @@ const _tokens = {
       'Mare Finance is an EVM compatible lending/borrowing protocol that launched on Kava EVM. Mare Finance provides peer-to-peer lending solutions that are fully decentralized, transparent and non-custodial.',
     documentation: 'https://docs.mare.finance/',
   },
+  MIM: {
+    name: 'Magic Internet Money',
+    address: '0x471EE749bA270eb4c1165B5AD95E614947f6fCeb',
+    symbol: 'MIM',
+    decimals: 18,
+    chainId: 2222,
+    website: 'https://abracadabra.money/',
+    description:
+      'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
+    logoURI: '',
+    documentation: 'https://docs.abracadabra.money/',
+  },
   axlETH: {
     name: 'Axelar Wrapped ETH',
     symbol: 'axlETH',
