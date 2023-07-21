@@ -29,6 +29,7 @@ const GH_REPO = 'beefy-v2';
 const GH_BRANCH = 'prod';
 const DEBUG = false;
 const REDIS_KEY = 'ZAP_SUPPORT';
+const INIT_DELAY = Number(process.env.ZAP_INIT_DELAY || 0);
 
 const ammConfigChains: ReadonlyArray<ApiChain> = Object.keys(
   MULTICHAIN_ENDPOINTS
@@ -90,7 +91,7 @@ export async function initZapService() {
   await Promise.all([initZapConfigs(), initAmmConfigs()]);
 
   // Update
-  await performUpdate();
+  setTimeout(performUpdate, INIT_DELAY);
 }
 
 async function waitForConfigs() {

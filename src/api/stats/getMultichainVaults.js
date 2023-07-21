@@ -10,7 +10,7 @@ const { fetchChainVaultsPpfs } = require('../../utils/fetchMooPrices');
 const { MULTICHAIN_ENDPOINTS } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
-const INIT_DELAY = 2 * 1000;
+const INIT_DELAY = process.env.VAULTS_INIT_DELAY || 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const LOG_PER_CHAIN = false;
 

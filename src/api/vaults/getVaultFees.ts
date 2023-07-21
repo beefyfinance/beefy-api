@@ -20,7 +20,7 @@ const feeBatchTreasurySplitMethodABI = [
   },
 ] as const;
 
-const INIT_DELAY = 15000;
+const INIT_DELAY = Number(process.env.FEES_INIT_DELAY || 15000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 const CACHE_EXPIRY = 1000 * 60 * 60 * 12;
 const MULTICALL_BATCH_SIZES: Partial<Record<ApiChain, number>> = {

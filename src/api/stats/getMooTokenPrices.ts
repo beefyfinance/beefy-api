@@ -5,7 +5,7 @@ const { getMultichainVaults } = require('../stats/getMultichainVaults');
 
 let mooTokenPrices = {};
 
-const INIT_DELAY = 60 * 1000;
+const INIT_DELAY = Number(process.env.MOOTOKEN_INIT_DELAY || 60 * 1000);
 const REFRESH_INTERVAL = 60 * 1000;
 
 export const getMooTokenPrices = () => {

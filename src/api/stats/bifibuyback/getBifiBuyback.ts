@@ -11,7 +11,7 @@ import { explorerApiUrlMap } from './explorerApiUrlMap';
 import { bifiLpMap } from './bifiLpMap';
 import { getKey, setKey } from '../../../utils/cache';
 
-const INIT_DELAY = 40 * 1000;
+const INIT_DELAY = Number(process.env.BUYBACK_INIT_DELAY || 40 * 1000);
 const REFRESH_INTERVAL = 15 * 60 * 1000;
 
 export interface DailyBifiBuybackStats {

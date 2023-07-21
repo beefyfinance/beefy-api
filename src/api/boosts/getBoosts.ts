@@ -8,7 +8,7 @@ import { ApiChain, toAppChain } from '../../utils/chain';
 
 const REDIS_KEY = 'BOOSTS_BY_CHAIN';
 
-const INIT_DELAY = 4 * 1000;
+const INIT_DELAY = Number(process.env.BOOSTS_INIT_DELAY || 4 * 1000);
 const REFRESH_INTERVAL = 5 * 60 * 1000;
 
 let boostsByChain: Record<string, Boost[]> = {};

@@ -14,6 +14,7 @@ const ALLOW_FROM_LIST: boolean = true;
 const ALLOW_FROM_ANYONE: boolean = true;
 
 const ALLOW_LIST: string[] = ['0x280A53cBf252F1B5F6Bde7471299c94Ec566a7C8'];
+const INIT_DELAY = Number(process.env.PROPOSALS_INIT_DELAY || 0);
 
 let cachedSpace: CachedSpace | null = null;
 let cachedProposals: CachedProposals | null = null;
@@ -119,7 +120,7 @@ async function updateIfNeeded() {
 export async function initProposalsService() {
   [cachedSpace, cachedProposals] = await Promise.all([getCachedSpace(), getCachedProposals()]);
 
-  await updateIfNeeded();
+  setTimeout(updateIfNeeded, INIT_DELAY);
 
   setInterval(() => {
     updateIfNeeded().catch(err => console.error(err));
