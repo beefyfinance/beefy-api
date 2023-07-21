@@ -6,7 +6,7 @@ const volatilePools = require('../../../data/fantom/fvmLpPools.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
   fantom: {
-    tokens: { oFVM, FVM },
+    tokens: { FVM },
   },
 } = addressBook;
 
