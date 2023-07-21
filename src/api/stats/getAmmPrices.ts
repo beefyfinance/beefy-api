@@ -261,7 +261,6 @@ import synapseLpPools from '../../data/ethereum/synapseLpPools.json';
 import solidlyLpPools from '../../data/ethereum/solidlyLpPools.json';
 import cantoLpPools from '../../data/canto/cantoLpPools.json';
 import solidLizardPools from '../../data/arbitrum/solidlizardLpPools.json';
-import velocimeterPools from '../../data/canto/velocimeterLpPools.json';
 import velocimeterV2Pools from '../../data/canto/velocimeterV2LpPools.json';
 import equilibrePools from '../../data/kava/equilibreLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
@@ -298,7 +297,6 @@ const pools = normalizePoolOracleIds([
   ...versePools,
   ...equilibrePools,
   ...velocimeterV2Pools,
-  ...velocimeterPools,
   ...solidLizardPools,
   ...cantoLpPools,
   ...solidlyLpPools,
