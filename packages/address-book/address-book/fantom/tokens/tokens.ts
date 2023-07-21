@@ -1886,6 +1886,19 @@ const _tokens = {
       'Wrapped Ethereum (wETH) is a tokenized version of Ether that is compatible with the ERC-20 standard, which allows it to be used in decentralized applications and traded on decentralized exchanges, providing greater liquidity and interoperability for the Ethereum ecosystem.',
     documentation: 'https://layerzero.gitbook.io/docs/',
   },
+  lzWBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'lzWBTC',
+    address: '0xf1648C50d2863f780c57849D812b4B7686031A3D',
+    chainId: 250,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://wbtc.network/',
+    bridge: 'layer-zero',
+    description:
+      'Wrapped Bitcoin (WBTC) is an ERC20 token backed 1:1 with Bitcoin, which brings greater liquidity to the Ethereum ecosystem including decentralized exchanges and financial applications. It allows Bitcoin holders to use their Bitcoin on the Ethereum network and participate in the DeFi ecosystem.',
+    documentation: 'https://layerzero.gitbook.io/docs/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
