@@ -18,7 +18,7 @@ const tokens = {
 const getyVaultPrices = async (tokenPrices, tokens: Token[][], chainId) => {
   const pricePerShareCalls = tokens.map(token => {
     const contract = fetchContract(token[1].address, YearnTokenVaultAbi, chainId);
-    return contract.read.pricePerShare;
+    return contract.read.pricePerShare();
   });
 
   try {

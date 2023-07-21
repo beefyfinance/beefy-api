@@ -53,7 +53,7 @@ export const getTradingFeeApr = async (
         .dividedBy(pairDayData.reserveUSD);
     }
   } catch (e) {
-    console.error('> getTradingFeeApr error', pairAddresses[0]);
+    // console.error('> getTradingFeeApr error', pairAddresses[0]);
   }
 
   return pairAddressToAprMap;
@@ -182,7 +182,7 @@ export const getTradingFeeAprBalancer = async (
         .dividedBy(pool.totalLiquidity);
     }
   } catch (e) {
-    console.error('> getTradingFeeAprBalancer error', pairAddresses[0]);
+    // console.error('> getTradingFeeAprBalancer error', pairAddresses[0]);
   }
 
   return pairAddressesToAprMap;
@@ -221,7 +221,7 @@ export const getTradingFeeAprBalancerFTM = async (
         .dividedBy(pool.totalLiquidity);
     }
   } catch (e) {
-    console.error('> getTradingFeeAprBalancerFTM error', pairAddresses[0]);
+    // console.error('> getTradingFeeAprBalancerFTM error', pairAddresses[0]);
   }
 
   return pairAddressesToAprMap;
