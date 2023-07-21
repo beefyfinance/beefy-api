@@ -32,8 +32,10 @@ const getSpiritV2Apys = require('./getSpiritV2Apys');
 const getMaiCurveApys = require('./getMaiCurveApys');
 const getEqualizerApys = require('./getEqualizerApys');
 const getMmyApys = require('./getMmyApys');
+const getFvmApys = require('./getFvmApys');
 
 const getApys = [
+  getFvmApys,
   getMmyApys,
   getEqualizerApys,
   getSpiritV2Apys,
