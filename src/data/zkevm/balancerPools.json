@@ -110,6 +110,12 @@
         "rewardToken": "0xa2036f0538221a77A3937F1379699f44945018d0",
         "oracleId": "MATIC",
         "decimals": "1e18"
+      },
+      {
+        "stream": "0x544BDCE27174EA8Ba829939bd3568efc6A6c9c53",
+        "rewardToken": "0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035",
+        "oracleId": "USDC",
+        "decimals": "1e6"
       }
     ],
     "tokens": [
