@@ -1,0 +1,25 @@
+[
+  {
+    "name": "beets-eclp-wsteth-eth",
+    "address": "0x7Ca75bdEa9dEde97F8B13C6641B768650CB83782",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x9f43f726dF654E033B04c39989af90ab44875fEB",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "lsIndex": 0,
+    "vaultPoolId": "0x7ca75bdea9dede97f8b13c6641b768650cb837820002000000000000000000d5",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

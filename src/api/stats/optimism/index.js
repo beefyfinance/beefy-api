@@ -17,9 +17,11 @@ const getKyberOptimismApys = require('./getKyberOptimismApys');
 const getMmyApys = require('./getMmyApys');
 const getExactlyApys = require('./getExactlyApys');
 const getBalancerOpApys = require('./getBalancerOpApys');
+const getAuraApys = require('./getAuraOptimismApys');
 const getBeVeloV2Apr = require('./getBeVeloV2Apr');
 
 const getApys = [
+  getAuraApys,
   getBalancerOpApys,
   getExactlyApys,
   getMmyApys,
