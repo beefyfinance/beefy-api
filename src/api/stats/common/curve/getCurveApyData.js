@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 const BigNumber = require('bignumber.js');
 
 const fetchPrice = require('../../../../utils/fetchPrice');

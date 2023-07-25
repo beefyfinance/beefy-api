@@ -21,6 +21,7 @@
   "compilerOptions": {
     // typescript options here
     "outDir": "./dist",
+    "lib": ["DOM"],
 
     "allowJs": true,
     "checkJs": false,

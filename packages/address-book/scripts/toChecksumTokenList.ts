@@ -1,6 +1,5 @@
 import { toChecksumAddress } from 'ethereumjs-util';
 import { TokenList } from '../util/tokenList';
-import fetch from 'node-fetch';
 import type Token from '../types/token';
 
 import transformTokenListToObject from '../util/transfomTokenListToObject';

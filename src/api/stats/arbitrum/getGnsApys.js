@@ -1,9 +1,8 @@
-const fetch = require('node-fetch');
 const BigNumber = require('bignumber.js');
 
 import getApyBreakdown from '../common/getApyBreakdown';
 
-const pools = [{name: 'gns-arb-gns', address: '0x18c11FD286C5EC11c3b683Caa813B77f5163A122'}];
+const pools = [{ name: 'gns-arb-gns', address: '0x18c11FD286C5EC11c3b683Caa813B77f5163A122' }];
 const url = 'https://backend-arbitrum.gains.trade/apr';
 
 const getGnsApys = async () => {

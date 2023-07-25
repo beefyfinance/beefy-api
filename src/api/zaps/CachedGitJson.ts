@@ -1,5 +1,4 @@
 import { getKey, setKey } from '../../utils/cache';
-import fetch from 'node-fetch';
 import { deferred, DeferredPromise } from '../../utils/promise';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 

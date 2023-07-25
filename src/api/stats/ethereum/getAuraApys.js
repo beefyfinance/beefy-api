@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 import getApyBreakdown from '../common/getApyBreakdown';
 const BigNumber = require('bignumber.js');
 const { ETH_CHAIN_ID: chainId, ETH_CHAIN_ID } = require('../../../constants');

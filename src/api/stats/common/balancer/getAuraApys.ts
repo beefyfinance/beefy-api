@@ -2,7 +2,6 @@ import { getApyBreakdown, ApyBreakdownResult } from '../getApyBreakdown';
 import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
 import jp from 'jsonpath';
 import BigNumber from 'bignumber.js';
-import fetch from 'node-fetch';
 import { getTradingFeeAprBalancer } from '../../../../utils/getTradingFeeApr';
 import fetchPrice from '../../../../utils/fetchPrice';
 import IAaveProtocolDataProvider from '../../../../abis/matic/AaveProtocolDataProvider';

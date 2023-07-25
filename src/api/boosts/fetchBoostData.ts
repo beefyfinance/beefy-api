@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { ChainId } from '../../../packages/address-book/address-book';
 import BigNumber from 'bignumber.js';
 import { ApiChain } from '../../utils/chain';

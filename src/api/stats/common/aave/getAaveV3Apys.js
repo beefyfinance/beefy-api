@@ -4,7 +4,6 @@ const fetchPrice = require('../../../../utils/fetchPrice');
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY } = require('../../../../constants');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
-const fetch = require('node-fetch');
 const { getApyBreakdown } = require('../getApyBreakdown');
 const { default: IAaveV3Incentives } = require('../../../../abis/AaveV3Incentives');
 const { default: IAaveV3PoolDataProvider } = require('../../../../abis/AaveV3PoolDataProvider');

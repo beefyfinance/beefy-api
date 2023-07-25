@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 const getHolders = async () => {
   let holderCount = 0;
 

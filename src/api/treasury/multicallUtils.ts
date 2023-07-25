@@ -1,4 +1,3 @@
-const fetch = require('node-fetch');
 import BigNumber from 'bignumber.js';
 import { ContractCallContext, ContractCallReturnContext } from 'ethereum-multicall';
 import { ERC20_ABI } from '../../abis/common/ERC20';
@@ -13,7 +12,9 @@ import {
   AssetBalance,
   ValidatorAsset,
   TreasuryApiResult,
+  isConcLiquidityAsset,
 } from './types';
+import { getLpBreakdownForOracle } from '../stats/getAmmPrices';
 
 export const mapAssetToCall = (
   asset: TreasuryAsset,

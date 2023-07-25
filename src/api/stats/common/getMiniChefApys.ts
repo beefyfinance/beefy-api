@@ -4,7 +4,6 @@ import { ChainId } from '../../../../packages/address-book/types/chainid';
 import fetchPrice from '../../../utils/fetchPrice';
 import { getApyBreakdown } from './getApyBreakdown';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
-import fetch from 'node-fetch';
 import { fetchContract } from '../../rpc/client';
 
 // trading apr
