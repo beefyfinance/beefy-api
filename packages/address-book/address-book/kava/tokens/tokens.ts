@@ -263,6 +263,18 @@ const _tokens = {
       "Axelar Wrapped WBTC (axlWBTC) is an ERC-20 token that represents a 1:1 pegged version of Bitcoin, allowing users to access Bitcoin's value and liquidity within the Kava ecosystem.",
     documentation: 'https://docs.axelar.dev/resources/wrapped-tokens',
   },
+  ATOM: {
+    name: 'ATOM',
+    symbol: 'ATOM',
+    address: '0x15932E26f5BD4923d46a2b205191C4b5d5f43FE3',
+    chainId: 2222,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://cosmos.network/',
+    description:
+      'The Internet of Blockchains. Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+    documentation: 'https://docs.cosmos.network/main',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

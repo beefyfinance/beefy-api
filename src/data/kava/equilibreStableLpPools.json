@@ -1,5 +1,25 @@
 [
   {
+    "name": "equilibre-usdt-axlusdc",
+    "address": "0x4A18F16b6A4F695639B0d1390263Def2e91fc60f",
+    "gauge": "0x776d2Ae19FC4c5982D5b20d8c14BCDae09755796",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x919C1c267BC06a7039e03fcc2eF738525769109c",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xEB466342C4d449BC9f53A865D5Cb90586f405215",
+      "oracle": "tokens",
+      "oracleId": "axlUSDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "equilibre-usdt-mai",
     "address": "0x1A2c489d90212eE7AD351c826a3A4d53186b4b8b",
     "gauge": "0x87C7170b47BbEa275a4d8F9C80eD82979E4Cc35B",
