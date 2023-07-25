@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 const getVaults = async vaultsEndpoint => {
   try {
     let vaults = await fetch(vaultsEndpoint).then(res => res.json());

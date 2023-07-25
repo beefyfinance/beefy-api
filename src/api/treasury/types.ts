@@ -21,7 +21,7 @@ export type Asset = {
   address: string;
   name: string;
   decimals: number;
-  assetType: 'token' | 'native' | 'vault' | 'validator';
+  assetType: 'token' | 'native' | 'vault' | 'validator' | 'concLiquidity';
   oracleType: 'lps' | 'tokens';
   oracleId: string;
 };
@@ -45,7 +45,12 @@ export type ValidatorAsset = Asset & {
   methodPath: string;
 };
 
-export type TreasuryAsset = Asset | VaultAsset | NativeAsset | ValidatorAsset;
+export type ConcLiquidityAsset = Asset & {
+  assetType: 'concLiquidity';
+  id: number;
+};
+
+export type TreasuryAsset = Asset | VaultAsset | NativeAsset | ValidatorAsset | ConcLiquidityAsset;
 
 export type TreasuryAssetRegistry = {
   [chain in ApiChain]?: {
@@ -67,6 +72,10 @@ export function isVaultAsset(asset: TreasuryAsset): asset is VaultAsset {
 
 export function isTokenAsset(asset: TreasuryAsset): asset is TokenAsset {
   return isObject(asset) && asset.assetType === 'token';
+}
+
+export function isConcLiquidityAsset(asset: TreasuryAsset): asset is ConcLiquidityAsset {
+  return isObject(asset) && asset.assetType === 'concLiquidity';
 }
 
 export type AssetBalance = {

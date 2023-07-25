@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import BigNumber from 'bignumber.js';
 import { BSC_CHAIN_ID } from '../../../constants';
 import getApyBreakdown from '../common/getApyBreakdown';

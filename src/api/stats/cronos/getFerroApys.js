@@ -4,7 +4,6 @@ import getBlockTime from '../../../utils/getBlockTime';
 import fetchPrice from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
-import fetch from 'node-fetch';
 import StrategyABI from '../../../abis/StrategyABI';
 import FerroFarm from '../../../abis/cronos/FerroFarm';
 import { fetchContract } from '../../rpc/client';

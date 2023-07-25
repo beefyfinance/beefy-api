@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import BigNumber from 'bignumber.js';
 import getApyBreakdown from '../common/getApyBreakdown';
 import pools from '../../../data/ethereum/conicPools.json';

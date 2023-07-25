@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 const fetchCurrencyPrices = async currencies => {
   if (!currencies) return {};
   const ids = currencies.join(',');

@@ -1,5 +1,4 @@
 const BigNumber = require('bignumber.js');
-const fetch = require('node-fetch');
 const fetchPrice = require('../../../../utils/fetchPrice');
 const pools = require('../../../../data/beltPools.json');
 const { compound } = require('../../../../utils/compound');

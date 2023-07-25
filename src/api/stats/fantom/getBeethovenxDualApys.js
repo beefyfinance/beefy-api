@@ -1,5 +1,4 @@
 const BigNumber = require('bignumber.js');
-const fetch = require('node-fetch');
 const fetchPrice = require('../../../utils/fetchPrice');
 const { FANTOM_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeAprBalancerFTM } = require('../../../utils/getTradingFeeApr');

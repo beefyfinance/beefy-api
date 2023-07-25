@@ -830,6 +830,11 @@ export async function getLpBreakdown() {
   return cachedLpBreakdowns;
 }
 
+export async function getLpBreakdownForOracle(oracleId: string) {
+  const breakdowns = await getLpBreakdown();
+  return breakdowns[oracleId];
+}
+
 export async function getAmmTokenPrice(
   tokenSymbol: string,
   withUnknownLogging: boolean = false

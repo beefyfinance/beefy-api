@@ -1,7 +1,6 @@
 import { BlockApiResponse, ERC20TxApiResponse } from './explorerApiResponseTypes';
 
 import BigNumber from 'bignumber.js';
-import fetch from 'node-fetch';
 import { addressBook } from '../../../../packages/address-book/address-book';
 
 import fetchPrice from '../../../utils/fetchPrice';

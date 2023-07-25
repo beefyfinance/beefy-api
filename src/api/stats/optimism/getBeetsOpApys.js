@@ -2,7 +2,6 @@ import { getTotalStakedInUsd, getYearlyRewardsInUsd } from '../common/curve/getC
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
-const fetch = require('node-fetch');
 import { beetOpClient } from '../../../apollo/client';
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
 import { addressBook } from '../../../../packages/address-book/address-book';

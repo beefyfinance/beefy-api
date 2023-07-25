@@ -1,5 +1,3 @@
-const fetch = require('node-fetch');
-
 const fetchCoinGeckoPrices = async coins => {
   if (!coins) return {};
   const ids = coins.join(',');

@@ -1,5 +1,4 @@
 const { BigNumber, utils, ethers } = require('ethers');
-const fetch = require('node-fetch');
 
 const fetchPrice = require('../../utils/fetchPrice');
 const { API_BASE_URL, BSC_RPC } = require('../../constants');

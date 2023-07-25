@@ -5,7 +5,6 @@ import jp from 'jsonpath';
 import IAaveProtocolDataProvider from '../../../../abis/matic/AaveProtocolDataProvider';
 import IBalancerVault from '../../../../abis/IBalancerVault';
 import BigNumber from 'bignumber.js';
-import fetch from 'node-fetch';
 import { getTradingFeeAprBalancer } from '../../../../utils/getTradingFeeApr';
 import fetchPrice from '../../../../utils/fetchPrice';
 import { fetchContract } from '../../../rpc/client';

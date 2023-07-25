@@ -3,7 +3,6 @@ import { OPTIMISM_CHAIN_ID } from '../../../constants';
 import { fetchContract } from '../../rpc/client';
 import ExactlyRewardsController from '../../../abis/ExactlyRewardsController';
 import ExactlyInterestRateModel from '../../../abis/ExactlyInterestRateModel';
-const fetch = require('node-fetch');
 
 const fetchPrice = require('../../../utils/fetchPrice');
 const { getApyBreakdown } = require('../common/getApyBreakdown');

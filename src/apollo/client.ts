@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import { createHttpLink } from 'apollo-link-http';
 import {
   ApolloClient,
