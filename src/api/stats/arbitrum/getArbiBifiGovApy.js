@@ -9,7 +9,7 @@ const BLOCKS_PER_DAY = 28800;
 const getArbiBifiGovApy = async () => {
   return getBifiGovApr(
     ARBITRUM_CHAIN_ID,
-    'arbitrum',
+    'arbi',
     'WETH',
     DECIMALS,
     REWARDS,

@@ -9,7 +9,7 @@ const BLOCKS_PER_DAY = 28800;
 const getMovrBifiGovApy = async () => {
   return await getBifiGovApr(
     MOONRIVER_CHAIN_ID,
-    'moonriver',
+    'movr',
     'WMOVR',
     DECIMALS,
     REWARDS,
