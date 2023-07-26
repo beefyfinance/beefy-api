@@ -12,6 +12,7 @@ const KAVA = {
     'The Kava Network is the first Layer-1 blockchain to combine the speed and scalability of the Cosmos SDK with the developer support of Ethereum. The Kava Network will empower developers to build for Web3 and next-gen blockchain technologies through its unique co-chain architecture. KAVA is the native governance and staking token of the Kava Network, enabling its decentralization and security. ',
   logoURI: '',
   documentation: 'https://docs.kava.io/docs/intro/',
+  bridge: 'native',
 } as const;
 
 const _tokens = {
@@ -30,6 +31,7 @@ const _tokens = {
     description:
       'USDC (Multichain) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://developers.circle.com/docs',
+    bridge: 'native',
   },
   multichainUSDT: {
     name: 'USDT',
@@ -42,6 +44,7 @@ const _tokens = {
     description:
       'Multichain Bridged Token. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
+    bridge: 'multichain',
   },
   USDT: {
     name: 'USDT',
@@ -54,6 +57,8 @@ const _tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
+    bridge: 'native',
+
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -67,6 +72,7 @@ const _tokens = {
       'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
+    bridge: 'multichain',
   },
   SUSHI: {
     name: 'Sushi',
@@ -78,6 +84,7 @@ const _tokens = {
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     logoURI: 'https://app.sushi.com/static/media/logo.11fafaa5.png',
+    bridge: 'multichain',
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -90,6 +97,7 @@ const _tokens = {
     chainId: 2222,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
+    bridge: 'multichain',
   },
   ETH: {
     name: 'Ether',
@@ -102,6 +110,7 @@ const _tokens = {
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
+    bridge: 'multichain',
   },
   axlUSDC: {
     name: 'Axelar USD Coin ',
@@ -115,6 +124,7 @@ const _tokens = {
     description:
       'USDC (Axelar) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://docs.axelar.dev/',
+    bridge: 'axelar',
   },
   axlUSDT: {
     name: 'USDT',
@@ -128,6 +138,7 @@ const _tokens = {
     description:
       'Tether (Axelar) is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
+    bridge: 'axelar',
   },
   axlDAI: {
     name: 'Axelar Dai Stablecoin',
@@ -141,6 +152,7 @@ const _tokens = {
       'Multi-Collateral Dai (Axelar), brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
+    bridge: 'axelar', 
   },
   VARA: {
     name: 'VARA',
@@ -154,6 +166,7 @@ const _tokens = {
       'Équilibre is an ve(3.3) AMM (Automatic Market Maker) based on Velodrome, and designed to provide large liquidity & low swapping fees.',
     logoURI:
       'https://raw.githubusercontent.com/equilibre-finance/token-images/blob/main/assets/VARA.png',
+    bridge: 'native',
   },
   BIFI: {
     name: 'Beefy.Finance',
@@ -167,6 +180,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
+    bridge: 'multichain',
   },
   MAI: {
     name: 'Mai Stablecoin',
@@ -190,18 +204,7 @@ const _tokens = {
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
     logoURI: '',
-  },
-  USX: {
-    name: 'dForce USD',
-    symbol: 'USX',
-    address: '0xDb0E1e86B01c4ad25241b1843E407Efc4D615248',
-    chainId: 2222,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://dforce.network/',
-    description:
-      'USX is the most important DeFi primitive within dForce’s protocol matrix, starting off with an over-collateralization design, where supported assets can be used as collaterals to mint USX within the respective approved LTV ratio (similar to DAI).',
-    documentation: 'https://docs.dforce.network/protocols/usx',
+    bridge: 'multichain',
   },
   axlATOM: {
     name: 'Axelar Wrapped ATOM',
@@ -214,6 +217,7 @@ const _tokens = {
     description:
       'The Internet of Blockchains. Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
     documentation: 'https://docs.axelar.dev/resources/wrapped-tokens',
+    bridge: 'axelar',
   },
   MARE: {
     name: 'Mare Finance',
@@ -226,6 +230,7 @@ const _tokens = {
     description:
       'Mare Finance is an EVM compatible lending/borrowing protocol that launched on Kava EVM. Mare Finance provides peer-to-peer lending solutions that are fully decentralized, transparent and non-custodial.',
     documentation: 'https://docs.mare.finance/',
+    bridge: 'native',
   },
   MIM: {
     name: 'Magic Internet Money',
@@ -238,6 +243,7 @@ const _tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
+    bridge: 'layer-zero'
   },
   axlETH: {
     name: 'Axelar Wrapped ETH',
@@ -250,6 +256,7 @@ const _tokens = {
     description:
       'Axelar Wrapped ETH (axlETH) is an ERC-20 token that represents a wrapped version of native Ethereum (ETH) cryptocurrency, allowing for cross-chain transfers and compatibility with the Ethereum ecosystem.',
     documentation: 'https://docs.axelar.dev/resources/wrapped-tokens',
+    bridge: 'axelar',
   },
   axlWBTC: {
     name: 'Axelar Wrapped WBTC',
@@ -262,6 +269,7 @@ const _tokens = {
     description:
       "Axelar Wrapped WBTC (axlWBTC) is an ERC-20 token that represents a 1:1 pegged version of Bitcoin, allowing users to access Bitcoin's value and liquidity within the Kava ecosystem.",
     documentation: 'https://docs.axelar.dev/resources/wrapped-tokens',
+    bridge: 'axelar',
   },
   ATOM: {
     name: 'ATOM',
