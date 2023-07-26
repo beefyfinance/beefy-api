@@ -1,5 +1,5 @@
-const devMultisig = '0xdAec0E93A98b6184816dFDA318B1A01EAF026164';
-const treasuryMultisig = '0xdAec0E93A98b6184816dFDA318B1A01EAF026164';
+const devMultisig = '0x9D138aDAFC29A36497e0791084920b7B18e0AE48';
+const treasuryMultisig = '0x9F9FE15FDa14eAA2d878Ed667C805A7CC13c2560';
 const hw = '0xdAec0E93A98b6184816dFDA318B1A01EAF026164';
 
 export const beefyfinance = {
