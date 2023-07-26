@@ -1,12 +1,39 @@
 [
   {
+    "name": "exactly-supply-op",
+    "token": "0x4200000000000000000000000000000000000042",
+    "market": "0xa430A427bd00210506589906a71B54d6C256CEdb",
+    "interestRateModel": "0x3179265d20d13cE507157b8087dE48759eb21006",
+    "oracle": "tokens",
+    "oracleId": "OP",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "address": "0x1e925De1c68ef83bD98eE3E130eF14a50309C01B",
+        "id": "EXA"
+      }
+    ],
+    "beefyFee": 0.095,
+    "ltv": 0
+  },
+  {
     "name": "exactly-supply-eth",
     "token": "0x4200000000000000000000000000000000000006",
     "market": "0xc4d4500326981eacD020e20A81b1c479c161c7EF",
-    "interestRateModel": "0x3179265d20d13cE507157b8087dE48759eb21006",
+    "interestRateModel": "0xA0D96f92abFB65330Aa21550cD334455b5236F16",
     "oracle": "tokens",
     "oracleId": "WETH",
     "decimals": "1e18",
+    "rewards": [
+      {
+        "address": "0x4200000000000000000000000000000000000042",
+        "id": "OP"
+      },
+      {
+        "address": "0x1e925De1c68ef83bD98eE3E130eF14a50309C01B",
+        "id": "EXA"
+      }
+    ],
     "beefyFee": 0.095,
     "ltv": 0
   },
@@ -18,6 +45,16 @@
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
+    "rewards": [
+      {
+        "address": "0x4200000000000000000000000000000000000042",
+        "id": "OP"
+      },
+      {
+        "address": "0x1e925De1c68ef83bD98eE3E130eF14a50309C01B",
+        "id": "EXA"
+      }
+    ],
     "beefyFee": 0.095,
     "ltv": 0
   },
@@ -30,8 +67,35 @@
     "oracle": "tokens",
     "oracleId": "wstETH",
     "decimals": "1e18",
+    "rewards": [
+      {
+        "address": "0x4200000000000000000000000000000000000042",
+        "id": "OP"
+      },
+      {
+        "address": "0x1e925De1c68ef83bD98eE3E130eF14a50309C01B",
+        "id": "EXA"
+      }
+    ],
     "beefyFee": 0.095,
     "ltv": 0
+  },
+  {
+    "name": "exactly-leverage-op",
+    "token": "0x4200000000000000000000000000000000000042",
+    "market": "0xa430A427bd00210506589906a71B54d6C256CEdb",
+    "interestRateModel": "0x3179265d20d13cE507157b8087dE48759eb21006",
+    "oracle": "tokens",
+    "oracleId": "OP",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "address": "0x1e925De1c68ef83bD98eE3E130eF14a50309C01B",
+        "id": "EXA"
+      }
+    ],
+    "beefyFee": 0.095,
+    "ltv": 0.3
   },
   {
     "name": "exactly-leverage-eth",
@@ -41,6 +105,16 @@
     "oracle": "tokens",
     "oracleId": "WETH",
     "decimals": "1e18",
+    "rewards": [
+      {
+        "address": "0x4200000000000000000000000000000000000042",
+        "id": "OP"
+      },
+      {
+        "address": "0x1e925De1c68ef83bD98eE3E130eF14a50309C01B",
+        "id": "EXA"
+      }
+    ],
     "beefyFee": 0.095,
     "ltv": 0.65
   },
@@ -52,7 +126,39 @@
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
+    "rewards": [
+      {
+        "address": "0x4200000000000000000000000000000000000042",
+        "id": "OP"
+      },
+      {
+        "address": "0x1e925De1c68ef83bD98eE3E130eF14a50309C01B",
+        "id": "EXA"
+      }
+    ],
     "beefyFee": 0.095,
     "ltv": 0.76
+  },
+  {
+    "name": "exactly-leverage-wsteth",
+    "token": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+    "market": "0x22ab31Cd55130435b5efBf9224b6a9d5EC36533F",
+    "interestRateModel": "0xAdEfc7F878E533b479e36Af349Bd3D8cbFa08311",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "oracle": "tokens",
+    "oracleId": "wstETH",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "address": "0x4200000000000000000000000000000000000042",
+        "id": "OP"
+      },
+      {
+        "address": "0x1e925De1c68ef83bD98eE3E130eF14a50309C01B",
+        "id": "EXA"
+      }
+    ],
+    "beefyFee": 0.095,
+    "ltv": 0.6
   }
 ]

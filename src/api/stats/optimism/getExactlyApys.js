@@ -14,8 +14,6 @@ const { compound } = require('../../../utils/compound');
 const pools = require('../../../data/optimism/exactlyPools.json');
 
 const RewardsController = '0xBd1ba78A3976cAB420A9203E6ef14D18C2B2E031';
-const reward = '0x4200000000000000000000000000000000000042';
-const rewardOracleId = 'OP';
 
 const getExactlyApys = async () => {
   const apys = [];
@@ -44,43 +42,53 @@ const getPoolApy = async pool => {
   const compoundedReward = compound(totalReward, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
   const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedReward);
-  // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyReward.valueOf(), borrowReward.valueOf());
+  // console.log(pool.name, apy.toString(), supplyBase.toString(), borrowBase.toString(), supplyReward.toString(), borrowReward.toString());
   return [apy, lsApr];
 };
 
 const getExactlyPoolData = async pool => {
   const { supplyBase, utilization } = await getExactlyData(exactlyClient, pool.market);
 
-  const rewardsController = fetchContract(
-    RewardsController,
-    ExactlyRewardsController,
-    OPTIMISM_CHAIN_ID
-  );
   const interestRateModel = fetchContract(
     pool.interestRateModel,
     ExactlyInterestRateModel,
     OPTIMISM_CHAIN_ID
   );
 
-  const indexStartCall = rewardsController.read.previewAllocation([pool.market, reward, 0]);
-  const indexEndCall = rewardsController.read.previewAllocation([pool.market, reward, 86400]);
   const borrowBaseCall = interestRateModel.read.floatingRate([utilization.toString()]);
+  const borrowBase = new BigNumber(await Promise.all([borrowBaseCall])).dividedBy('1e18');
 
-  const res = await Promise.all([indexStartCall, indexEndCall, borrowBaseCall]);
+  const rewardsController = fetchContract(
+    RewardsController,
+    ExactlyRewardsController,
+    OPTIMISM_CHAIN_ID
+  );
 
-  const borrowIndexStart = new BigNumber(res[0][0].toString());
-  const supplyIndexStart = new BigNumber(res[0][1].toString());
-  const borrowIndexEnd = new BigNumber(res[1][0].toString());
-  const supplyIndexEnd = new BigNumber(res[1][1].toString());
-  const borrowBase = new BigNumber(res[2].toString()).dividedBy('1e18');
-
-  const borrowIndex = borrowIndexEnd.minus(borrowIndexStart);
-  const supplyIndex = supplyIndexEnd.minus(supplyIndexStart);
-
+  let supplyReward = new BigNumber(0);
+  let borrowReward = new BigNumber(0);
   const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
-  const rewardPrice = await fetchPrice({ oracle: 'tokens', id: rewardOracleId });
-  const supplyReward = supplyIndex.times(rewardPrice).times(365).dividedBy(tokenPrice).div('1e18');
-  const borrowReward = borrowIndex.times(rewardPrice).times(365).dividedBy(tokenPrice).div('1e18');
+
+  for (const reward of pool.rewards) {
+    const indexStartCall = rewardsController.read.previewAllocation([pool.market, reward.address, 0]);
+    const indexEndCall = rewardsController.read.previewAllocation([pool.market, reward.address, 86400]);
+
+    const res = await Promise.all([indexStartCall, indexEndCall]);
+
+    const borrowIndexStart = new BigNumber(res[0][0].toString());
+    const supplyIndexStart = new BigNumber(res[0][1].toString());
+    const borrowIndexEnd = new BigNumber(res[1][0].toString());
+    const supplyIndexEnd = new BigNumber(res[1][1].toString());
+
+    const borrowIndex = borrowIndexEnd.minus(borrowIndexStart);
+    const supplyIndex = supplyIndexEnd.minus(supplyIndexStart);
+
+    const rewardPrice = await fetchPrice({ oracle: 'tokens', id: reward.id });
+    const intermiateSupplyReward = supplyIndex.times(rewardPrice).times(365).dividedBy(tokenPrice).dividedBy('1e18');
+    const intermiateBorrowReward = borrowIndex.times(rewardPrice).times(365).dividedBy(tokenPrice).dividedBy('1e18');
+
+    supplyReward = supplyReward.plus(intermiateSupplyReward);
+    borrowReward = borrowReward.plus(intermiateBorrowReward);
+  }
 
   let lsApr = 0;
   if (pool.lsUrl) {
