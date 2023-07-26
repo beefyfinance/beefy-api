@@ -50,7 +50,7 @@ const getBuyback = async (
     const startBlock = await getStartBlockFromExplorer(scanUrl, apiToken);
     const url =
       `${scanUrl}/api?module=account&action=tokentx&address=${bifiMaxiAddress}&sort=asc&start` +
-      (apiToken === undefined && chainName !== 'kava' ? '_' : '') +
+      (apiToken === undefined ? '_' : '') +
       `block=${startBlock}` +
       (apiToken ? `&apikey=${apiToken}` : '');
     const resp = await fetch(url);
