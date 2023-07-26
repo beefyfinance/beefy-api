@@ -72,6 +72,7 @@ import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getQuickGammaPrices from './matic/getQuickGammaPrices';
 import getChronosStablePrices from './arbitrum/getChronosStablePrices';
 import getQuickGammaZkPrices from './zkevm/getQuickGammaPrices';
+import getFvmStablePrices from './fantom/getFvmStablePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -165,6 +166,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getQuickGammaPrices(tokenPrices),
     getQuickGammaZkPrices(tokenPrices),
     getChronosStablePrices(tokenPrices),
+    getFvmStablePrices(tokenPrices),
   ];
 
   // Setup error logs

@@ -1867,6 +1867,7 @@ const _tokens = {
     address: '0xcc1b99dDAc1a33c201a742A1851662E87BC7f22C',
     chainId: 250,
     decimals: 6,
+    logoURI: '',
     website: 'https://tether.to/en/transparency/#usdt',
     bridge: 'layer-zero',
     description:
@@ -1898,6 +1899,58 @@ const _tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is an ERC20 token backed 1:1 with Bitcoin, which brings greater liquidity to the Ethereum ecosystem including decentralized exchanges and financial applications. It allows Bitcoin holders to use their Bitcoin on the Ethereum network and participate in the DeFi ecosystem.',
     documentation: 'https://layerzero.gitbook.io/docs/',
+  },
+  frxETH: {
+    name: 'Frax Ether',
+    symbol: 'frxETH',
+    address: '0x9E73F99EE061C8807F69f9c6CCc44ea3d8c373ee',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.frax.finance/frxeth/mint',
+    bridge: 'frax',
+    description:
+      'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
+  },
+  axlETH: {
+    name: 'Axelar Wrapped ETH',
+    symbol: 'axlETH',
+    address: '0xfe7eDa5F2c56160d406869A8aA4B2F365d544C7B',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://axelar.network/',
+    bridge: 'axelar',
+    description:
+      'Axelar Wrapped ETH (axlETH) is an ERC-20 token that represents a wrapped version of native Ethereum (ETH) cryptocurrency, allowing for cross-chain transfers and compatibility with the Ethereum ecosystem.',
+    documentation: 'https://docs.axelar.dev/',
+  },
+  FVM: {
+    name: 'Fantom Velocimeter',
+    symbol: 'FVM',
+    address: '0x07BB65fAaC502d4996532F834A1B7ba5dC32Ff96',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.fvm.exchange',
+    bridge: 'native',
+    description:
+      'FVM is the native token for Velocimeter on Fantom (FVM), a project providing liquidity on the chain where it is needed most. The FVM token can be staked as or locked to earn rewards on the FVM platform.',
+    documentation: 'https://docs.velocimeter.xyz/FVMtokenomics',
+  },
+  oFVM: {
+    name: 'Option to buy FVM',
+    symbol: 'oFVM',
+    address: '0xF9EDdca6B1e548B0EC8cDDEc131464F462b8310D',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.fvm.exchange',
+    bridge: 'native',
+    description:
+      'oFVM is a new options token that helps to reduce sell pressure on the native FVM token. It is earned by liquidity providers (LPs) who provide liquidity to the FVM-FTM pool. oFVM can be redeemed for FVM at a discount, or it can be locked up for a period of time as veFVM. veFVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',
+    documentation: 'https://docs.velocimeter.xyz/oFVMmech',
   },
 } as const;
 

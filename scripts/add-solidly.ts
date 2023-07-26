@@ -13,7 +13,7 @@ import { addressBook } from '../packages/address-book/address-book';
 import ISolidlyPair from '../src/abis/ISolidlyPair';
 const {
   fantom: {
-    platforms: { spiritswap, equalizer },
+    platforms: { spiritswap, equalizer, fvm },
   },
   optimism: {
     platforms: { velodrome },
@@ -93,6 +93,12 @@ const projects = {
     stableFile: '../src/data/fantom/equalizerV2StableLpPools.json',
     volatileFile: '../src/data/fantom/equalizerV2LpPools.json',
     voter: equalizer.voter,
+  },
+  fvm: {
+    prefix: 'fvm',
+    stableFile: '../src/data/fantom/fvmStableLpPools.json',
+    volatileFile: '../src/data/fantom/fvmLpPools.json',
+    voter: fvm.voter,
   },
   solidly: {
     prefix: 'monolith',
