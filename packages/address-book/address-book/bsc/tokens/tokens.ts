@@ -15,6 +15,17 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  OOEV2: {
+    name: 'Open Ocean Finance',
+    symbol: 'OOE',
+    address: '0x8ea5219a16c2dbF1d6335A6aa0c6bd45c50347C5',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://openocean.finance/',
+    description:
+      'OpenOcean is the worlds first full aggregation protocol for crypto trading that source liquidity from DeFi and CeFi, and enable cross-chain swaps. Our intelligent routing algorithm find the best prices from DEXes and CEXes, and split the routes to provide traders the best prices with low slippage and fast settlement. The function is free to use, OpenOcean users only need to pay the normal blockchain gas fees and exchange fees for the trades, which are charged by the exchanges and not OpenOcean.',
+    logoURI: 'https://ethapi.openocean.finance/asset/icon-ooe.svg?t=2',
+  },
   multiBTC: {
     name: 'Multichain BTC',
     symbol: 'multiBTC',
