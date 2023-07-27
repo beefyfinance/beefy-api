@@ -51,7 +51,6 @@ async function vaultFees(ctx) {
 
 module.exports = {
   multichainVaults,
-  vaultsLastHarvest,
   singleChainVaults,
   vaultFees,
   vaultsLastHarvest,
