@@ -12,6 +12,21 @@ async function multichainVaults(ctx) {
   }
 }
 
+async function vaultsLastHarvest(ctx) {
+  try {
+    const lastHarvests = getMultichainVaults().reduce((res, vault) => {
+      const { id, lastHarvest } = vault;
+      res[id] = lastHarvest;
+      return res;
+    }, {});
+    ctx.status = 200;
+    ctx.body = lastHarvests;
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
 async function singleChainVaults(ctx) {
   try {
     const chainVaults = getSingleChainVaults(ctx.params.chainId);
@@ -36,6 +51,8 @@ async function vaultFees(ctx) {
 
 module.exports = {
   multichainVaults,
+  vaultsLastHarvest,
   singleChainVaults,
   vaultFees,
+  vaultsLastHarvest,
 };
