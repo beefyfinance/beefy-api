@@ -135,7 +135,7 @@
     "lp1": {
       "address": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
       "oracle": "tokens",
-      "oracleId": "UNIDX",
+      "oracleId": "multiUNIDX",
       "decimals": "1e18"
     }
   },
@@ -369,7 +369,7 @@
     "lp0": {
       "address": "0x5d47bAbA0d66083C52009271faF3F50DCc01023C",
       "oracle": "tokens",
-      "oracleId": "UNIDX",
+      "oracleId": "multiUNIDX",
       "decimals": "1e18"
     },
     "lp1": {
