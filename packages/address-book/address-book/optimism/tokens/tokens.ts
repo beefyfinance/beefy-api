@@ -833,9 +833,9 @@ const _tokens = {
       'Kwenta is a decentralized derivatives trading platform, live on Optimism, offering real-world and on-chain synthetic assets using the power of the Synthetix protocol.',
     documentation: 'https://docs.kwenta.io/',
   },
-  UNIDX: {
+  multiUNIDX: {
     name: 'UniDex',
-    symbol: 'UNIDX',
+    symbol: 'multiUNIDX',
     address: '0x5d47bAbA0d66083C52009271faF3F50DCc01023C',
     chainId: 10,
     decimals: 18,
@@ -1014,6 +1014,42 @@ const _tokens = {
     description:
       "Exactly is a decentralized, non-custodial and open-source protocol that provides an autonomous fixed and variable interest rate market enabling users to frictionlessly exchange the time value of their assets and completing the DeFi credit market.",
     documentation: 'https://docs.exact.ly/',
+  },
+  tBTC: {
+    name: 'tBTC v2',
+    symbol: 'tBTC',
+    address: '0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://threshold.network/',
+    documentation: 'https://docs.threshold.network/',
+    description:
+      'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
+  },
+  UNIDX: {
+    name: 'Unidex',
+    symbol: 'UNIDX',
+    address: '0x28b42698Caf46B4B012CF38b6C75867E0762186D',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.unidex.exchange/trading',
+    description:
+      'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
+    documentation: 'https://unidexexchange.gitbook.io/unidex/',
+  },
+  WLD: {
+    name: 'Worldcoin',
+    symbol: 'WLD',
+    address: '0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://worldcoin.org/',
+    description:
+      'WLD is a token that is part of the Worldcoin network. It is issued to all network participants to align their incentives around the growth of the network. The currency is designed to be distributed fairly, with every human being eligible for a share of WLD simply for being human. While laws may not allow for the use of WLD as a currency in some jurisdictions, it is intended to be used as a means of exchange and store of value where possible.',
+    documentation: 'https://whitepaper.worldcoin.org/',
   },
 } as const;
 
