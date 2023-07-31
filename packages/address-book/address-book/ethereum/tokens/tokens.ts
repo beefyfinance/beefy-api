@@ -1108,6 +1108,18 @@ const _tokens = {
     description:
       'High yield USD (hyUSD), is a decentralized flatcoin initially pegged to $1 USD that provides convenient access to DeFi yields, enabling holders to grow and preserve their wealth. hyUSD is 1:1 asset backed by a basket of other yield bearing tokens including eUSD as well as tokenized lending with exposure to US Treasuries. Given the unique design and current market conditions it is estimated to yield 8% or better to anyone holding hyUSD in any wallet, outpacing the rate of inflation in over 100 countries around the world and providing safe refuge for purchasing power everywhere.',
   },
+  ETHx: {
+    name: 'ETHx',
+    symbol: 'ETHx',
+    address: '0xA35b1B31Ce002FBF2058D22F30f95D405200A15b',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.staderlabs.com/eth/',
+    description:
+      "ETHx is an innovative liquid staking token developed by Stader, designed to revolutionize Ethereum staking. Stader's vision for ETHx is to transform the staking experience, providing users with the unprecedented freedom to move and utilize their staked ETH while continuing to earn rewards and engage with the growing DeFi ecosystem.",
+    documentation: 'https://staderlabs.gitbook.io/ethereum',
+  },
   'ETH+': {
     name: 'ETHPlus',
     symbol: 'ETH+',

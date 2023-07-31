@@ -1,23 +1,5 @@
 [
   {
-    "name": "convex-aleth",
-    "pool": "0xC4C319E2D4d66CcA4464C0c2B32c9Bd23ebe784e",
-    "token": "0xC4C319E2D4d66CcA4464C0c2B32c9Bd23ebe784e",
-    "rewardPool": "0x48Bc302d8295FeA1f8c3e7F57D4dDC9981FEE410",
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "WETH",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "alETH",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "curve-lvusd",
     "pool": "0xe9123CBC5d1EA65301D417193c40A72Ac8D53501",
     "token": "0xe9123CBC5d1EA65301D417193c40A72Ac8D53501",
@@ -39,6 +21,25 @@
         "basePool": "convex-3pool",
         "oracle": "lps",
         "oracleId": "convex-3pool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-ethx",
+    "pool": "0xd82C2eB10F4895CABED6EDa6eeee234bd1A9838B",
+    "token": "0xd82C2eB10F4895CABED6EDa6eeee234bd1A9838B",
+    "rewardPool": "0x9f6277061ec97A8fE5a1672bde4fc6b12dBb5DD6",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETHx",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
         "decimals": "1e18"
       }
     ]
@@ -914,6 +915,24 @@
       {
         "oracle": "tokens",
         "oracleId": "CRV",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-aleth",
+    "pool": "0xC4C319E2D4d66CcA4464C0c2B32c9Bd23ebe784e",
+    "token": "0xC4C319E2D4d66CcA4464C0c2B32c9Bd23ebe784e",
+    "rewardPool": "0x48Bc302d8295FeA1f8c3e7F57D4dDC9981FEE410",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "alETH",
         "decimals": "1e18"
       }
     ]
