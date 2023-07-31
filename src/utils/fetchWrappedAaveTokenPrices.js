@@ -9,7 +9,7 @@ const RAY_DECIMALS = '1e27';
 
 const {
   ethereum: {
-    tokens: { aUSDT, waUSDT, aUSDC, waUSDC, aDAI, waDAI },
+    tokens: { aUSDT, waUSDT, aUSDC, waUSDC, aDAI, waDAI, aETH, waETH },
   },
   polygon: {
     tokens: { amUSDT, wamUSDT, amUSDC, wamUSDC, amDAI, wamDAI, aWMATIC, waWMATIC, aWETH, waWETH },
@@ -27,6 +27,7 @@ const tokens = {
     [aUSDT, waUSDT],
     [aUSDC, waUSDC],
     [aDAI, waDAI],
+    [aETH, waETH],
   ],
   polygon: [
     [amUSDT, wamUSDT],

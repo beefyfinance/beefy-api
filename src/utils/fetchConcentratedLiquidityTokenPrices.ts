@@ -40,6 +40,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDC',
       secondToken: 'AXL',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'GHO',
+      decimalDelta: 1e12,
+      pool: '0x54EEbc36527FE2E5624051E3c895810d7b68bcFc',
+      firstToken: 'USDC',
+      secondToken: 'GHO',
+    },
   ],
   polygon: [
     {
