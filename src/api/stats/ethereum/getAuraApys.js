@@ -92,7 +92,7 @@ const getPoolApy = async (pool, auraData, balance, rewardRate, finish, extras) =
   let [yearlyRewardsInUsd, totalStakedInUsd, aprFixed, bbaUSDApy] = await Promise.all([
     getYearlyRewardsInUsd(auraData, pool, rewardRate, finish, extras),
     getTotalStakedInUsd(pool, balance),
-    pool.name == 'aura-wsteth-reth-sfrxeth-v2'
+    pool.name == 'aura-wsteth-reth-sfrxeth-v3'
       ? getThreeEthPoolYield(pool)
       : pool.lidoUrl || pool.rocketUrl
       ? getLiquidStakingPoolYield(pool)

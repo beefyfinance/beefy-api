@@ -1,5 +1,35 @@
 [
   {
+    "name": "aura-wsteth-reth-sfrxeth-v3",
+    "address": "0x42ED016F826165C2e5976fe5bC3df540C5aD0Af7",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x032B676d5D55e8ECbAe88ebEE0AA10fB5f72F6CB",
+    "composable": true,
+    "bptIndex": 0,
+    "vaultPoolId": "0x42ed016f826165c2e5976fe5bc3df540c5ad0af700000000000000000000058b",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-r-wsteth",
     "address": "0x380aAbE019ed2a9C2d632b51eDDD30fd804d0fAD",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
