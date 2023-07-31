@@ -947,6 +947,19 @@ const _tokens = {
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
   },
+  multiCVX: {
+    name: 'Convex Token',
+    symbol: 'CVX',
+    address: '0xb952A807345991BD529FDded05009F5e80Fe8F45',
+    chainId: 42161,
+    decimals: 18,
+    logoUri: '',
+    website: 'https://www.convexfinance.com/',
+    documentation: 'https://docs.convexfinance.com/',
+    description:
+      'Convex allows Curve.fi liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
+    bridge: 'multichain',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
