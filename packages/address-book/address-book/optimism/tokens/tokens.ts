@@ -1003,6 +1003,18 @@ const _tokens = {
       "Velodrome Finance, at its core, is a solution for protocols on Optimism to properly incentivize liquidity for their own use cases. Building on top of the groundwork laid out by Solidly, our team has addressed that first iteration's core issues to realize its full potential.",
     documentation: 'https://velodrome.finance/docs',
   },
+  EXA: {
+    name: 'Exactly',
+    symbol: 'EXA',
+    address: '0x1e925De1c68ef83bD98eE3E130eF14a50309C01B',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://exact.ly/',
+    description:
+      "Exactly is a decentralized, non-custodial and open-source protocol that provides an autonomous fixed and variable interest rate market enabling users to frictionlessly exchange the time value of their assets and completing the DeFi credit market.",
+    documentation: 'https://docs.exact.ly/',
+  },
   tBTC: {
     name: 'tBTC v2',
     symbol: 'tBTC',
