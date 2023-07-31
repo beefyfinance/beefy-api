@@ -19,7 +19,7 @@ export const treasuryConcLiquidityAssets: Partial<Record<ApiChain, ConcLiquidity
       assetType: 'concLiquidity',
       oracleType: 'lps',
       oracleId: 'uniswap-arbitrum-cvx-eth-0.3',
-      id: 42161,
+      id: 208990,
     },
   ],
 };
