@@ -646,6 +646,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    bridge: 'native',
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
   },
@@ -1156,6 +1157,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.staderlabs.com/eth/',
+    bridge: 'native',
     description:
       "ETHx is an innovative liquid staking token developed by Stader, designed to revolutionize Ethereum staking. Stader's vision for ETHx is to transform the staking experience, providing users with the unprecedented freedom to move and utilize their staked ETH while continuing to earn rewards and engage with the growing DeFi ecosystem.",
     documentation: 'https://staderlabs.gitbook.io/ethereum',
@@ -1168,6 +1170,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://register.app/#/overview?token=0xE72B141DF173b999AE7c1aDcbF60Cc9833Ce56a8',
+    bridge: 'native',
     description:
       'Safety-first diversified ETH staking index with up to 4.5% APY backed by Lido Staked ETH and Rocket Pool ETH.',
   },
@@ -1205,8 +1208,22 @@ const _tokens = {
     logoURI: '',
     website: 'https://aave.com/',
     documentation: 'https://docs.aave.com/faq/gho-stablecoin',
+    bridge: 'native',
     description:
       'GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
+  },
+  LUSD: {
+    name: 'LUSD Stablecoin',
+    symbol: 'LUSD',
+    address: '0x5f98805A4E8be255a32880FDeC7F6728C6568bA0',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.liquity.org/',
+    bridge: 'native',
+    description:
+      'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
+    documentation: 'https://docs.liquity.org/',
   },
 } as const;
 
