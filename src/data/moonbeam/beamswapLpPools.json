@@ -86,7 +86,7 @@
     "lp0": {
       "address": "0x595c8481c48894771CE8FaDE54ac6Bf59093F9E8",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "oracleId": "gmultiBIFI",
       "decimals": "1e18"
     },
     "lp1": {
@@ -105,13 +105,13 @@
     "lp0": {
       "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "gmultiUSDC",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327",
       "oracle": "tokens",
-      "oracleId": "FTM",
+      "oracleId": "gmultiFTM",
       "decimals": "1e18"
     }
   },
@@ -124,13 +124,13 @@
     "lp0": {
       "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "gmultiUSDC",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "oracleId": "gmultiUSDT",
       "decimals": "1e6"
     }
   },
@@ -143,7 +143,7 @@
     "lp0": {
       "address": "0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "oracleId": "gmultiBUSD",
       "decimals": "1e18"
     },
     "lp1": {
@@ -162,13 +162,13 @@
     "lp0": {
       "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "gmultiUSDC",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "gmultiETH",
       "decimals": "1e18"
     }
   },
@@ -181,13 +181,13 @@
     "lp0": {
       "address": "0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "oracleId": "gmultiBUSD",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "gmultiBNB",
       "decimals": "1e18"
     }
   },
@@ -200,13 +200,13 @@
     "lp0": {
       "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "gmultiUSDC",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xA649325Aa7C5093d12D6F98EB4378deAe68CE23F",
       "oracle": "tokens",
-      "oracleId": "BUSD",
+      "oracleId": "gmultiBUSD",
       "decimals": "1e18"
     }
   },
@@ -238,13 +238,13 @@
     "lp0": {
       "address": "0x765277EebeCA2e31912C9946eAe1021199B39C61",
       "oracle": "tokens",
-      "oracleId": "DAI",
+      "oracleId": "gmultiDAI",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "gmultiUSDC",
       "decimals": "1e6"
     }
   },
@@ -257,7 +257,7 @@
     "lp0": {
       "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "gmultiUSDC",
       "decimals": "1e6"
     },
     "lp1": {
