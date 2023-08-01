@@ -19,7 +19,7 @@ const _tokens = {
   KAVA,
   WKAVA: KAVA,
   WNATIVE: KAVA,
-  USDC: {
+  kmultiUSDC: {
     name: 'USD Coin',
     symbol: 'kmultiUSDC',
     address: '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f',
