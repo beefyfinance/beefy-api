@@ -1,5 +1,11 @@
 import BigNumber from 'bignumber.js';
-import { ARBITRUM_CHAIN_ID, ETH_CHAIN_ID, OPTIMISM_CHAIN_ID, POLYGON_CHAIN_ID } from '../constants';
+import {
+  ARBITRUM_CHAIN_ID,
+  AVAX_CHAIN_ID,
+  ETH_CHAIN_ID,
+  OPTIMISM_CHAIN_ID,
+  POLYGON_CHAIN_ID,
+} from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 import { fetchContract } from '../api/rpc/client';
 import WrappedAaveTokenAbi from '../abis/WrappedAaveToken';
@@ -19,6 +25,9 @@ const {
   },
   arbitrum: {
     tokens: { aWETH: aaWETH, waaWETH, aaUSDT, waaUSDT, aaUSDC, waaUSDC, aaDAI, waaDAI },
+  },
+  avax: {
+    tokens: { aavAVAX, waavAVAX },
   },
 } = addressBook;
 
@@ -51,6 +60,7 @@ const tokens = {
     [aaUSDC, waaUSDC, true],
     [aaDAI, waaDAI, true],
   ],
+  avax: [[aavAVAX, waavAVAX]],
 };
 
 const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
@@ -87,6 +97,7 @@ const fetchWrappedAavePrices = async tokenPrices =>
     getWrappedAavePrices(tokenPrices, tokens.polygon, POLYGON_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.optimism, OPTIMISM_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.arbitrum, ARBITRUM_CHAIN_ID),
+    getWrappedAavePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
   ]).then(data =>
     data
       .flat()

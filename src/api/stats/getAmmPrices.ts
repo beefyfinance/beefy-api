@@ -610,6 +610,7 @@ const seedPeggedPrices = {
   aaUSDT: 'USDT', // Aave
   aaUSDC: 'USDC', // Aave
   aaDAI: 'DAI', // Aave
+  aavAVAX: 'AVAX', // Aave
   'DAI+': 'DAI', // Overnight
   alETH: 'ETH', // Alchemix
   hETH: 'ETH', // HOP

@@ -28,8 +28,10 @@ const getSwapsicleApys = require('./getSwapsicleApys');
 const { getGmxApys } = require('./getGmxApys');
 const getKyberAvaxApys = require('./getKyberAvaxApys');
 const getSoliSnekApys = require('./getSoliSnekApys');
+const getBalancerApys = require('./getBalancerAvaxApys');
 
 const getApys = [
+  getBalancerApys,
   getSoliSnekApys,
   getKyberAvaxApys,
   getGmxApys,

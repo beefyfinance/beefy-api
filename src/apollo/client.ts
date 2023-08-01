@@ -88,6 +88,9 @@ const beetOpClient = client(
 const balancerArbClient = client(
   'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-arbitrum-v2'
 );
+const balancerAvaxClient = client(
+  'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-avalanche-v2'
+);
 const balancerPolyClient = client(
   'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2'
 );
@@ -184,6 +187,7 @@ export {
   balancerArbClient,
   balancerPolyClient,
   balancerZkevmClient,
+  balancerAvaxClient,
   isBeetClient,
   vvsClient,
   finnClient,

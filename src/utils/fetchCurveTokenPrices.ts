@@ -5,10 +5,24 @@ import { fetchContract } from '../api/rpc/client';
 import ICurvePoolV2Abi from '../abis/CurvePoolV2';
 import ICurvePoolAbi from '../abis/CurvePool';
 import ICurvePool from '../abis/ICurvePool';
+import StableSwap from '../abis/StableSwap';
 
 const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
   fantom: toCurveTokens(ChainId.fantom, require('../data/fantom/curvePools.json')),
-  avax: toCurveTokens(ChainId.avax, require('../data/avax/curvePools.json')),
+  avax: [
+    ...toCurveTokens(ChainId.avax, require('../data/avax/curvePools.json')),
+    {
+      oracleId: 'yyAVAX',
+      decimals: '1e18',
+      index0: 1,
+      index1: 0,
+      pool: '0xa974DE60871907AAFE3A4634766aDb40dF461C16',
+      secondToken: 'WAVAX',
+      secondTokenDecimals: '1e18',
+      abi: StableSwap,
+      stableSwap: true,
+    },
+  ],
   optimism: toCurveTokens(ChainId.optimism, require('../data/optimism/curvePools.json')),
   arbitrum: toCurveTokens(ChainId.arbitrum, require('../data/arbitrum/curvePools.json')),
   moonbeam: toCurveTokens(ChainId.moonbeam, require('../data/moonbeam/curvePools.json')),
@@ -41,7 +55,8 @@ type CurveToken = {
   useUnderlying?: boolean;
   secondToken: string;
   secondTokenDecimals: string;
-  abi: typeof ICurvePoolV2Abi | typeof ICurvePoolAbi;
+  abi: typeof ICurvePoolV2Abi | typeof ICurvePoolAbi | typeof StableSwap;
+  stableSwap?: boolean;
 };
 
 function toCurveTokens(chainId, pools) {
@@ -79,7 +94,13 @@ async function getCurveTokenPrices(
 ): Promise<number[]> {
   const curvePriceCalls = chainTokens.map(token => {
     const poolContract = fetchContract(token.pool, token.abi, chainId);
-    return token.useUnderlying
+    return token.stableSwap
+      ? poolContract.read.calculateSwap([
+          token.index0,
+          token.index1,
+          BigInt(new BigNumber(token.decimals).toString(10)),
+        ])
+      : token.useUnderlying
       ? poolContract.read.get_dy_underlying([
           BigInt(token.index0),
           BigInt(token.index1),

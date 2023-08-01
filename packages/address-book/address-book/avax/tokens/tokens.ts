@@ -4704,6 +4704,61 @@ const _tokens = {
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
     documentation: 'https://docs.inverse.finance/',
   },
+  aavAVAX: {
+    name: 'Aave AVAX',
+    symbol: 'aavAVAX',
+    address: '0x6d80113e533a2C0fe82EaBD35f1875DcEA89Ea97',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://aave.com',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing AVAX. Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    bridge: 'native',
+  },
+  waavAVAX: {
+    name: 'Wrapped Aave AVAX',
+    symbol: 'waavAVAX',
+    address: '0xA291Ae608d8854CdbF9838E28E9BADCf10181669',
+    chainId: 43114,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://aave.com',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Wrapped Aave interest bearing AVAX. Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    bridge: 'native',
+  },
+  bbaavAVAX: {
+    name: 'Balancer Aave AVAX Linear Pool',
+    symbol: 'bbaavAVAX',
+    address: '0x7275c131b1F67e8B53b4691F92B0E35A4c1C6e22',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of AVAX and wrapped Aave Interest Bearing AVAX.',
+    bridge: 'native',
+  },
+  yyAVAX: {
+    name: 'Yield Yak gAVAX',
+    symbol: 'yyAVAX',
+    address: '0xF7D9281e8e363584973F946201b82ba72C965D27',
+    chainId: 43114,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://yieldyak.com/',
+    documentation: 'https://docs.yieldyak.com/for-yyavax-holders/using-yyavax',
+    description:
+      'Users can swap AVAX and receive yyAVAX on Yak Swap (yieldyak.com/swap). The price of yyAVAX to AVAX is monotonic, meaning that the value of yyAVAX will always increase vs AVAX based on the yields from the P-Chain progressively being distributed to yyAVAX holders. This means that you do not swap AVAX for yyAVAX at a 1:1 ratio as yyAVAX will always be worth more than AVAX on a 1:1 basis.',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
