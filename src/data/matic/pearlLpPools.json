@@ -20,6 +20,26 @@
     }
   },
   {
+    "name": "pearl-wusdr-usdrv3",
+    "address": "0xBaBe0E5b209494aa5e13722a8B62829155ae2A3f",
+    "gauge": "0x8834d93F25F5b345960E6FCad3C8d9a0B8e71E94",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x00e8c0E92eB3Ad88189E7125Ec8825eDc03Ab265",
+      "oracle": "tokens",
+      "oracleId": "wUSDR",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0x40379a439D4F6795B6fc9aa5687dB461677A2dBa",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    }
+  },
+  {
     "name": "pearl-wusdr-usdr",
     "address": "0x10E1b58B3C93890D04D539b5f39Aa4Df27A362b2",
     "gauge": "0xa9d0fb2581DdD3783853fB3Fda9B296a2c7a0734",
@@ -29,7 +49,7 @@
     "lp0": {
       "address": "0xAF0D9D65fC54de245cdA37af3d18cbEc860A4D4b",
       "oracle": "tokens",
-      "oracleId": "WUSDR",
+      "oracleId": "wUSDR",
       "decimals": "1e9"
     },
     "lp1": {
@@ -100,6 +120,26 @@
     }
   },
   {
+    "name": "pearl-usdrv3-pearl",
+    "address": "0xEf8BF7E7471eE5dE8C93CcE284a71b7D751d8cCC",
+    "gauge": "0x4d88Fc6f0818fC4DD4288601404CC650C1302C7e",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x40379a439D4F6795B6fc9aa5687dB461677A2dBa",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0x7238390d5f6F64e67c3211C343A410E2A3DEc142",
+      "oracle": "tokens",
+      "oracleId": "PEARL",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "pearl-pearl-usdr",
     "address": "0x74ee7376Ac31628a66b2Bb0eb2D14b549AB37275",
     "gauge": "0x150d5d880F37654A78C77eF25573b6e2790B2E55",
@@ -134,6 +174,26 @@
     },
     "lp1": {
       "address": "0xb5DFABd7fF7F83BAB83995E72A52B97ABb7bcf63",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    }
+  },
+  {
+    "name": "pearl-matic-usdrv3",
+    "address": "0x260605380EC5d3378D8E029740831f9D677D2efB",
+    "gauge": "0x067C9E6107Bd2D1b6385be0BAD82D74d9Fd47612",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x40379a439D4F6795B6fc9aa5687dB461677A2dBa",
       "oracle": "tokens",
       "oracleId": "USDR",
       "decimals": "1e9"
