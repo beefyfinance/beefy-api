@@ -262,6 +262,30 @@ const _tokens = {
       '$BLOTR is the governance token for $sCANTO (Liquid Staked Canto) used to vote on protocol upgrades, incentivize $sCANTO liquidity pools, and for other future protocol mechanisms.',
     documentation: 'https://docs.scanto.io/governance-token',
   },
+  CVM: {
+    name: 'Canto Velocimeter',
+    symbol: 'CVM',
+    address: '0xbAD86785eB08fe9d0948B7D9d24523000A177cD0',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://cantov3.velocimeter.xyz',
+    description:
+      'CVM is the native token for Velocimeter on Canto (CVM), a project providing liquidity on the chain where it is needed most. The CVM token can be locked to earn rewards on the CVM platform.',
+    documentation: 'https://docs.velocimeter.xyz/tokenomics',
+  },
+  oCVM: {
+    name: 'Option to buy CVM',
+    symbol: 'oCVM',
+    address: '0x5C2a258A169Fd683e784686E606E33f6D8c31b9a',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://cantov3.velocimeter.xyz',
+    description:
+      'oCVM is an options token that helps to reduce sell pressure on the native CVM token. It is earned by liquidity providers (LPs) who provide liquidity to the CVM pools. oCVM can be redeemed for CVM at a discount, or it can be locked up for a period of time as veCVM. veCVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',
+    documentation: 'https://docs.velocimeter.xyz/oFVMmech',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
