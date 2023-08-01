@@ -598,6 +598,7 @@ const seedPeggedPrices = {
   WAVAX: 'AVAX', // Wrapped native
   WBNB: 'BNB', // Wrapped native
   WFTM: 'FTM', // Wrapped native
+  WKAVA: 'KAVA', // Wrapped native
   asUSDC: 'USDC', // Solana
   aUSDT: 'USDT', // Aave
   aDAI: 'DAI', // Aave

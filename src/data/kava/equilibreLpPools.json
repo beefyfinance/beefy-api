@@ -20,26 +20,6 @@
     }
   },
   {
-    "name": "equilibre-usdt-wkava",
-    "address": "0xBe87F2e81aa16238445651fAbf62Ae097498C200",
-    "gauge": "0x5383dEB37479599a33584f7Bbc346ab299e30FF0",
-    "decimals": "1e18",
-    "chainId": 2222,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x919C1c267BC06a7039e03fcc2eF738525769109c",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
-      "oracle": "tokens",
-      "oracleId": "WKAVA",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "equilibre-axleth-wkava",
     "address": "0x93932676cDC21F61fCd476CaaB3Ec3b3F3f347D7",
     "gauge": "0xB19E477b959751aFd4A1C6880525e0390560681e",
@@ -115,7 +95,7 @@
     "lp1": {
       "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "kmultiUSDC",
       "decimals": "1e6"
     }
   },
@@ -135,7 +115,7 @@
     "lp1": {
       "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "kmultiUSDC",
       "decimals": "1e6"
     }
   },
@@ -149,13 +129,13 @@
     "lp0": {
       "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "kmultiETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "kmultiUSDC",
       "decimals": "1e6"
     }
   },
@@ -175,7 +155,7 @@
     "lp1": {
       "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "kmultiETH",
       "decimals": "1e18"
     }
   },
@@ -189,7 +169,7 @@
     "lp0": {
       "address": "0xb84Df10966a5D7e1ab46D9276F55d57bD336AFC7",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "kMAI",
       "decimals": "1e18"
     },
     "lp1": {
@@ -209,7 +189,7 @@
     "lp0": {
       "address": "0xABd380327Fe66724FFDa91A87c772FB8D00bE488",
       "oracle": "tokens",
-      "oracleId": "BNB",
+      "oracleId": "kmultiBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -229,7 +209,7 @@
     "lp0": {
       "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
       "oracle": "tokens",
-      "oracleId": "WBTC",
+      "oracleId": "kmultiWBTC",
       "decimals": "1e8"
     },
     "lp1": {
@@ -249,13 +229,13 @@
     "lp0": {
       "address": "0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b",
       "oracle": "tokens",
-      "oracleId": "WBTC",
+      "oracleId": "kmultiWBTC",
       "decimals": "1e8"
     },
     "lp1": {
       "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "kmultiETH",
       "decimals": "1e18"
     }
   },
@@ -275,7 +255,7 @@
     "lp1": {
       "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "kmultiETH",
       "decimals": "1e18"
     }
   },
@@ -315,7 +295,7 @@
     "lp1": {
       "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "kmultiUSDC",
       "decimals": "1e6"
     }
   },
@@ -335,7 +315,7 @@
     "lp1": {
       "address": "0xfA9343C3897324496A05fC75abeD6bAC29f8A40f",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "kmultiUSDC",
       "decimals": "1e6"
     }
   },
@@ -351,6 +331,26 @@
       "oracle": "tokens",
       "oracleId": "BIFI",
       "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+      "oracle": "tokens",
+      "oracleId": "WKAVA",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equilibre-usdt-wkava",
+    "address": "0xBe87F2e81aa16238445651fAbf62Ae097498C200",
+    "gauge": "0x5383dEB37479599a33584f7Bbc346ab299e30FF0",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x919C1c267BC06a7039e03fcc2eF738525769109c",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
     },
     "lp1": {
       "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",

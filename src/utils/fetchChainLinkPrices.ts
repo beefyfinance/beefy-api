@@ -106,6 +106,12 @@ const oracles: Oracle[] = [
     chain: 'fantom',
     heartbeat: 3600,
   },
+  {
+    oracleId: 'KAVA',
+    address: '0x7899dd75C329eFe63e35b02bC7d60D3739FB23c5',
+    chain: 'polygon',
+    heartbeat: 3600,
+  },
 ];
 
 export async function fetchChainLinkPrices(): Promise<Record<string, number>> {

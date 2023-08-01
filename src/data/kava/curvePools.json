@@ -91,7 +91,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "kmultiUSDC",
         "decimals": "1e6"
       },
       {
