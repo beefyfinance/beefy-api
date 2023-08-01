@@ -620,7 +620,7 @@ const seedPeggedPrices = {
   aWETH: 'ETH', // Aave
 };
 
-type LpBreakdown = {
+export type LpBreakdown = {
   price: number;
   tokens: string[];
   balances: string[];
