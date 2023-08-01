@@ -12,15 +12,6 @@ export const treasuryConcLiquidityAssets: Partial<Record<ApiChain, ConcLiquidity
       oracleId: 'uniswap-arbitrum-usdc-usdce-0.01',
       id: 663650,
     },
-    {
-      name: 'CVX-ETH V3',
-      address: '0xb36c6868Ba826eD6f9487F6b0DA3abA37c2f51b9',
-      decimals: 18,
-      assetType: 'concLiquidity',
-      oracleType: 'lps',
-      oracleId: 'uniswap-arbitrum-cvx-eth-0.3',
-      id: 42161,
-    },
   ],
 };
 
