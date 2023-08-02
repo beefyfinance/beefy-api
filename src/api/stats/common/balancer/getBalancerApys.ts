@@ -19,6 +19,8 @@ interface Token {
 interface Underlying {
   address: string;
   index: number;
+  poolId?: string;
+  bbIndex?: number;
 }
 
 interface Pool {
@@ -89,11 +91,9 @@ const getPoolApys = async (params: BalancerParams): Promise<FarmApyResult> => {
   const lsAprs = [];
   const cmpAprs = [];
 
-  const { tokenQtys, aaveYields } = await getPoolsData(params);
+  const { tokenQtys } = await getPoolsData(params);
 
-  const poolApyCalls = params.pools.map((pool, i) =>
-    getPoolApy(pool, params, tokenQtys[i], aaveYields[i])
-  );
+  const poolApyCalls = params.pools.map((pool, i) => getPoolApy(pool, params, tokenQtys[i]));
   const poolApyResults = await Promise.all(poolApyCalls);
 
   poolApyResults.forEach(result => {
@@ -112,8 +112,7 @@ const getPoolApys = async (params: BalancerParams): Promise<FarmApyResult> => {
 const getPoolApy = async (
   pool: Pool,
   params: BalancerParams,
-  tokenQtys: BigNumber[],
-  aaveYield?: BigNumber
+  tokenQtys: BigNumber[]
 ): Promise<FarmApy> => {
   if (pool.status === 'eol') return { rewardsApy: new BigNumber(0), aprFixed: 0, composableApr: 0 };
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
@@ -176,7 +175,12 @@ const getPoolApy = async (
 
   let compApr = new BigNumber(0);
   if (pool.includesComposableAaveTokens) {
-    let bbAaveApy: BigNumber = aaveYield;
+    let bbAaveApy: BigNumber = await getComposableAaveYield(
+      pool.aaveUnderlying,
+      pool.bbPoolId,
+      pool.bbIndex,
+      params
+    );
     if (pool.composableSplit) {
       let qty: BigNumber[] = [];
       let totalQty: BigNumber = new BigNumber(0);
@@ -188,15 +192,13 @@ const getPoolApy = async (
         }
 
         const price: number = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
-        const amt: BigNumber = new BigNumber(tokenQtys[j])
-          .times(price)
-          .dividedBy(pool.tokens[j].decimals);
+        const amt: BigNumber = tokenQtys[j].times(price).dividedBy(pool.tokens[j].decimals);
         totalQty = totalQty.plus(amt);
         qty.push(amt);
       }
 
       compApr = bbAaveApy.times(qty[pool.cmpIndex]).dividedBy(totalQty);
-      // console.log(pool.name, bbAaveApy.toNumber(), qty[pool.cmpIndex].toNumber(), totalQty.toNumber(), bbAaveApy.times(qty[pool.lsIndex]).dividedBy(totalQty))
+      // console.log(pool.name, bbAaveApy, qty[pool.cmpIndex], totalQty, bbAaveApy.times(qty[pool.lsIndex]).dividedBy(totalQty))
     } else {
       compApr = bbAaveApy;
     }
@@ -222,42 +224,63 @@ const getComposableAaveYield = async (
   index: number,
   params: BalancerParams
 ): Promise<BigNumber> => {
-  const balVault = fetchContract(params.balancerVault, IBalancerVault, params.chainId);
+  const supplyRateCalls = [];
+  const tokenQtyCalls = [];
 
-  const supplyRateCalls = tokens.map(t => {
+  const balVault = fetchContract(params.balancerVault, IBalancerVault, params.chainId);
+  tokenQtyCalls.push(balVault.read.getPoolTokens([poolId as `0x${string}`]));
+
+  tokens.forEach(t => {
     const dataProvider = fetchContract(
       params.aaveDataProvider,
       IAaveProtocolDataProvider,
       params.chainId
     );
-    return dataProvider.read.getReserveData([t.address as `0x${string}`]);
-  });
-  const tokenQtyCall = balVault.read.getPoolTokens([poolId as `0x${string}`]);
+    supplyRateCalls.push(dataProvider.read.getReserveData([t.address as `0x${string}`]));
 
-  const [supplyRateResults, tokenQtyResult] = await Promise.all([
+    tokenQtyCalls.push(balVault.read.getPoolTokens([t.poolId as `0x${string}`]));
+  });
+
+  const [supplyRateResults, tokenQtyResults] = await Promise.all([
     Promise.all(supplyRateCalls),
-    tokenQtyCall,
+    Promise.all(tokenQtyCalls),
   ]);
 
   const rates = supplyRateResults.map(v => new BigNumber(v[5].toString()));
-  const tokenQtys = tokenQtyResult[1];
-
-  let qty: BigNumber[] = [];
-  let totalQty: BigNumber = new BigNumber(0);
-  for (let j = 0; j < tokenQtys.length; j++) {
-    if (j != index) {
-      totalQty = totalQty.plus(new BigNumber(tokenQtys[j].toString()));
-      qty.push(new BigNumber(tokenQtys[j].toString()));
-    }
-  }
+  const tokenQtys = tokenQtyResults.map(v => v[1]);
 
   let apy: BigNumber = new BigNumber(0);
+  let apys: BigNumber[] = [];
+  for (let i = 0; i < tokens.length; i++) {
+    let qty: BigNumber[] = [];
+    let totalQty: BigNumber = new BigNumber(0);
+    for (let j = 0; j < tokenQtys[i + 1].length; j++) {
+      if (j != tokens[i].bbIndex) {
+        totalQty = totalQty.plus(new BigNumber(tokenQtys[i + 1][j].toString()));
+        qty.push(new BigNumber(tokenQtys[i + 1][j].toString()));
+      }
+    }
+
+    const tokenApy: BigNumber = rates[i].div(RAY_DECIMALS);
+    const portionedApy: BigNumber = tokenApy.times(qty[tokens[i].index]).dividedBy(totalQty);
+    apys.push(portionedApy);
+    //  console.log(tokens[i].address, portionedApy.toNumber(), qty[tokens[i].index].toNumber(), totalQty.toNumber());
+  }
 
   for (let i = 0; i < tokens.length; i++) {
-    const tokenApy: BigNumber = new BigNumber(rates[i]).div(RAY_DECIMALS);
-    const portionedApy: BigNumber = tokenApy.times(qty[tokens[i].index]).dividedBy(totalQty);
+    let qty: BigNumber[] = [];
+    let totalQty: BigNumber = new BigNumber(0);
+    for (let j = 0; j < tokenQtys[0].length; j++) {
+      if (j != index) {
+        totalQty = totalQty.plus(new BigNumber(tokenQtys[0][j].toString()));
+        qty.push(new BigNumber(tokenQtys[0][j].toString()));
+      }
+    }
+
+    const tokenApy: BigNumber = new BigNumber(apys[i]);
+    const portionedApy: BigNumber = tokenApy.times(qty[i]).dividedBy(totalQty);
     apy = apy.plus(portionedApy);
-    // console.log(bbaUSDTokens[i].address, portionedApy.toNumber());
+    //   console.log(tokens[i].address, portionedApy.toNumber(), qty[i].toNumber(), totalQty.toNumber());
   }
 
   return apy;
@@ -268,16 +291,10 @@ const getPoolsData = async (params: BalancerParams) => {
   const calls = params.pools.map(pool =>
     balVault.read.getPoolTokens([pool.vaultPoolId as `0x${string}`])
   );
-  const aaveCalls: Promise<BigNumber>[] = params.pools.map(pool => {
-    if (pool.includesComposableAaveTokens) {
-      return getComposableAaveYield(pool.aaveUnderlying, pool.bbPoolId, pool.bbIndex, params);
-    }
-    return new Promise(resolve => resolve(new BigNumber(0)));
-  });
 
-  const res = await Promise.all([Promise.all(calls), Promise.all(aaveCalls)]);
+  const res = await Promise.all([Promise.all(calls)]);
 
   const tokenQtys = res[0].map(v => v['1'].map(v => new BigNumber(v.toString())));
-  const aaveYields = res[1];
-  return { tokenQtys, aaveYields };
+
+  return { tokenQtys };
 };

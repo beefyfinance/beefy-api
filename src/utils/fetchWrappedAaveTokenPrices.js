@@ -27,7 +27,7 @@ const {
     tokens: { aWETH: aaWETH, waaWETH, aaUSDT, waaUSDT, aaUSDC, waaUSDC, aaDAI, waaDAI },
   },
   avax: {
-    tokens: { aavAVAX, waavAVAX },
+    tokens: { aavAVAX, waavAVAX, aavUSDC, waavUSDC, aavUSDT, waavUSDT },
   },
 } = addressBook;
 
@@ -60,7 +60,11 @@ const tokens = {
     [aaUSDC, waaUSDC, true],
     [aaDAI, waaDAI, true],
   ],
-  avax: [[aavAVAX, waavAVAX]],
+  avax: [
+    [aavAVAX, waavAVAX],
+    [aavUSDC, waavUSDC],
+    [aavUSDT, waavUSDT],
+  ],
 };
 
 const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
