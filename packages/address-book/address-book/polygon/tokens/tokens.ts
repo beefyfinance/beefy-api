@@ -1967,6 +1967,19 @@ const _tokens = {
       'BetSwirl is a fully decentralized online cryptocurrency gaming platform, where everyone will be able to enjoy a fair play, a fun time and an innovative gamer experience.',
     documentation: 'https://documentation.betswirl.com/',
   },
+  RETRO: {
+    name: 'RETRO',
+    symbol: 'RETRO',
+    address: '0xBFA35599c7AEbb0dAcE9b5aa3ca5f2a79624D8Eb',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://retro.finance/',
+    description:
+      'Retro is more than just a decentralized exchange and automated market maker. We are a solution for protocols on Polygon to incentivize liquidity and earn revenue. For users, we provide a mix of tried-and-true as well as innovative ve(3,3) tokenomics to bring them greater yields and liquidity.  Our structure and commitment to maximizing gains for all users will continue to drive us to make changes and improvements to the ve(3,3) model.',
+    documentation: 'https://docs.retro.finance/protocol-overview/welcome-to-retro-finance',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

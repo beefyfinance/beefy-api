@@ -58,6 +58,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'BAL',
       secondToken: 'ETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'RETRO',
+      decimalDelta: 1,
+      pool: '0x35394eED0Be676ec6470fE6531daD809265310ff',
+      firstToken: 'RETRO',
+      secondToken: 'ETH',
+    },
   ],
 };
 
