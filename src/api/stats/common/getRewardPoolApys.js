@@ -35,7 +35,7 @@ const getFarmApys = async params => {
     ? getXPrice(tokenPrice, params)
     : new Promise(resolve => resolve(tokenPrice));
 
-  const [rewardTokenPrice, { balances, rewardRates }] = await Promise.all([
+  const [rewardTokenPrice, { balances, rewardRates, periodFinishes }] = await Promise.all([
     rewardTokenPriceCall,
     getPoolsData(params),
   ]);
@@ -52,7 +52,9 @@ const getFarmApys = async params => {
     const yearlyRewards = rewardRates[i].times(secondsPerYear);
     const yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
 
-    const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+    const apy = periodFinishes[i].isGreaterThanOrEqualTo(Math.floor(Date.now() / 1000))
+      ? yearlyRewardsInUsd.dividedBy(totalStakedInUsd)
+      : new BigNumber(0);
     apys.push(apy);
 
     if (params.log) {
@@ -70,21 +72,31 @@ const getFarmApys = async params => {
 const getPoolsData = async params => {
   const balanceCalls = [];
   const rewardRateCalls = [];
+  const periodFinishCalls = [];
+  const periodFinish = params.periodFinish ?? 'periodFinish';
+  const abi = params.periodFinish ? getAbi(periodFinish) : IRewardPool;
+
   params.pools.forEach(pool => {
     const rewardPool = fetchContract(
       pool.rewardPool ? pool.rewardPool : pool.gauge,
-      IRewardPool,
+      abi,
       params.chainId
     );
     balanceCalls.push(rewardPool.read.totalSupply());
     rewardRateCalls.push(rewardPool.read.rewardRate());
+    periodFinishCalls.push(rewardPool.read[periodFinish]());
   });
 
-  const res = await Promise.all([Promise.all(balanceCalls), Promise.all(rewardRateCalls)]);
+  const res = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(rewardRateCalls),
+    Promise.all(periodFinishCalls),
+  ]);
 
   const balances = res[0].map(v => new BigNumber(v.toString()));
   const rewardRates = res[1].map(v => new BigNumber(v.toString()));
-  return { balances, rewardRates };
+  const periodFinishes = res[2].map(v => new BigNumber(v.toString()));
+  return { balances, rewardRates, periodFinishes };
 };
 
 const getXPrice = async (tokenPrice, params) => {
@@ -98,6 +110,19 @@ const getXPrice = async (tokenPrice, params) => {
   return new BigNumber(stakedInXPool.toString())
     .times(tokenPrice)
     .dividedBy(new BigNumber(totalXSupply.toString));
+};
+
+const getAbi = periodFinish => {
+  return [
+    ...IRewardPool,
+    {
+      inputs: [],
+      name: periodFinish,
+      outputs: [{ internalType: 'uint256', name: '', type: 'uint256' }],
+      stateMutability: 'view',
+      type: 'function',
+    },
+  ];
 };
 
 module.exports = { getRewardPoolApys };
