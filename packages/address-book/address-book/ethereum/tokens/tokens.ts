@@ -1225,6 +1225,32 @@ const _tokens = {
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
     documentation: 'https://docs.liquity.org/',
   },
+  sDAI: {
+    name: 'Savings DAI',
+    symbol: 'sDAI',
+    address: '0x83F20F44975D03b1b09e64809B757c47f942BEeA',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.sparkprotocol.io/sdai/',
+    documentation: 'https://docs.sparkprotocol.io/hub/',
+    description:
+      'sDAI is similar to DAI but with the added benefit of earning interest. You can use it just like DAI - own, transfer, and use it in the DeFi ecosystem. Swapping between sDAI and DAI incurs no additional costs and no slippage as is deposited or withdrawn from the DSR contract.',
+    bridge: 'native',
+  },
+  bbsDAI: {
+    name: 'Balancer Aave sDAI Linear Pool',
+    symbol: 'bbsDAI',
+    address: '0x2B218683178d029BAB6c9789b1073aA6c96E5176',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description: 'Balancer linear pool that consist of DAI and sDAI.',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -1,5 +1,30 @@
 [
   {
+    "name": "aura-r-bbsdai",
+    "address": "0xbF2ef8bDC2fC0F3203B3a01778E3ec5009AEEf33",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x55d34b63e94a428Bc5f8B9ab8B93693DE5251eEE",
+    "composable": true,
+    "bptIndex": 2,
+    "vaultPoolId": "0xbf2ef8bdc2fc0f3203b3a01778e3ec5009aeef3300000000000000000000058d",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "R",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbsDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      }
+    ]
+  },
+  {
     "name": "aura-gho-lusd",
     "address": "0x3FA8C89704e5d07565444009e5d9e624B40Be813",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
