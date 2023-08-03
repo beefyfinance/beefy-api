@@ -32,7 +32,7 @@ import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 import getCurveKavaPrices from './kava/getCurvePrices';
 import getSushiKavaPrices from './kava/getSushiPrices';
 import getSushiArbPrices from './arbitrum/getSushiPrice';
-import getGmxArbitrumPrices from './arbitrum/getGmxPrices';
+import { getGmxArbitrumPrices } from './arbitrum/getGmxPrices';
 import getGmxAvalanchePrices from './avax/getGmxPrices';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices';
 import getFerroPrices from './cronos/getFerroPrices';
@@ -73,6 +73,7 @@ import getQuickGammaPrices from './matic/getQuickGammaPrices';
 import getChronosStablePrices from './arbitrum/getChronosStablePrices';
 import getQuickGammaZkPrices from './zkevm/getQuickGammaPrices';
 import getFvmStablePrices from './fantom/getFvmStablePrices';
+import { getQlpZkPrices } from './zkevm/getQlpZkPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -167,6 +168,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getQuickGammaZkPrices(tokenPrices),
     getChronosStablePrices(tokenPrices),
     getFvmStablePrices(tokenPrices),
+    getQlpZkPrices(tokenPrices),
   ];
 
   // Setup error logs
