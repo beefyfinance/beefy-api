@@ -1800,7 +1800,7 @@ const _tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
   },
-  USDR: {
+  multiUSDR: {
     name: 'Real USD',
     symbol: 'USDR',
     address: '0xb5DFABd7fF7F83BAB83995E72A52B97ABb7bcf63',
@@ -1824,7 +1824,7 @@ const _tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
   },
-  USDRv3: {
+  USDR: {
     name: 'Real USD',
     symbol: 'USDR',
     address: '0x40379a439D4F6795B6fc9aa5687dB461677A2dBa',
