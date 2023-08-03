@@ -1,8 +1,8 @@
 [
   {
     "name": "pearl-usdrv3-usdt",
-    "address": "0xE520733f62f99Aa4Fba3024C03BB37BDD18F1d62",
-    "gauge": "0x2542F85f646cC1eC87C051debf47226aD2523d00",
+    "address": "0x3f69055F203861abFd5D986dC81a2eFa7c915b0c",
+    "gauge": "0x89EF6e539F2Ac4eE817202f445aA69A3769A727C",
     "decimals": "1e18",
     "chainId": 137,
     "beefyFee": 0.095,
@@ -21,8 +21,8 @@
   },
   {
     "name": "pearl-usdrv3-dai",
-    "address": "0xF78be5C18049E2320D7647e40fD127F5DCBa6717",
-    "gauge": "0xBE8D6FC6499C2D753aC67db0219378E65e406483",
+    "address": "0xBD02973b441Aa83c8EecEA158b98B5984bb1036E",
+    "gauge": "0x85Fa2331040933A02b154579fAbE6A6a5A765279",
     "decimals": "1e18",
     "chainId": 137,
     "beefyFee": 0.095,
@@ -41,8 +41,8 @@
   },
   {
     "name": "pearl-usdc-usdrv3",
-    "address": "0xa3e39aD6fCD3610B5DF6fD6Da07df3be7cE24302",
-    "gauge": "0xCDc08E33c6ecdd9A153c1337C9fA1C11d1B1aaCe",
+    "address": "0xD17cb0f162f133e339C0BbFc18c36c357E681D6b",
+    "gauge": "0x97Bd59A8202F8263C2eC39cf6cF6B438D0B45876",
     "decimals": "1e18",
     "chainId": 137,
     "beefyFee": 0.095,
