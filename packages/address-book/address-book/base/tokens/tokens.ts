@@ -3,7 +3,7 @@ import Token from '../../../types/token';
 
 const ETH = {
   name: 'Wrapped Ether',
-  address: '0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9',
+  address: '0x4200000000000000000000000000000000000006',
   symbol: 'WETH',
   decimals: 18,
   chainId: 8453,
