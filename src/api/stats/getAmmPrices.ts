@@ -598,16 +598,21 @@ const seedPeggedPrices = {
   WAVAX: 'AVAX', // Wrapped native
   WBNB: 'BNB', // Wrapped native
   WFTM: 'FTM', // Wrapped native
+  WKAVA: 'KAVA', // Wrapped native
   asUSDC: 'USDC', // Solana
   aUSDT: 'USDT', // Aave
   aDAI: 'DAI', // Aave
   aUSDC: 'USDC', // Aave
+  aETH: 'ETH', // Aave
   amUSDT: 'USDT', // Aave
   amUSDC: 'USDC', // Aave
   amDAI: 'DAI', // Aave
   aaUSDT: 'USDT', // Aave
   aaUSDC: 'USDC', // Aave
   aaDAI: 'DAI', // Aave
+  aavAVAX: 'AVAX', // Aave
+  aavUSDC: 'USDC', // Aave
+  aavUSDT: 'USDT', // Aave
   'DAI+': 'DAI', // Overnight
   alETH: 'ETH', // Alchemix
   hETH: 'ETH', // HOP
@@ -616,9 +621,10 @@ const seedPeggedPrices = {
   hUSDT: 'USDT', // HOP
   aWMATIC: 'MATIC', // Aave
   aWETH: 'ETH', // Aave
+  USDbC: 'USDC', // Base bridged USDC
 };
 
-type LpBreakdown = {
+export type LpBreakdown = {
   price: number;
   tokens: string[];
   balances: string[];

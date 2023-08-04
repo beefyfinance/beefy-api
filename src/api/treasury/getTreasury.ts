@@ -1,45 +1,30 @@
 import BigNumber from 'bignumber.js';
-import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall';
-import { chunk, keyBy, partition } from 'lodash';
+import { keyBy } from 'lodash';
 import { addressBook } from '../../../packages/address-book/address-book';
 import chainIdMap from '../../../packages/address-book/util/chainIdMap';
 import { getKey, setKey } from '../../utils/cache';
-import { web3Factory } from '../../utils/web3';
 import { getSingleChainVaults } from '../stats/getMultichainVaults';
+import { extractBalancesFromTreasuryCallResults, mapAssetToCall } from './multicallUtils';
 import {
-  extractBalancesFromTreasuryApiCallResults,
-  extractBalancesFromTreasuryMulticallResults,
-  fetchAPIBalance,
-  mapAssetToCall,
-} from './multicallUtils';
-import {
-  isValidatorAsset,
   isVaultAsset,
-  TreasuryApiResult,
   TreasuryAsset,
   TreasuryAssetRegistry,
   TreasuryBalances,
   TreasuryReport,
   TreasuryWalletRegistry,
-  ValidatorAsset,
 } from './types';
 import { getChainValidator, hasChainValidator } from './validatorHelpers';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
-import { ApiChain, ApiChains, toChainId } from '../../utils/chain';
+import { ApiChain, ApiChains } from '../../utils/chain';
 import { getTokensForChain, isTokenNative } from '../tokens/tokens';
-import { MULTICALL_V3 } from '../../utils/web3Helpers';
 import { getAmmPrice } from '../stats/getAmmPrices';
 import { keysToObject } from '../../utils/array';
+import {
+  getChainConcentratedLiquidityAssets,
+  hasChainConcentratedLiquidityAssets,
+} from './nftAssets';
 
 const REFRESH_INTERVAL = 60000 * 10;
-const MULTICALL_BATCH_SIZES: Partial<Record<ApiChain, number>> = {
-  fantom: 512,
-  polygon: 256,
-};
-
-const batchSizeForChain = (chain: ApiChain) => {
-  return MULTICALL_BATCH_SIZES[chain] ?? 1024;
-};
 const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 // treasury addresses that should be queried for balances
@@ -121,6 +106,12 @@ function getTokenAddressesByChain(): TreasuryAssetRegistry {
       tokens['validator'] = getChainValidator(chain);
     }
 
+    if (hasChainConcentratedLiquidityAssets(chain)) {
+      getChainConcentratedLiquidityAssets(chain).forEach(asset => {
+        tokens[asset.address.toLowerCase()] = asset;
+      });
+    }
+
     return tokens;
   });
 }
@@ -146,80 +137,41 @@ function getVaultAddressesByChain(): TreasuryAssetRegistry {
 
 async function updateSingleChainTreasuryBalance(chain: ApiChain) {
   const assetsToCheck = Object.values(assetsByChain[chain]);
-  const web3 = web3Factory(chainIdMap[chain]);
   const treasuryAddressesForChain = Object.values(treasuryAddressesByChain[chain]);
-  const multicallAddress = MULTICALL_V3[toChainId(chain)];
-  if (!multicallAddress) {
-    throw new Error(`Multicallv3 address not found for chain ${chain}`);
-  }
 
-  const multicall = new Multicall({
-    web3Instance: web3,
-    tryAggregate: true,
-    multicallCustomContractAddress: multicallAddress,
-  });
-  // ETH validator requires an api call, should be treated differently
-  const [validatorAsset, contractAssets] = partition(
-    assetsToCheck,
-    asset => isValidatorAsset(asset) && asset.method === 'api'
+  const assetCalls = assetsToCheck.map(asset =>
+    Promise.all(mapAssetToCall(asset, treasuryAddressesForChain, chainIdMap[chain]))
   );
-
-  const contractCallContext: ContractCallContext[] = contractAssets.flatMap(
-    (asset: TreasuryAsset) => mapAssetToCall(asset, treasuryAddressesForChain, multicallAddress)
-  );
-
-  const contractPromises: Promise<ContractCallResults>[] = chunk(
-    contractCallContext,
-    batchSizeForChain(chain)
-  ).map(batch => multicall.call(batch));
-
-  const apiPromises = validatorAsset.map(asset => fetchAPIBalance(asset as ValidatorAsset));
 
   try {
-    const results = await Promise.allSettled([...contractPromises, ...apiPromises]);
-    const hasOneFailedCall = results.some(res => res.status === 'rejected');
-
-    const contractResults = await Promise.allSettled(contractPromises);
-    const apiResults = await Promise.allSettled(apiPromises);
-
+    const callResults = await Promise.allSettled(assetCalls);
+    const hasOneFailedCall = callResults.some(res => res.status === 'rejected');
+    const failedCalls = callResults.filter(res => res.status === 'rejected').length;
+    if (hasOneFailedCall) {
+      console.log(
+        `> treasury update had at least one failed call on ${chain} ${(
+          (failedCalls / callResults.length) *
+          100
+        ).toFixed(2)}% error rate`
+      );
+    }
     const balancesForChain = {};
     treasuryAddressesForChain.forEach((treasuryData: any) => {
       balancesForChain[treasuryData.address.toLowerCase()] = {};
     });
 
-    const fulfilledContractResults = Object.fromEntries(
-      contractResults
-        .filter(res => res.status === 'fulfilled')
-        .flatMap((res: PromiseFulfilledResult<ContractCallResults>) =>
-          Object.entries(res.value.results)
-        )
-    );
-
-    if (Object.keys(fulfilledContractResults).length !== contractCallContext.length) {
-      console.log('> Multicall batch failed fetching balances for treasury on ' + chain);
-      console.log(
-        contractResults
-          .filter(res => res.status === 'rejected')
-          .map((p: PromiseRejectedResult) => p.reason)
-      );
-    }
-
-    const fulfilledApiResults = apiResults
-      .filter(res => res.status === 'fulfilled')
-      .flatMap((res: PromiseFulfilledResult<TreasuryApiResult>) => res.value);
-
-    if (Object.keys(fulfilledApiResults).length !== apiPromises.length) {
-      console.log('> Api call failed fetching balances for treasury on ' + chain);
-    }
-
     //If we have at least one failed call, we keep the previous cache, if not we purge outdated values
     tokenBalancesByChain[chain] = {
       ...(tokenBalancesByChain[chain] && hasOneFailedCall ? tokenBalancesByChain[chain] : {}),
-      ...extractBalancesFromTreasuryMulticallResults(fulfilledContractResults),
-      ...extractBalancesFromTreasuryApiCallResults(fulfilledApiResults),
+      ...extractBalancesFromTreasuryCallResults(
+        assetsToCheck,
+        treasuryAddressesForChain.map(t => t.address),
+        callResults
+      ),
     };
   } catch (err) {
     console.log('error updating treasury balances on chain ' + chain);
+    console.log(err.message);
   }
 }
 

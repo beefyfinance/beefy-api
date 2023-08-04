@@ -1788,7 +1788,7 @@ const _tokens = {
     logoURI: 'https://bscscan.com/token/images/brztoken_32.png',
     documentation: 'https://brztoken.io/files/white_paper_BRZ_2023.pdf',
   },
-  wUSDR: {
+  multiWUSDR: {
     name: 'Real USD',
     symbol: 'wUSDR',
     address: '0xAF0D9D65fC54de245cdA37af3d18cbEc860A4D4b',
@@ -1800,10 +1800,34 @@ const _tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
   },
-  USDR: {
+  multiUSDR: {
     name: 'Real USD',
     symbol: 'USDR',
     address: '0xb5DFABd7fF7F83BAB83995E72A52B97ABb7bcf63',
+    chainId: 137,
+    decimals: 9,
+    website: 'https://www.tangible.store/realusd',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
+    logoURI: '',
+  },
+  wUSDR: {
+    name: 'Real USD',
+    symbol: 'wUSDR',
+    address: '0x00e8c0E92eB3Ad88189E7125Ec8825eDc03Ab265',
+    chainId: 137,
+    decimals: 9,
+    website: 'https://www.tangible.store/realusd',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
+    logoURI: '',
+  },
+  USDR: {
+    name: 'Real USD',
+    symbol: 'USDR',
+    address: '0x40379a439D4F6795B6fc9aa5687dB461677A2dBa',
     chainId: 137,
     decimals: 9,
     website: 'https://www.tangible.store/realusd',
@@ -1942,6 +1966,19 @@ const _tokens = {
     description:
       'BetSwirl is a fully decentralized online cryptocurrency gaming platform, where everyone will be able to enjoy a fair play, a fun time and an innovative gamer experience.',
     documentation: 'https://documentation.betswirl.com/',
+  },
+  RETRO: {
+    name: 'RETRO',
+    symbol: 'RETRO',
+    address: '0xBFA35599c7AEbb0dAcE9b5aa3ca5f2a79624D8Eb',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://retro.finance/',
+    description:
+      'Retro is more than just a decentralized exchange and automated market maker. We are a solution for protocols on Polygon to incentivize liquidity and earn revenue. For users, we provide a mix of tried-and-true as well as innovative ve(3,3) tokenomics to bring them greater yields and liquidity.  Our structure and commitment to maximizing gains for all users will continue to drive us to make changes and improvements to the ve(3,3) model.',
+    documentation: 'https://docs.retro.finance/protocol-overview/welcome-to-retro-finance',
+    bridge: 'native',
   },
 } as const;
 

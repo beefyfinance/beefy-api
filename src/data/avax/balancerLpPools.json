@@ -1,0 +1,186 @@
+[
+  {
+    "name": "balancer-bbaavUSD",
+    "address": "0xa1D14d922a575232066520EDA11E27760946c991",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x11884dA90FB4221b3aa288a7741C51eC4Fc43B2f",
+    "vaultPoolId": "0xa1d14d922a575232066520eda11e27760946c991000000000000000000000012",
+    "includesComposableAaveTokens": true,
+    "composable": true,
+    "bptIndex": 1,
+    "bbIndex": 0,
+    "bbPoolId": "0x7275c131b1f67e8b53b4691f92b0e35a4c1c6e22000000000000000000000010",
+    "cmpIndex": 0,
+    "composableSplit": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x11884da90fb4221b3aa288a7741c51ec4fc43b2f",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x11884da90fb4221b3aa288a7741c51ec4fc43b2f",
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "AVAX"
+      },
+      {
+        "stream": "0x11884da90fb4221b3aa288a7741c51ec4fc43b2f",
+        "rewardToken": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaavAVAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "yyAVAX",
+        "decimals": "1e18"
+      }
+    ],
+    "aaveUnderlying": [
+      {
+        "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "index": 0,
+        "bbIndex": 0,
+        "poolId": "0x7275c131b1f67e8b53b4691f92b0e35a4c1c6e22000000000000000000000010"
+      }
+    ]
+  },
+  {
+    "name": "balancer-savax-bbaavavax",
+    "address": "0xA154009870E9B6431305F19b09F9cfD7284d4E7A",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x301A121D1d0d72C4005B354854a842A55D23251f",
+    "vaultPoolId": "0xa154009870e9b6431305f19b09f9cfd7284d4e7a000000000000000000000013",
+    "includesComposableAaveTokens": true,
+    "composable": true,
+    "bptIndex": 2,
+    "bbIndex": 1,
+    "bbPoolId": "0x7275c131b1f67e8b53b4691f92b0e35a4c1c6e22000000000000000000000010",
+    "cmpIndex": 1,
+    "composableSplit": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x301A121D1d0d72C4005B354854a842A55D23251f",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x301A121D1d0d72C4005B354854a842A55D23251f",
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "AVAX"
+      },
+      {
+        "stream": "0x301A121D1d0d72C4005B354854a842A55D23251f",
+        "rewardToken": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "stream": "0x301A121D1d0d72C4005B354854a842A55D23251f",
+        "rewardToken": "0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5",
+        "oracleId": "aQI"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "sAVAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaavAVAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ],
+    "aaveUnderlying": [
+      {
+        "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "index": 0,
+        "bbIndex": 0,
+        "poolId": "0x7275c131b1f67e8b53b4691f92b0e35a4c1c6e22000000000000000000000010"
+      }
+    ]
+  },
+  {
+    "name": "balancer-yyavax-bbaavavax",
+    "address": "0xEcE571847897fD61E764D455DC15cf1cD9dE8d6F",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xC8aAe478aCdE1d5676c3Fc6614cd25183c207F1a",
+    "vaultPoolId": "0xece571847897fd61e764d455dc15cf1cd9de8d6f000000000000000000000014",
+    "includesComposableAaveTokens": true,
+    "composable": true,
+    "bptIndex": 1,
+    "bbIndex": 0,
+    "bbPoolId": "0x7275c131b1f67e8b53b4691f92b0e35a4c1c6e22000000000000000000000010",
+    "cmpIndex": 0,
+    "composableSplit": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xC8aAe478aCdE1d5676c3Fc6614cd25183c207F1a",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0xC8aAe478aCdE1d5676c3Fc6614cd25183c207F1a",
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "AVAX"
+      },
+      {
+        "stream": "0xC8aAe478aCdE1d5676c3Fc6614cd25183c207F1a",
+        "rewardToken": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "stream": "0xC8aAe478aCdE1d5676c3Fc6614cd25183c207F1a",
+        "rewardToken": "0xF7D9281e8e363584973F946201b82ba72C965D27",
+        "oracleId": "yyAVAX"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaavAVAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "yyAVAX",
+        "decimals": "1e18"
+      }
+    ],
+    "aaveUnderlying": [
+      {
+        "address": "0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e",
+        "index": 1,
+        "bbIndex": 0,
+        "poolId": "0xeb496161099d45b3ea4892408ef745c6182eb56e00000000000000000000000e"
+      },
+      {
+        "address": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+        "index": 0,
+        "bbIndex": 0,
+        "poolId": "0xea67626e1f0b59e0d172a04f5702ef90bcdf440c00000000000000000000000f"
+      }
+    ]
+  }
+]

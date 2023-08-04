@@ -1,9 +1,9 @@
 [
   {
-    "name": "bbaUSDT",
-    "address": "0x2F4eb100552ef93840d5aDC30560E5513DFfFACb",
+    "name": "bbaETH",
+    "address": "0xbB6881874825E60e1160416D6C426eae65f2459E",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "vaultPoolId": "0x2f4eb100552ef93840d5adc30560e5513dfffacb000000000000000000000334",
+    "vaultPoolId": "0xbb6881874825e60e1160416d6c426eae65f2459e000000000000000000000592",
     "decimals": "1e18",
     "chainId": 1,
     "composable": true,
@@ -14,21 +14,46 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDT",
-        "decimals": "1e6"
+        "oracleId": "waETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "bbaUSDT",
+    "address": "0xcfAE6E251369467F465f13836Ac8135bd42f8A56",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0xcfae6e251369467f465f13836ac8135bd42f8a56000000000000000000000591",
+    "decimals": "1e18",
+    "chainId": 1,
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
       },
       {
         "oracle": "tokens",
         "oracleId": "waUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
         "decimals": "1e6"
       }
     ]
   },
   {
     "name": "bbaUSDC",
-    "address": "0x82698aeCc9E28e9Bb27608Bd52cF57f704BD1B83",
+    "address": "0xc50d4347209F285247BDa8A09Fc1C12CE42031c3",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "vaultPoolId": "0x82698aecc9e28e9bb27608bd52cf57f704bd1b83000000000000000000000336",
+    "vaultPoolId": "0xc50d4347209f285247bda8a09fc1c12ce42031c3000000000000000000000590",
     "decimals": "1e18",
     "chainId": 1,
     "composable": true,
@@ -51,18 +76,16 @@
   },
   {
     "name": "bbaDAI",
-    "address": "0xae37D54Ae477268B9997d4161B96b8200755935c",
+    "address": "0xfa24A90A3F2bBE5FEEA92B95cD0d14Ce709649f9",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "vaultPoolId": "0xae37d54ae477268b9997d4161b96b8200755935c000000000000000000000337",
+    "vaultPoolId": "0xfa24a90a3f2bbe5feea92b95cd0d14ce709649f900000000000000000000058f",
     "decimals": "1e18",
     "chainId": 1,
     "composable": true,
-    "bptIndex": 2,
+    "bptIndex": 0,
     "tokens": [
       {
-        "oracle": "tokens",
-        "oracleId": "waDAI",
-        "decimals": "1e18"
+        "oracleId": "BPTToken"
       },
       {
         "oracle": "tokens",
@@ -70,7 +93,9 @@
         "decimals": "1e18"
       },
       {
-        "oracleId": "BPTToken"
+        "oracle": "tokens",
+        "oracleId": "waDAI",
+        "decimals": "1e18"
       }
     ]
   },
@@ -90,6 +115,31 @@
       {
         "oracle": "tokens",
         "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "bbsDAI",
+    "address": "0x2B218683178d029BAB6c9789b1073aA6c96E5176",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x2b218683178d029bab6c9789b1073aa6c96e517600000000000000000000058c",
+    "decimals": "1e18",
+    "chainId": 1,
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sDAI",
         "decimals": "1e18"
       }
     ]

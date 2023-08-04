@@ -48,6 +48,7 @@ router.get('/mootokenprices', price.mooTokenPrices);
 router.get('/vaults', multichainVaults.multichainVaults);
 router.get('/vaults/zap-support', vaultZapSupport);
 router.get('/vaults/zap-support/debug', vaultZapSupportDebug);
+router.get('/vaults/last-harvest', multichainVaults.vaultsLastHarvest);
 router.get('/vaults/:chainId', multichainVaults.singleChainVaults);
 
 router.get('/oneinch/:chainId/swap', proxyOneInchSwap);

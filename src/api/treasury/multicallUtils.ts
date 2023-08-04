@@ -1,7 +1,4 @@
 import BigNumber from 'bignumber.js';
-import { ContractCallContext, ContractCallReturnContext } from 'ethereum-multicall';
-import { ERC20_ABI } from '../../abis/common/ERC20';
-import multicallAbi from '../../abis/common/Multicall/MulticallAbi.json';
 import {
   isNativeAsset,
   isTokenAsset,
@@ -13,123 +10,56 @@ import {
   ValidatorAsset,
   TreasuryApiResult,
   isConcLiquidityAsset,
+  isValidatorAsset,
 } from './types';
-import { getLpBreakdownForOracle } from '../stats/getAmmPrices';
+import { LpBreakdown, getLpBreakdownForOracle } from '../stats/getAmmPrices';
+import { fetchContract } from '../rpc/client';
+import ERC20Abi from '../../abis/ERC20Abi';
+import { MULTICALL_V3 } from '../../utils/web3Helpers';
+import MulticallAbi from '../../abis/common/Multicall/MulticallAbi';
+
+const validatorContractAbi = [
+  {
+    constant: true,
+    inputs: [],
+    name: 'balance',
+    outputs: [
+      {
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    payable: false,
+    stateMutability: 'view',
+    type: 'function',
+  },
+] as const;
 
 export const mapAssetToCall = (
   asset: TreasuryAsset,
   treasuryAddressesForChain: TreasuryWallet[],
-  multicallContractAddress: string
-): ContractCallContext[] => {
+  chainId: number
+) => {
   if (isTokenAsset(asset) || isVaultAsset(asset)) {
-    return [
-      {
-        reference: asset.address.toLowerCase(),
-        contractAddress: asset.address,
-        abi: ERC20_ABI,
-        calls: treasuryAddressesForChain.map(treasuryData => ({
-          reference: treasuryData.address.toLowerCase(),
-          methodName: 'balanceOf',
-          methodParameters: [treasuryData.address],
-        })),
-        context: {
-          type: 'standard',
-        },
-      },
-    ];
+    const contract = fetchContract(asset.address, ERC20Abi, chainId);
+    return treasuryAddressesForChain.map(treasuryData =>
+      contract.read.balanceOf([treasuryData.address as `0x${string}`])
+    );
   } else if (isNativeAsset(asset)) {
-    return [
-      {
-        reference: asset.address.toLowerCase(),
-        contractAddress: multicallContractAddress,
-        abi: multicallAbi,
-        calls: treasuryAddressesForChain.map(treasuryData => ({
-          reference: treasuryData.address.toLowerCase(),
-          methodName: 'getEthBalance',
-          methodParameters: [treasuryData.address],
-        })),
-        context: {
-          type: 'standard',
-        },
-      },
-    ];
-  } else {
-    const validatorAsset = asset as ValidatorAsset;
-    return [
-      {
-        reference: 'validator',
-        contractAddress: validatorAsset.methodPath,
-        abi: [
-          {
-            constant: true,
-            inputs: [],
-            name: 'balance',
-            outputs: [
-              {
-                name: '',
-                type: 'uint256',
-              },
-            ],
-            payable: false,
-            stateMutability: 'view',
-            type: 'function',
-          },
-        ],
-        calls: [
-          {
-            reference: 'validator',
-            methodName: 'balance',
-            methodParameters: [],
-          },
-        ],
-        context: {
-          type: 'validator',
-        },
-      },
-    ];
+    const multicallContract = fetchContract(MULTICALL_V3[chainId], MulticallAbi, chainId);
+    return treasuryAddressesForChain.map(treasuryData =>
+      multicallContract.read.getEthBalance([treasuryData.address as `0x${string}`])
+    );
+  } else if (isConcLiquidityAsset(asset)) {
+    return [getLpBreakdownForOracle(asset.oracleId)];
+  } else if (isValidatorAsset(asset)) {
+    if (asset.method === 'contract') {
+      const contract = fetchContract(asset.methodPath, validatorContractAbi, chainId);
+      return [contract.read.balance()];
+    } else {
+      return [fetchAPIBalance(asset as ValidatorAsset)];
+    }
   }
-};
-
-type FullfilledResult = {
-  [id: string]: ContractCallReturnContext;
-};
-
-export const extractBalancesFromTreasuryMulticallResults = (
-  multicallResults: FullfilledResult
-): ChainTreasuryBalance => {
-  const balances: AssetBalance[] = extractFromStandardResult(Object.entries(multicallResults));
-  return balances.reduce((all, cur) => ((all[cur.address] = cur), all), {});
-};
-
-const extractFromStandardResult = (
-  standardResults: [string, ContractCallReturnContext][]
-): AssetBalance[] => {
-  return standardResults.map(([address, returnContext]) => {
-    const treasuryBalance: AssetBalance = {
-      address,
-      balances: {},
-    };
-    returnContext.callsReturnContext.forEach(callReturn => {
-      if (callReturn.decoded) {
-        treasuryBalance.balances[callReturn.reference] = new BigNumber(
-          callReturn.returnValues[0].hex
-        );
-      }
-    });
-    return treasuryBalance;
-  });
-};
-
-export const extractBalancesFromTreasuryApiCallResults = (
-  apiCallResults: TreasuryApiResult[]
-): ChainTreasuryBalance => {
-  const balances: AssetBalance[] = apiCallResults.map(result => ({
-    address: result.apiAsset.address,
-    balances: {
-      [result.apiAsset.address]: result.balance,
-    },
-  }));
-  return balances.reduce((all, cur) => ((all[cur.address] = cur), all), {});
 };
 
 export const fetchAPIBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
@@ -140,4 +70,59 @@ export const fetchAPIBalance = async (apiAsset: ValidatorAsset): Promise<Treasur
     apiAsset,
     balance: new BigNumber(balance).shiftedBy(9),
   };
+};
+
+export const extractBalancesFromTreasuryCallResults = (
+  apiAssets: TreasuryAsset[],
+  treasuryAddresses: string[],
+  callResults: PromiseSettledResult<bigint[] | LpBreakdown[] | TreasuryApiResult[]>[]
+): ChainTreasuryBalance => {
+  const allBalances: AssetBalance[] = [];
+  apiAssets.forEach((asset, i) => {
+    if (callResults[i].status === 'fulfilled') {
+      const callResult = callResults[i] as PromiseFulfilledResult<
+        bigint[] | LpBreakdown[] | TreasuryApiResult[]
+      >;
+      if (isTokenAsset(asset) || isVaultAsset(asset) || isNativeAsset(asset)) {
+        const value = callResult.value as bigint[];
+        const bal = {
+          address: asset.address.toLowerCase(),
+          balances: {},
+        };
+        treasuryAddresses.forEach((treasuryAddress, j) => {
+          bal.balances[treasuryAddress.toLowerCase()] = new BigNumber(value[j].toString());
+        });
+        allBalances.push(bal);
+      } else if (isValidatorAsset(asset)) {
+        if (asset.method === 'contract') {
+          const value = callResult.value as bigint[];
+          allBalances.push({
+            address: asset.address.toLowerCase(),
+            balances: {
+              [asset.address.toLowerCase()]: new BigNumber(value[0].toString()),
+            },
+          });
+        } else {
+          const value = callResult.value as TreasuryApiResult[];
+          allBalances.push({
+            address: asset.address.toLowerCase(),
+            balances: {
+              [asset.address.toLowerCase()]: value[0].balance,
+            },
+          });
+        }
+      } else if (isConcLiquidityAsset(asset)) {
+        const value = callResult.value as LpBreakdown[];
+        allBalances.push({
+          address: asset.address.toLowerCase(),
+          balances: {
+            [treasuryAddresses[0].toLowerCase()]: new BigNumber(value[0].totalSupply).shiftedBy(18),
+          },
+        });
+      } else {
+        console.warn('Unknown treasury asset type:', asset);
+      }
+    }
+  });
+  return allBalances.reduce((all, cur) => ((all[cur.address] = cur), all), {});
 };

@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-v2-wbtc-tbtc",
+    "address": "0x6e57B9E54ea043a829584B22182ad22bF446926C",
+    "gauge": "0x236593E0139A542afEd346F5D8De7F52034Ef9Ab",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x68f180fcCe6836688e9084f035309E29Bf0A2095",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40",
+      "oracle": "tokens",
+      "oracleId": "tBTC",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-v2-lusd-mai",
     "address": "0x537cB4D4fE1a9dF1E295872f2B82c1da9df7500f",
     "gauge": "0xd717c012BCf1bE61e4472Dc8Bf7d2411558AD9A6",

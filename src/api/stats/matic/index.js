@@ -30,6 +30,7 @@ const getOvixApys = require('./getOvixApys');
 const { getPearlApys } = require('./getPearlApys');
 const { getQuickGammaApys } = require('./getQuickGammaApys');
 const getBetSwirlSingleApy = require('./getBetSwirlSingleApy');
+const getRetroGammaApys = require('./getRetroGammaApys');
 
 const getApys = [
   getbeQiApy,
@@ -64,6 +65,7 @@ const getApys = [
   getOvixApys,
   getPearlApys,
   getBetSwirlSingleApy,
+  getRetroGammaApys,
 ];
 
 const BATCH_SIZE = 15;

@@ -456,7 +456,7 @@ const _tokens = {
   aUSDT: {
     name: 'Aave Tether USD',
     symbol: 'aUSDT',
-    address: '0x3Ed3B47Dd13EC9a98b44e6204A523E766B225811',
+    address: '0x23878914EFE38d27C4D67Ab83ed1b93A74D4086a',
     chainId: 1,
     decimals: 6,
     logoURI:
@@ -482,7 +482,7 @@ const _tokens = {
   waUSDT: {
     name: 'Wrapped Aave Tether USD',
     symbol: 'waUSDT',
-    address: '0xf8Fd466F12e236f4c96F7Cce6c79EAdB819abF58',
+    address: '0x65799b9fD4206CdaA4A1DB79254FCbc2Fd2fFEe6',
     chainId: 1,
     decimals: 6,
     logoURI:
@@ -495,7 +495,7 @@ const _tokens = {
   bbaUSDT: {
     name: 'Balancer Aave USDT Linear Pool',
     symbol: 'bbaUSDT',
-    address: '0x2F4eb100552ef93840d5aDC30560E5513DFfFACb',
+    address: '0xcfAE6E251369467F465f13836Ac8135bd42f8A56',
     chainId: 1,
     decimals: 18,
     logoURI:
@@ -508,7 +508,7 @@ const _tokens = {
   aUSDC: {
     name: 'Aave USDC',
     symbol: 'aUSDC',
-    address: '0xBcca60bB61934080951369a648Fb03DF4F96263C',
+    address: '0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c',
     chainId: 1,
     decimals: 6,
     logoURI:
@@ -521,7 +521,7 @@ const _tokens = {
   waUSDC: {
     name: 'Wrapped Aave Tether USD',
     symbol: 'waUSDC',
-    address: '0xd093fA4Fb80D09bB30817FDcd442d4d02eD3E5de',
+    address: '0x02c2d189b45CE213a40097b62D311cf0dD16eC92',
     chainId: 1,
     decimals: 6,
     logoURI:
@@ -534,7 +534,7 @@ const _tokens = {
   bbaUSDC: {
     name: 'Balancer Aave USDC Linear Pool',
     symbol: 'bbaUSDC',
-    address: '0x82698aeCc9E28e9Bb27608Bd52cF57f704BD1B83',
+    address: '0xc50d4347209F285247BDa8A09Fc1C12CE42031c3',
     chainId: 1,
     decimals: 18,
     logoURI:
@@ -560,7 +560,7 @@ const _tokens = {
   aDAI: {
     name: 'Aave DAI',
     symbol: 'aDAI',
-    address: '0x028171bCA77440897B824Ca71D1c56caC55b68A3',
+    address: '0x018008bfb33d285247A21d44E50697654f754e63',
     chainId: 1,
     decimals: 18,
     logoURI:
@@ -573,7 +573,7 @@ const _tokens = {
   waDAI: {
     name: 'Wrapped Aave Tether DAI',
     symbol: 'waDAI',
-    address: '0x02d60b84491589974263d922D9cC7a3152618Ef6',
+    address: '0xEb708639E8e518B86a916db3685f90216b1C1c67',
     chainId: 1,
     decimals: 18,
     logoURI:
@@ -586,7 +586,7 @@ const _tokens = {
   bbaDAI: {
     name: 'Balancer Aave DAI Linear Pool',
     symbol: 'bbaDAI',
-    address: '0xae37D54Ae477268B9997d4161B96b8200755935c',
+    address: '0xfa24A90A3F2bBE5FEEA92B95cD0d14Ce709649f9',
     chainId: 1,
     decimals: 18,
     logoURI:
@@ -596,16 +596,57 @@ const _tokens = {
     description:
       'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
   },
-  bbaUSD: {
-    name: 'Balancer Aave Stable Composable Pool',
-    symbol: 'bbaUSD',
-    address: '0xA13a9247ea42D743238089903570127DdA72fE44',
+  aETH: {
+    name: 'Aave ETH',
+    symbol: 'aETH',
+    address: '0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://weth.io/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing DAI. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'native',
+  },
+  waETH: {
+    name: 'Wrapped Aave Tether ETH',
+    symbol: 'waETH',
+    address: '0x03928473f25bb2da6Bc880b07eCBaDC636822264',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://weth.io/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Wrapped Aave interest bearing ETH. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'native',
+  },
+  bbaETH: {
+    name: 'Balancer Aave ETH Linear Pool',
+    symbol: 'bbaETH',
+    address: '0xbB6881874825E60e1160416D6C426eae65f2459E',
     chainId: 1,
     decimals: 18,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description: 'Balancer linear pool that consist of ETH and wrapped Aave Interest Bearing ETH.',
+    bridge: 'native',
+  },
+  bbaUSD: {
+    name: 'Balancer Aave Stable Composable Pool',
+    symbol: 'bbaUSD',
+    address: '0xc443C15033FCB6Cf72cC24f1BDA0Db070DdD9786',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    bridge: 'native',
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
   },
@@ -1108,6 +1149,19 @@ const _tokens = {
     description:
       'High yield USD (hyUSD), is a decentralized flatcoin initially pegged to $1 USD that provides convenient access to DeFi yields, enabling holders to grow and preserve their wealth. hyUSD is 1:1 asset backed by a basket of other yield bearing tokens including eUSD as well as tokenized lending with exposure to US Treasuries. Given the unique design and current market conditions it is estimated to yield 8% or better to anyone holding hyUSD in any wallet, outpacing the rate of inflation in over 100 countries around the world and providing safe refuge for purchasing power everywhere.',
   },
+  ETHx: {
+    name: 'ETHx',
+    symbol: 'ETHx',
+    address: '0xA35b1B31Ce002FBF2058D22F30f95D405200A15b',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.staderlabs.com/eth/',
+    bridge: 'native',
+    description:
+      "ETHx is an innovative liquid staking token developed by Stader, designed to revolutionize Ethereum staking. Stader's vision for ETHx is to transform the staking experience, providing users with the unprecedented freedom to move and utilize their staked ETH while continuing to earn rewards and engage with the growing DeFi ecosystem.",
+    documentation: 'https://staderlabs.gitbook.io/ethereum',
+  },
   'ETH+': {
     name: 'ETHPlus',
     symbol: 'ETH+',
@@ -1116,6 +1170,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://register.app/#/overview?token=0xE72B141DF173b999AE7c1aDcbF60Cc9833Ce56a8',
+    bridge: 'native',
     description:
       'Safety-first diversified ETH staking index with up to 4.5% APY backed by Lido Staked ETH and Rocket Pool ETH.',
   },
@@ -1140,8 +1195,61 @@ const _tokens = {
     logoURI: '',
     website: 'https://raft.fi',
     documentation: 'https://docs.raft.fi/',
+    bridge: 'native',
     description:
       'Raft is a governance-minimized, decentralized protocol that allows people to generate R (a USD stablecoin) by depositing  capital-efficient collateral.',
+  },
+  GHO: {
+    name: 'GHO Token',
+    symbol: 'GHO',
+    address: '0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://aave.com/',
+    documentation: 'https://docs.aave.com/faq/gho-stablecoin',
+    bridge: 'native',
+    description:
+      'GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
+  },
+  LUSD: {
+    name: 'LUSD Stablecoin',
+    symbol: 'LUSD',
+    address: '0x5f98805A4E8be255a32880FDeC7F6728C6568bA0',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.liquity.org/',
+    bridge: 'native',
+    description:
+      'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
+    documentation: 'https://docs.liquity.org/',
+  },
+  sDAI: {
+    name: 'Savings DAI',
+    symbol: 'sDAI',
+    address: '0x83F20F44975D03b1b09e64809B757c47f942BEeA',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.sparkprotocol.io/sdai/',
+    documentation: 'https://docs.sparkprotocol.io/hub/',
+    description:
+      'sDAI is similar to DAI but with the added benefit of earning interest. You can use it just like DAI - own, transfer, and use it in the DeFi ecosystem. Swapping between sDAI and DAI incurs no additional costs and no slippage as is deposited or withdrawn from the DSR contract.',
+    bridge: 'native',
+  },
+  bbsDAI: {
+    name: 'Balancer Aave sDAI Linear Pool',
+    symbol: 'bbsDAI',
+    address: '0x2B218683178d029BAB6c9789b1073aA6c96E5176',
+    chainId: 1,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description: 'Balancer linear pool that consist of DAI and sDAI.',
+    bridge: 'native',
   },
 } as const;
 
