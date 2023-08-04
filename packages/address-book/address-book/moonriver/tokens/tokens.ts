@@ -10,6 +10,7 @@ const MOVR = {
   website: 'https://moonbeam.network/networks/moonriver/',
   description:
     'Moonriver is a companion network to Moonbeam and provides a permanently incentivized canary network. New code ships to Moonriver first, where it can be tested and verified under real economic conditions. Once proven, the same code ships to Moonbeam on Polkadot.',
+  bridge: 'native',
   logoURI:
     'https://app.solarbeam.io/_next/image?url=https%3A%2F%2Fapp.solarbeam.io%2Fimages%2Ftokens%2Fmovr.png&w=32&q=50',
 } as const;
@@ -112,6 +113,7 @@ const _tokens = {
     logoURI: 'https://www.huckleberry.finance/static/media/02.edc46c96.png',
     website: 'https://www.huckleberry.finance/#/swap',
     description: 'Huckleberry is a community driven AMM crosschain DEX built on Moonriver.',
+    bridge: 'native',
   },
   DOTm: {
     name: 'Polkadot Token',
@@ -148,6 +150,7 @@ const _tokens = {
     website: 'https://app.solarbeam.io/exchange/swap',
     description:
       'Solarbeam is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonriver Network. We are currently the leading DEX on the network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
+    bridge: 'native',
   },
   RIB: {
     name: 'RiverBoat',
@@ -173,6 +176,7 @@ const _tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'multichain',
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -206,6 +210,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'multichain',
     logoURI: 'https://arbiscan.io/token/images/weth_28.png',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
@@ -410,6 +415,7 @@ const _tokens = {
     website: 'https://kusama.network/',
     description:
       'xcKSM is the Moonriver bridged verison of KSM from Kusama. Kusama is an experimental and development environment for features that will eventually be deployed to Polkadot.',
+    bridge: 'kusama',
   },
   xcRMRK: {
     name: 'xcRMRK',
@@ -457,6 +463,7 @@ const _tokens = {
     website: 'https://kusama.lido.fi/',
     description:
       'Staked KSM (stKSM) is a liquid staking solution for KSM backed by industry-leading staking providers. stKSM rebases daily to receive rewards, wrapping stKSM for wstKSM will stop the rebasing mechanism, and will allow users to continue accruing staking rewards.',
+    bridge: 'kusama',
   },
   'BIFI-WMOVR LP': {
     name: 'BIFI-WMOVR LP',

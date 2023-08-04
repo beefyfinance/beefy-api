@@ -31,7 +31,7 @@ const _tokens = {
     description:
       'USDC (Multichain) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://developers.circle.com/docs',
-    bridge: 'native',
+    bridge: 'multichain',
   },
   multichainUSDT: {
     name: 'USDT',

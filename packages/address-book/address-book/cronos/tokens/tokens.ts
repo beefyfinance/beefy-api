@@ -9,6 +9,7 @@ const CRO = {
   chainId: 25,
   website: 'https://cronos.crypto.org/',
   description: 'Crypto.com Coin',
+  bridge: 'native',
   logoURI: 'https://vvs.finance/images/tokens/0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23.svg',
 } as const;
 
@@ -156,6 +157,7 @@ const _tokens = {
     website: 'https://tectonic.finance/',
     description:
       'Tectonic is a cross-chain money market for earning passive yield and accessing instant backed loans',
+    bridge: 'native',
     logoURI: 'https://vvs.finance/images/tokens/0xDD73dEa10ABC2Bff99c60882EC5b2B81Bb1Dc5B2.svg',
   },
   LIQ: {
@@ -166,6 +168,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://farm.liquidus.finance/',
     description: 'Earn interest on your decentralised crypto assets',
+    bridge: 'multichain',
     logoURI: 'https://farm.liquidus.finance/static/media/liquidus_logo_round.f72f345a.png',
   },
   ATOM: {
@@ -177,6 +180,7 @@ const _tokens = {
     website: 'https://cosmos.network/',
     description:
       'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+    bridge: 'cronos-canonical',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x0eb3a705fc54725037cc9e008bdede697f62f335.png',
   },
@@ -190,6 +194,7 @@ const _tokens = {
     website: 'https://dogecoin.com/',
     description:
       'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
+    bridge: 'cronos-canonical',
   },
   SHIB: {
     name: 'Shiba Inu',
@@ -200,6 +205,7 @@ const _tokens = {
     website: 'https://shibatoken.com/',
     description:
       'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
+    bridge: 'cronos-canonical',
     logoURI: 'https://bscscan.com/token/images/shibatoken_32.png',
   },
   VVS: {
@@ -212,6 +218,7 @@ const _tokens = {
     website: 'https://vvs.finance',
     description:
       'VVS is designed to be the simplest DeFi platform for users to swap tokens, earn high yields, and most importantly have fun!',
+    bridge: 'native',
   },
   USDC: {
     name: 'USD Coin',
@@ -225,6 +232,7 @@ const _tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'cronos-canonical',
   },
   ETH: {
     name: 'Ethereum',
@@ -234,6 +242,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'cronos-canonical',
     logoURI: 'https://arbiscan.io/token/images/weth_28.png',
   },
   WBTC: {
@@ -245,6 +254,7 @@ const _tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    bridge: 'cronos-canonical',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
@@ -269,6 +279,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'cronos-canonical',
     logoURI:
       'https://app.cronaswap.org/images/tokens/0x66e428c3f67a68878562e79A0234c1F83c208770.svg',
   },
@@ -281,6 +292,7 @@ const _tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
+    bridge: 'cronos-canonical',
     logoURI:
       'https://app.cronaswap.org/images/tokens/0xF2001B145b43032AAF5Ee2884e456CCd805F677D.svg',
   },
