@@ -621,6 +621,7 @@ const seedPeggedPrices = {
   hUSDT: 'USDT', // HOP
   aWMATIC: 'MATIC', // Aave
   aWETH: 'ETH', // Aave
+  USDbC: 'USDC', // Base bridged USDC
 };
 
 export type LpBreakdown = {

@@ -18,6 +18,7 @@ import getStellaswapPrices from './moonbeam/getStellaswapPrices';
 import getBeetsOPPrices from './optimism/getBeetsOPPrices';
 import getBalancerArbPrices from './arbitrum/getBalancerArbPrices';
 import getBalancerAvaxPrices from './avax/getBalancerPrices';
+import getBalancerBasePrices from './base/getBalancerPrices';
 import getBalancerPolyPrices from './matic/getBalancerPolyPrices';
 import getBalancerZkevmPrices from './zkevm/getBalancerPrices';
 import getVelodromeStablePrices from './optimism/getVelodromeStablePrices';
@@ -142,6 +143,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getPolygonSolidlyStablePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
     getBalancerAvaxPrices(tokenPrices),
+    getBalancerBasePrices(tokenPrices),
     getBalancerZkevmPrices(tokenPrices),
     getBalancerPolyPrices(tokenPrices),
     getBalancerArbPrices(tokenPrices),

@@ -20,4 +20,5 @@ export enum ChainId {
   canto = 7700,
   zksync = 324,
   zkevm = 1101,
+  base = 8453,
 }
