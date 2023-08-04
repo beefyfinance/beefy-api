@@ -790,7 +790,7 @@ const _tokens = {
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/FRAX.png',
     website: 'https://frax.finance/',
     description: 'Frax is the world’s first fractional-algorithmic stablecoin.',
-    bridge: 'frax-ferry',
+    bridge: 'frax',
   },
   FXS: {
     name: 'Frax Share',
@@ -4095,7 +4095,7 @@ const _tokens = {
     website: 'https://app.frax.finance/frxeth/mint',
     description:
       'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
-    bridge: 'frax-ferry',
+    bridge: 'frax',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
