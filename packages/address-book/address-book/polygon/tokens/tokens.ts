@@ -10,6 +10,7 @@ const MATIC = {
   website: 'https://polygon.technology/',
   description:
     'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
+  bridge: 'native',
   logoURI:
     'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png',
 } as const;
@@ -73,6 +74,7 @@ const _tokens = {
     documentation: 'https://www.binance.com/en/busd',
     description:
       'These are digitised US Dollars and are always purchased and redeemed at 1 BUSD for 1 US dollar.',
+    bridge: 'binance-peg',
     chainId: 137,
     logoURI: '',
   },
@@ -97,6 +99,7 @@ const _tokens = {
     website: 'https://overnight.fi/',
     description:
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
@@ -256,6 +259,7 @@ const _tokens = {
     website: 'https://polygon.staderlabs.com/liquid-staking/maticx',
     description:
       'Stader is a non-custodial smart contract-based staking platform that helps you conveniently discover and access staking solutions. We are building key staking middleware infra for multiple PoS networks for retail crypto users, exchanges and custodians.',
+    bridge: 'native',
   },
   SD: {
     name: 'Stader ',
@@ -289,6 +293,7 @@ const _tokens = {
     website: 'https://polygon.lido.fi/',
     description:
       'Lido for Polygon is a liquid staking solution for MATIC backed by industry-leading staking providers.',
+    bridge: 'native',
   },
   ONE: {
     name: 'Wrapped ONE',
@@ -345,6 +350,7 @@ const _tokens = {
     website: 'https://mimo.capital/',
     description:
       'Mimo have a lending platform allowing people to borrow PAR, a stable token algorithmically pegged to the Euro.',
+    bridge: 'native',
     logoURI: 'https://assets.coingecko.com/coins/images/14153/small/par_round_200.png?1614670422',
   },
   EURS: {
@@ -366,6 +372,7 @@ const _tokens = {
     decimals: 6,
     website: 'https://tether.to/en/',
     description: 'Euro Tether token (EURt) is the first euro-pegged stablecoin pegged to the Euro.',
+    bridge: 'polygon-canonical',
     logoURI:
       'https://assets.coingecko.com/coins/images/17385/small/Tether_full_logo_dm.png?1627537298',
   },
@@ -653,6 +660,7 @@ const _tokens = {
     website: 'https://jarvis.network/',
     description:
       'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
+    bridge: 'native',
     logoURI: 'https://i.imgur.com/ZvP634G.png',
     documentation: 'https://learn.jarvis.network/',
   },
@@ -806,6 +814,7 @@ const _tokens = {
     website: 'https://aave.com/',
     description:
       'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
+    bridge: 'polygon-canonical',
     logoURI: 'https://etherscan.io/token/images/aave_32.png',
   },
   AZUKI: {
@@ -864,6 +873,7 @@ const _tokens = {
     website: 'https://makerdao.com/',
     description:
       'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
+    bridge: 'polygon-canonical',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
   },
@@ -888,6 +898,7 @@ const _tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    bridge: 'polygon-canonical',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
   },
@@ -955,6 +966,7 @@ const _tokens = {
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    bridge: 'polygon-canonical',
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x514910771AF9Ca656af840dff83E8264EcF986CA/logo.png',
@@ -1043,6 +1055,7 @@ const _tokens = {
     chainId: 137,
     website: 'https://www.telco.in/',
     description: 'A cryptocurrency distributed by your mobile operator and accepted everywhere.',
+    bridge: 'polygon-canonical',
     logoURI: 'https://pbs.twimg.com/profile_images/933388441475194881/57fOk40N_400x400.jpg',
   },
   UNI: {
@@ -1053,6 +1066,7 @@ const _tokens = {
     website: 'https://uniswap.org/',
     description:
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    bridge: 'polygon-canonical',
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-interface/master/public/favicon1.png',
@@ -1065,6 +1079,7 @@ const _tokens = {
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'polygon-canonical',
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
@@ -1078,6 +1093,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether converts cash into digital currency, to anchor or tether the value to the price of national currencies like the US dollar, the Euro, and the offshore Chinese yuan.',
+    bridge: 'polygon-canonical',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
   },
@@ -1099,6 +1115,7 @@ const _tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    bridge: 'polygon-canonical',
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png',
@@ -1237,6 +1254,7 @@ const _tokens = {
     website: 'https://curve.fi/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    bridge: 'polygon-canonical',
     logoURI: 'https://external-content.duckduckgo.com/ip3/resources.curve.fi.ico',
   },
   DOKI: {
@@ -1633,6 +1651,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'polygon-canonical',
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
   },
   wamUSDT: {
@@ -1673,6 +1692,7 @@ const _tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
       'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'polygon-canonical',
   },
   wamUSDC: {
     name: 'Wrapped Aave Tether USD',
@@ -1712,6 +1732,7 @@ const _tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
       'Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
+    bridge: 'dai',
   },
   wamDAI: {
     name: 'Wrapped Aave Tether DAI',
@@ -1847,6 +1868,7 @@ const _tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    bridge: 'polygon-canonical',
   },
   aWMATIC: {
     name: 'Aave WMATIC',
@@ -1883,6 +1905,7 @@ const _tokens = {
     website: 'https://polygon.technology/',
     description:
       'Balancer Boosted Aave interest bearing MATIC. Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
+    bridge: 'native',
   },
   aWETH: {
     name: 'Aave WETH',
@@ -1942,6 +1965,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x750e4C4984a9e0f12978eA6742Bc1c5D248f40ed.svg',
     website: 'https://axelar.network/',
     description: 'Axelar Bridged USDC',
+    bridge: 'axelar',
     documentation: 'https://docs.axelar.dev/',
   },
   TNGBL: {
@@ -1954,6 +1978,7 @@ const _tokens = {
     website: 'https://www.tangible.store/',
     description:
       'Tangible converts real world assets into tangible NFTs (TNFTs) that can be redeemed for the physical product at any time.',
+    bridge: 'native',
   },
   BETS: {
     name: 'BetSwirl Token',
