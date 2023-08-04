@@ -67,6 +67,7 @@
     "zksync:velocore:add": "ts-node scripts/add-solidly.ts --network zksync --project velocore --newFee true --lp",
     "zksync:vesync:add": "ts-node scripts/add-solidly.ts --network zksync --project vesync --newFee true --lp",
     "zkevm:quick:add": "ts-node scripts/add-sushi.ts --network zkevm --project quickZkevm --newFee true --pool",
+    "base:baseSwap:add": "ts-node scripts/add-farm.ts --network base --project baseSwap --newFee true",
     "gen-abi-types": "abi-types-generator ./src/abis/StableSwap.json --output='./src/abis/StableSwap/types'"
   },
   "dependencies": {

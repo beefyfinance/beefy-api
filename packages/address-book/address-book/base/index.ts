@@ -1,5 +1,6 @@
 import { beefyfinance } from './platforms/beefyfinance';
 import { balancer } from './platforms/balancer';
+import { baseSwap } from './platforms/baseSwap';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -9,6 +10,7 @@ const _base = {
   platforms: {
     beefyfinance,
     balancer,
+    baseSwap,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
