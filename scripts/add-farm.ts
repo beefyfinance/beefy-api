@@ -41,6 +41,9 @@ const {
   ethereum: {
     platforms: { sushi },
   },
+  base: {
+    platforms: { baseSwap },
+  },
 } = addressBook;
 
 const projects = {
@@ -153,6 +156,11 @@ const projects = {
     prefix: 'arbidex',
     file: '../src/data/arbitrum/arbidexLpPools.json',
     masterchef: arbidex.chef,
+  },
+  baseSwap: {
+    prefix: 'baseswap',
+    file: '../src/data/base/baseSwapLpPools.json',
+    masterchef: baseSwap.chef,
   },
 };
 
