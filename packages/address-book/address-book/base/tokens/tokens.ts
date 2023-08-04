@@ -21,7 +21,7 @@ const _tokens = {
   USDbC: {
     name: 'USD Base Coin',
     address: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
-    symbol: 'USDC',
+    symbol: 'USDbC',
     decimals: 6,
     website: 'https://www.centre.io/',
     description:
