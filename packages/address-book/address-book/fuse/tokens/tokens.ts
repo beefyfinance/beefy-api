@@ -10,6 +10,7 @@ const FUSE = {
   website: 'https://fuse.io/',
   description:
     'Launch community-centric payment systems and token economies on an Ethereum-compatible blockchain.',
+  bridge: 'native',
   logoURI: 'https://explorer.fuse.io/images/fuse_logo-0346e93ebb763ba41076456a9f0bf943.svg?vsn=d',
 } as const;
 
@@ -63,6 +64,7 @@ const _tokens = {
     website: 'https://voltage.finance/',
     description:
       'Voltage Finance is a decentralized trading protocol, known for its role in facilitating automated trading of decentralized finance (DeFi) tokens on the Fuse network.',
+    bridge: 'native',
   },
   atUST: {
     name: 'UST Terra',

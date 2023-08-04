@@ -9,6 +9,7 @@ const ETH = {
   chainId: 1,
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain. ',
+  bridge: 'native',
   logoURI: 'https://arbiscan.io/token/images/weth_28.png',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const;
@@ -38,6 +39,7 @@ const _tokens = {
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'native',
     chainId: 1,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
@@ -64,6 +66,7 @@ const _tokens = {
     website: 'https://conic.finance/',
     description:
       'Conic Finance is an easy-to-use platform built for liquidity providers to easily diversify their exposure to multiple Curve pools. Any user can provide liquidity into a Conic Omnipool which allocates funds across Curve in proportion to protocol controlled pool weights.',
+    bridge: 'native',
     documentation: 'https://docs.conic.finance/conic-finance/',
   },
   CTR: {
@@ -75,6 +78,7 @@ const _tokens = {
     website: 'https://concentrator.aladdin.club/',
     description:
       'Concentrator by Aladdin DAO maximizes Convex APYs and earns yield in the best DeFi tokens. Concentrator is a yield enhancer that boosts yields on Convex vaults by concentrating all rewards into auto-compounding top-tier tokens like aCRV (cvxCRV) and aFXS (cvxFXS/FXS).',
+    bridge: 'native',
     documentation: 'https://docs.aladdin.club/concentrator',
   },
   MATIC: {
@@ -86,6 +90,7 @@ const _tokens = {
     website: 'https://polygon.technology/',
     description:
       'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
+    bridge: 'native',
   },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
@@ -95,7 +100,8 @@ const _tokens = {
     decimals: 18,
     website: 'https://lido.fi/',
     description:
-      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
@@ -107,7 +113,8 @@ const _tokens = {
     decimals: 18,
     website: 'https://lido.fi/',
     description:
-      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
@@ -130,6 +137,7 @@ const _tokens = {
     symbol: 'FRAX',
     website: 'https://frax.finance/',
     description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
+    bridge: 'native',
     logoURI:
       'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
     documentation: 'https://docs.frax.finance/',
@@ -155,6 +163,7 @@ const _tokens = {
     website: 'https://www.synthetix.io/',
     description:
       'sBTC is a synthetic Bitcoin token enabled by the Synthetix protocol. It tracks the price of Bitcoin through price feeds supplied by Chainlink’s decentralized network of oracles.',
+    bridge: 'native',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
@@ -166,6 +175,7 @@ const _tokens = {
     symbol: 'multiBTC',
     website: 'https://app.multichain.org/',
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
+    bridge: 'multichain',
     documentation: 'https://docs.multichain.org/getting-started/introduction',
   },
   alETH: {
@@ -189,6 +199,7 @@ const _tokens = {
     website: 'https://abracadabra.money/',
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
   },
@@ -202,6 +213,7 @@ const _tokens = {
     documentation: 'https://github.com/ape-fi/ape-finance',
     description:
       'Ape Finance is building DeFi tools for metaverse dwellers, proud PFP owners, and digital collectible enthusiasts in all of us. We appreciate culture, art, and games. Ape Finance begins with the creation of the ApeUSD.',
+    bridge: 'native',
     logoURI: '',
   },
   auraBAL: {
@@ -212,6 +224,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://aura.finance/',
     description: "auraBAL is Aura's liquid staking locked BAL (80 BAL / 20 ETH) BPT",
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.aura.finance/aura/what-is-aura/for-usdbal-stakers',
   },
@@ -235,7 +248,8 @@ const _tokens = {
     decimals: 18,
     website: 'https://aura.finance/',
     description:
-      'Aura Finance is a protocol built on top of the Balancer system to provide maximum incentives to Balancer liquidity providers and BAL stakers (into veBAL) through social aggregation of BAL deposits and Aura’s native token. For BAL stakers, Aura provides a seamless onboarding process to veBAL, by creating a tokenised wrapper token called auraBAL that represents the 80/20 BPT locked up for the maximum time in VotingEscrow (read more about what this means). This can be staked to receive existing rewards (BAL and bbaUSD) from Balancer, in addition to a share of any BAL earned by Aura (read more about the fees), and additional AURA. This minting process is irreversible however users can trade their auraBAL back to BAL through an incentivised liquidity pool.',
+    'Aura Finance is a protocol built on top of the Balancer system to provide maximum incentives to Balancer liquidity providers and BAL stakers (into veBAL) through social aggregation of BAL deposits and Aura’s native token. For BAL stakers, Aura provides a seamless onboarding process to veBAL, by creating a tokenised wrapper token called auraBAL that represents the 80/20 BPT locked up for the maximum time in VotingEscrow (read more about what this means). This can be staked to receive existing rewards (BAL and bbaUSD) from Balancer, in addition to a share of any BAL earned by Aura (read more about the fees), and additional AURA. This minting process is irreversible however users can trade their auraBAL back to BAL through an incentivised liquidity pool.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.aura.finance/',
   },
@@ -262,6 +276,7 @@ const _tokens = {
     documentation: 'https://docs.threshold.network/',
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
+    bridge: 'threshold',
   },
   T: {
     name: 'Threshold Network Token',
@@ -273,6 +288,7 @@ const _tokens = {
     website: 'https://threshold.network/',
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
+    bridge: 'native',
   },
   eCFX: {
     name: 'ethereum Conflux',
@@ -305,6 +321,7 @@ const _tokens = {
     website: 'https://curve.fi/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://curve.readthedocs.io/',
   },
@@ -318,6 +335,7 @@ const _tokens = {
     documentation: 'https://docs.convexfinance.com/',
     description:
       'Convex allows Curve.fi liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
+    bridge: 'native',
     logoURI: '',
   },
   cvxCRV: {
@@ -330,6 +348,7 @@ const _tokens = {
     documentation: 'https://docs.convexfinance.com/',
     description:
       'Convex allows Curve.fi liquidity providers to earn trading fees and claim boosted CRV without locking CRV themselves. Liquidity providers can receive boosted CRV and liquidity mining rewards with minimal effort.',
+    bridge: 'native',
     logoURI: '',
   },
   cvxFXS: {
@@ -342,6 +361,7 @@ const _tokens = {
     documentation: 'https://docs.convexfinance.com/',
     description:
       'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve.fi LPs.',
+    bridge: 'native',
     logoURI: '',
   },
   cvxFPIS: {
@@ -391,6 +411,7 @@ const _tokens = {
     website: 'https://rocketpool.net/',
     description:
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
   },
@@ -406,6 +427,7 @@ const _tokens = {
     documentation: 'https://tether.to/en/how-it-works',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'native',
   },
   DOLA: {
     name: 'Dola USD Stablecoin',
@@ -418,6 +440,7 @@ const _tokens = {
     documentation: 'https://docs.inverse.finance/inverse-finance/using-dola/how-to-acquire-dola',
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    bridge: 'native',
   },
   sETH: {
     name: 'Synth sETH',
@@ -429,6 +452,7 @@ const _tokens = {
     website: 'https://synthetix.io/',
     description:
       'Synths are derivative tokens providing exposure to a range of assets. They can be traded with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between Synths generate a small fee that is distributed to SNX collateral providers.',
+    bridge: 'native',
   },
   cbETH: {
     name: 'Coinbase Wrapped Staked ETH',
@@ -440,6 +464,7 @@ const _tokens = {
     website: 'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
     description:
       "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
+    bridge: 'native',
   },
   USDD: {
     name: 'Decentralized USD',
@@ -451,6 +476,7 @@ const _tokens = {
     website: 'https://usdd.io/',
     description:
       'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
+    bridge: 'bittorent',
     documentation: 'https://usdd.io/docs/',
   },
   aUSDT: {
@@ -556,6 +582,7 @@ const _tokens = {
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
+    bridge: 'native',
   },
   aDAI: {
     name: 'Aave DAI',
@@ -659,6 +686,7 @@ const _tokens = {
     website: 'https://app.frax.finance/frxeth/mint',
     description:
       'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
@@ -671,6 +699,7 @@ const _tokens = {
     website: 'https://app.frax.finance/frxeth/mint',
     description:
       'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited. ',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
@@ -707,6 +736,7 @@ const _tokens = {
     website: 'https://app.balancer.fi/',
     description:
       'Instead of locking pure BAL, users obtain veBAL by locking 80/20 BAL/WETH Balancer Pool Tokens (BPTs). This ensures that even if a large portion of BAL tokens are locked, there is deep trading liquidity.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.balancer.fi/ecosystem/vebal-and-gauges/vebal',
   },
@@ -721,6 +751,7 @@ const _tokens = {
     website: 'https://sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+    bridge: 'native',
     documentation: 'https://dev.sushi.com/',
   },
   ILV: {
@@ -748,6 +779,7 @@ const _tokens = {
     documentation: 'https://docs.lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+    bridge: 'native',
   },
   SYN: {
     name: 'Synapse',
@@ -760,6 +792,7 @@ const _tokens = {
     website: 'https://synapseprotocol.com/landing',
     description:
       'Synapse is a universal interoperability protocol that enables secure cross-chain communication. Synapse connects blockchains by offering an extensible cross-chain messaging protocol that supports assets, smart contract calls, and more. By leveraging Synapse, blockchains can easily and securely interoperate with each other and developers can build truly cross-chain applications including cross-chain DEX, lending platforms, margining systems, derivatives markets, yield aggregators, and much more.',
+    bridge: 'native',
     documentation: 'https://docs.synapseprotocol.com/',
   },
   SOLID: {
@@ -772,6 +805,7 @@ const _tokens = {
     website: 'https://solidly.com/',
     description:
       'Solidly is an AMM allowing fully decentralized token swapping with support for low slippage trades between pegged assets like stablecoins.',
+    bridge: 'native',
     documentation: '',
   },
   SNX: {
@@ -841,6 +875,7 @@ const _tokens = {
     website: 'https://gearbox.fi/',
     description:
       'Gearbox Protocol allows anyone to take DeFi-native leverage and then use it across various (DeFi & more) protocols. This enables you to compose your position as you want. You take leverage with Gearbox and then use it on other protocols you already love: Uniswap, Curve, Convex, Lido, etc. For example, you can leverage trade on Uniswap, leverage farm on Yearn, make delta-neutral strategies, hedge your exposure, get Leverage-as-a-Service for your structured product, and more... ',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.gearbox.finance/',
   },
@@ -852,6 +887,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://trueusd.com/',
     description: 'The first regulated stablecoin fully backed by the US Dollar.',
+    bridge: 'native',
     logoURI: '',
   },
   CLEV: {
@@ -863,6 +899,7 @@ const _tokens = {
     website: 'https://clever.aladdin.club/',
     description:
       'Deposit top quality tokens to CLever in high-yielding collateral strategies, then claim your future yields today. Your future yields can be farmed, re-deposited to create leverage, or used wherever you need them.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.aladdin.club/clever',
   },
@@ -875,6 +912,7 @@ const _tokens = {
     website: 'https://clever.aladdin.club/',
     description:
       'Deposit top quality tokens to CLever in high-yielding collateral strategies, then claim your future yields today. Your future yields can be farmed, re-deposited to create leverage, or used wherever you need them.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.aladdin.club/clever',
   },
@@ -887,6 +925,7 @@ const _tokens = {
     website: 'https://yearn.finance/ycrv',
     description:
       "yCRV is Yearn's new and improved veCRV wrapper system designed to tokenize the different benefits of Yearn's veCRV position.",
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.yearn.finance/getting-started/products/ycrv/overview',
   },
@@ -899,6 +938,7 @@ const _tokens = {
     website: 'https://register.app/',
     description:
       'The Reserve Protocol is the first platform that allows for the permissionless creation of asset-backed, yield-bearing & overcollateralized stablecoins on Ethereum. The end goal of the Reserve Protocol is to provide highly scalable, decentralized, stable money in contrast to volatile cryptocurrencies such as Bitcoin and Ether.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://reserve.org/protocol/',
   },
@@ -960,6 +1000,7 @@ const _tokens = {
     description:
       'The stablecoin lvUSD is pegged to the USD and is used for lending and repaying loans.\n' +
       'When liquidity providers (LPs) deposit 3CRV, Archimedes borrows lvUSD on behalf of leverage takers (LTs) and uses it to enter a strategy. Investing in the 3CRV/lvUSD pool gives LPs exposure to both 3CRV and the collateral provided by LTs. This allows the market to decide on the best investment strategy.',
+    bridge: 'native',
     documentation: 'https://docs.archimedesfi.com/',
   },
   eUSDT: {
@@ -1055,6 +1096,7 @@ const _tokens = {
     website: 'https://verse.bitcoin.com/',
     description:
       'At Bitcoin.com our mission is to create more economic freedom in the world. We define economic freedom as the ability to make choices with respect to one’s personal resources, unencumbered by trusted third parties or borders or lack of access. We believe economic freedom is the foundation of peace and prosperity, and by creating more of it for people, we are reducing suffering in the world. We strive to help everyone, everywhere be more economically free.',
+    bridge: 'native',
     documentation: 'https://www.getverse.com/verse-whitepaper.pdf',
   },
   APE: {
@@ -1077,6 +1119,7 @@ const _tokens = {
     website: 'https://www.olympusdao.finance/',
     description:
       'Olympus is building OHM, a community-owned, decentralized and censorship-resistant reserve currency that is asset-backed, deeply liquid and used widely across Web3.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.olympusdao.finance/',
   },
@@ -1090,6 +1133,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x3BC5AC0dFdC871B365d159f728dd1B9A0B5481E8.svg',
     website: 'https://staderlabs.com/',
     description: 'Stader (SD) token is the native governance and value accrual token for Stader.',
+    bridge: 'native',
     documentation: 'https://docs-new.staderlabs.com/intro',
   },
   FXS: {
@@ -1102,6 +1146,7 @@ const _tokens = {
     website: 'https://frax.finance/',
     description:
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
+    bridge: 'native',
   },
   wBETH: {
     name: 'Wrapped Binance Beacon ETH',
@@ -1114,6 +1159,7 @@ const _tokens = {
     documentation: 'https://www.binance.com/en/wbeth',
     description:
       'Wrapped Beacon ETH ("WBETH") is a wrapped version of BETH. Wrapped, WBETH is reward-bearing in nature. It accumulates ETH2.0 staking rewards not by growing in number, but by growing in value in relation to BETH. Unlike BETH, the value of WBETH will increase despite not being held in Binance Spot Wallet. That means WBETH provides you with double yield potential by (i) holding it to earn staking rewards, and (ii) moving it on-chain and exploring exciting DeFi and other dapps opportunities.',
+    bridge: 'native',
   },
   OETH: {
     name: 'Origin Ether',
@@ -1126,6 +1172,7 @@ const _tokens = {
     documentation: 'https://docs.oeth.com/',
     description:
       'OETH is a yield-bearing, ether-pegged token, offering an easy way to maximize yield from ETH staking using protocols, such as Curve Finance.',
+    bridge: 'native',
   },
   crvUSD: {
     name: 'Curve.Fi USD Stablecoin',
@@ -1185,6 +1232,7 @@ const _tokens = {
     oracle: 'lps',
     oracleId: 'convex-3pool',
     description: 'Curve base 3pool consisting of DAI, USDC and USDT',
+    bridge: 'native',
   },
   R: {
     name: 'R Stablecoin',

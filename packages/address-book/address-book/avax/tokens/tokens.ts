@@ -10,6 +10,7 @@ const AVAX = {
   website: 'https://www.avalabs.org/',
   description:
     'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+  bridge: 'native',
   logoURI:
     'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7/logo.png',
 } as const;
@@ -83,6 +84,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x152b9d0FdC40C096757F570A51E494bd4b943E50.svg',
     website: 'https://bridge.avax.network/',
     description: 'official AVAX BRIDGE bridged BTC',
+    bridge: 'avax-canonical',
   },
   BPT: {
     name: 'Bold Point BPT',
@@ -670,6 +672,7 @@ const _tokens = {
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
+    bridge: 'native',
     documentation: 'https://docs.mai.finance/',
   },
   miMatic: {
@@ -756,6 +759,7 @@ const _tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    bridge: 'avax-canonical',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf20d962a6c8f70c731bd838a3a388D7d48fA6e15/logo.png',
     documentation: 'https://ethereum.org/en/developers/docs/',
@@ -1320,6 +1324,7 @@ const _tokens = {
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    bridge: 'avax-canonical',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB3fe5374F67D7a22886A0eE082b2E2f9d2651651/logo.png',
   },
@@ -1923,6 +1928,7 @@ const _tokens = {
     symbol: 'FRAX',
     website: 'https://frax.finance/',
     description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
+    bridge: 'frax',
     logoURI:
       'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
   },
@@ -3573,6 +3579,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'native',
     logoURI: 'https://snowtrace.io/token/images/tether_32.png',
   },
   USDTo: {
@@ -3965,6 +3972,7 @@ const _tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    bridge: 'avax-canonical',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
@@ -4443,6 +4451,7 @@ const _tokens = {
     website: 'https://www.traderjoexyz.com/#/home',
     description:
       'Trader Joe is your one-stop decentralized trading platform on the Avalanche network, of which JOE is the governance token that rewards its holders with a share of exchange revenues.',
+    bridge: 'native',
     logoURI: 'https://www.traderjoexyz.com/static/media/logo.bc60f78d.png',
   },
   SHIBX: {
@@ -4463,6 +4472,7 @@ const _tokens = {
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'avax-canonical',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
     documentation: 'https://developers.circle.com/docs',
@@ -4594,6 +4604,7 @@ const _tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'native',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
   },
@@ -4701,6 +4712,7 @@ const _tokens = {
     website: 'https://www.inverse.finance/',
     description:
       'DOLA is a synthetic stablecoin pegged to the US Dollar. It is designed to be valued as close to $1 as possible with minimal volatility. DOLA is debt-backed rather than algorithmic, meaning that DOLA is backed by retractable debt.',
+    bridge: 'multichain',
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
     documentation: 'https://docs.inverse.finance/',
   },

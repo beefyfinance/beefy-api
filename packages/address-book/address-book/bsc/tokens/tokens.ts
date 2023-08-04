@@ -10,6 +10,7 @@ const BNB = {
   website: 'https://www.binance.com/',
   description:
     'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+  bridge: 'native',
   logoURI:
     'https://tokens.pancakeswap.finance/images/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
 } as const;
@@ -36,6 +37,7 @@ const _tokens = {
     documentation: 'https://docs.tangible.store/',
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders. The token on BNB Chain is bridged via Multichain from Polygon.',
+    bridge: 'multichain',
     logoURI: '',
   },
   PRIMAL: {
@@ -71,6 +73,7 @@ const _tokens = {
     website: 'https://www.ankr.com/',
     description:
       'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
+    bridge: 'bridgehub',
     documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
   },
   DOLA: {
@@ -84,6 +87,7 @@ const _tokens = {
     documentation: 'https://docs.inverse.finance/inverse-finance/using-dola/how-to-acquire-dola',
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    bridge: 'multichain',
   },
   MULTI: {
     name: 'Multichain',
@@ -94,6 +98,7 @@ const _tokens = {
     website: 'https://multichain.org/',
     description:
       'Multichain is the ultimate Router for web3. It is an infrastructure developed for arbitrary cross-chain interactions.',
+    bridge: 'multichain',
     logoURI: 'https://s2.coinmarketcap.com/static/img/coins/64x64/17050.png',
   },
   DEI: {
@@ -179,6 +184,7 @@ const _tokens = {
     website: 'https://helio.money/',
     description:
       'HAY is an over-collateralized destablecoin, where 1 HAY is always redeemable at $1 of cryptocurrency, and over-collateralized by BNB. Users can mint and borrow HAY by providing BNB as collateral, which can then be used to stake for yield, liquidity mining and as a means to transfer value.',
+    bridge: 'native',
   },
   jCHF: {
     name: 'Jarvis Synthetic Swiss Franc',
@@ -226,6 +232,7 @@ const _tokens = {
     website: 'https://www.wombat.exchange/',
     description:
       'Swap stablecoins at minimal slippage and stake at maximum yield. Just one stablecoin currency to earn it all.',
+    bridge: 'native',
   },
   MAI: {
     name: 'Mai Stablecoin',
@@ -238,6 +245,7 @@ const _tokens = {
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
+    bridge: 'native',
   },
   QI: {
     name: 'QiDao',
@@ -262,6 +270,7 @@ const _tokens = {
     website: 'https://staderlabs.com/',
     description:
       'Stader is a non-custodial smart contract-based staking platform that helps you conveniently discover and access staking solutions. We are building key staking middleware infra for multiple PoS networks for retail crypto users, exchanges and custodians.',
+    bridge: 'native',
   },
   BAPE: {
     name: 'Bored APEmove',
@@ -285,6 +294,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x3BC5AC0dFdC871B365d159f728dd1B9A0B5481E8.svg',
     website: 'https://staderlabs.com/',
     description: 'Stader (SD) token is the native governance and value accrual token for Stader.',
+    bridge: 'wormhole',
   },
   CONE: {
     name: 'Cone token',
@@ -308,6 +318,7 @@ const _tokens = {
     website: 'https://pstake.finance/',
     description:
       'pSTAKE’s BNB liquid staking product allows holders of BNB to stake their assets using the BNB staking interface. Users are issued stkBNB which follows an exchange rate model, (inspired by the Compound’s cToken model). stkBNB value keeps increasing against BNB as it accrues staking rewards in the background.',
+    bridge: 'native',
   },
   PSTAKE: {
     name: 'pStake Finance',
@@ -464,6 +475,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://www.ankr.com/',
     description: 'Decentralized Infrastructure to Build and Earn in Web3',
+    bridge: 'native',
   },
   ankrMATIC: {
     name: 'Ankr Staked MATIC',
@@ -474,6 +486,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://www.ankr.com/',
     description: 'Decentralized Infrastructure to Build and Earn in Web3',
+    bridge: 'bridgehub',
   },
   aBNBc: {
     name: 'Ankr BNB Reward Bearing Certificate',
@@ -618,6 +631,7 @@ const _tokens = {
     website: 'https://www.stepn.com/',
     description:
       'Green Metaverse Token is the currency of STEPN, a Web 3 lifestyle app with social-fi and game-fi elements.',
+    bridge: 'wormhole',
   },
   BSW: {
     name: 'Biswap',
@@ -629,6 +643,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x965F527D9159dCe6288a2219DB51fc6Eef120dD1.svg',
     website: 'https://biswap.org/',
     description: 'The First DEX on BNB Chain with a three-type referral system',
+    bridge: 'native',
   },
   ERTHA: {
     name: 'ERTHA',
@@ -652,6 +667,7 @@ const _tokens = {
     website: 'https://www.radiocaca.com/',
     description:
       'RACA is the native token for blockchain P2E game Metamon and for the Universal Metaverse (a.k.a. USM).',
+    bridge: 'native',
   },
   FUSE: {
     name: 'Fuse Token on BSC',
@@ -774,6 +790,7 @@ const _tokens = {
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/FRAX.png',
     website: 'https://frax.finance/',
     description: 'Frax is the world’s first fractional-algorithmic stablecoin.',
+    bridge: 'frax',
   },
   FXS: {
     name: 'Frax Share',
@@ -1022,6 +1039,7 @@ const _tokens = {
     website: 'https://yel.finance/',
     description:
       'Yield Enhancement Labs core mission is to help projects gain liquidity across multiple chains while building token economics with constant buy-pressure for YEL token',
+    bridge: 'multichain',
   },
   rUSD: {
     name: 'Ramp Defi USD',
@@ -2007,6 +2025,7 @@ const _tokens = {
     website: 'https://dogecoin.com/',
     description:
       'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xba2ae424d960c26247dd6c32edc70b295c744c43.png',
   },
@@ -2171,6 +2190,7 @@ const _tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
   },
@@ -2183,6 +2203,7 @@ const _tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x2170ed0880ac9a755fd29b2688956bd959f933f8.png',
   },
@@ -2195,6 +2216,7 @@ const _tokens = {
     website: 'https://bitcoin.org/en/',
     description:
       'Bitcoin BEP2 (BTCB) is a token on the Binance Chain. Each BTCB is 100% backed by a BTC reserve, with the price pegged to Bitcoin at a rate of 1 BTCB = 1 BTC.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c.png',
   },
@@ -2219,6 +2241,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x55d398326f99059ff775485246999027b3197955.png',
   },
@@ -2231,6 +2254,7 @@ const _tokens = {
     website: 'https://ripple.com/xrp/',
     description:
       'XRP Ledger (XRPL) is the open-source distributed ledger that is created by Ripple. The native cryptocurrency of the XRP Ledger is XRP.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x1d2f0da169ceb9fc7b3144628db156f3f6c60dbe.png',
   },
@@ -2267,6 +2291,7 @@ const _tokens = {
     website: 'https://cardano.org/',
     description:
       'Within the Cardano platform, Ada exists on the settlement layer.Cardano is a public blockchain platform. It is open-source and decentralized, with consensus achieved using proof of stake.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x3ee2200efb3400fabb9aacf31297cbdd1d435d47.png',
   },
@@ -2315,6 +2340,7 @@ const _tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
   },
@@ -2387,6 +2413,7 @@ const _tokens = {
     website: 'https://pancakeswap.finance/',
     description:
       'PancakeSwap is an automated market maker (AMM) — a decentralized finance (DeFi) application that allows users to exchange tokens, providing liquidity via farming and earning fees in return.',
+    bridge: 'native',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png',
   },
@@ -2471,6 +2498,7 @@ const _tokens = {
     website: 'https://trustwallet.com/',
     description:
       'Trust Wallet Token, or TWT, is a simple BEP-20 utility token that provides a range of benefits and incentives to Trust Wallet users.',
+    bridge: 'native',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4b0f1812e5df2a09796481ff14017e6005508003.png',
   },
@@ -2541,6 +2569,7 @@ const _tokens = {
     website: 'https://uniswap.org/',
     description:
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
   },
@@ -2637,6 +2666,7 @@ const _tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
   },
@@ -3193,6 +3223,7 @@ const _tokens = {
     website: 'https://basicattentiontoken.org/',
     description:
       'Basic Attention Token, or BAT, is the token that powers a new blockchain-based digital advertising platform designed to fairly reward users for their attention, while providing advertisers with a better return on their ad spend.',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x101d82428437127bf1608f699cd651e6abf9766e.png',
   },
@@ -3839,6 +3870,7 @@ const _tokens = {
     website: 'https://impossible.finance/',
     description:
       'Impossible Finance is a multi-chain incubator, launchpad, and swap platform which offers a robust product-first ecosystem that supports top-tier blockchain projects to targeted user audiences.',
+    bridge: 'native',
   },
   XCV: {
     name: 'XCarnival Token',
@@ -4025,6 +4057,7 @@ const _tokens = {
     website: 'https://overnight.fi/',
     description:
       'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
@@ -4037,6 +4070,7 @@ const _tokens = {
     website: 'https://overnight.fi/',
     description:
       'USDT+ is USDT that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDT. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
@@ -4061,6 +4095,7 @@ const _tokens = {
     website: 'https://app.frax.finance/frxeth/mint',
     description:
       'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    bridge: 'frax',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },

@@ -10,6 +10,7 @@ const METIS = {
   website: 'https://www.metis.io/',
   description:
     'METIS IS SOLVING ETHEREUMS SIX BIGGEST CHALLENGES. SIMPLICITY. SPEED. STORAGE. SCALABILITY. SECURITY. SAVINGS.',
+  bridge: 'native',
   logoURI: '',
 } as const;
 
@@ -52,6 +53,7 @@ const _tokens = {
     website: 'https://netswap.io/#/swap',
     description:
       'Netswap is a decentralized exchange (DEX) which runs on Metis Andromeda (Layer2), uses the same automated market-making (AMM) model as Uniswap, features a native governance token called NETT that is fully community distributed and is capable of trading all tokens issued on Ethereum and Metis Andromeda. In a crowded marketplace with multiple contenders, Netswap offers four critically important benefits: fast and cheap trades, built-in leverage swap function, community-driven development, and a fair and open token distribution.',
+    bridge: 'native',
   },
   mUSDT: {
     name: 'USDT Token',
@@ -64,6 +66,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'metis-canonical',
   },
   mUSDC: {
     name: 'USDC Token',
@@ -77,6 +80,7 @@ const _tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'metis-canonical',
     oracleId: 'USDC',
   },
   mDAI: {
@@ -102,6 +106,7 @@ const _tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    bridge: 'metis-canonical',
   },
   BNB: {
     name: 'Poly-Peg BNB',
@@ -186,6 +191,7 @@ const _tokens = {
       'https://pancakeswap.finance/images/tokens/0x4aAC94985cD83be30164DfE7e9AF7C054D7d2121.svg',
     website: 'https://www.hummus.exchange/',
     description: 'Next Gen Decentralized AMM for Stableswaps',
+    bridge: 'native',
   },
   MAIA: {
     name: 'Maia',
@@ -197,6 +203,7 @@ const _tokens = {
     website: 'https://app.maiadao.io/',
     description:
       'MAIA is the governance token of Maia DAO, the yield powerhouse of Metis which launched the Solidly-fork Hermes. With a 100% fair launch Maia DAO is a truly community owned.',
+    bridge: 'native',
   },
   HERMES: {
     name: 'Hermes',
@@ -208,6 +215,7 @@ const _tokens = {
     website: 'https://hermes.maiadao.io/',
     description:
       'HERMES is the governance token of the Solidly-fork Hermes Protocol on Metis. The token is emitted as a farming reward to liquidity providers and can be locked for a period to gain voting rights.',
+    bridge: 'native',
   },
   'BIFI-METIS LP': {
     name: 'BIFI-METIS LP',
