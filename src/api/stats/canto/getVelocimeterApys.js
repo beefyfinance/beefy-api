@@ -1,8 +1,8 @@
 const { CANTO_CHAIN_ID: chainId } = require('../../../constants');
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
-const stablePools = require('../../../data/canto/velocimeterV2StableLpPools.json');
-const volatilePools = require('../../../data/canto/velocimeterV2LpPools.json');
+const stableV2Pools = require('../../../data/canto/velocimeterV2StableLpPools.json');
+const volatileV2Pools = require('../../../data/canto/velocimeterV2LpPools.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
   canto: {
@@ -10,11 +10,11 @@ const {
   },
 } = addressBook;
 
-const pools = [...stablePools, ...volatilePools];
+const poolsV2 = [...stableV2Pools, ...volatileV2Pools];
 const getVelocimeterApys = async () =>
   getSolidlyGaugeApys({
     chainId: chainId,
-    pools: pools,
+    pools: poolsV2,
     oracleId: 'FLOW',
     oracle: 'tokens',
     decimals: '1e18',
