@@ -31,9 +31,9 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
-  multiWUSDR: {
+  omultiwUSDR: {
     name: 'Real USD',
-    symbol: 'wUSDR',
+    symbol: 'omultiwUSDR',
     address: '0x340fE1D898ECCAad394e2ba0fC1F93d27c7b717A',
     chainId: 10,
     decimals: 9,
