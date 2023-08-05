@@ -1,7 +1,8 @@
 const getBalancerBaseApys = require('./getBalancerApys');
 const getBaseSwapApys = require('./getBaseSwapApys');
+const getStargateBaseApys = require('./getStargateBaseApys');
 
-const getApys = [getBalancerBaseApys, getBaseSwapApys];
+const getApys = [getBalancerBaseApys, getBaseSwapApys, getStargateBaseApys];
 
 const getBaseApys = async () => {
   const start = Date.now();

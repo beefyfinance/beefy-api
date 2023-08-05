@@ -49,6 +49,7 @@ import getStargateFantomPrices from './fantom/getStargateFantomPrices';
 import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
 import getStargateOpPrices from './optimism/getStargateOpPrices';
 import getStargateMetisPrices from './metis/getStargateMetisPrices';
+import getStargateBasePrices from './base/getStargateBasePrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
@@ -116,6 +117,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getMvxPrices(tokenPrices),
     getEqualizerStablePrices(tokenPrices),
     getOlpPrices(),
+    getStargateBasePrices(tokenPrices),
     getStargateMetisPrices(tokenPrices),
     getStargateOpPrices(tokenPrices),
     getStargatePolygonPrices(tokenPrices),
