@@ -31,7 +31,7 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png',
     documentation: 'https://docs.beefy.finance/',
   },
-  wUSDR: {
+  multiWUSDR: {
     name: 'Real USD',
     symbol: 'wUSDR',
     address: '0x340fE1D898ECCAad394e2ba0fC1F93d27c7b717A',
@@ -1060,7 +1060,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://exact.ly/',
     description:
-      "Exactly is a decentralized, non-custodial and open-source protocol that provides an autonomous fixed and variable interest rate market enabling users to frictionlessly exchange the time value of their assets and completing the DeFi credit market.",
+      'Exactly is a decentralized, non-custodial and open-source protocol that provides an autonomous fixed and variable interest rate market enabling users to frictionlessly exchange the time value of their assets and completing the DeFi credit market.',
     documentation: 'https://docs.exact.ly/',
     bridge: 'native',
   },
@@ -1101,6 +1101,18 @@ const _tokens = {
     description:
       'WLD is a token that is part of the Worldcoin network. It is issued to all network participants to align their incentives around the growth of the network. The currency is designed to be distributed fairly, with every human being eligible for a share of WLD simply for being human. While laws may not allow for the use of WLD as a currency in some jurisdictions, it is intended to be used as a means of exchange and store of value where possible.',
     documentation: 'https://whitepaper.worldcoin.org/',
+  },
+  wUSDR: {
+    name: 'Real USD',
+    symbol: 'wUSDR',
+    address: '0xC03b43d492d904406db2d7D57e67C7e8234bA752',
+    chainId: 137,
+    decimals: 9,
+    website: 'https://www.tangible.store/realusd',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
+    logoURI: '',
   },
 } as const;
 
