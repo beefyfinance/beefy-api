@@ -63,6 +63,9 @@ const {
 
   ETH_CHAIN_ID,
   ETHEREUM_VAULTS_ENDPOINT,
+
+  BASE_CHAIN_ID,
+  BASE_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -175,6 +178,11 @@ const chains = [
   {
     chainId: ZKEVM_CHAIN_ID,
     vaultsEndpoint: ZKEVM_VAULTS_ENDPOINT,
+    // governancePool: require('../../data/zksync/governancePool.json'),
+  },
+  {
+    chainId: BASE_CHAIN_ID,
+    vaultsEndpoint: BASE_VAULTS_ENDPOINT,
     // governancePool: require('../../data/zksync/governancePool.json'),
   },
 ];

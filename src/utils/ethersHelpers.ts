@@ -45,6 +45,8 @@ import {
   ZKSYNC_CHAIN_ID,
   ZKEVM_RPC,
   ZKEVM_CHAIN_ID,
+  BASE_RPC,
+  BASE_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -70,6 +72,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.canto]: addressBookByChainId[ChainId.canto].platforms.beefyfinance.multicall,
   [ChainId.zksync]: addressBookByChainId[ChainId.zksync].platforms.beefyfinance.multicall,
   [ChainId.zkevm]: addressBookByChainId[ChainId.zkevm].platforms.beefyfinance.multicall,
+  [ChainId.base]: addressBookByChainId[ChainId.base].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -94,6 +97,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   canto: [],
   zksync: [],
   zkevm: [],
+  base: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -118,6 +122,7 @@ clients.ethereum.push(new ethers.providers.JsonRpcProvider(ETH_RPC));
 clients.canto.push(new ethers.providers.JsonRpcProvider(CANTO_RPC));
 clients.zksync.push(new ethers.providers.JsonRpcProvider(ZKSYNC_RPC));
 clients.zkevm.push(new ethers.providers.JsonRpcProvider(ZKEVM_RPC));
+clients.base.push(new ethers.providers.JsonRpcProvider(BASE_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -141,6 +146,7 @@ export const chainRandomClients = {
   cantoRandomClient: () => clients.canto[~~(clients.canto.length * Math.random())],
   zksyncRandomClient: () => clients.zksync[~~(clients.zksync.length * Math.random())],
   zkevmRandomClient: () => clients.zkevm[~~(clients.zkevm.length * Math.random())],
+  baseRandomClient: () => clients.base[~~(clients.base.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -187,6 +193,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.zksyncRandomClient();
     case ZKEVM_CHAIN_ID:
       return chainRandomClients.zkevmRandomClient();
+    case BASE_CHAIN_ID:
+      return chainRandomClients.baseRandomClient();
   }
 };
 

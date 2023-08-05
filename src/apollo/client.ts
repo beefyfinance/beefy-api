@@ -88,11 +88,17 @@ const beetOpClient = client(
 const balancerArbClient = client(
   'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-arbitrum-v2'
 );
+const balancerAvaxClient = client(
+  'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-avalanche-v2'
+);
 const balancerPolyClient = client(
   'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2'
 );
 const balancerZkevmClient = client(
   'https://api.studio.thegraph.com/query/24660/balancer-polygon-zk-v2/version/latest/'
+);
+const balancerBaseClient = client(
+  'https://api.studio.thegraph.com/query/24660/balancer-base-v2/version/latest/'
 );
 const beamClient = client('https://api.thegraph.com/subgraphs/name/beamswap/beamswap-dex');
 const solarflareClient = client('https://analytics.solarflare.io/api/subgraph');
@@ -182,8 +188,10 @@ export {
   beetClient,
   beetOpClient,
   balancerArbClient,
+  balancerBaseClient,
   balancerPolyClient,
   balancerZkevmClient,
+  balancerAvaxClient,
   isBeetClient,
   vvsClient,
   finnClient,

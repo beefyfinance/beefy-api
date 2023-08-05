@@ -273,6 +273,7 @@ import velocorePools from '../../data/zksync/velocoreLpPools.json';
 import soliSnekPools from '../../data/avax/soliSnekLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import fvmPools from '../../data/fantom/fvmLpPools.json';
+import baseSwapPools from '../../data/base/baseSwapLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
@@ -289,6 +290,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
   ...ooeV2Pools,
+  ...baseSwapPools,
   ...fvmPools,
   ...veSyncPools,
   ...soliSnekPools,
@@ -600,16 +602,21 @@ const seedPeggedPrices = {
   WAVAX: 'AVAX', // Wrapped native
   WBNB: 'BNB', // Wrapped native
   WFTM: 'FTM', // Wrapped native
+  WKAVA: 'KAVA', // Wrapped native
   asUSDC: 'USDC', // Solana
   aUSDT: 'USDT', // Aave
   aDAI: 'DAI', // Aave
   aUSDC: 'USDC', // Aave
+  aETH: 'ETH', // Aave
   amUSDT: 'USDT', // Aave
   amUSDC: 'USDC', // Aave
   amDAI: 'DAI', // Aave
   aaUSDT: 'USDT', // Aave
   aaUSDC: 'USDC', // Aave
   aaDAI: 'DAI', // Aave
+  aavAVAX: 'AVAX', // Aave
+  aavUSDC: 'USDC', // Aave
+  aavUSDT: 'USDT', // Aave
   'DAI+': 'DAI', // Overnight
   alETH: 'ETH', // Alchemix
   hETH: 'ETH', // HOP
@@ -618,9 +625,10 @@ const seedPeggedPrices = {
   hUSDT: 'USDT', // HOP
   aWMATIC: 'MATIC', // Aave
   aWETH: 'ETH', // Aave
+  USDbC: 'USDC', // Base bridged USDC
 };
 
-type LpBreakdown = {
+export type LpBreakdown = {
   price: number;
   tokens: string[];
   balances: string[];

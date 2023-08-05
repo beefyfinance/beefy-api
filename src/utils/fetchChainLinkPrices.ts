@@ -1,14 +1,12 @@
-import { groupBy, mapValues, partition } from 'lodash';
+import { groupBy, mapValues } from 'lodash';
 import { ApiChain, toChainId } from './chain';
-import { web3Factory } from './web3';
-import { MULTICALL_V3 } from './web3Helpers';
-import { Multicall } from 'ethereum-multicall';
-import chainLinkOracleAbi from '../abis/ChainLinkOracle.json';
 import BigNumber from 'bignumber.js';
 import { fromWei } from './big-number';
 import { subSeconds } from 'date-fns';
 import { isResultFulfilled } from './promise';
 import { median } from './number';
+import { fetchContract } from '../api/rpc/client';
+import { chainLinkOracleAbi } from '../abis/ChainLinkOracle';
 
 type Oracle = {
   oracleId: string;
@@ -108,6 +106,12 @@ const oracles: Oracle[] = [
     chain: 'fantom',
     heartbeat: 3600,
   },
+  {
+    oracleId: 'KAVA',
+    address: '0x7899dd75C329eFe63e35b02bC7d60D3739FB23c5',
+    chain: 'polygon',
+    heartbeat: 10800,
+  },
 ];
 
 export async function fetchChainLinkPrices(): Promise<Record<string, number>> {
@@ -145,75 +149,48 @@ async function fetchPricesForChain(
   chain: ApiChain,
   oracles: Oracle[]
 ): Promise<Record<string, number>> {
-  const chainId = toChainId(chain);
-  const multicallAddress = MULTICALL_V3[chainId];
-  if (!multicallAddress) {
-    throw new Error(`Multicallv3 address not found for chain ${this.chain}`);
-  }
-  const multicall = new Multicall({
-    web3Instance: web3Factory(chainId),
-    tryAggregate: true,
-    multicallCustomContractAddress: multicallAddress,
-  });
+  const results = await Promise.allSettled(
+    oracles.map(async (oracle): Promise<RoundData> => {
+      const contract = fetchContract(oracle.address, chainLinkOracleAbi, toChainId(chain));
+      const [roundData, decimals] = await Promise.all([
+        contract.read.latestRoundData(),
+        contract.read.decimals(),
+      ]);
 
-  const { results } = await multicall.call(
-    oracles.map(oracle => ({
-      reference: oracle.oracleId,
-      contractAddress: oracle.address,
-      abi: chainLinkOracleAbi,
-      calls: [
-        {
-          reference: 'roundData',
-          methodName: 'latestRoundData',
-          methodParameters: [],
-        },
-        {
-          reference: 'decimals',
-          methodName: 'decimals',
-          methodParameters: [],
-        },
-      ],
-    }))
+      return {
+        roundId: roundData[0].toString(),
+        answer: fromWei(new BigNumber(roundData[1].toString()), decimals).toNumber(),
+        startedAt: new Date(Number(roundData[2]) * 1000),
+        updatedAt: new Date(Number(roundData[3]) * 1000),
+        answeredInRound: new BigNumber(roundData[4].toString()).toString(10),
+      };
+    })
   );
 
   const now = new Date();
-
   const prices: Record<string, number> = {};
 
-  Object.values(results).forEach(({ originalContractCallContext, callsReturnContext }) => {
-    const oracleId = originalContractCallContext.reference;
-    const oracle = oracles.find(o => o.oracleId === oracleId);
-    const [roundDataResult, decimalsResult] = callsReturnContext;
+  results.forEach((result, index) => {
+    const oracle = oracles[index];
 
-    if (!roundDataResult.success || !decimalsResult.success) {
-      console.error(`ChainLink: Failed to fetch price for ${oracleId} on chain ${chain}`);
-      return;
-    }
-
-    if (roundDataResult.returnValues.length !== 5 || decimalsResult.returnValues.length !== 1) {
-      console.error(`ChainLink: Error in fetched price for ${oracleId} on chain ${chain}`);
-      return;
-    }
-
-    const decimals = parseInt(decimalsResult.returnValues[0], 16);
-
-    const roundData: RoundData = {
-      roundId: new BigNumber(roundDataResult.returnValues[0].hex).toString(10),
-      answer: fromWei(new BigNumber(roundDataResult.returnValues[1].hex), decimals).toNumber(),
-      startedAt: new Date(parseInt(roundDataResult.returnValues[2].hex, 16) * 1000),
-      updatedAt: new Date(parseInt(roundDataResult.returnValues[3].hex, 16) * 1000),
-      answeredInRound: new BigNumber(roundDataResult.returnValues[4].hex).toString(10),
-    };
-
-    const heartbeatAgo = subSeconds(now, oracle.heartbeat + Math.max(oracle.heartbeat * 0.2, 300)); // 10% leeway or min. 5 minutes
-    if (roundData.updatedAt < heartbeatAgo) {
+    if (!isResultFulfilled(result)) {
       console.error(
-        `ChainLink: Price for ${oracleId} on chain ${chain} is too old (Updated at ${roundData.updatedAt}, heartbeat ${oracle.heartbeat}s)`
+        `ChainLink: Failed to fetch price for ${oracle.oracleId} on chain ${chain}`,
+        result.reason
       );
       return;
     }
 
-    prices[oracleId] = roundData.answer;
+    const roundData = result.value;
+    const heartbeatAgo = subSeconds(now, oracle.heartbeat + Math.max(oracle.heartbeat * 0.2, 300)); // 10% leeway or min. 5 minutes
+    if (roundData.updatedAt < heartbeatAgo) {
+      console.error(
+        `ChainLink: Price for ${oracle.oracleId} on chain ${chain} is too old (Updated at ${roundData.updatedAt}, heartbeat ${oracle.heartbeat}s)`
+      );
+      return;
+    }
+
+    prices[oracle.oracleId] = roundData.answer;
   });
 
   return prices;

@@ -2611,7 +2611,7 @@
     "lp0": {
       "address": "0x2cD1075682b0FCCaADd0Ca629e138E64015Ba11c",
       "oracle": "tokens",
-      "oracleId": "tBTC",
+      "oracleId": "btBTC",
       "decimals": "1e9"
     },
     "lp1": {

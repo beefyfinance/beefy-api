@@ -8,6 +8,7 @@ import { joe } from './platforms/joe';
 import { synapse } from './platforms/synapse';
 import { mai } from './platforms/mai';
 import { solisnek } from './platforms/solisnek';
+import { balancer } from './platforms/balancer';
 
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
@@ -21,6 +22,7 @@ const _avax = {
     synapse,
     mai,
     solisnek,
+    balancer,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

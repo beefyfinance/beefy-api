@@ -52,7 +52,9 @@
     "aaveUnderlying": [
       {
         "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-        "index": 0
+        "index": 1,
+        "bbIndex": 0,
+        "poolId": "0xda1cd1711743e57dd57102e9e61b75f3587703da0000000000000000000003fc"
       }
     ]
   },
@@ -104,7 +106,9 @@
     "aaveUnderlying": [
       {
         "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-        "index": 0
+        "index": 1,
+        "bbIndex": 0,
+        "poolId": "0xda1cd1711743e57dd57102e9e61b75f3587703da0000000000000000000003fc"
       }
     ]
   },

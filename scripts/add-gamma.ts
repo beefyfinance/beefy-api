@@ -9,6 +9,7 @@ import { MULTICHAIN_RPC } from '../src/constants';
 
 import voterABI from '../src/abis/Voter.json';
 import ERC20ABI from '../src/abis/ERC20.json';
+import GammaABI from '../src/abis/Gamma.json';
 import { addressBook } from '../packages/address-book/address-book';
 import ISolidlyPair from '../src/abis/ISolidlyPair';
 
@@ -23,6 +24,11 @@ const projects = {
     prefix: 'thena',
     file: '../src/data/degens/thenaGammaPools.json',
     voter: thena.voter,
+  },
+  retro: {
+    prefix: 'retro',
+    file: '../src/data/matic/retroGammaPools.json',
+    voter: ethers.constants.AddressZero,
   },
 };
 
@@ -66,6 +72,15 @@ async function fetchGauge(lp) {
   };
 }
 
+async function fetchPool(lp) {
+  console.log(`fetchPool(${lp})`);
+  const lpContract = new ethers.Contract(lp, GammaABI, provider);
+  const poolContract = await lpContract.pool();
+  return {
+    pool: poolContract,
+  };
+}
+
 async function fetchLiquidityPair(lp) {
   console.log(`fetchLiquidityPair(${lp})`);
   const lpContract = new ethers.Contract(lp, ISolidlyPair as any, provider);
@@ -97,7 +112,17 @@ async function fetchToken(tokenAddress) {
 }
 
 async function main() {
-  const farm = await fetchGauge(lpAddress);
+  let farm = {
+    newGauge: ethers.constants.AddressZero,
+  };
+
+  let lpPool = {
+    pool: ethers.constants.AddressZero,
+  };
+  if (projects[args['project']].voter != ethers.constants.AddressZero) {
+    farm = await fetchGauge(lpAddress);
+  } else lpPool = await fetchPool(lpAddress);
+
   const lp = await fetchLiquidityPair(lpAddress);
   const token0 = await fetchToken(lp.token0);
   const token1 = await fetchToken(lp.token1);
@@ -107,7 +132,8 @@ async function main() {
   const poolsJson = require(poolsJsonFile);
 
   const newPoolName = `${poolPrefix}-gamma-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}-${type}`;
-  const newPool = {
+
+  const solidlyPool = {
     name: newPoolName,
     address: lp.address,
     gauge: farm.newGauge,
@@ -127,6 +153,30 @@ async function main() {
       decimals: `1e${token1.decimals}`,
     },
   };
+
+  const retroPool = {
+    name: newPoolName,
+    address: lp.address,
+    pool: lpPool.pool,
+    decimals: `1e${lp.decimals}`,
+    chainId: chainId,
+    beefyFee: 0.095,
+    lp0: {
+      address: token0.address,
+      oracle: 'tokens',
+      oracleId: token0.symbol,
+      decimals: `1e${token0.decimals}`,
+    },
+    lp1: {
+      address: token1.address,
+      oracle: 'tokens',
+      oracleId: token1.symbol,
+      decimals: `1e${token1.decimals}`,
+    },
+  };
+
+  const newPool =
+    projects[args['project']].voter != ethers.constants.AddressZero ? solidlyPool : retroPool;
 
   poolsJson.forEach(pool => {
     if (pool.name === newPoolName) {

@@ -1,10 +1,145 @@
 [
   {
+    "name": "aura-r-bbsdai",
+    "address": "0xbF2ef8bDC2fC0F3203B3a01778E3ec5009AEEf33",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x55d34b63e94a428Bc5f8B9ab8B93693DE5251eEE",
+    "composable": true,
+    "bptIndex": 2,
+    "vaultPoolId": "0xbf2ef8bdc2fc0f3203b3a01778e3ec5009aeef3300000000000000000000058d",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "R",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbsDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      }
+    ]
+  },
+  {
+    "name": "aura-gho-lusd",
+    "address": "0x3FA8C89704e5d07565444009e5d9e624B40Be813",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x9305F7B6017c08BB71004A85fd78Adf3E32ce5CE",
+    "composable": true,
+    "bptIndex": 0,
+    "vaultPoolId": "0x3fa8c89704e5d07565444009e5d9e624b40be813000000000000000000000599",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "LUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-gho-bbausd",
+    "address": "0xc2B021133D1b0cF07dba696fd5DD89338428225B",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xF937b186687C0B11Dc0F7AFBA3B4458c30d9CF89",
+    "composable": true,
+    "bptIndex": 1,
+    "vaultPoolId": "0xc2b021133d1b0cf07dba696fd5dd89338428225b000000000000000000000598",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-ethx-bbaeth",
+    "address": "0x4CbdE5C4B4B53EBE4aF4adB85404725985406163",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xD7a1c1CD199dBBc0A39B8Aff3c85999D09dA1195",
+    "lsUrl": "https://universe.staderlabs.com/eth/apy",
+    "dataPath": "$.value",
+    "lsIndex": 0,
+    "balancerChargesFee": true,
+    "composable": true,
+    "bptIndex": 0,
+    "vaultPoolId": "0x4cbde5c4b4b53ebe4af4adb85404725985406163000000000000000000000595",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETHx",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-wsteth-reth-sfrxeth-v3",
+    "address": "0x42ED016F826165C2e5976fe5bC3df540C5aD0Af7",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x032B676d5D55e8ECbAe88ebEE0AA10fB5f72F6CB",
+    "composable": true,
+    "bptIndex": 0,
+    "vaultPoolId": "0x42ed016f826165c2e5976fe5bc3df540c5ad0af700000000000000000000058b",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-r-wsteth",
     "address": "0x380aAbE019ed2a9C2d632b51eDDD30fd804d0fAD",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xb83aA654fDAF392F0b19f0ca1537786546febaD0",
-    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
     "lsIndex": 1,
     "balancerChargesFee": false,
     "vaultPoolId": "0x380aabe019ed2a9c2d632b51eddd30fd804d0fad000200000000000000000554",
@@ -68,7 +203,8 @@
     "gauge": "0xeE66a8958EBFEEfA209769530b5E05A38762509a",
     "composable": true,
     "bptIndex": 0,
-    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
     "lsIndex": 0,
     "vaultPoolId": "0x2e848426aec6dbf2260535a5bea048ed94d9ff3d000000000000000000000536",
     "decimals": "1e18",
@@ -115,7 +251,6 @@
     "gauge": "0xd26948E7a0223700e3C3cdEA21cA2471abCb8d47",
     "composable": true,
     "bptIndex": 0,
-    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
     "balancerChargesFee": false,
     "vaultPoolId": "0x5aee1e99fe86960377de9f88689616916d5dcabe000000000000000000000467",
     "decimals": "1e18",
@@ -147,7 +282,8 @@
     "gauge": "0xe35ae62Ff773D518172d4B0b1af293704790B670",
     "vaultPoolId": "0x9c6d47ff73e0f5e51be5fd53236e3f595c5793f200020000000000000000042c",
     "lsIndex": 0,
-    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
     "decimals": "1e18",
     "tokens": [
       {
@@ -234,7 +370,8 @@
     "address": "0x798b112420AD6391A4129Ac25eF59663a44C88bB",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x9AccD370C03a3cc4Bf717a81aD5A46e6c88FA109",
-    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
     "lsIndex": 1,
     "balancerChargesFee": false,
     "vaultPoolId": "0x798b112420ad6391a4129ac25ef59663a44c88bb0002000000000000000003f4",
@@ -260,7 +397,8 @@
     "composable": true,
     "bptIndex": 0,
     "lsIndex": 0,
-    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
     "balancerChargesFee": false,
     "vaultPoolId": "0x4edcb2b46377530bc18bb4d2c7fe46a992c73e100000000000000000000003ec",
     "decimals": "1e18",
@@ -316,7 +454,8 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x59d66c58e83a26d6a0e35114323f65c3945c89c1",
     "lsIndex": 0,
-    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
     "balancerChargesFee": false,
     "vaultPoolId": "0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080",
     "decimals": "1e18",
@@ -402,7 +541,8 @@
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xe5d920029556a49a9cA4DD808CD62a1876C10eBA",
     "vaultPoolId": "0x25accb7943fd73dda5e23ba6329085a3c24bfb6a000200000000000000000387",
-    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
     "lsIndex": 0,
     "includesComposableStable": false,
     "composableSplit": 2,

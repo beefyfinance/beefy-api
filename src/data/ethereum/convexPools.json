@@ -26,6 +26,25 @@
     ]
   },
   {
+    "name": "convex-ethx",
+    "pool": "0xd82C2eB10F4895CABED6EDa6eeee234bd1A9838B",
+    "token": "0xd82C2eB10F4895CABED6EDa6eeee234bd1A9838B",
+    "rewardPool": "0x9f6277061ec97A8fE5a1672bde4fc6b12dBb5DD6",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETHx",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-eth+",
     "pool": "0x7fb53345f1B21aB5d9510ADB38F7d3590BE6364b",
     "token": "0xe8a5677171c87fcb65b76957f2852515b404c7b1",

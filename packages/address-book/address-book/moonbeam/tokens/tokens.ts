@@ -10,6 +10,7 @@ const GLMR = {
   website: 'https://moonbeam.network/networks/moonbeam/',
   description:
     'A Polkadot Parachain Designed for Developers Moonbeam simplifies the developer experience by combining full Ethereum compatibility with the power of Polkadot, including scalability, cross-chain integrations, and on-chain governance.',
+  bridge: 'native',
   logoURI: '',
 } as const;
 
@@ -147,6 +148,7 @@ const _tokens = {
       'https://tokens.pancakeswap.finance/images/0x511aB53F793683763E5a8829738301368a2411E3.svg',
     website: 'https://moonwell.fi/',
     description: 'WELL is the native governance token of the Moonwell Artemis protocol',
+    bridge: 'native',
   },
   MAI: {
     name: 'Mai Stablecoin',
@@ -447,6 +449,7 @@ const _tokens = {
     website: 'https://app.solarflare.io/exchange/swap',
     description:
       'Solarflare is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
+    bridge: 'native',
   },
   STELLA: {
     name: 'Stella Token',

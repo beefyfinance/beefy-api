@@ -21,6 +21,7 @@ import {
   POLYGON_RPC,
   ZKEVM_RPC,
   ZKSYNC_RPC,
+  BASE_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/address-book';
 
@@ -548,6 +549,29 @@ const zkEvmChain = {
   },
 } as const satisfies Chain;
 
+const baseChain = {
+  id: 8453,
+  name: 'Base',
+  network: 'base',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'ETH',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    public: { http: [BASE_RPC] },
+    default: { http: [BASE_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'Base Explorer', url: 'https://basescan.org/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -571,4 +595,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.zksync]: zkSyncChain,
   [ChainId.heco]: hecoChain,
   [ChainId.zkevm]: zkEvmChain,
+  [ChainId.base]: baseChain,
 } as const;
