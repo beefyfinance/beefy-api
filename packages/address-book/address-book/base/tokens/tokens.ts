@@ -18,6 +18,20 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  MIM: {
+    name: 'Magic Internet Money',
+    symbol: 'MIM',
+    address: '0x4A3A6Dd60A34bB2Aba60D73B4C88315E9CeB6A3D',
+    chainId: 8453,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4A3A6Dd60A34bB2Aba60D73B4C88315E9CeB6A3D.svg',
+    website: 'https://docs.abracadabra.money/',
+    description:
+      'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
+    documentation: 'https://docs.abracadabra.money/',
+    bridge: 'layer-zero',
+  },
   cbETH: {
     name: 'Coinbase Wrapped Staked ETH',
     symbol: 'cbETH',
