@@ -1,5 +1,25 @@
 [
   {
+    "name": "baseswap-mim-usdbc",
+    "address": "0xa2b120Cab75AEfDfAFdA6A14713349A3096EED79",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 8,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x4A3A6Dd60A34bB2Aba60D73B4C88315E9CeB6A3D",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "baseswap-cbeth-weth",
     "address": "0x07CFA5Df24fB17486AF0CBf6C910F24253a674D3",
     "decimals": "1e18",
