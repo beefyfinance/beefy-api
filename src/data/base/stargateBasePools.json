@@ -1,0 +1,16 @@
+[
+  {
+    "name": "stargate-base-eth",
+    "poolId": 0,
+    "address": "0x28fc411f9e1c480AD312b3d9C60c22b965015c6B",
+    "decimals": "1e18",
+    "underlying": "ETH"
+  },
+  {
+    "name": "stargate-base-usdbc",
+    "poolId": 1,
+    "address": "0x4c80E24119CFB836cdF0a6b53dc23F04F7e652CA",
+    "decimals": "1e6",
+    "underlying": "USDbC"
+  }
+]
