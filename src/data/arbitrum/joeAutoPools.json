@@ -1,0 +1,23 @@
+[
+  {
+    "name": "joe-auto-weth-usdc.e",
+    "address": "0xFd421D60905d2f7caBd49e6A5703A3499367B8F4",
+    "decimals": "1e12",
+    "tradingFee": 0.0015,
+    "beefyFee": 0.095,
+    "poolId": 0,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]
