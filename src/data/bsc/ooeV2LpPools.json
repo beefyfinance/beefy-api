@@ -1,0 +1,40 @@
+[
+  {
+    "name": "ooev2-ooe-bnb",
+    "address": "0xC6394f580157D7e8ae16f5fa1F8640d292EEDdB2",
+    "rewardPool": "0x64767a05F1ceAd1CCc6195e9713d6337b870A074",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x8ea5219a16c2dbF1d6335A6aa0c6bd45c50347C5",
+      "oracle": "tokens",
+      "oracleId": "OOEV2",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "ooev2-ooe-busd",
+    "address": "0xcE07D794FD313a1792E9bdef9912a949DfE99D75",
+    "rewardPool": "0xe2dC4861470F90A0Ad88F5BD31661F9Cc42Eab9C",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x8ea5219a16c2dbF1d6335A6aa0c6bd45c50347C5",
+      "oracle": "tokens",
+      "oracleId": "OOEV2",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56",
+      "oracle": "tokens",
+      "oracleId": "BUSD",
+      "decimals": "1e18"
+    }
+  }
+]
