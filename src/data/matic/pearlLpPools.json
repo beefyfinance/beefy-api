@@ -1,5 +1,65 @@
 [
   {
+    "name": "pearl-usdrv3-tngbl",
+    "address": "0x0Edc235693C20943780b76D79DD763236E94C751",
+    "gauge": "0xdaeF32cA8D699015fcFB2884F6902fFCebE51c5b",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x40379a439D4F6795B6fc9aa5687dB461677A2dBa",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0x49e6A20f1BBdfEeC2a8222E052000BbB14EE6007",
+      "oracle": "tokens",
+      "oracleId": "TNGBL",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pearl-wbtc-usdrv3",
+    "address": "0xb95E1C22dd965FafE926b2A793e9D6757b6613F4",
+    "gauge": "0x39976f6328ebA2a3C860b7DE5cF2c1bB41581FB8",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x40379a439D4F6795B6fc9aa5687dB461677A2dBa",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    }
+  },
+  {
+    "name": "pearl-usdrv3-weth",
+    "address": "0x74c64d1976157E7Aaeeed46EF04705F4424b27eC",
+    "gauge": "0x7D02A8b758791A03319102f81bF61E220F73e43D",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x40379a439D4F6795B6fc9aa5687dB461677A2dBa",
+      "oracle": "tokens",
+      "oracleId": "USDR",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "pearl-tngbl-usdr",
     "address": "0x16e9D19221DF563CfB15628953B5c51E4a2Be30c",
     "gauge": "0x99f21d87eD8A2d04cD18E44571e60e414384B678",
