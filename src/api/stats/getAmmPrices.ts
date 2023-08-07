@@ -4,6 +4,7 @@ import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
+import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
@@ -711,6 +712,10 @@ async function performUpdateAmmPrices() {
     return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
   });
 
+  const optionPrices = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchOptionTokenPrices(tokenPrices);
+  });
+
   const linearPoolPrice = ammPrices.then(
     async ({ tokenPrices }): Promise<Record<string, number>> => {
       const jbrlTokenPrice = await fetchJbrlPrice();
@@ -756,6 +761,7 @@ async function performUpdateAmmPrices() {
     const beTokenTokenPrice = await beTokenPrice;
     const linearPoolTokenPrice = await linearPoolPrice;
     const venusTokenPrice = await venusPrices;
+    const optionTokenPrice = await optionPrices;
     return {
       ...tokenPrices,
       ...dmm.tokenPrices,
@@ -767,6 +773,7 @@ async function performUpdateAmmPrices() {
       ...linearPoolTokenPrice,
       ...(await currencyPrices()),
       ...venusTokenPrice,
+      ...optionTokenPrice,
     };
   });
 

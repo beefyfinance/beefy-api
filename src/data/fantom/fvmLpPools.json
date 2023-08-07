@@ -20,26 +20,6 @@
     }
   },
   {
-    "name": "fvm-wftm-ofvm",
-    "address": "0x9b014996cfA03BE2584c6E3f0e48E7c998032AD6",
-    "gauge": "0x3921c989D757B970e88f7a7a08eAa93b7bF6c84f",
-    "decimals": "1e18",
-    "chainId": 250,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
-      "oracle": "tokens",
-      "oracleId": "WFTM",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xF9EDdca6B1e548B0EC8cDDEc131464F462b8310D",
-      "oracle": "tokens",
-      "oracleId": "oFVM",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "fvm-lzweth-lzwbtc",
     "address": "0x04636D31Be7a53BB91E48166B2458C6c35cC7BF2",
     "gauge": "0x3900EE825056dcd49B5aE4BDF2d16F38B764bfe7",
