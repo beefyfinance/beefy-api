@@ -274,6 +274,8 @@ import velocorePools from '../../data/zksync/velocoreLpPools.json';
 import soliSnekPools from '../../data/avax/soliSnekLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import fvmPools from '../../data/fantom/fvmLpPools.json';
+import bvmPools from '../../data/base/bvmLpPools.json';
+import cvmPools from '../../data/canto/cvmLpPools.json';
 import baseSwapPools from '../../data/base/baseSwapLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
@@ -293,6 +295,8 @@ const pools = normalizePoolOracleIds([
   ...ooeV2Pools,
   ...baseSwapPools,
   ...fvmPools,
+  ...bvmPools,
+  ...cvmPools,
   ...veSyncPools,
   ...soliSnekPools,
   ...velocorePools,

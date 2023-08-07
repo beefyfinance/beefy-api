@@ -115,6 +115,18 @@ const _tokens = {
     description:
       'Balancer composable pool that consist of USDbC and DAI. bbTokens are boosted linear pools.',
   },
+  BVM: {
+    name: 'Base Velocimeter',
+    symbol: 'BVM',
+    address: '0xd386a121991E51Eab5e3433Bf5B1cF4C8884b47a',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://base.velocimeter.xyz',
+    description:
+      'BVM is the native token for Velocimeter on Base (BVM), a project providing liquidity on the chain where it is needed most. The BVM token can be staked as or locked to earn rewards on the BVM platform.',
+    documentation: 'https://docs.velocimeter.xyz/FVMtokenomics',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

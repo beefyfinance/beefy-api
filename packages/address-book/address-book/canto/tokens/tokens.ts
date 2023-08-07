@@ -284,6 +284,18 @@ const _tokens = {
     bridge: 'native',
     documentation: 'https://docs.scanto.io/governance-token',
   },
+  CVM: {
+    name: 'Canto Velocimeter',
+    symbol: 'CVM',
+    address: '0xbAD86785eB08fe9d0948B7D9d24523000A177cD0',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://cantov3.velocimeter.xyz',
+    description:
+      'CVM is the native token for Velocimeter on Canto (CVM), a project providing liquidity on the chain where it is needed most. The CVM token can be staked as or locked to earn rewards on the CVM platform.',
+    documentation: 'https://docs.velocimeter.xyz/FVMtokenomics',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
