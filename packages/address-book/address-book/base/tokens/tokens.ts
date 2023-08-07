@@ -127,6 +127,18 @@ const _tokens = {
       'BVM is the native token for Velocimeter on Base (BVM), a project providing liquidity on the chain where it is needed most. The BVM token can be staked as or locked to earn rewards on the BVM platform.',
     documentation: 'https://docs.velocimeter.xyz/FVMtokenomics',
   },
+  oBVM: {
+    name: 'Option to buy BVM',
+    symbol: 'oBVM',
+    address: '0x762eb51D2e779EeEc9B239FFB0B2eC8262848f3E',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://base.velocimeter.xyz',
+    description:
+      'oBVM is an options token that helps to reduce sell pressure on the native BVM token. It is earned by liquidity providers (LPs) who provide liquidity to the BVM pools. oBVM can be redeemed for BVM at a discount, or it can be locked up for a period of time as veBVM. veBVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',
+    documentation: 'https://docs.velocimeter.xyz/oFVMmech',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
