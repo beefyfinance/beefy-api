@@ -1,0 +1,42 @@
+[
+  {
+    "name": "uniswap-gamma-weth-op-narrow",
+    "address": "0xbcFa4cfA97f74a6AbF80b9901569BBc8654F4315",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 37,
+    "chainId": 10,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000042",
+      "oracle": "tokens",
+      "oracleId": "OP",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "uniswap-gamma-weth-op-wide",
+    "address": "0x8480199E5D711399ABB4D51bDa329E064c89ad77",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 38,
+    "chainId": 10,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000042",
+      "oracle": "tokens",
+      "oracleId": "OP",
+      "decimals": "1e18"
+    }
+  }
+]
