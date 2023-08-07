@@ -18,8 +18,10 @@ const getRamsesApys = require('./getRamsesApys');
 const getArbidexApys = require('./getArbidexApys');
 const { getChronosApys } = require('./getChronosApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
+const { getJoeAutoArbApys } = require('./getJoeAutoArbApys');
 
 const getApys = [
+  getJoeAutoArbApys,
   getAuraArbitrumApys,
   getKyberArbitrumApys,
   getGnsApys,

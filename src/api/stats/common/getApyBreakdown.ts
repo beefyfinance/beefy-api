@@ -58,7 +58,7 @@ export const getApyBreakdown = (
         ? composablePoolApr
         : 0;
 
-    const provFee = providerFee[i] == undefined ? providerFee : providerFee[i];
+    const provFee = providerFee[i] == undefined ? providerFee : providerFee[i].toNumber();
     const simpleApr = farmAprs[i]?.toNumber();
     const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
