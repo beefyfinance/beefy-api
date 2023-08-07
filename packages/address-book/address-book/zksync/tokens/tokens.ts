@@ -9,6 +9,7 @@ const ETH = {
   chainId: 324,
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'zksync-canonical',
   logoURI: '',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const;
@@ -52,6 +53,7 @@ const _tokens = {
     website: 'https://www.tprotocol.io/',
     description:
       'The launch of TProtocol will drastically alter the current DeFi picture and add an important missing piece, making DeFi users able to benefit from the mid-term interest rate gap between the stables and rising treasury. TProtocol will provide permissionless interest bearing tokens backed by the treasury with short duration. The redemption price of this treasury token will increase over time as interest from treasury accrues into the tokens.',
+    bridge: 'zksync-canonical',
     documentation:
       'https://tprotocol.gitbook.io/tprotocol-documentation/white-paper/tprotocol-documentation',
   },
@@ -65,6 +67,7 @@ const _tokens = {
     website: 'https://app.velocore.xyz/swap',
     description:
       'Velocore is a key DeFi component of the zkSync era ecosystem, designed to reward users for providing liquidity. Built upon the strong foundation established by Solidly and Velodrome Finance, Velocore aims to foster growth and innovation within zkSync era. As part of our grand vision, we plan to expand Velocores capabilities by launching a lending market and supporting other builders. This strategic development will enable us to build powerful money legos on zkSync era, further enhancing the DeFi landscape.',
+    bridge: 'native',
     documentation: 'https://docs.velocore.xyz/',
   },
   USDC: {
@@ -78,6 +81,7 @@ const _tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'zksync-canonical',
   },
   BUSD: {
     name: 'Binance USD',
@@ -89,6 +93,7 @@ const _tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
+    bridge: 'zksync-canonical',
     documentation: '',
   },
   'USD+': {
@@ -113,6 +118,7 @@ const _tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    bridge: 'zksync-canonical',
   },
 } as const;
 
