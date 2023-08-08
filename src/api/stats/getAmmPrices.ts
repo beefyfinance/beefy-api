@@ -276,6 +276,7 @@ import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import fvmPools from '../../data/fantom/fvmLpPools.json';
 import baseSwapPools from '../../data/base/baseSwapLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
+import draculaPools from '../../data/zksync/draculaLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 import { sleep } from '../../utils/time';
@@ -290,6 +291,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...draculaPools,
   ...ooeV2Pools,
   ...baseSwapPools,
   ...fvmPools,
