@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { FANTOM_CHAIN_ID } from '../constants';
+import { FANTOM_CHAIN_ID, BASE_CHAIN_ID, CANTO_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 import OptionsToken from '../abis/OptionsToken';
 import { fetchContract } from '../api/rpc/client';
@@ -9,10 +9,18 @@ const {
   fantom: {
     tokens: { FVM, oFVM },
   },
+  base: {
+    tokens: { BVM, oBVM },
+  },
+  canto: {
+    tokens: { CVM, oCVM },
+  },
 } = addressBook;
 
 const tokens = {
   fantom: [[FVM, oFVM]],
+  base: [[BVM, oBVM]],
+  canto: [[CVM, oCVM]],
 };
 
 let hundred = new BigNumber(100);
@@ -43,10 +51,13 @@ const getOptionTokenPrices = async (tokenPrices, tokens: Token[][], chainId) => 
 export async function fetchOptionTokenPrices(
   tokenPrices: Record<string, number>
 ): Promise<Record<string, number>> {
-  return Promise.all([getOptionTokenPrices(tokenPrices, tokens.fantom, FANTOM_CHAIN_ID)]).then(
-    data =>
-      data
-        .flat()
-        .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})
+  return Promise.all([
+    getOptionTokenPrices(tokenPrices, tokens.fantom, FANTOM_CHAIN_ID),
+    getOptionTokenPrices(tokenPrices, tokens.base, BASE_CHAIN_ID),
+    getOptionTokenPrices(tokenPrices, tokens.canto, CANTO_CHAIN_ID),
+  ]).then(data =>
+    data
+      .flat()
+      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})
   );
 }

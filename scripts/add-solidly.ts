@@ -31,7 +31,7 @@ const {
     platforms: { solidlizard },
   },
   canto: {
-    platforms: { velocimeter },
+    platforms: { cvm },
   },
   kava: {
     platforms: { equilibre },
@@ -44,6 +44,9 @@ const {
   },
   arbitrum: {
     platforms: { ramses, chronos },
+  },
+  base: {
+    platforms: { bvm },
   },
 } = addressBook;
 
@@ -112,11 +115,11 @@ const projects = {
     volatileFile: '../src/data/arbitrum/solidlizardLpPools.json',
     voter: solidlizard.voter,
   },
-  velocimeter: {
-    prefix: 'velocimeterv2',
-    stableFile: '../src/data/canto/velocimeterV2StableLpPools.json',
-    volatileFile: '../src/data/canto/velocimeterV2LpPools.json',
-    voter: velocimeter.voter,
+  cvm: {
+    prefix: 'cvm',
+    stableFile: '../src/data/canto/cvmStableLpPools.json',
+    volatileFile: '../src/data/canto/cvmLpPools.json',
+    voter: cvm.voter,
   },
   velocore: {
     prefix: 'velocore',
@@ -147,6 +150,12 @@ const projects = {
     stableFile: '../src/data/arbitrum/chronosStableLpPools.json',
     volatileFile: '../src/data/arbitrum/chronosLpPools.json',
     voter: chronos.voter,
+  },
+  bvm: {
+    prefix: 'bvm',
+    stableFile: '../src/data/base/bvmStableLpPools.json',
+    volatileFile: '../src/data/base/bvmLpPools.json',
+    voter: bvm.voter,
   },
 };
 
