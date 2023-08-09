@@ -91,9 +91,7 @@ const getFarmApys = async params => {
           yearlyRewards = rewardRates[i].times(secondsPerYear).times(0.4);
         }
       } else {
-        yearlyRewards = params.extraPrecision
-          ? rewardRates[i].times(secondsPerYear).dividedBy('1e18')
-          : rewardRates[i].times(secondsPerYear);
+        yearlyRewards = rewardRates[i].times(secondsPerYear);
       }
 
       yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);

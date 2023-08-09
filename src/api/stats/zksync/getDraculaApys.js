@@ -16,9 +16,8 @@ const getDraculaApys = async () =>
     pools: pools,
     oracleId: 'FANG',
     oracle: 'tokens',
-    decimals: '1e18',
+    decimals: '1e36',
     reward: FANG.address,
-    extraPrecision: true,
     // log: true,
   });
 
