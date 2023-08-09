@@ -801,6 +801,19 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
+  bbaaWETHV2: {
+    name: 'Balancer Aave WETH Linear Pool',
+    symbol: 'bbaaWETHV2',
+    address: '0xaD28940024117B442a9EFB6D0f25C8B59e1c950B',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description:
+      'Balancer Boosted Aave ETH. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'arbitrum-canonical',
+    logoURI: '',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
   rETH: {
     name: 'Rocket Pool ETH',
     symbol: 'rETH',
@@ -892,6 +905,20 @@ const _tokens = {
       'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
     bridge: 'native',
   },
+  bbaaUSDTV2: {
+    name: 'Balancer Aave USDT Linear Pool',
+    symbol: 'bbaaUSDTV2',
+    address: '0xc46be4B8Bb6B5A3d3120660efae9C5416318ED40',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
+    bridge: 'native',
+  },
   aaUSDC: {
     name: 'Aave USDC',
     symbol: 'aaUSDC',
@@ -922,6 +949,20 @@ const _tokens = {
     name: 'Balancer Aave USDC Linear Pool',
     symbol: 'bbaaUSDC',
     address: '0x7c82A23B4C48D796dee36A9cA215b641C6a8709d',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 USDC and wrapped Aave Interest Bearing USDC.',
+    bridge: 'arbitrum-canonical',
+  },
+  bbaaUSDCV2: {
+    name: 'Balancer Aave USDC Linear Pool',
+    symbol: 'bbaaUSDCV2',
+    address: '0xbD724Eb087d4cc0f61a5fED1fFFaF937937E14DE',
     chainId: 42161,
     decimals: 18,
     logoURI:
@@ -972,6 +1013,20 @@ const _tokens = {
       'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
     bridge: 'dai',
   },
+  bbaaDAIV2: {
+    name: 'Balancer Aave DAI Linear Pool',
+    symbol: 'bbaaDAIV2',
+    address: '0x6CB787a419c3e6Ee2e9FF365856c29CD10659113',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
+    bridge: 'dai',
+  },
   bbaaUSD: {
     name: 'Balancer Aave Stable Composable Pool',
     symbol: 'bbaaUSD',
@@ -984,6 +1039,31 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
+  },
+  bbaaUSDV2: {
+    name: 'Balancer Aave Stable Composable Pool',
+    symbol: 'bbaaUSDV2',
+    address: '0xc6EeE8cb7643eC2F05F46d569e9eC8EF8b41b389',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
+  },
+  auraBAL: {
+    name: 'Aura Staked BAL BPT',
+    symbol: 'auraBAL',
+    address: '0x223738a747383d6F9f827d95964e4d8E8AC754cE',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://aura.finance/',
+    description: "auraBAL is Aura's liquid staking locked BAL (80 BAL / 20 ETH) BPT",
+    bridge: 'layer-zero',
+    logoURI: '',
+    documentation: 'https://docs.aura.finance/aura/what-is-aura/for-usdbal-stakers',
   },
 } as const;
 

@@ -271,10 +271,7 @@ const getComposableAaveYield = async (
       params.chainId
     );
     supplyRateCalls.push(dataProvider.read.getReserveData([t.address as `0x${string}`]));
-
-    if (tokens.length > 1) {
-      tokenQtyCalls.push(balVault.read.getPoolTokens([t.poolId as `0x${string}`]));
-    }
+    tokenQtyCalls.push(balVault.read.getPoolTokens([t.poolId as `0x${string}`]));
   });
 
   const [supplyRateResults, tokenQtyResults] = await Promise.all([

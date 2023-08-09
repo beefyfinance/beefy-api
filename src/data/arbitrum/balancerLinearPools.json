@@ -1,5 +1,105 @@
 [
   {
+    "name": "bbaaUSDTV2",
+    "address": "0xc46be4B8Bb6B5A3d3120660efae9C5416318ED40",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0xc46be4b8bb6b5a3d3120660efae9c5416318ed40000000000000000000000472",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "waaUSDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "bbaaUSDCV2",
+    "address": "0xbD724Eb087d4cc0f61a5fED1fFFaF937937E14DE",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0xbd724eb087d4cc0f61a5fed1fffaf937937e14de000000000000000000000473",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "waaUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "bbaaDAIV2",
+    "address": "0x6CB787a419c3e6Ee2e9FF365856c29CD10659113",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x6cb787a419c3e6ee2e9ff365856c29cd10659113000000000000000000000474",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "waaDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "bbaaWETHV2",
+    "address": "0xaD28940024117B442a9EFB6D0f25C8B59e1c950B",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0xad28940024117b442a9efb6d0f25c8b59e1c950b00000000000000000000046f",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "composable": true,
+    "bptIndex": 0,
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "waaWETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "bbaaWETH",
     "address": "0xDa1CD1711743e57Dd57102E9e61b75f3587703da",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
