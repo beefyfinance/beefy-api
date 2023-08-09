@@ -18,6 +18,34 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  'USD+': {
+    name: 'USD+',
+    symbol: 'USD+',
+    address: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
+    chainId: 8453,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376.svg',
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    documentation: 'https://docs.overnight.fi/',
+    bridge: 'native',
+  },
+  'DAI+': {
+    name: 'DAI+',
+    symbol: 'DAI+',
+    address: '0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275',
+    chainId: 8453,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275.svg',
+    website: 'https://overnight.fi/',
+    description:
+      'DAI+ is DAI that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into DAI.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    documentation: 'https://docs.overnight.fi/',
+    bridge: 'native',
+  },
   MIM: {
     name: 'Magic Internet Money',
     symbol: 'MIM',

@@ -1,5 +1,45 @@
 [
   {
+    "name": "baseswap-dai+-usd+",
+    "address": "0x7Fb35b3967798cE8322cC50eF52553BC5Ee4c306",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 11,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275",
+      "oracle": "tokens",
+      "oracleId": "DAI+",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "baseswap-usd+-usdbc",
+    "address": "0x696b4d181Eb58cD4B54a59d2Ce834184Cf7Ac31A",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 10,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "baseswap-mim-usdbc",
     "address": "0xa2b120Cab75AEfDfAFdA6A14713349A3096EED79",
     "decimals": "1e18",
