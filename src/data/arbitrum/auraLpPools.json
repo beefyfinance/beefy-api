@@ -1,6 +1,6 @@
 [
   {
-    "name": "aura-dola-usdc",
+    "name": "aura-dola-usdc-v2",
     "address": "0x8bc65Eed474D1A00555825c91FeAb6A8255C2107",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0xAc7025Dec5E216025C76414f6ac1976227c20Ff0",
