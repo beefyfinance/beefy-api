@@ -183,6 +183,7 @@ async function fetchAddressBookTokensForChain(chainId: ApiChain): Promise<TokenE
         oracleId: token.oracleId || id,
         address: 'native',
         decimals: token.decimals,
+        ...(token.bridge ? { bridge: token.bridge } : {}),
       });
 
       tokens.push({
@@ -195,6 +196,7 @@ async function fetchAddressBookTokensForChain(chainId: ApiChain): Promise<TokenE
         oracleId: token.oracleId || id,
         address: 'native',
         decimals: token.decimals,
+        ...(token.bridge ? { bridge: token.bridge } : {}),
       });
     } else {
       tokens.push({
@@ -207,6 +209,7 @@ async function fetchAddressBookTokensForChain(chainId: ApiChain): Promise<TokenE
         oracleId: token.oracleId || id,
         address: token.address,
         decimals: token.decimals,
+        ...(token.bridge ? { bridge: token.bridge } : {}),
       });
     }
 
@@ -229,6 +232,12 @@ function addToken(
   // Map address to token
   if (byAddress[addressLower] === undefined) {
     byAddress[addressLower] = token;
+  } else {
+    // Merge extra info
+    const existing = byAddress[addressLower];
+    if (!existing.bridge && token.bridge) {
+      existing.bridge = token.bridge;
+    }
   }
 }
 
