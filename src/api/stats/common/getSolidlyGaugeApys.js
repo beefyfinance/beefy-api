@@ -77,13 +77,11 @@ const getFarmApys = async params => {
       let yearlyRewards = 0;
       if (params.boosted) {
         if (boost) {
-          if (gaugeDeposit.gt(derived.plus(adjusted))) {
-            yearlyRewards = rewardRates[i]
-              .times(secondsPerYear)
-              .times(derived.plus(adjusted).dividedBy(gaugeDeposit));
-          } else {
-            yearlyRewards = rewardRates[i].times(secondsPerYear);
-          }
+          yearlyRewards = gaugeDeposit.gt(derived.plus(adjusted))
+            ? rewardRates[i]
+                .times(secondsPerYear)
+                .times(derived.plus(adjusted).dividedBy(gaugeDeposit))
+            : rewardRates[i].times(secondsPerYear);
         } else if (params.spirit) {
           yearlyRewards = rewardRates[i]
             .times(secondsPerYear)
@@ -93,7 +91,9 @@ const getFarmApys = async params => {
           yearlyRewards = rewardRates[i].times(secondsPerYear).times(0.4);
         }
       } else {
-        yearlyRewards = rewardRates[i].times(secondsPerYear);
+        yearlyRewards = params.extraPrecision
+          ? rewardRates[i].times(secondsPerYear).dividedBy('1e18')
+          : rewardRates[i].times(secondsPerYear);
       }
 
       yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);

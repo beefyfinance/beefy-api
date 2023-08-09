@@ -18,7 +18,7 @@ const getDraculaApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     reward: FANG.address,
-    boosted: false,
+    extraPrecision: true,
     // log: true,
   });
 
