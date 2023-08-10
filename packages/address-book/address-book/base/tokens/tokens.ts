@@ -9,7 +9,7 @@ const ETH = {
   chainId: 8453,
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
-  bridge: 'base',
+  bridge: 'base-canonical',
   logoURI: '',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const;
@@ -113,7 +113,7 @@ const _tokens = {
     chainId: 8453,
     logoURI: '',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
-    bridge: 'base',
+    bridge: 'base-canonical',
   },
   DAI: {
     name: 'DAI Stablecoin',
@@ -123,7 +123,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://makerdao.com/en/',
-    bridge: 'base',
+    bridge: 'base-canonical',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
     description:
@@ -154,6 +154,7 @@ const _tokens = {
     description:
       'BVM is the native token for Velocimeter on Base (BVM), a project providing liquidity on the chain where it is needed most. The BVM token can be staked as or locked to earn rewards on the BVM platform.',
     documentation: 'https://docs.velocimeter.xyz/FVMtokenomics',
+    bridge: 'native',
   },
   oBVM: {
     name: 'Option to buy BVM',
@@ -166,6 +167,7 @@ const _tokens = {
     description:
       'oBVM is an options token that helps to reduce sell pressure on the native BVM token. It is earned by liquidity providers (LPs) who provide liquidity to the BVM pools. oBVM can be redeemed for BVM at a discount, or it can be locked up for a period of time as veBVM. veBVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',
     documentation: 'https://docs.velocimeter.xyz/oFVMmech',
+    bridge: 'native',
   },
 } as const;
 
