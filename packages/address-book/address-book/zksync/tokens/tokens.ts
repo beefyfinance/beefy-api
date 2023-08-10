@@ -9,7 +9,7 @@ const ETH = {
   chainId: 324,
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
-    bridge: 'zksync-canonical',
+  bridge: 'zksync-canonical',
   logoURI: '',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const;
@@ -119,6 +119,18 @@ const _tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     bridge: 'zksync-canonical',
+  },
+  FANG: {
+    name: 'Dracula',
+    symbol: 'FANG',
+    address: '0x160e07e42ADbC1FCE92D505B579Bcd8a3fBEa77d',
+    chainId: 324,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://draculafi.xyz/',
+    description:
+      'DraculaFi is a cutting-edge DeFi protocol built on zkSync Era with a proven ve(3,3) model and game-changing mechanisms that aim to provide increased rewards and stability for users.',
+    documentation: 'https://draculafi.gitbook.io/draculafi/',
   },
 } as const;
 

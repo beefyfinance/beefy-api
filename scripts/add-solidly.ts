@@ -37,7 +37,7 @@ const {
     platforms: { equilibre },
   },
   zksync: {
-    platforms: { velocore, vesync },
+    platforms: { velocore, vesync, dracula },
   },
   avax: {
     platforms: { solisnek },
@@ -132,6 +132,12 @@ const projects = {
     stableFile: '../src/data/zksync/veSyncStableLpPools.json',
     volatileFile: '../src/data/zksync/veSyncLpPools.json',
     voter: vesync.voter,
+  },
+  dracula: {
+    prefix: 'dracula',
+    stableFile: '../src/data/zksync/draculaStableLpPools.json',
+    volatileFile: '../src/data/zksync/draculaLpPools.json',
+    voter: dracula.voter,
   },
   solisnek: {
     prefix: 'solisnek',

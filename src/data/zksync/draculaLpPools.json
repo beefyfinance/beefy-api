@@ -1,0 +1,42 @@
+[
+  {
+    "name": "dracula-usdc-weth",
+    "address": "0xB51E60f61c48d8329843F86d861AbF50E4DC918d",
+    "gauge": "0xaD07E210F9DA6eBaC3fe2fe7765a7850C438A04f",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "dracula-fang-usdc",
+    "address": "0x0F62837f7d37638210F94fa8005D0a89be083922",
+    "gauge": "0xeed9Ec94676bbb8f51C4EB8809b447C9cB8a21Cd",
+    "decimals": "1e18",
+    "chainId": 324,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x160e07e42ADbC1FCE92D505B579Bcd8a3fBEa77d",
+      "oracle": "tokens",
+      "oracleId": "FANG",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  }
+]
