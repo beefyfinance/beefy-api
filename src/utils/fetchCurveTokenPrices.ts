@@ -34,6 +34,16 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
   ethereum: [
     ...toCurveTokens(ChainId.ethereum, require('../data/ethereum/convexPools.json')),
     {
+      oracleId: 'msETH',
+      decimals: '1e18',
+      index0: 1,
+      index1: 0,
+      pool: '0x2d600BbBcC3F1B6Cb9910A70BaB59eC9d5F81B9A',
+      secondToken: 'frxETH',
+      secondTokenDecimals: '1e18',
+      abi: ICurvePool,
+    },
+    {
       oracleId: 'cvxFPIS',
       decimals: '1e18',
       index0: 1,

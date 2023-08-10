@@ -659,7 +659,6 @@
     "pool": "0xc897b98272AA23714464Ea2A0Bd5180f1B8C0025",
     "token": "0xc897b98272AA23714464Ea2A0Bd5180f1B8C0025",
     "rewardPool": "0x14DC104D74372527fEC45b86E87Fe263C7215369",
-    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
