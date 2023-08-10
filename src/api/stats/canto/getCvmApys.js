@@ -3,11 +3,7 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
 const volatilePools = require('../../../data/canto/cvmLpPools.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
-const {
-  canto: {
-    tokens: { CVM },
-  },
-} = addressBook;
+const { CVM } = addressBook.canto.tokens;
 
 const pools = [...volatilePools];
 const getCvmApys = async () =>
@@ -18,7 +14,6 @@ const getCvmApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     reward: CVM.address,
-    boosted: false,
     // log: true,
   });
 

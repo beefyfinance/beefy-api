@@ -1,15 +1,12 @@
 const { BASE_CHAIN_ID: chainId } = require('../../../constants');
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
+const stablePools = require('../../../data/base/bvmStableLpPools.json');
 const volatilePools = require('../../../data/base/bvmLpPools.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
-const {
-  base: {
-    tokens: { BVM },
-  },
-} = addressBook;
+const { BVM } = addressBook.base.tokens;
 
-const pools = [...volatilePools];
+const pools = [...stablePools, ...volatilePools];
 const getBvmApys = async () =>
   getSolidlyGaugeApys({
     chainId: chainId,
@@ -18,7 +15,6 @@ const getBvmApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     reward: BVM.address,
-    boosted: false,
     // log: true,
   });
 

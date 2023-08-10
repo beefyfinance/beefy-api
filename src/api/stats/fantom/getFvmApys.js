@@ -4,11 +4,7 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 const stablePools = require('../../../data/fantom/fvmStableLpPools.json');
 const volatilePools = require('../../../data/fantom/fvmLpPools.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
-const {
-  fantom: {
-    tokens: { FVM },
-  },
-} = addressBook;
+const { FVM } = addressBook.fantom.tokens;
 
 const pools = [...stablePools, ...volatilePools];
 const getFvmApys = async () =>
@@ -19,7 +15,6 @@ const getFvmApys = async () =>
     oracle: 'tokens',
     decimals: '1e18',
     reward: FVM.address,
-    boosted: false,
     // log: true,
   });
 

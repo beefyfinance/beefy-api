@@ -6,6 +6,13 @@
     "decimals": "1e18",
     "chainId": 7700,
     "beefyFee": 0.095,
+    "rewards": [
+      {
+        "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
+        "oracleId": "sCANTO",
+        "decimals": "1e18"
+      }
+    ],
     "lp0": {
       "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
       "oracle": "tokens",

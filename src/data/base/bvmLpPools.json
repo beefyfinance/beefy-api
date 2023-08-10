@@ -46,6 +46,13 @@
     "decimals": "1e18",
     "chainId": 8453,
     "beefyFee": 0.095,
+    "rewards": [
+      {
+        "address": "0x4200000000000000000000000000000000000006",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ],
     "lp0": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
