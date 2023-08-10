@@ -38,10 +38,23 @@ const _tokens = {
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
     documentation: 'https://docs.multichain.org/getting-started/introduction',
   },
-  wUSDR: {
+  multiWUSDR: {
     name: 'Real USD',
     symbol: 'wUSDR',
     address: '0x2952beb1326acCbB5243725bd4Da2fC937BCa087',
+    chainId: 56,
+    decimals: 9,
+    website: 'https://www.tangible.store/realusd',
+    documentation: 'https://docs.tangible.store/',
+    description:
+      'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders. The token on BNB Chain is bridged via Multichain from Polygon.',
+    bridge: 'multichain',
+    logoURI: '',
+  },
+  wUSDR: {
+    name: 'Real USD',
+    symbol: 'wUSDR',
+    address: '0x9467f15f44A8641389556387b43d9ED3f6981818',
     chainId: 56,
     decimals: 9,
     website: 'https://www.tangible.store/realusd',
