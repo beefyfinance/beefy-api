@@ -76,6 +76,7 @@ import getQuickGammaPrices from './matic/getQuickGammaPrices';
 import getChronosStablePrices from './arbitrum/getChronosStablePrices';
 import getQuickGammaZkPrices from './zkevm/getQuickGammaPrices';
 import getFvmStablePrices from './fantom/getFvmStablePrices';
+import getBvmStablePrices from './base/getBvmStablePrices';
 import getRetroGammaPrices from './matic/getRetroGammaPrices';
 import { getQlpZkPrices } from './zkevm/getQlpZkPrices';
 import getUniswapGammaPrices from './optimism/getUniswapGammaPrices';
@@ -182,6 +183,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getQuickGammaZkPrices(tokenPrices),
     getChronosStablePrices(tokenPrices),
     getFvmStablePrices(tokenPrices),
+    getBvmStablePrices(tokenPrices),
     getQlpZkPrices(tokenPrices),
   ];
 
