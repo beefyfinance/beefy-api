@@ -18,6 +18,18 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  ALB: {
+    name: 'Alien Base',
+    symbol: 'ALB',
+    address: '0x1dd2d631c92b1aCdFCDd51A0F7145A50130050C4',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.alienbase.xyz/swap',
+    description: 'Reward token for the Alien Base DEX on the base chain. Farm and stake tokens.',
+    documentation: 'https://docs.alienbase.xyz/',
+    bridge: 'native',
+  },
   'USD+': {
     name: 'USD+',
     symbol: 'USD+',
