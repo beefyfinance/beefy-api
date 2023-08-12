@@ -1,5 +1,25 @@
 [
   {
+    "name": "bvm-cbeth-weth",
+    "address": "0x291CDd70257c17bC719D11531ec01C33C34A4d8b",
+    "gauge": "0xeD1E21320b0CA4E80a5C424ee4322Bc9458061d7",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "oracle": "tokens",
+      "oracleId": "cbETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "bvm-weth-axlusdc",
     "address": "0x1c2f16EB9E2C18a87037194c5EA00F569953A1cc",
     "gauge": "0x5B21fBab44dDbcd2B73d5Ec34c37250e6A73fE94",
