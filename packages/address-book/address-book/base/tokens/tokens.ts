@@ -18,6 +18,18 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  WELL: {
+    name: 'WELL',
+    symbol: 'WELL',
+    address: '0xFF8adeC2221f9f4D8dfbAFa6B9a297d17603493D',
+    chainId: 8453,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x511aB53F793683763E5a8829738301368a2411E3.svg',
+    website: 'https://moonwell.fi/',
+    description: 'WELL is the native governance token of the Moonwell protocol',
+    bridge: 'wormhole',
+  },
   ALB: {
     name: 'Alien Base',
     symbol: 'ALB',
