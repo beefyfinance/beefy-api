@@ -2005,6 +2005,32 @@ const _tokens = {
     documentation: 'https://docs.retro.finance/protocol-overview/welcome-to-retro-finance',
     bridge: 'native',
   },
+  AURA: {
+    name: 'Aura',
+    symbol: 'AURA',
+    address: '0x1509706a6c66CA549ff0cB464de88231DDBe213B',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://aura.finance/',
+    description:
+      'Aura Finance is a protocol built on top of the Balancer system to provide maximum incentives to Balancer liquidity providers and BAL stakers (into veBAL) through social aggregation of BAL deposits and Aura’s native token. For BAL stakers, Aura provides a seamless onboarding process to veBAL, by creating a tokenised wrapper token called auraBAL that represents the 80/20 BPT locked up for the maximum time in VotingEscrow (read more about what this means). This can be staked to receive existing rewards (BAL and bbaUSD) from Balancer, in addition to a share of any BAL earned by Aura (read more about the fees), and additional AURA. This minting process is irreversible however users can trade their auraBAL back to BAL through an incentivised liquidity pool.',
+    bridge: 'layer-zero',
+    logoURI: '',
+    documentation: 'https://docs.aura.finance/',
+  },
+  LUCHA: {
+    name: 'Luchadores.io LUCHA Token',
+    symbol: 'LUCHA',
+    address: '0x6749441Fdc8650b5b5a854ed255C82EF361f1596',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://luchadores.io',
+    description:
+      'Luchadores.io is a 100% on-chain auto-battler in an 8-bit style for the nostalgic retro gamer and the universe of Lucha Libre!',
+    bridge: 'native',
+    logoURI: '',
+    documentation: 'https://luchadores.notion.site/Luchadores-io-e9a8f397637643e1a821dd6890a2216a',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
