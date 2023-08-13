@@ -18,6 +18,19 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  BASE: {
+    name: 'BASE',
+    symbol: 'BASE',
+    address: '0xd07379a755A8f11B57610154861D694b2A0f615a',
+    chainId: 8453,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xd07379a755A8f11B57610154861D694b2A0f615a.svg',
+    website: 'https://swapbased.finance/#/',
+    description: 'BASE is the governance token of SwapBased, a DEX built on the Base blockchain.',
+    documentation: 'https://docs.swapbased.finance/',
+    bridge: 'native',
+  },
   WELL: {
     name: 'WELL',
     symbol: 'WELL',
