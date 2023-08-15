@@ -114,14 +114,14 @@ const updateFeeBatches = async () => {
     let treasurySplit;
 
     if (feeBatchAddress === treasuryMultisig) {
-      treasurySplit = 640;
+      treasurySplit = 1000;
       console.warn(
-        `> beefyFeeRecipient is treasuryMultisig for chain ${chainId} - using new default treasury split of 640/1000`
+        `> beefyFeeRecipient is treasuryMultisig for chain ${chainId} - using treasury split of 1000/1000`
       );
     } else if (feeBatchAddress === treasury) {
-      treasurySplit = 640;
+      treasurySplit = 1000;
       console.warn(
-        `> beefyFeeRecipient is treasury for chain ${chainId} - using new default treasury split of 640/1000`
+        `> beefyFeeRecipient is treasury for chain ${chainId} - using treasury split of 1000/1000`
       );
     } else {
       try {
@@ -131,10 +131,10 @@ const updateFeeBatches = async () => {
         if (err.shortMessage === 'The contract function "treasuryFee" reverted.') {
           treasurySplit = 140;
           console.warn(
-            `> feeBatch.treasuryFee() reverted for chain ${chainId} - using old treasury split of 140/1000`
+            `> feeBatch.treasuryFee() reverted for chain ${chainId}:${feeBatchAddress} - using old treasury split of 140/1000`
           );
         } else {
-          console.log(` > Error updating feeBatch on chain ${chainId}`);
+          console.log(` > Error updating feeBatch on chain ${chainId}:${feeBatchAddress}`);
           console.log(err.message);
         }
       }
@@ -146,6 +146,8 @@ const updateFeeBatches = async () => {
         treasurySplit: treasurySplit / 1000,
         stakerSplit: 1 - treasurySplit / 1000,
       };
+    } else {
+      console.error(`No fee splits set for ${chainId}`);
     }
   }
 
