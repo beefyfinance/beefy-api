@@ -18,6 +18,18 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  axlWBTC: {
+    name: 'Axelar Wrapped WBTC',
+    symbol: 'axlWBTC',
+    address: '0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad',
+    chainId: 8453,
+    decimals: 8,
+    logoURI: 'https://tokens.pancakeswap.finance/images/0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad.svg',
+    website: 'https://wbtc.network/',
+    description: 'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin.',
+    documentation: 'https://wbtc.network/',
+    bridge: 'axelar'
+  },
   BASE: {
     name: 'BASE',
     symbol: 'BASE',

@@ -1,5 +1,25 @@
 [
   {
+    "name": "baseswap-axlwbtc-usdbc",
+    "address": "0x317d373E590795e2c09D73FaD7498FC98c0A692B",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 14,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad",
+      "oracle": "tokens",
+      "oracleId": "axlWBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "baseswap-dai+-usd+",
     "address": "0x7Fb35b3967798cE8322cC50eF52553BC5Ee4c306",
     "decimals": "1e18",
