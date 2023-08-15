@@ -100,7 +100,11 @@ let vaultFees: Record<string, VaultFeeBreakdown>;
 
 const updateFeeBatches = async () => {
   for (const chainId of Object.keys(addressBookByChainId)) {
-    const feeBatchAddress = addressBookByChainId[chainId].platforms.beefyfinance.beefyFeeRecipient;
+    const {
+      beefyFeeRecipient: feeBatchAddress,
+      treasuryMultisig,
+      treasury,
+    } = addressBookByChainId[chainId].platforms.beefyfinance;
     const feeBatchContract = fetchContract(
       feeBatchAddress,
       feeBatchTreasurySplitMethodABI,
@@ -109,24 +113,30 @@ const updateFeeBatches = async () => {
 
     let treasurySplit;
 
-    try {
-      treasurySplit = new BigNumber((await feeBatchContract.read.treasuryFee()).toString());
-    } catch (err) {
-      //If reverted, method isn't available on contract so must be older split
-      if (err.message.includes('revert') || err.message.includes('correct ABI')) {
-        treasurySplit = 140;
-      } else if (
-        Number(chainId) === ChainId.zksync ||
-        (Number(chainId) === ChainId.zkevm && err.message.includes('cannot estimate gas'))
-      ) {
-        // TODO: remove once we have feebatch
-        treasurySplit = 640;
-        console.warn(
-          `> feeBatch.treasuryFee() failed on chain ${chainId} - using new default treasury split of 640/1000`
-        );
-      } else {
-        console.log(` > Error updating feeBatch on chain ${chainId}`);
-        console.log(err.message);
+    if (feeBatchAddress === treasuryMultisig) {
+      treasurySplit = 640;
+      console.warn(
+        `> beefyFeeRecipient is treasuryMultisig for chain ${chainId} - using new default treasury split of 640/1000`
+      );
+    } else if (feeBatchAddress === treasury) {
+      treasurySplit = 640;
+      console.warn(
+        `> beefyFeeRecipient is treasury for chain ${chainId} - using new default treasury split of 640/1000`
+      );
+    } else {
+      try {
+        treasurySplit = Number((await feeBatchContract.read.treasuryFee()).toString());
+      } catch (err) {
+        // If reverted, method isn't available on contract so must we assume older split
+        if (err.shortMessage === 'The contract function "treasuryFee" reverted.') {
+          treasurySplit = 140;
+          console.warn(
+            `> feeBatch.treasuryFee() reverted for chain ${chainId} - using old treasury split of 140/1000`
+          );
+        } else {
+          console.log(` > Error updating feeBatch on chain ${chainId}`);
+          console.log(err.message);
+        }
       }
     }
 
