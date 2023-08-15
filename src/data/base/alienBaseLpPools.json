@@ -1,5 +1,45 @@
 [
   {
+    "name": "alienbase-dai+-usd+",
+    "address": "0xd97a40434627D5c897790DE9a3d2E577Cba5F2E0",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 8,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275",
+      "oracle": "tokens",
+      "oracleId": "DAI+",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "alienbase-usd+-usdbc",
+    "address": "0x553666081db0a8fdB337560009932852059d589A",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 7,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "alienbase-cbeth-weth",
     "address": "0x9BB646BF0F4Da44bfaF3d899e774DE065731EDFe",
     "decimals": "1e18",
