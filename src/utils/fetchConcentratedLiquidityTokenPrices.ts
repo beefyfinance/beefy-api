@@ -1,5 +1,3 @@
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress, web3Factory } from './web3';
 import IUniV3PoolAbi from '../abis/IUniV3Pool';
 import IKyberElasticPoolAbi from '../abis/IKyberElasticPool';
 import { ChainId } from '../../packages/address-book/types/chainid';
@@ -66,9 +64,6 @@ async function getConcentratedLiquidityPrices(
   chainTokens: ConcentratedLiquidityToken[],
   chainId: ChainId
 ): Promise<number[]> {
-  const web3 = web3Factory(chainId);
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-
   const concentratedLiquidityPriceCalls = chainTokens.map(token => {
     if (token.type == 'Kyber') {
       const tokenContract = fetchContract(token.pool, IKyberElasticPoolAbi, chainId);
