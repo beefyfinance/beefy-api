@@ -1,5 +1,25 @@
 [
   {
+    "name": "baseswap-weth-unidx",
+    "address": "0x30dcc8444F8361D5CE119fC25e16AF0B583e88Fd",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 15,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6B4712AE9797C199edd44F897cA09BC57628a1CF",
+      "oracle": "tokens",
+      "oracleId": "UNIDX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "baseswap-axlwbtc-usdbc",
     "address": "0x317d373E590795e2c09D73FaD7498FC98c0A692B",
     "decimals": "1e18",

@@ -18,6 +18,18 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  UNIDX: {
+    name: 'Unidex',
+    symbol: 'UNIDX',
+    address: '0x6B4712AE9797C199edd44F897cA09BC57628a1CF',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: 'https://tokens.pancakeswap.finance/images/0x6B4712AE9797C199edd44F897cA09BC57628a1CF.svg',
+    website: 'https://app.unidex.exchange/trading',
+    description: 'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
+    documentation: 'https://unidexexchange.gitbook.io/unidex/',
+    bridge: 'synapse'
+  },
   axlWBTC: {
     name: 'Axelar Wrapped WBTC',
     symbol: 'axlWBTC',
