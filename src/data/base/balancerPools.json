@@ -1,5 +1,43 @@
 [
   {
+    "name": "balancer-base-cbeth-weth",
+    "address": "0xFb4C2E6E6e27B5b4a07a36360C89EDE29bB3c9B6",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x2279abf4bdAb8CF29EAe4036262c62dBA6460306",
+    "vaultPoolId": "0xfb4c2e6e6e27b5b4a07a36360c89ede29bb3c9b6000000000000000000000026",
+    "composable": true,
+    "bptIndex": 0,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x2279abf4bdAb8CF29EAe4036262c62dBA6460306",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x2279abf4bdAb8CF29EAe4036262c62dBA6460306",
+        "rewardToken": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+        "oracleId": "USDbC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "cbETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-base-usdbc-axlusdc",
     "address": "0xE58cA65f418D4121d6C70d4C133E60cf6fDa363C",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
