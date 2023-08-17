@@ -1,5 +1,26 @@
 [
   {
+    "name": "swapbased-eth-cbeth",
+    "address": "0xA5b63920AB791234eadE3d0C23139E21bc63c2f8",
+    "strat": "0xF4272b27C1AfE449FBdbe83C1C3D1EbC7351fA2d",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 29,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "oracle": "tokens",
+      "oracleId": "cbETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "swapbased-dai+-usd+",
     "address": "0x164Bc404c64FA426882D98dBcE9B10d5df656EeD",
     "strat": "0xF4272b27C1AfE449FBdbe83C1C3D1EbC7351fA2d",
