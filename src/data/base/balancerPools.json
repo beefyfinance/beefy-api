@@ -6,7 +6,7 @@
     "gauge": "0x2279abf4bdAb8CF29EAe4036262c62dBA6460306",
     "vaultPoolId": "0xfb4c2e6e6e27b5b4a07a36360c89ede29bb3c9b6000000000000000000000026",
     "composable": true,
-    "bptIndex": 0,
+    "bptIndex": 2,
     "decimals": "1e18",
     "rewards": [
       {
@@ -23,7 +23,9 @@
     ],
     "tokens": [
       {
-        "oracleId": "BPTToken"
+        "oracle": "tokens",
+        "oracleId": "cbETH",
+        "decimals": "1e18"
       },
       {
         "oracle": "tokens",
@@ -31,9 +33,7 @@
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
-        "oracleId": "cbETH",
-        "decimals": "1e18"
+        "oracleId": "BPTToken"
       }
     ]
   },
