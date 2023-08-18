@@ -57,7 +57,7 @@ const getSpookyV3LpApys = async () => {
     const yearlyRewardsAInUsd = yearlyRewards.times(tokenPriceA).dividedBy(DECIMALSA);
     let yearlyRewardsBInUsd = new BigNumber(0);
 
-    if (!rewardPerSecs[i].isNaN()) {
+    if (pool.oracleB && !rewardPerSecs[i].isNaN()) {
       let rewardBPerSec = rewardPerSecs[i]
         .times(rewardAllocPoints[i])
         .dividedBy(pool.rewarderTotalAllocPoints ?? rewarderTotalAllocPoints[i]);
