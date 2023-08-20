@@ -2,7 +2,7 @@
   {
     "name": "swapbased-eth-cbeth",
     "address": "0xA5b63920AB791234eadE3d0C23139E21bc63c2f8",
-    "strat": "0xF4272b27C1AfE449FBdbe83C1C3D1EbC7351fA2d",
+    "strat": "0xA442b95917DD2A5Cac73A4fAE9CC2b5caaeB621D",
     "decimals": "1e18",
     "beefyFee": 0.095,
     "poolId": 29,
