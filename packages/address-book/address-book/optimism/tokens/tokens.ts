@@ -1114,6 +1114,18 @@ const _tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
   },
+  JRT: {
+    name: 'Jarvis Reward Token',
+    symbol: 'JRT',
+    address: '0x15e770B95Edd73fD96b02EcE0266247D50895E76',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://jarvis.network/',
+    description: 'Jarvis Governance Token',
+    documentation: 'https://learn.jarvis.network/',
+    bridge: 'optimism-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
