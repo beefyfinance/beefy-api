@@ -1857,6 +1857,17 @@ const _tokens = {
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
     logoURI: '',
   },
+  CVR: {
+    name: 'CAVIAR',
+    symbol: 'CVR',
+    address: '0x6AE96Cc93331c19148541D4D2f31363684917092',
+    chainId: 137,
+    decimals: 18,
+    website: 'https://www.tangible.store/caviar',
+    documentation: 'https://docs.tangible.store/caviar/',
+    description: 'A liquid wrapper for vePearl by Tangible',
+    logoURI: '',
+  },
   amWBTC: {
     name: 'Aave WBTC',
     symbol: 'amWBTC',
