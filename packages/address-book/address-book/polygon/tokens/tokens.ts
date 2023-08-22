@@ -53,6 +53,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
+  BOB: {
+    name: 'BOB',
+    address: '0xB0B195aEFA3650A6908f15CdaC7D92F8a5791B0B',
+    symbol: 'BOB',
+    decimals: 18,
+    website: 'https://www.zkbob.com/',
+    documentation: 'https://www.zkbob.com/',
+    description:
+      'BOB is a multi-chain & multi-collateral stable token (stablecoin) enhanced with optional privacy features.',
+    chainId: 137,
+    logoURI: '',
+  },
   MVX: {
     name: 'MVX',
     address: '0x2760E46d9BB43dafCbEcaad1F64b93207f9f0eD7',

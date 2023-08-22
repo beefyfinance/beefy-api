@@ -1,5 +1,32 @@
 [
   {
+    "name": "quick-gamma-bob-usdc-stable",
+    "address": "0x25B186eEd64ca5FDD1bc33fc4CFfd6d34069BAec",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 53,
+    "chainId": 137,
+    "extraRewards": [
+      {
+        "rewarder": "0xc35f556C8Ac05FB484A703eE96A2f997F8CAC957",
+        "oracleId": "dQUICK",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB0B195aEFA3650A6908f15CdaC7D92F8a5791B0B",
+      "oracle": "tokens",
+      "oracleId": "BOB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-gamma-usdc-mimatic-stable",
     "address": "0x25B186eEd64ca5FDD1bc33fc4CFfd6d34069BAec",
     "decimals": "1e18",
