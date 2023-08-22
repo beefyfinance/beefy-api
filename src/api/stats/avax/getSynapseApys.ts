@@ -1,4 +1,3 @@
-import { avaxWeb3 } from '../../../utils/web3';
 import { AVAX_CHAIN_ID } from '../../../constants';
 import { getMiniChefApys } from '../common/getMiniChefApys';
 

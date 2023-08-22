@@ -1,4 +1,3 @@
-const { avaxWeb3: web3 } = require('../../../utils/web3');
 const { AVAX_CHAIN_ID: chainId } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
