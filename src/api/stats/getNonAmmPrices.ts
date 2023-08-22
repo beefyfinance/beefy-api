@@ -82,6 +82,7 @@ import { getQlpZkPrices } from './zkevm/getQlpZkPrices';
 import getUniswapGammaPrices from './optimism/getUniswapGammaPrices';
 import getJoeAutoArbPrices from './arbitrum/getJoeAutoArbPrices';
 import getJoeAutoAvaxPrices from './avax/getJoeAutoAvaxPrices';
+import getBasoStablePrices from './base/getBasoStablePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -101,6 +102,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   let breakdown = {};
 
   const promises = [
+    getBasoStablePrices(tokenPrices),
     getUniswapGammaPrices(tokenPrices),
     getJoeAutoAvaxPrices(tokenPrices),
     getJoeAutoArbPrices(tokenPrices),

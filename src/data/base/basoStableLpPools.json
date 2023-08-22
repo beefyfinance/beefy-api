@@ -1,0 +1,22 @@
+[
+  {
+    "name": "baso-mim-usdbc",
+    "address": "0xe3E72682F5A3Ae89257f05efe7Ef2a86963B0bf9",
+    "gauge": "0x3647BE17c95cA714b5653B28cD4AABc8BEbB093D",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4A3A6Dd60A34bB2Aba60D73B4C88315E9CeB6A3D",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  }
+]
