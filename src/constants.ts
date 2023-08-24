@@ -46,7 +46,7 @@ const ONE_RPC = process.env.ONE_RPC || 'https://api.harmony.one/';
 const ARBITRUM_RPC = process.env.ARBITRUM_RPC || 'https://arb1.arbitrum.io/rpc';
 const CELO_RPC = process.env.CELO_RPC || 'https://forno.celo.org';
 const MOONRIVER_RPC = process.env.MOONRIVER_RPC || 'https://rpc.api.moonriver.moonbeam.network';
-const CRONOS_RPC = process.env.CRONOS_RPC || 'https://node.croswap.com/rpc';
+const CRONOS_RPC = process.env.CRONOS_RPC || 'https://cronos.blockpi.network/v1/rpc/public';
 const AURORA_RPC =
   process.env.AURORA_RPC ||
   'https://mainnet.aurora.dev/Fon6fPMs5rCdJc4mxX4kiSK1vsKdzc3D8k6UF8aruek';

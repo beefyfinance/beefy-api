@@ -75,13 +75,14 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
       return contract.read.rate();
     } else {
       const contract = fetchContract(token[1].address, WrappedAave4626TokenAbi, chainId);
-      return contract.read.convertToAssets([1e18]);
+      return contract.read.convertToShares([1e18]);
     }
   });
 
   let res;
   try {
     res = await Promise.all(rateCalls);
+    console.log(res);
   } catch (e) {
     console.error('getWrappedAavePrices', e.message);
     return tokens.map(() => 0);
@@ -89,10 +90,9 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
   const wrappedRates = res.map(v => new BigNumber(v.toString()));
 
   return wrappedRates.map((v, i) =>
-    v
-      .times(tokenPrices[tokens[i][0].symbol])
-      .dividedBy(tokens[i][2] ? '1e18' : RAY_DECIMALS)
-      .toNumber()
+    !tokens[i][2]
+      ? v.times(tokenPrices[tokens[i][0].symbol]).dividedBy(RAY_DECIMALS).toNumber()
+      : new BigNumber(tokenPrices[tokens[i][0].symbol]).times('1e18').dividedBy(v).toNumber()
   );
 };
 
