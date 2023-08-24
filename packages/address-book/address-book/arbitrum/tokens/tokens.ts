@@ -1065,6 +1065,33 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.aura.finance/aura/what-is-aura/for-usdbal-stakers',
   },
+  ankrETH: {
+    name: 'Ankr Staked ETH',
+    symbol: 'ankrETH',
+    address: '0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description:
+      'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
+    bridge: 'ankr',
+  },
+  cbETH: {
+    name: 'Coinbase Wrapped Staked ETH',
+    symbol: 'cbETH',
+    address: '0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.coinbase.com/',
+    description:
+      "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
+    documentation:
+      'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
+    bridge: 'arbitrum-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
