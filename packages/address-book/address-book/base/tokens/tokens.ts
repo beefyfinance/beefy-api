@@ -18,6 +18,18 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  BASO: {
+    name: 'BASO',
+    symbol: 'BASO',
+    address: '0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: 'https://tokens.pancakeswap.finance/images/0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE.svg',
+    website: 'https://www.baso.finance/',
+    description: 'BASO is the governance token of Baso Finance, a Velodrome inspired DEX. Liquidity providers are rewarded with BASO and veBASO holders vote on liquidity pools to receive bribes and trading fees.',
+    documentation: 'https://basofinance.gitbook.io/basofinance/',
+    bridge: 'native'
+  },
   UNIDX: {
     name: 'Unidex',
     symbol: 'UNIDX',
