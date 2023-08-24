@@ -83,7 +83,7 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
   try {
     res = await Promise.all(rateCalls);
   } catch (e) {
-    console.error('getWrappedAavePrices', e);
+    console.error('getWrappedAavePrices', e.message);
     return tokens.map(() => 0);
   }
   const wrappedRates = res.map(v => new BigNumber(v.toString()));
