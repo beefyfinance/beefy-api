@@ -40,26 +40,6 @@
     }
   },
   {
-    "name": "bvm-axlusdt-axlusdc",
-    "address": "0x59d286411E41BB0c754dC01d692C4A54Db314832",
-    "gauge": "0xb65B5853acEd77228654EEAf1bf80D29F230c6A7",
-    "decimals": "1e18",
-    "chainId": 8453,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6",
-      "oracle": "tokens",
-      "oracleId": "axlUSDT",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xEB466342C4d449BC9f53A865D5Cb90586f405215",
-      "oracle": "tokens",
-      "oracleId": "axlUSDC",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "bvm-usd+-usdbc",
     "address": "0x653685aA9913C6aB13d659A4Ea8F358eceC3D34f",
     "gauge": "0xD9875fBe2A706f9Fed68F066D7420D63FDC5eD76",

@@ -24,11 +24,13 @@ const _tokens = {
     address: '0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE',
     chainId: 8453,
     decimals: 18,
-    logoURI: 'https://tokens.pancakeswap.finance/images/0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE.svg',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE.svg',
     website: 'https://www.baso.finance/',
-    description: 'BASO is the governance token of Baso Finance, a Velodrome inspired DEX. Liquidity providers are rewarded with BASO and veBASO holders vote on liquidity pools to receive bribes and trading fees.',
+    description:
+      'BASO is the governance token of Baso Finance, a Velodrome inspired DEX. Liquidity providers are rewarded with BASO and veBASO holders vote on liquidity pools to receive bribes and trading fees.',
     documentation: 'https://basofinance.gitbook.io/basofinance/',
-    bridge: 'native'
+    bridge: 'native',
   },
   UNIDX: {
     name: 'Unidex',
@@ -163,19 +165,6 @@ const _tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
-    bridge: 'axelar',
-  },
-  axlUSDT: {
-    name: 'Axelar Wrapped USDT',
-    symbol: 'axlUSDT',
-    address: '0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6',
-    chainId: 8453,
-    decimals: 6,
-    website: 'https://tether.to/',
-    documentation: 'https://docs.axelar.dev/',
-    description:
-      'Tether (Axelar) is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
-    logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'axelar',
   },
   OGRE: {
