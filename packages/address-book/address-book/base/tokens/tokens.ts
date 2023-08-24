@@ -36,11 +36,13 @@ const _tokens = {
     address: '0x6B4712AE9797C199edd44F897cA09BC57628a1CF',
     chainId: 8453,
     decimals: 18,
-    logoURI: 'https://tokens.pancakeswap.finance/images/0x6B4712AE9797C199edd44F897cA09BC57628a1CF.svg',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x6B4712AE9797C199edd44F897cA09BC57628a1CF.svg',
     website: 'https://app.unidex.exchange/trading',
-    description: 'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
+    description:
+      'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
     documentation: 'https://unidexexchange.gitbook.io/unidex/',
-    bridge: 'synapse'
+    bridge: 'synapse',
   },
   axlWBTC: {
     name: 'Axelar Wrapped WBTC',
@@ -48,11 +50,12 @@ const _tokens = {
     address: '0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad',
     chainId: 8453,
     decimals: 8,
-    logoURI: 'https://tokens.pancakeswap.finance/images/0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad.svg',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad.svg',
     website: 'https://wbtc.network/',
     description: 'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin.',
     documentation: 'https://wbtc.network/',
-    bridge: 'axelar'
+    bridge: 'axelar',
   },
   BASE: {
     name: 'BASE',
@@ -160,6 +163,19 @@ const _tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
+    bridge: 'axelar',
+  },
+  axlUSDT: {
+    name: 'Axelar Wrapped USDT',
+    symbol: 'axlUSDT',
+    address: '0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6',
+    chainId: 8453,
+    decimals: 6,
+    website: 'https://tether.to/',
+    documentation: 'https://docs.axelar.dev/',
+    description:
+      'Tether (Axelar) is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'axelar',
   },
   OGRE: {
