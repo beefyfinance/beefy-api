@@ -1,5 +1,45 @@
 [
   {
+    "name": "retro-gamma-wmatic-frxeth-narrow",
+    "address": "0x517E0971aFE8c7633937715d9f3271e930bEC372",
+    "pool": "0x44AAE81BE8435b6998A66d9642f66DE57DD03FC2",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEe327F889d5947c1dc1934Bb208a1E792F953E96",
+      "oracle": "tokens",
+      "oracleId": "frxETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "retro-gamma-wbtc-weth",
+    "address": "0x336536F5bB478D8624dDcE0942fdeF5C92bC4662",
+    "pool": "0xb694E3bdd4BCdF843510983D257679D1E627C474",
+    "decimals": "1e18",
+    "chainId": 137,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "retro-gamma-usdc-ageur-narrow",
     "address": "0x98b6a5EedC9382E2c4F8A38f985f2e9aC0B0E84c",
     "pool": "0xC2CB03a819F785bD8eb8D628BAD41Cd7c1C71F4B",
@@ -16,26 +56,6 @@
       "address": "0xE0B52e49357Fd4DAf2c15e02058DCE6BC0057db4",
       "oracle": "tokens",
       "oracleId": "agEUR",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "retro-gamma-weth-frxeth-narrow",
-    "address": "0x184a51465925AB8a0025E47a00cAb6d3769B5487",
-    "pool": "0xe5069a75Bdfe8F676B778B0aaDCcC597841F819B",
-    "decimals": "1e18",
-    "chainId": 137,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
-      "oracle": "tokens",
-      "oracleId": "WETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xEe327F889d5947c1dc1934Bb208a1E792F953E96",
-      "oracle": "tokens",
-      "oracleId": "frxETH",
       "decimals": "1e18"
     }
   },
