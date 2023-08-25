@@ -1126,6 +1126,19 @@ const _tokens = {
     documentation: 'https://learn.jarvis.network/',
     bridge: 'optimism-canonical',
   },
+  PENDLE: {
+    name: 'Pendle',
+    symbol: 'PENDLE',
+    address: '0xBC7B1Ff1c6989f006a1185318eD4E7b5796e66E1',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.pendle.finance/',
+    description:
+      'Pendle is a permissionless yield-trading protocol where users can execute various yield-management strategies.',
+    documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
+    bridge: 'optimism-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
