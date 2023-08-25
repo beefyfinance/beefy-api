@@ -24,11 +24,13 @@ const _tokens = {
     address: '0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE',
     chainId: 8453,
     decimals: 18,
-    logoURI: 'https://tokens.pancakeswap.finance/images/0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE.svg',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE.svg',
     website: 'https://www.baso.finance/',
-    description: 'BASO is the governance token of Baso Finance, a Velodrome inspired DEX. Liquidity providers are rewarded with BASO and veBASO holders vote on liquidity pools to receive bribes and trading fees.',
+    description:
+      'BASO is the governance token of Baso Finance, a Velodrome inspired DEX. Liquidity providers are rewarded with BASO and veBASO holders vote on liquidity pools to receive bribes and trading fees.',
     documentation: 'https://basofinance.gitbook.io/basofinance/',
-    bridge: 'native'
+    bridge: 'native',
   },
   UNIDX: {
     name: 'Unidex',
@@ -36,11 +38,13 @@ const _tokens = {
     address: '0x6B4712AE9797C199edd44F897cA09BC57628a1CF',
     chainId: 8453,
     decimals: 18,
-    logoURI: 'https://tokens.pancakeswap.finance/images/0x6B4712AE9797C199edd44F897cA09BC57628a1CF.svg',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x6B4712AE9797C199edd44F897cA09BC57628a1CF.svg',
     website: 'https://app.unidex.exchange/trading',
-    description: 'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
+    description:
+      'UniDex is building on top of the existing landscape by introducing a perpetual leverage trading platform that will allow any synthetic asset to be traded in a permissionless, transparent, and trader-focused platform for any person to tap into.',
     documentation: 'https://unidexexchange.gitbook.io/unidex/',
-    bridge: 'synapse'
+    bridge: 'synapse',
   },
   axlWBTC: {
     name: 'Axelar Wrapped WBTC',
@@ -48,11 +52,12 @@ const _tokens = {
     address: '0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad',
     chainId: 8453,
     decimals: 8,
-    logoURI: 'https://tokens.pancakeswap.finance/images/0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad.svg',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad.svg',
     website: 'https://wbtc.network/',
     description: 'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin.',
     documentation: 'https://wbtc.network/',
-    bridge: 'axelar'
+    bridge: 'axelar',
   },
   BASE: {
     name: 'BASE',
