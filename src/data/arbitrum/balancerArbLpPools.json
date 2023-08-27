@@ -113,68 +113,6 @@
     ]
   },
   {
-    "name": "balancer-wsteth-eth-v2",
-    "address": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x8F0B53F3BA19Ee31C0A73a6F6D84106340fadf5f",
-    "vaultPoolId": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f000200000000000000000316",
-    "decimals": "1e18",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 0,
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0x8F0B53F3BA19Ee31C0A73a6F6D84106340fadf5f",
-        "oracleId": "BAL"
-      },
-      {
-        "stream": "0x8F0B53F3BA19Ee31C0A73a6F6D84106340fadf5f",
-        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "oracleId": "ARB"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "wstETH",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "WETH",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "balancer-magic-usdc",
-    "address": "0xb3028Ca124B80CFE6E9CA57B70eF2F0CCC41eBd4",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xeF767E740D83d410794519c2F93Db32e44359a5C",
-    "vaultPoolId": "0xb3028ca124b80cfe6e9ca57b70ef2f0ccc41ebd40002000000000000000000ba",
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0xeF767E740D83d410794519c2F93Db32e44359a5C",
-        "oracleId": "BAL"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "MAGIC",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "USDC",
-        "decimals": "1e6"
-      }
-    ]
-  },
-  {
     "name": "balancer-wsteth-usdc",
     "address": "0x178E029173417b1F9C8bC16DCeC6f697bC323746",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
