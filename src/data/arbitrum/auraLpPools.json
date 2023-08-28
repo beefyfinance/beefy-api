@@ -1,5 +1,124 @@
 [
   {
+    "name": "aura-cbeth-wsteth-reth",
+    "address": "0x4a2F6Ae7F3e5D715689530873ec35593Dc28951B",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x8cA64Bd82AbFE138E195ce5Cb7268CA285D42245",
+    "composable": true,
+    "bptIndex": 1,
+    "vaultPoolId": "0x4a2f6ae7f3e5d715689530873ec35593dc28951b000000000000000000000481",
+    "lsIndex": 1,
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xf0dcb30811228bED2b87b2753fabAfe80A9D0fb9",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xE42D389058D820177b83E2863FEb13733d6Dd5f2",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "cbETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-wsteth-ankreth",
+    "address": "0x3FD4954a851eaD144c2FF72B1f5a38Ea5976Bd54",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x0407E6D2b22Fa27D24ad052987Cb157c84acEa2A",
+    "vaultPoolId": "0x3fd4954a851ead144c2ff72b1f5a38ea5976bd54000000000000000000000480",
+    "composable": true,
+    "bptIndex": 0,
+    "lsIndex": 0,
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x4148661180808347D682793505fB0Daa3f9C39B5",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x24B856D004306ECe76cF8280171D93a7E9FFa45B",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ankrETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-rdnt-weth",
+    "address": "0x32dF62dc3aEd2cD6224193052Ce665DC18165841",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xa17492d89cB2D0bE1dDbd0008F8585EDc5B0ACf3",
+    "vaultPoolId": "0x32df62dc3aed2cd6224193052ce665dc181658410002000000000000000003bd",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xF4abef3Ce505182B6A9c05Cf4F1EFAA888eEd425",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xC1aA9c8122Ec136Bbd2f5a767DE963bD9f9A316B",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "RDNT",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-dola-usdc-v2",
     "address": "0x8bc65Eed474D1A00555825c91FeAb6A8255C2107",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
