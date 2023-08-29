@@ -83,6 +83,7 @@ import getUniswapGammaPrices from './optimism/getUniswapGammaPrices';
 import getJoeAutoArbPrices from './arbitrum/getJoeAutoArbPrices';
 import getJoeAutoAvaxPrices from './avax/getJoeAutoAvaxPrices';
 import getBasoStablePrices from './base/getBasoStablePrices';
+import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -154,6 +155,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getSolidlyV1StablePrices(tokenPrices),
     getPolygonSolidlyStablePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
+    getAerodromeStablePrices(tokenPrices),
     getBalancerAvaxPrices(tokenPrices),
     getBalancerBasePrices(tokenPrices),
     getBalancerZkevmPrices(tokenPrices),

@@ -279,6 +279,7 @@ import cvmPools from '../../data/canto/cvmLpPools.json';
 import baseSwapPools from '../../data/base/baseSwapLpPools.json';
 import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
 import draculaPools from '../../data/zksync/draculaLpPools.json';
+import aerodromePools from '../../data/base/aerodromeLpPools.json';
 import alienBasePools from '../../data/base/alienBaseLpPools.json';
 import swapBasedPools from '../../data/base/swapBasedLpPools.json';
 import basoPools from '../../data/base/basoLpPools.json';
@@ -299,6 +300,7 @@ const pools = normalizePoolOracleIds([
   ...basoPools,
   ...swapBasedPools,
   ...alienBasePools,
+  ...aerodromePools,
   ...draculaPools,
   ...ooeV2Pools,
   ...baseSwapPools,

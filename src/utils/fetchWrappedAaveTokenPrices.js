@@ -82,7 +82,6 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
   let res;
   try {
     res = await Promise.all(rateCalls);
-    console.log(res);
   } catch (e) {
     console.error('getWrappedAavePrices', e.message);
     return tokens.map(() => 0);

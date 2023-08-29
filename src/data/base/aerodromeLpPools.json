@@ -1,0 +1,22 @@
+[
+  {
+    "name": "aerodrome-wusdr-usdbc",
+    "address": "0x3Fc28BFac25fC8e93B5b2fc15EfBBD5a8aA44eFe",
+    "gauge": "0x0000000000000000000000000000000000000000",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9483ab65847A447e36d21af1CaB8C87e9712ff93",
+      "oracle": "tokens",
+      "oracleId": "wUSDR",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  }
+]
