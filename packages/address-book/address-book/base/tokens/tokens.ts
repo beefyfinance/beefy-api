@@ -258,6 +258,19 @@ const _tokens = {
     logoURI: '',
     bridge: 'layer-zero',
   },
+  tBTC: {
+    name: 'tBTC v2',
+    symbol: 'tBTC',
+    address: '0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://threshold.network/',
+    documentation: 'https://docs.threshold.network/',
+    description:
+      'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
+    bridge: 'wormhole',
+  },
   BASED: {
     name: 'based.markets',
     symbol: 'BASED',
