@@ -3,17 +3,16 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 const stablePools = require('../../../data/base/aerodromeStableLpPools.json');
 const volatilePools = require('../../../data/base/aerodromeLpPools.json');
 
-// const pools = [...stablePools, ...volatilePools];
-const pools = [];
+const pools = [...stablePools, ...volatilePools];
 export const getAerodromeApys = async () => {
   return getSolidlyGaugeApys({
     chainId: chainId,
-    pools: pools,
+    pools: pools.filter(p => p.gauge),
     oracleId: 'AERO',
     oracle: 'tokens',
     decimals: '1e18',
     boosted: false,
     singleReward: true,
-    // log: true,
+    log: true,
   });
 };
