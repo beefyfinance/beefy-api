@@ -3,11 +3,11 @@ import { BASE_CHAIN_ID as chainId } from '../../../constants';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
 import fetchPrice from '../../../utils/fetchPrice';
 import { fetchContract } from '../../rpc/client';
-import BaseSwapMasterChefAbi from '../../../abis/base/BaseSwapMasterChefAbi';
+import BaseSwapMasterChef from '../../../abis/base/BaseSwapMasterChef';
+import BaseSwapNFT from '../../../abis/base/BaseSwapNFT';
 import pools from '../../../data/base/baseSwapLpPools.json';
 
-const masterchef = '0x2B0A43DCcBD7d42c18F6A83F86D1a19fA58d541A';
-const oracleId = 'BSWAP';
+const masterchef = '0x6Fc0f134a1F20976377b259687b1C15a5d422B47';
 
 const getBaseSwapApys = async (): Promise<ApyBreakdownResult> => {
   const farmApys = await getFarmApys();
@@ -17,9 +17,10 @@ const getBaseSwapApys = async (): Promise<ApyBreakdownResult> => {
 const getFarmApys = async (): Promise<BigNumber[]> => {
   const apys: BigNumber[] = [];
 
-  const tokenPrice = await fetchPrice({ oracle: 'tokens', id: oracleId });
+  const bsxTokenPrice = await fetchPrice({ oracle: 'tokens', id: 'BSX' });
+  const bswapTokenPrice = await fetchPrice({ oracle: 'tokens', id: 'BSWAP' });
 
-  const [{ blockRewards, totalAllocPoint }, { balances, allocPoints }] = await Promise.all([
+  const [{ bsxRewards, bswapRewards }, { balances, xShare }] = await Promise.all([
     getMasterChefData(),
     getPoolsData(),
   ]);
@@ -32,11 +33,16 @@ const getFarmApys = async (): Promise<BigNumber[]> => {
     const stakedPrice = await fetchPrice({ oracle, id });
     const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
-    const poolBlockRewards = blockRewards.times(allocPoints[i]).dividedBy(totalAllocPoint);
-
     const secondsPerYear = 31536000;
-    const yearlyRewards = poolBlockRewards.times(secondsPerYear);
-    let yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy('1e18');
+    // 50% of xToken rewards can be redeemed
+    const liquidShare = new BigNumber(10000).minus(xShare[i].dividedBy(2)).dividedBy(10000);
+
+    const yearlyBsxRewards = bsxRewards[i].times(liquidShare).times(secondsPerYear);
+    const yearlyBswapRewards = bswapRewards[i].times(secondsPerYear);
+    const yearlyBsxRewardsInUsd = yearlyBsxRewards.times(bsxTokenPrice).dividedBy('1e18');
+    const yearlyBswapRewardsInUsd = yearlyBswapRewards.times(bswapTokenPrice).dividedBy('1e18');
+
+    let yearlyRewardsInUsd = yearlyBsxRewardsInUsd.plus(yearlyBswapRewardsInUsd);
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
@@ -46,27 +52,37 @@ const getFarmApys = async (): Promise<BigNumber[]> => {
 };
 
 const getMasterChefData = async () => {
-  const masterchefContract = fetchContract(masterchef, BaseSwapMasterChefAbi, chainId);
-  const blockRewards = new BigNumber((await masterchefContract.read.bswapPerSec()).toString());
-  const totalAllocPoint = new BigNumber(
-    (await masterchefContract.read.totalAllocPoint()).toString()
-  );
-  return { blockRewards, totalAllocPoint };
+  const masterchefContract = fetchContract(masterchef, BaseSwapMasterChef, chainId);
+  const masterCalls = [];
+  pools.forEach(pool => {
+    masterCalls.push(masterchefContract.read.getPoolInfo([pool.rewardPool as `0x${string}`]));
+  });
+
+  const masterResults = await Promise.all(masterCalls);
+
+  const bsxRewards: BigNumber[] = masterResults.map(v => new BigNumber(v[6].toString()));
+  const bswapRewards: BigNumber[] = masterResults.map(v => new BigNumber(v[7].toString()));
+
+  return { bsxRewards, bswapRewards };
 };
 
 const getPoolsData = async () => {
-  const masterchefContract = fetchContract(masterchef, BaseSwapMasterChefAbi, chainId);
-  const poolCalls = [];
+  const balanceCalls = [];
+  const xShareCalls = [];
   pools.forEach(pool => {
-    poolCalls.push(masterchefContract.read.poolInfo([BigInt(pool.poolId)]));
+    const poolContract = fetchContract(pool.rewardPool, BaseSwapNFT, chainId);
+    balanceCalls.push(poolContract.read.getPoolInfo());
+    xShareCalls.push(poolContract.read.xTokenRewardsShare());
   });
 
-  const [poolResults] = await Promise.all([Promise.all(poolCalls)]);
+  const [balanceResults, xShareResults] = await Promise.all([
+    Promise.all(balanceCalls),
+    Promise.all(xShareCalls),
+  ]);
 
-  // fetches balances from totalDeposit on the poolInfo
-  const balances: BigNumber[] = poolResults.map(v => new BigNumber(v['4'].toString()));
-  const allocPoints: BigNumber[] = poolResults.map(v => new BigNumber(v['1'].toString()));
-  return { balances, allocPoints };
+  const balances: BigNumber[] = balanceResults.map(v => new BigNumber(v[7].toString()));
+  const xShare: BigNumber[] = xShareResults.map(v => new BigNumber(v.toString()));
+  return { balances, xShare };
 };
 
 module.exports = getBaseSwapApys;
