@@ -13,6 +13,6 @@ export const getAerodromeApys = async () => {
     decimals: '1e18',
     boosted: false,
     singleReward: true,
-    log: true,
+    // log: true,
   });
 };

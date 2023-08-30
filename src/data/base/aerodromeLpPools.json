@@ -82,7 +82,7 @@
   {
     "name": "aerodrome-cbeth-weth",
     "address": "0x44Ecc644449fC3a9858d2007CaA8CFAa4C561f91",
-    "gauge": "",
+    "gauge": "0xDf9D427711CCE46b52fEB6B2a20e4aEaeA12B2b7",
     "decimals": "1e18",
     "chainId": 8453,
     "beefyFee": 0.095,
@@ -102,7 +102,7 @@
   {
     "name": "aerodrome-wusdr-usdbc",
     "address": "0x3Fc28BFac25fC8e93B5b2fc15EfBBD5a8aA44eFe",
-    "gauge": "",
+    "gauge": "0xF64957C35409055776C7122AC655347ef88eaF9B",
     "decimals": "1e18",
     "chainId": 8453,
     "beefyFee": 0.095,
