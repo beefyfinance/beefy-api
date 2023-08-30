@@ -1,5 +1,65 @@
 [
   {
+    "name": "aerodrome-usdbc-thales",
+    "address": "0x5F43555b02507133eCd5b78218283ed849b07Eac",
+    "gauge": "0x2692CC440416B7f8252406D84e9D66f0C48C069E",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xf34e0cff046e154CAfCae502C7541b9E5FD8C249",
+      "oracle": "tokens",
+      "oracleId": "THALES",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-sonne-usdbc",
+    "address": "0x554EcA2a48136724294CE47fb7bfE9AADfceE3c6",
+    "gauge": "0x744462994510ccd987F697752bD46d1155F8022F",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x22a2488fE295047Ba13BD8cCCdBC8361DBD8cf7c",
+      "oracle": "tokens",
+      "oracleId": "SONNE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "aerodrome-weth-unidx",
+    "address": "0xA819Af1CC8AbE618eA8abaDeb464960F7451CEAB",
+    "gauge": "0x98F44CE76BDCaD37f00a98B275631B1D796862fa",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6B4712AE9797C199edd44F897cA09BC57628a1CF",
+      "oracle": "tokens",
+      "oracleId": "UNIDX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-tbtc-weth",
     "address": "0x2722C8f9B5E2aC72D1f225f8e8c990E449ba0078",
     "gauge": "0xfaE8C18D83655Fbf31af10d2e9A1Ad5bA77D0377",
