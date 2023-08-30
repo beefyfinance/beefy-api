@@ -46,7 +46,7 @@ const {
     platforms: { ramses, chronos },
   },
   base: {
-    platforms: { bvm },
+    platforms: { bvm, aerodrome },
   },
 } = addressBook;
 
@@ -162,6 +162,12 @@ const projects = {
     stableFile: '../src/data/base/bvmStableLpPools.json',
     volatileFile: '../src/data/base/bvmLpPools.json',
     voter: bvm.voter,
+  },
+  aerodrome: {
+    prefix: 'aerodrome',
+    stableFile: '../src/data/base/aerodromeStableLpPools.json',
+    volatileFile: '../src/data/base/aerodromeLpPools.json',
+    voter: aerodrome.voter,
   },
 };
 
