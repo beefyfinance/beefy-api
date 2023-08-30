@@ -2054,6 +2054,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://luchadores.notion.site/Luchadores-io-e9a8f397637643e1a821dd6890a2216a',
   },
+  CASH: {
+    name: 'CASH',
+    symbol: 'CASH',
+    address: '0x5D066D022EDE10eFa2717eD3D79f22F949F8C175',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://stabl.fi/',
+    description:
+      'Stabl.fi is a next-generation, yield bearing stable indexcoin protocol. Users mint $CASH by depositing stables into the Stabl protocol. The amount of $CASH in your wallet will continually grow, due to the yield strategies the protocol deposited stables are put in as well as external yielding sources.',
+    documentation: 'https://docs.stabl.fi/protocol-overview/introducing-stabl.fi',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
