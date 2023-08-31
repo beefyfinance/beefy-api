@@ -32,6 +32,32 @@ const _tokens = {
     documentation: 'https://basofinance.gitbook.io/basofinance/',
     bridge: 'native',
   },
+  THALES: {
+    name: 'Thales DAO Token',
+    symbol: 'THALES',
+    address: '0xf34e0cff046e154CAfCae502C7541b9E5FD8C249',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://thalesmarket.io/markets',
+    description:
+      'Thales is an Ethereum protocol that allows the creation of peer-to-peer parimutuel markets that anyone can join.',
+    documentation: 'https://docs.thalesmarket.io/',
+    bridge: 'celer',
+  },
+  SONNE: {
+    name: 'Sonne',
+    symbol: 'SONNE',
+    address: '0x22a2488fE295047Ba13BD8cCCdBC8361DBD8cf7c',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://sonne.finance/',
+    description:
+      'Sonne Finance is an EVM compatible lending/borrowing protocol that has launched on multiple chains. Sonne Finance provides peer-to-peer lending solutions that are fully decentralized, transparent and non-custodial.',
+    documentation: 'https://docs.sonne.finance/',
+    bridge: 'axelar',
+  },
   UNIDX: {
     name: 'Unidex',
     symbol: 'UNIDX',
