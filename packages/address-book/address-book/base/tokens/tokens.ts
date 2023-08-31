@@ -32,6 +32,19 @@ const _tokens = {
     documentation: 'https://basofinance.gitbook.io/basofinance/',
     bridge: 'native',
   },
+  agEUR: {
+    name: 'agEUR',
+    symbol: 'agEUR',
+    address: '0xA61BeB4A3d02decb01039e378237032B351125B4',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.angle.money/',
+    description:
+      'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+    bridge: 'layer-zero',
+    documentation: 'https://docs.angle.money/',
+  },
   THALES: {
     name: 'Thales DAO Token',
     symbol: 'THALES',
