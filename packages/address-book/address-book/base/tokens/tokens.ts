@@ -309,6 +309,17 @@ const _tokens = {
     logoURI: '',
     bridge: 'native',
   },
+  crvUSD: {
+    name: 'Curve.Fi USD Stablecoin',
+    symbol: 'crvUSD',
+    address: '0x417Ac0e078398C154EdFadD9Ef675d30Be60Af93',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://crvusd.curve.fi/',
+    description:
+      'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
+  },
   bsUSD: {
     name: 'Balancer Stable Pool',
     symbol: 'bsUSD',

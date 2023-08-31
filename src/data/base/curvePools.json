@@ -1,0 +1,66 @@
+[
+  {
+    "name": "curve-base-3c",
+    "pool": "0xA450487D8C8F355611EFF9553337BE67261Af26f",
+    "token": "0xA450487D8C8F355611EFF9553337BE67261Af26f",
+    "gauge": "0x6616CCfA456F72104452341fa470E9B08A11b1aB",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDbC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "axlUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-base-cbeth",
+    "pool": "0x11C1fBd4b3De66bC0565779b35171a6CF3E71f59",
+    "token": "0x98244d93D42b42aB3E3A4D12A5dc0B3e7f8F32f9",
+    "gauge": "0xE9c898BA654deC2bA440392028D2e7A194E6dc3e",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "cbETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-base-tricrypto",
+    "pool": "0x6e53131F68a034873b6bFA15502aF094Ef0c5854",
+    "token": "0x6e53131F68a034873b6bFA15502aF094Ef0c5854",
+    "gauge": "0x93933FA992927284e9d508339153B31eb871e1f4",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

@@ -7,9 +7,11 @@ const getMoonwellBaseApys = require('./getMoonwellBaseApys');
 const getSwapBasedApys = require('./getSwapBasedApys');
 const getBasoApys = require('./getBasoApys');
 const { getAerodromeApys } = require('./getAerodromeApys');
+const { getCurveApys } = require('./getCurveApys');
 
 const getApys = [
   getAerodromeApys,
+  getCurveApys,
   getBalancerBaseApys,
   getBaseSwapApys,
   getStargateBaseApys,
