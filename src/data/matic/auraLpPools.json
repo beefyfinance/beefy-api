@@ -7,6 +7,7 @@
     "lsUrl": "https://universe.staderlabs.com/polygon/apy",
     "dataPath": "$.value",
     "lsIndex": 1,
+    "balancerChargesFee": true,
     "vaultPoolId": "0xee278d943584dd8640eaf4cc6c7a5c80c0073e85000200000000000000000bc7",
     "decimals": "1e18",
     "rewards": [
@@ -37,6 +38,7 @@
     "lsUrl": "https://polygon.lido.fi/api/stats",
     "dataPath": "$.apr",
     "lsIndex": 1,
+    "balancerChargesFee": true,
     "vaultPoolId": "0xf0ad209e2e969eaaa8c882aac71f02d8a047d5c2000200000000000000000b49",
     "decimals": "1e18",
     "tokens": [

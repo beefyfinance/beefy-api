@@ -1,5 +1,5 @@
 import { POLYGON_CHAIN_ID as chainId } from '../../../constants';
-import { balancerOpClient as client } from '../../../apollo/client';
+import { balancerPolyClient as client } from '../../../apollo/client';
 import { getAuraApys } from '../common/balancer/getAuraApys';
 import { addressBook } from '../../../../packages/address-book/address-book';
 
