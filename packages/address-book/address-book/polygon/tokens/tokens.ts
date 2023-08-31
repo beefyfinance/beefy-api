@@ -1744,7 +1744,7 @@ const _tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
       'Aave interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
-    bridge: 'dai',
+    bridge: 'native',
   },
   wamDAI: {
     name: 'Wrapped Aave Tether DAI',

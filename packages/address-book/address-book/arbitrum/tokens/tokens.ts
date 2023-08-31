@@ -236,7 +236,7 @@ const _tokens = {
     website: 'https://makerdao.com/',
     description:
       'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
-    bridge: 'dai',
+    bridge: 'arbitrum-canonical',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
   },
@@ -393,7 +393,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hETH is the bridge token for transferring ETH via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
-    bridge: 'arbitrum-canonical',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -406,7 +406,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hUSDC is the bridge token for transferring USDC via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
-    bridge: 'arbitrum-canonical',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -419,7 +419,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hUSDT is the bridge token for transferring USDT via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
-    bridge: 'native',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -432,7 +432,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hDAI is the bridge token for transferring DAI via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
-    bridge: 'dai',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -710,7 +710,7 @@ const _tokens = {
     website: 'https://gainsnetwork.io/',
     description:
       'gDAI vault serves as a counterparty to all trading on GNS, a decentralized leverage trading platform on Polygon and Arbitrum.',
-    bridge: 'dai',
+    bridge: 'native',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
     documentation: 'https://gains-network.gitbook.io/docs-home/',
@@ -1013,7 +1013,7 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
-    bridge: 'dai',
+    bridge: 'native',
   },
   bbaaDAIV2: {
     name: 'Balancer Aave DAI Linear Pool',
@@ -1027,7 +1027,7 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
-    bridge: 'dai',
+    bridge: 'native',
   },
   bbaaUSD: {
     name: 'Balancer Aave Stable Composable Pool',

@@ -287,7 +287,7 @@ const _tokens = {
     website: 'https://makerdao.com/en/',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
-    bridge: 'dai',
+    bridge: 'optimism-canonical',
   },
   LUSD: {
     name: 'LUSD Stablecoin',
@@ -791,7 +791,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hETH is the bridge token for transferring ETH via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
-    bridge: 'optimism-canonical',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -804,7 +804,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hUSDC is the bridge token for transferring USDC via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
-    bridge: 'optimism-canonical',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -817,7 +817,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hUSDT is the bridge token for transferring USDT via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
-    bridge: 'optimism-canonical',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -830,7 +830,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hDAI is the bridge token for transferring DAI via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
-    bridge: 'dai',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -843,7 +843,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hSNX is the bridge token for transferring SNX via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
-    bridge: 'optimism-canonical',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
