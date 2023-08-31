@@ -38,6 +38,7 @@ const _tokens = {
     website: 'https://www.centre.io/',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'native',
     chainId: 42161,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
@@ -98,6 +99,7 @@ const _tokens = {
     website: 'https://abracadabra.money/',
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
+    bridge: 'layer-zero',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
   },
