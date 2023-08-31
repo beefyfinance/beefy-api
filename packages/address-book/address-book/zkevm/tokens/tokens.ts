@@ -30,7 +30,7 @@ const _tokens = {
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
-    bridge: 'polygon-zkevm',
+    bridge: 'zkevm-canonical',
   },
   MATIC: {
     name: 'Matic Token',
@@ -44,7 +44,7 @@ const _tokens = {
     description:
       'Polygon is a protocol and a framework for building and connecting Ethereum-compatible blockchain networks. Aggregating scalable solutions on Ethereum supporting a multi-chain Ethereum ecosystem.',
     documentation: 'https://zkevm.polygon.technology/',
-    bridge: 'polygon-zkevm',
+    bridge: 'zkevm-canonical',
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -58,7 +58,7 @@ const _tokens = {
     documentation: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
-    bridge: 'polygon-zkevm',
+    bridge: 'zkevm-canonical',
   },
   USDT: {
     name: 'Tether USD',
@@ -72,7 +72,7 @@ const _tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold.Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     documentation: 'https://tether.to/en/how-it-works',
-    bridge: 'polygon-zkevm',
+    bridge: 'zkevm-canonical',
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -86,7 +86,7 @@ const _tokens = {
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
     documentation: 'https://docs.makerdao.com/',
-    bridge: 'polygon-zkevm',
+    bridge: 'zkevm-canonical',
   },
   stMATIC: {
     name: 'Staked MATIC',
@@ -100,7 +100,7 @@ const _tokens = {
     description:
       'Lido for Polygon is a liquid staking solution for MATIC backed by industry-leading staking providers.',
     documentation: 'https://docs.lido.fi/',
-    bridge: 'polygon-zkevm',
+    bridge: 'zkevm-canonical',
   },
   QUICK: {
     name: 'QuickSwap',
@@ -113,7 +113,7 @@ const _tokens = {
     website: 'https://quickswap.exchange/#/swap',
     description: 'Next-gen Layer 2 DEX. Trade at lightning-fast speeds with near-zero gas fees.',
     documentation: 'https://docs.quickswap.exchange/',
-    bridge: 'polygon-zkevm',
+    bridge: 'zkevm-canonical',
   },
   FRAX: {
     name: 'Frax',
@@ -154,7 +154,7 @@ const _tokens = {
     description:
       'Balancer turns the concept of an index fund on its head: instead of a paying fees to portfolio managers to rebalance your portfolio, you collect fees from traders, who rebalance your portfolio by following arbitrage opportunities. ',
     documentation: 'https://docs.balancer.fi/',
-    bridge: 'polygon-zkevm',
+    bridge: 'zkevm-canonical',
   },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
@@ -167,7 +167,7 @@ const _tokens = {
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
-    bridge: 'polygon-zkevm',
+    bridge: 'zkevm-canonical',
   },
   rETH: {
     name: 'Rocket Pool ETH',
@@ -180,7 +180,7 @@ const _tokens = {
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
-    bridge: 'polygon-zkevm',
+    bridge: 'zkevm-canonical',
   },
 } as const;
 
