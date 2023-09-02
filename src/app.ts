@@ -47,19 +47,19 @@ const port = process.env.PORT || 3000;
 const start = async () => {
   await initCache();
 
-  initApyService();
-  initPriceService();
+  //initApyService();
+  //initPriceService();
   initVaultService();
-  initBoostService();
-  initVaultFeeService();
-  initTvlService();
-  initBifiBuyBackService();
-  initMooTokenPriceService();
-  initTokenService();
-  initConfigService();
-  initProposalsService();
-  initTreasuryService();
-  initZapService();
+  //initBoostService();
+  //initVaultFeeService();
+  //initTvlService();
+  //initBifiBuyBackService();
+  //initMooTokenPriceService();
+  //initTokenService();
+  //initConfigService();
+  //initProposalsService();
+  //initTreasuryService();
+  //initZapService();
 
   app.listen(port);
   console.log(`> beefy-api running! (:${port})`);
