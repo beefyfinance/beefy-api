@@ -1,3 +1,5 @@
+import { ethers } from 'ethers';
+
 interface EthValidatorPerformanceData {
   status: string;
   data: {
@@ -22,7 +24,10 @@ export const fetchEthValidatorTotalPerformance = async () => {
       return null;
     }
     return {
-      totalPerformanceWei: ethValidatorData.data[0].performancetotal,
+      totalPerformanceEther: ethers.utils.formatUnits(
+        ethValidatorData.data[0].performancetotal.toString(),
+        'gwei'
+      ),
     };
   } catch (e) {
     console.error('> fetchEthValidatorTotalPerformance', e);

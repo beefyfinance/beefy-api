@@ -17,12 +17,16 @@ const { bifibuyback } = require('./api/stats/bifibuyback/index');
 const { getTokens, getChainTokens } = require('./api/tokens');
 const { getConfigs, getChainConfig } = require('./api/config');
 const { getTreasury } = require('./api/treasury');
+const { validatorPerformance } = require('./api/validators/index');
+
 const {
   vaultZapSupport,
   vaultZapSupportDebug,
   proxyOneInchSwap,
   proxyOneInchQuote,
 } = require('./api/zaps');
+
+router.get('/validator/performance', validatorPerformance);
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);

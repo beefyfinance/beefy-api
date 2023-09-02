@@ -1,3 +1,6 @@
+import BigNumber from 'bignumber.js';
+import { ethers } from 'ethers';
+
 interface Transaction {
   blockNumber: string;
   timeStamp: string;
@@ -46,7 +49,6 @@ export const fetchFtmValidatorTotalPerformance = async () => {
     if (ftmValidatorData.status !== '1') {
       return null;
     }
-
     const totalValue = ftmValidatorData.result.reduce((accumulator, transaction) => {
       if (transaction.methodId === correctMethodId) {
         return accumulator + BigInt(transaction.value);
@@ -55,7 +57,7 @@ export const fetchFtmValidatorTotalPerformance = async () => {
     }, BigInt(0));
 
     return {
-      totalPerformanceWei: totalValue,
+      totalPerformanceEther: ethers.utils.formatEther(totalValue.toString()),
     };
   } catch (e) {
     console.error('fetchFtmValidatorTotalPerformance', e);

@@ -15,6 +15,7 @@ import { initVaultFeeService } from './api/vaults/getVaultFees';
 import { initTreasuryService } from './api/treasury/getTreasury';
 import { initProposalsService } from './api/snapshot/getProposals';
 import { initZapService } from './api/zaps/zaps';
+import { initValidatorPerformanceService } from './api/validators/validators';
 
 const Koa = require('koa');
 const helmet = require('koa-helmet');
@@ -47,19 +48,20 @@ const port = process.env.PORT || 3000;
 const start = async () => {
   await initCache();
 
-  //initApyService();
-  //initPriceService();
+  initApyService();
+  initPriceService();
+  initValidatorPerformanceService();
   initVaultService();
-  //initBoostService();
-  //initVaultFeeService();
-  //initTvlService();
-  //initBifiBuyBackService();
-  //initMooTokenPriceService();
-  //initTokenService();
-  //initConfigService();
-  //initProposalsService();
-  //initTreasuryService();
-  //initZapService();
+  initBoostService();
+  initVaultFeeService();
+  initTvlService();
+  initBifiBuyBackService();
+  initMooTokenPriceService();
+  initTokenService();
+  initConfigService();
+  initProposalsService();
+  initTreasuryService();
+  initZapService();
 
   app.listen(port);
   console.log(`> beefy-api running! (:${port})`);
