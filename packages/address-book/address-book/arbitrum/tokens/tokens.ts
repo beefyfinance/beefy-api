@@ -9,6 +9,7 @@ const ETH = {
   chainId: 42161,
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+  bridge: 'arbitrum-canonical',
   logoURI: 'https://arbiscan.io/token/images/weth_28.png',
   documentation: 'https://ethereum.org/en/developers/docs/',
 } as const;
@@ -37,6 +38,7 @@ const _tokens = {
     website: 'https://www.centre.io/',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'native',
     chainId: 42161,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
@@ -48,6 +50,7 @@ const _tokens = {
     decimals: 6,
     website: 'https://www.centre.io/',
     description: 'USDC.e is an Ethereum-based USDC bridged via the official Arbitrum Bridge.',
+    bridge: 'arbitrum-canonical',
     chainId: 42161,
     logoURI: 'https://ftmscan.com/token/images/USDC_32.png',
     documentation: 'https://developers.circle.com/docs',
@@ -96,6 +99,7 @@ const _tokens = {
     website: 'https://abracadabra.money/',
     description:
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
+    bridge: 'layer-zero',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
   },
@@ -120,6 +124,7 @@ const _tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    bridge: 'arbitrum-canonical',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
@@ -132,6 +137,7 @@ const _tokens = {
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    bridge: 'arbitrum-canonical',
     logoURI: 'https://hecoinfo.com/token/images/chainlink_32.png',
   },
   USDT: {
@@ -143,6 +149,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'native',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
   },
   gOHM: {
@@ -168,6 +175,7 @@ const _tokens = {
     website: 'https://www.treasure.lol/',
     description:
       'Treasure bridges the growing network of metaverses through an open and composable approach to the convergence of NFTs, DeFi and Gaming. Cross-ecosystem ties are bolstered through our interrelated resource model. $MAGIC (Power), Treasures (NFT | Resources) and Legions (NFT | Players)',
+    bridge: 'native',
   },
   BAL: {
     name: 'Balancer',
@@ -228,6 +236,7 @@ const _tokens = {
     website: 'https://makerdao.com/',
     description:
       'Multi-Collateral Dai, brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
+    bridge: 'arbitrum-canonical',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
   },
@@ -263,6 +272,7 @@ const _tokens = {
     website: 'https://ripae.finance/',
     description:
       'Ripae Finance’s full focus is to build a true cross-chain algorithmic stable coin protocol that is stabilized with true use-cases all around the DeFi Ecosystem.',
+    bridge: 'native',
     logoURI: '',
   },
   oldRDNT: {
@@ -285,6 +295,7 @@ const _tokens = {
     website: 'https://radiant.capital/',
     description:
       'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
+    bridge: 'native',
     logoURI: '',
   },
   wstETH: {
@@ -296,6 +307,7 @@ const _tokens = {
     website: 'https://lido.fi/',
     description:
       'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    bridge: 'arbitrum-canonical',
     logoURI: '',
     documentation: 'https://docs.lido.fi/',
   },
@@ -341,6 +353,7 @@ const _tokens = {
     symbol: 'FRAX',
     website: 'https://frax.finance/',
     description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
+    bridge: 'frax',
     logoURI:
       'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0xD24C2Ad096400B6FBcd2ad8B24E7acBc21A1da64/logo.png',
     documentation: 'https://docs.frax.finance/',
@@ -354,6 +367,7 @@ const _tokens = {
     website: 'https://uniswap.org/',
     description:
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    bridge: 'arbitrum-canonical',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
     documentation: 'https://uniswap.org/developers',
@@ -379,6 +393,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hETH is the bridge token for transferring ETH via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -391,6 +406,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hUSDC is the bridge token for transferring USDC via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -403,6 +419,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hUSDT is the bridge token for transferring USDT via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -415,6 +432,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'hDAI is the bridge token for transferring DAI via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    bridge: 'hop',
     logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
@@ -441,6 +459,7 @@ const _tokens = {
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
     documentation: 'https://docs.mai.finance/',
+    bridge: 'native',
   },
   'BIFI-ETH LP': {
     name: 'BIFI-ETH LP',
@@ -475,6 +494,7 @@ const _tokens = {
     website: 'https://app.angle.money/',
     description:
       'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+    bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
   },
   TUSD: {
@@ -510,6 +530,7 @@ const _tokens = {
     website: 'https://solidlizard.finance/home',
     description:
       'SolidLizard is a decentralized exchange built on Arbitrum that offers low-cost token exchanges and reduced swap fees, using a governance model called the ve(3,3) system, which was developed by Andre Cronje and introduced in Solidly. ',
+    bridge: 'native',
     documentation: 'https://solidlizard.gitbook.io/solidlizard/solidlizard-protocol/welcome',
   },
   LUSD: {
@@ -522,6 +543,7 @@ const _tokens = {
     website: 'https://www.liquity.org/',
     description:
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
+    bridge: 'arbitrum-canonical',
     documentation: 'https://docs.liquity.org/',
   },
   JRT: {
@@ -545,6 +567,7 @@ const _tokens = {
     website: 'https://jarvis.network/',
     description:
       'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://learn.jarvis.network/',
   },
@@ -557,6 +580,7 @@ const _tokens = {
     website: 'https://overnight.fi/',
     description:
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
@@ -593,6 +617,7 @@ const _tokens = {
     website: 'https://www.inverse.finance/',
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    bridge: 'arbitrum-canonical',
     logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
     documentation: 'https://docs.inverse.finance/',
   },
@@ -629,6 +654,7 @@ const _tokens = {
     website: 'https://www.liquity.org/',
     description:
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%. In addition to the collateral, the loans are secured by a Stability Pool containing LUSD and by fellow borrowers collectively acting as guarantors of last resort. Learn more about these mechanisms in our documentation. Liquity as a protocol is non-custodial, immutable, and governance-free.',
+    bridge: 'arbitrum-canonical',
     logoURI:
       'https://raw.githubusercontent.com/Uniswap/assets/master/blockchains/ethereum/assets/0x6DEA81C8171D0bA574754EF6F8b412F2Ed88c54D/logo.png',
     documentation: 'https://docs.liquity.org/',
@@ -644,6 +670,7 @@ const _tokens = {
     website: 'https://arbitrum.foundation/',
     description:
       'Arbitrum is a protocol that makes Ethereum transactions faster and cheaper. Developers use Arbitrum to build user-friendly decentralized apps (dApps) that can take advantage of the scalability benefits of the Arbitrum Rollup and AnyTrust protocols.',
+    bridge: 'native',
     documentation: 'https://docs.arbitrum.foundation/gentle-intro-dao-governance',
   },
   DPX: {
@@ -657,6 +684,7 @@ const _tokens = {
     website: 'https://www.dopex.io/',
     description:
       'Dopex -- A decentralized options protocol aiming to expand option liquidity throughout DeFi by minimizing option losses via rebates and maximizing reward through delegated controlled incentives',
+    bridge: 'arbitrum-canonical',
     documentation: 'https://docs.dopex.io/getting-started/introduction-to-dopex',
   },
   RDPX: {
@@ -670,6 +698,7 @@ const _tokens = {
     website: 'https://www.dopex.io/',
     description:
       'rDPX is the rebate token of the Dopex platform and is used to compensate option writers a portion of their losses. These rebates make losses less costly than our competitors, allowing us to drive deeper liquidity throughout the platform.',
+    bridge: 'arbitrum-canonical',
     documentation: 'https://docs.dopex.io/tokenomics/tokenomics/rdpx',
   },
   gDAI: {
@@ -681,6 +710,7 @@ const _tokens = {
     website: 'https://gainsnetwork.io/',
     description:
       'gDAI vault serves as a counterparty to all trading on GNS, a decentralized leverage trading platform on Polygon and Arbitrum.',
+    bridge: 'native',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
     documentation: 'https://gains-network.gitbook.io/docs-home/',
@@ -694,6 +724,7 @@ const _tokens = {
     website: 'https://app.frax.finance/frxeth/mint',
     description:
       'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    bridge: 'frax',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
@@ -706,6 +737,7 @@ const _tokens = {
     website: 'https://app.frax.finance/frxeth/mint',
     description:
       'sfrxETH is a ERC-4626 vault designed to accrue the staking yield of the Frax ETH validators. At any time, frxETH can be exchanged for sfrxETH by depositing it into the sfrxETH vault, which allows users to earn staking yield on their frxETH. Over time, as validators accrue staking yield, an equivalent amount of frxETH is minted and added to the vault, allowing users to redeem their sfrxETH for an greater amount of frxETH than they deposited.',
+    bridge: 'frax',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
@@ -718,6 +750,7 @@ const _tokens = {
     website: 'https://overnight.fi/',
     description:
       'DAI+ is DAI that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDC. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
@@ -766,6 +799,20 @@ const _tokens = {
     website: 'https://weth.io/',
     description:
       'Balancer Boosted Aave ETH. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'arbitrum-canonical',
+    logoURI: '',
+    documentation: 'https://ethereum.org/en/developers/docs/',
+  },
+  bbaaWETHV2: {
+    name: 'Balancer Aave WETH Linear Pool',
+    symbol: 'bbaaWETHV2',
+    address: '0xaD28940024117B442a9EFB6D0f25C8B59e1c950B',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://weth.io/',
+    description:
+      'Balancer Boosted Aave ETH. Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'arbitrum-canonical',
     logoURI: '',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
@@ -778,6 +825,7 @@ const _tokens = {
     website: 'https://rocketpool.net/',
     description:
       'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
+    bridge: 'arbitrum-canonical',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
   },
@@ -803,6 +851,7 @@ const _tokens = {
     documentation: 'https://docs.tangible.store/',
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders. The token on Arbitrum is bridged via Multichain from Polygon',
+    bridge: 'multichain',
     logoURI: '',
   },
   tBTC: {
@@ -816,6 +865,7 @@ const _tokens = {
     documentation: 'https://docs.threshold.network/',
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
+    bridge: 'wormhole',
   },
   aaUSDT: {
     name: 'Aave Tether USD',
@@ -855,6 +905,21 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
+    bridge: 'native',
+  },
+  bbaaUSDTV2: {
+    name: 'Balancer Aave USDT Linear Pool',
+    symbol: 'bbaaUSDTV2',
+    address: '0xc46be4B8Bb6B5A3d3120660efae9C5416318ED40',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 USDT and wrapped Aave Interest Bearing USDT.',
+    bridge: 'native',
   },
   aaUSDC: {
     name: 'Aave USDC',
@@ -894,6 +959,21 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 USDC and wrapped Aave Interest Bearing USDC.',
+    bridge: 'arbitrum-canonical',
+  },
+  bbaaUSDCV2: {
+    name: 'Balancer Aave USDC Linear Pool',
+    symbol: 'bbaaUSDCV2',
+    address: '0xbD724Eb087d4cc0f61a5fED1fFFaF937937E14DE',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 USDC and wrapped Aave Interest Bearing USDC.',
+    bridge: 'arbitrum-canonical',
   },
   aaDAI: {
     name: 'Aave DAI',
@@ -933,6 +1013,21 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
+    bridge: 'native',
+  },
+  bbaaDAIV2: {
+    name: 'Balancer Aave DAI Linear Pool',
+    symbol: 'bbaaDAIV2',
+    address: '0x6CB787a419c3e6Ee2e9FF365856c29CD10659113',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer linear pool that consist of 50/50 DAI and wrapped Aave Interest Bearing DAI.',
+    bridge: 'native',
   },
   bbaaUSD: {
     name: 'Balancer Aave Stable Composable Pool',
@@ -946,6 +1041,58 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
+  },
+  bbaaUSDV2: {
+    name: 'Balancer Aave Stable Composable Pool',
+    symbol: 'bbaaUSDV2',
+    address: '0xc6EeE8cb7643eC2F05F46d569e9eC8EF8b41b389',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
+    description:
+      'Balancer composable pool that consist of bbaUSDT, bbaUSDC, and bbaDAI. bbTokens are Aave boosted linear pools.',
+  },
+  auraBAL: {
+    name: 'Aura Staked BAL BPT',
+    symbol: 'auraBAL',
+    address: '0x223738a747383d6F9f827d95964e4d8E8AC754cE',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://aura.finance/',
+    description: "auraBAL is Aura's liquid staking locked BAL (80 BAL / 20 ETH) BPT",
+    bridge: 'layer-zero',
+    logoURI: '',
+    documentation: 'https://docs.aura.finance/aura/what-is-aura/for-usdbal-stakers',
+  },
+  ankrETH: {
+    name: 'Ankr Staked ETH',
+    symbol: 'ankrETH',
+    address: '0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description:
+      'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
+    bridge: 'ankr',
+  },
+  cbETH: {
+    name: 'Coinbase Wrapped Staked ETH',
+    symbol: 'cbETH',
+    address: '0x1DEBd73E752bEaF79865Fd6446b0c970EaE7732f',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.coinbase.com/',
+    description:
+      "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
+    documentation:
+      'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
+    bridge: 'arbitrum-canonical',
   },
 } as const;
 

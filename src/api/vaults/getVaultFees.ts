@@ -1,13 +1,10 @@
 import BigNumber from 'bignumber.js';
-import { ContractCallContext, ContractCallResults, Multicall } from 'ethereum-multicall';
 import { addressBookByChainId, ChainId } from '../../../packages/address-book/address-book';
 import { getKey, setKey } from '../../utils/cache';
-import { web3Factory } from '../../utils/web3';
-import { ApiChain, fromChainId } from '../../utils/chain';
-import { MULTICALL_V3 } from '../../utils/web3Helpers';
+import { ApiChain } from '../../utils/chain';
 import { fetchContract } from '../rpc/client';
+import FeeABI from '../../abis/FeeABI';
 
-const FeeABI = require('../../abis/FeeABI.json');
 const { getMultichainVaults } = require('../stats/getMultichainVaults');
 
 const feeBatchTreasurySplitMethodABI = [
@@ -27,14 +24,8 @@ const MULTICALL_BATCH_SIZES: Partial<Record<ApiChain, number>> = {
   polygon: 25,
 };
 
-const DEFAULT_MULTICALL_BATCH_SIZE = 100;
-
 const VAULT_FEES_KEY = 'VAULT_FEES';
 const FEE_BATCH_KEY = 'FEE_BATCHES';
-
-const batchSizeForChain = (chain: ApiChain) => {
-  return MULTICALL_BATCH_SIZES[chain] ?? DEFAULT_MULTICALL_BATCH_SIZE;
-};
 
 interface PerformanceFee {
   total: number;
@@ -100,7 +91,11 @@ let vaultFees: Record<string, VaultFeeBreakdown>;
 
 const updateFeeBatches = async () => {
   for (const chainId of Object.keys(addressBookByChainId)) {
-    const feeBatchAddress = addressBookByChainId[chainId].platforms.beefyfinance.beefyFeeRecipient;
+    const {
+      beefyFeeRecipient: feeBatchAddress,
+      treasuryMultisig,
+      treasury,
+    } = addressBookByChainId[chainId].platforms.beefyfinance;
     const feeBatchContract = fetchContract(
       feeBatchAddress,
       feeBatchTreasurySplitMethodABI,
@@ -109,24 +104,30 @@ const updateFeeBatches = async () => {
 
     let treasurySplit;
 
-    try {
-      treasurySplit = new BigNumber((await feeBatchContract.read.treasuryFee()).toString());
-    } catch (err) {
-      //If reverted, method isn't available on contract so must be older split
-      if (err.message.includes('revert') || err.message.includes('correct ABI')) {
-        treasurySplit = 140;
-      } else if (
-        Number(chainId) === ChainId.zksync ||
-        (Number(chainId) === ChainId.zkevm && err.message.includes('cannot estimate gas'))
-      ) {
-        // TODO: remove once we have feebatch
-        treasurySplit = 640;
-        console.warn(
-          `> feeBatch.treasuryFee() failed on chain ${chainId} - using new default treasury split of 640/1000`
-        );
-      } else {
-        console.log(` > Error updating feeBatch on chain ${chainId}`);
-        console.log(err.message);
+    if (feeBatchAddress === treasuryMultisig) {
+      treasurySplit = 1000;
+      console.warn(
+        `> beefyFeeRecipient is treasuryMultisig for chain ${chainId} - using treasury split of 1000/1000`
+      );
+    } else if (feeBatchAddress === treasury) {
+      treasurySplit = 1000;
+      console.warn(
+        `> beefyFeeRecipient is treasury for chain ${chainId} - using treasury split of 1000/1000`
+      );
+    } else {
+      try {
+        treasurySplit = Number((await feeBatchContract.read.treasuryFee()).toString());
+      } catch (err) {
+        // If reverted, method isn't available on contract so must we assume older split
+        if (err.shortMessage === 'The contract function "treasuryFee" reverted.') {
+          treasurySplit = 140;
+          console.warn(
+            `> feeBatch.treasuryFee() reverted for chain ${chainId}:${feeBatchAddress} - using old treasury split of 140/1000`
+          );
+        } else {
+          console.log(` > Error updating feeBatch on chain ${chainId}:${feeBatchAddress}`);
+          console.log(err.message);
+        }
       }
     }
 
@@ -136,6 +137,8 @@ const updateFeeBatches = async () => {
         treasurySplit: treasurySplit / 1000,
         stakerSplit: 1 - treasurySplit / 1000,
       };
+    } else {
+      console.error(`No fee splits set for ${chainId}`);
     }
   }
 
@@ -168,124 +171,130 @@ const saveToRedis = async () => {
   await setKey(VAULT_FEES_KEY, vaultFees);
 };
 
+const catchMissingFunctionError = err => {
+  if (err.shortMessage.includes('reverted')) {
+    return undefined;
+  }
+  throw err;
+};
+
+// I'm so sorry for whoever comes across this file, it was a nightmare to get working, blame the strategists, ily
 const getChainFees = async (vaults, chainId: number, feeBatch: FeeBatchDetail) => {
   try {
-    const web3 = web3Factory(chainId);
-    const multicallAddress = MULTICALL_V3[chainId];
-    if (!multicallAddress) {
-      console.warn(`> Fees: Skipping chain ${chainId} as no multicall address found`);
-      return;
-    }
-
-    const multicall = new Multicall({
-      web3Instance: web3,
-      tryAggregate: true,
-      multicallCustomContractAddress: multicallAddress,
+    const callToName = [
+      'strategist',
+      'strategist2',
+      'call',
+      'call2',
+      'call3',
+      'call4',
+      'maxCallFee',
+      'beefy',
+      'fee',
+      'treasury',
+      'rewards',
+      'rewards2',
+      'breakdown',
+      'allFees',
+      'maxFee',
+      'maxFee2',
+      'maxFee3',
+      'withdraw',
+      'withdraw2',
+      'withdrawMax',
+      'withdrawMax2',
+      'paused',
+    ];
+    const calls: Promise<bigint[] | bigint>[] = vaults.map(vault => {
+      const contract = fetchContract(vault.strategy, FeeABI, chainId);
+      return Promise.all([
+        contract.read.strategistFee().catch(catchMissingFunctionError),
+        contract.read.STRATEGIST_FEE().catch(catchMissingFunctionError),
+        contract.read.callFee().catch(catchMissingFunctionError),
+        contract.read.CALL_FEE().catch(catchMissingFunctionError),
+        contract.read.callfee().catch(catchMissingFunctionError),
+        contract.read.callFeeAmount().catch(catchMissingFunctionError),
+        contract.read.MAX_CALL_FEE().catch(catchMissingFunctionError),
+        contract.read.beefyFee().catch(catchMissingFunctionError),
+        contract.read.fee().catch(catchMissingFunctionError),
+        contract.read.TREASURY_FEE().catch(catchMissingFunctionError),
+        contract.read.REWARDS_FEE().catch(catchMissingFunctionError),
+        contract.read.rewardsFee().catch(catchMissingFunctionError),
+        contract.read.getFees().catch(catchMissingFunctionError),
+        contract.read.getAllFees().catch(catchMissingFunctionError),
+        contract.read.MAX_FEE().catch(catchMissingFunctionError),
+        contract.read.max().catch(catchMissingFunctionError),
+        contract.read.maxfee().catch(catchMissingFunctionError),
+        contract.read.withdrawalFee().catch(catchMissingFunctionError),
+        contract.read.WITHDRAWAL_FEE().catch(catchMissingFunctionError),
+        contract.read.WITHDRAWAL_MAX().catch(catchMissingFunctionError),
+        contract.read.withdrawalMax().catch(catchMissingFunctionError),
+        contract.read.paused().catch(catchMissingFunctionError),
+      ]);
     });
-    const contractCallContext: ContractCallContext[] = [];
 
-    vaults.forEach(vault => {
-      contractCallContext.push({
-        reference: vault.id,
-        contractAddress: vault.strategy,
-        abi: FeeABI,
-        calls: [
-          { reference: 'strategist', methodName: 'strategistFee', methodParameters: [] },
-          { reference: 'strategist2', methodName: 'STRATEGIST_FEE', methodParameters: [] },
-          { reference: 'call', methodName: 'callFee', methodParameters: [] },
-          { reference: 'call2', methodName: 'CALL_FEE', methodParameters: [] },
-          { reference: 'call3', methodName: 'callfee', methodParameters: [] },
-          { reference: 'call4', methodName: 'callFeeAmount', methodParameters: [] },
-          { reference: 'maxCallFee', methodName: 'MAX_CALL_FEE', methodParameters: [] },
-          { reference: 'beefy', methodName: 'beefyFee', methodParameters: [] },
-          { reference: 'fee', methodName: 'fee', methodParameters: [] },
-          { reference: 'treasury', methodName: 'TREASURY_FEE', methodParameters: [] },
-          { reference: 'rewards', methodName: 'REWARDS_FEE', methodParameters: [] },
-          { reference: 'rewards2', methodName: 'rewardsFee', methodParameters: [] },
-          { reference: 'breakdown', methodName: 'getFees', methodParameters: [] },
-          { reference: 'allFees', methodName: 'getAllFees', methodParameters: [] },
-          { reference: 'maxFee', methodName: 'MAX_FEE', methodParameters: [] },
-          { reference: 'maxFee2', methodName: 'max', methodParameters: [] },
-          { reference: 'maxFee3', methodName: 'maxfee', methodParameters: [] },
-          { reference: 'withdraw', methodName: 'withdrawalFee', methodParameters: [] },
-          { reference: 'withdraw2', methodName: 'WITHDRAWAL_FEE', methodParameters: [] },
-          { reference: 'withdrawMax', methodName: 'WITHDRAWAL_MAX', methodParameters: [] },
-          { reference: 'withdrawMax2', methodName: 'withdrawalMax', methodParameters: [] },
-          { reference: 'paused', methodName: 'paused', methodParameters: [] },
-        ],
-      });
-    });
-
-    let promises: Promise<ContractCallResults>[] = [];
-    const batchSize = batchSizeForChain(fromChainId(chainId));
-
-    for (let i = 0; i < contractCallContext.length; i += batchSize) {
-      let batch = contractCallContext.slice(i, i + batchSize);
-      promises.push(multicall.call(batch));
-    }
-
-    let results = await Promise.allSettled(promises);
-    results.forEach(res => {
+    const results = await Promise.allSettled(calls);
+    const failed = results.filter(res => res.status === 'rejected');
+    results.forEach((res, index) => {
       if (res.status === 'fulfilled') {
-        const callResponses: StrategyCallResponse[] = mapMulticallResults(res.value);
-        for (const contractCalls of callResponses) {
-          let fees = mapStrategyCallsToFeeBreakdown(contractCalls, feeBatch);
-          if (fees) {
-            vaultFees[contractCalls.id] = fees;
-          } else {
-            console.log(' > Failed to get fees for ' + contractCalls.id);
-          }
+        const callResponse: StrategyCallResponse = mapMulticallResultForSingleVault(
+          vaults[index],
+          res.value,
+          callToName
+        );
+        const fees = mapStrategyCallsToFeeBreakdown(callResponse, feeBatch);
+        if (fees) {
+          vaultFees[vaults[index].id] = fees;
+        } else {
+          console.warn(`> Failed to get fees for ` + vaults[index].id);
         }
-      } else {
-        console.log('> multicall batch failed fetching fees on chain ' + chainId);
-        console.log(res.reason);
       }
     });
+
+    if (failed.length > 0)
+      console.log(`> feeUpdate failed on chain ${chainId} for ${failed.length} vaults}`);
   } catch (err) {
     console.log('> feeUpdate error on chain ' + chainId);
-    console.log(err.message);
+    console.log(err);
   }
 };
 
-const mapMulticallResults = (results: ContractCallResults): StrategyCallResponse[] => {
-  return Object.entries(results.results).map(([vaultId, result]) => {
-    let mappedObject: StrategyCallResponse = {
-      id: vaultId,
-      strategy: result.originalContractCallContext.contractAddress,
-    };
+const mapMulticallResultForSingleVault = (vault, result, callToNames): StrategyCallResponse => {
+  const mappedObject: StrategyCallResponse = {
+    id: vault.id,
+    strategy: vault.strategy,
+  };
 
-    result.callsReturnContext.forEach(callReturn => {
-      if (callReturn.decoded) {
-        if (callReturn.reference === 'allFees') {
-          mappedObject[callReturn.reference] = {
-            performance: {
-              total: new BigNumber(callReturn.returnValues[0][0].hex),
-              beefy: new BigNumber(callReturn.returnValues[0][1].hex),
-              call: new BigNumber(callReturn.returnValues[0][2].hex),
-              strategist: new BigNumber(callReturn.returnValues[0][3].hex),
-            },
-            deposit: new BigNumber(callReturn.returnValues[1].hex),
-            withdraw: new BigNumber(callReturn.returnValues[2].hex),
-          };
-        } else if (callReturn.reference === 'breakdown') {
-          mappedObject[callReturn.reference] = {
-            total: new BigNumber(callReturn.returnValues[0].hex),
-            beefy: new BigNumber(callReturn.returnValues[1].hex),
-            call: new BigNumber(callReturn.returnValues[2].hex),
-            strategist: new BigNumber(callReturn.returnValues[3].hex),
-          };
-        } else if (callReturn.returnValues[0].type === 'BigNumber') {
-          mappedObject[callReturn.reference] = new BigNumber(
-            callReturn.returnValues[0].hex
-          ).toNumber();
-        } else {
-          mappedObject[callReturn.reference] = callReturn.returnValues[0];
-        }
+  result.forEach((res, i) => {
+    if (res !== undefined) {
+      if (callToNames[i] === 'allFees') {
+        // has allFees response
+        mappedObject[callToNames[i]] = {
+          performance: {
+            total: new BigNumber(res.beefy.total.toString()),
+            beefy: new BigNumber(res.beefy.beefy.toString()),
+            call: new BigNumber(res.beefy.call.toString()),
+            strategist: new BigNumber(res.beefy.strategist.toString()),
+          },
+          deposit: new BigNumber(res.deposit.toString()),
+          withdraw: new BigNumber(res.withdraw.toString()),
+        };
+      } else if (callToNames[i] === 'breakdown') {
+        //has breakdown response
+        mappedObject[callToNames[i]] = {
+          total: new BigNumber(res.total.toString()),
+          beefy: new BigNumber(res.beefy.toString()),
+          call: new BigNumber(res.call.toString()),
+          strategist: new BigNumber(res.strategist.toString()),
+        };
+      } else {
+        mappedObject[callToNames[i]] =
+          typeof res === 'bigint' ? new BigNumber(res.toString()).toNumber() : res;
       }
-    });
-
-    return mappedObject;
+    }
   });
+
+  return mappedObject;
 };
 
 const mapStrategyCallsToFeeBreakdown = (

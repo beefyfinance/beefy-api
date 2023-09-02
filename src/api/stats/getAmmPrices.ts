@@ -4,6 +4,7 @@ import { fetchAmmPrices } from '../../utils/fetchAmmPrices';
 import { fetchDmmPrices } from '../../utils/fetchDmmPrices';
 import { fetchMooPrices } from '../../utils/fetchMooPrices';
 import { fetchXPrices } from '../../utils/fetchXPrices';
+import { fetchOptionTokenPrices } from '../../utils/fetchOptionTokenPrices';
 import { fetchWrappedAavePrices } from '../../utils/fetchWrappedAaveTokenPrices';
 import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
@@ -273,6 +274,15 @@ import velocorePools from '../../data/zksync/velocoreLpPools.json';
 import soliSnekPools from '../../data/avax/soliSnekLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import fvmPools from '../../data/fantom/fvmLpPools.json';
+import bvmPools from '../../data/base/bvmLpPools.json';
+import cvmPools from '../../data/canto/cvmLpPools.json';
+import baseSwapPools from '../../data/base/baseSwapLpPools.json';
+import ooeV2Pools from '../../data/bsc/ooeV2LpPools.json';
+import draculaPools from '../../data/zksync/draculaLpPools.json';
+import aerodromePools from '../../data/base/aerodromeLpPools.json';
+import alienBasePools from '../../data/base/alienBaseLpPools.json';
+import swapBasedPools from '../../data/base/swapBasedLpPools.json';
+import basoPools from '../../data/base/basoLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 import { sleep } from '../../utils/time';
@@ -287,7 +297,16 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 // FIXME: if this list grows too big we might hit the ratelimit on initialization everytime
 // Implement in case of emergency -> https://github.com/beefyfinance/beefy-api/issues/103
 const pools = normalizePoolOracleIds([
+  ...basoPools,
+  ...swapBasedPools,
+  ...alienBasePools,
+  ...aerodromePools,
+  ...draculaPools,
+  ...ooeV2Pools,
+  ...baseSwapPools,
   ...fvmPools,
+  ...bvmPools,
+  ...cvmPools,
   ...veSyncPools,
   ...soliSnekPools,
   ...velocorePools,
@@ -583,6 +602,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   olympus: ['OHM'],
   betswirl: ['BETS'],
   'ankr-reward-bearing-ftm': ['ankrFTM'],
+  lucha: ['LUCHA'],
 };
 
 /**
@@ -598,16 +618,21 @@ const seedPeggedPrices = {
   WAVAX: 'AVAX', // Wrapped native
   WBNB: 'BNB', // Wrapped native
   WFTM: 'FTM', // Wrapped native
+  WKAVA: 'KAVA', // Wrapped native
   asUSDC: 'USDC', // Solana
   aUSDT: 'USDT', // Aave
   aDAI: 'DAI', // Aave
   aUSDC: 'USDC', // Aave
+  aETH: 'ETH', // Aave
   amUSDT: 'USDT', // Aave
   amUSDC: 'USDC', // Aave
   amDAI: 'DAI', // Aave
   aaUSDT: 'USDT', // Aave
   aaUSDC: 'USDC', // Aave
   aaDAI: 'DAI', // Aave
+  aavAVAX: 'AVAX', // Aave
+  aavUSDC: 'USDC', // Aave
+  aavUSDT: 'USDT', // Aave
   'DAI+': 'DAI', // Overnight
   alETH: 'ETH', // Alchemix
   hETH: 'ETH', // HOP
@@ -616,9 +641,10 @@ const seedPeggedPrices = {
   hUSDT: 'USDT', // HOP
   aWMATIC: 'MATIC', // Aave
   aWETH: 'ETH', // Aave
+  USDbC: 'USDC', // Base bridged USDC
 };
 
-type LpBreakdown = {
+export type LpBreakdown = {
   price: number;
   tokens: string[];
   balances: string[];
@@ -701,6 +727,10 @@ async function performUpdateAmmPrices() {
     return await fetchMooPrices(mooTokens, tokenPrices, poolPrices);
   });
 
+  const optionPrices = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchOptionTokenPrices(tokenPrices);
+  });
+
   const linearPoolPrice = ammPrices.then(
     async ({ tokenPrices }): Promise<Record<string, number>> => {
       const jbrlTokenPrice = await fetchJbrlPrice();
@@ -746,6 +776,7 @@ async function performUpdateAmmPrices() {
     const beTokenTokenPrice = await beTokenPrice;
     const linearPoolTokenPrice = await linearPoolPrice;
     const venusTokenPrice = await venusPrices;
+    const optionTokenPrice = await optionPrices;
     return {
       ...tokenPrices,
       ...dmm.tokenPrices,
@@ -757,6 +788,7 @@ async function performUpdateAmmPrices() {
       ...linearPoolTokenPrice,
       ...(await currencyPrices()),
       ...venusTokenPrice,
+      ...optionTokenPrice,
     };
   });
 

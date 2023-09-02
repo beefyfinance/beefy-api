@@ -28,5 +28,35 @@
         "oracleId": "BPTToken"
       }
     ]
+  },
+  {
+    "name": "bbaaUSDV2",
+    "address": "0xc6EeE8cb7643eC2F05F46d569e9eC8EF8b41b389",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0xc6eee8cb7643ec2f05f46d569e9ec8ef8b41b389000000000000000000000475",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "composable": true,
+    "bptIndex": 3,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaaDAIV2",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaaUSDCV2",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bbaaUSDTV2",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
   }
 ]

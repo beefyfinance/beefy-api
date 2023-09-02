@@ -1,5 +1,25 @@
 [
   {
+    "name": "thena-gamma-usdc-wusdrv3",
+    "address": "0xf7369b1d005f2cbb1887233b5aa0cb0b39fb9891",
+    "gauge": "0x56019Fe949C29Ec8b895cFFAb3292564CD1C3e42",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9467f15f44A8641389556387b43d9ED3f6981818",
+      "oracle": "tokens",
+      "oracleId": "wUSDR",
+      "decimals": "1e9"
+    }
+  },
+  {
     "name": "thena-gamma-wusdr-dola",
     "address": "0x92104a7BeC32297DdD022A8f242bf498d0470876",
     "gauge": "0x2174e40F56806D32f56Ad95202a4137B9F513E0b",

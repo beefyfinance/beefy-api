@@ -1,5 +1,3 @@
-import { MultiCall } from 'eth-multicall';
-import { multicallAddress, web3Factory } from './web3';
 import IUniV3PoolAbi from '../abis/IUniV3Pool';
 import IKyberElasticPoolAbi from '../abis/IKyberElasticPool';
 import { ChainId } from '../../packages/address-book/types/chainid';
@@ -40,6 +38,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'USDC',
       secondToken: 'AXL',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'GHO',
+      decimalDelta: 1e12,
+      pool: '0x54EEbc36527FE2E5624051E3c895810d7b68bcFc',
+      firstToken: 'USDC',
+      secondToken: 'GHO',
+    },
   ],
   polygon: [
     {
@@ -50,6 +56,22 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'BAL',
       secondToken: 'ETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'RETRO',
+      decimalDelta: 1,
+      pool: '0x35394eED0Be676ec6470fE6531daD809265310ff',
+      firstToken: 'RETRO',
+      secondToken: 'ETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'CASH',
+      decimalDelta: 1,
+      pool: '0x63ca6ED3D390C725b7FEb617BAdcab78a61038E8',
+      firstToken: 'CASH',
+      secondToken: 'MATIC',
+    },
   ],
 };
 
@@ -58,9 +80,6 @@ async function getConcentratedLiquidityPrices(
   chainTokens: ConcentratedLiquidityToken[],
   chainId: ChainId
 ): Promise<number[]> {
-  const web3 = web3Factory(chainId);
-  const multicall = new MultiCall(web3, multicallAddress(chainId));
-
   const concentratedLiquidityPriceCalls = chainTokens.map(token => {
     if (token.type == 'Kyber') {
       const tokenContract = fetchContract(token.pool, IKyberElasticPoolAbi, chainId);

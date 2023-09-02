@@ -1,15 +1,59 @@
-import { PublicClient, createPublicClient, http, getContract } from 'viem';
+import {
+  createPublicClient,
+  getContract,
+  http,
+  HttpTransport,
+  HttpTransportConfig,
+  PublicClient,
+} from 'viem';
 import { Abi } from 'abitype';
 import { getChain } from './chains';
 import { ChainId } from '../../../packages/address-book/address-book';
+import { rateLimitedHttp } from './transport';
+import PQueue from 'p-queue';
+import { envBoolean, envNumber } from '../../utils/env';
 
 const multicallClientsByChain: Record<number, PublicClient> = {};
 const singleCallClientsByChain: Record<number, PublicClient> = {};
+const queueByDomain: Record<string, PQueue> = {};
+
+/**
+ * Return a new queue per domain
+ * @param rpcUrl
+ */
+function getQueueFor(rpcUrl: string): PQueue {
+  const { hostname } = new URL(rpcUrl);
+  if (!queueByDomain[hostname]) {
+    // Default: Max 5 requests per second with 2 active requests
+    queueByDomain[hostname] = new PQueue({
+      concurrency: envNumber('RPC_RATE_LIMIT_CONCURRENCY', 2),
+      intervalCap: envNumber('RPC_RATE_LIMIT_INTERVAL_CAP', 5),
+      interval: envNumber('RPC_RATE_LIMIT_INTERVAL', 1000),
+      carryoverConcurrencyCount: true,
+      autoStart: true,
+      timeout: 30 * 1000,
+      throwOnTimeout: true,
+    });
+  }
+
+  return queueByDomain[hostname];
+}
+
+function makeHttpTransport(url: string, config: HttpTransportConfig = {}): HttpTransport {
+  // Default: disable rate limiting
+  if (envBoolean('RPC_RATE_LIMIT', false)) {
+    const queue = getQueueFor(url);
+    return rateLimitedHttp(queue, url, config);
+  }
+
+  return http(url, config);
+}
 
 const getMulticallClientForChain = (chainId: ChainId): PublicClient => {
   const chain = getChain[chainId];
   if (!chain) throw new Error('Unknown chainId ' + chainId);
   if (!multicallClientsByChain[chain.id]) {
+    const url = chain.rpcUrls.public.http[0];
     multicallClientsByChain[chain.id] = createPublicClient({
       batch: {
         multicall: {
@@ -18,7 +62,7 @@ const getMulticallClientForChain = (chainId: ChainId): PublicClient => {
         },
       },
       chain: chain,
-      transport: http(chain.rpcUrls.public.http[0], {
+      transport: makeHttpTransport(url, {
         // Test impact before enabling
         // batch: {
         //   wait: 500,
@@ -37,9 +81,10 @@ const getSingleCallClientForChain = (chainId: ChainId): PublicClient => {
   const chain = getChain[chainId];
   if (!chain) throw new Error('Unknown chainId ' + chainId);
   if (!singleCallClientsByChain[chain.id]) {
+    const url = chain.rpcUrls.public.http[0];
     singleCallClientsByChain[chain.id] = createPublicClient({
       chain: chain,
-      transport: http(chain.rpcUrls.public.http[0], {
+      transport: makeHttpTransport(url, {
         timeout: 15000,
         retryCount: 3,
         retryDelay: 350,

@@ -31,19 +31,22 @@ const {
     platforms: { solidlizard },
   },
   canto: {
-    platforms: { velocimeter },
+    platforms: { cvm },
   },
   kava: {
     platforms: { equilibre },
   },
   zksync: {
-    platforms: { velocore, vesync },
+    platforms: { velocore, vesync, dracula },
   },
   avax: {
     platforms: { solisnek },
   },
   arbitrum: {
     platforms: { ramses, chronos },
+  },
+  base: {
+    platforms: { bvm, aerodrome },
   },
 } = addressBook;
 
@@ -112,11 +115,11 @@ const projects = {
     volatileFile: '../src/data/arbitrum/solidlizardLpPools.json',
     voter: solidlizard.voter,
   },
-  velocimeter: {
-    prefix: 'velocimeterv2',
-    stableFile: '../src/data/canto/velocimeterV2StableLpPools.json',
-    volatileFile: '../src/data/canto/velocimeterV2LpPools.json',
-    voter: velocimeter.voter,
+  cvm: {
+    prefix: 'cvm',
+    stableFile: '../src/data/canto/cvmStableLpPools.json',
+    volatileFile: '../src/data/canto/cvmLpPools.json',
+    voter: cvm.voter,
   },
   velocore: {
     prefix: 'velocore',
@@ -129,6 +132,12 @@ const projects = {
     stableFile: '../src/data/zksync/veSyncStableLpPools.json',
     volatileFile: '../src/data/zksync/veSyncLpPools.json',
     voter: vesync.voter,
+  },
+  dracula: {
+    prefix: 'dracula',
+    stableFile: '../src/data/zksync/draculaStableLpPools.json',
+    volatileFile: '../src/data/zksync/draculaLpPools.json',
+    voter: dracula.voter,
   },
   solisnek: {
     prefix: 'solisnek',
@@ -147,6 +156,18 @@ const projects = {
     stableFile: '../src/data/arbitrum/chronosStableLpPools.json',
     volatileFile: '../src/data/arbitrum/chronosLpPools.json',
     voter: chronos.voter,
+  },
+  bvm: {
+    prefix: 'bvm',
+    stableFile: '../src/data/base/bvmStableLpPools.json',
+    volatileFile: '../src/data/base/bvmLpPools.json',
+    voter: bvm.voter,
+  },
+  aerodrome: {
+    prefix: 'aerodrome',
+    stableFile: '../src/data/base/aerodromeStableLpPools.json',
+    volatileFile: '../src/data/base/aerodromeLpPools.json',
+    voter: aerodrome.voter,
   },
 };
 

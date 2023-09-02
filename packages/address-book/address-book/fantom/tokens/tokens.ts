@@ -1949,7 +1949,7 @@ const _tokens = {
     website: 'https://www.fvm.exchange',
     bridge: 'native',
     description:
-      'oFVM is a new options token that helps to reduce sell pressure on the native FVM token. It is earned by liquidity providers (LPs) who provide liquidity to the FVM-FTM pool. oFVM can be redeemed for FVM at a discount, or it can be locked up for a period of time as veFVM. veFVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',
+      'oFVM is an options token that helps to reduce sell pressure on the native FVM token. It is earned by liquidity providers (LPs) who provide liquidity to the FVM pools. oFVM can be redeemed for FVM at a discount, or it can be locked up for a period of time as veFVM. veFVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',
     documentation: 'https://docs.velocimeter.xyz/oFVMmech',
   },
 } as const;

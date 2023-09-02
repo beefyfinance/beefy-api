@@ -225,29 +225,29 @@ const getTotalStakedInUsd = async (pool, balance) => {
 
 const getYearlyRewardsInUsd = async (pool, rewardRate, finish, extras, auraRate) => {
   let yearlyRewardsInUsd = new BigNumber(0);
+  let auraYearlyRewardsInUsd = new BigNumber(0);
   if (finish > Date.now() / 1000) {
     const balPrice = await fetchPrice({ oracle: 'tokens', id: 'BAL' });
     const auraPrice = await fetchPrice({ oracle: 'tokens', id: 'AURA' });
     const yearlyRewards = rewardRate.times(secondsInAYear);
     const auraYearlyRewards = yearlyRewards.times(auraRate).dividedBy('1e18');
-    const auraYearlyRewardsInUsd = auraYearlyRewards.times(auraPrice).dividedBy('1e18');
+    auraYearlyRewardsInUsd = auraYearlyRewards.times(auraPrice).dividedBy('1e18');
     yearlyRewardsInUsd = yearlyRewards.times(balPrice).dividedBy('1e18');
-
-    // console.log(pool.name, yearlyRewardsInUsd.toString(), auraYearlyRewardsInUsd.toString());
-
-    let extraRewardsInUsd = new BigNumber(0);
-    for (const extra of extras.filter(e => e.pool === pool.name)) {
-      if (extra.periodFinish < Date.now() / 1000) continue;
-      const price = await fetchPrice({
-        oracle: 'tokens',
-        id: extra.oracleId,
-      });
-      extraRewardsInUsd = extra.rewardRate.times(secondsInAYear).times(price).div(extra.decimals);
-      // console.log(pool.name, extra.oracleId, extraRewardsInUsd.valueOf());
-    }
-
-    yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd).plus(auraYearlyRewardsInUsd);
   }
+  // console.log(pool.name, yearlyRewardsInUsd.toString(), auraYearlyRewardsInUsd.toString());
+
+  let extraRewardsInUsd = new BigNumber(0);
+  for (const extra of extras.filter(e => e.pool === pool.name)) {
+    if (extra.periodFinish < Date.now() / 1000) continue;
+    const price = await fetchPrice({
+      oracle: 'tokens',
+      id: extra.oracleId,
+    });
+    extraRewardsInUsd = extra.rewardRate.times(secondsInAYear).times(price).div(extra.decimals);
+    //  console.log(pool.name, extra.oracleId, extraRewardsInUsd.valueOf());
+  }
+
+  yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd).plus(auraYearlyRewardsInUsd);
 
   return yearlyRewardsInUsd;
 };
@@ -271,10 +271,7 @@ const getComposableAaveYield = async (
       params.chainId
     );
     supplyRateCalls.push(dataProvider.read.getReserveData([t.address as `0x${string}`]));
-
-    if (tokens.length > 1) {
-      tokenQtyCalls.push(balVault.read.getPoolTokens([t.poolId as `0x${string}`]));
-    }
+    tokenQtyCalls.push(balVault.read.getPoolTokens([t.poolId as `0x${string}`]));
   });
 
   const [supplyRateResults, tokenQtyResults] = await Promise.all([

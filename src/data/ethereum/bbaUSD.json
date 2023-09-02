@@ -1,18 +1,16 @@
 [
   {
     "name": "bbaUSD",
-    "address": "0xA13a9247ea42D743238089903570127DdA72fE44",
+    "address": "0xc443C15033FCB6Cf72cC24f1BDA0Db070DdD9786",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "vaultPoolId": "0xa13a9247ea42d743238089903570127dda72fe4400000000000000000000035d",
+    "vaultPoolId": "0xc443c15033fcb6cf72cc24f1bda0db070ddd9786000000000000000000000593",
     "decimals": "1e18",
     "chainId": 1,
     "composable": true,
-    "bptIndex": 2,
+    "bptIndex": 0,
     "tokens": [
       {
-        "oracle": "tokens",
-        "oracleId": "bbaUSDT",
-        "decimals": "1e18"
+        "oracleId": "BPTToken"
       },
       {
         "oracle": "tokens",
@@ -20,7 +18,9 @@
         "decimals": "1e18"
       },
       {
-        "oracleId": "BPTToken"
+        "oracle": "tokens",
+        "oracleId": "bbaUSDT",
+        "decimals": "1e18"
       },
       {
         "oracle": "tokens",

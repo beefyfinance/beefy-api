@@ -1,0 +1,27 @@
+[
+  {
+    "name": "bsUSD",
+    "address": "0x6FbFcf88DB1aADA31F34215b2a1Df7fafb4883e9",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x6fbfcf88db1aada31f34215b2a1df7fafb4883e900000000000000000000000c",
+    "chainId": 8453,
+    "composable": true,
+    "bptIndex": 1,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDbC",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]

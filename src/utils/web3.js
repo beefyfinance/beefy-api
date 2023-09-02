@@ -66,6 +66,9 @@ module.exports = {
   get zkevmWeb3() {
     return chainRandomClients.zkevmRandomClient();
   },
+  get baseWeb3() {
+    return chainRandomClients.baseRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

@@ -1,0 +1,77 @@
+[
+  {
+    "name": "aura-polygon-gyro-matic-maticx",
+    "address": "0xeE278d943584dd8640eaf4cc6c7a5C80c0073E85",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x0cE870B89E4522EE6E0a8a7134eCd39C409bfECC",
+    "lsUrl": "https://universe.staderlabs.com/polygon/apy",
+    "dataPath": "$.value",
+    "lsIndex": 1,
+    "balancerChargesFee": true,
+    "vaultPoolId": "0xee278d943584dd8640eaf4cc6c7a5c80c0073e85000200000000000000000bc7",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x61E6cb07fcF0fC6bA3F0A10C379011b336F928b0",
+        "oracleId": "SD",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MaticX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-polygon-gyro-matic-stmatic",
+    "address": "0xf0ad209e2e969EAAA8C882aac71f02D8a047d5c2",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xB97341e9DA2eA5654a0E198184F88eef630E9a63",
+    "lsUrl": "https://polygon.lido.fi/api/stats",
+    "dataPath": "$.apr",
+    "lsIndex": 1,
+    "balancerChargesFee": true,
+    "vaultPoolId": "0xf0ad209e2e969eaaa8c882aac71f02d8a047d5c2000200000000000000000b49",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "stMATIC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-polygon-lucha-wmatic",
+    "address": "0x924EC7ed38080E40396c46F6206A6d77D0B9f72d",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xe44e433326a698dd5be83ffbcd36b849dc0f4582",
+    "vaultPoolId": "0x924ec7ed38080e40396c46f6206a6d77d0b9f72d00020000000000000000072a",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "MATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "LUCHA",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

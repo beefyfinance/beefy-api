@@ -10,6 +10,7 @@ const CANTO = {
   website: 'https://canto.io/',
   description:
     'Canto is a permissionless general-purpose blockchain running the Ethereum Virtual Machine (EVM). It was built to deliver on the promise of DeFi – that through a post-traditional financial movement, new systems will be made accessible, transparent, decentralized, and free.',
+  bridge: 'native',
   logoURI: '',
   documentation: 'https://docs.canto.io/',
 } as const;
@@ -40,6 +41,7 @@ const _tokens = {
     website: 'https://cosmos.network/',
     description:
       'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+    bridge: 'gravity',
     logoURI: '',
   },
   ETH: {
@@ -52,6 +54,7 @@ const _tokens = {
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
+    bridge: 'gravity',
   },
   NOTE: {
     name: 'Note',
@@ -64,6 +67,7 @@ const _tokens = {
     documentation: 'https://docs.canto.io/overview/canto-unit-of-account-usdnote',
     description:
       '$NOTE is the unit of account on Canto. $NOTE is an over-collateralized currency with a value perpetually rebalanced toward $1 through an algorithmic interest rate policy. ',
+    bridge: 'native',
   },
   USDC: {
     name: 'USD Coin',
@@ -73,6 +77,7 @@ const _tokens = {
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'gravity',
     chainId: 7700,
     logoURI: '',
     documentation: 'https://developers.circle.com/docs',
@@ -86,6 +91,7 @@ const _tokens = {
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'gravity',
     logoURI: '',
   },
   FLOWV1: {
@@ -122,6 +128,7 @@ const _tokens = {
     website: 'https://canto.velocimeter.xyz/home',
     description:
       'Velocimeter addresses these issues and presents an attractive alternative by addressing the core issues in Solidly and adding its own improvements. To recall, the key innovation of Solidly was to align protocol emissions with fees generated, not simply liquidity. To do this, it would allow protocols and other large stakeholders to become veNFT "voters", using their locked voting power to direct future emissions and collecting fees (termed bribes in Solidly) from the pools they voted for.',
+    bridge: 'native',
     documentation: 'https://docs.velocimeter.xyz/',
   },
   SOMM: {
@@ -134,6 +141,7 @@ const _tokens = {
     website: 'https://app.sommelier.finance/',
     description:
       'Sommelier is a DeFi blockchain protocol, built on the Cosmos SDK, and a bi-directional Ethereum bridge. Taken together, this collection serves as a co-processor to Ethereum - that is we are using a Cosmos chain to process as many of the calculations as possible off Ethereum. The protocol is powered by validators and LPs who can benefit from a wide array of transaction features, such as portfolio rebalancing and limit orders based on dynamically changing market conditions.',
+    bridge: 'gravity',
     documentation:
       'https://tricky-sand-5e6.notion.site/Sommelier-Documentation-006e748753e34a1299f9b1d6ae3a4544',
   },
@@ -260,6 +268,7 @@ const _tokens = {
     website: 'https://www.scanto.io/',
     description:
       'By holding $sCANTO you are earning a prorata share of the validator rewards. When you stake $CANTO at scanto.io you get $sCANTO, a liquid staking derivative that can be used across a range of DeFi applications. Unlike staked $CANTO, the $sCANTO are freely transferable instead of locked as in the case of native staking.',
+    bridge: 'native',
     documentation: 'https://docs.scanto.io/',
   },
   BLOTR: {
@@ -272,7 +281,32 @@ const _tokens = {
     website: 'https://www.scanto.io/',
     description:
       '$BLOTR is the governance token for $sCANTO (Liquid Staked Canto) used to vote on protocol upgrades, incentivize $sCANTO liquidity pools, and for other future protocol mechanisms.',
+    bridge: 'native',
     documentation: 'https://docs.scanto.io/governance-token',
+  },
+  CVM: {
+    name: 'Canto Velocimeter',
+    symbol: 'CVM',
+    address: '0xbAD86785eB08fe9d0948B7D9d24523000A177cD0',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://cantov3.velocimeter.xyz',
+    description:
+      'CVM is the native token for Velocimeter on Canto (CVM), a project providing liquidity on the chain where it is needed most. The CVM token can be staked as or locked to earn rewards on the CVM platform.',
+    documentation: 'https://docs.velocimeter.xyz/FVMtokenomics',
+  },
+  oCVM: {
+    name: 'Option to buy CVM',
+    symbol: 'oCVM',
+    address: '0x5C2a258A169Fd683e784686E606E33f6D8c31b9a',
+    chainId: 7700,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://cantov3.velocimeter.xyz',
+    description:
+      'oCVM is an options token that helps to reduce sell pressure on the native CVM token. It is earned by liquidity providers (LPs) who provide liquidity to the CVM pools. oCVM can be redeemed for CVM at a discount, or it can be locked up for a period of time as veCVM. veCVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',
+    documentation: 'https://docs.velocimeter.xyz/oFVMmech',
   },
 } as const;
 

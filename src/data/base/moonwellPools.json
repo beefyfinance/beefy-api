@@ -1,0 +1,29 @@
+[
+  {
+    "name": "moonwell-base-weth",
+    "mtoken": "0x628ff693426583D9a7FB391E54366292F509D457",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "moonwell-base-usdbc",
+    "mtoken": "0x703843C3379b52F9FF486c9f5892218d2a065cC8",
+    "oracle": "tokens",
+    "oracleId": "USDbC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "moonwell-base-cbeth",
+    "mtoken": "0x3bf93770f2d4a794c3d9EBEfBAeBAE2a8f09A5E5",
+    "oracle": "tokens",
+    "oracleId": "cbETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  }
+]

@@ -11,6 +11,7 @@ import IBalancerVault from '../../../abis/IBalancerVault';
 import IAaveProtocolDataProvider from '../../../abis/matic/AaveProtocolDataProvider';
 import AuraToken from '../../../abis/ethereum/AuraToken';
 import { fetchContract } from '../../rpc/client';
+import jp from 'jsonpath';
 import AuraGauge from '../../../abis/ethereum/AuraGauge';
 
 const {
@@ -92,9 +93,9 @@ const getPoolApy = async (pool, auraData, balance, rewardRate, finish, extras) =
   let [yearlyRewardsInUsd, totalStakedInUsd, aprFixed, bbaUSDApy] = await Promise.all([
     getYearlyRewardsInUsd(auraData, pool, rewardRate, finish, extras),
     getTotalStakedInUsd(pool, balance),
-    pool.name == 'aura-wsteth-reth-sfrxeth-v2'
+    pool.name == 'aura-wsteth-reth-sfrxeth-v3'
       ? getThreeEthPoolYield(pool)
-      : pool.lidoUrl || pool.rocketUrl
+      : pool.lsUrl
       ? getLiquidStakingPoolYield(pool)
       : 0,
     getComposableAaveYield(),
@@ -184,17 +185,33 @@ const getLiquidStakingPoolYield = async pool => {
   }
 
   let apr = 0;
-  try {
-    const response = pool.lidoUrl
-      ? await fetch(pool.lidoUrl).then(res => res.json())
-      : await fetch(pool.rocketUrl).then(res => res.json());
+  let lsApr = 0;
+  if (Array.isArray(pool.lsUrl)) {
+    for (let i = 0; i < pool.lsUrl.length; i++) {
+      let response;
+      try {
+        response = await fetch(pool.lsUrl[i]).then(res => res.json());
+        lsApr = await jp.query(response, pool.dataPath[i]);
+      } catch (e) {
+        console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`);
+      }
 
-    const lsApr = pool.lidoUrl ? response.data.smaApr : response.yearlyAPR;
+      pool.balancerChargesFee
+        ? (apr = apr + (lsApr * qty[pool.lsIndex[i]].dividedBy(totalQty).toNumber()) / 100 / 2)
+        : (apr = apr + (lsApr * qty[pool.lsIndex[i]].dividedBy(totalQty).toNumber()) / 100);
+    }
+  } else {
+    let response;
+    try {
+      response = await fetch(pool.lsUrl).then(res => res.json());
+      lsApr = await jp.query(response, pool.dataPath);
+    } catch (e) {
+      console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`);
+    }
 
-    apr = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100;
-    apr = pool.balancerChargesFee ? apr / 2 : apr;
-  } catch (err) {
-    console.error(`Error fetching ls yield for ${pool.name} ` + err.message);
+    pool.balancerChargesFee
+      ? (apr = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100 / 2)
+      : (apr = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100);
   }
 
   // console.log(pool.name, lsApr, apr);
@@ -218,7 +235,7 @@ const getThreeEthPoolYield = async pool => {
   let apr = 0;
   try {
     const [wstEthResponse, sfrxEthResponse, rEthResponse] = await Promise.all([
-      fetch(pool.lidoUrl).then(res => res.json()),
+      fetch('https://eth-api.lido.fi/v1/protocol/steth/apr/sma').then(res => res.json()),
       fetch('https://api.frax.finance/v2/frxeth/summary/latest').then(res => res.json()),
       fetch('https://api.rocketpool.net/api/apr').then(res => res.json()),
     ]);

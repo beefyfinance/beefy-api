@@ -19,6 +19,7 @@ export const getVerseLpApys = async () =>
     tokenAddress: VERSE.address,
     decimals: getEDecimals(VERSE.decimals),
     chainId: 1,
+    periodFinish: 'periodFinished',
     // tradingFeeInfoClient: verseClient,
     // liquidityProviderFee: VERSE_LPF,
     // log: true,

@@ -20,6 +20,7 @@ const chainIdMap = {
   canto: 7700,
   zksync: 324,
   zkevm: 1101,
+  base: 8453,
 };
 
 export default chainIdMap;

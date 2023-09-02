@@ -1,0 +1,42 @@
+[
+  {
+    "name": "baso-weth-usdbc",
+    "address": "0xE1ADA5ACb1759b3159c9d2D0ff9d6a3BbFE775D7",
+    "gauge": "0x9670e68d0154587C37a3Da5c1f31b406814F8Ace",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "baso-baso-weth",
+    "address": "0x646323265EacB700839D38ac1a3342970448788D",
+    "gauge": "0xd2832564569584980c7C911EED42953c8EA64Ed9",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE",
+      "oracle": "tokens",
+      "oracleId": "BASO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

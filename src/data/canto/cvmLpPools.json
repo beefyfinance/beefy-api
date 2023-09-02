@@ -1,0 +1,49 @@
+[
+  {
+    "name": "cvm-scanto-cvm",
+    "address": "0xf976E39201bD847D38B92A6b19b5106809C09391",
+    "gauge": "0x59314fE93468141b143B549dAad76Ec959B269D6",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
+        "oracleId": "sCANTO",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
+      "oracle": "tokens",
+      "oracleId": "sCANTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbAD86785eB08fe9d0948B7D9d24523000A177cD0",
+      "oracle": "tokens",
+      "oracleId": "CVM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "cvm-wcanto-scanto",
+    "address": "0xa934F9F89b085332181267C0EcE69E9b2Ce745C8",
+    "gauge": "0x319aCC5A29E13e45f77b5320eC8f2d2c735259dB",
+    "decimals": "1e18",
+    "chainId": 7700,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x826551890Dc65655a0Aceca109aB11AbDbD7a07B",
+      "oracle": "tokens",
+      "oracleId": "WCANTO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed",
+      "oracle": "tokens",
+      "oracleId": "sCANTO",
+      "decimals": "1e18"
+    }
+  }
+]

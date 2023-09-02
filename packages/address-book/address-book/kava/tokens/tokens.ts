@@ -19,9 +19,9 @@ const _tokens = {
   KAVA,
   WKAVA: KAVA,
   WNATIVE: KAVA,
-  USDC: {
+  kmultiUSDC: {
     name: 'USD Coin',
-    symbol: 'USDC',
+    symbol: 'kmultiUSDC',
     address: '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f',
     chainId: 2222,
     decimals: 6,
@@ -31,7 +31,7 @@ const _tokens = {
     description:
       'USDC (Multichain) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://developers.circle.com/docs',
-    bridge: 'native',
+    bridge: 'multichain',
   },
   multichainUSDT: {
     name: 'USDT',
@@ -58,7 +58,6 @@ const _tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'native',
-
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -89,7 +88,7 @@ const _tokens = {
   WBTC: {
     name: 'Wrapped BTC',
     address: '0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b',
-    symbol: 'WBTC',
+    symbol: 'kmultiWBTC',
     decimals: 8,
     website: 'https://wbtc.network/',
     description:
@@ -102,7 +101,7 @@ const _tokens = {
   ETH: {
     name: 'Ether',
     address: '0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
-    symbol: 'ETH',
+    symbol: 'kmultiETH',
     decimals: 18,
     chainId: 2222,
     website: 'https://ethereum.org/',
@@ -152,7 +151,7 @@ const _tokens = {
       'Multi-Collateral Dai (Axelar), brings a lot of new and exciting features, such as support for new CDP collateral types and Dai Savings Rate.',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
-    bridge: 'axelar', 
+    bridge: 'axelar',
   },
   VARA: {
     name: 'VARA',
@@ -170,7 +169,7 @@ const _tokens = {
   },
   BIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'kmultiBIFI',
     address: '0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327',
     chainId: 2222,
     decimals: 18,
@@ -184,7 +183,7 @@ const _tokens = {
   },
   MAI: {
     name: 'Mai Stablecoin',
-    symbol: 'MAI',
+    symbol: 'kMAI',
     address: '0xb84Df10966a5D7e1ab46D9276F55d57bD336AFC7',
     chainId: 2222,
     decimals: 18,
@@ -196,7 +195,7 @@ const _tokens = {
   },
   BNB: {
     name: 'Binance Chain',
-    symbol: 'BNB',
+    symbol: 'kmultiBNB',
     address: '0xABd380327Fe66724FFDa91A87c772FB8D00bE488',
     chainId: 2222,
     decimals: 18,
@@ -243,7 +242,7 @@ const _tokens = {
       'You, the Spellcaster, can provide collateral in the form of various interest bearing crypto assets such as yvYFI, yvUSDT, yvUSDC, xSUSHI and more. With this, you can borrow magic internet money (MIM) which is a stable coin that you can swap for any other traditional stable coin.',
     logoURI: '',
     documentation: 'https://docs.abracadabra.money/',
-    bridge: 'layer-zero'
+    bridge: 'layer-zero',
   },
   axlETH: {
     name: 'Axelar Wrapped ETH',

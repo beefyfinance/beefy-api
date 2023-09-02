@@ -77,13 +77,11 @@ const getFarmApys = async params => {
       let yearlyRewards = 0;
       if (params.boosted) {
         if (boost) {
-          if (gaugeDeposit.gt(derived.plus(adjusted))) {
-            yearlyRewards = rewardRates[i]
-              .times(secondsPerYear)
-              .times(derived.plus(adjusted).dividedBy(gaugeDeposit));
-          } else {
-            yearlyRewards = rewardRates[i].times(secondsPerYear);
-          }
+          yearlyRewards = gaugeDeposit.gt(derived.plus(adjusted))
+            ? rewardRates[i]
+                .times(secondsPerYear)
+                .times(derived.plus(adjusted).dividedBy(gaugeDeposit))
+            : rewardRates[i].times(secondsPerYear);
         } else if (params.spirit) {
           yearlyRewards = rewardRates[i]
             .times(secondsPerYear)
@@ -100,19 +98,14 @@ const getFarmApys = async params => {
 
       for (const [index, reward] of Object.entries(pool.rewards ?? [])) {
         const rate = rewardsRates[i][index];
-        const data = rewardData[i][index];
+        const periodFinish = rewardData[i][index].periodFinish ?? rewardData[i][index];
 
-        if (data.periodFinish > Date.now() / 1000) {
-          const additionalRewards = params.boosted
-            ? rate
-                .times(secondsPerYear)
-                .times(await fetchPrice({ oracle: 'tokens', id: reward.oracleId }))
-                .dividedBy(reward.decimals)
-                .times(0.4)
-            : rate
-                .times(secondsPerYear)
-                .times(await fetchPrice({ oracle: 'tokens', id: reward.oracleId }))
-                .dividedBy(reward.decimals);
+        if (periodFinish > Date.now() / 1000) {
+          const additionalRewards = rate
+            .times(secondsPerYear)
+            .times(await fetchPrice({ oracle: 'tokens', id: reward.oracleId }))
+            .dividedBy(reward.decimals)
+            .times(params.boosted ? 0.4 : 1);
 
           yearlyRewardsInUsd = yearlyRewardsInUsd.plus(additionalRewards);
         }
@@ -181,7 +174,11 @@ const getPoolsData = async params => {
         params.chainId
       );
       rewardRateCalls.push(gaugeContract.read.rewardRate([rewards.address]));
-      rewardDataCalls.push(gaugeContract.read.rewardData([rewards.address]));
+      rewardDataCalls.push(
+        params.abi
+          ? gaugeContract.read.rewardData([rewards.address])
+          : gaugeContract.read.periodFinish([rewards.address])
+      );
     }
   });
 

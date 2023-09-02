@@ -17,6 +17,7 @@ export interface LpPool {
   depositFee?: number;
   beefyFee?: number;
   extraRewards?: Reward[];
+  tokens?: LpToken[];
 }
 
 export interface SingleAssetPool {
