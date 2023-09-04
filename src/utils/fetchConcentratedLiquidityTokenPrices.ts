@@ -66,6 +66,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
+      oracleId: 'oRETRO',
+      decimalDelta: 1,
+      pool: '0x387FBcE5E2933Bd3a7243D0be2aAC8fD9Ab3D55d',
+      firstToken: 'RETRO',
+      secondToken: 'oRETRO',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'CASH',
       decimalDelta: 1,
       pool: '0x63ca6ED3D390C725b7FEb617BAdcab78a61038E8',
@@ -93,13 +101,18 @@ async function getConcentratedLiquidityPrices(
   try {
     const res = await Promise.all(concentratedLiquidityPriceCalls);
     const tokenPrice = res.map(v => Number(v[1]));
-    return tokenPrice.map((v, i) =>
-      chainTokens[i].firstToken == chainTokens[i].oracleId
-        ? tokenPrices[chainTokens[i].secondToken] /
-          (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
-        : tokenPrices[chainTokens[i].firstToken] *
-          (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
-    );
+    const prices = {};
+    tokenPrice.forEach((v, i) => {
+      const first = chainTokens[i].firstToken;
+      const second = chainTokens[i].secondToken;
+      prices[chainTokens[i].oracleId] =
+        first == chainTokens[i].oracleId
+          ? (tokenPrices[second] || prices[second]) /
+            (chainTokens[i].decimalDelta * Math.pow(1.0001, v))
+          : (tokenPrices[first] || prices[first]) *
+            (chainTokens[i].decimalDelta * Math.pow(1.0001, v));
+    });
+    return Object.values(prices);
   } catch (e) {
     console.error('getConcentratedLiquidityPrices', e);
     return chainTokens.map(() => 0);
