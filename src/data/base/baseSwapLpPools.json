@@ -1,5 +1,25 @@
 [
   {
+    "name": "baseswap-mai-usdbc",
+    "address": "0x9e574f9aD6ca1833f60d5bB21655dd45278A6e3A",
+    "rewardPool": "0x9D6dE2cb0BB319129170730D75E6FffCa811aD74",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0xbf1aeA8670D2528E08334083616dD9C5F3B087aE",
+      "oracle": "tokens",
+      "oracleId": "MAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "baseswap-weth-bsx",
     "address": "0x7fea0384F38EF6Ae79bB12295a9e10C464204F52",
     "rewardPool": "0x7C04bF2bb7D27982810E432B188FA0C7729e651d",
