@@ -243,8 +243,10 @@ const getYearlyRewardsInUsd = async (pool, rewardRate, finish, extras, auraRate)
       oracle: 'tokens',
       id: extra.oracleId,
     });
-    extraRewardsInUsd = extra.rewardRate.times(secondsInAYear).times(price).div(extra.decimals);
-    //  console.log(pool.name, extra.oracleId, extraRewardsInUsd.valueOf());
+    extraRewardsInUsd = extraRewardsInUsd.plus(
+      extra.rewardRate.times(secondsInAYear).times(price).div(extra.decimals)
+    );
+    // console.log(pool.name, extra.oracleId, extraRewardsInUsd.valueOf());
   }
 
   yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd).plus(auraYearlyRewardsInUsd);
