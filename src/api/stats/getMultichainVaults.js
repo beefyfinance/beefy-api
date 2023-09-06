@@ -6,7 +6,7 @@ import { keyBy, sumBy } from 'lodash';
 const getVaults = require('../../utils/getVaults.js');
 const { getStrategies } = require('../../utils/getStrategies.js');
 const { getLastHarvests } = require('../../utils/getLastHarvests.js');
-const { getGovVaultsTotalSupply } = require('../../utils/getGovVaultsTotalSupply.js');
+const { getGovVaultsTotalSupply } = require('../../utils/getGovVaultsTotalSupply');
 const { fetchChainVaultsPpfs } = require('../../utils/fetchMooPrices');
 const { MULTICHAIN_ENDPOINTS } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
