@@ -50,6 +50,8 @@ router.get('/vaults/zap-support', vaultZapSupport);
 router.get('/vaults/zap-support/debug', vaultZapSupportDebug);
 router.get('/vaults/last-harvest', multichainVaults.vaultsLastHarvest);
 router.get('/vaults/:chainId', multichainVaults.singleChainVaults);
+router.get('/gov-vaults', multichainVaults.multichainGovVaults);
+router.get('/gov-vaults/:chainId', multichainVaults.singleGovChainVaults);
 
 router.get('/oneinch/:chainId/swap', proxyOneInchSwap);
 router.get('/oneinch/:chainId/quote', proxyOneInchQuote);

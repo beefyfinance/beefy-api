@@ -31,3 +31,7 @@ export type Vault = {
   createdAt: number;
   chain: ApiChain;
 };
+
+export type GovVault = Vault & {
+  totalSupply: number;
+};
