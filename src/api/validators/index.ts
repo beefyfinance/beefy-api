@@ -1,11 +1,8 @@
 import { getValidatorPerformance, ValidatorPerformance } from './validators';
 
-const TIMEOUT = 5 * 60 * 1000;
-
-export const validatorPerformance = async ctx => {
+export const validatorPerformance = ctx => {
   try {
-    ctx.request.socket.setTimeout(TIMEOUT);
-    const validatorPerformance: ValidatorPerformance | undefined = await getValidatorPerformance();
+    const validatorPerformance: ValidatorPerformance | undefined = getValidatorPerformance();
 
     if (!validatorPerformance) {
       throw 'There is no validator performance data yet';

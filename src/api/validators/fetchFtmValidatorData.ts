@@ -1,4 +1,3 @@
-import BigNumber from 'bignumber.js';
 import { ethers } from 'ethers';
 
 interface Transaction {
@@ -46,9 +45,6 @@ export const fetchFtmValidatorTotalPerformance = async () => {
     const correctMethodId = '0x7ff36ab5';
     const data = await fetch(FTM_VALIDATOR_INTERNAL_TX_URL);
     const ftmValidatorData: InternalTxnApiResponse = await data.json();
-    if (ftmValidatorData.status !== '1') {
-      return null;
-    }
     const totalValue = ftmValidatorData.result.reduce((accumulator, transaction) => {
       if (transaction.methodId === correctMethodId) {
         return accumulator + BigInt(transaction.value);
@@ -61,5 +57,6 @@ export const fetchFtmValidatorTotalPerformance = async () => {
     };
   } catch (e) {
     console.error('fetchFtmValidatorTotalPerformance', e);
+    return null;
   }
 };

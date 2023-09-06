@@ -20,9 +20,6 @@ export const fetchEthValidatorTotalPerformance = async () => {
   try {
     const data = await fetch(ETH_VALIDATOR_PERFORMANCE_URL);
     const ethValidatorData: EthValidatorPerformanceData = await data.json();
-    if (ethValidatorData.status !== 'OK') {
-      return null;
-    }
     return {
       totalPerformanceEther: ethers.utils.formatUnits(
         ethValidatorData.data[0].performancetotal.toString(),
@@ -31,5 +28,6 @@ export const fetchEthValidatorTotalPerformance = async () => {
     };
   } catch (e) {
     console.error('> fetchEthValidatorTotalPerformance', e);
+    return null;
   }
 };

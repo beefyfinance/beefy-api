@@ -26,7 +26,7 @@ const {
   proxyOneInchQuote,
 } = require('./api/zaps');
 
-router.get('/validator/performance', validatorPerformance);
+router.get('/validator-performance', validatorPerformance);
 
 router.get('/apy', stats.apy);
 router.get('/apy/breakdown', stats.apyBreakdowns);
