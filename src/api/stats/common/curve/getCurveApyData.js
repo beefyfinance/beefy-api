@@ -86,7 +86,7 @@ const getBaseApy = (baseApyData, pool) => {
 const getFactoryApy = (factoryApyData, poolAddress) => {
   try {
     let pool = factoryApyData.find(p => p.poolAddress.toLowerCase() === poolAddress.toLowerCase());
-    return pool ? Number(pool.apy) / 100 : 0;
+    return pool ? Math.max(Number(pool.apy), 0) / 100 : 0;
   } catch (err) {
     console.error(err);
     return 0;
