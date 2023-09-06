@@ -66,7 +66,7 @@ async function updateMultichainVaults() {
     console.log(
       `> Vaults for ${fulfilled.length}/${results.length} chains updated: ${
         multichainVaultsCounter + multichainGovVaultsCounter
-      } vaults (${multichainActiveVaultsCounter + multichainActiveGovVaultsCounter} active) (${
+      } vaults (${multichainActiveVaultsCounter + multichainGovActiveVaultsCounter} active) (${
         (Date.now() - start) / 1000
       }s)`
     );

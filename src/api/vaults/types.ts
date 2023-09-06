@@ -30,8 +30,5 @@ export type Vault = {
   pricePerFullShare: BigNumber;
   createdAt: number;
   chain: ApiChain;
-};
-
-export type GovVault = Vault & {
-  totalSupply: number;
+  totalSupply?: number;
 };
