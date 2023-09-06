@@ -4,8 +4,8 @@ import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { keyBy, sumBy } from 'lodash';
 
 const getVaults = require('../../utils/getVaults.js');
-const { getStrategies } = require('../../utils/getStrategies.js');
-const { getLastHarvests } = require('../../utils/getLastHarvests.js');
+const { getStrategies } = require('../../utils/getStrategies');
+const { getLastHarvests } = require('../../utils/getLastHarvests');
 const { fetchChainVaultsPpfs } = require('../../utils/fetchMooPrices');
 const { MULTICHAIN_ENDPOINTS } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
