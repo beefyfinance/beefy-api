@@ -1,5 +1,33 @@
 [
   {
+    "name": "curve-base-4pool",
+    "pool": "0xf6C5F01C7F3148891ad0e19DF78743D31E390D1f",
+    "token": "0xf6C5F01C7F3148891ad0e19DF78743D31E390D1f",
+    "gauge": "0x79edc58C471Acf2244B8f93d6f425fD06A439407",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDbC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "axlUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-base-3c",
     "pool": "0xA450487D8C8F355611EFF9553337BE67261Af26f",
     "token": "0xA450487D8C8F355611EFF9553337BE67261Af26f",
@@ -59,6 +87,24 @@
       {
         "oracle": "tokens",
         "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-base-crv",
+    "pool": "0xDE37E221442Fa15C35dc19FbAE11Ed106ba52fB2",
+    "token": "0x6DfE79cecE4f64c1a34F48cF5802492aB595257E",
+    "gauge": "0x89289DC2192914a9F0674f1E9A17C56456549b8A",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
         "decimals": "1e18"
       }
     ]
