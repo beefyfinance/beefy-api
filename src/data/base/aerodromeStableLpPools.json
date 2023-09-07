@@ -20,6 +20,26 @@
     }
   },
   {
+    "name": "aerodrome-dola-usd+",
+    "address": "0x8E9154AC849e839d60299E85156bcb589De2693A",
+    "gauge": "0x969c70383A95704C6a35497d8C77BF38dc152e63",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "aerodrome-usd+-usdbc",
     "address": "0x4a3636608d7Bc5776CB19Eb72cAa36EbB9Ea683B",
     "gauge": "0xa5972f0C07a2D1cc5A8457c28d88ec4f3C009864",
