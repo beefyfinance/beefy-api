@@ -73,7 +73,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "opUSDCe",
         "decimals": "1e6"
       }
     ]

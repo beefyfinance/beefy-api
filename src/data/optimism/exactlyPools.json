@@ -43,7 +43,7 @@
     "market": "0x81C9A7B55A4df39A9B7B5F781ec0e53539694873",
     "interestRateModel": "0x8C2F35c8076bCb5D4b696bAE11AcA0ac0Dd873e4",
     "oracle": "tokens",
-    "oracleId": "USDC",
+    "oracleId": "opUSDCe",
     "decimals": "1e6",
     "rewards": [
       {
@@ -124,7 +124,7 @@
     "market": "0x81C9A7B55A4df39A9B7B5F781ec0e53539694873",
     "interestRateModel": "0x8C2F35c8076bCb5D4b696bAE11AcA0ac0Dd873e4",
     "oracle": "tokens",
-    "oracleId": "USDC",
+    "oracleId": "opUSDCe",
     "decimals": "1e6",
     "rewards": [
       {

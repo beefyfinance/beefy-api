@@ -41,7 +41,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDCe",
+        "oracleId": "arbUSDCe",
         "decimals": "1e6"
       }
     ]
@@ -298,7 +298,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "arbUSDCe",
         "decimals": "1e6"
       }
     ]
@@ -334,7 +334,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "arbUSDCe",
         "decimals": "1e6"
       }
     ]
@@ -412,7 +412,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "arbUSDCe",
         "decimals": "1e6"
       }
     ]
@@ -471,7 +471,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "arbUSDCe",
         "decimals": "1e6"
       }
     ]
