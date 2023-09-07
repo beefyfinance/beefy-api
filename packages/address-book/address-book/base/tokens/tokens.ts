@@ -18,6 +18,20 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  BSX: {
+    name: 'BSX',
+    symbol: 'BSX',
+    address: '0xd5046B976188EB40f6DE40fB527F89c05b323385',
+    chainId: 8453,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xd5046B976188EB40f6DE40fB527F89c05b323385.svg',
+    website: 'https://baseswap.fi/',
+    description:
+      'BSX is the incentives token of BaseSwap, rewarded to liquidity providers in the BaseSwap ecosystem. xBSX is the escrow version of BSX and can be vested over time.',
+    documentation: 'https://base-swap-1.gitbook.io/baseswap/tokenomics/usdbsx-token',
+    bridge: 'native',
+  },
   BASO: {
     name: 'BASO',
     symbol: 'BASO',
