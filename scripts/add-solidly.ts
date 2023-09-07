@@ -237,6 +237,7 @@ async function fetchToken(tokenAddress) {
     website: '',
     description: '',
     documentation: '',
+    bridge: '',
   };
   console.log({ [token.symbol]: token }); // Prepare token data for address-book
   return token;
