@@ -1,5 +1,86 @@
 [
   {
+    "name": "balancer-base-weth-reth",
+    "address": "0xC771c1a5905420DAEc317b154EB13e4198BA97D0",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x8D118063B521e0CB9947A934BE90f7e32d02b158",
+    "vaultPoolId": "0xc771c1a5905420daec317b154eb13e4198ba97d0000000000000000000000023",
+    "composable": true,
+    "bptIndex": 2,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x8D118063B521e0CB9947A934BE90f7e32d02b158",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x8D118063B521e0CB9947A934BE90f7e32d02b158",
+        "rewardToken": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+        "oracleId": "USDbC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
+    "name": "balancer-base-usdc-usdbc-axlusdc",
+    "address": "0x0C659734f1eEF9C63B7Ebdf78a164CDd745586Db",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x29B0C494eD7d098F4930428F115DcAf42a92392b",
+    "vaultPoolId": "0x0c659734f1eef9c63b7ebdf78a164cdd745586db000000000000000000000046",
+    "composable": true,
+    "bptIndex": 0,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x29B0C494eD7d098F4930428F115DcAf42a92392b",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x29B0C494eD7d098F4930428F115DcAf42a92392b",
+        "rewardToken": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+        "oracleId": "USDbC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDbC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "axlUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "balancer-base-cbeth-weth",
     "address": "0xFb4C2E6E6e27B5b4a07a36360C89EDE29bB3c9B6",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
