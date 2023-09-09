@@ -217,7 +217,7 @@ const _tokens = {
     website: '',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
-    documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
+    documentation: 'https://www.circle.com/en/usdc-multichain/base',
     bridge: 'axelar',
   },
   OGRE: {
@@ -398,6 +398,19 @@ const _tokens = {
       'oBVM is an options token that helps to reduce sell pressure on the native BVM token. It is earned by liquidity providers (LPs) who provide liquidity to the BVM pools. oBVM can be redeemed for BVM at a discount, or it can be locked up for a period of time as veBVM. veBVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',
     documentation: 'https://docs.velocimeter.xyz/oFVMmech',
     bridge: 'native',
+  },
+  rETH: {
+    name: 'Rocket Pool ETH',
+    symbol: 'rETH',
+    address: '0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://rocketpool.net/',
+    description:
+      'As a Rocket Pool staker, your role is to deposit ETH into the deposit pool which will enable a node operator to create a new Beacon Chain validator. You can stake as little as 0.01 ETH. In doing so, you will be given a token called rETH. rETH represents both how much ETH you deposited, and when you deposited it.',
+    bridge: 'base-canonical',
+    logoURI: '',
+    documentation: 'https://docs.rocketpool.net/guides/',
   },
 } as const;
 
