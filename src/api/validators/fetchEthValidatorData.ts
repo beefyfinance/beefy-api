@@ -1,4 +1,5 @@
-import { ethers } from 'ethers';
+import { formatGwei } from 'viem';
+import { FetchValidatorPerformanceResponse } from './validators';
 
 interface EthValidatorPerformanceData {
   status: string;
@@ -16,18 +17,16 @@ interface EthValidatorPerformanceData {
 }
 const ETH_VALIDATOR_PERFORMANCE_URL = 'https://beaconcha.in/api/v1/validator/402418/performance';
 
-export const fetchEthValidatorTotalPerformance = async () => {
-  try {
-    const data = await fetch(ETH_VALIDATOR_PERFORMANCE_URL);
-    const ethValidatorData: EthValidatorPerformanceData = await data.json();
-    return {
-      totalPerformanceEther: ethers.utils.formatUnits(
-        ethValidatorData.data[0].performancetotal.toString(),
-        'gwei'
-      ),
-    };
-  } catch (e) {
-    console.error('> fetchEthValidatorTotalPerformance', e);
-    return null;
-  }
-};
+export const fetchEthValidatorTotalPerformance =
+  async (): Promise<FetchValidatorPerformanceResponse> => {
+    try {
+      const data = await fetch(ETH_VALIDATOR_PERFORMANCE_URL);
+      const ethValidatorData: EthValidatorPerformanceData = await data.json();
+      return {
+        totalPerformanceEther: formatGwei(BigInt(ethValidatorData.data[0].performancetotal)),
+      };
+    } catch (e) {
+      console.error('> fetchEthValidatorTotalPerformance', e);
+      return null;
+    }
+  };

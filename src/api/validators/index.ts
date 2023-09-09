@@ -1,8 +1,8 @@
-import { getValidatorPerformance, ValidatorPerformance } from './validators';
+import { getValidatorPerformance } from './validators';
 
 export const validatorPerformance = ctx => {
   try {
-    const validatorPerformance: ValidatorPerformance | undefined = getValidatorPerformance();
+    const validatorPerformance = getValidatorPerformance();
 
     if (!validatorPerformance) {
       throw 'There is no validator performance data yet';

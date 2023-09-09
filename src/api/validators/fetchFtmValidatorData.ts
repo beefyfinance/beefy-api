@@ -1,4 +1,5 @@
-import { ethers } from 'ethers';
+import { formatEther } from 'viem';
+import { FetchValidatorPerformanceResponse } from './validators';
 
 interface Transaction {
   blockNumber: string;
@@ -40,23 +41,24 @@ const FTM_VALIDATOR_INTERNAL_TX_URL =
   '&sort=asc' +
   '&apikey=YourApiKeyToken';
 
-export const fetchFtmValidatorTotalPerformance = async () => {
-  try {
-    const correctMethodId = '0x7ff36ab5';
-    const data = await fetch(FTM_VALIDATOR_INTERNAL_TX_URL);
-    const ftmValidatorData: InternalTxnApiResponse = await data.json();
-    const totalValue = ftmValidatorData.result.reduce((accumulator, transaction) => {
-      if (transaction.methodId === correctMethodId) {
-        return accumulator + BigInt(transaction.value);
-      }
-      return accumulator;
-    }, BigInt(0));
+export const fetchFtmValidatorTotalPerformance =
+  async (): Promise<FetchValidatorPerformanceResponse> => {
+    try {
+      const correctMethodId = '0x7ff36ab5';
+      const data = await fetch(FTM_VALIDATOR_INTERNAL_TX_URL);
+      const ftmValidatorData: InternalTxnApiResponse = await data.json();
+      const totalValue = ftmValidatorData.result.reduce((accumulator, transaction) => {
+        if (transaction.methodId === correctMethodId) {
+          return accumulator + BigInt(transaction.value);
+        }
+        return accumulator;
+      }, BigInt(0));
 
-    return {
-      totalPerformanceEther: ethers.utils.formatEther(totalValue.toString()),
-    };
-  } catch (e) {
-    console.error('fetchFtmValidatorTotalPerformance', e);
-    return null;
-  }
-};
+      return {
+        totalPerformanceEther: formatEther(totalValue),
+      };
+    } catch (e) {
+      console.error('fetchFtmValidatorTotalPerformance', e);
+      return null;
+    }
+  };
