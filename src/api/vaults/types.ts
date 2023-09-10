@@ -30,5 +30,28 @@ export type Vault = {
   pricePerFullShare: BigNumber;
   createdAt: number;
   chain: ApiChain;
-  totalSupply?: number;
+};
+
+export type GovVault = {
+  id: string;
+  name: string;
+  token: string;
+  tokenAddress: string;
+  tokenDecimals: number;
+  earnedToken: string;
+  earnedTokenAddress: string;
+  earnedTokenDecimals: number;
+  earnContractAddress: string;
+  oracle: 'lps' | 'tokens';
+  oracleId: string;
+  status: 'active' | 'paused' | 'eol';
+  platformId: string;
+  assets: string[];
+  risks: string[];
+  strategyTypeId: string;
+  isGovVault: boolean;
+  network: AppChain;
+  createdAt: number;
+  totalSupply: number;
+  chain: ApiChain;
 };

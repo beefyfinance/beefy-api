@@ -16,14 +16,11 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 const LOG_PER_CHAIN = false;
 
 let vaultsByChain = {};
-let govVaultsByChain = {};
 let multichainVaults = [];
-let multichainGovVaults = [];
-let multichainVaultsCounter = 0;
-let multichainGovVaultsCounter = 0;
-let multichainActiveVaultsCounter = 0;
-let multichainGovActiveVaultsCounter = 0;
 let vaultsByID = {};
+let govVaultsByChain = {};
+let multichainGovVaults = [];
+let govVaultsById = {};
 
 export function getMultichainVaults() {
   return multichainVaults;
@@ -41,8 +38,12 @@ export function getMultichainGovVaults() {
   return multichainGovVaults;
 }
 
-export function getSingleGovVaults(chain) {
+export function getSingleChainGovVaults(chain) {
   return govVaultsByChain[chain];
+}
+
+export function getGovVaultBtId(vaultId) {
+  return govVaultsById[vaultId];
 }
 
 async function updateMultichainVaults() {
@@ -63,12 +64,14 @@ async function updateMultichainVaults() {
       await saveToRedis();
     }
 
+    const activeIdscounter = sumBy(multichainVaults.concat(multichainGovVaults), vault =>
+      vault.status === 'active' ? 1 : 0
+    );
+
     console.log(
       `> Vaults for ${fulfilled.length}/${results.length} chains updated: ${
-        multichainVaultsCounter + multichainGovVaultsCounter
-      } vaults (${multichainActiveVaultsCounter + multichainGovActiveVaultsCounter} active) (${
-        (Date.now() - start) / 1000
-      }s)`
+        multichainVaults.length + multichainGovVaults.length
+      } vaults (${activeIdscounter} active) (${(Date.now() - start) / 1000}s)`
     );
 
     if (fulfilled.length < results.length) {
@@ -85,10 +88,6 @@ async function updateMultichainVaults() {
 
 function buildFromChains() {
   multichainVaults = Object.values(vaultsByChain).flat();
-  multichainVaultsCounter = multichainVaults.length;
-  multichainActiveVaultsCounter = sumBy(multichainVaults, vault =>
-    vault.status === 'active' ? 1 : 0
-  );
   vaultsByID = keyBy(multichainVaults, 'id');
 
   Object.keys(vaultsByChain).forEach(chain => serviceEventBus.emit(`vaults/${chain}/ready`));
@@ -97,11 +96,7 @@ function buildFromChains() {
 
 function buildFromGovChains() {
   multichainGovVaults = Object.values(govVaultsByChain).flat();
-  multichainGovVaultsCounter = multichainGovVaults.length;
-  multichainGovActiveVaultsCounter = sumBy(multichainGovVaults, vault =>
-    vault.status === 'active' ? 1 : 0
-  );
-  vaultsByID = keyBy(multichainGovVaults, 'id');
+  govVaultsById = keyBy(multichainGovVaults, 'id');
 
   Object.keys(multichainGovVaults).forEach(chain =>
     serviceEventBus.emit(`gov-vaults/${chain}/ready`)
@@ -116,12 +111,15 @@ async function updateChainVaults(chain) {
 
   const endpoint = MULTICHAIN_ENDPOINTS[chain];
   const vaults = await getVaults(endpoint);
-  let govVaults = vaults.filter(vault => vault.isGovVault);
+
   let chainVaults = vaults.filter(vault => !vault.isGovVault);
   chainVaults.forEach(vault => (vault.chain = chain));
   chainVaults = await getStrategies(chainVaults, chain);
   chainVaults = await getLastHarvests(chainVaults, chain);
   chainVaults = await fetchChainVaultsPpfs(chainVaults, chain);
+
+  let govVaults = vaults.filter(vault => vault.isGovVault);
+  govVaults.forEach(vault => (vault.chain = chain));
   govVaults = await getGovVaultsTotalSupply(govVaults, chain);
   vaultsByChain[chain] = chainVaults;
   govVaultsByChain[chain] = govVaults;

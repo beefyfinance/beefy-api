@@ -2,7 +2,7 @@ const {
   getMultichainVaults,
   getSingleChainVaults,
   getMultichainGovVaults,
-  getSingleGovVaults,
+  getSingleChainGovVaults,
 } = require('../stats/getMultichainVaults');
 const { getVaultFees } = require('./getVaultFees');
 
@@ -56,7 +56,7 @@ async function singleChainVaults(ctx) {
 
 async function singleGovChainVaults(ctx) {
   try {
-    const chainVaults = getSingleGovVaults(ctx.params.chainId);
+    const chainVaults = getSingleChainGovVaults(ctx.params.chainId);
     ctx.status = 200;
     ctx.body = chainVaults ? [...chainVaults] : [];
   } catch (err) {

@@ -1,11 +1,11 @@
 import { ChainId } from '../../packages/address-book/address-book';
 import { fetchContract } from '../api/rpc/client';
-import { Vault } from '../api/vaults/types';
+import { GovVault } from '../api/vaults/types';
 import BeefyBoostAbi from '../abis/BeefyEarningsPool';
 import { ApiChain } from './chain';
 import BigNumber from 'bignumber.js';
 
-const getGovVaultsTotalSupply = async (vaults: Vault[], chain: ApiChain) => {
+const getGovVaultsTotalSupply = async (vaults: GovVault[], chain: ApiChain) => {
   const chainId = ChainId[chain];
 
   const govVaultAddresses = vaults.map(v => v.earnContractAddress);

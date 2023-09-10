@@ -8,7 +8,8 @@ const { default: BeefyVaultV6Abi } = require('../../abis/BeefyVault');
 
 const getChainTvl = async chain => {
   const chainId = chain.chainId;
-  const vaults = await getVaults(chain.vaultsEndpoint);
+  let vaults = await getVaults(chain.vaultsEndpoint);
+  vaults = vaults.filter(vault => !vault.isGovVault);
   const vaultBalances = await getVaultBalances(chainId, vaults);
 
   let tvls = { [chainId]: {} };
