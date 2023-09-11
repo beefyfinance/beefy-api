@@ -110,16 +110,15 @@ async function updateChainVaults(chain) {
   }
 
   const endpoint = MULTICHAIN_ENDPOINTS[chain];
-  const vaults = await getVaults(endpoint);
+  let vaults = await getVaults(endpoint);
+  vaults.forEach(vault => (vault.chain = chain));
 
   let chainVaults = vaults.filter(vault => !vault.isGovVault);
-  chainVaults.forEach(vault => (vault.chain = chain));
   chainVaults = await getStrategies(chainVaults, chain);
   chainVaults = await getLastHarvests(chainVaults, chain);
   chainVaults = await fetchChainVaultsPpfs(chainVaults, chain);
 
   let govVaults = vaults.filter(vault => vault.isGovVault);
-  govVaults.forEach(vault => (vault.chain = chain));
   govVaults = await getGovVaultsTotalSupply(govVaults, chain);
   vaultsByChain[chain] = chainVaults;
   govVaultsByChain[chain] = govVaults;
