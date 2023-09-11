@@ -220,6 +220,20 @@ const _tokens = {
     documentation: 'https://www.circle.com/en/usdc-multichain/base',
     bridge: 'axelar',
   },
+  axlUSDT: {
+    name: 'USDT',
+    symbol: 'axlUSDT',
+    oracleId: 'kaxlUSDT',
+    address: '0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6',
+    chainId: 8453,
+    decimals: 6,
+    website: 'https://tether.to/',
+    documentation: 'https://docs.axelar.dev/',
+    description:
+      'Tether (Axelar) is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
+    bridge: 'axelar',
+  },
   OGRE: {
     name: 'SHREKT',
     symbol: 'OGRE',
