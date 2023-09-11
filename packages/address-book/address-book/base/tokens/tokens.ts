@@ -223,7 +223,6 @@ const _tokens = {
   axlUSDT: {
     name: 'USDT',
     symbol: 'axlUSDT',
-    oracleId: 'kaxlUSDT',
     address: '0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6',
     chainId: 8453,
     decimals: 6,

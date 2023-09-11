@@ -49,7 +49,7 @@
     "lp0": {
       "address": "0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6",
       "oracle": "tokens",
-      "oracleId": "kaxlUSDT",
+      "oracleId": "axlUSDT",
       "decimals": "1e6"
     },
     "lp1": {
