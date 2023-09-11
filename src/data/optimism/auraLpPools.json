@@ -1,5 +1,41 @@
 [
   {
+    "name": "beets-rocket-fuel",
+    "address": "0x4Fd63966879300caFafBB35D157dC5229278Ed23",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x61ac9315a1Ae71633E95Fb35601B59180eC8d61d",
+    "vaultPoolId": "0x4fd63966879300cafafbb35d157dc5229278ed2300020000000000000000002b",
+    "decimals": "1e18",
+    "lsUrl": "https://api.rocketpool.net/api/apr",
+    "dataPath": "$.yearlyAPR",
+    "lsIndex": 1,
+    "balancerChargesFee": true,
+    "rewards": [
+      {
+        "rewardGauge": "0x0A22Ae9D9D149C14f6c15A235e715bB6C1Cfa739",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x81673Cdd00c2839440f31575cCFa5B6ca4a87B2B",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-eclp-wsteth-eth",
     "address": "0x7Ca75bdEa9dEde97F8B13C6641B768650CB83782",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
