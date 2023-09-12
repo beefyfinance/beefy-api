@@ -88,47 +88,6 @@
     ]
   },
   {
-    "name": "balancer-wsteth-weth-v3",
-    "address": "0x9791d590788598535278552EEcD4b211bFc790CB",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x260cbb867359a1084eC97de4157d06ca74e89415",
-    "vaultPoolId": "0x9791d590788598535278552eecd4b211bfc790cb000000000000000000000498",
-    "decimals": "1e18",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 0,
-    "balancerChargesFee": true,
-    "composable": true,
-    "bptIndex": 2,
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0x260cbb867359a1084eC97de4157d06ca74e89415",
-        "oracleId": "BAL"
-      },
-      {
-        "stream": "0x260cbb867359a1084eC97de4157d06ca74e89415",
-        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "oracleId": "ARB"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "wstETH",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "WETH",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "BPTToken"
-      }
-    ]
-  },
-  {
     "name": "balancer-wsteth-bbaaweth",
     "address": "0x5A7f39435fD9c381e4932fa2047C9a5136A5E3E7",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -238,41 +197,6 @@
         "index": 1,
         "bbIndex": 0,
         "poolId": "0xda1cd1711743e57dd57102e9e61b75f3587703da0000000000000000000003fc"
-      }
-    ]
-  },
-  {
-    "name": "balancer-wsteth-eth-v2",
-    "address": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x8F0B53F3BA19Ee31C0A73a6F6D84106340fadf5f",
-    "vaultPoolId": "0x36bf227d6bac96e2ab1ebb5492ecec69c691943f000200000000000000000316",
-    "decimals": "1e18",
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
-    "lsIndex": 0,
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0x8F0B53F3BA19Ee31C0A73a6F6D84106340fadf5f",
-        "oracleId": "BAL"
-      },
-      {
-        "stream": "0x8F0B53F3BA19Ee31C0A73a6F6D84106340fadf5f",
-        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "oracleId": "ARB"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "wstETH",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "WETH",
-        "decimals": "1e18"
       }
     ]
   },
