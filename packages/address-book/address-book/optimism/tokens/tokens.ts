@@ -116,19 +116,28 @@ const _tokens = {
     bridge: 'native',
     logoURI: '',
   },
-  USDC: {
+  opUSDCe: {
     name: 'USD Coin',
-    symbol: 'USDC',
+    symbol: 'USDCe',
     address: '0x7F5c764cBc14f9669B88837ca1490cCa17c31607',
     chainId: 10,
     decimals: 6,
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xef4229c8c3250C675F21BCefa42f58EfbfF6002a.svg',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://www.circle.com/blog/now-available-usdc-on-op-mainnet',
+    description: 'USDC.e is an Ethereum-based USDC bridged via the official Optimism Bridge.',
+    bridge: 'optimism-canonical',
+  },
+  USDC: {
+    name: 'USD Coin',
+    symbol: 'USDC',
+    address: '0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85',
+    chainId: 10,
+    decimals: 6,
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
-    bridge: 'optimism-canonical',
+    bridge: 'native',
   },
   sUSD: {
     name: 'Synth sUSD',
@@ -1112,6 +1121,7 @@ const _tokens = {
     documentation: 'https://docs.tangible.store/',
     description:
       'Real USD (USDR) is the world’s first stablecoin collateralized by tokenized, yield-producing real estate. USDR has a value accrual system built into its design. Using a consistent stream of dependable yield derived from rental revenue, Real USD delivers a native yield to holders.',
+    bridge: 'layer-zero',
     logoURI: '',
   },
   JRT: {

@@ -1,5 +1,65 @@
 [
   {
+    "name": "baseswap-usdc-usdbc",
+    "address": "0xC52328d5Af54A12DA68459Ffc6D0845e91a8395F",
+    "rewardPool": "0xD239824786D69627bc048Ee258943F2096Cf2Ab7",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "baseswap-weth-usdc",
+    "address": "0xab067c01C7F5734da168C699Ae9d23a4512c9FdB",
+    "rewardPool": "0x179A0348DeCf6CBF2cF7b0527E3D6260e2068552",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "baseswap-weth-dai",
+    "address": "0x0FeB1490f80B6978002c3E501753562f2F2853B2",
+    "rewardPool": "0x612E2527b37CC5c46df1cfd172456E4DD507Cf09",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "baseswap-mai-usdbc",
     "address": "0x9e574f9aD6ca1833f60d5bB21655dd45278A6e3A",
     "rewardPool": "0x9D6dE2cb0BB319129170730D75E6FffCa811aD74",

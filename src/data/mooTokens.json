@@ -1,5 +1,13 @@
 [
   {
+    "name": "mooALB",
+    "address": "0xbBdeAaa32CBCE61E0A2809edcAE8d1857c55A5DD",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "oracle": "tokens",
+    "oracleId": "ALB"
+  },
+  {
     "name": "mooFantomBIFI",
     "address": "0xbF07093ccd6adFC3dEB259C557b61E94c1F66945",
     "decimals": "1e18",
