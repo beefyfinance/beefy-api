@@ -62,7 +62,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "kaxlUSDT",
+        "oracleId": "axlUSDT",
         "decimals": "1e6"
       },
       {
