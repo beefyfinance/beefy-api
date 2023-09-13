@@ -12,7 +12,7 @@
     "name": "sonne-usdc",
     "cToken": "0xEC8FEa79026FfEd168cCf5C627c7f486D77b765F",
     "oracle": "tokens",
-    "oracleId": "USDC",
+    "oracleId": "opUSDCe",
     "decimals": "1e6",
     "borrowDepth": 10,
     "borrowRate": 0.78
