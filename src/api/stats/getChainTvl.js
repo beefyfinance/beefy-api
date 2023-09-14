@@ -8,13 +8,15 @@ const { default: BeefyVaultV6Abi } = require('../../abis/BeefyVault');
 
 const getChainTvl = async chain => {
   const chainId = chain.chainId;
+
   let vaults = await getVaults(chain.vaultsEndpoint);
-  vaults = vaults.filter(vault => !vault.isGovVault);
-  const vaultBalances = await getVaultBalances(chainId, vaults);
+  const lpvaults = vaults.filter(vault => !vault.isGovVault);
+  const govVaults = vaults.filter(vault => vault.isGovVault);
+  const vaultBalances = await getVaultBalances(chainId, lpvaults);
 
   let tvls = { [chainId]: {} };
-  for (let i = 0; i < vaults.length; i++) {
-    const vault = vaults[i];
+  for (let i = 0; i < lpvaults.length; i++) {
+    const vault = lpvaults[i];
 
     if (EXCLUDED_IDS_FROM_TVL.includes(vault.id)) {
       console.warn('Excluding', vault.id, 'from tvl');
@@ -39,11 +41,12 @@ const getChainTvl = async chain => {
     tvls[chainId] = { ...tvls[chainId], ...item };
   }
 
-  if (chain.governancePool) {
-    let governanceTvl = await getGovernanceTvl(chainId, chain.governancePool);
-    tvls[chainId] = { ...tvls[chainId], ...governanceTvl };
-  } else {
-    console.log('chainId', chainId, 'no gov pool');
+  if (govVaults.length > 0) {
+    for (const govVault of govVaults) {
+      const governancePoolTvl = getGovernanceTvl(chainId, govVault, tvls);
+      console.log(governancePoolTvl);
+      tvls[chaind] = { ...tvls[chainId], [govVault.id]: Number(governancePoolTvl.toFixed(2)) };
+    }
   }
 
   return tvls;
@@ -61,14 +64,7 @@ const getVaultBalances = async (chainId, vaults) => {
 //Fetches chain's governance pool tvl excluding vaults already depositing in it
 // to as to not count twice. (Ex: Maxi deposits in gov pool so shouldn't be counted
 // twice per chain)
-const getGovernanceTvl = async (chainId, governancePool) => {
-  const excludedVaults = Object.values(governancePool.exclude);
-
-  const excludedBalances = excludedVaults.length
-    ? await getVaultBalances(chainId, excludedVaults)
-    : [];
-  let tokenPrice = 0;
-
+const getGovernanceTvl = async (chainId, govPool, tvls) => {
   try {
     tokenPrice = await fetchPrice({ oracle: governancePool.oracle, id: governancePool.oracleId });
     // tokenPrice = 25;
@@ -82,10 +78,13 @@ const getGovernanceTvl = async (chainId, governancePool) => {
     );
   }
 
-  const excludedBalance = excludedBalances.reduce(
-    (tot, cur) => tot.plus(cur.times(tokenPrice).dividedBy(governancePool.tokenDecimals)),
-    new BigNumber(0)
-  );
+  let excludedTvl = 0;
+
+  if (govPool.excluded) {
+    console.log(govPool.excluded);
+    console.log(tvls[chainId][govPool.excluded]);
+    excludedTvl = new BigNumber(tvls[chainId][govPool.excluded]);
+  }
 
   let totalStaked = await getTotalStakedInUsd(
     governancePool.address,
@@ -96,12 +95,7 @@ const getGovernanceTvl = async (chainId, governancePool) => {
     chainId
   );
 
-  const tvl = Number(totalStaked.minus(excludedBalance));
-
-  let response = {};
-  response[governancePool.name] = Number(tvl.toFixed(2));
-
-  return response;
+  return totalStaked.minus(excludedTvl);
 };
 
 module.exports = getChainTvl;

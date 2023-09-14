@@ -1,7 +1,6 @@
 const getVaults = async vaultsEndpoint => {
   try {
-    let vaults = await fetch(vaultsEndpoint).then(res => res.json());
-    return vaults;
+    return await fetch(vaultsEndpoint).then(res => res.json());
   } catch (err) {
     console.error(err);
     return 0;
