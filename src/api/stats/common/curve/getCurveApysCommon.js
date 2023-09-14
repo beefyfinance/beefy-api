@@ -71,7 +71,11 @@ export async function getCurveApysCommon(chainId, pools) {
         oracle: poolExtra.oracle ?? 'tokens',
         id: poolExtra.oracleId,
       });
-      const extraRewardsInUsd = extra.rewardRate.times(secondsPerYear).times(price);
+      const extraRewardsInUsd = extra.rewardRate
+        .times(secondsPerYear)
+        .times(price)
+        .times('1e18')
+        .div(poolExtra.decimals || '1e18');
       rewardsInUsd = rewardsInUsd.plus(extraRewardsInUsd);
 
       // console.log(pool.name, poolExtra.oracleId, extraRewardsInUsd.div(totalStakedInUsd).valueOf());
