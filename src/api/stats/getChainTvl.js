@@ -1,22 +1,25 @@
+import { ChainId } from '../../../packages/address-book/address-book';
 const BigNumber = require('bignumber.js');
-const getVaults = require('../../utils/getVaults.js');
 const fetchPrice = require('../../utils/fetchPrice');
 const { EXCLUDED_IDS_FROM_TVL } = require('../../constants');
 const { getTotalStakedInUsd } = require('../../utils/getTotalStakedInUsd');
 const { fetchContract } = require('../rpc/client');
 const { default: BeefyVaultV6Abi } = require('../../abis/BeefyVault');
+import { getSingleChainVaults, getSingleChainGovVaults } from './getMultichainVaults';
 
 const getChainTvl = async chain => {
+  const apiChain = ChainId[chain.chainId];
   const chainId = chain.chainId;
 
-  let vaults = await getVaults(chain.vaultsEndpoint);
-  const lpvaults = vaults.filter(vault => !vault.isGovVault);
-  const govVaults = vaults.filter(vault => vault.isGovVault);
-  const vaultBalances = await getVaultBalances(chainId, lpvaults);
+  const lpVaults = getSingleChainVaults(apiChain);
+
+  const govVaults = getSingleChainGovVaults(apiChain);
+
+  const vaultBalances = await getVaultBalances(chainId, lpVaults);
 
   let tvls = { [chainId]: {} };
-  for (let i = 0; i < lpvaults.length; i++) {
-    const vault = lpvaults[i];
+  for (let i = 0; i < lpVaults.length; i++) {
+    const vault = lpVaults[i];
 
     if (EXCLUDED_IDS_FROM_TVL.includes(vault.id)) {
       console.warn('Excluding', vault.id, 'from tvl');
@@ -44,7 +47,6 @@ const getChainTvl = async chain => {
   if (govVaults.length > 0) {
     for (const govVault of govVaults) {
       const governancePoolTvl = getGovernanceTvl(chainId, govVault, tvls);
-      console.log(governancePoolTvl);
       tvls[chaind] = { ...tvls[chainId], [govVault.id]: Number(governancePoolTvl.toFixed(2)) };
     }
   }
@@ -66,23 +68,15 @@ const getVaultBalances = async (chainId, vaults) => {
 // twice per chain)
 const getGovernanceTvl = async (chainId, govPool, tvls) => {
   try {
-    tokenPrice = await fetchPrice({ oracle: governancePool.oracle, id: governancePool.oracleId });
+    tokenPrice = await fetchPrice({ oracle: govPool.oracle, id: govPool.oracleId });
     // tokenPrice = 25;
   } catch (e) {
-    console.error(
-      'getGovernanceTvl fetchPrice',
-      chainId,
-      governancePool.oracle,
-      governancePool.oracleId,
-      e
-    );
+    console.error('getGovernanceTvl fetchPrice', chainId, govPool.oracle, govPool.oracleId, e);
   }
 
   let excludedTvl = 0;
 
   if (govPool.excluded) {
-    console.log(govPool.excluded);
-    console.log(tvls[chainId][govPool.excluded]);
     excludedTvl = new BigNumber(tvls[chainId][govPool.excluded]);
   }
 
