@@ -94,11 +94,14 @@ const getPoolApys = async pools => {
     const pool = pools[i];
     const info = poolInfo[i];
 
-    const crvRewards = info.rewardRate.times(secondsPerYear);
-    const crvRewardsInUsd = crvRewards.times(crvPrice).div('1e18');
-
-    const cvxRewards = getMintedCvxAmount(crvRewards, cvxSupply);
-    const cvxRewardsInUsd = cvxRewards.times(cvxPrice).div('1e18');
+    let crvRewardsInUsd = new BigNumber(0);
+    let cvxRewardsInUsd = new BigNumber(0);
+    if (info.periodFinish > Date.now() / 1000) {
+      const crvRewards = info.rewardRate.times(secondsPerYear);
+      crvRewardsInUsd = crvRewards.times(crvPrice).div('1e18');
+      const cvxRewards = getMintedCvxAmount(crvRewards, cvxSupply);
+      cvxRewardsInUsd = cvxRewards.times(cvxPrice).div('1e18');
+    }
 
     let lpPrice;
     if (pool.name === 'convex-staked-cvxCRV') {
