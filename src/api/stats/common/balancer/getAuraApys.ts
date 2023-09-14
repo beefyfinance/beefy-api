@@ -246,7 +246,7 @@ const getYearlyRewardsInUsd = async (pool, rewardRate, finish, extras, auraRate)
     extraRewardsInUsd = extraRewardsInUsd.plus(
       extra.rewardRate.times(secondsInAYear).times(price).div(extra.decimals)
     );
-    // console.log(pool.name, extra.oracleId, extraRewardsInUsd.valueOf());
+    console.log(pool.name, extra.oracleId, extraRewardsInUsd.valueOf());
   }
 
   yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd).plus(auraYearlyRewardsInUsd);

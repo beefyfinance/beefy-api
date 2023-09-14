@@ -45,6 +45,18 @@
     "lsIndex": 0,
     "vaultPoolId": "0x7ca75bdea9dede97f8b13c6641b768650cb837820002000000000000000000d5",
     "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x7f98caFb8B9E599C12D129F4F914FaC07E953271",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x6248255242Fa594e5483718B9e4735B79D1E9db8",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
     "tokens": [
       {
         "oracle": "tokens",
