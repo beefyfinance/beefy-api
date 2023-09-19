@@ -27,11 +27,13 @@ const updateValidatorPerformance = async () => {
       Object.values(validatorStructure).map(val => val.validatorFunctionName())
     );
     settledPromises.forEach((settledPromise, i) => {
-      if (settledPromise.status === 'fulfilled' && settledPromise.value !== null) {
+      if (settledPromise.status === 'fulfilled') {
         validatorPerformance[Object.keys(validatorStructure)[i]] = {
           performance: settledPromise.value.totalPerformanceEther,
           lastUpdate: Date.now(),
         };
+      } else {
+        console.error(`> ${Object.keys(validatorStructure)[i]} validator fetch failed`);
       }
     });
     console.log('> updated validator performance');

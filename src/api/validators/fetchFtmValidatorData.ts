@@ -43,22 +43,17 @@ const FTM_VALIDATOR_INTERNAL_TX_URL =
 
 export const fetchFtmValidatorTotalPerformance =
   async (): Promise<FetchValidatorPerformanceResponse> => {
-    try {
-      const correctMethodId = '0x7ff36ab5';
-      const data = await fetch(FTM_VALIDATOR_INTERNAL_TX_URL);
-      const ftmValidatorData: InternalTxnApiResponse = await data.json();
-      const totalValue = ftmValidatorData.result.reduce((accumulator, transaction) => {
-        if (transaction.methodId === correctMethodId) {
-          return accumulator + BigInt(transaction.value);
-        }
-        return accumulator;
-      }, BigInt(0));
+    const correctMethodId = '0x7ff36ab5';
+    const data = await fetch(FTM_VALIDATOR_INTERNAL_TX_URL);
+    const ftmValidatorData: InternalTxnApiResponse = await data.json();
+    const totalValue = ftmValidatorData.result.reduce((accumulator, transaction) => {
+      if (transaction.methodId === correctMethodId) {
+        return accumulator + BigInt(transaction.value);
+      }
+      return accumulator;
+    }, BigInt(0));
 
-      return {
-        totalPerformanceEther: formatEther(totalValue),
-      };
-    } catch (e) {
-      console.error('fetchFtmValidatorTotalPerformance', e);
-      return null;
-    }
+    return {
+      totalPerformanceEther: formatEther(totalValue),
+    };
   };
