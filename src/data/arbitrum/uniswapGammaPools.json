@@ -1,0 +1,122 @@
+[
+  {
+    "name": "uniswap-gamma-rdpx-weth",
+    "address": "0xc3E878fACb776B1A453fC70576c8FefB8ed39Fb1",
+    "pool": "0x310a09b51501d893988401FbA75c47dC59f1b42a",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x32Eb7902D4134bf98A28b963D26de779AF92A212",
+      "oracle": "tokens",
+      "oracleId": "RDPX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "uniswap-gamma-weth-reth",
+    "address": "0xf21Df991cAaFeBc242C7e5BE17892d3B0453bc0F",
+    "pool": "0x09ba302A3f5ad2bF8853266e271b005A5b3716fe",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
+      "oracle": "tokens",
+      "oracleId": "rETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "uniswap-gamma-magic-weth",
+    "address": "0x9F0166a37A511d2D6647864Dd0abDc1Ef6699a0C",
+    "pool": "0x59D72DDB29Da32847A4665d08ffc8464A7185FAE",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
+      "oracle": "tokens",
+      "oracleId": "MAGIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "uniswap-gamma-btc.b-weth",
+    "address": "0x3344A88855E8242DED86aF2F874c8928F6Ad7BbA",
+    "pool": "0x681C2a4D924223563DbE35Da64E9a0f6A4967FAe",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2297aEbD383787A160DD0d9F71508148769342E3",
+      "oracle": "tokens",
+      "oracleId": "BTCb",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "uniswap-gamma-usdc-usdt",
+    "address": "0x91Ed9458359d0C7Bc03cFE21a58C905fD64402b3",
+    "pool": "0xbE3aD6a5669Dc0B8b12FeBC03608860C31E2eef6",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "uniswap-gamma-wsteth-weth",
+    "address": "0x998C07827578C83949a6b755Dd3416fDFD98a75E",
+    "pool": "0x35218a1cbaC5Bbc3E57fd9Bd38219D37571b3537",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]
