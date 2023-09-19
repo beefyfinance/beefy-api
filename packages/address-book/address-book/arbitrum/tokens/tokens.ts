@@ -1094,6 +1094,18 @@ const _tokens = {
       'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
     bridge: 'arbitrum-canonical',
   },
+  BTCb: {
+    name: 'Bitcoin',
+    symbol: 'BTCb',
+    address: '0x2297aEbD383787A160DD0d9F71508148769342E3',
+    chainId: 42161,
+    decimals: 8,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x152b9d0FdC40C096757F570A51E494bd4b943E50.svg',
+    website: 'https://bridge.avax.network/',
+    description: 'official AVAX BRIDGE bridged BTC',
+    bridge: 'avax-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
