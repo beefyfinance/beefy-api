@@ -78,112 +78,90 @@ const chains = [
   {
     chainId: BSC_CHAIN_ID,
     vaultsEndpoint: BSC_VAULTS_ENDPOINT,
-    governancePool: require('../../data/governancePool.json'),
   },
   {
     chainId: POLYGON_CHAIN_ID,
     vaultsEndpoint: POLYGON_VAULTS_ENDPOINT,
-    governancePool: require('../../data/matic/governancePool.json'),
   },
   {
     chainId: FANTOM_CHAIN_ID,
     vaultsEndpoint: FANTOM_VAULTS_ENDPOINT,
-    governancePool: require('../../data/fantom/governancePool.json'),
   },
   {
     chainId: HECO_CHAIN_ID,
     vaultsEndpoint: HECO_VAULTS_ENDPOINT,
-    governancePool: require('../../data/heco/governancePool.json'),
   },
   {
     chainId: AVAX_CHAIN_ID,
     vaultsEndpoint: AVAX_VAULTS_ENDPOINT,
-    governancePool: require('../../data/avax/governancePool.json'),
   },
   {
     chainId: ONE_CHAIN_ID,
     vaultsEndpoint: ONE_VAULTS_ENDPOINT,
-    governancePool: require('../../data/one/governancePool.json'),
   },
   {
     chainId: ARBITRUM_CHAIN_ID,
     vaultsEndpoint: ARBITRUM_VAULTS_ENDPOINT,
-    governancePool: require('../../data/arbitrum/governancePool.json'),
   },
   {
     chainId: CELO_CHAIN_ID,
     vaultsEndpoint: CELO_VAULTS_ENDPOINT,
-    governancePool: require('../../data/celo/governancePool.json'),
   },
   {
     chainId: MOONRIVER_CHAIN_ID,
     vaultsEndpoint: MOONRIVER_VAULTS_ENDPOINT,
-    governancePool: require('../../data/moonriver/governancePool.json'),
   },
   {
     chainId: CRONOS_CHAIN_ID,
     vaultsEndpoint: CRONOS_VAULTS_ENDPOINT,
-    governancePool: require('../../data/cronos/governancePool.json'),
   },
   {
     chainId: AURORA_CHAIN_ID,
     vaultsEndpoint: AURORA_VAULTS_ENDPOINT,
-    governancePool: require('../../data/aurora/governancePool.json'),
   },
   {
     chainId: FUSE_CHAIN_ID,
     vaultsEndpoint: FUSE_VAULTS_ENDPOINT,
-    governancePool: require('../../data/fuse/governancePool.json'),
   },
   {
     chainId: METIS_CHAIN_ID,
     vaultsEndpoint: METIS_VAULTS_ENDPOINT,
-    governancePool: require('../../data/metis/governancePool.json'),
   },
   {
     chainId: MOONBEAM_CHAIN_ID,
     vaultsEndpoint: MOONBEAM_VAULTS_ENDPOINT,
-    governancePool: require('../../data/moonbeam/governancePool.json'),
   },
   {
     chainId: EMERALD_CHAIN_ID,
     vaultsEndpoint: EMERALD_VAULTS_ENDPOINT,
-    // governancePool: require('../../data/moonbeam/governancePool.json'),
   },
   {
     chainId: OPTIMISM_CHAIN_ID,
     vaultsEndpoint: OPTIMISM_VAULTS_ENDPOINT,
-    governancePool: require('../../data/optimism/governancePool.json'),
   },
   {
     chainId: KAVA_CHAIN_ID,
     vaultsEndpoint: KAVA_VAULTS_ENDPOINT,
-    governancePool: require('../../data/kava/governancePool.json'),
   },
   {
     chainId: ETH_CHAIN_ID,
     vaultsEndpoint: ETHEREUM_VAULTS_ENDPOINT,
-    governancePool: require('../../data/ethereum/governancePool.json'),
   },
   {
     chainId: CANTO_CHAIN_ID,
     vaultsEndpoint: CANTO_VAULTS_ENDPOINT,
-    governancePool: require('../../data/canto/governancePool.json'),
   },
   {
     chainId: ZKSYNC_CHAIN_ID,
     vaultsEndpoint: ZKSYNC_VAULTS_ENDPOINT,
-    // governancePool: require('../../data/zksync/governancePool.json'),
   },
   {
     chainId: ZKEVM_CHAIN_ID,
     vaultsEndpoint: ZKEVM_VAULTS_ENDPOINT,
-    // governancePool: require('../../data/zksync/governancePool.json'),
   },
   {
     chainId: BASE_CHAIN_ID,
     vaultsEndpoint: BASE_VAULTS_ENDPOINT,
-    // governancePool: require('../../data/zksync/governancePool.json'),
   },
 ];
 

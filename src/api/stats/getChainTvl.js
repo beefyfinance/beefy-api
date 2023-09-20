@@ -5,7 +5,7 @@ const { EXCLUDED_IDS_FROM_TVL } = require('../../constants');
 const { fetchContract } = require('../rpc/client');
 const { default: BeefyVaultV6Abi } = require('../../abis/BeefyVault');
 const { default: ERC20Abi } = require('../../abis/ERC20Abi');
-import { getSingleChainVaults, getSingleChainGovVaults } from './getMultichainVaults';
+import { getSingleChainVaults, getSingleChainGovVaults, getVaultByID } from './getMultichainVaults';
 
 const getChainTvl = async chain => {
   const apiChain = ChainId[chain.chainId];
@@ -16,6 +16,8 @@ const getChainTvl = async chain => {
   const govVaults = getSingleChainGovVaults(apiChain);
 
   const vaultBalances = await getVaultBalances(chainId, lpVaults);
+
+  const govVaultBalances = await getGovVaultBalances(chainId, govVaults);
 
   let tvls = { [chainId]: {} };
   for (let i = 0; i < lpVaults.length; i++) {
@@ -44,11 +46,36 @@ const getChainTvl = async chain => {
     tvls[chainId] = { ...tvls[chainId], ...item };
   }
 
-  if (govVaults.length > 0) {
-    for (const govVault of govVaults) {
-      const governancePoolTvl = await getGovernanceTvl(chainId, govVault, tvls);
-      tvls[chainId] = { ...tvls[chainId], [govVault.id]: Number(governancePoolTvl.toFixed(2)) };
+  for (let i = 0; i < govVaults.length; i++) {
+    const govVault = govVaults[i];
+
+    let tokenPrice = 0;
+    const { oracle, oracleId, tokenDecimals, excluded } = govVault;
+    try {
+      tokenPrice = await fetchPrice({ oracle: oracle, id: oracleId });
+      // tokenPrice = 25;
+    } catch (e) {
+      console.error('getGovernanceTvl fetchPrice', chainId, oracle, oracleId, e);
     }
+
+    let balance = govVaultBalances[i].shiftedBy(-tokenDecimals);
+    let excludedTvl = new BigNumber(0);
+
+    if (excluded) {
+      const vault = getVaultByID(excluded);
+      if (vault && vault.status === 'active') {
+        excludedTvl = new BigNumber(tvls[chainId][excluded] || 0);
+      }
+    }
+    const tvl = balance.times(tokenPrice);
+
+    let item = { [govVault.id]: 0 };
+
+    if (!tvl.isNaN()) {
+      item = { [govVault.id]: Number(tvl.minus(excludedTvl).toFixed(2)) };
+    }
+
+    tvls[chainId] = { ...tvls[chainId], ...item };
   }
 
   return tvls;
@@ -63,35 +90,14 @@ const getVaultBalances = async (chainId, vaults) => {
   return res.map(v => new BigNumber(v.toString()));
 };
 
-//Fetches chain's governance pool tvl excluding vaults already depositing in it
-// to as to not count twice. (Ex: Maxi deposits in gov pool so shouldn't be counted
-// twice per chain)
-const getGovernanceTvl = async (chainId, govPool, tvls) => {
-  const { oracle, oracleId, tokenAddress, earnContractAddress, tokenDecimals } = govPool;
-  let tokenPrice = 0;
-  try {
-    tokenPrice = await fetchPrice({ oracle: oracle, id: oracleId });
-    // tokenPrice = 25;
-  } catch (e) {
-    console.error('getGovernanceTvl fetchPrice', chainId, oracle, oracleId, e);
-  }
+const getGovVaultBalances = async (chainId, govPools) => {
+  const calls = govPools.map(vault => {
+    const tokenContract = fetchContract(vault.tokenAddress, ERC20Abi, chainId);
+    return tokenContract.read.balanceOf([vault.earnContractAddress]);
+  });
 
-  let excludedTvl = new BigNumber(0);
-
-  if (govPool.excluded) {
-    excludedTvl = new BigNumber(tvls[chainId][govPool.excluded] || 0);
-  }
-
-  const tokenContract = fetchContract(tokenAddress, ERC20Abi, chainId);
-  const balance = new BigNumber(await tokenContract.read.balanceOf([earnContractAddress]));
-
-  const tvl = balance.times(tokenPrice).shiftedBy(-tokenDecimals);
-
-  if (!tvl.isNaN()) {
-    return tvl.minus(excludedTvl);
-  }
-
-  return new BigNumber(0);
+  const res = await Promise.all(calls);
+  return res.map(v => new BigNumber(v.toString()));
 };
 
 module.exports = getChainTvl;
