@@ -15,6 +15,7 @@ const { getConvexFpisApy } = require('./getConvexFpisApy');
 const { getCurveApys } = require('./getCurveApys');
 const { getConicApys } = require('./getConicApys');
 const { getApeStakingApy } = require('./getApeStakingApy');
+const { getConvexCvxApy } = require('./getConvexCvxApy');
 
 const getApys = [
   getApeStakingApy,
@@ -24,6 +25,7 @@ const getApys = [
   getConvexCrvApy,
   getConvexFxsApy,
   getConvexFpisApy,
+  getConvexCvxApy,
   getConicApys,
   getStargateEthApys,
   getEthereumBifiGovApy,
