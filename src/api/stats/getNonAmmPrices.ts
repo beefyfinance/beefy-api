@@ -86,6 +86,7 @@ import getJoeAutoAvaxPrices from './avax/getJoeAutoAvaxPrices';
 import getBasoStablePrices from './base/getBasoStablePrices';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
 import getUniswapGammaArbPrices from './arbitrum/getUniswapGammaPrices';
+import { getKinetixPrices } from './kava/getKinetixPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -105,6 +106,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   let breakdown = {};
 
   const promises = [
+    getKinetixPrices(tokenPrices),
     getBasoStablePrices(tokenPrices),
     getUniswapGammaPrices(tokenPrices),
     getJoeAutoAvaxPrices(tokenPrices),

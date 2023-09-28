@@ -1,0 +1,41 @@
+[
+  {
+    "name": "kinetix-klp",
+    "address": "0x98FD2baCAC66574aC054BB888c70d40BbF4F452e",
+    "oracle": "lps",
+    "oracleId": "kinetix-klp",
+    "strat": "0x26C9c8f4F8aA6E6D96f897e70173552FbC41F35C",
+    "glp": true,
+    "glpManager": "0x53E6D11B66aBF344028b69f2468120c6afA47F53",
+    "vault": "0xa721f9f61CECf902B2BCBDDbd83E71c191dEcd8b",
+    "decimals": "1e18",
+    "chainId": 2222,
+    "tokens": [
+      {
+        "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+        "oracleId": "WKAVA",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xb829b68f57CC546dA7E5806A929e53bE32a4625D",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x919C1c267BC06a7039e03fcc2eF738525769109c",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x15932E26f5BD4923d46a2b205191C4b5d5f43FE3",
+        "oracleId": "ATOM",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      }
+    ]
+  }
+]
