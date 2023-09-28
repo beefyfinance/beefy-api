@@ -1,5 +1,25 @@
 [
   {
+    "name": "bvm-ftw-dai",
+    "address": "0x7B809866EAA8137D902f83bF7CbE77B41D0Df70c",
+    "gauge": "0x108Ef56F5146a060C847bb1a7755beb24EeC4Bd8",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3347453Ced85bd288D783d85cDEC9b01Ab90f9D8",
+      "oracle": "tokens",
+      "oracleId": "FTW",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "bvm-weth-dai",
     "address": "0xd511ce52d24656FA76cb080a0647CfeF93BB976e",
     "gauge": "0xB5e6163a8D4398F98800B173813C24F342A518C4",
