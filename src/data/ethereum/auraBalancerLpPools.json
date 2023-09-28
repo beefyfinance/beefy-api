@@ -1,5 +1,90 @@
 [
   {
+    "name": "aura-gho-usdc-usdt",
+    "address": "0x8353157092ED8Be69a9DF8F95af097bbF33Cb2aF",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xBDD6984C3179B099E9D383ee2F44F3A57764BF7d",
+    "composable": true,
+    "bptIndex": 1,
+    "vaultPoolId": "0x8353157092ed8be69a9df8f95af097bbf33cb2af0000000000000000000005d9",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "aura-gyro-wsteth-eth",
+    "address": "0xf01b0684C98CD7aDA480BFDF6e43876422fa1Fc1",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x35113146E7f2dF77Fb40606774e0a3F402035Ffb",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "lsIndex": 0,
+    "balancerChargesFee": true,
+    "vaultPoolId": "0xf01b0684c98cd7ada480bfdf6e43876422fa1fc10002000000000000000005de",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x323c41cAa96eD4e8eF8c93F39D74B41a60D49Fa0",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-gyro-wsteth-cbeth",
+    "address": "0xF7A826D47c8E02835D94fb0Aa40F0cC9505cb134",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xC2E2D76a5e02eA65Ecd3be6c9cd3Fa29022f4548",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "lsIndex": 0,
+    "balancerChargesFee": true,
+    "vaultPoolId": "0xf7a826d47c8e02835d94fb0aa40f0cc9505cb1340002000000000000000005e0",
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "cbETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-r-bbsdai",
     "address": "0xbF2ef8bDC2fC0F3203B3a01778E3ec5009AEEf33",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
