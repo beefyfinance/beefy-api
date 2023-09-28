@@ -3,6 +3,7 @@ const { getSushiLpApys } = require('./getSushiLpApys');
 const getEquilibreApys = require('./getEquilibreApys');
 const getKavaBifiGovApy = require('./getKaveBifiGovApy');
 const { getKavaBifiMaxiApy } = require('./getKavaBifiMaxiApy');
+const { getKinetixApys } = require('./getKinetixApys');
 
 const getApys = [
   getCurveApys,
@@ -10,6 +11,7 @@ const getApys = [
   getEquilibreApys,
   getKavaBifiGovApy,
   getKavaBifiMaxiApy,
+  getKinetixApys,
 ];
 
 const getKavaApys = async () => {
