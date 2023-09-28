@@ -425,6 +425,18 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
   },
+  FTW: {
+    name: 'FriendTech33',
+    symbol: 'FTW',
+    address: '0x3347453Ced85bd288D783d85cDEC9b01Ab90f9D8',
+    chainId: 8453,
+    decimals: 9,
+    logoURI: '',
+    website: 'https://friendtech33.xyz',
+    description:
+      'FriendTech33 combines the metas of Friend Tech into a DAO format backing a deeply liquid reserve currency with Friend Tech assets including keys, wrapped keys, ecosystem related project tokens, and finally the airdropped token itself.',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
