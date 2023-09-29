@@ -1124,6 +1124,19 @@ const _tokens = {
     bridge: 'layer-zero',
     logoURI: '',
   },
+  OVN: {
+    name: 'OVN',
+    symbol: 'OVN',
+    address: '0x3b08fcd15280e7B5A6e404c4abb87F7C774D1B2e',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'OVN token is a utility token that serves multiple purposes in the Overnight protocol. It is used for bribes to promote USD+ and incentivize conservative risk decisions, as well as for voting rights to establish decentralized risk monitoring and management processes.',
+    bridge: 'native',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
   JRT: {
     name: 'Jarvis Reward Token',
     symbol: 'JRT',

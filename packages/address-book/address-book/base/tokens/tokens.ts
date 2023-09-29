@@ -177,6 +177,19 @@ const _tokens = {
     documentation: 'https://docs.overnight.fi/',
     bridge: 'native',
   },
+  OVN: {
+    name: 'OVN',
+    symbol: 'OVN',
+    address: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'OVN token is a utility token that serves multiple purposes in the Overnight protocol. It is used for bribes to promote USD+ and incentivize conservative risk decisions, as well as for voting rights to establish decentralized risk monitoring and management processes.',
+    bridge: 'axelar',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
   MIM: {
     name: 'Magic Internet Money',
     symbol: 'MIM',
