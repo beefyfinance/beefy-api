@@ -1,5 +1,32 @@
 [
   {
+    "name": "aura-gyro-r-sdai",
+    "address": "0x52b69d6b3eB0BD6b2b4A48a316Dfb0e1460E67E4",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xC59347ebefc4056f96810f51F0395CF02d242b74",
+    "vaultPoolId": "0x52b69d6b3eb0bd6b2b4a48a316dfb0e1460e67e40002000000000000000005f3",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xA5e4c105b32195660fd6Dd7cBDB705b23615eF5f",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "R",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-gho-usdc-usdt",
     "address": "0x8353157092ED8Be69a9DF8F95af097bbF33Cb2aF",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

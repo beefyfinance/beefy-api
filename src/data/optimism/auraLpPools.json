@@ -1,5 +1,42 @@
 [
   {
+    "name": "aura--op-dola-usdce",
+    "address": "0xACfE9b4782910A853b68abbA60f3FD8049Ffe638",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x5a473b418193C6a3967aF0913135534B7b3B23E9",
+    "vaultPoolId": "0xacfe9b4782910a853b68abba60f3fd8049ffe6380000000000000000000000ff",
+    "composable": true,
+    "bptIndex": 2,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x5aD208Ae071e154e0ae9fE21f6fF036a7ED8DC90",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x6040423B4687646a38cD19A4d55D83f50154eDf8",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "opUSDCe",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DOLA",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
     "name": "beets-rocket-fuel",
     "address": "0x4Fd63966879300caFafBB35D157dC5229278Ed23",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
