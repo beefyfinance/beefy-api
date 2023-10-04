@@ -131,12 +131,14 @@
     "composable": true,
     "bptIndex": 1,
     "vaultPoolId": "0x4a2f6ae7f3e5d715689530873ec35593dc28951b000000000000000000000481",
-    "lsIndex": [1, 2],
+    "lsIndex": [0, 1, 2],
     "lsUrl": [
+      "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
       "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
       "https://api.rocketpool.net/api/apr"
     ],
-    "dataPath": ["$.data.smaApr", "$.yearlyAPR"],
+    "dataPath": ["$.apy", "$.data.smaApr", "$.yearlyAPR"],
+    "lsAprFactor": [100, 1, 1],
     "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [

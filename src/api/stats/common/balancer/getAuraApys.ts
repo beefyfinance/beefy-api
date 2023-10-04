@@ -31,13 +31,14 @@ interface Pool {
   tokens: Token[];
   beefyFee?: number;
   status?: string;
-  lsIndex?: number;
+  lsIndex?: number | number[];
   cmpIndex?: number;
   composable?: boolean;
   bptIndex?: number;
   vaultPoolId?: number;
-  lsUrl?: string;
-  dataPath?: string;
+  lsUrl?: string | string[];
+  dataPath?: string | string[];
+  lsAprFactor?: number | number[];
   balancerChargesFee?: boolean;
   includesComposableAaveTokens?: boolean;
   aaveUnderlying?: Underlying[];
@@ -163,13 +164,21 @@ const getPoolApy = async (
     const lsUrls = Array.isArray(pool.lsUrl) ? pool.lsUrl : [pool.lsUrl];
     const dataPaths = Array.isArray(pool.dataPath) ? pool.dataPath : [pool.dataPath];
     const lsIndexes = Array.isArray(pool.lsIndex) ? pool.lsIndex : [pool.lsIndex];
+    //Coinbase's returned APR is already in %, we need to normalize it by multiplying by 100
+    const lsAprFactors = pool.lsAprFactor
+      ? Array.isArray(pool.lsAprFactor)
+        ? pool.lsAprFactor
+        : [pool.lsAprFactor]
+      : [1];
 
     let lsApr: number = 0;
     try {
       const lsResponses: JSON[] = await Promise.all(
         lsUrls.map(url => fetch(url).then(res => res.json()))
       );
-      const lsAprs: number[] = lsResponses.map((res, i) => jp.query(res, dataPaths[i]));
+      const lsAprs: number[] = lsResponses
+        .map((res, i) => jp.query(res, dataPaths[i]))
+        .map((apr, i) => apr * lsAprFactors[i]);
       lsApr = lsAprs.reduce((acum, cur) => acum + cur, 0);
       lsAprs.forEach((apr, i) => {
         aprFixed +=
