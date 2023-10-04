@@ -159,18 +159,27 @@ const getPoolApy = async (
       qty.push(amt);
     }
 
-    let response: JSON;
+    //Normalize ls Data to always handle arrays
+    const lsUrls = Array.isArray(pool.lsUrl) ? pool.lsUrl : [pool.lsUrl];
+    const dataPaths = Array.isArray(pool.dataPath) ? pool.dataPath : [pool.dataPath];
+    const lsIndexes = Array.isArray(pool.lsIndex) ? pool.lsIndex : [pool.lsIndex];
+
     let lsApr: number = 0;
     try {
-      response = await fetch(pool.lsUrl).then(res => res.json());
-      lsApr = await jp.query(response, pool.dataPath);
-    } catch (e) {
-      console.error(`Balancer: Liquid Staking URL Fetch Error ${pool.name}`);
+      const lsResponses: JSON[] = await Promise.all(
+        lsUrls.map(url => fetch(url).then(res => res.json()))
+      );
+      const lsAprs: number[] = lsResponses.map((res, i) => jp.query(res, dataPaths[i]));
+      lsApr = lsAprs.reduce((acum, cur) => acum + cur, 0);
+      lsAprs.forEach((apr, i) => {
+        aprFixed +=
+          (apr * qty[lsIndexes[i]].dividedBy(totalQty).toNumber()) /
+          100 /
+          (pool.balancerChargesFee ? 2 : 1);
+      });
+    } catch (err) {
+      console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`);
     }
-
-    pool.balancerChargesFee
-      ? (aprFixed = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100 / 2)
-      : (aprFixed = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100);
   }
 
   let compApr = new BigNumber(0);

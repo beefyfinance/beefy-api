@@ -131,9 +131,12 @@
     "composable": true,
     "bptIndex": 1,
     "vaultPoolId": "0x4a2f6ae7f3e5d715689530873ec35593dc28951b000000000000000000000481",
-    "lsIndex": 1,
-    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr",
+    "lsIndex": [1, 2],
+    "lsUrl": [
+      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+      "https://api.rocketpool.net/api/apr"
+    ],
+    "dataPath": ["$.data.smaApr", "$.yearlyAPR"],
     "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
