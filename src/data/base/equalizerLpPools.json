@@ -1,0 +1,102 @@
+[
+  {
+    "name": "equalizer-base-weth-scale",
+    "address": "0xc825c67cA3a80D487C339A6C16bB84f7DCA16012",
+    "gauge": "0x190fC4FDB5d6Aa5C625ff0E45899CDA15Ce3c95F",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x54016a4848a38f257B6E96331F7404073Fd9c32C",
+      "oracle": "tokens",
+      "oracleId": "SCALE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-base-weth-axlusdc",
+    "address": "0x28a6a0C35BA84A7e9Da4b1d03b44d047495fEdF3",
+    "gauge": "0x0bD1AA659b728B9AC6Cb29d37ef5A063055A8Ba7",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEB466342C4d449BC9f53A865D5Cb90586f405215",
+      "oracle": "tokens",
+      "oracleId": "axlUSDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equalizer-base-axlwbtc-weth",
+    "address": "0x5F55b7d9c07815736Eb901BC2Fa1963a47ac1ce0",
+    "gauge": "0x34839EEDA1c1601c04B7649d85382EDa3D4853b7",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad",
+      "oracle": "tokens",
+      "oracleId": "axlWBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-base-weth-usdc",
+    "address": "0x83240b049Fa89b65be714aeD68e5B074df6aAc84",
+    "gauge": "0x4ee5994AAfce64dC8C8c63eB9Ad23a8d2d756c10",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equalizer-base-weth-usdbc",
+    "address": "0xF3F1F5760a614B8146eec5D1c94658720c2425b9",
+    "gauge": "0x804AED5e9835dc56419695F2D1CF877ae0336579",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  }
+]

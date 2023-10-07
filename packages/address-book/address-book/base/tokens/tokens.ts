@@ -450,6 +450,19 @@ const _tokens = {
       'FriendTech33 combines the metas of Friend Tech into a DAO format backing a deeply liquid reserve currency with Friend Tech assets including keys, wrapped keys, ecosystem related project tokens, and finally the airdropped token itself.',
     bridge: 'native',
   },
+  SCALE: {
+    name: 'Scale',
+    symbol: 'SCALE',
+    address: '0x54016a4848a38f257B6E96331F7404073Fd9c32C',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://base.equalizer.exchange/',
+    description:
+      'Equalizer was derived from the initial concept of Andre Cronje. The mechanism that was used to create a perpetual decentralized exchange was unique and ingenious. The launch of this platform is to take the concept and apply it to a more natural style DEX. Equalizer will become the trading mechanism for the Fantom network, utilizing the Solidly perpetual model with some tweaks to fee structures and emissions.',
+    documentation: 'https://docs.equalizer.exchange/',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

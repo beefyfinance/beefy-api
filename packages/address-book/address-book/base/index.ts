@@ -3,6 +3,7 @@ import { balancer } from './platforms/balancer';
 import { baseSwap } from './platforms/baseSwap';
 import { bvm } from './platforms/bvm';
 import { aerodrome } from './platforms/aerodrome';
+import { equalizer } from './platforms/equalizer';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -15,6 +16,7 @@ const _base = {
     baseSwap,
     bvm,
     aerodrome,
+    equalizer,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),
