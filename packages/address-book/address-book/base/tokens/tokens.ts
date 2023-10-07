@@ -459,7 +459,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://base.equalizer.exchange/',
     description:
-      'Equalizer was derived from the initial concept of Andre Cronje. The mechanism that was used to create a perpetual decentralized exchange was unique and ingenious. The launch of this platform is to take the concept and apply it to a more natural style DEX. Equalizer will become the trading mechanism for the Fantom network, utilizing the Solidly perpetual model with some tweaks to fee structures and emissions.',
+      'Equalizer was derived from the initial concept of Andre Cronje. The mechanism that was used to create a perpetual decentralized exchange was unique and ingenious. The launch of this platform is to take the concept and apply it to a more natural style DEX. Equalizer will become the trading mechanism for the Fantom network, utilizing the Solidly perpetual model with some tweaks to fee structures and emissions. ',
     documentation: 'https://docs.equalizer.exchange/',
     bridge: 'native',
   },
