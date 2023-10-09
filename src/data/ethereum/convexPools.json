@@ -26,6 +26,36 @@
     ]
   },
   {
+    "name": "convex-tricrypto-llama",
+    "pool": "0x2889302a794dA87fBF1D6Db415C1492194663D13",
+    "token": "0x2889302a794dA87fBF1D6Db415C1492194663D13",
+    "gauge": "0x60d3d7eBBC44Dc810A743703184f062d00e6dB7e",
+    "rewardPool": "0xdEC6Ad921212d9eFe9643DDBfc1A1F1d4731060d",
+    "extras": [
+      {
+        "rewardPool": "0x2fBa50Bb7544deD6436F8BECf581c4009cC0121d",
+        "oracleId": "wstETH"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-ethx",
     "pool": "0xd82C2eB10F4895CABED6EDa6eeee234bd1A9838B",
     "token": "0xd82C2eB10F4895CABED6EDa6eeee234bd1A9838B",

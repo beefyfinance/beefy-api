@@ -65,7 +65,7 @@ const getPoolApys = async pools => {
   const extras = extraInfo.map((_, i) => ({
     ...extraInfo[i],
     periodFinish: new BigNumber(res[2][i][2].toString()),
-    rewardRate: new BigNumber(res[2][3]),
+    rewardRate: new BigNumber(res[2][i][3]),
   }));
 
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });

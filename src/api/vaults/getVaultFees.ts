@@ -556,9 +556,8 @@ export const initVaultFeeService = async () => {
   feeBatches = cachedFeeBatches ?? {};
   vaultFees = cachedVaultFees ?? {};
 
-  await updateFeeBatches();
-
-  setTimeout(() => {
+  setTimeout(async () => {
+    await updateFeeBatches();
     updateVaultFees();
   }, INIT_DELAY);
 };
