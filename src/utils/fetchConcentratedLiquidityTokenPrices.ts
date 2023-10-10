@@ -81,6 +81,40 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'MATIC',
     },
   ],
+  arbitrum: [
+    {
+      type: 'UniV3',
+      oracleId: 'SVY',
+      decimalDelta: 1,
+      pool: '0xc3fCF0EF6635f0157f567f92050a23D407976dAa',
+      firstToken: 'WETH',
+      secondToken: 'SVY',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'oLIT',
+      decimalDelta: 1,
+      pool: '0xCD744779CAFD693B16A269f2AD6ac69a0E6E5056',
+      firstToken: 'WETH',
+      secondToken: 'oLIT',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'svETH',
+      decimalDelta: 1,
+      pool: '0x6a28350341A27e98170b6e8274bF2382B4DAe6AC',
+      firstToken: 'svETH',
+      secondToken: 'frxETH',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'svUSD',
+      decimalDelta: 1,
+      pool: '0x28082db75615849D12f37627E614b479749C7903',
+      firstToken: 'svUSD',
+      secondToken: 'FRAX',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(

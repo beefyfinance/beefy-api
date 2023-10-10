@@ -20,6 +20,7 @@ const { getChronosApys } = require('./getChronosApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getJoeAutoArbApys } = require('./getJoeAutoArbApys');
 const getUniswapGammaApys = require('./getUniswapGammaApys');
+const getBunniArbApys = require('./getBunniApys');
 
 const getApys = [
   getUniswapGammaApys,
@@ -44,6 +45,7 @@ const getApys = [
   getRamsesApys,
   getChronosApys,
   getArbidexApys,
+  getBunniArbApys,
 ];
 
 const getArbitrumApys = async () => {

@@ -88,6 +88,7 @@ import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
 import getUniswapGammaArbPrices from './arbitrum/getUniswapGammaPrices';
 import { getKinetixPrices } from './kava/getKinetixPrices';
 import getEqualizerStableBasePrices from './base/getEqualizerStablePrices';
+import getBunniArbPrices from './arbitrum/getBunniPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -197,6 +198,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBvmStablePrices(tokenPrices),
     getQlpZkPrices(tokenPrices),
     getUniswapGammaArbPrices(tokenPrices),
+    getBunniArbPrices(tokenPrices),
   ];
 
   // Setup error logs

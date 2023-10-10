@@ -1,0 +1,83 @@
+[
+  {
+    "name": "bunni-svy-weth",
+    "address": "0x1b3Df1131A2433aFb0539dd232026014D8840680",
+    "gauge": "0xA41036C55eE6f1CFe864145ded4f5eF6B3505DF8",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "rewardToken": "0x43aB8f7d2A8Dd4102cCEA6b438F6d747b1B9F034",
+        "oracleId": "SVY",
+        "decimals": "1e36"
+      }
+    ],
+    "lp0": {
+      "address": "0x43aB8f7d2A8Dd4102cCEA6b438F6d747b1B9F034",
+      "oracle": "tokens",
+      "oracleId": "SVY",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "bunni-frxeth-sveth",
+    "address": "0xf71E6a22d2862F3F7e8F0F206c7D6F325C32156b",
+    "gauge": "0x16fC75bED380D406BCb403bb4Ef748f85a110857",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "rewardToken": "0x43aB8f7d2A8Dd4102cCEA6b438F6d747b1B9F034",
+        "oracleId": "SVY",
+        "decimals": "1e36"
+      }
+    ],
+    "lp0": {
+      "address": "0x178412e79c25968a32e89b11f63B33F733770c2A",
+      "oracle": "tokens",
+      "oracleId": "frxETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xf7728582002ef82908c8242CF552E969BA863Ffa",
+      "oracle": "tokens",
+      "oracleId": "svETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "bunni-frax-svusd",
+    "address": "0xf6B3465800ef31B5335C4456f60c2C0Afc49D3eb",
+    "gauge": "0x0f591DcF2601A93688368f2952Cc036f4AE7F88a",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "rewardToken": "0x43aB8f7d2A8Dd4102cCEA6b438F6d747b1B9F034",
+        "oracleId": "SVY",
+        "decimals": "1e36"
+      }
+    ],
+    "lp0": {
+      "address": "0xF202Ab403Cd7E90197ec0f010ee897E283037706",
+      "oracle": "tokens",
+      "oracleId": "svUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x28082db75615849D12f37627E614b479749C7903",
+      "oracle": "tokens",
+      "oracleId": "FRAX",
+      "decimals": "1e18"
+    }
+  }
+]

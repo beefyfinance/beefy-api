@@ -119,8 +119,9 @@ const getTotalStakedInUsd = async (chainId, pool) => {
   return totalSupply.multipliedBy(lpPrice).dividedBy('1e18');
 };
 
-const getBoostedYearlyRewardsInUsd = async (chainId, pool) => {
-  const crvPrice = await fetchPrice({ oracle: 'tokens', id: 'CRV' });
+const getBoostedYearlyRewardsInUsd = async (chainId, pool, tokenID) => {
+  const id = tokenID !== undefined ? tokenID : 'CRV';
+  const crvPrice = await fetchPrice({ oracle: 'tokens', id: id });
 
   // boosted CRV rewards calculated based on working_supply, not totalSupply
   // but additional rewards calculated from totalSupply
@@ -133,7 +134,9 @@ const getBoostedYearlyRewardsInUsd = async (chainId, pool) => {
     gauge.read.totalSupply(),
     gauge.read.working_supply(),
   ];
-  const res = await Promise.all([calls]);
+
+  const res = await Promise.all(calls);
+
   const rewardRate = new BigNumber(res[0].toString());
   const totalSupply = new BigNumber(res[1].toString());
   const workingSupply = new BigNumber(res[2].toString());
@@ -216,6 +219,7 @@ const getPoolsRatesAndPeriodFinish = async (chainId, pool) => {
 };
 
 module.exports = {
+  getBoostedYearlyRewardsInUsd,
   getCurveBaseApys,
   getCurveBaseApysOld,
   getCurveFactoryApy,
