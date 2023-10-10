@@ -59,7 +59,9 @@ const getSupplyApys = async pool => {
       fetchPrice({ oracle: 'tokens', id: 'XVS' }),
       fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
       vtokenContract.read.supplyRatePerBlock().then(res => new BigNumber(res.toString())),
-      unitrollerContract.read.venusSpeeds([pool.vtoken]).then(res => new BigNumber(res.toString())),
+      unitrollerContract.read
+        .venusSupplySpeeds([pool.vtoken])
+        .then(res => new BigNumber(res.toString())),
       vtokenContract.read.totalSupply().then(res => new BigNumber(res.toString())),
       vtokenContract.read.exchangeRateStored().then(res => new BigNumber(res.toString())),
     ]);
@@ -91,7 +93,9 @@ const getBorrowApys = async pool => {
     fetchPrice({ oracle: 'tokens', id: 'XVS' }),
     fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
     vtokenContract.read.borrowRatePerBlock().then(res => new BigNumber(res.toString())),
-    unitrollerContract.read.venusSpeeds([pool.vtoken]).then(res => new BigNumber(res.toString())),
+    unitrollerContract.read
+      .venusBorrowSpeeds([pool.vtoken])
+      .then(res => new BigNumber(res.toString())),
     vtokenContract.read.totalBorrows().then(res => new BigNumber(res.toString())),
   ]);
 

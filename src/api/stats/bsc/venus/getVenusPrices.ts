@@ -66,7 +66,7 @@ export const fetchVenusPrices = async (
           );
         }
       } catch (err) {
-        console.log(`Error fetching venus price for ${vToken.oracleId}: ${err.message}`);
+        console.log(`Error fetching venus price for ${vToken.oracleId}`);
       }
 
       return undefined;
