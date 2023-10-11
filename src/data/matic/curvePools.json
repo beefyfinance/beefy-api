@@ -4,12 +4,11 @@
     "pool": "0xa138341185a9D0429B0021A11FB717B225e13e1F",
     "token": "0xa138341185a9D0429B0021A11FB717B225e13e1F",
     "gauge": "0x875CE7e0565b4C8852CA2a9608F27B7213A90786",
-    "getDy": ["v1", 0, 2, "USDC"],
     "convex": true,
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDR",
+        "oracleId": "oldUSDR",
         "decimals": "1e9"
       },
       {
