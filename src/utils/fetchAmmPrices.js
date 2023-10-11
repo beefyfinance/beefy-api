@@ -119,6 +119,7 @@ const fetchAmmPrices = async (pools, knownPrices) => {
             knownToken,
             unknownToken
           );
+
           const existingWeight = weights[unknownToken.oracleId] || 0;
           const betterPrice = weight > existingWeight;
 

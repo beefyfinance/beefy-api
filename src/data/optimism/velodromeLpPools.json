@@ -95,7 +95,7 @@
     "lp1": {
       "address": "0xC03b43d492d904406db2d7D57e67C7e8234bA752",
       "oracle": "tokens",
-      "oracleId": "wUSDR",
+      "oracleId": "owUSDR",
       "decimals": "1e9"
     }
   },
