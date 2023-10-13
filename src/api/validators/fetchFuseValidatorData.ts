@@ -1,3 +1,4 @@
+import { formatEther } from 'viem';
 import { FetchValidatorPerformanceResponse } from './validators';
 
 interface CoinBalances {
@@ -6,11 +7,7 @@ interface CoinBalances {
 }
 
 const FUSE_VALIDATOR_COIN_BALANCES_URL =
-  'https://explorer.fuse.io' +
-  '/address' +
-  '/0xEc4B821541f62b63832ceE400d6c29bCc84E4e38' +
-  '/coin-balances' +
-  '/by-day?type=JSON';
+  'https://explorer.fuse.io/api/v2/addresses/0xEc4B821541f62b63832ceE400d6c29bCc84E4e38/coin-balance-history-by-day';
 
 export const fetchFuseValidatorTotalPerformance =
   async (): Promise<FetchValidatorPerformanceResponse> => {
@@ -18,6 +15,6 @@ export const fetchFuseValidatorTotalPerformance =
     const fuseValidatorData: CoinBalances[] = await data.json();
     const lastSum = fuseValidatorData[fuseValidatorData.length - 1].value;
     return {
-      totalPerformanceEther: lastSum.toString(),
+      totalPerformanceEther: formatEther(BigInt(lastSum)),
     };
   };
