@@ -1,7 +1,7 @@
 [
   {
     "name": "kinetix-klp",
-    "address": "0x98FD2baCAC66574aC054BB888c70d40BbF4F452e",
+    "address": "0x5d370C8Fb021cfaa663D35a7c26fb59699ff42DA",
     "oracle": "lps",
     "oracleId": "kinetix-klp",
     "strat": "0x26C9c8f4F8aA6E6D96f897e70173552FbC41F35C",
