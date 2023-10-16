@@ -19,6 +19,7 @@ const { getEthereumApys } = require('./ethereum');
 const { getZksyncApys } = require('./zksync');
 const { getZkevmApys } = require('./zkevm');
 const { getBaseApys } = require('./base');
+const { getGnosisApys } = require('./gnosis');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs } = require('./getBoostAprs');
 
@@ -66,6 +67,7 @@ const updateApys = async () => {
       getZksyncApys(),
       getZkevmApys(),
       getBaseApys(),
+      getGnosisApys(),
     ]);
 
     for (const result of results) {

@@ -1,5 +1,23 @@
 [
   {
+    "name": "honey-wxdai-usdc",
+    "address": "0xA227c72a4055A9DC949cAE24f54535fe890d3663",
+    "decimals": "1e18",
+    "chainId": 100,
+    "lp0": {
+      "address": "0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d",
+      "oracle": "tokens",
+      "oracleId": "WXDAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "boo-lzusdc-lzweth",
     "address": "0xf2610511493473379d76Bfee07B673D0cB4Ed3E7",
     "decimals": "1e18",

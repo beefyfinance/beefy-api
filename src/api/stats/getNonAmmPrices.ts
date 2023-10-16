@@ -89,6 +89,7 @@ import getUniswapGammaArbPrices from './arbitrum/getUniswapGammaPrices';
 import { getKinetixPrices } from './kava/getKinetixPrices';
 import getEqualizerStableBasePrices from './base/getEqualizerStablePrices';
 import getBunniArbPrices from './arbitrum/getBunniPrices';
+import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -168,6 +169,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBalancerZkevmPrices(tokenPrices),
     getBalancerPolyPrices(tokenPrices),
     getBalancerArbPrices(tokenPrices),
+    getBalancerGnosisPrices(tokenPrices),
     getBeethovenxPrices(tokenPrices),
     getBeetsOPPrices(tokenPrices),
     getBeltPrices(tokenPrices),

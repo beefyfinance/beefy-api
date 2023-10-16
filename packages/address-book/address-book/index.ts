@@ -20,6 +20,7 @@ import { canto } from './canto';
 import { zksync } from './zksync';
 import { zkevm } from './zkevm';
 import { base } from './base';
+import { gnosis } from './gnosis';
 import Chain from '../types/chain';
 import { ChainId } from '../types/chainid';
 import { ConstRecord } from '../types/const';
@@ -49,6 +50,7 @@ const _addressBook: {
   readonly zksync: Chain;
   readonly zkevm: Chain;
   readonly base: Chain;
+  readonly gnosis: Chain;
 } = {
   polygon,
   bsc,
@@ -72,6 +74,7 @@ const _addressBook: {
   zksync,
   zkevm,
   base,
+  gnosis,
 } as const;
 
 const _addressBookByChainId: {
@@ -97,6 +100,7 @@ const _addressBookByChainId: {
   readonly '324': Chain;
   readonly '1101': Chain;
   readonly '8453': Chain;
+  readonly '100': Chain;
 } = {
   [ChainId.polygon]: polygon,
   [ChainId.bsc]: bsc,
@@ -120,6 +124,7 @@ const _addressBookByChainId: {
   [ChainId.zksync]: zksync,
   [ChainId.zkevm]: zkevm,
   [ChainId.base]: base,
+  [ChainId.gnosis]: gnosis,
 } as const;
 
 export const addressBook: ConstRecord<typeof _addressBook, Chain> = _addressBook;
