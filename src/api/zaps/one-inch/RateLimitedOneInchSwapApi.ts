@@ -1,9 +1,10 @@
 import { OneInchSwapApi } from './OneInchSwapApi';
 import PQueue from 'p-queue';
+import { ProxiedResponse } from './types.js';
 
 export class RateLimitedOneInchSwapApi extends OneInchSwapApi {
-  constructor(baseUrl: string, protected readonly queue: PQueue) {
-    super(baseUrl);
+  constructor(baseUrl: string, apiKey: string, protected readonly queue: PQueue) {
+    super(baseUrl, apiKey);
   }
 
   protected async get<ResponseType extends {}, RequestType extends {}>(

@@ -10,11 +10,16 @@ import {
 } from './types';
 
 export class OneInchSwapApi implements IOneInchSwapApi {
-  constructor(protected readonly baseUrl: string) {}
+  constructor(protected readonly baseUrl: string, protected readonly apiKey: string) {}
 
   protected buildUrl<T extends {}>(path: string, request?: T) {
-    const params = request ? new URLSearchParams(request).toString() : '';
-    return params ? `${this.baseUrl}${path}?${params}` : `${this.baseUrl}${path}`;
+    let queryString: string | undefined;
+    if (request) {
+      const params = new URLSearchParams(request);
+      queryString = params.toString();
+    }
+
+    return queryString ? `${this.baseUrl}${path}?${queryString}` : `${this.baseUrl}${path}`;
   }
 
   protected async get<ResponseType extends {}, RequestType extends {}>(
@@ -25,6 +30,7 @@ export class OneInchSwapApi implements IOneInchSwapApi {
     const response = await fetch(url, {
       headers: {
         Accept: 'application/json',
+        Authorization: `Bearer ${this.apiKey}`,
       },
     });
 
@@ -43,6 +49,7 @@ export class OneInchSwapApi implements IOneInchSwapApi {
     const response = await fetch(url, {
       headers: {
         Accept: 'application/json',
+        Authorization: `Bearer ${this.apiKey}`,
       },
     });
 
@@ -58,20 +65,27 @@ export class OneInchSwapApi implements IOneInchSwapApi {
     return proxyResponse;
   }
 
+  protected addRequiredParams<T extends object>(request: T): T & { includeTokensInfo: boolean } {
+    return {
+      ...request,
+      includeTokensInfo: true,
+    };
+  }
+
   async getProxiedQuote(request: QuoteRequest): Promise<ProxiedResponse> {
-    return await this.transparentGet('/quote', request);
+    return await this.transparentGet('/quote', this.addRequiredParams(request));
   }
 
   async getProxiedSwap(request: SwapRequest): Promise<ProxiedResponse> {
-    return await this.transparentGet('/swap', request);
+    return await this.transparentGet('/swap', this.addRequiredParams(request));
   }
 
   async getQuote(request: QuoteRequest): Promise<QuoteResponse> {
-    return await this.get('/quote', request);
+    return await this.get('/quote', this.addRequiredParams(request));
   }
 
   async getSwap(request: SwapRequest): Promise<SwapResponse> {
-    return await this.get('/swap', request);
+    return await this.get('/swap', this.addRequiredParams(request));
   }
 
   async isHealthy(): Promise<boolean> {
