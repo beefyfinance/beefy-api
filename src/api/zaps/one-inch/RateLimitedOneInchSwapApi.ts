@@ -13,4 +13,12 @@ export class RateLimitedOneInchSwapApi extends OneInchSwapApi {
   ): Promise<ResponseType> {
     return this.queue.add(() => super.get(path, request));
   }
+
+  protected async transparentGet<RequestType extends {}>(
+    path: string,
+    request: RequestType
+  ): Promise<ProxiedResponse> {
+    // Rate limit, but higher priority than normal get, as these are used for app api proxy
+    return this.queue.add(() => super.transparentGet(path, request), { priority: 1 });
+  }
 }
