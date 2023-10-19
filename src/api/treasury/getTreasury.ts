@@ -99,6 +99,7 @@ function getTokenAddressesByChain(): TreasuryAssetRegistry {
         assetType: isTokenNative(token) ? 'native' : 'token',
         oracleId: token.oracleId,
         oracleType: token.oracle,
+        symbol: token.symbol,
       };
     }
 

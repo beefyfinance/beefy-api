@@ -24,6 +24,7 @@ export type Asset = {
   assetType: 'token' | 'native' | 'vault' | 'validator' | 'concLiquidity';
   oracleType: 'lps' | 'tokens';
   oracleId: string;
+  symbol?: string;
 };
 
 export type TokenAsset = Asset & { assetType: 'token' };
