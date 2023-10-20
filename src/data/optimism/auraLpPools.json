@@ -1,5 +1,93 @@
 [
   {
+    "name": "aura-op-reth-ankreth",
+    "address": "0x004700ba0a4f5f22e1E78a277fCA55e36F47E09C",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x19248C1C4E7E4A285439E681d1b65935B6888E09",
+    "vaultPoolId": "0x004700ba0a4f5f22e1e78a277fca55e36f47e09c000000000000000000000104",
+    "composable": true,
+    "bptIndex": 0,
+    "decimals": "1e18",
+    "lsUrl": "https://api.rocketpool.net/api/apr",
+    "dataPath": "$.yearlyAPR",
+    "lsIndex": 0,
+    "balancerChargesFee": true,
+    "rewards": [
+      {
+        "rewardGauge": "0x4e646fAFa58c0a038d3CefF6CAE08B7c96409063",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x1F662d5d2DBB0b7a0826faa68b85362181B17b93",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ankrETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-op-usdc-usdce-usdt-dai",
+    "address": "0x9Da11Ff60bfc5aF527f58fd61679c3AC98d040d9",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x2e3CD130F5166AfdA2Cb0A2714F60e218D2A3643",
+    "vaultPoolId": "0x9da11ff60bfc5af527f58fd61679c3ac98d040d9000000000000000000000100",
+    "composable": true,
+    "bptIndex": 3,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xC3D0C1Ce38e285d5c7c2004f493Dbae50D7e9AF6",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xC2839fbf0c3480F9FE38098f8D2243FDcf692a5E",
+        "oracleId": "BAL",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "opUSDCe",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura--op-dola-usdce",
     "address": "0xACfE9b4782910A853b68abbA60f3FD8049Ffe638",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

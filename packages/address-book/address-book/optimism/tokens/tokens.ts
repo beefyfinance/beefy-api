@@ -1162,6 +1162,19 @@ const _tokens = {
     documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
     bridge: 'optimism-canonical',
   },
+  ankrETH: {
+    name: 'Ankr Staked ETH',
+    symbol: 'ankrETH',
+    address: '0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description:
+      'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
+    bridge: 'ankr',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
