@@ -6,9 +6,9 @@ import { IOneInchPriceApi, IOneInchSwapApi } from './types';
 
 // Configure to just under RPS allowed by our account
 const API_QUEUE_CONFIG = {
-  concurrency: 5,
-  intervalCap: 5,
-  interval: 1000,
+  concurrency: 2,
+  intervalCap: 1, // 1 per 200ms is 5 RPS
+  interval: 200,
   carryoverConcurrencyCount: true,
   autoStart: true,
   timeout: 30 * 1000,
