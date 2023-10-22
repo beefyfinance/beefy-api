@@ -905,12 +905,12 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "mooFantomBIFI",
+        "oracleId": "mooFantomoldBIFI",
         "decimals": "1e18"
       },
       {
         "oracle": "tokens",
-        "oracleId": "fmcBIFI",
+        "oracleId": "fmcoldBIFI",
         "decimals": "1e18"
       },
       {

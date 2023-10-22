@@ -18,9 +18,22 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
-  BIFI: {
+  mooBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'mooBIFI',
+    address: '0xc55E93C62874D8100dBd2DfE307EDc1036ad5434',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://beefy.com',
+    description:
+      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+    logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
+    documentation: 'https://docs.beefy.finance/',
+    bridge: 'beefy-omnipool',
+  },
+  oldBIFI: {
+    name: 'Beefy.Finance',
+    symbol: 'oldBIFI',
     address: '0x4E720DD3Ac5CFe1e1fbDE4935f386Bb1C66F4642',
     chainId: 10,
     decimals: 18,

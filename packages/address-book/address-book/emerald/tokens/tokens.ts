@@ -28,9 +28,9 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
   },
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0x65e66a61D0a8F1e686C2D6083ad611a10D84D97A',
     chainId: 42262,
     decimals: 18,

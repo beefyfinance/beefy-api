@@ -50,9 +50,9 @@ const _tokens = {
     decimals: 18,
     logoURI: 'https://hecoinfo.com/token/images/lendhub_32.png',
   },
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0x765277EebeCA2e31912C9946eAe1021199B39C61',
     chainId: 128,
     decimals: 18,

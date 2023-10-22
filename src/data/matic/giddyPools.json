@@ -17,6 +17,6 @@
     "poolId": 9,
     "chainId": 137,
     "oracle": "tokens",
-    "oracleId": "BIFI"
+    "oracleId": "oldBIFI"
   }
 ]

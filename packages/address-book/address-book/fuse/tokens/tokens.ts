@@ -18,9 +18,9 @@ const _tokens = {
   FUSE,
   WFUSE: FUSE,
   WNATIVE: FUSE,
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c',
     chainId: 122,
     decimals: 18,
@@ -199,9 +199,9 @@ const _tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
   },
-  'BIFI-WFUSE LP': {
-    name: 'BIFI-WFUSE LP',
-    symbol: 'BIFI-WFUSE LP',
+  'oldBIFI-WFUSE LP': {
+    name: 'oldBIFI-WFUSE LP',
+    symbol: 'oldBIFI-WFUSE LP',
     address: '0xbD8923A4028c5D6b6B8698ad4342104302611914',
     chainId: 1666600000,
     decimals: 18,

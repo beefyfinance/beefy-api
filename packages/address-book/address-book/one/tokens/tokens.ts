@@ -30,12 +30,12 @@ const _tokens = {
   ONE,
   WONE: ONE,
   WNATIVE: ONE,
-  BIFI: {
+  oldBIFI: {
     chainId: 1666600000,
     address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
     decimals: 18,
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
@@ -212,9 +212,9 @@ const _tokens = {
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
   },
-  'BIFI-WONE LP': {
-    name: 'BIFI-WONE LP',
-    symbol: 'BIFI-WONE LP',
+  'oldBIFI-WONE LP': {
+    name: 'oldBIFI-WONE LP',
+    symbol: 'oldBIFI-WONE LP',
     address: '0x0f9602B7E7146a9BaE16dB948281BebDb7C2D095',
     chainId: 1666600000,
     decimals: 18,

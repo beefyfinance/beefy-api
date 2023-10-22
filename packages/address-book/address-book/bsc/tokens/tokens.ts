@@ -2559,9 +2559,9 @@ const _tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xa1faa113cbe53436df28ff0aee54275c13b40975.png',
   },
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0xCa3F508B8e4Dd382eE878A314789373D80A5190A',
     chainId: 56,
     decimals: 18,
@@ -4191,9 +4191,9 @@ const _tokens = {
       'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
     logoURI: '',
   },
-  vBIFI: {
+  voldBIFI: {
     name: 'Venus BIFI',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0xC718c51958d3fd44f5F9580c9fFAC2F89815C909',
     chainId: 56,
     decimals: 8,

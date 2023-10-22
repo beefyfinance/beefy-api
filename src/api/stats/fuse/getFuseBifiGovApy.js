@@ -6,7 +6,7 @@ const {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI },
+    tokens: { oldBIFI },
   },
 } = addressBook;
 
@@ -20,8 +20,8 @@ const getFuseBifiGovApy = async () => {
     'fuse',
     'WFUSE',
     DECIMALS,
-    REWARDS,
-    BIFI.address,
+    rewardPool,
+    oldBIFI.address,
     3 * 365,
     1,
     BLOCKS_PER_DAY

@@ -89,7 +89,7 @@
     "lp0": {
       "address": "0x5870700f1272a1AdbB87C3140bD770880a95e55D",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "oracleId": "oldBIFI",
       "decimals": "1e18"
     },
     "lp1": {

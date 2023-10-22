@@ -4,6 +4,6 @@
   "tokenAddress": "0x4E720DD3Ac5CFe1e1fbDE4935f386Bb1C66F4642",
   "tokenDecimals": 1e18,
   "oracle": "tokens",
-  "oracleId": "BIFI",
+  "oracleId": "oldBIFI",
   "exclude": {}
 }

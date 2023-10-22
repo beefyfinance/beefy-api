@@ -7,13 +7,13 @@ const {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI, CELO },
+    tokens: { oldBIFI, CELO },
   },
 } = addressBook;
 
 export const getCeloBifiMaxiApy = () => {
   return getBifiMaxiApys({
-    bifi: BIFI.address,
+    bifi: oldBIFI.address,
     rewardPool: rewardPool,
     rewardId: CELO.symbol,
     rewardDecimals: getEDecimals(CELO.decimals),

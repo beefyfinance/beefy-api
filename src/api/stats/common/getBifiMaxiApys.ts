@@ -51,7 +51,7 @@ const getTotalStakedInUsd = async (params: BifiApyParams) => {
   const totalStaked = new BigNumber(
     (await tokenContract.read.balanceOf([params.rewardPool as `0x${string}`])).toString()
   );
-  const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'BIFI' });
+  const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'oldBIFI' });
 
   return totalStaked.times(tokenPrice).dividedBy('1e18');
 };

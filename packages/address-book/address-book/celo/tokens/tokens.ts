@@ -35,12 +35,12 @@ const _tokens = {
   CELO,
   WCELO: WCELO,
   WNATIVE: WCELO,
-  BIFI: {
+  oldBIFI: {
     chainId: 42220,
     address: '0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C',
     decimals: 18,
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
@@ -170,9 +170,9 @@ const _tokens = {
     ...SUSHIV1,
     symbol: 'cSUSHI',
   },
-  'BIFI-CELO LP': {
-    name: 'BIFI-CELO LP',
-    symbol: 'BIFI-CELO LP',
+  'oldBIFI-CELO LP': {
+    name: 'oldBIFI-CELO LP',
+    symbol: 'oldBIFI-CELO LP',
     address: '0xa9FcF373b6bc717223d9464e8c481c9AfAe3f861',
     chainId: 42220,
     decimals: 18,

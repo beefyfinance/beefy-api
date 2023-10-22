@@ -698,12 +698,12 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/pangolindex/tokens/main/assets/0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5/logo.png',
   },
-  BIFI: {
+  oldBIFI: {
     chainId: 43114,
     address: '0xd6070ae98b8069de6B494332d1A1a81B6179D960',
     decimals: 18,
     name: 'Binance Smart Chain',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',

@@ -4,7 +4,7 @@
   "tokenAddress": "0x595c8481c48894771CE8FaDE54ac6Bf59093F9E8",
   "tokenDecimals": 1e18,
   "oracle": "tokens",
-  "oracleId": "BIFI",
+  "oracleId": "oldBIFI",
   "exclude": {
     "maxi": {
       "earnedTokenAddress": "0xd1bAb603eee03fA99A378d90d5d83186fEB81aA9"

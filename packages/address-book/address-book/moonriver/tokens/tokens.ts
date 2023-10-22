@@ -46,12 +46,12 @@ const _tokens = {
   WNATIVE: MOVR,
   WMOVR_SUSHI: WMOVR_SUSHI,
   WNATIVE_SUSHI: WMOVR_SUSHI,
-  BIFI: {
+  oldBIFI: {
     chainId: 1285,
     address: '0x173fd7434B8B50dF08e3298f173487ebDB35FD14',
     decimals: 18,
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
@@ -465,9 +465,9 @@ const _tokens = {
       'Staked KSM (stKSM) is a liquid staking solution for KSM backed by industry-leading staking providers. stKSM rebases daily to receive rewards, wrapping stKSM for wstKSM will stop the rebasing mechanism, and will allow users to continue accruing staking rewards.',
     bridge: 'kusama',
   },
-  'BIFI-WMOVR LP': {
-    name: 'BIFI-WMOVR LP',
-    symbol: 'BIFI-WMOVR LP',
+  'oldBIFI-WMOVR LP': {
+    name: 'oldBIFI-WMOVR LP',
+    symbol: 'oldBIFI-WMOVR LP',
     address: '0xaC726ee53edFAe5f8f4C2c0d611Fd71D58E743bA',
     chainId: 1285,
     decimals: 18,
