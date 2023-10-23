@@ -32,7 +32,7 @@ const _tokens = {
     bridge: 'native',
   },
   rBIFI: {
-    name: 'Beefy Reward Pool',
+    name: 'BIFI Pool',
     symbol: 'rBIFI',
     address: '0xb1F131437e314614313aAb3a3016FA05c1b0e087',
     chainId: 1,
@@ -45,7 +45,7 @@ const _tokens = {
     bridge: 'native',
   },
   mooBIFI: {
-    name: 'Beefy Omnipool',
+    name: 'BIFI Pool Share',
     symbol: 'mooBIFI',
     address: '0xBEEF8e0982874e0292E6C5751C5A4092b3e1BEEF',
     chainId: 1,
@@ -58,7 +58,7 @@ const _tokens = {
     bridge: 'native',
   },
   xmooBIFI: {
-    name: 'Beefy Omnipool XERC20',
+    name: 'BIFI Pool Share xERC20',
     symbol: 'xmooBIFI',
     address: '0xb1feA302f3B2E93FA04E46dCCE35F2Fc522d7bB9',
     chainId: 1,
