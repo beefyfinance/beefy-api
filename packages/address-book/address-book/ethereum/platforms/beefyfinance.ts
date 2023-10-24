@@ -10,7 +10,7 @@ export const beefyfinance = {
   keeper: '0x4fED5491693007f0CD49f4614FFC38Ab6A04B619',
   treasurer: treasuryMultisig,
   launchpoolOwner: devMultisig,
-  rewardPool: '0xF49c523F08B4e7c8E51a44088ea2a5e6b5f397D9',
+  rewardPool: '0xb1F131437e314614313aAb3a3016FA05c1b0e087',
   treasury: treasuryMultisig,
   beefyFeeRecipient: '0x65f2145693bE3E75B8cfB2E318A3a74D057e6c7B',
   multicall: '0x9dA9f3C6c45F1160b53D395b0A982aEEE1D212fE',
