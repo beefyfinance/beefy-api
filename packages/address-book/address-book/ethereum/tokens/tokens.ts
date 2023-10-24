@@ -19,7 +19,7 @@ const _tokens = {
   WETH: ETH,
   WNATIVE: ETH,
   BIFI: {
-    name: 'Beefy.Finance',
+    name: 'Beefy',
     symbol: 'BIFI',
     address: '0xB1F1ee126e9c96231Cc3d3fAD7C08b4cf873b1f1',
     chainId: 1,
@@ -27,12 +27,12 @@ const _tokens = {
     website: 'https://www.beefy.finance/',
     documentation: 'https://docs.beefy.finance/',
     description:
-      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+      "The Beefy Token (BIFI) is the governance token of the Beefy DAO. Holders of the token are entitled to submit and vote on proposals on all areas affecting the DAO through the Beefy Snapshot Space, as well as to participate in Beefy's governance incentives programme through the BIFI Pool or BIFI Vault.",
     logoURI: 'https://beefy.com/icons/128/BIFI.png',
     bridge: 'native',
   },
   rBIFI: {
-    name: 'BIFI Pool',
+    name: 'BIFI Pool Receipt',
     symbol: 'rBIFI',
     address: '0xb1F131437e314614313aAb3a3016FA05c1b0e087',
     chainId: 1,
@@ -40,12 +40,12 @@ const _tokens = {
     website: 'https://www.beefy.finance/',
     documentation: 'https://docs.beefy.finance/',
     description:
-      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+      "The Beefy Token (BIFI) is the governance token of the Beefy DAO. Holders of the token are entitled to submit and vote on proposals on all areas affecting the DAO through the Beefy Snapshot Space, as well as to participate in Beefy's governance incentives programme through the BIFI Pool or BIFI Vault.",
     logoURI: 'https://beefy.com/icons/128/BIFI.png',
     bridge: 'native',
   },
   mooBIFI: {
-    name: 'BIFI Pool Share',
+    name: 'BIFI Vault Receipt',
     symbol: 'mooBIFI',
     address: '0xBEEF8e0982874e0292E6C5751C5A4092b3e1BEEF',
     chainId: 1,
@@ -53,12 +53,12 @@ const _tokens = {
     website: 'https://www.beefy.finance/',
     documentation: 'https://docs.beefy.finance/',
     description:
-      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+      "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
     logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
     bridge: 'native',
   },
   xmooBIFI: {
-    name: 'BIFI Pool Share xERC20',
+    name: 'BIFI Vault Receipt xERC20',
     symbol: 'xmooBIFI',
     address: '0xb1feA302f3B2E93FA04E46dCCE35F2Fc522d7bB9',
     chainId: 1,
@@ -66,7 +66,7 @@ const _tokens = {
     website: 'https://www.beefy.finance/',
     documentation: 'https://docs.beefy.finance/',
     description:
-      'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
+      "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
     logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
     bridge: 'native',
   },
