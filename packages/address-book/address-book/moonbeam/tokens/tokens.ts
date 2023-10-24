@@ -18,9 +18,9 @@ const _tokens = {
   GLMR,
   WGLMR: GLMR,
   WNATIVE: GLMR,
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0x595c8481c48894771CE8FaDE54ac6Bf59093F9E8',
     chainId: 1284,
     decimals: 18,

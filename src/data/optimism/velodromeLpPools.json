@@ -715,7 +715,7 @@
     "lp1": {
       "address": "0x4E720DD3Ac5CFe1e1fbDE4935f386Bb1C66F4642",
       "oracle": "tokens",
-      "oracleId": "opBIFI",
+      "oracleId": "opoldBIFI",
       "decimals": "1e18"
     }
   },
@@ -795,7 +795,7 @@
     "lp1": {
       "address": "0x4E720DD3Ac5CFe1e1fbDE4935f386Bb1C66F4642",
       "oracle": "tokens",
-      "oracleId": "opBIFI",
+      "oracleId": "opoldBIFI",
       "decimals": "1e18"
     }
   },

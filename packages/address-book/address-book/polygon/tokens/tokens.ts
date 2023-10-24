@@ -863,10 +863,10 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ApeSwapFinance/apeswap-token-lists/main/assets/BANANA.svg',
   },
-  BIFI: {
+  oldBIFI: {
     name: 'beefy.finance',
     address: '0xFbdd194376de19a88118e84E279b977f165d01b8',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     decimals: 18,
     chainId: 137,
     website: 'https://www.beefy.finance/',

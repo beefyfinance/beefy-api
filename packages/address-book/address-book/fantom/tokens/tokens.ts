@@ -1411,9 +1411,9 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/sushiswap/assets/master/blockchains/ethereum/assets/0x3472A5A71965499acd81997a54BBA8D852C6E53d/logo.png',
   },
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'fmcBIFI',
+    symbol: 'fmcoldBIFI',
     address: '0xd6070ae98b8069de6B494332d1A1a81B6179D960',
     chainId: 250,
     decimals: 18,

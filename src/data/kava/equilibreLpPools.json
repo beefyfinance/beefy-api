@@ -89,7 +89,7 @@
     "lp0": {
       "address": "0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "oracleId": "oldBIFI",
       "decimals": "1e18"
     },
     "lp1": {
@@ -329,7 +329,7 @@
     "lp0": {
       "address": "0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "oracleId": "oldBIFI",
       "decimals": "1e18"
     },
     "lp1": {

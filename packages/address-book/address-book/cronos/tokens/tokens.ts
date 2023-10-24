@@ -135,12 +135,12 @@ const _tokens = {
     description: 'The first algorithmic token pegged to CRO running on the Cronos Chain',
     logoURI: 'https://assets.coingecko.com/coins/images/22456/small/DARK_bgWhite.png',
   },
-  BIFI: {
+  oldBIFI: {
     chainId: 25,
     address: '0xe6801928061CDbE32AC5AD0634427E140EFd05F9',
     decimals: 18,
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',

@@ -19,4 +19,9 @@ export const beefyfinance = {
   beefyFeeConfig: '0x216EEE15D1e3fAAD34181f66dd0B665f556a638d',
   vaultFactory: '0xA6D3769faC465FC0415e7E9F16dcdC96B83C240B',
   wrapperFactory: '0x182be93E1C0C4d305fe43bD093292F21fd679797',
+
+  axelarBridge: '0xaaa6A279fC98b9bF94bD479C90D701417e361fc2',
+  optimismBridge: '0xbbb8971aEA2627fa2E1342bb5Bf952Ec521479f2',
+  ccipBridge: '0xcccEa7Fe84272995664369334351Fe344E2732aE',
+  layerZeroBridge: '0xdddaEc9c267dF24aD66Edc3B2cBe25dB86422051',
 } as const;

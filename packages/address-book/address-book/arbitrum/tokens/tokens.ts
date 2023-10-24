@@ -18,9 +18,9 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0x99C409E5f62E4bd2AC142f17caFb6810B8F0BAAE',
     chainId: 42161,
     decimals: 18,
@@ -461,9 +461,9 @@ const _tokens = {
     documentation: 'https://docs.mai.finance/',
     bridge: 'native',
   },
-  'BIFI-ETH LP': {
-    name: 'BIFI-ETH LP',
-    symbol: 'BIFI-ETH LP',
+  'oldBIFI-ETH LP': {
+    name: 'oldBIFI-ETH LP',
+    symbol: 'oldBIFI-ETH LP',
     address: '0xcDA9B8e5867b5746755fE6E505B6300a76b2fAc3',
     chainId: 42161,
     decimals: 18,

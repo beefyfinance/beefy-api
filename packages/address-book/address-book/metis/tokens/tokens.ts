@@ -18,9 +18,9 @@ const _tokens = {
   METIS,
   WMETIS: METIS,
   WNATIVE: METIS,
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0xe6801928061CDbE32AC5AD0634427E140EFd05F9',
     chainId: 1088,
     decimals: 18,
@@ -217,9 +217,9 @@ const _tokens = {
       'HERMES is the governance token of the Solidly-fork Hermes Protocol on Metis. The token is emitted as a farming reward to liquidity providers and can be locked for a period to gain voting rights.',
     bridge: 'native',
   },
-  'BIFI-METIS LP': {
-    name: 'BIFI-METIS LP',
-    symbol: 'BIFI-METIS LP',
+  'oldBIFI-METIS LP': {
+    name: 'oldBIFI-METIS LP',
+    symbol: 'oldBIFI-METIS LP',
     address: '0x89D433e8cCC871B3f12EA17b651ff3633DFb5DC0',
     chainId: 1088,
     decimals: 18,

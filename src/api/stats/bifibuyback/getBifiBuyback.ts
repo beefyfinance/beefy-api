@@ -85,13 +85,13 @@ const updateBifiBuyback = async () => {
       const { url, apiToken } = explorerApiUrlMap[chainName];
       const lp = bifiLpMap[chainName];
       const chainAddressBook = addressBook[chainName];
-      const chainBIFI = chainAddressBook.tokens.BIFI;
+      const chainBIFI = chainAddressBook.tokens.oldBIFI;
       const chainBifiMaxi = chainAddressBook.platforms.beefyfinance.bifiMaxiStrategy;
       const prom = getBuyback(chainName, url, apiToken, chainBIFI, chainBifiMaxi, lp);
       promises.push(prom);
     });
 
-    const bifiPrice = await fetchPrice({ oracle: 'tokens', id: 'BIFI' });
+    const bifiPrice = await fetchPrice({ oracle: 'tokens', id: 'oldBIFI' });
 
     const results = await Promise.allSettled<{ [key: string]: BigNumber }[]>(promises);
     let dailyBifiBuybackAmountByChain: { [key: string]: BigNumber } = {};

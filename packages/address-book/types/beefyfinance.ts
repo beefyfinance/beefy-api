@@ -15,4 +15,10 @@ export interface BeefyFinance {
   voter: string;
   beefyFeeConfig?: string;
   vaultFactory?: string;
+
+  mooBifiLockbox?: string;
+  axelarBridge?: string;
+  optimismBridge?: string;
+  ccipBridge?: string;
+  layerZeroBridge?: string;
 }

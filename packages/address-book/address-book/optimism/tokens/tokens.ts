@@ -18,9 +18,22 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
-  BIFI: {
+  mooBIFI: {
+    name: 'Bridged BIFI Vault Receipt',
+    symbol: 'mooBIFI',
+    address: '0xc55E93C62874D8100dBd2DfE307EDc1036ad5434',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://beefy.com',
+    description:
+      "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
+    logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
+    documentation: 'https://docs.beefy.finance/',
+    bridge: 'beefy',
+  },
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0x4E720DD3Ac5CFe1e1fbDE4935f386Bb1C66F4642',
     chainId: 10,
     decimals: 18,

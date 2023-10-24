@@ -75,6 +75,6 @@ const getTotalStakedInUsd = async (
   const totalStaked = new BigNumber(
     (await tokenContract.read.balanceOf([rewardAddress])).toString()
   );
-  const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'BIFI' });
+  const tokenPrice = await fetchPrice({ oracle: 'tokens', id: 'oldBIFI' });
   return totalStaked.times(tokenPrice).dividedBy('1e18');
 };

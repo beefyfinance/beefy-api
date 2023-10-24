@@ -86,7 +86,7 @@
     "lp0": {
       "address": "0x595c8481c48894771CE8FaDE54ac6Bf59093F9E8",
       "oracle": "tokens",
-      "oracleId": "gmultiBIFI",
+      "oracleId": "gmultioldBIFI",
       "decimals": "1e18"
     },
     "lp1": {

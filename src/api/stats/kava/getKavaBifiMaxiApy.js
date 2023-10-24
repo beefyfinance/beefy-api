@@ -7,13 +7,13 @@ const {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI, KAVA: native },
+    tokens: { oldBIFI, KAVA: native },
   },
 } = addressBook;
 
 export const getKavaBifiMaxiApy = () => {
   return getBifiMaxiApys({
-    bifi: BIFI.address,
+    bifi: oldBIFI.address,
     rewardPool: rewardPool,
     rewardId: native.symbol,
     rewardDecimals: getEDecimals(native.decimals),

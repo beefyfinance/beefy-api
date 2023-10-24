@@ -4,7 +4,7 @@ import { getBifiGovApr } from '../common/getBifiGovApr';
 const {
   ethereum: {
     platforms: { beefyfinance },
-    tokens: { BIFI },
+    tokens: { oldBIFI },
   },
 } = addressBook;
 
@@ -19,7 +19,7 @@ const getEthereumBifiGovApy = async () => {
     REWARD_ORACLE,
     DECIMALS,
     beefyfinance.rewardPool,
-    BIFI.address,
+    oldBIFI.address,
     3 * 365,
     3,
     BLOCKS_PER_DAY
