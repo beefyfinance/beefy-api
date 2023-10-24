@@ -1,12 +1,12 @@
 const getUniV3PositionPrices = require('../common/getUniV3PositionPrices');
-const pools = require('../../../data/arbitrum/uniswapLpPools.json');
+const pools = require('../../../data/ethereum/uniswapLpPools.json');
 
 const getUniswapPositionPrices = async tokenPrices => {
   const params = {
     pools: pools,
     tokenPrices: tokenPrices,
-    chainId: 42161,
-    beefyHelper: '0x8ef338649a61aCe9F9FB45dd2FD817e2d5f1343a',
+    chainId: 1,
+    beefyHelper: '0xC90C555718fBC176609fc8AfCED1f4A6482adc56',
   };
 
   return await getUniV3PositionPrices(params);
