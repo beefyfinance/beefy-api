@@ -2,7 +2,6 @@ const { getAvaxApys } = require('./avax');
 const { getMaticApys } = require('./matic');
 const { getFantomApys } = require('./fantom');
 const { getBSCApys } = require('./bsc');
-const { getOneApys } = require('./one');
 const { getArbitrumApys } = require('./arbitrum');
 const { getCeloApys } = require('./celo');
 const { getMoonriverApys } = require('./moonriver');
@@ -50,7 +49,6 @@ const updateApys = async () => {
       getAvaxApys(),
       getFantomApys(),
       getBSCApys(),
-      getOneApys(),
       getArbitrumApys(),
       getCeloApys(),
       getMoonriverApys(),
