@@ -116,6 +116,8 @@ const _tokens = {
     website: 'https://www.gnosis.io/',
     documentation: 'https://www.gnosis.io/developers',
     bridge: 'gnosis-canonical',
+    description:
+      'Gnosis is a community-run chain that is created by nodes run by thousands of ordinary people around the globe. As a distributed network, a diverse set of nodes ensure that the network is resilient to technical failures. A diversity of nodes run across many countries ensures the network can remain credibly neutral infrastructure.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBAA66822055AD37EC05638eC5AAfDC6Ef0e96445/logo.png',
   },
