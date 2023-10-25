@@ -260,7 +260,7 @@
     }
   },
   {
-    "name": "retro-gamma-weth-frxeth",
+    "name": "retro-gamma-weth-frxeth-narrow",
     "address": "0x184a51465925AB8a0025E47a00cAb6d3769B5487",
     "pool": "0xe5069a75Bdfe8F676B778B0aaDCcC597841F819B",
     "decimals": "1e18",
