@@ -41,6 +41,7 @@ export type NativeAsset = Asset & {
 };
 
 export type ValidatorAsset = Asset & {
+  id: string;
   assetType: 'validator';
   method: 'api' | 'contract';
   methodPath: string;
