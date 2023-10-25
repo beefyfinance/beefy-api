@@ -9,6 +9,7 @@ import IAuraMinter from '../../../../abis/IAuraMinter';
 import { default as IAuraGauge } from '../../../../abis/ethereum/AuraGauge';
 import IBalancerVault from '../../../../abis/IBalancerVault';
 import { fetchContract } from '../../../rpc/client';
+import { fetchDaiSavingsRate } from '../../../../utils/fetchDaiSavingsRate';
 
 interface Token {
   newGauge?: boolean;
@@ -174,12 +175,17 @@ const getPoolApy = async (
     let lsApr: number = 0;
     try {
       const lsResponses: JSON[] = await Promise.all(
-        lsUrls.map(url => fetch(url).then(res => res.json()))
+        lsUrls.map(url =>
+          url === 'DSR'
+            ? fetchDaiSavingsRate().then(res => res)
+            : fetch(url).then(res => res.json())
+        )
       );
       const lsAprs: number[] = lsResponses
         .map((res, i) => jp.query(res, dataPaths[i]))
         .map((apr, i) => apr * lsAprFactors[i]);
       lsApr = lsAprs.reduce((acum, cur) => acum + cur, 0);
+      //console.log(pool.name, lsResponses, lsAprs, lsApr)
       lsAprs.forEach((apr, i) => {
         aprFixed +=
           (apr * qty[lsIndexes[i]].dividedBy(totalQty).toNumber()) /

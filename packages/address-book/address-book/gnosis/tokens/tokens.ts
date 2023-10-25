@@ -95,6 +95,30 @@ const _tokens = {
     documentation: 'https://www.circle.com/en/usdc-multichain/arbitrum',
     bridge: 'gnosis-canonical',
   },
+  EURe: {
+    name: 'Monerium EURe emoney',
+    symbol: 'EURe',
+    address: '0x18ec0A6E18E5bc3784fDd3a3634b31245ab704F6',
+    chainId: 100,
+    decimals: 18,
+    logoURI: 'https://assets.coingecko.com/coins/images/23354/small/eur.png?1643926562',
+    website: 'https://monerium.com/',
+    bridge: 'gnosis-canonical',
+    description:
+      'EURe is a Euro stable-coin from Monerium. Monerium is the first company authorized to issue money on blockchains under European financial regulation. They have issued EUR, USD, GBP, and ISK as e-money tokens on Ethereum and EUR on Algorand. Monerium also operates a gateway for instant transfers of EUR between bank accounts and blockchain wallets/smart contracts.',
+  },
+  GNO: {
+    chainId: 100,
+    address: '0x9C58BAcC331c9aa871AFD802DB6379a98e80CEdb',
+    decimals: 18,
+    name: 'Gnosis Token',
+    symbol: 'GNO',
+    website: 'https://www.gnosis.io/',
+    documentation: 'https://www.gnosis.io/developers',
+    bridge: 'gnosis-canonical',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBAA66822055AD37EC05638eC5AAfDC6Ef0e96445/logo.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

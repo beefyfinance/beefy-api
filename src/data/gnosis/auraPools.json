@@ -1,5 +1,71 @@
 [
   {
+    "name": "aura-gnosis-wsteth-gno",
+    "address": "0x4683e340a8049261057D5aB1b29C8d840E75695e",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x14A81C9283CC16897DaA3f466847Baa260b770eB",
+    "vaultPoolId": "0x4683e340a8049261057d5ab1b29c8d840e75695e00020000000000000000005a",
+    "decimals": "1e18",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "lsIndex": 0,
+    "balancerChargesFee": true,
+    "rewards": [
+      {
+        "rewardGauge": "0xF27a401d66fbc85a113c384Da7848D31AC1B6a9c",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GNO",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-gnosis-sdai-eure",
+    "address": "0xDd439304A77f54B1F7854751Ac1169b279591Ef7",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xDE151980d461696543aa07A19BbE2603B20ECbAE",
+    "vaultPoolId": "0xdd439304a77f54b1f7854751ac1169b279591ef7000000000000000000000064",
+    "decimals": "1e18",
+    "lsUrl": "DSR",
+    "dataPath": "$.savingsRate",
+    "lsIndex": 0,
+    "composable": true,
+    "bptIndex": 2,
+    "rewards": [
+      {
+        "rewardGauge": "0x3b7f151E0654e309A5327C5AEe98D62914F1bCA6",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "EURe",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
     "name": "aura-gnosis-wsteth-bal-aura",
     "address": "0x00dF7f58e1Cf932eBe5f54De5970Fb2Bdf0ef06D",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

@@ -29,7 +29,7 @@ export const getGammaApys = () => {
     pools,
     quickGamma: 'https://wire2.gamma.xyz/hypervisors/allData',
     chainId: chainId,
-    log: true,
+    //log: true,
   });
 };
 
