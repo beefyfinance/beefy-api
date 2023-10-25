@@ -16,6 +16,19 @@ const BNB = {
 } as const;
 
 const _tokens = {
+  CASH: {
+    name: 'CASH',
+    symbol: 'CASH',
+    address: '0x54c331Bb7d32fBfC17bc9ACcaB2e2D12d0d1B222',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://stabl.fi/',
+    bridge: 'native',
+    description:
+      'Stabl.fi is a next-generation, yield bearing stable indexcoin protocol. Users mint $CASH by depositing stables into the Stabl protocol. The amount of $CASH in your wallet will continually grow, due to the yield strategies the protocol deposited stables are put in as well as external yielding sources.',
+    documentation: 'https://docs.stabl.fi/protocol-overview/introducing-stabl.fi',
+  },
   OOEV2: {
     name: 'Open Ocean Finance',
     symbol: 'OOE',
