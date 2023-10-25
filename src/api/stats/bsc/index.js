@@ -6,9 +6,7 @@ const getVenusApys = require('./venus/getVenusApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
 const getMdexMdxApy = require('./mdex/getMdexMdxApy');
 const getYelApys = require('./yel/getYelApys');
-const getBifiMaxiApy = require('./beefy/getBifiMaxiApy');
 const { getOOELpApys } = require('./ooe/getOOELpApys');
-const getBifiGovApy = require('./beefy/getBifiGovApy');
 const getBiswapApys = require('./biswap/getBiswapApys');
 const getStargateApys = require('./stargate/getStargateBscApys');
 const getValasApys = require('./valas/getValasApys');
@@ -18,8 +16,6 @@ const getThenaApys = require('./getThenaApys');
 
 const getApys = [
   getBeltApys,
-  getBifiGovApy,
-  getBifiMaxiApy,
   getBiswapApys,
   getCakeLpV2Apys,
   getConeApys,
