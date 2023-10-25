@@ -74,6 +74,7 @@ import { getConicPrices } from './ethereum/getConicPrices';
 import { getPolygonSolidlyStablePrices } from './matic/getPolygonSolidlyStablePrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
+import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
 import getQuickGammaPrices from './matic/getQuickGammaPrices';
 import getChronosStablePrices from './arbitrum/getChronosStablePrices';
 import getQuickGammaZkPrices from './zkevm/getQuickGammaPrices';
@@ -203,6 +204,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getQlpZkPrices(tokenPrices),
     getUniswapGammaArbPrices(tokenPrices),
     getBunniArbPrices(tokenPrices),
+    getUniswapEthereumGammaPrices(tokenPrices),
   ];
 
   // Setup error logs

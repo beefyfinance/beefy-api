@@ -15,6 +15,7 @@ const { getCurveApys } = require('./getCurveApys');
 const { getConicApys } = require('./getConicApys');
 const { getApeStakingApy } = require('./getApeStakingApy');
 const { getConvexCvxApy } = require('./getConvexCvxApy');
+const getGammaApy = require('./getUniswapGammaApys');
 
 const getApys = [
   getApeStakingApy,
@@ -34,6 +35,7 @@ const getApys = [
   getSolidlyApys,
   // getEulerApys, // => delete this? code already doesn't work...
   getVerseLpApys,
+  getGammaApy,
 ];
 
 const getEthereumApys = async () => {
