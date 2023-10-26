@@ -1,5 +1,3 @@
-import { getCronosBifiGovApy } from './getCronosBifiGovApy';
-import { getCronosBifiMaxiApy } from './getCronosBifiMaxiApy';
 import getLiquidusApys from './getLiquidusApys';
 
 const getVvsApys = require('./getVvsApys');
@@ -13,8 +11,6 @@ const getApys = [
   getVvsApys,
   getVvsDualApys,
   getCronaApys,
-  getCronosBifiGovApy,
-  getCronosBifiMaxiApy,
   getLiquidusApys,
   getDarkApys,
   getRipaeApys,

@@ -1,7 +1,5 @@
 const getLydLpApys = require('./getLydLpApys');
 const getOliveApys = require('./getOliveApys');
-const getAvaxBifiGovApy = require('./getAvaxBifiGovApy');
-const { getAvaxBifiMaxiApy } = require('./getAvaxBifiMaxiApy');
 const getJoeApys = require('./getJoeLpApys');
 const getJoeBoostedApys = require('./getJoeBoostedLpApys');
 const getJoeDualApys = require('./getJoeDualLpApys');
@@ -44,8 +42,6 @@ const getApys = [
   getLydLpApys,
   getPangolinPNGApy,
   getOliveApys,
-  getAvaxBifiGovApy,
-  getAvaxBifiMaxiApy,
   getJoeApys,
   getJoeBoostedApys,
   getJoeDualApys,

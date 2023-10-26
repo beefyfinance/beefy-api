@@ -1,18 +1,9 @@
 const getTrisolarisApys = require('./getTrisolarisApys');
-const getAuroraBifiGovApy = require('./getAuroraBifiGovApy');
 const getTriMinichefApys = require('./getTriMinichefApys');
 const getSolaceApy = require('./getSolaceApy');
-const { getAuroraBifiMaxiApy } = require('./getAuroraBifiMaxiApy');
 const getRoseLpApys = require('./getRoseLpApys');
 
-const getApys = [
-  getTrisolarisApys,
-  getAuroraBifiGovApy,
-  getTriMinichefApys,
-  getSolaceApy,
-  getAuroraBifiMaxiApy,
-  getRoseLpApys,
-];
+const getApys = [getTrisolarisApys, getTriMinichefApys, getSolaceApy, getRoseLpApys];
 
 const getAuroraApys = async () => {
   const start = Date.now();
