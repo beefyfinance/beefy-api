@@ -121,6 +121,20 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBAA66822055AD37EC05638eC5AAfDC6Ef0e96445/logo.png',
   },
+  COW: {
+    chainId: 100,
+    address: '0x177127622c4A00F3d409B75571e12cB3c8973d3c',
+    decimals: 18,
+    name: 'CoW Protocol',
+    symbol: 'COW',
+    website: 'https://cow.fi/',
+    documentation: 'https://docs.cow.fi/',
+    bridge: 'gnosis-canonical',
+    description:
+      'CoW Protocol finds the lowest price for your trade across all exchanges and aggregators, such as Uniswap and 1inch – and protects you from MEV, unlike the others.',
+    logoURI:
+      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBAA66822055AD37EC05638eC5AAfDC6Ef0e96445/logo.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

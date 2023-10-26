@@ -1,5 +1,32 @@
 [
   {
+    "name": "aura-gnosis-gno-cow",
+    "address": "0x21d4c792Ea7E38e0D0819c2011A2b1Cb7252Bd99",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x8B59F9d4F24A266630756131fE62C3476886e496",
+    "vaultPoolId": "0x21d4c792ea7e38e0d0819c2011a2b1cb7252bd9900020000000000000000001e",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x989e6D7F0Bb82A0a480349f9F3ee3837a110E6C2",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "COW",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GNO",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-gnosis-wsteth-gno",
     "address": "0x4683e340a8049261057D5aB1b29C8d840E75695e",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

@@ -605,6 +605,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   betswirl: ['BETS'],
   'ankr-reward-bearing-ftm': ['ankrFTM'],
   lucha: ['LUCHA'],
+  'cow-protocol': ['COW'],
 };
 
 /**
