@@ -4,7 +4,7 @@ import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { keyBy, sumBy } from 'lodash';
 
 const getVaults = require('../../utils/getVaults.js');
-const { getStrategies } = require('../../utils/getStrategies.js');
+const { getStrategies } = require('../../utils/getStrategies');
 const { getLastHarvests } = require('../../utils/getLastHarvests.js');
 const { getGovVaultsTotalSupply } = require('../../utils/getGovVaultsTotalSupply');
 const { fetchChainVaultsPpfs } = require('../../utils/fetchMooPrices');

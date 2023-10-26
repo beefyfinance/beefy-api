@@ -12,67 +12,55 @@ const getChainTvl = async chain => {
   const chainId = chain.chainId;
 
   const lpVaults = getSingleChainVaults(apiChain);
-
   const govVaults = getSingleChainGovVaults(apiChain);
-
-  const vaultBalances = await getVaultBalances(chainId, lpVaults);
-
-  const govVaultBalances = await getGovVaultBalances(chainId, govVaults);
+  const vaultsCalls = [
+    getVaultBalances(chainId, lpVaults),
+    getGovVaultBalances(chainId, govVaults),
+  ];
+  const [vaultBalances, govVaultBalances] = await Promise.all(vaultsCalls);
 
   let tvls = { [chainId]: {} };
-  for (let i = 0; i < lpVaults.length; i++) {
-    const vault = lpVaults[i];
+
+  //Set lp vaults first since some gov
+  tvls = await setVaultsTvl(lpVaults, vaultBalances, chainId, tvls);
+  tvls = await setVaultsTvl(govVaults, govVaultBalances, chainId, tvls);
+
+  return tvls;
+};
+
+const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
+  for (let i = 0; i < vaults.length; i++) {
+    const vault = vaults[i];
 
     if (EXCLUDED_IDS_FROM_TVL.includes(vault.id)) {
       console.warn('Excluding', vault.id, 'from tvl');
       continue;
     }
 
-    const vaultBal = vaultBalances[i];
+    const vaultBalance = balances[i];
     let tokenPrice = 0;
     try {
       // tokenPrice = 15.5;
-      tokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
+      tokenPrice = await fetchPrice({
+        oracle: vault.oracle,
+        id: vault.oracleId,
+      });
     } catch (e) {
       console.error('getTvl fetchPrice', chainId, vault.oracle, vault.oracleId, e);
     }
-    const tvl = vaultBal.times(tokenPrice).shiftedBy(-(vault.tokenDecimals ?? 18));
+
+    let tvl = vaultBalance.times(tokenPrice).shiftedBy(-vault.tokenDecimals ?? 18);
+
+    if (vault.excluded) {
+      const excludedVault = getVaultByID(vault.excluded);
+      if (excludedVault && excludedVault.status === 'active') {
+        tvl = tvl.minus(new BigNumber(tvls[chainId][excludedVault.id] || 0));
+      }
+    }
 
     let item = { [vault.id]: 0 };
     if (!tvl.isNaN()) {
-      item = { [vault.id]: Number(tvl.toFixed(2)) };
-    }
-
-    tvls[chainId] = { ...tvls[chainId], ...item };
-  }
-
-  for (let i = 0; i < govVaults.length; i++) {
-    const govVault = govVaults[i];
-
-    let tokenPrice = 0;
-    const { oracle, oracleId, tokenDecimals, excluded } = govVault;
-    try {
-      tokenPrice = await fetchPrice({ oracle: oracle, id: oracleId });
-      // tokenPrice = 25;
-    } catch (e) {
-      console.error('getGovernanceTvl fetchPrice', chainId, oracle, oracleId, e);
-    }
-
-    let balance = govVaultBalances[i].shiftedBy(-tokenDecimals);
-    let excludedTvl = new BigNumber(0);
-
-    if (excluded) {
-      const vault = getVaultByID(excluded);
-      if (vault && vault.status === 'active') {
-        excludedTvl = new BigNumber(tvls[chainId][excluded] || 0);
-      }
-    }
-    const tvl = balance.times(tokenPrice);
-
-    let item = { [govVault.id]: 0 };
-
-    if (!tvl.isNaN()) {
-      item = { [govVault.id]: Number(tvl.minus(excludedTvl).toFixed(2)) };
+      item = { [vault.id]: Number(tvl) };
     }
 
     tvls[chainId] = { ...tvls[chainId], ...item };
