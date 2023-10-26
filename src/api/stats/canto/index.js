@@ -1,16 +1,8 @@
 const getCantoLpApys = require('./getCantoLpApys');
 const getVelocimeterApys = require('./getVelocimeterApys');
 const getCvmApys = require('./getCvmApys');
-const getCantoBifiGovApy = require('./getCantoBifiGovApy');
-const { getCantoBifiMaxiApy } = require('./getCantoBifiMaxiApy');
 
-const getApys = [
-  getCantoLpApys,
-  getVelocimeterApys,
-  getCvmApys,
-  getCantoBifiGovApy,
-  getCantoBifiMaxiApy,
-];
+const getApys = [getCantoLpApys, getVelocimeterApys, getCvmApys];
 
 const getCantoApys = async () => {
   const start = Date.now();

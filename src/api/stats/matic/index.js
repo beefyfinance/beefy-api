@@ -1,8 +1,6 @@
 const { getAaveApys } = require('./getAaveApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
 const { getSushiOhmLpApys } = require('./getSushiOhmLpApys');
-const getPolygonBifiGovApy = require('./getPolygonBifiGovApy');
-const { getPolygonBifiMaxiApy } = require('./getPolygonBifiMaxiApy');
 const { getCurveApys } = require('./getCurveApys');
 const { getConvexApys } = require('./getConvexApys');
 const getJetswapApys = require('./getJetswapApys');
@@ -42,8 +40,6 @@ const getApys = [
   getAaveApys,
   getSushiLpApys,
   getSushiOhmLpApys,
-  getPolygonBifiGovApy,
-  getPolygonBifiMaxiApy,
   getCurveApys,
   getConvexApys,
   getApeLpApys,

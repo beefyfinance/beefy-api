@@ -66,6 +66,9 @@ const {
 
   BASE_CHAIN_ID,
   BASE_VAULTS_ENDPOINT,
+
+  GNOSIS_CHAIN_ID,
+  GNOSIS_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 

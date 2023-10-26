@@ -3,8 +3,6 @@ const { getCurveApys } = require('./getCurveApys');
 const { getSushiMimApys } = require('./getSushiMimApys');
 const { getSpellApys } = require('./getSpellApys');
 const getBalancerArbApys = require('./getBalancerArbApys');
-const { getArbiBifiGovApy } = require('./getArbiBifiGovApy');
-const { getArbiBifiMaxiApy } = require('./getArbiBifiMaxiApy');
 const getStargateArbApys = require('./getStargateArbApys');
 const getRipaeApys = require('./getRipaeApys');
 const { getGmxApys } = require('./getGmxApys');
@@ -37,8 +35,6 @@ const getApys = [
   getSushiMimApys,
   getSpellApys,
   getBalancerArbApys,
-  getArbiBifiGovApy,
-  getArbiBifiMaxiApy,
   getStargateArbApys,
   getSwapFishApys,
   getSolidLizardApys,
