@@ -3,7 +3,6 @@ require('dotenv').config();
 
 import { initCache } from './utils/cache';
 import { initBoostService } from './api/boosts/getBoosts';
-import { initBifiBuyBackService } from './api/stats/bifibuyback/getBifiBuyback';
 import { initPriceService } from './api/stats/getAmmPrices';
 import { initApyService } from './api/stats/getApys';
 import { initMooTokenPriceService } from './api/stats/getMooTokenPrices';
@@ -53,7 +52,6 @@ const start = async () => {
   initBoostService();
   initVaultFeeService();
   initTvlService();
-  initBifiBuyBackService();
   initMooTokenPriceService();
   initTokenService();
   initConfigService();
