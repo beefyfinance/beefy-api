@@ -18,9 +18,9 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0x99C409E5f62E4bd2AC142f17caFb6810B8F0BAAE',
     chainId: 42161,
     decimals: 18,
@@ -461,9 +461,9 @@ const _tokens = {
     documentation: 'https://docs.mai.finance/',
     bridge: 'native',
   },
-  'BIFI-ETH LP': {
-    name: 'BIFI-ETH LP',
-    symbol: 'BIFI-ETH LP',
+  'oldBIFI-ETH LP': {
+    name: 'oldBIFI-ETH LP',
+    symbol: 'oldBIFI-ETH LP',
     address: '0xcDA9B8e5867b5746755fE6E505B6300a76b2fAc3',
     chainId: 42161,
     decimals: 18,
@@ -1093,6 +1093,57 @@ const _tokens = {
     documentation:
       'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
     bridge: 'arbitrum-canonical',
+  },
+  BTCb: {
+    name: 'Bitcoin',
+    symbol: 'BTCb',
+    address: '0x2297aEbD383787A160DD0d9F71508148769342E3',
+    chainId: 42161,
+    decimals: 8,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x152b9d0FdC40C096757F570A51E494bd4b943E50.svg',
+    website: 'https://bridge.avax.network/',
+    description: 'official AVAX BRIDGE bridged BTC',
+    bridge: 'avax-canonical',
+  },
+  svETH: {
+    name: 'Savvy ETH',
+    symbol: 'svETH',
+    address: '0xf7728582002ef82908c8242CF552E969BA863Ffa',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x152b9d0FdC40C096757F570A51E494bd4b943E50.svg',
+    website: 'https://savvydefi.io/',
+    description:
+      'Savvy DeFi is a decentralized credit protocol on Arbitrum that grants borrowers access to an immediate advance on the future yield of their collateral in the form of Savvy synthetic tokens (svTokens). Savvy protocol allows borrowers to maintain exposure to their choice collateral while gaining access to immediate liquidity with 0% interest, no monthly payments and no risk of liquidation.',
+    bridge: 'native',
+  },
+  svUSD: {
+    name: 'Savvy USD',
+    symbol: 'svUSD',
+    address: '0xF202Ab403Cd7E90197ec0f010ee897E283037706',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x152b9d0FdC40C096757F570A51E494bd4b943E50.svg',
+    website: 'https://savvydefi.io/',
+    description:
+      'Savvy DeFi is a decentralized credit protocol on Arbitrum that grants borrowers access to an immediate advance on the future yield of their collateral in the form of Savvy synthetic tokens (svTokens). Savvy protocol allows borrowers to maintain exposure to their choice collateral while gaining access to immediate liquidity with 0% interest, no monthly payments and no risk of liquidation.',
+    bridge: 'native',
+  },
+  SVY: {
+    name: 'Savvy',
+    symbol: 'SVY',
+    address: '0x43aB8f7d2A8Dd4102cCEA6b438F6d747b1B9F034',
+    chainId: 42161,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x152b9d0FdC40C096757F570A51E494bd4b943E50.svg',
+    website: 'https://savvydefi.io/',
+    description:
+      'Savvy DeFi is a decentralized credit protocol on Arbitrum that grants borrowers access to an immediate advance on the future yield of their collateral in the form of Savvy synthetic tokens (svTokens). Savvy protocol allows borrowers to maintain exposure to their choice collateral while gaining access to immediate liquidity with 0% interest, no monthly payments and no risk of liquidation.',
+    bridge: 'native',
   },
 } as const;
 

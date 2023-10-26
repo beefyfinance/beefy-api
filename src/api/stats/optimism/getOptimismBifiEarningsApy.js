@@ -4,7 +4,7 @@ import { getBifiGovApr } from '../common/getBifiGovApr';
 const {
   optimism: {
     platforms: { beefyfinance },
-    tokens: { BIFI },
+    tokens: { oldBIFI },
   },
 } = addressBook;
 
@@ -19,7 +19,7 @@ const getOptimismBifiGovApy = async () => {
     REWARD_ORACLE,
     DECIMALS,
     beefyfinance.rewardPool,
-    BIFI.address,
+    oldBIFI.address,
     3 * 365,
     1,
     BLOCKS_PER_DAY

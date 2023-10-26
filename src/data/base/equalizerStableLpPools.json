@@ -1,0 +1,62 @@
+[
+  {
+    "name": "equalizer-base-dai-usdbc",
+    "address": "0xf7CBeF201dc2BE7489D7fD434E9D3c17af92C7c0",
+    "gauge": "0x67adEacf6EA3Ba756a1Dd3a6Ec1B37034EaAb322",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equalizer-base-usdbc-axlusdc",
+    "address": "0x1174d5ddbE6b827E4f4Cbf400EF5305585dBc9Ff",
+    "gauge": "0xBf5093982519e31DC3260d054c3cd78D74d084eC",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xEB466342C4d449BC9f53A865D5Cb90586f405215",
+      "oracle": "tokens",
+      "oracleId": "axlUSDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equalizer-base-usdc-usdbc",
+    "address": "0x0345AA92C7cb97e09b7CC0D55E730cD39C09fa43",
+    "gauge": "0x0D3d4373f06fC46b6B58c2BD4a48613637a0D830",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  }
+]

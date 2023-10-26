@@ -89,58 +89,31 @@ interface StrategyCallResponse {
 let feeBatches: Partial<Record<ChainId, FeeBatchDetail>>;
 let vaultFees: Record<string, VaultFeeBreakdown>;
 
-const updateFeeBatches = async () => {
-  for (const chainId of Object.keys(addressBookByChainId)) {
-    const {
-      beefyFeeRecipient: feeBatchAddress,
-      treasuryMultisig,
-      treasury,
-    } = addressBookByChainId[chainId].platforms.beefyfinance;
-    const feeBatchContract = fetchContract(
-      feeBatchAddress,
-      feeBatchTreasurySplitMethodABI,
-      Number(chainId)
-    );
+const updateFeeBatch = async () => {
+  const chainId = ChainId.ethereum;
+  const { beefyFeeRecipient: feeBatchAddress } =
+    addressBookByChainId[chainId].platforms.beefyfinance;
+  const feeBatchContract = fetchContract(
+    feeBatchAddress,
+    feeBatchTreasurySplitMethodABI,
+    Number(chainId)
+  );
 
-    let treasurySplit;
+  let treasurySplit;
 
-    if (feeBatchAddress === treasuryMultisig) {
-      treasurySplit = 1000;
-      console.warn(
-        `> beefyFeeRecipient is treasuryMultisig for chain ${chainId} - using treasury split of 1000/1000`
-      );
-    } else if (feeBatchAddress === treasury) {
-      treasurySplit = 1000;
-      console.warn(
-        `> beefyFeeRecipient is treasury for chain ${chainId} - using treasury split of 1000/1000`
-      );
-    } else {
-      try {
-        treasurySplit = Number((await feeBatchContract.read.treasuryFee()).toString());
-      } catch (err) {
-        // If reverted, method isn't available on contract so must we assume older split
-        if (err.shortMessage === 'The contract function "treasuryFee" reverted.') {
-          treasurySplit = 140;
-          console.warn(
-            `> feeBatch.treasuryFee() reverted for chain ${chainId}:${feeBatchAddress} - using old treasury split of 140/1000`
-          );
-        } else {
-          console.log(` > Error updating feeBatch on chain ${chainId}:${feeBatchAddress}`);
-          console.log(err.message);
-        }
-      }
-    }
-
-    if (treasurySplit) {
-      feeBatches[chainId] = {
-        address: feeBatchAddress,
-        treasurySplit: treasurySplit / 1000,
-        stakerSplit: 1 - treasurySplit / 1000,
-      };
-    } else {
-      console.error(`No fee splits set for ${chainId}`);
-    }
+  try {
+    treasurySplit = Number((await feeBatchContract.read.treasuryFee()).toString());
+  } catch (err) {
+    console.log(` > Error updating feeBatch on chain ${chainId}:${feeBatchAddress}`);
+    console.log(err.message);
+    treasurySplit = 640;
   }
+
+  feeBatches[chainId] = {
+    address: feeBatchAddress,
+    treasurySplit: treasurySplit / 1000,
+    stakerSplit: 1 - treasurySplit / 1000,
+  };
 
   await setKey(FEE_BATCH_KEY, feeBatches);
   console.log(`> feeBatches updated`);
@@ -157,7 +130,7 @@ const updateVaultFees = async () => {
     const chainVaults = vaults
       .filter(vault => vault.chain === ChainId[chain])
       .filter(v => !vaultFees[v.id] || Date.now() - vaultFees[v.id].lastUpdated > CACHE_EXPIRY);
-    promises.push(getChainFees(chainVaults, chain, feeBatches[chain])); // can throw if no feeBatch (e.g. due to rpc error)
+    promises.push(getChainFees(chainVaults, chain, feeBatches[ChainId.ethereum])); // Use ethereum feeBatch for all chains (only place where revenue is split)
   }
 
   await Promise.allSettled(promises);
@@ -551,14 +524,14 @@ const performanceForMaxi = (contractCalls: StrategyCallResponse): PerformanceFee
 
 export const initVaultFeeService = async () => {
   const cachedVaultFees = await getKey<Record<string, VaultFeeBreakdown>>(VAULT_FEES_KEY);
-  const cachedFeeBatches = await getKey<Record<ChainId, FeeBatchDetail>>(FEE_BATCH_KEY);
+  // const cachedFeeBatches = await getKey<Record<ChainId, FeeBatchDetail>>(FEE_BATCH_KEY);
 
-  feeBatches = cachedFeeBatches ?? {};
+  // feeBatches = cachedFeeBatches ?? {};
+  feeBatches = {};
   vaultFees = cachedVaultFees ?? {};
 
-  await updateFeeBatches();
-
-  setTimeout(() => {
+  setTimeout(async () => {
+    await updateFeeBatch();
     updateVaultFees();
   }, INIT_DELAY);
 };

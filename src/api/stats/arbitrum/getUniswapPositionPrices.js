@@ -1,10 +1,8 @@
 const getUniV3PositionPrices = require('../common/getUniV3PositionPrices');
-const { arbitrumWeb3: web3 } = require('../../../utils/web3');
 const pools = require('../../../data/arbitrum/uniswapLpPools.json');
 
 const getUniswapPositionPrices = async tokenPrices => {
   const params = {
-    web3: web3,
     pools: pools,
     tokenPrices: tokenPrices,
     chainId: 42161,

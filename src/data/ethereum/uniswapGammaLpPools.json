@@ -1,0 +1,22 @@
+[
+  {
+    "name": "uniswap-eth-gamma-reth-weth",
+    "address": "0xa8076aE31e4B6c64D07b1Ed27889924a962a70d3",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 0,
+    "chainId": 1,
+    "lp0": {
+      "address": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+      "oracle": "tokens",
+      "oracleId": "rETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

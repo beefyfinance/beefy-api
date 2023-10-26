@@ -95,7 +95,7 @@
     "lp1": {
       "address": "0x99C409E5f62E4bd2AC142f17caFb6810B8F0BAAE",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "oracleId": "oldBIFI",
       "decimals": "1e18"
     }
   },
@@ -149,7 +149,7 @@
     "lp0": {
       "address": "0xDDc0385169797937066bBd8EF409b5B3c0dFEB52",
       "oracle": "tokens",
-      "oracleId": "wUSDR",
+      "oracleId": "awUSDR",
       "decimals": "1e9"
     },
     "lp1": {

@@ -18,9 +18,9 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0x44AA3eEDD3214Ddd02E8b3FE1E8AE4cAC452a2E0',
     chainId: 324,
     decimals: 18,

@@ -25,15 +25,15 @@
   ],
   "pools": [
     {
-      "name": "BIFI Maxi",
-      "pair": "BIFI",
+      "name": "oldBIFI Maxi",
+      "pair": "oldBIFI",
       "pairLink": "https://app.beefy.finance/",
       "logo": "https://beefy.finance/vaults/bifi/BIFI.png",
-      "poolRewards": ["BIFI"],
+      "poolRewards": ["oldBIFI"],
       "apyId": "bifi-maxi",
       "contract": "0xf7069e41C57EcC5F122093811d8c75bdB5f7c14e",
       "oracle": "tokens",
-      "oracleId": "BIFI"
+      "oracleId": "oldBIFI"
     },
     {
       "name": "CAKE SMART",

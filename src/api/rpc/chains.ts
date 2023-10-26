@@ -22,6 +22,7 @@ import {
   ZKEVM_RPC,
   ZKSYNC_RPC,
   BASE_RPC,
+  GNOSIS_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/address-book';
 
@@ -572,6 +573,29 @@ const baseChain = {
   },
 } as const satisfies Chain;
 
+const gnosisChain = {
+  id: 100,
+  name: 'Gnosis',
+  network: 'gnosis',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'xDAI',
+    symbol: 'xDAI',
+  },
+  rpcUrls: {
+    public: { http: [GNOSIS_RPC] },
+    default: { http: [GNOSIS_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'Gnosis Explorer', url: 'https://gnosisscan.io/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -596,4 +620,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.heco]: hecoChain,
   [ChainId.zkevm]: zkEvmChain,
   [ChainId.base]: baseChain,
+  [ChainId.gnosis]: gnosisChain,
 } as const;

@@ -6,6 +6,7 @@ import { solidlizard } from './platforms/solidlizard';
 import { ramses } from './platforms/ramses';
 import { arbidex } from './platforms/arbidex';
 import { chronos } from './platforms/chronos';
+import { bunni } from './platforms/bunni';
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
 import Chain from '../../types/chain';
@@ -21,6 +22,7 @@ const _arbitrum = {
     ramses,
     arbidex,
     chronos,
+    bunni,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

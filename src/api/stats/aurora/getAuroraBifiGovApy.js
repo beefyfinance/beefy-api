@@ -7,11 +7,10 @@ const {
     platforms: {
       beefyfinance: { rewardPool },
     },
-    tokens: { BIFI },
+    tokens: { oldBIFI },
   },
 } = addressBook;
 
-const REWARDS = rewardPool;
 const DECIMALS = '1e18';
 const BLOCKS_PER_DAY = 28800;
 
@@ -21,8 +20,8 @@ const getAuroraBifiGovApy = async () => {
     'aurora',
     'ETH',
     DECIMALS,
-    REWARDS,
-    BIFI.address,
+    rewardPool,
+    oldBIFI.address,
     3 * 365,
     1,
     BLOCKS_PER_DAY

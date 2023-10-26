@@ -46,7 +46,7 @@ const {
     platforms: { ramses, chronos },
   },
   base: {
-    platforms: { bvm, aerodrome },
+    platforms: { bvm, aerodrome, equalizer: scale },
   },
 } = addressBook;
 
@@ -168,6 +168,12 @@ const projects = {
     stableFile: '../src/data/base/aerodromeStableLpPools.json',
     volatileFile: '../src/data/base/aerodromeLpPools.json',
     voter: aerodrome.voter,
+  },
+  equalizerBase: {
+    prefix: 'equalizer-base',
+    stableFile: '../src/data/base/equalizerStableLpPools.json',
+    volatileFile: '../src/data/base/equalizerLpPools.json',
+    voter: scale.voter,
   },
 };
 

@@ -494,8 +494,8 @@ async function getCanSwapOnOneInch(
   // Don't quote wnative:wnative
   const calls = tokensExcludingWnative.map(token =>
     api.getQuote({
-      fromTokenAddress: token.address,
-      toTokenAddress: wnative.address,
+      src: token.address,
+      dst: wnative.address,
       amount: amountInWei,
     })
   );

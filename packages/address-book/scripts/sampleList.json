@@ -77,7 +77,7 @@
     {
       "name": "beefy.finance",
       "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
-      "symbol": "BIFI",
+      "symbol": "oldBIFI",
       "decimals": 18,
       "chainId": 137,
       "logoURI": "https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/BIFI.png"

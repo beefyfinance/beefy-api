@@ -18,9 +18,22 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
-  BIFI: {
+  mooBIFI: {
+    name: 'Bridged BIFI Vault Receipt',
+    symbol: 'mooBIFI',
+    address: '0xc55E93C62874D8100dBd2DfE307EDc1036ad5434',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://beefy.com',
+    description:
+      "The incentive-bearing Beefy Token (mooBIFI) applies the magic of Beefy's autocompounding technology to the BIFI token. It is the vault token for the BIFI Vault, which automatically claims and swaps governance incentives into more BIFI, and redeposits to unlock exponential growth. On chains other than Ethereum, mooBIFI is a bridged copy of the native Ethereum token, and cannot be returned to BIFI without first bridging back to Ethereum. mooBIFI holders on all chains retain their full voting power corresponding to the underlying amount of BIFI deposited and compounding on Ethereum.",
+    logoURI: 'https://beefy.com/icons/128/mooBIFI.png',
+    documentation: 'https://docs.beefy.finance/',
+    bridge: 'beefy',
+  },
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0x4E720DD3Ac5CFe1e1fbDE4935f386Bb1C66F4642',
     chainId: 10,
     decimals: 18,
@@ -1124,6 +1137,19 @@ const _tokens = {
     bridge: 'layer-zero',
     logoURI: '',
   },
+  OVN: {
+    name: 'OVN',
+    symbol: 'OVN',
+    address: '0x3b08fcd15280e7B5A6e404c4abb87F7C774D1B2e',
+    chainId: 10,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'OVN token is a utility token that serves multiple purposes in the Overnight protocol. It is used for bribes to promote USD+ and incentivize conservative risk decisions, as well as for voting rights to establish decentralized risk monitoring and management processes.',
+    bridge: 'native',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
   JRT: {
     name: 'Jarvis Reward Token',
     symbol: 'JRT',
@@ -1148,6 +1174,19 @@ const _tokens = {
       'Pendle is a permissionless yield-trading protocol where users can execute various yield-management strategies.',
     documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
     bridge: 'optimism-canonical',
+  },
+  ankrETH: {
+    name: 'Ankr Staked ETH',
+    symbol: 'ankrETH',
+    address: '0xe05A08226c49b636ACf99c40Da8DC6aF83CE5bB3',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description:
+      'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
+    bridge: 'ankr',
   },
 } as const;
 

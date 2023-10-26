@@ -5,6 +5,7 @@ import { sushi } from './platforms/sushi';
 import { synapse } from './platforms/synapse';
 import { solidly } from './platforms/solidly';
 import { verse } from './platforms/verse';
+import { gamma } from './platforms/gamma';
 
 import { tokens } from './tokens/tokens';
 import { convertSymbolTokenMapToAddressTokenMap } from '../../util/convertSymbolTokenMapToAddressTokenMap';
@@ -20,6 +21,7 @@ const _ethereum = {
     synapse,
     solidly,
     verse,
+    gamma,
   },
   tokens,
   tokenAddressMap: convertSymbolTokenMapToAddressTokenMap(tokens),

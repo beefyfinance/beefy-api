@@ -24,17 +24,17 @@ const vUSDT = {
   },
 } as const satisfies vToken;
 
-const vBIFI = {
-  oracleId: 'vBIFI',
+const voldBIFI = {
+  oracleId: 'voldBIFI',
   address: '0xC718c51958d3fd44f5F9580c9fFAC2F89815C909',
   decimals: 8,
   underlying: {
-    oracleId: 'BIFI',
+    oracleId: 'oldBIFI',
     decimals: 18,
   },
 } as const satisfies vToken;
 
-const vTokens = [vUSDT, vBIFI];
+const vTokens = [vUSDT, voldBIFI];
 
 const abi = [
   {
@@ -66,7 +66,7 @@ export const fetchVenusPrices = async (
           );
         }
       } catch (err) {
-        console.log(`Error fetching venus price for ${vToken.oracleId}: ${err.message}`);
+        console.log(`Error fetching venus price for ${vToken.oracleId}`);
       }
 
       return undefined;

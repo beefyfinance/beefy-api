@@ -35,7 +35,7 @@
     "lp1": {
       "address": "0xFbdd194376de19a88118e84E279b977f165d01b8",
       "oracle": "tokens",
-      "oracleId": "BIFI",
+      "oracleId": "oldBIFI",
       "decimals": "1e18"
     }
   },

@@ -1,7 +1,6 @@
 const { getAuraApys } = require('./getAuraApys');
 const { getConvexApys } = require('./getConvexApys');
 const getStargateEthApys = require('./getStargateEthApys');
-const getEthereumBifiGovApy = require('./getEthereumBifiEarningsApy');
 const getAuraBalApy = require('./getAuraBalApy');
 const { getSushiApys } = require('./getSushiLpApys');
 const { getSynapseLpApys } = require('./getSynapseLpApys');
@@ -10,11 +9,13 @@ const { getConvexCrvApy } = require('./getConvexCrvApy');
 const { getConvexFxsApy } = require('./getConvexFxsApy');
 const getEulerApys = require('./getEulerApys');
 const { getVerseLpApys } = require('./getVerseApys');
-const { getEthereumBifiMaxiApy } = require('./getEthereumBifiMaxiApy');
+const { getBifiMaxiApy } = require('./getBifiMaxiApy');
 const { getConvexFpisApy } = require('./getConvexFpisApy');
 const { getCurveApys } = require('./getCurveApys');
 const { getConicApys } = require('./getConicApys');
 const { getApeStakingApy } = require('./getApeStakingApy');
+const { getConvexCvxApy } = require('./getConvexCvxApy');
+const getGammaApy = require('./getUniswapGammaApys');
 
 const getApys = [
   getApeStakingApy,
@@ -24,16 +25,17 @@ const getApys = [
   getConvexCrvApy,
   getConvexFxsApy,
   getConvexFpisApy,
+  getConvexCvxApy,
   getConicApys,
   getStargateEthApys,
-  getEthereumBifiGovApy,
-  getEthereumBifiMaxiApy,
+  getBifiMaxiApy,
   getAuraBalApy,
   getSushiApys,
   getSynapseLpApys,
   getSolidlyApys,
   // getEulerApys, // => delete this? code already doesn't work...
   getVerseLpApys,
+  getGammaApy,
 ];
 
 const getEthereumApys = async () => {

@@ -9,6 +9,7 @@ import IAuraMinter from '../../../../abis/IAuraMinter';
 import { default as IAuraGauge } from '../../../../abis/ethereum/AuraGauge';
 import IBalancerVault from '../../../../abis/IBalancerVault';
 import { fetchContract } from '../../../rpc/client';
+import { fetchDaiSavingsRate } from '../../../../utils/fetchDaiSavingsRate';
 
 interface Token {
   newGauge?: boolean;
@@ -31,13 +32,14 @@ interface Pool {
   tokens: Token[];
   beefyFee?: number;
   status?: string;
-  lsIndex?: number;
+  lsIndex?: number | number[];
   cmpIndex?: number;
   composable?: boolean;
   bptIndex?: number;
   vaultPoolId?: number;
-  lsUrl?: string;
-  dataPath?: string;
+  lsUrl?: string | string[];
+  dataPath?: string | string[];
+  lsAprFactor?: number | number[];
   balancerChargesFee?: boolean;
   includesComposableAaveTokens?: boolean;
   aaveUnderlying?: Underlying[];
@@ -159,18 +161,40 @@ const getPoolApy = async (
       qty.push(amt);
     }
 
-    let response: JSON;
+    //Normalize ls Data to always handle arrays
+    const lsUrls = Array.isArray(pool.lsUrl) ? pool.lsUrl : [pool.lsUrl];
+    const dataPaths = Array.isArray(pool.dataPath) ? pool.dataPath : [pool.dataPath];
+    const lsIndexes = Array.isArray(pool.lsIndex) ? pool.lsIndex : [pool.lsIndex];
+    //Coinbase's returned APR is already in %, we need to normalize it by multiplying by 100
+    const lsAprFactors = pool.lsAprFactor
+      ? Array.isArray(pool.lsAprFactor)
+        ? pool.lsAprFactor
+        : [pool.lsAprFactor]
+      : [1];
+
     let lsApr: number = 0;
     try {
-      response = await fetch(pool.lsUrl).then(res => res.json());
-      lsApr = await jp.query(response, pool.dataPath);
-    } catch (e) {
-      console.error(`Balancer: Liquid Staking URL Fetch Error ${pool.name}`);
+      const lsResponses: JSON[] = await Promise.all(
+        lsUrls.map(url =>
+          url === 'DSR'
+            ? fetchDaiSavingsRate().then(res => res)
+            : fetch(url).then(res => res.json())
+        )
+      );
+      const lsAprs: number[] = lsResponses
+        .map((res, i) => jp.query(res, dataPaths[i]))
+        .map((apr, i) => apr * lsAprFactors[i]);
+      lsApr = lsAprs.reduce((acum, cur) => acum + cur, 0);
+      //console.log(pool.name, lsResponses, lsAprs, lsApr)
+      lsAprs.forEach((apr, i) => {
+        aprFixed +=
+          (apr * qty[lsIndexes[i]].dividedBy(totalQty).toNumber()) /
+          100 /
+          (pool.balancerChargesFee ? 2 : 1);
+      });
+    } catch (err) {
+      console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`);
     }
-
-    pool.balancerChargesFee
-      ? (aprFixed = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100 / 2)
-      : (aprFixed = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100);
   }
 
   let compApr = new BigNumber(0);
@@ -246,7 +270,7 @@ const getYearlyRewardsInUsd = async (pool, rewardRate, finish, extras, auraRate)
     extraRewardsInUsd = extraRewardsInUsd.plus(
       extra.rewardRate.times(secondsInAYear).times(price).div(extra.decimals)
     );
-    // console.log(pool.name, extra.oracleId, extraRewardsInUsd.valueOf());
+    //console.log(pool.name, extra.oracleId, extraRewardsInUsd.valueOf());
   }
 
   yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd).plus(auraYearlyRewardsInUsd);

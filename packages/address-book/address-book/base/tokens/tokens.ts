@@ -177,6 +177,19 @@ const _tokens = {
     documentation: 'https://docs.overnight.fi/',
     bridge: 'native',
   },
+  OVN: {
+    name: 'OVN',
+    symbol: 'OVN',
+    address: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'OVN token is a utility token that serves multiple purposes in the Overnight protocol. It is used for bribes to promote USD+ and incentivize conservative risk decisions, as well as for voting rights to establish decentralized risk monitoring and management processes.',
+    bridge: 'axelar',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
   MIM: {
     name: 'Magic Internet Money',
     symbol: 'MIM',
@@ -424,6 +437,31 @@ const _tokens = {
     bridge: 'base-canonical',
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
+  },
+  FTW: {
+    name: 'FriendTech33',
+    symbol: 'FTW',
+    address: '0x3347453Ced85bd288D783d85cDEC9b01Ab90f9D8',
+    chainId: 8453,
+    decimals: 9,
+    logoURI: '',
+    website: 'https://friendtech33.xyz',
+    description:
+      'FriendTech33 combines the metas of Friend Tech into a DAO format backing a deeply liquid reserve currency with Friend Tech assets including keys, wrapped keys, ecosystem related project tokens, and finally the airdropped token itself.',
+    bridge: 'native',
+  },
+  SCALE: {
+    name: 'Scale',
+    symbol: 'SCALE',
+    address: '0x54016a4848a38f257B6E96331F7404073Fd9c32C',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://base.equalizer.exchange/',
+    description:
+      'Equalizer was derived from the initial concept of Andre Cronje. The mechanism that was used to create a perpetual decentralized exchange was unique and ingenious. The launch of this platform is to take the concept and apply it to a more natural style DEX. Equalizer will become the trading mechanism for the Fantom network, utilizing the Solidly perpetual model with some tweaks to fee structures and emissions. ',
+    documentation: 'https://docs.equalizer.exchange/',
+    bridge: 'native',
   },
 } as const;
 

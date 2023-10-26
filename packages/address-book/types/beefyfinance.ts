@@ -3,6 +3,7 @@ export interface BeefyFinance {
   treasuryMultisig: string;
   strategyOwner: string;
   vaultOwner: string;
+  tokenOwner?: string;
   keeper: string;
   treasurer: string;
   launchpoolOwner: string;
@@ -14,4 +15,10 @@ export interface BeefyFinance {
   voter: string;
   beefyFeeConfig?: string;
   vaultFactory?: string;
+
+  mooBifiLockbox?: string;
+  axelarBridge?: string;
+  optimismBridge?: string;
+  ccipBridge?: string;
+  layerZeroBridge?: string;
 }

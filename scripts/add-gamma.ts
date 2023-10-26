@@ -30,6 +30,11 @@ const projects = {
     file: '../src/data/matic/retroGammaPools.json',
     voter: ethers.constants.AddressZero,
   },
+  uniswap: {
+    prefix: 'uniswap',
+    file: '../src/data/arbitrum/uniswapGammaPools.json',
+    voter: ethers.constants.AddressZero,
+  },
 };
 
 const args = yargs.options({

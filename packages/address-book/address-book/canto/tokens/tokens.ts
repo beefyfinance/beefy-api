@@ -19,9 +19,9 @@ const _tokens = {
   CANTO,
   WCANTO: CANTO,
   WNATIVE: CANTO,
-  BIFI: {
+  oldBIFI: {
     name: 'Beefy.Finance',
-    symbol: 'BIFI',
+    symbol: 'oldBIFI',
     address: '0x765277EebeCA2e31912C9946eAe1021199B39C61',
     chainId: 7700,
     decimals: 18,

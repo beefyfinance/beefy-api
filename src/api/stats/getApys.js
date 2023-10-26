@@ -2,7 +2,6 @@ const { getAvaxApys } = require('./avax');
 const { getMaticApys } = require('./matic');
 const { getFantomApys } = require('./fantom');
 const { getBSCApys } = require('./bsc');
-const { getOneApys } = require('./one');
 const { getArbitrumApys } = require('./arbitrum');
 const { getCeloApys } = require('./celo');
 const { getMoonriverApys } = require('./moonriver');
@@ -19,6 +18,7 @@ const { getEthereumApys } = require('./ethereum');
 const { getZksyncApys } = require('./zksync');
 const { getZkevmApys } = require('./zkevm');
 const { getBaseApys } = require('./base');
+const { getGnosisApys } = require('./gnosis');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs } = require('./getBoostAprs');
 
@@ -49,7 +49,6 @@ const updateApys = async () => {
       getAvaxApys(),
       getFantomApys(),
       getBSCApys(),
-      getOneApys(),
       getArbitrumApys(),
       getCeloApys(),
       getMoonriverApys(),
@@ -66,6 +65,7 @@ const updateApys = async () => {
       getZksyncApys(),
       getZkevmApys(),
       getBaseApys(),
+      getGnosisApys(),
     ]);
 
     for (const result of results) {
