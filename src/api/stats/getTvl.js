@@ -66,6 +66,9 @@ const {
 
   BASE_CHAIN_ID,
   BASE_VAULTS_ENDPOINT,
+
+  GNOSIS_CHAIN_ID,
+  GNOSIS_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -178,12 +181,17 @@ const chains = [
   {
     chainId: ZKEVM_CHAIN_ID,
     vaultsEndpoint: ZKEVM_VAULTS_ENDPOINT,
-    // governancePool: require('../../data/zksync/governancePool.json'),
+    // governancePool: require('../../data/zkevm/governancePool.json'),
   },
   {
     chainId: BASE_CHAIN_ID,
     vaultsEndpoint: BASE_VAULTS_ENDPOINT,
-    // governancePool: require('../../data/zksync/governancePool.json'),
+    // governancePool: require('../../data/base/governancePool.json'),
+  },
+  {
+    chainId: GNOSIS_CHAIN_ID,
+    vaultsEndpoint: GNOSIS_VAULTS_ENDPOINT,
+    // governancePool: require('../../data/gnosis/governancePool.json'),
   },
 ];
 
