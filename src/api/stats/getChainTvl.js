@@ -21,7 +21,7 @@ const getChainTvl = async chain => {
 
   let tvls = { [chainId]: {} };
 
-  //Set lp vaults first since some gov
+  //first set lp vaults since some gov vaults can exlude from tvl from those
   tvls = await setVaultsTvl(lpVaults, vaultBalances, chainId, tvls);
   tvls = await setVaultsTvl(govVaults, govVaultBalances, chainId, tvls);
 
