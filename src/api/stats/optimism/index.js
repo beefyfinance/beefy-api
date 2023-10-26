@@ -3,11 +3,9 @@ const { getCurveApys } = require('./getCurveApys');
 const getVelodromeApys = require('./getVelodromeApys');
 const getStargateOpApys = require('./getStargateOpApys');
 const getbeVeloApy = require('./getbeVeloApy');
-const getOptimismBifiGovApy = require('./getOptimismBifiEarningsApy');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getRipaeApys } = require('./getRipaeApys');
 const { getSonneApys } = require('./getSonneApys');
-const { getOptimismBifiMaxiApy } = require('./getOptimismBifiMaxiApy');
 const { getHopApys } = require('./getHopApys');
 const { getHopOpApys } = require('./getHopOpApys');
 const { getOlpApys } = require('./getOlpApys');
@@ -33,8 +31,6 @@ const getApys = [
   getVelodromeApys,
   getStargateOpApys,
   getbeVeloApy,
-  getOptimismBifiGovApy,
-  getOptimismBifiMaxiApy,
   getAaveV3Apys,
   getRipaeApys,
   getSonneApys,

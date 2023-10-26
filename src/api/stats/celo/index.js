@@ -1,9 +1,7 @@
 const { getCurveApys } = require('./getCurveApys');
-const { getCeloBifiGovApy } = require('./getCeloBifiGovApy');
-const { getCeloBifiMaxiApy } = require('./getCeloBifiMaxiApy');
 const { getSushiCeloApys } = require('./getSushiCeloApys');
 
-const getApys = [getCurveApys, getSushiCeloApys, getCeloBifiGovApy, getCeloBifiMaxiApy];
+const getApys = [getCurveApys, getSushiCeloApys];
 
 const getCeloApys = async () => {
   const start = Date.now();
