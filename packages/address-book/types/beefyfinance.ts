@@ -21,4 +21,5 @@ export interface BeefyFinance {
   optimismBridge?: string;
   ccipBridge?: string;
   layerZeroBridge?: string;
+  mooBifi4626?: string;
 }
