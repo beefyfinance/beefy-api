@@ -79,40 +79,6 @@
     ]
   },
   {
-    "name": "beets-shanghai-shakedown",
-    "address": "0x7B50775383d3D6f0215A8F290f2C9e2eEBBEceb2",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xA30992B40a0cb4B2Da081ddBd843f9CcE25c2fe3",
-    "lidoUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "lsIndex": 0,
-    "vaultPoolId": "0x7b50775383d3d6f0215a8f290f2c9e2eebbeceb200020000000000000000008b",
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0xA30992B40a0cb4B2Da081ddBd843f9CcE25c2fe3",
-        "oracleId": "BAL"
-      },
-      {
-        "stream": "0xA30992B40a0cb4B2Da081ddBd843f9CcE25c2fe3",
-        "rewardToken": "0x4200000000000000000000000000000000000042",
-        "oracleId": "OP"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "wstETH",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "ETH",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "beets-overnight-pulse-v2",
     "address": "0x43da214fab3315aA6c02e0B8f2BfB7Ef2E3C60A5",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
