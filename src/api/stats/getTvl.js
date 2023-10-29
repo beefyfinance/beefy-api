@@ -69,6 +69,9 @@ const {
 
   GNOSIS_CHAIN_ID,
   GNOSIS_VAULTS_ENDPOINT,
+
+  ROLLUX_CHAIN_ID,
+  ROLLUX_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -191,6 +194,11 @@ const chains = [
   {
     chainId: GNOSIS_CHAIN_ID,
     vaultsEndpoint: GNOSIS_VAULTS_ENDPOINT,
+    // governancePool: require('../../data/gnosis/governancePool.json'),
+  },
+  {
+    chainId: ROLLUX_CHAIN_ID,
+    vaultsEndpoint: ROLLUX_VAULTS_ENDPOINT,
     // governancePool: require('../../data/gnosis/governancePool.json'),
   },
 ];
