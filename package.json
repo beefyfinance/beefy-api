@@ -53,6 +53,7 @@
     "arb:ramses:add": "ts-node scripts/add-solidly.ts --network arbitrum --project ramses --newFee true --lp",
     "arb:chronos:add": "ts-node scripts/add-solidly.ts --network arbitrum --project chronos --newFee true --lp",
     "arb:uniswap:add": "ts-node scripts/add-gamma.ts --network arbitrum --project uniswap --wide true --lp",
+    "arb:sushi:gamma:add": "ts-node scripts/add-gamma.ts --network arbitrum --project sushi --wide true --lp",
     "celo:sushi:add": "ts-node scripts/add-sushi.ts --network celo --project sushiCelo",
     "avax:pangolin:add": "ts-node scripts/add-sushi.ts --network avax --project pangolin",
     "avax:boostedjoe:add": "ts-node scripts/add-farm.ts --network avax --project boostedjoe",

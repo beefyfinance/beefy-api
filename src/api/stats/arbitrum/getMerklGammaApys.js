@@ -1,11 +1,14 @@
 const BigNumber = require('bignumber.js');
-const pools = require('../../../data/arbitrum/uniswapGammaPools.json');
+const uniPools = require('../../../data/arbitrum/uniswapGammaPools.json');
+const sushiPools = require('../../../data/arbitrum/sushiGammaPools.json');
 import { getApyBreakdown } from '../common/getApyBreakdown';
 
 const merklApi = 'https://api.angle.money/v1/merkl?chainId=42161';
-const gammeApi = 'https://wire2.gamma.xyz/arbitrum/hypervisors/allData';
+const gammaApi = 'https://wire2.gamma.xyz/arbitrum/hypervisors/allData';
+const sushiGammaApi = 'https://wire2.gamma.xyz/sushi/arbitrum/hypervisors/allData';
 
-const getRetroGammaApys = async () => {
+const pools = [...uniPools, ...sushiPools];
+const getMerklGammaApys = async () => {
   let poolAprs = {};
   try {
     poolAprs = await fetch(merklApi).then(res => res.json());
@@ -32,17 +35,22 @@ const getRetroGammaApys = async () => {
 
   let tradingAprs = {};
   try {
-    const response = await fetch(gammeApi).then(res => res.json());
+    const response = await fetch(gammaApi).then(res => res.json());
+    const sushiReponse = await fetch(sushiGammaApi).then(res => res.json());
+
+    // Combine the two responses
+    Object.assign(response, sushiReponse);
+
     pools.forEach(p => {
       tradingAprs[p.address.toLowerCase()] = new BigNumber(
         response[p.address.toLowerCase()].returns.daily.feeApr
       );
     });
   } catch (e) {
-    console.log('Gamme Uniswap Api Error');
+    console.log('Gamma Api Error', e);
   }
 
   return await getApyBreakdown(pools, tradingAprs, aprs, 0);
 };
 
-module.exports = getRetroGammaApys;
+module.exports = getMerklGammaApys;

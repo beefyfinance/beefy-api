@@ -1,0 +1,82 @@
+[
+  {
+    "name": "sushi-gamma-magic-weth-narrow",
+    "address": "0x79bB33f681bd70eb1bbe640000b130Bcb6d126d0",
+    "pool": "0xB1aeB76B4E3e628ee54753AD4B8eF68C41E67a9f",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
+      "oracle": "tokens",
+      "oracleId": "MAGIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-gamma-weth-usdc-narrow",
+    "address": "0x61c4daa8F7009cC39b3E7A9b8bd722413C29E676",
+    "pool": "0x15E444da5b343c5A0931f5d3e85D158d1efC3D40",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "sushi-gamma-weth-arb-narrow",
+    "address": "0x2FD6FD1E3f1fE24cC1422D22e62884A4528d1A24",
+    "pool": "0xB3942c9FFA04efBC1Fa746e146bE7565c76E3dC1",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "sushi-gamma-weth-sushi-narrow",
+    "address": "0xc7BB5F253f4a8E5E69F9B0B26CC475D2FD581479",
+    "pool": "0xb3aBA1fB17Ea51d909938c87f823FdFb0797a49b",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd4d42F0b6DEF4CE0383636770eF773390d85c61A",
+      "oracle": "tokens",
+      "oracleId": "SUSHI",
+      "decimals": "1e18"
+    }
+  }
+]

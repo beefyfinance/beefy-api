@@ -35,6 +35,11 @@ const projects = {
     file: '../src/data/arbitrum/uniswapGammaPools.json',
     voter: ethers.constants.AddressZero,
   },
+  sushi: {
+    prefix: 'sushi',
+    file: '../src/data/arbitrum/sushiGammaPools.json',
+    voter: ethers.constants.AddressZero,
+  },
 };
 
 const args = yargs.options({
