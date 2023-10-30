@@ -1,5 +1,41 @@
 [
   {
+    "name": "beets-shanghai-shakedown",
+    "address": "0x7B50775383d3D6f0215A8F290f2C9e2eEBBEceb2",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xe110b862E4D076596707892c0C5163BC183eb161",
+    "vaultPoolId": "0x7b50775383d3d6f0215a8f290f2c9e2eebbeceb200020000000000000000008b",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "lsIndex": 0,
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x903d716fe68e7e091eCC43AA93c0F8cfD7e7BC0a",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xb0709c230C06BE6e2A84b2Ba877094EB9a4fA014",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-op-reth-ankreth",
     "address": "0x004700ba0a4f5f22e1E78a277fCA55e36F47E09C",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -168,6 +204,7 @@
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
     "dataPath": "$.data.smaApr",
     "lsIndex": 0,
+    "balancerChargesFee": true,
     "vaultPoolId": "0x7ca75bdea9dede97f8b13c6641b768650cb837820002000000000000000000d5",
     "decimals": "1e18",
     "rewards": [

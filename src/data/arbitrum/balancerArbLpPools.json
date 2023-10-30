@@ -1,46 +1,5 @@
 [
   {
-    "name": "balancer-weth-reth",
-    "address": "0xadE4A71BB62bEc25154CFc7e6ff49A513B491E81",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xd6B875d62c2661eaB66472F36c672e4B512f1135",
-    "vaultPoolId": "0xade4a71bb62bec25154cfc7e6ff49a513b491e81000000000000000000000497",
-    "decimals": "1e18",
-    "lsUrl": "https://api.rocketpool.net/api/apr",
-    "dataPath": "$.yearlyAPR",
-    "lsIndex": 1,
-    "balancerChargesFee": true,
-    "composable": true,
-    "bptIndex": 1,
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0xd6B875d62c2661eaB66472F36c672e4B512f1135",
-        "oracleId": "BAL"
-      },
-      {
-        "stream": "0xd6B875d62c2661eaB66472F36c672e4B512f1135",
-        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "oracleId": "ARB"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "WETH",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "BPTToken"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "rETH",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "balancer-wsteth-bbaaweth",
     "address": "0x5A7f39435fD9c381e4932fa2047C9a5136A5E3E7",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -150,33 +109,6 @@
         "index": 1,
         "bbIndex": 0,
         "poolId": "0xda1cd1711743e57dd57102e9e61b75f3587703da0000000000000000000003fc"
-      }
-    ]
-  },
-  {
-    "name": "balancer-magic-usdc",
-    "address": "0xb3028Ca124B80CFE6E9CA57B70eF2F0CCC41eBd4",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xeF767E740D83d410794519c2F93Db32e44359a5C",
-    "vaultPoolId": "0xb3028ca124b80cfe6e9ca57b70ef2f0ccc41ebd40002000000000000000000ba",
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0xeF767E740D83d410794519c2F93Db32e44359a5C",
-        "oracleId": "BAL"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "MAGIC",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "arbUSDCe",
-        "decimals": "1e6"
       }
     ]
   },
