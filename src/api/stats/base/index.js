@@ -9,6 +9,7 @@ const getBasoApys = require('./getBasoApys');
 const { getAerodromeApys } = require('./getAerodromeApys');
 const { getCurveApys } = require('./getCurveApys');
 const getEqualizerApys = require('./getEqualizerApys');
+const getBaseMerklGammaApys = require('./getMerklBaseApys');
 
 const getApys = [
   getAerodromeApys,
@@ -22,6 +23,7 @@ const getApys = [
   getSwapBasedApys,
   getBasoApys,
   getEqualizerApys,
+  getBaseMerklGammaApys,
 ];
 
 const getBaseApys = async () => {

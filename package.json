@@ -28,6 +28,7 @@
     "base:aerodrome:add": "ts-node scripts/add-solidly.ts --network base --project aerodrome --newFee true --lp",
     "base:equalizer:add": "ts-node scripts/add-solidly.ts --network base --project equalizerBase --newFee true --lp",
     "base:baseSwap:add": "ts-node scripts/add-farm.ts --network base --project baseSwap --newFee true",
+    "base:sushi:gamma:add": "ts-node scripts/add-gamma.ts --network base --project sushiBase --wide true --lp",
     "bsc:pancake:add": "ts-node scripts/add-sushi.ts --network bsc --project pancake --newFee true",
     "bsc:ape:add": "ts-node scripts/add-farm.ts --network bsc --project ape",
     "bsc:biswap:add": "ts-node scripts/add-farm.ts --network bsc --project biswap",
