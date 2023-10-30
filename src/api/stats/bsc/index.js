@@ -4,7 +4,6 @@ const getJetswapApys = require('./jetfuel/getJetswapApys');
 const { getCakeLpV2Apys } = require('./pancake/getCakeLpV2Apys');
 const getVenusApys = require('./venus/getVenusApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
-const getMdexMdxApy = require('./mdex/getMdexMdxApy');
 const getYelApys = require('./yel/getYelApys');
 const { getOOELpApys } = require('./ooe/getOOELpApys');
 const getBiswapApys = require('./biswap/getBiswapApys');
@@ -22,7 +21,6 @@ const getApys = [
   getDegensLpApys,
   getJetswapApys,
   getMdexBscLpApys,
-  getMdexMdxApy,
   getOOELpApys,
   getVenusApys,
   getYelApys,
