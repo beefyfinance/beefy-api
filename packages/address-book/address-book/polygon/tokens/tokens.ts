@@ -827,6 +827,7 @@ const _tokens = {
     description:
       'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
     bridge: 'polygon-canonical',
+    documentation: 'https://docs.aave.com/',
     logoURI: 'https://etherscan.io/token/images/aave_32.png',
   },
   AZUKI: {
@@ -979,6 +980,7 @@ const _tokens = {
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     bridge: 'polygon-canonical',
+    documentation: 'https://docs.chain.link/docs',
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x514910771AF9Ca656af840dff83E8264EcF986CA/logo.png',

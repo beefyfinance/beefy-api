@@ -182,6 +182,44 @@ const _tokens = {
     documentation: 'https://docs.rocketpool.net/guides/',
     bridge: 'zkevm-canonical',
   },
+  AAVE: {
+    name: 'Aave',
+    address: '0x68791CFE079814c46e0E25C19Bcc5BFC71A744f7',
+    symbol: 'AAVE',
+    decimals: 18,
+    chainId: 1101,
+    website: 'https://aave.com/',
+    description:
+      'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
+    logoURI: 'https://ftmscan.com/token/images/aave_32.png',
+    documentation: 'https://docs.aave.com/',
+    bridge: 'zkevm-canonical',
+  },
+  CRV: {
+    name: 'CRV',
+    address: '0x3d5320821BfCa19fb0B5428F2c79d63bd5246f89',
+    symbol: 'CRV',
+    decimals: 18,
+    chainId: 1101,
+    website: 'https://curve.fi/',
+    description:
+      'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    bridge: 'zkevm-canonical',
+    logoURI: '',
+    documentation: 'https://curve.readthedocs.io/',
+  },
+  LINK: {
+    name: 'Chainlink',
+    symbol: 'LINK',
+    address: '0x4B16e4752711A7ABEc32799C976F3CeFc0111f2B',
+    chainId: 1101,
+    decimals: 18,
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    bridge: 'zkevm-canonical',
+    logoURI: 'https://hecoinfo.com/token/images/chainlink_32.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
