@@ -19,6 +19,7 @@ const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getJoeAutoArbApys } = require('./getJoeAutoArbApys');
 const getMerklGammaApys = require('./getMerklGammaApys');
 const getBunniArbApys = require('./getBunniApys');
+const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
 
 const getApys = [
   getMerklGammaApys,
@@ -42,6 +43,7 @@ const getApys = [
   getChronosApys,
   getArbidexApys,
   getBunniArbApys,
+  getArbCompoundV3Apys,
 ];
 
 const getArbitrumApys = async () => {
