@@ -959,6 +959,7 @@ const _tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
       'Aave interest bearing native USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    staked: true,
   },
   bbaaUSDC: {
     name: 'Balancer Aave USDC Linear Pool',

@@ -40,7 +40,6 @@ const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
     const vaultBalance = balances[i];
     let tokenPrice = 0;
     try {
-      // tokenPrice = 15.5;
       const logUnknown = vault.status !== 'eol';
       tokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId }, logUnknown);
     } catch (e) {
