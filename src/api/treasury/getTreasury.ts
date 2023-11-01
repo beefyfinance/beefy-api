@@ -101,6 +101,7 @@ function getTokenAddressesByChain(): TreasuryAssetRegistry {
         oracleId: token.oracleId,
         oracleType: token.oracle,
         symbol: token.symbol,
+        ...(token.staked && { staked: true }),
       };
     }
 
@@ -113,7 +114,10 @@ function getTokenAddressesByChain(): TreasuryAssetRegistry {
 
     if (hasChainConcentratedLiquidityAssets(chain)) {
       getChainConcentratedLiquidityAssets(chain).forEach(asset => {
-        tokens[asset.address.toLowerCase()] = asset;
+        tokens[asset.address.toLowerCase()] = {
+          ...asset,
+          staked: true,
+        };
       });
     }
 
@@ -134,6 +138,7 @@ function getVaultAddressesByChain(): TreasuryAssetRegistry {
         decimals: vault.tokenDecimals,
         pricePerFullShare: vault.pricePerFullShare,
         address: vault.earnContractAddress,
+        staked: true,
       })),
       asset => asset.address.toLowerCase()
     );

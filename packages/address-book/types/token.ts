@@ -9,5 +9,6 @@ interface Token {
   oracleId?: string;
   oracle?: 'tokens' | 'lps';
   bridge?: string;
+  staked?: boolean;
 }
 export default Token;

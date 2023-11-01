@@ -25,6 +25,7 @@ export type Asset = {
   oracleType: 'lps' | 'tokens';
   oracleId: string;
   symbol?: string;
+  staked?: boolean;
 };
 
 export type TokenAsset = Asset & { assetType: 'token' };

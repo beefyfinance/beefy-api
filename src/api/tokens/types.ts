@@ -9,6 +9,7 @@ type TokenBase = {
   oracle: 'lps' | 'tokens';
   decimals: number;
   bridge?: string;
+  staked?: boolean;
 };
 
 export type TokenErc20 = TokenBase & {

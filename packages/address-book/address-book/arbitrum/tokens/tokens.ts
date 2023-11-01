@@ -926,7 +926,7 @@ const _tokens = {
     symbol: 'aaUSDC',
     address: '0x625E7708f30cA75bfd92586e17077590C60eb4cD',
     chainId: 42161,
-    decimals: 42161,
+    decimals: 6,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
     website: 'https://www.circle.com/usdc',
@@ -946,6 +946,19 @@ const _tokens = {
     documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
     description:
       'Wrapped Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  aArbUSDCn: {
+    name: 'Aave Arbitrum USDCn',
+    symbol: 'aArbUSDCn',
+    address: '0x724dc807b04555b71ed48a6896b6F41593b8C637',
+    chainId: 42161,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing native USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
   bbaaUSDC: {
     name: 'Balancer Aave USDC Linear Pool',
