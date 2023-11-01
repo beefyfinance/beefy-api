@@ -4815,7 +4815,7 @@ const _tokens = {
   aavUSDT: {
     name: 'Aave USDT',
     symbol: 'aavUSDT',
-    address: '0x625E7708f30cA75bfd92586e17077590C60eb4cD',
+    address: '0x6ab707Aca953eDAeFBc4fD23bA73294241490620',
     chainId: 43114,
     decimals: 6,
     logoURI:
