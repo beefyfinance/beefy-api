@@ -6,6 +6,7 @@ import { getKey, setKey } from '../../utils/cache';
 import { getSingleChainVaults } from '../stats/getMultichainVaults';
 import { extractBalancesFromTreasuryCallResults, mapAssetToCall } from './multicallUtils';
 import {
+  isValidatorAsset,
   isVaultAsset,
   TreasuryAsset,
   TreasuryAssetRegistry,
@@ -13,7 +14,7 @@ import {
   TreasuryReport,
   TreasuryWalletRegistry,
 } from './types';
-import { getChainValidator, hasChainValidator } from './validatorHelpers';
+import { getChainValidators, hasChainValidator } from './validatorHelpers';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { ApiChain, ApiChains } from '../../utils/chain';
 import { getTokensForChain, isTokenNative } from '../tokens/tokens';
@@ -104,7 +105,10 @@ function getTokenAddressesByChain(): TreasuryAssetRegistry {
     }
 
     if (hasChainValidator(chain)) {
-      tokens['validator'] = getChainValidator(chain);
+      const validators = getChainValidators(chain);
+      for (let i = 0; i < validators.length; i++) {
+        tokens[validators[i].id] = validators[i];
+      }
     }
 
     if (hasChainConcentratedLiquidityAssets(chain)) {
@@ -233,7 +237,8 @@ async function buildTreasuryReportForChain(chain: ApiChain): Promise<TreasuryRep
             balanceReport[treasuryWallet] = { name: treasuryWallet, balances: {} };
           }
           const usdValue = findUsdValueForBalance(treasuryAsset, price, balance);
-          balanceReport[treasuryWallet].balances[treasuryAsset.address] = {
+          const key = isValidatorAsset(treasuryAsset) ? treasuryAsset.id : treasuryAsset.address;
+          balanceReport[treasuryWallet].balances[key] = {
             ...treasuryAsset,
             price,
             usdValue: usdValue.toString(10),

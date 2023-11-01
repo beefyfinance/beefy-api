@@ -97,17 +97,17 @@ export const extractBalancesFromTreasuryCallResults = (
         if (asset.method === 'contract') {
           const value = callResult.value as bigint[];
           allBalances.push({
-            address: asset.address.toLowerCase(),
+            address: asset.id,
             balances: {
-              [asset.address.toLowerCase()]: new BigNumber(value[0].toString()),
+              [asset.id]: new BigNumber(value[0].toString()),
             },
           });
         } else {
           const value = callResult.value as TreasuryApiResult[];
           allBalances.push({
-            address: asset.address.toLowerCase(),
+            address: asset.id,
             balances: {
-              [asset.address.toLowerCase()]: value[0].balance,
+              [asset.id]: value[0].balance,
             },
           });
         }
