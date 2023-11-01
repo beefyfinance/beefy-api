@@ -5,7 +5,8 @@ import { keyBy, sumBy } from 'lodash';
 
 const getVaults = require('../../utils/getVaults.js');
 const { getStrategies } = require('../../utils/getStrategies');
-const { getLastHarvests } = require('../../utils/getLastHarvests');
+const { getLastHarvests } = require('../../utils/getLastHarvests.js');
+const { getGovVaultsTotalSupply } = require('../../utils/getGovVaultsTotalSupply');
 const { fetchChainVaultsPpfs } = require('../../utils/fetchMooPrices');
 const { MULTICHAIN_ENDPOINTS } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
@@ -16,9 +17,10 @@ const LOG_PER_CHAIN = false;
 
 let vaultsByChain = {};
 let multichainVaults = [];
-let multichainVaultsCounter = 0;
-let multichainActiveVaultsCounter = 0;
 let vaultsByID = {};
+let govVaultsByChain = {};
+let multichainGovVaults = [];
+let govVaultsById = {};
 
 export function getMultichainVaults() {
   return multichainVaults;
@@ -30,6 +32,18 @@ export function getSingleChainVaults(chain) {
 
 export function getVaultByID(vaultId) {
   return vaultsByID[vaultId];
+}
+
+export function getMultichainGovVaults() {
+  return multichainGovVaults;
+}
+
+export function getSingleChainGovVaults(chain) {
+  return govVaultsByChain[chain];
+}
+
+export function getGovVaultBtId(vaultId) {
+  return govVaultsById[vaultId];
 }
 
 async function updateMultichainVaults() {
@@ -46,15 +60,18 @@ async function updateMultichainVaults() {
     if (fulfilled.length) {
       // TODO: add TTL so entries are removed if not updated (e.g. chain rpc is down)
       buildFromChains();
+      buildFromGovChains();
       await saveToRedis();
     }
 
+    const activeIdscounter = sumBy(multichainVaults.concat(multichainGovVaults), vault =>
+      vault.status === 'active' ? 1 : 0
+    );
+
     console.log(
-      `> Vaults for ${fulfilled.length}/${
-        results.length
-      } chains updated: ${multichainVaultsCounter} vaults (${multichainActiveVaultsCounter} active) (${
-        (Date.now() - start) / 1000
-      }s)`
+      `> Vaults for ${fulfilled.length}/${results.length} chains updated: ${
+        multichainVaults.length + multichainGovVaults.length
+      } vaults (${activeIdscounter} active) (${(Date.now() - start) / 1000}s)`
     );
 
     if (fulfilled.length < results.length) {
@@ -71,14 +88,20 @@ async function updateMultichainVaults() {
 
 function buildFromChains() {
   multichainVaults = Object.values(vaultsByChain).flat();
-  multichainVaultsCounter = multichainVaults.length;
-  multichainActiveVaultsCounter = sumBy(multichainVaults, vault =>
-    vault.status === 'active' ? 1 : 0
-  );
   vaultsByID = keyBy(multichainVaults, 'id');
 
   Object.keys(vaultsByChain).forEach(chain => serviceEventBus.emit(`vaults/${chain}/ready`));
   serviceEventBus.emit('vaults/updated');
+}
+
+function buildFromGovChains() {
+  multichainGovVaults = Object.values(govVaultsByChain).flat();
+  govVaultsById = keyBy(multichainGovVaults, 'id');
+
+  Object.keys(multichainGovVaults).forEach(chain =>
+    serviceEventBus.emit(`gov-vaults/${chain}/ready`)
+  );
+  serviceEventBus.emit('gov-vaults/updated');
 }
 
 async function updateChainVaults(chain) {
@@ -87,12 +110,18 @@ async function updateChainVaults(chain) {
   }
 
   const endpoint = MULTICHAIN_ENDPOINTS[chain];
-  let chainVaults = await getVaults(endpoint);
-  chainVaults.forEach(vault => (vault.chain = chain));
+  let vaults = await getVaults(endpoint);
+  vaults.forEach(vault => (vault.chain = chain));
+
+  let chainVaults = vaults.filter(vault => !vault.isGovVault);
   chainVaults = await getStrategies(chainVaults, chain);
   chainVaults = await getLastHarvests(chainVaults, chain);
   chainVaults = await fetchChainVaultsPpfs(chainVaults, chain);
+
+  let govVaults = vaults.filter(vault => vault.isGovVault);
+  govVaults = await getGovVaultsTotalSupply(govVaults, chain);
   vaultsByChain[chain] = chainVaults;
+  govVaultsByChain[chain] = govVaults;
 
   if (LOG_PER_CHAIN) {
     console.log(`> updated vaults on ${chain} - ${chainVaults.length}`);
@@ -101,6 +130,7 @@ async function updateChainVaults(chain) {
 
 async function loadFromRedis() {
   const cachedVaults = await getKey('VAULTS_BY_CHAIN');
+  const cachedGovVaults = await getKey('GOV_VAULTS_BY_CHAIN');
 
   if (cachedVaults && typeof cachedVaults === 'object') {
     let cachedCount = 0;
@@ -119,10 +149,29 @@ async function loadFromRedis() {
       buildFromChains();
     }
   }
+
+  if (cachedGovVaults && typeof cachedGovVaults === 'object') {
+    let cachedCount = 0;
+
+    Object.values(cachedVaults).forEach(vaults => {
+      vaults.forEach(vault => {
+        ++cachedCount;
+        if (vault.totalSupply) {
+          vault.totalSupply = new BigNumber(vault.totalSupply);
+        }
+      });
+    });
+
+    if (cachedCount > 0) {
+      govVaultsByChain = cachedGovVaults;
+      buildFromGovChains();
+    }
+  }
 }
 
 async function saveToRedis() {
   await setKey('VAULTS_BY_CHAIN', vaultsByChain);
+  await setKey('GOV_VAULTS_BY_CHAIN', govVaultsByChain);
 }
 
 export async function initVaultService() {

@@ -1,4 +1,9 @@
-const { getMultichainVaults, getSingleChainVaults } = require('../stats/getMultichainVaults');
+const {
+  getMultichainVaults,
+  getSingleChainVaults,
+  getMultichainGovVaults,
+  getSingleChainGovVaults,
+} = require('../stats/getMultichainVaults');
 const { getVaultFees } = require('./getVaultFees');
 
 async function multichainVaults(ctx) {
@@ -6,6 +11,17 @@ async function multichainVaults(ctx) {
     const multichainVaults = getMultichainVaults();
     ctx.status = 200;
     ctx.body = [...multichainVaults];
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
+async function multichainGovVaults(ctx) {
+  try {
+    const multichainGovVaults = getMultichainGovVaults();
+    ctx.status = 200;
+    ctx.body = [...multichainGovVaults];
   } catch (err) {
     console.error(err);
     ctx.status = 500;
@@ -38,6 +54,17 @@ async function singleChainVaults(ctx) {
   }
 }
 
+async function singleGovChainVaults(ctx) {
+  try {
+    const chainVaults = getSingleChainGovVaults(ctx.params.chainId);
+    ctx.status = 200;
+    ctx.body = chainVaults ? [...chainVaults] : [];
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
 async function vaultFees(ctx) {
   try {
     const vaultFees = getVaultFees();
@@ -51,7 +78,9 @@ async function vaultFees(ctx) {
 
 module.exports = {
   multichainVaults,
+  multichainGovVaults,
   singleChainVaults,
+  singleGovChainVaults,
   vaultFees,
   vaultsLastHarvest,
 };
