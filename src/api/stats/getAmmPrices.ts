@@ -624,6 +624,7 @@ const seedPeggedPrices = {
   amDAI: 'DAI', // Aave
   aaUSDT: 'USDT', // Aave
   aaUSDC: 'USDC', // Aave
+  aArbUSDCn: 'USDC', // Aave
   aaDAI: 'DAI', // Aave
   aavAVAX: 'AVAX', // Aave
   aavUSDC: 'USDC', // Aave

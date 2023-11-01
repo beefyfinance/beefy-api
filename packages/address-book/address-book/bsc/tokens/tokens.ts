@@ -4192,6 +4192,7 @@ const _tokens = {
     description:
       'Venus wrapped USDT. Venus is an algorithmic money market and synthetic stablecoin protocol launched exclusively on BNB Chain.',
     logoURI: '',
+    staked: true,
   },
   RDNT: {
     name: 'RDNT',
