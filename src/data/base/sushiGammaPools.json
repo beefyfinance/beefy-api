@@ -1,0 +1,22 @@
+[
+  {
+    "name": "sushi-base-gamma-weth-usdbc-narrow",
+    "address": "0x11C4011772594c5F124a027Da35329559447853D",
+    "pool": "0x22ca6d83aB887A535ae1C6011cc36eA9D1255C31",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  }
+]

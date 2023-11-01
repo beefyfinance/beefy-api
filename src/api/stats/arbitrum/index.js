@@ -17,11 +17,12 @@ const getArbidexApys = require('./getArbidexApys');
 const { getChronosApys } = require('./getChronosApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getJoeAutoArbApys } = require('./getJoeAutoArbApys');
-const getUniswapGammaApys = require('./getUniswapGammaApys');
+const getMerklGammaApys = require('./getMerklGammaApys');
 const getBunniArbApys = require('./getBunniApys');
+const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
 
 const getApys = [
-  getUniswapGammaApys,
+  getMerklGammaApys,
   getJoeAutoArbApys,
   getAuraArbitrumApys,
   getKyberArbitrumApys,
@@ -42,6 +43,7 @@ const getApys = [
   getChronosApys,
   getArbidexApys,
   getBunniArbApys,
+  getArbCompoundV3Apys,
 ];
 
 const getArbitrumApys = async () => {

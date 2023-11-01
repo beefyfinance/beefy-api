@@ -30,7 +30,6 @@ import kebabPools from '../../data/kebabLpPools.json';
 import bdollarSbdoPools from '../../data/bdollarSbdoLpPools.json';
 import boltBtdPools from '../../data/boltBtdLpPools.json';
 import boltBtsPools from '../../data/boltBtsLpPools.json';
-import mdexPools from '../../data/heco/mdexLpPools.json';
 import monsterPools from '../../data/monsterLpPools.json';
 import narPools from '../../data/narLpPools.json';
 import nyacashPools from '../../data/nyacashLpPools.json';
@@ -69,10 +68,8 @@ import mdexBscPools from '../../data/mdexBscLpPools.json';
 import typhPools from '../../data/typhLpPools.json';
 import typhPoolsV1 from '../../data/typhLpPoolsV1.json';
 import marshPools from '../../data/degens/marshLpPools.json';
-import lavaPools from '../../data/heco/lavaLpPools.json';
 import popsiclePools from '../../data/popsicleLpPools.json';
 import comethPools from '../../data/matic/comethLpPools.json';
-import hfiPools from '../../data/heco/hfiLpPools.json';
 import lydPools from '../../data/avax/lydLpPools.json';
 import icarusPools from '../../data/icarusLpPools.json';
 import quickPools from '../../data/matic/quickLpPools.json';
@@ -101,7 +98,6 @@ import ironQuickPools from '../../data/matic/ironQuickLpPools.json';
 import polycatQuickPool from '../../data/matic/polycatQuickLpPool.json';
 import polycatDfynPool from '../../data/matic/polycatDfynLpPool.json';
 import polycatSushiPool from '../../data/matic/polycatSushiLpPool.json';
-import lendhubPools from '../../data/heco/lendhubLpPools.json';
 import pantherPools from '../../data/degens/pantherLpPools.json';
 import waultPools from '../../data/waultLpPools.json';
 import tenfiPools from '../../data/tenfiLpPools.json';
@@ -476,7 +472,6 @@ const pools = normalizePoolOracleIds([
   ...waultPools,
   ...tenfiPools,
   ...pantherPools,
-  ...lendhubPools,
   ...polycatSushiPool,
   ...polycatQuickPool,
   ...ironQuickPools,
@@ -504,10 +499,8 @@ const pools = normalizePoolOracleIds([
   ...quickPools,
   ...lydPools,
   ...icarusPools,
-  ...hfiPools,
   ...comethPools,
   ...popsiclePools,
-  ...lavaPools,
   ...marshPools,
   ...typhPools,
   ...typhPoolsV1,
@@ -550,7 +543,6 @@ const pools = normalizePoolOracleIds([
   ...kebabPools,
   ...boltBtdPools,
   ...boltBtsPools,
-  ...mdexPools,
   ...monsterPools,
   ...narPools,
   ...nyacashPools,
@@ -605,6 +597,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   betswirl: ['BETS'],
   'ankr-reward-bearing-ftm': ['ankrFTM'],
   lucha: ['LUCHA'],
+  'cow-protocol': ['COW'],
 };
 
 /**

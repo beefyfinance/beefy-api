@@ -18,6 +18,8 @@ export const beefyfinance = {
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   beefyFeeConfig: '0x3d38BA27974410679afF73abD096D7Ba58870EAd',
   vaultFactory: '0xC551dDCE8e5E657503Cd67A39713c06F2c0d2e97',
+  wrapperFactory: '0x62fcbc7c3235950eD6dE4168fbd373aF9e8ee0fc',
+  mooBifi4626: '0x312CEf8839eDa74DeA9b1EEc10b345071cA3d6da',
 
   mooBifiLockbox: '0xc6e3d0CAF52E057Fb8950ae9d07aE67602919AcD',
   axelarBridge: '0xaaa6A279fC98b9bF94bD479C90D701417e361fc2',

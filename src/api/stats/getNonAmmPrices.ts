@@ -75,6 +75,7 @@ import { getPolygonSolidlyStablePrices } from './matic/getPolygonSolidlyStablePr
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
+import getGammaBasePrices from './base/getGammaPrices';
 import getQuickGammaPrices from './matic/getQuickGammaPrices';
 import getChronosStablePrices from './arbitrum/getChronosStablePrices';
 import getQuickGammaZkPrices from './zkevm/getQuickGammaPrices';
@@ -87,11 +88,12 @@ import getJoeAutoArbPrices from './arbitrum/getJoeAutoArbPrices';
 import getJoeAutoAvaxPrices from './avax/getJoeAutoAvaxPrices';
 import getBasoStablePrices from './base/getBasoStablePrices';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
-import getUniswapGammaArbPrices from './arbitrum/getUniswapGammaPrices';
+import getGammaArbPrices from './arbitrum/getGammaPrices';
 import { getKinetixPrices } from './kava/getKinetixPrices';
 import getEqualizerStableBasePrices from './base/getEqualizerStablePrices';
 import getBunniArbPrices from './arbitrum/getBunniPrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
+import { get } from 'lodash';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -202,9 +204,10 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getFvmStablePrices(tokenPrices),
     getBvmStablePrices(tokenPrices),
     getQlpZkPrices(tokenPrices),
-    getUniswapGammaArbPrices(tokenPrices),
+    getGammaArbPrices(tokenPrices),
     getBunniArbPrices(tokenPrices),
     getUniswapEthereumGammaPrices(tokenPrices),
+    getGammaBasePrices(tokenPrices),
   ];
 
   // Setup error logs

@@ -548,7 +548,8 @@ const _tokens = {
     decimals: 6,
     website: 'https://overnight.fi/',
     description:
-      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+      'wUSD+ is wrapped USD+, a yield-generating stablecoin backed by a portfolio of low-risk DeFi assets. It allows users to mint and redeem instantly against USDC, providing liquidity management, AMM trading, and leveraged yield farming opportunities. This capital-efficient stablecoin enables users to earn extra yield on their stablecoin holdings while participating in DeFi activities.',
+    bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
