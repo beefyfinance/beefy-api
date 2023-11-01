@@ -210,6 +210,7 @@ async function fetchAddressBookTokensForChain(chainId: ApiChain): Promise<TokenE
         address: token.address,
         decimals: token.decimals,
         ...(token.bridge ? { bridge: token.bridge } : {}),
+        ...(token.staked ? { staked: token.staked } : {}),
       });
     }
 
