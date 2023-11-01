@@ -14,6 +14,7 @@ import { initVaultFeeService } from './api/vaults/getVaultFees';
 import { initTreasuryService } from './api/treasury/getTreasury';
 import { initProposalsService } from './api/snapshot/getProposals';
 import { initZapService } from './api/zaps/zaps';
+import { initValidatorPerformanceService } from './api/validators/validators';
 
 const Koa = require('koa');
 const helmet = require('koa-helmet');
@@ -48,6 +49,7 @@ const start = async () => {
 
   initApyService();
   initPriceService();
+  initValidatorPerformanceService();
   initVaultService();
   initBoostService();
   initVaultFeeService();
