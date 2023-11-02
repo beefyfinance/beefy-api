@@ -181,11 +181,12 @@ const getPoolApy = async (
             : fetch(url).then(res => res.json())
         )
       );
+
       const lsAprs: number[] = lsResponses
         .map((res, i) => jp.query(res, dataPaths[i]))
         .map((apr, i) => apr * lsAprFactors[i]);
       lsApr = lsAprs.reduce((acum, cur) => acum + cur, 0);
-      //console.log(pool.name, lsResponses, lsAprs, lsApr)
+      //console.log(pool.name, lsAprs, lsApr)
       lsAprs.forEach((apr, i) => {
         aprFixed +=
           (apr * qty[lsIndexes[i]].dividedBy(totalQty).toNumber()) /
