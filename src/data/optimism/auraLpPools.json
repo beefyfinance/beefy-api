@@ -1,5 +1,51 @@
 [
   {
+    "name": "aura-op-ethereum-triplets",
+    "address": "0x5F8893506Ddc4C271837187d14A9C87964a074Dc",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xe350DFC963445F3B64a4229d019787491a58F8B9",
+    "vaultPoolId": "0x5f8893506ddc4c271837187d14a9c87964a074dc000000000000000000000106",
+    "composable": true,
+    "bptIndex": 2,
+    "decimals": "1e18",
+    "lsUrl": [
+      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+      "https://api.frax.finance/v2/frxeth/summary/latest",
+      "https://api.rocketpool.net/api/apr"
+    ],
+    "dataPath": ["$.data.smaApr", "$.sfrxethApr", "$.yearlyAPR"],
+    "lsIndex": [0, 1, 2],
+    "lsAprFactor": [1, 1, 1],
+    "balancerChargesFee": true,
+    "rewards": [
+      {
+        "rewardGauge": "0x2f635300E57AFEe0C1E08AA155a594b25d716385",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-op-ovn-wusd+",
     "address": "0x00b82bc5EdEa6E5E6c77635e31a1A25Aad99f881",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
