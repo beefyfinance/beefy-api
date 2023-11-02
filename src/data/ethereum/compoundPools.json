@@ -1,0 +1,16 @@
+[
+  {
+    "name": "compound-mainnet-usdc",
+    "cToken": "0xc3d688B66703497DAA19211EEdff47f25384cdc3",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6"
+  },
+  {
+    "name": "compound-mainnet-eth",
+    "cToken": "0xA17581A9E3356d9A858b789D68B4d866e593aE94",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18"
+  }
+]

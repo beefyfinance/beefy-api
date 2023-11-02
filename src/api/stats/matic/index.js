@@ -30,6 +30,7 @@ const { getQuickGammaApys } = require('./getQuickGammaApys');
 const getBetSwirlSingleApy = require('./getBetSwirlSingleApy');
 const getRetroGammaApys = require('./getRetroGammaApys');
 const getAuraPolygonApys = require('./getAuraPolygonApys');
+const { getPolygonCompoundV3Apys } = require('./getPolygonCompoundApys');
 
 const getApys = [
   getbeQiApy,
@@ -64,6 +65,7 @@ const getApys = [
   getBetSwirlSingleApy,
   getRetroGammaApys,
   getAuraPolygonApys,
+  getPolygonCompoundV3Apys,
 ];
 
 const BATCH_SIZE = 15;

@@ -5,5 +5,12 @@
     "oracle": "tokens",
     "oracleId": "USDbC",
     "decimals": "1e6"
+  },
+  {
+    "name": "compound-base-eth",
+    "cToken": "0x46e6b214b524310239732D51387075E0e70970bf",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18"
   }
 ]
