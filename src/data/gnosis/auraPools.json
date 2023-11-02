@@ -177,6 +177,11 @@
         "rewardGauge": "0x3b7f151E0654e309A5327C5AEe98D62914F1bCA6",
         "oracleId": "USDC",
         "decimals": "1e6"
+      },
+      {
+        "rewardGauge": "0xD73ed75c1D77E5C5Cc18e571140C2090851A2E2a",
+        "oracleId": "AURA",
+        "decimals": "1e18"
       }
     ],
     "tokens": [
