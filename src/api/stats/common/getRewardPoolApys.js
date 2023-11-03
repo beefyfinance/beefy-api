@@ -70,7 +70,7 @@ const getFarmApys = async params => {
   return apys;
 };
 
-const getPoolsData = async params => {
+export const getPoolsData = async params => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   const periodFinishCalls = [];
@@ -134,4 +134,4 @@ const getAbi = periodFinish => {
   ];
 };
 
-module.exports = { getRewardPoolApys };
+module.exports = { getRewardPoolApys, getPoolsData };

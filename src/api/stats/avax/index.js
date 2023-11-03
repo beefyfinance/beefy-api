@@ -44,7 +44,7 @@ const getApys = [
   getOliveApys,
   getJoeApys,
   getJoeBoostedApys,
-  getJoeDualApys,
+  // getJoeDualApys, Is broken.
   getJoeApy,
   getCurveApys,
   getAaveApys,
