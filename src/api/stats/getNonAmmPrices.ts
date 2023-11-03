@@ -67,7 +67,7 @@ import getMmyFantomPrices from './fantom/getMmyFantomPrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
-import getThenaGammaPrices from './bsc/getThenaGammaPrices';
+import getBscGammaPrices from './bsc/getBscGammaPrices';
 import getCurveCeloPrices from './celo/getCurvePrices';
 import { getCurveBasePrices } from './base/getCurvePrices';
 import { getConicPrices } from './ethereum/getConicPrices';
@@ -197,7 +197,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getJarvisPrices(tokenPrices),
     getSolarbeamPrices(tokenPrices),
     getStellaswapPrices(tokenPrices),
-    getThenaGammaPrices(tokenPrices),
+    getBscGammaPrices(tokenPrices),
     getQuickGammaPrices(tokenPrices),
     getQuickGammaZkPrices(tokenPrices),
     getChronosStablePrices(tokenPrices),

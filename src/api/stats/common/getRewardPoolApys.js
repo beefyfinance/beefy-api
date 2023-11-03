@@ -4,6 +4,7 @@ import getApyBreakdown from '../common/getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
 import IRewardPool from '../../../abis/IRewardPool';
+import IWrapper from '../../../abis/IWrapper';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
 
@@ -74,7 +75,7 @@ const getPoolsData = async params => {
   const rewardRateCalls = [];
   const periodFinishCalls = [];
   const periodFinish = params.periodFinish ?? 'periodFinish';
-  const abi = params.periodFinish ? getAbi(periodFinish) : IRewardPool;
+  const abi = params.periodFinish ? getAbi(periodFinish) : params.cake ? IWrapper : IRewardPool;
 
   params.pools.forEach(pool => {
     const rewardPool = fetchContract(
@@ -82,9 +83,17 @@ const getPoolsData = async params => {
       abi,
       params.chainId
     );
-    balanceCalls.push(rewardPool.read.totalSupply());
-    rewardRateCalls.push(rewardPool.read.rewardRate());
-    periodFinishCalls.push(rewardPool.read[periodFinish]());
+
+    const stakedTokenContract = fetchContract(pool.address, ERC20Abi, params.chainId);
+    balanceCalls.push(
+      params.cake ? stakedTokenContract.read.balanceOf([pool.gauge]) : rewardPool.read.totalSupply()
+    );
+    rewardRateCalls.push(
+      params.cake ? rewardPool.read.rewardPerSecond() : rewardPool.read.rewardRate()
+    );
+    periodFinishCalls.push(
+      params.cake ? rewardPool.read.endTimestamp() : rewardPool.read[periodFinish]()
+    );
   });
 
   const res = await Promise.all([

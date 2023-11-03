@@ -148,7 +148,7 @@ const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
 };
 
 const isBeetClient = (client: ApolloClient<NormalizedCacheObject>) => {
-  return client === beetClient || client === beetOpClient;
+  return client === beetClient;
 };
 
 export {

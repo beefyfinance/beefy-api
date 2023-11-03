@@ -1,0 +1,122 @@
+[
+  {
+    "name": "pancake-ichi-cake-eth",
+    "address": "0x17A39482e7f42ebB0f65d2978dcB1423E399D07a",
+    "pool": "0x517F28453B947bA01fE6a6B193294D4576528826",
+    "gauge": "0x7216B5ae51a459Add75Dc3d0f1B030996da82aE0",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "tokens",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pancake-ichi-cake-btcb",
+    "address": "0x4005A85F68f307cD97e23F7710162E1eBE6139Ac",
+    "pool": "0x380A466AE6896d7D4FCD571e1E24CD5061A836B3",
+    "gauge": "0x819c1C2FeF70Eb45919Ce7c7936cC0da95E30A33",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "tokens",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pancake-ichi-usdt-btcb",
+    "address": "0x585374f0502B8E2814e5A3eB16B06DB964610b77",
+    "pool": "0x46Cf1cF8c69595804ba91dFdd8d6b960c9B0a7C4",
+    "gauge": "0x2044bCaaDa8370b4ee8Ad47DaAD290B80878D068",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "oracle": "tokens",
+      "oracleId": "BTCB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pancake-ichi-cake-wbnb",
+    "address": "0x8f22d7B80446F1dc4C5eb47F2038e17CA0306e0D",
+    "pool": "0x133B3D95bAD5405d14d53473671200e9342896BF",
+    "gauge": "0xCd03B3757BC956e312F639dA1661d18DB7e72ED7",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "tokens",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pancake-ichi-usdt-wbnb",
+    "address": "0x553A31Bb23218a10FF1fFE6492f0D3C71fb88D24",
+    "pool": "0x36696169C63e42cd08ce11f5deeBbCeBae652050",
+    "gauge": "0x799Ea58D15429fa7C42cc211e2181FD4EF54ec37",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pancake-ichi-cake-usdt",
+    "address": "0x0Def612e7a7b51ca7Ee38f7905dA809BD3491268",
+    "pool": "0x7f51c8AaA6B0599aBd16674e2b17FEc7a9f674A1",
+    "gauge": "0xF8C4d24Af47cBD87E3C8Cc368fcd7e3cd2a13083",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "tokens",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  }
+]
