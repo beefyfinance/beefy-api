@@ -109,7 +109,7 @@
   },
   {
     "name": "quick-gamma-bob-usdc-stable",
-    "address": "0x25B186eEd64ca5FDD1bc33fc4CFfd6d34069BAec",
+    "address": "0x33B0B883626C21Ce5b3aad202bC435f876aee2c4",
     "decimals": "1e18",
     "beefyFee": 0.095,
     "poolId": 53,
