@@ -1,5 +1,23 @@
 [
   {
+    "name": "curve-op-tbtc",
+    "pool": "0x1Dc5c0f8668a9F54ED922171d578011850ca0341",
+    "token": "0x1Dc5c0f8668a9F54ED922171d578011850ca0341",
+    "gauge": "0xcEa806562B757AefFa9fE9D0a03C909b4a204254",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      }
+    ]
+  },
+  {
     "name": "curve-op-f-wsteth",
     "pool": "0xB90B9B1F91a01Ea22A182CD84C1E22222e39B415",
     "token": "0xEfDE221f306152971D8e9f181bFe998447975810",
