@@ -93,7 +93,8 @@ import { getKinetixPrices } from './kava/getKinetixPrices';
 import getEqualizerStableBasePrices from './base/getEqualizerStablePrices';
 import getBunniArbPrices from './arbitrum/getBunniPrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
-import { get } from 'lodash';
+import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
+import { GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -190,6 +191,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurveMoonbeamPrices(tokenPrices),
     getCurveKavaPrices(tokenPrices),
     getCurveCeloPrices(tokenPrices),
+    getCurvePricesCommon(GNO_CHAIN_ID, require('../../data/gnosis/curvePools.json'), tokenPrices),
     getCurveBasePrices(tokenPrices),
     getConicPrices(),
     getRosePrices(tokenPrices),
