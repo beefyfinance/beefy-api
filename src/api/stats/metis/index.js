@@ -2,8 +2,9 @@ const getNetswapApys = require('./getNetswapApys');
 const getTethysApys = require('./getTethysApys');
 const getHermesApys = require('./getHermesApys');
 const getStargateApys = require('./getStargateApys');
+const { getAaveV3Apys } = require('./getAaveV3Apys');
 
-const getApys = [getStargateApys, getHermesApys, getNetswapApys, getTethysApys];
+const getApys = [getAaveV3Apys, getStargateApys, getHermesApys, getNetswapApys, getTethysApys];
 
 const getMetisApys = async () => {
   const start = Date.now();
