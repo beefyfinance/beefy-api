@@ -463,6 +463,46 @@ const _tokens = {
     documentation: 'https://docs.equalizer.exchange/',
     bridge: 'native',
   },
+  hyUSD: {
+    name: 'High Yield USD',
+    symbol: 'hyUSD',
+    address: '0xCc7FF230365bD730eE4B352cC2492CEdAC49383e',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://linktr.ee/hyusd',
+    description:
+      'A decentralized flatcoin that provides convenient access to DeFi yields, enabling holders to earn passive income on their capital. Governance should aim to take low to moderate risk to return high DeFi yields in order to mitigate against inflation.',
+    documentation: '',
+    bridge: 'native',
+  },
+  eUSD: {
+    name: 'Electronic Dollar',
+    symbol: 'eUSD',
+    address: '0xCfA3Ef56d303AE4fAabA0592388F19d7C3399FB4',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://register.app/#/overview?token=0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F&chainId=1',
+    description:
+      'The Electronic Dollar (eUSD) is a decentralized 1:1 asset-backed stablecoin built with Reserve Protocol, available on the Ethereum and MobileCoin blockchains. It sets itself apart from other stablecoins due to its decentralized, community-governed, and censorship-resistant nature.',
+    documentation: '',
+    bridge: 'base-canonical',
+  },
+  wstETH: {
+    name: 'Wrapped liquid staked Ether 2.0',
+    symbol: 'wstETH',
+    address: '0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    documentation: 'https://docs.lido.fi/',
+    bridge: 'base-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
