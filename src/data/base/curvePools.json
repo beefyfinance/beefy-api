@@ -1,5 +1,20 @@
 [
   {
+    "name": "curve-base-eusd",
+    "pool": "0x798D81d60966d2E909468d87e7e4b6A8DAFB1C36",
+    "gauge": "0xb2135e9B790C50Fa018ca14e4B04BDb4ADd2a61B",
+    "tokens": [
+      {
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-base-usd+",
     "pool": "0xda3de145054ED30Ee937865D31B500505C4bDfe7",
     "token": "0xda3de145054ED30Ee937865D31B500505C4bDfe7",
