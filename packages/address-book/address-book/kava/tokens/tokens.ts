@@ -279,6 +279,7 @@ const _tokens = {
     website: 'https://cosmos.network/',
     description:
       'The Internet of Blockchains. Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
+    bridge: 'ibc',
     documentation: 'https://docs.cosmos.network/main',
   },
 } as const;
