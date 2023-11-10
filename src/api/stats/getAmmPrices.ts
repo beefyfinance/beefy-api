@@ -598,6 +598,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'ankr-reward-bearing-ftm': ['ankrFTM'],
   lucha: ['LUCHA'],
   'cow-protocol': ['COW'],
+  'electronic-usd': ['eUSD'],
 };
 
 /**
