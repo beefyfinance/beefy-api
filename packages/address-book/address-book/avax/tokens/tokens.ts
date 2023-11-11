@@ -16,6 +16,19 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  EURC: {
+    name: 'Euro Coin',
+    symbol: 'EURC',
+    address: '0xC891EB4cbdEFf6e073e859e987815Ed1505c2ACD',
+    chainId: 43114,
+    decimals: 6,
+    website: 'https://www.circle.com/en/',
+    description:
+      'EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
+    logoURI: '',
+    documentation: 'https://www.circle.com/en/eurc',
+    bridge: 'native',
+  },
   frxETH: {
     name: 'Frax Ether',
     symbol: 'frxETH',
