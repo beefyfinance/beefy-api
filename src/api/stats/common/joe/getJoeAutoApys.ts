@@ -6,6 +6,7 @@ import fetchPrice from '../../../../utils/fetchPrice';
 import { fetchContract } from '../../../rpc/client';
 import ERC20Abi from '../../../../abis/ERC20Abi';
 import abi from '../../../../abis/arbitrum/JoeAutoFarm';
+import ISimpleRewarder from '../../../../abis/ISimpleRewarder';
 const baseApyUrl = 'https://barn.traderjoexyz.com/v1/vaults';
 
 export const getJoeAutoApys = async (joeAutoParams): Promise<ApyBreakdownResult> => {
@@ -36,7 +37,9 @@ const getFarmApys = async (params): Promise<BigNumber[]> => {
 
   const tokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
 
-  const [{ balances, rewardPerSecs }] = await Promise.all([getPoolsData(params)]);
+  const [{ balances, rewardPerSecs, extraRewardPerSecs }] = await Promise.all([
+    getPoolsData(params),
+  ]);
 
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
@@ -49,6 +52,17 @@ const getFarmApys = async (params): Promise<BigNumber[]> => {
     const secondsPerYear = 31536000;
     const yearlyRewards = rewardPerSecs[i].times(secondsPerYear);
     let yearlyRewardsInUsd = yearlyRewards.times(tokenPrice).dividedBy(params.decimals);
+    let extraYearlyRewardsInUsd = new BigNumber(0);
+
+    for (const extra of extraRewardPerSecs.filter(e => e.pool === pool.name)) {
+      const rewardPrice = await fetchPrice({ oracle: 'tokens', id: extra.oracleId });
+      const extraYearlyRewards = extra.rewardRate.times(secondsPerYear);
+      extraYearlyRewardsInUsd = extraYearlyRewardsInUsd.plus(
+        extraYearlyRewards.times(rewardPrice).dividedBy(extra.decimals)
+      );
+    }
+
+    yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraYearlyRewardsInUsd);
 
     const apy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
     apys.push(apy);
@@ -69,20 +83,34 @@ const getPoolsData = async params => {
   const masterchefContract = fetchContract(params.masterchef, abi, params.chainId);
   const balanceCalls = [];
   const rewardPerSecCalls = [];
+  const extraData = [];
+  const extraRewardPerSecCalls = [];
   params.pools.forEach(pool => {
+    (pool.rewards ?? []).forEach(rewards => {
+      extraData.push({ pool: pool.name, oracleId: rewards.oracleId, decimals: rewards.decimals });
+      const rewarderContract = fetchContract(rewards.rewarder, ISimpleRewarder, params.chainId);
+      extraRewardPerSecCalls.push(rewarderContract.read.tokenPerSec());
+    });
+
     const tokenContract = fetchContract(pool.address, ERC20Abi, params.chainId);
     balanceCalls.push(tokenContract.read.balanceOf([params.masterchef as `0x${string}`]));
     rewardPerSecCalls.push(masterchefContract.read.farmInfo([pool.poolId]));
   });
 
-  const [balanceResults, rewardPerSecResults] = await Promise.all([
+  const [balanceResults, rewardPerSecResults, extraRewardPerSecResults] = await Promise.all([
     Promise.all(balanceCalls),
     Promise.all(rewardPerSecCalls),
+    Promise.all(extraRewardPerSecCalls),
   ]);
 
   const balances: BigNumber[] = balanceResults.map(v => new BigNumber(v.toString()));
   const rewardPerSecs: BigNumber[] = rewardPerSecResults.map(
     v => new BigNumber(v.joePerSec.toString())
   );
-  return { balances, rewardPerSecs };
+
+  const extraRewardPerSecs = extraData.map((data, index) => ({
+    ...data,
+    rewardRate: new BigNumber(extraRewardPerSecResults[index].toString()),
+  }));
+  return { balances, rewardPerSecs, extraRewardPerSecs };
 };
