@@ -1,8 +1,71 @@
 [
   {
+    "name": "joe-auto-usdc-eurc",
+    "address": "0x052AF5B8aC73082D8c4C8202bB21F4531A51DC73",
+    "decimals": "1e24",
+    "tradingFee": 0.0004,
+    "beefyFee": 0.095,
+    "poolId": 3,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0xC891EB4cbdEFf6e073e859e987815Ed1505c2ACD",
+      "oracle": "tokens",
+      "oracleId": "EURC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "joe-auto-wavax-weth.e",
+    "address": "0x6178dE6E552055862CF5c56310763EeC0145688d",
+    "decimals": "1e24",
+    "tradingFee": 0.001,
+    "beefyFee": 0.095,
+    "poolId": 2,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x49D5c2BdFfac6CE2BFdB6640F4F80f226bc10bAB",
+      "oracle": "tokens",
+      "oracleId": "WETHe",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-auto-wavax-btcb",
+    "address": "0x1C739A43606794849750C50bC7C43FBbDAcdf801",
+    "decimals": "1e24",
+    "tradingFee": 0.001,
+    "beefyFee": 0.095,
+    "poolId": 1,
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x152b9d0FdC40C096757F570A51E494bd4b943E50",
+      "oracle": "tokens",
+      "oracleId": "BTCb",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-auto-wavax-usdc",
     "address": "0x32833a12ed3Fd5120429FB01564c98ce3C60FC1d",
-    "decimals": "1e12",
+    "decimals": "1e24",
     "tradingFee": 0.002,
     "beefyFee": 0.095,
     "poolId": 0,

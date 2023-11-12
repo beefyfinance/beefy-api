@@ -2,8 +2,8 @@
   {
     "name": "joe-auto-wbtc-weth",
     "address": "0xea9f1AB0ccdb6BaF36ce8567D65f354f2945F0DA",
-    "decimals": "1e12",
-    "tradingFee": 0.0015,
+    "decimals": "1e24",
+    "tradingFee": 0.001,
     "beefyFee": 0.095,
     "poolId": 1,
     "chainId": 42161,
@@ -30,8 +30,8 @@
   {
     "name": "joe-auto-arb-weth",
     "address": "0xa37eF01065E0328b50A85256E159b9aaed196e05",
-    "decimals": "1e12",
-    "tradingFee": 0.0015,
+    "decimals": "1e24",
+    "tradingFee": 0.001,
     "beefyFee": 0.095,
     "poolId": 3,
     "chainId": 42161,
@@ -58,7 +58,7 @@
   {
     "name": "joe-auto-weth-usdc",
     "address": "0x5FB31318E9A82EfCaA2cfEFBaCF63e85f4dFF2F1",
-    "decimals": "1e12",
+    "decimals": "1e24",
     "tradingFee": 0.0015,
     "beefyFee": 0.095,
     "poolId": 2,
@@ -86,7 +86,7 @@
   {
     "name": "joe-auto-weth-usdc.e",
     "address": "0xFd421D60905d2f7caBd49e6A5703A3499367B8F4",
-    "decimals": "1e12",
+    "decimals": "1e24",
     "tradingFee": 0.0015,
     "beefyFee": 0.095,
     "poolId": 0,
