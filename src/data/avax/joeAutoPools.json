@@ -7,6 +7,13 @@
     "beefyFee": 0.095,
     "poolId": 3,
     "chainId": 42161,
+    "rewards": [
+      {
+        "rewarder": "0xBCF935a4B16132FDF1176DB2B8753603943CFCE2",
+        "oracleId": "AVAX",
+        "decimals": "1e18"
+      }
+    ],
     "lp0": {
       "address": "0xC891EB4cbdEFf6e073e859e987815Ed1505c2ACD",
       "oracle": "tokens",
