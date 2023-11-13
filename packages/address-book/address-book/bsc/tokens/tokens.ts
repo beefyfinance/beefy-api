@@ -390,6 +390,7 @@ const _tokens = {
     website: 'https://jarvis.network/',
     description:
       'jBRL is a multi-collateralized synthetic token tracking the price of Brazilian Real. It is built on the top of UMA and Chainlink.',
+    bridge: 'multichain',
     logoURI: 'https://jarvis.network/images/jBRL.svg',
   },
   BRZ: {
@@ -899,6 +900,7 @@ const _tokens = {
     website: 'https://nftynetwork.io/',
     description:
       'NFTYLabs envisions a world where NFTs function as a medium of access, bringing a means of utility and privilege to NFT holders in a secure and confidential manner.',
+    bridge: 'multichain',
   },
   BETA: {
     name: 'Beta Token',

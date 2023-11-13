@@ -6,10 +6,7 @@ const getJoeDualApys = require('./getJoeDualLpApys');
 const getJoeApy = require('./getJoeApy');
 const getPangolinPNGApy = require('./getPangolinPNGApy');
 const { getCurveApys } = require('./getCurveApys');
-const { getAaveApys } = require('./getAaveApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
-const getBlizzLpApys = require('./getBlizzLpApys');
-const getBlizzLendingApys = require('./getBlizzLendingApys');
 const getBankerJoeApys = require('./getBankerJoeApys');
 const getPangolinV2DualApys = require('./getPangolinV2DualApys');
 import { getSynapseApys } from './getSynapseApys';
@@ -47,10 +44,7 @@ const getApys = [
   // getJoeDualApys, Is broken.
   getJoeApy,
   getCurveApys,
-  getAaveApys,
   getAaveV3Apys,
-  getBlizzLpApys,
-  getBlizzLendingApys,
   getBankerJoeApys,
   // // getSynapseApys, //disabled by weso long time ago, won't re-enable
   getSpellApys,

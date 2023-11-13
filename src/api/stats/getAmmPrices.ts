@@ -180,7 +180,6 @@ import summitPools from '../../data/fantom/summitLpPools.json';
 import solarbeamPools from '../../data/moonriver/solarbeamLpPools.json';
 import sushiMr from '../../data/moonriver/sushiLp.json';
 import sushiMrPools from '../../data/moonriver/sushiLpPools.json';
-import blizzPools from '../../data/avax/blizzLpPools.json';
 import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
 import solarbeamDualLpPools from '../../data/moonriver/solarbeamDualLpPools.json';
@@ -392,7 +391,6 @@ const pools = normalizePoolOracleIds([
   ...solarbeamDualLpPools,
   ...cronaPools,
   ...vvsPools,
-  ...blizzPools,
   ...sushiMrPools,
   ...sushiMr,
   ...solarbeamPools,
@@ -598,6 +596,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'ankr-reward-bearing-ftm': ['ankrFTM'],
   lucha: ['LUCHA'],
   'cow-protocol': ['COW'],
+  'electronic-usd': ['eUSD'],
 };
 
 /**

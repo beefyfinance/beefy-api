@@ -427,6 +427,7 @@ const _tokens = {
     documentation: 'https://docs.convexfinance.com/',
     description:
       "Convex also now supports Frax Finance's FPIS token, the governance token for the FPI stablecoin launched by Frax. Frax documentation explains the mechanisms behind the FPI stablecoin and the FPIS governance token in detail.",
+    bridge: 'native',
     logoURI: '',
   },
   sethUSDC: {
@@ -1161,6 +1162,7 @@ const _tokens = {
     website: 'https://apecoin.com/',
     description:
       'ApeCoin is the APE Ecosystems governance token, allowing token holders to participate in ApeCoin DAO and giving its participants a shared and open currency that can be used without centralized intermediaries.',
+    bridge: 'native',
     logoURI: '',
   },
   OHM: {
@@ -1237,6 +1239,7 @@ const _tokens = {
     website: 'https://crvusd.curve.fi/',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
+    bridge: 'native',
   },
   hyUSD: {
     name: 'High Yield USD',

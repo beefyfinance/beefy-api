@@ -11,7 +11,6 @@ const getGeistLpApys = require('./getGeistLpApys');
 const getSpellApys = require('./getSpellApys');
 const getBeethovenxApys = require('./getBeethovenxApys');
 const getBeethovenxDualApys = require('./getBeethovenxDualApys');
-const getGeistLendingApys = require('./getGeistLendingApys');
 const getfBeetsApy = require('./getfBeetsApy');
 const getSpartacadabraApys = require('./getSpartacadabraApys');
 const getPopsicleApys = require('./getPopsicleApys');
@@ -51,7 +50,6 @@ const getApys = [
   getGeistLpApys,
   getBeethovenxApys,
   getBeethovenxDualApys,
-  getGeistLendingApys,
   getfBeetsApy,
   getSpartacadabraApys,
   getPopsicleApys,

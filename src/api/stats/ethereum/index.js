@@ -17,6 +17,7 @@ const { getApeStakingApy } = require('./getApeStakingApy');
 const { getConvexCvxApy } = require('./getConvexCvxApy');
 const getGammaApy = require('./getUniswapGammaApys');
 const { getETHCompoundV3Apys } = require('./getEthCompoundApys');
+const { getPrismaApys } = require('./getPrismaApys');
 
 const getApys = [
   getApeStakingApy,
@@ -28,6 +29,7 @@ const getApys = [
   getConvexFpisApy,
   getConvexCvxApy,
   getConicApys,
+  getPrismaApys,
   getStargateEthApys,
   getBifiMaxiApy,
   getAuraBalApy,

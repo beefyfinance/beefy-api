@@ -38,6 +38,7 @@ const _tokens = {
     website: 'https://app.frax.finance/frxeth/mint',
     description:
       'frxETH acts as a stablecoin loosely pegged to ETH, so that 1 frxETH always represents 1 ETH and the amount of frxETH in circulation matches the amount of ETH in the Frax ETH system. When ETH is sent to the frxETHMinter, an equivalent amount of frxETH is minted. Holding frxETH on its own is not eligible for staking yield and should be thought of as analogous as holding ETH.',
+    bridge: 'frax',
     logoURI: '',
     documentation: 'https://docs.frax.finance/frax-ether/frxeth-and-sfrxeth',
   },
@@ -62,6 +63,7 @@ const _tokens = {
     documentation: 'https://www.zkbob.com/',
     description:
       'BOB is a multi-chain & multi-collateral stable token (stablecoin) enhanced with optional privacy features.',
+    bridge: 'native',
     chainId: 137,
     logoURI: '',
   },
@@ -74,6 +76,7 @@ const _tokens = {
     documentation: 'https://docs.metavault.trade/',
     description:
       "MVX is the Metavault.Trade's governance and utility token. 30% of swap and leverage trading fees are converted to $MATIC and distributed to the accounts staking MVX.",
+    bridge: 'native',
     chainId: 137,
     logoURI: '',
   },
@@ -238,6 +241,7 @@ const _tokens = {
     chainId: 137,
     website: 'https://quickswap.exchange/#/swap',
     description: 'Next-gen Layer 2 DEX. Trade at lightning-fast speeds with near-zero gas fees.',
+    bridge: 'native',
     logoURI: 'https://assets.coingecko.com/coins/images/15185/small/quickswap.png?1620044811',
   },
   QUIDD: {
@@ -1527,6 +1531,7 @@ const _tokens = {
     website: 'https://www.angle.money/',
     description:
       'Angle is an over-collateralized, decentralized and capital-efficient stablecoin protocol. It offers full convertibility between stable assets and collateral at oracle value.',
+    bridge: 'layer-zero',
   },
   jJPY: {
     name: 'Jarvis Synthetic Yen',
@@ -2066,6 +2071,7 @@ const _tokens = {
     website: 'https://stabl.fi/',
     description:
       'Stabl.fi is a next-generation, yield bearing stable indexcoin protocol. Users mint $CASH by depositing stables into the Stabl protocol. The amount of $CASH in your wallet will continually grow, due to the yield strategies the protocol deposited stables are put in as well as external yielding sources.',
+    bridge: 'native',
     documentation: 'https://docs.stabl.fi/protocol-overview/introducing-stabl.fi',
   },
 } as const;
