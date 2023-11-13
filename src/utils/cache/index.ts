@@ -1,9 +1,8 @@
 import { Cache } from './Cache';
 import { RedisCacheBackend } from './RedisCacheBackend';
-import { DummyCacheBackend } from './DummyCacheBackend';
+import { NoCacheBackend } from './NoCacheBackend.js';
 import { ICacheBackend } from './ICacheBackend';
 import { FileCacheBackend } from './FileCacheBackend';
-import { filter, mapValues, pickBy } from 'lodash';
 
 let cache: Cache | undefined;
 
@@ -15,7 +14,13 @@ export async function initCache() {
   // Redis backend
   if (process.env.REDISCLOUD_URL && typeof process.env.REDISCLOUD_URL === 'string') {
     console.log('> Using Redis cache backend');
-    backend = await RedisCacheBackend.create(process.env.REDISCLOUD_URL);
+    try {
+      backend = await RedisCacheBackend.create(process.env.REDISCLOUD_URL);
+    } catch (e) {
+      console.error('>> Failed to initialize redis cache backend: ', e);
+      console.error('>> Cache disabled');
+      backend = new NoCacheBackend();
+    }
   }
 
   // File backend
@@ -27,7 +32,7 @@ export async function initCache() {
   // Fallback backend
   if (!backend) {
     console.log('> No cache backend specified, cache disabled');
-    backend = new DummyCacheBackend();
+    backend = new NoCacheBackend();
   }
 
   cache = new Cache(backend);

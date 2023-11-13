@@ -7,29 +7,40 @@ import {
   RedisScripts,
 } from 'redis';
 
+async function createRedisClient(
+  url: string
+): Promise<RedisClientType<RedisDefaultModules & RedisModules, RedisScripts>> {
+  return new Promise((resolve, reject) => {
+    const client = createClient({ url });
+    let resolved = false;
+
+    client.once('connect', async () => {
+      resolved = true;
+      resolve(client);
+    });
+
+    client.once('error', err => {
+      if (!resolved) {
+        reject(err);
+      }
+    });
+
+    client.connect().catch(err => reject(err));
+  });
+}
+
 export class RedisCacheBackend implements ICacheBackend {
-  private client: RedisClientType<RedisDefaultModules & RedisModules, RedisScripts>;
-
-  protected constructor(url: string) {
-    this.client = createClient({ url });
-
-    this.client.on('connect', async () => {
-      console.log('Connected to redis');
-    });
-
+  protected constructor(
+    protected client: RedisClientType<RedisDefaultModules & RedisModules, RedisScripts>
+  ) {
     this.client.on('error', err => {
-      console.error('Failed to connect to redis: ', err);
+      console.error('Redis error: ', err);
     });
-  }
-
-  protected async connect() {
-    await this.client.connect();
   }
 
   public static async create(url: string): Promise<RedisCacheBackend> {
-    const instance = new RedisCacheBackend(url);
-    await instance.connect();
-    return instance;
+    const client = await createRedisClient(url);
+    return new RedisCacheBackend(client);
   }
 
   async get(key: string): Promise<string> {
