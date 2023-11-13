@@ -18,7 +18,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
   ],
   ethereum: [
     {
-      id: 'eth-validator-1',
+      id: '402418',
       name: 'Ethereum Validator',
       address: 'native',
       oracleId: 'ETH',
@@ -30,7 +30,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: 'eth-validator-2',
+      id: '986225',
       name: 'Ethereum Validator 2',
       address: 'native',
       oracleId: 'ETH',
@@ -42,7 +42,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: 'eth-validator-3',
+      id: '986226',
       name: 'Ethereum Validator 3',
       address: 'native',
       oracleId: 'ETH',
@@ -54,7 +54,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: 'eth-validator-4',
+      id: '1013308',
       name: 'Ethereum Validator 4',
       address: 'native',
       oracleId: 'ETH',
@@ -66,7 +66,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: 'eth-validator-5',
+      id: '1013309',
       name: 'Ethereum Validator 5',
       address: 'native',
       oracleId: 'ETH',
@@ -78,7 +78,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: 'eth-validator-6',
+      id: '1013310',
       name: 'Ethereum Validator 6',
       address: 'native',
       oracleId: 'ETH',
@@ -90,7 +90,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: 'eth-validator-7',
+      id: '1013311',
       name: 'Ethereum Validator 7',
       address: 'native',
       oracleId: 'ETH',
