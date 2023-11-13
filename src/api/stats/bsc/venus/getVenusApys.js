@@ -1,30 +1,32 @@
 const BigNumber = require('bignumber.js');
 const fetchPrice = require('../../../../utils/fetchPrice');
-const { compound } = require('../../../../utils/compound');
 const pools = require('../../../../data/venusPools.json');
-const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
-const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
+const { BSC_CHAIN_ID } = require('../../../../constants');
 const { default: VToken } = require('../../../../abis/VToken');
 const { fetchContract } = require('../../../rpc/client');
 const { default: IUnitroller } = require('../../../../abis/IUnitroller');
+const { getApyBreakdown } = require('../../common/getApyBreakdown');
 
 const UNITROLLER = '0xfD36E2c2a6789Db23113685031d7F16329158384';
 const BLOCKS_PER_YEAR = 10512000;
 
 const getVenusApys = async () => {
-  let apys = {};
+  const rewardApys = [];
+  const lendingApys = [];
+  const promises = [];
 
-  let promises = [];
   pools.forEach(pool => promises.push(getPoolApy(pool)));
   const values = await Promise.all(promises);
+  values.forEach(item => {
+    rewardApys.push(item[0]);
+    lendingApys.push(item[1]);
+  });
 
-  for (let item of values) {
-    apys = { ...apys, ...item };
-  }
-
-  apys['venus-wbnb'] = apys['venus-bnb'];
-
-  return apys;
+  return getApyBreakdown(
+    pools.map(p => ({ ...p, address: p.name })),
+    Object.fromEntries(pools.map((p, i) => [p.name, lendingApys[i]])),
+    rewardApys
+  );
 };
 
 const getPoolApy = async pool => {
@@ -44,10 +46,8 @@ const getPoolApy = async pool => {
     );
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
-  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
-  const compoundedVxs = compound(totalVxs, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
-  const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedVxs).toNumber();
-  return { [pool.name]: apy };
+  const lendingApy = leveragedSupplyBase.minus(leveragedBorrowBase);
+  return [totalVxs, lendingApy];
 };
 
 const getSupplyApys = async pool => {
