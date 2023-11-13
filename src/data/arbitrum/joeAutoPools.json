@@ -58,7 +58,7 @@
   {
     "name": "joe-auto-weth-usdc",
     "address": "0x5FB31318E9A82EfCaA2cfEFBaCF63e85f4dFF2F1",
-    "decimals": "1e24",
+    "decimals": "1e12",
     "tradingFee": 0.0015,
     "beefyFee": 0.095,
     "poolId": 2,
@@ -86,7 +86,7 @@
   {
     "name": "joe-auto-weth-usdc.e",
     "address": "0xFd421D60905d2f7caBd49e6A5703A3499367B8F4",
-    "decimals": "1e24",
+    "decimals": "1e12",
     "tradingFee": 0.0015,
     "beefyFee": 0.095,
     "poolId": 0,

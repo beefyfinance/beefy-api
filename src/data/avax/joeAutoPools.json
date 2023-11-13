@@ -2,7 +2,7 @@
   {
     "name": "joe-auto-usdc-eurc",
     "address": "0x052AF5B8aC73082D8c4C8202bB21F4531A51DC73",
-    "decimals": "1e24",
+    "decimals": "1e12",
     "tradingFee": 0.0004,
     "beefyFee": 0.095,
     "poolId": 3,
@@ -72,7 +72,7 @@
   {
     "name": "joe-auto-wavax-usdc",
     "address": "0x32833a12ed3Fd5120429FB01564c98ce3C60FC1d",
-    "decimals": "1e24",
+    "decimals": "1e12",
     "tradingFee": 0.002,
     "beefyFee": 0.095,
     "poolId": 0,
