@@ -1,5 +1,53 @@
 [
   {
+    "name": "prisma-convex-mkusd-crvusd",
+    "pool": "0x3de254A0f838a844F727fee81040e0FA7884B935",
+    "prismaPool": "0xf6aA46869220Ae703924d5331D88A21DceF3b19d",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "mkUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-cvxprisma",
+    "pool": "0x3b21C2868B6028CfB38Ff86127eF22E68d16d53B",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "PRISMA",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "cvxPRISMA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "prisma-curve-prisma",
+    "pool": "0x322135Dd9cBAE8Afa84727d9aE1434b5B3EBA44B",
+    "token": "0xb34e1a3D07f9D180Bc2FDb9Fd90B8994423e33c1",
+    "prismaPool": "0xB5376AB455194328Fe41450a587f11bcDA2363fa",
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "PRISMA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-lvusd",
     "pool": "0xe9123CBC5d1EA65301D417193c40A72Ac8D53501",
     "token": "0xe9123CBC5d1EA65301D417193c40A72Ac8D53501",
