@@ -77,6 +77,7 @@ const _tokens = {
     website: 'https://sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
+    bridge: 'arbitrum-canonical',
     logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
   },
   NYAN: {
@@ -284,6 +285,7 @@ const _tokens = {
     website: 'https://radiant.capital/',
     description:
       'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
+    bridge: 'native',
     logoURI: '',
   },
   RDNT: {
@@ -343,6 +345,7 @@ const _tokens = {
     description:
       'GMX is the utility and governance token of the GMX decentralized spot and perpetual exchange that supports low swap fees, zero price impact trades and up to 30x leverage. Staked GMX earns escrowed GMX and 30% of platform fees in the form of ETH.',
     logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GMX_LOGO%20ONLY.svg',
+    bridge: 'native',
     documentation: 'https://gmxio.gitbook.io/',
   },
   FRAX: {
@@ -516,6 +519,7 @@ const _tokens = {
     chainId: 42161,
     website: 'https://gainsnetwork.io/',
     description: 'Decentralized leverage trading platform on Polygon and Arbitrum.',
+    bridge: 'layer-zero',
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
     documentation: 'https://gains-network.gitbook.io/docs-home/',

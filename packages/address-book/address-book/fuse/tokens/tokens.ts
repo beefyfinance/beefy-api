@@ -97,6 +97,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
+    bridge: 'fuse-canonical',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
   WBTC: {
@@ -109,6 +110,7 @@ const _tokens = {
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    bridge: 'fuse-canonical',
   },
   fUSD: {
     name: 'Fuse Dollar',
@@ -142,6 +144,7 @@ const _tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
+    bridge: 'fuse-canonical',
   },
   USDC: {
     name: 'USD Coin on Fuse',

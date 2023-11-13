@@ -101,6 +101,7 @@ const _tokens = {
     website: 'https://app.hop.exchange',
     description:
       'Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period',
+    bridge: 'hop',
     logoURI: 'https://docs.velodrome.finance/tokens/HOP.svg',
     documentation: 'https://docs.hop.exchange/',
   },
