@@ -635,7 +635,8 @@ const seedPeggedPrices = {
   hUSDC: 'USDC', // HOP
   hUSDT: 'USDT', // HOP
   aWMATIC: 'MATIC', // Aave
-  aWETH: 'ETH', // Aave
+  aWETH: 'ETH', // Aave,
+  cArbUSDCv3: 'USDC', // Compound
 };
 
 export type LpBreakdown = {
