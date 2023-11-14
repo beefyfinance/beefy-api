@@ -1163,6 +1163,17 @@ const _tokens = {
       'Savvy DeFi is a decentralized credit protocol on Arbitrum that grants borrowers access to an immediate advance on the future yield of their collateral in the form of Savvy synthetic tokens (svTokens). Savvy protocol allows borrowers to maintain exposure to their choice collateral while gaining access to immediate liquidity with 0% interest, no monthly payments and no risk of liquidation.',
     bridge: 'native',
   },
+  cArbUSDCv3: {
+    name: 'Compound USDC',
+    symbol: 'cUSDCv3',
+    address: '0xA5EDBDD9646f8dFF606d7448e414884C7d905dCA',
+    chainId: 42161,
+    decimals: 6,
+    website: 'https://v3-app.compound.finance/',
+    description: '',
+    bridge: 'native',
+    staked: true,
+  },
   LODE: {
     name: 'Lodestar',
     symbol: 'LODE',
@@ -1174,7 +1185,7 @@ const _tokens = {
     description:
       'Unlocking the critical DeFi primitive of decentralized money markets for Arbitrum native assets like ARB, MAGIC, GMX, and plvGLP .',
     documentation: 'https://docs.lodestarfinance.io/',
-  },
+   },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
