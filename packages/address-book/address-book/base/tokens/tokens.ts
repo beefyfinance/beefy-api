@@ -325,7 +325,7 @@ const _tokens = {
   },
   MAI: {
     name: 'Mai Stablecoin',
-    symbol: 'MAI',
+    symbol: 'bMAI',
     address: '0xbf1aeA8670D2528E08334083616dD9C5F3B087aE',
     chainId: 8453,
     decimals: 18,
