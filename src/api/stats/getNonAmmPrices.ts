@@ -34,6 +34,7 @@ import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 import getCurveKavaPrices from './kava/getCurvePrices';
 import getSushiKavaPrices from './kava/getSushiPrices';
 import getSushiArbPrices from './arbitrum/getSushiPrice';
+import { getGmxV2ArbitrumPrices } from './arbitrum/getGmxV2Prices';
 import { getGmxArbitrumPrices } from './arbitrum/getGmxPrices';
 import getGmxAvalanchePrices from './avax/getGmxPrices';
 import getAuraBalancerPrices from './ethereum/getAuraBalancerPrices';
@@ -155,6 +156,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getHopArbPrices(tokenPrices),
     getFerroPrices(tokenPrices),
     getAuraBalancerPrices(tokenPrices),
+    getGmxV2ArbitrumPrices(),
     getGmxAvalanchePrices(tokenPrices),
     getGmxArbitrumPrices(tokenPrices),
     getSushiKavaPrices(tokenPrices),
