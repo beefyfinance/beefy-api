@@ -303,7 +303,7 @@ const _tokens = {
     symbol: 'AERO',
     address: '0x940181a94A35A4569E4529A3CDfB74e38FD98631',
     chainId: 8453,
-    decimals: 19,
+    decimals: 18,
     website: 'https://aerodrome.finance/',
     documentation: 'https://aerodrome.finance/docs',
     description:

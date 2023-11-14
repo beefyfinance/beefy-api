@@ -441,7 +441,7 @@ const _tokens = {
     symbol: 'DOMI',
     address: '0xFc6Da929c031162841370af240dEc19099861d3B',
     chainId: 43114,
-    decimals: 6,
+    decimals: 18,
     logoURI:
       'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xFc6Da929c031162841370af240dEc19099861d3B/logo.png',
     website: 'https://domionline.io/',

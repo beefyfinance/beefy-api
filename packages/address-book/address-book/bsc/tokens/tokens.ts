@@ -930,7 +930,7 @@ const _tokens = {
     symbol: 'ONG',
     address: '0x308bfaeAaC8BDab6e9Fc5Ead8EdCb5f95b0599d9',
     chainId: 56,
-    decimals: 18,
+    decimals: 9,
     website: 'https://ont.io/',
     description:
       'Ontology is a high performance, open source blockchain specializing in digital identity and data.',
