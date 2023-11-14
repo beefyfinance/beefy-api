@@ -323,7 +323,7 @@ const _tokens = {
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     bridge: 'base-canonical',
   },
-  MAI: {
+  bMAI: {
     name: 'Mai Stablecoin',
     symbol: 'bMAI',
     address: '0xbf1aeA8670D2528E08334083616dD9C5F3B087aE',
