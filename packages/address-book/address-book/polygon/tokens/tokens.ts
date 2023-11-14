@@ -2074,6 +2074,21 @@ const _tokens = {
     bridge: 'native',
     documentation: 'https://docs.stabl.fi/protocol-overview/introducing-stabl.fi',
   },
+  cbETH: {
+    name: 'Coinbase Wrapped Staked ETH (FXERC20)',
+    symbol: 'fxcbETH',
+    address: '0x4b4327dB1600B8B1440163F667e199CEf35385f5',
+    chainId: 137,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4b4327dB1600B8B1440163F667e199CEf35385f5.svg',
+    website: 'https://www.coinbase.com/',
+    description:
+      "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
+    documentation:
+      'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
+    bridge: 'polygon-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
