@@ -5,6 +5,7 @@ const xDAI = {
   name: 'Wrapped xDAI',
   address: '0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d',
   symbol: 'WXDAI',
+  oracleId: 'XDAI',
   decimals: 18,
   chainId: 100,
   website: 'https://www.gnosis.io/',
@@ -22,6 +23,7 @@ const _tokens = {
   AURA: {
     name: 'Aura',
     symbol: 'AURA',
+    oracleId: 'AURA',
     address: '0x1509706a6c66CA549ff0cB464de88231DDBe213B',
     chainId: 100,
     decimals: 18,
@@ -35,6 +37,7 @@ const _tokens = {
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
     symbol: 'wstETH',
+    oracleId: 'wstETH',
     address: '0x6C76971f98945AE98dD7d4DFcA8711ebea946eA6',
     chainId: 100,
     decimals: 18,
@@ -48,6 +51,7 @@ const _tokens = {
   BAL: {
     name: 'Balancer',
     symbol: 'BAL',
+    oracleId: 'BAL',
     address: '0x7eF541E2a22058048904fE5744f9c7E4C57AF717',
     chainId: 100,
     decimals: 18,
@@ -62,6 +66,7 @@ const _tokens = {
     name: 'Wrapped Ether',
     address: '0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1',
     symbol: 'WETH',
+    oracleId: 'WETH',
     decimals: 18,
     chainId: 100,
     website: 'https://weth.io/',
@@ -73,6 +78,7 @@ const _tokens = {
   USDT: {
     name: 'USDT',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0x4ECaBa5870353805a9F068101A40E0f32ed605C6',
     chainId: 100,
     decimals: 6,
@@ -86,6 +92,7 @@ const _tokens = {
     name: 'USD Coin',
     address: '0xDDAfbb505ad214D7b80b1f830fcCc89B60fb7A83',
     symbol: 'USDC',
+    oracleId: 'USDC',
     decimals: 6,
     website: 'https://www.centre.io/',
     description:
@@ -98,6 +105,7 @@ const _tokens = {
   EURe: {
     name: 'Monerium EURe emoney',
     symbol: 'EURe',
+    oracleId: 'EURe',
     address: '0x18ec0A6E18E5bc3784fDd3a3634b31245ab704F6',
     chainId: 100,
     decimals: 18,
@@ -111,6 +119,7 @@ const _tokens = {
   sDAI: {
     name: 'Savings xDAI',
     symbol: 'sDAI',
+    oracleId: 'sDAI',
     address: '0xaf204776c7245bF4147c2612BF6e5972Ee483701',
     chainId: 100,
     decimals: 18,
@@ -127,6 +136,7 @@ const _tokens = {
     decimals: 18,
     name: 'Gnosis Token',
     symbol: 'GNO',
+    oracleId: 'GNO',
     website: 'https://www.gnosis.io/',
     documentation: 'https://www.gnosis.io/developers',
     bridge: 'gnosis-canonical',
@@ -141,6 +151,7 @@ const _tokens = {
     decimals: 18,
     name: 'CoW Protocol',
     symbol: 'COW',
+    oracleId: 'COW',
     website: 'https://cow.fi/',
     documentation: 'https://docs.cow.fi/',
     bridge: 'gnosis-canonical',

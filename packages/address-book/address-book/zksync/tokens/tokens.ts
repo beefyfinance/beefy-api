@@ -5,6 +5,7 @@ const ETH = {
   name: 'Wrapped Ether',
   address: '0x5AEa5775959fBC2557Cc8789bC1bf90A239D9a91',
   symbol: 'WETH',
+  oracleId: 'ETH',
   decimals: 18,
   chainId: 324,
   website: 'https://weth.io/',
@@ -21,6 +22,7 @@ const _tokens = {
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     address: '0x44AA3eEDD3214Ddd02E8b3FE1E8AE4cAC452a2E0',
     chainId: 324,
     decimals: 18,
@@ -34,6 +36,7 @@ const _tokens = {
   VS: {
     name: 'veSync',
     symbol: 'VS',
+    oracleId: 'VS',
     address: '0x5756A28E2aAe01F600FC2C01358395F5C1f8ad3A',
     chainId: 324,
     decimals: 18,
@@ -46,6 +49,7 @@ const _tokens = {
   wTBT: {
     name: 'wTBT Pool',
     symbol: 'wTBT',
+    oracleId: 'wTBT',
     address: '0xd90764041DA2720396863836E9f78dDaee140533',
     chainId: 324,
     decimals: 18,
@@ -60,6 +64,7 @@ const _tokens = {
   VC: {
     name: 'Velocore',
     symbol: 'VC',
+    oracleId: 'VC',
     address: '0x85D84c774CF8e9fF85342684b0E795Df72A24908',
     chainId: 324,
     decimals: 18,
@@ -73,6 +78,7 @@ const _tokens = {
   USDC: {
     name: 'USD Coin',
     symbol: 'USDC',
+    oracleId: 'USDC',
     address: '0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4',
     chainId: 324,
     decimals: 6,
@@ -86,6 +92,7 @@ const _tokens = {
   BUSD: {
     name: 'Binance USD',
     symbol: 'BUSD',
+    oracleId: 'BUSD',
     address: '0x2039bb4116B4EFc145Ec4f0e2eA75012D6C0f181',
     chainId: 324,
     decimals: 18,
@@ -99,6 +106,7 @@ const _tokens = {
   'USD+': {
     name: 'USD+',
     symbol: 'USD+',
+    oracleId: 'USD+',
     address: '0x8E86e46278518EFc1C5CEd245cBA2C7e3ef11557',
     chainId: 324,
     decimals: 6,
@@ -111,6 +119,7 @@ const _tokens = {
   WBTC: {
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     address: '0xBBeB516fb02a01611cBBE0453Fe3c580D7281011',
     chainId: 324,
     decimals: 8,
@@ -123,6 +132,7 @@ const _tokens = {
   FANG: {
     name: 'Dracula',
     symbol: 'FANG',
+    oracleId: 'FANG',
     address: '0x160e07e42ADbC1FCE92D505B579Bcd8a3fBEa77d',
     chainId: 324,
     decimals: 18,

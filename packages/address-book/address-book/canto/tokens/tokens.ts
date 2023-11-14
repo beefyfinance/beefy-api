@@ -5,6 +5,7 @@ const CANTO = {
   name: 'Wrapped Canto',
   address: '0x826551890Dc65655a0Aceca109aB11AbDbD7a07B',
   symbol: 'WCANTO',
+  oracleId: 'CANTO',
   decimals: 18,
   chainId: 7700,
   website: 'https://canto.io/',
@@ -22,6 +23,7 @@ const _tokens = {
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     address: '0x765277EebeCA2e31912C9946eAe1021199B39C61',
     chainId: 7700,
     decimals: 18,
@@ -35,6 +37,7 @@ const _tokens = {
   ATOM: {
     name: 'Cosmos Token',
     symbol: 'ATOM',
+    oracleId: 'ATOM',
     address: '0xecEEEfCEE421D8062EF8d6b4D814efe4dc898265',
     chainId: 7700,
     decimals: 6,
@@ -47,6 +50,7 @@ const _tokens = {
   ETH: {
     name: 'Ethereum',
     symbol: 'ETH',
+    oracleId: 'ETH',
     address: '0x5FD55A1B9FC24967C4dB09C513C3BA0DFa7FF687',
     chainId: 7700,
     decimals: 18,
@@ -59,6 +63,7 @@ const _tokens = {
   NOTE: {
     name: 'Note',
     symbol: 'NOTE',
+    oracleId: 'NOTE',
     address: '0x4e71A2E537B7f9D9413D3991D37958c0b5e1e503',
     chainId: 7700,
     decimals: 18,
@@ -73,6 +78,7 @@ const _tokens = {
     name: 'USD Coin',
     address: '0x80b5a32E4F032B2a058b4F29EC95EEfEEB87aDcd',
     symbol: 'USDC',
+    oracleId: 'USDC',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
     description:
@@ -85,6 +91,7 @@ const _tokens = {
   USDT: {
     name: 'USDT',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0xd567B3d7B8FE3C79a1AD8dA978812cfC4Fa05e75',
     chainId: 7700,
     decimals: 6,
@@ -97,6 +104,7 @@ const _tokens = {
   FLOWV1: {
     name: 'Velocimeter',
     symbol: 'FLOWv1',
+    oracleId: 'FLOWV1',
     address: '0x2Baec546a92cA3469f71b7A091f7dF61e5569889',
     chainId: 7700,
     decimals: 18,
@@ -109,6 +117,7 @@ const _tokens = {
   GRAV: {
     name: 'Graviton',
     symbol: 'GRAV',
+    oracleId: 'GRAV',
     address: '0xc03345448969Dd8C00e9E4A85d2d9722d093aF8E',
     chainId: 7700,
     decimals: 6,
@@ -121,6 +130,7 @@ const _tokens = {
   FLOW: {
     name: 'Velocimeter',
     symbol: 'FLOW',
+    oracleId: 'FLOW',
     address: '0xB5b060055F0d1eF5174329913ef861bC3aDdF029',
     chainId: 7700,
     decimals: 18,
@@ -134,6 +144,7 @@ const _tokens = {
   SOMM: {
     name: 'Somm',
     symbol: 'SOMM',
+    oracleId: 'SOMM',
     address: '0xFA3C22C069B9556A4B2f7EcE1Ee3B467909f4864',
     chainId: 7700,
     decimals: 6,
@@ -148,6 +159,7 @@ const _tokens = {
   multiBTC: {
     name: 'Multichain BTC',
     symbol: 'multiBTC',
+    oracleId: 'multiBTC',
     address: '0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844',
     chainId: 7700,
     decimals: 8,
@@ -159,6 +171,7 @@ const _tokens = {
   BNB: {
     name: 'Binance Chain',
     symbol: 'BNB',
+    oracleId: 'BNB',
     address: '0xFb7F77faaA3b69ef4C15d6305C79AD92B387C89F',
     chainId: 7700,
     decimals: 18,
@@ -170,6 +183,7 @@ const _tokens = {
   BUSD: {
     name: 'Binance USD',
     symbol: 'BUSD',
+    oracleId: 'BUSD',
     address: '0x381Ea7A7EE6a1e2982e01E7b6837f775a1a4B07F',
     chainId: 7700,
     decimals: 18,
@@ -181,6 +195,7 @@ const _tokens = {
   WBTC: {
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     address: '0x08638a74A8134c747Dce29B57472cc2B57F35653',
     chainId: 7700,
     decimals: 8,
@@ -192,6 +207,7 @@ const _tokens = {
   cINU: {
     name: 'Canto Inu',
     symbol: 'cINU',
+    oracleId: 'cINU',
     address: '0x7264610A66EcA758A8ce95CF11Ff5741E1fd0455',
     chainId: 7700,
     decimals: 18,
@@ -203,6 +219,7 @@ const _tokens = {
   CRE8R: {
     name: 'CRE8R DAO',
     symbol: 'CRE8R',
+    oracleId: 'CRE8R',
     address: '0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055',
     chainId: 7700,
     decimals: 18,
@@ -214,6 +231,7 @@ const _tokens = {
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
     symbol: 'wstETH',
+    oracleId: 'wstETH',
     address: '0xc71aAf8e486e3F33841BB56Ca3FD2aC3fa8D29a8',
     chainId: 7700,
     decimals: 18,
@@ -226,6 +244,7 @@ const _tokens = {
   stATOM: {
     name: 'Stride Staked ATOM',
     symbol: 'stATOM',
+    oracleId: 'stATOM',
     address: '0x4A2a90D444DbB7163B5861b772f882BbA394Ca67',
     chainId: 7700,
     decimals: 6,
@@ -238,6 +257,7 @@ const _tokens = {
   INJ: {
     name: 'Injective',
     symbol: 'INJ',
+    oracleId: 'INJ',
     address: '0x1D54EcB8583Ca25895c512A8308389fFD581F9c9',
     chainId: 7700,
     decimals: 18,
@@ -250,6 +270,7 @@ const _tokens = {
   PEPE: {
     name: 'Pepe',
     symbol: 'PEPE',
+    oracleId: 'PEPE',
     address: '0xf390830DF829cf22c53c8840554B98eafC5dCBc2',
     chainId: 7700,
     decimals: 18,
@@ -261,6 +282,7 @@ const _tokens = {
   sCANTO: {
     name: 'Liquid Staked Canto',
     symbol: 'sCANTO',
+    oracleId: 'sCANTO',
     address: '0x9F823D534954Fc119E31257b3dDBa0Db9E2Ff4ed',
     chainId: 7700,
     decimals: 18,
@@ -274,6 +296,7 @@ const _tokens = {
   BLOTR: {
     name: 'sCANTO BLOTR',
     symbol: 'BLOTR',
+    oracleId: 'BLOTR',
     address: '0xFf0BAF077e8035A3dA0dD2abeCECFbd98d8E63bE',
     chainId: 7700,
     decimals: 18,
@@ -287,6 +310,7 @@ const _tokens = {
   CVM: {
     name: 'Canto Velocimeter',
     symbol: 'CVM',
+    oracleId: 'CVM',
     address: '0xbAD86785eB08fe9d0948B7D9d24523000A177cD0',
     chainId: 7700,
     decimals: 18,
@@ -299,6 +323,7 @@ const _tokens = {
   oCVM: {
     name: 'Option to buy CVM',
     symbol: 'oCVM',
+    oracleId: 'oCVM',
     address: '0x5C2a258A169Fd683e784686E606E33f6D8c31b9a',
     chainId: 7700,
     decimals: 18,

@@ -5,6 +5,7 @@ const CRO = {
   name: 'Wrapped CRO',
   address: '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23',
   symbol: 'WCRO',
+  oracleId: 'CRO',
   decimals: 18,
   chainId: 25,
   website: 'https://cronos.crypto.org/',
@@ -20,6 +21,7 @@ const _tokens = {
   FIRA: {
     name: 'Fira',
     symbol: 'FIRA',
+    oracleId: 'FIRA',
     address: '0x7ABa852082b6F763E13010CA33B5D9Ea4EeE2983',
     chainId: 25,
     decimals: 18,
@@ -31,6 +33,7 @@ const _tokens = {
   VERSA: {
     name: 'VersaGames VERSA',
     symbol: 'VERSA',
+    oracleId: 'VERSA',
     address: '0x00D7699b71290094CcB1a5884cD835bD65a78c17',
     chainId: 25,
     decimals: 18,
@@ -41,6 +44,7 @@ const _tokens = {
   MTD: {
     name: 'Minted',
     symbol: 'MTD',
+    oracleId: 'MTD',
     address: '0x0224010BA2d567ffa014222eD960D1fa43B8C8E1',
     chainId: 25,
     decimals: 18,
@@ -52,6 +56,7 @@ const _tokens = {
   FER: {
     name: 'Ferro',
     symbol: 'FER',
+    oracleId: 'FER',
     address: '0x39bC1e38c842C60775Ce37566D03B41A7A66C782',
     chainId: 25,
     decimals: 18,
@@ -63,6 +68,7 @@ const _tokens = {
   sCRO: {
     name: 'sCRO',
     symbol: 'sCRO',
+    oracleId: 'sCRO',
     address: '0xA01fAe0612a4786ec296Be7f87b292F05c68186B',
     chainId: 25,
     decimals: 18,
@@ -74,6 +80,7 @@ const _tokens = {
   pCRO: {
     name: 'pCRO',
     symbol: 'pCRO',
+    oracleId: 'pCRO',
     address: '0xA5e6a847f79BA19AAF41b8e1B2e6C4741234C6b7',
     chainId: 25,
     decimals: 18,
@@ -85,6 +92,7 @@ const _tokens = {
   APE: {
     name: 'APECoin',
     symbol: 'APE',
+    oracleId: 'APE',
     address: '0x9C62F89a8C9907582f21205Ce90443730361EA05',
     chainId: 25,
     decimals: 18,
@@ -96,6 +104,7 @@ const _tokens = {
   ALI: {
     name: 'Alethea Artificial Liquid Intelligence Token ALI',
     symbol: 'ALI',
+    oracleId: 'ALI',
     address: '0x45C135C1CDCE8d25A3B729A28659561385C52671',
     chainId: 25,
     decimals: 18,
@@ -107,6 +116,7 @@ const _tokens = {
   TUSD: {
     name: 'True USD',
     symbol: 'TUSD',
+    oracleId: 'TUSD',
     address: '0x87EFB3ec1576Dec8ED47e58B832bEdCd86eE186e',
     decimals: 18,
     chainId: 25,
@@ -121,6 +131,7 @@ const _tokens = {
     decimals: 18,
     name: 'SKY',
     symbol: 'SKY',
+    oracleId: 'SKY',
     website: 'https://www.darkcrypto.finance/',
     description: 'The first algorithmic token pegged to CRO running on the Cronos Chain',
     logoURI: 'https://assets.coingecko.com/coins/images/22517/small/logo-token-2.e9c15b63.png',
@@ -131,6 +142,7 @@ const _tokens = {
     decimals: 18,
     name: 'DARK',
     symbol: 'DARK',
+    oracleId: 'DARK',
     website: 'https://www.darkcrypto.finance/',
     description: 'The first algorithmic token pegged to CRO running on the Cronos Chain',
     logoURI: 'https://assets.coingecko.com/coins/images/22456/small/DARK_bgWhite.png',
@@ -141,6 +153,7 @@ const _tokens = {
     decimals: 18,
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
@@ -151,6 +164,7 @@ const _tokens = {
   TONIC: {
     name: 'Tectonic Governance Token',
     symbol: 'TONIC',
+    oracleId: 'TONIC',
     address: '0xDD73dEa10ABC2Bff99c60882EC5b2B81Bb1Dc5B2',
     chainId: 25,
     decimals: 18,
@@ -163,6 +177,7 @@ const _tokens = {
   LIQ: {
     name: 'Liquidus',
     symbol: 'LIQ',
+    oracleId: 'LIQ',
     address: '0xABd380327Fe66724FFDa91A87c772FB8D00bE488',
     chainId: 25,
     decimals: 18,
@@ -174,6 +189,7 @@ const _tokens = {
   ATOM: {
     name: 'Cosmos Token',
     symbol: 'ATOM',
+    oracleId: 'ATOM',
     address: '0xB888d8Dd1733d72681b30c00ee76BDE93ae7aa93',
     chainId: 25,
     decimals: 6,
@@ -187,6 +203,7 @@ const _tokens = {
   DOGE: {
     name: 'Doge Token',
     symbol: 'DOGE',
+    oracleId: 'DOGE',
     address: '0x1a8E39ae59e5556B56b76fCBA98d22c9ae557396',
     chainId: 25,
     decimals: 8,
@@ -199,6 +216,7 @@ const _tokens = {
   SHIB: {
     name: 'Shiba Inu',
     symbol: 'SHIB',
+    oracleId: 'SHIB',
     address: '0xbED48612BC69fA1CaB67052b42a95FB30C1bcFee',
     chainId: 25,
     decimals: 18,
@@ -211,6 +229,7 @@ const _tokens = {
   VVS: {
     name: 'VVSToken',
     symbol: 'VVS',
+    oracleId: 'VVS',
     address: '0x2D03bECE6747ADC00E1a131BBA1469C15fD11e03',
     chainId: 25,
     decimals: 18,
@@ -223,6 +242,7 @@ const _tokens = {
   USDC: {
     name: 'USD Coin',
     symbol: 'USDC',
+    oracleId: 'USDC',
     address: '0xc21223249CA28397B4B6541dfFaEcC539BfF0c59',
     chainId: 25,
     decimals: 6,
@@ -237,6 +257,7 @@ const _tokens = {
   ETH: {
     name: 'Ethereum',
     symbol: 'ETH',
+    oracleId: 'ETH',
     address: '0xe44Fd7fCb2b1581822D0c862B68222998a0c299a',
     chainId: 25,
     decimals: 18,
@@ -248,6 +269,7 @@ const _tokens = {
   WBTC: {
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     address: '0x062E66477Faf219F25D27dCED647BF57C3107d52',
     chainId: 25,
     decimals: 8,
@@ -261,6 +283,7 @@ const _tokens = {
   CRONA: {
     name: 'CronaSwap Token',
     symbol: 'CRONA',
+    oracleId: 'CRONA',
     address: '0xadbd1231fb360047525BEdF962581F3eee7b49fe',
     chainId: 25,
     decimals: 18,
@@ -273,6 +296,7 @@ const _tokens = {
   USDT: {
     name: 'Tether USD',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0x66e428c3f67a68878562e79A0234c1F83c208770',
     chainId: 25,
     decimals: 6,
@@ -286,6 +310,7 @@ const _tokens = {
   DAI: {
     name: 'DAI Token',
     symbol: 'DAI',
+    oracleId: 'DAI',
     address: '0xF2001B145b43032AAF5Ee2884e456CCd805F677D',
     chainId: 25,
     decimals: 18,
@@ -299,6 +324,7 @@ const _tokens = {
   BUSD: {
     name: 'BUSD Token',
     symbol: 'BUSD',
+    oracleId: 'BUSD',
     address: '0xC74D59A548ecf7fc1754bb7810D716E9Ac3e3AE5',
     chainId: 25,
     decimals: 18,
@@ -311,6 +337,7 @@ const _tokens = {
   BUSDb: {
     name: 'BUSD Token (Multichain)',
     symbol: 'BUSD',
+    oracleId: 'BUSDb',
     address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
     chainId: 25,
     decimals: 18,
@@ -323,6 +350,7 @@ const _tokens = {
   MATIC: {
     name: 'MATIC Token',
     symbol: 'MATIC',
+    oracleId: 'MATIC',
     address: '0xc9BAA8cfdDe8E328787E29b4B078abf2DaDc2055',
     chainId: 25,
     decimals: 18,
@@ -335,6 +363,7 @@ const _tokens = {
   AVAX: {
     name: 'Avalanche Token',
     symbol: 'AVAX',
+    oracleId: 'AVAX',
     address: '0x765277EebeCA2e31912C9946eAe1021199B39C61',
     chainId: 25,
     decimals: 18,
@@ -347,6 +376,7 @@ const _tokens = {
   FTM: {
     name: 'Fantom Token',
     symbol: 'FTM',
+    oracleId: 'FTM',
     address: '0xB44a9B6905aF7c801311e8F4E76932ee959c663C',
     chainId: 25,
     decimals: 18,
@@ -359,6 +389,7 @@ const _tokens = {
   BNB: {
     name: 'Binance Token',
     symbol: 'BNB',
+    oracleId: 'BNB',
     address: '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f',
     chainId: 25,
     decimals: 18,

@@ -7,6 +7,7 @@ const AVAX = {
   decimals: 18,
   name: 'Wrapped AVAX',
   symbol: 'WAVAX',
+  oracleId: 'AVAX',
   website: 'https://www.avalabs.org/',
   description:
     'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
@@ -19,6 +20,7 @@ const _tokens = {
   EURC: {
     name: 'Euro Coin',
     symbol: 'EURC',
+    oracleId: 'EURC',
     address: '0xC891EB4cbdEFf6e073e859e987815Ed1505c2ACD',
     chainId: 43114,
     decimals: 6,
@@ -32,6 +34,7 @@ const _tokens = {
   frxETH: {
     name: 'Frax Ether',
     symbol: 'frxETH',
+    oracleId: 'frxETH',
     address: '0x2018B0CA0eDcE80800851958bD094dD4a8DA1fc4',
     chainId: 43114,
     decimals: 18,
@@ -44,6 +47,7 @@ const _tokens = {
   sfrxETH: {
     name: 'Staked Frax Ether',
     symbol: 'sfrxETH',
+    oracleId: 'sfrxETH',
     address: '0x6D3B126ae28f3E39894070148B377624F6Ab4a45',
     chainId: 43114,
     decimals: 18,
@@ -56,6 +60,7 @@ const _tokens = {
   'USD+': {
     name: 'USD+ Stablecoin',
     symbol: 'USD+',
+    oracleId: 'USD+',
     address: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
     chainId: 43114,
     decimals: 6,
@@ -68,6 +73,7 @@ const _tokens = {
   CAI: {
     name: 'Colony Avalanche Index CAI',
     symbol: 'CAI',
+    oracleId: 'CAI',
     address: '0x48f88A3fE843ccb0b5003e70B4192c1d7448bEf0',
     chainId: 43114,
     decimals: 18,
@@ -79,6 +85,7 @@ const _tokens = {
   POPS: {
     name: 'Swapsicle',
     symbol: 'POPS',
+    oracleId: 'POPS',
     address: '0x240248628B7B6850352764C5dFa50D1592A033A8',
     chainId: 43114,
     decimals: 18,
@@ -90,6 +97,7 @@ const _tokens = {
   BTCb: {
     name: 'Bitcoin',
     symbol: 'BTCb',
+    oracleId: 'BTCb',
     address: '0x152b9d0FdC40C096757F570A51E494bd4b943E50',
     chainId: 43114,
     decimals: 8,
@@ -102,6 +110,7 @@ const _tokens = {
   BPT: {
     name: 'Bold Point BPT',
     symbol: 'BPT',
+    oracleId: 'BPT',
     address: '0x1111111111182587795eF1098ac7da81a108C97a',
     chainId: 43114,
     decimals: 18,
@@ -114,6 +123,7 @@ const _tokens = {
   DBY: {
     name: 'Metaderby DBY',
     symbol: 'DBY',
+    oracleId: 'DBY',
     address: '0x5085434227aB73151fAd2DE546210Cbc8663dF96',
     chainId: 43114,
     decimals: 18,
@@ -126,6 +136,7 @@ const _tokens = {
   beJOE: {
     name: 'Beefy JOE',
     symbol: 'beJOE',
+    oracleId: 'beJOE',
     address: '0x1F2A8034f444dc55F963fb5925A9b6eb744EeE2c',
     chainId: 43114,
     decimals: 18,
@@ -137,6 +148,7 @@ const _tokens = {
   YETI: {
     name: 'Yeti YETI',
     symbol: 'YETI',
+    oracleId: 'YETI',
     address: '0x77777777777d4554c39223C354A05825b2E8Faa3',
     chainId: 43114,
     decimals: 18,
@@ -149,6 +161,7 @@ const _tokens = {
   YUSD: {
     name: 'Yeti YUSD',
     symbol: 'YUSD',
+    oracleId: 'YUSD',
     address: '0x111111111111ed1D73f860F57b2798b683f2d325',
     chainId: 43114,
     decimals: 18,
@@ -161,6 +174,7 @@ const _tokens = {
   axlATOM: {
     name: 'Axelar Wrapped ATOM',
     symbol: 'ATOM',
+    oracleId: 'axlATOM',
     address: '0x80D18b1c9Ab0c9B5D6A6d5173575417457d00a12',
     chainId: 43114,
     decimals: 6,
@@ -172,6 +186,7 @@ const _tokens = {
   LOST: {
     name: 'Lost Worlds LOST',
     symbol: 'LOST',
+    oracleId: 'LOST',
     address: '0x449674B82F05d498E126Dd6615a1057A9c088f2C',
     chainId: 43114,
     decimals: 18,
@@ -184,6 +199,7 @@ const _tokens = {
   AVAXL: {
     name: 'Top Shelf AVAX L-Token',
     symbol: 'AVAXL',
+    oracleId: 'AVAXL',
     address: '0xe0237F9E2aaABd7Ffb8630BE5203D573a045Bca7',
     chainId: 43114,
     decimals: 18,
@@ -195,6 +211,7 @@ const _tokens = {
   MONEY: {
     name: 'Moremoney USD',
     symbol: 'MONEY',
+    oracleId: 'MONEY',
     address: '0x0f577433Bf59560Ef2a79c124E9Ff99fCa258948',
     chainId: 43114,
     decimals: 18,
@@ -206,6 +223,7 @@ const _tokens = {
   USTw: {
     name: 'TerraUSD (Wormhole)',
     symbol: 'USTw',
+    oracleId: 'USTw',
     address: '0xb599c3590F42f8F995ECfa0f85D2980B76862fc1',
     chainId: 43114,
     decimals: 6,
@@ -219,6 +237,7 @@ const _tokens = {
     name: 'Stargate USD Coin LP',
     address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
     symbol: 'saUSDC',
+    oracleId: 'saUSDC',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
     description:
@@ -230,6 +249,7 @@ const _tokens = {
   saUSDT: {
     name: 'Stargate Tether USD LP',
     symbol: 'saUSDT',
+    oracleId: 'saUSDT',
     address: '0x29e38769f23701A2e4A8Ef0492e19dA4604Be62c',
     chainId: 43114,
     decimals: 6,
@@ -242,6 +262,7 @@ const _tokens = {
   STG: {
     name: 'Stargate',
     symbol: 'STG',
+    oracleId: 'STG',
     address: '0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590',
     chainId: 43114,
     decimals: 18,
@@ -254,6 +275,7 @@ const _tokens = {
   FLY: {
     name: 'Hoppers Game FLY',
     symbol: 'FLY',
+    oracleId: 'FLY',
     address: '0x78Ea3fef1c1f07348199Bf44f45b803b9B0Dbe28',
     chainId: 43114,
     decimals: 18,
@@ -266,6 +288,7 @@ const _tokens = {
   APE: {
     name: 'ApeCoin APE',
     symbol: 'APE',
+    oracleId: 'APE',
     address: '0x0802d66f029c46E042b74d543fC43B6705ccb4ba',
     chainId: 43114,
     decimals: 18,
@@ -278,6 +301,7 @@ const _tokens = {
   DEG: {
     name: 'DegisToken',
     symbol: 'DEG',
+    oracleId: 'DEG',
     address: '0x9f285507Ea5B4F33822CA7aBb5EC8953ce37A645',
     chainId: 43114,
     decimals: 18,
@@ -289,6 +313,7 @@ const _tokens = {
   EGG: {
     name: 'Chikn Egg',
     symbol: 'EGG',
+    oracleId: 'EGG',
     address: '0x7761E2338B35bCEB6BdA6ce477EF012bde7aE611',
     chainId: 43114,
     decimals: 18,
@@ -299,6 +324,7 @@ const _tokens = {
   FEED: {
     name: 'Chikn Feed',
     symbol: 'FEED',
+    oracleId: 'FEED',
     address: '0xab592d197ACc575D16C3346f4EB70C703F308D1E',
     chainId: 43114,
     decimals: 18,
@@ -309,6 +335,7 @@ const _tokens = {
   ECD: {
     name: 'Echidna ECD',
     symbol: 'ECD',
+    oracleId: 'ECD',
     address: '0xeb8343D5284CaEc921F035207ca94DB6BAaaCBcd',
     chainId: 43114,
     decimals: 18,
@@ -321,6 +348,7 @@ const _tokens = {
   VTX: {
     name: 'Vector',
     symbol: 'VTX',
+    oracleId: 'VTX',
     address: '0x5817D4F0b62A59b17f75207DA1848C2cE75e7AF4',
     chainId: 43114,
     decimals: 18,
@@ -333,6 +361,7 @@ const _tokens = {
   PAE: {
     name: 'Ripae',
     symbol: 'PAE',
+    oracleId: 'PAE',
     address: '0x9466Ab927611725B9AF76b9F31B2F879Ff14233d',
     chainId: 43114,
     decimals: 18,
@@ -344,6 +373,7 @@ const _tokens = {
   pAVAX: {
     name: 'pAVAX',
     symbol: 'pAVAX',
+    oracleId: 'pAVAX',
     address: '0x6ca558bd3eaB53DA1B25aB97916dd14bf6CFEe4E',
     chainId: 43114,
     decimals: 18,
@@ -355,6 +385,7 @@ const _tokens = {
   FIEF: {
     name: 'Fief FIEF',
     symbol: 'FIEF',
+    oracleId: 'FIEF',
     address: '0xeA068Fba19CE95f12d252aD8Cb2939225C4Ea02D',
     chainId: 43114,
     decimals: 18,
@@ -367,6 +398,7 @@ const _tokens = {
   BRIBE: {
     name: 'Police & Thief Game BRIBE',
     symbol: 'BRIBE',
+    oracleId: 'BRIBE',
     address: '0xCe2fbed816E320258161CeD52c2d0CEBcdFd8136',
     chainId: 43114,
     decimals: 18,
@@ -379,6 +411,7 @@ const _tokens = {
   TUS: {
     name: 'Treasure Under Sea TUS',
     symbol: 'TUS',
+    oracleId: 'TUS',
     address: '0xf693248F96Fe03422FEa95aC0aFbBBc4a8FdD172',
     chainId: 43114,
     decimals: 18,
@@ -391,6 +424,7 @@ const _tokens = {
   ACRE: {
     name: 'Arable Protocol ACRE',
     symbol: 'ACRE',
+    oracleId: 'ACRE',
     address: '0x00EE200Df31b869a321B10400Da10b561F3ee60d',
     chainId: 43114,
     decimals: 18,
@@ -403,6 +437,7 @@ const _tokens = {
   FIRE: {
     name: 'The Phoenix FIRE',
     symbol: 'FIRE',
+    oracleId: 'FIRE',
     address: '0xfcc6CE74f4cd7eDEF0C5429bB99d38A3608043a5',
     chainId: 43114,
     decimals: 18,
@@ -415,6 +450,7 @@ const _tokens = {
   sAVAX: {
     name: 'Staked Avax',
     symbol: 'sAVAX',
+    oracleId: 'sAVAX',
     address: '0x2b2C81e08f1Af8835a78Bb2A90AE924ACE0eA4bE',
     chainId: 43114,
     decimals: 18,
@@ -427,6 +463,7 @@ const _tokens = {
   LUNA: {
     name: 'Axelar Wrapped LUNA',
     symbol: 'LUNA',
+    oracleId: 'LUNA',
     address: '0x120AD3e5A7c796349e591F1570D9f7980F4eA9cb',
     chainId: 43114,
     decimals: 6,
@@ -439,6 +476,7 @@ const _tokens = {
   DOMI: {
     name: 'DOMI Online DOMI',
     symbol: 'DOMI',
+    oracleId: 'DOMI',
     address: '0xFc6Da929c031162841370af240dEc19099861d3B',
     chainId: 43114,
     decimals: 18,
@@ -450,6 +488,7 @@ const _tokens = {
   LOOT: {
     name: 'Police and Thief Game LOOT',
     symbol: 'LOOT',
+    oracleId: 'LOOT',
     address: '0x7f041ce89A2079873693207653b24C15B5e6A293',
     chainId: 43114,
     decimals: 18,
@@ -462,6 +501,7 @@ const _tokens = {
   WINE: {
     name: 'WINE',
     symbol: 'WINE',
+    oracleId: 'WINE',
     address: '0xC55036B5348CfB45a932481744645985010d3A44',
     chainId: 43114,
     decimals: 18,
@@ -472,6 +512,7 @@ const _tokens = {
   GRAPE: {
     name: 'GRAPE',
     symbol: 'GRAPE',
+    oracleId: 'GRAPE',
     address: '0x5541D83EFaD1f281571B343977648B75d95cdAC2',
     chainId: 43114,
     decimals: 18,
@@ -482,6 +523,7 @@ const _tokens = {
   DCAU: {
     name: 'Dragon Crypto Aurum DCAU',
     symbol: 'DCAU',
+    oracleId: 'DCAU',
     address: '0x100Cc3a819Dd3e8573fD2E46D1E66ee866068f30',
     chainId: 43114,
     decimals: 18,
@@ -494,6 +536,7 @@ const _tokens = {
   HEC: {
     name: 'HeroesChained HEC',
     symbol: 'HEC',
+    oracleId: 'HEC',
     address: '0xC7f4debC8072e23fe9259A5C0398326d8EfB7f5c',
     chainId: 43114,
     decimals: 18,
@@ -506,6 +549,7 @@ const _tokens = {
   COOK: {
     name: 'Cook COOK',
     symbol: 'COOK',
+    oracleId: 'COOK',
     address: '0x637afeff75ca669fF92e4570B14D6399A658902f',
     chainId: 43114,
     decimals: 18,
@@ -518,6 +562,7 @@ const _tokens = {
   UST: {
     name: 'Axelar Wrapped UST',
     symbol: 'UST',
+    oracleId: 'UST',
     address: '0x260Bbf5698121EB85e7a74f2E45E16Ce762EbE11',
     chainId: 43114,
     decimals: 6,
@@ -530,6 +575,7 @@ const _tokens = {
   MORE: {
     name: 'More Token',
     symbol: 'MORE',
+    oracleId: 'MORE',
     address: '0xd9D90f882CDdD6063959A9d837B05Cb748718A05',
     chainId: 43114,
     decimals: 18,
@@ -542,6 +588,7 @@ const _tokens = {
   FRM: {
     name: 'Ferrum Network Token',
     symbol: 'FRM',
+    oracleId: 'FRM',
     address: '0xE5CAeF4Af8780E59Df925470b050Fb23C43CA68C',
     chainId: 43114,
     decimals: 18,
@@ -557,6 +604,7 @@ const _tokens = {
     decimals: 18,
     name: 'DeFi Kingdoms',
     symbol: 'JEWEL',
+    oracleId: 'JEWEL',
     website: 'https://defikingdoms.com/',
     description:
       'JEWEL is the governance token that powers DeFi Kingdoms which can be used to purchase NFTs such as items, heroes, and kingdoms. Holders can also stake them into liquidity mining pools to earn a yield from the protocol.',
@@ -568,6 +616,7 @@ const _tokens = {
     decimals: 18,
     name: 'Governance OHM',
     symbol: 'gOHM',
+    oracleId: 'gOHM',
     website: 'https://www.olympusdao.finance/',
     description:
       'Olympus is building a community-owned decentralized financial infrastructure to bring more stability and transparency for the world.',
@@ -580,6 +629,7 @@ const _tokens = {
     decimals: 18,
     name: 'Qi Dao',
     symbol: 'QI',
+    oracleId: 'QI',
     website: 'https://www.mai.finance/',
     description:
       'QiDao is a self-sustaining, community-governed protocol that allows you to borrow stablecoins interest-free against your crypto assets used as collateral. Loans are paid out and repaid in miTokens (stablecoin soft pegged to the USD).',
@@ -592,6 +642,7 @@ const _tokens = {
     decimals: 18,
     name: 'Spooky Token',
     symbol: 'BOO',
+    oracleId: 'BOO',
     website: 'https://spookyswap.finance/',
     description:
       "SpookySwap is an automated market-making (AMM) decentralized exchange (DEX) for the Fantom Opera network. Different from other DEXs, we're invested in building a strong foundation with our BOO token as a governance token, diverse farms, grants to encourage a healthy ecology of other Fantom projects, and user-centered service.",
@@ -603,6 +654,7 @@ const _tokens = {
     decimals: 18,
     name: 'BLIZZ',
     symbol: 'BLZZ',
+    oracleId: 'BLZZ',
     website: 'https://blizz.finance/',
     description:
       'Blizz is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
@@ -614,6 +666,7 @@ const _tokens = {
     decimals: 18,
     name: 'Curve',
     symbol: 'CRV',
+    oracleId: 'CRV',
     website: 'https://curve.fi/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
@@ -625,6 +678,7 @@ const _tokens = {
     decimals: 18,
     name: 'Sing Token',
     symbol: 'SING',
+    oracleId: 'aSING',
     website: 'https://singular.farm/',
     description:
       'Singular is a multichain, decentralized, strategic yield farm running on Polygon, BSC, Fantom and Okchain. Users are incentivized with a triple farming system.',
@@ -636,6 +690,7 @@ const _tokens = {
     decimals: 18,
     name: 'TEDDY',
     symbol: 'TEDDY',
+    oracleId: 'TEDDY',
     website: 'https://teddy.cash/',
     description:
       'TEDDY is a token that captures the fee revenue generated by the Teddy Cash Protocol via staking. Teddy Cash is a decentralized borrowing protocol that allows you to draw 0% interest loans against AVAX used as collateral.',
@@ -647,6 +702,7 @@ const _tokens = {
     decimals: 18,
     name: 'TSD Stablecoin',
     symbol: 'TSD',
+    oracleId: 'TSD',
     website: 'https://teddy.cash/',
     description:
       'The Teddy Dollar (TSD) is the first stablecoin on the Avalanche network that uses AVAX as collateral.',
@@ -658,6 +714,7 @@ const _tokens = {
     decimals: 9,
     name: 'Time',
     symbol: 'TIME',
+    oracleId: 'TIME',
     website: 'https://app.wonderland.money/#/stake',
     description:
       'Wonderland is the first decentralized reserve currency protocol available on the Avalanche Network based on the TIME token. Each TIME token is backed by a basket of assets (e.g., MIM, TIME-AVAX LP Tokens etc etc) in the Wonderland treasury, giving it an intrinsic value that it cannot fall below. Wonderland also introduces economic and game-theoretic dynamics into the market through staking and bonding.',
@@ -670,6 +727,7 @@ const _tokens = {
     decimals: 9,
     name: 'Ampleforth secured by Meter Passport',
     symbol: 'AMPL',
+    oracleId: 'AMPL',
     website: 'https://www.ampleforth.org/',
     description:
       'Meter Passport is a N-way blockchain router that allows assets and information to flow directly from one blockchain to another within minutes or even seconds',
@@ -681,6 +739,7 @@ const _tokens = {
     decimals: 18,
     name: 'Mai Stablecoin',
     symbol: 'MAI',
+    oracleId: 'MAI',
     website: 'https://www.mai.finance/',
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
@@ -694,6 +753,7 @@ const _tokens = {
     decimals: 18,
     name: 'MiMatic',
     symbol: 'MAI',
+    oracleId: 'miMatic',
     website: 'https://www.mai.finance/',
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
@@ -706,6 +766,7 @@ const _tokens = {
     decimals: 18,
     name: 'BenQi',
     symbol: 'QI',
+    oracleId: 'aQI',
     website: 'https://app.benqi.fi/overview',
     description: 'BenQI is lending protocol on the Avalanche blockchain',
     logoURI:
@@ -717,6 +778,7 @@ const _tokens = {
     decimals: 18,
     name: 'Binance Smart Chain',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
@@ -730,6 +792,7 @@ const _tokens = {
     decimals: 18,
     name: 'Binance Smart Chain',
     symbol: 'BNB',
+    oracleId: 'BNB',
     website: 'https://www.binance.com/',
     description:
       'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
@@ -742,6 +805,7 @@ const _tokens = {
     decimals: 18,
     name: 'Pangolin',
     symbol: 'PNG',
+    oracleId: 'PNG',
     website: 'https://pangolin.exchange/',
     description:
       'Pangolin is a community-driven decentralized exchange for Avalanche and Ethereum assets with fast settlement, low transaction fees, and a democratic distribution–powered by Avalanche.',
@@ -757,6 +821,7 @@ const _tokens = {
     decimals: 18,
     name: 'Ether',
     symbol: 'ETH',
+    oracleId: 'ETH',
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
@@ -769,6 +834,7 @@ const _tokens = {
     decimals: 18,
     name: 'Ether',
     symbol: 'ETH',
+    oracleId: 'WETHe',
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
@@ -783,6 +849,7 @@ const _tokens = {
     decimals: 18,
     name: 'Poolz Finance',
     symbol: 'POOLZ',
+    oracleId: 'POOLZ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x96CE026f10890f4836937e6FDe75f13252fdf414/logo.png',
   },
@@ -792,6 +859,7 @@ const _tokens = {
     decimals: 18,
     name: 'ROPE',
     symbol: 'ROPE',
+    oracleId: 'ROPE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xa99DFda608D5c9E7f091e857EfB256cEDA48D57e/logo.png',
   },
@@ -801,6 +869,7 @@ const _tokens = {
     decimals: 18,
     name: '0x Protocol Token',
     symbol: 'ZRX',
+    oracleId: 'ZRX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC8E94215b75F5B9c3b5fB041eC3A97B7D17a37Ff/logo.png',
   },
@@ -810,6 +879,7 @@ const _tokens = {
     decimals: 18,
     name: '0xMonero',
     symbol: '0xMR',
+    oracleId: '0xMR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC309fd43f845A46AA2A4C75459b076543C6E9F4a/logo.png',
   },
@@ -819,6 +889,7 @@ const _tokens = {
     decimals: 18,
     name: '1INCH Token',
     symbol: '1INCH',
+    oracleId: '1INCH',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xE54EB2C3009Fa411BF24fB017F9725b973CE36F0/logo.png',
   },
@@ -828,6 +899,7 @@ const _tokens = {
     decimals: 18,
     name: '88mph.app',
     symbol: 'MPH',
+    oracleId: 'MPH',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xa477b670C46fe58cF48708D9519a5E8875a48062/logo.png',
   },
@@ -837,6 +909,7 @@ const _tokens = {
     decimals: 18,
     name: 'Aave Token',
     symbol: 'AAVE',
+    oracleId: 'AAVEe',
     website: 'https://app.aave.com/markets',
     description:
       'Aave is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
@@ -849,6 +922,7 @@ const _tokens = {
     decimals: 18,
     name: 'Aave Token',
     symbol: 'AAVE',
+    oracleId: 'AAVE',
     website: 'https://app.aave.com/markets',
     description:
       'Aave is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
@@ -861,6 +935,7 @@ const _tokens = {
     decimals: 18,
     name: 'ABYSS',
     symbol: 'ABYSS',
+    oracleId: 'ABYSS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2C4Ac7ABe6D09F81a775DE153E5593c8C56884eb/logo.png',
   },
@@ -870,6 +945,7 @@ const _tokens = {
     decimals: 18,
     name: 'AceD',
     symbol: 'AceD',
+    oracleId: 'AceD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x0A15ed1B1F1BE0b2024b4d22B4f19Ebb99A6fd11/logo.png',
   },
@@ -879,6 +955,7 @@ const _tokens = {
     decimals: 18,
     name: 'AdEx Network',
     symbol: 'ADX',
+    oracleId: 'ADX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xEdd6ce14626B228D90aF0fB126a432e4b2174844/logo.png',
   },
@@ -888,6 +965,7 @@ const _tokens = {
     decimals: 18,
     name: 'AgriChain Utility Token',
     symbol: 'AGRI',
+    oracleId: 'AGRI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xcc6421b76190b5e7D1029824F6C988456C798291/logo.png',
   },
@@ -897,6 +975,7 @@ const _tokens = {
     decimals: 18,
     name: 'AidCoin',
     symbol: 'AID',
+    oracleId: 'AID',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2e1Bc9fA6F579471e7e09084a054a858d792D981/logo.png',
   },
@@ -906,6 +985,7 @@ const _tokens = {
     decimals: 18,
     name: 'Akropolis',
     symbol: 'AKRO',
+    oracleId: 'AKRO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x086A23685F2A33BfdeDF4dEd738e9afDdfb854Ed/logo.png',
   },
@@ -915,6 +995,7 @@ const _tokens = {
     decimals: 18,
     name: 'Akropolis Delphi',
     symbol: 'ADEL',
+    oracleId: 'ADEL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x98E1cF8b9D1DEb2F0C9F2a0A59Ee2fB60a6F10C9/logo.png',
   },
@@ -924,6 +1005,7 @@ const _tokens = {
     decimals: 18,
     name: 'aleph.im v2',
     symbol: 'ALEPH',
+    oracleId: 'ALEPH',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x969A3f4481583843dB706332E344412235c0892a/logo.png',
   },
@@ -933,6 +1015,7 @@ const _tokens = {
     decimals: 18,
     name: 'AllianceBlock Token',
     symbol: 'ALBT',
+    oracleId: 'ALBT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC0c9b6714a482AAD7b11327cCf4d7a0545A828a5/logo.png',
   },
@@ -942,6 +1025,7 @@ const _tokens = {
     decimals: 18,
     name: 'AlphaToken',
     symbol: 'ALPHA',
+    oracleId: 'ALPHA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8Ea071D1903B27Ee57c82710B3a7cF660f285Bb8/logo.png',
   },
@@ -951,6 +1035,7 @@ const _tokens = {
     decimals: 18,
     name: 'Amon',
     symbol: 'AMN',
+    oracleId: 'AMN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC95F62A06BA7Fb11389474EE1d4aA606A2A0D125/logo.png',
   },
@@ -960,6 +1045,7 @@ const _tokens = {
     decimals: 18,
     name: 'Amp',
     symbol: 'AMP',
+    oracleId: 'AMP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x74A13926Df3e38a7BB7D12f566694f2E66Ba145E/logo.png',
   },
@@ -969,6 +1055,7 @@ const _tokens = {
     decimals: 18,
     name: 'Ankr Network',
     symbol: 'ANKR',
+    oracleId: 'ANKR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xd09Af6A3C12EC24CeD114A0829F5Bf73D40dC5A8/logo.png',
   },
@@ -978,6 +1065,7 @@ const _tokens = {
     decimals: 18,
     name: 'AnRKey X',
     symbol: 'ANRX',
+    oracleId: 'ANRX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x68Fa782392ff75689b6EE6E1559de2Afc634DCe8/logo.png',
   },
@@ -987,6 +1075,7 @@ const _tokens = {
     decimals: 18,
     name: 'API3',
     symbol: 'API3',
+    oracleId: 'API3',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBf853B96F95Fae6883E9cBC813B4021FCcF1eED4/logo.png',
   },
@@ -996,6 +1085,7 @@ const _tokens = {
     decimals: 18,
     name: 'APY Governance Token',
     symbol: 'APY',
+    oracleId: 'APY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x524CefBaD8aa1e7921d465A9f056fc52FF6a284F/logo.png',
   },
@@ -1005,6 +1095,7 @@ const _tokens = {
     decimals: 18,
     name: 'Aragon Network Token',
     symbol: 'ANT',
+    oracleId: 'ANT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6C67e7D38570d6c7FFFdbB930cF204D97C62C470/logo.png',
   },
@@ -1014,6 +1105,7 @@ const _tokens = {
     decimals: 18,
     name: 'Askobar Network',
     symbol: 'ASKO',
+    oracleId: 'ASKO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaDCfCb796ab61Ebcd0676c6B6e13a270Fd55b402/logo.png',
   },
@@ -1023,6 +1115,7 @@ const _tokens = {
     decimals: 18,
     name: 'AstroTools.io',
     symbol: 'ASTRO',
+    oracleId: 'ASTRO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaDA58D37D13EF5B665C46e474ac4D1AEf12EBdB1/logo.png',
   },
@@ -1032,6 +1125,7 @@ const _tokens = {
     decimals: 18,
     name: 'ATIS Token',
     symbol: 'ATIS',
+    oracleId: 'ATIS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x77619878ccDd644Dd5e67cA0f8F04Dfaae42D542/logo.png',
   },
@@ -1041,6 +1135,7 @@ const _tokens = {
     decimals: 18,
     name: 'Auctus Token',
     symbol: 'AUC',
+    oracleId: 'AUC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xAeaDfDc09c284E848aeBA876FF086Ed06A95B4b2/logo.png',
   },
@@ -1050,6 +1145,7 @@ const _tokens = {
     decimals: 18,
     name: 'Audius',
     symbol: 'AUDIO',
+    oracleId: 'AUDIO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8e32F45c87b39F15529787A77cFa7bA48CFAC7f0/logo.png',
   },
@@ -1059,6 +1155,7 @@ const _tokens = {
     decimals: 18,
     name: 'Axie Infinity Shard',
     symbol: 'AXS',
+    oracleId: 'AXS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x860d87C4EE3bf2F001a641e32FbeF8F0342Ba924/logo.png',
   },
@@ -1068,6 +1165,7 @@ const _tokens = {
     decimals: 18,
     name: 'BAC',
     symbol: 'BAC',
+    oracleId: 'BAC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x17002A182B20F7a393808c5E013EC5fe770C9302/logo.png',
   },
@@ -1077,6 +1175,7 @@ const _tokens = {
     decimals: 18,
     name: 'Balancer',
     symbol: 'BAL',
+    oracleId: 'BAL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xA2A035Dd93b0e963864FA14A240401d6CeAc5558/logo.png',
   },
@@ -1086,6 +1185,7 @@ const _tokens = {
     decimals: 18,
     name: 'Bancor Network Token',
     symbol: 'BNT',
+    oracleId: 'BNT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xeD44979561a797515767B0201121afC4b5eE2838/logo.png',
   },
@@ -1095,6 +1195,7 @@ const _tokens = {
     decimals: 18,
     name: 'Bancor USD Token',
     symbol: 'USDB',
+    oracleId: 'USDB',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x764CC68cd46cB00644216682C3ee120b2f1EB5F6/logo.png',
   },
@@ -1104,6 +1205,7 @@ const _tokens = {
     decimals: 18,
     name: 'BandToken',
     symbol: 'BAND',
+    oracleId: 'BAND',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6Fd02c0789797e595751208a2446faF721B9f3C2/logo.png',
   },
@@ -1113,6 +1215,7 @@ const _tokens = {
     decimals: 18,
     name: 'Bankroll Vault',
     symbol: 'VLT',
+    oracleId: 'VLT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xd02D849512780BF29Cf48D56900a4B025e478D3E/logo.png',
   },
@@ -1122,6 +1225,7 @@ const _tokens = {
     decimals: 18,
     name: 'BaoToken',
     symbol: 'BAO',
+    oracleId: 'BAO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x353Be78373b6b75B5A61d952fccCb95C1d3e0bc8/logo.png',
   },
@@ -1131,6 +1235,7 @@ const _tokens = {
     decimals: 18,
     name: 'BarnBridge Governance Token',
     symbol: 'BOND',
+    oracleId: 'BOND',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x59Cd8bb3E49930F313eD744585E4067bc45cF85d/logo.png',
   },
@@ -1140,6 +1245,7 @@ const _tokens = {
     decimals: 18,
     name: 'BAS',
     symbol: 'BAS',
+    oracleId: 'BAS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3f4409c13C3BB310317643C6ee15576b3d427Ddd/logo.png',
   },
@@ -1149,6 +1255,7 @@ const _tokens = {
     decimals: 18,
     name: 'Basic Attention Token',
     symbol: 'BAT',
+    oracleId: 'BAT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6b329326E0F6b95B93b52229b213334278D6f277/logo.png',
   },
@@ -1158,6 +1265,7 @@ const _tokens = {
     decimals: 18,
     name: 'BCS',
     symbol: 'BCS',
+    oracleId: 'BCS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xF7427e4A97f3c68fEbC6E6a90632c369524db9Ea/logo.png',
   },
@@ -1167,6 +1275,7 @@ const _tokens = {
     decimals: 18,
     name: 'Better Betting',
     symbol: 'BETR',
+    oracleId: 'BETR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xa6c55D876E920e34203072891c720Ac19f425a2B/logo.png',
   },
@@ -1176,6 +1285,7 @@ const _tokens = {
     decimals: 18,
     name: 'Binance USD',
     symbol: 'BUSD',
+    oracleId: 'BUSD',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
     logoURI:
@@ -1187,6 +1297,7 @@ const _tokens = {
     decimals: 18,
     name: 'Bird.Money',
     symbol: 'BIRD',
+    oracleId: 'BIRD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC83F0172352692A4481dBf07Ddd9F0e3dC5c70D1/logo.png',
   },
@@ -1196,6 +1307,7 @@ const _tokens = {
     decimals: 18,
     name: 'BitClave',
     symbol: 'CAT',
+    oracleId: 'CAT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x024fC8Fe444CFf7682499c08F5bb14241E082d49/logo.png',
   },
@@ -1205,6 +1317,7 @@ const _tokens = {
     decimals: 18,
     name: 'BitSong',
     symbol: 'BTSG',
+    oracleId: 'BTSG',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xc5bac6dc06d1FC9F5eD7b0a04D08747b4c938B6d/logo.png',
   },
@@ -1214,6 +1327,7 @@ const _tokens = {
     decimals: 18,
     name: 'BlitzPredict',
     symbol: 'XBP',
+    oracleId: 'XBP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1F5AE9F37A18Aa6797cdb58838F2E05160082Ae7/logo.png',
   },
@@ -1223,6 +1337,7 @@ const _tokens = {
     decimals: 18,
     name: 'Blocery Token',
     symbol: 'BLY',
+    oracleId: 'BLY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xEEE72b81fc4cf5A4bf9dC10c1d12F73C440ff7e9/logo.png',
   },
@@ -1232,6 +1347,7 @@ const _tokens = {
     decimals: 18,
     name: 'Blockchain Certified Data Token',
     symbol: 'BCDT',
+    oracleId: 'BCDT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x57D4A335260af430F5e0754D99d20Da2f1528BdF/logo.png',
   },
@@ -1241,6 +1357,7 @@ const _tokens = {
     decimals: 18,
     name: 'BLOCKv Token',
     symbol: 'VEE',
+    oracleId: 'VEE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xFE017733FF7E4D2AE17C98B2774fB4d5E3EA46DD/logo.png',
   },
@@ -1250,6 +1367,7 @@ const _tokens = {
     decimals: 18,
     name: 'Bluzelle Token',
     symbol: 'BLZ',
+    oracleId: 'BLZ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6572450E88918154B6f059aa7fCAbA37f5ddc490/logo.png',
   },
@@ -1259,6 +1377,7 @@ const _tokens = {
     decimals: 18,
     name: 'Bondly Token',
     symbol: 'BONDLY',
+    oracleId: 'BONDLY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xD61B293AEFb71f9B83670133d1FAad8487567a53/logo.png',
   },
@@ -1268,6 +1387,7 @@ const _tokens = {
     decimals: 18,
     name: 'Boosted Finance',
     symbol: 'BOOST',
+    oracleId: 'BOOST',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7Ffc73532E29Ac0845E494ec021F1A0791EBd4A7/logo.png',
   },
@@ -1277,6 +1397,7 @@ const _tokens = {
     decimals: 18,
     name: 'Bounce Token',
     symbol: 'BOT',
+    oracleId: 'BOT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4AcEA0eB348a6DB49cb3F8A1D62625342D5f8751/logo.png',
   },
@@ -1286,6 +1407,7 @@ const _tokens = {
     decimals: 18,
     name: 'BTU Protocol',
     symbol: 'BTU',
+    oracleId: 'BTU',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x211960f8260DB1B0171c33931a2aeFd9562592B0/logo.png',
   },
@@ -1295,6 +1417,7 @@ const _tokens = {
     decimals: 18,
     name: 'Cap',
     symbol: 'CAP',
+    oracleId: 'CAP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb2Fb27f45189F3c621545e5E3aAe668A9B1BDf1d/logo.png',
   },
@@ -1304,6 +1427,7 @@ const _tokens = {
     decimals: 18,
     name: 'Cartesi Token',
     symbol: 'CTSI',
+    oracleId: 'CTSI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x71C677beD0DF55AF6d6b19114Dab10E1dE45d9F7/logo.png',
   },
@@ -1313,6 +1437,7 @@ const _tokens = {
     decimals: 18,
     name: 'CBI Index 7',
     symbol: 'CBIX7',
+    oracleId: 'CBIX7',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xeeD4DcDFaE91D39d2b851338433F0013AF5D1406/logo.png',
   },
@@ -1322,6 +1447,7 @@ const _tokens = {
     decimals: 18,
     name: 'ChainLink Token',
     symbol: 'LINK',
+    oracleId: 'LINK',
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
@@ -1334,6 +1460,7 @@ const _tokens = {
     decimals: 18,
     name: 'ChainLink Token',
     symbol: 'LINK',
+    oracleId: 'LINKe',
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
@@ -1348,6 +1475,7 @@ const _tokens = {
     decimals: 18,
     name: 'COL',
     symbol: 'COL',
+    oracleId: 'COL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xEFb603A7844f11D17aDA15B63e3A876AB443372C/logo.png',
   },
@@ -1357,6 +1485,7 @@ const _tokens = {
     decimals: 18,
     name: 'Compound',
     symbol: 'COMP',
+    oracleId: 'COMP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x53CEedB4f6f277edfDDEdB91373B044FE6AB5958/logo.png',
   },
@@ -1366,6 +1495,7 @@ const _tokens = {
     decimals: 18,
     name: 'Concentrated Voting Power',
     symbol: 'CVP',
+    oracleId: 'CVP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xDF9A6628235C90da0a475519D85C9CFFa2a11D4C/logo.png',
   },
@@ -1375,6 +1505,7 @@ const _tokens = {
     decimals: 18,
     name: 'Nitro Network',
     symbol: 'NCASH',
+    oracleId: 'NCASH',
     website: 'https://nitro.network/',
     description:
       'NCash is the native cryptocurrency and protocol token of the Nitro Network. Nitro Network is building a world of private communication networks powered by IoT together with LoRaWAN/3G/4G and 5G.',
@@ -1387,6 +1518,7 @@ const _tokens = {
     decimals: 18,
     name: 'CoTrader',
     symbol: 'COT',
+    oracleId: 'COT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xa8cE5107A2770959edB27529E56E84e11eF55a58/logo.png',
   },
@@ -1396,6 +1528,7 @@ const _tokens = {
     decimals: 18,
     name: 'Cover Protocol',
     symbol: 'COVER',
+    oracleId: 'COVER',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xE0976dCa075C4055cADa33C2452429572885aE7E/logo.png',
   },
@@ -1405,6 +1538,7 @@ const _tokens = {
     decimals: 18,
     name: 'Cover Protocol Governance Token',
     symbol: 'COVER',
+    oracleId: 'Token',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xe35f68f3DE8590F3FD6884Eef166AF9f414D75F7/logo.png',
   },
@@ -1414,6 +1548,7 @@ const _tokens = {
     decimals: 18,
     name: 'Cream',
     symbol: 'CREAM',
+    oracleId: 'CREAM',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb9AB39F9b4E3af0c97aE55EA48A960656C681A88/logo.png',
   },
@@ -1423,6 +1558,7 @@ const _tokens = {
     decimals: 18,
     name: 'CreamY USD',
     symbol: 'cyUSD',
+    oracleId: 'cyUSD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3a9ea8880643211413609A7B717e3884816D15e7/logo.png',
   },
@@ -1432,6 +1568,7 @@ const _tokens = {
     decimals: 18,
     name: 'CryptoFranc',
     symbol: 'XCHF',
+    oracleId: 'XCHF',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3E8a3b1db5401938F6F34E4e6f2560354C182c46/logo.png',
   },
@@ -1441,6 +1578,7 @@ const _tokens = {
     decimals: 18,
     name: 'CudosToken',
     symbol: 'CUDOS',
+    oracleId: 'CUDOS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x422b2328A16b41ecCA56E1854be9943526aD7647/logo.png',
   },
@@ -1450,6 +1588,7 @@ const _tokens = {
     decimals: 18,
     name: 'CurToken',
     symbol: 'CUR',
+    oracleId: 'CUR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x06f9FD59D9E009E7e47a07Df79BC994A07dcFb95/logo.png',
   },
@@ -1459,6 +1598,7 @@ const _tokens = {
     decimals: 18,
     name: 'cVault.finance',
     symbol: 'CORE',
+    oracleId: 'CORE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x424587becE1A7436Ae4a38eD9E8686992236618B/logo.png',
   },
@@ -1468,6 +1608,7 @@ const _tokens = {
     decimals: 18,
     name: 'CyberFi Token',
     symbol: 'CFi',
+    oracleId: 'CFi',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xd77b301D644608eE1E3dC56C3CF8540E6C9EC60F/logo.png',
   },
@@ -1477,6 +1618,7 @@ const _tokens = {
     decimals: 18,
     name: 'Dai Stablecoin',
     symbol: 'DAI',
+    oracleId: 'DAI',
     website: 'https://makerdao.com/en/',
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
@@ -1489,6 +1631,7 @@ const _tokens = {
     decimals: 18,
     name: 'DAOstack',
     symbol: 'GEN',
+    oracleId: 'GEN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2263483B187d8C99d1E7D1f737183097c7071fe2/logo.png',
   },
@@ -1498,6 +1641,7 @@ const _tokens = {
     decimals: 18,
     name: 'Debase',
     symbol: 'DEBASE',
+    oracleId: 'DEBASE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xA449DE69B549B416690aB15D2E67E7fCcD464347/logo.png',
   },
@@ -1507,6 +1651,7 @@ const _tokens = {
     decimals: 18,
     name: 'Decentr',
     symbol: 'DEC',
+    oracleId: 'DEC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xdC6D33821606f6c5FfceD7Bb315152210F3f31d9/logo.png',
   },
@@ -1516,6 +1661,7 @@ const _tokens = {
     decimals: 18,
     name: 'Decentraland MANA',
     symbol: 'MANA',
+    oracleId: 'MANA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x332877d7b83D98eFC3e22C203c54E6e62F7f35e9/logo.png',
   },
@@ -1525,6 +1671,7 @@ const _tokens = {
     decimals: 18,
     name: 'Decentralized Insurance Protocol',
     symbol: 'DIP',
+    oracleId: 'DIP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xa571971CD50b3c17c9F82f43965319907D50341E/logo.png',
   },
@@ -1534,6 +1681,7 @@ const _tokens = {
     decimals: 18,
     name: 'DefiDollar',
     symbol: 'DUSD',
+    oracleId: 'DUSD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x71645323F647488209eAAB8d08900576502160c8/logo.png',
   },
@@ -1543,6 +1691,7 @@ const _tokens = {
     decimals: 18,
     name: 'DefiDollar DAO',
     symbol: 'DFD',
+    oracleId: 'DFD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x30EB0D35147B7a40dB1A54a98F25317E844670e5/logo.png',
   },
@@ -1552,6 +1701,7 @@ const _tokens = {
     decimals: 18,
     name: 'DeFiner',
     symbol: 'FIN',
+    oracleId: 'FIN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7FA965Ebd5bBBee983681E571091A31dDDB2E510/logo.png',
   },
@@ -1561,6 +1711,7 @@ const _tokens = {
     decimals: 18,
     name: 'DeFiPIE Token',
     symbol: 'PIE',
+    oracleId: 'PIE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8320c3cd3a0d671650F5600Cc9d907749AeDa7E1/logo.png',
   },
@@ -1570,6 +1721,7 @@ const _tokens = {
     decimals: 18,
     name: 'DefiPulse Index',
     symbol: 'DPI',
+    oracleId: 'DPI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x150DC9795908a27988aBf71C30E9B1647922A7B3/logo.png',
   },
@@ -1579,6 +1731,7 @@ const _tokens = {
     decimals: 18,
     name: 'Dether',
     symbol: 'DTH',
+    oracleId: 'DTH',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5eC7E661fB06ccFBC371Fb463a284705D53DF32a/logo.png',
   },
@@ -1588,6 +1741,7 @@ const _tokens = {
     decimals: 18,
     name: 'Dev',
     symbol: 'DEV',
+    oracleId: 'DEV',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xD7c26758CA255fb1d7559B02Ff36295be61f6822/logo.png',
   },
@@ -1597,6 +1751,7 @@ const _tokens = {
     decimals: 18,
     name: 'Dexe',
     symbol: 'DEXE',
+    oracleId: 'DEXE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5574eDff4EF9Fce15B22DDB37A7F419b2Abd729E/logo.png',
   },
@@ -1606,6 +1761,7 @@ const _tokens = {
     decimals: 18,
     name: 'DEXTools',
     symbol: 'DEXT',
+    oracleId: 'DEXT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x618B994F06F7168bd3e24C05321cCf0Afd30D6bc/logo.png',
   },
@@ -1615,6 +1771,7 @@ const _tokens = {
     decimals: 18,
     name: 'DFOHub',
     symbol: 'BUIDL',
+    oracleId: 'BUIDL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x30D26864af10565CEdD9E4d5b1fdBd52B49144DD/logo.png',
   },
@@ -1624,6 +1781,7 @@ const _tokens = {
     decimals: 18,
     name: 'dfohub',
     symbol: 'buidl',
+    oracleId: 'buidl',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x933753c297aDe672D68fa3296FdafFD76Db7DFA2/logo.png',
   },
@@ -1633,6 +1791,7 @@ const _tokens = {
     decimals: 18,
     name: 'dForce',
     symbol: 'GOLDx',
+    oracleId: 'GOLDx',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xe3EDb25E952e9b3575EFb71DE14651EF3F2e8FaF/logo.png',
   },
@@ -1642,6 +1801,7 @@ const _tokens = {
     decimals: 18,
     name: 'dHedge DAO Token',
     symbol: 'DHT',
+    oracleId: 'DHT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xeE33c5804b759cCf3A9de88c9E772374147dCdEE/logo.png',
   },
@@ -1651,6 +1811,7 @@ const _tokens = {
     decimals: 18,
     name: 'DIAToken',
     symbol: 'DIA',
+    oracleId: 'DIA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xd072dEcEb5FD919bF8853CeB1068438652a06c00/logo.png',
   },
@@ -1660,6 +1821,7 @@ const _tokens = {
     decimals: 18,
     name: 'DMM - DAI',
     symbol: 'mDAI',
+    oracleId: 'mDAI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6CB5008Ca0CC13862CB47906F541672e8f51A6EF/logo.png',
   },
@@ -1669,6 +1831,7 @@ const _tokens = {
     decimals: 18,
     name: 'DMM - ETH',
     symbol: 'mETH',
+    oracleId: 'mETH',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6FEC3a5e49748088C2b9b1Ef9A6a762ABdD07805/logo.png',
   },
@@ -1678,6 +1841,7 @@ const _tokens = {
     decimals: 18,
     name: 'DMM - Governance',
     symbol: 'DMG',
+    oracleId: 'DMG',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xe9925Cd8639c21DFcEA667D40dD2c8f54f420618/logo.png',
   },
@@ -1687,6 +1851,7 @@ const _tokens = {
     decimals: 18,
     name: 'DMScript',
     symbol: 'DMST',
+    oracleId: 'DMST',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xF64DBa678d653D5Bb743b1E764De0A11fAb0f0a3/logo.png',
   },
@@ -1696,6 +1861,7 @@ const _tokens = {
     decimals: 18,
     name: 'DODO bird',
     symbol: 'DODO',
+    oracleId: 'DODO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x480d6193B2a2Db2702F3ce6FE5Bc1F0c8a95336B/logo.png',
   },
@@ -1705,6 +1871,7 @@ const _tokens = {
     decimals: 18,
     name: 'Donut',
     symbol: 'DONUT',
+    oracleId: 'DONUT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb2Ef3c8A2b27C219FC3396F0e9320df0E29Ec037/logo.png',
   },
@@ -1714,6 +1881,7 @@ const _tokens = {
     decimals: 18,
     name: 'DOS Network Token',
     symbol: 'DOS',
+    oracleId: 'DOS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2C05b134888419b497fE5489D2762031a2de8031/logo.png',
   },
@@ -1723,6 +1891,7 @@ const _tokens = {
     decimals: 18,
     name: 'DuckDaoDime',
     symbol: 'DDIM',
+    oracleId: 'DDIM',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xF40920212A74387387328Db8e30726C0cc62ae33/logo.png',
   },
@@ -1732,6 +1901,7 @@ const _tokens = {
     decimals: 18,
     name: 'Dynamic Set Dollar',
     symbol: 'DSD',
+    oracleId: 'DSD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xcE4Af1de4A61C02E590cA8AD2a1493FF2A3D5fB5/logo.png',
   },
@@ -1741,6 +1911,7 @@ const _tokens = {
     decimals: 18,
     name: 'E-RADIX',
     symbol: 'eXRD',
+    oracleId: 'eXRD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x535E15B13f2A82350E8C02d62BDbA385a6307c30/logo.png',
   },
@@ -1750,6 +1921,7 @@ const _tokens = {
     decimals: 18,
     name: 'EFFORCE IEO',
     symbol: 'WOZX',
+    oracleId: 'WOZX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1830DD37A0ddd3207fFAc9013E4F4D60FEC22036/logo.png',
   },
@@ -1759,6 +1931,7 @@ const _tokens = {
     decimals: 18,
     name: 'ELF Token',
     symbol: 'ELF',
+    oracleId: 'ELF',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xfCDf63735c1Cf3203CE64fEf59DcA6A7aC9A6D54/logo.png',
   },
@@ -1768,6 +1941,7 @@ const _tokens = {
     decimals: 18,
     name: 'Empty Set Dollar',
     symbol: 'ESD',
+    oracleId: 'ESD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x455b3FD5eF7bcA83C0c1Cd71695Ec7aEda773E4f/logo.png',
   },
@@ -1777,6 +1951,7 @@ const _tokens = {
     decimals: 18,
     name: 'Energy Web Token Bridged',
     symbol: 'EWTB',
+    oracleId: 'EWTB',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3447d187934d323bDd1BCc6EDC643D3C8d05D86c/logo.png',
   },
@@ -1786,6 +1961,7 @@ const _tokens = {
     decimals: 18,
     name: 'Enjin Coin',
     symbol: 'ENJ',
+    oracleId: 'ENJ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xCde255522146ddF36d57BA5Cd8D74695bD13C994/logo.png',
   },
@@ -1795,6 +1971,7 @@ const _tokens = {
     decimals: 18,
     name: 'EQUUSMiningToken',
     symbol: 'EQMT',
+    oracleId: 'EQMT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x964A11836e6Ac44E07F8632a9FF6C380Ef0113fd/logo.png',
   },
@@ -1804,6 +1981,7 @@ const _tokens = {
     decimals: 18,
     name: 'ETH RSI 60/40 Yield II',
     symbol: 'ETHRSIAPY',
+    oracleId: 'ETHRSIAPY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xD7b63a3Cf593E72c385A72e28029Bcae6db766D5/logo.png',
   },
@@ -1813,6 +1991,7 @@ const _tokens = {
     decimals: 18,
     name: 'EthLend Token',
     symbol: 'LEND',
+    oracleId: 'LEND',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaeF85E9F467b2Dc187351b37BF63124C0A9bB913/logo.png',
   },
@@ -1822,6 +2001,7 @@ const _tokens = {
     decimals: 18,
     name: 'Ethverse Token',
     symbol: 'ETHV',
+    oracleId: 'ETHV',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb98B8Ea9E894Caa5155Da32646152303839890a3/logo.png',
   },
@@ -1831,6 +2011,7 @@ const _tokens = {
     decimals: 18,
     name: 'Evolution',
     symbol: 'EVO',
+    oracleId: 'EVO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC636AD16dd87C2D412d2c62276813dFC35558A81/logo.png',
   },
@@ -1840,6 +2021,7 @@ const _tokens = {
     decimals: 18,
     name: 'Exeedme',
     symbol: 'XED',
+    oracleId: 'XED',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x0DCE209Cd97C8bd136E433703645Dc431eF93075/logo.png',
   },
@@ -1849,6 +2031,7 @@ const _tokens = {
     decimals: 18,
     name: 'FalconSwap Token',
     symbol: 'FSW',
+    oracleId: 'FSW',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x479914df5B637aa9d439246116d49245Db678f97/logo.png',
   },
@@ -1858,6 +2041,7 @@ const _tokens = {
     decimals: 18,
     name: 'FARM Reward Token',
     symbol: 'FARM',
+    oracleId: 'FARM',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5E92Fb74d337cd3914E0E48a7E679f87f2585471/logo.png',
   },
@@ -1867,6 +2051,7 @@ const _tokens = {
     decimals: 18,
     name: 'FERA',
     symbol: 'FERA',
+    oracleId: 'FERA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5dc1E85C8Db7F79bbd63e6Ae35AbEb50AD55756D/logo.png',
   },
@@ -1876,6 +2061,7 @@ const _tokens = {
     decimals: 18,
     name: 'Fetch',
     symbol: 'FET',
+    oracleId: 'FET',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x23D7e6Af758883F4976617DAB2641af94FF7CA1F/logo.png',
   },
@@ -1885,6 +2071,7 @@ const _tokens = {
     decimals: 18,
     name: 'FinNexus',
     symbol: 'FNX',
+    oracleId: 'FNX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x85B87e0A36865dbdeF50bdFAFB49B272077E0026/logo.png',
   },
@@ -1894,6 +2081,7 @@ const _tokens = {
     decimals: 18,
     name: 'FintruX Network',
     symbol: 'FTX',
+    oracleId: 'FTX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaD4c2Ba8C983E6A06685b6F90D0c517cD3C4301e/logo.png',
   },
@@ -1903,6 +2091,7 @@ const _tokens = {
     decimals: 18,
     name: 'Flexacoin',
     symbol: 'FXC',
+    oracleId: 'FXC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xE9C418927B36F2668dC4fe02028Aa08535a8E347/logo.png',
   },
@@ -1912,6 +2101,7 @@ const _tokens = {
     decimals: 18,
     name: 'Flixx',
     symbol: 'FLIXX',
+    oracleId: 'FLIXX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5d1CE423031a2661F960740f15a93073e6ccAb13/logo.png',
   },
@@ -1921,6 +2111,7 @@ const _tokens = {
     decimals: 18,
     name: 'FOAM Token',
     symbol: 'FOAM',
+    oracleId: 'FOAM',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x23F3C4fF7ef5C752593966BDe70de2Db81398Aa6/logo.png',
   },
@@ -1930,6 +2121,7 @@ const _tokens = {
     decimals: 18,
     name: 'FOX',
     symbol: 'FOX',
+    oracleId: 'FOX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7e7034845b581B959Ad90a6D7424382DDd70C196/logo.png',
   },
@@ -1939,6 +2131,7 @@ const _tokens = {
     decimals: 18,
     name: 'Frax',
     symbol: 'FRAX',
+    oracleId: 'FRAX',
     website: 'https://frax.finance/',
     description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
     bridge: 'frax',
@@ -1951,6 +2144,7 @@ const _tokens = {
     decimals: 18,
     name: 'Frax Share',
     symbol: 'FXS',
+    oracleId: 'FXS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb1BA5Cf8EAa4D3c3439e91c190553E9c92e98E30/logo.png',
   },
@@ -1960,6 +2154,7 @@ const _tokens = {
     decimals: 18,
     name: ' Imperium Empires Token',
     symbol: 'IME',
+    oracleId: 'IME',
     logoURI:
       'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xF891214fdcF9cDaa5fdC42369eE4F27F226AdaD6/logo.png',
   },
@@ -1969,6 +2164,7 @@ const _tokens = {
     decimals: 18,
     name: 'Frontier Token',
     symbol: 'FRONT',
+    oracleId: 'FRONT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3441061CbfDF2351E010DF5D962f1cF0626CF19F/logo.png',
   },
@@ -1978,6 +2174,7 @@ const _tokens = {
     decimals: 18,
     name: 'Fulcrum DAI iToken',
     symbol: 'iDAI',
+    oracleId: 'iDAI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8A8DD8dd5639174F032877b2D6c7467D8B51D561/logo.png',
   },
@@ -1987,6 +2184,7 @@ const _tokens = {
     decimals: 18,
     name: 'Fulcrum ETH iToken',
     symbol: 'iETH',
+    oracleId: 'iETH',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2Ae2CD4e23c09a2B68a24D56D5cf3c4e887Da849/logo.png',
   },
@@ -1996,6 +2194,7 @@ const _tokens = {
     decimals: 18,
     name: 'Furucombo',
     symbol: 'COMBO',
+    oracleId: 'COMBO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xF8fc972343698Ac3C466858ce6CF48bBc83a0852/logo.png',
   },
@@ -2005,6 +2204,7 @@ const _tokens = {
     decimals: 18,
     name: 'Fuse Token',
     symbol: 'FUSE',
+    oracleId: 'FUSE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xd3974AE5A9BCD4AE4c9037a25A67374a11df4154/logo.png',
   },
@@ -2014,6 +2214,7 @@ const _tokens = {
     decimals: 18,
     name: 'Geeq',
     symbol: 'GEEQ',
+    oracleId: 'GEEQ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3326235Ec1AFf2799dE463413114b800d251089d/logo.png',
   },
@@ -2023,6 +2224,7 @@ const _tokens = {
     decimals: 18,
     name: 'Genesis Vision Token',
     symbol: 'GVT',
+    oracleId: 'GVT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x9D3b7a5e30654Ab86039c929880b078B34c41625/logo.png',
   },
@@ -2032,6 +2234,7 @@ const _tokens = {
     decimals: 18,
     name: 'Geyser',
     symbol: 'GYSR',
+    oracleId: 'GYSR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6419e589dB783c5396d94f3237879a010fdB5C44/logo.png',
   },
@@ -2041,6 +2244,7 @@ const _tokens = {
     decimals: 18,
     name: 'GHOST',
     symbol: 'GHOST',
+    oracleId: 'GHOST',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4F229fF652D4dB584BF4b3512aE430edECb85971/logo.png',
   },
@@ -2050,6 +2254,7 @@ const _tokens = {
     decimals: 18,
     name: 'Gnosis Token',
     symbol: 'GNO',
+    oracleId: 'GNO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBAA66822055AD37EC05638eC5AAfDC6Ef0e96445/logo.png',
   },
@@ -2059,6 +2264,7 @@ const _tokens = {
     decimals: 18,
     name: 'Goldmint MNT Prelaunch Token',
     symbol: 'MNTP',
+    oracleId: 'MNTP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x56f45Ca7C6e8d5550b36f4C69a0dEA44defEe3Ef/logo.png',
   },
@@ -2068,6 +2274,7 @@ const _tokens = {
     decimals: 18,
     name: 'Golff.finance',
     symbol: 'GOF',
+    oracleId: 'GOF',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x44D24Df9732DA8b230c819b0bf22b6C6377B42c4/logo.png',
   },
@@ -2077,6 +2284,7 @@ const _tokens = {
     decimals: 18,
     name: 'Graph Token',
     symbol: 'GRT',
+    oracleId: 'GRT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x46C54b16aF7747067f412c78eBaDaE203a26aDa0/logo.png',
   },
@@ -2086,6 +2294,7 @@ const _tokens = {
     decimals: 18,
     name: 'Growth',
     symbol: 'GRO',
+    oracleId: 'GRO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBAd7b06c436200dB693Dd49418A96E2bF857f9a2/logo.png',
   },
@@ -2095,6 +2304,7 @@ const _tokens = {
     decimals: 18,
     name: 'Hakka Finance',
     symbol: 'HAKKA',
+    oracleId: 'HAKKA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf21074038dc2ea2A280EC890be55Ae3Be84616e3/logo.png',
   },
@@ -2104,6 +2314,7 @@ const _tokens = {
     decimals: 18,
     name: 'Hegic',
     symbol: 'HEGIC',
+    oracleId: 'HEGIC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x20642e9cdd6BFe701817A7b50dE89777C8F2b208/logo.png',
   },
@@ -2113,6 +2324,7 @@ const _tokens = {
     decimals: 18,
     name: 'Hermez Network Token',
     symbol: 'HEZ',
+    oracleId: 'HEZ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x79c340eAFaC9Cc81d9BF128aa1785E669e06FBe2/logo.png',
   },
@@ -2122,6 +2334,7 @@ const _tokens = {
     decimals: 18,
     name: 'HoloToken',
     symbol: 'HOT',
+    oracleId: 'HOT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xA471033610995EEdF0D6E4C598a4A9b4EC99c700/logo.png',
   },
@@ -2131,6 +2344,7 @@ const _tokens = {
     decimals: 18,
     name: 'Holyheld',
     symbol: 'HOLY',
+    oracleId: 'HOLY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2167d6A882e9beB324D08e6663d4D419ac578792/logo.png',
   },
@@ -2140,6 +2354,7 @@ const _tokens = {
     decimals: 18,
     name: 'Huobi BTC',
     symbol: 'HBTC',
+    oracleId: 'HBTC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8c1632b83D9E2D3C31B0728e953A22B7B33348A3/logo.png',
   },
@@ -2149,6 +2364,7 @@ const _tokens = {
     decimals: 18,
     name: 'HuobiToken',
     symbol: 'HT',
+    oracleId: 'HT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x421b2a69b886BA17a61C7dAd140B9070d5Ef300B/logo.png',
   },
@@ -2158,6 +2374,7 @@ const _tokens = {
     decimals: 18,
     name: 'IDEX Token',
     symbol: 'IDEX',
+    oracleId: 'IDEX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x59535b9BA6029edb7588dF41Ed388584FBEA706C/logo.png',
   },
@@ -2167,6 +2384,7 @@ const _tokens = {
     decimals: 18,
     name: 'Index',
     symbol: 'INDEX',
+    oracleId: 'INDEX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3d26cefE5fAE96FFd48801e1E61975b3CB75036B/logo.png',
   },
@@ -2176,6 +2394,7 @@ const _tokens = {
     decimals: 18,
     name: 'Indexed',
     symbol: 'NDX',
+    oracleId: 'NDX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7633b4710042F9Dd22e3FC63E59E4BFDcb6813B9/logo.png',
   },
@@ -2185,6 +2404,7 @@ const _tokens = {
     decimals: 18,
     name: 'Indorse Token',
     symbol: 'IND',
+    oracleId: 'IND',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB9d0574a8049e5fd4331ACDc1CF3ce2FF3261bE9/logo.png',
   },
@@ -2194,6 +2414,7 @@ const _tokens = {
     decimals: 18,
     name: 'INFI',
     symbol: 'INFI',
+    oracleId: 'INFI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1d590AD61A7b56071A5858301aCe7DD3D31f0Dd0/logo.png',
   },
@@ -2203,6 +2424,7 @@ const _tokens = {
     decimals: 18,
     name: 'Injective Token',
     symbol: 'INJ',
+    oracleId: 'INJ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xfE057C0496eF3CCa8d85d847dA99c9815ba9981F/logo.png',
   },
@@ -2212,6 +2434,7 @@ const _tokens = {
     decimals: 18,
     name: 'Ink Protocol',
     symbol: 'XNK',
+    oracleId: 'XNK',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x703a3cC60E5E7ed2b28Bdc50D66C260b4aAB03dC/logo.png',
   },
@@ -2221,6 +2444,7 @@ const _tokens = {
     decimals: 18,
     name: 'JUL',
     symbol: 'JUL',
+    oracleId: 'JUL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC839E0D590BBb1b64A46A3F6aB6Feb596ced7439/logo.png',
   },
@@ -2230,6 +2454,7 @@ const _tokens = {
     decimals: 18,
     name: 'KardiaChain Token',
     symbol: 'KAI',
+    oracleId: 'KAI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1D81360dADf2E1756FaeAe46072dD12997170F46/logo.png',
   },
@@ -2239,6 +2464,7 @@ const _tokens = {
     decimals: 18,
     name: 'KEEP Token',
     symbol: 'KEEP',
+    oracleId: 'KEEP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x73945347fbCBFed872D590110f817621440a9d39/logo.png',
   },
@@ -2248,6 +2474,7 @@ const _tokens = {
     decimals: 18,
     name: 'Keep3rV1',
     symbol: 'KP3R',
+    oracleId: 'KP3R',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB42F2c83b4ee3C3620789B5603f4bdf01792e0a0/logo.png',
   },
@@ -2257,6 +2484,7 @@ const _tokens = {
     decimals: 18,
     name: 'Keep4r',
     symbol: 'KP4R',
+    oracleId: 'KP4R',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xEeB395dEc67742cCF7E6Aea920DC2b7FCF01e725/logo.png',
   },
@@ -2266,6 +2494,7 @@ const _tokens = {
     decimals: 18,
     name: 'Kenysians Network',
     symbol: 'KEN',
+    oracleId: 'KEN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x833A32E28Bbb289C0ba13c69A08dB9E9526D4907/logo.png',
   },
@@ -2275,6 +2504,7 @@ const _tokens = {
     decimals: 18,
     name: 'KUSH.FINANCE',
     symbol: 'kSEED',
+    oracleId: 'kSEED',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x47e4c63922766e1b386fa7296c994aC474062Bd4/logo.png',
   },
@@ -2284,6 +2514,7 @@ const _tokens = {
     decimals: 18,
     name: 'Kyber Network Crystal',
     symbol: 'KNC',
+    oracleId: 'KNC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb7f7C9347f55d6d6265e152c636cD29aB17Dc9F6/logo.png',
   },
@@ -2293,6 +2524,7 @@ const _tokens = {
     decimals: 18,
     name: 'Lamden Tau',
     symbol: 'TAU',
+    oracleId: 'TAU',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4D49159F233506087426094CDa371B5817f30331/logo.png',
   },
@@ -2302,6 +2534,7 @@ const _tokens = {
     decimals: 18,
     name: 'LEADCOIN',
     symbol: 'LDC',
+    oracleId: 'LDC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x78c703129FA14c96164c6e14497edAB6CF215A93/logo.png',
   },
@@ -2311,6 +2544,7 @@ const _tokens = {
     decimals: 18,
     name: 'Lendroid Support Token',
     symbol: 'LST',
+    oracleId: 'LST',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4E0226a638adCBB43C99131c743B9Aba15Ff3040/logo.png',
   },
@@ -2320,6 +2554,7 @@ const _tokens = {
     decimals: 18,
     name: 'LGCY Network',
     symbol: 'LGCY',
+    oracleId: 'LGCY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x548A24D7eB18ea8A771645651EE799807d41F2dF/logo.png',
   },
@@ -2329,6 +2564,7 @@ const _tokens = {
     decimals: 18,
     name: 'Linkart',
     symbol: 'LAR',
+    oracleId: 'LAR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xc162e489C7f39676F6376CA79df3e728f101a895/logo.png',
   },
@@ -2338,6 +2574,7 @@ const _tokens = {
     decimals: 18,
     name: 'Liquidity Dividends Protocol',
     symbol: 'LID',
+    oracleId: 'LID',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB9b00fbac0F8B7c25a360664CE0Bf819771B4144/logo.png',
   },
@@ -2347,6 +2584,7 @@ const _tokens = {
     decimals: 18,
     name: 'Livepeer Token',
     symbol: 'LPT',
+    oracleId: 'LPT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2c67EC45B2E7138823dee0576D0d17Ac6Aa36b74/logo.png',
   },
@@ -2356,6 +2594,7 @@ const _tokens = {
     decimals: 18,
     name: 'LockChain',
     symbol: 'LOC',
+    oracleId: 'LOC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb7617ad97645729f41cfd969312532e080f03864/logo.png',
   },
@@ -2365,6 +2604,7 @@ const _tokens = {
     decimals: 18,
     name: 'LoomToken',
     symbol: 'LOOM',
+    oracleId: 'LOOM',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xfA178938Da2d58e55e52dc6dB92B99d9B2102EaE/logo.png',
   },
@@ -2374,6 +2614,7 @@ const _tokens = {
     decimals: 18,
     name: 'LoopringCoin V2',
     symbol: 'LRC',
+    oracleId: 'LRC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x628A9639cc78F46604A625452C0242c7B487BA3c/logo.png',
   },
@@ -2383,6 +2624,7 @@ const _tokens = {
     decimals: 18,
     name: 'LuaToken',
     symbol: 'LUA',
+    oracleId: 'LUA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xeCd99fe115553493C6BF41C27da69E131766baAd/logo.png',
   },
@@ -2392,6 +2634,7 @@ const _tokens = {
     decimals: 18,
     name: 'LUKSO Token',
     symbol: 'LYXe',
+    oracleId: 'LYXe',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xcd82B8f5f145abb08f8c495BDB675d1Ac4D40Eb2/logo.png',
   },
@@ -2401,6 +2644,7 @@ const _tokens = {
     decimals: 18,
     name: 'Lunch Money',
     symbol: 'LMY',
+    oracleId: 'LMY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8a86e6dC6611c34d5c92fC563f426D2E378b3f1C/logo.png',
   },
@@ -2410,6 +2654,7 @@ const _tokens = {
     decimals: 18,
     name: 'MachiX Token',
     symbol: 'MCX',
+    oracleId: 'MCX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8CFD9b30B18B3aF9Ce905561F749626ef06B1717/logo.png',
   },
@@ -2419,6 +2664,7 @@ const _tokens = {
     decimals: 18,
     name: 'MahaDAO',
     symbol: 'MAHA',
+    oracleId: 'MAHA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb0cb6B9C9B47a3974044AE906E8865165D2e0889/logo.png',
   },
@@ -2428,6 +2674,7 @@ const _tokens = {
     decimals: 18,
     name: 'Mainframe Token',
     symbol: 'MFT',
+    oracleId: 'MFT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x254Aa21D2996400b19CeE93623C307D6E973Ea3f/logo.png',
   },
@@ -2437,6 +2684,7 @@ const _tokens = {
     decimals: 18,
     name: 'MANTRA DAO',
     symbol: 'OM',
+    oracleId: 'OM',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x33d6584872635e1BA681Ad814B98b57198cf33eF/logo.png',
   },
@@ -2446,6 +2694,7 @@ const _tokens = {
     decimals: 18,
     name: 'Marlin POND',
     symbol: 'POND',
+    oracleId: 'POND',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbeeA21cC5D10e21dF6aB42Bd2D5e748e4EF59293/logo.png',
   },
@@ -2455,6 +2704,7 @@ const _tokens = {
     decimals: 18,
     name: 'MATH Token',
     symbol: 'MATH',
+    oracleId: 'MATH',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x374C62a3B07350de41C4A95c4094474f84d7BF66/logo.png',
   },
@@ -2464,6 +2714,7 @@ const _tokens = {
     decimals: 18,
     name: 'Matic Token',
     symbol: 'MATIC',
+    oracleId: 'MATIC',
     website: 'https://polygon.technology/',
     description:
       'The MATIC token serves dual purposes: securing the Polygon network via staking and being used for the payment of transaction fees.',
@@ -2476,6 +2727,7 @@ const _tokens = {
     decimals: 18,
     name: 'MCDEX Token',
     symbol: 'MCB',
+    oracleId: 'MCB',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xD4355F4608277a616111B35A77E6C58F4B4B69c6/logo.png',
   },
@@ -2485,6 +2737,7 @@ const _tokens = {
     decimals: 18,
     name: 'Measurable Data Token',
     symbol: 'MDT',
+    oracleId: 'MDT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x66a41BAD9103435c57E1dABE10093Dc5a19ee99f/logo.png',
   },
@@ -2494,6 +2747,7 @@ const _tokens = {
     decimals: 18,
     name: 'MegaCryptoPolis MEGA Token',
     symbol: 'MEGA',
+    oracleId: 'MEGA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x0C452CCc765Ac4A5d90E40585487c482597dFDdE/logo.png',
   },
@@ -2503,6 +2757,7 @@ const _tokens = {
     decimals: 18,
     name: 'Melon Token',
     symbol: 'MLN',
+    oracleId: 'MLN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2bD2e0C3d39d6c82EaCA300958aa2E4be6740223/logo.png',
   },
@@ -2512,6 +2767,7 @@ const _tokens = {
     decimals: 18,
     name: 'Meridian Network',
     symbol: 'LOCK',
+    oracleId: 'LOCK',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xDC59a3AC96dc1e86bB93Ed0248fB4bA6127BA64c/logo.png',
   },
@@ -2521,6 +2777,7 @@ const _tokens = {
     decimals: 18,
     name: 'Meta',
     symbol: 'MTA',
+    oracleId: 'MTA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x61EDA5B986b9da6A67a2a128e67ee7CED890DEAb/logo.png',
   },
@@ -2530,6 +2787,7 @@ const _tokens = {
     decimals: 18,
     name: 'Meter Governance mapped by Meter.io',
     symbol: 'eMTRG',
+    oracleId: 'eMTRG',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x99B1b197D53511929A082EE66e7aC7E23257a4c4/logo.png',
   },
@@ -2539,6 +2797,7 @@ const _tokens = {
     decimals: 18,
     name: 'Metronome',
     symbol: 'MET',
+    oracleId: 'MET',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x74F691fe2F89055cb1E641b840C8e7f12552dd6A/logo.png',
   },
@@ -2548,6 +2807,7 @@ const _tokens = {
     decimals: 18,
     name: 'MIC',
     symbol: 'MIC',
+    oracleId: 'MIC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3C4dd53806347D37aF1F9CCA08C5aCA7363abADe/logo.png',
   },
@@ -2557,6 +2817,7 @@ const _tokens = {
     decimals: 18,
     name: 'MilkyWay Token by SpaceSwap v2',
     symbol: 'MILK2',
+    oracleId: 'MILK2',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1A4a456DcB9415D6FBac1148A656BD93a78c43e1/logo.png',
   },
@@ -2566,6 +2827,7 @@ const _tokens = {
     decimals: 18,
     name: 'MINISWAP',
     symbol: 'MINI',
+    oracleId: 'MINI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xF553b0fA370E11d945D1eDA4267437C9e4C51D8a/logo.png',
   },
@@ -2575,6 +2837,7 @@ const _tokens = {
     decimals: 18,
     name: 'MIS',
     symbol: 'MIS',
+    oracleId: 'MIS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7823dAa7A5B86dd4E7a54c1ae70A14cf15758316/logo.png',
   },
@@ -2584,6 +2847,7 @@ const _tokens = {
     decimals: 18,
     name: 'MixTrust',
     symbol: 'MXT',
+    oracleId: 'MXT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x77d208c2b37051957C2B7D88a3682C280d70e7e6/logo.png',
   },
@@ -2593,6 +2857,7 @@ const _tokens = {
     decimals: 18,
     name: 'mStable USD',
     symbol: 'mUSD',
+    oracleId: 'mUSD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4D06D5296c0BE7857a9C43B5EB1770909d40CB25/logo.png',
   },
@@ -2602,6 +2867,7 @@ const _tokens = {
     decimals: 18,
     name: 'MyBit',
     symbol: 'MYB',
+    oracleId: 'MYB',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3D7af5Cc0143402A65d0dDC7E4C559fed65AE78c/logo.png',
   },
@@ -2611,6 +2877,7 @@ const _tokens = {
     decimals: 18,
     name: 'Nexo',
     symbol: 'NEXO',
+    oracleId: 'NEXO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xfe87Aba89d58da09d5bC13b4A1dC873C1b901806/logo.png',
   },
@@ -2620,6 +2887,7 @@ const _tokens = {
     decimals: 18,
     name: 'NIX Bridge Token',
     symbol: 'NBT',
+    oracleId: 'NBT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3E6867bB936e83BC686A89fdBfab3FD0D6ee3DE8/logo.png',
   },
@@ -2629,6 +2897,7 @@ const _tokens = {
     decimals: 18,
     name: 'Nsure Network Token',
     symbol: 'Nsure',
+    oracleId: 'Nsure',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6169F17c609D14F253d0d54a96df6eFD2A44147a/logo.png',
   },
@@ -2638,6 +2907,7 @@ const _tokens = {
     decimals: 18,
     name: 'NuCypher',
     symbol: 'NU',
+    oracleId: 'NU',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x32141622A7C79790176670ffFcA17154678A9A24/logo.png',
   },
@@ -2647,6 +2917,7 @@ const _tokens = {
     decimals: 18,
     name: 'Numeraire',
     symbol: 'NMR',
+    oracleId: 'NMR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x57541c10591Df7568BDc9D93f769d44eAc1e3c3a/logo.png',
   },
@@ -2656,6 +2927,7 @@ const _tokens = {
     decimals: 18,
     name: 'Ocean Token',
     symbol: 'OCEAN',
+    oracleId: 'OCEAN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x0057371Cd534577b6040E140654DE0958116Cf3A/logo.png',
   },
@@ -2665,6 +2937,7 @@ const _tokens = {
     decimals: 18,
     name: 'Octo.fi',
     symbol: 'OCTO',
+    oracleId: 'OCTO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC0735F8b43B6879FED7070044211bFcd9C3d633B/logo.png',
   },
@@ -2674,6 +2947,7 @@ const _tokens = {
     decimals: 18,
     name: 'OM Token',
     symbol: 'OM',
+    oracleId: 'Token',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x27850FcbCfF7DAFB16176144B9193C6D310DCF72/logo.png',
   },
@@ -2683,6 +2957,7 @@ const _tokens = {
     decimals: 18,
     name: 'OMGToken',
     symbol: 'OMG',
+    oracleId: 'OMG',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x276C6670b97F22cE7Ad754b08CB330DECb6a3332/logo.png',
   },
@@ -2692,6 +2967,7 @@ const _tokens = {
     decimals: 18,
     name: 'onG',
     symbol: 'ONG',
+    oracleId: 'ONG',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbAeE145A92A0c7C2FEd63d62d61E9B7eAe0396d9/logo.png',
   },
@@ -2701,6 +2977,7 @@ const _tokens = {
     decimals: 18,
     name: 'Open Predict Token',
     symbol: 'OPT',
+    oracleId: 'OPT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2378B1EEb109bd40FF585AB9A92aC3Fd9E90cee3/logo.png',
   },
@@ -2710,6 +2987,7 @@ const _tokens = {
     decimals: 18,
     name: 'Oraichain Token',
     symbol: 'ORAI',
+    oracleId: 'ORAI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xD9A0B28305951758b9CdBbf7e18CC85B868f973C/logo.png',
   },
@@ -2719,6 +2997,7 @@ const _tokens = {
     decimals: 18,
     name: 'OriginToken',
     symbol: 'OGN',
+    oracleId: 'OGN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x9A1712dBEd062dB70c6c4C235Be9dCd10a9Dac59/logo.png',
   },
@@ -2728,6 +3007,7 @@ const _tokens = {
     decimals: 18,
     name: 'ORO Token',
     symbol: 'ORO',
+    oracleId: 'ORO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2796213bd26CE2270839b6d40E8D5904d8cDAA42/logo.png',
   },
@@ -2737,6 +3017,7 @@ const _tokens = {
     decimals: 18,
     name: 'OWL Token',
     symbol: 'OWL',
+    oracleId: 'OWL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xe49403892253A3d7952A45d43C630126D0b8D1f2/logo.png',
   },
@@ -2746,6 +3027,7 @@ const _tokens = {
     decimals: 18,
     name: 'Pamp Network',
     symbol: 'PAMP',
+    oracleId: 'PAMP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5b1cdDC4e6C9E6864832954d0cF43f91952CD7B9/logo.png',
   },
@@ -2755,6 +3037,7 @@ const _tokens = {
     decimals: 18,
     name: 'Panvala pan',
     symbol: 'PAN',
+    oracleId: 'PAN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xF6Ef95FaD0CdddfCCC312679779516107a980E0a/logo.png',
   },
@@ -2764,6 +3047,7 @@ const _tokens = {
     decimals: 18,
     name: 'Parachute',
     symbol: 'PAR',
+    oracleId: 'PAR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x53b464Bb9EfEBe9b314f97e631b47e1C0300FE21/logo.png',
   },
@@ -2773,6 +3057,7 @@ const _tokens = {
     decimals: 18,
     name: 'Pareto Network Token',
     symbol: 'PARETO',
+    oracleId: 'PARETO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x54266edA68834321B5BB81a8A8a48d5459c92456/logo.png',
   },
@@ -2782,6 +3067,7 @@ const _tokens = {
     decimals: 18,
     name: 'Parsiq Token',
     symbol: 'PRQ',
+    oracleId: 'PRQ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6A8E6794ab77C63c3C90A62F1088F16AC61F463D/logo.png',
   },
@@ -2791,6 +3077,7 @@ const _tokens = {
     decimals: 18,
     name: 'Paxos Gold',
     symbol: 'PAXG',
+    oracleId: 'PAXG',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1687b16087B576E403C8d6926fBc0798e48FD0de/logo.png',
   },
@@ -2800,6 +3087,7 @@ const _tokens = {
     decimals: 18,
     name: 'Paxos Standard',
     symbol: 'PAX',
+    oracleId: 'PAX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x403985fD6628E44b6fca9876575b9503cB80A47A/logo.png',
   },
@@ -2809,6 +3097,7 @@ const _tokens = {
     decimals: 18,
     name: 'PeerEx Network',
     symbol: 'PERX',
+    oracleId: 'PERX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x02f8a8e78E02768A5c2f9Cf1Bfa8Ec2f821E869d/logo.png',
   },
@@ -2818,6 +3107,7 @@ const _tokens = {
     decimals: 18,
     name: 'Perlin',
     symbol: 'PERL',
+    oracleId: 'PERL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8f4Dee85B841723bdCEcdc9Ed68Cda662f56e82A/logo.png',
   },
@@ -2827,6 +3117,7 @@ const _tokens = {
     decimals: 18,
     name: 'Perpetual',
     symbol: 'PERP',
+    oracleId: 'PERP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x88Af8D172e64326A71C1a7756CB4F6125D98F2A5/logo.png',
   },
@@ -2836,6 +3127,7 @@ const _tokens = {
     decimals: 18,
     name: 'Phala',
     symbol: 'PHA',
+    oracleId: 'PHA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5535483ed8781784b1b1cC431c4dc9c25D39eCB5/logo.png',
   },
@@ -2845,6 +3137,7 @@ const _tokens = {
     decimals: 18,
     name: 'PickleToken',
     symbol: 'PICKLE',
+    oracleId: 'PICKLE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xD9eD8258c3ECBB5E4ECf3b91dc0ca693e80934CC/logo.png',
   },
@@ -2854,6 +3147,7 @@ const _tokens = {
     decimals: 18,
     name: 'PILLAR',
     symbol: 'PLR',
+    oracleId: 'PLR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xD523c90aCb4415A48e1504BaAd3a2Aa8fd86dEF9/logo.png',
   },
@@ -2863,6 +3157,7 @@ const _tokens = {
     decimals: 18,
     name: 'Plasma',
     symbol: 'PPAY',
+    oracleId: 'PPAY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3B295608d13083270214C0778624BCebCa5df3DA/logo.png',
   },
@@ -2872,6 +3167,7 @@ const _tokens = {
     decimals: 18,
     name: 'PLOT',
     symbol: 'PLOT',
+    oracleId: 'PLOT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5643c59d08d9ac382EeB224894608D52c7fcd908/logo.png',
   },
@@ -2881,6 +3177,7 @@ const _tokens = {
     decimals: 18,
     name: 'Pluton',
     symbol: 'PLU',
+    oracleId: 'PLU',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x680e3f5d629ECF176150E343D9EfA1aA1062659D/logo.png',
   },
@@ -2890,6 +3187,7 @@ const _tokens = {
     decimals: 18,
     name: 'PlutusDeFi',
     symbol: 'PLT',
+    oracleId: 'PLT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBc6e632244FD9a79e863B87841FFD9962B725895/logo.png',
   },
@@ -2899,6 +3197,7 @@ const _tokens = {
     decimals: 18,
     name: 'pNetwork Token',
     symbol: 'PNT',
+    oracleId: 'PNT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xa4EFc8d7007851CFE5313c02aC2516f33f199364/logo.png',
   },
@@ -2908,6 +3207,7 @@ const _tokens = {
     decimals: 18,
     name: 'POA ERC20 on Foundation',
     symbol: 'POA20',
+    oracleId: 'POA20',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x153446d731f6a23661BebCD3e86431c36bA440fB/logo.png',
   },
@@ -2917,6 +3217,7 @@ const _tokens = {
     decimals: 18,
     name: 'PolkaBridge',
     symbol: 'PBR',
+    oracleId: 'PBR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3c09D70fB667e2B680d4FeE2951d6BCD3f8Fbaf9/logo.png',
   },
@@ -2926,6 +3227,7 @@ const _tokens = {
     decimals: 18,
     name: 'PolkaCover',
     symbol: 'CVR',
+    oracleId: 'CVR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x606E714710b0426d3E786394Ada61d5B1492C39f/logo.png',
   },
@@ -2935,6 +3237,7 @@ const _tokens = {
     decimals: 18,
     name: 'PolkastarterToken',
     symbol: 'POLS',
+    oracleId: 'POLS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xE1463E8991c8A62e64b77b5Fb6B22F190344C2A9/logo.png',
   },
@@ -2944,6 +3247,7 @@ const _tokens = {
     decimals: 18,
     name: 'Polymath',
     symbol: 'POLY',
+    oracleId: 'POLY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1676C3D77ac75741678d6Ca28f288352a57D0973/logo.png',
   },
@@ -2953,6 +3257,7 @@ const _tokens = {
     decimals: 18,
     name: 'Power Index Pool Token',
     symbol: 'PIPT',
+    oracleId: 'PIPT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x606f5C16c01372C28345de54cf6F4ff901d934B6/logo.png',
   },
@@ -2962,6 +3267,7 @@ const _tokens = {
     decimals: 18,
     name: 'PowerTrade Fuel Token',
     symbol: 'PTF',
+    oracleId: 'PTF',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x01cC32A282050740a88c43DAc0B56bf90f6435eF/logo.png',
   },
@@ -2971,6 +3277,7 @@ const _tokens = {
     decimals: 18,
     name: 'Predix Network',
     symbol: 'PRDX',
+    oracleId: 'PRDX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x693656BE08A4C74236110ccdf4da42Ef31379E25/logo.png',
   },
@@ -2980,6 +3287,7 @@ const _tokens = {
     decimals: 18,
     name: 'Props Token',
     symbol: 'PROPS',
+    oracleId: 'PROPS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2A5A930d00110a4970bC68cF4Bcb207588cA0D2d/logo.png',
   },
@@ -2989,6 +3297,7 @@ const _tokens = {
     decimals: 18,
     name: 'pTokens BTC',
     symbol: 'pBTC',
+    oracleId: 'pBTC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xe6338226c321f3089c645ab526f844713C2F7Be3/logo.png',
   },
@@ -2998,6 +3307,7 @@ const _tokens = {
     decimals: 18,
     name: 'Pundi X Token',
     symbol: 'NPXS',
+    oracleId: 'NPXS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x07d83B7101c540fcC1720c3d51923f218Ae9b6Ac/logo.png',
   },
@@ -3007,6 +3317,7 @@ const _tokens = {
     decimals: 18,
     name: 'Q DAO Governance token v1.0',
     symbol: 'QDAO',
+    oracleId: 'QDAO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xc57719864387B11B8915eDE8f84A8d2CCA282451/logo.png',
   },
@@ -3016,6 +3327,7 @@ const _tokens = {
     decimals: 18,
     name: 'QuadrantProtocol',
     symbol: 'eQUAD',
+    oracleId: 'eQUAD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xA8990B4FA2ba67f3B14814Be106B88f251397D3F/logo.png',
   },
@@ -3025,6 +3337,7 @@ const _tokens = {
     decimals: 18,
     name: 'Quant',
     symbol: 'QNT',
+    oracleId: 'QNT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4fcC1E009ef85B35d39B3Fe533d27751e4CFa8f7/logo.png',
   },
@@ -3034,6 +3347,7 @@ const _tokens = {
     decimals: 18,
     name: 'QuarkChain Token',
     symbol: 'QKC',
+    oracleId: 'QKC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xa9B41c348717F755101189b907F37Ee4ec703E8C/logo.png',
   },
@@ -3043,6 +3357,7 @@ const _tokens = {
     decimals: 18,
     name: 'QuiverX',
     symbol: 'QRX',
+    oracleId: 'QRX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBB9a99de392Fb34d9f4F59c2b7Ea72cE7f1570e4/logo.png',
   },
@@ -3052,6 +3367,7 @@ const _tokens = {
     decimals: 18,
     name: 'RAE Token',
     symbol: 'RAE',
+    oracleId: 'RAE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4732Cc19937e4DaF4BDcA6698f2552b2E9F04813/logo.png',
   },
@@ -3061,6 +3377,7 @@ const _tokens = {
     decimals: 18,
     name: 'Raiden Token',
     symbol: 'RDN',
+    oracleId: 'RDN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4A8918352cCB78CF6bd34Bf89D501d5578ee6504/logo.png',
   },
@@ -3070,6 +3387,7 @@ const _tokens = {
     decimals: 18,
     name: 'RAMP DEFI',
     symbol: 'RAMP',
+    oracleId: 'RAMP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x182795eE69b458930633A60DA79E8F9787A4828c/logo.png',
   },
@@ -3079,6 +3397,7 @@ const _tokens = {
     decimals: 18,
     name: 'Rari Governance Token',
     symbol: 'RGT',
+    oracleId: 'RGT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x337e4Ff263BC2E8dFb9a1a8a1AF883f0AdF953f0/logo.png',
   },
@@ -3088,6 +3407,7 @@ const _tokens = {
     decimals: 18,
     name: 'Rarible',
     symbol: 'RARI',
+    oracleId: 'RARI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x10D56b868A32670f27478Ac628a2376A235F9bB8/logo.png',
   },
@@ -3097,6 +3417,7 @@ const _tokens = {
     decimals: 18,
     name: 'Reef.finance',
     symbol: 'REEF',
+    oracleId: 'REEF',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x90557E63339cAed393ee15Cb6236Bb746DeD11D3/logo.png',
   },
@@ -3106,6 +3427,7 @@ const _tokens = {
     decimals: 18,
     name: 'Relevant',
     symbol: 'REL',
+    oracleId: 'REL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8FF91E20Aab3D5A21b0c5ecd45FC942c52f578b3/logo.png',
   },
@@ -3115,6 +3437,7 @@ const _tokens = {
     decimals: 18,
     name: 'Republic Token',
     symbol: 'REN',
+    oracleId: 'REN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xAc6C38f2DeC391b478144Ae7F078D08B08d0a284/logo.png',
   },
@@ -3124,6 +3447,7 @@ const _tokens = {
     decimals: 18,
     name: 'Reputation',
     symbol: 'REPv2',
+    oracleId: 'REPv2',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBe7AFAa2833d7F461D8751f1f46bF259fc4459C6/logo.png',
   },
@@ -3133,6 +3457,7 @@ const _tokens = {
     decimals: 18,
     name: 'Reputation',
     symbol: 'REP',
+    oracleId: 'REP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xb9924372Ddc7e7F13757C8B9ae0F03906a684D65/logo.png',
   },
@@ -3142,6 +3467,7 @@ const _tokens = {
     decimals: 18,
     name: 'Request Token',
     symbol: 'REQ',
+    oracleId: 'REQ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8E729Ad67D81d220B7aB6e00440f785bD08187fE/logo.png',
   },
@@ -3151,6 +3477,7 @@ const _tokens = {
     decimals: 18,
     name: 'Reserve Rights',
     symbol: 'RSR',
+    oracleId: 'RSR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x91C20a30ebA9795BBdEd46df9ad5b215DFa04fcD/logo.png',
   },
@@ -3160,6 +3487,7 @@ const _tokens = {
     decimals: 18,
     name: 'Rio Fuel Token',
     symbol: 'RFuel',
+    oracleId: 'RFuel',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3361a925eCBa04e4De70C0Fa6310e710a2079a28/logo.png',
   },
@@ -3169,6 +3497,7 @@ const _tokens = {
     decimals: 18,
     name: 'Ripio Credit Network Token',
     symbol: 'RCN',
+    oracleId: 'RCN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xd2427C8a8dA88c0Ea24370A971Dad6EEd2ff63b7/logo.png',
   },
@@ -3178,6 +3507,7 @@ const _tokens = {
     decimals: 18,
     name: 'Robonomics Web Services - V1',
     symbol: 'RWS',
+    oracleId: 'RWS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x0Cb3Fe222303e1419EE73216e90322ae4635Fc5E/logo.png',
   },
@@ -3187,6 +3517,7 @@ const _tokens = {
     decimals: 18,
     name: 'Rocket Pool',
     symbol: 'RPL',
+    oracleId: 'RPL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5cDAD843078930C8fEB1d50bE474acCf11B7ada1/logo.png',
   },
@@ -3196,6 +3527,7 @@ const _tokens = {
     decimals: 18,
     name: 'ROOK',
     symbol: 'ROOK',
+    oracleId: 'ROOK',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x052c1e9de172366F30F300e805707a6520615977/logo.png',
   },
@@ -3205,6 +3537,7 @@ const _tokens = {
     decimals: 18,
     name: 'Rubic',
     symbol: 'RBC',
+    oracleId: 'RBC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x88f87bb181cd974f3AaE5002F5E6D4E1EB463f9C/logo.png',
   },
@@ -3214,6 +3547,7 @@ const _tokens = {
     decimals: 18,
     name: 'RvT',
     symbol: 'RVT',
+    oracleId: 'RVT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x26526EBD75Ed27d5B553d06d6bcE8210bA0bc50b/logo.png',
   },
@@ -3223,6 +3557,7 @@ const _tokens = {
     decimals: 18,
     name: 'SAFE2',
     symbol: 'SAFE2',
+    oracleId: 'SAFE2',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x2a1F8a24575261919f839f4254FdE9bc4b8edE7A/logo.png',
   },
@@ -3232,6 +3567,7 @@ const _tokens = {
     decimals: 18,
     name: 'SAND',
     symbol: 'SAND',
+    oracleId: 'SAND',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xA29d60Ef9706571bBDa9b505A117e1D36a0D683C/logo.png',
   },
@@ -3241,6 +3577,7 @@ const _tokens = {
     decimals: 18,
     name: 'SANtiment network token',
     symbol: 'SAN',
+    oracleId: 'SAN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8ae71C763700F22f1bb137F1D8767826d7f02d3a/logo.png',
   },
@@ -3250,6 +3587,7 @@ const _tokens = {
     decimals: 18,
     name: 'SelfKey',
     symbol: 'KEY',
+    oracleId: 'KEY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x858950767B333d45B90C28709e97605e1829f907/logo.png',
   },
@@ -3259,6 +3597,7 @@ const _tokens = {
     decimals: 18,
     name: 'SHAKE token by SpaceSwap v2',
     symbol: 'SHAKE',
+    oracleId: 'SHAKE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x0680298EEA69e413eD02b393Fc269C2757033Ab0/logo.png',
   },
@@ -3268,6 +3607,7 @@ const _tokens = {
     decimals: 18,
     name: 'ShipChain SHIP',
     symbol: 'SHIP',
+    oracleId: 'SHIP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xCCD9a2fa0A31506E5D881981B702e9476feFAE56/logo.png',
   },
@@ -3277,6 +3617,7 @@ const _tokens = {
     decimals: 18,
     name: 'Shopping.io',
     symbol: 'SPI',
+    oracleId: 'SPI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xDCd9b9b00a7bA3afb6E8F5058945a1A946810D29/logo.png',
   },
@@ -3286,6 +3627,7 @@ const _tokens = {
     decimals: 18,
     name: 'Simple Token',
     symbol: 'ST',
+    oracleId: 'ST',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7De7dFE1A594BCBab1C0cd2AE0a530A019cE14Ed/logo.png',
   },
@@ -3295,6 +3637,7 @@ const _tokens = {
     decimals: 18,
     name: 'SIRIN',
     symbol: 'SRN',
+    oracleId: 'SRN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3365A191353a7670CaAC8B4BE19C2F34DcD07320/logo.png',
   },
@@ -3304,6 +3647,7 @@ const _tokens = {
     decimals: 18,
     name: 'SnowSwap',
     symbol: 'SNOW',
+    oracleId: 'SNOW',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x40eB65be917e7A5AE529B2e1279E4b548A36C465/logo.png',
   },
@@ -3313,6 +3657,7 @@ const _tokens = {
     decimals: 18,
     name: 'Sora Token',
     symbol: 'XOR',
+    oracleId: 'XOR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x307A2a7127429f0C24c607E4633d17B6E98E8372/logo.png',
   },
@@ -3322,6 +3667,7 @@ const _tokens = {
     decimals: 18,
     name: 'Sora Validator Token',
     symbol: 'VAL',
+    oracleId: 'VAL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7583FD3Aa918896700F4F106Df7387e1943a31aa/logo.png',
   },
@@ -3331,6 +3677,7 @@ const _tokens = {
     decimals: 18,
     name: 'SpaceChainV2',
     symbol: 'SPC',
+    oracleId: 'SPC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x9E692659CdEDf13e85eADC38fCf7bC9F6329Db69/logo.png',
   },
@@ -3340,6 +3687,7 @@ const _tokens = {
     decimals: 18,
     name: 'SPANK',
     symbol: 'SPANK',
+    oracleId: 'SPANK',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xAdcE0b08127EFd11d4A6CDAA82feDe77b0Fa57F9/logo.png',
   },
@@ -3349,6 +3697,7 @@ const _tokens = {
     decimals: 18,
     name: 'Spice',
     symbol: 'SFI',
+    oracleId: 'SFI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC386282f66c090A1e42c39e83dBD2c2d447dE506/logo.png',
   },
@@ -3358,6 +3707,7 @@ const _tokens = {
     decimals: 18,
     name: 'Spice',
     symbol: 'SPICE',
+    oracleId: 'SPICE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x9F7841A719e26cE4Ab7374806857f91C83F05f33/logo.png',
   },
@@ -3367,6 +3717,7 @@ const _tokens = {
     decimals: 18,
     name: 'SPINDLE',
     symbol: 'SPD',
+    oracleId: 'SPD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3BfCDB1Ec986430ffF0e35C00D71888D305E48f3/logo.png',
   },
@@ -3376,6 +3727,7 @@ const _tokens = {
     decimals: 18,
     name: 'Stabilize Token',
     symbol: 'STBZ',
+    oracleId: 'STBZ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5a21a9e09667A67a898dE061D4bC61e92f20404e/logo.png',
   },
@@ -3385,6 +3737,7 @@ const _tokens = {
     decimals: 18,
     name: 'STAKE',
     symbol: 'STAKE',
+    oracleId: 'STAKE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x540641C9B0fcb979496A8c03C711033239C841d5/logo.png',
   },
@@ -3394,6 +3747,7 @@ const _tokens = {
     decimals: 18,
     name: 'Stake DAO Token',
     symbol: 'SDT',
+    oracleId: 'SDT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC19CD5D80B52118A99B23941Eaf1bb58Bb79f1fa/logo.png',
   },
@@ -3403,6 +3757,7 @@ const _tokens = {
     decimals: 18,
     name: 'Statera',
     symbol: 'STA',
+    oracleId: 'STA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8194f4FE1fb50A945eB5dB226689066BE5E208D4/logo.png',
   },
@@ -3412,6 +3767,7 @@ const _tokens = {
     decimals: 18,
     name: 'STONK',
     symbol: 'STONK',
+    oracleId: 'STONK',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x571FB151CC10F76d5A9a4b48f6D568Fb7E1eEbF8/logo.png',
   },
@@ -3421,6 +3777,7 @@ const _tokens = {
     decimals: 18,
     name: 'StormX',
     symbol: 'STMX',
+    oracleId: 'STMX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xD6C7f1C0b553B820739A9bEFa30e1A4990DB67dC/logo.png',
   },
@@ -3430,6 +3787,7 @@ const _tokens = {
     decimals: 18,
     name: 'Stox',
     symbol: 'STX',
+    oracleId: 'STX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x232F79C05CB34de19C79104068E76452B624baB3/logo.png',
   },
@@ -3439,6 +3797,7 @@ const _tokens = {
     decimals: 18,
     name: 'Streamity',
     symbol: 'STM',
+    oracleId: 'STM',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xA62CBCB4F5485Ee6EF6B44083c561f9E1f2B740a/logo.png',
   },
@@ -3448,6 +3807,7 @@ const _tokens = {
     decimals: 18,
     name: 'Streamr DATAcoin',
     symbol: 'DATA',
+    oracleId: 'DATA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7b73CEEed704556355D03aF8888da3bCD4434CF9/logo.png',
   },
@@ -3457,6 +3817,7 @@ const _tokens = {
     decimals: 18,
     name: 'Strong',
     symbol: 'STRONG',
+    oracleId: 'STRONG',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xCf68248eeF35b725512724178Da55ad7DB59A5F1/logo.png',
   },
@@ -3466,6 +3827,7 @@ const _tokens = {
     decimals: 18,
     name: 'SURF.Finance',
     symbol: 'SURF',
+    oracleId: 'SURF',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xfa0bDf9dF8bb8b3d7687a44dAD2F69Bc7a7B294f/logo.png',
   },
@@ -3475,6 +3837,7 @@ const _tokens = {
     decimals: 18,
     name: 'SushiToken',
     symbol: 'SUSHI',
+    oracleId: 'SUSHIe',
     website: 'https://sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
@@ -3487,6 +3850,7 @@ const _tokens = {
     decimals: 18,
     name: 'SushiToken',
     symbol: 'SUSHI',
+    oracleId: 'SUSHI',
     website: 'https://sushi.com/',
     description:
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
@@ -3499,6 +3863,7 @@ const _tokens = {
     decimals: 18,
     name: 'Swag Token',
     symbol: 'SWAG',
+    oracleId: 'SWAG',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xE8ddE6E36ae86E3c61Dc13DFf908B4a12d50F754/logo.png',
   },
@@ -3508,6 +3873,7 @@ const _tokens = {
     decimals: 18,
     name: 'Swapfolio',
     symbol: 'SWFL',
+    oracleId: 'SWFL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x733793e8F93afD40d9322a4FBA46de661e4F8B83/logo.png',
   },
@@ -3517,6 +3883,7 @@ const _tokens = {
     decimals: 18,
     name: 'Swipe',
     symbol: 'SXP',
+    oracleId: 'SXP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3AfAD3EB65DeAf28f594958717530bC66D6Cdd1c/logo.png',
   },
@@ -3526,6 +3893,7 @@ const _tokens = {
     decimals: 18,
     name: 'Switch',
     symbol: 'ESH',
+    oracleId: 'ESH',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xCff97feeC839C59BA94FA453D47263a9Cf4d4C28/logo.png',
   },
@@ -3535,6 +3903,7 @@ const _tokens = {
     decimals: 18,
     name: 'Synapse Protocol',
     symbol: 'SYN',
+    oracleId: 'SYN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x09f60a231C989d0c5AdC9d3609936A3409885Bd0/logo.png',
   },
@@ -3544,6 +3913,7 @@ const _tokens = {
     decimals: 18,
     name: 'Synthetix Network Token',
     symbol: 'SNX',
+    oracleId: 'SNX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x68e44C4619db40ae1a0725e77C02587bC8fBD1c9/logo.png',
   },
@@ -3553,6 +3923,7 @@ const _tokens = {
     decimals: 18,
     name: 'tBTC',
     symbol: 'TBTC',
+    oracleId: 'TBTC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1c24D4ef397F6F8c80403f52E9D11Bef1D129a93/logo.png',
   },
@@ -3562,6 +3933,7 @@ const _tokens = {
     decimals: 18,
     name: 'Tendies Token',
     symbol: 'TEND',
+    oracleId: 'TEND',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x9D8CA87A15230b112D90f9eEE7C1C6fDAB92cAed/logo.png',
   },
@@ -3571,6 +3943,7 @@ const _tokens = {
     decimals: 18,
     name: 'TenX Pay Token',
     symbol: 'PAY',
+    oracleId: 'PAY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBdFc6443428DEcf3cCDc7472DF5d96c2FA8C2E70/logo.png',
   },
@@ -3580,6 +3953,7 @@ const _tokens = {
     decimals: 18,
     name: 'Terra Virtua Kolect',
     symbol: 'TVK',
+    oracleId: 'TVK',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbE53F019a8786227E3D258A47a0D96BCf24A09A6/logo.png',
   },
@@ -3589,6 +3963,7 @@ const _tokens = {
     decimals: 6,
     name: 'Tether USD (native)',
     symbol: 'USDT',
+    oracleId: 'USDT',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
@@ -3601,6 +3976,7 @@ const _tokens = {
     decimals: 6,
     name: 'Tether USD (bridged)',
     symbol: 'USDTo',
+    oracleId: 'USDTo',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem. From Avalanche Bridge.',
@@ -3613,6 +3989,7 @@ const _tokens = {
     decimals: 18,
     name: 'THORChain ETH.RUNE',
     symbol: 'RUNE',
+    oracleId: 'RUNE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x390ba0fb0Bd3Aa2a5484001606329701148074e6/logo.png',
   },
@@ -3622,6 +3999,7 @@ const _tokens = {
     decimals: 18,
     name: 'Tokenbox',
     symbol: 'TBX',
+    oracleId: 'TBX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbAb918cfBD3c53Ce1516E6AA97c8342B15c26BcC/logo.png',
   },
@@ -3631,6 +4009,7 @@ const _tokens = {
     decimals: 18,
     name: 'TomoChain',
     symbol: 'TOMOE',
+    oracleId: 'TOMOE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7657F9ee5f31868CcaC0EC4306a92B0E2F5660d2/logo.png',
   },
@@ -3640,6 +4019,7 @@ const _tokens = {
     decimals: 18,
     name: 'TornadoCash',
     symbol: 'TORN',
+    oracleId: 'TORN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7CCF19824c351e57C00633b46bbbff495E12d89d/logo.png',
   },
@@ -3649,6 +4029,7 @@ const _tokens = {
     decimals: 18,
     name: 'TosDis',
     symbol: 'DIS',
+    oracleId: 'DIS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xf981547a1D9A0c59C9aba1e2b826BF01a2e5E263/logo.png',
   },
@@ -3658,6 +4039,7 @@ const _tokens = {
     decimals: 18,
     name: 'Trace Token',
     symbol: 'TRAC',
+    oracleId: 'TRAC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xdEA3Da33bDee64487358DB66d9AbC9EC256D1BFb/logo.png',
   },
@@ -3667,6 +4049,7 @@ const _tokens = {
     decimals: 18,
     name: 'Transcodium',
     symbol: 'TNS',
+    oracleId: 'TNS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x6b944c575376460edC27Be19c999654E5982D971/logo.png',
   },
@@ -3676,6 +4059,7 @@ const _tokens = {
     decimals: 18,
     name: 'Trendering',
     symbol: 'TRND',
+    oracleId: 'TRND',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3a2d191AE83223ed0668d9AAF180Be147Ec05ad3/logo.png',
   },
@@ -3685,6 +4069,7 @@ const _tokens = {
     decimals: 18,
     name: 'TrueAUD',
     symbol: 'TAUD',
+    oracleId: 'TAUD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x82913383A48712C6A876E611A0412395B86e74B1/logo.png',
   },
@@ -3694,6 +4079,7 @@ const _tokens = {
     decimals: 18,
     name: 'TrueCAD',
     symbol: 'TCAD',
+    oracleId: 'TCAD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xbf65c0f333954EBC49aab45fB6F04Bee27F72495/logo.png',
   },
@@ -3703,6 +4089,7 @@ const _tokens = {
     decimals: 18,
     name: 'TrueGBP',
     symbol: 'TGBP',
+    oracleId: 'TGBP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x9018775d36d3e39AE5d88a5F502d4cBe430734C5/logo.png',
   },
@@ -3712,6 +4099,7 @@ const _tokens = {
     decimals: 18,
     name: 'TrueHKD',
     symbol: 'THKD',
+    oracleId: 'THKD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xc8Eb95dac0033024B4b3fc87569824C4416F495d/logo.png',
   },
@@ -3721,6 +4109,7 @@ const _tokens = {
     decimals: 18,
     name: 'TRUST DAO',
     symbol: 'TRUST',
+    oracleId: 'TRUST',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x0B483a7E8119d9f9FbFF4a86cd751c51B6a81af9/logo.png',
   },
@@ -3730,6 +4119,7 @@ const _tokens = {
     decimals: 18,
     name: 'Trustlines Network Token',
     symbol: 'TLN',
+    oracleId: 'TLN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC394FBa894e6cD201478BC0F2EF121Acb3182EB4/logo.png',
   },
@@ -3739,6 +4129,7 @@ const _tokens = {
     decimals: 18,
     name: 'TrustSwap Token',
     symbol: 'SWAP',
+    oracleId: 'SWAP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x17908a369a1884Ce287Bf79c269a16F0Fb84082E/logo.png',
   },
@@ -3748,6 +4139,7 @@ const _tokens = {
     decimals: 18,
     name: 'TwoKeyEconomy',
     symbol: '2KEY',
+    oracleId: '2KEY',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3F6372f530203daA26eF31F55017a36d6f7405E5/logo.png',
   },
@@ -3757,6 +4149,7 @@ const _tokens = {
     decimals: 18,
     name: 'Typhoon',
     symbol: 'PHOON',
+    oracleId: 'PHOON',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xFb59DE6961D7D7D153bb82FCBCc2a7F5Da8Db56D/logo.png',
   },
@@ -3766,6 +4159,7 @@ const _tokens = {
     decimals: 18,
     name: 'uDOO',
     symbol: 'uDOO',
+    oracleId: 'uDOO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xeaa4F0C8bDC6109C92f0A5bE88A035ee11D40928/logo.png',
   },
@@ -3775,6 +4169,7 @@ const _tokens = {
     decimals: 18,
     name: 'UMA Voting Token v1',
     symbol: 'UMA',
+    oracleId: 'UMA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xC84d7bfF2555955b44BDF6A307180810412D751B/logo.png',
   },
@@ -3784,6 +4179,7 @@ const _tokens = {
     decimals: 18,
     name: 'UniCap.finance',
     symbol: 'UCAP',
+    oracleId: 'UCAP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8C32D46C073694045E8409251BE1FFD6720a94F3/logo.png',
   },
@@ -3793,6 +4189,7 @@ const _tokens = {
     decimals: 18,
     name: 'UniCrypt',
     symbol: 'UNC',
+    oracleId: 'UNC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xD084b89B8f04f3E2360EBd600360C358aA122BfB/logo.png',
   },
@@ -3802,6 +4199,7 @@ const _tokens = {
     decimals: 18,
     name: 'Unilayer',
     symbol: 'LAYER',
+    oracleId: 'LAYER',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xF8342EBdc7C4860Fe16eaB3318ddA110305F6597/logo.png',
   },
@@ -3811,6 +4209,7 @@ const _tokens = {
     decimals: 18,
     name: 'UniLend Finance Token',
     symbol: 'UFT',
+    oracleId: 'UFT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xF5182C77B4a5Dd11a59a83FB54aBaf7Dd3099041/logo.png',
   },
@@ -3820,6 +4219,7 @@ const _tokens = {
     decimals: 18,
     name: 'UniPower',
     symbol: 'POWER',
+    oracleId: 'POWER',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xFBD70543a1456ECa6570743256dc2D6E5CE43a2e/logo.png',
   },
@@ -3829,6 +4229,7 @@ const _tokens = {
     decimals: 18,
     name: 'Uniswap',
     symbol: 'UNI',
+    oracleId: 'UNIe',
     website: 'https://uniswap.org/',
     description:
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
@@ -3841,6 +4242,7 @@ const _tokens = {
     decimals: 18,
     name: 'Uniswap',
     symbol: 'UNI',
+    oracleId: 'UNI',
     website: 'https://uniswap.org/',
     description:
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
@@ -3853,6 +4255,7 @@ const _tokens = {
     decimals: 18,
     name: 'UniTrade',
     symbol: 'TRADE',
+    oracleId: 'TRADE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xc95d97181857469f7d3CcACB20a84fC0Dfd69a1b/logo.png',
   },
@@ -3862,6 +4265,7 @@ const _tokens = {
     decimals: 18,
     name: 'Uptrennd',
     symbol: '1UP',
+    oracleId: '1UP',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x7fB11D8945653F0978cCA2Ef51442bF31c84e142/logo.png',
   },
@@ -3871,6 +4275,7 @@ const _tokens = {
     decimals: 18,
     name: 'USDK',
     symbol: 'USDK',
+    oracleId: 'USDK',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x28A9f61B5dB4F4349C2edFE7a9B234f71e4ad2A7/logo.png',
   },
@@ -3880,6 +4285,7 @@ const _tokens = {
     decimals: 18,
     name: 'USDQ Stablecoin by Q DAO v1.0',
     symbol: 'USDQ',
+    oracleId: 'USDQ',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4247beA779fE14dabD38547A7eA49d7f57bd1bea/logo.png',
   },
@@ -3889,6 +4295,7 @@ const _tokens = {
     decimals: 18,
     name: 'Utrust Token',
     symbol: 'UTK',
+    oracleId: 'UTK',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x994921baDc83D4F16eEde22B81b64162c50A49EB/logo.png',
   },
@@ -3898,6 +4305,7 @@ const _tokens = {
     decimals: 18,
     name: 'ValorToken',
     symbol: 'VALOR',
+    oracleId: 'VALOR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5499B77D5Ddc35680A26Ff270D96A5c2eB859df4/logo.png',
   },
@@ -3907,6 +4315,7 @@ const _tokens = {
     decimals: 18,
     name: 'Value Liquidity',
     symbol: 'VALUE',
+    oracleId: 'VALUE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x05Fe3039ecc7E03342521f583e9B3bb8B1bf5EB1/logo.png',
   },
@@ -3916,6 +4325,7 @@ const _tokens = {
     decimals: 18,
     name: 'Vibe',
     symbol: 'VIB',
+    oracleId: 'VIB',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x81C8d264f14bF69a083446Fd19fFE9A8fE80E3C0/logo.png',
   },
@@ -3925,6 +4335,7 @@ const _tokens = {
     decimals: 18,
     name: 'VIDT Datalink',
     symbol: 'VIDT',
+    oracleId: 'VIDT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xE1Df06E09531aeD339Cf6C97bEb59De94675d5a8/logo.png',
   },
@@ -3934,6 +4345,7 @@ const _tokens = {
     decimals: 18,
     name: 'Vision Network',
     symbol: 'VSN',
+    oracleId: 'VSN',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3aCf5DfE16cE85ED98339Dfebf2283537F2229d0/logo.png',
   },
@@ -3943,6 +4355,7 @@ const _tokens = {
     decimals: 18,
     name: 'WINGS',
     symbol: 'WINGS',
+    oracleId: 'WINGS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB6F1A43ccc654026DEAd1b566b948dBFBa23f75A/logo.png',
   },
@@ -3952,6 +4365,7 @@ const _tokens = {
     decimals: 18,
     name: 'Wise Token',
     symbol: 'WISE',
+    oracleId: 'WISE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5940b937d1dc86Bd44E535b75C95e9bA10e1ac33/logo.png',
   },
@@ -3961,6 +4375,7 @@ const _tokens = {
     decimals: 18,
     name: 'Wrapped ANATHA',
     symbol: 'wANATHA',
+    oracleId: 'wANATHA',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xD3e6c7E9Dc08173276A17d23546cb9C24D7cD7b0/logo.png',
   },
@@ -3970,6 +4385,7 @@ const _tokens = {
     decimals: 8,
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -3982,6 +4398,7 @@ const _tokens = {
     decimals: 8,
     name: 'Wrapped BTC',
     symbol: 'WBTCe',
+    oracleId: 'WBTCe',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -3995,6 +4412,7 @@ const _tokens = {
     decimals: 8,
     name: 'renBTC',
     symbol: 'RENBTC',
+    oracleId: 'renBTC',
     website: 'https://renproject.io/',
     description:
       'renBTC is a synthetic asset that represents the value of bitcoin and it is created by the Ren protocol. renBTC allows for bitcoin transfers to be conducted quicker on the Ethereum blockchain and opens up the possibility for bitcoin to be used in the Ethereum ecosystem. Bitcoin is held in custody by a network of decentralized nodes; it can be converted to renBTC and vice versa easily.',
@@ -4007,6 +4425,7 @@ const _tokens = {
     decimals: 18,
     name: 'Wrapped NXM',
     symbol: 'wNXM',
+    oracleId: 'wNXM',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3585E1f43Af5A0E5a9429A8058BDf999ED67f81d/logo.png',
   },
@@ -4016,6 +4435,7 @@ const _tokens = {
     decimals: 18,
     name: 'X8XToken',
     symbol: 'X8X',
+    oracleId: 'X8X',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x974E0e514D1413001201D5a629fF8dEfd188E3fd/logo.png',
   },
@@ -4025,6 +4445,7 @@ const _tokens = {
     decimals: 18,
     name: 'XinFin XDCE',
     symbol: 'XDCE',
+    oracleId: 'XDCE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x3a162d08Fbfa687Ca00F5682c5c4F51b3aEe181C/logo.png',
   },
@@ -4034,6 +4455,7 @@ const _tokens = {
     decimals: 18,
     name: 'XIO Network',
     symbol: 'XIO',
+    oracleId: 'XIO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1Ce24Ac9EC3fbc4BA0c3836123953EA0c86336b9/logo.png',
   },
@@ -4043,6 +4465,7 @@ const _tokens = {
     decimals: 18,
     name: 'yAxis',
     symbol: 'YAX',
+    oracleId: 'YAX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x977788025632E20360E4bB4867ef2C498A4EE4a6/logo.png',
   },
@@ -4052,6 +4475,7 @@ const _tokens = {
     decimals: 18,
     name: 'yearn Curve.fi yDAI/yUSDC/yUSDT/yTUSD',
     symbol: 'yyDAI+yUSDC+yUSDT',
+    oracleId: 'yyDAI+yUSDC+yUSDT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x23f717b177eaf0bB93a726D2b8C4Bd11d4c4950b/logo.png',
   },
@@ -4061,6 +4485,7 @@ const _tokens = {
     decimals: 18,
     name: 'yearn.finance',
     symbol: 'YFI',
+    oracleId: 'YFIe',
     website: 'https://yearn.finance/',
     description:
       'Yearn Finance is a suite of products in Decentralized Finance (DeFi) that provides lending aggregation, yield generation, and insurance on the Ethereum blockchain. The protocol is maintained by various independent developers and is governed by YFI holders.',
@@ -4073,6 +4498,7 @@ const _tokens = {
     decimals: 18,
     name: 'yearn.finance',
     symbol: 'YFI',
+    oracleId: 'YFI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x99519AcB025a0e0d44c3875A4BbF03af65933627/logo.png',
   },
@@ -4082,6 +4508,7 @@ const _tokens = {
     decimals: 18,
     name: 'yfarm.finance',
     symbol: 'YFM',
+    oracleId: 'YFM',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xFC492B9DC6aDE871c20e9169f2600DFd2718dF4E/logo.png',
   },
@@ -4091,6 +4518,7 @@ const _tokens = {
     decimals: 18,
     name: 'YfDAI.finance',
     symbol: 'Yf-DAI',
+    oracleId: 'Yf-DAI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xE09CD46BBE2144b53C6265c2D1B3d01cfDadB786/logo.png',
   },
@@ -4100,6 +4528,7 @@ const _tokens = {
     decimals: 18,
     name: 'yffi.finance',
     symbol: 'YFFI',
+    oracleId: 'YFFI',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5777E014b585A5F05dB9902ef944Df9C45F2054C/logo.png',
   },
@@ -4109,6 +4538,7 @@ const _tokens = {
     decimals: 18,
     name: 'YFII.finance',
     symbol: 'YFII',
+    oracleId: 'YFII',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xA0e1645A594a3ac2556Ad0707D89B908B1A17d03/logo.png',
   },
@@ -4118,6 +4548,7 @@ const _tokens = {
     decimals: 18,
     name: 'YFLink',
     symbol: 'YFL',
+    oracleId: 'YFL',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xE3a13E41eCAdcc611a5D8415c2b8C0802197bA96/logo.png',
   },
@@ -4127,6 +4558,7 @@ const _tokens = {
     decimals: 18,
     name: 'YFValue',
     symbol: 'YFV',
+    oracleId: 'YFV',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xd79FA6aC3D484CbbcbE3208518bD4Ae03519E0DB/logo.png',
   },
@@ -4136,6 +4568,7 @@ const _tokens = {
     decimals: 18,
     name: 'yieldfarming.insure',
     symbol: 'SAFE',
+    oracleId: 'SAFE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x0439b92098Bf71Dd4AbF1bA73B974a8c52f1F5F3/logo.png',
   },
@@ -4145,6 +4578,7 @@ const _tokens = {
     decimals: 18,
     name: 'Zero.Exchange Token',
     symbol: 'ZERO',
+    oracleId: 'ZERO',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x9Bdd302e506C3F6c23c085C37789cce6d3C1a233/logo.png',
   },
@@ -4154,6 +4588,7 @@ const _tokens = {
     decimals: 18,
     name: 'ZeroSwapToken',
     symbol: 'ZEE',
+    oracleId: 'ZEE',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x58DC26DA5bfc714F73fD4a4dc768901ed9B8Ed1a/logo.png',
   },
@@ -4163,6 +4598,7 @@ const _tokens = {
     decimals: 18,
     name: 'ZINC',
     symbol: 'ZINC',
+    oracleId: 'ZINC',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x14B1f37c46ECf29C9657585DF0Dd7CEe1eC7C569/logo.png',
   },
@@ -4172,6 +4608,7 @@ const _tokens = {
     decimals: 18,
     name: 'Zippie',
     symbol: 'ZIPT',
+    oracleId: 'ZIPT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x5ED880a1a8e25515D2e881eEBa115462b824Ac5B/logo.png',
   },
@@ -4181,6 +4618,7 @@ const _tokens = {
     decimals: 18,
     name: 'Zks',
     symbol: 'ZKS',
+    oracleId: 'ZKS',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x40871A08cd7b9751639a0831e5a83808F4c7EBA9/logo.png',
   },
@@ -4190,6 +4628,7 @@ const _tokens = {
     decimals: 18,
     name: 'zLOT',
     symbol: 'zLOT',
+    oracleId: 'zLOT',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xF9F0BB57D247a8c55c463b9a231de7E998bdc9a0/logo.png',
   },
@@ -4199,6 +4638,7 @@ const _tokens = {
     decimals: 18,
     name: 'Dai Stablecoin v1.0',
     symbol: 'DAI',
+    oracleId: '0',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x095370AE41FF23798d96c1ADF7D58Ae6a2b05b18/logo.png',
   },
@@ -4208,6 +4648,7 @@ const _tokens = {
     decimals: 18,
     name: 'Maker',
     symbol: 'MKR',
+    oracleId: 'MKR',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x8DF92E9C0508aB0030d432DA9F2C65EB1Ee97620/logo.png',
   },
@@ -4216,6 +4657,7 @@ const _tokens = {
     chainId: 43114,
     name: 'Pangolin',
     symbol: 'PNG',
+    oracleId: 'PNG-Pangolin',
     website: 'https://pangolin.exchange/',
     description:
       'A community-driven decentralized exchange for Avalanche and Ethereum assets with fast settlement, low transaction fees, and a democratic distribution–powered by Avalanche. Pangolin brings you the best trading opportunities to find and maximize your yield.',
@@ -4229,6 +4671,7 @@ const _tokens = {
     decimals: 18,
     name: 'COMPLUS',
     symbol: 'COM',
+    oracleId: 'COM',
     website: 'https://complus.exchange/',
     description:
       'Complus Network is a multi-chain exchange protocol for ERC-20 tokens on several blockchains.',
@@ -4241,6 +4684,7 @@ const _tokens = {
     decimals: 18,
     name: 'YetiSwap',
     symbol: 'YTS',
+    oracleId: 'YTS',
     logoURI:
       'https://raw.githubusercontent.com/YetiSwap/yetiswap.app/master/src/assets/image/YTSCoin.png',
   },
@@ -4250,6 +4694,7 @@ const _tokens = {
     decimals: 18,
     name: 'Zero.Exchange Token',
     symbol: 'ZERO',
+    oracleId: 'Token',
   },
   SNOB: {
     chainId: 43114,
@@ -4257,6 +4702,7 @@ const _tokens = {
     decimals: 18,
     name: 'Snowball',
     symbol: 'SNOB',
+    oracleId: 'SNOB',
     website: 'https://snowball.network/',
     description:
       'Snowball combines multiple DeFi protocols to create an interconnected experience. Swap stablecoins, deposit liquidity, or auto-compound liquidity rewards.',
@@ -4268,6 +4714,7 @@ const _tokens = {
     decimals: 9,
     name: 'sled.finance',
     symbol: 'SFI',
+    oracleId: 'finance',
     logoURI: 'https://raw.githubusercontent.com/sled-finance/media/main/sled_token_fl.png',
   },
   SPORE: {
@@ -4276,6 +4723,7 @@ const _tokens = {
     decimals: 9,
     name: 'Spore',
     symbol: 'SPORE',
+    oracleId: 'SPORE',
     logoURI:
       'https://raw.githubusercontent.com/sporeproject/Spore-frontend/master/src/utils/SPORE.png',
   },
@@ -4285,6 +4733,7 @@ const _tokens = {
     decimals: 18,
     name: 'Penguin Finance',
     symbol: 'PEFI',
+    oracleId: 'PEFI',
     logoURI: 'https://raw.githubusercontent.com/Penguin-Finance/png-files/main/PEFILOGOPNG.png',
   },
   aaBLOCK: {
@@ -4292,6 +4741,7 @@ const _tokens = {
     chainId: 43114,
     name: 'Blocknet',
     symbol: 'aaBLOCK',
+    oracleId: 'aaBLOCK',
     decimals: 8,
     logoURI:
       'https://github.com/blocknetdx/documentation/blob/master/docs/img/icons/Blocknet_symbol_dark_RGB.png',
@@ -4302,6 +4752,7 @@ const _tokens = {
     decimals: 18,
     name: 'Lydia Finance',
     symbol: 'LYD',
+    oracleId: 'LYD',
     website: 'https://www.lydia.finance/',
     description: 'Lydia Finance is a decentralized exchange (DEX) running on Avalanche.',
     logoURI:
@@ -4313,6 +4764,7 @@ const _tokens = {
     decimals: 18,
     name: 'Verso',
     symbol: 'VSO',
+    oracleId: 'VSO',
     logoURI: 'https://raw.githubusercontent.com/VersoOfficial/pr/master/icon_blue.png',
   },
   AVME: {
@@ -4321,6 +4773,7 @@ const _tokens = {
     decimals: 18,
     name: 'AV Me',
     symbol: 'AVME',
+    oracleId: 'AVME',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1ECd47FF4d9598f89721A2866BFEb99505a413Ed/logo.png',
   },
@@ -4330,6 +4783,7 @@ const _tokens = {
     decimals: 9,
     name: 'Crack.Fi',
     symbol: 'CRACK',
+    oracleId: 'CRACK',
     logoURI: 'https://raw.githubusercontent.com/crackfi/logo/master/crackfi_png.png',
   },
   HUSKY: {
@@ -4338,6 +4792,7 @@ const _tokens = {
     decimals: 18,
     name: 'Husky Avalanche',
     symbol: 'HUSKY',
+    oracleId: 'HUSKY',
     logoURI: 'https://raw.githubusercontent.com/safepoint-be/project-husky/main/img/logo.png',
   },
   GDL: {
@@ -4346,6 +4801,7 @@ const _tokens = {
     decimals: 18,
     name: 'Gondola',
     symbol: 'GDL',
+    oracleId: 'GDL',
     logoURI:
       'https://raw.githubusercontent.com/gondola-finance/frontend/master/src/assets/icons/brand_logo_darkmode.png',
   },
@@ -4355,6 +4811,7 @@ const _tokens = {
     decimals: 18,
     name: 'Cycle Protocol',
     symbol: 'CYCLE',
+    oracleId: 'CYCLE',
     logoURI:
       'https://raw.githubusercontent.com/CycleProtocol/assets/master/cycle-logo-round-small.png',
   },
@@ -4364,6 +4821,7 @@ const _tokens = {
     decimals: 18,
     name: 'Birdy Finance',
     symbol: 'BIRD',
+    oracleId: 'Finance',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x4480B4DdFb15fE6518817ef024D8B493afF2Db54/logo.png',
   },
@@ -4373,6 +4831,7 @@ const _tokens = {
     decimals: 18,
     name: 'Avalaunch',
     symbol: 'XAVA',
+    oracleId: 'XAVA',
     website: 'https://avalaunch.app/',
     description: 'Interoperable Token Pools & Auctions for the Avalanche Blockchain.',
     logoURI: 'https://raw.githubusercontent.com/avalaunch-app/xava-protocol/master/logo.png',
@@ -4383,6 +4842,7 @@ const _tokens = {
     decimals: 9,
     name: 'TeslaBitcoin',
     symbol: 'TESLABTC',
+    oracleId: 'TESLABTC',
     logoURI:
       'https://raw.githubusercontent.com/crackfi/tesla_btc_logo/master/Tesla_Bitcoin_logo.png',
   },
@@ -4392,6 +4852,7 @@ const _tokens = {
     decimals: 6,
     name: 'Tether USD',
     symbol: 'USDTe',
+    oracleId: 'USDTe',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.  This version is bridged from Ethereum.',
@@ -4404,6 +4865,7 @@ const _tokens = {
     decimals: 18,
     name: 'TrueUSD',
     symbol: 'TUSD',
+    oracleId: 'TUSD',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x1C20E891Bab6b1727d14Da358FAe2984Ed9B59EB/logo.png',
   },
@@ -4413,6 +4875,7 @@ const _tokens = {
     decimals: 18,
     name: 'Dai Stablecoin',
     symbol: 'DAI',
+    oracleId: 'DAIe',
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
@@ -4425,6 +4888,7 @@ const _tokens = {
     decimals: 18,
     name: 'Binance USD',
     symbol: 'BUSD',
+    oracleId: 'BUSDe',
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos). BUSD is approved and regulated by the New York State Department of Financial Services (NYDFS). The BUSD Monthly Audit Report can be viewed from the official website.',
@@ -4437,6 +4901,7 @@ const _tokens = {
     decimals: 18,
     name: 'Frax',
     symbol: 'FRAX',
+    oracleId: 'FRAX-Frax',
     website: 'https://frax.finance/',
     description:
       'Frax is the world’s first fractional-algorithmic stablecoin. The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
@@ -4449,6 +4914,7 @@ const _tokens = {
     decimals: 18,
     name: 'Olive',
     symbol: 'OLIVE',
+    oracleId: 'OLIVE',
     website: 'https://avax.olive.cash/',
     description:
       'OLIVE token is at the heart of the OliveCash ecosystem. Buy it, win it, farm it, spend it, stake it... heck, you can even vote with it!',
@@ -4461,6 +4927,7 @@ const _tokens = {
     decimals: 18,
     name: 'Joe Token',
     symbol: 'JOE',
+    oracleId: 'JOE',
     website: 'https://www.traderjoexyz.com/#/home',
     description:
       'Trader Joe is your one-stop decentralized trading platform on the Avalanche network, of which JOE is the governance token that rewards its holders with a share of exchange revenues.',
@@ -4473,6 +4940,7 @@ const _tokens = {
     decimals: 18,
     name: 'SHIBA',
     symbol: 'SHIBX',
+    oracleId: 'SHIBX',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x617724974218A18769020A70162165A539c07E8a/logo.png',
   },
@@ -4482,6 +4950,7 @@ const _tokens = {
     decimals: 6,
     name: 'USD Coin',
     symbol: 'USDCe',
+    oracleId: 'USDCe',
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
@@ -4494,6 +4963,7 @@ const _tokens = {
     name: 'Magic Internet Money',
     address: '0x130966628846BFd36ff31a822705796e8cb8C18D',
     symbol: 'MIM',
+    oracleId: 'MIM',
     decimals: 18,
     chainId: 43114,
     website: 'https://abracadabra.money/',
@@ -4506,6 +4976,7 @@ const _tokens = {
     name: 'Spell Token',
     address: '0xCE1bFFBD5374Dac86a2893119683F4911a2F7814',
     symbol: 'SPELL',
+    oracleId: 'SPELL',
     decimals: 18,
     chainId: 43114,
     website: 'https://abracadabra.money/',
@@ -4517,6 +4988,7 @@ const _tokens = {
   CRA: {
     name: 'CRA',
     symbol: 'CRA',
+    oracleId: 'CRA',
     address: '0xA32608e873F9DdEF944B24798db69d80Bbb4d1ed',
     chainId: 43114,
     decimals: 18,
@@ -4529,6 +5001,7 @@ const _tokens = {
   aWOOL: {
     name: 'AWOOL',
     symbol: 'aWOOL',
+    oracleId: 'aWOOL',
     address: '0x5eDE350E84223fb50775fD91a723F2ca71034cf7',
     chainId: 43114,
     decimals: 9,
@@ -4541,6 +5014,7 @@ const _tokens = {
   MEAD: {
     name: 'THORS MEAD',
     symbol: 'MEAD',
+    oracleId: 'MEAD',
     address: '0x245C2591403e182e41d7A851eab53B01854844CE',
     chainId: 43114,
     decimals: 8,
@@ -4553,6 +5027,7 @@ const _tokens = {
   KLO: {
     name: 'Kalao Token',
     symbol: 'KLO',
+    oracleId: 'KLO',
     address: '0xb27c8941a7Df8958A1778c0259f76D1F8B711C35',
     chainId: 43114,
     decimals: 18,
@@ -4565,6 +5040,7 @@ const _tokens = {
   CRAFT: {
     name: 'CRAFT',
     symbol: 'CRAFT',
+    oracleId: 'CRAFT',
     address: '0x8aE8be25C23833e0A01Aa200403e826F611f9CD2',
     chainId: 43114,
     decimals: 18,
@@ -4577,6 +5053,7 @@ const _tokens = {
   MELT: {
     name: 'Defrost Finance Token',
     symbol: 'MELT',
+    oracleId: 'MELT',
     address: '0x47EB6F7525C1aA999FBC9ee92715F5231eB1241D',
     chainId: 43114,
     decimals: 18,
@@ -4591,6 +5068,7 @@ const _tokens = {
     decimals: 18,
     name: 'Platypus',
     symbol: 'PTP',
+    oracleId: 'PTP',
     website: 'https://platypus.finance/',
     description:
       'Platypus invents a whole new AMM on Avalanche - Open liquidity single-sided AMM managing risk autonomously based on the coverage ratio, allowing maximal capital efficiency.',
@@ -4602,6 +5080,7 @@ const _tokens = {
     decimals: 18,
     name: 'Colony Token',
     symbol: 'CLY',
+    oracleId: 'CLY',
     website: 'https://www.colonylab.io/',
     description:
       'Colony is a community-driven Avalanche ecosystem accelerator, powered by Colony’s CLY token.',
@@ -4613,6 +5092,7 @@ const _tokens = {
     decimals: 6,
     name: 'USD Coin',
     symbol: 'USDC',
+    oracleId: 'USDC',
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
@@ -4627,6 +5107,7 @@ const _tokens = {
     decimals: 18,
     name: 'Roco Finance',
     symbol: 'ROCO',
+    oracleId: 'ROCO',
     website: 'https://roco.finance/',
     description:
       'ROCO is a decentralized GAMEFI platform which provide blockchain services to game developers, content creators and player communities through the blockchain network.',
@@ -4638,6 +5119,7 @@ const _tokens = {
     decimals: 18,
     name: 'Heroes of NFT',
     symbol: 'HON',
+    oracleId: 'HON',
     website: 'https://heroesofnft.com/',
     description:
       'Heroes of NFT is an online card game where you can attend tournaments and defeat your opponents to rise to victory.',
@@ -4649,6 +5131,7 @@ const _tokens = {
     decimals: 18,
     name: 'STEP.APP',
     symbol: 'FITFI',
+    oracleId: 'FITFI',
     website: 'https://step.app/',
     description:
       'Step App is creating a gamified metaverse for the fitness economy. Walk, jog, and run to socialize, play, and earn. - Stake to earn portion of ecosystem fees. - Stake includes a cooldown, breaking which causes a penalty. - Tiered stakers acquire discounts on NFT market.',
@@ -4659,6 +5142,7 @@ const _tokens = {
   GLP: {
     name: 'GLP',
     symbol: 'GLP',
+    oracleId: 'GLP',
     address: '0xaE64d55a6f09E4263421737397D1fdFA71896a69',
     chainId: 43114,
     decimals: 18,
@@ -4671,6 +5155,7 @@ const _tokens = {
   GMX: {
     name: 'GMX',
     symbol: 'GMX',
+    oracleId: 'GMX',
     address: '0x62edc0692BD897D2295872a9FFCac5425011c661',
     chainId: 43114,
     decimals: 18,
@@ -4683,6 +5168,7 @@ const _tokens = {
   SNEK: {
     name: 'SNEK',
     symbol: 'SNEK',
+    oracleId: 'SNEK',
     address: '0xeeee99b35Eb6aF5E7d76dd846DbE4bcc0c60cA1d',
     chainId: 43114,
     decimals: 18,
@@ -4695,6 +5181,7 @@ const _tokens = {
   DEI: {
     name: 'DEI',
     symbol: 'DEI',
+    oracleId: 'DEI',
     address: '0xDE1E704dae0B4051e80DAbB26ab6ad6c12262DA0',
     chainId: 43114,
     decimals: 18,
@@ -4707,6 +5194,7 @@ const _tokens = {
   DEUS: {
     name: 'DEUS',
     symbol: 'DEUS',
+    oracleId: 'DEUS',
     address: '0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44',
     chainId: 43114,
     decimals: 18,
@@ -4719,6 +5207,7 @@ const _tokens = {
   DOLA: {
     name: 'DOLA USD',
     symbol: 'DOLA',
+    oracleId: 'DOLA',
     address: '0x221743dc9E954bE4f86844649Bf19B43D6F8366d',
     chainId: 43114,
     decimals: 18,
@@ -4732,6 +5221,7 @@ const _tokens = {
   aavAVAX: {
     name: 'Aave AVAX',
     symbol: 'aavAVAX',
+    oracleId: 'aavAVAX',
     address: '0x6d80113e533a2C0fe82EaBD35f1875DcEA89Ea97',
     chainId: 43114,
     decimals: 18,
@@ -4746,6 +5236,7 @@ const _tokens = {
   waavAVAX: {
     name: 'Wrapped Aave AVAX',
     symbol: 'waavAVAX',
+    oracleId: 'waavAVAX',
     address: '0xA291Ae608d8854CdbF9838E28E9BADCf10181669',
     chainId: 43114,
     decimals: 18,
@@ -4759,6 +5250,7 @@ const _tokens = {
   bbaavAVAX: {
     name: 'Balancer Aave AVAX Linear Pool',
     symbol: 'bbaavAVAX',
+    oracleId: 'bbaavAVAX',
     address: '0x7275c131b1F67e8B53b4691F92B0E35A4c1C6e22',
     chainId: 43114,
     decimals: 18,
@@ -4773,6 +5265,7 @@ const _tokens = {
   yyAVAX: {
     name: 'Yield Yak gAVAX',
     symbol: 'yyAVAX',
+    oracleId: 'yyAVAX',
     address: '0xF7D9281e8e363584973F946201b82ba72C965D27',
     chainId: 43114,
     decimals: 18,
@@ -4787,6 +5280,7 @@ const _tokens = {
   aavUSDC: {
     name: 'Aave USDC',
     symbol: 'aavUSDC',
+    oracleId: 'aavUSDC',
     address: '0x625E7708f30cA75bfd92586e17077590C60eb4cD',
     chainId: 43114,
     decimals: 6,
@@ -4802,6 +5296,7 @@ const _tokens = {
   waavUSDC: {
     name: 'Wrapped Aave USDC',
     symbol: 'waavUSDC',
+    oracleId: 'waavUSDC',
     address: '0xE7839ea8eA8543c7F5D9c9d7269C661904729fE7',
     chainId: 43114,
     decimals: 6,
@@ -4815,6 +5310,7 @@ const _tokens = {
   bbaavUSDC: {
     name: 'Balancer Aave USDC Linear Pool',
     symbol: 'bbaavUSDC',
+    oracleId: 'bbaavUSDC',
     address: '0xEb496161099D45B3ea4892408ef745c6182eB56e',
     chainId: 43114,
     decimals: 18,
@@ -4829,6 +5325,7 @@ const _tokens = {
   aavUSDT: {
     name: 'Aave USDT',
     symbol: 'aavUSDT',
+    oracleId: 'aavUSDT',
     address: '0x6ab707Aca953eDAeFBc4fD23bA73294241490620',
     chainId: 43114,
     decimals: 6,
@@ -4844,6 +5341,7 @@ const _tokens = {
   waavUSDT: {
     name: 'Wrapped Aave USDT',
     symbol: 'waavUSDT',
+    oracleId: 'waavUSDT',
     address: '0x759a2E28d4c3AD394d3125d5Ab75A6A5D6782Fd9',
     chainId: 43114,
     decimals: 6,
@@ -4857,6 +5355,7 @@ const _tokens = {
   bbaavUSDT: {
     name: 'Balancer Aave USDT Linear Pool',
     symbol: 'bbaavUSDT',
+    oracleId: 'bbaavUSDT',
     address: '0xeA67626E1f0b59e0d172a04F5702ef90BcdF440C',
     chainId: 43114,
     decimals: 18,
@@ -4871,6 +5370,7 @@ const _tokens = {
   bbaavUSD: {
     name: 'Balancer Aave Stable Composable Pool',
     symbol: 'bbaavUSD',
+    oracleId: 'bbaavUSD',
     address: '0xa1D14d922a575232066520EDA11E27760946c991',
     chainId: 43114,
     decimals: 18,

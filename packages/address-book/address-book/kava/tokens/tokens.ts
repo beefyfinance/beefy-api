@@ -5,6 +5,7 @@ const KAVA = {
   name: 'Wrapped KAVA',
   address: '0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b',
   symbol: 'WKAVA',
+  oracleId: 'KAVA',
   decimals: 18,
   chainId: 2222,
   website: 'https://www.kava.io/',
@@ -22,6 +23,7 @@ const _tokens = {
   kmultiUSDC: {
     name: 'USD Coin',
     symbol: 'kmultiUSDC',
+    oracleId: 'kmultiUSDC',
     address: '0xfA9343C3897324496A05fC75abeD6bAC29f8A40f',
     chainId: 2222,
     decimals: 6,
@@ -36,6 +38,7 @@ const _tokens = {
   multichainUSDT: {
     name: 'USDT',
     symbol: 'USDT',
+    oracleId: 'multichainUSDT',
     address: '0xB44a9B6905aF7c801311e8F4E76932ee959c663C',
     chainId: 2222,
     decimals: 6,
@@ -49,6 +52,7 @@ const _tokens = {
   USDT: {
     name: 'USDT',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0x919C1c267BC06a7039e03fcc2eF738525769109c',
     chainId: 2222,
     decimals: 6,
@@ -63,6 +67,7 @@ const _tokens = {
     name: 'Dai Stablecoin',
     address: '0x765277EebeCA2e31912C9946eAe1021199B39C61',
     symbol: 'DAI',
+    oracleId: 'DAI',
     decimals: 18,
     chainId: 2222,
     website: 'https://makerdao.com/',
@@ -77,6 +82,7 @@ const _tokens = {
     name: 'Sushi',
     address: '0x7C598c96D02398d89FbCb9d41Eab3DF0C16F227D',
     symbol: 'SUSHI',
+    oracleId: 'SUSHI',
     decimals: 18,
     chainId: 2222,
     website: 'https://sushi.com/',
@@ -89,6 +95,7 @@ const _tokens = {
     name: 'Wrapped BTC',
     address: '0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b',
     symbol: 'kmultiWBTC',
+    oracleId: 'WBTC',
     decimals: 8,
     website: 'https://wbtc.network/',
     description:
@@ -102,6 +109,7 @@ const _tokens = {
     name: 'Ether',
     address: '0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     symbol: 'kmultiETH',
+    oracleId: 'ETH',
     decimals: 18,
     chainId: 2222,
     website: 'https://ethereum.org/',
@@ -114,6 +122,7 @@ const _tokens = {
   axlUSDC: {
     name: 'Axelar USD Coin ',
     symbol: 'axlUSDC',
+    oracleId: 'axlUSDC',
     address: '0xEB466342C4d449BC9f53A865D5Cb90586f405215',
     chainId: 2222,
     decimals: 6,
@@ -128,6 +137,7 @@ const _tokens = {
   axlUSDT: {
     name: 'USDT',
     symbol: 'axlUSDT',
+    oracleId: 'axlUSDT',
     address: '0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6',
     chainId: 2222,
     decimals: 6,
@@ -142,6 +152,7 @@ const _tokens = {
     name: 'Axelar Dai Stablecoin',
     address: '0x5C7e299CF531eb66f2A1dF637d37AbB78e6200C7',
     symbol: 'axlDAI',
+    oracleId: 'axlDAI',
     decimals: 18,
     chainId: 2222,
     website: 'https://makerdao.com/',
@@ -156,6 +167,7 @@ const _tokens = {
     name: 'VARA',
     address: '0xE1da44C0dA55B075aE8E2e4b6986AdC76Ac77d73',
     symbol: 'VARA',
+    oracleId: 'VARA',
     decimals: 18,
     chainId: 2222,
     website: 'https://equilibrefinance.com//',
@@ -169,6 +181,7 @@ const _tokens = {
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'kmultioldBIFI',
+    oracleId: 'oldBIFI',
     address: '0xC19281F22A075E0F10351cd5D6Ea9f0AC63d4327',
     chainId: 2222,
     decimals: 18,
@@ -183,6 +196,7 @@ const _tokens = {
   MAI: {
     name: 'Mai Stablecoin',
     symbol: 'kMAI',
+    oracleId: 'MAI',
     address: '0xb84Df10966a5D7e1ab46D9276F55d57bD336AFC7',
     chainId: 2222,
     decimals: 18,
@@ -195,6 +209,7 @@ const _tokens = {
   BNB: {
     name: 'Binance Chain',
     symbol: 'kmultiBNB',
+    oracleId: 'BNB',
     address: '0xABd380327Fe66724FFDa91A87c772FB8D00bE488',
     chainId: 2222,
     decimals: 18,
@@ -207,6 +222,7 @@ const _tokens = {
   axlATOM: {
     name: 'Axelar Wrapped ATOM',
     symbol: 'axlATOM',
+    oracleId: 'axlATOM',
     address: '0x06beE9E7238a331B68D83Df3B5B9B16d5DBa83ff',
     chainId: 2222,
     decimals: 6,
@@ -220,6 +236,7 @@ const _tokens = {
   MARE: {
     name: 'Mare Finance',
     symbol: 'MARE',
+    oracleId: 'MARE',
     address: '0xd86C8d4279CCaFbec840c782BcC50D201f277419',
     chainId: 2222,
     decimals: 18,
@@ -234,6 +251,7 @@ const _tokens = {
     name: 'Magic Internet Money',
     address: '0x471EE749bA270eb4c1165B5AD95E614947f6fCeb',
     symbol: 'MIM',
+    oracleId: 'MIM',
     decimals: 18,
     chainId: 2222,
     website: 'https://abracadabra.money/',
@@ -246,6 +264,7 @@ const _tokens = {
   axlETH: {
     name: 'Axelar Wrapped ETH',
     symbol: 'axlETH',
+    oracleId: 'axlETH',
     address: '0xb829b68f57CC546dA7E5806A929e53bE32a4625D',
     chainId: 2222,
     decimals: 18,
@@ -259,6 +278,7 @@ const _tokens = {
   axlWBTC: {
     name: 'Axelar Wrapped WBTC',
     symbol: 'axlWBTC',
+    oracleId: 'axlWBTC',
     address: '0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad',
     chainId: 2222,
     decimals: 8,
@@ -272,6 +292,7 @@ const _tokens = {
   ATOM: {
     name: 'ATOM',
     symbol: 'ATOM',
+    oracleId: 'ATOM',
     address: '0x15932E26f5BD4923d46a2b205191C4b5d5f43FE3',
     chainId: 2222,
     decimals: 6,
