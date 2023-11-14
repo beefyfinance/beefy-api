@@ -5,7 +5,7 @@ const CELO = {
   name: 'CELO',
   address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
   symbol: 'CELO',
-  oracleId: 'CELO',
+  oracleId: 'WCELO',
   decimals: 18,
   chainId: 42220,
   website: 'https://celo.org/',

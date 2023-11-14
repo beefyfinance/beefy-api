@@ -691,7 +691,7 @@ async function performUpdateAmmPrices() {
     //Set prices for the wrapped version of native tokens (if native was set)
     const nativeTokens = new Set(
       Object.values(addressBookByChainId).map(addressbook =>
-        addressbook.tokens.WNATIVE.symbol.slice(1)
+        addressbook.tokens.WNATIVE.oracleId.slice(1)
       )
     );
     nativeTokens.forEach(nativeToken => {
@@ -918,7 +918,7 @@ export async function getAmmPrice(
 // We want to treat wrapped tokens the same way we'd treat normal ones => We then swap all wrapped token oracleIds to their underlying
 function normalizePoolOracleIds(pools) {
   const wrappedNativeTokens = new Set(
-    Object.values(addressBookByChainId).map(addressbook => addressbook.tokens.WNATIVE.symbol)
+    Object.values(addressBookByChainId).map(addressbook => addressbook.tokens.WNATIVE.oracleId)
   );
 
   pools.forEach(pool => {

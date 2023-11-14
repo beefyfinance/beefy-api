@@ -13,7 +13,7 @@ const {
 
 const REWARDS = '0x5D060698F179E7D2233480A44d6D3979e4Ae9e7f';
 const ORACLE = 'tokens';
-const ORACLE_ID = QI.symbol;
+const ORACLE_ID = QI.oracleId;
 const DECIMALS = '1e18';
 
 const getbeQiEarnApy = async () => {

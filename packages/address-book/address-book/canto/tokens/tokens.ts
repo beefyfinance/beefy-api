@@ -5,7 +5,7 @@ const CANTO = {
   name: 'Wrapped Canto',
   address: '0x826551890Dc65655a0Aceca109aB11AbDbD7a07B',
   symbol: 'WCANTO',
-  oracleId: 'CANTO',
+  oracleId: 'WCANTO',
   decimals: 18,
   chainId: 7700,
   website: 'https://canto.io/',

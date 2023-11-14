@@ -25,7 +25,7 @@ const getyVaultPrices = async (tokenPrices, tokens: Token[][], chainId) => {
     const res = await Promise.all(pricePerShareCalls);
     const pricePerShare = res.map(v => new BigNumber(v.toString()));
     return pricePerShare.map((v, i) =>
-      v.times(tokenPrices[tokens[i][0].symbol]).dividedBy('1e18').toNumber()
+      v.times(tokenPrices[tokens[i][0].oracleId]).dividedBy('1e18').toNumber()
     );
   } catch (e) {
     console.error('getyVaultPrices', e);
@@ -37,7 +37,7 @@ const fetchyVaultPrices = async tokenPrices =>
   Promise.all([getyVaultPrices(tokenPrices, tokens.fantom, FANTOM_CHAIN_ID)]).then(data =>
     data
       .flat()
-      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})
+      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );
 
 export { fetchyVaultPrices };

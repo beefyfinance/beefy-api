@@ -37,7 +37,7 @@ export const getTelxchangeApys = async () => {
 
 const getFarmApys = async (pools: LpPool[]) => {
   const apys = [];
-  const primaryRewardTokenPrice = await fetchPrice({ oracle, id: TEL.symbol });
+  const primaryRewardTokenPrice = await fetchPrice({ oracle, id: TEL.oracleId });
   const [telDecimals] = [TEL].map(token => getEDecimals(token.decimals));
   const { balances, rewardRates } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {

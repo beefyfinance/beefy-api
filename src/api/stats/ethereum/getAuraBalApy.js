@@ -46,9 +46,9 @@ const getAuraBalApy = async () => {
 };
 
 const getYearlyRewardsInUsd = async () => {
-  const balPrice = await fetchPrice({ oracle: ORACLE, id: BAL.symbol });
-  const auraPrice = await fetchPrice({ oracle: ORACLE, id: AURA.symbol });
-  const bbaUSDPrice = await fetchPrice({ oracle: ORACLE, id: bbaUSD.symbol });
+  const balPrice = await fetchPrice({ oracle: ORACLE, id: BAL.oracleId });
+  const auraPrice = await fetchPrice({ oracle: ORACLE, id: AURA.oracleId });
+  const bbaUSDPrice = await fetchPrice({ oracle: ORACLE, id: bbaUSD.oracleId });
 
   const rewardPool = fetchContract(auraBalGauge, AuraGauge, ETH_CHAIN_ID);
   const bbaUSDVirtualGaugeAddress = await rewardPool.read.extraRewards([0]);
@@ -87,7 +87,7 @@ const getTotalStakedInUsd = async () => {
   const totalStaked = new BigNumber(
     (await tokenContract.read.balanceOf([auraBalGauge])).toString()
   );
-  const tokenPrice = await fetchPrice({ oracle: ORACLE, id: auraBAL.symbol });
+  const tokenPrice = await fetchPrice({ oracle: ORACLE, id: auraBAL.oracleId });
 
   return totalStaked.times(tokenPrice).dividedBy(DECIMALS);
 };

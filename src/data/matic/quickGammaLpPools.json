@@ -29,7 +29,7 @@
     "lp0": {
       "address": "0x4b4327dB1600B8B1440163F667e199CEf35385f5",
       "oracle": "tokens",
-      "oracleId": "fxcbETH",
+      "oracleId": "cbETH",
       "decimals": "1e18"
     },
     "lp1": {

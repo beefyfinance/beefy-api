@@ -25,7 +25,7 @@ const getFarmApys = async () => {
   const apys = [];
 
   const [rewardTokenPrice, { balances, rewardRates }, secondsPerBlock] = await Promise.all([
-    fetchPrice({ oracle: 'tokens', id: OOEV2.symbol }),
+    fetchPrice({ oracle: 'tokens', id: OOEV2.oracleId }),
     getPoolsData(),
     getBlockTime(chainId),
   ]);

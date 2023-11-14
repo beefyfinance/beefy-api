@@ -32,7 +32,7 @@ const getSpiritApys = async () => {
     masterchef: spiritswap.masterchef,
     tokenPerBlock: 'spiritPerBlock',
     pools: pools.filter(pool => !!pool.poolId),
-    oracleId: SPIRIT.symbol,
+    oracleId: SPIRIT.oracleId,
     oracle: 'tokens',
     decimals: getEDecimals(SPIRIT.decimals),
     tradingFeeInfoClient: spiritClient,
@@ -54,7 +54,7 @@ const getSpiritApys = async () => {
 
   const binSpiritApy = getRewardPoolApys({
     pools: singlePool,
-    oracleId: binSPIRIT.symbol,
+    oracleId: binSPIRIT.oracleId,
     oracle: 'tokens',
     decimals: getEDecimals(binSPIRIT.decimals),
     chainId: 250,

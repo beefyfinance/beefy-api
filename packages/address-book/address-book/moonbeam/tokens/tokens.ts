@@ -4,8 +4,8 @@ import Token from '../../../types/token';
 const GLMR = {
   name: 'Moonbeam',
   address: '0xAcc15dC74880C9944775448304B263D191c6077F',
-  symbol: 'WGLMR',
-  oracleId: 'GLMR',
+  symbol: 'GLMR',
+  oracleId: 'WGLMR',
   decimals: 18,
   chainId: 1284,
   website: 'https://moonbeam.network/networks/moonbeam/',

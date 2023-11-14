@@ -4,7 +4,7 @@ import Token from '../../../types/token';
 const HT = {
   name: 'Wrapped HT',
   symbol: 'WHT',
-  oracleId: 'HT',
+  oracleId: 'WHT',
   address: '0x5545153CCFcA01fbd7Dd11C0b23ba694D9509A6F',
   chainId: 128,
   decimals: 18,

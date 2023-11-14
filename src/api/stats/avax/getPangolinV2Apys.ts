@@ -22,7 +22,7 @@ export const getPangolinV2Apys = () => {
     minichefConfig: {
       minichef,
       minichefAbi: PangolinChef,
-      outputOracleId: PNG.symbol,
+      outputOracleId: PNG.oracleId,
       tokenPerSecondContractMethodName: 'rewardPerSecond',
     },
     pools,

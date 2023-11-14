@@ -40,7 +40,7 @@ const getTotalStakedInUsd = async ({
 }: MultiFeeDistributionSingleAssetApyParams) => {
   const tokenContract = fetchContract(multiFeeDistributionAddress, MultiFeeDistribution, chainId);
   const totalStaked = new BigNumber((await tokenContract.read.totalSupply()).toString());
-  const tokenPrice = await fetchPrice({ oracle, id: want.symbol });
+  const tokenPrice = await fetchPrice({ oracle, id: want.oracleId });
   return totalStaked.times(tokenPrice).dividedBy(want.decimals);
 };
 

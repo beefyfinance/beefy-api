@@ -1255,6 +1255,7 @@ const _tokens = {
   cArbUSDCv3: {
     name: 'Compound USDC',
     symbol: 'cUSDCv3',
+    oracleId: 'cArbUSDCv3',
     address: '0xA5EDBDD9646f8dFF606d7448e414884C7d905dCA',
     chainId: 42161,
     decimals: 6,
@@ -1275,7 +1276,7 @@ const _tokens = {
     description:
       'Unlocking the critical DeFi primitive of decentralized money markets for Arbitrum native assets like ARB, MAGIC, GMX, and plvGLP .',
     documentation: 'https://docs.lodestarfinance.io/',
-   },
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

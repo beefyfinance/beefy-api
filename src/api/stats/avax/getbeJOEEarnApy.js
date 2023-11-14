@@ -14,7 +14,7 @@ const {
 
 const REWARDS = '0x2E360492120cebeB2527c41BAE1a4f21992D86Ec';
 const ORACLE = 'tokens';
-const ORACLE_ID = JOE.symbol;
+const ORACLE_ID = JOE.oracleId;
 const DECIMALS = '1e18';
 
 const getbeJOEEarnApy = async () => {

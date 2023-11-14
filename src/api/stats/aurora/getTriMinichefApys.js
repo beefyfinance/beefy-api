@@ -32,7 +32,7 @@ const getTriMinichefApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  const tokenPriceA = await fetchPrice({ oracle: oracleA, id: TRI.symbol });
+  const tokenPriceA = await fetchPrice({ oracle: oracleA, id: TRI.oracleId });
 
   const [{ rewardPerSecond, totalAllocPoint }, { balances, allocPoints, rewarders }] =
     await Promise.all([getMasterChefData(), getPoolsData(pools)]);

@@ -108,7 +108,7 @@ const getPoolApy = async pool => {
     let usdTotalQty = new BigNumber(0);
     for (let i = 0; i < usdPlusTokenQtys[1].length; i++) {
       if (i != 1) {
-        const price = await fetchPrice({ oracle: 'tokens', id: bbUsdPlusTokens[i].symbol });
+        const price = await fetchPrice({ oracle: 'tokens', id: bbUsdPlusTokens[i].oracleId });
         const amt = new BigNumber(usdPlusTokenQtys[1][i])
           .times(price)
           .dividedBy(getEDecimals(bbUsdPlusTokens[i].decimals));
@@ -122,7 +122,7 @@ const getPoolApy = async pool => {
     let daiTotalQty = new BigNumber(0);
     for (let j = 0; j < daiPlusTokenQtys[1].length; j++) {
       if (j != 1) {
-        const price = await fetchPrice({ oracle: 'tokens', id: bbDaiPlusTokens[j].symbol });
+        const price = await fetchPrice({ oracle: 'tokens', id: bbDaiPlusTokens[j].oracleId });
         const amt = new BigNumber(daiPlusTokenQtys[1][j])
           .times(price)
           .dividedBy(getEDecimals(bbDaiPlusTokens[j].decimals));
