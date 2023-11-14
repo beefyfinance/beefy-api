@@ -35,6 +35,12 @@ const pools = [
       { address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B', oracleId: 'CVX' },
     ],
   },
+  {
+    name: 'convex-staked-cvxFXN',
+    oracleId: 'cvxFXN',
+    address: '0xEC60Cd4a5866fb3B0DD317A46d3B474a24e06beF',
+    rewards: [{ address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B', oracleId: 'CVX' }],
+  },
 ];
 
 export const getConvexCvxTokensApy = async () => {
