@@ -123,7 +123,7 @@ const _tokens = {
     symbol: 'HUSD',
     address: '0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047',
     chainId: 128,
-    decimals: 18,
+    decimals: 8,
     website: 'https://www.htokens.finance/en-us/',
     description:
       'HUSD is a ERC20 token backed 1:1 with USD. H-tokens are a suite of assets issued on Ethereum and backed by cryptocurrencies from other blockchains.',

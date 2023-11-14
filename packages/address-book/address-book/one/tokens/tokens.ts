@@ -215,7 +215,7 @@ const _tokens = {
   'oldBIFI-WONE LP': {
     name: 'oldBIFI-WONE LP',
     symbol: 'oldBIFI-WONE LP',
-    address: '0x0f9602B7E7146a9BaE16dB948281BebDb7C2D095',
+    address: '0x27f3b2Df4a81382202E87EE40429e0212ecc7d3F',
     chainId: 1666600000,
     decimals: 18,
     logoURI: '',

@@ -355,7 +355,7 @@ const _tokens = {
   FIEF: {
     name: 'Fief FIEF',
     symbol: 'FIEF',
-    address: '0x65Def5029A0e7591e46B38742bFEdd1Fb7b24436',
+    address: '0xeA068Fba19CE95f12d252aD8Cb2939225C4Ea02D',
     chainId: 43114,
     decimals: 18,
     logoURI:
@@ -441,7 +441,7 @@ const _tokens = {
     symbol: 'DOMI',
     address: '0xFc6Da929c031162841370af240dEc19099861d3B',
     chainId: 43114,
-    decimals: 6,
+    decimals: 18,
     logoURI:
       'https://raw.githubusercontent.com/traderjoe-xyz/joe-tokenlists/main/logos/0xFc6Da929c031162841370af240dEc19099861d3B/logo.png',
     website: 'https://domionline.io/',
