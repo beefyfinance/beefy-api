@@ -10,6 +10,7 @@ import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
 import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices';
+import { fetchSolidlyStableTokenPrices } from '../../utils/fetchSolidlyStableTokenPrices';
 import {
   fetchBalancerLinearPoolPrice,
   fetchBalancerStablePoolPrice,
@@ -712,6 +713,10 @@ async function performUpdateAmmPrices() {
     return await fetchConcentratedLiquidityTokenPrices(tokenPrices);
   });
 
+  const solidlyStableTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchSolidlyStableTokenPrices(tokenPrices);
+  });
+
   const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
 
   const xPrices = ammPrices.then(async ({ tokenPrices }) => {
@@ -766,6 +771,7 @@ async function performUpdateAmmPrices() {
     const dmm = await dmmPrices;
     const curvePrices = await curveTokenPrices;
     const concentratedLiquidityPrices = await concentratedLiquidityTokenPrices;
+    const solidlyStablePrices = await solidlyStableTokenPrices;
     const xTokenPrices = await xPrices;
     const mooTokenPrices = await mooPrices;
     const beTokenTokenPrice = await beTokenPrice;
@@ -780,6 +786,7 @@ async function performUpdateAmmPrices() {
       ...beTokenTokenPrice,
       ...curvePrices,
       ...concentratedLiquidityPrices,
+      ...solidlyStablePrices,
       ...linearPoolTokenPrice,
       ...(await currencyPrices()),
       ...venusTokenPrice,

@@ -1174,6 +1174,18 @@ const _tokens = {
     bridge: 'native',
     staked: true,
   },
+  LODE: {
+    name: 'Lodestar',
+    symbol: 'LODE',
+    address: '0xF19547f9ED24aA66b03c3a552D181Ae334FBb8DB',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.lodestarfinance.io/',
+    description:
+      'Unlocking the critical DeFi primitive of decentralized money markets for Arbitrum native assets like ARB, MAGIC, GMX, and plvGLP .',
+    documentation: 'https://docs.lodestarfinance.io/',
+   },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

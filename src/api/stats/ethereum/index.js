@@ -6,11 +6,10 @@ const { getSushiApys } = require('./getSushiLpApys');
 const { getSynapseLpApys } = require('./getSynapseLpApys');
 const getSolidlyApys = require('./getSolidlyApys');
 const { getConvexCrvApy } = require('./getConvexCrvApy');
-const { getConvexFxsApy } = require('./getConvexFxsApy');
 const getEulerApys = require('./getEulerApys');
 const { getVerseLpApys } = require('./getVerseApys');
 const { getBifiMaxiApy } = require('./getBifiMaxiApy');
-const { getConvexFpisApy } = require('./getConvexFpisApy');
+const { getConvexCvxTokensApy } = require('./getConvexCvxTokensApy');
 const { getCurveApys } = require('./getCurveApys');
 const { getConicApys } = require('./getConicApys');
 const { getApeStakingApy } = require('./getApeStakingApy');
@@ -25,9 +24,8 @@ const getApys = [
   getCurveApys,
   getConvexApys,
   getConvexCrvApy,
-  getConvexFxsApy,
-  getConvexFpisApy,
   getConvexCvxApy,
+  getConvexCvxTokensApy,
   getConicApys,
   getPrismaApys,
   getStargateEthApys,

@@ -10,6 +10,7 @@ import {
   joeDayDataRangeQuery,
   protocolDayDataRangeQuery,
   hopQuery,
+  gmxQuery,
 } from '../apollo/queries';
 import getBlockTime from './getBlockTime';
 import getBlockNumber from './getBlockNumber';
@@ -412,4 +413,39 @@ export const getYearlyBalancerPlatformTradingFees = async (
   }
 
   return yearlyTradingFeesUsd;
+};
+
+export const getGmxTradingFeeApr = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  marketAddresses: string[]
+) => {
+  const [start, end] = getUtcSecondsFromDayRange(0, 7);
+  const marketAddressToAprMap: Record<string, BigNumber> = {};
+
+  try {
+    const currentData = await client.query({
+      query: gmxQuery(addressesToLowercase(marketAddresses), end),
+    });
+    const pastData = await client.query({
+      query: gmxQuery(addressesToLowercase(marketAddresses), start),
+    });
+    const currentFees = currentData.data.collectedMarketFeesInfos;
+    const pastFees = pastData.data.collectedMarketFeesInfos;
+
+    for (let market of marketAddresses) {
+      market = market.toLowerCase();
+      const currentMarket = currentFees.find(m => m.marketAddress === market);
+      const pastMarket = pastFees.find(m => m.marketAddress === market);
+      const elapsed = new BigNumber(currentMarket.timestampGroup).minus(pastMarket.timestampGroup);
+      marketAddressToAprMap[market] = new BigNumber(currentMarket.cumulativeFeeUsdPerPoolValue)
+        .minus(pastMarket.cumulativeFeeUsdPerPoolValue)
+        .dividedBy(elapsed)
+        .times(31536000)
+        .dividedBy('1e30');
+    }
+  } catch (e) {
+    //console.error('> getGmxTradingFeeApr error', marketAddresses[0]);
+  }
+
+  return marketAddressToAprMap;
 };

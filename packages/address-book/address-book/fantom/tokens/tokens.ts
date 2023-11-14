@@ -721,7 +721,7 @@ const _tokens = {
     symbol: 'UST',
     address: '0xe2D27f06F63d98b8e11b38b5b08A75D0c8dD62B9',
     chainId: 250,
-    decimals: 18,
+    decimals: 6,
     website: 'https://www.terra.money/',
     bridge: 'multichain',
     description:

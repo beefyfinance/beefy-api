@@ -303,7 +303,7 @@ const _tokens = {
     symbol: 'AERO',
     address: '0x940181a94A35A4569E4529A3CDfB74e38FD98631',
     chainId: 8453,
-    decimals: 19,
+    decimals: 18,
     website: 'https://aerodrome.finance/',
     documentation: 'https://aerodrome.finance/docs',
     description:
@@ -323,9 +323,9 @@ const _tokens = {
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     bridge: 'base-canonical',
   },
-  MAI: {
+  bMAI: {
     name: 'Mai Stablecoin',
-    symbol: 'MAI',
+    symbol: 'bMAI',
     address: '0xbf1aeA8670D2528E08334083616dD9C5F3B087aE',
     chainId: 8453,
     decimals: 18,
