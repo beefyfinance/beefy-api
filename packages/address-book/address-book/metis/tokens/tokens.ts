@@ -22,6 +22,7 @@ const _tokens = {
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     address: '0xe6801928061CDbE32AC5AD0634427E140EFd05F9',
     chainId: 1088,
     decimals: 18,
@@ -35,6 +36,7 @@ const _tokens = {
   WBTC: {
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     address: '0xa5B55ab1dAF0F8e1EFc0eB1931a957fd89B918f4',
     chainId: 1088,
     decimals: 8,
@@ -46,6 +48,7 @@ const _tokens = {
   NETT: {
     name: 'Netswap Token',
     symbol: 'NETT',
+    oracleId: 'NETT',
     address: '0x90fE084F877C65e1b577c7b2eA64B8D8dd1AB278',
     chainId: 1088,
     decimals: 18,
@@ -59,6 +62,7 @@ const _tokens = {
   mUSDT: {
     name: 'USDT Token',
     symbol: 'm.USDT',
+    oracleId: 'mUSDT',
     address: '0xbB06DCA3AE6887fAbF931640f67cab3e3a16F4dC',
     chainId: 1088,
     decimals: 6,
@@ -87,6 +91,7 @@ const _tokens = {
   mDAI: {
     name: 'Dai Stablecoin',
     symbol: 'm.DAI',
+    oracleId: 'mDAI',
     address: '0x4c078361FC9BbB78DF910800A991C7c3DD2F6ce0',
     chainId: 1088,
     decimals: 18,
@@ -99,6 +104,7 @@ const _tokens = {
   WETH: {
     name: 'Ether',
     symbol: 'WETH',
+    oracleId: 'WETH',
     address: '0x420000000000000000000000000000000000000A',
     chainId: 1088,
     decimals: 18,
@@ -112,6 +118,7 @@ const _tokens = {
   BNB: {
     name: 'Poly-Peg BNB',
     symbol: 'BNB',
+    oracleId: 'BNB',
     address: '0x2692BE44A6E38B698731fDDf417d060f0d20A0cB',
     chainId: 1088,
     decimals: 18,
@@ -124,6 +131,7 @@ const _tokens = {
   TETHYS: {
     name: 'Tethys',
     symbol: 'TETHYS',
+    oracleId: 'TETHYS',
     address: '0x69fdb77064ec5c84FA2F21072973eB28441F43F3',
     chainId: 1088,
     decimals: 18,
@@ -137,6 +145,7 @@ const _tokens = {
   BYTE: {
     name: 'BinaryDAO',
     symbol: 'BYTE',
+    oracleId: 'BYTE',
     address: '0x721532bC0dA5ffaeB0a6A45fB24271E8098629A7',
     chainId: 1088,
     decimals: 18,
@@ -149,6 +158,7 @@ const _tokens = {
   FTM: {
     name: 'Fantom Token',
     symbol: 'FTM',
+    oracleId: 'FTM',
     address: '0xa9109271abcf0C4106Ab7366B4eDB34405947eED',
     chainId: 1088,
     decimals: 18,
@@ -161,6 +171,7 @@ const _tokens = {
   AVAX: {
     name: 'Avalanche Token',
     symbol: 'AVAX',
+    oracleId: 'AVAX',
     address: '0xE253E0CeA0CDD43d9628567d097052B33F98D611',
     chainId: 1088,
     decimals: 18,
@@ -173,6 +184,7 @@ const _tokens = {
   DAI: {
     name: 'Dai Stablecoin',
     symbol: 'DAI',
+    oracleId: 'DAI',
     address: '0x4651B38e7ec14BB3db731369BFE5B08F2466Bd0A',
     chainId: 1088,
     decimals: 18,
@@ -185,6 +197,7 @@ const _tokens = {
   HUM: {
     name: 'Hummus',
     symbol: 'HUM',
+    oracleId: 'HUM',
     address: '0x4aAC94985cD83be30164DfE7e9AF7C054D7d2121',
     chainId: 1088,
     decimals: 18,
@@ -197,6 +210,7 @@ const _tokens = {
   MAIA: {
     name: 'Maia',
     symbol: 'MAIA',
+    oracleId: 'MAIA',
     address: '0x72c232D56542Ba082592DEE7C77b1C6CFA758BCD',
     chainId: 1088,
     decimals: 9,
@@ -209,6 +223,7 @@ const _tokens = {
   HERMES: {
     name: 'Hermes',
     symbol: 'HERMES',
+    oracleId: 'HERMES',
     address: '0xb27BbeaACA2C00d6258C3118BAB6b5B6975161c8',
     chainId: 1088,
     decimals: 18,
@@ -232,6 +247,7 @@ const _tokens = {
   smUSDT: {
     name: 'Stargate Tether USD LP',
     symbol: 'smUSDT',
+    oracleId: 'smUSDT',
     address: '0x2b60473a7C41Deb80EDdaafD5560e963440eb632',
     chainId: 1088,
     decimals: 6,

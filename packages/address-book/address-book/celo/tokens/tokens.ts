@@ -43,6 +43,7 @@ const _tokens = {
     decimals: 18,
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
@@ -52,6 +53,7 @@ const _tokens = {
   cUSD: {
     name: 'Celo Dollar',
     symbol: 'cUSD',
+    oracleId: 'cUSD',
     address: '0x765DE816845861e75A25fCA122bb6898B8B1282a',
     chainId: 42220,
     decimals: 18,
@@ -63,6 +65,7 @@ const _tokens = {
   cEUR: {
     name: 'Celo Euro',
     symbol: 'cEUR',
+    oracleId: 'cEUR',
     address: '0xD8763CBa276a3738E6DE85b4b3bF5FDed6D6cA73',
     chainId: 42220,
     decimals: 18,
@@ -74,6 +77,7 @@ const _tokens = {
   WETHV1: {
     name: 'Wrapped Ether',
     symbol: 'WETH',
+    oracleId: 'WETHV1',
     address: '0xE919F65739c26a42616b7b8eedC6b5524d1e3aC4',
     chainId: 42220,
     decimals: 18,
@@ -86,6 +90,7 @@ const _tokens = {
   WETH: {
     name: 'Wrapped Ether',
     symbol: 'WETH',
+    oracleId: 'WETH',
     address: '0x122013fd7dF1C6F636a5bb8f03108E876548b455',
     chainId: 42220,
     decimals: 18,
@@ -99,6 +104,7 @@ const _tokens = {
   DAIV1: {
     name: 'Dai Stablecoin',
     symbol: 'DAI',
+    oracleId: 'DAIV1',
     address: '0xE4fE50cdD716522A56204352f00AA110F731932d',
     chainId: 42220,
     decimals: 18,
@@ -111,6 +117,7 @@ const _tokens = {
   DAI: {
     name: 'Dai Stablecoin',
     symbol: 'DAI',
+    oracleId: 'DAI',
     address: '0xE4fE50cdD716522A56204352f00AA110F731932d',
     chainId: 42220,
     decimals: 18,
@@ -123,6 +130,7 @@ const _tokens = {
   SUSHIV2: {
     name: 'Sushi Swap',
     symbol: 'SUSHI',
+    oracleId: 'SUSHIV2',
     address: '0x29dFce9c22003A4999930382Fd00f9Fd6133Acd1',
     chainId: 42220,
     decimals: 18,
@@ -134,6 +142,7 @@ const _tokens = {
   USDC: {
     name: 'USD Coin',
     symbol: 'USDC',
+    oracleId: 'USDC',
     address: '0xef4229c8c3250C675F21BCefa42f58EfbfF6002a',
     chainId: 42220,
     decimals: 6,
@@ -147,6 +156,7 @@ const _tokens = {
   USDT: {
     name: 'Tether USD',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0x88eeC49252c8cbc039DCdB394c0c2BA2f1637EA0',
     chainId: 42220,
     decimals: 6,
@@ -159,6 +169,7 @@ const _tokens = {
   MOBI: {
     name: 'Mobius DAO Token',
     symbol: 'MOBI',
+    oracleId: 'MOBI',
     address: '0x73a210637f6F6B7005512677Ba6B3C96bb4AA44B',
     chainId: 42220,
     decimals: 18,

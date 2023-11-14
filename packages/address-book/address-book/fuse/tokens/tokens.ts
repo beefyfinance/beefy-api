@@ -22,6 +22,7 @@ const _tokens = {
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     address: '0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c',
     chainId: 122,
     decimals: 18,
@@ -35,6 +36,7 @@ const _tokens = {
   agEUR: {
     name: 'Angle Protocol agEUR',
     symbol: 'agEUR',
+    oracleId: 'agEUR',
     address: '0xeFAeeE334F0Fd1712f9a8cc375f427D9Cdd40d73',
     chainId: 122,
     decimals: 18,
@@ -47,6 +49,7 @@ const _tokens = {
   xVOLT: {
     name: 'VoltBar xVOLT',
     symbol: 'xVOLT',
+    oracleId: 'xVOLT',
     address: '0x97a6e78c9208c21afaDa67e7E61d7ad27688eFd1',
     chainId: 122,
     decimals: 18,
@@ -58,6 +61,7 @@ const _tokens = {
   VOLT: {
     name: 'Voltage Finance VOLT',
     symbol: 'VOLT',
+    oracleId: 'VOLT',
     address: '0x34Ef2Cc892a88415e9f02b91BfA9c91fC0bE6bD4',
     chainId: 122,
     decimals: 18,
@@ -70,6 +74,7 @@ const _tokens = {
   atUST: {
     name: 'UST Terra',
     symbol: 'atUST',
+    oracleId: 'atUST',
     address: '0x0D58a44be3dCA0aB449965dcc2c46932547Fea2f',
     chainId: 122,
     decimals: 18,
@@ -81,6 +86,7 @@ const _tokens = {
   atLUNA: {
     name: 'Luna Terra',
     symbol: 'atUST',
+    oracleId: 'atLUNA',
     address: '0x588e24DEd8f850b14BB2e62E9c50A7Cd5Ee13Da9',
     chainId: 122,
     decimals: 18,
@@ -92,6 +98,7 @@ const _tokens = {
   WETH: {
     name: 'Wrapped Ether on Fuse',
     symbol: 'WETH',
+    oracleId: 'WETH',
     address: '0xa722c13135930332Eb3d749B2F0906559D2C5b99',
     chainId: 122,
     decimals: 18,
@@ -104,6 +111,7 @@ const _tokens = {
   WBTC: {
     name: 'Wrapped BTC on Fuse',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     address: '0x33284f95ccb7B948d9D352e1439561CF83d8d00d',
     chainId: 122,
     decimals: 8,
@@ -116,6 +124,7 @@ const _tokens = {
   fUSD: {
     name: 'Fuse Dollar',
     symbol: 'fUSD',
+    oracleId: 'fUSD',
     address: '0x249BE57637D8B013Ad64785404b24aeBaE9B098B',
     chainId: 122,
     decimals: 18,
@@ -127,6 +136,7 @@ const _tokens = {
   BNB: {
     name: 'BNB on Fuse',
     symbol: 'BNB',
+    oracleId: 'BNB',
     address: '0x6acb34b1Df86E254b544189Ec32Cf737e2482058',
     chainId: 122,
     decimals: 18,
@@ -138,6 +148,7 @@ const _tokens = {
   BUSD: {
     name: 'Binance USD on Fuse',
     symbol: 'BUSD',
+    oracleId: 'BUSD',
     address: '0x6a5F6A8121592BeCd6747a38d67451B310F7f156',
     chainId: 122,
     decimals: 18,
@@ -150,6 +161,7 @@ const _tokens = {
   USDC: {
     name: 'USD Coin on Fuse',
     symbol: 'USDC',
+    oracleId: 'USDC',
     address: '0x620fd5fa44BE6af63715Ef4E65DDFA0387aD13F5',
     chainId: 122,
     decimals: 6,
@@ -161,6 +173,7 @@ const _tokens = {
   ELON: {
     name: 'Dogelon on Fuse',
     symbol: 'ELON',
+    oracleId: 'ELON',
     address: '0x5DD8015cec49F4dB01fd228F688BF30337d3e0A9',
     chainId: 122,
     decimals: 18,
@@ -172,6 +185,7 @@ const _tokens = {
   G: {
     name: 'GoodDollar',
     symbol: 'G$',
+    oracleId: 'G',
     address: '0x495d133B938596C9984d462F007B676bDc57eCEC',
     chainId: 122,
     decimals: 2,
@@ -183,6 +197,7 @@ const _tokens = {
   SUSHI: {
     name: 'SushiToken on Fuse',
     symbol: 'SUSHI',
+    oracleId: 'SUSHI',
     address: '0x90708b20ccC1eb95a4FA7C8b18Fd2C22a0Ff9E78',
     chainId: 122,
     decimals: 18,
@@ -195,6 +210,7 @@ const _tokens = {
   USDT: {
     name: 'Tether USD on Fuse',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0xFaDbBF8Ce7D5b7041bE672561bbA99f79c532e10',
     chainId: 122,
     decimals: 6,

@@ -22,6 +22,7 @@ const _tokens = {
   BSX: {
     name: 'BSX',
     symbol: 'BSX',
+    oracleId: 'BSX',
     address: '0xd5046B976188EB40f6DE40fB527F89c05b323385',
     chainId: 8453,
     decimals: 18,
@@ -36,6 +37,7 @@ const _tokens = {
   BASO: {
     name: 'BASO',
     symbol: 'BASO',
+    oracleId: 'BASO',
     address: '0x23E1A3BcDcEE4C59209d8871140eB7DD2bD9d1cE',
     chainId: 8453,
     decimals: 18,
@@ -50,6 +52,7 @@ const _tokens = {
   agEUR: {
     name: 'agEUR',
     symbol: 'agEUR',
+    oracleId: 'agEUR',
     address: '0xA61BeB4A3d02decb01039e378237032B351125B4',
     chainId: 8453,
     decimals: 18,
@@ -63,6 +66,7 @@ const _tokens = {
   THALES: {
     name: 'Thales DAO Token',
     symbol: 'THALES',
+    oracleId: 'THALES',
     address: '0xf34e0cff046e154CAfCae502C7541b9E5FD8C249',
     chainId: 8453,
     decimals: 18,
@@ -76,6 +80,7 @@ const _tokens = {
   SONNE: {
     name: 'Sonne',
     symbol: 'SONNE',
+    oracleId: 'SONNE',
     address: '0x22a2488fE295047Ba13BD8cCCdBC8361DBD8cf7c',
     chainId: 8453,
     decimals: 18,
@@ -89,6 +94,7 @@ const _tokens = {
   UNIDX: {
     name: 'Unidex',
     symbol: 'UNIDX',
+    oracleId: 'UNIDX',
     address: '0x6B4712AE9797C199edd44F897cA09BC57628a1CF',
     chainId: 8453,
     decimals: 18,
@@ -103,6 +109,7 @@ const _tokens = {
   axlWBTC: {
     name: 'Axelar Wrapped WBTC',
     symbol: 'axlWBTC',
+    oracleId: 'axlWBTC',
     address: '0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad',
     chainId: 8453,
     decimals: 8,
@@ -116,6 +123,7 @@ const _tokens = {
   BASE: {
     name: 'BASE',
     symbol: 'BASE',
+    oracleId: 'BASE',
     address: '0xd07379a755A8f11B57610154861D694b2A0f615a',
     chainId: 8453,
     decimals: 18,
@@ -129,6 +137,7 @@ const _tokens = {
   WELL: {
     name: 'WELL',
     symbol: 'WELL',
+    oracleId: 'WELL',
     address: '0xFF8adeC2221f9f4D8dfbAFa6B9a297d17603493D',
     chainId: 8453,
     decimals: 18,
@@ -141,6 +150,7 @@ const _tokens = {
   ALB: {
     name: 'Alien Base',
     symbol: 'ALB',
+    oracleId: 'ALB',
     address: '0x1dd2d631c92b1aCdFCDd51A0F7145A50130050C4',
     chainId: 8453,
     decimals: 18,
@@ -153,6 +163,7 @@ const _tokens = {
   'USD+': {
     name: 'USD+',
     symbol: 'USD+',
+    oracleId: 'USD+',
     address: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
     chainId: 8453,
     decimals: 6,
@@ -167,6 +178,7 @@ const _tokens = {
   'DAI+': {
     name: 'DAI+',
     symbol: 'DAI+',
+    oracleId: 'DAI+',
     address: '0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275',
     chainId: 8453,
     decimals: 18,
@@ -181,6 +193,7 @@ const _tokens = {
   OVN: {
     name: 'OVN',
     symbol: 'OVN',
+    oracleId: 'OVN',
     address: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
     chainId: 8453,
     decimals: 18,
@@ -194,6 +207,7 @@ const _tokens = {
   MIM: {
     name: 'Magic Internet Money',
     symbol: 'MIM',
+    oracleId: 'MIM',
     address: '0x4A3A6Dd60A34bB2Aba60D73B4C88315E9CeB6A3D',
     chainId: 8453,
     decimals: 18,
@@ -208,6 +222,7 @@ const _tokens = {
   cbETH: {
     name: 'Coinbase Wrapped Staked ETH',
     symbol: 'cbETH',
+    oracleId: 'cbETH',
     address: '0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22',
     chainId: 8453,
     decimals: 18,
@@ -223,6 +238,7 @@ const _tokens = {
   axlUSDC: {
     name: 'Axelar Wrapped USDC',
     symbol: 'axlUSDC',
+    oracleId: 'axlUSDC',
     address: '0xEB466342C4d449BC9f53A865D5Cb90586f405215',
     chainId: 8453,
     decimals: 6,
@@ -237,6 +253,7 @@ const _tokens = {
   axlUSDT: {
     name: 'USDT',
     symbol: 'axlUSDT',
+    oracleId: 'axlUSDT',
     address: '0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6',
     chainId: 8453,
     decimals: 6,
@@ -250,6 +267,7 @@ const _tokens = {
   OGRE: {
     name: 'SHREKT',
     symbol: 'OGRE',
+    oracleId: 'OGRE',
     address: '0xAB8a1c03b8E4e1D21c8Ddd6eDf9e07f26E843492',
     chainId: 8453,
     decimals: 18,
@@ -264,6 +282,7 @@ const _tokens = {
     name: 'USD Base Coin',
     address: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
     symbol: 'USDbC',
+    oracleId: 'USDbC',
     decimals: 6,
     website: 'https://www.centre.io/',
     description: 'USDC.e is an Ethereum-based USDC bridged via the official Base Bridge.',
@@ -276,6 +295,7 @@ const _tokens = {
     name: 'USD Circle',
     address: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
     symbol: 'USDC',
+    oracleId: 'USDC',
     decimals: 6,
     website: 'https://www.centre.io/',
     description:
@@ -288,6 +308,7 @@ const _tokens = {
   DAI: {
     name: 'DAI Stablecoin',
     symbol: 'DAI',
+    oracleId: 'DAI',
     address: '0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb',
     chainId: 8453,
     decimals: 18,
@@ -302,6 +323,7 @@ const _tokens = {
   AERO: {
     name: 'Aerodrome',
     symbol: 'AERO',
+    oracleId: 'AERO',
     address: '0x940181a94A35A4569E4529A3CDfB74e38FD98631',
     chainId: 8453,
     decimals: 18,
@@ -315,6 +337,7 @@ const _tokens = {
   DOLA: {
     name: 'Dola USD Stablecoin',
     symbol: 'DOLA',
+    oracleId: 'DOLA',
     address: '0x4621b7A9c75199271F773Ebd9A499dbd165c3191',
     chainId: 8453,
     decimals: 18,
@@ -327,6 +350,7 @@ const _tokens = {
   bMAI: {
     name: 'Mai Stablecoin',
     symbol: 'bMAI',
+    oracleId: 'bMAI',
     address: '0xbf1aeA8670D2528E08334083616dD9C5F3B087aE',
     chainId: 8453,
     decimals: 18,
@@ -340,6 +364,7 @@ const _tokens = {
   wUSDR: {
     name: 'Real USD',
     symbol: 'wUSDR',
+    oracleId: 'wUSDR',
     address: '0x9483ab65847A447e36d21af1CaB8C87e9712ff93',
     chainId: 8453,
     decimals: 9,
@@ -353,6 +378,7 @@ const _tokens = {
   tBTC: {
     name: 'tBTC v2',
     symbol: 'tBTC',
+    oracleId: 'tBTC',
     address: '0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b',
     chainId: 8453,
     decimals: 18,
@@ -366,6 +392,7 @@ const _tokens = {
   BASED: {
     name: 'based.markets',
     symbol: 'BASED',
+    oracleId: 'BASED',
     address: '0xBa5E6fa2f33f3955f0cef50c63dCC84861eAb663',
     chainId: 8453,
     decimals: 18,
@@ -378,6 +405,7 @@ const _tokens = {
   crvUSD: {
     name: 'Curve.Fi USD Stablecoin',
     symbol: 'crvUSD',
+    oracleId: 'crvUSD',
     address: '0x417Ac0e078398C154EdFadD9Ef675d30Be60Af93',
     chainId: 8453,
     decimals: 18,
@@ -389,6 +417,7 @@ const _tokens = {
   bsUSD: {
     name: 'Balancer Stable Pool',
     symbol: 'bsUSD',
+    oracleId: 'bsUSD',
     address: '0x6FbFcf88DB1aADA31F34215b2a1Df7fafb4883e9',
     chainId: 8453,
     decimals: 18,
@@ -403,6 +432,7 @@ const _tokens = {
   BVM: {
     name: 'Base Velocimeter',
     symbol: 'BVM',
+    oracleId: 'BVM',
     address: '0xd386a121991E51Eab5e3433Bf5B1cF4C8884b47a',
     chainId: 8453,
     decimals: 18,
@@ -416,6 +446,7 @@ const _tokens = {
   oBVM: {
     name: 'Option to buy BVM',
     symbol: 'oBVM',
+    oracleId: 'oBVM',
     address: '0x762eb51D2e779EeEc9B239FFB0B2eC8262848f3E',
     chainId: 8453,
     decimals: 18,
@@ -429,6 +460,7 @@ const _tokens = {
   rETH: {
     name: 'Rocket Pool ETH',
     symbol: 'rETH',
+    oracleId: 'rETH',
     address: '0xB6fe221Fe9EeF5aBa221c348bA20A1Bf5e73624c',
     chainId: 8453,
     decimals: 18,
@@ -442,6 +474,7 @@ const _tokens = {
   FTW: {
     name: 'FriendTech33',
     symbol: 'FTW',
+    oracleId: 'FTW',
     address: '0x3347453Ced85bd288D783d85cDEC9b01Ab90f9D8',
     chainId: 8453,
     decimals: 9,
@@ -454,6 +487,7 @@ const _tokens = {
   SCALE: {
     name: 'Scale',
     symbol: 'SCALE',
+    oracleId: 'SCALE',
     address: '0x54016a4848a38f257B6E96331F7404073Fd9c32C',
     chainId: 8453,
     decimals: 18,
@@ -467,6 +501,7 @@ const _tokens = {
   hyUSD: {
     name: 'High Yield USD',
     symbol: 'hyUSD',
+    oracleId: 'hyUSD',
     address: '0xCc7FF230365bD730eE4B352cC2492CEdAC49383e',
     chainId: 8453,
     decimals: 18,
@@ -480,6 +515,7 @@ const _tokens = {
   eUSD: {
     name: 'Electronic Dollar',
     symbol: 'eUSD',
+    oracleId: 'eUSD',
     address: '0xCfA3Ef56d303AE4fAabA0592388F19d7C3399FB4',
     chainId: 8453,
     decimals: 18,
@@ -494,6 +530,7 @@ const _tokens = {
   wstETH: {
     name: 'Wrapped liquid staked Ether 2.0',
     symbol: 'wstETH',
+    oracleId: 'wstETH',
     address: '0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452',
     chainId: 8453,
     decimals: 18,

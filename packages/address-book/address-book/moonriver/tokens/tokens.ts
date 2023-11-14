@@ -55,6 +55,7 @@ const _tokens = {
     decimals: 18,
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
@@ -65,6 +66,7 @@ const _tokens = {
   MAI: {
     name: 'MAI',
     symbol: 'Mai Stablecoin',
+    oracleId: 'MAI',
     address: '0xFb2019DfD635a03cfFF624D210AEe6AF2B00fC2C',
     chainId: 1285,
     decimals: 18,
@@ -77,6 +79,7 @@ const _tokens = {
   DOGE: {
     name: 'Doge Token',
     symbol: 'DOGE',
+    oracleId: 'DOGE',
     address: '0xb668Cd490a4421F993f93be2819A922DBbB32804',
     chainId: 1285,
     decimals: 8,
@@ -88,6 +91,7 @@ const _tokens = {
   XRP: {
     name: 'XRP Token',
     symbol: 'XRP',
+    oracleId: 'XRP',
     address: '0x9D5bc9B873AeD984e2B6A64d4792249D68BbA2Fe',
     chainId: 1285,
     decimals: 6,
@@ -99,6 +103,7 @@ const _tokens = {
   WAN: {
     name: 'WAN Token',
     symbol: 'WAN',
+    oracleId: 'WAN',
     address: '0x41562ae242d194247389152aCAa7a9397136b09F',
     chainId: 1285,
     decimals: 18,
@@ -110,6 +115,7 @@ const _tokens = {
   FINN: {
     name: 'FINN Token',
     symbol: 'FINN',
+    oracleId: 'FINN',
     address: '0x9A92B5EBf1F6F6f7d93696FCD44e5Cf75035A756',
     chainId: 1285,
     decimals: 18,
@@ -121,6 +127,7 @@ const _tokens = {
   DOTm: {
     name: 'Polkadot Token',
     symbol: 'DOTm',
+    oracleId: 'DOTm',
     address: '0x15B9CA9659F5dfF2b7d35a98dd0790a3CBb3D445',
     chainId: 1285,
     decimals: 10,
@@ -133,6 +140,7 @@ const _tokens = {
   USDCm: {
     name: 'USD Coin',
     symbol: 'USDCm',
+    oracleId: 'USDCm',
     address: '0x748134b5F553F2bcBD78c6826De99a70274bDEb3',
     chainId: 1285,
     decimals: 6,
@@ -146,6 +154,7 @@ const _tokens = {
   SOLAR: {
     name: 'SolarBeam Token',
     symbol: 'SOLAR',
+    oracleId: 'SOLAR',
     address: '0x6bD193Ee6D2104F14F94E2cA6efefae561A4334B',
     chainId: 1285,
     decimals: 18,
@@ -158,6 +167,7 @@ const _tokens = {
   RIB: {
     name: 'RiverBoat',
     symbol: 'RIB',
+    oracleId: 'RIB',
     address: '0xbD90A6125a84E5C512129D622a75CDDE176aDE5E',
     chainId: 1285,
     decimals: 18,
@@ -170,6 +180,7 @@ const _tokens = {
   USDC: {
     name: 'USD Coin',
     symbol: 'USDC',
+    oracleId: 'USDC',
     address: '0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     chainId: 1285,
     decimals: 6,
@@ -184,6 +195,7 @@ const _tokens = {
   DAI: {
     name: 'Dai Stablecoin',
     symbol: 'DAI',
+    oracleId: 'DAI',
     address: '0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844',
     chainId: 1285,
     decimals: 18,
@@ -196,6 +208,7 @@ const _tokens = {
   BUSD: {
     name: 'Binance-Peg BUSD Token',
     symbol: 'BUSD',
+    oracleId: 'BUSD',
     address: '0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
     chainId: 1285,
     decimals: 18,
@@ -208,6 +221,7 @@ const _tokens = {
   ETH: {
     name: 'Ethereum',
     symbol: 'ETH',
+    oracleId: 'ETH',
     address: '0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C',
     chainId: 1285,
     decimals: 18,
@@ -220,6 +234,7 @@ const _tokens = {
   BNB: {
     name: 'Binance',
     symbol: 'BNB',
+    oracleId: 'BNB',
     address: '0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c',
     chainId: 1285,
     decimals: 18,
@@ -232,6 +247,7 @@ const _tokens = {
   WBTC: {
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
     chainId: 1285,
     decimals: 8,
@@ -244,6 +260,7 @@ const _tokens = {
   USDT: {
     name: 'Tether USD',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0xB44a9B6905aF7c801311e8F4E76932ee959c663C',
     chainId: 1285,
     decimals: 6,
@@ -255,6 +272,7 @@ const _tokens = {
   MATIC: {
     name: 'Matic Token',
     symbol: 'MATIC',
+    oracleId: 'MATIC',
     address: '0x682F81e57EAa716504090C3ECBa8595fB54561D8',
     chainId: 1285,
     decimals: 18,
@@ -267,6 +285,7 @@ const _tokens = {
   AVAX: {
     name: 'Avalanche Token',
     symbol: 'AVAX',
+    oracleId: 'AVAX',
     address: '0x14a0243C333A5b238143068dC3A7323Ba4C30ECB',
     chainId: 1285,
     decimals: 18,
@@ -279,6 +298,7 @@ const _tokens = {
   RELAY: {
     name: 'Relay Token',
     symbol: 'RELAY',
+    oracleId: 'RELAY',
     address: '0xAd7F1844696652ddA7959a49063BfFccafafEfe7',
     chainId: 1285,
     decimals: 18,
@@ -290,6 +310,7 @@ const _tokens = {
   miMatic: {
     name: 'MAI',
     symbol: 'miMatic',
+    oracleId: 'miMatic',
     address: '0x7f5a79576620C046a293F54FFCdbd8f2468174F1',
     chainId: 1285,
     decimals: 18,
@@ -302,6 +323,7 @@ const _tokens = {
   FTM: {
     name: 'Fantom Token',
     symbol: 'FTM',
+    oracleId: 'FTM',
     address: '0xaD12daB5959f30b9fF3c2d6709f53C335dC39908',
     chainId: 1285,
     decimals: 18,
@@ -314,6 +336,7 @@ const _tokens = {
   MIM: {
     name: 'Magic Internet Money',
     symbol: 'MIM',
+    oracleId: 'MIM',
     address: '0x0caE51e1032e8461f4806e26332c030E34De3aDb',
     chainId: 1285,
     decimals: 18,
@@ -326,6 +349,7 @@ const _tokens = {
   PETS: {
     name: 'PETS Token',
     symbol: 'PETS',
+    oracleId: 'PETS',
     address: '0x1e0F2A75Be02c025Bd84177765F89200c04337Da',
     chainId: 1285,
     decimals: 18,
@@ -342,6 +366,7 @@ const _tokens = {
   anyFRAX: {
     name: 'FRAX',
     symbol: 'FRAX',
+    oracleId: 'anyFRAX',
     address: '0x965f84D915a9eFa2dD81b653e3AE736555d945f4',
     chainId: 1285,
     decimals: 18,
@@ -353,6 +378,7 @@ const _tokens = {
   FRAX: {
     name: 'FRAX',
     symbol: 'FRAX',
+    oracleId: 'FRAX',
     address: '0x1A93B23281CC1CDE4C4741353F3064709A16197d',
     chainId: 1285,
     decimals: 18,
@@ -364,6 +390,7 @@ const _tokens = {
   aROME: {
     name: 'Alpha Rome',
     symbol: 'aROME',
+    oracleId: 'aROME',
     address: '0x3D2D044E8C6dAd46b4F7896418d3d4DFaAD902bE',
     chainId: 1285,
     decimals: 9,
@@ -376,6 +403,7 @@ const _tokens = {
   ROME: {
     name: 'Rome',
     symbol: 'ROME',
+    oracleId: 'ROME',
     address: '0x4a436073552044D5f2f49B176853ad3Ad473d9d6',
     chainId: 1285,
     decimals: 9,
@@ -388,6 +416,7 @@ const _tokens = {
   BNBbsc: {
     name: 'Binance',
     symbol: 'BNBbsc',
+    oracleId: 'BNBbsc',
     address: '0x868892CCcEdbfF0B028F3b3595205Ea91b99376B',
     chainId: 1285,
     decimals: 18,
@@ -399,6 +428,7 @@ const _tokens = {
   WBTCeth: {
     name: 'Wrapped Bitcoin',
     symbol: 'WBTCeth',
+    oracleId: 'WBTCeth',
     address: '0xE6a991Ffa8CfE62B0bf6BF72959A3d4f11B2E0f5',
     chainId: 1285,
     decimals: 8,
@@ -410,6 +440,7 @@ const _tokens = {
   xcKSM: {
     name: 'xcKSM',
     symbol: 'xcKSM',
+    oracleId: 'xcKSM',
     address: '0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080',
     chainId: 1285,
     decimals: 12,
@@ -423,6 +454,7 @@ const _tokens = {
   xcRMRK: {
     name: 'xcRMRK',
     symbol: 'xcRMRK',
+    oracleId: 'xcRMRK',
     address: '0xffffffFF893264794d9d57E1E0E21E0042aF5A0A',
     chainId: 1285,
     decimals: 10,
@@ -435,6 +467,7 @@ const _tokens = {
   stKSM: {
     name: 'stKSM',
     symbol: 'stKSM',
+    oracleId: 'stKSM',
     address: '0xFfc7780C34B450d917d557E728f033033CB4fA8C',
     chainId: 1285,
     decimals: 12,
@@ -447,6 +480,7 @@ const _tokens = {
   xcKBTC: {
     name: 'Kintsugi Wrapped BTC',
     symbol: 'xcKBTC',
+    oracleId: 'xcKBTC',
     address: '0xFFFfFfFfF6E528AD57184579beeE00c5d5e646F0',
     chainId: 1285,
     decimals: 8,
@@ -458,6 +492,7 @@ const _tokens = {
   wstKSM: {
     name: 'Wrapped Staked KSM',
     symbol: 'wstKSM',
+    oracleId: 'wstKSM',
     address: '0x3bfd113ad0329a7994a681236323fb16E16790e3',
     chainId: 1285,
     decimals: 12,

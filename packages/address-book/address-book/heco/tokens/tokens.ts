@@ -21,6 +21,7 @@ const _tokens = {
   ETH: {
     name: 'Etheruem',
     symbol: 'ETH',
+    oracleId: 'ETH',
     address: '0x64FF637fB478863B7468bc97D30a5bF3A428a1fD',
     chainId: 128,
     decimals: 18,
@@ -32,6 +33,7 @@ const _tokens = {
   USDT: {
     name: 'Heco USDT',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0xa71EdC38d189767582C38A3145b5873052c3e47a',
     chainId: 128,
     decimals: 18,
@@ -43,6 +45,7 @@ const _tokens = {
   LHB: {
     name: 'Lendhub',
     symbol: 'LHB',
+    oracleId: 'LHB',
     address: '0x8F67854497218043E1f72908FFE38D0Ed7F24721',
     chainId: 128,
     website: 'https://www.lendhub.org/',
@@ -54,6 +57,7 @@ const _tokens = {
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     address: '0x765277EebeCA2e31912C9946eAe1021199B39C61',
     chainId: 128,
     decimals: 18,
@@ -67,6 +71,7 @@ const _tokens = {
   SNX: {
     name: 'Synthetix',
     symbol: 'SNX',
+    oracleId: 'SNX',
     address: '0x777850281719d5a96C29812ab72f822E0e09F3Da',
     chainId: 128,
     decimals: 18,
@@ -78,6 +83,7 @@ const _tokens = {
   MDX: {
     name: 'Mdex',
     symbol: 'MDX',
+    oracleId: 'MDX',
     address: '0x25D2e80cB6B86881Fd7e07dd263Fb79f4AbE033c',
     chainId: 128,
     decimals: 18,
@@ -89,6 +95,7 @@ const _tokens = {
   HBTC: {
     name: 'Huobi Bitcoin',
     symbol: 'HBTC',
+    oracleId: 'HBTC',
     address: '0x66a79D23E58475D2738179Ca52cd0b41d73f0BEa',
     chainId: 128,
     decimals: 18,
@@ -100,6 +107,7 @@ const _tokens = {
   AAVE: {
     name: 'Aave',
     symbol: 'AAVE',
+    oracleId: 'AAVE',
     address: '0x202b4936fE1a82A4965220860aE46d7d3939Bb25',
     chainId: 128,
     decimals: 18,
@@ -111,6 +119,7 @@ const _tokens = {
   BAL: {
     name: 'Balancer',
     symbol: 'BAL',
+    oracleId: 'BAL',
     address: '0x045De15Ca76e76426E8Fc7cba8392A3138078D0F',
     chainId: 128,
     decimals: 18,
@@ -122,6 +131,7 @@ const _tokens = {
   HUSD: {
     name: 'Huobi USD',
     symbol: 'HUSD',
+    oracleId: 'HUSD',
     address: '0x0298c2b32eaE4da002a15f36fdf7615BEa3DA047',
     chainId: 128,
     decimals: 8,
@@ -133,6 +143,7 @@ const _tokens = {
   YFI: {
     name: 'Yearn.finance',
     symbol: 'YFI',
+    oracleId: 'YFI',
     address: '0xB4F019bEAc758AbBEe2F906033AAa2f0F6Dacb35',
     chainId: 128,
     decimals: 18,
@@ -144,6 +155,7 @@ const _tokens = {
   HDOT: {
     name: 'Huobi Polkadot',
     symbol: 'HDOT',
+    oracleId: 'HDOT',
     address: '0xA2c49cEe16a5E5bDEFDe931107dc1fae9f7773E3',
     chainId: 128,
     decimals: 18,
@@ -155,6 +167,7 @@ const _tokens = {
   SHIB: {
     name: 'Shiba Inu',
     symbol: 'SHIB',
+    oracleId: 'SHIB',
     address: '0xC38072AA3F8E049De541223A9c9772132bB48634',
     chainId: 128,
     decimals: 18,
@@ -166,6 +179,7 @@ const _tokens = {
   HFI: {
     name: 'Heco FI',
     symbol: 'HFI',
+    oracleId: 'HFI',
     address: '0x98fc3b60Ed4A504F588342A53746405E355F9347',
     chainId: 128,
     decimals: 18,
@@ -177,6 +191,7 @@ const _tokens = {
   LINK: {
     name: 'Chainlink',
     symbol: 'LINK',
+    oracleId: 'LINK',
     address: '0x9e004545c59D359F6B7BFB06a26390b087717b42',
     chainId: 128,
     decimals: 18,
@@ -188,6 +203,7 @@ const _tokens = {
   HLTC: {
     name: 'Huobi Litecoin',
     symbol: 'HLTC',
+    oracleId: 'HLTC',
     address: '0xecb56cf772B5c9A6907FB7d32387Da2fCbfB63b4',
     chainId: 128,
     decimals: 18,
@@ -199,6 +215,7 @@ const _tokens = {
   HBCH: {
     name: 'Huobi Bitcoin Cash',
     symbol: 'HBCH',
+    oracleId: 'HBCH',
     address: '0xeF3CEBD77E0C52cb6f60875d9306397B5Caca375',
     chainId: 128,
     decimals: 18,
@@ -210,6 +227,7 @@ const _tokens = {
   UNI: {
     name: 'Uniswap',
     symbol: 'UNI',
+    oracleId: 'UNI',
     address: '0x22C54cE8321A4015740eE1109D9cBc25815C46E6',
     chainId: 128,
     decimals: 18,
@@ -221,6 +239,7 @@ const _tokens = {
   HPT: {
     name: 'Huobi Pool Token',
     symbol: 'HPT',
+    oracleId: 'HPT',
     address: '0xE499Ef4616993730CEd0f31FA2703B92B50bB536',
     chainId: 128,
     decimals: 18,
@@ -232,6 +251,7 @@ const _tokens = {
   HFIL: {
     name: 'Huobi Filecoin',
     symbol: 'HFIL',
+    oracleId: 'HFIL',
     address: '0xae3a768f9aB104c69A7CD6041fE16fFa235d1810',
     chainId: 128,
     decimals: 18,
