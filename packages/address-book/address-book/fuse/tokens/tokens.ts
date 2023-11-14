@@ -5,6 +5,7 @@ const FUSE = {
   name: 'FUSE',
   address: '0x0BE9e53fd7EDaC9F859882AfdDa116645287C629',
   symbol: 'WFUSE',
+  oracleId: 'FUSE',
   decimals: 18,
   chainId: 122,
   website: 'https://fuse.io/',

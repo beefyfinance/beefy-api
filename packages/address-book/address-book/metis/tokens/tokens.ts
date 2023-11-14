@@ -5,6 +5,7 @@ const METIS = {
   name: 'METIS',
   address: '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
   symbol: 'WMETIS',
+  oracleId: 'METIS',
   decimals: 18,
   chainId: 1088,
   website: 'https://www.metis.io/',

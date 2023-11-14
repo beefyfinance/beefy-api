@@ -5,6 +5,7 @@ const CELO = {
   name: 'CELO',
   address: '0x471EcE3750Da237f93B8E339c536989b8978a438',
   symbol: 'CELO',
+  oracleId: 'CELO',
   decimals: 18,
   chainId: 42220,
   website: 'https://celo.org/',
@@ -22,6 +23,7 @@ const WCELO = {
 const SUSHIV1 = {
   name: 'Sushi Swap',
   symbol: 'SUSHI',
+  oracleId: 'SUSHI',
   address: '0xD15EC721C2A896512Ad29C671997DD68f9593226',
   chainId: 42220,
   decimals: 18,

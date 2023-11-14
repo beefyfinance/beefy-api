@@ -5,6 +5,7 @@ const CRO = {
   name: 'Wrapped CRO',
   address: '0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23',
   symbol: 'WCRO',
+  oracleId: 'CRO',
   decimals: 18,
   chainId: 25,
   website: 'https://cronos.crypto.org/',
