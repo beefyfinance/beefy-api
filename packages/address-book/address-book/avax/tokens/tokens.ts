@@ -7,7 +7,7 @@ const AVAX = {
   decimals: 18,
   name: 'Wrapped AVAX',
   symbol: 'WAVAX',
-  oracleId: 'AVAX',
+  oracleId: 'WAVAX',
   website: 'https://www.avalabs.org/',
   description:
     'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',

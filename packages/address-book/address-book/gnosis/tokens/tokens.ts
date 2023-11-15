@@ -5,7 +5,7 @@ const xDAI = {
   name: 'Wrapped xDAI',
   address: '0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d',
   symbol: 'WXDAI',
-  oracleId: 'XDAI',
+  oracleId: 'WXDAI',
   decimals: 18,
   chainId: 100,
   website: 'https://www.gnosis.io/',

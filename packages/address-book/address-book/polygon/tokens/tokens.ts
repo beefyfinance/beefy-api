@@ -5,7 +5,7 @@ const MATIC = {
   name: 'Wrapped Matic',
   address: '0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270',
   symbol: 'WMATIC',
-  oracleId: 'MATIC',
+  oracleId: 'WMATIC',
   decimals: 18,
   chainId: 137,
   website: 'https://polygon.technology/',

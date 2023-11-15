@@ -4,7 +4,7 @@ import Token from '../../../types/token';
 const BNB = {
   name: 'WBNB Token',
   symbol: 'WBNB',
-  oracleId: 'BNB',
+  oracleId: 'WBNB',
   address: '0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c',
   chainId: 56,
   decimals: 18,

@@ -5,7 +5,7 @@ const ONE = {
   name: 'Wrapped ONE',
   address: '0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a',
   symbol: 'WONE',
-  oracleId: 'ONE',
+  oracleId: 'WONE',
   decimals: 18,
   chainId: 1666600000,
   website: 'https://www.harmony.one/',

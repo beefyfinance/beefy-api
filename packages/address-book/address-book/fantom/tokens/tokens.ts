@@ -34,7 +34,7 @@ const FTM = {
   name: 'Wrapped Fantom',
   address: '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83',
   symbol: 'WFTM',
-  oracleId: 'FTM',
+  oracleId: 'WFTM',
   decimals: 18,
   chainId: 250,
   website: 'https://fantom.foundation/',
