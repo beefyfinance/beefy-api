@@ -5,6 +5,7 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
   fantom: [
     {
       id: 'fantom-validator',
+      numberId: 92,
       name: 'Fantom Validator',
       address: 'native',
       oracleId: 'FTM',
@@ -18,7 +19,8 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
   ],
   ethereum: [
     {
-      id: '402418',
+      id: 'eth-validator-1',
+      numberId: 402418,
       name: 'Ethereum Validator',
       address: 'native',
       oracleId: 'ETH',
@@ -30,7 +32,8 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: '986225',
+      id: 'eth-validator-2',
+      numberId: 986225,
       name: 'Ethereum Validator 2',
       address: 'native',
       oracleId: 'ETH',
@@ -42,7 +45,8 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: '986226',
+      id: 'eth-validator-3',
+      numberId: 986226,
       name: 'Ethereum Validator 3',
       address: 'native',
       oracleId: 'ETH',
@@ -54,7 +58,8 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: '1013308',
+      id: 'eth-validator-4',
+      numberId: 1013308,
       name: 'Ethereum Validator 4',
       address: 'native',
       oracleId: 'ETH',
@@ -66,7 +71,8 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: '1013309',
+      id: 'eth-validator-5',
+      numberId: 1013309,
       name: 'Ethereum Validator 5',
       address: 'native',
       oracleId: 'ETH',
@@ -78,7 +84,8 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: '1013310',
+      id: 'eth-validator-6',
+      numberId: 1013310,
       name: 'Ethereum Validator 6',
       address: 'native',
       oracleId: 'ETH',
@@ -90,7 +97,8 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       assetType: 'validator',
     },
     {
-      id: '1013311',
+      id: 'eth-validator-7',
+      numberId: 1013311,
       name: 'Ethereum Validator 7',
       address: 'native',
       oracleId: 'ETH',
