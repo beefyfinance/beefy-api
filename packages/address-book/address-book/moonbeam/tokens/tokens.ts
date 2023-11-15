@@ -621,7 +621,7 @@ const _tokens = {
   UST: {
     name: 'Axelar Wrapped UST',
     symbol: 'UST',
-    oracleId: 'UST',
+    oracleId: 'axlUST',
     address: '0x085416975fe14C2A731a97eC38B9bF8135231F62',
     chainId: 1284,
     decimals: 6,

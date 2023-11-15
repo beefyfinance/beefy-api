@@ -4657,7 +4657,7 @@ const _tokens = {
     chainId: 43114,
     name: 'Pangolin',
     symbol: 'PNG',
-    oracleId: 'PNG-Pangolin',
+    oracleId: 'PNG',
     website: 'https://pangolin.exchange/',
     description:
       'A community-driven decentralized exchange for Avalanche and Ethereum assets with fast settlement, low transaction fees, and a democratic distribution–powered by Avalanche. Pangolin brings you the best trading opportunities to find and maximize your yield.',
