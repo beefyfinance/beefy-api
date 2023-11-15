@@ -58,7 +58,7 @@ const getApys = [
   getAaveV3Apys,
   getGnsApys,
   getKyberPolygonApys,
-  getOvixApys,
+  // getOvixApys, Probably can just remove this.
   getPearlApys,
   getBetSwirlSingleApy,
   getRetroGammaApys,
