@@ -104,7 +104,7 @@ const _tokens = {
     name: 'Stargate USD Coin LP',
     address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
     symbol: 'spUSDC',
-    oracleId: 'spUSDC',
+    oracleId: 'stargate-polygon-usdc',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
@@ -130,7 +130,7 @@ const _tokens = {
   spUSDT: {
     name: 'Stargate Tether USD LP',
     symbol: 'spUSDT',
-    oracleId: 'spUSDT',
+    oracleId: 'stargate-polygon-usdt',
     address: '0x29e38769f23701A2e4A8Ef0492e19dA4604Be62c',
     chainId: 137,
     decimals: 6,
@@ -256,7 +256,7 @@ const _tokens = {
     name: 'Quickswap',
     address: '0xB5C064F955D8e7F38fE0460C556a72987494eE17',
     symbol: 'QUICK',
-    oracleId: 'QUICK',
+    oracleId: 'newQUICK',
     decimals: 18,
     chainId: 137,
     website: 'https://quickswap.exchange/#/swap',
@@ -279,7 +279,7 @@ const _tokens = {
   '4EUR': {
     name: 'Curve Factory 4EUR',
     symbol: '4EUR',
-    oracleId: '4EUR',
+    oracleId: 'jarvis-4eur',
     address: '0xAd326c253A84e9805559b73A08724e11E49ca651',
     chainId: 137,
     decimals: 18,
@@ -1936,7 +1936,7 @@ const _tokens = {
   bbamUSD: {
     name: 'Balancer Aave Stable Composable Pool',
     symbol: 'bbamUSD',
-    oracleId: 'bbamUSD',
+    oracleId: 'balancer-bbamUSD',
     address: '0x48e6B98ef6329f8f0A30eBB8c7C960330d648085',
     chainId: 137,
     decimals: 18,
@@ -1950,7 +1950,7 @@ const _tokens = {
   '2BRZ': {
     name: 'Balancer 2BRZ Pool',
     symbol: '2BRZ',
-    oracleId: '2BRZ',
+    oracleId: 'balancer-brz-jbrl',
     address: '0xE22483774bd8611bE2Ad2F4194078DaC9159F4bA',
     chainId: 137,
     decimals: 18,

@@ -16,7 +16,7 @@
     "checksum": "ts-node ./scripts/checksum.ts",
     "checksummify": "ts-node ./scripts/toChecksumTokenList.ts",
     "checkDecimals": "ts-node --transpileOnly ./scripts/checkDecimals.ts",
-    "checkOracleId": "ts-node --transpileOnly ./scripts/checkOracleId.ts",
+    "checkOracles": "ts-node --transpileOnly scripts/checkOracles.ts",
     "checkDuplicates": "ts-node --transpileOnly ./scripts/checkDuplicates.ts",
     "submit": "yarn checksum && yarn compile && yarn publish"
   },

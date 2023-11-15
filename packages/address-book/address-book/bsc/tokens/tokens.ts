@@ -620,7 +620,7 @@ const _tokens = {
     decimals: 6,
     name: 'Stargate Binance USD LP',
     symbol: 'sbBUSD',
-    oracleId: 'sbBUSD',
+    oracleId: 'stargate-bsc-busd',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xaEb044650278731Ef3DC244692AB9F64C78FfaEA/logo.png',
     documentation: 'https://stargateprotocol.gitbook.io/stargate/v/user-docs/',
@@ -628,7 +628,7 @@ const _tokens = {
   sbUSDT: {
     name: 'Stargate Tether USD LP',
     symbol: 'sbUSDT',
-    oracleId: 'sbUSDT',
+    oracleId: 'stargate-bsc-usdt',
     address: '0x9aA83081AA06AF7208Dcc7A4cB72C94d057D2cda',
     chainId: 56,
     decimals: 6,
@@ -1673,7 +1673,7 @@ const _tokens = {
   JulD: {
     name: 'JulSwap',
     symbol: 'JulD',
-    oracleId: 'JulD',
+    oracleId: 'JULD',
     address: '0x5A41F637C3f7553dBa6dDC2D3cA92641096577ea',
     chainId: 56,
     decimals: 18,
@@ -2657,7 +2657,7 @@ const _tokens = {
   CAKE: {
     name: 'PancakeSwap Token',
     symbol: 'CAKE',
-    oracleId: 'CAKE',
+    oracleId: 'Cake',
     address: '0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82',
     chainId: 56,
     decimals: 18,
@@ -3988,7 +3988,7 @@ const _tokens = {
   KROWN: {
     name: 'Krown',
     symbol: 'KRW',
-    oracleId: 'KROWN',
+    oracleId: 'KRW',
     address: '0x1446f3CEdf4d86a9399E49f7937766E6De2A3AAB',
     chainId: 56,
     decimals: 18,
