@@ -8,7 +8,7 @@ const { default: ICurveRewardStream } = require('../../../../abis/ICurveRewardSt
 
 const secondsPerYear = 31536000;
 
-const getCurveBaseApys = async (pools, url) => {
+export const getCurveBaseApys = async (pools, url) => {
   let apys = {};
   try {
     const response = await fetch(url).then(res => res.json());
