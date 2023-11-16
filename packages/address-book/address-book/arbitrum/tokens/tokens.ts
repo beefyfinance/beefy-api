@@ -1260,7 +1260,7 @@ const _tokens = {
     chainId: 42161,
     decimals: 6,
     website: 'https://v3-app.compound.finance/',
-    description: '',
+    description: ' ',
     bridge: 'native',
     staked: true,
   },
