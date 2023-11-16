@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 import ERC20Abi from '../../../../abis/ERC20Abi';
 import MasterChef from '../../../../abis/MasterChef';

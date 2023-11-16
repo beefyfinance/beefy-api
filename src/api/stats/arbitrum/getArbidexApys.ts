@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import { ARBITRUM_CHAIN_ID } from '../../../constants';
 // import { arbidexClient } from '../../../apollo/client';
 import { fetchContract } from '../../rpc/client';

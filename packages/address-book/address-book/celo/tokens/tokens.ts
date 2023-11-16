@@ -117,7 +117,7 @@ const _tokens = {
   DAI: {
     name: 'Dai Stablecoin',
     symbol: 'DAI',
-    oracleId: 'DAI',
+    oracleId: 'DAIV1',
     address: '0xE4fE50cdD716522A56204352f00AA110F731932d',
     chainId: 42220,
     decimals: 18,

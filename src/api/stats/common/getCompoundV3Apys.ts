@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { ChainId } from '../../../../packages/address-book/address-book';
 import getBlockTime from '../../../utils/getBlockTime';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import cv3Token from '../../../abis/cv3Token';
 import { Abi } from 'viem';
 import { fetchContract, fetchNoMulticallContract } from '../../rpc/client';
@@ -97,7 +97,7 @@ const getPoolsData = async (params: CompoundV3ApyParams): Promise<PoolsData> => 
 };
 
 export interface PoolsData {
-  tokenPrices: BigNumber[];
+  tokenPrices: number[];
   supplyRates: BigNumber[];
   compSupplySpeeds: BigNumber[];
   totalSupplies: BigNumber[];

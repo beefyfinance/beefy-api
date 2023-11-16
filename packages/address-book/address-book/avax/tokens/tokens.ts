@@ -237,7 +237,7 @@ const _tokens = {
     name: 'Stargate USD Coin LP',
     address: '0x1205f31718499dBf1fCa446663B532Ef87481fe1',
     symbol: 'saUSDC',
-    oracleId: 'saUSDC',
+    oracleId: 'stargate-avax-usdc',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
     description:
@@ -249,7 +249,7 @@ const _tokens = {
   saUSDT: {
     name: 'Stargate Tether USD LP',
     symbol: 'saUSDT',
-    oracleId: 'saUSDT',
+    oracleId: 'stargate-avax-usdt',
     address: '0x29e38769f23701A2e4A8Ef0492e19dA4604Be62c',
     chainId: 43114,
     decimals: 6,
@@ -909,7 +909,7 @@ const _tokens = {
     decimals: 18,
     name: 'Aave Token',
     symbol: 'AAVE',
-    oracleId: 'AAVEe',
+    oracleId: 'AAVE.e',
     website: 'https://app.aave.com/markets',
     description:
       'Aave is a decentralised non-custodial liquidity market protocol where users can participate as depositors or borrowers.',
@@ -1460,7 +1460,7 @@ const _tokens = {
     decimals: 18,
     name: 'ChainLink Token',
     symbol: 'LINK',
-    oracleId: 'LINKe',
+    oracleId: 'LINK.e',
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
@@ -4657,7 +4657,7 @@ const _tokens = {
     chainId: 43114,
     name: 'Pangolin',
     symbol: 'PNG',
-    oracleId: 'PNG-Pangolin',
+    oracleId: 'PNG',
     website: 'https://pangolin.exchange/',
     description:
       'A community-driven decentralized exchange for Avalanche and Ethereum assets with fast settlement, low transaction fees, and a democratic distribution–powered by Avalanche. Pangolin brings you the best trading opportunities to find and maximize your yield.',
@@ -4852,7 +4852,7 @@ const _tokens = {
     decimals: 6,
     name: 'Tether USD',
     symbol: 'USDTe',
-    oracleId: 'USDTe',
+    oracleId: 'USDT.e',
     website: 'https://tether.to/',
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.  This version is bridged from Ethereum.',
@@ -4875,7 +4875,7 @@ const _tokens = {
     decimals: 18,
     name: 'Dai Stablecoin',
     symbol: 'DAI',
-    oracleId: 'DAIe',
+    oracleId: 'DAI.e',
     website: 'https://makerdao.com/en/',
     description:
       'DAI is an Ethereum-based stablecoin (stable-price cryptocurrency) whose issuance and development is managed by the Maker Protocol and the MakerDAO decentralized autonomous organization.',
@@ -5142,7 +5142,7 @@ const _tokens = {
   GLP: {
     name: 'GLP',
     symbol: 'GLP',
-    oracleId: 'GLP',
+    oracleId: 'gmx-avax-glp',
     address: '0xaE64d55a6f09E4263421737397D1fdFA71896a69',
     chainId: 43114,
     decimals: 18,

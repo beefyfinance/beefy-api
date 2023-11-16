@@ -1,4 +1,4 @@
-import fetchPrice from '../../utils/fetchPrice';
+import { fetchPrice } from '../../utils/fetchPrice';
 import { getKey, setKey } from '../../utils/cache';
 
 const { getMultichainVaults } = require('../stats/getMultichainVaults');

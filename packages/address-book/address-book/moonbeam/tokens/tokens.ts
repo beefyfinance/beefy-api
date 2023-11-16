@@ -36,7 +36,7 @@ const _tokens = {
   STELLA4POOL: {
     name: 'Stellaswap 4Pool',
     symbol: 'stella4pool',
-    oracleId: 'STELLA4POOL',
+    oracleId: 'stellaswap-4pool',
     address: '0xB326b5189AA42Acaa3C649B120f084Ed8F4dCaA6',
     chainId: 1284,
     decimals: 18,
@@ -76,7 +76,7 @@ const _tokens = {
   WETHwh: {
     name: 'Wrapped Ether',
     symbol: 'WETH',
-    oracleId: 'WETHwh',
+    oracleId: 'ETHwh',
     address: '0xab3f0245B83feB11d15AAffeFD7AD465a59817eD',
     chainId: 1284,
     decimals: 18,
@@ -387,7 +387,7 @@ const _tokens = {
   USDTxc: {
     name: 'Tether USD (XCM)',
     symbol: 'USDTxc',
-    oracleId: 'USDTxc',
+    oracleId: 'USDT',
     address: '0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d',
     chainId: 1284,
     decimals: 6,
@@ -621,7 +621,7 @@ const _tokens = {
   UST: {
     name: 'Axelar Wrapped UST',
     symbol: 'UST',
-    oracleId: 'UST',
+    oracleId: 'axlUST',
     address: '0x085416975fe14C2A731a97eC38B9bF8135231F62',
     chainId: 1284,
     decimals: 6,
@@ -659,7 +659,7 @@ const _tokens = {
   stellaBase4pool: {
     name: 'stellaBase4pool',
     symbol: 'stellaswap-base4pool',
-    oracleId: 'stellaBase4pool',
+    oracleId: 'stellaswap-base4pool',
     address: '0xdA782836B65edC4E6811c7702C5E21786203Ba9d',
     chainId: 1284,
     decimals: 18,

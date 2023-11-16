@@ -354,7 +354,7 @@ const _tokens = {
   soUSDC: {
     name: 'Stargate USD Coin LP',
     symbol: 'soUSDC',
-    oracleId: 'soUSDC',
+    oracleId: 'stargate-op-usdc',
     address: '0xDecC0c09c3B5f6e92EF4184125D5648a66E35298',
     chainId: 10,
     decimals: 6,
@@ -368,7 +368,7 @@ const _tokens = {
   soETH: {
     name: 'Stargate Ethereum LP',
     symbol: 'soETH',
-    oracleId: 'soETH',
+    oracleId: 'stargate-op-eth',
     address: '0xd22363e3762cA7339569F3d33EADe20127D5F98C',
     chainId: 10,
     decimals: 18,
@@ -472,7 +472,7 @@ const _tokens = {
   beVELO: {
     name: 'Beefy Velo ',
     symbol: 'beVELO',
-    oracleId: 'beVELO',
+    oracleId: 'BeVELO',
     address: '0xfDeFFc7Ad816BF7867C642dF7eBC2CC5554ec265',
     chainId: 10,
     decimals: 18,
@@ -1027,7 +1027,7 @@ const _tokens = {
   MLP: {
     name: 'MLP',
     symbol: 'MLP',
-    oracleId: 'MLP',
+    oracleId: 'mmy-op-mlp',
     address: '0xB280D03909Cc18640621955Cb3bC30948DF2Fa9a',
     chainId: 10,
     decimals: 18,

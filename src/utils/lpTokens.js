@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('./fetchPrice');
+import { fetchPrice } from './fetchPrice';
 const { fetchContract, getRPCClient } = require('../api/rpc/client');
 const { default: ERC20Abi } = require('../abis/ERC20Abi');
 const { BSC_CHAIN_ID } = require('../constants');

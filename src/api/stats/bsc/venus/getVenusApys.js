@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 const pools = require('../../../../data/venusPools.json');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const { default: VToken } = require('../../../../abis/VToken');

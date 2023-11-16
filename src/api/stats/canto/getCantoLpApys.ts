@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const volatilePools = require('../../../data/canto/cantoLpPools.json');
 const stablePools = require('../../../data/canto/cantoStableLpPools.json');
 const getBlockTime = require('../../../utils/getBlockTime');

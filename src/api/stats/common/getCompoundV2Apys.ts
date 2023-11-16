@@ -2,7 +2,7 @@ import BigNumber, { BigNumber as BigNumberStatic } from 'bignumber.js';
 import { ChainId } from '../../../../packages/address-book/address-book';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import getBlockTime from '../../../utils/getBlockTime';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice, Oracle, PriceOracle } from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
 import { BASE_HPY } from '../../../constants';
 import VToken from '../../../abis/VToken';
@@ -218,7 +218,7 @@ const getLeveragedApys = (
 };
 
 export interface PoolsData {
-  tokenPrices: BigNumber[];
+  tokenPrices: number[];
   supplyRates: BigNumber[];
   borrowRates: BigNumber[];
   compSupplySpeeds: BigNumber[];

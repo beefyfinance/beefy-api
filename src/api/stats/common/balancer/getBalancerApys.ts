@@ -6,7 +6,7 @@ import IAaveProtocolDataProvider from '../../../../abis/matic/AaveProtocolDataPr
 import IBalancerVault from '../../../../abis/IBalancerVault';
 import BigNumber from 'bignumber.js';
 import { getTradingFeeAprBalancer } from '../../../../utils/getTradingFeeApr';
-import fetchPrice from '../../../../utils/fetchPrice';
+import { fetchPrice } from '../../../../utils/fetchPrice';
 import { fetchContract } from '../../../rpc/client';
 
 interface Token {

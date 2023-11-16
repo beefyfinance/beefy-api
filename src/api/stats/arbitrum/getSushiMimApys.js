@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const sushiDualPools = require('../../../data/arbitrum/sushiLpMimPools.json');
 const sushiConstantProductPools = require('../../../data/arbitrum/sushiConstantProductLpPools.json');
 const { ARBITRUM_CHAIN_ID, SUSHI_LPF } = require('../../../constants');
