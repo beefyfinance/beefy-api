@@ -88,7 +88,7 @@ export async function fetchPriceFromOracleId(
   oracleId: string,
   withUnknownLogging = true
 ): Promise<number> {
-  return fetchPrice({ oracle: 'any', id: oracleId }, withUnknownLogging);
+  return fetchPriceTyped({ oracle: 'any', id: oracleId }, withUnknownLogging);
 }
 
 /**
@@ -98,7 +98,7 @@ export async function fetchPriceFromToken(
   token: Token,
   withUnknownLogging = true
 ): Promise<number> {
-  return fetchPrice({ oracle: 'any', id: token.oracleId }, withUnknownLogging);
+  return fetchPriceFromOracleId(token.oracleId, withUnknownLogging);
 }
 
 /**
