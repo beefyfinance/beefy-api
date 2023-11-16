@@ -117,7 +117,34 @@ export type TreasuryReport = {
   };
 };
 
+export type MarketMakerAsset = {
+  symbol: string;
+  name: string;
+  oracleId: string;
+  oracleType: 'tokens' | 'lps';
+};
+
+export type MMExchangeBalance = {
+  [assetSymbol: string]: MarketMakerAsset & {
+    usdValue: string;
+    balance: string;
+    price: number;
+  };
+};
+export type MMReport = {
+  [marketMaker: string]: {
+    [exchange: string]: MMExchangeBalance;
+  };
+};
+
 export type TreasuryApiResult = {
   apiAsset: TreasuryAsset;
   balance: BigNumber;
+};
+
+// MarketMaker API
+export type MarketMakerAPIResult = {
+  [exchange: string]: {
+    [token: string]: number;
+  };
 };
