@@ -192,7 +192,7 @@ async function updateSingleChainTreasuryBalance(chain: ApiChain) {
 }
 
 async function buildMarketMakerReport() {
-  const marketMakerReport: MMReport = {};
+  const report: MMReport = {};
   if (process.env.MM_BALANCE_API) {
     const marketMakerBalances: MarketMakerAPIResult = await fetch(process.env.MM_BALANCE_API).then(
       res => res.json()
@@ -213,7 +213,8 @@ async function buildMarketMakerReport() {
         };
       }
     }
-    marketMakerReport['system9'] = system9Balances;
+    report['system9'] = system9Balances;
+    marketMakerReport = report;
     console.log('> market maker balances updated');
   }
 }
@@ -313,11 +314,13 @@ function findUsdValueForBalance(
 async function saveToRedis() {
   await setKey('TREASURY_BALANCES', tokenBalancesByChain);
   await setKey('TREASURY_REPORT', treasurySummary);
+  await setKey('MM_REPORT', marketMakerReport);
 }
 
 async function restoreFromRedis() {
   const cachedSummary = await getKey<TreasuryReport>('TREASURY_REPORT');
   const cachedBalances = await getKey<TreasuryBalances>('TREASURY_BALANCES');
+  const cachedMMReport = await getKey<MMReport>('MM_REPORT');
   if (cachedSummary) {
     treasurySummary = cachedSummary;
   }
@@ -331,6 +334,9 @@ async function restoreFromRedis() {
         });
       });
     });
+  }
+  if (cachedMMReport) {
+    marketMakerReport = cachedMMReport;
   }
 }
 
