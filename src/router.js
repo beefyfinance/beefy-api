@@ -15,7 +15,7 @@ const snapshot = require('./api/snapshot');
 const { boosts, chainBoosts } = require('./api/boosts');
 const { getTokens, getChainTokens } = require('./api/tokens');
 const { getConfigs, getChainConfig } = require('./api/config');
-const { getTreasury } = require('./api/treasury');
+const { getTreasury, getMMBal, getAllTreasury } = require('./api/treasury');
 const { validatorPerformance } = require('./api/validators/index');
 
 const {
@@ -69,6 +69,8 @@ router.get('/config', getConfigs);
 router.get('/config/:chainId', getChainConfig);
 
 router.get('/treasury', getTreasury);
+router.get('/treasury/mm', getMMBal);
+router.get('/treasury/complete', getAllTreasury);
 
 router.get('/snapshot/latest', snapshot.latest);
 router.get('/snapshot/active', snapshot.active);
