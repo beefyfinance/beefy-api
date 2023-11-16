@@ -5,7 +5,7 @@ import {
 } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import IRewardPool from '../../../abis/IRewardPool';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';

@@ -3,7 +3,7 @@ import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
 import jp from 'jsonpath';
 import BigNumber from 'bignumber.js';
 import { getTradingFeeAprBalancer } from '../../../../utils/getTradingFeeApr';
-import fetchPrice from '../../../../utils/fetchPrice';
+import { fetchPrice } from '../../../../utils/fetchPrice';
 import IAaveProtocolDataProvider from '../../../../abis/matic/AaveProtocolDataProvider';
 import IAuraMinter from '../../../../abis/IAuraMinter';
 import { default as IAuraGauge } from '../../../../abis/ethereum/AuraGauge';

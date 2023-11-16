@@ -2,7 +2,7 @@ import getApyBreakdown from '../common/getApyBreakdown';
 const BigNumber = require('bignumber.js');
 const { ETH_CHAIN_ID: chainId, ETH_CHAIN_ID } = require('../../../constants');
 import { balancerClient } from '../../../apollo/client';
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
 import { addressBook } from '../../../../packages/address-book/address-book';

@@ -207,7 +207,7 @@ const _tokens = {
   sarUSDC: {
     name: 'Stargate USD Coin LP',
     symbol: 'sarUSDC',
-    oracleId: 'sarUSDC',
+    oracleId: 'stargate-arb-usdc',
     address: '0x892785f33CdeE22A30AEF750F285E18c18040c3e',
     chainId: 42161,
     decimals: 6,
@@ -221,7 +221,7 @@ const _tokens = {
   sarUSDT: {
     name: 'Stargate Tether USD LP',
     symbol: 'sarUSDT',
-    oracleId: 'sarUSDT',
+    oracleId: 'stargate-arb-usdt',
     address: '0xB6CfcF89a7B22988bfC96632aC2A9D6daB60d641',
     chainId: 42161,
     decimals: 6,
@@ -235,7 +235,7 @@ const _tokens = {
   sarETH: {
     name: 'Stargate Ethereum LP',
     symbol: 'sarETH',
-    oracleId: 'sarETH',
+    oracleId: 'stargate-arb-eth',
     address: '0x915A55e36A01285A14f05dE6e81ED9cE89772f8e',
     chainId: 42161,
     decimals: 18,
@@ -341,7 +341,7 @@ const _tokens = {
   GLP: {
     name: 'GLP',
     symbol: 'GLP',
-    oracleId: 'GLP',
+    oracleId: 'gmx-arb-glp',
     address: '0x5402B5F40310bDED796c7D0F3FF6683f5C0cFfdf',
     chainId: 42161,
     decimals: 18,
@@ -1130,7 +1130,7 @@ const _tokens = {
   bbaaUSD: {
     name: 'Balancer Aave Stable Composable Pool',
     symbol: 'bbaaUSD',
-    oracleId: 'bbaaUSD',
+    oracleId: 'aura-bbaaUSD',
     address: '0xEE02583596AEE94ccCB7e8ccd3921d955f17982A',
     chainId: 42161,
     decimals: 18,
@@ -1144,7 +1144,7 @@ const _tokens = {
   bbaaUSDV2: {
     name: 'Balancer Aave Stable Composable Pool',
     symbol: 'bbaaUSDV2',
-    oracleId: 'bbaaUSDV2',
+    oracleId: 'aura-bbaaUSD-v2',
     address: '0xc6EeE8cb7643eC2F05F46d569e9eC8EF8b41b389',
     chainId: 42161,
     decimals: 18,

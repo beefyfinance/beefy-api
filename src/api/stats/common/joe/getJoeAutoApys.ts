@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js';
 import { ChainId } from '../../../../../packages/address-book/address-book';
 import getApyBreakdown, { ApyBreakdownResult } from '../../common/getApyBreakdown';
 import { LpPool } from '../../../../types/LpPool';
-import fetchPrice from '../../../../utils/fetchPrice';
+import { fetchPrice } from '../../../../utils/fetchPrice';
 import { fetchContract } from '../../../rpc/client';
 import ERC20Abi from '../../../../abis/ERC20Abi';
 import abi from '../../../../abis/arbitrum/JoeAutoFarm';

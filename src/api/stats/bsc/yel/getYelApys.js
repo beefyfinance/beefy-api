@@ -28,7 +28,7 @@ module.exports = getYelApys;
 
 const BigNumber = require('bignumber.js');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 import MasterYel from '../../../../abis/MasterYel';
 import { getFarmWithTradingFeesApy } from '../../../../utils/getFarmWithTradingFeesApy';
 import { fetchContract } from '../../../rpc/client';

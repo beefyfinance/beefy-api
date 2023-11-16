@@ -120,7 +120,7 @@ const oracles: Oracle[] = [
   },
   {
     oracleId: 'EURC',
-    address: '0x14Dd0643044B4E539051E5925dC591B9db4De5ef',
+    address: '0x3368310bc4aee5d96486a73bae8e6b49fcde62d3',
     chain: 'avax',
     heartbeat: 864000,
   },

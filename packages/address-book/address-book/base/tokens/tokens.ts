@@ -417,7 +417,7 @@ const _tokens = {
   bsUSD: {
     name: 'Balancer Stable Pool',
     symbol: 'bsUSD',
-    oracleId: 'bsUSD',
+    oracleId: 'balancer-base-usdbc-dai',
     address: '0x6FbFcf88DB1aADA31F34215b2a1Df7fafb4883e9',
     chainId: 8453,
     decimals: 18,

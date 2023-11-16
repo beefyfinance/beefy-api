@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { ChainId } from '../../../../packages/address-book/address-book';
 import IRewardPool from '../../../abis/IRewardPool';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
 

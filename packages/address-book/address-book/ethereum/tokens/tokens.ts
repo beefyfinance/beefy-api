@@ -467,7 +467,7 @@ const _tokens = {
   sethUSDC: {
     name: 'Stargate USD Coin LP',
     symbol: 'sethUSDC',
-    oracleId: 'sethUSDC',
+    oracleId: 'stargate-eth-usdc',
     address: '0xdf0770dF86a8034b3EFEf0A1Bb3c889B8332FF56',
     chainId: 1,
     decimals: 6,
@@ -481,7 +481,7 @@ const _tokens = {
   sethUSDT: {
     name: 'Stargate Tether USD LP',
     symbol: 'sethUSDT',
-    oracleId: 'sethUSDT',
+    oracleId: 'stargate-eth-usdt',
     address: '0x38EA452219524Bb87e18dE1C24D3bB59510BD783',
     chainId: 1,
     decimals: 6,
@@ -592,7 +592,7 @@ const _tokens = {
   sethETH: {
     name: 'Stargate Ethereum LP',
     symbol: 'sethETH',
-    oracleId: 'sethETH',
+    oracleId: 'stargate-eth-eth',
     address: '0x101816545F6bd2b1076434B54383a1E633390A2E',
     chainId: 1,
     decimals: 18,

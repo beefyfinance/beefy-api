@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { BSC_CHAIN_ID } from '../../../constants';
 import getApyBreakdown from '../common/getApyBreakdown';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import pools from '../../../data/bsc/ellipsisPools.json';
 import EllipsisLpStaking from '../../../abis/bsc/EllipsisLpStaking';
 import EllipsisRewardToken from '../../../abis/EllipsisRewardToken';

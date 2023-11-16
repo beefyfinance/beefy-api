@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 import getApyBreakdown from './getApyBreakdown';
 import { uniswapPositionQuery } from '../../../apollo/queries';
 import getBlockNumber from '../../../utils/getBlockNumber';

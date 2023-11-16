@@ -247,7 +247,7 @@ const _tokens = {
   smUSDT: {
     name: 'Stargate Tether USD LP',
     symbol: 'smUSDT',
-    oracleId: 'smUSDT',
+    oracleId: 'stargate-metis-usdt',
     address: '0x2b60473a7C41Deb80EDdaafD5560e963440eb632',
     chainId: 1088,
     decimals: 6,
