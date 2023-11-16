@@ -82,16 +82,33 @@
     ]
   },
   {
+    "name": "curve-crvusd-sdai",
+    "pool": "0x1539c2461d7432cc114b0903f1824079BfCA2C92",
+    "gauge": "0x2B5a5e182768a18C70EDd265240578a72Ca475ae",
+    "rewards": [
+      {
+        "token": "0xD533a949740bb3306d119CC777fa900bA034cd52",
+        "oracleId": "CRV"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-trylsd",
     "pool": "0x2570f1bD5D2735314FC102eb12Fc1aFe9e6E7193",
     "gauge": "0xeA012f5b25Fa0D8e46123B85f585d0A5075e96b5",
     "rewardPool": "0xb14B2bbA5446BcE656b37b22f4c2De6446226dFb",
-    "extras": [
-      {
-        "rewardPool": "0x2fBa50Bb7544deD6436F8BECf581c4009cC0121d",
-        "oracleId": "wstETH"
-      }
-    ],
     "tokens": [
       {
         "oracle": "tokens",

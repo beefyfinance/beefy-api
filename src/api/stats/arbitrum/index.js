@@ -19,11 +19,13 @@ const { getChronosApys } = require('./getChronosApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getJoeAutoArbApys } = require('./getJoeAutoArbApys');
 const getMerklGammaApys = require('./getMerklGammaApys');
+const getUniswapGammaApys = require('./getUniswapGammaApys');
 const getBunniArbApys = require('./getBunniApys');
 const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
 
 const getApys = [
   getMerklGammaApys,
+  getUniswapGammaApys,
   getJoeAutoArbApys,
   getAuraArbitrumApys,
   getKyberArbitrumApys,
