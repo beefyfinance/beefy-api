@@ -46,7 +46,7 @@ const getYearlyRewardsInUsd = async () => {
   let yearlyRewards = new BigNumber(0);
   const rewardPoolContract = fetchContract(rewardPool, IBeefyRewardPool, ETH_CHAIN_ID);
   for (let i = 0; i < rewards.length; ++i) {
-    const rewardPrice = await fetchPrice({ oracle: 'tokens', id: [rewards[i].symbol] });
+    const rewardPrice = await fetchPrice({ oracle: 'tokens', id: rewards[i].symbol });
     const rewardInfo = await rewardPoolContract.read.rewardInfo([rewards[i].id]);
     const rewardRate = new BigNumber(rewardInfo[4].toString());
     const periodFinish = new BigNumber(rewardInfo[1].toString());
