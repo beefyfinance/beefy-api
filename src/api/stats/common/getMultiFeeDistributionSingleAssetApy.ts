@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
 import { BASE_HPY } from '../../../constants';
 import { ApyBreakdownResult } from './getApyBreakdown';

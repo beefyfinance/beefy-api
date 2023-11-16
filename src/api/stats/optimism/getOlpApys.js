@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';
 import DistributorAbi from '../../../abis/arbitrum/Distributor';
 import ERC20Abi from '../../../abis/ERC20Abi';

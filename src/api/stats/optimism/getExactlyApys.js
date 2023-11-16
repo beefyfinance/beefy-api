@@ -4,7 +4,7 @@ import { fetchContract } from '../../rpc/client';
 import ExactlyRewardsController from '../../../abis/ExactlyRewardsController';
 import ExactlyInterestRateModel from '../../../abis/ExactlyInterestRateModel';
 
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { getApyBreakdown } = require('../common/getApyBreakdown');
 const { getExactlyData } = require('../../../utils/getExactlyData');
 const { exactlyClient } = require('../../../apollo/client');

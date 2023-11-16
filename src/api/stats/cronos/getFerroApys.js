@@ -1,7 +1,7 @@
 const { CRONOS_CHAIN_ID: chainId, CRONOS_CHAIN_ID } = require('../../../constants');
 const pools = require('../../../data/cronos/ferroPools.json');
 import getBlockTime from '../../../utils/getBlockTime';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
 import StrategyABI from '../../../abis/StrategyABI';

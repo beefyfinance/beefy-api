@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const pools = require('../../../data/emerald/yuzuDualLpPools.json');
 const { BASE_HPY, EMERALD_CHAIN_ID: chainId, EMERALD_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');

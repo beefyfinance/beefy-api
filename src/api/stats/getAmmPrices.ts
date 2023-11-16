@@ -872,46 +872,46 @@ export async function getLpBreakdownForOracle(oracleId: string) {
 }
 
 export async function getAmmTokenPrice(
-  tokenSymbol: string,
+  oracleId: string,
   withUnknownLogging: boolean = false
 ): Promise<number | undefined> {
   const tokenPrices = await getAmmTokensPrices();
-  if (tokenPrices.hasOwnProperty(tokenSymbol)) {
-    return tokenPrices[tokenSymbol];
+  if (tokenPrices.hasOwnProperty(oracleId)) {
+    return tokenPrices[oracleId];
   }
 
   if (withUnknownLogging) {
-    console.log(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    console.log(
+      `Unknown oracleId '${oracleId}' in tokens oracle. Consider adding it to .json file`
+    );
   }
 }
 
 export async function getAmmLpPrice(
-  lpName: string,
+  oracleId: string,
   withUnknownLogging: boolean = false
 ): Promise<number | undefined> {
   const lpPrices = await getAmmLpPrices();
-  if (lpPrices.hasOwnProperty(lpName)) {
-    return lpPrices[lpName];
+  if (lpPrices.hasOwnProperty(oracleId)) {
+    return lpPrices[oracleId];
   }
 
   if (withUnknownLogging) {
-    console.log(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
+    console.log(`Unknown oracleId '${oracleId}' in lps oracle. Consider adding it to .json file`);
   }
 }
 
 export async function getAmmPrice(
-  tokenOrLpName: string,
+  oracleId: string,
   withUnknownLogging: boolean = false
 ): Promise<number | undefined> {
   const allPrices = await getAmmAllPrices();
-  if (allPrices.hasOwnProperty(tokenOrLpName)) {
-    return allPrices[tokenOrLpName];
+  if (allPrices.hasOwnProperty(oracleId)) {
+    return allPrices[oracleId];
   }
 
   if (withUnknownLogging) {
-    console.error(
-      `Unknown token/liquidity pair '${tokenOrLpName}'. Consider adding it to .json file`
-    );
+    console.error(`Unknown oracleId '${oracleId}' in any oracle. Consider adding it to .json file`);
   }
 }
 

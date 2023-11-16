@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../../../utils/fetchPrice';
+import { fetchPrice } from '../../../../utils/fetchPrice';
 import ICurveGauge from '../../../../abis/ICurveGauge';
 import { fetchContract } from '../../../rpc/client';
 

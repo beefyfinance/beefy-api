@@ -2,7 +2,7 @@ import { ETH_CHAIN_ID } from '../../../constants';
 import { getCurveBaseApys } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import { fetchContract } from '../../rpc/client';
 import { parseAbi } from 'viem';
 

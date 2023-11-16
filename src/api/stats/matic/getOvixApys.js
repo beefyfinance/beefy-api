@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { compound } = require('../../../utils/compound');
 import { BASE_HPY, POLYGON_CHAIN_ID } from '../../../constants';
 import ImToken from '../../../abis/moonbeam/mToken';

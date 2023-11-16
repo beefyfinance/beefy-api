@@ -1,6 +1,6 @@
 import { ETH_CHAIN_ID } from '../../../constants';
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';
 import ICvxFxsStaking from '../../../abis/ethereum/ICvxFxsStaking';
 import { fetchContract } from '../../rpc/client';

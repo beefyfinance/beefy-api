@@ -8,7 +8,7 @@ import { addressBook } from '../../../../packages/address-book/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
 import IBalancerVault from '../../../abis/IBalancerVault';
 import { fetchContract } from '../../rpc/client';
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 
 const {
   optimism: {

@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { ChainId } from '../../../../packages/address-book/types/chainid';
 
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import { getApyBreakdown } from './getApyBreakdown';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
 import { fetchContract } from '../../rpc/client';
@@ -113,7 +113,7 @@ const getFarmApys = async (params: MiniChefApyParams) => {
   const miniChefTokenPriceCall = fetchPrice({
     oracle,
     id: minichefConfig.outputOracleId,
-  }) as Promise<BigInt>;
+  });
   const poolsDataCall = getPoolsData(params);
 
   const rewarderCall = getRewarderData(params);
@@ -216,7 +216,7 @@ const getRewarderData = async (params: MiniChefApyParams) => {
       SushiComplexRewarderTime,
       chainId
     );
-    const calls = [rewarderContract.read.rewardPerSecond()];
+    const calls: Promise<bigint | number>[] = [rewarderContract.read.rewardPerSecond()];
     if (rewarderConfig.rewarderTotalAllocPoint == undefined) {
       calls.push(rewarderContract.read.totalAllocPoint());
     } else {

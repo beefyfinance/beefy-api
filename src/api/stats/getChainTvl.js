@@ -1,6 +1,6 @@
 import { ChainId } from '../../../packages/address-book/address-book';
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../utils/fetchPrice');
+import { fetchPrice } from '../../utils/fetchPrice';
 const { EXCLUDED_IDS_FROM_TVL } = require('../../constants');
 const { fetchContract } = require('../rpc/client');
 const { default: BeefyVaultV6Abi } = require('../../abis/BeefyVault');

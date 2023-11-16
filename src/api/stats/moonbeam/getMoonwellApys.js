@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { compound } = require('../../../utils/compound');
 import { BASE_HPY, MOONBEAM_CHAIN_ID, MOONBEAM_CHAIN_ID as chainId } from '../../../constants';
 import MoonwellComptroller from '../../../abis/moonbeam/MoonwellComptroller';

@@ -6,7 +6,7 @@ import { FANTOM_CHAIN_ID, SPOOKY_LPF } from '../../../constants';
 import GeistChef from '../../../abis/fantom/GeistChef';
 import { fetchContract } from '../../rpc/client';
 
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const pools = require('../../../data/fantom/geistLpPools.json');
 

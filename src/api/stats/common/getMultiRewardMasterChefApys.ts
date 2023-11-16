@@ -7,7 +7,7 @@ import { ChainId } from '../../../../packages/address-book/address-book';
 import { isSushiClient, isBeetClient } from '../../../apollo/client';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
 import { LpPool, SingleAssetPool } from '../../../types/LpPool';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import getBlockTime from '../../../utils/getBlockTime';
 import { getEDecimals } from '../../../utils/getEDecimals';
 import {

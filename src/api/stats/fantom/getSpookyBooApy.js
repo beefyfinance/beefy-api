@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const pool = require('../../../data/fantom/spookySinglePool.json');
 const { BASE_HPY, FANTOM_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');

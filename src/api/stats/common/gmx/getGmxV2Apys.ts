@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../../../utils/fetchPrice';
+import { fetchPrice } from '../../../../utils/fetchPrice';
 import { LpPool } from '../../../../types/LpPool';
 import { ChainId } from '../../../../../packages/address-book/address-book';
 import ERC20Abi from '../../../../abis/ERC20Abi';
