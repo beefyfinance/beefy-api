@@ -873,7 +873,7 @@ export async function getLpBreakdownForOracle(oracleId: string) {
 
 export async function getAmmTokenPrice(
   oracleId: string,
-  withUnknownLogging: boolean = false
+  withUnknownLogging: boolean | string = false
 ): Promise<number | undefined> {
   const tokenPrices = await getAmmTokensPrices();
   if (tokenPrices.hasOwnProperty(oracleId)) {
@@ -881,15 +881,17 @@ export async function getAmmTokenPrice(
   }
 
   if (withUnknownLogging) {
-    console.log(
-      `Unknown oracleId '${oracleId}' in tokens oracle. Consider adding it to .json file`
+    console.warn(
+      `Unknown oracleId '${oracleId}' in tokens oracle. ${
+        withUnknownLogging === true ? 'Consider adding it to .json file' : withUnknownLogging
+      }`
     );
   }
 }
 
 export async function getAmmLpPrice(
   oracleId: string,
-  withUnknownLogging: boolean = false
+  withUnknownLogging: boolean | string = false
 ): Promise<number | undefined> {
   const lpPrices = await getAmmLpPrices();
   if (lpPrices.hasOwnProperty(oracleId)) {
@@ -897,13 +899,17 @@ export async function getAmmLpPrice(
   }
 
   if (withUnknownLogging) {
-    console.log(`Unknown oracleId '${oracleId}' in lps oracle. Consider adding it to .json file`);
+    console.warn(
+      `Unknown oracleId '${oracleId}' in lps oracle. ${
+        withUnknownLogging === true ? 'Consider adding it to .json file' : withUnknownLogging
+      }`
+    );
   }
 }
 
 export async function getAmmPrice(
   oracleId: string,
-  withUnknownLogging: boolean = false
+  withUnknownLogging: boolean | string = false
 ): Promise<number | undefined> {
   const allPrices = await getAmmAllPrices();
   if (allPrices.hasOwnProperty(oracleId)) {
@@ -911,7 +917,11 @@ export async function getAmmPrice(
   }
 
   if (withUnknownLogging) {
-    console.error(`Unknown oracleId '${oracleId}' in any oracle. Consider adding it to .json file`);
+    console.warn(
+      `Unknown oracleId '${oracleId}' in any oracle. ${
+        withUnknownLogging === true ? 'Consider adding it to .json file' : withUnknownLogging
+      }`
+    );
   }
 }
 
