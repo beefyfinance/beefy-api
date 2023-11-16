@@ -24,7 +24,10 @@ export type FetchPriceParams = FetchPriceOracleParams | FetchPriceHardcodeParams
  * Fetches the price of a given oracle id.
  * @dev This function no longer has a built-in cache as the underlying getAmmXPrice functions already have one.
  */
-export async function fetchPrice({ oracle, id }, withUnknownLogging = true): Promise<number> {
+export async function fetchPrice(
+  { oracle, id },
+  withUnknownLogging: boolean | string = true
+): Promise<number> {
   if ((oracle === 'lps' || oracle === 'tokens' || oracle === 'any') && typeof id === 'string') {
     return fetchPriceTyped({ oracle, id }, withUnknownLogging);
   }
@@ -42,7 +45,7 @@ export async function fetchPrice({ oracle, id }, withUnknownLogging = true): Pro
  */
 export async function fetchPriceTyped(
   { oracle, id }: FetchPriceParams,
-  withUnknownLogging = true
+  withUnknownLogging: boolean | string = true
 ): Promise<number> {
   if (oracle === undefined) {
     console.trace('Undefined oracle for fetchPrice, expected one of: lps, tokens, any, hardcode');
@@ -86,7 +89,7 @@ export async function fetchPriceTyped(
  */
 export async function fetchPriceFromOracleId(
   oracleId: string,
-  withUnknownLogging = true
+  withUnknownLogging: boolean | string = true
 ): Promise<number> {
   return fetchPriceTyped({ oracle: 'any', id: oracleId }, withUnknownLogging);
 }
@@ -96,7 +99,7 @@ export async function fetchPriceFromOracleId(
  */
 export async function fetchPriceFromToken(
   token: Token,
-  withUnknownLogging = true
+  withUnknownLogging: boolean | string = true
 ): Promise<number> {
   return fetchPriceFromOracleId(token.oracleId, withUnknownLogging);
 }
@@ -107,7 +110,7 @@ export async function fetchPriceFromToken(
 export async function fetchPriceFromTokenId(
   id: string,
   chainId: ChainId | keyof typeof ChainId,
-  withUnknownLogging = true
+  withUnknownLogging: boolean | string = true
 ): Promise<number> {
   const enumChainId: ChainId = typeof chainId === 'string' ? ChainId[chainId] : chainId;
   const token = addressBookByChainId[enumChainId].tokens[id];
@@ -123,7 +126,7 @@ export async function fetchPriceFromTokenId(
 export async function fetchPriceFromTokenAddress(
   address: string,
   chainId: ChainId | keyof typeof ChainId,
-  withUnknownLogging = true
+  withUnknownLogging: boolean | string = true
 ): Promise<number> {
   const enumChainId: ChainId = typeof chainId === 'string' ? ChainId[chainId] : chainId;
   const checksumAddress = getAddress(address);
