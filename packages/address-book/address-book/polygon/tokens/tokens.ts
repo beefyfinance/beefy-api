@@ -1060,6 +1060,21 @@ const _tokens = {
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
     documentation: 'https://gains-network.gitbook.io/docs-home/',
   },
+  oldLINK: {
+    name: 'ChainLink Token',
+    address: '0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39',
+    symbol: 'LINK',
+    oracleId: 'oldLINK',
+    decimals: 18,
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    bridge: 'polygon-canonical',
+    documentation: 'https://docs.chain.link/docs',
+    chainId: 137,
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x514910771AF9Ca656af840dff83E8264EcF986CA/logo.png',
+  },
   LINK: {
     name: 'ChainLink Token',
     address: '0xb0897686c545045aFc77CF20eC7A532E3120E0F1',
@@ -1069,7 +1084,7 @@ const _tokens = {
     website: 'https://chain.link/',
     description:
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
-    bridge: 'polygon-canonical',
+    bridge: 'native',
     documentation: 'https://docs.chain.link/docs',
     chainId: 137,
     logoURI:
