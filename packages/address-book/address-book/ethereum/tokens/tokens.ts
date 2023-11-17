@@ -1140,19 +1140,6 @@ const _tokens = {
     bridge: 'native',
     documentation: 'https://docs.archimedesfi.com/',
   },
-  eUSDT: {
-    name: 'Euler Tether USD',
-    symbol: 'eUSDT',
-    oracleId: 'eUSDT',
-    address: '0x4d19F33948b99800B6113Ff3e83beC9b537C85d2',
-    chainId: 1,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://tether.to/',
-    description:
-      'Euler interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
-    documentation: 'https://docs.euler.finance/',
-  },
   bbeUSDT: {
     name: 'Balancer Euler USDT Linear Pool',
     symbol: 'bbeUSDT',
@@ -1164,19 +1151,6 @@ const _tokens = {
     website: 'https://app.balancer.fi/#/',
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description: 'Balancer linear pool that consist of 50/50 USDT and Euler Interest Bearing USDT.',
-  },
-  eUSDC: {
-    name: 'Euler USDC',
-    symbol: 'eUSDC',
-    oracleId: 'eUSDC',
-    address: '0xEb91861f8A4e1C12333F42DCE8fB0Ecdc28dA716',
-    chainId: 1,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://www.circle.com/usdc',
-    documentation: 'https://docs.euler.finance/',
-    description:
-      'Euler interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
   bbeUSDC: {
     name: 'Balancer Euler USDC Linear Pool',
@@ -1190,19 +1164,6 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description:
       'Balancer linear pool that consist of 50/50 USDC and wrapped Euler Interest Bearing USDC.',
-  },
-  eDAI: {
-    name: 'Euler DAI',
-    symbol: 'eDAI',
-    oracleId: 'eDAI',
-    address: '0xe025E3ca2bE02316033184551D4d3Aa22024D9DC',
-    chainId: 1,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://makerdao.com/en/',
-    documentation: 'https://docs.euler.finance/',
-    description:
-      'Euler interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
   },
   bbeDAI: {
     name: 'Balancer Euler DAI Linear Pool',
