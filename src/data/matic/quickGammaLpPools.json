@@ -26,6 +26,13 @@
     "beefyFee": 0.095,
     "poolId": 78,
     "chainId": 137,
+    "extraRewards": [
+      {
+        "rewarder": "0xc35f556C8Ac05FB484A703eE96A2f997F8CAC957",
+        "oracleId": "dQUICK",
+        "decimals": "1e18"
+      }
+    ],
     "lp0": {
       "address": "0x4b4327dB1600B8B1440163F667e199CEf35385f5",
       "oracle": "tokens",
