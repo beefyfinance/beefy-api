@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-weth-axlusdc",
+    "address": "0xD266fB3E928b2A5f631B072a79Fd5b82704Ba983",
+    "gauge": "0x9E75C641e82E1C88bbd3B0253f434f632Fe6D413",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEB466342C4d449BC9f53A865D5Cb90586f405215",
+      "oracle": "tokens",
+      "oracleId": "axlUSDC",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-aero-wsteth",
     "address": "0x82a0c1a0d4EF0c0cA3cFDA3AD1AA78309Cc6139b",
     "gauge": "0x26D6D4E9e3fAf1C7C19992B1Ca792e4A9ea4F833",
