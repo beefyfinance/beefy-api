@@ -1380,6 +1380,49 @@ const _tokens = {
     description:
       'GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
   },
+  mkUSD: {
+    name: 'Prisma mkUSD',
+    symbol: 'mkUSD',
+    oracleId: 'mkUSD',
+    address: '0x4591DBfF62656E7859Afe5e45f6f47D3669fBB28',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.prismafinance.com/',
+    documentation: 'https://docs.prismafinance.com/',
+    bridge: 'native',
+    description:
+      'Prisma is a decentralized borrowing protocol that allows users to mint a stablecoin, mkUSD, that is fully collateralized by liquid staking tokens.',
+  },
+  PRISMA: {
+    name: 'Prisma Governance Token',
+    symbol: 'PRISMA',
+    oracleId: 'PRISMA',
+    address: '0xdA47862a83dac0c112BA89c6abC2159b95afd71C',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.prismafinance.com/',
+    documentation: 'https://docs.prismafinance.com/',
+    bridge: 'native',
+    description:
+      'Prisma is a decentralized borrowing protocol that allows users to mint a stablecoin, mkUSD, that is fully collateralized by liquid staking tokens.',
+  },
+  cvxPRISMA: {
+    name: 'Convex Prisma',
+    symbol: 'cvxPRISMA',
+    oracleId: 'cvxPRISMA',
+    address: '0x34635280737b5BFe6c7DC2FC3065D60d66e78185',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://prisma.convexfinance.com/',
+    documentation:
+      'https://docs.convexfinance.com/convexfinance/general-information/convex-for-prisma-finance',
+    bridge: 'native',
+    description:
+      'Convex Finance has expanded to optimize opportunities for liquidity providers on Prisma the same way it has done so for Curve.fi LPs.',
+  },
   LUSD: {
     name: 'LUSD Stablecoin',
     symbol: 'LUSD',
