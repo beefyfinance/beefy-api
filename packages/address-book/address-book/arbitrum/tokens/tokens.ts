@@ -18,6 +18,18 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  RPL: {
+    name: 'Rocket Pool Protocol',
+    symbol: 'RPL',
+    address: '0xB766039cc6DB368759C1E56B79AFfE831d0Cc507',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://rocketpool.net/',
+    description:
+      'Rocket Pool is a decentralized Ethereum staking pool offering up to 4.33% APR for ETH2 staking. Users can join the Rocket Pool with its decentralized node operator network or run their own nodes with only 16 ETH. In the latter case, they can earn a commission from staking ETH and earn additional RPL rewards from providing RPL collateral, amounting to up to 6.36% APR for ETH and the additional RPL rewards.',
+    logoURI:
+      'https://docs.rocketpool.net/images/logo.png',
+  },
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',

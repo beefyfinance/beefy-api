@@ -29,7 +29,7 @@ const getTradingAprs = async params => {
   return tradingAprs;
 };
 
-const getFarmApys = async params => {
+export const getFarmApys = async params => {
   const apys = [];
   const tokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
   const rewardTokenPriceCall = params.isRewardInXToken
@@ -134,4 +134,4 @@ const getAbi = periodFinish => {
   ];
 };
 
-module.exports = { getRewardPoolApys, getPoolsData };
+module.exports = { getRewardPoolApys, getFarmApys, getPoolsData };
