@@ -396,6 +396,32 @@ const _tokens = {
     logoURI: 'https://docs.velodrome.finance/tokens/HOP.svg',
     documentation: 'https://docs.hop.exchange/',
   },
+  hrETH: {
+    name: 'rETH Hop Token',
+    symbol: 'hrETH',
+    address: '0x588Bae9C85a605a7F14E551d144279984469423B',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hrETH is the bridge token for transferring rETH via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    bridge: 'hop',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hMAGIC: {
+    name: 'MAGIC Hop Token',
+    symbol: 'hMAGIC',
+    address: '0xB76e673EBC922b1E8f10303D0d513a9E710f5c4c',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hMAGIC is the bridge token for transferring MAGIC via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    bridge: 'hop',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
   hETH: {
     name: 'ETH Hop Token',
     symbol: 'hETH',
