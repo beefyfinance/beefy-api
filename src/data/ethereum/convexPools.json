@@ -1,8 +1,27 @@
 [
   {
-    "name": "prisma-convex-mkusd-crvusd",
+    "name": "prisma-mkusd-fraxbp",
+    "pool": "0x0CFe5C777A7438C9Dd8Add53ed671cEc7A5FAeE5",
+    "prismaPool": "0x0Ae09f649e9dA1b6aEA0c10527aC4e8a88a37480",
+    "prismaRewards": ["PRISMA", "CRV", "CVX"],
+    "tokens": [
+      {
+        "oracleId": "mkUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-fraxusdc",
+        "oracle": "lps",
+        "oracleId": "convex-fraxusdc",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "prisma-mkusd-crvusd",
     "pool": "0x3de254A0f838a844F727fee81040e0FA7884B935",
-    "prismaPool": "0xf6aA46869220Ae703924d5331D88A21DceF3b19d",
+    "prismaPool": "0x71aD6c1d92546065B13bf701a7524c69B409E25C",
+    "prismaRewards": ["PRISMA", "CRV"],
     "getDy": ["v1", 0, 1],
     "tokens": [
       {
@@ -31,10 +50,11 @@
     ]
   },
   {
-    "name": "prisma-curve-prisma",
+    "name": "prisma-prisma-eth",
     "pool": "0x322135Dd9cBAE8Afa84727d9aE1434b5B3EBA44B",
     "token": "0xb34e1a3D07f9D180Bc2FDb9Fd90B8994423e33c1",
     "prismaPool": "0xB5376AB455194328Fe41450a587f11bcDA2363fa",
+    "prismaRewards": ["PRISMA", "CRV"],
     "getDy": ["v2", 1, 0],
     "tokens": [
       {

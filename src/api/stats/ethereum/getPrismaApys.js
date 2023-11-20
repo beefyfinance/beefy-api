@@ -37,14 +37,10 @@ const getPoolApys = async pools => {
     const rewardPool = fetchContract(pool.prismaPool, prismaAbi, ETH_CHAIN_ID);
     totalSupplyCalls.push(rewardPool.read.totalSupply());
     periodFinishCalls.push(rewardPool.read.periodFinish());
-    extraRewardInfo.push({ pool: pool.name, oracleId: 'PRISMA' });
-    extraRewardRateCalls.push(rewardPool.read.rewardRate([0]));
-    extraRewardInfo.push({ pool: pool.name, oracleId: 'CRV' });
-    extraRewardRateCalls.push(rewardPool.read.rewardRate([1]));
-    if (pool.name.startsWith('prisma-convex')) {
-      extraRewardInfo.push({ pool: pool.name, oracleId: 'CVX' });
-      extraRewardRateCalls.push(rewardPool.read.rewardRate([2]));
-    }
+    pool.prismaRewards.forEach((token, i) => {
+      extraRewardInfo.push({ pool: pool.name, oracleId: token });
+      extraRewardRateCalls.push(rewardPool.read.rewardRate([i]));
+    });
   });
 
   const res = await Promise.all([
