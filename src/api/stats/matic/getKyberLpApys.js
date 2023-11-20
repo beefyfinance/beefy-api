@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const pools = require('../../../data/matic/kyberLpPools.json');
 const { BASE_HPY, POLYGON_CHAIN_ID } = require('../../../constants');
 const { getVariableTradingFeeApr } = require('../../../utils/getTradingFeeApr');

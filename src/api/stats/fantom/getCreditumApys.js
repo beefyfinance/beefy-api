@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import lpPools from '../../../data/fantom/creditumPools.json';
 import { BASE_HPY, FANTOM_CHAIN_ID, SPOOKY_LPF as liquidityProviderFee } from '../../../constants';
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';

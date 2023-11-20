@@ -131,6 +131,9 @@ const hopArbClient = client('https://api.thegraph.com/subgraphs/name/hop-protoco
 const hopOpClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-optimism');
 const hopPolyClient = client('https://api.thegraph.com/subgraphs/name/hop-protocol/hop-polygon');
 const exactlyClient = client('https://api.thegraph.com/subgraphs/name/exactly/exactly-optimism');
+const gmxArbClient = client(
+  'https://subgraph.satsuma-prod.com/3b2ced13c8d9/gmx/synthetics-arbitrum-stats/api'
+);
 
 const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return (
@@ -214,4 +217,5 @@ export {
   hopOpClient,
   hopPolyClient,
   exactlyClient,
+  gmxArbClient,
 };

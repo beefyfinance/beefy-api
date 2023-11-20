@@ -5,7 +5,6 @@ const getStargateOpApys = require('./getStargateOpApys');
 const getbeVeloApy = require('./getbeVeloApy');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getRipaeApys } = require('./getRipaeApys');
-const { getSonneApys } = require('./getSonneApys');
 const { getHopApys } = require('./getHopApys');
 const { getHopOpApys } = require('./getHopOpApys');
 const { getOlpApys } = require('./getOlpApys');
@@ -33,7 +32,6 @@ const getApys = [
   getbeVeloApy,
   getAaveV3Apys,
   getRipaeApys,
-  getSonneApys,
   getHopApys,
   getHopOpApys,
   getOlpApys,

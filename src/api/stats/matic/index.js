@@ -1,4 +1,3 @@
-const { getAaveApys } = require('./getAaveApys');
 const { getSushiLpApys } = require('./getSushiLpApys');
 const { getSushiOhmLpApys } = require('./getSushiOhmLpApys');
 const { getCurveApys } = require('./getCurveApys');
@@ -38,7 +37,6 @@ const getApys = [
   getQuickSingleApys,
   getQuickDualLpApys,
   getQuickGammaApys,
-  getAaveApys,
   getSushiLpApys,
   getSushiOhmLpApys,
   getCurveApys,
@@ -60,7 +58,7 @@ const getApys = [
   getAaveV3Apys,
   getGnsApys,
   getKyberPolygonApys,
-  getOvixApys,
+  // getOvixApys, Probably can just remove this.
   getPearlApys,
   getBetSwirlSingleApy,
   getRetroGammaApys,

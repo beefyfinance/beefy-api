@@ -7,7 +7,7 @@ import { fetchContract } from '../../../rpc/client';
 import getApyBreakdown from '../../common/getApyBreakdown';
 
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 const lpPools = require('../../../../data/degens/pacocaLpPools.json');
 const { BSC_CHAIN_ID, APE_LPF } = require('../../../../constants');
 const getBlockNumber = require('../../../../utils/getBlockNumber');

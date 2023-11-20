@@ -5,6 +5,7 @@ const ONE = {
   name: 'Wrapped ONE',
   address: '0xcF664087a5bB0237a0BAd6742852ec6c8d69A27a',
   symbol: 'WONE',
+  oracleId: 'WONE',
   decimals: 18,
   chainId: 1666600000,
   website: 'https://www.harmony.one/',
@@ -18,6 +19,7 @@ const SUSHI = {
   name: 'Sushi',
   address: '0xBEC775Cb42AbFa4288dE81F387a9b1A3c4Bc552A',
   symbol: 'SUSHI',
+  oracleId: 'SUSHI',
   decimals: 18,
   chainId: 1666600000,
   website: 'https://sushi.com/',
@@ -36,6 +38,7 @@ const _tokens = {
     decimals: 18,
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     website: 'https://www.beefy.finance/',
     description:
       'Beefy Finance is a Decentralized, Multi-Chain Yield Optimizer platform that allows its users to earn compound interest on their crypto holdings.',
@@ -49,6 +52,7 @@ const _tokens = {
     decimals: 18,
     name: 'Curve',
     symbol: 'CRV',
+    oracleId: 'CRV',
     website: 'https://curve.fi/',
     description:
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
@@ -60,6 +64,7 @@ const _tokens = {
     decimals: 8,
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -72,6 +77,7 @@ const _tokens = {
     decimals: 18,
     name: 'Ether',
     symbol: 'ETH',
+    oracleId: 'ETH',
     website: 'https://ethereum.org/',
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
@@ -82,6 +88,7 @@ const _tokens = {
     name: 'USD Coin',
     address: '0x985458E523dB3d53125813eD68c274899e9DfAb4',
     symbol: 'USDC',
+    oracleId: 'USDC',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
@@ -98,6 +105,7 @@ const _tokens = {
   BUSD: {
     name: 'BUSD Token',
     symbol: 'BUSD',
+    oracleId: 'BUSD',
     address: '0xE176EBE47d621b984a73036B9DA5d834411ef734',
     chainId: 1666600000,
     decimals: 18,
@@ -110,6 +118,7 @@ const _tokens = {
   bscBUSD: {
     name: 'BUSD Token',
     symbol: 'BUSD',
+    oracleId: 'bscBUSD',
     address: '0x0aB43550A6915F9f67d0c454C2E90385E6497EaA',
     chainId: 1666600000,
     decimals: 18,
@@ -122,6 +131,7 @@ const _tokens = {
   YGG: {
     name: 'Yield Guild Games',
     symbol: 'YGG',
+    oracleId: 'YGG',
     address: '0x63cf309500d8be0B9fDB8F1fb66C821236c0438c',
     chainId: 1666600000,
     decimals: 18,
@@ -134,6 +144,7 @@ const _tokens = {
   AAVE: {
     name: 'Aave',
     symbol: 'AAVE',
+    oracleId: 'AAVE',
     address: '0xcF323Aad9E522B93F11c352CaA519Ad0E14eB40F',
     chainId: 1666600000,
     decimals: 18,
@@ -145,6 +156,7 @@ const _tokens = {
   AXS: {
     name: 'Axie Infinity',
     symbol: 'AXS',
+    oracleId: 'AXS',
     address: '0x14A7B318fED66FfDcc80C1517C172c13852865De',
     chainId: 1666600000,
     decimals: 18,
@@ -156,6 +168,7 @@ const _tokens = {
   DAI: {
     name: 'DAI',
     symbol: 'DAI',
+    oracleId: 'DAI',
     address: '0xEf977d2f931C1978Db5F6747666fa1eACB0d0339',
     chainId: 1666600000,
     decimals: 18,
@@ -168,6 +181,7 @@ const _tokens = {
   USDT: {
     name: 'USD Tether',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0x3C2B8Be99c50593081EAA2A724F0B8285F5aba8f',
     chainId: 1666600000,
     decimals: 6,
@@ -180,6 +194,7 @@ const _tokens = {
   FRAX: {
     name: 'Frax Shares',
     symbol: 'FRAX',
+    oracleId: 'FRAX',
     address: '0xeB6C08ccB4421b6088e581ce04fcFBed15893aC3',
     chainId: 1666600000,
     decimals: 18,
@@ -191,6 +206,7 @@ const _tokens = {
   UST: {
     name: 'UST',
     symbol: 'UST',
+    oracleId: 'UST',
     address: '0x224e64ec1BDce3870a6a6c777eDd450454068FEC',
     chainId: 1666600000,
     decimals: 18,
@@ -203,6 +219,7 @@ const _tokens = {
   BTC: {
     name: 'Harmony Bitcoin',
     symbol: '1BTC',
+    oracleId: 'BTC',
     address: '0xdc54046c0451f9269FEe1840aeC808D36015697d',
     chainId: 1666600000,
     decimals: 8,
@@ -215,7 +232,7 @@ const _tokens = {
   'oldBIFI-WONE LP': {
     name: 'oldBIFI-WONE LP',
     symbol: 'oldBIFI-WONE LP',
-    address: '0x0f9602B7E7146a9BaE16dB948281BebDb7C2D095',
+    address: '0x27f3b2Df4a81382202E87EE40429e0212ecc7d3F',
     chainId: 1666600000,
     decimals: 18,
     logoURI: '',

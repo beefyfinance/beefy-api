@@ -1,5 +1,43 @@
 [
   {
+    "name": "balancer-avax-usdc-eurc",
+    "address": "0x55bEC22f8f6C69137cEAf284d9B441Db1B9bFedc",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x0c22Ff3f93B5c9f13e41FA9D270680E97AC13B28",
+    "vaultPoolId": "0x55bec22f8f6c69137ceaf284d9b441db1b9bfedc000200000000000000000011",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x0c22Ff3f93B5c9f13e41FA9D270680E97AC13B28",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x0c22Ff3f93B5c9f13e41FA9D270680E97AC13B28",
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "AVAX"
+      },
+      {
+        "stream": "0x0c22Ff3f93B5c9f13e41FA9D270680E97AC13B28",
+        "rewardToken": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "EURC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "balancer-bbaavUSD",
     "address": "0xa1D14d922a575232066520EDA11E27760946c991",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

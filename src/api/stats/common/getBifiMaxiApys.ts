@@ -4,7 +4,7 @@ import IRewardPool from '../../../abis/IRewardPool';
 import { ChainId } from '../../../../packages/address-book/address-book';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { compound } = require('../../../utils/compound');
 const { DAILY_HPY } = require('../../../constants');
 const secondsPerYear = 31536000;

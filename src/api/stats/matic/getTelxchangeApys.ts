@@ -5,7 +5,7 @@ import { LpPool } from '../../../types/LpPool';
 import _pools from '../../../data/matic/telxchangePools.json';
 const pools = _pools as LpPool[];
 
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
 import { getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { quickClient } from '../../../apollo/client';
@@ -37,7 +37,7 @@ export const getTelxchangeApys = async () => {
 
 const getFarmApys = async (pools: LpPool[]) => {
   const apys = [];
-  const primaryRewardTokenPrice = await fetchPrice({ oracle, id: TEL.symbol });
+  const primaryRewardTokenPrice = await fetchPrice({ oracle, id: TEL.oracleId });
   const [telDecimals] = [TEL].map(token => getEDecimals(token.decimals));
   const { balances, rewardRates } = await getPoolsData(pools);
   for (let i = 0; i < pools.length; i++) {

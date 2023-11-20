@@ -20,7 +20,7 @@ const getValleySwapApys = async () =>
     allocPointIndex: 2,
     hasMultiplier: false,
     pools: pools,
-    oracleId: VS.symbol,
+    oracleId: VS.oracleId,
     oracle: 'tokens',
     decimals: '1e18',
     // log: true,

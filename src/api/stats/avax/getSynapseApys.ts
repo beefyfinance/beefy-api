@@ -23,7 +23,7 @@ export const getSynapseApys = () => {
     minichefConfig: {
       minichef: chef,
       minichefAbi: SynapseMiniChefV2,
-      outputOracleId: SYN.symbol,
+      outputOracleId: SYN.oracleId,
       tokenPerSecondContractMethodName: 'synapsePerSecond',
     },
     pools,

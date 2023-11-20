@@ -32,7 +32,10 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
     ...require('../data/matic/jarvisPools.json'),
   ]),
   ethereum: [
-    ...toCurveTokens(ChainId.ethereum, require('../data/ethereum/convexPools.json')),
+    ...toCurveTokens(
+      ChainId.ethereum,
+      require('../data/ethereum/convexPools.json').slice().reverse()
+    ),
     {
       oracleId: 'msETH',
       decimals: '1e18',

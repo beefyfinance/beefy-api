@@ -4,30 +4,35 @@ import { fetchContract } from '../../rpc/client';
 import ExactlyRewardsController from '../../../abis/ExactlyRewardsController';
 import ExactlyInterestRateModel from '../../../abis/ExactlyInterestRateModel';
 
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { getApyBreakdown } = require('../common/getApyBreakdown');
-const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
-const { BASE_HPY } = require('../../../constants');
 const { getExactlyData } = require('../../../utils/getExactlyData');
 const { exactlyClient } = require('../../../apollo/client');
-const { compound } = require('../../../utils/compound');
 const pools = require('../../../data/optimism/exactlyPools.json');
 
 const RewardsController = '0xBd1ba78A3976cAB420A9203E6ef14D18C2B2E031';
 
 const getExactlyApys = async () => {
-  const apys = [];
-  const lsAprs = [];
+  const rewardApys = [];
+  const lendingApys = [];
+  const lsApys = [];
   let promises = [];
 
   pools.forEach(pool => promises.push(getPoolApy(pool)));
   const values = await Promise.all(promises);
   values.forEach(item => {
-    apys.push(item[0]);
-    lsAprs.push(item[1]);
+    rewardApys.push(item[0]);
+    lendingApys.push(item[1]);
+    lsApys.push(item[2]);
   });
 
-  return getApyBreakdown(pools, null, apys, 0, lsAprs);
+  return getApyBreakdown(
+    pools.map(p => ({ ...p, address: p.name })),
+    Object.fromEntries(pools.map((p, i) => [p.name, lendingApys[i]])),
+    rewardApys,
+    0,
+    lsApys
+  );
 };
 
 const getPoolApy = async pool => {
@@ -37,13 +42,11 @@ const getPoolApy = async pool => {
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyReward, leveragedBorrowReward } =
     getLeveragedApys(supplyBase, borrowBase, supplyReward, borrowReward, pool.ltv);
 
-  const totalReward = leveragedSupplyReward.plus(leveragedBorrowReward);
-  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
-  const compoundedReward = compound(totalReward, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+  const rewardsApy = leveragedSupplyReward.plus(leveragedBorrowReward);
+  const lendingApy = leveragedSupplyBase.minus(leveragedBorrowBase);
 
-  const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedReward);
-  // console.log(pool.name, apy.toString(), supplyBase.toString(), borrowBase.toString(), supplyReward.toString(), borrowReward.toString());
-  return [apy, lsApr];
+  // console.log(pool.name, supplyBase.toString(), borrowBase.toString(), supplyReward.toString(), borrowReward.toString());
+  return [rewardsApy, lendingApy, lsApr];
 };
 
 const getExactlyPoolData = async pool => {
@@ -69,8 +72,16 @@ const getExactlyPoolData = async pool => {
   const tokenPrice = await fetchPrice({ oracle: pool.oracle, id: pool.oracleId });
 
   for (const reward of pool.rewards) {
-    const indexStartCall = rewardsController.read.previewAllocation([pool.market, reward.address, 0]);
-    const indexEndCall = rewardsController.read.previewAllocation([pool.market, reward.address, 86400]);
+    const indexStartCall = rewardsController.read.previewAllocation([
+      pool.market,
+      reward.address,
+      0,
+    ]);
+    const indexEndCall = rewardsController.read.previewAllocation([
+      pool.market,
+      reward.address,
+      86400,
+    ]);
 
     const res = await Promise.all([indexStartCall, indexEndCall]);
 
@@ -83,8 +94,16 @@ const getExactlyPoolData = async pool => {
     const supplyIndex = supplyIndexEnd.minus(supplyIndexStart);
 
     const rewardPrice = await fetchPrice({ oracle: 'tokens', id: reward.id });
-    const intermiateSupplyReward = supplyIndex.times(rewardPrice).times(365).dividedBy(tokenPrice).dividedBy('1e18');
-    const intermiateBorrowReward = borrowIndex.times(rewardPrice).times(365).dividedBy(tokenPrice).dividedBy('1e18');
+    const intermiateSupplyReward = supplyIndex
+      .times(rewardPrice)
+      .times(365)
+      .dividedBy(tokenPrice)
+      .dividedBy('1e18');
+    const intermiateBorrowReward = borrowIndex
+      .times(rewardPrice)
+      .times(365)
+      .dividedBy(tokenPrice)
+      .dividedBy('1e18');
 
     supplyReward = supplyReward.plus(intermiateSupplyReward);
     borrowReward = borrowReward.plus(intermiateBorrowReward);

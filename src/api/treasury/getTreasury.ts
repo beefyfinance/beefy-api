@@ -8,6 +8,9 @@ import { extractBalancesFromTreasuryCallResults, mapAssetToCall } from './multic
 import {
   isValidatorAsset,
   isVaultAsset,
+  MarketMakerAPIResult,
+  MMExchangeBalance,
+  MMReport,
   TreasuryAsset,
   TreasuryAssetRegistry,
   TreasuryBalances,
@@ -37,6 +40,9 @@ let assetsByChain: TreasuryAssetRegistry = keysToObject(ApiChains, () => ({}));
 let tokenBalancesByChain: TreasuryBalances = keysToObject(ApiChains, () => ({}));
 
 let treasurySummary: TreasuryReport = keysToObject(ApiChains, () => ({}));
+
+// market maker
+let marketMakerReport: MMReport;
 
 function updateTreasuryAddressesByChain() {
   treasuryAddressesByChain = keysToObject(ApiChains, chain => {
@@ -185,6 +191,34 @@ async function updateSingleChainTreasuryBalance(chain: ApiChain) {
   }
 }
 
+async function buildMarketMakerReport() {
+  const report: MMReport = {};
+  if (process.env.MM_BALANCE_API) {
+    const marketMakerBalances: MarketMakerAPIResult = await fetch(process.env.MM_BALANCE_API).then(
+      res => res.json()
+    );
+    const system9Balances: Record<string, MMExchangeBalance> = {};
+    for (const [exchange, balances] of Object.entries(marketMakerBalances)) {
+      system9Balances[exchange] = {};
+      for (const [token, balance] of Object.entries(balances)) {
+        const tokenPrice = await getAmmPrice(token, true);
+        system9Balances[exchange][token] = {
+          symbol: token,
+          name: token,
+          oracleId: token,
+          oracleType: 'tokens',
+          price: tokenPrice,
+          usdValue: (balance * tokenPrice).toString(),
+          balance: balance.toString(),
+        };
+      }
+    }
+    report['system9'] = system9Balances;
+    marketMakerReport = report;
+    console.log('> market maker balances updated');
+  }
+}
+
 async function updateTreasuryBalances() {
   try {
     console.log('> updating treasury balances');
@@ -192,10 +226,12 @@ async function updateTreasuryBalances() {
 
     await Promise.allSettled(ApiChains.map(updateSingleChainTreasuryBalance));
     await buildTreasuryReport();
+    await buildMarketMakerReport();
     await saveToRedis();
     console.log(`> treasury balances updated (${((Date.now() - start) / 1000).toFixed(2)}s)`);
   } catch (err) {
     console.log(`> error updating treasury`);
+    console.log(err.message);
   } finally {
     setTimeout(() => {
       updateTreasuryBalances();
@@ -278,11 +314,13 @@ function findUsdValueForBalance(
 async function saveToRedis() {
   await setKey('TREASURY_BALANCES', tokenBalancesByChain);
   await setKey('TREASURY_REPORT', treasurySummary);
+  await setKey('MM_REPORT', marketMakerReport);
 }
 
 async function restoreFromRedis() {
   const cachedSummary = await getKey<TreasuryReport>('TREASURY_REPORT');
   const cachedBalances = await getKey<TreasuryBalances>('TREASURY_BALANCES');
+  const cachedMMReport = await getKey<MMReport>('MM_REPORT');
   if (cachedSummary) {
     treasurySummary = cachedSummary;
   }
@@ -296,6 +334,9 @@ async function restoreFromRedis() {
         });
       });
     });
+  }
+  if (cachedMMReport) {
+    marketMakerReport = cachedMMReport;
   }
 }
 
@@ -324,4 +365,15 @@ export async function initTreasuryService() {
 
 export function getBeefyTreasury(): TreasuryReport {
   return treasurySummary;
+}
+
+export function getMarketMakerBalances(): MMReport {
+  return marketMakerReport;
+}
+
+export function getAllBeefyHoldings() {
+  return {
+    treasury: getBeefyTreasury(),
+    marketMaker: getMarketMakerBalances(),
+  };
 }

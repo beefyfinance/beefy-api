@@ -1,5 +1,25 @@
 [
   {
+    "name": "uniswap-gamma-weth-lode",
+    "address": "0x08A61A58ab10db054fBbE57996e89A69DdEba2F3",
+    "pool": "0xdEb066fE0e7726CbD5d0c4D5A210CfaA16ae1DDA",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF19547f9ED24aA66b03c3a552D181Ae334FBb8DB",
+      "oracle": "tokens",
+      "oracleId": "LODE",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "uniswap-gamma-usdc-dai",
     "address": "0x904135ac233e53fc1c1A5B061D34496b362489c3",
     "pool": "0x7CF803e8d82A50504180f417B8bC7a493C0a0503",

@@ -5,6 +5,7 @@ const { getSpellApys } = require('./getSpellApys');
 const getBalancerArbApys = require('./getBalancerArbApys');
 const getStargateArbApys = require('./getStargateArbApys');
 const getRipaeApys = require('./getRipaeApys');
+const { getGmxV2Apys } = require('./getGmxV2Apys');
 const { getGmxApys } = require('./getGmxApys');
 const { getHopApys } = require('./getHopApys');
 const { getHopRplApys } = require('./getHopRplApys'); 
@@ -19,17 +20,20 @@ const { getChronosApys } = require('./getChronosApys');
 const getAuraArbitrumApys = require('./getAuraArbitrumApys');
 const { getJoeAutoArbApys } = require('./getJoeAutoArbApys');
 const getMerklGammaApys = require('./getMerklGammaApys');
+const getUniswapGammaApys = require('./getUniswapGammaApys');
 const getBunniArbApys = require('./getBunniApys');
 const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
 
 const getApys = [
   getMerklGammaApys,
+  getUniswapGammaApys,
   getJoeAutoArbApys,
   getAuraArbitrumApys,
   getKyberArbitrumApys,
   getGnsApys,
   getHopApys,
   getHopRplApys,
+  getGmxV2Apys,
   getGmxApys,
   getRipaeApys,
   getSushiLpApys,

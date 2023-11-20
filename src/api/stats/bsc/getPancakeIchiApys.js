@@ -1,4 +1,4 @@
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import BigNumber from 'bignumber.js';
 import { getPoolsData } from '../common/getRewardPoolApys';
 

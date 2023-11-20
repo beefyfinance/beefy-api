@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 import { POLYGON_CHAIN_ID, QUICK_LPF } from '../../../constants';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice, PriceOracle } from '../../../utils/fetchPrice';
 import getBlockNumber from '../../../utils/getBlockNumber';
 import { getTradingFeeAprSushi, getTradingFeeApr } from '../../../utils/getTradingFeeApr';
 import { sushiPolyClient as sushiClient } from '../../../apollo/client';

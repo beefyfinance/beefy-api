@@ -1,13 +1,11 @@
-import BigNumber, { BigNumber as BigNumberStatic } from 'bignumber.js';
+import BigNumber from 'bignumber.js';
 import { ChainId } from '../../../../packages/address-book/address-book';
-import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import getBlockTime from '../../../utils/getBlockTime';
-import fetchPrice from '../../../utils/fetchPrice';
-import { compound } from '../../../utils/compound';
-import { BASE_HPY } from '../../../constants';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import cv3Token from '../../../abis/cv3Token';
 import { Abi } from 'viem';
 import { fetchContract, fetchNoMulticallContract } from '../../rpc/client';
+import getApyBreakdown from './getApyBreakdown';
 
 const SECONDS_PER_YEAR = 31536000;
 
@@ -16,18 +14,17 @@ const getCompoundV3ApyData = async (params: CompoundV3ApyParams) => {
 
   const { supplyApys, supplyCompApys } = await getPoolsApys(params, poolsData);
 
-  const apys = {};
-  params.pools.forEach((pool, i) => {
-    const apy = getPoolApy(pool, supplyApys[i], supplyCompApys[i]);
+  if (params.log) {
+    params.pools.forEach((pool, i) =>
+      console.log(pool.name, supplyApys[i].valueOf(), supplyCompApys[i].valueOf())
+    );
+  }
 
-    if (params.log) {
-      console.log(pool.name, apy, supplyApys[i].valueOf(), supplyCompApys[i].valueOf());
-    }
-
-    apys[pool.name] = apy;
-  });
-
-  return apys;
+  return getApyBreakdown(
+    params.pools.map(p => ({ ...p, address: p.name })),
+    Object.fromEntries(params.pools.map((p, i) => [p.name, supplyApys[i]])),
+    supplyCompApys
+  );
 };
 
 const getPoolsApys = async (params: CompoundV3ApyParams, data: PoolsData) => {
@@ -55,19 +52,6 @@ const getPoolsApys = async (params: CompoundV3ApyParams, data: PoolsData) => {
     supplyApys,
     supplyCompApys,
   };
-};
-
-const getPoolApy = (
-  pool: CompoundV3Pool,
-  supplyApy: BigNumberStatic,
-  supplyCompApy: BigNumberStatic
-) => {
-  const totalComp = supplyCompApy;
-  const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
-  const compoundedComp = compound(totalComp, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
-  const apy = supplyApy.plus(compoundedComp).toNumber();
-
-  return apy;
 };
 
 const getPoolsData = async (params: CompoundV3ApyParams): Promise<PoolsData> => {
@@ -113,7 +97,7 @@ const getPoolsData = async (params: CompoundV3ApyParams): Promise<PoolsData> => 
 };
 
 export interface PoolsData {
-  tokenPrices: BigNumber[];
+  tokenPrices: number[];
   supplyRates: BigNumber[];
   compSupplySpeeds: BigNumber[];
   totalSupplies: BigNumber[];

@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 const { compound } = require('../../../../utils/compound');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
 const { default: NftyStaking } = require('../../../../abis/degens/NftyStaking');
