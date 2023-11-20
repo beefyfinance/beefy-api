@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 const { fetchContract } = require('../../../rpc/client');
 const { default: ICurveGauge } = require('../../../../abis/ICurveGauge');
 const { default: ICurveRewards } = require('../../../../abis/ICurveRewards');
@@ -8,7 +8,7 @@ const { default: ICurveRewardStream } = require('../../../../abis/ICurveRewardSt
 
 const secondsPerYear = 31536000;
 
-const getCurveBaseApys = async (pools, url) => {
+export const getCurveBaseApys = async (pools, url) => {
   let apys = {};
   try {
     const response = await fetch(url).then(res => res.json());
@@ -35,7 +35,7 @@ const getSubgraphDataApy = (apyData, poolAddress) => {
   }
 };
 
-const getCurveBaseApysOld = async (pools, url, factoryUrl) => {
+export const getCurveBaseApysOld = async (pools, url, factoryUrl) => {
   let factoryApyData = [];
   if (factoryUrl) {
     try {
@@ -94,7 +94,7 @@ const getFactoryApy = (factoryApyData, poolAddress) => {
 };
 
 // used outside of Curve farms - Spell, MAI, Jarvis
-const getCurveFactoryApy = async (address, url) => {
+export const getCurveFactoryApy = async (address, url) => {
   let apys = {};
   try {
     const response = await fetch(url).then(res => res.json());
@@ -111,7 +111,7 @@ const getCurveFactoryApy = async (address, url) => {
   return apys;
 };
 
-const getTotalStakedInUsd = async (chainId, pool) => {
+export const getTotalStakedInUsd = async (chainId, pool) => {
   if (!pool.gauge) return new BigNumber(1);
   const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
   const totalSupply = new BigNumber((await gauge.read.totalSupply()).toString());
@@ -119,7 +119,7 @@ const getTotalStakedInUsd = async (chainId, pool) => {
   return totalSupply.multipliedBy(lpPrice).dividedBy('1e18');
 };
 
-const getBoostedYearlyRewardsInUsd = async (chainId, pool, tokenID) => {
+export const getBoostedYearlyRewardsInUsd = async (chainId, pool, tokenID) => {
   const id = tokenID !== undefined ? tokenID : 'CRV';
   const crvPrice = await fetchPrice({ oracle: 'tokens', id: id });
 
@@ -150,7 +150,7 @@ const getBoostedYearlyRewardsInUsd = async (chainId, pool, tokenID) => {
     .dividedBy('1e18');
 };
 
-const getYearlyRewardsInUsd = async (chainId, pool) => {
+export const getYearlyRewardsInUsd = async (chainId, pool) => {
   let [yearRewardsInUsd, ratesAndPeriods] = await Promise.all([
     pool.boosted
       ? getBoostedYearlyRewardsInUsd(chainId, pool)
@@ -216,13 +216,4 @@ const getPoolsRatesAndPeriodFinish = async (chainId, pool) => {
     periodsFinish: res[0].map(v => Number(v)),
     rewardRates: res[1].map(v => new BigNumber(v.toString())),
   };
-};
-
-module.exports = {
-  getBoostedYearlyRewardsInUsd,
-  getCurveBaseApys,
-  getCurveBaseApysOld,
-  getCurveFactoryApy,
-  getTotalStakedInUsd,
-  getYearlyRewardsInUsd,
 };

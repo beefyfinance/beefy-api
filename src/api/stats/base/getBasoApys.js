@@ -17,7 +17,7 @@ const getBasoApys = async () => {
   return getSolidlyGaugeApys({
     chainId: chainId,
     pools: pools,
-    oracleId: BASO.symbol,
+    oracleId: BASO.oracleId,
     oracle: 'tokens',
     decimals: getEDecimals(BASO.decimals),
     reward: BASO.address,

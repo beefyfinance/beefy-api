@@ -1,11 +1,12 @@
 import { getAllBoosts } from '../boosts/getBoosts';
 import { Boost } from '../boosts/types';
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../utils/fetchPrice';
+import { fetchPrice } from '../../utils/fetchPrice';
 import { Vault } from '../vaults/types';
 import { ApiChain, toChainId } from '../../utils/chain';
 import BeefyBoostAbi from '../../abis/BeefyBoost';
 import { fetchContract } from '../rpc/client';
+import { isFiniteNumber } from '../../utils/number';
 
 const { getVaultByID } = require('../stats/getMultichainVaults');
 
@@ -80,9 +81,9 @@ const mapResponseToBoostApr = async (
 
     //Price is missing, we can't consider this as a succesful calculation
     if (
-      isNaN(parseFloat(depositTokenPrice)) ||
+      !isFiniteNumber(depositTokenPrice) ||
       depositTokenPrice === 0 ||
-      isNaN(parseFloat(earnedTokenPrice)) ||
+      !isFiniteNumber(earnedTokenPrice) ||
       earnedTokenPrice === 0
     ) {
       return null;

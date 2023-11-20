@@ -99,7 +99,7 @@ export const extractBalancesFromTreasuryCallResults = (
           allBalances.push({
             address: asset.id,
             balances: {
-              [asset.id]: new BigNumber(value[0].toString()),
+              ['validators']: new BigNumber(value[0].toString()),
             },
           });
         } else {
@@ -107,7 +107,7 @@ export const extractBalancesFromTreasuryCallResults = (
           allBalances.push({
             address: asset.id,
             balances: {
-              [asset.id]: value[0].balance,
+              ['validators']: value[0].balance,
             },
           });
         }

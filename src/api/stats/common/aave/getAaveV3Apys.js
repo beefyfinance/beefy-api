@@ -1,9 +1,6 @@
 const BigNumber = require('bignumber.js');
 
-const fetchPrice = require('../../../../utils/fetchPrice');
-const { compound } = require('../../../../utils/compound');
-const { BASE_HPY } = require('../../../../constants');
-const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 const { getApyBreakdown } = require('../getApyBreakdown');
 const { default: IAaveV3Incentives } = require('../../../../abis/AaveV3Incentives');
 const { default: IAaveV3PoolDataProvider } = require('../../../../abis/AaveV3PoolDataProvider');
@@ -14,7 +11,8 @@ const RAY_DECIMALS = '1e27';
 
 // config = { dataProvider: address, incentives: address, rewards: []}
 const getAaveV3ApyData = async (config, pools, chainId) => {
-  const apys = [];
+  const rewardApys = [];
+  const lendingApys = [];
   const lsApys = [];
 
   const allPools = [];
@@ -35,11 +33,18 @@ const getAaveV3ApyData = async (config, pools, chainId) => {
   const values = await Promise.all(promises);
 
   values.forEach(item => {
-    apys.push(item[0]);
-    lsApys.push(item[1]);
+    rewardApys.push(item[0]);
+    lendingApys.push(item[1]);
+    lsApys.push(item[2]);
   });
 
-  return getApyBreakdown(pools, null, apys, 0, lsApys);
+  return getApyBreakdown(
+    pools.map(p => ({ ...p, address: p.name })),
+    Object.fromEntries(pools.map((p, i) => [p.name, lendingApys[i]])),
+    rewardApys,
+    0,
+    lsApys
+  );
 };
 
 const getPoolApy = async (config, pool, chainId) => {
@@ -58,11 +63,8 @@ const getPoolApy = async (config, pool, chainId) => {
       pool.borrowPercent
     );
 
-  let totalNative = leveragedSupplyNative.plus(leveragedBorrowNative);
-  let shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
-  let compoundedNative = compound(totalNative, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
-
-  let apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedNative);
+  const rewardsApy = leveragedSupplyNative.plus(leveragedBorrowNative);
+  const lendingApy = leveragedSupplyBase.minus(leveragedBorrowBase);
   let lsApy = 0;
   if (pool.liquidStakingUrl) {
     const response = await fetch(pool.liquidStakingUrl).then(res => res.json());
@@ -70,7 +72,7 @@ const getPoolApy = async (config, pool, chainId) => {
     lsApy = lsApy / 100;
   }
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyNative.valueOf(), borrowNative.valueOf());
-  return [apy, lsApy];
+  return [rewardsApy, lendingApy, lsApy];
 };
 
 const getAaveV3PoolData = async (config, pool, chainId) => {

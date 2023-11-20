@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { BASE_CHAIN_ID as chainId } from '../../../constants';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import ERC20Abi from '../../../abis/ERC20Abi';
 import IRewardPool from '../../../abis/IRewardPool';
 import { fetchContract } from '../../rpc/client';

@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
 
 const pools = require('../../../data/fantom/tombLpPools.json');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 const { spookyClient, tombswapClient } = require('../../../apollo/client');

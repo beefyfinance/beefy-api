@@ -1,0 +1,24 @@
+[
+  {
+    "name": "aavev3-metis-metis",
+    "token": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+    "aToken": "0x7314Ef2CA509490f65F52CC8FC9E0675C66390b8",
+    "debtToken": "0x0110174183e13D5Ea59D7512226c5D5A47bA2c40",
+    "oracle": "tokens",
+    "oracleId": "METIS",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "aavev3-metis-weth",
+    "token": "0x420000000000000000000000000000000000000A",
+    "aToken": "0x8acAe35059C9aE27709028fF6689386a44c09f3a",
+    "debtToken": "0x8Bb19e3DD277a73D4A95EE434F14cE4B92898421",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  }
+]

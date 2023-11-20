@@ -61,7 +61,7 @@ const getXPrices = async (tokenPrices, tokens: Token[][], chainId) => {
     const totalXSupply = totalXSupplyResults.map(v => new BigNumber(v.toString()));
 
     return stakedInXPool.map((v, i) =>
-      v.times(tokenPrices[tokens[i][0].symbol]).dividedBy(totalXSupply[i]).toNumber()
+      v.times(tokenPrices[tokens[i][0].oracleId]).dividedBy(totalXSupply[i]).toNumber()
     );
   } catch (e) {
     console.error('getXPrices', e);
@@ -81,6 +81,6 @@ export async function fetchXPrices(
   ]).then(data =>
     data
       .flat()
-      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})
+      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );
 }

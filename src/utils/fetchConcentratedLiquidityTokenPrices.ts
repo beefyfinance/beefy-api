@@ -146,6 +146,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'svUSD',
       secondToken: 'FRAX',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'LODE',
+      decimalDelta: 1,
+      pool: '0xdEb066fE0e7726CbD5d0c4D5A210CfaA16ae1DDA',
+      firstToken: 'LODE',
+      secondToken: 'ETH',
+    },
   ],
 };
 

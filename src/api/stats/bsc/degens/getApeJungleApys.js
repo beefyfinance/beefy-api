@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 const MasterChef = require('../../../../abis/degens/ApeJungleChef.json');
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 const pools = require('../../../../data/degens/apeJungleLpPools.json');
 const { BASE_HPY, BSC_CHAIN_ID, APE_LPF } = require('../../../../constants');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');

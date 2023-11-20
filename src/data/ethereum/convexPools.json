@@ -1,5 +1,153 @@
 [
   {
+    "name": "prisma-mkusd-fraxbp",
+    "pool": "0x0CFe5C777A7438C9Dd8Add53ed671cEc7A5FAeE5",
+    "prismaPool": "0x0Ae09f649e9dA1b6aEA0c10527aC4e8a88a37480",
+    "prismaRewards": ["PRISMA", "CRV", "CVX"],
+    "tokens": [
+      {
+        "oracleId": "mkUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-fraxusdc",
+        "oracle": "lps",
+        "oracleId": "convex-fraxusdc",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "prisma-mkusd-crvusd",
+    "pool": "0x3de254A0f838a844F727fee81040e0FA7884B935",
+    "prismaPool": "0x71aD6c1d92546065B13bf701a7524c69B409E25C",
+    "prismaRewards": ["PRISMA", "CRV"],
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "mkUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-cvxprisma",
+    "pool": "0x3b21C2868B6028CfB38Ff86127eF22E68d16d53B",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "PRISMA",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "cvxPRISMA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "prisma-prisma-eth",
+    "pool": "0x322135Dd9cBAE8Afa84727d9aE1434b5B3EBA44B",
+    "token": "0xb34e1a3D07f9D180Bc2FDb9Fd90B8994423e33c1",
+    "prismaPool": "0xB5376AB455194328Fe41450a587f11bcDA2363fa",
+    "prismaRewards": ["PRISMA", "CRV"],
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "PRISMA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-cvxfxn",
+    "pool": "0x1062FD8eD633c1f080754c19317cb3912810B5e5",
+    "rewardPool": "0x19A0117a5bE27e4D3059Be13FB069eB8f1646d86",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "FXN",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "cvxFXN",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-fxn",
+    "pool": "0xC15F285679a1Ef2d25F53D4CbD0265E1D02F2A92",
+    "token": "0xE06A65e09Ae18096B99770A809BA175FA05960e2",
+    "gauge": "0xF42E2b73Ea79812a7c3E4bA8ed052c523765719f",
+    "rewardPool": "0x2b732f0Eee9e1b4329C25Cbb8bdC0dc3bC1448E2",
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "FXN",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-crvusd-sdai",
+    "pool": "0x1539c2461d7432cc114b0903f1824079BfCA2C92",
+    "gauge": "0x2B5a5e182768a18C70EDd265240578a72Ca475ae",
+    "rewards": [
+      {
+        "token": "0xD533a949740bb3306d119CC777fa900bA034cd52",
+        "oracleId": "CRV"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-trylsd",
+    "pool": "0x2570f1bD5D2735314FC102eb12Fc1aFe9e6E7193",
+    "gauge": "0xeA012f5b25Fa0D8e46123B85f585d0A5075e96b5",
+    "rewardPool": "0xb14B2bbA5446BcE656b37b22f4c2De6446226dFb",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-lvusd",
     "pool": "0xe9123CBC5d1EA65301D417193c40A72Ac8D53501",
     "token": "0xe9123CBC5d1EA65301D417193c40A72Ac8D53501",
@@ -1142,6 +1290,10 @@
       {
         "rewardPool": "0x008aEa5036b819B4FEAEd10b2190FBb3954981E8",
         "oracleId": "LDO"
+      },
+      {
+        "rewardPool": "0xd5D81C39Ff47171DBF80c670CCF84b1447e1f29a",
+        "oracleId": "wstETH"
       }
     ],
     "tokens": [

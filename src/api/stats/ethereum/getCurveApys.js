@@ -2,7 +2,7 @@ import { ETH_CHAIN_ID } from '../../../constants';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getCurveBaseApys } from '../common/curve/getCurveApyData';
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import ICurveGauge from '../../../abis/ICurveGauge';
 import { fetchContract } from '../../rpc/client';
 import ICurveGaugeController from '../../../abis/ethereum/ICurveGaugeController';

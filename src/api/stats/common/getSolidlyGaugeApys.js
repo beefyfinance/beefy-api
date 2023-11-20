@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 import { getApyBreakdown } from '../common/getApyBreakdown';
 import ISpiritGauge from '../../../abis/fantom/ISpiritGauge';
 import ISolidlyGauge from '../../../abis/ISolidlyGauge';

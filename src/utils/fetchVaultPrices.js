@@ -46,7 +46,7 @@ const getVaultPrices = async (tokenPrices, tokens, chainId) => {
   return balanceOfPool.map((v, i) =>
     v
       .times('1e18')
-      .times(tokenPrices[tokens[i][0].symbol])
+      .times(tokenPrices[tokens[i][0].oracleId])
       .dividedBy(totalSupply[i])
       .dividedBy(decimals[i])
       .toNumber()
@@ -57,7 +57,7 @@ const fetchVaultPrices = async tokenPrices =>
   Promise.all([getVaultPrices(tokenPrices, tokens.optimism, OPTIMISM_CHAIN_ID)]).then(data =>
     data
       .flat()
-      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})
+      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );
 
 export { fetchVaultPrices };
