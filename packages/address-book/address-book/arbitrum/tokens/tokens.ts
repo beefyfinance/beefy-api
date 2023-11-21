@@ -19,6 +19,19 @@ const _tokens = {
   ETH,
   WETH: ETH,
   WNATIVE: ETH,
+  RPL: {
+    name: 'Rocket Pool Protocol',
+    symbol: 'RPL',
+    oracleId: 'RPL',
+    address: '0xB766039cc6DB368759C1E56B79AFfE831d0Cc507',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://rocketpool.net/',
+    description:
+      'Rocket Pool is a decentralized Ethereum staking pool offering up to 4.33% APR for ETH2 staking. Users can join the Rocket Pool with its decentralized node operator network or run their own nodes with only 16 ETH. In the latter case, they can earn a commission from staking ETH and earn additional RPL rewards from providing RPL collateral, amounting to up to 6.36% APR for ETH and the additional RPL rewards.',
+    logoURI:
+      'https://docs.rocketpool.net/images/logo.png',
+  },
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
@@ -415,6 +428,34 @@ const _tokens = {
     description:
       'Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
     logoURI: 'https://docs.velodrome.finance/tokens/HOP.svg',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hrETH: {
+    name: 'rETH Hop Token',
+    symbol: 'hrETH',
+    oracleId: 'hrETH',
+    address: '0x588Bae9C85a605a7F14E551d144279984469423B',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hrETH is the bridge token for transferring rETH via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    bridge: 'hop',
+    logoURI: '',
+    documentation: 'https://docs.hop.exchange/',
+  },
+  hMAGIC: {
+    name: 'MAGIC Hop Token',
+    symbol: 'hMAGIC',
+    oracleId: 'hMAGIC',
+    address: '0xB76e673EBC922b1E8f10303D0d513a9E710f5c4c',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.hop.exchange',
+    description:
+      'hMAGIC is the bridge token for transferring MAGIC via the Hop Protocol. Hop Protocol is a blockchain bridge protocol that allows users to move tokens from one chain to another without having to wait for a challenge period.',
+    bridge: 'hop',
+    logoURI: '',
     documentation: 'https://docs.hop.exchange/',
   },
   hETH: {

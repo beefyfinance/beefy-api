@@ -4,10 +4,15 @@ import { getTradingFeeAprHop } from '../../../../utils/getTradingFeeApr';
 import IStableSwapAbi from '../../../../abis/IStableSwap';
 import { fetchContract } from '../../../rpc/client';
 import ERC20Abi from '../../../../abis/ERC20Abi';
+import { getFarmApys } from '../getRewardPoolApys';
+import getApyBreakdown from '../getApyBreakdown';
 
 export const getHopCommonApys = async params => {
-  params.tradingAprs = await getTradingAprs(params);
-  return await getRewardPoolApys(params);
+  const [tradingAprs, farmApys, liquidStakingAprs] = await Promise.all([
+    getTradingAprs(params), getFarmApys(params), getLsAprs(params)
+  ]);
+
+  return getApyBreakdown(params.pools, tradingAprs, farmApys, 0.0004, liquidStakingAprs);
 };
 
 const getTradingAprs = async params => {
@@ -52,6 +57,25 @@ const getTvl = async params => {
   }
 
   return tvls;
+};
+
+const getLsAprs = async params => {
+  const liquidStakingAprs = [];
+  for (let i = 0; i < params.pools.length; i++) {
+    const pool = params.pools[i];
+    if (pool.lsUrl) {
+        try {
+          const response = await fetch(pool.lsUrl).then(res => res.json());
+          liquidStakingAprs.push(response.yearlyAPR / 100);
+        } catch (e) {
+          console.error(`Hop: Liquid Staking URL Fetch Error ${pool.name}`);
+        }
+    } else {
+      liquidStakingAprs.push(0);
+    }
+  };
+
+  return liquidStakingAprs;
 };
 
 module.exports = { getHopCommonApys };

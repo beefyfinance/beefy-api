@@ -86,5 +86,27 @@
         "decimals": "1e18"
       }
     ]
+  },
+  {
+    "name": "hop-arb-magic",
+    "address": "0x163A9E12787dBFa2836caa549aE02ed67F73e7C2",
+    "pool": "0xFFe42d3Ba79Ee5Ee74a999CAd0c60EF1153F0b82",
+    "rewardPool": "0x4e9840f3C1ff368a10731D15c11516b9Fe7E1898",
+    "virtualOracleId": "MAGIC",
+    "virtualDecimals": "1e18",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "tokens": [
+      {
+        "address": "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
+        "oracleId": "MAGIC",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xB76e673EBC922b1E8f10303D0d513a9E710f5c4c",
+        "oracleId": "hMAGIC",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
