@@ -23,6 +23,7 @@ import { keyBy, sortBy, uniq } from 'lodash';
 import { isResultFulfilled, isResultRejected } from '../../utils/promise';
 import { getKey, setKey } from '../../utils/cache';
 import { TokenEntity, TokenErc20 } from '../tokens/types';
+import { sleep } from '../../utils/time.js';
 
 const GH_ORG = 'beefyfinance';
 const GH_REPO = 'beefy-v2';
@@ -30,6 +31,7 @@ const GH_BRANCH = 'prod';
 const DEBUG = false;
 const REDIS_KEY = 'ZAP_SUPPORT';
 const INIT_DELAY = Number(process.env.ZAP_INIT_DELAY || 0);
+const MIN_UPDATE_DELAY = Number(process.env.ZAP_MIN_UPDATE_DELAY || 30 * 60 * 1000); // default 30 minutes
 
 const ammConfigChains: ReadonlyArray<ApiChain> = Object.keys(
   MULTICHAIN_ENDPOINTS
@@ -601,11 +603,9 @@ async function fetchVaultZapSupportForChain(apiChain: ApiChain): Promise<ZapSupp
 }
 
 function scheduleUpdate() {
-  // Schedule next update for when vaults or prices change
-  Promise.race([
-    serviceEventBus.waitForNextEvent('prices/updated'),
-    serviceEventBus.waitForNextEvent('vaults/updated'),
-  ]).then(performUpdate);
+  sleep(MIN_UPDATE_DELAY)
+    .then(() => serviceEventBus.waitForNextEvent('prices/updated'))
+    .then(performUpdate);
 }
 
 async function performUpdate() {
