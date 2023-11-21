@@ -22,6 +22,7 @@ const _tokens = {
   RPL: {
     name: 'Rocket Pool Protocol',
     symbol: 'RPL',
+    oracleId: 'RPL',
     address: '0xB766039cc6DB368759C1E56B79AFfE831d0Cc507',
     chainId: 42161,
     decimals: 18,
@@ -432,6 +433,7 @@ const _tokens = {
   hrETH: {
     name: 'rETH Hop Token',
     symbol: 'hrETH',
+    oracleId: 'hrETH',
     address: '0x588Bae9C85a605a7F14E551d144279984469423B',
     chainId: 42161,
     decimals: 18,
@@ -445,6 +447,7 @@ const _tokens = {
   hMAGIC: {
     name: 'MAGIC Hop Token',
     symbol: 'hMAGIC',
+    oracleId: 'hMAGIC',
     address: '0xB76e673EBC922b1E8f10303D0d513a9E710f5c4c',
     chainId: 42161,
     decimals: 18,
