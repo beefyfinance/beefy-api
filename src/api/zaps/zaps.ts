@@ -23,7 +23,7 @@ import { keyBy, sortBy, uniq } from 'lodash';
 import { isResultFulfilled, isResultRejected } from '../../utils/promise';
 import { getKey, setKey } from '../../utils/cache';
 import { TokenEntity, TokenErc20 } from '../tokens/types';
-import { sleep } from '../../utils/time.js';
+import { sleep } from '../../utils/time';
 
 const GH_ORG = 'beefyfinance';
 const GH_REPO = 'beefy-v2';
