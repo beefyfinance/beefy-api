@@ -1,0 +1,56 @@
+[
+  {
+    "name": "silo-reth",
+    "address": "0xA138B2FAb524e94aef1D6A961b9B0a3aB09D321f",
+    "underlying": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
+    "silo": "0x170A90981843461295a6CE0e0a631eE440222E29",
+    "oracleId": "rETH",
+    "decimals": "1e18",
+    "chainId": 42161
+  },
+  {
+    "name": "silo-wsteth",
+    "address": "0x2A6Cd33AE19e078c3Dd0d77d976c451658330392",
+    "underlying": "0x5979D7b546E38E414F7E9822514be443A4800529",
+    "silo": "0xA8897b4552c075e884BDB8e7b704eB10DB29BF0D",
+    "oracleId": "wstETH",
+    "decimals": "1e18",
+    "chainId": 42161
+  },
+  {
+    "name": "silo-arb",
+    "address": "0x0efe65B6f24d46af9Ce261EE01b1f1A32202e22F",
+    "underlying": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+    "silo": "0x0696E6808EE11a5750733a3d821F9bB847E584FB",
+    "oracleId": "ARB",
+    "decimals": "1e18",
+    "chainId": 42161
+  },
+  {
+    "name": "silo-wbtc",
+    "address": "0x29Aa259659402c6280620048e976537ff9AFFdbB",
+    "underlying": "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+    "silo": "0x69eC552BE56E6505703f0C861c40039e5702037A",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "chainId": 42161
+  },
+  {
+    "name": "silo-eth-wsteth",
+    "address": "0xC46C5DE6eCa1CA6dc3f8c5d3ce863aE326F4b2CF",
+    "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    "silo": "0xA8897b4552c075e884BDB8e7b704eB10DB29BF0D",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161
+  },
+  {
+    "name": "silo-usdc-wsteth",
+    "address": "0x713fc13CaAB628F116Bc34961f22a6B44aD27668",
+    "underlying": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+    "silo": "0xA8897b4552c075e884BDB8e7b704eB10DB29BF0D",
+    "oracleId": "arbUSDCe",
+    "decimals": "1e6",
+    "chainId": 42161
+  }
+]

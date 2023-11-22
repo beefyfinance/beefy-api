@@ -95,6 +95,7 @@ import getEqualizerStableBasePrices from './base/getEqualizerStablePrices';
 import getBunniArbPrices from './arbitrum/getBunniPrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
+import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import { GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
 
 export type NonAmmPrices = {
@@ -115,6 +116,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   let breakdown = {};
 
   const promises = [
+    getArbitrumSiloPrices(tokenPrices),
     getEqualizerStableBasePrices(tokenPrices),
     getKinetixPrices(tokenPrices),
     getBasoStablePrices(tokenPrices),

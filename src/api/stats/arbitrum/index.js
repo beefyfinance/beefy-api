@@ -8,7 +8,7 @@ const getRipaeApys = require('./getRipaeApys');
 const { getGmxV2Apys } = require('./getGmxV2Apys');
 const { getGmxApys } = require('./getGmxApys');
 const { getHopApys } = require('./getHopApys');
-const { getHopRplApys } = require('./getHopRplApys'); 
+const { getHopRplApys } = require('./getHopRplApys');
 const { getConvexApys } = require('./getConvexApys');
 const { getSwapFishApys } = require('./getSwapFishApys');
 const { getGnsApys } = require('./getGnsApys');
@@ -23,8 +23,10 @@ const getMerklGammaApys = require('./getMerklGammaApys');
 const getUniswapGammaApys = require('./getUniswapGammaApys');
 const getBunniArbApys = require('./getBunniApys');
 const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
+const { getArbSiloApys } = require('./getArbitrumSiloApys');
 
 const getApys = [
+  getArbSiloApys,
   getMerklGammaApys,
   getUniswapGammaApys,
   getJoeAutoArbApys,
