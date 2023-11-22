@@ -4592,5 +4592,17 @@ const _tokens = {
       'Venus wrapped BIFI. Venus is an algorithmic money market and synthetic stablecoin protocol launched exclusively on BNB Chain.',
     logoURI: '',
   },
+  FIS: {
+    name: 'FIS',
+    symbol: 'FIS',
+    oracleId: 'FIS',
+    address: '0xF4bafAEAE73a4A7C8b6479970075e91e641fB1FC',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://stafi.io/',
+    description:
+      'FIS is the native token of StaFi, with an initial issuance of 100 million and further issuance planned each year. Similar to how DOT is to Polkadot, FIS is essential to prevent system abuse and value capture in the StaFi ecosystem. StaFi is the first multi-chain liquid staking protocol that unlocks the liquidity of staked assets.',
+    logoURI: '',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
