@@ -4568,6 +4568,18 @@ const _tokens = {
       'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
     logoURI: '',
   },
+  rBNB: {
+    name: 'StaFi rBNB',
+    symbol: 'rBNB',
+    oracleId: 'rBNB',
+    address: '0xF027E525D491ef6ffCC478555FBb3CFabB3406a6',
+    chainId: 56,
+    decimals: 18,
+    website: 'https://www.stafi.io/',
+    description:
+      'StaFi is the first multi-chain liquid staking protocol that unlocks the liquidity of staked assets.',
+    logoURI: '',
+  },
   voldBIFI: {
     name: 'Venus BIFI',
     symbol: 'oldBIFI',
