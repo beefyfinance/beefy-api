@@ -1,5 +1,48 @@
 [
   {
+    "name": "balancer-zkevm-gyro-reth-eth",
+    "address": "0xb1557CFEA06De5a1601a7F0cCF3b515EF431A50d",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xEdEa3E93b914E2654F8c7e0C2bb5E6205f9742b0",
+    "vaultPoolId": "0xb1557cfea06de5a1601a7f0ccf3b515ef431a50d000200000000000000000059",
+    "lsUrl": "https://api.rocketpool.net/api/apr",
+    "dataPath": "$.yearlyAPR",
+    "balancerChargesFee": false,
+    "lsIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xEdEa3E93b914E2654F8c7e0C2bb5E6205f9742b0",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0xEdEa3E93b914E2654F8c7e0C2bb5E6205f9742b0",
+        "rewardToken": "0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "stream": "0xEdEa3E93b914E2654F8c7e0C2bb5E6205f9742b0",
+        "rewardToken": "0xa2036f0538221a77A3937F1379699f44945018d0",
+        "oracleId": "MATIC",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-zkevm-reth-eth",
     "address": "0x1d0A8a31CDb04efAC3153237526Fb15cc65A2520",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
