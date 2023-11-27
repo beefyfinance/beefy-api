@@ -201,11 +201,12 @@ async function buildMarketMakerReport() {
     for (const [exchange, balances] of Object.entries(marketMakerBalances)) {
       system9Balances[exchange] = {};
       for (const [token, balance] of Object.entries(balances)) {
-        const tokenPrice = await getAmmPrice(token, true);
-        system9Balances[exchange][token] = {
-          symbol: token,
-          name: token,
-          oracleId: token,
+        const tokenName = token === 'USD' ? 'USDT' : token;
+        const tokenPrice = await getAmmPrice(tokenName, true);
+        system9Balances[exchange][tokenName] = {
+          symbol: tokenName,
+          name: tokenName,
+          oracleId: tokenName,
           oracleType: 'tokens',
           price: tokenPrice,
           usdValue: (balance * tokenPrice).toString(),
