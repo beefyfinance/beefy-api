@@ -3,6 +3,7 @@ export interface BeefyFinance {
   treasuryMultisig: string;
   strategyOwner: string;
   vaultOwner: string;
+  tokenManager?: string;
   tokenOwner?: string;
   keeper: string;
   treasurer: string;
