@@ -64,7 +64,6 @@ import { getKyberOptimismPrices } from './optimism/getKyberOptimismPrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
-import getMmyFantomPrices from './fantom/getMmyFantomPrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
@@ -129,7 +128,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getSoliSnekStablePrices(tokenPrices),
     getVelocoreStablePrices(tokenPrices),
     getMmyOptimismPrices(tokenPrices),
-    getMmyFantomPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
     getEquilibreStablePrices(tokenPrices),
     getVelocimeterStablePrices(tokenPrices),
