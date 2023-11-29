@@ -195,7 +195,7 @@ async function buildMarketMakerReport() {
   const report: MMReport = {};
   if (process.env.MM_BALANCE_API) {
     const marketMakerBalances: MarketMakerAPIResult = await fetch(process.env.MM_BALANCE_API).then(
-      res => res.json()
+      async res => (await res.json()) as MarketMakerAPIResult
     );
     const system9Balances: Record<string, MMExchangeBalance> = {};
     for (const [exchange, balances] of Object.entries(marketMakerBalances)) {

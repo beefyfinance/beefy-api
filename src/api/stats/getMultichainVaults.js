@@ -113,12 +113,12 @@ async function updateChainVaults(chain) {
   let vaults = await getVaults(endpoint);
   vaults.forEach(vault => (vault.chain = chain));
 
-  let chainVaults = vaults.filter(vault => !vault.isGovVault);
+  let chainVaults = vaults.filter(vault => vault.type === 'standard');
   chainVaults = await getStrategies(chainVaults, chain);
   chainVaults = await getLastHarvests(chainVaults, chain);
   chainVaults = await fetchChainVaultsPpfs(chainVaults, chain);
 
-  let govVaults = vaults.filter(vault => vault.isGovVault);
+  let govVaults = vaults.filter(vault => vault.type === 'gov');
   govVaults = await getGovVaultsTotalSupply(govVaults, chain);
   vaultsByChain[chain] = chainVaults;
   govVaultsByChain[chain] = govVaults;

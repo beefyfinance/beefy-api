@@ -34,7 +34,9 @@ async function fetchPrices(): Promise<Record<string, number>> {
     fetch('https://api.beefy.finance/lps'),
   ];
   const responses = await Promise.all(requests);
-  const data: Record<string, unknown>[] = await Promise.all(responses.map(r => r.json()));
+  const data: Record<string, unknown>[] = await Promise.all(
+    responses.map(async r => (await r.json()) as Record<string, unknown>)
+  );
   const joined = Object.assign({}, ...data);
   return Object.entries(joined).reduce(
     (acc, [key, value]) => {

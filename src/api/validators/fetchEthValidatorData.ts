@@ -20,7 +20,8 @@ const ETH_VALIDATOR_PERFORMANCE_URL = 'https://beaconcha.in/api/v1/validator/402
 export const fetchEthValidatorTotalPerformance =
   async (): Promise<FetchValidatorPerformanceResponse> => {
     const data = await fetch(ETH_VALIDATOR_PERFORMANCE_URL);
-    const ethValidatorData: EthValidatorPerformanceData = await data.json();
+    const ethValidatorData: EthValidatorPerformanceData =
+      (await data.json()) as EthValidatorPerformanceData;
     return {
       totalPerformanceEther: formatGwei(BigInt(ethValidatorData.data[0].performancetotal)),
     };

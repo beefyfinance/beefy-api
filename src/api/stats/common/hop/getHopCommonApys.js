@@ -9,7 +9,9 @@ import getApyBreakdown from '../getApyBreakdown';
 
 export const getHopCommonApys = async params => {
   const [tradingAprs, farmApys, liquidStakingAprs] = await Promise.all([
-    getTradingAprs(params), getFarmApys(params), getLsAprs(params)
+    getTradingAprs(params),
+    getFarmApys(params),
+    getLsAprs(params),
   ]);
 
   return getApyBreakdown(params.pools, tradingAprs, farmApys, 0.0004, liquidStakingAprs);
@@ -64,16 +66,16 @@ const getLsAprs = async params => {
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];
     if (pool.lsUrl) {
-        try {
-          const response = await fetch(pool.lsUrl).then(res => res.json());
-          liquidStakingAprs.push(response.yearlyAPR / 100);
-        } catch (e) {
-          console.error(`Hop: Liquid Staking URL Fetch Error ${pool.name}`);
-        }
+      try {
+        const response = await fetch(pool.lsUrl).then(res => res.json());
+        liquidStakingAprs.push(response.yearlyAPR / 100);
+      } catch (e) {
+        console.error(`Hop: Liquid Staking URL Fetch Error ${pool.name}`);
+      }
     } else {
       liquidStakingAprs.push(0);
     }
-  };
+  }
 
   return liquidStakingAprs;
 };

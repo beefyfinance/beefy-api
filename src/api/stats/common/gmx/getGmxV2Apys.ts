@@ -17,6 +17,28 @@ export interface GmxV2ApysParams {
   rewardId: string;
 }
 
+type ApiIncentivesResponse = {
+  lp: {
+    isActive: boolean;
+    totalRewards: string;
+    period: number;
+    rewardsPerMarket: {
+      [address: string]: string;
+    };
+  };
+  migration: {
+    isActive: boolean;
+    maxRebateBps: number;
+    period: number;
+  };
+  trading: {
+    isActive: boolean;
+    rebatePercent: number;
+    allocation: string;
+    period: number;
+  };
+};
+
 export const getGmxV2CommonApys = async (params: GmxV2ApysParams): Promise<ApyBreakdownResult> => {
   let promises = [];
   let farmAprs: BigNumber[] = [];
@@ -40,7 +62,9 @@ const getTradingApr = async (params: GmxV2ApysParams) => {
 
 const getIncentives = async url => {
   try {
-    const incentives = await fetch(url).then(res => res.json());
+    const incentives = await fetch(url).then(
+      async res => (await res.json()) as ApiIncentivesResponse
+    );
     return incentives.lp.rewardsPerMarket;
   } catch (err) {
     console.error('GMX APY error ', url);

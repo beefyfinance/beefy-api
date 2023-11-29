@@ -29,8 +29,7 @@ const _tokens = {
     website: 'https://rocketpool.net/',
     description:
       'Rocket Pool is a decentralized Ethereum staking pool offering up to 4.33% APR for ETH2 staking. Users can join the Rocket Pool with its decentralized node operator network or run their own nodes with only 16 ETH. In the latter case, they can earn a commission from staking ETH and earn additional RPL rewards from providing RPL collateral, amounting to up to 6.36% APR for ETH and the additional RPL rewards.',
-    logoURI:
-      'https://docs.rocketpool.net/images/logo.png',
+    logoURI: 'https://docs.rocketpool.net/images/logo.png',
   },
   oldBIFI: {
     name: 'Beefy.Finance',

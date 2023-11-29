@@ -1,6 +1,5 @@
-import { getKey, setKey } from '../../utils/cache';
-import { deferred, DeferredPromise } from '../../utils/promise';
-import { serviceEventBus } from '../../utils/ServiceEventBus';
+import { getKey, setKey } from './cache';
+import { serviceEventBus } from './ServiceEventBus';
 
 export type CachedGitJsonConfig = {
   readonly org: string;
@@ -94,7 +93,7 @@ export class CachedGitJson<T> {
     this.lastEtag = etag;
 
     try {
-      const json: T = await response.json();
+      const json: T = (await response.json()) as T;
       if (!this.lastModified || this.hasChanged(json)) {
         this.lastModified = new Date();
         this.currentValue = json;

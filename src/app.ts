@@ -13,7 +13,7 @@ import { initConfigService } from './api/config/getConfig';
 import { initVaultFeeService } from './api/vaults/getVaultFees';
 import { initTreasuryService } from './api/treasury/getTreasury';
 import { initProposalsService } from './api/snapshot/getProposals';
-import { initZapService } from './api/zaps/zaps';
+import { initZapSwapService } from './api/zap/swap';
 import { initValidatorPerformanceService } from './api/validators/validators';
 
 const Koa = require('koa');
@@ -59,7 +59,7 @@ const start = async () => {
   initConfigService();
   initProposalsService();
   initTreasuryService();
-  initZapService();
+  initZapSwapService();
 
   app.listen(port);
   console.log(`> beefy-api running! (:${port})`);

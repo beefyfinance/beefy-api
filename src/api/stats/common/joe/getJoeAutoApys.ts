@@ -9,6 +9,13 @@ import abi from '../../../../abis/arbitrum/JoeAutoFarm';
 import ISimpleRewarder from '../../../../abis/ISimpleRewarder';
 const baseApyUrl = 'https://barn.traderjoexyz.com/v1/vaults';
 
+type JoeVault = {
+  address: string;
+  apr1d: number;
+};
+
+type JoeVaultsResponse = JoeVault[];
+
 export const getJoeAutoApys = async (joeAutoParams): Promise<ApyBreakdownResult> => {
   const tradingAprs = await getTradingAprs(joeAutoParams);
   const farmApys = await getFarmApys(joeAutoParams);
@@ -21,7 +28,7 @@ const getTradingAprs = async (params): Promise<Record<string, BigNumber>> => {
   const poolMap: Record<string, BigNumber> = {};
   const pools = params.pools.map(pool => pool.address.toLowerCase());
   try {
-    const response = await fetch(baseApyUrl).then(res => res.json());
+    const response = (await fetch(baseApyUrl).then(res => res.json())) as JoeVaultsResponse;
     pools.forEach(pool => {
       const poolData = response.find(data => data.address == pool);
       poolMap[pool] = new BigNumber(poolData.apr1d);

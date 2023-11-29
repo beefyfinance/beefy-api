@@ -12,7 +12,7 @@ const FUSE_VALIDATOR_COIN_BALANCES_URL =
 export const fetchFuseValidatorTotalPerformance =
   async (): Promise<FetchValidatorPerformanceResponse> => {
     const data = await fetch(FUSE_VALIDATOR_COIN_BALANCES_URL);
-    const fuseValidatorData: CoinBalances[] = await data.json();
+    const fuseValidatorData: CoinBalances[] = (await data.json()) as CoinBalances[];
     const lastSum = fuseValidatorData[fuseValidatorData.length - 1].value;
     return {
       totalPerformanceEther: formatEther(BigInt(lastSum)),
