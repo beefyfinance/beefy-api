@@ -1,9 +1,6 @@
 import BigNumber from 'bignumber.js';
-
-export type HealthCheckResponse = {
-  status: string;
-  provider: string;
-};
+import { Address } from 'viem';
+import { ApiResponse } from '../common';
 
 export type QuoteRequest = {
   src: string;
@@ -21,11 +18,23 @@ export type QuoteToken = {
   tags: string[];
 };
 
+export type OneInchErrorResponse = {
+  statusCode: number;
+  error: string;
+  description: string;
+  meta: Record<string, string | number>[];
+  requestId: string;
+};
+
 export type QuoteResponse = {
   fromToken: QuoteToken;
   toToken: QuoteToken;
   toAmount: string;
 };
+
+export function isOneInchErrorResponse(obj: unknown): obj is OneInchErrorResponse {
+  return obj && typeof obj === 'object' && 'error' in obj;
+}
 
 export type SwapRequest = {
   src: string;
@@ -54,23 +63,16 @@ export type SwapResponse = {
   tx: SwapTx;
 };
 
-export type ProxiedResponse = {
-  status: number;
-  statusText: string;
-  response?: SwapResponse | QuoteResponse;
-};
-
 export interface IOneInchSwapApi {
   getQuote(request: QuoteRequest): Promise<QuoteResponse>;
   getSwap(request: SwapRequest): Promise<SwapResponse>;
-  getProxiedQuote(request: QuoteRequest): Promise<ProxiedResponse>;
-  getProxiedSwap(request: SwapRequest): Promise<ProxiedResponse>;
-  isHealthy(): Promise<boolean>;
+  getProxiedQuote(request: QuoteRequest): Promise<ApiResponse<QuoteResponse>>;
+  getProxiedSwap(request: SwapRequest): Promise<ApiResponse<SwapResponse>>;
 }
 
-export type RateRequest = string[];
+export type RateRequest = Address[];
 
-export type RateResponse = Record<string, BigNumber>;
+export type RateResponse = Record<Address, BigNumber>;
 
 export interface IOneInchPriceApi {
   getRatesToNative(tokenAddresses: RateRequest): Promise<RateResponse>;

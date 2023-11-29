@@ -3,7 +3,6 @@ import { RedisCacheBackend } from './RedisCacheBackend';
 import { DummyCacheBackend } from './DummyCacheBackend';
 import { ICacheBackend } from './ICacheBackend';
 import { FileCacheBackend } from './FileCacheBackend';
-import { filter, mapValues, pickBy } from 'lodash';
 
 let cache: Cache | undefined;
 
@@ -45,4 +44,11 @@ export async function getKey<T extends any>(key: string): Promise<T | undefined>
     throw new Error('Cache not initialized');
   }
   return cache.get<T>(key);
+}
+
+export async function deleteKey<T extends any>(key: string): Promise<void> {
+  if (!cache) {
+    throw new Error('Cache not initialized');
+  }
+  await cache.delete(key);
 }

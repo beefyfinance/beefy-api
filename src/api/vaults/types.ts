@@ -24,7 +24,9 @@ export type Vault = {
   addLiquidityUrl?: string;
   removeLiquidityUrl?: string;
   network: AppChain;
+  /** @deprecated */
   isGovVault?: boolean;
+  type: 'standard' | 'gov';
   strategy: string;
   lastHarvest?: number;
   pricePerFullShare: BigNumber;

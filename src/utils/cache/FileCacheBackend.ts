@@ -18,6 +18,13 @@ export class FileCacheBackend implements ICacheBackend {
     await this.saveString(path, value);
   }
 
+  async delete(key: string): Promise<void> {
+    const path = this.makePath(key);
+    if (await this.fileExists(path)) {
+      await fsPromises.unlink(path);
+    }
+  }
+
   private makePath(key: string) {
     const safeKey = key
       .replace(/[^a-z0-9-]/gi, '-')
