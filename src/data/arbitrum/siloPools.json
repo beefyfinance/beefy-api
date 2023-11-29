@@ -4,6 +4,8 @@
     "address": "0xA138B2FAb524e94aef1D6A961b9B0a3aB09D321f",
     "underlying": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
     "silo": "0x170A90981843461295a6CE0e0a631eE440222E29",
+    "lsUrl": "https://api.rocketpool.net/api/apr",
+    "dataPath": "$.yearlyAPR",
     "oracleId": "rETH",
     "decimals": "1e18",
     "chainId": 42161
@@ -13,6 +15,8 @@
     "address": "0x2A6Cd33AE19e078c3Dd0d77d976c451658330392",
     "underlying": "0x5979D7b546E38E414F7E9822514be443A4800529",
     "silo": "0xA8897b4552c075e884BDB8e7b704eB10DB29BF0D",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
     "oracleId": "wstETH",
     "decimals": "1e18",
     "chainId": 42161
