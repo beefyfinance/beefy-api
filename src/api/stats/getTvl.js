@@ -134,10 +134,10 @@ const chains = [
     chainId: MOONBEAM_CHAIN_ID,
     vaultsEndpoint: MOONBEAM_VAULTS_ENDPOINT,
   },
-  {
+  /*{
     chainId: EMERALD_CHAIN_ID,
     vaultsEndpoint: EMERALD_VAULTS_ENDPOINT,
-  },
+  },*/
   {
     chainId: OPTIMISM_CHAIN_ID,
     vaultsEndpoint: OPTIMISM_VAULTS_ENDPOINT,
