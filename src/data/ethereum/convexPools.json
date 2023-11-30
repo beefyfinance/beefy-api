@@ -1,5 +1,20 @@
 [
   {
+    "name": "prisma-mkusd-usdc",
+    "pool": "0xF980B4A4194694913Af231De69AB4593f5E0fCDc",
+    "prismaConvexPool": "0xa68C880009B8e78CC42B215702573A7552ef2C68",
+    "tokens": [
+      {
+        "oracleId": "mkUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "prisma-mkusd-fraxbp",
     "pool": "0x0CFe5C777A7438C9Dd8Add53ed671cEc7A5FAeE5",
     "prismaCurvePool": "0x5F8D4319C27a940B5783b4495cCa6626E880532E",
@@ -37,8 +52,9 @@
     ]
   },
   {
-    "name": "convex-cvxprisma",
+    "name": "prisma-cvxprisma",
     "pool": "0x3b21C2868B6028CfB38Ff86127eF22E68d16d53B",
+    "prismaConvexPool": "0xd91fBa4919b7BF3B757320ea48bA102F543dE341",
     "getDy": ["v1", 1, 0],
     "tokens": [
       {
