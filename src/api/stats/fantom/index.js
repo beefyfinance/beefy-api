@@ -11,8 +11,10 @@ const getbeFtmEarnApy = require('./getbeFtmEarnApy');
 const getSpiritV2Apys = require('./getSpiritV2Apys');
 const getEqualizerApys = require('./getEqualizerApys');
 const getFvmApys = require('./getFvmApys');
+const getStargateFantomApys = require('./getStargateFantomApys');
 
 const getApys = [
+  getStargateFantomApys,
   getFvmApys,
   getEqualizerApys,
   getSpiritV2Apys,
