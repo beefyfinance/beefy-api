@@ -17,8 +17,10 @@ const getBalancerOpApys = require('./getBalancerOpApys');
 const getAuraApys = require('./getAuraOptimismApys');
 const getBeVeloV2Apr = require('./getBeVeloV2Apr');
 const getUniswapGammaApys = require('./getUniswapGammaApys');
+const { getSonneApys } = require('./getSonneApys');
 
 const getApys = [
+  getSonneApys,
   getUniswapGammaApys,
   getAuraApys,
   getBalancerOpApys,
