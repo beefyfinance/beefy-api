@@ -1,4 +1,4 @@
-import { ETH_CHAIN_ID } from '../../../constants';
+import { ETH_CHAIN_ID, ETHEREUM_VAULTS_ENDPOINT } from '../../../constants';
 import { getCurveBaseApys } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
@@ -97,32 +97,37 @@ const getPoolApys = async pools => {
     apys.push(maxApy);
   });
 
-  // await testVaults(pools, poolInfo);
+  checkVaultsApys(pools, poolInfo).catch(e =>
+    console.error('> check prisma vaults apy error', e.message)
+  );
 
   return apys;
 };
 
-async function testVaults(allPools, infos) {
+async function checkVaultsApys(pools, infos) {
+  const allVault = await fetch(ETHEREUM_VAULTS_ENDPOINT).then(res => res.json());
+  const prismaVaults = allVault.filter(v => v.platformId === 'prisma');
+
   const abi = parseAbi([
     'function strategy() view returns (address)',
     'function rewardPool() view returns (address)',
   ]);
-  const pools = allPools.filter(p => p.beefyVault);
   const strats = await Promise.all(
-    pools.map(p => fetchContract(p.beefyVault, abi, ETH_CHAIN_ID).read.strategy())
+    prismaVaults.map(v => fetchContract(v.earnContractAddress, abi, ETH_CHAIN_ID).read.strategy())
   );
   const rewardPools = await Promise.all(
     strats.map(s => fetchContract(s, abi, ETH_CHAIN_ID).read.rewardPool())
   );
 
-  pools.forEach((pool, i) => {
-    const poolApys = infos.filter(p => p.name === pool.name);
+  prismaVaults.forEach((v, i) => {
+    const poolApys = infos.filter(p => p.name === v.id);
     const currentApy = poolApys.find(p => p.prisma === rewardPools[i]).apy;
     const betterPool = poolApys.find(p => p.apy.gt(currentApy));
     if (betterPool) {
-      const type = pool.prismaConvexPool === betterPool.prisma ? 'Convex' : 'Curve';
+      const pool = pools.find(p => p.name === betterPool.name);
+      const type = pool?.prismaConvexPool === betterPool.prisma ? 'Convex' : 'Curve';
       console.log(
-        `${pool.name} better APY: ${currentApy} vs ${betterPool.apy}, new ${type} rewardPool: ${betterPool.prisma}`
+        `${v.id} better APY: ${currentApy} vs ${betterPool.apy}, new ${type} rewardPool: ${betterPool.prisma}`
       );
     }
   });
