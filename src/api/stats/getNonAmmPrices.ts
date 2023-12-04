@@ -51,6 +51,7 @@ import getStargatePolygonPrices from './matic/getStargatePolygonPrices';
 import getStargateOpPrices from './optimism/getStargateOpPrices';
 import getStargateMetisPrices from './metis/getStargateMetisPrices';
 import getStargateBasePrices from './base/getStargateBasePrices';
+import getStargateKavaPrices from './kava/getStargateKavaPrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
@@ -64,7 +65,6 @@ import { getKyberOptimismPrices } from './optimism/getKyberOptimismPrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
-import getMmyFantomPrices from './fantom/getMmyFantomPrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
 import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
@@ -96,6 +96,7 @@ import getBunniArbPrices from './arbitrum/getBunniPrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
+import getAcrossPrices from './ethereum/getAcrossPrices';
 import { GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
 
 export type NonAmmPrices = {
@@ -116,6 +117,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   let breakdown = {};
 
   const promises = [
+    getAcrossPrices(tokenPrices),
     getArbitrumSiloPrices(tokenPrices),
     getEqualizerStableBasePrices(tokenPrices),
     getKinetixPrices(tokenPrices),
@@ -129,7 +131,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getSoliSnekStablePrices(tokenPrices),
     getVelocoreStablePrices(tokenPrices),
     getMmyOptimismPrices(tokenPrices),
-    getMmyFantomPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
     getEquilibreStablePrices(tokenPrices),
     getVelocimeterStablePrices(tokenPrices),
@@ -153,6 +154,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getStargateAvaxPrices(tokenPrices),
     getStargateArbPrices(tokenPrices),
     getStargateEthPrices(tokenPrices),
+    getStargateKavaPrices(tokenPrices),
     getHopPolyPrices(tokenPrices), // <----
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),

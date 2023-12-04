@@ -144,7 +144,7 @@ const getPoolApy = async (
     let lsApr: number = 0;
     if (Array.isArray(pool.lsUrl)) {
       for (let i = 0; i < pool.lsUrl.length; i++) {
-        let response: JSON;
+        let response: any;
         try {
           response = await fetch(pool.lsUrl[i]).then(res => res.json());
           lsApr = await jp.query(response, pool.dataPath[i]);
@@ -159,7 +159,7 @@ const getPoolApy = async (
               aprFixed + (lsApr * qty[pool.lsIndex[i]].dividedBy(totalQty).toNumber()) / 100);
       }
     } else {
-      let response: JSON;
+      let response: any;
       try {
         response = await fetch(pool.lsUrl).then(res => res.json());
         lsApr = await jp.query(response, pool.dataPath);

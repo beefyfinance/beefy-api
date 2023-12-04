@@ -6,6 +6,8 @@ import SiloIncentivesController from '../../../abis/arbitrum/SiloIncentivesContr
 import SiloLens from '../../../abis/arbitrum/SiloLens';
 import { fetchContract } from '../../rpc/client';
 import getApyBreakdown from './getApyBreakdown';
+import { fetchDaiSavingsRate } from '../../../utils/fetchDaiSavingsRate';
+import jp from 'jsonpath';
 
 const SECONDS_PER_YEAR = 31536000;
 
@@ -13,6 +15,7 @@ const getSiloApyData = async (params: SiloApyParams) => {
   const poolsData = await getPoolsData(params);
 
   const { supplyApys, supplySiloApys } = await getPoolsApys(params, poolsData);
+  const liquidStakingApys = await getLiquidStakingApys(params.pools);
 
   if (params.log) {
     params.pools.forEach((pool, i) =>
@@ -23,7 +26,9 @@ const getSiloApyData = async (params: SiloApyParams) => {
   return getApyBreakdown(
     params.pools.map(p => ({ ...p, address: p.name })),
     Object.fromEntries(params.pools.map((p, i) => [p.name, supplyApys[i]])),
-    supplySiloApys
+    supplySiloApys,
+    0,
+    liquidStakingApys
   );
 };
 
@@ -48,6 +53,34 @@ const getPoolsApys = async (params: SiloApyParams, data: PoolsData) => {
     supplyApys,
     supplySiloApys,
   };
+};
+
+const getLiquidStakingApys = async (pools: SiloPool[]) => {
+  let liquidStakingAprs: number[] = [];
+
+  for (let i = 0; i < pools.length; i++) {
+    if (pools[i].lsUrl) {
+      //Normalize ls Data to always handle arrays
+      //Coinbase's returned APR is already in %, we need to normalize it by multiplying by 100
+      let lsAprFactor: number = 1;
+      if (pools[i].lsAprFactor) lsAprFactor = pools[i].lsAprFactor!;
+
+      let lsApr: number = 0;
+      try {
+        const url = pools[i].lsUrl!;
+        const lsResponse: any = await fetch(url).then(res => res.json());
+
+        lsApr = jp.query(lsResponse, pools[i].dataPath!)[0];
+        lsApr = (lsApr * lsAprFactor) / 100;
+        liquidStakingAprs.push(lsApr);
+      } catch {
+        console.error(`Failed to fetch ${pools[i].name} liquid staking APR from ${pools[i].lsUrl}`);
+      }
+    } else {
+      liquidStakingAprs.push(0);
+    }
+  }
+  return liquidStakingAprs;
 };
 
 const getPoolsData = async (params: SiloApyParams): Promise<PoolsData> => {
@@ -109,6 +142,9 @@ export interface SiloPool {
   oracle: string;
   oracleId: string;
   decimals: string;
+  lsUrl?: string;
+  lsAprFactor?: number;
+  dataPath?: string;
 }
 
 export interface SiloApyParams {

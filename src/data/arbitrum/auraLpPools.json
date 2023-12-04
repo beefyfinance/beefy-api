@@ -1,5 +1,37 @@
 [
   {
+    "name": "aura-arb-ovn-wusd+",
+    "address": "0x85Ec6ae01624aE0d2a04D0Ffaad3A25884C7d0f3",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x182a05eb019eEdA0bAbFa5D8feAad5d81C348bff",
+    "vaultPoolId": "0x85ec6ae01624ae0d2a04d0ffaad3a25884c7d0f30002000000000000000004b6",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xC5e9d43e26823e9662f181C004BdAAd0b8cC07F6",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x72C628daFB05490C3e1EB2fa9f380Df193483F7a",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "OVN",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "arbwUSD+",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "balancer-weth-reth",
     "address": "0xadE4A71BB62bEc25154CFc7e6ff49A513B491E81",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

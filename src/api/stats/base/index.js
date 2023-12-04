@@ -12,8 +12,10 @@ const getEqualizerApys = require('./getEqualizerApys');
 const getBaseMerklGammaApys = require('./getMerklBaseApys');
 const { getBaseCompoundV3Apys } = require('./getBaseCompoundV3Apys');
 const getAuraBaseApys = require('./getAuraBaseApys');
+const { getSonneApys } = require('./getSonneApys');
 
 const getApys = [
+  getSonneApys,
   getAerodromeApys,
   getCurveApys,
   getBalancerBaseApys,

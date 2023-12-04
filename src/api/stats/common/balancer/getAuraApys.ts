@@ -174,7 +174,7 @@ const getPoolApy = async (
 
     let lsApr: number = 0;
     try {
-      const lsResponses: JSON[] = await Promise.all(
+      const lsResponses: any[] = await Promise.all(
         lsUrls.map(url =>
           url === 'DSR'
             ? fetchDaiSavingsRate().then(res => res)

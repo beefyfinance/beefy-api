@@ -104,7 +104,7 @@ const oracles: Oracle[] = [
     oracleId: 'BAL',
     address: '0xdF2917806E30300537aEB49A7663062F4d1F2b5F',
     chain: 'ethereum',
-    heartbeat: 86400,
+    heartbeat: 864000,
   },
   {
     oracleId: 'FTM',

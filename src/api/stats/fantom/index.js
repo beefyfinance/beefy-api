@@ -1,69 +1,33 @@
-const getSpookyBooApy = require('./getSpookyBooApy');
 const getSpookyV2LpApys = require('./getSpookyV2LpApys');
 const getSpookyV3LpApys = require('./getSpookyV3LpApys');
-const getTombApys = require('./getTombApys');
 const getSpiritApys = require('./getSpiritApys');
 const { getCurveApys } = require('./getCurveApys');
-const getScreamApys = require('./getScreamApys');
-const getSteakHouseLpApys = require('./getSteakHouseLpApys');
-const getJetswapApys = require('./getJetswapApys');
 const getGeistLpApys = require('./getGeistLpApys');
-const getSpellApys = require('./getSpellApys');
 const getBeethovenxApys = require('./getBeethovenxApys');
 const getBeethovenxDualApys = require('./getBeethovenxDualApys');
-const getfBeetsApy = require('./getfBeetsApy');
-const getSpartacadabraApys = require('./getSpartacadabraApys');
-const getPopsicleApys = require('./getPopsicleApys');
-const { getSushiLpApys } = require('./getSushiLpApys');
-const getCreditumApys = require('./getCreditumApys');
-const getRipaeApys = require('./getRipaeApys');
 const getWigoApys = require('./getWigoApys');
 const getbeFTMApy = require('./getbeFTMApy');
 const getbeFtmEarnApy = require('./getbeFtmEarnApy');
-const getBasedApy = require('./getBasedApys');
-const getHectorApy = require('./getHectorApy');
-const getStargateApys = require('./getStargateFantomApys');
-const getSolaceApy = require('./getSolaceApy');
-const getSolidlyApys = require('./getSolidlyApys');
 const getSpiritV2Apys = require('./getSpiritV2Apys');
-const getMaiCurveApys = require('./getMaiCurveApys');
 const getEqualizerApys = require('./getEqualizerApys');
-const getMmyApys = require('./getMmyApys');
 const getFvmApys = require('./getFvmApys');
+const getStargateFantomApys = require('./getStargateFantomApys');
 
 const getApys = [
+  getStargateFantomApys,
   getFvmApys,
-  getMmyApys,
   getEqualizerApys,
   getSpiritV2Apys,
-  getSushiLpApys,
-  getSpookyBooApy,
   getSpookyV2LpApys,
   getSpookyV3LpApys,
-  getTombApys,
   getSpiritApys,
   getCurveApys,
-  getScreamApys,
-  getSteakHouseLpApys,
-  getJetswapApys,
-  getSpellApys,
   getGeistLpApys,
   getBeethovenxApys,
   getBeethovenxDualApys,
-  getfBeetsApy,
-  getSpartacadabraApys,
-  getPopsicleApys,
-  getCreditumApys,
-  getRipaeApys,
   getWigoApys,
   getbeFTMApy,
   getbeFtmEarnApy,
-  getBasedApy,
-  getHectorApy,
-  getStargateApys,
-  getSolaceApy,
-  getSolidlyApys,
-  getMaiCurveApys,
 ];
 
 const getFantomApys = async () => {

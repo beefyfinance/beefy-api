@@ -1,7 +1,7 @@
 export interface ArticlesResponse {
   componentChunkName: string;
   path: string;
-  results: {
+  result: {
     data: {
       allMarkdownRemark: {
         edges: Array<ArticleConfig>;

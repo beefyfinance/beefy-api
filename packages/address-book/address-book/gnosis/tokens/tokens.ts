@@ -160,6 +160,20 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xBAA66822055AD37EC05638eC5AAfDC6Ef0e96445/logo.png',
   },
+  crvUSD: {
+    name: 'Curve.Fi USD Stablecoin',
+    symbol: 'crvUSD',
+    oracleId: 'crvUSD',
+    address: '0xaBEf652195F98A91E490f047A5006B71c85f058d',
+    chainId: 100,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://crvusd.curve.fi/',
+    description:
+      'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
+    documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
+    bridge: 'gnosis-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

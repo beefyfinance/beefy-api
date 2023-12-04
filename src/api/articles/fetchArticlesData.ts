@@ -12,20 +12,24 @@ const REFRESH_INTERVAL = 12 * 60 * 1000;
 
 export const getAllArticles = () => articles;
 
-export const getArticlesByPage = async (page: number): Promise<ArticlesResponse> => {
-  return await fetch(
+export const getArticlesByPage = async (page: number): Promise<ArticleConfig[]> => {
+  const endpont =
     page === 1
       ? ARTICLES_ENDPOINT
-      : `https://beefy.com/page-data/articles/page/${page}/page-data.json`
-  ).then(res => res.json());
+      : `https://beefy.com/page-data/articles/page/${page}/page-data.json`;
+
+  return await fetch(endpont)
+    .then(res => res.json())
+    .then((res: ArticlesResponse) => res.result.data.allMarkdownRemark.edges);
 };
 
-export const updateNotes = async () => {
+export const updateArticles = async () => {
+  console.log('> updating articles');
+  const start = Date.now();
   try {
-    const articlesResponse: ArticlesResponse = await fetch(ARTICLES_ENDPOINT).then(res =>
-      res.json()
-    );
-    const totalPages = Object(articlesResponse).result.pageContext.numPages;
+    const totalPages = await fetch(ARTICLES_ENDPOINT)
+      .then(res => res.json())
+      .then((res: ArticlesResponse) => res.result.pageContext.numPages);
 
     let promises = [];
 
@@ -37,17 +41,18 @@ export const updateNotes = async () => {
 
     for (const result of results) {
       if (result.status !== 'fulfilled') {
-        console.warn('getChainTvl error', result.reason);
+        console.warn('get articles error', result.reason);
         continue;
       }
 
-      const blogs = formatBlogs(result.value.result.data.allMarkdownRemark.edges);
+      const blogs = formatBlogs(result.value);
 
       articles = [...articles, ...blogs];
     }
 
     saveToRedis();
-    setTimeout(updateNotes, REFRESH_INTERVAL);
+    console.log(`> updated articles (${(Date.now() - start) / 1000}s)`);
+    setTimeout(updateArticles, REFRESH_INTERVAL);
   } catch (err) {
     console.error(err);
     return [];
@@ -82,5 +87,5 @@ async function saveToRedis() {
 
 export async function initArticlesService() {
   await loadFromRedis();
-  setTimeout(updateNotes, INIT_DELAY);
+  setTimeout(updateArticles, INIT_DELAY);
 }

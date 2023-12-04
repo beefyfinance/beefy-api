@@ -1,5 +1,41 @@
 [
   {
+    "name": "aura-gnosis-crvusd-sdai",
+    "address": "0xc9F00C3a713008DDf69b768d90d4978549bFDF94",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xFaD4505C5bF3D3654bA7C97A0Cea6e7B35882959",
+    "vaultPoolId": "0xc9f00c3a713008ddf69b768d90d4978549bfdf9400000000000000000000006d",
+    "decimals": "1e18",
+    "lsUrl": "DSR",
+    "dataPath": "$.savingsRate",
+    "lsIndex": 1,
+    "balancerChargesFee": true,
+    "composable": true,
+    "bptIndex": 2,
+    "rewards": [
+      {
+        "rewardGauge": "0x6798312d6830991b8e29416BdF949BeaF233a86A",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
     "name": "aura-gnosis-wsteth-sdai",
     "address": "0xBc2acf5E821c5c9f8667A36bB1131dAd26Ed64F9",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

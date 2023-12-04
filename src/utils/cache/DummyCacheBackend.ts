@@ -8,4 +8,8 @@ export class DummyCacheBackend implements ICacheBackend {
   async set(key: string, value: string): Promise<void> {
     return;
   }
+
+  async delete(key: string): Promise<void> {
+    return;
+  }
 }

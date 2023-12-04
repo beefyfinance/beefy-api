@@ -17,13 +17,9 @@ const { getTokens, getChainTokens } = require('./api/tokens');
 const { getConfigs, getChainConfig } = require('./api/config');
 const { getTreasury, getMMBal, getAllTreasury } = require('./api/treasury');
 const { validatorPerformance } = require('./api/validators/index');
-
-const {
-  vaultZapSupport,
-  vaultZapSupportDebug,
-  proxyOneInchSwap,
-  proxyOneInchQuote,
-} = require('./api/zaps');
+const { proxyOneInchSwap, proxyOneInchQuote } = require('./api/zap/proxy/one-inch');
+const { proxyKyberSwap, proxyKyberQuote } = require('./api/zap/proxy/kyber');
+const { zapSwapsSupport, zapSwapsSupportDebug } = require('./api/zap/swap/routes');
 const { getArticles } = require('./api/articles');
 
 router.get('/validator-performance', validatorPerformance);
@@ -48,15 +44,11 @@ router.get('/prices', price.tokenPrices);
 router.get('/mootokenprices', price.mooTokenPrices);
 
 router.get('/vaults', multichainVaults.multichainVaults);
-router.get('/vaults/zap-support', vaultZapSupport);
-router.get('/vaults/zap-support/debug', vaultZapSupportDebug);
 router.get('/vaults/last-harvest', multichainVaults.vaultsLastHarvest);
+router.get('/vaults/id/:vaultId', multichainVaults.singleVault);
 router.get('/vaults/:chainId', multichainVaults.singleChainVaults);
 router.get('/gov-vaults', multichainVaults.multichainGovVaults);
 router.get('/gov-vaults/:chainId', multichainVaults.singleGovChainVaults);
-
-router.get('/oneinch/:chainId/swap', proxyOneInchSwap);
-router.get('/oneinch/:chainId/quote', proxyOneInchQuote);
 
 router.get('/fees', multichainVaults.vaultFees);
 
@@ -75,6 +67,13 @@ router.get('/treasury/complete', getAllTreasury);
 
 router.get('/snapshot/latest', snapshot.latest);
 router.get('/snapshot/active', snapshot.active);
+
+router.get('/zap/swaps', zapSwapsSupport);
+router.get('/zap/swaps/debug', zapSwapsSupportDebug);
+router.get('/zap/providers/oneinch/:chainId/quote', proxyOneInchQuote);
+router.get('/zap/providers/oneinch/:chainId/swap', proxyOneInchSwap);
+router.get('/zap/providers/kyber/:chainId/quote', proxyKyberQuote);
+router.post('/zap/providers/kyber/:chainId/swap', proxyKyberSwap);
 
 router.get('/articles', getArticles);
 

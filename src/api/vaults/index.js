@@ -3,6 +3,7 @@ const {
   getSingleChainVaults,
   getMultichainGovVaults,
   getSingleChainGovVaults,
+  getVaultByID,
 } = require('../stats/getMultichainVaults');
 const { getVaultFees } = require('./getVaultFees');
 
@@ -54,6 +55,17 @@ async function singleChainVaults(ctx) {
   }
 }
 
+async function singleVault(ctx) {
+  try {
+    const vault = getVaultByID(ctx.params.vaultId);
+    ctx.status = vault ? 200 : 404;
+    ctx.body = vault ?? {};
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
 async function singleGovChainVaults(ctx) {
   try {
     const chainVaults = getSingleChainGovVaults(ctx.params.chainId);
@@ -81,6 +93,7 @@ module.exports = {
   multichainGovVaults,
   singleChainVaults,
   singleGovChainVaults,
+  singleVault,
   vaultFees,
   vaultsLastHarvest,
 };
