@@ -17,8 +17,10 @@ const { getConvexCvxApy } = require('./getConvexCvxApy');
 const getGammaApy = require('./getUniswapGammaApys');
 const { getETHCompoundV3Apys } = require('./getEthCompoundApys');
 const { getPrismaApys } = require('./getPrismaApys');
+const { getAcrossApys } = require('./getAcrossApys');
 
 const getApys = [
+  getAcrossApys,
   getApeStakingApy,
   getAuraApys,
   getCurveApys,
