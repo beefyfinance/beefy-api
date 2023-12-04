@@ -24,6 +24,7 @@ const {
   proxyOneInchSwap,
   proxyOneInchQuote,
 } = require('./api/zaps');
+const { getArticles } = require('./api/articles');
 
 router.get('/validator-performance', validatorPerformance);
 
@@ -74,6 +75,8 @@ router.get('/treasury/complete', getAllTreasury);
 
 router.get('/snapshot/latest', snapshot.latest);
 router.get('/snapshot/active', snapshot.active);
+
+router.get('/articles', getArticles);
 
 router.get('/', noop);
 
