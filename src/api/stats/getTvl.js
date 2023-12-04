@@ -166,6 +166,10 @@ const chains = [
     chainId: BASE_CHAIN_ID,
     vaultsEndpoint: BASE_VAULTS_ENDPOINT,
   },
+  {
+    chainId: GNOSIS_CHAIN_ID,
+    vaultsEndpoint: GNOSIS_VAULTS_ENDPOINT,
+  },
 ];
 
 const CACHE_KEY = 'TVL';
