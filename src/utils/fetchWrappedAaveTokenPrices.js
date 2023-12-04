@@ -24,7 +24,18 @@ const {
     tokens: { 'USD+': USDplus, 'wUSD+': wUSDplus, 'DAI+': DAIplus, 'wDAI+': wDAIplus },
   },
   arbitrum: {
-    tokens: { aWETH: aaWETH, waaWETH, aaUSDT, waaUSDT, aaUSDC, waaUSDC, aaDAI, waaDAI },
+    tokens: {
+      aWETH: aaWETH,
+      waaWETH,
+      aaUSDT,
+      waaUSDT,
+      aaUSDC,
+      waaUSDC,
+      aaDAI,
+      waaDAI,
+      'USD+': arbUSDplus,
+      'arbwUSD+': arbwUSDplus,
+    },
   },
   avax: {
     tokens: { aavAVAX, waavAVAX, aavUSDC, waavUSDC, aavUSDT, waavUSDT },
@@ -60,6 +71,7 @@ const tokens = {
     [aaUSDT, waaUSDT, true],
     [aaUSDC, waaUSDC, true],
     [aaDAI, waaDAI, true],
+    [arbUSDplus, arbwUSDplus],
   ],
   avax: [
     [aavAVAX, waavAVAX],

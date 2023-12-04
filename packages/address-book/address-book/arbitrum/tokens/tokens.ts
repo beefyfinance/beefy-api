@@ -1317,6 +1317,48 @@ const _tokens = {
       'Unlocking the critical DeFi primitive of decentralized money markets for Arbitrum native assets like ARB, MAGIC, GMX, and plvGLP .',
     documentation: 'https://docs.lodestarfinance.io/',
   },
+  AURA: {
+    name: 'Aura',
+    symbol: 'AURA',
+    oracleId: 'AURA',
+    address: '0x1509706a6c66CA549ff0cB464de88231DDBe213B',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://aura.finance/',
+    description:
+      'Aura Finance is a protocol built on top of the Balancer system to provide maximum incentives to Balancer liquidity providers and BAL stakers (into veBAL) through social aggregation of BAL deposits and Aura’s native token. For BAL stakers, Aura provides a seamless onboarding process to veBAL, by creating a tokenised wrapper token called auraBAL that represents the 80/20 BPT locked up for the maximum time in VotingEscrow (read more about what this means). This can be staked to receive existing rewards (BAL and bbaUSD) from Balancer, in addition to a share of any BAL earned by Aura (read more about the fees), and additional AURA. This minting process is irreversible however users can trade their auraBAL back to BAL through an incentivised liquidity pool.',
+    bridge: 'layer-zero',
+    logoURI: '',
+    documentation: 'https://docs.aura.finance/',
+  },
+  OVN: {
+    name: 'OVN',
+    symbol: 'OVN',
+    oracleId: 'OVN',
+    address: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'OVN token is a utility token that serves multiple purposes in the Overnight protocol. It is used for bribes to promote USD+ and incentivize conservative risk decisions, as well as for voting rights to establish decentralized risk monitoring and management processes.',
+    bridge: 'native',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'arbwUSD+': {
+    name: 'Wrapped USD+',
+    symbol: 'wUSD+',
+    oracleId: 'arbwUSD+',
+    address: '0xB86fb1047A955C0186c77ff6263819b37B32440D',
+    chainId: 42161,
+    decimals: 6,
+    website: 'https://overnight.fi/',
+    description:
+      'wUSD+ is wrapped USD+, a yield-generating stablecoin backed by a portfolio of low-risk DeFi assets. It allows users to mint and redeem instantly against USDC, providing liquidity management, AMM trading, and leveraged yield farming opportunities. This capital-efficient stablecoin enables users to earn extra yield on their stablecoin holdings while participating in DeFi activities.',
+    bridge: 'native',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
