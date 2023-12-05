@@ -16,7 +16,6 @@ import {
   fetchBalancerStablePoolPrice,
 } from '../../utils/fetchBalancerStablePoolPrices';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
-import { fetchCurrencyPrices } from '../../utils/fetchCurrencyPrices';
 import { getKey, setKey } from '../../utils/cache';
 
 import getNonAmmPrices from './getNonAmmPrices';
@@ -680,13 +679,6 @@ async function performUpdateAmmPrices() {
   // Seed with chain link + coin gecko prices
   const knownPrices = await fetchSeedPrices();
 
-  const currencyPrices = async () => {
-    const prices = await fetchCurrencyPrices(currencies);
-    return {
-      CAD: prices['cad'],
-    };
-  };
-
   const ammPrices = fetchAmmPrices(pools, knownPrices).then(prices => {
     //Set prices for the wrapped version of native tokens (if native was set)
     const nativeTokens = new Set(
@@ -788,7 +780,6 @@ async function performUpdateAmmPrices() {
       ...concentratedLiquidityPrices,
       ...solidlyStablePrices,
       ...linearPoolTokenPrice,
-      ...(await currencyPrices()),
       ...venusTokenPrice,
       ...optionTokenPrice,
     };
