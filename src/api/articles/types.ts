@@ -54,7 +54,6 @@ export interface ArticleConfig {
 }
 
 export interface ArticleInterface {
-  id: string;
   title: string;
   description: string;
   date: number;

@@ -1,9 +1,10 @@
+import { keyBy } from 'lodash';
 import { getKey, setKey } from '../../utils/cache';
 import { ArticleConfig, ArticleInterface, ArticlesResponse } from './types';
 
 const REDIS_KEY = 'ARTICLES';
 
-let articles: ArticleInterface[] = [];
+let articles: Record<string, ArticleInterface> = {};
 
 const ARTICLES_ENDPOINT = 'https://beefy.com/page-data/articles/page-data.json';
 
@@ -13,12 +14,7 @@ const REFRESH_INTERVAL = 12 * 60 * 1000;
 export const getAllArticles = () => articles;
 
 export const getArticlesByPage = async (page: number): Promise<ArticleConfig[]> => {
-  const endpont =
-    page === 1
-      ? ARTICLES_ENDPOINT
-      : `https://beefy.com/page-data/articles/page/${page}/page-data.json`;
-
-  return await fetch(endpont)
+  return await fetch(`https://beefy.com/page-data/articles/page/${page}/page-data.json`)
     .then(res => res.json())
     .then((res: ArticlesResponse) => res.result.data.allMarkdownRemark.edges);
 };
@@ -27,13 +23,17 @@ export const updateArticles = async () => {
   console.log('> updating articles');
   const start = Date.now();
   try {
-    const totalPages = await fetch(ARTICLES_ENDPOINT)
+    const result = await fetch(ARTICLES_ENDPOINT)
       .then(res => res.json())
-      .then((res: ArticlesResponse) => res.result.pageContext.numPages);
+      .then((res: ArticlesResponse) => res.result);
+
+    const totalPages = result.pageContext.numPages;
+
+    const allArticles = formatArticles(result.data.allMarkdownRemark.edges);
 
     let promises = [];
 
-    for (let i = 0; i < totalPages; i++) {
+    for (let i = 1; i < totalPages; i++) {
       promises.push(getArticlesByPage(i + 1));
     }
 
@@ -45,21 +45,25 @@ export const updateArticles = async () => {
         continue;
       }
 
-      const blogs = formatBlogs(result.value);
-
-      articles = [...articles, ...blogs];
+      const formatted = formatArticles(result.value);
+      allArticles.concat(formatted);
     }
+
+    articles = allArticles.reduce((acc, article) => {
+      const { id, ...rest } = article;
+      acc[id] = rest;
+      return acc;
+    }, {} as Record<string, ArticleInterface>);
 
     saveToRedis();
     console.log(`> updated articles (${(Date.now() - start) / 1000}s)`);
-    setTimeout(updateArticles, REFRESH_INTERVAL);
   } catch (err) {
     console.error(err);
-    return [];
   }
+  setTimeout(updateArticles, REFRESH_INTERVAL);
 };
 
-const formatBlogs = (blogs: ArticleConfig[]) => {
+const formatArticles = (blogs: ArticleConfig[]) => {
   return blogs.map(blog => {
     const { title, date, short_description } = blog.node.frontmatter;
 
@@ -74,7 +78,7 @@ const formatBlogs = (blogs: ArticleConfig[]) => {
 };
 
 async function loadFromRedis() {
-  const cachedArticles = await getKey<ArticleInterface[]>(REDIS_KEY);
+  const cachedArticles = await getKey<Record<string, ArticleInterface>>(REDIS_KEY);
 
   if (cachedArticles && typeof cachedArticles === 'object') {
     articles = cachedArticles;
