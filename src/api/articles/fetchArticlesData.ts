@@ -46,7 +46,7 @@ export const updateArticles = async () => {
       }
 
       const formatted = formatArticles(result.value);
-      allArticles.concat(formatted);
+      allArticles.push(...formatted);
     }
 
     articles = allArticles.reduce((acc, article) => {
