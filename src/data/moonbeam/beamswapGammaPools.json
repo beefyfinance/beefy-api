@@ -1,0 +1,23 @@
+[
+  {
+    "name": "beamswap-gamma-whusdc-wglmr",
+    "address": "0xE343799C2F3ca7Cfb8b0721A282Ac041f1bEb079",
+    "pool": "0xF7e2F39624AAd83AD235A090bE89b5fa861c29B8",
+    "decimals": "1e18",
+    "chainId": 1284,
+    "beefyFee": 0.095,
+    "poolId": 0,
+    "lp0": {
+      "address": "0x931715FEE2d06333043d11F658C8CE934aC61D0c",
+      "oracle": "tokens",
+      "oracleId": "whUSDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  }
+]

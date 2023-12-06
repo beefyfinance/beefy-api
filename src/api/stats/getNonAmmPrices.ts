@@ -97,6 +97,7 @@ import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getAcrossPrices from './ethereum/getAcrossPrices';
+import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
 import { GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
 
 export type NonAmmPrices = {
@@ -216,6 +217,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBunniArbPrices(tokenPrices),
     getUniswapEthereumGammaPrices(tokenPrices),
     getGammaBasePrices(tokenPrices),
+    getGammaMoonbeamPrices(tokenPrices),
   ];
 
   // Setup error logs

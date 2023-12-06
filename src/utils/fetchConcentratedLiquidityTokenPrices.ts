@@ -2,6 +2,7 @@ import IUniV3PoolAbi from '../abis/IUniV3Pool';
 import IKyberElasticPoolAbi from '../abis/IKyberElasticPool';
 import { ChainId } from '../../packages/address-book/types/chainid';
 import { fetchContract } from '../api/rpc/client';
+import { chain } from 'lodash';
 
 type ConcentratedLiquidityToken = {
   type: string;
@@ -153,6 +154,16 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xdEb066fE0e7726CbD5d0c4D5A210CfaA16ae1DDA',
       firstToken: 'LODE',
       secondToken: 'ETH',
+    },
+  ],
+  moonbeam: [
+    {
+      type: 'UniV3',
+      oracleId: 'whUSDC',
+      decimalDelta: 1e-12,
+      pool: '0xF7e2F39624AAd83AD235A090bE89b5fa861c29B8',
+      firstToken: 'GLMR',
+      secondToken: 'whUSDC',
     },
   ],
 };
