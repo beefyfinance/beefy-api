@@ -90,7 +90,7 @@ const _tokens = {
   USDCwh: {
     name: 'USD Coin',
     symbol: 'USDC',
-    oracleId: 'USDCwh',
+    oracleId: 'whUSDC',
     address: '0x931715FEE2d06333043d11F658C8CE934aC61D0c',
     chainId: 1284,
     decimals: 6,
@@ -100,6 +100,7 @@ const _tokens = {
     description:
       'USDC bridged by Wormhole(Portal). USDC is a fully collateralized US dollar stablecoin. Native USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://docs.wormhole.com/wormhole/',
+    bridge: 'wormhole',
   },
   POOP: {
     name: 'Raresama',
