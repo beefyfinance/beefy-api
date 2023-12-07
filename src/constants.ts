@@ -55,7 +55,7 @@ const METIS_RPC = process.env.METIS_RPC || 'https://andromeda.metis.io/?owner=10
 const MOONBEAM_RPC = process.env.MOONBEAM_RPC || 'https://rpc.api.moonbeam.network';
 const EMERALD_RPC = process.env.EMERALD_RPC || 'https://emerald.oasis.dev';
 const OPTIMISM_RPC = process.env.OPTIMISM_RPC || 'https://rpc.ankr.com/optimism';
-const KAVA_RPC = process.env.KAVA_RPC || 'https://evm.kava.io';
+const KAVA_RPC = process.env.KAVA_RPC || 'https://kava-evm.publicnode.com';
 const ETH_RPC = process.env.ETH_RPC || 'https://rpc.ankr.com/eth';
 const CANTO_RPC = process.env.CANTO_RPC || 'https://canto.slingshot.finance';
 const ZKSYNC_RPC = process.env.ZKSYNC_RPC || 'https://mainnet.era.zksync.io';
