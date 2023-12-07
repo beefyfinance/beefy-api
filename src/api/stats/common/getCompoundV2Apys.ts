@@ -9,6 +9,8 @@ import VToken from '../../../abis/VToken';
 import IComptroller from '../../../abis/IComptroller';
 import { Abi } from 'viem';
 import { fetchContract } from '../../rpc/client';
+import getApyBreakdown from './getApyBreakdown';
+import jp from 'jsonpath';
 
 const SECONDS_PER_YEAR = 31536000;
 
@@ -20,7 +22,9 @@ const getCompoundV2ApyData = async (params: CompoundV2ApyParams) => {
     poolsData
   );
 
-  const apys = {};
+  const liquidStakingApys = await getLiquidStakingApys(params.pools);
+
+  const apys: BigNumber[] = [];
   params.pools.forEach((pool, i) => {
     const apy = getPoolLeveragedApy(
       pool,
@@ -41,10 +45,16 @@ const getCompoundV2ApyData = async (params: CompoundV2ApyParams) => {
       );
     }
 
-    apys[pool.name] = apy;
+    apys.push(apy);
   });
 
-  return apys;
+  return getApyBreakdown(
+    params.pools.map(p => ({ ...p, address: p.name })),
+    Object.fromEntries(params.pools.map((p, i) => [p.name, supplyApys[i]])),
+    supplyCompApys,
+    0,
+    liquidStakingApys
+  );
 };
 
 const getPoolsApys = async (params: CompoundV2ApyParams, data: PoolsData) => {
@@ -94,7 +104,7 @@ const getPoolLeveragedApy = (
   borrowApy: BigNumberStatic,
   supplyCompApy: BigNumberStatic,
   borrowCompApy: BigNumberStatic
-) => {
+): BigNumber => {
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyComp, leveragedBorrowComp } =
     getLeveragedApys(
       supplyApy,
@@ -107,7 +117,7 @@ const getPoolLeveragedApy = (
   const totalComp = leveragedSupplyComp.plus(leveragedBorrowComp);
   const shareAfterBeefyPerformanceFee = 1 - getTotalPerformanceFeeForVault(pool.name);
   const compoundedComp = compound(totalComp, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
-  const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedComp).toNumber();
+  const apy = leveragedSupplyBase.minus(leveragedBorrowBase).plus(compoundedComp);
 
   return apy;
 };
@@ -217,6 +227,34 @@ const getLeveragedApys = (
   };
 };
 
+const getLiquidStakingApys = async (pools: CompoundV2Pool[]) => {
+  let liquidStakingAprs: number[] = [];
+
+  for (let i = 0; i < pools.length; i++) {
+    if (pools[i].lsUrl) {
+      //Normalize ls Data to always handle arrays
+      //Coinbase's returned APR is already in %, we need to normalize it by multiplying by 100
+      let lsAprFactor: number = 1;
+      if (pools[i].lsAprFactor) lsAprFactor = pools[i].lsAprFactor!;
+
+      let lsApr: number = 0;
+      try {
+        const url = pools[i].lsUrl!;
+        const lsResponse: any = await fetch(url).then(res => res.json());
+
+        lsApr = jp.query(lsResponse, pools[i].dataPath!)[0];
+        lsApr = (lsApr * lsAprFactor) / 100;
+        liquidStakingAprs.push(lsApr);
+      } catch {
+        console.error(`Failed to fetch ${pools[i].name} liquid staking APR from ${pools[i].lsUrl}`);
+      }
+    } else {
+      liquidStakingAprs.push(0);
+    }
+  }
+  return liquidStakingAprs;
+};
+
 export interface PoolsData {
   tokenPrices: number[];
   supplyRates: BigNumber[];
@@ -240,6 +278,9 @@ export interface CompoundV2Pool {
   platform?: string;
   depositFee?: number;
   beefyFee?: number;
+  lsUrl?: string;
+  lsAprFactor?: number;
+  dataPath?: string;
 }
 
 export interface CompoundV2ApyParams {

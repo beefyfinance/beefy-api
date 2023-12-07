@@ -41,6 +41,9 @@
     "oracle": "tokens",
     "oracleId": "cbETH",
     "decimals": "1e18",
+    "lsUrl": "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
+    "dataPath": "$.apy",
+    "lsAprFactor": 100,
     "borrowDepth": 1,
     "borrowRate": 0
   }
