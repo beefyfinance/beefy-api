@@ -50,8 +50,8 @@ const getCompoundV2ApyData = async (params: CompoundV2ApyParams) => {
 
   return getApyBreakdown(
     params.pools.map(p => ({ ...p, address: p.name })),
-    {},
-    apys,
+    Object.fromEntries(params.pools.map((p, i) => [p.name, supplyApys[i]])),
+    supplyCompApys,
     0,
     liquidStakingApys
   );
