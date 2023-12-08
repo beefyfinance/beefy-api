@@ -1,5 +1,45 @@
 [
   {
+    "name": "curve-arb-fethxeth",
+    "pool": "0xf7fed8ae0c5b78c19aadd68b700696933b0cefd9",
+    "gauge": "0x5839337bf070fea56595a5027e83cd7126b23884",
+    "convex": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "fETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "xETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-usd+fraxbp",
+    "pool": "0xb34a7d1444a707349bc7b981b7f2e1f20f81f013",
+    "gauge": "0x4645e6476d3a5595be9efd39426cc10586a8393d",
+    "convex": true,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USD+",
+        "decimals": "1e6"
+      },
+      {
+        "basePool": "curve-arb-f-fraxbp",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-tbtc",
     "pool": "0x755D6688AD74661Add2FB29212ef9153D40fcA46",
     "gauge": "0xd6DAcdCB438f048cF90e53415872cDb3FCC95421",
