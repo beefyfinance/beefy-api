@@ -22,6 +22,7 @@ const chainIdMap = {
   zkevm: 1101,
   base: 8453,
   gnosis: 100,
+  scroll: 534352,
 };
 
 export default chainIdMap;

@@ -62,6 +62,7 @@ const ZKSYNC_RPC = process.env.ZKSYNC_RPC || 'https://mainnet.era.zksync.io';
 const ZKEVM_RPC = process.env.ZKEVM_RPC || 'https://zkevm-rpc.com';
 const BASE_RPC = process.env.BASE_RPC || 'https://mainnet.base.org';
 const GNOSIS_RPC = process.env.GNOSIS_RPC || 'https://gnosis.publicnode.com';
+const SCROLL_RPC = process.env.SCROLL_RPC || 'https://rpc.scroll.io';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -86,6 +87,7 @@ const ZKSYNC_CHAIN_ID = ChainId.zksync;
 const ZKEVM_CHAIN_ID = ChainId.zkevm;
 const BASE_CHAIN_ID = ChainId.base;
 const GNOSIS_CHAIN_ID = ChainId.gnosis;
+const SCROLL_CHAIN_ID = ChainId.scroll;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.003;
@@ -131,6 +133,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.zkevm]: ZKEVM_RPC,
   [ChainId.base]: BASE_RPC,
   [ChainId.gnosis]: GNOSIS_RPC,
+  [ChainId.scroll]: SCROLL_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -179,6 +182,8 @@ const BASE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/base.json';
 const GNOSIS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/gnosis.json';
+const SCROLL_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/scroll.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -204,6 +209,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   zkevm: ZKEVM_VAULTS_ENDPOINT,
   base: BASE_VAULTS_ENDPOINT,
   gnosis: GNOSIS_VAULTS_ENDPOINT,
+  scroll: SCROLL_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -280,6 +286,9 @@ export {
   GNOSIS_RPC,
   GNOSIS_CHAIN_ID,
   GNOSIS_VAULTS_ENDPOINT,
+  SCROLL_RPC,
+  SCROLL_CHAIN_ID,
+  SCROLL_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
