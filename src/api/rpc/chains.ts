@@ -23,6 +23,7 @@ import {
   ZKSYNC_RPC,
   BASE_RPC,
   GNOSIS_RPC,
+  ROLLUX_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/address-book';
 
@@ -596,6 +597,29 @@ const gnosisChain = {
   },
 } as const satisfies Chain;
 
+const rolluxChain = {
+  id: 570,
+  name: 'Rollux',
+  network: 'rollux',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'ETH',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    public: { http: [ROLLUX_RPC] },
+    default: { http: [ROLLUX_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'Rollux Explorer', url: 'https://explorer.rollux.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -621,4 +645,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.zkevm]: zkEvmChain,
   [ChainId.base]: baseChain,
   [ChainId.gnosis]: gnosisChain,
+  [ChainId.rollux]: rolluxChain,
 } as const;

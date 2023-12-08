@@ -22,4 +22,5 @@ export enum ChainId {
   zkevm = 1101,
   base = 8453,
   gnosis = 100,
+  rollux = 570,
 }

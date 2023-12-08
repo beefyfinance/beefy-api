@@ -50,6 +50,8 @@ import {
   BASE_CHAIN_ID,
   GNOSIS_RPC,
   GNOSIS_CHAIN_ID,
+  ROLLUX_RPC,
+  ROLLUX_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -76,6 +78,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.zkevm]: addressBookByChainId[ChainId.zkevm].platforms.beefyfinance.multicall,
   [ChainId.base]: addressBookByChainId[ChainId.base].platforms.beefyfinance.multicall,
   [ChainId.gnosis]: addressBookByChainId[ChainId.gnosis].platforms.beefyfinance.multicall,
+  [ChainId.rollux]: addressBookByChainId[ChainId.rollux].platforms.beefyfinance.multicall,
 };
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
@@ -102,6 +105,7 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.zkevm]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.base]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.gnosis]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.rollux]: '0xcA11bde05977b3631167028862bE2a173976CA11',
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -128,6 +132,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   zkevm: [],
   base: [],
   gnosis: [],
+  rollux: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -154,6 +159,7 @@ clients.zksync.push(new Web3(ZKSYNC_RPC));
 clients.zkevm.push(new Web3(ZKEVM_RPC));
 clients.base.push(new Web3(BASE_RPC));
 clients.gnosis.push(new Web3(GNOSIS_RPC));
+clients.rollux.push(new Web3(ROLLUX_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -179,6 +185,7 @@ export const chainRandomClients = {
   zkevmRandomClient: () => clients.zkevm[~~(clients.zkevm.length * Math.random())],
   baseRandomClient: () => clients.base[~~(clients.base.length * Math.random())],
   gnosisRandomClient: () => clients.gnosis[~~(clients.gnosis.length * Math.random())],
+  rolluxRandomClient: () => clients.rollux[~~(clients.rollux.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -229,6 +236,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.baseRandomClient();
     case GNOSIS_CHAIN_ID:
       return chainRandomClients.gnosisRandomClient();
+    case ROLLUX_CHAIN_ID:
+      return chainRandomClients.rolluxRandomClient();
   }
 };
 
