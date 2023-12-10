@@ -1285,6 +1285,20 @@ const _tokens = {
     documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
     bridge: 'ankr',
   },
+  NEXT: {
+    name: 'Connext',
+    symbol: 'NEXT',
+    oracleId: 'NEXT',
+    address: '0x58b9cB810A68a7f3e1E4f8Cb45D1B9B3c79705E8',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.connext.network',
+    description:
+      'Connext is a modular protocol for securely passing funds and data between chains. Developers can use Connext to build crosschain apps (xApps) - applications that interact with multiple domains (blockchains and/or rollups) simultaneously.',
+    documentation: 'https://dao-docs.connext.network/',
+    bridge: 'connext',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
