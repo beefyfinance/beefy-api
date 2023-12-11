@@ -1,0 +1,45 @@
+[
+  {
+    "name": "curve-gno-eureusd",
+    "pool": "0x056C6C5e684CeC248635eD86033378Cc444459B0",
+    "token": "0x0CA1C1eC4EBf3CC67a9f545fF90a3795b318cA4a",
+    "gauge": "0xd91770E868c7471a9585d1819143063A40c54D00",
+    "rewards": [
+      {
+        "token": "0x6C76971f98945AE98dD7d4DFcA8711ebea946eA6",
+        "oracleId": "wstETH"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "EURe",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-gno-3pool",
+        "oracleId": "curve-gno-3pool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-gno-3pool",
+    "pool": "0x7f90122BF0700F9E7e1F688fe926940E8839F353",
+    "token": "0x1337BedC9D22ecbe766dF105c9623922A27963EC",
+    "gauge": "0xB721Cc32160Ab0da2614CC6aB16eD822Aeebc101",
+    "tokens": [
+      {
+        "oracleId": "WXDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]

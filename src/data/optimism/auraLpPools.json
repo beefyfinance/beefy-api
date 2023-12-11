@@ -1,5 +1,124 @@
 [
   {
+    "name": "aura-op-ethereum-triplets",
+    "address": "0x5F8893506Ddc4C271837187d14A9C87964a074Dc",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xe350DFC963445F3B64a4229d019787491a58F8B9",
+    "vaultPoolId": "0x5f8893506ddc4c271837187d14a9c87964a074dc000000000000000000000106",
+    "composable": true,
+    "bptIndex": 2,
+    "decimals": "1e18",
+    "lsUrl": [
+      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+      "https://api.frax.finance/v2/frxeth/summary/latest",
+      "https://api.rocketpool.net/api/apr"
+    ],
+    "dataPath": ["$.data.smaApr", "$.sfrxethApr", "$.yearlyAPR"],
+    "lsIndex": [0, 1, 2],
+    "lsAprFactor": [1, 1, 1],
+    "balancerChargesFee": true,
+    "rewards": [
+      {
+        "rewardGauge": "0x2f635300E57AFEe0C1E08AA155a594b25d716385",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xc78e00d8Fd2840E11107b84937D4De94db5FD2ec",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-op-ovn-wusd+",
+    "address": "0x00b82bc5EdEa6E5E6c77635e31a1A25Aad99f881",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x3B8f0D54e637de61b9513A5D4E4E4e02DfABA5D7",
+    "vaultPoolId": "0x00b82bc5edea6e5e6c77635e31a1a25aad99f881000200000000000000000105",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xCFC8D70BA57dF69f911a7Dd6abd7B967720Bd6E2",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xD2A68198De219406C9FF910F2fd267A90718E6d7",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "OVN",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wUSD+",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "beets-shanghai-shakedown",
+    "address": "0x7B50775383d3D6f0215A8F290f2C9e2eEBBEceb2",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xe110b862E4D076596707892c0C5163BC183eb161",
+    "vaultPoolId": "0x7b50775383d3d6f0215a8f290f2c9e2eebbeceb200020000000000000000008b",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "lsIndex": 0,
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x903d716fe68e7e091eCC43AA93c0F8cfD7e7BC0a",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xb0709c230C06BE6e2A84b2Ba877094EB9a4fA014",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-op-reth-ankreth",
     "address": "0x004700ba0a4f5f22e1E78a277fCA55e36F47E09C",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -168,6 +287,7 @@
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
     "dataPath": "$.data.smaApr",
     "lsIndex": 0,
+    "balancerChargesFee": true,
     "vaultPoolId": "0x7ca75bdea9dede97f8b13c6641b768650cb837820002000000000000000000d5",
     "decimals": "1e18",
     "rewards": [

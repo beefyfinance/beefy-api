@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { default: IRewardPool } = require('../../../abis/IRewardPool');
 const { fetchContract } = require('../../rpc/client');
 const { default: ERC20Abi } = require('../../../abis/ERC20Abi');

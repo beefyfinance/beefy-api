@@ -5,7 +5,6 @@ const getStargateOpApys = require('./getStargateOpApys');
 const getbeVeloApy = require('./getbeVeloApy');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getRipaeApys } = require('./getRipaeApys');
-const { getSonneApys } = require('./getSonneApys');
 const { getHopApys } = require('./getHopApys');
 const { getHopOpApys } = require('./getHopOpApys');
 const { getOlpApys } = require('./getOlpApys');
@@ -18,8 +17,10 @@ const getBalancerOpApys = require('./getBalancerOpApys');
 const getAuraApys = require('./getAuraOptimismApys');
 const getBeVeloV2Apr = require('./getBeVeloV2Apr');
 const getUniswapGammaApys = require('./getUniswapGammaApys');
+const { getSonneApys } = require('./getSonneApys');
 
 const getApys = [
+  getSonneApys,
   getUniswapGammaApys,
   getAuraApys,
   getBalancerOpApys,
@@ -33,7 +34,6 @@ const getApys = [
   getbeVeloApy,
   getAaveV3Apys,
   getRipaeApys,
-  getSonneApys,
   getHopApys,
   getHopOpApys,
   getOlpApys,

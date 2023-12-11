@@ -31,4 +31,12 @@ export class Cache {
       console.error(`Failed to set value for cache key ${key}`);
     }
   }
+
+  async delete(key: string): Promise<void> {
+    try {
+      await this.backend.delete(key);
+    } catch {
+      console.error(`Failed to delete value for cache key ${key}`);
+    }
+  }
 }

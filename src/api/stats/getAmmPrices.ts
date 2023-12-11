@@ -10,12 +10,12 @@ import { fetchJbrlPrice } from '../../utils/fetchJbrlPrice';
 import { fetchyVaultPrices } from '../../utils/fetchyVaultPrices';
 import { fetchCurveTokenPrices } from '../../utils/fetchCurveTokenPrices';
 import { fetchConcentratedLiquidityTokenPrices } from '../../utils/fetchConcentratedLiquidityTokenPrices';
+import { fetchSolidlyStableTokenPrices } from '../../utils/fetchSolidlyStableTokenPrices';
 import {
   fetchBalancerLinearPoolPrice,
   fetchBalancerStablePoolPrice,
 } from '../../utils/fetchBalancerStablePoolPrices';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
-import { fetchCurrencyPrices } from '../../utils/fetchCurrencyPrices';
 import { getKey, setKey } from '../../utils/cache';
 
 import getNonAmmPrices from './getNonAmmPrices';
@@ -30,7 +30,6 @@ import kebabPools from '../../data/kebabLpPools.json';
 import bdollarSbdoPools from '../../data/bdollarSbdoLpPools.json';
 import boltBtdPools from '../../data/boltBtdLpPools.json';
 import boltBtsPools from '../../data/boltBtsLpPools.json';
-import mdexPools from '../../data/heco/mdexLpPools.json';
 import monsterPools from '../../data/monsterLpPools.json';
 import narPools from '../../data/narLpPools.json';
 import nyacashPools from '../../data/nyacashLpPools.json';
@@ -69,10 +68,8 @@ import mdexBscPools from '../../data/mdexBscLpPools.json';
 import typhPools from '../../data/typhLpPools.json';
 import typhPoolsV1 from '../../data/typhLpPoolsV1.json';
 import marshPools from '../../data/degens/marshLpPools.json';
-import lavaPools from '../../data/heco/lavaLpPools.json';
 import popsiclePools from '../../data/popsicleLpPools.json';
 import comethPools from '../../data/matic/comethLpPools.json';
-import hfiPools from '../../data/heco/hfiLpPools.json';
 import lydPools from '../../data/avax/lydLpPools.json';
 import icarusPools from '../../data/icarusLpPools.json';
 import quickPools from '../../data/matic/quickLpPools.json';
@@ -101,7 +98,6 @@ import ironQuickPools from '../../data/matic/ironQuickLpPools.json';
 import polycatQuickPool from '../../data/matic/polycatQuickLpPool.json';
 import polycatDfynPool from '../../data/matic/polycatDfynLpPool.json';
 import polycatSushiPool from '../../data/matic/polycatSushiLpPool.json';
-import lendhubPools from '../../data/heco/lendhubLpPools.json';
 import pantherPools from '../../data/degens/pantherLpPools.json';
 import waultPools from '../../data/waultLpPools.json';
 import tenfiPools from '../../data/tenfiLpPools.json';
@@ -184,7 +180,6 @@ import summitPools from '../../data/fantom/summitLpPools.json';
 import solarbeamPools from '../../data/moonriver/solarbeamLpPools.json';
 import sushiMr from '../../data/moonriver/sushiLp.json';
 import sushiMrPools from '../../data/moonriver/sushiLpPools.json';
-import blizzPools from '../../data/avax/blizzLpPools.json';
 import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
 import solarbeamDualLpPools from '../../data/moonriver/solarbeamDualLpPools.json';
@@ -340,10 +335,10 @@ const pools = normalizePoolOracleIds([
   ...dystopiaPools,
   ...velodromePools,
   ...oldVelodromePools,
-  ...valleySwapLpPools,
+  // ...valleySwapLpPools,
   ...dfxPools,
-  ...yuzuDualPools,
-  ...yuzuLpPools,
+  //...yuzuDualPools,
+  //...yuzuLpPools,
   ...ripaeLpPools,
   ...bombLpPools,
   ...valasLpPools,
@@ -396,7 +391,6 @@ const pools = normalizePoolOracleIds([
   ...solarbeamDualLpPools,
   ...cronaPools,
   ...vvsPools,
-  ...blizzPools,
   ...sushiMrPools,
   ...sushiMr,
   ...solarbeamPools,
@@ -476,7 +470,6 @@ const pools = normalizePoolOracleIds([
   ...waultPools,
   ...tenfiPools,
   ...pantherPools,
-  ...lendhubPools,
   ...polycatSushiPool,
   ...polycatQuickPool,
   ...ironQuickPools,
@@ -504,10 +497,8 @@ const pools = normalizePoolOracleIds([
   ...quickPools,
   ...lydPools,
   ...icarusPools,
-  ...hfiPools,
   ...comethPools,
   ...popsiclePools,
-  ...lavaPools,
   ...marshPools,
   ...typhPools,
   ...typhPoolsV1,
@@ -550,7 +541,6 @@ const pools = normalizePoolOracleIds([
   ...kebabPools,
   ...boltBtdPools,
   ...boltBtsPools,
-  ...mdexPools,
   ...monsterPools,
   ...narPools,
   ...nyacashPools,
@@ -606,6 +596,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'ankr-reward-bearing-ftm': ['ankrFTM'],
   lucha: ['LUCHA'],
   'cow-protocol': ['COW'],
+  'electronic-usd': ['eUSD'],
 };
 
 /**
@@ -632,6 +623,7 @@ const seedPeggedPrices = {
   amDAI: 'DAI', // Aave
   aaUSDT: 'USDT', // Aave
   aaUSDC: 'USDC', // Aave
+  aArbUSDCn: 'USDC', // Aave
   aaDAI: 'DAI', // Aave
   aavAVAX: 'AVAX', // Aave
   aavUSDC: 'USDC', // Aave
@@ -643,7 +635,8 @@ const seedPeggedPrices = {
   hUSDC: 'USDC', // HOP
   hUSDT: 'USDT', // HOP
   aWMATIC: 'MATIC', // Aave
-  aWETH: 'ETH', // Aave
+  aWETH: 'ETH', // Aave,
+  cArbUSDCv3: 'USDC', // Compound
 };
 
 export type LpBreakdown = {
@@ -686,18 +679,11 @@ async function performUpdateAmmPrices() {
   // Seed with chain link + coin gecko prices
   const knownPrices = await fetchSeedPrices();
 
-  const currencyPrices = async () => {
-    const prices = await fetchCurrencyPrices(currencies);
-    return {
-      CAD: prices['cad'],
-    };
-  };
-
   const ammPrices = fetchAmmPrices(pools, knownPrices).then(prices => {
     //Set prices for the wrapped version of native tokens (if native was set)
     const nativeTokens = new Set(
       Object.values(addressBookByChainId).map(addressbook =>
-        addressbook.tokens.WNATIVE.symbol.slice(1)
+        addressbook.tokens.WNATIVE.oracleId.slice(1)
       )
     );
     nativeTokens.forEach(nativeToken => {
@@ -717,6 +703,10 @@ async function performUpdateAmmPrices() {
 
   const concentratedLiquidityTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
     return await fetchConcentratedLiquidityTokenPrices(tokenPrices);
+  });
+
+  const solidlyStableTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
+    return await fetchSolidlyStableTokenPrices(tokenPrices);
   });
 
   const dmmPrices = fetchDmmPrices(dmmPools, knownPrices);
@@ -773,6 +763,7 @@ async function performUpdateAmmPrices() {
     const dmm = await dmmPrices;
     const curvePrices = await curveTokenPrices;
     const concentratedLiquidityPrices = await concentratedLiquidityTokenPrices;
+    const solidlyStablePrices = await solidlyStableTokenPrices;
     const xTokenPrices = await xPrices;
     const mooTokenPrices = await mooPrices;
     const beTokenTokenPrice = await beTokenPrice;
@@ -787,8 +778,8 @@ async function performUpdateAmmPrices() {
       ...beTokenTokenPrice,
       ...curvePrices,
       ...concentratedLiquidityPrices,
+      ...solidlyStablePrices,
       ...linearPoolTokenPrice,
-      ...(await currencyPrices()),
       ...venusTokenPrice,
       ...optionTokenPrice,
     };
@@ -872,45 +863,55 @@ export async function getLpBreakdownForOracle(oracleId: string) {
 }
 
 export async function getAmmTokenPrice(
-  tokenSymbol: string,
-  withUnknownLogging: boolean = false
+  oracleId: string,
+  withUnknownLogging: boolean | string = false
 ): Promise<number | undefined> {
   const tokenPrices = await getAmmTokensPrices();
-  if (tokenPrices.hasOwnProperty(tokenSymbol)) {
-    return tokenPrices[tokenSymbol];
+  if (tokenPrices.hasOwnProperty(oracleId)) {
+    return tokenPrices[oracleId];
   }
 
   if (withUnknownLogging) {
-    console.log(`Unknown token '${tokenSymbol}'. Consider adding it to .json file`);
+    console.warn(
+      `Unknown oracleId '${oracleId}' in tokens oracle. ${
+        withUnknownLogging === true ? 'Consider adding it to .json file' : withUnknownLogging
+      }`
+    );
   }
 }
 
 export async function getAmmLpPrice(
-  lpName: string,
-  withUnknownLogging: boolean = false
+  oracleId: string,
+  withUnknownLogging: boolean | string = false
 ): Promise<number | undefined> {
   const lpPrices = await getAmmLpPrices();
-  if (lpPrices.hasOwnProperty(lpName)) {
-    return lpPrices[lpName];
+  if (lpPrices.hasOwnProperty(oracleId)) {
+    return lpPrices[oracleId];
   }
 
   if (withUnknownLogging) {
-    console.log(`Unknown liquidity pair '${lpName}'. Consider adding it to .json file`);
+    console.warn(
+      `Unknown oracleId '${oracleId}' in lps oracle. ${
+        withUnknownLogging === true ? 'Consider adding it to .json file' : withUnknownLogging
+      }`
+    );
   }
 }
 
 export async function getAmmPrice(
-  tokenOrLpName: string,
-  withUnknownLogging: boolean = false
+  oracleId: string,
+  withUnknownLogging: boolean | string = false
 ): Promise<number | undefined> {
   const allPrices = await getAmmAllPrices();
-  if (allPrices.hasOwnProperty(tokenOrLpName)) {
-    return allPrices[tokenOrLpName];
+  if (allPrices.hasOwnProperty(oracleId)) {
+    return allPrices[oracleId];
   }
 
   if (withUnknownLogging) {
-    console.error(
-      `Unknown token/liquidity pair '${tokenOrLpName}'. Consider adding it to .json file`
+    console.warn(
+      `Unknown oracleId '${oracleId}' in any oracle. ${
+        withUnknownLogging === true ? 'Consider adding it to .json file' : withUnknownLogging
+      }`
     );
   }
 }
@@ -918,7 +919,7 @@ export async function getAmmPrice(
 // We want to treat wrapped tokens the same way we'd treat normal ones => We then swap all wrapped token oracleIds to their underlying
 function normalizePoolOracleIds(pools) {
   const wrappedNativeTokens = new Set(
-    Object.values(addressBookByChainId).map(addressbook => addressbook.tokens.WNATIVE.symbol)
+    Object.values(addressBookByChainId).map(addressbook => addressbook.tokens.WNATIVE.oracleId)
   );
 
   pools.forEach(pool => {

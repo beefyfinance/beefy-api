@@ -6,7 +6,7 @@ import { fetchContract } from '../../../rpc/client';
 import ERC20Abi from '../../../../abis/ERC20Abi';
 
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 const { compound } = require('../../../../utils/compound');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 const { getTradingFeeApr } = require('../../../../utils/getTradingFeeApr');

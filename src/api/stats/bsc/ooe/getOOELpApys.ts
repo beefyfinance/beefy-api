@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 import getApyBreakdown from '../../common/getApyBreakdown';
 import { BSC_CHAIN_ID as chainId } from '../../../../constants';
 import { addressBook } from '../../../../../packages/address-book/address-book';
@@ -25,7 +25,7 @@ const getFarmApys = async () => {
   const apys = [];
 
   const [rewardTokenPrice, { balances, rewardRates }, secondsPerBlock] = await Promise.all([
-    fetchPrice({ oracle: 'tokens', id: OOEV2.symbol }),
+    fetchPrice({ oracle: 'tokens', id: OOEV2.oracleId }),
     getPoolsData(),
     getBlockTime(chainId),
   ]);

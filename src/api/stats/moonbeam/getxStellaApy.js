@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { BASE_HPY, MOONBEAM_CHAIN_ID, MOONBEAM_LPF } = require('../../../constants');
 const { getYearlyTradingFeesForProtocols } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';

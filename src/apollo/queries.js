@@ -180,6 +180,24 @@ const exactlyQuery = (market, timestamp) => {
   return gql(queryString);
 };
 
+const gmxQuery = (markets, timestamp) => {
+  let marketsString = `[`;
+  markets.map(market => {
+    return (marketsString += `"${market}"`);
+  });
+  marketsString += ']';
+  const queryString = `
+    query gmx {
+      collectedMarketFeesInfos(first: 1000, orderBy: timestampGroup, orderDirection: desc, where: { marketAddress_in: ${marketsString}, timestampGroup_lte: ${timestamp}}) {
+        marketAddress
+        cumulativeFeeUsdPerPoolValue
+        timestampGroup
+      }
+    }
+  `;
+  return gql(queryString);
+};
+
 module.exports = {
   pairDayDataQuery,
   pairDayDataSushiQuery,
@@ -193,4 +211,5 @@ module.exports = {
   uniswapPositionQuery,
   hopQuery,
   exactlyQuery,
+  gmxQuery,
 };

@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { OPTIMISM_CHAIN_ID } = require('../../../constants');
 import { addressBook } from '../../../../packages/address-book/address-book';
 import ERC20Abi from '../../../abis/ERC20Abi';

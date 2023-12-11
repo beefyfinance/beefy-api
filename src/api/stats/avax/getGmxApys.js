@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 import { AVAX_CHAIN_ID } from '../../../constants';
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';
 import StrategyABI from '../../../abis/StrategyABI';
 import RewardTrackerAbi from '../../../abis/arbitrum/RewardTracker';

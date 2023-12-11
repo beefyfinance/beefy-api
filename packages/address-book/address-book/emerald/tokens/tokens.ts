@@ -5,6 +5,7 @@ const ROSE = {
   name: 'Wrapped ROSE ',
   address: '0x21C718C22D52d0F3a789b752D4c2fD5908a8A733',
   symbol: 'WROSE',
+  oracleId: 'WROSE',
   decimals: 18,
   chainId: 42262,
   website: 'https://oasisprotocol.org/',
@@ -20,6 +21,7 @@ const _tokens = {
   WBTC: {
     name: 'Multichain Wrapped BTC',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     address: '0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
     chainId: 42262,
     decimals: 8,
@@ -31,6 +33,7 @@ const _tokens = {
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     address: '0x65e66a61D0a8F1e686C2D6083ad611a10D84D97A',
     chainId: 42262,
     decimals: 18,
@@ -44,6 +47,7 @@ const _tokens = {
   ceUSDC: {
     name: 'USD Coin (Celer)',
     symbol: 'ceUSDC',
+    oracleId: 'ceUSDC',
     address: '0x81ECac0D6Be0550A00FF064a4f9dd2400585FE9c',
     chainId: 42262,
     decimals: 6,
@@ -57,6 +61,7 @@ const _tokens = {
   UST: {
     name: 'UST (Wormhole)',
     symbol: 'UST',
+    oracleId: 'UST',
     address: '0xa1E73c01E0cF7930F5e91CB291031739FE5Ad6C2',
     chainId: 42262,
     decimals: 6,
@@ -69,6 +74,7 @@ const _tokens = {
   FTP: {
     name: 'Fountain Protocol',
     symbol: 'FTP',
+    oracleId: 'FTP',
     address: '0xd1dF9CE4b6159441D18BD6887dbd7320a8D52a05',
     chainId: 42262,
     decimals: 18,
@@ -80,6 +86,7 @@ const _tokens = {
   YUZU: {
     name: 'YUZUToken',
     symbol: 'YUZU',
+    oracleId: 'YUZU',
     address: '0xf02b3e437304892105992512539F769423a515Cb',
     chainId: 42262,
     decimals: 18,
@@ -91,6 +98,7 @@ const _tokens = {
   USDT: {
     name: 'Tether USD (Wormhole)',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0xdC19A122e268128B5eE20366299fc7b5b199C8e3',
     chainId: 42262,
     decimals: 6,
@@ -103,6 +111,7 @@ const _tokens = {
   WETH: {
     name: 'Wrapped Ether (Wormhole)',
     symbol: 'WETH',
+    oracleId: 'WETH',
     address: '0x3223f17957Ba502cbe71401D55A0DB26E5F7c68F',
     chainId: 42262,
     decimals: 18,
@@ -116,6 +125,7 @@ const _tokens = {
   VS: {
     name: 'ValleySwap Token',
     symbol: 'VS',
+    oracleId: 'VS',
     address: '0xBC033203796CC2C8C543a5aAe93a9a643320433D',
     chainId: 42262,
     decimals: 18,
@@ -128,6 +138,7 @@ const _tokens = {
   evoUSDT: {
     name: 'Tether USD (EvoDeFi)',
     symbol: 'evoUSDT',
+    oracleId: 'evoUSDT',
     address: '0x6Cb9750a92643382e020eA9a170AbB83Df05F30B',
     chainId: 42262,
     decimals: 6,
@@ -140,6 +151,7 @@ const _tokens = {
   evoUSDC: {
     name: 'USD Coin (EvoDeFi)',
     symbol: 'evoUSDC',
+    oracleId: 'evoUSDC',
     address: '0x94fbfFe5698DB6f54d6Ca524DbE673a7729014Be',
     chainId: 42262,
     decimals: 6,
@@ -152,6 +164,7 @@ const _tokens = {
   evoWETH: {
     name: 'Wrapped Ether (EvoDeFi)',
     symbol: 'evoWETH',
+    oracleId: 'evoWETH',
     address: '0xE9b38eD157429483EbF87Cf6C002cecA5fd66783',
     chainId: 42262,
     decimals: 18,
@@ -164,6 +177,7 @@ const _tokens = {
   evoWBTC: {
     name: 'Wrapped BTC (EvoDeFi)',
     symbol: 'evoWBTC',
+    oracleId: 'evoWBTC',
     address: '0x010CDf0Db2737f9407F8CFcb4dCaECA4dE54c815',
     chainId: 42262,
     decimals: 8,

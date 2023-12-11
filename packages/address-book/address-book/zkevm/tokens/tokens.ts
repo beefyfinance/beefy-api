@@ -5,6 +5,7 @@ const ETH = {
   name: 'Wrapped Ether',
   address: '0x4F9A0e7FD2Bf6067db6994CF12E4495Df938E6e9',
   symbol: 'WETH',
+  oracleId: 'WETH',
   decimals: 18,
   chainId: 1101,
   website: 'https://weth.io/',
@@ -21,6 +22,7 @@ const _tokens = {
   USDC: {
     name: 'USD Coin',
     symbol: 'USDC',
+    oracleId: 'USDC',
     address: '0xA8CE8aee21bC2A48a5EF670afCc9274C7bbbC035',
     chainId: 1101,
     decimals: 6,
@@ -35,6 +37,7 @@ const _tokens = {
   MATIC: {
     name: 'Matic Token',
     symbol: 'MATIC',
+    oracleId: 'MATIC',
     address: '0xa2036f0538221a77A3937F1379699f44945018d0',
     chainId: 1101,
     decimals: 18,
@@ -49,6 +52,7 @@ const _tokens = {
   WBTC: {
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     address: '0xEA034fb02eB1808C2cc3adbC15f447B93CbE08e1',
     chainId: 1101,
     decimals: 8,
@@ -63,6 +67,7 @@ const _tokens = {
   USDT: {
     name: 'Tether USD',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0x1E4a5963aBFD975d8c9021ce480b42188849D41d',
     chainId: 1101,
     decimals: 6,
@@ -77,6 +82,7 @@ const _tokens = {
   DAI: {
     name: 'Dai Stablecoin',
     symbol: 'DAI',
+    oracleId: 'DAI',
     address: '0xC5015b9d9161Dca7e18e32f6f25C4aD850731Fd4',
     chainId: 1101,
     decimals: 18,
@@ -91,6 +97,7 @@ const _tokens = {
   stMATIC: {
     name: 'Staked MATIC',
     symbol: 'stMATIC',
+    oracleId: 'stMATIC',
     address: '0x83b874c1e09D316059d929da402dcB1A98e92082',
     chainId: 1101,
     decimals: 18,
@@ -105,6 +112,7 @@ const _tokens = {
   QUICK: {
     name: 'QuickSwap',
     symbol: 'QUICK',
+    oracleId: 'QUICK',
     address: '0x68286607A1d43602d880D349187c3c48c0fD05E6',
     chainId: 1101,
     decimals: 18,
@@ -118,6 +126,7 @@ const _tokens = {
   FRAX: {
     name: 'Frax',
     symbol: 'FRAX',
+    oracleId: 'FRAX',
     address: '0xFf8544feD5379D9ffa8D47a74cE6b91e632AC44D',
     chainId: 1101,
     decimals: 18,
@@ -131,6 +140,7 @@ const _tokens = {
   frxETH: {
     name: 'Frax Ether',
     symbol: 'frxETH',
+    oracleId: 'frxETH',
     address: '0xCf7eceE185f19e2E970a301eE37F93536ed66179',
     chainId: 1101,
     decimals: 18,
@@ -145,6 +155,7 @@ const _tokens = {
   BAL: {
     name: 'Balancer',
     symbol: 'BAL',
+    oracleId: 'BAL',
     address: '0x120eF59b80774F02211563834d8E3b72cb1649d6',
     chainId: 1101,
     decimals: 18,
@@ -159,6 +170,7 @@ const _tokens = {
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
     symbol: 'wstETH',
+    oracleId: 'wstETH',
     address: '0x5D8cfF95D7A57c0BF50B30b43c7CC0D52825D4a9',
     chainId: 1101,
     decimals: 18,
@@ -172,6 +184,7 @@ const _tokens = {
   rETH: {
     name: 'Rocket Pool ETH',
     symbol: 'rETH',
+    oracleId: 'rETH',
     address: '0xb23C20EFcE6e24Acca0Cef9B7B7aA196b84EC942',
     chainId: 1101,
     decimals: 18,
@@ -181,6 +194,47 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.rocketpool.net/guides/',
     bridge: 'zkevm-canonical',
+  },
+  AAVE: {
+    name: 'Aave',
+    address: '0x68791CFE079814c46e0E25C19Bcc5BFC71A744f7',
+    symbol: 'AAVE',
+    oracleId: 'AAVE',
+    decimals: 18,
+    chainId: 1101,
+    website: 'https://aave.com/',
+    description:
+      'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
+    logoURI: 'https://ftmscan.com/token/images/aave_32.png',
+    documentation: 'https://docs.aave.com/',
+    bridge: 'zkevm-canonical',
+  },
+  CRV: {
+    name: 'CRV',
+    address: '0x3d5320821BfCa19fb0B5428F2c79d63bd5246f89',
+    symbol: 'CRV',
+    oracleId: 'CRV',
+    decimals: 18,
+    chainId: 1101,
+    website: 'https://curve.fi/',
+    description:
+      'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    bridge: 'zkevm-canonical',
+    logoURI: '',
+    documentation: 'https://curve.readthedocs.io/',
+  },
+  LINK: {
+    name: 'Chainlink',
+    symbol: 'LINK',
+    oracleId: 'LINK',
+    address: '0x4B16e4752711A7ABEc32799C976F3CeFc0111f2B',
+    chainId: 1101,
+    decimals: 18,
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    bridge: 'zkevm-canonical',
+    logoURI: 'https://hecoinfo.com/token/images/chainlink_32.png',
   },
 } as const;
 

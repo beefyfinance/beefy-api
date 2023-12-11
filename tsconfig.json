@@ -1,33 +1,23 @@
 {
-  // This is an alias to @tsconfig/node12: https://github.com/tsconfig/bases
-  "extends": "ts-node/node12/tsconfig.json",
-
-  // Most ts-node options can be specified here using their programmatic names.
-  "ts-node": {
-    // It is faster to skip typechecking.
-    // Remove if you want ts-node to do typechecking.
-    "transpileOnly": true,
-
-    "files": true,
-
-    "pretty": true,
-
-    "compilerOptions": {
-      // compilerOptions specified here will override those declared below,
-      // but *only* in ts-node.  Useful if you want ts-node and tsc to use
-      // different options with a single tsconfig.json.
-    }
-  },
+  // See https://github.com/tsconfig/bases - we use 16 as base since we have commonjs modules
+  "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
-    // typescript options here
     "outDir": "./dist",
-    "lib": ["DOM"],
-
     "allowJs": true,
     "checkJs": false,
     "resolveJsonModule": true,
-
     "strict": false,
-    "noErrorTruncation": true
+    "noErrorTruncation": true,
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node"]
+  },
+  "ts-node": {
+    // skip type checking (faster, since we run in prod via ts-node)
+    "transpileOnly": true,
+    "files": true,
+    "pretty": true,
+    "compilerOptions": {
+      // compilerOptions specified here will override those declared above, but *only* in ts-node.
+    }
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "blockchain-addressbook",
-  "version": "0.44.35",
+  "version": "0.45.32",
   "description": "A collection of useful addresses on various chains for defi development",
   "main": "build/address-book/index.js",
   "types": "build/address-book/index.d.ts",
@@ -15,22 +15,27 @@
     "compile": "tsc",
     "checksum": "ts-node ./scripts/checksum.ts",
     "checksummify": "ts-node ./scripts/toChecksumTokenList.ts",
+    "checkDecimals": "ts-node --transpileOnly ./scripts/checkDecimals.ts",
+    "checkOracles": "ts-node --transpileOnly scripts/checkOracles.ts",
+    "checkDuplicates": "ts-node --transpileOnly ./scripts/checkDuplicates.ts",
     "submit": "yarn checksum && yarn compile && yarn publish"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.24.0",
-    "@typescript-eslint/parser": "^4.24.0",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0",
     "assert": "^2.0.0",
-    "eslint": "^7.27.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "ethereumjs-util": "^7.0.10",
-    "lint-staged": "^11.1.2",
-    "prettier": "^2.3.0",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.4"
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/node": "^20.9.0"
+  },
   "lint-staged": {
     "**/*.ts": [
       "eslint --fix",

@@ -3,7 +3,7 @@ import ISolarVault from '../../../abis/moonriver/ISolarVault';
 import { MOONRIVER_CHAIN_ID } from '../../../constants';
 import { fetchContract } from '../../rpc/client';
 
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';
 const getBlockTime = require('../../../utils/getBlockTime');
 const pool = require('../../../data/moonriver/solarPool.json');

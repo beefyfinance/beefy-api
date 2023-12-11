@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { compound } = require('../../../utils/compound');
 const { DAILY_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');

@@ -1,0 +1,35 @@
+[
+  {
+    "name": "pancake-gamma-arb-weth",
+    "address": "0xdaB1dA56965B1aaaBE38774E8B74C3Ade8fc439E",
+    "pool": "0x0d7c4b40018969f81750d0a164c3839a77353EFB",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "poolId": 0,
+    "extraRewards": [
+      {
+        "rewarder": "0xF611824E7C42286F055dbE44A1a21017fDA603D2",
+        "oracleId": "Cake",
+        "decimals": "1e18"
+      },
+      {
+        "rewarder": "0xd928814eF5E907699C5edA871AdB3394dcEB40c7",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "oracle": "tokens",
+      "oracleId": "ARB",
+      "decimals": "1e18"
+    }
+  }
+]

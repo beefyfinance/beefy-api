@@ -21,12 +21,12 @@ export const getSushiLpApys = () => {
     minichefConfig: {
       minichef,
       minichefAbi: SushiMiniChefV2,
-      outputOracleId: mSUSHI.symbol,
+      outputOracleId: mSUSHI.oracleId,
       tokenPerSecondContractMethodName: 'sushiPerSecond',
     },
     rewarderConfig: {
       rewarder: complexRewarderTime,
-      rewarderTokenOracleId: WMOVR.symbol,
+      rewarderTokenOracleId: WMOVR.oracleId,
       rewarderTotalAllocPoint: 10000,
     },
     pools,

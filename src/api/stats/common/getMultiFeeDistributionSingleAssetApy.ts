@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
 import { BASE_HPY } from '../../../constants';
 import { ApyBreakdownResult } from './getApyBreakdown';
@@ -40,7 +40,7 @@ const getTotalStakedInUsd = async ({
 }: MultiFeeDistributionSingleAssetApyParams) => {
   const tokenContract = fetchContract(multiFeeDistributionAddress, MultiFeeDistribution, chainId);
   const totalStaked = new BigNumber((await tokenContract.read.totalSupply()).toString());
-  const tokenPrice = await fetchPrice({ oracle, id: want.symbol });
+  const tokenPrice = await fetchPrice({ oracle, id: want.oracleId });
   return totalStaked.times(tokenPrice).dividedBy(want.decimals);
 };
 

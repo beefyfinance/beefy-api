@@ -8,7 +8,7 @@ const params: CompoundV2ApyParams = {
   pools,
   comptroller: '0x60CF091cD3f50420d50fD7f707414d0DF4751C58',
   compOracleId: 'SONNE',
-  secondsPerBlock: 1, // Sonne reports rates per second, not pet block
+  secondsPerBlock: 1,
   // log: true,
 };
 

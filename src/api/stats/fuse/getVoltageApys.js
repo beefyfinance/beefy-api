@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const voltageLpPools = require('../../../data/fuse/voltageLpPools.json');
 const voltageStableLpPools = require('../../../data/fuse/voltageStableLpPools.json');
 const { BASE_HPY, FUSE_CHAIN_ID } = require('../../../constants');

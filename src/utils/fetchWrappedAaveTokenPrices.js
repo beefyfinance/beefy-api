@@ -24,7 +24,18 @@ const {
     tokens: { 'USD+': USDplus, 'wUSD+': wUSDplus, 'DAI+': DAIplus, 'wDAI+': wDAIplus },
   },
   arbitrum: {
-    tokens: { aWETH: aaWETH, waaWETH, aaUSDT, waaUSDT, aaUSDC, waaUSDC, aaDAI, waaDAI },
+    tokens: {
+      aWETH: aaWETH,
+      waaWETH,
+      aaUSDT,
+      waaUSDT,
+      aaUSDC,
+      waaUSDC,
+      aaDAI,
+      waaDAI,
+      'USD+': arbUSDplus,
+      'arbwUSD+': arbwUSDplus,
+    },
   },
   avax: {
     tokens: { aavAVAX, waavAVAX, aavUSDC, waavUSDC, aavUSDT, waavUSDT },
@@ -49,7 +60,7 @@ const tokens = {
   optimism: [
     [
       {
-        symbol: 'oUSD+',
+        oracleId: 'oUSD+',
       },
       wUSDplus,
     ],
@@ -60,6 +71,7 @@ const tokens = {
     [aaUSDT, waaUSDT, true],
     [aaUSDC, waaUSDC, true],
     [aaDAI, waaDAI, true],
+    [arbUSDplus, arbwUSDplus],
   ],
   avax: [
     [aavAVAX, waavAVAX],
@@ -90,8 +102,8 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
 
   return wrappedRates.map((v, i) =>
     !tokens[i][2]
-      ? v.times(tokenPrices[tokens[i][0].symbol]).dividedBy(RAY_DECIMALS).toNumber()
-      : new BigNumber(tokenPrices[tokens[i][0].symbol]).times('1e18').dividedBy(v).toNumber()
+      ? v.times(tokenPrices[tokens[i][0].oracleId]).dividedBy(RAY_DECIMALS).toNumber()
+      : new BigNumber(tokenPrices[tokens[i][0].oracleId]).times('1e18').dividedBy(v).toNumber()
   );
 };
 
@@ -105,7 +117,7 @@ const fetchWrappedAavePrices = async tokenPrices =>
   ]).then(data =>
     data
       .flat()
-      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].symbol] = cur), acc), {})
+      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );
 
 export { fetchWrappedAavePrices };
