@@ -1,6 +1,6 @@
 import { ETH_CHAIN_ID } from '../../../constants';
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import { getMintedCvxAmount } from './getConvexApys';
 import getApyBreakdown from '../common/getApyBreakdown';
 import IRewardPool from '../../../abis/IRewardPool';

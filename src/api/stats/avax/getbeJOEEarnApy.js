@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 const { avaxWeb3: web3, web3Factory } = require('../../../utils/web3');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import ERC20Abi from '../../../abis/ERC20Abi';
 import IRewardPool from '../../../abis/IRewardPool';
@@ -14,7 +14,7 @@ const {
 
 const REWARDS = '0x2E360492120cebeB2527c41BAE1a4f21992D86Ec';
 const ORACLE = 'tokens';
-const ORACLE_ID = JOE.symbol;
+const ORACLE_ID = JOE.oracleId;
 const DECIMALS = '1e18';
 
 const getbeJOEEarnApy = async () => {

@@ -2,7 +2,7 @@ import ICurveGauge from '../../../../abis/ICurveGauge';
 import { fetchContract } from '../../../rpc/client';
 
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 const secondsPerYear = 31536000;
 
 export async function getCurveApysCommon(chainId, pools) {

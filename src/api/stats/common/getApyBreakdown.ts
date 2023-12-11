@@ -60,7 +60,8 @@ export const getApyBreakdown = (
 
     const provFee = providerFee[i] == undefined ? providerFee : providerFee[i].toNumber();
     const simpleApr = farmAprs[i]?.toNumber();
-    const beefyPerformanceFee = pool.beefyFee == undefined ? getTotalPerformanceFeeForVault(pool.name) : pool.beefyFee;
+    const beefyPerformanceFee =
+      pool.beefyFee == undefined ? getTotalPerformanceFeeForVault(pool.name) : pool.beefyFee;
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApr * shareAfterBeefyPerformanceFee;
     let vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);

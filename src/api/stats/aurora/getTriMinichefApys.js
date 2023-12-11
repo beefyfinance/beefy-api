@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const lpPools = require('../../../data/aurora/trisolarisMiniLpPools.json');
 const stablePools = require('../../../data/aurora/trisolarisStableLpPools.json');
 const { BASE_HPY, AURORA_CHAIN_ID } = require('../../../constants');
@@ -32,7 +32,7 @@ const getTriMinichefApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  const tokenPriceA = await fetchPrice({ oracle: oracleA, id: TRI.symbol });
+  const tokenPriceA = await fetchPrice({ oracle: oracleA, id: TRI.oracleId });
 
   const [{ rewardPerSecond, totalAllocPoint }, { balances, allocPoints, rewarders }] =
     await Promise.all([getMasterChefData(), getPoolsData(pools)]);

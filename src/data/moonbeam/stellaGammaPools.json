@@ -1,0 +1,23 @@
+[
+  {
+    "name": "stella-gamma-wglmr-xcdot",
+    "address": "0x8cacde53d63fda23a8f802653eeef931c8528cac",
+    "pool": "0xB13B281503F6eC8A837Ae1a21e86a9caE368fCc5",
+    "decimals": "1e18",
+    "chainId": 1284,
+    "beefyFee": 0.095,
+    "poolId": 1,
+    "lp0": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080",
+      "oracle": "tokens",
+      "oracleId": "xcDOT",
+      "decimals": "1e10"
+    }
+  }
+]

@@ -1,5 +1,47 @@
 [
   {
+    "name": "beets-fantom-layer-of-the-opera",
+    "address": "0x838229095fa83BCD993eF225d01a990E3Bc197A8",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x838229095fa83bcd993ef225d01a990e3bc197a800020000000000000000075b",
+    "beefyFee": 0.095,
+    "poolId": 125,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "lzUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "beets-fantom-and-my-axelar",
+    "address": "0x33D498d53c25A49753d92Fe511753FCfD01A1465",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x33d498d53c25a49753d92fe511753fcfd01a146500020000000000000000075e",
+    "beefyFee": 0.095,
+    "poolId": 128,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "axlUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-fantom-of-the-opera-act-2",
     "address": "0x56aD84b777ff732de69E85813DAEE1393a9FFE10",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",

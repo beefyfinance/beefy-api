@@ -1,0 +1,76 @@
+[
+  {
+    "name": "aura-base-cbeth-weth",
+    "address": "0xFb4C2E6E6e27B5b4a07a36360C89EDE29bB3c9B6",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x8dB6A97AeEa09F37b45C9703c3542087151aAdD5",
+    "vaultPoolId": "0xfb4c2e6e6e27b5b4a07a36360c89ede29bb3c9b6000000000000000000000026",
+    "decimals": "1e18",
+    "lsUrl": "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
+    "dataPath": "$.apy",
+    "lsAprFactor": "100",
+    "lsIndex": 0,
+    "balancerChargesFee": true,
+    "composable": true,
+    "bptIndex": 2,
+    "rewards": [
+      {
+        "rewardGauge": "0xa731662D082867EaF74c80474530c3Ebd19104CF",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "cbETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
+    "name": "aura-base-usdc-usdbc-axlusdc",
+    "address": "0x0C659734f1eEF9C63B7Ebdf78a164CDd745586Db",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x28D50E8E46B0B36E9E0eED32496d0740AeaF7557",
+    "vaultPoolId": "0x0c659734f1eef9c63b7ebdf78a164cdd745586db000000000000000000000046",
+    "decimals": "1e18",
+    "composable": true,
+    "bptIndex": 0,
+    "rewards": [
+      {
+        "rewardGauge": "0x248A0E24B1EbDf355Cf1dD6ABaaaB4B3D2d79B6d",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDbC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "axlUSDC",
+        "decimals": "1e6"
+      }
+    ]
+  }
+]

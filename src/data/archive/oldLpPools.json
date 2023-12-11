@@ -1,5 +1,23 @@
 [
   {
+    "name": "cake-bnb-rbnb",
+    "address": "0xBDC8eE55d888784Fb90B4D3D6632E19db72cD992",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "BNB",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xF027E525D491ef6ffCC478555FBb3CFabB3406a6",
+      "oracle": "tokens",
+      "oracleId": "rBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "honey-wxdai-usdc",
     "address": "0xA227c72a4055A9DC949cAE24f54535fe890d3663",
     "decimals": "1e18",
@@ -1286,25 +1304,6 @@
       "oracle": "tokens",
       "oracleId": "renDGB",
       "decimals": "1e8"
-    }
-  },
-  {
-    "name": "quick-usdc-rbnb",
-    "address": "0x40A5Df3E37152d4DaF279e0450289Af76472b02e",
-    "rewardPool": "0x3a353b71ae9b6C688ac474aD07632b8e0d499264",
-    "decimals": "1e18",
-    "chainId": 137,
-    "lp0": {
-      "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0x5c4b7CCBF908E64F32e12c6650ec0C96d717f03F",
-      "oracle": "tokens",
-      "oracleId": "rBNB",
-      "decimals": "1e18"
     }
   },
   {

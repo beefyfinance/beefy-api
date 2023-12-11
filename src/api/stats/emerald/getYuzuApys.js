@@ -19,7 +19,7 @@ const getYuzuApys = async () =>
     tokenPerBlock: 'yuzuPerBlock',
     hasMultiplier: false,
     pools: pools,
-    oracleId: YUZU.symbol,
+    oracleId: YUZU.oracleId,
     oracle: 'tokens',
     decimals: '1e18',
     secondsPerBlock: await getBlockTime(chainId),

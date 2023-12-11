@@ -3,7 +3,7 @@ import { NormalizedCacheObject, ApolloClient } from '@apollo/client/core';
 import jp from 'jsonpath';
 import BigNumber from 'bignumber.js';
 import { getTradingFeeAprBalancer } from '../../../../utils/getTradingFeeApr';
-import fetchPrice from '../../../../utils/fetchPrice';
+import { fetchPrice } from '../../../../utils/fetchPrice';
 import IAaveProtocolDataProvider from '../../../../abis/matic/AaveProtocolDataProvider';
 import IAuraMinter from '../../../../abis/IAuraMinter';
 import { default as IAuraGauge } from '../../../../abis/ethereum/AuraGauge';
@@ -174,18 +174,19 @@ const getPoolApy = async (
 
     let lsApr: number = 0;
     try {
-      const lsResponses: JSON[] = await Promise.all(
+      const lsResponses: any[] = await Promise.all(
         lsUrls.map(url =>
           url === 'DSR'
             ? fetchDaiSavingsRate().then(res => res)
             : fetch(url).then(res => res.json())
         )
       );
+
       const lsAprs: number[] = lsResponses
         .map((res, i) => jp.query(res, dataPaths[i]))
         .map((apr, i) => apr * lsAprFactors[i]);
       lsApr = lsAprs.reduce((acum, cur) => acum + cur, 0);
-      //console.log(pool.name, lsResponses, lsAprs, lsApr)
+      //console.log(pool.name, lsAprs, lsApr)
       lsAprs.forEach((apr, i) => {
         aprFixed +=
           (apr * qty[lsIndexes[i]].dividedBy(totalQty).toNumber()) /

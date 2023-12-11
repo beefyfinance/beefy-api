@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
 const { BASE_HPY, BSC_CHAIN_ID } = require('../../../../constants');
 
-const fetchPrice = require('../../../../utils/fetchPrice');
+import { fetchPrice } from '../../../../utils/fetchPrice';
 const { compound } = require('../../../../utils/compound');
 const pools = require('../../../../data/valasPools.json');
 const { getTotalPerformanceFeeForVault } = require('../../../vaults/getVaultFees');

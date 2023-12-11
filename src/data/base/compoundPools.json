@@ -1,0 +1,16 @@
+[
+  {
+    "name": "compound-base-usdbc",
+    "cToken": "0x9c4ec768c28520B50860ea7a15bd7213a9fF58bf",
+    "oracle": "tokens",
+    "oracleId": "USDbC",
+    "decimals": "1e6"
+  },
+  {
+    "name": "compound-base-eth",
+    "cToken": "0x46e6b214b524310239732D51387075E0e70970bf",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18"
+  }
+]

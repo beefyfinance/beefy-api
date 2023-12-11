@@ -101,6 +101,12 @@ const oracles: Oracle[] = [
     heartbeat: 3600,
   },
   {
+    oracleId: 'BAL',
+    address: '0xdF2917806E30300537aEB49A7663062F4d1F2b5F',
+    chain: 'ethereum',
+    heartbeat: 864000,
+  },
+  {
     oracleId: 'FTM',
     address: '0xf4766552D15AE4d256Ad41B6cf2933482B0680dc',
     chain: 'fantom',
@@ -110,6 +116,18 @@ const oracles: Oracle[] = [
     oracleId: 'KAVA',
     address: '0x7899dd75C329eFe63e35b02bC7d60D3739FB23c5',
     chain: 'polygon',
+    heartbeat: 864000,
+  },
+  {
+    oracleId: 'CAD',
+    address: '0xa34317DB73e77d453b1B8d04550c44D10e981C8e',
+    chain: 'ethereum',
+    heartbeat: 864000,
+  },
+  {
+    oracleId: 'EURC',
+    address: '0x3368310bc4aee5d96486a73bae8e6b49fcde62d3',
+    chain: 'avax',
     heartbeat: 864000,
   },
 ];

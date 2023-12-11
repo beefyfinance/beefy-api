@@ -1,0 +1,50 @@
+[
+  {
+    "name": "sonne-base-dai",
+    "cToken": "0xb864BA2aab1f53BC3af7AE49a318202dD3fd54C2",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowRate": 0
+  },
+  {
+    "name": "sonne-base-usdbc",
+    "cToken": "0x225886C9beb5eeE254F79d58bbD80cf9F200D4d0",
+    "oracle": "tokens",
+    "oracleId": "USDbC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowRate": 0
+  },
+  {
+    "name": "sonne-base-weth",
+    "cToken": "0x5F5c479fe590cD4442A05aE4a941dd991A633B8E",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowRate": 0
+  },
+  {
+    "name": "sonne-base-usdc",
+    "cToken": "0xfd68F92B45b633bbe0f475294C1A86aecD62985A",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowRate": 0
+  },
+  {
+    "name": "sonne-base-cbeth",
+    "cToken": "0x6C91bEECEEDda2089307fAb818E12757948BF489",
+    "oracle": "tokens",
+    "oracleId": "cbETH",
+    "decimals": "1e18",
+    "lsUrl": "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
+    "dataPath": "$.apy",
+    "lsAprFactor": 100,
+    "borrowDepth": 1,
+    "borrowRate": 0
+  }
+]

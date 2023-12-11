@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { getVariableTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import DMMPool from '../../../abis/matic/DMMPool';
 import { fetchContract } from '../../rpc/client';

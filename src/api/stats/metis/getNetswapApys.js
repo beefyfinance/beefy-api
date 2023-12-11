@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const pools = require('../../../data/metis/netswapLpPools.json');
 const { BASE_HPY, METIS_CHAIN_ID } = require('../../../constants');
 const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');

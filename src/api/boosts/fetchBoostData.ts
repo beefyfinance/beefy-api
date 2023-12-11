@@ -3,12 +3,13 @@ import BigNumber from 'bignumber.js';
 import { ApiChain } from '../../utils/chain';
 import { fetchContract } from '../rpc/client';
 import BeefyBoostAbi from '../../abis/BeefyBoost';
+import { Boost } from './types';
 
 export const getBoosts = async chain => {
   const boostsEndpoint = `https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/boost/${chain}.json`;
   try {
     let boosts = await fetch(boostsEndpoint).then(res => res.json());
-    return boosts;
+    return boosts as Boost[];
   } catch (err) {
     console.error(err);
     return [];

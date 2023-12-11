@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { compound } = require('../../../utils/compound');
 import { BASE_HPY, BASE_CHAIN_ID as chainId } from '../../../constants';
 import RewardsController from '../../../abis/base/RewardsController';

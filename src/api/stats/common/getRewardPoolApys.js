@@ -1,9 +1,10 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';
 import IRewardPool from '../../../abis/IRewardPool';
+import IWrapper from '../../../abis/IWrapper';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
 
@@ -28,7 +29,7 @@ const getTradingAprs = async params => {
   return tradingAprs;
 };
 
-const getFarmApys = async params => {
+export const getFarmApys = async params => {
   const apys = [];
   const tokenPrice = await fetchPrice({ oracle: params.oracle, id: params.oracleId });
   const rewardTokenPriceCall = params.isRewardInXToken
@@ -69,12 +70,12 @@ const getFarmApys = async params => {
   return apys;
 };
 
-const getPoolsData = async params => {
+export const getPoolsData = async params => {
   const balanceCalls = [];
   const rewardRateCalls = [];
   const periodFinishCalls = [];
   const periodFinish = params.periodFinish ?? 'periodFinish';
-  const abi = params.periodFinish ? getAbi(periodFinish) : IRewardPool;
+  const abi = params.periodFinish ? getAbi(periodFinish) : params.cake ? IWrapper : IRewardPool;
 
   params.pools.forEach(pool => {
     const rewardPool = fetchContract(
@@ -82,9 +83,17 @@ const getPoolsData = async params => {
       abi,
       params.chainId
     );
-    balanceCalls.push(rewardPool.read.totalSupply());
-    rewardRateCalls.push(rewardPool.read.rewardRate());
-    periodFinishCalls.push(rewardPool.read[periodFinish]());
+
+    const stakedTokenContract = fetchContract(pool.address, ERC20Abi, params.chainId);
+    balanceCalls.push(
+      params.cake ? stakedTokenContract.read.balanceOf([pool.gauge]) : rewardPool.read.totalSupply()
+    );
+    rewardRateCalls.push(
+      params.cake ? rewardPool.read.rewardPerSecond() : rewardPool.read.rewardRate()
+    );
+    periodFinishCalls.push(
+      params.cake ? rewardPool.read.endTimestamp() : rewardPool.read[periodFinish]()
+    );
   });
 
   const res = await Promise.all([
@@ -125,4 +134,4 @@ const getAbi = periodFinish => {
   ];
 };
 
-module.exports = { getRewardPoolApys };
+module.exports = { getRewardPoolApys, getFarmApys, getPoolsData };

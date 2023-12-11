@@ -65,7 +65,7 @@ export const mapAssetToCall = (
 export const fetchAPIBalance = async (apiAsset: ValidatorAsset): Promise<TreasuryApiResult> => {
   let balance: number = await fetch(apiAsset.methodPath)
     .then(res => res.json())
-    .then(res => ((res.data.length ?? 0) > 0 ? res.data[0].balance : res.data.balance));
+    .then((res: any) => ((res.data?.length ?? 0) > 0 ? res.data[0].balance : res.data.balance));
   return {
     apiAsset,
     balance: new BigNumber(balance).shiftedBy(9),
@@ -97,17 +97,17 @@ export const extractBalancesFromTreasuryCallResults = (
         if (asset.method === 'contract') {
           const value = callResult.value as bigint[];
           allBalances.push({
-            address: asset.address.toLowerCase(),
+            address: asset.id,
             balances: {
-              [asset.address.toLowerCase()]: new BigNumber(value[0].toString()),
+              ['validators']: new BigNumber(value[0].toString()),
             },
           });
         } else {
           const value = callResult.value as TreasuryApiResult[];
           allBalances.push({
-            address: asset.address.toLowerCase(),
+            address: asset.id,
             balances: {
-              [asset.address.toLowerCase()]: value[0].balance,
+              ['validators']: value[0].balance,
             },
           });
         }

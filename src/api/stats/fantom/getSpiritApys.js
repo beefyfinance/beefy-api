@@ -1,16 +1,10 @@
-const { FANTOM_CHAIN_ID: chainId, SPIRIT_LPF } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
-const { getMasterChefApys } = require('../common/getMasterChefApys');
-const { getGaugeApys } = require('../common/getGaugeApys');
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
-
-const pools = require('../../../data/fantom/spiritPools.json');
-const { spiritClient } = require('../../../apollo/client');
 import { addressBook } from '../../../../packages/address-book/address-book';
+
 const {
   fantom: {
-    platforms: { spiritswap },
-    tokens: { SPIRIT, binSPIRIT },
+    tokens: { binSPIRIT },
   },
 } = addressBook;
 
@@ -27,34 +21,9 @@ const singlePool = [
 ];
 
 const getSpiritApys = async () => {
-  const chefApys = getMasterChefApys({
-    chainId: chainId,
-    masterchef: spiritswap.masterchef,
-    tokenPerBlock: 'spiritPerBlock',
-    pools: pools.filter(pool => !!pool.poolId),
-    oracleId: SPIRIT.symbol,
-    oracle: 'tokens',
-    decimals: getEDecimals(SPIRIT.decimals),
-    tradingFeeInfoClient: spiritClient,
-    liquidityProviderFee: SPIRIT_LPF,
-    // log: true,
-  });
-
-  const gaugeApys = getGaugeApys({
-    chainId: chainId,
-    gaugeStaker: spiritswap.gaugeStaker,
-    pools: pools.filter(pool => !!pool.gauge),
-    oracleId: 'SPIRIT',
-    oracle: 'tokens',
-    decimals: getEDecimals(SPIRIT.decimals),
-    tradingFeeInfoClient: spiritClient,
-    liquidityProviderFee: SPIRIT_LPF,
-    // log: true,
-  });
-
   const binSpiritApy = getRewardPoolApys({
     pools: singlePool,
-    oracleId: binSPIRIT.symbol,
+    oracleId: binSPIRIT.oracleId,
     oracle: 'tokens',
     decimals: getEDecimals(binSPIRIT.decimals),
     chainId: 250,
@@ -64,7 +33,7 @@ const getSpiritApys = async () => {
   let apys = {};
   let apyBreakdowns = {};
 
-  const results = await Promise.allSettled([chefApys, gaugeApys, binSpiritApy]);
+  const results = await Promise.allSettled([binSpiritApy]);
   for (const result of results) {
     if (result.status !== 'fulfilled') {
       console.warn('getSpiritApys error', result.reason);

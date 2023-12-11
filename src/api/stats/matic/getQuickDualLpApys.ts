@@ -14,10 +14,10 @@ const {
 export const getQuickDualLpApys = async () =>
   await getRewardPoolDualApys({
     pools,
-    oracleIdA: QUICK.symbol,
+    oracleIdA: QUICK.oracleId,
     oracleA: 'tokens',
     decimalsA: getEDecimals(QUICK.decimals),
-    oracleIdB: MATIC.symbol,
+    oracleIdB: MATIC.oracleId,
     oracleB: 'tokens',
     decimalsB: getEDecimals(MATIC.decimals),
     tokenAddress: QUICK.address,

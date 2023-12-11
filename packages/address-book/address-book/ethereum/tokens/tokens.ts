@@ -5,6 +5,7 @@ const ETH = {
   name: 'Wrapped Ether',
   address: '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2',
   symbol: 'WETH',
+  oracleId: 'WETH',
   decimals: 18,
   chainId: 1,
   website: 'https://weth.io/',
@@ -21,6 +22,7 @@ const _tokens = {
   BIFI: {
     name: 'Beefy',
     symbol: 'BIFI',
+    oracleId: 'BIFI',
     address: '0xB1F1ee126e9c96231Cc3d3fAD7C08b4cf873b1f1',
     chainId: 1,
     decimals: 18,
@@ -34,6 +36,7 @@ const _tokens = {
   rBIFI: {
     name: 'BIFI Pool Receipt',
     symbol: 'rBIFI',
+    oracleId: 'rBIFI',
     address: '0xb1F131437e314614313aAb3a3016FA05c1b0e087',
     chainId: 1,
     decimals: 18,
@@ -47,6 +50,7 @@ const _tokens = {
   mooBIFI: {
     name: 'BIFI Vault Receipt',
     symbol: 'mooBIFI',
+    oracleId: 'mooBIFI',
     address: '0xBEEF8e0982874e0292E6C5751C5A4092b3e1BEEF',
     chainId: 1,
     decimals: 18,
@@ -60,6 +64,7 @@ const _tokens = {
   xmooBIFI: {
     name: 'BIFI Vault Receipt xERC20',
     symbol: 'xmooBIFI',
+    oracleId: 'xmooBIFI',
     address: '0xb1feA302f3B2E93FA04E46dCCE35F2Fc522d7bB9',
     chainId: 1,
     decimals: 18,
@@ -73,6 +78,7 @@ const _tokens = {
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',
+    oracleId: 'oldBIFI',
     address: '0x5870700f1272a1AdbB87C3140bD770880a95e55D',
     chainId: 1,
     decimals: 18,
@@ -87,6 +93,7 @@ const _tokens = {
     name: 'USD Coin',
     address: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
     symbol: 'USDC',
+    oracleId: 'USDC',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
     description:
@@ -99,6 +106,7 @@ const _tokens = {
   STG: {
     name: 'Stargate',
     symbol: 'STG',
+    oracleId: 'STG',
     address: '0xAf5191B0De278C7286d6C7CC6ab6BB8A73bA2Cd6',
     chainId: 1,
     decimals: 18,
@@ -112,6 +120,7 @@ const _tokens = {
   CNC: {
     name: 'Conic Finance Token',
     symbol: 'CNC',
+    oracleId: 'CNC',
     address: '0x9aE380F0272E2162340a5bB646c354271c0F5cFC',
     chainId: 1,
     decimals: 18,
@@ -124,6 +133,7 @@ const _tokens = {
   CTR: {
     name: 'Concentrator Token',
     symbol: 'CTR',
+    oracleId: 'CTR',
     address: '0xb3Ad645dB386D7F6D753B2b9C3F4B853DA6890B8',
     chainId: 1,
     decimals: 18,
@@ -136,6 +146,7 @@ const _tokens = {
   MATIC: {
     name: 'Matic Token',
     symbol: 'MATIC',
+    oracleId: 'MATIC',
     address: '0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0',
     chainId: 1,
     decimals: 18,
@@ -147,6 +158,7 @@ const _tokens = {
   wstETH: {
     name: 'Lido Wrapped Staked ETH',
     symbol: 'wstETH',
+    oracleId: 'wstETH',
     address: '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0',
     chainId: 1,
     decimals: 18,
@@ -160,6 +172,7 @@ const _tokens = {
   stETH: {
     name: 'Lido Wrapped Staked ETH',
     symbol: 'stETH',
+    oracleId: 'stETH',
     address: '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84',
     chainId: 1,
     decimals: 18,
@@ -173,6 +186,7 @@ const _tokens = {
   pETH: {
     name: "JPEG'd ETH",
     symbol: 'pETH',
+    oracleId: 'pETH',
     address: '0x836A808d4828586A69364065A1e064609F5078c7',
     chainId: 1,
     decimals: 18,
@@ -187,6 +201,7 @@ const _tokens = {
     decimals: 18,
     name: 'Frax',
     symbol: 'FRAX',
+    oracleId: 'FRAX',
     website: 'https://frax.finance/',
     description: 'Frax is the first fractional-algorithmic stablecoin protocol.',
     bridge: 'native',
@@ -200,6 +215,7 @@ const _tokens = {
     decimals: 8,
     name: 'Wrapped BTC',
     symbol: 'WBTC',
+    oracleId: 'WBTC',
     website: 'https://wbtc.network/',
     description:
       'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
@@ -213,6 +229,7 @@ const _tokens = {
     decimals: 18,
     name: 'Synthetix: sBTC',
     symbol: 'sBTC',
+    oracleId: 'sBTC',
     website: 'https://www.synthetix.io/',
     description:
       'sBTC is a synthetic Bitcoin token enabled by the Synthetix protocol. It tracks the price of Bitcoin through price feeds supplied by Chainlink’s decentralized network of oracles.',
@@ -226,6 +243,7 @@ const _tokens = {
     decimals: 8,
     name: 'Multichain BTC',
     symbol: 'multiBTC',
+    oracleId: 'multiBTC',
     website: 'https://app.multichain.org/',
     description: 'Multichain supports to swap BTC to MultiBTC (Multichain BTC) 1:1.',
     bridge: 'multichain',
@@ -234,6 +252,7 @@ const _tokens = {
   alETH: {
     name: 'Alchemix ETH',
     symbol: 'alETH',
+    oracleId: 'alETH',
     address: '0x0100546F2cD4C9D97f798fFC9755E47865FF7Ee6',
     chainId: 1,
     decimals: 18,
@@ -247,6 +266,7 @@ const _tokens = {
     name: 'Magic Internet Money',
     address: '0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3',
     symbol: 'MIM',
+    oracleId: 'MIM',
     decimals: 18,
     chainId: 1,
     website: 'https://abracadabra.money/',
@@ -260,6 +280,7 @@ const _tokens = {
     name: 'ApeUSD',
     address: '0xfF709449528B6fB6b88f557F7d93dEce33bca78D',
     symbol: 'ApeUSD',
+    oracleId: 'ApeUSD',
     decimals: 18,
     chainId: 1,
     website: 'https://ape.fi/',
@@ -272,6 +293,7 @@ const _tokens = {
   auraBAL: {
     name: 'Aura Staked BAL BPT',
     symbol: 'auraBAL',
+    oracleId: 'auraBAL',
     address: '0x616e8BfA43F920657B3497DBf40D6b1A02D4608d',
     chainId: 1,
     decimals: 18,
@@ -284,6 +306,7 @@ const _tokens = {
   BAL: {
     name: 'Balancer',
     symbol: 'BAL',
+    oracleId: 'BAL',
     address: '0xba100000625a3754423978a60c9317c58a424e3D',
     chainId: 1,
     decimals: 18,
@@ -296,6 +319,7 @@ const _tokens = {
   AURA: {
     name: 'Aura',
     symbol: 'AURA',
+    oracleId: 'AURA',
     address: '0xC0c293ce456fF0ED870ADd98a0828Dd4d2903DBF',
     chainId: 1,
     decimals: 18,
@@ -309,6 +333,7 @@ const _tokens = {
   MAI: {
     name: 'Mai Stablecoin',
     symbol: 'MAI',
+    oracleId: 'MAI',
     address: '0x8D6CeBD76f18E1558D4DB88138e2DeFB3909fAD6',
     chainId: 1,
     decimals: 18,
@@ -321,6 +346,7 @@ const _tokens = {
   tBTC: {
     name: 'tBTC v2',
     symbol: 'tBTC',
+    oracleId: 'tBTC',
     address: '0x18084fbA666a33d37592fA2633fD49a74DD93a88',
     chainId: 1,
     decimals: 18,
@@ -334,6 +360,7 @@ const _tokens = {
   T: {
     name: 'Threshold Network Token',
     symbol: 'T',
+    oracleId: 'T',
     address: '0xCdF7028ceAB81fA0C6971208e83fa7872994beE5',
     chainId: 1,
     decimals: 18,
@@ -346,6 +373,7 @@ const _tokens = {
   eCFX: {
     name: 'ethereum Conflux',
     symbol: 'eCFX',
+    oracleId: 'eCFX',
     address: '0xA1f82E14bc09A1b42710dF1A8a999B62f294e592',
     chainId: 1,
     decimals: 18,
@@ -357,6 +385,7 @@ const _tokens = {
   USDP: {
     name: 'Pax Dollar',
     symbol: 'USDP',
+    oracleId: 'USDP',
     address: '0x8E870D67F660D95d5be530380D0eC0bd388289E1',
     chainId: 1,
     decimals: 18,
@@ -369,6 +398,7 @@ const _tokens = {
     name: 'CRV',
     address: '0xD533a949740bb3306d119CC777fa900bA034cd52',
     symbol: 'CRV',
+    oracleId: 'CRV',
     decimals: 18,
     chainId: 1,
     website: 'https://curve.fi/',
@@ -382,6 +412,7 @@ const _tokens = {
     name: 'CVX',
     address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B',
     symbol: 'CVX',
+    oracleId: 'CVX',
     decimals: 18,
     chainId: 1,
     website: 'https://www.convexfinance.com/',
@@ -395,6 +426,7 @@ const _tokens = {
     name: 'cvxCRV',
     address: '0x62B9c7356A2Dc64a1969e19C23e4f579F9810Aa7',
     symbol: 'cvxCRV',
+    oracleId: 'cvxCRV',
     decimals: 18,
     chainId: 1,
     website: 'https://www.convexfinance.com/',
@@ -408,6 +440,7 @@ const _tokens = {
     name: 'Convex FXS',
     address: '0xFEEf77d3f69374f66429C91d732A244f074bdf74',
     symbol: 'cvxFXS',
+    oracleId: 'cvxFXS',
     decimals: 18,
     chainId: 1,
     website: 'https://frax.convexfinance.com/',
@@ -421,17 +454,20 @@ const _tokens = {
     name: 'Convex FPIS',
     address: '0xa2847348b58CEd0cA58d23c7e9106A49f1427Df6',
     symbol: 'cvxFPIS',
+    oracleId: 'cvxFPIS',
     decimals: 18,
     chainId: 1,
     website: 'https://frax.convexfinance.com/',
     documentation: 'https://docs.convexfinance.com/',
     description:
       "Convex also now supports Frax Finance's FPIS token, the governance token for the FPI stablecoin launched by Frax. Frax documentation explains the mechanisms behind the FPI stablecoin and the FPIS governance token in detail.",
+    bridge: 'native',
     logoURI: '',
   },
   sethUSDC: {
     name: 'Stargate USD Coin LP',
     symbol: 'sethUSDC',
+    oracleId: 'stargate-eth-usdc',
     address: '0xdf0770dF86a8034b3EFEf0A1Bb3c889B8332FF56',
     chainId: 1,
     decimals: 6,
@@ -445,6 +481,7 @@ const _tokens = {
   sethUSDT: {
     name: 'Stargate Tether USD LP',
     symbol: 'sethUSDT',
+    oracleId: 'stargate-eth-usdt',
     address: '0x38EA452219524Bb87e18dE1C24D3bB59510BD783',
     chainId: 1,
     decimals: 6,
@@ -458,6 +495,7 @@ const _tokens = {
   rETH: {
     name: 'Rocket Pool ETH',
     symbol: 'rETH',
+    oracleId: 'rETH',
     address: '0xae78736Cd615f374D3085123A210448E74Fc6393',
     chainId: 1,
     decimals: 18,
@@ -471,6 +509,7 @@ const _tokens = {
   USDT: {
     name: 'Tether USD',
     symbol: 'USDT',
+    oracleId: 'USDT',
     address: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
     chainId: 1,
     decimals: 6,
@@ -485,6 +524,7 @@ const _tokens = {
   DOLA: {
     name: 'Dola USD Stablecoin',
     symbol: 'DOLA',
+    oracleId: 'DOLA',
     address: '0x865377367054516e17014CcdED1e7d814EDC9ce4',
     chainId: 1,
     decimals: 18,
@@ -498,6 +538,7 @@ const _tokens = {
   sETH: {
     name: 'Synth sETH',
     symbol: 'sETH',
+    oracleId: 'sETH',
     address: '0x5e74C9036fb86BD7eCdcb084a0673EFc32eA31cb',
     chainId: 1,
     decimals: 18,
@@ -510,6 +551,7 @@ const _tokens = {
   cbETH: {
     name: 'Coinbase Wrapped Staked ETH',
     symbol: 'cbETH',
+    oracleId: 'cbETH',
     address: '0xBe9895146f7AF43049ca1c1AE358B0541Ea49704',
     chainId: 1,
     decimals: 18,
@@ -522,6 +564,7 @@ const _tokens = {
   USDD: {
     name: 'Decentralized USD',
     symbol: 'USDD',
+    oracleId: 'USDD',
     address: '0x0C10bF8FcB7Bf5412187A595ab97a3609160b5c6',
     chainId: 1,
     decimals: 18,
@@ -535,6 +578,7 @@ const _tokens = {
   aUSDT: {
     name: 'Aave Tether USD',
     symbol: 'aUSDT',
+    oracleId: 'aUSDT',
     address: '0x23878914EFE38d27C4D67Ab83ed1b93A74D4086a',
     chainId: 1,
     decimals: 6,
@@ -548,6 +592,7 @@ const _tokens = {
   sethETH: {
     name: 'Stargate Ethereum LP',
     symbol: 'sethETH',
+    oracleId: 'stargate-eth-eth',
     address: '0x101816545F6bd2b1076434B54383a1E633390A2E',
     chainId: 1,
     decimals: 18,
@@ -561,6 +606,7 @@ const _tokens = {
   waUSDT: {
     name: 'Wrapped Aave Tether USD',
     symbol: 'waUSDT',
+    oracleId: 'waUSDT',
     address: '0x65799b9fD4206CdaA4A1DB79254FCbc2Fd2fFEe6',
     chainId: 1,
     decimals: 6,
@@ -574,6 +620,7 @@ const _tokens = {
   bbaUSDT: {
     name: 'Balancer Aave USDT Linear Pool',
     symbol: 'bbaUSDT',
+    oracleId: 'bbaUSDT',
     address: '0xcfAE6E251369467F465f13836Ac8135bd42f8A56',
     chainId: 1,
     decimals: 18,
@@ -587,6 +634,7 @@ const _tokens = {
   aUSDC: {
     name: 'Aave USDC',
     symbol: 'aUSDC',
+    oracleId: 'aUSDC',
     address: '0x98C23E9d8f34FEFb1B7BD6a91B7FF122F4e16F5c',
     chainId: 1,
     decimals: 6,
@@ -600,6 +648,7 @@ const _tokens = {
   waUSDC: {
     name: 'Wrapped Aave Tether USD',
     symbol: 'waUSDC',
+    oracleId: 'waUSDC',
     address: '0x02c2d189b45CE213a40097b62D311cf0dD16eC92',
     chainId: 1,
     decimals: 6,
@@ -613,6 +662,7 @@ const _tokens = {
   bbaUSDC: {
     name: 'Balancer Aave USDC Linear Pool',
     symbol: 'bbaUSDC',
+    oracleId: 'bbaUSDC',
     address: '0xc50d4347209F285247BDa8A09Fc1C12CE42031c3',
     chainId: 1,
     decimals: 18,
@@ -626,6 +676,7 @@ const _tokens = {
   DAI: {
     name: 'DAI Stablecoin',
     symbol: 'DAI',
+    oracleId: 'DAI',
     address: '0x6B175474E89094C44Da98b954EedeAC495271d0F',
     chainId: 1,
     decimals: 18,
@@ -640,6 +691,7 @@ const _tokens = {
   aDAI: {
     name: 'Aave DAI',
     symbol: 'aDAI',
+    oracleId: 'aDAI',
     address: '0x018008bfb33d285247A21d44E50697654f754e63',
     chainId: 1,
     decimals: 18,
@@ -653,6 +705,7 @@ const _tokens = {
   waDAI: {
     name: 'Wrapped Aave Tether DAI',
     symbol: 'waDAI',
+    oracleId: 'waDAI',
     address: '0xEb708639E8e518B86a916db3685f90216b1C1c67',
     chainId: 1,
     decimals: 18,
@@ -666,6 +719,7 @@ const _tokens = {
   bbaDAI: {
     name: 'Balancer Aave DAI Linear Pool',
     symbol: 'bbaDAI',
+    oracleId: 'bbaDAI',
     address: '0xfa24A90A3F2bBE5FEEA92B95cD0d14Ce709649f9',
     chainId: 1,
     decimals: 18,
@@ -679,6 +733,7 @@ const _tokens = {
   aETH: {
     name: 'Aave ETH',
     symbol: 'aETH',
+    oracleId: 'aETH',
     address: '0x4d5F47FA6A74757f35C14fD3a6Ef8E3C9BC514E8',
     chainId: 1,
     decimals: 18,
@@ -693,6 +748,7 @@ const _tokens = {
   waETH: {
     name: 'Wrapped Aave Tether ETH',
     symbol: 'waETH',
+    oracleId: 'waETH',
     address: '0x03928473f25bb2da6Bc880b07eCBaDC636822264',
     chainId: 1,
     decimals: 18,
@@ -706,6 +762,7 @@ const _tokens = {
   bbaETH: {
     name: 'Balancer Aave ETH Linear Pool',
     symbol: 'bbaETH',
+    oracleId: 'bbaETH',
     address: '0xbB6881874825E60e1160416D6C426eae65f2459E',
     chainId: 1,
     decimals: 18,
@@ -719,6 +776,7 @@ const _tokens = {
   bbaUSD: {
     name: 'Balancer Aave Stable Composable Pool',
     symbol: 'bbaUSD',
+    oracleId: 'bbaUSD',
     address: '0xc443C15033FCB6Cf72cC24f1BDA0Db070DdD9786',
     chainId: 1,
     decimals: 18,
@@ -733,6 +791,7 @@ const _tokens = {
   frxETH: {
     name: 'Frax Ether',
     symbol: 'frxETH',
+    oracleId: 'frxETH',
     address: '0x5E8422345238F34275888049021821E8E08CAa1f',
     chainId: 1,
     decimals: 18,
@@ -746,6 +805,7 @@ const _tokens = {
   sfrxETH: {
     name: 'Staked Frax Ether',
     symbol: 'sfrxETH',
+    oracleId: 'sfrxETH',
     address: '0xac3E018457B222d93114458476f3E3416Abbe38F',
     chainId: 1,
     decimals: 18,
@@ -759,6 +819,7 @@ const _tokens = {
   INV: {
     name: 'Inverse Finance',
     symbol: 'INV',
+    oracleId: 'INV',
     address: '0x41D5D79431A913C4aE7d69a668ecdfE5fF9DFB68',
     chainId: 1,
     decimals: 18,
@@ -771,6 +832,7 @@ const _tokens = {
   ACX: {
     name: 'Across Protocol Token',
     symbol: 'ACX',
+    oracleId: 'ACX',
     address: '0x44108f0223A3C3028F5Fe7AEC7f9bb2E66beF82F',
     chainId: 1,
     decimals: 18,
@@ -783,6 +845,7 @@ const _tokens = {
   'BAL-WETH-80-20': {
     name: 'Balancer Pool Token BAL-WETH 80/20',
     symbol: 'BAL-WETH-80-20',
+    oracleId: 'BAL-WETH-80-20',
     address: '0x5c6Ee304399DBdB9C8Ef030aB642B10820DB8F56',
     chainId: 1,
     decimals: 18,
@@ -796,6 +859,7 @@ const _tokens = {
   SUSHI: {
     name: 'SushiToken',
     symbol: 'SUSHI',
+    oracleId: 'SUSHI',
     address: '0x6B3595068778DD592e39A122f4f5a5cF09C90fE2',
     chainId: 1,
     decimals: 18,
@@ -810,6 +874,7 @@ const _tokens = {
   ILV: {
     name: 'Illuvium',
     symbol: 'ILV',
+    oracleId: 'ILV',
     address: '0x767FE9EDC9E0dF98E07454847909b5E959D7ca0E',
     chainId: 1,
     decimals: 18,
@@ -823,6 +888,7 @@ const _tokens = {
   LDO: {
     name: 'Lido DAO Token',
     symbol: 'LDO',
+    oracleId: 'LDO',
     address: '0x5A98FcBEA516Cf06857215779Fd812CA3beF1B32',
     chainId: 1,
     decimals: 18,
@@ -837,6 +903,7 @@ const _tokens = {
   SYN: {
     name: 'Synapse',
     symbol: 'SYN',
+    oracleId: 'SYN',
     address: '0x0f2D719407FdBeFF09D87557AbB7232601FD9F29',
     chainId: 1,
     decimals: 18,
@@ -851,6 +918,7 @@ const _tokens = {
   SOLID: {
     name: 'Solidly',
     symbol: 'SOLID',
+    oracleId: 'SOLID',
     address: '0x777172D858dC1599914a1C4c6c9fC48c99a60990',
     chainId: 1,
     decimals: 18,
@@ -864,6 +932,7 @@ const _tokens = {
   SNX: {
     name: 'Synthetix Network Token',
     symbol: 'SNX',
+    oracleId: 'SNX',
     address: '0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F',
     chainId: 1,
     decimals: 18,
@@ -876,6 +945,7 @@ const _tokens = {
   HEX: {
     name: 'HEX',
     symbol: 'HEX',
+    oracleId: 'HEX',
     address: '0x2b591e99afE9f32eAA6214f7B7629768c40Eeb39',
     chainId: 1,
     decimals: 8,
@@ -887,6 +957,7 @@ const _tokens = {
   moSOLID: {
     name: 'moSOLID: Tokenized veSOLID',
     symbol: 'moSOLID',
+    oracleId: 'moSOLID',
     address: '0x848578e351D25B6Ec0d486E42677891521c3d743',
     chainId: 1,
     decimals: 18,
@@ -898,6 +969,7 @@ const _tokens = {
   FTM: {
     name: 'Fantom Token',
     symbol: 'FTM',
+    oracleId: 'FTM',
     address: '0x4E15361FD6b4BB609Fa63C81A2be19d873717870',
     chainId: 1,
     decimals: 18,
@@ -910,6 +982,7 @@ const _tokens = {
   DEUS: {
     name: 'DEUS',
     symbol: 'DEUS',
+    oracleId: 'DEUS',
     address: '0xDE5ed76E7c05eC5e4572CfC88d1ACEA165109E44',
     chainId: 1,
     decimals: 18,
@@ -922,6 +995,7 @@ const _tokens = {
   GEAR: {
     name: 'Gearbox',
     symbol: 'GEAR',
+    oracleId: 'GEAR',
     address: '0xBa3335588D9403515223F109EdC4eB7269a9Ab5D',
     chainId: 1,
     decimals: 18,
@@ -935,6 +1009,7 @@ const _tokens = {
   TUSD: {
     name: 'TrueUSD',
     symbol: 'TUSD',
+    oracleId: 'TUSD',
     address: '0x0000000000085d4780B73119b644AE5ecd22b376',
     chainId: 1,
     decimals: 18,
@@ -946,6 +1021,7 @@ const _tokens = {
   CLEV: {
     name: 'CLever Token',
     symbol: 'CLEV',
+    oracleId: 'CLEV',
     address: '0x72953a5C32413614d24C29c84a66AE4B59581Bbf',
     chainId: 1,
     decimals: 18,
@@ -959,6 +1035,7 @@ const _tokens = {
   clevCVX: {
     name: 'CLever CVX',
     symbol: 'clevCVX',
+    oracleId: 'clevCVX',
     address: '0xf05e58fCeA29ab4dA01A495140B349F8410Ba904',
     chainId: 1,
     decimals: 18,
@@ -972,6 +1049,7 @@ const _tokens = {
   yCRV: {
     name: 'Yearn: yCRV Token',
     symbol: 'yCRV',
+    oracleId: 'yCRV',
     address: '0xFCc5c47bE19d06BF83eB04298b026F81069ff65b',
     chainId: 1,
     decimals: 18,
@@ -985,6 +1063,7 @@ const _tokens = {
   eUSD: {
     name: 'Electronic USD',
     symbol: 'eUSD',
+    oracleId: 'eUSD',
     address: '0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F',
     chainId: 1,
     decimals: 18,
@@ -998,6 +1077,7 @@ const _tokens = {
   msETH: {
     name: 'Metronome Synth ETH',
     symbol: 'msETH',
+    oracleId: 'msETH',
     address: '0x64351fC9810aDAd17A690E4e1717Df5e7e085160',
     chainId: 1,
     decimals: 18,
@@ -1010,6 +1090,7 @@ const _tokens = {
   BLUR: {
     name: 'Blur',
     symbol: 'BLUR',
+    oracleId: 'BLUR',
     address: '0x5283D291DBCF85356A21bA090E6db59121208b44',
     chainId: 1,
     decimals: 18,
@@ -1021,6 +1102,7 @@ const _tokens = {
   msUSD: {
     name: 'Metronome Synth USD',
     symbol: 'msUSD',
+    oracleId: 'msUSD',
     address: '0xab5eB14c09D416F0aC63661E57EDB7AEcDb9BEfA',
     chainId: 1,
     decimals: 18,
@@ -1033,6 +1115,7 @@ const _tokens = {
   UZD: {
     name: 'UZD Zunami Stable',
     symbol: 'UZD',
+    oracleId: 'UZD',
     address: '0xb40b6608B2743E691C9B54DdBDEe7bf03cd79f1c',
     chainId: 1,
     decimals: 18,
@@ -1045,6 +1128,7 @@ const _tokens = {
   lvUSD: {
     name: 'lvUSD',
     symbol: 'lvUSD',
+    oracleId: 'lvUSD',
     address: '0x94A18d9FE00bab617fAD8B49b11e9F1f64Db6b36',
     chainId: 1,
     decimals: 18,
@@ -1056,21 +1140,10 @@ const _tokens = {
     bridge: 'native',
     documentation: 'https://docs.archimedesfi.com/',
   },
-  eUSDT: {
-    name: 'Euler Tether USD',
-    symbol: 'eUSDT',
-    address: '0x4d19F33948b99800B6113Ff3e83beC9b537C85d2',
-    chainId: 1,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://tether.to/',
-    description:
-      'Euler interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
-    documentation: 'https://docs.euler.finance/',
-  },
   bbeUSDT: {
     name: 'Balancer Euler USDT Linear Pool',
     symbol: 'bbeUSDT',
+    oracleId: 'bbeUSDT',
     address: '0x3C640f0d3036Ad85Afa2D5A9E32bE651657B874F',
     chainId: 1,
     decimals: 18,
@@ -1079,21 +1152,10 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description: 'Balancer linear pool that consist of 50/50 USDT and Euler Interest Bearing USDT.',
   },
-  eUSDC: {
-    name: 'Euler USDC',
-    symbol: 'eUSDC',
-    address: '0xEb91861f8A4e1C12333F42DCE8fB0Ecdc28dA716',
-    chainId: 1,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://www.circle.com/usdc',
-    documentation: 'https://docs.euler.finance/',
-    description:
-      'Euler interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
-  },
   bbeUSDC: {
     name: 'Balancer Euler USDC Linear Pool',
     symbol: 'bbeUSDC',
+    oracleId: 'bbeUSDC',
     address: '0xD4e7C1F3DA1144c9E2CfD1b015eDA7652b4a4399',
     chainId: 1,
     decimals: 18,
@@ -1103,21 +1165,10 @@ const _tokens = {
     description:
       'Balancer linear pool that consist of 50/50 USDC and wrapped Euler Interest Bearing USDC.',
   },
-  eDAI: {
-    name: 'Euler DAI',
-    symbol: 'eDAI',
-    address: '0xe025E3ca2bE02316033184551D4d3Aa22024D9DC',
-    chainId: 1,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://makerdao.com/en/',
-    documentation: 'https://docs.euler.finance/',
-    description:
-      'Euler interest bearing DAI. Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain.',
-  },
   bbeDAI: {
     name: 'Balancer Euler DAI Linear Pool',
     symbol: 'bbeDAI',
+    oracleId: 'bbeDAI',
     address: '0xeB486AF868AeB3b6e53066abc9623b1041b42bc0',
     chainId: 1,
     decimals: 18,
@@ -1130,6 +1181,7 @@ const _tokens = {
   bbeUSD: {
     name: 'Balancer Euler Stable Composable Pool',
     symbol: 'bbeUSD',
+    oracleId: 'bbeUSD',
     address: '0x50Cf90B954958480b8DF7958A9E965752F627124',
     chainId: 1,
     decimals: 18,
@@ -1142,6 +1194,7 @@ const _tokens = {
   VERSE: {
     name: 'Verse',
     symbol: 'VERSE',
+    oracleId: 'VERSE',
     address: '0x249cA82617eC3DfB2589c4c17ab7EC9765350a18',
     chainId: 1,
     decimals: 18,
@@ -1156,17 +1209,20 @@ const _tokens = {
     name: 'ApeCoin',
     address: '0x4d224452801ACEd8B2F0aebE155379bb5D594381',
     symbol: 'APE',
+    oracleId: 'APE',
     decimals: 18,
     chainId: 1,
     website: 'https://apecoin.com/',
     description:
       'ApeCoin is the APE Ecosystems governance token, allowing token holders to participate in ApeCoin DAO and giving its participants a shared and open currency that can be used without centralized intermediaries.',
+    bridge: 'native',
     logoURI: '',
   },
   OHM: {
     name: 'Olympus',
     address: '0x64aa3364F17a4D01c6f1751Fd97C2BD3D7e7f1D5',
     symbol: 'OHM',
+    oracleId: 'OHM',
     decimals: 9,
     chainId: 1,
     website: 'https://www.olympusdao.finance/',
@@ -1179,6 +1235,7 @@ const _tokens = {
   SD: {
     name: 'Stader',
     symbol: 'SD',
+    oracleId: 'SD',
     address: '0x30D20208d987713f46DFD34EF128Bb16C404D10f',
     chainId: 1,
     decimals: 18,
@@ -1192,6 +1249,7 @@ const _tokens = {
   FXS: {
     name: 'Frax Share',
     symbol: 'FXS',
+    oracleId: 'FXS',
     address: '0x3432B6A60D23Ca0dFCa7761B7ab56459D9C964D0',
     chainId: 1,
     decimals: 18,
@@ -1204,6 +1262,7 @@ const _tokens = {
   wBETH: {
     name: 'Wrapped Binance Beacon ETH',
     symbol: 'wBETH',
+    oracleId: 'wBETH',
     address: '0xa2E3356610840701BDf5611a53974510Ae27E2e1',
     chainId: 1,
     decimals: 18,
@@ -1217,6 +1276,7 @@ const _tokens = {
   OETH: {
     name: 'Origin Ether',
     symbol: 'OETH',
+    oracleId: 'OETH',
     address: '0x856c4Efb76C1D1AE02e20CEB03A2A6a08b0b8dC3',
     chainId: 1,
     decimals: 18,
@@ -1230,6 +1290,7 @@ const _tokens = {
   crvUSD: {
     name: 'Curve.Fi USD Stablecoin',
     symbol: 'crvUSD',
+    oracleId: 'crvUSD',
     address: '0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E',
     chainId: 1,
     decimals: 18,
@@ -1237,10 +1298,12 @@ const _tokens = {
     website: 'https://crvusd.curve.fi/',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
+    bridge: 'native',
   },
   hyUSD: {
     name: 'High Yield USD',
     symbol: 'hyUSD',
+    oracleId: 'hyUSD',
     address: '0xaCdf0DBA4B9839b96221a8487e9ca660a48212be',
     chainId: 1,
     decimals: 18,
@@ -1252,6 +1315,7 @@ const _tokens = {
   ETHx: {
     name: 'ETHx',
     symbol: 'ETHx',
+    oracleId: 'ETHx',
     address: '0xA35b1B31Ce002FBF2058D22F30f95D405200A15b',
     chainId: 1,
     decimals: 18,
@@ -1265,6 +1329,7 @@ const _tokens = {
   'ETH+': {
     name: 'ETHPlus',
     symbol: 'ETH+',
+    oracleId: 'ETH+',
     address: '0xE72B141DF173b999AE7c1aDcbF60Cc9833Ce56a8',
     chainId: 1,
     decimals: 18,
@@ -1290,6 +1355,7 @@ const _tokens = {
   R: {
     name: 'R Stablecoin',
     symbol: 'R',
+    oracleId: 'R',
     address: '0x183015a9bA6fF60230fdEaDc3F43b3D788b13e21',
     chainId: 1,
     decimals: 18,
@@ -1303,6 +1369,7 @@ const _tokens = {
   GHO: {
     name: 'GHO Token',
     symbol: 'GHO',
+    oracleId: 'GHO',
     address: '0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f',
     chainId: 1,
     decimals: 18,
@@ -1313,9 +1380,53 @@ const _tokens = {
     description:
       'GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
   },
+  mkUSD: {
+    name: 'Prisma mkUSD',
+    symbol: 'mkUSD',
+    oracleId: 'mkUSD',
+    address: '0x4591DBfF62656E7859Afe5e45f6f47D3669fBB28',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.prismafinance.com/',
+    documentation: 'https://docs.prismafinance.com/',
+    bridge: 'native',
+    description:
+      'Prisma is a decentralized borrowing protocol that allows users to mint a stablecoin, mkUSD, that is fully collateralized by liquid staking tokens.',
+  },
+  PRISMA: {
+    name: 'Prisma Governance Token',
+    symbol: 'PRISMA',
+    oracleId: 'PRISMA',
+    address: '0xdA47862a83dac0c112BA89c6abC2159b95afd71C',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.prismafinance.com/',
+    documentation: 'https://docs.prismafinance.com/',
+    bridge: 'native',
+    description:
+      'Prisma is a decentralized borrowing protocol that allows users to mint a stablecoin, mkUSD, that is fully collateralized by liquid staking tokens.',
+  },
+  cvxPRISMA: {
+    name: 'Convex Prisma',
+    symbol: 'cvxPRISMA',
+    oracleId: 'cvxPRISMA',
+    address: '0x34635280737b5BFe6c7DC2FC3065D60d66e78185',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://prisma.convexfinance.com/',
+    documentation:
+      'https://docs.convexfinance.com/convexfinance/general-information/convex-for-prisma-finance',
+    bridge: 'native',
+    description:
+      'Convex Finance has expanded to optimize opportunities for liquidity providers on Prisma the same way it has done so for Curve.fi LPs.',
+  },
   LUSD: {
     name: 'LUSD Stablecoin',
     symbol: 'LUSD',
+    oracleId: 'LUSD',
     address: '0x5f98805A4E8be255a32880FDeC7F6728C6568bA0',
     chainId: 1,
     decimals: 18,
@@ -1329,6 +1440,7 @@ const _tokens = {
   sDAI: {
     name: 'Savings DAI',
     symbol: 'sDAI',
+    oracleId: 'sDAI',
     address: '0x83F20F44975D03b1b09e64809B757c47f942BEeA',
     chainId: 1,
     decimals: 18,
@@ -1342,6 +1454,7 @@ const _tokens = {
   bbsDAI: {
     name: 'Balancer Aave sDAI Linear Pool',
     symbol: 'bbsDAI',
+    oracleId: 'bbsDAI',
     address: '0x2B218683178d029BAB6c9789b1073aA6c96E5176',
     chainId: 1,
     decimals: 18,
@@ -1351,6 +1464,96 @@ const _tokens = {
     documentation: 'https://docs.balancer.fi/products/balancer-pools/boosted-pools',
     description: 'Balancer linear pool that consist of DAI and sDAI.',
     bridge: 'native',
+  },
+  acUSDC: {
+    name: 'Across USD Coin LP',
+    address: '0xC9b09405959f63F72725828b5d449488b02be1cA',
+    symbol: 'acUSDC',
+    oracle: 'lps',
+    oracleId: 'across-usdc',
+    decimals: 6,
+    website: 'https://across.to/',
+    description:
+      "acUSDC is the LP receipt for providing USDC liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
+    bridge: 'native',
+    chainId: 1,
+    logoURI: '',
+    documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
+  },
+  acWETH: {
+    name: 'Across WETH LP',
+    address: '0x28F77208728B0A45cAb24c4868334581Fe86F95B',
+    symbol: 'acWETH',
+    oracle: 'lps',
+    oracleId: 'across-weth',
+    decimals: 18,
+    website: 'https://across.to/',
+    description:
+      "acWETH is the LP receipt for providing WETH liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
+    bridge: 'native',
+    chainId: 1,
+    logoURI: '',
+    documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
+  },
+  acDAI: {
+    name: 'Across DAI LP',
+    address: '0x4FaBacAC8C41466117D6A38F46d08ddD4948A0cB',
+    symbol: 'acDAI',
+    oracle: 'lps',
+    oracleId: 'across-dai',
+    decimals: 18,
+    website: 'https://across.to/',
+    description:
+      "acDAI is the LP receipt for providing DAI liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
+    bridge: 'native',
+    chainId: 1,
+    logoURI: '',
+    documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
+  },
+  acUSDT: {
+    name: 'Across USDT LP',
+    address: '0xC2faB88f215f62244d2E32c8a65E8F58DA8415a5',
+    symbol: 'acUSDT',
+    oracle: 'lps',
+    oracleId: 'across-usdt',
+    decimals: 6,
+    website: 'https://across.to/',
+    description:
+      "acUSDT is the LP receipt for providing USDT liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
+    bridge: 'native',
+    chainId: 1,
+    logoURI: '',
+    documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
+  },
+  acWBTC: {
+    name: 'Across WBTC LP',
+    address: '0x59C1427c658E97a7d568541DaC780b2E5c8affb4',
+    symbol: 'acWBTC',
+    oracle: 'lps',
+    oracleId: 'across-wbtc',
+    decimals: 8,
+    website: 'https://across.to/',
+    description:
+      "acWBTC is the LP receipt for providing WBTC liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
+    bridge: 'native',
+    chainId: 1,
+    logoURI: '',
+    documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
+  },
+  acACX: {
+    name: 'Across ACX LP',
+    address: '0xb0C8fEf534223B891D4A430e49537143829c4817',
+    symbol: 'acACX',
+    oracle: 'lps',
+    oracleId: 'across-acx',
+    decimals: 18,
+    website: 'https://across.to/',
+    description:
+      "acACX is the LP receipt for providing ACX liquidity to the Across bridge. Across is a cross-chain bridge for L2s and rollups secured by UMA's optimistic oracle.",
+    bridge: 'native',
+    chainId: 1,
+    logoURI: '',
+    documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
   },
 } as const;
 

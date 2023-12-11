@@ -1,5 +1,5 @@
 const BigNumber = require('bignumber.js');
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const pools = require('../../../data/avax/lydLpPools.json');
 const { compound } = require('../../../utils/compound');
 const { AVAX_CHAIN_ID, BASE_HPY } = require('../../../constants');

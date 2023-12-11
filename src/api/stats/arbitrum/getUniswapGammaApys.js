@@ -1,48 +1,44 @@
-const BigNumber = require('bignumber.js');
-const pools = require('../../../data/arbitrum/uniswapGammaPools.json');
-import { getApyBreakdown } from '../common/getApyBreakdown';
+import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
+import { getMiniChefApys } from '../common/getMiniChefApys';
+import pools from '../../../data/arbitrum/uniswapGammaChefPools.json';
+import pancakePools from '../../../data/arbitrum/pancakeGammaPools.json';
+import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
+const minichef = '0x8A8fDe5D57725f070bFc55cd022B924e1c36C8a0';
 
-const merklApi = 'https://api.angle.money/v1/merkl?chainId=42161';
-const gammeApi = 'https://wire2.gamma.xyz/arbitrum/hypervisors/allData';
+export const getUniswapGammaApys = async () => {
+  const uniswap = await getMiniChefApys({
+    minichefConfig: {
+      minichef,
+      minichefAbi: SushiMiniChefV2,
+      outputOracleId: 'ARB',
+      tokenPerSecondContractMethodName: 'sushiPerSecond',
+    },
+    rewarderConfig: {
+      rewarder: '0x6be9b5925C9F5833493aE6E7fFb3a0d745f0F235',
+      rewarderTokenOracleId: 'ARB',
+    },
+    pools,
+    quickGamma: 'https://wire2.gamma.xyz/arbitrum/hypervisors/allData',
+    chainId: chainId,
+    //log: true,
+  });
 
-const getRetroGammaApys = async () => {
-  let poolAprs = {};
-  try {
-    poolAprs = await fetch(merklApi).then(res => res.json());
-  } catch (e) {
-    console.error(`Failed to fetch Merkl APRs`);
-  }
+  const pancake = await getMiniChefApys({
+    minichefConfig: {
+      minichef: '0xC23b44e766435AaA712AaEBc299686385c428B9F',
+      minichefAbi: SushiMiniChefV2,
+      outputOracleId: 'ARB',
+      tokenPerSecondContractMethodName: 'sushiPerSecond',
+    },
+    pools: pancakePools,
+    quickGamma: 'https://wire2.gamma.xyz/pancakeswap/arbitrum/hypervisors/allData',
+    chainId: chainId,
+    // log: true,
+  });
 
-  let aprs = [];
-  for (let i = 0; i < pools.length; ++i) {
-    let apr = BigNumber(0);
-    if (Object.keys(poolAprs).length !== 0) {
-      for (const [key, value] of Object.entries(poolAprs.pools)) {
-        if (key.toLowerCase() === pools[i].pool.toLowerCase()) {
-          apr = BigNumber(0);
-          let str = 'Gamma ';
-          str = str.concat(`${pools[i].address.toLowerCase()}`);
-          apr = BigNumber(value.aprs[str]).dividedBy(100);
-        }
-      }
-    }
+  const apys = { ...uniswap, ...pancake };
 
-    aprs.push(apr);
-  }
-
-  let tradingAprs = {};
-  try {
-    const response = await fetch(gammeApi).then(res => res.json());
-    pools.forEach(p => {
-      tradingAprs[p.address.toLowerCase()] = new BigNumber(
-        response[p.address.toLowerCase()].returns.daily.feeApr
-      );
-    });
-  } catch (e) {
-    console.log('Gamme Uniswap Api Error');
-  }
-
-  return await getApyBreakdown(pools, tradingAprs, aprs, 0);
+  return apys;
 };
 
-module.exports = getRetroGammaApys;
+module.exports = getUniswapGammaApys;

@@ -9,6 +9,7 @@ type TokenBase = {
   oracle: 'lps' | 'tokens';
   decimals: number;
   bridge?: string;
+  staked?: boolean;
 };
 
 export type TokenErc20 = TokenBase & {
@@ -22,3 +23,10 @@ export type TokenNative = TokenBase & {
 };
 
 export type TokenEntity = TokenErc20 | TokenNative;
+
+export type ChainTokens = {
+  byId: Record<TokenEntity['id'], TokenEntity['address']>;
+  byAddress: Record<TokenEntity['address'], TokenEntity>;
+};
+
+export type TokensByChain = Record<ApiChain, ChainTokens>;

@@ -1,6 +1,7 @@
 const getAuraGnosisApys = require('./getAuraGnosisApys');
+const { getCurveApys } = require('./getCurveApys');
 
-const getApys = [getAuraGnosisApys];
+const getApys = [getAuraGnosisApys, getCurveApys];
 
 const getGnosisApys = async () => {
   const start = Date.now();

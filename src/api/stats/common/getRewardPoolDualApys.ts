@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import fetchPrice from '../../../utils/fetchPrice';
+import { fetchPrice } from '../../../utils/fetchPrice';
 import getApyBreakdown from './getApyBreakdown';
 import { isSushiClient } from '../../../apollo/client';
 import { getTradingFeeApr, getTradingFeeAprSushi } from '../../../utils/getTradingFeeApr';

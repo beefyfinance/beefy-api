@@ -1,0 +1,56 @@
+[
+  {
+    "name": "across-usdc",
+    "address": "0xC9b09405959f63F72725828b5d449488b02be1cA",
+    "decimals": "1e6",
+    "underlying": {
+      "symbol": "USDC",
+      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+    }
+  },
+  {
+    "name": "across-weth",
+    "address": "0x28F77208728B0A45cAb24c4868334581Fe86F95B",
+    "decimals": "1e18",
+    "underlying": {
+      "symbol": "WETH",
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2"
+    }
+  },
+  {
+    "name": "across-dai",
+    "address": "0x4FaBacAC8C41466117D6A38F46d08ddD4948A0cB",
+    "decimals": "1e18",
+    "underlying": {
+      "symbol": "DAI",
+      "address": "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+    }
+  },
+  {
+    "name": "across-usdt",
+    "address": "0xC2faB88f215f62244d2E32c8a65E8F58DA8415a5",
+    "decimals": "1e6",
+    "underlying": {
+      "symbol": "USDT",
+      "address": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+    }
+  },
+  {
+    "name": "across-wbtc",
+    "address": "0x59C1427c658E97a7d568541DaC780b2E5c8affb4",
+    "decimals": "1e8",
+    "underlying": {
+      "symbol": "WBTC",
+      "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+    }
+  },
+  {
+    "name": "across-acx",
+    "address": "0xb0C8fEf534223B891D4A430e49537143829c4817",
+    "decimals": "1e18",
+    "underlying": {
+      "symbol": "ACX",
+      "address": "0x44108f0223A3C3028F5Fe7AEC7f9bb2E66beF82F"
+    }
+  }
+]

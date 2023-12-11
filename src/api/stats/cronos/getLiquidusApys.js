@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
 const { CRONOS_CHAIN_ID: chainId, CRONOS_CHAIN_ID } = require('../../../constants');
 
-const fetchPrice = require('../../../utils/fetchPrice');
+import { fetchPrice } from '../../../utils/fetchPrice';
 const { compound } = require('../../../utils/compound');
 const { getTotalStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const getBlockTime = require('../../../utils/getBlockTime');
