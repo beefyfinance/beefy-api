@@ -41,6 +41,7 @@ import getFerroPrices from './cronos/getFerroPrices';
 import getHopArbPrices from './arbitrum/getHopArbPrices';
 import getHopOpPrices from './optimism/getHopOpPrices';
 import getHopPolyPrices from './matic/getHopPolyPrices';
+import getStargateLineaPrices from './linea/getStargateLineaPrices';
 import getStargateEthPrices from './ethereum/getStargateEthPrices';
 import getStargateArbPrices from './arbitrum/getStargateArbPrices';
 import getStargateAvaxPrices from './avax/getStargateAvaxPrices';
@@ -147,6 +148,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getStargateAvaxPrices(tokenPrices),
     getStargateArbPrices(tokenPrices),
     getStargateEthPrices(tokenPrices),
+    getStargateLineaPrices(tokenPrices),
     getHopPolyPrices(tokenPrices), // <----
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),
