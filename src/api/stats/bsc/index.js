@@ -1,16 +1,12 @@
 const getBeltApys = require('./belt/getBeltApys');
-const { getDegensLpApys } = require('./degens');
-const getJetswapApys = require('./jetfuel/getJetswapApys');
 const { getCakeLpV2Apys } = require('./pancake/getCakeLpV2Apys');
 const getVenusApys = require('./venus/getVenusApys');
 const getMdexBscLpApys = require('./mdex/getMdexBscLpApys');
-const getYelApys = require('./yel/getYelApys');
 const { getOOELpApys } = require('./ooe/getOOELpApys');
 const getBiswapApys = require('./biswap/getBiswapApys');
 const getStargateApys = require('./stargate/getStargateBscApys');
 const getValasApys = require('./valas/getValasApys');
 const { getDotDotApy } = require('./getDotDotApy');
-const getConeApys = require('./getConeApys');
 const getThenaApys = require('./getThenaApys');
 const { getPancakeIchiApys } = require('./getPancakeIchiApys');
 
@@ -18,13 +14,9 @@ const getApys = [
   getBeltApys,
   getBiswapApys,
   getCakeLpV2Apys,
-  getConeApys,
-  getDegensLpApys,
-  getJetswapApys,
   getMdexBscLpApys,
   getOOELpApys,
   getVenusApys,
-  getYelApys,
   getStargateApys,
   getValasApys,
   getDotDotApy,
