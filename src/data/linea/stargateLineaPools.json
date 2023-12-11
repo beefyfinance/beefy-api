@@ -1,0 +1,9 @@
+[
+  {
+    "name": "stargate-linea-weth",
+    "poolId": 0,
+    "address": "0xAad094F6A75A14417d39f04E690fC216f080A41a",
+    "decimals": "1e18",
+    "underlying": "WETH"
+  }
+]
