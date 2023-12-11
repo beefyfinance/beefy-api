@@ -97,9 +97,11 @@ const getPoolApys = async pools => {
     apys.push(maxApy);
   });
 
-  checkVaultsApys(pools, poolInfo).catch(e =>
-    console.error('> check prisma vaults apy error', e.message)
-  );
+  if (process.env.CHECK_PRISMA) {
+    checkVaultsApys(pools, poolInfo).catch(e =>
+      console.error('> check prisma vaults apy error', e.message)
+    );
+  }
 
   return apys;
 };
