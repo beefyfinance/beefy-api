@@ -56,5 +56,14 @@
     "oracleId": "arbUSDCe",
     "decimals": "1e6",
     "chainId": 42161
+  },
+  {
+    "name": "silo-usdc-arb",
+    "address": "0x55ADE3B74abef55bF379FF6Ae61CB77a405Eb4A8",
+    "underlying": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+    "silo": "0x0696E6808EE11a5750733a3d821F9bB847E584FB",
+    "oracleId": "arbUSDCe",
+    "decimals": "1e6",
+    "chainId": 42161
   }
 ]

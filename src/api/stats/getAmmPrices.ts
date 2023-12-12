@@ -286,6 +286,7 @@ import { isFiniteNumber } from '../../utils/number';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices';
 import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
+import { getLpBasedPrices } from './getLpBasedPrices';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -788,10 +789,16 @@ async function performUpdateAmmPrices() {
   const lpData = ammPrices.then(async ({ poolPrices, lpsBreakdown }) => {
     const dmm = await dmmPrices;
     const nonAmmPrices = await getNonAmmPrices(await tokenPrices);
+    const pendlePrices = await getLpBasedPrices(await tokenPrices, poolPrices, nonAmmPrices);
 
     return {
-      prices: { ...poolPrices, ...dmm.poolPrices, ...nonAmmPrices.prices },
-      breakdown: { ...lpsBreakdown, ...dmm.lpsBreakdown, ...nonAmmPrices.breakdown },
+      prices: { ...poolPrices, ...dmm.poolPrices, ...nonAmmPrices.prices, ...pendlePrices.prices },
+      breakdown: {
+        ...lpsBreakdown,
+        ...dmm.lpsBreakdown,
+        ...nonAmmPrices.breakdown,
+        ...pendlePrices.breakdown,
+      },
     };
   });
 

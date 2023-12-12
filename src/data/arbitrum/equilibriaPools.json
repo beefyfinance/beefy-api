@@ -1,0 +1,66 @@
+[
+  {
+    "name": "equilibria-arb-wsteth",
+    "address": "0x58F50De493B6bE3585558F95F208dE489C296E24",
+    "gauge": "0xFc5D0F0Bf89E2a76102b4DbF7C83D5041bD3bd10",
+    "oracle": "tokens",
+    "oracleId": "stETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  },
+  {
+    "name": "equilibria-arb-silo-usdc.e",
+    "address": "0x9bC62257Ffe7D0f7c52A019E6Fc0AF3102F8F44E",
+    "gauge": "0xB9ee335F5bA3Bf088c6aD40dCc725889A2930718",
+    "oracle": "tokens",
+    "oracleId": "arbUSDCe",
+    "decimals": "1e6",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  },
+  {
+    "name": "equilibria-arb-glp",
+    "address": "0x7D49E5Adc0EAAD9C027857767638613253eF125f",
+    "gauge": "0x245f1d70AcAaCD219564FCcB75f108917037A960",
+    "oracle": "lps",
+    "oracleId": "gmx-arb-glp",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "oracleId": "WETH"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  }
+]
