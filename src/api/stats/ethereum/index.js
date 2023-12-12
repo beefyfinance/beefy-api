@@ -18,6 +18,7 @@ const getGammaApy = require('./getUniswapGammaApys');
 const { getETHCompoundV3Apys } = require('./getEthCompoundApys');
 const { getPrismaApys } = require('./getPrismaApys');
 const { getAcrossApys } = require('./getAcrossApys');
+const { getEthSiloApys } = require('./getEthereumSiloApys');
 
 const getApys = [
   getAcrossApys,
@@ -40,6 +41,7 @@ const getApys = [
   getVerseLpApys,
   getGammaApy,
   getETHCompoundV3Apys,
+  getEthSiloApys,
 ];
 
 const getEthereumApys = async () => {

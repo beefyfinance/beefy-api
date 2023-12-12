@@ -100,6 +100,7 @@ import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getAcrossPrices from './ethereum/getAcrossPrices';
 import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
 import { GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
+import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -121,6 +122,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
   const promises = [
     getAcrossPrices(tokenPrices),
     getArbitrumSiloPrices(tokenPrices),
+    getEthSiloPrices(tokenPrices),
     getEqualizerStableBasePrices(tokenPrices),
     getKinetixPrices(tokenPrices),
     getBasoStablePrices(tokenPrices),

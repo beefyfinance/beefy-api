@@ -1,0 +1,11 @@
+[
+  {
+    "name": "silo-crvusd",
+    "address": "0xb27D1729489d04473631f0AFAca3c3A7389ac9F8",
+    "underlying": "0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E",
+    "silo": "0x96eFdF95Cc47fe90e8f63D2f5Ef9FB8B180dAeB9",
+    "oracleId": "crvUSD",
+    "decimals": "1e18",
+    "chainId": 1
+  }
+]
