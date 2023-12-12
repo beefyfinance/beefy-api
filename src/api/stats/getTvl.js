@@ -173,11 +173,11 @@ const chains = [
     chainId: GNOSIS_CHAIN_ID,
     vaultsEndpoint: GNOSIS_VAULTS_ENDPOINT,
   },
-  {
+  /* {
     chainId: LINEA_CHAIN_ID,
     vaultsEndpoint: LINEA_VAULTS_ENDPOINT,
     // governancePool: require('../../data/gnosis/governancePool.json'),
-  },
+  },*/
 ];
 
 const CACHE_KEY = 'TVL';

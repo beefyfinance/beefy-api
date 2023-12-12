@@ -602,4 +602,5 @@ export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
   zkevm: new Set([]),
   base: new Set([]),
   gnosis: new Set([]),
+  linea: new Set([]),
 };
