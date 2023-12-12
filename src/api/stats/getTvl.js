@@ -69,6 +69,9 @@ const {
 
   GNOSIS_CHAIN_ID,
   GNOSIS_VAULTS_ENDPOINT,
+
+  LINEA_CHAIN_ID,
+  LINEA_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -170,6 +173,11 @@ const chains = [
     chainId: GNOSIS_CHAIN_ID,
     vaultsEndpoint: GNOSIS_VAULTS_ENDPOINT,
   },
+  /* {
+    chainId: LINEA_CHAIN_ID,
+    vaultsEndpoint: LINEA_VAULTS_ENDPOINT,
+    // governancePool: require('../../data/gnosis/governancePool.json'),
+  },*/
 ];
 
 const CACHE_KEY = 'TVL';

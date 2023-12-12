@@ -72,6 +72,9 @@ module.exports = {
   get gnosisWeb3() {
     return chainRandomClients.gnosisRandomClient();
   },
+  get lineaWeb3() {
+    return chainRandomClients.lineaRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

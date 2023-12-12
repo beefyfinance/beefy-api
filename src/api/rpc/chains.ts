@@ -23,6 +23,7 @@ import {
   ZKSYNC_RPC,
   BASE_RPC,
   GNOSIS_RPC,
+  LINEA_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/address-book';
 
@@ -596,6 +597,29 @@ const gnosisChain = {
   },
 } as const satisfies Chain;
 
+const lineaChain = {
+  id: 59144,
+  name: 'Linea',
+  network: 'linea',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'ETH',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    public: { http: [LINEA_RPC] },
+    default: { http: [LINEA_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'Linea Explorer', url: 'https://explorer.linea.build/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -621,4 +645,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.zkevm]: zkEvmChain,
   [ChainId.base]: baseChain,
   [ChainId.gnosis]: gnosisChain,
+  [ChainId.linea]: lineaChain,
 } as const;

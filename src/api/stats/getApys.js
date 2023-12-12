@@ -19,6 +19,7 @@ const { getZksyncApys } = require('./zksync');
 const { getZkevmApys } = require('./zkevm');
 const { getBaseApys } = require('./base');
 const { getGnosisApys } = require('./gnosis');
+const { getLineaApys } = require('./linea');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs } = require('./getBoostAprs');
 
@@ -66,6 +67,7 @@ const updateApys = async () => {
       getZkevmApys(),
       getBaseApys(),
       getGnosisApys(),
+      getLineaApys(),
     ]);
 
     for (const result of results) {
