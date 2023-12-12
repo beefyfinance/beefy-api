@@ -1,6 +1,7 @@
 const getStargateLineaApys = require('./getStargateLineaApys');
+const getMendiApys = require('./getMendiApys');
 
-const getApys = [getStargateLineaApys];
+const getApys = [getStargateLineaApys, getMendiApys];
 
 const getLineaApys = async () => {
   const start = Date.now();
