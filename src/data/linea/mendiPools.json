@@ -24,7 +24,7 @@
     "name": "mendi-linea-dai",
     "cToken": "0x1f27f81C1D13Dd96A3b75d42e3d5d92b709869AA",
     "oracle": "tokens",
-    "oracleId": "USDC",
+    "oracleId": "DAI",
     "decimals": "1e18"
   },
   {
