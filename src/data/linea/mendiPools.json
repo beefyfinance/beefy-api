@@ -1,0 +1,46 @@
+[
+  {
+    "name": "mendi-linea-weth",
+    "cToken": "0xAd7f33984bed10518012013D4aB0458D37FEE6F3",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18"
+  },
+  {
+    "name": "mendi-linea-usdc",
+    "cToken": "0x333D8b480BDB25eA7Be4Dd87EEB359988CE1b30D",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6"
+  },
+  {
+    "name": "mendi-linea-usdt",
+    "cToken": "0xf669C3C03D9fdF4339e19214A749E52616300E89",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6"
+  },
+  {
+    "name": "mendi-linea-dai",
+    "cToken": "0x1f27f81C1D13Dd96A3b75d42e3d5d92b709869AA",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e18"
+  },
+  {
+    "name": "mendi-linea-wbtc",
+    "cToken": "0x9be5e24F05bBAfC28Da814bD59284878b388a40f",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8"
+  },
+  {
+    "name": "mendi-linea-wsteth",
+    "cToken": "0xCeEd853798ff1c95cEB4dC48f68394eb7A86A782",
+    "oracle": "tokens",
+    "oracleId": "wstETH",
+    "decimals": "1e18",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr"
+  }
+]
