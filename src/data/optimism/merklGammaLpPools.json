@@ -27,9 +27,9 @@
     "beefyFee": 0.095,
     "chainId": 10,
     "lp0": {
-      "address": "0x4200000000000000000000000000000000000006",
+      "address": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
       "oracle": "tokens",
-      "oracleId": "WETH",
+      "oracleId": "wstETH",
       "decimals": "1e18"
     },
     "lp1": {
