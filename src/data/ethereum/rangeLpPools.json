@@ -1,0 +1,42 @@
+[
+  {
+    "name": "uniswap-eth-range-wsteth-weth",
+    "address": "0xF9ab542616A0C8fA94e41c968622C3b2367F5ad1",
+    "pool": "0x109830a1AAaD605BbF02a9dFA7B0B92EC2FB7dAa",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 1,
+    "lp0": {
+      "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pancake-eth-range-reth-weth",
+    "address": "0x581046c928cd7e892654A606Ce66F98b026DC793",
+    "pool": "0x2201d2400d30BFD8172104B4ad046d019CA4E7bd",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 1,
+    "lp0": {
+      "address": "0xae78736Cd615f374D3085123A210448E74Fc6393",
+      "oracle": "tokens",
+      "oracleId": "rETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

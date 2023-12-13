@@ -101,6 +101,7 @@ import getAcrossPrices from './ethereum/getAcrossPrices';
 import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
 import { GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
+import getEthRangePrices from './ethereum/getEthRangePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -222,6 +223,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getUniswapEthereumGammaPrices(tokenPrices),
     getGammaBasePrices(tokenPrices),
     getGammaMoonbeamPrices(tokenPrices),
+    getEthRangePrices(tokenPrices),
   ];
 
   // Setup error logs
