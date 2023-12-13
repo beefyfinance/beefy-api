@@ -1,5 +1,41 @@
 [
   {
+    "name": "uniswap-eth-fis",
+    "address": "0x6da6c5c7eb4d840049f51ba1a79ac8caf3009466",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp0": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xef3A930e1FfFFAcd2fc13434aC81bD278B0ecC8d",
+      "oracle": "tokens",
+      "oracleId": "FIS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "camelot-eth-eqb",
+    "address": "0x69B545997BD6aBC81CaE39Fe9bdC94d2242a0f92",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xBfbCFe8873fE28Dfa25f1099282b088D52bbAD9C",
+      "oracle": "tokens",
+      "oracleId": "EQB",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "cake-bnb-rbnb",
     "address": "0xBDC8eE55d888784Fb90B4D3D6632E19db72cD992",
     "decimals": "1e18",
