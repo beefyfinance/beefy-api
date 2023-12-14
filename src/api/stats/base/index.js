@@ -13,8 +13,10 @@ const getBaseMerklGammaApys = require('./getMerklBaseApys');
 const { getBaseCompoundV3Apys } = require('./getBaseCompoundV3Apys');
 const getAuraBaseApys = require('./getAuraBaseApys');
 const { getSonneApys } = require('./getSonneApys');
+const { getSeamlessApys } = require('./getSeamlessApys');
 
 const getApys = [
+  getSeamlessApys,
   getSonneApys,
   getAerodromeApys,
   getCurveApys,

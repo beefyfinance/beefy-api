@@ -5,6 +5,7 @@ const { getApyBreakdown } = require('../getApyBreakdown');
 const { default: IAaveV3Incentives } = require('../../../../abis/AaveV3Incentives');
 const { default: IAaveV3PoolDataProvider } = require('../../../../abis/AaveV3PoolDataProvider');
 const { fetchContract } = require('../../../rpc/client');
+import jp from 'jsonpath';
 
 const secondsPerYear = 31536000;
 const RAY_DECIMALS = '1e27';
@@ -66,10 +67,12 @@ const getPoolApy = async (config, pool, chainId) => {
   const rewardsApy = leveragedSupplyNative.plus(leveragedBorrowNative);
   const lendingApy = leveragedSupplyBase.minus(leveragedBorrowBase);
   let lsApy = 0;
-  if (pool.liquidStakingUrl) {
-    const response = await fetch(pool.liquidStakingUrl).then(res => res.json());
-    lsApy = pool.lido ? response.apr : response.value;
-    lsApy = lsApy / 100;
+  if (pool.lsUrl) {
+    const response = await fetch(pool.lsUrl).then(res => res.json());
+    lsApy = jp.query(response, pool.dataPath)[0];
+    let lsAprFactor = 1;
+    if (pool.lsAprFactor) lsAprFactor = pool.lsAprFactor;
+    lsApy = (lsApy * lsAprFactor) / 100;
   }
   // console.log(pool.name, apy, supplyBase.valueOf(), borrowBase.valueOf(), supplyNative.valueOf(), borrowNative.valueOf());
   return [rewardsApy, lendingApy, lsApy];

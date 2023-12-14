@@ -1,5 +1,23 @@
 [
   {
+    "name": "soswap-seam-usdc",
+    "address": "0x11E438B489e9e97e0252acd83AaA0a57AB611911",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x1C7a460413dD4e964f96D8dFC56E7223cE88CD85",
+      "oracle": "tokens",
+      "oracleId": "SEAM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "uniswap-eth-fis",
     "address": "0x6da6c5c7eb4d840049f51ba1a79ac8caf3009466",
     "decimals": "1e18",
