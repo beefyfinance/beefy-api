@@ -182,8 +182,8 @@ const BASE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/base.json';
 const GNOSIS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/gnosis.json';
-//const LINEA_VAULTS_ENDPOINT =
-//  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/linea.json';
+const LINEA_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/linea.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -209,7 +209,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   zkevm: ZKEVM_VAULTS_ENDPOINT,
   base: BASE_VAULTS_ENDPOINT,
   gnosis: GNOSIS_VAULTS_ENDPOINT,
-  //linea: LINEA_VAULTS_ENDPOINT,
+  linea: LINEA_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -288,7 +288,7 @@ export {
   GNOSIS_VAULTS_ENDPOINT,
   LINEA_RPC,
   LINEA_CHAIN_ID,
-  //LINEA_VAULTS_ENDPOINT,
+  LINEA_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
