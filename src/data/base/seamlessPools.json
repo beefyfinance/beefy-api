@@ -1,0 +1,60 @@
+[
+  {
+    "name": "seamless-weth",
+    "token": "0x4200000000000000000000000000000000000006",
+    "aToken": "0x48bf8fCd44e2977c8a9A744658431A8e6C0d866c",
+    "debtToken": "0x4cebC6688faa595537444068996ad9A207A19f13",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "seamless-usdbc",
+    "token": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+    "aToken": "0x13A13869B814Be8F13B86e9875aB51bda882E391",
+    "debtToken": "0x326441fA5016d946e6E82e807875fDfdc3041B3B",
+    "oracle": "tokens",
+    "oracleId": "USDbC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "seamless-cbeth",
+    "token": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+    "aToken": "0x2c159A183d9056E29649Ce7E56E59cA833D32624",
+    "debtToken": "0x72Dbdbe3423cdA5e92A3cC8ba9BFD41F67EE9168",
+    "oracle": "tokens",
+    "oracleId": "cbETH",
+    "decimals": "1e18",
+    "lsUrl": "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
+    "dataPath": "$.apy",
+    "lsAprFactor": 100,
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "seamless-usdc",
+    "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "aToken": "0x53E240C0F985175dA046A62F26D490d1E259036e",
+    "debtToken": "0x27Ce7E89312708FB54121ce7E44b13FBBB4C7661",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
+    "name": "seamless-dai",
+    "token": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+    "aToken": "0x37eF72fAC21904EDd7e69f7c7AC98172849efF8e",
+    "debtToken": "0x2733e1DA7d35c5ea3ed246ed6b613DC3dA97Ce2E",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  }
+]
