@@ -26,7 +26,7 @@ export const supportedChains: Partial<Record<ApiChain, string>> = {
   cronos: 'cronos',
   zksync: 'zksync',
   fantom: 'fantom',
-  // linea: 'linea',
+  linea: 'linea',
   zkevm: 'polygon-zkevm',
   aurora: 'aurora',
 } as const;
