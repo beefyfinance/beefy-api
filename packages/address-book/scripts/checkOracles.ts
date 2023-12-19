@@ -3,7 +3,7 @@ import { addressBook } from '../address-book';
 type ChainId = keyof typeof addressBook;
 const allChains = Object.keys(addressBook) as ChainId[];
 
-const skipPrices: boolean = true;
+const skipPrices = true;
 
 type Vault = {
   id: string;
@@ -16,16 +16,13 @@ async function fetchVaults(): Promise<Record<ChainId, Vault[]>> {
   const response = await fetch('https://api.beefy.finance/vaults');
   const vaults = (await response.json()) as Vault[];
 
-  return vaults.reduce(
-    (acc, vault) => {
-      if (!acc[vault.chain]) {
-        acc[vault.chain] = [];
-      }
-      acc[vault.chain].push(vault);
-      return acc;
-    },
-    {} as Record<ChainId, Vault[]>
-  );
+  return vaults.reduce((acc, vault) => {
+    if (!acc[vault.chain]) {
+      acc[vault.chain] = [];
+    }
+    acc[vault.chain].push(vault);
+    return acc;
+  }, {} as Record<ChainId, Vault[]>);
 }
 
 async function fetchPrices(): Promise<Record<string, number>> {
@@ -38,15 +35,12 @@ async function fetchPrices(): Promise<Record<string, number>> {
     responses.map(async r => (await r.json()) as Record<string, unknown>)
   );
   const joined = Object.assign({}, ...data);
-  return Object.entries(joined).reduce(
-    (acc, [key, value]) => {
-      if (typeof value === 'number' && isFinite(value) && !isNaN(value)) {
-        acc[key] = value;
-      }
-      return acc;
-    },
-    {} as Record<string, number>
-  );
+  return Object.entries(joined).reduce((acc, [key, value]) => {
+    if (typeof value === 'number' && isFinite(value) && !isNaN(value)) {
+      acc[key] = value;
+    }
+    return acc;
+  }, {} as Record<string, number>);
 }
 
 async function checkChain(chainId: ChainId, vaults: Vault[], prices: Record<string, number>) {

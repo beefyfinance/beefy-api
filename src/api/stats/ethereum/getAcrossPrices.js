@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 const pools = require('../../../data/ethereum/acrossPools.json');
-const url = "https://across.to/api/pools?token=";
+const url = 'https://across.to/api/pools?token=';
 
 const getAcrossPrices = async tokenPrices => {
   let prices = {};
@@ -13,7 +13,7 @@ const getAcrossPrices = async tokenPrices => {
       const price = exchangeRate.times(underlyingPrice).dividedBy(1e18).toNumber();
       prices = { ...prices, [pool.name]: price };
     } catch (e) {
-      console.log("Across url fetch error", e);
+      console.log('Across url fetch error', e);
     }
   }
 

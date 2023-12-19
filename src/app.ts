@@ -15,6 +15,7 @@ import { initTreasuryService } from './api/treasury/getTreasury';
 import { initProposalsService } from './api/snapshot/getProposals';
 import { initZapSwapService } from './api/zap/swap';
 import { initValidatorPerformanceService } from './api/validators/validators';
+import { initArticlesService } from './api/articles/fetchArticlesData';
 
 const Koa = require('koa');
 const helmet = require('koa-helmet');
@@ -59,6 +60,7 @@ const start = async () => {
   initConfigService();
   initProposalsService();
   initTreasuryService();
+  initArticlesService();
   initZapSwapService();
 
   app.listen(port);

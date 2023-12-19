@@ -20,6 +20,7 @@ const { validatorPerformance } = require('./api/validators/index');
 const { proxyOneInchSwap, proxyOneInchQuote } = require('./api/zap/proxy/one-inch');
 const { proxyKyberSwap, proxyKyberQuote } = require('./api/zap/proxy/kyber');
 const { zapSwapsSupport, zapSwapsSupportDebug } = require('./api/zap/swap/routes');
+const { getArticles, getLatestArticle } = require('./api/articles');
 
 router.get('/validator-performance', validatorPerformance);
 
@@ -73,6 +74,9 @@ router.get('/zap/providers/oneinch/:chainId/quote', proxyOneInchQuote);
 router.get('/zap/providers/oneinch/:chainId/swap', proxyOneInchSwap);
 router.get('/zap/providers/kyber/:chainId/quote', proxyKyberQuote);
 router.post('/zap/providers/kyber/:chainId/swap', proxyKyberSwap);
+
+router.get('/articles', getArticles);
+router.get('/articles/latest', getLatestArticle);
 
 router.get('/', noop);
 

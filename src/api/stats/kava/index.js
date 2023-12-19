@@ -4,7 +4,13 @@ const getEquilibreApys = require('./getEquilibreApys');
 const { getKinetixApys } = require('./getKinetixApys');
 const getStargateKavaApys = require('./getStargateKavaApys');
 
-const getApys = [getCurveApys, getSushiLpApys, getEquilibreApys, getKinetixApys, getStargateKavaApys];
+const getApys = [
+  getCurveApys,
+  getSushiLpApys,
+  getEquilibreApys,
+  getKinetixApys,
+  getStargateKavaApys,
+];
 
 const getKavaApys = async () => {
   const start = Date.now();
