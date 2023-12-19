@@ -1,5 +1,44 @@
 [
   {
+    "name": "balancer-zkevm-wsteth-ankreth",
+    "address": "0x65dA876A95CD5b6A5880710628C436409B1B29fa",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x2279abf4bdAb8CF29EAe4036262c62dBA6460306",
+    "vaultPoolId": "0x65da876a95cd5b6a5880710628c436409b1b29fa00000000000000000000005b",
+    "lsUrl": [
+      "https://api.staking.ankr.com/v1alpha/metrics",
+      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma"
+    ],
+    "dataPath": ["$.services[0].apy", "$.data.smaApr"],
+    "balancerChargesFee": true,
+    "composable": true,
+    "bptIndex": 2,
+    "lsIndex": [0, 1],
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x2279abf4bdAb8CF29EAe4036262c62dBA6460306",
+        "oracleId": "BAL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ankrETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
     "name": "balancer-zkevm-gyro-reth-eth",
     "address": "0xb1557CFEA06De5a1601a7F0cCF3b515EF431A50d",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

@@ -236,6 +236,20 @@ const _tokens = {
     bridge: 'zkevm-canonical',
     logoURI: 'https://hecoinfo.com/token/images/chainlink_32.png',
   },
+  ankrETH: {
+    name: 'Ankr Staked ETH',
+    symbol: 'ankrETH',
+    oracleId: 'ankrETH',
+    address: '0x12D8CE035c5DE3Ce39B1fDD4C1d5a745EAbA3b8C',
+    chainId: 1101,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description:
+      'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
+    bridge: 'ankr',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
