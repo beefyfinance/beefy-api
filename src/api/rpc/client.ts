@@ -79,7 +79,7 @@ const getMulticallClientForChain = (chainId: ChainId): Client => {
         },
       },
       chain: chain,
-      transport: makeCustomFallbackTransport(rpcs),
+      transport: makeCustomFallbackTransport([chain.rpcUrls.public.http[0], ...rpcs]),
     });
   }
   return multicallClientsByChain[chain.id];
@@ -98,7 +98,7 @@ const getPublicClientForChain = (chainId: ChainId): PublicClient => {
         },
       },
       chain: chain,
-      transport: makeCustomFallbackTransport(rpcs),
+      transport: makeCustomFallbackTransport([chain.rpcUrls.public.http[0], ...rpcs]),
     });
   }
   return publicClientsByChain[chain.id];
@@ -111,7 +111,7 @@ const getSingleCallClientForChain = (chainId: ChainId): Client => {
     const rpcs = getChainRpcs(chainId);
     singleCallClientsByChain[chain.id] = createClient({
       chain: chain,
-      transport: makeCustomFallbackTransport(rpcs),
+      transport: makeCustomFallbackTransport([chain.rpcUrls.public.http[0], ...rpcs]),
     });
   }
   return singleCallClientsByChain[chain.id];
