@@ -16,6 +16,7 @@ export interface ApyBreakdown {
   totalApy?: number;
   liquidStakingApr?: number;
   composablePoolApr?: number;
+  supplyApr?: number;
 }
 
 export interface ApyBreakdownResult {
@@ -29,7 +30,8 @@ export const getApyBreakdown = (
   farmAprs: BigNumber[],
   providerFee?: number | BigNumber[],
   liquidStakingAprs?: number[],
-  composablePoolAprs?: number[]
+  composablePoolAprs?: number[],
+  mainLabel: 'tradingApr' | 'supplyApr' = 'tradingApr'
 ): ApyBreakdownResult => {
   const result: ApyBreakdownResult = {
     apys: {},
@@ -41,22 +43,11 @@ export const getApyBreakdown = (
   }
 
   pools.forEach((pool, i) => {
-    const liquidStakingApr: number | undefined = liquidStakingAprs
-      ? liquidStakingAprs[i]
-      : undefined;
+    const liquidStakingApr: number = liquidStakingAprs?.[i] || 0;
 
-    const composablePoolApr: number | undefined = composablePoolAprs
-      ? composablePoolAprs[i]
-      : undefined;
+    const composablePoolApr: number = composablePoolAprs?.[i] || 0;
 
-    const extraApr =
-      liquidStakingAprs && composablePoolAprs
-        ? liquidStakingApr + composablePoolApr
-        : liquidStakingAprs
-        ? liquidStakingApr
-        : composablePoolAprs
-        ? composablePoolApr
-        : 0;
+    const extraApr: number = liquidStakingApr + composablePoolApr;
 
     const provFee = providerFee[i] == undefined ? providerFee : providerFee[i].toNumber();
     const simpleApr = farmAprs[i]?.toNumber();
@@ -87,7 +78,7 @@ export const getApyBreakdown = (
       beefyPerformanceFee: beefyPerformanceFee,
       vaultApy: vaultApy,
       lpFee: provFee,
-      tradingApr: tradingApr,
+      [mainLabel]: tradingApr,
       liquidStakingApr: liquidStakingApr,
       composablePoolApr: composablePoolApr,
       totalApy: totalApy,
