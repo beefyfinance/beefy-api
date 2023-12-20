@@ -1339,6 +1339,19 @@ const _tokens = {
     description:
       'Safety-first diversified ETH staking index with up to 4.5% APY backed by Lido Staked ETH and Rocket Pool ETH.',
   },
+  'USDC+': {
+    name: 'USDC Plus',
+    symbol: 'USDC+',
+    oracleId: 'USDC+',
+    address: '0xFc0B1EEf20e4c68B3DCF36c4537Cfa7Ce46CA70b',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://register.app/#/overview?token=0xFc0B1EEf20e4c68B3DCF36c4537Cfa7Ce46CA70b',
+    bridge: 'native',
+    description:
+      'USDC PLUS (USDC+): A community governed yield bearing USDC index optimized for yield to holders and overcollateralization protection.',
+  },
   '3CRV': {
     name: 'Curve.fi DAI/USDC/USDT',
     symbol: '3CRV',

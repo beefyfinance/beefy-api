@@ -276,6 +276,25 @@
     ]
   },
   {
+    "name": "convex-usdc+",
+    "pool": "0xF2B25362a03f6EACCa8De8d5350A9f37944c1e59",
+    "token": "0xfed2B54453F75634bcdaEA5e5b11a3f99b9C28Fa",
+    "rewardPool": "0xD1Bdd9a20359903Dd5939F10Ce5A2d5b1f7624F7",
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC+",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-tricrypto-usdc",
     "pool": "0x7f86bf177dd4f3494b841a37e810a34dd56c829b",
     "token": "0x7f86bf177dd4f3494b841a37e810a34dd56c829b",
