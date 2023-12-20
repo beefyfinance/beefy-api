@@ -60,7 +60,7 @@ const getPoolApys = async (chainId, pools) => {
     const info = poolInfo[i];
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
-    const totalStakedInUsd = info.totalSupply.times(lpPrice).div(pool.decimals);
+    const totalStakedInUsd = info.totalSupply.times(lpPrice).div('1e18');
     let yearlyRewardsInUsd = new BigNumber(0);
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
