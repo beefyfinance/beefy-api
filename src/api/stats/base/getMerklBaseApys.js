@@ -1,5 +1,6 @@
 const BigNumber = require('bignumber.js');
 const sushiPools = require('../../../data/base/sushiGammaPools.json');
+const { BASE_CHAIN_ID: chainId } = require('../../../constants');
 import { getApyBreakdown } from '../common/getApyBreakdown';
 
 const merklApi = 'https://api.angle.money/v1/merkl?chainId=8453';
@@ -11,19 +12,21 @@ const getBaseMerklGammaApys = async () => {
   try {
     poolAprs = await fetch(merklApi).then(res => res.json());
   } catch (e) {
-    console.error(`Failed to fetch Merkl APRs`);
+    console.error(`Failed to fetch Merkl APRs: ${chainId}`);
   }
 
   let aprs = [];
   for (let i = 0; i < pools.length; ++i) {
     let apr = BigNumber(0);
-    if (Object.keys(poolAprs).length !== 0) {
-      for (const [key, value] of Object.entries(poolAprs.pools)) {
+    let merklPools = poolAprs[chainId].pools;
+    if (Object.keys(merklPools).length !== 0) {
+      for (const [key, value] of Object.entries(merklPools)) {
         if (key.toLowerCase() === pools[i].pool.toLowerCase()) {
-          apr = BigNumber(0);
-          let str = 'Gamma ';
-          str = str.concat(`${pools[i].address.toLowerCase()}`);
-          apr = BigNumber(value.aprs[str]).dividedBy(100);
+          for (const [k, v] of Object.entries(value.alm)) {
+            if (k.toLowerCase() === pools[i].address.toLowerCase()) {
+              apr = BigNumber(v.almAPR).dividedBy(100);
+            }
+          }
         }
       }
     }

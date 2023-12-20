@@ -4,7 +4,7 @@ import { getMiniChefApys } from '../common/getMiniChefApys';
 // import { sushiPolyClient } from '../../../apollo/client';
 
 import pools from '../../../data/optimism/uniswapGammaLpPools.json';
-import merklPools from '../../../data/optimism/merklGammaLpPools.json';
+import merklGammaPools from '../../../data/optimism/merklGammaLpPools.json';
 import { addressBook } from '../../../../packages/address-book/address-book';
 import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 import BigNumber from 'bignumber.js';
@@ -48,19 +48,21 @@ const getMerklGammaApys = async () => {
   try {
     poolAprs = await fetch(merklApi).then(res => res.json());
   } catch (e) {
-    console.error(`Failed to fetch Merkl APRs`);
+    console.error(`Failed to fetch Merkl APRs: ${chainId}`);
   }
 
   let aprs = [];
-  for (let i = 0; i < merklPools.length; ++i) {
+  for (let i = 0; i < merklGammaPools.length; ++i) {
     let apr = BigNumber(0);
-    if (Object.keys(poolAprs).length !== 0) {
-      for (const [key, value] of Object.entries(poolAprs.pools)) {
-        if (key.toLowerCase() === merklPools[i].pool.toLowerCase()) {
-          apr = BigNumber(0);
-          let str = 'Gamma ';
-          str = str.concat(`${merklPools[i].address.toLowerCase()}`);
-          apr = BigNumber(value.aprs[str]).dividedBy(100);
+    let merklPools = poolAprs[chainId].pools;
+    if (Object.keys(merklPools).length !== 0) {
+      for (const [key, value] of Object.entries(merklPools)) {
+        if (key.toLowerCase() === merklGammaPools[i].pool.toLowerCase()) {
+          for (const [k, v] of Object.entries(value.alm)) {
+            if (k.toLowerCase() === merklGammaPools[i].address.toLowerCase()) {
+              apr = BigNumber(v.almAPR).dividedBy(100);
+            }
+          }
         }
       }
     }
@@ -75,7 +77,7 @@ const getMerklGammaApys = async () => {
     // Combine the two responses
     // Object.assign(response, sushiReponse);
 
-    merklPools.forEach(p => {
+    merklGammaPools.forEach(p => {
       tradingAprs[p.address.toLowerCase()] = new BigNumber(
         response[p.address.toLowerCase()].returns.daily.feeApr
       );
@@ -84,7 +86,7 @@ const getMerklGammaApys = async () => {
     console.log('OP Gamma Api Error', e);
   }
 
-  return await getApyBreakdown(merklPools, tradingAprs, aprs, 0);
+  return await getApyBreakdown(merklGammaPools, tradingAprs, aprs, 0);
 };
 
 module.exports = getGammaApys;
