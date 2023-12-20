@@ -16,6 +16,7 @@ import {
   fetchBalancerStablePoolPrice,
 } from '../../utils/fetchBalancerStablePoolPrices';
 import { fetchCoinGeckoPrices } from '../../utils/fetchCoinGeckoPrices';
+import { fetchDefillamaPrices } from '../../utils/fetchDefillamaPrices';
 import { getKey, setKey } from '../../utils/cache';
 
 import getNonAmmPrices from './getNonAmmPrices';
@@ -660,9 +661,20 @@ async function fetchSeedPrices() {
   const seedPrices: Record<string, number> = await fetchChainLinkPrices();
 
   const coinGeckoPrices = await fetchCoinGeckoPrices(Object.keys(coinGeckoCoins));
+  const defillamaPrices = await fetchDefillamaPrices(Object.keys(coinGeckoCoins));
   for (const [geckoId, oracleIds] of Object.entries(coinGeckoCoins)) {
     for (const oracleId of oracleIds) {
-      seedPrices[oracleId] = coinGeckoPrices[geckoId];
+      const cg = coinGeckoPrices[geckoId];
+      const dl = defillamaPrices[geckoId];
+      if (!cg) seedPrices[oracleId] = dl;
+      else if (!dl) seedPrices[oracleId] = cg;
+      else {
+        seedPrices[oracleId] = cg;
+        const diff = (Math.abs(cg - dl) / cg) * 100;
+        if (diff > 10) {
+          console.log(oracleId, 'price on CoinGecko and Defillama is too different', cg, dl);
+        }
+      }
     }
   }
 
