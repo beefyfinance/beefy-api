@@ -48,6 +48,7 @@
     "polygon:quick:gamma:add": "ts-node scripts/add-sushi.ts --network polygon --project quick --newFee true --pool",
     "polygon:sushi:add": "ts-node scripts/add-sushi.ts --network polygon --project sushiPoly",
     "polygon:retro:add": "ts-node scripts/add-gamma.ts --network polygon --project retro --wide true --lp",
+    "polygon:retro:ichi:add": "ts-node scripts/add-ichi.ts --network polygon --project retro --wrapper",
     "one:sushi:add": "ts-node scripts/add-sushi.ts --network one --project sushiOne",
     "arb:sushi:add": "ts-node scripts/add-sushi.ts --network arbitrum --project sushiArb --newFee true",
     "arb:swapfish:add": "ts-node scripts/add-farm.ts --network arbitrum --project swapfishArb --newFee true",

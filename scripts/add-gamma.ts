@@ -146,7 +146,7 @@ async function main() {
   const poolsJsonFile = projects[args['project']].file;
   const poolsJson = require(poolsJsonFile);
 
-  const newPoolName = `${poolPrefix}-gamma-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}-${type}`;
+  const newPoolName = `${poolPrefix}-ichi-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}-${type}`;
 
   const solidlyPool = {
     name: newPoolName,
