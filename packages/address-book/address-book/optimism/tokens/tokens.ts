@@ -1299,6 +1299,20 @@ const _tokens = {
     documentation: 'https://dao-docs.connext.network/',
     bridge: 'connext',
   },
+  KUJI: {
+    name: 'Kujira native asset',
+    symbol: 'KUJI',
+    oracleId: 'KUJI',
+    address: '0x3A18dcC9745eDcD1Ef33ecB93b0b6eBA5671e7Ca',
+    chainId: 10,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://kujira.network/',
+    description:
+      'Kujira is a decentralized ecosystem revolutionizing payment infrastructure and providing sustainable FinTech solutions to protocols, builders, and web 3 users. An innovation hub of revenue-generating products with great user experience that allow retail investors to access opportunities previously only available to the wealthy and elite.',
+    documentation: 'https://docs.kujira.app/',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
