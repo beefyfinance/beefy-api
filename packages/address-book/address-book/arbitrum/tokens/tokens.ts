@@ -1359,6 +1359,20 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
+  SOL: {
+    name: 'Wrapped SOL',
+    symbol: 'SOL',
+    oracleId: 'SOL',
+    address: '0x2bcC6D6CdBbDC0a4071e48bb3B969b06B3330c07',
+    chainId: 42161,
+    decimals: 9,
+    website: 'https://solana.com/',
+    description:
+      'Solana is a fast, secure, and censorship resistant blockchain providing the open infrastructure required for global adoption.',
+    bridge: 'wormhole',
+    logoURI: '',
+    documentation: 'https://docs.solana.com/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

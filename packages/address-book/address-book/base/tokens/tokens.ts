@@ -542,6 +542,20 @@ const _tokens = {
     documentation: 'https://docs.lido.fi/',
     bridge: 'base-canonical',
   },
+  CRV: {
+    name: 'Curve DAO Token',
+    symbol: 'CRV',
+    oracleId: 'CRV',
+    address: '0x8Ee73c484A26e0A5df2Ee2a4960B789967dd0415',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://curve.fi/',
+    description:
+      'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    documentation: 'https://curve.readthedocs.io/',
+    bridge: 'base-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
