@@ -55,7 +55,7 @@
     "lp1": {
       "address": "0xbf1aeA8670D2528E08334083616dD9C5F3B087aE",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "bMAI",
       "decimals": "1e18"
     }
   },
