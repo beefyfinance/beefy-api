@@ -1,8 +1,8 @@
 [
   {
     "name": "velodrome-v2-kuji-weth",
-    "address": "0x1e7c5572B3D5942Cf5dabf61f5Ba3FbC6B65e921",
-    "gauge": "0x0597171C22D70c545889179bBFdC6a9c65D8fbE0",
+    "address": "0x763C9dC392B6BEFe79Fa227056dD9279bAbb4E14",
+    "gauge": "0xfd57C6720Ce95B85A3d686a41D3746dcE9322Dd7",
     "decimals": "1e18",
     "chainId": 10,
     "beefyFee": 0.095,
