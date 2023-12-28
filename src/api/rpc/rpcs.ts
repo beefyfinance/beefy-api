@@ -188,7 +188,6 @@ const rpcs: Record<ChainId, string[]> = {
     'https://polygon-zkevm.drpc.org',
   ],
   [ChainId.base]: [
-    'https://base.llamarpc.com',
     'https://endpoints.omniatech.io/v1/base/mainnet/public',
     'https://mainnet.base.org',
     'https://developer-access-mainnet.base.org',
