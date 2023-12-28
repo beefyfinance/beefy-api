@@ -2,6 +2,7 @@
 require('dotenv').config();
 
 import { initCache } from './utils/cache';
+import { initRpcs } from './api/rpc/rpcs';
 import { initBoostService } from './api/boosts/getBoosts';
 import { initPriceService } from './api/stats/getAmmPrices';
 import { initApyService } from './api/stats/getApys';
@@ -47,6 +48,7 @@ const port = process.env.PORT || 3000;
 
 const start = async () => {
   await initCache();
+  await initRpcs();
 
   initApyService();
   initPriceService();
