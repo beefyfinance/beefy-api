@@ -1,0 +1,23 @@
+[
+  {
+    "name": "uniswap-gamma-weth-wglmr",
+    "address": "0xc62697c980A4bA4208125a12A883dC400685Ef39",
+    "pool": "0xBa66370D96a9D61AfA66283900b78C1F6Ed02782",
+    "decimals": "1e18",
+    "chainId": 1284,
+    "beefyFee": 0.095,
+    "poolId": 0,
+    "lp0": {
+      "address": "0xab3f0245B83feB11d15AAffeFD7AD465a59817eD",
+      "oracle": "tokens",
+      "oracleId": "ETHwh",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "oracle": "tokens",
+      "oracleId": "WGLMR",
+      "decimals": "1e18"
+    }
+  }
+]

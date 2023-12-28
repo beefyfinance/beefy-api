@@ -86,6 +86,7 @@ const _tokens = {
     description:
       'WETHwh is a bridged version of native ETH from the Wormhole(Portal) portal. ETH is the native currency that flows within the Ethereum ecosystem.',
     documentation: 'https://docs.wormhole.com/wormhole/',
+    bridge: 'wormhole',
   },
   USDCwh: {
     name: 'USD Coin',
