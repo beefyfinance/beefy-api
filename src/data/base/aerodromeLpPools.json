@@ -1,25 +1,5 @@
 [
   {
-    "name": "aerodrome-usdc-usd+",
-    "address": "0x418457Ca08fA5EC77f811B105F2c585cd051Ac10",
-    "gauge": "0x9701a079c6e80d91ce4c464c4a996237a27fe537",
-    "decimals": "1e18",
-    "chainId": 8453,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
-      "oracle": "tokens",
-      "oracleId": "USD+",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "aerodrome-weth-usdc",
     "address": "0xcDAC0d6c6C59727a65F871236188350531885C43",
     "gauge": "0x519BBD1Dd8C6A94C46080E24f316c14Ee758C025",

@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-usdc-usd+",
+    "address": "0x418457Ca08fA5EC77f811B105F2c585cd051Ac10",
+    "gauge": "0x9701A079C6e80D91CE4c464C4a996237A27FE537",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "oracle": "tokens",
+      "oracleId": "USD+",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "aerodrome-dai-usdc",
     "address": "0x67b00B46FA4f4F24c03855c5C8013C0B938B3eEc",
     "gauge": "0x640e9ef68e1353112fF18826c4eDa844E1dC5eD0",
