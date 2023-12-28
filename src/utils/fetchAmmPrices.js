@@ -41,11 +41,13 @@ const sortByKeys = o => {
 };
 
 const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
-  // console.log(knownPrice)
-  // console.log(knownToken)
-  // console.log(unknownToken)
   const valuation = knownToken.balance.dividedBy(knownToken.decimals).multipliedBy(knownPrice);
   const price = valuation.multipliedBy(unknownToken.decimals).dividedBy(unknownToken.balance);
+
+  //  console.log(knownToken)
+  //  console.log(knownPrice)
+  //  console.log(unknownToken)
+  //  console.log(price.toNumber())
 
   return {
     price: price.toNumber(),
