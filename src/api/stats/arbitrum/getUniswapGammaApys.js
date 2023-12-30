@@ -22,7 +22,7 @@ export const getUniswapGammaApys = async () =>
       pools,
       quickGamma: 'https://wire2.gamma.xyz/arbitrum/hypervisors/allData',
       chainId: chainId,
-      log: true,
+      // log: true,
     }),
     await getMiniChefApys({
       minichefConfig: {

@@ -1,5 +1,137 @@
 [
   {
+    "name": "uniswap-gamma-gns-usdc-wide",
+    "address": "0x265A0f96B61849773a7B515495c6f04B364B28D8",
+    "pool": "0xaA9e653252ED9e87a9bD545B974eFBFB2f389F3F",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "poolId": 15,
+    "extraRewards": [
+      {
+        "rewarder": "0xf1778f0B5549Df305fAB2Cd31a46Ee8C78dFA546",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      },
+      {
+        "rewarder": "0x6348EDa687b6fC4238cdfAa6Ca36Bb6196D867D3",
+        "oracleId": "GNS",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0x18c11FD286C5EC11c3b683Caa813B77f5163A122",
+      "oracle": "tokens",
+      "oracleId": "GNS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "uniswap-gamma-gns-usdc-narrow",
+    "address": "0x9F460bd8355676523D3f0031395f26c64B209FEf",
+    "pool": "0xaA9e653252ED9e87a9bD545B974eFBFB2f389F3F",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "poolId": 14,
+    "extraRewards": [
+      {
+        "rewarder": "0xf1778f0B5549Df305fAB2Cd31a46Ee8C78dFA546",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      },
+      {
+        "rewarder": "0x6348EDa687b6fC4238cdfAa6Ca36Bb6196D867D3",
+        "oracleId": "GNS",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0x18c11FD286C5EC11c3b683Caa813B77f5163A122",
+      "oracle": "tokens",
+      "oracleId": "GNS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "uniswap-gamma-gns-weth-wide",
+    "address": "0xDA002fb3601675BC6c2Ef9024Db27977cb194FC0",
+    "pool": "0xC91B7b39BBB2c733f0e7459348FD0c80259c8471",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "poolId": 10,
+    "extraRewards": [
+      {
+        "rewarder": "0xf1778f0B5549Df305fAB2Cd31a46Ee8C78dFA546",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      },
+      {
+        "rewarder": "0x6348EDa687b6fC4238cdfAa6Ca36Bb6196D867D3",
+        "oracleId": "GNS",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0x18c11FD286C5EC11c3b683Caa813B77f5163A122",
+      "oracle": "tokens",
+      "oracleId": "GNS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "uniswap-gamma-gdai-dai",
+    "address": "0x33985Ca762541e2412F454c6F2e7EC677645D1dF",
+    "pool": "0x9F934D552476c992De3751A4873f2C1fBEB032B2",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "poolId": 13,
+    "extraRewards": [
+      {
+        "rewarder": "0xf1778f0B5549Df305fAB2Cd31a46Ee8C78dFA546",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      },
+      {
+        "rewarder": "0x6348EDa687b6fC4238cdfAa6Ca36Bb6196D867D3",
+        "oracleId": "GNS",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0xd85E038593d7A098614721EaE955EC2022B9B91B",
+      "oracle": "tokens",
+      "oracleId": "gDAI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "uniswap-gamma-usdc-link",
     "address": "0xf8b645c32F660f5c997ED250f264cA4a0E7A5967",
     "pool": "0x655C1607F8c2E73D5b4ddAbCe9Ba8792b87592B6",
@@ -28,6 +160,18 @@
     "chainId": 42161,
     "beefyFee": 0.095,
     "poolId": 9,
+    "extraRewards": [
+      {
+        "rewarder": "0xf1778f0B5549Df305fAB2Cd31a46Ee8C78dFA546",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      },
+      {
+        "rewarder": "0x6348EDa687b6fC4238cdfAa6Ca36Bb6196D867D3",
+        "oracleId": "GNS",
+        "decimals": "1e18"
+      }
+    ],
     "lp0": {
       "address": "0x18c11FD286C5EC11c3b683Caa813B77f5163A122",
       "oracle": "tokens",
