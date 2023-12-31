@@ -8,7 +8,7 @@
     "dataPath": "$.sfraxApy",
     "balancerChargesFee": true,
     "vaultPoolId": "0x2ce4457acac29da4736ae6f5cd9f583a6b335c270000000000000000000004dc",
-    "lsIndex": 0,
+    "lsIndex": 2,
     "composable": true,
     "bptIndex": 0,
     "decimals": "1e18",
