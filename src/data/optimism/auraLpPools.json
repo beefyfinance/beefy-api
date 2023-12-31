@@ -1,5 +1,47 @@
 [
   {
+    "name": "aura-op-fraximalist-ethereum",
+    "address": "0xA71021492a3966EeC735Ed1B505aFa097c7cFe6f",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x6699075dC1d3A3a85300CEe9e423f98419Cedcdd",
+    "vaultPoolId": "0xa71021492a3966eec735ed1b505afa097c7cfe6f00000000000000000000010d",
+    "composable": true,
+    "bptIndex": 2,
+    "decimals": "1e18",
+    "lsUrl": "https://api.frax.finance/v2/frxeth/summary/latest",
+    "dataPath": "$.sfrxethApr",
+    "lsAprFactor": 1,
+    "lsIndex": 0,
+    "balancerChargesFee": true,
+    "rewards": [
+      {
+        "rewardGauge": "0xB122Dc64a80f877DFE67B9c7ACEE58C589E3Fe86",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x0e3C8E46B6747DEaD79b73283c58E3a4C1191FF6",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "frxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
     "name": "aura-op-ethereum-triplets",
     "address": "0x5F8893506Ddc4C271837187d14A9C87964a074Dc",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
