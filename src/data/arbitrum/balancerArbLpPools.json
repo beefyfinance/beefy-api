@@ -1,5 +1,41 @@
 [
   {
+    "name": "balancer-wsteth-4pool",
+    "address": "0xA1a8bf131571A2139FEB79401aA4A2E9482Df627",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x138E37c3885169DB38e046D5c814C0e95566566c",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "balancerChargesFee": true,
+    "vaultPoolId": "0xa1a8bf131571a2139feb79401aa4a2e9482df6270002000000000000000004b4",
+    "lsIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x138E37c3885169DB38e046D5c814C0e95566566c",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x138E37c3885169DB38e046D5c814C0e95566566c",
+        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "bpt-4POOL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-sfrax-4pool",
     "address": "0x2CE4457aCac29dA4736aE6f5Cd9F583a6b335c27",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
