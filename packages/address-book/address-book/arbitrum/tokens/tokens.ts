@@ -1373,6 +1373,34 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.solana.com/',
   },
+  sFRAX: {
+    name: 'Staked FRAX',
+    symbol: 'sFRAX',
+    oracleId: 'sFRAX',
+    address: '0xe3b3FE7bcA19cA77Ad877A5Bebab186bEcfAD906',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://app.frax.finance/sfrax/stake',
+    description:
+      'Staked FRAX (sFRAX) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in FRAX stablecoins. The sFRAX token represents pro rata deposits within the vault and is always withdrawable for FRAX stablecoins at the pro rata rate at all times. sFRAX APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The FRAX staking vault attempts, but does not guarantee in any way, to target this rate.',
+    bridge: 'frax',
+    logoURI: '',
+    documentation: 'https://docs.frax.finance/frax-v3/sfrax',
+  },
+  bpt4POOL: {
+    name: 'Balancer 4POOL BPT',
+    symbol: 'bpt4POOL',
+    oracleId: 'bpt-4POOL',
+    address: '0x423A1323c871aBC9d89EB06855bF5347048Fc4A5',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/concepts/pools/composable-stable.html',
+    description:
+      'Composable Stable Pools are designed for assets that are either expected to consistently swap at near parity, or at a known exchange rate. Composable Stable Pools use Stable Math (based on StableSwap, popularized by Curve) which allows for swaps of significant size before encountering substantial price impact, vastly increasing capital efficiency for like-kind and correlated-kind swaps.',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

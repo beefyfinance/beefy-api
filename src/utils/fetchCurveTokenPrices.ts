@@ -78,6 +78,16 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       secondTokenDecimals: '1e18',
       abi: ICurvePool,
     },
+    {
+      oracleId: 'sFRAX',
+      decimals: '1e18',
+      index0: 1,
+      index1: 0,
+      pool: '0xfEF79304C80A694dFd9e603D624567D470e1a0e7',
+      secondToken: 'crvUSD',
+      secondTokenDecimals: '1e18',
+      abi: ICurvePool,
+    },
   ],
 };
 

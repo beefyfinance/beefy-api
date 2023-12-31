@@ -1,5 +1,46 @@
 [
   {
+    "name": "balancer-sfrax-4pool",
+    "address": "0x2CE4457aCac29dA4736aE6f5Cd9F583a6b335c27",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x050fBe33699E56B577c3D6f090eCE9870A0966bd",
+    "lsUrl": "https://api.frax.finance/v2/frax/sfrax/summary/latest",
+    "dataPath": "$.sfraxApy",
+    "balancerChargesFee": true,
+    "vaultPoolId": "0x2ce4457acac29da4736ae6f5cd9f583a6b335c270000000000000000000004dc",
+    "lsIndex": 0,
+    "composable": true,
+    "bptIndex": 0,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x050fBe33699E56B577c3D6f090eCE9870A0966bd",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x050fBe33699E56B577c3D6f090eCE9870A0966bd",
+        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bpt-4POOL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sFRAX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-wsteth-bbaaweth",
     "address": "0x5A7f39435fD9c381e4932fa2047C9a5136A5E3E7",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
