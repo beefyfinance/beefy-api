@@ -1,5 +1,102 @@
 [
   {
+    "name": "curve-arb-crvusd-usdc",
+    "pool": "0xec090cf6dd891d2d014bea6edada6e05e025d93d",
+    "gauge": "0xb12600d06753df7c706225c901e6c1346a654d0b",
+    "rewards": [
+      {
+        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "oracleId": "crvUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-crvusd-usdc.e",
+    "pool": "0x3adf984c937fa6846e5a24e0a68521bdaf767ce1",
+    "gauge": "0x7ae49935b8bc11023e5b04d86a44055f999fca31",
+    "rewards": [
+      {
+        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "oracleId": "crvUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "arbUSDCe",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-crvusd-usdt",
+    "pool": "0x73af1150f265419ef8a5db41908b700c32d49135",
+    "gauge": "0x030786336bc7833d4325404a25fe451e4fde9807",
+    "rewards": [
+      {
+        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "oracleId": "crvUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-tricrypto-crvusd",
+    "pool": "0x82670f35306253222f8a165869b28c64739ac62e",
+    "gauge": "0x23194e30e54d713c6954ebcd2d5bdcd0171ee2c4",
+    "rewards": [
+      {
+        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "oracleId": "crvUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-fethxeth",
     "pool": "0xf7fed8ae0c5b78c19aadd68b700696933b0cefd9",
     "gauge": "0x5839337bf070fea56595a5027e83cd7126b23884",

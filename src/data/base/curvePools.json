@@ -1,5 +1,21 @@
 [
   {
+    "name": "curve-base-hyusd-eusd",
+    "pool": "0x6be2a0d3324279e645690721fc843110c84f29f1",
+    "token": "0xc3a530d635bec769ed1cdbe0c1ce7f72cb5d4de7",
+    "gauge": "0x2dfee5874ac76c72a1f2d39cc91a1bbe1f59bdc4",
+    "tokens": [
+      {
+        "oracleId": "hyUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-base-eusd",
     "pool": "0x798D81d60966d2E909468d87e7e4b6A8DAFB1C36",
     "gauge": "0xb2135e9B790C50Fa018ca14e4B04BDb4ADd2a61B",

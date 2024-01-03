@@ -38,7 +38,7 @@ export const getPendleCommonPrices = async (chainId, pools, tokenPrices, lpPrice
     const underlyingPrice = getUnderlyingPrice(pool, tokenPrices, lpPrices);
     const price = lpRate.times(underlyingPrice).div(pool.decimals).toNumber();
     const totalSupply = poolsData[i].totalSupply.div('1e18').toString(10);
-    prices[pool.name] = { price, totalSupply };
+    prices[pool.name] = { price, totalSupply, tokens: [], balances: [] };
 
     // console.log(pool.name, 'tvl', poolsData[i].totalSupply.div(pool.decimals).times(price).toNumber());
   }

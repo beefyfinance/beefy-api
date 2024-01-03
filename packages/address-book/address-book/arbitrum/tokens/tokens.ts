@@ -1373,6 +1373,20 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.solana.com/',
   },
+  crvUSD: {
+    name: 'Curve.Fi USD Stablecoin',
+    symbol: 'crvUSD',
+    oracleId: 'crvUSD',
+    address: '0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    bridge: 'arbitrum-canonical',
+    website: 'https://crvusd.curve.fi/',
+    description:
+      'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
+    documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
+  },
   sFRAX: {
     name: 'Staked FRAX',
     symbol: 'sFRAX',
