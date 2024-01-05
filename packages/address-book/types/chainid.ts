@@ -23,4 +23,5 @@ export enum ChainId {
   base = 8453,
   gnosis = 100,
   linea = 59144,
+  mantle = 5000,
 }

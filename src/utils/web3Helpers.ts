@@ -52,6 +52,8 @@ import {
   GNOSIS_CHAIN_ID,
   LINEA_RPC,
   LINEA_CHAIN_ID,
+  MANTLE_RPC,
+  MANTLE_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -79,6 +81,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.base]: addressBookByChainId[ChainId.base].platforms.beefyfinance.multicall,
   [ChainId.gnosis]: addressBookByChainId[ChainId.gnosis].platforms.beefyfinance.multicall,
   [ChainId.linea]: addressBookByChainId[ChainId.linea].platforms.beefyfinance.multicall,
+  [ChainId.mantle]: addressBookByChainId[ChainId.mantle].platforms.beefyfinance.multicall,
 };
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
@@ -106,6 +109,7 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.base]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.gnosis]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.linea]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.mantle]: '0xcA11bde05977b3631167028862bE2a173976CA11',
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -133,6 +137,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   base: [],
   gnosis: [],
   linea: [],
+  mantle: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -160,6 +165,7 @@ clients.zkevm.push(new Web3(ZKEVM_RPC));
 clients.base.push(new Web3(BASE_RPC));
 clients.gnosis.push(new Web3(GNOSIS_RPC));
 clients.linea.push(new Web3(LINEA_RPC));
+clients.mantle.push(new Web3(MANTLE_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -186,6 +192,7 @@ export const chainRandomClients = {
   baseRandomClient: () => clients.base[~~(clients.base.length * Math.random())],
   gnosisRandomClient: () => clients.gnosis[~~(clients.gnosis.length * Math.random())],
   lineaRandomClient: () => clients.linea[~~(clients.linea.length * Math.random())],
+  mantleRandomClient: () => clients.mantle[~~(clients.mantle.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -238,6 +245,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.gnosisRandomClient();
     case LINEA_CHAIN_ID:
       return chainRandomClients.lineaRandomClient();
+    case MANTLE_CHAIN_ID:
+      return chainRandomClients.mantleRandomClient();
   }
 };
 

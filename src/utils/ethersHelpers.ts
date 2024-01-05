@@ -51,6 +51,8 @@ import {
   GNOSIS_CHAIN_ID,
   LINEA_RPC,
   LINEA_CHAIN_ID,
+  MANTLE_RPC,
+  MANTLE_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -79,6 +81,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.base]: addressBookByChainId[ChainId.base].platforms.beefyfinance.multicall,
   [ChainId.gnosis]: addressBookByChainId[ChainId.gnosis].platforms.beefyfinance.multicall,
   [ChainId.linea]: addressBookByChainId[ChainId.linea].platforms.beefyfinance.multicall,
+  [ChainId.mantle]: addressBookByChainId[ChainId.mantle].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -106,6 +109,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   base: [],
   gnosis: [],
   linea: [],
+  mantle: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -133,6 +137,7 @@ clients.zkevm.push(new ethers.providers.JsonRpcProvider(ZKEVM_RPC));
 clients.base.push(new ethers.providers.JsonRpcProvider(BASE_RPC));
 clients.gnosis.push(new ethers.providers.JsonRpcProvider(GNOSIS_RPC));
 clients.linea.push(new ethers.providers.JsonRpcProvider(LINEA_RPC));
+clients.mantle.push(new ethers.providers.JsonRpcProvider(MANTLE_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -159,6 +164,7 @@ export const chainRandomClients = {
   baseRandomClient: () => clients.base[~~(clients.base.length * Math.random())],
   gnosisRandomClient: () => clients.gnosis[~~(clients.gnosis.length * Math.random())],
   lineaRandomClient: () => clients.linea[~~(clients.linea.length * Math.random())],
+  mantleRandomClient: () => clients.mantle[~~(clients.mantle.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -211,6 +217,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.gnosisRandomClient();
     case LINEA_CHAIN_ID:
       return chainRandomClients.lineaRandomClient();
+    case MANTLE_CHAIN_ID:
+      return chainRandomClients.mantleRandomClient();
   }
 };
 

@@ -72,6 +72,9 @@ const {
 
   LINEA_CHAIN_ID,
   LINEA_VAULTS_ENDPOINT,
+
+  MANTLE_CHAIN_ID,
+  MANTLE_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -177,6 +180,10 @@ const chains = [
     chainId: LINEA_CHAIN_ID,
     vaultsEndpoint: LINEA_VAULTS_ENDPOINT,
   },
+  /* {
+    chainId: MANTLE_CHAIN_ID,
+    vaultsEndpoint: MANTLE_VAULTS_ENDPOINT,
+  },*/
 ];
 
 const CACHE_KEY = 'TVL';

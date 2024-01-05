@@ -24,6 +24,7 @@ import {
   BASE_RPC,
   GNOSIS_RPC,
   LINEA_RPC,
+  MANTLE_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/address-book';
 
@@ -620,6 +621,29 @@ const lineaChain = {
   },
 } as const satisfies Chain;
 
+const mantleChain = {
+  id: 5000,
+  name: 'Mantle',
+  network: 'mantle',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'MNT',
+    symbol: 'MNT',
+  },
+  rpcUrls: {
+    public: { http: [MANTLE_RPC] },
+    default: { http: [MANTLE_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'Mantle Explorer', url: 'https://mantlescan.info/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -646,4 +670,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.base]: baseChain,
   [ChainId.gnosis]: gnosisChain,
   [ChainId.linea]: lineaChain,
+  [ChainId.mantle]: mantleChain,
 } as const;

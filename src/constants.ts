@@ -63,6 +63,7 @@ const ZKEVM_RPC = process.env.ZKEVM_RPC || 'https://zkevm-rpc.com';
 const BASE_RPC = process.env.BASE_RPC || 'https://mainnet.base.org';
 const GNOSIS_RPC = process.env.GNOSIS_RPC || 'https://gnosis.publicnode.com';
 const LINEA_RPC = process.env.LINEA_RPC || 'https://rpc.linea.build';
+const MANTLE_RPC = process.env.MANTLE_RPC || 'https://rpc.mantle.xyz';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -88,6 +89,7 @@ const ZKEVM_CHAIN_ID = ChainId.zkevm;
 const BASE_CHAIN_ID = ChainId.base;
 const GNOSIS_CHAIN_ID = ChainId.gnosis;
 const LINEA_CHAIN_ID = ChainId.linea;
+const MANTLE_CHAIN_ID = ChainId.mantle;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.003;
@@ -134,6 +136,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.base]: BASE_RPC,
   [ChainId.gnosis]: GNOSIS_RPC,
   [ChainId.linea]: LINEA_RPC,
+  [ChainId.mantle]: MANTLE_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -184,6 +187,8 @@ const GNOSIS_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/gnosis.json';
 const LINEA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/linea.json';
+const MANTLE_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/mantle.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -210,6 +215,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   base: BASE_VAULTS_ENDPOINT,
   gnosis: GNOSIS_VAULTS_ENDPOINT,
   linea: LINEA_VAULTS_ENDPOINT,
+  // mantle: MANTLE_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -289,6 +295,9 @@ export {
   LINEA_RPC,
   LINEA_CHAIN_ID,
   LINEA_VAULTS_ENDPOINT,
+  MANTLE_RPC,
+  MANTLE_CHAIN_ID,
+  // MANTLE_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
