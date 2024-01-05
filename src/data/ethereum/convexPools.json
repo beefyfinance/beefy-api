@@ -557,7 +557,6 @@
     "pool": "0xF95AAa7EBB1620e46221B73588502960Ef63dBa0",
     "token": "0xF95AAa7EBB1620e46221B73588502960Ef63dBa0",
     "rewardPool": "0xcD491E40849a0E3c2fF84093bbbaAa25C1eF8dE6",
-    "getDy": ["v1", 0, 1, "WBTC"],
     "tokens": [
       {
         "oracle": "tokens",
