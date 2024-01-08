@@ -1,8 +1,8 @@
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../../utils/fetchPrice';
-import IRewardPool from '../../../../abis/IRewardPool';
 import ICurveGauge from '../../../../abis/ICurveGauge';
 import { fetchContract } from '../../../rpc/client';
+
 const IBooster = [
   {
     name: 'fees',
@@ -43,13 +43,13 @@ export const getConvexApyData = async (chainId, pools) => {
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
       if (extra.periodFinish < Date.now() / 1000) continue;
-      const poolExtra = pool.extras.find(e => e.rewardPool === extra.rewardPool);
+      const poolExtra = pool.rewards.find(e => e.token === extra.token);
       const price = await fetchPrice({
         oracle: poolExtra.oracle ?? 'tokens',
         id: poolExtra.oracleId,
       });
       const extraRewardsInUsd = extra.rewardRate.times(secondsPerYear).times(price);
-      const apy = extraRewardsInUsd.div(info.balance.times(lpPrice));
+      const apy = extraRewardsInUsd.div(info.totalSupply.times(lpPrice));
       totalApy = totalApy.plus(apy);
 
       // console.log(pool.name, poolExtra.oracleId, apy.valueOf());
@@ -73,9 +73,7 @@ const getData = async (chainId, pools) => {
     gaugeBalancesCalls = [],
     gaugeWorkingBalancesCalls = [];
   const extraData = [],
-    extraRewardRatesCalls = [],
-    extraPeriodFinishsCalls = [],
-    extraTotalSuppliesCalls = [];
+    extraCalls = [];
   pools.forEach(pool => {
     const gauge = fetchContract(pool.gauge, ICurveGauge, chainId);
     gaugeRewardRatesCalls.push(
@@ -91,18 +89,9 @@ const getData = async (chainId, pools) => {
     gaugeWorkingBalancesCalls.push(
       gauge.read.working_balances([voterProxy]).then(v => new BigNumber(v.toString()))
     );
-    pool.extras?.forEach(extra => {
-      const extraRewards = fetchContract(extra.rewardPool, IRewardPool, chainId);
-      extraData.push({ pool: pool.name, rewardPool: extra.rewardPool });
-      extraRewardRatesCalls.push(
-        extraRewards.read.rewardRate().then(v => new BigNumber(v.toString()))
-      );
-      extraPeriodFinishsCalls.push(
-        extraRewards.read.periodFinish().then(v => new BigNumber(v.toString()))
-      );
-      extraTotalSuppliesCalls.push(
-        extraRewards.read.totalSupply().then(v => new BigNumber(v.toString()))
-      );
+    pool.rewards?.forEach(extra => {
+      extraCalls.push(gauge.read.reward_data([extra.token]));
+      extraData.push({ pool: pool.name, token: extra.token });
     });
   });
 
@@ -113,9 +102,7 @@ const getData = async (chainId, pools) => {
     gaugeWorkingSupplies,
     gaugeBalances,
     gaugeWorkingBalances,
-    extraRewardRates,
-    extraPeriodFinishs,
-    extraTotalSupplies,
+    extraResults,
   ] = await Promise.all([
     feeCall,
     Promise.all(gaugeRewardRatesCalls),
@@ -123,9 +110,7 @@ const getData = async (chainId, pools) => {
     Promise.all(gaugeWorkingSuppliesCalls),
     Promise.all(gaugeBalancesCalls),
     Promise.all(gaugeWorkingBalancesCalls),
-    Promise.all(extraRewardRatesCalls),
-    Promise.all(extraPeriodFinishsCalls),
-    Promise.all(extraTotalSuppliesCalls),
+    Promise.all(extraCalls),
   ]);
 
   const poolInfo = pools.map((v, i) => ({
@@ -136,11 +121,10 @@ const getData = async (chainId, pools) => {
     workingBalance: gaugeWorkingBalances[i],
   }));
 
-  const extras = extraData.map((v, i) => ({
-    ...v,
-    rewardRate: extraRewardRates[i],
-    periodFinish: extraPeriodFinishs[i],
-    totalSupply: extraTotalSupplies[i],
+  const extras = extraResults.map((_, i) => ({
+    ...extraData[i],
+    periodFinish: Number(extraResults[i][1]),
+    rewardRate: new BigNumber(extraResults[i][2].toString()),
   }));
 
   return { fees, poolInfo, extras };

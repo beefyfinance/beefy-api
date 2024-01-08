@@ -1,8 +1,37 @@
 [
   {
+    "name": "curve-arb-crvusd-mim",
+    "pool": "0x4070c044abc8d9d22447dfe4b032405970878d06",
+    "gauge": "0xd2ce52833a2a70cf6255c6374bc44525a0fb93d8",
+    "convex": true,
+    "rewards": [
+      {
+        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "oracleId": "crvUSD"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "MIM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-crvusd-frax",
     "pool": "0x2fe7ae43591e534c256a1594d326e5779e302ff4",
     "gauge": "0x059e0db6bf882f5fe680dc5409c7adeb99753736",
+    "convex": true,
     "rewards": [
       {
         "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
@@ -30,10 +59,15 @@
     "name": "curve-arb-crvusd-usdc",
     "pool": "0xec090cf6dd891d2d014bea6edada6e05e025d93d",
     "gauge": "0xb12600d06753df7c706225c901e6c1346a654d0b",
+    "convex": true,
     "rewards": [
       {
         "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
         "oracleId": "crvUSD"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
@@ -53,10 +87,15 @@
     "name": "curve-arb-crvusd-usdc.e",
     "pool": "0x3adf984c937fa6846e5a24e0a68521bdaf767ce1",
     "gauge": "0x7ae49935b8bc11023e5b04d86a44055f999fca31",
+    "convex": true,
     "rewards": [
       {
         "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
         "oracleId": "crvUSD"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
@@ -76,10 +115,15 @@
     "name": "curve-arb-crvusd-usdt",
     "pool": "0x73af1150f265419ef8a5db41908b700c32d49135",
     "gauge": "0x030786336bc7833d4325404a25fe451e4fde9807",
+    "convex": true,
     "rewards": [
       {
         "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
         "oracleId": "crvUSD"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
@@ -99,10 +143,15 @@
     "name": "curve-arb-tricrypto-crvusd",
     "pool": "0x82670f35306253222f8a165869b28c64739ac62e",
     "gauge": "0x23194e30e54d713c6954ebcd2d5bdcd0171ee2c4",
+    "convex": true,
     "rewards": [
       {
         "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
         "oracleId": "crvUSD"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
@@ -251,14 +300,7 @@
     "token": "0x8e0B8c8BB9db49a46697F3a5Bb8A308e744821D2",
     "gauge": "0x555766f3da968ecBefa690Ffd49A2Ac02f47aa5f",
     "baseApyKey": "tricrypto",
-    "volatile": true,
     "convex": true,
-    "extras": [
-      {
-        "rewardPool": "0x665D4Bea98e3a1849526553453E8369B448C6AD4",
-        "oracleId": "CVX"
-      }
-    ],
     "tokens": [
       {
         "oracle": "tokens",
@@ -283,7 +325,6 @@
     "token": "0x3dFe1324A0ee9d86337d06aEB829dEb4528DB9CA",
     "gauge": "0x6339eF8Df0C2d3d3E7eE697E241666a916B81587",
     "baseApyKey": "eursusd",
-    "volatile": true,
     "tokens": [
       {
         "oracle": "tokens",
@@ -303,7 +344,6 @@
     "pool": "0x1C5ffa4FB4907B681c61B8c82b28C4672ceb1974",
     "token": "0x1C5ffa4FB4907B681c61B8c82b28C4672ceb1974",
     "gauge": "0x94A5E05D66834c6C6961E199D34dA576679fC187",
-    "volatile": true,
     "tokens": [
       {
         "oracle": "tokens",
