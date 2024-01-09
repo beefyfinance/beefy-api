@@ -24,6 +24,10 @@ const projects = {
     prefix: 'pancake',
     file: '../src/data/bsc/pancakeIchiPools.json',
   },
+  range: {
+    prefix: 'pancake-range',
+    file: '../src/data/bsc/pancakeRangePools.json',
+  },
 };
 
 const args = yargs.options({
@@ -112,7 +116,7 @@ async function main() {
   const poolsJsonFile = projects[args['project']].file;
   const poolsJson = require(poolsJsonFile);
 
-  const newPoolName = `${poolPrefix}-ichi-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
+  const newPoolName = `${poolPrefix}-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}`;
 
   const pool = {
     name: newPoolName,

@@ -1,0 +1,82 @@
+[
+  {
+    "name": "pancake-range-usdt-wbnb-active",
+    "address": "0xfCCa9B42A366d9493E7c0a7eC4aD96E1B4204dfd",
+    "pool": "0x36696169C63e42cd08ce11f5deeBbCeBae652050",
+    "gauge": "0xA43f877b66BBaaBE41eB1E538549F2fA45aceBD4",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pancake-range-cake-wbnb",
+    "address": "0x5db61A5f05580Cf620a9d0f9266E7432811DC309",
+    "pool": "0x133B3D95bAD5405d14d53473671200e9342896BF",
+    "gauge": "0x88F98992D95BF894B99fE7d47f58bDbF6da394f8",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+      "oracle": "tokens",
+      "oracleId": "Cake",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pancake-range-usdt-usdc",
+    "address": "0xFEB0819A3d00EACf1D8F593D2538C33d34b76274",
+    "pool": "0x92b7807bF19b7DDdf89b706143896d05228f3121",
+    "gauge": "0xe521f04d91721ba3F91E6E8E4d3cE16A2CaA8b3e",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "pancake-range-usdt-wbnb-passive",
+    "address": "0xB99F1Ce0f1C95422913FAF5b1ea980BbC580c14a",
+    "pool": "0x36696169C63e42cd08ce11f5deeBbCeBae652050",
+    "gauge": "0x00da85bD6C4e417f9EfC07807d6a0381045B037C",
+    "decimals": "1e18",
+    "chainId": 56,
+    "lp0": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
+      "oracle": "tokens",
+      "oracleId": "WBNB",
+      "decimals": "1e18"
+    }
+  }
+]

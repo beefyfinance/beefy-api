@@ -3,8 +3,11 @@ import BigNumber from 'bignumber.js';
 import { getPoolsData } from '../common/getRewardPoolApys';
 
 const { BSC_CHAIN_ID: chainId } = require('../../../constants');
-const pools = require('../../../data/bsc/pancakeIchiPools.json');
+const ichiPools = require('../../../data/bsc/pancakeIchiPools.json');
+const rangePools = require('../../../data/bsc/pancakeRangePools.json');
 const { getApyBreakdown } = require('../common/getApyBreakdown');
+
+const pools = [...ichiPools, ...rangePools];
 
 export const getPancakeIchiApys = async () => {
   const { apys, tradingAprs } = await getFarmApys();

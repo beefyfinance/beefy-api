@@ -36,6 +36,7 @@
     "bsc:thena:add": "ts-node scripts/add-solidly.ts --network bsc --project thena --newFee true --lp",
     "bsc:thena:gamma:add": "ts-node scripts/add-gamma.ts --network bsc --project thena --lp",
     "bsc:cake:ichi:add": "ts-node scripts/add-ichi.ts --network bsc --project pancake --wrapper",
+    "bsc:cake:range:add": "ts-node scripts/add-ichi.ts --network bsc --project range --wrapper",
     "canto:cvm:add": "ts-node scripts/add-solidly.ts --network canto --project cvm --newFee true --lp",
     "fantom:spooky:add": "ts-node scripts/add-farm.ts --network fantom --project spooky",
     "fantom:spiritv:add": "ts-node scripts/add-solidly.ts --network fantom --project spiritVolatile --newFee true",
