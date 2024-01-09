@@ -1,5 +1,33 @@
 [
   {
+    "name": "joe-auto-joe-weth",
+    "address": "0x29240AFF8c592640A20cbfe0Db563a6FFEb12B01",
+    "decimals": "1e24",
+    "tradingFee": 0.001,
+    "beefyFee": 0.095,
+    "poolId": 4,
+    "chainId": 42161,
+    "rewards": [
+      {
+        "rewarder": "0xB074Fd68fA72292C7d1bb1144adcd9ad23ddCb03",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07",
+      "oracle": "tokens",
+      "oracleId": "JOE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-auto-wbtc-weth",
     "address": "0xea9f1AB0ccdb6BaF36ce8567D65f354f2945F0DA",
     "decimals": "1e24",
