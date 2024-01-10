@@ -1415,6 +1415,19 @@ const _tokens = {
       'Composable Stable Pools are designed for assets that are either expected to consistently swap at near parity, or at a known exchange rate. Composable Stable Pools use Stable Math (based on StableSwap, popularized by Curve) which allows for swaps of significant size before encountering substantial price impact, vastly increasing capital efficiency for like-kind and correlated-kind swaps.',
     bridge: 'native',
   },
+  JOE: {
+    chainId: 42161,
+    address: '0x371c7ec6D8039ff7933a2AA28EB827Ffe1F52f07',
+    decimals: 18,
+    name: 'Joe Token',
+    symbol: 'JOE',
+    oracleId: 'JOE',
+    website: 'https://www.traderjoexyz.com/#/home',
+    description:
+      'Trader Joe is your one-stop decentralized trading platform on the Avalanche network, of which JOE is the governance token that rewards its holders with a share of exchange revenues.',
+    bridge: 'layer-zero',
+    logoURI: 'https://www.traderjoexyz.com/static/media/logo.bc60f78d.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
