@@ -280,7 +280,7 @@ import alienBasePools from '../../data/base/alienBaseLpPools.json';
 import swapBasedPools from '../../data/base/swapBasedLpPools.json';
 import basoPools from '../../data/base/basoLpPools.json';
 import equalizerBasePools from '../../data/base/equalizerLpPools.json';
-import moePools from '../../data/mantle/moePools.json';
+import moePools from '../../data/mantle/moeLpPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 import { sleep } from '../../utils/time';
