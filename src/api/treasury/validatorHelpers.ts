@@ -109,6 +109,19 @@ const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
       methodPath: 'https://beaconcha.in/api/v1/validator/1013311',
       assetType: 'validator',
     },
+    {
+      id: 'eth-validator-8',
+      numberId: 1119645,
+      name: 'EigenLayer Validator',
+      address: 'native',
+      oracleId: 'ETH',
+      oracleType: 'tokens',
+      decimals: 18,
+      symbol: 'ETH',
+      method: 'api',
+      methodPath: 'https://beaconcha.in/api/v1/validator/1119645',
+      assetType: 'validator',
+    },
   ],
   fuse: [
     {
