@@ -9,6 +9,7 @@
     "bptIndex": 0,
     "lsUrl": "DSR",
     "dataPath": "$.savingsRate",
+    "balancerChargesFee": true,
     "lsIndex": 1,
     "decimals": "1e18",
     "rewards": [
