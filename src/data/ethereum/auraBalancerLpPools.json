@@ -1,5 +1,40 @@
 [
   {
+    "name": "aura-sdai-3pool",
+    "address": "0x49cbD67651fbabCE12d1df18499896ec87BEf46f",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x9360F473A533D7f8855C768437dd0c8cAEcCB9e6",
+    "vaultPoolId": "0x49cbd67651fbabce12d1df18499896ec87bef46f00000000000000000000064a",
+    "composable": true,
+    "bptIndex": 0,
+    "lsUrl": "DSR",
+    "dataPath": "$.savingsRate",
+    "lsIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xf13e3744b7532749A85CE30b11d2FF9BF49F8115",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "bpt-3Pool",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-gyro-r-sdai",
     "address": "0x52b69d6b3eB0BD6b2b4A48a316Dfb0e1460E67E4",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

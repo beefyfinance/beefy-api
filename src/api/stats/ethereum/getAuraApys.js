@@ -13,6 +13,7 @@ import AuraToken from '../../../abis/ethereum/AuraToken';
 import { fetchContract } from '../../rpc/client';
 import jp from 'jsonpath';
 import AuraGauge from '../../../abis/ethereum/AuraGauge';
+import { fetchDaiSavingsRate } from '../../../utils/fetchDaiSavingsRate';
 
 const {
   ethereum: {
@@ -190,7 +191,9 @@ const getLiquidStakingPoolYield = async pool => {
     for (let i = 0; i < pool.lsUrl.length; i++) {
       let response;
       try {
-        response = await fetch(pool.lsUrl[i]).then(res => res.json());
+        pool.lsUrl[i] === 'DSR'
+          ? (response = await fetchDaiSavingsRate().then(res => res))
+          : (response = await fetch(pool.lsUrl[i]).then(res => res.json()));
         lsApr = await jp.query(response, pool.dataPath[i]);
       } catch (e) {
         console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`);
@@ -203,7 +206,9 @@ const getLiquidStakingPoolYield = async pool => {
   } else {
     let response;
     try {
-      response = await fetch(pool.lsUrl).then(res => res.json());
+      pool.lsUrl === 'DSR'
+        ? (response = await fetchDaiSavingsRate().then(res => res))
+        : (response = await fetch(pool.lsUrl).then(res => res.json()));
       lsApr = await jp.query(response, pool.dataPath);
     } catch (e) {
       console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`);

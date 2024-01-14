@@ -1,5 +1,35 @@
 [
   {
+    "name": "bpt-3Pool",
+    "address": "0x79c58f70905F734641735BC61e45c19dD9Ad60bC",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x79c58f70905f734641735bc61e45c19dd9ad60bc0000000000000000000004e7",
+    "decimals": "1e18",
+    "chainId": 1,
+    "composable": true,
+    "bptIndex": 1,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "bbaETH",
     "address": "0xbB6881874825E60e1160416D6C426eae65f2459E",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

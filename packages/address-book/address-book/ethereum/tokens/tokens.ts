@@ -1568,6 +1568,20 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.across.to/how-to-use-across/providing-liquidity',
   },
+  bpt3POOL: {
+    name: 'Balancer 3Pool BPT',
+    symbol: 'bpt3POOL',
+    oracleId: 'bpt-3POOL',
+    address: '0x79c58f70905F734641735BC61e45c19dD9Ad60bC',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.balancer.fi/#/',
+    documentation: 'https://docs.balancer.fi/concepts/pools/composable-stable.html',
+    description:
+      'Composable Stable Pools are designed for assets that are either expected to consistently swap at near parity, or at a known exchange rate. Composable Stable Pools use Stable Math (based on StableSwap, popularized by Curve) which allows for swaps of significant size before encountering substantial price impact, vastly increasing capital efficiency for like-kind and correlated-kind swaps.',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
