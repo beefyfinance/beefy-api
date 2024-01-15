@@ -1,6 +1,7 @@
+const getLendleApys = require('./getLendleApys');
 const getMoeApys = require('./getMoeApys');
 
-const getApys = [getMoeApys];
+const getApys = [getLendleApys, getMoeApys];
 
 const getMantleApys = async () => {
   const start = Date.now();
