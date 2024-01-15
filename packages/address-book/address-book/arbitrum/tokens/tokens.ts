@@ -1373,6 +1373,20 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.solana.com/',
   },
+  CRV: {
+    name: 'CRV',
+    address: '0x11cDb42B0EB46D95f990BeDD4695A6e3fA034978',
+    symbol: 'CRV',
+    oracleId: 'CRV',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://curve.fi/',
+    description:
+      'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    bridge: 'arbitrum-canonical',
+    logoURI: '',
+    documentation: 'https://curve.readthedocs.io/',
+  },
   crvUSD: {
     name: 'Curve.Fi USD Stablecoin',
     symbol: 'crvUSD',
