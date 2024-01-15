@@ -40,46 +40,6 @@
     }
   },
   {
-    "name": "arbidex-usd+-usdc",
-    "address": "0xECe52B1fc32D2B4f22eb45238210b470a64bfDd5",
-    "decimals": "1e18",
-    "beefyFee": 0.095,
-    "poolId": 8,
-    "chainId": 42161,
-    "lp0": {
-      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
-      "oracle": "tokens",
-      "oracleId": "USD+",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
-      "oracle": "tokens",
-      "oracleId": "arbUSDCe",
-      "decimals": "1e6"
-    }
-  },
-  {
-    "name": "arbidex-usd+-dai+",
-    "address": "0xE8C060d40D7Bc96fCd5b758Bd1437C8653400b0e",
-    "decimals": "1e18",
-    "beefyFee": 0.095,
-    "poolId": 7,
-    "chainId": 42161,
-    "lp0": {
-      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
-      "oracle": "tokens",
-      "oracleId": "USD+",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xeb8E93A0c7504Bffd8A8fFa56CD754c63aAeBFe8",
-      "oracle": "tokens",
-      "oracleId": "DAI+",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "arbidex-wbtc-weth",
     "address": "0x10A12127867d3885Ac64b51cc91a67c907eE51db",
     "decimals": "1e18",

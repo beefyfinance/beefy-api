@@ -602,7 +602,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   'cow-protocol': ['COW'],
   'electronic-usd': ['eUSD'],
   'mendi-finance': ['MENDI'],
-  'overnight-finance': ['OVN'],
 };
 
 /**
