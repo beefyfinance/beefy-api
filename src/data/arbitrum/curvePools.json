@@ -1,5 +1,38 @@
 [
   {
+    "name": "curve-arb-tricrvarb",
+    "pool": "0x845c8bc94610807fcbab5dd2bc7ac9dabaff3c55",
+    "gauge": "0xb08fef57bfcc5f7bf0ef69c0c090849d497c8f8a",
+    "convex": true,
+    "rewards": [
+      {
+        "token": "0x498bf2b1e120fed3ad3d42ea2165e9b73f99c1e5",
+        "oracleId": "crvUSD"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-crvusd-mim",
     "pool": "0x4070c044abc8d9d22447dfe4b032405970878d06",
     "gauge": "0xd2ce52833a2a70cf6255c6374bc44525a0fb93d8",
