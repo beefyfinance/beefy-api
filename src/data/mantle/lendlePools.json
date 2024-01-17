@@ -1,0 +1,47 @@
+[
+  {
+    "name": "lendle-mantle-wmnt",
+    "address": "0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8",
+    "aToken": "0x683696523512636B46A826A7e3D1B0658E8e2e1c",
+    "decimals": "1e18",
+    "oracleId": "WMNT"
+  },
+  {
+    "name": "lendle-mantle-usdc",
+    "address": "0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9",
+    "aToken": "0xF36AFb467D1f05541d998BBBcd5F7167D67bd8fC",
+    "decimals": "1e6",
+    "oracleId": "USDC"
+  },
+  {
+    "name": "lendle-mantle-usdt",
+    "address": "0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE",
+    "aToken": "0xE71cbaaa6B093FcE66211E6f218780685077D8B5",
+    "decimals": "1e6",
+    "oracleId": "USDT"
+  },
+  {
+    "name": "lendle-mantle-wbtc",
+    "address": "0xCAbAE6f6Ea1ecaB08Ad02fE02ce9A44F09aebfA2",
+    "aToken": "0x44CCCBbD7A5A9e2202076ea80C185DA0058f1715",
+    "decimals": "1e8",
+    "oracleId": "WBTC"
+  },
+  {
+    "name": "lendle-mantle-weth",
+    "address": "0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111",
+    "aToken": "0x787Cb0D29194f0fAcA73884C383CF4d2501bb874",
+    "decimals": "1e18",
+    "oracleId": "WETH"
+  },
+  {
+    "name": "lendle-mantle-meth",
+    "address": "0xcDA86A272531e8640cD7F1a92c01839911B90bb0",
+    "aToken": "0x0e927Aa52A38783C1Fd5DfA5c8873cbdBd01D2Ca",
+    "decimals": "1e18",
+    "oracleId": "mETH",
+    "lsUrl": "https://meth.mantle.xyz/api/stats/apy/",
+    "lsAprFactor": 100,
+    "dataPath": "data[0].FiveDayAPY"
+  }
+]
