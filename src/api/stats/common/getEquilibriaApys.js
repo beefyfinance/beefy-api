@@ -44,6 +44,7 @@ const getPoolApys = async (chainId, pools) => {
     Promise.all(extraRewardsCalls),
     eqbFactorCall,
   ]);
+  const arbApys = await getEqbArbApy(chainId);
 
   const poolInfo = res[0].map((_, i) => ({
     totalSupply: new BigNumber(res[0][i].toString()),
@@ -71,7 +72,18 @@ const getPoolApys = async (chainId, pools) => {
         id: poolExtra.oracleId,
       });
       const extraRewardsInUsd = extra.rewardRate.times(31536000).times(price).div('1e18');
-      yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
+      if (poolExtra.oracleId === 'ARB') {
+        const poolArbApy = extraRewardsInUsd.div(totalStakedInUsd);
+        const eqbArbApy = arbApys[pool.address] || 0;
+        if (poolArbApy.gt(eqbArbApy)) {
+          yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
+        } else {
+          const adjustedArbRewards = extraRewardsInUsd.div(poolArbApy).times(eqbArbApy);
+          yearlyRewardsInUsd = yearlyRewardsInUsd.plus(adjustedArbRewards);
+        }
+      } else {
+        yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
+      }
       // console.log(pool.name, poolExtra.oracleId, extraRewardsInUsd.div(totalStakedInUsd).valueOf());
 
       if (poolExtra.oracleId === 'PENDLE') {
@@ -92,3 +104,15 @@ const getPoolApys = async (chainId, pools) => {
   }
   return apys;
 };
+
+async function getEqbArbApy(chainId) {
+  let apys = {};
+  try {
+    const response = await fetch('https://equilibria.fi/api/chain-info').then(res => res.json());
+    const pools = response[chainId].poolInfos;
+    pools.forEach(p => (apys[p.market] = new BigNumber(p.arbApy || 0)));
+  } catch (err) {
+    console.error('getEqbArbApy error', err.message);
+  }
+  return apys;
+}
