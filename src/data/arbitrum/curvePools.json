@@ -233,6 +233,7 @@
     "pool": "0xb34a7d1444a707349bc7b981b7f2e1f20f81f013",
     "gauge": "0x4645e6476d3a5595be9efd39426cc10586a8393d",
     "convex": true,
+    "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
         "oracle": "tokens",
