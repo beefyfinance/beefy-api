@@ -84,7 +84,7 @@
     "lp0": {
       "address": "0x7f5a79576620C046a293F54FFCdbd8f2468174F1",
       "oracle": "tokens",
-      "oracleId": "miMatic",
+      "oracleId": "mrmiMatic",
       "decimals": "1e18"
     },
     "lp1": {

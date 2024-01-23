@@ -310,7 +310,7 @@ const _tokens = {
   miMatic: {
     name: 'MAI',
     symbol: 'miMatic',
-    oracleId: 'miMatic',
+    oracleId: 'mrmiMatic',
     address: '0x7f5a79576620C046a293F54FFCdbd8f2468174F1',
     chainId: 1285,
     decimals: 18,
