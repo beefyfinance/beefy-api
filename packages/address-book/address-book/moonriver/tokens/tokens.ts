@@ -66,7 +66,7 @@ const _tokens = {
   MAI: {
     name: 'MAI',
     symbol: 'Mai Stablecoin',
-    oracleId: 'MAI',
+    oracleId: 'mrMAI',
     address: '0xFb2019DfD635a03cfFF624D210AEe6AF2B00fC2C',
     chainId: 1285,
     decimals: 18,
@@ -180,7 +180,7 @@ const _tokens = {
   USDC: {
     name: 'USD Coin',
     symbol: 'USDC',
-    oracleId: 'USDC',
+    oracleId: 'mrmultiUSDC',
     address: '0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D',
     chainId: 1285,
     decimals: 6,
@@ -195,7 +195,7 @@ const _tokens = {
   DAI: {
     name: 'Dai Stablecoin',
     symbol: 'DAI',
-    oracleId: 'DAI',
+    oracleId: 'mrmultiDAI',
     address: '0x80A16016cC4A2E6a2CACA8a4a498b1699fF0f844',
     chainId: 1285,
     decimals: 18,
@@ -208,7 +208,7 @@ const _tokens = {
   BUSD: {
     name: 'Binance-Peg BUSD Token',
     symbol: 'BUSD',
-    oracleId: 'BUSD',
+    oracleId: 'mrmultiBUSD',
     address: '0x5D9ab5522c64E1F6ef5e3627ECCc093f56167818',
     chainId: 1285,
     decimals: 18,
@@ -221,7 +221,7 @@ const _tokens = {
   ETH: {
     name: 'Ethereum',
     symbol: 'ETH',
-    oracleId: 'ETH',
+    oracleId: 'mrmultiETH',
     address: '0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C',
     chainId: 1285,
     decimals: 18,
@@ -234,7 +234,7 @@ const _tokens = {
   BNB: {
     name: 'Binance',
     symbol: 'BNB',
-    oracleId: 'BNB',
+    oracleId: 'mrmultiBNB',
     address: '0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c',
     chainId: 1285,
     decimals: 18,
@@ -247,7 +247,7 @@ const _tokens = {
   WBTC: {
     name: 'Wrapped BTC',
     symbol: 'WBTC',
-    oracleId: 'WBTC',
+    oracleId: 'mrmultiWBTC',
     address: '0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8',
     chainId: 1285,
     decimals: 8,
@@ -260,7 +260,7 @@ const _tokens = {
   USDT: {
     name: 'Tether USD',
     symbol: 'USDT',
-    oracleId: 'USDT',
+    oracleId: 'mrmultiUSDT',
     address: '0xB44a9B6905aF7c801311e8F4E76932ee959c663C',
     chainId: 1285,
     decimals: 6,
@@ -310,7 +310,7 @@ const _tokens = {
   miMatic: {
     name: 'MAI',
     symbol: 'miMatic',
-    oracleId: 'miMatic',
+    oracleId: 'mrmiMatic',
     address: '0x7f5a79576620C046a293F54FFCdbd8f2468174F1',
     chainId: 1285,
     decimals: 18,
@@ -336,7 +336,7 @@ const _tokens = {
   MIM: {
     name: 'Magic Internet Money',
     symbol: 'MIM',
-    oracleId: 'MIM',
+    oracleId: 'mrmultiMIM',
     address: '0x0caE51e1032e8461f4806e26332c030E34De3aDb',
     chainId: 1285,
     decimals: 18,
@@ -366,7 +366,7 @@ const _tokens = {
   anyFRAX: {
     name: 'FRAX',
     symbol: 'FRAX',
-    oracleId: 'anyFRAX',
+    oracleId: 'mrmultiFRAX',
     address: '0x965f84D915a9eFa2dD81b653e3AE736555d945f4',
     chainId: 1285,
     decimals: 18,

@@ -312,7 +312,7 @@
     "lp0": {
       "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "pMAI",
       "decimals": "1e18"
     },
     "lp1": {
@@ -337,7 +337,7 @@
     "lp1": {
       "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "pMAI",
       "decimals": "1e18"
     }
   },
@@ -356,7 +356,7 @@
     "lp1": {
       "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "pMAI",
       "decimals": "1e18"
     }
   },
@@ -521,7 +521,7 @@
     "lp0": {
       "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "pMAI",
       "decimals": "1e18"
     },
     "lp1": {
@@ -546,7 +546,7 @@
     "lp1": {
       "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "pMAI",
       "decimals": "1e18"
     }
   },
@@ -565,7 +565,7 @@
     "lp1": {
       "address": "0xa3Fa99A148fA48D14Ed51d610c367C61876997F1",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "pMAI",
       "decimals": "1e18"
     }
   },

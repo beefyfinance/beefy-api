@@ -10,7 +10,7 @@
     "tokens": [
       {
         "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
-        "oracleId": "MAI",
+        "oracleId": "gMAI",
         "decimals": "1e18"
       },
       {
@@ -115,7 +115,7 @@
     "tokens": [
       {
         "address": "0xdFA46478F9e5EA86d57387849598dbFB2e964b02",
-        "oracleId": "MAI",
+        "oracleId": "gMAI",
         "decimals": "1e18"
       },
       {

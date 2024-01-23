@@ -20,7 +20,7 @@ const MAI = {
   name: 'Mai',
   address: '0xa3Fa99A148fA48D14Ed51d610c367C61876997F1',
   symbol: 'MAI',
-  oracleId: 'MAI',
+  oracleId: 'pMAI',
   decimals: 18,
   chainId: 137,
   website: 'https://www.mai.finance/',

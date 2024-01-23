@@ -892,8 +892,8 @@ const _tokens = {
   },
   MAI: {
     name: 'Mai',
-    symbol: 'fMAI',
-    oracleId: 'MAI',
+    symbol: 'MAI',
+    oracleId: 'fMAI',
     address: '0xfB98B335551a418cD0737375a2ea0ded62Ea213b',
     chainId: 250,
     decimals: 18,

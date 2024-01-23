@@ -18,7 +18,7 @@
     "lp0": {
       "address": "0x5c49b268c9841AFF1Cc3B0a418ff5c3442eE3F3b",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "aMAI",
       "decimals": "1e18"
     },
     "lp1": {
