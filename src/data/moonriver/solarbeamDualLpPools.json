@@ -27,7 +27,7 @@
     "lp0": {
       "address": "0x2bF9b864cdc97b08B6D79ad4663e71B8aB65c45c",
       "oracle": "tokens",
-      "oracleId": "mBNB",
+      "oracleId": "mrmultiBNB",
       "decimals": "1e18"
     },
     "lp1": {
@@ -46,7 +46,7 @@
     "lp0": {
       "address": "0x0caE51e1032e8461f4806e26332c030E34De3aDb",
       "oracle": "tokens",
-      "oracleId": "mMIM",
+      "oracleId": "mrmultiMIM",
       "decimals": "1e18"
     },
     "lp1": {

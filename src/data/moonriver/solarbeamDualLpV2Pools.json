@@ -28,7 +28,7 @@
     "lp0": {
       "address": "0x6aB6d61428fde76768D7b45D8BFeec19c6eF91A8",
       "oracle": "tokens",
-      "oracleId": "WBTC",
+      "oracleId": "mrmultiWBTC",
       "decimals": "1e8"
     },
     "lp1": {
@@ -66,7 +66,7 @@
     "lp0": {
       "address": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "mrmultiETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -91,7 +91,7 @@
     "lp1": {
       "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "mrmultiUSDC",
       "decimals": "1e6"
     }
   },

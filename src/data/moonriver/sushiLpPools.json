@@ -9,7 +9,7 @@
     "lp0": {
       "address": "0x0caE51e1032e8461f4806e26332c030E34De3aDb",
       "oracle": "tokens",
-      "oracleId": "MIM",
+      "oracleId": "mrmultiMIM",
       "decimals": "1e18"
     },
     "lp1": {
@@ -35,7 +35,7 @@
     "lp1": {
       "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "mrmultiUSDC",
       "decimals": "1e6"
     }
   },
@@ -49,7 +49,7 @@
     "lp0": {
       "address": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "mrmultiETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -69,13 +69,13 @@
     "lp0": {
       "address": "0xB44a9B6905aF7c801311e8F4E76932ee959c663C",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "oracleId": "mrmultiUSDT",
       "decimals": "1e6"
     },
     "lp1": {
       "address": "0xE3F5a90F9cb311505cd691a46596599aA1A0AD7D",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "mrmultiUSDC",
       "decimals": "1e6"
     }
   },
@@ -89,13 +89,13 @@
     "lp0": {
       "address": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "mrmultiETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xB44a9B6905aF7c801311e8F4E76932ee959c663C",
       "oracle": "tokens",
-      "oracleId": "USDT",
+      "oracleId": "mrmultiUSDT",
       "decimals": "1e6"
     }
   },
@@ -109,7 +109,7 @@
     "lp0": {
       "address": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "mrmultiETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -129,7 +129,7 @@
     "lp0": {
       "address": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "mrmultiETH",
       "decimals": "1e18"
     },
     "lp1": {
@@ -149,13 +149,13 @@
     "lp0": {
       "address": "0x639A647fbe20b6c8ac19E48E2de44ea792c62c5C",
       "oracle": "tokens",
-      "oracleId": "ETH",
+      "oracleId": "mrmultiETH",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0x80a16016cc4a2e6a2caca8a4a498b1699ff0f844",
       "oracle": "tokens",
-      "oracleId": "DAI",
+      "oracleId": "mrmultiDAI",
       "decimals": "1e18"
     }
   }
