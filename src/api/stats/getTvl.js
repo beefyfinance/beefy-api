@@ -180,10 +180,10 @@ const chains = [
     chainId: LINEA_CHAIN_ID,
     vaultsEndpoint: LINEA_VAULTS_ENDPOINT,
   },
-  /* {
+  {
     chainId: MANTLE_CHAIN_ID,
     vaultsEndpoint: MANTLE_VAULTS_ENDPOINT,
-  },*/
+  },
 ];
 
 const CACHE_KEY = 'TVL';
