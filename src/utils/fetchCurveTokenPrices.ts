@@ -8,6 +8,19 @@ import ICurvePool from '../abis/ICurvePool';
 import StableSwap from '../abis/StableSwap';
 
 const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
+  aurora: [
+    {
+      oracleId: 'aurMAI',
+      decimals: '1e18',
+      index0: 0,
+      index1: 2,
+      pool: '0x65a761136815B45A9d78d9781d22d47247B49D23',
+      useUnderlying: true,
+      secondToken: 'USDC',
+      secondTokenDecimals: '1e6',
+      abi: ICurvePool,
+    },
+  ],
   fantom: toCurveTokens(ChainId.fantom, require('../data/fantom/curvePools.json')),
   avax: [
     ...toCurveTokens(ChainId.avax, require('../data/avax/curvePools.json')),
@@ -86,6 +99,17 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       pool: '0xfEF79304C80A694dFd9e603D624567D470e1a0e7',
       secondToken: 'crvUSD',
       secondTokenDecimals: '1e18',
+      abi: ICurvePool,
+    },
+    {
+      oracleId: 'MAI',
+      decimals: '1e18',
+      index0: 0,
+      index1: 2,
+      pool: '0x66E335622ad7a6C9c72c98dbfCCE684996a20Ef9',
+      useUnderlying: true,
+      secondToken: 'USDC',
+      secondTokenDecimals: '1e6',
       abi: ICurvePool,
     },
   ],
