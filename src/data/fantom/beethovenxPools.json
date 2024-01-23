@@ -1,5 +1,31 @@
 [
   {
+    "name": "beets-love-thy-stables",
+    "address": "0x46E578B73a95e62423CE26056aa750bB9D99be32",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x46e578b73a95e62423ce26056aa750bb9d99be320000000000000000000007cf",
+    "beefyFee": 0.095,
+    "poolId": 141,
+    "composable": true,
+    "bptIndex": 2,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "axlUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "lzUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
     "name": "beets-fantom-layer-of-the-opera",
     "address": "0x838229095fa83BCD993eF225d01a990E3Bc197A8",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
