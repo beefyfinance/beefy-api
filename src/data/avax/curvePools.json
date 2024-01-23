@@ -79,7 +79,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "MAI",
+        "oracleId": "aMAI",
         "decimals": "1e18"
       },
       {

@@ -129,7 +129,7 @@
     "lp1": {
       "address": "0xFb2019DfD635a03cfFF624D210AEe6AF2B00fC2C",
       "oracle": "tokens",
-      "oracleId": "MAI",
+      "oracleId": "mrMAI",
       "decimals": "1e18"
     }
   },

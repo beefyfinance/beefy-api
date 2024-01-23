@@ -8,7 +8,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "MAI",
+        "oracleId": "aurMAI",
         "decimals": "1e18"
       },
       {

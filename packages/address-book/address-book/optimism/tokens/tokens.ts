@@ -277,7 +277,7 @@ const _tokens = {
     decimals: 18,
     name: 'Mai Stablecoin',
     symbol: 'MAI',
-    oracleId: 'MAI',
+    oracleId: 'oMAI',
     website: 'https://www.mai.finance/',
     description:
       "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",

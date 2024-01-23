@@ -166,7 +166,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "MAI",
+        "oracleId": "oMAI",
         "decimals": "1e18"
       }
     ]
@@ -349,7 +349,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "MAI",
+        "oracleId": "oMAI",
         "decimals": "1e18"
       }
     ]
