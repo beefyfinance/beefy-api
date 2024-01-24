@@ -1,5 +1,37 @@
 [
   {
+    "name": "aura-op-a-night-at-the-opara",
+    "address": "0x0244B0025264dC5f5c113d472D579C9c994A59CE",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x2bf59C2C2e8F26738Ad3F9eB3C8e85598a4a4C34",
+    "vaultPoolId": "0x0244b0025264dc5f5c113d472d579c9c994a59ce0002000000000000000000c9",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xE2948fE8b0D4edC30E29BB17aec8E52f6AC8a7AF",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x791993cc079F5c2744145BE57C5b42E653cB275e",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "PSP",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-op-fraximalist-ethereum",
     "address": "0xA71021492a3966EeC735Ed1B505aFa097c7cFe6f",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
