@@ -603,6 +603,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'electronic-usd': ['eUSD'],
   'mendi-finance': ['MENDI'],
   'overnight-finance': ['OVN'],
+  'gyroscope-gyd': ['GYD'],
 };
 
 /**

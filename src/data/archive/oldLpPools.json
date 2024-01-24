@@ -1,5 +1,23 @@
 [
   {
+    "name": "sushi-alcx-weth",
+    "address": "0xC3f279090a47e80990Fe3a9c30d24Cb117EF91a8",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp0": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xdBdb4d16EdA451D0503b854CF79D55697F90c8DF",
+      "oracle": "tokens",
+      "oracleId": "ALCX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "soswap-seam-usdc",
     "address": "0x11E438B489e9e97e0252acd83AaA0a57AB611911",
     "decimals": "1e18",

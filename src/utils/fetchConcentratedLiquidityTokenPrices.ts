@@ -155,6 +155,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'LODE',
       secondToken: 'ETH',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'SILO',
+      decimalDelta: 1,
+      pool: '0xd3E11119d2680c963F1CDCffeCe0c4adE823Fb58',
+      firstToken: 'ETH',
+      secondToken: 'SILO',
+    },
   ],
   moonbeam: [
     {

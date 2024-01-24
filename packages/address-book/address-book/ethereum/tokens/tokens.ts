@@ -1582,6 +1582,62 @@ const _tokens = {
       'Composable Stable Pools are designed for assets that are either expected to consistently swap at near parity, or at a known exchange rate. Composable Stable Pools use Stable Math (based on StableSwap, popularized by Curve) which allows for swaps of significant size before encountering substantial price impact, vastly increasing capital efficiency for like-kind and correlated-kind swaps.',
     bridge: 'native',
   },
+  ALCX: {
+    name: 'Alchemix',
+    symbol: 'ALCX',
+    oracleId: 'ALCX',
+    address: '0xdBdb4d16EdA451D0503b854CF79D55697F90c8DF',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alchemix.fi/',
+    documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
+    description:
+      'Alchemix Finance is a future-yield-backed synthetic asset protocol and community DAO. The protocol gives you advances on various yield farming strategies via a synthetic token. The token represents a fungible claim on the underlying collateral in the Alchemix protocol, where the claim has to be made by a depositor of that collateral. The DAO will focus on funding projects that will help the Alchemix ecosystem grow, as well as the greater Ethereum community.',
+    bridge: 'native',
+  },
+  RPL: {
+    name: 'Rocket Pool',
+    symbol: 'RPL',
+    oracleId: 'RPL',
+    address: '0xD33526068D116cE69F19A9ee46F0bd304F21A51f',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://rocketpool.net/',
+    documentation: 'https://rocketpool.net/protocol/about',
+    description:
+      'Rocket Pool is the oldest, most trusted & only decentralised staking protocol on Ethereum today.',
+    bridge: 'native',
+  },
+  GYD: {
+    name: 'Gyro Dollar',
+    symbol: 'GYD',
+    oracleId: 'GYD',
+    address: '0xe07F9D810a48ab5c3c914BA3cA53AF14E4491e8A',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://gyro.finance/',
+    documentation: 'https://docs.gyro.finance/gyroscope-protocol/stablecoin',
+    description:
+      'A fully backed stablecoin: the Gyroscope stablecoin aims at a long-term reserve ratio of 100%, where every unit of stablecoin is backed by 1 USD worth of collateral.',
+    bridge: 'native',
+  },
+  SILO: {
+    name: 'Silo Governance Token',
+    symbol: 'SILO',
+    oracleId: 'SILO',
+    address: '0x6f80310CA7F2C654691D1383149Fa1A57d8AB1f8',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.silo.finance/',
+    documentation: 'https://devdocs.silo.finance/protocol-architecture/protocol-overview',
+    description:
+      'Silo is a non-custodial lending protocol to borrow any crypto asset with another.',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
