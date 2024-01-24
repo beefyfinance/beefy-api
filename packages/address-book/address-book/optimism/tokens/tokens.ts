@@ -1313,6 +1313,20 @@ const _tokens = {
     documentation: 'https://docs.kujira.app/',
     bridge: 'axelar',
   },
+  PSP: {
+    name: 'ParaSwap',
+    symbol: 'PSP',
+    oracleId: 'PSP',
+    address: '0xd3594E879B358F430E20F82bea61e83562d49D48',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://paraswap.io/',
+    description:
+      "ParaSwap aggregates decentralized exchanges and other DeFi services in one comprehensive interface to streamline and facilitate users' interactions with decentralized finance on Ethereum and EVM-compatible chains: Polygon, Avalanche, BSC & more to come.",
+    documentation: 'https://doc.paraswap.network/',
+    bridge: 'optimism-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
