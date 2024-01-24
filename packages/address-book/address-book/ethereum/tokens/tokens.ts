@@ -1638,6 +1638,20 @@ const _tokens = {
       'Silo is a non-custodial lending protocol to borrow any crypto asset with another.',
     bridge: 'native',
   },
+  ankrETH: {
+    name: 'Ankr Staked ETH',
+    symbol: 'ankrETH',
+    oracleId: 'ankrETH',
+    address: '0xE95A203B1a91a908F9B9CE46459d101078c2c3cb',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ankr.com/',
+    description:
+      'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
