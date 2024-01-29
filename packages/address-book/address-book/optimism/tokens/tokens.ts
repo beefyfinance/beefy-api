@@ -1327,6 +1327,20 @@ const _tokens = {
     documentation: 'https://doc.paraswap.network/',
     bridge: 'optimism-canonical',
   },
+  sFRAX: {
+    name: 'Staked FRAX',
+    symbol: 'sFRAX',
+    oracleId: 'sFRAX',
+    address: '0x2Dd1B4D4548aCCeA497050619965f91f78b3b532',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.frax.finance/sfrax/stake',
+    description:
+      'Staked FRAX (sFRAX) is an ERC4626 staking vault that distributes part of the Frax Protocol yield weekly to stakers denominated in FRAX stablecoins. The sFRAX token represents pro rata deposits within the vault and is always withdrawable for FRAX stablecoins at the pro rata rate at all times. sFRAX APY attempts to roughly track the interest on reserve balances (IORB) rate of the United States Federal Reserve using the IORB oracle. This benchmark rate is generally accepted as the “risk free rate” of the US Dollar. The FRAX staking vault attempts, but does not guarantee in any way, to target this rate.',
+    documentation: 'https://docs.frax.finance/frax-v3/sfrax',
+    bridge: 'frax',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -1,5 +1,45 @@
 [
   {
+    "name": "aura-op-yield-concerto-by-frax",
+    "address": "0x2FEb76966459d7841fa8A7Ed0aa4bf574d6111Bf",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x6d7E228CEe218914e169fbb2bF16677b4597DFC3",
+    "vaultPoolId": "0x2feb76966459d7841fa8a7ed0aa4bf574d6111bf00020000000000000000011d",
+    "lsIndex": [0, 1],
+    "lsUrl": [
+      "https://api.frax.finance/v2/frax/sfrax/summary/latest",
+      "https://api.frax.finance/v2/frxeth/summary/latest"
+    ],
+    "dataPath": ["$.sfraxApy", "$.sfrxethApr"],
+    "lsAprFactor": [1, 1],
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xD4b5e14d80E3A414452846804248405F0867AFa2",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x9D968b4D129cb0Ca1d9ceB8B2F66dBa3BAdfD2F0",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "sFRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-op-a-night-at-the-opara",
     "address": "0x0244B0025264dC5f5c113d472D579C9c994A59CE",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
