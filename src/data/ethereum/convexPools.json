@@ -68,6 +68,22 @@
     ]
   },
   {
+    "name": "prisma-yprisma",
+    "pool": "0x69833361991ed76f9e8DBBcdf9ea1520fEbFb4a7",
+    "prismaConvexPool": "0xb8Fa880840a64c25318989B907cCb58FD7A324Df",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "PRISMA",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "yPRISMA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "prisma-cvxprisma",
     "pool": "0x3b21C2868B6028CfB38Ff86127eF22E68d16d53B",
     "prismaConvexPool": "0xd91fBa4919b7BF3B757320ea48bA102F543dE341",

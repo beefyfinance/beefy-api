@@ -1436,6 +1436,20 @@ const _tokens = {
     description:
       'Convex Finance has expanded to optimize opportunities for liquidity providers on Prisma the same way it has done so for Curve.fi LPs.',
   },
+  yPRISMA: {
+    name: 'Yearn Prisma',
+    symbol: 'yPRISMA',
+    oracleId: 'yPRISMA',
+    address: '0xe3668873D944E4A949DA05fc8bDE419eFF543882',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://yprisma.yearn.fi/',
+    documentation: 'https://docs.yearn.fi/getting-started/products/ylockers/yprisma/overview',
+    bridge: 'native',
+    description:
+      "yPRISMA is Yearn's latest liquid locker, built for Prisma Finance's governance token.",
+  },
   LUSD: {
     name: 'LUSD Stablecoin',
     symbol: 'LUSD',
