@@ -25,9 +25,9 @@ const { getGnsApys } = require('./getGnsApys');
 const getKyberPolygonApys = require('./getKyberPolygonApys');
 const getOvixApys = require('./getOvixApys');
 const { getPearlApys } = require('./getPearlApys');
-const { getQuickGammaApys } = require('./getQuickGammaApys');
+//const { getQuickGammaApys } = require('./getQuickGammaApys');
 const getBetSwirlSingleApy = require('./getBetSwirlSingleApy');
-const getRetroGammaApys = require('./getRetroGammaApys');
+const getGammaApys = require('./getGammaApys');
 const getAuraPolygonApys = require('./getAuraPolygonApys');
 const { getPolygonCompoundV3Apys } = require('./getPolygonCompoundApys');
 
@@ -36,7 +36,7 @@ const getApys = [
   getbeQiEarnApy,
   getQuickSingleApys,
   getQuickDualLpApys,
-  getQuickGammaApys,
+  // getQuickGammaApys,
   getSushiLpApys,
   getSushiOhmLpApys,
   getCurveApys,
@@ -61,7 +61,7 @@ const getApys = [
   // getOvixApys, Probably can just remove this.
   getPearlApys,
   getBetSwirlSingleApy,
-  getRetroGammaApys,
+  getGammaApys,
   getAuraPolygonApys,
   getPolygonCompoundV3Apys,
 ];

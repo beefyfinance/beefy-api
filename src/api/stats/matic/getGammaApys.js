@@ -1,11 +1,15 @@
 const BigNumber = require('bignumber.js');
 const { POLYGON_CHAIN_ID: chainId } = require('../../../constants');
-const pools = require('../../../data/matic/retroGammaPools.json');
+const retroPools = require('../../../data/matic/retroGammaPools.json');
+const quickPools = require('../../../data/matic/quickGammaLpPools.json');
 import { getApyBreakdown } from '../common/getApyBreakdown';
 
-const merklApi = 'https://api.angle.money/v1/merkl?chainId=137';
+const pools = [...retroPools, ...quickPools];
 
-const getRetroGammaApys = async () => {
+const merklApi = 'https://api.angle.money/v1/merkl?chainId=137';
+const gammaApi = 'https://wire2.gamma.xyz/quickswap/polygon/hypervisors/allData';
+
+const getGammaApys = async () => {
   let poolAprs = {};
   try {
     poolAprs = await fetch(merklApi).then(res => res.json());
@@ -32,7 +36,24 @@ const getRetroGammaApys = async () => {
     aprs.push(apr);
   }
 
-  return await getApyBreakdown(pools, BigNumber(0), aprs, 0);
+  let tradingAprs = {};
+  try {
+    const response = await fetch(gammaApi).then(res => res.json());
+
+    pools.forEach(p => {
+      if (response[p.address.toLowerCase()]) {
+        tradingAprs[p.address.toLowerCase()] = new BigNumber(
+          response[p.address.toLowerCase()].returns.daily.feeApr
+        );
+      } else {
+        tradingAprs[p.address.toLowerCase()] = new BigNumber(0);
+      }
+    });
+  } catch (e) {
+    console.log('Polygon Gamma Api Error', e);
+  }
+
+  return await getApyBreakdown(pools, tradingAprs, aprs, 0);
 };
 
-module.exports = getRetroGammaApys;
+module.exports = getGammaApys;
