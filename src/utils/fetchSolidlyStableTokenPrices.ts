@@ -24,6 +24,15 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
       secondTokenDecimals: 1e6,
       secondTokenAddress: '0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA',
     },
+    {
+      oracleId: 'bUSDC+',
+      pool: '0xE96c788E66a97Cf455f46C5b27786191fD3bC50B',
+      firstToken: 'bUSDC+',
+      firstTokenDecimals: '1e6',
+      secondToken: 'USD+',
+      secondTokenDecimals: 1e6,
+      secondTokenAddress: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
+    },
   ],
 };
 
