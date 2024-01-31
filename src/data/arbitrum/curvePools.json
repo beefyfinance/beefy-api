@@ -265,6 +265,30 @@
     ]
   },
   {
+    "name": "curve-arb-frxeth-weth",
+    "pool": "0x1deb3b1ca6afca0ff9c5ce9301950dc98ac0d523",
+    "gauge": "0x46fec59eb30c2d610917ebf4ce5114f7425b2c4a",
+    "rewards": [
+      {
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "frxETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-f-wsteth",
     "pool": "0x6eB2dc694eB516B16Dc9FBc678C60052BbdD7d80",
     "token": "0xDbcD16e622c95AcB2650b38eC799f76BFC557a0b",
