@@ -1,19 +1,19 @@
 [
   {
     "name": "conic-crvusd",
-    "address": "0x369cBC5C6f139B1132D3B91B87241B37Fc5B971f",
+    "address": "0x89dc3E9d493512F6CFb923E15369ebFddE591988",
     "underlying": "crvUSD",
     "decimals": "1e18"
   },
   {
     "name": "conic-usdc",
-    "address": "0x07b577f10d4e00f3018542d08a87F255a49175A5",
+    "address": "0x80a3604977270B7Ef2e637f9Eb78cE1c3FA64316",
     "underlying": "USDC",
     "decimals": "1e6"
   },
   {
     "name": "conic-eth",
-    "address": "0xBb787d6243a8D450659E09ea6fD82F1C859691e9",
+    "address": "0x3367070ed152e2b715eef48D157685Cf496f3543",
     "underlying": "ETH",
     "decimals": "1e18"
   }
