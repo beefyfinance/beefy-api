@@ -14,7 +14,6 @@ const rewardId = 'LEND';
 const rewardDecimals = '1e18';
 const secondsPerYear = 31536000;
 const RAY_DECIMALS = '1e27';
-const burn = 0.5;
 
 const getLendleApys = async (): Promise<ApyBreakdownResult> => {
   const farmAprs: BigNumber[] = [];
@@ -79,7 +78,6 @@ const getIncentiveControllerData = async (): Promise<BigNumber[]> => {
         .dividedBy(totalAllocPoint)
         .dividedBy(rewardDecimals)
         .times(rewardPrice)
-        .times(burn)
     );
   });
 
