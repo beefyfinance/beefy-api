@@ -33,6 +33,7 @@ const pools = [
     rewards: [
       { address: '0xdA47862a83dac0c112BA89c6abC2159b95afd71C', oracleId: 'PRISMA' },
       { address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B', oracleId: 'CVX' },
+      { address: '0x4591dbff62656e7859afe5e45f6f47d3669fbb28', oracleId: 'mkUSD' },
     ],
   },
   {
