@@ -1069,7 +1069,7 @@ const _tokens = {
     decimals: 18,
     website: 'https://register.app/',
     description:
-      'The Reserve Protocol is the first platform that allows for the permissionless creation of asset-backed, yield-bearing & overcollateralized stablecoins on Ethereum. The end goal of the Reserve Protocol is to provide highly scalable, decentralized, stable money in contrast to volatile cryptocurrencies such as Bitcoin and Ether.',
+      'Electronic Dollar (eUSD) is a safety-first stablecoin that brings together diversified, highly liquid backing with extra anti-bank run overcollateralization. \neUSD is asset-backed by yield bearing Aave USDT, Compound USDT, Aave USDC and Compound USDC. eUSD is available natively on Ethereum mainnet and the MobileCoin L1, and can be bridged to any blockchain.',
     bridge: 'native',
     logoURI: '',
     documentation: 'https://reserve.org/protocol/',
