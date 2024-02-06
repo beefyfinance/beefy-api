@@ -556,6 +556,20 @@ const _tokens = {
     documentation: 'https://curve.readthedocs.io/',
     bridge: 'base-canonical',
   },
+  'USDC+': {
+    name: 'USDC Plus',
+    symbol: 'USDC+',
+    oracleId: 'bUSDC+',
+    address: '0x85483696Cc9970Ad9EdD786b2C5ef735F38D156f',
+    chainId: 8453,
+    decimals: 6,
+    logoURI: '',
+    bridge: 'native',
+    website: 'https://overnight.fi/',
+    description:
+      'A risk-minimised USDC-pegged crypto asset backed by an underlying basket of USD stablecoins',
+    documentation: 'https://docs.overnight.fi/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
