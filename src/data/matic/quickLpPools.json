@@ -65,7 +65,7 @@
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     },
     "lp1": {
@@ -198,7 +198,7 @@
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     },
     "lp1": {
@@ -217,7 +217,7 @@
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     },
     "lp1": {
@@ -236,7 +236,7 @@
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     },
     "lp1": {
@@ -597,7 +597,7 @@
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     },
     "lp1": {
@@ -701,7 +701,7 @@
     "lp1": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     }
   },
@@ -795,7 +795,7 @@
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     },
     "lp1": {
@@ -935,7 +935,7 @@
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     },
     "lp1": {
@@ -975,7 +975,7 @@
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     },
     "lp1": {
@@ -1015,7 +1015,7 @@
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     },
     "lp1": {
@@ -1061,7 +1061,7 @@
     "lp1": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     }
   },
@@ -1175,7 +1175,7 @@
     "lp0": {
       "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
       "oracle": "tokens",
-      "oracleId": "USDC",
+      "oracleId": "pUSDCe",
       "decimals": "1e6"
     },
     "lp1": {

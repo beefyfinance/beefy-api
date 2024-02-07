@@ -3,7 +3,7 @@
     "name": "compound-polygon-usdc",
     "cToken": "0xF25212E676D1F7F89Cd72fFEe66158f541246445",
     "oracle": "tokens",
-    "oracleId": "USDC",
+    "oracleId": "pUSDCe",
     "decimals": "1e6"
   }
 ]

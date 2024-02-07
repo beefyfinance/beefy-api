@@ -4,7 +4,7 @@
     "poolId": 0,
     "address": "0x1205f31718499dBf1fCa446663B532Ef87481fe1",
     "decimals": "1e6",
-    "underlying": "USDC"
+    "underlying": "pUSDCe"
   },
   {
     "name": "stargate-polygon-usdt",

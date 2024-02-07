@@ -1442,6 +1442,19 @@ const _tokens = {
     bridge: 'layer-zero',
     logoURI: 'https://www.traderjoexyz.com/static/media/logo.bc60f78d.png',
   },
+  renBTC: {
+    name: 'renBTC',
+    symbol: 'renBTC',
+    oracleId: 'renBTC',
+    address: '0xDBf31dF14B66535aF65AaC99C32e9eA844e14501',
+    chainId: 42161,
+    decimals: 8,
+    website: 'https://renproject.io/',
+    description:
+      'RenBTC is an ERC-20 token built on the Ethereum network, pegged to Bitcoin. This means that each RenBTC can be always redeemed for one Bitcoin, and hence tends to maintain its value at close to the Bitcoin market rate.',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

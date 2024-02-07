@@ -75,7 +75,7 @@
       {
         "stream": "0xB95397A17ACbb5824535ebE69Cd9DCF8fA7aFC50",
         "rewardToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-        "oracleId": "USDC",
+        "oracleId": "pUSDCe",
         "decimals": "1e6"
       },
       {
@@ -190,7 +190,7 @@
       {
         "stream": "0x1e916950A659Da9813EE34479BFf04C732E03deb",
         "rewardToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-        "oracleId": "USDC",
+        "oracleId": "pUSDCe",
         "decimals": "1e6"
       },
       {
@@ -368,7 +368,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "pUSDCe",
         "decimals": "1e6"
       },
       {
@@ -650,7 +650,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "pUSDCe",
         "decimals": "1e6"
       },
       {
@@ -714,7 +714,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "pUSDCe",
         "decimals": "1e6"
       },
       {
@@ -761,7 +761,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "pUSDCe",
         "decimals": "1e6"
       },
       {

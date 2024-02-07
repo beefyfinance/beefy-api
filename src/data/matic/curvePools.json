@@ -18,7 +18,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "pUSDCe",
         "decimals": "1e6"
       }
     ]
@@ -309,7 +309,7 @@
       {
         "aaveId": "aave-usdc",
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "pUSDCe",
         "decimals": "1e6"
       },
       {
