@@ -66,7 +66,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDC",
+        "oracleId": "pUSDCe",
         "decimals": "1e6"
       },
       {

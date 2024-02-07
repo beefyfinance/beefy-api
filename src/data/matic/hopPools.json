@@ -26,14 +26,14 @@
     "address": "0x9D373d22FD091d7f9A6649EB067557cc12Fb1A0A",
     "pool": "0x5C32143C8B198F392d01f8446b754c181224ac26",
     "rewardPool": "0x7811737716942967Ae6567B26a5051cC72af550E",
-    "virtualOracleId": "USDC",
+    "virtualOracleId": "pUSDCe",
     "virtualDecimals": "1e6",
     "decimals": "1e18",
     "chainId": 137,
     "tokens": [
       {
         "address": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-        "oracleId": "USDC",
+        "oracleId": "pUSDCe",
         "decimals": "1e6"
       },
       {
