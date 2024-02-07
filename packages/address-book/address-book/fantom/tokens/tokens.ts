@@ -2113,6 +2113,18 @@ const _tokens = {
       'oFVM is an options token that helps to reduce sell pressure on the native FVM token. It is earned by liquidity providers (LPs) who provide liquidity to the FVM pools. oFVM can be redeemed for FVM at a discount, or it can be locked up for a period of time as veFVM. veFVM is a governance token that allows holders to vote on the distribution of emissions, as well as receive weekly bribes and fees.',
     documentation: 'https://docs.velocimeter.xyz/oFVMmech',
   },
+  LAMBDA: {
+    name: 'Spartacus Money',
+    symbol: 'LAMBDA',
+    oracleId: 'LAMBDA',
+    address: '0x2126be94443334Fd71428dBa3c638fB722d1838e',
+    chainId: 250,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://spartacus.finance/',
+    bridge: 'native',
+    description: '',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
