@@ -1213,16 +1213,29 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-interface/master/public/favicon1.png',
   },
-  USDC: {
+  pUSDCe: {
     name: 'USD Coin',
     address: '0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174',
+    symbol: 'USDCe',
+    oracleId: 'pUSDCe',
+    decimals: 6,
+    website: 'https://www.circle.com/usdc',
+    description: 'USDC.e is an Ethereum-based USDC bridged via the official Polygon Bridge.',
+    bridge: 'polygon-canonical',
+    chainId: 137,
+    logoURI:
+      'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
+  },
+  USDC: {
+    name: 'USD Coin',
+    address: '0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359',
     symbol: 'USDC',
     oracleId: 'USDC',
     decimals: 6,
     website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
-    bridge: 'polygon-canonical',
+    bridge: 'native',
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
