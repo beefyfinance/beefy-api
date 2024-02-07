@@ -1984,7 +1984,7 @@ const _tokens = {
     website: 'https://www.circle.com/usdc',
     bridge: 'axelar',
     description:
-      'USDC (Axelar) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://docs.axelar.dev/',
   },
   ankrETH: {
@@ -2012,7 +2012,7 @@ const _tokens = {
     website: 'https://www.circle.com/usdc',
     bridge: 'layer-zero',
     description:
-      'USDC (LayerZero) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://layerzero.gitbook.io/docs/',
   },
   lzUSDT: {
@@ -2026,7 +2026,7 @@ const _tokens = {
     website: 'https://tether.to/en/transparency/#usdt',
     bridge: 'layer-zero',
     description:
-      'USDT (LayerZero) is a cryptocurrency that is designed to maintain a stable value equivalent to the US dollar by being backed by a one-to-one reserve ratio of fiat currency held in deposit by Tether Limited.',
+      'USDT is a cryptocurrency that is designed to maintain a stable value equivalent to the US dollar by being backed by a one-to-one reserve ratio of fiat currency held in deposit by Tether Limited.',
     documentation: 'https://layerzero.gitbook.io/docs/',
   },
   lzWETH: {

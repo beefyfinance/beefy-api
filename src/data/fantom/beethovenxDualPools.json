@@ -1,5 +1,38 @@
 [
   {
+    "name": "beets-fantom-menace",
+    "address": "0x593000b762dE3c465855336E95c8BB46080AF064",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0x593000b762de3c465855336e95c8bb46080af064000000000000000000000760",
+    "beefyFee": 0.095,
+    "poolId": 129,
+    "oracleB": "tokens",
+    "oracleIdB": "WFTM",
+    "decimalsB": "1e18",
+    "composable": true,
+    "bptIndex": 1,
+    "liquidstaking": true,
+    "lsIndex": 1,
+    "staderUrl": "https://universe.staderlabs.com/fantom/apy",
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WFTM",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sFTMx",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-a-layered-quartet",
     "address": "0xCE752063c544F604Ddb99a4335EB79B38c439D72",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
