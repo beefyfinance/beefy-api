@@ -80,6 +80,26 @@
     }
   },
   {
+    "name": "velodrome-v2-wsteth-snx",
+    "address": "0x8F0364Cd47Fb819953D9096Bda1ec8017829aAa2",
+    "gauge": "0xac1a02fB37f29cb5B1f5ABB5C9E45470f3122975",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4",
+      "oracle": "tokens",
+      "oracleId": "SNX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-v2-weth-moobifi",
     "address": "0x6Ed6Df1C23C51cb7Cc67a348cC8d9E6108EA3BFE",
     "gauge": "0xcFa050836C3E5dfA98D065d2f365Cfd78a9011F9",
