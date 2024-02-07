@@ -1,8 +1,103 @@
 [
   {
+    "name": "curve-poly-crvusd-usdc.e",
+    "pool": "0x864490cf55dc2dee3f0ca4d06f5f80b2bb154a03",
+    "gauge": "0x6a9d992c456e65d3b55203b71137c37de054d149",
+    "convex": true,
+    "rewards": [
+      {
+        "token": "0xc4Ce1D6F5D98D65eE25Cf85e9F2E9DcFEe6Cb5d6",
+        "oracleId": "crvUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-poly-crvusd-usdc",
+    "pool": "0x5225010a0ae133b357861782b0b865a48471b2c5",
+    "gauge": "0x63a4f929b93a8859098622de821159695a55030a",
+    "convex": true,
+    "rewards": [
+      {
+        "token": "0xc4Ce1D6F5D98D65eE25Cf85e9F2E9DcFEe6Cb5d6",
+        "oracleId": "crvUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-poly-crvusd-usdt",
+    "pool": "0xa70af99bff6b168327f9d1480e29173e757c7904",
+    "gauge": "0x30831d8c8480d106a6f043356a2bed652c98e44b",
+    "convex": true,
+    "rewards": [
+      {
+        "token": "0xc4Ce1D6F5D98D65eE25Cf85e9F2E9DcFEe6Cb5d6",
+        "oracleId": "crvUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-poly-crvusd-dai",
+    "pool": "0x62c949ee985b125ff2d7ddcf4fe7aecb0a040e2a",
+    "gauge": "0x360dd7ba9e0811c2168dad495fb393977a3eaba5",
+    "convex": true,
+    "rewards": [
+      {
+        "token": "0xc4Ce1D6F5D98D65eE25Cf85e9F2E9DcFEe6Cb5d6",
+        "oracleId": "crvUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-poly-usdr",
     "pool": "0xa138341185a9D0429B0021A11FB717B225e13e1F",
-    "token": "0xa138341185a9D0429B0021A11FB717B225e13e1F",
     "gauge": "0x875CE7e0565b4C8852CA2a9608F27B7213A90786",
     "convex": true,
     "tokens": [
