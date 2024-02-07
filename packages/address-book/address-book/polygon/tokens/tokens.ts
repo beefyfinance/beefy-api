@@ -228,6 +228,20 @@ const _tokens = {
     website: '',
     description: '',
   },
+  crvUSD: {
+    name: 'Curve.Fi USD Stablecoin',
+    symbol: 'crvUSD',
+    oracleId: 'crvUSD',
+    address: '0xc4Ce1D6F5D98D65eE25Cf85e9F2E9DcFEe6Cb5d6',
+    chainId: 137,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://crvusd.curve.fi/',
+    description:
+      'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
+    documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
+    bridge: 'polygon-canonical',
+  },
   NZDS: {
     name: 'New Zealand Dollar Stablecoin',
     symbol: 'NZDS',
