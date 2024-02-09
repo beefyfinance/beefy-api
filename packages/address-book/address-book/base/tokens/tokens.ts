@@ -524,7 +524,7 @@ const _tokens = {
     website:
       'https://register.app/#/overview?token=0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F&chainId=1',
     description:
-      'The Electronic Dollar (eUSD) is a decentralized 1:1 asset-backed stablecoin built with Reserve Protocol, available on the Ethereum and MobileCoin blockchains. It sets itself apart from other stablecoins due to its decentralized, community-governed, and censorship-resistant nature.',
+      'Electronic Dollar (eUSD) is a safety-first stablecoin that brings together diversified, highly liquid backing with extra anti-bank run overcollateralization. \neUSD is asset-backed by yield bearing Aave USDT, Compound USDT, Aave USDC and Compound USDC. eUSD is available natively on Ethereum mainnet and the MobileCoin L1, and can be bridged to any blockchain.',
     documentation: '',
     bridge: 'base-canonical',
   },
