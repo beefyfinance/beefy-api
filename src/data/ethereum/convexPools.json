@@ -53,7 +53,7 @@
   {
     "name": "prisma-mkusd-crvusd",
     "pool": "0x3de254A0f838a844F727fee81040e0FA7884B935",
-    "prismaCurvePool_": "0x71aD6c1d92546065B13bf701a7524c69B409E25C",
+    "prismaCurvePool": "0x71aD6c1d92546065B13bf701a7524c69B409E25C",
     "prismaConvexPool": "0xf6aA46869220Ae703924d5331D88A21DceF3b19d",
     "getDy": ["v1", 0, 1],
     "tokens": [
