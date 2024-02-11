@@ -112,7 +112,7 @@ const getLiquidStakingPoolYield = async pool => {
     const lsApr = pool.ankrUrl ? response.apy * 1 : response.value;
 
     apr = (lsApr * qty[pool.lsIndex].dividedBy(totalQty).toNumber()) / 100;
-    apr = pool.balancerChargesFee ? apr / 2 : apr;
+    apr = pool.balancerChargesFee ? apr * 0.75 : apr;
   } catch (err) {
     console.error(`Error fetching ls yield for ${pool.name}`);
   }

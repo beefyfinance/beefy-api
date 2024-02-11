@@ -12,7 +12,7 @@
     ],
     "dataPath": ["$.sfraxApy", "$.sfrxethApr"],
     "lsAprFactor": [1, 1],
-    "balancerChargesFee": true,
+    "balancerChargesFee": false,
     "decimals": "1e18",
     "rewards": [
       {
