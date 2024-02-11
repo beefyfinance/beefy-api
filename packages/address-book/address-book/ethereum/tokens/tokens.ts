@@ -1666,6 +1666,34 @@ const _tokens = {
     documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
     bridge: 'native',
   },
+  ezETH: {
+    name: 'Renzo Restaked ETH Token',
+    symbol: 'ezETH',
+    oracleId: 'ezETH',
+    address: '0xbf5495Efe5DB9ce00f80364C8B423567e58d2110',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.renzoprotocol.com/',
+    description:
+      'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
+    documentation: 'https://docs.renzoprotocol.com/docs/',
+    bridge: 'native',
+  },
+  weETH: {
+    name: 'Wrapped eETH',
+    symbol: 'weETH',
+    oracleId: 'weETH',
+    address: '0xCd5fE23C85820F7B72D0926FC9b05b43E359b7ee',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ether.fi/',
+    description:
+      'ether.fi is a decentralized, non-custodial delegated staking protocol with a Liquid Staking token. One of the distinguishing characteristics of ether.fi is that stakers control their keys. The ether.fi mechanism also allows for the creation of a node services marketplace where stakers and node operators can enroll nodes to provide infrastructure services.',
+    documentation: 'https://etherfi.gitbook.io/etherfi',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

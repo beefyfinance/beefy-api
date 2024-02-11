@@ -73,6 +73,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
+      oracleId: 'weETH',
+      decimalDelta: 1,
+      pool: '0x7A415B19932c0105c82FDB6b720bb01B0CC2CAe3',
+      firstToken: 'weETH',
+      secondToken: 'WETH',
+    },
+    {
+      type: 'UniV3',
       oracleId: 'COMP',
       decimalDelta: 1,
       pool: '0xea4Ba4CE14fdd287f380b55419B1C5b6c3f22ab6',

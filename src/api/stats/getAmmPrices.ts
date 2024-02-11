@@ -604,6 +604,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'mendi-finance': ['MENDI'],
   'overnight-finance': ['OVN'],
   'gyroscope-gyd': ['GYD'],
+  'renzo-restaked-eth': ['ezETH'],
 };
 
 /**
