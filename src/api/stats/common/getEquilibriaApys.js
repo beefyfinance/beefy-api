@@ -65,7 +65,6 @@ const getPoolApys = async (chainId, pools) => {
     let yearlyRewardsInUsd = new BigNumber(0);
 
     for (const extra of extras.filter(e => e.pool === pool.name)) {
-      if (extra.periodFinish < Date.now() / 1000) continue;
       const poolExtra = pool.rewards.find(e => e.token === extra.token);
       const price = await fetchPrice({
         oracle: poolExtra.oracle ?? 'tokens',
@@ -73,15 +72,18 @@ const getPoolApys = async (chainId, pools) => {
       });
       const extraRewardsInUsd = extra.rewardRate.times(31536000).times(price).div('1e18');
       if (poolExtra.oracleId === 'ARB') {
-        const poolArbApy = extraRewardsInUsd.div(totalStakedInUsd);
+        const poolArbApy =
+          extra.periodFinish < Date.now() / 1000
+            ? new BigNumber(0)
+            : extraRewardsInUsd.div(totalStakedInUsd);
         const eqbArbApy = arbApys[pool.address] || 0;
         if (poolArbApy.gt(eqbArbApy)) {
           yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
         } else {
-          const adjustedArbRewards = extraRewardsInUsd.div(poolArbApy).times(eqbArbApy);
-          yearlyRewardsInUsd = yearlyRewardsInUsd.plus(adjustedArbRewards);
+          yearlyRewardsInUsd = yearlyRewardsInUsd.plus(totalStakedInUsd.times(eqbArbApy));
         }
       } else {
+        if (extra.periodFinish < Date.now() / 1000) continue;
         yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
       }
       // console.log(pool.name, poolExtra.oracleId, extraRewardsInUsd.div(totalStakedInUsd).valueOf());
@@ -100,7 +102,7 @@ const getPoolApys = async (chainId, pools) => {
     const apy = yearlyRewardsInUsd.div(totalStakedInUsd);
     apys.push(apy);
 
-    // console.log(pool.name, apy.valueOf(), totalStakedInUsd.valueOf());
+    // console.log(pool.name, apy.valueOf(), yearlyRewardsInUsd.valueOf(), totalStakedInUsd.valueOf());
   }
   return apys;
 };

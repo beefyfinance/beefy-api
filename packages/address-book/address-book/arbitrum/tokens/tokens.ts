@@ -1442,6 +1442,18 @@ const _tokens = {
     bridge: 'layer-zero',
     logoURI: 'https://www.traderjoexyz.com/static/media/logo.bc60f78d.png',
   },
+  weETH: {
+    chainId: 42161,
+    address: '0x35751007a407ca6FEFfE80b3cB397736D2cf4dbe',
+    decimals: 18,
+    name: 'Wrapped eETH',
+    symbol: 'weETH',
+    oracleId: 'weETH',
+    website: 'https://ether.fi/',
+    description:
+      'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
+    bridge: 'arbitrum-canonical',
+  },
   renBTC: {
     name: 'renBTC',
     symbol: 'renBTC',
