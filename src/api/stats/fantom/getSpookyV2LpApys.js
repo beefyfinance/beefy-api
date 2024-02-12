@@ -146,28 +146,29 @@ const getPoolsData = async pools => {
   const allocPoints = res[1].map(v => new BigNumber(v['2'].toString()));
   const rewarders = res[2].map(v => v.rewarder);
 
-  for (let i = 0; i < pools.length; i++) {
-    let rewarderContract = fetchContract(rewarders[i], SpookyComplexRewarder, FANTOM_CHAIN_ID);
-    rewardPerSecCalls.push(rewarderContract.read.rewardPerSecond().catch(_ => NaN));
-    rewardAllocPointCalls.push(
-      rewarderContract.read
-        .poolInfo([pools[i].poolId])
-        .then(v => new BigNumber(v[2].toString()))
-        .catch(_ => NaN)
-    );
-    rewarderTotalAllocPointCalls.push(
-      rewarderContract.read
-        .totalAllocPoint()
-        .catch(_ => NaN)
-        .then()
-    );
-  }
+  // for (let i = 0; i < pools.length; i++) {
+  //   let rewarderContract = fetchContract(rewarders[i], SpookyComplexRewarder, FANTOM_CHAIN_ID);
+  //   rewardPerSecCalls.push(rewarderContract.read.rewardPerSecond().catch(_ => NaN));
+  //   rewardAllocPointCalls.push(
+  //     rewarderContract.read
+  //       .poolInfo([pools[i].poolId])
+  //       .then(v => new BigNumber(v[2].toString()))
+  //       .catch(_ => NaN)
+  //   );
+  //   rewarderTotalAllocPointCalls.push(
+  //     rewarderContract.read
+  //       .totalAllocPoint()
+  //       .catch(_ => NaN)
+  //       .then()
+  //   );
+  // }
 
-  const rewarderData = await Promise.all([
-    Promise.all(rewardPerSecCalls),
-    Promise.all(rewardAllocPointCalls),
-    Promise.all(rewarderTotalAllocPointCalls),
-  ]);
+  // const rewarderData = await Promise.all([
+  //   Promise.all(rewardPerSecCalls),
+  //   Promise.all(rewardAllocPointCalls),
+  //   Promise.all(rewarderTotalAllocPointCalls),
+  // ]);
+  const rewarderData = [pools.map(_ => NaN), pools.map(_ => NaN), pools.map(_ => NaN)];
 
   const rewardPerSecs = rewarderData[0].map(v => new BigNumber(v.toString()));
   const rewardAllocPoints = rewarderData[1];
