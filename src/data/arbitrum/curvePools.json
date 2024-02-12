@@ -1,5 +1,34 @@
 [
   {
+    "name": "curve-arb-tricryptofrax",
+    "pool": "0x3c64d44ab19d63f09ebad38fd7b913ab7e15e341",
+    "gauge": "0x0b5f23b68c07bbdedbb18d822d20b4f0e5b7594f",
+    "convex": true,
+    "rewards": [
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "frxETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-tricrvarb",
     "pool": "0x845c8bc94610807fcbab5dd2bc7ac9dabaff3c55",
     "gauge": "0xb08fef57bfcc5f7bf0ef69c0c090849d497c8f8a",
