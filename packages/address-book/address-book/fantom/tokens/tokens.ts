@@ -42,6 +42,7 @@ const FTM = {
     'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
   logoURI: 'https://ftmscan.com/token/images/wFtm_32.png',
   bridge: 'native',
+  documentation: 'https://docs.fantom.foundation/',
 } as const;
 
 const _tokens = {
