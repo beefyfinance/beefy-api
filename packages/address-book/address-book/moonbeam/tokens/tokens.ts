@@ -13,6 +13,7 @@ const GLMR = {
     'A Polkadot Parachain Designed for Developers Moonbeam simplifies the developer experience by combining full Ethereum compatibility with the power of Polkadot, including scalability, cross-chain integrations, and on-chain governance.',
   bridge: 'native',
   logoURI: '',
+  documentation: 'https://moonbeam.foundation/glimmer-token/',
 } as const;
 
 const _tokens = {

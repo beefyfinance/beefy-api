@@ -13,6 +13,7 @@ const METIS = {
     'METIS IS SOLVING ETHEREUMS SIX BIGGEST CHALLENGES. SIMPLICITY. SPEED. STORAGE. SCALABILITY. SECURITY. SAVINGS.',
   bridge: 'native',
   logoURI: '',
+  documentation: 'https://docs.metis.io/meta/',
 } as const;
 
 const _tokens = {

@@ -14,6 +14,7 @@ const MOVR = {
   bridge: 'native',
   logoURI:
     'https://app.solarbeam.io/_next/image?url=https%3A%2F%2Fapp.solarbeam.io%2Fimages%2Ftokens%2Fmovr.png&w=32&q=50',
+  documentation: 'https://moonbeam.foundation/moonriver-token/',
 } as const;
 
 const WMOVR_SUSHI = {

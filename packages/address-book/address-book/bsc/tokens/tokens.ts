@@ -14,6 +14,7 @@ const BNB = {
   bridge: 'native',
   logoURI:
     'https://tokens.pancakeswap.finance/images/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c.png',
+  documentation: 'https://www.binance.com/en/bnb',
 } as const;
 
 const _tokens = {
