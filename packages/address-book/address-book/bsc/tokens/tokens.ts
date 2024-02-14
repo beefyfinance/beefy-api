@@ -43,7 +43,7 @@ const _tokens = {
       'OpenOcean is the worlds first full aggregation protocol for crypto trading that source liquidity from DeFi and CeFi, and enable cross-chain swaps. Our intelligent routing algorithm find the best prices from DEXes and CEXes, and split the routes to provide traders the best prices with low slippage and fast settlement. The function is free to use, OpenOcean users only need to pay the normal blockchain gas fees and exchange fees for the trades, which are charged by the exchanges and not OpenOcean.',
     logoURI: 'https://ethapi.openocean.finance/asset/icon-ooe.svg?t=2',
     documentation: 'https://docs.openocean.finance/protocol/ooe-token',
-    bridge: 'https://openocean.finance/',
+    bridge: 'native',
   },
   multiBTC: {
     name: 'Multichain BTC',
@@ -2432,7 +2432,7 @@ const _tokens = {
     website: 'https://www.binance.com/en/busd',
     description:
       'Binance USD (BUSD) is a 1:1 USD-backed stable coin issued by Binance (in partnership with Paxos), Approved and regulated by the New York State Department of Financial Services (NYDFS), The BUSD Monthly Audit Report can be viewed from the official website.',
-    bridge: 'https://www.paxos.com/busd/',
+    bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
     documentation: 'https://help.paxos.com/hc/en-us/articles/4402670144148-BUSD',

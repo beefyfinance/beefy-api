@@ -416,7 +416,7 @@ const _tokens = {
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
     documentation: 'https://docs.curve.fi/crvUSD/overview/',
-    bridge: 'https://crvusd.curve.fi/',
+    bridge: 'base-canonical',
   },
   bsUSD: {
     name: 'Balancer Stable Pool',

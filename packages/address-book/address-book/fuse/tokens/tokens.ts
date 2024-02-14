@@ -69,7 +69,7 @@ const _tokens = {
     website: 'https://voltage.finance/',
     description:
       'Voltage Finance is a decentralized trading protocol, known for its role in facilitating automated trading of decentralized finance (DeFi) tokens on the Fuse network.',
-    bridge: 'https://voltage.finance/home',
+    bridge: 'native',
     documentation: 'https://docs.voltage.finance/voltage/tokenomics',
   },
   atUST: {
