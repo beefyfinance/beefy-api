@@ -239,6 +239,7 @@ const _tokens = {
     bridge: 'native',
     description:
       'sFTMX is a liquid staking derivative token that gains value relative to FTM as staking rewards accrue. sFTMX offers 4.7% APY and maximum DeFi interoperability. Staking with Stader results in a decentralized distribution of assets across a curated pool of validators, while liquidity options are maintained through DEX liquidity pools.',
+    documentation: 'https://www.staderlabs.com/docs-v1/fantom/about-sftmx',
   },
   SD: {
     name: 'Stader SD',
@@ -487,6 +488,7 @@ const _tokens = {
     description:
       'WigoSwap is a DeFi hub with lifetime farming earnings powered by Gamified Burning Mechanism (GBM).',
     logoURI: 'https://wigoswap.io/images/tokens/0xE992bEAb6659BFF447893641A378FbbF031C5bD6.svg',
+    documentation: 'https://docs.wigoswap.io/wigo-ecosystem/wigo-token',
   },
   PAE: {
     name: 'Ripae',
@@ -564,6 +566,8 @@ const _tokens = {
     description:
       'binSPIRIT is the Beefy wrapped version of inSPIRIT which boosts Spirit vaults on Beefy. binSPIRIT can be traded or minted 1:1 with SPIRIT.',
     logoURI: 'https://app.spiritswap.finance/images/tokens/BINSPIRIT.png',
+    documentation:
+      'https://docs.beefy.finance/beefy-products/beefy-escrowed-tokens/binspirit#what-is-binspirit',
   },
   CREDIT: {
     name: 'Creditum',
@@ -734,6 +738,7 @@ const _tokens = {
     description:
       'PaintSwap combines an open NFT marketplace with a decentralized exchange (AMM) on the Fantom Opera Network.',
     logoURI: 'https://assets.spookyswap.finance/tokens/BRUSH.png',
+    documentation: 'https://docs.paintswap.finance/tokenomics/brush',
   },
   WSTA: {
     name: 'Wrapped STA',
@@ -911,12 +916,13 @@ const _tokens = {
     address: '0xF24Bcf4d1e507740041C9cFd2DddB29585aDCe1e',
     chainId: 250,
     decimals: 18,
-    website: 'https://beethovenx.io/',
+    website: 'https://beets.fi/',
     bridge: 'native',
     description:
       'BEETS is the governance token for the Beethoven X protocol. Built on Balancer V2, Beethoven X is the first next-generation AMM protocol on Fantom.',
     logoURI:
       'https://assets.coingecko.com/coins/images/19158/small/beets-icon-large.png?1634545465',
+    documentation: 'https://docs.beets.fi/beets/tokenomics',
   },
   fSING: {
     name: 'Sing Token',
@@ -1047,6 +1053,7 @@ const _tokens = {
       "SpiritSwap is a decentralized exchange (DEX) on the Fantom Opera Chain. SpiritSwap's design is based on the Uniswap constant-product automated market maker (AMM).",
     logoURI:
       'https://raw.githubusercontent.com/Layer3Org/spiritswap-tokens-list-icon/master/token-list/images/0x5Cc61A78F164885776AA610fb0FE1257df78E59B.png',
+    documentation: 'https://docs.spiritswap.finance/spirit-swap/tokenomics/sprt',
   },
   TSHARE: {
     name: 'TSHARE',
@@ -1596,6 +1603,7 @@ const _tokens = {
     description:
       "SpookySwap is an automated market-making (AMM) decentralized exchange (DEX) for the Fantom Opera network. Different from other DEXs, we're invested in building a strong foundation with our BOO token as a governance token, diverse farms, grants to encourage a healthy ecology of other Fantom projects, and user-centered service.",
     logoURI: 'https://assets.spookyswap.finance/tokens/BOO.png',
+    documentation: 'https://docs.spooky.fi/v/master/',
   },
   SCREAM: {
     name: 'Scream Finance',
@@ -1887,6 +1895,7 @@ const _tokens = {
     bridge: 'native',
     description:
       'Beefy Escrowed Fantom is 1 year perpetually lock FTM that is delegated and locked to earn the maximum validator reward',
+    documentation: 'https://docs.beefy.finance/beefy-products/beefy-escrowed-tokens/beftm',
   },
   sfUSDC: {
     name: 'Stargate USD Coin LP',

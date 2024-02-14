@@ -127,8 +127,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://mantleinu.xyz/',
     documentation: 'https://mantle-inu.gitbook.io/docs/',
-    description:
-      'MINU is the #1 memecoin on Mantle.',
+    description: 'MINU is the #1 memecoin on Mantle.',
     bridge: 'native',
   },
   WETH: {
@@ -141,8 +140,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://weth.io/',
     documentation: 'https://ethereum.org/en/developers/docs/',
-    description:
-      'Ether or ETH is the native currency built on the Ethereum blockchain.',
+    description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'mantle-canonical',
   },
   USDY: {

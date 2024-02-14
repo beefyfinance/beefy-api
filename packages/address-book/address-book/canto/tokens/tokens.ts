@@ -46,6 +46,7 @@ const _tokens = {
       'Cosmos is an ever-expanding ecosystem of interconnected apps and services, built for a decentralized future.',
     bridge: 'gravity',
     logoURI: '',
+    documentation: 'https://docs.cosmos.network/main',
   },
   ETH: {
     name: 'Ethereum',
@@ -59,6 +60,7 @@ const _tokens = {
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     bridge: 'gravity',
+    documentation: 'https://ethereum.org/en/developers/docs/',
   },
   NOTE: {
     name: 'Note',
@@ -100,6 +102,7 @@ const _tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'gravity',
     logoURI: '',
+    documentation: 'https://tether.to/en/how-it-works',
   },
   FLOWV1: {
     name: 'Velocimeter',

@@ -235,6 +235,7 @@ const _tokens = {
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     bridge: 'zkevm-canonical',
     logoURI: 'https://hecoinfo.com/token/images/chainlink_32.png',
+    documentation: 'https://docs.chain.link/resources/link-token-contracts',
   },
   ankrETH: {
     name: 'Ankr Staked ETH',

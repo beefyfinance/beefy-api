@@ -369,6 +369,8 @@ const _tokens = {
     description:
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
     bridge: 'native',
+    documentation:
+      'https://docs.threshold.network/app-development/staking-contract-and-dao/staking-contract-and-dao-api/t',
   },
   eCFX: {
     name: 'ethereum Conflux',
@@ -560,6 +562,7 @@ const _tokens = {
     description:
       "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
     bridge: 'native',
+    documentation: 'https://www.coinbase.com/price/coinbase-wrapped-staked-eth#AboutSection',
   },
   USDD: {
     name: 'Decentralized USD',
@@ -1299,6 +1302,7 @@ const _tokens = {
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
     bridge: 'native',
+    documentation: 'https://docs.curve.fi/crvUSD/overview/',
   },
   hyUSD: {
     name: 'High Yield USD',

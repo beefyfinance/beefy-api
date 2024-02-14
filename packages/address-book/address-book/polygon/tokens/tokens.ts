@@ -313,6 +313,7 @@ const _tokens = {
     description:
       'Stader is a non-custodial smart contract-based staking platform that helps you conveniently discover and access staking solutions. We are building key staking middleware infra for multiple PoS networks for retail crypto users, exchanges and custodians.',
     bridge: 'native',
+    documentation: 'https://www.staderlabs.com/docs-v1/polygon/maticx#what-is-maticx',
   },
   SD: {
     name: 'Stader ',
@@ -337,6 +338,8 @@ const _tokens = {
     website: 'https://beefy.com',
     description:
       'beQI is a Beefy-wrapped version of eQI. Holding beQI will be a great way to earn a bunch of QI. Beefy will distribute weekly QI rewards to beQI stakers. beQI holders will recieve the same rewards as max lock eQI holders',
+    documentation: 'https://docs.beefy.finance/beefy-products/beefy-escrowed-tokens/beqi',
+    bridge: 'native',
   },
   stMATIC: {
     name: 'Lido Staked Matic stMATIC',
@@ -350,6 +353,7 @@ const _tokens = {
     description:
       'Lido for Polygon is a liquid staking solution for MATIC backed by industry-leading staking providers.',
     bridge: 'native',
+    documentation: 'https://docs.polygon.lido.fi/',
   },
   ONE: {
     name: 'Wrapped ONE',
@@ -413,6 +417,7 @@ const _tokens = {
       'Mimo have a lending platform allowing people to borrow PAR, a stable token algorithmically pegged to the Euro.',
     bridge: 'native',
     logoURI: 'https://assets.coingecko.com/coins/images/14153/small/par_round_200.png?1614670422',
+    documentation: 'https://docs.mimo.capital/parallel-protocol/parallel-protocol/par',
   },
   EURS: {
     name: 'STATIS EURS Token',
@@ -985,6 +990,8 @@ const _tokens = {
     bridge: 'polygon-canonical',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
+    documentation:
+      'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
   },
   DEGEN: {
     name: 'DEGEN Index',
@@ -1012,6 +1019,7 @@ const _tokens = {
     bridge: 'polygon-canonical',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png',
+    documentation: 'https://ethereum.org/en/developers/docs/',
   },
   FISH: {
     name: 'Fish',
@@ -1073,6 +1081,7 @@ const _tokens = {
     logoURI:
       'https://raw.githubusercontent.com/beefyfinance/beefy-app/prod/src/images/single-assets/GNS.png',
     documentation: 'https://gains-network.gitbook.io/docs-home/',
+    bridge: 'layer-zero',
   },
   oldLINK: {
     name: 'ChainLink Token',
@@ -1140,6 +1149,7 @@ const _tokens = {
       'QiDao is a self-sustaining, community-governed protocol that allows you to borrow stablecoins interest-free against your crypto assets used as collateral. Loans are paid out and repaid in miTokens (stablecoin soft pegged to the USD).',
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/qi.png',
     documentation: 'https://docs.mai.finance/',
+    bridge: 'native',
   },
   QUICK: {
     name: 'Quickswap',
@@ -1151,6 +1161,8 @@ const _tokens = {
     website: 'https://quickswap.exchange/#/swap',
     description: 'Next-gen Layer 2 DEX. Trade at lightning-fast speeds with near-zero gas fees.',
     logoURI: 'https://assets.coingecko.com/coins/images/15185/small/quickswap.png?1620044811',
+    documentation: 'https://docs.quickswap.exchange/',
+    bridge: 'native',
   },
   dQUICK: {
     name: "Dragon's Quick",
@@ -1198,6 +1210,7 @@ const _tokens = {
     description: 'A cryptocurrency distributed by your mobile operator and accepted everywhere.',
     bridge: 'polygon-canonical',
     logoURI: 'https://pbs.twimg.com/profile_images/933388441475194881/57fOk40N_400x400.jpg',
+    documentation: 'https://www.telcoin.org/documentation/telcoin-platform/telcoin-tel-token',
   },
   UNI: {
     name: 'Uniswap',
@@ -1212,6 +1225,7 @@ const _tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-interface/master/public/favicon1.png',
+    documentation: 'https://uniswap.org/developers',
   },
   pUSDCe: {
     name: 'USD Coin',
@@ -1239,6 +1253,7 @@ const _tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png',
+    documentation: 'https://developers.circle.com/docs',
   },
   USDT: {
     name: 'Tether USD',
@@ -1253,6 +1268,7 @@ const _tokens = {
     bridge: 'polygon-canonical',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png',
+    documentation: 'https://tether.to/en/how-it-works',
   },
   VISION: {
     name: 'Vision Token',
@@ -1427,6 +1443,7 @@ const _tokens = {
       'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
     bridge: 'polygon-canonical',
     logoURI: 'https://external-content.duckduckgo.com/ip3/resources.curve.fi.ico',
+    documentation: 'https://curve.readthedocs.io/',
   },
   DOKI: {
     name: 'DokiDoki Finance',
@@ -1708,6 +1725,7 @@ const _tokens = {
     description:
       'Angle is an over-collateralized, decentralized and capital-efficient stablecoin protocol. It offers full convertibility between stable assets and collateral at oracle value.',
     bridge: 'layer-zero',
+    documentation: 'https://docs.angle.money/',
   },
   jJPY: {
     name: 'Jarvis Synthetic Yen',

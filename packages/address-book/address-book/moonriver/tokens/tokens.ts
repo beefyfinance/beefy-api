@@ -123,6 +123,7 @@ const _tokens = {
     website: 'https://www.huckleberry.finance/#/swap',
     description: 'Huckleberry is a community driven AMM crosschain DEX built on Moonriver.',
     bridge: 'native',
+    documentation: 'https://huckleberry.gitbook.io/introduction/the-little-things/tokenomics',
   },
   DOTm: {
     name: 'Polkadot Token',
@@ -163,6 +164,7 @@ const _tokens = {
     description:
       'Solarbeam is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonriver Network. We are currently the leading DEX on the network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
     bridge: 'native',
+    documentation: 'https://docs.solarbeam.io/tokenomics',
   },
   RIB: {
     name: 'RiverBoat',
@@ -450,6 +452,7 @@ const _tokens = {
     description:
       'xcKSM is the Moonriver bridged verison of KSM from Kusama. Kusama is an experimental and development environment for features that will eventually be deployed to Polkadot.',
     bridge: 'kusama',
+    documentation: 'https://guide.kusama.network/docs/kusama-getting-started',
   },
   xcRMRK: {
     name: 'xcRMRK',
