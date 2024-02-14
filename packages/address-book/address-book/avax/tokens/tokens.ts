@@ -5169,7 +5169,7 @@ const _tokens = {
       'GMX is the utility and governance token of the GMX decentralized spot and perpetual exchange that supports low swap fees, zero price impact trades and up to 30x leverage. Staked GMX earns escrowed GMX and 30% of platform fees in the form of ETH.',
     logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GMX_LOGO%20ONLY.svg',
     documentation: 'https://gmxio.gitbook.io/',
-    bridge: 'snapse',
+    bridge: 'synapse',
   },
   SNEK: {
     name: 'SNEK',
