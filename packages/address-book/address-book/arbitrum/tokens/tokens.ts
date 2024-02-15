@@ -97,6 +97,7 @@ const _tokens = {
       'Sushi is the home of DeFi. Their community is building a comprehensive, decentralized trading platform for the future of finance. Swap, earn, stack yields, lend, borrow, leverage all on one decentralized, community driven platform.',
     bridge: 'arbitrum-canonical',
     logoURI: 'https://ftmscan.com/token/images/sushiswap_32.png',
+    documentation: 'https://dev.sushi.com/',
   },
   NYAN: {
     name: 'ArbiNYAN',
@@ -163,6 +164,7 @@ const _tokens = {
       'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
     bridge: 'arbitrum-canonical',
     logoURI: 'https://hecoinfo.com/token/images/chainlink_32.png',
+    documentation: 'https://docs.chain.link/resources/link-token-contracts',
   },
   USDT: {
     name: 'USDT',
@@ -176,6 +178,7 @@ const _tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'native',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
+    documentation: 'https://tether.to/en/how-it-works',
   },
   gOHM: {
     name: 'Governance OHM',
@@ -203,6 +206,7 @@ const _tokens = {
     description:
       'Treasure bridges the growing network of metaverses through an open and composable approach to the convergence of NFTs, DeFi and Gaming. Cross-ecosystem ties are bolstered through our interrelated resource model. $MAGIC (Power), Treasures (NFT | Resources) and Legions (NFT | Players)',
     bridge: 'native',
+    documentation: 'https://docs.treasure.lol/about-treasure/what-is-magic',
   },
   BAL: {
     name: 'Balancer',
@@ -271,6 +275,8 @@ const _tokens = {
     bridge: 'arbitrum-canonical',
     logoURI:
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
+    documentation:
+      'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
   },
   VST: {
     name: 'Vesta Stable',
@@ -335,6 +341,7 @@ const _tokens = {
       'Radiant aims to be the first omnichain money market, where users can deposit any major asset on any major chain and borrow a variety of supported assets across multiple chains.',
     bridge: 'native',
     logoURI: '',
+    documentation: 'https://docs.radiant.capital/radiant/project-info/rdnt-tokenomics',
   },
   wstETH: {
     name: 'Lido Wrapped Staked ETH',

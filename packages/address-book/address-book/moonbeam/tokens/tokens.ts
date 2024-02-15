@@ -73,6 +73,7 @@ const _tokens = {
     description:
       'WBTCwh is a bridged version of WBTC from the Wormhole(Portal) portal. Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
     documentation: 'https://docs.wormhole.com/wormhole/',
+    bridge: 'wormhole',
   },
   WETHwh: {
     name: 'Wrapped Ether',
@@ -164,6 +165,7 @@ const _tokens = {
     website: 'https://moonwell.fi/',
     description: 'WELL is the native governance token of the Moonwell Artemis protocol',
     bridge: 'native',
+    documentation: 'https://docs.moonwell.fi/moonwell/discover/about-moonwell',
   },
   MAI: {
     name: 'Mai Stablecoin',
@@ -400,6 +402,7 @@ const _tokens = {
     description:
       'Bridged by XCM from Kusama. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     documentation: 'https://moonbeam.network/announcements/usdt-on-moonbeam/',
+    bridge: 'kusama',
   },
   DAI: {
     name: 'Dai Stablecoin',
@@ -490,6 +493,7 @@ const _tokens = {
     description:
       'Solarflare is a decentralized exchange, providing liquidity and enabling peer-to-peer transactions on the Moonbeam Network. The goal is to provide a comprehensive and convenient, one-stop platform for the cryptocurrency community.',
     bridge: 'native',
+    documentation: 'https://docs.solarflare.io/tokenomics',
   },
   STELLA: {
     name: 'Stella Token',

@@ -43,6 +43,8 @@ const _tokens = {
     description:
       'OpenOcean is the worlds first full aggregation protocol for crypto trading that source liquidity from DeFi and CeFi, and enable cross-chain swaps. Our intelligent routing algorithm find the best prices from DEXes and CEXes, and split the routes to provide traders the best prices with low slippage and fast settlement. The function is free to use, OpenOcean users only need to pay the normal blockchain gas fees and exchange fees for the trades, which are charged by the exchanges and not OpenOcean.',
     logoURI: 'https://ethapi.openocean.finance/asset/icon-ooe.svg?t=2',
+    documentation: 'https://docs.openocean.finance/protocol/ooe-token',
+    bridge: 'native',
   },
   multiBTC: {
     name: 'Multichain BTC',
@@ -120,7 +122,7 @@ const _tokens = {
     website: 'https://www.ankr.com/',
     description:
       'ankrETH is a liquid staking solution that lets users earn Ethereum staking rewards while remaining liquid. The value of ankrETH tokens appreciates over time in relation to ETH due to reward accumulation, enhancing capital efficiency and preserving liquidity.',
-    bridge: 'bridgehub',
+    bridge: 'ankr',
     documentation: 'https://www.ankr.com/docs/liquid-staking/eth/overview/',
   },
   DOLA: {
@@ -333,6 +335,7 @@ const _tokens = {
     description:
       'Stader is a non-custodial smart contract-based staking platform that helps you conveniently discover and access staking solutions. We are building key staking middleware infra for multiple PoS networks for retail crypto users, exchanges and custodians.',
     bridge: 'native',
+    documentation: 'https://www.staderlabs.com/docs-v1/category/bnb-chain/',
   },
   BAPE: {
     name: 'Bored APEmove',
@@ -359,6 +362,8 @@ const _tokens = {
     website: 'https://staderlabs.com/',
     description: 'Stader (SD) token is the native governance and value accrual token for Stader.',
     bridge: 'wormhole',
+    documentation:
+      'https://www.staderlabs.com/docs-v1/terra/stake-pools/stake-pools-holdings-and-rewards#what-are-sd-tokens',
   },
   CONE: {
     name: 'Cone token',
@@ -385,6 +390,7 @@ const _tokens = {
     description:
       'pSTAKE’s BNB liquid staking product allows holders of BNB to stake their assets using the BNB staking interface. Users are issued stkBNB which follows an exchange rate model, (inspired by the Compound’s cToken model). stkBNB value keeps increasing against BNB as it accrues staking rewards in the background.',
     bridge: 'native',
+    documentation: 'https://docs.pstake.finance/stkBNB_Staking_Overview/',
   },
   PSTAKE: {
     name: 'pStake Finance',
@@ -557,6 +563,7 @@ const _tokens = {
     website: 'https://www.ankr.com/',
     description: 'Decentralized Infrastructure to Build and Earn in Web3',
     bridge: 'native',
+    documentation: 'https://www.ankr.com/docs/liquid-staking/bnb/overview/',
   },
   ankrMATIC: {
     name: 'Ankr Staked MATIC',
@@ -740,6 +747,7 @@ const _tokens = {
     website: 'https://biswap.org/',
     description: 'The First DEX on BNB Chain with a three-type referral system',
     bridge: 'native',
+    documentation: 'https://docs.biswap.org/biswap/',
   },
   ERTHA: {
     name: 'ERTHA',
@@ -900,6 +908,7 @@ const _tokens = {
     website: 'https://frax.finance/',
     description: 'Frax is the world’s first fractional-algorithmic stablecoin.',
     bridge: 'frax',
+    documentation: 'https://docs.frax.finance/',
   },
   FXS: {
     name: 'Frax Share',
@@ -2427,6 +2436,7 @@ const _tokens = {
     bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xe9e7cea3dedca5984780bafc599bd69add087d56.png',
+    documentation: 'https://help.paxos.com/hc/en-us/articles/4402670144148-BUSD',
   },
   ETH: {
     name: 'Ethereum Token',
@@ -2441,6 +2451,7 @@ const _tokens = {
     bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x2170ed0880ac9a755fd29b2688956bd959f933f8.png',
+    documentation: 'https://ethereum.org/en/developers/docs/',
   },
   BTCB: {
     name: 'BTCB Token',
@@ -2455,6 +2466,7 @@ const _tokens = {
     bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c.png',
+    documentation: 'https://developer.bitcoin.org/devguide/index.html',
   },
   BAND: {
     name: 'BAND Protocol Token',
@@ -2482,6 +2494,7 @@ const _tokens = {
     bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x55d398326f99059ff775485246999027b3197955.png',
+    documentation: 'https://tether.to/en/how-it-works',
   },
   XRP: {
     name: 'XRP Token',
@@ -2536,6 +2549,7 @@ const _tokens = {
     bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x3ee2200efb3400fabb9aacf31297cbdd1d435d47.png',
+    documentation: 'https://docs.cardano.org/',
   },
   ATOM: {
     name: 'Cosmos Token',
@@ -2589,6 +2603,8 @@ const _tokens = {
     bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x1af3f329e8be154074d8769d1ffa4ee058b1dbc3.png',
+    documentation:
+      'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
   },
   YFII: {
     name: 'YFII.finance Token',
@@ -2668,6 +2684,7 @@ const _tokens = {
     bridge: 'native',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82.png',
+    documentation: 'https://docs.pancakeswap.finance/',
   },
   STM: {
     name: 'Streamity',
@@ -2837,6 +2854,7 @@ const _tokens = {
     bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
+    documentation: 'https://uniswap.org/developers',
   },
   FRIES: {
     name: 'fry.world',
@@ -4247,6 +4265,8 @@ const _tokens = {
     description:
       'Impossible Finance is a multi-chain incubator, launchpad, and swap platform which offers a robust product-first ecosystem that supports top-tier blockchain projects to targeted user audiences.',
     bridge: 'native',
+    documentation:
+      'https://impossible.gitbook.io/impossible-finance-faq/launchpad/launchpad-overview/the-2-tokens-idia-and-vidia',
   },
   XCV: {
     name: 'XCarnival Token',
@@ -4580,6 +4600,8 @@ const _tokens = {
     description:
       'StaFi is the first multi-chain liquid staking protocol that unlocks the liquidity of staked assets.',
     logoURI: '',
+    documentation: 'https://docs.stafi.io/',
+    bridge: 'native',
   },
   voldBIFI: {
     name: 'Venus BIFI',

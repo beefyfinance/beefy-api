@@ -1468,6 +1468,7 @@ const _tokens = {
     bridge: 'avax-canonical',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xB3fe5374F67D7a22886A0eE082b2E2f9d2651651/logo.png',
+    documentation: 'https://docs.chain.link/resources/link-token-contracts',
   },
 
   COL: {
@@ -3970,6 +3971,7 @@ const _tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'native',
     logoURI: 'https://snowtrace.io/token/images/tether_32.png',
+    documentation: 'https://tether.to/en/how-it-works',
   },
   USDTo: {
     chainId: 43114,
@@ -4859,6 +4861,8 @@ const _tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.  This version is bridged from Ethereum.',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xde3A24028580884448a5397872046a019649b084/logo.png',
+    documentation: 'https://tether.to/en/how-it-works',
+    bridge: 'avax-canonical',
   },
   TUSD: {
     chainId: 43114,
@@ -4934,6 +4938,7 @@ const _tokens = {
       'Trader Joe is your one-stop decentralized trading platform on the Avalanche network, of which JOE is the governance token that rewards its holders with a share of exchange revenues.',
     bridge: 'native',
     logoURI: 'https://www.traderjoexyz.com/static/media/logo.bc60f78d.png',
+    documentation: 'https://docs.traderjoexyz.com/',
   },
   SHIBX: {
     chainId: 43114,
@@ -5165,6 +5170,7 @@ const _tokens = {
       'GMX is the utility and governance token of the GMX decentralized spot and perpetual exchange that supports low swap fees, zero price impact trades and up to 30x leverage. Staked GMX earns escrowed GMX and 30% of platform fees in the form of ETH.',
     logoURI: 'https://github.com/gmx-io/gmx-assets/blob/main/GMX-Assets/SVG/GMX_LOGO%20ONLY.svg',
     documentation: 'https://gmxio.gitbook.io/',
+    bridge: 'synapse',
   },
   SNEK: {
     name: 'SNEK',

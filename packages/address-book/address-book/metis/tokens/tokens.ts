@@ -73,6 +73,7 @@ const _tokens = {
     description:
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'metis-canonical',
+    documentation: 'https://tether.to/en/how-it-works',
   },
   mUSDC: {
     name: 'USDC Token',
@@ -115,6 +116,7 @@ const _tokens = {
     description:
       'The native currency that flows within the Ethereum economy is called Ether (ETH). Ether is typically used to pay for transaction fees called Gas, and it is the base currency of the network.',
     bridge: 'metis-canonical',
+    documentation: 'https://ethereum.org/en/developers/docs/',
   },
   BNB: {
     name: 'Poly-Peg BNB',
@@ -207,6 +209,8 @@ const _tokens = {
     website: 'https://www.hummus.exchange/',
     description: 'Next Gen Decentralized AMM for Stableswaps',
     bridge: 'native',
+    documentation:
+      'https://hummus-exchange.gitbook.io/hummus-exchange/tokenomics/token-hum-and-vehum',
   },
   MAIA: {
     name: 'Maia',
@@ -233,6 +237,7 @@ const _tokens = {
     description:
       'HERMES is the governance token of the Solidly-fork Hermes Protocol on Metis. The token is emitted as a farming reward to liquidity providers and can be locked for a period to gain voting rights.',
     bridge: 'native',
+    documentation: 'https://docs.maiadao.io/hermes-token/understanding-hermes',
   },
   'oldBIFI-METIS LP': {
     name: 'oldBIFI-METIS LP',

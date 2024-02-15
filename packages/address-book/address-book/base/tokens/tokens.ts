@@ -146,6 +146,7 @@ const _tokens = {
     website: 'https://moonwell.fi/',
     description: 'WELL is the native governance token of the Moonwell protocol',
     bridge: 'wormhole',
+    documentation: 'https://docs.moonwell.fi/moonwell/discover/about-moonwell',
   },
   ALB: {
     name: 'Alien Base',
@@ -228,7 +229,7 @@ const _tokens = {
     decimals: 18,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22.svg',
-    website: '',
+    website: 'https://help.coinbase.com/en/coinbase/trading-and-funding/staking-rewards/cbeth',
     description:
       "Coinbase Wrapped Staked ETH (“cbETH”) is a utility token that represents Ethereum 2 (ETH2), which is ETH staked through Coinbase. Over time, the price of cbETH will likely deviate from ETH because cbETH represents 1 staked ETH plus all of its accrued staking interest starting from when cbETH's conversion rate and balance were initialized (June 16, 2022 19:34 UTC). cbETH is minted exclusively by Coinbase.",
     documentation:
@@ -244,7 +245,7 @@ const _tokens = {
     decimals: 6,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xEB466342C4d449BC9f53A865D5Cb90586f405215.svg',
-    website: '',
+    website: 'https://www.circle.com/usdc',
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     documentation: 'https://www.circle.com/en/usdc-multichain/base',
@@ -346,6 +347,7 @@ const _tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     bridge: 'base-canonical',
+    documentation: 'https://docs.inverse.finance/',
   },
   MAI: {
     name: 'Mai Stablecoin',
@@ -413,7 +415,8 @@ const _tokens = {
     website: 'https://crvusd.curve.fi/',
     description:
       'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
-    documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
+    documentation: 'https://docs.curve.fi/crvUSD/overview/',
+    bridge: 'base-canonical',
   },
   bsUSD: {
     name: 'Balancer Stable Pool',
@@ -524,8 +527,8 @@ const _tokens = {
     website:
       'https://register.app/#/overview?token=0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F&chainId=1',
     description:
-      'Electronic Dollar (eUSD) is a safety-first stablecoin that brings together diversified, highly liquid backing with extra anti-bank run overcollateralization. \neUSD is asset-backed by yield bearing Aave USDT, Compound USDT, Aave USDC and Compound USDC. eUSD is available natively on Ethereum mainnet and the MobileCoin L1, and can be bridged to any blockchain.',
-    documentation: '',
+      'The Electronic Dollar (eUSD) is a decentralized 1:1 asset-backed stablecoin built with Reserve Protocol, available on the Ethereum and MobileCoin blockchains. It sets itself apart from other stablecoins due to its decentralized, community-governed, and censorship-resistant nature.',
+    documentation: 'https://reserve.org/protocol/',
     bridge: 'base-canonical',
   },
   wstETH: {

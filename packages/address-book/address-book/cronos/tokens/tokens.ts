@@ -200,6 +200,7 @@ const _tokens = {
     bridge: 'cronos-canonical',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x0eb3a705fc54725037cc9e008bdede697f62f335.png',
+    documentation: 'https://docs.cosmos.network/main',
   },
   DOGE: {
     name: 'Doge Token',
@@ -213,6 +214,7 @@ const _tokens = {
     description:
       'Dogecoin is an open source peer-to-peer digital currency, favored by Shiba Inus worldwide.',
     bridge: 'cronos-canonical',
+    documentation: 'https://dogecoin.com/dogepedia/#documentation',
   },
   SHIB: {
     name: 'Shiba Inu',
@@ -226,6 +228,7 @@ const _tokens = {
       'According to the SHIBA INU website, SHIB is the “DOGECOIN KILLER” and will be listed on their own ShibaSwap, a decentralized exchange.',
     bridge: 'cronos-canonical',
     logoURI: 'https://bscscan.com/token/images/shibatoken_32.png',
+    documentation: 'https://docs.shibatoken.com/',
   },
   VVS: {
     name: 'VVSToken',
@@ -239,6 +242,7 @@ const _tokens = {
     description:
       'VVS is designed to be the simplest DeFi platform for users to swap tokens, earn high yields, and most importantly have fun!',
     bridge: 'native',
+    documentation: 'https://docs.vvs.finance/',
   },
   USDC: {
     name: 'USD Coin',
@@ -266,6 +270,7 @@ const _tokens = {
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
     bridge: 'cronos-canonical',
     logoURI: 'https://arbiscan.io/token/images/weth_28.png',
+    documentation: 'https://ethereum.org/en/developers/docs/',
   },
   WBTC: {
     name: 'Wrapped BTC',
@@ -307,6 +312,7 @@ const _tokens = {
     bridge: 'cronos-canonical',
     logoURI:
       'https://app.cronaswap.org/images/tokens/0x66e428c3f67a68878562e79A0234c1F83c208770.svg',
+    documentation: 'https://tether.to/en/how-it-works',
   },
   DAI: {
     name: 'DAI Token',
@@ -321,6 +327,8 @@ const _tokens = {
     bridge: 'cronos-canonical',
     logoURI:
       'https://app.cronaswap.org/images/tokens/0xF2001B145b43032AAF5Ee2884e456CCd805F677D.svg',
+    documentation:
+      'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
   },
   BUSD: {
     name: 'BUSD Token',

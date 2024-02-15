@@ -139,6 +139,8 @@ const _tokens = {
       'Optimistic Rollup is a layer 2 scaling solution that scales both transaction throughput and computation on Ethereum. The backbone of our implementation is the Optimistic Virtual Machine (OVM), which is fully compatible with the EVM.',
     bridge: 'native',
     logoURI: '',
+    documentation:
+      'https://help.optimism.io/hc/en-us/articles/5497354656283-What-is-the-Optimism-Token',
   },
   opUSDCe: {
     name: 'USD Coin',
@@ -178,6 +180,7 @@ const _tokens = {
     description:
       'sUSD is a synthetic USD token enabled by the Synthetix protocol. It tracks the price of the US Dollar through price feeds supplied by Chainlink’s decentralized network of oracles',
     bridge: 'optimism-canonical',
+    documentation: 'https://docs.synthetix.io/synthetix-protocol/readme',
   },
   WBTC: {
     chainId: 10,
@@ -206,6 +209,7 @@ const _tokens = {
     bridge: 'optimism-canonical',
     logoURI:
       'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0x408D4cD0ADb7ceBd1F1A1C33A0Ba2098E1295bAB/logo.png',
+    documentation: 'https://docs.synthetix.io/synthetix-protocol/readme',
   },
   LYRA: {
     chainId: 10,
@@ -219,6 +223,7 @@ const _tokens = {
       'Lyra’s decentralized exchange is the easiest place to buy and sell options on cryptocurrencies.',
     bridge: 'optimism-canonical',
     logoURI: '',
+    documentation: 'https://docs.lyra.finance/docs/token',
   },
   QI: {
     chainId: 10,
@@ -245,6 +250,8 @@ const _tokens = {
       'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.',
     bridge: 'optimism-canonical',
     logoURI: 'https://hecoinfo.com/token/images/snx_32.png',
+    documentation:
+      'https://docs.synthetix.io/synthetix-protocol/the-synthetix-protocol/synthetix-token-snx',
   },
   PERP: {
     name: 'Perpetual Protocol',
@@ -297,6 +304,7 @@ const _tokens = {
       'The Frax Protocol introduced the world to the concept of a cryptocurrency being partially backed by collateral and partially stabilized algorithmically.',
     bridge: 'frax',
     logoURI: 'https://avatars.githubusercontent.com/u/56005256?s=200&v=4',
+    documentation: 'https://docs.frax.finance/',
   },
   VELO: {
     chainId: 10,
@@ -310,6 +318,7 @@ const _tokens = {
       "Velodrome Finance, at its core, is a solution for protocols on Optimism to properly incentivize liquidity for their own use cases. Building on top of the groundwork laid out by Solidly, our team has addressed that first iteration's core issues to realize its full potential.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
     bridge: 'native',
+    documentation: 'https://velodrome.finance/docs',
   },
   sETH: {
     name: 'Synth sETH',
@@ -323,6 +332,7 @@ const _tokens = {
     description:
       'Synths are derivative tokens providing exposure to a range of assets. They can be traded with infinite liquidity and zero slippage by leveraging the Synthetix protocol’s unique pooled collateral model. Trades between Synths generate a small fee that is distributed to SNX collateral providers.',
     bridge: 'optimism-canonical',
+    documentation: 'https://docs.synthetix.io/synthetix-protocol/readme',
   },
   DAI: {
     name: 'DAI Stablecoin',
@@ -336,6 +346,8 @@ const _tokens = {
     description:
       'Dai is a stablecoin cryptocurrency which aims to keep its value as close to one United States dollar as possible through an automated system of smart contracts on the Ethereum blockchain',
     bridge: 'optimism-canonical',
+    documentation:
+      'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
   },
   LUSD: {
     name: 'LUSD Stablecoin',
@@ -417,6 +429,7 @@ const _tokens = {
     description:
       'Thales is an Ethereum protocol that allows the creation of peer-to-peer parimutuel markets that anyone can join.',
     bridge: 'optimism-canonical',
+    documentation: 'https://docs.thalesmarket.io/',
   },
   alUSD: {
     name: 'Alchemix USD',
@@ -430,6 +443,7 @@ const _tokens = {
     description:
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
     bridge: 'optimism-canonical',
+    documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
   },
   alETH: {
     name: 'Alchemix ETH',
@@ -443,6 +457,7 @@ const _tokens = {
     description:
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
     bridge: 'optimism-canonical',
+    documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
   },
   DOLA: {
     name: 'Dola USD Stablecoin',
@@ -456,6 +471,7 @@ const _tokens = {
     description:
       'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
     bridge: 'optimism-canonical',
+    documentation: 'https://docs.inverse.finance/',
   },
   HND: {
     name: 'Hundred Finance',
@@ -480,6 +496,8 @@ const _tokens = {
     website: 'https://beefy.com',
     description:
       'beVELO is Beefy-wrapped VELO that earns more VELO over time. Beefy distributes trading fees and bribe rewards weekly to beVELO holders, swapping VELO to beVELO. beVELO holders receive the same rewards as max-locked veNFT VELO holders.',
+    documentation: 'https://docs.beefy.finance/beefy-products/beefy-escrowed-tokens/bevelo',
+    bridge: 'native',
   },
   agEUR: {
     name: 'agEUR',
