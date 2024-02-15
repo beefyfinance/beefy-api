@@ -14,6 +14,7 @@ const MATIC = {
   bridge: 'native',
   logoURI:
     'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0/logo.png',
+  documentation: 'https://docs.polygon.technology/',
 } as const;
 
 const MAI = {

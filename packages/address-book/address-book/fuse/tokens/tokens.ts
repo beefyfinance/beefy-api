@@ -13,6 +13,7 @@ const FUSE = {
     'Launch community-centric payment systems and token economies on an Ethereum-compatible blockchain.',
   bridge: 'native',
   logoURI: 'https://explorer.fuse.io/images/fuse_logo-0346e93ebb763ba41076456a9f0bf943.svg?vsn=d',
+  documentation: 'https://docs.fuse.io/',
 } as const;
 
 const _tokens = {

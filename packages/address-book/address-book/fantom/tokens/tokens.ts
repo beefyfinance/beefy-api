@@ -42,6 +42,7 @@ const FTM = {
     'Fantom is a fast, high-throughput open-source smart contract platform for digital assets and dApps.',
   logoURI: 'https://ftmscan.com/token/images/wFtm_32.png',
   bridge: 'native',
+  documentation: 'https://docs.fantom.foundation/',
 } as const;
 
 const _tokens = {
@@ -234,12 +235,13 @@ const _tokens = {
     address: '0xd7028092c830b5C8FcE061Af2E593413EbbC1fc1',
     chainId: 250,
     decimals: 18,
-    logoURI: 'https://assets.spookyswap.finance/tokens/sFTMX.png',
-    website: 'https://fantom.staderlabs.com/liquid-staking/pools',
-    bridge: 'native',
+    website: 'https://beets.fi/sftmx',
+    documentation:
+      'https://beethovenxio.medium.com/the-yield-bearing-masterpiece-sftmx-50af069de6c2',
     description:
-      'sFTMX is a liquid staking derivative token that gains value relative to FTM as staking rewards accrue. sFTMX offers 4.7% APY and maximum DeFi interoperability. Staking with Stader results in a decentralized distribution of assets across a curated pool of validators, while liquidity options are maintained through DEX liquidity pools.',
-    documentation: 'https://www.staderlabs.com/docs-v1/fantom/about-sftmx',
+      'sFTMx is a liquid-staked token that users receive when they stake FTM on the Beethoven X platform. The value of sFTMx naturally appreciates in relation to FTM thanks to native network staking rewards automatically compounded within the token. This token seamlessly integrates with other DeFi applications, enabling users to utilize it across various protocols, including DEXs and lending markets.',
+    logoURI: 'https://beethoven-assets.s3.eu-central-1.amazonaws.com/sFTMx-token2x.png',
+    bridge: 'native',
   },
   SD: {
     name: 'Stader SD',

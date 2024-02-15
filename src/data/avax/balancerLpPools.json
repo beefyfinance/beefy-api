@@ -1,5 +1,102 @@
 [
   {
+    "name": "balancer-avax-savax-avax",
+    "address": "0xfD2620C9cfceC7D152467633B3B0Ca338D3d78cc",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xf9aE6D2D56f02304f72dcC61694eAD0dC8DB51f7",
+    "vaultPoolId": "0xfd2620c9cfcec7d152467633b3b0ca338d3d78cc00000000000000000000001c",
+    "composable": true,
+    "bptIndex": 2,
+    "lsUrl": "https://api.benqi.fi/liquidstaking/apr",
+    "dataPath": "$.apr",
+    "balancerChargesFee": true,
+    "lsIndex": 0,
+    "lsAprFactor": 100,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0xf9aE6D2D56f02304f72dcC61694eAD0dC8DB51f7",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0xf9aE6D2D56f02304f72dcC61694eAD0dC8DB51f7",
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "AVAX"
+      },
+      {
+        "stream": "0xf9aE6D2D56f02304f72dcC61694eAD0dC8DB51f7",
+        "rewardToken": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "stream": "0xf9aE6D2D56f02304f72dcC61694eAD0dC8DB51f7",
+        "rewardToken": "0x8729438EB15e2C8B576fCc6AeCdA6A148776C0F5",
+        "oracleId": "aQI",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "sAVAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "AVAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
+    "name": "balancer-avax-usdc-usdt",
+    "address": "0xB26f0e66317846Bd5fE0cBAa1d269f0efEb05c96",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x74AbfE305bc0D729f29a2da26C5b7EF0BD1e3A8C",
+    "vaultPoolId": "0xb26f0e66317846bd5fe0cbaa1d269f0efeb05c9600000000000000000000001e",
+    "composable": true,
+    "bptIndex": 1,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x74AbfE305bc0D729f29a2da26C5b7EF0BD1e3A8C",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x74AbfE305bc0D729f29a2da26C5b7EF0BD1e3A8C",
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "AVAX"
+      },
+      {
+        "stream": "0x74AbfE305bc0D729f29a2da26C5b7EF0BD1e3A8C",
+        "rewardToken": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "balancer-avax-usdc-eurc",
     "address": "0x55bEC22f8f6C69137cEAf284d9B441Db1B9bFedc",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

@@ -10,5 +10,6 @@ interface Token {
   oracle?: 'tokens' | 'lps';
   bridge?: string;
   staked?: boolean;
+  risks?: ReadonlyArray<'NO_TIMELOCK' | 'LARGE_HOLDERS'>;
 }
 export default Token;

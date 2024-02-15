@@ -1460,6 +1460,7 @@ const _tokens = {
     description:
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
     bridge: 'arbitrum-canonical',
+    risks: ['NO_TIMELOCK'],
   },
   renBTC: {
     name: 'renBTC',

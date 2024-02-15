@@ -35,6 +35,7 @@ interface Pool {
   bptIndex?: number;
   vaultPoolId?: string;
   lsUrl?: string;
+  lsAprFactor?: number | number[];
   dataPath?: string;
   balancerChargesFee?: boolean;
   includesComposableAaveTokens?: boolean;
@@ -141,6 +142,12 @@ const getPoolApy = async (
       qty.push(amt);
     }
 
+    const lsAprFactors = pool.lsAprFactor
+      ? Array.isArray(pool.lsAprFactor)
+        ? pool.lsAprFactor
+        : [pool.lsAprFactor]
+      : [1];
+
     let lsApr: number = 0;
     if (Array.isArray(pool.lsUrl)) {
       for (let i = 0; i < pool.lsUrl.length; i++) {
@@ -148,6 +155,7 @@ const getPoolApy = async (
         try {
           response = await fetch(pool.lsUrl[i]).then(res => res.json());
           lsApr = await jp.query(response, pool.dataPath[i]);
+          lsApr = lsApr * lsAprFactors[i];
         } catch (e) {
           console.error(`Balancer: Liquid Staking URL Fetch Error ${pool.name}`);
         }
@@ -163,6 +171,7 @@ const getPoolApy = async (
       try {
         response = await fetch(pool.lsUrl).then(res => res.json());
         lsApr = await jp.query(response, pool.dataPath);
+        lsApr = lsApr * lsAprFactors[0];
       } catch (e) {
         console.error(`Balancer: Liquid Staking URL Fetch Error ${pool.name}`);
       }

@@ -1345,6 +1345,20 @@ const _tokens = {
     documentation: 'https://doc.paraswap.network/',
     bridge: 'optimism-canonical',
   },
+  crvUSD: {
+    name: 'Curve.Fi USD Stablecoin',
+    symbol: 'crvUSD',
+    oracleId: 'crvUSD',
+    address: '0xC52D7F23a2e460248Db6eE192Cb23dD12bDDCbf6',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    bridge: 'optimism-canonical',
+    website: 'https://crvusd.curve.fi/',
+    description:
+      'crvUSD is a collateralized-debt-position (CDP) stablecoin pegged to the US Dollar',
+    documentation: 'https://docs.curve.fi/crvUSD/crvUSD/',
+  },
   sFRAX: {
     name: 'Staked FRAX',
     symbol: 'sFRAX',

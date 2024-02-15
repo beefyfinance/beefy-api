@@ -12,6 +12,7 @@ const CRO = {
   description: 'Crypto.com Coin',
   bridge: 'native',
   logoURI: 'https://vvs.finance/images/tokens/0x5C7F8A570d578ED84E63fdFA7b1eE72dEae1AE23.svg',
+  documentation: 'https://docs.cronos-pos.org/getting-started/introduction',
 } as const;
 
 const _tokens = {
