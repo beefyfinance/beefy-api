@@ -47,6 +47,7 @@ const _tokens = {
     description:
       'Merchant Moe is a traders oasis in the bustling world of Decentralized Finance (DeFi) on Mantle Network, offering a comprehensive and user-friendly Decentralized Exchange (DEX) experience.',
     bridge: 'native',
+    risks: ['NO_TIMELOCK'],
   },
   JOE: {
     name: 'Joe Token',
@@ -61,6 +62,7 @@ const _tokens = {
     description:
       'Trader Joe is your one-stop decentralized trading platform on the Avalanche & Arbitrum networks, of which JOE is the governance token that rewards its holders with a share of exchange revenues.',
     bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
   },
   USDT: {
     name: 'USDT',
@@ -89,6 +91,7 @@ const _tokens = {
     description:
       'Built on top of BNB Chain and Mantle Network, KTC is the community token of KTX.Finance which aims to create a capital-efficient, decentralized spot and perpetual exchange accessible to everyone.',
     bridge: 'native',
+    risks: ['LARGE_HOLDERS'],
   },
   WBTC: {
     name: 'WBTC',
@@ -116,6 +119,7 @@ const _tokens = {
     description:
       "LEND token compliments Lendle by incentivizing the supply and borrow of the assets in the Lendle markets. The LEND rewards will vest over a period of 3 months, and users will share in the protocol's revenue during this period.",
     bridge: 'native',
+    risks: ['LARGE_HOLDERS'],
   },
   MINU: {
     name: 'Mantle Inu Token',
@@ -130,6 +134,7 @@ const _tokens = {
     description:
       'MINU is the #1 memecoin on Mantle.',
     bridge: 'native',
+    risks: ['LARGE_HOLDERS'],
   },
   WETH: {
     name: 'Wrapped Ether',
