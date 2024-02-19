@@ -1656,6 +1656,21 @@ const _tokens = {
       'Silo is a non-custodial lending protocol to borrow any crypto asset with another.',
     bridge: 'native',
   },
+  vETH: {
+    name: 'Vector ETH',
+    symbol: 'vETH',
+    oracleId: 'vETH',
+    address: '0x38D64ce1Bdf1A9f24E0Ec469C9cAde61236fB4a0',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.vectorreserve.com/',
+    description:
+      'vETH is a tokenized asset or index of ETH denominated Liquidity Positions (LP) against Liquid Staked Tokens (LST) and Liquid Restaked Tokens (LRT), that encapsulates both ETH and additional yield-generating opportunities.',
+    documentation:
+      'https://vector-reserve.gitbook.io/vector-reserve/introduction/what-is-vector-reserve',
+    bridge: 'native',
+  },
   ankrETH: {
     name: 'Ankr Staked ETH',
     symbol: 'ankrETH',

@@ -134,6 +134,35 @@
     ]
   },
   {
+    "name": "curve-veth",
+    "pool": "0x6685fcfce05e7502bf9f0aa03b36025b09374726",
+    "gauge": "0x8dff75976f22db58d7c3fd7b68d782238b0dbe30",
+    "getDy": ["v1", 0, 1],
+    "rewards": [
+      {
+        "token": "0x1bb9b64927e0c5e207c9db4093b3738eef5d8447",
+        "oracleId": "VEC",
+        "decimals": "1e9"
+      },
+      {
+        "token": "0x38d64ce1bdf1a9f24e0ec469c9cade61236fb4a0",
+        "oracleId": "vETH"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "vETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-fxn",
     "pool": "0xC15F285679a1Ef2d25F53D4CbD0265E1D02F2A92",
     "token": "0xE06A65e09Ae18096B99770A809BA175FA05960e2",

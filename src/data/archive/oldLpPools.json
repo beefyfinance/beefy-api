@@ -18,6 +18,24 @@
     }
   },
   {
+    "name": "uni-vec-weth",
+    "address": "0xB6B0C651C37EC4ca81C0a128420e02001A57Fac2",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp0": {
+      "address": "0x1BB9b64927e0C5e207C9DB4093b3738Eef5D8447",
+      "oracle": "tokens",
+      "oracleId": "VEC",
+      "decimals": "1e9"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "soswap-seam-usdc",
     "address": "0x11E438B489e9e97e0252acd83AaA0a57AB611911",
     "decimals": "1e18",
