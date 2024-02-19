@@ -63,7 +63,7 @@ const _tokens = {
   mUSDT: {
     name: 'USDT Token',
     symbol: 'm.USDT',
-    oracleId: 'mUSDT',
+    oracleId: 'USDT',
     address: '0xbB06DCA3AE6887fAbF931640f67cab3e3a16F4dC',
     chainId: 1088,
     decimals: 6,
