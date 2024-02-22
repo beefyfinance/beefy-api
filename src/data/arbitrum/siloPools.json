@@ -8,7 +8,10 @@
     "dataPath": "$.yearlyAPR",
     "oracleId": "rETH",
     "decimals": "1e18",
-    "chainId": 42161
+    "chainId": 42161,
+    "rewardOracleId": "ARB",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680"
   },
   {
     "name": "silo-wsteth",
@@ -19,7 +22,10 @@
     "dataPath": "$.data.smaApr",
     "oracleId": "wstETH",
     "decimals": "1e18",
-    "chainId": 42161
+    "chainId": 42161,
+    "rewardOracleId": "ARB",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680"
   },
   {
     "name": "silo-arb",
@@ -28,7 +34,10 @@
     "silo": "0x0696E6808EE11a5750733a3d821F9bB847E584FB",
     "oracleId": "ARB",
     "decimals": "1e18",
-    "chainId": 42161
+    "chainId": 42161,
+    "rewardOracleId": "ARB",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680"
   },
   {
     "name": "silo-wbtc",
@@ -37,7 +46,10 @@
     "silo": "0x69eC552BE56E6505703f0C861c40039e5702037A",
     "oracleId": "WBTC",
     "decimals": "1e8",
-    "chainId": 42161
+    "chainId": 42161,
+    "rewardOracleId": "ARB",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680"
   },
   {
     "name": "silo-eth-wsteth",
@@ -46,7 +58,10 @@
     "silo": "0xA8897b4552c075e884BDB8e7b704eB10DB29BF0D",
     "oracleId": "ETH",
     "decimals": "1e18",
-    "chainId": 42161
+    "chainId": 42161,
+    "rewardOracleId": "ARB",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680"
   },
   {
     "name": "silo-usdc-wsteth",
@@ -55,7 +70,10 @@
     "silo": "0xA8897b4552c075e884BDB8e7b704eB10DB29BF0D",
     "oracleId": "arbUSDCe",
     "decimals": "1e6",
-    "chainId": 42161
+    "chainId": 42161,
+    "rewardOracleId": "ARB",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680"
   },
   {
     "name": "silo-usdc-arb",
@@ -64,6 +82,9 @@
     "silo": "0x0696E6808EE11a5750733a3d821F9bB847E584FB",
     "oracleId": "arbUSDCe",
     "decimals": "1e6",
-    "chainId": 42161
+    "chainId": 42161,
+    "rewardOracleId": "ARB",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680"
   }
 ]

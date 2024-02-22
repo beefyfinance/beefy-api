@@ -6,7 +6,6 @@ import SiloIncentivesController from '../../../abis/arbitrum/SiloIncentivesContr
 import SiloLens from '../../../abis/arbitrum/SiloLens';
 import { fetchContract } from '../../rpc/client';
 import getApyBreakdown from './getApyBreakdown';
-import { fetchDaiSavingsRate } from '../../../utils/fetchDaiSavingsRate';
 import jp from 'jsonpath';
 
 const SECONDS_PER_YEAR = 31536000;
@@ -34,18 +33,23 @@ const getSiloApyData = async (params: SiloApyParams) => {
 
 const getPoolsApys = async (params: SiloApyParams, data: PoolsData) => {
   //const compDecimals = params.compDecimals ?? '1e18';
-  const oracle = params.rewardOracle ?? 'tokens';
-  const price = await fetchPrice({ oracle: oracle, id: params.rewardOracleId });
+  let annualRewardsInUsd: BigNumber[] = [];
+  let totalSuppliesInUsd: BigNumber[] = [];
+  let supplyApys: BigNumber[] = [];
 
-  const supplyApys = data.supplyRates.map(v => v.div('1e18'));
+  for (let i = 0; i < params.pools.length; i++) {
+    const pool = params.pools[i];
+    const oracle = pool.rewardOracle ?? 'tokens';
+    const price = await fetchPrice({ oracle: oracle, id: pool.rewardOracleId });
 
-  const annualRewardsInUsd = data.rewardSpeeds.map(v =>
-    v.times(SECONDS_PER_YEAR).div(params.rewardDecimals).times(price)
-  );
+    supplyApys.push(data.supplyRates[i].div('1e18'));
 
-  const totalSuppliesInUsd = data.totalSupplies.map((v, i) =>
-    v.div(params.pools[i].decimals).times(data.tokenPrices[i])
-  );
+    annualRewardsInUsd.push(
+      data.rewardSpeeds[i].times(SECONDS_PER_YEAR).div(pool.rewardDecimals).times(price)
+    );
+
+    totalSuppliesInUsd.push(data.totalSupplies[i].div(pool.decimals).times(data.tokenPrices[i]));
+  }
 
   const supplySiloApys = annualRewardsInUsd.map((v, i) => v.div(totalSuppliesInUsd[i]));
 
@@ -96,7 +100,7 @@ const getPoolsData = async (params: SiloApyParams): Promise<PoolsData> => {
     const pool = params.pools[i];
     const siloTokenContract = fetchContract(pool.address, siloTokenAbi, params.chainId);
     const incentivesControllerContract = fetchContract(
-      params.incentivesController,
+      pool.incentivesController,
       SiloIncentivesController,
       params.chainId
     );
@@ -145,15 +149,15 @@ export interface SiloPool {
   lsUrl?: string;
   lsAprFactor?: number;
   dataPath?: string;
+  rewardOracle?: string;
+  rewardOracleId: string;
+  rewardDecimals?: string;
+  incentivesController: string;
 }
 
 export interface SiloApyParams {
   chainId: ChainId;
-  rewardOracle?: string;
-  rewardOracleId: string;
-  rewardDecimals?: string;
   pools: SiloPool[];
-  incentivesController: string;
   lens: string;
   log?: boolean;
 }
