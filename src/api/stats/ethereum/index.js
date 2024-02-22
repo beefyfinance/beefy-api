@@ -20,11 +20,13 @@ const { getPrismaApys } = require('./getPrismaApys');
 const { getAcrossApys } = require('./getAcrossApys');
 const { getEthSiloApys } = require('./getEthereumSiloApys');
 const getMerklApys = require('./getMerklApys');
+const { getbeQIApy } = require('./getbeQIApy');
 
 const getApys = [
   getAcrossApys,
   getApeStakingApy,
   getAuraApys,
+  getbeQIApy,
   getCurveApys,
   getConvexApys,
   getConvexCrvApy,

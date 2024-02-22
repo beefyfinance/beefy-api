@@ -1,5 +1,25 @@
 [
   {
+    "name": "beQIv2",
+    "address": "0x39eB558131E5eBeb9f76a6cbf6898f6E6DCe5e4E",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "vaultPoolId": "0x39eb558131e5ebeb9f76a6cbf6898f6e6dce5e4e0002000000000000000005c8",
+    "decimals": "1e18",
+    "chainId": 1,
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "QIv2",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "bpt-3Pool",
     "address": "0x79c58f70905F734641735BC61e45c19dD9Ad60bC",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

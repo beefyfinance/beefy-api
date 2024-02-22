@@ -605,6 +605,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'overnight-finance': ['OVN'],
   'gyroscope-gyd': ['GYD'],
   'renzo-restaked-eth': ['ezETH'],
+  'qi-dao': ['QIv2'],
 };
 
 /**

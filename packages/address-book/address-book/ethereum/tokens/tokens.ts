@@ -1754,6 +1754,48 @@ const _tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  QIv2: {
+    name: 'QiDao',
+    symbol: 'QI',
+    oracleId: 'QIv2',
+    address: '0x559b7bfC48a5274754b08819F75C5F27aF53D53b',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.mai.finance/',
+    description:
+      'QiDao is an overcollateralized stablecoin protocol that allows users to mint stablecoins (MAI) against the value of their decentralized token collaterals. Minting occurs through loans, denomimated in MAI stablecoins. Most loans have 0% interest, meaning the value of the related debt does not change over time.',
+    documentation: 'https://docs.mai.finance/introduction-1',
+    bridge: 'native',
+  },
+  qiBPT: {
+    name: 'QiDao Governance Pool',
+    symbol: 'QI BPT',
+    oracleId: 'beQIv2',
+    address: '0x39eB558131E5eBeb9f76a6cbf6898f6E6DCe5e4E',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.mai.finance/',
+    description:
+      'QiDao is an overcollateralized stablecoin protocol that allows users to mint stablecoins (MAI) against the value of their decentralized token collaterals. Minting occurs through loans, denomimated in MAI stablecoins. Most loans have 0% interest, meaning the value of the related debt does not change over time.',
+    documentation: 'https://docs.mai.finance/introduction-1',
+    bridge: 'native',
+  },
+  beQI: {
+    name: 'Beefy QI',
+    symbol: 'beQI',
+    oracleId: 'beQIv2',
+    address: '0x6c9D885B37b131aa68794ee1549fFB80be381Fa9',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.mai.finance/',
+    description:
+      'Beefy QI is perpetually lock QI/ETH Balancer Pool Token. QiDao is an overcollateralized stablecoin protocol that allows users to mint stablecoins (MAI) against the value of their decentralized token collaterals. Minting occurs through loans, denomimated in MAI stablecoins. Most loans have 0% interest, meaning the value of the related debt does not change over time.',
+    documentation: 'https://docs.mai.finance/introduction-1',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
