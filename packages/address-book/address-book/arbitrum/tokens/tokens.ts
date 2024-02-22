@@ -1462,6 +1462,21 @@ const _tokens = {
     bridge: 'arbitrum-canonical',
     risks: ['NO_TIMELOCK'],
   },
+  rsETH: {
+    chainId: 42161,
+    address: '0x4186BFC76E2E237523CBC30FD220FE055156b41F',
+    decimals: 18,
+    name: 'KelpDao Restaked ETH',
+    symbol: 'rsETH',
+    oracleId: 'rsETH',
+    logoURI: '',
+    website: 'https://kelpdao.xyz/',
+    documentation: 'https://kelp.gitbook.io/kelp',
+    description:
+      'rsETH is a Liquid Restaked Token (LRT) issued by Kelp DAO designed to offer liquidity to illiquid assets deposited into restaking platforms, such as EigenLayer.',
+    bridge: 'stargate',
+    risks: ['NO_TIMELOCK'],
+  },
   renBTC: {
     name: 'renBTC',
     symbol: 'renBTC',
