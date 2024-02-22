@@ -17,21 +17,21 @@ export const treasuryConcLiquidityAssets: Partial<Record<ApiChain, ConcLiquidity
   ethereum: [
     {
       name: 'BIFI-ETH V3',
-      address: '0xfba26c3f9c8ecef989def3c5c8ad037487462d83-588941',
+      address: '0xbfb7d1403428c5bdb1baf25f471b9d4200a4c9b6-38',
       decimals: 18,
       assetType: 'concLiquidity',
       oracleType: 'lps',
-      oracleId: 'uniswap-ethereum-bifi-eth-0.3',
-      id: 588941,
+      oracleId: 'blueprint-bifi-eth-0.3',
+      id: 38,
     },
     {
       name: 'BIFI-ETH V3',
-      address: '0xfba26c3f9c8ecef989def3c5c8ad037487462d83-605204',
+      address: '0xbfb7d1403428c5bdb1baf25f471b9d4200a4c9b6-40',
       decimals: 18,
       assetType: 'concLiquidity',
       oracleType: 'lps',
-      oracleId: 'uniswap-ethereum-bifi-eth-0.3-tight',
-      id: 605204,
+      oracleId: 'blueprint-bifi-eth-0.3-tight',
+      id: 40,
     },
   ],
 };

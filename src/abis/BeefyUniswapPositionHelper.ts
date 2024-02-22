@@ -1,15 +1,9 @@
 const BeefyUniswapPositionHelperAbi = [
   {
     inputs: [
-      { internalType: 'contract INftPositionManager', name: '_nftManager', type: 'address' },
-    ],
-    stateMutability: 'nonpayable',
-    type: 'constructor',
-  },
-  {
-    inputs: [
       { internalType: 'uint256', name: 'posId', type: 'uint256' },
       { internalType: 'address', name: 'lpToken', type: 'address' },
+      { internalType: 'address', name: 'nftManager', type: 'address' },
     ],
     name: 'getPositionTokens',
     outputs: [
