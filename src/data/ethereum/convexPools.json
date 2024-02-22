@@ -1,5 +1,39 @@
 [
   {
+    "name": "prisma-mkusd-ultra",
+    "pool": "0xC236BAE6e35b3Fb7335e1c35CA0862Ce92bd5DE3",
+    "prismaCurvePool": "0xeE4Bd0E161D302c943B40b0A7eFa0Bcab4A4100f",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "mkUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "ULTRA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "prisma-mkusd-paypool",
+    "pool": "0x9e10f9fb6f0d32b350cee2618662243d4f24c64a",
+    "prismaCurvePool_": "0xDA70A660d635e496B336059b38EBb5f849A75CAf",
+    "prismaConvexPool": "0xFEaB09F0DDE4D03C1345519F281025f9B8A11CDF",
+    "tokens": [
+      {
+        "oracleId": "mkUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "curve-paypool",
+        "oracle": "lps",
+        "oracleId": "curve-paypool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "prisma-mkusd-prisma",
     "pool": "0x9D8108DDD8aD1Ee89d527C0C9e928Cb9D2BBa2d3",
     "token": "0x067079c14B85169e6a29703769dadDef90816f4C",
@@ -130,6 +164,22 @@
       {
         "oracleId": "cvxFXN",
         "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-paypool",
+    "pool": "0x383e6b4437b59fff47b619cba855ca29342a8559",
+    "gauge": "0x9da75997624c697444958aded6790bfca96af19a",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "PYUSD",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
       }
     ]
   },
