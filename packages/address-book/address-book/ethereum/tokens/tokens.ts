@@ -1412,7 +1412,7 @@ const _tokens = {
       'Prisma is a decentralized borrowing protocol that allows users to mint a stablecoin, mkUSD, that is fully collateralized by liquid staking tokens.',
   },
   ULTRA: {
-    name: 'Prisma mkUSD',
+    name: 'ULTRA',
     symbol: 'ULTRA',
     oracleId: 'ULTRA',
     address: '0x35282d87011f87508D457F08252Bc5bFa52E10A0',
@@ -1423,7 +1423,7 @@ const _tokens = {
     documentation: 'https://docs.prismafinance.com/',
     bridge: 'native',
     description:
-      'Prisma is a decentralized borrowing protocol that allows users to mint a stablecoin, mkUSD, that is fully collateralized by liquid staking tokens.',
+      'ULTRA is a new stablecoin issued by PrismaLRT, a new borrowing protocol developed by Prisma focused on unlocking liquidity for Liquid Restaking Tokens (LRTs).',
   },
   PYUSD: {
     name: 'PayPal USD',
