@@ -1,0 +1,42 @@
+[
+  {
+    "name": "blueprint-bifi-eth-0.3",
+    "address": "0xbfb7d1403428c5bdb1baf25f471b9d4200a4c9b6",
+    "nftId": 38,
+    "beefyFee": 0,
+    "poolFee": 0.3,
+    "chainId": 1,
+    "lp0": {
+      "address": "0xB1F1ee126e9c96231Cc3d3fAD7C08b4cf873b1f1",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "blueprint-bifi-eth-0.3-tight",
+    "address": "0xbfb7d1403428c5bdb1baf25f471b9d4200a4c9b6",
+    "nftId": 40,
+    "beefyFee": 0,
+    "poolFee": 0.3,
+    "chainId": 1,
+    "lp0": {
+      "address": "0xB1F1ee126e9c96231Cc3d3fAD7C08b4cf873b1f1",
+      "oracle": "tokens",
+      "oracleId": "BIFI",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

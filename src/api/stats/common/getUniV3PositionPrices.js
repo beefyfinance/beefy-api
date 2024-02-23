@@ -46,7 +46,7 @@ const getPoolData = async params => {
     params.chainId
   );
   const calls = params.pools.map(pool =>
-    beefyHelperContract.read.getPositionTokens([pool.nftId, pool.address])
+    beefyHelperContract.read.getPositionTokens([pool.nftId, pool.address, params.nftManager])
   );
   return await Promise.all(calls);
 };
