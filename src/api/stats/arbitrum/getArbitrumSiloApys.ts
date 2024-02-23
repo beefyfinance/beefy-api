@@ -6,7 +6,6 @@ const pools: SiloPool[] = require('../../../data/arbitrum/siloPools.json');
 const params: SiloApyParams = {
   chainId,
   pools,
-  lens: '0xBDb843c7a7e48Dc543424474d7Aa63b61B5D9536',
   // log: true,
 };
 

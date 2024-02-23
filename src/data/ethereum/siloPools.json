@@ -9,7 +9,8 @@
     "chainId": 1,
     "rewardOracleId": "CRV",
     "rewardDecimals": "1e18",
-    "incentivesController": "0x361384A0d755f972E5Eea26e4F4efBAf976B6461"
+    "incentivesController": "0x361384A0d755f972E5Eea26e4F4efBAf976B6461",
+    "lens": "0x32a4Bcd8DEa5E18a12a50584682f8E4B77fFF2DF"
   },
   {
     "name": "silo-weeth-eth",
@@ -21,6 +22,7 @@
     "chainId": 1,
     "rewardOracleId": "SILO",
     "rewardDecimals": "1e18",
-    "incentivesController": "0x6c1603aB6CecF89DD60C24530DdE23F97DA3C229"
+    "incentivesController": "0x6c1603aB6CecF89DD60C24530DdE23F97DA3C229",
+    "lens": "0xf12C3758c1eC393704f0Db8537ef7F57368D92Ea"
   }
 ]

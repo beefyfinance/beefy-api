@@ -42,7 +42,7 @@ const getPoolsApys = async (params: SiloApyParams, data: PoolsData) => {
     const oracle = pool.rewardOracle ?? 'tokens';
     const price = await fetchPrice({ oracle: oracle, id: pool.rewardOracleId });
 
-    supplyApys.push(data.supplyRates[i].div('1e18'));
+    supplyApys.push(data.supplyRates[i].times(90).div(100).div('1e18'));
 
     annualRewardsInUsd.push(
       data.rewardSpeeds[i].times(SECONDS_PER_YEAR).div(pool.rewardDecimals).times(price)
@@ -104,7 +104,7 @@ const getPoolsData = async (params: SiloApyParams): Promise<PoolsData> => {
       SiloIncentivesController,
       params.chainId
     );
-    const lensContract = fetchContract(params.lens, SiloLens, params.chainId);
+    const lensContract = fetchContract(pool.lens, SiloLens, params.chainId);
     supplyRateCalls.push(lensContract.read.depositAPY([pool.silo, pool.underlying]));
     rewardsPerSecondCalls.push(incentivesControllerContract.read.getAssetData([pool.address]));
     totalSupplyCalls.push(siloTokenContract.read.totalSupply());
@@ -153,12 +153,12 @@ export interface SiloPool {
   rewardOracleId: string;
   rewardDecimals?: string;
   incentivesController: string;
+  lens: string;
 }
 
 export interface SiloApyParams {
   chainId: ChainId;
   pools: SiloPool[];
-  lens: string;
   log?: boolean;
 }
 

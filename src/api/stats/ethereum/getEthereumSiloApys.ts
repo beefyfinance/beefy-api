@@ -6,7 +6,6 @@ const pools: SiloPool[] = require('../../../data/ethereum/siloPools.json');
 const params: SiloApyParams = {
   chainId,
   pools,
-  lens: '0x32a4Bcd8DEa5E18a12a50584682f8E4B77fFF2DF',
   // log: true,
 };
 
