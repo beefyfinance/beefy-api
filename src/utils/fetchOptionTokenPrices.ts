@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { FANTOM_CHAIN_ID, BASE_CHAIN_ID, CANTO_CHAIN_ID } from '../constants';
+import { FANTOM_CHAIN_ID, BASE_CHAIN_ID, CANTO_CHAIN_ID, LINEA_CHAIN_ID } from '../constants';
 import { addressBook } from '../../packages/address-book/address-book';
 import OptionsToken from '../abis/OptionsToken';
 import { fetchContract } from '../api/rpc/client';
@@ -15,12 +15,16 @@ const {
   canto: {
     tokens: { CVM, oCVM },
   },
+  linea: {
+    tokens: { LYNX, oLYNX },
+  },
 } = addressBook;
 
 const tokens = {
   fantom: [[FVM, oFVM]],
   base: [[BVM, oBVM]],
   canto: [[CVM, oCVM]],
+  linea: [[LYNX, oLYNX]],
 };
 
 let hundred = new BigNumber(100);
@@ -55,6 +59,7 @@ export async function fetchOptionTokenPrices(
     getOptionTokenPrices(tokenPrices, tokens.fantom, FANTOM_CHAIN_ID),
     getOptionTokenPrices(tokenPrices, tokens.base, BASE_CHAIN_ID),
     getOptionTokenPrices(tokenPrices, tokens.canto, CANTO_CHAIN_ID),
+    getOptionTokenPrices(tokenPrices, tokens.linea, LINEA_CHAIN_ID),
   ]).then(data =>
     data
       .flat()

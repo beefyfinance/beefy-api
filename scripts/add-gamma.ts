@@ -45,6 +45,11 @@ const projects = {
     file: '../src/data/base/sushiGammaPools.json',
     voter: ethers.constants.AddressZero,
   },
+  lynex: {
+    prefix: 'lynex',
+    file: '../src/data/linea/lynexGammaPools.json',
+    voter: '0x0B2c83B6e39E32f694a86633B4d1Fe69d13b63c5',
+  },
 };
 
 const args = yargs.options({
@@ -146,7 +151,7 @@ async function main() {
   const poolsJsonFile = projects[args['project']].file;
   const poolsJson = require(poolsJsonFile);
 
-  const newPoolName = `${poolPrefix}-ichi-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}-${type}`;
+  const newPoolName = `${poolPrefix}-gamma-${token0.symbol.toLowerCase()}-${token1.symbol.toLowerCase()}-${type}`;
 
   const solidlyPool = {
     name: newPoolName,

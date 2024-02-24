@@ -281,6 +281,7 @@ import swapBasedPools from '../../data/base/swapBasedLpPools.json';
 import basoPools from '../../data/base/basoLpPools.json';
 import equalizerBasePools from '../../data/base/equalizerLpPools.json';
 import moePools from '../../data/mantle/moeLpPools.json';
+import lynexPools from '../../data/linea/lynexVolatilePools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
 import { sleep } from '../../utils/time';
@@ -721,10 +722,6 @@ async function performUpdateAmmPrices() {
     return await fetchCurveTokenPrices(tokenPrices);
   });
 
-  const concentratedLiquidityTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchConcentratedLiquidityTokenPrices(tokenPrices);
-  });
-
   const solidlyStableTokenPrices = ammPrices.then(async ({ tokenPrices }) => {
     return await fetchSolidlyStableTokenPrices(tokenPrices);
   });
@@ -740,7 +737,13 @@ async function performUpdateAmmPrices() {
   });
 
   const optionPrices = ammPrices.then(async ({ tokenPrices }) => {
-    return await fetchOptionTokenPrices(tokenPrices);
+    const concLiqPrices = await fetchConcentratedLiquidityTokenPrices(tokenPrices);
+    const prices = { ...tokenPrices, ...concLiqPrices };
+    const optionPrices = await fetchOptionTokenPrices(prices);
+    return {
+      ...optionPrices,
+      ...concLiqPrices,
+    };
   });
 
   const linearPoolPrice = ammPrices.then(
@@ -782,7 +785,6 @@ async function performUpdateAmmPrices() {
   const tokenPrices = ammPrices.then(async ({ tokenPrices }) => {
     const dmm = await dmmPrices;
     const curvePrices = await curveTokenPrices;
-    const concentratedLiquidityPrices = await concentratedLiquidityTokenPrices;
     const solidlyStablePrices = await solidlyStableTokenPrices;
     const xTokenPrices = await xPrices;
     const mooTokenPrices = await mooPrices;
@@ -797,7 +799,6 @@ async function performUpdateAmmPrices() {
       ...xTokenPrices,
       ...beTokenTokenPrice,
       ...curvePrices,
-      ...concentratedLiquidityPrices,
       ...solidlyStablePrices,
       ...linearPoolTokenPrice,
       ...venusTokenPrice,

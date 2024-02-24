@@ -105,6 +105,49 @@ const _tokens = {
     documentation: 'https://docs.mendi.finance/',
     bridge: 'native',
   },
+  LYNX: {
+    name: 'Lynex Token',
+    symbol: 'LYNX',
+    oracleId: 'LYNX',
+    address: '0x1a51b19CE03dbE0Cb44C1528E34a7EDD7771E9Af',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.lynex.fi/',
+    description:
+      'Lynex democratizes sophisticated liquidity strategies, seamlessly connecting everyday traders with expert-level capabilities. Our platform features a competitive ecosystem of Automated Liquidity Managers (ALMs) and strategists, all striving to optimize returns, minimize risks like impermanent loss, and boost overall efficiency for every user.',
+    documentation: 'https://lynex.gitbook.io/lynex-docs/protocol-overview/about-lynex',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
+  oLYNX: {
+    name: 'Option LYNX Token',
+    symbol: 'oLYNX',
+    oracleId: 'oLYNX',
+    address: '0x63349BA5E1F71252eCD56E8F950D1A518B400b60',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.lynex.fi/',
+    description:
+      'Lynex democratizes sophisticated liquidity strategies, seamlessly connecting everyday traders with expert-level capabilities. Our platform features a competitive ecosystem of Automated Liquidity Managers (ALMs) and strategists, all striving to optimize returns, minimize risks like impermanent loss, and boost overall efficiency for every user.',
+    documentation: 'https://lynex.gitbook.io/lynex-docs/protocol-overview/about-lynex',
+    bridge: 'native',
+  },
+  MAI: {
+    name: 'Mai Stablecoin',
+    symbol: 'MAI',
+    oracleId: 'MAI',
+    address: '0xf3B001D64C656e30a62fbaacA003B1336b4ce12A',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.mai.finance/',
+    description:
+      "MAI is a stablecoin collateralized by your crypto holdings. It's powered by Qi Dao, a protocol that enables any cryptocurrency community to create stablecoins backed by their native tokens.",
+    documentation: 'https://docs.mai.finance/',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

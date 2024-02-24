@@ -48,6 +48,9 @@ const {
   base: {
     platforms: { bvm, aerodrome, equalizer: scale },
   },
+  linea: {
+    platforms: { lynex },
+  },
 } = addressBook;
 
 const projects = {
@@ -174,6 +177,12 @@ const projects = {
     stableFile: '../src/data/base/equalizerStableLpPools.json',
     volatileFile: '../src/data/base/equalizerLpPools.json',
     voter: scale.voter,
+  },
+  lynex: {
+    prefix: 'lynex',
+    stableFile: '../src/data/linea/lynexStablePools.json',
+    volatileFile: '../src/data/linea/lynexVolatilePools.json',
+    voter: lynex.voter,
   },
 };
 
