@@ -265,9 +265,11 @@ async function fetchTokensForChain(chainId: ApiChain): Promise<ChainTokens> {
 
   [...vaultTokens, ...boostTokens, ...abTokens].forEach(token => addToken(token, byId, byAddress));
 
-  // Address book oracle id takes precedence now
+  // Address book oracle id and symbol takes precedence now
   abTokens.forEach(token => {
-    byAddress[token.address.toLowerCase()].oracleId = token.oracleId;
+    const addressKey = token.address.toLowerCase();
+    byAddress[addressKey].oracleId = token.oracleId;
+    byAddress[addressKey].symbol = token.symbol;
   });
 
   if (!byId['NATIVE']) {
