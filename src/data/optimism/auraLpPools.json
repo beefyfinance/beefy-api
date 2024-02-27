@@ -1,5 +1,41 @@
 [
   {
+    "name": "aura-op-all-roads-lead-to-frax",
+    "address": "0x478980c67d53Cd990F2B7bab311DDC9934324E7B",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x84e22f2AA312700dBA78aBd040844360Bc274De2",
+    "vaultPoolId": "0x478980c67d53cd990f2b7bab311ddc9934324e7b00020000000000000000010c",
+    "lsIndex": 1,
+    "lsUrl": "https://api.frax.finance/v2/frxeth/summary/latest",
+    "dataPath": "$.sfrxethApr",
+    "balancerChargesFee": false,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x50BDAC2885CB76F5f21872d788402875818CF27e",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x362652b3F4578791DcFD9D3a9FbE66c41c4c9101",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-op-yield-concerto-by-frax",
     "address": "0x2FEb76966459d7841fa8A7Ed0aa4bf574d6111Bf",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

@@ -1,5 +1,33 @@
 [
   {
+    "name": "beets-layered-and-staked-fantom-opera",
+    "address": "0xB4d48849eE191c230fD1BDc573Fc614fbC4738d2",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xb4d48849ee191c230fd1bdc573fc614fbc4738d20002000000000000000007e1",
+    "beefyFee": 0.095,
+    "poolId": 146,
+    "oracleB": "tokens",
+    "oracleIdB": "WFTM",
+    "decimalsB": "1e18",
+    "liquidstaking": true,
+    "lsIndex": 1,
+    "staderUrl": "https://universe.staderlabs.com/fantom/apy",
+    "balancerChargesFee": false,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "lzUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sFTMx",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "beets-fantom-menace",
     "address": "0x593000b762dE3c465855336E95c8BB46080AF064",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
