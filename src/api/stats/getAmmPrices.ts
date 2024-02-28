@@ -290,6 +290,7 @@ import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices';
 import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
+import uniswapLpPools from '../../data/ethereum/uniswapV2LpPools.json';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -554,6 +555,7 @@ const pools = normalizePoolOracleIds([
   ...cakeLpV1Pools,
   ...cakeLpPools,
   ...giddyLpPools,
+  ...uniswapLpPools,
 ]);
 
 const dmmPools = [...kyberPools, ...oldDmmPools];
