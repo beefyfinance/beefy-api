@@ -10,7 +10,7 @@
       "address": "0x1bb9b64927e0c5e207c9db4093b3738eef5d8447",
       "oracle": "tokens",
       "oracleId": "VEC",
-      "decimals": "1e18"
+      "decimals": "1e9"
     },
     "lp1": {
       "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
