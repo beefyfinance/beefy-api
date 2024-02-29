@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-v2-usdc-wsteth",
+    "address": "0x38133C2775Ed3F8C698d5741a24bA833f8724e7A",
+    "gauge": "0x62678a3aAe21A3Fd6c1d471105abe695974F8Cce",
+    "decimals": "1e18",
+    "chainId": 10,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-v2-kuji-velo",
     "address": "0x18C830F6a32A06Cf2aC4262E977a096F12bDAB8D",
     "gauge": "0x60861f228AF12461a6D42C970b3eFF5648504b13",
