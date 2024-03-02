@@ -573,6 +573,21 @@ const _tokens = {
       'A risk-minimised USDC-pegged crypto asset backed by an underlying basket of USD stablecoins',
     documentation: 'https://docs.overnight.fi/',
   },
+  bsdETH: {
+    name: 'Based ETH',
+    symbol: 'bsdETH',
+    oracleId: 'bsdETH',
+    address: '0xCb327b99fF831bF8223cCEd12B1338FF3aA322Ff',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://app.reserve.org/base/token/0xcb327b99ff831bf8223cced12b1338ff3aa322ff/overview',
+    description:
+      'A yield generating Ethereum Liquid Staking Token basket with over-collateralization protection.',
+    documentation: 'https://reserve.org/protocol/',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
