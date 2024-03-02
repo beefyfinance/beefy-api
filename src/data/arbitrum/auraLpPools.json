@@ -1,5 +1,51 @@
 [
   {
+    "name": "aura-arb-weth-reth-v2",
+    "address": "0xd0EC47c54cA5e20aaAe4616c25C825c7f48D4069",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x17F061160A167d4303d5a6D32C2AC693AC87375b",
+    "vaultPoolId": "0xd0ec47c54ca5e20aaae4616c25c825c7f48d40690000000000000000000004ef",
+    "decimals": "1e18",
+    "lsUrl": "https://api.rocketpool.net/api/apr",
+    "dataPath": "$.yearlyAPR",
+    "lsIndex": 1,
+    "balancerChargesFee": true,
+    "composable": true,
+    "bptIndex": 1,
+    "rewards": [
+      {
+        "rewardGauge": "0xAe1322501e7FB1956a88e1Aacf6fE5DDF7B147e9",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x40e05D89ac03AbC8138161723c9546df54b37d44",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xB1074A99bDC9113B53dd1Be1926a606793F058a5",
+        "oracleId": "RPL",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-sfrax-4pool",
     "address": "0x2CE4457aCac29dA4736aE6f5Cd9F583a6b335c27",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
