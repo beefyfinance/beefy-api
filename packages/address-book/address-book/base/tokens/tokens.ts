@@ -584,7 +584,7 @@ const _tokens = {
     website:
       'https://app.reserve.org/base/token/0xcb327b99ff831bf8223cced12b1338ff3aa322ff/overview',
     description:
-      'A yield generating Ethereum Liquid Staking Token basket with over-collateralization protection.',
+      'A yield generating Ethereum Liquid Staking Token basket with over-collateralization protection. ',
     documentation: 'https://reserve.org/protocol/',
     bridge: 'native',
   },
