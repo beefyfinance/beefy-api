@@ -588,6 +588,21 @@ const _tokens = {
     documentation: 'https://reserve.org/protocol/',
     bridge: 'native',
   },
+  TYBG: {
+    name: 'Base God',
+    symbol: 'TYBG',
+    oracleId: 'TYBG',
+    address: '0x0d97F261b1e88845184f678e2d1e7a98D9FD38dE',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://basegod.fun/',
+    description:
+      'In the spirit of being based and fair, $TYBG was stealth launched with no tax or team/presale tokens. Memecoin.',
+    documentation: '',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
