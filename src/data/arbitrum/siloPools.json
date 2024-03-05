@@ -1,5 +1,18 @@
 [
   {
+    "name": "silo-eth-pendle-weeth",
+    "address": "0x8Be4715f1DB9e8551fEA5ef8b30A2eb99398e5d2",
+    "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    "silo": "0x7Cc5267E706794f4E0562b70f288A4b7C1bE0457",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "rewardOracleId": "ARB",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680",
+    "lens": "0xBDb843c7a7e48Dc543424474d7Aa63b61B5D9536"
+  },
+  {
     "name": "silo-reth",
     "address": "0xA138B2FAb524e94aef1D6A961b9B0a3aB09D321f",
     "underlying": "0xEC70Dcb4A1EFa46b8F2D97C310C9c4790ba5ffA8",
