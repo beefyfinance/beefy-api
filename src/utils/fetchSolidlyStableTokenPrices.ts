@@ -34,6 +34,17 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
       secondTokenAddress: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
     },
   ],
+  linea: [
+    {
+      oracleId: 'DUSD',
+      pool: '0x7088A31d53Fc1fA300Ceb5F9103343137A62b545',
+      firstToken: 'DUSD',
+      firstTokenDecimals: '1e18',
+      secondToken: 'USDC',
+      secondTokenDecimals: 1e6,
+      secondTokenAddress: '0x176211869cA2b568f2A7D4EE941E073a821EE1ff',
+    },
+  ],
 };
 
 async function getStablePoolPrices(

@@ -1,5 +1,42 @@
 [
   {
+    "name": "aura-sveth-svbtc-svusd",
+    "address": "0xd1882cA6A22f3Df54CD675b300B815864DE67B20",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xe8E1dE101836586e9C8E2145038896b5Ed55CC40",
+    "vaultPoolId": "0xd1882ca6a22f3df54cd675b300b815864de67b200001000000000000000004c9",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xa83e83879856bebF158e115Ab70D069ce1f97817",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x91427F7c76AF67D3e53585b5189E5a96c1F367E1",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "svBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "svUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "svETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-arb-weth-reth-v2",
     "address": "0xd0EC47c54cA5e20aaAe4616c25C825c7f48D4069",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
