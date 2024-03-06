@@ -148,6 +148,35 @@ const _tokens = {
     documentation: 'https://docs.mai.finance/',
     bridge: 'native',
   },
+  DUSD: {
+    name: 'Davos.xyz USD',
+    symbol: 'DUSD',
+    oracleId: 'DUSD',
+    address: '0xA88B54E6b76Fb97CdB8eCAE868f1458e18a953F4',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://davos.xyz/',
+    description:
+      'The Davos Protocol is an innovative collateralised debt position (CDP) protocol designed to facilitate the seamless minting of DUSD, an inflation-proof omnichain stablecoin, by leveraging Liquid Staking Tokens (LSTs). The protocol aims to address the challenges faced by traditional CDPs in decentralised finance (DeFi) by incorporating an unbiased monetary policy and fair borrowing rates, thereby enhancing user protection and promoting broader DeFi adoption. ',
+    documentation: 'https://davos.xyz/assets/davos_whitepaper.pdf',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
+  'USD+': {
+    name: 'USD+',
+    symbol: 'USD+',
+    oracleId: 'USD+',
+    address: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
+    chainId: 59144,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://overnight.fi/',
+    description:
+      'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    bridge: 'native',
+    documentation: 'https://docs.overnight.fi/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
