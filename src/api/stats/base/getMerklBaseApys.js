@@ -3,7 +3,7 @@ const sushiPools = require('../../../data/base/sushiGammaPools.json');
 const { BASE_CHAIN_ID: chainId } = require('../../../constants');
 import { getApyBreakdown } from '../common/getApyBreakdown';
 
-const merklApi = 'https://api.angle.money/v1/merkl?chainId=8453';
+const merklApi = 'https://api.angle.money/v2/merkl?chainIds=8453';
 const gammaApi = 'https://wire2.gamma.xyz/sushi/base/hypervisors/allData';
 
 const pools = [...sushiPools];
