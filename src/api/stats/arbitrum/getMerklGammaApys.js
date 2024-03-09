@@ -4,7 +4,7 @@ const sushiPools = require('../../../data/arbitrum/sushiGammaPools.json');
 const { ARBITRUM_CHAIN_ID: chainId } = require('../../../constants');
 import { getApyBreakdown } from '../common/getApyBreakdown';
 
-const merklApi = 'https://api.angle.money/v1/merkl?chainId=42161';
+const merklApi = 'https://api.angle.money/v2/merkl?chainIds=42161';
 const gammaApi = 'https://wire2.gamma.xyz/arbitrum/hypervisors/allData';
 const sushiGammaApi = 'https://wire2.gamma.xyz/sushi/arbitrum/hypervisors/allData';
 

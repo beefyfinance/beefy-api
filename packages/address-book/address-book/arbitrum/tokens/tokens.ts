@@ -571,6 +571,21 @@ const _tokens = {
       'The USDD protocol aims to provide the blockchain industry with the most stable, decentralized, tamper-proof, and freeze-free stablecoin system, a perpetual system independent from any centralized entity.',
     documentation: 'https://usdd.io/docs/',
   },
+  ezETH: {
+    name: 'Renzo Restaked ETH',
+    symbol: 'ezETH',
+    oracleId: 'ezETH',
+    address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.renzoprotocol.com/',
+    description:
+      'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
+    documentation: 'https://docs.renzoprotocol.com/docs/',
+    bridge: 'arbitrum-canonical',
+    risks: ['NO_TIMELOCK'],
+  },
   agEUR: {
     name: 'agEUR',
     symbol: 'agEUR',

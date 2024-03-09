@@ -3,7 +3,7 @@ const uniPools = require('../../../data/ethereum/rangeLpPools.json');
 const { ETH_CHAIN_ID: chainId } = require('../../../constants');
 import { getApyBreakdown } from '../common/getApyBreakdown';
 
-const merklApi = 'https://api.angle.money/v1/merkl?chainId=1';
+const merklApi = 'https://api.angle.money/v2/merkl?chainIds=1';
 const rangeApi =
   'https://rangeprotocol-public.s3.ap-southeast-1.amazonaws.com/data/fees-ethereum-uniswap.json';
 const rangePancakeApi =

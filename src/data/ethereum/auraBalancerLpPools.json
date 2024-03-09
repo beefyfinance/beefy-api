@@ -1,5 +1,42 @@
 [
   {
+    "name": "aura-weeth-ezeth-rseth",
+    "address": "0x848a5564158d84b8A8fb68ab5D004Fae11619A54",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xce98eb8b2Fb98049b3F2dB0A212Ba7ca3Efd63b0",
+    "vaultPoolId": "0x848a5564158d84b8a8fb68ab5d004fae11619a5400000000000000000000066a",
+    "decimals": "1e18",
+    "composable": true,
+    "bptIndex": 0,
+    "rewards": [
+      {
+        "rewardGauge": "0x607858e1c3C4a9E462556A7CC752bB2192A42391",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ezETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "weETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rsETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-weeth-reth",
     "address": "0x05ff47AFADa98a98982113758878F9A8B9FddA0a",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
