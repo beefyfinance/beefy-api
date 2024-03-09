@@ -95,7 +95,7 @@
     "lp1": {
       "address": "0x9560e827aF36c94D2Ac33a39bCE1Fe78631088Db",
       "oracle": "tokens",
-      "oracleId": "VELO2",
+      "oracleId": "VELOV2",
       "decimals": "1e18"
     }
   },
