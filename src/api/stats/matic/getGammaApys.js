@@ -6,7 +6,7 @@ import { getApyBreakdown } from '../common/getApyBreakdown';
 
 const pools = [...retroPools, ...quickPools];
 
-const merklApi = 'https://api.angle.money/v1/merkl?chainId=137';
+const merklApi = 'https://api.angle.money/v2/merkl?chainIds=137';
 const gammaApi = 'https://wire2.gamma.xyz/quickswap/polygon/hypervisors/allData';
 
 const getGammaApys = async () => {
