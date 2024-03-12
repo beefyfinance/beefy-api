@@ -111,6 +111,11 @@
         "address": "0x4200000000000000000000000000000000000006",
         "oracleId": "WETH",
         "decimals": "1e18"
+      },
+      {
+        "address": "0x994ac01750047B9d35431a7Ae4Ed312ee955E030",
+        "oracleId": "axlOP",
+        "decimals": "1e18"
       }
     ],
     "lp0": {

@@ -596,12 +596,25 @@ const _tokens = {
     chainId: 8453,
     decimals: 18,
     logoURI: '',
-    website:
-      'https://basegod.fun/',
+    website: 'https://basegod.fun/',
     description:
       'In the spirit of being based and fair, $TYBG was stealth launched with no tax or team/presale tokens. Memecoin.',
     documentation: '',
     bridge: 'native',
+  },
+  axlOP: {
+    name: 'Axelar Wrapped OP',
+    symbol: 'axlOP',
+    oracleId: 'axlOP',
+    address: '0x994ac01750047B9d35431a7Ae4Ed312ee955E030',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.optimism.io/governance',
+    description:
+      'Optimistic Rollup is a layer 2 scaling solution that scales both transaction throughput and computation on Ethereum. The backbone of our implementation is the Optimistic Virtual Machine (OVM), which is fully compatible with the EVM.',
+    documentation: '',
+    bridge: 'axelar',
   },
 } as const;
 
