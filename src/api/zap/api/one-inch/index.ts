@@ -29,7 +29,7 @@ export const supportedSwapChains: Partial<Record<ApiChain, boolean>> = {
 } as const;
 
 const swapApiByChain: Partial<Record<ApiChain, IOneInchSwapApi>> = {};
-const priceApiByChain: Partial<Record<ApiChain, IOneInchPriceApi>> = {};
+
 let swapApiQueue: PQueue | undefined;
 
 export function getOneInchSwapApi(chain: AnyChain): IOneInchSwapApi {
@@ -44,7 +44,7 @@ export function getOneInchSwapApi(chain: AnyChain): IOneInchSwapApi {
     }
 
     const chainId = toChainId(apiChain);
-    const baseUrl = `https://api.1inch.dev/swap/v5.2/${chainId}`;
+    const baseUrl = `https://api.1inch.dev/swap/v6.0/${chainId}`;
     const apiKey = process.env.ONE_INCH_API_KEY;
     if (!apiKey) {
       throw new Error(`ONE_INCH_API_KEY env variable is not set`);
