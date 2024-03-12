@@ -1373,6 +1373,19 @@ const _tokens = {
     documentation: 'https://docs.frax.finance/frax-v3/sfrax',
     bridge: 'frax',
   },
+  POOL: {
+    name: 'PoolTogether',
+    symbol: 'POOL',
+    oracleId: 'POOL',
+    address: '0x395Ae52bB17aef68C2888d941736A71dC6d4e125',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://pooltogether.com/',
+    description: 'PoolTogether is a prize savings protocol, enabling you to win by saving.',
+    documentation: 'https://docs.pooltogether.com/',
+    bridge: 'optimism-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
