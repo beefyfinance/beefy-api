@@ -43,7 +43,7 @@ export class OneInchSwapProvider implements ISwapProvider {
         from: swaps[index].from,
         fromAmount: swaps[index].fromAmount,
         to: swaps[index].to,
-        toAmount: fromWeiString(quote.toAmount, quote.toToken.decimals),
+        toAmount: fromWeiString(quote.dstAmount, quote.dstToken.decimals),
       };
     });
   }

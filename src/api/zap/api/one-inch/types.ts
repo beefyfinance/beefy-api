@@ -27,9 +27,9 @@ export type OneInchErrorResponse = {
 };
 
 export type QuoteResponse = {
-  fromToken: QuoteToken;
-  toToken: QuoteToken;
-  toAmount: string;
+  srcToken: QuoteToken;
+  dstToken: QuoteToken;
+  dstAmount: string;
 };
 
 export function isOneInchErrorResponse(obj: unknown): obj is OneInchErrorResponse {
@@ -57,9 +57,9 @@ export type SwapTx = {
 };
 
 export type SwapResponse = {
-  fromToken: QuoteToken;
-  toToken: QuoteToken;
-  toAmount: string;
+  srcToken: QuoteToken;
+  dstToken: QuoteToken;
+  dstAmount: string;
   tx: SwapTx;
 };
 
