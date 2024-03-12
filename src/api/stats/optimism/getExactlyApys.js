@@ -31,7 +31,9 @@ const getExactlyApys = async () => {
     Object.fromEntries(pools.map((p, i) => [p.name, lendingApys[i]])),
     rewardApys,
     0,
-    lsApys
+    lsApys,
+    [],
+    'supplyApr'
   );
 };
 

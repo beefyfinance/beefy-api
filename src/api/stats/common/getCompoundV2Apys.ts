@@ -53,7 +53,9 @@ const getCompoundV2ApyData = async (params: CompoundV2ApyParams) => {
     Object.fromEntries(params.pools.map((p, i) => [p.name, supplyApys[i]])),
     supplyCompApys,
     0,
-    liquidStakingApys
+    liquidStakingApys,
+    [],
+    'supplyApr'
   );
 };
 
