@@ -38,25 +38,6 @@
     }
   },
   {
-    "name": "moe-usdc-meth",
-    "address": "0xaF50CD8C03096a416Fc1B88E328Bab3E09e0F175",
-    "decimals": "1e18",
-    "poolId": 21,
-    "chainId": 5000,
-    "lp0": {
-      "address": "0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9",
-      "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
-    },
-    "lp1": {
-      "address": "0xcDA86A272531e8640cD7F1a92c01839911B90bb0",
-      "oracle": "tokens",
-      "oracleId": "mETH",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "moe-wbtc-meth",
     "address": "0x198c826AF31938736539E7025d81caa7b8952094",
     "decimals": "1e18",
