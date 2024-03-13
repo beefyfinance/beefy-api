@@ -616,6 +616,21 @@ const _tokens = {
     documentation: '',
     bridge: 'axelar',
   },
+  DOG: {
+    name: 'Basic Dog Meme',
+    symbol: 'DOG',
+    oracleId: 'DOG',
+    address: '0x9E53e88dCff56d3062510A745952DEC4cEFDff9E',
+    chainId: 8453,
+    decimals: 18,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x9E53e88dCff56d3062510A745952DEC4cEFDff9E.svg',
+    website: 'https://basicdog.xyz/',
+    description:
+      'The first meme coin on Base. Fairly Launched. Organic Growth. Good Vibes.',
+    documentation: 'https://basicdog.gitbook.io/basic-meme-chain/',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
