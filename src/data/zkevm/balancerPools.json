@@ -6,14 +6,15 @@
     "gauge": "0x2279abf4bdAb8CF29EAe4036262c62dBA6460306",
     "vaultPoolId": "0x65da876a95cd5b6a5880710628c436409b1b29fa00000000000000000000005b",
     "lsUrl": [
-      "https://api.staking.ankr.com/v1alpha/metrics",
+      "https://api.staking.ankr.com/v1alpha/metrics/eth",
       "https://eth-api.lido.fi/v1/protocol/steth/apr/sma"
     ],
-    "dataPath": ["$.services[0].apy", "$.data.smaApr"],
+    "dataPath": ["$.apy", "$.data.smaApr"],
     "balancerChargesFee": true,
     "composable": true,
     "bptIndex": 2,
     "lsIndex": [0, 1],
+    "lsAprFactor": [1, 1],
     "decimals": "1e18",
     "rewards": [
       {
@@ -138,6 +139,7 @@
     "composable": true,
     "bptIndex": 2,
     "lsIndex": [0, 1],
+    "lsAprFactor": [1, 1],
     "decimals": "1e18",
     "rewards": [
       {

@@ -292,9 +292,9 @@
     "gauge": "0xfCCb9288bf2a583b918E4eA810d8a75563404B21",
     "lsUrl": [
       "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-      "https://api.staking.ankr.com/v1alpha/metrics"
+      "https://api.staking.ankr.com/v1alpha/metrics/eth"
     ],
-    "dataPath": ["$.data.smaApr", "$.services[0].apy"],
+    "dataPath": ["$.data.smaApr", "$.apy"],
     "lsIndex": [0, 1],
     "balancerChargesFee": true,
     "composable": true,

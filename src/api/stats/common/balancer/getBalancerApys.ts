@@ -8,6 +8,7 @@ import BigNumber from 'bignumber.js';
 import { getTradingFeeAprBalancer } from '../../../../utils/getTradingFeeApr';
 import { fetchPrice } from '../../../../utils/fetchPrice';
 import { fetchContract } from '../../../rpc/client';
+import { isNumber } from 'lodash';
 
 interface Token {
   newGauge?: boolean;
@@ -154,8 +155,8 @@ const getPoolApy = async (
         let response: any;
         try {
           response = await fetch(pool.lsUrl[i]).then(res => res.json());
-          lsApr = await jp.query(response, pool.dataPath[i]);
-          lsApr = lsApr * lsAprFactors[i];
+          let res = await jp.query(response, pool.dataPath[i]);
+          lsApr = res * lsAprFactors[i];
         } catch (e) {
           console.error(`Balancer: Liquid Staking URL Fetch Error ${pool.name}`);
         }
