@@ -609,6 +609,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'gyroscope-gyd': ['GYD'],
   'renzo-restaked-eth': ['ezETH'],
   'qi-dao': ['QIv2'],
+  'verified-usd-foundation-usdv': ['USDV'],
 };
 
 /**

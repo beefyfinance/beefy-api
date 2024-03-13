@@ -1,5 +1,25 @@
 [
   {
+    "name": "thena-usdv-usdt",
+    "address": "0x97C4decba0438A4B6F871561963FC41B222dfa10",
+    "gauge": "0x110aE9CA1279E8094950CE011323B5b7DBC85EeB",
+    "decimals": "1e18",
+    "chainId": 56,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x323665443CEf804A3b5206103304BD4872EA4253",
+      "oracle": "tokens",
+      "oracleId": "USDV",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "thena-usdt+-usd+",
     "address": "0x1561D9618dB2Dcfe954f5D51f4381fa99C8E5689",
     "gauge": "0x3877c2C3D75aE80f2Ed8E9d4d68e3C1BFc77e5A6",

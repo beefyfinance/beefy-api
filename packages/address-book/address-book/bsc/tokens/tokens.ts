@@ -190,6 +190,8 @@ const _tokens = {
     description:
       'We envision THENA as being the native liquidity layer of BNB Chain, enabling value creation by opening the gates for new protocols that wish to solve the cold start liquidity problem, as well as for established protocols looking for a long-term solution to reduce costs to incentivize their liquidity. THENA is a public good owned by protocols and users, with both parties contributing to THENAs status as the leading AMM. We believe that in a decentralized and open-source economy, a collaborative strategy is essential to outrun the competition and establish your product as a market leader.',
     documentation: 'https://thena.gitbook.io/thena/',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
   },
   FISH: {
     name: 'SwapFish',
@@ -2890,10 +2892,12 @@ const _tokens = {
     chainId: 56,
     decimals: 18,
     website: 'https://filecoin.io/',
+    documentation: 'https://docs.filecoin.io/',
     description:
       'Filecoin is a decentralized storage system that aims to “store humanity’s most important information.”.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x0d8ce2a99bb6e3b7db580ed848240e4a0f9ae153.png',
+    bridge: 'binance-peg',
   },
   KAVA: {
     name: 'KAVA',
@@ -4626,6 +4630,21 @@ const _tokens = {
     description:
       'FIS is the native token of StaFi, with an initial issuance of 100 million and further issuance planned each year. Similar to how DOT is to Polkadot, FIS is essential to prevent system abuse and value capture in the StaFi ecosystem. StaFi is the first multi-chain liquid staking protocol that unlocks the liquidity of staked assets.',
     logoURI: '',
+  },
+  USDV: {
+    name: 'USDV',
+    symbol: 'USDV',
+    oracleId: 'USDV',
+    address: '0x323665443CEf804A3b5206103304BD4872EA4253',
+    chainId: 56,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://usdv.money/',
+    description:
+      'Verified USD (USDV) is the first stablecoin that rewards Verified Minters based on their contribution to the tokens active circulation.',
+    documentation: 'https://docs.usdv.money/docs',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
   },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
