@@ -196,12 +196,19 @@ const getLiquidStakingPoolYield = async pool => {
           : (response = await fetch(pool.lsUrl[i]).then(res => res.json()));
         lsApr = await jp.query(response, pool.dataPath[i]);
       } catch (e) {
-        console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`);
+        console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`, e);
       }
 
-      pool.balancerChargesFee
-        ? (apr = apr + (lsApr * qty[pool.lsIndex[i]].dividedBy(totalQty).toNumber()) / 100 / 2)
-        : (apr = apr + (lsApr * qty[pool.lsIndex[i]].dividedBy(totalQty).toNumber()) / 100);
+      const divisor = pool.divisor ? pool.divisor[i] : 100;
+
+      if (pool.useBalancerLsApr) {
+        apr = apr + lsApr / divisor;
+      } else {
+        pool.balancerChargesFee
+          ? (apr =
+              apr + (lsApr * qty[pool.lsIndex[i]].dividedBy(totalQty).toNumber()) / divisor / 2)
+          : (apr = apr + (lsApr * qty[pool.lsIndex[i]].dividedBy(totalQty).toNumber()) / divisor);
+      }
     }
   } else {
     let response;

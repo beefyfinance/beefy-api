@@ -8,6 +8,19 @@
     "decimals": "1e18",
     "composable": true,
     "bptIndex": 0,
+    "lsUrl": [
+      "https://api.balancer.fi/pools/1/0x848a5564158d84b8a8fb68ab5d004fae11619a5400000000000000000000066a",
+      "https://api.balancer.fi/pools/1/0x848a5564158d84b8a8fb68ab5d004fae11619a5400000000000000000000066a",
+      "https://api.balancer.fi/pools/1/0x848a5564158d84b8a8fb68ab5d004fae11619a5400000000000000000000066a"
+    ],
+    "dataPath": [
+      "$.apr.tokenAprs.breakdown['0xbf5495efe5db9ce00f80364c8b423567e58d2110']",
+      "$.apr.tokenAprs.breakdown['0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee']",
+      "$.apr.tokenAprs.breakdown['0xfae103dc9cf190ed75350761e95403b7b8afa6c0']"
+    ],
+    "lsIndex": [0, 1, 2],
+    "divisor": [10000, 10000, 10000],
+    "useBalancerLsApr": true,
     "rewards": [
       {
         "rewardGauge": "0x607858e1c3C4a9E462556A7CC752bB2192A42391",
