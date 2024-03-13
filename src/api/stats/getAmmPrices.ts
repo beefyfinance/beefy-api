@@ -610,6 +610,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'renzo-restaked-eth': ['ezETH'],
   'qi-dao': ['QIv2'],
   'verified-usd-foundation-usdv': ['USDV'],
+  'kelp-dao-restaked-eth': ['rsETH'],
 };
 
 /**

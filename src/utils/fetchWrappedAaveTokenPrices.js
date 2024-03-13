@@ -10,12 +10,13 @@ import { addressBook } from '../../packages/address-book/address-book';
 import { fetchContract } from '../api/rpc/client';
 import WrappedAaveTokenAbi from '../abis/WrappedAaveToken';
 import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token';
+import rswETHAbi from '../abis/rswETH';
 
 const RAY_DECIMALS = '1e27';
 
 const {
   ethereum: {
-    tokens: { aUSDT, waUSDT, aUSDC, waUSDC, aDAI, waDAI, aETH, waETH, DAI, sDAI },
+    tokens: { aUSDT, waUSDT, aUSDC, waUSDC, aDAI, waDAI, aETH, waETH, DAI, sDAI, rsETH, rswETH },
   },
   polygon: {
     tokens: { amUSDT, wamUSDT, amUSDC, wamUSDC, amDAI, wamDAI, aWMATIC, waWMATIC, aWETH, waWETH },
@@ -49,6 +50,7 @@ const tokens = {
     [aDAI, waDAI],
     [aETH, waETH],
     [DAI, sDAI, true],
+    [rsETH, rswETH, true, true],
   ],
   polygon: [
     [amUSDT, wamUSDT],
@@ -85,6 +87,9 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
     if (!token[2]) {
       const contract = fetchContract(token[1].address, WrappedAaveTokenAbi, chainId);
       return contract.read.rate();
+    } else if (token[3]) {
+      const contract = fetchContract(token[1].address, rswETHAbi, chainId);
+      return contract.read.getRate();
     } else {
       const contract = fetchContract(token[1].address, WrappedAave4626TokenAbi, chainId);
       return contract.read.convertToShares([1e18]);
@@ -103,6 +108,8 @@ const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
   return wrappedRates.map((v, i) =>
     !tokens[i][2]
       ? v.times(tokenPrices[tokens[i][0].oracleId]).dividedBy(RAY_DECIMALS).toNumber()
+      : tokens[i][0].oracleId === 'rsETH'
+      ? v.times(tokenPrices[tokens[i][0].oracleId]).dividedBy('1e18').toNumber()
       : new BigNumber(tokenPrices[tokens[i][0].oracleId]).times('1e18').dividedBy(v).toNumber()
   );
 };

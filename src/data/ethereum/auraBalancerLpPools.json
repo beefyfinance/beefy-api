@@ -44,7 +44,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "rsETH",
+        "oracleId": "rswETH",
         "decimals": "1e18"
       }
     ]

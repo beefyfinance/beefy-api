@@ -1811,6 +1811,21 @@ const _tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  rswETH: {
+    chainId: 1,
+    address: '0xFAe103DC9cf190eD75350761e95403b7b8aFa6c0',
+    decimals: 18,
+    name: 'KelpDao Restaked ETH',
+    symbol: 'rswETH',
+    oracleId: 'rswETH',
+    logoURI: '',
+    website: 'https://kelpdao.xyz/',
+    documentation: 'https://kelp.gitbook.io/kelp',
+    description:
+      'rsETH is a Liquid Restaked Token (LRT) issued by Kelp DAO designed to offer liquidity to illiquid assets deposited into restaking platforms, such as EigenLayer.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
