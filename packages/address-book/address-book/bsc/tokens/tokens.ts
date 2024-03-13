@@ -4643,7 +4643,7 @@ const _tokens = {
     description:
       'Verified USD (USDV) is the first stablecoin that rewards Verified Minters based on their contribution to the tokens active circulation.',
     documentation: 'https://docs.usdv.money/docs',
-    bridge: 'native',
+    bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
 } as const;
