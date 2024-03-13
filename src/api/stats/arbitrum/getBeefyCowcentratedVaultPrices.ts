@@ -29,7 +29,7 @@ const sources = [
       '0x35751007a407ca6FEFfE80b3cB397736D2cf4dbe',
       '0x82aF49447D8a07e3bd95BD0d56f35241523fBab1',
     ],
-    tokenOracleIds: ['weETH", "WETH'],
+    tokenOracleIds: ['weETH', 'WETH'],
     decimals: [18, 18],
     oracleId: 'uniswap-cow-weeth-eth',
   },
