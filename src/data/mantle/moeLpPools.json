@@ -1,5 +1,100 @@
 [
   {
+    "name": "moe-usdt-meth",
+    "address": "0x5c819961990c9F4f9fBfd4101f1D4e565B8AA0a6",
+    "decimals": "1e18",
+    "poolId": 22,
+    "chainId": 5000,
+    "lp0": {
+      "address": "0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xcDA86A272531e8640cD7F1a92c01839911B90bb0",
+      "oracle": "tokens",
+      "oracleId": "mETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "moe-usdc-meth",
+    "address": "0xaF50CD8C03096a416Fc1B88E328Bab3E09e0F175",
+    "decimals": "1e18",
+    "poolId": 21,
+    "chainId": 5000,
+    "lp0": {
+      "address": "0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xcDA86A272531e8640cD7F1a92c01839911B90bb0",
+      "oracle": "tokens",
+      "oracleId": "mETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "moe-wbtc-meth",
+    "address": "0x198c826AF31938736539E7025d81caa7b8952094",
+    "decimals": "1e18",
+    "poolId": 20,
+    "chainId": 5000,
+    "lp0": {
+      "address": "0xCAbAE6f6Ea1ecaB08Ad02fE02ce9A44F09aebfA2",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xcDA86A272531e8640cD7F1a92c01839911B90bb0",
+      "oracle": "tokens",
+      "oracleId": "mETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "moe-moe-meth",
+    "address": "0x57dbBf8ad81898F430cF45FEad615a1e049c9F76",
+    "decimals": "1e18",
+    "poolId": 19,
+    "chainId": 5000,
+    "lp0": {
+      "address": "0x4515A45337F461A11Ff0FE8aBF3c606AE5dC00c9",
+      "oracle": "tokens",
+      "oracleId": "MOE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcDA86A272531e8640cD7F1a92c01839911B90bb0",
+      "oracle": "tokens",
+      "oracleId": "mETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "moe-wmnt-meth",
+    "address": "0xa375ea3e1f92d62e3A71B668bAb09f7155267fa3",
+    "decimals": "1e18",
+    "poolId": 18,
+    "chainId": 5000,
+    "lp0": {
+      "address": "0x78c1b0C915c4FAA5FffA6CAbf0219DA63d7f4cb8",
+      "oracle": "tokens",
+      "oracleId": "WMNT",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcDA86A272531e8640cD7F1a92c01839911B90bb0",
+      "oracle": "tokens",
+      "oracleId": "mETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "moe-joe-moe",
     "address": "0xb670D2B452D0Ecc468cccFD532482d45dDdDe2a1",
     "decimals": "1e18",
