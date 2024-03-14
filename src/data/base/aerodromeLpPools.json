@@ -1,28 +1,8 @@
 [
   {
-    "name": "aerodrome-aero-dog",
-    "address": "0x656D48D3F337c6b3cD2ED8471B135fF54b1F96Ad",
-    "gauge": "0xDcC24121BAe131F952B09A08E65b95642F093794",
-    "decimals": "1e18",
-    "chainId": 8453,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
-      "oracle": "tokens",
-      "oracleId": "AERO",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x9E53e88dCff56d3062510A745952DEC4cEFDff9E",
-      "oracle": "tokens",
-      "oracleId": "DOG",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "aerodrome-weth-dog",
-    "address": "0xF89042057D079debe2a65A1a899E48E0E825105F",
-    "gauge": "0x15093ed45C2A3F88393d41bC436003E2b8115aD5",
+    "name": "aerodrome-weth-reth",
+    "address": "0xA6F8A6bc3deA678d5bA786f2Ad2f5F93d1c87c18",
+    "gauge": "0xa6EBa5855FFbC282B2130DBFe18Aa37E38B6A939",
     "decimals": "1e18",
     "chainId": 8453,
     "beefyFee": 0.095,
