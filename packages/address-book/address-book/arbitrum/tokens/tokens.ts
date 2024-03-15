@@ -1505,6 +1505,62 @@ const _tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xfCe146bF3146100cfe5dB4129cf6C82b0eF4Ad8c.png',
   },
+  OP: {
+    name: 'OP',
+    symbol: 'OP',
+    oracleId: 'OP',
+    address: '0xaC800FD6159c2a2CB8fC31EF74621eB430287a5A',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.optimism.io/governance',
+    description:
+      'Optimistic Rollup is a layer 2 scaling solution that scales both transaction throughput and computation on Ethereum. The backbone of our implementation is the Optimistic Virtual Machine (OVM), which is fully compatible with the EVM.',
+    documentation: 'https://help.optimism.io/hc/en-us/articles/5497354656283-What-is-the-Optimism-Token',
+    bridge: 'layer-zero',
+  },
+  WBNB: {
+    name: 'Wrapped BNB',
+    symbol: 'WBNB',
+    oracleId: 'WBNB',
+    address: '0xa9004A5421372E1D83fB1f85b0fc986c912f91f3',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.binance.com/',
+    description:
+      'Binance Coin (BNB) is an exchange-based token created and issued by the cryptocurrency exchange Binance. Initially created on the Ethereum blockchain as an ERC-20 token in July 2017, BNB was migrated over to Binance Chain in February 2019 and became the native coin of the Binance Chain.',
+    documentation: 'https://www.binance.com/en/bnb',
+    bridge: 'layer-zero',
+  },
+  AAVE: {
+    name: 'AAVE',
+    symbol: 'AAVE',
+    oracleId: 'AAVE',
+    address: '0xba5DdD1f9d7F570dc94a51479a000E3BCE967196',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://aave.com/',
+    description:
+      'Aave is a decentralized non-custodial liquidity protocol where users can participate as depositors or borrowers. Depositors provide liquidity to the market to earn a passive income, while borrowers are able to borrow in an overcollateralized (perpetually) or undercollateralized (one-block liquidity) fashion.',
+    documentation: 'https://docs.aave.com/',
+    bridge: 'arbitrum-canonical',
+  },
+  WAVAX: {
+    name: 'WAVAX',
+    symbol: 'WAVAX',
+    oracleId: 'WAVAX',
+    address: '0x565609fAF65B92F7be02468acF86f8979423e514',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.avalabs.org/',
+    description:
+      'Avalanche is the fastest smart contracts platform in the blockchain industry, as measured by time-to-finality, and has the most validators securing its activity of any proof-of-stake protocol.',
+    documentation: 'https://docs.avax.network/learn/avalanche/avax',
+    bridge: 'wormhole',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

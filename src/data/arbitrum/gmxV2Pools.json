@@ -1,5 +1,113 @@
 [
   {
+    "name": "gmx-arb-op-usdc",
+    "address": "0x4fDd333FF9cA409df583f306B6F5a7fFdE790739",
+    "index": {
+      "symbol": "OP",
+      "address": "0xaC800FD6159c2a2CB8fC31EF74621eB430287a5A"
+    },
+    "long": {
+      "symbol": "OP",
+      "address": "0xaC800FD6159c2a2CB8fC31EF74621eB430287a5A",
+      "decimals": "1e18"
+    },
+    "short": {
+      "symbol": "USDC",
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "gmx-arb-atom-usdc",
+    "address": "0x248C35760068cE009a13076D573ed3497A47bCD4",
+    "index": {
+      "symbol": "ATOM",
+      "address": "0x7D7F1765aCbaF847b9A1f7137FE8Ed4931FbfEbA"
+    },
+    "long": {
+      "symbol": "ETH",
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "decimals": "1e18"
+    },
+    "short": {
+      "symbol": "USDC",
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "gmx-arb-bnb-usdc",
+    "address": "0x2d340912Aa47e33c90Efb078e69E70EFe2B34b9B",
+    "index": {
+      "symbol": "BNB",
+      "address": "0xa9004A5421372E1D83fB1f85b0fc986c912f91f3"
+    },
+    "long": {
+      "symbol": "BNB",
+      "address": "0xa9004A5421372E1D83fB1f85b0fc986c912f91f3",
+      "decimals": "1e18"
+    },
+    "short": {
+      "symbol": "USDC",
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "gmx-arb-aave-usdc",
+    "address": "0x1CbBa6346F110c8A5ea739ef2d1eb182990e4EB2",
+    "index": {
+      "symbol": "AAVE",
+      "address": "0xba5DdD1f9d7F570dc94a51479a000E3BCE967196"
+    },
+    "long": {
+      "symbol": "AAVE",
+      "address": "0xba5DdD1f9d7F570dc94a51479a000E3BCE967196",
+      "decimals": "1e18"
+    },
+    "short": {
+      "symbol": "USDC",
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "gmx-arb-near-usdc",
+    "address": "0x63Dc80EE90F26363B3FCD609007CC9e14c8991BE",
+    "index": {
+      "symbol": "NEAR",
+      "address": "0x1FF7F3EFBb9481Cbd7db4F932cBCD4467144237C"
+    },
+    "long": {
+      "symbol": "ETH",
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "decimals": "1e18"
+    },
+    "short": {
+      "symbol": "USDC",
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "gmx-arb-avax-usdc",
+    "address": "0x7BbBf946883a5701350007320F525c5379B8178A",
+    "index": {
+      "symbol": "AVAX",
+      "address": "0x565609fAF65B92F7be02468acF86f8979423e514"
+    },
+    "long": {
+      "symbol": "AVAX",
+      "address": "0x565609fAF65B92F7be02468acF86f8979423e514",
+      "decimals": "1e18"
+    },
+    "short": {
+      "symbol": "USDC",
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "gmx-arb-wbtc-usdc",
     "address": "0x47c031236e19d024b42f8AE6780E44A573170703",
     "index": {
