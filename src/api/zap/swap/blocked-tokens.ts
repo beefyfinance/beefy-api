@@ -603,5 +603,5 @@ export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
   base: new Set([]),
   gnosis: new Set([]),
   linea: new Set([]),
-  // mantle: new Set([]),
+  mantle: new Set([]),
 };

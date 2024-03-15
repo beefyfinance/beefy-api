@@ -244,11 +244,11 @@ const rpcs: Record<ChainId, string[]> = {
     'https://aurora.drpc.org',
     'https://1rpc.io/aurora',
   ],
-  // [ChainId.mantle]: [
-  //   'https://rpc.mantle.xyz',
-  //   'https://rpc.ankr.com/mantle',
-  //   'https://1rpc.io/mantle',
-  // ],
+  [ChainId.mantle]: [
+    'https://rpc.mantle.xyz',
+    'https://rpc.ankr.com/mantle',
+    'https://1rpc.io/mantle',
+  ],
 };
 
 export const getChainRpcs = (chainId: ChainId): string[] => rpcs[chainId] ?? [];

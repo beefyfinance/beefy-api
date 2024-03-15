@@ -54,7 +54,7 @@ const _addressBook: {
   readonly base: Chain;
   readonly gnosis: Chain;
   readonly linea: Chain;
-  // readonly mantle: Chain;
+  readonly mantle: Chain;
 } = {
   polygon,
   bsc,
@@ -80,7 +80,7 @@ const _addressBook: {
   base,
   gnosis,
   linea,
-  // mantle,
+  mantle,
 } as const;
 
 const _addressBookByChainId: {
@@ -108,7 +108,7 @@ const _addressBookByChainId: {
   readonly '8453': Chain;
   readonly '100': Chain;
   readonly '59144': Chain;
-  // readonly '5000': Chain;
+  readonly '5000': Chain;
 } = {
   [ChainId.polygon]: polygon,
   [ChainId.bsc]: bsc,
@@ -134,7 +134,7 @@ const _addressBookByChainId: {
   [ChainId.base]: base,
   [ChainId.gnosis]: gnosis,
   [ChainId.linea]: linea,
-  // [ChainId.mantle]: mantle,
+  [ChainId.mantle]: mantle,
 } as const;
 
 export const addressBook: ConstRecord<typeof _addressBook, Chain> = _addressBook;
