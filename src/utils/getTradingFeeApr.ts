@@ -419,7 +419,7 @@ export const getGmxTradingFeeApr = async (
   client: ApolloClient<NormalizedCacheObject>,
   marketAddresses: string[]
 ) => {
-  const [start, end] = getUtcSecondsFromDayRange(0, 7);
+  const [start, end] = getUtcSecondsFromDayRange(0, 1);
   const marketAddressToAprMap: Record<string, BigNumber> = {};
 
   try {
