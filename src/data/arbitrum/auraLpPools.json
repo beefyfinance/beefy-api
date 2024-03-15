@@ -1,5 +1,101 @@
 [
   {
+    "name": "aura-arb-wsteth-sfrxeth",
+    "address": "0xc2598280bFeA1Fe18dFcaBD21C7165c40c6859d3",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x83D37cbA332ffd53A4336Ee06f3c301B8929E684",
+    "composable": true,
+    "bptIndex": 2,
+    "vaultPoolId": "0xc2598280bfea1fe18dfcabd21c7165c40c6859d30000000000000000000004f3",
+    "lsIndex": [0, 1],
+    "lsUrl": [
+      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+      "https://api.frax.finance/v2/frxeth/summary/latest"
+    ],
+    "dataPath": ["$.data.smaApr", "$.sfrxethApr"],
+    "lsAprFactor": [1, 1],
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x5c1fD01871f6B6B79D333d3d6a7b7Ce507C167CF",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x2a814785f776D0FC3c8CB5ccDa839666830F5A2a",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      }
+    ]
+  },
+  {
+    "name": "aura-arb-cbeth-wsteth-reth-v2",
+    "address": "0x2d6CeD12420a9AF5a83765a8c48Be2aFcD1A8FEb",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x8FFD26d63724AEa6A4208f2704d7EbEBaA790f46",
+    "composable": true,
+    "bptIndex": 1,
+    "vaultPoolId": "0x2d6ced12420a9af5a83765a8c48be2afcd1a8feb000000000000000000000500",
+    "lsIndex": [0, 1, 2],
+    "lsUrl": [
+      "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
+      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+      "https://api.rocketpool.net/api/apr"
+    ],
+    "dataPath": ["$.apy", "$.data.smaApr", "$.yearlyAPR"],
+    "lsAprFactor": [1, 1, 1],
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x3E7B118E768b8f2b177cc3B0b9Eb068a5b54b81b",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x949b9f6a146Be352721BF8b096f7eb88De278B0A",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "cbETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-sveth-svbtc-svusd",
     "address": "0xd1882cA6A22f3Df54CD675b300B815864DE67B20",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
