@@ -670,5 +670,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.base]: baseChain,
   [ChainId.gnosis]: gnosisChain,
   [ChainId.linea]: lineaChain,
-  [ChainId.mantle]: mantleChain,
+  // [ChainId.mantle]: mantleChain,
 } as const;

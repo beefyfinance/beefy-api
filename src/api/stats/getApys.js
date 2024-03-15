@@ -20,7 +20,7 @@ const { getZkevmApys } = require('./zkevm');
 const { getBaseApys } = require('./base');
 const { getGnosisApys } = require('./gnosis');
 const { getLineaApys } = require('./linea');
-const { getMantleApys } = require('./mantle');
+// const { getMantleApys } = require('./mantle');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs } = require('./getBoostAprs');
 

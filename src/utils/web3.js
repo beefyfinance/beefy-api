@@ -75,9 +75,9 @@ module.exports = {
   get lineaWeb3() {
     return chainRandomClients.lineaRandomClient();
   },
-  get mantleWeb3() {
-    return chainRandomClients.mantleRandomClient();
-  },
+  // get mantleWeb3() {
+  //   return chainRandomClients.mantleRandomClient();
+  // },
 
   web3Factory: _web3Factory,
 
