@@ -69,7 +69,7 @@ const updateApys = async () => {
       getBaseApys(),
       getGnosisApys(),
       getLineaApys(),
-      getMantleApys(),
+      // getMantleApys(),
     ]);
 
     for (const result of results) {

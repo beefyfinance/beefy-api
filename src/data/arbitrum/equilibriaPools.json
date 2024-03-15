@@ -1,5 +1,25 @@
 [
   {
+    "name": "equilibria-arb-ausdc-jun24",
+    "address": "0xBa4A858d664Ddb052158168DB04AFA3cFF5CFCC8",
+    "gauge": "0x6e6BF77D70B79413e8e13F3dE6d50dAdB22adF77",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  },
+  {
     "name": "equilibria-arb-ezeth",
     "address": "0x60712e3C9136CF411C561b4E948d4d26637561e7",
     "gauge": "0xFaaEc6Bb2d8cb33825EC4F077d71089F3a2a7F7a",
