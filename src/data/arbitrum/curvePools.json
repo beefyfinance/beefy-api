@@ -1,5 +1,34 @@
 [
   {
+    "name": "curve-arb-asdcrv",
+    "pool": "0xB85246768Cfea42b0c935265Db798C9Ae457646f",
+    "gauge": "0x25E822B65a58Ce1A53DbC327d4fA489351FB1Df0",
+    "rewards": [
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "asdCRV",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sdCRV",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-tricryptofrax",
     "pool": "0x3c64d44ab19d63f09ebad38fd7b913ab7e15e341",
     "gauge": "0x0b5f23b68c07bbdedbb18d822d20b4f0e5b7594f",

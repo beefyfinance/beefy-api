@@ -52,7 +52,7 @@ const getApys = [
   getRamsesApys,
   getChronosApys,
   getArbidexApys,
-  getBunniArbApys,
+  // getBunniArbApys,
   getArbCompoundV3Apys,
 ];
 

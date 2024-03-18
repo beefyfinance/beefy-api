@@ -77,6 +77,7 @@ const getPoolApys = async (chainId, pools) => {
             ? new BigNumber(0)
             : extraRewardsInUsd.div(totalStakedInUsd);
         const eqbArbApy = arbApys[pool.address] || 0;
+        // console.log(pool.name, 'ARB', poolArbApy.valueOf(), eqbArbApy.valueOf());
         if (poolArbApy.gt(eqbArbApy)) {
           yearlyRewardsInUsd = yearlyRewardsInUsd.plus(extraRewardsInUsd);
         } else {

@@ -1409,6 +1409,32 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://curve.readthedocs.io/',
   },
+  asdCRV: {
+    name: 'Aladdin sdCRV',
+    address: '0x75289388d50364c3013583d97bd70cED0e183e32',
+    symbol: 'asdCRV',
+    oracleId: 'asdCRV',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://concentrator.aladdin.club/',
+    description:
+      'asdCRV represents the compounding sdCRV in the StakeDAO CRV Locker. The total amount of asdCRV contained in the compounder is equal to the total sdCRV balance multiplied by the current index',
+    bridge: 'stargate',
+    logoURI: '',
+  },
+  vsdCRV: {
+    name: 'Vote Boosted sdCRV',
+    address: '0x62d5a59E0d67c0381aAd53B201B4A1B8Dcd2C833',
+    symbol: 'vsdCRV',
+    oracleId: 'sdCRV',
+    decimals: 18,
+    chainId: 42161,
+    website: 'https://www.stakedao.org/lockers/crv',
+    description:
+      'The vsdCRV allows sdCRV holders to boost their voting power, thanks to the delegated veSDT. They will also benefit from vote incentives.',
+    bridge: 'stargate',
+    logoURI: '',
+  },
   crvUSD: {
     name: 'Curve.Fi USD Stablecoin',
     symbol: 'crvUSD',
@@ -1516,7 +1542,8 @@ const _tokens = {
     website: 'https://app.optimism.io/governance',
     description:
       'Optimistic Rollup is a layer 2 scaling solution that scales both transaction throughput and computation on Ethereum. The backbone of our implementation is the Optimistic Virtual Machine (OVM), which is fully compatible with the EVM.',
-    documentation: 'https://help.optimism.io/hc/en-us/articles/5497354656283-What-is-the-Optimism-Token',
+    documentation:
+      'https://help.optimism.io/hc/en-us/articles/5497354656283-What-is-the-Optimism-Token',
     bridge: 'layer-zero',
   },
   WBNB: {
