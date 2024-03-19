@@ -59,7 +59,7 @@
       "https://api.rocketpool.net/api/apr"
     ],
     "dataPath": ["$.apy", "$.data.smaApr", "$.yearlyAPR"],
-    "lsAprFactor": [1, 1, 1],
+    "lsAprFactor": [100, 1, 1],
     "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
