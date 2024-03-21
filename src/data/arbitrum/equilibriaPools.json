@@ -1,5 +1,45 @@
 [
   {
+    "name": "equilibria-arb-glp-26sep24",
+    "address": "0x551c423c441db0B691b5630F04d2080Caee25963",
+    "gauge": "0xB45271BC4689A2c4013B8fb9dFb08CFEDbAFC033",
+    "oracle": "lps",
+    "oracleId": "gmx-arb-glp",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  },
+  {
+    "name": "equilibria-arb-gdai-26sep24",
+    "address": "0x99Ed4F0Ab6524d26B31D0aEa087eBe20D5949e0f",
+    "gauge": "0x2E18b7f6fDcff5177937387A21f0bDa54B77Ff78",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  },
+  {
     "name": "equilibria-arb-ausdc-jun24",
     "address": "0xBa4A858d664Ddb052158168DB04AFA3cFF5CFCC8",
     "gauge": "0x6e6BF77D70B79413e8e13F3dE6d50dAdB22adF77",
