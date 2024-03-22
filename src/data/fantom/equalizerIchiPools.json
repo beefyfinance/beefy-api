@@ -1,0 +1,82 @@
+[
+  {
+    "name": "equalizer-ichi-lzusdc-wftm",
+    "address": "0xFd5644b34542ef925055eB8f7c60c6F5c0e164B2",
+    "gauge": "0xA40DA37dc96EA34DD98a01E204398283254008a0",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x28a92dde19D9989F39A49905d7C9C2FAc7799bDf",
+      "oracle": "tokens",
+      "oracleId": "lzUSDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equalizer-ichi-wftm-lzusdc",
+    "address": "0xC787A620f0351f5A3397e309C123a527E5E8cF18",
+    "gauge": "0xffF3ce1C6512A7C2d00CC6D93E5B7eEcE8a8F658",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x28a92dde19D9989F39A49905d7C9C2FAc7799bDf",
+      "oracle": "tokens",
+      "oracleId": "lzUSDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equalizer-ichi-wftm-axlusdc",
+    "address": "0x27A1a8f8075703D5C53CC3c64Ecb53f0aFe7965e",
+    "gauge": "0xf0a835CfCB7df3E41935a06F3B5431Be519A05A5",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1B6382DBDEa11d97f24495C9A90b7c88469134a4",
+      "oracle": "tokens",
+      "oracleId": "axlUSDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "equalizer-ichi-axlusdc-wftm",
+    "address": "0xCF5479554Fa2031D9a579446508c20bb55E2C065",
+    "gauge": "0x18bC2ede03B6FE8Cc0bcb11c0E62F91AEC854e31",
+    "decimals": "1e18",
+    "chainId": 250,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1B6382DBDEa11d97f24495C9A90b7c88469134a4",
+      "oracle": "tokens",
+      "oracleId": "axlUSDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
+      "oracle": "tokens",
+      "oracleId": "WFTM",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -6,6 +6,7 @@ const stablePools = require('../../../data/fantom/equalizerStableLpPools.json');
 const volatilePools = require('../../../data/fantom/equalizerLpPools.json');
 const stableV2Pools = require('../../../data/fantom/equalizerV2StableLpPools.json');
 const volatileV2Pools = require('../../../data/fantom/equalizerV2LpPools.json');
+const ichiPools = require('../../../data/fantom/equalizerIchiPools.json');
 import { addressBook } from '../../../../packages/address-book/address-book';
 const {
   fantom: {
@@ -13,7 +14,13 @@ const {
   },
 } = addressBook;
 
-const pools = [...stablePools, ...volatilePools, ...stableV2Pools, ...volatileV2Pools];
+const pools = [
+  ...stablePools,
+  ...volatilePools,
+  ...stableV2Pools,
+  ...volatileV2Pools,
+  ...ichiPools,
+];
 const getEqualizerApys = async () => {
   const gaugeApys = getSolidlyGaugeApys({
     chainId: chainId,

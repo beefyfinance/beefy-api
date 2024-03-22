@@ -3,8 +3,9 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
 const stablePools = require('../../../data/base/equalizerStableLpPools.json');
 const volatilePools = require('../../../data/base/equalizerLpPools.json');
+const ichiPools = require('../../../data/base/equalizerIchiPools.json');
 
-const pools = [...stablePools, ...volatilePools];
+const pools = [...stablePools, ...volatilePools, ...ichiPools];
 const getEqualizerApys = async () => {
   const gaugeApys = getSolidlyGaugeApys({
     chainId: chainId,

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "equalizer-base-ichi-weth-usdbc",
+    "address": "0x0E8CD30FC79a79cf16E11424ff5681441361149E",
+    "gauge": "0x3c93f6391F1A3E9609e23C7424Ffe4C029F2035A",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "equalizer-base-ichi-usdbc-weth",
+    "address": "0x98c7030EA996D325559E3B0f0eCf800C3F376Fe4",
+    "gauge": "0x98adFeA120f646315eb8d7492be29a177344fD1e",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA",
+      "oracle": "tokens",
+      "oracleId": "USDbC",
+      "decimals": "1e6"
+    }
+  }
+]
