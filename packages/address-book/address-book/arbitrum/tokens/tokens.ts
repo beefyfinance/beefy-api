@@ -1381,6 +1381,20 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',
   },
+  'USDT+': {
+    name: 'USDT+',
+    symbol: 'USDT+',
+    oracleId: 'USDT+',
+    address: '0xb1084db8D3C05CEbd5FA9335dF95EE4b8a0edc30',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'USDT+ is USDT that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDT. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    bridge: 'native',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
   SOL: {
     name: 'Wrapped SOL',
     symbol: 'SOL',

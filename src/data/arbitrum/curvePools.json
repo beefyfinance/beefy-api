@@ -1,5 +1,29 @@
 [
   {
+    "name": "curve-arb-usd+usdt+",
+    "pool": "0x1446999b0b0e4f7ada6ee73f2ae12a2cfdc5d9e7",
+    "gauge": "0xd68089d9daa2da7888b7ef54158480e09ecc3580",
+    "rewards": [
+      {
+        "token": "0xa3d1a8deb97b111454b294e2324efad13a9d8396",
+        "oracleId": "OVN"
+      }
+    ],
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USD+",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDT+",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-asdcrv",
     "pool": "0xB85246768Cfea42b0c935265Db798C9Ae457646f",
     "gauge": "0x25E822B65a58Ce1A53DbC327d4fA489351FB1Df0",
@@ -291,6 +315,12 @@
     "pool": "0xb34a7d1444a707349bc7b981b7f2e1f20f81f013",
     "gauge": "0x4645e6476d3a5595be9efd39426cc10586a8393d",
     "convex": true,
+    "rewards": [
+      {
+        "token": "0xa3d1a8deb97b111454b294e2324efad13a9d8396",
+        "oracleId": "OVN"
+      }
+    ],
     "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
