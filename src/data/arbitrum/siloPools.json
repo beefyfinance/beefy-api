@@ -1,5 +1,31 @@
 [
   {
+    "name": "silo-usdce-arb",
+    "address": "0x55ADE3B74abef55bF379FF6Ae61CB77a405Eb4A8",
+    "underlying": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+    "silo": "0x0696E6808EE11a5750733a3d821F9bB847E584FB",
+    "oracleId": "arbUSDCe",
+    "decimals": "1e6",
+    "chainId": 42161,
+    "rewardOracleId": "ARB",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680",
+    "lens": "0xBDb843c7a7e48Dc543424474d7Aa63b61B5D9536"
+  },
+  {
+    "name": "silo-usdce-wbtc",
+    "address": "0xFb6DE7D8Ca3Ec3396bB1Cc53adDEf1F26468055B",
+    "underlying": "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8",
+    "silo": "0x69eC552BE56E6505703f0C861c40039e5702037A",
+    "oracleId": "arbUSDCe",
+    "decimals": "1e6",
+    "chainId": 42161,
+    "rewardOracleId": "ARB",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680",
+    "lens": "0xBDb843c7a7e48Dc543424474d7Aa63b61B5D9536"
+  },
+  {
     "name": "silo-eth-pendle-weeth",
     "address": "0x8Be4715f1DB9e8551fEA5ef8b30A2eb99398e5d2",
     "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
