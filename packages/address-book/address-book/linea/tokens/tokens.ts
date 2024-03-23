@@ -137,7 +137,7 @@ const _tokens = {
   MAI: {
     name: 'Mai Stablecoin',
     symbol: 'MAI',
-    oracleId: 'MAI',
+    oracleId: 'lMAI',
     address: '0xf3B001D64C656e30a62fbaacA003B1336b4ce12A',
     chainId: 59144,
     decimals: 18,
