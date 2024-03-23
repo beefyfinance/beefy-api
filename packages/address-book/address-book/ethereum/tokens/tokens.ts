@@ -1819,10 +1819,10 @@ const _tokens = {
     symbol: 'rswETH',
     oracleId: 'rswETH',
     logoURI: '',
-    website: 'https://kelpdao.xyz/',
-    documentation: 'https://kelp.gitbook.io/kelp',
+    website: 'https://www.swellnetwork.io/liquid-restaking',
+    documentation: 'https://docs.swellnetwork.io/swell/rsweth-liquid-restaking',
     description:
-      'rsETH is a Liquid Restaked Token (LRT) issued by Kelp DAO designed to offer liquidity to illiquid assets deposited into restaking platforms, such as EigenLayer.',
+      'rswETH is a Liquid Restaked Token (LRT) issued by Swell network designed to offer liquidity to illiquid assets deposited into restaking platforms, such as EigenLayer.',
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
