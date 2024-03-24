@@ -42,5 +42,14 @@
     "decimals": "1e18",
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
     "dataPath": "$.data.smaApr"
+  },
+  {
+    "name": "mendi-linea-ezeth",
+    "cToken": "0x8a90D208666Deec08123444F67Bf5B1836074a67",
+    "oracle": "tokens",
+    "oracleId": "ezETH",
+    "decimals": "1e18",
+    "lsUrl": "https://app.renzoprotocol.com/api/stats?chainId=59144",
+    "dataPath": "$.data.apr.data"
   }
 ]

@@ -177,6 +177,21 @@ const _tokens = {
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
   },
+  ezETH: {
+    name: 'Renzo Restaked ETH Token',
+    symbol: 'ezETH',
+    oracleId: 'ezETH',
+    address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.renzoprotocol.com/',
+    description:
+      'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
+    documentation: 'https://docs.renzoprotocol.com/docs/',
+    bridge: 'connext',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
