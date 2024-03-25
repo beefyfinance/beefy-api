@@ -29,6 +29,7 @@ export const supportedChains: Partial<Record<ApiChain, string>> = {
   linea: 'linea',
   zkevm: 'polygon-zkevm',
   aurora: 'aurora',
+  mantle: 'mantle',
 } as const;
 
 const swapApiByChain: Partial<Record<ApiChain, IKyberApi>> = {};
