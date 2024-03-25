@@ -1,5 +1,42 @@
 [
   {
+    "name": "convex-aleth-frxeth",
+    "pool": "0xb657b895b265c38c53fff00166cf7f6a3c70587d",
+    "gauge": "0x415f30505368fa1db82feea02eb778be04e75907",
+    "rewardPool": "0xe0DbbCF08A5465db7c7401C86cce89030e11aB67",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "alETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "frxETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-alusd-fraxbp",
+    "pool": "0xb30da2376f63de30b42dc055c93fa474f31330a5",
+    "gauge": "0x740ba8aa0052e07b925908b380248cb03f3de5cb",
+    "rewardPool": "0x26598e3E511ADFadefD70ab2C3475Ff741741104",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "alUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-fraxusdc",
+        "oracle": "lps",
+        "oracleId": "convex-fraxusdc",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "prisma-mkusd-ultra",
     "pool": "0xC236BAE6e35b3Fb7335e1c35CA0862Ce92bd5DE3",
     "prismaCurvePool": "0xeE4Bd0E161D302c943B40b0A7eFa0Bcab4A4100f",

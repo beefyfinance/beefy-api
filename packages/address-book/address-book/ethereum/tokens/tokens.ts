@@ -262,6 +262,20 @@ const _tokens = {
     description:
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
   },
+  alUSD: {
+    name: 'Alchemix USD',
+    symbol: 'alUSD',
+    oracleId: 'alUSD',
+    address: '0xBC6DA0FE9aD5f3b0d58160288917AA56653660E9',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alchemix.fi/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+    bridge: 'native',
+    documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
+  },
   MIM: {
     name: 'Magic Internet Money',
     address: '0x99D8a9C45b2ecA8864373A26D1459e3Dff1e17F3',
