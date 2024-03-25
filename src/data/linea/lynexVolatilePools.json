@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "name": "lynex-usdc-mendi",
+    "address": "0xE5e19bBF39c76A8c980B48F2Ec89d0dE877bF567",
+    "gauge": "0x623AC24d0586579482184f5CBD07EA12CB0A4003",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x176211869cA2b568f2A7D4EE941E073a821EE1ff",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x43E8809ea748EFf3204ee01F08872F063e44065f",
+      "oracle": "tokens",
+      "oracleId": "MENDI",
+      "decimals": "1e18"
+    }
+  }
+]

@@ -300,6 +300,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 const pools = normalizePoolOracleIds([
   ...moePools,
   ...equalizerBasePools,
+  ...lynexPools,
   ...basoPools,
   ...swapBasedPools,
   ...alienBasePools,
