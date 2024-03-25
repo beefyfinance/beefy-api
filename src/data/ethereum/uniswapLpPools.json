@@ -2,7 +2,7 @@
   {
     "name": "uniswap-ethereum-bifi-eth-0.3",
     "address": "0xfba26c3f9c8ecef989def3c5c8ad037487462d83",
-    "nftId": 588941,
+    "nftId": 697353,
     "beefyFee": 0,
     "poolFee": 0.3,
     "chainId": 1,
@@ -22,7 +22,7 @@
   {
     "name": "uniswap-ethereum-bifi-eth-0.3-tight",
     "address": "0xfba26c3f9c8ecef989def3c5c8ad037487462d83",
-    "nftId": 605204,
+    "nftId": 697355,
     "beefyFee": 0,
     "poolFee": 0.3,
     "chainId": 1,

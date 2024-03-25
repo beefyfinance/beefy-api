@@ -75,7 +75,6 @@ import { getCurveBasePrices } from './base/getCurvePrices';
 import { getConicPrices } from './ethereum/getConicPrices';
 import { getPolygonSolidlyStablePrices } from './matic/getPolygonSolidlyStablePrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
-import getBlueprintEthereumPrices from './ethereum/getBlueprintPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
 import getGammaBasePrices from './base/getGammaPrices';
@@ -139,7 +138,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getJoeAutoArbPrices(tokenPrices),
     getRetroGammaPrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
-    getBlueprintEthereumPrices(tokenPrices),
+    getUniswapEthereumPrices(tokenPrices),
     getSoliSnekStablePrices(tokenPrices),
     getVelocoreStablePrices(tokenPrices),
     getMmyOptimismPrices(tokenPrices),
