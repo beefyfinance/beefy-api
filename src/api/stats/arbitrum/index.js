@@ -25,6 +25,7 @@ const getBunniArbApys = require('./getBunniApys');
 const { getArbCompoundV3Apys } = require('./getArbCompoundV3Apys');
 const { getArbSiloApys } = require('./getArbitrumSiloApys');
 const { getEquilibriaApys } = require('../common/getEquilibriaApys');
+const { getBeefyArbCowApys } = require('./getBeefyArbCowApys');
 
 const getApys = [
   getArbSiloApys,
@@ -54,6 +55,7 @@ const getApys = [
   getArbidexApys,
   // getBunniArbApys,
   getArbCompoundV3Apys,
+  getBeefyArbCowApys,
 ];
 
 const getArbitrumApys = async () => {

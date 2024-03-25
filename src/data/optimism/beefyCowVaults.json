@@ -1,5 +1,35 @@
 [
   {
+    "address": "0x44EF0a7023e7B19619F29C09db690fA3DA655453",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"
+    ],
+    "tokenOracleIds": ["WETH", "mooBIFI"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-moobifi-eth-t2"
+  },
+  {
+    "address": "0xB8FB18a0F06a2Fd4c65B4168F561618Aab0768E7",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x4200000000000000000000000000000000000042"
+    ],
+    "tokenOracleIds": ["WETH", "OP"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-op-eth-t2"
+  },
+  {
+    "address": "0x9A864CAa21515D85C64323c5670C6a5b776D0e39",
+    "tokens": [
+      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9"
+    ],
+    "tokenOracleIds": ["USDC", "sUSD"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-op-susd-usdc-t2"
+  },
+  {
     "address": "0x9ba9232ae8b159558082642BDF77378Cfc0306fB",
     "tokens": [
       "0x4200000000000000000000000000000000000006",

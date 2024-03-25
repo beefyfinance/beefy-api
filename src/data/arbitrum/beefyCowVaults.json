@@ -1,5 +1,25 @@
 [
   {
+    "address": "0xb4f4CAC762ea999775ff425d27c2c5ef24EAb097",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0x912CE59144191C1204E64559FE8253a0e49E6548"
+    ],
+    "tokenOracleIds": ["WETH", "ARB"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-arb-eth"
+  },
+  {
+    "address": "0x86B75C2926a28aE94A0C61EA3f7dcDDDA1DE296A",
+    "tokens": [
+      "0x5979D7b546E38E414F7E9822514be443A4800529",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["wstETH", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-wseth-eth"
+  },
+  {
     "address": "0x487CeE58D6868f4662b716E4e1aB9DB728512789",
     "tokens": [
       "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
