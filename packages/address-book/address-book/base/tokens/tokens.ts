@@ -626,9 +626,52 @@ const _tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x9E53e88dCff56d3062510A745952DEC4cEFDff9E.svg',
     website: 'https://basicdog.xyz/',
-    description:
-      'The first meme coin on Base. Fairly Launched. Organic Growth. Good Vibes.',
+    description: 'The first meme coin on Base. Fairly Launched. Organic Growth. Good Vibes.',
     documentation: 'https://basicdog.gitbook.io/basic-meme-chain/',
+    bridge: 'native',
+  },
+  SNX: {
+    name: 'Synthetix Network Token',
+    symbol: 'SNX',
+    address: '0x22e6966B799c4D5B13BE962E1D117b56327FDa66',
+    chainId: 8453,
+    oracleId: 'SNX',
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.synthetix.io/',
+    description:
+      'Synthetix is the backbone for derivatives trading in DeFi, allowing anyone, anywhere to gain on-chain exposure to a vast range of assets.',
+    documentation:
+      'https://docs.synthetix.io/synthetix-protocol/the-synthetix-protocol/synthetix-token-snx',
+    bridge: 'base-canonical',
+  },
+  T: {
+    name: 'Threshold Network Token',
+    symbol: 'T',
+    address: '0x26f3901aC8a79c50fb0d8289C74f0d09AdC42E29',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'T',
+    logoURI: '',
+    website: 'https://threshold.network/',
+    description:
+      'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
+    documentation:
+      'https://docs.threshold.network/app-development/staking-contract-and-dao/staking-contract-and-dao-api/t',
+    bridge: 'base-canonical',
+  },
+  DEGEN: {
+    name: 'Degen',
+    symbol: 'DEGEN',
+    address: '0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'DEGEN',
+    logoURI: '',
+    website: 'https://www.degen.tips/',
+    description:
+      'Degen is an unofficial token that were distributed to the community on the decentralized social network, Farcaster.',
+    documentation: 'https://www.degen.tips/faq',
     bridge: 'native',
   },
 } as const;
