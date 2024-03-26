@@ -189,22 +189,6 @@
     ]
   },
   {
-    "name": "convex-cvxfxn",
-    "pool": "0x1062FD8eD633c1f080754c19317cb3912810B5e5",
-    "rewardPool": "0x19A0117a5bE27e4D3059Be13FB069eB8f1646d86",
-    "getDy": ["v1", 1, 0],
-    "tokens": [
-      {
-        "oracleId": "FXN",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "cvxFXN",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "curve-paypool",
     "pool": "0x383e6b4437b59fff47b619cba855ca29342a8559",
     "gauge": "0x9da75997624c697444958aded6790bfca96af19a",
@@ -245,24 +229,6 @@
       {
         "oracle": "tokens",
         "oracleId": "WETH",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "convex-fxn",
-    "pool": "0xC15F285679a1Ef2d25F53D4CbD0265E1D02F2A92",
-    "token": "0xE06A65e09Ae18096B99770A809BA175FA05960e2",
-    "gauge": "0xF42E2b73Ea79812a7c3E4bA8ed052c523765719f",
-    "rewardPool": "0x2b732f0Eee9e1b4329C25Cbb8bdC0dc3bC1448E2",
-    "getDy": ["v2", 1, 0],
-    "tokens": [
-      {
-        "oracleId": "ETH",
-        "decimals": "1e18"
-      },
-      {
-        "oracleId": "FXN",
         "decimals": "1e18"
       }
     ]
