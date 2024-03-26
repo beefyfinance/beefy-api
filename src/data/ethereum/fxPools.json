@@ -3,6 +3,7 @@
     "name": "fx-gho-fxusd",
     "pool": "0x74345504eaea3d9408fc69ae7eb2d14095643c5b",
     "gauge": "0xf0A3ECed42Dbd8353569639c0eaa833857aA0A75",
+    "getDy": ["v1", 0, 1],
     "tokens": [
       {
         "oracleId": "GHO",
