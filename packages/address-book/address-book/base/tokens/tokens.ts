@@ -674,6 +674,21 @@ const _tokens = {
     documentation: 'https://www.degen.tips/faq',
     bridge: 'native',
   },
+  SEXY: {
+    name: 'Settled ETHXY Token',
+    symbol: 'SEXY',
+    address: '0xD1917629B3E6A72E6772Aab5dBe58Eb7FA3C2F33',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'SEXY',
+    logoURI: '',
+    website: 'https://ethxy.com/',
+    description:
+      'EthXY is a MMORPG built on top of Telegram. SEXY is a game token used for a variety of game mechanics and weapon + armor purchases.',
+    documentation: 'https://ethxy.com/',
+    bridge: 'base-canonical',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
