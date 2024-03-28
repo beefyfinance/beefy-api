@@ -86,7 +86,7 @@ const getYearlyRewardsInUsd = async (
 ): Promise<BigNumber> => {
   const rewardPrice = await fetchPrice({ oracle: 'tokens', id: params.rewardId });
   let incentive = new BigNumber(0);
-  if (incentives.hasOwnProperty(pool.address)) incentive = new BigNumber(incentives[pool.address]);
+  if (incentives?.hasOwnProperty(pool.address)) incentive = new BigNumber(incentives[pool.address]);
   return incentive.dividedBy('1e18').times(rewardPrice).dividedBy(7).times(365);
 };
 
