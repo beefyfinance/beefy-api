@@ -20,15 +20,6 @@ const tradingFees = 0.0002;
 const subgraphUrl = 'https://api.curve.fi/api/getSubgraphData/ethereum';
 const pools = require('../../../data/ethereum/fxPools.json');
 
-export const getFxApys = async () => {
-  const [baseApys, farmApys] = await Promise.all([
-    getCurveBaseApys(pools, subgraphUrl),
-    getPoolApys(pools),
-  ]);
-  const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
-  return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
-};
-
 const defaultRewards = [
   {
     token: '0xD533a949740bb3306d119CC777fa900bA034cd52',
@@ -39,6 +30,16 @@ const defaultRewards = [
     oracleId: 'CVX',
   },
 ];
+pools.forEach(p => (p.rewards = p.rewards = [...defaultRewards, ...(p.rewards || [])]));
+
+export const getFxApys = async () => {
+  const [baseApys, farmApys] = await Promise.all([
+    getCurveBaseApys(pools, subgraphUrl),
+    getPoolApys(pools),
+  ]);
+  const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
+  return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
+};
 
 const getPoolApys = async pools => {
   const apys = [];
@@ -54,7 +55,6 @@ const getPoolApys = async pools => {
     totalSupplyCalls.push(gauge.read.totalSupply());
     workingCalls.push(gauge.read.workingSupply());
     sharedBalCalls.push(gauge.read.sharedBalanceOf([cvxVoterProxy]));
-    pool.rewards = [...defaultRewards, ...(pool.rewards || [])];
     pool.rewards.forEach(reward => {
       extraInfo.push({ pool: pool.name, token: reward.token });
       extraRewardDataCalls.push(gauge.read.rewardData([reward.token]));
