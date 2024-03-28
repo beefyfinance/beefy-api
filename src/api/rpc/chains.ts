@@ -25,6 +25,7 @@ import {
   GNOSIS_RPC,
   LINEA_RPC,
   MANTLE_RPC,
+  FRAXTAL_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/address-book';
 
@@ -644,6 +645,29 @@ const mantleChain = {
   },
 } as const satisfies Chain;
 
+const fraxtalChain = {
+  id: 252,
+  name: 'Fraxtal',
+  network: 'fraxtal',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'Frax Staked Ether',
+    symbol: 'frxETH',
+  },
+  rpcUrls: {
+    public: { http: [FRAXTAL_RPC] },
+    default: { http: [FRAXTAL_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'Fraxtal Explorer', url: 'https://fraxscan.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -671,4 +695,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.gnosis]: gnosisChain,
   [ChainId.linea]: lineaChain,
   [ChainId.mantle]: mantleChain,
+  [ChainId.fraxtal]: fraxtalChain,
 } as const;

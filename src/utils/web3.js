@@ -78,6 +78,9 @@ module.exports = {
   get mantleWeb3() {
     return chainRandomClients.mantleRandomClient();
   },
+  get fraxtalWeb3() {
+    return chainRandomClients.fraxtalRandomClient();
+  },
 
   web3Factory: _web3Factory,
 
