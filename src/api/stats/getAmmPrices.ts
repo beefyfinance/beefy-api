@@ -639,8 +639,8 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     chainId: 'optimism',
   },
   {
-    oracleId: 'arbUSDT+',
-    tokenAddress: '0xb1084db8D3C05CEbd5FA9335dF95EE4b8a0edc30',
+    oracleId: 'arbUSD+',
+    tokenAddress: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
     chainId: 'arbitrum',
   },
 ];
