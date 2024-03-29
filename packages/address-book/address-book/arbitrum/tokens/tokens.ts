@@ -1384,7 +1384,7 @@ const _tokens = {
   'USDT+': {
     name: 'USDT+',
     symbol: 'USDT+',
-    oracleId: 'USDT+',
+    oracleId: 'arbUSDT+',
     address: '0xb1084db8D3C05CEbd5FA9335dF95EE4b8a0edc30',
     chainId: 42161,
     decimals: 18,

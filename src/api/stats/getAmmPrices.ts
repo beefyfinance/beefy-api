@@ -638,6 +638,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0x3b08fcd15280e7B5A6e404c4abb87F7C774D1B2e',
     chainId: 'optimism',
   },
+  {
+    oracleId: 'arbUSDT+',
+    tokenAddress: '0xb1084db8D3C05CEbd5FA9335dF95EE4b8a0edc30',
+    chainId: 'arbitrum',
+  },
 ];
 
 /**
