@@ -7,9 +7,9 @@
     "oracleId": "arbUSDCe",
     "decimals": "1e6",
     "chainId": 42161,
-    "rewardOracleId": "ARB",
+    "rewardOracleId": "SILO",
     "rewardDecimals": "1e18",
-    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680",
+    "incentivesController": "0x7e5BFBb25b33f335e34fa0d78b878092931F8D20",
     "lens": "0xBDb843c7a7e48Dc543424474d7Aa63b61B5D9536"
   },
   {
@@ -20,9 +20,9 @@
     "oracleId": "arbUSDCe",
     "decimals": "1e6",
     "chainId": 42161,
-    "rewardOracleId": "ARB",
+    "rewardOracleId": "SILO",
     "rewardDecimals": "1e18",
-    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680",
+    "incentivesController": "0x7e5BFBb25b33f335e34fa0d78b878092931F8D20",
     "lens": "0xBDb843c7a7e48Dc543424474d7Aa63b61B5D9536"
   },
   {
@@ -115,9 +115,9 @@
     "oracleId": "arbUSDCe",
     "decimals": "1e6",
     "chainId": 42161,
-    "rewardOracleId": "ARB",
+    "rewardOracleId": "SILO",
     "rewardDecimals": "1e18",
-    "incentivesController": "0xd592F705bDC8C1B439Bd4D665Ed99C4FaAd5A680",
+    "incentivesController": "0x7e5BFBb25b33f335e34fa0d78b878092931F8D20",
     "lens": "0xBDb843c7a7e48Dc543424474d7Aa63b61B5D9536"
   },
   {
