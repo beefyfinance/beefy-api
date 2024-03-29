@@ -166,7 +166,7 @@ const _tokens = {
   'USD+': {
     name: 'USD+',
     symbol: 'USD+',
-    oracleId: 'USD+',
+    oracleId: 'linUSD+',
     address: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
     chainId: 59144,
     decimals: 6,

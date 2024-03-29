@@ -6,14 +6,14 @@
     "rewards": [
       {
         "token": "0xa3d1a8deb97b111454b294e2324efad13a9d8396",
-        "oracleId": "OVN"
+        "oracleId": "arbOVN"
       }
     ],
     "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USD+",
+        "oracleId": "arbUSD+",
         "decimals": "1e6"
       },
       {
@@ -318,14 +318,14 @@
     "rewards": [
       {
         "token": "0xa3d1a8deb97b111454b294e2324efad13a9d8396",
-        "oracleId": "OVN"
+        "oracleId": "arbOVN"
       }
     ],
     "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "USD+",
+        "oracleId": "arbUSD+",
         "decimals": "1e6"
       },
       {

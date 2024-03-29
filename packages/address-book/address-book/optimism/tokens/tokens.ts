@@ -592,7 +592,7 @@ const _tokens = {
   'USD+': {
     name: 'USD+ Stablecoin',
     symbol: 'USD+',
-    oracleId: 'USD+',
+    oracleId: 'oUSD+',
     address: '0x73cb180bf0521828d8849bc8CF2B920918e23032',
     chainId: 10,
     decimals: 6,
@@ -1251,7 +1251,7 @@ const _tokens = {
   OVN: {
     name: 'OVN',
     symbol: 'OVN',
-    oracleId: 'OVN',
+    oracleId: 'oOVN',
     address: '0x3b08fcd15280e7B5A6e404c4abb87F7C774D1B2e',
     chainId: 10,
     decimals: 18,
