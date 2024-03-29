@@ -1,0 +1,91 @@
+[
+  {
+    "name": "curve-fraxtal-crvusd-frax",
+    "pool": "0x63eb7846642630456707c3efbb50a03c79b89d81",
+    "gauge": "0x98a6c35546be6f7c545c99efb48f4673ed2c99fc",
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-fraxtal-fraxusdc",
+    "pool": "0xa8eb7b41fe8df7ea3de982397ad183721784d987",
+    "gauge": "0xaa6ddba00de48d41e41543ef0a78ab31aae4de8d",
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-fraxtal-trifxs",
+    "pool": "0xa0d3911349e701a1f49c1ba2dda34b4ce9636569",
+    "gauge": "0x8882eb84d0c4894753c0450f2d514e39883c0c82",
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "wfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "FXS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-fraxtal-sfrxeth",
+    "pool": "0xf2f426fe123de7b769b2d4f8c911512f065225d3",
+    "gauge": "0xd1d981ddd0c9a0469e7d8cee877f83b5877d7260",
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "wfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "sfrxETH",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

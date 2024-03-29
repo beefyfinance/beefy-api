@@ -99,7 +99,7 @@ import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getAcrossPrices from './ethereum/getAcrossPrices';
 import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
-import { GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
+import { FRAXTAL_CHAIN_ID as FRX_CHAIN_ID, GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
 import getEthRangePrices from './ethereum/getEthRangePrices';
 import getBscRangePrices from './bsc/getBscRangePrices';
@@ -210,6 +210,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurveKavaPrices(tokenPrices),
     getCurveCeloPrices(tokenPrices),
     getCurvePricesCommon(GNO_CHAIN_ID, require('../../data/gnosis/curvePools.json'), tokenPrices),
+    getCurvePricesCommon(FRX_CHAIN_ID, require('../../data/fraxtal/curvePools.json'), tokenPrices),
     getCurveBasePrices(tokenPrices),
     getConicPrices(),
     getRosePrices(tokenPrices),

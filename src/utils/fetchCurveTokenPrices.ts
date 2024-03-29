@@ -37,6 +37,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
     },
   ],
   optimism: toCurveTokens(ChainId.optimism, require('../data/optimism/curvePools.json')),
+  fraxtal: toCurveTokens(ChainId.fraxtal, require('../data/fraxtal/curvePools.json')),
   arbitrum: [
     ...toCurveTokens(ChainId.arbitrum, require('../data/arbitrum/curvePools.json')),
     {

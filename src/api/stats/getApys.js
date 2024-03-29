@@ -21,6 +21,7 @@ const { getBaseApys } = require('./base');
 const { getGnosisApys } = require('./gnosis');
 const { getLineaApys } = require('./linea');
 const { getMantleApys } = require('./mantle');
+const { getFraxtalApys } = require('./fraxtal');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs } = require('./getBoostAprs');
 
@@ -70,6 +71,7 @@ const updateApys = async () => {
       getGnosisApys(),
       getLineaApys(),
       getMantleApys(),
+      getFraxtalApys(),
     ]);
 
     for (const result of results) {
