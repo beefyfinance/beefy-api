@@ -1415,6 +1415,34 @@ const _tokens = {
     documentation: 'https://docs.spark.fi/',
     bridge: 'optimism-canonical',
   },
+  aOptUSDCn: {
+    name: 'Aave Optimism USDCn',
+    symbol: 'aOptUSDCn',
+    oracleId: 'aOptUSDCn',
+    address: '0x38d693cE1dF5AaDF7bC62595A37D667aD57922e5',
+    chainId: 10,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing native USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    staked: true,
+  },
+  aOptUSDC: {
+    name: 'Aave Optimism USDC',
+    symbol: 'aOptUSDC',
+    oracleId: 'aOptUSDC',
+    address: '0x625E7708f30cA75bfd92586e17077590C60eb4cD',
+    chainId: 10,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    staked: true,
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
