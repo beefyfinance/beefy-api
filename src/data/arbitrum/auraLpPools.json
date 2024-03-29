@@ -292,7 +292,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "OVN",
+        "oracleId": "arbOVN",
         "decimals": "1e18"
       },
       {

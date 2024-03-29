@@ -15,7 +15,7 @@
     "lp1": {
       "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "linUSD+",
       "decimals": "1e6"
     }
   },

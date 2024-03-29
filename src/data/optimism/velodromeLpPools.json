@@ -389,7 +389,7 @@
     "lp0": {
       "address": "0x3b08fcd15280e7B5A6e404c4abb87F7C774D1B2e",
       "oracle": "tokens",
-      "oracleId": "OVN",
+      "oracleId": "oOVN",
       "decimals": "1e18"
     },
     "lp1": {
