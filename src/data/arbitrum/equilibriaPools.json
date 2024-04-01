@@ -1,5 +1,25 @@
 [
   {
+    "name": "equilibria-arb-ezeth-27jun24",
+    "address": "0x5E03C94Fc5Fb2E21882000A96Df0b63d2c4312e2",
+    "gauge": "0x5511C99A22b5E53B913C3f06E4b63e001E62D83B",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  },
+  {
     "name": "equilibria-arb-glp-26sep24",
     "address": "0x551c423c441db0B691b5630F04d2080Caee25963",
     "gauge": "0xB45271BC4689A2c4013B8fb9dFb08CFEDbAFC033",
