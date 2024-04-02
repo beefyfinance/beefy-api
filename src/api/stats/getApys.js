@@ -26,7 +26,7 @@ const { fetchBoostAprs } = require('./getBoostAprs');
 
 const INIT_DELAY = process.env.INIT_DELAY || 30 * 1000;
 const BOOST_APR_INIT_DELAY = 30 * 1000;
-var REFRESH_INTERVAL = 15 * 60 * 1000;
+const REFRESH_INTERVAL = 15 * 60 * 1000;
 const BOOST_REFRESH_INTERVAL = 2 * 60 * 1000;
 
 let apys = {};
@@ -91,7 +91,7 @@ const updateApys = async () => {
       }
 
       // Break out to apy and breakdowns if possible
-      let hasApyBreakdowns = 'apyBreakdowns' in result.value;
+      const hasApyBreakdowns = 'apyBreakdowns' in result.value;
       if (hasApyBreakdowns) {
         mappedApyValues = result.value.apys;
         mappedApyBreakdownValues = result.value.apyBreakdowns;

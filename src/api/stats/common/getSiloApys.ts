@@ -27,7 +27,9 @@ const getSiloApyData = async (params: SiloApyParams) => {
     Object.fromEntries(params.pools.map((p, i) => [p.name, supplyApys[i]])),
     supplySiloApys,
     0,
-    liquidStakingApys
+    liquidStakingApys,
+    [],
+    'supplyApr'
   );
 };
 

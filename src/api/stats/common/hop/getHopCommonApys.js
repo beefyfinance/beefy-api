@@ -14,7 +14,15 @@ export const getHopCommonApys = async params => {
     getLsAprs(params),
   ]);
 
-  return getApyBreakdown(params.pools, tradingAprs, farmApys, 0.0004, liquidStakingAprs);
+  return getApyBreakdown(
+    params.pools,
+    tradingAprs,
+    farmApys,
+    0.0004,
+    liquidStakingAprs,
+    [],
+    'supplyApr'
+  );
 };
 
 const getTradingAprs = async params => {
