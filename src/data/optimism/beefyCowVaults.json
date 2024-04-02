@@ -1,5 +1,16 @@
 [
   {
+    "address": "0x944Df2E9b7dbc28DbaDB25DDbF6C890Dc9d4e347",
+    "lpAddress": "0x68F5C0A2DE713a54991E01858Fd27a3832401849",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x4200000000000000000000000000000000000042"
+    ],
+    "tokenOracleIds": ["WETH", "OP"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-op-eth-t3"
+  },
+  {
     "address": "0x44EF0a7023e7B19619F29C09db690fA3DA655453",
     "lpAddress": "0x2005b32c7F9a35d1251151444cDfB0c748853389",
     "tokens": [

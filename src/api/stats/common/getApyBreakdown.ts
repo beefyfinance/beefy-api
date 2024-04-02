@@ -16,6 +16,7 @@ export interface ApyBreakdown {
   totalApy?: number;
   liquidStakingApr?: number;
   composablePoolApr?: number;
+  clmApr?: number;
 }
 
 export interface ApyBreakdownResult {
@@ -29,7 +30,8 @@ export const getApyBreakdown = (
   farmAprs: BigNumber[],
   providerFee?: number | BigNumber[],
   liquidStakingAprs?: number[],
-  composablePoolAprs?: number[]
+  composablePoolAprs?: number[],
+  clmAprs?: number[]
 ): ApyBreakdownResult => {
   const result: ApyBreakdownResult = {
     apys: {},
@@ -49,6 +51,8 @@ export const getApyBreakdown = (
       ? composablePoolAprs[i]
       : undefined;
 
+    const clmApr: number | undefined = clmAprs ? clmAprs[i] : undefined;
+
     const extraApr =
       liquidStakingAprs && composablePoolAprs
         ? liquidStakingApr + composablePoolApr
@@ -64,7 +68,9 @@ export const getApyBreakdown = (
       pool.beefyFee == undefined ? getTotalPerformanceFeeForVault(pool.name) : pool.beefyFee;
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
     const vaultApr = simpleApr * shareAfterBeefyPerformanceFee;
-    let vaultApy = compound(simpleApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+
+    const compoundableApr = simpleApr + (clmApr ?? 0);
+    let vaultApy = compound(compoundableApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
 
     let tradingApr: number | undefined = 0;
     if (tradingAprs != null) {
@@ -76,8 +82,13 @@ export const getApyBreakdown = (
     }
 
     const totalApy =
-      getFarmWithTradingFeesApy(simpleApr, tradingApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee) +
-      extraApr;
+      getFarmWithTradingFeesApy(
+        compoundableApr,
+        tradingApr,
+        BASE_HPY,
+        1,
+        shareAfterBeefyPerformanceFee
+      ) + extraApr;
 
     // Add token to APYs object
     result.apys[pool.name] = totalApy;
@@ -90,6 +101,7 @@ export const getApyBreakdown = (
       tradingApr: tradingApr,
       liquidStakingApr: liquidStakingApr,
       composablePoolApr: composablePoolApr,
+      clmApr: clmApr,
       totalApy: totalApy,
     };
   });

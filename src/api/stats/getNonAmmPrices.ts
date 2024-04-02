@@ -108,6 +108,7 @@ import getLynexStablePrices from './linea/getLynexStablePrices';
 import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
 import getFtmIchiPrices from './fantom/getFtmIchiPrices';
+import { getBeefyCowBasePrices } from './base/getBeefyCowBasePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -235,6 +236,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getLynexStablePrices(tokenPrices),
     getBeefyCowArbPrices(tokenPrices),
     getBeefyCowOPPrices(tokenPrices),
+    getBeefyCowBasePrices(tokenPrices),
     getFtmIchiPrices(tokenPrices),
   ];
 
