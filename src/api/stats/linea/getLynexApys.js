@@ -3,8 +3,9 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 const stablePools = require('../../../data/linea/lynexStablePools.json');
 const volatilePools = require('../../../data/linea/lynexVolatilePools.json');
 const gammaPools = require('../../../data/linea/lynexGammaPools.json');
+const ichiPools = require('../../../data/linea/lynexIchiPools.json');
 
-const pools = [...gammaPools, ...stablePools, ...volatilePools];
+const pools = [...ichiPools, ...gammaPools, ...stablePools, ...volatilePools];
 export const getLynexApys = async () => {
   return getSolidlyGaugeApys({
     chainId: chainId,

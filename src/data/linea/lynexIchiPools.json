@@ -1,0 +1,82 @@
+[
+  {
+    "name": "lynex-ichi-weth-lynx",
+    "address": "0x511481ef0DEB10eB5c1E36B72140718c58921265",
+    "gauge": "0x72125a1c4A6E663c5E4dA0bbFff9Ae02b5EF727a",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1a51b19CE03dbE0Cb44C1528E34a7EDD7771E9Af",
+      "oracle": "tokens",
+      "oracleId": "LYNX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "lynex-ichi-wbtc-weth",
+    "address": "0xAd53F20917b144cd0b100DBE75988C0E4b919Dba",
+    "gauge": "0xB7276152751b126A34860A90c6269994Bf524F4f",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x3aAB2285ddcDdaD8edf438C1bAB47e1a9D05a9b4",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    },
+    "lp1": {
+      "address": "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "lynex-ichi-usdc-lynx",
+    "address": "0x92ccb773da4f3974c941974bDb978bAd7efa7744",
+    "gauge": "0x14aF0979e96deA94ad2466dFDF11e85886Ce04F9",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x176211869cA2b568f2A7D4EE941E073a821EE1ff",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x1a51b19CE03dbE0Cb44C1528E34a7EDD7771E9Af",
+      "oracle": "tokens",
+      "oracleId": "LYNX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "lynex-ichi-wbtc-lynx",
+    "address": "0xAe5e4a028120b711c5C5dc8A9162BCdAa88936ae",
+    "gauge": "0x0Cc0439C04760db602EE7ca2cBB4372BA4d28476",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1a51b19CE03dbE0Cb44C1528E34a7EDD7771E9Af",
+      "oracle": "tokens",
+      "oracleId": "LYNX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3aAB2285ddcDdaD8edf438C1bAB47e1a9D05a9b4",
+      "oracle": "tokens",
+      "oracleId": "WBTC",
+      "decimals": "1e8"
+    }
+  }
+]
