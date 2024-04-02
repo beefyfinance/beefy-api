@@ -1,4 +1,6 @@
 import BigNumber from 'bignumber.js';
+import getApyBreakdown from './getApyBreakdown';
+import { BIG_ZERO } from '../../../utils/big-number';
 
 export const getCowApy = async (subgraphUrl: string, vaultMappings: { [key: string]: string }) => {
   try {
@@ -7,17 +9,17 @@ export const getCowApy = async (subgraphUrl: string, vaultMappings: { [key: stri
       method: 'POST',
     }).then(res => res.json());
     const vaults = response.data.beefyCLVaults;
-    const apys = {};
-    const apyBreakdowns = {};
+    const pools = [];
+    const farmAprs: BigNumber[] = [];
+    const clmAprs: number[] = [];
     vaults.forEach(vault => {
       if (vaultMappings[vault.id.toLowerCase()]) {
-        apys[vaultMappings[vault.id.toLowerCase()]] = new BigNumber(vault.apr1D).toNumber();
-        apyBreakdowns[vaultMappings[vault.id.toLowerCase()]] = {
-          totalApy: new BigNumber(vault.apr1D).toNumber(),
-        };
+        pools.push({ name: vaultMappings[vault.id.toLowerCase()] });
+        farmAprs.push(BIG_ZERO);
+        clmAprs.push(new BigNumber(vault.apr1D).toNumber());
       }
     });
-    return { apys, apyBreakdowns };
+    return getApyBreakdown(pools, undefined, farmAprs, undefined, undefined, undefined, clmAprs);
   } catch (err) {
     console.error('> getCowApy Error: ', err.message);
     return {};
