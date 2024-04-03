@@ -674,6 +674,20 @@ const _tokens = {
     documentation: 'https://www.degen.tips/faq',
     bridge: 'native',
   },
+  VIRTUAL: {
+    name: 'Virtual Protocol',
+    symbol: 'VIRTUAL',
+    address: '0x0b3e328455c4059EEb9e3f84b5543F74E24e7E1b',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'VIRTUAL',
+    logoURI: '',
+    website: 'https://app.virtuals.io/',
+    description:
+      'Democratic AI protocol on Base that creates co-owned, human-curated, plug-and-play gaming AIs.',
+    documentation: 'https://whitepaper.virtuals.io/',
+    bridge: 'native',
+  },
   SEXY: {
     name: 'Settled ETHXY Token',
     symbol: 'SEXY',
