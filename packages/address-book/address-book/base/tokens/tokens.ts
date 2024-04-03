@@ -686,6 +686,33 @@ const _tokens = {
     description:
       'Democratic AI protocol on Base that creates co-owned, human-curated, plug-and-play gaming AIs.',
     documentation: 'https://whitepaper.virtuals.io/',
+    bridge: 'base-canonical',
+  },
+  GB: {
+    name: 'Grand',
+    symbol: 'GB',
+    address: '0x2aF864fb54b55900Cd58d19c7102d9e4FA8D84a3',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'GB',
+    logoURI: '',
+    website: 'https://grandbase.io/',
+    description:
+      'GRAND BASE is a decentralized market for spot synthetic RWAs designed to provide exposure to RWAs without holding the actual underlying asset.',
+    documentation: 'https://docs.grandbase.io/',
+    bridge: 'native',
+  },
+  doginme: {
+    name: 'doginme',
+    symbol: 'doginme',
+    address: '0x6921B130D297cc43754afba22e5EAc0FBf8Db75b',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'doginme',
+    logoURI: '',
+    website: 'https://dogin.meme/',
+    description:
+      'The $doginme memecoin roots were established when a Farcaster user inquired if Dan Romero (DWR), the founder of the decentralized social media platform, owned a dog.',
     bridge: 'native',
   },
   SEXY: {
