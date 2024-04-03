@@ -617,6 +617,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'verified-usd-foundation-usdv': ['USDV'],
   'stake-dao-crv': ['sdCRV'],
   'kelp-dao-restaked-eth': ['rsETH'],
+  'frax-ether': ['frxETH'],
 };
 
 /**
