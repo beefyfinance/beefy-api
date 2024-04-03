@@ -684,7 +684,7 @@ const _tokens = {
   'USD+': {
     name: 'USD+ Stablecoin',
     symbol: 'USD+',
-    oracleId: 'USD+',
+    oracleId: 'arbUSD+',
     address: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
     chainId: 42161,
     decimals: 6,
@@ -1356,7 +1356,7 @@ const _tokens = {
   OVN: {
     name: 'OVN',
     symbol: 'OVN',
-    oracleId: 'OVN',
+    oracleId: 'arbOVN',
     address: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
     chainId: 42161,
     decimals: 18,
@@ -1377,6 +1377,20 @@ const _tokens = {
     website: 'https://overnight.fi/',
     description:
       'wUSD+ is wrapped USD+, a yield-generating stablecoin backed by a portfolio of low-risk DeFi assets. It allows users to mint and redeem instantly against USDC, providing liquidity management, AMM trading, and leveraged yield farming opportunities. This capital-efficient stablecoin enables users to earn extra yield on their stablecoin holdings while participating in DeFi activities.',
+    bridge: 'native',
+    logoURI: '',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'USDT+': {
+    name: 'USDT+',
+    symbol: 'USDT+',
+    oracleId: 'arbUSDT+',
+    address: '0xb1084db8D3C05CEbd5FA9335dF95EE4b8a0edc30',
+    chainId: 42161,
+    decimals: 18,
+    website: 'https://overnight.fi/',
+    description:
+      'USDT+ is USDT that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDT. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     bridge: 'native',
     logoURI: '',
     documentation: 'https://docs.overnight.fi/',

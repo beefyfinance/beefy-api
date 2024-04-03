@@ -43,17 +43,9 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
     },
     {
       type: 'UniV3',
-      oracleId: 'GHO',
-      decimalDelta: 1e12,
-      pool: '0x54EEbc36527FE2E5624051E3c895810d7b68bcFc',
-      firstToken: 'USDC',
-      secondToken: 'GHO',
-    },
-    {
-      type: 'UniV3',
       oracleId: 'BIFI',
       decimalDelta: 1,
-      pool: '0xBfB7D1403428C5BDb1BAF25F471b9D4200a4c9b6',
+      pool: '0xfBa26C3F9C8eCeF989def3C5c8aD037487462d83',
       firstToken: 'WETH',
       secondToken: 'BIFI',
     },

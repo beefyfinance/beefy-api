@@ -222,7 +222,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "OVN",
+        "oracleId": "oOVN",
         "decimals": "1e18"
       },
       {

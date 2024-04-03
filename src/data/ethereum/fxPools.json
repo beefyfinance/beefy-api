@@ -1,0 +1,82 @@
+[
+  {
+    "name": "fx-gho-fxusd",
+    "pool": "0x74345504eaea3d9408fc69ae7eb2d14095643c5b",
+    "gauge": "0xf0A3ECed42Dbd8353569639c0eaa833857aA0A75",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "fxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "fx-pyusd-fxusd",
+    "pool": "0xd6982da59f1d26476e259559508f4135135cf9b8",
+    "gauge": "0xeD113B925AC3f972161Be012cdFEE33470040E6a",
+    "tokens": [
+      {
+        "oracleId": "PYUSD",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "fxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "fx-dola-fxusd",
+    "pool": "0x189b4e49b5caf33565095097b4b960f14032c7d0",
+    "gauge": "0x61F32964C39Cca4353144A6DB2F8Efdb3216b35B",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "DOLA",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "fxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "fx-fxn-cvxfxn",
+    "pool": "0x1062fd8ed633c1f080754c19317cb3912810b5e5",
+    "gauge": "0xfEFafB9446d84A9e58a3A2f2DDDd7219E8c94FbB",
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "FXN",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "cvxFXN",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "fx-fxn-eth",
+    "pool": "0xC15F285679a1Ef2d25F53D4CbD0265E1D02F2A92",
+    "token": "0xE06A65e09Ae18096B99770A809BA175FA05960e2",
+    "gauge": "0xA5250C540914E012E22e623275E290c4dC993D11",
+    "getDy": ["v2", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "FXN",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

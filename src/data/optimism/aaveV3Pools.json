@@ -1,5 +1,17 @@
 [
   {
+    "name": "aavev3-op-usdc-2",
+    "token": "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+    "aToken": "0x38d693cE1dF5AaDF7bC62595A37D667aD57922e5",
+    "debtToken": "0x5D557B07776D12967914379C71a1310e917C7555",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "beefyFee": 0.095,
+    "borrowDepth": 1,
+    "borrowPercent": 0
+  },
+  {
     "name": "aavev3-op-eth",
     "token": "0x4200000000000000000000000000000000000006",
     "aToken": "0xe50fA9b3c56FfB159cB0FCA61F5c9D750e8128c8",

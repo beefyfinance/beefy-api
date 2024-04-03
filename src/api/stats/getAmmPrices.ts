@@ -291,6 +291,10 @@ import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices';
 import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
 import uniswapLpPools from '../../data/ethereum/uniswapV2LpPools.json';
+import {
+  fetchDexScreenerPriceOracles,
+  OraclePriceRequest,
+} from '../../utils/fetchDexScreenerPrices';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -300,6 +304,7 @@ const REFRESH_INTERVAL = 5 * 60 * 1000;
 const pools = normalizePoolOracleIds([
   ...moePools,
   ...equalizerBasePools,
+  ...lynexPools,
   ...basoPools,
   ...swapBasedPools,
   ...alienBasePools,
@@ -605,18 +610,45 @@ const coinGeckoCoins: Record<string, string[]> = {
   'cow-protocol': ['COW'],
   'electronic-usd': ['eUSD'],
   'mendi-finance': ['MENDI'],
-  'overnight-finance': ['OVN'],
+  // 'overnight-finance': ['OVN'],
   'gyroscope-gyd': ['GYD'],
   'renzo-restaked-eth': ['ezETH'],
   'qi-dao': ['QIv2'],
   'verified-usd-foundation-usdv': ['USDV'],
   'stake-dao-crv': ['sdCRV'],
   'kelp-dao-restaked-eth': ['rsETH'],
+  'frax-ether': ['frxETH'],
 };
 
 /**
+ * Coins to fetch from dexscreener
+ */
+const dexscreenerCoins: OraclePriceRequest[] = [
+  {
+    oracleId: 'baseOVN',
+    tokenAddress: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
+    chainId: 'base',
+  },
+  {
+    oracleId: 'arbOVN',
+    tokenAddress: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
+    chainId: 'arbitrum',
+  },
+  {
+    oracleId: 'oOVN',
+    tokenAddress: '0x3b08fcd15280e7B5A6e404c4abb87F7C774D1B2e',
+    chainId: 'optimism',
+  },
+  {
+    oracleId: 'arbUSD+',
+    tokenAddress: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
+    chainId: 'arbitrum',
+  },
+];
+
+/**
  * Can use any oracleId set from chainlink or coingecko here
- * Runs after chainlink/coingecko prices are fetched but before any other price sources
+ * Runs after chainlink/coingecko/dexscreener prices are fetched but before any other price sources
  * Add here only as last resort if no other AMM price source is available
  * @see fetchSeedPrices
  */
@@ -652,6 +684,8 @@ const seedPeggedPrices = {
   aWMATIC: 'MATIC', // Aave
   aWETH: 'ETH', // Aave,
   cArbUSDCv3: 'USDC', // Compound
+  aOptUSDC: 'USDC', //Aave
+  aOptUSDCn: 'USDC', //Aave
 };
 
 export type LpBreakdown = {
@@ -669,11 +703,15 @@ const cachedAllPrices: PricesById = {};
 const cachedLpBreakdowns: BreakdownsById = {};
 
 async function fetchSeedPrices() {
-  // ChainLink gives: ETH, BTC, MATIC, AVAX, BNB, LINK, USDT, DAI, USDC
-  const seedPrices: Record<string, number> = await fetchChainLinkPrices();
+  const [seedPrices, coinGeckoPrices, defillamaPrices, dexscreenerPrices] = await Promise.all([
+    // ChainLink gives: ETH, BTC, MATIC, AVAX, BNB, LINK, USDT, DAI, USDC
+    fetchChainLinkPrices(),
+    fetchCoinGeckoPrices(Object.keys(coinGeckoCoins)),
+    fetchDefillamaPrices(Object.keys(coinGeckoCoins)),
+    fetchDexScreenerPriceOracles(dexscreenerCoins),
+  ]);
 
-  const coinGeckoPrices = await fetchCoinGeckoPrices(Object.keys(coinGeckoCoins));
-  const defillamaPrices = await fetchDefillamaPrices(Object.keys(coinGeckoCoins));
+  // CoinGecko
   for (const [geckoId, oracleIds] of Object.entries(coinGeckoCoins)) {
     for (const oracleId of oracleIds) {
       const cg = coinGeckoPrices[geckoId];
@@ -690,6 +728,12 @@ async function fetchSeedPrices() {
     }
   }
 
+  // DexScreener
+  for (const [oracleId, price] of Object.entries(dexscreenerPrices)) {
+    seedPrices[oracleId] = price;
+  }
+
+  // Set pegged prices
   for (const [oracle, peggedOracle] of Object.entries(seedPeggedPrices)) {
     if (peggedOracle in seedPrices) {
       seedPrices[oracle] = seedPrices[peggedOracle];

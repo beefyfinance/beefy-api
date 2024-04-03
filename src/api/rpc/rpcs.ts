@@ -249,6 +249,7 @@ const rpcs: Record<ChainId, string[]> = {
     'https://rpc.ankr.com/mantle',
     'https://1rpc.io/mantle',
   ],
+  [ChainId.fraxtal]: ['https://rpc.frax.com'],
 };
 
 export const getChainRpcs = (chainId: ChainId): string[] => rpcs[chainId] ?? [];

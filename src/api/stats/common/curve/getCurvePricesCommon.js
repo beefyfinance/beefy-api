@@ -23,7 +23,7 @@ const getCurvePricesCommon = async (chainId, pools, tokenPrices) => {
     const contract = fetchContract(pool.pool, ICurvePool, chainId);
     pool.tokens.forEach((token, index) => {
       tokenData.push({
-        pool: pool.pool,
+        poolName: pool.name,
         oracleId: token.oracleId,
         token,
       });
@@ -59,7 +59,7 @@ const getCurvePricesCommon = async (chainId, pools, tokenPrices) => {
   for (const pool of pools.slice().reverse()) {
     const supplyInfo = poolsInfo.find(r => r.pool === pool.pool);
     const totalSupply = supplyInfo.totalSupply.div(DECIMALS);
-    const tokens = tokensInfo.filter(r => r.pool === pool.pool);
+    const tokens = tokensInfo.filter(r => r.poolName === pool.name);
 
     let totalBalInUsd = new BigNumber(0);
     for (const t of tokens) {

@@ -14,6 +14,7 @@ const { getBaseCompoundV3Apys } = require('./getBaseCompoundV3Apys');
 const getAuraBaseApys = require('./getAuraBaseApys');
 const { getSonneApys } = require('./getSonneApys');
 const { getSeamlessApys } = require('./getSeamlessApys');
+const { getBeefyBaseCowApys } = require('./getBeefyBaseCowApys');
 
 const getApys = [
   getSeamlessApys,
@@ -32,6 +33,7 @@ const getApys = [
   getBaseMerklGammaApys,
   getBaseCompoundV3Apys,
   getAuraBaseApys,
+  getBeefyBaseCowApys,
 ];
 
 const getBaseApys = async () => {

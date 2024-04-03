@@ -29,7 +29,7 @@ const _tokens = {
     website: 'https://www.circle.com/usdc',
     documentation: 'https://developers.circle.com/docs',
     description:
-      'USDC (Multichain) is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xB12BFcA5A55806AaF64E99521918A4bf0fC40802.svg',
     bridge: 'linea-canonical',
@@ -137,7 +137,7 @@ const _tokens = {
   MAI: {
     name: 'Mai Stablecoin',
     symbol: 'MAI',
-    oracleId: 'MAI',
+    oracleId: 'lMAI',
     address: '0xf3B001D64C656e30a62fbaacA003B1336b4ce12A',
     chainId: 59144,
     decimals: 18,
@@ -166,7 +166,7 @@ const _tokens = {
   'USD+': {
     name: 'USD+',
     symbol: 'USD+',
-    oracleId: 'USD+',
+    oracleId: 'linUSD+',
     address: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
     chainId: 59144,
     decimals: 6,
@@ -176,6 +176,21 @@ const _tokens = {
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
+  },
+  ezETH: {
+    name: 'Renzo Restaked ETH Token',
+    symbol: 'ezETH',
+    oracleId: 'ezETH',
+    address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.renzoprotocol.com/',
+    description:
+      'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
+    documentation: 'https://docs.renzoprotocol.com/docs/',
+    bridge: 'connext',
+    risks: ['NO_TIMELOCK'],
   },
 } as const;
 

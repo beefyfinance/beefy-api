@@ -1,6 +1,7 @@
 const BigNumber = require('bignumber.js');
 
 import { fetchPrice } from '../../../../utils/fetchPrice';
+
 const { fetchContract } = require('../../../rpc/client');
 const { default: ICurveGauge } = require('../../../../abis/ICurveGauge');
 const { default: ICurveRewards } = require('../../../../abis/ICurveRewards');
@@ -8,6 +9,7 @@ const { default: ICurveRewardStream } = require('../../../../abis/ICurveRewardSt
 
 const secondsPerYear = 31536000;
 
+// TODO rename to getCurveSubgraphApys
 export const getCurveBaseApys = async (pools, url) => {
   let apys = {};
   try {
@@ -33,6 +35,25 @@ const getSubgraphDataApy = (apyData, poolAddress) => {
     console.error(err);
     return 0;
   }
+};
+
+// https://api.curve.fi/v1/getBaseApys/chain
+export const getCurveGetBaseApys = async (pools, url) => {
+  let apys = {};
+  try {
+    const response = await fetch(url).then(res => res.json());
+    const apyData = response.data.baseApys;
+    pools.forEach(pool => {
+      let poolData = apyData.find(p => p.address.toLowerCase() === pool.pool.toLowerCase());
+      let apy = 0;
+      if (pool) apy = Math.max(poolData.latestDailyApyPcent, poolData.latestWeeklyApyPcent);
+      apy = new BigNumber(Number(apy) / 100);
+      apys = { ...apys, ...{ [pool.name]: apy } };
+    });
+  } catch (err) {
+    console.error('Curve getBaseApys error ', url, err.message);
+  }
+  return apys;
 };
 
 export const getCurveBaseApysOld = async (pools, url, factoryUrl) => {

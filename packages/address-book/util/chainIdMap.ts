@@ -24,6 +24,7 @@ const chainIdMap = {
   gnosis: 100,
   linea: 59144,
   mantle: 5000,
+  fraxtal: 252,
 };
 
 export default chainIdMap;

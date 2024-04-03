@@ -37,6 +37,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
     },
   ],
   optimism: toCurveTokens(ChainId.optimism, require('../data/optimism/curvePools.json')),
+  fraxtal: toCurveTokens(ChainId.fraxtal, require('../data/fraxtal/curvePools.json')),
   arbitrum: [
     ...toCurveTokens(ChainId.arbitrum, require('../data/arbitrum/curvePools.json')),
     {
@@ -67,10 +68,10 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
     ...require('../data/matic/jarvisPools.json'),
   ]),
   ethereum: [
-    ...toCurveTokens(
-      ChainId.ethereum,
-      require('../data/ethereum/convexPools.json').slice().reverse()
-    ),
+    ...toCurveTokens(ChainId.ethereum, [
+      ...require('../data/ethereum/convexPools.json').slice().reverse(),
+      ...require('../data/ethereum/fxPools.json').slice().reverse(),
+    ]),
     {
       oracleId: 'msETH',
       decimals: '1e18',

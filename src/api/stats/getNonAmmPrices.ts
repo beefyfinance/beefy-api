@@ -75,7 +75,6 @@ import { getCurveBasePrices } from './base/getCurvePrices';
 import { getConicPrices } from './ethereum/getConicPrices';
 import { getPolygonSolidlyStablePrices } from './matic/getPolygonSolidlyStablePrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
-import getBlueprintEthereumPrices from './ethereum/getBlueprintPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
 import getGammaBasePrices from './base/getGammaPrices';
@@ -100,7 +99,7 @@ import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getAcrossPrices from './ethereum/getAcrossPrices';
 import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
-import { GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
+import { FRAXTAL_CHAIN_ID as FRX_CHAIN_ID, GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
 import getEthRangePrices from './ethereum/getEthRangePrices';
 import getBscRangePrices from './bsc/getBscRangePrices';
@@ -108,6 +107,8 @@ import getGammaLineaPrices from './linea/getGammaPrices';
 import getLynexStablePrices from './linea/getLynexStablePrices';
 import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
+import getFtmIchiPrices from './fantom/getFtmIchiPrices';
+import { getBeefyCowBasePrices } from './base/getBeefyCowBasePrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -138,7 +139,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getJoeAutoArbPrices(tokenPrices),
     getRetroGammaPrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
-    getBlueprintEthereumPrices(tokenPrices),
+    getUniswapEthereumPrices(tokenPrices),
     getSoliSnekStablePrices(tokenPrices),
     getVelocoreStablePrices(tokenPrices),
     getMmyOptimismPrices(tokenPrices),
@@ -210,6 +211,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurveKavaPrices(tokenPrices),
     getCurveCeloPrices(tokenPrices),
     getCurvePricesCommon(GNO_CHAIN_ID, require('../../data/gnosis/curvePools.json'), tokenPrices),
+    getCurvePricesCommon(FRX_CHAIN_ID, require('../../data/fraxtal/curvePools.json'), tokenPrices),
     getCurveBasePrices(tokenPrices),
     getConicPrices(),
     getRosePrices(tokenPrices),
@@ -235,6 +237,8 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getLynexStablePrices(tokenPrices),
     getBeefyCowArbPrices(tokenPrices),
     getBeefyCowOPPrices(tokenPrices),
+    getBeefyCowBasePrices(tokenPrices),
+    getFtmIchiPrices(tokenPrices),
   ];
 
   // Setup error logs

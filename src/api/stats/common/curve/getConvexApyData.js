@@ -2,20 +2,19 @@ import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../../utils/fetchPrice';
 import ICurveGauge from '../../../../abis/ICurveGauge';
 import { fetchContract } from '../../../rpc/client';
+import { parseAbi } from 'viem';
+import { FRAXTAL_CHAIN_ID } from '../../../../constants';
 
-const IBooster = [
-  {
-    name: 'fees',
-    type: 'function',
-    stateMutability: 'view',
-    inputs: [],
-    outputs: [{ type: 'uint256', name: '' }],
-  },
-];
+const IBooster = parseAbi(['function fees() view returns (uint)']);
 
-const booster = '0xF403C135812408BFbE8713b5A23a04b3D48AAE31';
 const voterProxy = '0x989AEb4d175e16225E39E87d0D97A3360524AD80';
 const secondsPerYear = 31536000;
+
+function getBooster(chainId) {
+  return chainId === FRAXTAL_CHAIN_ID
+    ? '0xd3327cb05a8E0095A543D582b5B3Ce3e19270389'
+    : '0xF403C135812408BFbE8713b5A23a04b3D48AAE31';
+}
 
 export const getConvexApyData = async (chainId, pools) => {
   const apys = [];
@@ -62,7 +61,7 @@ export const getConvexApyData = async (chainId, pools) => {
 };
 
 const getData = async (chainId, pools) => {
-  const boosterContract = fetchContract(booster, IBooster, chainId);
+  const boosterContract = fetchContract(getBooster(chainId), IBooster, chainId);
   const feeCall = boosterContract.read.fees().then(v => new BigNumber(v.toString()));
 
   const weekEpoch = Math.floor(Date.now() / 1000 / (86400 * 7));

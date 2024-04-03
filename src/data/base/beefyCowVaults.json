@@ -1,0 +1,13 @@
+[
+  {
+    "address": "0xd61E3A4C58F59bcD42535D6C039F5d5F71cd6Cd2",
+    "lpAddress": "0xc9034c3E7F58003E6ae0C8438e7c8f4598d5ACAA",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed"
+    ],
+    "tokenOracleIds": ["WETH", "DEGEN"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-degen-eth-t1"
+  }
+]

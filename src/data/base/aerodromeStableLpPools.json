@@ -35,7 +35,7 @@
     "lp1": {
       "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "baseUSD+",
       "decimals": "1e6"
     }
   },
@@ -55,7 +55,7 @@
     "lp1": {
       "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "baseUSD+",
       "decimals": "1e6"
     }
   },
@@ -195,7 +195,7 @@
     "lp1": {
       "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "baseUSD+",
       "decimals": "1e6"
     }
   },
@@ -209,7 +209,7 @@
     "lp0": {
       "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "baseUSD+",
       "decimals": "1e6"
     },
     "lp1": {
@@ -235,7 +235,7 @@
     "lp1": {
       "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "baseUSD+",
       "decimals": "1e6"
     }
   },

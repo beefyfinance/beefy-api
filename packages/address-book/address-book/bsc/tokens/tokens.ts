@@ -4466,7 +4466,7 @@ const _tokens = {
   'USD+': {
     name: 'USD+ Stablecoin',
     symbol: 'USD+',
-    oracleId: 'USD+',
+    oracleId: 'bUSD+',
     address: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
     chainId: 56,
     decimals: 6,

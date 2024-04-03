@@ -1,5 +1,165 @@
 [
   {
+    "name": "aerodrome-usdc-sfrax",
+    "address": "0xf0e08Fa759B9C3099B0Dd63f73f79984AEb6254f",
+    "gauge": "0x29b1f2295031d7e98CCD428fAcc65Ef30821771e",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x23432452B720C80553458496D4D9d7C5003280d0",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xe4796cCB6bB5DE2290C417Ac337F2b66CA2E770E",
+      "oracle": "tokens",
+      "oracleId": "sFRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-sfrxeth-aero",
+    "address": "0xE25bc9133D26F62C9FA03b6750f3F3Ba57E9eB44",
+    "gauge": "0xEab862191A4d917D2D16E2FAF0859448Ff5BEdB7",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1f55a02A049033E3419a8E2975cF3F572F4e6E9A",
+      "oracle": "tokens",
+      "oracleId": "sfrxETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+      "oracle": "tokens",
+      "oracleId": "AERO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-sfrxeth-fxs",
+    "address": "0x1bDEb67E8B0D700b7717C7F3a7341859B7Dac784",
+    "gauge": "0x8B207A66E66e08CC1CE51bc38d1dFe3d8Cb36322",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1f55a02A049033E3419a8E2975cF3F572F4e6E9A",
+      "oracle": "tokens",
+      "oracleId": "sfrxETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x23432452B720C80553458496D4D9d7C5003280d0",
+      "oracle": "tokens",
+      "oracleId": "FXS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-fxs-usdc",
+    "address": "0xa2D4414421e5531E727d532ef018109f59d22340",
+    "gauge": "0x9a27275AE67A5E19630B2D096D4989992028A154",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x23432452B720C80553458496D4D9d7C5003280d0",
+      "oracle": "tokens",
+      "oracleId": "FXS",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "aerodrome-weth-sexy",
+    "address": "0x862a9D8443BbF74CF86bC05aFC8e05c63319DC1e",
+    "gauge": "0x2F1c1492F6057808C3fd16eef67E0237FBAeBF4B",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD1917629B3E6A72E6772Aab5dBe58Eb7FA3C2F33",
+      "oracle": "tokens",
+      "oracleId": "SEXY",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-snx-usdc",
+    "address": "0xcC79bfA7a3212d94390c358E88afcD39294549ca",
+    "gauge": "0xe8cDa9cD77E847a283766E7122452c9155fd094f",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x22e6966B799c4D5B13BE962E1D117b56327FDa66",
+      "oracle": "tokens",
+      "oracleId": "SNX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "aerodrome-tbtc-t",
+    "address": "0xfd8aA87c97D32345BFe4F753ACf25729008331C9",
+    "gauge": "0x76BB14cc51d409987Ea34a158Ba51643F81BB82e",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x236aa50979D5f3De3Bd1Eeb40E81137F22ab794b",
+      "oracle": "tokens",
+      "oracleId": "tBTC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x26f3901aC8a79c50fb0d8289C74f0d09AdC42E29",
+      "oracle": "tokens",
+      "oracleId": "T",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-weth-degen",
+    "address": "0x2C4909355b0C036840819484c3A882A95659aBf3",
+    "gauge": "0x86A1260AB9f758026Ce1a5830BdfF66DBcF736d5",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4ed4E862860beD51a9570b96d89aF5E1B0Efefed",
+      "oracle": "tokens",
+      "oracleId": "DEGEN",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-aero-dog",
     "address": "0x656D48D3F337c6b3cD2ED8471B135fF54b1F96Ad",
     "gauge": "0xDcC24121BAe131F952B09A08E65b95642F093794",
@@ -135,7 +295,7 @@
     "lp1": {
       "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "baseUSD+",
       "decimals": "1e6"
     }
   },
@@ -309,13 +469,13 @@
     "lp0": {
       "address": "0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396",
       "oracle": "tokens",
-      "oracleId": "OVN",
+      "oracleId": "baseOVN",
       "decimals": "1e18"
     },
     "lp1": {
       "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
       "oracle": "tokens",
-      "oracleId": "USD+",
+      "oracleId": "baseUSD+",
       "decimals": "1e6"
     }
   },

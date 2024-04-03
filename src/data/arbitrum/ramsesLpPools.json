@@ -76,25 +76,6 @@
     }
   },
   {
-    "name": "ramses-gns-gdai",
-    "address": "0x893684af15C97bCCEF17B10b1f32dc18BC066654",
-    "gauge": "0x8ae620e720fbec4278a3aE305f63496Fb333aC6f",
-    "decimals": "1e18",
-    "chainId": 42161,
-    "lp0": {
-      "address": "0x18c11FD286C5EC11c3b683Caa813B77f5163A122",
-      "oracle": "tokens",
-      "oracleId": "GNS",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xd85E038593d7A098614721EaE955EC2022B9B91B",
-      "oracle": "tokens",
-      "oracleId": "gDAI",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "ramses-rdnt-eth",
     "address": "0xB1406B8344Cd65dBe9f304938C0ECF2209F54D18",
     "gauge": "0x2a73a90c144967cD620bC714CdBA0914936daf8c",

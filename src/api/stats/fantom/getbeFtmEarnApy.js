@@ -12,12 +12,12 @@ const ORACLE_ID = 'beFTM';
 const DECIMALS = '1e18';
 
 const getbeFtmEarnApy = async () => {
-  const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
+  /*const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(),
     getTotalStakedInUsd(),
-  ]);
+  ]);*/
 
-  const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const apr = '0'; //yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
 
   return {
     apys: {

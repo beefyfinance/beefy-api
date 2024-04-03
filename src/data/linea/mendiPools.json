@@ -1,38 +1,104 @@
 [
   {
+    "name": "mendi-linea-lev-weth",
+    "cToken": "0xAd7f33984bed10518012013D4aB0458D37FEE6F3",
+    "oracle": "tokens",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "borrowRate": 60,
+    "borrowDepth": 4
+  },
+  {
+    "name": "mendi-linea-lev-usdc",
+    "cToken": "0x333D8b480BDB25eA7Be4Dd87EEB359988CE1b30D",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowRate": 70,
+    "borrowDepth": 4
+  },
+  {
+    "name": "mendi-linea-lev-usdt",
+    "cToken": "0xf669C3C03D9fdF4339e19214A749E52616300E89",
+    "oracle": "tokens",
+    "oracleId": "USDT",
+    "decimals": "1e6",
+    "borrowRate": 70,
+    "borrowDepth": 4
+  },
+  {
+    "name": "mendi-linea-lev-dai",
+    "cToken": "0x1f27f81C1D13Dd96A3b75d42e3d5d92b709869AA",
+    "oracle": "tokens",
+    "oracleId": "DAI",
+    "decimals": "1e18",
+    "borrowRate": 70,
+    "borrowDepth": 4
+  },
+  {
+    "name": "mendi-linea-lev-wbtc",
+    "cToken": "0x9be5e24F05bBAfC28Da814bD59284878b388a40f",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "borrowRate": 55,
+    "borrowDepth": 4
+  },
+  {
+    "name": "mendi-linea-lev-wsteth",
+    "cToken": "0xCeEd853798ff1c95cEB4dC48f68394eb7A86A782",
+    "oracle": "tokens",
+    "oracleId": "wstETH",
+    "decimals": "1e18",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "borrowRate": 50,
+    "borrowDepth": 4
+  },
+  {
     "name": "mendi-linea-weth",
     "cToken": "0xAd7f33984bed10518012013D4aB0458D37FEE6F3",
     "oracle": "tokens",
     "oracleId": "WETH",
-    "decimals": "1e18"
+    "decimals": "1e18",
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-usdc",
     "cToken": "0x333D8b480BDB25eA7Be4Dd87EEB359988CE1b30D",
     "oracle": "tokens",
     "oracleId": "USDC",
-    "decimals": "1e6"
+    "decimals": "1e6",
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-usdt",
     "cToken": "0xf669C3C03D9fdF4339e19214A749E52616300E89",
     "oracle": "tokens",
     "oracleId": "USDT",
-    "decimals": "1e6"
+    "decimals": "1e6",
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-dai",
     "cToken": "0x1f27f81C1D13Dd96A3b75d42e3d5d92b709869AA",
     "oracle": "tokens",
     "oracleId": "DAI",
-    "decimals": "1e18"
+    "decimals": "1e18",
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-wbtc",
     "cToken": "0x9be5e24F05bBAfC28Da814bD59284878b388a40f",
     "oracle": "tokens",
     "oracleId": "WBTC",
-    "decimals": "1e8"
+    "decimals": "1e8",
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-wsteth",
@@ -41,6 +107,19 @@
     "oracleId": "wstETH",
     "decimals": "1e18",
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
-    "dataPath": "$.data.smaApr"
+    "dataPath": "$.data.smaApr",
+    "borrowRate": 0,
+    "borrowDepth": 1
+  },
+  {
+    "name": "mendi-linea-ezeth",
+    "cToken": "0x8a90D208666Deec08123444F67Bf5B1836074a67",
+    "oracle": "tokens",
+    "oracleId": "ezETH",
+    "decimals": "1e18",
+    "lsUrl": "https://app.renzoprotocol.com/api/stats?chainId=59144",
+    "dataPath": "$.data.apr.data",
+    "borrowRate": 0,
+    "borrowDepth": 1
   }
 ]
