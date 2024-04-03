@@ -674,6 +674,19 @@ const _tokens = {
     documentation: 'https://www.degen.tips/faq',
     bridge: 'native',
   },
+  doginme: {
+    name: 'doginme',
+    symbol: 'doginme',
+    address: '0x6921B130D297cc43754afba22e5EAc0FBf8Db75b',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'doginme',
+    logoURI: '',
+    website: 'https://dogin.meme/',
+    description:
+      'The $doginme memecoin roots were established when a Farcaster user inquired if Dan Romero (DWR), the founder of the decentralized social media platform, owned a dog.',
+    bridge: 'native',
+  },
   SEXY: {
     name: 'Settled ETHXY Token',
     symbol: 'SEXY',
