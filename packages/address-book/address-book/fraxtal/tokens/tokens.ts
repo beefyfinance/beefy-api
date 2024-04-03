@@ -4,8 +4,8 @@ import Token from '../../../types/token';
 const frxETH = {
   name: 'Frax Wrapped Ether',
   address: '0xFC00000000000000000000000000000000000006',
-  symbol: 'frxETH',
-  oracleId: 'frxETH',
+  symbol: 'wfrxETH',
+  oracleId: 'wfrxETH',
   decimals: 18,
   chainId: 252,
   website: 'https://app.frax.finance/frxeth/mint',
