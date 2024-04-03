@@ -15,6 +15,7 @@ export const getMooTokenPrices = () => {
 const updateMooTokenPrices = async () => {
   let vaults = getMultichainVaults();
   for (const vault of vaults) {
+    if (vault.status == 'eol') continue;
     try {
       let price = await fetchPrice(
         { oracle: vault.oracle, id: vault.oracleId },
