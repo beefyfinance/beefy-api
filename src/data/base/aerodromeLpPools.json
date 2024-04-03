@@ -55,8 +55,8 @@
     "lp1": {
       "address": "0x23432452B720C80553458496D4D9d7C5003280d0",
       "oracle": "tokens",
-      "oracleId": "USDC",
-      "decimals": "1e6"
+      "oracleId": "FXS",
+      "decimals": "1e18"
     }
   },
   {
