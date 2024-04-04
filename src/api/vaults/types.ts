@@ -31,6 +31,7 @@ export type Vault = {
   lastHarvest?: number;
   pricePerFullShare: BigNumber;
   createdAt: number;
+  retiredAt?: number | undefined;
   chain: ApiChain;
 };
 
@@ -54,6 +55,7 @@ export type GovVault = {
   isGovVault: boolean;
   network: AppChain;
   createdAt: number;
+  retiredAt?: number | undefined;
   totalSupply: number;
   chain: ApiChain;
 };

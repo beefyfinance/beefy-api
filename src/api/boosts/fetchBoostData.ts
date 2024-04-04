@@ -7,13 +7,19 @@ import { Boost } from './types';
 
 export const getBoosts = async chain => {
   const boostsEndpoint = `https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/boost/${chain}.json`;
-  try {
-    let boosts = await fetch(boostsEndpoint).then(res => res.json());
-    return boosts as Boost[];
-  } catch (err) {
-    console.error(err);
-    return [];
+  const response = await fetch(boostsEndpoint);
+  if (response.status !== 200) {
+    throw new Error(
+      `Failed to fetch boosts for ${chain}: ${response.status} ${response.statusText}`
+    );
   }
+
+  const boosts = await response.json();
+  if (!boosts || !Array.isArray(boosts)) {
+    throw new Error(`Invalid boosts data for ${chain}`);
+  }
+
+  return boosts as Boost[];
 };
 
 export const getBoostPeriodFinish = async (chain: ApiChain, boosts: any[]) => {
