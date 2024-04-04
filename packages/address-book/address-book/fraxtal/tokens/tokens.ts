@@ -65,7 +65,7 @@ const _tokens = {
     name: 'Curve.Fi USD Stablecoin',
     symbol: 'crvUSD',
     oracleId: 'crvUSD',
-    address: '0x498Bf2B1e120FeD3ad3D42EA2165E9b73f99C1e5',
+    address: '0xB102f7Efa0d5dE071A8D37B3548e1C7CB148Caf3',
     chainId: 252,
     decimals: 18,
     logoURI: '',
