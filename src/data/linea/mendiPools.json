@@ -41,8 +41,8 @@
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",
-    "borrowRate": 55,
-    "borrowDepth": 4
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-lev-wsteth",
