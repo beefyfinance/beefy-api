@@ -61,9 +61,12 @@ const getPoolsApys = async (params: MendiApyParams, data: PoolsData) => {
       .div(data.cTokenDecimals[i])
       .times(data.tokenPrices[i])
   );
+  const totalBorrowsInUsd = data.totalBorrows.map((v, i) =>
+    v.toNumber() > 0 ? v.times(data.tokenPrices[i]).div(params.pools[i].decimals) : v.plus(1)
+  );
 
   const supplyCompApys = annualCompSupplyInUsd.map((v, i) => v.div(totalSuppliesInUsd[i]));
-  const borrowCompApys = annualCompBorrowInUsd.map((v, i) => v.div(totalSuppliesInUsd[i]));
+  const borrowCompApys = annualCompBorrowInUsd.map((v, i) => v.div(totalBorrowsInUsd[i]));
 
   const supplyLeverageFactor = params.pools.map(
     v => (1 - (v.borrowRate / 100) ** v.borrowDepth) / (1 - v.borrowRate / 100)
@@ -99,6 +102,7 @@ const getPoolsData = async (params: MendiApyParams): Promise<PoolsData> => {
   const borrowRateCalls = [];
   const compSpeedCalls = [];
   const totalSupplyCalls = [];
+  const totalBorrowsCalls = [];
   const exchangeRateStoredCalls = [];
   const cTokenDecimalsCalls = [];
 
@@ -118,6 +122,7 @@ const getPoolsData = async (params: MendiApyParams): Promise<PoolsData> => {
       ])
     );
     totalSupplyCalls.push(cTokenContract.read.totalSupply());
+    totalBorrowsCalls.push(cTokenContract.read.totalBorrows());
     exchangeRateStoredCalls.push(cTokenContract.read.exchangeRateStored());
     cTokenDecimalsCalls.push(cTokenContract.read.decimals());
   });
@@ -126,6 +131,7 @@ const getPoolsData = async (params: MendiApyParams): Promise<PoolsData> => {
     Promise.all(borrowRateCalls),
     Promise.all(compSpeedCalls),
     Promise.all(totalSupplyCalls),
+    Promise.all(totalBorrowsCalls),
     Promise.all(exchangeRateStoredCalls),
     Promise.all(cTokenDecimalsCalls),
     Promise.all(pricePromises),
@@ -137,12 +143,13 @@ const getPoolsData = async (params: MendiApyParams): Promise<PoolsData> => {
   const compSupplySpeeds: BigNumber[] = res[2].map(v => new BigNumber(v['0'].toString()));
   const compBorrowSpeeds: BigNumber[] = res[2].map(v => new BigNumber(v['3'].toString()));
   const totalSupplies: BigNumber[] = res[3].map(v => new BigNumber(v.toString()));
-  const exchangeRatesStored: BigNumber[] = res[4].map(v => new BigNumber(v.toString()));
-  const cTokenDecimals: BigNumber[] = res[5].map(v =>
+  const totalBorrows: BigNumber[] = res[4].map(v => new BigNumber(v.toString()));
+  const exchangeRatesStored: BigNumber[] = res[5].map(v => new BigNumber(v.toString()));
+  const cTokenDecimals: BigNumber[] = res[6].map(v =>
     new BigNumber(10).exponentiatedBy(v.toString())
   );
-  const tokenPrices = res[6];
-  const lsAprs = res[7];
+  const tokenPrices = res[7];
+  const lsAprs = res[8];
 
   return {
     tokenPrices,
@@ -152,6 +159,7 @@ const getPoolsData = async (params: MendiApyParams): Promise<PoolsData> => {
     compBorrowSpeeds,
     lsAprs,
     totalSupplies,
+    totalBorrows,
     exchangeRatesStored,
     cTokenDecimals,
   };
@@ -189,6 +197,7 @@ export interface PoolsData {
   compBorrowSpeeds: BigNumber[];
   lsAprs: number[];
   totalSupplies: BigNumber[];
+  totalBorrows: BigNumber[];
   exchangeRatesStored: BigNumber[];
   cTokenDecimals: BigNumber[];
 }
