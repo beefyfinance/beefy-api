@@ -1,0 +1,26 @@
+[
+  {
+    "name": "curve-lend-arb-arb-crvusd",
+    "address": "0x65592b1F12c07D434e95c7BF87F4f2f464e950e4",
+    "gauge": "0xC0d2d2CfBc20BaDaEF4360f577590790f16C3d43",
+    "oracleId": "crvUSD",
+    "rewards": [
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  },
+  {
+    "name": "curve-lend-arb-crv-crvusd",
+    "address": "0xeEaF2ccB73A01deb38Eca2947d963D64CfDe6A32",
+    "gauge": "0xb999E6177CAc62d40f2FDD1fE396DaD411F40499",
+    "oracleId": "crvUSD",
+    "rewards": [
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  }
+]

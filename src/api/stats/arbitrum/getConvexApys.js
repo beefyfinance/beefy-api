@@ -1,4 +1,4 @@
-import { getCurveBaseApys } from '../common/curve/getCurveApyData';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
 import { getConvexApyData } from '../common/curve/getConvexApyData';
@@ -9,7 +9,7 @@ const tradingFees = 0.0002;
 
 export const getConvexApys = async () => {
   const [baseApys, farmApys] = await Promise.all([
-    getCurveBaseApys(pools, baseApyUrl),
+    getCurveSubgraphApys(pools, baseApyUrl),
     getConvexApyData(chainId, pools),
   ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));

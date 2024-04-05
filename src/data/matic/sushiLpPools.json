@@ -465,7 +465,7 @@
     "lp0": {
       "address": "0x53E0bca35eC356BD5ddDFebbD1Fc0fD03FaBad39",
       "oracle": "tokens",
-      "oracleId": "LINK",
+      "oracleId": "oldLINK",
       "decimals": "1e18"
     },
     "lp1": {

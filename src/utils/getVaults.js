@@ -17,6 +17,7 @@ const getVaults = async vaultsEndpoint => {
       return {
         ...vault,
         isGovVault: vault.type === 'gov',
+        type: vault.type,
       };
     } else if ('isGovVault' in vault) {
       return {

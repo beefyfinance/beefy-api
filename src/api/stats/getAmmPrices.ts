@@ -609,7 +609,6 @@ const coinGeckoCoins: Record<string, string[]> = {
   lucha: ['LUCHA'],
   'cow-protocol': ['COW'],
   'electronic-usd': ['eUSD'],
-  'mendi-finance': ['MENDI'],
   // 'overnight-finance': ['OVN'],
   'gyroscope-gyd': ['GYD'],
   'renzo-restaked-eth': ['ezETH'],

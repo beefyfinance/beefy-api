@@ -674,6 +674,19 @@ const _tokens = {
     documentation: 'https://www.degen.tips/faq',
     bridge: 'native',
   },
+  doginme: {
+    name: 'doginme',
+    symbol: 'doginme',
+    address: '0x6921B130D297cc43754afba22e5EAc0FBf8Db75b',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'doginme',
+    logoURI: '',
+    website: 'https://dogin.meme/',
+    description:
+      'The $doginme memecoin roots were established when a Farcaster user inquired if Dan Romero (DWR), the founder of the decentralized social media platform, owned a dog.',
+    bridge: 'native',
+  },
   SEXY: {
     name: 'Settled ETHXY Token',
     symbol: 'SEXY',
@@ -732,6 +745,21 @@ const _tokens = {
       'The Frax Share token (FXS) is the non-stable, utility token in the protocol. It is meant to be volatile and hold rights to governance and all utility of the system. It is important to note that we take a highly governance-minimized approach to designing trustless money in the same ethos as Bitcoin. We eschew DAO-like active management such as MakerDAO. The less parameters for a community to be able to actively manage, the less there is to disagree on. Parameters that are up for governance through FXS include adding/adjusting collateral pools, adjusting various fees (like minting or redeeming), and refreshing the rate of the collateral ratio. No other actions such as active management of collateral or addition of human-modifiable parameters are possible other than a hardfork that would require voluntarily moving to a new implementation entirely. ',
     documentation: 'https://docs.frax.finance/',
     bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
+  ezETH: {
+    name: 'Renzo Restaked ETH',
+    symbol: 'ezETH',
+    address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'ezETH',
+    logoURI: '',
+    website: 'https://www.renzoprotocol.com/',
+    description:
+      'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
+    documentation: 'https://docs.renzoprotocol.com/docs/',
+    bridge: 'connext',
     risks: ['NO_TIMELOCK'],
   },
 } as const;

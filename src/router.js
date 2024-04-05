@@ -21,6 +21,7 @@ const { proxyOneInchSwap, proxyOneInchQuote } = require('./api/zap/proxy/one-inc
 const { proxyKyberSwap, proxyKyberQuote } = require('./api/zap/proxy/kyber');
 const { zapSwapsSupport, zapSwapsSupportDebug } = require('./api/zap/swap/routes');
 const { getArticles, getLatestArticle } = require('./api/articles');
+const { getCowcentratedVaultData } = require('./api/cowcentrated');
 
 router.get('/validator-performance', validatorPerformance);
 
@@ -49,6 +50,8 @@ router.get('/vaults/id/:vaultId', multichainVaults.singleVault);
 router.get('/vaults/:chainId', multichainVaults.singleChainVaults);
 router.get('/gov-vaults', multichainVaults.multichainGovVaults);
 router.get('/gov-vaults/:chainId', multichainVaults.singleGovChainVaults);
+
+router.get('/cowData', getCowcentratedVaultData);
 
 router.get('/fees', multichainVaults.vaultFees);
 

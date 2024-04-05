@@ -1,5 +1,5 @@
 import getApyBreakdown from '../common/getApyBreakdown';
-import { getCurveBaseApys } from '../common/curve/getCurveApyData';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
 import { getCurveApysCommon } from '../common/curve/getCurveApysCommon';
 import { ARBITRUM_CHAIN_ID } from '../../../constants';
 import { getStakeDaoApyCommon } from '../common/curve/getStakeDaoApyCommon';
@@ -30,7 +30,7 @@ export const getCurveApys = async () => {
   const curvePools = pools.filter(p => p.gauge && !p.convex);
 
   const [baseApys, curveApys, sdApys] = await Promise.all([
-    await getCurveBaseApys(pools, baseApyUrl),
+    await getCurveSubgraphApys(pools, baseApyUrl),
     await getCurveApysCommon(ARBITRUM_CHAIN_ID, curvePools),
     await getStakeDaoApyCommon(ARBITRUM_CHAIN_ID, stakeDaoPools),
   ]);

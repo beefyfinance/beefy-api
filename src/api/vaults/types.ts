@@ -26,7 +26,7 @@ export type Vault = {
   network: AppChain;
   /** @deprecated */
   isGovVault?: boolean;
-  type: 'standard' | 'gov';
+  type: 'standard' | 'gov' | 'cowcentrated';
   strategy: string;
   lastHarvest?: number;
   pricePerFullShare: BigNumber;

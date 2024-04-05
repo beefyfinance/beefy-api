@@ -75,6 +75,9 @@ const {
 
   MANTLE_CHAIN_ID,
   MANTLE_VAULTS_ENDPOINT,
+
+  FRAXTAL_CHAIN_ID,
+  FRAXTAL_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -183,6 +186,10 @@ const chains = [
   {
     chainId: MANTLE_CHAIN_ID,
     vaultsEndpoint: MANTLE_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: FRAXTAL_CHAIN_ID,
+    vaultsEndpoint: FRAXTAL_VAULTS_ENDPOINT,
   },
 ];
 

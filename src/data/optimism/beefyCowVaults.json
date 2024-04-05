@@ -1,5 +1,16 @@
 [
   {
+    "address": "0xd55710aDDfa1d620aeeA78e6AaB3B923C1785Ba5",
+    "lpAddress": "0xf800BA6e79CDe93465AACe9B5095E22c00A18709",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"
+    ],
+    "tokenOracleIds": ["WETH", "mooBIFI"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-moobifi-eth-t3"
+  },
+  {
     "address": "0x944Df2E9b7dbc28DbaDB25DDbF6C890Dc9d4e347",
     "lpAddress": "0x68F5C0A2DE713a54991E01858Fd27a3832401849",
     "tokens": [

@@ -1,6 +1,6 @@
 import { ETH_CHAIN_ID } from '../../../constants';
 import getApyBreakdown from '../common/getApyBreakdown';
-import { getCurveBaseApys } from '../common/curve/getCurveApyData';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import ICurveGauge from '../../../abis/ICurveGauge';
@@ -19,7 +19,7 @@ const pools = require('../../../data/ethereum/convexPools.json').filter(
 
 export const getCurveApys = async () => {
   const [baseApys, farmApys] = await Promise.all([
-    getCurveBaseApys(pools, subgraphUrl),
+    getCurveSubgraphApys(pools, subgraphUrl),
     getPoolApys(pools),
   ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
