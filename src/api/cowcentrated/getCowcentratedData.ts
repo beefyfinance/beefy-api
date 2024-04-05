@@ -55,14 +55,14 @@ const updateChainCowcentratedData = async (
         };
       }
     });
-
-    console.log(`> CLM data for ${subgraphUrl} updated`);
   } catch (err) {
     console.log(`> CLM data update failed for ${subgraphUrl}: ${err.message}`);
   }
 };
 
 const updateCowcentratedData = async () => {
+  const start = Date.now();
+  console.log('> Updating Cowcentrated data');
   try {
     for (const [subgraphUrl, clmVaults] of Object.entries(subgraphPositionMapping)) {
       updateChainCowcentratedData(subgraphUrl, clmVaults);
@@ -72,7 +72,7 @@ const updateCowcentratedData = async () => {
     console.log(err.message);
   }
 
-  console.log('> Cowcentrated data updated');
+  console.log(`> Cowcentrated data updated (${(Date.now() - start) / 1000}s)`);
   setTimeout(updateCowcentratedData, REFRESH_DELAY);
 };
 

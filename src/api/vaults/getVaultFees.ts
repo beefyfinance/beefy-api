@@ -4,8 +4,7 @@ import { getKey, setKey } from '../../utils/cache';
 import { ApiChain } from '../../utils/chain';
 import { fetchContract } from '../rpc/client';
 import FeeABI from '../../abis/FeeABI';
-
-const { getMultichainVaults } = require('../stats/getMultichainVaults');
+const { getMultichainVaults, getMultichainCowVaults } = require('../stats/getMultichainVaults');
 
 const feeBatchTreasurySplitMethodABI = [
   {
@@ -121,10 +120,12 @@ const updateFeeBatch = async () => {
 
 const updateVaultFees = async () => {
   console.log(`> updating vault fees`);
-  let start = Date.now();
-  let vaults = getMultichainVaults();
+  const start = Date.now();
 
-  let promises = [];
+  // Cow vaults have fees too
+  const vaults = getMultichainVaults().concat(getMultichainCowVaults());
+
+  const promises = [];
 
   for (const chain of Object.keys(addressBookByChainId).map(c => Number(c))) {
     const chainVaults = vaults
