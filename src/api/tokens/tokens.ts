@@ -94,7 +94,7 @@ async function fetchVaultTokensForChain(chainId: ApiChain): Promise<TokenEntity[
 
   return vaults.reduce((tokens: TokenEntity[], vault) => {
     // Native comes from address book
-    if (vault.tokenAddress && vault.tokenAddress !== 'native') {
+    if (vault.tokenAddress && vault.tokenAddress !== 'native' && vault.type !== 'cowcentrated') {
       tokens.push({
         type: 'erc20',
         id: vault.token,

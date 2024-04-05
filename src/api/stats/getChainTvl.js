@@ -1,6 +1,8 @@
+import { get } from 'lodash';
 import { ChainId } from '../../../packages/address-book/address-book';
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../utils/fetchPrice';
+import { getSingleChainCowVaults } from './getMultichainVaults';
 const { EXCLUDED_IDS_FROM_TVL } = require('../../constants');
 const { fetchContract } = require('../rpc/client');
 const { default: BeefyVaultV6Abi } = require('../../abis/BeefyVault');
@@ -13,17 +15,20 @@ const getChainTvl = async chain => {
 
   const lpVaults = getSingleChainVaults(apiChain);
   const govVaults = getSingleChainGovVaults(apiChain);
+  const cowVaults = getSingleChainCowVaults(apiChain);
   const vaultsCalls = [
     getVaultBalances(chainId, lpVaults),
     getGovVaultBalances(chainId, govVaults),
+    getCowVaultBalances(chainId, cowVaults),
   ];
-  const [vaultBalances, govVaultBalances] = await Promise.all(vaultsCalls);
+  const [vaultBalances, govVaultBalances, cowVaultBalances] = await Promise.all(vaultsCalls);
 
   let tvls = { [chainId]: {} };
 
   //first set lp vaults since some gov vaults can exlude from tvl from those
   tvls = await setVaultsTvl(lpVaults, vaultBalances, chainId, tvls);
   tvls = await setVaultsTvl(govVaults, govVaultBalances, chainId, tvls);
+  tvls = await setVaultsTvl(cowVaults, cowVaultBalances, chainId, tvls);
 
   return tvls;
 };
@@ -79,6 +84,16 @@ const getGovVaultBalances = async (chainId, govPools) => {
   const calls = govPools.map(vault => {
     const tokenContract = fetchContract(vault.tokenAddress, ERC20Abi, chainId);
     return tokenContract.read.balanceOf([vault.earnContractAddress]);
+  });
+
+  const res = await Promise.all(calls);
+  return res.map(v => new BigNumber(v.toString()));
+};
+
+const getCowVaultBalances = async (chainId, cowVaults) => {
+  const calls = cowVaults.map(vault => {
+    const tokenContract = fetchContract(vault.earnContractAddress, ERC20Abi, chainId);
+    return tokenContract.read.totalSupply();
   });
 
   const res = await Promise.all(calls);

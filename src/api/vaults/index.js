@@ -1,3 +1,4 @@
+const { getMultichainCowVaults } = require('../stats/getMultichainVaults');
 const {
   getMultichainVaults,
   getSingleChainVaults,
@@ -31,11 +32,13 @@ async function multichainGovVaults(ctx) {
 
 async function vaultsLastHarvest(ctx) {
   try {
-    const lastHarvests = getMultichainVaults().reduce((res, vault) => {
-      const { id, lastHarvest } = vault;
-      res[id] = lastHarvest;
-      return res;
-    }, {});
+    const lastHarvests = getMultichainVaults()
+      .concat(getMultichainCowVaults())
+      .reduce((res, vault) => {
+        const { id, lastHarvest } = vault;
+        res[id] = lastHarvest;
+        return res;
+      }, {});
     ctx.status = 200;
     ctx.body = lastHarvests;
   } catch (err) {

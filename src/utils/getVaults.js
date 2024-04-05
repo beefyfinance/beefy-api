@@ -9,6 +9,7 @@ const getVaults = async vaultsEndpoint => {
           return {
             ...vault,
             isGovVault: vault.type === 'gov',
+            type: vault.type,
           };
         } else if ('isGovVault' in vault) {
           return {
@@ -27,6 +28,7 @@ const getVaults = async vaultsEndpoint => {
 
     throw new Error('Invalid response');
   } catch (err) {
+    console.log('> error fetching vaults ' + vaultsEndpoint);
     console.error(err);
     return 0;
   }
