@@ -5,7 +5,7 @@ import { fetchPrice } from '../../../utils/fetchPrice';
 const { getTotalLpStakedInUsd } = require('../../../utils/getTotalStakedInUsd');
 const getBlockTime = require('../../../utils/getBlockTime');
 import getApyBreakdown from '../common/getApyBreakdown';
-import { getCurveBaseApys } from '../common/curve/getCurveApyData';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
 import ElysianFields from '../../../abis/matic/ElysianFields';
 import { fetchContract } from '../../rpc/client';
 import { POLYGON_CHAIN_ID } from '../../../constants';
@@ -17,7 +17,7 @@ const tradingFee = 0.0004;
 const getJarvisApys = async () => {
   let promises = [];
   const filteredPools = pools.filter(p => p.name != 'jarvis-2eure'); // temp fix while trading APY is broken
-  const baseApys = await getCurveBaseApys(filteredPools, baseApyUrl);
+  const baseApys = await getCurveSubgraphApys(filteredPools, baseApyUrl);
   pools.forEach(pool => promises.push(getPoolApy(pool)));
   const farmAprs = await Promise.all(promises);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name, beefyFee: p.beefyFee }));

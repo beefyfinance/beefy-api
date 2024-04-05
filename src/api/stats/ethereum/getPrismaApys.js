@@ -1,5 +1,5 @@
 import { ETH_CHAIN_ID, ETHEREUM_VAULTS_ENDPOINT } from '../../../constants';
-import { getCurveBaseApys } from '../common/curve/getCurveApyData';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../utils/fetchPrice';
@@ -15,7 +15,7 @@ const secondsPerYear = 31536000;
 
 export const getPrismaApys = async () => {
   const [baseApys, farmApys] = await Promise.all([
-    getCurveBaseApys(pools, subgraphUrl),
+    getCurveSubgraphApys(pools, subgraphUrl),
     getPoolApys(pools),
   ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));

@@ -1,5 +1,6 @@
 const { getSushiLpApys } = require('./getSushiApys');
 const { getCurveApys } = require('./getCurveApys');
+const { getCurveLendApys } = require('./getCurveLendApys');
 const { getSushiMimApys } = require('./getSushiMimApys');
 const { getSpellApys } = require('./getSpellApys');
 const getBalancerArbApys = require('./getBalancerArbApys');
@@ -44,6 +45,7 @@ const getApys = [
   getRipaeApys,
   getSushiLpApys,
   getCurveApys,
+  getCurveLendApys,
   getConvexApys,
   getSushiMimApys,
   getSpellApys,

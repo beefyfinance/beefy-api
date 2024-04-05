@@ -1,19 +1,16 @@
 import { ETH_CHAIN_ID } from '../../../constants';
-import {
-  getCurveBaseApys,
-  // getCurveBaseApysOld,
-} from '../common/curve/getCurveApyData';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
 import getApyBreakdown from '../common/getApyBreakdown';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import IRewardPool from '../../../abis/IRewardPool';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
+import { getCurveLendSupplyApys } from '../common/curve/getCurveLendSupplyApys';
 
 const lpPools = require('../../../data/ethereum/convexPools.json').filter(p => p.rewardPool);
+const lendPools = require('../../../data/ethereum/curveLendPools.json').filter(p => p.rewardPool);
 const subgraphUrl = 'https://api.curve.fi/api/getSubgraphData/ethereum';
-// const baseApyUrl = 'https://stats.curve.fi/raw-stats/apys.json';
-// const factoryApyUrl = 'https://api.curve.fi/api/getFactoryAPYs';
 const tradingFees = 0.0002;
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
@@ -31,16 +28,17 @@ const pools = [
     ],
   },
   ...lpPools,
+  ...lendPools,
 ];
 
 export const getConvexApys = async () => {
-  // const baseApys = await getCurveBaseApysOld(pools, baseApyUrl, factoryApyUrl);
-  const [baseApys, farmApys] = await Promise.all([
-    getCurveBaseApys(lpPools, subgraphUrl),
+  const [baseApys, lendApys, farmApys] = await Promise.all([
+    getCurveSubgraphApys(lpPools, subgraphUrl),
+    getCurveLendSupplyApys(ETH_CHAIN_ID, lendPools),
     getPoolApys(pools),
   ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
-  return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
+  return getApyBreakdown(poolsMap, { ...baseApys, ...lendApys }, farmApys, tradingFees);
 };
 
 const getPoolApys = async pools => {

@@ -99,7 +99,12 @@ import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getAcrossPrices from './ethereum/getAcrossPrices';
 import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
-import { FRAXTAL_CHAIN_ID as FRX_CHAIN_ID, GNOSIS_CHAIN_ID as GNO_CHAIN_ID } from '../../constants';
+import {
+  ARBITRUM_CHAIN_ID,
+  ETH_CHAIN_ID,
+  FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
+  GNOSIS_CHAIN_ID as GNO_CHAIN_ID,
+} from '../../constants';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
 import getEthRangePrices from './ethereum/getEthRangePrices';
 import getBscRangePrices from './bsc/getBscRangePrices';
@@ -109,6 +114,7 @@ import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
 import getFtmIchiPrices from './fantom/getFtmIchiPrices';
 import { getBeefyCowBasePrices } from './base/getBeefyCowBasePrices';
+import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -204,6 +210,16 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurvePolygonPrices(tokenPrices),
     getCurveFantomPrices(tokenPrices),
     getCurveArbitrumPrices(tokenPrices),
+    getCurveLendPricesCommon(
+      ARBITRUM_CHAIN_ID,
+      require('../../data/arbitrum/curveLendPools.json'),
+      tokenPrices
+    ),
+    getCurveLendPricesCommon(
+      ETH_CHAIN_ID,
+      require('../../data/ethereum/curveLendPools.json'),
+      tokenPrices
+    ),
     getCurveAvaxPrices(tokenPrices),
     getCurveHarmonyPrices(tokenPrices),
     getCurveOptimismPrices(tokenPrices),

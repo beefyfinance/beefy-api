@@ -6,7 +6,7 @@ import arbitrumPools from '../../data/arbitrum/beefyCowVaults.json';
 let cowData;
 
 const CACHE_KEY = 'COWCENTRATED_DATA';
-const INIT_DELAY = 5000;
+const INIT_DELAY = Number(process.env.COWCENTRATED_INIT_DELAY || 5000);
 const REFRESH_DELAY = 60000;
 
 type CLMVault = {

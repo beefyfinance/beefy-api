@@ -1,5 +1,5 @@
 import getApyBreakdown from '../common/getApyBreakdown';
-import { getCurveBaseApys } from '../common/curve/getCurveApyData';
+import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
 import { getCurveApysCommon } from '../common/curve/getCurveApysCommon';
 import { FANTOM_CHAIN_ID } from '../../../constants';
 
@@ -9,7 +9,7 @@ const tradingFees = 0.0002;
 
 export const getCurveApys = async () => {
   const [baseApys, farmApys] = await Promise.all([
-    getCurveBaseApys(pools, baseApyUrl),
+    getCurveSubgraphApys(pools, baseApyUrl),
     getCurveApysCommon(FANTOM_CHAIN_ID, pools),
   ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
