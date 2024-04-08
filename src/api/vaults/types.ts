@@ -59,3 +59,37 @@ export type GovVault = {
   totalSupply: number;
   chain: ApiChain;
 };
+
+export type CowVault = {
+  id: string;
+  name: string;
+  token: string;
+  tokenAddress?: string | null;
+  tokenDecimals: number;
+  depositTokenAddresses: string[];
+  tokenProviderId?: string;
+  tokenAmmId?: string;
+  earnedToken: string;
+  earnedTokenAddress: string;
+  earnedTokenDecimals?: number;
+  earnedOracleId?: string;
+  earnContractAddress: string;
+  oracle: 'lps' | 'tokens';
+  oracleId: string;
+  status: 'active' | 'paused' | 'eol';
+  platformId: string;
+  assets?: string[];
+  strategyTypeId: string;
+  risks: string[];
+  addLiquidityUrl?: string;
+  removeLiquidityUrl?: string;
+  network: AppChain;
+  /** @deprecated */
+  isGovVault?: boolean;
+  type: 'cowcentrated';
+  strategy: string;
+  lastHarvest?: number;
+  createdAt: number;
+  retiredAt?: number | undefined;
+  chain: ApiChain;
+};
