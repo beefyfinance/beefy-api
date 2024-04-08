@@ -9,6 +9,17 @@ const {
 } = require('../stats/getMultichainVaults');
 const { getVaultFees } = require('./getVaultFees');
 
+async function multichainHarvestableVaults(ctx) {
+  try {
+    const multichainVaults = getMultichainVaults().concat(getMultichainCowVaults());
+    ctx.status = 200;
+    ctx.body = [...multichainVaults];
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
 async function multichainVaults(ctx) {
   try {
     const multichainVaults = getMultichainVaults();
@@ -115,6 +126,7 @@ async function vaultFees(ctx) {
 }
 
 module.exports = {
+  multichainHarvestableVaults,
   multichainVaults,
   multichainGovVaults,
   multichainCowVaults,
