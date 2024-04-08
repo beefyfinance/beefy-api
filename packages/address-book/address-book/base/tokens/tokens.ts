@@ -697,7 +697,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://www.l2ve.me/',
     description:
-      'The Cupid Inu memecoin has landed on BASE, with a mission is to scatter as much $L2VE as possible.',
+      'The Cupid Inu memecoin has landed on BASE, with a mission to scatter as much $L2VE as possible.',
     bridge: 'native',
   },
   SEXY: {
