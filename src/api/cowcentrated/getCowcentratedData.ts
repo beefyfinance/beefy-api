@@ -2,6 +2,7 @@ import { getKey, setKey } from '../../utils/cache';
 import optimismPools from '../../data/optimism/beefyCowVaults.json';
 import basePools from '../../data/base/beefyCowVaults.json';
 import arbitrumPools from '../../data/arbitrum/beefyCowVaults.json';
+import BigNumber from 'bignumber.js';
 
 let cowData;
 
@@ -19,9 +20,9 @@ type CLMVault = {
 };
 
 const reducePoolsToMap = (pools: CLMVault[]) =>
-  pools.reduce((acc, pool) => ({ ...acc, [pool.address.toLowerCase()]: pool.oracleId }), {});
+  pools.reduce((acc, pool) => ({ ...acc, [pool.address.toLowerCase()]: pool }), {});
 
-const subgraphPositionMapping: Record<string, Record<string, string>> = {
+const subgraphPositionMapping: Record<string, Record<string, CLMVault>> = {
   'https://api.0xgraph.xyz/subgraphs/name/beefyfinance/clm-optimism': reducePoolsToMap(
     optimismPools as CLMVault[]
   ),
@@ -35,7 +36,7 @@ const subgraphPositionMapping: Record<string, Record<string, string>> = {
 
 const updateChainCowcentratedData = async (
   subgraphUrl: string,
-  vaultAddressToIdMapping: Record<string, string>
+  vaultAddressToIdMapping: Record<string, CLMVault>
 ) => {
   try {
     const response: any = await fetch(subgraphUrl, {
@@ -48,16 +49,33 @@ const updateChainCowcentratedData = async (
 
     response.data.beefyCLVaults.forEach((vault: any) => {
       if (vaultAddressToIdMapping[vault.id.toLowerCase()]) {
-        cowData[vaultAddressToIdMapping[vault.id.toLowerCase()]] = {
-          currentPrice: vault.currentPriceOfToken0InToken1,
-          priceRangeMin: vault.priceRangeMin1,
-          priceRangeMax: vault.priceRangeMax1,
+        const clmVault = vaultAddressToIdMapping[vault.id.toLowerCase()];
+        cowData[clmVault.oracleId] = {
+          currentPrice: decimalTranslateFunction(
+            vault.currentPriceOfToken0InToken1,
+            clmVault.decimals[0],
+            clmVault.decimals[1]
+          ),
+          priceRangeMin: decimalTranslateFunction(
+            vault.priceRangeMin1,
+            clmVault.decimals[0],
+            clmVault.decimals[1]
+          ),
+          priceRangeMax: decimalTranslateFunction(
+            vault.priceRangeMax1,
+            clmVault.decimals[0],
+            clmVault.decimals[1]
+          ),
         };
       }
     });
   } catch (err) {
     console.log(`> CLM data update failed for ${subgraphUrl}: ${err.message}`);
   }
+};
+
+const decimalTranslateFunction = (value: string, decimal0: number, decimal1: number) => {
+  return new BigNumber(value).shiftedBy(decimal0 - decimal1).toString(10);
 };
 
 const updateCowcentratedData = async () => {
