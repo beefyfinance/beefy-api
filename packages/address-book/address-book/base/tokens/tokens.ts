@@ -762,6 +762,32 @@ const _tokens = {
     bridge: 'connext',
     risks: ['NO_TIMELOCK'],
   },
+  bWELL: {
+    name: 'WELL',
+    symbol: 'WELL',
+    oracleId: 'bWELL',
+    address: '0xA88594D404727625A9437C3f886C7643872296AE',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://moonwell.fi/',
+    description: 'WELL is the native governance token of the Moonwell protocol.',
+    bridge: 'native',
+    documentation: 'https://docs.moonwell.fi/moonwell/discover/about-moonwell',
+  },
+  wBaseDOGE: {
+    name: 'Wrapped BaseDOGE',
+    symbol: 'wBaseDOGE',
+    oracleId: 'wBaseDOGE',
+    address: '0x373504DA48418C67E6FCD071F33Cb0b3B47613C7',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.basedoge.xyz/',
+    description: 'Meme dog token on base.',
+    bridge: 'native',
+    documentation: 'https://www.basedoge.xyz/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
