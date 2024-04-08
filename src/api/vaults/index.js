@@ -5,6 +5,7 @@ const {
   getSingleChainGovVaults,
   getVaultByID,
   getMultichainCowVaults,
+  getSingleChainCowVaults,
 } = require('../stats/getMultichainVaults');
 const { getVaultFees } = require('./getVaultFees');
 
