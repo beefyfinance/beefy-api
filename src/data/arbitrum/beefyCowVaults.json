@@ -9,5 +9,27 @@
     "tokenOracleIds": ["WETH", "ARB"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-arb-arb-eth-t3"
+  },
+  {
+    "address": "0x2a2e016F9c30c7dA5a41b21c19e9619ff78ab673",
+    "lpAddress": "0xdbaeB7f0DFe3a0AAFD798CCECB5b22E708f7852c",
+    "tokens": [
+      "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["PENDLE", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-pendle-eth"
+  },
+  {
+    "address": "0xeDd08A6FF7aEEe1E4DCCC103198af06B2316d8B8",
+    "lpAddress": "0xC6962004f452bE9203591991D15f6b388e09E8D0",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    ],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arb-eth-usdc"
   }
 ]

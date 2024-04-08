@@ -1602,6 +1602,20 @@ const _tokens = {
     documentation: 'https://docs.avax.network/learn/avalanche/avax',
     bridge: 'wormhole',
   },
+  PENDLE: {
+    name: 'Pendle',
+    symbol: 'PENDLE',
+    oracleId: 'PENDLE',
+    address: '0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.pendle.finance/',
+    description:
+      'Pendle is a permissionless yield-trading protocol where users can execute various yield-management strategies.',
+    documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
+    bridge: 'arbitrum-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
