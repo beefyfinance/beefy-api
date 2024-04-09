@@ -687,6 +687,32 @@ const _tokens = {
       'The $doginme memecoin roots were established when a Farcaster user inquired if Dan Romero (DWR), the founder of the decentralized social media platform, owned a dog.',
     bridge: 'native',
   },
+  CHAD: {
+    name: 'Based Chad',
+    symbol: 'CHAD',
+    address: '0xecaF81Eb42cd30014EB44130b89Bcd6d4Ad98B92',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'CHAD',
+    logoURI: '',
+    website: 'https://basedchad.io/',
+    description:
+      'You can’t say anything is more based than putting the best meme of all time on the most based L2.',
+    bridge: 'native',
+  },
+  ANIME: {
+    name: 'Anime',
+    symbol: 'ANIME',
+    address: '0x0e0c9756a3290cD782CF4aB73ac24D25291c9564',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'ANIME',
+    logoURI: '',
+    website: 'https://www.animeonbase.art/',
+    description:
+      '$ANIME has grown into a movement uniting people from around the world by their love of art and anime. No VCs, influencers, or utility. Just art and memes.',
+    bridge: 'native',
+  },
   L2VE: {
     name: 'Cupid Inu',
     symbol: 'L2VE',
@@ -699,6 +725,7 @@ const _tokens = {
     description:
       'The Cupid Inu memecoin has landed on BASE, with a mission to scatter as much $L2VE as possible.',
     bridge: 'native',
+    risks: ['NO_TIMELOCK'],
   },
   SEXY: {
     name: 'Settled ETHXY Token',
