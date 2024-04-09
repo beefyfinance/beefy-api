@@ -176,6 +176,20 @@ const _tokens = {
       'A permissionless, non-custodial ETH liquid staking protocol deployed on Ethereum L1 and governed by Mantle.',
     bridge: 'mantle-canonical',
   },
+  mShards: {
+    name: 'mShards',
+    symbol: 'mShards',
+    oracleId: 'mShards',
+    address: '0xD7782b99671DD23203eBd4584FC71cf2B3dbB111',
+    chainId: 5000,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.mantle.xyz/rewards-station',
+    documentation: 'https://www.mantle.xyz/blog/announcements/mantle-sharding-with-ethena',
+    description:
+      "Ethena Shards serve as a measure of a user's contribution to the Ethena ecosystem. mShards will possibly be redeemable for Ethena's governance token ENA at some point, the ratio will be determined by Ethena.",
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

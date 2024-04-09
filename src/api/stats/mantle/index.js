@@ -1,7 +1,8 @@
 const getLendleApys = require('./getLendleApys');
 const getMoeApys = require('./getMoeApys');
+const getmShardsApys = require('./getmShardsApys');
 
-const getApys = [getLendleApys, getMoeApys];
+const getApys = [getmShardsApys, getLendleApys, getMoeApys];
 
 const getMantleApys = async () => {
   const start = Date.now();

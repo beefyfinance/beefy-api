@@ -1,5 +1,24 @@
 [
   {
+    "name": "moe-usdt-mshards",
+    "address": "0x4bbf96c93ec63a4d021020aee024abe100597a31",
+    "decimals": "1e18",
+    "poolId": 25,
+    "chainId": 5000,
+    "lp0": {
+      "address": "0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xD7782b99671DD23203eBd4584FC71cf2B3dbB111",
+      "oracle": "tokens",
+      "oracleId": "mShards",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "moe-lend-meth",
     "address": "0xFb16B5CCC62dc125834c33BF6B063c87e6e6F581",
     "decimals": "1e18",
