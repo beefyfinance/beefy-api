@@ -46,5 +46,14 @@
     "lsAprFactor": 100,
     "borrowDepth": 1,
     "borrowRate": 0
+  },
+  {
+    "name": "sonne-base-wsteth",
+    "cToken": "0x7A6468053cDCd7E8fE507D7edB77336f5057D206",
+    "oracle": "tokens",
+    "oracleId": "wstETH",
+    "decimals": "1e18",
+    "borrowDepth": 1,
+    "borrowRate": 0
   }
 ]
