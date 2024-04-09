@@ -687,6 +687,19 @@ const _tokens = {
       'The $doginme memecoin roots were established when a Farcaster user inquired if Dan Romero (DWR), the founder of the decentralized social media platform, owned a dog.',
     bridge: 'native',
   },
+  L2VE: {
+    name: 'Cupid Inu',
+    symbol: 'L2VE',
+    address: '0xA19328fb05ce6FD204D16c2a2A98F7CF434c12F4',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'L2VE',
+    logoURI: '',
+    website: 'https://www.l2ve.me/',
+    description:
+      'The Cupid Inu memecoin has landed on BASE, with a mission to scatter as much $L2VE as possible.',
+    bridge: 'native',
+  },
   SEXY: {
     name: 'Settled ETHXY Token',
     symbol: 'SEXY',
