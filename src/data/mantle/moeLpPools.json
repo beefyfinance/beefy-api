@@ -1,5 +1,24 @@
 [
   {
+    "name": "moe-lend-meth",
+    "address": "0xFb16B5CCC62dc125834c33BF6B063c87e6e6F581",
+    "decimals": "1e18",
+    "poolId": 24,
+    "chainId": 5000,
+    "lp0": {
+      "address": "0x25356aeca4210eF7553140edb9b8026089E49396",
+      "oracle": "tokens",
+      "oracleId": "LEND",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcDA86A272531e8640cD7F1a92c01839911B90bb0",
+      "oracle": "tokens",
+      "oracleId": "mETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "moe-usdt-meth",
     "address": "0x5c819961990c9F4f9fBfd4101f1D4e565B8AA0a6",
     "decimals": "1e18",
