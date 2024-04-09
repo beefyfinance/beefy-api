@@ -6,7 +6,7 @@ const getStargateKavaApys = require('./getStargateKavaApys');
 
 const getApys = [
   getCurveApys,
-  getSushiLpApys,
+  // getSushiLpApys,
   getEquilibreApys,
   getKinetixApys,
   getStargateKavaApys,

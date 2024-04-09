@@ -208,6 +208,7 @@
     "name": "curve-veth",
     "pool": "0x6685fcfce05e7502bf9f0aa03b36025b09374726",
     "gauge": "0x8dff75976f22db58d7c3fd7b68d782238b0dbe30",
+    "_rewardPool": "0xDeCD2d71263757B49b5C38f78de63bA7760f09ae",
     "getDy": ["v1", 0, 1],
     "rewards": [
       {

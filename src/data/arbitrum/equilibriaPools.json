@@ -1,5 +1,45 @@
 [
   {
+    "name": "equilibria-arb-rseth-27jun24",
+    "address": "0x6Ae79089b2CF4be441480801bb741A531d94312b",
+    "gauge": "0x8181C89Fe053B344b95e03014CEe39a30e07A6b2",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  },
+  {
+    "name": "equilibria-arb-eeth-27jun24",
+    "address": "0x952083cde7aaa11AB8449057F7de23A970AA8472",
+    "gauge": "0x5017D294D5C354cf12D2a11f004aEeD21d3f9003",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ]
+  },
+  {
     "name": "equilibria-arb-ezeth-27jun24",
     "address": "0x5E03C94Fc5Fb2E21882000A96Df0b63d2c4312e2",
     "gauge": "0x5511C99A22b5E53B913C3f06E4b63e001E62D83B",
