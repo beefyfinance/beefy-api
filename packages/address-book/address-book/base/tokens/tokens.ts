@@ -687,6 +687,33 @@ const _tokens = {
       'The $doginme memecoin roots were established when a Farcaster user inquired if Dan Romero (DWR), the founder of the decentralized social media platform, owned a dog.',
     bridge: 'native',
   },
+  RSR: {
+    name: 'Reserve Rights',
+    symbol: 'RSR',
+    address: '0xaB36452DbAC151bE02b16Ca17d8919826072f64a',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'RSR',
+    logoURI: '',
+    website: 'https://reserve.org/',
+    description:
+      'The Reserve protocol is the first platform that allows for the permissionless creation of asset-backed, yield-bearing & overcollateralized stablecoins. Reserve Rights (RSR) exists as an overcollateralization mechanism to protect RToken holders in the unlikely event of a collateral token default.',
+    documentation: 'https://reserve.org/protocol/reserve_rights_rsr/',
+    bridge: 'base-canonical',
+  },
+  TN100x: {
+    name: 'The Next 100x Memecoin on Base',
+    symbol: 'TN100x',
+    address: '0x5B5dee44552546ECEA05EDeA01DCD7Be7aa6144A',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'TN100x',
+    logoURI: '',
+    website: 'https://ham.fun/',
+    description:
+      'TN100x is the coin that powers the HAM ecosystem, an upcoming layer 3 blockchain. More than a memecoin, it’s a social token, and a driving force behind everything Ham.',
+    bridge: 'native',
+  },
   CHAD: {
     name: 'Based Chad',
     symbol: 'CHAD',
