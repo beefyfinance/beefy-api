@@ -1,5 +1,38 @@
 [
   {
+    "address": "0x791b79Ff974A7FD29551744203F99d56Df241FF1",
+    "lpAddress": "0x641C00A822e8b671738d32a431a4Fb6074E5c79d",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+    ],
+    "tokenOracleIds": ["WETH", "USDT"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arb-eth-usdt"
+  },
+  {
+    "address": "0xC670F18D0fEEf76CCb7c4c3Ce0226cc64c8B6356",
+    "lpAddress": "0x59D72DDB29Da32847A4665d08ffc8464A7185FAE",
+    "tokens": [
+      "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["MAGIC", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-magic-weth"
+  },
+  {
+    "address": "0x809F9007172bEAAE23c08352995E60B9f4c11BB2",
+    "lpAddress": "0xcDa53B1F66614552F834cEeF361A8D12a0B8DaD8",
+    "tokens": [
+      "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8"
+    ],
+    "tokenOracleIds": ["ARB", "arbUSDCe"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arb-arb-usdc.e"
+  },
+  {
     "address": "0xD3d8d178AAeCDE5ba307c8806cB04346BB91E307",
     "lpAddress": "0xC6F780497A95e246EB9449f5e4770916DCd6396A",
     "tokens": [
