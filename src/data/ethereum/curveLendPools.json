@@ -3,7 +3,13 @@
     "name": "curve-lend-crv-crvusd",
     "address": "0xCeA18a8752bb7e7817F9AE7565328FE415C0f2cA",
     "gauge": "0x49887dF6fE905663CDB46c616BfBfBB50e85a265",
-    "rewardPool": "0x4bf2d8484474170bff8a8c34475be3d87dFF28cA",
-    "oracleId": "crvUSD"
+    "rewardPool_": "0x4bf2d8484474170bff8a8c34475be3d87dFF28cA",
+    "oracleId": "crvUSD",
+    "rewards": [
+      {
+        "token": "0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E",
+        "oracleId": "crvUSD"
+      }
+    ]
   }
 ]

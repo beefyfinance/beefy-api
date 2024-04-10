@@ -1,6 +1,7 @@
 import { ETH_CHAIN_ID } from '../../../constants';
 import getApyBreakdown from '../common/getApyBreakdown';
 import { getCurveSubgraphApys } from '../common/curve/getCurveApyData';
+import { getCurveLendSupplyApys } from '../common/curve/getCurveLendSupplyApys';
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import ICurveGauge from '../../../abis/ICurveGauge';
@@ -13,17 +14,19 @@ const gaugeController = '0x2F50D538606Fa9EDD2B11E2446BEb18C9D5846bB';
 const secondsPerYear = 31536000;
 const tradingFees = 0.0002;
 const subgraphUrl = 'https://api.curve.fi/api/getSubgraphData/ethereum';
-const pools = require('../../../data/ethereum/convexPools.json').filter(
-  p => p.gauge && !p.rewardPool
-);
+
+const lpPools = require('../../../data/ethereum/convexPools.json');
+const lendPools = require('../../../data/ethereum/curveLendPools.json');
+const pools = [...lpPools, ...lendPools].filter(p => p.gauge && !p.rewardPool);
 
 export const getCurveApys = async () => {
-  const [baseApys, farmApys] = await Promise.all([
-    getCurveSubgraphApys(pools, subgraphUrl),
+  const [baseApys, lendApys, farmApys] = await Promise.all([
+    getCurveSubgraphApys(lpPools, subgraphUrl),
+    getCurveLendSupplyApys(ETH_CHAIN_ID, lendPools),
     getPoolApys(pools),
   ]);
   const poolsMap = pools.map(p => ({ name: p.name, address: p.name }));
-  return getApyBreakdown(poolsMap, baseApys, farmApys, tradingFees);
+  return getApyBreakdown(poolsMap, { ...baseApys, ...lendApys }, farmApys, tradingFees);
 };
 
 const getPoolApys = async pools => {
