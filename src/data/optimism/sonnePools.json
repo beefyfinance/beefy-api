@@ -95,6 +95,8 @@
     "oracle": "tokens",
     "oracleId": "wstETH",
     "decimals": "1e18",
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
     "borrowDepth": 1,
     "borrowRate": 0
   }
