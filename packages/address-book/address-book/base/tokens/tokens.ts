@@ -687,6 +687,59 @@ const _tokens = {
       'The $doginme memecoin roots were established when a Farcaster user inquired if Dan Romero (DWR), the founder of the decentralized social media platform, owned a dog.',
     bridge: 'native',
   },
+  RSR: {
+    name: 'Reserve Rights',
+    symbol: 'RSR',
+    address: '0xaB36452DbAC151bE02b16Ca17d8919826072f64a',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'RSR',
+    logoURI: '',
+    website: 'https://reserve.org/',
+    description:
+      'The Reserve protocol is the first platform that allows for the permissionless creation of asset-backed, yield-bearing & overcollateralized stablecoins. Reserve Rights (RSR) exists as an overcollateralization mechanism to protect RToken holders in the unlikely event of a collateral token default.',
+    documentation: 'https://reserve.org/protocol/reserve_rights_rsr/',
+    bridge: 'base-canonical',
+  },
+  TN100x: {
+    name: 'The Next 100x Memecoin on Base',
+    symbol: 'TN100x',
+    address: '0x5B5dee44552546ECEA05EDeA01DCD7Be7aa6144A',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'TN100x',
+    logoURI: '',
+    website: 'https://ham.fun/',
+    description:
+      'TN100x is the coin that powers the HAM ecosystem, an upcoming layer 3 blockchain. More than a memecoin, it’s a social token, and a driving force behind everything Ham.',
+    bridge: 'native',
+  },
+  CHAD: {
+    name: 'Based Chad',
+    symbol: 'CHAD',
+    address: '0xecaF81Eb42cd30014EB44130b89Bcd6d4Ad98B92',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'CHAD',
+    logoURI: '',
+    website: 'https://basedchad.io/',
+    description:
+      'You can’t say anything is more based than putting the best meme of all time on the most based L2.',
+    bridge: 'native',
+  },
+  ANIME: {
+    name: 'Anime',
+    symbol: 'ANIME',
+    address: '0x0e0c9756a3290cD782CF4aB73ac24D25291c9564',
+    chainId: 8453,
+    decimals: 18,
+    oracleId: 'ANIME',
+    logoURI: '',
+    website: 'https://www.animeonbase.art/',
+    description:
+      '$ANIME has grown into a movement uniting people from around the world by their love of art and anime. No VCs, influencers, or utility. Just art and memes.',
+    bridge: 'native',
+  },
   L2VE: {
     name: 'Cupid Inu',
     symbol: 'L2VE',
@@ -699,6 +752,7 @@ const _tokens = {
     description:
       'The Cupid Inu memecoin has landed on BASE, with a mission to scatter as much $L2VE as possible.',
     bridge: 'native',
+    risks: ['NO_TIMELOCK'],
   },
   SEXY: {
     name: 'Settled ETHXY Token',
