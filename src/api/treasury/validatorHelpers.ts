@@ -2,21 +2,6 @@ import { ValidatorAsset } from './types';
 import { ApiChain } from '../../utils/chain';
 
 const validatorsByChain: Partial<Record<ApiChain, ValidatorAsset[]>> = {
-  fantom: [
-    {
-      id: 'fantom-validator',
-      numberId: 92,
-      name: 'Fantom Validator',
-      address: 'native',
-      oracleId: 'FTM',
-      oracleType: 'tokens',
-      decimals: 18,
-      symbol: 'FTM',
-      method: 'contract',
-      methodPath: '0xDf87E4dBb0336d3571b2f8000b1f5353Dfb638c1',
-      assetType: 'validator',
-    },
-  ],
   ethereum: [
     {
       id: 'eth-validator-1',
