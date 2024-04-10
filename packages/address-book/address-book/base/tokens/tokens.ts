@@ -873,7 +873,7 @@ const _tokens = {
     name: 'Jarvis',
     symbol: 'JARVIS',
     oracleId: 'JARVIS',
-    address: '0xD3FDCb837DAfdb7C9C3eBD48FE22a53F6Dd3d7D7',
+    address: '0x777b2839832982B35213063d850848369390EE16',
     chainId: 8453,
     decimals: 18,
     logoURI: '',
