@@ -227,7 +227,7 @@
     "chainId": 8453,
     "beefyFee": 0.095,
     "lp0": {
-      "address": "0x23432452B720C80553458496D4D9d7C5003280d0",
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
       "oracle": "tokens",
       "oracleId": "USDC",
       "decimals": "1e6"
