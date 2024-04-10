@@ -18,6 +18,15 @@
     "borrowRate": 0
   },
   {
+    "name": "sonne-op-usdc-native",
+    "cToken": "0x1AfD1fF9E441973B7D34c7B8AbE91d94F1B23ce0",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "borrowDepth": 1,
+    "borrowRate": 0
+  },
+  {
     "name": "sonne-op-usdt",
     "cToken": "0x5Ff29E4470799b982408130EFAaBdeeAE7f66a10",
     "oracle": "tokens",
