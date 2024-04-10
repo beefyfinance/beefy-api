@@ -855,6 +855,49 @@ const _tokens = {
     bridge: 'native',
     documentation: 'https://www.basedoge.xyz/',
   },
+  baseQI: {
+    name: 'Qi Dao',
+    symbol: 'QI',
+    oracleId: 'baseQI',
+    address: '0xD3FDCb837DAfdb7C9C3eBD48FE22a53F6Dd3d7D7',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/qi.png',
+    website: 'https://www.mai.finance/',
+    description:
+      'QiDao is a self-sustaining, community-governed protocol that allows you to borrow stablecoins against your crypto assets used as collateral. Loans are paid out and repaid in MAI (stablecoin soft pegged to the USD).',
+    documentation: 'https://docs.mai.finance/',
+    bridge: 'layer-zero',
+  },
+  JARVIS: {
+    name: 'Jarvis',
+    symbol: 'JARVIS',
+    oracleId: 'JARVIS',
+    address: '0xD3FDCb837DAfdb7C9C3eBD48FE22a53F6Dd3d7D7',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://jarvis.network/',
+    description:
+      'Jarvis provides stablecoins (jFIATs) are over-collateralized, stable and liquid on-chain fiat currencies that anyone can use to gain exposure to many fiat currencies, access liquidity, credit, yield and other financial services.',
+    documentation: 'https://jarvis.network/protocol',
+    bridge: 'wormhole',
+  },
+  ROCK: {
+    name: 'BLACK ROCK',
+    symbol: 'ROCK',
+    oracleId: 'ROCK',
+    address: '0xEcE7B98bD817ee5B1F2f536dAf34D0B6af8Bb542',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.blackrockonbase.com/',
+    description:
+      "Just a black rock on Base. BLACK ROCK is NOT in any way associated with BlackRock, the financial institution with $9 trillion USD AUM. If you're looking for financial incentives, look elsewhere. It's literally just a black rock on Base.",
+    documentation:
+      'https://www.blackrockonbase.com/_files/ugd/74fb19_6213d516db434175ba850c5ae29213bf.pdf?index=true',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

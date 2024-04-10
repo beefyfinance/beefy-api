@@ -1,5 +1,85 @@
 [
   {
+    "name": "aerodrome-weth-rock",
+    "address": "0x66d93F2e6C7Fbcb1B81cDEB48E95A019835f1a71",
+    "gauge": "0x99FE70ce3AcD2cbBc422888d497b0e5957ffA395",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xEcE7B98bD817ee5B1F2f536dAf34D0B6af8Bb542",
+      "oracle": "tokens",
+      "oracleId": "ROCK",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-weth-jarvis",
+    "address": "0xeff0891e5a1bd47a8F1e77ABebfEE4145974D088",
+    "gauge": "0xf460124c6146800c6C061A6fC40C14677523BC90",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x777b2839832982B35213063d850848369390EE16",
+      "oracle": "tokens",
+      "oracleId": "JARVIS",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-weth-qi",
+    "address": "0x06709C364dd4E2f5b0c10b1eBf80B2Ce483dbdC5",
+    "gauge": "0xdd1fd2BeEE67A3adA2277fc44aA69C5C0d753449",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xD3FDCb837DAfdb7C9C3eBD48FE22a53F6Dd3d7D7",
+      "oracle": "tokens",
+      "oracleId": "baseQI",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-aero-ovn",
+    "address": "0x4704f9Cf735b58ea442E387ACca6717311597322",
+    "gauge": "0x365f5413BBC783D1fff1cAe9D3Bd9A16eA698D19",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+      "oracle": "tokens",
+      "oracleId": "AERO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396",
+      "oracle": "tokens",
+      "oracleId": "baseOVN",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-rsr-bsdeth",
     "address": "0x95F04B5594e2a944CA91d56933D119841eeF9a99",
     "gauge": "0x190351cf2a6e2ac19A528b283E0748eD0652799d",
