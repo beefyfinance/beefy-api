@@ -22,7 +22,7 @@ const getbeQiEarnApy = async () => {
     getTotalStakedInUsd(),
   ]);
 
-  const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  const apr = yearlyRewardsInUsd.dividedBy(totalStakedInUsd).toNumber();
 
   return {
     apys: {
