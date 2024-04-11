@@ -95,6 +95,7 @@ const getFarmApys = async params => {
       }
 
       yearlyRewardsInUsd = yearlyRewards.times(rewardTokenPrice).dividedBy(params.decimals);
+      if (pool.bribe) yearlyRewardsInUsd = yearlyRewardsInUsd.times(1 - pool.bribe);
 
       for (const [index, reward] of Object.entries(pool.rewards ?? [])) {
         const rate = rewardsRates[i][index];
