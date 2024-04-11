@@ -301,6 +301,27 @@
     }
   },
   {
+    "name": "aerodrome-weth-doginme-bribe",
+    "address": "0x139E9f235588A9720e7Eab045da29dC781c4b658",
+    "gauge": "0x666c383e4EAb3328660A85d1C41FFDce9D85D8eE",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "bribe": 0.4,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x6921B130D297cc43754afba22e5EAc0FBf8Db75b",
+      "oracle": "tokens",
+      "oracleId": "doginme",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-weth-doginme",
     "address": "0x139E9f235588A9720e7Eab045da29dC781c4b658",
     "gauge": "0x666c383e4EAb3328660A85d1C41FFDce9D85D8eE",
