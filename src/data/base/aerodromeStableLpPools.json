@@ -318,5 +318,25 @@
       "oracleId": "USDbC",
       "decimals": "1e6"
     }
+  },
+  {
+    "name": "aerodrome-ezeth-weth-s",
+    "address": "0x497139e8435E01555AC1e3740fccab7AFf149e02",
+    "gauge": "0x4Fa58b3Bec8cE12014c7775a0B3da7e6AdC3c7eA",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2416092f143378750bb29b79eD961ab195CcEea5",
+      "oracle": "tokens",
+      "oracleId": "ezETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
   }
 ]
