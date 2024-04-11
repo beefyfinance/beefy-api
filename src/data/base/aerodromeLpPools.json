@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-aero-usd+",
+    "address": "0x267d950110D9ED57999c3451b89C35a9D278C074",
+    "gauge": "0x45D3ef9d20f9eA644aB9bc706e630311050de370",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+      "oracle": "tokens",
+      "oracleId": "AERO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "oracle": "tokens",
+      "oracleId": "baseUSD+",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "aerodrome-weth-rock",
     "address": "0x66d93F2e6C7Fbcb1B81cDEB48E95A019835f1a71",
     "gauge": "0x99FE70ce3AcD2cbBc422888d497b0e5957ffA395",
