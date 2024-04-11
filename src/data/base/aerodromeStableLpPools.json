@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-lusd-usdc",
+    "address": "0xf53B7Af40BE75043eeBa493C622F4f56b3C27A31",
+    "gauge": "0xA8C37a644bDf3297C6E19A48150aF3b7069294FC",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x368181499736d0c0CC614DBB145E2EC1AC86b8c6",
+      "oracle": "tokens",
+      "oracleId": "LUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "aerodrome-mai-eusd",
     "address": "0x413d78628d688edcdE29518199A3A3DB955068EC",
     "gauge": "0x2cC76EF706B2fC694F86c633b880a6dde81687F1",
