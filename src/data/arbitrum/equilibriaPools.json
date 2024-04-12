@@ -176,6 +176,10 @@
       {
         "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
         "oracleId": "ARB"
+      },
+      {
+        "token": "0x0341C0C0ec423328621788d4854119B97f44E391",
+        "oracleId": "SILO"
       }
     ]
   },
