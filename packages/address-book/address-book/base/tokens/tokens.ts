@@ -898,6 +898,33 @@ const _tokens = {
       'https://www.blackrockonbase.com/_files/ugd/74fb19_6213d516db434175ba850c5ae29213bf.pdf?index=true',
     bridge: 'native',
   },
+  POOL: {
+    name: 'PoolTogether',
+    symbol: 'POOL',
+    oracleId: 'POOL',
+    address: '0xd652C5425aea2Afd5fb142e120FeCf79e18fafc3',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://pooltogether.com/',
+    description: 'PoolTogether is a prize savings protocol, enabling you to win by saving.',
+    documentation: 'https://docs.pooltogether.com/',
+    bridge: 'base-canonical',
+  },
+  LUSD: {
+    name: 'LUSD Stablecoin',
+    symbol: 'LUSD',
+    oracleId: 'LUSD',
+    address: '0x368181499736d0c0CC614DBB145E2EC1AC86b8c6',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.liquity.org/',
+    description:
+      'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
+    bridge: 'base-canonical',
+    documentation: 'https://docs.liquity.org/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
