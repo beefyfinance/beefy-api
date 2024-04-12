@@ -178,8 +178,8 @@ const _tokens = {
     documentation: 'https://docs.overnight.fi/',
   },
   'USDT+': {
-    name: 'USDt+',
-    symbol: 'USDt+',
+    name: 'USDT+',
+    symbol: 'USDT+',
     oracleId: 'lineaUSDT+',
     address: '0x1E1F509963A6D33e169D9497b11c7DbFe73B7F13',
     chainId: 59144,
