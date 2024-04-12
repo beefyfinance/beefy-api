@@ -166,7 +166,7 @@ const _tokens = {
   'USD+': {
     name: 'USD+',
     symbol: 'USD+',
-    oracleId: 'linUSD+',
+    oracleId: 'lineaUSD+',
     address: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
     chainId: 59144,
     decimals: 6,
@@ -174,6 +174,20 @@ const _tokens = {
     website: 'https://overnight.fi/',
     description:
       'USD+ is USDC that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDC.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
+    bridge: 'native',
+    documentation: 'https://docs.overnight.fi/',
+  },
+  'USDT+': {
+    name: 'USDt+',
+    symbol: 'USDt+',
+    oracleId: 'lineaUSDT+',
+    address: '0x1E1F509963A6D33e169D9497b11c7DbFe73B7F13',
+    chainId: 59144,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://overnight.fi/',
+    description:
+      'USDT+ is USDT that pays you yield daily via rebase.  It is 100% collateralized with assets immediately convertible into USDT.  Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
     bridge: 'native',
     documentation: 'https://docs.overnight.fi/',
   },
@@ -190,6 +204,21 @@ const _tokens = {
       'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
     documentation: 'https://docs.renzoprotocol.com/docs/',
     bridge: 'connext',
+    risks: ['NO_TIMELOCK'],
+  },
+  STONE: {
+    name: 'StakeStone Ether',
+    symbol: 'STONE',
+    oracleId: 'STONE',
+    address: '0x93F4d0ab6a8B4271f4a28Db399b5E30612D21116',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://stakestone.io/',
+    description:
+      'StakeStone is an omni-chain LST (Liquid Staking Token) protocol aiming to bring native staking yields and liquidity to Layer 2s in a decentralized manner.',
+    documentation: 'https://docs.stakestone.io/stakestone',
+    bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
 } as const;

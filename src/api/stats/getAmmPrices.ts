@@ -617,12 +617,23 @@ const coinGeckoCoins: Record<string, string[]> = {
   'stake-dao-crv': ['sdCRV'],
   'kelp-dao-restaked-eth': ['rsETH'],
   'frax-ether': ['frxETH'],
+  'stakestone-ether': ['STONE'],
 };
 
 /**
  * Coins to fetch from dexscreener
  */
 const dexscreenerCoins: OraclePriceRequest[] = [
+  {
+    oracleId: 'lineaUSDT+',
+    tokenAddress: '0x1E1F509963A6D33e169D9497b11c7DbFe73B7F13',
+    chainId: 'linea',
+  },
+  {
+    oracleId: 'lineaUSD+',
+    tokenAddress: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
+    chainId: 'linea',
+  },
   {
     oracleId: 'baseOVN',
     tokenAddress: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',

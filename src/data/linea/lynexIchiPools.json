@@ -1,5 +1,45 @@
 [
   {
+    "name": "lynex-ichi-stone-lynx",
+    "address": "0xe57F293520CBf7d5a17629CbFB06eAbdb759a151",
+    "gauge": "0x96B7062cFd1Af7e4DE5eF513Ce66015E9ee6A991",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1a51b19CE03dbE0Cb44C1528E34a7EDD7771E9Af",
+      "oracle": "tokens",
+      "oracleId": "LYNX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x93F4d0ab6a8B4271f4a28Db399b5E30612D21116",
+      "oracle": "tokens",
+      "oracleId": "STONE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "lynex-ichi-usdt-lynx",
+    "address": "0x555267747b0918ABce10335F154FbE7B636F7804",
+    "gauge": "0x68672D332d246508b519deFa1Beac74E2d2F00b5",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1a51b19CE03dbE0Cb44C1528E34a7EDD7771E9Af",
+      "oracle": "tokens",
+      "oracleId": "LYNX",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA219439258ca9da29E9Cc4cE5596924745e12B93",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "lynex-ichi-weth-lynx",
     "address": "0x511481ef0DEB10eB5c1E36B72140718c58921265",
     "gauge": "0x72125a1c4A6E663c5E4dA0bbFff9Ae02b5EF727a",
