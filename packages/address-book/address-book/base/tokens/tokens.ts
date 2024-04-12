@@ -713,6 +713,7 @@ const _tokens = {
     description:
       'TN100x is the coin that powers the HAM ecosystem, an upcoming layer 3 blockchain. More than a memecoin, it’s a social token, and a driving force behind everything Ham.',
     bridge: 'native',
+    risks: ['NO_TIMELOCK'],
   },
   CHAD: {
     name: 'Based Chad',
@@ -881,6 +882,19 @@ const _tokens = {
     description:
       'Jarvis provides stablecoins (jFIATs) are over-collateralized, stable and liquid on-chain fiat currencies that anyone can use to gain exposure to many fiat currencies, access liquidity, credit, yield and other financial services.',
     documentation: 'https://jarvis.network/protocol',
+    bridge: 'wormhole',
+  },
+  NPC: {
+    name: 'Non-Playable Coin',
+    symbol: 'NPC',
+    oracleId: 'NPC',
+    address: '0xB166E8B140D35D9D8226E40C09f757BAC5A4d87d',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.nonplayablecoin.io/',
+    description:
+      'Non-Playable Coin (NPC) is a memecoin actually backed by one of the most recognizable memes on the internet. Trade it as an NFT or as a memecoin, it doesn’t matter. It’s the first memecoin-NFT hybrid.',
     bridge: 'wormhole',
   },
   ROCK: {
