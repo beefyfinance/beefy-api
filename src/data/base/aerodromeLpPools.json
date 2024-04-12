@@ -20,6 +20,26 @@
     }
   },
   {
+    "name": "aerodrome-lusd-pool",
+    "address": "0x0b15b1d434f86eCaa83d14398C8Db6d162F3921e",
+    "gauge": "0x5b41A91Cc14496E7fcc381595Dc2680EF71B6462",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x368181499736d0c0CC614DBB145E2EC1AC86b8c6",
+      "oracle": "tokens",
+      "oracleId": "LUSD",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd652C5425aea2Afd5fb142e120FeCf79e18fafc3",
+      "oracle": "tokens",
+      "oracleId": "POOL",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-aero-usd+",
     "address": "0x267d950110D9ED57999c3451b89C35a9D278C074",
     "gauge": "0x45D3ef9d20f9eA644aB9bc706e630311050de370",
