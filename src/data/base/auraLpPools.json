@@ -35,7 +35,7 @@
     "decimals": "1e18",
     "lsUrl": "https://api.rocketpool.net/api/apr",
     "dataPath": "$.yearlyAPR",
-    "lsAprFactor": "100",
+    "lsAprFactor": "1",
     "lsIndex": 1,
     "balancerChargesFee": true,
     "composable": true,
