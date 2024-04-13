@@ -1,5 +1,95 @@
 [
   {
+    "name": "joe-coq-wavax",
+    "address": "0x41aB86EEcBd110a82cA602D032a461f453066F1E",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x420FcA0121DC28039145009570975747295f2329",
+      "oracle": "tokens",
+      "oracleId": "COQ",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-gec-wavax",
+    "address": "0x2ade4f6D462D60523235650160844bB6b46Ac7d9",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xE8385CECb013561b69bEb63FF59f4d10734881f3",
+      "oracle": "tokens",
+      "oracleId": "GEC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-nochill-wavax",
+    "address": "0x2D38BDE22e044Ea59688Ca7Cdd4f0B5307CC519A",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0xAcFb898Cff266E53278cC0124fC2C7C94C8cB9a5",
+      "oracle": "tokens",
+      "oracleId": "NOCHILL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-tech-wavax",
+    "address": "0xe1D895FF6721A77c16f4C53eEb43869dA2Dab02F",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x5Ac04b69bDE6f67C0bd5D6bA6fD5D816548b066a",
+      "oracle": "tokens",
+      "oracleId": "TECH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "joe-kimbo-wavax",
+    "address": "0x03a5888726667FfF1E753fc06B51Dd1245e7371a",
+    "decimals": "1e18",
+    "chainId": 43114,
+    "lp0": {
+      "address": "0x184ff13B3EBCB25Be44e860163A5D8391Dd568c1",
+      "oracle": "tokens",
+      "oracleId": "KIMBO",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+      "oracle": "tokens",
+      "oracleId": "WAVAX",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-alcx-weth",
     "address": "0xC3f279090a47e80990Fe3a9c30d24Cb117EF91a8",
     "decimals": "1e18",
