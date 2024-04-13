@@ -18,6 +18,72 @@ const AVAX = {
 } as const;
 
 const _tokens = {
+  COQ: {
+    name: 'Coq Inu',
+    symbol: 'COQ',
+    oracleId: 'COQ',
+    address: '0x420FcA0121DC28039145009570975747295f2329',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://www.coqinu.com/',
+    description:
+      'Coq Inu is a vibrant memecoin deeply rooted in community, humor, and memetics within the Avalanche ecosystem. It offers a range of community-driven projects and engagements, emphasizing fun and togetherness as a way of life.',
+    logoURI: '',
+    bridge: 'native',
+  },
+  GEC: {
+    name: 'Gecko Inu: GEC Token',
+    symbol: 'GEC',
+    oracleId: 'GEC',
+    address: '0xE8385CECb013561b69bEb63FF59f4d10734881f3',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://geckoinu.vip/',
+    description:
+      "Gecko Inu is a community-driven memecoin at the core of AVAX's ecosystem, emphasizing friendship and enjoyment. Explore the dynamic web3.0 landscape alongside Gecko Inu, engaging in a spirited, laughter-filled adventure that celebrates togetherness within the Avalanche community.",
+    logoURI: '',
+    bridge: 'native',
+  },
+  NOCHILL: {
+    name: 'AVAX HAS NO CHILL',
+    symbol: 'NOCHILL',
+    oracleId: 'NOCHILL',
+    address: '0xAcFb898Cff266E53278cC0124fC2C7C94C8cB9a5',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://nochill.lol/',
+    description:
+      'A memecoin on AVAX focused on the topic of AVAX having NO CHILL. Born out of the StarsArena community.',
+    logoURI: '',
+    documentation: 'https://docs.nochill.lol/no-chill-docs',
+    bridge: 'native',
+  },
+  TECH: {
+    name: 'NumberGoUpTech',
+    symbol: 'TECH',
+    oracleId: 'TECH',
+    address: '0x5Ac04b69bDE6f67C0bd5D6bA6fD5D816548b066a',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://www.techimproving.com/',
+    description:
+      'TECH embodies the spirit of innovation, uniting a community passionate about advancing technology across various frontiers including blockchain, space exploration, AI, quantum computing, and bioscience. It offers a memecoin platform for tech enthusiasts to join forces and propel forward into the future, inviting everyone to join the journey towards technological advancement.',
+    logoURI: '',
+    bridge: 'native',
+  },
+  KIMBO: {
+    name: 'KIMBO Token',
+    symbol: 'KIMBO',
+    oracleId: 'KIMBO',
+    address: '0x184ff13B3EBCB25Be44e860163A5D8391Dd568c1',
+    chainId: 43114,
+    decimals: 18,
+    website: 'https://www.kimboavax.com/',
+    description:
+      'KIMBO is positioned as a standout token on AVAX, backed by a strong community of AVAX pioneers, aiming to dominate the crypto space. It aspires to lead in culture and meme creation on the AVAX network, supporting a broader strategy to enhance creator culture within the AVAX ecosystem.',
+    logoURI: '',
+    bridge: 'native',
+  },
   EURC: {
     name: 'Euro Coin',
     symbol: 'EURC',
