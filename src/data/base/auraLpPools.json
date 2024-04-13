@@ -1,6 +1,70 @@
 [
   {
-    "name": "aura-base-cbeth-weth",
+    "name": "aura-base-tbtc-weth",
+    "address": "0x52e281318Fed4eFFfb8E46c0847a8f9B71a461A8",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x331A1213953e324955b2A121079d8FFd08eAe9Fd",
+    "vaultPoolId": "0x52e281318fed4efffb8e46c0847a8f9b71a461a8000200000000000000000018",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xD374F46F6a48E94e13B6386276F46C8D0A860425",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "balancer-base-weth-reth",
+    "address": "0xC771c1a5905420DAEc317b154EB13e4198BA97D0",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xcCAC11368BDD522fc4DD23F98897712391ab1E00",
+    "vaultPoolId": "0xc771c1a5905420daec317b154eb13e4198ba97d0000000000000000000000023",
+    "decimals": "1e18",
+    "lsUrl": "https://api.rocketpool.net/api/apr",
+    "dataPath": "$.yearlyAPR",
+    "lsAprFactor": "1",
+    "lsIndex": 1,
+    "balancerChargesFee": true,
+    "composable": true,
+    "bptIndex": 2,
+    "rewards": [
+      {
+        "rewardGauge": "0x1600d4875c90722C9dd4b1a2570730033400d2c8",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
+    "name": "balancer-base-cbeth-weth",
     "address": "0xFb4C2E6E6e27B5b4a07a36360C89EDE29bB3c9B6",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x8dB6A97AeEa09F37b45C9703c3542087151aAdD5",
@@ -37,7 +101,7 @@
     ]
   },
   {
-    "name": "aura-base-usdc-usdbc-axlusdc",
+    "name": "balancer-base-usdc-usdbc-axlusdc",
     "address": "0x0C659734f1eEF9C63B7Ebdf78a164CDd745586Db",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
     "gauge": "0x28D50E8E46B0B36E9E0eED32496d0740AeaF7557",
