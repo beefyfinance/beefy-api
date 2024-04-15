@@ -16,6 +16,9 @@ interface Config {
   bifiMaxiStrategy: string;
   voter: string;
   beefyFeeConfig: string;
+  multicall: string;
+  vaultFactory: string;
+  wrapperFactory: string;
 }
 
 export const initConfigService = () => {
@@ -36,6 +39,9 @@ export const initConfigService = () => {
       bifiMaxiStrategy: config.bifiMaxiStrategy,
       voter: config.voter,
       beefyFeeConfig: config.beefyFeeConfig,
+      multicall: config.multicall,
+      vaultFactory: config.vaultFactory,
+      wrapperFactory: config.wrapperFactory,
     };
   });
 
