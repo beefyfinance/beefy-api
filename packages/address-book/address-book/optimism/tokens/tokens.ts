@@ -499,11 +499,25 @@ const _tokens = {
     documentation: 'https://docs.beefy.finance/beefy-products/beefy-escrowed-tokens/bevelo',
     bridge: 'native',
   },
-  agEUR: {
-    name: 'agEUR',
-    symbol: 'agEUR',
+  EURA: {
+    name: 'EURA (previously agEUR)',
+    symbol: 'EURA',
     oracleId: 'agEUR',
     address: '0x9485aca5bbBE1667AD97c7fE7C4531a624C8b1ED',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.angle.money/',
+    description:
+      'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+    bridge: 'layer-zero',
+    documentation: 'https://docs.angle.money/',
+  },
+  USDA: {
+    name: 'USDA',
+    symbol: 'USDA',
+    oracleId: 'USDA',
+    address: '0x0000206329b97DB379d5E1Bf586BbDB969C63274',
     chainId: 10,
     decimals: 18,
     logoURI: '',

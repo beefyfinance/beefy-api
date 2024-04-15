@@ -49,11 +49,25 @@ const _tokens = {
     documentation: 'https://basofinance.gitbook.io/basofinance/',
     bridge: 'native',
   },
-  agEUR: {
-    name: 'agEUR',
-    symbol: 'agEUR',
+  EURA: {
+    name: 'EURA (previously agEUR)',
+    symbol: 'EURA',
     oracleId: 'agEUR',
     address: '0xA61BeB4A3d02decb01039e378237032B351125B4',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.angle.money/',
+    description:
+      'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+    bridge: 'layer-zero',
+    documentation: 'https://docs.angle.money/',
+  },
+  USDA: {
+    name: 'USDA',
+    symbol: 'USDA',
+    oracleId: 'USDA',
+    address: '0x0000206329b97DB379d5E1Bf586BbDB969C63274',
     chainId: 8453,
     decimals: 18,
     logoURI: '',
