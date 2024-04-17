@@ -59,7 +59,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://app.angle.money/',
     description:
-      'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+      'EURA (previously agEUR) is pegged to the value of the Euro (€) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
   },
@@ -73,7 +73,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://app.angle.money/',
     description:
-      'Angle is a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
+      'USDA is pegged to the value of the Dollar ($) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
   },
