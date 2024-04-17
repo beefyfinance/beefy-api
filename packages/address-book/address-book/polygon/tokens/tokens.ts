@@ -1724,7 +1724,7 @@ const _tokens = {
     logoURI: '',
     website: 'https://www.angle.money/',
     description:
-      'Angle is an over-collateralized, decentralized and capital-efficient stablecoin protocol. It offers full convertibility between stable assets and collateral at oracle value.',
+      'EURA (previously agEUR) is pegged to the value of the Euro (€) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
     bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
   },
