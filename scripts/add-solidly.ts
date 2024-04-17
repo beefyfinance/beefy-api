@@ -39,12 +39,6 @@ const {
   zksync: {
     platforms: { velocore, vesync, dracula },
   },
-  avax: {
-    platforms: { solisnek },
-  },
-  arbitrum: {
-    platforms: { ramses, chronos },
-  },
   base: {
     platforms: { bvm, aerodrome, equalizer: scale },
   },
@@ -141,24 +135,6 @@ const projects = {
     stableFile: '../src/data/zksync/draculaStableLpPools.json',
     volatileFile: '../src/data/zksync/draculaLpPools.json',
     voter: dracula.voter,
-  },
-  solisnek: {
-    prefix: 'solisnek',
-    stableFile: '../src/data/avax/soliSnekStableLpPools.json',
-    volatileFile: '../src/data/avax/soliSnekLpPools.json',
-    voter: solisnek.voter,
-  },
-  ramses: {
-    prefix: 'ramses',
-    stableFile: '../src/data/arbitrum/ramsesStableLpPools.json',
-    volatileFile: '../src/data/arbitrum/ramsesLpPools.json',
-    voter: ramses.voter,
-  },
-  chronos: {
-    prefix: 'chronos',
-    stableFile: '../src/data/arbitrum/chronosStableLpPools.json',
-    volatileFile: '../src/data/arbitrum/chronosLpPools.json',
-    voter: chronos.voter,
   },
   bvm: {
     prefix: 'bvm',

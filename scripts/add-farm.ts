@@ -21,7 +21,7 @@ const {
     platforms: { trisolaris },
   },
   bsc: {
-    platforms: { biswap, babyswap, swapfish: swapfishBsc },
+    platforms: { biswap, babyswap },
   },
   metis: {
     platforms: { netswap, tethys },
@@ -34,9 +34,6 @@ const {
   },
   emerald: {
     platforms: { yuzu },
-  },
-  arbitrum: {
-    platforms: { swapfish: swapfishArb, arbidex },
   },
   ethereum: {
     platforms: { sushi },
@@ -137,25 +134,10 @@ const projects = {
     file: '../src/data/emerald/yuzuDualLpPools.json',
     masterchef: yuzu.masterchefExt,
   },
-  swapfishArb: {
-    prefix: 'swapfish',
-    file: '../src/data/arbitrum/swapFishLpPools.json',
-    masterchef: swapfishArb.minichef,
-  },
-  swapfishBsc: {
-    prefix: 'swapfish-bsc',
-    file: '../src/data/swapFishLpPools.json',
-    masterchef: swapfishBsc.minichef,
-  },
   sushi: {
     prefix: 'sushi-mainnet',
     file: '../src/data/ethereum/sushiLpPools.json',
     masterchef: sushi.masterchef,
-  },
-  arbidex: {
-    prefix: 'arbidex',
-    file: '../src/data/arbitrum/arbidexLpPools.json',
-    masterchef: arbidex.chef,
   },
   baseSwap: {
     prefix: 'baseswap',
