@@ -28,6 +28,7 @@ const { getJoeAutoAvaxApys } = require('./getJoeAutoAvaxApys');
 const getAuraAvaxApys = require('./getAuraAvaxApys');
 
 const getApys = [
+  getAuraAvaxApys,
   getJoeAutoAvaxApys,
   getBalancerApys,
   getSoliSnekApys,
@@ -55,7 +56,6 @@ const getApys = [
   getRipaeApys,
   getStargateApys,
   getSwapsicleApys,
-  getAuraAvaxApys,
 ];
 
 const getAvaxApys = async () => {
