@@ -1471,6 +1471,19 @@ const _tokens = {
       'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     staked: true,
   },
+  xZOOMER: {
+    name: 'xZoomerCoin',
+    symbol: 'xZOOMER',
+    oracleId: 'xZOOMER',
+    address: '0xB962150760F9A3bB00e3E9Cf48297EE20AdA4A33',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.zoomer.money/',
+    description:
+    'Multichain memecoin: Onboarding zoomers into brypto one coin at a time fr fr on gaaawd',
+    bridge: 'connext',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -1020,6 +1020,19 @@ const _tokens = {
     bridge: 'base-canonical',
     documentation: 'https://docs.liquity.org/',
   },
+  ZOOMER: {
+    name: 'Based ZoomerCoin',
+    symbol: 'ZOOMER',
+    oracleId: 'ZOOMER',
+    address: '0xD1dB4851bcF5B41442cAA32025Ce0Afe6B8EabC2',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.zoomer.money/',
+    description:
+      'Multichain memecoin: Onboarding zoomers into brypto one coin at a time fr fr on gaaawd',
+    bridge: 'connext',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
