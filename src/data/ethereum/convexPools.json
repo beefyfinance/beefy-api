@@ -1,5 +1,41 @@
 [
   {
+    "name": "convex-tricrypto-gho",
+    "pool": "0x8cd52ee292313c4d851e71a7064f096504ab3ee9",
+    "gauge": "0x6373e119f2a1fd081249bc16fe7fea1f6b3a4ca8",
+    "rewardPool": "0x923D3C32f870E7953dd4020D0585D6419C44e4Ca",
+    "tokens": [
+      {
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-gho-crvusd",
+    "pool": "0x635ef0056a597d13863b73825cca297236578595",
+    "gauge": "0x4717c25df44e280ec5b31acbd8c194e1ed24efe2",
+    "rewardPool": "0x5eC758f79b96AE74e7F1Ba9583009aFB3fc8eACB",
+    "tokens": [
+      {
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-aleth-frxeth",
     "pool": "0xb657b895b265c38c53fff00166cf7f6a3c70587d",
     "gauge": "0x415f30505368fa1db82feea02eb778be04e75907",
