@@ -1,5 +1,65 @@
 [
   {
+    "name": "aerodrome-weth-normilio",
+    "address": "0x7D68c4E183e31971deb223e6F8A064751d0599d0",
+    "gauge": "0xE531DEd40AeA2Fd2ba7476BB6cE30cF9e2cfd2D0",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xcDE90558fc317C69580DeeAF3eFC509428Df9080",
+      "oracle": "tokens",
+      "oracleId": "NORMILIO",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-weth-hop",
+    "address": "0x75D18ee68bB93BE5cB2dcCFa0d8151E25CBC8Eb8",
+    "gauge": "0xb42A9e58773993ed15A5eED65633e85870185e13",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xc5102fE9359FD9a28f877a67E36B0F050d81a3CC",
+      "oracle": "tokens",
+      "oracleId": "HOP",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-usdc-mta",
+    "address": "0x1307f36BC34081401497A873522570AebA4CdE90",
+    "gauge": "0x350545d8d440FfabaC5f38dC2b6a917a0DfDDbB5",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xba7D47f471ADD16875e765edEe0858C3413A56Fd",
+      "oracle": "tokens",
+      "oracleId": "MTA",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-usda-eura",
     "address": "0x79eF3eCDa775860a2351ae2A7B80C4d80ba47F72",
     "gauge": "0x3fd91fAC3Ccc67d818A6E17e7296A82Ba7a4aCAa",
