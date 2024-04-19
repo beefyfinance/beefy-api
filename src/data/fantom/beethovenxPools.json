@@ -1,5 +1,36 @@
 [
   {
+    "name": "beets-trio-of-the-stables",
+    "address": "0xaAc7B8d6D7009428d6DdaD895bdf50C6FCBbe2C0",
+    "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",
+    "vaultPoolId": "0xaac7b8d6d7009428d6ddad895bdf50c6fcbbe2c000000000000000000000080d",
+    "beefyFee": 0.095,
+    "poolId": 156,
+    "composable": true,
+    "bptIndex": 3,
+    "decimals": "1e18",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "axlUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "lzUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "fUSDCe",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
     "name": "beets-love-thy-stables",
     "address": "0x46E578B73a95e62423CE26056aa750bB9D99be32",
     "vault": "0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce",

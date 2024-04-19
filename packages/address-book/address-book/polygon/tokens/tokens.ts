@@ -2226,10 +2226,11 @@ const _tokens = {
     decimals: 6,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x750e4C4984a9e0f12978eA6742Bc1c5D248f40ed.svg',
-    website: 'https://axelar.network/',
-    description: 'Axelar Bridged USDC',
+    website: 'https://www.axelar.network/',
     bridge: 'axelar',
-    documentation: 'https://docs.axelar.dev/',
+    description:
+      'axlUSDC is a cross-chain representation of USDC, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDC to move seamlessly across different blockchain ecosystems, minted by depositing USDC into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
+    documentation: 'https://docs.axelar.dev/learn/axlusdc',
   },
   TNGBL: {
     name: 'Tangible',

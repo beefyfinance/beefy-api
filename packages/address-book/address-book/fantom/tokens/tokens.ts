@@ -1992,11 +1992,11 @@ const _tokens = {
     chainId: 250,
     decimals: 6,
     logoURI: '',
-    website: 'https://www.circle.com/usdc',
+    website: 'https://www.axelar.network/',
     bridge: 'axelar',
     description:
-      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
-    documentation: 'https://docs.axelar.dev/',
+      'axlUSDC is a cross-chain representation of USDC, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDC to move seamlessly across different blockchain ecosystems, minted by depositing USDC into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
+    documentation: 'https://docs.axelar.dev/learn/axlusdc',
   },
   ankrETH: {
     name: 'Ankr Staked ETH',
@@ -2020,10 +2020,10 @@ const _tokens = {
     chainId: 250,
     decimals: 6,
     logoURI: '',
-    website: 'https://www.circle.com/usdc',
+    website: 'https://layerzero.network/',
     bridge: 'layer-zero',
     description:
-      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+      "Layer Zero USDC leverages Stargate's smart contract endpoints on Ethereum and Fantom to transfer tokens seamlessly between the two chains, locking and minting tokens as needed for cross-chain liquidity. This mechanism ensures efficient and secure interoperability while preserving the value of USDC across different blockchains.",
     documentation: 'https://layerzero.gitbook.io/docs/',
   },
   lzUSDT: {
@@ -2034,10 +2034,10 @@ const _tokens = {
     chainId: 250,
     decimals: 6,
     logoURI: '',
-    website: 'https://tether.to/en/transparency/#usdt',
+    website: 'https://layerzero.network/',
     bridge: 'layer-zero',
     description:
-      'USDT is a cryptocurrency that is designed to maintain a stable value equivalent to the US dollar by being backed by a one-to-one reserve ratio of fiat currency held in deposit by Tether Limited.',
+      "Layer Zero USDT leverages Stargate's smart contract endpoints on Ethereum and Fantom to transfer tokens seamlessly between the two chains, locking and minting tokens as needed for cross-chain liquidity. This mechanism ensures efficient and secure interoperability while preserving the value of USDT across different blockchains.",
     documentation: 'https://layerzero.gitbook.io/docs/',
   },
   lzWETH: {
@@ -2135,6 +2135,20 @@ const _tokens = {
     website: 'https://spartacus.finance/',
     bridge: 'native',
     description: '',
+  },
+  fUSDCe: {
+    name: 'Bridged USDC',
+    address: '0x2F733095B80A04b38b0D10cC884524a3d09b836a',
+    symbol: 'USDC.e',
+    oracleId: 'fUSDCe',
+    decimals: 6,
+    website: 'https://portalbridge.com/usdc-bridge/',
+    documentation: 'https://docs.wormhole.com/wormhole',
+    description:
+      "USDC.e is a bridged, USDC-backed token on the Fantom network through Wormhole's interoperability infrastructure. This implementation consolidates USDC liquidity on Fantom, setting a pathway for potential evolution into a native USDC stablecoin, enhancing ecosystem utility and developer engagement.",
+    chainId: 250,
+    logoURI: '',
+    bridge: 'wormhole',
   },
 } as const;
 
