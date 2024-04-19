@@ -259,11 +259,11 @@ const _tokens = {
     decimals: 6,
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xEB466342C4d449BC9f53A865D5Cb90586f405215.svg',
-    website: 'https://www.circle.com/usdc',
-    description:
-      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
-    documentation: 'https://www.circle.com/en/usdc-multichain/base',
+    website: 'https://www.axelar.network/',
     bridge: 'axelar',
+    description:
+      'axlUSDC is a cross-chain representation of USDC, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDC to move seamlessly across different blockchain ecosystems, minted by depositing USDC into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
+    documentation: 'https://docs.axelar.dev/learn/axlusdc',
   },
   axlUSDT: {
     name: 'USDT',
@@ -272,10 +272,10 @@ const _tokens = {
     address: '0x7f5373AE26c3E8FfC4c77b7255DF7eC1A9aF52a6',
     chainId: 8453,
     decimals: 6,
-    website: 'https://tether.to/',
+    website: 'https://www.axelar.network/',
     documentation: 'https://docs.axelar.dev/',
     description:
-      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+      'axlUSDT is a cross-chain representation of USDT, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDT to move seamlessly across different blockchain ecosystems, minted by depositing USDT into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
     logoURI: 'https://hecoinfo.com/token/images/USDTHECO_32.png',
     bridge: 'axelar',
   },

@@ -1,5 +1,23 @@
 [
   {
+    "name": "equalizer-usdc.e-equal",
+    "address": "0xbc03f76AcCAcE9cF9C1f1b547750315b9E9866cF",
+    "decimals": "1e18",
+    "chainId": 250,
+    "lp0": {
+      "address": "0x2F733095B80A04b38b0D10cC884524a3d09b836a",
+      "oracle": "tokens",
+      "oracleId": "fUSDCe",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x3Fd3A0c85B70754eFc07aC9Ac0cbBDCe664865A6",
+      "oracle": "tokens",
+      "oracleId": "EQUAL",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-coq-wavax",
     "address": "0x41aB86EEcBd110a82cA602D032a461f453066F1E",
     "decimals": "1e18",
