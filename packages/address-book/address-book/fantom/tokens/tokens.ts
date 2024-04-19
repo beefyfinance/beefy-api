@@ -2139,7 +2139,7 @@ const _tokens = {
   fUSDCe: {
     name: 'Bridged USDC',
     address: '0x2F733095B80A04b38b0D10cC884524a3d09b836a',
-    symbol: 'USDC.e',
+    symbol: 'USDCe',
     oracleId: 'fUSDCe',
     decimals: 6,
     website: 'https://portalbridge.com/usdc-bridge/',
