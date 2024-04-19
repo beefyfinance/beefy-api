@@ -457,7 +457,7 @@
       },
       {
         "oracle": "tokens",
-        "oracleId": "USDCe",
+        "oracleId": "arbUSDCe",
         "decimals": "1e6"
       }
     ]
