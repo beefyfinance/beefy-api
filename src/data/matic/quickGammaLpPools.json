@@ -1,5 +1,33 @@
 [
   {
+    "name": "quick-gamma-nativeusdc-weth-narrow",
+    "address": "0x3974FbDC22741A1632E024192111107b202F214f",
+    "pool": "0xa6AeDF7c4Ed6e821E67a6BfD56FD1702aD9a9719",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 96,
+    "chainId": 137,
+    "extraRewards": [
+      {
+        "rewarder": "0xc35f556C8Ac05FB484A703eE96A2f997F8CAC957",
+        "oracleId": "dQUICK",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "quick-gamma-wbtc-weth-wide",
     "address": "0xadc7B4096C3059Ec578585Df36E6E1286d345367",
     "pool": "0xAC4494e30a85369e332BDB5230d6d694d4259DbC",
