@@ -1,5 +1,62 @@
 [
   {
+    "name": "balancer-avax-af-culture-coins",
+    "address": "0x0df1Be54B29aA9828Bea1De6A6DFE3d03EC63082",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x72dD9b41FEc59cf58140cAb9C92CEfC8F212354D",
+    "vaultPoolId": "0x0df1be54b29aa9828bea1de6a6dfe3d03ec63082000100000000000000000047",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x72dD9b41FEc59cf58140cAb9C92CEfC8F212354D",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x72dD9b41FEc59cf58140cAb9C92CEfC8F212354D",
+        "rewardToken": "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7",
+        "oracleId": "WAVAX"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "KIMBO",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "COQ",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "TECH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "NOCHILL",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WAVAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GEC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-avax-savax-avax",
     "address": "0xfD2620C9cfceC7D152467633B3B0Ca338D3d78cc",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
