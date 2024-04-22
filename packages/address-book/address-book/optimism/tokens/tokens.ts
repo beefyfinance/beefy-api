@@ -1136,6 +1136,20 @@ const _tokens = {
     description: 'Curve Optimism base 3pool consisting of DAI, USDC and USDT',
     bridge: 'optimism-canonical',
   },
+  CRV: {
+    name: 'CRV',
+    address: '0x0994206dfE8De6Ec6920FF4D779B0d950605Fb53',
+    symbol: 'CRV',
+    oracleId: 'CRV',
+    decimals: 18,
+    chainId: 10,
+    website: 'https://curve.fi/',
+    description:
+      'Curve is an exchange liquidity pool on Ethereum. Curve is designed for extremely efficient stablecoin trading and low risk, supplemental fee income for liquidity providers, without an opportunity cost.',
+    bridge: 'optimism-canonical',
+    logoURI: '',
+    documentation: 'https://curve.readthedocs.io/',
+  },
   STG: {
     name: 'StargateToken',
     symbol: 'STG',
