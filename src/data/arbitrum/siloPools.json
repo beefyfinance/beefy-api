@@ -14,9 +14,9 @@
   },
   {
     "name": "silo-eth-pendle-ezeth",
-    "address": "0x22BED3E6E56266C347769189B44646D91b3150c4",
+    "address": "0xEde3D8D3213D8defC37E4EdEA86448D4c692bAa6",
     "underlying": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-    "silo": "0xd49929d4ab1845bC0CFe19dBe94B6f40c48591f0",
+    "silo": "0x64689F922af39f186bA1465A19aD191Db91AC8D5",
     "oracleId": "ETH",
     "decimals": "1e18",
     "chainId": 42161,

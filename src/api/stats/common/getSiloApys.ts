@@ -42,7 +42,9 @@ const getPoolsApys = async (params: SiloApyParams, data: PoolsData) => {
     const oracle = pool.rewardOracle ?? 'tokens';
     const price = await fetchPrice({ oracle: oracle, id: pool.rewardOracleId });
 
-    supplyApys.push(data.supplyRates[i].times(90).div(100).div('1e18'));
+    const numerator = pool.legacy ? 90 : 75;
+
+    supplyApys.push(data.supplyRates[i].times(numerator).div(100).div('1e18'));
 
     annualRewardsInUsd.push(
       data.rewardSpeeds[i].times(SECONDS_PER_YEAR).div(pool.rewardDecimals).times(price)
@@ -154,6 +156,7 @@ export interface SiloPool {
   rewardDecimals?: string;
   incentivesController: string;
   lens: string;
+  legacy?: boolean;
 }
 
 export interface SiloApyParams {
