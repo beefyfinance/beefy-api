@@ -1020,6 +1020,19 @@ const _tokens = {
     bridge: 'base-canonical',
     documentation: 'https://docs.liquity.org/',
   },
+  GENOME: {
+    name: 'GENOME',
+    symbol: 'GENOME',
+    oracleId: 'GENOME',
+    address: '0x1db0c569ebb4a8b57AC01833B9792F526305e062',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://genomes.io/',
+    description:
+      'GENOME is the utility and governance token of the GenomesDAO. The token is used for value transfer in the Genomes.io platform as well as being used for all payments and actions across the GenomesDAO infrastructure.',
+    bridge: 'base-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
