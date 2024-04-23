@@ -100,27 +100,6 @@
     }
   },
   {
-    "name": "aerodrome-hpc-weth-bribe",
-    "address": "0xd07B4d7CeA966B6E8087C8be3347E4B790679785",
-    "gauge": "0x77ABe39cd429eA55b0fb065B74ca3e3B3c7C13DA",
-    "decimals": "1e18",
-    "chainId": 8453,
-    "beefyFee": 0.095,
-    "bribe": 0.4,
-    "lp0": {
-      "address": "0x1f3BA804eFB9CFe17D595e7262CEA4782dbF6e4E",
-      "oracle": "tokens",
-      "oracleId": "HPC",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x4200000000000000000000000000000000000006",
-      "oracle": "tokens",
-      "oracleId": "WETH",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "aerodrome-mog-weth",
     "address": "0x4A311ac4563abc30E71D0631C88A6232C1309ac5",
     "gauge": "0x8FCc385d8d7f3A2e087853a79531630Bf96575e8",
@@ -168,27 +147,6 @@
     "decimals": "1e18",
     "chainId": 8453,
     "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x4200000000000000000000000000000000000006",
-      "oracle": "tokens",
-      "oracleId": "WETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xB166E8B140D35D9D8226E40C09f757BAC5A4d87d",
-      "oracle": "tokens",
-      "oracleId": "NPC",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "aerodrome-weth-npc-bribe",
-    "address": "0x5E14319D52c9C18a04BFBBE12dd3a0FE3C1A816a",
-    "gauge": "0xd1D3cbD443443d6cfee567C5A85B94Df633CdCAB",
-    "decimals": "1e18",
-    "chainId": 8453,
-    "beefyFee": 0.095,
-    "bribe": 0.4,
     "lp0": {
       "address": "0x4200000000000000000000000000000000000006",
       "oracle": "tokens",
@@ -384,54 +342,12 @@
     }
   },
   {
-    "name": "aerodrome-weth-chad-bribe",
-    "address": "0x17Cf4aBb54a9D18c90FA0e36B8669aB0f4936f2e",
-    "gauge": "0x346C6cfaC949E9d7FCA69cFf0a882c06e86C9245",
-    "decimals": "1e18",
-    "chainId": 8453,
-    "beefyFee": 0.095,
-    "bribe": 0.4,
-    "lp0": {
-      "address": "0x4200000000000000000000000000000000000006",
-      "oracle": "tokens",
-      "oracleId": "WETH",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xecaF81Eb42cd30014EB44130b89Bcd6d4Ad98B92",
-      "oracle": "tokens",
-      "oracleId": "CHAD",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "aerodrome-anime-weth",
     "address": "0xeB956b77D455e33b41bBE6052dBE4388dCfD729B",
     "gauge": "0x93a7ddBd64f0835f99b6D248Ce058Fd90C68666c",
     "decimals": "1e18",
     "chainId": 8453,
     "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x0e0c9756a3290cD782CF4aB73ac24D25291c9564",
-      "oracle": "tokens",
-      "oracleId": "ANIME",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x4200000000000000000000000000000000000006",
-      "oracle": "tokens",
-      "oracleId": "WETH",
-      "decimals": "1e18"
-    }
-  },
-  {
-    "name": "aerodrome-anime-weth-bribe",
-    "address": "0xeB956b77D455e33b41bBE6052dBE4388dCfD729B",
-    "gauge": "0x93a7ddBd64f0835f99b6D248Ce058Fd90C68666c",
-    "decimals": "1e18",
-    "chainId": 8453,
-    "beefyFee": 0.095,
-    "bribe": 0.4,
     "lp0": {
       "address": "0x0e0c9756a3290cD782CF4aB73ac24D25291c9564",
       "oracle": "tokens",
