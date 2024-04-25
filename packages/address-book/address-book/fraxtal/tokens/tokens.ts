@@ -171,6 +171,20 @@ const _tokens = {
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
     bridge: 'fraxtal-canonical',
   },
+  WBTC: {
+    name: 'Wrapped BTC',
+    symbol: 'WBTC',
+    oracleId: 'WBTC',
+    address: '0x7F3a9Afc827AeEdb0c5dC1A66C0Baa41cD7289F0',
+    chainId: 252,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://wbtc.network/',
+    description:
+      'Wrapped Bitcoin (WBTC) is the first ERC20 token backed 1:1 with Bitcoin. Completely transparent. 100% verifiable. Community led.',
+    documentation: 'https://wbtc.network/',
+    bridge: 'fraxtal-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -45,6 +45,9 @@ const {
   linea: {
     platforms: { lynex },
   },
+  fraxtal: {
+    platforms: { ra },
+  },
 } = addressBook;
 
 const projects = {
@@ -159,6 +162,12 @@ const projects = {
     stableFile: '../src/data/linea/lynexStablePools.json',
     volatileFile: '../src/data/linea/lynexVolatilePools.json',
     voter: lynex.voter,
+  },
+  ra: {
+    prefix: 'ra',
+    stableFile: '../src/data/fraxtal/raStablePools.json',
+    volatileFile: '../src/data/fraxtal/raPools.json',
+    voter: ra.voter,
   },
 };
 

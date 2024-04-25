@@ -44,6 +44,7 @@
     "fantom:sushi:add": "ts-node scripts/add-sushi.ts --network fantom --project sushiFtm",
     "fantom:solidly:add": "ts-node scripts/add-solidly.ts --network fantom --project solidly --newFee true",
     "fantom:fvm:add": "ts-node scripts/add-solidly.ts --network fantom --project fvm --newFee true --lp",
+    "fraxtal:ra:add": "ts-node scripts/add-solidly.ts --network fraxtal --project ra --newFee true --lp",
     "polygon:quick:add": "ts-node scripts/add-quick.ts --network polygon --project quick",
     "polygon:quick:gamma:add": "ts-node scripts/add-sushi.ts --network polygon --project quick --newFee true --pool",
     "polygon:sushi:add": "ts-node scripts/add-sushi.ts --network polygon --project sushiPoly",

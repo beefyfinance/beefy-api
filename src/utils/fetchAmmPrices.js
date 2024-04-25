@@ -30,7 +30,7 @@ const MULTICALLS = {
   100: '0x07f1ad98b725Af45485646aC431b7757f50C598A',
   59144: '0xe103ab2f922aa1a56EC058AbfDA2CeEa1e95bCd7',
   5000: '0xee59DE6E749cc6cF6ebD30878D8B4222C4aea37C',
-  252: '0x9C18deE5290925f596fbEfee2f6745b640f3A4C6',
+  252: '0xBC4a342B0c057501E081484A2d24e576E854F823',
 };
 
 const BATCH_SIZE = 128;
@@ -192,6 +192,7 @@ const fetchChainPools = async (chain, pools) => {
 
   for (let i = 0; i < pools.length; i += BATCH_SIZE) {
     const batch = lpInfos[Math.floor(i / BATCH_SIZE)];
+    if (chain === 252) console.log(batch);
     // if (batch.status === 'rejected') {
     //   console.error('fetchChainPools', chain, batch.reason);
     //   continue;
