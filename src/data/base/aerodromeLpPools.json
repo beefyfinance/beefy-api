@@ -1301,5 +1301,25 @@
       "oracleId": "AERO",
       "decimals": "1e18"
     }
+  },
+  {
+    "name": "aerodrome-genome-weth",
+    "address": "0x963ceee215e5b0B1dCB221C3bA398De66abC73D9",
+    "gauge": "0xa4F335B6ee0f8e34F31d4C8b702080196252dAc3",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1db0c569ebb4a8b57AC01833B9792F526305e062",
+      "oracle": "tokens",
+      "oracleId": "GENOME",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
   }
 ]
