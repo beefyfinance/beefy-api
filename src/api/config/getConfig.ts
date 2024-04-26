@@ -19,6 +19,8 @@ interface Config {
   multicall: string;
   vaultFactory: string;
   wrapperFactory: string;
+  zap: string;
+  zapTokenManager: string;
 }
 
 export const initConfigService = () => {
@@ -42,6 +44,8 @@ export const initConfigService = () => {
       multicall: config.multicall,
       vaultFactory: config.vaultFactory,
       wrapperFactory: config.wrapperFactory,
+      zap: config.zap,
+      zapTokenManager: config.zapTokenManager,
     };
   });
 

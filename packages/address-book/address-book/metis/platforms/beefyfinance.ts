@@ -18,4 +18,6 @@ export const beefyfinance = {
   beefyFeeConfig: '0x11cB33Ef34C53DfcaA3aDdDE9a83f742ffFcfa27',
   vaultFactory: '0x52d998A110E447648095671bb66993461Da9ea38',
   wrapperFactory: '0xDf29382141059afD25Deb624E6c8f13A051012Be',
+  zap: '0x718591BF31ac44Be363D4900ea1fA6F355fc58dc',
+  zapTokenManager: '0x9F9F46aD541aFe75731D956f525e0a4d866F32E0',
 } as const;

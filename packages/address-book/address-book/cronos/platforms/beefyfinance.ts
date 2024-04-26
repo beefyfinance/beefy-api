@@ -16,4 +16,6 @@ export const beefyfinance = {
   bifiMaxiStrategy: '0xa9E6E271b27b20F65394914f8784B3B860dBd259',
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   beefyFeeConfig: '0xb13A7ec2F26f6F908D0736Ee4D1171bAc88c8cBD',
+  zap: '0xED9d262985E18710DDDAC0dfC10a3f900679063B',
+  zapTokenManager: '0x3feB5C7b553119f06109f991504F467f646caE43',
 } as const;

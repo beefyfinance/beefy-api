@@ -18,4 +18,6 @@ export const beefyfinance = {
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   beefyFeeConfig: '0x9292B01182c6d18612deA8fd4e603CC1C733516B',
   /// vaultFactory: '0x42F93644403C6cA1dD4F6446aA720F019a757FEA',
+  zap: '0x744A1Ca08f0787bFF426cA3A734711EAc2772675',
+  zapTokenManager: '0xAD579b6c9F0b66101806957018B7D965c6B1fa92',
 } as const;
