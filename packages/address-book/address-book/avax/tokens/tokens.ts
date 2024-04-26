@@ -1238,13 +1238,12 @@ const _tokens = {
   },
   BAL: {
     chainId: 43114,
-    address: '0xA2A035Dd93b0e963864FA14A240401d6CeAc5558',
+    address: '0xE15bCB9E0EA69e6aB9FA080c4c4A5632896298C3',
     decimals: 18,
     name: 'Balancer',
     symbol: 'BAL',
     oracleId: 'BAL',
-    logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xA2A035Dd93b0e963864FA14A240401d6CeAc5558/logo.png',
+    logoURI: '',
   },
   BNT: {
     chainId: 43114,
