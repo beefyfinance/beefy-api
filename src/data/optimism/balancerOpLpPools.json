@@ -40,7 +40,7 @@
     "name": "beets-happy-road",
     "address": "0x39965c9dAb5448482Cf7e002F583c812Ceb53046",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x00a2bD63529fD28d777155F5eD1726e9b9b781B4",
+    "gauge": "0x92F714Ae8C2150b7a7a75c6C97656BD4B348ca9E",
     "vaultPoolId": "0x39965C9DAB5448482CF7E002F583C812CEB53046000100000000000000000003",
     "decimals": "1e18",
     "rewards": [
@@ -51,7 +51,7 @@
       },
       {
         "stream": "0x92F714Ae8C2150b7a7a75c6C97656BD4B348ca9E",
-        "rewardToken": "0x97513e975a7fA9072c72C92d8000B0dB90b163c5",
+        "rewardToken": "0xb4Bc46bc6cB217B59ea8F4530BaE26Bf69F677f0",
         "oracleId": "BEETS"
       },
       {
