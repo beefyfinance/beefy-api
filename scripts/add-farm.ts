@@ -12,7 +12,7 @@ import LPPairABI from '../src/abis/LPPair';
 
 const {
   fantom: {
-    platforms: { spookyswap },
+    platforms: { spookyswap, wigoswap },
   },
   moonriver: {
     platforms: { finn, solarbeam },
@@ -143,6 +143,11 @@ const projects = {
     prefix: 'baseswap',
     file: '../src/data/base/baseSwapLpPools.json',
     masterchef: baseSwap.chef,
+  },
+  wigoswap: {
+    prefix: 'wigo',
+    file: '../src/data/fantom/wigoLpPools.json',
+    masterchef: wigoswap.masterchef,
   },
 };
 
