@@ -7,12 +7,12 @@ import { CowVault } from './getBeefyCowcentratedVaultPrices';
 export const getCowApy = async (subgraphUrl: string, clmVaults: CowVault[], chainID: ChainId) => {
   try {
     const vaults = await getBeefyCLMVaults(subgraphUrl);
-    const merkleCampaigns = await getMerkleCampaigns(chainID);
+    const merklCampaigns = await getMerklCampaigns(chainID);
 
     const pools = [];
     const farmAprs: BigNumber[] = [];
     const clmAprs: number[] = [];
-    const merkleAprs: number[] = [];
+    const merklAprs: number[] = [];
     vaults.forEach(vault => {
       const matchedVaultIndex = clmVaults.findIndex(
         v => v.address.toLowerCase() === vault.id.toLowerCase()
@@ -23,7 +23,7 @@ export const getCowApy = async (subgraphUrl: string, clmVaults: CowVault[], chai
       pools.push({ name: matchedVault.oracleId });
       farmAprs.push(BIG_ZERO);
       clmAprs.push(new BigNumber(vault.apr1D).toNumber());
-      merkleAprs.push(getMerkleAprForVault(matchedVault, merkleCampaigns));
+      merklAprs.push(getMerklAprForVault(matchedVault, merklCampaigns));
     });
     return getApyBreakdown(
       pools,
@@ -33,7 +33,7 @@ export const getCowApy = async (subgraphUrl: string, clmVaults: CowVault[], chai
       undefined,
       undefined,
       clmAprs,
-      merkleAprs
+      merklAprs
     );
   } catch (err) {
     console.error(`> getCLMApy Error on ${chainID}:  ${err.message}`);
@@ -51,14 +51,14 @@ type Campaign = {
   forwarders: Forwarder[];
 };
 
-type MerkleChainCampaigns = {
+type MerklChainCampaigns = {
   [poolIdentifier: string]: {
     [campaignID: string]: Campaign;
   };
 };
 
-type MerkleAPIChainCampaigns = {
-  [chainId in ChainId]: MerkleAPIChainCampaigns;
+type MerklAPIChainCampaigns = {
+  [chainId in ChainId]: MerklAPIChainCampaigns;
 };
 
 const getBeefyCLMVaults = async (subgraphUrl: string) => {
@@ -69,22 +69,22 @@ const getBeefyCLMVaults = async (subgraphUrl: string) => {
   return response.data.beefyCLVaults;
 };
 
-const getMerkleCampaigns = async (chainID: ChainId) => {
+const getMerklCampaigns = async (chainID: ChainId) => {
   try {
     const response = await fetch('https://api.merkl.xyz/v3/campaigns?chainIds=' + chainID).then(
-      res => res.json() as Promise<MerkleAPIChainCampaigns>
+      res => res.json() as Promise<MerklAPIChainCampaigns>
     );
     return response[chainID];
   } catch (err) {
-    console.error(`> getMerkleCampaigns Error on ${chainID}  ${err.message}`);
+    console.error(`> getMerklCampaigns Error on ${chainID}  ${err.message}`);
     console.error(err);
     return {};
   }
 };
 
-const getMerkleAprForVault = (vault: CowVault, merkleCampaigns: MerkleChainCampaigns) => {
+const getMerklAprForVault = (vault: CowVault, merklCampaigns: MerklChainCampaigns) => {
   let apr = 0;
-  for (const [poolId, campaigns] of Object.entries(merkleCampaigns)) {
+  for (const [poolId, campaigns] of Object.entries(merklCampaigns)) {
     for (const [campaignId, campaign] of Object.entries(campaigns)) {
       if (campaign.mainParameter.toLowerCase() === vault.lpAddress.toLowerCase()) {
         campaign.forwarders.forEach(forwarder => {
