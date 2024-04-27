@@ -33,7 +33,7 @@ const v3PoolAbi = [
   },
 ] as const;
 
-type CowVault = {
+export type CowVault = {
   address: `0x${string}`;
   lpAddress: `0x${string}`;
   tokens: [string, string];

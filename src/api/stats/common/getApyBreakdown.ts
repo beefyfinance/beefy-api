@@ -17,6 +17,7 @@ export interface ApyBreakdown {
   liquidStakingApr?: number;
   composablePoolApr?: number;
   clmApr?: number;
+  merkleApr?: number;
 }
 
 export interface ApyBreakdownResult {
@@ -31,7 +32,8 @@ export const getApyBreakdown = (
   providerFee?: number | BigNumber[],
   liquidStakingAprs?: number[],
   composablePoolAprs?: number[],
-  clmAprs?: number[]
+  clmAprs?: number[],
+  merkleAprs?: number[]
 ): ApyBreakdownResult => {
   const result: ApyBreakdownResult = {
     apys: {},
@@ -52,15 +54,8 @@ export const getApyBreakdown = (
       : undefined;
 
     const clmApr: number | undefined = clmAprs ? clmAprs[i] : undefined;
-
-    const extraApr =
-      liquidStakingAprs && composablePoolAprs
-        ? liquidStakingApr + composablePoolApr
-        : liquidStakingAprs
-        ? liquidStakingApr
-        : composablePoolAprs
-        ? composablePoolApr
-        : 0;
+    const merkleApr: number | undefined = merkleAprs ? merkleAprs[i] : undefined;
+    const extraApr = (liquidStakingApr ?? 0) + (composablePoolApr ?? 0) + (merkleApr ?? 0);
 
     const provFee = providerFee[i] == undefined ? providerFee : providerFee[i].toNumber();
     const simpleApr = farmAprs[i]?.toNumber();
@@ -103,6 +98,7 @@ export const getApyBreakdown = (
       composablePoolApr: composablePoolApr,
       clmApr: clmApr,
       totalApy: totalApy,
+      merkleApr: merkleApr,
     };
   });
 
