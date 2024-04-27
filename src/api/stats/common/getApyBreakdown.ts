@@ -54,7 +54,8 @@ export const getApyBreakdown = (
       : undefined;
 
     const clmApr: number | undefined = clmAprs ? clmAprs[i] : undefined;
-    const merkleApr: number | undefined = merkleAprs ? merkleAprs[i] : undefined;
+
+    const merkleApr: number | undefined = merkleAprs ? undefined : undefined;
     const extraApr = (liquidStakingApr ?? 0) + (composablePoolApr ?? 0) + (merkleApr ?? 0);
 
     const provFee = providerFee[i] == undefined ? providerFee : providerFee[i].toNumber();
@@ -98,7 +99,7 @@ export const getApyBreakdown = (
       composablePoolApr: composablePoolApr,
       clmApr: clmApr,
       totalApy: totalApy,
-      merkleApr: merkleApr,
+      // merkleApr: merkleApr,
     };
   });
 
