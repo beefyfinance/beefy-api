@@ -1,5 +1,69 @@
 [
   {
+    "name": "curve-fraxtal-frax-sdai",
+    "pool": "0x385540fda649a114ffeb943fd73ae82ce7908da3",
+    "gauge": "0xcdbfcbf18d504f5bd6b29bac5d91405f9f59980f",
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-fraxtal-wfrxeth-weth",
+    "pool": "0xf8474c80dfe3af4794eac64672137ad390aabb0a",
+    "gauge": "0xee8ca91b8bff51db3f95949bf9d109e95ecd1a4c",
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "wfrxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-fraxtal-fxs-cvxfxs",
+    "pool": "0x3a38e9b0b5cb034de01d5298fc2ed2d793c0c36f",
+    "gauge": "0x070ebc9f46d0a6a523d31eb4ae7901c56ad97ae2",
+    "convex": true,
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FXS",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "cvxFXS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-fraxtal-tricrv",
     "pool": "0xf593ae314749d0c92b450f0a13e7e1791f352bb7",
     "gauge": "0x9ccc509a5b4869bac6be86e79ea00c25942852f4",
@@ -139,6 +203,7 @@
     "name": "curve-fraxtal-trifxs",
     "pool": "0xa0d3911349e701a1f49c1ba2dda34b4ce9636569",
     "gauge": "0x8882eb84d0c4894753c0450f2d514e39883c0c82",
+    "convex": true,
     "rewards": [
       {
         "token": "0xFc00000000000000000000000000000000000002",

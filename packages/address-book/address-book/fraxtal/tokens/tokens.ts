@@ -102,6 +102,20 @@ const _tokens = {
     logoURI: 'https://app.sushi.com/images/tokens/fxs-square.jpg',
     documentation: 'https://docs.frax.finance/',
   },
+  cvxFXS: {
+    name: 'Convex FXS',
+    address: '0xEFb4B26FC242478c9008274F9e81db89Fa6adAB9',
+    symbol: 'cvxFXS',
+    oracleId: 'cvxFXS',
+    decimals: 18,
+    chainId: 252,
+    website: 'https://frax.convexfinance.com/',
+    documentation: 'https://docs.convexfinance.com/',
+    description:
+      'Convex Finance has expanded to optimize opportunities for liquidity providers on Frax the same way it has done so for Curve.fi LPs.',
+    bridge: 'fraxtal-canonical',
+    logoURI: '',
+  },
   DAI: {
     name: 'Dai Stablecoin',
     address: '0xf6a011fAC307f55Cd4bA8e43b8b93f39808DdaA9',
@@ -117,6 +131,20 @@ const _tokens = {
       'https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png',
     documentation:
       'https://docs.makerdao.com/smart-contract-modules/dai-module/dai-detailed-documentation',
+  },
+  sDAI: {
+    name: 'Savings DAI',
+    symbol: 'sDAI',
+    oracleId: 'sDAI',
+    address: '0x09eAdcBAa812A4C076c3a6cDe765DC4a22E0d775',
+    chainId: 252,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.sparkprotocol.io/sdai/',
+    documentation: 'https://docs.sparkprotocol.io/hub/',
+    description:
+      'sDAI is similar to DAI but with the added benefit of earning interest. You can use it just like DAI - own, transfer, and use it in the DeFi ecosystem. Swapping between sDAI and DAI incurs no additional costs and no slippage as is deposited or withdrawn from the DSR contract.',
+    bridge: 'fraxtal-canonical',
   },
   PYUSD: {
     name: 'PayPal USD',
