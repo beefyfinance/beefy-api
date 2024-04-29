@@ -1033,6 +1033,21 @@ const _tokens = {
       'GENOME is the utility and governance token of the GenomesDAO. The token is used for value transfer in the Genomes.io platform as well as being used for all payments and actions across the GenomesDAO infrastructure.',
     bridge: 'base-canonical',
   },
+  wrsETH: {
+    name: 'rsETHWrapper',
+    symbol: 'wrsETH',
+    oracleId: 'wrsETH',
+    address: '0xEDfa23602D0EC14714057867A78d01e94176BEA0',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://kelpdao.xyz/',
+    description:
+      'The rsETHWrapper contract serves as a standardized interface for rsETH tokens, which are Liquid Restaked Tokens (LRT) issued by Kelp DAO. Designed to offer liquidity to illiquid assets deposited into restaking platforms like EigenLayer, users can interact with these tokens seamlessly.',
+    documentation: 'https://kelp.gitbook.io/kelp',
+    bridge: 'stargate',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -1471,6 +1471,21 @@ const _tokens = {
       'Aave interest bearing USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
     staked: true,
   },
+  wrsETH: {
+    name: 'rsETHWrapper',
+    symbol: 'wrsETH',
+    oracleId: 'wrsETH',
+    address: '0x87eEE96D50Fb761AD85B1c982d28A042169d61b1',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://kelpdao.xyz/',
+    description:
+      'The rsETHWrapper contract serves as a standardized interface for rsETH tokens, which are Liquid Restaked Tokens (LRT) issued by Kelp DAO. Designed to offer liquidity to illiquid assets deposited into restaking platforms like EigenLayer, users can interact with these tokens seamlessly.',
+    documentation: 'https://kelp.gitbook.io/kelp',
+    bridge: 'stargate',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
