@@ -1,5 +1,27 @@
 [
   {
+    "name": "curve-arb-usdc-usdm",
+    "pool": "0x4bd135524897333bec344e50ddd85126554e58b4",
+    "gauge": "0xbdbb71914ddb650f96449b54d2ca15132be56aca",
+    "rewards": [
+      {
+        "token": "0x59D9356E565Ab3A36dD77763Fc0d87fEaf85508C",
+        "oracleId": "USDM"
+      }
+    ],
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "USDM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-usd+usdt+",
     "pool": "0x1446999b0b0e4f7ada6ee73f2ae12a2cfdc5d9e7",
     "gauge": "0xd68089d9daa2da7888b7ef54158480e09ecc3580",

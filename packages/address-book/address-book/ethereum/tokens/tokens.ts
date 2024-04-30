@@ -1561,6 +1561,21 @@ const _tokens = {
       'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
     documentation: 'https://docs.liquity.org/',
   },
+  USDM: {
+    name: 'Mountain Protocol USD',
+    symbol: 'USDM',
+    oracleId: 'USDM',
+    address: '0x59D9356E565Ab3A36dD77763Fc0d87fEaf85508C',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://mountainprotocol.com/',
+    documentation: 'https://docs.mountainprotocol.com/',
+    description:
+      'The USDM token is a rebasing ERC20 token, redeemable at a pegged 1:1 USD value by primary users. USDM is a fully backed stablecoin, backed by "USDM Reserves", which are held under custody with regulated financial institutions in bankruptcy-remote accounts, segregated from the Company\'s operating accounts, on behalf of, and for the benefit of, Users.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
   sDAI: {
     name: 'Savings DAI',
     symbol: 'sDAI',

@@ -1,5 +1,27 @@
 [
   {
+    "name": "curve-sdai-usdm",
+    "pool": "0x425bfb93370f14ff525adb6eaeacfe1f4e3b5802",
+    "gauge": "0xcf5136c67fa8a375babbdf13c0307ef994b5681d",
+    "rewards": [
+      {
+        "token": "0x59D9356E565Ab3A36dD77763Fc0d87fEaf85508C",
+        "oracleId": "USDM"
+      }
+    ],
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-tricrypto-gho",
     "pool": "0x8cd52ee292313c4d851e71a7064f096504ab3ee9",
     "gauge": "0x6373e119f2a1fd081249bc16fe7fea1f6b3a4ca8",
