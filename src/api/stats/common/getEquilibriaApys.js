@@ -22,14 +22,17 @@ const equilibriaAbi = parseAbi([
   'function totalSupply() view returns (uint256)',
   'function rewards(address token) view returns (uint periodFinish, uint rewardRate)',
   'function getFactor() view returns (uint)',
+  'function expiry() view returns (uint)',
 ]);
 
 const getPoolApys = async (chainId, pools) => {
   const apys = [];
-  const totalSupplyCalls = [];
-  const extraRewardInfo = [],
+  const totalSupplyCalls = [],
+    expiryCalls = [],
+    extraRewardInfo = [],
     extraRewardsCalls = [];
   pools.forEach(pool => {
+    expiryCalls.push(fetchContract(pool.address, equilibriaAbi, chainId).read.expiry());
     const rewardPool = fetchContract(pool.gauge, equilibriaAbi, chainId);
     totalSupplyCalls.push(rewardPool.read.totalSupply());
     pool.rewards?.forEach(extra => {
@@ -43,11 +46,13 @@ const getPoolApys = async (chainId, pools) => {
     Promise.all(totalSupplyCalls),
     Promise.all(extraRewardsCalls),
     eqbFactorCall,
+    Promise.all(expiryCalls),
   ]);
   const arbApys = await getEqbArbApy(chainId);
 
   const poolInfo = res[0].map((_, i) => ({
     totalSupply: new BigNumber(res[0][i].toString()),
+    expiry: new BigNumber(res[3][i].toString()),
   }));
   const extras = extraRewardInfo.map((_, i) => ({
     ...extraRewardInfo[i],
@@ -59,6 +64,11 @@ const getPoolApys = async (chainId, pools) => {
   for (let i = 0; i < pools.length; i++) {
     const pool = pools[i];
     const info = poolInfo[i];
+
+    if (info.expiry < Date.now() / 1000) {
+      apys.push(new BigNumber(0));
+      continue;
+    }
 
     const lpPrice = await fetchPrice({ oracle: 'lps', id: pool.name });
     const totalStakedInUsd = info.totalSupply.times(lpPrice).div('1e18');
