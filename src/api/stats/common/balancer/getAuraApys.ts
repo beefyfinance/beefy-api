@@ -46,6 +46,8 @@ interface Pool {
   bbPoolId?: string;
   bbIndex?: number;
   composableSplit?: boolean;
+  divisor?: number[];
+  balancerApi?: boolean;
 }
 
 interface BalancerParams {
@@ -188,10 +190,15 @@ const getPoolApy = async (
       lsApr = lsAprs.reduce((acum, cur) => acum + cur, 0);
       //console.log(pool.name, lsAprs, lsApr)
       lsAprs.forEach((apr, i) => {
-        aprFixed +=
-          (apr * qty[lsIndexes[i]].dividedBy(totalQty).toNumber()) /
-          100 /
-          (pool.balancerChargesFee ? 2 : 1);
+        const divisor = pool.divisor ? pool.divisor[i] : 100;
+        if (!pool.balancerApi) {
+          aprFixed +=
+            (apr * qty[lsIndexes[i]].dividedBy(totalQty).toNumber()) /
+            divisor /
+            (pool.balancerChargesFee ? 2 : 1);
+        } else {
+          aprFixed += apr / divisor;
+        }
       });
     } catch (err) {
       console.error(`Aura: Liquid Staking URL Fetch Error ${pool.name}`);

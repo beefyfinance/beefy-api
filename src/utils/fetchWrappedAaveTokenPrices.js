@@ -37,6 +37,8 @@ const {
       'USD+': arbUSDplus,
       'arbwUSD+': arbwUSDplus,
       gDAI,
+      stataArbUSDCn,
+      stataArbUSDTn,
     },
   },
   avax: {
@@ -76,6 +78,8 @@ const tokens = {
     [aaDAI, waaDAI, true],
     [arbUSDplus, arbwUSDplus],
     [DAI, gDAI, true, false],
+    [aaUSDC, stataArbUSDCn],
+    [aaUSDT, stataArbUSDTn],
   ],
   avax: [
     [aavAVAX, waavAVAX],

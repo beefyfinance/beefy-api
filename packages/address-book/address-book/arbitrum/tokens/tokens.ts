@@ -1631,6 +1631,37 @@ const _tokens = {
     documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
     bridge: 'arbitrum-canonical',
   },
+  stataArbUSDCn: {
+    name: 'Static Aave Arbitrum USDCn',
+    symbol: 'stataArbUSDCn',
+    oracleId: 'stataArbUSDCn',
+    address: '0x7CFaDFD5645B50bE87d546f42699d863648251ad',
+    chainId: 42161,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x4988a896b1227218e4A686fdE5EabdcAbd91571f.svg',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing native USDC. USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    staked: true,
+    bridge: 'native',
+  },
+  stataArbUSDTn: {
+    name: 'Static Aave Arbitrum USDTn',
+    symbol: 'stataArbUSDTn',
+    oracleId: 'stataArbUSDTn',
+    address: '0xb165a74407fE1e519d6bCbDeC1Ed3202B35a4140',
+    chainId: 42161,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://tether.to/',
+    documentation: 'https://docs.aave.com/developers/v/2.0/the-core-protocol/atokens',
+    description:
+      'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    staked: true,
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
