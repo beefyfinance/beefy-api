@@ -221,6 +221,34 @@ const _tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  NILE: {
+    name: 'NILE Token',
+    symbol: 'NILE',
+    oracleId: 'NILE',
+    address: '0xAAAac83751090C6ea42379626435f805DDF54DC8',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.thenile.exchange/swap',
+    description:
+      'NILE is a next-gen liquidity protocol optimizing for high-frequency LPs and Layer 2 cost structures, inheriting efficiency from RAMSES on Arbitrum.',
+    documentation: 'https://docs.thenile.exchange/',
+    bridge: 'native',
+  },
+  LUSD: {
+    name: 'LUSD Stablecoin',
+    symbol: 'LUSD',
+    oracleId: 'LUSD',
+    address: '0x63bA74893621d3d12F13CEc1e86517eC3d329837',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.liquity.org/',
+    description:
+      'Liquity is a decentralized borrowing protocol that allows you to draw interest-free loans against Ether used as collateral. Loans are paid out in LUSD (a USD pegged stablecoin) and need to maintain a minimum collateral ratio of 110%.',
+    bridge: 'linea-canonical',
+    documentation: 'https://docs.liquity.org/',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

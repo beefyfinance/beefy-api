@@ -110,6 +110,7 @@ import getEthRangePrices from './ethereum/getEthRangePrices';
 import getBscRangePrices from './bsc/getBscRangePrices';
 import getGammaLineaPrices from './linea/getGammaPrices';
 import getLynexStablePrices from './linea/getLynexStablePrices';
+import getNileStablePrices from './linea/getNileStablePrices';
 import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
 import getFtmIchiPrices from './fantom/getFtmIchiPrices';
@@ -251,6 +252,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getEthRangePrices(tokenPrices),
     getBscRangePrices(tokenPrices),
     getLynexStablePrices(tokenPrices),
+    getNileStablePrices(tokenPrices),
     getBeefyCowArbPrices(tokenPrices),
     getBeefyCowOPPrices(tokenPrices),
     getBeefyCowBasePrices(tokenPrices),
