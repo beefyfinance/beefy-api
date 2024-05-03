@@ -190,6 +190,36 @@ const _tokens = {
       "Ethena Shards serve as a measure of a user's contribution to the Ethena ecosystem. mShards will possibly be redeemable for Ethena's governance token ENA at some point, the ratio will be determined by Ethena.",
     bridge: 'native',
   },
+  USDe: {
+    name: 'USDe',
+    symbol: 'USDe',
+    oracleId: 'mantleUSDe',
+    address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
+    chainId: 5000,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ethena.fi/',
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    description:
+      "Ethena's synthetic dollar, USDe, provides the crypto-native, scalable solution for money achieved by delta-hedging Ethereum and Bitcoin collateral. USDe is fully-backed and free to compose throughout CeFi & DeFi.",
+    bridge: 'stargate',
+    risks: ['NO_TIMELOCK'],
+  },
+  ENA: {
+    name: 'ENA',
+    symbol: 'ENA',
+    oracleId: 'mantleENA',
+    address: '0x58538e6A46E07434d7E7375Bc268D3cb839C0133',
+    chainId: 5000,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ethena.fi/',
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    description:
+      "ENA is Ethena's goverance token. Ethena is a synthetic dollar protocol built on Ethereum that provides a crypto-native solution for money not reliant on traditional banking system infrastructure, alongside a globally accessible dollar denominated instrument: USDe.",
+    bridge: 'stargate',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

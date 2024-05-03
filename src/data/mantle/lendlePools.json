@@ -43,5 +43,12 @@
     "lsUrl": "https://meth.mantle.xyz/api/stats/apy/",
     "lsAprFactor": 100,
     "dataPath": "data[0].FiveDayAPY"
+  },
+  {
+    "name": "lendle-mantle-usde",
+    "address": "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+    "aToken": "0x2CfA1e69C8A8083Aa52CfCF22d8caFF7521E1E7E",
+    "decimals": "1e18",
+    "oracleId": "mantleUSDe"
   }
 ]

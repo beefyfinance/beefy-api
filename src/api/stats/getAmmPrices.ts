@@ -656,6 +656,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65',
     chainId: 'arbitrum',
   },
+  {
+    oracleId: 'mantleUSDe',
+    tokenAddress: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
+    chainId: 'mantle',
+  },
 ];
 
 /**
