@@ -43,7 +43,7 @@ const {
     platforms: { bvm, aerodrome, equalizer: scale },
   },
   linea: {
-    platforms: { lynex },
+    platforms: { lynex, nile },
   },
   fraxtal: {
     platforms: { ra },
@@ -162,6 +162,12 @@ const projects = {
     stableFile: '../src/data/linea/lynexStablePools.json',
     volatileFile: '../src/data/linea/lynexVolatilePools.json',
     voter: lynex.voter,
+  },
+  nile: {
+    prefix: 'nile',
+    stableFile: '../src/data/linea/nileStablePools.json',
+    volatileFile: '../src/data/linea/nileVolatilePools.json',
+    voter: nile.voter,
   },
   ra: {
     prefix: 'ra',

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "nile-nile-weth",
+    "address": "0xFC6A4cd4007C3d24D37114d81A801a56F9536625",
+    "gauge": "0xe480D379228f40dEA32835F2C9B2C7a0cBd94495",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0xAAAac83751090C6ea42379626435f805DDF54DC8",
+      "oracle": "tokens",
+      "oracleId": "NILE",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  }
+]

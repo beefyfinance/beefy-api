@@ -282,6 +282,7 @@ import basoPools from '../../data/base/basoLpPools.json';
 import equalizerBasePools from '../../data/base/equalizerLpPools.json';
 import moePools from '../../data/mantle/moeLpPools.json';
 import lynexPools from '../../data/linea/lynexVolatilePools.json';
+import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
 import { addressBookByChainId } from '../../../packages/address-book/address-book';
@@ -307,6 +308,7 @@ const pools = normalizePoolOracleIds([
   ...moePools,
   ...equalizerBasePools,
   ...lynexPools,
+  ...nilePools,
   ...basoPools,
   ...swapBasedPools,
   ...alienBasePools,
