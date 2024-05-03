@@ -249,6 +249,20 @@ const _tokens = {
     bridge: 'linea-canonical',
     documentation: 'https://docs.liquity.org/',
   },
+  weETH: {
+    name: 'Wrapped eETH',
+    symbol: 'weETH',
+    oracleId: 'weETH',
+    address: '0x1Bf74C010E6320bab11e2e5A532b5AC15e0b8aA6',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ether.fi/',
+    description:
+      'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
+    bridge: 'stargate',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
