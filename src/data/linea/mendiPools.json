@@ -118,7 +118,7 @@
     "oracleId": "ezETH",
     "decimals": "1e18",
     "lsUrl": "https://app.renzoprotocol.com/api/stats?chainId=59144",
-    "dataPath": "$.data.apr.data",
+    "dataPath": "$.data.apr.data.rate",
     "borrowRate": 0,
     "borrowDepth": 1
   }
