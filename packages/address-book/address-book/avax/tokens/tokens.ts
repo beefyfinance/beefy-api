@@ -1123,8 +1123,10 @@ const _tokens = {
     name: 'Ankr Network',
     symbol: 'ANKR',
     oracleId: 'ANKR',
-    logoURI:
-      'https://raw.githubusercontent.com/ava-labs/bridge-tokens/main/avalanche-tokens/0xd09Af6A3C12EC24CeD114A0829F5Bf73D40dC5A8/logo.png',
+    description:
+      'ANKR is a utility token used within the Ankr network for various purposes including paying for premium plans, collateral deposits for node providers, rewarding stakers and node providers, payment for independent node auditors, and voting in the Ankr DAO.',
+    logoURI: '',
+    documentation: 'https://www.ankr.com/about-network/token/',
   },
   ANRX: {
     chainId: 43114,

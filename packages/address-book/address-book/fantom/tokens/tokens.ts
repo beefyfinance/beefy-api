@@ -1952,7 +1952,7 @@ const _tokens = {
     website: 'https://www.ankr.com/',
     bridge: 'multichain',
     description:
-      'Ankr originates as a solution that utilizes shared resources in order to provide easy and affordable blockchain node hosting solutions.',
+      'ANKR is a utility token used within the Ankr network for various purposes including paying for premium plans, collateral deposits for node providers, rewarding stakers and node providers, payment for independent node auditors, and voting in the Ankr DAO.',
     logoURI: '',
     documentation: 'https://www.ankr.com/about-network/token/',
   },
