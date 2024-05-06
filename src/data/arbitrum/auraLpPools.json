@@ -48,10 +48,10 @@
     "vaultPoolId": "0xb61371ab661b1acec81c699854d2f911070c059e000000000000000000000516",
     "lsIndex": [0, 1],
     "lsUrl": [
-      "https://app.renzoprotocol.com/api/stats?chainId=1",
+      "https://app.renzoprotocol.com/api/stats?chainId=42161",
       "https://eth-api.lido.fi/v1/protocol/steth/apr/sma"
     ],
-    "dataPath": ["$.data.apr.data", "$.data.smaApr"],
+    "dataPath": ["$.data.apr.data.rate", "$.data.smaApr"],
     "lsAprFactor": [1, 1],
     "balancerChargesFee": true,
     "decimals": "1e18",
