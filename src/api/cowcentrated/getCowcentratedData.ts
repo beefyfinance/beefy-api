@@ -3,6 +3,7 @@ import optimismPools from '../../data/optimism/beefyCowVaults.json';
 import basePools from '../../data/base/beefyCowVaults.json';
 import arbitrumPools from '../../data/arbitrum/beefyCowVaults.json';
 import BigNumber from 'bignumber.js';
+import { initCowMerklService } from './getMerkleCampaigns';
 
 let cowData;
 
@@ -101,6 +102,7 @@ export const initCowDataService = async () => {
   cowData = cachedTvl ?? {};
 
   setTimeout(updateCowcentratedData, INIT_DELAY);
+  await initCowMerklService();
 };
 
 const saveToRedis = async () => {
