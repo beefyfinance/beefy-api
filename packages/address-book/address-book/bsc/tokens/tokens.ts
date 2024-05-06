@@ -563,7 +563,8 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://www.ankr.com/',
-    description: 'Decentralized Infrastructure to Build and Earn in Web3',
+    description:
+      'ankrBNB is a reward-bearing token obtained by staking BNB through Ankr Staking, offering holders increased value over time through accumulated staking rewards. It provides instant liquidity for staked BNB, allowing connection with DeFi platforms for additional rewards, with smart contracts audited by Beosin, PeckShield, and Veridise for security assurance.',
     bridge: 'native',
     documentation: 'https://www.ankr.com/docs/liquid-staking/bnb/overview/',
   },
@@ -2710,9 +2711,8 @@ const _tokens = {
     decimals: 18,
     website: 'https://www.ankr.com/',
     description:
-      'Ankr originates as a solution that utilizes shared resources in order to provide easy and affordable blockchain node hosting solutions.',
-    logoURI:
-      'https://tokens.pancakeswap.finance/images/0xf307910a4c7bbc79691fd374889b36d8531b08e3.png',
+      'ANKR is a utility token used within the Ankr network for various purposes including paying for premium plans, collateral deposits for node providers, rewarding stakers and node providers, payment for independent node auditors, and voting in the Ankr DAO.',
+    logoURI: '',
     documentation: 'https://www.ankr.com/about-network/token/',
   },
   LINK: {
@@ -4644,6 +4644,21 @@ const _tokens = {
       'Verified USD (USDV) is the first stablecoin that rewards Verified Minters based on their contribution to the tokens active circulation.',
     documentation: 'https://docs.usdv.money/docs',
     bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
+  weETH: {
+    name: 'Wrapped eETH',
+    symbol: 'weETH',
+    oracleId: 'weETH',
+    address: '0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ether.fi/',
+    description:
+      'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
+    documentation: 'https://etherfi.gitbook.io/etherfi',
+    bridge: 'stargate',
     risks: ['NO_TIMELOCK'],
   },
 } as const;
