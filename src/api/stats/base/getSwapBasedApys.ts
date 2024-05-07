@@ -29,12 +29,12 @@ const getFarmApys = async (): Promise<BigNumber[]> => {
     const stakedPrice = await fetchPrice({ oracle, id });
     const totalStakedInUsd = balances[i].times(stakedPrice).dividedBy(pool.decimals ?? '1e18');
 
-    const rewardPrice = await fetchPrice({ oracle: 'tokens', id: 'BASE' });
+    const rewardPrice = await fetchPrice({ oracle: 'tokens', id: 'baseCOIN' });
     const rewardInUsd = new BigNumber(rewardRates[i].toString())
       .dividedBy('1e18')
       .times(rewardPrice)
       .times(0.98) // reward fee
-      .times(0.6); // 0.2 + (0.8 / 2) : BASE + xBASE reward
+      .times(0.32); // 0.2 + (0.8 * 0.15) : COIN + oCOIN reward
 
     const secondsPerYear = 31536000;
     const yearlyRewardsInUsd = rewardInUsd.times(secondsPerYear).times(0.99); // deposit fee

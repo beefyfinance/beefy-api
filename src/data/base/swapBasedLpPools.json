@@ -22,7 +22,7 @@
   {
     "name": "swapbased-dai+-usd+",
     "address": "0x164Bc404c64FA426882D98dBcE9B10d5df656EeD",
-    "strat": "0xF4272b27C1AfE449FBdbe83C1C3D1EbC7351fA2d",
+    "strat": "0xf157E9C21596504dB9f472866EA15B4b40ca92AD",
     "decimals": "1e18",
     "beefyFee": 0.095,
     "chainId": 8453,
@@ -42,7 +42,7 @@
   {
     "name": "swapbased-usd+-usdbc",
     "address": "0x282f9231E5294E7354744df36461c21e0E68061C",
-    "strat": "0x1b0d1C09fD360ADe0Caf4bFfE2933E2CC8846a62",
+    "strat": "0x545AE93526D0eb4D28f35b47d57623d62587D72d",
     "decimals": "1e18",
     "beefyFee": 0.095,
     "chainId": 8453,
@@ -102,7 +102,7 @@
   {
     "name": "swapbased-weth-axlusdc",
     "address": "0xAca85874D52e3e6d991f9E0b273a96228EDfeE7B",
-    "strat": "0x7b59C390ce9b6425915DB386E6e41eC7aD6733c0",
+    "strat": "0xdfE13075ba7568DA9F11b6E64b2f04D20f1eC075",
     "decimals": "1e18",
     "beefyFee": 0.095,
     "chainId": 8453,
@@ -136,6 +136,26 @@
       "address": "0xd07379a755A8f11B57610154861D694b2A0f615a",
       "oracle": "tokens",
       "oracleId": "BASE",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "swapbased-coin-weth",
+    "address": "0xe85d5A74756cAcB4B2E066Abca8971136C10b9db",
+    "strat": "0xC733b0EbB1c456D5B1067De602cFA4973Dc33B36",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x2156006a207A793B4069a2B72BE58DC2bD759232",
+      "oracle": "tokens",
+      "oracleId": "baseCOIN",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
       "decimals": "1e18"
     }
   }
