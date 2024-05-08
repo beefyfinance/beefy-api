@@ -30,6 +30,11 @@ const projects = {
     file: '../src/data/matic/retroGammaPools.json',
     voter: ethers.constants.AddressZero,
   },
+  quick: {
+    prefix: 'quick',
+    file: '../src/data/matic/quickGammaLpPools.json',
+    voter: ethers.constants.AddressZero,
+  },
   uniswap: {
     prefix: 'uniswap',
     file: '../src/data/arbitrum/uniswapGammaPools.json',
