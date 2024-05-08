@@ -1632,6 +1632,36 @@ const _tokens = {
     documentation: 'https://docs.pendle.finance/home?utm_source=landing&utm_medium=landing',
     bridge: 'arbitrum-canonical',
   },
+  fETH: {
+    name: 'Fractional ETH',
+    symbol: 'fETH',
+    oracleId: 'fETH',
+    address: '0xc608Dfb90A430Df79a8a1eDBC8be7f1A0Eb4E763',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://fx.aladdin.club/',
+    description:
+      'The fETH token, or Fractional ETH, is a decentralized, low-volatility, Ethereum-native, and “floating stablecoin”. It’s decentralized, so it avoids exposure to the shenanigans of central banks or other IRL entities. \n' +
+      '\n' +
+      'However, fETH isn’t exactly a stablecoin because it gains and loses a small amount of value as ETH rises and falls. Those price movements are fixed at 10% of the size of ETH’s. In this way, it’s anchored to the Ethereum economy rather than the US one. If you think USD will devalue over time compared to ETH, you might like to hold it instead of USD stablecoins. ',
+    documentation: 'https://docs.aladdin.club/f-x-protocol',
+    bridge: 'layer-zero',
+  },
+  xETH: {
+    name: 'Leveraged ETH',
+    symbol: 'xETH',
+    oracleId: 'xETH',
+    address: '0x55380fe7A1910dFf29A47B622057ab4139DA42C5',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://fx.aladdin.club/',
+    description:
+      'The xETH token, also called leveraged ETH, is a decentralized, composable leveraged long ETH futures contract with a low risk of liquidations and 0 funding fee (and in extreme cases, xETH minters can earn fees).',
+    documentation: 'https://docs.aladdin.club/f-x-protocol',
+    bridge: 'layer-zero',
+  },
   stataArbUSDCn: {
     name: 'Static Aave Arbitrum USDCn',
     symbol: 'stataArbUSDCn',
