@@ -1,5 +1,18 @@
 [
   {
+    "name": "silo-eth-pendle-eeth-eth",
+    "address": "0x00BabBd12365B55B692f124aEFD4034F5B53e4AB",
+    "underlying": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "silo": "0xb7413babdEe30d4b496a499c28211498956e82d8",
+    "oracleId": "WETH",
+    "decimals": "1e18",
+    "chainId": 1,
+    "rewardOracleId": "SILO",
+    "rewardDecimals": "1e18",
+    "incentivesController": "0x6c1603aB6CecF89DD60C24530DdE23F97DA3C229",
+    "lens": "0xf12C3758c1eC393704f0Db8537ef7F57368D92Ea"
+  },
+  {
     "name": "silo-eth-ezeth-eth",
     "address": "0x863a5F62d6e871d94f46e3F7ced3350899402B52",
     "underlying": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
