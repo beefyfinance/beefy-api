@@ -43,7 +43,7 @@
     "fantom:fvm:add": "ts-node scripts/add-solidly.ts --network fantom --project fvm --newFee true --lp",
     "fraxtal:ra:add": "ts-node scripts/add-solidly.ts --network fraxtal --project ra --newFee true --lp",
     "polygon:quick:add": "ts-node scripts/add-quick.ts --network polygon --project quick",
-    "polygon:quick:gamma:add": "ts-node scripts/add-sushi.ts --network polygon --project quick --newFee true --pool",
+    "polygon:quick:gamma:add": "ts-node scripts/add-gamma.ts --network polygon --project quick --wide false --lp",
     "polygon:sushi:add": "ts-node scripts/add-sushi.ts --network polygon --project sushiPoly",
     "polygon:retro:add": "ts-node scripts/add-gamma.ts --network polygon --project retro --wide true --lp",
     "polygon:retro:ichi:add": "ts-node scripts/add-ichi.ts --network polygon --project retro --wrapper",
