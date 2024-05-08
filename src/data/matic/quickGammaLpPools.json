@@ -40,7 +40,7 @@
     }
   },
   {
-    "name": "quick-gamma-nativeusdc-dai-narrow",
+    "name": "quick-gamma-nativeusdc-dai-stable",
     "address": "0x39f223B2E0405FA62CeC7DC476FC5A307B435069",
     "pool": "0xBC8f3da0bd42E1F2509cd8671Ce7c7E5f7fd39c8",
     "decimals": "1e18",
@@ -60,7 +60,7 @@
     }
   },
   {
-    "name": "quick-gamma-nativeusdc-usdt-narrow",
+    "name": "quick-gamma-nativeusdc-usdt-stable",
     "address": "0x953e523eA34E85AC55D40Be1Ff71D52aa62497b7",
     "pool": "0x0e3Eb2C75Bd7dD0e12249d96b1321d9570764D77",
     "decimals": "1e18",
