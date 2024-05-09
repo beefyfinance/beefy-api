@@ -1041,6 +1041,9 @@ function addTokenPricesToCache(tokenPrices: PricesById): boolean {
     }
   }
 
+  delete cachedTokenPrices['beets-another-dei-another-dollar'];
+  delete cachedAllPrices['beets-another-dei-another-dollar'];
+
   return updated;
 }
 
@@ -1055,6 +1058,9 @@ function addLpPricesToCache(tokenPrices: PricesById): boolean {
       updated = true;
     }
   }
+
+  delete cachedLpPrices['beets-another-dei-another-dollar'];
+  delete cachedAllPrices['beets-another-dei-another-dollar'];
 
   return updated;
 }
@@ -1077,6 +1083,7 @@ function addLpBreakdownsToCache(lpBreakdowns: BreakdownsById): boolean {
       }
     }
   }
+  delete cachedLpBreakdowns['beets-another-dei-another-dollar'];
 
   return updated;
 }
