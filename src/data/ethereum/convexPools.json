@@ -266,7 +266,7 @@
     "name": "curve-veth",
     "pool": "0x6685fcfce05e7502bf9f0aa03b36025b09374726",
     "gauge": "0x8dff75976f22db58d7c3fd7b68d782238b0dbe30",
-    "_rewardPool": "0xDeCD2d71263757B49b5C38f78de63bA7760f09ae",
+    "rewardPool": "0xDeCD2d71263757B49b5C38f78de63bA7760f09ae",
     "getDy": ["v1", 0, 1],
     "rewards": [
       {
@@ -277,6 +277,12 @@
       {
         "token": "0x38d64ce1bdf1a9f24e0ec469c9cade61236fb4a0",
         "oracleId": "vETH"
+      }
+    ],
+    "extras": [
+      {
+        "rewardPool": "0xb9eCfBcF8C0c1b20B2BBa39CB3edD31476fb984F",
+        "oracleId": "VEC"
       }
     ],
     "tokens": [
