@@ -721,6 +721,8 @@ const cachedLpPrices: PricesById = {};
 const cachedAllPrices: PricesById = {};
 const cachedLpBreakdowns: BreakdownsById = {};
 
+const ORACLES_TO_BE_CLEARED = [];
+
 async function fetchSeedPrices() {
   const [seedPrices, coinGeckoPrices, defillamaPrices, dexscreenerPrices] = await Promise.all([
     // ChainLink gives: ETH, BTC, MATIC, AVAX, BNB, LINK, USDT, DAI, USDC
@@ -921,6 +923,7 @@ async function updateAmmPrices() {
     ]);
 
     if (addToCache(tokenPrices, lpPrices, lpBreakdowns)) {
+      clearCacheOracles(); // Delete specific oracleIds
       await saveToRedis();
     }
 
@@ -1041,9 +1044,6 @@ function addTokenPricesToCache(tokenPrices: PricesById): boolean {
     }
   }
 
-  delete cachedTokenPrices['beets-another-dei-another-dollar'];
-  delete cachedAllPrices['beets-another-dei-another-dollar'];
-
   return updated;
 }
 
@@ -1058,9 +1058,6 @@ function addLpPricesToCache(tokenPrices: PricesById): boolean {
       updated = true;
     }
   }
-
-  delete cachedLpPrices['beets-another-dei-another-dollar'];
-  delete cachedAllPrices['beets-another-dei-another-dollar'];
 
   return updated;
 }
@@ -1083,7 +1080,6 @@ function addLpBreakdownsToCache(lpBreakdowns: BreakdownsById): boolean {
       }
     }
   }
-  delete cachedLpBreakdowns['beets-another-dei-another-dollar'];
 
   return updated;
 }
@@ -1133,6 +1129,15 @@ async function loadFromRedis() {
     lpPrices && typeof lpPrices === 'object' ? lpPrices : {},
     lpBreakdowns && typeof lpBreakdowns === 'object' ? lpBreakdowns : {}
   );
+}
+
+function clearCacheOracles() {
+  ORACLES_TO_BE_CLEARED.forEach(oracleId => {
+    delete cachedTokenPrices[oracleId];
+    delete cachedLpPrices[oracleId];
+    delete cachedAllPrices[oracleId];
+    delete cachedLpBreakdowns[oracleId];
+  });
 }
 
 async function saveToRedis() {
