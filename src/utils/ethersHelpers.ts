@@ -55,6 +55,8 @@ import {
   MANTLE_CHAIN_ID,
   FRAXTAL_RPC,
   FRAXTAL_CHAIN_ID,
+  MODE_RPC,
+  MODE_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -85,6 +87,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.linea]: addressBookByChainId[ChainId.linea].platforms.beefyfinance.multicall,
   [ChainId.mantle]: addressBookByChainId[ChainId.mantle].platforms.beefyfinance.multicall,
   [ChainId.fraxtal]: addressBookByChainId[ChainId.fraxtal].platforms.beefyfinance.multicall,
+  [ChainId.mode]: addressBookByChainId[ChainId.mode].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -114,6 +117,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   linea: [],
   mantle: [],
   fraxtal: [],
+  mode: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -143,6 +147,7 @@ clients.gnosis.push(new ethers.providers.JsonRpcProvider(GNOSIS_RPC));
 clients.linea.push(new ethers.providers.JsonRpcProvider(LINEA_RPC));
 clients.mantle.push(new ethers.providers.JsonRpcProvider(MANTLE_RPC));
 clients.fraxtal.push(new ethers.providers.JsonRpcProvider(FRAXTAL_RPC));
+clients.mode.push(new ethers.providers.JsonRpcProvider(MODE_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -171,6 +176,7 @@ export const chainRandomClients = {
   lineaRandomClient: () => clients.linea[~~(clients.linea.length * Math.random())],
   mantleRandomClient: () => clients.mantle[~~(clients.mantle.length * Math.random())],
   fraxtalRandomClient: () => clients.fraxtal[~~(clients.fraxtal.length * Math.random())],
+  modeRandomClient: () => clients.mode[~~(clients.mode.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -227,6 +233,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.mantleRandomClient();
     case FRAXTAL_CHAIN_ID:
       return chainRandomClients.fraxtalRandomClient();
+    case MODE_CHAIN_ID:
+      return chainRandomClients.modeRandomClient();
   }
 };
 

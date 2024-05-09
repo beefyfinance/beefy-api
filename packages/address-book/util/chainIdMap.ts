@@ -25,6 +25,7 @@ const chainIdMap = {
   linea: 59144,
   mantle: 5000,
   fraxtal: 252,
+  mode: 34443,
 };
 
 export default chainIdMap;

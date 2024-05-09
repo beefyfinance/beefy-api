@@ -24,6 +24,7 @@ import { gnosis } from './gnosis';
 import { linea } from './linea';
 import { mantle } from './mantle';
 import { fraxtal } from './fraxtal';
+import { mode } from './mode';
 
 import Chain from '../types/chain';
 import { ChainId } from '../types/chainid';
@@ -58,6 +59,7 @@ const _addressBook: {
   readonly linea: Chain;
   readonly mantle: Chain;
   readonly fraxtal: Chain;
+  readonly mode: Chain;
 } = {
   polygon,
   bsc,
@@ -85,6 +87,7 @@ const _addressBook: {
   linea,
   mantle,
   fraxtal,
+  mode,
 } as const;
 
 const _addressBookByChainId: {
@@ -114,6 +117,7 @@ const _addressBookByChainId: {
   readonly '59144': Chain;
   readonly '5000': Chain;
   readonly '252': Chain;
+  readonly '34443': Chain;
 } = {
   [ChainId.polygon]: polygon,
   [ChainId.bsc]: bsc,
@@ -141,6 +145,7 @@ const _addressBookByChainId: {
   [ChainId.linea]: linea,
   [ChainId.mantle]: mantle,
   [ChainId.fraxtal]: fraxtal,
+  [ChainId.mode]: mode,
 } as const;
 
 export const addressBook: ConstRecord<typeof _addressBook, Chain> = _addressBook;

@@ -65,6 +65,7 @@ const GNOSIS_RPC = process.env.GNOSIS_RPC || 'https://gnosis.publicnode.com';
 const LINEA_RPC = process.env.LINEA_RPC || 'https://rpc.linea.build';
 const MANTLE_RPC = process.env.MANTLE_RPC || 'https://rpc.mantle.xyz';
 const FRAXTAL_RPC = process.env.FRAXTAL_RPC || 'https://rpc.frax.com';
+const MODE_RPC = process.env.MODE_RPC || 'https://mode.drpc.org';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -92,6 +93,7 @@ const GNOSIS_CHAIN_ID = ChainId.gnosis;
 const LINEA_CHAIN_ID = ChainId.linea;
 const MANTLE_CHAIN_ID = ChainId.mantle;
 const FRAXTAL_CHAIN_ID = ChainId.fraxtal;
+const MODE_CHAIN_ID = ChainId.mode;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.003;
@@ -140,6 +142,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.linea]: LINEA_RPC,
   [ChainId.mantle]: MANTLE_RPC,
   [ChainId.fraxtal]: FRAXTAL_RPC,
+  [ChainId.mode]: MODE_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -194,6 +197,8 @@ const MANTLE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/mantle.json';
 const FRAXTAL_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/fraxtal.json';
+const MODE_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/mode.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -222,6 +227,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   linea: LINEA_VAULTS_ENDPOINT,
   mantle: MANTLE_VAULTS_ENDPOINT,
   fraxtal: FRAXTAL_VAULTS_ENDPOINT,
+  mode: MODE_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -307,6 +313,9 @@ export {
   FRAXTAL_RPC,
   FRAXTAL_CHAIN_ID,
   FRAXTAL_VAULTS_ENDPOINT,
+  MODE_RPC,
+  MODE_CHAIN_ID,
+  MODE_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
