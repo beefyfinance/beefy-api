@@ -1,5 +1,39 @@
 [
   {
+    "name": "curve-lend-wsteth-crvusd",
+    "address": "0x8cf1DE26729cfB7137AF1A6B2a665e099EC319b5",
+    "gauge": "0x222D910ef37C06774E1eDB9DC9459664f73776f0",
+    "rewardPool": "0xaE1bDD4E38582c9c6Ea5aBf17bb085ae0176D063",
+    "oracleId": "crvUSD"
+  },
+  {
+    "name": "curve-lend-tbtc-crvusd",
+    "address": "0xb2b23C87a4B6d1b03Ba603F7C3EB9A81fDC0AAC9",
+    "gauge": "0x41eBf0bEC45642A675e8b7536A2cE9c078A814B4",
+    "rewardPool": "0xDdeeADfDA45FD674a95e578DF2b57c98a2B1BF0e",
+    "oracleId": "crvUSD"
+  },
+  {
+    "name": "curve-lend-weth-crvusd",
+    "address": "0x5AE28c9197a4a6570216fC7e53E7e0221D7A0FEF",
+    "gauge": "0x1Cfabd1937e75E40Fa06B650CB0C8CD233D65C20",
+    "rewardPool": "0x1e0049051ffbA90765cfE08D3EA85f31F695Cce9",
+    "oracleId": "crvUSD"
+  },
+  {
+    "name": "curve-lend-uwu-crvusd",
+    "address": "0x7586C58bf6292B3C9DeFC8333fc757d6c5dA0f7E",
+    "gauge": "0xad7B288315b0d71D62827338251A8D89A98132A0",
+    "rewardPool_": "0xaeeB7EF4B7D8E18F84C8519b1D31E318D7410013",
+    "oracleId": "crvUSD",
+    "rewards": [
+      {
+        "token": "0x55C08ca52497e2f1534B59E2917BF524D4765257",
+        "oracleId": "UwU"
+      }
+    ]
+  },
+  {
     "name": "curve-lend-crv-crvusd",
     "address": "0xCeA18a8752bb7e7817F9AE7565328FE415C0f2cA",
     "gauge": "0x49887dF6fE905663CDB46c616BfBfBB50e85a265",

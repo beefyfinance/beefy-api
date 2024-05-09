@@ -1,5 +1,23 @@
 [
   {
+    "name": "sushi-uwu-weth",
+    "address": "0x3E04863DBa602713Bb5d0edbf7DB7C3A9A2B6027",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp1": {
+      "address": "0x55C08ca52497e2f1534B59E2917BF524D4765257",
+      "oracle": "tokens",
+      "oracleId": "UwU",
+      "decimals": "1e18"
+    },
+    "lp0": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "joe-coq-wavax",
     "address": "0x41aB86EEcBd110a82cA602D032a461f453066F1E",
     "decimals": "1e18",
