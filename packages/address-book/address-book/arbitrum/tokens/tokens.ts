@@ -1693,6 +1693,20 @@ const _tokens = {
     staked: true,
     bridge: 'native',
   },
+  SILO: {
+    name: 'Silo Governance Token',
+    symbol: 'SILO',
+    oracleId: 'SILO',
+    address: '0x0341C0C0ec423328621788d4854119B97f44E391',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.silo.finance/',
+    description:
+      'Silo is a non-custodial lending protocol to borrow any crypto asset with another.',
+    documentation: 'https://devdocs.silo.finance/',
+    bridge: 'arbitrum-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

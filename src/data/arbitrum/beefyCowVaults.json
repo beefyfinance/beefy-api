@@ -1,5 +1,16 @@
 [
   {
+    "address": "0xe3EAc56810C885067dC4C43A8049A07D9Bb127a4",
+    "lpAddress": "0xd3E11119d2680c963F1CDCffeCe0c4adE823Fb58",
+    "tokens": [
+      "0x0341C0C0ec423328621788d4854119B97f44E391",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["SILO", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-silo-weth"
+  },
+  {
     "address": "0x9aA49971f4956D7831b2CD1c9AF7ED931b5f91BC",
     "lpAddress": "0xCb198a55e2a88841E855bE4EAcaad99422416b33",
     "tokens": [
