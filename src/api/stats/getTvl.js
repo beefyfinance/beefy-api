@@ -78,6 +78,9 @@ const {
 
   FRAXTAL_CHAIN_ID,
   FRAXTAL_VAULTS_ENDPOINT,
+
+  MODE_CHAIN_ID,
+  MODE_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -191,6 +194,10 @@ const chains = [
     chainId: FRAXTAL_CHAIN_ID,
     vaultsEndpoint: FRAXTAL_VAULTS_ENDPOINT,
   },
+  /* {
+    chainId: MODE_CHAIN_ID,
+    vaultsEndpoint: MODE_VAULTS_ENDPOINT,
+  },*/
 ];
 
 const CACHE_KEY = 'TVL';
