@@ -20,4 +20,5 @@ export const beefyfinance = {
   wrapperFactory: '0x1Fa046d28FF749b9D7CF7E9a41BEecd1260F11eD',
   zap: '0x2E72e1436F1a2B2e0d2fa4394Ac06857c7b281B3',
   zapTokenManager: '0x7B86a441D1482BCF326658CEe9b6f189cd4297ff',
+  treasurySwapper: '0x2A9c05F5E7b96a93119c2234Af03E2315f02e8b4',
 } as const;

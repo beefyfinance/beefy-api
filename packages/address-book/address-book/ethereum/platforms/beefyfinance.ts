@@ -23,10 +23,10 @@ export const beefyfinance = {
   mooBifi4626: '0x312CEf8839eDa74DeA9b1EEc10b345071cA3d6da',
   zap: '0x5Cc9400FfB4Da168Cf271e912F589462C3A00d1F',
   zapTokenManager: '0xEdFEc19ee32f5130084C0aCab91FeA604C137912',
-
   mooBifiLockbox: '0xc6e3d0CAF52E057Fb8950ae9d07aE67602919AcD',
   axelarBridge: '0xaaa6A279fC98b9bF94bD479C90D701417e361fc2',
   optimismBridge: '0xbbb8971aEA2627fa2E1342bb5Bf952Ec521479f2',
   ccipBridge: '0xcccEa7Fe84272995664369334351Fe344E2732aE',
   layerZeroBridge: '0xdddaEc9c267dF24aD66Edc3B2cBe25dB86422051',
+  treasurySwapper: '0x0921E4fA2F85B6461fa83961d28DC7e1f9A32B40',
 } as const;
