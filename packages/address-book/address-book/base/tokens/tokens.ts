@@ -539,7 +539,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website:
-      'https://register.app/#/overview?token=0xA0d69E286B938e21CBf7E51D71F6A4c8918f482F&chainId=1',
+      'https://app.reserve.org/ethereum/token/0xa0d69e286b938e21cbf7e51d71f6a4c8918f482f/overview',
     description:
       'The Electronic Dollar (eUSD) is a decentralized 1:1 asset-backed stablecoin built with Reserve Protocol, available on the Ethereum and MobileCoin blockchains. It sets itself apart from other stablecoins due to its decentralized, community-governed, and censorship-resistant nature.',
     documentation: 'https://reserve.org/protocol/',
@@ -713,6 +713,21 @@ const _tokens = {
     description:
       'The Reserve protocol is the first platform that allows for the permissionless creation of asset-backed, yield-bearing & overcollateralized stablecoins. Reserve Rights (RSR) exists as an overcollateralization mechanism to protect RToken holders in the unlikely event of a collateral token default.',
     documentation: 'https://reserve.org/protocol/reserve_rights_rsr/',
+    bridge: 'base-canonical',
+  },
+  rgUSD: {
+    name: 'Revenue Generating USD',
+    symbol: 'rgUSD',
+    address: '0x8E5E9DF4F0EA39aE5270e79bbABFCc34203A3470',
+    chainId: 8453,
+    oracleId: 'rgUSD',
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://app.reserve.org/ethereum/token/0x78da5799cf427fee11e9996982f4150ece7a99a7/overview',
+    description:
+      'rgUSD is an overcollateralized stablecoin launched on Reserve Protocol that acts as a collective point for DeFi users to negotiate with stablecoin yield providers for the best returns.',
+    documentation: 'https://reserve.org/protocol/',
     bridge: 'base-canonical',
   },
   TN100x: {
