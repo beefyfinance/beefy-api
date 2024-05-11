@@ -21,6 +21,7 @@ interface Config {
   wrapperFactory: string;
   zap: string;
   zapTokenManager: string;
+  treasurySwapper: string;
 }
 
 export const initConfigService = () => {
@@ -46,6 +47,7 @@ export const initConfigService = () => {
       wrapperFactory: config.wrapperFactory,
       zap: config.zap,
       zapTokenManager: config.zapTokenManager,
+      treasurySwapper: config.treasurySwapper,
     };
   });
 
