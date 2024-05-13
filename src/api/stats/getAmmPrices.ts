@@ -663,6 +663,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
     chainId: 'mantle',
   },
+  {
+    oracleId: 'baseHAI',
+    tokenAddress: '0x10398AbC267496E49106B07dd6BE13364D10dC71',
+    chainId: 'optimism',
+  },
 ];
 
 /**

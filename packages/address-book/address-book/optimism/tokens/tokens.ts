@@ -1486,6 +1486,34 @@ const _tokens = {
     bridge: 'stargate',
     risks: ['NO_TIMELOCK'],
   },
+  HAI: {
+    name: 'HAI',
+    symbol: 'HAI',
+    oracleId: 'baseHAI',
+    address: '0x10398AbC267496E49106B07dd6BE13364D10dC71',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.letsgethai.com/',
+    description:
+      'HAI is a stablecoin protocol that is backed by a variety of collaterals. It maintains its stability through the use of a PI controller which dynamically sets interest rates that affect the price of HAI. HAI is backed by the value of the various collateral assets locked by users who mint HAI, similar to how traditional currencies used to be backed by gold or other assets.',
+    documentation: 'https://docs.letsgethai.com/',
+    bridge: 'native',
+  },
+  KITE: {
+    name: 'KITE',
+    symbol: 'KITE',
+    oracleId: 'KITE',
+    address: '0xf467C7d5a4A9C4687fFc7986aC6aD5A4c81E1404',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.letsgethai.com/',
+    description:
+      "KITE is the governance token for the HAI Protocol. Holders can participate in voting for system changes and have a say in the protocol's development (e.g., adding/removing collateral types).",
+    documentation: 'https://docs.letsgethai.com/',
+    bridge: 'native',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
