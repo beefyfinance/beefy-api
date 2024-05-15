@@ -17,6 +17,7 @@ export const beefyfinance = {
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   beefyFeeConfig: '0xfc69704cC3cAac545cC7577009Ea4AA04F1a61Eb',
   vaultFactory: '0x91BB303E972995EbE5f593BCddBb6F5Ef49Dbcbd', // todo
+  strategyFactory: '0x4b5f7De737531673B23ceB43D45ea3f1297e4C6d',
   zap: '0x63B257a372AA04c8a078D43BCAAdaD359ce1faa2',
   zapTokenManager: '0xBFd177B973AC0F760782abedFDdec1C18e163aeE',
 } as const;
