@@ -81,6 +81,9 @@ module.exports = {
   get fraxtalWeb3() {
     return chainRandomClients.fraxtalRandomClient();
   },
+  get modeWeb3() {
+    return chainRandomClients.modeRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

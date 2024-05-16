@@ -56,6 +56,8 @@ import {
   MANTLE_CHAIN_ID,
   FRAXTAL_RPC,
   FRAXTAL_CHAIN_ID,
+  MODE_RPC,
+  MODE_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -85,6 +87,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.linea]: addressBookByChainId[ChainId.linea].platforms.beefyfinance.multicall,
   [ChainId.mantle]: addressBookByChainId[ChainId.mantle].platforms.beefyfinance.multicall,
   [ChainId.fraxtal]: addressBookByChainId[ChainId.fraxtal].platforms.beefyfinance.multicall,
+  [ChainId.mode]: addressBookByChainId[ChainId.mode].platforms.beefyfinance.multicall,
 };
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
@@ -114,6 +117,7 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.linea]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.mantle]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.fraxtal]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.mode]: '0xcA11bde05977b3631167028862bE2a173976CA11',
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -143,6 +147,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   linea: [],
   mantle: [],
   fraxtal: [],
+  mode: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -172,6 +177,7 @@ clients.gnosis.push(new Web3(GNOSIS_RPC));
 clients.linea.push(new Web3(LINEA_RPC));
 clients.mantle.push(new Web3(MANTLE_RPC));
 clients.fraxtal.push(new Web3(FRAXTAL_RPC));
+clients.mode.push(new Web3(MODE_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -200,6 +206,7 @@ export const chainRandomClients = {
   lineaRandomClient: () => clients.linea[~~(clients.linea.length * Math.random())],
   mantleRandomClient: () => clients.mantle[~~(clients.mantle.length * Math.random())],
   fraxtalRandomClient: () => clients.fraxtal[~~(clients.fraxtal.length * Math.random())],
+  modeRandomClient: () => clients.mode[~~(clients.mode.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -256,6 +263,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.mantleRandomClient();
     case FRAXTAL_CHAIN_ID:
       return chainRandomClients.fraxtalRandomClient();
+    case MODE_CHAIN_ID:
+      return chainRandomClients.modeRandomClient();
   }
 };
 

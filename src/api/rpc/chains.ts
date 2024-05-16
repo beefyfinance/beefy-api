@@ -26,6 +26,7 @@ import {
   LINEA_RPC,
   MANTLE_RPC,
   FRAXTAL_RPC,
+  MODE_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/address-book';
 
@@ -668,6 +669,29 @@ const fraxtalChain = {
   },
 } as const satisfies Chain;
 
+const modeChain = {
+  id: 34443,
+  name: 'Mode',
+  network: 'mode',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'ETH',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    public: { http: [MODE_RPC] },
+    default: { http: [MODE_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'Mode Explorer', url: 'https://explorer.mode.network/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -696,4 +720,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.linea]: lineaChain,
   [ChainId.mantle]: mantleChain,
   [ChainId.fraxtal]: fraxtalChain,
+  [ChainId.mode]: modeChain,
 } as const;

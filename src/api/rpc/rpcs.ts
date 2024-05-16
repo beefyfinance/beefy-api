@@ -250,6 +250,7 @@ const rpcs: Record<ChainId, string[]> = {
     'https://1rpc.io/mantle',
   ],
   [ChainId.fraxtal]: ['https://rpc.frax.com'],
+  [ChainId.mode]: ['https://mode.drpc.org'],
 };
 
 export const getChainRpcs = (chainId: ChainId): string[] => rpcs[chainId] ?? [];
