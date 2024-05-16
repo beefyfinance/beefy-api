@@ -194,10 +194,10 @@ const chains = [
     chainId: FRAXTAL_CHAIN_ID,
     vaultsEndpoint: FRAXTAL_VAULTS_ENDPOINT,
   },
-  /* {
+  {
     chainId: MODE_CHAIN_ID,
     vaultsEndpoint: MODE_VAULTS_ENDPOINT,
-  },*/
+  },
 ];
 
 const CACHE_KEY = 'TVL';
