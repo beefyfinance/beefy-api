@@ -22,9 +22,9 @@ export const beefyfinance = {
   wrapperFactory: '0x182be93E1C0C4d305fe43bD093292F21fd679797',
   zap: '0xE82343A116d2179F197111D92f9B53611B43C01c',
   zapTokenManager: '0x5a32F67C5eD74dc1b2e031b1bc2c3E965073424F',
-
   axelarBridge: '0xaaa6A279fC98b9bF94bD479C90D701417e361fc2',
   optimismBridge: '0xbbb8971aEA2627fa2E1342bb5Bf952Ec521479f2',
   ccipBridge: '0xcccEa7Fe84272995664369334351Fe344E2732aE',
   layerZeroBridge: '0xdddaEc9c267dF24aD66Edc3B2cBe25dB86422051',
+  treasurySwapper: '0x852C903e5Bc93F526AB254BFEe0c1DFF23CF82aB',
 } as const;
