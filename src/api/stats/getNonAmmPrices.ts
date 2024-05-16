@@ -99,6 +99,7 @@ import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getAcrossPrices from './ethereum/getAcrossPrices';
 import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
+import getVelodromeModeStablePrices from './mode/getVelodromeModeStablePrices';
 import {
   ARBITRUM_CHAIN_ID,
   ETH_CHAIN_ID,
@@ -195,6 +196,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getSolidlyV1StablePrices(tokenPrices),
     getPolygonSolidlyStablePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
+    getVelodromeModeStablePrices(tokenPrices),
     getAerodromeStablePrices(tokenPrices),
     getBalancerAvaxPrices(tokenPrices),
     getBalancerBasePrices(tokenPrices),
