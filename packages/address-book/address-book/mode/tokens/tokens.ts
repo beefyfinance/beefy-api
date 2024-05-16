@@ -21,7 +21,7 @@ const _tokens = {
   WNATIVE: ETH,
   MODE: {
     chainId: 34443,
-    address: '0xFAe103DC9cf190eD75350761e95403b7b8aFa6c0',
+    address: '0xDfc7C877a950e49D2610114102175A06C2e3167a',
     decimals: 18,
     name: 'Mode',
     symbol: 'MODE',
