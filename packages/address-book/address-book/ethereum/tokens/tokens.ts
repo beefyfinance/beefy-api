@@ -1392,7 +1392,8 @@ const _tokens = {
     chainId: 1,
     decimals: 18,
     logoURI: '',
-    website: 'https://register.app/#/overview?token=0xE72B141DF173b999AE7c1aDcbF60Cc9833Ce56a8',
+    website:
+      'https://app.reserve.org/ethereum/token/0xe72b141df173b999ae7c1adcbf60cc9833ce56a8/overview',
     bridge: 'native',
     description:
       'Safety-first diversified ETH staking index with up to 4.5% APY backed by Lido Staked ETH and Rocket Pool ETH.',
