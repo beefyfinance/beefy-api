@@ -1078,6 +1078,20 @@ const _tokens = {
     bridge: 'stargate',
     risks: ['NO_TIMELOCK'],
   },
+  GHST: {
+    name: 'Aavegotchi GHST Token',
+    symbol: 'GHST',
+    oracleId: 'GHST',
+    address: '0xcD2F22236DD9Dfe2356D7C543161D4d260FD9BcB',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.aavegotchi.com/',
+    description:
+      'Aavegotchis are crypto-collectibles living on the Ethereum blockchain, backed by the ERC721 standard used in popular blockchain games.',
+    documentation: 'https://docs.aavegotchi.com/',
+    bridge: 'base-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
