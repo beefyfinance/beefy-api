@@ -782,7 +782,6 @@ const _tokens = {
     description:
       'The Cupid Inu memecoin has landed on BASE, with a mission to scatter as much $L2VE as possible.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
   },
   SEXY: {
     name: 'Settled ETHXY Token',
