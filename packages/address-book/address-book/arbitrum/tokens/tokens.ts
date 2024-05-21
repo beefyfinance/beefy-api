@@ -1388,7 +1388,7 @@ const _tokens = {
     oracleId: 'arbUSDT+',
     address: '0xb1084db8D3C05CEbd5FA9335dF95EE4b8a0edc30',
     chainId: 42161,
-    decimals: 18,
+    decimals: 6,
     website: 'https://overnight.fi/',
     description:
       'USDT+ is USDT that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDT. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
