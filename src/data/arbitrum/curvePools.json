@@ -399,19 +399,22 @@
     "pool": "0xf7fed8ae0c5b78c19aadd68b700696933b0cefd9",
     "gauge": "0x5839337bf070fea56595a5027e83cd7126b23884",
     "convex": true,
+    "rewards": [
+      {
+        "token": "0x179F38f78346F5942E95C5C59CB1da7F55Cf7CAd",
+        "oracleId": "FXN"
+      }
+    ],
     "tokens": [
       {
-        "oracle": "tokens",
         "oracleId": "fETH",
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
         "oracleId": "xETH",
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
         "oracleId": "ETH",
         "decimals": "1e18"
       }
