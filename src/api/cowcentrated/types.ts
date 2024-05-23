@@ -1,15 +1,25 @@
 import { Address, isAddress } from 'viem';
+import { isNonEmptyArray, NonEmptyArray } from '../../utils/array';
 
-type JsonCowPool = {
+type JsonCowClm = {
   address: string;
   lpAddress: string;
   tokens: string[];
   tokenOracleIds: string[];
   decimals: number[];
   oracleId: string;
+  rewardPool?: {
+    address: string;
+    oracleId: string;
+    rewards?: {
+      id: number;
+      oracleId: string;
+      decimals: number;
+    }[];
+  };
 };
 
-export type CowPool = {
+export type CowClm = {
   address: Address;
   lpAddress: Address;
   tokens: [Address, Address];
@@ -18,30 +28,70 @@ export type CowPool = {
   oracleId: string;
 };
 
-function isCowPool(pool: JsonCowPool): pool is CowPool {
+export type CowRewardPoolReward = {
+  id: number;
+  oracleId: string;
+  decimals: number;
+};
+
+export type CowRewardPool = {
+  address: Address;
+  oracleId: string;
+  /** manual reward mapper, if undefined will read from contract/use addressbook */
+  rewards?: NonEmptyArray<CowRewardPoolReward>;
+  /** whether the reward pool is compounding all merkl rewards */
+  merkl?: boolean;
+};
+
+export type CowClmWithRewardPool = CowClm & {
+  rewardPool: CowRewardPool;
+};
+
+export type AnyCowClm = CowClm | CowClmWithRewardPool;
+
+export function isCowClmWithRewardPool(clm: AnyCowClm): clm is CowClmWithRewardPool {
+  return 'rewardPool' in clm && clm.rewardPool !== undefined;
+}
+
+function isValidCowRewardPoolRewardConfig(
+  reward: NonNullable<NonNullable<JsonCowClm['rewardPool']>['rewards']>[number]
+): reward is CowRewardPoolReward {
+  return reward.id >= 0 && reward.oracleId && reward.decimals >= 0;
+}
+
+function isValidCowClmRewardPoolConfig(
+  rewardPool: NonNullable<JsonCowClm>['rewardPool']
+): rewardPool is CowRewardPool {
   return (
-    pool.tokens.length === 2 &&
-    pool.tokenOracleIds.length === 2 &&
-    pool.decimals.length === 2 &&
-    isAddress(pool.address) &&
-    isAddress(pool.lpAddress) &&
-    pool.tokens.every(isAddress)
+    rewardPool.oracleId &&
+    isAddress(rewardPool.address) &&
+    (!rewardPool.rewards ||
+      (isNonEmptyArray(rewardPool.rewards) &&
+        rewardPool.rewards.every(isValidCowRewardPoolRewardConfig)))
   );
 }
 
-function areCowPools(pools: JsonCowPool[]): pools is CowPool[] {
-  return pools.every(isCowPool);
+function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {
+  return (
+    clm.tokens.length === 2 &&
+    clm.tokenOracleIds.length === 2 &&
+    clm.decimals.length === 2 &&
+    isAddress(clm.address) &&
+    isAddress(clm.lpAddress) &&
+    clm.tokens.every(isAddress) &&
+    (!clm.rewardPool || isValidCowClmRewardPoolConfig(clm.rewardPool))
+  );
 }
 
-export function validateCowPools(pools: JsonCowPool[]): CowPool[] {
-  if (!areCowPools(pools)) {
-    throw new Error('Invalid pools');
+export function validateCowClms(clms: JsonCowClm[]): AnyCowClm[] {
+  if (!clms.every(isValidCowClmConfig)) {
+    throw new Error('Invalid cow CLMs');
   }
 
-  return pools;
+  return clms;
 }
 
-export type CowVaultMeta = CowPool & {
+export type CowMeta = {
   apr: string;
   apy: string;
   currentPrice: string;
@@ -49,9 +99,19 @@ export type CowVaultMeta = CowPool & {
   priceRangeMax: string;
 };
 
-export type CowVaultsMeta = {
+export type CowClmMeta = CowClm & CowMeta;
+
+export type CowClmWithRewardPoolMeta = CowClmWithRewardPool & CowMeta;
+
+export type AnyCowClmMeta = CowClmMeta | CowClmWithRewardPoolMeta;
+
+export function isCowClmWithRewardPoolMeta(clm: AnyCowClmMeta): clm is CowClmWithRewardPoolMeta {
+  return 'rewardPool' in clm && clm.rewardPool !== undefined;
+}
+
+export type CowClmsMeta = {
   updatedAt: number;
-  vaults: CowVaultMeta[];
+  vaults: AnyCowClmMeta[];
 };
 
 export type ClmApiVault = {

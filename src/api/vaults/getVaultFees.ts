@@ -85,8 +85,8 @@ interface StrategyCallResponse {
   paused?: boolean;
 }
 
-let feeBatches: Partial<Record<ChainId, FeeBatchDetail>>;
-let vaultFees: Record<string, VaultFeeBreakdown>;
+let feeBatches: Partial<Record<ChainId, FeeBatchDetail>> = {};
+let vaultFees: Record<string, VaultFeeBreakdown> = {};
 
 const updateFeeBatch = async () => {
   const chainId = ChainId.ethereum;

@@ -50,6 +50,6 @@ export function toChainId(chain: AnyChain): number {
   return ChainId[apiChain];
 }
 
-export function fromChainId(chainId: number): ApiChain {
-  return Object.keys(ChainId).find(key => ChainId[key] === chainId) as ApiChain;
+export function fromChainId(chainId: ChainId): ApiChain {
+  return ChainId[chainId] as ApiChain;
 }

@@ -13,3 +13,13 @@ export function keysToObject<T extends object>(
     return acc;
   }, {} as T);
 }
+
+export type NonEmptyArray<T> = [T, ...T[]];
+
+export function isNonEmptyArray<T>(arr: T[] | undefined | null): arr is NonEmptyArray<T> {
+  return !!arr && Array.isArray(arr) && arr.length > 0;
+}
+
+export function isDefined<T>(value: T): value is Exclude<T, undefined | null> {
+  return value !== undefined && value !== null;
+}

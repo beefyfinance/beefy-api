@@ -14,7 +14,7 @@ type VaultCowData = Record<
 const chainToCowData: Partial<Record<ApiChain, VaultCowData>> = {};
 
 async function updateCowcentratedData() {
-  console.log('> [CLM Data] Updating cow vaults metadata...');
+  console.log('> [CLM Data] Updating cow vaults price ranges...');
   const start = Date.now();
 
   const meta = getAllCowVaultsMeta();

@@ -470,7 +470,11 @@
     ],
     "tokenOracleIds": ["eUSD", "USDC"],
     "decimals": [18, 6],
-    "oracleId": "uniswap-cow-arb-eusd-usdc"
+    "oracleId": "uniswap-cow-arb-eusd-usdc",
+    "rewardPool": {
+      "address": "0xcb304759697fdabb3b9699161e8bA204Ac3DfF33",
+      "oracleId": "uniswap-cow-arb-eusd-usdc-rp"
+    }
   },
   {
     "address": "0xBfaDfcbeF611D958c8998ea29FAce6bb155302fd",

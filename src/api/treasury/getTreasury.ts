@@ -27,9 +27,9 @@ import {
   getChainConcentratedLiquidityAssets,
   hasChainConcentratedLiquidityAssets,
 } from './nftAssets';
+import { ZERO_ADDRESS } from '../../utils/address';
 
 const REFRESH_INTERVAL = 60000 * 10;
-const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 // treasury addresses that should be queried for balances
 let treasuryAddressesByChain: TreasuryWalletRegistry;

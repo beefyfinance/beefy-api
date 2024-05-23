@@ -1,4 +1,6 @@
-const IBeefyRewardPool = [
+import { Abi } from 'abitype';
+
+export const IBeefyRewardPool = [
   {
     inputs: [
       {
@@ -857,6 +859,4 @@ const IBeefyRewardPool = [
     stateMutability: 'nonpayable',
     type: 'function',
   },
-] as const;
-
-export default IBeefyRewardPool;
+] as const satisfies Abi;
