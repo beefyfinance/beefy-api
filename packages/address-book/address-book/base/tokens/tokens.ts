@@ -1077,6 +1077,20 @@ const _tokens = {
     bridge: 'stargate',
     risks: ['NO_TIMELOCK'],
   },
+  KLIMA: {
+    name: 'Klima DAO',
+    symbol: 'KLIMA',
+    oracleId: 'KLIMA',
+    address: '0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2',
+    chainId: 8453,
+    decimals: 9,
+    logoURI: '',
+    website: 'https://www.klimadao.finance/',
+    documentation: 'https://docs.klimadao.finance/',
+    description:
+      'KlimaDAO and its partners in the Klima ecosystem fosters the adoption of a new category of real world assets (RWA) on the blockchain: environmental assets like carbon credits.',
+    bridge: 'axelar',
+  },
   GHST: {
     name: 'Aavegotchi GHST Token',
     symbol: 'GHST',

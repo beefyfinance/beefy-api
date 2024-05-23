@@ -1,5 +1,25 @@
 [
   {
+    "name": "alienbase-weth-dai",
+    "address": "0x705758a881827A9466b8293723EB6AE92EfE8FA1",
+    "decimals": "1e18",
+    "beefyFee": 0.095,
+    "poolId": 19,
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "alienbase-dai-usdbc",
     "address": "0xB4A9960b23D056E8B42c6EDBEe7407cF92695223",
     "decimals": "1e18",

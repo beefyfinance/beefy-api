@@ -1,5 +1,45 @@
 [
   {
+    "name": "aerodrome-usdc-klima",
+    "address": "0x958682eC6282BC7E939FA8Ba9397805C214c3A09",
+    "gauge": "0x950aD950D6f07491ef2c150545A6A2AB7AdC03f4",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2",
+      "oracle": "tokens",
+      "oracleId": "KLIMA",
+      "decimals": "1e9"
+    }
+  },
+  {
+    "name": "aerodrome-weth-klima",
+    "address": "0xB37642E87613d8569Fd8Ec80888eA6c63684E79e",
+    "gauge": "0x44A927DD8f6def04f76B00cece9804BF441dc6b1",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2",
+      "oracle": "tokens",
+      "oracleId": "KLIMA",
+      "decimals": "1e9"
+    }
+  },
+  {
     "name": "aerodrome-weth-ghst",
     "address": "0x0DFb9Cb66A18468850d6216fCc691aa20ad1e091",
     "gauge": "0xe3800a58B5535935850a10e082952Ec3577D8DCc",
