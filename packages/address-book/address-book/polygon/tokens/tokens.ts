@@ -2314,6 +2314,19 @@ const _tokens = {
     bridge: 'native',
     documentation: 'https://docs.stabl.fi/protocol-overview/introducing-stabl.fi',
   },
+  asdCRV: {
+    name: 'Aladdin sdCRV',
+    address: '0x75289388d50364c3013583d97bd70cED0e183e32',
+    symbol: 'asdCRV',
+    oracleId: 'asdCRV',
+    decimals: 18,
+    chainId: 137,
+    website: 'https://concentrator.aladdin.club/',
+    description:
+      'asdCRV represents the compounding sdCRV in the StakeDAO CRV Locker. The total amount of asdCRV contained in the compounder is equal to the total sdCRV balance multiplied by the current index',
+    bridge: 'stargate',
+    logoURI: '',
+  },
   cbETH: {
     name: 'Coinbase Wrapped Staked ETH (FXERC20)',
     symbol: 'fxcbETH',
