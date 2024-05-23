@@ -1,10 +1,9 @@
 import BigNumber from 'bignumber.js';
-
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { compound } from '../../../utils/compound';
-
 import { BASE_HPY } from '../../../constants';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import { infinityToMaxInt, toNumber } from '../../../utils/number';
 
 export interface ApyBreakdown {
   vaultApr?: number;
@@ -45,38 +44,44 @@ export const getApyBreakdown = (
   }
 
   pools.forEach((pool, i) => {
-    const liquidStakingApr: number | undefined = liquidStakingAprs
-      ? liquidStakingAprs[i]
-      : undefined;
-
-    const composablePoolApr: number | undefined = composablePoolAprs
-      ? composablePoolAprs[i]
-      : undefined;
-
-    const clmApr: number | undefined = clmAprs ? clmAprs[i] : undefined;
-
-    const merklApr: number | undefined = merklAprs ? merklAprs[i] : undefined;
-    const extraApr = (liquidStakingApr ?? 0) + (composablePoolApr ?? 0) + (merklApr ?? 0);
-
-    const provFee = providerFee[i] == undefined ? providerFee : providerFee[i].toNumber();
-    const simpleApr = farmAprs[i]?.toNumber();
+    const provFee = toNumber(providerFee[i]);
     const beefyPerformanceFee =
       pool.beefyFee == undefined ? getTotalPerformanceFeeForVault(pool.name) : pool.beefyFee;
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
-    const vaultApr = simpleApr * shareAfterBeefyPerformanceFee;
 
-    const compoundableApr = simpleApr + (clmApr ?? 0);
-    let vaultApy = compound(compoundableApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    // Non-compoundable components
+    const liquidStakingApr: number | undefined = liquidStakingAprs
+      ? toNumber(liquidStakingAprs[i])
+      : undefined;
 
-    let tradingApr: number | undefined = 0;
-    if (tradingAprs != null) {
-      tradingApr = (
-        (tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0)).isFinite()
-          ? tradingAprs[pool.address.toLowerCase()]
-          : new BigNumber(0)
-      )?.toNumber();
-    }
+    const composablePoolApr: number | undefined = composablePoolAprs
+      ? toNumber(composablePoolAprs[i])
+      : undefined;
 
+    const merklApr: number | undefined = merklAprs ? toNumber(merklAprs[i]) : undefined;
+
+    const extraApr = (liquidStakingApr ?? 0) + (composablePoolApr ?? 0) + (merklApr ?? 0);
+
+    // Compoundable components
+    const vaultAprBeforeFee = toNumber(farmAprs[i]);
+    const vaultApr = vaultAprBeforeFee
+      ? vaultAprBeforeFee * shareAfterBeefyPerformanceFee
+      : undefined;
+
+    const clmAprBeforeFee: number | undefined = clmAprs ? toNumber(clmAprs[i]) : undefined;
+    const clmApr = clmAprBeforeFee ? clmAprBeforeFee * shareAfterBeefyPerformanceFee : undefined;
+
+    const compoundableApr = (vaultAprBeforeFee ?? 0) + (clmAprBeforeFee ?? 0);
+
+    // Trading Apr
+    const tradingApr = toNumber(tradingAprs?.[pool.address.toLowerCase()]);
+
+    // Legacy: (Compounded) Vault (Farm) APY only [Not used in app]
+    const vaultApy = vaultAprBeforeFee
+      ? compound(vaultAprBeforeFee, BASE_HPY, 1, shareAfterBeefyPerformanceFee)
+      : undefined;
+
+    // Total APY = (((1 + Compounded APY) * (1 + Trading APR)) - 1) + Extra APR
     const totalApy =
       getFarmWithTradingFeesApy(
         compoundableApr,
@@ -89,17 +94,17 @@ export const getApyBreakdown = (
     // Add token to APYs object
     result.apys[pool.name] = totalApy;
     result.apyBreakdowns[pool.name] = {
-      vaultApr: vaultApr,
       compoundingsPerYear: BASE_HPY,
       beefyPerformanceFee: beefyPerformanceFee,
-      vaultApy: vaultApy,
       lpFee: provFee,
-      tradingApr: tradingApr,
-      liquidStakingApr: liquidStakingApr,
-      composablePoolApr: composablePoolApr,
-      clmApr: clmApr,
-      totalApy: totalApy,
-      merklApr: merklApr,
+      vaultApy: infinityToMaxInt(vaultApy), // Infinity is not supported by JSON
+      vaultApr: infinityToMaxInt(vaultApr),
+      tradingApr: infinityToMaxInt(tradingApr),
+      liquidStakingApr: infinityToMaxInt(liquidStakingApr),
+      composablePoolApr: infinityToMaxInt(composablePoolApr),
+      clmApr: infinityToMaxInt(clmApr),
+      merklApr: infinityToMaxInt(merklApr),
+      totalApy: infinityToMaxInt(totalApy),
     };
   });
 
