@@ -1,5 +1,47 @@
 [
   {
+    "name": "aura-base-weeth-weth",
+    "address": "0xaB99a3e856dEb448eD99713dfce62F937E2d4D74",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x26E72914767ba0bb27350Fa485A3698475072BBa",
+    "vaultPoolId": "0xab99a3e856deb448ed99713dfce62f937e2d4d74000000000000000000000118",
+    "decimals": "1e18",
+    "lsUrl": "https://www.etherfi.bid/api/etherfi/apr",
+    "dataPath": "$.latest_aprs[0]",
+    "lsAprFactor": 0.01,
+    "lsIndex": 0,
+    "balancerChargesFee": true,
+    "composable": true,
+    "bptIndex": 2,
+    "rewards": [
+      {
+        "rewardGauge": "0x987B23AF34341ec3F87D50E505d09D2d9f7814F0",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xdcFAcD324D40d346C1A85651D6775D6BB782CDBe",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A",
+        "oracleId": "weETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x4200000000000000000000000000000000000006",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
     "name": "aura-base-tbtc-weth",
     "address": "0x52e281318Fed4eFFfb8E46c0847a8f9B71a461A8",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -35,7 +77,7 @@
     "decimals": "1e18",
     "lsUrl": "https://api.rocketpool.net/api/apr",
     "dataPath": "$.yearlyAPR",
-    "lsAprFactor": "1",
+    "lsAprFactor": 1,
     "lsIndex": 1,
     "balancerChargesFee": true,
     "composable": true,
@@ -72,7 +114,7 @@
     "decimals": "1e18",
     "lsUrl": "https://api.exchange.coinbase.com/wrapped-assets/CBETH",
     "dataPath": "$.apy",
-    "lsAprFactor": "100",
+    "lsAprFactor": 100,
     "lsIndex": 0,
     "balancerChargesFee": true,
     "composable": true,
