@@ -1,5 +1,25 @@
 [
   {
+    "name": "curve-lend-pufeth-crvusd",
+    "address": "0xff467c6E827ebbEa64DA1ab0425021E6c89Fbe0d",
+    "gauge": "0x294280254e1c8bcf56f8618623ec9235e8415633",
+    "rewardPool_": "",
+    "oracleId": "crvUSD",
+    "rewards": [
+      {
+        "token": "0xD533a949740bb3306d119CC777fa900bA034cd52",
+        "oracleId": "CRV"
+      }
+    ]
+  },
+  {
+    "name": "curve-lend-wbtc-crvusd",
+    "address": "0xccd37EB6374Ae5b1f0b85ac97eFf14770e0D0063",
+    "gauge": "0x7dcb252f7ea2b8da6fa59c79edf63f793c8b63b6",
+    "rewardPool": "0xfe382f1Bf78e6D6012cB38C284Fe123ec9821966",
+    "oracleId": "crvUSD"
+  },
+  {
     "name": "curve-lend-wsteth-crvusd",
     "address": "0x8cf1DE26729cfB7137AF1A6B2a665e099EC319b5",
     "gauge": "0x222D910ef37C06774E1eDB9DC9459664f73776f0",
