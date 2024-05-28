@@ -26,6 +26,15 @@ const getTradingAprs = async params => {
     const aprs = await getAprs(client, pairAddresses, fee);
     tradingAprs = { ...tradingAprs, ...aprs };
   }
+
+  if (params.gammaClient) {
+    const response = await fetch(params.gammaClient).then(res => res.json());
+    params.pools.forEach(p => {
+      tradingAprs[p.address.toLowerCase()] = new BigNumber(
+        response[p.address.toLowerCase()].returns.daily.feeApr
+      );
+    });
+  }
   return tradingAprs;
 };
 
