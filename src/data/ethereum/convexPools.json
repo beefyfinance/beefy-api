@@ -1496,6 +1496,29 @@
     ]
   },
   {
+    "name": "convex-tricrv",
+    "pool": "0x4eBdF703948ddCEA3B11f675B4D1Fba9d2414A14",
+    "token": "0x4eBdF703948ddCEA3B11f675B4D1Fba9d2414A14",
+    "rewardPool": "0xF956a46DbA1A0a567168db8655bc18E9050C7738",
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-steth",
     "pool": "0xDC24316b9AE028F1497c275EB9192a3Ea0f67022",
     "token": "0x06325440D014e39736583c165C2963BA99fAf14E",
