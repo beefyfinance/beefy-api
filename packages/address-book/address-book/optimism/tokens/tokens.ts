@@ -313,7 +313,7 @@ const _tokens = {
     name: 'Velodrome',
     symbol: 'VELO',
     oracleId: 'VELO',
-    website: 'https://app.velodrome.finance/',
+    website: 'https://velodrome.finance/',
     description:
       "Velodrome Finance, at its core, is a solution for protocols on Optimism to properly incentivize liquidity for their own use cases. Building on top of the groundwork laid out by Solidly, our team has addressed that first iteration's core issues to realize its full potential.",
     logoURI: 'https://raw.githubusercontent.com/0xlaozi/qidao/main/images/mimatic-red.png',
