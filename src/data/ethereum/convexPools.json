@@ -1,5 +1,25 @@
 [
   {
+    "name": "convex-tricrypto-usdt",
+    "pool": "0xf5f5b97624542d72a9e06f04804bf81baa15e2b4",
+    "gauge": "0xf29fff074f5cf755b55fbb3eb10a29203ac91ea2",
+    "rewardPool": "0xb05262D4aaAA38D0Af4AaB244D446ebDb5afd4A7",
+    "tokens": [
+      {
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-sdai-usdm",
     "pool": "0x425bfb93370f14ff525adb6eaeacfe1f4e3b5802",
     "gauge": "0xcf5136c67fa8a375babbdf13c0307ef994b5681d",
