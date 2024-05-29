@@ -3,7 +3,7 @@
     "name": "curve-lend-pufeth-crvusd",
     "address": "0xff467c6E827ebbEa64DA1ab0425021E6c89Fbe0d",
     "gauge": "0x294280254e1c8bcf56f8618623ec9235e8415633",
-    "rewardPool_": "",
+    "rewardPool": "0x6AA3687d31853b86189733Fc3fC6DBebAaA392dE",
     "oracleId": "crvUSD",
     "rewards": [
       {
