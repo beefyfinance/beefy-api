@@ -24,15 +24,12 @@ const reducePoolsToMap = (pools: CLMVault[]) =>
   pools.reduce((acc, pool) => ({ ...acc, [pool.address.toLowerCase()]: pool }), {});
 
 const subgraphPositionMapping: Record<string, Record<string, CLMVault>> = {
-  'https://api.0xgraph.xyz/subgraphs/name/beefyfinance/clm-optimism': reducePoolsToMap(
-    optimismPools as CLMVault[]
-  ),
-  'https://api.0xgraph.xyz/subgraphs/name/beefyfinance/clm-base': reducePoolsToMap(
-    basePools as CLMVault[]
-  ),
-  'https://api.0xgraph.xyz/subgraphs/name/beefyfinance/clm-arbitrum': reducePoolsToMap(
-    arbitrumPools as CLMVault[]
-  ),
+  'https://api.goldsky.com/api/public/project_clu2walwem1qm01w40v3yhw1f/subgraphs/beefy-clm-optimism/latest/gn':
+    reducePoolsToMap(optimismPools as CLMVault[]),
+  'https://api.goldsky.com/api/public/project_clu2walwem1qm01w40v3yhw1f/subgraphs/beefy-clm-base/latest/gn':
+    reducePoolsToMap(basePools as CLMVault[]),
+  'https://api.goldsky.com/api/public/project_clu2walwem1qm01w40v3yhw1f/subgraphs/beefy-clm-arbitrum/latest/gn':
+    reducePoolsToMap(arbitrumPools as CLMVault[]),
 };
 
 const updateChainCowcentratedData = async (
