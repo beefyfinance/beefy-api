@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-weeth-aero",
+    "address": "0xc5aDfb267a95df1233a2b5F7f48041E7Fb384BcA",
+    "gauge": "0x0A5f63A1aC754b4418cc5381eE17E04CCad42F56",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A",
+      "oracle": "tokens",
+      "oracleId": "weETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+      "oracle": "tokens",
+      "oracleId": "AERO",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-usdc-klima",
     "address": "0x958682eC6282BC7E939FA8Ba9397805C214c3A09",
     "gauge": "0x950aD950D6f07491ef2c150545A6A2AB7AdC03f4",
