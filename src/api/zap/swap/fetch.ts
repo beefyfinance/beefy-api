@@ -11,7 +11,7 @@ import { isFiniteNumber } from '../../../utils/number';
 import { partition, uniqBy } from 'lodash';
 import { TokenEntity, TokenErc20 } from '../../tokens/types';
 import { ISwapProvider } from './providers/ISwapProvider';
-import { getSingleChainVaults } from '../../stats/getMultichainVaults';
+import { getSingleChainCowVaults, getSingleChainVaults } from '../../stats/getMultichainVaults';
 import {
   BuyTestToken,
   isBuyResultSupported,
@@ -25,12 +25,14 @@ import { redactSecrets } from '../../../utils/secrets';
 import { blockedTokensByChain } from './blocked-tokens';
 
 async function getTokensForChain(apiChain: ApiChain): Promise<TokenErc20[]> {
-  const vaults = getSingleChainVaults(apiChain);
-  if (!vaults || !vaults.length) {
+  const vaults = getSingleChainVaults(apiChain) || [];
+  const cowVaults = getSingleChainCowVaults(apiChain) || [];
+  if (!vaults.length && !cowVaults.length) {
     return [];
   }
 
-  const tokens = vaults.reduce((acc, vault) => {
+  const allVaults = [...vaults, ...cowVaults];
+  const tokens = allVaults.reduce((acc, vault) => {
     if (vault.assets && vault.assets.length) {
       for (const assetId of vault.assets) {
         const assetToken = getTokenById(assetId, apiChain);
