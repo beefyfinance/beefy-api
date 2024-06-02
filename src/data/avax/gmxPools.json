@@ -4,7 +4,7 @@
     "address": "0x62edc0692BD897D2295872a9FFCac5425011c661",
     "oracle": "tokens",
     "tokenId": "GMX",
-    "strategy": "0xCD91e80aD5A1a7486705190e01Fb023357086390",
+    "strategy": "0x5d3936faaB6B26c4D57924E64c15148FdAAE7F45",
     "stakedTracker": "0x2bD10f8E93B3669b6d42E74eEedC65dd1B0a1342",
     "rewardToken": "AVAX",
     "rewardTrackers": [
@@ -21,7 +21,7 @@
     "address": "0xaE64d55a6f09E4263421737397D1fdFA71896a69",
     "oracle": "lps",
     "tokenId": "gmx-avax-glp",
-    "strategy": "0xae7D08f3fcAb633353acf3d11706FCc548737f25",
+    "strategy": "0xe1908Ab7e03F0699773ceCc4Dc5D38893E532cd1",
     "stakedTracker": "0x9e295B5B976a184B14aD8cd72413aD846C299660",
     "glpManager": "0xD152c7F25db7F4B95b7658323c5F33d176818EE4",
     "vault": "0x9ab2De34A33fB459b538c43f251eB825645e8595",
