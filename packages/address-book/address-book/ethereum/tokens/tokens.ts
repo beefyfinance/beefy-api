@@ -1866,6 +1866,20 @@ const _tokens = {
     documentation: 'https://docs.mai.finance/introduction-1',
     bridge: 'native',
   },
+  sUSDe: {
+    name: 'Staked USDe',
+    symbol: 'sUSDe',
+    oracleId: 'sUSDe',
+    address: '0x9D39A5DE30e57443BfF2A8307A4256c8797A3497',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ethena.fi/',
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    description:
+      'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
+    bridge: 'native',
+  },
   rsETH: {
     chainId: 1,
     address: '0xA1290d69c65A6Fe4DF752f95823fae25cB99e5A7',

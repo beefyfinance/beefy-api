@@ -1,5 +1,49 @@
 [
   {
+    "name": "curve-fraxtal-frax-usde",
+    "pool": "0x1e199dbe1f7aa237282fe941d5bcc3b167c8ce48",
+    "gauge": "0x86a79cee2734e5357ff6b5495c4a30915921223a",
+    "getDy": ["v1", 1, 0],
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDe",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-fraxtal-fxb_20261231",
+    "pool": "0xbc3705b2bfd42d38e8fa2c8efdc3fdda645c3b2a",
+    "gauge": "0xaa1bdffab337c11c34afb56eee1da95cc3d09a65",
+    "getDy": ["v1", 1, 0],
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "FXB_20261231",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-fraxtal-frax-sdai",
     "pool": "0x385540fda649a114ffeb943fd73ae82ce7908da3",
     "gauge": "0xcdbfcbf18d504f5bd6b29bac5d91405f9f59980f",

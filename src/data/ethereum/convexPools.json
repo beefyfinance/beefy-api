@@ -1,5 +1,27 @@
 [
   {
+    "name": "curve-crvusd-susde",
+    "pool": "0x57064f49ad7123c92560882a45518374ad982e85",
+    "gauge": "0x76f236a0cc1c90425d8ab5f042970454311482ab",
+    "rewards": [
+      {
+        "token": "0xD533a949740bb3306d119CC777fa900bA034cd52",
+        "oracleId": "CRV"
+      }
+    ],
+    "getDy": ["v1", 1, 0],
+    "tokens": [
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "sUSDe",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "convex-tricrypto-usdt",
     "pool": "0xf5f5b97624542d72a9e06f04804bf81baa15e2b4",
     "gauge": "0xf29fff074f5cf755b55fbb3eb10a29203ac91ea2",
