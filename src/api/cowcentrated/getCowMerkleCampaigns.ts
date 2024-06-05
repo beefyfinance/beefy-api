@@ -186,7 +186,7 @@ function scheduleUpdate(wait = UPDATE_INTERVAL) {
 }
 
 export async function initCowMerklService() {
-  console.log(' > [CLM Merkl Initializing...');
+  console.log(' > [CLM Merkl] Initializing...');
   await loadFromCache();
   scheduleUpdate(INIT_DELAY);
 }
