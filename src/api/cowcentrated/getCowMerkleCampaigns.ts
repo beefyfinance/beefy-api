@@ -87,7 +87,7 @@ function getCampaign(
     if (poolForwarders.length > 0) {
       totalApr = poolForwarders.reduce((acc, forwarder) => {
         if (isFiniteNumber(forwarder.almAPR)) {
-          acc += forwarder.almAPR;
+          acc += forwarder.almAPR / 100;
         }
         return acc;
       }, 0);
