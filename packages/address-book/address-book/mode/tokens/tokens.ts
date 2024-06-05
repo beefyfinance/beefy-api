@@ -60,6 +60,34 @@ const _tokens = {
     logoURI: '',
     documentation: 'https://tether.to/en/how-it-works',
   },
+  ezETH: {
+    name: 'Renzo Restaked ETH',
+    symbol: 'ezETH',
+    oracleId: 'ezETH',
+    address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+    chainId: 34443,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.renzoprotocol.com/',
+    description:
+      'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
+    documentation: 'https://docs.renzoprotocol.com/docs/',
+    bridge: 'mode-canonical',
+    risks: ['NO_TIMELOCK'],
+  },
+  weETH: {
+    chainId: 34443,
+    address: '0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A',
+    decimals: 18,
+    name: 'Wrapped eETH',
+    symbol: 'weETH',
+    oracleId: 'weETH',
+    website: 'https://ether.fi/',
+    description:
+      'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
+    bridge: 'mode-canonical',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

@@ -6,12 +6,19 @@ import { fetchContract } from '../../rpc/client';
 import BaseSwapMasterChef from '../../../abis/base/BaseSwapMasterChef';
 import BaseSwapNFT from '../../../abis/base/BaseSwapNFT';
 import pools from '../../../data/base/baseSwapLpPools.json';
+import { baseSwapClient } from '../../../apollo/client';
+import { getBaseSwapTradingFeeApr } from '../../../utils/getTradingFeeApr';
 
 const masterchef = '0x6Fc0f134a1F20976377b259687b1C15a5d422B47';
 
 const getBaseSwapApys = async (): Promise<ApyBreakdownResult> => {
-  const farmApys = await getFarmApys();
-  return getApyBreakdown(pools, {}, farmApys, 0.003);
+  const pairAddresses = pools.map(pool => pool.address.toLowerCase());
+  const [farmApys, tradingFeeAprs] = await Promise.all([
+    getFarmApys(),
+    getBaseSwapTradingFeeApr(baseSwapClient, pairAddresses, 0.0017),
+  ]);
+
+  return getApyBreakdown(pools, tradingFeeAprs, farmApys, 0.0017);
 };
 
 const getFarmApys = async (): Promise<BigNumber[]> => {

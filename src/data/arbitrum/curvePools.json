@@ -1,5 +1,132 @@
 [
   {
+    "name": "curve-arb-eusd-usdc",
+    "pool": "0x93a416206b4ae3204cfe539edfee6bc05a62963e",
+    "gauge": "0xad85fb8a5ed9e2f338d2798a9eef176d31ca6a57",
+    "rewards": [
+      {
+        "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
+        "oracleId": "RSR"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-eusd-crvusd",
+    "pool": "0x67d11005af05bb1e9fdb1cfc261c23de3e1055a1",
+    "gauge": "0x71d97aeeefe4715e05354d009b8b7a77c325cc2d",
+    "rewards": [
+      {
+        "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
+        "oracleId": "RSR"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-eth+-eth",
+    "pool": "0x95f425c7d730eb7673fca272c2c305f48ed546c3",
+    "gauge": "0xb224cf7c17db373ecef550cf957b8a4dd40c8109",
+    "rewards": [
+      {
+        "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
+        "oracleId": "RSR"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "ETH+",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-knox-rgusd",
+    "pool": "0x0acacb4f6db7708a5451b835acd39dfebac4eeb5",
+    "gauge": "0xf4754dfc1960af974f54bc8d86026f1bf85fac9c",
+    "rewards": [
+      {
+        "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
+        "oracleId": "RSR"
+      }
+    ],
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "KNOX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "rgUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-eusd-rgusd",
+    "pool": "0xbdf44492ac1c81b1bd9b9a8b075026d3e8a3225a",
+    "gauge": "0x8cecdc462d5b39c29bd7e01027c944e4361191c2",
+    "rewards": [
+      {
+        "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
+        "oracleId": "RSR"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "rgUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-arb-rgusd-usdc",
+    "pool": "0x3dcb7b53b6177a04a2aece61d95bf577ecc02241",
+    "gauge": "0xd27f5809342066e7c1995f6c78f3245593044c27",
+    "rewards": [
+      {
+        "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
+        "oracleId": "RSR"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "rgUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-usdc-usdm",
     "pool": "0x4bd135524897333bec344e50ddd85126554e58b4",
     "gauge": "0xbdbb71914ddb650f96449b54d2ca15132be56aca",
@@ -314,19 +441,22 @@
     "pool": "0xf7fed8ae0c5b78c19aadd68b700696933b0cefd9",
     "gauge": "0x5839337bf070fea56595a5027e83cd7126b23884",
     "convex": true,
+    "rewards": [
+      {
+        "token": "0x179F38f78346F5942E95C5C59CB1da7F55Cf7CAd",
+        "oracleId": "FXN"
+      }
+    ],
     "tokens": [
       {
-        "oracle": "tokens",
         "oracleId": "fETH",
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
         "oracleId": "xETH",
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
         "oracleId": "ETH",
         "decimals": "1e18"
       }

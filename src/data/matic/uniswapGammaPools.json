@@ -1,0 +1,82 @@
+[
+  {
+    "name": "uniswap-gamma-polygon-matic-usdc",
+    "address": "0xE583b04b9a8F576aa7F17ECc6eB662499B5A8793",
+    "pool": "0xB6e57ed85c4c9dbfEF2a68711e9d6f36c56e0FcB",
+    "rewardPool": "0x144Dc3396976Aa0955Ca6Ee1aC4a2f9842198BA0",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+      "oracle": "tokens",
+      "oracleId": "WMATIC",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "uniswap-gamma-polygon-usdc-weth",
+    "address": "0x1Fd452156b12FB5D74680C5Ff166303E6dd12A78",
+    "pool": "0xA4D8c89f0c20efbe54cBa9e7e7a7E509056228D9",
+    "rewardPool": "0x4215bc71b52ef6D0D31046d66eE0eD9A84744Eb6",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "uniswap-gamma-polygon-usdc-usdt",
+    "address": "0x8c6FE430cf06e56BE7c092AD3A249BF0BcB388B9",
+    "pool": "0x31083a78E11B18e450fd139F9ABEa98CD53181B7",
+    "rewardPool": "0xABc34b7cBE6e850694A1D8cE7C5FE88e2f1E7097",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "uniswap-gamma-polygon-usdc-dai",
+    "address": "0x831231E16D95Eb3D54Bf2C80968F35A5F4483447",
+    "pool": "0xf369277650aD6654f25412ea8BFBD5942733BaBC",
+    "rewardPool": "0xf45c2Cb5E8145E820365618188E54F869A92B7Cb",
+    "decimals": "1e18",
+    "chainId": 137,
+    "lp0": {
+      "address": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
+      "oracle": "tokens",
+      "oracleId": "DAI",
+      "decimals": "1e18"
+    }
+  }
+]

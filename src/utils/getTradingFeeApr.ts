@@ -11,6 +11,7 @@ import {
   protocolDayDataRangeQuery,
   hopQuery,
   gmxQuery,
+  baseSwapQuery,
 } from '../apollo/queries';
 import getBlockTime from './getBlockTime';
 import getBlockNumber from './getBlockNumber';
@@ -448,4 +449,33 @@ export const getGmxTradingFeeApr = async (
   }
 
   return marketAddressToAprMap;
+};
+
+export const getBaseSwapTradingFeeApr = async (
+  client: ApolloClient<NormalizedCacheObject>,
+  pairAddresses: string[],
+  liquidityProviderFee: number
+) => {
+  const [start, end] = getUtcSecondsFromDayRange(1, 2);
+  const pairAddressToAprMap: Record<string, BigNumber> = {};
+
+  try {
+    let {
+      data: { liquidityPoolDailySnapshots },
+    }: { data: { liquidityPoolDailySnapshots } } = await client.query({
+      query: baseSwapQuery(addressesToLowercase(pairAddresses), start, end),
+    });
+
+    for (const baseSwapData of liquidityPoolDailySnapshots) {
+      const pairAddress = baseSwapData.id.split('-')[0].toLowerCase();
+      pairAddressToAprMap[pairAddress] = new BigNumber(baseSwapData.dailyVolumeUSD)
+        .times(liquidityProviderFee)
+        .times(365)
+        .dividedBy(baseSwapData.totalValueLockedUSD);
+    }
+  } catch (e) {
+    //console.error('> getBaseSwapTradingFeeApr error', pairAddresses[0]);
+  }
+
+  return pairAddressToAprMap;
 };

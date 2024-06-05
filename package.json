@@ -20,6 +20,7 @@
     "addFarm": "ts-node scripts/add-farm.ts",
     "addSushi": "ts-node scripts/add-sushi.ts",
     "addSolidly": "ts-node scripts/add-solidly.ts",
+    "addBalancer": "ts-node scripts/add-balancer.ts --network optimism --project aura-op --poolId",
     "check-oracles": "ts-node scripts/check-oracles.ts",
     "mainnet:sushi:add": "ts-node scripts/add-farm.ts --network ethereum --project sushi --newFee true --pool",
     "mainnet:verse:add": "ts-node scripts/add-quick.ts --network ethereum --project verse --pool",

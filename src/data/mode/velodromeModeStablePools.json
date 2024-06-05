@@ -1,5 +1,45 @@
 [
   {
+    "name": "velodrome-mode-weeth-eth",
+    "address": "0x53E85d00F2C6578a1205b842255AB9DF9D053744",
+    "gauge": "0xc230AACfd1E677a89a96945EAd9002D689E65B37",
+    "decimals": "1e18",
+    "chainId": 34443,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04C0599Ae5A44757c0af6F9eC3b93da8976c150A",
+      "oracle": "tokens",
+      "oracleId": "weETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "velodrome-mode-ezeth-eth",
+    "address": "0x44C6ccEA1f549Dc28bAceC12Edec580F8E1B64cd",
+    "gauge": "0x92b05D826C8818e9fBa64D8119E6AA3aEFB442FE",
+    "decimals": "1e18",
+    "chainId": 34443,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2416092f143378750bb29b79eD961ab195CcEea5",
+      "oracle": "tokens",
+      "oracleId": "ezETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "velodrome-mode-usdt-usdc",
     "address": "0x4B1BC95478826F6bC42d0471C68eEA6526576D85",
     "gauge": "0x539Fd6D4BBAE03fd3aE03e6520cDF150895bD124",

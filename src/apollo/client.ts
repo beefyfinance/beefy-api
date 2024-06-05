@@ -134,6 +134,7 @@ const exactlyClient = client('https://api.thegraph.com/subgraphs/name/exactly/ex
 const gmxArbClient = client(
   'https://subgraph.satsuma-prod.com/3b2ced13c8d9/gmx/synthetics-arbitrum-stats/api'
 );
+const baseSwapClient = client('https://api.thegraph.com/subgraphs/name/messari/baseswap-base');
 
 const isSushiClient = (client: ApolloClient<NormalizedCacheObject>) => {
   return (
@@ -218,4 +219,5 @@ export {
   hopPolyClient,
   exactlyClient,
   gmxArbClient,
+  baseSwapClient,
 };

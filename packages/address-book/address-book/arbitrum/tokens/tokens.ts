@@ -1388,7 +1388,7 @@ const _tokens = {
     oracleId: 'arbUSDT+',
     address: '0xb1084db8D3C05CEbd5FA9335dF95EE4b8a0edc30',
     chainId: 42161,
-    decimals: 18,
+    decimals: 6,
     website: 'https://overnight.fi/',
     description:
       'USDT+ is USDT that pays you yield daily via rebase. It is 100% collateralized with assets immediately convertible into USDT. Yield is generated via strategies such as lending and stable-to-stable pools. Initial strategies include Aave, Rubicon, and Pika.',
@@ -1691,6 +1691,65 @@ const _tokens = {
     description:
       'Aave interest bearing USDT. Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     staked: true,
+    bridge: 'native',
+  },
+  'ETH+': {
+    name: 'ETHPlus',
+    symbol: 'ETH+',
+    oracleId: 'ETH+',
+    address: '0x18C14C2D707b2212e17d1579789Fc06010cfca23',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://app.reserve.org/ethereum/token/0xe72b141df173b999ae7c1adcbf60cc9833ce56a8/overview',
+    bridge: 'arbitrum-canonical',
+    description:
+      'Safety-first diversified ETH staking index with up to 4.5% APY backed by Lido Staked ETH and Rocket Pool ETH.',
+  },
+  rgUSD: {
+    name: 'Revenue Generating USD',
+    symbol: 'rgUSD',
+    oracleId: 'rgUSD',
+    address: '0x96a993f06951B01430523D0D5590192d650EBf3e',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://app.reserve.org/ethereum/token/0x78da5799cf427fee11e9996982f4150ece7a99a7/overview',
+    description:
+      'rgUSD is an overcollateralized stablecoin launched on Reserve Protocol that acts as a collective point for DeFi users to negotiate with stablecoin yield providers for the best returns.',
+    documentation: 'https://reserve.org/protocol/',
+    bridge: 'arbitrum-canonical',
+  },
+  eUSD: {
+    name: 'Electronic Dollar',
+    symbol: 'eUSD',
+    oracleId: 'eUSD',
+    address: '0x12275DCB9048680c4Be40942eA4D92c74C63b844',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://app.reserve.org/ethereum/token/0xa0d69e286b938e21cbf7e51d71f6a4c8918f482f/overview',
+    description:
+      'The Electronic Dollar (eUSD) is a decentralized 1:1 asset-backed stablecoin built with Reserve Protocol, available on the Ethereum and MobileCoin blockchains. It sets itself apart from other stablecoins due to its decentralized, community-governed, and censorship-resistant nature.',
+    documentation: 'https://reserve.org/protocol/',
+    bridge: 'arbitrum-canonical',
+  },
+  KNOX: {
+    name: 'KNOX Dollar',
+    symbol: 'KNOX',
+    oracleId: 'KNOX',
+    address: '0x0BBF664D46becc28593368c97236FAa0fb397595',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://app.reserve.org/arbitrum/token/0x0bbf664d46becc28593368c97236faa0fb397595/overview',
+    description:
+      'A permissionless, yield-bearing stablecoin designed to be a reliable store of value. Built with Reserve Protocol.',
+    documentation: 'https://reserve.org/protocol/',
     bridge: 'native',
   },
   SILO: {

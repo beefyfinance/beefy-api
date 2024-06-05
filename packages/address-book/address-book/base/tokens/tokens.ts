@@ -782,7 +782,6 @@ const _tokens = {
     description:
       'The Cupid Inu memecoin has landed on BASE, with a mission to scatter as much $L2VE as possible.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
   },
   SEXY: {
     name: 'Settled ETHXY Token',
@@ -1077,6 +1076,34 @@ const _tokens = {
     documentation: 'https://etherfi.gitbook.io/etherfi',
     bridge: 'stargate',
     risks: ['NO_TIMELOCK'],
+  },
+  KLIMA: {
+    name: 'Klima DAO',
+    symbol: 'KLIMA',
+    oracleId: 'KLIMA',
+    address: '0xDCEFd8C8fCc492630B943ABcaB3429F12Ea9Fea2',
+    chainId: 8453,
+    decimals: 9,
+    logoURI: '',
+    website: 'https://www.klimadao.finance/',
+    documentation: 'https://docs.klimadao.finance/',
+    description:
+      'KlimaDAO and its partners in the Klima ecosystem fosters the adoption of a new category of real world assets (RWA) on the blockchain: environmental assets like carbon credits.',
+    bridge: 'axelar',
+  },
+  GHST: {
+    name: 'Aavegotchi GHST Token',
+    symbol: 'GHST',
+    oracleId: 'GHST',
+    address: '0xcD2F22236DD9Dfe2356D7C543161D4d260FD9BcB',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.aavegotchi.com/',
+    description:
+      'Aavegotchis are crypto-collectibles living on the Ethereum blockchain, backed by the ERC721 standard used in popular blockchain games.',
+    documentation: 'https://docs.aavegotchi.com/',
+    bridge: 'base-canonical',
   },
 } as const;
 

@@ -52,6 +52,10 @@ const stakeDaoPools = [
         token: '0x912CE59144191C1204E64559FE8253a0e49E6548',
         oracleId: 'ARB',
       },
+      {
+        token: '0x9d2f299715d94d8a7e6f5eaa8e654e8c74a988a7',
+        oracleId: 'FXS',
+      },
     ],
   },
   {

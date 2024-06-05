@@ -1392,7 +1392,8 @@ const _tokens = {
     chainId: 1,
     decimals: 18,
     logoURI: '',
-    website: 'https://register.app/#/overview?token=0xE72B141DF173b999AE7c1aDcbF60Cc9833Ce56a8',
+    website:
+      'https://app.reserve.org/ethereum/token/0xe72b141df173b999ae7c1adcbf60cc9833ce56a8/overview',
     bridge: 'native',
     description:
       'Safety-first diversified ETH staking index with up to 4.5% APY backed by Lido Staked ETH and Rocket Pool ETH.',
@@ -1863,6 +1864,20 @@ const _tokens = {
     description:
       'Beefy QI is perpetually lock QI/ETH Balancer Pool Token. QiDao is an overcollateralized stablecoin protocol that allows users to mint stablecoins (MAI) against the value of their decentralized token collaterals. Minting occurs through loans, denomimated in MAI stablecoins. Most loans have 0% interest, meaning the value of the related debt does not change over time.',
     documentation: 'https://docs.mai.finance/introduction-1',
+    bridge: 'native',
+  },
+  sUSDe: {
+    name: 'Staked USDe',
+    symbol: 'sUSDe',
+    oracleId: 'sUSDe',
+    address: '0x9D39A5DE30e57443BfF2A8307A4256c8797A3497',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ethena.fi/',
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    description:
+      'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'native',
   },
   rsETH: {

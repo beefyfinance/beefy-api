@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-poly-asdcrv",
+    "pool": "0x5d8c2b31e80a35e211d51e62b1c7fb70322cbf25",
+    "token": "0x7101308daf4e16c822083a458dc9395039c08f2d",
+    "gauge": "0xf8b31183e3db3b109f37db573121fda13c216dd6",
+    "convex": true,
+    "tokens": [
+      {
+        "oracleId": "CRV",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "asdCRV",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-poly-crvusd-usdc.e",
     "pool": "0x864490cf55dc2dee3f0ca4d06f5f80b2bb154a03",
     "gauge": "0x6a9d992c456e65d3b55203b71137c37de054d149",

@@ -1,5 +1,47 @@
 [
   {
+    "name": "aura-op-weth-wrseth",
+    "address": "0x73A7fe27fe9545D53924E529Acf11F3073841b9e",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x99b3c8bCD1E16bf2e1eE05d3457b1B7Fd6296632",
+    "vaultPoolId": "0x73a7fe27fe9545d53924e529acf11f3073841b9e000000000000000000000133",
+    "composable": true,
+    "bptIndex": 1,
+    "lsUrl": "https://universe.kelpdao.xyz/rseth/apy",
+    "dataPath": "$.value",
+    "lsAprFactor": 1,
+    "lsIndex": 1,
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x6298f8A66043E142d1069d8eE4d544AF9Fc3CE6F",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x2756347A56d4669515BE1438eC631B2344E3D3a2",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x4200000000000000000000000000000000000006",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "address": "0x87eEE96D50Fb761AD85B1c982d28A042169d61b1",
+        "oracleId": "wrsETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-op-all-roads-lead-to-frax",
     "address": "0x478980c67d53Cd990F2B7bab311DDC9934324E7B",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

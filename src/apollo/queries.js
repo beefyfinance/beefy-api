@@ -198,6 +198,24 @@ const gmxQuery = (markets, timestamp) => {
   return gql(queryString);
 };
 
+const baseSwapQuery = (pairs, startTimestamp, endTimestamp) => {
+  let pairsString = `[`;
+  pairs.map(pair => {
+    return (pairsString += `"${pair}"`);
+  });
+  pairsString += ']';
+  const queryString = `
+    query baseSwapDatas {
+      liquidityPoolDailySnapshots(orderBy: timestamp, orderDirection: desc, where: { pool_in: ${pairsString}, timestamp_gt: ${startTimestamp}, timestamp_lt: ${endTimestamp} }) {
+        id
+    		dailyVolumeUSD
+        totalValueLockedUSD
+      }
+    }
+  `;
+  return gql(queryString);
+};
+
 module.exports = {
   pairDayDataQuery,
   pairDayDataSushiQuery,
@@ -212,4 +230,5 @@ module.exports = {
   hopQuery,
   exactlyQuery,
   gmxQuery,
+  baseSwapQuery,
 };
