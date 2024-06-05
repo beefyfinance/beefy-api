@@ -38,6 +38,7 @@ export function getCowPriceRanges() {
 }
 
 export async function initCowDataService() {
+  console.log(' > [CLM Data] Initializing...');
   serviceEventBus.on('cowcentrated/vaults-meta/loaded', updateAll);
   serviceEventBus.on('cowcentrated/vaults-meta/updated', updateAll);
 }
