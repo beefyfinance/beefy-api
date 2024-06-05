@@ -2,28 +2,25 @@ import BigNumber from 'bignumber.js';
 import getApyBreakdown from './getApyBreakdown';
 import { BIG_ZERO } from '../../../utils/big-number';
 import { ChainId } from '../../../../packages/address-book/address-book';
-import { CowVault } from './getBeefyCowcentratedVaultPrices';
+import { ApiChain, toChainId } from '../../../utils/chain';
+import { getCowVaultsMeta } from '../../cowcentrated/getCowVaultsMeta';
+import { CowVaultMeta } from '../../cowcentrated/types';
 
-export const getCowApy = async (subgraphUrl: string, clmVaults: CowVault[], chainID: ChainId) => {
+export const getCowApy = async (apiChain: ApiChain) => {
   try {
-    const vaults = await getBeefyCLMVaults(subgraphUrl);
-    const merklCampaigns = await getMerklCampaigns(chainID);
+    const chainId = toChainId(apiChain);
+    const vaults = getCowVaultsMeta(apiChain);
+    const merklCampaigns = await getMerklCampaigns(chainId);
 
     const pools = [];
     const farmAprs: BigNumber[] = [];
     const clmAprs: number[] = [];
     const merklAprs: number[] = [];
     vaults.forEach(vault => {
-      const matchedVaultIndex = clmVaults.findIndex(
-        v => v.address.toLowerCase() === vault.id.toLowerCase()
-      );
-      if (matchedVaultIndex === -1) return;
-
-      const matchedVault = clmVaults[matchedVaultIndex];
-      pools.push({ name: matchedVault.oracleId });
+      pools.push({ name: vault.oracleId });
       farmAprs.push(BIG_ZERO);
-      clmAprs.push(new BigNumber(vault.apr1D).toNumber());
-      merklAprs.push(getMerklAprForVault(matchedVault, merklCampaigns));
+      clmAprs.push(new BigNumber(vault.apr).toNumber());
+      merklAprs.push(getMerklAprForVault(vault, merklCampaigns));
     });
     return getApyBreakdown(
       pools,
@@ -36,7 +33,7 @@ export const getCowApy = async (subgraphUrl: string, clmVaults: CowVault[], chai
       merklAprs
     );
   } catch (err) {
-    console.error(`> getCLMApy Error on ${chainID}:  ${err.message}`);
+    console.error(`> getCLMApy Error on ${apiChain}:  ${err.message}`);
     return {};
   }
 };
@@ -61,14 +58,6 @@ type MerklAPIChainCampaigns = {
   [chainId in ChainId]: MerklAPIChainCampaigns;
 };
 
-const getBeefyCLMVaults = async (subgraphUrl: string) => {
-  const response: any = await fetch(subgraphUrl, {
-    body: '{"query":"query BeefyAPRs {\\n  beefyCLVaults {\\n    id\\n    apr1D\\n    apr7D\\n  }\\n}","operationName":"BeefyCLss","extensions":{}}',
-    method: 'POST',
-  }).then(res => res.json());
-  return response.data.beefyCLVaults;
-};
-
 const getMerklCampaigns = async (chainID: ChainId) => {
   try {
     const response = await fetch('https://api.merkl.xyz/v3/campaigns?chainIds=' + chainID).then(
@@ -82,7 +71,7 @@ const getMerklCampaigns = async (chainID: ChainId) => {
   }
 };
 
-const getMerklAprForVault = (vault: CowVault, merklCampaigns: MerklChainCampaigns) => {
+const getMerklAprForVault = (vault: CowVaultMeta, merklCampaigns: MerklChainCampaigns) => {
   let apr = 0;
   for (const [poolId, campaigns] of Object.entries(merklCampaigns)) {
     for (const [campaignId, campaign] of Object.entries(campaigns)) {

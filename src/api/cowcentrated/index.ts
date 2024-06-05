@@ -1,12 +1,27 @@
-import { getCowcentratedData } from './getCowcentratedData';
-import { getCowMerklCampaignsForChain } from './getMerkleCampaigns';
+import { getCowPriceRanges, initCowDataService } from './getCowPriceRanges';
+import { getCowMerklCampaignsForChain, initCowMerklService } from './getCowMerkleCampaigns';
 import { isApiChain } from '../../utils/chain';
+import { initCowVaultsMetaService } from './getCowVaultsMeta';
+import { isResultRejected } from '../../utils/promise';
 
-export const getCowcentratedVaultData = ctx => {
-  const chainTokens = getCowcentratedData();
-  if (chainTokens) {
+export function initCowcentratedService() {
+  Promise.allSettled([initCowVaultsMetaService(), initCowDataService(), initCowMerklService()])
+    .then(results => {
+      const failures = results.filter(isResultRejected);
+      if (failures.length) {
+        console.error(`> [CLM Service] ${failures.length} services failed to initialize`, failures);
+      }
+    })
+    .catch(err => {
+      console.error('> [CLM Service] Initialization failed', err);
+    });
+}
+
+export const getCowcentratedPriceRanges = ctx => {
+  const priceRanges = getCowPriceRanges();
+  if (priceRanges) {
     ctx.status = 200;
-    ctx.body = chainTokens;
+    ctx.body = priceRanges;
   } else {
     ctx.status = 500;
     ctx.body = 'Not available yet';
