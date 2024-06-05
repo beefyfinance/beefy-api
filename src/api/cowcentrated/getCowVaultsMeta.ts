@@ -1,14 +1,5 @@
 import { ApiChain } from '../../utils/chain';
-import {
-  validateCowPools,
-  CowPool,
-  CowVaultMeta,
-  CowVaultsMeta,
-  isClmApiVaultsResponse,
-} from './types';
-import optimismPools from '../../data/optimism/beefyCowVaults.json';
-import basePools from '../../data/base/beefyCowVaults.json';
-import arbitrumPools from '../../data/arbitrum/beefyCowVaults.json';
+import { CowVaultMeta, CowVaultsMeta, isClmApiVaultsResponse } from './types';
 import BigNumber from 'bignumber.js';
 import { isAddressEqual } from 'viem';
 import { getKey, setKey } from '../../utils/cache';
@@ -16,23 +7,17 @@ import { partition } from 'lodash';
 import { sleep } from '../../utils/time';
 import { isResultFulfilled } from '../../utils/promise';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
+import { getCowPoolChains, getCowPools } from './getCowPools';
 
 const CACHE_KEY = 'COW_VAULTS_META';
 const INIT_DELAY = Number(process.env.COWCENTRATED_INIT_DELAY || 1000);
 const UPDATE_INTERVAL = 60000;
 const BEEFY_CLM_API = process.env.BEEFY_CLM_API || 'https://clm-api.beefy.finance';
 
-const chainToPools: Partial<Record<ApiChain, CowPool[]>> = {
-  optimism: validateCowPools(optimismPools),
-  base: validateCowPools(basePools),
-  arbitrum: validateCowPools(arbitrumPools),
-};
-
-const chainsWithPools = Object.keys(chainToPools) as ApiChain[];
 const chainToVaults: Partial<Record<ApiChain, CowVaultsMeta>> = {};
 
 export function getCowVaultsMeta(chainId: ApiChain): CowVaultMeta[] {
-  if (!(chainId in chainToPools)) {
+  if (!(chainId in chainToVaults)) {
     return [];
   }
 
@@ -44,7 +29,7 @@ export function getAllCowVaultsMeta(): Partial<Record<ApiChain, CowVaultsMeta>> 
 }
 
 async function fetchCowVaultsMeta(chainId: ApiChain): Promise<CowVaultMeta[]> {
-  const pools = chainToPools[chainId];
+  const pools = getCowPools(chainId);
   if (!pools || !pools.length) {
     return [];
   }
@@ -98,7 +83,7 @@ async function updateAll() {
   try {
     console.log('> [CLM Meta] Updating cow vaults metadata...');
     const start = Date.now();
-    const updates = await Promise.allSettled(chainsWithPools.map(updateChain));
+    const updates = await Promise.allSettled(getCowPoolChains().map(updateChain));
     const [fulfilled, rejected] = partition(updates, isResultFulfilled);
 
     if (fulfilled.length) {
@@ -137,6 +122,7 @@ function priceToDecimal(value: string, decimal0: number, decimal1: number): stri
 }
 
 export async function initCowVaultsMetaService() {
+  console.log(' > [CLM Meta] Initializing...');
   await loadFromCache();
   setTimeout(updateAll, INIT_DELAY);
 }

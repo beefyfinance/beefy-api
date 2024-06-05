@@ -1,5 +1,9 @@
 import { getCowPriceRanges, initCowDataService } from './getCowPriceRanges';
-import { getCowMerklCampaignsForChain, initCowMerklService } from './getCowMerkleCampaigns';
+import {
+  getCowBeefyMerklCampaignsForChain,
+  getCowMerklCampaignsByChain,
+  initCowMerklService,
+} from './getCowMerkleCampaigns';
 import { isApiChain } from '../../utils/chain';
 import { initCowVaultsMetaService } from './getCowVaultsMeta';
 import { isResultRejected } from '../../utils/promise';
@@ -28,14 +32,32 @@ export const getCowcentratedPriceRanges = ctx => {
   }
 };
 
-export const getCowcentratedMerklCampaigns = ctx => {
+/**
+ * All merkl campaigns created by Beefy for a specific chain
+ */
+export const getCowcentratedBeefyMerklCampaignsForChain = ctx => {
   if (!isApiChain(ctx.params.chainId)) {
     ctx.status = 404;
     ctx.body = 'Invalid chain';
     return;
   }
 
-  const campaigns = getCowMerklCampaignsForChain(ctx.params.chainId);
+  const campaigns = getCowBeefyMerklCampaignsForChain(ctx.params.chainId);
+  if (!campaigns) {
+    ctx.status = 500;
+    ctx.body = 'Not available yet';
+    return;
+  }
+
+  ctx.status = 200;
+  ctx.body = campaigns;
+};
+
+/**
+ * All merkl campaigns for each chain that target a pool one of our clm vaults is using
+ */
+export const getCowcentratedMerklCampaignsByChain = ctx => {
+  const campaigns = getCowMerklCampaignsByChain();
   if (!campaigns) {
     ctx.status = 500;
     ctx.body = 'Not available yet';
