@@ -20,6 +20,11 @@ const projects = {
     file: '../src/data/base/auraLpPools.json',
     vault: balancer.router,
   },
+  'aura-op': {
+    prefix: 'aura-op',
+    file: '../src/data/optimism/auraLpPools.json',
+    vault: balancer.router,
+  },
 };
 
 const args = yargs.options({
