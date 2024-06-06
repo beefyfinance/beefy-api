@@ -1,0 +1,62 @@
+[
+  {
+    "name": "stargate-v2-arb-weth",
+    "address": "0x993614e1c8c9C5AbE49462Ce5702431978Fd767F",
+    "token": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+    "rewarder": "0x957b12606690C7692eF92bb5c34a0E63baED99C7",
+    "decimals": "1e18",
+    "underlying": "ETH",
+    "rewards": [
+      {
+        "address": "0x6694340fc020c5E6B96567843da2df01b2CE1eb6",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "stargate-v2-arb-usdc",
+    "address": "0x6Ea313859A5D9F6fF2a68f529e6361174bFD2225",
+    "token": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+    "rewarder": "0x957b12606690C7692eF92bb5c34a0E63baED99C7",
+    "decimals": "1e6",
+    "underlying": "USDC",
+    "rewards": [
+      {
+        "address": "0x6694340fc020c5E6B96567843da2df01b2CE1eb6",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "stargate-v2-arb-usdt",
+    "address": "0x8D66Ff1845b1baCC6E87D867CA4680d05A349cA8",
+    "token": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+    "rewarder": "0x957b12606690C7692eF92bb5c34a0E63baED99C7",
+    "decimals": "1e6",
+    "underlying": "USDT",
+    "rewards": [
+      {
+        "address": "0x6694340fc020c5E6B96567843da2df01b2CE1eb6",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

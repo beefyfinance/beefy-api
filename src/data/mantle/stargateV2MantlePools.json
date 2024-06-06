@@ -1,0 +1,47 @@
+[
+  {
+    "name": "stargate-v2-mantle-usdc",
+    "address": "0x5D131cb99cE5642f3d539417A187a93EEae48177",
+    "token": "0x09Bc4E0D864854c6aFB6eB9A9cdF58aC190D0dF9",
+    "rewarder": "0x0184857631ddb3e9E230Bca303F0Ab1e516FC0c8",
+    "decimals": "1e6",
+    "underlying": "USDC",
+    "rewards": [
+      {
+        "address": "0x8731d54E9D02c286767d56ac03e8037C07e01e98",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "stargate-v2-mantle-usdt",
+    "address": "0xe1152564ED7B59e01915FC95bBF87cF9b6636fe6",
+    "token": "0x201EBa5CC46D216Ce6DC03F6a759e8E766e956aE",
+    "rewarder": "0x0184857631ddb3e9E230Bca303F0Ab1e516FC0c8",
+    "decimals": "1e6",
+    "underlying": "USDT",
+    "rewards": [
+      {
+        "address": "0x8731d54E9D02c286767d56ac03e8037C07e01e98",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "stargate-v2-mantle-weth",
+    "address": "0xc2c3Cc203FB607f2f93e6A15f45556bc83620644",
+    "token": "0xdEAddEaDdeadDEadDEADDEAddEADDEAddead1111",
+    "rewarder": "0x0184857631ddb3e9E230Bca303F0Ab1e516FC0c8",
+    "decimals": "1e18",
+    "underlying": "WETH",
+    "rewards": [
+      {
+        "address": "0x8731d54E9D02c286767d56ac03e8037C07e01e98",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

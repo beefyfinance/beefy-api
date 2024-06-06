@@ -1,0 +1,47 @@
+[
+  {
+    "name": "stargate-v2-eth-weth",
+    "address": "0xfcb42A0e352a08AbD50b8EE68d01f581B6Dfd80A",
+    "token": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "rewarder": "0x5871A7f88b0f3F5143Bf599Fd45F8C0Dc237E881",
+    "decimals": "1e18",
+    "underlying": "WETH",
+    "rewards": [
+      {
+        "address": "0xAf5191B0De278C7286d6C7CC6ab6BB8A73bA2Cd6",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "stargate-v2-eth-usdc",
+    "address": "0x5DaAee9EF143faFF495B581e9863570e83F99d31",
+    "token": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "rewarder": "0x5871A7f88b0f3F5143Bf599Fd45F8C0Dc237E881",
+    "decimals": "1e6",
+    "underlying": "USDC",
+    "rewards": [
+      {
+        "address": "0xAf5191B0De278C7286d6C7CC6ab6BB8A73bA2Cd6",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "stargate-v2-eth-usdt",
+    "address": "0x17BBC9BD51A52aAf4d2CC6652630DaF4fdB358F7",
+    "token": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+    "rewarder": "0x5871A7f88b0f3F5143Bf599Fd45F8C0Dc237E881",
+    "decimals": "1e6",
+    "underlying": "USDT",
+    "rewards": [
+      {
+        "address": "0xAf5191B0De278C7286d6C7CC6ab6BB8A73bA2Cd6",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

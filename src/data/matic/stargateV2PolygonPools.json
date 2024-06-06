@@ -1,0 +1,32 @@
+[
+  {
+    "name": "stargate-v2-polygon-usdc",
+    "address": "0xfe2439B656d8b624c78B7bF7bDc440D101ff9929",
+    "token": "0x3c499c542cEF5E3811e1192ce70d8cC03d5c3359",
+    "rewarder": "0xd240a859Efc77b7455AD1B1402357784a2D72a1B",
+    "decimals": "1e6",
+    "underlying": "USDC",
+    "rewards": [
+      {
+        "address": "0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "stargate-v2-polygon-usdt",
+    "address": "0x3e3C6dC77Ebf9EA16E6d83bf3ba021aAa7374Ca7",
+    "token": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+    "rewarder": "0xd240a859Efc77b7455AD1B1402357784a2D72a1B",
+    "decimals": "1e6",
+    "underlying": "USDT",
+    "rewards": [
+      {
+        "address": "0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

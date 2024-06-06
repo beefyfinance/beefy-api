@@ -1,26 +1,25 @@
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const { getStargateV2Apys } = require('../common/stargate/getStargateV2Apys');
-const { METIS_CHAIN_ID: chainId } = require('../../../constants');
+const { MANTLE_CHAIN_ID: chainId } = require('../../../constants');
 
-const poolsV1 = require('../../../data/metis/stargateMetisPools.json');
-const poolsV2 = require('../../../data/metis/stargateV2MetisPools.json');
+const poolsV1 = require('../../../data/mantle/stargateMantlePools.json');
+const poolsV2 = require('../../../data/mantle/stargateV2MantlePools.json');
 
-const getStargateApys = async () => {
+const getStargateMantleApys = async () => {
   const apysV1 = await getMasterChefApys({
     chainId,
-    masterchef: '0x45A01E4e04F14f7A4a6702c74187c5F6222033cd',
+    masterchef: '0x352d8275AAE3e0c2404d9f68f6cEE084B5bEB3DD',
     tokenPerBlock: 'eTokenPerSecond',
     secondsPerBlock: 1,
-    hasMultiplier: false,
     pools: poolsV1,
-    oracleId: 'METIS',
+    oracleId: 'STG',
     oracle: 'tokens',
     decimals: '1e18',
   });
 
   const apysV2 = await getStargateV2Apys({
     chainId,
-    masterchef: '0xF1fCb4CBd57B67d683972A59B6a7b1e2E8Bf27E6',
+    masterchef: '0x02DC1042E623A8677B002981164ccc05d25d486a',
     pools: poolsV2,
     //log: true
   });
@@ -31,4 +30,4 @@ const getStargateApys = async () => {
   return { apys: apys, apyBreakdowns: apyBreakdowns };
 };
 
-module.exports = getStargateApys;
+module.exports = getStargateMantleApys;

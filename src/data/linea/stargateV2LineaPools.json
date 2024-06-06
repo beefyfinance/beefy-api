@@ -1,0 +1,17 @@
+[
+  {
+    "name": "stargate-v2-linea-weth",
+    "address": "0x23A46eFDa973Bd4e97Ee84bAc87018537538D078",
+    "token": "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f",
+    "rewarder": "0xE89Ca5C58E2978c031f7796Ca8580bC88Ea0B3dD",
+    "decimals": "1e18",
+    "underlying": "WETH",
+    "rewards": [
+      {
+        "address": "0x808d7c71ad2ba3FA531b068a2417C63106BC0949",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

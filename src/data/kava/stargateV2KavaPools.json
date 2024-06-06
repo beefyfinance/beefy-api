@@ -1,0 +1,17 @@
+[
+  {
+    "name": "stargate-v2-kava-usdt",
+    "address": "0x9B8b53CDB3a241E838cDE548d7D8B76DA759D90B",
+    "token": "0x919C1c267BC06a7039e03fcc2eF738525769109c",
+    "rewarder": "0x62207a4d054376052Bfcede2c00d113E97D4D247",
+    "decimals": "1e6",
+    "underlying": "USDT",
+    "rewards": [
+      {
+        "address": "0xc86c7C0eFbd6A49B35E8714C5f59D99De09A225b",
+        "oracleId": "WKAVA",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

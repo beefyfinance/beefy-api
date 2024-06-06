@@ -53,6 +53,7 @@ import getStargateOpPrices from './optimism/getStargateOpPrices';
 import getStargateMetisPrices from './metis/getStargateMetisPrices';
 import getStargateBasePrices from './base/getStargateBasePrices';
 import getStargateKavaPrices from './kava/getStargateKavaPrices';
+import getStargateMantlePrices from './mantle/getStargateMantlePrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
@@ -174,6 +175,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getStargateEthPrices(tokenPrices),
     getStargateKavaPrices(tokenPrices),
     getStargateLineaPrices(tokenPrices),
+    getStargateMantlePrices(tokenPrices),
     getHopPolyPrices(tokenPrices), // <----
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),

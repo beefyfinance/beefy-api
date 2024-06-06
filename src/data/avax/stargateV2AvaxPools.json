@@ -1,0 +1,32 @@
+[
+  {
+    "name": "stargate-v2-avax-usdc",
+    "address": "0xaDA7A31B692e3AbFccD02C3d7f8aDc5944510291",
+    "token": "0xB97EF9Ef8734C71904D8002F8b6Bc66Dd9c48a6E",
+    "rewarder": "0x6CE9bf8CDaB780416AD1fd87b318A077D2f50EaC",
+    "decimals": "1e6",
+    "underlying": "USDC",
+    "rewards": [
+      {
+        "address": "0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "stargate-v2-avax-usdt",
+    "address": "0x80f1b5d3665a61a91f896C1f0790B4062966610E",
+    "token": "0x9702230A8Ea53601f5cD2dc00fDBc13d4dF4A8c7",
+    "rewarder": "0x6CE9bf8CDaB780416AD1fd87b318A077D2f50EaC",
+    "decimals": "1e6",
+    "underlying": "USDT",
+    "rewards": [
+      {
+        "address": "0x2F6F07CDcf3588944Bf4C42aC74ff24bF56e7590",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

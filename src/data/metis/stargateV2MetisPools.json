@@ -1,0 +1,32 @@
+[
+  {
+    "name": "stargate-v2-metis-usdt",
+    "address": "0x222A9a6dD812CA5a27fFfEC39816A2DF6837D396",
+    "token": "0xbB06DCA3AE6887fAbF931640f67cab3e3a16F4dC",
+    "rewarder": "0x1F605162282570dFa6255D27895587f4117F52FA",
+    "decimals": "1e6",
+    "underlying": "USDT",
+    "rewards": [
+      {
+        "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+        "oracleId": "METIS",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "stargate-v2-metis-weth",
+    "address": "0x16C58802FD464D2Ac33B8f1DB57D7717f8365d91",
+    "token": "0x420000000000000000000000000000000000000A",
+    "rewarder": "0x1F605162282570dFa6255D27895587f4117F52FA",
+    "decimals": "1e18",
+    "underlying": "WETH",
+    "rewards": [
+      {
+        "address": "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+        "oracleId": "METIS",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

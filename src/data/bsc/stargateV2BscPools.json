@@ -1,0 +1,17 @@
+[
+  {
+    "name": "stargate-v2-bsc-usdt",
+    "address": "0xe664Fd3a278b1E49C20F9B0aF77aA57DC770B21B",
+    "token": "0x55d398326f99059fF775485246999027B3197955",
+    "rewarder": "0x68D7877b16002AD34836ba55416bcA9B92B55589",
+    "decimals": "1e18",
+    "underlying": "USDT",
+    "rewards": [
+      {
+        "address": "0xB0D502E938ed5f4df2E681fE6E419ff29631d62b",
+        "oracleId": "STG",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]
