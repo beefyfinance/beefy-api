@@ -1091,6 +1091,21 @@ const _tokens = {
       'KlimaDAO and its partners in the Klima ecosystem fosters the adoption of a new category of real world assets (RWA) on the blockchain: environmental assets like carbon credits.',
     bridge: 'axelar',
   },
+  USDz: {
+    name: 'Anzen USDz',
+    symbol: 'USDz',
+    oracleId: 'USDz',
+    address: '0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'USDz is a stablecoin supported by a diversified portfolio of private credit assets. These assets are meticulously underwritten in collaboration with Percent, a US licensed broker-dealer. Percent has structured and serviced over $1.7B in credit deals since 2018. Anzen invests capital alongside institutional fiat investors. The yield from its credit portfolio offers a sustainable income stream, which supports staking rewards for on-chain USDz holders.',
+    website: 'https://anzen.finance/',
+    documentation: 'https://docs.anzen.finance/',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
   GHST: {
     name: 'Aavegotchi GHST Token',
     symbol: 'GHST',
