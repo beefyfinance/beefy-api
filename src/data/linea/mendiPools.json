@@ -5,8 +5,8 @@
     "oracle": "tokens",
     "oracleId": "WETH",
     "decimals": "1e18",
-    "borrowRate": 60,
-    "borrowDepth": 4
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-lev-usdc",
@@ -14,8 +14,8 @@
     "oracle": "tokens",
     "oracleId": "USDC",
     "decimals": "1e6",
-    "borrowRate": 70,
-    "borrowDepth": 4
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-lev-usdt",
@@ -23,8 +23,8 @@
     "oracle": "tokens",
     "oracleId": "USDT",
     "decimals": "1e6",
-    "borrowRate": 70,
-    "borrowDepth": 4
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-lev-dai",
@@ -32,8 +32,8 @@
     "oracle": "tokens",
     "oracleId": "DAI",
     "decimals": "1e18",
-    "borrowRate": 70,
-    "borrowDepth": 4
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-lev-wbtc",
@@ -41,8 +41,8 @@
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",
-    "borrowRate": 55,
-    "borrowDepth": 4
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-lev-wsteth",
@@ -52,8 +52,8 @@
     "decimals": "1e18",
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
     "dataPath": "$.data.smaApr",
-    "borrowRate": 50,
-    "borrowDepth": 4
+    "borrowRate": 0,
+    "borrowDepth": 1
   },
   {
     "name": "mendi-linea-weth",
