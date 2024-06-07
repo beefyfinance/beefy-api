@@ -1,5 +1,30 @@
 [
   {
+    "name": "curve-arb-knox-eusd",
+    "pool": "0x6f33daf91d2acae10f5cd7bbe3f31716ed123f1d",
+    "gauge": "0x63254954b617493bb9311c9f89b50425943b05f6",
+    "rewards": [
+      {
+        "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
+        "oracleId": "RSR"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "KNOX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-eusd-usdc",
     "pool": "0x93a416206b4ae3204cfe539edfee6bc05a62963e",
     "gauge": "0xad85fb8a5ed9e2f338d2798a9eef176d31ca6a57",
@@ -7,6 +32,10 @@
       {
         "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
         "oracleId": "RSR"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
@@ -28,6 +57,10 @@
       {
         "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
         "oracleId": "RSR"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
@@ -49,6 +82,10 @@
       {
         "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
         "oracleId": "RSR"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
@@ -70,6 +107,10 @@
       {
         "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
         "oracleId": "RSR"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "getDy": ["v1", 0, 1],
@@ -92,6 +133,10 @@
       {
         "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
         "oracleId": "RSR"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
@@ -113,6 +158,10 @@
       {
         "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
         "oracleId": "RSR"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "tokens": [
