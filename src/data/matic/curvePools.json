@@ -1,5 +1,26 @@
 [
   {
+    "name": "curve-poly-mai-usdc.e",
+    "pool": "0x53c38755748745e2dd7d0a136fbcc9fb1a5b83b2",
+    "gauge": "0x41cb0cb61c11039459dc81db76bd64d3ede704f2",
+    "rewards": [
+      {
+        "token": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "oracleId": "WMATIC"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "pMAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "pUSDCe",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-poly-asdcrv",
     "pool": "0x5d8c2b31e80a35e211d51e62b1c7fb70322cbf25",
     "token": "0x7101308daf4e16c822083a458dc9395039c08f2d",
