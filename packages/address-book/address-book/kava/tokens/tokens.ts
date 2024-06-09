@@ -303,6 +303,32 @@ const _tokens = {
     bridge: 'ibc',
     documentation: 'https://docs.cosmos.network/main',
   },
+  lzETH: {
+    name: 'LayerZero Wrapped ETH',
+    symbol: 'lzETH',
+    oracleId: 'WETH',
+    address: '0x2DfD4dE5AE386Cd3f4fC8e2cb39240852E47F5E8',
+    chainId: 2222,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://layerzero.network/',
+    description:
+      'LayerZero Wrapped ETH (lzETH) is an ERC-20 token that represents a wrapped version of native Ethereum (ETH) cryptocurrency, allowing for cross-chain transfers and compatibility with the Ethereum ecosystem.',
+    bridge: 'layer-zero',
+  },
+  lzWBTC: {
+    name: 'LayerZero Wrapped WBTC',
+    symbol: 'lzWBTC',
+    oracleId: 'WBTC',
+    address: '0xb5c4423a65B953905949548276654C96fcaE6992',
+    chainId: 2222,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://layerzero.network/',
+    description:
+      "LayerZero Wrapped WBTC (lzWBTC) is an ERC-20 token that represents a 1:1 pegged version of Bitcoin, allowing users to access Bitcoin's value and liquidity within the Kava ecosystem.",
+    bridge: 'layer-zero',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
