@@ -1120,6 +1120,20 @@ const _tokens = {
     documentation: 'https://docs.aavegotchi.com/',
     bridge: 'base-canonical',
   },
+  HBR: {
+    name: 'Harbor Token',
+    symbol: 'HBR',
+    oracleId: 'HBR',
+    address: '0x416bd43Bc76D496ff49923c20eCaf86b52Ab078d',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.harbor.market/',
+    description:
+      'HBR is the governance token of Harbor Market, a lending platform on BSC forked from Aave V2.',
+    documentation: 'https://docs.harbor.market/harbor-market',
+    bridge: 'wormhole',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
