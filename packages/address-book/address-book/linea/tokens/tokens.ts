@@ -263,6 +263,20 @@ const _tokens = {
     bridge: 'stargate',
     risks: ['NO_TIMELOCK'],
   },
+  inETH: {
+    name: 'Inception ETH',
+    symbol: 'inETH',
+    oracleId: 'lineainETH',
+    address: '0x5A7a183B6B44Dc4EC2E3d2eF43F98C5152b1d76d',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.inceptionlrt.com/',
+    description:
+      'Inception ETH is a pioneering DeFi platform that provides a full solution for liquid restaking. Inception ETH is designed to streamline and improve the restaking process by combining Isolated and Native Liquid Restaking and a diverse array of Liquid Restaking Tokens.',
+    bridge: 'inception',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

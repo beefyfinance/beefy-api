@@ -1,5 +1,25 @@
 [
   {
+    "name": "lynex-gamma-ineth-wsteth",
+    "address": "0xC491C1b173E932E97d9F739ccD9AE5b6d5FcE4ce",
+    "gauge": "0x26D9DaD34412bbA1C5aD4b78a272537eB0ABA836",
+    "decimals": "1e18",
+    "chainId": 59144,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x5A7a183B6B44Dc4EC2E3d2eF43F98C5152b1d76d",
+      "oracle": "tokens",
+      "oracleId": "lineainETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB5beDd42000b71FddE22D3eE8a79Bd49A568fC8F",
+      "oracle": "tokens",
+      "oracleId": "wstETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "lynex-gamma-weeth-weth",
     "address": "0x530071b0373Ab3029cAd32E0c19b75253e231b69",
     "gauge": "0x1480808349772759DF7422a3440EDb998A749C3c",
