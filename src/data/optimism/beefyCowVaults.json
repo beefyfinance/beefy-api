@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "address": "0x36183032f94652748Ab6F6ce503f801de9D1d8CB",
+    "lpAddress": "0xDc6cb16B8d635Ef255cEF370263C35ac0007186A",
+    "tokens": [
+      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1"
+    ],
+    "tokenOracleIds": ["USDC", "WLD"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-op-usdc-wld"
+  }
+]

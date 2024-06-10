@@ -1261,6 +1261,7 @@ const _tokens = {
     description:
       'WLD is a token that is part of the Worldcoin network. It is issued to all network participants to align their incentives around the growth of the network. The currency is designed to be distributed fairly, with every human being eligible for a share of WLD simply for being human. While laws may not allow for the use of WLD as a currency in some jurisdictions, it is intended to be used as a means of exchange and store of value where possible.',
     documentation: 'https://whitepaper.worldcoin.org/',
+    bridge: 'optimism-canonical',
   },
   wUSDR: {
     name: 'Real USD',
