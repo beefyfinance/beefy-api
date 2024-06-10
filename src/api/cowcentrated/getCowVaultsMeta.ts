@@ -50,9 +50,17 @@ async function fetchCowVaultsMeta(chainId: ApiChain): Promise<CowVaultMeta[]> {
   return pools.map(pool => {
     const apiVault = data.find(v => isAddressEqual(v.vaultAddress, pool.address));
     if (!apiVault) {
-      throw new Error(
+      console.error(
         `Missing vault data from CLM API for ${chainId} ${pool.oracleId} ${pool.address}`
       );
+      return {
+        ...pool,
+        currentPrice: '0',
+        priceRangeMin: '0',
+        priceRangeMax: '0',
+        apr: '0',
+        apy: '0',
+      };
     }
 
     return {
