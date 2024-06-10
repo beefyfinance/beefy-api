@@ -19,10 +19,20 @@ export interface BeefyFinance {
   zap?: string;
   zapTokenManager?: string;
 
+  /// BIFI Token Contracts
   mooBifiLockbox?: string;
   axelarBridge?: string;
   optimismBridge?: string;
   ccipBridge?: string;
   layerZeroBridge?: string;
   mooBifi4626?: string;
+
+  /// CLM Contracts
+  clmFactory?: string;
+  clmStrategyFactory?: string;
+  clmRewardPoolFactory?: string;
+
+  /// Beefy Swapper Contracts
+  beefySwapper?: string;
+  beefyOracle?: string;
 }

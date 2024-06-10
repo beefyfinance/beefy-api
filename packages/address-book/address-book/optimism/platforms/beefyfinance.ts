@@ -27,4 +27,13 @@ export const beefyfinance = {
   ccipBridge: '0xcccEa7Fe84272995664369334351Fe344E2732aE',
   layerZeroBridge: '0xdddaEc9c267dF24aD66Edc3B2cBe25dB86422051',
   treasurySwapper: '0x852C903e5Bc93F526AB254BFEe0c1DFF23CF82aB',
+
+  /// CLM Contracts
+  clmFactory: '0x55D0efec44ee905fC3e12CcB9f25bBd5ccE0ab9C',
+  clmStrategyFactory: '0x3B2D461464b9052Dfe52a17f10aA9e3b17332F2d',
+  clmRewardPoolFactory: '0x4399457CB360fC37242d2BE326579Caf3981c769',
+
+  /// Beefy Swapper Contracts
+  beefySwapper: '0xe115b50c52cB5624fD76232cDF498ADA6ECD1e69',
+  beefyOracle: '0x7066606233Cc8b5ede0925003F8910FF7B15219C',
 } as const;
