@@ -1,5 +1,38 @@
 [
   {
+    "address": "0x6928b8Df875877Ba65Ff53AFF182Ec6B8dFEe90F",
+    "lpAddress": "0xd6B4CcE96Ddf8aAb2E5750983AF9A901F17Fbc36",
+    "tokens": [
+      "0x18C14C2D707b2212e17d1579789Fc06010cfca23",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["ETH+", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-eth+-weth"
+  },
+  {
+    "address": "0xB13872c632ac188596DEceF852c15F3d884CA9C9",
+    "lpAddress": "0x5D88c26Ba4067292Dac647BC849216699120AAA1",
+    "tokens": [
+      "0x0BBF664D46becc28593368c97236FAa0fb397595",
+      "0x12275DCB9048680c4Be40942eA4D92c74C63b844"
+    ],
+    "tokenOracleIds": ["KNOX", "eUSD"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-eusd-knox"
+  },
+  {
+    "address": "0xEEA4114Ab4FCb82a28c514e21d656Ca78D75b1A9",
+    "lpAddress": "0xA56959b5d633Ee8e3dD9997902C09445C5d7cc40",
+    "tokens": [
+      "0x12275DCB9048680c4Be40942eA4D92c74C63b844",
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    ],
+    "tokenOracleIds": ["eUSD", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arb-eusd-usdc"
+  },
+  {
     "address": "0xBfaDfcbeF611D958c8998ea29FAce6bb155302fd",
     "lpAddress": "0xC6F780497A95e246EB9449f5e4770916DCd6396A",
     "tokens": [
