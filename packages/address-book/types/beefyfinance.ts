@@ -35,4 +35,9 @@ export interface BeefyFinance {
   /// Beefy Swapper Contracts
   beefySwapper?: string;
   beefyOracle?: string;
+  beefyOracleChainlink?: string;
+  beefyOracleChainlinkEthBase?: string;
+  beefyOracleUniswapV3?: string;
+  beefyOracleUniswapV2?: string;
+  beefyOracleSolidly?: string;
 }

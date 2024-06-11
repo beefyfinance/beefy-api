@@ -29,4 +29,10 @@ export const beefyfinance = {
   ccipBridge: '0xcccEa7Fe84272995664369334351Fe344E2732aE',
   layerZeroBridge: '0xdddaEc9c267dF24aD66Edc3B2cBe25dB86422051',
   treasurySwapper: '0x0921E4fA2F85B6461fa83961d28DC7e1f9A32B40',
+
+  /// Beefy Swapper Contracts
+  beefySwapper: '0x0000830DF56616D58976A12D19d283B40e25BEEF',
+  beefyOracle: '0xbeEFc6B9d685993b02712D8de8afB29A31c3faf4',
+  beefyOracleChainlink: '0xB1F10da39442089F6E216Fd144EF6C2F19689170',
+  beefyOracleUniswapV3: '0x36e36f91357642255A4fb6730BD2137871FA5aFa',
 } as const;

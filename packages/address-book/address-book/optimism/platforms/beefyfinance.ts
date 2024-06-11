@@ -36,4 +36,6 @@ export const beefyfinance = {
   /// Beefy Swapper Contracts
   beefySwapper: '0xe115b50c52cB5624fD76232cDF498ADA6ECD1e69',
   beefyOracle: '0x7066606233Cc8b5ede0925003F8910FF7B15219C',
+  beefyOracleChainlink: '0x5232Afb1d3cf314bF4D93C83C7AfB98b696ABAa4',
+  beefyOracleSolidly: '0xC52B17679d4F3bDF2bfE2ffE64723cA6ab473179',
 } as const;
