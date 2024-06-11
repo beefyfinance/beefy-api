@@ -183,6 +183,10 @@
       {
         "token": "0x59D9356E565Ab3A36dD77763Fc0d87fEaf85508C",
         "oracleId": "USDM"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "getDy": ["v1", 1, 0],
