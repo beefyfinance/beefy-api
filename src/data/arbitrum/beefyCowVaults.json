@@ -1,5 +1,38 @@
 [
   {
+    "address": "0xBfaDfcbeF611D958c8998ea29FAce6bb155302fd",
+    "lpAddress": "0xC6F780497A95e246EB9449f5e4770916DCd6396A",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0x912CE59144191C1204E64559FE8253a0e49E6548"
+    ],
+    "tokenOracleIds": ["WETH", "ARB"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-arb-eth-prod"
+  },
+  {
+    "address": "0x9b28956731272aD07A5d33bA6Ab6fe5e0C32707f",
+    "lpAddress": "0x59D72DDB29Da32847A4665d08ffc8464A7185FAE",
+    "tokens": [
+      "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["MAGIC", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-magic-weth-prod"
+  },
+  {
+    "address": "0x873d47401fd390eb4cA528781B28Aff7a15c640E",
+    "lpAddress": "0xd3E11119d2680c963F1CDCffeCe0c4adE823Fb58",
+    "tokens": [
+      "0x0341C0C0ec423328621788d4854119B97f44E391",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["SILO", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-silo-weth-prod"
+  },
+  {
     "address": "0x5b65c2d8866Ee0cd0D041BEb0C6ea53A1CD058Cd",
     "lpAddress": "0x74d0Ae8B8e1fCA6039707564704a25aD2ee036B0",
     "tokens": [
