@@ -1,5 +1,16 @@
 [
   {
+    "address": "0x3786676C03B9518fad1724B43eB28b2Baa36588f",
+    "lpAddress": "0x1C6A6Ee7D2e0aC0D2E3de4a69433553e0cb52777",
+    "tokens": [
+      "0x5979D7b546E38E414F7E9822514be443A4800529",
+      "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"
+    ],
+    "tokenOracleIds": ["wstETH", "USDe"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-usde-wsteth"
+  },
+  {
     "address": "0x6928b8Df875877Ba65Ff53AFF182Ec6B8dFEe90F",
     "lpAddress": "0xd6B4CcE96Ddf8aAb2E5750983AF9A901F17Fbc36",
     "tokens": [

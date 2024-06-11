@@ -1779,6 +1779,21 @@ const _tokens = {
     documentation: 'https://thegraph.com/docs/en/',
     bridge: 'arbitrum-canonical',
   },
+  USDe: {
+    name: 'USDe',
+    symbol: 'USDe',
+    oracleId: 'USDe',
+    address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ethena.fi/',
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    description:
+      'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
