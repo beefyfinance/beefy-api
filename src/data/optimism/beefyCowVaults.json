@@ -1,5 +1,60 @@
 [
   {
+    "address": "0xC884a956a18a4953356b87c1c968419c32FA4a73",
+    "lpAddress": "0x68F5C0A2DE713a54991E01858Fd27a3832401849",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x4200000000000000000000000000000000000042"
+    ],
+    "tokenOracleIds": ["WETH", "OP"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-op-weth"
+  },
+  {
+    "address": "0xc0Fdb17dd0811e9a6855b9bb0C6c0bbC2194C98F",
+    "lpAddress": "0x1fb3cf6e48F1E7B10213E7b6d87D4c073C7Fdb7b",
+    "tokens": [
+      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": ["USDC", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-op-usdc-weth"
+  },
+  {
+    "address": "0x80D438EEdb918207c2F7F7eAC31f2F8012923F76",
+    "lpAddress": "0xA19fb6B927cd7804C2E1c594D6888Ea4B1173e8A",
+    "tokens": [
+      "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+      "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"
+    ],
+    "tokenOracleIds": ["wstETH", "USDe"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-usde-wsteth"
+  },
+  {
+    "address": "0x25F25a45105Ea0Cad9cb116cc4f9b40124A7D02D",
+    "lpAddress": "0xD52533A3309b393AfEBE3176620E8cCFB6159f8a",
+    "tokens": [
+      "0x68f180fcCe6836688e9084f035309E29Bf0A2095",
+      "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"
+    ],
+    "tokenOracleIds": ["WBTC", "tBTC"],
+    "decimals": [8, 18],
+    "oracleId": "uniswap-cow-op-tbtc-wbtc"
+  },
+  {
+    "address": "0x0F46A74B01708E78c27DEF7160A5C5222f9dD157",
+    "lpAddress": "0x83AFbd6C4E804Dd4dcCa7aceE967926bc3f408aC",
+    "tokens": [
+      "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+      "0x4186BFC76E2E237523CBC30FD220FE055156b41F"
+    ],
+    "tokenOracleIds": ["wstETH", "rsETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-rseth-wsteth"
+  },
+  {
     "address": "0x36183032f94652748Ab6F6ce503f801de9D1d8CB",
     "lpAddress": "0xDc6cb16B8d635Ef255cEF370263C35ac0007186A",
     "tokens": [
