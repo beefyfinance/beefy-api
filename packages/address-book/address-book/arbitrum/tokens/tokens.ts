@@ -1766,6 +1766,19 @@ const _tokens = {
     documentation: 'https://devdocs.silo.finance/',
     bridge: 'arbitrum-canonical',
   },
+  GRT: {
+    name: 'Graph Token',
+    symbol: 'GRT',
+    oracleId: 'GRT',
+    address: '0x9623063377AD1B27544C965cCd7342f7EA7e88C7',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://thegraph.com/',
+    description: 'A decentralized protocol for indexing and querying data from blockchains..',
+    documentation: 'https://thegraph.com/docs/en/',
+    bridge: 'arbitrum-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
