@@ -65,13 +65,9 @@ async function fetchCowVaultsMeta(chainId: ApiChain): Promise<CowVaultMeta[]> {
 
     return {
       ...pool,
-      currentPrice: priceToDecimal(
-        apiVault.priceOfToken0InToken1,
-        pool.decimals[0],
-        pool.decimals[1]
-      ),
-      priceRangeMin: priceToDecimal(apiVault.priceRangeMin1, pool.decimals[0], pool.decimals[1]),
-      priceRangeMax: priceToDecimal(apiVault.priceRangeMax1, pool.decimals[0], pool.decimals[1]),
+      currentPrice: apiVault.priceOfToken0InToken1,
+      priceRangeMin: apiVault.priceRangeMin1,
+      priceRangeMax: apiVault.priceRangeMax1,
       apr: apiVault.apr,
       apy: apiVault.apy,
     };
@@ -123,10 +119,6 @@ function scheduleUpdate() {
       console.error(`> [CLM Meta] Update all failed`, err);
       scheduleUpdate();
     });
-}
-
-function priceToDecimal(value: string, decimal0: number, decimal1: number): string {
-  return new BigNumber(value).shiftedBy(decimal0 - decimal1).toString(10);
 }
 
 export async function initCowVaultsMetaService() {
