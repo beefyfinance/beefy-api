@@ -1,5 +1,27 @@
 [
   {
+    "address": "0x15cfBd3Db5D24360eeac802b3dde4423eb5C3C70",
+    "lpAddress": "0x5bAF59a6e6dF0EE95BCe8C43dAA05B288E340E7D",
+    "tokens": [
+      "0x4186BFC76E2E237523CBC30FD220FE055156b41F",
+      "0x5979D7b546E38E414F7E9822514be443A4800529"
+    ],
+    "tokenOracleIds": ["rsETH", "wstETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-rseth-wsteth"
+  },
+  {
+    "address": "0x83368b5e04d8A2C990ef9b5FE41509FafCfBa499",
+    "lpAddress": "0xF2C6091BFA490694f3E931020572f4cA9F6BE480",
+    "tokens": [
+      "0x2416092f143378750bb29b79eD961ab195CcEea5",
+      "0x5979D7b546E38E414F7E9822514be443A4800529"
+    ],
+    "tokenOracleIds": ["ezETH", "wstETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-ezeth-wsteth"
+  },
+  {
     "address": "0x3786676C03B9518fad1724B43eB28b2Baa36588f",
     "lpAddress": "0x1C6A6Ee7D2e0aC0D2E3de4a69433553e0cb52777",
     "tokens": [
