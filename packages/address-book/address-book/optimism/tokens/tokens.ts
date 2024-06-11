@@ -1515,6 +1515,36 @@ const _tokens = {
     documentation: 'https://docs.letsgethai.com/',
     bridge: 'native',
   },
+  rsETH: {
+    chainId: 10,
+    address: '0x4186BFC76E2E237523CBC30FD220FE055156b41F',
+    decimals: 18,
+    name: 'KelpDao Restaked ETH',
+    symbol: 'rsETH',
+    oracleId: 'rsETH',
+    logoURI: '',
+    website: 'https://kelpdao.xyz/',
+    documentation: 'https://kelp.gitbook.io/kelp',
+    description:
+      'rsETH is a Liquid Restaked Token (LRT) issued by Kelp DAO designed to offer liquidity to illiquid assets deposited into restaking platforms, such as EigenLayer.',
+    bridge: 'stargate',
+    risks: ['NO_TIMELOCK'],
+  },
+  USDe: {
+    name: 'USDe',
+    symbol: 'USDe',
+    oracleId: 'USDe',
+    address: '0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ethena.fi/',
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    description:
+      'Ethenas USDe is not the same as a fiat stablecoin like USDC or USDT. USDe is a synthetic dollar, backed with crypto assets and corresponding short futures positions.',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
