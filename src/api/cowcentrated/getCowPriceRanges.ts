@@ -14,7 +14,11 @@ type VaultCowData = Record<
 const chainToCowData: Partial<Record<ApiChain, VaultCowData>> = {};
 
 async function updateCowcentratedData() {
+  console.log('> [CLM Data] Updating cow vaults metadata...');
+  const start = Date.now();
+
   const meta = getAllCowVaultsMeta();
+  let count = 0;
   for (const [chain, data] of Object.entries(meta)) {
     chainToCowData[chain as ApiChain] = data.vaults.reduce<VaultCowData>((acc, vault) => {
       acc[vault.oracleId] = {
@@ -22,9 +26,13 @@ async function updateCowcentratedData() {
         priceRangeMin: vault.priceRangeMin,
         priceRangeMax: vault.priceRangeMax,
       };
+      ++count;
       return acc;
     }, {} as VaultCowData);
   }
+
+  const timing = (Date.now() - start) / 1000;
+  console.log(`> [CLM Data] ${count} cow vaults price ranges updated in ${timing}s`);
 }
 
 function updateAll() {
