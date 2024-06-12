@@ -20,6 +20,19 @@ async function multichainHarvestableVaults(ctx) {
   }
 }
 
+async function singleHarvestableVaults(ctx) {
+  try {
+    const chainVaults = getSingleChainVaults(ctx.params.chainId).concat(
+      getSingleChainCowVaults(ctx.params.chainId)
+    );
+    ctx.status = 200;
+    ctx.body = [...chainVaults];
+  } catch (err) {
+    console.error(err);
+    ctx.status = 500;
+  }
+}
+
 async function multichainVaults(ctx) {
   try {
     const multichainVaults = getMultichainVaults();
@@ -136,4 +149,5 @@ module.exports = {
   singleVault,
   vaultFees,
   vaultsLastHarvest,
+  singleHarvestableVaults,
 };
