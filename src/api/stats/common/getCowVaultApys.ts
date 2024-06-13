@@ -72,6 +72,7 @@ const getMerklCampaigns = async (chainID: ChainId) => {
 };
 
 const getMerklAprForVault = (vault: CowVaultMeta, merklCampaigns: MerklChainCampaigns) => {
+  if (!merklCampaigns) return 0;
   let apr = 0;
   for (const [poolId, campaigns] of Object.entries(merklCampaigns)) {
     for (const [campaignId, campaign] of Object.entries(campaigns)) {
