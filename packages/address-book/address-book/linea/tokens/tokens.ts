@@ -261,6 +261,7 @@ const _tokens = {
     description:
       'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
     bridge: 'stargate',
+    documentation: 'https://etherfi.gitbook.io/etherfi',
     risks: ['NO_TIMELOCK'],
   },
   inETH: {
@@ -275,6 +276,21 @@ const _tokens = {
     description:
       'Inception ETH is a pioneering DeFi platform that provides a full solution for liquid restaking. Inception ETH is designed to streamline and improve the restaking process by combining Isolated and Native Liquid Restaking and a diverse array of Liquid Restaking Tokens.',
     bridge: 'inception',
+    documentation: 'https://docs.inceptionlrt.com/',
+    risks: ['NO_TIMELOCK'],
+  },
+  wrsETH: {
+    name: 'rsETHWrapper',
+    symbol: 'wrsETH',
+    oracleId: 'wrsETH',
+    address: '0xD2671165570f41BBB3B0097893300b6EB6101E6C',
+    chainId: 59144,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://kelpdao.xyz/',
+    description:
+      'The rsETHWrapper contract serves as a standardized interface for rsETH tokens, which are Liquid Restaked Tokens (LRT) issued by Kelp DAO. Designed to offer liquidity to illiquid assets deposited into restaking platforms like EigenLayer, users can interact with these tokens seamlessly.',
+    bridge: 'stargate',
     risks: ['NO_TIMELOCK'],
   },
 } as const;

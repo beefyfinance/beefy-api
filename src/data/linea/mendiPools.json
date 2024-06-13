@@ -121,5 +121,28 @@
     "dataPath": "$.data.apr.data.rate",
     "borrowRate": 0,
     "borrowDepth": 1
+  },
+  {
+    "name": "mendi-linea-weeth",
+    "cToken": "0x9B4971aC84054597EDEd7Dc7b4b7E8A0c90753B5",
+    "oracle": "tokens",
+    "oracleId": "weETH",
+    "decimals": "1e18",
+    "lsUrl": "https://www.etherfi.bid/api/etherfi/apr",
+    "dataPath": "$.latest_aprs[0]",
+    "lsAprFactor": 0.01,
+    "borrowRate": 0,
+    "borrowDepth": 1
+  },
+  {
+    "name": "mendi-linea-wrseth",
+    "cToken": "0x109F4Af9ec6A5ede198f7A4d9d9d7390de29362A",
+    "oracle": "tokens",
+    "oracleId": "wrsETH",
+    "decimals": "1e18",
+    "lsUrl": "https://universe.kelpdao.xyz/rseth/apy",
+    "dataPath": "$.value",
+    "borrowRate": 0,
+    "borrowDepth": 1
   }
 ]
