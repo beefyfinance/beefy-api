@@ -24,4 +24,9 @@ export const beefyfinance = {
   clmFactory: '0x168Da2e2c8a87a053135c49127afbD092E72c8c5',
   clmStrategyFactory: '0x2659b955655b2d94E34A628818E12f1C21110Db3',
   clmRewardPoolFactory: '0x4fdD68Efb5149A47E103fb572Ad2AF49C74AD92D',
+
+  beefySwapper: '0x8F40C4Be6732241222293953475a9e69BFc607AA',
+  beefyOracle: '0x4d417C189AE9D1B128397026A124b531A535D741',
+  beefyOracleChainlink: '0x4770970C79dDAf893a73F700Ff2497cB3F997bD4',
+  beefyOracleAlgebra: '0xed7f8F288b452a6D1924C477E075dB086E496c19',
 } as const;
