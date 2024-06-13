@@ -1775,7 +1775,7 @@ const _tokens = {
     decimals: 18,
     logoURI: '',
     website: 'https://thegraph.com/',
-    description: 'A decentralized protocol for indexing and querying data from blockchains..',
+    description: 'A decentralized protocol for indexing and querying data from blockchains.',
     documentation: 'https://thegraph.com/docs/en/',
     bridge: 'arbitrum-canonical',
   },
