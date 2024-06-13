@@ -1,5 +1,28 @@
 [
   {
+    "name": "curve-op-usdc-usdm",
+    "pool": "0xb52c9213d318956bfa26df2656b161e3cacbb64d",
+    "gauge": "0x9f72b930f58e9fc9f6fbc1e1eb06837391b788b5",
+    "rewards": [
+      {
+        "token": "0x4200000000000000000000000000000000000042",
+        "oracleId": "OP"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDM",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-op-tricrv",
     "pool": "0xd8dd9a8b2aca88e68c46af9008259d0ec04b7751",
     "gauge": "0xb280fab4817c54796f9e6147aa1ad0198cfefb41",
