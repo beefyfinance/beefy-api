@@ -1794,6 +1794,20 @@ const _tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  RSR: {
+    name: 'Reserve Rights',
+    symbol: 'RSR',
+    address: '0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594',
+    chainId: 42161,
+    decimals: 18,
+    oracleId: 'RSR',
+    logoURI: '',
+    website: 'https://reserve.org/',
+    description:
+      'The Reserve protocol is the first platform that allows for the permissionless creation of asset-backed, yield-bearing & overcollateralized stablecoins. Reserve Rights (RSR) exists as an overcollateralization mechanism to protect RToken holders in the unlikely event of a collateral token default.',
+    documentation: 'https://reserve.org/protocol/reserve_rights_rsr/',
+    bridge: 'arbitrum-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
