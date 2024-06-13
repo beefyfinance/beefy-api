@@ -20,4 +20,12 @@ export const beefyfinance = {
   wrapperFactory: '0xDBad28672fD60c4609EE6B26dF2b8cB93DE12afe',
   zap: '0xf2068e1FE1A80E7f5Ba80D6ABD6e8618aD4E959E',
   zapTokenManager: '0x19e730Ab391b79F03CFA2ffc2C5e3fc617F0eEfe',
+
+  /// Beefy Swapper Contracts
+  beefySwapper: '0x5aD159A8537fE39CAD81748726584C05b68b3c11',
+  beefyOracle: '0x3923704D9684ABb234743d65D96c43Bf26414481',
+  beefyOracleChainlink: '0xF8813A9274ff8E69cea6d1aa4c32A29054A05D40',
+  beefyOracleChainlinkEthBase: '0x357a64804AD7e36AF3C1D9B1c30E72bDeE2897a7',
+  beefyOracleSolidly: '0x142ED7b2bA7be67F54b1BB312353a5Bb849252F9',
+  beefyOracleUniswapV3: '0xe1908Ab7e03F0699773ceCc4Dc5D38893E532cd1',
 } as const;
