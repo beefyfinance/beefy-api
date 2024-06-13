@@ -1,0 +1,13 @@
+[
+  {
+    "address": "0xB4ffA6d9017bfc0e1F2C80E4b5C168516455383b",
+    "lpAddress": "0xB13B281503F6eC8A837Ae1a21e86a9caE368fCc5",
+    "tokens": [
+      "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080"
+    ],
+    "tokenOracleIds": ["GLMR", "xcDOT"],
+    "decimals": [18, 10],
+    "oracleId": "stella-cow-xcdot-glmr"
+  }
+]
