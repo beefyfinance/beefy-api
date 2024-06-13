@@ -3,11 +3,13 @@ import { CowPool, validateCowPools } from './types';
 import optimismPools from '../../data/optimism/beefyCowVaults.json';
 import basePools from '../../data/base/beefyCowVaults.json';
 import arbitrumPools from '../../data/arbitrum/beefyCowVaults.json';
+import moonbeamPools from '../../data/moonbeam/beefyCowVaults.json';
 
 const chainToPools: Partial<Record<ApiChain, CowPool[]>> = {
   optimism: validateCowPools(optimismPools),
   base: validateCowPools(basePools),
   arbitrum: validateCowPools(arbitrumPools),
+  moonbeam: validateCowPools(moonbeamPools),
 };
 
 const chainsWithPools = (Object.keys(chainToPools) as ReadonlyArray<ApiChain>).filter(
