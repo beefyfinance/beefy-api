@@ -1,5 +1,52 @@
 [
   {
+    "name": "stellaswap-axldualpool",
+    "address": "0x6Cd1c3807DbB49785b86cF006Fe2C90287c183B2",
+    "pool": "0x95953409374e1ed252c6D100E7466E346E3dC5b9",
+    "decimals": "1e18",
+    "virtualOracleId": "USDC",
+    "poolId": 38,
+    "chainId": 1284,
+    "tokens": [
+      {
+        "address": "0xCa01a1D0993565291051daFF390892518ACfAD3A",
+        "oracleId": "axlUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x931715FEE2d06333043d11F658C8CE934aC61D0c",
+        "oracleId": "USDCwh",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "stellaswap-tripool",
+    "address": "0x4FB1b0452341ebB0DF325a8286763447dd6F15fF",
+    "pool": "0x5c3dc0ab1bd70c5cdc8d0865e023164d4d3fd8ec",
+    "decimals": "1e18",
+    "virtualOracleId": "USDC",
+    "poolId": 37,
+    "chainId": 1284,
+    "tokens": [
+      {
+        "address": "0x931715FEE2d06333043d11F658C8CE934aC61D0c",
+        "oracleId": "USDCwh",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d",
+        "oracleId": "USDTxc",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x322E86852e492a7Ee17f28a78c663da38FB33bfb",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "stellaswap-mai4pool",
     "address": "0xEceab9F0FcF15Fddbffbd7baE2cEB78CD57b879a",
     "pool": "0xF0A2ae65342f143fc09c83E5f19b706aBB37414D",

@@ -93,7 +93,7 @@ const _tokens = {
   USDCwh: {
     name: 'USD Coin',
     symbol: 'USDC',
-    oracleId: 'whUSDC',
+    oracleId: 'USDCwh',
     address: '0x931715FEE2d06333043d11F658C8CE934aC61D0c',
     chainId: 1284,
     decimals: 6,
