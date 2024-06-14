@@ -1,5 +1,71 @@
 [
   {
+    "address": "0x5b8fBB4e74Ba6aCAA5672c6E958938A65C15F25a",
+    "lpAddress": "0xC7341e85996EeB05897d3DeC79448b6e4cCc09CF",
+    "tokens": [
+      "0x5979D7b546E38E414F7E9822514be443A4800529",
+      "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8"
+    ],
+    "tokenOracleIds": ["wstETH", "arbUSDCe"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arb-wsteth-usdc.e-prod"
+  },
+  {
+    "address": "0x8bf37CA5519a4B4d61911B403f55Bf87BdCF0A3b",
+    "lpAddress": "0xC31E54c7a869B9FcBEcc14363CF510d1c41fa443",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0xFF970A61A04b1cA14834A43f5dE4533eBDDB5CC8"
+    ],
+    "tokenOracleIds": ["WETH", "arbUSDCe"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arb-weth-usdc.e-prod"
+  },
+  {
+    "address": "0x78Da75e22e44B0A4DBcA353a4a242eDc5FcB1553",
+    "lpAddress": "0x1aEEdD3727A6431b8F070C0aFaA81Cc74f273882",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a"
+    ],
+    "tokenOracleIds": ["WETH", "GMX"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-weth-gmx"
+  },
+  {
+    "address": "0x4dfEc1B15C5729570bFc9cE779Fa0BEC8dd5eC55",
+    "lpAddress": "0x97bca422Ec0Ee4851F2110eA743C1cd0a14835a1",
+    "tokens": [
+      "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+    ],
+    "tokenOracleIds": ["ARB", "USDT"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arb-arb-usdt"
+  },
+  {
+    "address": "0x516d430E513eEde4B2A0Df3ca9e5436DE88eb502",
+    "lpAddress": "0x446BF9748B4eA044dd759d9B9311C70491dF8F29",
+    "tokens": [
+      "0x3082CC23568eA640225c2467653dB90e9250AaA0",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["RDNT", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-rdnt-weth"
+  },
+  {
+    "address": "0x7B3D5E6d956b71F9243cED4ae86a13127e211946",
+    "lpAddress": "0xC91B7b39BBB2c733f0e7459348FD0c80259c8471",
+    "tokens": [
+      "0x18c11FD286C5EC11c3b683Caa813B77f5163A122",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["GNS", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-gns-weth"
+  },
+  {
     "address": "0xC942119Efb0Bee010F35d1cfCcCeb1230f2E172e",
     "lpAddress": "0xF215CeDbAe999571e4BA5d80C10b6e835F88D5eC",
     "tokens": [
