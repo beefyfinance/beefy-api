@@ -677,20 +677,6 @@ const _tokens = {
     documentation:
       'https://docs.stellaswap.com/how-to-guides/swap-pool-and-farm/how-to-add-liquidity-in-stable-amm',
   },
-  axlUSDC: {
-    name: 'Axelar USD Coin',
-    symbol: 'axlUSDC',
-    oracleId: 'axlUSDC',
-    address: '0xCa01a1D0993565291051daFF390892518ACfAD3A',
-    chainId: 1284,
-    decimals: 6,
-    logoURI: '',
-    website: 'https://www.axelar.network/',
-    bridge: 'axelar',
-    description:
-      'axlUSDC is a cross-chain representation of USDC, secured by a validator set using delegated Proof-of-Stake and multi-party cryptography. It allows USDC to move seamlessly across different blockchain ecosystems, minted by depositing USDC into an Axelar Gateway on Ethereum, and can be acquired through DEXs, cross-chain swaps via Squid, or bridging via Satellite.money.',
-    documentation: 'https://docs.axelar.dev/learn/axlusdc',
-  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
