@@ -41,8 +41,8 @@
     "oracle": "tokens",
     "oracleId": "WBTC",
     "decimals": "1e8",
-    "borrowRate": 0,
-    "borrowDepth": 1
+    "borrowRate": 55,
+    "borrowDepth": 4
   },
   {
     "name": "mendi-linea-lev-wsteth",
@@ -52,8 +52,8 @@
     "decimals": "1e18",
     "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
     "dataPath": "$.data.smaApr",
-    "borrowRate": 0,
-    "borrowDepth": 1
+    "borrowRate": 50,
+    "borrowDepth": 4
   },
   {
     "name": "mendi-linea-weth",
