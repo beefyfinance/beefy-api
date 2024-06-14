@@ -56,8 +56,11 @@ router.get('/vaults/:chainId', multichainVaults.singleChainVaults);
 router.get('/gov-vaults', multichainVaults.multichainGovVaults);
 router.get('/gov-vaults/:chainId', multichainVaults.singleGovChainVaults);
 router.get('/cow-vaults', multichainVaults.multichainCowVaults);
+router.get('/cow-vaults/id/:vaultId', multichainVaults.singleCowVault);
 router.get('/cow-vaults/:chainId', multichainVaults.singleCowChainVaults);
 router.get('/harvestable-vaults', multichainVaults.multichainHarvestableVaults);
+router.get('/harvestable-vaults/id/:vaultId', multichainVaults.singleHarvestableVault);
+router.get('/harvestable-vaults/:chainId', multichainVaults.singleHarvestableVaults);
 
 router.get('/cowData', getCowcentratedPriceRanges); /** @deprecated */
 router.get('/cow-price-ranges', getCowcentratedPriceRanges);
