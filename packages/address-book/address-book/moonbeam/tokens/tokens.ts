@@ -677,6 +677,36 @@ const _tokens = {
     documentation:
       'https://docs.stellaswap.com/how-to-guides/swap-pool-and-farm/how-to-add-liquidity-in-stable-amm',
   },
+  xcUSDC: {
+    name: 'USD Coin',
+    symbol: 'USDC',
+    oracleId: 'USDC',
+    address: '0xFFfffffF7D2B0B761Af01Ca8e25242976ac0aD7D',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://developers.circle.com/docs',
+    bridge: 'kusama',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
+  axlUSDC: {
+    name: 'USD Coin',
+    symbol: 'USDC',
+    oracleId: 'USDC',
+    address: '0xCa01a1D0993565291051daFF390892518ACfAD3A',
+    chainId: 1284,
+    decimals: 6,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x818ec0A7Fe18Ff94269904fCED6AE3DaE6d6dC0b.svg',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://developers.circle.com/docs',
+    bridge: 'axelar',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
