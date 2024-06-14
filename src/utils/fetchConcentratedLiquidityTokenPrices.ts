@@ -177,11 +177,11 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
   moonbeam: [
     {
       type: 'UniV3',
-      oracleId: 'whUSDC',
+      oracleId: 'USDCwh',
       decimalDelta: 1e-12,
       pool: '0xF7e2F39624AAd83AD235A090bE89b5fa861c29B8',
       firstToken: 'GLMR',
-      secondToken: 'whUSDC',
+      secondToken: 'USDCwh',
     },
   ],
   linea: [
