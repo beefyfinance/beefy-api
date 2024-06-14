@@ -717,6 +717,9 @@ const seedPeggedPrices = {
   cArbUSDCv3: 'USDC', // Compound
   aOptUSDC: 'USDC', //Aave
   aOptUSDCn: 'USDC', //Aave
+  axlUSDC: 'USDC', // Axelar
+  xcUSDC: 'USDC', // Kusama
+  xcUSDT: 'USDT', // Kusama
 };
 
 export type LpBreakdown = {

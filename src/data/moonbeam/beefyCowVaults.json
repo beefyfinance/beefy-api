@@ -1,5 +1,49 @@
 [
   {
+    "address": "0x4C70eaa0103A873B01D731Ab607af6D4abF18240",
+    "lpAddress": "0x5DAf7f80CC550Ee6249A4635C3bb0678E94D3867",
+    "tokens": [
+      "0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080",
+      "0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d"
+    ],
+    "tokenOracleIds": ["xcDOT", "xcUSDT"],
+    "decimals": [10, 6],
+    "oracleId": "stella-cow-xcdot-xcusdt"
+  },
+  {
+    "address": "0x72834475CA1Fd656Ed3dE57986478b26517B5ada",
+    "lpAddress": "0xaC7F862a09B58F6C2DF35aE38dbDBc593991d939",
+    "tokens": [
+      "0xCa01a1D0993565291051daFF390892518ACfAD3A",
+      "0xFFfffffF7D2B0B761Af01Ca8e25242976ac0aD7D"
+    ],
+    "tokenOracleIds": ["axlUSDC", "xcUSDC"],
+    "decimals": [6, 6],
+    "oracleId": "stella-cow-axlusdc-xcusdc"
+  },
+  {
+    "address": "0x662CE620f9106aC47A441Bc79861B9e846d02324",
+    "lpAddress": "0x84fb1F90836F7962011576307476d474874c4d68",
+    "tokens": [
+      "0xFFfffffF7D2B0B761Af01Ca8e25242976ac0aD7D",
+      "0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d"
+    ],
+    "tokenOracleIds": ["xcUSDC", "xcUSDT"],
+    "decimals": [6, 6],
+    "oracleId": "stella-cow-xcusdc-xcusdt"
+  },
+  {
+    "address": "0xB6D5aae6F867a7afdc4eA51F97664D3B9fE7a255",
+    "lpAddress": "0x0Aa60133b2604851F3c57067cFAC2fcc3aa7fd7b",
+    "tokens": [
+      "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "0xFFfffffF7D2B0B761Af01Ca8e25242976ac0aD7D"
+    ],
+    "tokenOracleIds": ["GLMR", "xcUSDC"],
+    "decimals": [18, 6],
+    "oracleId": "stella-cow-xcusdc-glmr"
+  },
+  {
     "address": "0xB4ffA6d9017bfc0e1F2C80E4b5C168516455383b",
     "lpAddress": "0xB13B281503F6eC8A837Ae1a21e86a9caE368fCc5",
     "tokens": [
