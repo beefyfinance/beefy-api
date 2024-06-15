@@ -1808,6 +1808,34 @@ const _tokens = {
     documentation: 'https://reserve.org/protocol/reserve_rights_rsr/',
     bridge: 'arbitrum-canonical',
   },
+  LDO: {
+    name: 'Lido DAO Token',
+    symbol: 'LDO',
+    oracleId: 'LDO',
+    address: '0x13Ad51ed4F1B7e9Dc168d8a00cB3f4dDD85EfA60',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://stake.lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH 2.0 backed by industry-leading staking providers.',
+    documentation: 'https://docs.lido.fi/',
+    bridge: 'arbitrum-canonical',
+  },
+  NEXT: {
+    name: 'Everclear',
+    symbol: 'NEXT',
+    oracleId: 'NEXT',
+    address: '0x58b9cB810A68a7f3e1E4f8Cb45D1B9B3c79705E8',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.connext.network',
+    description:
+      'Everclear (previously Connext) is a modular protocol for securely passing funds and data between chains. Developers can use Everclear to build crosschain apps (xApps) - applications that interact with multiple domains (blockchains and/or rollups) simultaneously.',
+    documentation: 'https://dao-docs.connext.network/',
+    bridge: 'connext',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
