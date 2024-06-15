@@ -1,5 +1,71 @@
 [
   {
+    "address": "0xCFf23567199817dEeC54c8D0E0d138837b20B3A8",
+    "lpAddress": "0xE870BFE4AaCB6E234B645e535D26C53790D50E78",
+    "tokens": [
+      "0x0994206dfE8De6Ec6920FF4D779B0d950605Fb53",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": ["CRV", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-crv-weth"
+  },
+  {
+    "address": "0x0Ee84708c7E4F65e4799235CB576C7E862aA4D03",
+    "lpAddress": "0xaDAb76dD2dcA7aE080A796F0ce86170e482AfB4a",
+    "tokens": [
+      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "0x68f180fcCe6836688e9084f035309E29Bf0A2095"
+    ],
+    "tokenOracleIds": ["USDC", "WBTC"],
+    "decimals": [6, 8],
+    "oracleId": "uniswap-cow-op-usdc-wbtc"
+  },
+  {
+    "address": "0x9b9EB6B79b09A43e5d4118ED7124147Fb3c8d250",
+    "lpAddress": "0xc858A329Bf053BE78D6239C4A4343B8FbD21472b",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"
+    ],
+    "tokenOracleIds": ["WETH", "USDT"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-op-weth-usdt"
+  },
+  {
+    "address": "0x53F42Ee2feb58035e6c43B3FF796b17D9650cF4b",
+    "lpAddress": "0x03aF20bDAaFfB4cC0A521796a223f7D85e2aAc31",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1"
+    ],
+    "tokenOracleIds": ["WETH", "DAI"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-weth-dai"
+  },
+  {
+    "address": "0x4EAb2865E76318478b7d4F63F613a0ED0A602945",
+    "lpAddress": "0x0392b358CE4547601BEFa962680BedE836606ae2",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4"
+    ],
+    "tokenOracleIds": ["WETH", "SNX"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-weth-snx"
+  },
+  {
+    "address": "0x0A90c02d6Be2EF93e939702Efc74BEC58659a4D3",
+    "lpAddress": "0x85149247691df622eaF1a8Bd0CaFd40BC45154a9",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x7F5c764cBc14f9669B88837ca1490cCa17c31607"
+    ],
+    "tokenOracleIds": ["WETH", "opUSDCe"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-op-weth-usdc.e"
+  },
+  {
     "address": "0xA2A8B06aa9d211e02E1F8CEb7706aE8bF3362Dfb",
     "lpAddress": "0xB533c12fB4e7b53b5524EAb9b47d93fF6C7A456F",
     "tokens": [
