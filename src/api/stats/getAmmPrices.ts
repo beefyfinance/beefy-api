@@ -624,6 +624,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'kelp-dao-restaked-eth': ['rsETH'],
   'frax-ether': ['frxETH'],
   'stakestone-ether': ['STONE'],
+  'alchemix-eth': ['alETH'],
 };
 
 /**
@@ -707,7 +708,6 @@ const seedPeggedPrices = {
   aavUSDC: 'USDC', // Aave
   aavUSDT: 'USDT', // Aave
   'DAI+': 'DAI', // Overnight
-  alETH: 'ETH', // Alchemix
   hETH: 'ETH', // HOP
   hDAI: 'DAI', // HOP
   hUSDC: 'USDC', // HOP

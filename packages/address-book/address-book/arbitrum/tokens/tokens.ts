@@ -1850,6 +1850,20 @@ const _tokens = {
       'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
     bridge: 'connext',
   },
+  alUSD: {
+    name: 'Alchemix USD',
+    symbol: 'alUSD',
+    oracleId: 'alUSD',
+    address: '0xCB8FA9a76b8e203D8C3797bF438d8FB81Ea3326A',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alchemix.fi/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+    documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
+    bridge: 'connext',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
