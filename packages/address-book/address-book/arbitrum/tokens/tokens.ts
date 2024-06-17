@@ -1836,6 +1836,20 @@ const _tokens = {
     documentation: 'https://dao-docs.connext.network/',
     bridge: 'connext',
   },
+  alETH: {
+    name: 'Alchemix ETH',
+    symbol: 'alETH',
+    oracleId: 'alETH',
+    address: '0x17573150d67d820542EFb24210371545a4868B03',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://alchemix.fi/',
+    documentation: 'https://alchemix-finance.gitbook.io/v2/',
+    description:
+      'Alchemix Self-Repaying Loans allow you to leverage a range of tokens without risk of liquidation.',
+    bridge: 'connext',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
