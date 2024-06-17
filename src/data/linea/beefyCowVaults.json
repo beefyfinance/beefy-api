@@ -1,0 +1,35 @@
+[
+  {
+    "address": "0x97BaB27d3EC82a43aFC60ce521ac121CD6F6Cc3e",
+    "lpAddress": "0x5856EDF9212bdceC74301ec78AFc573B62D6A283",
+    "tokens": [
+      "0x176211869cA2b568f2A7D4EE941E073a821EE1ff",
+      "0xA219439258ca9da29E9Cc4cE5596924745e12B93"
+    ],
+    "tokenOracleIds": ["USDC", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "oku-linea-usdc-usdt"
+  },
+  {
+    "address": "0x0Db58cB843B8AF6A8704338447c0a7e36F4D5613",
+    "lpAddress": "0xa22206521A460aA6B21a089c3b48FFd0C79d5fD5",
+    "tokens": [
+      "0x3aAB2285ddcDdaD8edf438C1bAB47e1a9D05a9b4",
+      "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f"
+    ],
+    "tokenOracleIds": ["WBTC", "WETH"],
+    "decimals": [8, 18],
+    "oracleId": "oku-linea-weth-wbtc"
+  },
+  {
+    "address": "0x4d6d208e75d800957c4AF83FB9f42AabFEbc6b6D",
+    "lpAddress": "0xc48622190a6B91d64ee7459C62fadE9AbE61b48a",
+    "tokens": [
+      "0x176211869cA2b568f2A7D4EE941E073a821EE1ff",
+      "0xe5D7C2a44FfDDf6b295A15c148167daaAf5Cf34f"
+    ],
+    "tokenOracleIds": ["USDC", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "oku-linea-weth-usdc.e"
+  }
+]
