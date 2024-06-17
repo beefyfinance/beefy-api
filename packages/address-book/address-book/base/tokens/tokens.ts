@@ -1149,6 +1149,20 @@ const _tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'base-canonical',
   },
+  UNI: {
+    name: 'Uniswap',
+    symbol: 'UNI',
+    oracleId: 'UNI',
+    address: '0xc3De830EA07524a0761646a6a4e4be0e114a3C83',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://uniswap.org/',
+    description:
+      'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    bridge: 'base-canonical',
+    logoURI: '',
+    documentation: 'https://uniswap.org/developers',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
