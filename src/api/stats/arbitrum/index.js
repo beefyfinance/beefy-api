@@ -9,7 +9,6 @@ const getRipaeApys = require('./getRipaeApys');
 const { getGmxV2Apys } = require('./getGmxV2Apys');
 const { getGmxApys } = require('./getGmxApys');
 const { getHopApys } = require('./getHopApys');
-const { getHopRplApys } = require('./getHopRplApys');
 const { getConvexApys } = require('./getConvexApys');
 const { getSwapFishApys } = require('./getSwapFishApys');
 const { getGnsApys } = require('./getGnsApys');
@@ -38,7 +37,6 @@ const getApys = [
   getKyberArbitrumApys,
   getGnsApys,
   getHopApys,
-  getHopRplApys,
   () => getEquilibriaApys(require('../../../data/arbitrum/equilibriaPools.json')),
   getGmxV2Apys,
   getGmxApys,
