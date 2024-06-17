@@ -1880,6 +1880,36 @@ const _tokens = {
       'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
     bridge: 'native',
   },
+  USD3: {
+    name: 'Web 3 Dollar',
+    symbol: 'USD3',
+    oracleId: 'USD3',
+    address: '0x0d86883FAf4FfD7aEb116390af37746F45b6f378',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://app.reserve.org/ethereum/token/0x0d86883FAf4FfD7aEb116390af37746F45b6f378/overview',
+    description:
+      'USD3 is 1:1 asset backed by a basket of yield-bearing tokens. Given the unique design and current market conditions, it is estimated to yield up to 10% APY from the most reputable protocols using the most established assets. USD3 is overcollateralized with auditable proof of reserves available on-chain 24/7.',
+    documentation: 'https://reserve.org/protocol/',
+    bridge: 'native',
+  },
+  rgUSD: {
+    name: 'Revenue Generating USD',
+    symbol: 'rgUSD',
+    oracleId: 'rgUSD',
+    address: '0x78da5799CF427Fee11e9996982F4150eCe7a99A7',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://app.reserve.org/ethereum/token/0x78da5799cf427fee11e9996982f4150ece7a99a7/overview',
+    description:
+      'rgUSD is an overcollateralized stablecoin launched on Reserve Protocol that acts as a collective point for DeFi users to negotiate with stablecoin yield providers for the best returns.',
+    documentation: 'https://reserve.org/protocol/',
+    bridge: 'native',
+  },
   rsETH: {
     chainId: 1,
     address: '0xA1290d69c65A6Fe4DF752f95823fae25cB99e5A7',

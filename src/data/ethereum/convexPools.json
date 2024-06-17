@@ -1,5 +1,54 @@
 [
   {
+    "name": "convex-usd3-rgusd",
+    "pool": "0xde73e407efc75edbafc5bcd62ebb1e7a9b38ebcd",
+    "gauge": "0x36152aa234fcf97b5c14fc6d4893fc0da5328bd2",
+    "rewardPool": "0x1EB6689327b8E12cDD0F8806aFDc9caeD40862de",
+    "getDy": ["v2", 0, 1],
+    "extras": [
+      {
+        "rewardPool": "0xb6875cA08a0db50334C7C5e31e52190cb037035D",
+        "oracleId": "rgUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "USD3",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "rgUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-rgusd-eusd-usdc",
+    "pool": "0xdf9015472ea23e3bea6fbd6092915f9ed6980a99",
+    "gauge": "0x90efd41e75360ffc7fd1d3c5fc0e4f43e8bcd9bc",
+    "rewardPool": "0x0585A9c5BF0AF8F34CBd4A61A74D4Df309C00395",
+    "extras": [
+      {
+        "rewardPool": "0xF9350BFaA957d2AF48d5429624fb38d63820E341",
+        "oracleId": "rgUSD"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "rgUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "curve-crvusd-susde",
     "pool": "0x57064f49ad7123c92560882a45518374ad982e85",
     "gauge": "0x76f236a0cc1c90425d8ab5f042970454311482ab",
