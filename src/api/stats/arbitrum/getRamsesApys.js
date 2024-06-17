@@ -21,10 +21,6 @@ const getRamsesApys = async () => {
     decimals: '1e18',
     reward: RAM.address,
     spirit: false,
-    boosted: true,
-    NFTid: 30,
-    ve: ramses.ve,
-    gaugeStaker: ramses.gaugeStaker,
     // log: true,
   });
 };
