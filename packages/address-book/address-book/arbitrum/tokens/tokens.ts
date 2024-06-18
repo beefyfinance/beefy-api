@@ -1879,6 +1879,35 @@ const _tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  COMP: {
+    name: 'Compound',
+    symbol: 'COMP',
+    oracleId: 'COMP',
+    address: '0x354A6dA3fcde098F8389cad84b0182725c6C91dE',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://compound.finance/',
+    documentation: 'https://docs.compound.finance/',
+    description:
+      'COMP is the governance token of Compound, a decentralized protocol that enables supplying of crypto assets as collateral in order to borrow a base asset.',
+    bridge: 'arbitrum-canonical',
+  },
+  SYN: {
+    name: 'Synapse',
+    symbol: 'SYN',
+    oracleId: 'SYN',
+    address: '0x080F6AEd32Fc474DD5717105Dba5ea57268F46eb',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://synapseprotocol.com/',
+    documentation: 'https://synapse-3.gitbook.io/synapse-protocol',
+    description:
+      'Synapse (SYN) is an interoperability protocol designed for safely and securely sending arbitrary data between blockchains.',
+    bridge: 'synapse',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
