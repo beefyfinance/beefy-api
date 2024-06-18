@@ -5,6 +5,7 @@ import basePools from '../../data/base/beefyCowVaults.json';
 import arbitrumPools from '../../data/arbitrum/beefyCowVaults.json';
 import moonbeamPools from '../../data/moonbeam/beefyCowVaults.json';
 import lineaPools from '../../data/linea/beefyCowVaults.json';
+import polygonPools from '../../data/matic/beefyCowVaults.json';
 
 const chainToPools: Partial<Record<ApiChain, CowPool[]>> = {
   optimism: validateCowPools(optimismPools),
@@ -12,6 +13,7 @@ const chainToPools: Partial<Record<ApiChain, CowPool[]>> = {
   arbitrum: validateCowPools(arbitrumPools),
   moonbeam: validateCowPools(moonbeamPools),
   linea: validateCowPools(lineaPools),
+  polygon: validateCowPools(polygonPools),
 };
 
 const chainsWithPools = (Object.keys(chainToPools) as ReadonlyArray<ApiChain>).filter(
