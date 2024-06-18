@@ -1,5 +1,16 @@
 [
   {
+    "address": "0xAf4c8cEE65Fd6dD1864f4bb53dbD386B0D092063",
+    "lpAddress": "0xAF7b48ae2f4773FD44f9208ccA3Db5ae7BFa7e37",
+    "tokens": [
+      "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+      "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+    ],
+    "tokenOracleIds": ["USDe", "USDT"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arb-usde-usdt"
+  },
+  {
     "address": "0x308aD09fD1577dF61Dd638cd8c81B12072c21665",
     "lpAddress": "0x536F4b1CbEDA8387A57b45A549ca6B250f7f1D90",
     "tokens": [
