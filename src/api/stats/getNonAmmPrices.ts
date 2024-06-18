@@ -119,6 +119,7 @@ import { getBeefyCowBasePrices } from './base/getBeefyCowBasePrices';
 import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
 import { getBeefyCowMoonbeamPrices } from './moonbeam/getBeefyCowMoonbeamPricis';
 import { getBeefyCowLineaPrices } from './linea/getBeefyLineaCowPrices';
+import getOptimismSiloPrices from './optimism/getOptimismSiloPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -141,6 +142,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getAcrossPrices(tokenPrices),
     getArbitrumSiloPrices(tokenPrices),
     getEthSiloPrices(tokenPrices),
+    getOptimismSiloPrices(tokenPrices),
     getEqualizerStableBasePrices(tokenPrices),
     getKinetixPrices(tokenPrices),
     getBasoStablePrices(tokenPrices),
