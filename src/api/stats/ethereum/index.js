@@ -22,6 +22,7 @@ const { getEthSiloApys } = require('./getEthereumSiloApys');
 const getMerklApys = require('./getMerklApys');
 const { getbeQIApy } = require('./getbeQIApy');
 const { getFxApys } = require('./getFxApys');
+const { getPenpieApys } = require('./getPenpieApys');
 
 const getApys = [
   getAcrossApys,
@@ -45,6 +46,7 @@ const getApys = [
   // getEulerApys, // => delete this? code already doesn't work...
   getVerseLpApys,
   getGammaApy,
+  getPenpieApys,
   getETHCompoundV3Apys,
   getEthSiloApys,
   getMerklApys,

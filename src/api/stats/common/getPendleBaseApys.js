@@ -1,18 +1,22 @@
 import BigNumber from 'bignumber.js';
 
-export const getPendleBaseApys = async (chainId, pools) => {
-  let apys = {};
+export const getPendleApys = async (chainId, pools) => {
+  let tradingApys = {};
+  const pendleApys = [];
+  const syRewardsApys = [];
   try {
     const response = await fetch(
       `https://api-v2.pendle.finance/core/v1/${chainId}/markets?limit=100&is_active=true`
     ).then(res => res.json());
     pools.forEach(pool => {
-      let apy = new BigNumber(0);
+      let baseApy = new BigNumber(0);
+      let pendleApy = new BigNumber(0);
+      let syRewardsApy = new BigNumber(0);
       const res = response.results.find(
         r => r.address.toLowerCase() === pool.address.toLowerCase()
       );
       if (res) {
-        apy = new BigNumber(res.swapFeeApy || 0);
+        baseApy = new BigNumber(res.swapFeeApy || 0);
         const ptUsd = res.totalPt * res.pt?.price?.usd || 0;
         const syUsd = res.totalSy * res.sy?.price?.usd || 0;
         const totalUsd = res.liquidity?.usd || 1;
@@ -20,15 +24,21 @@ export const getPendleBaseApys = async (chainId, pools) => {
           .times(syUsd)
           .div(totalUsd);
         const ptFixedApy = new BigNumber(res.impliedApy || 0).times(ptUsd).div(totalUsd);
-        // console.log(pool.name, 'lp', ptUsd, syUsd, totalUsd);
-        // console.log(pool.name, 'underlying APY', underlyingApy.toNumber());
-        // console.log(pool.name, 'ptFixed APY', ptFixedApy.toNumber());
-        apy = apy.plus(underlyingApy).plus(ptFixedApy);
+        baseApy = baseApy.plus(underlyingApy).plus(ptFixedApy);
+        pendleApy = new BigNumber(res.pendleApy || 0);
+        syRewardsApy = new BigNumber(res.lpRewardApy || 0);
       }
-      apys = { ...apys, ...{ [pool.address.toLowerCase()]: apy } };
+      tradingApys = { ...tradingApys, ...{ [pool.address.toLowerCase()]: baseApy } };
+      pendleApys.push(pendleApy);
+      syRewardsApys.push(syRewardsApy);
     });
   } catch (err) {
-    console.error('Pendle base apy error', err.message);
+    console.error('Pendle apy error', err.message);
   }
-  return apys;
+  return { tradingApys, pendleApys, syRewardsApys };
+};
+
+export const getPendleBaseApys = async (chainId, pools) => {
+  const { tradingApys } = await getPendleApys(chainId, pools);
+  return tradingApys;
 };
