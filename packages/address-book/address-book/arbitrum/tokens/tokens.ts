@@ -1864,6 +1864,21 @@ const _tokens = {
     documentation: 'https://alchemix-finance.gitbook.io/user-docs/',
     bridge: 'connext',
   },
+  USDV: {
+    name: 'USDV',
+    symbol: 'USDV',
+    oracleId: 'USDV',
+    address: '0x323665443CEf804A3b5206103304BD4872EA4253',
+    chainId: 42161,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://usdv.money/',
+    description:
+      'Verified USD (USDV) is the first stablecoin that rewards Verified Minters based on their contribution to the tokens active circulation.',
+    documentation: 'https://docs.usdv.money/docs',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
