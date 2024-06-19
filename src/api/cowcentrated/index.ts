@@ -1,7 +1,9 @@
 import { getCowPriceRanges, initCowDataService } from './getCowPriceRanges';
 import {
+  getCowBeefyMerklCampaignsByChain,
   getCowBeefyMerklCampaignsForChain,
   getCowMerklCampaignsByChain,
+  getCowMerklCampaignsForChain,
   initCowMerklService,
 } from './getCowMerkleCampaigns';
 import { isApiChain } from '../../utils/chain';
@@ -33,16 +35,31 @@ export const getCowcentratedPriceRanges = ctx => {
 };
 
 /**
- * All merkl campaigns created by Beefy for a specific chain
+ * All merkl campaigns for each chain [that target a pool one of our clm vaults is using]
  */
-export const getCowcentratedBeefyMerklCampaignsForChain = ctx => {
+export const getCowcentratedAllMerklCampaigns = ctx => {
+  const campaigns = getCowMerklCampaignsByChain();
+  if (!campaigns) {
+    ctx.status = 500;
+    ctx.body = 'Not available yet';
+    return;
+  }
+
+  ctx.status = 200;
+  ctx.body = Object.values(campaigns).flat();
+};
+
+/**
+ * Merkl campaigns for a specific chain [that target a pool one of our clm vaults is using]
+ */
+export const getCowcentratedAllMerklCampaignsForChain = ctx => {
   if (!isApiChain(ctx.params.chainId)) {
     ctx.status = 404;
     ctx.body = 'Invalid chain';
     return;
   }
 
-  const campaigns = getCowBeefyMerklCampaignsForChain(ctx.params.chainId);
+  const campaigns = getCowMerklCampaignsForChain(ctx.params.chainId);
   if (!campaigns) {
     ctx.status = 500;
     ctx.body = 'Not available yet';
@@ -54,10 +71,31 @@ export const getCowcentratedBeefyMerklCampaignsForChain = ctx => {
 };
 
 /**
- * All merkl campaigns for each chain that target a pool one of our clm vaults is using
+ * All merkl campaigns created by Beefy [that target a pool one of our clm vaults is using]
  */
-export const getCowcentratedMerklCampaignsByChain = ctx => {
-  const campaigns = getCowMerklCampaignsByChain();
+export const getCowcentratedBeefyMerklCampaigns = ctx => {
+  const campaigns = getCowBeefyMerklCampaignsByChain();
+  if (!campaigns) {
+    ctx.status = 500;
+    ctx.body = 'Not available yet';
+    return;
+  }
+
+  ctx.status = 200;
+  ctx.body = Object.values(campaigns).flat();
+};
+
+/**
+ * Merkl campaigns created by Beefy for a specific chain [that target a pool one of our clm vaults is using]
+ */
+export const getCowcentratedBeefyMerklCampaignsForChain = ctx => {
+  if (!isApiChain(ctx.params.chainId)) {
+    ctx.status = 404;
+    ctx.body = 'Invalid chain';
+    return;
+  }
+
+  const campaigns = getCowBeefyMerklCampaignsForChain(ctx.params.chainId);
   if (!campaigns) {
     ctx.status = 500;
     ctx.body = 'Not available yet';

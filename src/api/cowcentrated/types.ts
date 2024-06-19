@@ -1,4 +1,5 @@
 import { Address, isAddress } from 'viem';
+import { ApiChain } from '../../utils/chain';
 
 type JsonCowPool = {
   address: string;
@@ -79,3 +80,60 @@ export function isClmApiVault(data: any): data is ClmApiVault {
 export function isClmApiVaultsResponse(data: any): data is ClmApiVaultsResponse {
   return Array.isArray(data) && data.every(isClmApiVault);
 }
+
+type MerklApiForwarder = {
+  almAPR: number;
+  almAddress: Address;
+  forwarderType: number;
+  priority: number;
+  sender: Address;
+  target: Address;
+  owner: Address;
+  type: number;
+};
+
+export type MerklApiCampaign = {
+  chainId: number;
+  campaignId: string;
+  creator: Address;
+  startTimestamp: number;
+  endTimestamp: number;
+  /** supposed to be an address but some have extra space on end */
+  mainParameter: string;
+  forwarders: MerklApiForwarder[];
+};
+
+export type MerklApiCampaignsResponse = {
+  [chainId: string]: {
+    [poolTypeId: string]: {
+      [campaignId: string]: MerklApiCampaign;
+    };
+  };
+};
+
+type CampaignVault = {
+  id: string;
+  address: string;
+  apr: number;
+};
+
+export type BeefyCampaignType = 'test' | 'arb-ltipp' | 'op-gov-fund' | 'other';
+export type ExternalCampaignType = 'external';
+export type CampaignType = BeefyCampaignType | ExternalCampaignType;
+
+export type CampaignTypeByChain = {
+  [K in ApiChain]?: CampaignType;
+} & { default: CampaignType };
+
+export type CampaignTypeSetting = CampaignType | CampaignTypeByChain;
+
+export type Campaign = {
+  campaignId: string;
+  startTimestamp: number;
+  endTimestamp: number;
+  chainId: ApiChain;
+  poolAddress: string;
+  type: CampaignType;
+  fetchedTimestamp: number;
+  vaults: CampaignVault[];
+};

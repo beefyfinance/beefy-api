@@ -4,73 +4,51 @@ import { groupBy, mapValues, partition } from 'lodash';
 import { isResultFulfilled } from '../../utils/promise';
 import { getKey, setKey } from '../../utils/cache';
 import { Address, isAddressEqual } from 'viem';
-import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { getCowPoolChains, getCowPools } from './getCowPools';
-import { CowPool } from './types';
+import {
+  Campaign,
+  CampaignType,
+  CampaignTypeSetting,
+  CowPool,
+  MerklApiCampaign,
+  MerklApiCampaignsResponse,
+} from './types';
 import { isFiniteNumber } from '../../utils/number';
+import { getUnixTime } from 'date-fns';
 
 const INIT_DELAY = 5000; // 5 seconds
 const UPDATE_INTERVAL = 30 * 60 * 1000; // 30 minutes
 const CACHE_KEY = 'COWCENTRATED_MERKL_CAMPAIGNS';
-const CAMPAIGN_CREATOR_TO_TYPE: Record<Address, 'test' | 'lltip'> = {
+const CAMPAIGN_CREATOR_TO_TYPE: Record<Address, CampaignTypeSetting> = {
   '0xb1F1000b4FCae7CD07370cE1A3E3b11270caC0dE': 'test',
-  '0xD80e5884C1E2771D4d2A6b3b7C240f10EfA0c766': 'lltip',
+  '0xD80e5884C1E2771D4d2A6b3b7C240f10EfA0c766': {
+    arbitrum: 'arb-ltipp',
+    default: 'external', // we do not own this address on other chains
+  },
+  '0x4ABa01FB8E1f6BFE80c56Deb367f19F35Df0f4aE': {
+    optimism: 'op-gov-fund',
+    default: 'external', // we do not own this address on other chains
+  },
 };
-let merklCampaignsByChain: Partial<Record<ApiChain, Campaign[]>> = {};
-let merklBeefyCampaignsByChain: Partial<Record<ApiChain, Campaign[]>> = {};
+let merklCampaignsByChain: Partial<Record<ApiChain, Campaign[]>> = {}; // redis
+let merklBeefyCampaignsByChain: Partial<Record<ApiChain, Campaign[]>> = {}; // memory only
 
-type ApiForwarder = {
-  almAPR: number;
-  almAddress: Address;
-  forwarderType: number;
-  priority: number;
-  sender: Address;
-  target: Address;
-  owner: Address;
-  type: number;
-};
+function getCampaignType(creator: Address, chain: ApiChain): CampaignType {
+  const type = CAMPAIGN_CREATOR_TO_TYPE[creator] || 'external';
+  if (typeof type === 'string') {
+    return type;
+  }
 
-type ApiCampaign = {
-  chainId: number;
-  campaignId: string;
-  creator: Address;
-  startTimestamp: number;
-  endTimestamp: number;
-  /** supposed to be an address but some have extra space on end */
-  mainParameter: string;
-  forwarders: ApiForwarder[];
-};
-
-type ApiCampaignsResponse = {
-  [chainId: string]: {
-    [poolTypeId: string]: {
-      [campaignId: string]: ApiCampaign;
-    };
-  };
-};
-
-type CampaignVault = {
-  id: string;
-  address: string;
-  apr: number;
-};
-
-type Campaign = {
-  campaignId: string;
-  startTimestamp: number;
-  endTimestamp: number;
-  chainId: ApiChain;
-  poolAddress: string;
-  type: 'test' | 'lltip' | 'external';
-  vaults: CampaignVault[];
-};
+  return type[chain] || type.default || 'external';
+}
 
 function getCampaign(
   apiChain: ApiChain,
-  campaign: ApiCampaign,
-  pools: ReadonlyArray<CowPool>
+  campaign: MerklApiCampaign,
+  pools: ReadonlyArray<CowPool>,
+  unixTimestamp: number
 ): Campaign | undefined {
-  const type = CAMPAIGN_CREATOR_TO_TYPE[campaign.creator] || 'external';
+  const type = getCampaignType(campaign.creator, apiChain);
   const vaults = pools.filter(
     p => p.lpAddress.toLowerCase() === campaign.mainParameter.toLowerCase()
   );
@@ -107,6 +85,7 @@ function getCampaign(
     endTimestamp: campaign.endTimestamp,
     poolAddress: campaign.mainParameter,
     vaults: vaultsWithApr,
+    fetchedTimestamp: unixTimestamp,
     type,
   };
 }
@@ -115,7 +94,7 @@ async function updateChain(apiChain: ApiChain) {
   const chainId = toChainId(apiChain);
   const url = `https://api.merkl.xyz/v3/campaigns?chainIds=${chainId}`;
   const response = await fetch(url);
-  const data = (await response.json()) as ApiCampaignsResponse;
+  const data = (await response.json()) as MerklApiCampaignsResponse;
   const chainData = data[chainId];
   if (!chainData) {
     throw new Error(`No data for chain ${apiChain}`);
@@ -123,10 +102,11 @@ async function updateChain(apiChain: ApiChain) {
 
   const campaigns: Campaign[] = [];
   const pools = getCowPools(apiChain);
+  const now = getUnixTime(new Date());
 
   for (const apiPool of Object.values(chainData)) {
     for (const apiCampaign of Object.values(apiPool)) {
-      const campaign = getCampaign(apiChain, apiCampaign, pools);
+      const campaign = getCampaign(apiChain, apiCampaign, pools, now);
       if (campaign) {
         campaigns.push(campaign);
       }

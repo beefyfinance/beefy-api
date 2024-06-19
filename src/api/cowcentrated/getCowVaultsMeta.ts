@@ -1,6 +1,5 @@
 import { ApiChain } from '../../utils/chain';
 import { CowVaultMeta, CowVaultsMeta, isClmApiVaultsResponse } from './types';
-import BigNumber from 'bignumber.js';
 import { isAddressEqual } from 'viem';
 import { getKey, setKey } from '../../utils/cache';
 import { partition } from 'lodash';
