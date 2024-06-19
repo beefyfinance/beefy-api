@@ -625,6 +625,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'frax-ether': ['frxETH'],
   'stakestone-ether': ['STONE'],
   'alchemix-eth': ['alETH'],
+  pepe: ['PEPE'],
 };
 
 /**

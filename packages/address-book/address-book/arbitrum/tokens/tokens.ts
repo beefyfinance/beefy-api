@@ -1936,6 +1936,21 @@ const _tokens = {
       'ENS is the governance token of the Ethereum Name Service, a distributed, open, and extensible naming system based on the Ethereum blockchain.',
     bridge: 'arbitrum-canonical',
   },
+  PEPE: {
+    name: 'Pepe',
+    symbol: 'PEPE',
+    oracleId: 'PEPE',
+    address: '0x25d887Ce7a35172C62FeBFD67a1856F20FaEbB00',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.pepe.vip/',
+    documentation: 'https://www.pepe.vip/',
+    description:
+      'Pepe is here to make memecoins great again. Launched stealth with no presale, zero taxes, LP burnt and contract renounced, $PEPE is a coin for the people, forever. Fueled by pure memetic power, let $PEPE show you the way.',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;

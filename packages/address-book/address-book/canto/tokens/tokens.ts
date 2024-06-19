@@ -273,7 +273,7 @@ const _tokens = {
   PEPE: {
     name: 'Pepe',
     symbol: 'PEPE',
-    oracleId: 'PEPE',
+    oracleId: 'cantoPEPE',
     address: '0xf390830DF829cf22c53c8840554B98eafC5dCBc2',
     chainId: 7700,
     decimals: 18,
