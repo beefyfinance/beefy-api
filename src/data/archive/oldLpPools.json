@@ -1,5 +1,23 @@
 [
   {
+    "name": "sushi-weth-ens",
+    "address": "0xa1181481bEb2dc5De0DaF2c85392d81C704BF75D",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp0": {
+      "address": "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
+      "oracle": "tokens",
+      "oracleId": "ENS",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "spirit-dei-fmusdc",
     "address": "0x8eFD36aA4Afa9F4E157bec759F1744A7FeBaEA0e",
     "decimals": "1e18",

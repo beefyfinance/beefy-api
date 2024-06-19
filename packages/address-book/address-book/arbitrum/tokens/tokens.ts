@@ -1908,6 +1908,34 @@ const _tokens = {
     bridge: 'synapse',
     risks: ['NO_TIMELOCK'],
   },
+  WMATIC: {
+    name: 'WMATIC',
+    symbol: 'WMATIC',
+    oracleId: 'WMATIC',
+    address: '0x561877b6b3DD7651313794e5F2894B2F18bE0766',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://polygon.technology/',
+    documentation: 'https://docs.polygon.technology/',
+    description:
+      'WMATIC serves as the native cryptocurrency for the Polygon PoS network, analogous to how ETH functions within the Ethereum ecosystem.',
+    bridge: 'arbitrum-canonical',
+  },
+  ENS: {
+    name: 'Ethereum Name Service',
+    symbol: 'ENS',
+    oracleId: 'ENS',
+    address: '0xfeA31d704DEb0975dA8e77Bf13E04239e70d7c28',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ens.domains/',
+    documentation: 'https://docs.ens.domains/',
+    description:
+      'ENS is the governance token of the Ethereum Name Service, a distributed, open, and extensible naming system based on the Ethereum blockchain.',
+    bridge: 'arbitrum-canonical',
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
