@@ -113,7 +113,6 @@
         "oracleId": "ARB"
       }
     ],
-    "getDy": ["v1", 0, 1],
     "tokens": [
       {
         "oracleId": "KNOX",
@@ -189,7 +188,6 @@
         "oracleId": "ARB"
       }
     ],
-    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracleId": "USDC",
@@ -211,7 +209,6 @@
         "oracleId": "arbOVN"
       }
     ],
-    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
@@ -530,7 +527,6 @@
         "oracleId": "FXS"
       }
     ],
-    "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
         "oracle": "tokens",
