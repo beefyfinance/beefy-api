@@ -1,4 +1,5 @@
 import { ChainId } from '../../../packages/address-book/address-book';
+import { mapValues, partition } from 'lodash';
 
 const rpcs: Record<ChainId, string[]> = {
   [ChainId.ethereum]: [
@@ -252,5 +253,150 @@ const rpcs: Record<ChainId, string[]> = {
   [ChainId.fraxtal]: ['https://rpc.frax.com'],
   [ChainId.mode]: ['https://mode.drpc.org'],
 };
+
+export type ErrorRpcResponse = {
+  error: {
+    code: number;
+    message: string;
+  };
+  id: number;
+  jsonrpc: '2.0';
+};
+
+export type SuccessRpcResponse<TResult> = {
+  result: TResult;
+  id: number;
+  jsonrpc: '2.0';
+};
+
+export type RpcResponse<TResult> = ErrorRpcResponse | SuccessRpcResponse<TResult>;
+
+const LOG_ERRORS: boolean = false;
+const LOG_INFO: boolean = false;
+
+export async function initRpcs(): Promise<void> {
+  const counts = mapValues(rpcs, rpcs => rpcs.length);
+
+  await Promise.all(
+    Object.keys(rpcs).map(async key => {
+      const chainId = Number(key) as keyof typeof rpcs; // object keys are strings
+      const chainName = ChainId[chainId];
+      const endpoints = rpcs[chainId]!;
+      const blockNumbers = await Promise.all(
+        endpoints.map(async (rpc, i) => {
+          try {
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 3000);
+            const response = await fetch(rpc, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                Origin: 'https://api.beefy.finance',
+              },
+              body: JSON.stringify({
+                jsonrpc: '2.0',
+                method: 'eth_blockNumber',
+                params: [],
+                id: i,
+              }),
+              signal: controller.signal,
+            });
+            clearTimeout(timeout);
+
+            const json = (await response.json()) as RpcResponse<string>;
+            if ('error' in json) {
+              if (LOG_ERRORS) {
+                console.error('initRpcs::error', chainName, rpc, json);
+              }
+              return undefined;
+            }
+
+            return BigInt(json.result);
+          } catch (e) {
+            if (LOG_ERRORS) {
+              console.error('initRpcs::error', chainName, rpc, e);
+            }
+            return undefined;
+          }
+        })
+      );
+
+      const endpointsToRemove = new Set<string>();
+      const endpointsToCheck: { rpc: string; blockNumber: bigint }[] = [];
+
+      for (let i = 0; i < endpoints.length; i++) {
+        if (!blockNumbers[i]) {
+          if (LOG_INFO) {
+            console.log(
+              'initRpcs::info',
+              chainName,
+              'removing endpoint',
+              endpoints[i],
+              'no block number returned'
+            );
+          }
+          endpointsToRemove.add(endpoints[i]);
+        } else {
+          endpointsToCheck.push({ rpc: endpoints[i], blockNumber: blockNumbers[i] });
+        }
+      }
+
+      if (endpointsToCheck.length === 0) {
+        if (LOG_ERRORS) {
+          console.error(
+            'initRpcs::error',
+            chainName,
+            'no block numbers for chain',
+            'allowing all rpcs'
+          );
+        }
+        return;
+      }
+
+      // Allow +/- 2 blocks from the median block number
+      const sortedBlockNumbers = blockNumbers.filter(Boolean).sort((a, b) => Number(a - b));
+      const medianBlockNumber = sortedBlockNumbers[Math.floor(sortedBlockNumbers.length / 2)];
+      const minBlockNumber = medianBlockNumber - 2n;
+      const maxBlockNumber = medianBlockNumber + 2n;
+
+      for (const endpoint of endpointsToCheck) {
+        if (endpoint.blockNumber < minBlockNumber || endpoint.blockNumber > maxBlockNumber) {
+          endpointsToRemove.add(endpoint.rpc);
+          if (LOG_INFO) {
+            console.log(
+              'initRpcs::info',
+              chainId,
+              'removing endpoint',
+              endpoint.rpc,
+              'blockNumber',
+              endpoint.blockNumber,
+              'minBlockNumber',
+              minBlockNumber,
+              'maxBlockNumber',
+              maxBlockNumber
+            );
+          }
+        }
+      }
+
+      if (endpointsToRemove.size > 0) {
+        console.log('initRpcs', chainName, 'removing endpoints', Array.from(endpointsToRemove));
+        const validChains = rpcs[chainId].filter(rpc => !endpointsToRemove.has(rpc));
+        if (validChains.length) {
+          rpcs[chainId] = validChains;
+        } else {
+          if (LOG_ERRORS) {
+            console.error('initRpcs::error', chainName, 'no valid rpcs left, allowing all');
+          }
+        }
+      }
+    })
+  );
+
+  for (const key of Object.keys(rpcs)) {
+    const endpoints = rpcs[key]!;
+    console.log('initRpcs', ChainId[key], endpoints.length, '/', counts[key], 'endpoints');
+  }
+}
 
 export const getChainRpcs = (chainId: ChainId): string[] => rpcs[chainId] ?? [];
