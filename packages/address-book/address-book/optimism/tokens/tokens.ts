@@ -1559,6 +1559,21 @@ const _tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  weETH: {
+    name: 'Wrapped eETH',
+    symbol: 'weETH',
+    oracleId: 'weETH',
+    address: '0x5A7fACB970D094B6C7FF1df0eA68D99E6e73CBFF',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ether.fi/',
+    description:
+      'Stake ETH, get eETH - a natively restaked liquid staking token that fuels DeFi and decentralizes Ethereum.',
+    documentation: 'https://etherfi.gitbook.io/etherfi',
+    bridge: 'stargate',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const;
 
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
