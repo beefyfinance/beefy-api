@@ -1,5 +1,37 @@
 [
   {
+    "name": "curve-arb-trirsr",
+    "pool": "0x45b47fe1bed067de6b4b89e0285e6b571a64c57c",
+    "gauge": "0xf7205c995b7e5f8f755ecbe7eebb92ec742633c9",
+    "rewards": [
+      {
+        "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
+        "oracleId": "RSR"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ETH+",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "RSR",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-knox-eusd",
     "pool": "0x6f33daf91d2acae10f5cd7bbe3f31716ed123f1d",
     "gauge": "0x63254954b617493bb9311c9f89b50425943b05f6",
@@ -188,6 +220,7 @@
         "oracleId": "ARB"
       }
     ],
+    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracleId": "USDC",
@@ -209,6 +242,7 @@
         "oracleId": "arbOVN"
       }
     ],
+    "getDy": ["v1", 1, 0],
     "tokens": [
       {
         "oracle": "tokens",
@@ -527,6 +561,7 @@
         "oracleId": "FXS"
       }
     ],
+    "getDy": ["v1", 0, 2, "USDC"],
     "tokens": [
       {
         "oracle": "tokens",
