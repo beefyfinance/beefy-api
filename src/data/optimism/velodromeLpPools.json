@@ -29,7 +29,7 @@
     "lp0": {
       "address": "0x10398AbC267496E49106B07dd6BE13364D10dC71",
       "oracle": "tokens",
-      "oracleId": "HAI",
+      "oracleId": "baseHAI",
       "decimals": "1e18"
     },
     "lp1": {
