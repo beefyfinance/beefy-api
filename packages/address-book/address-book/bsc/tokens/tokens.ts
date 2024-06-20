@@ -4661,5 +4661,19 @@ const _tokens = {
     bridge: 'stargate',
     risks: ['NO_TIMELOCK'],
   },
+  ZRO: {
+    name: 'LayerZero',
+    symbol: 'ZRO',
+    oracleId: 'ZRO',
+    address: '0x6985884C4392D348587B19cb9eAAf157F13271cd',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://layerzero.network/',
+    documentation: 'https://docs.layerzero.network/v2',
+    description:
+      'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
+    bridge: 'layer-zero',
+  },
 } as const;
 export const tokens: ConstRecord<typeof _tokens, Token> = _tokens;
