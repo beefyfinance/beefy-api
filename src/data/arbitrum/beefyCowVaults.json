@@ -11,6 +11,17 @@
     "oracleId": "uniswap-cow-arb-zro-weth"
   },
   {
+    "address": "0x93af018a52b8a539ED2255445D1d62f5452B1488",
+    "lpAddress": "0xc868f85196fACFBBc08B44975f83788Dd922E482",
+    "tokens": [
+      "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+      "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+    ],
+    "tokenOracleIds": ["ZRO", "USDT"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-arb-zro-usdt"
+  },
+  {
     "address": "0xA8E4a13fC109E83C71cD3E5D6eC727A7158c95cF",
     "lpAddress": "0xEd3fE08bd12F24dad0f1a1E58610644dEbe374fb",
     "tokens": [
