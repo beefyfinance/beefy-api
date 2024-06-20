@@ -20,6 +20,7 @@ export const beefyfinance = {
   beefyFeeConfig: '0x3d38BA27974410679afF73abD096D7Ba58870EAd',
   vaultFactory: '0xC551dDCE8e5E657503Cd67A39713c06F2c0d2e97',
   wrapperFactory: '0x62fcbc7c3235950eD6dE4168fbd373aF9e8ee0fc',
+  strategyFactory: '0x52941De3eDE234ae6B8608597440Ac3394C64Ae8',
   mooBifi4626: '0x312CEf8839eDa74DeA9b1EEc10b345071cA3d6da',
   zap: '0x5Cc9400FfB4Da168Cf271e912F589462C3A00d1F',
   zapTokenManager: '0xEdFEc19ee32f5130084C0aCab91FeA604C137912',
