@@ -1564,7 +1564,7 @@ const _tokens = {
     symbol: 'weETH',
     oracleId: 'weETH',
     address: '0x5A7fACB970D094B6C7FF1df0eA68D99E6e73CBFF',
-    chainId: 8453,
+    chainId: 10,
     decimals: 18,
     logoURI: '',
     website: 'https://ether.fi/',
