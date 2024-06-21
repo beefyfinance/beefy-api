@@ -23,6 +23,12 @@ export async function getLpBasedPrices(
       tokenPrices,
       nonAmmPrices.prices
     ),
+    getPendleCommonPrices(
+      ARBITRUM_CHAIN_ID,
+      require('../../data/arbitrum/pendlePools.json'),
+      tokenPrices,
+      nonAmmPrices.prices
+    ),
   ];
 
   // Setup error logs
