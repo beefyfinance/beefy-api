@@ -729,14 +729,20 @@ const seedPeggedPrices = {
   xcUSDT: 'USDT', // Kusama
 };
 
-export type LpBreakdown = {
+export type BaseLpBreakdown = {
   price: number;
   tokens: string[];
   balances: string[];
   totalSupply: string;
 };
-type PricesById = Record<string, number>;
-type BreakdownsById = Record<string, LpBreakdown>;
+export type ClmLpBreakdown = BaseLpBreakdown & {
+  underlyingLiquidity: string;
+  underlyingBalances: string[];
+  underlyingPrice: number;
+};
+export type LpBreakdown = BaseLpBreakdown | ClmLpBreakdown;
+export type PricesById = Record<string, number>;
+export type BreakdownsById = Record<string, LpBreakdown>;
 
 const cachedTokenPrices: PricesById = {};
 const cachedLpPrices: PricesById = {};

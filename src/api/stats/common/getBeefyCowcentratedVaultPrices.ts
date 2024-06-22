@@ -1,7 +1,11 @@
 import BigNumber from 'bignumber.js';
 import { fetchContract } from '../../rpc/client';
-import { ChainId } from '../../../../packages/address-book/src/address-book';
 import ERC20Abi from '../../../abis/ERC20Abi';
+import { ApiChain, toChainId } from '../../../utils/chain';
+import { getCowClms } from '../../cowcentrated/getCowClms';
+import { ClmLpBreakdown } from '../getAmmPrices';
+import { Abi } from 'abitype';
+import { isCowClmWithRewardPool } from '../../cowcentrated/types';
 
 const abi = [
   {
@@ -21,7 +25,7 @@ const abi = [
     stateMutability: 'view',
     type: 'function',
   },
-] as const;
+] as const satisfies Abi;
 
 const v3PoolAbi = [
   {
@@ -31,22 +35,19 @@ const v3PoolAbi = [
     stateMutability: 'view',
     type: 'function',
   },
-] as const;
-
-export type CowVault = {
-  address: `0x${string}`;
-  lpAddress: `0x${string}`;
-  tokens: [string, string];
-  tokenOracleIds: [string, string];
-  decimals: [number, number];
-  oracleId: string;
-};
+] as const satisfies Abi;
 
 export const getBeefyCowcentratedVaultPrices = async (
-  chainId: ChainId,
-  sources: CowVault[],
+  apiChain: ApiChain,
   tokenPrices: Record<string, number>
-) => {
+): Promise<Record<string, ClmLpBreakdown>> => {
+  const sources = getCowClms(apiChain);
+  if (sources.length === 0) {
+    console.warn(`getBeefyCowcentratedVaultPrices: No Cowcentrated vaults found for ${apiChain}`);
+    return;
+  }
+
+  const chainId = toChainId(apiChain);
   const contracts = sources.map(source => fetchContract(source.address, abi, chainId));
   const poolContracts = sources.map(source => fetchContract(source.lpAddress, v3PoolAbi, chainId));
   const token0Contracts = sources.map(source => fetchContract(source.tokens[0], ERC20Abi, chainId));
@@ -80,7 +81,7 @@ export const getBeefyCowcentratedVaultPrices = async (
         )
       ),
     ]);
-  const prices = {};
+  const prices: Record<string, ClmLpBreakdown> = {};
 
   sources.forEach((source, i) => {
     const token1UsdAmount = balances[i][0]
@@ -105,7 +106,7 @@ export const getBeefyCowcentratedVaultPrices = async (
       .div(liquidities[i].shiftedBy(-18))
       .toNumber();
 
-    prices[source.oracleId] = {
+    const breakdown: ClmLpBreakdown = {
       price,
       tokens: source.tokens,
       balances: balances[i].map((v, i) => v.shiftedBy(-source.decimals[i]).toString(10)),
@@ -117,6 +118,16 @@ export const getBeefyCowcentratedVaultPrices = async (
       ],
       underlyingPrice: underlyingPrice,
     };
+
+    prices[source.oracleId] = breakdown;
+    if (isCowClmWithRewardPool(source)) {
+      /*
+       assumption: rcowX is 1:1 with cowX
+       technically this should show the balances of the reward pool, with underlying being the balances of the clm
+       however as we want them to behave as one in the app, we are returning the same values
+      */
+      prices[source.rewardPool.oracleId] = breakdown;
+    }
   });
 
   return prices;
