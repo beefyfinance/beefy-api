@@ -1,5 +1,5 @@
 import { getHopCommonApys } from '../common/hop/getHopCommonApys';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
 
 import pools from '../../../data/optimism/hopPools.json';

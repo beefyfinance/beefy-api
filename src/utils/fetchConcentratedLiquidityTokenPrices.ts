@@ -2,7 +2,7 @@ import IUniV3PoolAbi from '../abis/IUniV3Pool';
 import IKyberElasticPoolAbi from '../abis/IKyberElasticPool';
 import IAlgebraPool from '../abis/IAlgebraPool';
 import IAlgebraPoolV1 from '../abis/IAlgebraPoolV1';
-import { ChainId } from '../../packages/address-book/types/chainid';
+import { ChainId } from '../../packages/address-book/src/types/chainid';
 import { fetchContract } from '../api/rpc/client';
 import { chain } from 'lodash';
 

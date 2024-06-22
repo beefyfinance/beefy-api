@@ -1,11 +1,11 @@
-import { addressBook } from '../address-book';
-import Token from '../types/token';
+import { addressBook } from '../src/address-book';
+import Token from '../src/types/token';
 
 type ChainId = keyof typeof addressBook;
 type TokenWithId = Token & { id: string };
 const allChains = Object.keys(addressBook) as ChainId[];
 
-async function checkChain(chainId: ChainId) {
+function checkChain(chainId: ChainId) {
   const { tokens } = addressBook[chainId];
   const byAddress: Record<string, TokenWithId[]> = {};
 
@@ -41,16 +41,11 @@ async function checkChain(chainId: ChainId) {
   return errors;
 }
 
-async function start() {
-  const errors = (await Promise.all(allChains.map(checkChain))).reduce((acc, e) => acc + e, 0);
+function start() {
+  const errors = allChains.map(checkChain).reduce((acc, e) => acc + e, 0);
   if (errors > 0) {
     throw new Error(`Found ${errors} errors, see above`);
   }
 }
 
-start()
-  .then(() => process.exit(0))
-  .catch(err => {
-    console.error(err);
-    process.exit(-1);
-  });
+start();

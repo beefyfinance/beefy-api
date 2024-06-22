@@ -7,7 +7,7 @@ const pools = require('../../../data/moonbeam/beamswapLpPools.json');
 const stablePools = require('../../../data/moonbeam/beamswapStableLpPools.json');
 const multiRewardPools = require('../../../data/moonbeam/beamswapMultiRewardLpPools.json');
 import { beamClient } from '../../../apollo/client';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   moonbeam: {
     platforms: {

@@ -1,7 +1,7 @@
 import { getSingleChainVaults } from '../stats/getMultichainVaults';
 import { getChainBoosts } from '../boosts/getBoosts';
-import { addressBook } from '../../../packages/address-book/address-book';
-import Token from '../../../packages/address-book/types/token';
+import { addressBook } from '../../../packages/address-book/src/address-book';
+import Token from '../../../packages/address-book/src/types/token';
 import { MULTICHAIN_ENDPOINTS } from '../../constants';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { ApiChain, isApiChain } from '../../utils/chain';

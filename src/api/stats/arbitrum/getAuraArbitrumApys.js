@@ -1,7 +1,7 @@
 import { ARBITRUM_CHAIN_ID as chainId } from '../../../constants';
 import { balancerArbClient as client } from '../../../apollo/client';
 import { getAuraApys } from '../common/balancer/getAuraApys';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 
 const {
   arbitrum: {

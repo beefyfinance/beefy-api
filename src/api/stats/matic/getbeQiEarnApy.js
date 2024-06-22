@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../utils/fetchPrice';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import ERC20Abi from '../../../abis/ERC20Abi';
 import IRewardPool from '../../../abis/IRewardPool';
 import { POLYGON_CHAIN_ID } from '../../../constants';

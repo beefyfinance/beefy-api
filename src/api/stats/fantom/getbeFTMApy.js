@@ -2,7 +2,7 @@ const { FANTOM_CHAIN_ID } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
 
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   fantom: {
     tokens: { WFTM, beFTM },

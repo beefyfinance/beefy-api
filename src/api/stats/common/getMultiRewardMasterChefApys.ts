@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js';
 import { NormalizedCacheObject } from '@apollo/client/core';
 import { ApolloClient } from '@apollo/client/core';
 
-import { ChainId } from '../../../../packages/address-book/address-book';
+import { ChainId } from '../../../../packages/address-book/src/address-book';
 
 import { isSushiClient, isBeetClient } from '../../../apollo/client';
 import getApyBreakdown, { ApyBreakdownResult } from '../common/getApyBreakdown';

@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../utils/fetchPrice';
 const { OPTIMISM_CHAIN_ID } = require('../../../constants');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import ERC20Abi from '../../../abis/ERC20Abi';
 import IRewardPool from '../../../abis/IRewardPool';
 import { fetchContract } from '../../rpc/client';

@@ -3,7 +3,7 @@ import { getMasterChefApys } from '../common/getMasterChefApys';
 const { AVAX_CHAIN_ID: chainId } = require('../../../constants');
 import pools from '../../../data/avax/maiLpPools.json';
 import { joeClient } from '../../../apollo/client';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { JOE_LPF } from '../../../constants';
 
 const mai = addressBook.avax.platforms.mai;

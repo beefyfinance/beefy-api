@@ -1,5 +1,5 @@
-import { getCowApy } from '../common/getCowVaultApys';
+import { getCowApys } from '../common/getCowVaultApys';
 
 export const getBeefyMoonbeamCowApys = async () => {
-  return await getCowApy('moonbeam');
+  return await getCowApys('moonbeam');
 };

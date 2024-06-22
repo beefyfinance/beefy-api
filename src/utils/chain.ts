@@ -1,4 +1,4 @@
-import { addressBook, ChainId } from '../../packages/address-book/address-book';
+import { addressBook, ChainId } from '../../packages/address-book/src/address-book';
 import { invert } from 'lodash';
 
 export type ApiChain = keyof typeof ChainId;

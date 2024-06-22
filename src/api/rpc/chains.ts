@@ -28,7 +28,7 @@ import {
   FRAXTAL_RPC,
   MODE_RPC,
 } from '../../constants';
-import { ChainId } from '../../../packages/address-book/address-book';
+import { ChainId } from '../../../packages/address-book/src/address-book';
 
 const avalancheChain = {
   id: 43_114,

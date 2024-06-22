@@ -2,7 +2,7 @@ const { ZKSYNC_CHAIN_ID: chainId } = require('../../../constants');
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
 const volatilePools = require('../../../data/zksync/draculaLpPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   zksync: {
     tokens: { FANG },

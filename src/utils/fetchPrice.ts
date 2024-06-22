@@ -1,7 +1,7 @@
 import { getAmmTokenPrice, getAmmLpPrice, getAmmPrice } from '../api/stats/getAmmPrices';
-import Token from '../../packages/address-book/types/token';
-import { ChainId } from '../../packages/address-book/types/chainid';
-import { addressBookByChainId } from '../../packages/address-book/address-book/index';
+import Token from '../../packages/address-book/src/types/token';
+import { ChainId } from '../../packages/address-book/src/types/chainid';
+import { addressBookByChainId } from '../../packages/address-book/src/address-book/index';
 import { getAddress } from 'viem';
 
 export type PriceOracle = 'lps' | 'tokens' | 'any';

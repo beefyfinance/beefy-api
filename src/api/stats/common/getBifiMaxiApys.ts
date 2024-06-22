@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import IRewardPool from '../../../abis/IRewardPool';
-import { ChainId } from '../../../../packages/address-book/address-book';
+import { ChainId } from '../../../../packages/address-book/src/address-book';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
 import { fetchPrice } from '../../../utils/fetchPrice';

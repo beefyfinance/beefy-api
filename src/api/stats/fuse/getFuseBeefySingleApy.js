@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 const { compound } = require('../../../utils/compound');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const { BASE_HPY, FUSE_CHAIN_ID } = require('../../../constants');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import IRewarder from '../../../abis/fuse/IRewarder';
 import IStaker from '../../../abis/fuse/IStaker';

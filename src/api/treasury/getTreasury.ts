@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { keyBy } from 'lodash';
-import { addressBook } from '../../../packages/address-book/address-book';
-import chainIdMap from '../../../packages/address-book/util/chainIdMap';
+import { addressBook } from '../../../packages/address-book/src/address-book';
+import chainIdMap from '../../../packages/address-book/src/util/chainIdMap';
 import { getKey, setKey } from '../../utils/cache';
 import { getSingleChainVaults } from '../stats/getMultichainVaults';
 import { extractBalancesFromTreasuryCallResults, mapAssetToCall } from './multicallUtils';

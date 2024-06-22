@@ -6,7 +6,7 @@ import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFees
 const { stellaClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
 import { getEDecimals } from '../../../utils/getEDecimals';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import IMultiRewardMasterChef from '../../../abis/IMultiRewardMasterChef';
 import { fetchContract } from '../../rpc/client';

@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../utils/fetchPrice';
 const { POLYGON_CHAIN_ID } = require('../../../constants');
 import getApyBreakdown from '../common/getApyBreakdown';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import BetSwirlSingleStaking from '../../../abis/BetSwirlSingleStaking';
 import { fetchContract } from '../../rpc/client';
 const {

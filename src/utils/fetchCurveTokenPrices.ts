@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 import ICurvePoolV2 from '../abis/ICurvePoolV2.json';
-import { addressBookByChainId, ChainId } from '../../packages/address-book/address-book';
+import { addressBookByChainId, ChainId } from '../../packages/address-book/src/address-book';
 import { fetchContract } from '../api/rpc/client';
 import ICurvePoolV2Abi from '../abis/CurvePoolV2';
 import ICurvePoolAbi from '../abis/CurvePool';

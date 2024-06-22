@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { ChainId } from '../../../../../packages/address-book/address-book';
+import { ChainId } from '../../../../../packages/address-book/src/address-book';
 import getApyBreakdown, { ApyBreakdownResult } from '../../common/getApyBreakdown';
 import { LpPool } from '../../../../types/LpPool';
 import { fetchPrice } from '../../../../utils/fetchPrice';

@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { addressBookByChainId, ChainId } from '../../../packages/address-book/address-book';
+import { addressBookByChainId, ChainId } from '../../../packages/address-book/src/address-book';
 import { getKey, setKey } from '../../utils/cache';
 import { ApiChain } from '../../utils/chain';
 import { fetchContract } from '../rpc/client';

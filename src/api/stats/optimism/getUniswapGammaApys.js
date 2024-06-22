@@ -5,7 +5,7 @@ import { getMiniChefApys } from '../common/getMiniChefApys';
 
 import pools from '../../../data/optimism/uniswapGammaLpPools.json';
 import merklGammaPools from '../../../data/optimism/merklGammaLpPools.json';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 import BigNumber from 'bignumber.js';
 import { getApyBreakdown } from '../common/getApyBreakdown';

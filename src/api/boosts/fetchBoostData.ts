@@ -1,4 +1,4 @@
-import { ChainId } from '../../../packages/address-book/address-book';
+import { ChainId } from '../../../packages/address-book/src/address-book';
 import BigNumber from 'bignumber.js';
 import { ApiChain } from '../../utils/chain';
 import { fetchContract } from '../rpc/client';

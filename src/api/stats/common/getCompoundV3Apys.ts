@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { ChainId } from '../../../../packages/address-book/address-book';
+import { ChainId } from '../../../../packages/address-book/src/address-book';
 import getBlockTime from '../../../utils/getBlockTime';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import cv3Token from '../../../abis/cv3Token';

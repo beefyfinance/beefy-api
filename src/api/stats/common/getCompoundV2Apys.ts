@@ -1,5 +1,5 @@
 import BigNumber, { BigNumber as BigNumberStatic } from 'bignumber.js';
-import { ChainId } from '../../../../packages/address-book/address-book';
+import { ChainId } from '../../../../packages/address-book/src/address-book';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import getBlockTime from '../../../utils/getBlockTime';
 import { fetchPrice, Oracle, PriceOracle } from '../../../utils/fetchPrice';

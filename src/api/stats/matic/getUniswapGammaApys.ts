@@ -1,6 +1,6 @@
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
 import pools from '../../../data/matic/uniswapGammaPools.json';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
 const {
   polygon: {

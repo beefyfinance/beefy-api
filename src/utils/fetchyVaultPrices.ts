@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { FANTOM_CHAIN_ID } from '../constants';
-import { addressBook } from '../../packages/address-book/address-book';
-import Token from '../../packages/address-book/types/token';
+import { addressBook } from '../../packages/address-book/src/address-book';
+import Token from '../../packages/address-book/src/types/token';
 import YearnTokenVaultAbi from '../abis/YearnTokenVault';
 import { fetchContract } from '../api/rpc/client';
 

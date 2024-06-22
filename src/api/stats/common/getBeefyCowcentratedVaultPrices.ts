@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js';
 import { fetchContract } from '../../rpc/client';
-import { ChainId } from '../../../../packages/address-book/address-book';
+import { ChainId } from '../../../../packages/address-book/src/address-book';
 import ERC20Abi from '../../../abis/ERC20Abi';
 
 const abi = [

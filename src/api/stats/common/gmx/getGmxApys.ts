@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { fetchPrice } from '../../../../utils/fetchPrice';
 import { LpPool } from '../../../../types/LpPool';
-import { ChainId } from '../../../../../packages/address-book/address-book';
+import { ChainId } from '../../../../../packages/address-book/src/address-book';
 import StrategyABI from '../../../../abis/StrategyABI';
 import RewardTrackerAbi from '../../../../abis/arbitrum/RewardTracker';
 import DistributorAbi from '../../../../abis/arbitrum/Distributor';

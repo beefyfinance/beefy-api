@@ -1,5 +1,5 @@
 import ISolidlyPair from '../abis/ISolidlyPair';
-import { ChainId } from '../../packages/address-book/types/chainid';
+import { ChainId } from '../../packages/address-book/src/types/chainid';
 import { fetchContract } from '../api/rpc/client';
 import BigNumber from 'bignumber.js';
 

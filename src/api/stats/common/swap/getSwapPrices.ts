@@ -2,7 +2,7 @@ import BigNumber from 'bignumber.js';
 
 import { SingleAssetPool } from '../../../../types/LpPool';
 import { fetchContract } from '../../../rpc/client';
-import { ChainId } from '../../../../../packages/address-book/address-book';
+import { ChainId } from '../../../../../packages/address-book/src/address-book';
 import SwapAbi from '../../../../abis/common/Swap/Swap';
 
 // gets the prices of LPToken contracts deployed from Swap contracts.

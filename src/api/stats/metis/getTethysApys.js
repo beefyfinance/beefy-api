@@ -3,7 +3,7 @@ const { getMasterChefApys } = require('../common/getMasterChefApys');
 import { getEDecimals } from '../../../utils/getEDecimals';
 const pools = require('../../../data/metis/tethysLpPools.json');
 import { tethysClient } from '../../../apollo/client';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   metis: {
     platforms: {

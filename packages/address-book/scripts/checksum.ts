@@ -1,5 +1,5 @@
-import { addressBook, ChainId } from '../address-book';
-import { isValidChecksumAddress, toChecksumAddress } from 'ethereumjs-util';
+import { addressBook, type ChainId } from '../src/address-book/index.js';
+import { isValidChecksumAddress, toChecksumAddress } from '@ethereumjs/util';
 import { exit } from 'process';
 
 interface InvalidAddressInfo {

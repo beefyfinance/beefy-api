@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
-import { addressBookByChainId, ChainId } from '../../packages/address-book/address-book';
-import { BeefyFinance } from '../../packages/address-book/types/beefyfinance';
+import { addressBookByChainId, ChainId } from '../../packages/address-book/src/address-book';
+import { BeefyFinance } from '../../packages/address-book/src/types/beefyfinance';
 
 import {
   BSC_RPC_ENDPOINTS,

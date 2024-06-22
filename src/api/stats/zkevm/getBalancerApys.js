@@ -1,7 +1,7 @@
 import { ZKEVM_CHAIN_ID as chainId } from '../../../constants';
 import { balancerZkevmClient as client } from '../../../apollo/client';
 const { getBalancerApys } = require('../common/balancer/getBalancerApys');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 
 const {
   zkevm: {

@@ -6,7 +6,7 @@ const { pangolinClient } = require('../../../apollo/client');
 import pools from '../../../data/avax/pangolinv2LpPools.json';
 import { PANGOLIN_LPF } from '../../../constants';
 
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import PangolinChef from '../../../abis/avax/PangolinChef';
 const {
   avax: {

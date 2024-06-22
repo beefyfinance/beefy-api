@@ -286,7 +286,7 @@ import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
-import { addressBookByChainId } from '../../../packages/address-book/address-book';
+import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
 import { serviceEventBus } from '../../utils/ServiceEventBus';

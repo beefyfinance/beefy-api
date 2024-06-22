@@ -1,4 +1,4 @@
-import { addressBook } from '../../../packages/address-book/address-book';
+import { addressBook } from '../../../packages/address-book/src/address-book';
 
 const configsByChain: Record<string, Config> = {};
 

@@ -14,6 +14,8 @@
   "ts-node": {
     // skip type checking (faster, since we run in prod via ts-node)
     "transpileOnly": true,
+    // allow loading using .js extension when disk has .ts file (for address-book imports)
+    "experimentalResolver": true,
     "files": true,
     "pretty": true,
     "compilerOptions": {

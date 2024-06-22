@@ -1,7 +1,7 @@
 import { AVAX_CHAIN_ID as chainId } from '../../../constants';
 import { balancerAvaxClient as client } from '../../../apollo/client';
 import { getAuraApys } from '../common/balancer/getAuraApys';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 
 const {
   avax: {

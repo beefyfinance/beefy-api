@@ -3,7 +3,7 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 import ISolidlyGaugeV2 from '../../../abis/ISolidlyGaugeV2.json';
 const stablePools = require('../../../data/ethereum/solidlyStableLpPools.json');
 const volatilePools = require('../../../data/ethereum/solidlyLpPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   ethereum: {
     tokens: { SOLID },
