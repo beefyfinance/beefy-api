@@ -1,5 +1,49 @@
 [
   {
+    "address": "0x03F8A2977664480Bed8877C407D81c3475a4962b",
+    "lpAddress": "0xBa66370D96a9D61AfA66283900b78C1F6Ed02782",
+    "tokens": [
+      "0xab3f0245B83feB11d15AAffeFD7AD465a59817eD",
+      "0xAcc15dC74880C9944775448304B263D191c6077F"
+    ],
+    "tokenOracleIds": ["ETHwh", "WGLMR"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-moonbeam-weth.wh-wglmr"
+  },
+  {
+    "address": "0x7dA0c5b76f353aE3A995B4a1Ca5f43cd37192dc6",
+    "lpAddress": "0xCb1f81BEf053d3C8adfFd37D2da84Fcc3BcC9954",
+    "tokens": [
+      "0xAcc15dC74880C9944775448304B263D191c6077F",
+      "0xFFfffffF7D2B0B761Af01Ca8e25242976ac0aD7D"
+    ],
+    "tokenOracleIds": ["WGLMR", "xcUSDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-moonbeam-wglmr-xcusdc"
+  },
+  {
+    "address": "0x68596dE36f2dF98fAa44C6F9E4f59b94d14876FB",
+    "lpAddress": "0xd4d7fb1f98dD66f6D1f393E8e237AdF74c31F3ea",
+    "tokens": [
+      "0xab3f0245B83feB11d15AAffeFD7AD465a59817eD",
+      "0xFFfffffF7D2B0B761Af01Ca8e25242976ac0aD7D"
+    ],
+    "tokenOracleIds": ["ETHwh", "xcUSDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-moonbeam-weth.wh-xcusdc"
+  },
+  {
+    "address": "0x44A70a8349dAa323815fA00b548223114b7DDbD9",
+    "lpAddress": "0x45bD0680bDFd180341A6dE806Aa4637f9AfBFc39",
+    "tokens": [
+      "0xab3f0245B83feB11d15AAffeFD7AD465a59817eD",
+      "0xFfFFfFff1FcaCBd218EDc0EbA20Fc2308C778080"
+    ],
+    "tokenOracleIds": ["ETHwh", "xcDOT"],
+    "decimals": [18, 10],
+    "oracleId": "uniswap-cow-moonbeam-weth.wh-xcdot"
+  },
+  {
     "address": "0x4C70eaa0103A873B01D731Ab607af6D4abF18240",
     "lpAddress": "0x5DAf7f80CC550Ee6249A4635C3bb0678E94D3867",
     "tokens": [
