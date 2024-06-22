@@ -14,8 +14,8 @@
       "require": "./build/address-book/*/index.js"
     },
     "./build/types/token": {
-      "import": "./build-esm/address-book/types/token.js",
-      "require": "./build/address-book/types/token.js"
+      "import": "./build-esm/types/token.js",
+      "require": "./build/types/token.js"
     }
   },
   "main": "./build/address-book/index.js",
