@@ -1,5 +1,16 @@
 [
   {
+    "address": "0xc4AE801d239da28A9108a5E6caD9F5893Ad93CB2",
+    "lpAddress": "0xdEb89DE4bb6ecf5BFeD581EB049308b52d9b2Da7",
+    "tokens": [
+      "0x5979D7b546E38E414F7E9822514be443A4800529",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["wstETH", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-wsteth-weth"
+  },
+  {
     "address": "0x073819cff8229BC2f5Af33012e69C8289779E7aC",
     "lpAddress": "0x4CEf551255EC96d89feC975446301b5C4e164C59",
     "tokens": [
