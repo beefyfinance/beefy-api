@@ -4,9 +4,7 @@ import { AnyChain, ApiChain, toApiChain } from '../../../utils/chain';
 import { getAmmPrice } from '../../stats/getAmmPrices';
 import { fromWeiString } from '../../../utils/big-number';
 
-const MIN_QUOTE_VALUE: Partial<Record<ApiChain, number>> = {
-  optimism: 5,
-};
+const MIN_QUOTE_VALUE: Partial<Record<ApiChain, number>> = {};
 const NATIVE_ADDRESS = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE';
 
 export function setNoCacheHeaders(ctx: Koa.Context) {
@@ -39,7 +37,7 @@ export async function isQuoteValueTooLow(
 
   const srcPrice = await getAmmPrice(
     srcToken.oracleId || srcToken.id,
-    `via OneInch quote for ${inputAddress}`
+    `via isQuoteValueTooLow for ${inputAddress}`
   );
   if (!srcPrice) {
     return {

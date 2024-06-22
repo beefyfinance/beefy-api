@@ -5,9 +5,6 @@ import { AnyChain, toApiChain } from '../../../utils/chain';
 import { redactSecrets } from '../../../utils/secrets';
 import { isQuoteValueTooLow, setNoCacheHeaders } from './common';
 import { ApiResponse, isSuccessApiResponse } from '../api/common';
-import { getTokenByAddress } from '../../tokens/tokens';
-import { getAmmPrice } from '../../stats/getAmmPrices';
-import { fromWeiString } from '../../../utils/big-number';
 
 const getProxiedSwap = async (
   request: SwapRequest,
