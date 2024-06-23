@@ -627,6 +627,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'alchemix-eth': ['alETH'],
   pepe: ['PEPE'],
   layerzero: ['ZRO'],
+  'camelot-token': ['xGRAIL'],
 };
 
 /**
