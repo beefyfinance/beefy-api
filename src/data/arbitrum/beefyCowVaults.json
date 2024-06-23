@@ -1,27 +1,5 @@
 [
   {
-    "address": "0xa7d4B5c0447506B189a2b2C99a16444F0ACC4362",
-    "lpAddress": "0xe51635ae8136aBAc44906A8f230C2D235E9c195F",
-    "tokens": [
-      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-      "0x912CE59144191C1204E64559FE8253a0e49E6548"
-    ],
-    "tokenOracleIds": ["WETH", "ARB"],
-    "decimals": [18, 18],
-    "oracleId": "camelot-weth-arb"
-  },
-  {
-    "address": "0xB41cED7FDe343F68F4BE4B2e5CABbe4791C9d857",
-    "lpAddress": "0xfaE2AE0a9f87FD35b5b0E24B47BAC796A7EEfEa1",
-    "tokens": [
-      "0x912CE59144191C1204E64559FE8253a0e49E6548",
-      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
-    ],
-    "tokenOracleIds": ["ARB", "USDC"],
-    "decimals": [18, 6],
-    "oracleId": "camelot-arb-usdc"
-  },
-  {
     "address": "0x6D5B6507E3AAA81c584E1ba086F50796B3F34F60",
     "lpAddress": "0xE461f84C3fE6BCDd1162Eb0Ef4284F3bB6e4CAD3",
     "tokens": [
