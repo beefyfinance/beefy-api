@@ -1,5 +1,115 @@
 [
   {
+    "address": "0x3a81D849D3044d13665d383aA2bB1611C597fF64",
+    "lpAddress": "0xC99be44383BC8d82357F5A1D9ae9976EE9d75bee",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0xfc5A1A6EB076a2C7aD06eD22C90d7E710E35ad0a"
+    ],
+    "tokenOracleIds": ["WETH", "GMX"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-weth-gmx"
+  },
+  {
+    "address": "0x75acF1692b963De13Fe7018B16DE21959619ff87",
+    "lpAddress": "0xD51F7383C906cfD995d7f24729F37933Ff264Fa6",
+    "tokens": [
+      "0x3082CC23568eA640225c2467653dB90e9250AaA0",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["RDNT", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-rdnt-weth"
+  },
+  {
+    "address": "0x3e440e83ba58125472fdA166C87577d479BFd25E",
+    "lpAddress": "0x1106dB7165A8d4a8559B441eCdEe14a5d5070DbC",
+    "tokens": [
+      "0x539bdE0d7Dbd336b79148AA742883198BBF60342",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["MAGIC", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-magic-weth"
+  },
+  {
+    "address": "0xc4BDb58F24247B51FD23B1FC225961eB3d86783C",
+    "lpAddress": "0x622B5186384783BB805c12A808cCF07F41DE1Ff0",
+    "tokens": [
+      "0x2bcC6D6CdBbDC0a4071e48bb3B969b06B3330c07",
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    ],
+    "tokenOracleIds": ["SOL", "USDC"],
+    "decimals": [9, 6],
+    "oracleId": "camelot-sol-usdc"
+  },
+  {
+    "address": "0x6D5B6507E3AAA81c584E1ba086F50796B3F34F60",
+    "lpAddress": "0xE461f84C3fE6BCDd1162Eb0Ef4284F3bB6e4CAD3",
+    "tokens": [
+      "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["PENDLE", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-pendle-weth"
+  },
+  {
+    "address": "0x2Ba14a1308789322694a69C06acDFEbA824B7e2A",
+    "lpAddress": "0xe8795cF9c2309eCfe05Df028eB0F21D5D6e3a951",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0xf97f4df75117a78c1A5a0DBb814Af92458539FB4"
+    ],
+    "tokenOracleIds": ["WETH", "LINK"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-weth-link"
+  },
+  {
+    "address": "0x79899918e6AdA2cb5D984f444A9c188bd2B7daae",
+    "lpAddress": "0x7CcCBA38E2D959fe135e79AEBB57CCb27B128358",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+    ],
+    "tokenOracleIds": ["WETH", "USDT"],
+    "decimals": [18, 6],
+    "oracleId": "camelot-weth-usdt"
+  },
+  {
+    "address": "0xEe839B08Ac1Fb711Fd4A583fB450EeD60ce52446",
+    "lpAddress": "0x293DFD996d5cd72Bed712B0EEAb96DBE400c0416",
+    "tokens": [
+      "0x35751007a407ca6FEFfE80b3cB397736D2cf4dbe",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["weETH", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-weeth-weth"
+  },
+  {
+    "address": "0x79899918e6AdA2cb5D984f444A9c188bd2B7daae",
+    "lpAddress": "0xe51635ae8136aBAc44906A8f230C2D235E9c195F",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0x912CE59144191C1204E64559FE8253a0e49E6548"
+    ],
+    "tokenOracleIds": ["WETH", "ARB"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-arb-weth"
+  },
+  {
+    "address": "0x8bc2AE3862617838357c329ccfd9eD8Fded58cfc",
+    "lpAddress": "0xfaE2AE0a9f87FD35b5b0E24B47BAC796A7EEfEa1",
+    "tokens": [
+      "0x912CE59144191C1204E64559FE8253a0e49E6548",
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    ],
+    "tokenOracleIds": ["ARB", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "camelot-arb-usdc"
+  },
+  {
     "address": "0x168285c55a871fd2219329F680EB0CA8fB8711e4",
     "lpAddress": "0xd845f7D4f4DeB9Ff5bCf09D140Ef13718F6f6C71",
     "tokens": [

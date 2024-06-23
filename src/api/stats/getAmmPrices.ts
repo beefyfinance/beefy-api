@@ -627,6 +627,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'alchemix-eth': ['alETH'],
   pepe: ['PEPE'],
   layerzero: ['ZRO'],
+  'camelot-token': ['xGRAIL'],
 };
 
 /**
@@ -682,6 +683,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'KNOX',
     tokenAddress: '0x0BBF664D46becc28593368c97236FAa0fb397595',
     chainId: 'arbitrum',
+  },
+  {
+    oracleId: 'NORMUS',
+    tokenAddress: '0xBA5EDE8d98ab88CEa9f0D69918ddE28Dc23c2553',
+    chainId: 'base',
   },
 ];
 

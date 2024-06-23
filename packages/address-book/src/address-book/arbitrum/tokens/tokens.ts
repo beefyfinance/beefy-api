@@ -1964,4 +1964,18 @@ export const tokens = {
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
   },
+  xGRAIL: {
+    name: 'Camelot Escrowed Grail',
+    symbol: 'xGRAIL',
+    oracleId: 'xGRAIL',
+    address: '0x3CAaE25Ee616f2C8E13C74dA0813402eae3F496b',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.camelot.exchange/pools',
+    documentation: 'https://docs.camelot.exchange/',
+    description:
+      'Camelot is an ecosystem-focused, community-driven DEX and Launchpad built on Arbitrum. Camelot has been built as a highly efficient and customizable protocol, allowing both builders and users to leverage our custom infrastructure for deep, sustainable, and adaptable liquidity. Camelot moves beyond the traditional design of DEXs to focus on offering a tailored approach that prioritises composability.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

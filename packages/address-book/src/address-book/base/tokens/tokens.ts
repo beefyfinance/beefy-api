@@ -1176,4 +1176,18 @@ export const tokens = {
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
   },
+  NORMUS: {
+    name: 'NORMUS',
+    symbol: 'NORMUS',
+    oracleId: 'NORMUS',
+    address: '0xBA5EDE8d98ab88CEa9f0D69918ddE28Dc23c2553',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.basednormus.com/',
+    documentation: 'https://www.basednormus.com/',
+    description:
+      'NORMUS is the governance token of the launchpad eNORMUSPUMP, a pump.fun fork on Base.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
