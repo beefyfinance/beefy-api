@@ -1,5 +1,27 @@
 [
   {
+    "address": "0xf181Ef98Bee1fBa44acc4726054A0c2a12B48d35",
+    "lpAddress": "0x70C079c33a9F5DAE97bB5085be8155d6dE68BbED",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xBA5EDE8d98ab88CEa9f0D69918ddE28Dc23c2553"
+    ],
+    "tokenOracleIds": ["WETH", "NORMUS"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-normus"
+  },
+  {
+    "address": "0x11b6ae0bD06fA08908511F0f14a5F6B27E7dEdF3",
+    "lpAddress": "0xE745a591970e0Fa981204cf525E170a2B9e4fb93",
+    "tokens": [
+      "0x0d97F261b1e88845184f678e2d1e7a98D9FD38dE",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": ["TYBG", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-tybg-weth"
+  },
+  {
     "address": "0x4a06DE050548770C13B76fE013729432b84BDeC6",
     "lpAddress": "0xa2d4A8e00dAaD32aCACe1A0dD0905f6aaF57E84e",
     "tokens": [
