@@ -1,4 +1,5 @@
 import type { Chain } from '../types/chain.js';
+import type { ReadonlyRecord } from '../types/readonly-record.js';
 import { ChainId, type ChainIdKey } from '../types/chainid.js';
 import { polygon } from './polygon/index.js';
 import { bsc } from './bsc/index.js';
@@ -27,7 +28,7 @@ import { linea } from './linea/index.js';
 import { mantle } from './mantle/index.js';
 import { fraxtal } from './fraxtal/index.js';
 import { mode } from './mode/index.js';
-import type { ReadonlyRecord } from '../types/readonly-record.js';
+import { manta } from './manta/index.js';
 
 export { ChainId }; // enum which is compiled to a JS object
 export type { Chain };
@@ -61,6 +62,7 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   mantle,
   fraxtal,
   mode,
+  manta
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -91,4 +93,5 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.mantle]: mantle,
   [ChainId.fraxtal]: fraxtal,
   [ChainId.mode]: mode,
+  [ChainId.manta]: manta
 } as const;

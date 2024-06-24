@@ -628,6 +628,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   pepe: ['PEPE'],
   layerzero: ['ZRO'],
   'camelot-token': ['xGRAIL'],
+  zksync: ['ZK'],
 };
 
 /**

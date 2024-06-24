@@ -28,6 +28,7 @@ export const chainIdMap = {
   mantle: 5000,
   fraxtal: 252,
   mode: 34443,
+  manta: 169,
 } satisfies ChainIdMap;
 
 // back-compat

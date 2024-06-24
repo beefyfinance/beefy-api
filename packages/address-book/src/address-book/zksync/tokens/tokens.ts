@@ -74,9 +74,9 @@ export const tokens = {
     bridge: 'native',
     documentation: 'https://docs.velocore.xyz/',
   },
-  USDC: {
-    name: 'USD Coin',
-    symbol: 'USDC',
+  USDCe: {
+    name: 'Bridged USD Coin',
+    symbol: 'USDC.e',
     oracleId: 'USDC',
     address: '0x3355df6D4c9C3035724Fd0e3914dE96A5a83aaf4',
     chainId: 324,
@@ -140,5 +140,47 @@ export const tokens = {
     description:
       'DraculaFi is a cutting-edge DeFi protocol built on zkSync Era with a proven ve(3,3) model and game-changing mechanisms that aim to provide increased rewards and stability for users.',
     documentation: 'https://draculafi.gitbook.io/draculafi/',
+  },
+  ZK: {
+    name: 'zkSync',
+    symbol: 'ZK',
+    oracleId: 'ZK',
+    address: '0x5A7d6b2F92C77FAD6CCaBd7EE0624E64907Eaf3E',
+    chainId: 324,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://zksync.io/',
+    description:
+      "zkSync Era is a Layer-2 protocol that scales Ethereum with cutting-edge ZK tech. zkSync's mission is not only to merely increase Ethereum's throughput, but to fully preserve its foundational values: freedom, self-sovereignty, decentralization at scale.",
+    documentation: 'https://zksync.io/explore',
+    bridge: 'native',
+  },
+  USDC: {
+    name: 'USD Coin',
+    symbol: 'USDC',
+    oracleId: 'USDC',
+    address: '0x1d17CBcF0D6D143135aE902365D2E5e2A16538D4',
+    chainId: 324,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://www.circle.com/usdc',
+    documentation: 'https://developers.circle.com/docs',
+    description:
+      'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
+    bridge: 'native',
+  },
+  USDT: {
+    name: 'Tether USD',
+    symbol: 'USDT',
+    oracleId: 'USDT',
+    address: '0x493257fD37EDB34451f62EDf8D2a0C418852bA4C',
+    chainId: 324,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://tether.to/',
+    documentation: 'https://tether.to/en/how-it-works',
+    description:
+      'Tether converts cash into digital currency, to anchor or tether the value to the price of national currencies like the US dollar, the Euro, and the offshore Chinese yuan.',
+    bridge: 'zksync-canonical',
   },
 } as const satisfies Record<string, Token>;
