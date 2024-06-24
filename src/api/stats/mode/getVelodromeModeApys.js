@@ -4,7 +4,7 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
 const stablePools = require('../../../data/mode/velodromeModeStablePools.json');
 const volatilePools = require('../../../data/mode/velodromeModePools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 
 const {
   mode: {

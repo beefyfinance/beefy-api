@@ -3,7 +3,7 @@ import { MOONBEAM_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
 import { getMultiRewardMasterChefApys } from '../common/getMultiRewardMasterChefApys';
 import { stellaClient } from '../../../apollo/client';
-import { stellaswap } from '../../../../packages/address-book/address-book/moonbeam/platforms/stellaswap';
+import { stellaswap } from '../../../../packages/address-book/src/address-book/moonbeam/platforms/stellaswap';
 const poolsV1 = require('../../../data/moonbeam/stellaswapLpPools.json');
 const poolsV2 = require('../../../data/moonbeam/stellaswapLpV2Pools.json');
 const stablePools = require('../../../data/moonbeam/stellaswapStablePools.json');

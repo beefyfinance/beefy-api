@@ -3,7 +3,7 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
 const stablePools = require('../../../data/base/bvmStableLpPools.json');
 const volatilePools = require('../../../data/base/bvmLpPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const { BVM } = addressBook.base.tokens;
 
 const pools = [...stablePools, ...volatilePools];

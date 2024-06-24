@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { ChainId } from '../../../../packages/address-book/address-book';
+import { ChainId } from '../../../../packages/address-book/src/address-book';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import SiloTokenAbi from '../../../abis/arbitrum/SiloToken';
 import SiloIncentivesController from '../../../abis/arbitrum/SiloIncentivesController';

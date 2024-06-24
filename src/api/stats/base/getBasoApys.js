@@ -4,7 +4,7 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
 const stablePools = require('../../../data/base/basoStableLpPools.json');
 const volatilePools = require('../../../data/base/basoLpPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 
 const {
   base: {

@@ -1,20 +1,5 @@
 {
-  "compilerOptions": {
-    "target": "ES5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "outDir": "build",
-    "pretty": true,
-    "declaration": true
-  },
-  "include": ["address-book/", "util/", "types/"]
+  // we develop in CommonJS because the api imports from source
+  // however we build for both CommonJS and ES modules when the package is published
+  "extends": "./tsconfig.cjs.json",
 }

@@ -286,7 +286,7 @@ import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
-import { addressBookByChainId } from '../../../packages/address-book/address-book';
+import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
@@ -736,14 +736,20 @@ const seedPeggedPrices = {
   xcUSDT: 'USDT', // Kusama
 };
 
-export type LpBreakdown = {
+export type BaseLpBreakdown = {
   price: number;
   tokens: string[];
   balances: string[];
   totalSupply: string;
 };
-type PricesById = Record<string, number>;
-type BreakdownsById = Record<string, LpBreakdown>;
+export type ClmLpBreakdown = BaseLpBreakdown & {
+  underlyingLiquidity: string;
+  underlyingBalances: string[];
+  underlyingPrice: number;
+};
+export type LpBreakdown = BaseLpBreakdown | ClmLpBreakdown;
+export type PricesById = Record<string, number>;
+export type BreakdownsById = Record<string, LpBreakdown>;
 
 const cachedTokenPrices: PricesById = {};
 const cachedLpPrices: PricesById = {};

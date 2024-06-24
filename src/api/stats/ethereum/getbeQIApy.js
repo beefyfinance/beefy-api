@@ -1,8 +1,8 @@
 const BigNumber = require('bignumber.js');
-import IBeefyRewardPool from '../../../abis/IBeefyRewardPool';
+import { IBeefyRewardPool } from '../../../abis/IBeefyRewardPool';
 import { fetchContract } from '../../rpc/client';
 import ERC20Abi from '../../../abis/ERC20Abi';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { ETH_CHAIN_ID } from '../../../constants';
 import { fetchPrice } from '../../../utils/fetchPrice';
 import getApyBreakdown from '../common/getApyBreakdown';

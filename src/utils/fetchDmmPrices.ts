@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { ChainId } from '../../packages/address-book/address-book';
+import { ChainId } from '../../packages/address-book/src/address-book';
 import DMMPoolAbi from '../abis/DMMPool';
 import ERC20Abi from '../abis/ERC20Abi';
 import { fetchContract } from '../api/rpc/client';

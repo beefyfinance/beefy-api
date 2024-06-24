@@ -1,5 +1,5 @@
 import { get } from 'lodash';
-import { ChainId } from '../../../packages/address-book/address-book';
+import { ChainId } from '../../../packages/address-book/src/address-book';
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../utils/fetchPrice';
 import { getSingleChainCowVaults } from './getMultichainVaults';

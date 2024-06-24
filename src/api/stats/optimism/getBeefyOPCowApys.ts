@@ -1,5 +1,5 @@
-import { getCowApy } from '../common/getCowVaultApys';
+import { getCowApys } from '../common/getCowVaultApys';
 
 export const getBeefyOPCowApys = async () => {
-  return await getCowApy('optimism');
+  return await getCowApys('optimism');
 };

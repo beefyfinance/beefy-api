@@ -3,7 +3,7 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
 const stablePools = require('../../../data/fantom/fvmStableLpPools.json');
 const volatilePools = require('../../../data/fantom/fvmLpPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const { FVM } = addressBook.fantom.tokens;
 
 const pools = [...stablePools, ...volatilePools];

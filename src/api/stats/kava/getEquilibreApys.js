@@ -4,7 +4,7 @@ const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
 const stablePools = require('../../../data/kava/equilibreStableLpPools.json');
 const volatilePools = require('../../../data/kava/equilibreLpPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   kava: {
     tokens: { VARA },

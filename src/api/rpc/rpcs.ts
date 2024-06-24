@@ -1,4 +1,4 @@
-import { ChainId } from '../../../packages/address-book/address-book';
+import { ChainId } from '../../../packages/address-book/src/address-book';
 
 const rpcs: Record<ChainId, string[]> = {
   [ChainId.ethereum]: [

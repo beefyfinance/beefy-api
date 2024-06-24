@@ -2,7 +2,7 @@ import commandLineArgs from 'command-line-args';
 import fg from 'fast-glob';
 import { promises as fsPromises } from 'fs';
 import { groupBy, uniq } from 'lodash';
-import { addressBookByChainId } from '../packages/address-book/address-book';
+import { addressBookByChainId } from '../packages/address-book/src/address-book';
 
 type PoolToken = {
   address: string;

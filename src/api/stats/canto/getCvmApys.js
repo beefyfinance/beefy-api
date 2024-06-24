@@ -2,7 +2,7 @@ const { CANTO_CHAIN_ID: chainId } = require('../../../constants');
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
 const volatilePools = require('../../../data/canto/cvmLpPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const { CVM } = addressBook.canto.tokens;
 
 const pools = [...volatilePools];

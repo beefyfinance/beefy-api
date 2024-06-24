@@ -1,6 +1,6 @@
-import { ChainId } from '../packages/address-book/address-book';
-import { sushi } from '../packages/address-book/address-book/one/platforms/sushi';
-import { addressBook } from '../packages/address-book/address-book';
+import { ChainId } from '../packages/address-book/src/address-book';
+import { sushi } from '../packages/address-book/src/address-book/one/platforms/sushi';
+import { addressBook } from '../packages/address-book/src/address-book';
 import yargs from 'yargs';
 import fs from 'fs';
 import path from 'path';

@@ -3,7 +3,7 @@ const { AVAX_CHAIN_ID: chainId } = require('../../../constants');
 import { getEDecimals } from '../../../utils/getEDecimals';
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
 
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   avax: {
     tokens: { JOE, beJOE },

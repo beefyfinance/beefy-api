@@ -1,5 +1,5 @@
 import { ApiChain } from '../../../utils/chain';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 
 /**
  * Tokens addresses that are blocked from being swapped on a given chain.

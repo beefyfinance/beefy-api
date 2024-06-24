@@ -1,6 +1,6 @@
 import { POLYGON_CHAIN_ID as chainId } from '../../../constants';
 import { getMasterChefApys } from '../common/getMasterChefApys';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getCurveFactoryApy } from '../common/curve/getCurveApyData';
 
 const mai = addressBook.polygon.platforms.mai;

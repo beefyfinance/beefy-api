@@ -5,7 +5,7 @@ import { sushiMoonriverClient } from '../../../apollo/client';
 
 import pools from '../../../data/moonriver/sushiLpPools.json';
 
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 const {
   moonriver: {

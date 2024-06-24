@@ -1,5 +1,5 @@
 import BigNumber from 'bignumber.js';
-import { ChainId } from '../../../../packages/address-book/types/chainid';
+import { ChainId } from '../../../../packages/address-book/src/types/chainid';
 
 import { fetchPrice } from '../../../utils/fetchPrice';
 import { getApyBreakdown } from './getApyBreakdown';

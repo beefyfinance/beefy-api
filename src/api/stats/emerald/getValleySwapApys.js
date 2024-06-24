@@ -1,7 +1,7 @@
 const { EMERALD_CHAIN_ID: chainId } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const pools = require('../../../data/emerald/valleySwapLpPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   emerald: {
     platforms: {

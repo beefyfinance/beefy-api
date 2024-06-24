@@ -1,7 +1,7 @@
 import { getMasterChefApys } from './getMaticMasterChefApys';
 import pools from '../../../data/matic/maiLpPools.json';
 import { quickClient } from '../../../apollo/client';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import MaiFarmChefAbi from '../../../abis/matic/MaiFarmChef';
 
 const mai = addressBook.polygon.platforms.mai;

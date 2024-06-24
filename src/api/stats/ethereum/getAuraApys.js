@@ -5,7 +5,7 @@ import { balancerClient } from '../../../apollo/client';
 import { fetchPrice } from '../../../utils/fetchPrice';
 
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
 import IBalancerVault from '../../../abis/IBalancerVault';
 import IAaveProtocolDataProvider from '../../../abis/matic/AaveProtocolDataProvider';

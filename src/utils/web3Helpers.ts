@@ -1,7 +1,7 @@
 import { platform } from 'os';
 import Web3 from 'web3';
-import { addressBookByChainId, ChainId } from '../../packages/address-book/address-book';
-import { BeefyFinance } from '../../packages/address-book/types/beefyfinance';
+import { addressBookByChainId, ChainId } from '../../packages/address-book/src/address-book';
+import { BeefyFinance } from '../../packages/address-book/src/types/beefyfinance';
 
 import {
   BSC_RPC_ENDPOINTS,

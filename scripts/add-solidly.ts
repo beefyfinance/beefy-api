@@ -1,4 +1,4 @@
-import { ChainId } from '../packages/address-book/address-book';
+import { ChainId } from '../packages/address-book/src/address-book';
 
 import yargs from 'yargs';
 import fs from 'fs';
@@ -9,7 +9,7 @@ import { MULTICHAIN_RPC } from '../src/constants';
 
 import voterABI from '../src/abis/Voter.json';
 import ERC20ABI from '../src/abis/ERC20.json';
-import { addressBook } from '../packages/address-book/address-book';
+import { addressBook } from '../packages/address-book/src/address-book';
 import ISolidlyPair from '../src/abis/ISolidlyPair';
 const {
   fantom: {

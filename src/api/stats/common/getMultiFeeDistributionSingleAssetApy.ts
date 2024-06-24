@@ -4,11 +4,11 @@ import { fetchPrice } from '../../../utils/fetchPrice';
 import { compound } from '../../../utils/compound';
 import { BASE_HPY } from '../../../constants';
 import { ApyBreakdownResult } from './getApyBreakdown';
-import Token from '../../../../packages/address-book/types/token';
+import Token from '../../../../packages/address-book/src/types/token';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import MultiFeeDistribution from '../../../abis/common/MultiFeeDistribution/MultiFeeDistribution';
 import { fetchContract } from '../../rpc/client';
-import { ChainId } from '../../../../packages/address-book/address-book';
+import { ChainId } from '../../../../packages/address-book/src/address-book';
 
 const oracle = 'tokens';
 
