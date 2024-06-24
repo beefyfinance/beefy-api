@@ -1,4 +1,4 @@
-import Token from '../../../types/token';
+import type { Token } from '../../../types/token.js';
 
 const ETH = {
   name: 'Wrapped Ether ',
