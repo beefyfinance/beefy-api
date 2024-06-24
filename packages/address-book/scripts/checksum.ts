@@ -106,4 +106,4 @@ if (fail) {
   exit(1);
 }
 
-console.log('All addresses pass checksum test');
+console.log('All addresses pass checksum test.');
