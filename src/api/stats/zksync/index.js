@@ -1,9 +1,9 @@
 const getVelocoreApys = require('./getVelocoreApys');
 const getveSyncApys = require('./getveSyncApys');
 const getDraculaApys = require('./getDraculaApys');
-const { getBeefyZkSyncCowApys } = require('./getBeefyZkSyncCowApys');
+const { getBeefyzkSyncCowApys } = require('./getBeefyzkSyncCowApys');
 
-const getApys = [getVelocoreApys, getveSyncApys, getDraculaApys, getBeefyZkSyncCowApys];
+const getApys = [getVelocoreApys, getveSyncApys, getDraculaApys, getBeefyzkSyncCowApys];
 
 const getZksyncApys = async () => {
   const start = Date.now();
