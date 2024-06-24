@@ -15,6 +15,7 @@ type JsonCowClm = {
       id: number;
       oracleId: string;
       decimals: number;
+      address: string;
     }[];
   };
 };
@@ -30,6 +31,7 @@ export type CowClm = {
 
 export type CowRewardPoolReward = {
   id: number;
+  address: Address;
   oracleId: string;
   decimals: number;
 };
@@ -56,7 +58,7 @@ export function isCowClmWithRewardPool(clm: AnyCowClm): clm is CowClmWithRewardP
 function isValidCowRewardPoolRewardConfig(
   reward: NonNullable<NonNullable<JsonCowClm['rewardPool']>['rewards']>[number]
 ): reward is CowRewardPoolReward {
-  return reward.id >= 0 && reward.oracleId && reward.decimals >= 0;
+  return reward.id >= 0 && reward.oracleId && reward.decimals >= 0 && isAddress(reward.address);
 }
 
 function isValidCowClmRewardPoolConfig(
