@@ -1,5 +1,60 @@
 [
   {
+    "address": "0xC9a57BAD9AAbCC6f0c22474442985b7CF1eC6786",
+    "lpAddress": "0xc23f308CF1bFA7efFFB592920a619F00990F8D74",
+    "tokens": [
+      "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    ],
+    "tokenOracleIds": ["USDe", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "camelot-usde-usdc"
+  },
+  {
+    "address": "0xb74d4161FA4CE44c5862053Ef7cf7fe5802fF40A",
+    "lpAddress": "0xa17aFCAb059F3C6751F5B64347b5a503C3291868",
+    "tokens": [
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+    ],
+    "tokenOracleIds": ["USDC", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "camelot-usdc-usdt"
+  },
+  {
+    "address": "0x2a881c25E3F18093C36d2f8263469E2253bE1cA2",
+    "lpAddress": "0x105ba85d9047dAF3f9FE941D8188d4b9A6900388",
+    "tokens": [
+      "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["ZRO", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-zro-weth"
+  },
+  {
+    "address": "0xf907c7348a03aF6732FbD2C9c8D4053DcB2C0112",
+    "lpAddress": "0x22427D20480DE289795Ca29c3ADDdb57A568e285",
+    "tokens": [
+      "0x3A18dcC9745eDcD1Ef33ecB93b0b6eBA5671e7Ca",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["KUJI", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "camelot-kuji-weth"
+  },
+  {
+    "address": "0x92bad31934B4bEcB534aA7CE9D348c367ca58346",
+    "lpAddress": "0x0E4831319A50228B9e450861297aB92dee15B44F",
+    "tokens": [
+      "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    ],
+    "tokenOracleIds": ["WBTC", "USDC"],
+    "decimals": [8, 6],
+    "oracleId": "uniswap-cow-arb-wbtc-usdc"
+  },
+  {
     "address": "0x3a81D849D3044d13665d383aA2bB1611C597fF64",
     "lpAddress": "0xC99be44383BC8d82357F5A1D9ae9976EE9d75bee",
     "tokens": [

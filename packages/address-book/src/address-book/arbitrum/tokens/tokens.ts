@@ -1978,4 +1978,18 @@ export const tokens = {
       'Camelot is an ecosystem-focused, community-driven DEX and Launchpad built on Arbitrum. Camelot has been built as a highly efficient and customizable protocol, allowing both builders and users to leverage our custom infrastructure for deep, sustainable, and adaptable liquidity. Camelot moves beyond the traditional design of DEXs to focus on offering a tailored approach that prioritises composability.',
     bridge: 'native',
   },
+  KUJI: {
+    name: 'Kujira native asset',
+    symbol: 'KUJI',
+    oracleId: 'KUJI',
+    address: '0x3A18dcC9745eDcD1Ef33ecB93b0b6eBA5671e7Ca',
+    chainId: 42161,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://kujira.network/',
+    documentation: 'https://docs.kujira.app/',
+    description:
+      'The KUJI token is the native token on the Kujira Network. KUJI is used to pay network fees and dApp fees, and all fees collected are distributed to KUJI stakers.',
+    bridge: 'axelar',
+  },
 } as const satisfies Record<string, Token>;

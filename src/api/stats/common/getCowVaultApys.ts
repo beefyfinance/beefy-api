@@ -117,9 +117,9 @@ const getCowRewardPoolApr = async (
       return undefined;
     }
 
-    for (const reward of result.rewardsApr) {
-      console.log(reward.oracleId, reward.apr);
-    }
+    //for (const reward of result.rewardsApr) {
+    //  console.log(reward.oracleId, reward.apr);
+    //}
 
     return result.totalApr;
   } catch (err) {
