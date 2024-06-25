@@ -706,4 +706,18 @@ export const tokens = {
     description:
       'USDC is a fully collateralized US dollar stablecoin. USDC is issued by regulated financial institutions, backed by fully reserved assets, redeemable on a 1:1 basis for US dollars.',
   },
+  xcUSDT: {
+    name: 'Tether USD',
+    symbol: 'USDT',
+    oracleId: 'USDT',
+    address: '0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d',
+    chainId: 1284,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://tether.to/',
+    documentation: 'https://tether.to/en/how-it-works',
+    description:
+      'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
+    bridge: 'kusama',
+  },
 } as const satisfies Record<string, Token>;
