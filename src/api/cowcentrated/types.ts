@@ -196,6 +196,5 @@ export type Campaign = {
   chainId: ApiChain;
   poolAddress: string;
   type: CampaignType;
-  fetchedTimestamp: number;
   vaults: CampaignVault[];
 };

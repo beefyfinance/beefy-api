@@ -1,8 +1,7 @@
 import { ApiChain, toChainId } from '../../utils/chain';
 import { sleep } from '../../utils/time';
-import { groupBy, mapValues, partition } from 'lodash';
+import { mapValues, partition } from 'lodash';
 import { isResultFulfilled } from '../../utils/promise';
-import { getKey, setKey } from '../../utils/cache';
 import { Address, isAddressEqual } from 'viem';
 import { getCowClmChains, getCowClms } from './getCowClms';
 import {
@@ -14,10 +13,12 @@ import {
   MerklApiCampaignsResponse,
 } from './types';
 import { isFiniteNumber } from '../../utils/number';
-import { getUnixTime } from 'date-fns';
+import { CachedByChain } from '../../utils/CachedByChain';
 
 const INIT_DELAY = 5000; // 5 seconds
 const UPDATE_INTERVAL = 30 * 60 * 1000; // 30 minutes
+const FRESH_LIFETIME = 30 * 60; // how many seconds is a response considered fresh for
+const STALE_LIFETIME = 2 * 60 * 60; // how many additional seconds can a stale response be kept
 const CACHE_KEY = 'COWCENTRATED_MERKL_CAMPAIGNS';
 const CAMPAIGN_CREATOR_TO_TYPE: Record<Address, CampaignTypeSetting> = {
   '0xb1F1000b4FCae7CD07370cE1A3E3b11270caC0dE': 'test',
@@ -30,8 +31,12 @@ const CAMPAIGN_CREATOR_TO_TYPE: Record<Address, CampaignTypeSetting> = {
     default: 'external', // we do not own this address on other chains
   },
 };
-let merklCampaignsByChain: Partial<Record<ApiChain, Campaign[]>> = {}; // redis
-let merklBeefyCampaignsByChain: Partial<Record<ApiChain, Campaign[]>> = {}; // memory only
+const campaignStore = new CachedByChain<Campaign[]>({
+  key: CACHE_KEY,
+  fresh: FRESH_LIFETIME,
+  stale: STALE_LIFETIME,
+  version: 1, // increase if the shape of Campaign[] changes
+});
 
 function getCampaignType(creator: Address, chain: ApiChain): CampaignType {
   const type = CAMPAIGN_CREATOR_TO_TYPE[creator] || 'external';
@@ -45,8 +50,7 @@ function getCampaignType(creator: Address, chain: ApiChain): CampaignType {
 function getCampaign(
   apiChain: ApiChain,
   campaign: MerklApiCampaign,
-  pools: ReadonlyArray<CowClm>,
-  unixTimestamp: number
+  pools: ReadonlyArray<CowClm>
 ): Campaign | undefined {
   const type = getCampaignType(campaign.creator, apiChain);
   const vaults = pools.filter(
@@ -85,7 +89,6 @@ function getCampaign(
     endTimestamp: campaign.endTimestamp,
     poolAddress: campaign.mainParameter,
     vaults: vaultsWithApr,
-    fetchedTimestamp: unixTimestamp,
     type,
   };
 }
@@ -102,11 +105,10 @@ async function updateChain(apiChain: ApiChain) {
 
   const campaigns: Campaign[] = [];
   const pools = getCowClms(apiChain);
-  const now = getUnixTime(new Date());
 
   for (const apiPool of Object.values(chainData)) {
     for (const apiCampaign of Object.values(apiPool)) {
-      const campaign = getCampaign(apiChain, apiCampaign, pools, now);
+      const campaign = getCampaign(apiChain, apiCampaign, pools);
       if (campaign) {
         campaigns.push(campaign);
       }
@@ -116,18 +118,6 @@ async function updateChain(apiChain: ApiChain) {
   return { chain: apiChain, campaigns };
 }
 
-async function buildLookupHelpers() {
-  const allCampaigns = Object.values(merklCampaignsByChain).flat();
-
-  merklBeefyCampaignsByChain = {
-    ...mapValues(merklCampaignsByChain, () => []),
-    ...groupBy(
-      allCampaigns.filter(campaign => campaign.type !== 'external'),
-      'chainId'
-    ),
-  };
-}
-
 async function updateAll() {
   try {
     console.log('> [CLM Merkl] Updating merkl campaigns...');
@@ -135,13 +125,15 @@ async function updateAll() {
     const updates = await Promise.allSettled(getCowClmChains().map(updateChain));
     const [fulfilled, rejected] = partition(updates, isResultFulfilled);
 
+    // Save successful chain updates
     if (fulfilled.length) {
-      for (const {
-        value: { chain, campaigns },
-      } of fulfilled) {
-        merklCampaignsByChain[chain] = campaigns;
-      }
-      await saveToCache();
+      await campaignStore.transaction(async ({ set }) => {
+        for (const {
+          value: { chain, campaigns },
+        } of fulfilled) {
+          set(chain, campaigns);
+        }
+      });
     }
 
     const timing = (Date.now() - start) / 1000;
@@ -172,31 +164,38 @@ export async function initCowMerklService() {
 }
 
 async function loadFromCache() {
-  const cached = await getKey(CACHE_KEY);
-  if (cached) {
-    merklCampaignsByChain = cached;
-    await buildLookupHelpers();
-  }
-}
-
-async function saveToCache() {
-  await buildLookupHelpers();
-  await setKey(CACHE_KEY, merklCampaignsByChain);
+  await campaignStore.load();
 }
 
 export function getCowMerklCampaignsByChain() {
-  return merklCampaignsByChain;
+  return campaignStore.toObject();
 }
 
 export function getCowMerklCampaignsForChain(chain: ApiChain) {
-  return merklCampaignsByChain[chain];
+  return campaignStore.get(chain);
 }
 
 // only campaigns created by beefy
+function isBeefyCampaign(campaign: Campaign): boolean {
+  return campaign.type !== 'external';
+}
+
 export function getCowBeefyMerklCampaignsByChain() {
-  return merklBeefyCampaignsByChain;
+  return mapValues(campaignStore.toObject(), allOnChain => ({
+    ...allOnChain,
+    value: allOnChain.value.filter(isBeefyCampaign),
+  }));
 }
 
 export function getCowBeefyMerklCampaignsForChain(chain: ApiChain) {
-  return merklBeefyCampaignsByChain[chain];
+  const allOnChain = campaignStore.get(chain);
+
+  if (allOnChain) {
+    return {
+      ...allOnChain,
+      value: allOnChain.value.filter(isBeefyCampaign),
+    };
+  }
+
+  return undefined;
 }
