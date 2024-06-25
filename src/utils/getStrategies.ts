@@ -1,4 +1,4 @@
-import { ChainId } from '../../packages/address-book/address-book';
+import { ChainId } from '../../packages/address-book/src/address-book';
 import { fetchContract } from '../api/rpc/client';
 import BeefyVaultV6Abi from '../abis/BeefyVault';
 import { ApiChain } from './chain';

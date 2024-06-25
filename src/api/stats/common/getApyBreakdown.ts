@@ -1,23 +1,52 @@
 import BigNumber from 'bignumber.js';
-
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 import { compound } from '../../../utils/compound';
-
 import { BASE_HPY } from '../../../constants';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
+import { toNumber } from '../../../utils/number';
 
 export interface ApyBreakdown {
+  /** Compoundable farm APR */
   vaultApr?: number;
-  compoundingsPerYear?: number;
-  beefyPerformanceFee?: number;
-  vaultApy?: number;
-  lpFee?: number;
-  tradingApr?: number;
-  totalApy?: number;
-  liquidStakingApr?: number;
-  composablePoolApr?: number;
+  /** Compoundable CLM trading fees APR (e.g. Uniswap V3 Strategy) */
   clmApr?: number;
+  /**
+   * LP trading fees APR
+   * @see {totalApy} for explanation of how this is uniquely handled
+   */
+  tradingApr?: number;
+  /** Non-compoundable Liquid Staking APR */
+  liquidStakingApr?: number;
+  /** Non-compoundable Composable Pool APR */
+  composablePoolApr?: number;
+  /** Non-compoundable Merkle APR */
   merklApr?: number;
+  /**
+   * Total APY = (((1 + Compounded APY) * (1 + Trading APR)) - 1) + Extra APR.
+   * Compounded APY = {vaultApr} + {clmApr} compounded {compoundingsPerYear} times.
+   * Extra APR = {liquidStakingApr} + {composablePoolApr} + {merklApr}.
+   */
+  totalApy?: number;
+  /**
+   * How many harvests per year are expected, used to compound APR to APY
+   * @deprecated not used in app
+   */
+  compoundingsPerYear?: number;
+  /**
+   * % of compounding yield that goes to the protocol
+   * @deprecated not used in app
+   */
+  beefyPerformanceFee: number;
+  /**
+   * underlying ALM's LP fee
+   * @deprecated not used in app
+   */
+  lpFee?: number;
+  /**
+   * {vaultApr} compounded {compoundingsPerYear} times
+   * @deprecated not used in app
+   */
+  vaultApy?: number;
 }
 
 export interface ApyBreakdownResult {
@@ -27,13 +56,13 @@ export interface ApyBreakdownResult {
 
 export const getApyBreakdown = (
   pools: { name: string; address: string; beefyFee?: number }[],
-  tradingAprs: Record<string, BigNumber> | undefined,
-  farmAprs: BigNumber[],
-  providerFee?: number | BigNumber[],
-  liquidStakingAprs?: number[],
-  composablePoolAprs?: number[],
-  clmAprs?: number[],
-  merklAprs?: number[]
+  tradingAprs?: Record<string, BigNumber> | undefined,
+  farmAprs?: BigNumber[] | undefined,
+  providerFee?: number | BigNumber[] | undefined,
+  liquidStakingAprs?: number[] | undefined,
+  composablePoolAprs?: number[] | undefined,
+  clmAprs?: number[] | undefined,
+  merklAprs?: number[] | undefined
 ): ApyBreakdownResult => {
   const result: ApyBreakdownResult = {
     apys: {},
@@ -45,41 +74,47 @@ export const getApyBreakdown = (
   }
 
   pools.forEach((pool, i) => {
-    const liquidStakingApr: number | undefined = liquidStakingAprs
-      ? liquidStakingAprs[i]
-      : undefined;
-
-    const composablePoolApr: number | undefined = composablePoolAprs
-      ? composablePoolAprs[i]
-      : undefined;
-
-    const clmApr: number | undefined = clmAprs ? clmAprs[i] : undefined;
-
-    const merklApr: number | undefined = merklAprs ? merklAprs[i] : undefined;
-    const extraApr = (liquidStakingApr ?? 0) + (composablePoolApr ?? 0) + (merklApr ?? 0);
-
-    const provFee = providerFee[i] == undefined ? providerFee : providerFee[i].toNumber();
-    const simpleApr = farmAprs[i]?.toNumber();
+    const provFee = toNumber(providerFee[i]);
     const beefyPerformanceFee =
       pool.beefyFee == undefined ? getTotalPerformanceFeeForVault(pool.name) : pool.beefyFee;
     const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
-    const vaultApr = simpleApr * shareAfterBeefyPerformanceFee;
 
-    const compoundableApr = simpleApr + (clmApr ?? 0);
-    let vaultApy = compound(compoundableApr, BASE_HPY, 1, shareAfterBeefyPerformanceFee);
+    // Non-compoundable components
+    const liquidStakingApr: number | undefined = liquidStakingAprs
+      ? toNumber(liquidStakingAprs[i])
+      : undefined;
 
-    let tradingApr: number | undefined = 0;
-    if (tradingAprs != null) {
-      tradingApr = (
-        (tradingAprs[pool.address.toLowerCase()] ?? new BigNumber(0)).isFinite()
-          ? tradingAprs[pool.address.toLowerCase()]
-          : new BigNumber(0)
-      )?.toNumber();
-    }
+    const composablePoolApr: number | undefined = composablePoolAprs
+      ? toNumber(composablePoolAprs[i])
+      : undefined;
 
+    const merklApr: number | undefined = merklAprs ? toNumber(merklAprs[i]) : undefined;
+
+    const extraApr = (liquidStakingApr ?? 0) + (composablePoolApr ?? 0) + (merklApr ?? 0);
+
+    // Compoundable components
+    const vaultAprBeforeFee: number | undefined = farmAprs ? toNumber(farmAprs[i]) : undefined;
+    const vaultApr = vaultAprBeforeFee
+      ? vaultAprBeforeFee * shareAfterBeefyPerformanceFee
+      : undefined;
+
+    const clmAprBeforeFee: number | undefined = clmAprs ? toNumber(clmAprs[i]) : undefined;
+    const clmApr = clmAprBeforeFee ? clmAprBeforeFee * shareAfterBeefyPerformanceFee : undefined;
+
+    const compoundableAprBeforeFee = (vaultAprBeforeFee ?? 0) + (clmAprBeforeFee ?? 0);
+
+    // Trading Apr
+    const tradingApr = tradingAprs ? toNumber(tradingAprs[pool.address.toLowerCase()]) : undefined;
+
+    // Legacy: (Compounded) Vault (Farm) APY only [Not used in app]
+    const vaultApy = vaultAprBeforeFee
+      ? compound(vaultAprBeforeFee, BASE_HPY, 1, shareAfterBeefyPerformanceFee)
+      : undefined;
+
+    // Total APY = (((1 + Compounded APY) * (1 + Trading APR)) - 1) + Extra APR
     const totalApy =
       getFarmWithTradingFeesApy(
-        compoundableApr,
+        compoundableAprBeforeFee,
         tradingApr,
         BASE_HPY,
         1,
@@ -89,17 +124,17 @@ export const getApyBreakdown = (
     // Add token to APYs object
     result.apys[pool.name] = totalApy;
     result.apyBreakdowns[pool.name] = {
-      vaultApr: vaultApr,
       compoundingsPerYear: BASE_HPY,
       beefyPerformanceFee: beefyPerformanceFee,
-      vaultApy: vaultApy,
       lpFee: provFee,
-      tradingApr: tradingApr,
-      liquidStakingApr: liquidStakingApr,
-      composablePoolApr: composablePoolApr,
-      clmApr: clmApr,
-      totalApy: totalApy,
-      merklApr: merklApr,
+      vaultApy,
+      vaultApr,
+      tradingApr,
+      liquidStakingApr,
+      composablePoolApr,
+      clmApr,
+      merklApr,
+      totalApy,
     };
   });
 

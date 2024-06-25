@@ -4,7 +4,7 @@ const lpPools = require('../../../data/aurora/trisolarisMiniLpPools.json');
 const stablePools = require('../../../data/aurora/trisolarisStableLpPools.json');
 const { BASE_HPY, AURORA_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import TriChef from '../../../abis/aurora/TriChef';
 import { fetchContract } from '../../rpc/client';

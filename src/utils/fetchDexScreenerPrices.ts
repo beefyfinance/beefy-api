@@ -1,5 +1,5 @@
 import { ApiChain } from './chain';
-import { uniq } from 'lodash';
+import { chunk, orderBy, uniqBy } from 'lodash';
 import { isFiniteNumber } from './number';
 
 const chainIdToDexScreenerChainId = {
@@ -71,7 +71,7 @@ type EnhancedPair = {
   liquidityUsd: number;
 };
 
-function enchancePairs(pairs: DexScreenerPair[]): EnhancedPair[] {
+function enhancePairs(pairs: DexScreenerPair[]): EnhancedPair[] {
   return (
     pairs
       // Have price, and on supported chain
@@ -103,6 +103,55 @@ type PriceResponse = {
   price: number | undefined;
 };
 
+async function fetchDexScreenerPairs(addresses: string[]): Promise<EnhancedPair[]> {
+  const url = `https://api.dexscreener.com/latest/dex/tokens/${addresses.join(',')}`;
+  const response = await fetch(url);
+  const data = (await response.json()) as DexScreenerResponse;
+  return enhancePairs(data.pairs);
+}
+
+async function fetchDexScreenerPairsWithRetry(
+  requests: PriceRequest[],
+  retriesLeft: number = 0
+): Promise<EnhancedPair[]> {
+  const addresses = getRequestAddresses(requests);
+  const results = await fetchDexScreenerPairs(addresses);
+  if (retriesLeft === 0) {
+    return results;
+  }
+
+  const unfulfilled = requests.filter(
+    request => !results.some(pair => pairIsForRequest(pair, request))
+  );
+  if (unfulfilled.length === 0) {
+    return results;
+  }
+
+  console.debug(
+    `Retrying ${unfulfilled.length} unfulfilled DexScreener price requests (${
+      retriesLeft - 1
+    } retries left)`
+  );
+  const extraResults = await fetchDexScreenerPairsWithRetry(unfulfilled, --retriesLeft);
+  return results.concat(extraResults);
+}
+
+function getRequestAddresses(requests: PriceRequest[]): string[] {
+  return orderBy(
+    uniqBy(requests, r => r.tokenAddress.toLowerCase()),
+    [r => r.chainId, r => r.tokenAddress],
+    ['asc', 'asc']
+  ).map(r => r.tokenAddress);
+}
+
+function pairIsForRequest(pair: EnhancedPair, request: PriceRequest): boolean {
+  return (
+    pair.chainId === request.chainId &&
+    (pair.baseToken.address === request.tokenAddress ||
+      pair.quoteToken.address === request.tokenAddress)
+  );
+}
+
 /**
  * Fetches prices from DexScreener
  * Picks the pair with the highest liquidity for each requested token
@@ -113,25 +162,17 @@ export async function fetchDexScreenerPrices(requests: PriceRequest[]): Promise<
     return [];
   }
 
-  const addresses = uniq(requests.map(r => r.tokenAddress));
-  const url = `https://api.dexscreener.com/latest/dex/tokens/${addresses.join(',')}`;
-  const response = await fetch(url);
-  const data = (await response.json()) as DexScreenerResponse;
-  const allPairs = enchancePairs(data.pairs);
+  const allPairs = await fetchDexScreenerPairsWithRetry(requests, 1);
 
-  return requests.map(({ chainId, tokenAddress }) => {
+  return requests.map(request => {
     const prices = allPairs
-      .filter(
-        p =>
-          p.chainId === chainId &&
-          (p.baseToken.address === tokenAddress || p.quoteToken.address === tokenAddress)
-      )
+      .filter(pair => pairIsForRequest(pair, request))
       .sort((a, b) => b.liquidityUsd - a.liquidityUsd)
       .map(p =>
-        p.baseToken.address === tokenAddress ? p.baseToken.priceUsd : p.quoteToken.priceUsd
+        p.baseToken.address === request.tokenAddress ? p.baseToken.priceUsd : p.quoteToken.priceUsd
       );
 
-    return { chainId, tokenAddress, price: prices[0] ?? undefined };
+    return { ...request, price: prices[0] || undefined };
   });
 }
 

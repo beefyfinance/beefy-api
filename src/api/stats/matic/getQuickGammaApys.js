@@ -4,7 +4,7 @@ import { getMiniChefApys } from '../common/getMiniChefApys';
 // import { sushiPolyClient } from '../../../apollo/client';
 
 import pools from '../../../data/matic/quickGammaLpPools.json';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 const {
   polygon: {

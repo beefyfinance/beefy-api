@@ -6,7 +6,7 @@ const pools = require('../../../data/fantom/beethovenxDualPools.json');
 import { beetClient } from '../../../apollo/client';
 import getBlockTime from '../../../utils/getBlockTime';
 import getApyBreakdown from '../common/getApyBreakdown';
-import { beethovenx } from '../../../../packages/address-book/address-book/fantom/platforms/beethovenx';
+import { beethovenx } from '../../../../packages/address-book/src/address-book/fantom/platforms/beethovenx';
 import IBalancerVault from '../../../abis/IBalancerVault';
 import BeethovenxChef from '../../../abis/fantom/BeethovenxChef';
 import { fetchContract } from '../../rpc/client';

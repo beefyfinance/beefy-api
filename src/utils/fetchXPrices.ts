@@ -6,10 +6,10 @@ import {
   MOONBEAM_CHAIN_ID,
   AURORA_CHAIN_ID,
 } from '../constants';
-import { addressBook } from '../../packages/address-book/address-book';
+import { addressBook } from '../../packages/address-book/src/address-book';
 import ERC20Abi from '../abis/ERC20Abi';
 import { fetchContract } from '../api/rpc/client';
-import Token from '../../packages/address-book/types/token';
+import Token from '../../packages/address-book/src/types/token';
 
 const {
   fantom: {

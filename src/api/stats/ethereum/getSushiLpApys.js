@@ -1,7 +1,7 @@
 const { ETH_CHAIN_ID: chainId } = require('../../../constants');
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const pools = require('../../../data/ethereum/sushiLpPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { sushiMainnetClient } from '../../../apollo/client';
 import { SUSHI_LPF } from '../../../constants';
 

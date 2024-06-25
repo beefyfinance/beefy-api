@@ -1,7 +1,7 @@
 import { POLYGON_CHAIN_ID as chainId } from '../../../constants';
 import { balancerPolyClient as client } from '../../../apollo/client';
 import { getAuraApys } from '../common/balancer/getAuraApys';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 
 const {
   polygon: {

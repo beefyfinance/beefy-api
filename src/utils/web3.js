@@ -84,6 +84,9 @@ module.exports = {
   get modeWeb3() {
     return chainRandomClients.modeRandomClient();
   },
+  get mantaWeb3() {
+    return chainRandomClients.mantaRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

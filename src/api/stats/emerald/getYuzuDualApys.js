@@ -3,7 +3,7 @@ import { fetchPrice } from '../../../utils/fetchPrice';
 const pools = require('../../../data/emerald/yuzuDualLpPools.json');
 const { BASE_HPY, EMERALD_CHAIN_ID: chainId, EMERALD_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import { fetchContract } from '../../rpc/client';
 import Rewarder from '../../../abis/emerald/Rewarder';

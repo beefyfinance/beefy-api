@@ -2,7 +2,7 @@ const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../../utils/fetchPrice';
 import getApyBreakdown from '../../common/getApyBreakdown';
 import { BSC_CHAIN_ID as chainId } from '../../../../constants';
-import { addressBook } from '../../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../../packages/address-book/src/address-book';
 import { fetchContract } from '../../../rpc/client';
 import getBlockTime from '../../../../utils/getBlockTime';
 import { getEDecimals } from '../../../../utils/getEDecimals';

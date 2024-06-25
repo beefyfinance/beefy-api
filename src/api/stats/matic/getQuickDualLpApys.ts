@@ -3,7 +3,7 @@ import { QUICK_LPF } from '../../../constants';
 import { getRewardPoolDualApys } from '../common/getRewardPoolDualApys';
 import pools from '../../../data/matic/quickDualLpPools.json';
 import { quickClient } from '../../../apollo/client';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
 const {
   polygon: {

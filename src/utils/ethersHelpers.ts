@@ -1,6 +1,6 @@
 import { ethers } from 'ethers';
-import { addressBookByChainId, ChainId } from '../../packages/address-book/address-book';
-import { BeefyFinance } from '../../packages/address-book/types/beefyfinance';
+import { addressBookByChainId, ChainId } from '../../packages/address-book/src/address-book';
+import { BeefyFinance } from '../../packages/address-book/src/types/beefyfinance';
 
 import {
   BSC_RPC_ENDPOINTS,
@@ -57,6 +57,8 @@ import {
   FRAXTAL_CHAIN_ID,
   MODE_RPC,
   MODE_CHAIN_ID,
+  MANTA_RPC,
+  MANTA_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -88,6 +90,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.mantle]: addressBookByChainId[ChainId.mantle].platforms.beefyfinance.multicall,
   [ChainId.fraxtal]: addressBookByChainId[ChainId.fraxtal].platforms.beefyfinance.multicall,
   [ChainId.mode]: addressBookByChainId[ChainId.mode].platforms.beefyfinance.multicall,
+  [ChainId.manta]: addressBookByChainId[ChainId.manta].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -118,6 +121,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   mantle: [],
   fraxtal: [],
   mode: [],
+  manta: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -148,6 +152,7 @@ clients.linea.push(new ethers.providers.JsonRpcProvider(LINEA_RPC));
 clients.mantle.push(new ethers.providers.JsonRpcProvider(MANTLE_RPC));
 clients.fraxtal.push(new ethers.providers.JsonRpcProvider(FRAXTAL_RPC));
 clients.mode.push(new ethers.providers.JsonRpcProvider(MODE_RPC));
+clients.manta.push(new ethers.providers.JsonRpcProvider(MANTA_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -177,6 +182,7 @@ export const chainRandomClients = {
   mantleRandomClient: () => clients.mantle[~~(clients.mantle.length * Math.random())],
   fraxtalRandomClient: () => clients.fraxtal[~~(clients.fraxtal.length * Math.random())],
   modeRandomClient: () => clients.mode[~~(clients.mode.length * Math.random())],
+  mantaRandomClient: () => clients.manta[~~(clients.manta.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -235,6 +241,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.fraxtalRandomClient();
     case MODE_CHAIN_ID:
       return chainRandomClients.modeRandomClient();
+    case MANTA_CHAIN_ID:
+      return chainRandomClients.mantaRandomClient();
   }
 };
 

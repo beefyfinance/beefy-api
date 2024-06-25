@@ -175,7 +175,7 @@
     "lp1": {
       "address": "0xf390830DF829cf22c53c8840554B98eafC5dCBc2",
       "oracle": "tokens",
-      "oracleId": "PEPE",
+      "oracleId": "cantoPEPE",
       "decimals": "1e18"
     }
   },

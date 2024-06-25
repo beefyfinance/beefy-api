@@ -1,4 +1,4 @@
-import { ARBITRUM_CHAIN_ID } from '../../constants';
+import { ARBITRUM_CHAIN_ID, ETH_CHAIN_ID } from '../../constants';
 import { getPendleCommonPrices } from './common/getPendleCommonPrices';
 import { NonAmmPrices } from './getNonAmmPrices';
 
@@ -14,6 +14,18 @@ export async function getLpBasedPrices(
     getPendleCommonPrices(
       ARBITRUM_CHAIN_ID,
       require('../../data/arbitrum/equilibriaPools.json'),
+      tokenPrices,
+      nonAmmPrices.prices
+    ),
+    getPendleCommonPrices(
+      ETH_CHAIN_ID,
+      require('../../data/ethereum/pendlePools.json'),
+      tokenPrices,
+      nonAmmPrices.prices
+    ),
+    getPendleCommonPrices(
+      ARBITRUM_CHAIN_ID,
+      require('../../data/arbitrum/pendlePools.json'),
       tokenPrices,
       nonAmmPrices.prices
     ),

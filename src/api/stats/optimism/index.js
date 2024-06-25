@@ -19,6 +19,7 @@ const getBeVeloV2Apr = require('./getBeVeloV2Apr');
 const getUniswapGammaApys = require('./getUniswapGammaApys');
 const { getSonneApys } = require('./getSonneApys');
 const { getBeefyOPCowApys } = require('./getBeefyOPCowApys');
+const { getOpSiloApys } = require('./getOpSiloApys');
 
 const getApys = [
   getSonneApys,
@@ -42,6 +43,7 @@ const getApys = [
   getBeOpxEarnApy,
   getBeVeloV2Apr,
   getBeefyOPCowApys,
+  getOpSiloApys,
 ];
 
 const getOptimismApys = async () => {

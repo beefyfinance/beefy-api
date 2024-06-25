@@ -1,7 +1,7 @@
 import BigNumber from 'bignumber.js';
 import { keyBy } from 'lodash';
-import { addressBook } from '../../../packages/address-book/address-book';
-import chainIdMap from '../../../packages/address-book/util/chainIdMap';
+import { addressBook } from '../../../packages/address-book/src/address-book';
+import chainIdMap from '../../../packages/address-book/src/util/chainIdMap';
 import { getKey, setKey } from '../../utils/cache';
 import { getSingleChainVaults } from '../stats/getMultichainVaults';
 import { extractBalancesFromTreasuryCallResults, mapAssetToCall } from './multicallUtils';
@@ -27,9 +27,9 @@ import {
   getChainConcentratedLiquidityAssets,
   hasChainConcentratedLiquidityAssets,
 } from './nftAssets';
+import { ZERO_ADDRESS } from '../../utils/address';
 
 const REFRESH_INTERVAL = 60000 * 10;
-const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 
 // treasury addresses that should be queried for balances
 let treasuryAddressesByChain: TreasuryWalletRegistry;

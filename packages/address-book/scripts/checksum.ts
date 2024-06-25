@@ -1,5 +1,5 @@
-import { addressBook, ChainId } from '../address-book';
-import { isValidChecksumAddress, toChecksumAddress } from 'ethereumjs-util';
+import { addressBook, type ChainId } from '../src/address-book/index.js';
+import { isValidChecksumAddress, toChecksumAddress } from '@ethereumjs/util';
 import { exit } from 'process';
 
 interface InvalidAddressInfo {
@@ -106,4 +106,4 @@ if (fail) {
   exit(1);
 }
 
-console.log('All addresses pass checksum test');
+console.log('All addresses pass checksum test.');

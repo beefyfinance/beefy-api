@@ -6,7 +6,7 @@ const { getTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import { getFarmWithTradingFeesApy } from '../../../utils/getFarmWithTradingFeesApy';
 const { fusefiClient } = require('../../../apollo/client');
 const { compound } = require('../../../utils/compound');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
 import MultiReward from '../../../abis/fuse/MultiReward';
 import { fetchContract } from '../../rpc/client';

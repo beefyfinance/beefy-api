@@ -1,4 +1,4 @@
-import { ChainId } from '../packages/address-book/address-book';
+import { ChainId } from '../packages/address-book/src/address-book';
 
 import yargs from 'yargs';
 

@@ -3,7 +3,7 @@ import { getMiniChefApys } from '../common/getMiniChefApys';
 import pools from '../../../data/zkevm/quickGammaLpPools.json';
 import SushiMiniChefV2 from '../../../abis/matic/SushiMiniChefV2';
 
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   zkevm: {
     platforms: {

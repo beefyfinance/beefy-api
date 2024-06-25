@@ -53,7 +53,7 @@ const getGammaApys = async () => {
     console.log('Polygon Gamma Api Error', e);
   }
 
-  return await getApyBreakdown(pools, tradingAprs, aprs, 0);
+  return getApyBreakdown(pools, tradingAprs, aprs, 0);
 };
 
 module.exports = getGammaApys;

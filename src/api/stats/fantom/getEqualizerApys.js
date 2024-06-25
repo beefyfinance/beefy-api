@@ -7,7 +7,7 @@ const volatilePools = require('../../../data/fantom/equalizerLpPools.json');
 const stableV2Pools = require('../../../data/fantom/equalizerV2StableLpPools.json');
 const volatileV2Pools = require('../../../data/fantom/equalizerV2LpPools.json');
 const ichiPools = require('../../../data/fantom/equalizerIchiPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   fantom: {
     tokens: { EQUAL },

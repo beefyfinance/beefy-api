@@ -1,5 +1,5 @@
 const { FANTOM_CHAIN_ID: chainId } = require('../../../constants');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 const stablePools = require('../../../data/fantom/spiritStableLpPools.json');
 const volatilePools = require('../../../data/fantom/spiritVolatileLpPools.json');

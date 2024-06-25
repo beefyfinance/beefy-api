@@ -6,7 +6,7 @@ const oldStablePools = require('../../../data/optimism/oldVelodromeStableLpPools
 const oldVolatilePools = require('../../../data/optimism/oldVelodromeLpPools.json');
 const stablePools = require('../../../data/optimism/velodromeStableLpPools.json');
 const volatilePools = require('../../../data/optimism/velodromeLpPools.json');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 
 const {
   optimism: {

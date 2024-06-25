@@ -1,5 +1,5 @@
 import { ApiChain } from '../../../utils/chain';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 
 /**
  * Tokens addresses that are blocked from being swapped on a given chain.
@@ -605,4 +605,5 @@ export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
   mantle: new Set([]),
   fraxtal: new Set([]),
   mode: new Set([]),
+  manta: new Set([]),
 };

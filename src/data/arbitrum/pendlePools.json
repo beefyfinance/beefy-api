@@ -1,0 +1,66 @@
+[
+  {
+    "name": "pendle-arb-dusdc-26sep24",
+    "address": "0x2fB73D98B1D60B35FD12508933578098f352cE7e",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-arb-seth-eeth-26sep24",
+    "address": "0x5f3C781B3a20299DB27C8fC5f4415D895677c885",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-arb-seth-ezeth-26sep24",
+    "address": "0xb4781463a1261F60fca37732EFa510c22DEc5ADa",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-arb-seth-rseth-26sep24",
+    "address": "0x2aD746fa3faA0AD586021a633d10F4E2785A0349",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-arb-rseth-26sep24",
+    "address": "0xED99fC8bdB8E9e7B8240f62f69609a125A0Fbf14",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-arb-eeth-26sep24",
+    "address": "0xf9F9779d8fF604732EBA9AD345E6A27EF5c2a9d6",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-arb-ezeth-26sep24",
+    "address": "0x35f3dB08a6e9cB4391348b0B404F493E7ae264c0",
+    "gauge": "0x96DB998c5C6C82f6aB3999661A425454eF002202",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  }
+]

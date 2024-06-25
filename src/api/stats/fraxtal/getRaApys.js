@@ -1,5 +1,5 @@
 const { FRAXTAL_CHAIN_ID: chainId } = require('../../../constants');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 const stablePools = require('../../../data/fraxtal/raStablePools.json');
 const volatilePools = require('../../../data/fraxtal/raPools.json');

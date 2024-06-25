@@ -10,7 +10,7 @@ import {
 } from 'viem';
 import { Abi } from 'abitype';
 import { getChain } from './chains';
-import { ChainId } from '../../../packages/address-book/address-book';
+import { ChainId } from '../../../packages/address-book/src/address-book';
 import { rateLimitedHttp } from './transport';
 import PQueue from 'p-queue';
 import { envBoolean, envNumber } from '../../utils/env';

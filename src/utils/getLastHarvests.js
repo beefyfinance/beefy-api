@@ -1,4 +1,4 @@
-import { ChainId } from '../../packages/address-book/address-book';
+import { ChainId } from '../../packages/address-book/src/address-book';
 import { fetchContract } from '../api/rpc/client';
 import StrategyCommonChefLPAbi from '../abis/common/Strategy/StrategyCommonChefLP';
 import BigNumber from 'bignumber.js';

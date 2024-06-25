@@ -31,6 +31,7 @@ const getGammaApys = require('./getGammaApys');
 const getAuraPolygonApys = require('./getAuraPolygonApys');
 const { getPolygonCompoundV3Apys } = require('./getPolygonCompoundApys');
 const { getUniswapGammaApys } = require('./getUniswapGammaApys');
+const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
 
 const getApys = [
   getbeQiApy,
@@ -66,6 +67,7 @@ const getApys = [
   getAuraPolygonApys,
   getPolygonCompoundV3Apys,
   getUniswapGammaApys,
+  getBeefyCowPolyApys,
 ];
 
 const BATCH_SIZE = 15;

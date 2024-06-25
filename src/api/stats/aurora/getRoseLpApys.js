@@ -3,7 +3,7 @@ import { fetchPrice } from '../../../utils/fetchPrice';
 const pools = require('../../../data/aurora/rosePools.json');
 const { BASE_HPY, AURORA_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import ERC20Abi from '../../../abis/ERC20Abi';
 import MultiReward from '../../../abis/fuse/MultiReward';
 import { fetchContract } from '../../rpc/client';

@@ -1,7 +1,7 @@
 import { platform } from 'os';
 import Web3 from 'web3';
-import { addressBookByChainId, ChainId } from '../../packages/address-book/address-book';
-import { BeefyFinance } from '../../packages/address-book/types/beefyfinance';
+import { addressBookByChainId, ChainId } from '../../packages/address-book/src/address-book';
+import { BeefyFinance } from '../../packages/address-book/src/types/beefyfinance';
 
 import {
   BSC_RPC_ENDPOINTS,
@@ -58,6 +58,8 @@ import {
   FRAXTAL_CHAIN_ID,
   MODE_RPC,
   MODE_CHAIN_ID,
+  MANTA_RPC,
+  MANTA_CHAIN_ID,
 } from '../constants';
 
 const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> = {
@@ -88,6 +90,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.mantle]: addressBookByChainId[ChainId.mantle].platforms.beefyfinance.multicall,
   [ChainId.fraxtal]: addressBookByChainId[ChainId.fraxtal].platforms.beefyfinance.multicall,
   [ChainId.mode]: addressBookByChainId[ChainId.mode].platforms.beefyfinance.multicall,
+  [ChainId.manta]: addressBookByChainId[ChainId.manta].platforms.beefyfinance.multicall,
 };
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
@@ -118,6 +121,7 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.mantle]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.fraxtal]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.mode]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.manta]: '0xcA11bde05977b3631167028862bE2a173976CA11',
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -148,6 +152,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   mantle: [],
   fraxtal: [],
   mode: [],
+  manta: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -178,6 +183,7 @@ clients.linea.push(new Web3(LINEA_RPC));
 clients.mantle.push(new Web3(MANTLE_RPC));
 clients.fraxtal.push(new Web3(FRAXTAL_RPC));
 clients.mode.push(new Web3(MODE_RPC));
+clients.manta.push(new Web3(MANTA_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -207,6 +213,7 @@ export const chainRandomClients = {
   mantleRandomClient: () => clients.mantle[~~(clients.mantle.length * Math.random())],
   fraxtalRandomClient: () => clients.fraxtal[~~(clients.fraxtal.length * Math.random())],
   modeRandomClient: () => clients.mode[~~(clients.mode.length * Math.random())],
+  mantaRandomClient: () => clients.manta[~~(clients.manta.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -265,6 +272,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.fraxtalRandomClient();
     case MODE_CHAIN_ID:
       return chainRandomClients.modeRandomClient();
+    case MANTA_CHAIN_ID:
+      return chainRandomClients.mantaRandomClient();
   }
 };
 

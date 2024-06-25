@@ -3,7 +3,7 @@ import { VERSE_LPF } from '../../../constants';
 import { getRewardPoolApys } from '../common/getRewardPoolApys';
 import pools from '../../../data/ethereum/verseLpPools.json';
 import { verseClient } from '../../../apollo/client';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
 const {
   ethereum: {

@@ -30,6 +30,15 @@ export const treasuryConcLiquidityAssets: Partial<Record<ApiChain, ConcLiquidity
       oracleId: 'uniswap-ethereum-bifi-eth-0.3-tighter',
       id: 697697,
     },
+    {
+      name: 'BIFI-ETH V3',
+      address: '0xfba26c3f9c8ecef989def3c5c8ad037487462d83-747836',
+      decimals: 18,
+      assetType: 'concLiquidity',
+      oracleType: 'lps',
+      oracleId: 'uniswap-ethereum-bifi-eth-0.3-tighter-1',
+      id: 747836,
+    },
   ],
 };
 

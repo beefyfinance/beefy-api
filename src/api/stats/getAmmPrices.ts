@@ -286,7 +286,7 @@ import nilePools from '../../data/linea/nileVolatilePools.json';
 import raPools from '../../data/fraxtal/raPools.json';
 import velodromeModePools from '../../data/mode/velodromeModePools.json';
 import { fetchVaultPrices } from '../../utils/fetchVaultPrices';
-import { addressBookByChainId } from '../../../packages/address-book/address-book';
+import { addressBookByChainId } from '../../../packages/address-book/src/address-book';
 import { sleep } from '../../utils/time';
 import { isFiniteNumber } from '../../utils/number';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
@@ -625,6 +625,10 @@ const coinGeckoCoins: Record<string, string[]> = {
   'frax-ether': ['frxETH'],
   'stakestone-ether': ['STONE'],
   'alchemix-eth': ['alETH'],
+  pepe: ['PEPE'],
+  layerzero: ['ZRO'],
+  'camelot-token': ['xGRAIL'],
+  zksync: ['ZK'],
 };
 
 /**
@@ -676,6 +680,16 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0x5A7a183B6B44Dc4EC2E3d2eF43F98C5152b1d76d',
     chainId: 'linea',
   },
+  {
+    oracleId: 'KNOX',
+    tokenAddress: '0x0BBF664D46becc28593368c97236FAa0fb397595',
+    chainId: 'arbitrum',
+  },
+  {
+    oracleId: 'NORMUS',
+    tokenAddress: '0xBA5EDE8d98ab88CEa9f0D69918ddE28Dc23c2553',
+    chainId: 'base',
+  },
 ];
 
 /**
@@ -722,14 +736,20 @@ const seedPeggedPrices = {
   xcUSDT: 'USDT', // Kusama
 };
 
-export type LpBreakdown = {
+export type BaseLpBreakdown = {
   price: number;
   tokens: string[];
   balances: string[];
   totalSupply: string;
 };
-type PricesById = Record<string, number>;
-type BreakdownsById = Record<string, LpBreakdown>;
+export type ClmLpBreakdown = BaseLpBreakdown & {
+  underlyingLiquidity: string;
+  underlyingBalances: string[];
+  underlyingPrice: number;
+};
+export type LpBreakdown = BaseLpBreakdown | ClmLpBreakdown;
+export type PricesById = Record<string, number>;
+export type BreakdownsById = Record<string, LpBreakdown>;
 
 const cachedTokenPrices: PricesById = {};
 const cachedLpPrices: PricesById = {};

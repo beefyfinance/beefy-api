@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js';
 import { OPTIMISM_CHAIN_ID } from '../../../constants';
 import { beetOpClient } from '../../../apollo/client';
 const { getTradingFeeAprBalancer } = require('../../../utils/getTradingFeeApr');
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getEDecimals } from '../../../utils/getEDecimals';
 import IBalancerVault from '../../../abis/IBalancerVault';
 import { fetchContract } from '../../rpc/client';

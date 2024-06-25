@@ -4,12 +4,12 @@ import { groupBy, mapValues, partition } from 'lodash';
 import { isResultFulfilled } from '../../utils/promise';
 import { getKey, setKey } from '../../utils/cache';
 import { Address, isAddressEqual } from 'viem';
-import { getCowPoolChains, getCowPools } from './getCowPools';
+import { getCowClmChains, getCowClms } from './getCowClms';
 import {
   Campaign,
   CampaignType,
   CampaignTypeSetting,
-  CowPool,
+  CowClm,
   MerklApiCampaign,
   MerklApiCampaignsResponse,
 } from './types';
@@ -45,7 +45,7 @@ function getCampaignType(creator: Address, chain: ApiChain): CampaignType {
 function getCampaign(
   apiChain: ApiChain,
   campaign: MerklApiCampaign,
-  pools: ReadonlyArray<CowPool>,
+  pools: ReadonlyArray<CowClm>,
   unixTimestamp: number
 ): Campaign | undefined {
   const type = getCampaignType(campaign.creator, apiChain);
@@ -101,7 +101,7 @@ async function updateChain(apiChain: ApiChain) {
   }
 
   const campaigns: Campaign[] = [];
-  const pools = getCowPools(apiChain);
+  const pools = getCowClms(apiChain);
   const now = getUnixTime(new Date());
 
   for (const apiPool of Object.values(chainData)) {
@@ -132,7 +132,7 @@ async function updateAll() {
   try {
     console.log('> [CLM Merkl] Updating merkl campaigns...');
     const start = Date.now();
-    const updates = await Promise.allSettled(getCowPoolChains().map(updateChain));
+    const updates = await Promise.allSettled(getCowClmChains().map(updateChain));
     const [fulfilled, rejected] = partition(updates, isResultFulfilled);
 
     if (fulfilled.length) {

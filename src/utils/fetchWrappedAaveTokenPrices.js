@@ -6,7 +6,7 @@ import {
   OPTIMISM_CHAIN_ID,
   POLYGON_CHAIN_ID,
 } from '../constants';
-import { addressBook } from '../../packages/address-book/address-book';
+import { addressBook } from '../../packages/address-book/src/address-book';
 import { fetchContract } from '../api/rpc/client';
 import WrappedAaveTokenAbi from '../abis/WrappedAaveToken';
 import WrappedAave4626TokenAbi from '../abis/WrappedAave4626Token';

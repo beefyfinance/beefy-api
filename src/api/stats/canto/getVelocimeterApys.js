@@ -6,7 +6,7 @@ const volatilePools = require('../../../data/canto/velocimeterLpPools.json');
 const stableV2Pools = require('../../../data/canto/velocimeterV2StableLpPools.json');
 const volatileV2Pools = require('../../../data/canto/velocimeterV2LpPools.json');
 
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 const {
   canto: {
     tokens: { FLOWV1, FLOW },

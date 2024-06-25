@@ -5,7 +5,7 @@ import { getMiniChefApys } from '../common/getMiniChefApys';
 import _pools from '../../../data/avax/synapsePools.json';
 const pools: SingleAssetPool[] = _pools;
 
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { SingleAssetPool } from '../../../types/LpPool';
 import SynapseMiniChefV2 from '../../../abis/avax/SynapseMiniChefV2';
 

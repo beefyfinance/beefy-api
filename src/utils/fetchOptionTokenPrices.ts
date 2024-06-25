@@ -1,9 +1,9 @@
 import BigNumber from 'bignumber.js';
 import { FANTOM_CHAIN_ID, BASE_CHAIN_ID, CANTO_CHAIN_ID, LINEA_CHAIN_ID } from '../constants';
-import { addressBook } from '../../packages/address-book/address-book';
+import { addressBook } from '../../packages/address-book/src/address-book';
 import OptionsToken from '../abis/OptionsToken';
 import { fetchContract } from '../api/rpc/client';
-import Token from '../../packages/address-book/types/token';
+import Token from '../../packages/address-book/src/types/token';
 
 const {
   fantom: {

@@ -4,7 +4,7 @@ import { fetchPrice } from '../../../utils/fetchPrice';
 const { DAILY_HPY, ETH_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 import { getTotalPerformanceFeeForVault } from '../../vaults/getVaultFees';
-import { addressBook } from '../../../../packages/address-book/address-book';
+import { addressBook } from '../../../../packages/address-book/src/address-book';
 import { getAuraData } from './getAuraApys';
 import AuraGauge from '../../../abis/ethereum/AuraGauge';
 import { fetchContract } from '../../rpc/client';
