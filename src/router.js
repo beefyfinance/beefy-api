@@ -23,9 +23,10 @@ const { zapSwapsSupport, zapSwapsSupportDebug } = require('./api/zap/swap/routes
 const { getArticles, getLatestArticle } = require('./api/articles');
 const {
   getCowcentratedPriceRanges,
+  getCowcentratedAllMerklCampaigns,
+  getCowcentratedAllMerklCampaignsForChain,
+  getCowcentratedBeefyMerklCampaigns,
   getCowcentratedBeefyMerklCampaignsForChain,
-  getCowcentratedMerklCampaignsByChain,
-  getCowcentratedActiveMerklCampaignsByVault,
 } = require('./api/cowcentrated');
 
 router.get('/validator-performance', validatorPerformance);
@@ -62,9 +63,12 @@ router.get('/harvestable-vaults', multichainVaults.multichainHarvestableVaults);
 router.get('/harvestable-vaults/id/:vaultId', multichainVaults.singleHarvestableVault);
 router.get('/harvestable-vaults/:chainId', multichainVaults.singleHarvestableVaults);
 
-router.get('/cowData', getCowcentratedPriceRanges); /** @deprecated */
+/** @deprecated use /cow-price-ranges */
+router.get('/cowData', getCowcentratedPriceRanges);
 router.get('/cow-price-ranges', getCowcentratedPriceRanges);
-router.get('/cow-merkl-campaigns/all-by-chain', getCowcentratedMerklCampaignsByChain);
+router.get('/cow-merkl-campaigns/all', getCowcentratedAllMerklCampaigns);
+router.get('/cow-merkl-campaigns/all/:chainId', getCowcentratedAllMerklCampaignsForChain);
+router.get('/cow-merkl-campaigns', getCowcentratedBeefyMerklCampaigns);
 router.get('/cow-merkl-campaigns/:chainId', getCowcentratedBeefyMerklCampaignsForChain);
 
 router.get('/fees', multichainVaults.vaultFees);

@@ -62,7 +62,7 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   mantle,
   fraxtal,
   mode,
-  manta
+  manta,
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -93,5 +93,5 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.mantle]: mantle,
   [ChainId.fraxtal]: fraxtal,
   [ChainId.mode]: mode,
-  [ChainId.manta]: manta
+  [ChainId.manta]: manta,
 } as const;

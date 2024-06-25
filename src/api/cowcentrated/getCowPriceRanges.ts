@@ -14,7 +14,7 @@ type VaultCowData = Record<
 const chainToCowData: Partial<Record<ApiChain, VaultCowData>> = {};
 
 async function updateCowcentratedData() {
-  console.log('> [CLM Data] Updating cow vaults price ranges...');
+  console.log('> [CLM Price Ranges] Updating cow vaults price ranges...');
   const start = Date.now();
 
   const meta = getAllCowVaultsMeta();
@@ -32,12 +32,12 @@ async function updateCowcentratedData() {
   }
 
   const timing = (Date.now() - start) / 1000;
-  console.log(`> [CLM Data] ${count} cow vaults price ranges updated in ${timing}s`);
+  console.log(`> [CLM Price Ranges] ${count} cow vaults price ranges updated in ${timing}s`);
 }
 
 function updateAll() {
   updateCowcentratedData().catch(err => {
-    console.error('[CLM Data] Error updating cowcentrated data', err);
+    console.error('[CLM Price Ranges] Error updating cowcentrated price ranges', err);
   });
 }
 
@@ -45,8 +45,8 @@ export function getCowPriceRanges() {
   return chainToCowData;
 }
 
-export async function initCowDataService() {
-  console.log(' > [CLM Data] Initializing...');
+export async function initCowPriceRangeService() {
+  console.log(' > [CLM Price Ranges] Initializing...');
   serviceEventBus.on('cowcentrated/vaults-meta/loaded', updateAll);
   serviceEventBus.on('cowcentrated/vaults-meta/updated', updateAll);
 }
