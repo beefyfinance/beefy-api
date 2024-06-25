@@ -131,16 +131,19 @@ export function createCacheOptions(freshUntil: number, staleUntil: number): Cach
     maxAge: 0,
   };
   const now = getUnixTime(new Date());
-  const maxAge = freshUntil - now;
-  if (maxAge < 0) {
+  if (freshUntil < now) {
     return options;
   }
 
+  const maxAge = freshUntil - now;
   options.maxAge = maxAge;
   options.sharedMaxAge = maxAge;
 
-  const staleIfError = staleUntil - now - maxAge;
-  if (staleIfError > 0) {
-    options.staleIfError = staleIfError;
+  if (staleUntil < now) {
+    return options;
   }
+
+  options.staleIfError = staleUntil - now - maxAge;
+
+  return options;
 }

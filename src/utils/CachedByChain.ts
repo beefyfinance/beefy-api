@@ -40,8 +40,10 @@ class MemoryStore<T> {
 
   constructor(
     protected options: CachedByChainOptions,
-    protected initialData: ByChainMeta<T> = {}
-  ) {}
+    protected initialByChain: ByChainMeta<T> = {}
+  ) {
+    this.byChain = initialByChain;
+  }
 
   public set(chainId: ApiChain, value: T) {
     const updatedAt = getUnixTime(new Date());
@@ -104,31 +106,32 @@ export class CachedByChain<T> {
     if (!!cached && typeof cached === 'object' && !Array.isArray(cached)) {
       this.store = new MemoryStore(
         this.options,
-        Object.entries(cached).reduce((byChain, [chainId, data]) => {
+        Object.entries(cached).reduce((byChain, [chainId, maybeData]) => {
           if (!isApiChain(chainId)) {
             return byChain;
           }
           if (
-            !data ||
-            typeof data !== 'object' ||
-            Array.isArray(data) ||
-            !('value' in data) ||
-            !('updatedAt' in data) ||
-            !('freshUntil' in data) ||
-            !('staleUntil' in data) ||
-            !('version' in data)
+            !maybeData ||
+            typeof maybeData !== 'object' ||
+            Array.isArray(maybeData) ||
+            !('value' in maybeData) ||
+            !('updatedAt' in maybeData) ||
+            !('freshUntil' in maybeData) ||
+            !('staleUntil' in maybeData) ||
+            !('version' in maybeData)
           ) {
             return byChain;
           }
+          const data = maybeData as ChainMeta<T>;
           if (data.version < this.options.version) {
             return byChain;
           }
           const now = getUnixTime(new Date());
-          if (data.expiresAt < now) {
+          if (data.staleUntil < now) {
             return byChain;
           }
 
-          byChain[chainId] = data as ChainMeta<T>;
+          byChain[chainId] = data;
           return byChain;
         }, {} as ByChainMeta<T>)
       );
