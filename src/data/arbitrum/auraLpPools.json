@@ -1,5 +1,87 @@
 [
   {
+    "name": "aura-arb-rseth-weth",
+    "address": "0x90e6CB5249f5e1572afBF8A96D8A1ca6aCFFd739",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x90cedFDb5284a274720f1dB339eEe9798f4fa29d",
+    "vaultPoolId": "0x90e6cb5249f5e1572afbf8a96d8a1ca6acffd73900000000000000000000055c",
+    "composable": true,
+    "bptIndex": 2,
+    "lsIndex": 0,
+    "lsUrl": "https://universe.kelpdao.xyz/rseth/apy",
+    "dataPath": "$.value",
+    "lsAprFactor": 1,
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xC7F493e7796b4bDFE9C527CA8259B7e9369d1199",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x3E8Cd5bFd24CCb484aAb7AE48B5182Fbe6FF294A",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x4186BFC76E2E237523CBC30FD220FE055156b41F",
+        "oracleId": "rsETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      }
+    ]
+  },
+  {
+    "name": "aura-arb-wsteth-ethx",
+    "address": "0x7B54C44fBe6Db6D97FD22b8756f89c0aF16202Cc",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x98Ff4A66Cc00E477316f1AFc82aCE8e45f31C7fb",
+    "vaultPoolId": "0x7b54c44fbe6db6d97fd22b8756f89c0af16202cc00000000000000000000053c",
+    "composable": true,
+    "bptIndex": 1,
+    "lsIndex": [0, 1],
+    "lsUrl": [
+      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+      "https://universe.staderlabs.com/eth/apy"
+    ],
+    "dataPath": ["$.data.smaApr", "$.value"],
+    "lsAprFactor": [1, 1],
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x4b751A9364BadFed9f2B8BC7EAd89fbc7214DbF6",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "address": "0xED65C5085a18Fa160Af0313E60dcc7905E944Dc7",
+        "oracleId": "ETHx",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-arb-gyro-ausdc-ausdt",
     "address": "0x125bC5a031B2Db6733bfa35d914ffa428095978B",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

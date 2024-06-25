@@ -1992,4 +1992,19 @@ export const tokens = {
       'The KUJI token is the native token on the Kujira Network. KUJI is used to pay network fees and dApp fees, and all fees collected are distributed to KUJI stakers.',
     bridge: 'axelar',
   },
+  ETHx: {
+    name: 'ETHx',
+    symbol: 'ETHx',
+    oracleId: 'ETHx',
+    address: '0xED65C5085a18Fa160Af0313E60dcc7905E944Dc7',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.staderlabs.com/eth/',
+    bridge: 'chainlink-ccip',
+    description:
+      "ETHx is an innovative liquid staking token developed by Stader, designed to revolutionize Ethereum staking. Stader's vision for ETHx is to transform the staking experience, providing users with the unprecedented freedom to move and utilize their staked ETH while continuing to earn rewards and engage with the growing DeFi ecosystem.",
+    documentation: 'https://staderlabs.gitbook.io/ethereum',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
