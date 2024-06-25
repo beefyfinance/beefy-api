@@ -52,7 +52,7 @@
     ],
     "tokenOracleIds": ["WBTC", "USDC"],
     "decimals": [8, 6],
-    "oracleId": "camelot-wbtc-usdc"
+    "oracleId": "uniswap-cow-arb-wbtc-usdc"
   },
   {
     "address": "0x3a81D849D3044d13665d383aA2bB1611C597fF64",
