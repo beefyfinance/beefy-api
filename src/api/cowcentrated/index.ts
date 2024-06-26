@@ -114,7 +114,7 @@ function createMerklCampaignsHandler(
     let campaigns = perChain.map(d => d.value).flat();
     if (recentSeconds) {
       const cutoff = getUnixTime(new Date()) - recentSeconds;
-      campaigns = campaigns.filter(c => c.endTimestamp < cutoff);
+      campaigns = campaigns.filter(c => c.endTimestamp >= cutoff);
     }
 
     sendSuccess(ctx, campaigns, createCacheOptions(minChain.freshUntil, minChain.staleUntil));
@@ -146,7 +146,7 @@ function createMerklCampaignsForChainHandler(
     let campaigns = data.value;
     if (recentSeconds) {
       const cutoff = getUnixTime(new Date()) - recentSeconds;
-      campaigns = campaigns.filter(c => c.endTimestamp < cutoff);
+      campaigns = campaigns.filter(c => c.endTimestamp >= cutoff);
     }
 
     sendSuccess(ctx, campaigns, createCacheOptions(data.freshUntil, data.staleUntil));
