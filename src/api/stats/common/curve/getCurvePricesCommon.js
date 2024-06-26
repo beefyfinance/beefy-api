@@ -69,7 +69,7 @@ const getCurvePricesCommon = async (chainId, pools, tokenPrices) => {
     }
     let price = totalBalInUsd.div(totalSupply).toNumber();
 
-    if (['convex-aleth', 'convex-mseth'].includes(pool.name)) price = 0;
+    if (['convex-aleth', 'convex-mseth', 'convex-crveth'].includes(pool.name)) price = 0;
     prices[pool.name] = {
       price,
       tokens: tokens.map(t => t.address),
