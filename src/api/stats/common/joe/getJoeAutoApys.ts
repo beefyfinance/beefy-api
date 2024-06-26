@@ -43,7 +43,7 @@ const getTradingAprs = async (params): Promise<Record<string, BigNumber>> => {
       poolMap[pool] = new BigNumber(poolData.apr1d);
     });
   } catch (err) {
-    console.error('Joe Auto base apy error ', baseApyUrl, err);
+    console.error('Joe Auto base apy error ', baseApyUrl, err.message);
   }
   return poolMap;
 };
