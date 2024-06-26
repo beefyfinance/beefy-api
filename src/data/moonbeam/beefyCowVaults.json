@@ -1,5 +1,16 @@
 [
   {
+    "address": "0x58873a92A2eF097CdedeA11e72C30f4E85C10a29",
+    "lpAddress": "0x53c1341cd81562c1b1a7562fff712CD7be95D51e",
+    "tokens": [
+      "0xFFfffffF7D2B0B761Af01Ca8e25242976ac0aD7D",
+      "0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d"
+    ],
+    "tokenOracleIds": ["USDC", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "uniswap-cow-moonbeam-xcusdc-xcusdt"
+  },
+  {
     "address": "0x03F8A2977664480Bed8877C407D81c3475a4962b",
     "lpAddress": "0xBa66370D96a9D61AfA66283900b78C1F6Ed02782",
     "tokens": [
