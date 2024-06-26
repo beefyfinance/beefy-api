@@ -154,15 +154,22 @@ type MerklApiForwarder = {
   type: number;
 };
 
+type MerklApiCampaignParameters = {
+  symbolRewardToken: string;
+  decimalsRewardToken: number;
+};
+
 export type MerklApiCampaign = {
   chainId: number;
   campaignId: string;
   creator: Address;
   startTimestamp: number;
   endTimestamp: number;
+  rewardToken: string;
   /** supposed to be an address but some have extra space on end */
   mainParameter: string;
   forwarders: MerklApiForwarder[];
+  campaignParameters: MerklApiCampaignParameters;
 };
 
 export type MerklApiCampaignsResponse = {
@@ -189,12 +196,19 @@ export type CampaignTypeByChain = {
 
 export type CampaignTypeSetting = CampaignType | CampaignTypeByChain;
 
+export type CampaignRewardToken = {
+  address: string;
+  symbol: string;
+  decimals: number;
+};
+
 export type Campaign = {
   campaignId: string;
   startTimestamp: number;
   endTimestamp: number;
   chainId: ApiChain;
   poolAddress: string;
+  rewardToken: CampaignRewardToken;
   type: CampaignType;
   vaults: CampaignVault[];
 };

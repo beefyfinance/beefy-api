@@ -25,6 +25,8 @@ const {
   getCowcentratedPriceRanges,
   getCowcentratedAllMerklCampaigns,
   getCowcentratedAllMerklCampaignsForChain,
+  getCowcentratedAllRecentMerklCampaigns,
+  getCowcentratedAllRecentMerklCampaignsForChain,
   getCowcentratedBeefyMerklCampaigns,
   getCowcentratedBeefyMerklCampaignsForChain,
 } = require('./api/cowcentrated');
@@ -66,6 +68,11 @@ router.get('/harvestable-vaults/:chainId', multichainVaults.singleHarvestableVau
 /** @deprecated use /cow-price-ranges */
 router.get('/cowData', getCowcentratedPriceRanges);
 router.get('/cow-price-ranges', getCowcentratedPriceRanges);
+router.get('/cow-merkl-campaigns/all/recent', getCowcentratedAllRecentMerklCampaigns);
+router.get(
+  '/cow-merkl-campaigns/all/recent/:chainId',
+  getCowcentratedAllRecentMerklCampaignsForChain
+);
 router.get('/cow-merkl-campaigns/all', getCowcentratedAllMerklCampaigns);
 router.get('/cow-merkl-campaigns/all/:chainId', getCowcentratedAllMerklCampaignsForChain);
 router.get('/cow-merkl-campaigns', getCowcentratedBeefyMerklCampaigns);

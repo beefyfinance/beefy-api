@@ -35,7 +35,7 @@ const campaignStore = new CachedByChain<Campaign[]>({
   key: CACHE_KEY,
   fresh: FRESH_LIFETIME,
   stale: STALE_LIFETIME,
-  version: 1, // increase if the shape of Campaign[] changes
+  version: 2, // increase if the shape of Campaign[] changes
 });
 
 function getCampaignType(creator: Address, chain: ApiChain): CampaignType {
@@ -52,6 +52,11 @@ function getCampaign(
   campaign: MerklApiCampaign,
   pools: ReadonlyArray<CowClm>
 ): Campaign | undefined {
+  // skip campaigns with merkl test token reward
+  if (campaign.campaignParameters.symbolRewardToken === 'aglaMerkl') {
+    return undefined;
+  }
+
   const type = getCampaignType(campaign.creator, apiChain);
   const vaults = pools.filter(
     p => p.lpAddress.toLowerCase() === campaign.mainParameter.toLowerCase()
@@ -88,6 +93,11 @@ function getCampaign(
     startTimestamp: campaign.startTimestamp,
     endTimestamp: campaign.endTimestamp,
     poolAddress: campaign.mainParameter,
+    rewardToken: {
+      address: campaign.rewardToken,
+      symbol: campaign.campaignParameters.symbolRewardToken,
+      decimals: campaign.campaignParameters.decimalsRewardToken,
+    },
     vaults: vaultsWithApr,
     type,
   };
