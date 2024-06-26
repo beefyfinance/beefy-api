@@ -559,6 +559,10 @@
       {
         "token": "0x9d2F299715D94d8A7E6F5eaa8E654E8c74a988A7",
         "oracleId": "FXS"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
       }
     ],
     "getDy": ["v1", 0, 2, "USDC"],
