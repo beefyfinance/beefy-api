@@ -629,6 +629,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   layerzero: ['ZRO'],
   'camelot-token': ['xGRAIL'],
   zksync: ['ZK'],
+  'wrapped-oeth': ['WOETH'],
 };
 
 /**

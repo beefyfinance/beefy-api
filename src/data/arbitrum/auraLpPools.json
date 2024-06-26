@@ -1,5 +1,77 @@
 [
   {
+    "name": "aura-arb-gyro-weth-woeth",
+    "address": "0xef0c116A2818A5b1A5D836A291856A321f43C2Fb",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xa4e8b770B85794BEB675e3F59A78A43F7aFf8Ae2",
+    "vaultPoolId": "0xef0c116a2818a5b1a5d836a291856a321f43c2fb00020000000000000000053a",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xD3CCa10eC742789c9Be74Bae8380e3D4b701e2B3",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x0cb266579EE3A43071AcD2E8Fe869EAF7ea079F6",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xD8724322f44E5c58D7A815F542036fb17DbbF839",
+        "oracleId": "WOETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-arb-gyro-weeth-wsteth",
+    "address": "0xCDCef9765D369954a4A936064535710f7235110A",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x40bF10900a55c69c9dADdc3dC52465e01AcEF4A4",
+    "vaultPoolId": "0xcdcef9765d369954a4a936064535710f7235110a000200000000000000000558",
+    "lsIndex": [0, 1],
+    "lsUrl": [
+      "https://www.etherfi.bid/api/etherfi/apr",
+      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma"
+    ],
+    "dataPath": ["$.latest_aprs[0]", "$.data.smaApr"],
+    "lsAprFactor": [0.01, 1],
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xe7476612242b737bf664Cff3CA5B209fd51AF804",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xC28C8D11D6CE2836130CAa1ba89DdE9c7787c6e0",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x35751007a407ca6FEFfE80b3cB397736D2cf4dbe",
+        "oracleId": "weETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-arb-rseth-weth",
     "address": "0x90e6CB5249f5e1572afBF8A96D8A1ca6aCFFd739",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
