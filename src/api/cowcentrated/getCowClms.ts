@@ -7,6 +7,7 @@ import moonbeamPools from '../../data/moonbeam/beefyCowVaults.json';
 import lineaPools from '../../data/linea/beefyCowVaults.json';
 import polygonPools from '../../data/matic/beefyCowVaults.json';
 import zksyncPools from '../../data/zksync/beefyCowVaults.json';
+import mantaPools from '../../data/manta/beefyCowVaults.json';
 
 const chainToClms: Partial<Record<ApiChain, CowClm[]>> = {
   optimism: validateCowClms(optimismPools),
@@ -16,6 +17,7 @@ const chainToClms: Partial<Record<ApiChain, CowClm[]>> = {
   linea: validateCowClms(lineaPools),
   polygon: validateCowClms(polygonPools),
   zksync: validateCowClms(zksyncPools),
+  manta: validateCowClms(mantaPools),
 };
 
 const chainsWithClms = (Object.keys(chainToClms) as ReadonlyArray<ApiChain>).filter(

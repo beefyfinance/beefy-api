@@ -1,0 +1,35 @@
+[
+  {
+    "address": "0x906e60166A4B185016e53597fA12FBB1424e47d7",
+    "lpAddress": "0x7881dc8E59E644517a95A9687a6b58b86d98DB78",
+    "tokens": [
+      "0x0Dc808adcE2099A9F62AA87D9670745AbA741746",
+      "0xec901da9c68e90798bbbb74c11406a32a70652c3"
+    ],
+    "tokenOracleIds": ["WETH", "STONE"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-manta-weth-stone"
+  },
+  {
+    "address": "0x756bd7f54675112b6c689DFFBDa8505566d20C6c",
+    "lpAddress": "0xC108d8702D42baE7b3D7d8209a9B40613A7B1d37",
+    "tokens": [
+      "0x0Dc808adcE2099A9F62AA87D9670745AbA741746",
+      "0xb73603C5d87fA094B7314C74ACE2e64D165016fb"
+    ],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "uniswap-cow-manta-weth-usdc"
+  },
+  {
+    "address": "0x01Fbf9B624a6133Ab04Fc4000ae513AC97e4d114",
+    "lpAddress": "0x060f2bAbc09826687be9cBF5c7Ede3B3cd00Dd78",
+    "tokens": [
+      "0xb73603C5d87fA094B7314C74ACE2e64D165016fb",
+      "0xf417F5A458eC102B90352F697D6e2Ac3A3d2851f"
+    ],
+    "tokenOracleIds": ["USDC", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "uniswap-cow-manta-usdc-usdt"
+  }
+]

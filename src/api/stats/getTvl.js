@@ -81,6 +81,9 @@ const {
 
   MODE_CHAIN_ID,
   MODE_VAULTS_ENDPOINT,
+
+  MANTA_CHAIN_ID,
+  MANTA_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -197,6 +200,10 @@ const chains = [
   {
     chainId: MODE_CHAIN_ID,
     vaultsEndpoint: MODE_VAULTS_ENDPOINT,
+  },
+  {
+    chainId: MANTA_CHAIN_ID,
+    vaultsEndpoint: MANTA_VAULTS_ENDPOINT,
   },
 ];
 
