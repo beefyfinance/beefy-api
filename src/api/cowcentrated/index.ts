@@ -64,6 +64,22 @@ export const getCowcentratedAllMerklCampaignsForChain = createMerklCampaignsForC
 );
 
 /**
+ * Recent merkl campaigns for each chain [that target a pool one of our clm vaults is using]
+ */
+export const getCowcentratedAllRecentMerklCampaigns = createMerklCampaignsHandler(
+  getCowMerklCampaignsByChain,
+  60 * 60 * 24 // 1 day
+);
+
+/**
+ * Recent merkl campaigns for a specific chain [that target a pool one of our clm vaults is using]
+ */
+export const getCowcentratedAllRecentMerklCampaignsForChain = createMerklCampaignsForChainHandler(
+  getCowMerklCampaignsForChain,
+  60 * 60 * 24 // 1 day
+);
+
+/**
  * All merkl campaigns created by Beefy [that target a pool one of our clm vaults is using]
  */
 export const getCowcentratedBeefyMerklCampaigns = createMerklCampaignsHandler(
@@ -77,7 +93,10 @@ export const getCowcentratedBeefyMerklCampaignsForChain = createMerklCampaignsFo
   getCowBeefyMerklCampaignsForChain
 );
 
-function createMerklCampaignsHandler(getByChain: () => ByChainMeta<Campaign[]>) {
+function createMerklCampaignsHandler(
+  getByChain: () => ByChainMeta<Campaign[]>,
+  recentSeconds?: number
+) {
   return async (ctx: Context) => {
     const data = getByChain();
     if (!data) {
@@ -92,16 +111,19 @@ function createMerklCampaignsHandler(getByChain: () => ByChainMeta<Campaign[]>) 
     }
 
     const minChain = minBy(perChain, d => d.freshUntil);
-    sendSuccess(
-      ctx,
-      perChain.map(d => d.value).flat(),
-      createCacheOptions(minChain.freshUntil, minChain.staleUntil)
-    );
+    let campaigns = perChain.map(d => d.value).flat();
+    if (recentSeconds) {
+      const cutoff = getUnixTime(new Date()) - recentSeconds;
+      campaigns = campaigns.filter(c => c.endTimestamp < cutoff);
+    }
+
+    sendSuccess(ctx, campaigns, createCacheOptions(minChain.freshUntil, minChain.staleUntil));
   };
 }
 
 function createMerklCampaignsForChainHandler(
-  getForChain: (chainId: ApiChain) => ChainMeta<Campaign[]>
+  getForChain: (chainId: ApiChain) => ChainMeta<Campaign[]>,
+  recentSeconds?: number
 ) {
   return async (ctx: Context) => {
     const chainId = ctx.params.chainId;
@@ -121,7 +143,13 @@ function createMerklCampaignsForChainHandler(
       return;
     }
 
-    sendSuccess(ctx, data.value, createCacheOptions(data.freshUntil, data.staleUntil));
+    let campaigns = data.value;
+    if (recentSeconds) {
+      const cutoff = getUnixTime(new Date()) - recentSeconds;
+      campaigns = campaigns.filter(c => c.endTimestamp < cutoff);
+    }
+
+    sendSuccess(ctx, campaigns, createCacheOptions(data.freshUntil, data.staleUntil));
   };
 }
 
