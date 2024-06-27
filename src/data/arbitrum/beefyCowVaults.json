@@ -1,5 +1,38 @@
 [
   {
+    "address": "0x240939C5e1B63F9bb4c17D69f9BF98dc1bEcb699",
+    "lpAddress": "0xF9bA609869a46c06BE6689fc0a314CE5f4Fdad41",
+    "tokens": [
+      "0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812",
+      "0x5979D7b546E38E414F7E9822514be443A4800529"
+    ],
+    "tokenOracleIds": ["arbwUSDM", "wstETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-wusdm-wsteth"
+  },
+  {
+    "address": "0x2668eC44880464412Bb3674875941a014103eD2a",
+    "lpAddress": "0xe9e6b9aAAfaf6816C3364345F6eF745CcFC8660a",
+    "tokens": [
+      "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+      "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"
+    ],
+    "tokenOracleIds": ["WBTC", "tBTC"],
+    "decimals": [8, 18],
+    "oracleId": "uniswap-cow-arb-wbtc-tbtc"
+  },
+  {
+    "address": "0xDbaF4a5Ad4352adCDD2E914C1B1515E6F7451A82",
+    "lpAddress": "0xCb198a55e2a88841E855bE4EAcaad99422416b33",
+    "tokens": [
+      "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["tBTC", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-tbtc-weth-prod"
+  },
+  {
     "address": "0xC9a57BAD9AAbCC6f0c22474442985b7CF1eC6786",
     "lpAddress": "0xc23f308CF1bFA7efFFB592920a619F00990F8D74",
     "tokens": [

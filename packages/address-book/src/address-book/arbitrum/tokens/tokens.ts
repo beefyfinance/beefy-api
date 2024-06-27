@@ -2024,7 +2024,7 @@ export const tokens = {
   },
   wUSDM: {
     name: 'Mountain Protocol USD',
-    symbol: 'USDM',
+    symbol: 'wUSDM',
     oracleId: 'arbwUSDM',
     address: '0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812',
     chainId: 42161,
