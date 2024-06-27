@@ -2022,4 +2022,19 @@ export const tokens = {
     bridge: 'chainlink-ccip',
     risks: ['NO_TIMELOCK'],
   },
+  wUSDM: {
+    name: 'Mountain Protocol USD',
+    symbol: 'USDM',
+    oracleId: 'arbwUSDM',
+    address: '0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://mountainprotocol.com/',
+    documentation: 'https://docs.mountainprotocol.com/',
+    description:
+      'The wUSDM token is the wrapped version of USDM, redeemable at a pegged 1:1 USD value by primary users. USDM is a fully backed stablecoin, backed by "USDM Reserves", which are held under custody with regulated financial institutions in bankruptcy-remote accounts, segregated from the Company\'s operating accounts, on behalf of, and for the benefit of, Users.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
