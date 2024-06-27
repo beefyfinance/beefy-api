@@ -1,5 +1,16 @@
 [
   {
+    "address": "0xbdFf136395A96f2c09CBC3FbDf8F50FF9C42c21E",
+    "lpAddress": "0x9b6FF025AeE245D314c09F57B72f0dE6E231c3a6",
+    "tokens": [
+      "0x18c11FD286C5EC11c3b683Caa813B77f5163A122",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["GNS", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-gns-weth"
+  },
+  {
     "address": "0x240939C5e1B63F9bb4c17D69f9BF98dc1bEcb699",
     "lpAddress": "0xF9bA609869a46c06BE6689fc0a314CE5f4Fdad41",
     "tokens": [
