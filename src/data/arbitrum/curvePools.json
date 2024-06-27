@@ -1,5 +1,26 @@
 [
   {
+    "name": "curve-arb-tbtc-ng",
+    "pool": "0x186cf879186986a20aadfb7ead50e3c20cb26cec",
+    "gauge": "0xb7e23a438c9cad2575d3c048248a943a7a03f3fa",
+    "rewards": [
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-trirsr",
     "pool": "0x45b47fe1bed067de6b4b89e0285e6b571a64c57c",
     "gauge": "0xf7205c995b7e5f8f755ecbe7eebb92ec742633c9",
@@ -15,17 +36,14 @@
     ],
     "tokens": [
       {
-        "oracle": "tokens",
         "oracleId": "ETH+",
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
         "oracleId": "eUSD",
         "decimals": "1e18"
       },
       {
-        "oracle": "tokens",
         "oracleId": "RSR",
         "decimals": "1e18"
       }
