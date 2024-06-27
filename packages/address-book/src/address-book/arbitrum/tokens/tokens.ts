@@ -2007,4 +2007,19 @@ export const tokens = {
     documentation: 'https://staderlabs.gitbook.io/ethereum',
     risks: ['NO_TIMELOCK'],
   },
+  WOETH: {
+    name: 'Wrapped OETH',
+    symbol: 'WOETH',
+    oracleId: 'WOETH',
+    address: '0xD8724322f44E5c58D7A815F542036fb17DbbF839',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.originprotocol.com/oeth',
+    description:
+      'OETH is a liquid staking token that allows Ethereum staking and yield earning while maintaining a 1:1 peg with ETH. Its non-rebasing, ERC-4626 tokenized vault version simplifies DeFi integrations and ensures stability and transparency through its fully on-chain, collateralized design with distributed validator technology (DVT).',
+    documentation: 'https://docs.originprotocol.com/protocol/oeth',
+    bridge: 'chainlink-ccip',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
