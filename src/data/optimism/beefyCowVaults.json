@@ -1,5 +1,20 @@
 [
   {
+    "address": "0xD4768E30180786e875a4909472c9826b18931E43",
+    "lpAddress": "0x173cDC71e29d5Cffa6D090AD99f555a24B8831f9",
+    "tokens": [
+      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"
+    ],
+    "tokenOracleIds": ["USDC", "mooBIFI"],
+    "decimals": [6, 18],
+    "oracleId": "velo-cow-op-moobifi-usdc",
+    "rewardPool": {
+      "address": "0xdA0c58F0f407bC4EbF6e885Ae90e9a817cf8cdF5",
+      "oracleId": "velo-cow-op-moobifi-usdc-rp"
+    }
+  },
+  {
     "address": "0x3099015b25b3F2409a06b92C8B46A35FC3Da0A4e",
     "lpAddress": "0xD1F1baD4c9E6c44DeC1e9bF3B94902205c5Cd6C3",
     "tokens": [
