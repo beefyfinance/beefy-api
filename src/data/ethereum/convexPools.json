@@ -52,7 +52,7 @@
     "name": "curve-crvusd-susde",
     "pool": "0x57064f49ad7123c92560882a45518374ad982e85",
     "gauge": "0x76f236a0cc1c90425d8ab5f042970454311482ab",
-    "rewardPool_": "0x0Fce355888851408F30A6ccC3C77f6D9EEe75834",
+    "rewardPool": "0x0Fce355888851408F30A6ccC3C77f6D9EEe75834",
     "getDy": ["v1", 1, 0],
     "tokens": [
       {
