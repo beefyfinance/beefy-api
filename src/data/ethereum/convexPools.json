@@ -1,5 +1,20 @@
 [
   {
+    "name": "curve-eusd-usdc",
+    "pool": "0x08bfa22bb3e024cdfeb3eca53c0cb93bf59c4147",
+    "gauge": "0x87f791090b09069b3f9c64e3be3cbbc0b45fc9b6",
+    "tokens": [
+      {
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "convex-usd3-rgusd",
     "pool": "0xde73e407efc75edbafc5bcd62ebb1e7a9b38ebcd",
     "gauge": "0x36152aa234fcf97b5c14fc6d4893fc0da5328bd2",
