@@ -1,5 +1,35 @@
 [
   {
+    "name": "fx-frax-fxusd",
+    "pool": "0x1EE81c56e42EC34039D993d12410d437DdeA341E",
+    "gauge": "0x31b630B21065664dDd2dBa0eD3a60D8ff59501F0",
+    "tokens": [
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "fxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "fx-eusd-fxusd",
+    "pool": "0x16b54e3aC8e3ba088333985035b869847e36E770",
+    "gauge": "0x5801Bb8f568979C722176Df36b1a74654A9C52b5",
+    "tokens": [
+      {
+        "oracleId": "eUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "fxUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "fx-gho-fxusd",
     "pool": "0x74345504eaea3d9408fc69ae7eb2d14095643c5b",
     "gauge": "0xf0A3ECed42Dbd8353569639c0eaa833857aA0A75",
