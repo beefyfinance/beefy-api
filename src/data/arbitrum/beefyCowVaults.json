@@ -228,7 +228,11 @@
     ],
     "tokenOracleIds": ["ezETH", "WETH"],
     "decimals": [18, 18],
-    "oracleId": "camelot-ezeth-weth"
+    "oracleId": "camelot-ezeth-weth",
+    "rewardPool": {
+      "address": "0xf1ff0F8793DbA18dF40E8b8aff66CE6f7a9DF945",
+      "oracleId": "camelot-ezeth-weth-rp"
+    }
   },
   {
     "address": "0xDa3E652A86B3FD320512cadd87D6504fa18aEC65",
