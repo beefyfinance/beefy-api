@@ -1,5 +1,47 @@
 [
   {
+    "name": "aura-polygon-wmatic-maticx",
+    "address": "0xcd78A20c597E367A4e478a2411cEB790604D7c8F",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x39EE6Fb813052E67260A3F95D3739B336aABD2C6",
+    "vaultPoolId": "0xcd78a20c597e367a4e478a2411ceb790604d7c8f000000000000000000000c22",
+    "composable": true,
+    "bptIndex": 1,
+    "lsIndex": 1,
+    "lsUrl": "https://universe.staderlabs.com/polygon/apy",
+    "dataPath": "$.value",
+    "lsAprFactor": 1,
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x1BC05A9089d24872cDA72624de79516d1E85ADEe",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x1BC05A9089d24872cDA72624de79516d1E85ADEe",
+        "oracleId": "SD",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+        "oracleId": "WMATIC",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "address": "0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6",
+        "oracleId": "MaticX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-polygon-gyro-matic-maticx",
     "address": "0xeE278d943584dd8640eaf4cc6c7a5C80c0073E85",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -11,6 +53,11 @@
     "vaultPoolId": "0xee278d943584dd8640eaf4cc6c7a5c80c0073e85000200000000000000000bc7",
     "decimals": "1e18",
     "rewards": [
+      {
+        "rewardGauge": "0xe387D6910ff3A42B8afd6a06A2fb91123043E31E",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
       {
         "rewardGauge": "0x61E6cb07fcF0fC6bA3F0A10C379011b336F928b0",
         "oracleId": "SD",
@@ -41,6 +88,13 @@
     "balancerChargesFee": true,
     "vaultPoolId": "0xf0ad209e2e969eaaa8c882aac71f02d8a047d5c2000200000000000000000b49",
     "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xd73fA238b49f72267959AAF83bB70EA3b8681046",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
     "tokens": [
       {
         "oracle": "tokens",

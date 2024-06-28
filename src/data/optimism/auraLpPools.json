@@ -1,5 +1,41 @@
 [
   {
+    "name": "aura-gyro-op-frax-symphony",
+    "address": "0xE906d4C4fC4c3Fe96560De86B4bf7eD89aF9A69a",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xC62F613a45E004B57cf1FF2ad4C9ac0CA14909C4",
+    "vaultPoolId": "0xe906d4c4fc4c3fe96560de86b4bf7ed89af9a69a000200000000000000000126",
+    "lsIndex": 0,
+    "lsUrl": "https://api.frax.finance/v2/frax/sfrax/summary/latest",
+    "dataPath": "$.sfraxApy",
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x58A98394296ab0EcFD9A5566a7545fD363A5B075",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x001f0217fEe4670094eb94C012c27989D311e1fA",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x2Dd1B4D4548aCCeA497050619965f91f78b3b532",
+        "oracleId": "sFRAX",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-op-weth-wrseth",
     "address": "0x73A7fe27fe9545D53924E529Acf11F3073841b9e",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
