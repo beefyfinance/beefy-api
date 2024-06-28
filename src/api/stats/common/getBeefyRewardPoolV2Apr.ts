@@ -4,7 +4,7 @@ import type { GetContractReturnType } from 'viem/_types/actions/getContract';
 import { IBeefyRewardPool } from '../../../abis/IBeefyRewardPool';
 import { TokenWithId } from '../../../../packages/address-book/src/types/token';
 import BigNumber from 'bignumber.js';
-import { fromWei, toBigNumber } from '../../../utils/big-number';
+import { BIG_ZERO, fromWei, toBigNumber } from '../../../utils/big-number';
 import { SECONDS_PER_YEAR } from '../../../utils/time';
 import { getAmmPrice } from '../getAmmPrices';
 import { isFiniteNumber } from '../../../utils/number';
@@ -58,7 +58,7 @@ export type BeefyRewardPoolV2Result = Pick<
 > & {
   chainId: ChainId;
   totalApr?: number | undefined;
-  rewardsApr?: NonEmptyArray<RewardApr> | undefined;
+  rewardsApr?: Array<RewardApr> | undefined;
 };
 
 /**
@@ -95,15 +95,12 @@ export const getBeefyRewardPoolV2Apr = async (
       getYearlyRewardsInUsd(chainId, pool),
       getTotalStakedInUsd(chainId, pool),
     ]);
+
     const rewardsApr: RewardApr[] = yearlyRewardsInUsd.map(reward => ({
       ...reward,
-      apr: reward.yearlyUsd.dividedBy(totalStakedInUsd).toNumber(),
+      apr: totalStakedInUsd.isZero() ? 0 : reward.yearlyUsd.dividedBy(totalStakedInUsd).toNumber(),
     }));
     const totalApr = rewardsApr.reduce((acc, reward) => acc + reward.apr, 0);
-
-    if (!isNonEmptyArray(rewardsApr)) {
-      throw new Error(`no rewards have aprs`);
-    }
 
     return {
       address: pool.address,
@@ -123,7 +120,7 @@ async function getRewardConfigsFromContract(
   pool: BeefyRewardPoolV2Config,
   rewardPoolContract: GetContractReturnType<typeof IBeefyRewardPool, Client>,
   tokenAddressMap: Record<string, TokenWithId>
-): Promise<NonEmptyArray<RewardConfig>> {
+): Promise<RewardConfig[]> {
   const earned = await rewardPoolContract.read.earned([ZERO_ADDRESS] as const);
   if (typeof earned === 'bigint') {
     throw new Error(`earned(address) returned uint256, expected (address[],uint256[])`);
@@ -131,7 +128,10 @@ async function getRewardConfigsFromContract(
 
   const [rewardAddresses] = earned;
   if (rewardAddresses.length === 0) {
-    throw new Error(`no rewards found via contract`);
+    console.warn(
+      `getRewardConfigsFromContract for ${pool.oracleId}: no rewards found via contract`
+    );
+    return [];
   }
 
   const rewardsInAddressBook: RewardConfig[] = rewardAddresses
@@ -148,13 +148,16 @@ async function getRewardConfigsFromContract(
     })
     .filter(isDefined);
 
-  if (!isNonEmptyArray(rewardsInAddressBook)) {
-    throw new Error(`no rewards found via contract are in the address book`);
+  if (rewardsInAddressBook.length === 0) {
+    console.warn(
+      `getRewardConfigsFromContract for ${pool.oracleId}: no rewards found via contract are in the address book`
+    );
+    return [];
   }
 
   if (rewardsInAddressBook.length < rewardAddresses.length) {
     console.warn(
-      `${pool.oracleId} some rewards found via contract are not in the address book`,
+      `getRewardConfigsFromContract for ${pool.oracleId}: some rewards found via contract are not in the address book`,
       rewardAddresses
     );
   }
@@ -165,20 +168,22 @@ async function getRewardConfigsFromContract(
 async function getRewardConfigsPrices(
   pool: BeefyRewardPoolV2Config,
   rewards: NonEmptyArray<RewardConfig>
-): Promise<NonEmptyArray<RewardConfigPrice> | undefined> {
+): Promise<RewardConfigPrice[] | undefined> {
   const prices = await Promise.allSettled(rewards.map(reward => getAmmPrice(reward.oracleId)));
   const rewardsWithPrices = rewards
     .map((reward, index) => {
       const price = prices[index];
       if (price.status === 'rejected') {
         console.warn(
-          `${pool.oracleId} failed to get price for reward ${reward.oracleId}`,
+          `getRewardConfigsPrices for ${pool.oracleId}: failed to get price for reward ${reward.oracleId}`,
           price.reason
         );
         return undefined;
       }
       if (!isFiniteNumber(price.value)) {
-        console.warn(`${pool.oracleId} price for reward ${reward.oracleId} is not a finite number`);
+        console.warn(
+          `getRewardConfigsPrices for ${pool.oracleId}: price for reward ${reward.oracleId} is not a finite number`
+        );
         return undefined;
       }
 
@@ -186,8 +191,9 @@ async function getRewardConfigsPrices(
     })
     .filter(isDefined);
 
-  if (!isNonEmptyArray(rewardsWithPrices)) {
-    throw new Error(`no rewards have prices`);
+  if (rewardsWithPrices.length === 0) {
+    console.warn(`getRewardConfigsPrices for ${pool.oracleId}: no rewards have prices`);
+    return [];
   }
 
   return rewardsWithPrices;
@@ -197,41 +203,48 @@ async function getRewardConfigsInfo(
   pool: BeefyRewardPoolV2Config,
   rewards: NonEmptyArray<RewardConfigPrice>,
   rewardPoolContract: GetContractReturnType<typeof IBeefyRewardPool, Client>
-): Promise<NonEmptyArray<RewardConfigInfo>> {
+): Promise<RewardConfigInfo[]> {
   const rewardsInfo = await Promise.allSettled(
     rewards.map(reward => rewardPoolContract.read.rewardInfo([BigInt(reward.id)]))
   );
-  const now = getUnixTime(new Date());
-  const rewardsWithInfo = rewards.map((reward, index) => {
-    const info = rewardsInfo[index];
-    if (info.status === 'rejected') {
-      console.warn(
-        `${pool.oracleId} failed to get reward info for reward ${reward.oracleId} at ${reward.id}`,
-        info.reason
-      );
-      return undefined;
-    }
 
-    const [address, periodFinish, duration, lastUpdateTime, rewardRate] = info.value;
-    if (periodFinish < now) {
-      return undefined;
-    }
+  const rewardsWithInfo = rewards
+    .map((reward, index) => {
+      const info = rewardsInfo[index];
+      if (info.status === 'rejected') {
+        console.warn(
+          `getRewardConfigsInfo for ${pool.oracleId}: failed to get reward info for reward ${reward.oracleId} at ${reward.id}`,
+          info.reason
+        );
+        return undefined;
+      }
 
-    return {
-      ...reward,
-      address,
-      periodFinish,
-      duration,
-      lastUpdateTime,
-      rewardRate,
-    };
-  });
+      const [address, periodFinish, duration, lastUpdateTime, rewardRate] = info.value;
+      return {
+        ...reward,
+        address,
+        periodFinish,
+        duration,
+        lastUpdateTime,
+        rewardRate,
+      };
+    })
+    .filter(isDefined);
 
-  if (!isNonEmptyArray(rewardsWithInfo)) {
-    throw new Error(`no rewards have reward info`);
+  if (rewardsWithInfo.length === 0) {
+    console.warn(`getRewardConfigsInfo for ${pool.oracleId}: no rewards have reward info`);
+    return [];
   }
 
-  return rewardsWithInfo;
+  const now = getUnixTime(new Date());
+  const activeRewards = rewardsWithInfo.filter(reward => reward.periodFinish > now);
+
+  if (activeRewards.length === 0) {
+    console.warn(`getRewardConfigsInfo for ${pool.oracleId}: no rewards are active`);
+    return [];
+  }
+
+  return activeRewards;
 }
 
 async function getYearlyRewardsInUsd(
@@ -247,8 +260,20 @@ async function getYearlyRewardsInUsd(
           rewardPoolContract,
           addressBookByChainId[chainId].tokenAddressMap
         );
+  if (!isNonEmptyArray(rewardConfigs)) {
+    return [];
+  }
+
   const rewardsWithPrices = await getRewardConfigsPrices(pool, rewardConfigs);
+  if (!isNonEmptyArray(rewardsWithPrices)) {
+    return [];
+  }
+
   const rewardsWithInfo = await getRewardConfigsInfo(pool, rewardsWithPrices, rewardPoolContract);
+  if (!isNonEmptyArray(rewardsWithInfo)) {
+    return [];
+  }
+
   return rewardsWithInfo.map(reward => ({
     ...reward,
     yearlyUsd: fromWei(toBigNumber(reward.rewardRate), reward.decimals)
@@ -269,13 +294,15 @@ async function getTotalStakedInUsd(
   ]);
 
   if (totalStaked === 0n) {
-    throw new Error(`${pool.oracleId} total staked is 0`);
+    console.warn(`getTotalStakedInUsd for ${pool.oracleId}: total staked is zero`);
+    return BIG_ZERO;
   }
 
   if (!isFiniteNumber(price)) {
-    throw new Error(
-      `getBeefyRewardPoolV2Apr: ${pool.oracleId} failed to get price for underlying ${pool.stakedToken.oracleId}`
+    console.warn(
+      `getTotalStakedInUsd for ${pool.oracleId}: failed to get price for underlying ${pool.stakedToken.oracleId}`
     );
+    return BIG_ZERO;
   }
 
   return fromWei(toBigNumber(totalStaked), pool.stakedToken.decimals).times(price);

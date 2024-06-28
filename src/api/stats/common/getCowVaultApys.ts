@@ -1,6 +1,3 @@
-import BigNumber from 'bignumber.js';
-import getApyBreakdown, { ApyBreakdownResult } from './getApyBreakdown';
-import { BIG_ZERO } from '../../../utils/big-number';
 import { ChainId } from '../../../../packages/address-book/src/address-book';
 import { ApiChain, toChainId } from '../../../utils/chain';
 import { getCowVaultsMeta } from '../../cowcentrated/getCowVaultsMeta';
@@ -11,8 +8,8 @@ import {
   isCowClmWithRewardPoolMeta,
 } from '../../cowcentrated/types';
 import { isDefined } from '../../../utils/array';
-import { ApyBreakdownFromInput, getApyBreakdownFrom } from './getApyBreakdownFrom';
 import { getBeefyRewardPoolV2Apr } from './getBeefyRewardPoolV2Apr';
+import { ApyBreakdownRequest, getApyBreakdown, ApyBreakdownResult } from './getApyBreakdownNew';
 
 /**
  * Base CLMs + Reward Pools
@@ -64,22 +61,21 @@ function getCowRewardPoolApyBreakdown(
   rewardPoolAprs: (number | undefined)[]
 ): ApyBreakdownResult | undefined {
   const inputs = clms
-    .map((clm, index): ApyBreakdownFromInput | undefined => {
+    .map((clm, index): ApyBreakdownRequest | undefined => {
       if (isCowClmWithRewardPoolMeta(clm)) {
         return {
-          oracleId: clm.rewardPool.oracleId,
-          address: clm.rewardPool.address,
+          vaultId: clm.rewardPool.oracleId,
           beefyFee: 0,
-          farmApr: rewardPoolAprs[index],
-          clmApr: clmApys.apyBreakdowns[clm.oracleId]?.clmApr,
-          merklApr: clmApys.apyBreakdowns[clm.oracleId]?.merklApr,
+          rewardPool: rewardPoolAprs[index],
+          clm: clmApys.apyBreakdowns[clm.oracleId]?.clmApr,
+          merkl: clmApys.apyBreakdowns[clm.oracleId]?.merklApr,
         };
       }
       return undefined;
     })
     .filter(isDefined);
 
-  return inputs.length ? getApyBreakdownFrom(inputs) : undefined;
+  return inputs.length ? getApyBreakdown(inputs) : undefined;
 }
 
 const getCowRewardPoolAprs = async (
@@ -114,12 +110,8 @@ const getCowRewardPoolApr = async (
       console.error(
         `> getCowRewardPoolApr Error for ${clm.rewardPool.oracleId}: getBeefyRewardPoolV2Apr returned undefined`
       );
-      return undefined;
+      return 0;
     }
-
-    //for (const reward of result.rewardsApr) {
-    //  console.log(reward.oracleId, reward.apr);
-    //}
 
     return result.totalApr;
   } catch (err) {
@@ -133,25 +125,12 @@ const getCowClmApyBreakdown = async (
   vaults: AnyCowClmMeta[]
 ): Promise<ApyBreakdownResult> => {
   const merklCampaigns = await getMerklCampaigns(chainId);
-  const pools = [];
-  const farmAprs: BigNumber[] = [];
-  const clmAprs: number[] = [];
-  const merklAprs: number[] = [];
-  vaults.forEach(vault => {
-    pools.push({ name: vault.oracleId });
-    farmAprs.push(BIG_ZERO);
-    clmAprs.push(new BigNumber(vault.apr).toNumber());
-    merklAprs.push(getMerklAprForVault(vault, merklCampaigns));
-  });
   return getApyBreakdown(
-    pools,
-    undefined,
-    farmAprs,
-    undefined,
-    undefined,
-    undefined,
-    clmAprs,
-    merklAprs
+    vaults.map(vault => ({
+      vaultId: vault.oracleId,
+      clm: vault.apr,
+      merkl: getMerklAprForVault(vault, merklCampaigns),
+    }))
   );
 };
 

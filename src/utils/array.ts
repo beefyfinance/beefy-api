@@ -23,3 +23,7 @@ export function isNonEmptyArray<T>(arr: T[] | undefined | null): arr is NonEmpty
 export function isDefined<T>(value: T): value is Exclude<T, undefined | null> {
   return value !== undefined && value !== null;
 }
+
+export function toArray<T>(value: T | T[]): T[] {
+  return Array.isArray(value) ? value : [value];
+}
