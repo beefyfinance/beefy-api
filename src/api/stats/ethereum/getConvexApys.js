@@ -15,21 +15,7 @@ const tradingFees = 0.0002;
 const secondsPerYear = 31536000;
 const cvxAddress = '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B';
 
-const pools = [
-  {
-    name: 'convex-staked-cvxCRV',
-    rewardPool: '0x3Fe65692bfCD0e6CF84cB1E7d24108E434A7587e',
-    extras: [
-      {
-        rewardPool: '0x7091dbb7fcbA54569eF1387Ac89Eb2a5C9F6d2EA',
-        oracle: 'lps',
-        oracleId: 'convex-3pool',
-      },
-    ],
-  },
-  ...lpPools,
-  ...lendPools,
-];
+const pools = [...lpPools, ...lendPools];
 
 export const getConvexApys = async () => {
   const [baseApys, lendApys, farmApys] = await Promise.all([

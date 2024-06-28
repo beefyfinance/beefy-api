@@ -18,9 +18,9 @@ const pool = {
   rewardPool: '0x3Fe65692bfCD0e6CF84cB1E7d24108E434A7587e',
   extras: [
     {
-      rewardPool: '0x7091dbb7fcbA54569eF1387Ac89Eb2a5C9F6d2EA',
-      oracle: 'lps',
-      oracleId: 'convex-3pool',
+      rewardPool: '0x191F455cc8acdd579f4E6956fC7007c9668C2289',
+      oracle: 'tokens',
+      oracleId: 'crvUSD',
     },
   ],
 };
