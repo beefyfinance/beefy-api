@@ -1,5 +1,32 @@
 [
   {
+    "name": "ramses-usdx-usdc",
+    "address": "0x340F0c6E09bb2C13df14bb4B334CC8Dba0bb4881",
+    "gauge": "0x6097B366e47776a23C7e1Add572c50349E9C20A6",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "address": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "lp0": {
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xb2F30A7C980f052f02563fb518dcc39e6bf38175",
+      "oracle": "tokens",
+      "oracleId": "USDx",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "ramses-aleth-frxeth",
     "address": "0xfB4fE921F724f3C7B610a826c827F9F6eCEf6886",
     "gauge": "0xC3f26d2Fa16129a8d4A5A0f94D25F2cdd9005CDb",

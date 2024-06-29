@@ -63,6 +63,17 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
       secondTokenAddress: '0x176211869cA2b568f2A7D4EE941E073a821EE1ff',
     },
   ],
+  arbitrum: [
+    {
+      oracleId: 'USDx',
+      pool: '0x340F0c6E09bb2C13df14bb4B334CC8Dba0bb4881',
+      firstToken: 'USDx',
+      firstTokenDecimals: '1e18',
+      secondToken: 'USDC',
+      secondTokenDecimals: 1e6,
+      secondTokenAddress: '0xaf88d065e77c8cC2239327C5EDb3A432268e5831',
+    },
+  ],
 };
 
 async function getStablePoolPrices(
