@@ -2048,7 +2048,7 @@ export const tokens = {
     website:
       'https://liquidity.synthetix.eth.limo/?ref=blog.synthetix.io#/positions/USDC/1?manageAction=borrow',
     documentation: 'https://docs.synthetix.io/',
-    description: 'Synthetix Arbitrum-native stablecoin, borrable against liquidity deposits.',
+    description: 'Synthetix Arbitrum-native stablecoin.',
     bridge: 'native',
   },
 } as const satisfies Record<string, Token>;
