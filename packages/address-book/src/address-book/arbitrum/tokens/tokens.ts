@@ -2037,4 +2037,18 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  USDx: {
+    name: 'Synthetix USD',
+    symbol: 'USDx',
+    oracleId: 'USDx',
+    address: '0xb2F30A7C980f052f02563fb518dcc39e6bf38175',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://liquidity.synthetix.eth.limo/?ref=blog.synthetix.io#/positions/USDC/1?manageAction=borrow',
+    documentation: 'https://docs.synthetix.io/',
+    description: 'Synthetix Arbitrum-native stablecoin, borrable against liquidity deposits.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
