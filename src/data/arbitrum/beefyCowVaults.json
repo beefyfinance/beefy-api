@@ -1,5 +1,27 @@
 [
   {
+    "address": "0xA297024a99098d52aae466AC5F48520d514262bA",
+    "lpAddress": "0x7fCDC35463E3770c2fB992716Cd070B63540b947",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    ],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "pancake-cow-arb-weth-usdc"
+  },
+  {
+    "address": "0xA297024a99098d52aae466AC5F48520d514262bA",
+    "lpAddress": "0x7fCDC35463E3770c2fB992716Cd070B63540b947",
+    "tokens": [
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    ],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "pancake-cow-arb-weth-usdc"
+  },
+  {
     "address": "0xF0eB29f3E21f8F88a6c93dE44993bac27c4B519F",
     "lpAddress": "0x389938CF14Be379217570D8e4619E51fBDafaa21",
     "tokens": [
