@@ -1,5 +1,4 @@
 import { ApiChain, toChainId } from '../../utils/chain';
-import { sleep } from '../../utils/time';
 import { mapValues, partition } from 'lodash';
 import { isResultFulfilled } from '../../utils/promise';
 import { Address, isAddressEqual } from 'viem';
@@ -9,14 +8,18 @@ import {
   CampaignType,
   CampaignTypeSetting,
   CowClm,
+  isCowClmWithRewardPool,
   MerklApiCampaign,
   MerklApiCampaignsResponse,
 } from './types';
 import { isFiniteNumber } from '../../utils/number';
 import { CachedByChain } from '../../utils/CachedByChain';
+import { CachedThrottledPromise } from '../../utils/CachedThrottledPromise';
+import { sleep } from '../../utils/time';
 
 const INIT_DELAY = 5000; // 5 seconds
 const UPDATE_INTERVAL = 30 * 60 * 1000; // 30 minutes
+const MIN_UPDATE_INTERVAL = 10 * 60 * 1000; // will not update more often even if update called
 const FRESH_LIFETIME = 30 * 60; // how many seconds is a response considered fresh for
 const STALE_LIFETIME = 2 * 60 * 60; // how many additional seconds can a stale response be kept
 const CACHE_KEY = 'COWCENTRATED_MERKL_CAMPAIGNS';
@@ -37,6 +40,7 @@ const campaignStore = new CachedByChain<Campaign[]>({
   stale: STALE_LIFETIME,
   version: 2, // increase if the shape of Campaign[] changes
 });
+const updater = new CachedThrottledPromise(updateAll, MIN_UPDATE_INTERVAL);
 
 function getCampaignType(creator: Address, chain: ApiChain): CampaignType {
   const type = CAMPAIGN_CREATOR_TO_TYPE[creator] || 'external';
@@ -50,7 +54,7 @@ function getCampaignType(creator: Address, chain: ApiChain): CampaignType {
 function getCampaign(
   apiChain: ApiChain,
   campaign: MerklApiCampaign,
-  pools: ReadonlyArray<CowClm>
+  clms: ReadonlyArray<CowClm>
 ): Campaign | undefined {
   // skip campaigns with merkl test token reward
   if (campaign.campaignParameters.symbolRewardToken === 'aglaMerkl') {
@@ -58,12 +62,20 @@ function getCampaign(
   }
 
   const type = getCampaignType(campaign.creator, apiChain);
-  const vaults = pools.filter(
+  const clmsForPool = clms.filter(
     p => p.lpAddress.toLowerCase() === campaign.mainParameter.toLowerCase()
   );
-  if (!vaults.length) {
+  if (!clmsForPool.length) {
     return undefined;
   }
+
+  const vaults = clmsForPool.flatMap(clm => {
+    const vaults = [{ id: clm.oracleId, address: clm.address }];
+    if (isCowClmWithRewardPool(clm)) {
+      vaults.push({ id: clm.rewardPool.oracleId, address: clm.rewardPool.address });
+    }
+    return vaults;
+  });
 
   const vaultsWithApr = vaults.map(vault => {
     let totalApr: number = 0;
@@ -81,8 +93,7 @@ function getCampaign(
     }
 
     return {
-      id: vault.oracleId,
-      address: vault.address,
+      ...vault,
       apr: totalApr,
     };
   });
@@ -160,7 +171,7 @@ async function updateAll() {
 
 function scheduleUpdate(wait = UPDATE_INTERVAL) {
   sleep(wait)
-    .then(updateAll)
+    .then(() => updater.update())
     .catch(err => {
       console.error(`> [CLM Merkl] Update all failed`, err);
       scheduleUpdate();
@@ -208,4 +219,10 @@ export function getCowBeefyMerklCampaignsForChain(chain: ApiChain) {
   }
 
   return undefined;
+}
+
+/** updates merkl campaigns (if last update was more than MIN_UPDATE_INTERVAL ago) and returns campaigns that target a clm or clm pool */
+export async function updateAndGetCowMerklCampaignsForChain(chain: ApiChain) {
+  await updater.update();
+  return getCowMerklCampaignsForChain(chain);
 }

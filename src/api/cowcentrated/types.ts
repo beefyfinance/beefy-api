@@ -212,3 +212,5 @@ export type Campaign = {
   type: CampaignType;
   vaults: CampaignVault[];
 };
+
+export type CampaignForVault = Omit<Campaign, 'vaults'> & CampaignVault;

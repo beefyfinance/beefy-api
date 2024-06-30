@@ -3,13 +3,21 @@ import { ApiChain, toChainId } from '../../../utils/chain';
 import { getCowVaultsMeta } from '../../cowcentrated/getCowVaultsMeta';
 import {
   type AnyCowClmMeta,
-  type CowClmMeta,
+  CampaignForVault,
   type CowClmWithRewardPoolMeta,
   isCowClmWithRewardPoolMeta,
 } from '../../cowcentrated/types';
 import { isDefined } from '../../../utils/array';
 import { getBeefyRewardPoolV2Apr } from './getBeefyRewardPoolV2Apr';
-import { ApyBreakdownRequest, getApyBreakdown, ApyBreakdownResult } from './getApyBreakdownNew';
+import { ApyBreakdownRequest, ApyBreakdownResult, getApyBreakdown } from './getApyBreakdownNew';
+import { updateAndGetCowMerklCampaignsForChain } from '../../cowcentrated/getCowMerkleCampaigns';
+import { getUnixTime } from 'date-fns';
+import { mapValues, omit } from 'lodash';
+
+type MerklVaultData = {
+  totalApr: number;
+  campaigns: CampaignForVault[];
+};
 
 /**
  * Base CLMs + Reward Pools
@@ -20,9 +28,10 @@ export const getCowApys = async (apiChain: ApiChain) => {
     throw new Error(`No clms found for ${apiChain}`);
   }
 
+  const campaignByVault = await getMerklCampaignsByVault(apiChain);
   const chainId = toChainId(apiChain);
   const [clmBreakdownsResult, rewardPoolAprsResult] = await Promise.allSettled([
-    getCowClmApyBreakdown(chainId, clms),
+    getCowClmApyBreakdown(clms, campaignByVault),
     getCowRewardPoolAprs(chainId, clms),
   ]);
 
@@ -42,7 +51,12 @@ export const getCowApys = async (apiChain: ApiChain) => {
   }
 
   const rewardPoolAprs = rewardPoolAprsResult.value;
-  const rewardPoolBreakdowns = getCowRewardPoolApyBreakdown(clms, clmBreakdowns, rewardPoolAprs);
+  const rewardPoolBreakdowns = getCowRewardPoolApyBreakdown(
+    clms,
+    clmBreakdowns,
+    rewardPoolAprs,
+    campaignByVault
+  );
 
   if (!rewardPoolBreakdowns) {
     // this just means none of the CLMs had reward pools defined in config
@@ -55,10 +69,35 @@ export const getCowApys = async (apiChain: ApiChain) => {
   };
 };
 
+async function getMerklCampaignsByVault(
+  apiChain: ApiChain
+): Promise<Record<string, MerklVaultData>> {
+  const merklCampaigns = await updateAndGetCowMerklCampaignsForChain(apiChain);
+  const byVaultId: Record<string, CampaignForVault[]> = {};
+  const now = getUnixTime(new Date());
+  for (const campaign of merklCampaigns.value) {
+    if (campaign.startTimestamp <= now && campaign.endTimestamp >= now) {
+      for (const vault of campaign.vaults) {
+        byVaultId[vault.id] ??= [];
+        byVaultId[vault.id].push({
+          ...omit(campaign, 'vaults'),
+          ...vault,
+        });
+      }
+    }
+  }
+
+  return mapValues(byVaultId, campaigns => ({
+    campaigns,
+    totalApr: campaigns.reduce((total, campaign) => total + campaign.apr, 0),
+  }));
+}
+
 function getCowRewardPoolApyBreakdown(
   clms: AnyCowClmMeta[],
   clmApys: ApyBreakdownResult,
-  rewardPoolAprs: (number | undefined)[]
+  rewardPoolAprs: (number | undefined)[],
+  merklById: Record<string, MerklVaultData>
 ): ApyBreakdownResult | undefined {
   const inputs = clms
     .map((clm, index): ApyBreakdownRequest | undefined => {
@@ -67,8 +106,8 @@ function getCowRewardPoolApyBreakdown(
           vaultId: clm.rewardPool.oracleId,
           beefyFee: 0,
           rewardPool: rewardPoolAprs[index],
-          clm: clmApys.apyBreakdowns[clm.oracleId]?.clmApr,
-          merkl: clmApys.apyBreakdowns[clm.oracleId]?.merklApr,
+          clm: clmApys.apyBreakdowns[clm.oracleId]?.clmApr, // after fee from CLM; reward pool fee = 0; so this works
+          merkl: merklById[clm.rewardPool.oracleId]?.totalApr || 0, // we can't copy from CLM in case it is not forwarded correctly
         };
       }
       return undefined;
@@ -121,66 +160,14 @@ const getCowRewardPoolApr = async (
 };
 
 const getCowClmApyBreakdown = async (
-  chainId: ChainId,
-  vaults: AnyCowClmMeta[]
+  vaults: AnyCowClmMeta[],
+  merklById: Record<string, MerklVaultData>
 ): Promise<ApyBreakdownResult> => {
-  const merklCampaigns = await getMerklCampaigns(chainId);
   return getApyBreakdown(
     vaults.map(vault => ({
       vaultId: vault.oracleId,
       clm: vault.apr,
-      merkl: getMerklAprForVault(vault, merklCampaigns),
+      merkl: merklById[vault.oracleId]?.totalApr || 0,
     }))
   );
-};
-
-type Forwarder = {
-  almAPR: number;
-  almAddress: string;
-};
-
-type Campaign = {
-  mainParameter: string;
-  forwarders: Forwarder[];
-};
-
-type MerklChainCampaigns = {
-  [poolIdentifier: string]: {
-    [campaignID: string]: Campaign;
-  };
-};
-
-type MerklAPIChainCampaigns = {
-  [chainId in ChainId]: MerklAPIChainCampaigns;
-};
-
-const getMerklCampaigns = async (chainID: ChainId) => {
-  try {
-    const response = await fetch('https://api.merkl.xyz/v3/campaigns?chainIds=' + chainID).then(
-      res => res.json() as Promise<MerklAPIChainCampaigns>
-    );
-    return response[chainID];
-  } catch (err) {
-    console.error(`> getMerklCampaigns Error on ${chainID}  ${err.message}`);
-    console.error(err);
-    return {};
-  }
-};
-
-const getMerklAprForVault = (vault: CowClmMeta, merklCampaigns: MerklChainCampaigns) => {
-  if (!merklCampaigns) return 0;
-  let apr = 0;
-  for (const [poolId, campaigns] of Object.entries(merklCampaigns)) {
-    for (const [campaignId, campaign] of Object.entries(campaigns)) {
-      if (campaign.mainParameter.toLowerCase() === vault.lpAddress.toLowerCase()) {
-        campaign.forwarders.forEach(forwarder => {
-          if (forwarder.almAddress.toLowerCase() === vault.address.toLowerCase()) {
-            if (forwarder.almAPR === 0 || isNaN(forwarder.almAPR)) return;
-            apr += forwarder.almAPR / 100;
-          }
-        });
-      }
-    }
-  }
-  return apr;
 };
