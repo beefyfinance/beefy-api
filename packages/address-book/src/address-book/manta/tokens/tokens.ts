@@ -60,4 +60,18 @@ export const tokens = {
       'Tether is a stablecoin pegged to the US Dollar. A stablecoin is a type of cryptocurrency whose value is pegged to another fiat currency like the US Dollar or to a commodity like Gold. Tether is the first stablecoin to be created and it is the most popular stablecoin used in the ecosystem.',
     bridge: 'manta-canonical',
   },
+  MANTA: {
+    name: 'MANTA',
+    symbol: 'MANTA',
+    oracleId: 'MANTA',
+    address: '0x95CeF13441Be50d20cA4558CC0a27B601aC544E5',
+    chainId: 169,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://pacific.manta.network/',
+    documentation: 'https://mantanetwork.medium.com/manta-tokenomics-b226f911c84c',
+    description:
+      'MANTA is the network gas token of Manta Atlantic and also benefits from the sequencer revenue of Manta Pacific. Holders can also vote in governance proposals of both chains.',
+    bridge: 'manta-canonical',
+  },
 } as const satisfies Record<string, Token>;
