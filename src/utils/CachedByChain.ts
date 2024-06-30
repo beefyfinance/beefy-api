@@ -19,8 +19,11 @@ export type CachedByChainOptions = MemoryStoreOptions & {
 
 export type ChainMeta<T> = {
   value: T;
+  /** unix timestamp */
   updatedAt: number;
+  /** unix timestamp */
   freshUntil: number;
+  /** unix timestamp */
   staleUntil: number;
   version: number;
 };
