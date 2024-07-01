@@ -17,7 +17,14 @@
       "oracle": "tokens",
       "oracleId": "STONE",
       "decimals": "1e18"
-    }
+    },
+    "rewards": [
+      {
+        "oracleId": "FOXY",
+        "address": "0x5FBDF89403270a1846F5ae7D113A989F850d1566",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "lynex-ichi-usdt-lynx",
@@ -37,7 +44,14 @@
       "oracle": "tokens",
       "oracleId": "USDT",
       "decimals": "1e6"
-    }
+    },
+    "rewards": [
+      {
+        "oracleId": "FOXY",
+        "address": "0x5FBDF89403270a1846F5ae7D113A989F850d1566",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "lynex-ichi-weth-lynx",
@@ -57,7 +71,14 @@
       "oracle": "tokens",
       "oracleId": "WETH",
       "decimals": "1e18"
-    }
+    },
+    "rewards": [
+      {
+        "oracleId": "FOXY",
+        "address": "0x5FBDF89403270a1846F5ae7D113A989F850d1566",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "lynex-ichi-wbtc-weth",
@@ -97,7 +118,14 @@
       "oracle": "tokens",
       "oracleId": "LYNX",
       "decimals": "1e18"
-    }
+    },
+    "rewards": [
+      {
+        "oracleId": "FOXY",
+        "address": "0x5FBDF89403270a1846F5ae7D113A989F850d1566",
+        "decimals": "1e18"
+      }
+    ]
   },
   {
     "name": "lynex-ichi-wbtc-lynx",
@@ -117,6 +145,13 @@
       "oracle": "tokens",
       "oracleId": "WBTC",
       "decimals": "1e8"
-    }
+    },
+    "rewards": [
+      {
+        "oracleId": "FOXY",
+        "address": "0x5FBDF89403270a1846F5ae7D113A989F850d1566",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]

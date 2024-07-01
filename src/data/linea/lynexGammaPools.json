@@ -177,6 +177,13 @@
       "oracle": "tokens",
       "oracleId": "LYNX",
       "decimals": "1e18"
-    }
+    },
+    "rewards": [
+      {
+        "oracleId": "FOXY",
+        "address": "0x5FBDF89403270a1846F5ae7D113A989F850d1566",
+        "decimals": "1e18"
+      }
+    ]
   }
 ]
