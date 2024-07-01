@@ -1,5 +1,25 @@
 [
   {
+    "name": "velodrome-mode-dola-usdc",
+    "address": "0x90a0b21936785164103eb9AC7d76792EB5F6c49C",
+    "gauge": "0x486895aA02F6Cb693c51d71A8E199aF1157405ea",
+    "decimals": "1e18",
+    "chainId": 34443,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x00eA4344e90c741560f08667961A8dE39FF506D7",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xd988097fb8612cc24eeC14542bC03424c656005f",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "velodrome-mode-weeth-eth",
     "address": "0x53E85d00F2C6578a1205b842255AB9DF9D053744",
     "gauge": "0xc230AACfd1E677a89a96945EAd9002D689E65B37",
