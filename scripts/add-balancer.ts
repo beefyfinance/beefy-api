@@ -30,6 +30,11 @@ const projects = {
     file: '../src/data/optimism/auraLpPools.json',
     vault: balancer.router,
   },
+  'aura-poly': {
+    prefix: 'aura-polygon',
+    file: '../src/data/matic/auraLpPools.json',
+    vault: balancer.router,
+  },
 };
 
 const args = yargs.options({
