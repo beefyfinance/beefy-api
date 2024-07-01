@@ -630,6 +630,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'camelot-token': ['xGRAIL'],
   zksync: ['ZK'],
   'wrapped-oeth': ['WOETH'],
+  'manta-network': ['MANTA'],
 };
 
 /**
