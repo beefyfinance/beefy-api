@@ -87,4 +87,18 @@ export const tokens = {
     bridge: 'mode-canonical',
     risks: ['NO_TIMELOCK'],
   },
+  DOLA: {
+    name: 'DOLA USD',
+    symbol: 'DOLA',
+    oracleId: 'DOLA',
+    address: '0x00eA4344e90c741560f08667961A8dE39FF506D7',
+    chainId: 34443,
+    decimals: 18,
+    website: 'https://www.inverse.finance/',
+    description:
+      'Inverse.finance is a suite of permissionless decentralized finance tools governed by Inverse DAO, a decentralized autonomous organization running on the Ethereum blockchain.',
+    bridge: 'mode-canonical',
+    logoURI: 'https://assets.spookyswap.finance/tokens/DOLA.png',
+    documentation: 'https://docs.inverse.finance/',
+  },
 } as const satisfies Record<string, Token>;
