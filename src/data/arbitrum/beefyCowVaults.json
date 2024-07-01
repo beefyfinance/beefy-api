@@ -266,7 +266,7 @@
     }
   },
   {
-    "address": "0x79899918e6AdA2cb5D984f444A9c188bd2B7daae",
+    "address": "0xf7ac5f7F05fB27AB4974607aa9EBcD24BBD2192a",
     "lpAddress": "0x7CcCBA38E2D959fe135e79AEBB57CCb27B128358",
     "tokens": [
       "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
@@ -276,7 +276,7 @@
     "decimals": [18, 6],
     "oracleId": "camelot-weth-usdt",
     "rewardPool": {
-      "address": "0xE5424fD7d8D4C6B98876199ee4bB021E8517307e",
+      "address": "0xF0a7cB3A2999f85De0D56B57C616B0aE59ff7D28",
       "oracleId": "camelot-weth-usdt-rp"
     }
   },
@@ -304,7 +304,11 @@
     ],
     "tokenOracleIds": ["WETH", "ARB"],
     "decimals": [18, 18],
-    "oracleId": "camelot-arb-weth"
+    "oracleId": "camelot-arb-weth",
+    "rewardPool": {
+      "address": "0xE5424fD7d8D4C6B98876199ee4bB021E8517307e",
+      "oracleId": "camelot-arb-weth-rp"
+    }
   },
   {
     "address": "0x8bc2AE3862617838357c329ccfd9eD8Fded58cfc",
