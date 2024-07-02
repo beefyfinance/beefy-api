@@ -8,7 +8,11 @@
     ],
     "tokenOracleIds": ["WETH", "NORMUS"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-base-weth-normus"
+    "oracleId": "uniswap-cow-base-weth-normus",
+    "rewardPool": {
+      "address": "0xd640667e3cD3efCF53A132c6f45577C5FFE2BF29",
+      "oracleId": "uniswap-cow-base-weth-normus-rp"
+    }
   },
   {
     "address": "0x11b6ae0bD06fA08908511F0f14a5F6B27E7dEdF3",
@@ -19,7 +23,11 @@
     ],
     "tokenOracleIds": ["TYBG", "WETH"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-base-tybg-weth"
+    "oracleId": "uniswap-cow-base-tybg-weth",
+    "rewardPool": {
+      "address": "0x5D91AED3ebb65baFaae90b13558B1386894D0c40",
+      "oracleId": "uniswap-cow-base-tybg-weth-rp"
+    }
   },
   {
     "address": "0x4a06DE050548770C13B76fE013729432b84BDeC6",
@@ -30,7 +38,11 @@
     ],
     "tokenOracleIds": ["WETH", "ZRO"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-base-weth-zro-0.3"
+    "oracleId": "uniswap-cow-base-weth-zro-0.3",
+    "rewardPool": {
+      "address": "0x610a4016c2F095A1C507FB73BB7cD7581B58a594",
+      "oracleId": "uniswap-cow-base-weth-zro-0.3-rp"
+    }
   },
   {
     "address": "0xc88d16c4cb87b5EEC33cA0696bBd5154492E4282",
@@ -41,7 +53,11 @@
     ],
     "tokenOracleIds": ["WETH", "ZRO"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-base-weth-zro"
+    "oracleId": "uniswap-cow-base-weth-zro",
+    "rewardPool": {
+      "address": "0xbd1D6eece5727c6097CEE84fdedBdc43599da54f",
+      "oracleId": "uniswap-cow-base-weth-zro-rp"
+    }
   },
   {
     "address": "0xB6DDAb86739524ba19185105B545220A858F2d0e",
@@ -52,7 +68,11 @@
     ],
     "tokenOracleIds": ["ZRO", "USDC"],
     "decimals": [18, 6],
-    "oracleId": "uniswap-cow-base-zro-usdc"
+    "oracleId": "uniswap-cow-base-zro-usdc",
+    "rewardPool": {
+      "address": "0xbF9BD114ebEaa45755Afb5cd5d6A1961d8c31930",
+      "oracleId": "uniswap-cow-base-zro-usdc-rp"
+    }
   },
   {
     "address": "0xB34B8DeC4f7c5e0c20e5dda09e862Df39C3Fb285",
@@ -63,7 +83,11 @@
     ],
     "tokenOracleIds": ["WETH", "USDbC"],
     "decimals": [18, 6],
-    "oracleId": "uniswap-cow-base-weth-usdbc"
+    "oracleId": "uniswap-cow-base-weth-usdbc",
+    "rewardPool": {
+      "address": "0x5F58A6618D84934fd7e306a6Aa5e3E83517d50B4",
+      "oracleId": "uniswap-cow-base-weth-usdbc-rp"
+    }
   },
   {
     "address": "0xD07111A837F9D62bCa452132bDBEE2F1443666F6",
@@ -74,7 +98,11 @@
     ],
     "tokenOracleIds": ["USDC", "wstETH"],
     "decimals": [6, 18],
-    "oracleId": "uniswap-cow-base-usdc-wsteth"
+    "oracleId": "uniswap-cow-base-usdc-wsteth",
+    "rewardPool": {
+      "address": "0xB2843283ea12D615cde6FBFC11933264BC009287",
+      "oracleId": "uniswap-cow-base-usdc-wsteth-rp"
+    }
   },
   {
     "address": "0xE4d02B7997635883bf68a810d1d781990006B58C",
@@ -85,7 +113,11 @@
     ],
     "tokenOracleIds": ["WETH", "USDT"],
     "decimals": [18, 6],
-    "oracleId": "uniswap-cow-base-weth-usdt"
+    "oracleId": "uniswap-cow-base-weth-usdt",
+    "rewardPool": {
+      "address": "0x2949fd1c3A3AeF6e920B5e0ab09A81d17b99F160",
+      "oracleId": "uniswap-cow-base-weth-usdt-rp"
+    }
   },
   {
     "address": "0xe97383FFa8AbA69FB5f182CF35E31833250586E4",
@@ -96,7 +128,11 @@
     ],
     "tokenOracleIds": ["cbETH", "WETH"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-base-cbeth-weth"
+    "oracleId": "uniswap-cow-base-cbeth-weth",
+    "rewardPool": {
+      "address": "0xB8b3f205941b896909229435B043E3E1Ec3bb9c4",
+      "oracleId": "uniswap-cow-base-cbeth-weth-rp"
+    }
   },
   {
     "address": "0xE39887EfF72d0AF25E4B90f52b6a6De82948D472",
@@ -107,7 +143,11 @@
     ],
     "tokenOracleIds": ["WETH", "AERO"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-base-aero-weth"
+    "oracleId": "uniswap-cow-base-aero-weth",
+    "rewardPool": {
+      "address": "0x986c2fbD0DC342F2073022410e052142C5903d78",
+      "oracleId": "uniswap-cow-base-aero-weth-rp"
+    }
   },
   {
     "address": "0xA05C5A7121B351aa7003C73Ae794Ec17995440C7",
@@ -118,6 +158,10 @@
     ],
     "tokenOracleIds": ["WETH", "USDC"],
     "decimals": [18, 6],
-    "oracleId": "uniswap-cow-base-usdc-weth"
+    "oracleId": "uniswap-cow-base-usdc-weth",
+    "rewardPool": {
+      "address": "0x3C30eF5DaaF34aAEA9DCa2e265f676096EB2Bcc8",
+      "oracleId": "uniswap-cow-base-usdc-weth-rp"
+    }
   }
 ]
