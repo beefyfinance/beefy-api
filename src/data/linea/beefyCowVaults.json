@@ -8,7 +8,11 @@
     ],
     "tokenOracleIds": ["USDC", "USDT"],
     "decimals": [6, 6],
-    "oracleId": "oku-linea-usdc-usdt"
+    "oracleId": "oku-linea-usdc-usdt",
+    "rewardPool": {
+      "address": "0xfc3733F22131C32b1c05D22D3C5047Fe4044208c",
+      "oracleId": "oku-linea-usdc-usdt-rp"
+    }
   },
   {
     "address": "0x0Db58cB843B8AF6A8704338447c0a7e36F4D5613",
@@ -19,7 +23,11 @@
     ],
     "tokenOracleIds": ["WBTC", "WETH"],
     "decimals": [8, 18],
-    "oracleId": "oku-linea-weth-wbtc"
+    "oracleId": "oku-linea-weth-wbtc",
+    "rewardPool": {
+      "address": "0x31c0b0ce930797291fAa950B6F3085D2Dd620247",
+      "oracleId": "oku-linea-weth-wbtc-rp"
+    }
   },
   {
     "address": "0x4d6d208e75d800957c4AF83FB9f42AabFEbc6b6D",
@@ -30,6 +38,10 @@
     ],
     "tokenOracleIds": ["USDC", "WETH"],
     "decimals": [6, 18],
-    "oracleId": "oku-linea-weth-usdc.e"
+    "oracleId": "oku-linea-weth-usdc.e",
+    "rewardPool": {
+      "address": "0x711d9dF7927c9e8083D682824238aC224258a656",
+      "oracleId": "oku-linea-weth-usdc.e-rp"
+    }
   }
 ]

@@ -8,7 +8,11 @@
     ],
     "tokenOracleIds": ["MANTA", "USDC"],
     "decimals": [18, 6],
-    "oracleId": "uniswap-cow-manta-manta-usdc"
+    "oracleId": "uniswap-cow-manta-manta-usdc",
+    "rewardPool": {
+      "address": "0x9f841372612E0106Cd540AB976656cDd8F1553C5",
+      "oracleId": "uniswap-cow-manta-manta-usdc-rp"
+    }
   },
   {
     "address": "0x906e60166A4B185016e53597fA12FBB1424e47d7",
@@ -19,7 +23,11 @@
     ],
     "tokenOracleIds": ["WETH", "STONE"],
     "decimals": [18, 18],
-    "oracleId": "uniswap-cow-manta-weth-stone"
+    "oracleId": "uniswap-cow-manta-weth-stone",
+    "rewardPool": {
+      "address": "0x1386A611e2B692E79Bcfa7dC84AAbB5728f08E44",
+      "oracleId": "uniswap-cow-manta-weth-stone-rp"
+    }
   },
   {
     "address": "0x756bd7f54675112b6c689DFFBDa8505566d20C6c",
@@ -30,7 +38,11 @@
     ],
     "tokenOracleIds": ["WETH", "USDC"],
     "decimals": [18, 6],
-    "oracleId": "uniswap-cow-manta-weth-usdc"
+    "oracleId": "uniswap-cow-manta-weth-usdc",
+    "rewardPool": {
+      "address": "0x816716ebDB0D4c882d364C61aD3373eEAD91C86a",
+      "oracleId": "uniswap-cow-manta-weth-usdc-rp"
+    }
   },
   {
     "address": "0x01Fbf9B624a6133Ab04Fc4000ae513AC97e4d114",
@@ -41,6 +53,10 @@
     ],
     "tokenOracleIds": ["USDC", "USDT"],
     "decimals": [6, 6],
-    "oracleId": "uniswap-cow-manta-usdc-usdt"
+    "oracleId": "uniswap-cow-manta-usdc-usdt",
+    "rewardPool": {
+      "address": "0x873629E73CD5FAc9e3Ee1963A796Ad0aBDf17542",
+      "oracleId": "uniswap-cow-manta-usdc-usdt-rp"
+    }
   }
 ]
