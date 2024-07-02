@@ -8,7 +8,11 @@
     ],
     "tokenOracleIds": ["WBTC", "USDC"],
     "decimals": [8, 6],
-    "oracleId": "uniswap-cow-poly-wbtc-usdc"
+    "oracleId": "uniswap-cow-poly-wbtc-usdc",
+    "rewardPool": {
+      "address": "0x82ff162e9e30311563052c6D69dEb7e1ec9e6A6a",
+      "oracleId": "uniswap-cow-poly-wbtc-usdc-rp"
+    }
   },
   {
     "address": "0xc96153bdA547d4a6066B8a08AE239EF757BF35aE",

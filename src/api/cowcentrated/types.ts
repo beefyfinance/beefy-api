@@ -3,6 +3,7 @@ import { ApiChain } from '../../utils/chain';
 import { isNonEmptyArray, NonEmptyArray } from '../../utils/array';
 
 type JsonCowClm = {
+  beta?: boolean;
   address: string;
   lpAddress: string;
   tokens: string[];
@@ -22,6 +23,7 @@ type JsonCowClm = {
 };
 
 export type CowClm = {
+  beta: boolean | undefined;
   address: Address;
   lpAddress: Address;
   tokens: [Address, Address];
@@ -63,9 +65,10 @@ function isValidCowRewardPoolRewardConfig(
 }
 
 function isValidCowClmRewardPoolConfig(
-  rewardPool: NonNullable<JsonCowClm>['rewardPool']
+  rewardPool: JsonCowClm['rewardPool']
 ): rewardPool is CowRewardPool {
   return (
+    rewardPool &&
     rewardPool.oracleId &&
     isAddress(rewardPool.address) &&
     (!rewardPool.rewards ||
@@ -82,7 +85,7 @@ function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {
     isAddress(clm.address) &&
     isAddress(clm.lpAddress) &&
     clm.tokens.every(isAddress) &&
-    (!clm.rewardPool || isValidCowClmRewardPoolConfig(clm.rewardPool))
+    ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool))
   );
 }
 
