@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-cbeth-usdc",
+    "address": "0xa1d2ee6212D4375F154393E59895A5D27859C4e4",
+    "gauge": "0x1a3FD3c084E5680655768b41Da653ca6e84b5981",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22",
+      "oracle": "tokens",
+      "oracleId": "cbETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
     "name": "aerodrome-sfrxeth-sfrax",
     "address": "0xD73a3EF449043AAc66bFF3FEE37E83B4f8DAE998",
     "gauge": "0xb41f81b476bdB6E02FF7b6cDC2100077D595Fa40",
