@@ -1,5 +1,35 @@
 [
   {
+    "address": "0x1c191F8B8f206E8F8c0F521B9F5D870Fb5a9becf",
+    "lpAddress": "0x3A545744f5d0e9425e34741Afd9E388D5d0e6dfB",
+    "tokens": [
+      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "0xdFA46478F9e5EA86d57387849598dbFB2e964b02"
+    ],
+    "tokenOracleIds": ["USDC", "MAI"],
+    "decimals": [6, 18],
+    "oracleId": "velo-cow-op-mai-usdc",
+    "rewardPool": {
+      "address": "0x706Be1B55a1E146E522DC352895a26E21eE080C9",
+      "oracleId": "velo-cow-op-mai-usdc-rp"
+    }
+  },
+  {
+    "address": "0x688EFffb4212E98D47d6617665575EAe7b7dc85B",
+    "lpAddress": "0x3C01ec09D15D5450FC702DC4353b17Cd2978d8a5",
+    "tokens": [
+      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
+      "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9"
+    ],
+    "tokenOracleIds": ["USDC", "sUSD"],
+    "decimals": [6, 18],
+    "oracleId": "velo-cow-op-susd-usdc",
+    "rewardPool": {
+      "address": "0xcD75c9Bc30FEe130C080D2AB73072dD6C47Bb4A8",
+      "oracleId": "velo-cow-op-susd-usdc-rp"
+    }
+  },
+  {
     "address": "0xD4768E30180786e875a4909472c9826b18931E43",
     "lpAddress": "0x173cDC71e29d5Cffa6D090AD99f555a24B8831f9",
     "tokens": [
