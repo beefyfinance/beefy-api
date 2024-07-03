@@ -1587,4 +1587,19 @@ export const tokens = {
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
   },
+  ezETH: {
+    name: 'Renzo Restaked ETH',
+    symbol: 'ezETH',
+    oracleId: 'ezETH',
+    address: '0x2416092f143378750bb29b79eD961ab195CcEea5',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.renzoprotocol.com/',
+    description:
+      'Renzo ezETH is a Liquid Restaking Token (LRT) and Strategy Manager for EigenLayer. It is the interface to the EigenLayer ecosystem securing Actively Validated Services (AVSs) and offering a higher yield than ETH staking.',
+    documentation: 'https://docs.renzoprotocol.com/docs/',
+    bridge: 'optimism-canonical',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
