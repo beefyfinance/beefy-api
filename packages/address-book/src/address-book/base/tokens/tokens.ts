@@ -1190,4 +1190,19 @@ export const tokens = {
       'NORMUS is the governance token of the launchpad eNORMUSPUMP, a pump.fun fork on Base.',
     bridge: 'native',
   },
+  STAR: {
+    name: 'STAR',
+    symbol: 'STAR',
+    oracleId: 'STAR',
+    address: '0xC19669A405067927865B40Ea045a2baabbbe57f5',
+    chainId: 8453,
+    decimals: 18,
+    logoURI:
+      'https://raw.githubusercontent.com/SmolDapp/tokenAssets/main/tokens/8453/0xc19669a405067927865b40ea045a2baabbbe57f5/logo.svg',
+    website: 'https://www.preon.finance/',
+    documentation: 'https://docs.preon.finance/',
+    description:
+      'STAR is an overcollateralized stablecoin backed by its collateral. Loans are secured by always having more value locked than the amount of debt given out.',
+    bridge: 'layer-zero',
+  },
 } as const satisfies Record<string, Token>;
