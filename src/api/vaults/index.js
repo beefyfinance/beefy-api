@@ -71,9 +71,12 @@ async function vaultsLastHarvest(ctx) {
   try {
     const lastHarvests = getMultichainVaults()
       .concat(getMultichainCowVaults())
+      .concat(getMultichainGovVaults())
       .reduce((res, vault) => {
-        const { id, lastHarvest } = vault;
-        res[id] = lastHarvest;
+        if ('lastHarvest' in vault) {
+          const { id, lastHarvest } = vault;
+          res[id] = lastHarvest;
+        }
         return res;
       }, {});
     ctx.status = 200;
