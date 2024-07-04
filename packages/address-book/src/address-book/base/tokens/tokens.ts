@@ -1190,4 +1190,18 @@ export const tokens = {
       'NORMUS is the governance token of the launchpad eNORMUSPUMP, a pump.fun fork on Base.',
     bridge: 'native',
   },
+  jEUR: {
+    name: 'Jarvis Synthetic Euro',
+    symbol: 'jEUR',
+    oracleId: 'jEUR',
+    address: '0x4154550f4Db74Dc38d1FE98e1F3F28ed6daD627d',
+    chainId: 8453,
+    decimals: 18,
+    website: 'https://jarvis.network/',
+    description:
+      'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
+    bridge: 'chainlink-ccip',
+    logoURI: 'https://i.imgur.com/ZvP634G.png',
+    documentation: 'https://learn.jarvis.network/',
+  },
 } as const satisfies Record<string, Token>;
