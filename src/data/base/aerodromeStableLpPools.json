@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-jeur-ageur",
+    "address": "0xe7e01f38470136dE763d22e534e53C8BCdbA3f39",
+    "gauge": "0xb5FFE35051b62DfE687aaB959625a29bEd54575a",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4154550f4Db74Dc38d1FE98e1F3F28ed6daD627d",
+      "oracle": "tokens",
+      "oracleId": "jEUR",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xA61BeB4A3d02decb01039e378237032B351125B4",
+      "oracle": "tokens",
+      "oracleId": "agEUR",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-weth-reth-s",
     "address": "0xb8866732424AcDdd729C6fcf7146b19bFE4A2e36",
     "gauge": "0xAa3D51d36BfE7C5C63299AF71bc19988BdBa0A06",
