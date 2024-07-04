@@ -1200,7 +1200,7 @@ export const tokens = {
     website: 'https://jarvis.network/',
     description:
       'jEUR is a multi-collateralized synthetic token tracking the price of Euro. It is built on the top of UMA and Chainlink.',
-    bridge: 'native',
+    bridge: 'chainlink-ccip',
     logoURI: 'https://i.imgur.com/ZvP634G.png',
     documentation: 'https://learn.jarvis.network/',
   },
