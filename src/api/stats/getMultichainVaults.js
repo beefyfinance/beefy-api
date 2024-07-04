@@ -152,6 +152,14 @@ async function updateChainVaults(chain) {
   cowVaults = await getStrategies(cowVaults, chain);
   cowVaults = await getLastHarvests(cowVaults, chain);
 
+  // copy last harvests from CLMs to CLM Pools
+  for (const cowVault of cowVaults) {
+    const govVault = govVaults.find(v => v.tokenAddress === cowVault.earnedTokenAddress);
+    if (govVault) {
+      govVault.lastHarvest = cowVault.lastHarvest;
+    }
+  }
+
   vaultsByChain[chain] = chainVaults;
   govVaultsByChain[chain] = govVaults;
   cowVaultsByChain[chain] = cowVaults;
