@@ -1,5 +1,77 @@
 [
   {
+    "name": "equilibria-arb-seth-eeth-26sep24",
+    "address": "0x5f3C781B3a20299DB27C8fC5f4415D895677c885",
+    "gauge": "0xcB7212d19D52b53e44625Dc1A9d4B1f1d4833575",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      },
+      {
+        "token": "0x0341C0C0ec423328621788d4854119B97f44E391",
+        "oracleId": "SILO"
+      }
+    ]
+  },
+  {
+    "name": "equilibria-arb-seth-ezeth-26sep24",
+    "address": "0xb4781463a1261F60fca37732EFa510c22DEc5ADa",
+    "gauge": "0x20Dc8e720Fd78a790C9b644C1fb2f900fC5921Fe",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      },
+      {
+        "token": "0x0341C0C0ec423328621788d4854119B97f44E391",
+        "oracleId": "SILO"
+      }
+    ]
+  },
+  {
+    "name": "equilibria-arb-seth-rseth-26sep24",
+    "address": "0x2aD746fa3faA0AD586021a633d10F4E2785A0349",
+    "gauge": "0x6fDF80071499b46Bb53AfBA7bAFf9D91A21133AB",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095,
+    "rewards": [
+      {
+        "token": "0x0c880f6761F1af8d9Aa9C466984b80DAb9a8c9e8",
+        "oracleId": "PENDLE"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      },
+      {
+        "token": "0x0341C0C0ec423328621788d4854119B97f44E391",
+        "oracleId": "SILO"
+      }
+    ]
+  },
+  {
     "name": "equilibria-arb-rseth-26sep24-new",
     "address": "0xED99fC8bdB8E9e7B8240f62f69609a125A0Fbf14",
     "gauge": "0x501CfF5dF8A307ACa27C916d6E1720D41fDF64a5",
