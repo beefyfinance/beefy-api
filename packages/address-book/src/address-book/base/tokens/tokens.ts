@@ -1195,7 +1195,7 @@ export const tokens = {
     symbol: 'jEUR',
     oracleId: 'jEUR',
     address: '0x4154550f4Db74Dc38d1FE98e1F3F28ed6daD627d',
-    chainId: 10,
+    chainId: 8453,
     decimals: 18,
     website: 'https://jarvis.network/',
     description:
