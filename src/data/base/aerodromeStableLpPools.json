@@ -69,7 +69,7 @@
     "lp0": {
       "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
       "oracle": "tokens",
-      "oracleId": "DOLA",
+      "oracleId": "baseDOLA",
       "decimals": "1e18"
     },
     "lp1": {
@@ -109,7 +109,7 @@
     "lp0": {
       "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
       "oracle": "tokens",
-      "oracleId": "DOLA",
+      "oracleId": "baseDOLA",
       "decimals": "1e18"
     },
     "lp1": {
@@ -369,7 +369,7 @@
     "lp0": {
       "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
       "oracle": "tokens",
-      "oracleId": "DOLA",
+      "oracleId": "baseDOLA",
       "decimals": "1e18"
     },
     "lp1": {
@@ -429,7 +429,7 @@
     "lp0": {
       "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
       "oracle": "tokens",
-      "oracleId": "DOLA",
+      "oracleId": "baseDOLA",
       "decimals": "1e18"
     },
     "lp1": {
@@ -509,7 +509,7 @@
     "lp0": {
       "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
       "oracle": "tokens",
-      "oracleId": "DOLA",
+      "oracleId": "baseDOLA",
       "decimals": "1e18"
     },
     "lp1": {
@@ -529,7 +529,7 @@
     "lp0": {
       "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
       "oracle": "tokens",
-      "oracleId": "DOLA",
+      "oracleId": "baseDOLA",
       "decimals": "1e18"
     },
     "lp1": {

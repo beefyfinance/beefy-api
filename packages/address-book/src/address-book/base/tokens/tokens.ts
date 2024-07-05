@@ -351,7 +351,7 @@ export const tokens = {
   DOLA: {
     name: 'Dola USD Stablecoin',
     symbol: 'DOLA',
-    oracleId: 'DOLA',
+    oracleId: 'baseDOLA',
     address: '0x4621b7A9c75199271F773Ebd9A499dbd165c3191',
     chainId: 8453,
     decimals: 18,
