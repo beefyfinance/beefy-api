@@ -13,6 +13,7 @@ import { ApyBreakdownRequest, ApyBreakdownResult, getApyBreakdown } from './getA
 import { updateAndGetCowMerklCampaignsForChain } from '../../cowcentrated/getCowMerkleCampaigns';
 import { getUnixTime } from 'date-fns';
 import { mapValues, omit } from 'lodash';
+import { DAILY_HPY } from '../../../constants';
 
 type MerklVaultData = {
   totalApr: number;
@@ -73,6 +74,10 @@ async function getMerklCampaignsByVault(
   apiChain: ApiChain
 ): Promise<Record<string, MerklVaultData>> {
   const merklCampaigns = await updateAndGetCowMerklCampaignsForChain(apiChain);
+  if (!merklCampaigns) {
+    return {};
+  }
+
   const byVaultId: Record<string, CampaignForVault[]> = {};
   const now = getUnixTime(new Date());
   for (const campaign of merklCampaigns.value) {
@@ -108,6 +113,7 @@ function getCowRewardPoolApyBreakdown(
           rewardPool: rewardPoolAprs[index],
           clm: clmApys.apyBreakdowns[clm.oracleId]?.clmApr, // after fee from CLM; reward pool fee = 0; so this works
           merkl: merklById[clm.rewardPool.oracleId]?.totalApr || 0, // we can't copy from CLM in case it is not forwarded correctly
+          compoundingsPerYear: DAILY_HPY,
         };
       }
       return undefined;
@@ -168,6 +174,7 @@ const getCowClmApyBreakdown = async (
       vaultId: vault.oracleId,
       clm: vault.apr,
       merkl: merklById[vault.oracleId]?.totalApr || 0,
+      compoundingsPerYear: DAILY_HPY,
     }))
   );
 };
