@@ -19,12 +19,17 @@ export class CachedThrottledPromise<T> {
     }
 
     this.lastUpdate = now;
-    this.inProgress = this.updateFn();
+    this.inProgress = this.doUpdate();
+    return await this.inProgress;
+  }
 
+  protected async doUpdate(): Promise<T> {
     try {
-      const result = await this.inProgress;
+      const result = await this.updateFn();
       this.lastResult = result;
       return result;
+    } catch {
+      return this.lastResult;
     } finally {
       this.inProgress = undefined;
     }
