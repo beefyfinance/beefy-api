@@ -1,5 +1,42 @@
 [
   {
+    "name": "balancer-gyro-arb-wsteth-weth",
+    "address": "0x7967FA58B9501600D96bD843173b9334983EE6E6",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x93e567b423ED470562911078b4d7A902d4E0BEea",
+    "vaultPoolId": "0x7967fa58b9501600d96bd843173b9334983ee6e600020000000000000000056e",
+    "lsIndex": 0,
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "lsAprFactor": 1,
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x256865Acd687F7f63d98cd05489E3498B6C528a8",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xf5a9199CD6D2A36A0Bf97eC758C8a3a8C610E62D",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-arb-gyro-weth-woeth",
     "address": "0xef0c116A2818A5b1A5D836A291856A321f43C2Fb",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
