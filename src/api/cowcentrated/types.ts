@@ -164,6 +164,7 @@ type MerklApiCampaignParameters = {
 
 export type MerklApiCampaign = {
   chainId: number;
+  computeChainId?: number;
   campaignId: string;
   creator: Address;
   startTimestamp: number;
@@ -210,6 +211,7 @@ export type Campaign = {
   startTimestamp: number;
   endTimestamp: number;
   chainId: ApiChain;
+  claimChainId: ApiChain;
   poolAddress: string;
   rewardToken: CampaignRewardToken;
   type: CampaignType;

@@ -53,3 +53,12 @@ export function toChainId(chain: AnyChain): number {
 export function fromChainId(chainId: ChainId): ApiChain {
   return ChainId[chainId] as ApiChain;
 }
+
+export function fromChainNumber(chainId: number): ApiChain | undefined {
+  const maybeApiChain = ChainId[chainId];
+  if (isApiChain(maybeApiChain)) {
+    return maybeApiChain;
+  }
+
+  return undefined;
+}

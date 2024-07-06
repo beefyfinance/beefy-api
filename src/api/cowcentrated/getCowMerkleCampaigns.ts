@@ -1,4 +1,4 @@
-import { ApiChain, toChainId } from '../../utils/chain';
+import { ApiChain, fromChainId, fromChainNumber, toApiChain, toChainId } from '../../utils/chain';
 import { mapValues, partition } from 'lodash';
 import { isResultFulfilled } from '../../utils/promise';
 import { Address, isAddressEqual } from 'viem';
@@ -16,6 +16,7 @@ import { isFiniteNumber } from '../../utils/number';
 import { CachedByChain } from '../../utils/CachedByChain';
 import { CachedThrottledPromise } from '../../utils/CachedThrottledPromise';
 import { sleep } from '../../utils/time';
+import { ChainId } from '../../../packages/address-book/src/types/chainid';
 
 const INIT_DELAY = 5000; // 5 seconds
 const UPDATE_INTERVAL = 30 * 60 * 1000; // 30 minutes
@@ -98,9 +99,15 @@ function getCampaign(
     };
   });
 
+  const computeChain = campaign.computeChainId
+    ? fromChainNumber(campaign.computeChainId)
+    : undefined;
+  const claimChain = campaign.chainId ? fromChainNumber(campaign.chainId) : undefined;
+
   return {
     campaignId: campaign.campaignId,
-    chainId: apiChain,
+    chainId: computeChain ?? claimChain ?? apiChain,
+    claimChainId: claimChain ?? apiChain,
     startTimestamp: campaign.startTimestamp,
     endTimestamp: campaign.endTimestamp,
     poolAddress: campaign.mainParameter,
