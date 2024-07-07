@@ -35,6 +35,11 @@ const projects = {
     file: '../src/data/matic/auraLpPools.json',
     vault: balancer.router,
   },
+  'balancer-arb': {
+    prefix: 'balancer-arb',
+    file: '../src/data/arbitrum/balancerArbLpPools.json',
+    vault: balancer.router,
+  },
 };
 
 const args = yargs.options({
@@ -106,6 +111,31 @@ async function main() {
   const newPoolName = `${poolPrefix}-${tokenData
     .map(token => token.symbol.toLowerCase())
     .join('-')}`;
+
+  let rewards;
+  if (poolPrefix.startsWith('balancer-')) {
+    rewards = [
+      {
+        newGauge: true,
+        stream: '',
+        oracleId: 'BAL',
+      },
+      {
+        stream: '',
+        rewardToken: '',
+        oracleId: '',
+      },
+    ];
+  } else {
+    rewards = [
+      {
+        rewardGauge: '',
+        oracleId: '',
+        decimals: '',
+      },
+    ];
+  }
+
   const newPool = {
     name: newPoolName,
     address: poolData.address,
@@ -113,13 +143,7 @@ async function main() {
     gauge: '',
     vaultPoolId: poolId,
     decimals: `1e18`,
-    rewards: [
-      {
-        rewardGauge: '',
-        oracleId: '',
-        decimals: '',
-      },
-    ],
+    rewards: rewards,
     tokens: tokenData.map(token => ({
       address: token.address,
       oracleId: token.symbol,

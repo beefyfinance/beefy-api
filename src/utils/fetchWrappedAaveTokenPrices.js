@@ -39,6 +39,8 @@ const {
       gDAI,
       stataArbUSDCn,
       stataArbUSDTn,
+      USDC,
+      gUSDC,
     },
   },
   avax: {
@@ -80,6 +82,7 @@ const tokens = {
     [DAI, gDAI, true, false],
     [aaUSDC, stataArbUSDCn],
     [aaUSDT, stataArbUSDTn],
+    [USDC, gUSDC, true, false],
   ],
   avax: [
     [aavAVAX, waavAVAX],

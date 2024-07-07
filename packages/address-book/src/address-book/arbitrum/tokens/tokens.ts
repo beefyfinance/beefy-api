@@ -2051,4 +2051,19 @@ export const tokens = {
     description: 'Synthetix Arbitrum-native stablecoin.',
     bridge: 'native',
   },
+  gUSDC: {
+    name: 'Gains Network USDC',
+    symbol: 'gUSDC',
+    oracleId: 'gUSDC',
+    address: '0xd3443ee1e91aF28e5FB858Fbd0D72A63bA8046E0',
+    chainId: 42161,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://gains.trade/',
+    description:
+      'gUSDC is a tokenized yield-bearing vault following the ERC-4626 standard, representing shares of USDC. It pays trader winnings, receives their losses, and distributes trading fees to stakers, maintaining collateralization through an epoch system that manages trader PnL.',
+    documentation:
+      'https://gains-network.gitbook.io/docs-home/liquidity-farming-pools/gtoken-vaults',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
