@@ -1397,6 +1397,20 @@ export const tokens = {
     description:
       'Safety-first diversified ETH staking index with up to 4.5% APY backed by Lido Staked ETH and Rocket Pool ETH.',
   },
+  dgnETH: {
+    name: 'Degen ETH',
+    symbol: 'dgnETH',
+    oracleId: 'dgnETH',
+    address: '0x005F893EcD7bF9667195642f7649DA8163e23658',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://app.reserve.org/ethereum/token/0x005f893ecd7bf9667195642f7649da8163e23658/overview',
+    bridge: 'native',
+    description:
+      "Degen ETH is a high-yield diversified ETH strategy index designed to sustainably outperform LST market yields. Degen ETH uses a two-token model: dgnETH, which is pegged to ETH and backed 1:1 by DeFi yield strategies, and sdgnETH, obtained by depositing dgnETH in a staking vault, which accrues all yield from dgnETH's underlying assets.",
+  },
   'USDC+': {
     name: 'USDC Plus',
     symbol: 'USDC+',
