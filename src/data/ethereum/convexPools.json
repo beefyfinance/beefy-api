@@ -1,5 +1,22 @@
 [
   {
+    "name": "convex-dgneth-eth+",
+    "pool": "0x021cf6b7ebb8c8efcf21396eb4c94658976172c7",
+    "gauge": "0x12405bdd74ae0cb97723a7365bc75bb9c19aacf5",
+    "rewardPool": "0x68366805E9e1Dd58d053Ed4EA4A0a4a346c9393C",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "dgnETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "ETH+",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-eusd-usdc",
     "pool": "0x08bfa22bb3e024cdfeb3eca53c0cb93bf59c4147",
     "gauge": "0x87f791090b09069b3f9c64e3be3cbbc0b45fc9b6",

@@ -1397,6 +1397,20 @@ export const tokens = {
     description:
       'Safety-first diversified ETH staking index with up to 4.5% APY backed by Lido Staked ETH and Rocket Pool ETH.',
   },
+  dgnETH: {
+    name: 'Degen ETH',
+    symbol: 'dgnETH',
+    oracleId: 'dgnETH',
+    address: '0x005F893EcD7bF9667195642f7649DA8163e23658',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website:
+      'https://app.reserve.org/ethereum/token/0x005f893ecd7bf9667195642f7649da8163e23658/overview',
+    bridge: 'native',
+    description:
+      "Degen ETH is a high-yield diversified ETH strategy index designed to sustainably outperform LST market yields. Degen ETH uses a two-token model: dgnETH, which is pegged to ETH and backed 1:1 by DeFi yield strategies, and sdgnETH, obtained by depositing dgnETH in a staking vault, which accrues all yield from dgnETH's underlying assets.",
+  },
   'USDC+': {
     name: 'USDC Plus',
     symbol: 'USDC+',
@@ -1952,5 +1966,20 @@ export const tokens = {
     description:
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
+  },
+  UNI: {
+    name: 'Uniswap',
+    symbol: 'UNI',
+    oracleId: 'UNI',
+    address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://uniswap.org/',
+    description:
+      'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    bridge: 'native',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
+    documentation: 'https://docs.uniswap.org/concepts/governance/overview',
   },
 } as const satisfies Record<string, Token>;
