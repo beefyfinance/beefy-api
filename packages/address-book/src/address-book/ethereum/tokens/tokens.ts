@@ -1967,4 +1967,19 @@ export const tokens = {
       'ZRO is the native asset of the LayerZero protocol. LayerZero is an omnichain interoperability protocol that supports censorship-resistant messages and permissionless development through immutable smart contracts called Endpoints.',
     bridge: 'layer-zero',
   },
+  UNI: {
+    name: 'Uniswap',
+    symbol: 'UNI',
+    oracleId: 'UNI',
+    address: '0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://uniswap.org/',
+    description:
+      'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
+    bridge: 'native',
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
+    documentation: 'https://docs.uniswap.org/concepts/governance/overview',
+  },
 } as const satisfies Record<string, Token>;
