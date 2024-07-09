@@ -1,5 +1,79 @@
 [
   {
+    "name": "balancer-arb-usdc-gusdc",
+    "address": "0xE8a6026365254f779b6927f00f8724EA1B8aE5E0",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x0CE9489bBD4bfA0Da7b5bb06E4dFa7a5947F76e8",
+    "vaultPoolId": "0xe8a6026365254f779b6927f00f8724ea1b8ae5e0000000000000000000000580",
+    "composable": true,
+    "bptIndex": 2,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x0CE9489bBD4bfA0Da7b5bb06E4dFa7a5947F76e8",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x0CE9489bBD4bfA0Da7b5bb06E4dFa7a5947F76e8",
+        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xd3443ee1e91aF28e5FB858Fbd0D72A63bA8046E0",
+        "oracleId": "gUSDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
+    "name": "balancer-gyro-arb-wsteth-weth",
+    "address": "0x7967FA58B9501600D96bD843173b9334983EE6E6",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x96d7C70c80518Ee189CB6ba672FbD22E4fDD9c19",
+    "vaultPoolId": "0x7967fa58b9501600d96bd843173b9334983ee6e600020000000000000000056e",
+    "lsIndex": 0,
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "lsAprFactor": 1,
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "newGauge": true,
+        "stream": "0x96d7C70c80518Ee189CB6ba672FbD22E4fDD9c19",
+        "oracleId": "BAL"
+      },
+      {
+        "stream": "0x96d7C70c80518Ee189CB6ba672FbD22E4fDD9c19",
+        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x5979D7b546E38E414F7E9822514be443A4800529",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-wsteth-4pool",
     "address": "0xA1a8bf131571A2139FEB79401aA4A2E9482Df627",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
