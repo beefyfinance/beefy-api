@@ -1160,7 +1160,7 @@ export const tokens = {
       'UNI is the governance token for Uniswap. UNI was introduced on 16th September 2020 through a retrospective airdrop to users who have interacted with the protocol either by swapping tokens or by providing liquidity.',
     bridge: 'base-canonical',
     logoURI: '',
-    documentation: 'https://uniswap.org/developers',
+    documentation: 'https://docs.uniswap.org/concepts/governance/overview',
   },
   ZRO: {
     name: 'LayerZero',

@@ -2855,7 +2855,7 @@ export const tokens = {
     bridge: 'binance-peg',
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
-    documentation: 'https://uniswap.org/developers',
+    documentation: 'https://docs.uniswap.org/concepts/governance/overview',
   },
   FRIES: {
     name: 'fry.world',

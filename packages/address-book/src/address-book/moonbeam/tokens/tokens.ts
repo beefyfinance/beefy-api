@@ -19,6 +19,12 @@ export const tokens = {
   GLMR,
   WGLMR: GLMR,
   WNATIVE: GLMR,
+  erc20GLMR: {
+    ...GLMR,
+    symbol: 'GLMR',
+    // ERC20 interface to the native token (like METIS/CELO)
+    address: '0x0000000000000000000000000000000000000802',
+  },
   oldBIFI: {
     name: 'Beefy.Finance',
     symbol: 'oldBIFI',

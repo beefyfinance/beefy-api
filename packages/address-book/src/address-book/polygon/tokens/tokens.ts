@@ -1225,7 +1225,7 @@ export const tokens = {
     chainId: 137,
     logoURI:
       'https://raw.githubusercontent.com/sameepsi/quickswap-interface/master/public/favicon1.png',
-    documentation: 'https://uniswap.org/developers',
+    documentation: 'https://docs.uniswap.org/concepts/governance/overview',
   },
   pUSDCe: {
     name: 'USD Coin',
