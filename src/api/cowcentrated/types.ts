@@ -1,5 +1,5 @@
 import { Address, isAddress } from 'viem';
-import { ApiChain } from '../../utils/chain';
+import { ApiChain, AppChain } from '../../utils/chain';
 import { isNonEmptyArray, NonEmptyArray } from '../../utils/array';
 
 type JsonCowClm = {
@@ -204,14 +204,14 @@ export type CampaignRewardToken = {
   address: string;
   symbol: string;
   decimals: number;
+  chainId: AppChain;
 };
 
 export type Campaign = {
   campaignId: string;
   startTimestamp: number;
   endTimestamp: number;
-  chainId: ApiChain;
-  claimChainId: ApiChain;
+  chainId: AppChain;
   poolAddress: string;
   rewardToken: CampaignRewardToken;
   type: CampaignType;
