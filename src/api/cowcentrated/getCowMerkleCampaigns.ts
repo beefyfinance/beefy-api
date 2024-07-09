@@ -1,4 +1,4 @@
-import { ApiChain, fromChainId, fromChainNumber, toApiChain, toChainId } from '../../utils/chain';
+import { ApiChain, fromChainNumber, toAppChain, toChainId } from '../../utils/chain';
 import { mapValues, partition } from 'lodash';
 import { isResultFulfilled } from '../../utils/promise';
 import { Address, isAddressEqual } from 'viem';
@@ -16,7 +16,6 @@ import { isFiniteNumber } from '../../utils/number';
 import { CachedByChain } from '../../utils/CachedByChain';
 import { CachedThrottledPromise } from '../../utils/CachedThrottledPromise';
 import { sleep } from '../../utils/time';
-import { ChainId } from '../../../packages/address-book/src/types/chainid';
 
 const INIT_DELAY = 5000; // 5 seconds
 const UPDATE_INTERVAL = 30 * 60 * 1000; // 30 minutes
@@ -39,7 +38,7 @@ const campaignStore = new CachedByChain<Campaign[]>({
   key: CACHE_KEY,
   fresh: FRESH_LIFETIME,
   stale: STALE_LIFETIME,
-  version: 2, // increase if the shape of Campaign[] changes
+  version: 3, // increase if the shape of Campaign[] changes
 });
 const updater = new CachedThrottledPromise(updateAll, MIN_UPDATE_INTERVAL);
 
@@ -106,8 +105,7 @@ function getCampaign(
 
   return {
     campaignId: campaign.campaignId,
-    chainId: computeChain ?? claimChain ?? apiChain,
-    claimChainId: claimChain ?? apiChain,
+    chainId: toAppChain(computeChain ?? claimChain ?? apiChain),
     startTimestamp: campaign.startTimestamp,
     endTimestamp: campaign.endTimestamp,
     poolAddress: campaign.mainParameter,
@@ -115,6 +113,7 @@ function getCampaign(
       address: campaign.rewardToken,
       symbol: campaign.campaignParameters.symbolRewardToken,
       decimals: campaign.campaignParameters.decimalsRewardToken,
+      chainId: toAppChain(claimChain ?? apiChain),
     },
     vaults: vaultsWithApr,
     type,
