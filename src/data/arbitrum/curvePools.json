@@ -1,5 +1,30 @@
 [
   {
+    "name": "curve-arb-eth+-eth-v2",
+    "pool": "0x1fb84fa6d252762e8367ea607a6586e09dcebe3d",
+    "gauge": "0x6e9a99f8b3e22c3ee81d888d7e29293e939b6f9c",
+    "rewards": [
+      {
+        "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
+        "oracleId": "RSR"
+      },
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "ETH+",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-arb-tbtc-ng",
     "pool": "0x186cf879186986a20aadfb7ead50e3c20cb26cec",
     "gauge": "0xb7e23a438c9cad2575d3c048248a943a7a03f3fa",
