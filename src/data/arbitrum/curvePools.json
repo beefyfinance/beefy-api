@@ -279,6 +279,7 @@
     "name": "curve-arb-usd+usdt+",
     "pool": "0x1446999b0b0e4f7ada6ee73f2ae12a2cfdc5d9e7",
     "gauge": "0xd68089d9daa2da7888b7ef54158480e09ecc3580",
+    "convex": true,
     "rewards": [
       {
         "token": "0xa3d1a8deb97b111454b294e2324efad13a9d8396",
