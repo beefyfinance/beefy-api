@@ -33,7 +33,7 @@ async function fetchCowVaultsMeta(chainId: ApiChain): Promise<AnyCowClmMeta[]> {
     return [];
   }
 
-  const url = `${BEEFY_CLM_API}/api/v1/vaults/${chainId}/1d`;
+  const url = `${BEEFY_CLM_API}/api/v1/vaults/${chainId}/1.1d`;
   const response = await fetch(url);
   if (!response.ok) {
     throw new Error(
