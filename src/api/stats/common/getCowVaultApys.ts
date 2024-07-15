@@ -6,6 +6,7 @@ import {
   CampaignForVault,
   type CowClmWithRewardPoolMeta,
   isCowClmWithRewardPoolMeta,
+  isCowClmWithVaultMeta,
 } from '../../cowcentrated/types';
 import { isDefined } from '../../../utils/array';
 import { getBeefyRewardPoolV2Apr } from './getBeefyRewardPoolV2Apr';
@@ -64,9 +65,23 @@ export const getCowApys = async (apiChain: ApiChain) => {
     return clmBreakdowns;
   }
 
+  // Merge reward pool breakdowns into clm breakdowns
+  clmBreakdowns.apys = { ...clmBreakdowns.apys, ...rewardPoolBreakdowns.apys };
+  clmBreakdowns.apyBreakdowns = {
+    ...clmBreakdowns.apyBreakdowns,
+    ...rewardPoolBreakdowns.apyBreakdowns,
+  };
+
+  const vaultBreakdowns = getCowVaultApyBreakdown(clms, clmBreakdowns);
+  if (!vaultBreakdowns) {
+    // this just means none of the CLMs had vaults defined in config
+    return clmBreakdowns;
+  }
+
+  // Merge vault breakdowns into clm + reward pool breakdowns
   return {
-    apys: { ...clmBreakdowns.apys, ...rewardPoolBreakdowns.apys },
-    apyBreakdowns: { ...clmBreakdowns.apyBreakdowns, ...rewardPoolBreakdowns.apyBreakdowns },
+    apys: { ...clmBreakdowns.apys, ...vaultBreakdowns.apys },
+    apyBreakdowns: { ...clmBreakdowns.apyBreakdowns, ...vaultBreakdowns.apyBreakdowns },
   };
 };
 
@@ -96,6 +111,32 @@ async function getMerklCampaignsByVault(
     campaigns,
     totalApr: campaigns.reduce((total, campaign) => total + campaign.apr, 0),
   }));
+}
+
+function getCowVaultApyBreakdown(
+  clms: AnyCowClmMeta[],
+  clmBreakdowns: ApyBreakdownResult
+): ApyBreakdownResult | undefined {
+  const inputs = clms
+    .map((clm, index): ApyBreakdownRequest | undefined => {
+      if (isCowClmWithVaultMeta(clm)) {
+        const clmBreakdown = clmBreakdowns.apyBreakdowns[clm.oracleId];
+        const rewardPoolBreakdown = clmBreakdowns.apyBreakdowns[clm.rewardPool.oracleId];
+
+        return {
+          vaultId: clm.vault.oracleId,
+          vault:
+            (clmBreakdown?.clmApr || 0) +
+            (rewardPoolBreakdown?.merklApr || 0) +
+            (rewardPoolBreakdown?.rewardPoolApr || 0),
+          compoundingsPerYear: DAILY_HPY,
+        };
+      }
+      return undefined;
+    })
+    .filter(isDefined);
+
+  return inputs.length ? getApyBreakdown(inputs) : undefined;
 }
 
 function getCowRewardPoolApyBreakdown(
