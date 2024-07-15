@@ -2095,4 +2095,19 @@ export const tokens = {
     description:
       'GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
   },
+  ETHFI: {
+    name: 'ether.fi Governance Token',
+    symbol: 'ETHFI',
+    oracleId: 'ETHFI',
+    address: '0x7189fb5B6504bbfF6a852B13B7B82a3c118fDc27',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.ether.fi/',
+    documentation: 'https://etherfi.gitbook.io/etherfi',
+    bridge: 'wormhole',
+    description:
+      'ETHFI is the governance token of ether.fi, a restaking protocol on Ethereum. Token holders will have a say in the future of the protocol.',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
