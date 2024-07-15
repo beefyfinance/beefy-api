@@ -20,6 +20,10 @@ type JsonCowClm = {
       address: string;
     }[];
   };
+  vault?: {
+    address: string;
+    oracleId: string;
+  };
 };
 
 export type CowClm = {
@@ -44,18 +48,29 @@ export type CowRewardPool = {
   oracleId: string;
   /** manual reward mapper, if undefined will read from contract/use addressbook */
   rewards?: NonEmptyArray<CowRewardPoolReward>;
-  /** whether the reward pool is compounding all merkl rewards */
-  merkl?: boolean;
 };
 
 export type CowClmWithRewardPool = CowClm & {
   rewardPool: CowRewardPool;
 };
 
-export type AnyCowClm = CowClm | CowClmWithRewardPool;
+export type CowVault = {
+  address: Address;
+  oracleId: string;
+};
+
+export type CowClmWithVault = CowClmWithRewardPool & {
+  vault: CowVault;
+};
+
+export type AnyCowClm = CowClm | CowClmWithRewardPool | CowClmWithVault;
 
 export function isCowClmWithRewardPool(clm: AnyCowClm): clm is CowClmWithRewardPool {
   return 'rewardPool' in clm && clm.rewardPool !== undefined;
+}
+
+export function isCowClmWithVault(clm: AnyCowClm): clm is CowClmWithRewardPool {
+  return isCowClmWithRewardPool(clm) && 'vault' in clm && clm.vault !== undefined;
 }
 
 function isValidCowRewardPoolRewardConfig(
@@ -77,6 +92,10 @@ function isValidCowClmRewardPoolConfig(
   );
 }
 
+function isValidCowClmVaultConfig(vault: JsonCowClm['vault']): vault is CowVault {
+  return vault && vault.oracleId && isAddress(vault.address);
+}
+
 function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {
   return (
     clm.tokens.length === 2 &&
@@ -85,7 +104,10 @@ function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {
     isAddress(clm.address) &&
     isAddress(clm.lpAddress) &&
     clm.tokens.every(isAddress) &&
-    ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool))
+    // no reward pool if beta clm, or valid reward pool
+    ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool)) &&
+    // no vault, or reward pool and valid vault
+    (!clm.vault || (clm.rewardPool && isValidCowClmVaultConfig(clm.vault)))
   );
 }
 
@@ -108,11 +130,16 @@ export type CowMeta = {
 export type CowClmMeta = CowClm & CowMeta;
 
 export type CowClmWithRewardPoolMeta = CowClmWithRewardPool & CowMeta;
+export type CowClmWithVaultMeta = CowClmWithVault & CowMeta;
 
-export type AnyCowClmMeta = CowClmMeta | CowClmWithRewardPoolMeta;
+export type AnyCowClmMeta = CowClmMeta | CowClmWithRewardPoolMeta | CowClmWithVaultMeta;
 
 export function isCowClmWithRewardPoolMeta(clm: AnyCowClmMeta): clm is CowClmWithRewardPoolMeta {
   return 'rewardPool' in clm && clm.rewardPool !== undefined;
+}
+
+export function isCowClmWithVaultMeta(clm: AnyCowClmMeta): clm is CowClmWithVaultMeta {
+  return isCowClmWithRewardPoolMeta(clm) && 'vault' in clm && clm.vault !== undefined;
 }
 
 export type CowClmsMeta = {
