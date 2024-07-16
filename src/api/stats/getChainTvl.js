@@ -68,7 +68,6 @@ const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
 
     //subsctract the tvl from the parent clm
     if (vault.type === 'gov' && vault.version === 2 && vault.id.endsWith('-rp')) {
-      console.log('hi', vault.oracleId);
       const nakedCLmTvl = new BigNumber(tvls[chainId][vault.oracleId] || 0);
       if (nakedCLmTvl.gt(0)) {
         //sometimes the reward pool can have idle founds in the strategy and the tvl can be greater than the clm, in this case we set the naked clm tvl to 0
