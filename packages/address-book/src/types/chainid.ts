@@ -27,6 +27,7 @@ export enum ChainId {
   fraxtal = 252,
   mode = 34443,
   manta = 169,
+  real = 111188,
 }
 
 type ChainIdType = typeof ChainId;

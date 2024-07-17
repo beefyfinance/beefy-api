@@ -28,6 +28,7 @@ import {
   FRAXTAL_RPC,
   MODE_RPC,
   MANTA_RPC,
+  REAL_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
@@ -708,6 +709,29 @@ const mantaChain = {
   },
   blockExplorers: {
     default: { name: 'Manta Pacific Explorer', url: 'https://pacific-explorer.manta.network/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
+const realChain = {
+  id: 111188,
+  name: 'Re.Al',
+  network: 're.al',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'ETH',
+    symbol: 'ETH',
+  },
+  rpcUrls: {
+    public: { http: [REAL_RPC] },
+    default: { http: [REAL_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 're.al explorer', url: 'https://explorer.re.al/' },
   },
   contracts: {
     multicall3: {

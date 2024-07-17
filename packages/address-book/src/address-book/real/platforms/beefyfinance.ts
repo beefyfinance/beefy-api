@@ -19,7 +19,7 @@ export const beefyfinance = {
   vaultFactory: '0x91BB303E972995EbE5f593BCddBb6F5Ef49Dbcbd',
   //zap: '0x6f66F246Bb436B6f4E66A992C2218b57cD906109',
   //zapTokenManager: '0xD3D46FF34cD495d5B91b8F3C5C552E81E5e3eab5',
-
+  /*
   /// CLM Contracts
   clmFactory: '0x91BB303E972995EbE5f593BCddBb6F5Ef49Dbcbd',
   clmStrategyFactory: '0x448a3539a591dE3Fb9D5AAE407471D21d40cD315',
@@ -29,5 +29,5 @@ export const beefyfinance = {
   beefySwapper: '0x07f1ad98b725Af45485646aC431b7757f50C598A',
   beefyOracle: '0x2AfB174c22D9eE334895C4e300ab93154d800aA0',
   beefyOracleUniswapV3: '0xD19ab62F83380908D65E344567378cF104cE46c2',
-  beefyOraclePyth: '0xD3f0D11dbe25c5a11bbf2F0a41e0019778EFBE65',
+  beefyOraclePyth: '0xD3f0D11dbe25c5a11bbf2F0a41e0019778EFBE65',*/
 } as const;
