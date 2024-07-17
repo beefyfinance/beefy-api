@@ -22,7 +22,7 @@ export const beefyfinance = {
 
   /// CLM Contracts
   clmFactory: '0xD19ab62F83380908D65E344567378cF104cE46c2',
-  clmStrategyFactory: '0x70127945067E4224d7B6ABfDc6f57e3ea45d5CA4',
+  clmStrategyFactory: '0xaF0f1B33Ef5A61b88F84BA2Ed2388f2C69fEaB55',
   clmRewardPoolFactory: '0x3C0b1765C379833b86A1704997019A7496Afdfae',
   /*
   /// Beefy Swapper Contracts
