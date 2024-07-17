@@ -1,5 +1,41 @@
 [
   {
+    "name": "pendle-weeths-29aug24",
+    "address": "0xcAa8ABB72A75C623BECe1f4D5c218F425d47A0D0",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-ezeth-26dec24",
+    "address": "0xd8f12bcde578c653014f27379a6114f67f0e445f",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-unieth-26sep24",
+    "address": "0xBaE2Df4DfCd0c613018D6056A40077F2d1eFf28A",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-weethk-26sep24",
+    "address": "0x905a5a4792a0c27a2adb2777f98c577d320079ef",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-eeth-26sep24",
     "address": "0xC8eDd52D0502Aa8b4D5C77361D4B3D300e8fC81c",
     "oracle": "tokens",

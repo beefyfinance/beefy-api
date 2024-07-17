@@ -2,8 +2,15 @@ const getLendleApys = require('./getLendleApys');
 const getMoeApys = require('./getMoeApys');
 const getmShardsApys = require('./getmShardsApys');
 const getStargateMantleApys = require('./getStargateMantleApys');
+const { getBeefyCowMantleApys } = require('./getBeefyCowMantleApys');
 
-const getApys = [getStargateMantleApys, getmShardsApys, getLendleApys, getMoeApys];
+const getApys = [
+  getBeefyCowMantleApys,
+  getStargateMantleApys,
+  getmShardsApys,
+  getLendleApys,
+  getMoeApys,
+];
 
 const getMantleApys = async () => {
   const start = Date.now();

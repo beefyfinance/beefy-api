@@ -1,5 +1,20 @@
 [
   {
+    "address": "0x5D604056E2560a8515aB51a2D8e6f0620d955d36",
+    "lpAddress": "0x0f143FC50d6c71Fee95D6Ec1030e62D788507b84",
+    "tokens": [
+      "0x7189fb5B6504bbfF6a852B13B7B82a3c118fDc27",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["ETHFI", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "camelot-ethfi-weth",
+    "rewardPool": {
+      "address": "0x5375dc3954693322387D329ED175EAdaF04579Fd",
+      "oracleId": "camelot-ethfi-weth-rp"
+    }
+  },
+  {
     "address": "0xA297024a99098d52aae466AC5F48520d514262bA",
     "lpAddress": "0x7fCDC35463E3770c2fB992716Cd070B63540b947",
     "tokens": [

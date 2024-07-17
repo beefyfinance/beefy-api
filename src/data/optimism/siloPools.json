@@ -125,7 +125,7 @@
     "address": "0xEa29E611ADC9A6DB4b6881F428ec73Db40d1d418",
     "underlying": "0x9560e827aF36c94D2Ac33a39bCE1Fe78631088Db",
     "silo": "0xB369B1748b8d970F77213D71b474b2Fd6F9A6c1E",
-    "oracleId": "VELO",
+    "oracleId": "VELOV2",
     "decimals": "1e18",
     "chainId": 10,
     "rewardOracleId": "OP",

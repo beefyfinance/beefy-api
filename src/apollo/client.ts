@@ -83,26 +83,26 @@ const kyberClient = client(
 );
 const beetClient = client('https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx');
 const beetOpClient = client(
-  'https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx-optimism'
+  'https://api.studio.thegraph.com/query/75376/balancer-optimism-v2/version/latest'
 );
 const balancerArbClient = client(
-  'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-arbitrum-v2'
+  'https://api.studio.thegraph.com/query/75376/balancer-arbitrum-v2/version/latest'
 );
 const balancerAvaxClient = client(
-  'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-avalanche-v2'
+  'https://api.studio.thegraph.com/query/75376/balancer-avalanche-v2/version/latest'
 );
 const balancerPolyClient = client(
-  'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-polygon-v2'
+  'https://api.studio.thegraph.com/query/75376/balancer-polygon-v2/version/latest'
 );
 const balancerZkevmClient = client(
-  'https://api.studio.thegraph.com/query/24660/balancer-polygon-zk-v2/version/latest/'
+  'https://api.studio.thegraph.com/query/24660/balancer-polygon-zk-v2/version/latest'
 );
 const balancerBaseClient = client(
-  'https://api.studio.thegraph.com/query/24660/balancer-base-v2/version/latest/'
+  'https://api.studio.thegraph.com/query/24660/balancer-base-v2/version/latest'
 );
 
 const balancerGnosisClient = client(
-  'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-gnosis-chain-v2'
+  'https://api.studio.thegraph.com/query/75376/balancer-gnosis-chain-v2/version/latest'
 );
 const beamClient = client('https://api.thegraph.com/subgraphs/name/beamswap/beamswap-dex');
 const solarflareClient = client('https://analytics.solarflare.io/api/subgraph');
@@ -121,7 +121,7 @@ const uniswapPolygonClient = client(
   'https://api.thegraph.com/subgraphs/name/ianlapham/uniswap-v3-polygon'
 );
 const balancerClient = client(
-  'https://api.thegraph.com/subgraphs/name/balancer-labs/balancer-v2-beta'
+  'https://api.studio.thegraph.com/query/75376/balancer-v2/version/latest'
 );
 
 const isSushiTridentClient = (client: ApolloClient<NormalizedCacheObject>) => {

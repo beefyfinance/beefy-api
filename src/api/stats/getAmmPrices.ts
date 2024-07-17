@@ -632,6 +632,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'wrapped-oeth': ['WOETH'],
   'manta-network': ['MANTA'],
   foxy: ['FOXY'],
+  'ether-fi': ['ETHFI'],
 };
 
 /**

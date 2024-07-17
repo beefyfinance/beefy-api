@@ -147,6 +147,10 @@
     "rewardPool": {
       "address": "0xdA0c58F0f407bC4EbF6e885Ae90e9a817cf8cdF5",
       "oracleId": "velo-cow-op-moobifi-usdc-rp"
+    },
+    "vault": {
+      "address": "0x436001D53b77cB0AA636F8124C65dC2c92A46D91",
+      "oracleId": "velo-cow-op-moobifi-usdc-vault"
     }
   },
   {

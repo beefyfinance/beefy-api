@@ -605,4 +605,5 @@ export const blockedTokensByChain: Record<ApiChain, Set<string>> = {
   fraxtal: new Set([]),
   mode: new Set([]),
   manta: new Set([]),
+  real: new Set([]),
 };

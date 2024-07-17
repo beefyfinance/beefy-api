@@ -87,6 +87,9 @@ module.exports = {
   get mantaWeb3() {
     return chainRandomClients.mantaRandomClient();
   },
+  get realWeb3() {
+    return chainRandomClients.realRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

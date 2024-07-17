@@ -67,6 +67,7 @@ const MANTLE_RPC = process.env.MANTLE_RPC || 'https://rpc.mantle.xyz';
 const FRAXTAL_RPC = process.env.FRAXTAL_RPC || 'https://rpc.frax.com';
 const MODE_RPC = process.env.MODE_RPC || 'https://mode.drpc.org';
 const MANTA_RPC = process.env.MANTA_RPC || 'https://manta-pacific.drpc.org';
+const REAL_RPC = process.env.REAL_RPC || 'https://real.drpc.org';
 
 const BSC_CHAIN_ID = ChainId.bsc;
 const HECO_CHAIN_ID = ChainId.heco;
@@ -96,6 +97,7 @@ const MANTLE_CHAIN_ID = ChainId.mantle;
 const FRAXTAL_CHAIN_ID = ChainId.fraxtal;
 const MODE_CHAIN_ID = ChainId.mode;
 const MANTA_CHAIN_ID = ChainId.manta;
+const REAL_CHAIN_ID = ChainId.real;
 
 const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.003;
@@ -146,6 +148,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.fraxtal]: FRAXTAL_RPC,
   [ChainId.mode]: MODE_RPC,
   [ChainId.manta]: MANTA_RPC,
+  [ChainId.real]: REAL_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =
@@ -204,6 +207,8 @@ const MODE_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/mode.json';
 const MANTA_VAULTS_ENDPOINT =
   'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/manta.json';
+const REAL_VAULTS_ENDPOINT =
+  'https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/vault/real.json';
 
 const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   bsc: BSC_VAULTS_ENDPOINT,
@@ -234,6 +239,7 @@ const MULTICHAIN_ENDPOINTS: Partial<Record<ApiChain, string>> = {
   fraxtal: FRAXTAL_VAULTS_ENDPOINT,
   mode: MODE_VAULTS_ENDPOINT,
   manta: MANTA_VAULTS_ENDPOINT,
+  real: REAL_VAULTS_ENDPOINT,
 } as const;
 
 const EXCLUDED_IDS_FROM_TVL = ['venus-wbnb'];
@@ -324,7 +330,10 @@ export {
   MODE_VAULTS_ENDPOINT,
   MANTA_RPC,
   MANTA_CHAIN_ID,
-  // MANTA_VAULTS_ENDPOINT,
+  MANTA_VAULTS_ENDPOINT,
+  REAL_RPC,
+  REAL_CHAIN_ID,
+  // REAL_VAULTS_ENDPOINT,
   BASE_HPY,
   MINUTELY_HPY,
   HOURLY_HPY,
