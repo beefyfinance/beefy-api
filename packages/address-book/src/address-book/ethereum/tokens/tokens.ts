@@ -1851,6 +1851,20 @@ export const tokens = {
     documentation: 'https://etherfi.gitbook.io/etherfi/liquid/king-karak-lrt-vault',
     bridge: 'native',
   },
+  weETHs: {
+    name: 'Super Symbiotic LRT',
+    symbol: 'weETHs',
+    oracleId: 'weETHs',
+    address: '0x917ceE801a67f933F2e6b33fC0cD1ED2d5909D88',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.ether.fi/liquid/symbiotic',
+    description:
+      'Super Symbiotic LRT is an Ether.Fi x Symbiotic vault that allows users to stake their ETH to accrue staking rewards and automatically restake their ETH in Symbiotic.',
+    documentation: 'https://etherfi.gitbook.io/etherfi/liquid/super-symbiotic-lrt-vault',
+    bridge: 'native',
+  },
   uniETH: {
     name: 'Universal ETH',
     symbol: 'uniETH',
