@@ -19,12 +19,12 @@ export const beefyfinance = {
   vaultFactory: '0x91BB303E972995EbE5f593BCddBb6F5Ef49Dbcbd',
   //zap: '0x6f66F246Bb436B6f4E66A992C2218b57cD906109',
   //zapTokenManager: '0xD3D46FF34cD495d5B91b8F3C5C552E81E5e3eab5',
-  /*
-  /// CLM Contracts
-  clmFactory: '0x91BB303E972995EbE5f593BCddBb6F5Ef49Dbcbd',
-  clmStrategyFactory: '0x448a3539a591dE3Fb9D5AAE407471D21d40cD315',
-  clmRewardPoolFactory: '0x9818dF1Bdce8D0E79B982e2C3a93ac821b3c17e0',
 
+  /// CLM Contracts
+  clmFactory: '0xD19ab62F83380908D65E344567378cF104cE46c2',
+  clmStrategyFactory: '0x70127945067E4224d7B6ABfDc6f57e3ea45d5CA4',
+  clmRewardPoolFactory: '0x3C0b1765C379833b86A1704997019A7496Afdfae',
+  /*
   /// Beefy Swapper Contracts
   beefySwapper: '0x07f1ad98b725Af45485646aC431b7757f50C598A',
   beefyOracle: '0x2AfB174c22D9eE334895C4e300ab93154d800aA0',
