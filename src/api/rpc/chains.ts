@@ -723,8 +723,8 @@ const realChain = {
   network: 're.al',
   nativeCurrency: {
     decimals: 18,
-    name: 'ETH',
-    symbol: 'ETH',
+    name: 'WREETH',
+    symbol: 'WREETH',
   },
   rpcUrls: {
     public: { http: [REAL_RPC] },
@@ -770,4 +770,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.fraxtal]: fraxtalChain,
   [ChainId.mode]: modeChain,
   [ChainId.manta]: mantaChain,
+  [ChainId.real]: realChain,
 } as const;
