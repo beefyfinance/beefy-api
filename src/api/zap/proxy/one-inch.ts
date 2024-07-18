@@ -1,10 +1,13 @@
 import Koa from 'koa';
 import { QuoteRequest, QuoteResponse, SwapRequest, SwapResponse } from '../api/one-inch/types';
 import { getOneInchSwapApi } from '../api/one-inch';
-import { AnyChain } from '../../../utils/chain';
+import { AnyChain, toApiChain } from '../../../utils/chain';
 import { redactSecrets } from '../../../utils/secrets';
-import { setNoCacheHeaders } from './common';
+import { isQuoteValueTooLow, setNoCacheHeaders } from './common';
 import { ApiResponse, isSuccessApiResponse } from '../api/common';
+import { getTokenByAddress } from '../../tokens/tokens';
+import { getAmmPrice } from '../../stats/getAmmPrices';
+import { fromWeiString } from '../../../utils/big-number';
 
 const getProxiedSwap = async (
   request: SwapRequest,
@@ -26,6 +29,11 @@ const getProxiedQuote = async (
   chain: AnyChain
 ): Promise<ApiResponse<QuoteResponse>> => {
   try {
+    const tooLowError = await isQuoteValueTooLow(request.amount, request.src, chain);
+    if (tooLowError) {
+      return tooLowError;
+    }
+
     const api = getOneInchSwapApi(chain);
     return await api.getProxiedQuote(request);
   } catch (err) {
