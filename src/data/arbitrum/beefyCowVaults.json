@@ -1,5 +1,20 @@
 [
   {
+    "address": "0x72eB356324963A85A3d06c35422b59c87e475195",
+    "lpAddress": "0x05bA720fC96EA8969f86d7a0B0767BB8DC265232",
+    "tokens": [
+      "0x6985884C4392D348587B19cb9eAAf157F13271cd",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["ZRO", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "ramses-zero-weth",
+    "rewardPool": {
+      "address": "0x5d1d05481B4F5050220637db87273AE5737B4C1e",
+      "oracleId": "ramses-zero-weth-rp"
+    }
+  },
+  {
     "address": "0x5D604056E2560a8515aB51a2D8e6f0620d955d36",
     "lpAddress": "0x0f143FC50d6c71Fee95D6Ec1030e62D788507b84",
     "tokens": [
