@@ -148,7 +148,7 @@ const MULTICHAIN_RPC: Record<ChainId, string> = {
   [ChainId.fraxtal]: FRAXTAL_RPC,
   [ChainId.mode]: MODE_RPC,
   [ChainId.manta]: MANTA_RPC,
-  // [ChainId.real]: REAL_RPC,
+  [ChainId.real]: REAL_RPC,
 };
 
 const BSC_VAULTS_ENDPOINT =

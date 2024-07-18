@@ -19,7 +19,7 @@ export const getBoosts = async chain => {
     throw new Error(`Invalid boosts data for ${chain}`);
   }
 
-  return boosts as Boost[];
+  return (boosts as Boost[]).filter(b => !b.version || b.version === 1);
 };
 
 export const getBoostPeriodFinish = async (chain: ApiChain, boosts: any[]) => {
