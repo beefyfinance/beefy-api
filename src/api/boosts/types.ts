@@ -16,4 +16,5 @@ export type Boost = {
   partners: string[];
   chain: string;
   periodFinish: number;
+  version?: number;
 };
