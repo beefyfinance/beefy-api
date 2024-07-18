@@ -37,9 +37,9 @@ const getProxiedQuote = async (
 };
 
 export async function proxyKyberSwap(ctx: Koa.Context) {
-  console.log('proxyKyberSwap...');
   const start = Date.now();
   const chain = ctx.params.chainId;
+  console.log('proxyKyberSwap... ' + chain);
   const requestObject: SwapRequest = ctx.request['body'] as any; // koa-bodyparser adds parsed json to body
   const proxiedSwap = await postProxiedSwap(requestObject, chain);
   console.log(`proxyKyberSwap took ${(Date.now() - start) / 1000}s`);
@@ -49,9 +49,9 @@ export async function proxyKyberSwap(ctx: Koa.Context) {
 }
 
 export async function proxyKyberQuote(ctx: Koa.Context) {
-  console.log('proxyKyberQuote...');
   const start = Date.now();
   const chain = ctx.params.chainId;
+  console.log('proxyKyberQuote... ' + chain);
   const requestObject: QuoteRequest = ctx.query as any;
   const proxiedQuote = await getProxiedQuote(requestObject, chain);
   console.log(`proxyKyberQuote took ${(Date.now() - start) / 1000}s`);

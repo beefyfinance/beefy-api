@@ -37,9 +37,9 @@ const getProxiedQuote = async (
 };
 
 export async function proxyOneInchSwap(ctx: Koa.Context) {
-  console.log('proxyOneInchSwap...');
   const start = Date.now();
   const chain = ctx.params.chainId;
+  console.log('proxyOneInchSwap... ' + chain);
   const requestObject: SwapRequest = ctx.query as any;
   const proxiedSwap = await getProxiedSwap(requestObject, chain);
   console.log(`proxyOneInchSwap took ${(Date.now() - start) / 1000}s`);
@@ -49,9 +49,9 @@ export async function proxyOneInchSwap(ctx: Koa.Context) {
 }
 
 export async function proxyOneInchQuote(ctx: Koa.Context) {
-  console.log('proxyOneInchQuote...');
   const start = Date.now();
   const chain = ctx.params.chainId;
+  console.log('proxyOneInchQuote... ' + chain);
   const requestObject: QuoteRequest = ctx.query as any;
   const proxiedQuote = await getProxiedQuote(requestObject, chain);
   console.log(`proxyOneInchQuote took ${(Date.now() - start) / 1000}s`);
