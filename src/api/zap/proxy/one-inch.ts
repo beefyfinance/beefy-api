@@ -47,10 +47,11 @@ const getProxiedQuote = async (
 export async function proxyOneInchSwap(ctx: Koa.Context) {
   const start = Date.now();
   const chain = ctx.params.chainId;
-  console.log('proxyOneInchSwap... ' + chain);
   const requestObject: SwapRequest = ctx.query as any;
   const proxiedSwap = await getProxiedSwap(requestObject, chain);
-  console.log(`proxyOneInchSwap took ${(Date.now() - start) / 1000}s`);
+  if (isSuccessApiResponse(proxiedSwap)) {
+    console.log(`proxyOneInchSwap took ${(Date.now() - start) / 1000}s on ${chain}`);
+  }
   setNoCacheHeaders(ctx);
   ctx.status = proxiedSwap.code;
   ctx.body = isSuccessApiResponse(proxiedSwap) ? proxiedSwap.data : proxiedSwap.message;
@@ -59,10 +60,11 @@ export async function proxyOneInchSwap(ctx: Koa.Context) {
 export async function proxyOneInchQuote(ctx: Koa.Context) {
   const start = Date.now();
   const chain = ctx.params.chainId;
-  console.log('proxyOneInchQuote... ' + chain);
   const requestObject: QuoteRequest = ctx.query as any;
   const proxiedQuote = await getProxiedQuote(requestObject, chain);
-  console.log(`proxyOneInchQuote took ${(Date.now() - start) / 1000}s`);
+  if (isSuccessApiResponse(proxiedQuote)) {
+    console.log(`proxyOneInchQuote took ${(Date.now() - start) / 1000}s on ${chain}`);
+  }
   setNoCacheHeaders(ctx);
   ctx.status = proxiedQuote.code;
   ctx.body = isSuccessApiResponse(proxiedQuote) ? proxiedQuote.data : proxiedQuote.message;
