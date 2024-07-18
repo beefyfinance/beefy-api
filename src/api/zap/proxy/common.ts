@@ -1,5 +1,5 @@
 import Koa from 'koa';
-import { getTokenByAddress } from '../../tokens/tokens';
+import { getTokenByAddress, getTokenNative } from '../../tokens/tokens';
 import { AnyChain, ApiChain, toApiChain } from '../../../utils/chain';
 import { getAmmPrice } from '../../stats/getAmmPrices';
 import { fromWeiString } from '../../../utils/big-number';
@@ -7,6 +7,7 @@ import { fromWeiString } from '../../../utils/big-number';
 const MIN_QUOTE_VALUE: Partial<Record<ApiChain, number>> = {
   optimism: 5,
 };
+const NATIVE_ADDRESS = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE';
 
 export function setNoCacheHeaders(ctx: Koa.Context) {
   ctx.set('Cache-Control', 'no-store, no-cache, must-revalidate');
@@ -25,7 +26,10 @@ export async function isQuoteValueTooLow(
     return undefined;
   }
 
-  const srcToken = getTokenByAddress(inputAddress, apiChainId);
+  const srcToken =
+    inputAddress.toLowerCase() === NATIVE_ADDRESS.toLowerCase()
+      ? getTokenNative(apiChainId)
+      : getTokenByAddress(inputAddress, apiChainId);
   if (!srcToken) {
     return {
       code: 400,
