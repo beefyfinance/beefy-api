@@ -1,5 +1,25 @@
 [
   {
+    "name": "aerodrome-usdz-susdz",
+    "address": "0x7818B53F423457151407103321d8F961773815D1",
+    "gauge": "0xc4021e049F13e137Cd1D40e7Ddb2173C7F8F02a3",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938",
+      "oracle": "tokens",
+      "oracleId": "USDz",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe31eE12bDFDD0573D634124611e85338e2cBF0cF",
+      "oracle": "tokens",
+      "oracleId": "sUSDz",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-usdc-bwell",
     "address": "0x81A8c12738F7346094526ECC2487a63f45dD1935",
     "gauge": "0x47C84ff870c7EeA60420EC8c98B7FBa9D37b478B",

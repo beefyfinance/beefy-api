@@ -1204,4 +1204,19 @@ export const tokens = {
     logoURI: 'https://i.imgur.com/ZvP634G.png',
     documentation: 'https://learn.jarvis.network/',
   },
+  sUSDz: {
+    name: 'Staked USDz',
+    symbol: 'sUSDz',
+    oracleId: 'sUSDz',
+    address: '0xe31eE12bDFDD0573D634124611e85338e2cBF0cF',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'sUSDz is a token that represents staked USDz. It accumulates value from USDz staking rewards sent by the protocol and backed by the protocols portfolio of private credit assets. sUSDz is a reward-bearing token, similar to sUSDe or sDAI. Unlike rebasing tokens such as stETH, the price of sUSDz increases over time.',
+    website: 'https://anzen.finance/',
+    documentation: 'https://docs.anzen.finance/',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
