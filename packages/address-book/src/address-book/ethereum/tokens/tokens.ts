@@ -2022,6 +2022,7 @@ export const tokens = {
     description:
       'ShezUSD is a decentralized stablecoin issued within the Shezmu Oasis platform. Users can mint ShezUSD by locking various approved collateral types into a Collateralized Debt Position (CDP). ShezUSD aims to provide a stable and secure medium of exchange and leverage opportunity within the DeFi ecosystem.',
     bridge: 'native',
+    risks: ['NO_TIMELOCK'],
   },
   ShezETH: {
     name: 'ShezmuETH',
@@ -2036,6 +2037,7 @@ export const tokens = {
     description:
       'ShezETH is a decentralized, ETH-pegged derivative issued within the Shezmu Oasis platform. It allows users to leverage their Ethereum-based assets by minting ShezETH against them. ShezETH is designed to facilitate liquidity and leverage without the traditional risks of liquidation found in other lending platforms.',
     bridge: 'native',
+    risks: ['NO_TIMELOCK'],
   },
   UNI: {
     name: 'Uniswap',
