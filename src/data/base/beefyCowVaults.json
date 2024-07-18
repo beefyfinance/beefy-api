@@ -1,5 +1,50 @@
 [
   {
+    "address": "0x368E49dF9df85f3538eA5A32E4369586315a4565",
+    "lpAddress": "0xd95bAe63641d822dC591bD4ACA7a64e53eaC76F9",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xebfF2db643Cf955247339c8c6bCD8406308ca437"
+    ],
+    "tokenOracleIds": ["WETH", "CHOMP"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-chomp",
+    "rewardPool": {
+      "address": "0x4C2c6C0886F24A66BF730CEB3894D15A27a818c5",
+      "oracleId": "uniswap-cow-base-weth-chomp-rp"
+    }
+  },
+  {
+    "address": "0xAC6d2806f356730C5C973891f1919Df966ec26c4",
+    "lpAddress": "0xadAd4ce0C68F50A19CF5063E0B91d701Daab1df1",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xB1a03EdA10342529bBF8EB700a06C60441fEf25d"
+    ],
+    "tokenOracleIds": ["WETH", "MIGGLES"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-miggles",
+    "rewardPool": {
+      "address": "0x6EDB41DAc71FEd6Eb6b4CF785f95dB27d82A6e5E",
+      "oracleId": "uniswap-cow-base-weth-miggles-rp"
+    }
+  },
+  {
+    "address": "0x6E52B6Cec2b47Be931b305d37A4d5aadC41b37A3",
+    "lpAddress": "0xC5C5F65927a4011864fcB261D7499267e101118F",
+    "tokens": [
+      "0x2Da56AcB9Ea78330f947bD57C54119Debda7AF71",
+      "0x4200000000000000000000000000000000000006"
+    ],
+    "tokenOracleIds": ["Mog", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-mog-weth",
+    "rewardPool": {
+      "address": "0x869FdeC3A02C8Ecdd14Dc71f0d9E9855053F79f6",
+      "oracleId": "uniswap-cow-base-mog-weth-rp"
+    }
+  },
+  {
     "address": "0x7f45AE7f7BBCebde75121bbD14D50511E064f137",
     "lpAddress": "0xC29dc26B28FFF463e32834Ce6325B5c74fAC7098",
     "tokens": [
