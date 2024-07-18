@@ -6,7 +6,7 @@ const ETH = {
   symbol: 'WREETH',
   oracleId: 'WREETH',
   decimals: 18,
-  chainId: 34443,
+  chainId: 111188,
   website: 'https://weth.io/',
   description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
   bridge: 'mode-canonical',
