@@ -113,7 +113,7 @@ const joeDayDataRangeQuery = (startTimestamp, endTimestamp) => {
   const queryString = `
   query volumeUSD {
     dayDatas(where: { date_gt: ${startTimestamp}, date_lt: ${endTimestamp} }) {
-      volumeUSD
+      usdRemitted
     }
   }
 `;
