@@ -1615,5 +1615,6 @@ export const tokens = {
       'TLX is the native governance token of the TLX protocol. TLX is a permissionless, non-custodial leveraged token platform built on Optimism.',
     documentation: 'https://docs.tlx.fi/',
     bridge: 'native',
+    risks: ['NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;
