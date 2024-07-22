@@ -24,6 +24,7 @@ const { getMantleApys } = require('./mantle');
 const { getFraxtalApys } = require('./fraxtal');
 const { getModeApys } = require('./mode');
 const { getMantaApys } = require('./manta');
+const { getRealApys } = require('./real');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs } = require('./getBoostAprs');
 
@@ -76,6 +77,7 @@ const updateApys = async () => {
       getFraxtalApys(),
       getModeApys(),
       getMantaApys(),
+      getRealApys(),
     ]);
 
     for (const result of results) {
