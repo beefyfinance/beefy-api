@@ -1243,4 +1243,16 @@ export const tokens = {
     website: 'https://mrmigglesbase.com/',
     bridge: 'native',
   },
+  mfer: {
+    name: 'mfercoin',
+    symbol: 'mfer',
+    oracleId: 'mfer',
+    address: '0xE3086852A4B125803C815a158249ae468A3254Ca',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description: 'Meme coin for every crypto mfer on Base.',
+    website: 'https://linktr.ee/Mfercoin',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

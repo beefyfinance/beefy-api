@@ -1,5 +1,23 @@
 [
   {
+    "name": "uni-weth-mfer",
+    "address": "0xb08A99AB559E5456907278727a3b0d968C0A313b",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE3086852A4B125803C815a158249ae468A3254Ca",
+      "oracle": "tokens",
+      "oracleId": "mfer",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "uni-weth-miggles",
     "address": "0x17A3Ad8c74c4947005aFEDa9965305ae2EB2518a",
     "decimals": "1e18",
