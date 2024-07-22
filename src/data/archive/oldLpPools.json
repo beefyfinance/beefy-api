@@ -1,5 +1,41 @@
 [
   {
+    "name": "uni-weth-miggles",
+    "address": "0x17A3Ad8c74c4947005aFEDa9965305ae2EB2518a",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB1a03EdA10342529bBF8EB700a06C60441fEf25d",
+      "oracle": "tokens",
+      "oracleId": "MIGGLES",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "uni-shezmu-weth",
+    "address": "0x74E6cAc32234133Fe06bD0f4D8237dEe1dedE057",
+    "decimals": "1e18",
+    "chainId": 1,
+    "lp0": {
+      "address": "0x5fE72ed557d8a02FFf49B3B826792c765d5cE162",
+      "oracle": "tokens",
+      "oracleId": "SHEZMU",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "sushi-weth-ens",
     "address": "0xa1181481bEb2dc5De0DaF2c85392d81C704BF75D",
     "decimals": "1e18",

@@ -1,5 +1,49 @@
 [
   {
+    "name": "curve-shezeth-eth",
+    "pool": "0x637213593e31bc25f49d37c74b43a89eb1743d73",
+    "gauge": "0xe32705721f284fb47f53cf5f9f1af2d74758d7de",
+    "getDy": ["v1", 0, 1],
+    "rewards": [
+      {
+        "token": "0x5fe72ed557d8a02fff49b3b826792c765d5ce162",
+        "oracleId": "SHEZMU"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "ShezETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "ETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-shezusd-usdc",
+    "pool": "0x66267c6e24fbcdebf06ae9104e0ccfb9c8b2ae08",
+    "gauge": "0x55a3a857598b500fd844610ed875ec73ff296c4b",
+    "getDy": ["v1", 0, 1],
+    "rewards": [
+      {
+        "token": "0x5fe72ed557d8a02fff49b3b826792c765d5ce162",
+        "oracleId": "SHEZMU"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "ShezUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "convex-dgneth-eth+",
     "pool": "0x021cf6b7ebb8c8efcf21396eb4c94658976172c7",
     "gauge": "0x12405bdd74ae0cb97723a7365bc75bb9c19aacf5",

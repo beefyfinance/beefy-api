@@ -15,6 +15,7 @@ import ERC20Abi from '../../../abis/ERC20Abi';
 import { ZERO_ADDRESS } from '../../../utils/address';
 import { getUnixTime } from 'date-fns';
 import { isResultFulfilled } from '../../../utils/promise';
+import { envBoolean } from '../../../utils/env';
 
 const WARN_STAKED_IS_ZERO: boolean = false;
 const WARN_STAKED_MISSING_PRICE: boolean = true;
@@ -23,7 +24,7 @@ const WARN_REWARDS_NONE_IN_ADDRESS_BOOK: boolean = true;
 const WARN_REWARDS_SOME_IN_ADDRESS_BOOK: boolean = true;
 const WARN_REWARD_INFO_REVERT: boolean = true;
 const WARN_REWARDS_ALL_INFO_REVERT: boolean = false;
-const WARN_REWARDS_ALL_INACTIVE: boolean = true;
+const WARN_REWARDS_ALL_INACTIVE: boolean = envBoolean('WARN_REWARDS_ALL_INACTIVE', true);
 const WARN_REWARD_PRICE_THREW: boolean = true;
 const WARN_REWARD_PRICE_MISSING: boolean = true;
 const WARN_REWARDS_ALL_MISSING_PRICE: boolean = false;

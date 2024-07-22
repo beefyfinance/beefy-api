@@ -250,7 +250,7 @@ const rpcs: Record<ChainId, string[]> = {
     'https://1rpc.io/mantle',
   ],
   [ChainId.fraxtal]: ['https://rpc.frax.com'],
-  [ChainId.mode]: ['https://mode.drpc.org'],
+  [ChainId.mode]: ['https://mode.drpc.org', 'https://1rpc.io/mode'],
   [ChainId.manta]: ['https://manta-pacific.drpc.org'],
   [ChainId.real]: ['https://real.drpc.org'],
 };

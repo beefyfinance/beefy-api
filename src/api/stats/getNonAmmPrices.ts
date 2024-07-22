@@ -96,6 +96,7 @@ import getEqualizerStableBasePrices from './base/getEqualizerStablePrices';
 import getBunniArbPrices from './arbitrum/getBunniPrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
+import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
 import getArbitrumSiloPrices from './arbitrum/getArbitrumSiloPrices';
 import getAcrossPrices from './ethereum/getAcrossPrices';
 import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
@@ -112,11 +113,11 @@ import getBscRangePrices from './bsc/getBscRangePrices';
 import getGammaLineaPrices from './linea/getGammaPrices';
 import getLynexStablePrices from './linea/getLynexStablePrices';
 import getNileStablePrices from './linea/getNileStablePrices';
+import { getPearlTridentPrices } from './real/getPearlTridentPrices';
 import { getBeefyCowArbPrices } from './arbitrum/getBeefyCowArbPrices';
 import { getBeefyCowOPPrices } from './optimism/getBeefyCowOPPrices';
 import getFtmIchiPrices from './fantom/getFtmIchiPrices';
 import { getBeefyCowBasePrices } from './base/getBeefyCowBasePrices';
-import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
 import { getBeefyCowMoonbeamPrices } from './moonbeam/getBeefyCowMoonbeamPricis';
 import { getBeefyCowLineaPrices } from './linea/getBeefyLineaCowPrices';
 import getOptimismSiloPrices from './optimism/getOptimismSiloPrices';
@@ -273,6 +274,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBeefyCowMantaPrices(tokenPrices),
     getBeefyCowMantlePrices(tokenPrices),
     getFtmIchiPrices(tokenPrices),
+    getPearlTridentPrices(tokenPrices),
   ];
 
   // Setup error logs

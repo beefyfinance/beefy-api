@@ -1602,4 +1602,19 @@ export const tokens = {
     bridge: 'optimism-canonical',
     risks: ['NO_TIMELOCK'],
   },
+  TLX: {
+    name: 'TLX DAO Token',
+    symbol: 'TLX',
+    oracleId: 'TLX',
+    address: '0xD9cC3D70E730503E7f28c1B407389198c4B75FA2',
+    chainId: 10,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://tlx.fi/',
+    description:
+      'TLX is the native governance token of the TLX protocol. TLX is a permissionless, non-custodial leveraged token platform built on Optimism.',
+    documentation: 'https://docs.tlx.fi/',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;

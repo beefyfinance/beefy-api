@@ -633,6 +633,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'manta-network': ['MANTA'],
   foxy: ['FOXY'],
   'ether-fi': ['ETHFI'],
+  'anzen-usdz': ['USDz'],
+  chompcoin: ['CHOMP'],
 };
 
 /**
