@@ -17,7 +17,7 @@
     }
   },
   {
-    "name": "pearl-trident-ustb-arcusdc",
+    "name": "pearl-trident-ustb-arcusd",
     "address": "0x1A86E3c934BFb2Df3b2e3734fBf7e620Ce5B1878",
     "gauge": "0xbEC49aAB96e4837EAf38C55a247ac1bAfB7aF019",
     "chainId": 111188,
