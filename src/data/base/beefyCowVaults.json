@@ -1,5 +1,20 @@
 [
   {
+    "address": "0x603492fF8943f5aC69Aa69cF09Fc96FDA2606Ee7",
+    "lpAddress": "0x57713F7716e0b0F65ec116912F834E49805480d2",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "sushi-cow-base-weth-usdc",
+    "rewardPool": {
+      "address": "0x603AC75C8eaa72d5700c2Be89EFc397d78526702",
+      "oracleId": "sushi-cow-base-weth-usdc-rp"
+    }
+  },
+  {
     "address": "0xB7cEb91149b9E2963703eb767eBf874811B2d86b",
     "lpAddress": "0x20E068D76f9E90b90604500B84c7e19dCB923e7e",
     "tokens": [
