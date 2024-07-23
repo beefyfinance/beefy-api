@@ -1257,6 +1257,10 @@
     "rewardPool": {
       "address": "0xae209676A7E9188349B0aC5A23bdC39388A26D79",
       "oracleId": "uniswap-cow-arb-link-eth-rp"
+    },
+    "vault": {
+      "address": "0x5012EBeAE6E8dDe9D26340A7E6e026A9c887b48B",
+      "oracleId": "uniswap-cow-arb-link-eth-vault"
     }
   },
   {
