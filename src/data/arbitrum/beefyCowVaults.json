@@ -1259,7 +1259,7 @@
       "oracleId": "uniswap-cow-arb-link-eth-rp"
     },
     "vault": {
-      "address": "0x5012EBeAE6E8dDe9D26340A7E6e026A9c887b48B",
+      "address": "0xb8818Ed729601E18D39D71F8B2E1F09BD3D7d7Ee",
       "oracleId": "uniswap-cow-arb-link-eth-vault"
     }
   },
