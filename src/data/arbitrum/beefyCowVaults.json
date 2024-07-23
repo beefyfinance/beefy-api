@@ -30,6 +30,21 @@
     }
   },
   {
+    "address": "0xf3D5c975de1c0Fd358a593Bcef7a41c61366127C",
+    "lpAddress": "0x48b0aB72c2591849e678e7d6f272b75eF9b863F7",
+    "tokens": [
+      "0x4186BFC76E2E237523CBC30FD220FE055156b41F",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["rsETH", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-arb-rseth-weth",
+    "rewardPool": {
+      "address": "0x04D463bf08dF252Cb09a87D6d41a33c535942710",
+      "oracleId": "uniswap-cow-arb-rseth-weth-rp"
+    }
+  },
+  {
     "address": "0x8bf7D47f17Ea5211a5769a61eaEF0e11d2322968",
     "lpAddress": "0xB3942c9FFA04efBC1Fa746e146bE7565c76E3dC1",
     "tokens": [
