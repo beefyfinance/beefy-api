@@ -1289,7 +1289,7 @@
       "oracleId": "uniswap-cow-arb-link-eth-rp"
     },
     "vault": {
-      "address": "0xb8818Ed729601E18D39D71F8B2E1F09BD3D7d7Ee",
+      "address": "0xC40E0Aa87cdb75bEedeA8fbB5CBb7EaaA64CA0Ee",
       "oracleId": "uniswap-cow-arb-link-eth-vault"
     }
   },
