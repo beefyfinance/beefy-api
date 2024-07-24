@@ -30,6 +30,27 @@ const getChainTvl = async chain => {
   tvls = await setVaultsTvl(cowVaults, cowVaultBalances, chainId, tvls);
   tvls = await setVaultsTvl(govVaults, govVaultBalances, chainId, tvls);
 
+  const Clmaddresses = cowVaults.map(clm => [clm.earnedTokenAddress, clm.id]);
+
+  for (const [address, clmId] of Clmaddresses) {
+    const clmVault = lpVaults.find(vault => vault.tokenAddress === address);
+    const clmPool = govVaults.find(pool => pool.tokenAddress === address);
+
+    const vaultTvl = new BigNumber(clmVault ? tvls[chainId][clmVault.id] : 0);
+    const poolTvl = new BigNumber(clmPool ? tvls[chainId][clmPool.id] : 0);
+
+    const clmTvl = new BigNumber(tvls[chainId][clmId] || 0);
+
+    if (clmTvl.gt(0)) {
+      const vaultAndPoolTvl = vaultTvl.plus(poolTvl);
+      const clmItem = {
+        [clmId]: clmTvl.gt(vaultAndPoolTvl) ? clmTvl.minus(vaultAndPoolTvl).toNumber() : 0,
+      };
+
+      tvls[chainId] = { ...tvls[chainId], ...clmItem };
+    }
+  }
+
   return tvls;
 };
 
@@ -64,18 +85,6 @@ const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
     let item = { [vault.id]: 0 };
     if (!tvl.isNaN()) {
       item = { [vault.id]: tvl.toNumber() };
-    }
-
-    //subsctract the tvl from the parent clm
-    if (vault.type === 'gov' && vault.version === 2 && vault.id.endsWith('-rp')) {
-      const nakedCLmTvl = new BigNumber(tvls[chainId][vault.oracleId] || 0);
-      if (nakedCLmTvl.gt(0)) {
-        //sometimes the reward pool can have idle founds in the strategy and the tvl can be greater than the clm, in this case we set the naked clm tvl to 0
-        const clmItem = {
-          [vault.oracleId]: nakedCLmTvl.gt(tvl) ? nakedCLmTvl.minus(tvl).toNumber() : 0,
-        };
-        tvls[chainId] = { ...tvls[chainId], ...clmItem };
-      }
     }
 
     tvls[chainId] = { ...tvls[chainId], ...item };
