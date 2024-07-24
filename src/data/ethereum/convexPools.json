@@ -80,7 +80,6 @@
     "pool": "0xde73e407efc75edbafc5bcd62ebb1e7a9b38ebcd",
     "gauge": "0x36152aa234fcf97b5c14fc6d4893fc0da5328bd2",
     "rewardPool": "0x1EB6689327b8E12cDD0F8806aFDc9caeD40862de",
-    "getDy": ["v2", 0, 1],
     "extras": [
       {
         "rewardPool": "0xb6875cA08a0db50334C7C5e31e52190cb037035D",
@@ -94,6 +93,23 @@
       },
       {
         "oracleId": "rgUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-usd3-eusd",
+    "pool": "0x79586fa680958102154093b795fdb8efbc013822",
+    "gauge": "0x40c63580846d2600df2d2a8a3bf899e8249095fd",
+    "rewardPool": "0x01EdE9cA2d9c49cfe7385dC31BB2313c855D29c7",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "USD3",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "eUSD",
         "decimals": "1e18"
       }
     ]
