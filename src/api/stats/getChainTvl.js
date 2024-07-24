@@ -30,23 +30,30 @@ const getChainTvl = async chain => {
   tvls = await setVaultsTvl(cowVaults, cowVaultBalances, chainId, tvls);
   tvls = await setVaultsTvl(govVaults, govVaultBalances, chainId, tvls);
 
-  const Clmaddresses = cowVaults.map(clm => [clm.earnedTokenAddress, clm.id]);
+  // separate CLM / CLM Pool / CLM Vault TVL
+  for (const clm of cowVaults) {
+    const clmId = clm.id;
+    const clmAddress = clm.earnContractAddress;
 
-  for (const [address, clmId] of Clmaddresses) {
-    const clmVault = lpVaults.find(vault => vault.tokenAddress === address);
-    const clmPool = govVaults.find(pool => pool.tokenAddress === address);
+    // TODO fix if we ever have more than one pool/vault per clm
+    const clmVault = lpVaults.find(vault => vault.tokenAddress === clmAddress);
+    const clmPool = govVaults.find(pool => pool.tokenAddress === clmAddress);
 
-    const vaultTvl = new BigNumber(clmVault ? tvls[chainId][clmVault.id] : 0);
-    const poolTvl = new BigNumber(clmPool ? tvls[chainId][clmPool.id] : 0);
+    const clmVaultTvl = clmVault ? tvls[chainId]?.[clmVault.id] || 0 : 0;
+    const clmPoolTvl = clmPool ? tvls[chainId]?.[clmPool.id] || 0 : 0;
+    const clmTvl = tvls[chainId]?.[clmId] || 0;
 
-    const clmTvl = new BigNumber(tvls[chainId][clmId] || 0);
+    // Vault deposits in to Pool
+    if (clmPool && clmVault) {
+      // On-chain pool TVL therefore also includes vault deposits, so remove them
+      const clmPoolItem = { [clmPool.id]: Math.max(0, clmPoolTvl - clmVaultTvl) };
+      tvls[chainId] = { ...tvls[chainId], ...clmPoolItem };
+    }
 
-    if (clmTvl.gt(0)) {
-      const vaultAndPoolTvl = vaultTvl.plus(poolTvl);
-      const clmItem = {
-        [clmId]: clmTvl.gt(vaultAndPoolTvl) ? clmTvl.minus(vaultAndPoolTvl).toNumber() : 0,
-      };
-
+    // Pool deposits in to CLM
+    if (clmPool) {
+      // On-chain CLM TVL therefore also includes pool deposits, so remove them
+      const clmItem = { [clmId]: Math.max(0, clmTvl - clmPoolTvl) };
       tvls[chainId] = { ...tvls[chainId], ...clmItem };
     }
   }
