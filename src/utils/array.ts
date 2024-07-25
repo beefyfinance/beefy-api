@@ -27,3 +27,21 @@ export function isDefined<T>(value: T): value is Exclude<T, undefined | null> {
 export function toArray<T>(value: T | T[]): T[] {
   return Array.isArray(value) ? value : [value];
 }
+
+export function numberRange(start: number, end?: number | undefined): number[] {
+  if (end === undefined) {
+    end = start;
+    start = 0;
+  }
+
+  return Array.from({ length: end - start }, (_, i) => i + start);
+}
+
+export function bigintRange(start: bigint, end?: bigint | undefined): bigint[] {
+  if (end === undefined) {
+    end = start;
+    start = BigInt(0);
+  }
+
+  return Array.from({ length: parseInt((end - start).toString(10)) }, (_, i) => start + BigInt(i));
+}

@@ -26,7 +26,7 @@ const { getModeApys } = require('./mode');
 const { getMantaApys } = require('./manta');
 const { getRealApys } = require('./real');
 const { getKey, setKey } = require('../../utils/cache');
-const { fetchBoostAprs } = require('./getBoostAprs');
+const { fetchBoostAprs, BOOST_APR_EXPIRED } = require('./getBoostAprs');
 
 const INIT_DELAY = process.env.INIT_DELAY || 30 * 1000;
 const BOOST_APR_INIT_DELAY = 30 * 1000;
@@ -130,7 +130,7 @@ const updateBoostAprs = async () => {
     };
     //-1 will be returned when boost has ended and it will be removed from the api response
     Object.keys(boostAprs)
-      .filter(boostId => boostAprs[boostId] === -1)
+      .filter(boostId => boostAprs[boostId] === BOOST_APR_EXPIRED)
       .forEach(boostId => {
         delete boostAprs[boostId];
       });

@@ -1,10 +1,10 @@
 import { MULTICHAIN_ENDPOINTS } from '../../constants';
 import { getKey, setKey } from '../../utils/cache';
 import { getBoostPeriodFinish, getBoosts } from './fetchBoostData';
-import { Boost } from './types';
+import { Boost, BoostConfig } from './types';
 import { serviceEventBus } from '../../utils/ServiceEventBus';
 import { isResultFulfilled, isResultRejected, withTimeout } from '../../utils/promise';
-import { ApiChain, toAppChain } from '../../utils/chain';
+import { ApiChain } from '../../utils/chain';
 
 const REDIS_KEY = 'BOOSTS_BY_CHAIN';
 
@@ -67,10 +67,8 @@ function buildFromChains() {
 }
 
 async function updateChainBoosts(chain: ApiChain) {
-  let chainBoosts: Boost[] = await getBoosts(toAppChain(chain));
-  chainBoosts.forEach(boost => (boost.chain = chain));
-  chainBoosts = await getBoostPeriodFinish(chain, chainBoosts);
-  boostsByChain[chain] = chainBoosts;
+  const chainBoosts: BoostConfig[] = await getBoosts(chain);
+  boostsByChain[chain] = await getBoostPeriodFinish(chain, chainBoosts);
 }
 
 async function loadFromRedis() {
