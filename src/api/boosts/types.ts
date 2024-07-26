@@ -1,4 +1,6 @@
-export type Boost = {
+import { ApiChain } from '../../utils/chain';
+
+export type BoostConfig = {
   id: string;
   poolId: string;
   name: string;
@@ -14,7 +16,11 @@ export type Boost = {
   status: 'active' | 'prestake' | 'closed';
   isMooStaked: boolean;
   partners: string[];
-  chain: string;
+  version: number;
+  chain: ApiChain;
+};
+
+export type Boost = BoostConfig & {
   periodFinish: number;
-  version?: number;
+  periodFinishes: number[];
 };
