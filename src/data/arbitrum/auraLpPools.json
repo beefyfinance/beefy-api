@@ -1,5 +1,91 @@
 [
   {
+    "name": "aura-arb-susde-sfrax",
+    "address": "0x59743f1812bb85Db83e9e4EE061D124AAa642900",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x0a6a427867a3274909A04276cB5589AE8Cc2dfc7",
+    "vaultPoolId": "0x59743f1812bb85db83e9e4ee061d124aaa64290000000000000000000000052b",
+    "composable": true,
+    "bptIndex": 1,
+    "lsIndex": [0, 1],
+    "lsUrl": [
+      "https://app.ethena.fi/api/yields/protocol-and-staking-yield",
+      "https://api.frax.finance/v2/frax/sfrax/summary/latest"
+    ],
+    "dataPath": ["$.stakingYield.value", "$.sfraxApy"],
+    "lsAprFactor": [1, 1],
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x32db3eFDfC3Bb8cCCB03B240471B0D48BF34d645",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xD7AF4Ac7E383a59b789580B5026Ac25cCCAaAd14",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2",
+        "oracleId": "sUSDe",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "address": "0xe3b3FE7bcA19cA77Ad877A5Bebab186bEcfAD906",
+        "oracleId": "sFRAX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-arb-frax-sfrax",
+    "address": "0xdfa752ca3fF49d4B6dBE08E2d5a111f51773D395",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xB3DA7B8C24D69a6109d8bc3b9c5b124374E9465f",
+    "vaultPoolId": "0xdfa752ca3ff49d4b6dbe08e2d5a111f51773d3950000000000000000000004e8",
+    "composable": true,
+    "bptIndex": 1,
+    "lsIndex": 1,
+    "lsUrl": "https://api.frax.finance/v2/frax/sfrax/summary/latest",
+    "dataPath": "$.sfraxApy",
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xBAac16987051355778c0CAEC633Dd18bd7A239fC",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x4123B7c3588ABc801331C49117f3814de2DD50A9",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x17FC002b466eEc40DaE837Fc4bE5c67993ddBd6F",
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "address": "0xe3b3FE7bcA19cA77Ad877A5Bebab186bEcfAD906",
+        "oracleId": "sFRAX",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "balancer-arb-usdc-gusdc",
     "address": "0xE8a6026365254f779b6927f00f8724EA1B8aE5E0",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
