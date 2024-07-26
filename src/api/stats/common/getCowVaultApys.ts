@@ -126,7 +126,7 @@ function getCowVaultApyBreakdown(
         return {
           vaultId: clm.vault.oracleId,
           vault:
-            (clmBreakdown?.clmApr || 0) +
+            (clmBreakdown?.clmApr || 0) + // TODO clmApr already has fee removed
             (rewardPoolBreakdown?.merklApr || 0) +
             (rewardPoolBreakdown?.rewardPoolApr || 0),
           compoundingsPerYear: DAILY_HPY,
