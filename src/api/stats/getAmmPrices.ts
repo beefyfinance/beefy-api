@@ -635,6 +635,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'ether-fi': ['ETHFI'],
   'anzen-usdz': ['USDz'],
   chompcoin: ['CHOMP'],
+  'davos-protocol': ['DUSD'],
 };
 
 /**

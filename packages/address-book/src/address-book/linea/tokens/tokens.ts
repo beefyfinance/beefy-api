@@ -160,7 +160,6 @@ export const tokens = {
       'The Davos Protocol is an innovative collateralised debt position (CDP) protocol designed to facilitate the seamless minting of DUSD, an inflation-proof omnichain stablecoin, by leveraging Liquid Staking Tokens (LSTs). The protocol aims to address the challenges faced by traditional CDPs in decentralised finance (DeFi) by incorporating an unbiased monetary policy and fair borrowing rates, thereby enhancing user protection and promoting broader DeFi adoption. ',
     documentation: 'https://davos.xyz/assets/davos_whitepaper.pdf',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
   },
   'USD+': {
     name: 'USD+',
