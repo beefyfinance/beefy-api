@@ -1,42 +1,5 @@
 [
   {
-    "name": "balancer-arb-usdc-gusdc",
-    "address": "0xE8a6026365254f779b6927f00f8724EA1B8aE5E0",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x0CE9489bBD4bfA0Da7b5bb06E4dFa7a5947F76e8",
-    "vaultPoolId": "0xe8a6026365254f779b6927f00f8724ea1b8ae5e0000000000000000000000580",
-    "composable": true,
-    "bptIndex": 2,
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0x0CE9489bBD4bfA0Da7b5bb06E4dFa7a5947F76e8",
-        "oracleId": "BAL"
-      },
-      {
-        "stream": "0x0CE9489bBD4bfA0Da7b5bb06E4dFa7a5947F76e8",
-        "rewardToken": "0x912CE59144191C1204E64559FE8253a0e49E6548",
-        "oracleId": "ARB"
-      }
-    ],
-    "tokens": [
-      {
-        "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
-        "oracleId": "USDC",
-        "decimals": "1e6"
-      },
-      {
-        "address": "0xd3443ee1e91aF28e5FB858Fbd0D72A63bA8046E0",
-        "oracleId": "gUSDC",
-        "decimals": "1e6"
-      },
-      {
-        "oracleId": "BPTToken"
-      }
-    ]
-  },
-  {
     "name": "balancer-wsteth-4pool",
     "address": "0xA1a8bf131571A2139FEB79401aA4A2E9482Df627",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
