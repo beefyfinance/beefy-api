@@ -1,5 +1,43 @@
 [
   {
+    "address": "0xbE4e7a64abb52183e96A152D6AB492d1FFa9259d",
+    "lpAddress": "0xa41Bc0AFfbA7Fd420d186b84899d7ab2aC57fcD1",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xfde4C96c8593536E31F229EA8f37b2ADa2699bb2"
+    ],
+    "tokenOracleIds": ["USDC", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "aero-cow-usdc-usdt",
+    "rewardPool": {
+      "address": "0x32685281974741F64D7F7b45D9ca8f8862B04713",
+      "oracleId": "aero-cow-usdc-usdt-rp"
+    },
+    "vault": {
+      "address": "0xf4B009B9D785C138787e4430D29B85FdB50b5441",
+      "oracleId": "aero-cow-usdc-usdt-vault"
+    }
+  },
+  {
+    "address": "0x42940274124BFc949b3a1b74254bd1D676200837",
+    "lpAddress": "0x861A2922bE165a5Bd41b1E482B49216b465e1B5F",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xc1CBa3fCea344f92D9239c08C0568f6F2F0ee452"
+    ],
+    "tokenOracleIds": ["WETH", "wstETH"],
+    "decimals": [18, 18],
+    "oracleId": "aero-cow-wsteth-weth",
+    "rewardPool": {
+      "address": "0xa2e7A186f465AB6287c760621ED27196981b9C3C",
+      "oracleId": "aero-cow-wsteth-weth-rp"
+    },
+    "vault": {
+      "address": "0xf18a30B4c2a9df72447e54DC7cA4D0B4A1Dc8dE3",
+      "oracleId": "aero-cow-wsteth-weth-vault"
+    }
+  },
+  {
     "address": "0xb2b5578CEdbCaAb3Ce36e6Bc461716Ec4F5CD22d",
     "lpAddress": "0x326841EFD63340767e02ec88E583f18a82AF4A48",
     "tokens": [
