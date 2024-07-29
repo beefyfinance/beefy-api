@@ -208,10 +208,10 @@ const chains = [
     chainId: MANTA_CHAIN_ID,
     vaultsEndpoint: MANTA_VAULTS_ENDPOINT,
   },
-  /* {
+  {
     chainId: REAL_CHAIN_ID,
     vaultsEndpoint: REAL_VAULTS_ENDPOINT,
-  }*/
+  },
 ];
 
 const CACHE_KEY = 'TVL';
