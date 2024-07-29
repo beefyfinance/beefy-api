@@ -1992,6 +1992,20 @@ export const tokens = {
       'The KUJI token is the native token on the Kujira Network. KUJI is used to pay network fees and dApp fees, and all fees collected are distributed to KUJI stakers.',
     bridge: 'axelar',
   },
+  uniETH: {
+    name: 'Universal ETH',
+    symbol: 'uniETH',
+    oracleId: 'uniETH',
+    address: '0x3d15fD46CE9e551498328B1C83071D9509E2C3a0',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.bedrock.technology/unieth',
+    description:
+      'uniETH represents the staked ETH plus all future staking rewards and accrual of EigenLayer points and Bedrock diamonds. uniETH does not grow in quantity over time but instead, grows in value, i.e. 1 uniETH becomes worth increasingly more than 1 ETH.',
+    bridge: 'celer',
+    risks: ['NO_TIMELOCK'],
+  },
   ETHx: {
     name: 'ETHx',
     symbol: 'ETHx',
