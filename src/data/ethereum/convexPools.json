@@ -1,5 +1,27 @@
 [
   {
+    "name": "curve-stlink-link",
+    "pool": "0x1c899ded01954d0959e034b62a728e7febe593b0",
+    "gauge": "0xd90a01c487564ba6cef5c3870c1251aff0c49e53",
+    "getDy": ["v1", 0, 1],
+    "rewards": [
+      {
+        "token": "0xa95c5ebb86e0de73b4fb8c47a45b792cfea28c23",
+        "oracleId": "SDL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "stLINK",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "LINK",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-shezeth-eth",
     "pool": "0x637213593e31bc25f49d37c74b43a89eb1743d73",
     "gauge": "0xe32705721f284fb47f53cf5f9f1af2d74758d7de",

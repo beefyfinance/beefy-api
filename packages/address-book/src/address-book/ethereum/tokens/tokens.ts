@@ -2054,4 +2054,30 @@ export const tokens = {
       'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
     documentation: 'https://docs.uniswap.org/concepts/governance/overview',
   },
+  LINK: {
+    name: 'Chainlink',
+    symbol: 'LINK',
+    oracleId: 'LINK',
+    address: '0x514910771AF9Ca656af840dff83E8264EcF986CA',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    bridge: 'native',
+    documentation: 'https://docs.chain.link/resources/link-token-contracts',
+  },
+  stLINK: {
+    name: 'Staked LINK',
+    symbol: 'stLINK',
+    oracleId: 'stLINK',
+    address: '0xb8b295df2cd735b15BE5Eb419517Aa626fc43cD5',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://stake.link/',
+    description:
+      'stLINK is received by staking LINK. It is received 1:1 per each LINK staked. stLINK is a rebasing token, which means that as your LINK rewards accrue the stLINK balance in your wallet increments up, and is backed 1:1 by staked LINK owned by the stake.link protocol. stLINK can be claim or unclaimed, wrapped or unwrapped, and continues to receive rewards in any scenario.',
+    bridge: 'native',
+    documentation: 'https://docs.stake.link/',
+  },
 } as const satisfies Record<string, Token>;
