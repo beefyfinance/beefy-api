@@ -1,5 +1,43 @@
 [
   {
+    "address": "0xb2b5578CEdbCaAb3Ce36e6Bc461716Ec4F5CD22d",
+    "lpAddress": "0x326841EFD63340767e02ec88E583f18a82AF4A48",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xB1a03EdA10342529bBF8EB700a06C60441fEf25d"
+    ],
+    "tokenOracleIds": ["WETH", "MIGGLES"],
+    "decimals": [18, 18],
+    "oracleId": "aero-cow-miggles-weth",
+    "rewardPool": {
+      "address": "0x628f7175a4b2b83161A2e8306081eBfC7Aa13A76",
+      "oracleId": "aero-cow-miggles-weth-rp"
+    },
+    "vault": {
+      "address": "0xe17347fFDa1480A62179F4235216DD2Da6aF0744",
+      "oracleId": "aero-cow-miggles-weth-vault"
+    }
+  },
+  {
+    "address": "0xcD1B00a83e067Ba717c2CAe510945786c3a65981",
+    "lpAddress": "0x0a7021C9843c2fB3b98c02Ed7f93354774286109",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0xebfF2db643Cf955247339c8c6bCD8406308ca437"
+    ],
+    "tokenOracleIds": ["WETH", "CHOMP"],
+    "decimals": [18, 18],
+    "oracleId": "aero-cow-chomp-weth",
+    "rewardPool": {
+      "address": "0x7987d2d1720AC89bC94F0f8389A08Fad30b79689",
+      "oracleId": "aero-cow-chomp-weth-rp"
+    },
+    "vault": {
+      "address": "0x2B39bf7c3b6244fc5a57A554fC480C246311076e",
+      "oracleId": "aero-cow-chomp-weth-vault"
+    }
+  },
+  {
     "address": "0x603492fF8943f5aC69Aa69cF09Fc96FDA2606Ee7",
     "lpAddress": "0x57713F7716e0b0F65ec116912F834E49805480d2",
     "tokens": [
