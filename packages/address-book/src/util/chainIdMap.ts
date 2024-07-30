@@ -30,6 +30,7 @@ export const chainIdMap = {
   mode: 34443,
   manta: 169,
   real: 111188,
+  sei: 1329,
 } satisfies ChainIdMap;
 
 // back-compat
