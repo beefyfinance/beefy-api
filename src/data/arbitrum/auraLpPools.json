@@ -1,5 +1,47 @@
 [
   {
+    "name": "aura-arb-gho-usdc-usdt",
+    "address": "0xF890360473c12d8015DA8DBf7Af11dA87337A065",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x869d2D3C242A4082F000672686698a3Bbe26539C",
+    "vaultPoolId": "0xf890360473c12d8015da8dbf7af11da87337a065000000000000000000000570",
+    "composable": true,
+    "bptIndex": 2,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x6003706E456718382F2E6A659A235aA881C509c4",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x349ebd90A0807Ff063A40ca70500D419a1738E3f",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x7dfF72693f6A4149b17e7C6314655f6A9F7c8B33",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
     "name": "aura-arb-susde-sfrax",
     "address": "0x59743f1812bb85Db83e9e4EE061D124AAa642900",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
