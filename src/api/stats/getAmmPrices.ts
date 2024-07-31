@@ -653,11 +653,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     chainId: 'linea',
   },
   {
-    oracleId: 'baseOVN',
-    tokenAddress: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
-    chainId: 'base',
-  },
-  {
     oracleId: 'arbOVN',
     tokenAddress: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
     chainId: 'arbitrum',
