@@ -125,6 +125,7 @@ import { getBeefyCowPolyPrices } from './matic/getBeefyPolyCowPrices';
 import { getBeefyCowZkSyncPrices } from './zksync/getBeefyCowZkSyncPrices';
 import { getBeefyCowMantaPrices } from './manta/getBeefyMantaCowPrices';
 import { getBeefyCowMantlePrices } from './mantle/getBeefyMantleCowPrices';
+import { getBeefyCowSeiPrices } from './sei/getBeefySeiCowPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -273,6 +274,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBeefyCowZkSyncPrices(tokenPrices),
     getBeefyCowMantaPrices(tokenPrices),
     getBeefyCowMantlePrices(tokenPrices),
+    getBeefyCowSeiPrices(tokenPrices),
     getFtmIchiPrices(tokenPrices),
     getPearlTridentPrices(tokenPrices),
   ];

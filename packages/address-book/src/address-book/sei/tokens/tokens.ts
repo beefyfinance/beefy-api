@@ -40,7 +40,7 @@ export const tokens = {
     chainId: 1329,
     website: 'https://weth.io/',
     description: 'Ether or ETH is the native currency built on the Ethereum blockchain.',
-    bridge: 'sei-canonical',
+    bridge: 'layerzero',
     logoURI: '',
     documentation: 'https://ethereum.org/en/developers/docs/',
   },
