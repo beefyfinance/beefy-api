@@ -18,6 +18,15 @@
     "beefyFee": 0.095
   },
   {
+    "name": "pendle-rsweth-26sep24",
+    "address": "0x038C1b03daB3B891AfbCa4371ec807eDAa3e6eB6",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-unieth-26sep24",
     "address": "0xBaE2Df4DfCd0c613018D6056A40077F2d1eFf28A",
     "oracle": "tokens",
