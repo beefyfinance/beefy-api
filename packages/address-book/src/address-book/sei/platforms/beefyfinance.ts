@@ -17,17 +17,17 @@ export const beefyfinance = {
   voter: '0x5e1caC103F943Cd84A1E92dAde4145664ebf692A',
   beefyFeeConfig: '0xfc69704cC3cAac545cC7577009Ea4AA04F1a61Eb',
   vaultFactory: '0x91BB303E972995EbE5f593BCddBb6F5Ef49Dbcbd',
-  //zap: '0x6f66F246Bb436B6f4E66A992C2218b57cD906109',
-  //zapTokenManager: '0xD3D46FF34cD495d5B91b8F3C5C552E81E5e3eab5',
-  /*
+  zap: '0x0465375274301FFCDf3274e59544d535e03B3688',
+  zapTokenManager: '0x7B9f2Da828b12fCF7B4154465979a89830C8F57d',
+
   /// CLM Contracts
-  clmFactory: '0xD19ab62F83380908D65E344567378cF104cE46c2',
-  clmStrategyFactory: '0xaF0f1B33Ef5A61b88F84BA2Ed2388f2C69fEaB55',
-  clmRewardPoolFactory: '0x3C0b1765C379833b86A1704997019A7496Afdfae',
-*/
+  clmFactory: '0x2AfB174c22D9eE334895C4e300ab93154d800aA0',
+  clmStrategyFactory: '0x70127945067E4224d7B6ABfDc6f57e3ea45d5CA4',
+  clmRewardPoolFactory: '0xe103ab2f922aa1a56EC058AbfDA2CeEa1e95bCd7',
+
   /// Beefy Swapper Contracts
   beefySwapper: '0x8e0B63846ebEFf857EE35eF3BD3A2df9EF7D6456',
-  beefyOracle: '0x2AfB174c22D9eE334895C4e300ab93154d800aA0',
+  beefyOracle: '0x9818dF1Bdce8D0E79B982e2C3a93ac821b3c17e0',
   beefyOracleUniswapV3: '0x448a3539a591dE3Fb9D5AAE407471D21d40cD315',
-  // beefyOraclePyth: '0xD3f0D11dbe25c5a11bbf2F0a41e0019778EFBE65',
+  beefyOraclePyth: '0x2ec5d5e9aaf3c3f56eBeF2fC46A5af9e42810b41',
 } as const;

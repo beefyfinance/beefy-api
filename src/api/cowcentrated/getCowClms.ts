@@ -9,6 +9,7 @@ import polygonPools from '../../data/matic/beefyCowVaults.json';
 import zksyncPools from '../../data/zksync/beefyCowVaults.json';
 import mantaPools from '../../data/manta/beefyCowVaults.json';
 import mantlePools from '../../data/mantle/beefyCowVaults.json';
+import seiPools from '../../data/sei/beefyCowVaults.json';
 
 const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   optimism: validateCowClms(optimismPools),
@@ -20,6 +21,7 @@ const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   zksync: validateCowClms(zksyncPools),
   manta: validateCowClms(mantaPools),
   mantle: validateCowClms(mantlePools),
+  sei: validateCowClms(seiPools),
 };
 
 const chainsWithClms = (Object.keys(chainToClms) as ReadonlyArray<ApiChain>).filter(

@@ -751,6 +751,7 @@ const seedPeggedPrices = {
   axlUSDC: 'USDC', // Axelar
   xcUSDC: 'USDC', // Kusama
   xcUSDT: 'USDT', // Kusama
+  WSEI: 'SEI', // Wrapped SEI
 };
 
 export type BaseLpBreakdown = {
