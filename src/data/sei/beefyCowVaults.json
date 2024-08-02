@@ -43,5 +43,35 @@
       "address": "0xc52eb8e790Ce2Ec4EDF08d6F0ABDbff9D1b944fA",
       "oracleId": "uniswap-cow-sei-usdc-wsei-rp"
     }
+  },
+  {
+    "address": "0x171897D0e083A5900Fbcd6B68176f5F7261EF7c2",
+    "lpAddress": "0x41eEa09c971294FcDE3B6E553902B04a47be7442",
+    "tokens": [
+      "0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1",
+      "0xB75D0B03c06A926e488e2659DF1A861F860bD3d1"
+    ],
+    "tokenOracleIds": ["USDC", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "uniswap-cow-sei-usdc-usdt",
+    "rewardPool": {
+      "address": "0xA877cD71F4aF6149240d40A9DAC4e13CB328447C",
+      "oracleId": "uniswap-cow-sei-usdc-usdt-rp"
+    }
+  },
+  {
+    "address": "0xE8d987e224e50Fb26986ccf11DD4248BF68CaF43",
+    "lpAddress": "0x0493f80f3d4da87aa0f3713e81e84062d769e5e1",
+    "tokens": [
+      "0xB75D0B03c06A926e488e2659DF1A861F860bD3d1",
+      "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"
+    ],
+    "tokenOracleIds": ["USDC", "WSEI"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-sei-usdt-wsei",
+    "rewardPool": {
+      "address": "0x41c8fDc1f2EB272CB51c224D4C68F277c3C7878B",
+      "oracleId": "uniswap-cow-sei-usdt-wsei-rp"
+    }
   }
 ]
