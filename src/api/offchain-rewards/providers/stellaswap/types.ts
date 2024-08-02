@@ -1,3 +1,5 @@
+import { Address } from 'viem';
+
 type SuccessResponse<T> = {
   isSuccess: true;
   code: 200;
@@ -15,7 +17,7 @@ type ErrorResponse = {
 
 type StellaResponse<T> = SuccessResponse<T> | ErrorResponse;
 
-type FarmingAprResult = {
+export type FarmingAprResult = {
   pools: {
     [poolAddress: string]: {
       apr: string;
@@ -38,4 +40,19 @@ type FarmingAprResult = {
   updatedAt: string;
 };
 
-type FarmingAprResponse = StellaResponse<FarmingAprResult>;
+export type FarmingAprResponse = StellaResponse<FarmingAprResult>;
+
+export type RewarderEntry = {
+  poolAddress: Address;
+  rewarderAddress: Address;
+  isPaused: boolean;
+};
+
+export type RewardInfo = {
+  rewardId: number;
+  tokenAddress: Address;
+  isNative: boolean;
+  startTimestamp: number;
+  endTimestamp: number;
+  // rewardPerSec: bigint;
+};

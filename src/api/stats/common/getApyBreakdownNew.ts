@@ -12,7 +12,7 @@ const nonCompoundableComponents = [
   'liquidStaking',
   'composablePool',
   'merkl',
-  'stellaswap',
+  'stellaSwap',
   'rewardPool',
 ] as const;
 const specialComponents = ['trading'] as const;

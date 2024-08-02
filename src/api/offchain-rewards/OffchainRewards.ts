@@ -6,7 +6,7 @@ import {
   ProviderId,
   Vault,
 } from './types';
-import { StellaswapProvider } from './providers/stellaswap/StellaswapProvider';
+import { StellaSwapProvider } from './providers/stellaswap/StellaSwapProvider';
 import { MerklProvider } from './providers/merkl/MerklProvider';
 import { AppChain } from '../../utils/chain';
 import { AsyncLock } from '../../utils/promise';
@@ -14,6 +14,7 @@ import { typedKeys } from '../../utils/object';
 import { getKey, setKey } from '../../utils/cache';
 import { createCachedFactory } from '../../utils/factory';
 import { getUnixNow } from '../../utils/date';
+import { mapValues } from 'lodash';
 
 type ChainCampaigns<TProvider extends ProviderId = ProviderId> = {
   campaigns: ReadonlyArray<CampaignByProvider[TProvider]>;
@@ -47,11 +48,11 @@ type EditableByProvider = {
 };
 
 type CachedByProvider = {
-  [K in keyof ByProvider]: Omit<ByProvider[K], 'lock' | 'provider'>;
+  [K in keyof ByProvider]: ByProvider[K]['byChain'];
 };
 
 const CACHE_TYPE = 'CacheByProvider' as const;
-const CACHE_VERSION: number = 1; // increase if the shape of CacheByProvider changes
+const CACHE_VERSION: number = 2; // increase if the shape of CacheByProvider changes
 const NO_DATA: ChainCampaigns = {
   campaigns: [],
   lastRequested: 0,
@@ -64,7 +65,7 @@ export class OffchainRewards {
     stellaswap: {
       lock: new AsyncLock(),
       providerId: 'stellaswap',
-      provider: new StellaswapProvider(),
+      provider: new StellaSwapProvider(),
       byChain: {},
     },
     merkl: {
@@ -87,12 +88,12 @@ export class OffchainRewards {
 
     if (cachedValues) {
       for (const providerId of typedKeys(this.byProvider)) {
-        // restore cache
+        // restore cache of providers that still exist
         const providerCache = cachedValues[providerId];
         if (providerCache) {
-          for (const chainId of typedKeys(providerCache.byChain)) {
+          for (const chainId of typedKeys(providerCache)) {
             if (this.byProvider[providerId].provider.supportsChain(chainId)) {
-              this.byProvider[providerId].byChain[chainId] = providerCache.byChain[chainId];
+              this.byProvider[providerId].byChain[chainId] = providerCache[chainId];
             }
           }
         }
@@ -175,7 +176,12 @@ export class OffchainRewards {
     providerId: ProviderId,
     withMeta?: boolean
   ): Promise<Readonly<ChainCampaigns> | ReadonlyArray<Campaign>> {
-    const { provider, lock, byChain } = this.byProvider[providerId];
+    const providerEntry = this.byProvider[providerId];
+    if (!providerEntry) {
+      return withMeta ? NO_DATA : [];
+    }
+
+    const { provider, lock, byChain } = providerEntry;
     if (!provider.supportsChain(chainId)) {
       return withMeta ? NO_DATA : [];
     }
@@ -205,7 +211,6 @@ export class OffchainRewards {
         }
 
         try {
-          console.log(`fetching campaigns for ${providerId} on ${chainId}`);
           chain.campaigns = await provider.getCampaigns(chainId, vaults);
           chain.lastUpdated = getUnixNow();
           chain.lastChecked = chain.lastUpdated;
@@ -216,8 +221,6 @@ export class OffchainRewards {
           );
           return withMeta ? chain : chain.campaigns;
         }
-      } else {
-        console.log(`not fetching campaigns for ${providerId} on ${chainId}`);
       }
 
       if (requestTime - chain.lastChecked >= 60) {
@@ -250,7 +253,6 @@ export class OffchainRewards {
 
   protected getLatestChange() {
     return Math.max(
-      0,
       ...Object.values(this.byProvider).flatMap(provider =>
         Object.values<ByProviderValue['byChain'][AppChain]>(provider.byChain).flatMap(chain => [
           chain.lastUpdated,
@@ -262,15 +264,6 @@ export class OffchainRewards {
 
   /** @dev must be called within lock */
   protected getDataToCache(): CachedByProvider {
-    const providerIds = typedKeys(this.byProvider);
-
-    // don't save class instances
-    const shallow: EditableByProvider = { ...this.byProvider };
-    for (const providerId of providerIds) {
-      delete shallow[providerId].lock;
-      delete shallow[providerId].provider;
-    }
-
-    return shallow;
+    return mapValues(this.byProvider, provider => provider.byChain) as CachedByProvider;
   }
 }

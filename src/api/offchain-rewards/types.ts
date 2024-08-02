@@ -8,6 +8,7 @@ export type RewardToken = {
   symbol: string;
   decimals: number;
   chainId: AppChain;
+  type: 'erc20' | 'native';
 };
 
 export type Vault = {
@@ -32,29 +33,36 @@ type MakeCampaign<TProvider extends ProviderId, TExtra extends object = {}> = {
   chainId: AppChain;
   poolAddress: Address;
   rewardToken: RewardToken;
-  active: boolean;
   vaults: CampaignVault[];
   type: CampaignType;
+  startTimestamp: number;
+  endTimestamp: number;
+  active: boolean;
 } & TExtra;
 
 export type MerklCampaign = MakeCampaign<
   'merkl',
   {
     campaignId: string;
-    startTimestamp: number;
-    endTimestamp: number;
   }
 >;
 
-export type StellaswapCampaign = MakeCampaign<'stellaswap'>;
+export type StellaSwapCampaign = MakeCampaign<
+  'stellaswap',
+  {
+    rewardId: number;
+    rewarderAddress: Address;
+    isPaused: boolean;
+  }
+>;
 
 export type CampaignByProvider = {
   merkl: MerklCampaign;
-  stellaswap: StellaswapCampaign;
+  stellaswap: StellaSwapCampaign;
 };
 
 // export type Campaign = CampaignByProvider[ProviderId];
-export type Campaign = MerklCampaign | StellaswapCampaign;
+export type Campaign = MerklCampaign | StellaSwapCampaign;
 
 export interface IOffchainRewardProvider<T extends Campaign = Campaign> {
   readonly id: T['providerId'];

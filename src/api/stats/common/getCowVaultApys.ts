@@ -125,7 +125,7 @@ function getCowVaultApyBreakdown(
           vault:
             (clmBreakdown?.clmApr || 0) + // TODO clmApr already has fee removed
             (rewardPoolBreakdown?.merklApr || 0) +
-            (rewardPoolBreakdown?.stellaswapApr || 0) +
+            (rewardPoolBreakdown?.stellaSwapApr || 0) +
             (rewardPoolBreakdown?.rewardPoolApr || 0),
           compoundingsPerYear: DAILY_HPY,
         };
@@ -152,7 +152,7 @@ function getCowRewardPoolApyBreakdown(
           rewardPool: rewardPoolAprs[index],
           clm: clmApys.apyBreakdowns[clm.oracleId]?.clmApr, // after fee from CLM; reward pool fee = 0; so this works
           merkl: offchainById[clm.rewardPool.oracleId]?.byProvider.merkl || undefined, // we can't copy from CLM in case it is not forwarded correctly
-          stellaswap: offchainById[clm.rewardPool.oracleId]?.byProvider.stellaswap || undefined,
+          stellaSwap: offchainById[clm.rewardPool.oracleId]?.byProvider.stellaswap || undefined,
           compoundingsPerYear: DAILY_HPY,
         };
       }
@@ -215,7 +215,7 @@ const getCowClmApyBreakdown = async (
         vaultId: vault.oracleId,
         clm: vault.apr,
         merkl: offchainById[vault.oracleId]?.byProvider.merkl || undefined,
-        stellaswap: offchainById[vault.oracleId]?.byProvider.stellaswap || undefined,
+        stellaSwap: offchainById[vault.oracleId]?.byProvider.stellaswap || undefined,
         compoundingsPerYear: DAILY_HPY,
       })
     )

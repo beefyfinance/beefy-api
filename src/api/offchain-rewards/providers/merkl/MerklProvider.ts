@@ -6,7 +6,7 @@ import { groupBy } from 'lodash';
 import { Address, getAddress, isAddressEqual } from 'viem';
 import { isFiniteNumber } from '../../../../utils/number';
 import { isDefined } from '../../../../utils/array';
-import { getUnixNow } from '../../../../utils/date';
+import { isUnixBetween } from '../../../../utils/date';
 
 const providerId = 'merkl' as const;
 const supportedChains = new Set<AppChain>([
@@ -53,7 +53,7 @@ export class MerklProvider implements IOffchainRewardProvider {
   }
 
   isActive(campaign: MerklCampaign, unixTime: number): boolean {
-    return campaign.startTimestamp <= unixTime && unixTime < campaign.endTimestamp;
+    return isUnixBetween(campaign.startTimestamp, campaign.endTimestamp, unixTime);
   }
 
   async getCampaigns(chainId: AppChain, vaults: Vault[]): Promise<MerklCampaign[]> {
@@ -61,18 +61,13 @@ export class MerklProvider implements IOffchainRewardProvider {
       throw new UnsupportedChainError(chainId, providerId);
     }
 
-    const now = getUnixNow();
     const vaultsByPoolAddress = groupBy(vaults, v => v.poolAddress.toLowerCase());
     const chainData = await this.fetchCampaignsForChain(chainId);
 
     return Object.values(chainData)
       .flatMap(poolData => Object.values(poolData))
       .map(campaign => this.getCampaign(campaign, chainId, vaultsByPoolAddress))
-      .filter(isDefined)
-      .map(campaign => ({
-        ...campaign,
-        active: this.isActive(campaign, now),
-      }));
+      .filter(isDefined);
   }
 
   protected getCampaignType(creator: Address, chain: AppChain): CampaignType {
@@ -85,16 +80,16 @@ export class MerklProvider implements IOffchainRewardProvider {
   }
 
   protected getCampaign(
-    campaign: MerklApiCampaign,
+    apiCampaign: MerklApiCampaign,
     chainId: AppChain,
     vaultsByPoolAddress: Record<string, Vault[]>
   ): MerklCampaign | undefined {
     // skip campaigns with merkl test token reward
-    if (campaign.campaignParameters.symbolRewardToken === 'aglaMerkl') {
+    if (apiCampaign.campaignParameters.symbolRewardToken === 'aglaMerkl') {
       return undefined;
     }
 
-    const vaults = vaultsByPoolAddress[campaign.mainParameter.toLowerCase()];
+    const vaults = vaultsByPoolAddress[apiCampaign.mainParameter.toLowerCase()];
     if (!vaults) {
       return undefined;
     }
@@ -102,7 +97,7 @@ export class MerklProvider implements IOffchainRewardProvider {
     const vaultsWithApr = vaults.map(vault => {
       let totalApr: number = 0;
 
-      const poolForwarders = campaign.forwarders.filter(forwarder => {
+      const poolForwarders = apiCampaign.forwarders.filter(forwarder => {
         const almAddress = getAddress(forwarder.almAddress);
         return isAddressEqual(almAddress, vault.address);
       });
@@ -122,28 +117,29 @@ export class MerklProvider implements IOffchainRewardProvider {
       };
     });
 
-    const computeChain = campaign.computeChainId
-      ? fromChainNumber(campaign.computeChainId)
+    const computeChain = apiCampaign.computeChainId
+      ? fromChainNumber(apiCampaign.computeChainId)
       : undefined;
-    const claimChain = campaign.chainId ? fromChainNumber(campaign.chainId) : undefined;
+    const claimChain = apiCampaign.chainId ? fromChainNumber(apiCampaign.chainId) : undefined;
 
     return {
-      id: `merkl:${campaign.campaignId}`,
+      id: `merkl:${apiCampaign.campaignId}`,
       providerId,
-      campaignId: campaign.campaignId,
+      campaignId: apiCampaign.campaignId,
       chainId: toAppChain(computeChain ?? claimChain ?? chainId),
-      startTimestamp: campaign.startTimestamp,
-      endTimestamp: campaign.endTimestamp,
-      poolAddress: getAddress(campaign.mainParameter),
-      active: false,
+      startTimestamp: apiCampaign.startTimestamp,
+      endTimestamp: apiCampaign.endTimestamp,
+      poolAddress: getAddress(apiCampaign.mainParameter),
+      active: isUnixBetween(apiCampaign.startTimestamp, apiCampaign.endTimestamp),
       rewardToken: {
-        address: getAddress(campaign.rewardToken),
-        symbol: campaign.campaignParameters.symbolRewardToken,
-        decimals: campaign.campaignParameters.decimalsRewardToken,
+        address: getAddress(apiCampaign.rewardToken),
+        symbol: apiCampaign.campaignParameters.symbolRewardToken,
+        decimals: apiCampaign.campaignParameters.decimalsRewardToken,
         chainId: toAppChain(claimChain ?? chainId),
+        type: 'erc20',
       },
       vaults: vaultsWithApr,
-      type: this.getCampaignType(getAddress(campaign.creator), chainId),
+      type: this.getCampaignType(getAddress(apiCampaign.creator), chainId),
     };
   }
 
