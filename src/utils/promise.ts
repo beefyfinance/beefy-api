@@ -79,3 +79,60 @@ export function onlyFulfilledValues<T>(results: PromiseSettledResult<T>[]): T[] 
 export function onlyRejectedReasons<T>(results: PromiseSettledResult<T>[]): any[] {
   return results.filter(isResultRejected).map(result => result.reason);
 }
+
+export class AsyncLock {
+  private resolveFn: () => void;
+  private lockPromise: Promise<void>;
+
+  constructor() {
+    this.resolveFn = () => {};
+    this.lockPromise = Promise.resolve();
+  }
+
+  private async lock() {
+    await this.lockPromise;
+    this.lockPromise = new Promise(resolve => (this.resolveFn = resolve));
+  }
+
+  private unlock() {
+    this.resolveFn();
+  }
+
+  async acquire<T>(callback: () => Promise<T>): Promise<T> {
+    await this.lock();
+    try {
+      return await callback();
+    } finally {
+      this.unlock();
+    }
+  }
+
+  static acquireAll<T>(locks: AsyncLock[], callback: () => Promise<T>): Promise<T> {
+    if (locks.length === 0) {
+      return callback();
+    }
+    if (locks.length === 1) {
+      return locks[0].acquire(callback);
+    }
+    return locks[0].acquire(() => AsyncLock.acquireAll(locks.slice(1), callback));
+  }
+}
+
+export class AsyncLocker {
+  private locks: Map<string, AsyncLock>;
+
+  constructor() {
+    this.locks = new Map();
+  }
+
+  private getLock(name: string) {
+    if (!this.locks.has(name)) {
+      this.locks.set(name, new AsyncLock());
+    }
+    return this.locks.get(name);
+  }
+
+  async acquire<T>(name: string, fn: () => Promise<T>): Promise<T> {
+    return this.getLock(name).acquire(fn);
+  }
+}

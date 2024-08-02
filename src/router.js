@@ -22,14 +22,15 @@ const { proxyKyberSwap, proxyKyberQuote } = require('./api/zap/proxy/kyber');
 const { zapSwapsSupport, zapSwapsSupportDebug } = require('./api/zap/swap/routes');
 const { getArticles, getLatestArticle } = require('./api/articles');
 const {
-  getCowcentratedPriceRanges,
-  getCowcentratedAllMerklCampaigns,
-  getCowcentratedAllMerklCampaignsForChain,
-  getCowcentratedAllRecentMerklCampaigns,
-  getCowcentratedAllRecentMerklCampaignsForChain,
-  getCowcentratedBeefyMerklCampaigns,
-  getCowcentratedBeefyMerklCampaignsForChain,
+  handleCowcentratedPriceRanges,
+  handleCowcentratedArbLTIPPMerklCampaigns,
 } = require('./api/cowcentrated');
+const {
+  handleOffChainRewardsAll,
+  handleOffChainRewardsAllForChain,
+  handleOffChainRewardsActive,
+  handleOffChainRewardsActiveForChain,
+} = require('./api/offchain-rewards');
 
 router.get('/validator-performance', validatorPerformance);
 
@@ -65,18 +66,13 @@ router.get('/harvestable-vaults', multichainVaults.multichainHarvestableVaults);
 router.get('/harvestable-vaults/id/:vaultId', multichainVaults.singleHarvestableVault);
 router.get('/harvestable-vaults/:chainId', multichainVaults.singleHarvestableVaults);
 
-/** @deprecated use /cow-price-ranges */
-router.get('/cowData', getCowcentratedPriceRanges);
-router.get('/cow-price-ranges', getCowcentratedPriceRanges);
-router.get('/cow-merkl-campaigns/all/recent', getCowcentratedAllRecentMerklCampaigns);
-router.get(
-  '/cow-merkl-campaigns/all/recent/:chainId',
-  getCowcentratedAllRecentMerklCampaignsForChain
-);
-router.get('/cow-merkl-campaigns/all', getCowcentratedAllMerklCampaigns);
-router.get('/cow-merkl-campaigns/all/:chainId', getCowcentratedAllMerklCampaignsForChain);
-router.get('/cow-merkl-campaigns', getCowcentratedBeefyMerklCampaigns);
-router.get('/cow-merkl-campaigns/:chainId', getCowcentratedBeefyMerklCampaignsForChain);
+router.get('/cow-price-ranges', handleCowcentratedPriceRanges);
+router.get('/cow-arb-ltipp-merkl-campaigns', handleCowcentratedArbLTIPPMerklCampaigns);
+
+router.get('/offchain-rewards/active/:chainId', handleOffChainRewardsActiveForChain);
+router.get('/offchain-rewards/active', handleOffChainRewardsActive);
+router.get('/offchain-rewards/:chainId', handleOffChainRewardsAllForChain);
+router.get('/offchain-rewards/', handleOffChainRewardsAll);
 
 router.get('/fees', multichainVaults.vaultFees);
 

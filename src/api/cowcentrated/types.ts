@@ -1,6 +1,7 @@
 import { Address, isAddress } from 'viem';
-import { ApiChain, AppChain } from '../../utils/chain';
+import { AppChain } from '../../utils/chain';
 import { isNonEmptyArray, NonEmptyArray } from '../../utils/array';
+import { Campaign, CampaignType, CampaignVault } from '../offchain-rewards/types';
 
 type JsonCowClm = {
   beta?: boolean;
@@ -69,7 +70,7 @@ export function isCowClmWithRewardPool(clm: AnyCowClm): clm is CowClmWithRewardP
   return 'rewardPool' in clm && clm.rewardPool !== undefined;
 }
 
-export function isCowClmWithVault(clm: AnyCowClm): clm is CowClmWithRewardPool {
+export function isCowClmWithVault(clm: AnyCowClm): clm is CowClmWithVault {
   return isCowClmWithRewardPool(clm) && 'vault' in clm && clm.vault !== undefined;
 }
 
@@ -172,77 +173,3 @@ export function isClmApiVault(data: any): data is ClmApiVault {
 export function isClmApiVaultsResponse(data: any): data is ClmApiVaultsResponse {
   return Array.isArray(data) && data.every(isClmApiVault);
 }
-
-type MerklApiForwarder = {
-  almAPR: number;
-  almAddress: Address;
-  forwarderType: number;
-  priority: number;
-  sender: Address;
-  target: Address;
-  owner: Address;
-  type: number;
-};
-
-type MerklApiCampaignParameters = {
-  symbolRewardToken: string;
-  decimalsRewardToken: number;
-};
-
-export type MerklApiCampaign = {
-  chainId: number;
-  computeChainId?: number;
-  campaignId: string;
-  creator: Address;
-  startTimestamp: number;
-  endTimestamp: number;
-  rewardToken: string;
-  /** supposed to be an address but some have extra space on end */
-  mainParameter: string;
-  forwarders: MerklApiForwarder[];
-  campaignParameters: MerklApiCampaignParameters;
-};
-
-export type MerklApiCampaignsResponse = {
-  [chainId: string]: {
-    [poolTypeId: string]: {
-      [campaignId: string]: MerklApiCampaign;
-    };
-  };
-};
-
-type CampaignVault = {
-  id: string;
-  address: string;
-  apr: number;
-};
-
-export type BeefyCampaignType = 'test' | 'arb-ltipp' | 'op-gov-fund' | 'other';
-export type ExternalCampaignType = 'external';
-export type CampaignType = BeefyCampaignType | ExternalCampaignType;
-
-export type CampaignTypeByChain = {
-  [K in ApiChain]?: CampaignType;
-} & { default: CampaignType };
-
-export type CampaignTypeSetting = CampaignType | CampaignTypeByChain;
-
-export type CampaignRewardToken = {
-  address: string;
-  symbol: string;
-  decimals: number;
-  chainId: AppChain;
-};
-
-export type Campaign = {
-  campaignId: string;
-  startTimestamp: number;
-  endTimestamp: number;
-  chainId: AppChain;
-  poolAddress: string;
-  rewardToken: CampaignRewardToken;
-  type: CampaignType;
-  vaults: CampaignVault[];
-};
-
-export type CampaignForVault = Omit<Campaign, 'vaults'> & CampaignVault;
