@@ -66,7 +66,7 @@
       "0xB75D0B03c06A926e488e2659DF1A861F860bD3d1",
       "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7"
     ],
-    "tokenOracleIds": ["USDC", "WSEI"],
+    "tokenOracleIds": ["USDT", "WSEI"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-sei-usdt-wsei",
     "rewardPool": {
