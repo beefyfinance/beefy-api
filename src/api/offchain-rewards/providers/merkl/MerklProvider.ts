@@ -27,6 +27,7 @@ const supportedChains = new Set<AppChain>([
   'manta',
   'fraxtal',
   'celo',
+  'sei',
 ]);
 const campaignCreatorToType: Record<Address, CampaignTypeSetting> = {
   '0xb1F1000b4FCae7CD07370cE1A3E3b11270caC0dE': 'test',

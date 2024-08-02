@@ -249,7 +249,8 @@ export class OffchainRewards {
   };
 
   protected getLatestChange() {
-    return Math.min(
+    return Math.max(
+      0,
       ...Object.values(this.byProvider).flatMap(provider =>
         Object.values<ByProviderValue['byChain'][AppChain]>(provider.byChain).flatMap(chain => [
           chain.lastUpdated,
