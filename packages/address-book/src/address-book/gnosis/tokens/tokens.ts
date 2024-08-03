@@ -200,7 +200,7 @@ export const tokens = {
     website: 'https://app.angle.money/',
     description:
       'EURA (previously agEUR) is pegged to the value of the Euro (€) and is a product of Angle, a decentralized, capital-efficient and over-collateralized stablecoins protocol.',
-    bridge: '',
+    bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
   },
   stEUR: {
@@ -214,7 +214,7 @@ export const tokens = {
     website: 'https://app.angle.money/',
     description:
       'stEUR is a yield-bearing stablecoin received when depositing EURA into the Angle savings solution, with its value increasing over time due to earned yield. It is an ERC20 token, liquid, and tradeable on decentralized exchanges, allowing automatic yield earnings.',
-    bridge: '',
+    bridge: 'layer-zero',
     documentation: 'https://docs.angle.money/',
   },
   rETH: {
