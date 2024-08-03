@@ -69,6 +69,11 @@
     "vaultPoolId": "0x06135a9ae830476d3a941bae9010b63732a055f4000000000000000000000065",
     "composable": true,
     "bptIndex": 1,
+    "lsIndex": 0,
+    "lsAprFactor": 100,
+    "lsUrl": "https://api.angle.money/v2/savings?chainId=100",
+    "dataPath": "$.EURA.apy",
+    "balancerChargesFee": true,
     "decimals": "1e18",
     "rewards": [
       {
