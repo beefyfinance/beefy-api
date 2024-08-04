@@ -36,7 +36,7 @@ const MULTICALLS = {
 };
 
 const BATCH_SIZE = 128;
-const DEBUG_ORACLES = [];
+const DEBUG_ORACLES = ['xcDOT'];
 
 const sortByKeys = o => {
   return Object.keys(o)
