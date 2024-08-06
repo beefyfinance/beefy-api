@@ -87,7 +87,7 @@ function enhancePairs(pairs: DexScreenerPair[]): EnhancedPair[] {
           ...pair.quoteToken,
           priceUsd: (1 / parseFloat(pair.priceNative)) * parseFloat(pair.priceUsd),
         },
-        liquidityUsd: pair.liquidity.usd,
+        liquidityUsd: pair.liquidity?.usd || 0,
       }))
   );
 }
