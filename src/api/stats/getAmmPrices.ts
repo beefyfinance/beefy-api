@@ -636,6 +636,9 @@ const coinGeckoCoins: Record<string, string[]> = {
   'anzen-usdz': ['USDz'],
   chompcoin: ['CHOMP'],
   'davos-protocol': ['DUSD'],
+  'synclub-staked-bnb': ['slisBNB'],
+  'helio-protocol-hay': ['lisUSD'],
+  'dinero-staked-eth': ['pxETH'],
 };
 
 /**
