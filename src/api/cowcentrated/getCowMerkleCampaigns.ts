@@ -34,6 +34,7 @@ const CAMPAIGN_CREATOR_TO_TYPE: Record<Address, CampaignTypeSetting> = {
     default: 'external', // we do not own this address on other chains
   },
 };
+const EXCLUDED_MERKL_CHAINS = [56];
 const campaignStore = new CachedByChain<Campaign[]>({
   key: CACHE_KEY,
   fresh: FRESH_LIFETIME,
@@ -127,6 +128,7 @@ async function updateChain(apiChain: ApiChain) {
   const data = (await response.json()) as MerklApiCampaignsResponse;
   const chainData = data[chainId];
   if (!chainData) {
+    if (EXCLUDED_MERKL_CHAINS.includes(chainId)) return { chain: apiChain, campaigns: [] };
     throw new Error(`No data for chain ${apiChain}`);
   }
 
