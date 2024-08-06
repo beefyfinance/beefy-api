@@ -92,7 +92,7 @@ export const tokens = {
     decimals: 6,
     website: 'https://www.circle.com/en/',
     description:
-      'EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
+      'EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, Base and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
     logoURI: '',
     documentation: 'https://www.circle.com/en/eurc',
     bridge: 'native',
