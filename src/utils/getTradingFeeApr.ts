@@ -344,27 +344,29 @@ export const getYearlyJoePlatformTradingFees = async (
   return yearlyTradingFeesUsd;
 };
 
-export const getYearlyTradingFeesForSJOE = async (
+export const getYearlyRemittedUsdForSJOE = async (
   client: ApolloClient<NormalizedCacheObject>,
-  liquidityProviderFee: number
+  numDays: number = 7,
+  startDaysAgo: number = 1
 ) => {
-  let yearlyTradingFeesUsd = new BigNumber(0);
-  const [start0, end0] = getUtcSecondsFromDayRange(1, 8);
+  let yearlyRemittedUsd = new BigNumber(0);
+  const [startTimestamp, endTimestamp] = getUtcSecondsFromDayRange(
+    startDaysAgo,
+    startDaysAgo + numDays
+  );
 
   try {
-    let data = await client.query({ query: joeDayDataRangeQuery(start0, end0) });
-
-    const dayData = data.data.dayDatas.map(data => new BigNumber(data.volumeUSD));
-
-    const totalVolume = BigNumber.sum.apply(null, dayData);
-    const avgVolume = totalVolume.dividedBy(7);
-    const dailyTradingApr = avgVolume.times(liquidityProviderFee);
-    yearlyTradingFeesUsd = dailyTradingApr.times(365);
+    const result = await client.query({
+      query: joeDayDataRangeQuery(startTimestamp, endTimestamp),
+    });
+    const dayData = result.data.dayDatas.map(day => new BigNumber(day.usdRemitted));
+    const totalVolume = BigNumber.sum(...dayData);
+    yearlyRemittedUsd = totalVolume.dividedBy(numDays).times(365);
   } catch (e) {
-    console.error('> getYearlyTradingFeesForSJOE error');
+    console.error('> getYearlyRemittedUsdForSJOE error');
   }
 
-  return yearlyTradingFeesUsd;
+  return yearlyRemittedUsd;
 };
 
 export const getYearlyTradingFeesForProtocols = async (
