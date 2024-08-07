@@ -141,19 +141,29 @@ const mapResponseToBoostApr = async (
 
   try {
     const vault: Vault = getVaultByID(boost.poolId);
+    if (!vault) {
+      console.error(
+        `[boost aprs] error calculating apr for ${boost.id}: vault ${boost.poolId} not found`
+      );
+      return null;
+    }
+
     const depositTokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
     const earnedTokenPrice = await fetchPrice({
       oracle: boost.earnedOracle,
       id: boost.earnedOracleId,
     });
 
-    //Price is missing, we can't consider this as a succesful calculation
+    //Price is missing, we can't consider this as a successful calculation
     if (
       !isFiniteNumber(depositTokenPrice) ||
       depositTokenPrice === 0 ||
       !isFiniteNumber(earnedTokenPrice) ||
       earnedTokenPrice === 0
     ) {
+      console.error(
+        `[boost aprs] error calculating apr for ${boost.id}: missing price deposit=${depositTokenPrice} earned=${earnedTokenPrice}`
+      );
       return null;
     }
 
@@ -168,7 +178,7 @@ const mapResponseToBoostApr = async (
 
     return yearlyRewardsInUsd.dividedBy(amountStakedInUsd).toNumber();
   } catch (err) {
-    console.log(`[boost aprs] error calculating apr for ${boost.id}: ${err.message}`);
+    console.error(`[boost aprs] error calculating apr for ${boost.id}: ${err.message}`);
     return null;
   }
 };

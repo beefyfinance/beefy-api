@@ -9,6 +9,7 @@
     "tokenOracleIds": ["weETH", "WETH"],
     "decimals": [18, 18],
     "oracleId": "nile-cl-weeth-weth",
+    "providerId": "nile",
     "rewardPool": {
       "address": "0x818CFe11Df8fD790c6CAC127A247bb4439089efa",
       "oracleId": "nile-cl-weeth-weth-rp"
@@ -28,6 +29,7 @@
     "tokenOracleIds": ["wrsETH", "WETH"],
     "decimals": [18, 18],
     "oracleId": "nile-cl-rseth-weth",
+    "providerId": "nile",
     "rewardPool": {
       "address": "0xEF0f0D10A93f5BDeF4aCEFaC02770eeC26302147",
       "oracleId": "nile-cl-rseth-weth-rp"
@@ -47,6 +49,7 @@
     "tokenOracleIds": ["ezETH", "WETH"],
     "decimals": [18, 18],
     "oracleId": "nile-cl-ezeth-weth",
+    "providerId": "nile",
     "rewardPool": {
       "address": "0xf98793D144392d3fd9c1c52660fB8DA97b46C1ae",
       "oracleId": "nile-cl-ezeth-weth-rp"
@@ -66,6 +69,7 @@
     "tokenOracleIds": ["WBTC", "WETH"],
     "decimals": [8, 18],
     "oracleId": "nile-cl-wbtc-weth",
+    "providerId": "nile",
     "rewardPool": {
       "address": "0x9B595098195d6e57E8984F415EF5b73e90F34df4",
       "oracleId": "nile-cl-wbtc-weth-rp"
@@ -85,6 +89,7 @@
     "tokenOracleIds": ["USDC", "WBTC"],
     "decimals": [6, 8],
     "oracleId": "nile-cl-usdc-wbtc",
+    "providerId": "nile",
     "rewardPool": {
       "address": "0x57897CA2702AEEC75120B90fDF51C6a807bf6fD8",
       "oracleId": "nile-cl-usdc-wbtc-rp"
@@ -104,6 +109,7 @@
     "tokenOracleIds": ["USDC", "USDT"],
     "decimals": [6, 6],
     "oracleId": "nile-cl-usdc-usdt",
+    "providerId": "nile",
     "rewardPool": {
       "address": "0x3C802E57c48748FB5494F27E03b57FbB3BBCA909",
       "oracleId": "nile-cl-usdc-usdt-rp"
@@ -123,6 +129,7 @@
     "tokenOracleIds": ["USDC", "WETH"],
     "decimals": [6, 18],
     "oracleId": "nile-cl-usdc-weth",
+    "providerId": "nile",
     "rewardPool": {
       "address": "0x9772687F1Ca50CbfeBa395934d2B4e4a6A799020",
       "oracleId": "nile-cl-usdc-weth-rp"
@@ -142,6 +149,7 @@
     "tokenOracleIds": ["USDT", "WETH"],
     "decimals": [6, 18],
     "oracleId": "nile-cl-usdt-weth",
+    "providerId": "nile",
     "rewardPool": {
       "address": "0x22986dB8fb43994D2a3e209b22CBacCAc1F3Bc57",
       "oracleId": "nile-cl-usdt-weth-rp"
