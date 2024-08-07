@@ -1,5 +1,40 @@
 [
   {
+    "name": "curve-thusd-crvusd",
+    "pool": "0x9e641187391b7a5fe9ee193359408ca3894f68a2",
+    "gauge": "0x5c5db6cc20cd2ee600647fc48c1684c7049cdb7c",
+    "rewardPool": "0x4BA59aD628C2E19bCb117814541b0Ac0C41ce15C",
+    "tokens": [
+      {
+        "oracleId": "thUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-thusd-3crv",
+    "pool": "0x91553bad9fbc8bd69ff5d5678cbf7d514d00de0b",
+    "gauge": "0x34c8ff6992beb1ff94c35643a2c2424e24303437",
+    "rewardPool": "0x7E44379FF8e35D9d0f81EE232e038Ca4a0968196",
+    "getDy": ["v1", 0, 2, "USDC"],
+    "tokens": [
+      {
+        "oracleId": "thUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-3pool",
+        "oracle": "lps",
+        "oracleId": "convex-3pool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-stlink-link",
     "pool": "0x1c899ded01954d0959e034b62a728e7febe593b0",
     "gauge": "0xd90a01c487564ba6cef5c3870c1251aff0c49e53",
