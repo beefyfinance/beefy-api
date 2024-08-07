@@ -24,6 +24,7 @@
     "tokenOracleIds": ["USDC", "OP"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-op-usdc",
+    "providerId": "velodrome",
     "rewardPool": {
       "address": "0xdAc8Ccf5E7Bf060eEad47Cdf5f64E200eE1a11e7",
       "oracleId": "velo-cow-op-op-usdc-rp"
@@ -43,6 +44,7 @@
     "tokenOracleIds": ["USDC", "USDT"],
     "decimals": [6, 6],
     "oracleId": "velo-cow-op-usdc-usdt",
+    "providerId": "velodrome",
     "rewardPool": {
       "address": "0x75087E15115C016Fb0696e1A3f75EA869e88c609",
       "oracleId": "velo-cow-op-usdc-usdt-rp"
@@ -62,6 +64,7 @@
     "tokenOracleIds": ["wstETH", "ezETH"],
     "decimals": [18, 18],
     "oracleId": "velo-cow-op-wsteth-ezeth",
+    "providerId": "velodrome",
     "rewardPool": {
       "address": "0x64831F82e3543006413897C03f59518CEcae02b4",
       "oracleId": "velo-cow-op-wsteth-ezeth-rp"
@@ -81,6 +84,7 @@
     "tokenOracleIds": ["wstETH", "WETH"],
     "decimals": [18, 18],
     "oracleId": "velo-cow-op-wsteth-weth",
+    "providerId": "velodrome",
     "rewardPool": {
       "address": "0xE503a00e8B1b3B7CCBb8Fe733bA7Fe4d199CeB9E",
       "oracleId": "velo-cow-op-wsteth-weth-rp"
@@ -100,6 +104,7 @@
     "tokenOracleIds": ["WETH", "WBTC"],
     "decimals": [18, 8],
     "oracleId": "velo-cow-op-weth-wbtc",
+    "providerId": "velodrome",
     "rewardPool": {
       "address": "0x7B0b3dA9dc13392Eb8F6968769a179F972df15b2",
       "oracleId": "velo-cow-op-weth-wbtc-rp"
@@ -119,6 +124,7 @@
     "tokenOracleIds": ["WETH", "OP"],
     "decimals": [18, 18],
     "oracleId": "velo-cow-op-weth-op",
+    "providerId": "velodrome",
     "rewardPool": {
       "address": "0xa5B329c923F87bd9628d5686dD9148803565817C",
       "oracleId": "velo-cow-op-weth-op-rp"
@@ -138,6 +144,7 @@
     "tokenOracleIds": ["USDC", "wstETH"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-wsteth-usdc",
+    "providerId": "velodrome",
     "rewardPool": {
       "address": "0xB426765F8ccE27f60c4F8904ca52BDE6Dca79335",
       "oracleId": "velo-cow-op-wsteth-usdc-rp"
@@ -157,6 +164,7 @@
     "tokenOracleIds": ["USDC", "WETH"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-weth-usdc",
+    "providerId": "velodrome",
     "rewardPool": {
       "address": "0xa6E71A95dc96E3e815EfF1E2277a12429eb83BCA",
       "oracleId": "velo-cow-op-weth-usdc-rp"
@@ -176,6 +184,7 @@
     "tokenOracleIds": ["USDC", "sUSD"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-susd-usdc",
+    "providerId": "velodrome",
     "rewardPool": {
       "address": "0xcD75c9Bc30FEe130C080D2AB73072dD6C47Bb4A8",
       "oracleId": "velo-cow-op-susd-usdc-rp"
@@ -195,6 +204,7 @@
     "tokenOracleIds": ["USDC", "mooBIFI"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-moobifi-usdc",
+    "providerId": "velodrome",
     "rewardPool": {
       "address": "0xdA0c58F0f407bC4EbF6e885Ae90e9a817cf8cdF5",
       "oracleId": "velo-cow-op-moobifi-usdc-rp"
