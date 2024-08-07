@@ -9,6 +9,7 @@
     "tokenOracleIds": ["USDT", "BUSD"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-usdt-busd",
+    "providerId": "pancakeswap",
     "rewardPool": {
       "address": "0xAc008F022eE37acC9B293dd2746b90C0D1D13b69",
       "oracleId": "pancake-cow-bsc-usdt-busd-rp"
@@ -28,6 +29,7 @@
     "tokenOracleIds": ["ETH", "USDT"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-eth-usdt",
+    "providerId": "pancakeswap",
     "rewardPool": {
       "address": "0x1c6a60D9b62D54B0E74A0bd7Ef883Edc3ea8599D",
       "oracleId": "pancake-cow-bsc-eth-usdt-rp"
@@ -47,6 +49,7 @@
     "tokenOracleIds": ["DOGE", "WBNB"],
     "decimals": [8, 18],
     "oracleId": "pancake-cow-bsc-doge-wbnb",
+    "providerId": "pancakeswap",
     "rewardPool": {
       "address": "0x30bC6261d985C413e2838270F8AF72a53fA7ee5e",
       "oracleId": "pancake-cow-bsc-doge-wbnb-rp"
@@ -66,6 +69,7 @@
     "tokenOracleIds": ["SOL", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-sol-wbnb",
+    "providerId": "pancakeswap",
     "rewardPool": {
       "address": "0x1581620CaB9b31329e7AcCc68a11281DB887905B",
       "oracleId": "pancake-cow-bsc-sol-wbnb-rp"
@@ -85,6 +89,7 @@
     "tokenOracleIds": ["USDT", "SOL"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-usdt-sol",
+    "providerId": "pancakeswap",
     "rewardPool": {
       "address": "0x3a180dFA0f8FA3B06F946575A0953DA76152cFCB",
       "oracleId": "pancake-cow-bsc-usdt-sol-rp"
@@ -104,6 +109,7 @@
     "tokenOracleIds": ["slisBNB", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-slisbnb-wbnb",
+    "providerId": "pancakeswap",
     "rewardPool": {
       "address": "0xbD1959FFf7D25933951e74A88f4312cac200Ca19",
       "oracleId": "pancake-cow-bsc-slisbnb-wbnb-rp"
@@ -123,6 +129,7 @@
     "tokenOracleIds": ["lisUSD", "USDT"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-lisusd-usdt",
+    "providerId": "pancakeswap",
     "rewardPool": {
       "address": "0xDb989f8D05b7CBf4d35AC8207FEf7B6c3f211e47",
       "oracleId": "pancake-cow-bsc-lisusd-usdt-rp"
@@ -142,6 +149,7 @@
     "tokenOracleIds": ["ETH", "pxETH"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-eth-pxeth",
+    "providerId": "pancakeswap",
     "rewardPool": {
       "address": "0x72fC9e8cca2D5ea4Bd6F6d3Dec1b4851319746fE",
       "oracleId": "pancake-cow-bsc-eth-pxeth-rp"
