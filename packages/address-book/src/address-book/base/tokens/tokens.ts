@@ -1255,4 +1255,17 @@ export const tokens = {
     website: 'https://linktr.ee/Mfercoin',
     bridge: 'native',
   },
+  EURC: {
+    name: 'EURO',
+    symbol: 'EURC',
+    oracleId: 'EURC',
+    address: '0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, Base and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
+    website: 'https://www.circle.com/en/eurc',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
