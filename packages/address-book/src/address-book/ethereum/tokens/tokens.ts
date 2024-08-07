@@ -370,6 +370,20 @@ export const tokens = {
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
     bridge: 'threshold',
   },
+  thUSD: {
+    name: 'Threshold USD',
+    symbol: 'thUSD',
+    oracleId: 'thUSD',
+    address: '0xCFC5bD99915aAa815401C5a41A927aB7a38d29cf',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.thresholdusd.org/',
+    documentation: 'https://docs.threshold.network/applications/threshold-usd',
+    description:
+      'Threshold USD (thUSD) is a stablecoin soft-pegged against USD and backed by ETH and tBTC as collateral, with a minimum collateral ratio of 110%.',
+    bridge: 'native',
+  },
   T: {
     name: 'Threshold Network Token',
     symbol: 'T',
