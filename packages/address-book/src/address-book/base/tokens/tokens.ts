@@ -1261,7 +1261,7 @@ export const tokens = {
     oracleId: 'EURC',
     address: '0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42',
     chainId: 8453,
-    decimals: 18,
+    decimals: 6,
     logoURI: '',
     description:
       'EURC is a euro-backed stablecoin that’s accessible globally on Avalanche, Ethereum, Base and Stellar. Similar to USDC, EURC is issued by Circle under a full-reserve model.',
