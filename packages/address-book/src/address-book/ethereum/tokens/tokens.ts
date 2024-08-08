@@ -2094,4 +2094,18 @@ export const tokens = {
     bridge: 'native',
     documentation: 'https://docs.stake.link/',
   },
+  'USD0++': {
+    name: 'USD0 Liquid Bond',
+    symbol: 'USD0++',
+    oracleId: 'USD0++',
+    address: '0x35D8949372D46B7a3D5A56006AE77B215fc69bC0',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://usual.money/',
+    description:
+      'The USD0 Liquid Bond is issued when a user decides to lock their USD0 for a specified period. In return, they receive a composable and transferable USD0++ (as a LBT), which provides rewards in the form of USUAL tokens.',
+    bridge: 'native',
+    documentation:
+      'https://gitbook.usual.money/usual-mechanisms/liquid-bond-token-lbt/usd0-liquid-bond',
+  },
 } as const satisfies Record<string, Token>;

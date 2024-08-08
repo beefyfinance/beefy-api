@@ -638,6 +638,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'davos-protocol': ['DUSD'],
   'synclub-staked-bnb': ['slisBNB'],
   'helio-protocol-hay': ['lisUSD'],
+  'usual-usd': ['USD0'],
+  'usd0-liquid-bond': ['USD0++'],
   'dinero-staked-eth': ['pxETH'],
 };
 
