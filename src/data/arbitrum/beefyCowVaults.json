@@ -1,5 +1,25 @@
 [
   {
+    "address": "0xBB18cb9D1F3f20dd1c3Af946b46Dd19872206DDa",
+    "lpAddress": "0x7c56F4521BF7Ee908f35B02883A50E0Db481e526",
+    "tokens": [
+      "0x4186BFC76E2E237523CBC30FD220FE055156b41F",
+      "0xED65C5085a18Fa160Af0313E60dcc7905E944Dc7"
+    ],
+    "tokenOracleIds": ["rsETH", "ETHx"],
+    "decimals": [18, 18],
+    "oracleId": "ramses-cl-rseth-ethx",
+    "providerId": "ramses",
+    "rewardPool": {
+      "address": "0xf2bf40360aa066353f3b42576799141fe80e0285",
+      "oracleId": "ramses-cl-rseth-ethx-rp"
+    },
+    "vault": {
+      "address": "0x4fCf6A05a7F1A5BA2781d7De4DB78Bd16F84F540",
+      "oracleId": "ramses-cl-rseth-ethx-vault"
+    }
+  },
+  {
     "address": "0xDA3090706Fad722c9d2af82b98Cc03B1e44401b8",
     "lpAddress": "0x2a7b1E3089938c9284999048Bf58eA358e4C85B7",
     "tokens": [
