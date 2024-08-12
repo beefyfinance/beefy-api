@@ -127,5 +127,6 @@
     "*.ts": "prettier --write",
     "*.js": "prettier --write",
     "*.json": "prettier --write"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }

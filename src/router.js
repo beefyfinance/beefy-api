@@ -31,6 +31,7 @@ const {
   handleOffChainRewardsActive,
   handleOffChainRewardsActiveForChain,
 } = require('./api/offchain-rewards');
+const { pointStructures } = require('./api/points');
 
 router.get('/validator-performance', validatorPerformance);
 
@@ -101,6 +102,8 @@ router.post('/zap/providers/kyber/:chainId/swap', proxyKyberSwap);
 
 router.get('/articles', getArticles);
 router.get('/articles/latest', getLatestArticle);
+
+router.get('/points-structures', pointStructures);
 
 router.get('/', noop);
 
