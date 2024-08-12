@@ -99,7 +99,7 @@ export const getTradingFeeAprSushi = async (
       }
     }
   } catch (e) {
-    console.error('> getTradingFeeAprSushi error', pairAddresses[0]);
+    // console.error('> getTradingFeeAprSushi error', pairAddresses[0]);
   }
 
   return pairAddressToAprMap;
@@ -142,7 +142,7 @@ export const getTradingFeeAprSushiTrident = async (
       }
     }
   } catch (e) {
-    console.error('> getTradingFeeAprSushiTrident error', pairAddresses[0]);
+    // console.error('> getTradingFeeAprSushiTrident error', pairAddresses[0]);
   }
 
   return pairAddressToAprMap;
@@ -253,7 +253,7 @@ export const getVariableTradingFeeApr = async (
       i++;
     }
   } catch (e) {
-    console.error('> getVariableTradingFeeApr error', pairAddresses[0]);
+    // console.error('> getVariableTradingFeeApr error', pairAddresses[0]);
   }
 
   return pairAddressToAprMap;
@@ -287,7 +287,7 @@ export const getTradingFeeAprHop = async (
       ++i;
     }
   } catch (e) {
-    console.error('> getTradingFeeAprHop error', pairAddresses[0]);
+    // console.error('> getTradingFeeAprHop error', pairAddresses[0]);
   }
 
   return pairAddressToAprMap;
@@ -318,7 +318,7 @@ export const getYearlyPlatformTradingFees = async (
 
     yearlyTradingFeesUsd = dailyVolumeUSD.times(liquidityProviderFee).times(365);
   } catch (e) {
-    console.error('> getYearlyPlatformTradingFees error');
+    // console.error('> getYearlyPlatformTradingFees error');
   }
 
   return yearlyTradingFeesUsd;
@@ -338,7 +338,7 @@ export const getYearlyJoePlatformTradingFees = async (
 
     yearlyTradingFeesUsd = dailyVolumeUSD.times(liquidityProviderFee).times(365);
   } catch (e) {
-    console.error('> getYearlyJoePlatformTradingFees error');
+    // console.error('> getYearlyJoePlatformTradingFees error');
   }
 
   return yearlyTradingFeesUsd;
@@ -361,7 +361,7 @@ export const getYearlyTradingFeesForSJOE = async (
     const dailyTradingApr = avgVolume.times(liquidityProviderFee);
     yearlyTradingFeesUsd = dailyTradingApr.times(365);
   } catch (e) {
-    console.error('> getYearlyTradingFeesForSJOE error');
+    // console.error('> getYearlyTradingFeesForSJOE error');
   }
 
   return yearlyTradingFeesUsd;
@@ -384,7 +384,7 @@ export const getYearlyTradingFeesForProtocols = async (
     const dailyTradingApr = avgVolume.times(liquidityProviderFee);
     yearlyTradingFeesUsd = dailyTradingApr.times(365);
   } catch (e) {
-    console.error('> getYearlyTradingFeesForProtocols error');
+    // console.error('> getYearlyTradingFeesForProtocols error');
   }
 
   return yearlyTradingFeesUsd;

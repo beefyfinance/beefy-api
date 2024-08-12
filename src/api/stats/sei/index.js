@@ -1,6 +1,7 @@
 const { getBeefyCowSeiApys } = require('./getBeefyCowSeiApys');
+const { getYeiApys } = require('./getYeiApys');
 
-const getApys = [getBeefyCowSeiApys];
+const getApys = [getBeefyCowSeiApys, getYeiApys];
 
 const getSeiApys = async () => {
   const start = Date.now();

@@ -4734,4 +4734,19 @@ export const tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d.png',
   },
+  PEPE: {
+    name: 'Pepe',
+    symbol: 'PEPE',
+    oracleId: 'PEPE',
+    address: '0x25d887Ce7a35172C62FeBFD67a1856F20FaEbB00',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.pepe.vip/',
+    documentation: 'https://www.pepe.vip/',
+    description:
+      'Pepe is here to make memecoins great again. Launched stealth with no presale, zero taxes, LP burnt and contract renounced, $PEPE is a coin for the people, forever. Fueled by pure memetic power, let $PEPE show you the way.',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
