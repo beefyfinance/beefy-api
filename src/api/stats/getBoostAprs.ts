@@ -99,7 +99,7 @@ const updateBoostV1AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
         rewardRate[i],
         periodFinish[i]
       );
-      if (!isNaN(parseFloat(apr.toString()))) {
+      if (isFiniteNumber(apr)) {
         boostAprs[boosts[i].id] = apr;
       }
     }

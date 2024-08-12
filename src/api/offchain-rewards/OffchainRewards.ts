@@ -105,6 +105,7 @@ export class OffchainRewards {
     >(cacheKey);
     const cachedValues: CachedByProvider | undefined =
       typeof maybeCache === 'object' &&
+      maybeCache !== null &&
       maybeCache.type === CACHE_TYPE &&
       maybeCache.version === CACHE_VERSION
         ? maybeCache.data

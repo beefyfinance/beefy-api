@@ -18,7 +18,6 @@ import { initZapSwapService } from './api/zap/swap';
 import { initValidatorPerformanceService } from './api/validators/validators';
 import { initArticlesService } from './api/articles/fetchArticlesData';
 import { initCowcentratedService } from './api/cowcentrated';
-import { initOffchainRewardsService } from './api/offchain-rewards';
 
 const Koa = require('koa');
 const helmet = require('koa-helmet');
@@ -66,7 +65,6 @@ const start = async () => {
   initArticlesService();
   initZapSwapService();
   initCowcentratedService();
-  initOffchainRewardsService();
 
   app.listen(port);
   console.log(`> beefy-api running! (:${port})`);
