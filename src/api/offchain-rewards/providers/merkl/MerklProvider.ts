@@ -10,6 +10,7 @@ import { isUnixBetween } from '../../../../utils/date';
 import { getJson } from '../../../../utils/http';
 
 const providerId = 'merkl' as const;
+const throwIfNoData: boolean = false; // whether to throw if "{}" is returned
 const supportedChains = new Set<AppChain>([
   'ethereum',
   'polygon',
@@ -162,10 +163,21 @@ export class MerklProvider implements IOffchainRewardProvider {
           providerId
         );
       }
+
+      if (Object.keys(data).length === 0) {
+        if (throwIfNoData) {
+          throw new ProviderApiError(
+            `fetchCampaignsForChain(${chainId}): no data returned`,
+            providerId
+          );
+        }
+        return {};
+      }
+
       const dataForChain = data[numericChainId];
       if (!dataForChain) {
         throw new ProviderApiError(
-          `fetchCampaignsForChain(${chainId}): no data returned`,
+          `fetchCampaignsForChain(${chainId}): no data for chain returned`,
           providerId
         );
       }
