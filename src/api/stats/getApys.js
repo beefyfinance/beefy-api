@@ -28,9 +28,10 @@ const { getRealApys } = require('./real');
 const { getSeiApys } = require('./sei');
 const { getKey, setKey } = require('../../utils/cache');
 const { fetchBoostAprs, BOOST_APR_EXPIRED } = require('./getBoostAprs');
+const { serviceEventBus } = require('../../utils/ServiceEventBus');
 
 const INIT_DELAY = process.env.INIT_DELAY || 30 * 1000;
-const BOOST_APR_INIT_DELAY = 30 * 1000;
+const BOOST_APR_INIT_DELAY = 5 * 1000;
 var REFRESH_INTERVAL = 15 * 60 * 1000;
 const BOOST_REFRESH_INTERVAL = 2 * 60 * 1000;
 
@@ -154,6 +155,7 @@ const initApyService = async () => {
   boostAprs = cachedBoostAprs ?? {};
 
   setTimeout(updateApys, INIT_DELAY);
+  await serviceEventBus.waitForFirstEvent('vaults/updated');
   setTimeout(updateBoostAprs, BOOST_APR_INIT_DELAY);
 };
 
