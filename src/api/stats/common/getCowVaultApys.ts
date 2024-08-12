@@ -1,9 +1,8 @@
 import { ChainId } from '../../../../packages/address-book/src/address-book';
-import { ApiChain, fromChainId, toApiChain, toChainId } from '../../../utils/chain';
+import { ApiChain, fromChainId, toChainId } from '../../../utils/chain';
 import { getCowVaultsMeta } from '../../cowcentrated/getCowVaultsMeta';
 import {
   type AnyCowClmMeta,
-  CampaignForVault,
   type CowClmWithRewardPoolMeta,
   isCowClmWithRewardPoolMeta,
   isCowClmWithVaultMeta,
@@ -11,15 +10,16 @@ import {
 import { isDefined } from '../../../utils/array';
 import { getBeefyRewardPoolV2Apr } from './getBeefyRewardPoolV2Apr';
 import { ApyBreakdownRequest, ApyBreakdownResult, getApyBreakdown } from './getApyBreakdownNew';
-import { updateAndGetCowMerklCampaignsForChain } from '../../cowcentrated/getCowMerkleCampaigns';
-import { getUnixTime } from 'date-fns';
-import { mapValues, omit, partition } from 'lodash';
+import { partition } from 'lodash';
 import { DAILY_HPY } from '../../../constants';
 import { getCowProviderForClm } from '../../cowcentrated/providers';
+import { getCampaignsForChain } from '../../offchain-rewards';
+import { Campaign } from '../../offchain-rewards/types';
+import { OptionalRecord } from '../../../utils/object';
 
-type MerklVaultData = {
-  totalApr: number;
-  campaigns: CampaignForVault[];
+type OffchainVaultApr = {
+  total: number;
+  byProvider: OptionalRecord<Campaign['providerId'], number>;
 };
 
 type RewardPoolApr = {
@@ -37,10 +37,10 @@ export const getCowApys = async (apiChain: ApiChain) => {
     throw new Error(`No clms found for ${apiChain}`);
   }
 
-  const campaignByVault = await getMerklCampaignsByVault(apiChain);
+  const offchainCampaignsByVault = await getOffchainCampaignsByVault(apiChain);
   const chainId = toChainId(apiChain);
   const [clmBreakdownsResult, rewardPoolAprsResult] = await Promise.allSettled([
-    getCowClmApyBreakdown(clms, campaignByVault),
+    getCowClmApyBreakdown(clms, offchainCampaignsByVault),
     getCowRewardPoolAprs(chainId, clms),
   ]);
 
@@ -64,7 +64,7 @@ export const getCowApys = async (apiChain: ApiChain) => {
     clms,
     clmBreakdowns,
     rewardPoolAprs,
-    campaignByVault
+    offchainCampaignsByVault
   );
 
   if (!rewardPoolBreakdowns) {
@@ -92,32 +92,30 @@ export const getCowApys = async (apiChain: ApiChain) => {
   };
 };
 
-async function getMerklCampaignsByVault(
+async function getOffchainCampaignsByVault(
   apiChain: ApiChain
-): Promise<Record<string, MerklVaultData>> {
-  const merklCampaigns = await updateAndGetCowMerklCampaignsForChain(apiChain);
-  if (!merklCampaigns) {
+): Promise<Record<string, OffchainVaultApr>> {
+  const campaigns = await getCampaignsForChain(apiChain);
+  if (!campaigns) {
     return {};
   }
 
-  const byVaultId: Record<string, CampaignForVault[]> = {};
-  const now = getUnixTime(new Date());
-  for (const campaign of merklCampaigns.value) {
-    if (campaign.startTimestamp <= now && campaign.endTimestamp >= now) {
+  const byVaultId: Record<string, OffchainVaultApr> = {};
+  for (const campaign of campaigns) {
+    if (campaign.active) {
       for (const vault of campaign.vaults) {
-        byVaultId[vault.id] ??= [];
-        byVaultId[vault.id].push({
-          ...omit(campaign, 'vaults'),
-          ...vault,
-        });
+        if (vault.apr > 0) {
+          byVaultId[vault.id] ??= { total: 0, byProvider: {} };
+          byVaultId[vault.id].byProvider[campaign.providerId] ??= 0;
+
+          byVaultId[vault.id].total += vault.apr;
+          byVaultId[vault.id].byProvider[campaign.providerId] += vault.apr;
+        }
       }
     }
   }
 
-  return mapValues(byVaultId, campaigns => ({
-    campaigns,
-    totalApr: campaigns.reduce((total, campaign) => total + campaign.apr, 0),
-  }));
+  return byVaultId;
 }
 
 function getCowVaultApyBreakdown(
@@ -135,7 +133,8 @@ function getCowVaultApyBreakdown(
           vault:
             (clmPoolBreakdown?.rewardPoolApr || 0) +
             (clmPoolBreakdown?.rewardPoolTradingApr || 0) +
-            (clmPoolBreakdown?.merklApr || 0),
+            (clmPoolBreakdown?.merklApr || 0) +
+            (clmPoolBreakdown?.stellaSwapApr || 0),
           compoundingsPerYear: DAILY_HPY,
         };
       }
@@ -150,13 +149,14 @@ function getCowRewardPoolApyBreakdown(
   clms: AnyCowClmMeta[],
   clmBreakdowns: ApyBreakdownResult,
   rewardPoolAprs: (RewardPoolApr | undefined)[],
-  merklById: Record<string, MerklVaultData>
+  offchainById: Record<string, OffchainVaultApr>
 ): ApyBreakdownResult | undefined {
   const inputs = clms
     .map((clm, index): ApyBreakdownRequest | undefined => {
       if (isCowClmWithRewardPoolMeta(clm)) {
         const clmBreakdown = clmBreakdowns.apyBreakdowns[clm.oracleId];
         const poolApr = rewardPoolAprs[index];
+        const offchainAprs = offchainById[clm.rewardPool.oracleId];
 
         return {
           vaultId: clm.rewardPool.oracleId,
@@ -164,7 +164,8 @@ function getCowRewardPoolApyBreakdown(
           rewardPool: poolApr?.rewardPool || 0,
           rewardPoolTrading: poolApr?.rewardPoolTrading || undefined,
           clm: clmBreakdown?.clmApr || undefined, // after fee from CLM; reward pool fee = 0; so this works
-          merkl: merklById[clm.rewardPool.oracleId]?.totalApr || undefined, // we can't copy from CLM in case it is not forwarded correctly
+          merkl: offchainAprs?.byProvider.merkl || undefined, // we can't copy from CLM in case it is not forwarded correctly
+          stellaSwap: offchainAprs?.byProvider.stellaswap || undefined,
           compoundingsPerYear: DAILY_HPY,
         };
       }
@@ -247,13 +248,14 @@ const getCowRewardPoolApr = async (
 
 const getCowClmApyBreakdown = async (
   clms: AnyCowClmMeta[],
-  merklById: Record<string, MerklVaultData>
+  offchainById: Record<string, OffchainVaultApr>
 ): Promise<ApyBreakdownResult> => {
   return getApyBreakdown(
     clms.map(clm => ({
       vaultId: clm.oracleId,
       clm: clm.apr,
-      merkl: merklById[clm.oracleId]?.totalApr || 0,
+      merkl: offchainById[clm.oracleId]?.byProvider.merkl || undefined,
+      stellaSwap: offchainById[clm.oracleId]?.byProvider.stellaswap || undefined,
       compoundingsPerYear: DAILY_HPY,
     }))
   );

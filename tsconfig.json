@@ -2,6 +2,8 @@
   // See https://github.com/tsconfig/bases - we use 16 as base since we have commonjs modules
   "extends": "@tsconfig/node16/tsconfig.json",
   "compilerOptions": {
+    "lib": ["es2022"],
+    "target": "es2022",
     "outDir": "./dist",
     "allowJs": true,
     "checkJs": false,

@@ -12,7 +12,7 @@ import mantlePools from '../../data/mantle/beefyCowVaults.json';
 import seiPools from '../../data/sei/beefyCowVaults.json';
 import bscPools from '../../data/bsc/beefyCowVaults.json';
 
-const chainToClms: Partial<Record<ApiChain, CowClm[]>> = {
+const chainToClms: Readonly<Partial<Record<ApiChain, CowClm[]>>> = {
   optimism: validateCowClms(optimismPools),
   base: validateCowClms(basePools),
   arbitrum: validateCowClms(arbitrumPools),
@@ -38,6 +38,6 @@ export function getCowClms(chainId: ApiChain): ReadonlyArray<CowClm> {
   return chainToClms[chainId] || [];
 }
 
-export function getAllCowClms(): Partial<Record<ApiChain, ReadonlyArray<CowClm>>> {
+export function getAllCowClmsByChain() {
   return chainToClms;
 }
