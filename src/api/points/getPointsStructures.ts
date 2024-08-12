@@ -14,8 +14,17 @@ export const getAllPointsStructures = () => {
 };
 
 export async function updatePointsStructures() {
-  pointsStructures = await getPointsStructures();
-  await saveToRedis();
+  console.log('> updating pointsStructures');
+  const start = Date.now();
+  try {
+    pointsStructures = await getPointsStructures();
+    await saveToRedis();
+
+    console.log(`> updated pointsStructures (${(Date.now() - start) / 1000}s)`);
+  } catch (err) {
+    console.error(err);
+  }
+  setTimeout(updatePointsStructures, REFRESH_INTERVAL);
 }
 
 async function loadFromRedis() {
