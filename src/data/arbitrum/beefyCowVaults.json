@@ -20,7 +20,7 @@
     }
   },
   {
-    "address": "0xDA3090706Fad722c9d2af82b98Cc03B1e44401b8",
+    "address": "0xaB072B7B2c8ABF25d50c970d50D6Ca3aa66387bd",
     "lpAddress": "0x2a7b1E3089938c9284999048Bf58eA358e4C85B7",
     "tokens": [
       "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
@@ -30,11 +30,11 @@
     "decimals": [8, 18],
     "oracleId": "sushi-cow-arb-wbtc-tbtc",
     "rewardPool": {
-      "address": "0x83be9Bf562Eb41bb4b6017af3CD15d3Cf78146C1",
+      "address": "0x86DEeA301060c920F599D6B52CAF7Ed5949a3C4f",
       "oracleId": "sushi-cow-arb-wbtc-tbtc-rp"
     },
     "vault": {
-      "address": "0x31ff5CFE98541c91790BB191598a1e69468930c7",
+      "address": "0xDfB581df5407f7176314327Ef10C0ba44AD16a9e",
       "oracleId": "sushi-cow-arb-wbtc-tbtc-vault"
     }
   },
