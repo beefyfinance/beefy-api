@@ -1,4 +1,5 @@
 import { sleep } from './time';
+import { ABORT_REASON_TIMEOUT } from './http/helpers';
 
 export type DeferredPromise<T> = Promise<T> & {
   resolve: (value: T) => void;
@@ -80,6 +81,12 @@ export function onlyRejectedReasons<T>(results: PromiseSettledResult<T>[]): any[
   return results.filter(isResultRejected).map(result => result.reason);
 }
 
+export function getTimeoutAbortSignal(timeout: number): AbortSignal {
+  const controller = new AbortController();
+  setTimeout(() => controller.abort(ABORT_REASON_TIMEOUT), timeout);
+  return controller.signal;
+}
+
 export class AsyncLock {
   private resolveFn: () => void;
   private lockPromise: Promise<void>;
@@ -115,24 +122,5 @@ export class AsyncLock {
       return locks[0].acquire(callback);
     }
     return locks[0].acquire(() => AsyncLock.acquireAll(locks.slice(1), callback));
-  }
-}
-
-export class AsyncLocker {
-  private locks: Map<string, AsyncLock>;
-
-  constructor() {
-    this.locks = new Map();
-  }
-
-  private getLock(name: string) {
-    if (!this.locks.has(name)) {
-      this.locks.set(name, new AsyncLock());
-    }
-    return this.locks.get(name);
-  }
-
-  async acquire<T>(name: string, fn: () => Promise<T>): Promise<T> {
-    return this.getLock(name).acquire(fn);
   }
 }

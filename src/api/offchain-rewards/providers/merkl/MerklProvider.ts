@@ -7,6 +7,7 @@ import { Address, getAddress, isAddressEqual } from 'viem';
 import { isFiniteNumber } from '../../../../utils/number';
 import { isDefined } from '../../../../utils/array';
 import { isUnixBetween } from '../../../../utils/date';
+import { getJson } from '../../../../utils/http';
 
 const providerId = 'merkl' as const;
 const supportedChains = new Set<AppChain>([
@@ -149,14 +150,12 @@ export class MerklProvider implements IOffchainRewardProvider {
     const numericChainId = toChainId(chainId);
 
     try {
-      const response = await fetch(`https://api.merkl.xyz/v3/campaigns?chainIds=${numericChainId}`);
-      if (!response.ok) {
-        throw new ProviderApiError(
-          `fetchCampaignsForChain(${chainId}): ${response.status} ${response.statusText}`,
-          providerId
-        );
-      }
-      const data = (await response.json()) as MerklApiCampaignsResponse;
+      const data = await getJson<MerklApiCampaignsResponse>({
+        url: 'https://api.merkl.xyz/v3/campaigns',
+        params: {
+          chainIds: numericChainId,
+        },
+      });
       if (!data || typeof data !== 'object') {
         throw new ProviderApiError(
           `fetchCampaignsForChain(${chainId}): response error`,

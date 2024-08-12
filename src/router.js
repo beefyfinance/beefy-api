@@ -23,7 +23,7 @@ const { zapSwapsSupport, zapSwapsSupportDebug } = require('./api/zap/swap/routes
 const { getArticles, getLatestArticle } = require('./api/articles');
 const {
   handleCowcentratedPriceRanges,
-  handleCowcentratedArbLTIPPMerklCampaigns,
+  handleCowcentratedLTIPPCampaignsForDune,
 } = require('./api/cowcentrated');
 const {
   handleOffChainRewardsAll,
@@ -67,7 +67,7 @@ router.get('/harvestable-vaults/id/:vaultId', multichainVaults.singleHarvestable
 router.get('/harvestable-vaults/:chainId', multichainVaults.singleHarvestableVaults);
 
 router.get('/cow-price-ranges', handleCowcentratedPriceRanges);
-router.get('/cow-arb-ltipp-merkl-campaigns', handleCowcentratedArbLTIPPMerklCampaigns);
+router.get('/cow-dune-ltipp-merkl-campaigns', handleCowcentratedLTIPPCampaignsForDune);
 
 router.get('/offchain-rewards/active/:chainId', handleOffChainRewardsActiveForChain);
 router.get('/offchain-rewards/active', handleOffChainRewardsActive);

@@ -5,6 +5,7 @@ import { isResultRejected } from '../../utils/promise';
 import { sendServiceUnavailable, sendSuccess } from '../../utils/koa';
 import { getCampaignsForChainProviderWithMeta } from '../offchain-rewards';
 import { isMerklCampaign } from '../offchain-rewards/typeguards';
+import { pick } from 'lodash';
 
 export function initCowcentratedService() {
   Promise.allSettled([initCowVaultsMetaService(), initCowPriceRangeService()])
@@ -28,12 +29,15 @@ export async function handleCowcentratedPriceRanges(ctx: Context) {
   }
 }
 
-export async function handleCowcentratedArbLTIPPMerklCampaigns(ctx: Context) {
+export async function handleCowcentratedLTIPPCampaignsForDune(ctx: Context) {
   const result = await getCampaignsForChainProviderWithMeta('arbitrum', 'merkl');
   if (!result || result.lastUpdated === 0) {
     sendServiceUnavailable(ctx, 'Not available yet');
   } else {
-    const campaigns = result.campaigns.filter(isMerklCampaign).filter(c => c.type === 'arb-ltipp');
+    const campaigns = result.campaigns
+      .filter(isMerklCampaign)
+      .filter(c => c.type === 'arb-ltipp')
+      .map(c => pick(c, 'campaignId'));
     sendSuccess(ctx, campaigns, {
       maxAge: 5 * 60,
     });

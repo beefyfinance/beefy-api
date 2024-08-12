@@ -39,14 +39,6 @@ type ByProvider = {
   readonly [TProvider in ProviderId]: ByProviderValue<TProvider>;
 };
 
-type Editable<TObj, TKey extends keyof TObj> = Omit<TObj, TKey> & {
-  -readonly [K in TKey]?: TObj[K];
-};
-
-type EditableByProvider = {
-  [K in keyof ByProvider]: Editable<ByProvider[K], 'lock' | 'provider'>;
-};
-
 type CachedByProvider = {
   [K in keyof ByProvider]: ByProvider[K]['byChain'];
 };

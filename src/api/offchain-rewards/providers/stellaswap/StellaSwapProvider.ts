@@ -10,6 +10,7 @@ import { fetchContract } from '../../../rpc/client';
 import { rewarderAbi, rewardRegistryAbi } from './abi';
 import { getUnixNow, isUnixBetween } from '../../../../utils/date';
 import { moonbeam } from '../../../../../packages/address-book/src/address-book/moonbeam';
+import { getJson } from '../../../../utils/http';
 
 const providerId = 'stellaswap' as const;
 const supportedChains = new Set<AppChain>(['moonbeam']);
@@ -197,14 +198,9 @@ export class StellaSwapProvider implements IOffchainRewardProvider {
 
   protected async fetchFarmingApr(): Promise<FarmingAprResult> {
     try {
-      const response = await fetch(`https://apr-api.stellaswap.com/api/v1/offchain/farmingAPR`);
-      if (!response.ok) {
-        throw new ProviderApiError(
-          `fetchFarmingApr: ${response.status} ${response.statusText}`,
-          providerId
-        );
-      }
-      const data = (await response.json()) as FarmingAprResponse;
+      const data = await getJson<FarmingAprResponse>({
+        url: 'https://apr-api.stellaswap.com/api/v1/offchain/farmingAPR',
+      });
       if (!data.isSuccess) {
         throw new ProviderApiError(`fetchFarmingApr: response error`, providerId);
       }

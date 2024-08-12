@@ -1,3 +1,5 @@
+import { cloneDeep, defaultsDeep } from 'lodash';
+
 export type OptionalRecord<TKeys extends string | number, TValue> = {
   [K in TKeys]?: TValue;
 };
@@ -29,4 +31,27 @@ export function typedOmit<TEntry, TKeys extends keyof TEntry>(
   return Object.fromEntries(
     Object.entries(entry).filter(([key]) => !keys.includes(key as TKeys))
   ) as TypedOmit<TEntry, TKeys>;
+}
+
+export type PlainObject = Record<string | number, unknown>;
+
+// @dev supports plain objects/arrays only, does not traverse into Maps, Sets etc
+type DeepPartialInner<T> = T extends Array<infer U>
+  ? Array<DeepPartialInner<U>>
+  : T extends PlainObject
+  ? {
+      [P in keyof T]?: DeepPartialInner<T[P]>;
+    }
+  : T;
+
+export type DeepPartial<T extends PlainObject> = DeepPartialInner<T>;
+
+export function typedDefaultsDeep<T extends PlainObject>(
+  input: DeepPartial<T> | undefined | null,
+  defaults: T
+): T {
+  if (!input) {
+    return cloneDeep(defaults);
+  }
+  return defaultsDeep({}, input || {}, defaults) as T;
 }
