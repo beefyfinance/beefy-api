@@ -30,7 +30,7 @@ async function saveToRedis() {
   await setKey(REDIS_KEY, pointsStructures);
 }
 
-export async function initBoostService() {
+export async function initPointsStructureService() {
   await loadFromRedis();
   setTimeout(updatePointsStructures, INIT_DELAY);
 }
