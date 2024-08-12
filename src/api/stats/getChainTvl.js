@@ -1,4 +1,3 @@
-import { get } from 'lodash';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../utils/fetchPrice';
@@ -101,6 +100,9 @@ const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
 };
 
 const getVaultBalances = async (chainId, vaults) => {
+  if (!vaults) {
+    throw new Error(`getVaultBalances: undefined vaults passed for ${chainId}`);
+  }
   const calls = vaults.map(vault => {
     const contract = fetchContract(vault.earnedTokenAddress, BeefyVaultV6Abi, chainId);
     return contract.read.balance();
@@ -110,6 +112,10 @@ const getVaultBalances = async (chainId, vaults) => {
 };
 
 const getGovVaultBalances = async (chainId, govPools) => {
+  if (!govPools) {
+    throw new Error(`getGovVaultBalances: undefined govPools passed for ${chainId}`);
+  }
+
   const calls = govPools.map(vault => {
     const tokenContract = fetchContract(vault.tokenAddress, ERC20Abi, chainId);
     return tokenContract.read.balanceOf([vault.earnContractAddress]);
@@ -120,6 +126,10 @@ const getGovVaultBalances = async (chainId, govPools) => {
 };
 
 const getCowVaultBalances = async (chainId, cowVaults) => {
+  if (!cowVaults) {
+    throw new Error(`getCowVaultBalances: undefined cowVaults passed for ${chainId}`);
+  }
+
   const calls = cowVaults.map(vault => {
     const tokenContract = fetchContract(vault.earnContractAddress, ERC20Abi, chainId);
     return tokenContract.read.totalSupply();
