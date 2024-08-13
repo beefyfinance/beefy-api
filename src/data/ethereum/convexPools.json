@@ -146,6 +146,7 @@
     "name": "curve-eusd-usdc",
     "pool": "0x08bfa22bb3e024cdfeb3eca53c0cb93bf59c4147",
     "gauge": "0x87f791090b09069b3f9c64e3be3cbbc0b45fc9b6",
+    "rewardPool": "0xdD2642EBD57A6e8BF9644040Ef15A39Ad568feC9",
     "tokens": [
       {
         "oracleId": "eUSD",
