@@ -90,6 +90,9 @@ module.exports = {
   get realWeb3() {
     return chainRandomClients.realRandomClient();
   },
+  get seiWeb3() {
+    return chainRandomClients.seiRandomClient();
+  },
 
   web3Factory: _web3Factory,
 

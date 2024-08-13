@@ -1,5 +1,41 @@
 [
   {
+    "name": "uni-weth-mfer",
+    "address": "0xb08A99AB559E5456907278727a3b0d968C0A313b",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xE3086852A4B125803C815a158249ae468A3254Ca",
+      "oracle": "tokens",
+      "oracleId": "mfer",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "uni-weth-miggles",
+    "address": "0x17A3Ad8c74c4947005aFEDa9965305ae2EB2518a",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "lp0": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xB1a03EdA10342529bBF8EB700a06C60441fEf25d",
+      "oracle": "tokens",
+      "oracleId": "MIGGLES",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "uni-shezmu-weth",
     "address": "0x74E6cAc32234133Fe06bD0f4D8237dEe1dedE057",
     "decimals": "1e18",
@@ -1011,24 +1047,6 @@
       "oracle": "tokens",
       "oracleId": "ZOO",
       "decimals": "1e0"
-    }
-  },
-  {
-    "name": "boo-ftm-badger",
-    "address": "0x1c94665FD3ecFa969Feda7Ed01e35522e6982022",
-    "decimals": "1e18",
-    "chainId": 250,
-    "lp0": {
-      "address": "0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83",
-      "oracle": "tokens",
-      "oracleId": "WFTM",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x753fbc5800a8C8e3Fb6DC6415810d627A387Dfc9",
-      "oracle": "tokens",
-      "oracleId": "BADGER",
-      "decimals": "1e18"
     }
   },
   {

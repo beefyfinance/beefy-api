@@ -81,6 +81,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'WETH',
       secondToken: 'COMP',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'SDL',
+      decimalDelta: 1,
+      pool: '0x51d1026e35d0F9aa0fF243ebC84bb923852c1fC3',
+      firstToken: 'SDL',
+      secondToken: 'LINK',
+    },
   ],
   polygon: [
     {
@@ -173,6 +181,14 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       firstToken: 'ETH',
       secondToken: 'SILO',
     },
+    {
+      type: 'UniV3',
+      oracleId: 'arbOVN',
+      decimalDelta: 1e12,
+      pool: '0x714D48cb99b87F274B33A89fBb16EaD191B40b6C',
+      firstToken: 'arbUSD+',
+      secondToken: 'arbOVN',
+    },
   ],
   moonbeam: [
     {
@@ -192,6 +208,56 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       pool: '0xdDa5Ec5Af00AB99dC80c33E08881EB80C027d498',
       firstToken: 'LYNX',
       secondToken: 'USDC',
+    },
+  ],
+  real: [
+    {
+      type: 'UniV3',
+      oracleId: 'arcUSD',
+      decimalDelta: 1e12,
+      pool: '0x22aC4821bBb8d1AC42eA7F0f32ed415F52577Ca1',
+      firstToken: 'USDC',
+      secondToken: 'arcUSD',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'USTB',
+      decimalDelta: 1,
+      pool: '0xC6B3AaaAbf2f6eD6cF7fdFFfb0DaC45E10c4A5B3',
+      firstToken: 'arcUSD',
+      secondToken: 'USTB',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'PEARL',
+      decimalDelta: 1,
+      pool: '0x35BA384F9D30D68028898849ddBf5bda09bbE7EA',
+      firstToken: 'PEARL',
+      secondToken: 'USTB',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'reETH',
+      decimalDelta: 1,
+      pool: '0x5dfa942B42841Dd18883838D8F4e5f7d8CEb5Eeb',
+      firstToken: 'reETH',
+      secondToken: 'USTB',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'RWA',
+      decimalDelta: 1,
+      pool: '0x182d3F8e154EB43d5f361a39A2234A84508244c9',
+      firstToken: 'reETH',
+      secondToken: 'RWA',
+    },
+    {
+      type: 'UniV3',
+      oracleId: 'MORE',
+      decimalDelta: 1,
+      pool: '0x6b1a34df762f1d3367e7e93AE5661c88CA848423',
+      firstToken: 'USTB',
+      secondToken: 'MORE',
     },
   ],
 };

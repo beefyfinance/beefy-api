@@ -1,5 +1,144 @@
 [
   {
+    "name": "aura-gyro-gnosis-weth-reth",
+    "address": "0x71E1179C5e197FA551BEEC85ca2EF8693c61b85b",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x37748422F82b0c07CCbD40347abC1Da55ac138a0",
+    "vaultPoolId": "0x71e1179c5e197fa551beec85ca2ef8693c61b85b0002000000000000000000a0",
+    "lsIndex": 1,
+    "lsUrl": "https://api.rocketpool.net/api/apr",
+    "dataPath": "$.yearlyAPR",
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xF3A35933215c8Eaa329E2DD8433653Ea8cAD1674",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0xc791240D1F2dEf5938E2031364Ff4ed887133C3d",
+        "oracleId": "rETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-gyro-gnosis-weth-wsteth",
+    "address": "0x8DD4df4Ce580b9644437f3375e54f1ab09808228",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x6869b960599A45396E67C086C6AA5123269291FA",
+    "vaultPoolId": "0x8dd4df4ce580b9644437f3375e54f1ab0980822800020000000000000000009c",
+    "lsIndex": 1,
+    "lsUrl": "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+    "dataPath": "$.data.smaApr",
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xaF261b747Ea4B78A6376bAF3f83eE43eB691D6F6",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x6A023CCd1ff6F2045C3309768eAd9E68F978f6e1",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      },
+      {
+        "address": "0x6C76971f98945AE98dD7d4DFcA8711ebea946eA6",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-gnosis-steur-eure",
+    "address": "0x06135A9Ae830476d3a941baE9010B63732a055F4",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x408883E983695DeC78CF66480e6eFeF907a73c21",
+    "vaultPoolId": "0x06135a9ae830476d3a941bae9010b63732a055f4000000000000000000000065",
+    "composable": true,
+    "bptIndex": 1,
+    "lsIndex": 0,
+    "lsAprFactor": 100,
+    "lsUrl": "https://api.angle.money/v2/savings?chainId=100",
+    "dataPath": "$.EURA.apy",
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xB6c8e33adCD7981296793D3fc66addD7461D7F18",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x004626A008B1aCdC4c74ab51644093b155e59A23",
+        "oracleId": "stEUR",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "address": "0xcB444e90D8198415266c6a2724b7900fb12FC56E",
+        "oracleId": "EURe",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-gnosis-usdc.e-usdt-sdai",
+    "address": "0xfC095C811fE836Ed12f247BCf042504342B73FB7",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x13E5AA7310b17a8eAF233731dE54EeD95a72e57a",
+    "vaultPoolId": "0xfc095c811fe836ed12f247bcf042504342b73fb700000000000000000000009f",
+    "composable": true,
+    "bptIndex": 3,
+    "lsIndex": 2,
+    "lsUrl": "DSR",
+    "dataPath": "$.savingsRate",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x2773E37ABE93dd56c181C926D9A7b6909e8fE03E",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x2a22f9c3b484c3629090FeED35F17Ff8F88f76F0",
+        "oracleId": "USDCe",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0x4ECaBa5870353805a9F068101A40E0f32ed605C6",
+        "oracleId": "USDT",
+        "decimals": "1e6"
+      },
+      {
+        "address": "0xaf204776c7245bF4147c2612BF6e5972Ee483701",
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      }
+    ]
+  },
+  {
     "name": "aura-gnosis-crvusd-sdai",
     "address": "0xc9F00C3a713008DDf69b768d90d4978549bFDF94",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

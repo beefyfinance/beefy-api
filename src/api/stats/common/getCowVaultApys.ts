@@ -1,9 +1,8 @@
 import { ChainId } from '../../../../packages/address-book/src/address-book';
-import { ApiChain, toChainId } from '../../../utils/chain';
+import { ApiChain, fromChainId, toChainId } from '../../../utils/chain';
 import { getCowVaultsMeta } from '../../cowcentrated/getCowVaultsMeta';
 import {
   type AnyCowClmMeta,
-  CampaignForVault,
   type CowClmWithRewardPoolMeta,
   isCowClmWithRewardPoolMeta,
   isCowClmWithVaultMeta,
@@ -11,15 +10,26 @@ import {
 import { isDefined } from '../../../utils/array';
 import { getBeefyRewardPoolV2Apr } from './getBeefyRewardPoolV2Apr';
 import { ApyBreakdownRequest, ApyBreakdownResult, getApyBreakdown } from './getApyBreakdownNew';
-import { updateAndGetCowMerklCampaignsForChain } from '../../cowcentrated/getCowMerkleCampaigns';
-import { getUnixTime } from 'date-fns';
-import { mapValues, omit } from 'lodash';
+import { partition } from 'lodash';
 import { DAILY_HPY } from '../../../constants';
+import { getCowProviderForClm } from '../../cowcentrated/providers';
+import { getCampaignsForChain } from '../../offchain-rewards';
+import { Campaign } from '../../offchain-rewards/types';
+import { OptionalRecord } from '../../../utils/object';
+import { envBoolean } from '../../../utils/env';
 
-type MerklVaultData = {
-  totalApr: number;
-  campaigns: CampaignForVault[];
+type OffchainVaultApr = {
+  total: number;
+  byProvider: OptionalRecord<Campaign['providerId'], number>;
 };
+
+type RewardPoolApr = {
+  rewardPool: number;
+  rewardPoolTrading?: number;
+  total: number;
+};
+
+const THROW_ON_EMPTY_COW_META: boolean = envBoolean('THROW_ON_EMPTY_COW_META', true);
 
 /**
  * Base CLMs + Reward Pools
@@ -27,13 +37,15 @@ type MerklVaultData = {
 export const getCowApys = async (apiChain: ApiChain) => {
   const clms = getCowVaultsMeta(apiChain);
   if (!clms.length) {
-    throw new Error(`No clms found for ${apiChain}`);
+    if (THROW_ON_EMPTY_COW_META) {
+      throw new Error(`No clms found for ${apiChain}`);
+    } else return {};
   }
 
-  const campaignByVault = await getMerklCampaignsByVault(apiChain);
+  const offchainCampaignsByVault = await getOffchainCampaignsByVault(apiChain);
   const chainId = toChainId(apiChain);
   const [clmBreakdownsResult, rewardPoolAprsResult] = await Promise.allSettled([
-    getCowClmApyBreakdown(clms, campaignByVault),
+    getCowClmApyBreakdown(clms, offchainCampaignsByVault),
     getCowRewardPoolAprs(chainId, clms),
   ]);
 
@@ -57,7 +69,7 @@ export const getCowApys = async (apiChain: ApiChain) => {
     clms,
     clmBreakdowns,
     rewardPoolAprs,
-    campaignByVault
+    offchainCampaignsByVault
   );
 
   if (!rewardPoolBreakdowns) {
@@ -85,32 +97,30 @@ export const getCowApys = async (apiChain: ApiChain) => {
   };
 };
 
-async function getMerklCampaignsByVault(
+async function getOffchainCampaignsByVault(
   apiChain: ApiChain
-): Promise<Record<string, MerklVaultData>> {
-  const merklCampaigns = await updateAndGetCowMerklCampaignsForChain(apiChain);
-  if (!merklCampaigns) {
+): Promise<Record<string, OffchainVaultApr>> {
+  const campaigns = await getCampaignsForChain(apiChain);
+  if (!campaigns) {
     return {};
   }
 
-  const byVaultId: Record<string, CampaignForVault[]> = {};
-  const now = getUnixTime(new Date());
-  for (const campaign of merklCampaigns.value) {
-    if (campaign.startTimestamp <= now && campaign.endTimestamp >= now) {
+  const byVaultId: Record<string, OffchainVaultApr> = {};
+  for (const campaign of campaigns) {
+    if (campaign.active) {
       for (const vault of campaign.vaults) {
-        byVaultId[vault.id] ??= [];
-        byVaultId[vault.id].push({
-          ...omit(campaign, 'vaults'),
-          ...vault,
-        });
+        if (vault.apr > 0) {
+          byVaultId[vault.id] ??= { total: 0, byProvider: {} };
+          byVaultId[vault.id].byProvider[campaign.providerId] ??= 0;
+
+          byVaultId[vault.id].total += vault.apr;
+          byVaultId[vault.id].byProvider[campaign.providerId] += vault.apr;
+        }
       }
     }
   }
 
-  return mapValues(byVaultId, campaigns => ({
-    campaigns,
-    totalApr: campaigns.reduce((total, campaign) => total + campaign.apr, 0),
-  }));
+  return byVaultId;
 }
 
 function getCowVaultApyBreakdown(
@@ -120,15 +130,16 @@ function getCowVaultApyBreakdown(
   const inputs = clms
     .map((clm, index): ApyBreakdownRequest | undefined => {
       if (isCowClmWithVaultMeta(clm)) {
-        const clmBreakdown = clmBreakdowns.apyBreakdowns[clm.oracleId];
-        const rewardPoolBreakdown = clmBreakdowns.apyBreakdowns[clm.rewardPool.oracleId];
+        const clmPoolBreakdown = clmBreakdowns.apyBreakdowns[clm.rewardPool.oracleId];
 
         return {
           vaultId: clm.vault.oracleId,
+          clm: clm.apr,
           vault:
-            (clmBreakdown?.clmApr || 0) +
-            (rewardPoolBreakdown?.merklApr || 0) +
-            (rewardPoolBreakdown?.rewardPoolApr || 0),
+            (clmPoolBreakdown?.rewardPoolApr || 0) +
+            (clmPoolBreakdown?.rewardPoolTradingApr || 0) +
+            (clmPoolBreakdown?.merklApr || 0) +
+            (clmPoolBreakdown?.stellaSwapApr || 0),
           compoundingsPerYear: DAILY_HPY,
         };
       }
@@ -141,19 +152,25 @@ function getCowVaultApyBreakdown(
 
 function getCowRewardPoolApyBreakdown(
   clms: AnyCowClmMeta[],
-  clmApys: ApyBreakdownResult,
-  rewardPoolAprs: (number | undefined)[],
-  merklById: Record<string, MerklVaultData>
+  clmBreakdowns: ApyBreakdownResult,
+  rewardPoolAprs: (RewardPoolApr | undefined)[],
+  offchainById: Record<string, OffchainVaultApr>
 ): ApyBreakdownResult | undefined {
   const inputs = clms
     .map((clm, index): ApyBreakdownRequest | undefined => {
       if (isCowClmWithRewardPoolMeta(clm)) {
+        const clmBreakdown = clmBreakdowns.apyBreakdowns[clm.oracleId];
+        const poolApr = rewardPoolAprs[index];
+        const offchainAprs = offchainById[clm.rewardPool.oracleId];
+
         return {
           vaultId: clm.rewardPool.oracleId,
           beefyFee: 0,
-          rewardPool: rewardPoolAprs[index],
-          clm: clmApys.apyBreakdowns[clm.oracleId]?.clmApr, // after fee from CLM; reward pool fee = 0; so this works
-          merkl: merklById[clm.rewardPool.oracleId]?.totalApr || 0, // we can't copy from CLM in case it is not forwarded correctly
+          rewardPool: poolApr?.rewardPool || 0,
+          rewardPoolTrading: poolApr?.rewardPoolTrading || undefined,
+          clm: clmBreakdown?.clmApr || undefined, // after fee from CLM; reward pool fee = 0; so this works
+          merkl: offchainAprs?.byProvider.merkl || undefined, // we can't copy from CLM in case it is not forwarded correctly
+          stellaSwap: offchainAprs?.byProvider.stellaswap || undefined,
           compoundingsPerYear: DAILY_HPY,
         };
       }
@@ -167,7 +184,7 @@ function getCowRewardPoolApyBreakdown(
 const getCowRewardPoolAprs = async (
   chainId: ChainId,
   clms: AnyCowClmMeta[]
-): Promise<(number | undefined)[]> => {
+): Promise<(RewardPoolApr | undefined)[]> => {
   const resolveUndefined = Promise.resolve(undefined);
   return Promise.all(
     clms.map(clm =>
@@ -179,9 +196,9 @@ const getCowRewardPoolAprs = async (
 const getCowRewardPoolApr = async (
   chainId: ChainId,
   clm: CowClmWithRewardPoolMeta
-): Promise<number | undefined> => {
+): Promise<RewardPoolApr | undefined> => {
   try {
-    const result = await getBeefyRewardPoolV2Apr(chainId, {
+    const rewardPoolData = await getBeefyRewardPoolV2Apr(chainId, {
       oracleId: clm.rewardPool.oracleId,
       address: clm.rewardPool.address,
       stakedToken: {
@@ -191,15 +208,43 @@ const getCowRewardPoolApr = async (
       },
       rewards: clm.rewardPool.rewards,
     });
+    const result: RewardPoolApr = {
+      rewardPool: 0,
+      total: 0,
+    };
 
-    if (!result) {
+    if (!rewardPoolData) {
       console.error(
         `> getCowRewardPoolApr Error for ${clm.rewardPool.oracleId}: getBeefyRewardPoolV2Apr returned undefined`
       );
-      return 0;
+      return result;
     }
 
-    return result.totalApr;
+    result.rewardPool = result.total = rewardPoolData.totalApr;
+
+    const provider = getCowProviderForClm(clm);
+    if (!provider) {
+      return result;
+    }
+
+    const tradingRewardTokens = provider.poolTradingRewardTokens?.[fromChainId(chainId)];
+    if (!tradingRewardTokens || tradingRewardTokens.length === 0) {
+      return result;
+    }
+
+    const tradingRewardAddresses = new Set(tradingRewardTokens.map(token => token.address));
+    const [tradingRewards, poolRewards] = partition(rewardPoolData.rewardsApr, reward =>
+      tradingRewardAddresses.has(reward.address)
+    );
+    const rewardPoolTrading = tradingRewards.reduce((sum, reward) => sum + reward.apr, 0);
+    const rewardPool = poolRewards.reduce((sum, reward) => sum + reward.apr, 0);
+    const total = rewardPool + rewardPoolTrading;
+
+    return {
+      rewardPool,
+      rewardPoolTrading,
+      total,
+    };
   } catch (err) {
     console.error(`> getCowRewardPoolApr Error for ${clm.rewardPool.oracleId}: ${err.message}`);
     return undefined;
@@ -207,14 +252,15 @@ const getCowRewardPoolApr = async (
 };
 
 const getCowClmApyBreakdown = async (
-  vaults: AnyCowClmMeta[],
-  merklById: Record<string, MerklVaultData>
+  clms: AnyCowClmMeta[],
+  offchainById: Record<string, OffchainVaultApr>
 ): Promise<ApyBreakdownResult> => {
   return getApyBreakdown(
-    vaults.map(vault => ({
-      vaultId: vault.oracleId,
-      clm: vault.apr,
-      merkl: merklById[vault.oracleId]?.totalApr || 0,
+    clms.map(clm => ({
+      vaultId: clm.oracleId,
+      clm: clm.apr,
+      merkl: offchainById[clm.oracleId]?.byProvider.merkl || undefined,
+      stellaSwap: offchainById[clm.oracleId]?.byProvider.stellaswap || undefined,
       compoundingsPerYear: DAILY_HPY,
     }))
   );

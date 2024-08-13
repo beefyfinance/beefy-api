@@ -1,5 +1,87 @@
 [
   {
+    "name": "curve-ebtc-tbtc",
+    "pool": "0x272bf7e4ce3308b1fb5e54d6a1fc32113619c401",
+    "gauge": "0x48727018d010dc2e414c5a14d588385ae112869e",
+    "rewardPool": "0xDbd17Dc03a442D4349de988533737db3fBb5eC39",
+    "getDy": ["v1", 0, 1],
+    "extras": [
+      {
+        "rewardPool": "0x129583e1a5E9c2C1b3afD086970811aF736fc17e",
+        "oracleId": "BADGER"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "eBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-thusd-crvusd",
+    "pool": "0x9e641187391b7a5fe9ee193359408ca3894f68a2",
+    "gauge": "0x5c5db6cc20cd2ee600647fc48c1684c7049cdb7c",
+    "rewardPool": "0x4BA59aD628C2E19bCb117814541b0Ac0C41ce15C",
+    "tokens": [
+      {
+        "oracleId": "thUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "crvUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-thusd-3crv",
+    "pool": "0x91553bad9fbc8bd69ff5d5678cbf7d514d00de0b",
+    "gauge": "0x34c8ff6992beb1ff94c35643a2c2424e24303437",
+    "rewardPool": "0x7E44379FF8e35D9d0f81EE232e038Ca4a0968196",
+    "getDy": ["v1", 0, 2, "USDC"],
+    "tokens": [
+      {
+        "oracleId": "thUSD",
+        "decimals": "1e18"
+      },
+      {
+        "basePool": "convex-3pool",
+        "oracle": "lps",
+        "oracleId": "convex-3pool",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-stlink-link",
+    "pool": "0x1c899ded01954d0959e034b62a728e7febe593b0",
+    "gauge": "0xd90a01c487564ba6cef5c3870c1251aff0c49e53",
+    "getDy": ["v1", 0, 1],
+    "rewards": [
+      {
+        "token": "0xa95c5ebb86e0de73b4fb8c47a45b792cfea28c23",
+        "oracleId": "SDL"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "stLINK",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "LINK",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-shezeth-eth",
     "pool": "0x637213593e31bc25f49d37c74b43a89eb1743d73",
     "gauge": "0xe32705721f284fb47f53cf5f9f1af2d74758d7de",
@@ -64,6 +146,7 @@
     "name": "curve-eusd-usdc",
     "pool": "0x08bfa22bb3e024cdfeb3eca53c0cb93bf59c4147",
     "gauge": "0x87f791090b09069b3f9c64e3be3cbbc0b45fc9b6",
+    "rewardPool": "0xdD2642EBD57A6e8BF9644040Ef15A39Ad568feC9",
     "tokens": [
       {
         "oracleId": "eUSD",
@@ -80,7 +163,6 @@
     "pool": "0xde73e407efc75edbafc5bcd62ebb1e7a9b38ebcd",
     "gauge": "0x36152aa234fcf97b5c14fc6d4893fc0da5328bd2",
     "rewardPool": "0x1EB6689327b8E12cDD0F8806aFDc9caeD40862de",
-    "getDy": ["v2", 0, 1],
     "extras": [
       {
         "rewardPool": "0xb6875cA08a0db50334C7C5e31e52190cb037035D",
@@ -94,6 +176,23 @@
       },
       {
         "oracleId": "rgUSD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "convex-usd3-eusd",
+    "pool": "0x79586fa680958102154093b795fdb8efbc013822",
+    "gauge": "0x40c63580846d2600df2d2a8a3bf899e8249095fd",
+    "rewardPool": "0x01EdE9cA2d9c49cfe7385dC31BB2313c855D29c7",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracleId": "USD3",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "eUSD",
         "decimals": "1e18"
       }
     ]

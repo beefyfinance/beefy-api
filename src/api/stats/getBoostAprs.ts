@@ -7,10 +7,66 @@ import { ApiChain, toChainId } from '../../utils/chain';
 import BeefyBoostAbi from '../../abis/BeefyBoost';
 import { fetchContract } from '../rpc/client';
 import { isFiniteNumber } from '../../utils/number';
+import { partition } from 'lodash';
+import { getBeefyRewardPoolV2Aprs } from './common/getBeefyRewardPoolV2Apr';
+import { getAddress } from 'viem';
+import { isDefined } from '../../utils/array';
 
 const { getVaultByID } = require('../stats/getMultichainVaults');
 
-const updateBoostAprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
+export const BOOST_APR_EXPIRED = -1;
+
+const updateBoostV2AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
+  try {
+    const chainId = toChainId(chain);
+
+    //TODO: check boost update data frequency (/boosts already has periodFinish property) to see if periodFinish is still valid and rpc call can be avoided
+
+    const results = await getBeefyRewardPoolV2Aprs(
+      chainId,
+      boosts
+        .map(boost => {
+          const vault = getVaultByID(boost.poolId);
+          if (!vault) {
+            console.warn(
+              `updateBoostV2AprsForChain`,
+              chain,
+              `vault ${boost.poolId} not found for boost ${boost.id}`
+            );
+            return undefined;
+          }
+
+          return {
+            oracleId: boost.id,
+            address: getAddress(boost.earnContractAddress),
+            stakedToken: {
+              oracleId: vault.oracleId,
+              address: vault.earnContractAddress,
+              decimals: 18,
+            },
+          };
+        })
+        .filter(isDefined)
+    );
+
+    return results.reduce((aprs: Record<string, number>, result) => {
+      if (
+        result &&
+        result.totalApr !== undefined &&
+        result.rewardsApr &&
+        result.rewardsApr.length > 0
+      ) {
+        aprs[result.oracleId] = result.totalApr;
+      }
+      return aprs;
+    }, Object.fromEntries(boosts.map(boost => [boost.id, BOOST_APR_EXPIRED])));
+  } catch (err) {
+    console.error('updateBoostV2AprsForChain', chain, err.message);
+    return {};
+  }
+};
+
+const updateBoostV1AprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
   const chainId = toChainId(chain);
 
   //TODO: check boost update data frequency (/boosts already has periodFinish property) to see if periodFinish is still valid and rpc call can be avoided
@@ -43,21 +99,33 @@ const updateBoostAprsForChain = async (chain: ApiChain, boosts: Boost[]) => {
         rewardRate[i],
         periodFinish[i]
       );
-      if (!isNaN(parseFloat(apr.toString()))) {
+      if (isFiniteNumber(apr)) {
         boostAprs[boosts[i].id] = apr;
       }
     }
 
     return boostAprs;
   } catch (err) {
-    console.log(err.message);
+    console.error('updateBoostV1AprsForChain', chain, err.message);
     return {};
   }
 };
 
+const updateBoostAprsForChain = async (
+  chain: ApiChain,
+  boosts: Boost[]
+): Promise<Record<string, number>> => {
+  const [boostsV2, boostsV1] = partition(boosts, boost => boost.version >= 2);
+  const [aprsV2, aprsV1] = await Promise.all([
+    updateBoostV2AprsForChain(chain, boostsV2),
+    updateBoostV1AprsForChain(chain, boostsV1),
+  ]);
+
+  return { ...aprsV1, ...aprsV2 };
+};
+
 /**
- * @param callReturnContext
- * @returns -1 if boost has expired, null if error ocurred, apr number value if successful
+ * @returns -1 if boost has expired, null if error occurred, apr number value if successful
  */
 const mapResponseToBoostApr = async (
   boost: Boost,
@@ -69,23 +137,33 @@ const mapResponseToBoostApr = async (
   const rewardRate = new BigNumber(rate.toString());
   const periodFinish = new BigNumber(finish.toString());
 
-  if (periodFinish.times(1000).lte(new BigNumber(Date.now()))) return -1;
+  if (periodFinish.times(1000).lte(new BigNumber(Date.now()))) return BOOST_APR_EXPIRED;
 
   try {
     const vault: Vault = getVaultByID(boost.poolId);
+    if (!vault) {
+      console.error(
+        `[boost aprs] error calculating apr for ${boost.id}: vault ${boost.poolId} not found`
+      );
+      return null;
+    }
+
     const depositTokenPrice = await fetchPrice({ oracle: vault.oracle, id: vault.oracleId });
     const earnedTokenPrice = await fetchPrice({
       oracle: boost.earnedOracle,
       id: boost.earnedOracleId,
     });
 
-    //Price is missing, we can't consider this as a succesful calculation
+    //Price is missing, we can't consider this as a successful calculation
     if (
       !isFiniteNumber(depositTokenPrice) ||
       depositTokenPrice === 0 ||
       !isFiniteNumber(earnedTokenPrice) ||
       earnedTokenPrice === 0
     ) {
+      console.error(
+        `[boost aprs] error calculating apr for ${boost.id}: missing price deposit=${depositTokenPrice} earned=${earnedTokenPrice}`
+      );
       return null;
     }
 
@@ -100,7 +178,7 @@ const mapResponseToBoostApr = async (
 
     return yearlyRewardsInUsd.dividedBy(amountStakedInUsd).toNumber();
   } catch (err) {
-    console.log(`[boost aprs] error calculating apr for ${boost.id}: ${err.message}`);
+    console.error(`[boost aprs] error calculating apr for ${boost.id}: ${err.message}`);
     return null;
   }
 };

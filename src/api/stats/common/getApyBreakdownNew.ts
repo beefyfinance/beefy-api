@@ -7,13 +7,24 @@ import { toArray } from '../../../utils/array';
 
 // These component lists need to stay in sync with the app
 // Total APY = (((1 + Compounded APY) * (1 + Special APR)) - 1) + Non-Compoundable APR.
-const compoundableComponents = ['vault', 'clm'] as const;
+
+/** compoundable component */
+const compoundableComponents = [
+  'vault', // Farm rewards compounded
+  'clm', // CLM fees compounded
+] as const;
+
+/** non-compoundable component */
 const nonCompoundableComponents = [
   'liquidStaking',
   'composablePool',
   'merkl',
+  'stellaSwap',
   'rewardPool',
+  'rewardPoolTrading', // CLM fees sent to reward pool e.g. VELO, RAM etc
 ] as const;
+
+/** special component */
 const specialComponents = ['trading'] as const;
 
 type CompoundableComponent = (typeof compoundableComponents)[number];
@@ -63,6 +74,9 @@ type BreakdownRequestComponents = ToInputComponents<CompoundableComponent> &
   ToInputComponents<NonCompoundableComponent> &
   ToInputComponents<SpecialComponent>;
 
+/**
+ * Total APY = (((1 + Compounded APY) * (1 + Special APR)) - 1) + Non-Compoundable APR.
+ */
 export type ApyBreakdownRequest = BreakdownRequestComponents & {
   vaultId: string;
   providerFee?: BigNumberish | null | undefined;
@@ -126,6 +140,9 @@ export function getApyBreakdownOnly(request: ApyBreakdownRequest): ApyBreakdown 
   return breakdown;
 }
 
+/**
+ * Total APY = (((1 + Compounded APY) * (1 + Special APR)) - 1) + Non-Compoundable APR.
+ */
 export function getApyBreakdown(
   requests: ApyBreakdownRequest | ApyBreakdownRequest[]
 ): ApyBreakdownResult {

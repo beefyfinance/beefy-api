@@ -87,6 +87,9 @@ const {
 
   REAL_CHAIN_ID,
   REAL_VAULTS_ENDPOINT,
+
+  SEI_CHAIN_ID,
+  SEI_VAULTS_ENDPOINT,
 } = require('../../constants');
 const { getKey, setKey } = require('../../utils/cache');
 
@@ -208,10 +211,14 @@ const chains = [
     chainId: MANTA_CHAIN_ID,
     vaultsEndpoint: MANTA_VAULTS_ENDPOINT,
   },
-  /* {
+  {
     chainId: REAL_CHAIN_ID,
     vaultsEndpoint: REAL_VAULTS_ENDPOINT,
-  }*/
+  },
+  {
+    chainId: SEI_CHAIN_ID,
+    vaultsEndpoint: SEI_VAULTS_ENDPOINT,
+  },
 ];
 
 const CACHE_KEY = 'TVL';

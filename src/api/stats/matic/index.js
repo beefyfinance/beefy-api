@@ -23,7 +23,6 @@ const { getMvxApys } = require('./getMvxApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getGnsApys } = require('./getGnsApys');
 const getKyberPolygonApys = require('./getKyberPolygonApys');
-const getOvixApys = require('./getOvixApys');
 const { getPearlApys } = require('./getPearlApys');
 //const { getQuickGammaApys } = require('./getQuickGammaApys');
 const getBetSwirlSingleApy = require('./getBetSwirlSingleApy');
@@ -34,35 +33,34 @@ const { getUniswapGammaApys } = require('./getUniswapGammaApys');
 const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
 
 const getApys = [
-  getbeQiApy,
-  getbeQiEarnApy,
-  getQuickSingleApys,
-  getQuickDualLpApys,
+  // getbeQiApy,
+  // getbeQiEarnApy,
+  // getQuickSingleApys,
+  // getQuickDualLpApys,
   // getQuickGammaApys,
-  getSushiLpApys,
-  getSushiOhmLpApys,
+  // getSushiLpApys,
+  // getSushiOhmLpApys,
   getCurveApys,
   getConvexApys,
-  getApeLpApys,
-  getMaiApys,
-  getMaiCurveApys,
-  getJetswapApys,
-  getTelxchangeApys,
-  getKyberLpApys,
-  getJarvisApys,
+  // getApeLpApys,
+  // getMaiApys,
+  // getMaiCurveApys,
+  // getJetswapApys,
+  // getTelxchangeApys,
+  // getKyberLpApys,
+  // getJarvisApys,
   getStargateApys,
-  getRipaeApys,
+  // getRipaeApys,
   getBalancerPolyApys,
-  getGiddyApys,
-  getDystopiaApys,
-  getHopApys,
-  getMvxApys,
-  getAaveV3Apys,
+  // getGiddyApys,
+  // getDystopiaApys,
+  // getHopApys,
+  // getMvxApys,
+  // getAaveV3Apys,
   getGnsApys,
-  getKyberPolygonApys,
-  // getOvixApys, Probably can just remove this.
-  getPearlApys,
-  getBetSwirlSingleApy,
+  // getKyberPolygonApys,
+  // getPearlApys,
+  // getBetSwirlSingleApy,
   getGammaApys,
   getAuraPolygonApys,
   getPolygonCompoundV3Apys,

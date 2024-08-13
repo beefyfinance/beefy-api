@@ -30,6 +30,7 @@ import { fraxtal } from './fraxtal/index.js';
 import { mode } from './mode/index.js';
 import { manta } from './manta/index.js';
 import { real } from './real/index.js';
+import { sei } from './sei/index.js';
 
 export { ChainId }; // enum which is compiled to a JS object
 export type { Chain };
@@ -65,6 +66,7 @@ export const addressBook: ReadonlyRecord<ChainIdKey, Chain> = {
   mode,
   manta,
   real,
+  sei,
 } as const;
 
 export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
@@ -97,4 +99,5 @@ export const addressBookByChainId: ReadonlyRecord<`${ChainId}`, Chain> = {
   [ChainId.mode]: mode,
   [ChainId.manta]: manta,
   [ChainId.real]: real,
+  [ChainId.sei]: sei,
 } as const;

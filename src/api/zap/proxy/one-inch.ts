@@ -5,9 +5,6 @@ import { AnyChain, toApiChain } from '../../../utils/chain';
 import { redactSecrets } from '../../../utils/secrets';
 import { isQuoteValueTooLow, setNoCacheHeaders } from './common';
 import { ApiResponse, isSuccessApiResponse } from '../api/common';
-import { getTokenByAddress } from '../../tokens/tokens';
-import { getAmmPrice } from '../../stats/getAmmPrices';
-import { fromWeiString } from '../../../utils/big-number';
 
 const getProxiedSwap = async (
   request: SwapRequest,
@@ -45,18 +42,26 @@ const getProxiedQuote = async (
 };
 
 export async function proxyOneInchSwap(ctx: Koa.Context) {
+  const start = Date.now();
   const chain = ctx.params.chainId;
   const requestObject: SwapRequest = ctx.query as any;
   const proxiedSwap = await getProxiedSwap(requestObject, chain);
+  if (isSuccessApiResponse(proxiedSwap)) {
+    console.log(`proxyOneInchSwap took ${(Date.now() - start) / 1000}s on ${chain}`);
+  }
   setNoCacheHeaders(ctx);
   ctx.status = proxiedSwap.code;
   ctx.body = isSuccessApiResponse(proxiedSwap) ? proxiedSwap.data : proxiedSwap.message;
 }
 
 export async function proxyOneInchQuote(ctx: Koa.Context) {
+  const start = Date.now();
   const chain = ctx.params.chainId;
   const requestObject: QuoteRequest = ctx.query as any;
   const proxiedQuote = await getProxiedQuote(requestObject, chain);
+  if (isSuccessApiResponse(proxiedQuote)) {
+    console.log(`proxyOneInchQuote took ${(Date.now() - start) / 1000}s on ${chain}`);
+  }
   setNoCacheHeaders(ctx);
   ctx.status = proxiedQuote.code;
   ctx.body = isSuccessApiResponse(proxiedQuote) ? proxiedQuote.data : proxiedQuote.message;

@@ -61,6 +61,8 @@ import {
   MANTA_CHAIN_ID,
   REAL_RPC,
   REAL_CHAIN_ID,
+  SEI_RPC,
+  SEI_CHAIN_ID,
 } from '../constants';
 
 console.log(addressBookByChainId[ChainId.fantom].platforms.beefyfinance.multicall);
@@ -94,6 +96,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.mode]: addressBookByChainId[ChainId.mode].platforms.beefyfinance.multicall,
   [ChainId.manta]: addressBookByChainId[ChainId.manta].platforms.beefyfinance.multicall,
   [ChainId.real]: addressBookByChainId[ChainId.real].platforms.beefyfinance.multicall,
+  [ChainId.sei]: addressBookByChainId[ChainId.sei].platforms.beefyfinance.multicall,
 };
 
 const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> = {
@@ -126,6 +129,7 @@ const clients: Record<keyof typeof ChainId, ethers.providers.JsonRpcProvider[]> 
   mode: [],
   manta: [],
   real: [],
+  sei: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new ethers.providers.JsonRpcProvider(endpoint));
@@ -158,6 +162,7 @@ clients.fraxtal.push(new ethers.providers.JsonRpcProvider(FRAXTAL_RPC));
 clients.mode.push(new ethers.providers.JsonRpcProvider(MODE_RPC));
 clients.manta.push(new ethers.providers.JsonRpcProvider(MANTA_RPC));
 clients.real.push(new ethers.providers.JsonRpcProvider(REAL_RPC));
+clients.sei.push(new ethers.providers.JsonRpcProvider(SEI_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -189,6 +194,7 @@ export const chainRandomClients = {
   modeRandomClient: () => clients.mode[~~(clients.mode.length * Math.random())],
   mantaRandomClient: () => clients.manta[~~(clients.manta.length * Math.random())],
   realRandomClient: () => clients.real[~~(clients.real.length * Math.random())],
+  seiRandomClient: () => clients.sei[~~(clients.sei.length * Math.random())],
 };
 
 export const _ethersFactory = (chainId: ChainId) => {
@@ -251,6 +257,8 @@ export const _ethersFactory = (chainId: ChainId) => {
       return chainRandomClients.mantaRandomClient();
     case REAL_CHAIN_ID:
       return chainRandomClients.realRandomClient();
+    case SEI_CHAIN_ID:
+      return chainRandomClients.seiRandomClient();
   }
 };
 

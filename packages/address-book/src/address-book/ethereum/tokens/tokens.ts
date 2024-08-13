@@ -370,6 +370,20 @@ export const tokens = {
       'Threshold is the first ever on-chain merge between two existing networks and communities, Keep and NuCypher. Threshold provides a suite of threshold cryptography services that power user sovereignty on the blockchain.',
     bridge: 'threshold',
   },
+  thUSD: {
+    name: 'Threshold USD',
+    symbol: 'thUSD',
+    oracleId: 'thUSD',
+    address: '0xCFC5bD99915aAa815401C5a41A927aB7a38d29cf',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.thresholdusd.org/',
+    documentation: 'https://docs.threshold.network/applications/threshold-usd',
+    description:
+      'Threshold USD (thUSD) is a stablecoin soft-pegged against USD and backed by ETH and tBTC as collateral, with a minimum collateral ratio of 110%.',
+    bridge: 'native',
+  },
   T: {
     name: 'Threshold Network Token',
     symbol: 'T',
@@ -2053,5 +2067,58 @@ export const tokens = {
     logoURI:
       'https://tokens.pancakeswap.finance/images/0xbf5140a22578168fd562dccf235e5d43a02ce9b1.png',
     documentation: 'https://docs.uniswap.org/concepts/governance/overview',
+  },
+  LINK: {
+    name: 'Chainlink',
+    symbol: 'LINK',
+    oracleId: 'LINK',
+    address: '0x514910771AF9Ca656af840dff83E8264EcF986CA',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://chain.link/',
+    description:
+      'Link is the currency used to pay the Chainlink node operators for their work. Chainlink node operators have to stake LINK in the network in order to participate and provide data services.',
+    bridge: 'native',
+    documentation: 'https://docs.chain.link/resources/link-token-contracts',
+  },
+  stLINK: {
+    name: 'Staked LINK',
+    symbol: 'stLINK',
+    oracleId: 'stLINK',
+    address: '0xb8b295df2cd735b15BE5Eb419517Aa626fc43cD5',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://stake.link/',
+    description:
+      'stLINK is received by staking LINK. It is received 1:1 per each LINK staked. stLINK is a rebasing token, which means that as your LINK rewards accrue the stLINK balance in your wallet increments up, and is backed 1:1 by staked LINK owned by the stake.link protocol. stLINK can be claim or unclaimed, wrapped or unwrapped, and continues to receive rewards in any scenario.',
+    bridge: 'native',
+    documentation: 'https://docs.stake.link/',
+  },
+  eBTC: {
+    name: 'eBTC',
+    symbol: 'eBTC',
+    oracleId: 'eBTC',
+    address: '0x661c70333AA1850CcDBAe82776Bb436A0fCfeEfB',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.ebtc.finance/',
+    description:
+      "eBTC is a collateralized crypto asset soft pegged to the price of Bitcoin and built on the Ethereum network. It is backed exclusively by Lido's stETH and powered by immutable smart contracts with minimized counterparty reliance. It is designed to be the most decentralized synthetic Bitcoin in DeFi and offers the ability for anyone in the world to borrow BTC at no cost.",
+    bridge: 'native',
+    documentation: 'https://docs.ebtc.finance/ebtc',
+  },
+  'USD0++': {
+    name: 'USD0 Liquid Bond',
+    symbol: 'USD0++',
+    oracleId: 'USD0++',
+    address: '0x35D8949372D46B7a3D5A56006AE77B215fc69bC0',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://usual.money/',
+    description:
+      'The USD0 Liquid Bond is issued when a user decides to lock their USD0 for a specified period. In return, they receive a composable and transferable USD0++ (as a LBT), which provides rewards in the form of USUAL tokens.',
+    bridge: 'native',
+    documentation:
+      'https://gitbook.usual.money/usual-mechanisms/liquid-bond-token-lbt/usd0-liquid-bond',
   },
 } as const satisfies Record<string, Token>;

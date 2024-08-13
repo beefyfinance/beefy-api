@@ -633,6 +633,16 @@ const coinGeckoCoins: Record<string, string[]> = {
   'manta-network': ['MANTA'],
   foxy: ['FOXY'],
   'ether-fi': ['ETHFI'],
+  'anzen-usdz': ['USDz'],
+  chompcoin: ['CHOMP'],
+  'davos-protocol': ['DUSD'],
+  'synclub-staked-bnb': ['slisBNB'],
+  'helio-protocol-hay': ['lisUSD'],
+  'usual-usd': ['USD0'],
+  'usd0-liquid-bond': ['USD0++'],
+  'badger-dao': ['BADGER'],
+  'overnight-finance': ['oOVN'],
+  'dinero-staked-eth': ['pxETH'],
 };
 
 /**
@@ -648,11 +658,6 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     oracleId: 'lineaUSD+',
     tokenAddress: '0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376',
     chainId: 'linea',
-  },
-  {
-    oracleId: 'baseOVN',
-    tokenAddress: '0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396',
-    chainId: 'base',
   },
   {
     oracleId: 'arbOVN',
@@ -704,6 +709,11 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0x4621b7A9c75199271F773Ebd9A499dbd165c3191',
     chainId: 'base',
   },
+  {
+    oracleId: 'lineaZERO',
+    tokenAddress: '0x78354f8DcCB269a615A7e0a24f9B0718FDC3C7A7',
+    chainId: 'linea',
+  },
 ];
 
 /**
@@ -748,6 +758,7 @@ const seedPeggedPrices = {
   axlUSDC: 'USDC', // Axelar
   xcUSDC: 'USDC', // Kusama
   xcUSDT: 'USDT', // Kusama
+  WSEI: 'SEI', // Wrapped SEI
 };
 
 export type BaseLpBreakdown = {

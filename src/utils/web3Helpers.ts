@@ -62,6 +62,8 @@ import {
   MANTA_CHAIN_ID,
   REAL_RPC,
   REAL_CHAIN_ID,
+  SEI_RPC,
+  SEI_CHAIN_ID,
 } from '../constants';
 import { real } from '../../packages/address-book/src/address-book/real';
 
@@ -95,6 +97,7 @@ const MULTICALLS: Record<ChainId, Pick<BeefyFinance, 'multicall'>['multicall']> 
   [ChainId.mode]: addressBookByChainId[ChainId.mode].platforms.beefyfinance.multicall,
   [ChainId.manta]: addressBookByChainId[ChainId.manta].platforms.beefyfinance.multicall,
   [ChainId.real]: addressBookByChainId[ChainId.real].platforms.beefyfinance.multicall,
+  [ChainId.sei]: addressBookByChainId[ChainId.sei].platforms.beefyfinance.multicall,
 };
 
 export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
@@ -127,6 +130,7 @@ export const MULTICALL_V3: Partial<Readonly<Record<ChainId, string>>> = {
   [ChainId.mode]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.manta]: '0xcA11bde05977b3631167028862bE2a173976CA11',
   [ChainId.real]: '0xcA11bde05977b3631167028862bE2a173976CA11',
+  [ChainId.sei]: '0xcA11bde05977b3631167028862bE2a173976CA11',
 };
 
 const clients: Record<keyof typeof ChainId, Web3[]> = {
@@ -159,6 +163,7 @@ const clients: Record<keyof typeof ChainId, Web3[]> = {
   mode: [],
   manta: [],
   real: [],
+  sei: [],
 };
 BSC_RPC_ENDPOINTS.forEach(endpoint => {
   clients.bsc.push(new Web3(endpoint));
@@ -191,6 +196,7 @@ clients.fraxtal.push(new Web3(FRAXTAL_RPC));
 clients.mode.push(new Web3(MODE_RPC));
 clients.manta.push(new Web3(MANTA_RPC));
 clients.real.push(new Web3(REAL_RPC));
+clients.sei.push(new Web3(SEI_RPC));
 
 export const chainRandomClients = {
   bscRandomClient: () => clients.bsc[~~(clients.bsc.length * Math.random())],
@@ -222,6 +228,7 @@ export const chainRandomClients = {
   modeRandomClient: () => clients.mode[~~(clients.mode.length * Math.random())],
   mantaRandomClient: () => clients.manta[~~(clients.manta.length * Math.random())],
   realRandomClient: () => clients.real[~~(clients.real.length * Math.random())],
+  seiRandomClient: () => clients.sei[~~(clients.sei.length * Math.random())],
 };
 
 export const _web3Factory = (chainId: ChainId) => {
@@ -284,6 +291,8 @@ export const _web3Factory = (chainId: ChainId) => {
       return chainRandomClients.mantaRandomClient();
     case REAL_CHAIN_ID:
       return chainRandomClients.realRandomClient();
+    case SEI_CHAIN_ID:
+      return chainRandomClients.seiRandomClient();
   }
 };
 

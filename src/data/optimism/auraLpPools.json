@@ -1,5 +1,50 @@
 [
   {
+    "name": "aura-op-wsteth-weeth",
+    "address": "0x2Bb4712247D5F451063b5E4f6948abDfb925d93D",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xe351a69EB84a22E113E92A4C683391C95448d7d4",
+    "vaultPoolId": "0x2bb4712247d5f451063b5e4f6948abdfb925d93d000000000000000000000136",
+    "composable": true,
+    "bptIndex": 1,
+    "lsIndex": [0, 1],
+    "lsUrl": [
+      "https://eth-api.lido.fi/v1/protocol/steth/apr/sma",
+      "https://www.etherfi.bid/api/etherfi/apr"
+    ],
+    "dataPath": ["$.data.smaApr", "$.latest_aprs[0]"],
+    "lsAprFactor": [1, 0.01],
+    "balancerChargesFee": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xB1e58FC3827404bA5a772cED86F92e74F5B1A947",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x50F25F673Db79BF8342359F70CD26a949EB04a8F",
+        "oracleId": "OP",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "address": "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "BPTToken"
+      },
+      {
+        "address": "0x5A7fACB970D094B6C7FF1df0eA68D99E6e73CBFF",
+        "oracleId": "weETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-gyro-op-frax-symphony",
     "address": "0xE906d4C4fC4c3Fe96560De86B4bf7eD89aF9A69a",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

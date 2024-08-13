@@ -24,11 +24,14 @@ const { getMantleApys } = require('./mantle');
 const { getFraxtalApys } = require('./fraxtal');
 const { getModeApys } = require('./mode');
 const { getMantaApys } = require('./manta');
+const { getRealApys } = require('./real');
+const { getSeiApys } = require('./sei');
 const { getKey, setKey } = require('../../utils/cache');
-const { fetchBoostAprs } = require('./getBoostAprs');
+const { fetchBoostAprs, BOOST_APR_EXPIRED } = require('./getBoostAprs');
+const { serviceEventBus } = require('../../utils/ServiceEventBus');
 
 const INIT_DELAY = process.env.INIT_DELAY || 30 * 1000;
-const BOOST_APR_INIT_DELAY = 30 * 1000;
+const BOOST_APR_INIT_DELAY = 5 * 1000;
 var REFRESH_INTERVAL = 15 * 60 * 1000;
 const BOOST_REFRESH_INTERVAL = 2 * 60 * 1000;
 
@@ -55,11 +58,11 @@ const updateApys = async () => {
       getFantomApys(),
       getBSCApys(),
       getArbitrumApys(),
-      getCeloApys(),
-      getMoonriverApys(),
+      // getCeloApys(),
+      // getMoonriverApys(),
       getCronosApys(),
-      getAuroraApys(),
-      getFuseApys(),
+      // getAuroraApys(),
+      // getFuseApys(),
       getMetisApys(),
       getMoonbeamApys(),
       // getEmeraldApys(),
@@ -76,6 +79,8 @@ const updateApys = async () => {
       getFraxtalApys(),
       getModeApys(),
       getMantaApys(),
+      getRealApys(),
+      getSeiApys(),
     ]);
 
     for (const result of results) {
@@ -128,7 +133,7 @@ const updateBoostAprs = async () => {
     };
     //-1 will be returned when boost has ended and it will be removed from the api response
     Object.keys(boostAprs)
-      .filter(boostId => boostAprs[boostId] === -1)
+      .filter(boostId => boostAprs[boostId] === BOOST_APR_EXPIRED)
       .forEach(boostId => {
         delete boostAprs[boostId];
       });
@@ -150,6 +155,7 @@ const initApyService = async () => {
   boostAprs = cachedBoostAprs ?? {};
 
   setTimeout(updateApys, INIT_DELAY);
+  await serviceEventBus.waitForFirstEvent('vaults/updated');
   setTimeout(updateBoostAprs, BOOST_APR_INIT_DELAY);
 };
 

@@ -29,6 +29,7 @@ import {
   MODE_RPC,
   MANTA_RPC,
   REAL_RPC,
+  SEI_RPC,
 } from '../../constants';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 
@@ -740,6 +741,29 @@ const realChain = {
   },
 } as const satisfies Chain;
 
+const seiChain = {
+  id: 1329,
+  name: 'Sei',
+  network: 'sei',
+  nativeCurrency: {
+    decimals: 18,
+    name: 'WSEI',
+    symbol: 'WSEI',
+  },
+  rpcUrls: {
+    public: { http: [SEI_RPC] },
+    default: { http: [SEI_RPC] },
+  },
+  blockExplorers: {
+    default: { name: 'sei explorer', url: 'https://seitrace.com/' },
+  },
+  contracts: {
+    multicall3: {
+      address: '0xca11bde05977b3631167028862be2a173976ca11',
+    },
+  },
+} as const satisfies Chain;
+
 //build a map from chainId to chain object
 export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.avax]: avalancheChain,
@@ -771,4 +795,5 @@ export const getChain: Partial<Record<ChainId, Chain>> = {
   [ChainId.mode]: modeChain,
   [ChainId.manta]: mantaChain,
   [ChainId.real]: realChain,
+  [ChainId.sei]: seiChain,
 } as const;

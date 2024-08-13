@@ -1,4 +1,3 @@
-import { get } from 'lodash';
 import { ChainId } from '../../../packages/address-book/src/address-book';
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../utils/fetchPrice';
@@ -29,6 +28,34 @@ const getChainTvl = async chain => {
   tvls = await setVaultsTvl(lpVaults, vaultBalances, chainId, tvls);
   tvls = await setVaultsTvl(cowVaults, cowVaultBalances, chainId, tvls);
   tvls = await setVaultsTvl(govVaults, govVaultBalances, chainId, tvls);
+
+  // separate CLM / CLM Pool / CLM Vault TVL
+  for (const clm of cowVaults) {
+    const clmId = clm.id;
+    const clmAddress = clm.earnContractAddress;
+
+    // TODO fix if we ever have more than one pool/vault per clm
+    const clmVault = lpVaults.find(vault => vault.tokenAddress === clmAddress);
+    const clmPool = govVaults.find(pool => pool.tokenAddress === clmAddress);
+
+    const clmVaultTvl = clmVault ? tvls[chainId]?.[clmVault.id] || 0 : 0;
+    const clmPoolTvl = clmPool ? tvls[chainId]?.[clmPool.id] || 0 : 0;
+    const clmTvl = tvls[chainId]?.[clmId] || 0;
+
+    // Vault deposits in to Pool
+    if (clmPool && clmVault) {
+      // On-chain pool TVL therefore also includes vault deposits, so remove them
+      const clmPoolItem = { [clmPool.id]: Math.max(0, clmPoolTvl - clmVaultTvl) };
+      tvls[chainId] = { ...tvls[chainId], ...clmPoolItem };
+    }
+
+    // Pool deposits in to CLM
+    if (clmPool) {
+      // On-chain CLM TVL therefore also includes pool deposits, so remove them
+      const clmItem = { [clmId]: Math.max(0, clmTvl - clmPoolTvl) };
+      tvls[chainId] = { ...tvls[chainId], ...clmItem };
+    }
+  }
 
   return tvls;
 };
@@ -66,18 +93,6 @@ const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
       item = { [vault.id]: tvl.toNumber() };
     }
 
-    //subsctract the tvl from the parent clm
-    if (vault.type === 'gov' && vault.version === 2 && vault.id.endsWith('-rp')) {
-      const nakedCLmTvl = new BigNumber(tvls[chainId][vault.oracleId] || 0);
-      if (nakedCLmTvl.gt(0)) {
-        //sometimes the reward pool can have idle founds in the strategy and the tvl can be greater than the clm, in this case we set the naked clm tvl to 0
-        const clmItem = {
-          [vault.oracleId]: nakedCLmTvl.gt(tvl) ? nakedCLmTvl.minus(tvl).toNumber() : 0,
-        };
-        tvls[chainId] = { ...tvls[chainId], ...clmItem };
-      }
-    }
-
     tvls[chainId] = { ...tvls[chainId], ...item };
   }
 
@@ -85,6 +100,9 @@ const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
 };
 
 const getVaultBalances = async (chainId, vaults) => {
+  if (!vaults) {
+    throw new Error(`getVaultBalances: undefined vaults passed for ${chainId}`);
+  }
   const calls = vaults.map(vault => {
     const contract = fetchContract(vault.earnedTokenAddress, BeefyVaultV6Abi, chainId);
     return contract.read.balance();
@@ -94,6 +112,10 @@ const getVaultBalances = async (chainId, vaults) => {
 };
 
 const getGovVaultBalances = async (chainId, govPools) => {
+  if (!govPools) {
+    throw new Error(`getGovVaultBalances: undefined govPools passed for ${chainId}`);
+  }
+
   const calls = govPools.map(vault => {
     const tokenContract = fetchContract(vault.tokenAddress, ERC20Abi, chainId);
     return tokenContract.read.balanceOf([vault.earnContractAddress]);
@@ -104,6 +126,10 @@ const getGovVaultBalances = async (chainId, govPools) => {
 };
 
 const getCowVaultBalances = async (chainId, cowVaults) => {
+  if (!cowVaults) {
+    throw new Error(`getCowVaultBalances: undefined cowVaults passed for ${chainId}`);
+  }
+
   const calls = cowVaults.map(vault => {
     const tokenContract = fetchContract(vault.earnContractAddress, ERC20Abi, chainId);
     return tokenContract.read.totalSupply();

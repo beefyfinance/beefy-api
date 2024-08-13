@@ -1,5 +1,23 @@
 [
   {
+    "name": "pendle-arb-gusdc-26dec24",
+    "address": "0xa877a0e177b54a37066c1786f91a1dab68f094af",
+    "oracle": "tokens",
+    "oracleId": "USDC",
+    "decimals": "1e6",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  },
+  {
+    "name": "pendle-arb-unieth-26dec24",
+    "address": "0x279b44e48226d40ec389129061cb0b56c5c09e46",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-arb-dusdc-26sep24",
     "address": "0x2fB73D98B1D60B35FD12508933578098f352cE7e",
     "oracle": "tokens",

@@ -1992,6 +1992,20 @@ export const tokens = {
       'The KUJI token is the native token on the Kujira Network. KUJI is used to pay network fees and dApp fees, and all fees collected are distributed to KUJI stakers.',
     bridge: 'axelar',
   },
+  uniETH: {
+    name: 'Universal ETH',
+    symbol: 'uniETH',
+    oracleId: 'uniETH',
+    address: '0x3d15fD46CE9e551498328B1C83071D9509E2C3a0',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://app.bedrock.technology/unieth',
+    description:
+      'uniETH represents the staked ETH plus all future staking rewards and accrual of EigenLayer points and Bedrock diamonds. uniETH does not grow in quantity over time but instead, grows in value, i.e. 1 uniETH becomes worth increasingly more than 1 ETH.',
+    bridge: 'celer',
+    risks: ['NO_TIMELOCK'],
+  },
   ETHx: {
     name: 'ETHx',
     symbol: 'ETHx',
@@ -2108,6 +2122,36 @@ export const tokens = {
     bridge: 'wormhole',
     description:
       'ETHFI is the governance token of ether.fi, a restaking protocol on Ethereum. Token holders will have a say in the future of the protocol.',
+    risks: ['NO_TIMELOCK'],
+  },
+  sUSDe: {
+    name: 'Staked USDe',
+    symbol: 'sUSDe',
+    oracleId: 'sUSDe',
+    address: '0x211Cc4DD073734dA055fbF44a2b4667d5E5fE5d2',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://ethena.fi/',
+    documentation: 'https://ethena-labs.gitbook.io/ethena-labs',
+    description:
+      'Users are able to stake their USDe for sUSDe through the Ethena front-end. sUSDe is a reward-bearing token that accrues value from the yield that Ethena’s underlying delta-neutral position generates. sUSDe is subject to a 7-day un-staking period.',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
+  CAKE: {
+    name: 'PancakeSwap Token',
+    symbol: 'CAKE',
+    oracleId: 'Cake',
+    address: '0x1b896893dfc86bb67Cf57767298b9073D2c1bA2c',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://pancakeswap.finance/',
+    documentation: 'https://docs.pancakeswap.finance/',
+    description:
+      'PancakeSwap is an automated market maker (AMM) — a decentralized finance (DeFi) application that allows users to exchange tokens, providing liquidity via farming and earning fees in return.',
+    bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
 } as const satisfies Record<string, Token>;

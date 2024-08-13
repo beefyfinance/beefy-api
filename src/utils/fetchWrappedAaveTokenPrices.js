@@ -3,6 +3,7 @@ import {
   ARBITRUM_CHAIN_ID,
   AVAX_CHAIN_ID,
   ETH_CHAIN_ID,
+  GNOSIS_CHAIN_ID,
   OPTIMISM_CHAIN_ID,
   POLYGON_CHAIN_ID,
 } from '../constants';
@@ -45,6 +46,9 @@ const {
   },
   avax: {
     tokens: { aavAVAX, waavAVAX, aavUSDC, waavUSDC, aavUSDT, waavUSDT },
+  },
+  gnosis: {
+    tokens: { stEUR, EURA },
   },
 } = addressBook;
 
@@ -89,6 +93,7 @@ const tokens = {
     [aavUSDC, waavUSDC],
     [aavUSDT, waavUSDT],
   ],
+  gnosis: [[EURA, stEUR, true]],
 };
 
 const getWrappedAavePrices = async (tokenPrices, tokens, chainId) => {
@@ -130,6 +135,7 @@ const fetchWrappedAavePrices = async tokenPrices =>
     getWrappedAavePrices(tokenPrices, tokens.optimism, OPTIMISM_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.arbitrum, ARBITRUM_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
+    getWrappedAavePrices(tokenPrices, tokens.gnosis, GNOSIS_CHAIN_ID),
   ]).then(data =>
     data
       .flat()

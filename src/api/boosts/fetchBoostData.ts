@@ -1,12 +1,20 @@
 import { ChainId } from '../../../packages/address-book/src/address-book';
-import BigNumber from 'bignumber.js';
-import { ApiChain } from '../../utils/chain';
+import { ApiChain, toAppChain } from '../../utils/chain';
 import { fetchContract } from '../rpc/client';
 import BeefyBoostAbi from '../../abis/BeefyBoost';
-import { Boost } from './types';
+import { IBeefyRewardPool } from '../../abis/IBeefyRewardPool';
+import { Boost, BoostConfig } from './types';
+import { bigintRange } from '../../utils/array';
+import { bigintToNumber } from '../../utils/big-int';
 
-export const getBoosts = async chain => {
-  const boostsEndpoint = `https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/boost/${chain}.json`;
+type BoostConfigRaw = Omit<BoostConfig, 'version' | 'chain'> & {
+  version?: number;
+};
+
+export const getBoosts = async (chain: ApiChain): Promise<BoostConfig[]> => {
+  const boostsEndpoint = `https://raw.githubusercontent.com/beefyfinance/beefy-v2/prod/src/config/boost/${toAppChain(
+    chain
+  )}.json`;
   const response = await fetch(boostsEndpoint);
   if (response.status !== 200) {
     throw new Error(
@@ -19,25 +27,42 @@ export const getBoosts = async chain => {
     throw new Error(`Invalid boosts data for ${chain}`);
   }
 
-  return (boosts as Boost[]).filter(b => !b.version || b.version === 1);
+  return (boosts as BoostConfigRaw[]).map(b => ({
+    ...b,
+    version: b.version || 1,
+    chain,
+  }));
 };
 
-export const getBoostPeriodFinish = async (chain: ApiChain, boosts: any[]) => {
+export const getBoostPeriodFinish = async (
+  chain: ApiChain,
+  boosts: BoostConfig[]
+): Promise<Boost[]> => {
   const chainId = ChainId[chain];
+  const periodFinishCalls = boosts.map(async (boost): Promise<number[]> => {
+    if (boost.version >= 2) {
+      const poolContract = fetchContract(boost.earnContractAddress, IBeefyRewardPool, chainId);
+      const numRewards = await poolContract.read.rewardsLength();
+      if (numRewards === 0n) {
+        return [];
+      }
 
-  const boostAddresses = boosts.map(v => v.earnContractAddress);
-  const periodFinishCalls = boostAddresses.map(boostAddress => {
-    const boostContract = fetchContract(boostAddress, BeefyBoostAbi, chainId);
-    return boostContract.read.periodFinish();
+      return await Promise.all(
+        bigintRange(numRewards).map(async (rewardId): Promise<number> => {
+          const rewardInfo = await poolContract.read.rewardInfo([rewardId]);
+          return bigintToNumber(rewardInfo[1]);
+        })
+      );
+    }
+
+    const boostContract = fetchContract(boost.earnContractAddress, BeefyBoostAbi, chainId);
+    return [bigintToNumber(await boostContract.read.periodFinish())];
   });
 
-  const res = await Promise.all(periodFinishCalls);
-
-  const periodFinishes = res.map(v => new BigNumber(v.toString()).toNumber());
-
-  for (let i = 0; i < periodFinishes.length; i++) {
-    boosts[i].periodFinish = periodFinishes[i];
-  }
-
-  return boosts;
+  const periodFinishes = await Promise.all(periodFinishCalls);
+  return boosts.map((boost, i) => ({
+    ...boost,
+    periodFinish: periodFinishes[i].length ? Math.max(...periodFinishes[i]) : 0,
+    periodFinishes: periodFinishes[i],
+  }));
 };

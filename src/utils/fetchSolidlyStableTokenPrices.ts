@@ -16,15 +16,6 @@ type StablePoolLiquidityToken = {
 const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> = {
   base: [
     {
-      oracleId: 'USDz',
-      pool: '0x6d0b9C9E92a3De30081563c3657B5258b3fFa38B',
-      firstToken: 'USDz',
-      firstTokenDecimals: '1e18',
-      secondToken: 'USDC',
-      secondTokenDecimals: 1e6,
-      secondTokenAddress: '0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913',
-    },
-    {
       oracleId: 'bMAI',
       pool: '0xf6Aec4F97623E691a9426a69BaF5501509fCa05D',
       firstToken: 'bMAI',
@@ -44,15 +35,6 @@ const tokens: Partial<Record<keyof typeof ChainId, StablePoolLiquidityToken[]>> 
     },
   ],
   linea: [
-    {
-      oracleId: 'DUSD',
-      pool: '0x7088A31d53Fc1fA300Ceb5F9103343137A62b545',
-      firstToken: 'DUSD',
-      firstTokenDecimals: '1e18',
-      secondToken: 'USDC',
-      secondTokenDecimals: 1e6,
-      secondTokenAddress: '0x176211869cA2b568f2A7D4EE941E073a821EE1ff',
-    },
     {
       oracleId: 'lMAI',
       pool: '0xE9E146f5bceBD71Fb8C526EA036dE6bbFB1B0Ad7',

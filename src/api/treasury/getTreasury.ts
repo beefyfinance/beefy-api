@@ -95,6 +95,7 @@ function getTokenAddressesByChain(): TreasuryAssetRegistry {
         [
           '0x471EcE3750Da237f93B8E339c536989b8978a438',
           '0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000',
+          '0x0000000000000000000000000000000000000802',
         ].includes(token.address)
       )
         continue;

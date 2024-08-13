@@ -1,6 +1,8 @@
 import { Address, isAddress } from 'viem';
-import { ApiChain, AppChain } from '../../utils/chain';
+import { ApiChain } from '../../utils/chain';
 import { isNonEmptyArray, NonEmptyArray } from '../../utils/array';
+import { Token } from '../../../packages/address-book/src/types/token';
+import { providers } from './providers';
 
 type JsonCowClm = {
   beta?: boolean;
@@ -10,6 +12,7 @@ type JsonCowClm = {
   tokenOracleIds: string[];
   decimals: number[];
   oracleId: string;
+  providerId?: string;
   rewardPool?: {
     address: string;
     oracleId: string;
@@ -26,6 +29,14 @@ type JsonCowClm = {
   };
 };
 
+export type CowProviderTradingRewardTokens = {
+  [K in ApiChain]?: ReadonlyArray<Token>;
+};
+
+export type CowProvider = {
+  poolTradingRewardTokens?: CowProviderTradingRewardTokens;
+};
+
 export type CowClm = {
   beta: boolean | undefined;
   address: Address;
@@ -34,6 +45,7 @@ export type CowClm = {
   tokenOracleIds: [string, string];
   decimals: [number, number];
   oracleId: string;
+  providerId?: string;
 };
 
 export type CowRewardPoolReward = {
@@ -69,7 +81,7 @@ export function isCowClmWithRewardPool(clm: AnyCowClm): clm is CowClmWithRewardP
   return 'rewardPool' in clm && clm.rewardPool !== undefined;
 }
 
-export function isCowClmWithVault(clm: AnyCowClm): clm is CowClmWithRewardPool {
+export function isCowClmWithVault(clm: AnyCowClm): clm is CowClmWithVault {
   return isCowClmWithRewardPool(clm) && 'vault' in clm && clm.vault !== undefined;
 }
 
@@ -96,18 +108,25 @@ function isValidCowClmVaultConfig(vault: JsonCowClm['vault']): vault is CowVault
   return vault && vault.oracleId && isAddress(vault.address);
 }
 
+function isValidCowProviderId(id: string): boolean {
+  return id in providers;
+}
+
 function isValidCowClmConfig(clm: JsonCowClm): clm is AnyCowClm {
   return (
-    clm.tokens.length === 2 &&
-    clm.tokenOracleIds.length === 2 &&
-    clm.decimals.length === 2 &&
-    isAddress(clm.address) &&
-    isAddress(clm.lpAddress) &&
-    clm.tokens.every(isAddress) &&
-    // no reward pool if beta clm, or valid reward pool
-    ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool)) &&
-    // no vault, or reward pool and valid vault
-    (!clm.vault || (clm.rewardPool && isValidCowClmVaultConfig(clm.vault)))
+    (clm.tokens.length === 2 &&
+      clm.tokenOracleIds.length === 2 &&
+      clm.decimals.length === 2 &&
+      isAddress(clm.address) &&
+      isAddress(clm.lpAddress) &&
+      clm.tokens.every(isAddress) &&
+      // no reward pool if beta clm, or valid reward pool
+      ((!clm.rewardPool && clm.beta) || isValidCowClmRewardPoolConfig(clm.rewardPool)) &&
+      // no vault, or reward pool and valid vault
+      (!clm.vault || (clm.rewardPool && isValidCowClmVaultConfig(clm.vault))) &&
+      // no provider, or valid provider
+      !clm.providerId) ||
+    isValidCowProviderId(clm.providerId)
   );
 }
 
@@ -172,77 +191,3 @@ export function isClmApiVault(data: any): data is ClmApiVault {
 export function isClmApiVaultsResponse(data: any): data is ClmApiVaultsResponse {
   return Array.isArray(data) && data.every(isClmApiVault);
 }
-
-type MerklApiForwarder = {
-  almAPR: number;
-  almAddress: Address;
-  forwarderType: number;
-  priority: number;
-  sender: Address;
-  target: Address;
-  owner: Address;
-  type: number;
-};
-
-type MerklApiCampaignParameters = {
-  symbolRewardToken: string;
-  decimalsRewardToken: number;
-};
-
-export type MerklApiCampaign = {
-  chainId: number;
-  computeChainId?: number;
-  campaignId: string;
-  creator: Address;
-  startTimestamp: number;
-  endTimestamp: number;
-  rewardToken: string;
-  /** supposed to be an address but some have extra space on end */
-  mainParameter: string;
-  forwarders: MerklApiForwarder[];
-  campaignParameters: MerklApiCampaignParameters;
-};
-
-export type MerklApiCampaignsResponse = {
-  [chainId: string]: {
-    [poolTypeId: string]: {
-      [campaignId: string]: MerklApiCampaign;
-    };
-  };
-};
-
-type CampaignVault = {
-  id: string;
-  address: string;
-  apr: number;
-};
-
-export type BeefyCampaignType = 'test' | 'arb-ltipp' | 'op-gov-fund' | 'other';
-export type ExternalCampaignType = 'external';
-export type CampaignType = BeefyCampaignType | ExternalCampaignType;
-
-export type CampaignTypeByChain = {
-  [K in ApiChain]?: CampaignType;
-} & { default: CampaignType };
-
-export type CampaignTypeSetting = CampaignType | CampaignTypeByChain;
-
-export type CampaignRewardToken = {
-  address: string;
-  symbol: string;
-  decimals: number;
-  chainId: AppChain;
-};
-
-export type Campaign = {
-  campaignId: string;
-  startTimestamp: number;
-  endTimestamp: number;
-  chainId: AppChain;
-  poolAddress: string;
-  rewardToken: CampaignRewardToken;
-  type: CampaignType;
-  vaults: CampaignVault[];
-};
-
-export type CampaignForVault = Omit<Campaign, 'vaults'> & CampaignVault;

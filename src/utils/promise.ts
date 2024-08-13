@@ -1,4 +1,5 @@
 import { sleep } from './time';
+import { ABORT_REASON_TIMEOUT } from './http/helpers';
 
 export type DeferredPromise<T> = Promise<T> & {
   resolve: (value: T) => void;
@@ -78,4 +79,48 @@ export function onlyFulfilledValues<T>(results: PromiseSettledResult<T>[]): T[] 
 
 export function onlyRejectedReasons<T>(results: PromiseSettledResult<T>[]): any[] {
   return results.filter(isResultRejected).map(result => result.reason);
+}
+
+export function getTimeoutAbortSignal(timeout: number): AbortSignal {
+  const controller = new AbortController();
+  setTimeout(() => controller.abort(ABORT_REASON_TIMEOUT), timeout);
+  return controller.signal;
+}
+
+export class AsyncLock {
+  private resolveFn: () => void;
+  private lockPromise: Promise<void>;
+
+  constructor() {
+    this.resolveFn = () => {};
+    this.lockPromise = Promise.resolve();
+  }
+
+  private async lock() {
+    await this.lockPromise;
+    this.lockPromise = new Promise(resolve => (this.resolveFn = resolve));
+  }
+
+  private unlock() {
+    this.resolveFn();
+  }
+
+  async acquire<T>(callback: () => Promise<T>): Promise<T> {
+    await this.lock();
+    try {
+      return await callback();
+    } finally {
+      this.unlock();
+    }
+  }
+
+  static acquireAll<T>(locks: AsyncLock[], callback: () => Promise<T>): Promise<T> {
+    if (locks.length === 0) {
+      return callback();
+    }
+    if (locks.length === 1) {
+      return locks[0].acquire(callback);
+    }
+    return locks[0].acquire(() => AsyncLock.acquireAll(locks.slice(1), callback));
+  }
 }
