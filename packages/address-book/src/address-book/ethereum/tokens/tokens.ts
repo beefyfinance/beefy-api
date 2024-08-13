@@ -2094,6 +2094,19 @@ export const tokens = {
     bridge: 'native',
     documentation: 'https://docs.stake.link/',
   },
+  eBTC: {
+    name: 'eBTC',
+    symbol: 'eBTC',
+    oracleId: 'eBTC',
+    address: '0x661c70333AA1850CcDBAe82776Bb436A0fCfeEfB',
+    chainId: 1,
+    decimals: 18,
+    website: 'https://www.ebtc.finance/',
+    description:
+      "eBTC is a collateralized crypto asset soft pegged to the price of Bitcoin and built on the Ethereum network. It is backed exclusively by Lido's stETH and powered by immutable smart contracts with minimized counterparty reliance. It is designed to be the most decentralized synthetic Bitcoin in DeFi and offers the ability for anyone in the world to borrow BTC at no cost.",
+    bridge: 'native',
+    documentation: 'https://docs.ebtc.finance/ebtc',
+  },
   'USD0++': {
     name: 'USD0 Liquid Bond',
     symbol: 'USD0++',

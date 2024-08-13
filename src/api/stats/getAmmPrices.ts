@@ -640,6 +640,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'helio-protocol-hay': ['lisUSD'],
   'usual-usd': ['USD0'],
   'usd0-liquid-bond': ['USD0++'],
+  'badger-dao': ['BADGER'],
+  'overnight-finance': ['oOVN'],
   'dinero-staked-eth': ['pxETH'],
 };
 

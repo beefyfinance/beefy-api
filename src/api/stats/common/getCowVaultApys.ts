@@ -16,6 +16,7 @@ import { getCowProviderForClm } from '../../cowcentrated/providers';
 import { getCampaignsForChain } from '../../offchain-rewards';
 import { Campaign } from '../../offchain-rewards/types';
 import { OptionalRecord } from '../../../utils/object';
+import { envBoolean } from '../../../utils/env';
 
 type OffchainVaultApr = {
   total: number;
@@ -28,13 +29,17 @@ type RewardPoolApr = {
   total: number;
 };
 
+const THROW_ON_EMPTY_COW_META: boolean = envBoolean('THROW_ON_EMPTY_COW_META', true);
+
 /**
  * Base CLMs + Reward Pools
  */
 export const getCowApys = async (apiChain: ApiChain) => {
   const clms = getCowVaultsMeta(apiChain);
   if (!clms.length) {
-    throw new Error(`No clms found for ${apiChain}`);
+    if (THROW_ON_EMPTY_COW_META) {
+      throw new Error(`No clms found for ${apiChain}`);
+    } else return {};
   }
 
   const offchainCampaignsByVault = await getOffchainCampaignsByVault(apiChain);

@@ -1,5 +1,30 @@
 [
   {
+    "name": "curve-ebtc-tbtc",
+    "pool": "0x272bf7e4ce3308b1fb5e54d6a1fc32113619c401",
+    "gauge": "0x48727018d010dc2e414c5a14d588385ae112869e",
+    "rewardPool": "0xDbd17Dc03a442D4349de988533737db3fBb5eC39",
+    "getDy": ["v1", 0, 1],
+    "extras": [
+      {
+        "rewardPool": "0x129583e1a5E9c2C1b3afD086970811aF736fc17e",
+        "oracleId": "BADGER"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "eBTC",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "tBTC",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-thusd-crvusd",
     "pool": "0x9e641187391b7a5fe9ee193359408ca3894f68a2",
     "gauge": "0x5c5db6cc20cd2ee600647fc48c1684c7049cdb7c",
