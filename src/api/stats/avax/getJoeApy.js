@@ -1,10 +1,10 @@
-const BigNumber = require('bignumber.js');
+import { sjoeClient } from '../../../apollo/client';
 import { fetchPrice } from '../../../utils/fetchPrice';
+const BigNumber = require('bignumber.js');
 const pool = require('../../../data/avax/joePool.json');
 const { DAILY_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
-const { getYearlyTradingFeesForSJOE } = require('../../../utils/getTradingFeeApr');
-const { joeClient } = require('../../../apollo/client');
+const { getYearlyRemittedUsdForSJOE } = require('../../../utils/getTradingFeeApr');
 const { getTotalPerformanceFeeForVault } = require('../../vaults/getVaultFees');
 const { default: StableJoeStaking } = require('../../../abis/avax/StableJoeStaking');
 const { fetchContract } = require('../../rpc/client');
@@ -19,9 +19,9 @@ const getJoeApy = async () => {
   const joePrice = await fetchPrice({ oracle, id: JOE });
 
   const rewardPool = fetchContract(pool.rewardPool, StableJoeStaking, AVAX_CHAIN_ID);
-  const [totalStaked, tradingAprs] = await Promise.all([
+  const [totalStaked, yearlyRemittedUsd] = await Promise.all([
     rewardPool.read.internalJoeBalance().then(v => new BigNumber(v.toString())),
-    getYearlyTradingFeesForSJOE(joeClient, liquidityProviderFee),
+    getYearlyRemittedUsdForSJOE(sjoeClient),
   ]);
 
   const totalStakedInUsd = totalStaked.times(joePrice).dividedBy(joeDecimals);
@@ -29,7 +29,7 @@ const getJoeApy = async () => {
   const beefyPerformanceFee = getTotalPerformanceFeeForVault(pool.name);
   const shareAfterBeefyPerformanceFee = 1 - beefyPerformanceFee;
 
-  const simpleApr = tradingAprs.dividedBy(totalStakedInUsd);
+  const simpleApr = yearlyRemittedUsd.dividedBy(totalStakedInUsd);
   const vaultApr = simpleApr.times(shareAfterBeefyPerformanceFee);
   const vaultApy = compound(simpleApr, DAILY_HPY, 1, shareAfterBeefyPerformanceFee);
   const apys = { [pool.name]: vaultApy };
