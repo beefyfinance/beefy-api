@@ -149,7 +149,7 @@ export const tokens = {
   },
   WELL: {
     name: 'WELL',
-    symbol: 'WELL',
+    symbol: 'WELL.wh',
     oracleId: 'WELL',
     address: '0xFF8adeC2221f9f4D8dfbAFa6B9a297d17603493D',
     chainId: 8453,
