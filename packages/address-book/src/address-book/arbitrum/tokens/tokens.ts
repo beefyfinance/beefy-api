@@ -2154,4 +2154,18 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  dUSDC: {
+    name: 'Dolomite: USDC',
+    symbol: 'dUSDC',
+    oracleId: 'dUSDC',
+    address: '0x6DBd962b4f62D18F756b5DE57425574c4B8228D6',
+    chainId: 42161,
+    decimals: 6,
+    logoURI: '',
+    website: 'https://dolomite.io/',
+    documentation: 'https://docs.dolomite.io/',
+    description:
+      'dUSDC is a tokenized representation of USDC on the Dolomite platform. Dolomite is a lending market that allow users to deposit tokens to earn interest or as collateral to borrow other tokens.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
