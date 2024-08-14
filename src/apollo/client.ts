@@ -1,6 +1,7 @@
 import { createHttpLink } from 'apollo-link-http';
 import {
   ApolloClient,
+  ApolloError,
   ApolloLink,
   InMemoryCache,
   NormalizedCacheObject,
@@ -28,14 +29,41 @@ export function client(url: string) {
   });
 }
 
+function throwIfQueriedClient(url: string) {
+  const mockedQueryFn = async (options: any) => {
+    throw new ApolloError({
+      clientErrors: [new Error(`Can not query as THE_GRAPH_API_KEY env is missing`)],
+      extraInfo: { url, options },
+    });
+  };
+
+  return new Proxy(client(url), {
+    get(target: ApolloClient<NormalizedCacheObject>, p: string | symbol, receiver: any): any {
+      if (p === 'query') {
+        return mockedQueryFn;
+      }
+      return Reflect.get(target, p, receiver);
+    },
+  });
+}
+
 export function theGraphClient(
   subgraphId: string,
   baseUrl: string = 'https://gateway-arbitrum.network.thegraph.com/api'
 ) {
-  if (!THE_GRAPH_API_KEY) {
-    throw new Error('THE_GRAPH_API_KEY env is required');
+  const url = `${baseUrl}/${
+    THE_GRAPH_API_KEY || '${THE_GRAPH_API_KEY}'
+  }/subgraphs/id/${subgraphId}`;
+
+  if (THE_GRAPH_API_KEY) {
+    return client(url);
   }
-  return client(`${baseUrl}/${THE_GRAPH_API_KEY}/subgraphs/id/${subgraphId}`);
+
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error(`THE_GRAPH_API_KEY env is required for ${url}`);
+  }
+
+  return throwIfQueriedClient(url);
 }
 
 export const apePolyClient = client(
