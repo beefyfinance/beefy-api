@@ -1,8 +1,9 @@
 const { getCurveApys } = require('./getCurveApys');
 const { getConvexApys } = require('./getConvexApys');
+const { getConvexCvxFxsApys } = require('./getConvexCvxFxsApys');
 const getRaApys = require('./getRaApys');
 
-const getApys = [getCurveApys, getConvexApys, getRaApys];
+const getApys = [getCurveApys, getConvexApys, getConvexCvxFxsApys, getRaApys];
 
 const getFraxtalApys = async () => {
   const start = Date.now();
