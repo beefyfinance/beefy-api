@@ -363,8 +363,7 @@ export const getYearlyRemittedUsdForSJOE = async (
     const totalVolume = BigNumber.sum(...dayData);
     yearlyRemittedUsd = totalVolume.dividedBy(numDays).times(365);
   } catch (e) {
-
-    console.error('> getYearlyRemittedUsdForSJOE error');
+    // console.error('> getYearlyRemittedUsdForSJOE error');
   }
 
   return yearlyRemittedUsd;

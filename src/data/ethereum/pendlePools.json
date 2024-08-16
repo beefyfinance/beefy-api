@@ -1,5 +1,14 @@
 [
   {
+    "name": "pendle-weeths-26dec24",
+    "address": "0x40789e8536c668c6a249af61c81b9dfac3eb8f32",
+    "oracle": "tokens",
+    "oracleId": "ETH",
+    "decimals": "1e18",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-usd0-31oct24",
     "address": "0x00b321d89a8c36b3929f20b7955080baed706d1b",
     "oracle": "tokens",
