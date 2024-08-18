@@ -260,6 +260,16 @@ const tokens: Partial<Record<keyof typeof ChainId, ConcentratedLiquidityToken[]>
       secondToken: 'MORE',
     },
   ],
+  optimism: [
+    {
+      type: 'UniV3',
+      oracleId: 'uniBTC',
+      decimalDelta: 1,
+      pool: '0xa5B6d588CEb3aA1BF543d095038479188f884690',
+      firstToken: 'uniBTC',
+      secondToken: 'WBTC',
+    },
+  ],
 };
 
 async function getConcentratedLiquidityPrices(

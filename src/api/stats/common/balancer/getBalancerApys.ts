@@ -8,7 +8,6 @@ import BigNumber from 'bignumber.js';
 import { getTradingFeeAprBalancer } from '../../../../utils/getTradingFeeApr';
 import { fetchPrice } from '../../../../utils/fetchPrice';
 import { fetchContract } from '../../../rpc/client';
-import { isNumber } from 'lodash';
 
 interface Token {
   newGauge?: boolean;
@@ -44,6 +43,7 @@ interface Pool {
   bbPoolId?: string;
   bbIndex?: number;
   composableSplit?: boolean;
+  merkl?: boolean;
 }
 
 interface BalancerParams {
@@ -66,6 +66,11 @@ interface FarmApy {
   aprFixed: number;
   composableApr: number;
 }
+
+type MerklValue = {
+  dailyrewards: number;
+  tvl: number;
+};
 
 const liquidityProviderFee = 0.0025;
 const RAY_DECIMALS = '1e27';
@@ -117,12 +122,35 @@ const getPoolApy = async (
   tokenQtys: BigNumber[]
 ): Promise<FarmApy> => {
   if (pool.status === 'eol') return { rewardsApy: new BigNumber(0), aprFixed: 0, composableApr: 0 };
+  let rewardsApy: BigNumber = new BigNumber(0);
+  if (pool.merkl) {
+    let poolAprs = {};
+    let chainId = params.chainId;
+    let merklApi = `https://api.angle.money/v3/opportunity?chainId=${chainId}`;
+    try {
+      poolAprs = await fetch(merklApi).then(res => res.json());
+    } catch (e) {
+      console.error(`Failed to fetch Merkl APRs: ${chainId}`);
+    }
+
+    let merklPools = poolAprs;
+    if (Object.keys(merklPools).length !== 0) {
+      for (const [key, value] of Object.entries(merklPools)) {
+        const typedValue = value as MerklValue;
+        if (key.toLowerCase() === `1_${pool.address.toLowerCase()}`) {
+          rewardsApy = new BigNumber((typedValue.dailyrewards * 365) / typedValue.tvl);
+        }
+      }
+    }
+    return { rewardsApy, aprFixed: 0, composableApr: 0 };
+  }
+
   const [yearlyRewardsInUsd, totalStakedInUsd] = await Promise.all([
     getYearlyRewardsInUsd(params.chainId, pool),
     getTotalStakedInUsd(params.chainId, pool),
   ]);
 
-  let rewardsApy: BigNumber = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
+  rewardsApy = yearlyRewardsInUsd.dividedBy(totalStakedInUsd);
   let aprFixed: number = 0;
 
   if (pool.lsUrl) {

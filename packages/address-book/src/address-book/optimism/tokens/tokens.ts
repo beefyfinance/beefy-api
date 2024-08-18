@@ -1617,4 +1617,19 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  uniBTC: {
+    name: 'Universal BTC',
+    symbol: 'uniBTC',
+    oracleId: 'uniBTC',
+    address: '0x552b0C6688FCaE5cF0164F27Fd129b882a42fA05',
+    chainId: 10,
+    decimals: 8,
+    logoURI: '',
+    website: 'https://app.bedrock.technology/unibtc',
+    description:
+      'A brand new restaking protocol that accept wrapped BTC tokens partnership with the BTC staking protocol Babylon chain, the first supported wrapped BTC is wBTC token on Ethereum blockchain, so all the wBTC token holders will enjoy both yield on staking BTC tokens plus the security of Ethereum network.',
+    bridge: 'native',
+    documentation: 'https://docs.bedrock.technology/multi-asset-liquid-staking/unibtc/introduction',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
