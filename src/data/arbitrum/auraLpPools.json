@@ -8,12 +8,12 @@
     "decimals": "1e18",
     "rewards": [
       {
-        "rewardGauge": "0x890Da114Eb6599696fa0FCFD915F580f49f60ED5",
+        "rewardGauge": "0xdf321942D146091c29e3f63F002b5845DF15A79B",
         "oracleId": "AURA",
         "decimals": "1e18"
       },
       {
-        "rewardGauge": "0x84415436D2a22d79CdD408ca27582823483B69f5",
+        "rewardGauge": "0xaF32FDE5c158280045c01c668984fC9a718C3133",
         "oracleId": "ARB",
         "decimals": "1e18"
       }
