@@ -1,5 +1,35 @@
 [
   {
+    "address": "0xfEA50261819Dc00278F9C4b18B6Cf146a830bCEd",
+    "lpAddress": "0x6B67112aa7b45E8CdC0a93B8D66A6A36e68ae8e5",
+    "tokens": [
+      "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+    ],
+    "tokenOracleIds": ["BTCB", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "thena-cow-btcb-wbnb",
+    "rewardPool": {
+      "address": "0xB74Bce6b35410058d2F35E544507e98CD93a1cD6",
+      "oracleId": "thena-cow-btcb-wbnb-rp"
+    }
+  },
+  {
+    "address": "0xd5E1cB0Da9b44E4020557c49Bd084a0147Ac828b",
+    "lpAddress": "0x1123E75b71019962CD4d21b0F3018a6412eDb63C",
+    "tokens": [
+      "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+    ],
+    "tokenOracleIds": ["ETH", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "thena-cow-eth-wbnb",
+    "rewardPool": {
+      "address": "0xD9371a7C96fC87Ba869c3f860096a9f98970c7e8",
+      "oracleId": "thena-cow-eth-wbnb-rp"
+    }
+  },
+  {
     "address": "0x0baD27b4a100E660257BFF942D64eC8cA3018Cec",
     "lpAddress": "0x1B932598da273069e1878E4a1505b6f833462210",
     "tokens": [
