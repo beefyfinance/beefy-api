@@ -1,5 +1,20 @@
 [
   {
+    "address": "0x0baD27b4a100E660257BFF942D64eC8cA3018Cec",
+    "lpAddress": "0x1B932598da273069e1878E4a1505b6f833462210",
+    "tokens": [
+      "0x570A5D26f7765Ecb712C0924E4De545B89fD43dF",
+      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+    ],
+    "tokenOracleIds": ["SOL", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "thena-cow-sol-wbnb",
+    "rewardPool": {
+      "address": "0x5B59b701153b2d997870dA2Dc764Affc0dA7443A",
+      "oracleId": "thena-cow-sol-wbnb-rp"
+    }
+  },
+  {
     "address": "0x6A776b745745E39f55E996fCD1aa30ba99552BE0",
     "lpAddress": "0x85FAac652b707FDf6907EF726751087F9E0b6687",
     "tokens": [
