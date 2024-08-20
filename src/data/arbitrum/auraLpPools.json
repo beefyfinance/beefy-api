@@ -1,5 +1,125 @@
 [
   {
+    "name": "aura-arb-ausdc-gho",
+    "address": "0x46472CBA35E6800012aA9fcC7939Ff07478C473E",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xe48D1173EE577c1daE45C9CD2D29BD3DfaF02BD6",
+    "vaultPoolId": "0x46472cba35e6800012aa9fcc7939ff07478c473e00020000000000000000056c",
+    "lsIndex": [0],
+    "lsUrl": [
+      "https://api.balancer.fi/pools/42161/0x46472cba35e6800012aa9fcc7939ff07478c473e00020000000000000000056c"
+    ],
+    "dataPath": ["$.apr.tokenAprs.breakdown['0x7cfadfd5645b50be87d546f42699d863648251ad']"],
+    "lsAprFactor": [1],
+    "divisor": [10000],
+    "balancerApi": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xDfb793eE33AF74ad17E86B337b5996e75bf16cfd",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xB3e539e7821448Fd831FecC13d59bE6043d6e601",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "stataArbUSDCn",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-arb-ausdc-gyd",
+    "address": "0x6e822c64c00393b2078f2a5BB75c575aB505B55c",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x78118Bc631b0eb2FB6A350f12e0334535783e49F",
+    "vaultPoolId": "0x6e822c64c00393b2078f2a5bb75c575ab505b55c000200000000000000000548",
+    "lsIndex": [0],
+    "lsUrl": [
+      "https://api.balancer.fi/pools/42161/0x6e822c64c00393b2078f2a5bb75c575ab505b55c000200000000000000000548"
+    ],
+    "dataPath": ["$.apr.tokenAprs.breakdown['0x7cfadfd5645b50be87d546f42699d863648251ad']"],
+    "lsAprFactor": [1],
+    "divisor": [10000],
+    "balancerApi": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xaa188d5daDC1B925fC0C67d20aa12743502617c5",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x515aD33837Da01B64E054AB17De1F601dF202c06",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "stataArbUSDCn",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GYD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-arb-ausdt-gyd",
+    "address": "0x7272163A931DaC5BBe1CB5feFaF959BB65F7346F",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x66EeE72121E64Cd5fb67B306087511ca20B1956E",
+    "vaultPoolId": "0x7272163a931dac5bbe1cb5fefaf959bb65f7346f000200000000000000000549",
+    "lsIndex": [0],
+    "lsUrl": [
+      "https://api.balancer.fi/pools/42161/0x7272163a931dac5bbe1cb5fefaf959bb65f7346f000200000000000000000549"
+    ],
+    "dataPath": ["$.apr.tokenAprs.breakdown['0xb165a74407fe1e519d6bcbdec1ed3202b35a4140']"],
+    "lsAprFactor": [1],
+    "divisor": [10000],
+    "balancerApi": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x102654A08c9B9CA3c5D88AF60A3BEc323Ef4F1bE",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x2356C74a8DAA4d9671a8471713494150A24E4aA6",
+        "oracleId": "ARB",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "stataArbUSDTn",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GYD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "aura-arb-wusdm-gyd",
     "address": "0x315dd595e82bDc0c194f3A38A08fDE480D7E5d21",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -20,12 +140,12 @@
     ],
     "tokens": [
       {
-        "address": "0x57F5E098CaD7A3D1Eed53991D4d66C45C9AF7812",
+        "oracle": "tokens",
         "oracleId": "arbwUSDM",
         "decimals": "1e18"
       },
       {
-        "address": "0xCA5d8F8a8d49439357d3CF46Ca2e720702F132b8",
+        "oracle": "tokens",
         "oracleId": "GYD",
         "decimals": "1e18"
       }
@@ -193,126 +313,6 @@
       },
       {
         "oracleId": "BPTToken"
-      }
-    ]
-  },
-  {
-    "name": "aura-arb-gyro-ausdc-gho",
-    "address": "0x46472CBA35E6800012aA9fcC7939Ff07478C473E",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x78118Bc631b0eb2FB6A350f12e0334535783e49F",
-    "vaultPoolId": "0x46472cba35e6800012aa9fcc7939ff07478c473e00020000000000000000056c",
-    "lsIndex": [0],
-    "lsUrl": [
-      "https://api.balancer.fi/pools/42161/0x46472cba35e6800012aa9fcc7939ff07478c473e00020000000000000000056c"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0x7cfadfd5645b50be87d546f42699d863648251ad']"],
-    "lsAprFactor": [1],
-    "divisor": [10000],
-    "balancerApi": true,
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "rewardGauge": "0xDfb793eE33AF74ad17E86B337b5996e75bf16cfd",
-        "oracleId": "AURA",
-        "decimals": "1e18"
-      },
-      {
-        "rewardGauge": "0xB3e539e7821448Fd831FecC13d59bE6043d6e601",
-        "oracleId": "ARB",
-        "decimals": "1e18"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "stataArbUSDCn",
-        "decimals": "1e6"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "GHO",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "aura-arb-gyro-ausdt-gyd",
-    "address": "0x7272163A931DaC5BBe1CB5feFaF959BB65F7346F",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x66EeE72121E64Cd5fb67B306087511ca20B1956E",
-    "vaultPoolId": "0x7272163a931dac5bbe1cb5fefaf959bb65f7346f000200000000000000000549",
-    "lsIndex": [0],
-    "lsUrl": [
-      "https://api.balancer.fi/pools/42161/0x7272163a931dac5bbe1cb5fefaf959bb65f7346f000200000000000000000549"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0xb165a74407fE1e519d6bCbDeC1Ed3202B35a4140']"],
-    "lsAprFactor": [1],
-    "divisor": [10000],
-    "balancerApi": true,
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "rewardGauge": "0x102654A08c9B9CA3c5D88AF60A3BEc323Ef4F1bE",
-        "oracleId": "AURA",
-        "decimals": "1e18"
-      },
-      {
-        "rewardGauge": "0x2356C74a8DAA4d9671a8471713494150A24E4aA6",
-        "oracleId": "ARB",
-        "decimals": "1e18"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "stataArbUSDTn",
-        "decimals": "1e6"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "GYD",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "aura-arb-gyro-ausdc-gyd",
-    "address": "0x6e822c64c00393b2078f2a5BB75c575aB505B55c",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x78118Bc631b0eb2FB6A350f12e0334535783e49F",
-    "vaultPoolId": "0x6e822c64c00393b2078f2a5bb75c575ab505b55c000200000000000000000548",
-    "lsIndex": [0],
-    "lsUrl": [
-      "https://api.balancer.fi/pools/42161/0x6e822c64c00393b2078f2a5bb75c575ab505b55c000200000000000000000548"
-    ],
-    "dataPath": ["$.apr.tokenAprs.breakdown['0x7cfadfd5645b50be87d546f42699d863648251ad']"],
-    "lsAprFactor": [1],
-    "divisor": [10000],
-    "balancerApi": true,
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "rewardGauge": "0xaa188d5daDC1B925fC0C67d20aa12743502617c5",
-        "oracleId": "AURA",
-        "decimals": "1e18"
-      },
-      {
-        "rewardGauge": "0x515aD33837Da01B64E054AB17De1F601dF202c06",
-        "oracleId": "ARB",
-        "decimals": "1e18"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "stataArbUSDCn",
-        "decimals": "1e6"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "GYD",
-        "decimals": "1e18"
       }
     ]
   },
