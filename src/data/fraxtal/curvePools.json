@@ -1,5 +1,99 @@
 [
   {
+    "name": "curve-fraxtal-trifxb",
+    "pool": "0x2421176aea0def263805a9c87f6c9d10147b8a93",
+    "gauge": "0xbd4af2a6510b988878805956e5111839e55de069",
+    "convex": true,
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FXB_20251231",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "FXB_20261231",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "FXB_20291231",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-fraxtal-fxb_20291231",
+    "pool": "0xee454138083b9b9714cac3c7cf12560248d76d6b",
+    "gauge": "0x48100238c4a3cf44cfbf6c7693ed5c216881face",
+    "convex": true,
+    "getDy": ["v1", 1, 0],
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "FXB_20291231",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-fraxtal-fxb_20551231",
+    "pool": "0x4cfc391d75c43cf1bdb368e8bf680aed1228df39",
+    "gauge": "0x7ba1e40dae22847e6c521ba297d40ff1c5fd97dd",
+    "convex": true,
+    "getDy": ["v1", 1, 0],
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "FXB_20551231",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "curve-fraxtal-fxb_20251231",
+    "pool": "0x63d64a76c2d616676cbac3068d3c6548f8485314",
+    "gauge": "0xaa45cd0b2d22df00832ae70d9db8ebadab176a60",
+    "getDy": ["v1", 1, 0],
+    "rewards": [
+      {
+        "token": "0xFc00000000000000000000000000000000000002",
+        "oracleId": "FXS"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "FRAX",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "FXB_20251231",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
     "name": "curve-fraxtal-frax-usde",
     "pool": "0x1e199dbe1f7aa237282fe941d5bcc3b167c8ce48",
     "gauge": "0x86a79cee2734e5357ff6b5495c4a30915921223a",
