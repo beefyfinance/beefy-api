@@ -2136,4 +2136,33 @@ export const tokens = {
     documentation:
       'https://gitbook.usual.money/usual-mechanisms/liquid-bond-token-lbt/usd0-liquid-bond',
   },
+  pxETH: {
+    name: 'Pirex Ether',
+    symbol: 'pxETH',
+    oracleId: 'pxETH',
+    address: '0x04C154b66CB340F3Ae24111CC767e0184Ed00Cc6',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://dinero.xyz/',
+    documentation: 'https://dinero.xyz/docs',
+    description:
+      'pxETH is an Ethereum liquid staking solution that forms the foundation of the Dinero protocol.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
+  sDOLA: {
+    name: 'Staked Dola',
+    symbol: 'sDOLA',
+    oracleId: 'sDOLA',
+    address: '0xb45ad160634c528Cc3D2926d9807104FA3157305',
+    chainId: 1,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://www.inverse.finance/',
+    documentation:
+      'https://docs.inverse.finance/inverse-finance/inverse-finance/product-guide/dola-feds',
+    description: 'Staked Dola from Inverse Finance.',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

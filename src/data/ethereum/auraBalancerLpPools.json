@@ -1,5 +1,350 @@
 [
   {
+    "name": "aura-dola-sdola",
+    "address": "0x264062CA46A1322c2E6464471764089E01F22F19",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xA36d3799eA28f4B75653EBF9D91DDA4519578086",
+    "vaultPoolId": "0x264062ca46a1322c2e6464471764089e01f22f1900000000000000000000066b",
+    "composable": true,
+    "bptIndex": 0,
+    "lsUrl": [
+      "https://api.balancer.fi/pools/1/0x264062ca46a1322c2e6464471764089e01f22f1900000000000000000000066b"
+    ],
+    "dataPath": ["$.apr.tokenAprs.breakdown['0xb45ad160634c528cc3d2926d9807104fa3157305']"],
+    "lsIndex": [0],
+    "divisor": [10000],
+    "useBalancerLsApr": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xd2d3724D43005dB38aBFc81fba937428790C65Cd",
+        "oracleId": "INV",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xEa7d7Fe024ADecB2F714a78524F42730Ee393482",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "DOLA",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "sDOLA",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-gyro-gho-usdc",
+    "address": "0x3932b187f440cE7703653b3908EDc5bB7676C283",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x6b89Ab92499bF872e53AA92106B8Fb7989496A40",
+    "vaultPoolId": "0x3932b187f440ce7703653b3908edc5bb7676c283000200000000000000000664",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xa99261CbA3e33322AD85b9F7c39A4F5306D0a8A9",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ]
+  },
+  {
+    "name": "aura-gyro-gyd-gho",
+    "address": "0xaA7a70070E7495fe86c67225329DbD39BAa2F63b",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x0d117d31E72b340bCfD39058859313F9d54b2095",
+    "vaultPoolId": "0xaa7a70070e7495fe86c67225329dbd39baa2f63b000200000000000000000663",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x4E94f33a15C93c52aE7cC365F93DBA5cADdFEB1E",
+        "oracleId": "GYD",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xCC16aC91077223dEF6F9c9FC4364Fc31c4e161e3",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "GHO",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GYD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-gyro-gyd-sdai",
+    "address": "0x1CCE5169bDe03f3d5aD0206f6BD057953539DAE6",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x2C0D60f986cDe7eE59489055aa22A8E49b6825aD",
+    "vaultPoolId": "0x1cce5169bde03f3d5ad0206f6bd057953539dae600020000000000000000062b",
+    "lsUrl": [
+      "https://api.balancer.fi/pools/1/0x1cce5169bde03f3d5ad0206f6bd057953539dae600020000000000000000062b"
+    ],
+    "dataPath": ["$.apr.tokenAprs.breakdown['0x83f20f44975d03b1b09e64809b757c47f942beea']"],
+    "lsIndex": [0],
+    "divisor": [10000],
+    "useBalancerLsApr": true,
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0xa8EAA1702E07Dc9224Ec2c563838f406652382D9",
+        "oracleId": "GYD",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x302a95e07809FB4b8d254E33c86e4CB3f8bDc1D6",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GYD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-gyro-gyd-usdc",
+    "address": "0xC2AA60465BfFa1A88f5bA471a59cA0435c3ec5c1",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xE9096FDB508C0160318c11425Ba75924ecFA1D82",
+    "vaultPoolId": "0xc2aa60465bffa1a88f5ba471a59ca0435c3ec5c100020000000000000000062c",
+    "decimals": "1e18",
+    "rewards": [
+      {
+        "rewardGauge": "0x5220E7A1BC2209F67aad8a6CD595fBfC62349fc9",
+        "oracleId": "GYD",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x4c311b08d8D4bFcE73FEf17921dB3b20F1DEB2D8",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "GYD",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-pxeth-weth",
+    "address": "0x88794C65550DeB6b4087B7552eCf295113794410",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x570eA5C8A528E3495EE9883910012BeD598E8814",
+    "vaultPoolId": "0x88794c65550deb6b4087b7552ecf295113794410000000000000000000000648",
+    "decimals": "1e18",
+    "composable": true,
+    "bptIndex": 1,
+    "lsUrl": [
+      "https://api.balancer.fi/pools/1/0x88794c65550deb6b4087b7552ecf295113794410000000000000000000000648"
+    ],
+    "dataPath": ["$.apr.tokenAprs.breakdown['0x6df0e641fc9847c0c6fde39be6253045440c14d3']"],
+    "lsIndex": [0],
+    "divisor": [10000],
+    "useBalancerLsApr": true,
+    "rewards": [
+      {
+        "rewardGauge": "0xcb554b9c16bDb5e5FC421b6477cB42FAc20e72b9",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0xF04017e778CEcfC06563d64f885Ac9295e1a1A55",
+        "oracleId": "DINERO",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "pxETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-rseth-weth",
+    "address": "0x58AAdFB1Afac0ad7fca1148f3cdE6aEDF5236B6D",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0xB5FdB4f75C26798A62302ee4959E4281667557E0",
+    "vaultPoolId": "0x58aadfb1afac0ad7fca1148f3cde6aedf5236b6d00000000000000000000067f",
+    "decimals": "1e18",
+    "composable": true,
+    "bptIndex": 0,
+    "lsUrl": [
+      "https://api.balancer.fi/pools/1/0x58aadfb1afac0ad7fca1148f3cde6aedf5236b6d00000000000000000000067f"
+    ],
+    "dataPath": ["$.apr.tokenAprs.breakdown['0xa1290d69c65a6fe4df752f95823fae25cb99e5a7']"],
+    "lsIndex": [0],
+    "divisor": [10000],
+    "useBalancerLsApr": true,
+    "rewards": [
+      {
+        "rewardGauge": "0x37602cA3a3d86054F1Eb94483b25c23B6deEa88c",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x7Adb7DF8f5169245aDF0fF9e499DdFB8e2814d64",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      }
+    ],
+    "tokens": [
+      {
+        "oracleId": "bptToken"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "rsETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WETH",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "aura-susde-usdc",
+    "address": "0xb819feeF8F0fcDC268AfE14162983A69f6BF179E",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x4B87DCFF2F45535775a9564229119dca5e697A10",
+    "vaultPoolId": "0xb819feef8f0fcdc268afe14162983a69f6bf179e000000000000000000000689",
+    "decimals": "1e18",
+    "composable": true,
+    "bptIndex": 2,
+    "lsUrl": [
+      "https://api.balancer.fi/pools/1/0xb819feef8f0fcdc268afe14162983a69f6bf179e000000000000000000000689"
+    ],
+    "dataPath": ["$.apr.tokenAprs.breakdown['0x9d39a5de30e57443bff2a8307a4256c8797a3497']"],
+    "lsIndex": [0],
+    "divisor": [10000],
+    "useBalancerLsApr": true,
+    "rewards": [
+      {
+        "rewardGauge": "0x290e5a1c54e09097769e0cFd55ba61B604f627db",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "sUSDe",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "USDC",
+        "decimals": "1e6"
+      },
+      {
+        "oracleId": "bptToken"
+      }
+    ]
+  },
+  {
+    "name": "aura-shezusd-sdai",
+    "address": "0xEd0DF9Cd16D806E8A523805e53cf0c56E6dB4D1d",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x5153DD9B05ac642e387c87a12C89E97Fe1bE6860",
+    "vaultPoolId": "0xed0df9cd16d806e8a523805e53cf0c56e6db4d1d000000000000000000000687",
+    "decimals": "1e18",
+    "composable": true,
+    "bptIndex": 2,
+    "lsUrl": [
+      "https://api.balancer.fi/pools/1/0xed0df9cd16d806e8a523805e53cf0c56e6db4d1d000000000000000000000687"
+    ],
+    "dataPath": ["$.apr.tokenAprs.breakdown['0x83f20f44975d03b1b09e64809b757c47f942beea']"],
+    "lsIndex": [0],
+    "divisor": [10000],
+    "useBalancerLsApr": true,
+    "rewards": [
+      {
+        "rewardGauge": "0xef79a535c05EDBce1fC0119540d03dc04126A942",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x70d53f91EC3BBeACaf26fE40920502679317895F",
+        "oracleId": "SHEZMU",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "sDAI",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "ShezUSD",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      }
+    ]
+  },
+  {
     "name": "aura-weeth-ezeth-rseth",
     "address": "0x848a5564158d84b8A8fb68ab5D004Fae11619A54",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
