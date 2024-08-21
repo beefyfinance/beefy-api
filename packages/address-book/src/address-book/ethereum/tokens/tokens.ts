@@ -2009,6 +2009,21 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
+  agETH: {
+    chainId: 1,
+    address: '0xe1B4d34E8754600962Cd944B535180Bd758E6c2e',
+    decimals: 18,
+    name: 'Kelp Gain',
+    symbol: 'agETH',
+    oracleId: 'agETH',
+    logoURI: '',
+    website: 'https://kelpdao.xyz/gain/airdrop-gain/',
+    documentation: 'https://kelp.gitbook.io/kelp/kelp-gain',
+    description:
+      'The Kelp Airdrop Gain vault is designed to maximize airdrops through a dual strategy: Earning Layer 2 (L2) airdrops and accessing mainnet DeFi opportunities. The vault takes rsETH and other ETH assets as deposit and deploys these tokens to various yield and points farm (Linea, Scroll, Karak, Eigenlayer, etc). agETH is used as the receipt token for this vault.',
+    bridge: 'native',
+    risks: ['NO_TIMELOCK'],
+  },
   ZRO: {
     name: 'LayerZero',
     symbol: 'ZRO',
