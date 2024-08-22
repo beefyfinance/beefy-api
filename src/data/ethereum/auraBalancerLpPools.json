@@ -301,6 +301,50 @@
     ]
   },
   {
+    "name": "aura-shezeth-wsteth",
+    "address": "0xDb1f2e1655477d08FB0992f82EEDe0053B8Cd382",
+    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
+    "gauge": "0x747eF4e13cB71264897af2D69855f56b771b42ce",
+    "vaultPoolId": "0xdb1f2e1655477d08fb0992f82eede0053b8cd3820000000000000000000006ae",
+    "decimals": "1e18",
+    "composable": true,
+    "bptIndex": 2,
+    "lsUrl": [
+      "https://api.balancer.fi/pools/1/0xdb1f2e1655477d08fb0992f82eede0053b8cd3820000000000000000000006ae"
+    ],
+    "dataPath": ["$.apr.tokenAprs.breakdown['0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0']"],
+    "lsIndex": [1],
+    "divisor": [10000],
+    "useBalancerLsApr": true,
+    "rewards": [
+      {
+        "rewardGauge": "0xC5f74cC88D183d2Ce977797D54a7CF075264ABC0",
+        "oracleId": "AURA",
+        "decimals": "1e18"
+      },
+      {
+        "rewardGauge": "0x33B6F3c5e8fEdF3ae704f742dCF5d27203F90Ffb",
+        "oracleId": "SHEZMU",
+        "decimals": "1e18"
+      }
+    ],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "ShezETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "wstETH",
+        "decimals": "1e18"
+      },
+      {
+        "oracleId": "bptToken"
+      }
+    ]
+  },
+  {
     "name": "aura-shezusd-sdai",
     "address": "0xEd0DF9Cd16D806E8A523805e53cf0c56E6dB4D1d",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
