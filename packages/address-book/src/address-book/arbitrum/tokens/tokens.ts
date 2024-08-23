@@ -2009,7 +2009,7 @@ export const tokens = {
   ETHx: {
     name: 'ETHx',
     symbol: 'ETHx',
-    oracleId: 'ETHx',
+    oracleId: 'arbETHx',
     address: '0xED65C5085a18Fa160Af0313E60dcc7905E944Dc7',
     chainId: 42161,
     decimals: 18,

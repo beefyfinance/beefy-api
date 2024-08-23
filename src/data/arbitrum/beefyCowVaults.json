@@ -101,7 +101,7 @@
       "0x4186BFC76E2E237523CBC30FD220FE055156b41F",
       "0xED65C5085a18Fa160Af0313E60dcc7905E944Dc7"
     ],
-    "tokenOracleIds": ["rsETH", "ETHx"],
+    "tokenOracleIds": ["rsETH", "arbETHx"],
     "decimals": [18, 18],
     "oracleId": "ramses-cl-rseth-ethx",
     "providerId": "ramses",
@@ -474,7 +474,7 @@
       "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
       "0xED65C5085a18Fa160Af0313E60dcc7905E944Dc7"
     ],
-    "tokenOracleIds": ["WETH", "ETHx"],
+    "tokenOracleIds": ["WETH", "arbETHx"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-arb-weth-ethx",
     "providerId": "pancakeswap",
