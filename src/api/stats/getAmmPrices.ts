@@ -643,6 +643,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'badger-dao': ['BADGER'],
   'overnight-finance': ['oOVN'],
   'dinero-staked-eth': ['pxETH'],
+  'based-pepe': ['basePEPE'],
 };
 
 /**

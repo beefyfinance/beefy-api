@@ -1268,4 +1268,17 @@ export const tokens = {
     website: 'https://www.circle.com/en/eurc',
     bridge: 'native',
   },
+  PEPE: {
+    name: 'BasedPepe',
+    symbol: 'PEPE',
+    oracleId: 'basePEPE',
+    address: '0x52b492a33E447Cdb854c7FC19F1e57E8BfA1777D',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'Based Pepe was launched quietly with no presale, zero taxes, locked LP, and a renounced contract – ensuring it remains a token for the people, forever. Meme coin on Base.',
+    website: 'https://basedpepe.vip/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
