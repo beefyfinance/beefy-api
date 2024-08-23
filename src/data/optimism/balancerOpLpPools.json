@@ -1,37 +1,5 @@
 [
   {
-    "name": "beets-bedrock-n-roll",
-    "address": "0x408e11EC9B1751c3d00589b61caE484e07FB9e44",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x7b561BacfC637319685fa9a2EffA562625815e2f",
-    "vaultPoolId": "0x408e11ec9b1751c3d00589b61cae484e07fb9e44000000000000000000000141",
-    "composable": true,
-    "bptIndex": 0,
-    "decimals": "1e18",
-    "rewards": [],
-    "merkl": true,
-    "tokens": [
-      {
-        "oracleId": "BPTToken"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "OP",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "WBTC",
-        "decimals": "1e8"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "uniBTC",
-        "decimals": "1e8"
-      }
-    ]
-  },
-  {
     "name": "beets-all-you-need-is-love",
     "address": "0xd6E5824b54f64CE6f1161210bc17eeBfFC77E031",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
