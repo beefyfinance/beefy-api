@@ -1,5 +1,20 @@
 [
   {
+    "address": "0x0Fa223a4469fe16D99cc0f48e537be7EB01dF0aa",
+    "lpAddress": "0x0FB597D6cFE5bE0d5258A7f017599C2A4Ece34c7",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x52b492a33E447Cdb854c7FC19F1e57E8BfA1777D"
+    ],
+    "tokenOracleIds": ["WETH", "basePEPE"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-base-weth-pepe",
+    "rewardPool": {
+      "address": "0xC34289F462D819BEe97E711DFD0224B722b7F672",
+      "oracleId": "uniswap-cow-base-weth-pepe-rp"
+    }
+  },
+  {
     "address": "0x4d5BA51e708F511204314E70fC60DE404faCeE55",
     "lpAddress": "0xf9A72fd5C30112aF583b86b190B2D776B6C3c056",
     "tokens": [
