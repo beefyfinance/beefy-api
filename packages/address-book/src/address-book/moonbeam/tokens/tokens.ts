@@ -97,7 +97,7 @@ export const tokens = {
   },
   USDCwh: {
     name: 'USD Coin',
-    symbol: 'USDC',
+    symbol: 'USDC.wh',
     oracleId: 'USDCwh',
     address: '0x931715FEE2d06333043d11F658C8CE934aC61D0c',
     chainId: 1284,
@@ -226,7 +226,7 @@ export const tokens = {
   },
   USDCs: {
     name: 'USD Coin',
-    symbol: 'USDC',
+    symbol: 'USDCs',
     oracleId: 'USDCs',
     address: '0x8f552a71EFE5eeFc207Bf75485b356A0b3f01eC9',
     chainId: 1284,
@@ -684,7 +684,7 @@ export const tokens = {
   },
   xcUSDC: {
     name: 'USD Coin',
-    symbol: 'USDC',
+    symbol: 'xcUSDC',
     oracleId: 'USDC',
     address: '0xFFfffffF7D2B0B761Af01Ca8e25242976ac0aD7D',
     chainId: 1284,
@@ -699,7 +699,7 @@ export const tokens = {
   },
   axlUSDC: {
     name: 'USD Coin',
-    symbol: 'USDC',
+    symbol: 'axlUSDC',
     oracleId: 'USDC',
     address: '0xCa01a1D0993565291051daFF390892518ACfAD3A',
     chainId: 1284,
@@ -714,7 +714,7 @@ export const tokens = {
   },
   xcUSDT: {
     name: 'Tether USD',
-    symbol: 'USDT',
+    symbol: 'xcUSDT',
     oracleId: 'USDT',
     address: '0xFFFFFFfFea09FB06d082fd1275CD48b191cbCD1d',
     chainId: 1284,
