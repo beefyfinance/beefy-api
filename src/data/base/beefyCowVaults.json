@@ -1,5 +1,81 @@
 [
   {
+    "address": "0x4d5BA51e708F511204314E70fC60DE404faCeE55",
+    "lpAddress": "0xf9A72fd5C30112aF583b86b190B2D776B6C3c056",
+    "tokens": [
+      "0x04D5ddf5f3a8939889F11E97f8c4BB48317F1938",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": ["USDz", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "baseswap-cow-usdz-usdc",
+    "rewardPool": {
+      "address": "0x37797Cd3324A25aeea2619a5989Cdb9dc0973cf9",
+      "oracleId": "baseswap-cow-usdz-usdc-rp"
+    },
+    "vault": {
+      "address": "0xA9e9fF6d6cd31F76E85C685364bE77A33bb7a94e",
+      "oracleId": "baseswap-cow-usdz-usdc-vault"
+    }
+  },
+  {
+    "address": "0x4B0BC467F1aFA6aeA39f1520478C512C98A667E5",
+    "lpAddress": "0x273FDFE6018230F188741D7F93d4Ab589bD26197",
+    "tokens": [
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376"
+    ],
+    "tokenOracleIds": ["USDC", "baseUSD+"],
+    "decimals": [6, 6],
+    "oracleId": "baseswap-cow-usdc-usd+",
+    "rewardPool": {
+      "address": "0xAf6945adFcc2b8604503f60521BBC33d68cE905F",
+      "oracleId": "baseswap-cow-usdc-usd+-rp"
+    },
+    "vault": {
+      "address": "0xfeDF12b4EadE16a700b9a30cA029068488E4d691",
+      "oracleId": "baseswap-cow-usdc-usd+-vault"
+    }
+  },
+  {
+    "address": "0x7ca389a2a4ea3074261Bb1f57421D0513CBA46cB",
+    "lpAddress": "0x75A50f51d49045d7F00E660d0Ad7244CcfE4d372",
+    "tokens": [
+      "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+      "0xd9aAEc86B65D86f6A7B5B1b0c42FFA531710b6CA"
+    ],
+    "tokenOracleIds": ["baseUSD+", "USDbC"],
+    "decimals": [6, 6],
+    "oracleId": "baseswap-cow-usd+-usdbc",
+    "rewardPool": {
+      "address": "0xA3755d23C9A3AB9958E59899903CE1a9cf18A89b",
+      "oracleId": "baseswap-cow-usd+-usdbc-rp"
+    },
+    "vault": {
+      "address": "0x334D9B1824698F62515671B611bBb864156a89f8",
+      "oracleId": "baseswap-cow-usd+-usdbc-vault"
+    }
+  },
+  {
+    "address": "0x05f913352b84e5f83Ec33EB9D3a3Cb8fB1363F5C",
+    "lpAddress": "0x74cb6260Be6F31965C239Df6d6Ef2Ac2B5D4f020",
+    "tokens": [
+      "0x4200000000000000000000000000000000000006",
+      "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+    ],
+    "tokenOracleIds": ["WETH", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "baseswap-cow-weth-usdc",
+    "rewardPool": {
+      "address": "0x46BcD65aaE38B9cc8acbFAd8A1C634a8c6087E62",
+      "oracleId": "baseswap-cow-weth-usdc-rp"
+    },
+    "vault": {
+      "address": "0x60fbbCea5c3C76D489Fc69c60f9E0a2F66E5d87f",
+      "oracleId": "baseswap-cow-weth-usdc-vault"
+    }
+  },
+  {
     "address": "0xbE4e7a64abb52183e96A152D6AB492d1FFa9259d",
     "lpAddress": "0xa41Bc0AFfbA7Fd420d186b84899d7ab2aC57fcD1",
     "tokens": [
