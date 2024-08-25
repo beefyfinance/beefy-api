@@ -1281,4 +1281,19 @@ export const tokens = {
     website: 'https://basedpepe.vip/',
     bridge: 'native',
   },
+  pxETH: {
+    name: 'Pirex Ether OFT',
+    symbol: 'pxETH',
+    oracleId: 'pxETH',
+    address: '0x300d2c875C6fb8Ce4bf5480B4d34b7c9ea8a33A4',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'pxETH is an Ethereum liquid staking solution that forms the foundation of the Dinero protocol.',
+    website: 'https://dinero.xyz/',
+    documentation: 'https://dinero.xyz/docs',
+    bridge: 'layer-zero',
+    risks: ['NO_TIMELOCK'],
+  },
 } as const satisfies Record<string, Token>;
