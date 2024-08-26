@@ -1281,4 +1281,18 @@ export const tokens = {
     website: 'https://basedpepe.vip/',
     bridge: 'native',
   },
+  COMP: {
+    name: 'Compound',
+    symbol: 'COMP',
+    oracleId: 'COMP',
+    address: '0x9e1028F5F1D5eDE59748FFceE5532509976840E0',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'COMP is the governance token of Compound, a decentralized protocol that enables supplying of crypto assets as collateral in order to borrow a base asset.',
+    website: 'https://compound.finance/',
+    documentation: 'https://docs.compound.finance/',
+    bridge: 'base-canonical',
+  },
 } as const satisfies Record<string, Token>;
