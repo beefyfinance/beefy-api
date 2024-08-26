@@ -1637,7 +1637,7 @@ export const tokens = {
     symbol: 'pxETH',
     oracleId: 'pxETH',
     address: '0x300d2c875C6fb8Ce4bf5480B4d34b7c9ea8a33A4',
-    chainId: 8453,
+    chainId: 10,
     decimals: 18,
     logoURI: '',
     description:
