@@ -1,5 +1,85 @@
 [
   {
+    "name": "aerodrome-comp-rsr",
+    "address": "0x44C57B372Cf8d902Ac56446998D960e4963bEDB0",
+    "gauge": "0x29cB80B473B88C0079f9D7c0409eaA6DE1908D2c",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9e1028F5F1D5eDE59748FFceE5532509976840E0",
+      "oracle": "tokens",
+      "oracleId": "COMP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xaB36452DbAC151bE02b16Ca17d8919826072f64a",
+      "oracle": "tokens",
+      "oracleId": "RSR",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-dola-comp",
+    "address": "0x69674e8Ebfa2467cF99A265C6B0130cd2bf144C9",
+    "gauge": "0x88A98321CF015B62622e64a16Bc95A0D332506B6",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
+      "oracle": "tokens",
+      "oracleId": "DOLA",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x9e1028F5F1D5eDE59748FFceE5532509976840E0",
+      "oracle": "tokens",
+      "oracleId": "COMP",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-comp-sfrax",
+    "address": "0xe253155a71707AAE3b604f6E71Fa2B3F14927949",
+    "gauge": "0xBFe0639305a781459dE0C343f32F82c0D6AB4597",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x9e1028F5F1D5eDE59748FFceE5532509976840E0",
+      "oracle": "tokens",
+      "oracleId": "COMP",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xe4796cCB6bB5DE2290C417Ac337F2b66CA2E770E",
+      "oracle": "tokens",
+      "oracleId": "sFRAX",
+      "decimals": "1e18"
+    }
+  },
+  {
+    "name": "aerodrome-wif-weth",
+    "address": "0x0aCBE7A8486e77a0476142b54024BF487e5630B7",
+    "gauge": "0x09e834dfa12d94C6366FBCc95C3523CFA77179B2",
+    "decimals": "1e18",
+    "chainId": 8453,
+    "beefyFee": 0.095,
+    "lp0": {
+      "address": "0x1fba65dE0a9cBD2D1DF82d141897042d36Bb6c86",
+      "oracle": "tokens",
+      "oracleId": "WIF",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x4200000000000000000000000000000000000006",
+      "oracle": "tokens",
+      "oracleId": "WETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "aerodrome-weth-eurc",
     "address": "0x9DFf4b5AE4fD673213502Ab8fbf6d36015efb3E1",
     "gauge": "0x21D4eF9D2b66069f3307765A0349526f8E988294",
