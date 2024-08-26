@@ -2149,7 +2149,6 @@ export const tokens = {
     description:
       'pxETH is an Ethereum liquid staking solution that forms the foundation of the Dinero protocol.',
     bridge: 'native',
-    risks: ['NO_TIMELOCK'],
   },
   sDOLA: {
     name: 'Staked Dola',
