@@ -20,7 +20,7 @@
     }
   },
   {
-    "name": "aerodrome-basedola-comp",
+    "name": "aerodrome-dola-comp",
     "address": "0x69674e8Ebfa2467cF99A265C6B0130cd2bf144C9",
     "gauge": "0x88A98321CF015B62622e64a16Bc95A0D332506B6",
     "decimals": "1e18",
@@ -29,7 +29,7 @@
     "lp0": {
       "address": "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
       "oracle": "tokens",
-      "oracleId": "DOLA",
+      "oracleId": "baseDOLA",
       "decimals": "1e18"
     },
     "lp1": {
