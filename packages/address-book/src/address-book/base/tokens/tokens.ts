@@ -1292,7 +1292,7 @@ export const tokens = {
     description:
       'WIF is literally just a dog wif a hat. Memecoin launched on Solana bridged to Base through layerzero.',
     website: 'https://dogwifcoin.org/',
-    bridge: 'layerzero',
+    bridge: 'layer-zero',
   },
   COMP: {
     name: 'Compound',
