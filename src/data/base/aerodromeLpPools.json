@@ -20,7 +20,7 @@
     }
   },
   {
-    "name": "aerodrome-dola-comp",
+    "name": "aerodrome-basedola-comp",
     "address": "0x69674e8Ebfa2467cF99A265C6B0130cd2bf144C9",
     "gauge": "0x88A98321CF015B62622e64a16Bc95A0D332506B6",
     "decimals": "1e18",
