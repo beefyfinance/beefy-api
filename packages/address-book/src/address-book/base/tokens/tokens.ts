@@ -1281,19 +1281,6 @@ export const tokens = {
     website: 'https://basedpepe.vip/',
     bridge: 'native',
   },
-  WIF: {
-    name: 'dogwifhat',
-    symbol: 'WIF',
-    oracleId: 'WIF',
-    address: '0x1fba65dE0a9cBD2D1DF82d141897042d36Bb6c86',
-    chainId: 8453,
-    decimals: 18,
-    logoURI: '',
-    description:
-      'WIF is literally just a dog wif a hat. Memecoin launched on Solana bridged to Base through layerzero.',
-    website: 'https://dogwifcoin.org/',
-    bridge: 'layer-zero',
-  },
   COMP: {
     name: 'Compound',
     symbol: 'COMP',
