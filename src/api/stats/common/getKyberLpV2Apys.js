@@ -1,9 +1,7 @@
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../utils/fetchPrice';
-const { getVariableTradingFeeApr } = require('../../../utils/getTradingFeeApr');
 import DMMPool from '../../../abis/matic/DMMPool';
 import { fetchContract } from '../../rpc/client';
-const { kyberClient } = require('../../../apollo/client');
 import getApyBreakdown from './getApyBreakdown';
 
 const oracleId = 'KNC';
@@ -22,13 +20,6 @@ const getAprs = async params => {
 
   const tokenPrice = await fetchPrice({ oracle: oracle, id: oracleId });
   const { balances, rewardRates, endTimes, tradingFees } = await getPoolsData(params);
-
-  const pairAddresses = params.pools.map(pool => pool.lp0.address.concat('_', pool.lp1.address));
-  const fetchedTradingAprs = await getVariableTradingFeeApr(
-    kyberClient,
-    pairAddresses,
-    tradingFees
-  );
 
   for (let i = 0; i < params.pools.length; i++) {
     const pool = params.pools[i];

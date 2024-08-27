@@ -445,33 +445,6 @@
     ]
   },
   {
-    "name": "balancer-usdc-wusdr",
-    "address": "0x34A81e8956BF20b7448b31990A2c06F96830a6e4",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x80f392Bf3FA6973C3e14bb276e04931Ec12DE05E",
-    "vaultPoolId": "0x34a81e8956bf20b7448b31990a2c06f96830a6e4000200000000000000000a14",
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "newGauge": true,
-        "stream": "0x80f392Bf3FA6973C3e14bb276e04931Ec12DE05E",
-        "oracleId": "BAL"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "pUSDCe",
-        "decimals": "1e6"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "wUSDR",
-        "decimals": "1e9"
-      }
-    ]
-  },
-  {
     "name": "balancer-jeur-ageur",
     "address": "0xa48D164F6eB0EDC68bd03B56fa59E12F24499aD1",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

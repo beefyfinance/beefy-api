@@ -7,6 +7,7 @@ const pools = require('../../../data/arbitrum/curveLendPools.json');
 
 export const getCurveLendApys = async () => {
   const curvePools = pools.filter(p => !p.convex);
+  if (curvePools.length === 0) return {};
 
   const [baseApys, curveApys, convexApys] = await Promise.all([
     await getCurveLendSupplyApys(chainId, pools),

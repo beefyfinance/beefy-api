@@ -1,6 +1,5 @@
 import { ChainId } from '../packages/address-book/src/address-book';
 import { ApiChain } from './utils/chain';
-import ReadOnlyDict = NodeJS.ReadOnlyDict;
 
 const API_BASE_URL = process.env.API_BASE_URL || 'http://localhost:3000';
 
@@ -10,10 +9,6 @@ const HOURLY_HPY = 8760;
 const DAILY_HPY = 365;
 const ETH_HPY = DAILY_HPY / 3;
 const WEEKLY_HPY = 52;
-
-const FORTUBE_REQ_TOKENS = 'https://bsc.for.tube/api/v2/bank_tokens';
-const FORTUBE_REQ_MARKETS = 'https://bsc.for.tube/api/v1/bank/markets?mode=extended';
-const FORTUBE_API_TOKEN = process.env.FORTUBE_API_TOKEN;
 
 const MAINNET_BSC_RPC_ENDPOINTS = [
   'https://bsc-dataseed.binance.org',
@@ -101,14 +96,8 @@ const MANTA_CHAIN_ID = ChainId.manta;
 const REAL_CHAIN_ID = ChainId.real;
 const SEI_CHAIN_ID = ChainId.sei;
 
-const DFYN_LPF = 0.003;
 const SUSHI_LPF = 0.003;
-const SPIRIT_LPF = 0.003;
-const QUICK_LPF = 0.003;
-const APEPOLY_LPF = 0.002;
-const COMETH_LPF = 0.005;
 const PCS_LPF = 0.0017;
-const APE_LPF = 0.002;
 const SPOOKY_LPF = 0.002;
 const JOE_LPF = 0.003;
 const SOLAR_LPF = 0.0025;
@@ -117,7 +106,6 @@ const NET_LPF = 0.003;
 const PANGOLIN_LPF = 0.003;
 const TETHYS_LPF = 0.002;
 const BEAMSWAP_LPF = 0.0017;
-const TOMBSWAP_LPF = 0.005;
 const BISWAP_LPF = 0.0005;
 const HOP_LPF = 0.0004;
 
@@ -348,19 +336,10 @@ export {
   HOURLY_HPY,
   DAILY_HPY,
   WEEKLY_HPY,
-  FORTUBE_REQ_TOKENS,
-  FORTUBE_REQ_MARKETS,
-  FORTUBE_API_TOKEN,
   MULTICHAIN_RPC,
   MULTICHAIN_ENDPOINTS,
-  DFYN_LPF,
   SUSHI_LPF,
-  SPIRIT_LPF,
-  QUICK_LPF,
-  APEPOLY_LPF,
-  COMETH_LPF,
   PCS_LPF,
-  APE_LPF,
   SPOOKY_LPF,
   JOE_LPF,
   SOLAR_LPF,
@@ -370,7 +349,6 @@ export {
   TETHYS_LPF,
   BEAMSWAP_LPF,
   BISWAP_LPF,
-  TOMBSWAP_LPF,
   HOP_LPF,
   EXCLUDED_IDS_FROM_TVL,
 };

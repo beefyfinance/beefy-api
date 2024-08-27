@@ -60,26 +60,6 @@
     }
   },
   {
-    "name": "uniswap-gamma-rdpx-weth",
-    "address": "0xc3E878fACb776B1A453fC70576c8FefB8ed39Fb1",
-    "pool": "0x310a09b51501d893988401FbA75c47dC59f1b42a",
-    "decimals": "1e18",
-    "chainId": 42161,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x32Eb7902D4134bf98A28b963D26de779AF92A212",
-      "oracle": "tokens",
-      "oracleId": "RDPX",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
-      "oracle": "tokens",
-      "oracleId": "WETH",
-      "decimals": "1e18"
-    }
-  },
-  {
     "name": "uniswap-gamma-weth-reth",
     "address": "0xf21Df991cAaFeBc242C7e5BE17892d3B0453bc0F",
     "pool": "0x09ba302A3f5ad2bF8853266e271b005A5b3716fe",

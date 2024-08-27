@@ -1,5 +1,3 @@
-import getLiquidusApys from './getLiquidusApys';
-
 const getVvsApys = require('./getVvsApys');
 const getVvsDualApys = require('./getVvsDualApys');
 const getCronaApys = require('./getCronaApys');
@@ -7,15 +5,7 @@ const getDarkApys = require('./getDarkApys');
 const getRipaeApys = require('./getRipaeApys');
 const getFerroApys = require('./getFerroApys');
 
-const getApys = [
-  getVvsApys,
-  getVvsDualApys,
-  getCronaApys,
-  getLiquidusApys,
-  getDarkApys,
-  getRipaeApys,
-  getFerroApys,
-];
+const getApys = [getVvsApys, getVvsDualApys, getCronaApys, getDarkApys, getRipaeApys, getFerroApys];
 
 const getCronosApys = async () => {
   const start = Date.now();

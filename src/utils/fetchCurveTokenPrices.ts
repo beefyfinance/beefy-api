@@ -63,10 +63,7 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
   ],
   moonbeam: toCurveTokens(ChainId.moonbeam, require('../data/moonbeam/curvePools.json')),
   kava: toCurveTokens(ChainId.kava, require('../data/kava/curvePools.json')),
-  polygon: toCurveTokens(ChainId.polygon, [
-    ...require('../data/matic/curvePools.json'),
-    ...require('../data/matic/jarvisPools.json'),
-  ]),
+  polygon: toCurveTokens(ChainId.polygon, [...require('../data/matic/curvePools.json')]),
   ethereum: [
     ...toCurveTokens(ChainId.ethereum, [
       ...require('../data/ethereum/convexPools.json').slice().reverse(),

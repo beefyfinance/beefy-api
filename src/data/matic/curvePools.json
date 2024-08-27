@@ -134,25 +134,6 @@
     ]
   },
   {
-    "name": "curve-poly-usdr",
-    "pool": "0xa138341185a9D0429B0021A11FB717B225e13e1F",
-    "gauge": "0x875CE7e0565b4C8852CA2a9608F27B7213A90786",
-    "convex": true,
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "oldUSDR",
-        "decimals": "1e9"
-      },
-      {
-        "basePool": "curve-am3crv",
-        "oracle": "lps",
-        "oracleId": "curve-am3crv",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "curve-poly-matic3crypto",
     "pool": "0x7BBc0e92505B485aeb3e82E828cb505DAf1E50c6",
     "token": "0xb0658482b405496C4EE9453cD0a463b134aEf9d0",

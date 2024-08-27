@@ -112,21 +112,11 @@ export const pangolinClient = client(
 );
 export const lydiaClient = client('https://api.thegraph.com/subgraphs/name/lydiacoder/lydia');
 export const oliveClient = client('https://api.thegraph.com/subgraphs/name/olive-rose/olivecash');
-// export const complusAvaxClient = client( 'https://graph.avagraph.live/subgraphs/name/complusnetwork/subgraph-ava');
-// export const pantherClient = client('https://api.bscgraph.org/subgraphs/name/pantherswap/exchange');
-// export const jetswapClient = client(  'https://api.thegraph.com/subgraphs/name/smartcookie0501/jetswap-subgraph');
-export const jetswapPolyClient = client(
-  'https://api.thegraph.com/subgraphs/name/smartcookie0501/jetswap-subgraph-polygon'
-);
-// export const jetswapFantomClient = client(  'https://api.thegraph.com/subgraphs/name/smartcookie0501/jetswap-subgraph-fantom');
 // export const dfynClient = client('https://api.thegraph.com/subgraphs/name/ss-sonic/dfyn-v5');
 export const solarbeamClient = client('https://analytics.solarbeam.io/api/subgraph');
 export const joeClient = client('https://api.thegraph.com/subgraphs/name/traderjoe-xyz/exchange');
 export const sjoeClient = theGraphClient('22nJbR5KwAPVrxsPtKGVfopNAtrcDP7JxvnbCn2DXPgK');
 // export const babyClient = client('https://api.thegraph.com/subgraphs/name/babyswapgraph/exchange3');
-export const kyberClient = client(
-  'https://api.thegraph.com/subgraphs/name/kybernetwork/kyberswap-exchange-polygon'
-);
 export const beetClient = client('https://api.thegraph.com/subgraphs/name/beethovenxfi/beethovenx');
 export const beetOpClient = client(
   'https://api.studio.thegraph.com/query/75376/balancer-optimism-v2/version/latest'

@@ -11,7 +11,6 @@ import getCurveMoonbeamPrices from './moonbeam/getCurvePrices';
 import { getCurveEthereumPrices } from './ethereum/getCurvePrices';
 import getBeethovenxPrices from './fantom/getBeethovenxPrices';
 import { getSynapsePrices } from './avax/getSynapsePrices';
-import getJarvisPrices from './matic/getJarvisPrices';
 import getSolarbeamPrices from './moonriver/getSolarbeamPrices';
 import getRosePrices from './aurora/getRosePrices';
 import getStellaswapPrices from './moonbeam/getStellaswapPrices';
@@ -33,7 +32,6 @@ import getHermesStablePrices from './metis/getHermesStablePrices';
 import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 import getCurveKavaPrices from './kava/getCurvePrices';
 import getSushiKavaPrices from './kava/getSushiPrices';
-import getSushiArbPrices from './arbitrum/getSushiPrice';
 import { getGmxV2ArbitrumPrices } from './arbitrum/getGmxV2Prices';
 import { getGmxArbitrumPrices } from './arbitrum/getGmxPrices';
 import getGmxAvalanchePrices from './avax/getGmxPrices';
@@ -58,10 +56,7 @@ import getOlpPrices from './optimism/getOlpPrices';
 import getEqualizerStablePrices from './fantom/getEqualizerStablePrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
 import getSolidlyEthStablePrices from './ethereum/getSolidlyStablePrices';
-import getMvxPrices from './matic/getMvxPrices';
 import getCantoStablePrices from './canto/getCantoStablePrices';
-import { getKyberPolygonPrices } from './matic/getKyberPolygonPrices';
-import { getKyberArbitrumPrices } from './arbitrum/getKyberArbitrumPrices';
 import { getKyberAvaxPrices } from './avax/getKyberAvaxPrices';
 import { getKyberOptimismPrices } from './optimism/getKyberOptimismPrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
@@ -74,13 +69,11 @@ import getBscGammaPrices from './bsc/getBscGammaPrices';
 import getCurveCeloPrices from './celo/getCurvePrices';
 import { getCurveBasePrices } from './base/getCurvePrices';
 import { getConicPrices } from './ethereum/getConicPrices';
-import { getPolygonSolidlyStablePrices } from './matic/getPolygonSolidlyStablePrices';
 import getUniswapArbitrumPrices from './arbitrum/getUniswapPositionPrices';
 import getUniswapEthereumPrices from './ethereum/getUniswapPositionPrices';
 import getUniswapEthereumGammaPrices from './ethereum/getUniswapGammaPrices';
 import getGammaBasePrices from './base/getGammaPrices';
 import getGammaPolygonPrices from './matic/getGammaPolygonPrices';
-import getChronosStablePrices from './arbitrum/getChronosStablePrices';
 import getQuickGammaZkPrices from './zkevm/getQuickGammaPrices';
 import getFvmStablePrices from './fantom/getFvmStablePrices';
 import getBvmStablePrices from './base/getBvmStablePrices';
@@ -93,7 +86,6 @@ import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
 import getGammaArbPrices from './arbitrum/getGammaPrices';
 import { getKinetixPrices } from './kava/getKinetixPrices';
 import getEqualizerStableBasePrices from './base/getEqualizerStablePrices';
-import getBunniArbPrices from './arbitrum/getBunniPrices';
 import getBalancerGnosisPrices from './gnosis/getBalancerGnosisPrices';
 import getCurvePricesCommon from './common/curve/getCurvePricesCommon';
 import { getCurveLendPricesCommon } from './common/curve/getCurveLendPricesCommon';
@@ -155,7 +147,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBasoStablePrices(tokenPrices),
     getUniswapGammaPrices(tokenPrices),
     getJoeAutoAvaxPrices(tokenPrices),
-    getJoeAutoArbPrices(tokenPrices),
+    // getJoeAutoArbPrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
     getSoliSnekStablePrices(tokenPrices),
@@ -166,13 +158,10 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getVelocimeterStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
     getCantoStablePrices(tokenPrices),
-    getKyberArbitrumPrices(tokenPrices),
     getKyberAvaxPrices(tokenPrices),
     getKyberOptimismPrices(tokenPrices),
-    getKyberPolygonPrices(tokenPrices),
     getSolidlyEthStablePrices(tokenPrices),
     getThenaStablePrices(tokenPrices),
-    getMvxPrices(tokenPrices),
     getEqualizerStablePrices(tokenPrices),
     getOlpPrices(),
     getStargateBasePrices(tokenPrices),
@@ -187,7 +176,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getStargateKavaPrices(tokenPrices),
     getStargateLineaPrices(tokenPrices),
     getStargateMantlePrices(tokenPrices),
-    getHopPolyPrices(tokenPrices), // <----
+    // getHopPolyPrices(tokenPrices),
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),
     getFerroPrices(tokenPrices),
@@ -196,7 +185,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getGmxAvalanchePrices(tokenPrices),
     getGmxArbitrumPrices(tokenPrices),
     getSushiKavaPrices(tokenPrices),
-    getSushiArbPrices(tokenPrices),
     getHermesStablePrices(tokenPrices),
     getCakeStablePrices(tokenPrices),
     getSpiritStablePrices(tokenPrices),
@@ -205,7 +193,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBeamswapPrices(tokenPrices),
     getVoltagePrices(tokenPrices),
     getSolidlyV1StablePrices(tokenPrices),
-    getPolygonSolidlyStablePrices(tokenPrices),
     getVelodromeStablePrices(tokenPrices),
     getVelodromeModeStablePrices(tokenPrices),
     getAerodromeStablePrices(tokenPrices),
@@ -224,11 +211,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurvePolygonPrices(tokenPrices),
     getCurveFantomPrices(tokenPrices),
     getCurveArbitrumPrices(tokenPrices),
-    getCurveLendPricesCommon(
-      ARBITRUM_CHAIN_ID,
-      require('../../data/arbitrum/curveLendPools.json'),
-      tokenPrices
-    ),
+    // getCurveLendPricesCommon(ARBITRUM_CHAIN_ID, require('../../data/arbitrum/curveLendPools.json'), tokenPrices),
     getCurveLendPricesCommon(
       ETH_CHAIN_ID,
       require('../../data/ethereum/curveLendPools.json'),
@@ -246,18 +229,15 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getConicPrices(),
     getRosePrices(tokenPrices),
     getSynapsePrices(),
-    getJarvisPrices(tokenPrices),
     getSolarbeamPrices(tokenPrices),
     getStellaswapPrices(tokenPrices),
     getBscGammaPrices(tokenPrices),
     getGammaPolygonPrices(tokenPrices),
     getQuickGammaZkPrices(tokenPrices),
-    getChronosStablePrices(tokenPrices),
     getFvmStablePrices(tokenPrices),
     getBvmStablePrices(tokenPrices),
     getQlpZkPrices(tokenPrices),
     getGammaArbPrices(tokenPrices),
-    getBunniArbPrices(tokenPrices),
     getUniswapEthereumGammaPrices(tokenPrices),
     getGammaBasePrices(tokenPrices),
     getGammaMoonbeamPrices(tokenPrices),

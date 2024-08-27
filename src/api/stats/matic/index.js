@@ -1,31 +1,11 @@
-const { getSushiLpApys } = require('./getSushiLpApys');
-const { getSushiOhmLpApys } = require('./getSushiOhmLpApys');
 const { getCurveApys } = require('./getCurveApys');
 const { getConvexApys } = require('./getConvexApys');
-const getJetswapApys = require('./getJetswapApys');
-const { getApeLpApys } = require('./getApeLpApys');
-const getMaiApys = require('./getMaiApys').default;
-const getMaiCurveApys = require('./getMaiCurveApys');
-const { getTelxchangeApys } = require('./getTelxchangeApys');
-const { getQuickSingleApys } = require('./getQuickSingleApys');
-import getKyberLpApys from './getKyberLpApys';
-import { getQuickDualLpApys } from './getQuickDualLpApys';
-import { getJarvisApys } from './getJarvisApys';
 const getStargateApys = require('./getStargatePolygonApys');
-const getbeQiApy = require('./getbeQiApy');
-const getbeQiEarnApy = require('./getbeQiEarnApy');
-const getRipaeApys = require('./getRipaeApys');
 const getBalancerPolyApys = require('./getBalancerPolyApys');
-const getGiddyApys = require('./getGiddyApys');
-const getDystopiaApys = require('./getDystopiaApys');
 const { getHopApys } = require('./getHopApys');
-const { getMvxApys } = require('./getMvxApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getGnsApys } = require('./getGnsApys');
-const getKyberPolygonApys = require('./getKyberPolygonApys');
-const { getPearlApys } = require('./getPearlApys');
 //const { getQuickGammaApys } = require('./getQuickGammaApys');
-const getBetSwirlSingleApy = require('./getBetSwirlSingleApy');
 const getGammaApys = require('./getGammaApys');
 const getAuraPolygonApys = require('./getAuraPolygonApys');
 const { getPolygonCompoundV3Apys } = require('./getPolygonCompoundApys');
@@ -33,34 +13,14 @@ const { getUniswapGammaApys } = require('./getUniswapGammaApys');
 const { getBeefyCowPolyApys } = require('./getBeefyCowPolyApys');
 
 const getApys = [
-  // getbeQiApy,
-  // getbeQiEarnApy,
-  // getQuickSingleApys,
-  // getQuickDualLpApys,
   // getQuickGammaApys,
-  // getSushiLpApys,
-  // getSushiOhmLpApys,
   getCurveApys,
   getConvexApys,
-  // getApeLpApys,
-  // getMaiApys,
-  // getMaiCurveApys,
-  // getJetswapApys,
-  // getTelxchangeApys,
-  // getKyberLpApys,
-  // getJarvisApys,
   getStargateApys,
-  // getRipaeApys,
   getBalancerPolyApys,
-  // getGiddyApys,
-  // getDystopiaApys,
   // getHopApys,
-  // getMvxApys,
   // getAaveV3Apys,
   getGnsApys,
-  // getKyberPolygonApys,
-  // getPearlApys,
-  // getBetSwirlSingleApy,
   getGammaApys,
   getAuraPolygonApys,
   getPolygonCompoundV3Apys,

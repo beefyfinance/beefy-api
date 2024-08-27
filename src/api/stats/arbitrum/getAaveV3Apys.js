@@ -1,4 +1,4 @@
-const { getAaveV3ApyData, getAaveV3PoolData } = require('../common/aave/getAaveV3Apys');
+const { getAaveV3ApyData } = require('../common/aave/getAaveV3Apys');
 const pools = require('../../../data/arbitrum/aaveV3Pools.json');
 const { ARBITRUM_CHAIN_ID } = require('../../../constants');
 
@@ -19,8 +19,4 @@ const getAaveV3Apys = async () => {
   return getAaveV3ApyData(config, pools, ARBITRUM_CHAIN_ID);
 };
 
-const getAavePoolData = async pool => {
-  return getAaveV3PoolData(config, pool, ARBITRUM_CHAIN_ID);
-};
-
-module.exports = { getAaveV3Apys, getAavePoolData };
+module.exports = { getAaveV3Apys };

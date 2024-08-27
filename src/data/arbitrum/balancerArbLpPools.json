@@ -226,43 +226,6 @@
     ]
   },
   {
-    "name": "balancer-vst-dai-usdt-usdc",
-    "address": "0x5A5884FC31948D59DF2aEcCCa143dE900d49e1a3",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x3175B907Cbcf044C0b179958fAFB33e253A44929",
-    "vaultPoolId": "0x5a5884fc31948d59df2aeccca143de900d49e1a300000000000000000000006f",
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "stream": "0xB556A02642A0f7be8c79932EFBC915F6e0485147",
-        "token": "0x040d1EdC9569d4Bab2D15287Dc5A4F10F56a56B8",
-        "oracleId": "BAL"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "VST",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "DAI",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "USDT",
-        "decimals": "1e6"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "arbUSDCe",
-        "decimals": "1e6"
-      }
-    ]
-  },
-  {
     "name": "balancer-bal-eth",
     "address": "0xcC65A812ce382aB909a11E434dbf75B34f1cc59D",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",

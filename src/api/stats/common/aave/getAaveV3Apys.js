@@ -1,6 +1,7 @@
 const BigNumber = require('bignumber.js');
 
 import { fetchPrice } from '../../../../utils/fetchPrice';
+
 const { getApyBreakdown } = require('../getApyBreakdown');
 const { default: IAaveV3Incentives } = require('../../../../abis/AaveV3Incentives');
 const { default: IAaveV3PoolDataProvider } = require('../../../../abis/AaveV3PoolDataProvider');
@@ -16,21 +17,8 @@ const getAaveV3ApyData = async (config, pools, chainId) => {
   const lendingApys = [];
   const lsApys = [];
 
-  const allPools = [];
-  pools.forEach(pool => {
-    allPools.push(pool);
-    // const newPool = { ...pool };
-    // const newPool8 = { ...pool };
-    // newPool.name = pool.name + '-delev';
-    // newPool.borrowDepth = 0;
-    // newPool8.name = pool.name + '-8';
-    // newPool8.borrowDepth = 8;
-    // allPools.push(newPool8);
-    // allPools.push(newPool);
-  });
-
   let promises = [];
-  allPools.forEach(pool => promises.push(getPoolApy(config, pool, chainId)));
+  pools.forEach(pool => promises.push(getPoolApy(config, pool, chainId)));
   const values = await Promise.all(promises);
 
   values.forEach(item => {
