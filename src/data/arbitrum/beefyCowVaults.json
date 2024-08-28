@@ -1,5 +1,81 @@
 [
   {
+    "address": "0x72De2f1F9c2d8Ffd001a42C3121d6B4455738Da9",
+    "lpAddress": "0xD1E1Ac29B31B35646EaBD77163E212b76fE3b6A2",
+    "tokens": [
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9"
+    ],
+    "tokenOracleIds": ["USDC", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "sushi-cow-arb-usdc-usdt",
+    "rewardPool": {
+      "address": "0x2E6E146008E1CB89B79b03d00bAE794Ca1b74A21",
+      "oracleId": "sushi-cow-arb-usdc-usdt-rp"
+    },
+    "vault": {
+      "address": "0xf4ea976B260A498F26417B89f6dbdD555104a734",
+      "oracleId": "sushi-cow-arb-usdc-usdt-vault"
+    }
+  },
+  {
+    "address": "0x9df2252791dFB83FDFCC486e0dFA704C1f8b1d55",
+    "lpAddress": "0x8BB586cC81b60cc8C8102aEfE69E9572aB0dF3Fa",
+    "tokens": [
+      "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34",
+      "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+    ],
+    "tokenOracleIds": ["USDe", "USDC"],
+    "decimals": [18, 6],
+    "oracleId": "sushi-cow-arb-usde-usdc",
+    "rewardPool": {
+      "address": "0xc21F77750d4E4f1F623340210e64570cB371ED69",
+      "oracleId": "sushi-cow-arb-usde-usdc-rp"
+    },
+    "vault": {
+      "address": "0x54A98Ff42737b61C1bB6D52B8dF2b07e63d6357D",
+      "oracleId": "sushi-cow-arb-usde-usdc-vault"
+    }
+  },
+  {
+    "address": "0x1B27738B381C529EA5E05434e1bA633684F7372e",
+    "lpAddress": "0x1048Dbc1f7737a6680Ff2819b0a3B7DF4c1402B2",
+    "tokens": [
+      "0x35751007a407ca6FEFfE80b3cB397736D2cf4dbe",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["weETH", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "sushi-cow-arb-weeth-weth",
+    "rewardPool": {
+      "address": "0xCF667Ad9524A0399b4bEb96875ED727C57BC0D0a",
+      "oracleId": "sushi-cow-arb-weeth-weth-rp"
+    },
+    "vault": {
+      "address": "0xed6add245e8Bb715311010f21c5Dc83A81FF275c",
+      "oracleId": "sushi-cow-arb-weeth-weth-vault"
+    }
+  },
+  {
+    "address": "0x53207d1B311c81df8d3bc3F8fC88A1723368B35C",
+    "lpAddress": "0x1F0a76aE19f4b8b79E36886c71a989cD723365Dc",
+    "tokens": [
+      "0x2416092f143378750bb29b79eD961ab195CcEea5",
+      "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1"
+    ],
+    "tokenOracleIds": ["ezETH", "WETH"],
+    "decimals": [18, 18],
+    "oracleId": "sushi-cow-arb-ezeth-weth",
+    "rewardPool": {
+      "address": "0xa4b630B31E6550460660be5Ab0DB0E01525a89Dc",
+      "oracleId": "sushi-cow-arb-ezeth-weth-rp"
+    },
+    "vault": {
+      "address": "0x54eA007Fa915D957E26EFc525F706952370151A8",
+      "oracleId": "sushi-cow-arb-ezeth-weth-vault"
+    }
+  },
+  {
     "address": "0x63Bf703930d42F44265015ea97fe86e940b82EAA",
     "lpAddress": "0x7548BD60CB8f627A9b8ed94f8ca174348DbE6A05",
     "tokens": [
