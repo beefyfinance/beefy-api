@@ -116,6 +116,24 @@
     }
   },
   {
+    "name": "sushi-arb-spell-eth",
+    "address": "0x8f93Eaae544e8f5EB077A1e09C1554067d9e2CA8",
+    "decimals": "1e18",
+    "chainId": 42161,
+    "lp0": {
+      "address": "0x3E6648C5a70A150A88bCE65F4aD4d506Fe15d2AF",
+      "oracle": "tokens",
+      "oracleId": "SPELL",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x82aF49447D8a07e3bd95BD0d56f35241523fBab1",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "uni-weth-mfer",
     "address": "0xb08A99AB559E5456907278727a3b0d968C0A313b",
     "decimals": "1e18",

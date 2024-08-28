@@ -188,7 +188,6 @@ import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
 import swapsiclePools from '../../data/avax/siclePools.json';
-import radiantPools from '../../data/arbitrum/radiantLpPools.json';
 import conePools from '../../data/coneLpPools.json';
 import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
@@ -234,10 +233,7 @@ import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices';
 import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
 import uniswapLpPools from '../../data/ethereum/uniswapV2LpPools.json';
-import {
-  fetchDexScreenerPriceOracles,
-  OraclePriceRequest,
-} from '../../utils/fetchDexScreenerPrices';
+import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -281,7 +277,6 @@ const pools = normalizePoolOracleIds([
   ...hermesPools,
   ...spiritV2Pools,
   ...conePools,
-  ...radiantPools,
   ...swapsiclePools,
   ...ripaeCronosPools,
   ...velodromePools,
@@ -717,9 +712,7 @@ async function performUpdateAmmPrices() {
   const ammPrices = fetchAmmPrices(pools, knownPrices).then(prices => {
     //Set prices for the wrapped version of native tokens (if native was set)
     const nativeTokens = new Set(
-      Object.values(addressBookByChainId).map(addressbook =>
-        addressbook.tokens.WNATIVE.oracleId.slice(1)
-      )
+      Object.values(addressBookByChainId).map(addressbook => addressbook.tokens.WNATIVE.oracleId.slice(1))
     );
     nativeTokens.forEach(nativeToken => {
       if (prices.tokenPrices.hasOwnProperty(nativeToken))
@@ -758,32 +751,30 @@ async function performUpdateAmmPrices() {
     };
   });
 
-  const linearPoolPrice = ammPrices.then(
-    async ({ tokenPrices }): Promise<Record<string, number>> => {
-      const jbrlTokenPrice = await fetchJbrlPrice();
-      const yVaultPrices = await fetchyVaultPrices(tokenPrices);
-      const vaultPrices = await fetchVaultPrices(tokenPrices);
-      const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
-      const prices = {
-        ...tokenPrices,
-        ...vaultPrices,
-        ...wrappedAavePrices,
-        ...jbrlTokenPrice,
-        ...yVaultPrices,
-      };
+  const linearPoolPrice = ammPrices.then(async ({ tokenPrices }): Promise<Record<string, number>> => {
+    const jbrlTokenPrice = await fetchJbrlPrice();
+    const yVaultPrices = await fetchyVaultPrices(tokenPrices);
+    const vaultPrices = await fetchVaultPrices(tokenPrices);
+    const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
+    const prices = {
+      ...tokenPrices,
+      ...vaultPrices,
+      ...wrappedAavePrices,
+      ...jbrlTokenPrice,
+      ...yVaultPrices,
+    };
 
-      const linearPrices = await fetchBalancerLinearPoolPrice(prices);
-      const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
+    const linearPrices = await fetchBalancerLinearPoolPrice(prices);
+    const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
 
-      return {
-        ...linearPrices,
-        ...balancerStablePoolPrice,
-        ...wrappedAavePrices,
-        ...jbrlTokenPrice,
-        ...yVaultPrices,
-      };
-    }
-  );
+    return {
+      ...linearPrices,
+      ...balancerStablePoolPrice,
+      ...wrappedAavePrices,
+      ...jbrlTokenPrice,
+      ...yVaultPrices,
+    };
+  });
 
   const beTokenPrice = ammPrices.then(async ({ tokenPrices }) => {
     return {
@@ -1022,11 +1013,7 @@ function addLpBreakdownsToCache(lpBreakdowns: BreakdownsById): boolean {
   return updated;
 }
 
-function addToCache(
-  tokenPrices: PricesById,
-  lpPrices: PricesById,
-  lpBreakdowns: BreakdownsById
-): boolean {
+function addToCache(tokenPrices: PricesById, lpPrices: PricesById, lpBreakdowns: BreakdownsById): boolean {
   const tokenPriceUpdated = addTokenPricesToCache(tokenPrices);
   const lpPriceUpdated = addLpPricesToCache(lpPrices);
   const lpBreakdownUpdated = addLpBreakdownsToCache(lpBreakdowns);

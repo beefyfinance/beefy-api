@@ -20,6 +20,7 @@ const { getEquilibriaApys } = require('../common/getEquilibriaApys');
 const { getBeefyArbCowApys } = require('./getBeefyArbCowApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
 const { getPenpieApys } = require('./getPenpieApys');
+const { getMimApys } = require('./getMimApys');
 
 const getApys = [
   getArbSiloApys,
@@ -31,6 +32,7 @@ const getApys = [
   getHopApys,
   () => getEquilibriaApys(require('../../../data/arbitrum/equilibriaPools.json')),
   getPenpieApys,
+  getMimApys,
   getGmxV2Apys,
   getGmxApys,
   getCurveApys,
