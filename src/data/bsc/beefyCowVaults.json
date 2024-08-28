@@ -1,5 +1,55 @@
 [
   {
+    "address": "0xd9CFc385bE8E942050cb59b119697ed659F090CA",
+    "lpAddress": "0x81A9b5F18179cE2bf8f001b8a634Db80771F1824",
+    "tokens": [
+      "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
+      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+    ],
+    "tokenOracleIds": ["USDC", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-usdc-wbnb",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x5C41372AeebB5b072d96EeAe66Fe496F37fE87d8",
+      "oracleId": "pancake-cow-bsc-usdc-wbnb-rp"
+    },
+    "vault": {
+      "address": "0x9EA9A69035565052C0eF6f4b94f0Bd00Cb33f2DC",
+      "oracleId": "pancake-cow-bsc-usdc-wbnb-vault"
+    }
+  },
+  {
+    "address": "0x375B9E0D598426277a20468B10b6475Ce96Bc8c4",
+    "lpAddress": "0x3Fb2623567E21F8C50F0Ae86f54EF4849b4eb47b",
+    "tokens": [
+      "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"
+    ],
+    "tokenOracleIds": ["ETH", "BTCB"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-bsc-eth-btcb",
+    "rewardPool": {
+      "address": "0x0A6c9d60A32d1C045cAb5CA3A5d1fdB31f5491e2",
+      "oracleId": "uniswap-cow-bsc-eth-btcb-rp"
+    }
+  },
+  {
+    "address": "0x7C18b30F1d1eF8A07AF166f57448C054b82658CF",
+    "lpAddress": "0x28dF0835942396B7a1b7aE1cd068728E6ddBbAfD",
+    "tokens": [
+      "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
+    ],
+    "tokenOracleIds": ["BTCB", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-bsc-btcb-wbnb",
+    "rewardPool": {
+      "address": "0x85FE5822266572F148fB7fa2EfF8b0841DB669e1",
+      "oracleId": "uniswap-cow-bsc-btcb-wbnb-rp"
+    }
+  },
+  {
     "address": "0x9D7A030261efc848379A506Dd67Fb54199899c33",
     "lpAddress": "0x0f338Ec12d3f7C3D77A4B9fcC1f95F3FB6AD0EA6",
     "tokens": [
