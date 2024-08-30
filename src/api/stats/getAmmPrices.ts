@@ -517,6 +517,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'overnight-finance': ['oOVN'],
   'dinero-staked-eth': ['pxETH'],
   'based-pepe': ['basePEPE'],
+  toshi: ['TOSHI'],
 };
 
 /**
