@@ -2110,9 +2110,22 @@ export const tokens = {
     documentation: 'https://docs.stake.link/',
   },
   eBTC: {
-    name: 'eBTC',
+    name: 'ether.fi BTC',
     symbol: 'eBTC',
     oracleId: 'eBTC',
+    address: '0x657e8C867D8B37dCC18fA4Caead9C45EB088C642',
+    chainId: 1,
+    decimals: 8,
+    website: 'https://app.ether.fi/liquid/ebtc',
+    description:
+      'eBTC is an Ether.Fi x Symbiotic vault that allows users to stake their BTC to accrue staking rewards and automatically restake their BTC in Symbiotic. Ether.fi and Veda are both doing points campaign.',
+    bridge: 'native',
+    documentation: 'https://etherfi.gitbook.io/etherfi/lrts/ebtc-bitcoin-lrt',
+  },
+  EBTC: {
+    name: 'EBTC',
+    symbol: 'EBTC',
+    oracleId: 'EBTC',
     address: '0x661c70333AA1850CcDBAe82776Bb436A0fCfeEfB',
     chainId: 1,
     decimals: 18,

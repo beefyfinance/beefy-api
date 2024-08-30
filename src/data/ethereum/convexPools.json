@@ -1,5 +1,22 @@
 [
   {
+    "name": "curve-ebtc-wbtc",
+    "pool": "0x7704d01908afd31bf647d969c295bb45230cd2d6",
+    "getDy": ["v1", 0, 1],
+    "tokens": [
+      {
+        "oracle": "tokens",
+        "oracleId": "eBTC",
+        "decimals": "1e8"
+      },
+      {
+        "oracle": "tokens",
+        "oracleId": "WBTC",
+        "decimals": "1e8"
+      }
+    ]
+  },
+  {
     "name": "curve-ebtc-tbtc",
     "pool": "0x272bf7e4ce3308b1fb5e54d6a1fc32113619c401",
     "gauge": "0x48727018d010dc2e414c5a14d588385ae112869e",
@@ -14,7 +31,7 @@
     "tokens": [
       {
         "oracle": "tokens",
-        "oracleId": "eBTC",
+        "oracleId": "EBTC",
         "decimals": "1e18"
       },
       {

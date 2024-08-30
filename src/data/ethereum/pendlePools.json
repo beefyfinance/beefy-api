@@ -1,5 +1,14 @@
 [
   {
+    "name": "pendle-ebtc-26dec24",
+    "address": "0x36d3ca43ae7939645c306e26603ce16e39a89192",
+    "oracle": "tokens",
+    "oracleId": "WBTC",
+    "decimals": "1e8",
+    "chainId": 1,
+    "beefyFee": 0.095
+  },
+  {
     "name": "pendle-rseth-26dec24",
     "address": "0x84a50177a84dad50fdbf665dfbfb39914b52dff2",
     "oracle": "tokens",
