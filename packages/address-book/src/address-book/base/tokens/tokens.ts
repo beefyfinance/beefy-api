@@ -1309,4 +1309,18 @@ export const tokens = {
     documentation: 'https://en.wikipedia.org/wiki/Keyboard_Cat',
     bridge: 'native',
   },
+  TOSHI: {
+    name: 'Toshi',
+    symbol: 'TOSHI',
+    oracleId: 'TOSHI',
+    address: '0xAC1Bd2486aAf3B5C0fc3Fd868558b082a531B2B4',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      "TOSHI is a memecoin named after Coinbase co-founder Brian Armstrong's cat and the pseudonymous creator of Bitcoin, Satoshi Nakamoto. It serves as the face and mascot of the Base blockchain. Meme coin on Base.",
+    website: 'https://www.toshithecat.com/',
+    documentation: 'https://www.toshithecat.com/#FAQs',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
