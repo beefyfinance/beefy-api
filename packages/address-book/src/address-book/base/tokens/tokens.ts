@@ -1295,4 +1295,18 @@ export const tokens = {
     documentation: 'https://docs.compound.finance/',
     bridge: 'base-canonical',
   },
+  KEYCAT: {
+    name: 'KeyBoard Cat',
+    symbol: 'KEYCAT',
+    oracleId: 'KEYCAT',
+    address: '0x9a26F5433671751C3276a065f57e5a02D2817973',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'Keyboard Cat is an iconic internet meme featuring a cat named Fatso, who plays a keyboard with surprising musical talent! Meme coin on Base.',
+    website: 'https://www.keyboardcat.fun/',
+    documentation: 'https://en.wikipedia.org/wiki/Keyboard_Cat',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
