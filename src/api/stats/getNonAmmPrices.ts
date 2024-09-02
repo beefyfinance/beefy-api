@@ -1,5 +1,3 @@
-import getBeltPrices from './bsc/belt/getBeltPrices';
-import getEllipsisPricesOld from './bsc/ellipsis/getEllipsisPricesOld';
 import { getEllipsisPrices } from './bsc/getEllipsisPrices';
 import getCurvePolygonPrices from './matic/getCurvePrices';
 import getCurveFantomPrices from './fantom/getCurvePrices';
@@ -26,10 +24,8 @@ import getSolidlyV1StablePrices from './fantom/getSolidlyV1StablePrices';
 import getVoltagePrices from './fuse/getVoltagePrices';
 import getBeamswapPrices from './moonbeam/getBeamswapPrices';
 import getTrisolarisPrices from './aurora/getTrisolarisPrices';
-import getConeStablePrices from './bsc/getConeStablePrices';
 import getSpiritStablePrices from './fantom/getSpiritStablePrices';
 import getHermesStablePrices from './metis/getHermesStablePrices';
-import getCakeStablePrices from './bsc/pancake/getCakeStablePrices';
 import getCurveKavaPrices from './kava/getCurvePrices';
 import getSushiKavaPrices from './kava/getSushiPrices';
 import { getGmxV2ArbitrumPrices } from './arbitrum/getGmxV2Prices';
@@ -98,7 +94,6 @@ import {
 } from '../../constants';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
 import getEthRangePrices from './ethereum/getEthRangePrices';
-import getBscRangePrices from './bsc/getBscRangePrices';
 import getGammaLineaPrices from './linea/getGammaPrices';
 import getLynexStablePrices from './linea/getLynexStablePrices';
 import getNileStablePrices from './linea/getNileStablePrices';
@@ -185,9 +180,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getGmxArbitrumPrices(tokenPrices),
     getSushiKavaPrices(tokenPrices),
     getHermesStablePrices(tokenPrices),
-    getCakeStablePrices(tokenPrices),
     getSpiritStablePrices(tokenPrices),
-    getConeStablePrices(tokenPrices),
     getTrisolarisPrices(tokenPrices),
     getBeamswapPrices(tokenPrices),
     getVoltagePrices(tokenPrices),
@@ -203,8 +196,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBalancerGnosisPrices(tokenPrices),
     getBeethovenxPrices(tokenPrices),
     getBeetsOPPrices(tokenPrices),
-    getBeltPrices(tokenPrices),
-    getEllipsisPricesOld(),
     getEllipsisPrices(tokenPrices),
     getCurveEthereumPrices(tokenPrices),
     getCurvePolygonPrices(tokenPrices),
@@ -238,7 +229,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getGammaMoonbeamPrices(tokenPrices),
     getGammaLineaPrices(tokenPrices),
     getEthRangePrices(tokenPrices),
-    getBscRangePrices(tokenPrices),
     getLynexStablePrices(tokenPrices),
     getNileStablePrices(tokenPrices),
     getBeefyCowArbPrices(tokenPrices),

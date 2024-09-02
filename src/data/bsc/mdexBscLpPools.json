@@ -1,0 +1,21 @@
+[
+  {
+    "name": "auto-eth-usdt",
+    "address": "0x0FB881c078434b1C0E4d0B64d8c64d12078b7Ce2",
+    "decimals": "1e18",
+    "poolId": 29,
+    "chainId": 56,
+    "lp0": {
+      "address": "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+      "oracle": "tokens",
+      "oracleId": "ETH",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0x55d398326f99059fF775485246999027B3197955",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e18"
+    }
+  }
+]

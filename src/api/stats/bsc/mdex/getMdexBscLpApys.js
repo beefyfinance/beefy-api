@@ -1,7 +1,7 @@
 const BigNumber = require('bignumber.js');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 import { fetchPrice } from '../../../../utils/fetchPrice';
-const pools = require('../../../../data/mdexBscLpPools.json');
+const pools = require('../../../../data/bsc/mdexBscLpPools.json');
 const getBlockNumber = require('../../../../utils/getBlockNumber');
 const { getTotalStakedInUsd } = require('../../../../utils/getTotalStakedInUsd');
 import HecoPool from '../../../../abis/HecoPool';

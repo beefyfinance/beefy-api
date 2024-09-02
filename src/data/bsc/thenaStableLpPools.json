@@ -20,26 +20,6 @@
     }
   },
   {
-    "name": "thena-usdt+-usd+",
-    "address": "0x1561D9618dB2Dcfe954f5D51f4381fa99C8E5689",
-    "gauge": "0x3877c2C3D75aE80f2Ed8E9d4d68e3C1BFc77e5A6",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x5335E87930b410b8C5BB4D43c3360ACa15ec0C8C",
-      "oracle": "tokens",
-      "oracleId": "bUSD+",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
-      "oracle": "tokens",
-      "oracleId": "bUSD+",
-      "decimals": "1e6"
-    }
-  },
-  {
     "name": "thena-btcb-multibtc",
     "address": "0x2475FF2A7C81da27eA2e08e0d3B0Ad01e16225eC",
     "gauge": "0x66B34c7578B513600a31A3f79C47e10546830efF",
@@ -77,26 +57,6 @@
       "oracle": "tokens",
       "oracleId": "FRAX",
       "decimals": "1e18"
-    }
-  },
-  {
-    "name": "thena-usdt-usd+",
-    "address": "0xea9abc7AD420bDA7dD42FEa3C4ACd058902A5845",
-    "gauge": "0xC031B5218704eb0F9D33956A2DbE26fACAddB80c",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x55d398326f99059fF775485246999027B3197955",
-      "oracle": "tokens",
-      "oracleId": "USDT",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
-      "oracle": "tokens",
-      "oracleId": "bUSD+",
-      "decimals": "1e6"
     }
   },
   {
@@ -217,26 +177,6 @@
       "oracle": "tokens",
       "oracleId": "frxETH",
       "decimals": "1e18"
-    }
-  },
-  {
-    "name": "thena-hay-usd+",
-    "address": "0x1F3cA66c98d682fA1BeC31264692daD4f17340BC",
-    "gauge": "0xB0a69681d82c90B80B689BaF43ccfa6270f1DdE5",
-    "decimals": "1e18",
-    "chainId": 56,
-    "beefyFee": 0.095,
-    "lp0": {
-      "address": "0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
-      "oracle": "tokens",
-      "oracleId": "HAY",
-      "decimals": "1e18"
-    },
-    "lp1": {
-      "address": "0xe80772Eaf6e2E18B651F160Bc9158b2A5caFCA65",
-      "oracle": "tokens",
-      "oracleId": "bUSD+",
-      "decimals": "1e6"
     }
   },
   {
