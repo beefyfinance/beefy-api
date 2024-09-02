@@ -1323,4 +1323,18 @@ export const tokens = {
     documentation: 'https://www.toshithecat.com/#FAQs',
     bridge: 'native',
   },
+  OwO: {
+    name: 'SoMon',
+    symbol: 'OwO',
+    oracleId: 'OwO',
+    address: '0x5D559eA7bB2DAE4B694A079cb8328a2145Fd32f6',
+    chainId: 8453,
+    decimals: 18,
+    logoURI: '',
+    description:
+      'OwO is the community token of Social Monster! It is a way to redistribute the value created by the social app to the most engaged and loyal community members.',
+    website: 'https://www.social.monster/',
+    documentation: 'https://gitbook.social.monster/',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
