@@ -21,20 +21,6 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       abi: ICurvePool,
     },
   ],
-  avax: [
-    ...toCurveTokens(ChainId.avax, require('../data/avax/curvePools.json')),
-    {
-      oracleId: 'yyAVAX',
-      decimals: '1e18',
-      index0: 1,
-      index1: 0,
-      pool: '0xa974DE60871907AAFE3A4634766aDb40dF461C16',
-      secondToken: 'WAVAX',
-      secondTokenDecimals: '1e18',
-      abi: StableSwap,
-      stableSwap: true,
-    },
-  ],
   optimism: toCurveTokens(ChainId.optimism, require('../data/optimism/curvePools.json')),
   fraxtal: toCurveTokens(ChainId.fraxtal, require('../data/fraxtal/curvePools.json')),
   arbitrum: [

@@ -19,16 +19,9 @@ import { fetchDefillamaPrices } from '../../utils/fetchDefillamaPrices';
 import { getKey, setKey } from '../../utils/cache';
 
 import getNonAmmPrices from './getNonAmmPrices';
-import pangolinPools from '../../data/avax/pangolinLpPools.json';
-import comAvaxPools from '../../data/avax/comAvaxLpPools.json';
 import ellipsisPools from '../../data/bsc/ellipsisLpPools.json';
-import olivePools from '../../data/avax/oliveLpPools.json';
 import mdexBscPools from '../../data/bsc/mdexBscLpPools.json';
-import lydPools from '../../data/avax/lydLpPools.json';
-import joePools from '../../data/avax/joeLpPools.json';
-import joeDualLpPools from '../../data/avax/joeDualLpPools.json';
 import geistPools from '../../data/fantom/geistLpPools.json';
-import singularAvaxPools from '../../data/avax/singularLpPools.json';
 import oldPools from '../../data/archive/oldLpPools.json';
 import sushiCeloPools from '../../data/celo/sushiLpPools.json';
 import mooTokens from '../../data/mooTokens.json';
@@ -39,20 +32,15 @@ import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
 import solarbeamDualLpPools from '../../data/moonriver/solarbeamDualLpPools.json';
 import trisolarisLpPools from '../../data/aurora/trisolarisLpPools.json';
-import maiAvaxLpPools from '../../data/avax/maiLpPools.json';
 import finnLpPools from '../../data/moonriver/finnLpPools.json';
 import solarbeamDualLpV2Pools from '../../data/moonriver/solarbeamDualLpV2Pools.json';
 import liquidusPools from '../../data/cronos/liquidusLpPools.json';
 import sushiv2Celo from '../../data/celo/sushiv2LpPools.json';
 import fusefiPools from '../../data/fuse/fusefiLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
-import pangolinV2Pools from '../../data/avax/pangolinv2LpPools.json';
-import pangolinV2DualPools from '../../data/avax/pangolinV2DualLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
 import sushiFusePools from '../../data/fuse/sushiFuseLpPools.json';
-import grapePools from '../../data/avax/grapeLpPools.json';
 import trisolarisMiniPools from '../../data/aurora/trisolarisMiniLpPools.json';
-import ripaeAvaxPools from '../../data/avax/ripaeLpPools.json';
 import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
 import beamswapMultiRewardLpPools from '../../data/moonbeam/beamswapMultiRewardLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
@@ -62,13 +50,11 @@ import wigoPools from '../../data/fantom/wigoLpPools.json';
 import solarflare from '../../data/moonbeam/solarFlareLpPools.json';
 import voltagePools from '../../data/fuse/voltageLpPools.json';
 import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
-import joeBoostedLpPools from '../../data/avax/joeBoostedLpPools.json';
 import spookyV2LpPools from '../../data/fantom/spookyV2LpPools.json';
 import spookyV3LpPools from '../../data/fantom/spookyV3LpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
-import swapsiclePools from '../../data/avax/siclePools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
 import equalizerV2Pools from '../../data/fantom/equalizerV2LpPools.json';
 import thenaPools from '../../data/bsc/thenaLpPools.json';
@@ -83,7 +69,6 @@ import equilibrePools from '../../data/kava/equilibreLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import velocorePools from '../../data/zksync/velocoreLpPools.json';
-import soliSnekPools from '../../data/avax/soliSnekLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import fvmPools from '../../data/fantom/fvmLpPools.json';
 import bvmPools from '../../data/base/bvmLpPools.json';
@@ -135,7 +120,6 @@ const pools = normalizePoolOracleIds([
   ...bvmPools,
   ...cvmPools,
   ...veSyncPools,
-  ...soliSnekPools,
   ...velocorePools,
   ...ramsesPools,
   ...versePools,
@@ -150,27 +134,21 @@ const pools = normalizePoolOracleIds([
   ...thenaPools,
   ...equalizerV2Pools,
   ...hermesPools,
-  ...swapsiclePools,
   ...ripaeCronosPools,
   ...velodromePools,
   ...oldVelodromePools,
   ...spookyV2LpPools,
   ...spookyV3LpPools,
   ...vvsDualPools,
-  ...joeBoostedLpPools,
   ...voltagePools,
   ...stellaswapPools,
   ...stellaswapPoolsV2,
   ...solarflare,
   ...wigoPools,
   ...darkCryptoPools,
-  ...ripaeAvaxPools,
   ...trisolarisMiniPools,
-  ...grapePools,
   ...sushiFusePools,
   ...tethysPools,
-  ...pangolinV2Pools,
-  ...pangolinV2DualPools,
   ...netswapPools,
   ...fusefiPools,
   ...sushiv2Celo,
@@ -180,7 +158,6 @@ const pools = normalizePoolOracleIds([
   ...beamswapMultiRewardLpPools,
   ...beamswapPools,
   ...finnLpPools,
-  ...maiAvaxLpPools,
   ...trisolarisLpPools,
   ...solarbeamDualLpPools,
   ...cronaPools,
@@ -190,15 +167,8 @@ const pools = normalizePoolOracleIds([
   ...solarbeamPools,
   ...sushiCeloPools,
   ...geistPools,
-  ...singularAvaxPools,
-  ...joePools,
-  ...joeDualLpPools,
-  ...lydPools,
   ...mdexBscPools,
-  ...olivePools,
   ...ellipsisPools,
-  ...comAvaxPools,
-  ...pangolinPools,
   ...uniswapLpPools,
 ]);
 

@@ -1,12 +1,10 @@
 import { getEllipsisPrices } from './bsc/getEllipsisPrices';
 import getCurvePolygonPrices from './matic/getCurvePrices';
 import getCurveArbitrumPrices from './arbitrum/getCurvePrices';
-import getCurveAvaxPrices from './avax/getCurvePrices';
 import getCurveOptimismPrices from './optimism/getCurvePrices';
 import getCurveMoonbeamPrices from './moonbeam/getCurvePrices';
 import { getCurveEthereumPrices } from './ethereum/getCurvePrices';
 import getBeethovenxPrices from './fantom/getBeethovenxPrices';
-import { getSynapsePrices } from './avax/getSynapsePrices';
 import getSolarbeamPrices from './moonriver/getSolarbeamPrices';
 import getRosePrices from './aurora/getRosePrices';
 import getStellaswapPrices from './moonbeam/getStellaswapPrices';
@@ -46,14 +44,12 @@ import getOlpPrices from './optimism/getOlpPrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
 import getSolidlyEthStablePrices from './ethereum/getSolidlyStablePrices';
 import getCantoStablePrices from './canto/getCantoStablePrices';
-import { getKyberAvaxPrices } from './avax/getKyberAvaxPrices';
 import { getKyberOptimismPrices } from './optimism/getKyberOptimismPrices';
 import getSolidLizardStablePrices from './arbitrum/getSolidLizardStablePrices';
 import getVelocimeterStablePrices from './canto/getVelocimeterStablePrices';
 import getRamsesStablePrices from './arbitrum/getRamsesStablePrices';
 import getMmyOptimismPrices from './optimism/getMmyOptimismPrices';
 import getVelocoreStablePrices from './zksync/getVelocoreStablePrices';
-import getSoliSnekStablePrices from './avax/getSoliSnekStablePrices';
 import getBscGammaPrices from './bsc/getBscGammaPrices';
 import getCurveCeloPrices from './celo/getCurvePrices';
 import { getCurveBasePrices } from './base/getCurvePrices';
@@ -67,7 +63,6 @@ import getQuickGammaZkPrices from './zkevm/getQuickGammaPrices';
 import getBvmStablePrices from './base/getBvmStablePrices';
 import { getQlpZkPrices } from './zkevm/getQlpZkPrices';
 import getUniswapGammaPrices from './optimism/getUniswapGammaPrices';
-import getJoeAutoAvaxPrices from './avax/getJoeAutoAvaxPrices';
 import getBasoStablePrices from './base/getBasoStablePrices';
 import { getAerodromeStablePrices } from './base/getAerodromeStablePrices';
 import getGammaArbPrices from './arbitrum/getGammaPrices';
@@ -132,11 +127,8 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getKinetixPrices(tokenPrices),
     getBasoStablePrices(tokenPrices),
     getUniswapGammaPrices(tokenPrices),
-    getJoeAutoAvaxPrices(tokenPrices),
-    // getJoeAutoArbPrices(tokenPrices),
     getUniswapArbitrumPrices(tokenPrices),
     getUniswapEthereumPrices(tokenPrices),
-    getSoliSnekStablePrices(tokenPrices),
     getVelocoreStablePrices(tokenPrices),
     getMmyOptimismPrices(tokenPrices),
     getRamsesStablePrices(tokenPrices),
@@ -144,7 +136,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getVelocimeterStablePrices(tokenPrices),
     getSolidLizardStablePrices(tokenPrices),
     getCantoStablePrices(tokenPrices),
-    getKyberAvaxPrices(tokenPrices),
     getKyberOptimismPrices(tokenPrices),
     getMimSwapPrices(tokenPrices),
     getSolidlyEthStablePrices(tokenPrices),
@@ -191,7 +182,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurveArbitrumPrices(tokenPrices),
     // getCurveLendPricesCommon(ARBITRUM_CHAIN_ID, require('../../data/arbitrum/curveLendPools.json'), tokenPrices),
     getCurveLendPricesCommon(ETH_CHAIN_ID, require('../../data/ethereum/curveLendPools.json'), tokenPrices),
-    getCurveAvaxPrices(tokenPrices),
     getCurveOptimismPrices(tokenPrices),
     getCurveMoonbeamPrices(tokenPrices),
     getCurveKavaPrices(tokenPrices),
@@ -201,7 +191,6 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getCurveBasePrices(tokenPrices),
     getConicPrices(),
     getRosePrices(tokenPrices),
-    getSynapsePrices(),
     getSolarbeamPrices(tokenPrices),
     getStellaswapPrices(tokenPrices),
     getBscGammaPrices(tokenPrices),

@@ -3,21 +3,18 @@ import beetsPools from '../data/optimism/beethovenxSteadyBeets.json';
 import bbaUSD from '../data/ethereum/bbaUSD.json';
 import bbamUSD from '../data/matic/bbamUSD.json';
 import bbaaUSD from '../data/arbitrum/bbaaUSD.json';
-import bbaavUSD from '../data/avax/bbaavUSD.json';
 import beetsLinearPools from '../data/optimism/beethovenxLinearPools.json';
 import balancerLinearPools from '../data/ethereum/balancerLinearPools.json';
 import balancerPolyLinearPools from '../data/matic/balancerLinearPools.json';
 import balancerArbLinearPools from '../data/arbitrum/balancerLinearPools.json';
-import balancerAvaxLinearPools from '../data/avax/balancerLinearPools.json';
 import balancerBaseLinearPools from '../data/base/balancerLinearPools.json';
 
-const stablePoolPools = [...beetsPools, ...bbaUSD, ...bbamUSD, ...bbaaUSD, ...bbaavUSD];
+const stablePoolPools = [...beetsPools, ...bbaUSD, ...bbamUSD, ...bbaaUSD];
 const linearPoolPools = [
   ...beetsLinearPools,
   ...balancerLinearPools,
   ...balancerPolyLinearPools,
   ...balancerArbLinearPools,
-  ...balancerAvaxLinearPools,
   ...balancerBaseLinearPools,
 ];
 
