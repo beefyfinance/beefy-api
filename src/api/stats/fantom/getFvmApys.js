@@ -1,12 +1,12 @@
 const { FANTOM_CHAIN_ID: chainId } = require('../../../constants');
 const { getSolidlyGaugeApys } = require('../common/getSolidlyGaugeApys');
 
-const stablePools = require('../../../data/fantom/fvmStableLpPools.json');
 const volatilePools = require('../../../data/fantom/fvmLpPools.json');
 import { addressBook } from '../../../../packages/address-book/src/address-book';
+
 const { FVM } = addressBook.fantom.tokens;
 
-const pools = [...stablePools, ...volatilePools];
+const pools = volatilePools;
 const getFvmApys = async () =>
   getSolidlyGaugeApys({
     chainId: chainId,

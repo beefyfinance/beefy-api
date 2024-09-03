@@ -1,33 +1,23 @@
 const getSpookyV2LpApys = require('./getSpookyV2LpApys');
 const getSpookyV3LpApys = require('./getSpookyV3LpApys');
 const getSpiritApys = require('./getSpiritApys');
-const { getCurveApys } = require('./getCurveApys');
 const getGeistLpApys = require('./getGeistLpApys');
 const getBeethovenxApys = require('./getBeethovenxApys');
 const getBeethovenxDualApys = require('./getBeethovenxDualApys');
 const getWigoApys = require('./getWigoApys');
-const getbeFTMApy = require('./getbeFTMApy');
-const getbeFtmEarnApy = require('./getbeFtmEarnApy');
-const getSpiritV2Apys = require('./getSpiritV2Apys');
 const getEqualizerApys = require('./getEqualizerApys');
 const getFvmApys = require('./getFvmApys');
-const getStargateFantomApys = require('./getStargateFantomApys');
 
 const getApys = [
-  getStargateFantomApys,
   getFvmApys,
   getEqualizerApys,
-  getSpiritV2Apys,
   getSpookyV2LpApys,
   getSpookyV3LpApys,
   getSpiritApys,
-  getCurveApys,
   getGeistLpApys,
   getBeethovenxApys,
   getBeethovenxDualApys,
   getWigoApys,
-  getbeFTMApy,
-  getbeFtmEarnApy,
 ];
 
 const getFantomApys = async () => {

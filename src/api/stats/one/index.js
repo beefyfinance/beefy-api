@@ -1,10 +1,6 @@
 const { getSushiLpApys } = require('./getSushiApys');
-const getCurveApys = require('./getCurveApys');
 
-const getApys = [
-  getSushiLpApys,
-  // getCurveApys,
-];
+const getApys = [getSushiLpApys];
 
 const getOneApys = async () => {
   const start = Date.now();

@@ -21,7 +21,6 @@ const tokens: Partial<Record<keyof typeof ChainId, CurveToken[]>> = {
       abi: ICurvePool,
     },
   ],
-  fantom: toCurveTokens(ChainId.fantom, require('../data/fantom/curvePools.json')),
   avax: [
     ...toCurveTokens(ChainId.avax, require('../data/avax/curvePools.json')),
     {
