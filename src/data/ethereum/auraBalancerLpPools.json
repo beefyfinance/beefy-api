@@ -560,37 +560,6 @@
     ]
   },
   {
-    "name": "aura-gyro-gyd-sdai",
-    "address": "0x1CCE5169bDe03f3d5aD0206f6BD057953539DAE6",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0x2C0D60f986cDe7eE59489055aa22A8E49b6825aD",
-    "vaultPoolId": "0x1cce5169bde03f3d5ad0206f6bd057953539dae600020000000000000000062b",
-    "lsUrl": "DSR",
-    "dataPath": "$.savingsRate",
-    "balancerChargesFee": false,
-    "lsIndex": 0,
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "rewardGauge": "0xa8EAA1702E07Dc9224Ec2c563838f406652382D9",
-        "oracleId": "AURA",
-        "decimals": "1e18"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "sDAI",
-        "decimals": "1e18"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "GYD",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
     "name": "aura-gyro-gyd-usdt",
     "address": "0xfbfaD5fa9E99081da6461F36f229B5cC88A64c63",
     "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
@@ -608,33 +577,6 @@
       {
         "oracle": "tokens",
         "oracleId": "USDT",
-        "decimals": "1e6"
-      },
-      {
-        "oracle": "tokens",
-        "oracleId": "GYD",
-        "decimals": "1e18"
-      }
-    ]
-  },
-  {
-    "name": "aura-gyro-gyd-usdc",
-    "address": "0xC2AA60465BfFa1A88f5bA471a59cA0435c3ec5c1",
-    "vault": "0xBA12222222228d8Ba445958a75a0704d566BF2C8",
-    "gauge": "0xE9096FDB508C0160318c11425Ba75924ecFA1D82",
-    "vaultPoolId": "0xc2aa60465bffa1a88f5ba471a59ca0435c3ec5c100020000000000000000062c",
-    "decimals": "1e18",
-    "rewards": [
-      {
-        "rewardGauge": "0x5220E7A1BC2209F67aad8a6CD595fBfC62349fc9",
-        "oracleId": "AURA",
-        "decimals": "1e18"
-      }
-    ],
-    "tokens": [
-      {
-        "oracle": "tokens",
-        "oracleId": "USDC",
         "decimals": "1e6"
       },
       {
