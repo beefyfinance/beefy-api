@@ -16,6 +16,22 @@ const BNB = {
   documentation: 'https://www.binance.com/en/bnb',
 } as const satisfies Token;
 
+const lisUSD = {
+  name: 'Lista USD',
+  symbol: 'lisUSD',
+  oracleId: 'lisUSD',
+  address: '0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5',
+  chainId: 56,
+  decimals: 18,
+  logoURI: '',
+  website: 'https://lista.org/',
+  documentation: 'https://docs.bsc.lista.org/',
+  description:
+    'lisUSD is a decentralized, unbiased, collateral backed destablecoin soft-pegged to the US Dollar. Users who have collateralized their assets via Lista are eligible to take out a loan in lisUSD against their collateral.',
+  bridge: 'native',
+  risks: ['NO_TIMELOCK'],
+} as const satisfies Token;
+
 export const tokens = {
   CASH: {
     name: 'CASH',
@@ -230,6 +246,7 @@ export const tokens = {
     description:
       'HOOP is the reward and in-game currency for the Chibi Dinos Gaming Universe. It can be used to pay for merchandise and events; future uses include staking and governance for in-game decisions. Chibi Dinos is a basketball and dinosaur themed metaverse with games such as Primal Hoop, an arcade basketball game with an adventure role-playing game (RPG) mode and Primal Pickem, a predictive play-to earn game (P2E).',
   },
+  HAY: lisUSD,
   jCHF: {
     name: 'Jarvis Synthetic Swiss Franc',
     symbol: 'jCHF',
@@ -4675,21 +4692,7 @@ export const tokens = {
     bridge: 'native',
     risks: ['NO_TIMELOCK'],
   },
-  lisUSD: {
-    name: 'Lista USD',
-    symbol: 'lisUSD',
-    oracleId: 'lisUSD',
-    address: '0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5',
-    chainId: 56,
-    decimals: 18,
-    logoURI: '',
-    website: 'https://lista.org/',
-    documentation: 'https://docs.bsc.lista.org/',
-    description:
-      'lisUSD is a decentralized, unbiased, collateral backed destablecoin soft-pegged to the US Dollar. Users who have collateralized their assets via Lista are eligible to take out a loan in lisUSD against their collateral.',
-    bridge: 'native',
-    risks: ['NO_TIMELOCK'],
-  },
+  lisUSD,
   pxETH: {
     name: 'Pirex Ether OFT',
     symbol: 'pxETH',
