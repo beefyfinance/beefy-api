@@ -537,7 +537,7 @@
     "lp0": {
       "address": "0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
       "oracle": "tokens",
-      "oracleId": "HAY",
+      "oracleId": "lisUSD",
       "decimals": "1e18"
     },
     "lp1": {
