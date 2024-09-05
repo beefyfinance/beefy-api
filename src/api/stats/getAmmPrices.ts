@@ -320,6 +320,16 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0xED65C5085a18Fa160Af0313E60dcc7905E944Dc7',
     chainId: 'arbitrum',
   },
+  {
+    oracleId: 'basemsUSD',
+    tokenAddress: '0x526728DBc96689597F85ae4cd716d4f7fCcBAE9d',
+    chainId: 'base',
+  },
+  {
+    oracleId: 'opmsUSD',
+    tokenAddress: '0x9dAbAE7274D28A45F0B65Bf8ED201A5731492ca0',
+    chainId: 'optimism',
+  },
 ];
 
 /**
@@ -359,8 +369,8 @@ const seedPeggedPrices = {
   aWMATIC: 'MATIC', // Aave
   aWETH: 'ETH', // Aave,
   cArbUSDCv3: 'USDC', // Compound
-  aOptUSDC: 'USDC', //Aave
-  aOptUSDCn: 'USDC', //Aave
+  aOptUSDC: 'USDC', // Aave
+  aOptUSDCn: 'USDC', // Aave
   axlUSDC: 'USDC', // Axelar
   xcUSDC: 'USDC', // Kusama
   xcUSDT: 'USDT', // Kusama
