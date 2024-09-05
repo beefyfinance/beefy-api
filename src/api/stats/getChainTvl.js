@@ -24,7 +24,7 @@ const getChainTvl = async chain => {
 
   let tvls = { [chainId]: {} };
 
-  //first set lp vaults since some gov vaults can exlude from tvl from those
+  //first set lp vaults since some gov vaults can exclude from tvl from those
   tvls = await setVaultsTvl(lpVaults, vaultBalances, chainId, tvls);
   tvls = await setVaultsTvl(cowVaults, cowVaultBalances, chainId, tvls);
   tvls = await setVaultsTvl(govVaults, govVaultBalances, chainId, tvls);
@@ -80,7 +80,7 @@ const setVaultsTvl = async (vaults, balances, chainId, tvls) => {
 
     let tvl = vaultBalance.times(tokenPrice).shiftedBy(-vault.tokenDecimals ?? 18);
 
-    //substract the tvl from itself
+    //subtract the tvl from itself
     if (vault.excluded) {
       const excludedVault = getVaultByID(vault.excluded);
       if (excludedVault && excludedVault.status === 'active') {
