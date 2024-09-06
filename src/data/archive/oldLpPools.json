@@ -1,5 +1,23 @@
 [
   {
+    "name": "dragonswap-isei-wsei",
+    "address": "0xe7FEf2854AC5B89f116D1d8E93AD8506d85d8f31",
+    "decimals": "1e18",
+    "chainId": 1329,
+    "lp0": {
+      "address": "0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423",
+      "oracle": "tokens",
+      "oracleId": "iSEI",
+      "decimals": "1e6"
+    },
+    "lp1": {
+      "address": "0xE30feDd158A2e3b13e9badaeABaFc5516e95e8C7",
+      "oracle": "tokens",
+      "oracleId": "WSEI",
+      "decimals": "1e18"
+    }
+  },
+  {
     "name": "uni-weth-keycat",
     "address": "0x377FeeeD4820B3B28D1ab429509e7A0789824fCA",
     "decimals": "1e18",
