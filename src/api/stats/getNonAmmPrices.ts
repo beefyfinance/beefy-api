@@ -40,6 +40,7 @@ import getStargateMetisPrices from './metis/getStargateMetisPrices';
 import getStargateBasePrices from './base/getStargateBasePrices';
 import getStargateKavaPrices from './kava/getStargateKavaPrices';
 import getStargateMantlePrices from './mantle/getStargateMantlePrices';
+import getStargateSeiPrices from './sei/getStargateSeiPrices';
 import getOlpPrices from './optimism/getOlpPrices';
 import getThenaStablePrices from './bsc/getThenaStablePrices';
 import getSolidlyEthStablePrices from './ethereum/getSolidlyStablePrices';
@@ -153,6 +154,7 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getStargateKavaPrices(tokenPrices),
     getStargateLineaPrices(tokenPrices),
     getStargateMantlePrices(tokenPrices),
+    getStargateSeiPrices(tokenPrices),
     // getHopPolyPrices(tokenPrices),
     getHopOpPrices(tokenPrices),
     getHopArbPrices(tokenPrices),
