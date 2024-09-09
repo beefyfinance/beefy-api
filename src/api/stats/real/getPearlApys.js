@@ -20,12 +20,16 @@ export const getPearlApys = async () => {
     rewardsCalls.push(contract.read.rewardsInfo());
     totalSupplyCalls.push(contract.read.totalSupply());
   });
-  const [rewardsResults, totalSupplyResults, points] = await Promise.all([
+  const [
+    rewardsResults,
+    totalSupplyResults,
+    // points
+  ] = await Promise.all([
     Promise.all(rewardsCalls),
     Promise.all(totalSupplyCalls),
-    fetch('https://api.tangible.store/points-apy?project=pearl')
+    /*  fetch('https://api.tangible.store/points-apy?project=pearl')
       .then(r => r.json())
-      .catch(_ => {}),
+      .catch(_ => {}),*/
   ]);
 
   const price = await fetchPrice({ oracle: 'tokens', id: 'PEARL' });
@@ -38,8 +42,8 @@ export const getPearlApys = async () => {
     const totalSupply = new BigNumber(totalSupplyResults[i]).div('1e18');
     const apy = rewardRate.times(31536000).times(price).div(totalSupply.times(lpPrice));
     apys.push(apy);
-    const pointsData = points?.data?.find(r => r?.address?.toLowerCase() === pool.address.toLowerCase());
-    pointsApys.push(Number(pointsData?.apy || 0) / 100);
+    //  const pointsData = points?.data?.find(r => r?.address?.toLowerCase() === pool.address.toLowerCase());
+    //  pointsApys.push(Number(pointsData?.apy || 0) / 100);
   }
 
   return getApyBreakdown(
