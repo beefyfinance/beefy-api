@@ -38,9 +38,7 @@ export const getPearlApys = async () => {
     const totalSupply = new BigNumber(totalSupplyResults[i]).div('1e18');
     const apy = rewardRate.times(31536000).times(price).div(totalSupply.times(lpPrice));
     apys.push(apy);
-    const pointsData = points?.data?.find(
-      r => r?.address?.toLowerCase() === pool.address.toLowerCase()
-    );
+    const pointsData = points?.data?.find(r => r?.address?.toLowerCase() === pool.address.toLowerCase());
     pointsApys.push(Number(pointsData?.apy || 0) / 100);
   }
 
@@ -48,7 +46,8 @@ export const getPearlApys = async () => {
     pools.map((p, i) => ({
       vaultId: p.name,
       vault: apys[i],
-      rewardPool: pointsApys[i],
+      rewardPool: 0,
+      // rewardPool: pointsApys[i],
       compoundingsPerYear: BASE_HPY,
     }))
   );
