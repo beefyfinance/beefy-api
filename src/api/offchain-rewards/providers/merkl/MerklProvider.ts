@@ -41,6 +41,10 @@ const campaignCreatorToType: Record<Address, CampaignTypeSetting> = {
     optimism: 'op-gov-fund',
     default: 'external', // we do not own this address on other chains
   },
+  '0x55A0f096EA315C93809D9a1D5E3667f6dae3fB15': {
+    base: 'zap-v3',
+    default: 'external', // we do not own this address on other chains
+  },
 };
 
 export class MerklProvider implements IOffchainRewardProvider {

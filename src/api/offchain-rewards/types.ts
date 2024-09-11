@@ -23,7 +23,7 @@ export type CampaignVault = Vault & {
   apr: number;
 };
 
-export type BeefyCampaignType = 'test' | 'arb-ltipp' | 'op-gov-fund' | 'other';
+export type BeefyCampaignType = 'test' | 'arb-ltipp' | 'op-gov-fund' | 'zap-v3' | 'other';
 export type ExternalCampaignType = 'external';
 export type CampaignType = BeefyCampaignType | ExternalCampaignType;
 
