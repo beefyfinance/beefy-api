@@ -40,7 +40,11 @@ const pools = [
     name: 'convex-staked-cvxFXN',
     oracleId: 'cvxFXN',
     address: '0xEC60Cd4a5866fb3B0DD317A46d3B474a24e06beF',
-    rewards: [{ address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B', oracleId: 'CVX' }],
+    rewards: [
+      { address: '0x4e3FBD56CD56c3e72c1403e103b45Db9da5B9D2B', oracleId: 'CVX' },
+      { address: '0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0', oracleId: 'wstETH' },
+      { address: '0x365AccFCa291e7D3914637ABf1F7635dB165Bb09', oracleId: 'FXN' },
+    ],
   },
 ];
 
