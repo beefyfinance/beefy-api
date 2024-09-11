@@ -94,11 +94,6 @@ const projects = {
     file: '../src/data/aurora/trisolarisLpPools.json',
     masterchef: trisolaris.masterchef,
   },
-  biswap: {
-    prefix: 'biswap',
-    file: '../src/data/biswapLpPools.json',
-    masterchef: biswap.masterchef,
-  },
   netswap: {
     prefix: 'netswap',
     file: '../src/data/metis/netswapLpPools.json',
@@ -263,10 +258,7 @@ async function main() {
 
   const newPools = [newPool, ...poolsJson];
 
-  fs.writeFileSync(
-    path.resolve(__dirname, poolsJsonFile),
-    JSON.stringify(newPools, null, 2) + '\n'
-  );
+  fs.writeFileSync(path.resolve(__dirname, poolsJsonFile), JSON.stringify(newPools, null, 2) + '\n');
 
   console.log(newPool);
 }

@@ -24,18 +24,6 @@
     "borrowPercent": 0
   },
   {
-    "name": "aavev3-op-dai",
-    "token": "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1",
-    "aToken": "0x82E64f49Ed5EC1bC6e43DAD4FC8Af9bb3A2312EE",
-    "debtToken": "0x8619d80FB0141ba7F184CbF22fd724116D9f7ffC",
-    "oracle": "tokens",
-    "oracleId": "DAI.e",
-    "decimals": "1e18",
-    "beefyFee": 0.095,
-    "borrowDepth": 1,
-    "borrowPercent": 0
-  },
-  {
     "name": "aavev3-op-usdc",
     "token": "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
     "aToken": "0x625E7708f30cA75bfd92586e17077590C60eb4cD",

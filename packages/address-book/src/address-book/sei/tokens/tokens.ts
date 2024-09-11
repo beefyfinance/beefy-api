@@ -58,4 +58,17 @@ export const tokens = {
     logoURI: '',
     documentation: 'https://tether.to/en/how-it-works',
   },
+  iSEI: {
+    name: 'iSEI',
+    symbol: 'iSEI',
+    oracleId: 'iSEI',
+    address: '0x5Cf6826140C1C56Ff49C808A1A75407Cd1DF9423',
+    chainId: 1329,
+    decimals: 6,
+    website: 'https://app.silostaking.io/stake',
+    description: 'iSEI is a liquid staking wrapper for SEI, managed by Silo.',
+    bridge: 'sei-canonical',
+    logoURI: '',
+    documentation: 'https://silostaking.gitbook.io/silo-staking',
+  },
 } as const satisfies Record<string, Token>;

@@ -17,22 +17,7 @@ const RAY_DECIMALS = '1e27';
 
 const {
   ethereum: {
-    tokens: {
-      aUSDT,
-      waUSDT,
-      aUSDC,
-      waUSDC,
-      aDAI,
-      waDAI,
-      aETH,
-      waETH,
-      DAI,
-      sDAI,
-      rsETH,
-      rswETH,
-      DOLA,
-      sDOLA,
-    },
+    tokens: { aUSDT, waUSDT, aUSDC, waUSDC, aDAI, waDAI, aETH, waETH, DAI, sDAI, rsETH, rswETH, DOLA, sDOLA },
   },
   polygon: {
     tokens: { amUSDT, wamUSDT, amUSDC, wamUSDC, amDAI, wamDAI, aWMATIC, waWMATIC, aWETH, waWETH },
@@ -57,6 +42,10 @@ const {
       stataArbUSDTn,
       USDC,
       gUSDC,
+      FRAX,
+      stataArbFRAXn,
+      GHO,
+      stataArbGHOn,
     },
   },
   avax: {
@@ -103,6 +92,8 @@ const tokens = {
     [aaUSDC, stataArbUSDCn],
     [aaUSDT, stataArbUSDTn],
     [USDC, gUSDC, true, false],
+    [FRAX, stataArbFRAXn],
+    [GHO, stataArbGHOn],
   ],
   avax: [
     [aavAVAX, waavAVAX],
@@ -153,9 +144,7 @@ const fetchWrappedAavePrices = async tokenPrices =>
     getWrappedAavePrices(tokenPrices, tokens.avax, AVAX_CHAIN_ID),
     getWrappedAavePrices(tokenPrices, tokens.gnosis, GNOSIS_CHAIN_ID),
   ]).then(data =>
-    data
-      .flat()
-      .reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
+    data.flat().reduce((acc, cur, i) => ((acc[Object.values(tokens).flat()[i][1].oracleId] = cur), acc), {})
   );
 
 export { fetchWrappedAavePrices };

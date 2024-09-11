@@ -1,61 +1,17 @@
-const getLydLpApys = require('./getLydLpApys');
-const getOliveApys = require('./getOliveApys');
-const getJoeApys = require('./getJoeLpApys');
-const getJoeBoostedApys = require('./getJoeBoostedLpApys');
-const getJoeDualApys = require('./getJoeDualLpApys');
 const getJoeApy = require('./getJoeApy');
-const getPangolinPNGApy = require('./getPangolinPNGApy');
-const { getCurveApys } = require('./getCurveApys');
 const { getAaveV3Apys } = require('./getAaveV3Apys');
-const getBankerJoeApys = require('./getBankerJoeApys');
-const getPangolinV2DualApys = require('./getPangolinV2DualApys');
-import { getSynapseApys } from './getSynapseApys';
-const getGrapeApys = require('./getGrapeApys');
-const getRipaeApys = require('./getRipaeApys');
 const getStargateApys = require('./getStargateAvaxApys');
-const getSpellApys = require('./getSpellApys');
-import { getMaiApys } from './getMaiApys';
-import getMaiCurveApys from './getMaiCurveApys';
-import { getPangolinV2Apys } from './getPangolinV2Apys';
-import getbeJOEApy from './getbeJOEApy';
-import getbeJOEEarnApy from './getbeJOEEarnApy';
-const getSwapsicleApys = require('./getSwapsicleApys');
 const { getGmxApys } = require('./getGmxApys');
-const getKyberAvaxApys = require('./getKyberAvaxApys');
-const getSoliSnekApys = require('./getSoliSnekApys');
 const getBalancerApys = require('./getBalancerAvaxApys');
-const { getJoeAutoAvaxApys } = require('./getJoeAutoAvaxApys');
 const getAuraAvaxApys = require('./getAuraAvaxApys');
 
 const getApys = [
-  getAuraAvaxApys,
-  getJoeAutoAvaxApys,
+  // getAaveV3Apys,
+  // getAuraAvaxApys,
   getBalancerApys,
-  getSoliSnekApys,
-  getKyberAvaxApys,
   getGmxApys,
-  getbeJOEApy,
-  getbeJOEEarnApy,
-  getPangolinV2Apys,
-  getPangolinV2DualApys,
-  getLydLpApys,
-  getPangolinPNGApy,
-  getOliveApys,
-  getJoeApys,
-  getJoeBoostedApys,
-  // getJoeDualApys, Is broken.
   getJoeApy,
-  getCurveApys,
-  getAaveV3Apys,
-  getBankerJoeApys,
-  // // getSynapseApys, //disabled by weso long time ago, won't re-enable
-  getSpellApys,
-  getMaiApys,
-  getMaiCurveApys,
-  getGrapeApys,
-  getRipaeApys,
   getStargateApys,
-  getSwapsicleApys,
 ];
 
 const getAvaxApys = async () => {

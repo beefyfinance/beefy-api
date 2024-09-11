@@ -1,5 +1,3 @@
-import { BEET_LPF } from '../../../constants';
-
 const { getMasterChefApys } = require('../common/getMasterChefApys');
 const pools = require('../../../data/fantom/beethovenxPools.json');
 import { beetClient } from '../../../apollo/client';

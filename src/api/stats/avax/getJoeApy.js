@@ -1,7 +1,7 @@
 import { sjoeClient } from '../../../apollo/client';
 import { fetchPrice } from '../../../utils/fetchPrice';
+
 const BigNumber = require('bignumber.js');
-const pool = require('../../../data/avax/joePool.json');
 const { DAILY_HPY, AVAX_CHAIN_ID } = require('../../../constants');
 const { compound } = require('../../../utils/compound');
 const { getYearlyRemittedUsdForSJOE } = require('../../../utils/getTradingFeeApr');
@@ -12,6 +12,11 @@ const { fetchContract } = require('../../rpc/client');
 const oracle = 'tokens';
 const JOE = 'JOE';
 const joeDecimals = '1e18';
+
+const pool = {
+  name: 'joe-joe',
+  rewardPool: '0x1a731B2299E22FbAC282E7094EdA41046343Cb51',
+};
 
 const liquidityProviderFee = 0.0005;
 

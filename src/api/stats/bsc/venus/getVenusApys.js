@@ -1,6 +1,6 @@
 const BigNumber = require('bignumber.js');
 import { fetchPrice } from '../../../../utils/fetchPrice';
-const pools = require('../../../../data/venusPools.json');
+const pools = require('../../../../data/bsc/venusPools.json');
 const { BSC_CHAIN_ID } = require('../../../../constants');
 const { default: VToken } = require('../../../../abis/VToken');
 const { fetchContract } = require('../../../rpc/client');
@@ -36,14 +36,7 @@ const getPoolApy = async pool => {
   ]);
 
   const { leveragedSupplyBase, leveragedBorrowBase, leveragedSupplyVxs, leveragedBorrowVxs } =
-    getLeveragedApys(
-      supplyBase,
-      borrowBase,
-      supplyVxs,
-      borrowVxs,
-      pool.borrowDepth,
-      pool.borrowPercent
-    );
+    getLeveragedApys(supplyBase, borrowBase, supplyVxs, borrowVxs, pool.borrowDepth, pool.borrowPercent);
 
   const totalVxs = leveragedSupplyVxs.plus(leveragedBorrowVxs);
   const lendingApy = leveragedSupplyBase.minus(leveragedBorrowBase);
@@ -54,17 +47,14 @@ const getSupplyApys = async pool => {
   const vtokenContract = fetchContract(pool.vtoken, VToken, BSC_CHAIN_ID);
   const unitrollerContract = fetchContract(UNITROLLER, IUnitroller, BSC_CHAIN_ID);
 
-  let [venusPrice, tokenPrice, supplyRate, venusRate, totalSupply, exchangeRateStored] =
-    await Promise.all([
-      fetchPrice({ oracle: 'tokens', id: 'XVS' }),
-      fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
-      vtokenContract.read.supplyRatePerBlock().then(res => new BigNumber(res.toString())),
-      unitrollerContract.read
-        .venusSupplySpeeds([pool.vtoken])
-        .then(res => new BigNumber(res.toString())),
-      vtokenContract.read.totalSupply().then(res => new BigNumber(res.toString())),
-      vtokenContract.read.exchangeRateStored().then(res => new BigNumber(res.toString())),
-    ]);
+  let [venusPrice, tokenPrice, supplyRate, venusRate, totalSupply, exchangeRateStored] = await Promise.all([
+    fetchPrice({ oracle: 'tokens', id: 'XVS' }),
+    fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
+    vtokenContract.read.supplyRatePerBlock().then(res => new BigNumber(res.toString())),
+    unitrollerContract.read.venusSupplySpeeds([pool.vtoken]).then(res => new BigNumber(res.toString())),
+    vtokenContract.read.totalSupply().then(res => new BigNumber(res.toString())),
+    vtokenContract.read.exchangeRateStored().then(res => new BigNumber(res.toString())),
+  ]);
 
   supplyRate = new BigNumber(supplyRate);
   venusRate = new BigNumber(venusRate);
@@ -93,9 +83,7 @@ const getBorrowApys = async pool => {
     fetchPrice({ oracle: 'tokens', id: 'XVS' }),
     fetchPrice({ oracle: pool.oracle, id: pool.oracleId }),
     vtokenContract.read.borrowRatePerBlock().then(res => new BigNumber(res.toString())),
-    unitrollerContract.read
-      .venusBorrowSpeeds([pool.vtoken])
-      .then(res => new BigNumber(res.toString())),
+    unitrollerContract.read.venusBorrowSpeeds([pool.vtoken]).then(res => new BigNumber(res.toString())),
     vtokenContract.read.totalBorrows().then(res => new BigNumber(res.toString())),
   ]);
 
@@ -120,17 +108,11 @@ const getLeveragedApys = (supplyBase, borrowBase, supplyVxs, borrowVxs, depth, b
   let leveragedBorrowVxs = new BigNumber(0);
 
   for (let i = 0; i < depth; i++) {
-    leveragedSupplyBase = leveragedSupplyBase.plus(
-      supplyBase.times(borrowPercent.exponentiatedBy(i))
-    );
+    leveragedSupplyBase = leveragedSupplyBase.plus(supplyBase.times(borrowPercent.exponentiatedBy(i)));
     leveragedSupplyVxs = leveragedSupplyVxs.plus(supplyVxs.times(borrowPercent.exponentiatedBy(i)));
 
-    leveragedBorrowBase = leveragedBorrowBase.plus(
-      borrowBase.times(borrowPercent.exponentiatedBy(i + 1))
-    );
-    leveragedBorrowVxs = leveragedBorrowVxs.plus(
-      borrowVxs.times(borrowPercent.exponentiatedBy(i + 1))
-    );
+    leveragedBorrowBase = leveragedBorrowBase.plus(borrowBase.times(borrowPercent.exponentiatedBy(i + 1)));
+    leveragedBorrowVxs = leveragedBorrowVxs.plus(borrowVxs.times(borrowPercent.exponentiatedBy(i + 1)));
   }
 
   return {

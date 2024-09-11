@@ -19,116 +19,12 @@ import { fetchDefillamaPrices } from '../../utils/fetchDefillamaPrices';
 import { getKey, setKey } from '../../utils/cache';
 
 import getNonAmmPrices from './getNonAmmPrices';
-import bakeryPools from '../../data/bakeryLpPools.json';
-import blizzardLpPools from '../../data/degens/blizzardLpPools.json';
-import alpacaLpPools from '../../data/alpacaLpPools.json';
-import cafePools from '../../data/cafeLpPools.json';
-import cakeLpPools from '../../data/cakeLpPools.json';
-import cakeLpV1Pools from '../../data/cakeLpV1Pools.json';
-import cakeLpPoolsV2 from '../../data/cakeLpPoolsV2.json';
-import kebabPools from '../../data/kebabLpPools.json';
-import bdollarSbdoPools from '../../data/bdollarSbdoLpPools.json';
-import boltBtdPools from '../../data/boltBtdLpPools.json';
-import boltBtsPools from '../../data/boltBtsLpPools.json';
-import monsterPools from '../../data/monsterLpPools.json';
-import narPools from '../../data/narLpPools.json';
-import nyacashPools from '../../data/nyacashLpPools.json';
-import ramenPools from '../../data/ramenLpPools.json';
-import thugsPools from '../../data/thugsLpPools.json';
-import spongePools from '../../data/spongeLpPools.json';
-import crowPools from '../../data/crowLpPools.json';
-import inchPools from '../../data/1inchLpPools.json';
-import saltPools from '../../data/degens/saltLpPools.json';
-import apePools from '../../data/degens/apeLpPools.json';
-import apeJunglePools from '../../data/degens/apeJungleLpPools.json';
-import soupPools from '../../data/degens/soupLpPools.json';
-import autoPools from '../../data/autoLpPools.json';
-import julPools from '../../data/julLpPools.json';
-import memePools from '../../data/degens/memeFarmLpPools.json';
-import nutsPools from '../../data/degens/nutsLpPools.json';
-import slimePools from '../../data/degens/slimeLpPools.json';
-import pangolinPools from '../../data/avax/pangolinLpPools.json';
-import swipePools from '../../data/swipeLpPools.json';
-import comAvaxPools from '../../data/avax/comAvaxLpPools.json';
-import comBscPools from '../../data/comBscLpPools.json';
-import pumpyPools from '../../data/pumpyLpPools.json';
-import spacePools from '../../data/degens/spaceLpPools.json';
-import nautPools from '../../data/degens/nautLpPools.json';
-import ellipsisPools from '../../data/ellipsisLpPools.json';
-import hpsPools from '../../data/degens/hpsLpPools.json';
-import zefiPools from '../../data/degens/zefiLpPools.json';
-import thunderPools from '../../data/degens/thunderLpPools.json';
-import swirlPools from '../../data/swirlLpPools.json';
-import swampyPools from '../../data/degens/swampyLpPools.json';
-import yieldBayPools from '../../data/degens/yieldBayLpPools.json';
-import bingoPools from '../../data/degens/bingoLpPools.json';
-import olivePools from '../../data/avax/oliveLpPools.json';
-import bitiPools from '../../data/degens/bitiLpPools.json';
-import mdexBscPools from '../../data/mdexBscLpPools.json';
-import typhPools from '../../data/typhLpPools.json';
-import typhPoolsV1 from '../../data/typhLpPoolsV1.json';
-import marshPools from '../../data/degens/marshLpPools.json';
-import popsiclePools from '../../data/popsicleLpPools.json';
-import lydPools from '../../data/avax/lydLpPools.json';
-import icarusPools from '../../data/icarusLpPools.json';
-import satisPools from '../../data/degens/satisLpPools.json';
-import satisXPools from '../../data/degens/satisXLpPools.json';
-import zefiV2Pools from '../../data/degens/zefiLpPoolsV2.json';
-import froyoPools from '../../data/fantom/froyoLpPools.json';
-import esterPools from '../../data/fantom/esterLpPools.json';
-import goalPools from '../../data/degens/goalLpPools.json';
-import tofyPools from '../../data/degens/tofyLpPools.json';
-import dopplePools from '../../data/doppleLpPools.json';
-import garudaPools from '../../data/degens/garudaLpPools.json';
-import ironPools from '../../data/degens/ironLpPools.json';
-import ironDndPools from '../../data/degens/ironDndLpPools.json';
-import jetswapPools from '../../data/jetswapLpPools.json';
-import dumplingPools from '../../data/degens/dumplingLpPools.json';
-import grandPools from '../../data/grandLpPools.json';
-import pantherPools from '../../data/degens/pantherLpPools.json';
-import waultPools from '../../data/waultLpPools.json';
-import tenfiPools from '../../data/tenfiLpPools.json';
-import burgerPools from '../../data/burgerLpPools.json';
-import tombPools from '../../data/fantom/tombLpPools.json';
-import spiritPools from '../../data/fantom/spiritPools.json';
-import icarusV2Pools from '../../data/icarusV2LpPools.json';
-import merlinPools from '../../data/merlinLpPools.json';
-import farmheroBscPools from '../../data/farmheroPools.json';
-import ooePools from '../../data/ooeLpPools.json';
-import kingdefiPools from '../../data/degens/kingdefiLpPools.json';
-import rabbitPools from '../../data/degens/rabbitLpPools.json';
-import fruitPools from '../../data/degens/fruitLpPools.json';
-import peraPools from '../../data/degens/peraLpPools.json';
-import sushiOnePools from '../../data/one/sushiLpPools.json';
-import stablequantPools from '../../data/degens/stablequantLpPools.json';
-import honeyPools from '../../data/degens/honeyFarmLpPools.json';
-import steakhouseLpPools from '../../data/fantom/steakhouseLpPools.json';
-import stakesteakLpPools from '../../data/fantom/stakesteakLpPools.json';
-import tosdisPools from '../../data/degens/tosdisLpPools.json';
-import yelPools from '../../data/degens/yelLpPools.json';
-import omnifarmPools from '../../data/degens/omnifarmLpPools.json';
-import viralataLpPools from '../../data/degens/viralataLpPools.json';
-import joePools from '../../data/avax/joeLpPools.json';
-import joeDualLpPools from '../../data/avax/joeDualLpPools.json';
-import elkPools from '../../data/degens/elkLpPools.json';
-import longPools from '../../data/degens/longLpPools.json';
-import CZFPools from '../../data/degens/CZFLpPools.json';
-import pearzapBscPools from '../../data/degens/pearzapLpPools.json';
-import annexPools from '../../data/degens/annexLpPools.json';
-import pacocaPools from '../../data/degens/pacocaLpPools.json';
-import jetswapFantomPools from '../../data/fantom/jetswapLpPools.json';
+import ellipsisPools from '../../data/bsc/ellipsisLpPools.json';
+import mdexBscPools from '../../data/bsc/mdexBscLpPools.json';
 import geistPools from '../../data/fantom/geistLpPools.json';
-import singularBscPools from '../../data/degens/singularLpPools.json';
-import singularAvaxPools from '../../data/avax/singularLpPools.json';
-import singularFantomPools from '../../data/fantom/singularLpPools.json';
-import cafeBscPools from '../../data/degens/cafeLpPools.json';
 import oldPools from '../../data/archive/oldLpPools.json';
-import babyPools from '../../data/degens/babyLpPools.json';
-import pearzapFantomPools from '../../data/fantom/pearzapLpPools.json';
 import sushiCeloPools from '../../data/celo/sushiLpPools.json';
 import mooTokens from '../../data/mooTokens.json';
-import wsgPools from '../../data/degens/wsgLpPools.json';
-import summitPools from '../../data/fantom/summitLpPools.json';
 import solarbeamPools from '../../data/moonriver/solarbeamLpPools.json';
 import sushiMr from '../../data/moonriver/sushiLp.json';
 import sushiMrPools from '../../data/moonriver/sushiLpPools.json';
@@ -136,66 +32,32 @@ import vvsPools from '../../data/cronos/vvsLpPools.json';
 import cronaPools from '../../data/cronos/cronaLpPools.json';
 import solarbeamDualLpPools from '../../data/moonriver/solarbeamDualLpPools.json';
 import trisolarisLpPools from '../../data/aurora/trisolarisLpPools.json';
-import maiAvaxLpPools from '../../data/avax/maiLpPools.json';
-import bisonPools from '../../data/degens/bisonLpPools.json';
 import finnLpPools from '../../data/moonriver/finnLpPools.json';
-import blockMinePools from '../../data/degens/blockMineLpPools.json';
-import biswapPools from '../../data/biswapLpPools.json';
-import chargePools from '../../data/degens/chargeLpPools.json';
-import charmPools from '../../data/fantom/charmLpPools.json';
 import solarbeamDualLpV2Pools from '../../data/moonriver/solarbeamDualLpV2Pools.json';
 import liquidusPools from '../../data/cronos/liquidusLpPools.json';
 import sushiv2Celo from '../../data/celo/sushiv2LpPools.json';
-import popsicleFantomPools from '../../data/fantom/popsicleLpPools.json';
 import fusefiPools from '../../data/fuse/fusefiLpPools.json';
 import netswapPools from '../../data/metis/netswapLpPools.json';
-import dibsLpPools from '../../data/degens/dibsLpPools.json';
-import pangolinV2Pools from '../../data/avax/pangolinv2LpPools.json';
-import pangolinV2DualPools from '../../data/avax/pangolinV2DualLpPools.json';
-import t2ombLpPools from '../../data/fantom/2ombLpPools.json';
 import tethysPools from '../../data/metis/tethysLpPools.json';
-import oxdaoPools from '../../data/fantom/0xdaoPools.json';
-import sushiFtmPools from '../../data/fantom/sushiFtmLpPools.json';
 import sushiFusePools from '../../data/fuse/sushiFuseLpPools.json';
-import grapePools from '../../data/avax/grapeLpPools.json';
 import trisolarisMiniPools from '../../data/aurora/trisolarisMiniLpPools.json';
-import creditumPools from '../../data/fantom/creditumPools.json';
-import ripaePools from '../../data/fantom/ripaeLpPools.json';
-import ripaeAvaxPools from '../../data/avax/ripaeLpPools.json';
 import beamswapPools from '../../data/moonbeam/beamswapLpPools.json';
 import beamswapMultiRewardLpPools from '../../data/moonbeam/beamswapMultiRewardLpPools.json';
 import stellaswapPools from '../../data/moonbeam/stellaswapLpPools.json';
 import stellaswapPoolsV2 from '../../data/moonbeam/stellaswapLpV2Pools.json';
 import darkCryptoPools from '../../data/cronos/darkCryptoLpPools.json';
 import wigoPools from '../../data/fantom/wigoLpPools.json';
-import solidlyPools from '../../data/fantom/solidlyLpPools.json';
 import solarflare from '../../data/moonbeam/solarFlareLpPools.json';
-import basedPools from '../../data/fantom/basedLpPools.json';
 import voltagePools from '../../data/fuse/voltageLpPools.json';
-import bombSwapPools from '../../data/fantom/bombSwapPools.json';
-import empLpPools from '../../data/degens/empLpPools.json';
 import vvsDualPools from '../../data/cronos/vvsDualLpPools.json';
-import joeBoostedLpPools from '../../data/avax/joeBoostedLpPools.json';
 import spookyV2LpPools from '../../data/fantom/spookyV2LpPools.json';
 import spookyV3LpPools from '../../data/fantom/spookyV3LpPools.json';
-import valasLpPools from '../../data/valasLpPools.json';
-import bombLpPools from '../../data/degens/bombLpPools.json';
-import ripaeLpPools from '../../data/degens/ripaeLpPools.json';
-import valleySwapLpPools from '../../data/emerald/valleySwapLpPools.json';
-import yuzuLpPools from '../../data/emerald/yuzuLpPools.json';
-import yuzuDualPools from '../../data/emerald/yuzuDualLpPools.json';
 import velodromePools from '../../data/optimism/velodromeLpPools.json';
 import oldVelodromePools from '../../data/optimism/oldVelodromeLpPools.json';
 import ripaeCronosPools from '../../data/cronos/ripaeLpPools.json';
-import swapsiclePools from '../../data/avax/siclePools.json';
-import radiantPools from '../../data/arbitrum/radiantLpPools.json';
-import conePools from '../../data/coneLpPools.json';
-import spiritV2Pools from '../../data/fantom/spiritVolatileLpPools.json';
 import hermesPools from '../../data/metis/hermesLpPools.json';
-import equalizerPools from '../../data/fantom/equalizerLpPools.json';
 import equalizerV2Pools from '../../data/fantom/equalizerV2LpPools.json';
-import swapFishBscPools from '../../data/swapFishLpPools.json';
-import thenaPools from '../../data/degens/thenaLpPools.json';
+import thenaPools from '../../data/bsc/thenaLpPools.json';
 import sushiMainnetPools from '../../data/ethereum/sushiLpPools.json';
 import synapseLpPools from '../../data/ethereum/synapseLpPools.json';
 import solidlyLpPools from '../../data/ethereum/solidlyLpPools.json';
@@ -207,7 +69,6 @@ import equilibrePools from '../../data/kava/equilibreLpPools.json';
 import versePools from '../../data/ethereum/verseLpPools.json';
 import ramsesPools from '../../data/arbitrum/ramsesLpPools.json';
 import velocorePools from '../../data/zksync/velocoreLpPools.json';
-import soliSnekPools from '../../data/avax/soliSnekLpPools.json';
 import veSyncPools from '../../data/zksync/veSyncLpPools.json';
 import fvmPools from '../../data/fantom/fvmLpPools.json';
 import bvmPools from '../../data/base/bvmLpPools.json';
@@ -234,10 +95,7 @@ import { fetchChainLinkPrices } from '../../utils/fetchChainLinkPrices';
 import { fetchVenusPrices } from './bsc/venus/getVenusPrices';
 import { getLpBasedPrices } from './getLpBasedPrices';
 import uniswapLpPools from '../../data/ethereum/uniswapV2LpPools.json';
-import {
-  fetchDexScreenerPriceOracles,
-  OraclePriceRequest,
-} from '../../utils/fetchDexScreenerPrices';
+import { fetchDexScreenerPriceOracles, OraclePriceRequest } from '../../utils/fetchDexScreenerPrices';
 
 const INIT_DELAY = 2 * 1000;
 const REFRESH_INTERVAL = 5 * 60 * 1000;
@@ -262,7 +120,6 @@ const pools = normalizePoolOracleIds([
   ...bvmPools,
   ...cvmPools,
   ...veSyncPools,
-  ...soliSnekPools,
   ...velocorePools,
   ...ramsesPools,
   ...versePools,
@@ -275,66 +132,32 @@ const pools = normalizePoolOracleIds([
   ...synapseLpPools,
   ...sushiMainnetPools,
   ...thenaPools,
-  ...swapFishBscPools,
   ...equalizerV2Pools,
-  ...equalizerPools,
   ...hermesPools,
-  ...spiritV2Pools,
-  ...conePools,
-  ...radiantPools,
-  ...swapsiclePools,
   ...ripaeCronosPools,
   ...velodromePools,
   ...oldVelodromePools,
-  // ...valleySwapLpPools,
-  //...yuzuDualPools,
-  //...yuzuLpPools,
-  ...ripaeLpPools,
-  ...bombLpPools,
-  ...valasLpPools,
   ...spookyV2LpPools,
   ...spookyV3LpPools,
   ...vvsDualPools,
-  ...joeBoostedLpPools,
-  ...empLpPools,
-  ...bombSwapPools,
   ...voltagePools,
-  ...basedPools,
   ...stellaswapPools,
   ...stellaswapPoolsV2,
   ...solarflare,
-  ...solidlyPools,
   ...wigoPools,
   ...darkCryptoPools,
-  ...ripaePools,
-  ...ripaeAvaxPools,
-  ...creditumPools,
   ...trisolarisMiniPools,
-  ...grapePools,
   ...sushiFusePools,
-  ...sushiFtmPools,
-  ...oxdaoPools,
   ...tethysPools,
-  ...t2ombLpPools,
-  ...pangolinV2Pools,
-  ...pangolinV2DualPools,
-  ...dibsLpPools,
   ...netswapPools,
   ...fusefiPools,
-  ...popsicleFantomPools,
   ...sushiv2Celo,
   ...liquidusPools,
-  ...biswapPools,
   ...solarbeamDualLpV2Pools,
-  ...charmPools,
-  ...chargePools,
-  ...blockMinePools,
   ...oldPools,
   ...beamswapMultiRewardLpPools,
   ...beamswapPools,
   ...finnLpPools,
-  ...bisonPools,
-  ...maiAvaxLpPools,
   ...trisolarisLpPools,
   ...solarbeamDualLpPools,
   ...cronaPools,
@@ -342,113 +165,10 @@ const pools = normalizePoolOracleIds([
   ...sushiMrPools,
   ...sushiMr,
   ...solarbeamPools,
-  ...summitPools,
-  ...wsgPools,
-  ...pearzapFantomPools,
   ...sushiCeloPools,
-  ...babyPools,
-  ...cafeBscPools,
   ...geistPools,
-  ...singularBscPools,
-  ...singularAvaxPools,
-  ...singularFantomPools,
-  ...jetswapFantomPools,
-  ...pacocaPools,
-  ...annexPools,
-  ...pearzapBscPools,
-  ...CZFPools,
-  ...longPools,
-  ...elkPools,
-  ...viralataLpPools,
-  ...joePools,
-  ...joeDualLpPools,
-  ...omnifarmPools,
-  ...tosdisPools,
-  ...yelPools,
-  ...steakhouseLpPools,
-  ...honeyPools,
-  ...stablequantPools,
-  ...sushiOnePools,
-  ...peraPools,
-  ...fruitPools,
-  ...farmheroBscPools,
-  ...rabbitPools,
-  ...kingdefiPools,
-  ...ooePools,
-  ...merlinPools,
-  ...icarusV2Pools,
-  ...spiritPools,
-  ...tombPools,
-  ...burgerPools,
-  ...waultPools,
-  ...tenfiPools,
-  ...pantherPools,
-  ...grandPools,
-  ...dumplingPools,
-  ...jetswapPools,
-  ...ironDndPools,
-  ...ironPools,
-  ...garudaPools,
-  ...dopplePools,
-  ...tofyPools,
-  ...goalPools,
-  ...esterPools,
-  ...froyoPools,
-  ...zefiV2Pools,
-  ...satisXPools,
-  ...satisPools,
-  ...lydPools,
-  ...icarusPools,
-  ...popsiclePools,
-  ...marshPools,
-  ...typhPools,
-  ...typhPoolsV1,
   ...mdexBscPools,
-  ...bitiPools,
-  ...olivePools,
-  ...bingoPools,
-  ...yieldBayPools,
-  ...swampyPools,
-  ...swirlPools,
-  ...thunderPools,
-  ...zefiPools,
-  ...hpsPools,
   ...ellipsisPools,
-  ...nautPools,
-  ...spacePools,
-  ...pumpyPools,
-  ...comBscPools,
-  ...comAvaxPools,
-  ...pangolinPools,
-  ...swipePools,
-  ...slimePools,
-  ...blizzardLpPools,
-  ...nutsPools,
-  ...memePools,
-  ...julPools,
-  ...autoPools,
-  ...alpacaLpPools,
-  ...soupPools,
-  ...apeJunglePools,
-  ...apePools,
-  ...saltPools,
-  ...inchPools,
-  ...crowPools,
-  ...ramenPools,
-  ...cafePools,
-  ...bdollarSbdoPools,
-  ...spongePools,
-  ...bakeryPools,
-  ...kebabPools,
-  ...boltBtdPools,
-  ...boltBtsPools,
-  ...monsterPools,
-  ...narPools,
-  ...nyacashPools,
-  ...thugsPools,
-  ...cakeLpPoolsV2,
-  ...cakeLpV1Pools,
-  ...cakeLpPools,
   ...uniswapLpPools,
 ]);
 
@@ -522,6 +242,8 @@ const coinGeckoCoins: Record<string, string[]> = {
   'overnight-finance': ['oOVN'],
   'dinero-staked-eth': ['pxETH'],
   'based-pepe': ['basePEPE'],
+  toshi: ['TOSHI'],
+  somon: ['OwO'],
 };
 
 /**
@@ -598,6 +320,16 @@ const dexscreenerCoins: OraclePriceRequest[] = [
     tokenAddress: '0xED65C5085a18Fa160Af0313E60dcc7905E944Dc7',
     chainId: 'arbitrum',
   },
+  {
+    oracleId: 'basemsUSD',
+    tokenAddress: '0x526728DBc96689597F85ae4cd716d4f7fCcBAE9d',
+    chainId: 'base',
+  },
+  {
+    oracleId: 'opmsUSD',
+    tokenAddress: '0x9dAbAE7274D28A45F0B65Bf8ED201A5731492ca0',
+    chainId: 'optimism',
+  },
 ];
 
 /**
@@ -637,8 +369,8 @@ const seedPeggedPrices = {
   aWMATIC: 'MATIC', // Aave
   aWETH: 'ETH', // Aave,
   cArbUSDCv3: 'USDC', // Compound
-  aOptUSDC: 'USDC', //Aave
-  aOptUSDCn: 'USDC', //Aave
+  aOptUSDC: 'USDC', // Aave
+  aOptUSDCn: 'USDC', // Aave
   axlUSDC: 'USDC', // Axelar
   xcUSDC: 'USDC', // Kusama
   xcUSDT: 'USDT', // Kusama
@@ -717,9 +449,7 @@ async function performUpdateAmmPrices() {
   const ammPrices = fetchAmmPrices(pools, knownPrices).then(prices => {
     //Set prices for the wrapped version of native tokens (if native was set)
     const nativeTokens = new Set(
-      Object.values(addressBookByChainId).map(addressbook =>
-        addressbook.tokens.WNATIVE.oracleId.slice(1)
-      )
+      Object.values(addressBookByChainId).map(addressbook => addressbook.tokens.WNATIVE.oracleId.slice(1))
     );
     nativeTokens.forEach(nativeToken => {
       if (prices.tokenPrices.hasOwnProperty(nativeToken))
@@ -758,32 +488,30 @@ async function performUpdateAmmPrices() {
     };
   });
 
-  const linearPoolPrice = ammPrices.then(
-    async ({ tokenPrices }): Promise<Record<string, number>> => {
-      const jbrlTokenPrice = await fetchJbrlPrice();
-      const yVaultPrices = await fetchyVaultPrices(tokenPrices);
-      const vaultPrices = await fetchVaultPrices(tokenPrices);
-      const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
-      const prices = {
-        ...tokenPrices,
-        ...vaultPrices,
-        ...wrappedAavePrices,
-        ...jbrlTokenPrice,
-        ...yVaultPrices,
-      };
+  const linearPoolPrice = ammPrices.then(async ({ tokenPrices }): Promise<Record<string, number>> => {
+    const jbrlTokenPrice = await fetchJbrlPrice();
+    const yVaultPrices = await fetchyVaultPrices(tokenPrices);
+    const vaultPrices = await fetchVaultPrices(tokenPrices);
+    const wrappedAavePrices = await fetchWrappedAavePrices(tokenPrices);
+    const prices = {
+      ...tokenPrices,
+      ...vaultPrices,
+      ...wrappedAavePrices,
+      ...jbrlTokenPrice,
+      ...yVaultPrices,
+    };
 
-      const linearPrices = await fetchBalancerLinearPoolPrice(prices);
-      const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
+    const linearPrices = await fetchBalancerLinearPoolPrice(prices);
+    const balancerStablePoolPrice = await fetchBalancerStablePoolPrice(linearPrices);
 
-      return {
-        ...linearPrices,
-        ...balancerStablePoolPrice,
-        ...wrappedAavePrices,
-        ...jbrlTokenPrice,
-        ...yVaultPrices,
-      };
-    }
-  );
+    return {
+      ...linearPrices,
+      ...balancerStablePoolPrice,
+      ...wrappedAavePrices,
+      ...jbrlTokenPrice,
+      ...yVaultPrices,
+    };
+  });
 
   const beTokenPrice = ammPrices.then(async ({ tokenPrices }) => {
     return {
@@ -1022,11 +750,7 @@ function addLpBreakdownsToCache(lpBreakdowns: BreakdownsById): boolean {
   return updated;
 }
 
-function addToCache(
-  tokenPrices: PricesById,
-  lpPrices: PricesById,
-  lpBreakdowns: BreakdownsById
-): boolean {
+function addToCache(tokenPrices: PricesById, lpPrices: PricesById, lpBreakdowns: BreakdownsById): boolean {
   const tokenPriceUpdated = addTokenPricesToCache(tokenPrices);
   const lpPriceUpdated = addLpPricesToCache(lpPrices);
   const lpBreakdownUpdated = addLpBreakdownsToCache(lpBreakdowns);

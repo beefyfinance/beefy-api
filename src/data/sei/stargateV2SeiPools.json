@@ -1,0 +1,32 @@
+[
+  {
+    "name": "stargate-v2-sei-usdc",
+    "address": "0x3AE336CD18c50Fc5F23Ad44c6DAd07E83bd2B303",
+    "token": "0x3894085Ef7Ff0f0aeDf52E2A2704928d1Ec074F1",
+    "rewarder": "0xd69A3D88438f042a5a0b995b970F78FC8120ED67",
+    "decimals": "1e6",
+    "underlying": "USDC",
+    "rewards": [
+      {
+        "address": "0x0000000000000000000000000000000000000000",
+        "oracleId": "WSEI",
+        "decimals": "1e18"
+      }
+    ]
+  },
+  {
+    "name": "stargate-v2-sei-usdt",
+    "address": "0xe1d6BE6B535EbCaa41bF23eEb22d08119ae258ed",
+    "token": "0xB75D0B03c06A926e488e2659DF1A861F860bD3d1",
+    "rewarder": "0xd69A3D88438f042a5a0b995b970F78FC8120ED67",
+    "decimals": "1e6",
+    "underlying": "USDT",
+    "rewards": [
+      {
+        "address": "0x0000000000000000000000000000000000000000",
+        "oracleId": "WSEI",
+        "decimals": "1e18"
+      }
+    ]
+  }
+]

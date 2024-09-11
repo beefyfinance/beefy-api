@@ -33,6 +33,7 @@ const MULTICALLS = {
   252: '0xBC4a342B0c057501E081484A2d24e576E854F823',
   34443: '0x448a3539a591dE3Fb9D5AAE407471D21d40cD315',
   169: '0xD4F05538e8e79f3413B4A4E693eC0299E03e3151',
+  1329: '0xD535BDbc82cc04Ccc360E9f948cD8F9f76084088',
 };
 
 const BATCH_SIZE = 128;
@@ -60,12 +61,8 @@ const calcTokenPrice = (knownPrice, knownToken, unknownToken) => {
 };
 
 const calcLpPrice = (pool, tokenPrices) => {
-  const lp0 = pool.lp0.balance
-    .multipliedBy(tokenPrices[pool.lp0.oracleId])
-    .dividedBy(pool.lp0.decimals);
-  const lp1 = pool.lp1.balance
-    .multipliedBy(tokenPrices[pool.lp1.oracleId])
-    .dividedBy(pool.lp1.decimals);
+  const lp0 = pool.lp0.balance.multipliedBy(tokenPrices[pool.lp0.oracleId]).dividedBy(pool.lp0.decimals);
+  const lp1 = pool.lp1.balance.multipliedBy(tokenPrices[pool.lp1.oracleId]).dividedBy(pool.lp1.decimals);
   const price = lp0.plus(lp1).multipliedBy(pool.decimals).dividedBy(pool.totalSupply).toNumber();
 
   return {
@@ -122,11 +119,7 @@ const fetchAmmPrices = async (pools, knownPrices) => {
         }
 
         for (const { knownToken, unknownToken } of trySolve) {
-          const { price, weight } = calcTokenPrice(
-            prices[knownToken.oracleId],
-            knownToken,
-            unknownToken
-          );
+          const { price, weight } = calcTokenPrice(prices[knownToken.oracleId], knownToken, unknownToken);
 
           const existingWeight = weights[unknownToken.oracleId] || 0;
           const betterPrice = weight > existingWeight;
@@ -181,11 +174,7 @@ const fetchChainPools = async (chain, pools) => {
         pools.map(p => [p.address, p.lp0.address, p.lp1.address]),
         BATCH_SIZE
       ).map(batch =>
-        retryPromiseWithBackOff(
-          multicallContract.read.getLpInfo,
-          [batch],
-          'fetchAmmChainPools ' + chain
-        )
+        retryPromiseWithBackOff(multicallContract.read.getLpInfo, [batch], 'fetchAmmChainPools ' + chain)
       )
     );
   } catch (err) {

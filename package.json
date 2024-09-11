@@ -16,7 +16,7 @@
     "test:ts": "tsc --noEmit",
     "prettier:check": "prettier --check src/**/*",
     "prettier:fix": "prettier --write src/**/*",
-    "prepare": "husky install",
+    "prepare": "husky",
     "addFarm": "ts-node scripts/add-farm.ts",
     "addSushi": "ts-node scripts/add-sushi.ts",
     "addSolidly": "ts-node scripts/add-solidly.ts",
@@ -91,7 +91,7 @@
     "ethers": "^5.7.2",
     "graphql": "^15.5.0",
     "graphql-tag": "^2.12.4",
-    "husky": "^6.0.0",
+    "husky": "^9.1.5",
     "jsonpath": "^1.1.1",
     "koa": "^2.13.0",
     "koa-bodyparser": "^4.3.0",
@@ -116,17 +116,12 @@
     "command-line-args": "^5.2.1",
     "dotenv": "^8.2.0",
     "fast-glob": "^3.2.12",
-    "lint-staged": "^12.1.7",
+    "lint-staged": "^15.2.10",
     "lodash": "^4.17.21",
     "nodemon": "^2.0.6",
     "nyc": "^15.1.0",
     "prettier": "^2.8.8",
     "yargs": "^17.0.1"
-  },
-  "lint-staged": {
-    "*.ts": "prettier --write",
-    "*.js": "prettier --write",
-    "*.json": "prettier --write"
   },
   "packageManager": "yarn@1.22.22"
 }

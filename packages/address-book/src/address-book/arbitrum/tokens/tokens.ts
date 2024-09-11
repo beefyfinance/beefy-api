@@ -2169,4 +2169,33 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  stataArbFRAXn: {
+    name: 'Static Aave Arbitrum FRAXn',
+    symbol: 'stataArbFRAXn',
+    oracleId: 'stataArbFRAXn',
+    address: '0x89AEc2023f89E26Dbb7eaa7a98fe3996f9d112A8',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://frax.finance/',
+    description:
+      'Aave interest bearing FRAX. Frax is the first fractional-algorithmic stablecoin protocol.',
+    staked: true,
+    bridge: 'native',
+  },
+  stataArbGHOn: {
+    name: 'Static Aave Arbitrum GHOn',
+    symbol: 'stataArbGHOn',
+    oracleId: 'stataArbGHOn',
+    address: '0xD9FBA68D89178e3538e708939332c79efC540179',
+    chainId: 42161,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://aave.com/',
+    documentation: 'https://docs.aave.com/faq/gho-stablecoin',
+    description:
+      'Aave interest bearing GHO. GHO is a decentralized multi-collateral stablecoin that is fully backed, transparent and native to the Aave Protocol.',
+    staked: true,
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;

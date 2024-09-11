@@ -1,5 +1,5 @@
 const getSolidlyStablePrices = require('../common/getSolidlyStablePrices');
-const pools = require('../../../data/degens/thenaStableLpPools.json');
+const pools = require('../../../data/bsc/thenaStableLpPools.json');
 const { BSC_CHAIN_ID } = require('../../../constants');
 
 const getThenaStablePrices = async tokenPrices => {

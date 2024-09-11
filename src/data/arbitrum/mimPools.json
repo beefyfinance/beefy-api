@@ -1,0 +1,56 @@
+[
+  {
+    "name": "mim-arb-usdc",
+    "address": "0x8279699D397ED22b1014fE4D08fFD7Da7B3374C0",
+    "gauge": "0x280c64c4C4869CF2A6762EaDD4701360C1B11F97",
+    "rewards": [
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      },
+      {
+        "token": "0x3E6648C5a70A150A88bCE65F4aD4d506Fe15d2AF",
+        "oracleId": "SPELL"
+      }
+    ],
+    "lp0": {
+      "address": "0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
+      "oracle": "tokens",
+      "oracleId": "USDC",
+      "decimals": "1e6"
+    }
+  },
+  {
+    "name": "mim-arb-usdt",
+    "address": "0x236b9eE6F185Dc8B70d8bD3649F40ec37688C1Ab",
+    "gauge": "0xc30911b52b5752447aB08615973e434c801CD652",
+    "rewards": [
+      {
+        "token": "0x912CE59144191C1204E64559FE8253a0e49E6548",
+        "oracleId": "ARB"
+      },
+      {
+        "token": "0x3E6648C5a70A150A88bCE65F4aD4d506Fe15d2AF",
+        "oracleId": "SPELL"
+      }
+    ],
+    "lp0": {
+      "address": "0xFEa7a6a0B346362BF88A9e4A88416B77a57D6c2A",
+      "oracle": "tokens",
+      "oracleId": "MIM",
+      "decimals": "1e18"
+    },
+    "lp1": {
+      "address": "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
+      "oracle": "tokens",
+      "oracleId": "USDT",
+      "decimals": "1e6"
+    }
+  }
+]

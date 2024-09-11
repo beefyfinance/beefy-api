@@ -10,6 +10,7 @@ import { getEDecimals } from '../../../utils/getEDecimals';
 import IBalancerVault from '../../../abis/IBalancerVault';
 import IAaveProtocolDataProvider from '../../../abis/matic/AaveProtocolDataProvider';
 import AuraToken from '../../../abis/ethereum/AuraToken';
+import AuraBooster from '../../../abis/ethereum/AuraBooster';
 import { fetchContract } from '../../rpc/client';
 import jp from 'jsonpath';
 import AuraGauge from '../../../abis/ethereum/AuraGauge';
@@ -42,6 +43,7 @@ const bbeUSDPoolId = '0x50cf90b954958480b8df7958a9e965752f6271240000000000000000
 
 const liquidityProviderFee = 0.0025;
 const secondsInAYear = 31536000;
+const REWARD_MULTIPLIER_DENOMINATOR = 10000;
 const RAY_DECIMALS = '1e27';
 const balVault = fetchContract(balancer.router, IBalancerVault, ETH_CHAIN_ID);
 
@@ -54,14 +56,7 @@ const getAuraApys = async () => {
   ]);
 
   const poolsMap = pools.map(p => ({ name: p.name, address: p.address }));
-  return getApyBreakdown(
-    poolsMap,
-    tradingAprs,
-    farmApys[0],
-    liquidityProviderFee,
-    farmApys[1],
-    farmApys[2]
-  );
+  return getApyBreakdown(poolsMap, tradingAprs, farmApys[0], liquidityProviderFee, farmApys[1], farmApys[2]);
 };
 
 const getPoolApys = async pools => {
@@ -69,14 +64,14 @@ const getPoolApys = async pools => {
   const lsAprs = [];
   const cmpAprs = [];
 
-  const [auraData, { balances, rewardRates, finishes, extras }] = await Promise.all([
+  const [auraData, { balances, rewardRates, finishes, multipliers, extras }] = await Promise.all([
     getAuraData(),
     getPoolsData(pools),
   ]);
 
   const data = await Promise.all(
     pools.map((pool, i) =>
-      getPoolApy(pools[i], auraData, balances[i], rewardRates[i], finishes[i], extras)
+      getPoolApy(pools[i], auraData, balances[i], rewardRates[i], finishes[i], multipliers[i], extras)
     )
   );
   data.forEach(d => {
@@ -88,11 +83,11 @@ const getPoolApys = async pools => {
   return [apys, lsAprs, cmpAprs];
 };
 
-const getPoolApy = async (pool, auraData, balance, rewardRate, finish, extras) => {
+const getPoolApy = async (pool, auraData, balance, rewardRate, finish, multiplier, extras) => {
   if (pool.status === 'eol') return new BigNumber(0);
 
   let [yearlyRewardsInUsd, totalStakedInUsd, aprFixed, bbaUSDApy] = await Promise.all([
-    getYearlyRewardsInUsd(auraData, pool, rewardRate, finish, extras),
+    getYearlyRewardsInUsd(auraData, pool, rewardRate, finish, multiplier, extras),
     getTotalStakedInUsd(pool, balance),
     pool.name == 'aura-wsteth-reth-sfrxeth-v3'
       ? getThreeEthPoolYield(pool)
@@ -106,9 +101,7 @@ const getPoolApy = async (pool, auraData, balance, rewardRate, finish, extras) =
 
   let composableApr = new BigNumber(0);
   if (pool.includesComposableStable) {
-    pool.composableSplit
-      ? (bbaUSDApy = bbaUSDApy.dividedBy(pool.composableSplit))
-      : (bbaUSDApy = bbaUSDApy);
+    pool.composableSplit ? (bbaUSDApy = bbaUSDApy.dividedBy(pool.composableSplit)) : (bbaUSDApy = bbaUSDApy);
     composableApr = bbaUSDApy;
   }
 
@@ -120,13 +113,17 @@ const getPoolApy = async (pool, auraData, balance, rewardRate, finish, extras) =
   return [rewardsApy, aprFixed, composableApr];
 };
 
-const getYearlyRewardsInUsd = async (auraData, pool, rewardRate, finish, extras) => {
+const getYearlyRewardsInUsd = async (auraData, pool, rewardRate, finish, multiplier, extras) => {
   let yearlyRewardsInUsd = new BigNumber(0);
   if (finish > Date.now() / 1000) {
     const balPrice = await fetchPrice({ oracle: 'tokens', id: BAL.oracleId });
     const yearlyRewards = rewardRate.times(secondsInAYear);
     yearlyRewardsInUsd = yearlyRewards.times(balPrice).dividedBy(getEDecimals(BAL.decimals));
-    let amount = yearlyRewards.times(auraData[0]).dividedBy(auraData[1]);
+    let amount = yearlyRewards
+      .times(auraData[0])
+      .dividedBy(auraData[1])
+      .times(multiplier)
+      .dividedBy(REWARD_MULTIPLIER_DENOMINATOR);
     // e.g. amtTillMax = 5e25 - 1e25 = 4e25
 
     if (amount.gte(auraData[2])) {
@@ -177,9 +174,7 @@ const getLiquidStakingPoolYield = async pool => {
       }
     } else {
       const price = await fetchPrice({ oracle: 'tokens', id: pool.tokens[j].oracleId });
-      const amt = new BigNumber(tokenQtys[1][j].toString())
-        .times(price)
-        .dividedBy([pool.tokens[j].decimals]);
+      const amt = new BigNumber(tokenQtys[1][j].toString()).times(price).dividedBy([pool.tokens[j].decimals]);
       totalQty = totalQty.plus(amt);
       qty.push(amt);
     }
@@ -205,8 +200,7 @@ const getLiquidStakingPoolYield = async pool => {
         apr = apr + lsApr / divisor;
       } else {
         pool.balancerChargesFee
-          ? (apr =
-              apr + (lsApr * qty[pool.lsIndex[i]].dividedBy(totalQty).toNumber()) / divisor / 2)
+          ? (apr = apr + (lsApr * qty[pool.lsIndex[i]].dividedBy(totalQty).toNumber()) / divisor / 2)
           : (apr = apr + (lsApr * qty[pool.lsIndex[i]].dividedBy(totalQty).toNumber()) / divisor);
       }
     }
@@ -274,10 +268,7 @@ const getComposableAaveYield = async () => {
     return dataProvider.read.getReserveData([t.address]);
   });
 
-  const res = await Promise.all([
-    Promise.all(supplyRateCalls),
-    balVault.read.getPoolTokens([bbaUSDPoolId]),
-  ]);
+  const res = await Promise.all([Promise.all(supplyRateCalls), balVault.read.getPoolTokens([bbaUSDPoolId])]);
 
   const rates = res[0].map(v => new BigNumber(v[3].toString()));
   const tokenQtys = await balVault.read.getPoolTokens([bbaUSDPoolId]);
@@ -308,11 +299,14 @@ const getPoolsData = async pools => {
   const extraRewardInfo = [];
   const extraRewardRateCalls = [];
   const extraRewardPeriodFinishCalls = [];
+  const multiplierCalls = [];
+  const booster = fetchContract(addressBook.ethereum.platforms.aura.booster, AuraBooster, ETH_CHAIN_ID);
   pools.forEach(pool => {
     const gaugeContract = fetchContract(pool.gauge, AuraGauge, ETH_CHAIN_ID);
     balanceCalls.push(gaugeContract.read.totalSupply());
     rewardRateCalls.push(gaugeContract.read.rewardRate());
     periodFinishCalls.push(gaugeContract.read.periodFinish());
+    multiplierCalls.push(booster.read.getRewardMultipliers([pool.gauge]));
     pool.rewards?.forEach(reward => {
       const virtualGauge = fetchContract(reward.rewardGauge, AuraGauge, ETH_CHAIN_ID);
       extraRewardInfo.push({
@@ -331,18 +325,20 @@ const getPoolsData = async pools => {
     Promise.all(periodFinishCalls),
     Promise.all(extraRewardRateCalls),
     Promise.all(extraRewardPeriodFinishCalls),
+    Promise.all(multiplierCalls),
   ]);
 
   const balances = res[0].map(v => new BigNumber(v.toString()));
   const rewardRates = res[1].map(v => new BigNumber(v.toString()));
   const finishes = res[2].map(v => new BigNumber(v.toString()));
+  const multipliers = res[5].map(v => new BigNumber(v.toString()));
   const extras = extraRewardInfo.map((_, i) => ({
     ...extraRewardInfo[i],
     rewardRate: new BigNumber(res[3][i].toString()),
     periodFinish: new BigNumber(res[4][i].toString()),
   }));
 
-  return { balances, rewardRates, finishes, extras };
+  return { balances, rewardRates, finishes, multipliers, extras };
 };
 
 const getAuraData = async () => {

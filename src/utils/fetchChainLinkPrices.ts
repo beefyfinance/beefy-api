@@ -71,6 +71,36 @@ const oracles: Oracle[] = [
     heartbeat: 3600,
   },
   {
+    oracleId: 'AAVE',
+    address: '0x547a514d5e3769680Ce22B2361c10Ea13619e8a9',
+    chain: 'ethereum',
+    heartbeat: 3600,
+  },
+  {
+    oracleId: 'SOL',
+    address: '0x4ffC43a60e009B551865A93d232E33Fce9f01507',
+    chain: 'ethereum',
+    heartbeat: 864000,
+  },
+  {
+    oracleId: 'UNI',
+    address: '0x553303d460EE0afB37EdFf9bE42922D8FF63220e',
+    chain: 'ethereum',
+    heartbeat: 864000,
+  },
+  {
+    oracleId: 'Cake',
+    address: '0xB6064eD41d4f67e353768aA239cA86f4F73665a1',
+    chain: 'bsc',
+    heartbeat: 3600,
+  },
+  {
+    oracleId: 'XVS',
+    address: '0xBF63F430A79D4036A5900C19818aFf1fa710f206',
+    chain: 'bsc',
+    heartbeat: 3600,
+  },
+  {
     oracleId: 'USDT',
     address: '0x3e7d1eab13ad0104d2750b8863b489d65364e32d',
     chain: 'ethereum',
@@ -142,15 +172,19 @@ const oracles: Oracle[] = [
     chain: 'optimism',
     heartbeat: 864000,
   },
+  {
+    oracleId: 'GHO',
+    address: '0x3f12643D3f6f874d39C2a4c9f2Cd6f2DbAC877FC',
+    chain: 'ethereum',
+    heartbeat: 864000,
+  },
 ];
 
 export async function fetchChainLinkPrices(): Promise<Record<string, number>> {
   const oraclesByChain: Partial<Record<ApiChain, Oracle[]>> = groupBy(oracles, 'chain');
   const chains = Object.keys(oraclesByChain) as ApiChain[];
   const pricesPerChain = await Promise.allSettled(
-    Object.entries(oraclesByChain).map(([chain, oracles]) =>
-      fetchPricesForChain(chain as ApiChain, oracles)
-    )
+    Object.entries(oraclesByChain).map(([chain, oracles]) => fetchPricesForChain(chain as ApiChain, oracles))
   );
 
   const pricesByOracle: Record<string, number[]> = {};
@@ -175,10 +209,7 @@ export async function fetchChainLinkPrices(): Promise<Record<string, number>> {
   return mapValues(pricesByOracle, median);
 }
 
-async function fetchPricesForChain(
-  chain: ApiChain,
-  oracles: Oracle[]
-): Promise<Record<string, number>> {
+async function fetchPricesForChain(chain: ApiChain, oracles: Oracle[]): Promise<Record<string, number>> {
   const results = await Promise.allSettled(
     oracles.map(async (oracle): Promise<RoundData> => {
       const contract = fetchContract(oracle.address, chainLinkOracleAbi, toChainId(chain));

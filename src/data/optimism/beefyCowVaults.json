@@ -1,26 +1,112 @@
 [
   {
+    "address": "0x87F91963005c57596dA3576B469617FDC6DEC5a8",
+    "lpAddress": "0xb40DA71c49c745Dd3ab801882b1D410760541678",
+    "tokens": ["0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb", "0x2416092f143378750bb29b79eD961ab195CcEea5"],
+    "tokenOracleIds": ["wstETH", "ezETH"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-wsteth-ezeth",
+    "rewardPool": {
+      "address": "0x1DD7A8C8eE981970CF4e91800c83087F69d6DdeC",
+      "oracleId": "uniswap-cow-op-wsteth-ezeth-rp"
+    },
+    "vault": {
+      "address": "0xfCb36EC9cA09522d584263A5Bee4e793146ee74f",
+      "oracleId": "uniswap-cow-op-wsteth-ezeth-vault"
+    }
+  },
+  {
+    "address": "0xC3b089dE5a8b8A42Fa79C6f7f887B7d5eF567bf1",
+    "lpAddress": "0xe9e3893921dE87b1194a8108F9d70C24BdE71c27",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x920Cf626a271321C151D027030D5d08aF699456b"],
+    "tokenOracleIds": ["WETH", "KWENTA"],
+    "decimals": [18, 18],
+    "oracleId": "uniswap-cow-op-weth-kwenta",
+    "rewardPool": {
+      "address": "0x364DB9DABF03e3eb3c9b60634Abe1d28E157F0aB",
+      "oracleId": "uniswap-cow-op-weth-kwenta-rp"
+    }
+  },
+  {
+    "address": "0xEE1CA97823F6f359eBF1c37cbD245b4CD3B664af",
+    "lpAddress": "0xE2101D19B78e695982975CC1A27b6A9117e02b09",
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9"],
+    "tokenOracleIds": ["USDC", "sUSD"],
+    "decimals": [6, 18],
+    "oracleId": "uniswap-cow-op-usdc-susd",
+    "rewardPool": {
+      "address": "0x450A5A7a65c9A6010f9f8b8D123EC8f99bfCbf95",
+      "oracleId": "uniswap-cow-op-usdc-susd-rp"
+    }
+  },
+  {
+    "address": "0x699156366A255d9e7aD9b64384b873C64D51fF4F",
+    "lpAddress": "0x962E23cd3F58f887a5238082A75d223f71890629",
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"],
+    "tokenOracleIds": ["USDC", "USDT"],
+    "decimals": [6, 6],
+    "oracleId": "sushi-cow-op-usdc-usdt",
+    "rewardPool": {
+      "address": "0xD68330DFA7c113A9A8440A1d3252447FB4B95A45",
+      "oracleId": "sushi-cow-op-usdc-usdt-rp"
+    },
+    "vault": {
+      "address": "0x3FA949fbAccd00c76cDd6703227266D97dD42319",
+      "oracleId": "sushi-cow-op-usdc-usdt-vault"
+    }
+  },
+  {
+    "address": "0x42f57Cb394c6186A972f441972163adA482efD8A",
+    "lpAddress": "0x58B2f113244DdC9332c46aF25BC223873E68ff3d",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x4200000000000000000000000000000000000042"],
+    "tokenOracleIds": ["WETH", "OP"],
+    "decimals": [18, 18],
+    "oracleId": "sushi-cow-op-weth-op",
+    "rewardPool": {
+      "address": "0x70A9723406fCaE809ceFE485cf9F79c8D7DC9641",
+      "oracleId": "sushi-cow-op-weth-op-rp"
+    },
+    "vault": {
+      "address": "0x289b684EDaF901AE61b77BcFb0C7407424c92c30",
+      "oracleId": "sushi-cow-op-weth-op-vault"
+    }
+  },
+  {
+    "address": "0x3938CA323F0A8A6Bfe085773824826243E51b87B",
+    "lpAddress": "0x146EDa2f1D35efb5eEf5703aCeC701c68E1503d8",
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x4200000000000000000000000000000000000006"],
+    "tokenOracleIds": ["USDC", "WETH"],
+    "decimals": [6, 18],
+    "oracleId": "sushi-cow-op-usdc-weth",
+    "rewardPool": {
+      "address": "0x4b48804474952bB66c381e693d546b14FefCA6Fd",
+      "oracleId": "sushi-cow-op-usdc-weth-rp"
+    },
+    "vault": {
+      "address": "0x0909c5945A9e9eCD0051bD1504Ed7dE58AFdfEa6",
+      "oracleId": "sushi-cow-op-usdc-weth-vault"
+    }
+  },
+  {
     "address": "0x31f663096Ab1Ac630fAc855633c23d07E70F3024",
     "lpAddress": "0x689A850F62B41d89B5e5C3465Cd291374B215813",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0x68f180fcCe6836688e9084f035309E29Bf0A2095"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x68f180fcCe6836688e9084f035309E29Bf0A2095"],
     "tokenOracleIds": ["WETH", "WBTC"],
     "decimals": [18, 8],
     "oracleId": "sushi-cow-op-weth-wbtc",
     "rewardPool": {
       "address": "0xd5949A52265c6d798519F61E43b01a82fE2582E6",
       "oracleId": "sushi-cow-op-weth-wbtc-rp"
+    },
+    "vault": {
+      "address": "0xb9aa4A19A37A2b6d189c1f51037dB82fD52d8568",
+      "oracleId": "sushi-cow-op-weth-wbtc-vault"
     }
   },
   {
     "address": "0x9F0eae2C6E91DD9b96E5FAdb976c35EBE7e95195",
     "lpAddress": "0xeBD5311beA1948e1441333976EadCFE5fBda777C",
-    "tokens": [
-      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-      "0x4200000000000000000000000000000000000042"
-    ],
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x4200000000000000000000000000000000000042"],
     "tokenOracleIds": ["USDC", "OP"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-op-usdc",
@@ -37,10 +123,7 @@
   {
     "address": "0x036CbB67b1c0b9ff3bac44A98939f12374b5257C",
     "lpAddress": "0x84Ce89B4f6F67E523A81A82f9f2F14D84B726F6B",
-    "tokens": [
-      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-      "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"
-    ],
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"],
     "tokenOracleIds": ["USDC", "USDT"],
     "decimals": [6, 6],
     "oracleId": "velo-cow-op-usdc-usdt",
@@ -57,10 +140,7 @@
   {
     "address": "0x823f2B0aa1D54c38fe149ee119c6d7845e93593d",
     "lpAddress": "0xb71Ac980569540cE38195b38369204ff555C80BE",
-    "tokens": [
-      "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
-      "0x2416092f143378750bb29b79eD961ab195CcEea5"
-    ],
+    "tokens": ["0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb", "0x2416092f143378750bb29b79eD961ab195CcEea5"],
     "tokenOracleIds": ["wstETH", "ezETH"],
     "decimals": [18, 18],
     "oracleId": "velo-cow-op-wsteth-ezeth",
@@ -77,10 +157,7 @@
   {
     "address": "0x10D7043d80Cf6D367b83D2bf0b0b02CC951E484d",
     "lpAddress": "0xbF30Ff33CF9C6b0c48702Ff17891293b002DfeA4",
-    "tokens": [
-      "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
-      "0x4200000000000000000000000000000000000006"
-    ],
+    "tokens": ["0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb", "0x4200000000000000000000000000000000000006"],
     "tokenOracleIds": ["wstETH", "WETH"],
     "decimals": [18, 18],
     "oracleId": "velo-cow-op-wsteth-weth",
@@ -97,10 +174,7 @@
   {
     "address": "0x10e6Aae7DA1aE6510a574Cc58212b8CCc82e6612",
     "lpAddress": "0x319C0DD36284ac24A6b2beE73929f699b9f48c38",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0x68f180fcCe6836688e9084f035309E29Bf0A2095"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x68f180fcCe6836688e9084f035309E29Bf0A2095"],
     "tokenOracleIds": ["WETH", "WBTC"],
     "decimals": [18, 8],
     "oracleId": "velo-cow-op-weth-wbtc",
@@ -117,10 +191,7 @@
   {
     "address": "0x71534612FE49BF54485a6BEfDcF26B28927796da",
     "lpAddress": "0x4DC22588Ade05C40338a9D95A6da9dCeE68Bcd60",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0x4200000000000000000000000000000000000042"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x4200000000000000000000000000000000000042"],
     "tokenOracleIds": ["WETH", "OP"],
     "decimals": [18, 18],
     "oracleId": "velo-cow-op-weth-op",
@@ -137,10 +208,7 @@
   {
     "address": "0x744533793766b849801e43d80036e1fEf69e198b",
     "lpAddress": "0xEE1baC98527a9fDd57fcCf967817215B083cE1F0",
-    "tokens": [
-      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-      "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb"
-    ],
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb"],
     "tokenOracleIds": ["USDC", "wstETH"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-wsteth-usdc",
@@ -157,10 +225,7 @@
   {
     "address": "0xC03D4863d5D415A64d8f72bfD6093eDa54e4d31F",
     "lpAddress": "0x478946BcD4a5a22b316470F5486fAfb928C0bA25",
-    "tokens": [
-      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-      "0x4200000000000000000000000000000000000006"
-    ],
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x4200000000000000000000000000000000000006"],
     "tokenOracleIds": ["USDC", "WETH"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-weth-usdc",
@@ -177,10 +242,7 @@
   {
     "address": "0x688EFffb4212E98D47d6617665575EAe7b7dc85B",
     "lpAddress": "0x3C01ec09D15D5450FC702DC4353b17Cd2978d8a5",
-    "tokens": [
-      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-      "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9"
-    ],
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x8c6f28f2F1A3C87F0f938b96d27520d9751ec8d9"],
     "tokenOracleIds": ["USDC", "sUSD"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-susd-usdc",
@@ -197,10 +259,7 @@
   {
     "address": "0xD4768E30180786e875a4909472c9826b18931E43",
     "lpAddress": "0x173cDC71e29d5Cffa6D090AD99f555a24B8831f9",
-    "tokens": [
-      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-      "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"
-    ],
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0xc55E93C62874D8100dBd2DfE307EDc1036ad5434"],
     "tokenOracleIds": ["USDC", "mooBIFI"],
     "decimals": [6, 18],
     "oracleId": "velo-cow-op-moobifi-usdc",
@@ -217,10 +276,7 @@
   {
     "address": "0x3099015b25b3F2409a06b92C8B46A35FC3Da0A4e",
     "lpAddress": "0xD1F1baD4c9E6c44DeC1e9bF3B94902205c5Cd6C3",
-    "tokens": [
-      "0x7F5c764cBc14f9669B88837ca1490cCa17c31607",
-      "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1"
-    ],
+    "tokens": ["0x7F5c764cBc14f9669B88837ca1490cCa17c31607", "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1"],
     "tokenOracleIds": ["opUSDCe", "WLD"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-op-usdc.e-wld",
@@ -232,10 +288,7 @@
   {
     "address": "0xE37B4bb335D82B94032687eE620a436C20927Cef",
     "lpAddress": "0x2Ae3d6096d8215Ac2Acddf30c60CAa984Ea5dEbe",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1"],
     "tokenOracleIds": ["WETH", "WLD"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-op-weth-wld",
@@ -247,10 +300,7 @@
   {
     "address": "0x5451b6584B4D7de383A55B01E7335E137BFEA5A5",
     "lpAddress": "0x7505159f644DdC5eaE21C119E328d0D5Bee574b0",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0x6985884C4392D348587B19cb9eAAf157F13271cd"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x6985884C4392D348587B19cb9eAAf157F13271cd"],
     "tokenOracleIds": ["WETH", "ZRO"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-op-weth-zro",
@@ -262,10 +312,7 @@
   {
     "address": "0x18A2688494cFa036C8Bc28595336639a9eb9FA53",
     "lpAddress": "0xd9dD34576c7034BEB0B11a99aFFfC49e91011235",
-    "tokens": [
-      "0x6985884C4392D348587B19cb9eAAf157F13271cd",
-      "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"
-    ],
+    "tokens": ["0x6985884C4392D348587B19cb9eAAf157F13271cd", "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"],
     "tokenOracleIds": ["ZRO", "USDT"],
     "decimals": [18, 6],
     "oracleId": "uniswap-cow-op-zro-usdt",
@@ -277,10 +324,7 @@
   {
     "address": "0xCFf23567199817dEeC54c8D0E0d138837b20B3A8",
     "lpAddress": "0xE870BFE4AaCB6E234B645e535D26C53790D50E78",
-    "tokens": [
-      "0x0994206dfE8De6Ec6920FF4D779B0d950605Fb53",
-      "0x4200000000000000000000000000000000000006"
-    ],
+    "tokens": ["0x0994206dfE8De6Ec6920FF4D779B0d950605Fb53", "0x4200000000000000000000000000000000000006"],
     "tokenOracleIds": ["CRV", "WETH"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-op-crv-weth",
@@ -292,10 +336,7 @@
   {
     "address": "0x0Ee84708c7E4F65e4799235CB576C7E862aA4D03",
     "lpAddress": "0xaDAb76dD2dcA7aE080A796F0ce86170e482AfB4a",
-    "tokens": [
-      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-      "0x68f180fcCe6836688e9084f035309E29Bf0A2095"
-    ],
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x68f180fcCe6836688e9084f035309E29Bf0A2095"],
     "tokenOracleIds": ["USDC", "WBTC"],
     "decimals": [6, 8],
     "oracleId": "uniswap-cow-op-usdc-wbtc",
@@ -307,10 +348,7 @@
   {
     "address": "0x9b9EB6B79b09A43e5d4118ED7124147Fb3c8d250",
     "lpAddress": "0xc858A329Bf053BE78D6239C4A4343B8FbD21472b",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x94b008aA00579c1307B0EF2c499aD98a8ce58e58"],
     "tokenOracleIds": ["WETH", "USDT"],
     "decimals": [18, 6],
     "oracleId": "uniswap-cow-op-weth-usdt",
@@ -322,10 +360,7 @@
   {
     "address": "0x53F42Ee2feb58035e6c43B3FF796b17D9650cF4b",
     "lpAddress": "0x03aF20bDAaFfB4cC0A521796a223f7D85e2aAc31",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xDA10009cBd5D07dd0CeCc66161FC93D7c9000da1"],
     "tokenOracleIds": ["WETH", "DAI"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-op-weth-dai",
@@ -337,10 +372,7 @@
   {
     "address": "0x4EAb2865E76318478b7d4F63F613a0ED0A602945",
     "lpAddress": "0x0392b358CE4547601BEFa962680BedE836606ae2",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4"],
     "tokenOracleIds": ["WETH", "SNX"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-op-weth-snx",
@@ -352,10 +384,7 @@
   {
     "address": "0x0A90c02d6Be2EF93e939702Efc74BEC58659a4D3",
     "lpAddress": "0x85149247691df622eaF1a8Bd0CaFd40BC45154a9",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0x7F5c764cBc14f9669B88837ca1490cCa17c31607"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x7F5c764cBc14f9669B88837ca1490cCa17c31607"],
     "tokenOracleIds": ["WETH", "opUSDCe"],
     "decimals": [18, 6],
     "oracleId": "uniswap-cow-op-weth-usdc.e",
@@ -367,10 +396,7 @@
   {
     "address": "0xA2A8B06aa9d211e02E1F8CEb7706aE8bF3362Dfb",
     "lpAddress": "0xB533c12fB4e7b53b5524EAb9b47d93fF6C7A456F",
-    "tokens": [
-      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-      "0x4200000000000000000000000000000000000042"
-    ],
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x4200000000000000000000000000000000000042"],
     "tokenOracleIds": ["USDC", "OP"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-op-usdc-op",
@@ -382,10 +408,7 @@
   {
     "address": "0xE430F5264653056BE2B556B4bB0F9Cd70fb8407B",
     "lpAddress": "0x85C31FFA3706d1cce9d525a00f1C7D4A2911754c",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0x68f180fcCe6836688e9084f035309E29Bf0A2095"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x68f180fcCe6836688e9084f035309E29Bf0A2095"],
     "tokenOracleIds": ["WETH", "WBTC"],
     "decimals": [18, 8],
     "oracleId": "uniswap-cow-op-weth-wbtc",
@@ -397,10 +420,7 @@
   {
     "address": "0xC884a956a18a4953356b87c1c968419c32FA4a73",
     "lpAddress": "0x68F5C0A2DE713a54991E01858Fd27a3832401849",
-    "tokens": [
-      "0x4200000000000000000000000000000000000006",
-      "0x4200000000000000000000000000000000000042"
-    ],
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x4200000000000000000000000000000000000042"],
     "tokenOracleIds": ["WETH", "OP"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-op-op-weth",
@@ -412,10 +432,7 @@
   {
     "address": "0xc0Fdb17dd0811e9a6855b9bb0C6c0bbC2194C98F",
     "lpAddress": "0x1fb3cf6e48F1E7B10213E7b6d87D4c073C7Fdb7b",
-    "tokens": [
-      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-      "0x4200000000000000000000000000000000000006"
-    ],
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x4200000000000000000000000000000000000006"],
     "tokenOracleIds": ["USDC", "WETH"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-op-usdc-weth",
@@ -427,10 +444,7 @@
   {
     "address": "0x80D438EEdb918207c2F7F7eAC31f2F8012923F76",
     "lpAddress": "0xA19fb6B927cd7804C2E1c594D6888Ea4B1173e8A",
-    "tokens": [
-      "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
-      "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"
-    ],
+    "tokens": ["0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb", "0x5d3a1Ff2b6BAb83b63cd9AD0787074081a52ef34"],
     "tokenOracleIds": ["wstETH", "USDe"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-op-usde-wsteth",
@@ -442,10 +456,7 @@
   {
     "address": "0x25F25a45105Ea0Cad9cb116cc4f9b40124A7D02D",
     "lpAddress": "0xD52533A3309b393AfEBE3176620E8cCFB6159f8a",
-    "tokens": [
-      "0x68f180fcCe6836688e9084f035309E29Bf0A2095",
-      "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"
-    ],
+    "tokens": ["0x68f180fcCe6836688e9084f035309E29Bf0A2095", "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"],
     "tokenOracleIds": ["WBTC", "tBTC"],
     "decimals": [8, 18],
     "oracleId": "uniswap-cow-op-tbtc-wbtc",
@@ -457,10 +468,7 @@
   {
     "address": "0x0F46A74B01708E78c27DEF7160A5C5222f9dD157",
     "lpAddress": "0x83AFbd6C4E804Dd4dcCa7aceE967926bc3f408aC",
-    "tokens": [
-      "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
-      "0x4186BFC76E2E237523CBC30FD220FE055156b41F"
-    ],
+    "tokens": ["0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb", "0x4186BFC76E2E237523CBC30FD220FE055156b41F"],
     "tokenOracleIds": ["wstETH", "rsETH"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-op-rseth-wsteth",
@@ -472,10 +480,7 @@
   {
     "address": "0x36183032f94652748Ab6F6ce503f801de9D1d8CB",
     "lpAddress": "0xDc6cb16B8d635Ef255cEF370263C35ac0007186A",
-    "tokens": [
-      "0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85",
-      "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1"
-    ],
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1"],
     "tokenOracleIds": ["USDC", "WLD"],
     "decimals": [6, 18],
     "oracleId": "uniswap-cow-op-usdc-wld",
