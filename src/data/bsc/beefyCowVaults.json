@@ -1,11 +1,59 @@
 [
   {
+    "address": "0xFb023De5C9De886069554caccA6D08e2E7c1bD9e",
+    "lpAddress": "0xc9002d23CEBF00b40f7CDB5B1E63d96eebB50031",
+    "tokens": ["0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
+    "tokenOracleIds": ["wstETH", "WBNB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-wsteth-wbnb",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x9CCCB9E5a567AE08f346e929A8F98AB6C9506165",
+      "oracleId": "pancake-cow-bsc-wsteth-wbnb-rp"
+    },
+    "vault": {
+      "address": "0xc2F183fAf921F4CA8Dd31B78e4563aD12537FA98",
+      "oracleId": "pancake-cow-bsc-wsteth-wbnb-vault"
+    }
+  },
+  {
+    "address": "0x2f2637ae8Ec1bF8D576AD2A1C14B7026832509Cb",
+    "lpAddress": "0xcC1c80529B483A663d869C137a1Fd0cBD9855dC8",
+    "tokens": ["0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],
+    "tokenOracleIds": ["wstETH", "BTCB"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-wsteth-btcb",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x0D3A431f2fE6Ee29e27f909448c64bd6D7F43118",
+      "oracleId": "pancake-cow-bsc-wsteth-btcb-rp"
+    },
+    "vault": {
+      "address": "0xc595CacE646eed6A764ef355DD03a21045ce0554",
+      "oracleId": "pancake-cow-bsc-wsteth-btcb-vault"
+    }
+  },
+  {
+    "address": "0x5F25f61055141997772d8496Fc55ADA1FF7a3A10",
+    "lpAddress": "0x6CB5392B9CA52d7a0E6940e82d29087361360eC3",
+    "tokens": ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C"],
+    "tokenOracleIds": ["ETH", "wstETH"],
+    "decimals": [18, 18],
+    "oracleId": "pancake-cow-bsc-eth-wsteth",
+    "providerId": "pancakeswap",
+    "rewardPool": {
+      "address": "0x4cf8272d50aB4b1cF1216c8e07b67A1f23245f56",
+      "oracleId": "pancake-cow-bsc-eth-wsteth-rp"
+    },
+    "vault": {
+      "address": "0x63A3DbA21224227231B6867eB5192290B84B44bD",
+      "oracleId": "pancake-cow-bsc-eth-wsteth-vault"
+    }
+  },
+  {
     "address": "0xd9CFc385bE8E942050cb59b119697ed659F090CA",
     "lpAddress": "0x81A9b5F18179cE2bf8f001b8a634Db80771F1824",
-    "tokens": [
-      "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["USDC", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-usdc-wbnb",
@@ -22,10 +70,7 @@
   {
     "address": "0x375B9E0D598426277a20468B10b6475Ce96Bc8c4",
     "lpAddress": "0x3Fb2623567E21F8C50F0Ae86f54EF4849b4eb47b",
-    "tokens": [
-      "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"
-    ],
+    "tokens": ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],
     "tokenOracleIds": ["ETH", "BTCB"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-bsc-eth-btcb",
@@ -37,10 +82,7 @@
   {
     "address": "0x7C18b30F1d1eF8A07AF166f57448C054b82658CF",
     "lpAddress": "0x28dF0835942396B7a1b7aE1cd068728E6ddBbAfD",
-    "tokens": [
-      "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["BTCB", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-bsc-btcb-wbnb",
@@ -52,10 +94,7 @@
   {
     "address": "0x9D7A030261efc848379A506Dd67Fb54199899c33",
     "lpAddress": "0x0f338Ec12d3f7C3D77A4B9fcC1f95F3FB6AD0EA6",
-    "tokens": [
-      "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["ETH", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-bsc-eth-wbnb",
@@ -67,10 +106,7 @@
   {
     "address": "0xC02DFF4D789355C2343AdE5ac74589828cED37Ba",
     "lpAddress": "0x6fe9E9de56356F7eDBfcBB29FAB7cd69471a4869",
-    "tokens": [
-      "0x55d398326f99059fF775485246999027B3197955",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["USDT", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-bsc-usdt-wbnb",
@@ -82,10 +118,7 @@
   {
     "address": "0xD895f639abEE8723B370c6c5Be4be67e669fA7D6",
     "lpAddress": "0xF9878A5dD55EdC120Fde01893ea713a4f032229c",
-    "tokens": [
-      "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "0x55d398326f99059fF775485246999027B3197955"
-    ],
+    "tokens": ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x55d398326f99059fF775485246999027B3197955"],
     "tokenOracleIds": ["ETH", "USDT"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-bsc-eth-usdt",
@@ -97,10 +130,7 @@
   {
     "address": "0x4f28A510CE927d972675d5164c2ff665e91fECAf",
     "lpAddress": "0x2C3c320D49019D4f9A92352e947c7e5AcFE47D68",
-    "tokens": [
-      "0x55d398326f99059fF775485246999027B3197955",
-      "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"
-    ],
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"],
     "tokenOracleIds": ["USDT", "USDC"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-bsc-usdt-usdc",
@@ -112,10 +142,7 @@
   {
     "address": "0xec016a6802CcA10193f63E3B02a03C83954f9688",
     "lpAddress": "0x813c0decbB1097fFF46d0Ed6a39fB5f6a83043f4",
-    "tokens": [
-      "0x55d398326f99059fF775485246999027B3197955",
-      "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"
-    ],
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],
     "tokenOracleIds": ["USDT", "BTCB"],
     "decimals": [18, 18],
     "oracleId": "uniswap-cow-bsc-usdt-btcb",
@@ -127,10 +154,7 @@
   {
     "address": "0xfEA50261819Dc00278F9C4b18B6Cf146a830bCEd",
     "lpAddress": "0x6B67112aa7b45E8CdC0a93B8D66A6A36e68ae8e5",
-    "tokens": [
-      "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["BTCB", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "thena-cow-btcb-wbnb",
@@ -142,10 +166,7 @@
   {
     "address": "0xd5E1cB0Da9b44E4020557c49Bd084a0147Ac828b",
     "lpAddress": "0x1123E75b71019962CD4d21b0F3018a6412eDb63C",
-    "tokens": [
-      "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["ETH", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "thena-cow-eth-wbnb",
@@ -157,10 +178,7 @@
   {
     "address": "0x0baD27b4a100E660257BFF942D64eC8cA3018Cec",
     "lpAddress": "0x1B932598da273069e1878E4a1505b6f833462210",
-    "tokens": [
-      "0x570A5D26f7765Ecb712C0924E4De545B89fD43dF",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x570A5D26f7765Ecb712C0924E4De545B89fD43dF", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["SOL", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "thena-cow-sol-wbnb",
@@ -172,10 +190,7 @@
   {
     "address": "0x6A776b745745E39f55E996fCD1aa30ba99552BE0",
     "lpAddress": "0x85FAac652b707FDf6907EF726751087F9E0b6687",
-    "tokens": [
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"
-    ],
+    "tokens": ["0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c", "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"],
     "tokenOracleIds": ["WBNB", "BUSD"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-wbnb-busd",
@@ -192,10 +207,7 @@
   {
     "address": "0x1400E7A2b7AA779a324a750CcF4cE00349bBdbA6",
     "lpAddress": "0x803036AC78752EF599EC75c500ac8B0Ac0bE67dF",
-    "tokens": [
-      "0x4268B8F0B87b6Eae5d897996E6b845ddbD99Adf3",
-      "0x55d398326f99059fF775485246999027B3197955"
-    ],
+    "tokens": ["0x4268B8F0B87b6Eae5d897996E6b845ddbD99Adf3", "0x55d398326f99059fF775485246999027B3197955"],
     "tokenOracleIds": ["axlUSDC", "USDT"],
     "decimals": [6, 18],
     "oracleId": "pancake-cow-bsc-axlusdc-usdt",
@@ -212,10 +224,7 @@
   {
     "address": "0xE571c8463779495F4125cA258D52d200c07C67cb",
     "lpAddress": "0x589a5062e47202bB994cD354913733a14b54e8Dc",
-    "tokens": [
-      "0x323665443CEf804A3b5206103304BD4872EA4253",
-      "0x55d398326f99059fF775485246999027B3197955"
-    ],
+    "tokens": ["0x323665443CEf804A3b5206103304BD4872EA4253", "0x55d398326f99059fF775485246999027B3197955"],
     "tokenOracleIds": ["USDV", "USDT"],
     "decimals": [6, 18],
     "oracleId": "pancake-cow-bsc-usdv-usdt",
@@ -232,10 +241,7 @@
   {
     "address": "0x9F3b3C46175B1321760aB3a6C0E9B13Ef834FE6d",
     "lpAddress": "0xC241e8fb314bc3799BE2Db94dCE4d070c29b425d",
-    "tokens": [
-      "0x6985884C4392D348587B19cb9eAAf157F13271cd",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x6985884C4392D348587B19cb9eAAf157F13271cd", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["ZRO", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-zro-wbnb",
@@ -252,10 +258,7 @@
   {
     "address": "0x3e5067c68EA8B3661d65B6d817e669898A711B9B",
     "lpAddress": "0xdD82975ab85E745c84e497FD75ba409Ec02d4739",
-    "tokens": [
-      "0x25d887Ce7a35172C62FeBFD67a1856F20FaEbB00",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x25d887Ce7a35172C62FeBFD67a1856F20FaEbB00", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["PEPE", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-pepe-wbnb",
@@ -272,10 +275,7 @@
   {
     "address": "0xE0d0F7738814FE9a87D95Af6c50B2Ac99e53D845",
     "lpAddress": "0x77d5b2560e4B84b3fC58875Cb0133F39560e8AE3",
-    "tokens": [
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c",
-      "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"
-    ],
+    "tokens": ["0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c", "0xcF6BB5389c92Bdda8a3747Ddb454cB7a64626C63"],
     "tokenOracleIds": ["WBNB", "XVS"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-wbnb-xvs",
@@ -292,10 +292,7 @@
   {
     "address": "0x2C9f3E728F82b72b8EC7b6B6D4cCFb50454F3DCa",
     "lpAddress": "0x4f3126d5DE26413AbDCF6948943FB9D0847d9818",
-    "tokens": [
-      "0x55d398326f99059fF775485246999027B3197955",
-      "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"
-    ],
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0xe9e7CEA3DedcA5984780Bafc599bD69ADd087D56"],
     "tokenOracleIds": ["USDT", "BUSD"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-usdt-busd",
@@ -312,10 +309,7 @@
   {
     "address": "0x574818b97c7c925C542d74ad8463c8dA83392939",
     "lpAddress": "0xBe141893E4c6AD9272e8C04BAB7E6a10604501a5",
-    "tokens": [
-      "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "0x55d398326f99059fF775485246999027B3197955"
-    ],
+    "tokens": ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x55d398326f99059fF775485246999027B3197955"],
     "tokenOracleIds": ["ETH", "USDT"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-eth-usdt",
@@ -332,10 +326,7 @@
   {
     "address": "0x364aaFb34D8d98D9ea87aCAFc884bbd52f262cb4",
     "lpAddress": "0xce6160bB594fC055c943F59De92ceE30b8c6B32c",
-    "tokens": [
-      "0xbA2aE424d960c26247Dd6c32edC70B295c744C43",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0xbA2aE424d960c26247Dd6c32edC70B295c744C43", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["DOGE", "WBNB"],
     "decimals": [8, 18],
     "oracleId": "pancake-cow-bsc-doge-wbnb",
@@ -352,10 +343,7 @@
   {
     "address": "0x06DFa5747f0B6F4f1332267A5376aD3f4eeeff55",
     "lpAddress": "0x1E4600929Edf7F36B4A7eAc4C7571057D82a246c",
-    "tokens": [
-      "0x570A5D26f7765Ecb712C0924E4De545B89fD43dF",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x570A5D26f7765Ecb712C0924E4De545B89fD43dF", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["SOL", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-sol-wbnb",
@@ -372,10 +360,7 @@
   {
     "address": "0x61E9a8dD14D6cF17E04D2AC61b995bcC7bDA50Fa",
     "lpAddress": "0x9F5a0AD81Fe7fD5dFb84EE7A0CFb83967359BD90",
-    "tokens": [
-      "0x55d398326f99059fF775485246999027B3197955",
-      "0x570A5D26f7765Ecb712C0924E4De545B89fD43dF"
-    ],
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0x570A5D26f7765Ecb712C0924E4De545B89fD43dF"],
     "tokenOracleIds": ["USDT", "SOL"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-usdt-sol",
@@ -392,10 +377,7 @@
   {
     "address": "0xa3A973Cf870Ff14053c28097de269ABA444533a2",
     "lpAddress": "0x9474e972F49605315763c296B122CBB998b615Cf",
-    "tokens": [
-      "0xB0b84D294e0C75A6abe60171b70edEb2EFd14A1B",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0xB0b84D294e0C75A6abe60171b70edEb2EFd14A1B", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["slisBNB", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-slisbnb-wbnb",
@@ -412,10 +394,7 @@
   {
     "address": "0x1FDf7ABD9dACd1946E76b6c76a6daEE8872076A7",
     "lpAddress": "0x12E79eb21dCc5852F9c6AC1736d977312925da33",
-    "tokens": [
-      "0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5",
-      "0x55d398326f99059fF775485246999027B3197955"
-    ],
+    "tokens": ["0x0782b6d8c4551B9760e74c0545a9bCD90bdc41E5", "0x55d398326f99059fF775485246999027B3197955"],
     "tokenOracleIds": ["lisUSD", "USDT"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-lisusd-usdt",
@@ -432,10 +411,7 @@
   {
     "address": "0xB9D8c235010829BbDaB6666e2c3d96f2c34B6DF7",
     "lpAddress": "0xf9Adc7F9E10eAA8AfD6A3Ea2b419d9497fa192c3",
-    "tokens": [
-      "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "0x300d2c875C6fb8Ce4bf5480B4d34b7c9ea8a33A4"
-    ],
+    "tokens": ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x300d2c875C6fb8Ce4bf5480B4d34b7c9ea8a33A4"],
     "tokenOracleIds": ["ETH", "pxETH"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-eth-pxeth",
@@ -452,10 +428,7 @@
   {
     "address": "0xB40e61BbC7b188fe658a8687DCb30619610Be39b",
     "lpAddress": "0x133B3D95bAD5405d14d53473671200e9342896BF",
-    "tokens": [
-      "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["Cake", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-cake-wbnb",
@@ -472,10 +445,7 @@
   {
     "address": "0x07F015C14C536B3fFaA1b14ea06E224E9cCF5630",
     "lpAddress": "0x7f51c8AaA6B0599aBd16674e2b17FEc7a9f674A1",
-    "tokens": [
-      "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
-      "0x55d398326f99059fF775485246999027B3197955"
-    ],
+    "tokens": ["0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82", "0x55d398326f99059fF775485246999027B3197955"],
     "tokenOracleIds": ["Cake", "USDT"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-cake-usdt",
@@ -492,10 +462,7 @@
   {
     "address": "0xEE800276e4c9AAc5bC7d7e196Df86AbE3f49c520",
     "lpAddress": "0x92b7807bF19b7DDdf89b706143896d05228f3121",
-    "tokens": [
-      "0x55d398326f99059fF775485246999027B3197955",
-      "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"
-    ],
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d"],
     "tokenOracleIds": ["USDT", "USDC"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-usdt-usdc",
@@ -512,10 +479,7 @@
   {
     "address": "0xa0fb8EDB90F4D0527F08f41D7a2c93105f9f581E",
     "lpAddress": "0x6bbc40579ad1BBD243895cA0ACB086BB6300d636",
-    "tokens": [
-      "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["BTCB", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-btcb-wbnb",
@@ -532,10 +496,7 @@
   {
     "address": "0xE5654eB3f76F6758a89EDcc9843D11eF89bDDf3D",
     "lpAddress": "0x46Cf1cF8c69595804ba91dFdd8d6b960c9B0a7C4",
-    "tokens": [
-      "0x55d398326f99059fF775485246999027B3197955",
-      "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"
-    ],
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],
     "tokenOracleIds": ["USDT", "BTCB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-usdt-btcb",
@@ -552,10 +513,7 @@
   {
     "address": "0xcE033c748aBd4B5e9aE16efFdb0b0c91fB0c99F1",
     "lpAddress": "0xD0e226f674bBf064f54aB47F42473fF80DB98CBA",
-    "tokens": [
-      "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["ETH", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-eth-wbnb",
@@ -572,10 +530,7 @@
   {
     "address": "0xC0885E2B72E2Ff70E6a947387a70435c6E59a477",
     "lpAddress": "0xD4dCA84E1808da3354924cD243c66828cf775470",
-    "tokens": [
-      "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
-      "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"
-    ],
+    "tokens": ["0x2170Ed0880ac9A755fd29B2688956BD959F933F8", "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c"],
     "tokenOracleIds": ["ETH", "BTCB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-eth-btcb",
@@ -592,10 +547,7 @@
   {
     "address": "0x39D16B4B83C43207668De708E55ecc721cC27990",
     "lpAddress": "0x36696169C63e42cd08ce11f5deeBbCeBae652050",
-    "tokens": [
-      "0x55d398326f99059fF775485246999027B3197955",
-      "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"
-    ],
+    "tokens": ["0x55d398326f99059fF775485246999027B3197955", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c"],
     "tokenOracleIds": ["USDT", "WBNB"],
     "decimals": [18, 18],
     "oracleId": "pancake-cow-bsc-usdt-wbnb",
