@@ -1,7 +1,7 @@
 import { pick, pickBy } from 'lodash';
 import escapeStringRegexp from 'escape-string-regexp';
 
-const SECRET_ENV_KEYS = ['ONE_INCH_API', 'KYBER_API'];
+const SECRET_ENV_KEYS = ['ONE_INCH_API', 'KYBER_API', 'ODOS'];
 const SECRET_ENV_SUFFIXES = ['_RPC', '_KEY', '_TOKEN', '_URL'];
 
 const SECRETS: Record<string, string> = {
