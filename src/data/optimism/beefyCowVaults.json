@@ -1,5 +1,73 @@
 [
   {
+    "address": "0xada9092d89Bfef51E8f4172B7c16CF9FC374315B",
+    "lpAddress": "0xe5cF854f63152067059AFd38e03FEFb6CBE25Df3",
+    "tokens": ["0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb", "0x4200000000000000000000000000000000000042"],
+    "tokenOracleIds": ["wstETH", "OP"],
+    "decimals": [18, 18],
+    "oracleId": "velo-cow-op-wsteth-op",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0x5b0BDbc8EaBb9586Eb0b0a855C920e13132b7Ad8",
+      "oracleId": "velo-cow-op-wsteth-op-rp"
+    },
+    "vault": {
+      "address": "0x0974f018a1704A7bab98f01137F71610B2dCE1c2",
+      "oracleId": "velo-cow-op-wsteth-op-vault"
+    }
+  },
+  {
+    "address": "0x1fF623B3843E6bd0AF76300e8c1bfaDE742b28a4",
+    "lpAddress": "0xec3d9098BD40ec741676fc04D4bd26BCCF592aa3",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"],
+    "tokenOracleIds": ["WETH", "tBTC"],
+    "decimals": [18, 18],
+    "oracleId": "velo-cow-op-weth-tbtc",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0x735C793E80750f04D5a4a6E8A580142884ee1c6e",
+      "oracleId": "velo-cow-op-weth-tbtc-rp"
+    },
+    "vault": {
+      "address": "0xEBCA80DdFBAed6a4ef2885337c89fFE178C1D80a",
+      "oracleId": "velo-cow-op-weth-tbtc-vault"
+    }
+  },
+  {
+    "address": "0x49bd86A36A4d2e3Ea0B614B0279224257cdfA0D6",
+    "lpAddress": "0xF25bbc18a607bBe218c87BA1fF0E673d9B53dd58",
+    "tokens": ["0x0b2C639c533813f4Aa9D7837CAf62653d097Ff85", "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4"],
+    "tokenOracleIds": ["USDC", "SNX"],
+    "decimals": [6, 18],
+    "oracleId": "velo-cow-op-snx-usdc",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0x49C977d9A4661f70Bde68b87b657052b29bB7C43",
+      "oracleId": "velo-cow-op-snx-usdc-rp"
+    },
+    "vault": {
+      "address": "0xE5C9137E9Ae118F1148C6B4d730C662A9d654ef9",
+      "oracleId": "velo-cow-op-snx-usdc-vault"
+    }
+  },
+  {
+    "address": "0x827b986160501ACaA51856BD2CEDb03731fFfd5a",
+    "lpAddress": "0x8949A8E02998d76D7a703cAC9eE7e0f529828011",
+    "tokens": ["0x68f180fcCe6836688e9084f035309E29Bf0A2095", "0x6c84a8f1c29108F47a79964b5Fe888D4f4D0dE40"],
+    "tokenOracleIds": ["WBTC", "tBTC"],
+    "decimals": [8, 18],
+    "oracleId": "velo-cow-op-wbtc-tbtc",
+    "providerId": "velodrome",
+    "rewardPool": {
+      "address": "0xeAE1ADf2BAf5ee9efDF39D3E9c50459C82b698d3",
+      "oracleId": "velo-cow-op-wbtc-tbtc-rp"
+    },
+    "vault": {
+      "address": "0x1FCB20fc86bA1D054F8E6aF0384f5Cd128e26247",
+      "oracleId": "velo-cow-op-wbtc-tbtc-vault"
+    }
+  },
+  {
     "address": "0x87F91963005c57596dA3576B469617FDC6DEC5a8",
     "lpAddress": "0xb40DA71c49c745Dd3ab801882b1D410760541678",
     "tokens": ["0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb", "0x2416092f143378750bb29b79eD961ab195CcEea5"],
