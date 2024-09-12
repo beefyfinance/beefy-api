@@ -4738,4 +4738,18 @@ export const tokens = {
     bridge: 'layer-zero',
     risks: ['NO_TIMELOCK'],
   },
+  wstETH: {
+    name: 'Lido Wrapped Staked ETH',
+    symbol: 'wstETH',
+    oracleId: 'wstETH',
+    address: '0x26c5e01524d2E6280A48F2c50fF6De7e52E9611C',
+    chainId: 56,
+    decimals: 18,
+    logoURI: '',
+    website: 'https://lido.fi/',
+    documentation: 'https://docs.lido.fi/',
+    description:
+      'Lido is a liquid staking solution for ETH backed by industry-leading staking providers. Lido lets users stake their ETH - without locking assets or maintaining infrastructure - whilst participating in on-chain activities, e.g. lending. Lido attempts to solve the problems associated with initial ETH staking - illiquidity, immovability and accessibility - making staked ETH liquid and allowing for participation with any amount of ETH to improve security of the Ethereum network.',
+    bridge: 'wormhole',
+  },
 } as const satisfies Record<string, Token>;
