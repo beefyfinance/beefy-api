@@ -244,6 +244,7 @@ const coinGeckoCoins: Record<string, string[]> = {
   'based-pepe': ['basePEPE'],
   toshi: ['TOSHI'],
   somon: ['OwO'],
+  'coinbase-wrapped-btc': ['cbBTC'],
 };
 
 /**

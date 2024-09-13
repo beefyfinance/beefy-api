@@ -1367,4 +1367,19 @@ export const tokens = {
     documentation: 'https://gitbook.social.monster/',
     bridge: 'native',
   },
+  cbBTC: {
+    name: 'Coinbase Wrapped WBTC',
+    symbol: 'cbBTC',
+    oracleId: 'cbBTC',
+    address: '0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf',
+    chainId: 8453,
+    decimals: 8,
+    logoURI:
+      'https://tokens.pancakeswap.finance/images/0x1a35EE4640b0A3B87705B0A4B45D227Ba60Ca2ad.svg',
+    website: 'https://www.coinbase.com/',
+    description:
+      'Coinbase Wrapped Bitcoin (cbBTC) is backed 1:1 with Bitcoin, custodied with Coinbase.',
+    documentation: 'https://www.coinbase.com/blog/coinbase-wrapped-btc-cbbtc-is-now-live',
+    bridge: 'native',
+  },
 } as const satisfies Record<string, Token>;
