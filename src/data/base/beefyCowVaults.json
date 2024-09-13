@@ -1,5 +1,103 @@
 [
   {
+    "address": "0x4456949402A04848Ff33ba4BdaDEB6C4B0603435",
+    "lpAddress": "0x70aCDF2Ad0bf2402C957154f944c19Ef4e1cbAE1",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["WETH", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "aero-cow-weth-cbbtc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x61AA0857c75E8E4C41a205D845109dB67c7Fb880",
+      "oracleId": "aero-cow-weth-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x62eb0ED97386DA1e601C53B4a095Fa509aA24785",
+      "oracleId": "aero-cow-weth-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0xA07efB136a990E688B2DaB5F229B5459cA66F8B4",
+    "lpAddress": "0x4e962BB3889Bf030368F56810A9c96B83CB3E778",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["USDC", "cbBTC"],
+    "decimals": [6, 8],
+    "oracleId": "aero-cow-usdc-cbbtc",
+    "providerId": "aerodrome",
+    "rewardPool": {
+      "address": "0x9575F722ec9d538D408f36B46aC6629A0E8e3ce9",
+      "oracleId": "aero-cow-usdc-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x9b4A58FddC209C66ceF30F786c6FE3B8189C6c04",
+      "oracleId": "aero-cow-usdc-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0x9EB3716f675633aA615a826a56f70e254a56b765",
+    "lpAddress": "0x8c7080564B5A792A33Ef2FD473fbA6364d5495e5",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["WETH", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "uniswap-cow-base-weth-cbbtc",
+    "rewardPool": {
+      "address": "0x63b58051bDB4Db1C376035348d9F83f7AdFa9537",
+      "oracleId": "uniswap-cow-base-weth-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0xde8C2Bf494ce5Bd8Ab7244Fa17d4e7C14eE17574",
+      "oracleId": "uniswap-cow-base-weth-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0x39A568Ff824D6Cb2A3a861E69F85E381Fe45bC02",
+    "lpAddress": "0x4dcEC147060EE0337F1Fc22D43A3912aD979fce9",
+    "tokens": ["0x2Ae3F1Ec7F1F5012CFEab0185bfc7aa3cf0DEc22", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["cbETH", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "baseswap-cow-cbeth-cbbtc",
+    "rewardPool": {
+      "address": "0x0eC9C41feB6e6Be01D6950cBc19ADc0aDE2c1aF1",
+      "oracleId": "baseswap-cow-cbeth-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0x10e361d2734FC82744f7c554b3F50A258E9a9E07",
+      "oracleId": "baseswap-cow-cbeth-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0xdAEcC7E7631aE8E9EdF7664DE9703a02F4cdE502",
+    "lpAddress": "0x26F859DA14329022DbA1b87DD1998F18e3b222fe",
+    "tokens": ["0x4200000000000000000000000000000000000006", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["WETH", "cbBTC"],
+    "decimals": [18, 8],
+    "oracleId": "baseswap-cow-weth-cbbtc",
+    "rewardPool": {
+      "address": "0xe1577A9648dAF1f772c6BC18F31254893226564e",
+      "oracleId": "baseswap-cow-weth-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0xC978f4E6fbA86ca3a25C864A48476F0dEcA908e1",
+      "oracleId": "baseswap-cow-weth-cbbtc-vault"
+    }
+  },
+  {
+    "address": "0x21Ac1c014628aFfB52bA19B0b4Af982fbd5130cc",
+    "lpAddress": "0x3eFAEd538d2D68251EE3F466e7738C39Dc77483a",
+    "tokens": ["0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913", "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"],
+    "tokenOracleIds": ["USDC", "cbBTC"],
+    "decimals": [6, 8],
+    "oracleId": "baseswap-cow-usdc-cbbtc",
+    "rewardPool": {
+      "address": "0xC2dd8E582b30d7bA245D3746B9e7E6b8FC7c8752",
+      "oracleId": "baseswap-cow-usdc-cbbtc-rp"
+    },
+    "vault": {
+      "address": "0xd94AC131FDA127F6683914BBd9A0438aFb1cE405",
+      "oracleId": "baseswap-cow-usdc-cbbtc-vault"
+    }
+  },
+  {
     "address": "0xac39D9d3C65a30561FEeDD8877D2Dbb103808D3d",
     "lpAddress": "0x09C149C856e6FB6E40AA39209142411B554b1a41",
     "tokens": ["0x4200000000000000000000000000000000000006", "0x5D559eA7bB2DAE4B694A079cb8328a2145Fd32f6"],
