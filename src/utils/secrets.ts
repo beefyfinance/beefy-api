@@ -1,13 +1,16 @@
-import { pick, pickBy } from 'lodash';
+import { omitBy, pick, pickBy } from 'lodash';
 import escapeStringRegexp from 'escape-string-regexp';
 
-const SECRET_ENV_KEYS = ['ONE_INCH_API', 'KYBER_API'];
+const SECRET_ENV_KEYS = ['ONE_INCH_API_KEY', 'KYBER_CLIENT_ID'];
 const SECRET_ENV_SUFFIXES = ['_RPC', '_KEY', '_TOKEN', '_URL'];
 
-const SECRETS: Record<string, string> = {
-  ...pick(process.env, SECRET_ENV_KEYS),
-  ...pickBy(process.env, (value, key) => SECRET_ENV_SUFFIXES.some(affix => key.endsWith(affix))),
-};
+const SECRETS: Record<string, string> = omitBy(
+  {
+    ...pick(process.env, SECRET_ENV_KEYS),
+    ...pickBy(process.env, (_, key) => SECRET_ENV_SUFFIXES.some(affix => key.endsWith(affix))),
+  },
+  value => typeof value !== 'string' || value.length == 0 || value.trim().length == 0
+);
 
 const SECRETS_REGEX = Object.entries(SECRETS).reduce((acc, [key, value]) => {
   acc[key] = createCaseInsensitiveMatcher(value);
