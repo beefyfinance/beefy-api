@@ -51,6 +51,7 @@
     "name": "curve-arb-eth+-eth-v2",
     "pool": "0x1fb84fa6d252762e8367ea607a6586e09dcebe3d",
     "gauge": "0x6e9a99f8b3e22c3ee81d888d7e29293e939b6f9c",
+    "convex": true,
     "rewards": [
       {
         "token": "0xCa5Ca9083702c56b481D1eec86F1776FDbd2e594",
