@@ -1,0 +1,32 @@
+[
+  {
+    "name": "mellow-aero-weth-cbbtc",
+    "address": "0xbdB39E6A52A4d91a96E79c7C2Dcbd8915cE99c14",
+    "gauge": "0xB17D90FF52077811304D24Ba8CE969425815B163",
+    "tokens": ["WETH", "cbBTC"]
+  },
+  {
+    "name": "mellow-aero-weth-usdc",
+    "address": "0x731f2CDF517b9f8702cb4C3200bB2Bd8ECD3C7a7",
+    "gauge": "0xd4305877ab5DeDFC939Fa209812C828343a23F83",
+    "tokens": ["WETH", "USDC"]
+  },
+  {
+    "name": "mellow-aero-eurc-usdc",
+    "address": "0xe9f4Eb4b4c884204a3383fC64481e157BBA882AA",
+    "gauge": "0xD9EF9874D58719E4f256d96eDD2DcE19F9C3D3d9",
+    "tokens": ["EURC", "USDC"]
+  },
+  {
+    "name": "mellow-aero-cbeth-weth",
+    "address": "0x53017a5B2c56583e184577578d55aB098b40323D",
+    "gauge": "0x8Bd5E3141A134d3D26b458293Ad1c9d56d66Fb8A",
+    "tokens": ["cbETH", "WETH"]
+  },
+  {
+    "name": "mellow-aero-usdz-usdc",
+    "address": "0x6E4B3093C38b4a422fA6F4617EAB4fA93283A73D",
+    "gauge": "0xF5d8609c202E84F665679c3625f6dc6B27B70799",
+    "tokens": ["USDz", "USDC"]
+  }
+]

@@ -78,9 +78,11 @@ import getGammaMoonbeamPrices from './moonbeam/getGammaMoonbeamPrices';
 import getVelodromeModeStablePrices from './mode/getVelodromeModeStablePrices';
 import {
   ARBITRUM_CHAIN_ID as ARB_CHAIN_ID,
+  BASE_CHAIN_ID,
   ETH_CHAIN_ID,
   FRAXTAL_CHAIN_ID as FRX_CHAIN_ID,
   GNOSIS_CHAIN_ID as GNO_CHAIN_ID,
+  OPTIMISM_CHAIN_ID,
 } from '../../constants';
 import getEthSiloPrices from './ethereum/getEthereumSiloPrices';
 import getEthRangePrices from './ethereum/getEthRangePrices';
@@ -102,6 +104,7 @@ import { getBeefyCowMantaPrices } from './manta/getBeefyMantaCowPrices';
 import { getBeefyCowMantlePrices } from './mantle/getBeefyMantleCowPrices';
 import { getBeefyCowSeiPrices } from './sei/getBeefySeiCowPrices';
 import { getBeefyCowBscPrices } from './bsc/getBeefyCowBscPrices';
+import { getMellowVeloPrices } from './common/getMellowVeloPrices';
 
 export type NonAmmPrices = {
   prices: Record<string, number>;
@@ -221,6 +224,8 @@ export async function getNonAmmPrices(tokenPrices: Record<string, number>): Prom
     getBeefyCowSeiPrices(tokenPrices),
     getBeefyCowBscPrices(tokenPrices),
     getFtmIchiPrices(tokenPrices),
+    getMellowVeloPrices(OPTIMISM_CHAIN_ID, require('../../data/optimism/mellowVeloPools.json'), tokenPrices),
+    getMellowVeloPrices(BASE_CHAIN_ID, require('../../data/base/mellowAeroPools.json'), tokenPrices),
     getPearlTridentPrices(tokenPrices),
   ];
 

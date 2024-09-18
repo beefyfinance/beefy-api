@@ -19,6 +19,8 @@ const getUniswapGammaApys = require('./getUniswapGammaApys');
 const { getSonneApys } = require('./getSonneApys');
 const { getBeefyOPCowApys } = require('./getBeefyOPCowApys');
 const { getOpSiloApys } = require('./getOpSiloApys');
+const { getMellowVeloApys } = require('../common/getMellowVeloApys');
+const { OPTIMISM_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
   getSonneApys,
@@ -41,6 +43,7 @@ const getApys = [
   getBeOpxEarnApy,
   getBeVeloV2Apr,
   getBeefyOPCowApys,
+  () => getMellowVeloApys(OPTIMISM_CHAIN_ID, require('../../../data/optimism/mellowVeloPools.json')),
   getOpSiloApys,
 ];
 

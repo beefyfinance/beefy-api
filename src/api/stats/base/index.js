@@ -15,6 +15,8 @@ const getAuraBaseApys = require('./getAuraBaseApys');
 const { getSonneApys } = require('./getSonneApys');
 const { getSeamlessApys } = require('./getSeamlessApys');
 const { getBeefyBaseCowApys } = require('./getBeefyBaseCowApys');
+const { getMellowVeloApys } = require('../common/getMellowVeloApys');
+const { BASE_CHAIN_ID } = require('../../../constants');
 
 const getApys = [
   getSeamlessApys,
@@ -33,6 +35,7 @@ const getApys = [
   getBaseMerklGammaApys,
   getBaseCompoundV3Apys,
   getAuraBaseApys,
+  () => getMellowVeloApys(BASE_CHAIN_ID, require('../../../data/base/mellowAeroPools.json')),
   getBeefyBaseCowApys,
 ];
 
