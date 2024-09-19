@@ -18,6 +18,7 @@ export interface BeefyFinance {
   vaultFactory?: string;
   zap?: string;
   zapTokenManager?: string;
+  treasurySwapper?: string;
 
   /// BIFI Token Contracts
   mooBifiLockbox?: string;
